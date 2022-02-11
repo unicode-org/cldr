@@ -3236,6 +3236,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="tcy" populationPercent="0.15"/>	<!--Tulu-->
 			<languagePopulation type="wbr" populationPercent="0.15"/>	<!--Wagdi-->
 			<languagePopulation type="khn" populationPercent="0.15"/>	<!--Khandesi-->
+			<languagePopulation type="sd_Deva" populationPercent="0.14" officialStatus="official_regional" references="R1102"/>	<!--Sindhi (Devanagari)-->
 			<languagePopulation type="brx" populationPercent="0.14"/>	<!--Bodo-->
 			<languagePopulation type="noe" populationPercent="0.13"/>	<!--Nimadi-->
 			<languagePopulation type="bhb" populationPercent="0.12"/>	<!--Bhili-->
@@ -3255,7 +3256,6 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="srx" populationPercent="0.035" references="R1196"/>	<!--Sirmauri-->
 			<languagePopulation type="saz" populationPercent="0.029"/>	<!--Saurashtra-->
 			<languagePopulation type="ccp" populationPercent="0.028"/>	<!--Chakma-->
-			<languagePopulation type="sd_Deva" populationPercent="0.026" officialStatus="official_regional" references="R1102"/>	<!--Sindhi (Devanagari)-->
 			<languagePopulation type="bfq" populationPercent="0.023"/>	<!--Badaga-->
 			<languagePopulation type="njo" populationPercent="0.023"/>	<!--Ao Naga-->
 			<languagePopulation type="ria" populationPercent="0.013"/>	<!--Riang [India]-->
@@ -5467,7 +5467,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1099" uri="http://www.ethnologue.com/show_language.asp?code=efi">[missing]</reference>
 		<reference type="R1100" uri="http://www.ethnologue.com/show_language.asp?code=tbw">[missing]</reference>
 		<reference type="R1101" uri="http://www.ethnologue.com/show_language.asp?code=mhr">[missing]</reference>
-		<reference type="R1102" uri="http://www.lmp.ucla.edu/Profile.aspx?menu=004&amp;LangID=201">- Not widely used; set to 10%.</reference>
+		<reference type="R1102" uri="https://en.wikipedia.org/wiki/Languages_with_official_status_in_India#Writing_systems">Deva is the official script for sd in India; set to 55%. Arab, Guru, Khoj also used.</reference>
 		<reference type="R1103" uri="http://www.ethnologue.com/show_language.asp?code=srn">The lingua franca of 80% of the population</reference>
 		<reference type="R1104" uri="http://www.ethnologue.com/show_language.asp?code=bem">[missing]</reference>
 		<reference type="R1105" uri="https://www.ethnologue.com/language/mro">and https://en.wikipedia.org/wiki/Mru_language</reference>

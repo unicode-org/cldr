@@ -53,7 +53,7 @@ public class VettingViewer<T> {
 
     private static final boolean DEBUG = false;
 
-    private static boolean SHOW_SUBTYPES = true; // CldrUtility.getProperty("SHOW_SUBTYPES", "false").equals("true");
+    private static final boolean SHOW_SUBTYPES = true; // CldrUtility.getProperty("SHOW_SUBTYPES", "false").equals("true");
 
     private static final String CONNECT_PREFIX = "₍_";
     private static final String CONNECT_SUFFIX = "₎";
@@ -64,7 +64,7 @@ public class VettingViewer<T> {
 
     private static final boolean DEBUG_THREADS = false;
 
-    private static Set<CheckCLDR.CheckStatus.Subtype> OK_IF_VOTED = EnumSet.of(Subtype.sameAsEnglish);
+    private static final Set<CheckCLDR.CheckStatus.Subtype> OK_IF_VOTED = EnumSet.of(Subtype.sameAsEnglish);
 
     /**
      * Notification categories
@@ -157,13 +157,9 @@ public class VettingViewer<T> {
             this.description = TransliteratorUtilities.toHTML.transform(description);
         }
 
-        private <T extends Appendable> void appendDisplay(String htmlMessage, T target) throws IOException {
+        private <T extends Appendable> void appendDisplay(T target) throws IOException {
             target.append("<span title='")
                 .append(description);
-            if (!htmlMessage.isEmpty()) {
-                target.append(": ")
-                    .append(htmlMessage);
-            }
             target.append("'>")
                 .append(buttonLabel)
                 .append("*</span>");
@@ -217,20 +213,20 @@ public class VettingViewer<T> {
      *
      * @param <T>
      */
-    public static interface UsersChoice<T> {
+    public interface UsersChoice<T> {
         /**
          * Return the value that the user's organization (as a whole) voted for,
          * or null if none of the users in the organization voted for the path. <br>
          * NOTE: Would be easier if this were a method on CLDRFile.
          * NOTE: if organization = null, then it must return the absolute winning value.
          */
-        public String getWinningValueForUsersOrganization(CLDRFile cldrFile, String path, T organization);
+        String getWinningValueForUsersOrganization(CLDRFile cldrFile, String path, T organization);
 
         /**
          * Return the vote status
          * NOTE: if organization = null, then it must disregard the organization and never return losing. See VoteStatus.
          */
-        public VoteStatus getStatusForUsersOrganization(CLDRFile cldrFile, String path, T organization);
+        VoteStatus getStatusForUsersOrganization(CLDRFile cldrFile, String path, T organization);
 
         /**
          * Has the given user voted for the given path and locale?
@@ -239,12 +235,12 @@ public class VettingViewer<T> {
          * @param path
          * @return true if that user has voted, else false
          */
-        public boolean userDidVote(int userId, CLDRLocale loc, String path);
+        boolean userDidVote(int userId, CLDRLocale loc, String path);
 
-        public VoteResolver<String> getVoteResolver(CLDRLocale loc, String path);
+        VoteResolver<String> getVoteResolver(CLDRLocale loc, String path);
     }
 
-    public static interface ErrorChecker {
+    public interface ErrorChecker {
         enum Status {
             ok, error, warning
         }
@@ -253,24 +249,24 @@ public class VettingViewer<T> {
          * Initialize an error checker with a cldrFile. MUST be called before
          * any getErrorStatus.
          */
-        public Status initErrorStatus(CLDRFile cldrFile);
+        Status initErrorStatus(CLDRFile cldrFile);
 
         /**
          * Return the detailed CheckStatus information.
          */
-        public List<CheckStatus> getErrorCheckStatus(String path, String value);
+        List<CheckStatus> getErrorCheckStatus(String path, String value);
 
         /**
          * Return the status, and append the error message to the status
          * message. If there are any errors, then the warnings are not included.
          */
-        public Status getErrorStatus(String path, String value, StringBuilder statusMessage);
+        Status getErrorStatus(String path, String value, StringBuilder statusMessage);
 
         /**
          * Return the status, and append the error message to the status
          * message, and get the subtypes. If there are any errors, then the warnings are not included.
          */
-        public Status getErrorStatus(String path, String value, StringBuilder statusMessage,
+        Status getErrorStatus(String path, String value, StringBuilder statusMessage,
             EnumSet<Subtype> outputSubtypes);
     }
 
@@ -280,7 +276,7 @@ public class VettingViewer<T> {
         private HashMap<String, String> options = new HashMap<>();
         private ArrayList<CheckStatus> result = new ArrayList<>();
         private CLDRFile cldrFile;
-        private Factory factory;
+        private final Factory factory;
 
         private DefaultErrorStatus(Factory cldrFactory) {
             this.factory = cldrFactory;
@@ -381,7 +377,7 @@ public class VettingViewer<T> {
         this.supplementalDataInfo = supplementalDataInfo;
         this.defaultContentLocales = supplementalDataInfo.getDefaultContentLocales();
 
-        reasonsToPaths = Relation.of(new HashMap<String, Set<String>>(), HashSet.class);
+        reasonsToPaths = Relation.of(new HashMap<>(), HashSet.class);
     }
 
     public class WritingInfo implements Comparable<WritingInfo> {
@@ -425,9 +421,9 @@ public class VettingViewer<T> {
     }
 
     private class VettingCounters {
-        private Counter<Choice> problemCounter = new Counter<>();
-        private Counter<Subtype> errorSubtypeCounter = new Counter<>();
-        private Counter<Subtype> warningSubtypeCounter = new Counter<>();
+        private final Counter<Choice> problemCounter = new Counter<>();
+        private final Counter<Subtype> errorSubtypeCounter = new Counter<>();
+        private final Counter<Subtype> warningSubtypeCounter = new Counter<>();
 
         /**
          * Combine some statistics into this VettingCounters from another VettingCounters
@@ -447,11 +443,11 @@ public class VettingViewer<T> {
      * A FileInfo contains parameters, results, and methods for gathering information about a locale
      */
     private class FileInfo {
-        private String localeId;
-        private CLDRLocale cldrLocale;
-        private Level usersLevel;
-        private EnumSet<Choice> choices;
-        private T organization;
+        private final String localeId;
+        private final CLDRLocale cldrLocale;
+        private final Level usersLevel;
+        private final EnumSet<Choice> choices;
+        private final T organization;
 
         private FileInfo(String localeId, Level level, EnumSet<Choice> choices, T organization) {
             this.localeId = localeId;
@@ -491,11 +487,11 @@ public class VettingViewer<T> {
             this.voterId = userId;
         }
 
-        private VettingCounters vc = new VettingCounters();
-        private EnumSet<Choice> problems = EnumSet.noneOf(Choice.class);
-        private StringBuilder htmlMessage = new StringBuilder();
-        private StringBuilder statusMessage = new StringBuilder();
-        private EnumSet<Subtype> subtypes = EnumSet.noneOf(Subtype.class);
+        private final VettingCounters vc = new VettingCounters();
+        private final EnumSet<Choice> problems = EnumSet.noneOf(Choice.class);
+        private final StringBuilder htmlMessage = new StringBuilder();
+        private final StringBuilder statusMessage = new StringBuilder();
+        private final EnumSet<Subtype> subtypes = EnumSet.noneOf(Subtype.class);
         private final DefaultErrorStatus errorChecker = new DefaultErrorStatus(cldrFactory);
 
         /**
@@ -742,7 +738,7 @@ public class VettingViewer<T> {
                 .append("Codes</th>");
             for (Choice choice : choices) {
                 headerRow.append("<th class='tv-th'>");
-                choice.appendDisplay("", headerRow);
+                choice.appendDisplay(headerRow);
                 headerRow.append("</th>");
             }
             headerRow.append("</tr>\n");
@@ -772,18 +768,16 @@ public class VettingViewer<T> {
      */
     private class WriteContext {
 
-        private List<String> localeNames = new ArrayList<>();
-        private List<String> localeIds = new ArrayList<>();
-        private StringBuffer[] outputs;
-        private EnumSet<Choice> choices;
-        private EnumSet<Choice> thingsThatRequireOldFile;
-        private EnumSet<Choice> ourChoicesThatRequireOldFile;
-        private T organization;
-        private VettingViewer<T>.VettingCounters totals;
-        private Map<String, VettingViewer<T>.FileInfo> localeNameToFileInfo;
-        private String header;
-        private int configParallel; // parallelism. 0 means "let Java decide"
-        private int configChunkSize; // Number of locales to process at once, minimum 1
+        private final List<String> localeNames = new ArrayList<>();
+        private final List<String> localeIds = new ArrayList<>();
+        private final StringBuffer[] outputs;
+        private final EnumSet<Choice> choices;
+        private final EnumSet<Choice> ourChoicesThatRequireOldFile;
+        private final T organization;
+        private final VettingViewer<T>.VettingCounters totals;
+        private final Map<String, VettingViewer<T>.FileInfo> localeNameToFileInfo;
+        private final String header;
+        private final int configChunkSize; // Number of locales to process at once, minimum 1
 
         private WriteContext(Set<Entry<String, String>> entrySet, EnumSet<Choice> choices, T organization, VettingCounters totals,
             Map<String, FileInfo> localeNameToFileInfo, String header) {
@@ -803,7 +797,7 @@ public class VettingViewer<T> {
             // other data
             this.choices = choices;
 
-            thingsThatRequireOldFile = EnumSet.of(Choice.englishChanged, Choice.missingCoverage, Choice.changedOldValue);
+            EnumSet<Choice> thingsThatRequireOldFile = EnumSet.of(Choice.englishChanged, Choice.missingCoverage, Choice.changedOldValue);
             ourChoicesThatRequireOldFile = choices.clone();
             ourChoicesThatRequireOldFile.retainAll(thingsThatRequireOldFile);
 
@@ -819,9 +813,10 @@ public class VettingViewer<T> {
             // setup env
             CLDRConfig config = CLDRConfig.getInstance();
 
-            this.configParallel = Math.max(config.getProperty("CLDR_VETTINGVIEWER_PARALLEL", 0), 0);
-            if (this.configParallel < 1) {
-                this.configParallel = java.lang.Runtime.getRuntime().availableProcessors(); // matches ForkJoinPool() behavior
+            // parallelism. 0 means "let Java decide"
+            int configParallel = Math.max(config.getProperty("CLDR_VETTINGVIEWER_PARALLEL", 0), 0);
+            if (configParallel < 1) {
+                configParallel = java.lang.Runtime.getRuntime().availableProcessors(); // matches ForkJoinPool() behavior
             }
             this.configChunkSize = Math.max(config.getProperty("CLDR_VETTINGVIEWER_CHUNKSIZE", 1), 1);
             if (DEBUG) {
@@ -872,9 +867,9 @@ public class VettingViewer<T> {
      * @author srl
      */
     private class WriteAction extends RecursiveAction {
-        private int length;
-        private int start;
-        private WriteContext context;
+        private final int length;
+        private final int start;
+        private final WriteContext context;
 
         public WriteAction(WriteContext context) {
             this(context, 0, context.size());
@@ -1146,8 +1141,7 @@ public class VettingViewer<T> {
     private String getName(String localeID) {
         Set<String> contents = supplementalDataInfo.getEquivalentsForLocale(localeID);
         // put in special character that can be split on later
-        String name = englishFile.getName(localeID, true, CLDRFile.SHORT_ALTS) + SPLIT_CHAR + gatherCodes(contents);
-        return name;
+        return englishFile.getName(localeID, true, CLDRFile.SHORT_ALTS) + SPLIT_CHAR + gatherCodes(contents);
     }
 
     /**
@@ -1221,7 +1215,7 @@ public class VettingViewer<T> {
     public enum MissingStatus {
         /**
          * There is an explicit value for the path, including ↑↑↑,
-         * or there is an inherited value (but not including the ABSENT conditions, eg not from root).
+         * or there is an inherited value (but not including the ABSENT conditions, e.g. not from root).
          */
         PRESENT,
 
@@ -1322,25 +1316,25 @@ public class VettingViewer<T> {
         return ValuePathStatus.isLatinScriptLocale(sourceFile);
     }
 
-    private static StringBuilder appendToMessage(CharSequence usersValue, Subtype subtype, StringBuilder testMessage) {
+    private static void appendToMessage(CharSequence usersValue, Subtype subtype, StringBuilder testMessage) {
         if (subtype != null) {
             usersValue = "&lt;" + subtype + "&gt; " + usersValue;
         }
-        return appendToMessage(usersValue, testMessage);
+        appendToMessage(usersValue, testMessage);
     }
 
-    private static StringBuilder appendToMessage(CharSequence usersValue, StringBuilder testMessage) {
+    private static void appendToMessage(CharSequence usersValue, StringBuilder testMessage) {
         if (usersValue.length() == 0) {
-            return testMessage;
+            return;
         }
         if (testMessage.length() != 0) {
             testMessage.append("<br>");
         }
-        return testMessage.append(usersValue);
+        testMessage.append(usersValue);
     }
 
     static final NumberFormat nf = NumberFormat.getIntegerInstance(ULocale.ENGLISH);
-    private Relation<String, String> reasonsToPaths;
+    private final Relation<String, String> reasonsToPaths;
 
     static {
         nf.setGroupingUsed(true);
@@ -1415,7 +1409,7 @@ public class VettingViewer<T> {
      *
      * @param choices
      * @param localeID
-     * @param user
+     * @param organization
      * @param usersLevel
      * @param path
      * @return

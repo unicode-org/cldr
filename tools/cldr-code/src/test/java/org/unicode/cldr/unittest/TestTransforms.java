@@ -675,12 +675,12 @@ public class TestTransforms extends TestFmwkPlus {
 
     assertEquals("u1 to z1", expected, actual);
 
-    expected = "တကယ္ဆို အႃငွိုးေတြမဲ့ေသာလမ္းေသာလမ္းမွာ တိႈျပန္ဆံုၾကတဲ့အခါ ";
+    expected = "တကယ္ဆို အၿငႇိဳးေတြမဲ့ေသာလမ္းေသာလမ္းမွာ တိႈျပန္ဆံုၾကတဲ့အခါ ";
     String u2 = "တကယ်ဆို အငြှိုးတွေမဲ့သောလမ်းသောလမ်းမှာ တှိုပြန်ဆုံကြတဲ့အခါ ";
     actual = u2z.transform(u2);
     assertEquals("u2 to z2", expected, actual);
 
-    expected = "ျပန္လမ္းမဲ့ကၽြန္းအပိုင္း၄";
+    expected = "ျပန္လမ္းမဲ့ကြၽန္းအပိုင္း၄";
     String u3 = "ပြန်လမ်းမဲ့ကျွန်းအပိုင်း၎";
     actual = u2z.transform(u3);
     assertEquals("u3 to z3", expected, actual);

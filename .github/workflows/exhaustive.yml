@@ -20,11 +20,13 @@ jobs:
         uses: actions/checkout@v2
         with:
           lfs: false
+          fetch-depth: 0  # Needed for cldr-archive
         if: github.event.inputs.git-ref == ''
       - name: Clone Repository (manual ref)
         uses: actions/checkout@v2
         with:
           lfs: false
+          fetch-depth: 0  # Needed for cldr-archive
           ref: ${{ github.event.inputs.git-ref }}
         if: github.event.inputs.git-ref != ''
       - name: Set up JDK 1.8
@@ -52,6 +54,9 @@ jobs:
           -DskipTests=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout CLDR archve
+        run: >
+          mkdir -v ../cldr-archive && java -jar tools/cldr-code/target/cldr-code.jar checkout-archive
       - name: Test with maven
         run: >
           mvn -s .github/workflows/mvn-settings.xml -B test --file tools/pom.xml

@@ -66,6 +66,10 @@ public class VettingViewer<T> {
 
     private static final Set<CheckCLDR.CheckStatus.Subtype> OK_IF_VOTED = EnumSet.of(Subtype.sameAsEnglish);
 
+    public static boolean orgIsNeutralForSummary(Organization org) {
+        return org.equals(Organization.surveytool);
+    }
+
     /**
      * Notification categories
      */
@@ -705,7 +709,7 @@ public class VettingViewer<T> {
             Output<LocaleCoverageType> output = new Output<>();
             // For admin - return true if SOME organization has explicit coverage for the locale
             // TODO: Make admin pick up any locale that has a vote
-            if (org.equals(Organization.surveytool)) {
+            if (orgIsNeutralForSummary(org)) {
                 for (Organization checkorg : Organization.values()) {
                     StandardCodes.make().getLocaleCoverageLevel(checkorg, localeId, output);
                     if (output.value == StandardCodes.LocaleCoverageType.explicit) {
@@ -744,7 +748,7 @@ public class VettingViewer<T> {
             headerRow.append("</tr>\n");
             String header = headerRow.toString();
 
-            if (organization.equals(Organization.surveytool)) {
+            if (orgIsNeutralForSummary((Organization) organization)) {
                 writeSummaryTable(output, header, Level.COMPREHENSIVE, choices, organization);
             } else {
                 for (Level level : Level.values()) {
@@ -1003,7 +1007,6 @@ public class VettingViewer<T> {
         if (sortedNames.isEmpty()) {
             return;
         }
-
         output.append("<h2>Level: ").append(desiredLevel.toString()).append("</h2>");
         output.append("<table class='tvs-table'>\n");
         Map<String, FileInfo> localeNameToFileInfo = new TreeMap<>();
@@ -1536,7 +1539,7 @@ public class VettingViewer<T> {
 
     public static EnumSet<VettingViewer.Choice> getChoiceSetForOrg(Organization usersOrg) {
         EnumSet<VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);
-        if (usersOrg.equals(Organization.surveytool)) {
+        if (orgIsNeutralForSummary(usersOrg)) {
             choiceSet = EnumSet.of(
                 VettingViewer.Choice.error,
                 VettingViewer.Choice.warning,

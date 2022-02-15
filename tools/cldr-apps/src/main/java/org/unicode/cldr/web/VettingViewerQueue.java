@@ -148,6 +148,10 @@ public class VettingViewerQueue {
                 double per = (double) (now - start) / (double) n;
                 long rem = (long) ((maxn - n) * per);
                 String remStr = ElapsedTimer.elapsedTime(now, now + rem) + " " + "remaining";
+                /*
+                 * TODO: explain/encapsulate this magic number! 1500? = 1.5 seconds?
+                 * Reference: https://unicode-org.atlassian.net/browse/CLDR-14925
+                 */
                 if (rem <= 1500) {
                     remStr = "Finishing...";
                 }
@@ -162,6 +166,10 @@ public class VettingViewerQueue {
                 }
                 long now = System.currentTimeMillis();
                 n++;
+                /*
+                 * TODO: explain/encapsulate these magic numbers! 5? 10? 1200? 500?
+                 * Reference: https://unicode-org.atlassian.net/browse/CLDR-14925
+                 */
                 if (n > (maxn - 5)) {
                     maxn = n + 10;
                 }
@@ -217,10 +225,29 @@ public class VettingViewerQueue {
                 System.out.println("Creating task for Priority Items Summary");
             }
             this.sm = CookieSession.sm;
-            int baseMax = getMax(sm.getTranslationHintsFile());
-            maxn = 0;
+            this.entry = entry;
+            this.usersOrg = usersOrg;
+            this.maxn = approximatelyHowManyLocalesToCheck() * getMax(sm.getTranslationHintsFile());
+        }
+
+        /**
+         * Get the approximate number of locales to be summarized
+         *
+         * @return the number of locales
+         *
+         * TODO: fix the discrepancies between this code and related code in VettingViewer.
+         * The set of locales counted here does not exactly agree with the set of locales determined
+         * in VettingViewer. Avoid determining the set of files twice with different code.
+         * VettingViewer skips "en" while we do not skip it here.
+         * VettingViewer skips defaultContentLocales which is not mentioned here.
+         * VettingViewer uses cldrFactory.getAvailable() while here we use SurveyMain.getLocalesSet().
+         * The locales should be counted only when the actual set is determined -- in VettingViewer, not here.
+         * Reference: https://unicode-org.atlassian.net/browse/CLDR-14925
+         */
+        private int approximatelyHowManyLocalesToCheck() {
+            int localeCount = 0;
             List<Level> levelsToCheck = new ArrayList<>();
-            if (usersOrg.equals(Organization.surveytool)) {
+            if (VettingViewer.orgIsNeutralForSummary(usersOrg)) {
                 levelsToCheck.add(Level.COMPREHENSIVE);
             } else {
                 levelsToCheck.addAll(Arrays.asList(Level.values()));
@@ -229,17 +256,20 @@ public class VettingViewerQueue {
                 LocalesWithExplicitLevel lwe = new LocalesWithExplicitLevel(usersOrg, lv);
                 for (CLDRLocale l : SurveyMain.getLocalesSet()) {
                     if (lwe.is(l.toString())) {
-                        maxn += baseMax;
+                        ++localeCount;
                     }
                 }
             }
-            this.entry = entry;
-            this.usersOrg = usersOrg;
+            return localeCount;
         }
 
         @Override
         public void run() {
             statusCode = Status.WAITING;
+            /*
+             * TODO: explain this magic number! Why add 100?
+             * Reference: https://unicode-org.atlassian.net/browse/CLDR-14925
+             */
             final CLDRProgressTask progress = CookieSession.sm.openProgress("vv: Priority Items Summary", maxn + 100);
 
             if (DEBUG) {

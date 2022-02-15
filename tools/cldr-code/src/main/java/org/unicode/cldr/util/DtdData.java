@@ -1202,9 +1202,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     public boolean isOrdered(String elementName) {
         Element element = nameToElement.get(elementName);
         if (element == null) {
-            if (elementName.startsWith("icu:")) {
-                return false;
-            }
+            // No longer need to always return false for icu: elements per CLDR-8614,
+            // nameToElement should now know about them (see getInstance above).
             throw new IllegalByDtdException(elementName, null, null);
         }
         return element.isOrderedElement;

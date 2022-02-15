@@ -205,8 +205,9 @@ final class CldrPaths {
      * sort index).
      */
     static boolean isOrdered(CldrDataType dtdType, String elementName) {
-        // Elements with namespaces unknown the the DTD are never ordered.
-        if (elementName.indexOf(':') != -1) {
+        // Elements with namespaces unknown to the DTD are never ordered
+        // (but it knows about icu: elements).
+        if (elementName.indexOf(':') != -1 && !elementName.startsWith("icu:")) {
             return false;
         }
         // Returns empty set if DTD unknown, but it might also be the case that a valid DTD has no

@@ -313,7 +313,7 @@ public class TestAttributeValues extends TestFmwk {
                 return;
             }
             StringBuilder out = new StringBuilder();
-            out.append("\nIf the test fails, look at http://cldr.unicode.org/development/testattributevalues\n");
+            out.append("\nIf the test fails, look at https://cldr.unicode.org/development/cldr-development-site/testattributevalues\n");
 
             out.append("file\tCount:\t" + dtdData.dtdType + "\t" + fileCount + "\n");
             out.append("element\tCount:\t" + dtdData.dtdType + "\t" + elementCount + "\n");

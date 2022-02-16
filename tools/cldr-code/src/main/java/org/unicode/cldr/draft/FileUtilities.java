@@ -70,7 +70,7 @@ public final class FileUtilities {
 
     public static PrintWriter openWriter(File dir, String filename, Charset encoding) throws IOException {
         File file;
-        if (dir.equals("")) {
+        if (dir == null) {
             file = new File(filename);
         } else {
             file = new File(dir, filename);

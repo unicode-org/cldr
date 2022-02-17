@@ -88,7 +88,7 @@ public class PathChecker {
         if (valueStatus == null) {
             valueStatus = dtdData.getValueStatus(element, attribute, attrValue);
             if (valueStatus != ValueStatus.valid) {
-                // Set breakpoint here for debugging (referenced from http://cldr.unicode.org/development/testattributevalues)
+                // Set breakpoint here for debugging (referenced from https://cldr.unicode.org/development/cldr-development-site/testattributevalues)
                 dtdData.getValueStatus(element, attribute, attrValue);
             }
             attrValueToStatus.putIfAbsent(attrValue, valueStatus);

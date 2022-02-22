@@ -293,6 +293,10 @@ class FlexibleDateFromCLDR {
                 if (strippedPattern.indexOf('H') >= 0 || strippedPattern.indexOf('k') >= 0) { // but pattern uses 24...
                     failure = "Skeleton uses 12-hour cycle (h,K) but pattern uses 24-hour (H,k)";
                 }
+            } else if (skeleton.indexOf('G') >= 0 && strippedPattern.indexOf('G') < 0 &&
+                        strippedPattern.indexOf('r') < 0 && strippedPattern.indexOf('U') < 0) {
+                // If skeleton has G, pattern should have G (or for cyclic calendars like chinese/dangi, r and/or U)
+                failure = "Skeleton includes 'G' (era) but pattern does not have 'G' (or 'r' or 'U' for chinese/dangi calendars)";
             }
         }
         return failure;

@@ -119,7 +119,13 @@ public class TestValidity extends TestFmwkPlus {
         }
     }
 
-    static final Set<String> ALLOWED_UNDELETIONS = ImmutableSet.of("ug331", "nlbq1", "nlbq2", "nlbq3", "no21", "no22");
+    static final Set<String> ALLOWED_UNDELETIONS = ImmutableSet.of("ug331", "nlbq1", "nlbq2", "nlbq3", "no21", "no22",
+        // 2022
+        "no",
+        "escn",
+        "gbeng", "gbnir", "gbsct", "gbwls",
+        "itgo", "itpn", "itts", "itud"
+        );
     static final Set<String> ALLOWED_MISSING = ImmutableSet.of("root", "POSIX", "REVISED", "SAAHO");
     static final Set<String> ALLOWED_REGULAR_TO_SPECIAL = ImmutableSet.of("Zanb", "Zinh", "Zyyy");
 
@@ -193,7 +199,7 @@ public class TestValidity extends TestFmwkPlus {
                                 continue;
                             }
                             errln(messages, type + ":" + code + ":" + oldStatus + " => " + newStatus
-                                + " // add to exception list if really un-deprecated");
+                                + " // add to exception list (ALLOWED_UNDELETIONS) if really un-deprecated");
                         } else if (oldStatus == Status.private_use && newStatus == Status.regular) {
 //                          logln(messages, "OK: " + type + ":" + code + " was " + oldStatus + " => " + newStatus);
                         } else if (oldStatus == Status.deprecated) {

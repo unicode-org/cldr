@@ -3,15 +3,19 @@ package org.unicode.cldr.tool;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.LineHandler;
 import org.unicode.cldr.util.Counter2;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.StandardCodes;
 
 import com.ibm.icu.text.ListFormat;
@@ -26,9 +30,47 @@ public class AddPopulationData {
     enum WBLine {
         // "Afghanistan","AFG","GNI, PPP (current international $)","NY.GNP.MKTP.PP.CD","..","..","13144920451.3325","16509662130.816","18932631964.8727","22408872945.1924","25820670505.2627","30783369469.7509","32116190092.1429","..",
 
-        Country_Name, Country_Code, Series_Name, Series_Code, YR2000, YR2001, YR2002, YR2003, YR2004, YR2005, YR2006, YR2007, YR2008, YR2009, YR2010, YR2011, YR2012, YR2013, YR2014, YR2015, YR2016, YR2017, YR2018, YR2019;
-        String get(String[] pieces) {
-            return ordinal() < pieces.length ? pieces[ordinal()] : EMPTY;
+        // Country Name,Country Code,Series Name,Series Code,2000 [YR2000],2001 [YR2001],2002 [YR2002],2003 [YR2003],2004 [YR2004],2005 [YR2005],2006 [YR2006],2007 [YR2007],2008 [YR2008],2009 [YR2009],2010 [YR2010],2011 [YR2011],2012 [YR2012],2013 [YR2013],2014 [YR2014],2015 [YR2015],2016 [YR2016],2017 [YR2017],2018 [YR2018],2019 [YR2019],2020 [YR2020]
+        Country_Name, Country_Code, Series_Name, Series_Code,
+        Year("(\\d+)\\s*\\[YR(\\d+)\\]");
+
+        final Pattern pattern;
+        WBLine() {
+            this.pattern = Pattern.compile(name().replaceAll("_", " "));
+        }
+        WBLine(final String regex) {
+            this.pattern = Pattern.compile(regex);
+        }
+
+        Matcher match(String str) {
+            // Skip BOM
+            if (str.startsWith("\uFEFF")) {
+                str = str.substring("\uFEFF".length());
+            }
+            return this.pattern.matcher(str);
+        }
+
+        static Pair<WBLine, Integer> find(final String str) {
+            for (WBLine i : values()) {
+                final Matcher m = i.match(str);
+                if (m.matches()) {
+                    Integer val = 0;
+                    if (m.groupCount() > 0) {
+                        val = Integer.parseInt(m.group(1));
+                    }
+                    return Pair.of(i, val);
+                }
+            }
+            return null;
+        }
+
+        static ArrayList<Pair<WBLine, Integer>> parseHeader(final String[] pieces) {
+            ArrayList<Pair<WBLine, Integer>> columnToTypeAndValue = null;
+            columnToTypeAndValue = new ArrayList<>();
+            for (int i=0; i<pieces.length; i++) {
+                columnToTypeAndValue.add(i,WBLine.find(pieces[i]));
+            }
+            return columnToTypeAndValue;
         }
     }
 
@@ -331,21 +373,31 @@ public class AddPopulationData {
         // List<List<String>> data = SpreadSheet.convert(CldrUtility.getUTF8Data(filename));
 
         CldrUtility.handleFile(filename, new LineHandler() {
+            ArrayList<Pair<WBLine, Integer>> columnToTypeAndValue = null;
+
             @Override
             public boolean handle(String line) {
-                if (line.contains("Series Code")) {
+                String[] pieces = splitCommaSeparated(line);
+                if (columnToTypeAndValue == null) {
+                    columnToTypeAndValue = WBLine.parseHeader(pieces);
                     return false;
                 }
-                String[] pieces = splitCommaSeparated(line);
 
+                final HashMap<Pair<WBLine, Integer>, String> lineAsHash = new HashMap<>();
+                for (int i=0; i<pieces.length; i++) {
+                    lineAsHash.put(columnToTypeAndValue.get(i), pieces[i]);
+                }
                 // String[] pieces = line.substring(1, line.length() - 2).split("\"\t\"");
+                final String seriesCode = lineAsHash.get(Pair.of(WBLine.Series_Code, 0));
 
-                final String seriesCode = WBLine.Series_Code.get(pieces);
-
+                // find the last year
                 String last = null;
-                for (WBLine i : WBLine.values()) {
-                    if (i.compareTo(WBLine.YR2000) >= 0) {
-                        String current = i.get(pieces);
+
+                for (int n=0; n<columnToTypeAndValue.size(); n++) {
+                    // assume the years are in ascending order
+                    Pair<WBLine, Integer> i = columnToTypeAndValue.get(n);
+                    if (i.getFirst() == WBLine.Year) {
+                        String current = pieces[n];
                         if (current.length() != 0 && !current.equals(EMPTY)) {
                             last = current;
                         }
@@ -354,7 +406,8 @@ public class AddPopulationData {
                 if (last == null) {
                     return false;
                 }
-                String country = CountryCodeConverter.getCodeFromName(WBLine.Country_Name.get(pieces), true, missing);
+                final String countryName = lineAsHash.get(Pair.of(WBLine.Country_Name, 0));
+                String country = CountryCodeConverter.getCodeFromName(countryName, true, missing);
                 if (country == null) {
                     return false;
                 }

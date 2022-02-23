@@ -1199,11 +1199,14 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         return attribute.deprecatedValues.contains(attributeValue); // don't need special test for "*"
     }
 
+    /**
+     * Returns whether an element (specified by its full name) is ordered. This method
+     * understands all elements in the DTDs used (including the ICU extensions), but will
+     * throw IllegalByDtdException for unknown elements. See CLDR-8614 for more background.
+     */
     public boolean isOrdered(String elementName) {
         Element element = nameToElement.get(elementName);
         if (element == null) {
-            // No longer need to always return false for icu: elements per CLDR-8614,
-            // nameToElement should now know about them (see getInstance above).
             throw new IllegalByDtdException(elementName, null, null);
         }
         return element.isOrderedElement;

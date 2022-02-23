@@ -375,7 +375,7 @@ public class LikelySubtagsTest extends TestFmwk {
         TreeSet<String> sorted = new TreeSet<>(
             ScriptMetadata.getScripts());
         Set<String> exceptions2 = new HashSet<>(
-            Arrays.asList("zh_Hans_CN", "hnj_Hmnp_US", "hnj_Hmng_LA"));
+            Arrays.asList("zh_Hans_CN", "hnj_Hmnp_US", "hnj_Hmng_LA", "iu_Cans_CA"));
         for (String script : sorted) {
             if (exceptions.contains(script) || script.equals("Latn")
                 || script.equals("Dsrt")) {
@@ -391,8 +391,8 @@ public class LikelySubtagsTest extends TestFmwk {
             String likelyExpansion = likely.get(undScript);
             if (likelyExpansion == null) {
                 if (!KNOWN_SCRIPTS_WITHOUT_LIKELY_SUBTAGS.contains(script)) {
-                    String msg = "Missing likely language for script (und_" + script
-                        + ")  should be something like:\t "
+                    String msg = "likelySubtags.xml missing language for script (und_" + script
+                        + "). Script Metadata suggests that it should be something like:\t "
                         + showOverride(script, originCountry, langScript);
                     if (i.age.compareTo(icuUnicodeVersion) <= 0) {
                         // Error: Missing data for a script in ICU's Unicode version.
@@ -413,9 +413,9 @@ public class LikelySubtagsTest extends TestFmwk {
                 // + ", but something like:\t " + showOverride(script,
                 // originCountry, langScript));
                 // } else {
-                errln("Wrong likely language for script (und_" + script
+                errln("likelySubtags.xml has wrong language for script (und_" + script
                     + "). Should not be " + likelyExpansion
-                    + ", but something like:\t "
+                    + ", but Script Metadata suggests something like:\t "
                     + showOverride(script, originCountry, langScript));
                 // }
             } else {

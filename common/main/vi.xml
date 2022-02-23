@@ -9055,7 +9055,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pattern type="range">{0}-{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="other">{0} ngày</pluralMinimalPairs>
+			<pluralMinimalPairs count="one">Bạn có {0} con gà trong giỏ hàng; bạn có muốn mua nó không? Có, tôi muốn mua con gà.</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">Bạn có {0} con gà trong giỏ hàng; bạn có muốn mua chúng không? Có, tôi muốn mua các con gà.</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">Theo lối rẽ thứ {0} bên phải.</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>

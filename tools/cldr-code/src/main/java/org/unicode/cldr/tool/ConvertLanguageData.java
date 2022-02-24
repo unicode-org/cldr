@@ -1,8 +1,10 @@
 package org.unicode.cldr.tool;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,7 +40,6 @@ import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LocaleIDParser.Level;
-import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SpreadSheet;
@@ -115,16 +116,16 @@ public class ConvertLanguageData {
         .getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
 
     public static void main(String[] args) throws IOException, ParseException {
-        BufferedReader oldFile = null;
-        try {
+        final File oldSupp = new File(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY, "supplementalData.xml");
+        final File genSupp = new File(CLDRPaths.GEN_DIRECTORY + "/supplemental", "supplementalData.xml");
+        final File genLsraw = new File(CLDRPaths.GEN_DIRECTORY + "/supplemental", "language_script_raw.txt");
+        try (
+            final BufferedReader oldFile = FileUtilities.openUTF8Reader(oldSupp);
+            final PrintWriter newFile = FileUtilities.openUTF8Writer(genSupp);
+            final PrintWriter newLsraw = FileUtilities.openUTF8Writer(genLsraw);
+        ) {
             // load elements we care about
-            Log.setLogNoBOM(CLDRPaths.GEN_DIRECTORY + "/supplemental", "supplementalData.xml");
-            // Log.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
-            // Log.println("<!DOCTYPE supplementalData SYSTEM \"http://www.unicode.org/cldr/data/dtd/ldmlSupplemental.dtd\">");
-            // Log.println("<supplementalData version=\"1.5\">");
-
-            oldFile = FileUtilities.openUTF8Reader(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY, "supplementalData.xml");
-            CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*<languageData>\\s*"), Log.getLog(), false);
+            CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*<languageData>\\s*"), newFile, false);
 
             Set<String> available = cldrFactory.getAvailable();
 
@@ -188,10 +189,10 @@ public class ConvertLanguageData {
             // showAllBasicLanguageData(allLanguageData, "old");
             getLanguage2Scripts(sortedInput);
 
-            writeNewBasicData2(sortedInput);
+            writeNewBasicData2(newFile, sortedInput);
             // writeNewBasicData(sortedInput);
 
-            writeTerritoryLanguageData(failures, sortedInput);
+            writeTerritoryLanguageData(newFile, failures, sortedInput);
 
             checkBasicData(localeToRowData);
 
@@ -216,24 +217,21 @@ public class ConvertLanguageData {
             showFailures(failures);
 
             CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*</territoryInfo>\\s*"), null, false);
-            CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*<references>\\s*"), Log.getLog(), false);
-            // generateIso639_2Data();
-            references.printReferences();
+            CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*<references>\\s*"), newFile, false);
+            // generateIso639_2Data(newFile);
+            references.printReferences(newFile);
             CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*</references>\\s*"), null, false);
-            CldrUtility.copyUpTo(oldFile, null, Log.getLog(), false);
-            // Log.println("</supplementalData>");
-            Log.close();
-            oldFile.close();
+            CldrUtility.copyUpTo(oldFile, null, newFile, false);
 
-            Log.setLogNoBOM(CLDRPaths.GEN_DIRECTORY + "/supplemental", "language_script_raw.txt");
-            getLanguageScriptSpreadsheet(Log.getLog());
-            Log.close();
+            getLanguageScriptSpreadsheet(newLsraw);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if (oldFile != null) {
-                oldFile.close();
-            }
+            System.out.println("Wrote: " + genLsraw);
+            System.out.println("Wrote: " + genSupp);
+            System.out.println("Copying " + genSupp + " to " + oldSupp);
+            oldSupp.delete();
+            Files.copy(genSupp.toPath(), oldSupp.toPath());
             System.out.println("DONE");
         }
     }
@@ -279,7 +277,7 @@ public class ConvertLanguageData {
      *
      * @param sortedInput
      */
-    private static void writeNewBasicData2(Set<RowData> sortedInput) {
+    private static void writeNewBasicData2(PrintWriter out, Set<RowData> sortedInput) {
         double cutoff = 0.2; // 20%
 
         // Relation<String, BasicLanguageData> newLanguageData = new Relation(new TreeMap(), TreeSet.class);
@@ -310,7 +308,7 @@ public class ConvertLanguageData {
         // now add all the remaining language-script info
         // <language type="sv" scripts="Latn" territories="AX FI SE"/>
         Set<String> warnings = new LinkedHashSet<>();
-        Log.println("\t<languageData>");
+        out.println("\t<languageData>");
         for (String languageSubtag : allLanguages) {
             Relation<BasicLanguageData.Type, String> status_scripts = language_status_scripts.get(languageSubtag);
             Relation<BasicLanguageData.Type, String> status_territories = language_status_territories
@@ -349,14 +347,14 @@ public class ConvertLanguageData {
                 Set<String> scripts = bld.getScripts();
                 Set<String> territories = bld.getTerritories();
                 BasicLanguageData.Type status = bld.getType();
-                Log.println("\t\t<language type=\"" + languageSubtag + "\""
+                out.println("\t\t<language type=\"" + languageSubtag + "\""
                     + (scripts.isEmpty() ? "" : " scripts=\"" + CldrUtility.join(scripts, " ") + "\"")
                     + (territories.isEmpty() ? "" : " territories=\"" + CldrUtility.join(territories, " ") + "\"")
                     + (status == BasicLanguageData.Type.primary ? "" : " alt=\"secondary\"")
                     + "/>");
             }
         }
-        Log.println("\t</languageData>");
+        out.println("\t</languageData>");
         for (String s : warnings) {
             if (s.contains("!")) {
                 System.out.println(s);
@@ -921,14 +919,14 @@ public class ConvertLanguageData {
         }
     }
 
-    private static void writeTerritoryLanguageData(List<String> failures, Set<RowData> sortedInput) {
+    private static void writeTerritoryLanguageData(PrintWriter out, List<String> failures, Set<RowData> sortedInput) {
 
         String lastCountryCode = "";
         boolean first = true;
         LanguageTagParser ltp = new LanguageTagParser();
 
-        Log.println(" <!-- See http://unicode.org/cldr/data/diff/supplemental/territory_language_information.html for more information on territoryInfo. -->");
-        Log.println("\t<territoryInfo>");
+        out.println(" <!-- See http://unicode.org/cldr/data/diff/supplemental/territory_language_information.html for more information on territoryInfo. -->");
+        out.println("\t<territoryInfo>");
 
         for (RowData row : sortedInput) {
             String countryCode = row.countryCode;
@@ -955,14 +953,14 @@ public class ConvertLanguageData {
                 if (first) {
                     first = false;
                 } else {
-                    Log.println("\t\t</territory>");
+                    out.println("\t\t</territory>");
                 }
-                Log.print("\t\t<territory type=\"" + countryCode + "\""
+                out.print("\t\t<territory type=\"" + countryCode + "\""
                     + " gdp=\"" + formatNumber(countryGDP, 4, true) + "\""
                     + " literacyPercent=\"" + formatPercent(countryLiteracy, 3, true) + "\""
                     + " population=\"" + formatNumber(countryPopulation, 6, true) + "\">");
                 lastCountryCode = countryCode;
-                Log.println("\t<!--" + getDisplayCountry(countryCode) + "-->");
+                out.println("\t<!--" + getDisplayCountry(countryCode) + "-->");
             }
 
             if (languageCode.length() != 0
@@ -984,7 +982,7 @@ public class ConvertLanguageData {
                 if (languageLiteracy != countryLiteracy) {
                     int debug = 0;
                 }
-                Log.print("\t\t\t<languagePopulation type=\""
+                out.print("\t\t\t<languagePopulation type=\""
                     + languageCode
                     + "\""
                     + (DoubleMath.fuzzyCompare(languageLiteracy, countryLiteracy, 0.0001) == 0 ? ""
@@ -994,7 +992,7 @@ public class ConvertLanguageData {
                     + (row.officialStatus.isOfficial() ? " officialStatus=\"" + row.officialStatus + "\"" : "")
                     + references.addReference(row.notes)
                     + "/>");
-                Log.println("\t<!--" + getLanguageName(languageCode) + "-->");
+                out.println("\t<!--" + getLanguageName(languageCode) + "-->");
             } else if (!row.countryCode.equals("ZZ")) {
                 failures.add(BadItem.ERROR.toString("too few speakers: suspect line", languageCode, row.toString(true)));
             }
@@ -1008,8 +1006,8 @@ public class ConvertLanguageData {
             // }
         }
 
-        Log.println("\t\t</territory>");
-        Log.println("\t</territoryInfo>");
+        out.println("\t\t</territory>");
+        out.println("\t</territoryInfo>");
     }
 
     private static String getDisplayCountry(String countryCode) {
@@ -1108,13 +1106,13 @@ public class ConvertLanguageData {
             return "\t\t<reference type=\"" + Rxxx + "\"" + uri + ">" + value + "</reference>";
         }
 
-        void printReferences() {
+        void printReferences(PrintWriter out) {
             // <reference type="R034" uri="isbn:0-321-18578-1">The Unicode Standard 4.0</reference>
-            Log.println("\t<references>");
+            out.println("\t<references>");
             for (String Rxxx : Rxxx_to_reference.keySet()) {
-                Log.println(getReferenceHTML(Rxxx));
+                out.println(getReferenceHTML(Rxxx));
             }
-            Log.println("\t</references>");
+            out.println("\t</references>");
         }
     }
 
@@ -1699,13 +1697,17 @@ public class ConvertLanguageData {
             .asList("ab ba bh bi bo fj fy gd ha ht ik iu ks ku ky lg mi na no rm sa sd sg si sm sn su tg tk to tw vo yi za lb dv chr syr kha sco gv"
                 .split("\\s")));
 
-    static void generateIso639_2Data() {
+    /**
+     * Not called?
+     */
+    @Deprecated
+    private static void generateIso639_2Data(PrintWriter out) {
         for (String languageSubtag : sc.getAvailableCodes("language")) {
             String alpha3 = Iso639Data.toAlpha3(languageSubtag);
             Type type = Iso639Data.getType(languageSubtag);
             Scope scope = Iso639Data.getScope(languageSubtag);
             if (type != null || alpha3 != null || scope != null) {
-                Log.println("\t\t<languageCode type=\"" + languageSubtag + "\"" +
+                out.println("\t\t<languageCode type=\"" + languageSubtag + "\"" +
                     (alpha3 == null ? "" : " iso639Alpha3=\"" + alpha3 + "\"") +
                     (type == null ? "" : " iso639Type=\"" + type + "\"") +
                     (scope == null ? "" : " iso639Scope=\"" + scope + "\"") +
@@ -2050,7 +2052,7 @@ public class ConvertLanguageData {
     // Log.println("\t</languageData>");
     // }
 
-    private static void showBasicLanguageData(String languageSubtag, Relation<String, String> primaryCombos,
+    private static void showBasicLanguageData(PrintWriter out, String languageSubtag, Relation<String, String> primaryCombos,
         Set<String> suppressEmptyScripts, BasicLanguageData.Type type) {
         Set<String> scriptsWithSameTerritories = new TreeSet<>();
         Set<String> lastTerritories = Collections.emptySet();
@@ -2061,17 +2063,17 @@ public class ConvertLanguageData {
             } else if (lastTerritories.equals(territories)) {
                 scriptsWithSameTerritories.add(script);
             } else {
-                showBasicLanguageData2(languageSubtag, scriptsWithSameTerritories, suppressEmptyScripts,
+                showBasicLanguageData2(out, languageSubtag, scriptsWithSameTerritories, suppressEmptyScripts,
                     lastTerritories, type);
                 scriptsWithSameTerritories.clear();
             }
             lastTerritories = territories;
             scriptsWithSameTerritories.add(script);
         }
-        showBasicLanguageData2(languageSubtag, scriptsWithSameTerritories, suppressEmptyScripts, lastTerritories, type);
+        showBasicLanguageData2(out, languageSubtag, scriptsWithSameTerritories, suppressEmptyScripts, lastTerritories, type);
     }
 
-    private static void showBasicLanguageData2(String languageSubtag, Set<String> scripts,
+    private static void showBasicLanguageData2(PrintWriter out, String languageSubtag, Set<String> scripts,
         Set<String> suppressEmptyScripts, Set<String> territories, BasicLanguageData.Type type) {
         scripts.remove("Zzzz");
         territories.remove("ZZ");
@@ -2079,7 +2081,7 @@ public class ConvertLanguageData {
             scripts.removeAll(suppressEmptyScripts);
         }
         if (scripts.size() == 0 && territories.size() == 0) return;
-        Log.println("\t\t<language type=\"" + languageSubtag + "\"" +
+        out.println("\t\t<language type=\"" + languageSubtag + "\"" +
             (scripts.size() == 0 ? "" : " scripts=\"" + CldrUtility.join(scripts, " ") + "\"") +
             (territories.size() == 0 ? "" : " territories=\"" + CldrUtility.join(territories, " ") + "\"") +
             (type == BasicLanguageData.Type.primary ? "" : " alt=\"" + type + "\"") +

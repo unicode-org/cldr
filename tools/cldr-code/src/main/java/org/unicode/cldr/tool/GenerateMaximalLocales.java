@@ -85,6 +85,9 @@ public class GenerateMaximalLocales {
     private static final boolean SUPPRESS_CHANGES = CldrUtility.getProperty("GenerateMaximalLocalesSuppress", false);
     private static final boolean SHOW_CONTAINERS = false;
 
+    private static final boolean SHOW_ALL_LANGUAGE_CODES = false;
+    private static final boolean SHOW_DETAILED = false;
+    private static final boolean SHOW_INCLUDED_EXCLUDED = false;
     enum OutputStyle {
         PLAINTEXT, C, C_ALT, XML
     }
@@ -124,7 +127,11 @@ public class GenerateMaximalLocales {
         System.out.println("Keep containers " + cldrContainerToLanguages);
     }
 
-    private static final List<String> KEEP_TARGETS = Arrays.asList("und_Arab_PK", "und_Latn_ET");
+    private static final List<String> KEEP_TARGETS = Arrays.asList(
+        "und_Arab_PK",
+        "und_Latn_ET",
+        "hi_Latn"
+    );
     private static final ImmutableSet<String> deprecatedISONotInLST = ImmutableSet.of("scc", "scr");
 
     /**
@@ -173,6 +180,9 @@ public class GenerateMaximalLocales {
         "hi_Latn_IN",
         "no_Latn_NO",
         "und_Cpmn_CY",
+
+        "hnj_Hmnp_US",
+        "rhg_Arab_MM"
     };
 
     /**
@@ -485,6 +495,7 @@ public class GenerateMaximalLocales {
 
         System.out.println(CldrUtility.LINE_SEPARATOR + "ERRORS:\t" + errorCount + CldrUtility.LINE_SEPARATOR);
 
+        System.exit(errorCount > 0 ? 1 : 0);
     }
 
     static class RowData implements Comparable<RowData> {
@@ -565,8 +576,13 @@ public class GenerateMaximalLocales {
                 languages.put(language, result);
             }
         }
-        for (String language : languages.keySet()) {
-            System.out.println(language + "\t" + languages.get(language));
+
+        if (SHOW_ALL_LANGUAGE_CODES) {
+            for (String language : languages.keySet()) {
+                System.out.println(language + "\t" + languages.get(language));
+            }
+        } else {
+            System.out.println("- GenerateMaximalLocales.java: SHOW_ALL_LANGUAGE_CODES=true to show all language codes");
         }
 
         // also CLDR-target locales
@@ -635,28 +651,32 @@ public class GenerateMaximalLocales {
 
         System.out.println("Detailed - Including:\t" + languageToReason.size());
 
-        for (String language : languageToReason.keySet()) {
-            Set<RowData> reasons = languageToReason.get(language);
+        if (!SHOW_DETAILED) {
+            System.out.println("- GenerateMaximalLocales.java: SHOW_DETAILED=true to show more details");
+        } else {
+            for (String language : languageToReason.keySet()) {
+                Set<RowData> reasons = languageToReason.get(language);
 
-            RowData lastReason = reasons.iterator().next();
+                RowData lastReason = reasons.iterator().next();
 
-            System.out.append(language)
-                .append("\t")
-                .append(english.getName(language))
-                .append("\t")
-                .append(lastReason.getStatus().toShortString())
-                .append("\t")
-                .append(nf.format(languageToLiteratePopulation.getCount(language)));
-            for (RowData reason : reasons) {
-                String status = reason.getStatus().toShortString();
-                System.out.append("\t")
-                    .append(status)
-                    .append("-")
-                    .append(reason.getName())
-                    .append("-")
-                    .append(nf.format(reason.getLiteratePopulation()));
+                System.out.append(language)
+                    .append("\t")
+                    .append(english.getName(language))
+                    .append("\t")
+                    .append(lastReason.getStatus().toShortString())
+                    .append("\t")
+                    .append(nf.format(languageToLiteratePopulation.getCount(language)));
+                for (RowData reason : reasons) {
+                    String status = reason.getStatus().toShortString();
+                    System.out.append("\t")
+                        .append(status)
+                        .append("-")
+                        .append(reason.getName())
+                        .append("-")
+                        .append(nf.format(reason.getLiteratePopulation()));
+                }
+                System.out.append("\n");
             }
-            System.out.append("\n");
         }
 
         // now list them
@@ -665,9 +685,15 @@ public class GenerateMaximalLocales {
         others.addAll(standardCodes.getGoodAvailableCodes("language"));
         others.removeAll(languageToReason.keySet());
         System.out.println("\nIncluded Languages:\t" + languageToReason.keySet().size());
-        showLanguages(languageToReason.keySet(), languageToReason);
+        if (SHOW_INCLUDED_EXCLUDED) {
+            showLanguages(languageToReason.keySet(), languageToReason);
+        }
         System.out.println("\nExcluded Languages:\t" + others.size());
-        showLanguages(others, languageToReason);
+        if (SHOW_INCLUDED_EXCLUDED) {
+            showLanguages(others, languageToReason);
+        } else {
+            System.out.println(" - GenerateMaximalLocales.java: set SHOW_INCLUDED_EXCLUDED=true to show reason details");
+        }
     }
 
     private static long getWritingPopulation(PopulationData popData) {
@@ -1832,7 +1858,7 @@ public class GenerateMaximalLocales {
             } catch (RuntimeException e) {
                 result = FALLBACK_SCRIPTS.get(locale);
                 if (result == null) {
-                    System.out.println("***Failed to find script for: " + locale + "\t" + english.getName(locale));
+                    System.err.println("***Failed to find script in L-S-R or MAX_ADDITIONS for: " + locale + "\t" + english.getName(locale));
                     return result = UNKNOWN_SCRIPT;
                 } else {
                     return result;
@@ -1855,7 +1881,7 @@ public class GenerateMaximalLocales {
                 String temp = LANGUAGE_OVERRIDES.get(locale);
                 if (temp != null) {
                     result = new LanguageTagParser().set(temp).getScript();
-                    System.out.println("Getting script from LANGUAGE_OVERRIDES for " + locale + " => " + result);
+                    System.err.println("***Warning, Getting script from LANGUAGE_OVERRIDES for " + locale + " => " + result);
                 }
             }
             localeToScriptCache.put(locale, result);

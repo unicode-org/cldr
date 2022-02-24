@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.BitSet;
 import java.util.Collection;
@@ -17,36 +18,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
-import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.draft.ScriptMetadata;
-import org.unicode.cldr.draft.ScriptMetadata.Info;
-import org.unicode.cldr.util.Builder;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.Containment;
-import org.unicode.cldr.util.Counter;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.Iso639Data;
-import org.unicode.cldr.util.Iso639Data.Scope;
-import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.LocaleIDParser;
-import org.unicode.cldr.util.Log;
-import org.unicode.cldr.util.Organization;
-import org.unicode.cldr.util.PatternCache;
-import org.unicode.cldr.util.SimpleFactory;
-import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.StandardCodes.LstrType;
-import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
-import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
-import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
-import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
-import org.unicode.cldr.util.Validity;
-import org.unicode.cldr.util.Validity.Status;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableList;
@@ -64,6 +35,35 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ULocale;
+
+import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.draft.ScriptMetadata;
+import org.unicode.cldr.draft.ScriptMetadata.Info;
+import org.unicode.cldr.util.Builder;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Containment;
+import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Iso639Data;
+import org.unicode.cldr.util.Iso639Data.Scope;
+import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.SimpleFactory;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.StandardCodes.LstrType;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
+import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
+import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
+import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
+import org.unicode.cldr.util.Validity;
+import org.unicode.cldr.util.Validity.Status;
 
 /**
  * Problems:
@@ -471,13 +471,17 @@ public class GenerateMaximalLocales {
                     CldrUtility.LINE_SEPARATOR + " toMaximal size:\t" + toMaximized.size() +
                     CldrUtility.LINE_SEPARATOR + "*/");
 
-        printLikelySubtags(toMaximized);
-
-        // if (OUTPUT_STYLE != OutputStyle.XML) {
-        // printMap("const MapToMinimalSubtags default_subtags[]", toMinimized, null);
-        // }
+        final File newLikelySubtags = printLikelySubtags(toMaximized);
 
         printDefaultContent(toMaximized);
+
+        // Do this here so the two "Copying…" messages show up together.
+        if (OUTPUT_STYLE == OutputStyle.XML) {
+            final File oldLikelySubtags = CLDRConfig.getInstance().getEnglish().getSupplementalFile("likelySubtags.xml");
+            System.out.println("Copying " + newLikelySubtags + " to " + oldLikelySubtags);
+            oldLikelySubtags.delete();
+            Files.copy(newLikelySubtags.toPath(), oldLikelySubtags.toPath());
+        }
 
         System.out.println(CldrUtility.LINE_SEPARATOR + "ERRORS:\t" + errorCount + CldrUtility.LINE_SEPARATOR);
 
@@ -830,65 +834,32 @@ public class GenerateMaximalLocales {
 
         showDefaultContentDifferencesAndFix(defaultLocaleContent);
 
-        Log.setLogNoBOM(CLDRPaths.GEN_DIRECTORY + "/supplemental", "supplementalMetadata.xml");
-        BufferedReader oldFile = FileUtilities.openUTF8Reader(CLDRPaths.SUPPLEMENTAL_DIRECTORY, "supplementalMetadata.xml");
-        CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*<defaultContent locales=\"\\s*"), Log.getLog(), false);
+        final File genSuppDir = new File(CLDRPaths.GEN_DIRECTORY, "supplemental");
+        final File genSuppMetadataFile = new File(genSuppDir, "supplementalMetadata.xml");
+        final File oldSuppMetadataFile = new File(CLDRPaths.SUPPLEMENTAL_DIRECTORY, "supplementalMetadata.xml");
 
-        String sep = CldrUtility.LINE_SEPARATOR + "\t\t\t";
-        String broken = CldrUtility.breakLines(CldrUtility.join(defaultLocaleContent, " "), sep,
-            PatternCache.get("(\\S)\\S*").matcher(""), 80);
+        try (
+            PrintWriter genFile = FileUtilities.openUTF8Writer(genSuppMetadataFile);
+            BufferedReader oldFile = FileUtilities.openUTF8Reader(oldSuppMetadataFile);) {
+            CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*<defaultContent locales=\"\\s*"), genFile, false);
 
-        Log.println("\t\t<defaultContent locales=\"" + broken + "\"");
-        Log.println("\t\t/>");
+            String sep = CldrUtility.LINE_SEPARATOR + "\t\t\t";
+            String broken = CldrUtility.breakLines(CldrUtility.join(defaultLocaleContent, " "), sep,
+                PatternCache.get("(\\S)\\S*").matcher(""), 80);
 
-        // Log.println("</supplementalData>");
-        CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*/>\\s*(<!--.*)?"), null, true); // skip to matching >
-        CldrUtility.copyUpTo(oldFile, null, Log.getLog(), true); // copy the rest
+            genFile.println("\t\t<defaultContent locales=\"" + broken + "\"");
+            genFile.println("\t\t/>");
 
-        Log.close();
-        oldFile.close();
+            // genFile.println("</supplementalData>");
+            CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*/>\\s*(<!--.*)?"), null, true); // skip to matching >
+            CldrUtility.copyUpTo(oldFile, null, genFile, true); // copy the rest
+        }
+
+        // Move it into place
+        System.out.println("Copying generated " + genSuppMetadataFile + " to " + oldSuppMetadataFile);
+        oldSuppMetadataFile.delete();
+        Files.copy(genSuppMetadataFile.toPath(), oldSuppMetadataFile.toPath());
     }
-
-    // private static void oldAlgorithm(Map<String,String> toMaximized) {
-    // Set<String> defaultContentLocales = supplementalData.getDefaultContentLocales();
-    // LanguageTagParser parser = new LanguageTagParser();
-    // for (String locale : defaultContentLocales) {
-    // String parent = parser.getParent(locale);
-    // toMaximized.put(parent, locale);
-    // if (SHOW_ADD) System.out.println("Adding:\t" + parent + "\t=>\t" + locale + "\t\tDefaultContent");
-    // }
-    //
-    // for (String[] specialCase : SpecialCases) {
-    // toMaximized.put(specialCase[0], specialCase[1]);
-    // if (SHOW_ADD) System.out.println("Adding:\t" + specialCase[0] + "\t=>\t" + specialCase[1] + "\t\tSpecial");
-    // }
-    //
-    // // recurse and close
-    // closeMapping(toMaximized);
-    //
-    // addScript(toMaximized, parser);
-    //
-    // closeMapping(toMaximized);
-    //
-    // addLanguageScript(toMaximized, parser);
-    //
-    // closeMapping(toMaximized);
-    //
-    // addLanguageCountry(toMaximized, parser);
-    //
-    // closeMapping(toMaximized);
-    //
-    // addCountries(toMaximized);
-    // addScript(toMaximized, parser);
-    // closeMapping(toMaximized);
-    // closeUnd(toMaximized);
-    //
-    // addDeprecated(toMaximized);
-    //
-    // closeMapping(toMaximized);
-    //
-    // checkConsistency(toMaximized);
-    // }
 
     private static class MaxData {
         Relation<String, Row.R3<Double, String, String>> languages = Relation.of(new TreeMap<String, Set<Row.R3<Double, String, String>>>(), TreeSet.class);
@@ -1453,257 +1424,73 @@ public class GenerateMaximalLocales {
         return ConvertLanguageData.getLanguageCodeAndName(value);
     }
 
-    // private static void addCountries(Map<String, String> toMaximized) {
-    // Map <String, Map<String, Double>> scriptToLanguageToSize = new TreeMap();
-    //
-    // for (String territory : supplementalData.getTerritoriesWithPopulationData()) {
-    // Set<String> languages = supplementalData.getLanguagesForTerritoryWithPopulationData(territory);
-    // String biggestOfficial = null;
-    // double biggest = -1;
-    // for (String language : languages) {
-    // PopulationData info = supplementalData.getLanguageAndTerritoryPopulationData(language, territory);
-    // // add to info about script
-    //
-    // String script = getScriptForLocale(language);
-    // if (script != null) {
-    // Map<String, Double> languageInfo = scriptToLanguageToSize.get(script);
-    // if (languageInfo == null) scriptToLanguageToSize.put(script, languageInfo = new TreeMap());
-    // String baseLanguage = language;
-    // int pos = baseLanguage.indexOf('_');
-    // if (pos >= 0) {
-    // baseLanguage = baseLanguage.substring(0,pos);
-    // }
-    // Double size = languageInfo.get(baseLanguage);
-    // languageInfo.put(baseLanguage, (size == null ? 0 : size) + info.getLiteratePopulation());
-    // }
-    //
-    //
-    // final OfficialStatus officialStatus = info.getOfficialStatus();
-    // if (officialStatus == OfficialStatus.de_facto_official || officialStatus == OfficialStatus.official) {
-    // double size2 = info.getLiteratePopulation();
-    // if (biggest < size2) {
-    // biggest = size2;
-    // biggestOfficial = language;
-    // }
-    // }
-    // }
-    // if (biggestOfficial != null) {
-    // final String replacementTag = "und_" + territory;
-    // String maximized = biggestOfficial + "_" + territory;
-    // toMaximized.put(replacementTag, maximized);
-    // if (SHOW_ADD) System.out.println("Adding:\t" + replacementTag + "\t=>\t" + maximized + "\t\tLanguage-Territory");
-    // }
-    // }
-    //
-    // for (String script : scriptToLanguageToSize.keySet()) {
-    // String biggestOfficial = null;
-    // double biggest = -1;
-    //
-    // final Map<String, Double> languageToSize = scriptToLanguageToSize.get(script);
-    // for (String language : languageToSize.keySet()) {
-    // double size = languageToSize.get(language);
-    // if (biggest < size) {
-    // biggest = size;
-    // biggestOfficial = language;
-    // }
-    // }
-    // if (biggestOfficial != null) {
-    // final String replacementTag = "und_" + script;
-    // String maximized = biggestOfficial + "_" + script;
-    // toMaximized.put(replacementTag, maximized);
-    // if (SHOW_ADD) System.out.println("Adding:\t" + replacementTag + "\t=>\t" + maximized + "\t\tUnd-Script");
-    // }
-    // }
-    // }
+    private static File printLikelySubtags(Map<String, String> fluffup) throws IOException {
+        final File genDir = new File(CLDRPaths.GEN_DIRECTORY, "supplemental");
+        final File genFile = new File(genDir, "likelySubtags" + (OUTPUT_STYLE == OutputStyle.XML ? ".xml" : ".txt"));
+        System.out.println("Writing to " + genFile);
 
-    // private static void closeUnd(Map<String, String> toMaximized) {
-    // Map<String,String> toAdd = new TreeMap<String,String>();
-    // for (String oldSource : toMaximized.keySet()) {
-    // String maximized = toMaximized.get(oldSource);
-    // if (!maximized.startsWith("und")) {
-    // int pos = maximized.indexOf("_");
-    // if (pos >= 0) {
-    // addIfNotIn( "und" + maximized.substring(pos), maximized, toAdd, toMaximized, "CloseUnd");
-    // }
-    // }
-    // }
-    // toMaximized.putAll(toAdd);
-    // }
+        try(PrintWriter out = FileUtilities.openUTF8Writer(genFile)) {
+            String spacing = OUTPUT_STYLE == OutputStyle.PLAINTEXT ? "\t" : " ";
+            String header = OUTPUT_STYLE != OutputStyle.XML ? "const MapToMaximalSubtags default_subtags[] = {"
+                : "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" + CldrUtility.LINE_SEPARATOR
+                    + "<!DOCTYPE supplementalData SYSTEM \"../../common/dtd/ldmlSupplemental.dtd\">"
+                    + CldrUtility.LINE_SEPARATOR
+                    + "<!--"
+                    + CldrUtility.LINE_SEPARATOR
+                    + CldrUtility.getCopyrightString()
+                    + CldrUtility.LINE_SEPARATOR
+                    + "-->"
+                    + CldrUtility.LINE_SEPARATOR
+                    + "<!--"
+                    + CldrUtility.LINE_SEPARATOR
+                    + "Likely subtags data is generated programatically from CLDR's language/territory/population" + CldrUtility.LINE_SEPARATOR
+                    + "data using the GenerateMaximalLocales tool. Under normal circumstances, this file should" + CldrUtility.LINE_SEPARATOR
+                    + "not be patched by hand, as any changes made in that fashion may be lost."
+                    + CldrUtility.LINE_SEPARATOR
+                    + "-->"
+                    + CldrUtility.LINE_SEPARATOR
+                    + "<supplementalData>" + CldrUtility.LINE_SEPARATOR
+                    + "    <version number=\"$" +
+                    "Revision$\"/>" + CldrUtility.LINE_SEPARATOR
+                    + "    <likelySubtags>";
+            String footer = OUTPUT_STYLE != OutputStyle.XML ? SEPARATOR + "};"
+                : "    </likelySubtags>" + CldrUtility.LINE_SEPARATOR
+                    + "</supplementalData>";
+            out.println(header);
+            boolean first = true;
+            Set<String> keys = new TreeSet<>(new LocaleStringComparator());
+            keys.addAll(fluffup.keySet());
+            for (String printingLocale : keys) {
+                String printingTarget = fluffup.get(printingLocale);
+                String comment = printingName(printingLocale, spacing) + spacing + "=>" + spacing
+                    + printingName(printingTarget, spacing);
 
-    /**
-     * Generate tags where the deprecated values map to the expanded values
-     *
-     * @param toMaximized
-     */
-    // private static void addDeprecated(Map<String, String> toMaximized) {
-    // Map<String, Map<String, List<String>>> typeToTagToReplacement = supplementalData.getLocaleAliasInfo();
-    // LanguageTagParser temp = new LanguageTagParser();
-    // LanguageTagParser tagParsed = new LanguageTagParser();
-    // LanguageTagParser replacementParsed = new LanguageTagParser();
-    // Map<String,String> toAdd = new TreeMap<String,String>();
-    // while (true) {
-    // toAdd.clear();
-    // for (String type : typeToTagToReplacement.keySet()) {
-    // if (type.equals("variant") || type.equals("zone")) continue;
-    // boolean addUnd = !type.equals("language");
-    //
-    // Map<String, List<String>> tagToReplacement = typeToTagToReplacement.get(type);
-    // System.out.println("*" + type + " = " + tagToReplacement);
-    //
-    // for (String tag: tagToReplacement.keySet()) {
-    //
-    // final List<String> list = tagToReplacement.get(tag);
-    // if (list == null) continue; // we don't have any information
-    // String replacement = list.get(0);
-    //
-    // // only do multiples
-    // if (tag.contains("_") || !replacement.contains("_")) {
-    // continue;
-    // }
-    //
-    // // we now have a tag and a replacement value
-    // // make parsers that we can use
-    // try {
-    // tagParsed.set(addUnd ? "und-" + tag : tag);
-    // replacementParsed.set(addUnd ? "und-" + replacement : replacement);
-    // } catch (RuntimeException e) {
-    // continue;
-    // }
-    // addIfNotIn(tag, replacement, toAdd, toMaximized,"Deprecated");
-    //
-    // for (String locale : toMaximized.keySet()) {
-    // String maximized = toMaximized.get(locale);
-    // addIfMatches(temp.set(locale), maximized, replacementParsed, tagParsed, toAdd, toMaximized);
-    // addIfMatches(temp.set(maximized), maximized, replacementParsed, tagParsed, toAdd, toMaximized);
-    // }
-    // }
-    // }
-    // if (toAdd.size() == 0) {
-    // break;
-    // }
-    // toMaximized.putAll(toAdd);
-    // }
-    // }
-
-    // private static void addIfMatches(LanguageTagParser locale, String maximized, LanguageTagParser tagParsed,
-    // LanguageTagParser replacementParsed, Map<String, String> toAdd, Map<String, String> toMaximized) {
-    // if (!tagParsed.getLanguage().equals(locale.getLanguage()) && !tagParsed.getLanguage().equals("und")) {
-    // return;
-    // }
-    // if (!tagParsed.getScript().equals(locale.getScript()) && !tagParsed.getScript().equals("")) {
-    // return;
-    // }
-    // if (!tagParsed.getRegion().equals(locale.getRegion()) && !tagParsed.getRegion().equals("")) {
-    // return;
-    // }
-    // if (!replacementParsed.getLanguage().equals("und")) {
-    // locale.setLanguage(replacementParsed.getLanguage());
-    // }
-    // if (!replacementParsed.getScript().equals("")) {
-    // locale.setScript(replacementParsed.getScript());
-    // }
-    // if (!replacementParsed.getRegion().equals("")) {
-    // locale.setRegion(replacementParsed.getRegion());
-    // }
-    // addIfNotIn(locale.toString(), maximized, toAdd, toMaximized,"Deprecated");
-    // }
-
-    // private static int getSubtagPosition(String locale, String subtags) {
-    // int pos = -1;
-    // while (true) {
-    // pos = locale.indexOf(subtags, pos + 1);
-    // if (pos < 0) return -1;
-    // // make sure boundaries are ok
-    // if (pos != 0) {
-    // char charBefore = locale.charAt(pos-1);
-    // if (charBefore != '_' && charBefore != '_') return -1;
-    // }
-    // int limit = pos + subtags.length();
-    // if (limit != locale.length()) {
-    // char charAfter = locale.charAt(limit);
-    // if (charAfter != '_' && charAfter != '_') return -1;
-    // }
-    // return pos;
-    // }
-    // }
-
-    /*
-     * Format
-     * const DefaultSubtags default_subtags[] = {
-     * {
-     * // Afar => Afar (Latin, Ethiopia)
-     * "aa",
-     * "aa_Latn_ET"
-     * },{
-     * // Afrikaans => Afrikaans (Latin, South Africa)
-     * "af",
-     * "af_Latn_ZA"
-     * },{
-     */
-
-    private static void printLikelySubtags(Map<String, String> fluffup) throws IOException {
-
-        PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY,
-            "/supplemental/likelySubtags" + (OUTPUT_STYLE == OutputStyle.XML ? ".xml" : ".txt"));
-        String spacing = OUTPUT_STYLE == OutputStyle.PLAINTEXT ? "\t" : " ";
-        String header = OUTPUT_STYLE != OutputStyle.XML ? "const MapToMaximalSubtags default_subtags[] = {"
-            : "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" + CldrUtility.LINE_SEPARATOR
-                + "<!DOCTYPE supplementalData SYSTEM \"../../common/dtd/ldmlSupplemental.dtd\">"
-                + CldrUtility.LINE_SEPARATOR
-                + "<!--"
-                + CldrUtility.LINE_SEPARATOR
-                + CldrUtility.getCopyrightString()
-                + CldrUtility.LINE_SEPARATOR
-                + "-->"
-                + CldrUtility.LINE_SEPARATOR
-                + "<!--"
-                + CldrUtility.LINE_SEPARATOR
-                + "Likely subtags data is generated programatically from CLDR's language/territory/population" + CldrUtility.LINE_SEPARATOR
-                + "data using the GenerateMaximalLocales tool. Under normal circumstances, this file should" + CldrUtility.LINE_SEPARATOR
-                + "not be patched by hand, as any changes made in that fashion may be lost."
-                + CldrUtility.LINE_SEPARATOR
-                + "-->"
-                + CldrUtility.LINE_SEPARATOR
-                + "<supplementalData>" + CldrUtility.LINE_SEPARATOR
-                + "    <version number=\"$" +
-                "Revision$\"/>" + CldrUtility.LINE_SEPARATOR
-                + "    <likelySubtags>";
-        String footer = OUTPUT_STYLE != OutputStyle.XML ? SEPARATOR + "};"
-            : "    </likelySubtags>" + CldrUtility.LINE_SEPARATOR
-                + "</supplementalData>";
-        out.println(header);
-        boolean first = true;
-        Set<String> keys = new TreeSet<>(new LocaleStringComparator());
-        keys.addAll(fluffup.keySet());
-        for (String printingLocale : keys) {
-            String printingTarget = fluffup.get(printingLocale);
-            String comment = printingName(printingLocale, spacing) + spacing + "=>" + spacing
-                + printingName(printingTarget, spacing);
-
-            if (OUTPUT_STYLE == OutputStyle.XML) {
-                out.println("\t\t<likelySubtag from=\"" + printingLocale +
-                    "\" to=\"" + printingTarget + "\"" +
-                    "/>" + CldrUtility.LINE_SEPARATOR + "\t\t" + "<!--" + comment + "-->");
-            } else {
-                if (first) {
-                    first = false;
+                if (OUTPUT_STYLE == OutputStyle.XML) {
+                    out.println("\t\t<likelySubtag from=\"" + printingLocale +
+                        "\" to=\"" + printingTarget + "\"" +
+                        "/>" + CldrUtility.LINE_SEPARATOR + "\t\t" + "<!--" + comment + "-->");
                 } else {
-                    out.print(",");
+                    if (first) {
+                        first = false;
+                    } else {
+                        out.print(",");
+                    }
+                    if (comment.length() > 70 && SEPARATOR.equals(CldrUtility.LINE_SEPARATOR)) {
+                        comment = printingName(printingLocale, spacing) + SEPARATOR + "    // " + spacing + "=>" + spacing
+                            + printingName(printingTarget, spacing);
+                    }
+                    out.print(
+                        "  {"
+                            + SEPARATOR + "    // " + comment
+                            + SEPARATOR + "    \"" + printingLocale + "\","
+                            + SEPARATOR + "    \"" + printingTarget + "\""
+                            + CldrUtility.LINE_SEPARATOR + "  }");
                 }
-                if (comment.length() > 70 && SEPARATOR.equals(CldrUtility.LINE_SEPARATOR)) {
-                    comment = printingName(printingLocale, spacing) + SEPARATOR + "    // " + spacing + "=>" + spacing
-                        + printingName(printingTarget, spacing);
-                }
-                out.print(
-                    "  {"
-                        + SEPARATOR + "    // " + comment
-                        + SEPARATOR + "    \"" + printingLocale + "\","
-                        + SEPARATOR + "    \"" + printingTarget + "\""
-                        + CldrUtility.LINE_SEPARATOR + "  }");
             }
+            out.println(footer);
+            out.close();
         }
-        out.println(footer);
-        out.close();
+        return genFile;
     }
 
     public static String printingName(String locale, String spacing) {

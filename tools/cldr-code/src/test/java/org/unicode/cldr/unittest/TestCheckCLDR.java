@@ -550,8 +550,14 @@ public class TestCheckCLDR extends TestFmwk {
         Map<String, String> options = new HashMap<>();
         for (Phase phase : Phase.values()) {
             options.put(Options.Option.phase.getKey(), phase.toString());
-            for (String value : Arrays.asList("E10-836", CldrUtility.INHERITANCE_MARKER)) {
-
+            String value = "E10-836";
+            // The following code used to check values of both "E10-836" and CldrUtility.INHERITANCE_MARKER="↑↑↑",
+            // but the latter does not make sense; "↑↑↑" will be followed up through its parent chain, either
+            // yielding a real value or the root value (but never "↑↑↑"). In regular CLDR data the root value will
+            // be like "E10-836" but in production data those root entreis are stripped and the root value will be
+            // null. Hence CheckNew.handleCheck only checks for entries like "E10-836", not "↑↑↑", and the test
+            // should only check those as well.
+            {
                 // make a fake locale, starting with real root
 
                 CLDRFile root = annotationsFactory.make("root", false);

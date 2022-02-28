@@ -28,10 +28,10 @@ jobs:
           lfs: false
           ref: ${{ github.event.inputs.git-ref }}
         if: github.event.inputs.git-ref != ''
-      - name: Set up JDK 1.8
+      - name: Set up JDK
         uses: actions/setup-java@v1
         with:
-          java-version: 1.8
+          java-version: 11
       - name: Cache local Maven repository
         uses: actions/cache@v2
         with:
@@ -106,10 +106,10 @@ jobs:
           lfs: false
           ref: ${{ github.event.inputs.git-ref }}
         if: github.event.inputs.git-ref != ''
-      - name: Set up JDK 1.8
+      - name: Set up JDK
         uses: actions/setup-java@v1
         with:
-          java-version: 1.8
+          java-version: 11
       - name: Download cldr-code.jar
         uses: actions/download-artifact@v2
         with:

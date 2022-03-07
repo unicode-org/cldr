@@ -666,6 +666,8 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 }
             } else if (xpp.contains("posix")) {
                 continue;
+            } else if (path.startsWith("//ldml/personNames/")) { // CLDR-15384
+                continue;
             }
 
             errln("Comprehensive & no exception for path =>\t" + path);

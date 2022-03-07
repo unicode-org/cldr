@@ -23,6 +23,7 @@ import com.ibm.icu.impl.ICUResourceBundle;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R3;
+import org.unicode.cldr.util.CLDRLocale;
 
 /**
  * Provides a way to match the languages (locales) supported by a product to the
@@ -52,7 +53,7 @@ public class LocaleMatcher {
 
     public static final boolean DEBUG = false;
 
-    private static final ULocale UNKNOWN_LOCALE = new ULocale("und");
+    private static final ULocale UNKNOWN_LOCALE = new ULocale(CLDRLocale.UNKNOWN_LOCALE_NAME);
 
     /**
      * Threshold for falling back to the default (first) language. May make this
@@ -358,7 +359,7 @@ public class LocaleMatcher {
             final String language = languageCode.getLanguage();
             final String script = languageCode.getScript();
             final String region = languageCode.getCountry();
-            return new ULocale((language.length() == 0 ? "und"
+            return new ULocale((language.length() == 0 ? CLDRLocale.UNKNOWN_LOCALE_NAME
                 : language)
                 + "_"
                 + (script.length() == 0 ? "Zzzz" : script)

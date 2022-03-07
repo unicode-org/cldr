@@ -296,7 +296,7 @@ public class StandardCodes {
                 default:
                     for (Iterator<String> it = result.iterator(); it.hasNext();) {
                         String code = it.next();
-                        if (code.equals("root") || code.equals("QO"))
+                        if (code.equals(CLDRLocale.ROOT_NAME) || code.equals("QO"))
                             continue;
                         List<String> data = getFullData(type, code);
                         if (data.size() < 3) {
@@ -1076,7 +1076,7 @@ public class StandardCodes {
     static final String registryName = CldrUtility.getProperty("registry", "language-subtag-registry");
 
     public enum LstrType {
-        language("und", "zxx", "mul", "mis", "root"),
+        language(CLDRLocale.UNKNOWN_LOCALE_NAME, "zxx", "mul", "mis", CLDRLocale.ROOT_NAME),
         script("Zzzz", "Zsym", "Zxxx", "Zmth"),
         region("ZZ"),
         variant(),

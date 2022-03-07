@@ -2129,7 +2129,7 @@ public class SurveyAjax extends HttpServlet {
     }
 
     private boolean skipLocForImportingVotes(String loc) {
-        if ("und".equals(loc) || "root".equals(loc)) {
+        if (CLDRLocale.UNKNOWN_LOCALE_NAME.equals(loc) || CLDRLocale.ROOT_NAME.equals(loc)) {
             return true; // skip
         }
         return false;

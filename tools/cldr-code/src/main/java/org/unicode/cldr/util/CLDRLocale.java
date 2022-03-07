@@ -30,7 +30,9 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     /*
      * The name of the root locale. This is widely assumed to be "root".
      */
-    private static final String ROOT_NAME = "root";
+    public static final String ROOT_NAME = "root";
+
+    public static final String UNKNOWN_LOCALE_NAME = "und";
 
     public interface NameFormatter {
         String getDisplayName(CLDRLocale cldrLocale);

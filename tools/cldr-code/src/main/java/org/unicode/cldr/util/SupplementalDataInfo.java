@@ -4328,7 +4328,7 @@ public class SupplementalDataInfo {
         Set<String> temp = new HashSet<>();
         for (Entry<String, String> entry : likely.entrySet()) {
             String source = entry.getKey();
-            if (source.startsWith("und")) {
+            if (source.startsWith(CLDRLocale.UNKNOWN_LOCALE_NAME)) {
                 continue;
             }
             for (String s : getCombinations(source, ltp, likely, temp)) {

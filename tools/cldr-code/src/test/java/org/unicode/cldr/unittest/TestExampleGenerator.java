@@ -186,7 +186,15 @@ public class TestExampleGenerator extends TestFmwk {
 
         "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"([^\"]*+)\"]",
 
-        "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/long/standard" // Error: (TestExampleGenerator.java:245) No background:   <Coordinated Universal Time>    〖Coordinated Universal Time〗
+        "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/long/standard", // Error: (TestExampleGenerator.java:245) No background:   <Coordinated Universal Time>    〖Coordinated Universal Time〗
+
+        "//ldml/personNames/personName/namePattern[@_q=\"([^\"]*+)\"]", // CLDR-15384
+        "//ldml/personNames/personName[@length=\"([^\"]*+)\"]/namePattern[@_q=\"([^\"]*+)\"]", // CLDR-15384
+        "//ldml/personNames/personName[@length=\"([^\"]*+)\"][@style=\"([^\"]*+)\"]/namePattern[@_q=\"([^\"]*+)\"]", // CLDR-15384
+        "//ldml/personNames/personName[@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"]/namePattern[@_q=\"([^\"]*+)\"]", // CLDR-15384
+        "//ldml/personNames/personName[@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@style=\"([^\"]*+)\"]/namePattern[@_q=\"([^\"]*+)\"]", // CLDR-15384
+        "//ldml/personNames/personName[@usage=\"([^\"]*+)\"]/namePattern[@_q=\"([^\"]*+)\"]", // CLDR-15384
+        "//ldml/personNames/personName[@usage=\"([^\"]*+)\"][@style=\"([^\"]*+)\"]/namePattern[@_q=\"([^\"]*+)\"]" // CLDR-15384
         );
     // Add to above if the example SHOULD appear, but we don't have it yet. TODO Add later
 

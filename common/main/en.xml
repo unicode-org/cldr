@@ -9128,4 +9128,51 @@ annotations.
 		<featureName type="tnum">tabular numbers</featureName>
 		<featureName type="zero">slashed zero</featureName>
 	</typographicNames>
+	<personNames>
+		<personName length="monogram-narrow" style="informal">
+			<namePattern>{given-informal-initial}</namePattern>
+		</personName>
+		<personName length="monogram-narrow">
+			<namePattern>{surname-initial}</namePattern>
+		</personName>
+		<personName length="monogram" style="informal">
+			<namePattern>{given-informal-initial}{surname-initial}</namePattern>
+		</personName>
+		<personName length="monogram">
+			<namePattern>{given-initial}{given2-initial}{surname-initial}</namePattern>
+		</personName>
+		<personName usage="addressing" style="informal">
+			<namePattern>{given-informal}</namePattern>
+		</personName>
+		<personName usage="addressing">
+			<namePattern>{prefix} {surname}</namePattern>
+		</personName>
+		<personName usage="sorting" style="informal">
+			<namePattern>{surname}, {given-informal}</namePattern>
+		</personName>
+		<personName length="long" usage="sorting">
+			<namePattern>{surname}, {given} {given2} {suffix}</namePattern>
+		</personName>
+		<personName length="medium" usage="sorting">
+			<namePattern>{surname}, {given} {given2-initial}. {suffix}</namePattern>
+		</personName>
+		<personName length="short" usage="sorting">
+			<namePattern>{surname}, {given-initial}. {given2-initial}.</namePattern>
+		</personName>
+		<personName length="long" usage="referring" style="formal">
+			<namePattern>{given} {given2} {surname} {suffix}</namePattern>
+		</personName>
+		<personName length="medium" usage="referring" style="formal">
+			<namePattern>{given} {given2-initial}. {surname} {suffix}</namePattern>
+		</personName>
+		<personName length="short" usage="referring" style="formal">
+			<namePattern>{given-initial}. {given2-initial}. {surname}</namePattern>
+		</personName>
+		<personName length="short" usage="referring" style="informal">
+			<namePattern>{given-informal} {surname-initial}. {suffix}</namePattern>
+		</personName>
+		<personName>
+			<namePattern>{given-informal} {surname}</namePattern>
+		</personName>
+	</personNames>
 </ldml>

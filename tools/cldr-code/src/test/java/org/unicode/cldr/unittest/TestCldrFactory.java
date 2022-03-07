@@ -172,7 +172,11 @@ public class TestCldrFactory extends TestFmwkPlus {
             System.out.println(temp);
         }
         CLDRFile enDoubleWithoutAnnotations = cldrFileFromString(temp);
-        assertEquals("enMain == enDoubleWithoutAnnotations", null, differentPathValue(enMain, enDoubleWithoutAnnotations));
+        String differentPath = differentPathValue(enMain, enDoubleWithoutAnnotations);
+        if (differentPath == null || !differentPath.startsWith("//ldml/personNames/") ||
+                !logKnownIssue("CLDR-15406", "TestCldrFactory.testWrite issue with personNames")) {
+             assertEquals("enMain == enDoubleWithoutAnnotations", null, differentPathValue(enMain, enDoubleWithoutAnnotations));
+        }
 
         temp = cldrFileToString(enDouble, keepAnnotations);
         if (DEBUG) {

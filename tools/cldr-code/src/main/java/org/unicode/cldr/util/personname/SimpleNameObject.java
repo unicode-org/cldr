@@ -31,9 +31,10 @@ import com.ibm.icu.util.ULocale;
         }
 
         @Override
-        public String getBestValue(ModifiedField modifiedField, Set<Modifier> outputUnhandledModifiers) {
-            // TODO flesh out the SimpleNameObject to handle modifiers
-            // and return the unhandled ones
+        public String getBestValue(ModifiedField modifiedField, Set<Modifier> remainingModifers) {
+            // TODO Alex flesh out the SimpleNameObject to handle modifiers
+            // and return the ones that need handling by the formatter
+
             // For now just return the item.
             return patternData.get(modifiedField);
         }
@@ -44,18 +45,12 @@ import com.ibm.icu.util.ULocale;
         }
 
         /**
-         * TODO Replace by builder
+         * TODO Mark Replace by builder
          */
         public SimpleNameObject(ULocale nameLocale, ImmutableMap<ModifiedField, String> patternData) {
             this.nameLocale = nameLocale == null ? ULocale.ROOT : nameLocale;
             this.patternData = patternData;
         }
-
-        //TODO: add methods to
-        // (a) maximize the pattern data (have every possible set of modifiers for each field, so order is irrelevant).
-        //      Brute force is just try all combinations. That is probably good enough for CLDR.
-        // (b) minimize the pattern data (produce a compact version that minimizes the number of strings (not necessarily the absolute minimum)
-        //      Thoughts: gather together all of the keys that have the same value, and coalesce. Exact method TBD
 
         @Override
         public String toString() {

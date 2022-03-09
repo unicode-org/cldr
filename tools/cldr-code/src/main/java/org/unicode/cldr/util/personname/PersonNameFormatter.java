@@ -27,8 +27,8 @@ import com.ibm.icu.util.ULocale;
 
 /**
  * Rough sketch for now
- * TODO Make classes/methods private that don't need to be public
- * TODO Check for invalid parameters
+ * TODO Mark Make classes/methods private that don't need to be public
+ * TODO Peter Check for invalid parameters
  */
 
 public class PersonNameFormatter {
@@ -206,7 +206,7 @@ public class PersonNameFormatter {
         }
         @Override
         public String toString() {
-            // TODO: escape \ and { in literals
+            // TODO Rich escape \ and { in literals
             return literal != null ? literal : modifiedField.toString();
         }
     }
@@ -225,19 +225,19 @@ public class PersonNameFormatter {
 
         public String format(NameObject nameObject) {
             StringBuilder result = new StringBuilder();
-            Set<Modifier> unhandledModifiers = EnumSet.noneOf(Modifier.class);
+            Set<Modifier> remainingModifers = EnumSet.noneOf(Modifier.class);
 
             for (NamePatternElement element : elements) {
                 final String literal = element.getLiteral();
                 if (literal != null) {
                     result.append(literal);
                 } else {
-                    final String bestValue = nameObject.getBestValue(element.getModifiedField(), unhandledModifiers);
-                    if (!unhandledModifiers.isEmpty()) {
-                        // TODO Apply unhandled modifiers algorithmically where possible
+                    final String bestValue = nameObject.getBestValue(element.getModifiedField(), remainingModifers);
+                    if (!remainingModifers.isEmpty()) {
+                        // TODO Alex Apply unhandled modifiers algorithmically where possible
 
                         // then clear the results for the next placeholder
-                        unhandledModifiers.clear();
+                        remainingModifers.clear();
                     }
                     result.append(bestValue);
                 }
@@ -246,7 +246,7 @@ public class PersonNameFormatter {
         }
 
         /**
-         * TODO Replace by builder
+         * TODO Mark Replace by builder
          */
         public NamePattern(List<NamePatternElement> elements) {
             this.elements = elements;
@@ -260,8 +260,6 @@ public class PersonNameFormatter {
             this.fields = ImmutableSet.copyOf(result);
         }
 
-        // TODO: make convenience method that parses a string, correctly handling {...} but also \{ and \\
-
         /** convenience method for testing */
         public static NamePattern from(Object... elements) {
             return new NamePattern(makeList(elements));
@@ -272,9 +270,9 @@ public class PersonNameFormatter {
         }
 
         private static List<NamePatternElement> parse(String patternString) {
-            // TODO account for quotes
             List<NamePatternElement> result = new ArrayList<>();
             int position = 0; // position is at start, or after }
+            // TODO Rich handle \{, \\\{...
             while (true) {
                 int leftCurly = patternString.indexOf('{', position);
                 if (leftCurly < 0) {
@@ -523,7 +521,7 @@ public class PersonNameFormatter {
 
                 Collection<NamePattern> namePatterns = parametersAndPatterns.getValue();
 
-                // TODO pick the NamePattern that best matches the fields in the nameObject
+                // TODO Alex pick the NamePattern that best matches the fields in the nameObject
                 // for now, just return the first
 
                 return namePatterns.iterator().next();
@@ -532,20 +530,20 @@ public class PersonNameFormatter {
         }
 
         /**
-         * TODO Replace by builder. Eventually will be built from CLDR XML data.
+         * TODO Mark Replace by builder. Eventually will be built from CLDR XML data.
          * The multimap values must retain the order they are built with!
          */
         public NamePatternData(ImmutableMap<ULocale, Order> localeToOrder, ImmutableListMultimap<ParameterMatcher, NamePattern> formatParametersToNamePattern) {
             this.localeToOrder = localeToOrder == null ? ImmutableMap.of() : localeToOrder;
             this.parameterMatcherToNamePattern = formatParametersToNamePattern;
-            // TODO: check formatParametersToNamePattern for validity
+            // TODO Mark check formatParametersToNamePattern for validity
             // * no null values
             // * no ParameterMatcher should be completely masked by previous ones
             // * each entry in ParameterMatcher must have at least one NamePattern
             // * the final entry must have MATCH_ALL as the key
         }
 
-        // TODO: add method that takes a string instead of a NamePatten
+        // TODO Mark add method that takes a string instead of a NamePatten
 
         @Override
         public String toString() {
@@ -560,7 +558,7 @@ public class PersonNameFormatter {
     }
 
     public static interface NameObject {
-        public String getBestValue(ModifiedField modifiedField, Set<Modifier> outputUnhandledModifiers);
+        public String getBestValue(ModifiedField modifiedField, Set<Modifier> remainingModifers);
         public ULocale getNameLocale();
         public Set<Field> getAvailableFields();
     }
@@ -611,9 +609,16 @@ public class PersonNameFormatter {
         for (Entry<Integer, Pair<ParameterMatcher, NamePattern>> entry : ordered.entrySet()) {
             formatParametersToNamePattern.put(entry.getValue().first, entry.getValue().second);
         }
-        // TODO Add locale map to en.xml so we can read it
+        // TODO Peter Add locale map to en.xml so we can read it
         ImmutableMap<ULocale, Order> localeToOrder = ImmutableMap.of();
 
         this.namePatternMap = new NamePatternData(localeToOrder, ImmutableListMultimap.copyOf(formatParametersToNamePattern));
     }
+
+    //TODO Alex add methods to
+    // (a) maximize the pattern data (have every possible set of modifiers for each field, so order is irrelevant).
+    //      Brute force is just try all combinations. That is probably good enough for CLDR.
+    // (b) minimize the pattern data (produce a compact version that minimizes the number of strings (not necessarily the absolute minimum)
+    //      Thoughts: gather together all of the keys that have the same value, and coalesce. Exact method TBD
+
 }

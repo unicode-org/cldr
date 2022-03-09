@@ -84,12 +84,13 @@ public class TestPersonNameFormatter extends TestFmwk{
     public void TestWithCLDR() {
         PersonNameFormatter personNameFormatter = new PersonNameFormatter(ToolConfig.getToolInstance().getEnglish());
 
-        // TODO make a SimpleNameObject.from() that takes a single string and parses, for ease of testing
+        // TODO Mark make a SimpleNameObject.from() that takes a single string and parses, for ease of testing
 
         FormatParameters formatParameters1 = FormatParameters.from("length=short usage=sorting");
         FormatParameters formatParameters2 = FormatParameters.from("length=long style=formal usage=referring");
 
-        // TODO fix the code to strip empty fields
+        // TODO Rich once the code is fixed to strip empty fields, fix this test
+
         check(personNameFormatter, sampleNameObject1, formatParameters1, "Smith, null");
         check(personNameFormatter, sampleNameObject1, formatParameters2, "John Bob Smith Jr.");
 

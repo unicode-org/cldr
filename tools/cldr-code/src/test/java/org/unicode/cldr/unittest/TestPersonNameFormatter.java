@@ -2,6 +2,7 @@ package org.unicode.cldr.unittest;
 
 import java.util.EnumSet;
 
+import org.unicode.cldr.tool.ToolConfig;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Field;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
@@ -37,7 +38,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         // TODO make a convenience function ParameterMatcher.from() that takes a single string and parses, for ease of testing
 
         ParameterMatcher nameRuleParameters1 = new ParameterMatcher(
-            EnumSet.of(Length.medium, Length.narrow),
+            EnumSet.of(Length.short_name, Length.medium),
             EnumSet.of(Style.formal),
             EnumSet.of(Usage.addressing),
             null);
@@ -57,21 +58,41 @@ public class TestPersonNameFormatter extends TestFmwk{
 
         // TODO make a SimpleNameObject.from() that takes a single string and parses, for ease of testing
 
-        NameObject nameObject = new SimpleNameObject(ULocale.FRENCH, ImmutableMap.of(
-            new ModifiedField(Field.given), "John",
-            new ModifiedField(Field.given2, Modifier.initial), "B",
-            new ModifiedField(Field.given2), "Bob",
-            new ModifiedField(Field.surname), "Smith"));
 
-        FormatParameters formatParameters1 = FormatParameters.from("length=medium style=formal usage=addressing");
+        FormatParameters formatParameters1 = FormatParameters.from("length=short style=formal usage=addressing");
         FormatParameters formatParameters2 = FormatParameters.from("length=long style=formal usage=addressing");
 
-        check(personNameFormatter, nameObject, formatParameters1, "John B. Smith");
-        check(personNameFormatter, nameObject, formatParameters2, "John Bob Smith");
+        check(personNameFormatter, sampleNameObject1, formatParameters1, "John B. Smith");
+        check(personNameFormatter, sampleNameObject1, formatParameters2, "John Bob Smith");
     }
+
+    private NameObject sampleNameObject1 = new SimpleNameObject(ULocale.FRENCH, ImmutableMap.of(
+        new ModifiedField(Field.prefix), "Mr.",
+        new ModifiedField(Field.given), "John",
+        new ModifiedField(Field.given2, Modifier.initial), "B",
+        new ModifiedField(Field.given2), "Bob",
+        new ModifiedField(Field.surname), "Smith",
+        new ModifiedField(Field.suffix), "Jr."
+        ));
+
 
     private void check(PersonNameFormatter personNameFormatter, NameObject nameObject, FormatParameters nameFormatParameters1, String expected) {
         String actual = personNameFormatter.format(nameObject, nameFormatParameters1);
         assertEquals("\n\t\t" + personNameFormatter + ";\n\t\t" + nameObject + ";\n\t\t" + nameFormatParameters1.toString(), expected, actual);
+    }
+
+    public void TestWithCLDR() {
+        PersonNameFormatter personNameFormatter = new PersonNameFormatter(ToolConfig.getToolInstance().getEnglish());
+
+        // TODO Mark make a SimpleNameObject.from() that takes a single string and parses, for ease of testing
+
+        FormatParameters formatParameters1 = FormatParameters.from("length=short usage=sorting");
+        FormatParameters formatParameters2 = FormatParameters.from("length=long style=formal usage=referring");
+
+        // TODO Rich once the code is fixed to strip empty fields, fix this test
+
+        check(personNameFormatter, sampleNameObject1, formatParameters1, "Smith, null");
+        check(personNameFormatter, sampleNameObject1, formatParameters2, "John Bob Smith Jr.");
+
     }
 }

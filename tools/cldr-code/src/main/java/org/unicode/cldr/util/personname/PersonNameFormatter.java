@@ -4,21 +4,31 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.EnumSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.function.Function;
+
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableBiMap;
 import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.LinkedListMultimap;
+import com.google.common.collect.ListMultimap;
+import com.ibm.icu.impl.Pair;
 import com.ibm.icu.util.ULocale;
 
 /**
  * Rough sketch for now
- * TODO Make classes/methods private that don't need to be public
- * TODO Check for invalid parameters
+ * TODO Mark Make classes/methods private that don't need to be public
+ * TODO Peter Check for invalid parameters
  */
 
 public class PersonNameFormatter {
@@ -35,19 +45,26 @@ public class PersonNameFormatter {
         // There is a slight complication because 'long' collides with a keyword.
         long_name,
         medium,
-        narrow,
+        short_name,
         monogram,
         monogram_narrow;
+
+        private static ImmutableBiMap<String,Length> exceptionNames = ImmutableBiMap.of(
+            "long", long_name,
+            "short", short_name,
+            "monogram-narrow", monogram_narrow);
 
         /**
          * Use this instead of valueOf
          */
         static Length from(String item) {
-            return item.equals("long") ? long_name : valueOf(item);
+            Length result = exceptionNames.get(item);
+            return result != null ? result : Length.valueOf(item);
         }
         @Override
         public String toString() {
-            return this == long_name ? "long" : name();
+            String result = exceptionNames.inverse().get(this);
+            return result != null ? result : name();
         }
     }
 
@@ -189,7 +206,7 @@ public class PersonNameFormatter {
         }
         @Override
         public String toString() {
-            // TODO: escape \ and { in literals
+            // TODO Rich escape \ and { in literals
             return literal != null ? literal : modifiedField.toString();
         }
     }
@@ -208,19 +225,19 @@ public class PersonNameFormatter {
 
         public String format(NameObject nameObject) {
             StringBuilder result = new StringBuilder();
-            Set<Modifier> unhandledModifiers = EnumSet.noneOf(Modifier.class);
+            Set<Modifier> remainingModifers = EnumSet.noneOf(Modifier.class);
 
             for (NamePatternElement element : elements) {
                 final String literal = element.getLiteral();
                 if (literal != null) {
                     result.append(literal);
                 } else {
-                    final String bestValue = nameObject.getBestValue(element.getModifiedField(), unhandledModifiers);
-                    if (!unhandledModifiers.isEmpty()) {
-                        // TODO Apply unhandled modifiers algorithmically where possible
+                    final String bestValue = nameObject.getBestValue(element.getModifiedField(), remainingModifers);
+                    if (!remainingModifers.isEmpty()) {
+                        // TODO Alex Apply unhandled modifiers algorithmically where possible
 
                         // then clear the results for the next placeholder
-                        unhandledModifiers.clear();
+                        remainingModifers.clear();
                     }
                     result.append(bestValue);
                 }
@@ -229,7 +246,7 @@ public class PersonNameFormatter {
         }
 
         /**
-         * TODO Replace by builder
+         * TODO Mark Replace by builder
          */
         public NamePattern(List<NamePatternElement> elements) {
             this.elements = elements;
@@ -243,11 +260,40 @@ public class PersonNameFormatter {
             this.fields = ImmutableSet.copyOf(result);
         }
 
-        // TODO: make convenience method that parses a string, correctly handling {...} but also \{ and \\
-
         /** convenience method for testing */
         public static NamePattern from(Object... elements) {
             return new NamePattern(makeList(elements));
+        }
+
+        public static NamePattern from(String patternString) {
+            return new NamePattern(parse(patternString));
+        }
+
+        private static List<NamePatternElement> parse(String patternString) {
+            List<NamePatternElement> result = new ArrayList<>();
+            int position = 0; // position is at start, or after }
+            // TODO Rich handle \{, \\\{...
+            while (true) {
+                int leftCurly = patternString.indexOf('{', position);
+                if (leftCurly < 0) {
+                    if (position < patternString.length()) {
+                        result.add(new NamePatternElement(patternString.substring(position, patternString.length())));
+                    }
+                    break;
+                }
+                if (position < leftCurly) {
+                    result.add(new NamePatternElement(patternString.substring(position, leftCurly)));
+                }
+               ++leftCurly;
+                int rightCurly = patternString.indexOf('}', leftCurly);
+                if (rightCurly < 0) {
+                    throw new IllegalArgumentException("Unmatched {");
+                }
+                NamePatternElement mf = new NamePatternElement(ModifiedField.from(patternString.substring(leftCurly, rightCurly)));
+                result.add(mf);
+                position = ++rightCurly;
+            }
+            return result;
         }
 
         private static List<NamePatternElement> makeList(Object... elements2) {
@@ -400,6 +446,25 @@ public class PersonNameFormatter {
             this.usages = usages == null ? ImmutableSet.of() : ImmutableSet.copyOf(usages);
             this.orders = orders == null ? ImmutableSet.of() : ImmutableSet.copyOf(orders);
         }
+
+        public ParameterMatcher(String lengths, String styles, String usages, String orders) {
+            this.lengths = setFrom(lengths, Length::from);
+            this.styles = setFrom(styles, Style::valueOf);
+            this.usages = setFrom(usages, Usage::valueOf);
+            this.orders = setFrom(orders, Order::valueOf);
+        }
+
+        private <T> Set<T> setFrom(String parameter, Function<String, T> func) {
+            if (parameter == null || parameter.isBlank()) {
+                return ImmutableSet.of();
+            }
+            Set<T> result = new TreeSet<>();
+            for (String part : SPLIT_SPACE.split(parameter)) {
+                result.add(func.apply(part));
+            }
+            return ImmutableSet.copyOf(result);
+        }
+
         @Override
         public String toString() {
             List<String> items = new ArrayList<>();
@@ -417,7 +482,7 @@ public class PersonNameFormatter {
             }
             return items.isEmpty() ? "ANY" : "{" + Joiner.on(" ").join(items) + "}";
         }
-        public static final ParameterMatcher MATCH_ALL = new ParameterMatcher(null, null, null, null);
+        public static final ParameterMatcher MATCH_ALL = new ParameterMatcher((Set<Length>)null, null, null, null);
         @Override
         public boolean equals(Object obj) {
             ParameterMatcher that = (ParameterMatcher) obj;
@@ -456,7 +521,7 @@ public class PersonNameFormatter {
 
                 Collection<NamePattern> namePatterns = parametersAndPatterns.getValue();
 
-                // TODO pick the NamePattern that best matches the fields in the nameObject
+                // TODO Alex pick the NamePattern that best matches the fields in the nameObject
                 // for now, just return the first
 
                 return namePatterns.iterator().next();
@@ -465,20 +530,20 @@ public class PersonNameFormatter {
         }
 
         /**
-         * TODO Replace by builder. Eventually will be built from CLDR XML data.
+         * TODO Mark Replace by builder. Eventually will be built from CLDR XML data.
          * The multimap values must retain the order they are built with!
          */
         public NamePatternData(ImmutableMap<ULocale, Order> localeToOrder, ImmutableListMultimap<ParameterMatcher, NamePattern> formatParametersToNamePattern) {
             this.localeToOrder = localeToOrder == null ? ImmutableMap.of() : localeToOrder;
             this.parameterMatcherToNamePattern = formatParametersToNamePattern;
-            // TODO: check formatParametersToNamePattern for validity
+            // TODO Mark check formatParametersToNamePattern for validity
             // * no null values
             // * no ParameterMatcher should be completely masked by previous ones
             // * each entry in ParameterMatcher must have at least one NamePattern
             // * the final entry must have MATCH_ALL as the key
         }
 
-        // TODO: add method that takes a string instead of a NamePatten
+        // TODO Mark add method that takes a string instead of a NamePatten
 
         @Override
         public String toString() {
@@ -487,17 +552,13 @@ public class PersonNameFormatter {
         }
 
         private String show(ImmutableListMultimap<ParameterMatcher, NamePattern> multimap) {
-//            StringBuilder result = new StringBuilder();
-//            for (Entry<ParameterMatcher, Collection<NamePattern>> entry : multimap.asMap().entrySet()) {
-//                ParameterMatcher key = entry.getKey();
-//                if
-//            }
-            return parameterMatcherToNamePattern.asMap().toString();
+            String result = parameterMatcherToNamePattern.asMap().toString();
+            return result.replace("], ", "],\n\t\t\t"); // for readability
         }
     }
 
     public static interface NameObject {
-        public String getBestValue(ModifiedField modifiedField, Set<Modifier> outputUnhandledModifiers);
+        public String getBestValue(ModifiedField modifiedField, Set<Modifier> remainingModifers);
         public ULocale getNameLocale();
         public Set<Field> getAvailableFields();
     }
@@ -523,4 +584,41 @@ public class PersonNameFormatter {
         // then format using it
         return bestPattern.format(nameObject);
     }
+
+    public PersonNameFormatter(CLDRFile cldrFile) {
+        ListMultimap<ParameterMatcher, NamePattern> formatParametersToNamePattern = LinkedListMultimap.create();
+        Map<Integer, Pair<ParameterMatcher, NamePattern>> ordered = new TreeMap<>();
+        // read out the data and order it properly
+        for (String path : cldrFile) {
+            if (path.startsWith("//ldml/personName")) {
+                // eg //ldml/personNames/personName[@length="long"][@usage="sorting"]/namePattern[@_q="7"]
+                // value = {surname}, {given} {given2} {suffix}
+                String value = cldrFile.getStringValue(path);
+                XPathParts parts = XPathParts.getFrozenInstance(path);
+                int q = Integer.parseInt(parts.getAttributeValue(-1, "_q"));
+                ParameterMatcher pm = new ParameterMatcher(
+                    parts.getAttributeValue(-2, "length"),
+                    parts.getAttributeValue(-2, "style"),
+                    parts.getAttributeValue(-2, "usage"),
+                    parts.getAttributeValue(-2, "order")
+                    );
+                NamePattern np = NamePattern.from(value);
+                ordered.put(q, Pair.of(pm, np));
+            }
+        }
+        for (Entry<Integer, Pair<ParameterMatcher, NamePattern>> entry : ordered.entrySet()) {
+            formatParametersToNamePattern.put(entry.getValue().first, entry.getValue().second);
+        }
+        // TODO Peter Add locale map to en.xml so we can read it
+        ImmutableMap<ULocale, Order> localeToOrder = ImmutableMap.of();
+
+        this.namePatternMap = new NamePatternData(localeToOrder, ImmutableListMultimap.copyOf(formatParametersToNamePattern));
+    }
+
+    //TODO Alex add methods to
+    // (a) maximize the pattern data (have every possible set of modifiers for each field, so order is irrelevant).
+    //      Brute force is just try all combinations. That is probably good enough for CLDR.
+    // (b) minimize the pattern data (produce a compact version that minimizes the number of strings (not necessarily the absolute minimum)
+    //      Thoughts: gather together all of the keys that have the same value, and coalesce. Exact method TBD
+
 }

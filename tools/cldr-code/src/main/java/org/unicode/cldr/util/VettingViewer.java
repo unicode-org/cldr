@@ -58,6 +58,12 @@ public class VettingViewer<T> {
     private static final String CONNECT_PREFIX = "₍_";
     private static final String CONNECT_SUFFIX = "₎";
 
+    private static final String HELP_MESSAGE = "<p>The following summarizes the Priority Items across locales, " +
+        "using the default coverage levels for your organization for each locale. " +
+        "Before using, please read the instructions at " +
+        "<a target='CLDR_ST_DOCS' href='" + CLDRURLS.PRIORITY_SUMMARY_HELP_URL + "'>Priority " +
+        "Items Summary</a>.</p>\n";
+
     private static final String TH_AND_STYLES = "<th class='tv-th' style='text-align:left'>";
 
     private static final String SPLIT_CHAR = "\uFFFE";
@@ -65,6 +71,8 @@ public class VettingViewer<T> {
     private static final boolean DEBUG_THREADS = false;
 
     private static final Set<CheckCLDR.CheckStatus.Subtype> OK_IF_VOTED = EnumSet.of(Subtype.sameAsEnglish);
+
+    private static final Level NEUTRAL_ORG_LEVEL = Level.COMPREHENSIVE;
 
     public static boolean orgIsNeutralForSummary(Organization org) {
         return org.equals(Organization.surveytool);
@@ -724,15 +732,30 @@ public class VettingViewer<T> {
         }
     }
 
+    /**
+     * Get the number of locales to be summarized for the given organization
+     *
+     * @param org the organization
+     * @return the number of locales
+     */
+    public int getLocaleCount(Organization org) {
+        int localeCount = 0;
+        List<Level> levelsToCheck = new ArrayList<>();
+        if (orgIsNeutralForSummary(org)) {
+            levelsToCheck.add(NEUTRAL_ORG_LEVEL);
+        } else {
+            levelsToCheck.addAll(Arrays.asList(Level.values()));
+        }
+        for (Level lv : levelsToCheck) {
+            Map<String, String> sortedNames = getSortedNames(org, lv);
+            localeCount += sortedNames.size();
+        }
+        return localeCount;
+    }
+
     public void generatePriorityItemsSummary(Appendable output, EnumSet<Choice> choices, T organization) {
         try {
-            output
-                .append("<p>The following summarizes the Priority Items across locales, " +
-                    "using the default coverage levels for your organization for each locale. " +
-                    "Before using, please read the instructions at " +
-                    "<a target='CLDR_ST_DOCS' href='" + CLDRURLS.PRIORITY_SUMMARY_HELP_URL + "'>Priority " +
-                    "Items Summary</a>.</p>\n");
-
+            output.append(HELP_MESSAGE);
             StringBuilder headerRow = new StringBuilder();
             headerRow
                 .append("<tr class='tvs-tr'>")
@@ -749,7 +772,7 @@ public class VettingViewer<T> {
             String header = headerRow.toString();
 
             if (orgIsNeutralForSummary((Organization) organization)) {
-                writeSummaryTable(output, header, Level.COMPREHENSIVE, choices, organization);
+                writeSummaryTable(output, header, NEUTRAL_ORG_LEVEL, choices, organization);
             } else {
                 for (Level level : Level.values()) {
                     writeSummaryTable(output, header, level, choices, organization);
@@ -758,7 +781,6 @@ public class VettingViewer<T> {
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e); // dang'ed checked exceptions
         }
-
     }
 
     /**
@@ -768,7 +790,6 @@ public class VettingViewer<T> {
      *
      * When done, appendTo() is called to append the output to the original requester.
      * @author srl
-     *
      */
     private class WriteContext {
 
@@ -980,30 +1001,10 @@ public class VettingViewer<T> {
      * @param choices
      * @param organization
      * @throws IOException
-     *
-     * Called only by generateSummaryHtmlErrorTables
      */
     private void writeSummaryTable(Appendable output, String header, Level desiredLevel,
         EnumSet<Choice> choices, T organization) throws IOException {
-
-        Map<String, String> sortedNames = new TreeMap<>(CLDRConfig.getInstance().getCollator());
-
-        // Gather the relevant paths
-        // Each one will be marked with the choice that it triggered.
-
-        // TODO Fix HACK
-        // We are going to ignore the predicate for now, just using the locales that have explicit coverage.
-        // in that locale, or allow all locales for admin@
-        LocalesWithExplicitLevel includeLocale = new LocalesWithExplicitLevel((Organization) organization, desiredLevel);
-
-        for (String localeID : cldrFactory.getAvailable()) {
-            if (defaultContentLocales.contains(localeID)
-                || localeID.equals("en")
-                || !includeLocale.is(localeID)) {
-                continue;
-            }
-            sortedNames.put(getName(localeID), localeID);
-        }
+        Map<String, String> sortedNames = getSortedNames((Organization) organization, desiredLevel);
         if (sortedNames.isEmpty()) {
             return;
         }
@@ -1034,6 +1035,24 @@ public class VettingViewer<T> {
             showSubtypes(output, sortedNames, localeNameToFileInfo, totals, true);
             showSubtypes(output, sortedNames, localeNameToFileInfo, totals, false);
         }
+    }
+
+    private Map<String, String> getSortedNames(Organization org, Level desiredLevel) {
+        Map<String, String> sortedNames = new TreeMap<>(CLDRConfig.getInstance().getCollator());
+        // TODO Fix HACK
+        // We are going to ignore the predicate for now, just using the locales that have explicit coverage.
+        // in that locale, or allow all locales for admin@
+        LocalesWithExplicitLevel includeLocale = new LocalesWithExplicitLevel(org, desiredLevel);
+
+        for (String localeID : cldrFactory.getAvailable()) {
+            if (defaultContentLocales.contains(localeID)
+                || localeID.equals("en")
+                || !includeLocale.is(localeID)) {
+                continue;
+            }
+            sortedNames.put(getName(localeID), localeID);
+        }
+        return sortedNames;
     }
 
     private final boolean USE_FORKJOIN = false;

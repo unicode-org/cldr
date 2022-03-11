@@ -285,6 +285,27 @@
 //ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"%A\"]        ; Misc ; Minimal Pairs ; Case (for measurement units) ; &caseNumber($1) ; LTR_ALWAYS
 //ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"%A\"]        ; Misc ; Minimal Pairs ; Gender (for measurement units) ; &genderNumber($1) ; LTR_ALWAYS
 
+//ldml/personNames/nameOrder[@nameLocales=\"%A\"][@order=\"%A\"]    ; Misc ; Person Name Formats ; Name Order For Languages ; $1
+//ldml/personNames/personName/namePattern[@_q=\"%A\"]               ; Misc ; Person Name Formats ; Fallback Name Pattern ; null
+
+//ldml/personNames/personName[@length=\"%A\"][@usage=\"%A\"][@style=\"%A\"][@order=\"%A\"]/namePattern[@_q=\"%A\"]  ; Misc ; Person Name Formats ; Name Patterns for Length $1 ; usage-$2-style-$3-order-$4
+//ldml/personNames/personName[@length=\"%A\"][@usage=\"%A\"][@style=\"%A\"]/namePattern[@_q=\"%A\"]         ; Misc ; Person Name Formats ; Name Patterns for Length $1 ; usage-$2-style-$3-order-any
+//ldml/personNames/personName[@length=\"%A\"][@usage=\"%A\"][@order=\"%A\"]/namePattern[@_q=\"%A\"]         ; Misc ; Person Name Formats ; Name Patterns for Length $1 ; usage-$2-style-any-order-$3
+//ldml/personNames/personName[@length=\"%A\"][@usage=\"%A\"]/namePattern[@_q=\"%A\"]                ; Misc ; Person Name Formats ; Name Patterns for Length $1 ; usage-$2-style-any-order-any
+//ldml/personNames/personName[@length=\"%A\"][@style=\"%A\"][@order=\"%A\"]/namePattern[@_q=\"%A\"]         ; Misc ; Person Name Formats ; Name Patterns for Length $1 ; usage-any-style-$2-order-$3
+//ldml/personNames/personName[@length=\"%A\"][@style=\"%A\"]/namePattern[@_q=\"%A\"]                ; Misc ; Person Name Formats ; Name Patterns for Length $1 ; usage-any-style-$2-order-any
+//ldml/personNames/personName[@length=\"%A\"][@order=\"%A\"]/namePattern[@_q=\"%A\"]                ; Misc ; Person Name Formats ; Name Patterns for Length $1 ; usage-any-style-any-order-$2
+//ldml/personNames/personName[@length=\"%A\"]/namePattern[@_q=\"%A\"]                       ; Misc ; Person Name Formats ; Name Patterns for Length $1 ; usage-any-style-any-order-any
+
+//ldml/personNames/personName[@usage=\"%A\"][@style=\"%A\"][@order=\"%A\"]/namePattern[@_q=\"%A\"]         ; Misc ; Person Name Formats ; Name Patterns for Length any ; usage-$1-style-$2-order-$3
+//ldml/personNames/personName[@usage=\"%A\"][@style=\"%A\"]/namePattern[@_q=\"%A\"]                 ; Misc ; Person Name Formats ; Name Patterns for Length any ; usage-$1-style-$2-order-any
+//ldml/personNames/personName[@usage=\"%A\"][@order=\"%A\"]/namePattern[@_q=\"%A\"]                 ; Misc ; Person Name Formats ; Name Patterns for Length any ; usage-$1-style-any-order-$2
+//ldml/personNames/personName[@usage=\"%A\"]/namePattern[@_q=\"%A\"]                        ; Misc ; Person Name Formats ; Name Patterns for Length any ; usage-$1-style-any-order-any
+//ldml/personNames/personName[@style=\"%A\"][@order=\"%A\"]/namePattern[@_q=\"%A\"]                 ; Misc ; Person Name Formats ; Name Patterns for Length any ; usage-any-style-$1-order-$2
+//ldml/personNames/personName[@style=\"%A\"]/namePattern[@_q=\"%A\"]                        ; Misc ; Person Name Formats ; Name Patterns for Length any ; usage-any-style-$1-order-any
+//ldml/personNames/personName[@order=\"%A\"]/namePattern[@_q=\"%A\"]                        ; Misc ; Person Name Formats ; Name Patterns for Length any ; usage-any-style-any-order-$1
+
+
 #Emoji, etc.
 
 //ldml/characterLabels/characterLabelPattern[@type="%A"][@count="%A"]	; Characters ; Category ; Pattern ; $1-$2
@@ -323,9 +344,6 @@
 //ldml/collations/collation[@type="%A"]/(%E)(.*)	; Misc ; Linguistic Elements ; Collation ; $1-$2-$3 ; HIDE
 //ldml/collations/collation[@type="%A"]	; Misc ; Linguistic Elements ; Collation ; $1 ; HIDE
 
-
-# HIDE FOR NOW CLDR-15384
-//ldml/personNames/(.*)         ; Special ; Suppress ; PersonNames ; $1 ; HIDE
 
 # HIDE OTHERS
 //ldml/layout/orientation/(%E)                              ; Special ; Alphabetic Information ; Layout ; $1 ; HIDE

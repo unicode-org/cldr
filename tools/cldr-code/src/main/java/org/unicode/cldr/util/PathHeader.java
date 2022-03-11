@@ -240,6 +240,7 @@ public class PathHeader implements Comparable<PathHeader> {
 
         Displaying_Lists( SectionId.Misc, "Displaying Lists"),
         MinimalPairs(SectionId.Misc, "Minimal Pairs"),
+        PersonNameFormats(SectionId.Misc, "Person Name Formats"),
         Transforms( SectionId.Misc),
 
         Identity( SectionId.Special),

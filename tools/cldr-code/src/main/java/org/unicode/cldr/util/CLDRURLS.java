@@ -118,6 +118,7 @@ public abstract class CLDRURLS {
     public static final String NUMBERS_SHORT = "https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns#h.eradhhuxzqqz";
     public static final String NUMBER_PATTERNS = "https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns#h.j899g3kk2p1z";
     public static final String PARSE_LENIENT = "https://cldr.unicode.org/translation/core-data/alphabetic-information#h.j3x0cwalqgqt";
+    public static final String PERSON_NAME_FORMATS = "https://cldr.unicode.org/translation/miscellaneous-person-name-formats";
     public static final String PLURALS_HELP = "https://cldr.unicode.org/translation/getting-started/plurals-units";
     public static final String PLURALS_HELP_MINIMAL = "https://cldr.unicode.org/translation/getting-started/plurals-units#h.pnla5cp3nl4l";
     public static final String SCRIPT_NAMES = "https://cldr.unicode.org/translation/displaynames/script-names";

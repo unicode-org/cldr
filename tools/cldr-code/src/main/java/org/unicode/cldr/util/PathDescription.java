@@ -378,6 +378,15 @@ public class PathDescription {
         + "Minimal pairs for genders. For more information, please see "
         + CLDRURLS.GRAMMATICAL_INFLECTION + ".\n"
 
+        + "^//ldml/personNames/nameOrder\\[@nameLocales=\"([^\"]*)\"]\\[@order=\"([^\"]*)\"]"
+        + RegexLookup.SEPARATOR
+        + "Person name order for languages. For more information, please see "
+        + CLDRURLS.PERSON_NAME_FORMATS + ".\n"
+        + "^//ldml/personNames/personName"
+        + RegexLookup.SEPARATOR
+        + "Person name formats by length, usage, style, order. For more information, please see "
+        + CLDRURLS.PERSON_NAME_FORMATS + ".\n"
+
         + "^//ldml/numbers/([a-z]*)Formats(\\[@numberSystem=\"([^\"]*)\"])?/\\1FormatLength/\\1Format\\[@type=\"standard\"]/pattern\\[@type=\"standard\"]$"
         + RegexLookup.SEPARATOR
         + "Special pattern used to compose {1} numbers. Note: before translating, be sure to read "

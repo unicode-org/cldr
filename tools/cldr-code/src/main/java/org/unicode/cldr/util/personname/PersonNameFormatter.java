@@ -1,8 +1,11 @@
 package org.unicode.cldr.util.personname;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.EnumSet;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -32,6 +35,9 @@ import com.ibm.icu.util.ULocale;
  */
 
 public class PersonNameFormatter {
+
+    private static final boolean DEBUG = System.getProperty("PersonNameFormatter.DEBUG") != null;
+
     public enum Field {
         prefix,
         given,
@@ -95,8 +101,12 @@ public class PersonNameFormatter {
     public static final Splitter SPLIT_SPACE = Splitter.on(' ').trimResults();
     public static final Splitter SPLIT_DASH = Splitter.on('-').trimResults();
     public static final Splitter SPLIT_EQUALS = Splitter.on('=').trimResults();
+    public static final Splitter SPLIT_COMMA = Splitter.on(',').trimResults();
+    public static final Splitter SPLIT_SEMI = Splitter.on(';').trimResults();
+
     public static final Joiner JOIN_SPACE = Joiner.on(' ');
     public static final Joiner JOIN_DASH = Joiner.on('-');
+    public static final Joiner JOIN_SEMI = Joiner.on("; ");
 
 
     /**
@@ -245,9 +255,6 @@ public class PersonNameFormatter {
             return result.toString();
         }
 
-        /**
-         * TODO Mark Replace by builder
-         */
         public NamePattern(List<NamePatternElement> elements) {
             this.elements = elements;
             Set<Field> result = EnumSet.noneOf(Field.class);
@@ -265,6 +272,7 @@ public class PersonNameFormatter {
             return new NamePattern(makeList(elements));
         }
 
+        /** convenience method for testing */
         public static NamePattern from(String patternString) {
             return new NamePattern(parse(patternString));
         }
@@ -284,7 +292,7 @@ public class PersonNameFormatter {
                 if (position < leftCurly) {
                     result.add(new NamePatternElement(patternString.substring(position, leftCurly)));
                 }
-               ++leftCurly;
+                ++leftCurly;
                 int rightCurly = patternString.indexOf('}', leftCurly);
                 if (rightCurly < 0) {
                     throw new IllegalArgumentException("Unmatched {");
@@ -327,6 +335,10 @@ public class PersonNameFormatter {
         private final Usage usage;
         private final Order order;
 
+        /**
+         * Normally we don't often need to create one FormalParameters from another.
+         * The one exception is the order, which comes from the NameObject.
+         */
         public FormatParameters setOrder(Order order) {
             return new FormatParameters(length, style, usage, order);
         }
@@ -376,7 +388,7 @@ public class PersonNameFormatter {
             if (order != null) {
                 items.add("order=" + order);
             }
-            return "{" + JOIN_SPACE.join(items) + "}";
+            return "{" + JOIN_SEMI.join(items) + "}";
         }
 
         public static FormatParameters from(String string) {
@@ -384,8 +396,11 @@ public class PersonNameFormatter {
             Style style = null;
             Usage usage = null;
             Order order = null;
-            for (String part : SPLIT_SPACE.split(string)) {
+            for (String part : SPLIT_SEMI.split(string)) {
                 List<String> parts = SPLIT_EQUALS.splitToList(part);
+                if (parts.size() != 2) {
+                    throw new IllegalArgumentException("must be of form length=medium; style=… : " + string);
+                }
                 final String key = parts.get(0);
                 final String value = parts.get(1);
                 switch(key) {
@@ -404,6 +419,32 @@ public class PersonNameFormatter {
                 }
             }
             return new FormatParameters(length, style, usage, order);
+        }
+
+        // for thread-safe lazy evaluation
+        private static class LazyEval {
+            private static ImmutableSet<FormatParameters> DATA;
+            static {
+                Set<FormatParameters> _data = new LinkedHashSet<>();
+                for (Length length : Length.values()) {
+                    for (Style style : Style.values()) {
+                        for (Usage usage : Usage.values()) {
+                            for (Order order : Order.values()) {
+                                _data.add(new FormatParameters(length, style, usage, order));
+                            }
+                        }
+                    }
+                }
+                DATA = ImmutableSet.copyOf(_data);
+            }
+        }
+
+        /**
+         * Returns all possible combinations of fields.
+         * @return
+         */
+        static ImmutableSet<FormatParameters> all() {
+            return LazyEval.DATA;
         }
     }
 
@@ -465,6 +506,39 @@ public class PersonNameFormatter {
             return ImmutableSet.copyOf(result);
         }
 
+        public static ParameterMatcher from(String string) {
+            String length = null;
+            String style = null;
+            String usage = null;
+            String order = null;
+            if (string.isBlank()) {
+                return MATCH_ALL;
+            }
+            for (String part : SPLIT_SEMI.split(string)) {
+                List<String> parts = SPLIT_EQUALS.splitToList(part);
+                if (parts.size() != 2) {
+                    throw new IllegalArgumentException("must be of form length=medium short; style=… : " + string);
+                }
+                final String key = parts.get(0);
+                final String value = parts.get(1);
+                switch(key) {
+                case "length":
+                    length = value;
+                    break;
+                case "style":
+                    style = value;
+                    break;
+                case "usage":
+                    usage = value;
+                    break;
+                case "order":
+                    order = value;
+                    break;
+                }
+            }
+            return new ParameterMatcher(length, style, usage, order);
+        }
+
         @Override
         public String toString() {
             List<String> items = new ArrayList<>();
@@ -483,6 +557,7 @@ public class PersonNameFormatter {
             return items.isEmpty() ? "ANY" : "{" + Joiner.on(" ").join(items) + "}";
         }
         public static final ParameterMatcher MATCH_ALL = new ParameterMatcher((Set<Length>)null, null, null, null);
+
         @Override
         public boolean equals(Object obj) {
             ParameterMatcher that = (ParameterMatcher) obj;
@@ -496,7 +571,6 @@ public class PersonNameFormatter {
             return lengths.hashCode() ^ styles.hashCode() ^ usages.hashCode() ^ orders.hashCode();
         }
     }
-
 
     /**
      * Data that maps from NameFormatParameters and a NameObject to the best NamePattern.
@@ -522,6 +596,9 @@ public class PersonNameFormatter {
                 Collection<NamePattern> namePatterns = parametersAndPatterns.getValue();
 
                 // TODO Alex pick the NamePattern that best matches the fields in the nameObject
+                // Note that each NamePattern has a method that returns its fields
+
+
                 // for now, just return the first
 
                 return namePatterns.iterator().next();
@@ -530,20 +607,84 @@ public class PersonNameFormatter {
         }
 
         /**
-         * TODO Mark Replace by builder. Eventually will be built from CLDR XML data.
+         * Build the name pattern data. In the formatParametersToNamePattern:
+         * <ul>
+         * <li>Every possible FormatParameters value must match at least one ParameterMatcher</li>
+         * <li>No ParameterMatcher is superfluous; the ones before it must not mask it.</li>
+         * <li>The final ParameterMatcher must be MATCH_ALL.</li>
+         * </ul>
          * The multimap values must retain the order they are built with!
          */
-        public NamePatternData(ImmutableMap<ULocale, Order> localeToOrder, ImmutableListMultimap<ParameterMatcher, NamePattern> formatParametersToNamePattern) {
+        public NamePatternData(ImmutableMap<ULocale, Order> localeToOrder,
+            ImmutableListMultimap<ParameterMatcher, NamePattern> formatParametersToNamePattern) {
+
+            if (formatParametersToNamePattern == null || formatParametersToNamePattern.isEmpty()) {
+                throw new IllegalArgumentException("formatParametersToNamePattern must be non-null, non-empty");
+            }
+
             this.localeToOrder = localeToOrder == null ? ImmutableMap.of() : localeToOrder;
             this.parameterMatcherToNamePattern = formatParametersToNamePattern;
-            // TODO Mark check formatParametersToNamePattern for validity
-            // * no null values
-            // * no ParameterMatcher should be completely masked by previous ones
-            // * each entry in ParameterMatcher must have at least one NamePattern
-            // * the final entry must have MATCH_ALL as the key
+
+            ParameterMatcher lastKey = null;
+            Set<FormatParameters> remaining = new LinkedHashSet<>(FormatParameters.all());
+
+            for (Entry<ParameterMatcher, Collection<NamePattern>> entry : formatParametersToNamePattern.asMap().entrySet()) {
+                ParameterMatcher key = entry.getKey();
+                Collection<NamePattern> values = entry.getValue();
+
+                // TODO Mark No ParameterMatcher should be completely masked by any previous ones
+                // Except for the final MATCH_ALL
+                // The following code starts with a list of all the items, and removes any that match
+                int matchCount = 0;
+                int matchAllCount = 0;
+                for (Iterator<FormatParameters> rest = remaining.iterator(); rest.hasNext(); ) {
+                    FormatParameters item = rest.next();
+                    if (key.matches(item)) {
+                        rest.remove();
+                        ++matchCount;
+                        if (DEBUG) {
+                            System.out.println(" * " + item + " matches " + key);
+                        }
+                    }
+                }
+                if (matchCount == 0) {
+                    throw new IllegalArgumentException("key is masked by previous values: " + key);
+                }
+
+                // Each entry in ParameterMatcher must have at least one NamePattern
+                if (values.isEmpty()) {
+                    throw new IllegalArgumentException("key has no values: " + key);
+                }
+                lastKey = key;
+            }
+
+            // The final entry must have MATCH_ALL as the key
+            if (!lastKey.equals(ParameterMatcher.MATCH_ALL)) {
+                throw new IllegalArgumentException("last key is not MATCH_ALL" + lastKey);
+            }
         }
 
-        // TODO Mark add method that takes a string instead of a NamePatten
+        /**
+         * Build from strings for ease of testing
+         * TODO Mark make the localeToOrder from strings also
+         */
+        public NamePatternData(ImmutableMap<ULocale, Order> localeToOrder, String...formatParametersToNamePatterns ) {
+            this(localeToOrder, parseFormatParametersToNamePatterns(formatParametersToNamePatterns));
+        }
+
+        private static ImmutableListMultimap<ParameterMatcher, NamePattern> parseFormatParametersToNamePatterns(String... formatParametersToNamePatterns) {
+            int count = formatParametersToNamePatterns.length;
+            if ((count % 2) != 0) {
+                throw new IllegalArgumentException("Must have even number of strings, fields => pattern: " + Arrays.asList(formatParametersToNamePatterns));
+            }
+            ListMultimap<ParameterMatcher, NamePattern> _formatParametersToNamePatterns = LinkedListMultimap.create();
+            for (int i = 0; i < count; i += 2) {
+                ParameterMatcher pm = ParameterMatcher.from(formatParametersToNamePatterns[i]);
+                NamePattern np = NamePattern.from(formatParametersToNamePatterns[i+1]);
+                _formatParametersToNamePatterns.put(pm, np);
+            }
+            return ImmutableListMultimap.copyOf(_formatParametersToNamePatterns);
+        }
 
         @Override
         public String toString() {
@@ -615,10 +756,10 @@ public class PersonNameFormatter {
         this.namePatternMap = new NamePatternData(localeToOrder, ImmutableListMultimap.copyOf(formatParametersToNamePattern));
     }
 
-    //TODO Alex add methods to
-    // (a) maximize the pattern data (have every possible set of modifiers for each field, so order is irrelevant).
-    //      Brute force is just try all combinations. That is probably good enough for CLDR.
-    // (b) minimize the pattern data (produce a compact version that minimizes the number of strings (not necessarily the absolute minimum)
-    //      Thoughts: gather together all of the keys that have the same value, and coalesce. Exact method TBD
+//TODO Alex add methods to
+// (a) maximize the pattern data (have every possible set of modifiers for each field, so order is irrelevant).
+//      Brute force is just try all combinations. That is probably good enough for CLDR.
+// (b) minimize the pattern data (produce a compact version that minimizes the number of strings (not necessarily the absolute minimum)
+//      Thoughts: gather together all of the keys that have the same value, and coalesce. Exact method TBD
 
 }

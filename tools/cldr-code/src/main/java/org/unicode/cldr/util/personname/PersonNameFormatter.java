@@ -19,6 +19,7 @@ import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
+import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.ImmutableBiMap;
 import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.ImmutableMap;
@@ -329,7 +330,7 @@ public class PersonNameFormatter {
     /**
      * Input parameters, such as {length=long_name, style=informal}. Unmentioned items are null, and match any value.
      */
-    public static class FormatParameters {
+    public static class FormatParameters implements Comparable<FormatParameters> {
         private final Length length;
         private final Style style;
         private final Usage usage;
@@ -443,8 +444,18 @@ public class PersonNameFormatter {
          * Returns all possible combinations of fields.
          * @return
          */
-        static ImmutableSet<FormatParameters> all() {
+        static public ImmutableSet<FormatParameters> all() {
             return LazyEval.DATA;
+        }
+
+        @Override
+        public int compareTo(FormatParameters other) {
+            return ComparisonChain.start()
+                .compare(length, other.length)
+                .compare(style, other.style)
+                .compare(usage, other.usage)
+                .compare(order, other.order)
+                .result();
         }
     }
 
@@ -581,6 +592,18 @@ public class PersonNameFormatter {
         private final ImmutableListMultimap<ParameterMatcher, NamePattern> parameterMatcherToNamePattern;
 
         public NamePattern getBestMatch(NameObject nameObject, FormatParameters nameFormatParameters) {
+            Collection<NamePattern> resultSet = getBestMatchSet(nameObject, nameFormatParameters);
+
+            // TODO Alex pick the NamePattern that best matches the fields in the nameObject
+            // Note that each NamePattern has a method that returns its fields
+
+
+            // for now, just return the first (with valid objects should never be empty
+
+            return resultSet.iterator().next();
+        }
+
+        public Collection<NamePattern> getBestMatchSet(NameObject nameObject, FormatParameters nameFormatParameters) {
             if (nameFormatParameters.order == null) {
                 nameFormatParameters = nameFormatParameters.setOrder(localeToOrder.get(nameObject.getNameLocale()));
             }
@@ -601,10 +624,11 @@ public class PersonNameFormatter {
 
                 // for now, just return the first
 
-                return namePatterns.iterator().next();
+                return namePatterns;
             }
             return null; // for now; this will only happen if the NamePatternData is invalid
         }
+
 
         /**
          * Build the name pattern data. In the formatParametersToNamePattern:
@@ -724,6 +748,13 @@ public class PersonNameFormatter {
         NamePattern bestPattern = namePatternMap.getBestMatch(nameObject, nameFormatParameters);
         // then format using it
         return bestPattern.format(nameObject);
+    }
+
+    /**
+     * For testing
+     */
+    public Collection<NamePattern> getBestMatchSet(NameObject nameObject, FormatParameters nameFormatParameters) {
+        return namePatternMap.getBestMatchSet(nameObject, nameFormatParameters);
     }
 
     public PersonNameFormatter(CLDRFile cldrFile) {

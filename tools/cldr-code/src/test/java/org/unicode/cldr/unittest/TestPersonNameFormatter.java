@@ -1,14 +1,20 @@
 package org.unicode.cldr.unittest;
 
+import java.util.Collection;
+import java.util.Map.Entry;
+
 import org.unicode.cldr.tool.ToolConfig;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
+import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePatternData;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Order;
 import org.unicode.cldr.util.personname.SimpleNameObject;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.util.ULocale;
 
@@ -58,5 +64,17 @@ public class TestPersonNameFormatter extends TestFmwk{
         check(personNameFormatter, sampleNameObject1, "length=short; usage=sorting", "Smith, null");
         check(personNameFormatter, sampleNameObject1, "length=long; style=formal; usage=referring", "John Bob Smith Jr.");
 
+        // check that no exceptions happen
+        Multimap<String, FormatParameters> values = TreeMultimap.create();
+        for (FormatParameters item : FormatParameters.all()) {
+            Collection<NamePattern> actual = personNameFormatter.getBestMatchSet(sampleNameObject1, item);
+            values.put(actual.toString(), item);
+        }
+        for (Entry<String, Collection<FormatParameters>> entry : values.asMap().entrySet()) {
+            logln("\t" + entry.getKey());
+            for (FormatParameters value : entry.getValue()) {
+                logln("\t\t" + value);
+            }
+        }
     }
 }

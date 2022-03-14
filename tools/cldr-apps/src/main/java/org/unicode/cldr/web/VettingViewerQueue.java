@@ -1,10 +1,7 @@
 package org.unicode.cldr.web;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.EnumSet;
-import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.Semaphore;
@@ -13,12 +10,9 @@ import java.util.logging.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.VettingViewer;
-import org.unicode.cldr.util.VettingViewer.LocalesWithExplicitLevel;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
@@ -227,40 +221,6 @@ public class VettingViewerQueue {
             this.sm = CookieSession.sm;
             this.entry = entry;
             this.usersOrg = usersOrg;
-            this.maxn = approximatelyHowManyLocalesToCheck() * getMax(sm.getTranslationHintsFile());
-        }
-
-        /**
-         * Get the approximate number of locales to be summarized
-         *
-         * @return the number of locales
-         *
-         * TODO: fix the discrepancies between this code and related code in VettingViewer.
-         * The set of locales counted here does not exactly agree with the set of locales determined
-         * in VettingViewer. Avoid determining the set of files twice with different code.
-         * VettingViewer skips "en" while we do not skip it here.
-         * VettingViewer skips defaultContentLocales which is not mentioned here.
-         * VettingViewer uses cldrFactory.getAvailable() while here we use SurveyMain.getLocalesSet().
-         * The locales should be counted only when the actual set is determined -- in VettingViewer, not here.
-         * Reference: https://unicode-org.atlassian.net/browse/CLDR-14925
-         */
-        private int approximatelyHowManyLocalesToCheck() {
-            int localeCount = 0;
-            List<Level> levelsToCheck = new ArrayList<>();
-            if (VettingViewer.orgIsNeutralForSummary(usersOrg)) {
-                levelsToCheck.add(Level.COMPREHENSIVE);
-            } else {
-                levelsToCheck.addAll(Arrays.asList(Level.values()));
-            }
-            for (Level lv : levelsToCheck) {
-                LocalesWithExplicitLevel lwe = new LocalesWithExplicitLevel(usersOrg, lv);
-                for (CLDRLocale l : SurveyMain.getLocalesSet()) {
-                    if (lwe.is(l.toString())) {
-                        ++localeCount;
-                    }
-                }
-            }
-            return localeCount;
         }
 
         @Override
@@ -310,6 +270,9 @@ public class VettingViewerQueue {
             VettingViewer<Organization> vv;
             vv = new VettingViewer<>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
                 new STUsersChoice(sm));
+            int localeCount = vv.getLocaleCount(usersOrg);
+            int pathCount = getMax(sm.getTranslationHintsFile());
+            maxn = localeCount * pathCount;
             progress.update("Got VettingViewer");
             statusCode = Status.PROCESSING;
             start = System.currentTimeMillis();

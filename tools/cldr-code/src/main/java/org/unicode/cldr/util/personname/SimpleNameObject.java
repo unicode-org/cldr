@@ -1,6 +1,9 @@
 package org.unicode.cldr.util.personname;
 
 import java.util.EnumSet;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
@@ -44,20 +47,39 @@ import com.ibm.icu.util.ULocale;
             return nameLocale;
         }
 
-        /**
-         * TODO Mark Replace by builder
-         */
         public SimpleNameObject(ULocale nameLocale, ImmutableMap<ModifiedField, String> patternData) {
             this.nameLocale = nameLocale == null ? ULocale.ROOT : nameLocale;
             this.patternData = patternData;
         }
 
-        @Override
-        public String toString() {
-            return "{locale=" + nameLocale + " " + "patternData=" + show(patternData) + "}";
+        /*
+         * Takes string in form locale=fr, given=John Bob, given2=Edwin ...
+         */
+        public SimpleNameObject(String namePattern) {
+            Map<ModifiedField, String> patternData = new LinkedHashMap<>();
+            ULocale nameLocale = ULocale.ROOT;
+            for (String setting : PersonNameFormatter.SPLIT_COMMA.split(namePattern)) {
+                List<String> parts = PersonNameFormatter.SPLIT_EQUALS.splitToList(setting);
+                if (parts.size() != 2) {
+                    throw new IllegalArgumentException("Bad format, should be like: given=John Bob, given2=Edwin, …: " + namePattern);
+                }
+                final String key = parts.get(0);
+                final String value = parts.get(1);
+                switch(key) {
+                case "locale":
+                    nameLocale = new ULocale(value);
+                    break;
+                default:
+                    patternData.put(ModifiedField.from(key), value);
+                    break;
+                }
+            }
+            this.nameLocale = nameLocale;
+            this.patternData = ImmutableMap.copyOf(patternData);
         }
 
-        private String show(ImmutableMap<ModifiedField, String> patternData2) {
-            return patternData2.toString();
+        @Override
+        public String toString() {
+            return "{locale=" + nameLocale + " " + "patternData=" + patternData + "}";
         }
     }

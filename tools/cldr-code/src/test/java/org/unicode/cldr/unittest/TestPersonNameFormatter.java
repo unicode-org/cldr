@@ -2,6 +2,8 @@ package org.unicode.cldr.unittest;
 
 import java.util.Collection;
 import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.unicode.cldr.tool.ToolConfig;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
@@ -10,9 +12,11 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePatternData;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Order;
+import org.unicode.cldr.util.personname.PersonNameFormatter.ParameterMatcher;
 import org.unicode.cldr.util.personname.SimpleNameObject;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
@@ -48,12 +52,14 @@ public class TestPersonNameFormatter extends TestFmwk{
             "length=short medium; style=formal; usage=addressing", "{given} {given2-initial}. {surname}",
             "length=short medium; style=formal; usage=addressing", "{given} {surname}",
             "", "{prefix} {given} {given2} {surname} {surname2} {suffix}"
-                );
+            );
 
         PersonNameFormatter personNameFormatter = new PersonNameFormatter(namePatternData);
 
         check(personNameFormatter, sampleNameObject1, "length=short; style=formal; usage=addressing", "John B. Smith");
         check(personNameFormatter, sampleNameObject1, "length=long; style=formal; usage=addressing", "Mr. John Bob Smith Barnes Pascal Jr.");
+
+        checkFormatterData(personNameFormatter);
     }
 
     public void TestWithCLDR() {
@@ -64,17 +70,75 @@ public class TestPersonNameFormatter extends TestFmwk{
         check(personNameFormatter, sampleNameObject1, "length=short; usage=sorting", "Smith, null");
         check(personNameFormatter, sampleNameObject1, "length=long; style=formal; usage=referring", "John Bob Smith Jr.");
 
+        checkFormatterData(personNameFormatter);
+    }
+
+    private void checkFormatterData(PersonNameFormatter personNameFormatter) {
         // check that no exceptions happen
+        // sort by the output patterns
         Multimap<String, FormatParameters> values = TreeMultimap.create();
         for (FormatParameters item : FormatParameters.all()) {
             Collection<NamePattern> actual = personNameFormatter.getBestMatchSet(sampleNameObject1, item);
             values.put(actual.toString(), item);
         }
+
+        StringBuilder sb = new StringBuilder("\n");
+        int count = 0;
+        sb.append("\nEXPANDED:\n");
         for (Entry<String, Collection<FormatParameters>> entry : values.asMap().entrySet()) {
-            logln("\t" + entry.getKey());
+            sb.append(++count + ")\n");
             for (FormatParameters value : entry.getValue()) {
-                logln("\t\t" + value);
+                sb.append("\t" + value + "\n");
             }
+            sb.append("\t⇒\t︎" + entry.getKey() + "\n");
         }
+
+        count = 0;
+        sb.append("\nCOMPACTED:\n");
+        for (Entry<String, Collection<FormatParameters>> entry : values.asMap().entrySet()) {
+            sb.append(++count + ")\n");
+            Set<ParameterMatcher> compacted = compact(entry.getValue());
+            for (ParameterMatcher value : compacted) {
+                sb.append("\t︎ " + value + "\n");
+            }
+            sb.append("\t⇒\t︎" + entry.getKey() + "\n");
+        }
+
+        logln(sb.toString());
+    }
+
+    private static Set<ParameterMatcher> compact(Collection<FormatParameters> expanded) {
+        Set<ParameterMatcher> result = new TreeSet<>();
+        for (FormatParameters item : expanded) {
+            result.add(new ParameterMatcher(item));
+        }
+        // try merging each pair
+        // if we can merge, then start over from the top
+        // look at optimizing later
+        main:
+            while (true) {
+                for (ParameterMatcher item1 : result) {
+                    for (ParameterMatcher item2: result) {
+                        if (item1 == item2) { // skip ourselves
+                            continue;
+                        }
+                        ParameterMatcher item12 = item1.merge(item2); // merge if possible
+                        if (item12 != null) {
+                            result.remove(item1);
+                            result.remove(item2);
+                            result.add(item12);
+                            continue main; // retry everything
+                        }
+                    }
+                }
+                break;
+            }
+
+        // now replace any "complete" items by empty.
+        Set<ParameterMatcher> result2 = new TreeSet<>();
+        for (ParameterMatcher item1 : result) {
+            result2.add(item1.slim());
+        }
+        return ImmutableSet.copyOf(result2);
     }
 }

@@ -3,6 +3,7 @@ package org.unicode.cldr.util.personname;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -19,6 +20,7 @@ import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
+import com.google.common.collect.Comparators;
 import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.ImmutableBiMap;
 import com.google.common.collect.ImmutableListMultimap;
@@ -26,6 +28,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.LinkedListMultimap;
 import com.google.common.collect.ListMultimap;
+import com.google.common.collect.Sets;
 import com.ibm.icu.impl.Pair;
 import com.ibm.icu.util.ULocale;
 
@@ -73,22 +76,31 @@ public class PersonNameFormatter {
             String result = exceptionNames.inverse().get(this);
             return result != null ? result : name();
         }
+
+        static final Comparator<Iterable<Length>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Length>naturalOrder());
+        static final Set<Length> ALL = ImmutableSet.copyOf(Length.values());
     }
 
     public enum Style {
         formal,
-        informal
+        informal;
+        static final Comparator<Iterable<Style>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Style>naturalOrder());
+        static final Set<Style> ALL = ImmutableSet.copyOf(Style.values());
     }
 
     public enum Usage {
         referring,
         addressing,
-        sorting
+        sorting;
+        static final Comparator<Iterable<Usage>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Usage>naturalOrder());
+        static final Set<Usage> ALL = ImmutableSet.copyOf(Usage.values());
     }
 
     public enum Order {
         surname_first,
-        given_first
+        given_first;
+        static final Comparator<Iterable<Order>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Order>naturalOrder());
+        static final Set<Order> ALL = ImmutableSet.copyOf(Order.values());
     }
 
 
@@ -462,7 +474,7 @@ public class PersonNameFormatter {
     /**
      * Matching parameters, such as {lengths={long_name medium_name}, styles={informal}}. Unmentioned items are empty, and match any value.
      */
-    public static class ParameterMatcher {
+    public static class ParameterMatcher implements Comparable<ParameterMatcher> {
         private final Set<Length> lengths;
         private final Set<Style> styles;
         private final Set<Usage> usages;
@@ -504,6 +516,17 @@ public class PersonNameFormatter {
             this.styles = setFrom(styles, Style::valueOf);
             this.usages = setFrom(usages, Usage::valueOf);
             this.orders = setFrom(orders, Order::valueOf);
+        }
+
+        public ParameterMatcher(FormatParameters item) {
+            this(SingletonSetOrNull(item.getLength()),
+                SingletonSetOrNull(item.getStyle()),
+                SingletonSetOrNull(item.getUsage()),
+                SingletonSetOrNull(item.getOrder()));
+        }
+
+        private static <T> ImmutableSet<T> SingletonSetOrNull(T item) {
+            return item == null ? null : ImmutableSet.of(item);
         }
 
         private <T> Set<T> setFrom(String parameter, Function<String, T> func) {
@@ -580,6 +603,47 @@ public class PersonNameFormatter {
         @Override
         public int hashCode() {
             return lengths.hashCode() ^ styles.hashCode() ^ usages.hashCode() ^ orders.hashCode();
+        }
+
+        @Override
+        public int compareTo(ParameterMatcher other) {
+            return ComparisonChain.start()
+                .compare(lengths, other.lengths, Length.ITERABLE_COMPARE)
+                .compare(styles, other.styles, Style.ITERABLE_COMPARE)
+                .compare(usages, other.usages, Usage.ITERABLE_COMPARE)
+                .compare(orders, other.orders, Order.ITERABLE_COMPARE)
+                .result();
+        }
+
+        public ParameterMatcher merge(ParameterMatcher that) {
+            // if 3 of the 4 rows are equal, merge the other two
+            if (lengths.equals(that.lengths)
+                && styles.equals(that.styles)
+                && usages.equals(that.usages)) {
+                return new ParameterMatcher(lengths, styles, usages, Sets.union(orders, that.orders));
+            } else if (lengths.equals(that.lengths)
+                && styles.equals(that.styles)
+                && orders.equals(that.orders)) {
+                return new ParameterMatcher(lengths, styles, Sets.union(usages, that.usages), orders);
+            } else if (lengths.equals(that.lengths)
+                && usages.equals(that.usages)
+                && orders.equals(that.orders)) {
+                return new ParameterMatcher(lengths, Sets.union(styles, that.styles), usages, orders);
+            } else if (styles.equals(that.styles)
+                && usages.equals(that.usages)
+                && orders.equals(that.orders)) {
+                return new ParameterMatcher(Sets.union(lengths, that.lengths), styles, usages, orders);
+            }
+            return null;
+        }
+
+        public ParameterMatcher slim() {
+            return new ParameterMatcher(
+                lengths.equals(Length.ALL) ? ImmutableSet.of() : lengths,
+                    styles.equals(Style.ALL) ? ImmutableSet.of() : styles,
+                        usages.equals(Usage.ALL) ? ImmutableSet.of() : usages,
+                            orders.equals(Order.ALL) ? ImmutableSet.of() : orders
+                );
         }
     }
 
@@ -671,7 +735,7 @@ public class PersonNameFormatter {
                         }
                     }
                 }
-                if (matchCount == 0) {
+                if (matchCount == 0 && !key.equals(ParameterMatcher.MATCH_ALL)) {
                     throw new IllegalArgumentException("key is masked by previous values: " + key);
                 }
 

@@ -14,6 +14,7 @@
       <h2 class="snapHeading">Snapshots</h2>
       <p>
         <button
+          v-if="canCreateSnapshots"
           title="Create a new snapshot of the Priority Items Summary now"
           @click="createSnapshot"
         >
@@ -50,6 +51,7 @@ export default {
         output: null,
       },
       canUseSnapshots: false,
+      canCreateSnapshots: false,
       snapshotArray: null,
       heading: null,
       whenReceived: null,
@@ -58,6 +60,7 @@ export default {
   created() {
     cldrPriorityItems.viewCreated(this.setData, this.setSnapshots);
     this.canUseSnapshots = cldrPriorityItems.canUseSnapshots();
+    this.canCreateSnapshots = cldrPriorityItems.canCreateSnapshots();
   },
   methods: {
     start() {

@@ -24,13 +24,8 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.json.JSONException;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
-import org.unicode.cldr.web.CookieSession;
-import org.unicode.cldr.web.Dashboard;
+import org.unicode.cldr.web.*;
 import org.unicode.cldr.web.Dashboard.ReviewOutput;
-import org.unicode.cldr.web.SurveySnapshot;
-import org.unicode.cldr.web.SurveySnapshotMap;
-import org.unicode.cldr.web.UserRegistry;
-import org.unicode.cldr.web.VettingViewerQueue;
 import org.unicode.cldr.web.VettingViewerQueue.LoadingPolicy;
 
 @Path("/summary")
@@ -45,8 +40,11 @@ public class Summary {
 
     /**
      * For saving and retrieving "snapshots" of Summary responses
+     *
+     * Note: for debugging/testing without using db, new SurveySnapshotDb() can be
+     * changed here to new SurveySnapshotMap()
      */
-    private static final SurveySnapshot snap = new SurveySnapshotMap();
+    private static final SurveySnapshot snap = new SurveySnapshotDb();
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
@@ -73,8 +71,8 @@ public class Summary {
             if (!UserRegistry.userCanUseVettingSummary(cs.user)) {
                 return Response.status(Status.FORBIDDEN).build();
             }
-            if (!SurveySnapshot.SNAP_NONE.equals(request.snapshotPolicy)
-                && !UserRegistry.userIsAdmin(cs.user)) {
+            if (SurveySnapshot.SNAP_CREATE.equals(request.snapshotPolicy)
+                && !UserRegistry.userCanCreateSummarySnapshot(cs.user)) {
                 return Response.status(Status.FORBIDDEN).build();
             }
             return getPriorityItemsSummary(cs, request);
@@ -182,7 +180,7 @@ public class Summary {
         if (cs == null) {
             return Auth.noSessionResponse();
         }
-        if (!UserRegistry.userIsAdmin(cs.user)) {
+        if (!UserRegistry.userCanUseVettingSummary(cs.user)) {
             return Response.status(Status.FORBIDDEN).build();
         }
         cs.userDidAction();

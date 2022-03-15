@@ -46,6 +46,7 @@ class SummaryArgs {
 let latestArgs = new SummaryArgs();
 
 let canSnap = false;
+let canCreateSnap = false;
 
 let callbackToSetData = null;
 let callbackToSetSnapshots = null;
@@ -54,11 +55,19 @@ function canUseSnapshots() {
   return canSnap;
 }
 
+function canCreateSnapshots() {
+  return canCreateSnap;
+}
+
 function viewCreated(setData, setSnap) {
   callbackToSetData = setData;
   callbackToSetSnapshots = setSnap;
-  if (cldrStatus.getPermissions()?.userIsAdmin) {
+  const perm = cldrStatus.getPermissions();
+  if (perm?.userCanUseVettingSummary) {
     canSnap = true;
+    if (perm?.userCanCreateSummarySnapshot) {
+      canCreateSnap = true;
+    }
   }
   fetchStatus();
 }
@@ -126,6 +135,7 @@ function listSnapshots() {
 
 export {
   SNAPID_NOT_APPLICABLE,
+  canCreateSnapshots,
   canUseSnapshots,
   createSnapshot,
   showSnapshot,

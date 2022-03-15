@@ -1616,7 +1616,7 @@ public class DBUtils {
          * Other constants here have default constructor equivalent to (true, true).
          */
         VOTE_VALUE, VOTE_VALUE_ALT, VOTE_FLAGGED, FORUM_POSTS(false, false), FORUM_TYPES(false, false),
-        DASH_HIDE, REVIEW_POST, IMPORT, IMPORT_AUTO, LOCKED_XPATHS(false, false);
+        DASH_HIDE, REVIEW_POST, IMPORT, IMPORT_AUTO, LOCKED_XPATHS(false, false), SUMMARY_SNAPSHOTS;
 
         /**
          * Construct a Table constant with explicit parameters for isVersioned, hasBeta.

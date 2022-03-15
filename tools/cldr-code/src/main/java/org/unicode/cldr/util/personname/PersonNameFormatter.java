@@ -16,6 +16,7 @@ import java.util.TreeSet;
 import java.util.function.Function;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
@@ -26,10 +27,14 @@ import com.google.common.collect.ImmutableBiMap;
 import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.LinkedListMultimap;
 import com.google.common.collect.ListMultimap;
+import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Pair;
+import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -49,6 +54,8 @@ public class PersonNameFormatter {
         surname,
         surname2,
         suffix;
+        public static final Comparator<Iterable<Field>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Field>naturalOrder());
+        public static final Set<Field> ALL = ImmutableSet.copyOf(Field.values());
     }
 
     public enum Length {
@@ -77,30 +84,30 @@ public class PersonNameFormatter {
             return result != null ? result : name();
         }
 
-        static final Comparator<Iterable<Length>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Length>naturalOrder());
-        static final Set<Length> ALL = ImmutableSet.copyOf(Length.values());
+        public static final Comparator<Iterable<Length>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Length>naturalOrder());
+        public static final Set<Length> ALL = ImmutableSet.copyOf(Length.values());
     }
 
     public enum Style {
         formal,
         informal;
-        static final Comparator<Iterable<Style>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Style>naturalOrder());
-        static final Set<Style> ALL = ImmutableSet.copyOf(Style.values());
+        public static final Comparator<Iterable<Style>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Style>naturalOrder());
+        public static final Set<Style> ALL = ImmutableSet.copyOf(Style.values());
     }
 
     public enum Usage {
         referring,
         addressing,
         sorting;
-        static final Comparator<Iterable<Usage>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Usage>naturalOrder());
-        static final Set<Usage> ALL = ImmutableSet.copyOf(Usage.values());
+        public static final Comparator<Iterable<Usage>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Usage>naturalOrder());
+        public static final Set<Usage> ALL = ImmutableSet.copyOf(Usage.values());
     }
 
     public enum Order {
         surname_first,
         given_first;
-        static final Comparator<Iterable<Order>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Order>naturalOrder());
-        static final Set<Order> ALL = ImmutableSet.copyOf(Order.values());
+        public static final Comparator<Iterable<Order>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Order>naturalOrder());
+        public static final Set<Order> ALL = ImmutableSet.copyOf(Order.values());
     }
 
 
@@ -108,7 +115,9 @@ public class PersonNameFormatter {
         initial,
         all_caps,
         informal,
-        core
+        core;
+        public static final Comparator<Iterable<Modifier>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Modifier>naturalOrder());
+        public static final Set<Modifier> ALL = ImmutableSet.copyOf(Modifier.values());
     }
 
     public static final Splitter SPLIT_SPACE = Splitter.on(' ').trimResults();
@@ -126,7 +135,7 @@ public class PersonNameFormatter {
      * A Field and its modifiers, corresponding to a string form like {given-initial}.
      * Immutable
      */
-    public static class ModifiedField {
+    public static class ModifiedField implements Comparable<ModifiedField> {
         private final Field field;
         private final Set<Modifier> modifiers;
 
@@ -180,6 +189,13 @@ public class PersonNameFormatter {
         public int hashCode() {
             return field.hashCode() ^ modifiers.hashCode();
         }
+        @Override
+        public int compareTo(ModifiedField o) {
+            return ComparisonChain.start()
+                .compare(field, o.field)
+                .compare(modifiers, o.modifiers, Modifier.ITERABLE_COMPARE)
+                .result();
+        }
     }
 
     /**
@@ -187,7 +203,7 @@ public class PersonNameFormatter {
      * The literal is null IFF then modifiedField is not null
      * Immutable
      */
-    public static class NamePatternElement {
+    public static class NamePatternElement implements Comparable<NamePatternElement> {
         private final String literal;
         private final ModifiedField modifiedField;
 
@@ -232,13 +248,27 @@ public class PersonNameFormatter {
             // TODO Rich escape \ and { in literals
             return literal != null ? literal : modifiedField.toString();
         }
+
+        public static final Comparator<Iterable<NamePatternElement>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<NamePatternElement>naturalOrder());
+
+
+        @Override
+        public int compareTo(NamePatternElement o) {
+            if (literal != null && o.literal != null) {
+                return literal.compareTo(o.literal);
+            } else if (modifiedField != null && o.modifiedField != null) {
+                return modifiedField.compareTo(o.modifiedField);
+            } else {
+                return literal != null ? -1 : 1; // all literals are less than all modified fields
+            }
+        }
     }
 
     /**
      * A name pattern, corresponding to a string such as "{given-initial} {surname}"
      * Immutable
      */
-    public static class NamePattern {
+    public static class NamePattern implements Comparable<NamePattern> {
         private final List<NamePatternElement> elements;
         private final Set<Field> fields;
 
@@ -337,6 +367,18 @@ public class PersonNameFormatter {
             }
             return result.append("\"").toString();
         }
+        public static final Comparator<Iterable<NamePattern>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<NamePattern>naturalOrder());
+
+        @Override
+        /**
+         * Compares first by fields, then by the string value (later case would be unusual)
+         */
+        public int compareTo(NamePattern o) {
+            return ComparisonChain.start()
+                .compare(fields, o.fields, Field.ITERABLE_COMPARE)
+                .compare(elements, o.elements, NamePatternElement.ITERABLE_COMPARE)
+                .result();
+        }
     }
 
     /**
@@ -390,18 +432,18 @@ public class PersonNameFormatter {
         public String toString() {
             List<String> items = new ArrayList<>();
             if (length != null) {
-                items.add("length=" + length);
+                items.add("length='" + length + "'");
             }
             if (style != null) {
-                items.add("style=" + style);
+                items.add("style='" + style + "'");
             }
             if (usage != null) {
-                items.add("usage=" + usage);
+                items.add("usage='" + usage + "'");
             }
             if (order != null) {
-                items.add("order=" + order);
+                items.add("order='" + order + "'");
             }
-            return "{" + JOIN_SEMI.join(items) + "}";
+            return "{" + JOIN_SPACE.join(items) + "}";
         }
 
         public static FormatParameters from(String string) {
@@ -576,21 +618,39 @@ public class PersonNameFormatter {
         @Override
         public String toString() {
             List<String> items = new ArrayList<>();
-            if (!lengths.isEmpty()) {
-                items.add("length=" + lengths);
+            showAttributes("length", lengths, items);
+            showAttributes("style", styles, items);
+            showAttributes("usage", usages, items);
+            showAttributes("order", orders, items);
+            return items.isEmpty() ? "ANY" : "{" + JOIN_SPACE.join(items) + "}";
+        }
+
+        public String toLabel() {
+            StringBuilder sb  = new StringBuilder();
+            addToLabel(lengths, sb);
+            addToLabel(lengths, sb);
+            addToLabel(lengths, sb);
+            addToLabel(lengths, sb);
+            return sb.length() == 0 ? "any" : sb.toString();
+        }
+
+        private <T> void addToLabel(Set<T> set, StringBuilder sb) {
+            for (T item : set) {
+                if (sb.length() != 0) {
+                    sb.append('-');
+                }
+                sb.append(item.toString());
             }
-            if (!styles.isEmpty()) {
-                items.add("style=" + styles);
+        }
+
+        private <T> void showAttributes(String title, Set<T> set, List<String> toAddTo) {
+            if (!set.isEmpty()) {
+                toAddTo.add(title + "='" + JOIN_SPACE.join(set) + "'");
             }
-            if (!usages.isEmpty()) {
-                items.add("usage=" + usages);
-            }
-            if (!orders.isEmpty()) {
-                items.add("order=" + orders);
-            }
-            return items.isEmpty() ? "ANY" : "{" + Joiner.on(" ").join(items) + "}";
         }
         public static final ParameterMatcher MATCH_ALL = new ParameterMatcher((Set<Length>)null, null, null, null);
+
+        public static final Comparator<Iterable<ParameterMatcher>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<ParameterMatcher>naturalOrder());
 
         @Override
         public boolean equals(Object obj) {
@@ -645,6 +705,45 @@ public class PersonNameFormatter {
                             orders.equals(Order.ALL) ? ImmutableSet.of() : orders
                 );
         }
+
+        /**
+         * Compact a set of FormatParameters into a (smaller) collection of ParameterMatchers
+         */
+        public static Set<ParameterMatcher> compact(Collection<FormatParameters> expanded) {
+            Set<ParameterMatcher> result = new TreeSet<>();
+            for (FormatParameters item : expanded) {
+                result.add(new ParameterMatcher(item));
+            }
+            // try merging each pair
+            // if we can merge, then start over from the top
+            // look at optimizing later
+            main:
+                while (true) {
+                    for (ParameterMatcher item1 : result) {
+                        for (ParameterMatcher item2: result) {
+                            if (item1 == item2) { // skip ourselves
+                                continue;
+                            }
+                            ParameterMatcher item12 = item1.merge(item2); // merge if possible
+                            if (item12 != null) {
+                                result.remove(item1);
+                                result.remove(item2);
+                                result.add(item12);
+                                continue main; // retry everything
+                            }
+                        }
+                    }
+                    break;
+                }
+
+            // now replace any "complete" items by empty.
+            Set<ParameterMatcher> result2 = new TreeSet<>();
+            for (ParameterMatcher item1 : result) {
+                result2.add(item1.slim());
+            }
+            return ImmutableSet.copyOf(result2);
+        }
+
     }
 
     /**
@@ -656,7 +755,10 @@ public class PersonNameFormatter {
         private final ImmutableListMultimap<ParameterMatcher, NamePattern> parameterMatcherToNamePattern;
 
         public NamePattern getBestMatch(NameObject nameObject, FormatParameters nameFormatParameters) {
-            Collection<NamePattern> resultSet = getBestMatchSet(nameObject, nameFormatParameters);
+            if (nameFormatParameters.order == null) {
+                nameFormatParameters = nameFormatParameters.setOrder(localeToOrder.get(nameObject.getNameLocale()));
+            }
+            Collection<NamePattern> resultSet = getBestMatchSet(nameFormatParameters);
 
             // TODO Alex pick the NamePattern that best matches the fields in the nameObject
             // Note that each NamePattern has a method that returns its fields
@@ -667,28 +769,15 @@ public class PersonNameFormatter {
             return resultSet.iterator().next();
         }
 
-        public Collection<NamePattern> getBestMatchSet(NameObject nameObject, FormatParameters nameFormatParameters) {
-            if (nameFormatParameters.order == null) {
-                nameFormatParameters = nameFormatParameters.setOrder(localeToOrder.get(nameObject.getNameLocale()));
-            }
+        public Collection<NamePattern> getBestMatchSet(FormatParameters nameFormatParameters) {
 
             // Sift through the options to get the first one that best matches nameObjectFields
 
             for (Entry<ParameterMatcher, Collection<NamePattern>> parametersAndPatterns : parameterMatcherToNamePattern.asMap().entrySet()) {
                 ParameterMatcher parameters = parametersAndPatterns.getKey();
-                if (!parameters.matches(nameFormatParameters)) {
-                    continue;
+                if (parameters.matches(nameFormatParameters)) {
+                    return parametersAndPatterns.getValue();
                 }
-
-                Collection<NamePattern> namePatterns = parametersAndPatterns.getValue();
-
-                // TODO Alex pick the NamePattern that best matches the fields in the nameObject
-                // Note that each NamePattern has a method that returns its fields
-
-
-                // for now, just return the first
-
-                return namePatterns;
             }
             return null; // for now; this will only happen if the NamePatternData is invalid
         }
@@ -817,8 +906,8 @@ public class PersonNameFormatter {
     /**
      * For testing
      */
-    public Collection<NamePattern> getBestMatchSet(NameObject nameObject, FormatParameters nameFormatParameters) {
-        return namePatternMap.getBestMatchSet(nameObject, nameFormatParameters);
+    public Collection<NamePattern> getBestMatchSet(FormatParameters nameFormatParameters) {
+        return namePatternMap.getBestMatchSet(nameFormatParameters);
     }
 
     public PersonNameFormatter(CLDRFile cldrFile) {
@@ -851,10 +940,55 @@ public class PersonNameFormatter {
         this.namePatternMap = new NamePatternData(localeToOrder, ImmutableListMultimap.copyOf(formatParametersToNamePattern));
     }
 
-//TODO Alex add methods to
-// (a) maximize the pattern data (have every possible set of modifiers for each field, so order is irrelevant).
-//      Brute force is just try all combinations. That is probably good enough for CLDR.
-// (b) minimize the pattern data (produce a compact version that minimizes the number of strings (not necessarily the absolute minimum)
-//      Thoughts: gather together all of the keys that have the same value, and coalesce. Exact method TBD
+    /**
+     * Expand the name pattern data into a mapping from all possible FormatParameters to NamePatterns. Retains the order of the NamePatterns
+     * @return
+     */
+    public Multimap<FormatParameters, NamePattern> expand() {
+        Multimap<FormatParameters, NamePattern> parametersToPatterns = LinkedHashMultimap.create();
 
+        for (FormatParameters item : FormatParameters.all()) {
+            parametersToPatterns.putAll(item, getBestMatchSet(item));
+        }
+        return parametersToPatterns;
+    }
+
+    /**
+     * Group FormatParameters by lists of NamePatterns that have the same FormatParameters
+     */
+    public static TreeMultimap<Iterable<NamePattern>, FormatParameters> groupByNamePatterns(Multimap<FormatParameters, NamePattern> parametersToPatterns) {
+        TreeMultimap<Iterable<NamePattern>, FormatParameters> patternsToParameters =
+            TreeMultimap.create(NamePattern.ITERABLE_COMPARE, Comparator.<FormatParameters>naturalOrder());
+
+        for (Entry<FormatParameters, Collection<NamePattern>> entry : parametersToPatterns.asMap().entrySet()) {
+            patternsToParameters.put(entry.getValue(), entry.getKey());
+        }
+        return patternsToParameters;
+    }
+
+    public static Multimap<ParameterMatcher, NamePattern> compact(Multimap<Iterable<NamePattern>, FormatParameters> patternsToParameters) {
+        Multimap<ParameterMatcher, NamePattern> result = LinkedListMultimap.create();
+
+        // first find the Collection<FormatParameters> that is repeated the most often, so we can use that for the ANY value
+        Counter<Iterable<NamePattern>> counter = new Counter<>();
+        for (Entry<Iterable<NamePattern>, Collection<FormatParameters>> entry : patternsToParameters.asMap().entrySet()) {
+            counter.add(entry.getKey(), 1);
+        }
+        Set<R2<Long, Iterable<NamePattern>>> sorted = counter.getEntrySetSortedByCount(false, NamePattern.ITERABLE_COMPARE);
+        Iterable<NamePattern> optimalAny = sorted.iterator().next().get1();
+
+        for (Entry<Iterable<NamePattern>, Collection<FormatParameters>> entry : patternsToParameters.asMap().entrySet()) {
+            Iterable<NamePattern> patterns = entry.getKey();
+            if (patterns.equals(optimalAny)) {
+                continue; // will replace by ANY
+            }
+            Collection<FormatParameters> parameterSet = entry.getValue();
+            Set<ParameterMatcher> compacted = ParameterMatcher.compact(parameterSet);
+            for (ParameterMatcher matcher : compacted) {
+                result.putAll(matcher, patterns);
+            }
+        }
+        result.putAll(ParameterMatcher.MATCH_ALL, optimalAny);
+        return result;
+    }
 }

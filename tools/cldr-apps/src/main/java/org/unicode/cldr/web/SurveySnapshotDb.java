@@ -35,7 +35,7 @@ public class SurveySnapshotDb implements SurveySnapshot {
         }
         String data = null;
         String sql = "SELECT data FROM " + DBUtils.Table.SUMMARY_SNAPSHOTS
-                + "WHERE stamp = " + snapshotId;
+                + " WHERE stamp='" + snapshotId + "'";
         try (Connection conn = DBUtils.getInstance().getAConnection();
              PreparedStatement ps = DBUtils.prepareStatement(conn, "snapGet", sql)) {
             ResultSet rs = ps.executeQuery();
@@ -82,8 +82,7 @@ public class SurveySnapshotDb implements SurveySnapshot {
              * data = json string matching what front end receives for Priority Items Summary
              */
             String sql = "CREATE TABLE " + tableName
-                    + "(stamp VARCHAR(255), data " + DBUtils.DB_SQL_UNICODE
-                    + ", PRIMARY KEY (stamp))"
+                    + "(stamp VARCHAR(255), data LONGBLOB, PRIMARY KEY (stamp))"
                     + DBUtils.DB_SQL_BINCOLLATE;
             s.execute(sql);
             s.close();

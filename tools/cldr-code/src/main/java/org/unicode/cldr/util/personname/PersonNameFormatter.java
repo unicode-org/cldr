@@ -64,12 +64,11 @@ public class PersonNameFormatter {
         medium,
         short_name,
         monogram,
-        monogram_narrow;
+        monogramNarrow;
 
         private static ImmutableBiMap<String,Length> exceptionNames = ImmutableBiMap.of(
             "long", long_name,
-            "short", short_name,
-            "monogram-narrow", monogram_narrow);
+            "short", short_name);
 
         /**
          * Use this instead of valueOf
@@ -104,8 +103,8 @@ public class PersonNameFormatter {
     }
 
     public enum Order {
-        surname_first,
-        given_first;
+        surnameFirst,
+        givenFirst;
         public static final Comparator<Iterable<Order>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Order>naturalOrder());
         public static final Set<Order> ALL = ImmutableSet.copyOf(Order.values());
     }
@@ -113,7 +112,7 @@ public class PersonNameFormatter {
 
     public enum Modifier {
         initial,
-        all_caps,
+        allCaps,
         informal,
         core;
         public static final Comparator<Iterable<Modifier>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Modifier>naturalOrder());
@@ -443,7 +442,7 @@ public class PersonNameFormatter {
             if (order != null) {
                 items.add("order='" + order + "'");
             }
-            return "{" + JOIN_SPACE.join(items) + "}";
+            return JOIN_SPACE.join(items);
         }
 
         public static FormatParameters from(String string) {
@@ -510,6 +509,24 @@ public class PersonNameFormatter {
                 .compare(usage, other.usage)
                 .compare(order, other.order)
                 .result();
+        }
+
+        public String toLabel() {
+            StringBuilder sb  = new StringBuilder();
+            addToLabel(length, sb);
+            addToLabel(style, sb);
+            addToLabel(usage, sb);
+            addToLabel(order, sb);
+            return sb.length() == 0 ? "any" : sb.toString();
+        }
+
+        private <T> void addToLabel(T item, StringBuilder sb) {
+            if (item != null) {
+                if (sb.length() != 0) {
+                    sb.append('-');
+                }
+                sb.append(item.toString());
+            }
         }
     }
 
@@ -622,15 +639,15 @@ public class PersonNameFormatter {
             showAttributes("style", styles, items);
             showAttributes("usage", usages, items);
             showAttributes("order", orders, items);
-            return items.isEmpty() ? "ANY" : "{" + JOIN_SPACE.join(items) + "}";
+            return items.isEmpty() ? "ANY" : JOIN_SPACE.join(items);
         }
 
         public String toLabel() {
             StringBuilder sb  = new StringBuilder();
             addToLabel(lengths, sb);
-            addToLabel(lengths, sb);
-            addToLabel(lengths, sb);
-            addToLabel(lengths, sb);
+            addToLabel(styles, sb);
+            addToLabel(usages, sb);
+            addToLabel(orders, sb);
             return sb.length() == 0 ? "any" : sb.toString();
         }
 
@@ -922,7 +939,7 @@ public class PersonNameFormatter {
                 XPathParts parts = XPathParts.getFrozenInstance(path);
                 int q = Integer.parseInt(parts.getAttributeValue(-1, "_q"));
                 ParameterMatcher pm = new ParameterMatcher(
-                    parts.getAttributeValue(-2, "length"),
+                    hackFix(parts.getAttributeValue(-2, "length")),
                     parts.getAttributeValue(-2, "style"),
                     parts.getAttributeValue(-2, "usage"),
                     parts.getAttributeValue(-2, "order")
@@ -938,6 +955,20 @@ public class PersonNameFormatter {
         ImmutableMap<ULocale, Order> localeToOrder = ImmutableMap.of();
 
         this.namePatternMap = new NamePatternData(localeToOrder, ImmutableListMultimap.copyOf(formatParametersToNamePattern));
+    }
+
+    /**
+     * Remove once the DTD and en.xml are fixed
+     * @param attributeValue
+     * @return
+     */
+    private String hackFix(String attributeValue) {
+        if (attributeValue == null) {
+            return null;
+        }
+        else {
+            return attributeValue.replace("monogram-narrow", "monogramNarrow");
+        }
     }
 
     /**

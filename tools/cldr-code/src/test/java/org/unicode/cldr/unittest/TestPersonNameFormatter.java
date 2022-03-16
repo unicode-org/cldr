@@ -3,6 +3,7 @@ package org.unicode.cldr.unittest;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Map.Entry;
 import java.util.Set;
 
@@ -129,10 +130,30 @@ public class TestPersonNameFormatter extends TestFmwk{
         for (Set<? extends Enum<?>> set : Arrays.asList(Length.ALL, Style.ALL, Usage.ALL, Order.ALL)) {
             for (Enum<?> item : set) {
                 boolean added = items.add(item.toString());
-                assertTrue("value names are disjoint", added);
+                assertTrue("value names are disjoint ", added);
             }
         }
     }
 
-    // Add test that the order of the NamePatterns is maintained when expanding, compacting
+    public void TestLabels() {
+        Set<String> items = new HashSet<>();
+        for (FormatParameters item : FormatParameters.all()) {
+            String label = item.toLabel();
+            boolean added = items.add(item.toString());
+            assertTrue("\t"+ item + "\t" + label + "\t", added);
+        }
+        // test just one example for ParameterMatcher, since there are two many combinations
+        ParameterMatcher test = new ParameterMatcher(removeFirst(Length.ALL), removeFirst(Style.ALL), removeFirst(Usage.ALL), removeFirst(Order.ALL));
+        assertEquals("label test", "medium-short-monogram-monogramNarrow-informal-addressing-sorting-givenFirst",
+            test.toLabel());
+    }
+
+    private <T> Set<T> removeFirst(Set<T> all) {
+        Set<T> result = new LinkedHashSet<>(all);
+        T first = all.iterator().next();
+        result.remove(first);
+        return result;
+    }
+
+    // TODO Mark test that the order of the NamePatterns is maintained when expanding, compacting
 }

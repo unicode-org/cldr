@@ -1,20 +1,27 @@
 package org.unicode.cldr.unittest;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import org.unicode.cldr.tool.ToolConfig;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
+import org.unicode.cldr.util.personname.PersonNameFormatter.Length;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePatternData;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Order;
+import org.unicode.cldr.util.personname.PersonNameFormatter.ParameterMatcher;
+import org.unicode.cldr.util.personname.PersonNameFormatter.Style;
+import org.unicode.cldr.util.personname.PersonNameFormatter.Usage;
 import org.unicode.cldr.util.personname.SimpleNameObject;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Multimap;
-import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.util.ULocale;
 
@@ -48,12 +55,14 @@ public class TestPersonNameFormatter extends TestFmwk{
             "length=short medium; style=formal; usage=addressing", "{given} {given2-initial}. {surname}",
             "length=short medium; style=formal; usage=addressing", "{given} {surname}",
             "", "{prefix} {given} {given2} {surname} {surname2} {suffix}"
-                );
+            );
 
         PersonNameFormatter personNameFormatter = new PersonNameFormatter(namePatternData);
 
         check(personNameFormatter, sampleNameObject1, "length=short; style=formal; usage=addressing", "John B. Smith");
         check(personNameFormatter, sampleNameObject1, "length=long; style=formal; usage=addressing", "Mr. John Bob Smith Barnes Pascal Jr.");
+
+        checkFormatterData(personNameFormatter);
     }
 
     public void TestWithCLDR() {
@@ -64,17 +73,87 @@ public class TestPersonNameFormatter extends TestFmwk{
         check(personNameFormatter, sampleNameObject1, "length=short; usage=sorting", "Smith, null");
         check(personNameFormatter, sampleNameObject1, "length=long; style=formal; usage=referring", "John Bob Smith Jr.");
 
+        checkFormatterData(personNameFormatter);
+    }
+
+    /**
+     * Check that no exceptions happen in expansion and compaction.
+     * In verbose mode (-v), show results.
+     */
+    private void checkFormatterData(PersonNameFormatter personNameFormatter) {
         // check that no exceptions happen
-        Multimap<String, FormatParameters> values = TreeMultimap.create();
-        for (FormatParameters item : FormatParameters.all()) {
-            Collection<NamePattern> actual = personNameFormatter.getBestMatchSet(sampleNameObject1, item);
-            values.put(actual.toString(), item);
+        // sort by the output patterns
+        Multimap<Iterable<NamePattern>, FormatParameters> patternsToParameters = PersonNameFormatter.groupByNamePatterns(personNameFormatter.expand());
+
+        StringBuilder sb = new StringBuilder("\n");
+        int count = 0;
+        sb.append("\nEXPANDED:\n");
+        for (Entry<Iterable<NamePattern>, Collection<FormatParameters>> entry : patternsToParameters.asMap().entrySet()) {
+            final Iterable<NamePattern> key = entry.getKey();
+            final Collection<FormatParameters> value = entry.getValue();
+
+            String prefix = ++count + ")";
+            for (FormatParameters parameters : value) {
+                sb.append(prefix + "\t" + parameters + "\n");
+                prefix = "";
+            }
+            showPattern("⇒", key, sb);
         }
-        for (Entry<String, Collection<FormatParameters>> entry : values.asMap().entrySet()) {
-            logln("\t" + entry.getKey());
-            for (FormatParameters value : entry.getValue()) {
-                logln("\t\t" + value);
+
+        count = 0;
+        sb.append("\nCOMPACTED:\n");
+
+        Multimap<ParameterMatcher, NamePattern> compacted = PersonNameFormatter.compact(patternsToParameters);
+
+        for (Entry<ParameterMatcher, Collection<NamePattern>> entry : compacted.asMap().entrySet()) {
+            final ParameterMatcher key = entry.getKey();
+            final Collection<NamePattern> value = entry.getValue();
+
+            String prefix = ++count + ")";
+            sb.append(prefix + "\t" + key + "\n");
+            prefix = "";
+            showPattern("⇒", value, sb);
+        }
+        logln(sb.toString());
+    }
+
+
+    private <T> void showPattern(String prefix, Iterable<T> iterable, StringBuilder sb) {
+        for (T item : iterable) {
+            sb.append(prefix + "\t\t︎" + item + "\n");
+            prefix = "";
+        }
+    }
+
+    public void TestFields() {
+        Set<String> items = new HashSet<>();
+        for (Set<? extends Enum<?>> set : Arrays.asList(Length.ALL, Style.ALL, Usage.ALL, Order.ALL)) {
+            for (Enum<?> item : set) {
+                boolean added = items.add(item.toString());
+                assertTrue("value names are disjoint", added);
             }
         }
     }
+
+    public void TestLabels() {
+        Set<String> items = new HashSet<>();
+        for (FormatParameters item : FormatParameters.all()) {
+            String label = item.toLabel();
+            boolean added = items.add(item.toString());
+            assertTrue("label test\t"+ item + "\t" + label + "\t", added);
+        }
+        // test just one example for ParameterMatcher, since there are two many combinations
+        ParameterMatcher test = new ParameterMatcher(removeFirst(Length.ALL), removeFirst(Style.ALL), removeFirst(Usage.ALL), removeFirst(Order.ALL));
+        assertEquals("label test", "medium-short-monogram-monogramNarrow-informal-addressing-sorting-givenFirst",
+            test.toLabel());
+    }
+
+    private <T> Set<T> removeFirst(Set<T> all) {
+        Set<T> result = new LinkedHashSet<>(all);
+        T first = all.iterator().next();
+        result.remove(first);
+        return result;
+    }
+
+    // TODO Mark test that the order of the NamePatterns is maintained when expanding, compacting
 }

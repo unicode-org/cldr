@@ -130,7 +130,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         for (Set<? extends Enum<?>> set : Arrays.asList(Length.ALL, Style.ALL, Usage.ALL, Order.ALL)) {
             for (Enum<?> item : set) {
                 boolean added = items.add(item.toString());
-                assertTrue("value names are disjoint ", added);
+                assertTrue("value names are disjoint", added);
             }
         }
     }
@@ -140,7 +140,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         for (FormatParameters item : FormatParameters.all()) {
             String label = item.toLabel();
             boolean added = items.add(item.toString());
-            assertTrue("\t"+ item + "\t" + label + "\t", added);
+            assertTrue("label test\t"+ item + "\t" + label + "\t", added);
         }
         // test just one example for ParameterMatcher, since there are two many combinations
         ParameterMatcher test = new ParameterMatcher(removeFirst(Length.ALL), removeFirst(Style.ALL), removeFirst(Usage.ALL), removeFirst(Order.ALL));

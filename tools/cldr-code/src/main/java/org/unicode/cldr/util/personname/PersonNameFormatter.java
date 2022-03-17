@@ -7,6 +7,7 @@ import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -33,6 +34,7 @@ import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
+import com.google.common.collect.Sets.SetView;
 import com.ibm.icu.impl.Pair;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.util.ULocale;
@@ -272,7 +274,11 @@ public class PersonNameFormatter {
         private final Set<Field> fields;
 
         public Set<Field> getFields() {
-            return fields;
+            return ImmutableSet.copyOf(fields);
+        }
+
+        public int getFieldsSize() {
+            return fields.size();
         }
 
         public String format(NameObject nameObject) {
@@ -775,20 +781,35 @@ public class PersonNameFormatter {
             if (nameFormatParameters.order == null) {
                 nameFormatParameters = nameFormatParameters.setOrder(localeToOrder.get(nameObject.getNameLocale()));
             }
-            Collection<NamePattern> resultSet = getBestMatchSet(nameFormatParameters);
 
-            // TODO Alex pick the NamePattern that best matches the fields in the nameObject
-            // Note that each NamePattern has a method that returns its fields
+            NamePattern result = null;
 
+            NamePattern[] namePatterns = getBestMatchSet(nameFormatParameters).toArray(NamePattern[]::new);
+            Set<Field> nameFields = nameObject.getAvailableFields();
+            int bestMatchIdx = -1;
+            int bestMatchSize = -1;
 
-            // for now, just return the first (with valid objects should never be empty
+            for (int i = 0; i < namePatterns.length; i++) {
+                NamePattern pattern = namePatterns[i];
+                Set<Field> patternFields = pattern.getFields();
 
-            return resultSet.iterator().next();
+                SetView<Field> intersection = Sets.intersection(nameFields, patternFields);
+                int matchSize = intersection.size();
+
+                if ((matchSize > bestMatchSize) /* better match */
+                    || (matchSize == bestMatchSize
+                        && patternFields.size() < namePatterns[bestMatchIdx].getFieldsSize()) /* equal match, but less "extra" fields */) {
+                    bestMatchSize = matchSize;
+                    bestMatchIdx = i;
+
+                    result = pattern;
+                }
+            }
+
+            return result;
         }
 
         public Collection<NamePattern> getBestMatchSet(FormatParameters nameFormatParameters) {
-
-            // Sift through the options to get the first one that best matches nameObjectFields
 
             for (Entry<ParameterMatcher, Collection<NamePattern>> parametersAndPatterns : parameterMatcherToNamePattern.asMap().entrySet()) {
                 ParameterMatcher parameters = parametersAndPatterns.getKey();
@@ -796,6 +817,7 @@ public class PersonNameFormatter {
                     return parametersAndPatterns.getValue();
                 }
             }
+            
             return null; // for now; this will only happen if the NamePatternData is invalid
         }
 

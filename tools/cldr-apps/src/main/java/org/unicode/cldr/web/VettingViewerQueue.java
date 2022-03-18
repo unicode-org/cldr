@@ -288,19 +288,32 @@ public class VettingViewerQueue {
             }
             vv.generatePriorityItemsSummary(aBuffer, choiceSet, usersOrg);
             if (myThread.isAlive()) {
-                aBuffer.append("<hr/>" + PRE + "Processing time: " + ElapsedTimer.elapsedTime(start) + POST);
+                aBuffer.append("<hr/>Processing time: " + ElapsedTimer.elapsedTime(start));
                 entry.output.put(usersOrg, new VVOutput(aBuffer));
             }
         }
 
-        private String status() {
-            StringBuffer bar = SurveyProgressManager.appendProgressBar(new StringBuffer(), n, maxn);
-            return status + bar;
+        private int getPercent() {
+            if (n <= 0 || maxn <= 0) {
+                return 0;
+            } else if (n >= maxn) {
+                return 100;
+             } else {
+                int p = (n * 100) / maxn;
+                return (p > 0) ? p : 1;
+            }
         }
     }
 
-    private static final String PRE = "<DIV class='pager'>";
-    private static final String POST = "</DIV>";
+    /*
+     * Messages returned by getPriorityItemsSummaryOutput
+     */
+    private final static String SUM_MESSAGE_COMPLETE = "Stopped on completion";
+    private final static String SUM_MESSAGE_STOPPED_ON_REQUEST = "Stopped on request";
+    private final static String SUM_MESSAGE_PROGRESS = "In Progress";
+    private final static String SUM_MESSAGE_STOPPED_STUCK = "Stopped (refresh if stuck)";
+    private final static String SUM_MESSAGE_NOT_LOADING = "Not loading. Click the Refresh button to load.";
+    private final static String SUM_MESSAGE_STARTED = "Started new task";
 
     /**
      * Return the status of the vetting viewer output request
@@ -330,7 +343,7 @@ public class VettingViewerQueue {
                 }
                 stop(entry);
                 entry.output.remove(usersOrg);
-                return "Stopped on completion";
+                return SUM_MESSAGE_COMPLETE;
             }
         } else { /* force stop */
             stop(entry);
@@ -341,12 +354,11 @@ public class VettingViewerQueue {
             if (debugStatus != null) {
                 debugStatus.put("t_running", false);
                 debugStatus.put("t_statuscode", Status.STOPPED);
-                debugStatus.put("t_status", "Stopped on request");
+                debugStatus.put("t_status", SUM_MESSAGE_STOPPED_ON_REQUEST);
             }
-            return "Stopped on request";
+            return SUM_MESSAGE_STOPPED_ON_REQUEST;
         }
         Task t = entry.currentTask;
-
         if (t != null) {
             String waiting = waitingString();
             if (debugStatus != null) {
@@ -356,17 +368,20 @@ public class VettingViewerQueue {
             if (t.myThread.isAlive()) {
                 // get progress from current thread
                 status[0] = t.statusCode;
-                if (status[0] != Status.WAITING)
+                if (status[0] != Status.WAITING) {
                     waiting = "";
-                return PRE + "In Progress: " + waiting + t.status() + POST;
+                }
+                setPercent(t.getPercent());
+                return SUM_MESSAGE_PROGRESS + ": " + waiting + t.status;
             } else {
-                return PRE + "Stopped (refresh if stuck) " + t.status() + POST;
+                setPercent(0);
+                return SUM_MESSAGE_STOPPED_STUCK + " " + t.status;
             }
         }
-
         if (loadingPolicy == LoadingPolicy.NOSTART) {
             status[0] = Status.STOPPED;
-            return PRE + "Not loading. Click the Refresh button to load." + POST;
+            setPercent(0);
+            return SUM_MESSAGE_NOT_LOADING;
         }
 
         // TODO: May be better to use SurveyThreadManager.getExecutorService().invoke() (rather than a raw thread) but would require
@@ -380,7 +395,8 @@ public class VettingViewerQueue {
         if (DEBUG) {
             putTaskStatus(debugStatus, t);
         }
-        return PRE + "Started new task: " + waitingString() + t.status() + "<hr/>" + POST;
+        setPercent(0);
+        return SUM_MESSAGE_STARTED + ": " + waitingString() + t.status;
     }
 
     /**
@@ -406,6 +422,7 @@ public class VettingViewerQueue {
     }
 
     private void stop(QueueEntry entry) {
+        setPercent(0);
         Task t = entry.currentTask;
         if (t != null) {
             if (t.myThread.isAlive() && !t.stop) {
@@ -427,5 +444,15 @@ public class VettingViewerQueue {
 
     private static int totalUsersWaiting() {
         return (OnlyOneVetter.getQueueLength());
+    }
+
+    private int percent = 0;
+
+    private void setPercent(int p) {
+        percent = p;
+    }
+
+    public int getPercent() {
+        return percent;
     }
 }

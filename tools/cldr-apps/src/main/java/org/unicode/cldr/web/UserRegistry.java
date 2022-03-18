@@ -521,6 +521,7 @@ public class UserRegistry {
             return new JSONObject()
                 .put("userCanImportOldVotes", canImportOldVotes())
                 .put("userCanUseVettingSummary", userCanUseVettingSummary(this))
+                .put("userCanCreateSummarySnapshot", userCanCreateSummarySnapshot(this))
                 .put("userCanMonitorForum", userCanMonitorForum(this))
                 .put("userIsAdmin", userIsAdmin(this))
                 .put("userIsManager", getLevel().canManageSomeUsers())
@@ -540,6 +541,7 @@ public class UserRegistry {
 
             m.put("userCanImportOldVotes", canImportOldVotes());
             m.put("userCanUseVettingSummary", userCanUseVettingSummary(this));
+            m.put("userCanCreateSummarySnapshot", userCanCreateSummarySnapshot(this));
             m.put("userCanMonitorForum", userCanMonitorForum(this));
             m.put("userIsAdmin", userIsAdmin(this));
             m.put("userIsTC", userIsTC(this));
@@ -1677,13 +1679,23 @@ public class UserRegistry {
     }
 
     /**
-     * Can the user use the vetting summary page?
+     * Can the user use the priority items summary page?
      *
      * @param u the user
      * @return true or false
      */
     public static final boolean userCanUseVettingSummary(User u) {
-        return userIsTC(u);
+        return userIsManagerOrStronger(u);
+    }
+
+    /**
+     * Can the user create snapshots in the priority items summary page?
+     *
+     * @param u the user
+     * @return true or false
+     */
+    public static boolean userCanCreateSummarySnapshot(User u) {
+        return userIsAdmin(u);
     }
 
     /**

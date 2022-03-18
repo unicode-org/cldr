@@ -380,9 +380,6 @@ public class TestDtdData extends TestFmwk {
             // <suppressions> children
             "suppression",
 
-            // <personName> children
-            "namePattern",
-
             // DTD: supplementalData
             // <territory> children
             // "languagePopulation",

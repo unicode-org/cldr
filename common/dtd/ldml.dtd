@@ -3178,7 +3178,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 <!ELEMENT personName ( alias | ( namePattern+, special* ) ) >
 <!ATTLIST personName length NMTOKENS #IMPLIED >
-    <!--@MATCH:set/literal/long, medium, short, monogram, monogram-narrow-->
+    <!--@MATCH:set/literal/long, medium, short, monogram, monogramNarrow-->
 <!ATTLIST personName usage NMTOKENS #IMPLIED >
     <!--@MATCH:set/literal/addressing, referring, sorting-->
 <!ATTLIST personName style NMTOKENS #IMPLIED >
@@ -3187,9 +3187,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@MATCH:set/literal/surnameFirst, givenFirst-->
 
 <!ELEMENT namePattern ( #PCDATA ) >
-    <!--@ORDERED-->
-<!ATTLIST namePattern alt NMTOKENS #IMPLIED >
-    <!--@MATCH:literal/variant-->
+<!ATTLIST namePattern alt (2|3) #IMPLIED >
 <!ATTLIST namePattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST namePattern references CDATA #IMPLIED >

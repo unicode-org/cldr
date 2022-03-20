@@ -33,6 +33,8 @@ public class TestPersonNameFormatter extends TestFmwk{
 
     private final NameObject sampleNameObject1 = new SimpleNameObject(
         "locale=fr, prefix=Mr., given=John, given2-initial=B, given2= Bob, surname=Smith, surname2= Barnes Pascal, suffix=Jr.");
+    private final NameObject sampleNameObject2 = new SimpleNameObject(
+        "locale=fr, prefix=Mr., given=John, surname=Smith, surname2= Barnes Pascal, suffix=Jr.");
 
     private void check(PersonNameFormatter personNameFormatter, NameObject nameObject, String nameFormatParameters, String expected) {
         FormatParameters nameFormatParameters1 = FormatParameters.from(nameFormatParameters);
@@ -60,6 +62,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         PersonNameFormatter personNameFormatter = new PersonNameFormatter(namePatternData);
 
         check(personNameFormatter, sampleNameObject1, "length=short; style=formal; usage=addressing", "John B. Smith");
+        check(personNameFormatter, sampleNameObject2, "length=short; style=formal; usage=addressing", "John Smith");
         check(personNameFormatter, sampleNameObject1, "length=long; style=formal; usage=addressing", "Mr. John Bob Smith Barnes Pascal Jr.");
 
         checkFormatterData(personNameFormatter);

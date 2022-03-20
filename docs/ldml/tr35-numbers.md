@@ -1032,7 +1032,7 @@ In addition, an "other" tag is always implicitly defined to cover the forms not 
 
 These rules specify that Russian has a "one" form (for 1, 21, 31, 41, 51, …), a "few" form (for 2–4, 22–24, 32–34, …), and implicitly an "other" form (for everything else: 0, 5–20, 25–30, 35–40, …, decimals). Russian does not need additional separate forms for zero, two, or many, so these are not defined.
 
-A source number represents the visual appearance of the digits of the result. In text, it can be represented by the EBNF for decimalValue. Note that the same double number can be represented by multiple source numbers. For example, "1.0" and "1.00" are different source numbers, but there is only one double number that they correspond to: 1.0d == 1.00d. As another example, 1e3d == 1000d, but the source numbers "1e3" and "1000" are different, and can have different plural categories. So the input to the plural rules carries more information than a computer double. The plural category for negative numbers is calculated according to the absolute value of the source number, and leading integer digits don't have any effect on the plural category calculation. (This may change in the future, if we find languages that have different behavior.)
+A source number represents the visual appearance of the digits of the result. In text, it can be represented by the EBNF for sampleValue. Note that the same double number can be represented by multiple source numbers. For example, "1.0" and "1.00" are different source numbers, but there is only one double number that they correspond to: 1.0d == 1.00d. As another example, 1e3d == 1000d, but the source numbers "1e3" and "1000" are different, and can have different plural categories. So the input to the plural rules carries more information than a computer double. The plural category for negative numbers is calculated according to the absolute value of the source number, and leading integer digits don't have any effect on the plural category calculation. (This may change in the future, if we find languages that have different behavior.)
 
 Plural categories may also differ according to the visible decimals. For example, here are some of the behaviors exhibited by different languages:
 
@@ -1067,7 +1067,10 @@ Usage example: In English (which only defines language-specific rules for “one
 
 ### 5.1 <a name="Plural_rules_syntax" href="#Plural_rules_syntax">Plural rules syntax</a>
 
-The xml value for each pluralRule is a _condition_ with a boolean result that specifies whether that rule (i.e. that plural form) applies to a given numeric value _n_, where n can be expressed as a decimal fraction or with compact decimal formatting, denoted by a special notation in the syntax, e.g., “1.2c6” for “1.2M”. Clients of CLDR may express all the rules for a locale using the following syntax:
+The xml value for each pluralRule is a _condition_ with a boolean result.
+That value specifies whether that rule (i.e. that plural form) applies to a given _source number N_ in sampleValue syntax, where _N_ can be expressed as a decimal fraction or with compact decimal formatting.
+The compact decimal formatting is denoted by a special notation in the syntax, e.g., “1.2c6” for “1.2M”. 
+Clients of CLDR may express all the rules for a locale using the following syntax:
 
 ```
 rules         = rule (';' rule)*
@@ -1102,30 +1105,35 @@ digit           = [0-9]
 digitPos        = [1-9]
 ```                
 
-* Whitespace (defined as Unicode [Pattern_White_Space](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5Cp%7BPattern_White_Space%7D)) can occur between or around any of the above tokens, with the exception of the tokens in value, digit, and decimalValue.
+* Whitespace (defined as Unicode [Pattern_White_Space](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5Cp%7BPattern_White_Space%7D)) can occur between or around any of the above tokens, with the exception of the tokens in value, digit, and sampleValue.
 * In the syntax, **and** binds more tightly than **or**. So **X or Y and Z** is interpreted as **(X or (Y and Z))**.
+  * For example, e = 0 and i != 0 and i % 1000000 = 0 and *+v = 0+* or e != 0..5 is parsed as if it were (e = 0 and i != 0 and i % 1000000 = 0 and v = 0) or (e != 0..5)
 * Each plural rule must be written to be self-contained, and not depend on the ordering. Thus rules must be mutually exclusive; for a given numeric value, only one rule can apply (i.e., the condition can only be true for one of the pluralRule elements. Each keyword can have at most one condition. The 'other' keyword must have an empty condition: it is only present for samples.
 * The samples should be included, since they are used by client software for samples and determining whether the keyword has finite values or not.
 * The 'other' keyword must have no condition, and all other keywords must have a condition.
 
 #### 5.1.1 <a name="Operands" href="#Operands">Operands</a>
 
-The operands correspond to features of the source number, and have the following meanings.
+The operands are numeric values corresponding to features of the *source number N*, and have the following meanings given in the table below. 
+Note that, contrary to source numbers, operands are treated numerically.
+Although some of them are used to describe insignificant 0s in the source number, any insignificant 0s in the operands themselves are ignored, e.g., f=03 is equivalent to f=3.
 
 ##### <a name="Plural_Operand_Meanings" href="#Plural_Operand_Meanings">Plural Operand Meanings</a>
 
 | Symbol | Value |
 | --- | --- |
-| n | absolute value of the source number. |
-| i | integer digits of n. |
-| v | number of visible fraction digits in n, _with_ trailing zeros.* |
-| w | number of visible fraction digits in n, _without_ trailing zeros.* |
-| f | visible fraction digits in n, _with_ trailing zeros.* |
-| t | visible fraction digits in n, _without_ trailing zeros.* |
+| n | the absolute value of N.* |
+| i | the integer digits of N.* |
+| v | the number of visible fraction digits in N, _with_ trailing zeros.* |
+| w | the number of visible fraction digits in N, _without_ trailing zeros.* |
+| f | the visible fraction digits in N, _with_ trailing zeros, expressed as an integer.* |
+| t | the visible fraction digits in N, _without_ trailing zeros, expressed as an integer.* |
 | c | compact decimal exponent value: exponent of the power of 10 used in compact decimal formatting. |
-| e | currently, synonym for ‘c’. however, may be redefined in the future. |
+| e | a deprecated synonym for ‘c’. Note: it may be redefined in the future. |
 
-\* If there is a compact decimal exponent value (‘c’), then the f, t, v, and w values are computed _after_ shifting the decimal point in the original by the ‘c’ value. So for 1.2c3, the f, t, v, and w values are the same as those of 1200:  i=1200 and f=0. Similarly, for 1.2005c3 has i=1200 and f=5 (corresponding to 1200.5).
+\* If there is a compact decimal exponent value (‘c’), then the n, i, f, t, v, and w values are computed _after_ shifting the decimal point in the original by the ‘c’ value. 
+So for 1.2c3, the n, i, f, t, v, and w values are the same as those of 1200:  i=1200 and f=0. 
+Similarly, 1.2005c3 has i=1200 and f=5 (corresponding to 1200.5).
 
 ##### <a name="Plural_Operand_Examples" href="#Plural_Operand_Examples">Plural Operand Examples</a>
 

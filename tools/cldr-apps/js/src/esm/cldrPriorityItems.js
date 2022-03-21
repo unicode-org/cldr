@@ -45,20 +45,34 @@ class SummaryArgs {
 
 let latestArgs = new SummaryArgs();
 
+let canSum = false;
 let canSnap = false;
+let canCreateSnap = false;
 
 let callbackToSetData = null;
 let callbackToSetSnapshots = null;
+
+function canUseSummary() {
+  return canSum;
+}
 
 function canUseSnapshots() {
   return canSnap;
 }
 
+function canCreateSnapshots() {
+  return canCreateSnap;
+}
+
 function viewCreated(setData, setSnap) {
   callbackToSetData = setData;
   callbackToSetSnapshots = setSnap;
-  if (cldrStatus.getPermissions()?.userIsAdmin) {
-    canSnap = true;
+  const perm = cldrStatus.getPermissions();
+  if (perm?.userCanUseVettingSummary) {
+    canSum = canSnap = true;
+    if (perm?.userCanCreateSummarySnapshot) {
+      canCreateSnap = true;
+    }
   }
   fetchStatus();
 }
@@ -107,6 +121,12 @@ function setSummaryData(data) {
     return;
   }
   callbackToSetData(data);
+  if (data.output && latestArgs.snapshotPolicy !== SNAP_NONE) {
+    if (latestArgs.snapshotPolicy === SNAP_CREATE) {
+      listSnapshots();
+    }
+    latestArgs.snapshotPolicy = SNAP_NONE;
+  }
   if (latestArgs.loadingPolicy === LOAD_NOSTART) {
     window.setTimeout(fetchStatus.bind(this), NORMAL_RETRY);
   }
@@ -126,7 +146,9 @@ function listSnapshots() {
 
 export {
   SNAPID_NOT_APPLICABLE,
+  canCreateSnapshots,
   canUseSnapshots,
+  canUseSummary,
   createSnapshot,
   showSnapshot,
   start,

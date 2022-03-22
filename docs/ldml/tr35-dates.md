@@ -595,8 +595,10 @@ Date/Time formats have the following form:
             . . .
         </availableFormats>
         <appendItems>
-            <appendItem request="G">{0} {1}</appendItem>
-            <appendItem request="w">{0} ({2}: {1})</appendItem>
+            <appendItem request="Day">{0} ({2}: {1})</appendItem>
+            <appendItem request="Day-Of-Week">{0} {1}</appendItem>
+            <appendItem request="Era">{0} {1}</appendItem>
+            <appendItem request="Hour">{0} ({2}: {1})</appendItem>
             . . .
         </appendItems>
     </dateTimeFormats>

@@ -2439,7 +2439,7 @@ The cp value may contain sequences, but does not contain any Emoji or Text Varia
 
 ### 14.1 <a name="SynthesizingNames" href="#SynthesizingNames">Synthesizing Sequence Names</a>
 
-Many emoji are represented by sequences of characters. When there are no `annotation` elements for that string, the short name can be synthesized as follows. **Note:** The process details may change after the release of this specification, and may further change in the future if other sequences are added. Please see the [Known Issues](https://cldr.unicode.org/index/downloads/cldr-40#h.uanqoyl5dqt3) section of the CLDR download page for any updates.
+Many emoji are represented by sequences of characters. When there are no `annotation` elements for that string, the short name can be synthesized as follows. **Note:** The process details may change after the release of this specification, and may further change in the future if other sequences are added. Please see the [Known Issues](https://cldr.unicode.org/index/downloads/cldr-41#h.qa3jolg7zi2s) section of the CLDR download page for any updates.
 
 1.  If **sequence** is an **emoji flag sequence**, look up the territory name in CLDR for the corresponding ASCII characters and return as the short name. For example, the regional indicator symbols P+F would map to “Französisch-Polynesien” in German.
 2.  If **sequence** is an **emoji tag sequence**, look up the subdivision name in CLDR for the corresponding ASCII characters and return as the short name. For example, the TAG characters gbsct would map to “Schottland” in German.

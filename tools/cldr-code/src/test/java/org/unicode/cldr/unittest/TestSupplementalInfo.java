@@ -1511,6 +1511,10 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         for (String currency : nonModernCurrencyCodes.keySet()) {
             final String name = testInfo.getEnglish().getName(
                 CLDRFile.CURRENCY_NAME, currency);
+            if (name == null) {
+                errln("No English name for currency " + currency);
+                continue;
+            }
             if (newMatcher.reset(name).find()
                 && !EXCEPTION_CURRENCIES_WITH_NEW.contains(currency)) {
                 logln("Has 'new' in name but NOT used since "

@@ -560,7 +560,7 @@ Here is an example of the approvalRequirements section.
 <approvalRequirements>
     <!--  "high bar" items -->
     <approvalRequirement votes="20" locales="*" paths="//ldml/numbers/symbols[^/]++/(decimal|group)"/>
-    <!--  established locales - http://cldr.unicode.org/index/process#TOC-Draft-Status-of-Optimal-Field-Value -->
+    <!--  established locales - https://cldr.unicode.org/index/process#h.rm00w9v03ia8 -->
     <approvalRequirement votes="8" locales="ar ca cs da de el es fi fr he hi hr hu it ja ko nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant" paths=""/>
     <!--  all other items -->
     <approvalRequirement votes="4" locales="*" paths=""/>

@@ -1880,6 +1880,12 @@ public class ExampleGenerator {
                 value = cf.format(NUMBER_SAMPLE);
             }
             String result;
+            if (value == null) {
+                throw new NullPointerException(
+                    cldrFile.getSourceLocation(fullPath) +
+                    ": " + cldrFile.getLocaleID()+ ": " +
+                    ": Error: no currency symbol for " + currency);
+            }
             DecimalFormat x = icuServiceBuilder.getCurrencyFormat(currency, value);
             result = x.format(NUMBER_SAMPLE);
             result = setBackground(result).replace(value, backgroundEndSymbol + value + backgroundStartSymbol);

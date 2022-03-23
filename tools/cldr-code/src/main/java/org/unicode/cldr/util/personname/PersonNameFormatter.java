@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.EnumSet;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
@@ -16,6 +17,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.function.Function;
 
+import org.checkerframework.checker.units.qual.C;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.XPathParts;
@@ -325,30 +327,72 @@ public class PersonNameFormatter {
             return new NamePattern(parse(patternString));
         }
 
+        private static final Set<Character> ALLOWED_ESCAPED_CHARACTERS = new HashSet<>(Arrays.asList('\\', '{', '}'));
+
         private static List<NamePatternElement> parse(String patternString) {
             List<NamePatternElement> result = new ArrayList<>();
-            int position = 0; // position is at start, or after }
-            // TODO Rich handle \{, \\\{...
-            while (true) {
-                int leftCurly = patternString.indexOf('{', position);
-                if (leftCurly < 0) {
-                    if (position < patternString.length()) {
-                        result.add(new NamePatternElement(patternString.substring(position, patternString.length())));
+
+            String rawValue = "";
+            Boolean curlyStarted = false;
+            final int patternLength = patternString.length();
+            int i = 0;
+            while (i < patternLength) {
+                final Character currentCharacter = patternString.charAt(i);
+
+                switch (currentCharacter) {
+                case '\\':
+                    if (i + 1 < patternLength) {
+                        final Character nextCharacter = patternString.charAt(i + 1);
+                        if (!ALLOWED_ESCAPED_CHARACTERS.contains(nextCharacter)) {
+                            throw new IllegalArgumentException(String.format("Escaping character '%c' is not supported", nextCharacter));
+                        }
+
+                        rawValue += nextCharacter;
+                        i += 2;
+                        continue;
+                    } else {
+                        throw new IllegalArgumentException("Invalid escape sequence");
+                    }
+
+                case '{':
+                    if (curlyStarted) {
+                        throw new IllegalArgumentException("Unexpected {");
+                    }
+                    curlyStarted = true;
+                    if (!rawValue.isEmpty()) {
+                        result.add(new NamePatternElement(rawValue));
+                        rawValue = "";
                     }
                     break;
+
+                case '}':
+                    if (!curlyStarted) {
+                        throw new IllegalArgumentException("Unexpected }");
+                    }
+                    curlyStarted = false;
+                    if (rawValue.isEmpty()) {
+                        throw new IllegalArgumentException("Empty field is not allowed");
+                    } else {
+                        result.add(new NamePatternElement(ModifiedField.from(rawValue)));
+                        rawValue = "";
+                    }
+                    break;
+
+                default:
+                    rawValue += currentCharacter;
+                    break;
                 }
-                if (position < leftCurly) {
-                    result.add(new NamePatternElement(patternString.substring(position, leftCurly)));
-                }
-                ++leftCurly;
-                int rightCurly = patternString.indexOf('}', leftCurly);
-                if (rightCurly < 0) {
-                    throw new IllegalArgumentException("Unmatched {");
-                }
-                NamePatternElement mf = new NamePatternElement(ModifiedField.from(patternString.substring(leftCurly, rightCurly)));
-                result.add(mf);
-                position = ++rightCurly;
+
+                i++;
             }
+
+            if (curlyStarted) {
+                throw new IllegalArgumentException("Unmatched {");
+            }
+            if (!rawValue.isEmpty()) {
+                result.add(new NamePatternElement(rawValue));
+            }
+
             return result;
         }
 
@@ -365,7 +409,12 @@ public class PersonNameFormatter {
             StringBuilder result = new StringBuilder("\"");
             for (NamePatternElement element : elements) {
                 if (element.literal != null) {
-                    result.append(element);
+                    for (final Character c : element.literal.toCharArray()) {
+                        if (ALLOWED_ESCAPED_CHARACTERS.contains(c)) {
+                            result.append('\\');
+                        }
+                        result.append(c);
+                    }
                 } else {
                     result.append('{').append(element).append('}');
                 }

@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html><head><meta charset="utf-8"><link rel="stylesheet" type="text/css" media="screen" href="../reports-v2.css"><title>Unicode Locale Data Markup Language (LDML) Part 3: Numbers</title></head><body>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" type="text/css" media="screen" href="../reports-v2.css">
+<title>Unicode Locale Data Markup Language (LDML) Part 3: Numbers</title></head><body>
 
 
 
@@ -348,7 +350,38 @@
 
 
 
-<div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
   <tbody>
       <tr>
           <td class="icon"><a href="http://www.unicode.org/"><img style="vertical-align:middle;border:0" alt="[Unicode]" src="http://www.unicode.org/webscripts/logo60s2.gif" height="33" width="34"></a>&nbsp;&nbsp;<a class="bar" href="http://www.unicode.org/reports/">Technical Reports</a></td>
@@ -436,6 +469,12 @@
 </li>
 <li>  6 <a href="#Rule-Based_Number_Formatting">Rule-Based Number Formatting</a></li>
 <li>  7 <a href="#Parsing_Numbers">Parsing Numbers</a></li>
+<li>8 <a href="#Number_Range_Formatting">Number Range Formatting</a><ul>
+<li>  8.1 <a href="#Approximate_Number_Formatting">Approximate Number Formatting</a></li>
+<li>  8.2 <a href="#Collapsing_Number_Ranges">Collapsing Number Ranges</a></li>
+<li>  8.3 <a href="#Range_Pattern_Processing">Range Pattern Processing</a></li>
+</ul>
+</li>
 </ul><h2 id="1-numbering-systems">1 <a name="Numbering_Systems" href="#Numbering_Systems">Numbering Systems</a></h2><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">numberingSystems</span> ( <span class="hljs-meta-keyword">numberingSystem</span>* ) &gt;</span>  
 <span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">numberingSystem</span> <span class="hljs-meta-keyword">EMPTY</span> &gt;</span>  
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">numberingSystem</span> <span class="hljs-meta-keyword">id</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>  
@@ -625,7 +664,7 @@
 </code></pre><h3 id="25-miscellaneous-patterns">2.5 <a name="Miscellaneous_Patterns" href="#Miscellaneous_Patterns">Miscellaneous Patterns</a></h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">miscPatterns</span> (<span class="hljs-meta-keyword">alias</span> | (<span class="hljs-meta-keyword">default</span>*, <span class="hljs-meta-keyword">pattern</span>*, <span class="hljs-meta-keyword">special</span>*)) &gt;</span>  
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">miscPatterns</span> <span class="hljs-meta-keyword">numberSystem</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
 </code></pre><p>The miscPatterns supply additional patterns for special purposes. The currently defined values are:</p><p><strong>approximately</strong></p><blockquote>
-<p>indicates an approximate number, such as: “~99”</p>
+<p>indicates an approximate number, such as: “~99”. This pattern is not currently in use; see ICU-20163.</p>
 </blockquote><p><strong>atMost</strong></p><blockquote>
 <p>indicates a number or lower, such as: “<code>≤</code>99” to indicate that there are 99 items or fewer.</p>
 </blockquote><p><strong>atLeast</strong></p><blockquote>
@@ -1192,7 +1231,7 @@
     <span class="hljs-tag">&lt;<span class="hljs-name">pluralRules</span> <span class="hljs-attr">count</span>=<span class="hljs-string">"one"</span>&gt;</span>n mod 10 is 1 and n mod 100 is not 11<span class="hljs-tag">&lt;/<span class="hljs-name">pluralRule</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">pluralRules</span> <span class="hljs-attr">count</span>=<span class="hljs-string">"few"</span>&gt;</span>n mod 10 in 2..4 and n mod 100 not in 12..14<span class="hljs-tag">&lt;/<span class="hljs-name">pluralRule</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">pluralRules</span>&gt;</span>
-</code></pre><p>These rules specify that Russian has a "one" form (for 1, 21, 31, 41, 51, …), a "few" form (for 2–4, 22–24, 32–34, …), and implicitly an "other" form (for everything else: 0, 5–20, 25–30, 35–40, …, decimals). Russian does not need additional separate forms for zero, two, or many, so these are not defined.</p><p>A source number represents the visual appearance of the digits of the result. In text, it can be represented by the EBNF for decimalValue. Note that the same double number can be represented by multiple source numbers. For example, "1.0" and "1.00" are different source numbers, but there is only one double number that they correspond to: 1.0d == 1.00d. As another example, 1e3d == 1000d, but the source numbers "1e3" and "1000" are different, and can have different plural categories. So the input to the plural rules carries more information than a computer double. The plural category for negative numbers is calculated according to the absolute value of the source number, and leading integer digits don't have any effect on the plural category calculation. (This may change in the future, if we find languages that have different behavior.)</p><p>Plural categories may also differ according to the visible decimals. For example, here are some of the behaviors exhibited by different languages:</p><table>
+</code></pre><p>These rules specify that Russian has a "one" form (for 1, 21, 31, 41, 51, …), a "few" form (for 2–4, 22–24, 32–34, …), and implicitly an "other" form (for everything else: 0, 5–20, 25–30, 35–40, …, decimals). Russian does not need additional separate forms for zero, two, or many, so these are not defined.</p><p>A source number represents the visual appearance of the digits of the result. In text, it can be represented by the EBNF for sampleValue. Note that the same double number can be represented by multiple source numbers. For example, "1.0" and "1.00" are different source numbers, but there is only one double number that they correspond to: 1.0d == 1.00d. As another example, 1e3d == 1000d, but the source numbers "1e3" and "1000" are different, and can have different plural categories. So the input to the plural rules carries more information than a computer double. The plural category for negative numbers is calculated according to the absolute value of the source number, and leading integer digits don't have any effect on the plural category calculation. (This may change in the future, if we find languages that have different behavior.)</p><p>Plural categories may also differ according to the visible decimals. For example, here are some of the behaviors exhibited by different languages:</p><table>
 <thead>
 <tr>
 <th>Behavior</th>
@@ -1232,7 +1271,10 @@
 <li>count=“0”: no books</li>
 <li>count=“one”: {0} book, e.g. “1 book”</li>
 <li>count=“other”: {0} books, e.g. “3 books”</li>
-</ul><h3 id="51-plural-rules-syntax">5.1 <a name="Plural_rules_syntax" href="#Plural_rules_syntax">Plural rules syntax</a></h3><p>The xml value for each pluralRule is a <em>condition</em> with a boolean result that specifies whether that rule (i.e. that plural form) applies to a given numeric value <em>n</em>, where n can be expressed as a decimal fraction or with compact decimal formatting, denoted by a special notation in the syntax, e.g., “1.2c6” for “1.2M”. Clients of CLDR may express all the rules for a locale using the following syntax:</p><pre><code>rules         = rule (';' rule)*
+</ul><h3 id="51-plural-rules-syntax">5.1 <a name="Plural_rules_syntax" href="#Plural_rules_syntax">Plural rules syntax</a></h3><p>The xml value for each pluralRule is a <em>condition</em> with a boolean result.
+That value specifies whether that rule (i.e. that plural form) applies to a given <em>source number N</em> in sampleValue syntax, where <em>N</em> can be expressed as a decimal fraction or with compact decimal formatting.
+The compact decimal formatting is denoted by a special notation in the syntax, e.g., “1.2c6” for “1.2M”. 
+Clients of CLDR may express all the rules for a locale using the following syntax:</p><pre><code>rules         = rule (';' rule)*
 rule          = keyword ':' condition samples
               | 'other' ':' samples
 keyword       = [a-z]+
@@ -1256,12 +1298,17 @@ sampleValue     = value ('.' digit+)? ([ce] digitPos digit+)?
 digit           = [0-9]
 digitPos        = [1-9]
 </code></pre><ul>
-<li>Whitespace (defined as Unicode <a href="https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5Cp%7BPattern_White_Space%7D">Pattern_White_Space</a>) can occur between or around any of the above tokens, with the exception of the tokens in value, digit, and decimalValue.</li>
-<li>In the syntax, <strong>and</strong> binds more tightly than <strong>or</strong>. So <strong>X or Y and Z</strong> is interpreted as <strong>(X or (Y and Z))</strong>.</li>
+<li>Whitespace (defined as Unicode <a href="https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5Cp%7BPattern_White_Space%7D">Pattern_White_Space</a>) can occur between or around any of the above tokens, with the exception of the tokens in value, digit, and sampleValue.</li>
+<li>In the syntax, <strong>and</strong> binds more tightly than <strong>or</strong>. So <strong>X or Y and Z</strong> is interpreted as <strong>(X or (Y and Z))</strong>.<ul>
+<li>For example, e = 0 and i != 0 and i % 1000000 = 0 and <em>+v = 0+</em> or e != 0..5 is parsed as if it were (e = 0 and i != 0 and i % 1000000 = 0 and v = 0) or (e != 0..5)</li>
+</ul>
+</li>
 <li>Each plural rule must be written to be self-contained, and not depend on the ordering. Thus rules must be mutually exclusive; for a given numeric value, only one rule can apply (i.e., the condition can only be true for one of the pluralRule elements. Each keyword can have at most one condition. The 'other' keyword must have an empty condition: it is only present for samples.</li>
 <li>The samples should be included, since they are used by client software for samples and determining whether the keyword has finite values or not.</li>
 <li>The 'other' keyword must have no condition, and all other keywords must have a condition.</li>
-</ul><h4 id="511-operands">5.1.1 <a name="Operands" href="#Operands">Operands</a></h4><p>The operands correspond to features of the source number, and have the following meanings.</p><h5 id="plural-operand-meanings"><a name="Plural_Operand_Meanings" href="#Plural_Operand_Meanings">Plural Operand Meanings</a></h5><table>
+</ul><h4 id="511-operands">5.1.1 <a name="Operands" href="#Operands">Operands</a></h4><p>The operands are numeric values corresponding to features of the <em>source number N</em>, and have the following meanings given in the table below. 
+Note that, contrary to source numbers, operands are treated numerically.
+Although some of them are used to describe insignificant 0s in the source number, any insignificant 0s in the operands themselves are ignored, e.g., f=03 is equivalent to f=3.</p><h5 id="plural-operand-meanings"><a name="Plural_Operand_Meanings" href="#Plural_Operand_Meanings">Plural Operand Meanings</a></h5><table>
 <thead>
 <tr>
 <th>Symbol</th>
@@ -1270,27 +1317,27 @@ digitPos        = [1-9]
 </thead>
 <tbody><tr>
 <td>n</td>
-<td>absolute value of the source number.</td>
+<td>the absolute value of N.*</td>
 </tr>
 <tr>
 <td>i</td>
-<td>integer digits of n.</td>
+<td>the integer digits of N.*</td>
 </tr>
 <tr>
 <td>v</td>
-<td>number of visible fraction digits in n, <em>with</em> trailing zeros.*</td>
+<td>the number of visible fraction digits in N, <em>with</em> trailing zeros.*</td>
 </tr>
 <tr>
 <td>w</td>
-<td>number of visible fraction digits in n, <em>without</em> trailing zeros.*</td>
+<td>the number of visible fraction digits in N, <em>without</em> trailing zeros.*</td>
 </tr>
 <tr>
 <td>f</td>
-<td>visible fraction digits in n, <em>with</em> trailing zeros.*</td>
+<td>the visible fraction digits in N, <em>with</em> trailing zeros, expressed as an integer.*</td>
 </tr>
 <tr>
 <td>t</td>
-<td>visible fraction digits in n, <em>without</em> trailing zeros.*</td>
+<td>the visible fraction digits in N, <em>without</em> trailing zeros, expressed as an integer.*</td>
 </tr>
 <tr>
 <td>c</td>
@@ -1298,9 +1345,11 @@ digitPos        = [1-9]
 </tr>
 <tr>
 <td>e</td>
-<td>currently, synonym for ‘c’. however, may be redefined in the future.</td>
+<td>a deprecated synonym for ‘c’. Note: it may be redefined in the future.</td>
 </tr>
-</tbody></table><p>* If there is a compact decimal exponent value (‘c’), then the f, t, v, and w values are computed <em>after</em> shifting the decimal point in the original by the ‘c’ value. So for 1.2c3, the f, t, v, and w values are the same as those of 1200:  i=1200 and f=0. Similarly, for 1.2005c3 has i=1200 and f=5 (corresponding to 1200.5).</p><h5 id="plural-operand-examples"><a name="Plural_Operand_Examples" href="#Plural_Operand_Examples">Plural Operand Examples</a></h5><table>
+</tbody></table><p>* If there is a compact decimal exponent value (‘c’), then the n, i, f, t, v, and w values are computed <em>after</em> shifting the decimal point in the original by the ‘c’ value. 
+So for 1.2c3, the n, i, f, t, v, and w values are the same as those of 1200:  i=1200 and f=0. 
+Similarly, 1.2005c3 has i=1200 and f=5 (corresponding to 1200.5).</p><h5 id="plural-operand-examples"><a name="Plural_Operand_Examples" href="#Plural_Operand_Examples">Plural Operand Examples</a></h5><table>
 <thead>
 <tr>
 <th align="right">source</th>
@@ -1543,7 +1592,7 @@ digitPos        = [1-9]
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">pluralRange</span> <span class="hljs-meta-keyword">start</span> (<span class="hljs-meta-keyword">zero</span>|<span class="hljs-meta-keyword">one</span>|<span class="hljs-meta-keyword">two</span>|<span class="hljs-meta-keyword">few</span>|<span class="hljs-meta-keyword">many</span>|<span class="hljs-meta-keyword">other</span>) <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>  
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">pluralRange</span> <span class="hljs-meta-keyword">end</span> (<span class="hljs-meta-keyword">zero</span>|<span class="hljs-meta-keyword">one</span>|<span class="hljs-meta-keyword">two</span>|<span class="hljs-meta-keyword">few</span>|<span class="hljs-meta-keyword">many</span>|<span class="hljs-meta-keyword">other</span>) <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>  
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">pluralRange</span> <span class="hljs-meta-keyword">result</span> (<span class="hljs-meta-keyword">zero</span>|<span class="hljs-meta-keyword">one</span>|<span class="hljs-meta-keyword">two</span>|<span class="hljs-meta-keyword">few</span>|<span class="hljs-meta-keyword">many</span>|<span class="hljs-meta-keyword">other</span>) <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
-</code></pre><p>Often ranges of numbers are presented to users, such as in “Length: 3.2–4.5 centimeters”. This means any length from 3.2 cm to 4.5 cm, inclusive. However, different languages have different conventions for the pluralization given to a range: should it be “0–1 centimeter” or “0–1 centimeters”? This becomes much more complicated for languages that have many different plural forms, such as Russian or Arabic.</p><p>The <code>pluralRanges</code> element provides information allowing an implementation to derive the plural category of a range from the plural categories of the <code>start</code> and <code>end</code> values. If there is no value for a <em>&lt;<code>start</code>,<code>end</code>&gt;</em> pair, the default result is <code>end</code>. However, where that result has been verified for a given language, it is included in the CLDR data.</p><p>The data has been gathered presuming that in any usage, the start value is strictly less than the end value, and that no values are negative. Results for any cases that do not meet these criteria are undefined.</p><h2 id="6-rule-based-number-formatting">6 <a name="Rule-Based_Number_Formatting" href="#Rule-Based_Number_Formatting">Rule-Based Number Formatting</a></h2><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">rbnf</span> ( <span class="hljs-meta-keyword">alias</span> | <span class="hljs-meta-keyword">rulesetGrouping</span>*) &gt;</span>  
+</code></pre><p>Often ranges of numbers are presented to users, such as in “Length: 3.2–4.5 centimeters”. This means any length from 3.2 cm to 4.5 cm, inclusive. However, different languages have different conventions for the pluralization given to a range: should it be “0–1 centimeter” or “0–1 centimeters”? This becomes much more complicated for languages that have many different plural forms, such as Russian or Arabic.</p><p>The <code>pluralRanges</code> element provides information allowing an implementation to derive the plural category of a range from the plural categories of the <code>start</code> and <code>end</code> values. If there is no value for a <em>&lt;<code>start</code>,<code>end</code>&gt;</em> pair, the default result is <code>end</code>. However, where that result has been verified for a given language, it is included in the CLDR data.</p><p>The data has been gathered presuming that in any usage, the start value is strictly less than the end value, and that no values are negative. Results for any cases that do not meet these criteria are undefined.</p><p>For the formatting of number ranges, see <a name="Number_Range_Formatting" href="#Number_Range_Formatting">Number Range Formatting</a>.</p><h2 id="6-rule-based-number-formatting">6 <a name="Rule-Based_Number_Formatting" href="#Rule-Based_Number_Formatting">Rule-Based Number Formatting</a></h2><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">rbnf</span> ( <span class="hljs-meta-keyword">alias</span> | <span class="hljs-meta-keyword">rulesetGrouping</span>*) &gt;</span>  
   
 <span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">rulesetGrouping</span> ( <span class="hljs-meta-keyword">alias</span> | <span class="hljs-meta-keyword">ruleset</span>*) &gt;</span>  
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">rulesetGrouping</span> <span class="hljs-meta-keyword">type</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span>&gt;</span>  
@@ -1580,4 +1629,35 @@ digitPos        = [1-9]
 <li>If more than one sign, currency symbol, exponent, or percent/per mille occurs in the input, the first found should be used.</li>
 <li>A currency symbol in the input should be interpreted as the longest match found in the set of possible currency symbols.</li>
 <li>Especially in cases of ambiguity, the user's input should be echoed back, properly formatted according to the locale, before it is actually used for anything.</li>
-</ul><hr><p>Copyright © 2001–2021 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode <a href="https://unicode.org/copyright.html">Terms of Use</a> apply.</p><p>Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.</p></div></body></html>
+</ul><h2 id="8-number-range-formatting">8 <a name="Number_Range_Formatting" href="#Number_Range_Formatting">Number Range Formatting</a></h2><p>Often ranges of numbers are presented to users, such as in “Length: 3.2–4.5 centimeters”. This means any length from 3.2 cm to 4.5 cm, inclusive.</p><p>To format a number range, the following steps are taken:</p><ol>
+<li>Format the lower bound and the upper bound independently following the steps in <a href="#Number_Format_Patterns">Number Format Patterns</a>, preserving semantic annotations*.</li>
+<li>If the resulting values are identical, stop evaluating these steps and, instead, perform the steps in <a href="#Approximate_Number_Formatting">Approximate Number Formatting</a>.<ol>
+<li>Note: This behavior may be customized in order to, for example, print the range despite the endpoints being identical. However, a spec-compliant implementation must support approximate number formatting.</li>
+</ol>
+</li>
+<li>Perform the steps in <a href="#Collapsing_Number_Ranges">Collapsing Number Ranges</a>, obtaining modified <em>lower</em> and <em>upper</em> values.</li>
+<li>Obtain a number range pattern by following the steps in <a href="#Range_Pattern_Processing">Range Pattern Processing</a>.</li>
+<li>Substitute <em>lower</em> as <code>{0}</code> and <em>upper</em> as <code>{1}</code> into the range pattern from the previous step.</li>
+</ol><p>* Semantic annotations are discussed in <a href="#Collapsing_Number_Ranges">Collapsing Number Ranges</a>.</p><p>For plural rule selection of number ranges, see <a href="#Plural_Ranges">Plural Ranges</a>.</p><h3 id="81-approximate-number-formatting">8.1 <a name="Approximate_Number_Formatting" href="#Approximate_Number_Formatting">Approximate Number Formatting</a></h3><p><em>Approximate number formatting</em> refers to a specific format of numbers in which the value is understood to not be exact; for example, "~5 minutes".</p><p>To format an approximate number, follow the normal number formatting procedure in Number Format Patterns](#Number_Format_Patterns), but substitute the <code>approximatelySign</code> from <a href="#Number_Symbols">Number Symbols</a> in for the minus sign placeholder.</p><p>If the number is negative, or if the formatting options request the sign to be displayed, <em>prepend</em> the <code>approximatelySign</code> to the plus or minus sign before substituting it into the pattern. For example, "~-5" means "approximately negative five". This procedure may change in the future.</p><h3 id="82-collapsing-number-ranges">8.2 <a name="Collapsing_Number_Ranges" href="#Collapsing_Number_Ranges">Collapsing Number Ranges</a></h3><p><em>Collapsing</em> a number range refers to the process of removing duplicated information in the <em>lower</em> and <em>upper</em> values. For example, if the lower string is "3.2 centimeters" and the upper string is "4.5 centimeters", it is desirable to remove the extra "centimeters" token.</p><p>This operation requires <em>semantic annotations</em> on the formatted value. The exact form of the semantic annotations is implementation-dependent. However, implementations may consider the following broad categories of tokens:</p><ol>
+<li>Numerical value, including decimal and grouping separators</li>
+<li>Sign symbol</li>
+<li>Scientific or compact notation</li>
+<li>Unit of measurement</li>
+</ol><p>For example, consider the string <code>-5.3M US dollars</code>. It may be annotated as follows:</p><ul>
+<li><code>-</code> → sign symbol</li>
+<li><code>5.3</code> → numerical value</li>
+<li><code>M</code> → compact notation</li>
+<li><code>US dollars</code> → unit of measurement for the currency USD</li>
+</ul><p>Two tokens are <em>semantically equivalent</em> if they have the same <em>semantic annotations</em>, even if they are not the exact same string. For example:</p><ol>
+<li>"centimeter" is semantically equivalent to "centimeters".</li>
+<li>"K" (the thousands symbol in compact decimals) is NOT semantically equivalent to "K" (the measurement unit Kelvin).</li>
+</ol><p>The above description describes the expected output. Internally, the implementation may determine the equivalent units of measurement by passing the codes back from the number formatters, allowing for a precise determination of "semantically equivalent".</p><p>Two semantically equivalent tokens can be <em>collapsed</em> if they appear at the start of both values or the end of both values. However, the implementation may choose different levels of aggressiveness with regard to collapsing tokens. The currently recommended heuristic is:</p><ol>
+<li>Only collapse semantically equivalent <em>unit of measurement</em> tokens. This is to avoid ambiguous strings such as "3–5K" (could represent 3–5000 or 3000–5000).</li>
+<li>Only collapse if the tokens are more than one code point in length. This is to increase clarity of strings such as "$3–$5".</li>
+</ol><p>These heuristics may be refined in the future.</p><p><strong>To collapse tokens:</strong> Remove the token from both values, and then re-compute the token based on the number range. If the token depends on the plural form, follow <a href="#Plural_Ranges">Plural Ranges</a> to calculate the correct form. If the tokens originated at the beginning of the string, prepend the new token to the beginning of the <em>lower</em> string; otherwise, append the new token to the end of the <em>upper</em> string.</p><h3 id="83-range-pattern-processing">8.3 <a name="Range_Pattern_Processing" href="#Range_Pattern_Processing">Range Pattern Processing</a></h3><p>To obtain a number range pattern, the following steps are taken:</p><ol>
+<li>Load the range pattern found in <a href="#Miscellaneous_Patterns">Miscellaneous Patterns</a>.</li>
+<li>Optionally add spacing to the range pattern.</li>
+</ol><p>To determine whether to add spacing, the currently recommended heuristic is:</p><ol>
+<li>If the <em>lower</em> string ends with a character other than a digit, or if the <em>upper</em> string begins with a character other than a digit.</li>
+<li>If the range pattern does not contain a character having the <code>White_Space</code> binary Unicode property after the <code>{0}</code> or before the <code>{1}</code> placeholders.</li>
+</ol><p>These heuristics may be refined in the future.</p><p>To add spacing, insert a non-breaking space (U+00A0) at the positions in item 2 above.</p><hr><p>Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode <a href="https://unicode.org/copyright.html">Terms of Use</a> apply.</p><p>Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.</p></div><script>anchors.add()</script></body></html>

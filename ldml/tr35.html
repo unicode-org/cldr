@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html><head><meta charset="utf-8"><link rel="stylesheet" type="text/css" media="screen" href="../reports-v2.css"><title>Unicode Locale Data Markup Language (LDML)</title></head><body>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" type="text/css" media="screen" href="../reports-v2.css">
+<title>Unicode Locale Data Markup Language (LDML)</title></head><body>
 
 
 
@@ -902,29 +904,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
+<script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
   <tbody>
       <tr>
           <td class="icon"><a href="http://www.unicode.org/"><img style="vertical-align:middle;border:0" alt="[Unicode]" src="http://www.unicode.org/webscripts/logo60s2.gif" height="33" width="34"></a>&nbsp;&nbsp;<a class="bar" href="http://www.unicode.org/reports/">Technical Reports</a></td>
@@ -936,11 +916,11 @@
   </table></div><div class="body"><h2 id="proposed-update-unicode-technical-standard-35">Proposed Update Unicode Technical Standard #35</h2><h1 id="unicode-locale-data-markup-language-ldml">Unicode Locale Data Markup Language (LDML)</h1><!-- HTML: no header --><table class="simple" width="90%"><tbody>
 <tr><td>Version</td><td>41</td></tr>
 <tr><td>Editors</td><td>Mark Davis (<a href="mailto:markdavis@google.com">markdavis@google.com</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td></tr>
-<tr><td>Date</td><td>2021-11-10</td></tr>
+<tr><td>Date</td><td>2022-03-22</td></tr>
 <tr><td>This Version</td><td><a href="https://www.unicode.org/reports/tr35/tr35-66/tr35.html">https://www.unicode.org/reports/tr35/tr35-66/tr35.html</a></td></tr>
 <tr><td>Previous Version</td><td><a href="https://www.unicode.org/reports/tr35/tr35-65/tr35.html">https://www.unicode.org/reports/tr35/tr35-65/tr35.html</a></td></tr>
 <tr><td>Latest Version</td><td><a href="https://www.unicode.org/reports/tr35/">https://www.unicode.org/reports/tr35/</a></td></tr>
-<tr><td>Corrigenda</td><td><a href="https://cldr.unicode.org/index/corrigenda-and-errata">https://cldr.unicode.org/index/corrigenda-and-errata</a></td></tr>
+<tr><td>Corrigenda</td><td><a href="https://cldr.unicode.org/index/corrigenda">https://cldr.unicode.org/index/corrigenda</a></td></tr>
 <tr><td>Latest Proposed Update</td><td><a href="https://unicode-org.github.io/cldr/ldml/tr35.html">https://unicode-org.github.io/cldr/ldml/tr35.html</a></td></tr>
 <tr><td>Namespace</td><td><a href="https://unicode.org/cldr/">https://unicode.org/cldr/</a></td></tr>
 <tr><td>DTDs</td><td><a href="https://www.unicode.org/cldr/dtd/41/">https://www.unicode.org/cldr/dtd/41/</a></td></tr>
@@ -1195,25 +1175,25 @@
     <td><a name="unicode_language_subtag" href="#unicode_language_subtag"><code>unicode_language_subtag</code></a></td>
     <td><pre>= alpha{2,3} | alpha{5,8};</pre></td>
     <td><a href="#unicode_language_subtag_validity">validity</a><br>
-        <a href="https://github.com/unicode-org/cldr/blob/maint/maint-40/common/validity/language.xml">latest-data</a></td>
+        <a href="https://github.com/unicode-org/cldr/blob/maint/maint-41/common/validity/language.xml">latest-data</a></td>
 </tr>
 <tr>
     <td><a name="unicode_script_subtag" href="#unicode_script_subtag"><code>unicode_script_subtag</code></a></td>
     <td><pre>= alpha{4} ;</pre></td>
     <td><a href="#unicode_script_subtag_validity">validity</a><br>
-        <a href="https://github.com/unicode-org/cldr/blob/maint/maint-40/common/validity/script.xml">latest-data</a></td>
+        <a href="https://github.com/unicode-org/cldr/blob/maint/maint-41/common/validity/script.xml">latest-data</a></td>
 </tr>
 <tr>
     <td><a name="unicode_region_subtag" href="#unicode_region_subtag"><code>unicode_region_subtag</code></a>
     </td><td><pre>= (alpha{2} | digit{3}) ;</pre></td>
     <td><a href="#unicode_region_subtag_validity">validity</a><br>
-        <a href="https://github.com/unicode-org/cldr/blob/maint/maint-40/common/validity/region.xml">latest-data</a></td>
+        <a href="https://github.com/unicode-org/cldr/blob/maint/maint-41/common/validity/region.xml">latest-data</a></td>
 </tr>
 <tr>
     <td><a name="unicode_variant_subtag" href="#unicode_variant_subtag"><code>unicode_variant_subtag</code></a>
     </td><td><pre>= (alphanum{5,8}<br>| digit alphanum{3}) ;</pre></td>
     <td><a href="#unicode_variant_subtag_validity">validity</a><br>
-        <a href="https://github.com/unicode-org/cldr/blob/maint/maint-40/common/validity/variant.xml">latest-data</a></td>
+        <a href="https://github.com/unicode-org/cldr/blob/maint/maint-41/common/validity/variant.xml">latest-data</a></td>
 </tr>
    <tr><td><code>sep</code></td>     <td><pre>= [-_] ;</pre></td></tr>
 <tr><td><code>digit</code></td>   <td><pre>= [0-9] ;</pre></td></tr>
@@ -1265,12 +1245,12 @@
 <tr>
 <td><code>key</code><br>(Also known as <code>ukey</code>)</td>
 <td><code>= alphanum alpha ;</code><br>(Note that this is narrower than in [<a href="https://www.ietf.org/rfc/rfc6067.txt">RFC6067</a>], so that it is disjoint with tkey.)</td>
-<td><a href="#Key_Type_Definitions"><code>validity</code></a><br><a href="https://github.com/unicode-org/cldr/blob/maint/maint-40/common/bcp47"><code>latest-data</code></a></td>
+<td><a href="#Key_Type_Definitions"><code>validity</code></a><br><a href="https://github.com/unicode-org/cldr/blob/maint/maint-41/common/bcp47"><code>latest-data</code></a></td>
 </tr>
 <tr>
 <td><code>type</code><br>(Also known as <code>uvalue</code>)</td>
 <td><code>= alphanum{3,8}</code><br><code>  (sep alphanum{3,8})* ;</code></td>
-<td><a href="#Key_Type_Definitions"><code>validity</code></a><br><a href="https://github.com/unicode-org/cldr/blob/maint/maint-40/common/bcp47"><code>latest-data</code></a></td>
+<td><a href="#Key_Type_Definitions"><code>validity</code></a><br><a href="https://github.com/unicode-org/cldr/blob/maint/maint-41/common/bcp47"><code>latest-data</code></a></td>
 </tr>
 <tr>
 <td><code>attribute</code></td>
@@ -1280,7 +1260,7 @@
 <tr>
 <td><a name="unicode_subdivision_id" href="#unicode_subdivision_id"><code>unicode_subdivision_id</code></a></td>
 <td><code>= </code><a href="#unicode_region_subtag"><code>unicode_region_subtag</code></a><code> unicode_subdivision_suffix ;</code></td>
-<td><a href="#unicode_subdivision_subtag_validity"><code>validity</code></a><br><a href="https://github.com/unicode-org/cldr/blob/maint/maint-40/common/validity/subdivision.xml"><code>latest-data</code></a></td>
+<td><a href="#unicode_subdivision_subtag_validity"><code>validity</code></a><br><a href="https://github.com/unicode-org/cldr/blob/maint/maint-41/common/validity/subdivision.xml"><code>latest-data</code></a></td>
 </tr>
 <tr>
 <td><code>unicode_subdivision_suffix</code></td>
@@ -1290,7 +1270,7 @@
 <tr>
 <td><a name="unicode_measure_unit" href="#unicode_measure_unit"><code>unicode_measure_unit</code></a></td>
 <td><code>= alphanum{3,8}</code><br><code>  (sep alphanum{3,8})* ;</code></td>
-<td><a href="#Validity_Data"><code>validity</code></a><br><a href="https://github.com/unicode-org/cldr/blob/maint/maint-40/common/validity/unit.xml"><code>latest-data</code></a></td>
+<td><a href="#Validity_Data"><code>validity</code></a><br><a href="https://github.com/unicode-org/cldr/blob/maint/maint-41/common/validity/unit.xml"><code>latest-data</code></a></td>
 </tr>
 <tr>
 <td><code>tlang</code></td>
@@ -1300,7 +1280,7 @@
 <tr>
 <td><code>tfield</code></td>
 <td><code>= tkey tvalue;</code></td>
-<td><a href="#BCP47_T_Extension"><code>validity</code></a><br><a href="https://github.com/unicode-org/cldr/blob/maint/maint-40/common/bcp47"><code>latest-data</code></a></td>
+<td><a href="#BCP47_T_Extension"><code>validity</code></a><br><a href="https://github.com/unicode-org/cldr/blob/maint/maint-41/common/bcp47"><code>latest-data</code></a></td>
 </tr>
 <tr>
 <td><code>tkey</code></td>
@@ -1406,7 +1386,7 @@
 <tr>
 <td><code>sh-Cyrl</code></td>
 <td><code>sr-Cyrl</code></td>
-<td>no replacement with multiple replacement subtags [2.1 doesn't apply]</td>
+<td>no replacement with multiple replacement subtags</td>
 </tr>
 <tr>
 <td><code>hy-SU</code></td>
@@ -1438,27 +1418,27 @@
 <tbody><tr>
 <td><code>en_US</code></td>
 <td><code>en-US</code></td>
-<td>change separator [1]</td>
+<td>change separator</td>
 </tr>
 <tr>
 <td><code>de_DE_u_co_phonebk</code></td>
 <td><code>de-DE-u-co-phonebk</code></td>
-<td>change separator [1]</td>
+<td>change separator</td>
 </tr>
 <tr>
 <td><code>root</code></td>
 <td><code>und</code></td>
-<td>change to "und" [2]</td>
+<td>change to "und"</td>
 </tr>
 <tr>
 <td><code>root_u_cu_usd</code></td>
 <td><code>und-u-cu-usd</code></td>
-<td>change to "und" [1, 2]</td>
+<td>change to "und"</td>
 </tr>
 <tr>
 <td><code>Latn_DE</code></td>
 <td><code>und-Latn-DE</code></td>
-<td>add "und" [1, 3]</td>
+<td>add "und"</td>
 </tr>
 </tbody></table><h5 id="unicode-locale-identifier-bcp-47-to-cldr"><a name="Unicode_Locale_Identifier_BCP_47_to_CLDR" href="#Unicode_Locale_Identifier_BCP_47_to_CLDR">Unicode Locale Identifier: BCP 47 to CLDR</a></h5><p>A Unicode BCP 47 locale identifier can be transformed into a Unicode CLDR locale identifier by performing the following transformation.</p><ol>
 <li> the separator is changed to "_"</li>
@@ -1474,22 +1454,22 @@
 <tbody><tr>
 <td><code>en-US</code></td>
 <td><code>en_US</code></td>
-<td>changes separator [1]</td>
+<td>changes separator</td>
 </tr>
 <tr>
 <td><code>und</code></td>
 <td><code>root</code></td>
-<td>changes to "root", because no script, region, or variant tag is present [2]</td>
+<td>changes to "root", because no script, region, or variant tag is present</td>
 </tr>
 <tr>
 <td><code>und-US</code></td>
 <td><code>und_US</code></td>
-<td>no change to "und", because a region subtag is present [1]</td>
+<td>no change to "und", because a region subtag is present</td>
 </tr>
 <tr>
 <td><code>und-u-cu-USD</code></td>
 <td><code>root_u_cu_usd</code></td>
-<td>changes to "root", because no script, region, or variant tag is present [1, 2]</td>
+<td>changes to "root", because no script, region, or variant tag is present</td>
 </tr>
 </tbody></table><h5 id="truncation">Truncation</h5><p>BCP 47 requires that implementations allow for language tags of at least 35 characters, in <a href="https://tools.ietf.org/search/bcp47#section-4.4.1">Section 4.1.1</a>.
 To allow for use of extensions, CLDR extends that minimum to 255 for Unicode locale identifiers.
@@ -1620,10 +1600,13 @@ In practice, the typical size of a locale or language identifier will be much sm
 <tr><td><code>Zzzz</code></td>
     <td>Unknown</td>
 <td colspan="2">&nbsp;</td></tr>
-</tbody></table><p>The private use subtags listed as <strong>excluded</strong> in <em>Section 3.5.3 <a href="#Private_Use_Codes">Private Use Codes</a></em> will never be given specific semantics in Unicode identifiers, and are thus safe for use for other purposes by other applications.</p><h4 id="unicode_region_subtag-also-known-as-a-unicode-region-code-or-a-unicode-territory-code"><a name="unicode_region_subtag_validity" href="#unicode_region_subtag_validity"><code>unicode_region_subtag</code></a> (also known as a <em>Unicode region code,</em> or a <em>Unicode territory code</em>)</h4><p>Subtags in the region.xml file (see <em>Section 3.11 <a href="#Validity_Data">Validity Data</a></em>). These are based on [<a href="#BCP47">BCP47</a>] subtag values marked as <strong>Type: region</strong></p><p>Unicode identifiers give specific semantics to the following subtags:</p><table>
+</tbody></table><p>The private use subtags listed as <strong>excluded</strong> in <em>Section 3.5.3 <a href="#Private_Use_Codes">Private Use Codes</a></em> will never be given specific semantics in Unicode identifiers, and are thus safe for use for other purposes by other applications.</p><h4 id="unicode_region_subtag-also-known-as-a-unicode-region-code-or-a-unicode-territory-code"><a name="unicode_region_subtag_validity" href="#unicode_region_subtag_validity"><code>unicode_region_subtag</code></a> (also known as a <em>Unicode region code,</em> or a <em>Unicode territory code</em>)</h4><p>Subtags in the region.xml file (see <em>Section 3.11 <a href="#Validity_Data">Validity Data</a></em>). These are based on [<a href="#BCP47">BCP47</a>] subtag values marked as <strong>Type: region</strong></p><p>Unicode identifiers give specific semantics to the following subtags.
+(The alpha2 codes are used as Unicode region subtags. The alpha3 and numeric codes are derived according to <em>Section 3.5.2 <a href="#Numeric_Codes">Numeric Codes</a></em> and listed here for additional documentation.)</p><table>
 <thead>
 <tr>
-<th></th>
+<th>alpha2</th>
+<th>alpha3</th>
+<th>num</th>
 <th>Name</th>
 <th>Comment</th>
 <th>ISO 3166-1 status</th>
@@ -1631,42 +1614,56 @@ In practice, the typical size of a locale or language identifier will be much sm
 </thead>
 <tbody><tr>
 <td><code>QO</code></td>
+<td><code>QOO</code></td>
+<td>961</td>
 <td>Outlying Oceania</td>
 <td>countries in Oceania [009] that do not have a <a href="https://unicode-org.github.io/cldr-staging/charts/38/supplemental/territory_containment_un_m_49.html">subcontinent</a>.</td>
 <td>private use</td>
 </tr>
 <tr>
 <td><code>QU</code></td>
+<td><code>QUU</code></td>
+<td>967</td>
 <td>European Union</td>
 <td><strong>deprecated</strong>: the <em>canonicalized</em> form is EU</td>
 <td>private use</td>
 </tr>
 <tr>
 <td><code>UK</code></td>
+<td>-</td>
+<td>-</td>
 <td>United Kingdom</td>
 <td><strong>deprecated</strong>: the <em>canonicalized</em> form is GB</td>
 <td>exceptionally reserved</td>
 </tr>
 <tr>
 <td><code>XA</code></td>
+<td><code>XAA</code></td>
+<td>973</td>
 <td>Pseudo-Accents</td>
 <td>special code indicating derived testing locale with English + added accents and lengthened</td>
 <td>private use</td>
 </tr>
 <tr>
 <td><code>XB</code></td>
+<td><code>XBB</code></td>
+<td>974</td>
 <td>Pseudo-Bidi</td>
 <td>special code indicating derived testing locale with forced RTL English</td>
 <td>private use</td>
 </tr>
 <tr>
 <td><code>XK</code></td>
+<td><code>XKK</code></td>
+<td>983</td>
 <td>Kosovo</td>
 <td>industry practice</td>
 <td>private use</td>
 </tr>
 <tr>
 <td><code>ZZ</code></td>
+<td><code>ZZZ</code></td>
+<td>999</td>
 <td>Unknown or Invalid Territory</td>
 <td>used in APIs or as replacement for invalid code</td>
 <td>private use</td>
@@ -1933,14 +1930,16 @@ zh-Hant-HK
             <td>CSS lev 3 line-break=loose</td></tr>
 
 <tr><td colspan="4"><b>A <a name="UnicodeLineBreakWordIdentifier" id="UnicodeLineBreakWordIdentifier" href="#UnicodeLineBreakWordIdentifier">Unicode Line Break Word Identifier</a> defines preferred line break word handling behavior corresponding to the CSS level 3 <a href="https://drafts.csswg.org/css-text/#word-break-property">word-break option</a>. The valid values are those <i>name</i> attribute values in the <i>type</i> elements of key name="lw" in bcp47/<a href="https://github.com/unicode-org/cldr/tree/latest/common/bcp47/segmentation.xml" target="_blank">segmentation.xml</a></b>.</td></tr>
-<tr><td rowspan="3">"lw"</td>
-    <td rowspan="3">Line break word handling</td>
+<tr><td rowspan="4">"lw"</td>
+    <td rowspan="4">Line break word handling</td>
             <td>"normal"</td>
             <td>CSS level 3 word-break=normal, normal script/language behavior for midword breaks</td></tr>
         <tr><td>"breakall"</td>
             <td>CSS level 3 word-break=break-all, allow midword breaks unless forbidden by lb setting</td></tr>
         <tr><td>"keepall"</td>
             <td>CSS level 3 word-break=keep-all, prohibit midword breaks except for dictionary breaks</td></tr>
+    <tr><td>"phrase"</td>
+        <td>Prioritize keeping natural phrases (of multiple words) together when breaking, used in short text like title and headline</td></tr>
 
 <tr><td colspan="4"><b>A <a name="UnicodeMeasurementSystemIdentifier" id="UnicodeMeasurementSystemIdentifier" href="#UnicodeMeasurementSystemIdentifier">Unicode Measurement System Identifier</a> defines a preferred measurement system. Specifying "ms" in a locale identifier overrides the default value specified by supplemental measurement system data (see Part 2 General, section 5 <a href="tr35-general.html#Measurement_System_Data">Measurement System Data</a>). The valid values are those <i>name</i> attribute values in the <i>type</i> elements of key name="ms" in bcp47/<a href="https://github.com/unicode-org/cldr/tree/latest/common/bcp47/measure.xml" target="_blank">measure.xml</a></b>.</td></tr>
 <tr><td rowspan="3">"ms"</td>
@@ -2004,7 +2003,7 @@ zh-Hant-HK
     <td>"posix"</td>
     <td>POSIX style locale variant. About handling of the "POSIX" variant see <i>Section 3.8.2, <a href="#Legacy_Variants">Legacy Variants</a></i>.</td></tr>
 
-</tbody></table><p>For more information on the allowed keys and types, see the specific elements below, and <a href="#Unicode_Locale_Extension_Data_Files">Section 3.6.4 U Extension Data Files</a>.</p><p>Additional keys or types might be added in future versions. Implementations of LDML should be robust to handle any syntactically valid key or type values.</p><h4 id="362-numbering-system-data"><a name="Numbering%20System%20Data" href="#Numbering%20System%20Data">3.6.2 Numbering System Data</a></h4><p>LDML supports multiple numbering systems. The identifiers for those numbering systems are defined in the file <strong>bcp47/number.xml</strong>. For example, for the 'trunk' version of the data see <a href="https://github.com/unicode-org/cldr/blob/maint/maint-40/common/bcp47/number.xml">bcp47/number.xml</a>.</p><p>Details about those numbering systems are defined in <strong>supplemental/numberingSystems.xml</strong>. For example, for the 'trunk' version of the data see <a href="https://github.com/unicode-org/cldr/releases/tag/latest/common/supplemental/numberingSystems.xml">supplemental/numberingSystems.xml</a>.</p><p>LDML makes certain stability guarantees on this data:</p><ol>
+</tbody></table><p>For more information on the allowed keys and types, see the specific elements below, and <a href="#Unicode_Locale_Extension_Data_Files">Section 3.6.4 U Extension Data Files</a>.</p><p>Additional keys or types might be added in future versions. Implementations of LDML should be robust to handle any syntactically valid key or type values.</p><h4 id="362-numbering-system-data"><a name="Numbering%20System%20Data" href="#Numbering%20System%20Data">3.6.2 Numbering System Data</a></h4><p>LDML supports multiple numbering systems. The identifiers for those numbering systems are defined in the file <strong>bcp47/number.xml</strong>. For example, for the 'trunk' version of the data see <a href="https://github.com/unicode-org/cldr/blob/maint/maint-41/common/bcp47/number.xml">bcp47/number.xml</a>.</p><p>Details about those numbering systems are defined in <strong>supplemental/numberingSystems.xml</strong>. For example, for the 'trunk' version of the data see <a href="https://github.com/unicode-org/cldr/releases/tag/latest/common/supplemental/numberingSystems.xml">supplemental/numberingSystems.xml</a>.</p><p>LDML makes certain stability guarantees on this data:</p><ol>
 <li> Like other BCP 47 identifiers, once a numeric identifier is added to <strong>bcp47/number.xml</strong> or <strong>numberingSystems.xml</strong>, it will never be removed from either of those files.</li>
 <li>If an identifier has type="numeric" in numberingSystems.xml, then<ol>
 <li> It is a decimal, positional numbering system with an attribute <code>digits=X</code>, where <code>X</code> is a string with the 10 digits in order used by the numbering system.</li>
@@ -2012,7 +2011,14 @@ zh-Hant-HK
 </ol>
 </li>
 </ol><h4 id="363-time-zone-identifiers"><a name="Time_Zone_Identifiers" href="#Time_Zone_Identifiers">3.6.3 Time Zone Identifiers</a></h4><p>LDML inherits time zone IDs from the tz database [<a href="#Olson">Olson</a>]. Because these IDs from the tz database do not satisfy the BCP 47 language subtag syntax requirements, CLDR defines short identifiers for the use in the Unicode locale extension. The short identifiers are defined in the file <strong>common/bcp47/timezone.xml</strong>.</p><p>The short identifiers use UN/LOCODE [<a href="#LOCODE">LOCODE</a>] (excluding a space character) codes where possible. For example, the short identifier for "America/Los_Angeles" is "uslax" (the LOCODE for Los Angeles, US is "US LAX"). Identifiers of length not equal to 5 are used where there is no corresponding UN/LOCODE, such as "usnavajo" for "America/Shiprock", or "utcw01" for "Etc/GMT+1", so that they do not overlap with future UN/LOCODE.</p><p>Although the first two letters of a short identifier may match an ISO 3166 two-letter country code, a user should not assume that the time zone belongs to the country. The first two letters in an identifier of length not equal to 5 have no meaning. Also, the identifiers are stabilized, meaning that they will not change no matter what changes happen in the base standard. So if Hawaii leaves the US and joins Canada as a new province, the short time zone identifier "ushnl" would not change in CLDR even if the UN/LOCODE changes to "cahnl" or something else.</p><p>There is a special code "unk" for an Unknown or Invalid time zone. This can be expressed in the tz database style ID "Etc/Unknown", although it is not defined in the tz database.</p><p><strong>Stability of Time Zone Identifiers</strong></p><p>Although the short time zone identifiers are guaranteed to be stable, the preferred IDs in the tz database (as those found in <strong>zone.tab</strong> file) might be changed time to time. For example, "Asia/Culcutta" was replaced with "Asia/Kolkata" and moved to <strong>backward</strong> file in the tz database. CLDR contains locale data using a time zone ID from the tz database as the key, stability of the IDs is critical.</p><p>To maintain the stability of "long" IDs (for those inherited from the tz database), a special rule applied to the <code>alias</code> attribute in the <code>&lt;type&gt;</code> element for "tz" - the first "long" ID is the CLDR canonical "long" time zone ID.</p><p>For example:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">type</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"inccu"</span> <span class="hljs-attr">alias</span>=<span class="hljs-string">"Asia/Calcutta Asia/Kolkata"</span> <span class="hljs-attr">description</span>=<span class="hljs-string">"Kolkata, India"</span>/&gt;</span>
-</code></pre><p>Above <code>&lt;type&gt;</code> element defines the short time zone ID "inccu" (for the use in the Unicode locale extension), corresponding <em>CLDR canonical "long" ID</em> "Asia/Culcutta", and an alias "Asia/Kolkata".</p><h4 id="364-u-extension-data-files"><a name="Unicode_Locale_Extension_Data_Files" href="#Unicode_Locale_Extension_Data_Files">3.6.4 U Extension Data Files</a></h4><p>The 'u' extension data is stored in multiple XML files located under common/bcp47 directory in CLDR. Each file contains the locale extension key/type values and their backward compatibility mappings appropriate for a particular domain. <a href="https://github.com/unicode-org/cldr/blob/maint/maint-40/common/bcp47/collation.xml">common/bcp47/collation.xml</a> contains key/type values for collation, including optional collation parameters and valid type values for each key.</p><p>The 't' extension data is stored in <a href="https://github.com/unicode-org/cldr/blob/maint/maint-40/common/bcp47/transform.xml">common/bcp47/transform.xml</a>.</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">keyword</span> ( <span class="hljs-meta-keyword">key</span>* )&gt;</span>
+</code></pre><p>Above <code>&lt;type&gt;</code> element defines the short time zone ID "inccu" (for the use in the Unicode locale extension), corresponding <em>CLDR canonical "long" ID</em> "Asia/Culcutta", and an alias "Asia/Kolkata".</p><p><strong>Links in the tz database</strong></p><p>Not all TZDB links are in CLDR aliases. 
+CLDR purposefully does not exactly match the Link structure in the TZDB.</p><ol>
+<li>The links are maintained in the TZDB, and it would duplicate information that could fall out of sync (especially because the TZDB can be updated many times in a single month).</li>
+<li>The TZDB went though a change a few years ago where it dropped the mappings to countries, whereas CLDR still maintains that distinction. </li>
+<li>Because there are several different timezones that all link together, that would make for a single long alias being an alias for several different short aliases.</li>
+</ol><p>CLDR doesn't alias across country boundaries because countries are useful for timezone selection. 
+Even if, for example, Serbia and Croatia share the same rules, CLDR maintains the difference so that the user can either pick "Serbia time" or "Croatia time".
+The Croat is not forced to pick "Serbia time" (Europe/Belgrade) nor the Serb forced to pick “Croatia time” (Europe/Zagreb). </p><h4 id="364-u-extension-data-files"><a name="Unicode_Locale_Extension_Data_Files" href="#Unicode_Locale_Extension_Data_Files">3.6.4 U Extension Data Files</a></h4><p>The 'u' extension data is stored in multiple XML files located under common/bcp47 directory in CLDR. Each file contains the locale extension key/type values and their backward compatibility mappings appropriate for a particular domain. <a href="https://github.com/unicode-org/cldr/blob/maint/maint-41/common/bcp47/collation.xml">common/bcp47/collation.xml</a> contains key/type values for collation, including optional collation parameters and valid type values for each key.</p><p>The 't' extension data is stored in <a href="https://github.com/unicode-org/cldr/blob/maint/maint-41/common/bcp47/transform.xml">common/bcp47/transform.xml</a>.</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">keyword</span> ( <span class="hljs-meta-keyword">key</span>* )&gt;</span>
 
 <span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">key</span> ( <span class="hljs-meta-keyword">type</span>* )&gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">key</span> <span class="hljs-meta-keyword">extension</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#IMPLIED</span>&gt;</span>
@@ -2161,37 +2167,37 @@ zh-Hant-HK
 <tbody><tr>
 <td>m0</td>
 <td><strong>Transform extension mechanism:</strong> to reference an authority or rules for a type of transformation</td>
-<td><a href="https://github.com/unicode-org/cldr/blob/maint/maint-40/common/bcp47/transform.xml">​transform.xml</a></td>
+<td><a href="https://github.com/unicode-org/cldr/blob/maint/maint-41/common/bcp47/transform.xml">​transform.xml</a></td>
 </tr>
 <tr>
 <td>s0, d0</td>
 <td><strong>Transform source/destination:</strong> for non-languages/scripts, such as fullwidth-halfwidth conversion.</td>
-<td><a href="https://github.com/unicode-org/cldr/blob/maint/maint-40/common/bcp47/transform-destination.xml">​transform-destination.xml</a></td>
+<td><a href="https://github.com/unicode-org/cldr/blob/maint/maint-41/common/bcp47/transform-destination.xml">​transform-destination.xml</a></td>
 </tr>
 <tr>
 <td>i0</td>
 <td><strong>Input Method Engine transform:</strong> Used to indicate an input method transformation, such as one used by a client-side input method. The first subfield in a sequence would typically be a 'platform' or vendor designation.</td>
-<td><a href="https://github.com/unicode-org/cldr/blob/maint/maint-40/common/bcp47/transform_ime.xml">​transform_ime.xml</a></td>
+<td><a href="https://github.com/unicode-org/cldr/blob/maint/maint-41/common/bcp47/transform_ime.xml">​transform_ime.xml</a></td>
 </tr>
 <tr>
 <td>k0</td>
 <td><strong>Keyboard transform:</strong> Used to indicate a keyboard transformation, such as one used by a client-side virtual keyboard. The first subfield in a sequence would typically be a 'platform' designation, representing the platform that the keyboard is intended for. The keyboard might or might not correspond to a keyboard mapping shipped by the vendor for the platform. One or more subsequent fields may occur, but are only added where needed to distinguish from others.</td>
-<td><a href="https://github.com/unicode-org/cldr/blob/maint/maint-40/common/bcp47/transform_keyboard.xml">​transform_keyboard.xml</a></td>
+<td><a href="https://github.com/unicode-org/cldr/blob/maint/maint-41/common/bcp47/transform_keyboard.xml">​transform_keyboard.xml</a></td>
 </tr>
 <tr>
 <td>t0</td>
 <td><strong>Machine Translation:</strong> Used to indicate content that has been machine translated, or a request for a particular type of machine translation of content. The first subfield in a sequence would typically be a 'platform' or vendor designation.</td>
-<td><a href="https://github.com/unicode-org/cldr/blob/maint/maint-40/common/bcp47/transform_mt.xml">​transform_mt.xml</a></td>
+<td><a href="https://github.com/unicode-org/cldr/blob/maint/maint-41/common/bcp47/transform_mt.xml">​transform_mt.xml</a></td>
 </tr>
 <tr>
 <td>h0</td>
 <td><strong>Hybrid Locale Identifiers:</strong> h0 with the value 'hybrid' indicates that the -t- value is a language that is mixed into the main language tag to form a hybrid. For more information, and examples, see <em>Section 3.10.2 <a href="#Hybrid_Locale">Hybrid Locale Identifiers</a>.</em></td>
-<td><a href="https://github.com/unicode-org/cldr/blob/maint/maint-40/common/bcp47/transform_hybrid.xml">​transform_hybrid.xml</a></td>
+<td><a href="https://github.com/unicode-org/cldr/blob/maint/maint-41/common/bcp47/transform_hybrid.xml">​transform_hybrid.xml</a></td>
 </tr>
 <tr>
 <td>x0</td>
 <td><strong>Private use transform</strong></td>
-<td><a href="https://github.com/unicode-org/cldr/blob/maint/maint-40/common/bcp47/transform_private_use.xml">​transform_private_use.xml</a></td>
+<td><a href="https://github.com/unicode-org/cldr/blob/maint/maint-41/common/bcp47/transform_private_use.xml">​transform_private_use.xml</a></td>
 </tr>
 </tbody></table><h4 id="371-t-extension-data-files"><a name="Transformed_Content_Data_File" href="#Transformed_Content_Data_File">3.7.1 T Extension Data Files</a></h4><p>The overall structure of the data files is the similar to the U Extension, with the following exceptions.</p><p>In the transformed content 't' data file, the <code>name</code> attribute in a <code>&lt;key&gt;</code> element defines a valid field separator subtag. The <code>name</code> attribute in an enclosed <code>&lt;type&gt;</code> element defines a valid field subtag for the field separator subtag. For example:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">extension</span>=<span class="hljs-string">"t"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"m0"</span> <span class="hljs-attr">description</span>=<span class="hljs-string">"Transform extension mechanism"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">type</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"ungegn"</span> <span class="hljs-attr">description</span>=<span class="hljs-string">"United Nations Group of Experts on Geographical Names"</span> <span class="hljs-attr">since</span>=<span class="hljs-string">"21"</span>/&gt;</span>
@@ -2216,7 +2222,7 @@ zh-Hant-HK
 </tr>
 </thead>
 <tbody><tr>
-<td>old_unicode_locale_extensions</td>
+<td><code>old_unicode_locale_extensions</code></td>
 <td><code>= "@" old_key "=" old_type</code><br><code>(";" old_key "=" old_type)*</code></td>
 </tr>
 </tbody></table><p>The new specification mandates keys to be two alphanumeric characters and types to be three to eight alphanumeric characters. As the result, new codes were assigned to all existing keys and some types. For example, a new key "co" replaced the previous key "collation", a new type "phonebk" replaced the previous type "phonebook". However, the existing collation type "big5han" already satisfied the new requirement, so no new type code was assigned to the type. All new keys and types introduced after LDML 1.7 satisfy the new requirement, so they do not have aliases dedicated for the old syntax, except time zone types. The conversion between old types and new types can be done regardless of key, with one known exception (old type "traditional" is mapped to new type "trad" for collation and "traditio" for numbering system), and this relationship will be maintained in the future versions unless otherwise noted.</p><p>The new specification introduced a new field <code>attribute</code> in addition to key/type pairs in the Unicode locale extension. When it is necessary to map a new Unicode locale identifier with <code>attribute</code> field to a well-formed old locale identifier, a special key name <em>attribute</em> with the value of entire <code>attribute</code> subtags in the new identifier is used. For example, a new identifier <code>ja-u-xxx-yyy-ca-japanese</code> is mapped to an old identifier <code>ja@attribute=xxx-yyy;calendar=japanese</code> .</p><p>The chart below shows some example mappings between the new syntax and the old syntax.</p><h5 id="locale-extension-mappings"><a name="Locale_Extension_Mappings" href="#Locale_Extension_Mappings">Locale Extension Mappings</a></h5><table>
@@ -2314,7 +2320,8 @@ zh-Hant-HK
 </ol><p>Clearly there are many acceptable variations on this text. For example, copy editors might still quibble with the use of first versus last name sorting in the list, but clearly the first list was <em>not</em> acceptable English alphabetical order. And in quoting a name, like "Theatre Centre News", one may leave it in the source orthography even if it differs from the publication target orthography. And so on. However, just as clearly, there are limits on what is acceptable English, and "2003年3月20日", for example, is <em>not</em>.</p><p>Note that the language of locale data may differ from the language of localized software or web sites, when those latter are not localized into the user's preferred language. In such cases, the kind of incongruous juxtapositions described above may well appear, but this situation is usually preferable to forcing unfamiliar date or number formats on the user as well.</p><h4 id="3102-hybrid-locale-identifiers"><a name="Hybrid_Locale" href="#Hybrid_Locale">3.10.2 Hybrid Locale Identifiers</a></h4><p>Hybrid locales have intermixed content from 2 (or more) languages, often with one language's grammatical structure applied to words in another. These are commonly referred to with portmanteau words such as <em>Franglais, <a href="https://en.oxforddictionaries.com/definition/spanglish">​Spanglish</a></em> or <em>Denglish</em>. Hybrid locales do not <em>not</em> reference text simply containing two languages: a book of parallel text containing English and French, such as the following, is not Franglais:</p><!-- HTML: no header --><table><tbody><tr>
     <td>On the 24th of May, 1863, my uncle, Professor Liedenbrock, rushed into his little house, No. 19 Königstrasse, one of the oldest streets in the oldest portion of the city of Hamburg…</td>
     <td>Le 24 mai 1863, un dimanche, mon oncle, le professeur Lidenbrock, revint précipitamment vers sa petite maison située au numéro 19 de Königstrasse, l’une des plus anciennes rues du vieux quartier de Hambourg…</td>
-</tr></tbody></table><p>While text in a document can be tagged as partly in one language and partly in another, that is not the same having a hybrid locale. There is a difference between having a Spanglish document, and a Spanish document that has some passages quoted in English. Fine-grained tagging doesn't handle grammatical combinations like Tanglish “Enna matteru?” (<em>What’s the matter?</em>), which is neither standard Tamil nor standard English. More importantly, it doesn’t work for the very common use case for a <a href="#unicode_locale_id">unicode_locale_id</a>: <em>locale selection</em>.</p><p>To communicate requests for localized content and internationalization services, locales are used. When people pick a language from a menu, internally they are picking a locale (en-GB, es-419, etc.). To allow an application to support Spanglish or Hinglish locale selection, <a href="#unicode_locale_id">unicode_locale_id</a>s can represent hybrid locales using the T extension key-value 'h0-hybrid'. (For more information on the T extension, see <em>Section 3.7 <a href="#t_Extension">Unicode BCP 47 T Extension</a>.</em>)</p><p>Examples:</p><!-- HTML: no header, colspan --><table><tbody>
+</tr></tbody></table><p>While text in a document can be tagged as partly in one language and partly in another, that is not the same having a hybrid locale. There is a difference between having a Spanglish document, and a Spanish document that has some passages quoted in English. Fine-grained tagging doesn't handle grammatical combinations like Tanglish “Enna matteru?” (<em>What’s the matter?</em>), which is neither standard Tamil nor standard English. More importantly, it doesn’t work for the very common use case for a <a href="#unicode_locale_id">unicode_locale_id</a>: <em>locale selection</em>.</p><p>To communicate requests for localized content and internationalization services, locales are used. When people pick a language from a menu, internally they are picking a locale (en-GB, es-419, etc.). To allow an application to support Spanglish or Hinglish locale selection, <a href="#unicode_locale_id">unicode_locale_id</a>s can represent hybrid locales using the T extension key-value 'h0-hybrid'. (For more information on the T extension, see <em>Section 3.7 <a href="#t_Extension">Unicode BCP 47 T Extension</a>.</em>)</p><p><em>However, if users typically expect a their language in non-default script to contain a significant amount of text due to lexical borrowing, then the -t- and hybrid subtags may be omitted. An example of this is when Hindi is written in Latin script since Romanized Hindi typically contains a significant amount of English text, ‘hi-Latn’ can be used instead of ‘hi-Latn-t-en-h0-hybrid’.</em>
+This tends to work better in implementations that don't yet handle the -t- extension.</p><p>Examples:</p><!-- HTML: no header, colspan --><table><tbody>
 <tr><td>hi-t-<u>en-h0-hybrid</u></td>   <td>Hinglish</td>   <td>Hindi-English hybrid locale</td></tr>
 <tr><td>ta-t-<u>en-h0-hybrid</u></td>   <td>Tanglish</td>   <td>Tamil-English hybrid locale</td></tr>
 <tr><td>ba-t-<u>en-h0-hybrid</u></td>   <td>Banglish</td>   <td>Bangla-English hybrid locale</td></tr>
@@ -2324,9 +2331,14 @@ zh-Hant-HK
 <tr><td colspan="3">…</td></tr>
 </tbody></table><blockquote>
 <p><em>Note: The <a href="#unicode_language_id">unicode_language_id</a> should be the language used as the ‘scaffold’: for the fallback locale for internationalization services, typically used for more of the core vocabulary/structure in the content. Thus Hinglish should be represented as hi-t-h0-en where Hindi is the scaffold, and as en-t-h0-hi where English is.</em></p>
-</blockquote><p>The value of -t- is a full <em><a href="#unicode_language_id">unicode_language_id</a></em>, and can contain subtags for script or region where it is important to include them, as in the following. It may be useful in order to emphasize the script, even where it is the default script for the language, if it is not the same as the script of the main language tag.</p><!-- HTML: no header --><table><tbody>
-<tr><td>ru-t<u>-en-latn-gb-h0-hybrid</u></td>   <td>Runglish</td>   <td>Russian with an admixture of British English in Latin script</td></tr>
-<tr><td>ru-t-<u>en-cyrl-gb-h0-hybrid</u></td>   <td>Runglish</td>   <td>Russian with an admixture of British English in Cyrillic script</td></tr>
+</blockquote><p>The value of -t- is a full <em><a href="#unicode_language_id">unicode_language_id</a></em>, and can contain subtags for region where it is important to include it, as in the following. The value can also include the script, although that is is not normally included: the only instance where it should be is where the content of the source text varies by script. So because zh-Hant has different vocabulary and expressions, it could make sense to have en-t-zh-hant to make that distinction.</p><blockquote>
+<p>Note: The default script for the language is computed without reference to the hybrid subtags. Thus the default script for 'ru' is “Cyrl”, no matter what the source is in the -t- tag.</p>
+</blockquote><!-- HTML: no header --><table><tbody>
+<tr><td>ru-t-<u>en-h0-hybrid</u></td>   <td>Runglish</td>   <td>Russian with an admixture of American English</td></tr>
+<tr><td>ru-t-<u>en-gb-h0-hybrid</u></td>   <td>Runglish</td>   <td>Russian with an admixture of British English</td></tr>
+<tr><td>ru-Latn-t<u>-en-gb-h0-hybrid</u></td>   <td>Runglish</td>   <td>Russian with an admixture of British English in Latin script</td></tr>
+<tr><td>en-t-<u>zh-h0-hybrid</u></td>   <td>Chinglish</td>   <td>American English with an admixture of Chinese (Mandarin, China)</td></tr>
+<tr><td>en-t-<u>zh-Hant-h0-hybrid</u></td>   <td>Chinglish</td>   <td>American English with an admixture of Chinese (Mandarin, Taipai)</td></tr>
 </tbody></table><p>Should there ever be strong need for hybrids of more than two languages or for other purposes such as hybrid languages as the source of translated content, additional structure could be added.</p><h3 id="311-validity-data"><a name="Validity_Data" href="#Validity_Data">3.11 Validity Data</a></h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">idValidity</span> (<span class="hljs-meta-keyword">id</span>*) &gt;</span>
 <span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">id</span> ( <span class="hljs-meta-keyword">#PCDATA</span> ) &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">id</span> <span class="hljs-meta-keyword">type</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
@@ -2343,11 +2355,22 @@ zh-Hant-HK
 <li><strong>deprecated</strong> — codes that should not be used. The <code>&lt;alias&gt;</code> element in the supplementalMeta file contains more information about these codes, and which codes should be used instead.</li>
 <li><strong>private_use</strong> — codes that, for CLDR, are considered private use. Note that some private-use codes in a source standard such as BCP 47 have defined CLDR semantics, and are considered regular codes. For more information, see <em>Section 3.5.3 <a href="#Private_Use_Codes">Private Use Codes</a>.</em></li>
 <li><strong>reserved</strong> — codes that are private use in a source standard, but are reserved for future use as regular codes by CLDR.</li>
-</ul><p>The list of subtags for each idStatus use a compact format as a space-delimited list of StringRanges, as defined in <em>Section <a href="#String_Range">5.3.4 String Range</a>.</em> The separator for each StringRange is a "~".</p><p>Each measure unit is a sequence of subtags, such as “angle-arc-minute”. The first subtag provides a general “category” of the unit.</p><p>In version 28.0, the subdivisions in the validity files used the ISO format, uppercase with a hyphen separating two components, instead of the BCP 47 format.</p><h2 id="4-locale-inheritance-and-matching"><a name="Locale_Inheritance" href="#Locale_Inheritance">4 Locale Inheritance and Matching</a></h2><p>The XML format relies on an inheritance model, whereby the resources are collected into <em>bundles</em>, and the bundles organized into a tree. Data for the many Spanish locales does not need to be duplicated across all of the countries having Spanish as a national language. Instead, common data is collected in the Spanish language locale, and territory locales only need to supply differences. The parent of all of the language locales is a generic locale known as <em>root</em>. Wherever possible, the resources in the root are language &amp; territory neutral. For example, the collation (sorting) order in the root is based on the [<a href="#DUCET">DUCET</a>] (see <em><a href="tr35-collation.html#Root_Collation">Root Collation</a></em>). Since English language collation has the same ordering as the root locale, the 'en' locale data does not need to supply any collation data, nor do the 'en_US', 'en_GB' or the any of the various other locales that use English.</p><p>Given a particular locale id "en_US_someVariant", the search chain for a particular resource is the following.</p><pre><code>en_US_someVariant
+</ul><p>The list of subtags for each idStatus use a compact format as a space-delimited list of StringRanges, as defined in <em>Section <a href="#String_Range">5.3.4 String Range</a>.</em> The separator for each StringRange is a "~".</p><p>Each measure unit is a sequence of subtags, such as “angle-arc-minute”. The first subtag provides a general “category” of the unit.</p><p>In version 28.0, the subdivisions in the validity files used the ISO format, uppercase with a hyphen separating two components, instead of the BCP 47 format.</p><h2 id="4-locale-inheritance-and-matching"><a name="Locale_Inheritance" href="#Locale_Inheritance">4 Locale Inheritance and Matching</a></h2><p>The XML format relies on an inheritance model, whereby the resources are collected into <em>bundles</em>, and the bundles organized into a tree. Data for the many Spanish locales does not need to be duplicated across all of the countries having Spanish as a national language. Instead, common data is collected in the Spanish language locale, and territory locales only need to supply differences. The parent of all of the language locales is a generic locale known as <em>root</em>. Wherever possible, the resources in the root are language &amp; territory neutral. For example, the collation (sorting) order in the root is based on the [<a href="#DUCET">DUCET</a>] (see <em><a href="tr35-collation.html#Root_Collation">Root Collation</a></em>). Since English language collation has the same ordering as the root locale, the 'en' locale data does not need to supply any collation data, nor do the 'en_US', 'en_GB' or the any of the various other locales that use English.</p><p>Given a particular locale id "en_US_someVariant", the default search chain for a particular resource is the following.</p><pre><code>en_US_someVariant
 en_US
 en
 root
-</code></pre><p><em>The inheritance is often not simple truncation, as will be seen later in this section.</em></p><p>If a type and key are supplied in the locale id, then logically the chain from that id to the root is searched for a resource tag with a given type, all the way up to root. If no resource is found with that tag and type, then the chain is searched again without the type.</p><p>Thus the data for any given locale will only contain resources that are different from the parent locale. For example, most territory locales will inherit the bulk of their data from the language locale: "en" will contain the bulk of the data: "en_IE" will only contain a few items like currency. All data that is inherited from a parent is presumed to be valid, just as valid as if it were physically present in the file. This provides for much smaller resource bundles, and much simpler (and less error-prone) maintenance. At the script or region level, the "primary" child locale will be empty, since its parent will contain all of the appropriate resources for it. For more information see <em>CLDR Information: Section 9.3 <a href="tr35-info.html#Default_Content">Default Content</a>.</em></p><p>Certain data items depend only on the region specified in a locale id (by a <a href="#unicode_region_subtag_validity">unicode_region_subtag</a> or an “rg” <a href="#RegionOverride">Region Override</a> key), and are obtained from supplemental data rather than through locale resources. For example:</p><ul>
+</code></pre><p><em>The inheritance is often not simple truncation, as will be seen later in this section.</em></p><p>The default search chain is slighly different for multiple variants. 
+In that case, the inheritance chain covers all combinations of variants, with longest number of variants first, and otherwise in alphabetical order.
+For example, where the requested locale ID is en_fonipa_scouse, the inheritance chain is as follows:</p><pre><code>en_GB_fonipa_scouse
+en_GB_scouse_fonipa // extra step, only needed if not canonical
+en_GB_fonipa
+en_GB_scouse // extra step
+en_GB
+en
+</code></pre><p>If the data for the implementation performing the inheritance doesn't require canonical locale identifiers, then extra locale IDs need to be inserted in the chain. 
+That is indicated in the example above, marked with "only needed if not canonical".
+These would would include all combinations of variants that are not in canonical order, inserted in alphabetical order.
+Note that the order of multiple variants in canonical locale identifiers is alphabetical, as per <a href="#5-canonicalizing-syntax">5. Canonicalizing Syntax</a> in <a href="#annex-c-localeid-canonicalization">Annex C. LocaleId Canonicalization</a>.</p><p>If a type and key are supplied in the locale id, then logically the chain from that id to the root is searched for a resource tag with a given type, all the way up to root. If no resource is found with that tag and type, then the chain is searched again without the type.</p><p>Thus the data for any given locale will only contain resources that are different from the parent locale. For example, most territory locales will inherit the bulk of their data from the language locale: "en" will contain the bulk of the data: "en_IE" will only contain a few items like currency. All data that is inherited from a parent is presumed to be valid, just as valid as if it were physically present in the file. This provides for much smaller resource bundles, and much simpler (and less error-prone) maintenance. At the script or region level, the "primary" child locale will be empty, since its parent will contain all of the appropriate resources for it. For more information see <em>CLDR Information: Section 9.3 <a href="tr35-info.html#Default_Content">Default Content</a>.</em></p><p>Certain data items depend only on the region specified in a locale id (by a <a href="#unicode_region_subtag_validity">unicode_region_subtag</a> or an “rg” <a href="#RegionOverride">Region Override</a> key), and are obtained from supplemental data rather than through locale resources. For example:</p><ul>
 <li>The currency for the specified region (see <a href="tr35-numbers.html#Supplemental_Currency_Data">Supplemental Currency Data</a>)</li>
 <li>The measurement system for the specified region (see <a href="tr35-general.html#Measurement_System_Data">Measurement System Data</a>)</li>
 <li>The week conventions for the specified region (see <a href="tr35-dates.html#Week_Data">Week Data</a>)</li>
@@ -2400,7 +2423,7 @@ lang_region (aliases to lang_script_region)
         </p>
     </td>
 </tr>
-</tbody></table><p>Both the resource bundle inheritance and the inherited item inheritance use the parentLocale data, where available, instead of simple truncation.</p><p>The fallback is a bit different for these two cases; internal aliases and keys are not involved in the bundle lookup, and the default locale is not involved in the item lookup. If the default-locale were used in the resource-item lookup, then strange results will occur. For example, suppose that the default locale is Swedish, and there is a Nama locale but no specific inherited item for collation. If the default-locale were used in resource-item lookup, it would produce odd and unexpected results for Nama sorting.</p><p>The default locale is not even always used in resource bundle inheritance. For the following services, the fallback is always directly to the root locale rather than through default locale.</p><ul>
+</tbody></table><p><em>Both the resource bundle inheritance and the inherited item inheritance use the parentLocale data, where available, instead of simple truncation.</em></p><p>The fallback is a bit different for these two cases; internal aliases and keys are not involved in the bundle lookup, and the default locale is not involved in the item lookup. If the default-locale were used in the resource-item lookup, then strange results will occur. For example, suppose that the default locale is Swedish, and there is a Nama locale but no specific inherited item for collation. If the default-locale were used in resource-item lookup, it would produce odd and unexpected results for Nama sorting.</p><p>The default locale is not even always used in resource bundle inheritance. For the following services, the fallback is always directly to the root locale rather than through default locale.</p><ul>
 <li>  collation</li>
 <li>  break iteration</li>
 <li>  case mapping</li>
@@ -3691,87 +3714,22 @@ Outside of single quotes, certain backslashed code point sequences can be used t
 <li>Produce an error (set an error code or throw an exception) when an attempt is made to create a formatter with such a pattern or to apply such a pattern to an existing formatter.</li>
 </ul>
 </li>
-</ul><hr><h2 id="annex-a-deprecated-structure"><a name="Deprecated_Structure" href="#Deprecated_Structure">Annex A Deprecated Structure</a></h2><p>The <a href="#DTD_Annotations">DTD Annotations</a> in Section 5.7 are used to determine whether elements, attributes, or attribute values are deprecated.</p><p>While valid LDML, they are strongly discouraged, and no longer used in CLDR.</p><p>The remainder of this section describes selected cases of deprecated structure that were present in previous versions of CLDR.</p><h3 id="a1-element-fallback"><a name="Fallback_Elements" href="#Fallback_Elements">A.1 Element fallback</a></h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">fallback</span> (<span class="hljs-meta-keyword">#PCDATA</span>) &gt;</span>
-</code></pre><p>The <code>fallback</code> element is deprecated. Implementations should use instead the information in <em><a href="#LanguageMatching">Section 4.4 Language Matching</a></em> for doing language fallback.</p><h3 id="a2-bcp-47-keyword-mapping"><a name="BCP47_Keyword_Mapping" href="#BCP47_Keyword_Mapping">A.2 BCP 47 Keyword Mapping</a></h3><p><strong>Note:</strong> <em>This structure is deprecated and replaced with <a href="#Unicode_Locale_Extension_Data_Files">Section 3.6.4 U Extension Data Files</a>.</em></p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">bcp47KeywordMappings</span> ( <span class="hljs-meta-keyword">mapKeys</span>?, <span class="hljs-meta-keyword">mapTypes</span>* ) &gt;</span>
-<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">mapKeys</span> ( <span class="hljs-meta-keyword">keyMap</span>* ) &gt;</span>
-<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">keyMap</span> <span class="hljs-meta-keyword">EMPTY</span> &gt;</span>
-<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">keyMap</span> <span class="hljs-meta-keyword">type</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
-<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">keyMap</span> <span class="hljs-meta-keyword">bcp47</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
-<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">mapTypes</span> ( <span class="hljs-meta-keyword">typeMap</span>* ) &gt;</span>
-<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">mapTypes</span> <span class="hljs-meta-keyword">type</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
-<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">typeMap</span> <span class="hljs-meta-keyword">EMPTY</span> &gt;</span>
-<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">typeMap</span> <span class="hljs-meta-keyword">type</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
-<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">typeMap</span> <span class="hljs-meta-keyword">bcp47</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
-</code></pre><p>This section defines mappings between old Unicode locale identifier key/type values and their BCP 47 'u' extension subtag representations. The 'u' extension syntax described in <a href="#u_Extension">Section 3.6 Unicode BCP 47 U Extension</a> restricts a key to two ASCII alphanumerics and a type to three to eight ASCII alphanumerics. A key or a type which does not meet that syntax requirement is converted according to the mapping data defined by the <code>mapKeys</code> or <code>mapTypes</code> elements. For example, a keyword <code>"collation=phonebook"</code> is converted to BCP 47 'u' extension subtags "co-phonebk" by the mapping data below:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">mapKeys</span>&gt;</span>
-    ...
-    <span class="hljs-tag">&lt;<span class="hljs-name">keyMap</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"collation"</span> <span class="hljs-attr">bcp47</span>=<span class="hljs-string">"co"</span> /&gt;</span>
-    ...
-<span class="hljs-tag">&lt;/<span class="hljs-name">mapKeys</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">mapTypes</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"collation"</span>&gt;</span>
-    ...
-    <span class="hljs-tag">&lt;<span class="hljs-name">typeMap</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"phonebook"</span> <span class="hljs-attr">bcp47</span>=<span class="hljs-string">"phonebk"</span> /&gt;</span>
-    ...
-<span class="hljs-tag">&lt;/<span class="hljs-name">mapTypes</span>&gt;</span>
-</code></pre><h3 id="a3-choice-patterns"><a name="Choice_Patterns" href="#Choice_Patterns">A.3 Choice Patterns</a></h3><p><strong>Note:</strong> <em>This structure is deprecated and replaced with count attributes.</em></p><p>A choice pattern is a string that chooses among a number of strings, based on numeric value. It has the following form:</p><pre><code>&lt;choice_pattern&gt; = &lt;choice&gt; ( '|' &lt;choice&gt; )*
-&lt;choice&gt; = &lt;number&gt;&lt;relation&gt;&lt;string&gt;
-&lt;number&gt; = ('+' | '-')? ('∞' | [0-9]+ ('.' [0-9]+)?)
-&lt;relation&gt; = '&lt;' | ' ≤'
-</code></pre><p>The interpretation of a choice pattern is that given a number N, the pattern is scanned from right to left, for each choice evaluating &lt;number&gt; &lt;relation&gt; N. The first choice that matches results in the corresponding string. If no match is found, then the first string is used. For example:</p><!-- HTML: rowspan --><table><thead>
-<tr><th>Pattern</th><th>N</th><th>Result</th>
-</tr></thead><tbody>
-<tr><td rowspan="4">0≤Rf|1≤Ru|1&lt;Re</td>
-    <td>-∞, -3, -1, -0.000001</td>      <td>Rf (defaulted to first string)</td></tr>
-<tr><td>0, 0.01, 0.9999</td>            <td>Rf</td></tr>
-<tr><td>1</td>                          <td>Ru</td></tr>
-<tr><td>1.00001, 5, 99, ∞</td>          <td>Re</td></tr>
-</tbody></table><p>Quoting is done using ' characters, as in date or number formats.</p><h3 id="a4-element-default"><a name="Element_default" href="#Element_default">A.4 Element default</a></h3><p><strong>Note:</strong> <em>This structure is deprecated.</em> Use replacement structure instead, for example:</p><ul>
+</ul><hr><h2 id="annex-a-deprecated-structure"><a name="Deprecated_Structure" href="#Deprecated_Structure">Annex A Deprecated Structure</a></h2><p>The <a href="#DTD_Annotations">DTD Annotations</a> in Section 5.7 are used to determine whether DTD items such as elements, attributes, or attribute values are deprecated.</p><p>Though such deprecated items are still valid LDML, they are strongly discouraged, and are no longer used in CLDR.</p><p>The CLDR <a href="https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/dtd_deltas.html">DTD Deltas</a> chart shows which DTD items have been deprecated in which version of CLDR.</p><p>The remainder of this section describes selected cases of deprecated structure, and what (if any) should be used instead.</p><h3 id="a1-element-fallback"><a name="Fallback_Elements" href="#Fallback_Elements">A.1 Element fallback</a></h3><p>Implementations should use instead the information in <a href="#LanguageMatching">Section 4.4 Language Matching</a> for doing language fallback.</p><h3 id="a2-bcp-47-keyword-mapping"><a name="BCP47_Keyword_Mapping" href="#BCP47_Keyword_Mapping">A.2 BCP 47 Keyword Mapping</a></h3><p>Instead use the mechanisms descibed in <a href="#Unicode_Locale_Extension_Data_Files">Section 3.6.4 U Extension Data Files</a>.</p><h3 id="a3-choice-patterns"><a name="Choice_Patterns" href="#Choice_Patterns">A.3 Choice Patterns</a></h3><p>Instead use <code>count</code> attributes.</p><h3 id="a4-element-default"><a name="Element_default" href="#Element_default">A.4 Element default</a></h3><p>Instead use replacement structure, for example:</p><ul>
 <li>For <code>&lt;collations&gt;</code>, now use the <code>&lt;defaultCollation&gt;</code> element.</li>
 <li>For <code>&lt;calendars&gt;</code>, the default calendar type for a locale is now specified by <em><a href="tr35-dates.html#Calendar_Preference_Data">Calendar Preference Data</a></em>.</li>
-</ul><p>In some cases, a number of elements are present. The default element can be used to indicate which of them is the default, in the absence of other information. The value of the <code>choice</code> attribute is to match the value of the <code>type</code> attribute for the selected item.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">timeFormats</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">default</span> <span class="hljs-attr">choice</span>=<span class="hljs-string">"medium"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">timeFormatLength</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"full"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">timeFormat</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"standard"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"standard"</span>&gt;</span>h:mm:ss a z<span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">timeFormat</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">timeFormatLength</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">timeFormatLength</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"long"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">timeFormat</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"standard"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"standard"</span>&gt;</span>h:mm:ss a z<span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">timeFormat</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">timeFormatLength</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">timeFormatLength</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"medium"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">timeFormat</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"standard"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"standard"</span>&gt;</span>h:mm:ss a<span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">timeFormat</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">timeFormatLength</span>&gt;</span>
-    ...
-</code></pre><p>Like all other elements, the <code>&lt;default&gt;</code> element is inherited. Thus, it can also refer to inherited resources. For example, suppose that the above resources are present in fr, and that in fr_BE we have the following:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">timeFormats</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">default</span> <span class="hljs-attr">choice</span>=<span class="hljs-string">"long"</span> /&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">timeFormats</span>&gt;</span>
-</code></pre><p>In that case, the default time format for fr_BE would be the inherited "long" resource from fr. Now suppose that we had in fr_CA:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">timeFormatLength</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"medium"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">timeFormat</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"standard"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"standard"</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">timeFormat</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">timeFormatLength</span>&gt;</span>
-</code></pre><p>In this case, the <code>&lt;default&gt;</code> is inherited from fr, and has the value "medium". It thus refers to this new "medium" pattern in this resource bundle.</p><h3 id="a5-deprecated-common-attributes"><a name="Deprecated_Common_Attributes" href="#Deprecated_Common_Attributes">A.5 Deprecated Common Attributes</a></h3><h4 id="a51-attribute-standard"><a name="Attribute_standard" href="#Attribute_standard">A.5.1 Attribute standard</a></h4><p><strong>Note:</strong> This attribute is deprecated. Instead, use a <code>reference</code> element with the attribute <code>standard="true"</code>.</p><p>The value of this attribute is a list of strings representing standards: international, national, organization, or vendor standards. The presence of this attribute indicates that the data in this element is compliant with the indicated standards. Where possible, for uniqueness, the string should be a URL that represents that standard. The strings are separated by commas; leading or trailing spaces on each string are not significant. Examples:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">collation</span> <span class="hljs-attr">standard</span>=<span class="hljs-string">"MSA 200:2002"</span>&gt;</span>
-    ...
-    <span class="hljs-tag">&lt;<span class="hljs-name">dateFormatStyle</span> <span class="hljs-attr">standard</span>=<span class="hljs-string">"https://www.iso.org/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=26780<span class="hljs-symbol">&amp;amp;</span>ICS1=1<span class="hljs-symbol">&amp;amp;</span>ICS2=140<span class="hljs-symbol">&amp;amp;</span>ICS3=30"</span>&gt;</span>
-</code></pre><h4 id="a52-attribute-draft-in-non-leaf-elements"><a name="Attribute_draft_nonLeaf" href="#Attribute_draft_nonLeaf">A.5.2 Attribute draft in non-leaf elements</a></h4><p>The <code>draft</code> attribute is deprecated except in leaf elements (elements that do not have any subelements)</p><h3 id="a6-element-base"><a name="Element_base" href="#Element_base">A.6 Element base</a></h3><p><strong>Note:</strong> <em>This element is deprecated.</em> Use the collation <code>&lt;import&gt;</code> element instead.</p><p>The optional base element <code>&lt;base&gt;...&lt;/base&gt;</code> contains an <code>alias</code> element that points to another data source that defines a <em>base</em> collation. If present, it indicates that the settings and rules in the collation are modifications applied on <em>top of the</em> respective elements in the base collation. That is, any successive settings, where present, override what is in the base as described in <a href="tr35-collation.html#Setting_Options">Setting Options</a>. Any successive rules are concatenated to the end of the rules in the base. The results of multiple rules applying to the same characters is covered in <a href="tr35-collation.html#Orderings">Orderings</a>.</p><h3 id="a7-element-rules"><a name="Element_rules" href="#Element_rules">A.7 Element rules</a></h3><p><strong>Note:</strong> <em>The XML collation syntax is deprecated; this includes the <code>&lt;rules&gt;</code> element and its subelements, except that the <code>&lt;import&gt;</code> element has been moved up to be a subelement of <code>&lt;collation&gt;</code>.</em> Use the basic collation syntax with the <a href="tr35-collation.html#Rules"><code>&lt;cr&gt;</code> element</a> instead.</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">rules</span> (<span class="hljs-meta-keyword">alias</span> | ( ( <span class="hljs-meta-keyword">reset</span> | <span class="hljs-meta-keyword">import</span> ), ( <span class="hljs-meta-keyword">reset</span> | <span class="hljs-meta-keyword">import</span> | p | <span class="hljs-meta-keyword">pc</span> | s | <span class="hljs-meta-keyword">sc</span> | t | <span class="hljs-meta-keyword">tc</span> | i | <span class="hljs-meta-keyword">ic</span> | x)* )) &gt;</span>
-</code></pre><h3 id="a8-deprecated-subelements-of-dates"><a name="Deprecated_subelements_of_dates" href="#Deprecated_subelements_of_dates">A.8 Deprecated subelements of <code>&lt;dates&gt;</code></a></h3><ul>
+</ul><h3 id="a5-deprecated-common-attributes"><a name="Deprecated_Common_Attributes" href="#Deprecated_Common_Attributes">A.5 Deprecated Common Attributes</a></h3><h4 id="a51-attribute-standard"><a name="Attribute_standard" href="#Attribute_standard">A.5.1 Attribute standard</a></h4><p>Instead, use a <code>reference</code> element with the attribute <code>standard="true"</code>.</p><h4 id="a52-attribute-draft-in-non-leaf-elements"><a name="Attribute_draft_nonLeaf" href="#Attribute_draft_nonLeaf">A.5.2 Attribute draft in non-leaf elements</a></h4><p>The <code>draft</code> attribute is deprecated except in leaf elements (elements that do not have any subelements)</p><h3 id="a6-element-base"><a name="Element_base" href="#Element_base">A.6 Element base</a></h3><p>Instead use the collation <code>&lt;import&gt;</code> element.</p><h3 id="a7-element-rules"><a name="Element_rules" href="#Element_rules">A.7 Element rules</a></h3><p>Instead use the basic collation syntax with the <a href="tr35-collation.html#Rules"><code>&lt;cr&gt;</code> element</a>.</p><h3 id="a8-deprecated-subelements-of-dates"><a name="Deprecated_subelements_of_dates" href="#Deprecated_subelements_of_dates">A.8 Deprecated subelements of <code>&lt;dates&gt;</code></a></h3><ul>
 <li><code>&lt;localizedPatternChars&gt;</code></li>
 <li><code>&lt;dateRangePattern&gt;</code>, replaced by <code>&lt;intervalFormats&gt;</code>.</li>
 </ul><h3 id="a9-deprecated-subelements-of-calendars"><a name="Deprecated_subelements_of_calendars" href="#Deprecated_subelements_of_calendars">A.9 Deprecated subelements of <code>&lt;calendars&gt;</code></a></h3><ul>
-<li><code>&lt;monthNames&gt;</code> and <code>&lt;monthAbbr&gt;</code>; month name forms are specified in the <code>&lt;months&gt;</code> element. The older <code>monthNames</code>, <code>monthAbbr</code> are equivalent to: using the <code>months</code> element with the context <code>type="format"</code> and the width <code>type="wide"</code> (for ...Names) and <code>type="narrow"</code> (for ...Abbr), respectively.</li>
-<li><code>&lt;dayNames&gt;</code> and <code>&lt;dayAbbr&gt;</code>; weekday name forms are specified in the <code>&lt;days&gt;</code> element. The older dayNames, dayAbbr are equivalent to: using the <code>days</code> element with the context <code>type="format"</code> and the width <code>type="wide"</code> (for ...Names) and <code>type="narrow"</code> (for ...Abbr), respectively.</li>
+<li>The deprecated <code>&lt;monthNames&gt;</code> and <code>&lt;monthAbbr&gt;</code> are replaced by the <code>months</code> element with the context <code>type="format"</code> and the width <code>type="wide"</code> (for ...Names) and <code>type="narrow"</code> (for ...Abbr), respectively.</li>
+<li>The deprecated <code>&lt;dayNames&gt;</code> and <code>&lt;dayAbbr&gt;</code> are replaced by the <code>days</code> element with the context <code>type="format"</code> and the width <code>type="wide"</code> (for ...Names) and <code>type="narrow"</code> (for ...Abbr), respectively.</li>
 <li><a name="week" href="#week"><code>&lt;week&gt;</code></a> is deprecated in the main LDML files, because the data is more appropriately organized as connected to territories, not to linguistic data. Use the supplemental <code>&lt;weekData&gt;</code> element instead.</li>
-<li><code>&lt;am&gt;</code> and <code>&lt;pm&gt;</code>; these are now included as part of the <code>&lt;dayPeriods&gt;</code> element</li>
+<li>The standalone <code>&lt;am&gt;</code> and <code>&lt;pm&gt;</code> are deprecated, and the data are instead included as part of the <code>&lt;dayPeriods&gt;</code> element</li>
 <li><code>&lt;fields&gt;</code> is deprecated as a subelement of <code>&lt;calendars&gt;</code> instead, a <code>&lt;fields&gt;</code> element should be located just under a <code>&lt;dates&gt;</code> element. See <a href="tr35-dates.html#Calendar_Fields">Calendar Fields</a>.</li>
 </ul><h3 id="a10-deprecated-subelements-of-timezonenames"><a name="Deprecated_subelements_of_timeZoneNames" href="#Deprecated_subelements_of_timeZoneNames">A.10 Deprecated subelements of <code>&lt;timeZoneNames&gt;</code></a></h3><ul>
-<li><code>&lt;hoursFormat&gt;</code> e.g. "{0}/{1}" for "-0800/-0700"</li>
-<li><a name="fallbackRegionFormat" href="#fallbackRegionFormat"><code>&lt;fallbackRegionFormat&gt;</code></a> (deprecated), e.g. "{0} Time ({1})" for "United States Time (New York)"</li>
-<li><code>&lt;abbreviationFallback&gt;</code></li>
-<li><code>&lt;preferenceOrdering&gt;</code>, a preference ordering among modern zones; use metazones instead.</li>
-<li><code>&lt;singleCountries&gt;</code>, use <a href="tr35-dates.html#Primary_Zones">Primary Zones</a></li>
+<li><code>&lt;preferenceOrdering&gt;</code>: use metazones instead.</li>
+<li><code>&lt;singleCountries&gt;</code>:use <a href="tr35-dates.html#Primary_Zones">Primary Zones</a></li>
+<li><code>&lt;hoursFormat&gt;</code>, <a name="fallbackRegionFormat" href="#fallbackRegionFormat"><code>&lt;fallbackRegionFormat&gt;</code></a>, <code>&lt;abbreviationFallback&gt;</code></li>
 </ul><h3 id="a11-deprecated-subelements-of-zone-and-metazone"><a name="Deprecated_subelements_of_zone_metazone" href="#Deprecated_subelements_of_zone_metazone">A.11 Deprecated subelements of <code>&lt;zone&gt;</code> and <code>&lt;metazone&gt;</code></a></h3><ul>
 <li><code>&lt;commonlyUsed&gt;</code>, formerly used to indicate whether a zone was commonly used in the locale.</li>
 </ul><h3 id="a12-renamed-attribute-values-for-contexttransformusage-element"><a name="Renamed_attribute_values_for_contextTransformUsage" href="#Renamed_attribute_values_for_contextTransformUsage">A.12 Renamed attribute values for <code>&lt;contextTransformUsage&gt;</code> element</a></h3><p>The <code>&lt;contextTransformUsage&gt;</code> element was introduced in CLDR 21. The values for its <code>type</code> attribute are documented in <a href="tr35-general.html#contextTransformUsage_type_attribute_values"><code>&lt;contextTransformUsage&gt;</code> type attribute values</a>. In CLDR 25, some of these values were renamed from their previous values for improved clarity:</p><ul>
@@ -3780,8 +3738,8 @@ Outside of single quotes, certain backslashed code point sequences can be used t
 <li><code>displayName-count</code> was renamed to <code>currencyName-count</code></li>
 <li><code>tense</code> was renamed to <code>relative</code></li>
 </ul><h3 id="a13-deprecated-subelements-of-segmentations"><a name="Deprecated_subelements_of_segmentations" href="#Deprecated_subelements_of_segmentations">A.13 Deprecated subelements of <code>&lt;segmentations&gt;</code></a></h3><ul>
-<li><code>&lt;exceptions&gt;</code> and <code>&lt;exception&gt;</code> were deprecated and replaced with <code>&lt;suppressions&gt;</code> and <code>&lt;suppression&gt;</code>.</li>
-</ul><h3 id="a14-element-cp"><a name="Element_cp" href="#Element_cp">A.14 Element cp</a></h3><p>The <code>cp</code> element was used to escape characters that cannot be represented in XML, even with NCRs. These escapes were only allowed in certain elements, according to the DTD.</p><p>However, this mechanism is very clumsy, and was replaced by specialized syntax.</p><table>
+<li><code>&lt;exceptions&gt;</code> and <code>&lt;exception&gt;</code>: Replaced with <code>&lt;suppressions&gt;</code> and <code>&lt;suppression&gt;</code>.</li>
+</ul><h3 id="a14-element-cp"><a name="Element_cp" href="#Element_cp">A.14 Element cp</a></h3><p>The <code>cp</code> element was used in certain elements to escape characters that cannot be represented in XML, even with NCRs. This mechanism was replaced by specialized syntax:</p><table>
 <thead>
 <tr>
 <th>Code Point</th>
@@ -3792,25 +3750,11 @@ Outside of single quotes, certain backslashed code point sequences can be used t
 <td><code>U+0000</code></td>
 <td><code>&lt;cp hex="0"&gt;</code></td>
 </tr>
-</tbody></table><h3 id="a15-attribute-validsublocales"><a name="validSubLocales" href="#validSubLocales">A.15 Attribute validSubLocales</a></h3><p>The attribute <code>validSubLocales</code> allowed sublocales in a given tree to be treated as though a file for them were present when there was not one. It only had an effect for locales that inherit from the current file where a file is missing.</p><p><strong>Example 1.</strong> Suppose that in a particular LDML tree, there are no region locales for German, for example, there is a de.xml file, but no files for de_AT.xml, de_CH.xml, or de_DE.xml. Then no elements are valid for any of those region locales. If we want to mark one of those files as having valid elements, then we introduce an empty file, such as the following.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">ldml</span> <span class="hljs-attr">version</span>=<span class="hljs-string">"1.1"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">identity</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">version</span> <span class="hljs-attr">number</span>=<span class="hljs-string">"1.1"</span> /&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">language</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"de"</span> /&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">territory</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"AT"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">identity</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">ldml</span>&gt;</span>
-</code></pre><p>With the <code>validSubLocales</code> attribute, instead of adding the empty files for de_AT.xml, de_CH.xml, and de_DE.xml, in the de file we could add to the parent locale a list of the child locales that should behave as if files were present.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">ldml</span> <span class="hljs-attr">version</span>=<span class="hljs-string">"1.1"</span> <span class="hljs-attr">validSubLocales</span>=<span class="hljs-string">"de_AT de_CH de_DE"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">identity</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">version</span> <span class="hljs-attr">number</span>=<span class="hljs-string">"1.1"</span> /&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">language</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"de"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">identity</span>&gt;</span>
-    ...
-<span class="hljs-tag">&lt;/<span class="hljs-name">ldml</span>&gt;</span>
-</code></pre><p>Now that the <code>validSubLocales</code> attribute has been deprecated, it is recommended to simply add empty files to specify which sublocales are valid. This convention is used throughout the CLDR.</p><h3 id="a16-elements-postalcodedata-postcoderegex"><a name="postCodeElements" href="#postCodeElements">A.16 Elements postalCodeData, postCodeRegex</a></h3><p>The postal code validation data has been deprecated. Please see other services that are kept up to date, such as:</p><ul>
+</tbody></table><h3 id="a15-attribute-validsublocales"><a name="validSubLocales" href="#validSubLocales">A.15 Attribute validSubLocales</a></h3><p>Instead of using <code>validSubLocales</code>, it is recommended to simply add empty files to specify which sublocales are valid. This convention is used throughout the CLDR.</p><h3 id="a16-elements-postalcodedata-postcoderegex"><a name="postCodeElements" href="#postCodeElements">A.16 Elements postalCodeData, postCodeRegex</a></h3><p>Instead please see other services that are kept up to date, such as:</p><ul>
 <li><a href="https://i18napis.appspot.com/address/data/US">https://i18napis.appspot.com/address/data/US</a></li>
 <li><a href="https://i18napis.appspot.com/address/data/CH">https://i18napis.appspot.com/address/data/CH</a></li>
 <li>...</li>
-</ul><p>See <a href="tr35-info.html#Postal_Code_Validation">Postal Code Validation</a></p><h3 id="a17-element-telephonecodedata"><a name="telephoneCodeData" href="#telephoneCodeData">A.17 Element telephoneCodeData</a></h3><p>The element <code>&lt;telephoneCodeData&gt;</code> and its subelements have been deprecated and the data removed.</p><hr><h2 id="annex-b-links-to-other-parts"><a name="Links_to_Other_Parts" href="#Links_to_Other_Parts">Annex B Links to Other Parts</a></h2><p>The LDML specification is split into several <a href="#Parts">parts</a> by topic, with one HTML document per part. The following tables provide redirects for links to specific topics. Please update your links and bookmarks.</p><p>Part 1 Links: Core (this document): No redirects needed.</p><h5 id="part-2-links-general-display-names--transforms-etc"><a name="Part_2_Links" href="#Part_2_Links">Part 2 Links</a>: <a href="tr35-general.html">General</a> (display names &amp; transforms, etc.)</h5><table>
+</ul><h3 id="a17-element-telephonecodedata"><a name="telephoneCodeData" href="#telephoneCodeData">A.17 Element telephoneCodeData</a></h3><p>The element <code>&lt;telephoneCodeData&gt;</code> and its subelements have been deprecated and the data removed.</p><hr><h2 id="annex-b-links-to-other-parts"><a name="Links_to_Other_Parts" href="#Links_to_Other_Parts">Annex B Links to Other Parts</a></h2><p>The LDML specification is split into several <a href="#Parts">parts</a> by topic, with one HTML document per part. The following tables provide redirects for links to specific topics. Please update your links and bookmarks.</p><p>Part 1 Links: Core (this document): No redirects needed.</p><h5 id="part-2-links-general-display-names--transforms-etc"><a name="Part_2_Links" href="#Part_2_Links">Part 2 Links</a>: <a href="tr35-general.html">General</a> (display names &amp; transforms, etc.)</h5><table>
 <thead>
 <tr>
 <th>Old section</th>
@@ -4563,7 +4507,7 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 </tr>
 <tr>
 <td>[<a name="ByType" href="#ByType">ByType</a>]</td>
-<td>CLDR Comparison Charts<br><a href="https://www.unicode.org/cldr/comparison_charts.html">https://www.unicode.org/cldr/comparison_charts.html</a></td>
+<td>CLDR Comparison Charts<br><a href="https://cldr.unicode.org/index/charts">https://cldr.unicode.org/index/charts</a></td>
 </tr>
 <tr>
 <td>[<a name="Calendars" href="#Calendars">Calendars</a>]</td>
@@ -4571,11 +4515,11 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 </tr>
 <tr>
 <td>[<a name="Comparisons" href="#Comparisons">Comparisons</a>]</td>
-<td>Comparisons between locale data from different sources<br><a href="https://unicode-org.github.io/cldr-staging/charts/38/supplemental/dtd_deltas.html">https://unicode-org.github.io/cldr-staging/charts/38/supplemental/dtd_deltas.html</a></td>
+<td>Comparisons between locale data from different sources<br><a href="https://unicode-org.github.io/cldr-staging/charts/latest/by_type/index.html">https://unicode-org.github.io/cldr-staging/charts/latest/by_type/index.html</a></td>
 </tr>
 <tr>
 <td>[<a name="CurrencyInfo" href="#CurrencyInfo">CurrencyInfo</a>]</td>
-<td>UNECE Currency Data<br><a href="https://www.currency-iso.org/en/home/tables.html">https://www.currency-iso.org/en/home/tables.html</a></td>
+<td>UNECE Currency Data<br><a href="https://www.iso.org/iso-4217-currency-codes.html">https://www.iso.org/iso-4217-currency-codes.html</a></td>
 </tr>
 <tr>
 <td>[<a name="DataFormats" href="#DataFormats">DataFormats</a>]</td>
@@ -4607,7 +4551,7 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 </tr>
 <tr>
 <td>[<a name="localeProject" href="#localeProject">LocaleProject</a>]</td>
-<td>Common Locale Data Repository Project<br><a href="https://unicode.org/cldr/">https://unicode.org/cldr/</a></td>
+<td>Common Locale Data Repository Project<br><a href="https://cldr.unicode.org">https://cldr.unicode.org</a></td>
 </tr>
 <tr>
 <td>[<a name="NamingGuideline" href="#NamingGuideline">NamingGuideline</a>]</td>
@@ -4656,29 +4600,32 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 <li>Markus Scherer for a major rewrite of Part 5, Collation.</li>
 <li><a href="https://www.sffc.xyz/">Shane Carr</a> for his work on numbers and measurement units.</li>
 <li>Robin Leroy for his work on compact plurals: Part 3, Section 5, <a href="tr35-numbers.html#Language_Plural_Rules">Language Plural Rules</a></li>
-</ul><p>Other contributors to CLDR are listed on the <a href="https://www.unicode.org/cldr/">CLDR Project Page</a>.</p><h2 id="modifications"><a name="Modifications" href="#Modifications">Modifications</a></h2><p><strong>Revision 66</strong></p><ul>
-<li>Proposed Update for CLDR Version 40.</li>
-</ul><p><strong>Revision 65</strong></p><ul>
-<li>Locale Identifiers<ul>
-<li>In <a href="#BCP_47_Language_Tag_Conversion">BCP 47 Language Tag Conversion</a>, extended the minimum support size for locale and language identifiers to 255 <a href="https://unicode-org.atlassian.net/browse/CLDR-13729">CLDR-13729</a><ul>
-<li>In <a href="#Canonical_Unicode_Locale_Identifiers">Canonical Unicode Locale Identifiers</a>, provided an explanation for the use of alphabetical order of variants <a href="https://unicode-org.atlassian.net/browse/CLDR-13729">CLDR-13729</a></li>
+</ul><p>Other contributors to CLDR are listed on the <a href="https://www.unicode.org/cldr/">CLDR Project Page</a>.</p><h2 id="modifications"><a name="Modifications" href="#Modifications">Modifications</a></h2><p>The following are the main modifications in this version of the specification:</p><ul>
+<li>Locales<ul>
+<li>Revised requirements for the locale coverage levels, pointed to separate web page describing the requirements at each level. <a href="tr35-info.html#Coverage_Levels">§8 Coverage Levels</a> — <a href="https://unicode-org.atlassian.net/browse/CLDR-15378">CLDR-15378</a></li>
+<li>Documented the lookup chain for multiple variants. <a href="#Locale_Inheritance">§4 Locale Inheritance and Matching</a> — <a href="https://unicode-org.atlassian.net/browse/CLDR-15115">CLDR-15115</a></li>
+<li>Documented the new value of "phrase" for the linebreak key "lw", used for Japanese. <a href="#UnicodeLineBreakWordIdentifier">§3.6.1 Key And Type Definitions</a> — <a href="https://unicode-org.atlassian.net/browse/CLDR-15448">CLDR-15448</a></li>
+<li>Documented the use of hi-Latn for "Hinglish" (and similar cases), and cleaned up other text describing hybrid locales. <a href="#Hybrid_Locale">§3.10.2 Hybrid Locale Identifiers</a> — <a href="https://unicode-org.atlassian.net/browse/CLDR-15378">CLDR-15378</a></li>
+<li>Documented the use of numeric and alpha3 codes for special CLDR region subtags. <a href="#unicode_region_subtag_validity">§3.4 Language Identifier Field Definitions</a> — <a href="https://unicode-org.atlassian.net/browse/CLDR-15420">CLDR-15420</a></li>
 </ul>
 </li>
-<li>Fixed ambiguity in the order of alias rules in <a href="#LocaleId_Canonicalization">LocaleId Canonicalization</a> <a href="https://unicode-org.atlassian.net/browse/CLDR-14629">CLDR-14629</a></li>
+<li>List Patterns<ul>
+<li>Added invariants to list patterns to allow for simpler formatting algorithms. <a href="tr35-general.html#ListPatterns">§11 List Patterns</a> — <a href="https://unicode-org.atlassian.net/browse/CLDR-15247">CLDR-15247</a></li>
+</ul>
+</li>
+<li>Numbers<ul>
+<li>Added a new section specifying how number range patterns can be applied to more complex formats, including compact decimals, measurement units and currencies. <a href="tr35-numbers.html#Number_Range_Formatting">§6 Rule-Based Number Formatting</a> — <a href="https://unicode-org.atlassian.net/browse/CLDR-14111">CLDR-14111</a> </li>
+<li>Clarified the discussion of how the plural rule syntax works. <a href="tr35-numbers.html#Plural_rules_syntax">§5.1 Plural rules syntax</a> — <a href="https://unicode-org.atlassian.net/browse/CLDR-15305">CLDR-15305</a> </li>
 </ul>
 </li>
 <li>Dates<ul>
-<li>In <a href="tr35-dates.html#months_days_quarters_eras">Elements months, days, ...</a> and <a href="tr35-dates.html#dfst-month">months (in Date Field Symbol Table)</a>, improve the description of the distinctions between stand-alone and format forms. In the former section, also mention that these forms are not intended to be used for grammatical context outside the date format itself. <a href="https://unicode-org.atlassian.net/browse/CLDR-15083">CLDR-15083</a></li>
-<li>In <a href="tr35-dates.html#dateFormats">Element dateFormats</a>, described the existing <code>numbers</code> attribute, as well as the new <code>datetimeSkeleton</code> element added per <a href="https://unicode-org.atlassian.net/browse/CLDR-13425">CLDR-13425</a>.</li>
-<li>In <a href="tr35-dates.html#intervalFormats">Element intervalFormats</a>, clarified that when determining the repeating field of an interval pattern, standalone and format fields are considered equivalent. <a href="https://unicode-org.atlassian.net/browse/CLDR-14971">CLDR-14971</a></li>
-<li>In <a href="tr35-dates.html#Time_Data">Time Data</a>, noted that the region attribute may also specify locales. <a href="https://unicode-org.atlassian.net/browse/CLDR-15069">CLDR-15069</a></li>
-<li>In <a href="tr35-dates.html#Metazone_Names">Metazone Names</a>, noted that CLDR metazone IDs may be the same as the aliases for some TZIDs. <a href="https://unicode-org.atlassian.net/browse/CLDR-15023">CLDR-15023</a></li>
+<li>Clarified the description of the pattern adjustment process. <a href="tr35-dates.html#Matching_Skeletons">§2.6.2.1 Matching Skeletons</a> — <a href="https://unicode-org.atlassian.net/browse/CLDR-14108">CLDR-14108</a>.</li>
+<li>Fixed example for <code>&lt;</code>appendItems<code>&gt;</code>. <a href="tr35-dates.html#dateTimeFormats">2.6 Element dateTimeFormats</a> — <a href="https://unicode-org.atlassian.net/browse/CLDR-13185">CLDR-13185 </a></li>
+<li>Documented the relationship between TZDB links and CLDR's BCP47 timezone aliases. <a href="tr35.html#Time_Zone_Identifiers">§3.6.3 Time Zone Identifiers</a> — <a href="https://unicode-org.atlassian.net/browse/CLDR-14927">CLDR-14927</a></li>
 </ul>
 </li>
-<li>Units<ul>
-<li>In <a href="tr35-general.html#Unit_Elements">Unit Elements</a>, allowed for generative number prefixes, such as gallon-per-100-mile <a href="https://unicode-org.atlassian.net/browse/CLDR-14751">CLDR-14751</a></li>
-<li>In <a href="tr35-general.html#Unit_Elements">Unit Elements</a>, added support for formatting currencies in units, such as curr-eur-per-square-meter <a href="https://unicode-org.atlassian.net/browse/CLDR-14676">CLDR-14676</a></li>
-<li>Cleaned up the text and the EBNF in <a href="tr35-general.html#locale_display_name_algorithm">Unit Identifiers</a> <a href="https://unicode-org.atlassian.net/browse/CLDR-15035">CLDR-15035</a></li>
+<li>Deprecated Structure<ul>
+<li>Removed most of Annex A Deprecated Structure, referring to the DTD charts instead. <a href="#annex-a-deprecated-structure">Annex A Deprecated Structure</a> — <a href="https://unicode-org.atlassian.net/browse/CLDR-15408">CLDR-15408</a></li>
 </ul>
 </li>
-</ul><p>Note that small changes such as typos and link fixes are not listed above.</p><p>Modifications in previous versions are listed in those respective versions. Click on <strong>Previous Version</strong> in the header until you get to the desired version.</p><hr><p>Copyright © 2001–2021 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode <a href="https://unicode.org/copyright.html">Terms of Use</a> apply.</p><p>Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.</p></div></body></html>
+</ul><p>Note that small changes such as typos and link fixes are not listed above. Modifications in previous versions are listed in those respective versions. Click on <strong>Previous Version</strong> in the header until you get to the desired version.</p><hr><p>Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode <a href="https://unicode.org/copyright.html">Terms of Use</a> apply.</p><p>Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.</p></div><script>anchors.add()</script></body></html>

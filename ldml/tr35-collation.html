@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html><head><meta charset="utf-8"><link rel="stylesheet" type="text/css" media="screen" href="../reports-v2.css"><title>Unicode Locale Data Markup Language (LDML) Part 5: Collation</title></head><body>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" type="text/css" media="screen" href="../reports-v2.css">
+<title>Unicode Locale Data Markup Language (LDML) Part 5: Collation</title></head><body>
 
 
 
@@ -367,7 +369,7 @@
 
 
 
-<div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
+<script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
   <tbody>
       <tr>
           <td class="icon"><a href="http://www.unicode.org/"><img style="vertical-align:middle;border:0" alt="[Unicode]" src="http://www.unicode.org/webscripts/logo60s2.gif" height="33" width="34"></a>&nbsp;&nbsp;<a class="bar" href="http://www.unicode.org/reports/">Technical Reports</a></td>
@@ -1167,4 +1169,4 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 …
 <span class="hljs-tag">&lt;<span class="hljs-name">pc</span>&gt;</span>翶<span class="hljs-tag">&lt;/<span class="hljs-name">pc</span>&gt;</span><span class="hljs-comment">&lt;!-- ao --&gt;</span>  
 <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span> B<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><span class="hljs-comment">&lt;!-- INDEX B --&gt;</span>
-</code></pre><p>These indicate the boundaries of "buckets" that can be used for indexing. They are always two characters starting with the noncharacter U+FDD0, and thus will not occur in normal text. For pinyin the second character is A-Z; for unihan it is one of the radicals; and for stroke it is a character after U+2800 indicating the number of strokes, such as ⠁. For zhuyin the second character is one of the standard Bopomofo characters in the range U+3105 through U+3129.</p><p>The corresponding bucket label strings are the boundary strings with the leading U+FDD0 removed. For example, the Pinyin boundary string "\uFDD0A" yields the label string "A".</p><p>However, for stroke order, the label string is the stroke count (second character minus U+2800) as a decimal-digit number followed by 劃 (U+5283). For example, the stroke order boundary string "\uFDD0\u2805" yields the label string "5劃".</p><hr><p>Copyright © 2001–2021 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode <a href="https://unicode.org/copyright.html">Terms of Use</a> apply.</p><p>Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.</p></div></body></html>
+</code></pre><p>These indicate the boundaries of "buckets" that can be used for indexing. They are always two characters starting with the noncharacter U+FDD0, and thus will not occur in normal text. For pinyin the second character is A-Z; for unihan it is one of the radicals; and for stroke it is a character after U+2800 indicating the number of strokes, such as ⠁. For zhuyin the second character is one of the standard Bopomofo characters in the range U+3105 through U+3129.</p><p>The corresponding bucket label strings are the boundary strings with the leading U+FDD0 removed. For example, the Pinyin boundary string "\uFDD0A" yields the label string "A".</p><p>However, for stroke order, the label string is the stroke count (second character minus U+2800) as a decimal-digit number followed by 劃 (U+5283). For example, the stroke order boundary string "\uFDD0\u2805" yields the label string "5劃".</p><hr><p>Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode <a href="https://unicode.org/copyright.html">Terms of Use</a> apply.</p><p>Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.</p></div><script>anchors.add()</script></body></html>

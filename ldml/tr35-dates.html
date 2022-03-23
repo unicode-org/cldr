@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html><head><meta charset="utf-8"><link rel="stylesheet" type="text/css" media="screen" href="../reports-v2.css"><title>Unicode Locale Data Markup Language (LDML) Part 4: Dates</title></head><body>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" type="text/css" media="screen" href="../reports-v2.css">
+<title>Unicode Locale Data Markup Language (LDML) Part 4: Dates</title></head><body>
 
 
 
@@ -388,7 +390,7 @@
 
 
 
-<div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
+<script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
   <tbody>
       <tr>
           <td class="icon"><a href="http://www.unicode.org/"><img style="vertical-align:middle;border:0" alt="[Unicode]" src="http://www.unicode.org/webscripts/logo60s2.gif" height="33" width="34"></a>&nbsp;&nbsp;<a class="bar" href="http://www.unicode.org/reports/">Technical Reports</a></td>
@@ -864,8 +866,10 @@
             . . .
         <span class="hljs-tag">&lt;/<span class="hljs-name">availableFormats</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">appendItems</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">appendItem</span> <span class="hljs-attr">request</span>=<span class="hljs-string">"G"</span>&gt;</span>{0} {1}<span class="hljs-tag">&lt;/<span class="hljs-name">appendItem</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">appendItem</span> <span class="hljs-attr">request</span>=<span class="hljs-string">"w"</span>&gt;</span>{0} ({2}: {1})<span class="hljs-tag">&lt;/<span class="hljs-name">appendItem</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">appendItem</span> <span class="hljs-attr">request</span>=<span class="hljs-string">"Day"</span>&gt;</span>{0} ({2}: {1})<span class="hljs-tag">&lt;/<span class="hljs-name">appendItem</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">appendItem</span> <span class="hljs-attr">request</span>=<span class="hljs-string">"Day-Of-Week"</span>&gt;</span>{0} {1}<span class="hljs-tag">&lt;/<span class="hljs-name">appendItem</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">appendItem</span> <span class="hljs-attr">request</span>=<span class="hljs-string">"Era"</span>&gt;</span>{0} {1}<span class="hljs-tag">&lt;/<span class="hljs-name">appendItem</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">appendItem</span> <span class="hljs-attr">request</span>=<span class="hljs-string">"Hour"</span>&gt;</span>{0} ({2}: {1})<span class="hljs-tag">&lt;/<span class="hljs-name">appendItem</span>&gt;</span>
             . . .
         <span class="hljs-tag">&lt;/<span class="hljs-name">appendItems</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">dateTimeFormats</span>&gt;</span>
@@ -923,12 +927,12 @@
         ...id="Bh"&gt;B h&lt;/date...</th></tr>
 <tr><td>"h" (or "ah")</td><td>"h a"</td><td>"h a"</td></tr><tr><td>"bh"</td><td>"h b"</td><td>"h b"</td></tr>
 <tr><td>"Bh"</td><td>"h B"</td><td>"B h"</td></tr><tr><td>"H" (or "aH", "bH", "BH")</td><td>"H"</td><td>"H"</td></tr>
-</tbody></table><p>The hour input skeleton symbols 'j', 'J', and 'C' can be used to select the best hour format (h, H, …) before processing, and the appropriate dayperiod format (a, b, B) after a successful match that contains an 'a' symbol.</p><p>The dateFormatItems inherit from their parent locale, so the inherited items need to be considered when processing.</p><h5 id="2621-matching-skeletons"><a name="Matching_Skeletons" href="#Matching_Skeletons">2.6.2.1 Matching Skeletons</a></h5><p>It is not necessary to supply dateFormatItems with skeletons for every field length; fields in the skeleton and pattern are expected to be expanded in parallel to handle a request.</p><p>Typically a “best match” is found using a closest distance match, such as:</p><ol>
-<li>Symbols requesting a best choice for the locale are replaced.<ul>
+</tbody></table><p>The hour input skeleton symbols 'j', 'J', and 'C' can be used to select the best hour format (h, H, …) before processing, and the appropriate dayperiod format (a, b, B) after a successful match that contains an 'a' symbol.</p><p>The dateFormatItems inherit from their parent locale, so the inherited items need to be considered when processing.</p><h5 id="2621-matching-skeletons"><a name="Matching_Skeletons" href="#Matching_Skeletons">2.6.2.1 Matching Skeletons</a></h5><p>It is not necessary to supply <code>dateFormatItem</code>s with skeletons for every field length; fields in the skeleton and pattern are expected to be adjusted in parallel to handle a request.</p><p>Typically a “best match” from requested skeleton to the <code>id</code> portion of a <code>dateFormatItem</code> is found using a closest distance match, such as:</p><ol>
+<li>Skeleton symbols requesting a best choice for the locale are replaced.<ul>
 <li>j → one of {H, k, h, K}; C → one of {a, b, B}</li>
 </ul>
 </li>
-<li>For fields with symbols representing the same type (year, month, day, etc):<ol>
+<li>For skeleton and <code>id</code> fields with symbols representing the same type (year, month, day, etc):<ol>
 <li>Most symbols have a small distance from each other.<ul>
 <li>M ≅ L; E ≅ c; a ≅ b ≅ B; H ≅ k ≅ h ≅ K; ...</li>
 </ul>
@@ -949,10 +953,10 @@
 </ol>
 </li>
 <li>A requested skeleton that includes both seconds and fractional seconds (e.g. “mmssSSS”) is allowed to match a dateFormatItem skeleton that includes seconds but not fractional seconds (e.g. “ms”). In this case the requested sequence of ‘S’ characters (or its length) should be retained separately and used when adjusting the pattern, as described below.</li>
-<li>Otherwise, missing or extra fields cause a match to fail. (But see <strong><a href="#Missing_Skeleton_Fields">Missing Skeleton Fields</a></strong> below).</li>
-</ol><p>Once a skeleton match is found, the corresponding pattern is used, but with adjustments. Consider the following dateFormatItem:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dateFormatItem</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"yMMMd"</span>&gt;</span>d MMM y<span class="hljs-tag">&lt;/<span class="hljs-name">dateFormatItem</span>&gt;</span>
-</code></pre><p>If this is the best match for yMMMMd, pattern is automatically expanded to produce the pattern "d MMMM y" in response to the request. Of course, if the desired behavior is that a request for yMMMMd should produce something <em>other</em> than "d MMMM y", a separate <code>dateFormatItem</code> must be present, for example:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dateFormatItem</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"yMMMMd"</span>&gt;</span>d 'de' MMMM 'de' y<span class="hljs-tag">&lt;/<span class="hljs-name">dateFormatItem</span>&gt;</span>
-</code></pre><p>However, such automatic expansions should never convert a numeric element in the pattern to an alphabetic element. Consider the following dateFormatItem:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dateFormatItem</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"yMMM"</span>&gt;</span>y年M月<span class="hljs-tag">&lt;/<span class="hljs-name">dateFormatItem</span>&gt;</span>
+<li>Otherwise, missing or extra fields between requested skeleton and <code>id</code> cause a match to fail. (But see <strong><a href="#Missing_Skeleton_Fields">Missing Skeleton Fields</a></strong> below).</li>
+</ol><p>Once a best match is found between requested skeleton and <code>dateFormatItem</code> <code>id</code>, the corresponding <code>dateFormatItem</code> pattern is used, but with adjustments primarily to make the pattern field lengths match the skeleton field lengths. Consider the following <code>dateFormatItem</code>:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dateFormatItem</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"yMMMd"</span>&gt;</span>d MMM y<span class="hljs-tag">&lt;/<span class="hljs-name">dateFormatItem</span>&gt;</span>
+</code></pre><p>If this is the best match for yMMMMd, the pattern is automatically expanded to produce a pattern "d MMMM y" in response to the request. Of course, if the desired behavior is that a request for yMMMMd should produce something <em>other</em> than "d MMMM y", a separate <code>dateFormatItem</code> must be present, for example:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dateFormatItem</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"yMMMMd"</span>&gt;</span>d 'de' MMMM 'de' y<span class="hljs-tag">&lt;/<span class="hljs-name">dateFormatItem</span>&gt;</span>
+</code></pre><p>However, when the best-match <code>dateFormatItem</code> has an alphabetic field (such as MMM or MMMM) that corresponds to a numeric field in the pattern (such as M or MM), that numeric field in the pattern should <em>not</em> be adjusted to match the skeleton length, and vice versa; i.e. adjustments should <em>never</em> convert a numeric element in the pattern to an alphabetic element, or the opposite. Consider the following dateFormatItem:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dateFormatItem</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"yMMM"</span>&gt;</span>y年M月<span class="hljs-tag">&lt;/<span class="hljs-name">dateFormatItem</span>&gt;</span>
 </code></pre><p>If this is the best match for a requested skeleton yMMMM, automatic expansion should not produce a corresponding pattern “y年MMMM月”; rather, since “y年M月” specifies a numeric month M, automatic expansion should not modify the pattern, and should produce “y年M月” as the match for requested skeleton yMMMM.</p><p>If the requested skeleton included both seconds and fractional seconds and the dateFormatItem skeleton included seconds but not fractional seconds, then the seconds field of the corresponding pattern should be adjusted by appending the locale’s decimal separator, followed by the sequence of ‘S’ characters from the requested skeleton.</p><h5 id="2622-missing-skeleton-fields"><a name="Missing_Skeleton_Fields" href="#Missing_Skeleton_Fields">2.6.2.2 Missing Skeleton Fields</a></h5><p>If a client-requested set of fields includes both date and time fields, and if the <code>availableFormats</code> data does not include a <code>dateFormatItem</code> whose skeleton matches the same set of fields, then the request should be handled as follows:</p><ol>
 <li>Divide the request into a date fields part and a time fields part.</li>
 <li>For each part, find the matching <code>dateFormatItem</code>, and expand the pattern as above.</li>
@@ -2120,4 +2124,4 @@ If N matches the region format, then M = {0} from that format, otherwise M = N.<
 <li>If that fails, use other format strings from the locale (including those in <code>&lt;availableFormats&gt;</code>) to try to match the previous or next symbol or literal (again, using a loose match).</li>
 </ul>
 </li>
-</ul><hr><p>Copyright © 2001–2021 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode <a href="https://unicode.org/copyright.html">Terms of Use</a> apply.</p><p>Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.</p></div></body></html>
+</ul><hr><p>Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode <a href="https://unicode.org/copyright.html">Terms of Use</a> apply.</p><p>Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.</p></div><script>anchors.add()</script></body></html>

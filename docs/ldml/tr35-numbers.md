@@ -79,6 +79,10 @@ The LDML specification is divided into the following parts:
     *   5.2 [Plural Ranges](#Plural_Ranges)
 *   6 [Rule-Based Number Formatting](#Rule-Based_Number_Formatting)
 *   7 [Parsing Numbers](#Parsing_Numbers)
+*   8 [Number Range Formatting](#Number_Range_Formatting)
+    *   8.1 [Approximate Number Formatting](#Approximate_Number_Formatting)
+    *   8.2 [Collapsing Number Ranges](#Collapsing_Number_Ranges)
+    *   8.3 [Range Pattern Processing](#Range_Pattern_Processing)
 
 ## 1 <a name="Numbering_Systems" href="#Numbering_Systems">Numbering Systems</a>
 
@@ -441,7 +445,7 @@ The miscPatterns supply additional patterns for special purposes. The currently 
 
 **approximately**
 
-> indicates an approximate number, such as: “~99”
+> indicates an approximate number, such as: “\~99”. This pattern is not currently in use; see ICU-20163.
 
 **atMost**
 
@@ -1241,6 +1245,8 @@ The `pluralRanges` element provides information allowing an implementation to de
 
 The data has been gathered presuming that in any usage, the start value is strictly less than the end value, and that no values are negative. Results for any cases that do not meet these criteria are undefined.
 
+For the formatting of number ranges, see <a name="Number_Range_Formatting" href="#Number_Range_Formatting">Number Range Formatting</a>.
+
 ## 6 <a name="Rule-Based_Number_Formatting" href="#Rule-Based_Number_Formatting">Rule-Based Number Formatting</a>
 
 ```xml
@@ -1322,6 +1328,81 @@ Here is a set of heuristic rules that may be helpful:
 * If more than one sign, currency symbol, exponent, or percent/per mille occurs in the input, the first found should be used.
 * A currency symbol in the input should be interpreted as the longest match found in the set of possible currency symbols.
 * Especially in cases of ambiguity, the user's input should be echoed back, properly formatted according to the locale, before it is actually used for anything.
+
+## 8 <a name="Number_Range_Formatting" href="#Number_Range_Formatting">Number Range Formatting</a>
+
+Often ranges of numbers are presented to users, such as in “Length: 3.2–4.5 centimeters”. This means any length from 3.2 cm to 4.5 cm, inclusive.
+
+To format a number range, the following steps are taken:
+
+1. Format the lower bound and the upper bound independently following the steps in [Number Format Patterns](#Number_Format_Patterns), preserving semantic annotations\*.
+1. If the resulting values are identical, stop evaluating these steps and, instead, perform the steps in [Approximate Number Formatting](#Approximate_Number_Formatting).
+    1. Note: This behavior may be customized in order to, for example, print the range despite the endpoints being identical. However, a spec-compliant implementation must support approximate number formatting.
+1. Perform the steps in [Collapsing Number Ranges](#Collapsing_Number_Ranges), obtaining modified *lower* and *upper* values.
+1. Obtain a number range pattern by following the steps in [Range Pattern Processing](#Range_Pattern_Processing).
+1. Substitute *lower* as `{0}` and *upper* as `{1}` into the range pattern from the previous step.
+
+\* Semantic annotations are discussed in [Collapsing Number Ranges](#Collapsing_Number_Ranges).
+
+For plural rule selection of number ranges, see [Plural Ranges](#Plural_Ranges).
+
+### 8.1 <a name="Approximate_Number_Formatting" href="#Approximate_Number_Formatting">Approximate Number Formatting</a>
+
+*Approximate number formatting* refers to a specific format of numbers in which the value is understood to not be exact; for example, "\~5 minutes".
+
+To format an approximate number, follow the normal number formatting procedure in Number Format Patterns](#Number_Format_Patterns), but substitute the `approximatelySign` from [Number Symbols](#Number_Symbols) in for the minus sign placeholder.
+
+If the number is negative, or if the formatting options request the sign to be displayed, *prepend* the `approximatelySign` to the plus or minus sign before substituting it into the pattern. For example, "\~-5" means "approximately negative five". This procedure may change in the future.
+
+### 8.2 <a name="Collapsing_Number_Ranges" href="#Collapsing_Number_Ranges">Collapsing Number Ranges</a>
+
+*Collapsing* a number range refers to the process of removing duplicated information in the *lower* and *upper* values. For example, if the lower string is "3.2 centimeters" and the upper string is "4.5 centimeters", it is desirable to remove the extra "centimeters" token.
+
+This operation requires *semantic annotations* on the formatted value. The exact form of the semantic annotations is implementation-dependent. However, implementations may consider the following broad categories of tokens:
+
+1. Numerical value, including decimal and grouping separators
+1. Sign symbol
+1. Scientific or compact notation
+1. Unit of measurement
+
+For example, consider the string `-5.3M US dollars`. It may be annotated as follows:
+
+- `-` → sign symbol
+- `5.3` → numerical value
+- `M` → compact notation
+- `US dollars` → unit of measurement for the currency USD
+
+Two tokens are *semantically equivalent* if they have the same *semantic annotations*, even if they are not the exact same string. For example:
+
+1. "centimeter" is semantically equivalent to "centimeters".
+1. "K" (the thousands symbol in compact decimals) is NOT semantically equivalent to "K" (the measurement unit Kelvin).
+
+The above description describes the expected output. Internally, the implementation may determine the equivalent units of measurement by passing the codes back from the number formatters, allowing for a precise determination of "semantically equivalent".
+
+Two semantically equivalent tokens can be *collapsed* if they appear at the start of both values or the end of both values. However, the implementation may choose different levels of aggressiveness with regard to collapsing tokens. The currently recommended heuristic is:
+
+1. Only collapse semantically equivalent *unit of measurement* tokens. This is to avoid ambiguous strings such as "3–5K" (could represent 3–5000 or 3000–5000).
+1. Only collapse if the tokens are more than one code point in length. This is to increase clarity of strings such as "$3–$5".
+
+These heuristics may be refined in the future.
+
+**To collapse tokens:** Remove the token from both values, and then re-compute the token based on the number range. If the token depends on the plural form, follow [Plural Ranges](#Plural_Ranges) to calculate the correct form. If the tokens originated at the beginning of the string, prepend the new token to the beginning of the *lower* string; otherwise, append the new token to the end of the *upper* string.
+
+### 8.3 <a name="Range_Pattern_Processing" href="#Range_Pattern_Processing">Range Pattern Processing</a>
+
+To obtain a number range pattern, the following steps are taken:
+
+1. Load the range pattern found in [Miscellaneous Patterns](#Miscellaneous_Patterns).
+1. Optionally add spacing to the range pattern.
+
+To determine whether to add spacing, the currently recommended heuristic is:
+
+1. If the *lower* string ends with a character other than a digit, or if the *upper* string begins with a character other than a digit.
+2. If the range pattern does not contain a character having the `White_Space` binary Unicode property after the `{0}` or before the `{1}` placeholders.
+
+These heuristics may be refined in the future.
+
+To add spacing, insert a non-breaking space (U+00A0) at the positions in item 2 above.
 
 * * *
 

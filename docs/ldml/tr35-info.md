@@ -486,18 +486,22 @@ That is, this data provides recommended fallbacks for use when a charset or supp
 
 ## 8 <a name="Coverage_Levels" href="#Coverage_Levels">Coverage Levels</a>
 
-The following describes the coverage levels used for the current version of CLDR. This list will change between releases of CLDR. Each level adds to what is in the lower level.
+The following describes the structure used to set coverage levels used for CLDR. 
+That structure is primarily intended for internal use in CLDR tooling — it is not anticipated that users of CLDR data would need it.
+
+Each level adds to what is in the lower level. This list will change between releases of CLDR, and more detailed information for each level is on [Coverage Levels](https://cldr.unicode.org/index/cldr-spec/coverage-levels).
+
 
 | Level | Description   |     |
 | ----: | ------------- | --- |
 | 0     | undetermined  | Does not meet any of the following levels. |
-| 10    | core          | The CLDR "core" data, which is defined as the basic information about the language and writing system that is required before other information can be added using the CLDR survey tool. See [http://cldr.unicode.org/index/cldr-spec/minimaldata](http://cldr.unicode.org/index/cldr-spec/minimaldata) |
-| 40    | basic         | The minimum amount of locale data deemed necessary to create a "viable" locale in CLDR. Contains names for the languages, scripts, and territories associated with the language, numbering systems used in those languages, date and number formats, plus a few key values such as the values in Section 3.1 [Unknown or Invalid Identifiers](tr35.md#Unknown_or_Invalid_Identifiers). Also contains data associated with the most prominent languages and countries. |
-| 60    | moderate      | Contains more types of data and more language and territory names than the basic level. If the language is associated with an EU country, then the moderate level attempts to complete the data as it pertains to all EU member countries. |
-| 80    | modern        | Contains all fields in normal modern use, including all country names, and currencies in use. |
-| 100   | comprehensive | Contains complete localizations (or valid inheritance) for every possible field. |
+| 10    | core          | Core Locale — Has minimal data about the language and writing system that is required before other information can be added using the CLDR survey tool. |
+| 40    | basic         | Selectable Locale — Minimal locale data necessary for a "selectable" locale in a platform UI. Very basic number and datetime formatting, etc. |
+| 60    | moderate      | Document Content Locale — Minimal locale data for applications such as spreadsheets and word processors to support general document content internationalization: formatting number, datetime, currencies, sorting, plural handling, and so on. |
+| 80    | modern        | UI Locale — Contains all fields in normal modern use, including all CLDR locale names, country names, timezone names, currencies in use, and so on. |
+| 100   | comprehensive | Above modern level; typically far more data than is needed in practice. |
 
-Levels 40 through 80 are based on the definitions and specifications listed in **8.1-8.4**. However, these principles are continually being refined by the CLDR technical committee, and so do not completely reflect the data that is actually used for coverage determination, which is under the XPath **//supplementalData/CoverageLevels**. For a view of the trunk version of this datafile, see [coverageLevels.xml](https://github.com/unicode-org/cldr/releases/tag/latest/common/supplemental/coverageLevels.xml). (As described in the [introduction to Supplemental Data](tr35-info.md#Supplemental_Data), the specific XML filename may change.)
+Levels 40 through 80 are based on the definitions and specifications listed below. 
 
 ```xml
 <!ELEMENT coverageLevels ( approvalRequirements, coverageVariable*, coverageLevel* ) >
@@ -556,7 +560,7 @@ Here is an example of the approvalRequirements section.
 <approvalRequirements>
     <!--  "high bar" items -->
     <approvalRequirement votes="20" locales="*" paths="//ldml/numbers/symbols[^/]++/(decimal|group)"/>
-    <!--  established locales - http://cldr.unicode.org/index/process#TOC-Draft-Status-of-Optimal-Field-Value -->
+    <!--  established locales - https://cldr.unicode.org/index/process#h.rm00w9v03ia8 -->
     <approvalRequirement votes="8" locales="ar ca cs da de el es fi fr he hi hr hu it ja ko nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant" paths=""/>
     <!--  all other items -->
     <approvalRequirement votes="4" locales="*" paths=""/>
@@ -568,19 +572,18 @@ This section specifies that a TC vote (20 votes) is required for decimal and gro
 For more information on the CLDR Voting process, See [http://cldr.unicode.org/index/process](http://cldr.unicode.org/index/process)
 
 ### 8.1 <a name="Coverage_Level_Definitions" href="#Coverage_Level_Definitions">Definitions</a>
+This is a snapshot of the contents of certain variables. The actual definitions in the coverageLevels.xml file may vary from these descriptions.
 
 * _Target-Language_ is the language under consideration.
 * _Target-Territories_ is the list of territories found by looking up _Target-Language_ in the `<languageData>` elements in [Supplemental Language Data](tr35-info.md#Supplemental_Language_Data).
 * _Language-List_ is _Target-Language_, plus
-  * **basic:** Chinese, English, French, German, Italian, Japanese, Portuguese, Russian, Spanish, Unknown (de, en, es, fr, it, ja, pt, ru, zh, und
-  * **moderate:** basic + Arabic, Hindi, Korean, Indonesian, Dutch, Bengali, Turkish, Thai, Polish (ar, hi, ko, in, nl, bn, tr, th, pl). If an EU language, add the remaining official EU languages, currently: Danish, Greek, Finnish, Swedish, Czech, Estonian, Latvian, Lithuanian, Hungarian, Maltese, Slovak, Slovene (da, el, fi, sv, cs, et, lv, lt, hu, mt, sk, sl)
+  * **moderate:** Chinese, English, French, German, Italian, Japanese, Portuguese, Russian, Spanish, Unknown; Arabic, Hindi, Korean, Indonesian, Dutch, Bengali, Turkish, Thai, Polish (de, en, es, fr, it, ja, pt, ru, zh, und, ar, hi, ko, in, nl, bn, tr, th, pl). If an EU language, add the remaining official EU languages.
   * **modern:** all languages that are official or major commercial languages of modern territories
 * _Target-Scripts_ is the list of scripts in which _Target-Language_ can be customarily written (found by looking up _Target-Language_ in the `<languageData>` elements in [Supplemental Language Data](tr35-info.md#Supplemental_Language_Data).)_,_ plus Unknown (Zzzz)_._
 * _Script-List_ is the _Target-Scripts_ plus the major scripts used for multiple languages
   * Latin, Simplified Chinese, Traditional Chinese, Cyrillic, Arabic (Latn, Hans, Hant, Cyrl, Arab)
 * _Territory-List_ is the list of territories formed by taking the _Target-Territories_ and adding:
-  * **basic:** Brazil, China, France, Germany, India, Italy, Japan, Russia, United Kingdom, United States, Unknown (BR, CN, DE, GB, FR, IN, IT, JP, RU, US, ZZ)
-  * **moderate:** basic + Spain, Canada, Korea, Mexico, Australia, Netherlands, Switzerland, Belgium, Sweden, Turkey, Austria, Indonesia, Saudi Arabia, Norway, Denmark, Poland, South Africa, Greece, Finland, Ireland, Portugal, Thailand, Hong Kong SAR China, Taiwan (ES, BE, SE, TR, AT, ID, SA, NO, DK, PL, ZA, GR, FI, IE, PT, TH, HK, TW). If an EU language, add the remaining member EU countries: Luxembourg, Czech Republic, Hungary, Estonia, Lithuania, Latvia, Slovenia, Slovakia, Malta (LU, CZ, HU, ES, LT, LV, SI, SK, MT).
+  * **moderate:** Brazil, China, France, Germany, India, Italy, Japan, Russia, United Kingdom, United States, Unknown; Spain, Canada, Korea, Mexico, Australia, Netherlands, Switzerland, Belgium, Sweden, Turkey, Austria, Indonesia, Saudi Arabia, Norway, Denmark, Poland, South Africa, Greece, Finland, Ireland, Portugal, Thailand, Hong Kong SAR China, Taiwan (BR, CN, DE, GB, FR, IN, IT, JP, RU, US, ZZ, ES, BE, SE, TR, AT, ID, SA, NO, DK, PL, ZA, GR, FI, IE, PT, TH, HK, TW). If an EU language, add the remaining member EU countries.
   * **modern:** all current ISO 3166 territories, plus the UN M.49 [[UNM49](tr35.md#UNM49)] regions in [Supplemental Territory Containment](tr35-info.md#Supplemental_Territory_Containment).
 * _Currency-List_ is the list of current official currencies used in any of the territories in _Territory-List_, found by looking at the `region` elements in [Supplemental Territory Containment](tr35-info.md#Supplemental_Territory_Containment), plus Unknown (XXX).
 * _Calendar-List_ is the set of calendars in customary use in any of _Target-Territories_, plus Gregorian.
@@ -588,7 +591,7 @@ For more information on the CLDR Voting process, See [http://cldr.unicode.org/in
 
 ### 8.2 <a name="Coverage_Level_Data_Requirements" href="#Coverage_Level_Data_Requirements">Data Requirements</a>
 
-The required data to qualify for the level is then the following.
+The required data to qualify for each level based on these definitions is then the following.
 
 1. localeDisplayNames
    1. _languages:_ localized names for all languages in _Language-List._
@@ -1169,6 +1172,6 @@ The extended unit support is still being developed further. See the Known Issues
 
 * * *
 
-Copyright © 2001–2021 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode [Terms of Use](https://unicode.org/copyright.html) apply.
+Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode [Terms of Use](https://unicode.org/copyright.html) apply.
 
 Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.

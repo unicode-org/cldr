@@ -12,43 +12,47 @@ import java.util.HashSet;
  * to get the set of all paths in this file that were accessed to generate the example.
  */
 public class RecordingCLDRFile extends CLDRFile {
-    private HashSet<String> recordedPaths = new HashSet<>();
 
-    public RecordingCLDRFile(XMLSource dataSource) {
-        super(dataSource);
-    }
+  private HashSet<String> recordedPaths = new HashSet<>();
 
-    public RecordingCLDRFile(XMLSource dataSource, XMLSource... resolvingParents) {
-        super(dataSource, resolvingParents);
-    }
+  public RecordingCLDRFile(XMLSource dataSource) {
+    super(dataSource);
+  }
 
-    public void clearRecordedPaths() {
-        recordedPaths.clear();
-    }
+  public RecordingCLDRFile(
+    XMLSource dataSource,
+    XMLSource... resolvingParents
+  ) {
+    super(dataSource, resolvingParents);
+  }
 
-    public HashSet<String> getRecordedPaths() {
-        return recordedPaths;
-    }
+  public void clearRecordedPaths() {
+    recordedPaths.clear();
+  }
 
-    @Override
-    public String getStringValue(String xpath) {
-        recordPath(xpath);
-        return super.getStringValue(xpath);
-    }
+  public HashSet<String> getRecordedPaths() {
+    return recordedPaths;
+  }
 
-    @Override
-    public String getWinningValue(String xpath) {
-        recordPath(xpath);
-        return super.getWinningValue(xpath);
-    }
+  @Override
+  public String getStringValue(String xpath) {
+    recordPath(xpath);
+    return super.getStringValue(xpath);
+  }
 
-    @Override
-    public String getConstructedValue(String xpath) {
-        recordPath(xpath);
-        return super.getConstructedValue(xpath);
-    }
+  @Override
+  public String getWinningValue(String xpath) {
+    recordPath(xpath);
+    return super.getWinningValue(xpath);
+  }
 
-    private void recordPath(String xpath) {
-        recordedPaths.add(xpath);
-    }
+  @Override
+  public String getConstructedValue(String xpath) {
+    recordPath(xpath);
+    return super.getConstructedValue(xpath);
+  }
+
+  private void recordPath(String xpath) {
+    recordedPaths.add(xpath);
+  }
 }

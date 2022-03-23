@@ -1,7 +1,6 @@
 package org.unicode.cldr.util;
 
 import java.util.Iterator;
-
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -15,33 +14,35 @@ import org.w3c.dom.NodeList;
  *
  */
 public class NodeListIterator implements Iterator<Node> {
-    /**
-     * The NodeList to work on
-     */
-    private NodeList nodeList;
-    /**
-     * Since node lists are indexed by position, the current
-     * position
-     */
-    private int currentPos = 0;
 
-    public NodeListIterator(NodeList aNodeList) {
-        nodeList = aNodeList;
-    }
+  /**
+   * The NodeList to work on
+   */
+  private NodeList nodeList;
+  /**
+   * Since node lists are indexed by position, the current
+   * position
+   */
+  private int currentPos = 0;
 
-    @Override
-    public boolean hasNext() {
-        return (currentPos < nodeList.getLength());
-    }
+  public NodeListIterator(NodeList aNodeList) {
+    nodeList = aNodeList;
+  }
 
-    @Override
-    public Node next() {
-        return nodeList.item(currentPos++);
-    }
+  @Override
+  public boolean hasNext() {
+    return (currentPos < nodeList.getLength());
+  }
 
-    @Override
-    public void remove() {
-        throw new UnsupportedOperationException("This iterator does not support item removal");
-    }
+  @Override
+  public Node next() {
+    return nodeList.item(currentPos++);
+  }
 
+  @Override
+  public void remove() {
+    throw new UnsupportedOperationException(
+      "This iterator does not support item removal"
+    );
+  }
 }

@@ -6,14 +6,15 @@ package org.unicode.cldr.util;
  *
  */
 public class StaticCLDRURLS extends CLDRURLS {
-    private final String base;
 
-    public StaticCLDRURLS(String base) {
-        this.base = base;
-    }
+  private final String base;
 
-    @Override
-    public String base() {
-        return base;
-    }
+  public StaticCLDRURLS(String base) {
+    this.base = base;
+  }
+
+  @Override
+  public String base() {
+    return base;
+  }
 }

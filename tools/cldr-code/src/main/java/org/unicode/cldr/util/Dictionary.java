@@ -7,18 +7,16 @@
  */
 package org.unicode.cldr.util;
 
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
-
 import org.unicode.cldr.util.CharUtilities.CharSourceWrapper;
 import org.unicode.cldr.util.Dictionary.Matcher.Filter;
 import org.unicode.cldr.util.Dictionary.Matcher.Status;
-
-import com.ibm.icu.util.ICUUncheckedIOException;
 
 /**
  * Provides for detecting all words starting at a given offset, and returning a
@@ -88,491 +86,514 @@ import com.ibm.icu.util.ICUUncheckedIOException;
  */
 public abstract class Dictionary<T> {
 
+  /**
+   * Get the strings from the dictionary. The Map is either read-only or a copy;
+   * that is, modifications do not affect the builder.
+   *
+   * @return
+   */
+  public abstract Iterator<Entry<CharSequence, T>> getMapping();
+
+  /**
+   * Interface for building a new simple StateDictionary. The Map must be sorted
+   * according to Dictionary.CHAR_SEQUENCE_COMPARATOR. It must not contain the key "".
+   *
+   * @param old
+   * @return
+   */
+  public interface DictionaryBuilder<T> {
+    public Dictionary<T> make(Map<CharSequence, T> source);
+  }
+
+  /**
+   * Return more comprehensive debug info if available.
+   *
+   * @return
+   */
+  public String debugShow() {
+    return toString();
+  }
+
+  public abstract Matcher<T> getMatcher();
+
+  public abstract static class Matcher<T> {
+
+    protected CharSource text;
+
+    protected int offset;
+
+    protected int matchEnd;
+
+    protected T matchValue;
+
+    // /*
+    // * A Dictionary may also have a builder, that allows the dictionary to be
+    // * built at runtime.
+    // */
+    // public interface Builder<T> {
+    // /**
+    // * Add strings to the dictionary. It is an error to add the null string, or
+    // * to add a string that is less than a previously added strings. That is,
+    // * the strings must be added in ascending codepoint order.
+    // *
+    // * @param text
+    // * @param result
+    // * @return
+    // */
+    // public Dictionary<T> getInstance(Map<CharSequence,T> source);
+    // }
+
+    public boolean hasCharAt(int index) {
+      return text.hasCharAt(index);
+    }
+
     /**
-     * Get the strings from the dictionary. The Map is either read-only or a copy;
-     * that is, modifications do not affect the builder.
+     * Set the target text to match within; also resets the offset to zero, calling setOffset().
+     *
+     * @param text
+     * @return
+     */
+    public Matcher<T> setText(CharSource text) {
+      this.text = text;
+      return setOffset(0);
+    }
+
+    /**
+     * Set the target text to match within; also resets the offset to zero, calling setOffset().
+     *
+     * @param text
+     * @return
+     */
+    public Matcher<T> setText(CharSequence text) {
+      this.text = new CharUtilities.CharSourceWrapper<>(text);
+      return setOffset(0);
+    }
+
+    /**
+     * Retrieve the target text to match within.
      *
      * @return
      */
-    public abstract Iterator<Entry<CharSequence, T>> getMapping();
+    public CharSource getText() {
+      return text;
+    }
 
     /**
-     * Interface for building a new simple StateDictionary. The Map must be sorted
-     * according to Dictionary.CHAR_SEQUENCE_COMPARATOR. It must not contain the key "".
+     * Set the position in the target text to match from. Matches only go forwards
+     * in the string.
      *
-     * @param old
+     * @param offset
      * @return
      */
-    public interface DictionaryBuilder<T> {
-        public Dictionary<T> make(Map<CharSequence, T> source);
+    public Matcher<T> setOffset(int offset) {
+      this.offset = offset;
+      matchEnd = offset;
+      return this;
     }
 
     /**
-     * Return more comprehensive debug info if available.
+     * Get the offset from which we are matching.
      *
      * @return
      */
-    public String debugShow() {
-        return toString();
-    }
-
-    public abstract Matcher<T> getMatcher();
-
-    public abstract static class Matcher<T> {
-        protected CharSource text;
-
-        protected int offset;
-
-        protected int matchEnd;
-
-        protected T matchValue;
-
-        // /*
-        // * A Dictionary may also have a builder, that allows the dictionary to be
-        // * built at runtime.
-        // */
-        // public interface Builder<T> {
-        // /**
-        // * Add strings to the dictionary. It is an error to add the null string, or
-        // * to add a string that is less than a previously added strings. That is,
-        // * the strings must be added in ascending codepoint order.
-        // *
-        // * @param text
-        // * @param result
-        // * @return
-        // */
-        // public Dictionary<T> getInstance(Map<CharSequence,T> source);
-        // }
-
-        public boolean hasCharAt(int index) {
-            return text.hasCharAt(index);
-        }
-
-        /**
-         * Set the target text to match within; also resets the offset to zero, calling setOffset().
-         *
-         * @param text
-         * @return
-         */
-        public Matcher<T> setText(CharSource text) {
-            this.text = text;
-            return setOffset(0);
-        }
-
-        /**
-         * Set the target text to match within; also resets the offset to zero, calling setOffset().
-         *
-         * @param text
-         * @return
-         */
-        public Matcher<T> setText(CharSequence text) {
-            this.text = new CharUtilities.CharSourceWrapper<>(text);
-            return setOffset(0);
-        }
-
-        /**
-         * Retrieve the target text to match within.
-         *
-         * @return
-         */
-        public CharSource getText() {
-            return text;
-        }
-
-        /**
-         * Set the position in the target text to match from. Matches only go forwards
-         * in the string.
-         *
-         * @param offset
-         * @return
-         */
-        public Matcher<T> setOffset(int offset) {
-            this.offset = offset;
-            matchEnd = offset;
-            return this;
-        }
-
-        /**
-         * Get the offset from which we are matching.
-         *
-         * @return
-         */
-        public int getOffset() {
-            return offset;
-        }
-
-        /**
-         * Get the latest match value after calling next(); see next() for more information.
-         *
-         * @return
-         */
-        public T getMatchValue() {
-            return matchValue;
-        }
-
-        /**
-         * Get the latest match end (that is, how far we matched); see next() for more information.
-         *
-         * @return
-         */
-        public int getMatchEnd() {
-            return matchEnd;
-        }
-
-        /**
-         * Get the text that we are matching in..
-         *
-         * @return
-         */
-        public CharSource getMatchText() {
-            return text.sublist(offset, matchEnd);
-        }
-
-        /**
-         * The status of a match; see next() for more information.
-         */
-        public enum Status {
-            /**
-             * There are no further matches at all.
-             */
-            NONE,
-            /**
-             * There is a partial match for a single item. Example: dictionary contains
-             * "man", text has "max". There will be a partial match after "ma".
-             */
-            PARTIAL,
-            /**
-             * There is a full match
-             */
-            MATCH,
-        }
-
-        /**
-         * Finds the next match, and sets the matchValue and matchEnd. Normally you
-         * call in a loop until you get NONE.<br>
-         * <b>Warning: the results of calling next() after getting NONE are
-         * undefined!</b><br>
-         * Here is what happens with the different return values:
-         * <ul>
-         * <li>MATCH: there was an exact match. Its matchValue and matchEnd are set.</li>
-         * <li>PARTIAL: there was a partial match. The matchEnd is set to the furthest point that could be reached
-         * successfully. To get the matchValue, and whether or not there were multiple partial matches, call
-         * nextPartial().</li>
-         * <li>NONE: the matchValue and matchEnd are undefined.</li>
-         * </ul>
-         *
-         * @return MATCH if there is a match.
-         */
-        public abstract Status next();
-
-        public enum Filter {
-            /**
-             * Returns all values: 0 or more MATCH or PARTIAL values (with NONE at end)
-             */
-            ALL,
-            /**
-             * Only 0 or more MATCH values (with NONE at end)
-             */
-            MATCHES,
-            /**
-             * Only one value: the longest MATCH value
-             */
-            LONGEST_MATCH,
-            /**
-             * Only one value: the longest MATCH or PARTIAL
-             */
-            LONGEST,
-            /**
-             * Only one value: the longest MATCH or unique PARTIAL
-             */
-            LONGEST_UNIQUE,
-            /**
-             * Only one value: the longest MATCH or PARTIAL (but only the Partial if it is at the end).
-             */
-            LONGEST_WITH_FINAL_PARTIAL
-        }
-
-        /**
-         * Finds the next match, and sets the matchValue and matchEnd. Normally you
-         * call in a loop until you get NONE.<br>
-         * <b>Warning: the results of calling next() after getting NONE are
-         * undefined!</b><br>
-         * Here is what happens with the different return values:
-         * <ul>
-         * <li>MATCH: there was an exact match. Its matchValue and matchEnd are set.</li>
-         * <li>PARTIAL: there was a partial match. The matchEnd is set to the furthest point that could be reached
-         * successfully. To get the matchValue, and whether or not there were multiple partial matches, call
-         * nextPartial().</li>
-         * <li>NONE: the matchValue and matchEnd are undefined.</li>
-         * </ul>
-         * Question: should we make the name more explicit, like nextAtOffset? Because
-         * this iterates through the matches <i>at</i> an offset, not through offsets.
-         *
-         * @return MATCH if there is a match.
-         */
-        public Status next(Filter filter) {
-            if (filter == Filter.ALL) {
-                return next();
-            }
-            Status lastStatus = Status.NONE;
-            T lastValue = null;
-            int lastEnd = -1;
-            while (true) {
-                Status status = next();
-                if (status == Status.NONE) {
-                    if (lastValue == null) {
-                        return status;
-                    }
-                    matchEnd = lastEnd;
-                    matchValue = lastValue;
-                    return lastStatus;
-                } else if (status == Status.MATCH
-                    || (status == Status.PARTIAL
-                        && (filter == Filter.LONGEST
-                            || filter == Filter.LONGEST_UNIQUE && nextUniquePartial()
-                            || filter == Filter.LONGEST_WITH_FINAL_PARTIAL && !text.hasCharAt(matchEnd)))) {
-                    if (filter == Filter.MATCHES) {
-                        return status;
-                    }
-                    lastStatus = status;
-                    lastValue = getMatchValue();
-                    lastEnd = matchEnd;
-                }
-            }
-        }
-
-        /**
-         * Determine whether a partial match is singular (there is only one possible
-         * continuation) or multiple (there are different continuations).
-         * <ul>
-         * <li>If so, sets the value of matchValue to that of the string that could have been returned if appropriate
-         * additional characters were inserted at matchEnd.</li>
-         * <li>If not, then the matchValue is indeterminate.</li>
-         * </ul>
-         * <p>
-         * This must only be called immediatedly following a PARTIAL result from next().
-         * <p>
-         * QUESTION: would it be useful to be able to get all the partial matches??
-         *
-         * @return true if the partial match is singular, false if it is plural.
-         */
-        public abstract boolean nextUniquePartial();
-
-        /**
-         * Return the value for a given piece of text, or Integer.MIN_VALUE if there is none. May be overridden for
-         * efficiency.
-         */
-        public T get(CharSource text) {
-            setText(text); // set the text to operate on
-            while (true) {
-                Status next1 = next();
-                if (next1 != Status.MATCH) {
-                    return null;
-                } else if (!text.hasCharAt(getMatchEnd())) {
-                    return getMatchValue();
-                }
-            }
-        }
-
-        /**
-         * Advances the offset until next() doesn't return NONE.
-         */
-        public Status find(Filter filter) {
-            while (true) {
-                Status status = next(filter);
-                if (status != Status.NONE) {
-                    return status;
-                } else if (!text.hasCharAt(getMatchEnd())) {
-                    return status;
-                } else {
-                    nextOffset();
-                }
-            }
-        }
-
-        /**
-         * Increment the offset in the text.
-         */
-        public Matcher nextOffset() {
-            return setOffset(++offset);
-        }
-
-        /**
-         * Convert the remaining text (after offset) to the target. Any substring with a MATCH is replaced by the
-         * value.toString(); other characters are copied. Converts to first (shortest) match..
-         * TODO add parameter to pick between shortest and longest.
-         *
-         * @param target
-         */
-        public Appendable convert(Appendable target) {
-            try {
-                while (text.hasCharAt(offset)) {
-                    Status status = next();
-                    if (status != Status.MATCH) {
-                        target.append(text.charAt(getOffset()));
-                        nextOffset();
-                    } else {
-                        target.append(getMatchValue().toString());
-                        setOffset(getMatchEnd());
-                    }
-                }
-                return target;
-            } catch (IOException e) {
-                throw new ICUUncheckedIOException("Internal error", e);
-            }
-        }
-
-        /**
-         * For debugging
-         */
-        @Override
-        public String toString() {
-            return "{offset: " + offset + ", end: " + matchEnd + ", value: " + matchValue + ", text: \""
-                + text.subSequence(0, text.getKnownLength())
-                + (text.hasCharAt(text.getKnownLength()) ? "..." : "") + "\"}";
-        }
-
-        /**
-         * Get the dictionary associated with this matcher.
-         */
-        public abstract Dictionary<T> getDictionary();
-
-        /**
-         * The offset is not yet at the end.
-         *
-         * @return
-         */
-        public boolean hasMore() {
-            return text.hasCharAt(offset);
-        }
+    public int getOffset() {
+      return offset;
     }
 
     /**
-     * Return the code point order of two CharSequences. Really ought to be a method on CharSequence.
-     * If the text has isolated surrogates, they will not sort correctly.
+     * Get the latest match value after calling next(); see next() for more information.
+     *
+     * @return
      */
-    public static final Comparator<CharSequence> CHAR_SEQUENCE_COMPARATOR = new Comparator<CharSequence>() {
-        @Override
-        public int compare(CharSequence o1, CharSequence o2) {
-            return CharUtilities.compare(o1, o2);
-        }
-    };
-
-    public static class DictionaryCharList<T extends CharSequence> extends CharSourceWrapper<T> {
-        protected boolean failOnLength = false;
-        protected StringBuilder buffer = new StringBuilder();
-        protected int[] sourceOffsets;
-        protected Matcher<T> matcher;
-        protected boolean atEnd;
-
-        public DictionaryCharList(Dictionary<T> dictionary, T source) {
-            super(source);
-            matcher = dictionary.getMatcher().setText(source);
-            atEnd = source.length() == 0;
-            sourceOffsets = new int[source.length()];
-        }
-
-        @Override
-        public boolean hasCharAt(int index) {
-            if (index >= buffer.length()) {
-                if (atEnd) {
-                    return false;
-                }
-                growToOffset(index + 1);
-                return index < buffer.length();
-            }
-            return true;
-        }
-
-        @Override
-        public char charAt(int index) {
-            if (!atEnd && index >= buffer.length()) {
-                growToOffset(index + 1);
-            }
-            return buffer.charAt(index);
-        }
-
-        // sourceOffsets contains valid entries up to buffer.length() + 1.
-        private void growToOffset(int offset) {
-            int length = buffer.length();
-            while (length < offset && !atEnd) {
-                Status status = matcher.next(Filter.LONGEST_MATCH);
-                int currentOffset = matcher.getOffset();
-                final int matchEnd = matcher.getMatchEnd();
-                if (status == Status.MATCH) {
-                    final T replacement = matcher.getMatchValue();
-                    setOffsets(length + 1, replacement.length(), matchEnd);
-                    buffer.append(replacement);
-                    length = buffer.length();
-                    matcher.setOffset(matchEnd);
-                } else {
-                    setOffsets(length + 1, 1, currentOffset + 1);
-                    buffer.append(source.charAt(currentOffset));
-                    length = buffer.length();
-                    matcher.nextOffset();
-                }
-                atEnd = matcher.getOffset() >= source.length();
-            }
-        }
-
-        private void setOffsets(final int start, final int count, final int value) {
-            final int length = start + count;
-            if (sourceOffsets.length < length) {
-                int newCapacity = sourceOffsets.length * 2 + 1;
-                if (newCapacity < length + 50) {
-                    newCapacity = length + 50;
-                }
-                int[] temp = new int[newCapacity];
-                System.arraycopy(sourceOffsets, 0, temp, 0, sourceOffsets.length);
-                sourceOffsets = temp;
-            }
-            for (int i = start; i < length; ++i) {
-                sourceOffsets[i] = value;
-            }
-        }
-
-        @Override
-        public int fromSourceOffset(int offset) {
-            // TODO fix to do real binary search; returning a determinate value.
-            return Arrays.binarySearch(sourceOffsets, offset);
-        }
-
-        @Override
-        public int toSourceOffset(int offset) {
-            if (offset > buffer.length()) {
-                growToOffset(offset);
-                if (offset > buffer.length()) {
-                    throw new ArrayIndexOutOfBoundsException(offset);
-                }
-            }
-            return sourceOffsets[offset];
-        }
-
-        @Override
-        public CharSequence subSequence(int start, int end) {
-            if (!atEnd && end > buffer.length()) {
-                growToOffset(end);
-            }
-            return buffer.subSequence(start, end);
-        }
-
-        @Override
-        public CharSequence sourceSubSequence(int start, int end) {
-            // TODO Auto-generated method stub
-            return source.subSequence(toSourceOffset(start), toSourceOffset(end));
-        }
-
-        @Override
-        public int getKnownLength() {
-            return buffer.length();
-        }
+    public T getMatchValue() {
+      return matchValue;
     }
 
-    public static <A, B> Map<A, B> load(Iterator<Entry<A, B>> input, Map<A, B> output) {
-        while (input.hasNext()) {
-            Entry<A, B> entry = input.next();
-            output.put(entry.getKey(), entry.getValue());
-        }
-        return output;
+    /**
+     * Get the latest match end (that is, how far we matched); see next() for more information.
+     *
+     * @return
+     */
+    public int getMatchEnd() {
+      return matchEnd;
     }
+
+    /**
+     * Get the text that we are matching in..
+     *
+     * @return
+     */
+    public CharSource getMatchText() {
+      return text.sublist(offset, matchEnd);
+    }
+
+    /**
+     * The status of a match; see next() for more information.
+     */
+    public enum Status {
+      /**
+       * There are no further matches at all.
+       */
+      NONE,
+      /**
+       * There is a partial match for a single item. Example: dictionary contains
+       * "man", text has "max". There will be a partial match after "ma".
+       */
+      PARTIAL,
+      /**
+       * There is a full match
+       */
+      MATCH,
+    }
+
+    /**
+     * Finds the next match, and sets the matchValue and matchEnd. Normally you
+     * call in a loop until you get NONE.<br>
+     * <b>Warning: the results of calling next() after getting NONE are
+     * undefined!</b><br>
+     * Here is what happens with the different return values:
+     * <ul>
+     * <li>MATCH: there was an exact match. Its matchValue and matchEnd are set.</li>
+     * <li>PARTIAL: there was a partial match. The matchEnd is set to the furthest point that could be reached
+     * successfully. To get the matchValue, and whether or not there were multiple partial matches, call
+     * nextPartial().</li>
+     * <li>NONE: the matchValue and matchEnd are undefined.</li>
+     * </ul>
+     *
+     * @return MATCH if there is a match.
+     */
+    public abstract Status next();
+
+    public enum Filter {
+      /**
+       * Returns all values: 0 or more MATCH or PARTIAL values (with NONE at end)
+       */
+      ALL,
+      /**
+       * Only 0 or more MATCH values (with NONE at end)
+       */
+      MATCHES,
+      /**
+       * Only one value: the longest MATCH value
+       */
+      LONGEST_MATCH,
+      /**
+       * Only one value: the longest MATCH or PARTIAL
+       */
+      LONGEST,
+      /**
+       * Only one value: the longest MATCH or unique PARTIAL
+       */
+      LONGEST_UNIQUE,
+      /**
+       * Only one value: the longest MATCH or PARTIAL (but only the Partial if it is at the end).
+       */
+      LONGEST_WITH_FINAL_PARTIAL,
+    }
+
+    /**
+     * Finds the next match, and sets the matchValue and matchEnd. Normally you
+     * call in a loop until you get NONE.<br>
+     * <b>Warning: the results of calling next() after getting NONE are
+     * undefined!</b><br>
+     * Here is what happens with the different return values:
+     * <ul>
+     * <li>MATCH: there was an exact match. Its matchValue and matchEnd are set.</li>
+     * <li>PARTIAL: there was a partial match. The matchEnd is set to the furthest point that could be reached
+     * successfully. To get the matchValue, and whether or not there were multiple partial matches, call
+     * nextPartial().</li>
+     * <li>NONE: the matchValue and matchEnd are undefined.</li>
+     * </ul>
+     * Question: should we make the name more explicit, like nextAtOffset? Because
+     * this iterates through the matches <i>at</i> an offset, not through offsets.
+     *
+     * @return MATCH if there is a match.
+     */
+    public Status next(Filter filter) {
+      if (filter == Filter.ALL) {
+        return next();
+      }
+      Status lastStatus = Status.NONE;
+      T lastValue = null;
+      int lastEnd = -1;
+      while (true) {
+        Status status = next();
+        if (status == Status.NONE) {
+          if (lastValue == null) {
+            return status;
+          }
+          matchEnd = lastEnd;
+          matchValue = lastValue;
+          return lastStatus;
+        } else if (
+          status == Status.MATCH ||
+          (
+            status == Status.PARTIAL &&
+            (
+              filter == Filter.LONGEST ||
+              filter == Filter.LONGEST_UNIQUE &&
+              nextUniquePartial() ||
+              filter == Filter.LONGEST_WITH_FINAL_PARTIAL &&
+              !text.hasCharAt(matchEnd)
+            )
+          )
+        ) {
+          if (filter == Filter.MATCHES) {
+            return status;
+          }
+          lastStatus = status;
+          lastValue = getMatchValue();
+          lastEnd = matchEnd;
+        }
+      }
+    }
+
+    /**
+     * Determine whether a partial match is singular (there is only one possible
+     * continuation) or multiple (there are different continuations).
+     * <ul>
+     * <li>If so, sets the value of matchValue to that of the string that could have been returned if appropriate
+     * additional characters were inserted at matchEnd.</li>
+     * <li>If not, then the matchValue is indeterminate.</li>
+     * </ul>
+     * <p>
+     * This must only be called immediatedly following a PARTIAL result from next().
+     * <p>
+     * QUESTION: would it be useful to be able to get all the partial matches??
+     *
+     * @return true if the partial match is singular, false if it is plural.
+     */
+    public abstract boolean nextUniquePartial();
+
+    /**
+     * Return the value for a given piece of text, or Integer.MIN_VALUE if there is none. May be overridden for
+     * efficiency.
+     */
+    public T get(CharSource text) {
+      setText(text); // set the text to operate on
+      while (true) {
+        Status next1 = next();
+        if (next1 != Status.MATCH) {
+          return null;
+        } else if (!text.hasCharAt(getMatchEnd())) {
+          return getMatchValue();
+        }
+      }
+    }
+
+    /**
+     * Advances the offset until next() doesn't return NONE.
+     */
+    public Status find(Filter filter) {
+      while (true) {
+        Status status = next(filter);
+        if (status != Status.NONE) {
+          return status;
+        } else if (!text.hasCharAt(getMatchEnd())) {
+          return status;
+        } else {
+          nextOffset();
+        }
+      }
+    }
+
+    /**
+     * Increment the offset in the text.
+     */
+    public Matcher nextOffset() {
+      return setOffset(++offset);
+    }
+
+    /**
+     * Convert the remaining text (after offset) to the target. Any substring with a MATCH is replaced by the
+     * value.toString(); other characters are copied. Converts to first (shortest) match..
+     * TODO add parameter to pick between shortest and longest.
+     *
+     * @param target
+     */
+    public Appendable convert(Appendable target) {
+      try {
+        while (text.hasCharAt(offset)) {
+          Status status = next();
+          if (status != Status.MATCH) {
+            target.append(text.charAt(getOffset()));
+            nextOffset();
+          } else {
+            target.append(getMatchValue().toString());
+            setOffset(getMatchEnd());
+          }
+        }
+        return target;
+      } catch (IOException e) {
+        throw new ICUUncheckedIOException("Internal error", e);
+      }
+    }
+
+    /**
+     * For debugging
+     */
+    @Override
+    public String toString() {
+      return (
+        "{offset: " +
+        offset +
+        ", end: " +
+        matchEnd +
+        ", value: " +
+        matchValue +
+        ", text: \"" +
+        text.subSequence(0, text.getKnownLength()) +
+        (text.hasCharAt(text.getKnownLength()) ? "..." : "") +
+        "\"}"
+      );
+    }
+
+    /**
+     * Get the dictionary associated with this matcher.
+     */
+    public abstract Dictionary<T> getDictionary();
+
+    /**
+     * The offset is not yet at the end.
+     *
+     * @return
+     */
+    public boolean hasMore() {
+      return text.hasCharAt(offset);
+    }
+  }
+
+  /**
+   * Return the code point order of two CharSequences. Really ought to be a method on CharSequence.
+   * If the text has isolated surrogates, they will not sort correctly.
+   */
+  public static final Comparator<CharSequence> CHAR_SEQUENCE_COMPARATOR = new Comparator<CharSequence>() {
+    @Override
+    public int compare(CharSequence o1, CharSequence o2) {
+      return CharUtilities.compare(o1, o2);
+    }
+  };
+
+  public static class DictionaryCharList<T extends CharSequence>
+    extends CharSourceWrapper<T> {
+
+    protected boolean failOnLength = false;
+    protected StringBuilder buffer = new StringBuilder();
+    protected int[] sourceOffsets;
+    protected Matcher<T> matcher;
+    protected boolean atEnd;
+
+    public DictionaryCharList(Dictionary<T> dictionary, T source) {
+      super(source);
+      matcher = dictionary.getMatcher().setText(source);
+      atEnd = source.length() == 0;
+      sourceOffsets = new int[source.length()];
+    }
+
+    @Override
+    public boolean hasCharAt(int index) {
+      if (index >= buffer.length()) {
+        if (atEnd) {
+          return false;
+        }
+        growToOffset(index + 1);
+        return index < buffer.length();
+      }
+      return true;
+    }
+
+    @Override
+    public char charAt(int index) {
+      if (!atEnd && index >= buffer.length()) {
+        growToOffset(index + 1);
+      }
+      return buffer.charAt(index);
+    }
+
+    // sourceOffsets contains valid entries up to buffer.length() + 1.
+    private void growToOffset(int offset) {
+      int length = buffer.length();
+      while (length < offset && !atEnd) {
+        Status status = matcher.next(Filter.LONGEST_MATCH);
+        int currentOffset = matcher.getOffset();
+        final int matchEnd = matcher.getMatchEnd();
+        if (status == Status.MATCH) {
+          final T replacement = matcher.getMatchValue();
+          setOffsets(length + 1, replacement.length(), matchEnd);
+          buffer.append(replacement);
+          length = buffer.length();
+          matcher.setOffset(matchEnd);
+        } else {
+          setOffsets(length + 1, 1, currentOffset + 1);
+          buffer.append(source.charAt(currentOffset));
+          length = buffer.length();
+          matcher.nextOffset();
+        }
+        atEnd = matcher.getOffset() >= source.length();
+      }
+    }
+
+    private void setOffsets(final int start, final int count, final int value) {
+      final int length = start + count;
+      if (sourceOffsets.length < length) {
+        int newCapacity = sourceOffsets.length * 2 + 1;
+        if (newCapacity < length + 50) {
+          newCapacity = length + 50;
+        }
+        int[] temp = new int[newCapacity];
+        System.arraycopy(sourceOffsets, 0, temp, 0, sourceOffsets.length);
+        sourceOffsets = temp;
+      }
+      for (int i = start; i < length; ++i) {
+        sourceOffsets[i] = value;
+      }
+    }
+
+    @Override
+    public int fromSourceOffset(int offset) {
+      // TODO fix to do real binary search; returning a determinate value.
+      return Arrays.binarySearch(sourceOffsets, offset);
+    }
+
+    @Override
+    public int toSourceOffset(int offset) {
+      if (offset > buffer.length()) {
+        growToOffset(offset);
+        if (offset > buffer.length()) {
+          throw new ArrayIndexOutOfBoundsException(offset);
+        }
+      }
+      return sourceOffsets[offset];
+    }
+
+    @Override
+    public CharSequence subSequence(int start, int end) {
+      if (!atEnd && end > buffer.length()) {
+        growToOffset(end);
+      }
+      return buffer.subSequence(start, end);
+    }
+
+    @Override
+    public CharSequence sourceSubSequence(int start, int end) {
+      // TODO Auto-generated method stub
+      return source.subSequence(toSourceOffset(start), toSourceOffset(end));
+    }
+
+    @Override
+    public int getKnownLength() {
+      return buffer.length();
+    }
+  }
+
+  public static <A, B> Map<A, B> load(
+    Iterator<Entry<A, B>> input,
+    Map<A, B> output
+  ) {
+    while (input.hasNext()) {
+      Entry<A, B> entry = input.next();
+      output.put(entry.getKey(), entry.getValue());
+    }
+    return output;
+  }
 }

@@ -32,147 +32,156 @@ import java.util.function.Predicate;
  *
  * @author srl
  */
-@CLDRTool(alias = "test.stacktracker", description = "Test for StackTracker", hidden = "test")
+@CLDRTool(
+  alias = "test.stacktracker",
+  description = "Test for StackTracker",
+  hidden = "test"
+)
 public class StackTracker implements Iterable<Object> {
-    private Hashtable<Object, String> stacks = new Hashtable<>();
 
-    /**
-     * Add object (i.e. added to cache)
-     *
-     * @param o
-     */
-    public void add(Object o) {
-        String stack = currentStack();
-        stacks.put(o, stack);
+  private Hashtable<Object, String> stacks = new Hashtable<>();
+
+  /**
+   * Add object (i.e. added to cache)
+   *
+   * @param o
+   */
+  public void add(Object o) {
+    String stack = currentStack();
+    stacks.put(o, stack);
+  }
+
+  /**
+   * remove obj (i.e. removed from cache)
+   *
+   * @param o
+   */
+  public void remove(Object o) {
+    stacks.remove(o);
+  }
+
+  /**
+   * internal - convert a stack to string
+   *
+   * @param stackTrace
+   * @param skip
+   *            start at this index (skip the top stuff)
+   * @return
+   */
+  public static String stackToString(StackTraceElement[] stackTrace, int skip) {
+    StringBuffer sb = new StringBuffer();
+    for (int i = skip; i < stackTrace.length; i++) {
+      sb.append(stackTrace[i].toString() + "\n");
     }
+    return sb.toString();
+  }
 
-    /**
-     * remove obj (i.e. removed from cache)
-     *
-     * @param o
-     */
-    public void remove(Object o) {
-        stacks.remove(o);
+  /**
+   * Get this tracker as a string. Prints any leaked objects, and the stack frame of where they were constructed.
+   */
+  @Override
+  public String toString() {
+    if (stacks.isEmpty()) {
+      return "{StackTracker: empty}";
     }
+    StringBuffer sb = new StringBuffer();
 
-    /**
-     * internal - convert a stack to string
-     *
-     * @param stackTrace
-     * @param skip
-     *            start at this index (skip the top stuff)
-     * @return
-     */
-    public static String stackToString(StackTraceElement[] stackTrace, int skip) {
-        StringBuffer sb = new StringBuffer();
-        for (int i = skip; i < stackTrace.length; i++) {
-            sb.append(stackTrace[i].toString() + "\n");
-        }
-        return sb.toString();
+    sb.append("{StackTracker:\n");
+    int n = 0;
+    for (Map.Entry<Object, String> e : stacks.entrySet()) {
+      sb.append(
+        "Held Obj #" + (++n) + "/" + stacks.size() + ": " + e.getKey() + "\n"
+      );
+      sb.append(e.getValue() + "\n");
     }
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Get this tracker as a string. Prints any leaked objects, and the stack frame of where they were constructed.
-     */
-    @Override
-    public String toString() {
-        if (stacks.isEmpty()) {
-            return "{StackTracker: empty}";
-        }
-        StringBuffer sb = new StringBuffer();
+  /**
+   * Purges all held objects.
+   */
+  public void clear() {
+    stacks.clear();
+  }
 
-        sb.append("{StackTracker:\n");
-        int n = 0;
-        for (Map.Entry<Object, String> e : stacks.entrySet()) {
-            sb.append("Held Obj #" + (++n) + "/" + stacks.size() + ": " + e.getKey() + "\n");
-            sb.append(e.getValue() + "\n");
-        }
-        sb.append("}");
-        return sb.toString();
+  /**
+   * Convenience function, gets the current stack trace.
+   *
+   * @return current stack trace
+   */
+  public static String currentStack() {
+    return stackToString(Thread.currentThread().getStackTrace(), 2);
+  }
+
+  /**
+   * Convenience function, gets the current element
+   *
+   * @param stacks
+   *            to skip - 0 for immediate caller, 1, etc
+   */
+  public static StackTraceElement currentElement(int skip) {
+    return Thread.currentThread().getStackTrace()[3 + skip];
+  }
+
+  /**
+   * Return the 'calling' element, skipping
+   * @param matchFirst matching predicate
+   * @return first matching stack. If none match, return currentElement(0)
+   * Example: to skip callers in my own class:
+   * currentElement(
+   *  (StackTraceElement s) ->
+   *    !s.getClassName().equals(MyClass.class.getName()));
+   */
+  public static StackTraceElement firstCallerMatching(
+    Predicate<StackTraceElement> matchFirst
+  ) {
+    final StackTraceElement stacks[] = Thread.currentThread().getStackTrace();
+    for (int i = 3; i < stacks.length; i++) {
+      if (matchFirst.test(stacks[i])) {
+        return stacks[i];
+      }
     }
+    return stacks[3];
+  }
 
-    /**
-     * Purges all held objects.
-     */
-    public void clear() {
-        stacks.clear();
-    }
+  /**
+   *
+   * @return true if there are no held objects
+   */
+  public boolean isEmpty() {
+    return stacks.isEmpty();
+  }
 
-    /**
-     * Convenience function, gets the current stack trace.
-     *
-     * @return current stack trace
-     */
-    public static String currentStack() {
-        return stackToString(Thread.currentThread().getStackTrace(), 2);
-    }
+  /**
+   * Iterate over held objects.
+   */
+  @Override
+  public Iterator<Object> iterator() {
+    return stacks.keySet().iterator();
+  }
 
-    /**
-     * Convenience function, gets the current element
-     *
-     * @param stacks
-     *            to skip - 0 for immediate caller, 1, etc
-     */
-    public static StackTraceElement currentElement(int skip) {
-        return Thread.currentThread().getStackTrace()[3 + skip];
-    }
+  /**
+   * Example use.
+   *
+   * @param args
+   *            ignored
+   */
+  public static void main(String args[]) {
+    StackTracker tracker = new StackTracker();
+    System.out.println("At first: " + tracker);
 
-    /**
-     * Return the 'calling' element, skipping
-     * @param matchFirst matching predicate
-     * @return first matching stack. If none match, return currentElement(0)
-     * Example: to skip callers in my own class:
-     * currentElement(
-     *  (StackTraceElement s) ->
-     *    !s.getClassName().equals(MyClass.class.getName()));
-     */
-    public static StackTraceElement firstCallerMatching(Predicate<StackTraceElement> matchFirst) {
-        final StackTraceElement stacks[] = Thread.currentThread().getStackTrace();
-        for (int i=3; i<stacks.length; i++) {
-            if (matchFirst.test(stacks[i])) {
-                return stacks[i];
-            }
-        }
-        return stacks[3];
-    }
+    tracker.add("Now");
+    tracker.add("is");
+    tracker.add("the");
+    tracker.add("time");
+    tracker.add("for");
+    tracker.add("time");
+    tracker.remove("Now");
+    tracker.remove("for");
+    tracker.remove("time");
 
-    /**
-     *
-     * @return true if there are no held objects
-     */
-    public boolean isEmpty() {
-        return stacks.isEmpty();
-    }
-
-    /**
-     * Iterate over held objects.
-     */
-    @Override
-    public Iterator<Object> iterator() {
-        return stacks.keySet().iterator();
-    }
-
-    /**
-     * Example use.
-     *
-     * @param args
-     *            ignored
-     */
-    public static void main(String args[]) {
-        StackTracker tracker = new StackTracker();
-        System.out.println("At first: " + tracker);
-
-        tracker.add("Now");
-        tracker.add("is");
-        tracker.add("the");
-        tracker.add("time");
-        tracker.add("for");
-        tracker.add("time");
-        tracker.remove("Now");
-        tracker.remove("for");
-        tracker.remove("time");
-
-        // any leaks?
-        System.out.println("At end: " + tracker);
-    }
+    // any leaks?
+    System.out.println("At end: " + tracker);
+  }
 }

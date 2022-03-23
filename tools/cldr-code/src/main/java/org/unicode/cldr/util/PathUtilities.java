@@ -67,35 +67,36 @@ import java.nio.file.Paths;
  * hopefully some of these methods can eventually be deprecated and removed.
  */
 public final class PathUtilities {
-    /** Returns the normalized, absolute path string for the given path. */
-    public static String getNormalizedPathString(String first, String... rest) {
-        return getNormalizedPath(first, rest).toString();
-    }
 
-    /** Returns the normalized, absolute path string of the given file. */
-    public static String getNormalizedPathString(File file) {
-        return getNormalizedPath(file).toString();
-    }
+  /** Returns the normalized, absolute path string for the given path. */
+  public static String getNormalizedPathString(String first, String... rest) {
+    return getNormalizedPath(first, rest).toString();
+  }
 
-    /** Returns the normalized, absolute path string of the given path. */
-    public static String getNormalizedPathString(Path path) {
-        return getNormalizedPath(path).toString();
-    }
+  /** Returns the normalized, absolute path string of the given file. */
+  public static String getNormalizedPathString(File file) {
+    return getNormalizedPath(file).toString();
+  }
 
-    /** Returns the normalized, absolute path of the given path segments. */
-    public static Path getNormalizedPath(String first, String... rest) {
-        return getNormalizedPath(Paths.get(first, rest));
-    }
+  /** Returns the normalized, absolute path string of the given path. */
+  public static String getNormalizedPathString(Path path) {
+    return getNormalizedPath(path).toString();
+  }
 
-    /** Returns the normalized, absolute path of the given file. */
-    public static Path getNormalizedPath(File file) {
-        return getNormalizedPath(Paths.get(file.getPath()));
-    }
+  /** Returns the normalized, absolute path of the given path segments. */
+  public static Path getNormalizedPath(String first, String... rest) {
+    return getNormalizedPath(Paths.get(first, rest));
+  }
 
-    /** Returns the normalized, absolute path of the given path. */
-    public static Path getNormalizedPath(Path path) {
-        return path.toAbsolutePath().normalize();
-    }
+  /** Returns the normalized, absolute path of the given file. */
+  public static Path getNormalizedPath(File file) {
+    return getNormalizedPath(Paths.get(file.getPath()));
+  }
 
-    private PathUtilities() {}
+  /** Returns the normalized, absolute path of the given path. */
+  public static Path getNormalizedPath(Path path) {
+    return path.toAbsolutePath().normalize();
+  }
+
+  private PathUtilities() {}
 }

@@ -4,76 +4,75 @@ package org.unicode.cldr.web;
 
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.CLDRFile;
 
 public class CompareCLDRFile {
 
-    private Set<Entry> entries = new TreeSet<>();
+  private Set<Entry> entries = new TreeSet<>();
 
-    private Set<String> allXpaths = new TreeSet<>();
+  private Set<String> allXpaths = new TreeSet<>();
 
-    public class Entry implements Comparable<Entry> {
-        private String title;
-        private CLDRFile file;
+  public class Entry implements Comparable<Entry> {
 
-        private Set<String> xpaths = new TreeSet<>();
+    private String title;
+    private CLDRFile file;
 
-        private Entry(CLDRFile f, String t) {
-            this.file = f;
-            this.title = t;
+    private Set<String> xpaths = new TreeSet<>();
 
-            for (String s : f) {
-                xpaths.add(s);
-            }
+    private Entry(CLDRFile f, String t) {
+      this.file = f;
+      this.title = t;
 
-            allXpaths.addAll(xpaths);
-        }
+      for (String s : f) {
+        xpaths.add(s);
+      }
 
-        @Override
-        public String toString() {
-            return title;
-        }
-
-        public CLDRFile getFile() {
-            return file;
-        }
-
-        public Set<String> getXPaths() {
-            return xpaths;
-        }
-
-        public Set<String> getUniqueXPaths() {
-            Set<String> aSet = new TreeSet<>(getAllXPaths());
-            for (Entry e : getResults()) {
-                if (e != this) {
-                    aSet.removeAll(e.getXPaths());
-                }
-            }
-            return aSet;
-        }
-
-        @Override
-        public int compareTo(Entry o) {
-            // TODO Auto-generated method stub
-            return title.compareTo(o.title);
-        }
+      allXpaths.addAll(xpaths);
     }
 
-    public CompareCLDRFile() {
+    @Override
+    public String toString() {
+      return title;
     }
 
-    public Entry add(CLDRFile f, String t) {
-        Entry e = new Entry(f, t);
-        entries.add(e);
-        return e;
+    public CLDRFile getFile() {
+      return file;
     }
 
-    public Set<String> getAllXPaths() {
-        return allXpaths;
+    public Set<String> getXPaths() {
+      return xpaths;
     }
 
-    public Set<Entry> getResults() {
-        return entries;
+    public Set<String> getUniqueXPaths() {
+      Set<String> aSet = new TreeSet<>(getAllXPaths());
+      for (Entry e : getResults()) {
+        if (e != this) {
+          aSet.removeAll(e.getXPaths());
+        }
+      }
+      return aSet;
     }
+
+    @Override
+    public int compareTo(Entry o) {
+      // TODO Auto-generated method stub
+      return title.compareTo(o.title);
+    }
+  }
+
+  public CompareCLDRFile() {}
+
+  public Entry add(CLDRFile f, String t) {
+    Entry e = new Entry(f, t);
+    entries.add(e);
+    return e;
+  }
+
+  public Set<String> getAllXPaths() {
+    return allXpaths;
+  }
+
+  public Set<Entry> getResults() {
+    return entries;
+  }
 }

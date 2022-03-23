@@ -7,14 +7,16 @@ import org.unicode.cldr.web.VettingViewerQueue.LoadingPolicy;
 
 @Schema(description = "Summary Request")
 public final class SummaryRequest {
-    public SummaryRequest() {
 
-    }
+  public SummaryRequest() {}
 
-    @Schema(implementation = VettingViewerQueue.LoadingPolicy.class, defaultValue = "NOSTART")
-    public VettingViewerQueue.LoadingPolicy loadingPolicy = LoadingPolicy.NOSTART;
+  @Schema(
+    implementation = VettingViewerQueue.LoadingPolicy.class,
+    defaultValue = "NOSTART"
+  )
+  public VettingViewerQueue.LoadingPolicy loadingPolicy = LoadingPolicy.NOSTART;
 
-    public String snapshotPolicy = SurveySnapshot.SNAP_NONE;
+  public String snapshotPolicy = SurveySnapshot.SNAP_NONE;
 
-    public String snapshotId = SurveySnapshot.SNAPID_NOT_APPLICABLE;
+  public String snapshotId = SurveySnapshot.SNAPID_NOT_APPLICABLE;
 }

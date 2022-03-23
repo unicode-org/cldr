@@ -5,10 +5,8 @@ package org.unicode.cldr.web;
 
 import java.io.IOException;
 import java.util.Set;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 /**
@@ -22,55 +20,57 @@ import org.unicode.cldr.util.SupplementalDataInfo;
  */
 public class JspWebContext extends WebContext {
 
-    private enum MainFormState {
-        OPEN, CLOSED
-    }
+  private enum MainFormState {
+    OPEN,
+    CLOSED,
+  }
 
-    MainFormState mainFormState = MainFormState.CLOSED;
-    /**
-     * List of xpaths indicating the types of data being submitted (numbers,
-     * currency, etc)
-     */
-    Set<String> podBases = null;
+  MainFormState mainFormState = MainFormState.CLOSED;
+  /**
+   * List of xpaths indicating the types of data being submitted (numbers,
+   * currency, etc)
+   */
+  Set<String> podBases = null;
 
-    /**
-     * Create a JspContext from a raw HTTP connection.
-     *
-     * @param irq
-     * @param irs
-     * @throws IOException
-     */
-    public JspWebContext(HttpServletRequest irq, HttpServletResponse irs) throws IOException {
-        super(irq, irs);
-    }
+  /**
+   * Create a JspContext from a raw HTTP connection.
+   *
+   * @param irq
+   * @param irs
+   * @throws IOException
+   */
+  public JspWebContext(HttpServletRequest irq, HttpServletResponse irs)
+    throws IOException {
+    super(irq, irs);
+  }
 
-    /**
-     * For creating a JspContext from another WebContext. Slicing is fine here
-     * (for now), as there isn't any extra state in a JspWebContext
-     *
-     * @param other
-     */
-    public JspWebContext(WebContext other) {
-        super(other);
-        if (other instanceof JspWebContext) {
-            this.podBases = ((JspWebContext) other).podBases;
-        }
+  /**
+   * For creating a JspContext from another WebContext. Slicing is fine here
+   * (for now), as there isn't any extra state in a JspWebContext
+   *
+   * @param other
+   */
+  public JspWebContext(WebContext other) {
+    super(other);
+    if (other instanceof JspWebContext) {
+      this.podBases = ((JspWebContext) other).podBases;
     }
+  }
 
-    /**
-     * @return a copy of the SupplementalDataInfo
-     * @see SupplementalDataInfo
-     */
-    public SupplementalDataInfo supplementalDataInfo() {
-        return sm.getSupplementalDataInfo();
-    }
+  /**
+   * @return a copy of the SupplementalDataInfo
+   * @see SupplementalDataInfo
+   */
+  public SupplementalDataInfo supplementalDataInfo() {
+    return sm.getSupplementalDataInfo();
+  }
 
-    /**
-     * Is JSP debugging on?
-     *
-     * @return true if the 'JSP debugging' switch is on
-     */
-    public boolean debugJsp() {
-        return this.prefBool(SurveyMain.PREF_DEBUGJSP);
-    }
+  /**
+   * Is JSP debugging on?
+   *
+   * @return true if the 'JSP debugging' switch is on
+   */
+  public boolean debugJsp() {
+    return this.prefBool(SurveyMain.PREF_DEBUGJSP);
+  }
 }

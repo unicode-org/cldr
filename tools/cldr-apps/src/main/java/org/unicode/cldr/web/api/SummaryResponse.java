@@ -6,22 +6,21 @@ import org.unicode.cldr.web.VettingViewerQueue;
 
 @Schema(description = "Summary Response")
 public final class SummaryResponse {
-    public SummaryResponse() {
 
-    }
+  public SummaryResponse() {}
 
-    @Schema(description = "vetting viewer status enum")
-    public VettingViewerQueue.Status status;
+  @Schema(description = "vetting viewer status enum")
+  public VettingViewerQueue.Status status;
 
-    @Schema(description = "HTML current status message")
-    public String message;
+  @Schema(description = "HTML current status message")
+  public String message;
 
-    @Schema(description = "Estimated percentage complete")
-    public Number percent;
+  @Schema(description = "Estimated percentage complete")
+  public Number percent;
 
-    @Schema(description = "HTML output on success")
-    public String output;
+  @Schema(description = "HTML output on success")
+  public String output;
 
-    @Schema(description = "Snapshot ID, or NA for Not Applicable")
-    public String snapshotId = SurveySnapshot.SNAPID_NOT_APPLICABLE;
+  @Schema(description = "Snapshot ID, or NA for Not Applicable")
+  public String snapshotId = SurveySnapshot.SNAPID_NOT_APPLICABLE;
 }

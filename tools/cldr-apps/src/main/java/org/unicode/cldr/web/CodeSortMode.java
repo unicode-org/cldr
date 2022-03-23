@@ -4,13 +4,11 @@
  */
 package org.unicode.cldr.web;
 
-import java.util.Comparator;
-
-import org.unicode.cldr.web.DataSection.DataRow;
-import org.unicode.cldr.web.Partition.Membership;
-
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
+import java.util.Comparator;
+import org.unicode.cldr.web.DataSection.DataRow;
+import org.unicode.cldr.web.Partition.Membership;
 
 /**
  * @author srl
@@ -18,67 +16,69 @@ import com.ibm.icu.text.RuleBasedCollator;
  */
 public class CodeSortMode extends SortMode {
 
-    public static String name = SurveyMain.PREF_SORTMODE_CODE;
+  public static String name = SurveyMain.PREF_SORTMODE_CODE;
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.unicode.cldr.web.SortMode#getName()
-     */
-    @Override
-    String getName() {
-        return name;
+  /*
+   * (non-Javadoc)
+   *
+   * @see org.unicode.cldr.web.SortMode#getName()
+   */
+  @Override
+  String getName() {
+    return name;
+  }
+
+  @Override
+  Membership[] memberships() {
+    return null;
+  }
+
+  @Override
+  Comparator<DataRow> getComparator() {
+    return ComparatorHelper.COMPARATOR;
+  }
+
+  private static final class CollatorHelper {
+
+    private static Collator createCollator() {
+      RuleBasedCollator rbc = ((RuleBasedCollator) Collator.getInstance());
+      rbc.setNumericCollation(true);
+      return rbc.freeze();
     }
 
-    @Override
-    Membership[] memberships() {
-        return null;
-    }
+    static final Collator COLLATOR = createCollator();
+  }
 
-    @Override
-    Comparator<DataRow> getComparator() {
-        return ComparatorHelper.COMPARATOR;
-    }
+  private static final class ComparatorHelper {
 
-    static final private class CollatorHelper {
-        private static Collator createCollator() {
-            RuleBasedCollator rbc = ((RuleBasedCollator) Collator.getInstance());
-            rbc.setNumericCollation(true);
-            return rbc.freeze();
+    static final Comparator<DataRow> COMPARATOR = new Comparator<DataRow>() {
+      final Collator myCollator = CollatorHelper.COLLATOR;
+
+      @Override
+      public int compare(DataRow p1, DataRow p2) {
+        if (p1 == p2) {
+          return 0;
         }
-        static final Collator COLLATOR = createCollator();
-    }
-    static final private class ComparatorHelper {
-        static final Comparator<DataRow> COMPARATOR = new Comparator<DataRow>() {
-            final Collator myCollator = CollatorHelper.COLLATOR;
+        return myCollator.compare(p1.getPrettyPath(), p2.getPrettyPath());
+      }
+    };
+  }
 
-            @Override
-            public int compare(DataRow p1, DataRow p2) {
-                if (p1 == p2) {
-                    return 0;
-                }
-                return myCollator.compare(p1.getPrettyPath(), p2.getPrettyPath());
-            }
-        };
+  public static Collator internalGetCollator() {
+    return CollatorHelper.COLLATOR;
+  }
 
-    }
+  public static Comparator<DataRow> internalGetComparator() {
+    return ComparatorHelper.COMPARATOR;
+  }
 
-    public static Collator internalGetCollator() {
-        return CollatorHelper.COLLATOR;
-    }
+  @Override
+  public String getDisplayName(DataRow p) {
+    return p.getPrettyPath(); // always code.
+  }
 
-    public static Comparator<DataRow> internalGetComparator() {
-        return ComparatorHelper.COMPARATOR;
-    }
-
-    @Override
-    public String getDisplayName(DataRow p) {
-        return p.getPrettyPath(); // always code.
-    }
-
-    @Override
-    String getDisplayName() {
-        return "Code";
-    }
-
+  @Override
+  String getDisplayName() {
+    return "Code";
+  }
 }

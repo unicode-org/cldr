@@ -8,20 +8,20 @@ package org.unicode.cldr.web;
  */
 public class MutableStamp extends Stamp {
 
-    public static MutableStamp getInstance() {
-        return new MutableStamp(Stamp.nextStampTime());
-    }
+  public static MutableStamp getInstance() {
+    return new MutableStamp(Stamp.nextStampTime());
+  }
 
-    protected MutableStamp(long stamp) {
-        super(stamp);
-    }
+  protected MutableStamp(long stamp) {
+    super(stamp);
+  }
 
-    /**
-     * Update the stamp to the next stamp
-     *
-     * @return
-     */
-    public long next() {
-        return (stamp = Stamp.nextStampTime());
-    }
+  /**
+   * Update the stamp to the next stamp
+   *
+   * @return
+   */
+  public long next() {
+    return (stamp = Stamp.nextStampTime());
+  }
 }

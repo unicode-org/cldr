@@ -10,33 +10,38 @@ import org.unicode.cldr.util.CLDRLocale;
  *
  */
 public class DisputePageManager {
-    static void doDisputed(WebContext ctx) {
-        ctx.sm.printHeader(ctx, "Disputed Items Page");
-        ctx.sm.printUserTableWithHelp(ctx, "/DisputedItems");
 
-        ctx.println("<a href='" + ctx.url() + "'>Return to SurveyTool</a><hr>");
+  static void doDisputed(WebContext ctx) {
+    ctx.sm.printHeader(ctx, "Disputed Items Page");
+    ctx.sm.printUserTableWithHelp(ctx, "/DisputedItems");
 
-        // doOrgDisputePage(ctx);
+    ctx.println("<a href='" + ctx.url() + "'>Return to SurveyTool</a><hr>");
 
-        ctx.addQuery(SurveyMain.QUERY_DO, "disputed");
+    // doOrgDisputePage(ctx);
 
-        ctx.println("<h2>Disputed Items</h2>");
+    ctx.addQuery(SurveyMain.QUERY_DO, "disputed");
 
-        ctx.println("<i>TODO</i>");
+    ctx.println("<h2>Disputed Items</h2>");
 
-        // doDisputePage(ctx);
+    ctx.println("<i>TODO</i>");
 
-        ctx.sm.printFooter(ctx);
-    }
+    // doDisputePage(ctx);
 
-    public static int getOrgDisputeCount(WebContext ctx) {
-        // TODO Auto-generated method stub
-        // ctx.session.user.voterOrg(),locale
-        return 0;
-    }
+    ctx.sm.printFooter(ctx);
+  }
 
-    public static boolean getOrgDisputeCount(String voterOrg, CLDRLocale locale, int xpathId) {
-        // TODO Auto-generated method stub
-        return false;
-    }
+  public static int getOrgDisputeCount(WebContext ctx) {
+    // TODO Auto-generated method stub
+    // ctx.session.user.voterOrg(),locale
+    return 0;
+  }
+
+  public static boolean getOrgDisputeCount(
+    String voterOrg,
+    CLDRLocale locale,
+    int xpathId
+  ) {
+    // TODO Auto-generated method stub
+    return false;
+  }
 }

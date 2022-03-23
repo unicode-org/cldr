@@ -19,100 +19,108 @@ import org.unicode.cldr.util.CLDRLocale;
 
 public class Registerable {
 
-    /**
-     * Is this object still 'valid'? Becomes invalid if a change is recotded
-     */
-    private boolean valid = true;
+  /**
+   * Is this object still 'valid'? Becomes invalid if a change is recotded
+   */
+  private boolean valid = true;
 
-    /**
-     * An alias to the LCR we are registered with.
-     */
-    private LocaleChangeRegistry lcr;
+  /**
+   * An alias to the LCR we are registered with.
+   */
+  private LocaleChangeRegistry lcr;
 
-    /**
-     * the locale of this object
-     */
-    public CLDRLocale locale;
+  /**
+   * the locale of this object
+   */
+  public CLDRLocale locale;
 
-    /**
-     * protected constructor. Does not register, call register()
-     *
-     * @param lcr
-     *            the LCR to eventually register with
-     * @param locale
-     *            the locale to register as.
-     * @see #register
-     */
-    protected Registerable(LocaleChangeRegistry lcr, CLDRLocale locale) {
-        this.lcr = lcr;
-        this.locale = locale;
-    }
+  /**
+   * protected constructor. Does not register, call register()
+   *
+   * @param lcr
+   *            the LCR to eventually register with
+   * @param locale
+   *            the locale to register as.
+   * @see #register
+   */
+  protected Registerable(LocaleChangeRegistry lcr, CLDRLocale locale) {
+    this.lcr = lcr;
+    this.locale = locale;
+  }
 
-    /**
-     * is this object still valid? Object becomes invalid if a change is
-     * recorded by the LCR. Does not unregister the object if invalid.
-     */
-    public boolean isValid() {
-        if (valid) {
-            if (!lcr.isKeyValid(locale, key)) {
-                valid = false;
-            }
-        }
-        return valid;
-    }
-
-    /**
-     * Check if item is valid. Do not unregister if invalid. Does not modify the
-     * object.
-     **/
-    public boolean peekIsValid() {
-        if (valid) {
-            if (!lcr.isKeyValid(locale, key)) {
-                return false;
-            }
-        }
-        return valid;
-    }
-
-    /**
-     * Make the item valid again. Useful if the item has responded to the change
-     * (reloaded) and is to be considered valid again. does not cause a
-     * registration if not registered.
-     */
-    protected void setValid() {
-        valid = true;
-    }
-
-    /**
-     * Force to be invalid.
-     */
-    public void invalidate() {
+  /**
+   * is this object still valid? Object becomes invalid if a change is
+   * recorded by the LCR. Does not unregister the object if invalid.
+   */
+  public boolean isValid() {
+    if (valid) {
+      if (!lcr.isKeyValid(locale, key)) {
         valid = false;
+      }
     }
+    return valid;
+  }
 
-    /**
-     * Register the item with its appropriate change registry.
-     */
-    public void register() {
-        lcr.register(locale, key, this);
+  /**
+   * Check if item is valid. Do not unregister if invalid. Does not modify the
+   * object.
+   **/
+  public boolean peekIsValid() {
+    if (valid) {
+      if (!lcr.isKeyValid(locale, key)) {
+        return false;
+      }
     }
+    return valid;
+  }
 
-    /**
-     * The key which uniquely identifies this item to the LCR.
-     */
-    private String key = LocaleChangeRegistry.newKey();
+  /**
+   * Make the item valid again. Useful if the item has responded to the change
+   * (reloaded) and is to be considered valid again. does not cause a
+   * registration if not registered.
+   */
+  protected void setValid() {
+    valid = true;
+  }
 
-    /**
-     * convert this item to a string..
-     *
-     * @return this item as a string
-     */
-    @Override
-    public String toString() {
-        return "{Registerable " + key + " @ " + locale.toString() + ", valid:" + peekIsValid() + "}";
-    }
+  /**
+   * Force to be invalid.
+   */
+  public void invalidate() {
+    valid = false;
+  }
 
-    public CLDRLocale locale() {
-        return locale;
-    }
+  /**
+   * Register the item with its appropriate change registry.
+   */
+  public void register() {
+    lcr.register(locale, key, this);
+  }
+
+  /**
+   * The key which uniquely identifies this item to the LCR.
+   */
+  private String key = LocaleChangeRegistry.newKey();
+
+  /**
+   * convert this item to a string..
+   *
+   * @return this item as a string
+   */
+  @Override
+  public String toString() {
+    return (
+      "{Registerable " +
+      key +
+      " @ " +
+      locale.toString() +
+      ", valid:" +
+      peekIsValid() +
+      "}"
+    );
+  }
+
+  public CLDRLocale locale() {
+    return locale;
+  }
 }

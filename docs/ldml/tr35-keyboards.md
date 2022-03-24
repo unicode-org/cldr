@@ -542,7 +542,7 @@ Within a combination, the presence of a modifier WITHOUT the '?' suffix indicate
 
 Here is an exhaustive list of all possible modifier keys:
 
-##### <a name="Possible_Modifier_Keys" href="#Possible_Modifier_Keys">Possible Modifier Keys</a>
+###### <a name="Possible_Modifier_Keys" href="#Possible_Modifier_Keys">Possible Modifier Keys</a>
 
 | Modifier Keys |          | Comments                        |
 |---------------|----------|---------------------------------|
@@ -1885,7 +1885,7 @@ Beyond what the DTD imposes, certain other restrictions on the data are imposed 
 
 Here is a list of the data sources used to generate the initial key map layouts:
 
-##### <a name="Key_Map_Data_Sources" href="#Key_Map_Data_Sources">Key Map Data Sources</a>
+###### <a name="Key_Map_Data_Sources" href="#Key_Map_Data_Sources">Key Map Data Sources</a>
 
 | Platform | Source | Notes |
 |----------|--------|-------|

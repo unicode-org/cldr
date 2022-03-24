@@ -58,12 +58,6 @@ public class VettingViewer<T> {
     private static final String CONNECT_PREFIX = "₍_";
     private static final String CONNECT_SUFFIX = "₎";
 
-    private static final String HELP_MESSAGE = "<p>The following summarizes the Priority Items across locales, " +
-        "using the default coverage levels for your organization for each locale. " +
-        "Before using, please read the instructions at " +
-        "<a target='CLDR_ST_DOCS' href='" + CLDRURLS.PRIORITY_SUMMARY_HELP_URL + "'>Priority " +
-        "Items Summary</a>.</p>\n";
-
     private static final String TH_AND_STYLES = "<th class='tv-th' style='text-align:left'>";
 
     private static final String SPLIT_CHAR = "\uFFFE";
@@ -72,9 +66,7 @@ public class VettingViewer<T> {
 
     private static final Set<CheckCLDR.CheckStatus.Subtype> OK_IF_VOTED = EnumSet.of(Subtype.sameAsEnglish);
 
-    private static final Level NEUTRAL_ORG_LEVEL = Level.COMPREHENSIVE;
-
-    public static boolean orgIsNeutralForSummary(Organization org) {
+    private static boolean orgIsNeutralForSummary(Organization org) {
         return org.equals(Organization.surveytool);
     }
 
@@ -714,19 +706,12 @@ public class VettingViewer<T> {
 
         @Override
         public boolean is(String localeId) {
-            Output<LocaleCoverageType> output = new Output<>();
-            // For admin - return true if SOME organization has explicit coverage for the locale
-            // TODO: Make admin pick up any locale that has a vote
+            StandardCodes sc = StandardCodes.make();
             if (orgIsNeutralForSummary(org)) {
-                for (Organization checkorg : Organization.values()) {
-                    StandardCodes.make().getLocaleCoverageLevel(checkorg, localeId, output);
-                    if (output.value == StandardCodes.LocaleCoverageType.explicit) {
-                        return true;
-                    }
-                }
-                return false;
+                return desiredLevel == sc.getTargetCoverageLevel(localeId);
             } else {
-                Level level = StandardCodes.make().getLocaleCoverageLevel(org, localeId, output);
+                Output<LocaleCoverageType> output = new Output<>();
+                Level level = sc.getLocaleCoverageLevel(org, localeId, output);
                 return desiredLevel == level && output.value == StandardCodes.LocaleCoverageType.explicit;
             }
         }
@@ -740,13 +725,7 @@ public class VettingViewer<T> {
      */
     public int getLocaleCount(Organization org) {
         int localeCount = 0;
-        List<Level> levelsToCheck = new ArrayList<>();
-        if (orgIsNeutralForSummary(org)) {
-            levelsToCheck.add(NEUTRAL_ORG_LEVEL);
-        } else {
-            levelsToCheck.addAll(Arrays.asList(Level.values()));
-        }
-        for (Level lv : levelsToCheck) {
+        for (Level lv : Level.values()) {
             Map<String, String> sortedNames = getSortedNames(org, lv);
             localeCount += sortedNames.size();
         }
@@ -755,7 +734,6 @@ public class VettingViewer<T> {
 
     public void generatePriorityItemsSummary(Appendable output, EnumSet<Choice> choices, T organization) {
         try {
-            output.append(HELP_MESSAGE);
             StringBuilder headerRow = new StringBuilder();
             headerRow
                 .append("<tr class='tvs-tr'>")
@@ -771,12 +749,8 @@ public class VettingViewer<T> {
             headerRow.append("</tr>\n");
             String header = headerRow.toString();
 
-            if (orgIsNeutralForSummary((Organization) organization)) {
-                writeSummaryTable(output, header, NEUTRAL_ORG_LEVEL, choices, organization);
-            } else {
-                for (Level level : Level.values()) {
-                    writeSummaryTable(output, header, level, choices, organization);
-                }
+            for (Level level : Level.values()) {
+                writeSummaryTable(output, header, level, choices, organization);
             }
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e); // dang'ed checked exceptions
@@ -1564,6 +1538,7 @@ public class VettingViewer<T> {
                 VettingViewer.Choice.warning,
                 VettingViewer.Choice.hasDispute,
                 VettingViewer.Choice.notApproved);
+                // skip missingCoverage, weLost, englishChanged, changedOldValue, abstained
         }
         return choiceSet;
     }

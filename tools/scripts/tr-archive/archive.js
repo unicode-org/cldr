@@ -50,8 +50,10 @@ async function renderit(infile) {
   // add CSS
   head.innerHTML =
     head.innerHTML +
-    `<meta charset="utf-8">` +
-    `<link rel='stylesheet' type='text/css' media='screen' href='../reports-v2.css'>`;
+    `<meta charset="utf-8">\n` +
+    `<link rel='stylesheet' type='text/css' media='screen' href='../reports-v2.css'>\n`;
+
+
 
   // Is there a title?
   if (dom.window.document.getElementsByTagName("title").length >= 1) {
@@ -106,9 +108,20 @@ async function renderit(infile) {
       div.appendChild(e);
     }
   }
+  // body already has no content to it at this point.
+  function getScript({src, code})  {
+    const script = dom.window.document.createElement("script");
+    if (src) {
+      script.setAttribute("src", src);
+    }
+    if (code) {
+      script.appendChild(dom.window.document.createTextNode(code));
+    }
+    return script;
+  }
+  body.appendChild(getScript({ src: './js/anchor.min.js' }));
   body.appendChild(header);
   body.appendChild(div);
-
   // now, fix all links from  ….md#…  to ….html#…
   for (const e of dom.window.document.getElementsByTagName("a")) {
     const href = e.getAttribute("href");
@@ -119,6 +132,8 @@ async function renderit(infile) {
       e.setAttribute("href", `${m[1]}.html`);
     }
   }
+  // put this last
+  body.appendChild(getScript({ code: 'anchors.add()' }))
 
   // OK, done munging the DOM, write it out.
   console.log(`Writing ${outfile}`);

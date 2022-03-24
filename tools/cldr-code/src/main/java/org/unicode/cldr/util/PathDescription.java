@@ -378,7 +378,7 @@ public class PathDescription {
         + "Minimal pairs for genders. For more information, please see "
         + CLDRURLS.GRAMMATICAL_INFLECTION + ".\n"
 
-        + "^//ldml/personNames/nameOrder\\[@nameLocales=\"([^\"]*)\"]\\[@order=\"([^\"]*)\"]"
+        + "^//ldml/personNames/nameOrder\\[@nameLocales=\"([^\"]*)\"]"
         + RegexLookup.SEPARATOR
         + "Person name order for languages. For more information, please see "
         + CLDRURLS.PERSON_NAME_FORMATS + ".\n"

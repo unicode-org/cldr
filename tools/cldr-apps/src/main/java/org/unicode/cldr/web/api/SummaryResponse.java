@@ -13,8 +13,11 @@ public final class SummaryResponse {
     @Schema(description = "vetting viewer status enum")
     public VettingViewerQueue.Status status;
 
-    @Schema(description = "HTML current status")
-    public String ret;
+    @Schema(description = "HTML current status message")
+    public String message;
+
+    @Schema(description = "Estimated percentage complete")
+    public Number percent;
 
     @Schema(description = "HTML output on success")
     public String output;

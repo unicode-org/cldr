@@ -514,6 +514,14 @@ const strings = {
   progress_voter_disabled:
     "This meter will be enabled if you open the Dashboard",
   progress_all_vetters: "Completion for all vetters in this locale",
+
+  summary_help: "The following summarizes the Priority Items across locales.",
+  summary_coverage_org_specific:
+    "The coverage level for each locale is specific to your organization.",
+  summary_coverage_neutral:
+    "The coverage level for each locale is organization-neutral.",
+  summary_access_denied:
+    "To see the summary, you must be logged in as a manager, TC, or admin.",
 };
 
 /**

@@ -11,6 +11,7 @@ if [ ! -f ./logo60s2.gif ];
 then
     wget -c 'https://www.unicode.org/reports/logo60s2.gif'
 fi
-mkdir -p dist
+mkdir -p dist dist/js
+cp node_modules/anchor-js/anchor.min.js dist/js
 cp -vR ../../../docs/ldml/* ./dist/
-node archive.js && zip -r tr35.zip dist/*.html dist/images
+node archive.js && zip -r tr35.zip dist/*.html dist/images dist/js

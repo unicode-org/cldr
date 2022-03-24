@@ -5,8 +5,10 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.EnumSet;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -15,6 +17,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.function.Function;
 
+import org.checkerframework.checker.units.qual.C;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.XPathParts;
@@ -33,6 +36,7 @@ import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
+import com.google.common.collect.Sets.SetView;
 import com.ibm.icu.impl.Pair;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.util.ULocale;
@@ -272,7 +276,11 @@ public class PersonNameFormatter {
         private final Set<Field> fields;
 
         public Set<Field> getFields() {
-            return fields;
+            return ImmutableSet.copyOf(fields);
+        }
+
+        public int getFieldsSize() {
+            return fields.size();
         }
 
         public String format(NameObject nameObject) {
@@ -319,30 +327,72 @@ public class PersonNameFormatter {
             return new NamePattern(parse(patternString));
         }
 
+        private static final Set<Character> ALLOWED_ESCAPED_CHARACTERS = new HashSet<>(Arrays.asList('\\', '{', '}'));
+
         private static List<NamePatternElement> parse(String patternString) {
             List<NamePatternElement> result = new ArrayList<>();
-            int position = 0; // position is at start, or after }
-            // TODO Rich handle \{, \\\{...
-            while (true) {
-                int leftCurly = patternString.indexOf('{', position);
-                if (leftCurly < 0) {
-                    if (position < patternString.length()) {
-                        result.add(new NamePatternElement(patternString.substring(position, patternString.length())));
+
+            String rawValue = "";
+            Boolean curlyStarted = false;
+            final int patternLength = patternString.length();
+            int i = 0;
+            while (i < patternLength) {
+                final Character currentCharacter = patternString.charAt(i);
+
+                switch (currentCharacter) {
+                case '\\':
+                    if (i + 1 < patternLength) {
+                        final Character nextCharacter = patternString.charAt(i + 1);
+                        if (!ALLOWED_ESCAPED_CHARACTERS.contains(nextCharacter)) {
+                            throw new IllegalArgumentException(String.format("Escaping character '%c' is not supported", nextCharacter));
+                        }
+
+                        rawValue += nextCharacter;
+                        i += 2;
+                        continue;
+                    } else {
+                        throw new IllegalArgumentException("Invalid escape sequence");
+                    }
+
+                case '{':
+                    if (curlyStarted) {
+                        throw new IllegalArgumentException("Unexpected {");
+                    }
+                    curlyStarted = true;
+                    if (!rawValue.isEmpty()) {
+                        result.add(new NamePatternElement(rawValue));
+                        rawValue = "";
                     }
                     break;
+
+                case '}':
+                    if (!curlyStarted) {
+                        throw new IllegalArgumentException("Unexpected }");
+                    }
+                    curlyStarted = false;
+                    if (rawValue.isEmpty()) {
+                        throw new IllegalArgumentException("Empty field is not allowed");
+                    } else {
+                        result.add(new NamePatternElement(ModifiedField.from(rawValue)));
+                        rawValue = "";
+                    }
+                    break;
+
+                default:
+                    rawValue += currentCharacter;
+                    break;
                 }
-                if (position < leftCurly) {
-                    result.add(new NamePatternElement(patternString.substring(position, leftCurly)));
-                }
-                ++leftCurly;
-                int rightCurly = patternString.indexOf('}', leftCurly);
-                if (rightCurly < 0) {
-                    throw new IllegalArgumentException("Unmatched {");
-                }
-                NamePatternElement mf = new NamePatternElement(ModifiedField.from(patternString.substring(leftCurly, rightCurly)));
-                result.add(mf);
-                position = ++rightCurly;
+
+                i++;
             }
+
+            if (curlyStarted) {
+                throw new IllegalArgumentException("Unmatched {");
+            }
+            if (!rawValue.isEmpty()) {
+                result.add(new NamePatternElement(rawValue));
+            }
+
             return result;
         }
 
@@ -359,7 +409,12 @@ public class PersonNameFormatter {
             StringBuilder result = new StringBuilder("\"");
             for (NamePatternElement element : elements) {
                 if (element.literal != null) {
-                    result.append(element);
+                    for (final Character c : element.literal.toCharArray()) {
+                        if (ALLOWED_ESCAPED_CHARACTERS.contains(c)) {
+                            result.append('\\');
+                        }
+                        result.append(c);
+                    }
                 } else {
                     result.append('{').append(element).append('}');
                 }
@@ -775,20 +830,35 @@ public class PersonNameFormatter {
             if (nameFormatParameters.order == null) {
                 nameFormatParameters = nameFormatParameters.setOrder(localeToOrder.get(nameObject.getNameLocale()));
             }
-            Collection<NamePattern> resultSet = getBestMatchSet(nameFormatParameters);
 
-            // TODO Alex pick the NamePattern that best matches the fields in the nameObject
-            // Note that each NamePattern has a method that returns its fields
+            NamePattern result = null;
 
+            NamePattern[] namePatterns = getBestMatchSet(nameFormatParameters).toArray(NamePattern[]::new);
+            Set<Field> nameFields = nameObject.getAvailableFields();
+            int bestMatchIdx = -1;
+            int bestMatchSize = -1;
 
-            // for now, just return the first (with valid objects should never be empty
+            for (int i = 0; i < namePatterns.length; i++) {
+                NamePattern pattern = namePatterns[i];
+                Set<Field> patternFields = pattern.getFields();
 
-            return resultSet.iterator().next();
+                SetView<Field> intersection = Sets.intersection(nameFields, patternFields);
+                int matchSize = intersection.size();
+
+                if ((matchSize > bestMatchSize) /* better match */
+                    || (matchSize == bestMatchSize
+                        && patternFields.size() < namePatterns[bestMatchIdx].getFieldsSize()) /* equal match, but less "extra" fields */) {
+                    bestMatchSize = matchSize;
+                    bestMatchIdx = i;
+
+                    result = pattern;
+                }
+            }
+
+            return result;
         }
 
         public Collection<NamePattern> getBestMatchSet(FormatParameters nameFormatParameters) {
-
-            // Sift through the options to get the first one that best matches nameObjectFields
 
             for (Entry<ParameterMatcher, Collection<NamePattern>> parametersAndPatterns : parameterMatcherToNamePattern.asMap().entrySet()) {
                 ParameterMatcher parameters = parametersAndPatterns.getKey();
@@ -796,6 +866,7 @@ public class PersonNameFormatter {
                     return parametersAndPatterns.getValue();
                 }
             }
+            
             return null; // for now; this will only happen if the NamePatternData is invalid
         }
 

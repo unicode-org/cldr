@@ -33,6 +33,8 @@ public class TestPersonNameFormatter extends TestFmwk{
 
     private final NameObject sampleNameObject1 = new SimpleNameObject(
         "locale=fr, prefix=Mr., given=John, given2-initial=B, given2= Bob, surname=Smith, surname2= Barnes Pascal, suffix=Jr.");
+    private final NameObject sampleNameObject2 = new SimpleNameObject(
+        "locale=fr, prefix=Mr., given=John, surname=Smith, surname2= Barnes Pascal, suffix=Jr.");
 
     private void check(PersonNameFormatter personNameFormatter, NameObject nameObject, String nameFormatParameters, String expected) {
         FormatParameters nameFormatParameters1 = FormatParameters.from(nameFormatParameters);
@@ -54,15 +56,45 @@ public class TestPersonNameFormatter extends TestFmwk{
             localeToOrder,
             "length=short medium; style=formal; usage=addressing", "{given} {given2-initial}. {surname}",
             "length=short medium; style=formal; usage=addressing", "{given} {surname}",
-            "", "{prefix} {given} {given2} {surname} {surname2} {suffix}"
-            );
+            "", "{prefix} {given} {given2} {surname} {surname2} {suffix}");
 
         PersonNameFormatter personNameFormatter = new PersonNameFormatter(namePatternData);
 
         check(personNameFormatter, sampleNameObject1, "length=short; style=formal; usage=addressing", "John B. Smith");
+        check(personNameFormatter, sampleNameObject2, "length=short; style=formal; usage=addressing", "John Smith");
         check(personNameFormatter, sampleNameObject1, "length=long; style=formal; usage=addressing", "Mr. John Bob Smith Barnes Pascal Jr.");
 
         checkFormatterData(personNameFormatter);
+    }
+    
+    public void TestNamePatternParserThrowsWhenInvalidPatterns() {
+        final String[] invalidPatterns = new String[] {
+            "{",
+            "}",
+            "{}",
+            "\\",
+            "blah {given", "blah given}",
+            "blah {given\\}",                           /* blah {given\} */
+            "blah {given} yadda {}",
+            "blah \\n"                                  /* blah \n */
+        };
+        for (final String pattern : invalidPatterns) {
+            assertThrows(String.format("Pattern '%s'", pattern), () -> {
+                NamePattern.from(pattern);
+            });
+        }
+    }
+    
+    public void TestNamePatternParserRountripsValidPattern() {
+        final String[] validPatterns = new String[] {
+            "{given} {given2-initial}. {surname}",
+            "no \\{fields\\} pattern",                  /* no \{fields\} pattern */
+            "{given} \\\\ {surname}"                    /* {given} \\ {surname} */
+        };
+        for (final String pattern : validPatterns) {
+            NamePattern namePattern = NamePattern.from(pattern);
+            assertEquals("Failed to roundtrip valid pattern", String.format("\"%s\"", pattern), namePattern.toString());
+        }
     }
 
     public void TestWithCLDR() {
@@ -80,6 +112,7 @@ public class TestPersonNameFormatter extends TestFmwk{
      * Check that no exceptions happen in expansion and compaction.
      * In verbose mode (-v), show results.
      */
+
     private void checkFormatterData(PersonNameFormatter personNameFormatter) {
         // check that no exceptions happen
         // sort by the output patterns
@@ -117,7 +150,6 @@ public class TestPersonNameFormatter extends TestFmwk{
         logln(sb.toString());
     }
 
-
     private <T> void showPattern(String prefix, Iterable<T> iterable, StringBuilder sb) {
         for (T item : iterable) {
             sb.append(prefix + "\t\t︎" + item + "\n");
@@ -153,6 +185,16 @@ public class TestPersonNameFormatter extends TestFmwk{
         T first = all.iterator().next();
         result.remove(first);
         return result;
+    }
+
+    private void assertThrows(String subject, Runnable code) {
+        try {
+            code.run();
+            fail(String.format("%s was supposed to throw an exception.", subject));
+        }
+        catch (Exception e) {
+            assertTrue("Exception was thrown as expected.", true);
+        }
     }
 
     // TODO Mark test that the order of the NamePatterns is maintained when expanding, compacting

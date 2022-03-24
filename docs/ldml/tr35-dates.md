@@ -595,8 +595,10 @@ Date/Time formats have the following form:
             . . .
         </availableFormats>
         <appendItems>
-            <appendItem request="G">{0} {1}</appendItem>
-            <appendItem request="w">{0} ({2}: {1})</appendItem>
+            <appendItem request="Day">{0} ({2}: {1})</appendItem>
+            <appendItem request="Day-Of-Week">{0} {1}</appendItem>
+            <appendItem request="Era">{0} {1}</appendItem>
+            <appendItem request="Hour">{0} ({2}: {1})</appendItem>
             . . .
         </appendItems>
     </dateTimeFormats>
@@ -692,13 +694,13 @@ The dateFormatItems inherit from their parent locale, so the inherited items nee
 
 ##### <a name="Matching_Skeletons" href="#Matching_Skeletons">2.6.2.1 Matching Skeletons</a>
 
-It is not necessary to supply dateFormatItems with skeletons for every field length; fields in the skeleton and pattern are expected to be expanded in parallel to handle a request.
+It is not necessary to supply `dateFormatItem`s with skeletons for every field length; fields in the skeleton and pattern are expected to be adjusted in parallel to handle a request.
 
-Typically a “best match” is found using a closest distance match, such as:
+Typically a “best match” from requested skeleton to the `id` portion of a `dateFormatItem` is found using a closest distance match, such as:
 
-1. Symbols requesting a best choice for the locale are replaced.
+1. Skeleton symbols requesting a best choice for the locale are replaced.
    * j → one of {H, k, h, K}; C → one of {a, b, B}
-2. For fields with symbols representing the same type (year, month, day, etc):
+2. For skeleton and `id` fields with symbols representing the same type (year, month, day, etc):
    1. Most symbols have a small distance from each other.
       * M ≅ L; E ≅ c; a ≅ b ≅ B; H ≅ k ≅ h ≅ K; ...
    2. Width differences among fields, other than those marking text vs numeric, are given small distance from each other.
@@ -709,21 +711,21 @@ Typically a “best match” is found using a closest distance match, such as:
    4. Symbols representing substantial differences (week of year vs week of month) are given much larger a distances from each other.
       * d ≋ D; ...
 3. A requested skeleton that includes both seconds and fractional seconds (e.g. “mmssSSS”) is allowed to match a dateFormatItem skeleton that includes seconds but not fractional seconds (e.g. “ms”). In this case the requested sequence of ‘S’ characters (or its length) should be retained separately and used when adjusting the pattern, as described below.
-4. Otherwise, missing or extra fields cause a match to fail. (But see **[Missing Skeleton Fields](#Missing_Skeleton_Fields)** below).
+4. Otherwise, missing or extra fields between requested skeleton and `id` cause a match to fail. (But see **[Missing Skeleton Fields](#Missing_Skeleton_Fields)** below).
 
-Once a skeleton match is found, the corresponding pattern is used, but with adjustments. Consider the following dateFormatItem:
+Once a best match is found between requested skeleton and `dateFormatItem` `id`, the corresponding `dateFormatItem` pattern is used, but with adjustments primarily to make the pattern field lengths match the skeleton field lengths. Consider the following `dateFormatItem`:
 
 ```xml
 <dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
 ```
 
-If this is the best match for yMMMMd, pattern is automatically expanded to produce the pattern "d MMMM y" in response to the request. Of course, if the desired behavior is that a request for yMMMMd should produce something _other_ than "d MMMM y", a separate `dateFormatItem` must be present, for example:
+If this is the best match for yMMMMd, the pattern is automatically expanded to produce a pattern "d MMMM y" in response to the request. Of course, if the desired behavior is that a request for yMMMMd should produce something _other_ than "d MMMM y", a separate `dateFormatItem` must be present, for example:
 
 ```xml
 <dateFormatItem id="yMMMMd">d 'de' MMMM 'de' y</dateFormatItem>
 ```
 
-However, such automatic expansions should never convert a numeric element in the pattern to an alphabetic element. Consider the following dateFormatItem:
+However, when the best-match `dateFormatItem` has an alphabetic field (such as MMM or MMMM) that corresponds to a numeric field in the pattern (such as M or MM), that numeric field in the pattern should _not_ be adjusted to match the skeleton length, and vice versa; i.e. adjustments should _never_ convert a numeric element in the pattern to an alphabetic element, or the opposite. Consider the following dateFormatItem:
 
 ```xml
 <dateFormatItem id="yMMM">y年M月</dateFormatItem>
@@ -2254,6 +2256,6 @@ The meaning of symbol fields should be easy to determine; the problem is determi
 
 * * *
 
-Copyright © 2001–2021 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode [Terms of Use](https://unicode.org/copyright.html) apply.
+Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode [Terms of Use](https://unicode.org/copyright.html) apply.
 
 Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.

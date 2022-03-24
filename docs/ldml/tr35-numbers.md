@@ -79,6 +79,10 @@ The LDML specification is divided into the following parts:
     *   5.2 [Plural Ranges](#Plural_Ranges)
 *   6 [Rule-Based Number Formatting](#Rule-Based_Number_Formatting)
 *   7 [Parsing Numbers](#Parsing_Numbers)
+*   8 [Number Range Formatting](#Number_Range_Formatting)
+    *   8.1 [Approximate Number Formatting](#Approximate_Number_Formatting)
+    *   8.2 [Collapsing Number Ranges](#Collapsing_Number_Ranges)
+    *   8.3 [Range Pattern Processing](#Range_Pattern_Processing)
 
 ## 1 <a name="Numbering_Systems" href="#Numbering_Systems">Numbering Systems</a>
 
@@ -441,7 +445,7 @@ The miscPatterns supply additional patterns for special purposes. The currently 
 
 **approximately**
 
-> indicates an approximate number, such as: “~99”
+> indicates an approximate number, such as: “\~99”. This pattern is not currently in use; see ICU-20163.
 
 **atMost**
 
@@ -1032,7 +1036,7 @@ In addition, an "other" tag is always implicitly defined to cover the forms not 
 
 These rules specify that Russian has a "one" form (for 1, 21, 31, 41, 51, …), a "few" form (for 2–4, 22–24, 32–34, …), and implicitly an "other" form (for everything else: 0, 5–20, 25–30, 35–40, …, decimals). Russian does not need additional separate forms for zero, two, or many, so these are not defined.
 
-A source number represents the visual appearance of the digits of the result. In text, it can be represented by the EBNF for decimalValue. Note that the same double number can be represented by multiple source numbers. For example, "1.0" and "1.00" are different source numbers, but there is only one double number that they correspond to: 1.0d == 1.00d. As another example, 1e3d == 1000d, but the source numbers "1e3" and "1000" are different, and can have different plural categories. So the input to the plural rules carries more information than a computer double. The plural category for negative numbers is calculated according to the absolute value of the source number, and leading integer digits don't have any effect on the plural category calculation. (This may change in the future, if we find languages that have different behavior.)
+A source number represents the visual appearance of the digits of the result. In text, it can be represented by the EBNF for sampleValue. Note that the same double number can be represented by multiple source numbers. For example, "1.0" and "1.00" are different source numbers, but there is only one double number that they correspond to: 1.0d == 1.00d. As another example, 1e3d == 1000d, but the source numbers "1e3" and "1000" are different, and can have different plural categories. So the input to the plural rules carries more information than a computer double. The plural category for negative numbers is calculated according to the absolute value of the source number, and leading integer digits don't have any effect on the plural category calculation. (This may change in the future, if we find languages that have different behavior.)
 
 Plural categories may also differ according to the visible decimals. For example, here are some of the behaviors exhibited by different languages:
 
@@ -1067,7 +1071,10 @@ Usage example: In English (which only defines language-specific rules for “one
 
 ### 5.1 <a name="Plural_rules_syntax" href="#Plural_rules_syntax">Plural rules syntax</a>
 
-The xml value for each pluralRule is a _condition_ with a boolean result that specifies whether that rule (i.e. that plural form) applies to a given numeric value _n_, where n can be expressed as a decimal fraction or with compact decimal formatting, denoted by a special notation in the syntax, e.g., “1.2c6” for “1.2M”. Clients of CLDR may express all the rules for a locale using the following syntax:
+The xml value for each pluralRule is a _condition_ with a boolean result.
+That value specifies whether that rule (i.e. that plural form) applies to a given _source number N_ in sampleValue syntax, where _N_ can be expressed as a decimal fraction or with compact decimal formatting.
+The compact decimal formatting is denoted by a special notation in the syntax, e.g., “1.2c6” for “1.2M”. 
+Clients of CLDR may express all the rules for a locale using the following syntax:
 
 ```
 rules         = rule (';' rule)*
@@ -1102,30 +1109,35 @@ digit           = [0-9]
 digitPos        = [1-9]
 ```                
 
-* Whitespace (defined as Unicode [Pattern_White_Space](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5Cp%7BPattern_White_Space%7D)) can occur between or around any of the above tokens, with the exception of the tokens in value, digit, and decimalValue.
+* Whitespace (defined as Unicode [Pattern_White_Space](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5Cp%7BPattern_White_Space%7D)) can occur between or around any of the above tokens, with the exception of the tokens in value, digit, and sampleValue.
 * In the syntax, **and** binds more tightly than **or**. So **X or Y and Z** is interpreted as **(X or (Y and Z))**.
+  * For example, e = 0 and i != 0 and i % 1000000 = 0 and *+v = 0+* or e != 0..5 is parsed as if it were (e = 0 and i != 0 and i % 1000000 = 0 and v = 0) or (e != 0..5)
 * Each plural rule must be written to be self-contained, and not depend on the ordering. Thus rules must be mutually exclusive; for a given numeric value, only one rule can apply (i.e., the condition can only be true for one of the pluralRule elements. Each keyword can have at most one condition. The 'other' keyword must have an empty condition: it is only present for samples.
 * The samples should be included, since they are used by client software for samples and determining whether the keyword has finite values or not.
 * The 'other' keyword must have no condition, and all other keywords must have a condition.
 
 #### 5.1.1 <a name="Operands" href="#Operands">Operands</a>
 
-The operands correspond to features of the source number, and have the following meanings.
+The operands are numeric values corresponding to features of the *source number N*, and have the following meanings given in the table below. 
+Note that, contrary to source numbers, operands are treated numerically.
+Although some of them are used to describe insignificant 0s in the source number, any insignificant 0s in the operands themselves are ignored, e.g., f=03 is equivalent to f=3.
 
 ##### <a name="Plural_Operand_Meanings" href="#Plural_Operand_Meanings">Plural Operand Meanings</a>
 
 | Symbol | Value |
 | --- | --- |
-| n | absolute value of the source number. |
-| i | integer digits of n. |
-| v | number of visible fraction digits in n, _with_ trailing zeros.* |
-| w | number of visible fraction digits in n, _without_ trailing zeros.* |
-| f | visible fraction digits in n, _with_ trailing zeros.* |
-| t | visible fraction digits in n, _without_ trailing zeros.* |
+| n | the absolute value of N.* |
+| i | the integer digits of N.* |
+| v | the number of visible fraction digits in N, _with_ trailing zeros.* |
+| w | the number of visible fraction digits in N, _without_ trailing zeros.* |
+| f | the visible fraction digits in N, _with_ trailing zeros, expressed as an integer.* |
+| t | the visible fraction digits in N, _without_ trailing zeros, expressed as an integer.* |
 | c | compact decimal exponent value: exponent of the power of 10 used in compact decimal formatting. |
-| e | currently, synonym for ‘c’. however, may be redefined in the future. |
+| e | a deprecated synonym for ‘c’. Note: it may be redefined in the future. |
 
-\* If there is a compact decimal exponent value (‘c’), then the f, t, v, and w values are computed _after_ shifting the decimal point in the original by the ‘c’ value. So for 1.2c3, the f, t, v, and w values are the same as those of 1200:  i=1200 and f=0. Similarly, for 1.2005c3 has i=1200 and f=5 (corresponding to 1200.5).
+\* If there is a compact decimal exponent value (‘c’), then the n, i, f, t, v, and w values are computed _after_ shifting the decimal point in the original by the ‘c’ value. 
+So for 1.2c3, the n, i, f, t, v, and w values are the same as those of 1200:  i=1200 and f=0. 
+Similarly, 1.2005c3 has i=1200 and f=5 (corresponding to 1200.5).
 
 ##### <a name="Plural_Operand_Examples" href="#Plural_Operand_Examples">Plural Operand Examples</a>
 
@@ -1233,6 +1245,8 @@ The `pluralRanges` element provides information allowing an implementation to de
 
 The data has been gathered presuming that in any usage, the start value is strictly less than the end value, and that no values are negative. Results for any cases that do not meet these criteria are undefined.
 
+For the formatting of number ranges, see <a name="Number_Range_Formatting" href="#Number_Range_Formatting">Number Range Formatting</a>.
+
 ## 6 <a name="Rule-Based_Number_Formatting" href="#Rule-Based_Number_Formatting">Rule-Based Number Formatting</a>
 
 ```xml
@@ -1315,8 +1329,83 @@ Here is a set of heuristic rules that may be helpful:
 * A currency symbol in the input should be interpreted as the longest match found in the set of possible currency symbols.
 * Especially in cases of ambiguity, the user's input should be echoed back, properly formatted according to the locale, before it is actually used for anything.
 
+## 8 <a name="Number_Range_Formatting" href="#Number_Range_Formatting">Number Range Formatting</a>
+
+Often ranges of numbers are presented to users, such as in “Length: 3.2–4.5 centimeters”. This means any length from 3.2 cm to 4.5 cm, inclusive.
+
+To format a number range, the following steps are taken:
+
+1. Format the lower bound and the upper bound independently following the steps in [Number Format Patterns](#Number_Format_Patterns), preserving semantic annotations\*.
+1. If the resulting values are identical, stop evaluating these steps and, instead, perform the steps in [Approximate Number Formatting](#Approximate_Number_Formatting).
+    1. Note: This behavior may be customized in order to, for example, print the range despite the endpoints being identical. However, a spec-compliant implementation must support approximate number formatting.
+1. Perform the steps in [Collapsing Number Ranges](#Collapsing_Number_Ranges), obtaining modified *lower* and *upper* values.
+1. Obtain a number range pattern by following the steps in [Range Pattern Processing](#Range_Pattern_Processing).
+1. Substitute *lower* as `{0}` and *upper* as `{1}` into the range pattern from the previous step.
+
+\* Semantic annotations are discussed in [Collapsing Number Ranges](#Collapsing_Number_Ranges).
+
+For plural rule selection of number ranges, see [Plural Ranges](#Plural_Ranges).
+
+### 8.1 <a name="Approximate_Number_Formatting" href="#Approximate_Number_Formatting">Approximate Number Formatting</a>
+
+*Approximate number formatting* refers to a specific format of numbers in which the value is understood to not be exact; for example, "\~5 minutes".
+
+To format an approximate number, follow the normal number formatting procedure in Number Format Patterns](#Number_Format_Patterns), but substitute the `approximatelySign` from [Number Symbols](#Number_Symbols) in for the minus sign placeholder.
+
+If the number is negative, or if the formatting options request the sign to be displayed, *prepend* the `approximatelySign` to the plus or minus sign before substituting it into the pattern. For example, "\~-5" means "approximately negative five". This procedure may change in the future.
+
+### 8.2 <a name="Collapsing_Number_Ranges" href="#Collapsing_Number_Ranges">Collapsing Number Ranges</a>
+
+*Collapsing* a number range refers to the process of removing duplicated information in the *lower* and *upper* values. For example, if the lower string is "3.2 centimeters" and the upper string is "4.5 centimeters", it is desirable to remove the extra "centimeters" token.
+
+This operation requires *semantic annotations* on the formatted value. The exact form of the semantic annotations is implementation-dependent. However, implementations may consider the following broad categories of tokens:
+
+1. Numerical value, including decimal and grouping separators
+1. Sign symbol
+1. Scientific or compact notation
+1. Unit of measurement
+
+For example, consider the string `-5.3M US dollars`. It may be annotated as follows:
+
+- `-` → sign symbol
+- `5.3` → numerical value
+- `M` → compact notation
+- `US dollars` → unit of measurement for the currency USD
+
+Two tokens are *semantically equivalent* if they have the same *semantic annotations*, even if they are not the exact same string. For example:
+
+1. "centimeter" is semantically equivalent to "centimeters".
+1. "K" (the thousands symbol in compact decimals) is NOT semantically equivalent to "K" (the measurement unit Kelvin).
+
+The above description describes the expected output. Internally, the implementation may determine the equivalent units of measurement by passing the codes back from the number formatters, allowing for a precise determination of "semantically equivalent".
+
+Two semantically equivalent tokens can be *collapsed* if they appear at the start of both values or the end of both values. However, the implementation may choose different levels of aggressiveness with regard to collapsing tokens. The currently recommended heuristic is:
+
+1. Only collapse semantically equivalent *unit of measurement* tokens. This is to avoid ambiguous strings such as "3–5K" (could represent 3–5000 or 3000–5000).
+1. Only collapse if the tokens are more than one code point in length. This is to increase clarity of strings such as "$3–$5".
+
+These heuristics may be refined in the future.
+
+**To collapse tokens:** Remove the token from both values, and then re-compute the token based on the number range. If the token depends on the plural form, follow [Plural Ranges](#Plural_Ranges) to calculate the correct form. If the tokens originated at the beginning of the string, prepend the new token to the beginning of the *lower* string; otherwise, append the new token to the end of the *upper* string.
+
+### 8.3 <a name="Range_Pattern_Processing" href="#Range_Pattern_Processing">Range Pattern Processing</a>
+
+To obtain a number range pattern, the following steps are taken:
+
+1. Load the range pattern found in [Miscellaneous Patterns](#Miscellaneous_Patterns).
+1. Optionally add spacing to the range pattern.
+
+To determine whether to add spacing, the currently recommended heuristic is:
+
+1. If the *lower* string ends with a character other than a digit, or if the *upper* string begins with a character other than a digit.
+2. If the range pattern does not contain a character having the `White_Space` binary Unicode property after the `{0}` or before the `{1}` placeholders.
+
+These heuristics may be refined in the future.
+
+To add spacing, insert a non-breaking space (U+00A0) at the positions in item 2 above.
+
 * * *
 
-Copyright © 2001–2021 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode [Terms of Use](https://unicode.org/copyright.html) apply.
+Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode [Terms of Use](https://unicode.org/copyright.html) apply.
 
 Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.

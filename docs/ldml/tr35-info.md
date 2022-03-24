@@ -486,7 +486,7 @@ That is, this data provides recommended fallbacks for use when a charset or supp
 
 ## 8 <a name="Coverage_Levels" href="#Coverage_Levels">Coverage Levels</a>
 
-The following describes the structure used to set coverage levels used for CLDR. 
+The following describes the structure used to set coverage levels used for CLDR.
 That structure is primarily intended for internal use in CLDR tooling — it is not anticipated that users of CLDR data would need it.
 
 Each level adds to what is in the lower level. This list will change between releases of CLDR, and more detailed information for each level is on [Coverage Levels](https://cldr.unicode.org/index/cldr-spec/coverage-levels).
@@ -501,7 +501,7 @@ Each level adds to what is in the lower level. This list will change between rel
 | 80    | modern        | UI Locale — Contains all fields in normal modern use, including all CLDR locale names, country names, timezone names, currencies in use, and so on. |
 | 100   | comprehensive | Above modern level; typically far more data than is needed in practice. |
 
-Levels 40 through 80 are based on the definitions and specifications listed below. 
+Levels 40 through 80 are based on the definitions and specifications listed below.
 
 ```xml
 <!ELEMENT coverageLevels ( approvalRequirements, coverageVariable*, coverageLevel* ) >
@@ -676,7 +676,7 @@ This element provides information as to parts of locale IDs that should be subst
 
 Attribute values for the \*Alias values include the following:
 
-##### <a name="Alias_Attribute_Values" href="#Alias_Attribute_Values">Alias Attribute Values</a>
+###### <a name="Alias_Attribute_Values" href="#Alias_Attribute_Values">Alias Attribute Values</a>
 
 | Attribute   | Value         | Description |
 | ----------- | ------------- | ----------- |

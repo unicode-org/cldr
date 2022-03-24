@@ -184,9 +184,14 @@ public class TestPersonNameFormatter extends TestFmwk{
             boolean added = items.add(item.toString());
             assertTrue("label test\t"+ item + "\t" + label + "\t", added);
         }
-        // test just one example for ParameterMatcher, since there are two many combinations
+
+        FormatParameters testFormatParameters = new FormatParameters(Length.short_name, Style.formal, Usage.sorting, Order.givenFirst);
+        assertEquals("label test", "short-sorting-formal-givenFirst",
+            testFormatParameters.toLabel());
+
+        // test just one example for ParameterMatcher, since there are too many combinations
         ParameterMatcher test = new ParameterMatcher(removeFirst(Length.ALL), removeFirst(Style.ALL), removeFirst(Usage.ALL), removeFirst(Order.ALL));
-        assertEquals("label test", "medium-short-monogram-monogramNarrow-informal-addressing-sorting-givenFirst",
+        assertEquals("label test", "medium-short-monogram-monogramNarrow-addressing-sorting-informal-givenFirst",
             test.toLabel());
     }
 

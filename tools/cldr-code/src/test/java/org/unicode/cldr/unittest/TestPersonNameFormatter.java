@@ -8,7 +8,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import org.unicode.cldr.test.ExampleGenerator;
-import org.unicode.cldr.tool.ToolConfig;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
@@ -29,7 +29,7 @@ import com.ibm.icu.util.ULocale;
 
 public class TestPersonNameFormatter extends TestFmwk{
 
-    private static final CLDRFile ENGLISH = ToolConfig.getToolInstance().getEnglish();
+    private static final CLDRFile ENGLISH = CLDRConfig.getInstance().getEnglish();
 
     public static void main(String[] args) {
         new TestPersonNameFormatter().run(args);

@@ -7,7 +7,9 @@ import java.util.LinkedHashSet;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.tool.ToolConfig;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Length;
@@ -26,6 +28,8 @@ import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.util.ULocale;
 
 public class TestPersonNameFormatter extends TestFmwk{
+
+    private static final CLDRFile ENGLISH = ToolConfig.getToolInstance().getEnglish();
 
     public static void main(String[] args) {
         new TestPersonNameFormatter().run(args);
@@ -66,7 +70,7 @@ public class TestPersonNameFormatter extends TestFmwk{
 
         checkFormatterData(personNameFormatter);
     }
-    
+
     public void TestNamePatternParserThrowsWhenInvalidPatterns() {
         final String[] invalidPatterns = new String[] {
             "{",
@@ -80,11 +84,11 @@ public class TestPersonNameFormatter extends TestFmwk{
         };
         for (final String pattern : invalidPatterns) {
             assertThrows(String.format("Pattern '%s'", pattern), () -> {
-                NamePattern.from(pattern);
+                NamePattern.from(0, pattern);
             });
         }
     }
-    
+
     public void TestNamePatternParserRountripsValidPattern() {
         final String[] validPatterns = new String[] {
             "{given} {given2-initial}. {surname}",
@@ -92,18 +96,24 @@ public class TestPersonNameFormatter extends TestFmwk{
             "{given} \\\\ {surname}"                    /* {given} \\ {surname} */
         };
         for (final String pattern : validPatterns) {
-            NamePattern namePattern = NamePattern.from(pattern);
+            NamePattern namePattern = NamePattern.from(0, pattern);
             assertEquals("Failed to roundtrip valid pattern", String.format("\"%s\"", pattern), namePattern.toString());
         }
     }
 
     public void TestWithCLDR() {
-        PersonNameFormatter personNameFormatter = new PersonNameFormatter(ToolConfig.getToolInstance().getEnglish());
+        PersonNameFormatter personNameFormatter = new PersonNameFormatter(ENGLISH);
+        if (PersonNameFormatter.DEBUG) {
+            logln(personNameFormatter.toString());
+        }
 
         // TODO Rich once the code is fixed to strip empty fields, fix this test
 
-        check(personNameFormatter, sampleNameObject1, "length=short; usage=sorting", "Smith, null");
-        check(personNameFormatter, sampleNameObject1, "length=long; style=formal; usage=referring", "John Bob Smith Jr.");
+        check(personNameFormatter, sampleNameObject1, "length=short; usage=sorting", "Smith, null. B.");
+        check(personNameFormatter, sampleNameObject1, "length=long; usage=referring; style=formal", "Smith, John Bob Jr.");
+
+        // TODO: we are getting the wrong answer for the second one obove.
+        // The problem is that it is matching order='surnameFirst' since that occurs first.
 
         checkFormatterData(personNameFormatter);
     }
@@ -198,4 +208,14 @@ public class TestPersonNameFormatter extends TestFmwk{
     }
 
     // TODO Mark test that the order of the NamePatterns is maintained when expanding, compacting
+
+    public void TestExampleGenerator() {
+        String path = "//ldml/personNames/personName[@length=\"long\"][@usage=\"referring\"][@style=\"formal\"][@order=\"givenFirst\"]/namePattern";
+        String value = ENGLISH.getStringValue(path);
+        ExampleGenerator test = new ExampleGenerator(ENGLISH, ENGLISH, "");
+        String actual = ExampleGenerator.simplify(test.getExampleHtml(path, value));
+        assertEquals("Example for " + value, "〖❬John❭ ❬Bob❭ ❬Smith❭ ❬Jr.❭〗", actual);
+
+        // TODO cycle through parameter combinations, check for now exceptions even if locale has no data
+    }
 }

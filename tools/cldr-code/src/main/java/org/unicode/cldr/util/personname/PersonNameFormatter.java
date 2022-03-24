@@ -8,18 +8,16 @@ import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
-import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.function.Function;
 
-import org.checkerframework.checker.units.qual.C;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
@@ -35,9 +33,8 @@ import com.google.common.collect.LinkedListMultimap;
 import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
-import com.google.common.collect.TreeMultimap;
 import com.google.common.collect.Sets.SetView;
-import com.ibm.icu.impl.Pair;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.util.ULocale;
 
@@ -49,7 +46,7 @@ import com.ibm.icu.util.ULocale;
 
 public class PersonNameFormatter {
 
-    private static final boolean DEBUG = System.getProperty("PersonNameFormatter.DEBUG") != null;
+    public static final boolean DEBUG = System.getProperty("PersonNameFormatter.DEBUG") != null;
 
     public enum Field {
         prefix,
@@ -132,6 +129,8 @@ public class PersonNameFormatter {
     public static final Joiner JOIN_SPACE = Joiner.on(' ');
     public static final Joiner JOIN_DASH = Joiner.on('-');
     public static final Joiner JOIN_SEMI = Joiner.on("; ");
+    public static final Joiner JOIN_LFTB = Joiner.on("\n\t\t");
+
 
 
     /**
@@ -272,6 +271,7 @@ public class PersonNameFormatter {
      * Immutable
      */
     public static class NamePattern implements Comparable<NamePattern> {
+        private final int rank;
         private final List<NamePatternElement> elements;
         private final Set<Field> fields;
 
@@ -305,7 +305,8 @@ public class PersonNameFormatter {
             return result.toString();
         }
 
-        public NamePattern(List<NamePatternElement> elements) {
+        public NamePattern(int rank, List<NamePatternElement> elements) {
+            this.rank = rank;
             this.elements = elements;
             Set<Field> result = EnumSet.noneOf(Field.class);
             for (NamePatternElement element : elements) {
@@ -318,13 +319,13 @@ public class PersonNameFormatter {
         }
 
         /** convenience method for testing */
-        public static NamePattern from(Object... elements) {
-            return new NamePattern(makeList(elements));
+        public static NamePattern from(int rank, Object... elements) {
+            return new NamePattern(rank, makeList(elements));
         }
 
         /** convenience method for testing */
-        public static NamePattern from(String patternString) {
-            return new NamePattern(parse(patternString));
+        public static NamePattern from(int rank, String patternString) {
+            return new NamePattern(rank, parse(patternString));
         }
 
         private static final Set<Character> ALLOWED_ESCAPED_CHARACTERS = new HashSet<>(Arrays.asList('\\', '{', '}'));
@@ -429,9 +430,18 @@ public class PersonNameFormatter {
          */
         public int compareTo(NamePattern o) {
             return ComparisonChain.start()
+                .compare(rank, o.rank)
                 .compare(fields, o.fields, Field.ITERABLE_COMPARE)
                 .compare(elements, o.elements, NamePatternElement.ITERABLE_COMPARE)
                 .result();
+        }
+        @Override
+        public boolean equals(Object obj) {
+            return compareTo((NamePattern)obj) == 0; // no need to optimize
+        }
+        @Override
+        public int hashCode() {
+            return Objects.hash(rank, fields, elements);
         }
     }
 
@@ -488,11 +498,11 @@ public class PersonNameFormatter {
             if (length != null) {
                 items.add("length='" + length + "'");
             }
-            if (style != null) {
-                items.add("style='" + style + "'");
-            }
             if (usage != null) {
                 items.add("usage='" + usage + "'");
+            }
+            if (style != null) {
+                items.add("style='" + style + "'");
             }
             if (order != null) {
                 items.add("order='" + order + "'");
@@ -536,8 +546,8 @@ public class PersonNameFormatter {
             static {
                 Set<FormatParameters> _data = new LinkedHashSet<>();
                 for (Length length : Length.values()) {
+                    for (Usage usage : Usage.values()) {
                     for (Style style : Style.values()) {
-                        for (Usage usage : Usage.values()) {
                             for (Order order : Order.values()) {
                                 _data.add(new FormatParameters(length, style, usage, order));
                             }
@@ -560,8 +570,8 @@ public class PersonNameFormatter {
         public int compareTo(FormatParameters other) {
             return ComparisonChain.start()
                 .compare(length, other.length)
-                .compare(style, other.style)
                 .compare(usage, other.usage)
+                .compare(style, other.style)
                 .compare(order, other.order)
                 .result();
         }
@@ -569,8 +579,8 @@ public class PersonNameFormatter {
         public String toLabel() {
             StringBuilder sb  = new StringBuilder();
             addToLabel(length, sb);
-            addToLabel(style, sb);
             addToLabel(usage, sb);
+            addToLabel(style, sb);
             addToLabel(order, sb);
             return sb.length() == 0 ? "any" : sb.toString();
         }
@@ -691,8 +701,8 @@ public class PersonNameFormatter {
         public String toString() {
             List<String> items = new ArrayList<>();
             showAttributes("length", lengths, items);
-            showAttributes("style", styles, items);
             showAttributes("usage", usages, items);
+            showAttributes("style", styles, items);
             showAttributes("order", orders, items);
             return items.isEmpty() ? "ANY" : JOIN_SPACE.join(items);
         }
@@ -700,8 +710,8 @@ public class PersonNameFormatter {
         public String toLabel() {
             StringBuilder sb  = new StringBuilder();
             addToLabel(lengths, sb);
-            addToLabel(styles, sb);
             addToLabel(usages, sb);
+            addToLabel(styles, sb);
             addToLabel(orders, sb);
             return sb.length() == 0 ? "any" : sb.toString();
         }
@@ -739,10 +749,16 @@ public class PersonNameFormatter {
 
         @Override
         public int compareTo(ParameterMatcher other) {
+            // special case MATCH_ALL to put at end
+            if (this.equals(MATCH_ALL)) {
+                return other.equals(MATCH_ALL) ? 0 : 1;
+            } else if (other.equals(MATCH_ALL)) {
+                return -1;
+            }
             return ComparisonChain.start()
                 .compare(lengths, other.lengths, Length.ITERABLE_COMPARE)
-                .compare(styles, other.styles, Style.ITERABLE_COMPARE)
                 .compare(usages, other.usages, Usage.ITERABLE_COMPARE)
+                .compare(styles, other.styles, Style.ITERABLE_COMPARE)
                 .compare(orders, other.orders, Order.ITERABLE_COMPARE)
                 .result();
         }
@@ -833,13 +849,15 @@ public class PersonNameFormatter {
 
             NamePattern result = null;
 
-            NamePattern[] namePatterns = getBestMatchSet(nameFormatParameters).toArray(NamePattern[]::new);
+            Collection<NamePattern> namePatterns = getBestMatchSet(nameFormatParameters);
+            if (namePatterns == null) {
+                // Internal error, should never happen with valid data
+                throw new IllegalArgumentException("Can't find " + nameFormatParameters + " in " + parameterMatcherToNamePattern);
+            }
             Set<Field> nameFields = nameObject.getAvailableFields();
-            int bestMatchIdx = -1;
             int bestMatchSize = -1;
 
-            for (int i = 0; i < namePatterns.length; i++) {
-                NamePattern pattern = namePatterns[i];
+            for (NamePattern pattern : namePatterns) {
                 Set<Field> patternFields = pattern.getFields();
 
                 SetView<Field> intersection = Sets.intersection(nameFields, patternFields);
@@ -847,10 +865,8 @@ public class PersonNameFormatter {
 
                 if ((matchSize > bestMatchSize) /* better match */
                     || (matchSize == bestMatchSize
-                        && patternFields.size() < namePatterns[bestMatchIdx].getFieldsSize()) /* equal match, but less "extra" fields */) {
+                        && patternFields.size() < result.getFieldsSize()) /* equal match, but less "extra" fields */) {
                     bestMatchSize = matchSize;
-                    bestMatchIdx = i;
-
                     result = pattern;
                 }
             }
@@ -866,7 +882,7 @@ public class PersonNameFormatter {
                     return parametersAndPatterns.getValue();
                 }
             }
-            
+
             return null; // for now; this will only happen if the NamePatternData is invalid
         }
 
@@ -901,7 +917,6 @@ public class PersonNameFormatter {
                 // Except for the final MATCH_ALL
                 // The following code starts with a list of all the items, and removes any that match
                 int matchCount = 0;
-                int matchAllCount = 0;
                 for (Iterator<FormatParameters> rest = remaining.iterator(); rest.hasNext(); ) {
                     FormatParameters item = rest.next();
                     if (key.matches(item)) {
@@ -913,7 +928,8 @@ public class PersonNameFormatter {
                     }
                 }
                 if (matchCount == 0 && !key.equals(ParameterMatcher.MATCH_ALL)) {
-                    throw new IllegalArgumentException("key is masked by previous values: " + key);
+                    throw new IllegalArgumentException("key is masked by previous values: " + key
+                        + ",\n\t" + JOIN_LFTB.join(formatParametersToNamePattern.entries()));
                 }
 
                 // Each entry in ParameterMatcher must have at least one NamePattern
@@ -943,9 +959,10 @@ public class PersonNameFormatter {
                 throw new IllegalArgumentException("Must have even number of strings, fields => pattern: " + Arrays.asList(formatParametersToNamePatterns));
             }
             ListMultimap<ParameterMatcher, NamePattern> _formatParametersToNamePatterns = LinkedListMultimap.create();
+            int rank = 0;
             for (int i = 0; i < count; i += 2) {
                 ParameterMatcher pm = ParameterMatcher.from(formatParametersToNamePatterns[i]);
-                NamePattern np = NamePattern.from(formatParametersToNamePatterns[i+1]);
+                NamePattern np = NamePattern.from(rank++, formatParametersToNamePatterns[i+1]);
                 _formatParametersToNamePatterns.put(pm, np);
             }
             return ImmutableListMultimap.copyOf(_formatParametersToNamePatterns);
@@ -1000,27 +1017,34 @@ public class PersonNameFormatter {
 
     public PersonNameFormatter(CLDRFile cldrFile) {
         ListMultimap<ParameterMatcher, NamePattern> formatParametersToNamePattern = LinkedListMultimap.create();
-        Map<Integer, Pair<ParameterMatcher, NamePattern>> ordered = new TreeMap<>();
+        Set<Pair<ParameterMatcher, NamePattern>> ordered = new TreeSet<>();
         // read out the data and order it properly
         for (String path : cldrFile) {
-            if (path.startsWith("//ldml/personName")) {
-                // eg //ldml/personNames/personName[@length="long"][@usage="sorting"]/namePattern[@_q="7"]
+            if (path.startsWith("//ldml/personNames")) {
+                // eg //ldml/personNames/personName[@length="long"][@usage="sorting"]/namePattern[alt="7"]
                 // value = {surname}, {given} {given2} {suffix}
                 String value = cldrFile.getStringValue(path);
                 XPathParts parts = XPathParts.getFrozenInstance(path);
-                int q = Integer.parseInt(parts.getAttributeValue(-1, "_q"));
+                final String altValue = parts.getAttributeValue(-1, "alt");
+                int rank = altValue == null ? 0 : Integer.parseInt(altValue);
                 ParameterMatcher pm = new ParameterMatcher(
                     hackFix(parts.getAttributeValue(-2, "length")),
                     parts.getAttributeValue(-2, "style"),
                     parts.getAttributeValue(-2, "usage"),
                     parts.getAttributeValue(-2, "order")
                     );
-                NamePattern np = NamePattern.from(value);
-                ordered.put(q, Pair.of(pm, np));
+                NamePattern np = NamePattern.from(rank, value);
+                if (np.toString().isBlank()) {
+                    throw new IllegalArgumentException("No emplty patterns allowed: " + pm);
+                }
+                boolean added = ordered.add(Pair.of(pm, np));
+                if (!added) {
+                    throw new IllegalArgumentException("Duplicate name pattern " + np + ", for " + pm);
+                }
             }
         }
-        for (Entry<Integer, Pair<ParameterMatcher, NamePattern>> entry : ordered.entrySet()) {
-            formatParametersToNamePattern.put(entry.getValue().first, entry.getValue().second);
+        for (Pair<ParameterMatcher, NamePattern> entry : ordered) {
+            formatParametersToNamePattern.put(entry.getFirst(), entry.getSecond());
         }
         // TODO Peter Add locale map to en.xml so we can read it
         ImmutableMap<ULocale, Order> localeToOrder = ImmutableMap.of();

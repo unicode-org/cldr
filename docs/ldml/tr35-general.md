@@ -818,8 +818,8 @@ This data is supplied in **Part 6: [Supplemental](tr35-info.md#Contents)**: [Sec
 
 ### 6.2 <a name="Unit_Identifiers" href="#Unit_Identifiers">Unit Identifiers</a>
 
-Units of measurement, such as _meter_, have defined programmatic identifiers as described in this section. 
-The main identifier is a _core unit identifier_, which encompasses a number of simpler types of identifiers as follows. 
+Units of measurement, such as _meter_, have defined programmatic identifiers as described in this section.
+The main identifier is a _core unit identifier_, which encompasses a number of simpler types of identifiers as follows.
 A secondary type of identifier is a _mixed unit identifier_, which combines a series of units such as _5° 30′_ or _3 feet 7 inches_.
 
 | Name             | Examples |
@@ -831,8 +831,8 @@ A secondary type of identifier is a _mixed unit identifier_, which combines a se
 | mixed unit ID    | foot-and-inch, degree-and-arc-minute-and-arc-second |
 
 
-There is currently a ‘long’ style of unit identifier corresponding to each _core unit identifier_, as illustrated below. 
-The only difference is that the long unit identifier adds a prefix which was used in the CLDR Survey Tool for grouping related identifiers together. 
+There is currently a ‘long’ style of unit identifier corresponding to each _core unit identifier_, as illustrated below.
+The only difference is that the long unit identifier adds a prefix which was used in the CLDR Survey Tool for grouping related identifiers together.
 The long unit identifers are used as a key in the translated unit names for locales, but dealing with these two styles is unnecessarily complicated, so the long unit identifiers are slated for deprecation (after replacing their use as a key for translations).
 
 | core unit ID | long unit ID |
@@ -840,25 +840,25 @@ The long unit identifers are used as a key in the translated unit names for loca
 | meter        | length-meter |
 | pound        | mass-pound   |
 | day          | duration-day |
- 
 
-The list of valid CLDR simple unit identifiers is found in _Section [3.11 Validity Data](tr35.md#Validity_Data)_. 
-These names should not be presented to end users, however: the translated names for different languages (or variants of English) are available in the CLDR localized data. 
-All syntactically valid CLDR unit identifiers values that are not listed in the validity data are reserved by CLDR for additional future units. 
+
+The list of valid CLDR simple unit identifiers is found in _Section [3.11 Validity Data](tr35.md#Validity_Data)_.
+These names should not be presented to end users, however: the translated names for different languages (or variants of English) are available in the CLDR localized data.
+All syntactically valid CLDR unit identifiers values that are not listed in the validity data are reserved by CLDR for additional future units.
 There is one exception: implementations that need to define their own unit identifiers can do so via _Section 6.6 [Private-Use Units](#Private_Use_Units)_.
 
-A core unit identifier that is not a simple unit is called a _complex unit_ (aka _compound unit_). 
-A complex unit identifier can be constructed from simple unit identifiers using multiplication (kilogram-meter) and division (kilogram-per-meter), powers (square-second), and prefixes (kilo-, 100-, kiBi). 
+A core unit identifier that is not a simple unit is called a _complex unit_ (aka _compound unit_).
+A complex unit identifier can be constructed from simple unit identifiers using multiplication (kilogram-meter) and division (kilogram-per-meter), powers (square-second), and prefixes (kilo-, 100-, kiBi).
 As usual, with division the part before the (first) -per- is called the _numerator_, and the part after it is called the _denominator_.
 
-The identifiers and unit conversion data are built to handle core unit IDs and mixed unit IDs based on their simple unit identifiers. 
+The identifiers and unit conversion data are built to handle core unit IDs and mixed unit IDs based on their simple unit identifiers.
 Thus they support converting generated units such as inch-pound-per-square-week into comparable units, such as newtons.
 
-Where a core unit ID or mixed unit ID does not have an explicit translation in CLDR, a mechanism is supplied for producing a generated translation from the translations for the simple unit identifiers. 
-See _Section 6.4 [Compound Units](#compound-units)_. 
-That can be used for less common units, such as _petasecond_. 
-However, the generated translations may have the wrong spelling in languages where orthographic changes are needed when combining words. 
-For example, “kilometer” can be formed in English from “kilo” and “meter”; the same process in Greek would combine “χιλιο” and “μέτρα” to get “χιλιομέτρα” — when the correct result is “χιλιόμετρα” (note the different location of the accent). 
+Where a core unit ID or mixed unit ID does not have an explicit translation in CLDR, a mechanism is supplied for producing a generated translation from the translations for the simple unit identifiers.
+See _Section 6.4 [Compound Units](#compound-units)_.
+That can be used for less common units, such as _petasecond_.
+However, the generated translations may have the wrong spelling in languages where orthographic changes are needed when combining words.
+For example, “kilometer” can be formed in English from “kilo” and “meter”; the same process in Greek would combine “χιλιο” and “μέτρα” to get “χιλιομέτρα” — when the correct result is “χιλιόμετρα” (note the different location of the accent).
 Thus the most commonly-used complex units have explicit translations in CLDR.
 
 * A power (square, cubic, pow4, etc) modifies one prefixed unit ID, and must occur immediately before it in the identifier: square-foot, not foot-square.
@@ -959,7 +959,7 @@ The formal syntax for identifiers is provided below.
             </ul></li>
             <li><em>Example:</em> foot</li>
         </ul></td></tr>
-		
+
 <tr><td>mixed_unit_identifier</td><td>:=</td>
     <td>(single_unit | pu_single_unit) ("-and-" (single_unit | pu_single_unit ))*
         <ul><li><em>Example: foot-and-inch</em></li></ul></td></tr>
@@ -984,8 +984,8 @@ Note that while the syntax allows for number_prefixes in multiple places, the ty
 
 ### 6.3 <a name="Example_Units" href="#Example_Units">Example Units</a>
 
-The following table contains examples of groupings and units currently defined by CLDR. 
-The units in CLDR are not comprehensive; it is anticipated that more will be added over time. 
+The following table contains examples of groupings and units currently defined by CLDR.
+The units in CLDR are not comprehensive; it is anticipated that more will be added over time.
 The complete list of supported units is in the validity data: see _Section [3.11 Validity Data](tr35.md#Validity_Data)_.
 
 | Type           | Core Unit Identifier     | Compound? | Sample Format  |
@@ -1240,7 +1240,7 @@ If there is no precomputed form, the following process in pseudocode is used to 
    10. If dimensionalityPrefixPattern is not empty
        1. Set coreUnit to be the combineLowercasing(locale, length, dimensionalityPrefixPattern, coreUnit)
    10. If multiplier is not empty
-       1. Combine the multiplier with coreUnit, using placeholder and placeholderPosition 
+       1. Combine the multiplier with coreUnit, using placeholder and placeholderPosition
    11. If the result is empty, set result to be coreUnit
    12. Otherwise set result to be format(timesPattern, result, coreUnit)
 5. Return result
@@ -2169,7 +2169,7 @@ Each pattern satisifies the following conditions:
 <ul>
     <li>it contains the placeholders <code>{0}</code>, <code>{1}</code>, and <code>{2}</code> ("3"-pattern only) in order</li>
     <li>"start" and "middle" patterns end with the <code>{1}</code> placeholder</li>
-    <li>"middle" and "end" patterns begin with the <code>{0}</code> placeholder</li> 
+    <li>"middle" and "end" patterns begin with the <code>{0}</code> placeholder</li>
 </ul>
 
 That is,
@@ -2336,7 +2336,7 @@ Example:
 </contextTransforms>
 ```
 
-##### <a name="contextTransformUsage_type_attribute_values" href="#contextTransformUsage_type_attribute_values">Element contextTransformUsage type attribute values</a>
+###### <a name="contextTransformUsage_type_attribute_values" href="#contextTransformUsage_type_attribute_values">Element contextTransformUsage type attribute values</a>
 
 | type attribute value             | Description |
 | -------------------------------- | ----------- |
@@ -2464,7 +2464,7 @@ The synthesized keywords can follow a similar process.
 
 Some examples for English data (v30) are given in the following table.
 
-##### Synthesized Emoji Sequence Names
+###### Synthesized Emoji Sequence Names
 
 | Sequence | Short Name | Keywords |
 | --------- | ---------- | -------- |
@@ -2518,7 +2518,7 @@ The character labels can be used for categories or groups of characters in a cha
 
 The following are special patterns used in composing labels.
 
-##### characterLabelPattern
+###### characterLabelPattern
 
 | Type          | English             | Description of the group specified. |
 | ------------- | ------------------- | ----------------------------------- |
@@ -2537,7 +2537,7 @@ The following are special patterns used in composing labels.
 
 The following are character labels. Where the meaning of the label is fairly clear (like "animal") or is in the Unicode glossary, it is omitted.
 
-##### characterLabel
+###### characterLabel
 
 | Type                        | English                 | Description of the group specified. |
 | --------------------------- | ----------------------- | ----------------------------------- |
@@ -2662,7 +2662,7 @@ The @scope attributes are targeted at messages created by computers, thus a feat
 
 Feature that classifies nouns in classes. This is grammatical gender, which may be assigned on the basis of sex in some languages, but may be completely separate in others. Also used to tag elements in CLDR that should agree with a particular gender of an associated noun. (adapted from: [linguistics-ontology.org/gold/2010/GenderProperty](http://linguistics-ontology.org/gold/2010/GenderProperty))
 
-#### Example
+###### Example
 
 ```xml
 <grammaticalFeatures targets="nominal" locales="es fr it pt">
@@ -2687,14 +2687,14 @@ Feature that classifies nouns in classes. This is grammatical gender, which may 
 
 Feature that encodes the syntactic (and sometimes semantic) relationship of a noun with the other constituents of the sentence. (adapted from [linguistics-ontology.org/gold/2010/CaseProperty](http://linguistics-ontology.org/gold/2010/CaseProperty))
 
-##### Example
+###### Example
 
 ```xml
 <grammaticalFeatures targets="nominal" locales="de">
    <grammaticalCase values="nominative accusative genitive dative"/>
 ```
 
-##### Values
+###### Values
 
 | Value              | Definition | References |
 | ------------------ | ---------- | ---------- |

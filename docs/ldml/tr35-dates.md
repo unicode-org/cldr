@@ -628,7 +628,7 @@ The `dateTimeFormat` element works like the dateFormats and timeFormats, except 
 
 When combining a standard date pattern with a standard time pattern, the type of dateTimeFormat used to combine them is determined by the type of the date pattern. For example:
 
-##### <a name="Date_Time_Combination_Examples" href="#Date_Time_Combination_Examples">Date-Time Combination Examples</a>
+###### <a name="Date_Time_Combination_Examples" href="#Date_Time_Combination_Examples">Date-Time Combination Examples</a>
 
 | Date-Time Combination   | dateTimeFormat            | Results |
 | ----------------------- | ------------------------- | ------- |
@@ -671,7 +671,7 @@ Locales that use 12-hour-cycle time formats with B may provide availableFormats 
 
 When matching a requested skeleton containing b or B to the skeletons actually available in the data, if there is no skeleton matching the specified day period field, then find a match in which the b or B matches an explicit or implicit 'a' in the skeleton, but replace the 'a' in the corresponding pattern with the requested day period b or B. The following table illustrates how requested skeletons map to patterns with different sets of `availableFormats` data:
 
-##### <a name="Mapping_Requested_Time_Skeletons_To_Patterns" href="#Mapping_Requested_Time_Skeletons_To_Patterns">Mapping Requested Time Skeletons To Patterns</a>
+###### <a name="Mapping_Requested_Time_Skeletons_To_Patterns" href="#Mapping_Requested_Time_Skeletons_To_Patterns">Mapping Requested Time Skeletons To Patterns</a>
 
 <!-- HTML: spanning columns, header cells on non-first row -->
 <table><tbody>
@@ -1066,7 +1066,7 @@ What is meant by the weekend varies from country to country. It is typically whe
 
 Each `weekOfPreference` element provides, for its specified locales, an ordered list of the preferred types of week designations for that set of locales. There are four types of week designations, each of which makes use of date patterns available in the locale, as follows:
 
-##### <a name="Week_Designation_Types" href="#Week_Designation_Types">Week Designation Types</a>
+###### <a name="Week_Designation_Types" href="#Week_Designation_Types">Week Designation Types</a>
 
 <!-- HTML: row spans -->
 <table><tbody>
@@ -1329,7 +1329,7 @@ For more information, see [[Data Formats](tr35.md#DataFormats)].
 
 The following subelements of `<timeZoneNames>` are used to control the fallback process described in [Using Time Zone Names](#Using_Time_Zone_Names).
 
-##### <a name="timeZoneNames_Elements_Used_for_Fallback" href="#timeZoneNames_Elements_Used_for_Fallback">&lt;timeZoneNames&gt; Elements Used for Fallback</a>
+###### <a name="timeZoneNames_Elements_Used_for_Fallback" href="#timeZoneNames_Elements_Used_for_Fallback">&lt;timeZoneNames&gt; Elements Used for Fallback</a>
 
 <table><tbody>
 <tr><th>Element Name</th><th>Data Examples</th><th>Results/Comment</th></tr>
@@ -1850,7 +1850,7 @@ A date pattern is a character string consisting of two types of elements:
 
 The following are examples:
 
-##### <a name="Date_Format_Pattern_Examples" href="#Date_Format_Pattern_Examples">Date Format Pattern Examples</a>
+###### <a name="Date_Format_Pattern_Examples" href="#Date_Format_Pattern_Examples">Date Format Pattern Examples</a>
 
 | Pattern | Result (in a particular locale) |
 | ------- | ------------------------------- |
@@ -1901,7 +1901,7 @@ Notes for the table below:
 * Any sequence of pattern characters other than those listed below is invalid. Invalid pattern fields should be handled for formatting and parsing as described in [Handling Invalid Patterns](tr35.md#Invalid_Patterns).
 * The examples in the table below are merely illustrative and may not reflect current actual data.
 
-##### <a name="Date_Field_Symbol_Table" href="#Date_Field_Symbol_Table">Date Field Symbol Table</a>
+###### <a name="Date_Field_Symbol_Table" href="#Date_Field_Symbol_Table">Date Field Symbol Table</a>
 
 <!-- HTML: spanned rows, spanned columns, vertical header cells -->
 <table><tbody>

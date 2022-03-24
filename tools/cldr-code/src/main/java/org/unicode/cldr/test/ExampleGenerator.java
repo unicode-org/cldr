@@ -52,8 +52,14 @@ import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.XListFormatter.ListTypeLength;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.personname.PersonNameFormatter.Field;
+import org.unicode.cldr.util.personname.PersonNameFormatter.ModifiedField;
+import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
+import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
+import org.unicode.cldr.util.personname.SimpleNameObject;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.BreakIterator;
@@ -454,6 +460,8 @@ public class ExampleGenerator {
             result = handleLabel(parts, value);
         } else if (parts.getElement(-1).equals("characterLabelPattern")) {
             result = handleLabelPattern(parts, value);
+        } else if (parts.getElement(1).equals("personNames")) {
+            result = handlePersonName(parts, value);
         }
         if (result != null) {
 //            if (!typeIsEnglish) {
@@ -462,6 +470,33 @@ public class ExampleGenerator {
             result = finalizeBackground(result);
         }
         return result;
+    }
+
+    private String handlePersonName(XPathParts parts, String value) {
+        // Sample:
+        //ldml/personNames/personName[@length="long"][@usage="addressing"][@style="formal"][@order="givenFirst"]/namePattern => {prefix} {surname}
+        // but for this code we don't need to know what the parameters are, we just format the name pattern
+
+        // We might need the alt, however: String alt = parts.getAttributeValue(-1, "alt");
+        List<String> examples = new ArrayList<>();
+        //TODO Peter extract from sampleName data once that is in en.xml
+        // eventually, this will cycle through the types of sample names, and extract from CLDRFile
+        for (int i = 0; i < 1; ++i) {
+            ImmutableMap<ModifiedField, String> patternData = ImmutableMap.of(
+                new ModifiedField(Field.prefix), backgroundStartSymbol + "Mr." + backgroundEndSymbol,
+                new ModifiedField(Field.given), backgroundStartSymbol + "John" + backgroundEndSymbol,
+                new ModifiedField(Field.given2), backgroundStartSymbol + "Bob" + backgroundEndSymbol,
+                new ModifiedField(Field.surname), backgroundStartSymbol + "Smith" + backgroundEndSymbol,
+                new ModifiedField(Field.surname2), backgroundStartSymbol + "Barnes Pascal" + backgroundEndSymbol,
+                new ModifiedField(Field.suffix), backgroundStartSymbol + "Jr." + backgroundEndSymbol
+                );
+            final NameObject sampleNameObject1 = new SimpleNameObject(ULocale.ENGLISH, patternData);
+            NamePattern namePattern = NamePattern.from(0, value);
+
+            String result = namePattern.format(sampleNameObject1);
+            examples.add(result);
+        }
+        return formatExampleList(examples);
     }
 
     private String handleLabelPattern(XPathParts parts, String value) {

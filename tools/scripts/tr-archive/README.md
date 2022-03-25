@@ -22,6 +22,14 @@ You will end up with HTML files under `dist/` and a zipped up `./tr35.zip` archi
 
 See [../../../README.md](../../../README.md) for full project information.
 
+## Updating ToC
+
+```shell
+$ npm install
+$ npm run fix-tocs
+```
+
+This will update the tr .md files in place.
 ### Copyright
 
 Copyright &copy; 1991-2021 Unicode, Inc.

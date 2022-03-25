@@ -1,6 +1,9 @@
 #!/bin/bash
 npm i
 set -x
+# Run the Toc
+npm run fix-tocs || exit 1
+
 # copy this locally
 if [ ! -f ./reports-v2.css ];
 then

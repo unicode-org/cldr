@@ -11,6 +11,7 @@ import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
+import org.unicode.cldr.util.personname.PersonNameFormatter.FallbackFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Length;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
@@ -35,9 +36,9 @@ public class TestPersonNameFormatter extends TestFmwk{
         new TestPersonNameFormatter().run(args);
     }
 
-    private final NameObject sampleNameObject1 = new SimpleNameObject(
-        "locale=fr, prefix=Mr., given=John, given2-initial=B, given2= Bob, surname=Smith, surname2= Barnes Pascal, suffix=Jr.");
-    private final NameObject sampleNameObject2 = new SimpleNameObject(
+    private final NameObject sampleNameObject1 = SimpleNameObject.from(
+        "locale=fr, prefix=Mr., given=John, given2-initial=B., given2= Bob, surname=Smith, surname2= Barnes Pascal, suffix=Jr.");
+    private final NameObject sampleNameObject2 = SimpleNameObject.from(
         "locale=fr, prefix=Mr., given=John, surname=Smith, surname2= Barnes Pascal, suffix=Jr.");
 
     private void check(PersonNameFormatter personNameFormatter, NameObject nameObject, String nameFormatParameters, String expected) {
@@ -58,11 +59,11 @@ public class TestPersonNameFormatter extends TestFmwk{
 
         NamePatternData namePatternData = new NamePatternData(
             localeToOrder,
-            "length=short medium; style=formal; usage=addressing", "{given} {given2-initial}. {surname}",
+            "length=short medium; style=formal; usage=addressing", "{given} {given2-initial} {surname}",
             "length=short medium; style=formal; usage=addressing", "{given} {surname}",
             "", "{prefix} {given} {given2} {surname} {surname2} {suffix}");
 
-        PersonNameFormatter personNameFormatter = new PersonNameFormatter(namePatternData);
+        PersonNameFormatter personNameFormatter = new PersonNameFormatter(namePatternData, new FallbackFormatter(ULocale.ENGLISH, "HACK_INITIAL_FORMATTER"));
 
         check(personNameFormatter, sampleNameObject1, "length=short; style=formal; usage=addressing", "John B. Smith");
         check(personNameFormatter, sampleNameObject2, "length=short; style=formal; usage=addressing", "John Smith");
@@ -70,6 +71,8 @@ public class TestPersonNameFormatter extends TestFmwk{
 
         checkFormatterData(personNameFormatter);
     }
+
+    String HACK_INITIAL_FORMATTER = "{0}॰"; // use "unusual" period to mark when we are using fallbacks
 
     public void TestNamePatternParserThrowsWhenInvalidPatterns() {
         final String[] invalidPatterns = new String[] {
@@ -109,8 +112,8 @@ public class TestPersonNameFormatter extends TestFmwk{
 
         // TODO Rich once the code is fixed to strip empty fields, fix this test
 
-        check(personNameFormatter, sampleNameObject1, "length=short; usage=sorting", "Smith, null. B.");
-        check(personNameFormatter, sampleNameObject1, "length=long; usage=referring; style=formal", "Smith, John Bob Jr.");
+        check(personNameFormatter, sampleNameObject1, "length=short; usage=sorting", "Smith, J॰ B.");
+        check(personNameFormatter, sampleNameObject1, "length=long; usage=referring; style=formal", "John Bob Smith Jr.");
 
         // TODO: we are getting the wrong answer for the second one obove.
         // The problem is that it is matching order='surnameFirst' since that occurs first.
@@ -208,7 +211,7 @@ public class TestPersonNameFormatter extends TestFmwk{
             fail(String.format("%s was supposed to throw an exception.", subject));
         }
         catch (Exception e) {
-            assertTrue("Exception was thrown as expected.", true);
+            assertTrue(subject + " threw exception as expected", true);
         }
     }
 
@@ -222,5 +225,18 @@ public class TestPersonNameFormatter extends TestFmwk{
         assertEquals("Example for " + value, "〖❬John❭ ❬Bob❭ ❬Smith❭ ❬Jr.❭〗", actual);
 
         // TODO cycle through parameter combinations, check for now exceptions even if locale has no data
+    }
+
+    public void TestInvalidNameObjectThrows() {
+        // TODO Consider other invariants.
+        // Must have given.
+        // No surname2 unless there is a surname
+        final String[] invalidPatterns = new String[] {
+            "given2-initial=B",
+        };
+        for (final String pattern : invalidPatterns) {
+            assertThrows("Invalid Name object " + pattern,
+                () -> SimpleNameObject.from(pattern));
+        }
     }
 }

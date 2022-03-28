@@ -52,6 +52,7 @@ import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.XListFormatter.ListTypeLength;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.personname.PersonNameFormatter.FallbackFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Field;
 import org.unicode.cldr.util.personname.PersonNameFormatter.ModifiedField;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
@@ -492,8 +493,12 @@ public class ExampleGenerator {
                 );
             final NameObject sampleNameObject1 = new SimpleNameObject(ULocale.ENGLISH, patternData);
             NamePattern namePattern = NamePattern.from(0, value);
+            ULocale locale = new ULocale(getCldrFile().getLocaleID());
 
-            String result = namePattern.format(sampleNameObject1);
+            // we need to get the real data from the locale once available
+            String HACK_INITIAL_FORMATTER = "{0}.";
+
+            String result = namePattern.format(sampleNameObject1, new FallbackFormatter(locale, HACK_INITIAL_FORMATTER));
             examples.add(result);
         }
         return formatExampleList(examples);

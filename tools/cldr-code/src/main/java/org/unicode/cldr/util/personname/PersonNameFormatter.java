@@ -33,9 +33,11 @@ import com.google.common.collect.LinkedListMultimap;
 import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
-import com.google.common.collect.Sets.SetView;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.BreakIterator;
+import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -112,11 +114,24 @@ public class PersonNameFormatter {
 
 
     public enum Modifier {
-        initial,
-        allCaps,
         informal,
-        core;
+        allCaps,
+        initial,
+        prefix,
+        core
+        ;
         public static final Comparator<Iterable<Modifier>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Modifier>naturalOrder());
+        public static final Comparator<Collection<Modifier>> LONGEST_FIRST = new Comparator<Collection<Modifier>>() {
+
+            @Override
+            public int compare(Collection<Modifier> o1, Collection<Modifier> o2) {
+                return ComparisonChain.start()
+                    .compare(o2.size(), o1.size()) // reversed order for longest first
+                    .compare(o1,  o2, ITERABLE_COMPARE)
+                    .result();
+            }
+
+        };
         public static final Set<Modifier> ALL = ImmutableSet.copyOf(Modifier.values());
     }
 
@@ -267,6 +282,36 @@ public class PersonNameFormatter {
     }
 
     /**
+     * Format fallback results, for when modifiers are not found
+     */
+
+    public static class FallbackFormatter {
+        private ULocale formatterLocale;
+        private BreakIterator characterBreakIterator;
+        private MessageFormat initialFormatter;
+
+        public FallbackFormatter(ULocale uLocale, String formatterPattern) {
+            formatterLocale = uLocale;
+            characterBreakIterator = BreakIterator.getCharacterInstance(uLocale);
+            initialFormatter = new MessageFormat(formatterPattern);
+        }
+
+        public String formatInitial(String bestValue) {
+            // TODO Alex if multiword, apply the algorithm to each part
+            BreakIterator breakIterator = characterBreakIterator;
+            breakIterator.setText(bestValue);
+            bestValue = bestValue.substring(0, breakIterator.next());
+            bestValue = initialFormatter.format(new String[] {bestValue});
+            // TODO Alex use initial pattern after defined
+            return bestValue;
+        }
+
+        public String formatAllCaps(String bestValue) {
+            return UCharacter.toUpperCase(formatterLocale, bestValue);
+        }
+    }
+
+    /**
      * A name pattern, corresponding to a string such as "{given-initial} {surname}"
      * Immutable
      */
@@ -283,24 +328,58 @@ public class PersonNameFormatter {
             return fields.size();
         }
 
-        public String format(NameObject nameObject) {
+        /**
+         * Return the rank order (0, 1, ...) in a list
+         * @return
+         */
+        public int getRank() {
+            return rank;
+        }
+
+        public String format(NameObject nameObject, FallbackFormatter fallbackInfo) {
             StringBuilder result = new StringBuilder();
             Set<Modifier> remainingModifers = EnumSet.noneOf(Modifier.class);
 
+            NamePatternElement lastAppendedElement = null;
             for (NamePatternElement element : elements) {
                 final String literal = element.getLiteral();
                 if (literal != null) {
+                    // TODO Rich to handle collapsing whitespace / literals
+                    // can look at lastAppendedElement and this element
                     result.append(literal);
                 } else {
-                    final String bestValue = nameObject.getBestValue(element.getModifiedField(), remainingModifers);
-                    if (!remainingModifers.isEmpty()) {
-                        // TODO Alex Apply unhandled modifiers algorithmically where possible
+                    String bestValue = nameObject.getBestValue(element.getModifiedField(), remainingModifers);
+                    if (bestValue == null) {
+                        continue;
+                    } if (!remainingModifers.isEmpty()) {
+                        // apply default algorithms
+                        // TODO specify order among modifiers
+
+                        for (Modifier modifier : remainingModifers) {
+                            switch(modifier) {
+                            case initial:
+                                bestValue = fallbackInfo.formatInitial(bestValue);
+                                break;
+                            case allCaps:
+                                bestValue = UCharacter.toUpperCase(fallbackInfo.formatterLocale, bestValue);
+                                break;
+                            case prefix:
+                                // TODO unhandled prefix is special; treat as if null
+                                // TODO if there is no plain, but there is a prefix and core, use that; otherwise use core
+                                break;
+                            case core:
+                            case informal:
+                                // no option, just fall back
+                                break;
+                            }
+                        }
 
                         // then clear the results for the next placeholder
                         remainingModifers.clear();
                     }
                     result.append(bestValue);
                 }
+                lastAppendedElement = element;
             }
             return result.toString();
         }
@@ -547,7 +626,7 @@ public class PersonNameFormatter {
                 Set<FormatParameters> _data = new LinkedHashSet<>();
                 for (Length length : Length.values()) {
                     for (Usage usage : Usage.values()) {
-                    for (Style style : Style.values()) {
+                        for (Style style : Style.values()) {
                             for (Order order : Order.values()) {
                                 _data.add(new FormatParameters(length, style, usage, order));
                             }
@@ -844,7 +923,8 @@ public class PersonNameFormatter {
 
         public NamePattern getBestMatch(NameObject nameObject, FormatParameters nameFormatParameters) {
             if (nameFormatParameters.order == null) {
-                nameFormatParameters = nameFormatParameters.setOrder(localeToOrder.get(nameObject.getNameLocale()));
+                final Order mappedOrder = localeToOrder.get(nameObject.getNameLocale());
+                nameFormatParameters = nameFormatParameters.setOrder(mappedOrder == null ? Order.givenFirst : mappedOrder);
             }
 
             NamePattern result = null;
@@ -860,12 +940,11 @@ public class PersonNameFormatter {
             for (NamePattern pattern : namePatterns) {
                 Set<Field> patternFields = pattern.getFields();
 
-                SetView<Field> intersection = Sets.intersection(nameFields, patternFields);
-                int matchSize = intersection.size();
+                int matchSize = getIntersectionSize(nameFields, patternFields);
 
                 if ((matchSize > bestMatchSize) /* better match */
                     || (matchSize == bestMatchSize
-                        && patternFields.size() < result.getFieldsSize()) /* equal match, but less "extra" fields */) {
+                    && patternFields.size() < result.getFieldsSize()) /* equal match, but less "extra" fields */) {
                     bestMatchSize = matchSize;
                     result = pattern;
                 }
@@ -986,7 +1065,8 @@ public class PersonNameFormatter {
         public Set<Field> getAvailableFields();
     }
 
-    private NamePatternData namePatternMap;
+    private final NamePatternData namePatternMap;
+    private final FallbackFormatter fallbackFormatter;
 
     @Override
     public String toString() {
@@ -996,16 +1076,18 @@ public class PersonNameFormatter {
     /**
      * Create a formatter directly from data.
      * An alternative method would be to create from the viewer's locale, using a resource bundle or CLDR data
+     * @param patternLocale TODO
      */
-    public PersonNameFormatter(NamePatternData namePatternMap) {
+    public PersonNameFormatter(NamePatternData namePatternMap, FallbackFormatter fallbackFormatter) {
         this.namePatternMap = namePatternMap;
+        this.fallbackFormatter = fallbackFormatter;
     }
 
     public String format(NameObject nameObject, FormatParameters nameFormatParameters) {
         // look through the namePatternMap to find the best match for the set of modifiers and the available nameObject fields
         NamePattern bestPattern = namePatternMap.getBestMatch(nameObject, nameFormatParameters);
         // then format using it
-        return bestPattern.format(nameObject);
+        return bestPattern.format(nameObject, fallbackFormatter);
     }
 
     /**
@@ -1033,9 +1115,11 @@ public class PersonNameFormatter {
                     parts.getAttributeValue(-2, "usage"),
                     parts.getAttributeValue(-2, "order")
                     );
+                // TODO change en.xml to not have periods after initials
+                value = value.replace(".", "");
                 NamePattern np = NamePattern.from(rank, value);
                 if (np.toString().isBlank()) {
-                    throw new IllegalArgumentException("No emplty patterns allowed: " + pm);
+                    throw new IllegalArgumentException("No empty patterns allowed: " + pm);
                 }
                 boolean added = ordered.add(Pair.of(pm, np));
                 if (!added) {
@@ -1050,6 +1134,8 @@ public class PersonNameFormatter {
         ImmutableMap<ULocale, Order> localeToOrder = ImmutableMap.of();
 
         this.namePatternMap = new NamePatternData(localeToOrder, ImmutableListMultimap.copyOf(formatParametersToNamePattern));
+        String HACK_INITIAL_FORMATTER = "{0}॰"; // use "unusual" period to mark that we aren't done
+        this.fallbackFormatter = new FallbackFormatter(new ULocale(cldrFile.getLocaleID()), HACK_INITIAL_FORMATTER);
     }
 
     /**
@@ -1116,5 +1202,19 @@ public class PersonNameFormatter {
         }
         result.putAll(ParameterMatcher.MATCH_ALL, optimalAny);
         return result;
+    }
+
+    /**
+     * General Utility
+     * Avoids object creation in Sets.intersection(a,b).size()
+     */
+    public static <T> int getIntersectionSize(Set<T> set1, Set<T> set2) {
+        int size = 0;
+        for (T e : set1) {
+            if (set2.contains(e)) {
+                size++;
+            }
+        }
+        return size;
     }
 }

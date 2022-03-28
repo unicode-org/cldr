@@ -2710,7 +2710,7 @@ public class SurveyAjax extends HttpServlet {
             title = title + " <i>(Trial)</i>";
         }
 
-        CLDRFile cf = (CLDRFile) cs.stuff.get("SubmitLocale");
+        CLDRFile cf = (CLDRFile) cs.get("SubmitLocale");
         out.write("<html>\n<head>\n");
         out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
         out.write("<title>SurveyTool File Submission | " + title + "</title>\n");

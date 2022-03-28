@@ -99,7 +99,16 @@ public class About {
                 r.put("dbInfo", d.getDBInfo());
             }
         }
+        r.put("CLDR_COMMIT_BASE", configImpl.getProperty("CLDR_COMMIT_BASE", CLDRURLS.DEFAULT_COMMIT_BASE));
+        r.put("memory", getMemoryStats());
 
         return Response.ok(r).build();
+    }
+
+    private static String getMemoryStats() {
+        Runtime rt = Runtime.getRuntime();
+        return "total: " + rt.totalMemory() +
+            "; max: " + rt.maxMemory() +
+            "; free: " + rt.freeMemory();
     }
 }

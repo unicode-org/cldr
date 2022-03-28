@@ -476,6 +476,9 @@ public class ExampleGenerator {
         // Sample:
         //ldml/personNames/personName[@length="long"][@usage="addressing"][@style="formal"][@order="givenFirst"]/namePattern => {prefix} {surname}
         // but for this code we don't need to know what the parameters are, we just format the name pattern
+        if (parts.contains("nameOrder") || parts.contains("initialPattern") || parts.contains("sampleName")) {
+            return null; // TODO: we do not handle these yet
+        }
 
         // We might need the alt, however: String alt = parts.getAttributeValue(-1, "alt");
         List<String> examples = new ArrayList<>();

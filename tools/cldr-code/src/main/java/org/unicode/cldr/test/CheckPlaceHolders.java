@@ -37,7 +37,7 @@ public class CheckPlaceHolders extends CheckCLDR {
                         .setMessage("Invalid placeholder (missing terminator) in value \"" + value + "\""));
                 } else {
                     String placeHolderString = value.substring(startPlaceHolder + 1, endPlaceHolder);
-                    Matcher matcher = (path.contains("/personNames/"))?
+                    Matcher matcher = (path.contains("/personNames/personName"))?
                         PLACEHOLDER_PATTERN_PERS_NAMES.matcher(placeHolderString):
                         PLACEHOLDER_PATTERN.matcher(placeHolderString);
                     if (!matcher.matches()) {

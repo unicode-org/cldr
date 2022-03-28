@@ -5369,6 +5369,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	</typographicNames>
 	<personNames>
 		<nameOrder nameLocales="und" order="surnameFirst"/>
+		<initialPattern type="initial">{0}.</initialPattern>
+		<initialPattern type="initialSequence">{0} {1}</initialPattern>
 		<!-- fallback/any pattern -->
 		<personName>
 			<namePattern>{surname} {surname2}, {prefix} {given} {given2} {suffix}</namePattern>

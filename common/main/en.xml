@@ -9129,6 +9129,8 @@ annotations.
 		<featureName type="zero">slashed zero</featureName>
 	</typographicNames>
 	<personNames>
+		<initialPattern type="initial">{0}.</initialPattern>
+		<initialPattern type="initialSequence">{0} {1}</initialPattern>
 		<personName>
 			<namePattern>{given-informal} {surname}</namePattern>
 		</personName>
@@ -9246,5 +9248,26 @@ annotations.
 		<personName length="monogramNarrow" style="informal" order="givenFirst">
 			<namePattern>{given-informal-initial}</namePattern>
 		</personName>
+		<sampleName item="minimal">
+			<nameField type="given">Katherine</nameField>
+			<nameField type="surname">Johnson</nameField>
+		</sampleName>
+		<sampleName item="simple">
+			<nameField type="given">Alberto</nameField>
+			<nameField type="given2">Pedro</nameField>
+			<nameField type="surname">Calderón</nameField>
+		</sampleName>
+		<sampleName item="full">
+			<nameField type="prefix">Dr.</nameField>
+			<nameField type="given">Dorothy</nameField>
+			<nameField type="given2">Lavinia</nameField>
+			<nameField type="surname">Brown</nameField>
+			<nameField type="suffix">M.D.</nameField>
+		</sampleName>
+		<sampleName item="multiword">
+			<nameField type="given">Erich Oswald</nameField>
+			<nameField type="given2">Hans Carl Maria</nameField>
+			<nameField type="surname">von Stroheim</nameField>
+		</sampleName>
 	</personNames>
 </ldml>

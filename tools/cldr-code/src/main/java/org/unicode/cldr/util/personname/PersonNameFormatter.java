@@ -1020,8 +1020,8 @@ public class PersonNameFormatter {
         Set<Pair<ParameterMatcher, NamePattern>> ordered = new TreeSet<>();
         // read out the data and order it properly
         for (String path : cldrFile) {
-            if (path.startsWith("//ldml/personNames")) {
-                // eg //ldml/personNames/personName[@length="long"][@usage="sorting"]/namePattern[alt="7"]
+            if (path.startsWith("//ldml/personNames/personName")) { // TODO: for now this does not handle nameOrder, initialPattern, sampleName
+                // eg //ldml/personNames/personName[@length="long"][@usage="sorting"]/namePattern[alt="2"]
                 // value = {surname}, {given} {given2} {suffix}
                 String value = cldrFile.getStringValue(path);
                 XPathParts parts = XPathParts.getFrozenInstance(path);
@@ -1035,7 +1035,7 @@ public class PersonNameFormatter {
                     );
                 NamePattern np = NamePattern.from(rank, value);
                 if (np.toString().isBlank()) {
-                    throw new IllegalArgumentException("No emplty patterns allowed: " + pm);
+                    throw new IllegalArgumentException("No empty patterns allowed: " + pm);
                 }
                 boolean added = ordered.add(Pair.of(pm, np));
                 if (!added) {

@@ -3678,6 +3678,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return new StatusForFrontEnd(this, request).toJSONObject();
     }
 
+    /**
+     * NOTE: the data in this status object is actually used by Prometheus monitoring.
+     * Do not remove fields without care. See CLDR-15040
+     */
     private class StatusForFrontEnd implements JSONString {
         private String contextPath = null;
         private int dbopen = DBUtils.db_number_open;
@@ -3700,6 +3704,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         private User user = null;
         private int users = CookieSession.getUserCount();
         private String sessionMessage = null;
+
+        private Runtime r = Runtime.getRuntime();
+        double memtotal = r.totalMemory() / 1024000.0;
+        double memfree = r.freeMemory() / 1024000.0;
 
         private JSONObject toJSONObject() throws JSONException {
             /*
@@ -3726,6 +3734,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 .put("specialHeader", specialHeader)
                 .put("surveyRunningStamp", surveyRunningStamp)
                 .put("sysload", sysload)
+                .put("memtotal", memtotal)
+                .put("memfree", memfree)
                 .put("uptime", uptime)
                 .put("user", user) // allowed since User implements JSONString?
                 .put("users", users)

@@ -410,44 +410,64 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         logger.info("SurveyMain.init() " + uptime);
         System.out.println("SurveyMain.init() " + uptime);
         try {
-            new com.ibm.icu.text.SimpleDateFormat(); // Ensure that ICU is
-            // available before we get
-            // any farther
+            ensureIcuIsAvailable();
             super.init(config);
             CLDRConfigImpl.setCldrHome(config.getInitParameter("cldr.home"));
             SurveyMain.config = config;
-
-            // verify config sanity
-            CLDRConfig cconfig = CLDRConfigImpl.getInstance();
-            try(InputStream is = config.getServletContext().getResourceAsStream(JarFile.MANIFEST_NAME)) {
-                Manifest mf = new Manifest(is);
-                String s = mf.getMainAttributes().getValue("CLDR-Apps"+"-Git-Commit");
-                if(s != null && !s.isEmpty()) {
-                    SurveyMain.CLDR_SURVEYTOOL_HASH  = s;
-                    ((CLDRConfigImpl)cconfig).setCldrAppsHash(s);
-                    logger.info("Updated CLDR_APPS_HASH to " + s);
-                } else {
-                    logger.warning("CLDR_APPS_HASH = unknown (no value in manifest)");
-                }
-            } catch(Throwable t) {
-                logger.log(java.util.logging.Level.WARNING, "CLDR_APPS_HASH = unknown", t);
-            }
-            isConfigSetup = true; // we have a CLDRConfig - so config is setup.
-
-            stopIfMaintenance();
-
-            cconfig.getSupplementalDataInfo(); // will fail if CLDR_DIR is broken.
-
-            // make sure cldr-tools is functioning
-            PathHeader.PageId.forString(PathHeader.PageId.Africa.name());
-
+            verifyConfigSanity();
+            ensureCldrToolsIsFunctioning();
             SurveyThreadManager.getExecutorService().submit(() -> doStartup());
         } catch (Throwable t) {
             SurveyLog.logException(logger, t, "Initializing SurveyTool");
             SurveyMain.busted("Error initializing SurveyTool.", t);
             return;
         }
+        if (!startUpDatabase()) {
+            return;
+        }
+        // TODO: call Summary.scheduleAutomaticSnapshots here or in doStartup
+        // Reference: https://unicode-org.atlassian.net/browse/CLDR-15369
 
+        // TODO: check whether doStartup and startUpDatabase have a synchronization problem,
+        // sometimes this.dbUtils null when doStartup calls doStartupDb
+        // Reference: https://unicode-org.atlassian.net/browse/CLDR-15472
+    }
+
+    private void verifyConfigSanity() {
+        CLDRConfig cconfig = CLDRConfigImpl.getInstance();
+        try(InputStream is = config.getServletContext().getResourceAsStream(JarFile.MANIFEST_NAME)) {
+            Manifest mf = new Manifest(is);
+            String s = mf.getMainAttributes().getValue("CLDR-Apps"+"-Git-Commit");
+            if (s != null && !s.isEmpty()) {
+                SurveyMain.CLDR_SURVEYTOOL_HASH  = s;
+                ((CLDRConfigImpl)cconfig).setCldrAppsHash(s);
+                logger.info("Updated CLDR_APPS_HASH to " + s);
+            } else {
+                logger.warning("CLDR_APPS_HASH = unknown (no value in manifest)");
+            }
+        } catch(Throwable t) {
+            logger.log(java.util.logging.Level.WARNING, "CLDR_APPS_HASH = unknown", t);
+        }
+        isConfigSetup = true; // we have a CLDRConfig - so config is setup.
+        stopIfMaintenance();
+        cconfig.getSupplementalDataInfo(); // will fail if CLDR_DIR is broken.
+    }
+
+    /**
+     * Ensure that ICU is available before we get any farther
+     */
+    private void ensureIcuIsAvailable() {
+        new com.ibm.icu.text.SimpleDateFormat();
+    }
+
+    /**
+     * Ensure that CLDR Tools is functioning
+     */
+    private void ensureCldrToolsIsFunctioning() {
+        PathHeader.PageId.forString(PathHeader.PageId.Africa.name());
+    }
+
+    private boolean startUpDatabase() {
         try {
             dbUtils = DBUtils.getInstance();
         } catch (Throwable t) {
@@ -456,8 +476,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             String dbBroken = DBUtils.getDbBrokenMessage();
 
             SurveyMain.busted("Error starting up database - " + dbBroken, t);
-            return;
+            return false;
         }
+        return true;
     }
 
     public SurveyMain() {
@@ -2785,17 +2806,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             getFileBase();
             getFileBaseSeed();
 
-            // static
-            // -
-            // may
-            // change
-            // lager
-            specialMessage = survprops.getProperty("CLDR_MESSAGE"); // not
-            // static -
-            // may
-            // change
-            // lager
+            // static - may change later
+            specialMessage = survprops.getProperty("CLDR_MESSAGE");
 
+            // not static - may change later
             lockOut = survprops.getProperty("CLDR_LOCKOUT");
 
             if (!new File(fileBase).isDirectory()) {
@@ -2987,10 +3001,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public synchronized File getVetdir() {
         if (_vetdir == null) {
             CLDRConfig survprops = CLDRConfig.getInstance();
-            vetdata = survprops.getProperty("CLDR_VET_DATA", SurveyMain.getSurveyHome() + "/vetdata"); // dir
-            // for
-            // vetted
-            // data
+            // directory for vetted data
+            vetdata = survprops.getProperty("CLDR_VET_DATA", SurveyMain.getSurveyHome() + "/vetdata");
             File v = new File(vetdata);
             if (!v.isDirectory()) {
                 v.mkdir();

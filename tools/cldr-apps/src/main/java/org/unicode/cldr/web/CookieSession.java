@@ -60,7 +60,7 @@ public class CookieSession {
     static final boolean DEBUG_INOUT = false;
     public String id;
     public String ip;
-    public Hashtable<String, Object> stuff = new Hashtable<>(); // user data
+    private Hashtable<String, Object> stuff = new Hashtable<>(); // user data
     public Hashtable<String, Comparable> prefs = new Hashtable<>(); // user prefs
     public UserRegistry.User user = null;
     /**

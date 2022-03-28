@@ -142,11 +142,7 @@ public class VettingViewerQueue {
                 double per = (double) (now - start) / (double) n;
                 long rem = (long) ((maxn - n) * per);
                 String remStr = ElapsedTimer.elapsedTime(now, now + rem) + " " + "remaining";
-                /*
-                 * TODO: explain/encapsulate this magic number! 1500? = 1.5 seconds?
-                 * Reference: https://unicode-org.atlassian.net/browse/CLDR-14925
-                 */
-                if (rem <= 1500) {
+                if (rem <= 1500) { // Less than 1.5 seconds remaining
                     remStr = "Finishing...";
                 }
                 setStatus(remStr);
@@ -162,7 +158,7 @@ public class VettingViewerQueue {
                 n++;
                 /*
                  * TODO: explain/encapsulate these magic numbers! 5? 10? 1200? 500?
-                 * Reference: https://unicode-org.atlassian.net/browse/CLDR-14925
+                 * Reference: https://unicode-org.atlassian.net/browse/CLDR-15369
                  */
                 if (n > (maxn - 5)) {
                     maxn = n + 10;
@@ -228,7 +224,7 @@ public class VettingViewerQueue {
             statusCode = Status.WAITING;
             /*
              * TODO: explain this magic number! Why add 100?
-             * Reference: https://unicode-org.atlassian.net/browse/CLDR-14925
+             * Reference: https://unicode-org.atlassian.net/browse/CLDR-15369
              */
             final CLDRProgressTask progress = CookieSession.sm.openProgress("vv: Priority Items Summary", maxn + 100);
 

@@ -99,7 +99,14 @@ public class About {
                 r.put("dbInfo", d.getDBInfo());
             }
         }
-
+        r.put("memory", getMemoryStats());
         return Response.ok(r).build();
+    }
+
+    private static String getMemoryStats() {
+        Runtime rt = Runtime.getRuntime();
+        return "total: " + rt.totalMemory() +
+            "; max: " + rt.maxMemory() +
+            "; free: " + rt.freeMemory();
     }
 }

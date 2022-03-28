@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-                                
+                                    
+    
     
     
     
@@ -7,12 +8,14 @@
     
     
     <wb-module deploy-name="cldr-apps">
-                                        
+                                                
+        
         
         
         
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
-                                                                
+                                                                        
+        
         
         
         
@@ -20,7 +23,8 @@
         
         
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
-                                                                
+                                                                        
+        
         
         
         
@@ -28,7 +32,8 @@
         
         
         <wb-resource deploy-path="/WEB-INF/lib" source-path="/WebContent/WEB-INF/lib"/>
-                                                         
+                                                                 
+        
         
         
         
@@ -36,7 +41,8 @@
         
         
         <!-- needed? -->
-                                                                
+                                                                        
+        
         
         
         
@@ -44,29 +50,30 @@
         
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/.apt_generated"/>
-                                                
+                                                        
+        
         
         
         
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-                        
+                                
+        
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-        <dependent-module archiveName="cldr-code-40.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/cldr-code/cldr-code">
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/.apt_generated_tests"/>
+        <dependent-module archiveName="cldr-code-41.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/cldr-code/cldr-code">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-                                                                
+        <dependent-module archiveName="cldr-rdf-41.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/cldr-rdf/cldr-rdf">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+                        
         
-        
-        
-        
-        
-        
-        <property name="java-output-path" value="/cldr-apps/build/classes"/>
-                
         <property name="context-root" value="cldr-apps"/>
-                                                            
+        <property name="java-output-path" value="/cldr-apps/target/classes"/>
+                                                                    
+    
     
     
     
@@ -74,7 +81,8 @@
     
     
     </wb-module>
-                            
+                                
+
 
 
 

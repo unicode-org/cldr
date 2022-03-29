@@ -1594,6 +1594,7 @@ public class SurveyAjax extends HttpServlet {
         }
         XMLSource diskData = sm.getDiskFactory().makeSource(locale.getBaseName()).freeze(); // trunk
         CLDRFile cldrFile = fac.make(loc, true, true);
+        CLDRFile cldrUnresolved = cldrFile.getUnresolved();
 
         Set<String> validPaths = fac.getPathsForFile(locale);
         CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
@@ -1616,7 +1617,7 @@ public class SurveyAjax extends HttpServlet {
                 if (covInfo.getCoverageValue(xpathString, loc) > Level.COMPREHENSIVE.getLevel()) {
                     continue; // out of coverage
                 }
-                if (CheckForCopy.sameAsCode(value, xpathString, cldrFile)) {
+                if (CheckForCopy.sameAsCode(value, xpathString, cldrUnresolved, cldrFile)) {
                     continue; // not allowed
                 }
                 String curValue = diskData.getValueAtDPath(xpathString);
@@ -2122,7 +2123,7 @@ public class SurveyAjax extends HttpServlet {
             return false;
         }
         CLDRFile cldrFile = fac.make(loc, true, true);
-        if (CheckForCopy.sameAsCode(value, xpathString, cldrFile)) {
+        if (CheckForCopy.sameAsCode(value, xpathString, cldrFile.getUnresolved(), cldrFile)) {
             return false;
         }
         return true;
@@ -2360,7 +2361,7 @@ public class SurveyAjax extends HttpServlet {
                 showRowAction = CheckCLDR.StatusAction.FORBID_NULL;
             } else {
                 CLDRFile cldrFile = stf.make(locale.getBaseName(), true, true);
-                if (CheckForCopy.sameAsCode(val, xp, cldrFile)) {
+                if (CheckForCopy.sameAsCode(val, xp, cldrFile.getUnresolved(), cldrFile)) {
                     showRowAction = CheckCLDR.StatusAction.FORBID_CODE;
                 }
             }
@@ -2799,6 +2800,7 @@ public class SurveyAjax extends HttpServlet {
         CheckCLDR.Phase cPhase = CLDRConfig.getInstance().getPhase();
         Set<String> allValidPaths = stf.getPathsForFile(loc);
         CLDRProgressTask progress = sm.openProgress("Bulk:" + loc, all.size());
+        CLDRFile cldrUnresolved = cf.getUnresolved();
         try {
             for (String x : all) {
                 String full = cf.getFullXPath(x);
@@ -2849,7 +2851,7 @@ public class SurveyAjax extends HttpServlet {
                     DataSection.DataRow pvi = section.getDataRow(base);
                     CheckCLDR.StatusAction showRowAction = pvi.getStatusAction();
 
-                    if (CheckForCopy.sameAsCode(val0, x, baseFile)) {
+                    if (CheckForCopy.sameAsCode(val0, x, cldrUnresolved, baseFile)) {
                         showRowAction = CheckCLDR.StatusAction.FORBID_CODE;
                     }
                     if (showRowAction.isForbidden()) {

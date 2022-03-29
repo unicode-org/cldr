@@ -21,6 +21,7 @@ import com.ibm.icu.util.ICUException;
 public class CheckForCopy extends FactoryCheckCLDR {
 
     private static final boolean DEBUG = CldrUtility.getProperty("DEBUG", false);
+    private CLDRFile unresolvedFile = null;
 
     public CheckForCopy(Factory factory) {
         super(factory);
@@ -77,7 +78,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
         if (fullPath == null || path == null || value == null) {
             return this; // skip root, and paths that we don't have
         }
-        Failure failure = sameAsCodeOrEnglish(value, path, getCldrFileToCheck(), false);
+        Failure failure = sameAsCodeOrEnglish(value, path, unresolvedFile, getCldrFileToCheck(), false);
         addFailure(result, failure);
         return this;
     }
@@ -90,8 +91,8 @@ public class CheckForCopy extends FactoryCheckCLDR {
      * @param cldrFile the CLDRFile
      * @return true or false
      */
-    public static boolean sameAsCode(String value, String path, CLDRFile cldrFile) {
-        return sameAsCodeOrEnglish(value, path, cldrFile, true) == Failure.same_as_code;
+    public static boolean sameAsCode(String value, String path, CLDRFile unresolvedFile, CLDRFile cldrFile) {
+        return sameAsCodeOrEnglish(value, path, unresolvedFile, cldrFile, true) == Failure.same_as_code;
     }
 
     /**
@@ -103,7 +104,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
      * @param contextIsVoteSubmission true when a new or imported vote is in question, else false
      * @return the Failure object
      */
-    private static Failure sameAsCodeOrEnglish(String value, String path, CLDRFile cldrFile, boolean contextIsVoteSubmission) {
+    private static Failure sameAsCodeOrEnglish(String value, String path, CLDRFile unresolvedFile, CLDRFile cldrFile, boolean contextIsVoteSubmission) {
 
         Status status = new Status();
 
@@ -117,7 +118,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
          * cf. getConstructedBaileyValue. This code is confusing and warrants explanation.
          * The meaning of "explicit" here seems to be the opposite of its meaning elsewhere.
          */
-        String topStringValue = cldrFile.getUnresolved().getStringValue(path);
+        String topStringValue = unresolvedFile.getStringValue(path);
         final boolean isExplicitBailey = CldrUtility.INHERITANCE_MARKER.equals(topStringValue);
         String loc = cldrFile.getSourceLocaleID(path, status);
         if (!contextIsVoteSubmission && !isExplicitBailey) {
@@ -246,6 +247,8 @@ public class CheckForCopy extends FactoryCheckCLDR {
         if (cldrFileToCheck == null) {
             return this;
         }
+
+        this.unresolvedFile = cldrFileToCheck.getUnresolved();
 
         final String localeID = cldrFileToCheck.getLocaleID();
 

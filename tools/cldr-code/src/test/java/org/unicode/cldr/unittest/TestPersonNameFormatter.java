@@ -30,6 +30,7 @@ import com.ibm.icu.util.ULocale;
 
 public class TestPersonNameFormatter extends TestFmwk{
 
+    private static final FallbackFormatter FALLBACK_FORMATTER = new FallbackFormatter(ULocale.ENGLISH, "{0}*", "{0} {1}");
     private static final CLDRFile ENGLISH = CLDRConfig.getInstance().getEnglish();
 
     public static void main(String[] args) {
@@ -63,7 +64,7 @@ public class TestPersonNameFormatter extends TestFmwk{
             "length=short medium; style=formal; usage=addressing", "{given} {surname}",
             "", "{prefix} {given} {given2} {surname} {surname2} {suffix}");
 
-        PersonNameFormatter personNameFormatter = new PersonNameFormatter(namePatternData, new FallbackFormatter(ULocale.ENGLISH, "HACK_INITIAL_FORMATTER"));
+        PersonNameFormatter personNameFormatter = new PersonNameFormatter(namePatternData, FALLBACK_FORMATTER);
 
         check(personNameFormatter, sampleNameObject1, "length=short; style=formal; usage=addressing", "John B. Smith");
         check(personNameFormatter, sampleNameObject2, "length=short; style=formal; usage=addressing", "John Smith");
@@ -112,7 +113,7 @@ public class TestPersonNameFormatter extends TestFmwk{
 
         // TODO Rich once the code is fixed to strip empty fields, fix this test
 
-        check(personNameFormatter, sampleNameObject1, "length=short; usage=sorting", "Smith, J॰ B.");
+        check(personNameFormatter, sampleNameObject1, "length=short; usage=sorting", "Smith, J. B.");
         check(personNameFormatter, sampleNameObject1, "length=long; usage=referring; style=formal", "John Bob Smith Jr.");
 
         // TODO: we are getting the wrong answer for the second one obove.
@@ -197,7 +198,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         assertEquals("label test", "medium-short-monogram-monogramNarrow-addressing-sorting-informal-givenFirst",
             test.toLabel());
     }
-    
+
     public void TestLiteralTextElision() {
         ImmutableMap<ULocale, Order> localeToOrder = ImmutableMap.of(); // don't worry about using the order from the locale right now.
 
@@ -205,43 +206,43 @@ public class TestPersonNameFormatter extends TestFmwk{
             localeToOrder,
             "", "1{prefix}1 2{given}2 3{given2}3 4{surname}4 5{surname2}5 6{suffix}6");
 
-        PersonNameFormatter personNameFormatter = new PersonNameFormatter(namePatternData, new FallbackFormatter(ULocale.ENGLISH, "HACK_INITIAL_FORMATTER"));
-        
+        PersonNameFormatter personNameFormatter = new PersonNameFormatter(namePatternData, FALLBACK_FORMATTER);
+
         check(personNameFormatter,
-              SimpleNameObject.from( 
+              SimpleNameObject.from(
                     "locale=en, prefix=Mr., given=John, given2= Bob, surname=Smith, surname2= Barnes Pascal, suffix=Jr."),
               "length=short; style=formal; usage=addressing",
               "1Mr.1 2John2 3Bob3 4Smith4 5Barnes Pascal5 6Jr.6"
         );
-        
+
         check(personNameFormatter,
-              SimpleNameObject.from( 
+              SimpleNameObject.from(
                     "locale=en, given2= Bob, surname=Smith, surname2= Barnes Pascal, suffix=Jr."),
               "length=short; style=formal; usage=addressing",
               "Bob3 4Smith4 5Barnes Pascal5 6Jr.6"
         );
-        
+
         check(personNameFormatter,
-              SimpleNameObject.from( 
+              SimpleNameObject.from(
                     "locale=en, prefix=Mr., given=John, given2= Bob, surname=Smith"),
               "length=short; style=formal; usage=addressing",
               "1Mr.1 2John2 3Bob3 4Smith"
         );
-        
+
          check(personNameFormatter,
-              SimpleNameObject.from( 
+              SimpleNameObject.from(
                     "locale=en, prefix=Mr., surname=Smith, surname2= Barnes Pascal, suffix=Jr."),
               "length=short; style=formal; usage=addressing",
               "1Mr.1 4Smith4 5Barnes Pascal5 6Jr.6"
         );
-        
+
         check(personNameFormatter,
-              SimpleNameObject.from( 
+              SimpleNameObject.from(
                     "locale=en, given=John, surname=Smith"),
               "length=short; style=formal; usage=addressing",
               "John2 4Smith"
         );
-        
+
    }
 
     private <T> Set<T> removeFirst(Set<T> all) {
@@ -265,11 +266,12 @@ public class TestPersonNameFormatter extends TestFmwk{
 
     public void TestExampleGenerator() {
         String path = "//ldml/personNames/personName[@length=\"long\"][@usage=\"referring\"][@style=\"formal\"][@order=\"givenFirst\"]/namePattern";
+        String expected = "〖Katherine Johnson〗〖Alberto Pedro Calderón〗〖Dorothy Lavinia Brown M.D.〗〖Erich Oswald Hans Carl Maria von Stroheim〗";
         String value = ENGLISH.getStringValue(path);
         ExampleGenerator test = new ExampleGenerator(ENGLISH, ENGLISH, "");
-        String actual = ExampleGenerator.simplify(test.getExampleHtml(path, value));
-        assertEquals("Example for " + value, "〖❬John❭ ❬Bob❭ ❬Smith❭ ❬Jr.❭〗", actual);
-
+        final String example = test.getExampleHtml(path, value);
+        String actual = ExampleGenerator.simplify(example);
+        assertEquals("Example for " + value, expected, actual);
         // TODO cycle through parameter combinations, check for now exceptions even if locale has no data
     }
 

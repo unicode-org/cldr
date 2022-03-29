@@ -52,15 +52,11 @@ import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.XListFormatter.ListTypeLength;
 import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.util.personname.PersonNameFormatter.FallbackFormatter;
-import org.unicode.cldr.util.personname.PersonNameFormatter.Field;
-import org.unicode.cldr.util.personname.PersonNameFormatter.ModifiedField;
+import org.unicode.cldr.util.personname.PersonNameFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
-import org.unicode.cldr.util.personname.SimpleNameObject;
 
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.BreakIterator;
@@ -473,6 +469,9 @@ public class ExampleGenerator {
         return result;
     }
 
+    Map<PersonNameFormatter.SampleType, NameObject> sampleNames = null;
+    PersonNameFormatter personNameFormatter = null;
+
     private String handlePersonName(XPathParts parts, String value) {
         // Sample:
         //ldml/personNames/personName[@length="long"][@usage="addressing"][@style="formal"][@order="givenFirst"]/namePattern => {prefix} {surname}
@@ -481,27 +480,20 @@ public class ExampleGenerator {
             return null; // TODO: we do not handle these yet
         }
 
+        if (sampleNames == null) {
+            sampleNames = PersonNameFormatter.loadSampleNames(getCldrFile());
+            personNameFormatter = new PersonNameFormatter(getCldrFile());
+        }
+
         // We might need the alt, however: String alt = parts.getAttributeValue(-1, "alt");
         List<String> examples = new ArrayList<>();
         //TODO Peter extract from sampleName data once that is in en.xml
         // eventually, this will cycle through the types of sample names, and extract from CLDRFile
-        for (int i = 0; i < 1; ++i) {
-            ImmutableMap<ModifiedField, String> patternData = ImmutableMap.of(
-                new ModifiedField(Field.prefix), backgroundStartSymbol + "Mr." + backgroundEndSymbol,
-                new ModifiedField(Field.given), backgroundStartSymbol + "John" + backgroundEndSymbol,
-                new ModifiedField(Field.given2), backgroundStartSymbol + "Bob" + backgroundEndSymbol,
-                new ModifiedField(Field.surname), backgroundStartSymbol + "Smith" + backgroundEndSymbol,
-                new ModifiedField(Field.surname2), backgroundStartSymbol + "Barnes Pascal" + backgroundEndSymbol,
-                new ModifiedField(Field.suffix), backgroundStartSymbol + "Jr." + backgroundEndSymbol
-                );
-            final NameObject sampleNameObject1 = new SimpleNameObject(ULocale.ENGLISH, patternData);
-            NamePattern namePattern = NamePattern.from(0, value);
+        for (NameObject sampleNameObject1 : sampleNames.values()) {
+            // TODO Remove initial periods from en.xml
+            NamePattern namePattern = NamePattern.from(0, value.replace(".", ""));
             ULocale locale = new ULocale(getCldrFile().getLocaleID());
-
-            // we need to get the real data from the locale once available
-            String HACK_INITIAL_FORMATTER = "{0}.";
-
-            String result = namePattern.format(sampleNameObject1, new FallbackFormatter(locale, HACK_INITIAL_FORMATTER));
+            String result = namePattern.format(sampleNameObject1, personNameFormatter.getFallbackInfo());
             examples.add(result);
         }
         return formatExampleList(examples);

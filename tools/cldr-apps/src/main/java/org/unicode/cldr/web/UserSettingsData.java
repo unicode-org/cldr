@@ -155,6 +155,7 @@ public class UserSettingsData {
                 sql = ("create table " + SET_KINDS + "(set_id INT NOT NULL " + DBUtils.DB_SQL_IDENTITY + ", "
                     + "set_name varchar(128) not null UNIQUE " + (!DBUtils.db_Mysql ? ",primary key(set_id)" : "") + ")");
                 s.execute(sql);
+                conn.commit();
                 if (DBUtils.hasTable(conn, SET_VALUES)) {
                     if (progress != null)
                         progress.update("Clearing old values");

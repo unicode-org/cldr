@@ -197,6 +197,52 @@ public class TestPersonNameFormatter extends TestFmwk{
         assertEquals("label test", "medium-short-monogram-monogramNarrow-addressing-sorting-informal-givenFirst",
             test.toLabel());
     }
+    
+    public void TestLiteralTextElision() {
+        ImmutableMap<ULocale, Order> localeToOrder = ImmutableMap.of(); // don't worry about using the order from the locale right now.
+
+        NamePatternData namePatternData = new NamePatternData(
+            localeToOrder,
+            "", "1{prefix}1 2{given}2 3{given2}3 4{surname}4 5{surname2}5 6{suffix}6");
+
+        PersonNameFormatter personNameFormatter = new PersonNameFormatter(namePatternData, new FallbackFormatter(ULocale.ENGLISH, "HACK_INITIAL_FORMATTER"));
+        
+        check(personNameFormatter,
+              SimpleNameObject.from( 
+                    "locale=en, prefix=Mr., given=John, given2= Bob, surname=Smith, surname2= Barnes Pascal, suffix=Jr."),
+              "length=short; style=formal; usage=addressing",
+              "1Mr.1 2John2 3Bob3 4Smith4 5Barnes Pascal5 6Jr.6"
+        );
+        
+        check(personNameFormatter,
+              SimpleNameObject.from( 
+                    "locale=en, given2= Bob, surname=Smith, surname2= Barnes Pascal, suffix=Jr."),
+              "length=short; style=formal; usage=addressing",
+              "Bob3 4Smith4 5Barnes Pascal5 6Jr.6"
+        );
+        
+        check(personNameFormatter,
+              SimpleNameObject.from( 
+                    "locale=en, prefix=Mr., given=John, given2= Bob, surname=Smith"),
+              "length=short; style=formal; usage=addressing",
+              "1Mr.1 2John2 3Bob3 4Smith"
+        );
+        
+         check(personNameFormatter,
+              SimpleNameObject.from( 
+                    "locale=en, prefix=Mr., surname=Smith, surname2= Barnes Pascal, suffix=Jr."),
+              "length=short; style=formal; usage=addressing",
+              "1Mr.1 4Smith4 5Barnes Pascal5 6Jr.6"
+        );
+        
+        check(personNameFormatter,
+              SimpleNameObject.from( 
+                    "locale=en, given=John, surname=Smith"),
+              "length=short; style=formal; usage=addressing",
+              "John2 4Smith"
+        );
+        
+   }
 
     private <T> Set<T> removeFirst(Set<T> all) {
         Set<T> result = new LinkedHashSet<>(all);

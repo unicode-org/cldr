@@ -262,8 +262,7 @@ public class PersonNameFormatter {
         }
         @Override
         public String toString() {
-            // TODO Rich escape \ and { in literals
-            return literal != null ? literal : modifiedField.toString();
+            return literal != null ? literal.replaceAll("\\", "\\\\").replaceAll("{", "\\{") : modifiedField.toString();
         }
 
         public static final Comparator<Iterable<NamePatternElement>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<NamePatternElement>naturalOrder());
@@ -338,50 +337,113 @@ public class PersonNameFormatter {
 
         public String format(NameObject nameObject, FallbackFormatter fallbackInfo) {
             StringBuilder result = new StringBuilder();
-            Set<Modifier> remainingModifers = EnumSet.noneOf(Modifier.class);
-
-            NamePatternElement lastAppendedElement = null;
+            boolean seenLeadingField = false;
+            boolean seenEmptyLeadingField = false;
+            boolean seenEmptyField = false;
+            StringBuilder literalTextBefore = new StringBuilder();
+            StringBuilder literalTextAfter = new StringBuilder();
+            
             for (NamePatternElement element : elements) {
                 final String literal = element.getLiteral();
                 if (literal != null) {
-                    // TODO Rich to handle collapsing whitespace / literals
-                    // can look at lastAppendedElement and this element
-                    result.append(literal);
-                } else {
-                    String bestValue = nameObject.getBestValue(element.getModifiedField(), remainingModifers);
-                    if (bestValue == null) {
-                        continue;
-                    } if (!remainingModifers.isEmpty()) {
-                        // apply default algorithms
-                        // TODO specify order among modifiers
-
-                        for (Modifier modifier : remainingModifers) {
-                            switch(modifier) {
-                            case initial:
-                                bestValue = fallbackInfo.formatInitial(bestValue);
-                                break;
-                            case allCaps:
-                                bestValue = UCharacter.toUpperCase(fallbackInfo.formatterLocale, bestValue);
-                                break;
-                            case prefix:
-                                // TODO unhandled prefix is special; treat as if null
-                                // TODO if there is no plain, but there is a prefix and core, use that; otherwise use core
-                                break;
-                            case core:
-                            case informal:
-                                // no option, just fall back
-                                break;
-                            }
-                        }
-
-                        // then clear the results for the next placeholder
-                        remainingModifers.clear();
+                    if (seenEmptyLeadingField) {
+                        // do nothing; throw away the literal text
+                    } else if (seenEmptyField) {
+                        literalTextAfter.append(literal);
+                    } else {
+                        literalTextBefore.append(literal);
                     }
-                    result.append(bestValue);
+                } else {
+                    String bestValue = getBestValueForNameObject(nameObject, element, fallbackInfo);
+                    if (bestValue == null) {
+                        if (!seenLeadingField) {
+                            seenEmptyLeadingField = true;
+                            literalTextBefore.setLength(0);
+                        } else {
+                            seenEmptyField = true;
+                            literalTextAfter.setLength(0);
+                        }
+                    } else {
+                        seenLeadingField = true;
+                        seenEmptyLeadingField = false;
+                        if (seenEmptyField) {
+                            result.append(coalesceLiterals(literalTextBefore, literalTextAfter));
+                            result.append(bestValue);
+                            seenEmptyField = false;
+                        } else {
+                            result.append(literalTextBefore);
+                            literalTextBefore.setLength(0);
+                            result.append(bestValue);
+                        }
+                    }
                 }
-                lastAppendedElement = element;
+            }
+            if (!seenEmptyField) {
+                result.append(literalTextBefore);
             }
             return result.toString();
+        }
+        
+        private String getBestValueForNameObject(NameObject nameObject, NamePatternElement element, FallbackFormatter fallbackInfo) {
+            Set<Modifier> remainingModifers = EnumSet.noneOf(Modifier.class);
+            String bestValue = nameObject.getBestValue(element.getModifiedField(), remainingModifers);
+            if (bestValue == null) {
+                return null;
+            } if (!remainingModifers.isEmpty()) {
+                // apply default algorithms
+                // TODO specify order among modifiers
+
+                for (Modifier modifier : remainingModifers) {
+                    switch(modifier) {
+                    case initial:
+                        bestValue = fallbackInfo.formatInitial(bestValue);
+                        break;
+                    case allCaps:
+                        bestValue = UCharacter.toUpperCase(fallbackInfo.formatterLocale, bestValue);
+                        break;
+                    case prefix:
+                        // TODO unhandled prefix is special; treat as if null
+                        // TODO if there is no plain, but there is a prefix and core, use that; otherwise use core
+                        break;
+                    case core:
+                    case informal:
+                        // no option, just fall back
+                        break;
+                    }
+                }
+            }
+            return bestValue;
+        }
+        
+        private String coalesceLiterals(StringBuilder l1, StringBuilder l2) {
+            // get the range of nonwhitespace characters at the beginning of l1
+            int p1 = 0;
+            while (p1 < l1.length() && !Character.isWhitespace(l1.charAt(p1))) {
+                ++p1;
+            }
+            
+            // get the range of nonwhitespace characters at the end of l2
+            int p2 = l2.length() - 1;
+            while (p2 > 0 && !Character.isWhitespace(l2.charAt(p2))) {
+                --p2;
+            }
+            
+            // also include one whitespace character from l1 or, if there aren't
+            // any, one whitespace character from l2
+            if (p1 < l1.length()) {
+                ++p1;
+            } else if (p2 > 0) {
+                --p2;
+            }
+            
+            // concatenate those two ranges to get the coalesced literal text
+            String result = l1.substring(0, p1) + l2.substring(p2 + 1);
+            
+            // clear out l1 and l2 (done here to improve readability in format() above))
+            l1.setLength(0);
+            l2.setLength(0);
+            
+            return result;
         }
 
         public NamePattern(int rank, List<NamePatternElement> elements) {

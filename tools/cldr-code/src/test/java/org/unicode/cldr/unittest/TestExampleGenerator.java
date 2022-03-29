@@ -189,6 +189,8 @@ public class TestExampleGenerator extends TestFmwk {
         "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/long/standard", // Error: (TestExampleGenerator.java:245) No background:   <Coordinated Universal Time>    〖Coordinated Universal Time〗
 
         "//ldml/personNames/nameOrder[@nameLocales=\"([^\"]*+)\"]", // CLDR-15384
+        "//ldml/personNames/initialPattern[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]", // CLDR-15384
+        "//ldml/personNames/initialPattern[@type=\"([^\"]*+)\"]", // CLDR-15384
         "//ldml/personNames/personName/namePattern[@alt=\"([^\"]*+)\"]", // CLDR-15384
         "//ldml/personNames/personName/namePattern", // CLDR-15384
         "//ldml/personNames/personName[@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@style=\"([^\"]*+)\"][@order=\"([^\"]*+)\"]/namePattern[@alt=\"([^\"]*+)\"]", // CLDR-15384
@@ -196,7 +198,10 @@ public class TestExampleGenerator extends TestFmwk {
         "//ldml/personNames/personName[@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@style=\"([^\"]*+)\"]/namePattern[@alt=\"([^\"]*+)\"]", // CLDR-15384
         "//ldml/personNames/personName[@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@style=\"([^\"]*+)\"]/namePattern", // CLDR-15384
         "//ldml/personNames/personName[@length=\"([^\"]*+)\"][@style=\"([^\"]*+)\"][@order=\"([^\"]*+)\"]/namePattern[@alt=\"([^\"]*+)\"]", // CLDR-15384
-        "//ldml/personNames/personName[@length=\"([^\"]*+)\"][@style=\"([^\"]*+)\"][@order=\"([^\"]*+)\"]/namePattern" // CLDR-15384
+        "//ldml/personNames/personName[@length=\"([^\"]*+)\"][@style=\"([^\"]*+)\"][@order=\"([^\"]*+)\"]/namePattern", // CLDR-15384
+        "//ldml/personNames/sampleName[@item=\"([^\"]*+)\"]/nameField[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]", // CLDR-15384
+        "//ldml/personNames/sampleName[@item=\"([^\"]*+)\"]/nameField[@type=\"([^\"]*+)\"]" // CLDR-15384
+
         );
     // Add to above if the example SHOULD appear, but we don't have it yet. TODO Add later
 

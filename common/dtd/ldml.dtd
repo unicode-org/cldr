@@ -3164,7 +3164,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST annotation draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
-<!ELEMENT personNames ( alias | ( nameOrder*, personName+, special* ) ) >
+<!ELEMENT personNames ( alias | ( nameOrder*, initialPattern*, personName+, sampleName*, special* ) ) >
 
 <!ELEMENT nameOrder EMPTY >
 <!ATTLIST nameOrder nameLocales NMTOKENS #REQUIRED >
@@ -3174,6 +3174,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST nameOrder draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST nameOrder references CDATA #IMPLIED >
+    <!--@METADATA-->
+
+<!ELEMENT initialPattern ( #PCDATA ) >
+<!ATTLIST initialPattern type (initial|initialSequence) #REQUIRED >
+<!ATTLIST initialPattern alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
+<!ATTLIST initialPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+<!ATTLIST initialPattern references CDATA #IMPLIED >
     <!--@METADATA-->
 
 <!ELEMENT personName ( alias | ( namePattern+, special* ) ) >
@@ -3187,10 +3196,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@MATCH:set/literal/surnameFirst, givenFirst-->
 
 <!ELEMENT namePattern ( #PCDATA ) >
-<!ATTLIST namePattern alt (2|3) #IMPLIED >
+<!ATTLIST namePattern alt (1|2) #IMPLIED >
 <!ATTLIST namePattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST namePattern references CDATA #IMPLIED >
+    <!--@METADATA-->
+
+<!ELEMENT sampleName ( alias | ( nameField+, special* ) ) >
+<!ATTLIST sampleName item (minimal|simple|full|multiword) #REQUIRED >
+
+<!ELEMENT nameField ( #PCDATA ) >
+<!ATTLIST nameField type CDATA #REQUIRED >
+    <!--@MATCH:any--> <!--until we have a better sense, or maybe validity data, for all of the combinations here-->
+<!ATTLIST nameField alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
+<!ATTLIST nameField draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+<!ATTLIST nameField references CDATA #IMPLIED >
     <!--@METADATA-->
 
 <!-- ######################################################### -->

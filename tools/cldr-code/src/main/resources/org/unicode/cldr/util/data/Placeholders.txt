@@ -245,3 +245,7 @@
 ^//ldml/characters/ellipsis\[@type="word-final"] ; {0}=FIRST_PART_OF_TEXT very long
 ^//ldml/characters/ellipsis\[@type="word-initial"] ; {0}=LAST_PART_OF_TEXT long name
 ^//ldml/characters/ellipsis\[@type="word-medial"] ; {0}=FIRST_PART_OF_TEXT very l; {1}=LAST_PART_OF_TEXT long
+
+//ldml/personNames/initialPattern\[@type="initial"] ; {0}=NAME_INITIAL J
+//ldml/personNames/initialPattern\[@type="initialSequence"] ; {0}=PREVIOUS_NAME_INITIALS J.R.; {1}=ADD_NAME_INITIAL R.
+

@@ -470,8 +470,11 @@ public class TestDtdData extends TestFmwk {
                 || (elementName.equals("genderMinimalPairs") && attribute.equals("gender"))
                 || (elementName.equals("caseMinimalPairs") && attribute.equals("case"))
                 || (elementName.equals("nameOrder") && attribute.equals("nameLocales"))
+                || (elementName.equals("initialPattern") && attribute.equals("type"))
                 || (elementName.equals("personName") && (attribute.equals("length") || attribute.equals("usage") ||
                                                          attribute.equals("style") || attribute.equals("order")))
+                || (elementName.equals("sampleName") && attribute.equals("item"))
+                || (elementName.equals("nameField") && attribute.equals("type"))
                 ;
 
         case ldmlBCP47:

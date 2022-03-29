@@ -907,6 +907,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="modern" match="typographicNames/featureName[@type='%anyAttribute']"/>
 
 		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/nameOrder[@nameLocales='%anyAttribute']"/>
+		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/initialPattern[@type='%anyAttribute'][@alt='%anyAttribute']"/>
+		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/initialPattern[@type='%anyAttribute']"/>
 		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/personName[@length='%personNameNonMonograms'][@usage='addressing'][@style='%anyAttribute'][@order='%anyAttribute']/namePattern[@alt='%anyAttribute']"/>
 		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/personName[@length='%personNameNonMonograms'][@usage='addressing'][@style='%anyAttribute'][@order='%anyAttribute']/namePattern"/>
 		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/personName[@length='%personNameNonMonograms'][@usage='referring'][@style='%anyAttribute'][@order='%anyAttribute']/namePattern[@alt='%anyAttribute']"/>
@@ -917,6 +919,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/personName[@length='%personNameMonograms'][@style='%anyAttribute'][@order='%anyAttribute']/namePattern"/>
 		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/personName/namePattern[@alt='%anyAttribute']"/>
 		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/personName/namePattern"/>
+		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/sampleName[@item='%anyAttribute']/nameField[@type='%anyAttribute'][@alt='%anyAttribute']"/>
+		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/sampleName[@item='%anyAttribute']/nameField[@type='%anyAttribute']"/>
 
 		<coverageLevel value="modern" match="annotations/annotation[@cp='%modernEmoji'][@type='%anyAttribute']"/>
 		<coverageLevel value="modern" match="annotations/annotation[@cp='%modernEmoji']"/>

@@ -1913,10 +1913,10 @@ The following are the design principles for the ids.
    1. Eg, `en-t-k0-extended`.
 2. Use the minimal language id based on `likelySubtag`s.
    1. Eg, instead of `en-US-t-k0-xxx`, use `en-t-k0-xxx`. Because there is `<likelySubtag from="en" to="en_Latn_US"/>`, en-US → en.
-   2. The data is in [https://github.com/unicode-org/cldr/releases/tag/latest/common/supplemental/likelySubtags.xml](https://github.com/unicode-org/cldr/releases/tag/latest/common/supplemental/likelySubtags.xml)
+   2. The data is in <https://github.com/unicode-org/cldr/tree/main/common/supplemental/likelySubtags.xml>
 3. The platform goes first, if it exists. If a keyboard on the platform changes over time, both are dated, eg `bg-t-k0-chromeos-2011`. When selecting, if there is no date, it means the latest one.
 4. Keyboards are only tagged that differ from the "standard for each platform". That is, for each language on a platform, there will be a keyboard with no subtags other than the platform. Subtags with a common semantics across platforms are used, such as `-extended`, `-phonetic`, `-qwerty`, `-qwertz`, `-azerty`, …
-5. In order to get to 8 letters, abbreviations are reused that are already in [bcp47](https://github.com/unicode-org/cldr/releases/tag/latest/common/bcp47/) -u/-t extensions and in [language-subtag-registry](https://www.iana.org/assignments/language-subtag-registry) variants, eg for Traditional use `-trad` or `-traditio` (both exist in [bcp47](https://github.com/unicode-org/cldr/releases/tag/latest/common/bcp47/)).
+5. In order to get to 8 letters, abbreviations are reused that are already in [bcp47](https://github.com/unicode-org/cldr/tree/main/common/bcp47/) -u/-t extensions and in [language-subtag-registry](https://www.iana.org/assignments/language-subtag-registry) variants, eg for Traditional use `-trad` or `-traditio` (both exist in [bcp47](https://github.com/unicode-org/cldr/tree/main/common/bcp47/)).
 6. Multiple languages cannot be indicated, so the predominant target is used.
    1. For Finnish + Sami, use `fi-t-k0-smi` or `extended-smi`
 7. In some cases, there are multiple subtags, like `en-US-t-k0-chromeos-intl-altgr.xml`

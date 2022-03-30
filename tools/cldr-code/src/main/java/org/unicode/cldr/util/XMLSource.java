@@ -76,17 +76,18 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         }
 
         public SourceLocation(String system, int line, int column) {
-            // trim this prefix off
-            if (system.startsWith(FILE_PREFIX)) {
-                system = system.substring(FILE_PREFIX.length());
-            }
-            this.system = system;
+            this.system = system.intern();
             this.line = line;
             this.column = column;
         }
 
         public String getSystem() {
-            return system;
+            // Trim prefix lazily.
+            if (system.startsWith(FILE_PREFIX)) {
+                return system.substring(FILE_PREFIX.length());
+            } else {
+                return system;
+            }
         }
 
         public int getLine() {

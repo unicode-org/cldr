@@ -111,8 +111,6 @@ public class TestPersonNameFormatter extends TestFmwk{
             logln(personNameFormatter.toString());
         }
 
-        // TODO Rich once the code is fixed to strip empty fields, fix this test
-
         check(personNameFormatter, sampleNameObject1, "length=short; usage=sorting", "Smith, J. B.");
         check(personNameFormatter, sampleNameObject1, "length=long; usage=referring; style=formal", "John Bob Smith Jr.");
 

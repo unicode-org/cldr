@@ -273,7 +273,7 @@ public class PersonNameFormatter {
         }
         @Override
         public String toString() {
-            return literal != null ? literal.replaceAll("\\", "\\\\").replaceAll("{", "\\{") : modifiedField.toString();
+            return literal != null ? literal.replace("\\", "\\\\").replace("{", "\\{") : modifiedField.toString();
         }
 
         public static final Comparator<Iterable<NamePatternElement>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<NamePatternElement>naturalOrder());
@@ -437,7 +437,7 @@ public class PersonNameFormatter {
 
             // get the range of nonwhitespace characters at the end of l2
             int p2 = l2.length() - 1;
-            while (p2 > 0 && !Character.isWhitespace(l2.charAt(p2))) {
+            while (p2 >= 0 && !Character.isWhitespace(l2.charAt(p2))) {
                 --p2;
             }
 
@@ -445,7 +445,7 @@ public class PersonNameFormatter {
             // any, one whitespace character from l2
             if (p1 < l1.length()) {
                 ++p1;
-            } else if (p2 > 0) {
+            } else if (p2 >= 0) {
                 --p2;
             }
 

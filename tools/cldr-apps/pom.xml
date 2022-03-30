@@ -136,6 +136,11 @@
 			<artifactId>derby</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derbytools</artifactId>
+			<scope>test</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>
@@ -150,11 +155,6 @@
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>xml-apis</groupId>
-			<artifactId>xml-apis</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.mybatis</groupId>

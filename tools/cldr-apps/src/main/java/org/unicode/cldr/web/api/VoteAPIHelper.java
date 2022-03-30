@@ -358,8 +358,9 @@ public class VoteAPIHelper {
             if (pvi.wouldInheritNull()) {
                 showRowAction = CheckCLDR.StatusAction.FORBID_NULL;
             } else {
+                // TODO: expensive, the caller probably should provide a CLDRFile.
                 CLDRFile cldrFile = stf.make(locale.getBaseName(), true, true);
-                if (CheckForCopy.sameAsCode(val, xp, cldrFile)) {
+                if (CheckForCopy.sameAsCode(val, xp, cldrFile.getUnresolved(), cldrFile)) {
                     showRowAction = CheckCLDR.StatusAction.FORBID_CODE;
                 }
             }

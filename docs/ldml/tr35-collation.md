@@ -281,7 +281,7 @@ In CLDR, so as to maintain the special collation elements, **U+FFFD..U+FFFF** ar
 
 ### 2.5 <a name="Root_Data_Files" href="#Root_Data_Files">Root Collation Data Files</a>
 
-The CLDR root collation data files are in the CLDR repository and release, under the path [common/uca/](https://github.com/unicode-org/cldr/tree/latest/common/uca/).
+The CLDR root collation data files are in the CLDR repository and release, under the path [common/uca/](https://github.com/unicode-org/cldr/tree/main/common/uca/).
 
 For most data files there are **\_SHORT** versions available. They contain the same data but only minimal comments, to reduce the file sizes.
 
@@ -912,7 +912,7 @@ The reason that these are not settings is so that their contents can be arbitrar
 
 _Example:_
 
-The following is a simple example that combines portions of different tailorings for illustration. For more complete examples, see the actual locale data: [Japanese](https://github.com/unicode-org/cldr/tree/latest/common/collation/ja.xml), [Chinese](https://github.com/unicode-org/cldr/tree/latest/common/collation/zh.xml), [Swedish](https://github.com/unicode-org/cldr/tree/latest/common/collation/sv.xml), and [German](https://github.com/unicode-org/cldr/tree/latest/common/collation/de.xml) (type="phonebook") are particularly illustrative.
+The following is a simple example that combines portions of different tailorings for illustration. For more complete examples, see the actual locale data: [Japanese](https://github.com/unicode-org/cldr/tree/main/common/collation/ja.xml), [Chinese](https://github.com/unicode-org/cldr/tree/main/common/collation/zh.xml), [Swedish](https://github.com/unicode-org/cldr/tree/main/common/collation/sv.xml), and [German](https://github.com/unicode-org/cldr/tree/main/common/collation/de.xml) (type="phonebook") are particularly illustrative.
 
 ```xml
 <collation>

@@ -53,6 +53,7 @@ import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.XListFormatter.ListTypeLength;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
+import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
 
@@ -473,9 +474,9 @@ public class ExampleGenerator {
     PersonNameFormatter personNameFormatter = null;
 
     private String handlePersonName(XPathParts parts, String value) {
-        // Sample:
         //ldml/personNames/personName[@length="long"][@usage="addressing"][@style="formal"][@order="givenFirst"]/namePattern => {prefix} {surname}
-        // but for this code we don't need to know what the parameters are, we just format the name pattern
+        FormatParameters formatParameters = FormatParameters.from(parts);
+
         if (parts.contains("nameOrder") || parts.contains("initialPattern") || parts.contains("sampleName")) {
             return null; // TODO: we do not handle these yet
         }
@@ -493,7 +494,7 @@ public class ExampleGenerator {
             // TODO Remove initial periods from en.xml
             NamePattern namePattern = NamePattern.from(0, value.replace(".", ""));
             ULocale locale = new ULocale(getCldrFile().getLocaleID());
-            String result = namePattern.format(sampleNameObject1, personNameFormatter.getFallbackInfo());
+            String result = namePattern.format(sampleNameObject1, formatParameters, personNameFormatter.getFallbackInfo());
             examples.add(result);
         }
         return formatExampleList(examples);

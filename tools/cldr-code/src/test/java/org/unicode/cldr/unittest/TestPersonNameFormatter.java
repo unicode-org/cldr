@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
@@ -19,6 +20,7 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePatternData;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Order;
 import org.unicode.cldr.util.personname.PersonNameFormatter.ParameterMatcher;
+import org.unicode.cldr.util.personname.PersonNameFormatter.SampleType;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Style;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Usage;
 import org.unicode.cldr.util.personname.SimpleNameObject;
@@ -41,6 +43,10 @@ public class TestPersonNameFormatter extends TestFmwk{
         "locale=fr, prefix=Mr., given=John, given2-initial=B., given2= Bob, surname=Smith, surname2= Barnes Pascal, suffix=Jr.");
     private final NameObject sampleNameObject2 = SimpleNameObject.from(
         "locale=fr, prefix=Mr., given=John, surname=Smith, surname2= Barnes Pascal, suffix=Jr.");
+    private final NameObject sampleNameObject3 = SimpleNameObject.from(
+        "locale=fr, prefix=Mr., given=John Bob, surname=Smith, surname2= Barnes Pascal, suffix=Jr.");
+    private final NameObject sampleNameObject4 = SimpleNameObject.from(
+        "locale=ja, given=Shinzō, surname=Abe");
 
     private void check(PersonNameFormatter personNameFormatter, NameObject nameObject, String nameFormatParameters, String expected) {
         FormatParameters nameFormatParameters1 = FormatParameters.from(nameFormatParameters);
@@ -60,8 +66,10 @@ public class TestPersonNameFormatter extends TestFmwk{
 
         NamePatternData namePatternData = new NamePatternData(
             localeToOrder,
+            "length=short; style=formal; usage=addressing; order=surnameFirst", "{surname-allCaps} {given}",
             "length=short medium; style=formal; usage=addressing", "{given} {given2-initial} {surname}",
             "length=short medium; style=formal; usage=addressing", "{given} {surname}",
+            "length=monogram; style=formal; usage=addressing", "{given-initial}{surname-initial}",
             "", "{prefix} {given} {given2} {surname} {surname2} {suffix}");
 
         PersonNameFormatter personNameFormatter = new PersonNameFormatter(namePatternData, FALLBACK_FORMATTER);
@@ -69,6 +77,8 @@ public class TestPersonNameFormatter extends TestFmwk{
         check(personNameFormatter, sampleNameObject1, "length=short; style=formal; usage=addressing", "John B. Smith");
         check(personNameFormatter, sampleNameObject2, "length=short; style=formal; usage=addressing", "John Smith");
         check(personNameFormatter, sampleNameObject1, "length=long; style=formal; usage=addressing", "Mr. John Bob Smith Barnes Pascal Jr.");
+        check(personNameFormatter, sampleNameObject3, "length=monogram; style=formal; usage=addressing", "JS");
+        check(personNameFormatter, sampleNameObject4, "length=short; style=formal; usage=addressing; order=surnameFirst", "ABE Shinzō");
 
         checkFormatterData(personNameFormatter);
     }
@@ -209,41 +219,41 @@ public class TestPersonNameFormatter extends TestFmwk{
         PersonNameFormatter personNameFormatter = new PersonNameFormatter(namePatternData, FALLBACK_FORMATTER);
 
         check(personNameFormatter,
-              SimpleNameObject.from(
-                    "locale=en, prefix=Mr., given=John, given2= Bob, surname=Smith, surname2= Barnes Pascal, suffix=Jr."),
-              "length=short; style=formal; usage=addressing",
-              "1Mr.1 2John2 3Bob3 4Smith4 5Barnes Pascal5 6Jr.6"
-        );
+            SimpleNameObject.from(
+                "locale=en, prefix=Mr., given=John, given2= Bob, surname=Smith, surname2= Barnes Pascal, suffix=Jr."),
+            "length=short; style=formal; usage=addressing",
+            "1Mr.1 2John2 3Bob3 4Smith4 5Barnes Pascal5 6Jr.6"
+            );
 
         check(personNameFormatter,
-              SimpleNameObject.from(
-                    "locale=en, given2= Bob, surname=Smith, surname2= Barnes Pascal, suffix=Jr."),
-              "length=short; style=formal; usage=addressing",
-              "Bob3 4Smith4 5Barnes Pascal5 6Jr.6"
-        );
+            SimpleNameObject.from(
+                "locale=en, given2= Bob, surname=Smith, surname2= Barnes Pascal, suffix=Jr."),
+            "length=short; style=formal; usage=addressing",
+            "Bob3 4Smith4 5Barnes Pascal5 6Jr.6"
+            );
 
         check(personNameFormatter,
-              SimpleNameObject.from(
-                    "locale=en, prefix=Mr., given=John, given2= Bob, surname=Smith"),
-              "length=short; style=formal; usage=addressing",
-              "1Mr.1 2John2 3Bob3 4Smith"
-        );
-
-         check(personNameFormatter,
-              SimpleNameObject.from(
-                    "locale=en, prefix=Mr., surname=Smith, surname2= Barnes Pascal, suffix=Jr."),
-              "length=short; style=formal; usage=addressing",
-              "1Mr.1 4Smith4 5Barnes Pascal5 6Jr.6"
-        );
+            SimpleNameObject.from(
+                "locale=en, prefix=Mr., given=John, given2= Bob, surname=Smith"),
+            "length=short; style=formal; usage=addressing",
+            "1Mr.1 2John2 3Bob3 4Smith"
+            );
 
         check(personNameFormatter,
-              SimpleNameObject.from(
-                    "locale=en, given=John, surname=Smith"),
-              "length=short; style=formal; usage=addressing",
-              "John2 4Smith"
-        );
+            SimpleNameObject.from(
+                "locale=en, prefix=Mr., surname=Smith, surname2= Barnes Pascal, suffix=Jr."),
+            "length=short; style=formal; usage=addressing",
+            "1Mr.1 4Smith4 5Barnes Pascal5 6Jr.6"
+            );
 
-   }
+        check(personNameFormatter,
+            SimpleNameObject.from(
+                "locale=en, given=John, surname=Smith"),
+            "length=short; style=formal; usage=addressing",
+            "John2 4Smith"
+            );
+
+    }
 
     private <T> Set<T> removeFirst(Set<T> all) {
         Set<T> result = new LinkedHashSet<>(all);
@@ -265,14 +275,34 @@ public class TestPersonNameFormatter extends TestFmwk{
     // TODO Mark test that the order of the NamePatterns is maintained when expanding, compacting
 
     public void TestExampleGenerator() {
-        String path = "//ldml/personNames/personName[@length=\"long\"][@usage=\"referring\"][@style=\"formal\"][@order=\"givenFirst\"]/namePattern";
-        String expected = "〖Katherine Johnson〗〖Alberto Pedro Calderón〗〖Dorothy Lavinia Brown M.D.〗〖Erich Oswald Hans Carl Maria von Stroheim〗";
-        String value = ENGLISH.getStringValue(path);
-        ExampleGenerator test = new ExampleGenerator(ENGLISH, ENGLISH, "");
-        final String example = test.getExampleHtml(path, value);
-        String actual = ExampleGenerator.simplify(example);
-        assertEquals("Example for " + value, expected, actual);
-        // TODO cycle through parameter combinations, check for now exceptions even if locale has no data
+        ExampleGenerator exampleGenerator = new ExampleGenerator(ENGLISH, ENGLISH, "");
+        String[][] tests = {
+            {
+                "//ldml/personNames/personName[@length=\"long\"][@usage=\"referring\"][@style=\"formal\"][@order=\"givenFirst\"]/namePattern",
+                "〖Katherine Johnson〗〖Alberto Pedro Calderón〗〖Dorothy Lavinia Brown M.D.〗〖Erich Oswald Hans Carl Maria von Stroheim〗"
+            },{
+                "//ldml/personNames/personName[@length=\"monogram\"][@style=\"informal\"][@order=\"surnameFirst\"]/namePattern",
+                "〖JK〗〖CA〗〖BD〗〖vE〗"
+            }
+        };
+        for (String[] test : tests) {
+            String path = test[0];
+            String value = ENGLISH.getStringValue(path);
+            String expected = test[1];
+            final String example = exampleGenerator.getExampleHtml(path, value);
+            String actual = ExampleGenerator.simplify(example);
+            assertEquals("Example for " + value, expected, actual);
+        }
+    }
+
+    public void TestFormatAll() {
+        PersonNameFormatter personNameFormatter = new PersonNameFormatter(ENGLISH);
+        Map<SampleType, NameObject> samples = PersonNameFormatter.loadSampleNames(ENGLISH);
+        // TODO cycle through parameter combinations, check for exceptions even if locale has no data
+        for (FormatParameters parameters : FormatParameters.all()) {
+            assertNotNull(SampleType.full + " + " + parameters.toLabel(), personNameFormatter.format(samples.get(SampleType.full), parameters));
+            assertNotNull(SampleType.multiword + " + " + parameters.toLabel(), personNameFormatter.format(samples.get(SampleType.multiword), parameters));
+        }
     }
 
     public void TestInvalidNameObjectThrows() {

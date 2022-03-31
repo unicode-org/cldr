@@ -13,8 +13,8 @@ This DTD is a work in progress.
 
 Please see CLDR-15034 for the latest information. -->
 
-<!ELEMENT keyboard ( version, info?, names, settings?, import*,
-	vkeyMaps*, displayMap*, keyMap, layerMaps,
+<!ELEMENT keyboard ( version?, info?, names, settings?, import*,
+	vkeyMaps*, displayMap*, keyMap, layerMaps*,
 	transforms*, reorders?, backspaces?,
 	special* ) >
 <!ATTLIST keyboard locale CDATA #REQUIRED >

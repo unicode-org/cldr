@@ -38,52 +38,53 @@ The LDML specification is divided into the following parts:
 
 ## <a name="Contents" href="#Contents">Contents of Part 4, Dates</a>
 
-*   1 [Overview: Dates Element, Supplemental Date and Calendar Information](#Overview_Dates_Element_Supplemental)
-*   2 [Calendar Elements](#Calendar_Elements)
-    *   2.1 [Elements months, days, quarters, eras](#months_days_quarters_eras)
-    *   2.2 [Elements monthPatterns, cyclicNameSets](#monthPatterns_cyclicNameSets)
-    *   2.3 [Element dayPeriods](#dayPeriods)
-    *   2.4 [Element dateFormats](#dateFormats)
-    *   2.5 [Element timeFormats](#timeFormats)
-    *   2.6 [Element dateTimeFormats](#dateTimeFormats)
-        *   2.6.1 [Element dateTimeFormat](#dateTimeFormat)
-            *   Table: [Date-Time Combination Examples](#Date_Time_Combination_Examples)
-        *   2.6.2 [Elements availableFormats, appendItems](#availableFormats_appendItems)
-            *   2.6.2.1 [Matching Skeletons](#Matching_Skeletons)
-            *   2.6.2.2 [Missing Skeleton Fields](#Missing_Skeleton_Fields)
-        *   2.6.3 [Element intervalFormats](#intervalFormats)
-*   3 [Calendar Fields](#Calendar_Fields)
-*   4 [Supplemental Calendar Data](#Supplemental_Calendar_Data)
-    *   4.1 [Calendar Data](#Calendar_Data)
-    *   4.2 [Calendar Preference Data](#Calendar_Preference_Data)
-    *   4.3 [Week Data](#Week_Data)
-        *   Table: [Week Designation Types](#Week_Designation_Types)
-    *   4.4 [Time Data](#Time_Data)
-    *   4.5 [Day Period Rule Sets](#Day_Period_Rule_Sets)
-        *   4.5.1 [Day Period Rules](#Day_Period_Rules)
-            *   4.5.1.1 [Fixed periods](#Fixed_periods)
-            *   4.5.1.2 [Variable periods](#Variable_periods)
-            *   4.5.1.3 [Parsing Day Periods](#Parsing_Day_Periods)
-*   5 [Time Zone Names](#Time_Zone_Names)
-    *   Table: [\<timeZoneNames> Elements Used for Fallback](#timeZoneNames_Elements_Used_for_Fallback)
-    *   5.1 [Metazone Names](#Metazone_Names)
-*   6 [Supplemental Time Zone Data](#Supplemental_Time_Zone_Data)
-    *   6.1 [Metazones](#Metazones)
-    *   6.2 [Windows Zones](#Windows_Zones)
-    *   6.3 [Primary Zones](#Primary_Zones)
-*   7 [Using Time Zone Names](#Using_Time_Zone_Names)
-    *   7.1 [Time Zone Format Terminology](#Time_Zone_Format_Terminology)
-    *   7.2 [Goals](#Time_Zone_Goals)
-    *   7.3 [Parsing](#Time_Zone_Parsing)
-*   8 [Date Format Patterns](#Date_Format_Patterns)
-    *   Table: [Date Format Pattern Examples](#Date_Format_Pattern_Examples)
-    *   [Date Field Symbol Table](#Date_Field_Symbol_Table)
-    *   8.1 [Localized Pattern Characters (deprecated)](#Localized_Pattern_Characters)
-    *   8.2 [AM / PM](#Date_Patterns_AM_PM)
-    *   8.3 [Eras](#Date_Patterns_Eras)
-    *   8.4 [Week of Year](#Date_Patterns_Week_Of_Year)
-    *   8.5 [Week Elements](#Date_Patterns_Week_Elements)
-*   9 [Parsing Dates and Times](#Parsing_Dates_Times)
+* 1 [Overview: Dates Element, Supplemental Date and Calendar Information](#Overview_Dates_Element_Supplemental)
+* 2 [Calendar Elements](#Calendar_Elements)
+  * 2.1 [Elements months, days, quarters, eras](#months_days_quarters_eras)
+  * 2.2 [Elements monthPatterns, cyclicNameSets](#monthPatterns_cyclicNameSets)
+  * 2.3 [Element dayPeriods](#dayPeriods)
+  * 2.4 [Element dateFormats](#dateFormats)
+  * 2.5 [Element timeFormats](#timeFormats)
+  * 2.6 [Element dateTimeFormats](#dateTimeFormats)
+    * 2.6.1 [Element dateTimeFormat](#dateTimeFormat)
+      * [Date-Time Combination Examples](#Date_Time_Combination_Examples)
+    * 2.6.2 [Elements availableFormats, appendItems](#availableFormats_appendItems)
+      * [Mapping Requested Time Skeletons To Patterns](#Mapping_Requested_Time_Skeletons_To_Patterns)
+      * [2.6.2.1 Matching Skeletons](#Matching_Skeletons)
+      * [2.6.2.2 Missing Skeleton Fields](#Missing_Skeleton_Fields)
+    * 2.6.3 [Element intervalFormats](#intervalFormats)
+* 3 [Calendar Fields](#Calendar_Fields)
+* 4 [Supplemental Calendar Data](#Supplemental_Calendar_Data)
+  * 4.1 [Calendar Data](#Calendar_Data)
+  * 4.2 [Calendar Preference Data](#Calendar_Preference_Data)
+  * 4.3 [Week Data](#Week_Data)
+    * [Week Designation Types](#Week_Designation_Types)
+  * 4.4 [Time Data](#Time_Data)
+  * 4.5 [Day Period Rule Sets](#Day_Period_Rule_Sets)
+    * 4.5.1 [Day Period Rules](#Day_Period_Rules)
+      * [4.5.1.1 Fixed periods](#Fixed_periods)
+      * [4.5.1.2 Variable periods](#Variable_periods)
+      * [4.5.1.3 Parsing Day Periods](#Parsing_Day_Periods)
+* 5 [Time Zone Names](#Time_Zone_Names)
+  * [<timeZoneNames> Elements Used for Fallback](#timeZoneNames_Elements_Used_for_Fallback)
+  * 5.1 [Metazone Names](#Metazone_Names)
+* 6 [Supplemental Time Zone Data](#Supplemental_Time_Zone_Data)
+  * 6.1 [Metazones](#Metazones)
+  * 6.2 [Windows Zones](#Windows_Zones)
+  * 6.3 [Primary Zones](#Primary_Zones)
+* 7 [Using Time Zone Names](#Using_Time_Zone_Names)
+  * 7.1 [Time Zone Format Terminology](#Time_Zone_Format_Terminology)
+  * 7.2 [Goals](#Time_Zone_Goals)
+  * 7.3 [Parsing](#Time_Zone_Parsing)
+* 8 [Date Format Patterns](#Date_Format_Patterns)
+  * [Date Format Pattern Examples](#Date_Format_Pattern_Examples)
+  * [Date Field Symbol Table](#Date_Field_Symbol_Table)
+  * 8.1 [Localized Pattern Characters (deprecated)](#Localized_Pattern_Characters)
+  * 8.2 [AM / PM](#Date_Patterns_AM_PM)
+  * 8.3 [Eras](#Date_Patterns_Eras)
+  * 8.4 [Week of Year](#Date_Patterns_Week_Of_Year)
+  * 8.5 [Week Elements](#Date_Patterns_Week_Elements)
+* 9 [Parsing Dates and Times](#Parsing_Dates_Times)
 
 ## 1 <a name="Overview_Dates_Element_Supplemental" href="#Overview_Dates_Element_Supplemental">Overview: Dates Element, Supplemental Date and Calendar Information</a>
 
@@ -628,7 +629,7 @@ The `dateTimeFormat` element works like the dateFormats and timeFormats, except 
 
 When combining a standard date pattern with a standard time pattern, the type of dateTimeFormat used to combine them is determined by the type of the date pattern. For example:
 
-##### <a name="Date_Time_Combination_Examples" href="#Date_Time_Combination_Examples">Date-Time Combination Examples</a>
+###### <a name="Date_Time_Combination_Examples" href="#Date_Time_Combination_Examples">Date-Time Combination Examples</a>
 
 | Date-Time Combination   | dateTimeFormat            | Results |
 | ----------------------- | ------------------------- | ------- |
@@ -671,7 +672,7 @@ Locales that use 12-hour-cycle time formats with B may provide availableFormats 
 
 When matching a requested skeleton containing b or B to the skeletons actually available in the data, if there is no skeleton matching the specified day period field, then find a match in which the b or B matches an explicit or implicit 'a' in the skeleton, but replace the 'a' in the corresponding pattern with the requested day period b or B. The following table illustrates how requested skeletons map to patterns with different sets of `availableFormats` data:
 
-##### <a name="Mapping_Requested_Time_Skeletons_To_Patterns" href="#Mapping_Requested_Time_Skeletons_To_Patterns">Mapping Requested Time Skeletons To Patterns</a>
+###### <a name="Mapping_Requested_Time_Skeletons_To_Patterns" href="#Mapping_Requested_Time_Skeletons_To_Patterns">Mapping Requested Time Skeletons To Patterns</a>
 
 <!-- HTML: spanning columns, header cells on non-first row -->
 <table><tbody>
@@ -1066,7 +1067,7 @@ What is meant by the weekend varies from country to country. It is typically whe
 
 Each `weekOfPreference` element provides, for its specified locales, an ordered list of the preferred types of week designations for that set of locales. There are four types of week designations, each of which makes use of date patterns available in the locale, as follows:
 
-##### <a name="Week_Designation_Types" href="#Week_Designation_Types">Week Designation Types</a>
+###### <a name="Week_Designation_Types" href="#Week_Designation_Types">Week Designation Types</a>
 
 <!-- HTML: row spans -->
 <table><tbody>
@@ -1329,7 +1330,7 @@ For more information, see [[Data Formats](tr35.md#DataFormats)].
 
 The following subelements of `<timeZoneNames>` are used to control the fallback process described in [Using Time Zone Names](#Using_Time_Zone_Names).
 
-##### <a name="timeZoneNames_Elements_Used_for_Fallback" href="#timeZoneNames_Elements_Used_for_Fallback">&lt;timeZoneNames&gt; Elements Used for Fallback</a>
+###### <a name="timeZoneNames_Elements_Used_for_Fallback" href="#timeZoneNames_Elements_Used_for_Fallback">&lt;timeZoneNames&gt; Elements Used for Fallback</a>
 
 <table><tbody>
 <tr><th>Element Name</th><th>Data Examples</th><th>Results/Comment</th></tr>
@@ -1850,7 +1851,7 @@ A date pattern is a character string consisting of two types of elements:
 
 The following are examples:
 
-##### <a name="Date_Format_Pattern_Examples" href="#Date_Format_Pattern_Examples">Date Format Pattern Examples</a>
+###### <a name="Date_Format_Pattern_Examples" href="#Date_Format_Pattern_Examples">Date Format Pattern Examples</a>
 
 | Pattern | Result (in a particular locale) |
 | ------- | ------------------------------- |
@@ -1901,7 +1902,7 @@ Notes for the table below:
 * Any sequence of pattern characters other than those listed below is invalid. Invalid pattern fields should be handled for formatting and parsing as described in [Handling Invalid Patterns](tr35.md#Invalid_Patterns).
 * The examples in the table below are merely illustrative and may not reflect current actual data.
 
-##### <a name="Date_Field_Symbol_Table" href="#Date_Field_Symbol_Table">Date Field Symbol Table</a>
+###### <a name="Date_Field_Symbol_Table" href="#Date_Field_Symbol_Table">Date Field Symbol Table</a>
 
 <!-- HTML: spanned rows, spanned columns, vertical header cells -->
 <table><tbody>

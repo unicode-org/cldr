@@ -38,62 +38,62 @@ The LDML specification is divided into the following parts:
 
 ## <a name="Contents" href="#Contents">Contents of Part 3, Numbers</a>
 
-*   1 [Numbering Systems](#Numbering_Systems)
-*   2 [Number Elements](#Number_Elements)
-    *   2.1 [Default Numbering System](#defaultNumberingSystem)
-    *   2.2 [Other Numbering Systems](#otherNumberingSystems)
-    *   2.3 [Number Symbols](#Number_Symbols)
-    *   2.4 [Number Formats](#Number_Formats)
-        *   2.4.1 [Compact Number Formats](#Compact_Number_Formats)
-        *   2.4.2 [Currency Formats](#Currency_Formats)
-    *   2.5 [Miscellaneous Patterns](#Miscellaneous_Patterns)
-    *   2.6 [Minimal Pairs](#Minimal_Pairs)
-*   3 [Number Format Patterns](#Number_Format_Patterns)
-    *   3.1 [Number Patterns](#Number_Patterns)
-        *   Table: [Number Pattern Examples](#Number_Pattern_Examples)
-    *   3.2 [Special Pattern Characters](#Special_Pattern_Characters)
-        *   Table: [Number Pattern Character Definitions](#Number_Pattern_Character_Definitions)
-        *   Table: [Sample Patterns and Results](#Sample_Patterns_and_Results)
-        *   Table: [Examples of minimumGroupingDigits](#Examples_of_minimumGroupingDigits)
-        *   3.2.1 [Explicit Plus Signs](#Explicit_Plus)
-    *   3.3 [Formatting](#Formatting)
-    *   3.4 [Scientific Notation](#sci)
-    *   3.5 [Significant Digits](#sigdig)
-        *   Table: [Significant Digits Examples](#Significant_Digits_Examples)
-    *   3.6 [Padding](#Padding)
-    *   3.7 [Rounding](#Rounding)
-    *   3.8 [Quoting Rules](#Quoting_Rules)
-*   4 [Currencies](#Currencies)
-    *   4.1 [Supplemental Currency Data](#Supplemental_Currency_Data)
-*   5 [Language Plural Rules](#Language_Plural_Rules)
-    *   5.1 [Plural rules syntax](#Plural_rules_syntax)
-        *   5.1.1 [Operands](#Operands)
-            *   Table: [Plural Operand Meanings](#Plural_Operand_Meanings)
-            *   Table: [Plural Operand Examples](#Plural_Operand_Examples)
-        *   5.1.2 [Relations](#Relations)
-            *   Table: [Relations Examples](#Relations_Examples)
-            *   Table: [Plural Rules Examples](#Plural_Rules_Examples)
-        *   5.1.3 [Samples](#Samples)
-            *   Table: [Plural Samples Examples](#Plural_Samples_Examples)
-        *   5.1.4 [Using Cardinals](#Using_cardinals)
-    *   5.2 [Plural Ranges](#Plural_Ranges)
-*   6 [Rule-Based Number Formatting](#Rule-Based_Number_Formatting)
-*   7 [Parsing Numbers](#Parsing_Numbers)
-*   8 [Number Range Formatting](#Number_Range_Formatting)
-    *   8.1 [Approximate Number Formatting](#Approximate_Number_Formatting)
-    *   8.2 [Collapsing Number Ranges](#Collapsing_Number_Ranges)
-    *   8.3 [Range Pattern Processing](#Range_Pattern_Processing)
+* 1 [Numbering Systems](#Numbering_Systems)
+* 2 [Number Elements](#Number_Elements)
+  * 2.1 [Default Numbering System](#defaultNumberingSystem)
+  * 2.2 [Other Numbering Systems](#otherNumberingSystems)
+  * 2.3 [Number Symbols](#Number_Symbols)
+  * 2.4 [Number Formats](#Number_Formats)
+    * 2.4.1 [Compact Number Formats](#Compact_Number_Formats)
+    * 2.4.2 [Currency Formats](#Currency_Formats)
+  * 2.5 [Miscellaneous Patterns](#Miscellaneous_Patterns)
+  * 2.6 [Minimal Pairs](#Minimal_Pairs)
+* 3 [Number Format Patterns](#Number_Format_Patterns)
+  * 3.1 [Number Patterns](#Number_Patterns)
+    * [Number Pattern Examples](#Number_Pattern_Examples)
+  * 3.2 [Special Pattern Characters](#Special_Pattern_Characters)
+    * [Number Pattern Character Definitions](#Number_Pattern_Character_Definitions)
+    * [Sample Patterns and Results](#Sample_Patterns_and_Results)
+    * 3.2.1 [Explicit Plus Signs](#Explicit_Plus)
+  * 3.3 [Formatting](#Formatting)
+  * 3.4 [Scientific Notation](#sci)
+  * 3.5 [Significant Digits](#sigdig)
+    * [Significant Digits Examples](#Significant_Digits_Examples)
+  * 3.6 [Padding](#Padding)
+  * 3.7 [Rounding](#Rounding)
+  * 3.8 [Quoting Rules](#Quoting_Rules)
+* 4 [Currencies](#Currencies)
+  * 4.1 [Supplemental Currency Data](#Supplemental_Currency_Data)
+* 5 [Language Plural Rules](#Language_Plural_Rules)
+  * [Explicit 0 and 1 rules](#Explicit_0_1_rules)
+  * 5.1 [Plural rules syntax](#Plural_rules_syntax)
+    * 5.1.1 [Operands](#Operands)
+      * [Plural Operand Meanings](#Plural_Operand_Meanings)
+      * [Plural Operand Examples](#Plural_Operand_Examples)
+    * 5.1.2 [Relations](#Relations)
+      * [Relations Examples](#Relations_Examples)
+      * [Plural Rules Examples](#Plural_Rules_Examples)
+    * 5.1.3 [Samples](#Samples)
+      * [Plural Samples Examples](#Plural_Samples_Examples)
+    * 5.1.4 [Using Cardinals](#Using_cardinals)
+  * 5.2 [Plural Ranges](#Plural_Ranges)
+* 6 [Rule-Based Number Formatting](#Rule-Based_Number_Formatting)
+* 7 [Parsing Numbers](#Parsing_Numbers)
+* 8 [Number Range Formatting](#Number_Range_Formatting)
+  * 8.1 [Approximate Number Formatting](#Approximate_Number_Formatting)
+  * 8.2 [Collapsing Number Ranges](#Collapsing_Number_Ranges)
+  * 8.3 [Range Pattern Processing](#Range_Pattern_Processing)
 
 ## 1 <a name="Numbering_Systems" href="#Numbering_Systems">Numbering Systems</a>
 
 ```xml
-<!ELEMENT numberingSystems ( numberingSystem* ) >  
-<!ELEMENT numberingSystem EMPTY >  
-<!ATTLIST numberingSystem id NMTOKEN #REQUIRED >  
-<!ATTLIST numberingSystem type ( numeric | algorithmic ) #REQUIRED >  
-<!ATTLIST numberingSystem radix NMTOKEN #IMPLIED >  
-<!ATTLIST numberingSystem digits CDATA #IMPLIED >  
-<!ATTLIST numberingSystem rules CDATA #IMPLIED >  
+<!ELEMENT numberingSystems ( numberingSystem* ) >
+<!ELEMENT numberingSystem EMPTY >
+<!ATTLIST numberingSystem id NMTOKEN #REQUIRED >
+<!ATTLIST numberingSystem type ( numeric | algorithmic ) #REQUIRED >
+<!ATTLIST numberingSystem radix NMTOKEN #IMPLIED >
+<!ATTLIST numberingSystem digits CDATA #IMPLIED >
+<!ATTLIST numberingSystem rules CDATA #IMPLIED >
 ```
 
 Numbering systems information is used to define different representations for numeric values to an end user. Numbering systems are defined in CLDR as one of two different types: algorithmic and numeric. Numeric systems are simply a decimal based system that uses a predefined set of digits to represent numbers. Examples are Western ( ASCII digits ), Thai digits, Devanagari digits. Algorithmic systems are more complex in nature, since the proper formatting and presentation of a numeric quantity is based on some algorithm or set of rules. Examples are Chinese numerals, Hebrew numerals, or Roman numerals. In CLDR, the rules for presentation of numbers in an algorithmic system are defined using the RBNF syntax described in _[Section 6: Rule-Based Number Formatting](#Rule-Based_Number_Formatting)_.
@@ -270,9 +270,9 @@ Example:
 ```
 
 ```xml
-<!ATTLIST symbols numberSystem CDATA #IMPLIED >  
+<!ATTLIST symbols numberSystem CDATA #IMPLIED >
 ```
-The `numberSystem` attribute is used to specify that the given number symbols are to be used when the given numbering system is active. Number symbols can only be defined for numbering systems of the "numeric" type, since any special symbols required for an algorithmic numbering system should be specified by the RBNF formatting rules used for that numbering system. By default, number symbols without a specific `numberSystem` attribute are assumed to be used for the "latn" numbering system, which is western (ASCII) digits. Locales that specify a numbering system other than "latn" as the default should also specify number formatting symbols that are appropriate for use within the context of the given numbering system. For example, a locale that uses the Arabic-Indic digits as its default would likely use an Arabic comma for the grouping separator rather than the ASCII comma.  
+The `numberSystem` attribute is used to specify that the given number symbols are to be used when the given numbering system is active. Number symbols can only be defined for numbering systems of the "numeric" type, since any special symbols required for an algorithmic numbering system should be specified by the RBNF formatting rules used for that numbering system. By default, number symbols without a specific `numberSystem` attribute are assumed to be used for the "latn" numbering system, which is western (ASCII) digits. Locales that specify a numbering system other than "latn" as the default should also specify number formatting symbols that are appropriate for use within the context of the given numbering system. For example, a locale that uses the Arabic-Indic digits as its default would likely use an Arabic comma for the grouping separator rather than the ASCII comma.
 For more information on numbering systems and their definitions, see _[Section 1: Numbering Systems](#Numbering_Systems)_.
 
 ### 2.4 <a name="Number_Formats" href="#Number_Formats">Number Formats</a>
@@ -337,10 +337,10 @@ Example:
 ```
 
 ```xml
-<!ATTLIST symbols numberSystem CDATA #IMPLIED >  
+<!ATTLIST symbols numberSystem CDATA #IMPLIED >
 ```
 
-The `numberSystem` attribute is used to specify that the given number formatting pattern(s) are to be used when the given numbering system is active. By default, number formatting patterns without a specific `numberSystem` attribute are assumed to be used for the "latn" numbering system, which is western (ASCII) digits. Locales that specify a numbering system other than "latn" as the default should also specify number formatting patterns that are appropriate for use within the context of the given numbering system.  
+The `numberSystem` attribute is used to specify that the given number formatting pattern(s) are to be used when the given numbering system is active. By default, number formatting patterns without a specific `numberSystem` attribute are assumed to be used for the "latn" numbering system, which is western (ASCII) digits. Locales that specify a numbering system other than "latn" as the default should also specify number formatting patterns that are appropriate for use within the context of the given numbering system.
 For more information on numbering systems and their definitions, see _[Section 1: Numbering Systems](#Numbering_Systems)_.
 
 #### 2.4.1 <a name="Compact_Number_Formats" href="#Compact_Number_Formats">Compact Number Formats</a>
@@ -348,41 +348,41 @@ For more information on numbering systems and their definitions, see _[Section 1
 A pattern `type` attribute is used for _compact number formats_, such as the following:
 
 ```xml
-<decimalFormatLength type="long">  
-    <decimalFormat>  
-        <pattern type="1000" count="one">0 millier</pattern>  
-        <pattern type="1000" count="other">0 milliers</pattern>  
-        <pattern type="10000" count="one">00 mille</pattern>  
-        <pattern type="10000" count="other">00 mille</pattern>  
-        <pattern type="100000" count="one">000 mille</pattern>  
-        <pattern type="100000" count="other">000 mille</pattern>  
-        <pattern type="1000000" count="one">0 million</pattern>  
-        <pattern type="1000000" count="other">0 millions</pattern>  
-        …  
-    </decimalFormat>  
-</decimalFormatLength>  
-<decimalFormatLength type="short">  
-    <decimalFormat>  
-        <pattern type="1000" count="one">0 K</pattern>  
-        <pattern type="1000" count="other">0 K</pattern>  
-        <pattern type="10000" count="one">00 K</pattern>  
-        <pattern type="10000" count="other">00 K</pattern>  
-        <pattern type="100000" count="one">000 K</pattern>  
-        <pattern type="100000" count="other">000 K</pattern>  
-        <pattern type="1000000" count="one">0 M</pattern>  
-        <pattern type="1000000" count="other">0 M</pattern>  
-        …  
+<decimalFormatLength type="long">
+    <decimalFormat>
+        <pattern type="1000" count="one">0 millier</pattern>
+        <pattern type="1000" count="other">0 milliers</pattern>
+        <pattern type="10000" count="one">00 mille</pattern>
+        <pattern type="10000" count="other">00 mille</pattern>
+        <pattern type="100000" count="one">000 mille</pattern>
+        <pattern type="100000" count="other">000 mille</pattern>
+        <pattern type="1000000" count="one">0 million</pattern>
+        <pattern type="1000000" count="other">0 millions</pattern>
+        …
+    </decimalFormat>
+</decimalFormatLength>
+<decimalFormatLength type="short">
+    <decimalFormat>
+        <pattern type="1000" count="one">0 K</pattern>
+        <pattern type="1000" count="other">0 K</pattern>
+        <pattern type="10000" count="one">00 K</pattern>
+        <pattern type="10000" count="other">00 K</pattern>
+        <pattern type="100000" count="one">000 K</pattern>
+        <pattern type="100000" count="other">000 K</pattern>
+        <pattern type="1000000" count="one">0 M</pattern>
+        <pattern type="1000000" count="other">0 M</pattern>
+        …
     </decimalFormat>
 …
-<currencyFormatLength type="short">  
-    <currencyFormat type="standard">  
-        <pattern type="1000" count="one">0 K ¤</pattern>  
-        <pattern type="1000" count="other">0 K ¤</pattern>  
-        <pattern type="10000" count="one">00 K ¤</pattern>  
-        <pattern type="10000" count="other">00 K ¤</pattern>  
-        <pattern type="100000" count="one">000 K ¤</pattern>  
-        <pattern type="100000" count="other">000 K ¤</pattern>  
-        <pattern type="1000000" count="one">0 M ¤</pattern>  
+<currencyFormatLength type="short">
+    <currencyFormat type="standard">
+        <pattern type="1000" count="one">0 K ¤</pattern>
+        <pattern type="1000" count="other">0 K ¤</pattern>
+        <pattern type="10000" count="one">00 K ¤</pattern>
+        <pattern type="10000" count="other">00 K ¤</pattern>
+        <pattern type="100000" count="one">000 K ¤</pattern>
+        <pattern type="100000" count="other">000 K ¤</pattern>
+        <pattern type="1000000" count="one">0 M ¤</pattern>
         <pattern type="1000000" count="other">0 M ¤</pattern>
 ```
 
@@ -437,7 +437,7 @@ In addition to a standard currency format, in which negative currency amounts mi
 ### 2.5 <a name="Miscellaneous_Patterns" href="#Miscellaneous_Patterns">Miscellaneous Patterns</a>
 
 ```xml
-<!ELEMENT miscPatterns (alias | (default*, pattern*, special*)) >  
+<!ELEMENT miscPatterns (alias | (default*, pattern*, special*)) >
 <!ATTLIST miscPatterns numberSystem CDATA #IMPLIED >
 ```
 
@@ -462,35 +462,35 @@ The miscPatterns supply additional patterns for special purposes. The currently 
 _For example:_
 
 ```xml
-<miscPatterns numberSystem="…">  
-  <pattern type="approximately">~{0}</pattern>  
-  <pattern type="atLeast">≥{0}</pattern>  
-  <pattern type="atMost">≤{0}</pattern>  
-  <pattern type="range">{0}–{1}</pattern>  
+<miscPatterns numberSystem="…">
+  <pattern type="approximately">~{0}</pattern>
+  <pattern type="atLeast">≥{0}</pattern>
+  <pattern type="atMost">≤{0}</pattern>
+  <pattern type="range">{0}–{1}</pattern>
 </miscPatterns>
 ```
 
 ### 2.6 <a name="Minimal_Pairs" href="#Minimal_Pairs">Minimal Pairs</a>
 
 ```xml
-<!ELEMENT minimalPairs ( alias | ( pluralMinimalPairs*, ordinalMinimalPairs*, caseMinimalPairs*, genderMinimalPairs*, special* ) ) >  
+<!ELEMENT minimalPairs ( alias | ( pluralMinimalPairs*, ordinalMinimalPairs*, caseMinimalPairs*, genderMinimalPairs*, special* ) ) >
 ```
 ```xml
-<!ELEMENT pluralMinimalPairs ( #PCDATA ) >  
-<!ATTLIST pluralMinimalPairs count NMTOKEN #IMPLIED >  
+<!ELEMENT pluralMinimalPairs ( #PCDATA ) >
+<!ATTLIST pluralMinimalPairs count NMTOKEN #IMPLIED >
 ```
 ```xml
-<!ELEMENT ordinalMinimalPairs ( #PCDATA ) >  
-<!ATTLIST ordinalMinimalPairs ordinal NMTOKEN #IMPLIED >  
+<!ELEMENT ordinalMinimalPairs ( #PCDATA ) >
+<!ATTLIST ordinalMinimalPairs ordinal NMTOKEN #IMPLIED >
 ```
 
 ```xml
-<!ELEMENT caseMinimalPairs ( #PCDATA ) >  
+<!ELEMENT caseMinimalPairs ( #PCDATA ) >
 <!ATTLIST caseMinimalPairs case NMTOKEN #REQUIRED >
 ```
 
 ```xml
-<!ELEMENT genderMinimalPairs ( #PCDATA ) >  
+<!ELEMENT genderMinimalPairs ( #PCDATA ) >
 <!ATTLIST genderMinimalPairs gender NMTOKEN #REQUIRED >
 ```
 
@@ -499,20 +499,20 @@ Minimal pairs provide examples that justify why multiple plural or ordinal categ
 Examples
 
 ```xml
-<minimalPairs>  
-    <pluralMinimalPairs count="one">{0} Tag</pluralMinimalPairs>  
-    <pluralMinimalPairs count="other">{0} Tage</pluralMinimalPairs>  
-  
-    <ordinalMinimalPairs ordinal="other">{0}. Abzweigung nach rechts nehmen</ordinalMinimalPairs>  
-  
-    <caseMinimalPairs case="accusative">… für {0} …</caseMinimalPairs>  
-    <caseMinimalPairs case="dative">… mit {0} …</caseMinimalPairs>  
-    <caseMinimalPairs case="genitive">Anstatt {0} …</caseMinimalPairs>  
-    <caseMinimalPairs case="nominative">{0} kostet (kosten) € 3,50.</caseMinimalPairs>  
-  
-    <genderMinimalPairs gender="feminine">Die {0} ist …</genderMinimalPairs>  
-    <genderMinimalPairs gender="masculine">Der {0} ist …</genderMinimalPairs>  
-    <genderMinimalPairs gender="neuter">Das {0} ist …</genderMinimalPairs>  
+<minimalPairs>
+    <pluralMinimalPairs count="one">{0} Tag</pluralMinimalPairs>
+    <pluralMinimalPairs count="other">{0} Tage</pluralMinimalPairs>
+
+    <ordinalMinimalPairs ordinal="other">{0}. Abzweigung nach rechts nehmen</ordinalMinimalPairs>
+
+    <caseMinimalPairs case="accusative">… für {0} …</caseMinimalPairs>
+    <caseMinimalPairs case="dative">… mit {0} …</caseMinimalPairs>
+    <caseMinimalPairs case="genitive">Anstatt {0} …</caseMinimalPairs>
+    <caseMinimalPairs case="nominative">{0} kostet (kosten) € 3,50.</caseMinimalPairs>
+
+    <genderMinimalPairs gender="feminine">Die {0} ist …</genderMinimalPairs>
+    <genderMinimalPairs gender="masculine">Der {0} ist …</genderMinimalPairs>
+    <genderMinimalPairs gender="neuter">Das {0} ist …</genderMinimalPairs>
 </minimalPairs>
 ```
 
@@ -525,7 +525,7 @@ For more information, see [Plural Rules](http://cldr.unicode.org/index/cldr-spec
 
 Number patterns affect how numbers are interpreted in a localized context. Here are some examples, based on the French locale. The "." shows where the decimal point should go. The "," shows where the thousands separator should go. A "0" indicates zero-padding: if the number is too short, a zero (in the locale's numeric set) will go there. A "#" indicates no padding: if the number is too short, nothing goes there. A "¤" shows where the currency sign will go. The following illustrates the effects of different patterns for the French locale, with the number "1234.567". Notice how the pattern characters ',' and '.' are replaced by the characters appropriate for the locale.
 
-##### <a name="Number_Pattern_Examples" href="#Number_Pattern_Examples">Number Pattern Examples</a>
+###### <a name="Number_Pattern_Examples" href="#Number_Pattern_Examples">Number Pattern Examples</a>
 
 | Pattern | Currency | Text |
 | --- | --- | --- |
@@ -551,7 +551,7 @@ To insert a special character in a pattern as a literal, that is, without any sp
 
 Invalid sequences of special characters (such as “¤¤¤¤¤¤” in current CLDR) should be handled for formatting and parsing as described in [Handling Invalid Patterns](tr35.md#Invalid_Patterns).
 
-##### <a name="Number_Pattern_Character_Definitions" href="#Number_Pattern_Character_Definitions">Number Pattern Character Definitions</a>
+###### <a name="Number_Pattern_Character_Definitions" href="#Number_Pattern_Character_Definitions">Number Pattern Character Definitions</a>
 
 | Symbol | Location | Localized Replacement | Meaning |
 | :-- | :-- | :-- | :-- |
@@ -589,7 +589,7 @@ Decimal|"#,##0¤00"
 
 Below is a sample of patterns, special characters, and results:
 
-##### <a name="Sample_Patterns_and_Results" href="#Sample_Patterns_and_Results">Sample Patterns and Results</a>
+###### <a name="Sample_Patterns_and_Results" href="#Sample_Patterns_and_Results">Sample Patterns and Results</a>
 
 <table><tbody>
 <tr><th>explicit pattern:</th><td colspan="2">0.00;-0.00</td><td colspan="2">0.00;0.00-</td><td colspan="2">0.00+;0.00-</td></tr>
@@ -618,7 +618,7 @@ For consistency in the CLDR data, the following conventions are observed:
 * The only time two thousands separators needs to be used is when the number of digits varies, such as for Hindi: #,##,##0.
 * The **minimumGroupingDigits** can be used to suppress groupings below a certain value. This is used for languages such as Polish, where one would only write the grouping separator for values above 9999. The minimumGroupingDigits contains the default for the locale.
     * The attribute value is used by adding it to the grouping separator value. If the input number has fewer integer digits, the grouping separator is suppressed.
-    * ##### <a name="Examples_of_minimumGroupingDigits" href="#Examples_of_minimumGroupingDigits">Examples of minimumGroupingDigits</a>     
+    * ##### <a name="Examples_of_minimumGroupingDigits" href="#Examples_of_minimumGroupingDigits">Examples of minimumGroupingDigits</a>
 
         | minimum­GroupingDigits | Pattern Grouping | Input Number | Formatted |
         | ---: | ---: | ---: | ---: |
@@ -627,7 +627,7 @@ For consistency in the CLDR data, the following conventions are observed:
         | 2 | 3 | 1000 | 1000 |
         | 2 | 3 | 10000 | 10,000 |
         | 1 | 4 | 10000 | 1,0000 |
-        | 2 | 4 | 10000 | 10000 | 
+        | 2 | 4 | 10000 | 10000 |
 
 #### 3.2.1 <a name="Explicit_Plus" href="#Explicit_Plus">Explicit Plus Signs</a>
 
@@ -662,8 +662,8 @@ Numbers in scientific notation are expressed as the product of a mantissa and a 
 * The number of digit characters after the exponent character gives the minimum exponent digit count. There is no maximum. Negative exponents are formatted using the localized minus sign, _not_ the prefix and suffix from the pattern. This allows patterns such as "0.###E0 m/s". To prefix positive exponents with a localized plus sign, specify '+' between the exponent and the digits: "0.###E+0" will produce formats "1E+1", "1E+0", "1E-1", and so on. (In localized patterns, use the localized plus sign rather than '+'.)
 * The minimum number of integer digits is achieved by adjusting the exponent. Example: 0.00123 formatted with "00.###E0" yields "12.3E-4". This only happens if there is no maximum number of integer digits. If there is a maximum, then the minimum number of integer digits is fixed at one.
 * The maximum number of integer digits, if present, specifies the exponent grouping. The most common use of this is to generate _engineering notation_, in which the exponent is a multiple of three, for example, "##0.###E0". The number 12345 is formatted using "##0.####E0" as "12.345E3".
-* When using scientific notation, the formatter controls the digit counts using logic for significant digits. The maximum number of significant digits comes from the mantissa portion of the pattern: the string of #, 0, and period (".") characters immediately preceding the E. To get the maximum number of significant digits, use the following algorithm:  
-    
+* When using scientific notation, the formatter controls the digit counts using logic for significant digits. The maximum number of significant digits comes from the mantissa portion of the pattern: the string of #, 0, and period (".") characters immediately preceding the E. To get the maximum number of significant digits, use the following algorithm:
+
     1.  If the mantissa pattern contains a period:
         1.  If the mantissa pattern contains at least one 0:
             *   Return the number of 0s before the period added to the number of #s or 0s after the period
@@ -674,9 +674,9 @@ Numbers in scientific notation are expressed as the product of a mantissa and a 
             *   Return the number of 0s.
         2.  Else:
             *   Return positive infinity.
-    
-    Examples:  
-    
+
+    Examples:
+
     *   0.##E0 means a max of 3 significant digits.
     *   #.##E0 also means a max of 3 significant digits.
     *   #.0#E0 means a max of 2 significant digits.
@@ -689,7 +689,7 @@ Numbers in scientific notation are expressed as the product of a mantissa and a 
 
 There are two ways of controlling how many digits are shows: (a) significant digits counts, or (b) integer and fraction digit counts. Integer and fraction digit counts are described above. When a formatter is using significant digits counts, it uses however many integer and fraction digits are required to display the specified number of significant digits. It may ignore min/max integer/fraction digits, or it may use them to the extent possible.
 
-##### <a name="Significant_Digits_Examples" href="#Significant_Digits_Examples">Significant Digits Examples</a>
+###### <a name="Significant_Digits_Examples" href="#Significant_Digits_Examples">Significant Digits Examples</a>
 
 | Pattern | Minimum significant digits | Maximum significant digits | Number | Output |
 | :-- | :-- | :-- | :-- | :-- |
@@ -739,9 +739,9 @@ Single quotes, (**'**), enclose bits of the pattern that should be treated liter
 ## 4 <a name="Currencies" href="#Currencies">Currencies</a>
 
 ```xml
-<!ELEMENT currencies (alias | (default?, currency*, special*)) >  
-<!ELEMENT currency (alias | (((pattern+, displayName*, symbol*) | (displayName+, symbol*, pattern*) | (symbol+, pattern*))?, decimal*, group*, special*)) >  
-<!ELEMENT symbol ( #PCDATA ) >  
+<!ELEMENT currencies (alias | (default?, currency*, special*)) >
+<!ELEMENT currency (alias | (((pattern+, displayName*, symbol*) | (displayName+, symbol*, pattern*) | (symbol+, pattern*))?, decimal*, group*, special*)) >
+<!ELEMENT symbol ( #PCDATA ) >
 <!ATTLIST symbol choice ( true | false ) #IMPLIED > <!-- deprecated -->
 ```
 
@@ -847,23 +847,23 @@ For background information on currency names, see [[CurrencyInfo](tr35.md#Curren
 ### 4.1 <a name="Supplemental_Currency_Data" href="#Supplemental_Currency_Data">Supplemental Currency Data</a>
 
 ```xml
-<!ELEMENT currencyData ( fractions*, region+ ) >  
-<!ELEMENT fractions ( info+ ) >  
-  
-<!ELEMENT info EMPTY >  
-<!ATTLIST info iso4217 NMTOKEN #REQUIRED >  
-<!ATTLIST info digits NMTOKEN #IMPLIED >  
-<!ATTLIST info rounding NMTOKEN #IMPLIED >  
-<!ATTLIST info cashDigits NMTOKEN #IMPLIED >  
-<!ATTLIST info cashRounding NMTOKEN #IMPLIED >  
-  
-<!ELEMENT region ( currency* ) >  
-<!ATTLIST region iso3166 NMTOKEN #REQUIRED >  
-  
-<!ELEMENT currency ( alternate* ) >  
-<!ATTLIST currency from NMTOKEN #IMPLIED >  
-<!ATTLIST currency to NMTOKEN #IMPLIED >  
-<!ATTLIST currency iso4217 NMTOKEN #REQUIRED >  
+<!ELEMENT currencyData ( fractions*, region+ ) >
+<!ELEMENT fractions ( info+ ) >
+
+<!ELEMENT info EMPTY >
+<!ATTLIST info iso4217 NMTOKEN #REQUIRED >
+<!ATTLIST info digits NMTOKEN #IMPLIED >
+<!ATTLIST info rounding NMTOKEN #IMPLIED >
+<!ATTLIST info cashDigits NMTOKEN #IMPLIED >
+<!ATTLIST info cashRounding NMTOKEN #IMPLIED >
+
+<!ELEMENT region ( currency* ) >
+<!ATTLIST region iso3166 NMTOKEN #REQUIRED >
+
+<!ELEMENT currency ( alternate* ) >
+<!ATTLIST currency from NMTOKEN #IMPLIED >
+<!ATTLIST currency to NMTOKEN #IMPLIED >
+<!ATTLIST currency iso4217 NMTOKEN #REQUIRED >
 <!ATTLIST currency tender ( true | false ) #IMPLIED >
 ```
 
@@ -929,7 +929,7 @@ And can have any number of `currency` elements, with the `ordered` subelements.
 * **from:** the currency was valid from to the datetime indicated by the value. See the main document _Section 5.2.1 [Dates and Date Ranges](tr35.md#Date_Ranges)_.
 * **to:** the currency was valid up to the datetime indicated by the value of _before_. See the main document _Section 5.2.1 [Dates and Date Ranges](tr35.md#Date_Ranges)_.
 * **tender:** indicates whether or not the ISO currency code represents a currency that was or is legal tender in some country. The default is "true". Certain ISO codes represent things like financial instruments or precious metals, and do not represent normally interchanged currencies.
-    
+
 
 That is, each `currency` element will list an interval in which it was valid. The _ordering_ of the elements in the list tells us which was the primary currency during any period in time. Here is an example of such an overlap:
 
@@ -953,7 +953,7 @@ The [UN Information](https://unstats.un.org/unsd/methodology/m49/) is used to de
 When a code is no longer in use, it is terminated (see #1, #2, #4, #5)
 
 > Example:
-> 
+>
 > * ```<currency iso4217="EUR" from="2003-02-04" to="2006-06-03"/>```
 
 When codes split, each of the new codes inherits (see #2, #3) the previous data. However, some modifications can be made if it is clear that currencies were only in use in one of the parts.
@@ -961,20 +961,20 @@ When codes split, each of the new codes inherits (see #2, #3) the previous data.
 When codes merge, the data is copied from the most populous part.
 
 > Example. When CS split into RS and ME:
-> 
+>
 > * RS & ME copy the former CS, except that the line for EUR is dropped from RS
 > * CS now terminates on Jun 3, 2006 (following the UN info)
 
 ## 5 <a name="Language_Plural_Rules" href="#Language_Plural_Rules">Language Plural Rules</a>
 
 ```xml
-<!ELEMENT plurals (pluralRules*, pluralRanges*) >  
-<!ATTLIST plurals type ( ordinal | cardinal ) #IMPLIED > <!-- default is cardinal -->  
-  
-<!ELEMENT pluralRules (pluralRule*) >  
-<!ATTLIST pluralRules locales NMTOKENS #REQUIRED >  
-  
-<!ELEMENT pluralRule ( #PCDATA ) >  
+<!ELEMENT plurals (pluralRules*, pluralRanges*) >
+<!ATTLIST plurals type ( ordinal | cardinal ) #IMPLIED > <!-- default is cardinal -->
+
+<!ELEMENT pluralRules (pluralRule*) >
+<!ATTLIST pluralRules locales NMTOKENS #REQUIRED >
+
+<!ELEMENT pluralRule ( #PCDATA ) >
 <!ATTLIST pluralRule count (zero | one | two | few | many | other) #REQUIRED >
 ```
 
@@ -1073,7 +1073,7 @@ Usage example: In English (which only defines language-specific rules for “one
 
 The xml value for each pluralRule is a _condition_ with a boolean result.
 That value specifies whether that rule (i.e. that plural form) applies to a given _source number N_ in sampleValue syntax, where _N_ can be expressed as a decimal fraction or with compact decimal formatting.
-The compact decimal formatting is denoted by a special notation in the syntax, e.g., “1.2c6” for “1.2M”. 
+The compact decimal formatting is denoted by a special notation in the syntax, e.g., “1.2c6” for “1.2M”.
 Clients of CLDR may express all the rules for a locale using the following syntax:
 
 ```
@@ -1091,9 +1091,9 @@ The conditions themselves have the following syntax.
 ```
 condition       = and_condition ('or' and_condition)*
 samples         = ('@integer' sampleList)?
-                  ('@decimal' sampleList)?                
+                  ('@decimal' sampleList)?
 and_condition   = relation ('and' relation)*
-relation        = is_relation | in_relation | within_relation 
+relation        = is_relation | in_relation | within_relation
 is_relation     = expr 'is' ('not')? value
 in_relation     = expr (('not')? 'in' | '=' | '!=') range_list
 within_relation = expr ('not')? 'within' range_list
@@ -1107,7 +1107,7 @@ sampleRange     = sampleValue ('~' sampleValue)?
 sampleValue     = value ('.' digit+)? ([ce] digitPos digit+)?
 digit           = [0-9]
 digitPos        = [1-9]
-```                
+```
 
 * Whitespace (defined as Unicode [Pattern_White_Space](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5Cp%7BPattern_White_Space%7D)) can occur between or around any of the above tokens, with the exception of the tokens in value, digit, and sampleValue.
 * In the syntax, **and** binds more tightly than **or**. So **X or Y and Z** is interpreted as **(X or (Y and Z))**.
@@ -1118,11 +1118,11 @@ digitPos        = [1-9]
 
 #### 5.1.1 <a name="Operands" href="#Operands">Operands</a>
 
-The operands are numeric values corresponding to features of the *source number N*, and have the following meanings given in the table below. 
+The operands are numeric values corresponding to features of the *source number N*, and have the following meanings given in the table below.
 Note that, contrary to source numbers, operands are treated numerically.
 Although some of them are used to describe insignificant 0s in the source number, any insignificant 0s in the operands themselves are ignored, e.g., f=03 is equivalent to f=3.
 
-##### <a name="Plural_Operand_Meanings" href="#Plural_Operand_Meanings">Plural Operand Meanings</a>
+###### <a name="Plural_Operand_Meanings" href="#Plural_Operand_Meanings">Plural Operand Meanings</a>
 
 | Symbol | Value |
 | --- | --- |
@@ -1135,11 +1135,11 @@ Although some of them are used to describe insignificant 0s in the source number
 | c | compact decimal exponent value: exponent of the power of 10 used in compact decimal formatting. |
 | e | a deprecated synonym for ‘c’. Note: it may be redefined in the future. |
 
-\* If there is a compact decimal exponent value (‘c’), then the n, i, f, t, v, and w values are computed _after_ shifting the decimal point in the original by the ‘c’ value. 
-So for 1.2c3, the n, i, f, t, v, and w values are the same as those of 1200:  i=1200 and f=0. 
+\* If there is a compact decimal exponent value (‘c’), then the n, i, f, t, v, and w values are computed _after_ shifting the decimal point in the original by the ‘c’ value.
+So for 1.2c3, the n, i, f, t, v, and w values are the same as those of 1200:  i=1200 and f=0.
 Similarly, 1.2005c3 has i=1200 and f=5 (corresponding to 1200.5).
 
-##### <a name="Plural_Operand_Examples" href="#Plural_Operand_Examples">Plural Operand Examples</a>
+###### <a name="Plural_Operand_Examples" href="#Plural_Operand_Examples">Plural Operand Examples</a>
 
 | source | n | i | v | w | f | t | e |
 | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -1162,7 +1162,7 @@ Similarly, 1.2005c3 has i=1200 and f=5 (corresponding to 1200.5).
 
 The positive relations are of the format **x = y** and **x = y mod z**. The **y** value can be a comma-separated list, such as **n = 3, 5, 7..15**, and is treated as if each relation were expanded into an OR statement. The range value **a..b** is equivalent to listing all the _**integers**_ between **a** and **b**, inclusive. When **!=** is used, it means the entire relation is negated.
 
-##### <a name="Relations_Examples" href="#Relations_Examples">Relations Examples</a>
+###### <a name="Relations_Examples" href="#Relations_Examples">Relations Examples</a>
 
 | Expression | Meaning |
 | --- | --- |
@@ -1191,7 +1191,7 @@ The values of relations are defined according to the operand as follows. Importa
    * if starti ≤ BV ≤ endi then return R.
 7. Otherwise return !R.
 
-##### <a name="Plural_Rules_Examples" href="#Plural_Rules_Examples">Plural Rules Examples</a>
+###### <a name="Plural_Rules_Examples" href="#Plural_Rules_Examples">Plural Rules Examples</a>
 
 | Rules | Comments |
 | --- | --- |
@@ -1209,7 +1209,7 @@ The sampleRanges have a special notation: **start**~**end**. The **start** and *
 
 Samples must indicate whether they are infinite or not. The '…' marker must be present if and only infinitely many values (integer or decimal) can satisfy the rule. If a set is not infinite, it must list all the possible values.
 
-##### <a name="Plural_Samples_Examples" href="#Plural_Samples_Examples">Plural Samples Examples</a>
+###### <a name="Plural_Samples_Examples" href="#Plural_Samples_Examples">Plural Samples Examples</a>
 
 | Rules | Comments |
 | --- | --- |
@@ -1230,12 +1230,12 @@ Elements such as `<currencyFormats>`, `<currency>` and `<unit>` provide selectio
 ### 5.2 <a name="Plural_Ranges" href="#Plural_Ranges">Plural Ranges</a>
 
 ```xml
-<!ELEMENT pluralRanges (pluralRange*) >  
-<!ATTLIST pluralRanges locales NMTOKENS #REQUIRED >  
-  
-<!ELEMENT pluralRange ( #PCDATA ) >  
-<!ATTLIST pluralRange start (zero|one|two|few|many|other) #IMPLIED >  
-<!ATTLIST pluralRange end (zero|one|two|few|many|other) #IMPLIED >  
+<!ELEMENT pluralRanges (pluralRange*) >
+<!ATTLIST pluralRanges locales NMTOKENS #REQUIRED >
+
+<!ELEMENT pluralRange ( #PCDATA ) >
+<!ATTLIST pluralRange start (zero|one|two|few|many|other) #IMPLIED >
+<!ATTLIST pluralRange end (zero|one|two|few|many|other) #IMPLIED >
 <!ATTLIST pluralRange result (zero|one|two|few|many|other) #REQUIRED >
 ```
 
@@ -1250,18 +1250,18 @@ For the formatting of number ranges, see <a name="Number_Range_Formatting" href=
 ## 6 <a name="Rule-Based_Number_Formatting" href="#Rule-Based_Number_Formatting">Rule-Based Number Formatting</a>
 
 ```xml
-<!ELEMENT rbnf ( alias | rulesetGrouping*) >  
-  
-<!ELEMENT rulesetGrouping ( alias | ruleset*) >  
-<!ATTLIST rulesetGrouping type NMTOKEN #REQUIRED>  
-  
-<!ELEMENT ruleset ( alias | rbnfrule*) >  
-<!ATTLIST ruleset type NMTOKEN #REQUIRED>  
-<!ATTLIST ruleset access ( public | private ) #IMPLIED >  
-  
-<!ELEMENT rbnfrule ( #PCDATA ) >  
-<!ATTLIST rbnfrule value CDATA #REQUIRED >  
-<!ATTLIST rbnfrule radix CDATA #IMPLIED >  
+<!ELEMENT rbnf ( alias | rulesetGrouping*) >
+
+<!ELEMENT rulesetGrouping ( alias | ruleset*) >
+<!ATTLIST rulesetGrouping type NMTOKEN #REQUIRED>
+
+<!ELEMENT ruleset ( alias | rbnfrule*) >
+<!ATTLIST ruleset type NMTOKEN #REQUIRED>
+<!ATTLIST ruleset access ( public | private ) #IMPLIED >
+
+<!ELEMENT rbnfrule ( #PCDATA ) >
+<!ATTLIST rbnfrule value CDATA #REQUIRED >
+<!ATTLIST rbnfrule radix CDATA #IMPLIED >
 <!ATTLIST rbnfrule decexp CDATA #IMPLIED >
 ```
 
@@ -1269,18 +1269,18 @@ The rule-based number format (RBNF) encapsulates a set of rules for mapping bina
 
 Where, however, the CLDR plurals or ordinals can be used, their usage is recommended in preference to the RBNF data. First, the RBNF data is not completely fleshed out over all languages that otherwise have modern coverage. Secondly, the alternate forms are neither complete, nor useful without additional information. For example, for German there is spellout-cardinal-masculine, and spellout-cardinal-feminine. But a complete solution would have all genders (masculine/feminine/neuter), all cases (nominative, accusative, dative, genitive), plus context (with strong or weak determiner or none). Moreover, even for the alternate forms that do exist, CLDR does not supply any data for when to use one vs another (eg, when to use spellout-cardinal-masculine vs spellout-cardinal-feminine). So these data are inappropriate for general purpose software.
 
-There are 4 common spellout rules. Some languages may provide more than these 4 types:  
+There are 4 common spellout rules. Some languages may provide more than these 4 types:
 
 * **numbering:** This is the default used when there is no context for the number. For many languages, this may also be used for enumeration of objects, like used when pronouncing "table number one" and "table number two". It can also be used for pronouncing a math equation, like "2 - 3 = -1".
 * **numbering-year:** This is used for cases where years are pronounced or written a certain way. An example in English is the year 1999, which comes out as "nineteen ninety-nine" instead of the numbering value "one thousand nine hundred ninety-nine". The rules for this type have undefined behavior for non-integer numbers, and values less than 1.
 * **cardinal:** This is used when providing the quantity of the number of objects. For many languages, there may not be a default cardinal type. Many languages require the notion of the gender and other grammatical properties so that the number and the objects being referenced are in grammatical agreement. An example of its usage is "one e-mail", "two people" or "three kilometers". Some languages may not have dedicated words for 0 or negative numbers for cardinals. In those cases, the words from the numbering type can be reused.
 * **ordinal:** This is used when providing the order of the number of objects. For many languages, there may not be a default ordinal type. Many languages also require the notion of the gender for ordinal so that the ordinal number and the objects being referenced are in grammatical agreement. An example of its usage is "first place", "second e-mail" or "third house on the right". The rules for this type have undefined behavior for non-integer numbers, and values less than 1.
 
-In addition to the spellout rules, there are also a numbering system rules. Even though they may be derived from a specific culture, they are typically not translated and the rules are in **root**. An example of these rules are the Roman numerals where the value 8 comes out as VIII.  
+In addition to the spellout rules, there are also a numbering system rules. Even though they may be derived from a specific culture, they are typically not translated and the rules are in **root**. An example of these rules are the Roman numerals where the value 8 comes out as VIII.
 
-With regards to the number range supported for all these number types, the largest possible number range tries to be supported, but some languages may not have words for large numbers. For example, the old Roman numbering system can't support the value 5000 and beyond. For those unsupported cases, the default number format from CLDR is used.  
+With regards to the number range supported for all these number types, the largest possible number range tries to be supported, but some languages may not have words for large numbers. For example, the old Roman numbering system can't support the value 5000 and beyond. For those unsupported cases, the default number format from CLDR is used.
 
-Any rules marked as **private** should never be referenced externally. Frequently they only support a subrange of numbers that are used in the public rules.  
+Any rules marked as **private** should never be referenced externally. Frequently they only support a subrange of numbers that are used in the public rules.
 
 The syntax used in the CLDR representation of rules is intended to be simply a transcription of ICU based RBNF rules into an XML compatible syntax. The rules are fairly sophisticated; for details see _Rule-Based Number Formatter_ [[RBNF](tr35.md#RBNF)].
 
@@ -1318,9 +1318,9 @@ Other characters should either be ignored, or indicate the end of input, dependi
 Here is a set of heuristic rules that may be helpful:
 
 * Any character with the decimal digit property is unambiguous and should be accepted.
-    
+
   **Note:** In some environments, applications may independently wish to restrict the decimal digit set to prevent security problems. See [[UTR36](https://www.unicode.org/reports/tr41/#UTR36)].
-    
+
 * The exponent character can only be interpreted as such if it occurs after at least one digit, and if it is followed by at least one digit, with only an optional sign in between. A regular expression may be helpful here.
 * For the sign, decimal separator, percent, and per mille, use a set of all possible characters that can serve those functions. For example, the decimal separator set could include all of [.,']. (The actual set of characters can be derived from the number symbols in the By-Type charts [[ByType](tr35.md#ByType)], which list all of the values in CLDR.) To disambiguate, the decimal separator for the locale must be removed from the "ignore" set, and the grouping separator for the locale must be removed from the decimal separator set. The same principle applies to all sets and symbols: any symbol must appear in at most one set.
 * Since there are a wide variety of currency symbols and codes, this should be tried before the less ambiguous elements. It may be helpful to develop a set of characters that can appear in a symbol or code, based on the currency symbols in the locale.

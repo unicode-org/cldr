@@ -44,48 +44,53 @@ The LDML specification is divided into the following parts:
 
 ## <a name="Contents" href="#Contents">Contents of Part 7, Keyboards</a>
 
-*   1 [Keyboards](#Introduction)
-*   2 [Goals and Non-goals](#Goals_and_Nongoals)
-*   3 [Definitions](#Definitions)
-*   4 [File and Directory Structure](#File_and_Dir_Structure)
-*   5 [Element Hierarchy - Layout File](#Element_Heirarchy_Layout_File)
-    *   5.1 [Element: keyboard](#Element_Keyboard)
-    *   5.2 [Element: version](#Element_version)
-    *   5.3 [Element: generation](#Element_generation)
-    *   5.4 [Element: info](#Element_info)
-    *   5.5 [Element: names](#Element_names)
-    *   5.6 [Element: name](#Element_name)
-    *   5.7 [Element: settings](#Element_settings)
-    *   5.8 [Element: keyMap](#Element_keyMap)
-        *   Table: [Possible Modifier Keys](#Possible_Modifier_Keys)
-    *   5.9 [Element: map](#Element_map)
-        *   5.9.1 [Element: flicks, flick](#Element_flicks)
-    *   5.10 [Element: import](#Element_import)
-    *   5.11 [Element: displayMap](#Element_displayMap)
-    *   5.12 [Element: display](#Element_display)
-    *   5.13 [Element: layer](#Element_layer)
-    *   5.14 [Element: row](#Element_row)
-    *   5.15 [Element: switch](#Element_switch)
-    *   5.16 [Element: vkeys](#Element_vkeys)
-    *   5.17 [Element: vkey](#Element_vkey)
-    *   5.18 [Element: transforms](#Element_transforms)
-    *   5.19 [Element: transform](#Element_transform)
-    *   5.20 [Element: reorders, reorder](#Element_reorder)
-    *   5.21 [Element: transform final](#Element_final)
-    *   5.22 [Element: backspaces](#Element_backspaces)
-    *   5.23 [Element: backspace](#Element_backspace)
-*   6 [Element Hierarchy - Platform File](#Element_Heirarchy_Platform_File)
-    *   6.1 [Element: platform](#Element_platform)
-    *   6.2 [Element: hardwareMap](#Element_hardwareMap)
-    *   6.3 [Element: map](#Element_hardwareMap_map)
-*   7 [Invariants](#Invariants)
-*   8 [Data Sources](#Data_Sources)
-    *   Table: [Key Map Data Sources](#Key_Map_Data_Sources)
-*   9 [Keyboard IDs](#Keyboard_IDs)
-    *   9.1 [Principles for Keyboard Ids](#Principles_for_Keyboard_Ids)
-*   10 [Platform Behaviors in Edge Cases](#Platform_Behaviors_in_Edge_Cases)
+  * [_Important Note_](#important-note)
+  * [_Summary_](#summary)
+  * [_Status_](#status)
+* [Parts](#Parts)
+* [Contents of Part 7, Keyboards](#Contents)
+* 1 [Keyboards](#Introduction)
+* 2 [Goals and Non-goals](#Goals_and_Nongoals)
+* 3 [Definitions](#Definitions)
+  * 3.1 [Escaping](#Escaping)
+* 4 [File and Directory Structure](#File_and_Dir_Structure)
+* 5 [Element Hierarchy - Layout File](#Element_Heirarchy_Layout_File)
+  * 5.1 [Element: keyboard](#Element_Keyboard)
+  * 5.2 [Element: version](#Element_version)
+  * 5.3 ~~[Element: generation](#Element_generation)~~
+  * 5.4 [Element: info](#Element_info)
+  * 5.5 [Element: names](#Element_names)
+  * 5.6 [Element: name](#Element_name)
+  * 5.7 [Element: settings](#Element_settings)
+  * 5.8 [Element: keyMap](#Element_keyMap)
+    * [Possible Modifier Keys](#Possible_Modifier_Keys)
+  * 5.9 [Element: map](#Element_map)
+    * 5.9.1 [Elements: flicks, flick](#Element_flicks)
+  * 5.10 [Element: import](#Element_import)
+  * 5.11 [Element: displayMap](#Element_displayMap)
+  * 5.12 [Element: display](#Element_display)
+  * 5.13 [Element: layer](#Element_layer)
+  * 5.14 [Element: row](#Element_row)
+  * 5.15 [Element: switch](#Element_switch)
+  * 5.16 [Element: vkeys](#Element_vkeys)
+  * 5.17 [Element: vkey](#Element_vkey)
+  * 5.18 [Element: transforms](#Element_transforms)
+  * 5.19 [Element: transform](#Element_transform)
+  * 5.20 [Element: reorders, reorder](#Element_reorder)
+  * 5.21 [Element: transform final](#Element_final)
+  * 5.22 [Element: backspaces](#Element_backspaces)
+  * 5.23 [Element: backspace](#Element_backspace)
+* 6 [Element Hierarchy - Platform File](#Element_Heirarchy_Platform_File)
+  * 6.1 [Element: platform](#Element_platform)
+  * 6.2 [Element: hardwareMap](#Element_hardwareMap)
+  * 6.3 [Element: map](#Element_hardwareMap_map)
+* 7 [Invariants](#Invariants)
+* 8 [Data Sources](#Data_Sources)
+  * [Key Map Data Sources](#Key_Map_Data_Sources)
+* 9 [Keyboard IDs](#Keyboard_IDs)
+  * 9.1 [Principles for Keyboard Ids](#Principles_for_Keyboard_Ids)
+* 10 [Platform Behaviors in Edge Cases](#Platform_Behaviors_in_Edge_Cases)
 
-<a name="Keyboards"></a>
 ## 1 <a name="Introduction" href="#Introduction">Keyboards</a>
 
 The CLDR keyboard format provides for the communication of keyboard mapping data between different modules, and the comparison of data across different vendors and platforms. The standardized identifier for keyboards can be used to communicate, internally or externally, a request for a particular keyboard mapping that is to be used to transform either text or keystrokes. The corresponding data can then be used to perform the requested actions.
@@ -542,7 +547,7 @@ Within a combination, the presence of a modifier WITHOUT the '?' suffix indicate
 
 Here is an exhaustive list of all possible modifier keys:
 
-##### <a name="Possible_Modifier_Keys" href="#Possible_Modifier_Keys">Possible Modifier Keys</a>
+###### <a name="Possible_Modifier_Keys" href="#Possible_Modifier_Keys">Possible Modifier Keys</a>
 
 | Modifier Keys |          | Comments                        |
 |---------------|----------|---------------------------------|
@@ -1885,7 +1890,7 @@ Beyond what the DTD imposes, certain other restrictions on the data are imposed 
 
 Here is a list of the data sources used to generate the initial key map layouts:
 
-##### <a name="Key_Map_Data_Sources" href="#Key_Map_Data_Sources">Key Map Data Sources</a>
+###### <a name="Key_Map_Data_Sources" href="#Key_Map_Data_Sources">Key Map Data Sources</a>
 
 | Platform | Source | Notes |
 |----------|--------|-------|
@@ -1908,10 +1913,10 @@ The following are the design principles for the ids.
    1. Eg, `en-t-k0-extended`.
 2. Use the minimal language id based on `likelySubtag`s.
    1. Eg, instead of `en-US-t-k0-xxx`, use `en-t-k0-xxx`. Because there is `<likelySubtag from="en" to="en_Latn_US"/>`, en-US → en.
-   2. The data is in [https://github.com/unicode-org/cldr/releases/tag/latest/common/supplemental/likelySubtags.xml](https://github.com/unicode-org/cldr/releases/tag/latest/common/supplemental/likelySubtags.xml)
+   2. The data is in <https://github.com/unicode-org/cldr/tree/main/common/supplemental/likelySubtags.xml>
 3. The platform goes first, if it exists. If a keyboard on the platform changes over time, both are dated, eg `bg-t-k0-chromeos-2011`. When selecting, if there is no date, it means the latest one.
 4. Keyboards are only tagged that differ from the "standard for each platform". That is, for each language on a platform, there will be a keyboard with no subtags other than the platform. Subtags with a common semantics across platforms are used, such as `-extended`, `-phonetic`, `-qwerty`, `-qwertz`, `-azerty`, …
-5. In order to get to 8 letters, abbreviations are reused that are already in [bcp47](https://github.com/unicode-org/cldr/releases/tag/latest/common/bcp47/) -u/-t extensions and in [language-subtag-registry](https://www.iana.org/assignments/language-subtag-registry) variants, eg for Traditional use `-trad` or `-traditio` (both exist in [bcp47](https://github.com/unicode-org/cldr/releases/tag/latest/common/bcp47/)).
+5. In order to get to 8 letters, abbreviations are reused that are already in [bcp47](https://github.com/unicode-org/cldr/tree/main/common/bcp47/) -u/-t extensions and in [language-subtag-registry](https://www.iana.org/assignments/language-subtag-registry) variants, eg for Traditional use `-trad` or `-traditio` (both exist in [bcp47](https://github.com/unicode-org/cldr/tree/main/common/bcp47/)).
 6. Multiple languages cannot be indicated, so the predominant target is used.
    1. For Finnish + Sami, use `fi-t-k0-smi` or `extended-smi`
 7. In some cases, there are multiple subtags, like `en-US-t-k0-chromeos-intl-altgr.xml`

@@ -68,7 +68,7 @@ The LDML specification is divided into the following parts:
   * 5.6 [Element: name](#Element_name)
   * 5.7 [Element: settings](#Element_settings)
   * 5.8 [Element: keyMap](#Element_keyMap)
-    * [Possible Modifier Keys](#Possible_Modifier_Keys)
+    * Table: [Possible Modifier Keys](#Possible_Modifier_Keys)
   * 5.9 [Element: map](#Element_map)
     * 5.9.1 [Elements: flicks, flick](#Element_flicks)
   * 5.10 [Element: import](#Element_import)
@@ -91,7 +91,7 @@ The LDML specification is divided into the following parts:
   * 6.3 [Element: map](#Element_hardwareMap_map)
 * 7 [Invariants](#Invariants)
 * 8 [Data Sources](#Data_Sources)
-  * [Key Map Data Sources](#Key_Map_Data_Sources)
+  * Table: [Key Map Data Sources](#Key_Map_Data_Sources)
 * 9 [Keyboard IDs](#Keyboard_IDs)
   * 9.1 [Principles for Keyboard Ids](#Principles_for_Keyboard_Ids)
 * 10 [Platform Behaviors in Edge Cases](#Platform_Behaviors_in_Edge_Cases)
@@ -552,7 +552,7 @@ Within a combination, the presence of a modifier WITHOUT the '?' suffix indicate
 
 Here is an exhaustive list of all possible modifier keys:
 
-###### <a name="Possible_Modifier_Keys" href="#Possible_Modifier_Keys">Possible Modifier Keys</a>
+###### Table: <a name="Possible_Modifier_Keys" href="#Possible_Modifier_Keys">Possible Modifier Keys</a>
 
 | Modifier Keys |          | Comments                        |
 |---------------|----------|---------------------------------|
@@ -1895,7 +1895,7 @@ Beyond what the DTD imposes, certain other restrictions on the data are imposed 
 
 Here is a list of the data sources used to generate the initial key map layouts:
 
-###### <a name="Key_Map_Data_Sources" href="#Key_Map_Data_Sources">Key Map Data Sources</a>
+###### Table: <a name="Key_Map_Data_Sources" href="#Key_Map_Data_Sources">Key Map Data Sources</a>
 
 | Platform | Source | Notes |
 |----------|--------|-------|

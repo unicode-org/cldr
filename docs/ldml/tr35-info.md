@@ -63,7 +63,7 @@ The LDML specification is divided into the following parts:
   * 8.3 [Default Values](#Coverage_Level_Default_Values)
 * 9 [Supplemental Metadata](#Appendix_Supplemental_Metadata)
   * 9.1 [Supplemental Alias Information](#Supplemental_Alias_Information)
-    * [Alias Attribute Values](#Alias_Attribute_Values)
+    * Table: [Alias Attribute Values](#Alias_Attribute_Values)
   * 9.2 ~~[Supplemental Deprecated Information (Deprecated)](#Supplemental_Deprecated_Information)~~
   * 9.3 [Default Content](#Default_Content)
 * 10 [Locale Metadata Elements](#Metadata_Elements)
@@ -695,7 +695,7 @@ This element provides information as to parts of locale IDs that should be subst
 
 Attribute values for the \*Alias values include the following:
 
-###### <a name="Alias_Attribute_Values" href="#Alias_Attribute_Values">Alias Attribute Values</a>
+###### Table: <a name="Alias_Attribute_Values" href="#Alias_Attribute_Values">Alias Attribute Values</a>
 
 | Attribute   | Value         | Description |
 | ----------- | ------------- | ----------- |

@@ -50,15 +50,15 @@ The LDML specification is divided into the following parts:
   * 2.6 [Minimal Pairs](#Minimal_Pairs)
 * 3 [Number Format Patterns](#Number_Format_Patterns)
   * 3.1 [Number Patterns](#Number_Patterns)
-    * [Number Pattern Examples](#Number_Pattern_Examples)
+    * Table: [Number Pattern Examples](#Number_Pattern_Examples)
   * 3.2 [Special Pattern Characters](#Special_Pattern_Characters)
-    * [Number Pattern Character Definitions](#Number_Pattern_Character_Definitions)
-    * [Sample Patterns and Results](#Sample_Patterns_and_Results)
+    * Table: [Number Pattern Character Definitions](#Number_Pattern_Character_Definitions)
+    * Table: [Sample Patterns and Results](#Sample_Patterns_and_Results)
     * 3.2.1 [Explicit Plus Signs](#Explicit_Plus)
   * 3.3 [Formatting](#Formatting)
   * 3.4 [Scientific Notation](#sci)
   * 3.5 [Significant Digits](#sigdig)
-    * [Significant Digits Examples](#Significant_Digits_Examples)
+    * Table: [Significant Digits Examples](#Significant_Digits_Examples)
   * 3.6 [Padding](#Padding)
   * 3.7 [Rounding](#Rounding)
   * 3.8 [Quoting Rules](#Quoting_Rules)
@@ -68,13 +68,13 @@ The LDML specification is divided into the following parts:
   * [Explicit 0 and 1 rules](#Explicit_0_1_rules)
   * 5.1 [Plural rules syntax](#Plural_rules_syntax)
     * 5.1.1 [Operands](#Operands)
-      * [Plural Operand Meanings](#Plural_Operand_Meanings)
-      * [Plural Operand Examples](#Plural_Operand_Examples)
+      * Table: [Plural Operand Meanings](#Plural_Operand_Meanings)
+      * Table: [Plural Operand Examples](#Plural_Operand_Examples)
     * 5.1.2 [Relations](#Relations)
-      * [Relations Examples](#Relations_Examples)
-      * [Plural Rules Examples](#Plural_Rules_Examples)
+      * Table: [Relations Examples](#Relations_Examples)
+      * Table: [Plural Rules Examples](#Plural_Rules_Examples)
     * 5.1.3 [Samples](#Samples)
-      * [Plural Samples Examples](#Plural_Samples_Examples)
+      * Table: [Plural Samples Examples](#Plural_Samples_Examples)
     * 5.1.4 [Using Cardinals](#Using_cardinals)
   * 5.2 [Plural Ranges](#Plural_Ranges)
 * 6 [Rule-Based Number Formatting](#Rule-Based_Number_Formatting)
@@ -525,7 +525,7 @@ For more information, see [Plural Rules](http://cldr.unicode.org/index/cldr-spec
 
 Number patterns affect how numbers are interpreted in a localized context. Here are some examples, based on the French locale. The "." shows where the decimal point should go. The "," shows where the thousands separator should go. A "0" indicates zero-padding: if the number is too short, a zero (in the locale's numeric set) will go there. A "#" indicates no padding: if the number is too short, nothing goes there. A "¤" shows where the currency sign will go. The following illustrates the effects of different patterns for the French locale, with the number "1234.567". Notice how the pattern characters ',' and '.' are replaced by the characters appropriate for the locale.
 
-###### <a name="Number_Pattern_Examples" href="#Number_Pattern_Examples">Number Pattern Examples</a>
+###### Table: <a name="Number_Pattern_Examples" href="#Number_Pattern_Examples">Number Pattern Examples</a>
 
 | Pattern | Currency | Text |
 | --- | --- | --- |
@@ -551,7 +551,7 @@ To insert a special character in a pattern as a literal, that is, without any sp
 
 Invalid sequences of special characters (such as “¤¤¤¤¤¤” in current CLDR) should be handled for formatting and parsing as described in [Handling Invalid Patterns](tr35.md#Invalid_Patterns).
 
-###### <a name="Number_Pattern_Character_Definitions" href="#Number_Pattern_Character_Definitions">Number Pattern Character Definitions</a>
+###### Table: <a name="Number_Pattern_Character_Definitions" href="#Number_Pattern_Character_Definitions">Number Pattern Character Definitions</a>
 
 | Symbol | Location | Localized Replacement | Meaning |
 | :-- | :-- | :-- | :-- |
@@ -589,7 +589,7 @@ Decimal|"#,##0¤00"
 
 Below is a sample of patterns, special characters, and results:
 
-###### <a name="Sample_Patterns_and_Results" href="#Sample_Patterns_and_Results">Sample Patterns and Results</a>
+###### Table: <a name="Sample_Patterns_and_Results" href="#Sample_Patterns_and_Results">Sample Patterns and Results</a>
 
 <table><tbody>
 <tr><th>explicit pattern:</th><td colspan="2">0.00;-0.00</td><td colspan="2">0.00;0.00-</td><td colspan="2">0.00+;0.00-</td></tr>
@@ -689,7 +689,7 @@ Numbers in scientific notation are expressed as the product of a mantissa and a 
 
 There are two ways of controlling how many digits are shows: (a) significant digits counts, or (b) integer and fraction digit counts. Integer and fraction digit counts are described above. When a formatter is using significant digits counts, it uses however many integer and fraction digits are required to display the specified number of significant digits. It may ignore min/max integer/fraction digits, or it may use them to the extent possible.
 
-###### <a name="Significant_Digits_Examples" href="#Significant_Digits_Examples">Significant Digits Examples</a>
+###### Table: <a name="Significant_Digits_Examples" href="#Significant_Digits_Examples">Significant Digits Examples</a>
 
 | Pattern | Minimum significant digits | Maximum significant digits | Number | Output |
 | :-- | :-- | :-- | :-- | :-- |
@@ -1122,7 +1122,7 @@ The operands are numeric values corresponding to features of the *source number 
 Note that, contrary to source numbers, operands are treated numerically.
 Although some of them are used to describe insignificant 0s in the source number, any insignificant 0s in the operands themselves are ignored, e.g., f=03 is equivalent to f=3.
 
-###### <a name="Plural_Operand_Meanings" href="#Plural_Operand_Meanings">Plural Operand Meanings</a>
+###### Table: <a name="Plural_Operand_Meanings" href="#Plural_Operand_Meanings">Plural Operand Meanings</a>
 
 | Symbol | Value |
 | --- | --- |
@@ -1139,7 +1139,7 @@ Although some of them are used to describe insignificant 0s in the source number
 So for 1.2c3, the n, i, f, t, v, and w values are the same as those of 1200:  i=1200 and f=0.
 Similarly, 1.2005c3 has i=1200 and f=5 (corresponding to 1200.5).
 
-###### <a name="Plural_Operand_Examples" href="#Plural_Operand_Examples">Plural Operand Examples</a>
+###### Table: <a name="Plural_Operand_Examples" href="#Plural_Operand_Examples">Plural Operand Examples</a>
 
 | source | n | i | v | w | f | t | e |
 | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -1162,7 +1162,7 @@ Similarly, 1.2005c3 has i=1200 and f=5 (corresponding to 1200.5).
 
 The positive relations are of the format **x = y** and **x = y mod z**. The **y** value can be a comma-separated list, such as **n = 3, 5, 7..15**, and is treated as if each relation were expanded into an OR statement. The range value **a..b** is equivalent to listing all the _**integers**_ between **a** and **b**, inclusive. When **!=** is used, it means the entire relation is negated.
 
-###### <a name="Relations_Examples" href="#Relations_Examples">Relations Examples</a>
+###### Table: <a name="Relations_Examples" href="#Relations_Examples">Relations Examples</a>
 
 | Expression | Meaning |
 | --- | --- |
@@ -1191,7 +1191,7 @@ The values of relations are defined according to the operand as follows. Importa
    * if starti ≤ BV ≤ endi then return R.
 7. Otherwise return !R.
 
-###### <a name="Plural_Rules_Examples" href="#Plural_Rules_Examples">Plural Rules Examples</a>
+###### Table: <a name="Plural_Rules_Examples" href="#Plural_Rules_Examples">Plural Rules Examples</a>
 
 | Rules | Comments |
 | --- | --- |
@@ -1209,7 +1209,7 @@ The sampleRanges have a special notation: **start**~**end**. The **start** and *
 
 Samples must indicate whether they are infinite or not. The '…' marker must be present if and only infinitely many values (integer or decimal) can satisfy the rule. If a set is not infinite, it must list all the possible values.
 
-###### <a name="Plural_Samples_Examples" href="#Plural_Samples_Examples">Plural Samples Examples</a>
+###### Table: <a name="Plural_Samples_Examples" href="#Plural_Samples_Examples">Plural Samples Examples</a>
 
 | Rules | Comments |
 | --- | --- |

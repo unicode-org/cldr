@@ -685,96 +685,127 @@
 <li>  Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard mappings)</li>
 </ul><h2 id="contents-of-part-2-general"><a name="Contents" href="#Contents">Contents of Part 2, General</a></h2><ul>
 <li>1 <a href="#Display_Name_Elements">Display Name Elements</a><ul>
-<li>  1.1 <a href="#locale_display_name_algorithm">Locale Display Name Algorithm</a></li>
-<li>  1.2 <a href="#locale_display_name_fields">Locale Display Name Fields</a></li>
+<li>1.1 <a href="#locale_display_name_algorithm">Locale Display Name Algorithm</a></li>
+<li>1.2 <a href="#locale_display_name_fields">Locale Display Name Fields</a></li>
 </ul>
 </li>
-<li>  2 <a href="#Layout_Elements">Layout Elements</a></li>
+<li>2 <a href="#Layout_Elements">Layout Elements</a></li>
 <li>3 <a href="#Character_Elements">Character Elements</a><ul>
 <li>3.1 <a href="#Exemplars">Exemplars</a><ul>
-<li>  3.1.1 <a href="#ExemplarSyntax">Exemplar Syntax</a></li>
-<li>  3.1.2 <a href="#Restrictions">Restrictions</a></li>
+<li>3.1.1 <a href="#ExemplarSyntax">Exemplar Syntax</a></li>
+<li>3.1.2 <a href="#Restrictions">Restrictions</a></li>
 </ul>
 </li>
-<li>  3.2 <a href="#Character_Mapping">Mapping</a></li>
-<li>  3.3 <a href="#IndexLabels">Index Labels</a></li>
-<li>  3.4 <a href="#Ellipsis">Ellipsis</a></li>
-<li>  3.5 <a href="#Character_More_Info">More Information</a></li>
-<li>  3.6 <a href="#Character_Parse_Lenient">Parse Lenient</a></li>
+<li>3.2 <del><a href="#Character_Mapping">Mapping</a></del></li>
+<li>3.3 <del><a href="#IndexLabels">Index Labels</a></del></li>
+<li>3.4 <a href="#Ellipsis">Ellipsis</a></li>
+<li>3.5 <a href="#Character_More_Info">More Information</a></li>
+<li>3.6 <a href="#Character_Parse_Lenient">Parse Lenient</a></li>
 </ul>
 </li>
 <li>4 <a href="#Delimiter_Elements">Delimiter Elements</a><ul>
-<li>  4.1 <a href="#Tailor_Linebreak_With_Delimiters">Tailoring Linebreak Using Delimiters</a></li>
+<li>4.1 <a href="#Tailor_Linebreak_With_Delimiters">Tailoring Linebreak Using Delimiters</a></li>
 </ul>
 </li>
 <li>5 <a href="#Measurement_System_Data">Measurement System Data</a><ul>
-<li>  5.1 <a href="#Measurement_Elements">Measurement Elements (deprecated)</a></li>
+<li>5.1 <a href="#Measurement_Elements">Measurement Elements (deprecated)</a></li>
 </ul>
 </li>
 <li>6 <a href="#Unit_Elements">Unit Elements</a><ul>
-<li>  6.1 <a href="#Unit_Preference_and_Conversion">Unit Preference and Conversion Data</a></li>
-<li>  6.2 <a href="#Unit_Identifiers">Unit Identifiers</a></li>
-<li>  6.3 <a href="#Example_Units">Example Units</a></li>
-<li>  6.4 <a href="#compound-units">Compound Units</a></li>
-<li>  6.5 <a href="#Unit_Sequences">Unit Sequences (Mixed Units)</a></li>
-<li>  6.6 <a href="#durationUnit">durationUnit</a></li>
-<li>  6.7 <a href="#coordinateUnit">coordinateUnit</a></li>
-<li>  6.8 <a href="#Territory_Based_Unit_Preferences">Territory-Based Unit Preferences</a></li>
+<li>6.1 <a href="#Unit_Preference_and_Conversion">Unit Preference and Conversion Data</a></li>
+<li>6.2 <a href="#Unit_Identifiers">Unit Identifiers</a><ul>
+<li><a href="#nomenclature">Nomenclature</a></li>
+<li><a href="#syntax">Syntax</a></li>
 </ul>
 </li>
-<li>  7 <a href="#POSIX_Elements">POSIX Elements</a></li>
-<li>  8 <a href="#Reference_Elements">Reference Element</a></li>
+<li>6.3 <a href="#Example_Units">Example Units</a></li>
+<li>6.4 <a href="#compound-units">Compound Units</a><ul>
+<li><a href="#precomposed-compound-units">Precomposed Compound Units</a></li>
+</ul>
+</li>
+<li>6.5 <a href="#Unit_Sequences">Unit Sequences (Mixed Units)</a></li>
+<li>6.6 <a href="#durationUnit">durationUnit</a></li>
+<li>6.7 <a href="#coordinateUnit">coordinateUnit</a></li>
+<li>6.8 <a href="#Territory_Based_Unit_Preferences">Territory-Based Unit Preferences</a></li>
+<li>6.9 <a href="#Private_Use_Units">Private-Use Units</a></li>
+</ul>
+</li>
+<li>7 <a href="#POSIX_Elements">POSIX Elements</a></li>
+<li>8 <a href="#Reference_Elements">Reference Element</a></li>
 <li>9 <a href="#Segmentations">Segmentations</a><ul>
-<li>  9.1 <a href="#Segmentation_Inheritance">Segmentation Inheritance</a></li>
-<li>  9.2 <a href="#Segmentation_Exceptions">Segmentation Suppressions</a></li>
+<li>9.1 <a href="#Segmentation_Inheritance">Segmentation Inheritance</a></li>
+<li>9.2 <a href="#Segmentation_Exceptions">Segmentation Suppressions</a></li>
 </ul>
 </li>
 <li>10 <a href="#Transforms">Transforms</a><ul>
 <li>10.1 <a href="#Inheritance">Inheritance</a><ul>
-<li>  10.1.1 <a href="#Pivots">Pivots</a></li>
+<li>10.1.1 <a href="#Pivots">Pivots</a></li>
 </ul>
 </li>
-<li>  10.2 <a href="#Variants">Variants</a></li>
+<li>10.2 <a href="#Variants">Variants</a></li>
 <li>10.3 <a href="#Transform_Rules_Syntax">Transform Rules Syntax</a><ul>
-<li>  10.3.1 <a href="#Dual_Rules">Dual Rules</a></li>
-<li>  10.3.2 <a href="#Context">Context</a></li>
-<li>  10.3.3 <a href="#Revisiting">Revisiting</a></li>
-<li>  10.3.4 <a href="#Example">Example</a></li>
-<li>  10.3.5 <a href="#Rule_Syntax">Rule Syntax</a></li>
-<li>  10.3.6 <a href="#Transform_Rules">Transform Rules</a></li>
-<li>  10.3.7 <a href="#Variable_Definition_Rules">Variable Definition Rules</a></li>
-<li>  10.3.8 <a href="#Filter_Rules">Filter Rules</a></li>
-<li>  10.3.9 <a href="#Conversion_Rules">Conversion Rules</a></li>
-<li>  10.3.10 <a href="#Intermixing_Transform_Rules_and_Conversion_Rules">Intermixing Transform Rules and Conversion Rules</a></li>
-<li>  10.3.11 <a href="#Inverse_Summary">Inverse Summary</a></li>
+<li>10.3.1 <a href="#Dual_Rules">Dual Rules</a></li>
+<li>10.3.2 <a href="#Context">Context</a></li>
+<li>10.3.3 <a href="#Revisiting">Revisiting</a></li>
+<li>10.3.4 <a href="#Example">Example</a></li>
+<li>10.3.5 <a href="#Rule_Syntax">Rule Syntax</a></li>
+<li>10.3.6 <a href="#Transform_Rules">Transform Rules</a></li>
+<li>10.3.7 <a href="#Variable_Definition_Rules">Variable Definition Rules</a></li>
+<li>10.3.8 <a href="#Filter_Rules">Filter Rules</a></li>
+<li>10.3.9 <a href="#Conversion_Rules">Conversion Rules</a></li>
+<li>10.3.10 <a href="#Intermixing_Transform_Rules_and_Conversion_Rules">Intermixing Transform Rules and Conversion Rules</a></li>
+<li>10.3.11 <a href="#Inverse_Summary">Inverse Summary</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li>11 <a href="#ListPatterns">List Patterns</a><ul>
-<li>  11.1 <a href="#List_Gender">Gender of Lists</a></li>
+<li>11.1 <a href="#List_Gender">Gender of Lists</a></li>
 </ul>
 </li>
 <li>12 <a href="#Context_Transform_Elements">ContextTransform Elements</a><ul>
-<li>  Table: <a href="#contextTransformUsage_type_attribute_values">Element contextTransformUsage type attribute values</a></li>
+<li><a href="#contextTransformUsage_type_attribute_values">Element contextTransformUsage type attribute values</a></li>
 </ul>
 </li>
-<li>  13 <a href="#Choice_Patterns">Choice Patterns</a></li>
+<li>13 <a href="#Choice_Patterns">Choice Patterns</a></li>
 <li>14 <a href="#Annotations">Annotations and Labels</a><ul>
-<li>  14.1 <a href="#SynthesizingNames">Synthesizing Sequence Names</a></li>
-<li>  14.2 <a href="#Character_Labels">Annotations Character Labels</a></li>
-<li>  14.3 <a href="#Typographic_Names">Typographic Names</a></li>
+<li>14.1 <a href="#SynthesizingNames">Synthesizing Sequence Names</a><ul>
+<li><a href="#synthesized-emoji-sequence-names">Synthesized Emoji Sequence Names</a></li>
 </ul>
 </li>
-<li>15 <a href="#Grammatical_Features">Grammatical Features</a><ul>
-<li>  15.1 <a href="#Gender">Gender</a></li>
-<li>  15.2 <a href="#Case">Case</a></li>
+<li>14.2 <a href="#Character_Labels">Annotations Character Labels</a><ul>
+<li><a href="#characterlabelpattern">characterLabelPattern</a></li>
+<li><a href="#characterlabel">characterLabel</a></li>
+</ul>
+</li>
+<li>14.3 <a href="#Typographic_Names">Typographic Names</a></li>
+</ul>
+</li>
+<li>15 <a href="#Grammatical_Features">Grammatical Features</a></li>
+<li><a href="#features">Features</a><ul>
+<li>15.1 <a href="#Gender">Gender</a><ul>
+<li><a href="#example">Example</a></li>
+<li><a href="#values">Values</a></li>
+</ul>
+</li>
+<li>15.2 <a href="#Case">Case</a><ul>
+<li><a href="#case">Case</a><ul>
+<li><a href="#example">Example</a></li>
+<li><a href="#values">Values</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#definiteness">Definiteness</a><ul>
+<li><a href="#values">Values</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li>16 <a href="#Grammatical_Derivations">Grammatical Derivations</a><ul>
-<li>  16.1 <a href="#gender_compound_units">Deriving the Gender of Compound Units</a></li>
-<li>  16.2 <a href="#plural_compound_units">Deriving the Plural Category of Unit Components</a></li>
-<li>  16.3 <a href="#case_compound_units">Deriving the Case of Unit Components</a></li>
+<li>16.1 <a href="#gender_compound_units">Deriving the Gender of Compound Units</a></li>
+<li>16.2 <a href="#plural_compound_units">Deriving the Plural Category of Unit Components</a></li>
+<li>16.3 <a href="#case_compound_units">Deriving the Case of Unit Components</a></li>
 </ul>
 </li>
 </ul><h2 id="1-display-name-elements">1 <a name="Display_Name_Elements" href="#Display_Name_Elements">Display Name Elements</a></h2><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">localeDisplayNames</span> ( <span class="hljs-meta-keyword">alias</span> | ( <span class="hljs-meta-keyword">localeDisplayPattern</span>?, <span class="hljs-meta-keyword">languages</span>?, <span class="hljs-meta-keyword">scripts</span>?, <span class="hljs-meta-keyword">territories</span>?, <span class="hljs-meta-keyword">subdivisions</span>?, <span class="hljs-meta-keyword">variants</span>?, <span class="hljs-meta-keyword">keys</span>?, <span class="hljs-meta-keyword">types</span>?, <span class="hljs-meta-keyword">transformNames</span>?, <span class="hljs-meta-keyword">measurementSystemNames</span>?, <span class="hljs-meta-keyword">codePatterns</span>?, <span class="hljs-meta-keyword">special</span>* ) )&gt;</span>
@@ -1167,8 +1198,8 @@ Similarly for <code>&lt;alternateQuotationStart&gt;</code> and <code>&lt;alterna
 <span class="hljs-tag">&lt;/<span class="hljs-name">unit</span>&gt;</span>
 </code></pre><p>These follow the inheritance specified in Part 1, Section <a href="tr35.html#Lateral_Inheritance">4.1.2 Lateral Inheritance</a>. In addition to supporting language-specific plural cases such as “one” and “other”, unitPatterns support the language-independent explicit cases “0” and “1” for special handling of numeric values that are exactly 0 or 1; see <a href="tr35-numbers.html#Explicit_0_1_rules">Explicit 0 and 1 rules</a>.</p><p>The <code>&lt;unitPattern&gt;</code> elements may be used to format quantities with decimal values; in such cases the choice of plural form will depend not only on the numeric value, but also on its formatting (see <a href="tr35-numbers.html#Language_Plural_Rules">Language Plural Rules</a>). In addition to formatting units for stand-alone use, <code>&lt;unitPattern&gt;</code> elements are increasingly being used to format units for use in running text; for such usages, the developing <a href="#Grammatical_Features">Grammatical Features</a> information will be very useful.</p><p>Note that for certain plural cases, the unit pattern may not provide for inclusion of a numeric value—that is, it may not include “{0}”. This is especially true for the explicit cases “0” and “1” (which may have patterns like “zero seconds”). In certain languages such as Arabic and Hebrew, this may also be true with certain units for the plural cases “zero”, “one”, or “two” (in these languages, such plural cases are only used for the corresponding exact numeric values, so there is no concern about loss of precision without the numeric value).</p><p>Units, like other values with a <code>count</code> attribute, use a special inheritance. See <strong>Part 1: Core:</strong> <em>Section 4.1 <a href="tr35.html#Multiple_Inheritance">Multiple Inheritance</a></em>.</p><p>The displayName is used for labels, such as in a UI. It is typically lowercased and as neutral a plural form as possible, and then uses the casing context for the proper display. For example, for English in a UI it would appear as titlecase:</p><p><strong>Duration:</strong></p><!-- HTML: UI drawing --><table><tbody>
 <tr><td>Days</td><td style="color: silver;">enter the vacation length</td></tr>
-</tbody></table><h3 id="61-unit-preference-and-conversion-data">6.1 <a name="Unit_Preference_and_Conversion" href="#Unit_Preference_and_Conversion">Unit Preference and Conversion Data</a></h3><p>Different locales have different preferences for which unit or combination of units is used for a particular usage, such as measuring a person’s height. This is more fine-grained than merely a preference for metric versus US or UK measurement systems. For example, one locale may use meters alone, while another may use centimeters alone or a combination of meters and centimeters; a third may use inches alone, or (informally) a combination of feet and inches.</p><p>The unit preference and conversion data allows formatting functions to pick the right measurement units for the locale and usage, and convert input measurement into those units. For example, a program (or database) could use 1.88 meters internally, but then for person-height have that measurement convert to <em>6 foot 2 inches</em> for en-US and to <em>188 centimeters</em> for de-CH. Using the unit display names and list formats, those results can then be displayed according to the desired width (eg <em>2″</em> vs <em>2 in</em> vs 2 <em>inches</em>) and using the locale display names and number formats.</p><p>The size of the measurement can also be taken into account, so that an infant can have a height as <em>18 inches</em>, and an adult the height as <em>6 foot 2 inches.</em></p><p>This data is supplied in <strong>Part 6: <a href="tr35-info.html#Contents">Supplemental</a></strong>: <a href="tr35-info.html#Unit_Conversion">Section 13 Unit Conversion</a> and <a href="tr35-info.html#Unit_Preferences">Section 13 Unit Preferences</a>.</p><h3 id="62-unit-identifiers">6.2 <a name="Unit_Identifiers" href="#Unit_Identifiers">Unit Identifiers</a></h3><p>Units of measurement, such as <em>meter</em>, have defined programmatic identifiers as described in this section. 
-The main identifier is a <em>core unit identifier</em>, which encompasses a number of simpler types of identifiers as follows. 
+</tbody></table><h3 id="61-unit-preference-and-conversion-data">6.1 <a name="Unit_Preference_and_Conversion" href="#Unit_Preference_and_Conversion">Unit Preference and Conversion Data</a></h3><p>Different locales have different preferences for which unit or combination of units is used for a particular usage, such as measuring a person’s height. This is more fine-grained than merely a preference for metric versus US or UK measurement systems. For example, one locale may use meters alone, while another may use centimeters alone or a combination of meters and centimeters; a third may use inches alone, or (informally) a combination of feet and inches.</p><p>The unit preference and conversion data allows formatting functions to pick the right measurement units for the locale and usage, and convert input measurement into those units. For example, a program (or database) could use 1.88 meters internally, but then for person-height have that measurement convert to <em>6 foot 2 inches</em> for en-US and to <em>188 centimeters</em> for de-CH. Using the unit display names and list formats, those results can then be displayed according to the desired width (eg <em>2″</em> vs <em>2 in</em> vs 2 <em>inches</em>) and using the locale display names and number formats.</p><p>The size of the measurement can also be taken into account, so that an infant can have a height as <em>18 inches</em>, and an adult the height as <em>6 foot 2 inches.</em></p><p>This data is supplied in <strong>Part 6: <a href="tr35-info.html#Contents">Supplemental</a></strong>: <a href="tr35-info.html#Unit_Conversion">Section 13 Unit Conversion</a> and <a href="tr35-info.html#Unit_Preferences">Section 13 Unit Preferences</a>.</p><h3 id="62-unit-identifiers">6.2 <a name="Unit_Identifiers" href="#Unit_Identifiers">Unit Identifiers</a></h3><p>Units of measurement, such as <em>meter</em>, have defined programmatic identifiers as described in this section.
+The main identifier is a <em>core unit identifier</em>, which encompasses a number of simpler types of identifiers as follows.
 A secondary type of identifier is a <em>mixed unit identifier</em>, which combines a series of units such as <em>5° 30′</em> or <em>3 feet 7 inches</em>.</p><table>
 <thead>
 <tr>
@@ -1196,8 +1227,8 @@ A secondary type of identifier is a <em>mixed unit identifier</em>, which combin
 <td>mixed unit ID</td>
 <td>foot-and-inch, degree-and-arc-minute-and-arc-second</td>
 </tr>
-</tbody></table><p>There is currently a ‘long’ style of unit identifier corresponding to each <em>core unit identifier</em>, as illustrated below. 
-The only difference is that the long unit identifier adds a prefix which was used in the CLDR Survey Tool for grouping related identifiers together. 
+</tbody></table><p>There is currently a ‘long’ style of unit identifier corresponding to each <em>core unit identifier</em>, as illustrated below.
+The only difference is that the long unit identifier adds a prefix which was used in the CLDR Survey Tool for grouping related identifiers together.
 The long unit identifers are used as a key in the translated unit names for locales, but dealing with these two styles is unnecessarily complicated, so the long unit identifiers are slated for deprecation (after replacing their use as a key for translations).</p><table>
 <thead>
 <tr>
@@ -1217,21 +1248,17 @@ The long unit identifers are used as a key in the translated unit names for loca
 <td>day</td>
 <td>duration-day</td>
 </tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table><p>The list of valid CLDR simple unit identifiers is found in <em>Section <a href="tr35.html#Validity_Data">3.11 Validity Data</a></em>. 
-These names should not be presented to end users, however: the translated names for different languages (or variants of English) are available in the CLDR localized data. 
-All syntactically valid CLDR unit identifiers values that are not listed in the validity data are reserved by CLDR for additional future units. 
-There is one exception: implementations that need to define their own unit identifiers can do so via <em>Section 6.6 <a href="#Private_Use_Units">Private-Use Units</a></em>.</p><p>A core unit identifier that is not a simple unit is called a <em>complex unit</em> (aka <em>compound unit</em>). 
-A complex unit identifier can be constructed from simple unit identifiers using multiplication (kilogram-meter) and division (kilogram-per-meter), powers (square-second), and prefixes (kilo-, 100-, kiBi). 
-As usual, with division the part before the (first) -per- is called the <em>numerator</em>, and the part after it is called the <em>denominator</em>.</p><p>The identifiers and unit conversion data are built to handle core unit IDs and mixed unit IDs based on their simple unit identifiers. 
-Thus they support converting generated units such as inch-pound-per-square-week into comparable units, such as newtons.</p><p>Where a core unit ID or mixed unit ID does not have an explicit translation in CLDR, a mechanism is supplied for producing a generated translation from the translations for the simple unit identifiers. 
-See <em>Section 6.4 <a href="#compound-units">Compound Units</a></em>. 
-That can be used for less common units, such as <em>petasecond</em>. 
-However, the generated translations may have the wrong spelling in languages where orthographic changes are needed when combining words. 
-For example, “kilometer” can be formed in English from “kilo” and “meter”; the same process in Greek would combine “χιλιο” and “μέτρα” to get “χιλιομέτρα” — when the correct result is “χιλιόμετρα” (note the different location of the accent). 
+</tbody></table><p>The list of valid CLDR simple unit identifiers is found in <em>Section <a href="tr35.html#Validity_Data">3.11 Validity Data</a></em>.
+These names should not be presented to end users, however: the translated names for different languages (or variants of English) are available in the CLDR localized data.
+All syntactically valid CLDR unit identifiers values that are not listed in the validity data are reserved by CLDR for additional future units.
+There is one exception: implementations that need to define their own unit identifiers can do so via <em>Section 6.6 <a href="#Private_Use_Units">Private-Use Units</a></em>.</p><p>A core unit identifier that is not a simple unit is called a <em>complex unit</em> (aka <em>compound unit</em>).
+A complex unit identifier can be constructed from simple unit identifiers using multiplication (kilogram-meter) and division (kilogram-per-meter), powers (square-second), and prefixes (kilo-, 100-, kiBi).
+As usual, with division the part before the (first) -per- is called the <em>numerator</em>, and the part after it is called the <em>denominator</em>.</p><p>The identifiers and unit conversion data are built to handle core unit IDs and mixed unit IDs based on their simple unit identifiers.
+Thus they support converting generated units such as inch-pound-per-square-week into comparable units, such as newtons.</p><p>Where a core unit ID or mixed unit ID does not have an explicit translation in CLDR, a mechanism is supplied for producing a generated translation from the translations for the simple unit identifiers.
+See <em>Section 6.4 <a href="#compound-units">Compound Units</a></em>.
+That can be used for less common units, such as <em>petasecond</em>.
+However, the generated translations may have the wrong spelling in languages where orthographic changes are needed when combining words.
+For example, “kilometer” can be formed in English from “kilo” and “meter”; the same process in Greek would combine “χιλιο” and “μέτρα” to get “χιλιομέτρα” — when the correct result is “χιλιόμετρα” (note the different location of the accent).
 Thus the most commonly-used complex units have explicit translations in CLDR.</p><ul>
 <li>A power (square, cubic, pow4, etc) modifies one prefixed unit ID, and must occur immediately before it in the identifier: square-foot, not foot-square.</li>
 <li>Multiplication binds more tightly than division, so kilogram-meter-per-second-ampere is interpreted as (kg ⋅ m) / (s ⋅ a).</li>
@@ -1322,7 +1349,7 @@ Thus the most commonly-used complex units have explicit translations in CLDR.</p
             </ul></li>
             <li><em>Example:</em> foot</li>
         </ul></td></tr>
-        
+
 <tr><td>mixed_unit_identifier</td><td>:=</td>
     <td>(single_unit | pu_single_unit) ("-and-" (single_unit | pu_single_unit ))*
         <ul><li><em>Example: foot-and-inch</em></li></ul></td></tr>
@@ -1341,8 +1368,8 @@ Thus the most commonly-used complex units have explicit translations in CLDR.</p
             <li><em>Examples:</em> curr-eur-per-square-meter, or pound-per-curr-usd</li>
         </ul></td></tr>
 
-</tbody></table><p>Note that while the syntax allows for number_prefixes in multiple places, the typical use case is only one instances, and after a "-per-".</p><h3 id="63-example-units">6.3 <a name="Example_Units" href="#Example_Units">Example Units</a></h3><p>The following table contains examples of groupings and units currently defined by CLDR. 
-The units in CLDR are not comprehensive; it is anticipated that more will be added over time. 
+</tbody></table><p>Note that while the syntax allows for number_prefixes in multiple places, the typical use case is only one instances, and after a "-per-".</p><h3 id="63-example-units">6.3 <a name="Example_Units" href="#Example_Units">Example Units</a></h3><p>The following table contains examples of groupings and units currently defined by CLDR.
+The units in CLDR are not comprehensive; it is anticipated that more will be added over time.
 The complete list of supported units is in the validity data: see <em>Section <a href="tr35.html#Validity_Data">3.11 Validity Data</a></em>.</p><table>
 <thead>
 <tr>
@@ -2149,7 +2176,7 @@ The complete list of supported units is in the validity data: see <em>Section <a
 </ol>
 </li>
 <li>If multiplier is not empty<ol>
-<li>Combine the multiplier with coreUnit, using placeholder and placeholderPosition </li>
+<li>Combine the multiplier with coreUnit, using placeholder and placeholderPosition</li>
 </ol>
 </li>
 <li>If the result is empty, set result to be coreUnit</li>
@@ -2738,7 +2765,7 @@ m → r ;
 </code></pre><p>Each pattern satisifies the following conditions:</p><ul>
     <li>it contains the placeholders <code>{0}</code>, <code>{1}</code>, and <code>{2}</code> ("3"-pattern only) in order</li>
     <li>"start" and "middle" patterns end with the <code>{1}</code> placeholder</li>
-    <li>"middle" and "end" patterns begin with the <code>{0}</code> placeholder</li> 
+    <li>"middle" and "end" patterns begin with the <code>{0}</code> placeholder</li>
 </ul><p>That is,</p><ul>
     <li>all patterns can have text between the placeholders</li>
     <li>only the "start", "2", and "3" patterns can have text before the first placeholder, and</li>
@@ -2890,7 +2917,7 @@ so this algorithm can be used to write into append-only sinks. Both the back-to-
         <span class="hljs-tag">&lt;<span class="hljs-name">contextTransform</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"uiListOrMenu"</span>&gt;</span>titlecase-firstword<span class="hljs-tag">&lt;/<span class="hljs-name">contextTransform</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">contextTransformUsage</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">contextTransforms</span>&gt;</span>
-</code></pre><h5 id="element-contexttransformusage-type-attribute-values"><a name="contextTransformUsage_type_attribute_values" href="#contextTransformUsage_type_attribute_values">Element contextTransformUsage type attribute values</a></h5><table>
+</code></pre><h6 id="element-contexttransformusage-type-attribute-values"><a name="contextTransformUsage_type_attribute_values" href="#contextTransformUsage_type_attribute_values">Element contextTransformUsage type attribute values</a></h6><table>
 <thead>
 <tr>
 <th>type attribute value</th>
@@ -3066,7 +3093,7 @@ so this algorithm can be used to write into append-only sinks. Both the back-to-
 <li> For an <strong>emoji flag sequence</strong> or <strong>emoji tag sequence</strong> representing a subdivision, use "flag".</li>
 <li> For keycap sequences, use "keycap".</li>
 <li> For other sequences, add the keywords for the subsequences used to get the short names for <strong>prefixName</strong>, and the short names used for <strong>suffixName</strong>.</li>
-</ol><p>Some examples for English data (v30) are given in the following table.</p><h5 id="synthesized-emoji-sequence-names">Synthesized Emoji Sequence Names</h5><table>
+</ol><p>Some examples for English data (v30) are given in the following table.</p><h6 id="synthesized-emoji-sequence-names">Synthesized Emoji Sequence Names</h6><table>
 <thead>
 <tr>
 <th>Sequence</th>
@@ -3220,7 +3247,7 @@ so this algorithm can be used to write into append-only sinks. Both the back-to-
 <span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">characterLabel</span> ( <span class="hljs-meta-keyword">#PCDATA</span> ) &gt;</span>
 
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">characterLabel</span> <span class="hljs-meta-keyword">type</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
-</code></pre><p>The character labels can be used for categories or groups of characters in a character picker or keyboard palette. They have the above structure. Items with special meanings are explained below. Many of the categories are based on terms used in Unicode. Consult the <a href="https://www.unicode.org/glossary/">Unicode Glossary</a> where the meaning is not clear.</p><p>The following are special patterns used in composing labels.</p><h5 id="characterlabelpattern">characterLabelPattern</h5><table>
+</code></pre><p>The character labels can be used for categories or groups of characters in a character picker or keyboard palette. They have the above structure. Items with special meanings are explained below. Many of the categories are based on terms used in Unicode. Consult the <a href="https://www.unicode.org/glossary/">Unicode Glossary</a> where the meaning is not clear.</p><p>The following are special patterns used in composing labels.</p><h6 id="characterlabelpattern">characterLabelPattern</h6><table>
 <thead>
 <tr>
 <th>Type</th>
@@ -3288,7 +3315,7 @@ so this algorithm can be used to write into append-only sinks. Both the back-to-
 <td>superscript {0}</td>
 <td>For indicating superscript forms, such as "superscript digits".</td>
 </tr>
-</tbody></table><p>The following are character labels. Where the meaning of the label is fairly clear (like "animal") or is in the Unicode glossary, it is omitted.</p><h5 id="characterlabel">characterLabel</h5><table>
+</tbody></table><p>The following are character labels. Where the meaning of the label is fairly clear (like "animal") or is in the Unicode glossary, it is omitted.</p><h6 id="characterlabel">characterLabel</h6><table>
 <thead>
 <tr>
 <th>Type</th>
@@ -3510,7 +3537,7 @@ so this algorithm can be used to write into append-only sinks. Both the back-to-
 </code></pre><p>The @targets attribute contains the specific grammatical entities to which the features apply, such as <code>nominal</code> when they apply to nouns only. The @locales attribute contains the specific locales to which the features apply, such as <code>de fr</code> for German and French.</p><p>The @scope attribute, if present, indicates that the values are limited to a specific subset for certain kinds of entities. For example, a particular language might have an animate gender for nouns, but no units of measurement ever have that case; in another language, the language might have a rich set of grammatical cases, but units are invariant. If the @scope attribute is not present, then that has the meaning of "everything else".</p><p>The @scope attributes are targeted at messages created by computers, thus a feature may have a narrower scope if for all practical purposes the feature value is not used in messages created by computers. For example, it may be possible in theory for a kilogram to be in the vocative case (English poetry might have “O Captain! my Captain!/ our fearful trip is done”, but on computers you have little call to need the message “O kilogram! my kilogram! …”).</p><p><strong>Constraints:</strong></p><ul>
 <li>a scope attribute is only used when there is a corresponding “general” element, one for the same language and target without a scope attribute.</li>
 <li>the scope attribute values must be narrower (a proper subset, possibly empty) of those in the corresponding general element.</li>
-</ul><h3 id="151-gender">15.1 <a name="Gender" href="#Gender">Gender</a></h3><p>Feature that classifies nouns in classes. This is grammatical gender, which may be assigned on the basis of sex in some languages, but may be completely separate in others. Also used to tag elements in CLDR that should agree with a particular gender of an associated noun. (adapted from: <a href="http://linguistics-ontology.org/gold/2010/GenderProperty">linguistics-ontology.org/gold/2010/GenderProperty</a>)</p><h4 id="example">Example</h4><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">grammaticalFeatures</span> <span class="hljs-attr">targets</span>=<span class="hljs-string">"nominal"</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">"es fr it pt"</span>&gt;</span>
+</ul><h3 id="151-gender">15.1 <a name="Gender" href="#Gender">Gender</a></h3><p>Feature that classifies nouns in classes. This is grammatical gender, which may be assigned on the basis of sex in some languages, but may be completely separate in others. Also used to tag elements in CLDR that should agree with a particular gender of an associated noun. (adapted from: <a href="http://linguistics-ontology.org/gold/2010/GenderProperty">linguistics-ontology.org/gold/2010/GenderProperty</a>)</p><h6 id="example">Example</h6><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">grammaticalFeatures</span> <span class="hljs-attr">targets</span>=<span class="hljs-string">"nominal"</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">"es fr it pt"</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">grammaticalGender</span> <span class="hljs-attr">values</span>=<span class="hljs-string">"masculine feminine"</span>/&gt;</span>
 </code></pre><h4 id="values">Values</h4><table>
 <thead>
@@ -3555,9 +3582,9 @@ so this algorithm can be used to write into append-only sinks. Both the back-to-
 <td>In a masculine/feminine/neuter or common/neuter gender system, gender that generally denotes an object.</td>
 <td>adapted from: <a href="https://en.wikipedia.org/wiki/Grammatical_gender">wikipedia.org/wiki/Grammatical_gender</a>, <a href="http://linguistics-ontology.org/gold/2010/NeuterGender">linguistics-ontology.org/gold/2010/NeuterGender</a></td>
 </tr>
-</tbody></table><h3 id="152-case">15.2 <a name="Case" href="#Case">Case</a></h3><h4 id="case">Case</h4><p>Feature that encodes the syntactic (and sometimes semantic) relationship of a noun with the other constituents of the sentence. (adapted from <a href="http://linguistics-ontology.org/gold/2010/CaseProperty">linguistics-ontology.org/gold/2010/CaseProperty</a>)</p><h5 id="example-1">Example</h5><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">grammaticalFeatures</span> <span class="hljs-attr">targets</span>=<span class="hljs-string">"nominal"</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">"de"</span>&gt;</span>
+</tbody></table><h3 id="152-case">15.2 <a name="Case" href="#Case">Case</a></h3><h4 id="case">Case</h4><p>Feature that encodes the syntactic (and sometimes semantic) relationship of a noun with the other constituents of the sentence. (adapted from <a href="http://linguistics-ontology.org/gold/2010/CaseProperty">linguistics-ontology.org/gold/2010/CaseProperty</a>)</p><h6 id="example-1">Example</h6><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">grammaticalFeatures</span> <span class="hljs-attr">targets</span>=<span class="hljs-string">"nominal"</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">"de"</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">grammaticalCase</span> <span class="hljs-attr">values</span>=<span class="hljs-string">"nominative accusative genitive dative"</span>/&gt;</span>
-</code></pre><h5 id="values-1">Values</h5><table>
+</code></pre><h6 id="values-1">Values</h6><table>
 <thead>
 <tr>
 <th>Value</th>

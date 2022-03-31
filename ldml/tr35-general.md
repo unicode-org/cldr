@@ -38,69 +38,84 @@ The LDML specification is divided into the following parts:
 
 ## <a name="Contents" href="#Contents">Contents of Part 2, General</a>
 
-*   1 [Display Name Elements](#Display_Name_Elements)
-    *   1.1 [Locale Display Name Algorithm](#locale_display_name_algorithm)
-    *   1.2 [Locale Display Name Fields](#locale_display_name_fields)
-*   2 [Layout Elements](#Layout_Elements)
-*   3 [Character Elements](#Character_Elements)
-    *   3.1 [Exemplars](#Exemplars)
-        *   3.1.1 [Exemplar Syntax](#ExemplarSyntax)
-        *   3.1.2 [Restrictions](#Restrictions)
-    *   3.2 [Mapping](#Character_Mapping)
-    *   3.3 [Index Labels](#IndexLabels)
-    *   3.4 [Ellipsis](#Ellipsis)
-    *   3.5 [More Information](#Character_More_Info)
-    *   3.6 [Parse Lenient](#Character_Parse_Lenient)
-*   4 [Delimiter Elements](#Delimiter_Elements)
-    *   4.1 [Tailoring Linebreak Using Delimiters](#Tailor_Linebreak_With_Delimiters)
-*   5 [Measurement System Data](#Measurement_System_Data)
-    *   5.1 [Measurement Elements (deprecated)](#Measurement_Elements)
-*   6 [Unit Elements](#Unit_Elements)
-    *   6.1 [Unit Preference and Conversion Data](#Unit_Preference_and_Conversion)
-    *   6.2 [Unit Identifiers](#Unit_Identifiers)
-    *   6.3 [Example Units](#Example_Units)
-    *   6.4 [Compound Units](#compound-units)
-    *   6.5 [Unit Sequences (Mixed Units)](#Unit_Sequences)
-    *   6.6 [durationUnit](#durationUnit)
-    *   6.7 [coordinateUnit](#coordinateUnit)
-    *   6.8 [Territory-Based Unit Preferences](#Territory_Based_Unit_Preferences)
-*   7 [POSIX Elements](#POSIX_Elements)
-*   8 [Reference Element](#Reference_Elements)
-*   9 [Segmentations](#Segmentations)
-    *   9.1 [Segmentation Inheritance](#Segmentation_Inheritance)
-    *   9.2 [Segmentation Suppressions](#Segmentation_Exceptions)
-*   10 [Transforms](#Transforms)
-    *   10.1 [Inheritance](#Inheritance)
-        *   10.1.1 [Pivots](#Pivots)
-    *   10.2 [Variants](#Variants)
-    *   10.3 [Transform Rules Syntax](#Transform_Rules_Syntax)
-        *   10.3.1 [Dual Rules](#Dual_Rules)
-        *   10.3.2 [Context](#Context)
-        *   10.3.3 [Revisiting](#Revisiting)
-        *   10.3.4 [Example](#Example)
-        *   10.3.5 [Rule Syntax](#Rule_Syntax)
-        *   10.3.6 [Transform Rules](#Transform_Rules)
-        *   10.3.7 [Variable Definition Rules](#Variable_Definition_Rules)
-        *   10.3.8 [Filter Rules](#Filter_Rules)
-        *   10.3.9 [Conversion Rules](#Conversion_Rules)
-        *   10.3.10 [Intermixing Transform Rules and Conversion Rules](#Intermixing_Transform_Rules_and_Conversion_Rules)
-        *   10.3.11 [Inverse Summary](#Inverse_Summary)
-*   11 [List Patterns](#ListPatterns)
-    *   11.1 [Gender of Lists](#List_Gender)
-*   12 [ContextTransform Elements](#Context_Transform_Elements)
-    *   Table: [Element contextTransformUsage type attribute values](#contextTransformUsage_type_attribute_values)
-*   13 [Choice Patterns](#Choice_Patterns)
-*   14 [Annotations and Labels](#Annotations)
-    *   14.1 [Synthesizing Sequence Names](#SynthesizingNames)
-    *   14.2 [Annotations Character Labels](#Character_Labels)
-    *   14.3 [Typographic Names](#Typographic_Names)
-*   15 [Grammatical Features](#Grammatical_Features)
-    *   15.1 [Gender](#Gender)
-    *   15.2 [Case](#Case)
-*   16 [Grammatical Derivations](#Grammatical_Derivations)
-    *   16.1 [Deriving the Gender of Compound Units](#gender_compound_units)
-    *   16.2 [Deriving the Plural Category of Unit Components](#plural_compound_units)
-    *   16.3 [Deriving the Case of Unit Components](#case_compound_units)
+* 1 [Display Name Elements](#Display_Name_Elements)
+  * 1.1 [Locale Display Name Algorithm](#locale_display_name_algorithm)
+  * 1.2 [Locale Display Name Fields](#locale_display_name_fields)
+* 2 [Layout Elements](#Layout_Elements)
+* 3 [Character Elements](#Character_Elements)
+  * 3.1 [Exemplars](#Exemplars)
+    * 3.1.1 [Exemplar Syntax](#ExemplarSyntax)
+    * 3.1.2 [Restrictions](#Restrictions)
+  * 3.2 ~~[Mapping](#Character_Mapping)~~
+  * 3.3 ~~[Index Labels](#IndexLabels)~~
+  * 3.4 [Ellipsis](#Ellipsis)
+  * 3.5 [More Information](#Character_More_Info)
+  * 3.6 [Parse Lenient](#Character_Parse_Lenient)
+* 4 [Delimiter Elements](#Delimiter_Elements)
+  * 4.1 [Tailoring Linebreak Using Delimiters](#Tailor_Linebreak_With_Delimiters)
+* 5 [Measurement System Data](#Measurement_System_Data)
+  * 5.1 [Measurement Elements (deprecated)](#Measurement_Elements)
+* 6 [Unit Elements](#Unit_Elements)
+  * 6.1 [Unit Preference and Conversion Data](#Unit_Preference_and_Conversion)
+  * 6.2 [Unit Identifiers](#Unit_Identifiers)
+    * [Nomenclature](#nomenclature)
+    * [Syntax](#syntax)
+  * 6.3 [Example Units](#Example_Units)
+  * 6.4 [Compound Units](#compound-units)
+    * [Precomposed Compound Units](#precomposed-compound-units)
+  * 6.5 [Unit Sequences (Mixed Units)](#Unit_Sequences)
+  * 6.6 [durationUnit](#durationUnit)
+  * 6.7 [coordinateUnit](#coordinateUnit)
+  * 6.8 [Territory-Based Unit Preferences](#Territory_Based_Unit_Preferences)
+  * 6.9 [Private-Use Units](#Private_Use_Units)
+* 7 [POSIX Elements](#POSIX_Elements)
+* 8 [Reference Element](#Reference_Elements)
+* 9 [Segmentations](#Segmentations)
+  * 9.1 [Segmentation Inheritance](#Segmentation_Inheritance)
+  * 9.2 [Segmentation Suppressions](#Segmentation_Exceptions)
+* 10 [Transforms](#Transforms)
+  * 10.1 [Inheritance](#Inheritance)
+    * 10.1.1 [Pivots](#Pivots)
+  * 10.2 [Variants](#Variants)
+  * 10.3 [Transform Rules Syntax](#Transform_Rules_Syntax)
+    * 10.3.1 [Dual Rules](#Dual_Rules)
+    * 10.3.2 [Context](#Context)
+    * 10.3.3 [Revisiting](#Revisiting)
+    * 10.3.4 [Example](#Example)
+    * 10.3.5 [Rule Syntax](#Rule_Syntax)
+    * 10.3.6 [Transform Rules](#Transform_Rules)
+    * 10.3.7 [Variable Definition Rules](#Variable_Definition_Rules)
+    * 10.3.8 [Filter Rules](#Filter_Rules)
+    * 10.3.9 [Conversion Rules](#Conversion_Rules)
+    * 10.3.10 [Intermixing Transform Rules and Conversion Rules](#Intermixing_Transform_Rules_and_Conversion_Rules)
+    * 10.3.11 [Inverse Summary](#Inverse_Summary)
+* 11 [List Patterns](#ListPatterns)
+  * 11.1 [Gender of Lists](#List_Gender)
+* 12 [ContextTransform Elements](#Context_Transform_Elements)
+  * [Element contextTransformUsage type attribute values](#contextTransformUsage_type_attribute_values)
+* 13 [Choice Patterns](#Choice_Patterns)
+* 14 [Annotations and Labels](#Annotations)
+  * 14.1 [Synthesizing Sequence Names](#SynthesizingNames)
+    * [Synthesized Emoji Sequence Names](#synthesized-emoji-sequence-names)
+  * 14.2 [Annotations Character Labels](#Character_Labels)
+    * [characterLabelPattern](#characterlabelpattern)
+    * [characterLabel](#characterlabel)
+  * 14.3 [Typographic Names](#Typographic_Names)
+* 15 [Grammatical Features](#Grammatical_Features)
+* [Features](#features)
+  * 15.1 [Gender](#Gender)
+    * [Example](#example)
+    * [Values](#values)
+  * 15.2 [Case](#Case)
+    * [Case](#case)
+      * [Example](#example)
+      * [Values](#values)
+  * [Definiteness](#definiteness)
+    * [Values](#values)
+* 16 [Grammatical Derivations](#Grammatical_Derivations)
+  * 16.1 [Deriving the Gender of Compound Units](#gender_compound_units)
+  * 16.2 [Deriving the Plural Category of Unit Components](#plural_compound_units)
+  * 16.3 [Deriving the Case of Unit Components](#case_compound_units)
 
 ## 1 <a name="Display_Name_Elements" href="#Display_Name_Elements">Display Name Elements</a>
 
@@ -818,8 +833,8 @@ This data is supplied in **Part 6: [Supplemental](tr35-info.md#Contents)**: [Sec
 
 ### 6.2 <a name="Unit_Identifiers" href="#Unit_Identifiers">Unit Identifiers</a>
 
-Units of measurement, such as _meter_, have defined programmatic identifiers as described in this section. 
-The main identifier is a _core unit identifier_, which encompasses a number of simpler types of identifiers as follows. 
+Units of measurement, such as _meter_, have defined programmatic identifiers as described in this section.
+The main identifier is a _core unit identifier_, which encompasses a number of simpler types of identifiers as follows.
 A secondary type of identifier is a _mixed unit identifier_, which combines a series of units such as _5° 30′_ or _3 feet 7 inches_.
 
 | Name             | Examples |
@@ -831,8 +846,8 @@ A secondary type of identifier is a _mixed unit identifier_, which combines a se
 | mixed unit ID    | foot-and-inch, degree-and-arc-minute-and-arc-second |
 
 
-There is currently a ‘long’ style of unit identifier corresponding to each _core unit identifier_, as illustrated below. 
-The only difference is that the long unit identifier adds a prefix which was used in the CLDR Survey Tool for grouping related identifiers together. 
+There is currently a ‘long’ style of unit identifier corresponding to each _core unit identifier_, as illustrated below.
+The only difference is that the long unit identifier adds a prefix which was used in the CLDR Survey Tool for grouping related identifiers together.
 The long unit identifers are used as a key in the translated unit names for locales, but dealing with these two styles is unnecessarily complicated, so the long unit identifiers are slated for deprecation (after replacing their use as a key for translations).
 
 | core unit ID | long unit ID |
@@ -840,25 +855,25 @@ The long unit identifers are used as a key in the translated unit names for loca
 | meter        | length-meter |
 | pound        | mass-pound   |
 | day          | duration-day |
- 
 
-The list of valid CLDR simple unit identifiers is found in _Section [3.11 Validity Data](tr35.md#Validity_Data)_. 
-These names should not be presented to end users, however: the translated names for different languages (or variants of English) are available in the CLDR localized data. 
-All syntactically valid CLDR unit identifiers values that are not listed in the validity data are reserved by CLDR for additional future units. 
+
+The list of valid CLDR simple unit identifiers is found in _Section [3.11 Validity Data](tr35.md#Validity_Data)_.
+These names should not be presented to end users, however: the translated names for different languages (or variants of English) are available in the CLDR localized data.
+All syntactically valid CLDR unit identifiers values that are not listed in the validity data are reserved by CLDR for additional future units.
 There is one exception: implementations that need to define their own unit identifiers can do so via _Section 6.6 [Private-Use Units](#Private_Use_Units)_.
 
-A core unit identifier that is not a simple unit is called a _complex unit_ (aka _compound unit_). 
-A complex unit identifier can be constructed from simple unit identifiers using multiplication (kilogram-meter) and division (kilogram-per-meter), powers (square-second), and prefixes (kilo-, 100-, kiBi). 
+A core unit identifier that is not a simple unit is called a _complex unit_ (aka _compound unit_).
+A complex unit identifier can be constructed from simple unit identifiers using multiplication (kilogram-meter) and division (kilogram-per-meter), powers (square-second), and prefixes (kilo-, 100-, kiBi).
 As usual, with division the part before the (first) -per- is called the _numerator_, and the part after it is called the _denominator_.
 
-The identifiers and unit conversion data are built to handle core unit IDs and mixed unit IDs based on their simple unit identifiers. 
+The identifiers and unit conversion data are built to handle core unit IDs and mixed unit IDs based on their simple unit identifiers.
 Thus they support converting generated units such as inch-pound-per-square-week into comparable units, such as newtons.
 
-Where a core unit ID or mixed unit ID does not have an explicit translation in CLDR, a mechanism is supplied for producing a generated translation from the translations for the simple unit identifiers. 
-See _Section 6.4 [Compound Units](#compound-units)_. 
-That can be used for less common units, such as _petasecond_. 
-However, the generated translations may have the wrong spelling in languages where orthographic changes are needed when combining words. 
-For example, “kilometer” can be formed in English from “kilo” and “meter”; the same process in Greek would combine “χιλιο” and “μέτρα” to get “χιλιομέτρα” — when the correct result is “χιλιόμετρα” (note the different location of the accent). 
+Where a core unit ID or mixed unit ID does not have an explicit translation in CLDR, a mechanism is supplied for producing a generated translation from the translations for the simple unit identifiers.
+See _Section 6.4 [Compound Units](#compound-units)_.
+That can be used for less common units, such as _petasecond_.
+However, the generated translations may have the wrong spelling in languages where orthographic changes are needed when combining words.
+For example, “kilometer” can be formed in English from “kilo” and “meter”; the same process in Greek would combine “χιλιο” and “μέτρα” to get “χιλιομέτρα” — when the correct result is “χιλιόμετρα” (note the different location of the accent).
 Thus the most commonly-used complex units have explicit translations in CLDR.
 
 * A power (square, cubic, pow4, etc) modifies one prefixed unit ID, and must occur immediately before it in the identifier: square-foot, not foot-square.
@@ -959,7 +974,7 @@ The formal syntax for identifiers is provided below.
             </ul></li>
             <li><em>Example:</em> foot</li>
         </ul></td></tr>
-		
+
 <tr><td>mixed_unit_identifier</td><td>:=</td>
     <td>(single_unit | pu_single_unit) ("-and-" (single_unit | pu_single_unit ))*
         <ul><li><em>Example: foot-and-inch</em></li></ul></td></tr>
@@ -984,8 +999,8 @@ Note that while the syntax allows for number_prefixes in multiple places, the ty
 
 ### 6.3 <a name="Example_Units" href="#Example_Units">Example Units</a>
 
-The following table contains examples of groupings and units currently defined by CLDR. 
-The units in CLDR are not comprehensive; it is anticipated that more will be added over time. 
+The following table contains examples of groupings and units currently defined by CLDR.
+The units in CLDR are not comprehensive; it is anticipated that more will be added over time.
 The complete list of supported units is in the validity data: see _Section [3.11 Validity Data](tr35.md#Validity_Data)_.
 
 | Type           | Core Unit Identifier     | Compound? | Sample Format  |
@@ -1240,7 +1255,7 @@ If there is no precomputed form, the following process in pseudocode is used to 
    10. If dimensionalityPrefixPattern is not empty
        1. Set coreUnit to be the combineLowercasing(locale, length, dimensionalityPrefixPattern, coreUnit)
    10. If multiplier is not empty
-       1. Combine the multiplier with coreUnit, using placeholder and placeholderPosition 
+       1. Combine the multiplier with coreUnit, using placeholder and placeholderPosition
    11. If the result is empty, set result to be coreUnit
    12. Otherwise set result to be format(timesPattern, result, coreUnit)
 5. Return result
@@ -2169,7 +2184,7 @@ Each pattern satisifies the following conditions:
 <ul>
     <li>it contains the placeholders <code>{0}</code>, <code>{1}</code>, and <code>{2}</code> ("3"-pattern only) in order</li>
     <li>"start" and "middle" patterns end with the <code>{1}</code> placeholder</li>
-    <li>"middle" and "end" patterns begin with the <code>{0}</code> placeholder</li> 
+    <li>"middle" and "end" patterns begin with the <code>{0}</code> placeholder</li>
 </ul>
 
 That is,
@@ -2336,7 +2351,7 @@ Example:
 </contextTransforms>
 ```
 
-##### <a name="contextTransformUsage_type_attribute_values" href="#contextTransformUsage_type_attribute_values">Element contextTransformUsage type attribute values</a>
+###### <a name="contextTransformUsage_type_attribute_values" href="#contextTransformUsage_type_attribute_values">Element contextTransformUsage type attribute values</a>
 
 | type attribute value             | Description |
 | -------------------------------- | ----------- |
@@ -2464,7 +2479,7 @@ The synthesized keywords can follow a similar process.
 
 Some examples for English data (v30) are given in the following table.
 
-##### Synthesized Emoji Sequence Names
+###### Synthesized Emoji Sequence Names
 
 | Sequence | Short Name | Keywords |
 | --------- | ---------- | -------- |
@@ -2518,7 +2533,7 @@ The character labels can be used for categories or groups of characters in a cha
 
 The following are special patterns used in composing labels.
 
-##### characterLabelPattern
+###### characterLabelPattern
 
 | Type          | English             | Description of the group specified. |
 | ------------- | ------------------- | ----------------------------------- |
@@ -2537,7 +2552,7 @@ The following are special patterns used in composing labels.
 
 The following are character labels. Where the meaning of the label is fairly clear (like "animal") or is in the Unicode glossary, it is omitted.
 
-##### characterLabel
+###### characterLabel
 
 | Type                        | English                 | Description of the group specified. |
 | --------------------------- | ----------------------- | ----------------------------------- |
@@ -2662,7 +2677,7 @@ The @scope attributes are targeted at messages created by computers, thus a feat
 
 Feature that classifies nouns in classes. This is grammatical gender, which may be assigned on the basis of sex in some languages, but may be completely separate in others. Also used to tag elements in CLDR that should agree with a particular gender of an associated noun. (adapted from: [linguistics-ontology.org/gold/2010/GenderProperty](http://linguistics-ontology.org/gold/2010/GenderProperty))
 
-#### Example
+###### Example
 
 ```xml
 <grammaticalFeatures targets="nominal" locales="es fr it pt">
@@ -2687,14 +2702,14 @@ Feature that classifies nouns in classes. This is grammatical gender, which may 
 
 Feature that encodes the syntactic (and sometimes semantic) relationship of a noun with the other constituents of the sentence. (adapted from [linguistics-ontology.org/gold/2010/CaseProperty](http://linguistics-ontology.org/gold/2010/CaseProperty))
 
-##### Example
+###### Example
 
 ```xml
 <grammaticalFeatures targets="nominal" locales="de">
    <grammaticalCase values="nominative accusative genitive dative"/>
 ```
 
-##### Values
+###### Values
 
 | Value              | Definition | References |
 | ------------------ | ---------- | ---------- |

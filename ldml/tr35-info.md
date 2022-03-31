@@ -38,35 +38,49 @@ The LDML specification is divided into the following parts:
 
 ## <a name="Contents" href="#Contents">Contents of Part 6, Supplemental</a>
 
-*   1 [Introduction Supplemental Data](#Supplemental_Data)
-*   2 [Territory Data](#Territory_Data)
-    *   2.1 [Supplemental Territory Containment](#Supplemental_Territory_Containment)
-    *   2.2 [Subdivision Containment](#Subdivision_Containment)
-    *   2.3 [Supplemental Territory Information](#Supplemental_Territory_Information)
-    *   2.4 [Territory-Based Preferences](#Territory_Based_Preferences)
-        *   2.4.1 [Preferred Units for Specific Usages](#Preferred_Units_For_Usage)
-            *   Table: [Unit Preference](#Unit_Preferences)
-    *   2.5 [\<rgScope>: Scope of the “rg” Locale Key](#rgScope)
-*   3 [Supplemental Language Data](#Supplemental_Language_Data)
-    *   3.1 [Supplemental Language Grouping](#Supplemental_Language_Grouping)
-*   4 [Supplemental Code Mapping](#Supplemental_Code_Mapping)
-*   5 [Telephone Code Data](#Telephone_Code_Data) (Deprecated)
-*   6 [Postal Code Validation (Deprecated)](#Postal_Code_Validation)
-*   7 [Supplemental Character Fallback Data](#Supplemental_Character_Fallback_Data)
-*   8 [Coverage Levels](#Coverage_Levels)
-    *   8.1 [Definitions](#Coverage_Level_Definitions)
-    *   8.2 [Data Requirements](#Coverage_Level_Data_Requirements)
-    *   8.3 [Default Values](#Coverage_Level_Default_Values)
-*   9 [Supplemental Metadata](#Appendix_Supplemental_Metadata)
-    *   9.1 [Supplemental Alias Information](#Supplemental_Alias_Information)
-        *   Table: [Alias Attribute Values](#Alias_Attribute_Values)
-    *   9.2 [Supplemental Deprecated Information (Deprecated)](#Supplemental_Deprecated_Information)
-    *   9.3 [Default Content](#Default_Content)
-*   10 [Locale Metadata Elements](#Metadata_Elements)
-*   11 [Version Information](#Version_Information)
-*   12 [Parent Locales](#Parent_Locales)
-*   13 [Unit Conversion](#Unit_Conversion)
-*   14 [Unit Preferences](#Unit_Preferences)
+* 1 Introduction [Supplemental Data](#Supplemental_Data)
+* 2 [Territory Data](#Territory_Data)
+  * 2.1 [Supplemental Territory Containment](#Supplemental_Territory_Containment)
+  * 2.2 [Subdivision Containment](#Subdivision_Containment)
+  * 2.3 [Supplemental Territory Information](#Supplemental_Territory_Information)
+  * 2.4 [Territory-Based Preferences](#Territory_Based_Preferences)
+    * 2.4.1 [Preferred Units for Specific Usages](#Preferred_Units_For_Usage)
+  * 2.5 [`<rgScope>`: Scope of the “rg” Locale Key](#rgScope)
+* 3 [Supplemental Language Data](#Supplemental_Language_Data)
+* 3.1 [Supplemental Language Grouping](#Supplemental_Language_Grouping)
+* 4 [Supplemental Code Mapping](#Supplemental_Code_Mapping)
+* 5 ~~[Telephone Code Data](#Telephone_Code_Data)~~ (Deprecated)
+* 6 ~~[Postal Code Validation (Deprecated)](#Postal_Code_Validation)~~
+* 7 [Supplemental Character Fallback Data](#Supplemental_Character_Fallback_Data)
+* 8 [Coverage Levels](#Coverage_Levels)
+  * 8.1 [Definitions](#Coverage_Level_Definitions)
+  * 8.2 [Data Requirements](#Coverage_Level_Data_Requirements)
+  * 8.3 [Default Values](#Coverage_Level_Default_Values)
+* 9 [Supplemental Metadata](#Appendix_Supplemental_Metadata)
+  * 9.1 [Supplemental Alias Information](#Supplemental_Alias_Information)
+    * [Alias Attribute Values](#Alias_Attribute_Values)
+  * 9.2 ~~[Supplemental Deprecated Information (Deprecated)](#Supplemental_Deprecated_Information)~~
+  * 9.3 [Default Content](#Default_Content)
+* 10 [Locale Metadata Elements](#Metadata_Elements)
+* 11 [Version Information](#Version_Information)
+* 12 [Parent Locales](#Parent_Locales)
+* 13 [Unit Conversion](#Unit_Conversion)
+  * [Constants](#constants)
+  * [Conversion Data](#conversion-data)
+    * [Exceptional Cases](#exceptional-cases)
+      * [Identities](#identities)
+      * [Aliases](#aliases)
+      * [“Duplicate” Units](#duplicate-units)
+      * [Discarding Offsets](#discarding-offsets)
+    * [Unresolved Units](#unresolved-units)
+* [Quantities and Base Units](#quantities-and-base-units)
+  * [UnitType vs Quantity](#unittype-vs-quantity)
+  * [Unit Identifier Normalization](#Unit_Identifier_Normalization)
+* [Mixed Units](#mixed-units)
+* [Testing](#testing)
+* 14 [Unit Preferences](#Unit_Preferences)
+  * [Constraints](#constraints)
+  * [Caveats](#caveats)
 
 ## 1 Introduction <a name="Supplemental_Data" href="#Supplemental_Data">Supplemental Data</a>
 
@@ -486,7 +500,7 @@ That is, this data provides recommended fallbacks for use when a charset or supp
 
 ## 8 <a name="Coverage_Levels" href="#Coverage_Levels">Coverage Levels</a>
 
-The following describes the structure used to set coverage levels used for CLDR. 
+The following describes the structure used to set coverage levels used for CLDR.
 That structure is primarily intended for internal use in CLDR tooling — it is not anticipated that users of CLDR data would need it.
 
 Each level adds to what is in the lower level. This list will change between releases of CLDR, and more detailed information for each level is on [Coverage Levels](https://cldr.unicode.org/index/cldr-spec/coverage-levels).
@@ -501,7 +515,7 @@ Each level adds to what is in the lower level. This list will change between rel
 | 80    | modern        | UI Locale — Contains all fields in normal modern use, including all CLDR locale names, country names, timezone names, currencies in use, and so on. |
 | 100   | comprehensive | Above modern level; typically far more data than is needed in practice. |
 
-Levels 40 through 80 are based on the definitions and specifications listed below. 
+Levels 40 through 80 are based on the definitions and specifications listed below.
 
 ```xml
 <!ELEMENT coverageLevels ( approvalRequirements, coverageVariable*, coverageLevel* ) >
@@ -676,7 +690,7 @@ This element provides information as to parts of locale IDs that should be subst
 
 Attribute values for the \*Alias values include the following:
 
-##### <a name="Alias_Attribute_Values" href="#Alias_Attribute_Values">Alias Attribute Values</a>
+###### <a name="Alias_Attribute_Values" href="#Alias_Attribute_Values">Alias Attribute Values</a>
 
 | Attribute   | Value         | Description |
 | ----------- | ------------- | ----------- |

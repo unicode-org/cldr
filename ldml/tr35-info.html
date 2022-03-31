@@ -315,49 +315,69 @@
 <li>  Part 6: <a href="tr35-info.html#Contents">Supplemental</a> (supplemental data)</li>
 <li>  Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard mappings)</li>
 </ul><h2 id="contents-of-part-6-supplemental"><a name="Contents" href="#Contents">Contents of Part 6, Supplemental</a></h2><ul>
-<li>  1 <a href="#Supplemental_Data">Introduction Supplemental Data</a></li>
+<li>1 Introduction <a href="#Supplemental_Data">Supplemental Data</a></li>
 <li>2 <a href="#Territory_Data">Territory Data</a><ul>
-<li>  2.1 <a href="#Supplemental_Territory_Containment">Supplemental Territory Containment</a></li>
-<li>  2.2 <a href="#Subdivision_Containment">Subdivision Containment</a></li>
-<li>  2.3 <a href="#Supplemental_Territory_Information">Supplemental Territory Information</a></li>
+<li>2.1 <a href="#Supplemental_Territory_Containment">Supplemental Territory Containment</a></li>
+<li>2.2 <a href="#Subdivision_Containment">Subdivision Containment</a></li>
+<li>2.3 <a href="#Supplemental_Territory_Information">Supplemental Territory Information</a></li>
 <li>2.4 <a href="#Territory_Based_Preferences">Territory-Based Preferences</a><ul>
-<li>2.4.1 <a href="#Preferred_Units_For_Usage">Preferred Units for Specific Usages</a><ul>
-<li>  Table: <a href="#Unit_Preferences">Unit Preference</a></li>
+<li>2.4.1 <a href="#Preferred_Units_For_Usage">Preferred Units for Specific Usages</a></li>
 </ul>
 </li>
+<li>2.5 <a href="#rgScope"><code>&lt;rgScope&gt;</code>: Scope of the “rg” Locale Key</a></li>
 </ul>
 </li>
-<li>  2.5 <a href="#rgScope">&lt;rgScope&gt;: Scope of the “rg” Locale Key</a></li>
-</ul>
-</li>
-<li>3 <a href="#Supplemental_Language_Data">Supplemental Language Data</a><ul>
-<li>  3.1 <a href="#Supplemental_Language_Grouping">Supplemental Language Grouping</a></li>
-</ul>
-</li>
-<li>  4 <a href="#Supplemental_Code_Mapping">Supplemental Code Mapping</a></li>
-<li>  5 <a href="#Telephone_Code_Data">Telephone Code Data</a> (Deprecated)</li>
-<li>  6 <a href="#Postal_Code_Validation">Postal Code Validation (Deprecated)</a></li>
-<li>  7 <a href="#Supplemental_Character_Fallback_Data">Supplemental Character Fallback Data</a></li>
+<li>3 <a href="#Supplemental_Language_Data">Supplemental Language Data</a></li>
+<li>3.1 <a href="#Supplemental_Language_Grouping">Supplemental Language Grouping</a></li>
+<li>4 <a href="#Supplemental_Code_Mapping">Supplemental Code Mapping</a></li>
+<li>5 <del><a href="#Telephone_Code_Data">Telephone Code Data</a></del> (Deprecated)</li>
+<li>6 <del><a href="#Postal_Code_Validation">Postal Code Validation (Deprecated)</a></del></li>
+<li>7 <a href="#Supplemental_Character_Fallback_Data">Supplemental Character Fallback Data</a></li>
 <li>8 <a href="#Coverage_Levels">Coverage Levels</a><ul>
-<li>  8.1 <a href="#Coverage_Level_Definitions">Definitions</a></li>
-<li>  8.2 <a href="#Coverage_Level_Data_Requirements">Data Requirements</a></li>
-<li>  8.3 <a href="#Coverage_Level_Default_Values">Default Values</a></li>
+<li>8.1 <a href="#Coverage_Level_Definitions">Definitions</a></li>
+<li>8.2 <a href="#Coverage_Level_Data_Requirements">Data Requirements</a></li>
+<li>8.3 <a href="#Coverage_Level_Default_Values">Default Values</a></li>
 </ul>
 </li>
 <li>9 <a href="#Appendix_Supplemental_Metadata">Supplemental Metadata</a><ul>
 <li>9.1 <a href="#Supplemental_Alias_Information">Supplemental Alias Information</a><ul>
-<li>  Table: <a href="#Alias_Attribute_Values">Alias Attribute Values</a></li>
+<li><a href="#Alias_Attribute_Values">Alias Attribute Values</a></li>
 </ul>
 </li>
-<li>  9.2 <a href="#Supplemental_Deprecated_Information">Supplemental Deprecated Information (Deprecated)</a></li>
-<li>  9.3 <a href="#Default_Content">Default Content</a></li>
+<li>9.2 <del><a href="#Supplemental_Deprecated_Information">Supplemental Deprecated Information (Deprecated)</a></del></li>
+<li>9.3 <a href="#Default_Content">Default Content</a></li>
 </ul>
 </li>
-<li>  10 <a href="#Metadata_Elements">Locale Metadata Elements</a></li>
-<li>  11 <a href="#Version_Information">Version Information</a></li>
-<li>  12 <a href="#Parent_Locales">Parent Locales</a></li>
-<li>  13 <a href="#Unit_Conversion">Unit Conversion</a></li>
-<li>  14 <a href="#Unit_Preferences">Unit Preferences</a></li>
+<li>10 <a href="#Metadata_Elements">Locale Metadata Elements</a></li>
+<li>11 <a href="#Version_Information">Version Information</a></li>
+<li>12 <a href="#Parent_Locales">Parent Locales</a></li>
+<li>13 <a href="#Unit_Conversion">Unit Conversion</a><ul>
+<li><a href="#constants">Constants</a></li>
+<li><a href="#conversion-data">Conversion Data</a><ul>
+<li><a href="#exceptional-cases">Exceptional Cases</a><ul>
+<li><a href="#identities">Identities</a></li>
+<li><a href="#aliases">Aliases</a></li>
+<li><a href="#duplicate-units">“Duplicate” Units</a></li>
+<li><a href="#discarding-offsets">Discarding Offsets</a></li>
+</ul>
+</li>
+<li><a href="#unresolved-units">Unresolved Units</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#quantities-and-base-units">Quantities and Base Units</a><ul>
+<li><a href="#unittype-vs-quantity">UnitType vs Quantity</a></li>
+<li><a href="#Unit_Identifier_Normalization">Unit Identifier Normalization</a></li>
+</ul>
+</li>
+<li><a href="#mixed-units">Mixed Units</a></li>
+<li><a href="#testing">Testing</a></li>
+<li>14 <a href="#Unit_Preferences">Unit Preferences</a><ul>
+<li><a href="#constraints">Constraints</a></li>
+<li><a href="#caveats">Caveats</a></li>
+</ul>
+</li>
 </ul><h2 id="1-introduction-supplemental-data">1 Introduction <a name="Supplemental_Data" href="#Supplemental_Data">Supplemental Data</a></h2><p>The following represents the format for additional supplemental information. This is information that is important for internationalization and proper use of CLDR, but is not contained in the locale hierarchy. It is not localizable, nor is it overridden by locale data. The current CLDR data can be viewed in the <a href="https://unicode-org.github.io/cldr-staging/charts/38/supplemental/index.html">Supplemental Charts</a>.</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">supplementalData</span> (<span class="hljs-meta-keyword">version</span>, <span class="hljs-meta-keyword">generation</span>?, <span class="hljs-meta-keyword">cldrVersion</span>?, <span class="hljs-meta-keyword">currencyData</span>?, <span class="hljs-meta-keyword">territoryContainment</span>?, <span class="hljs-meta-keyword">subdivisionContainment</span>?, <span class="hljs-meta-keyword">languageData</span>?, <span class="hljs-meta-keyword">territoryInfo</span>?, <span class="hljs-meta-keyword">postalCodeData</span>?, <span class="hljs-meta-keyword">calendarData</span>?, <span class="hljs-meta-keyword">calendarPreferenceData</span>?, <span class="hljs-meta-keyword">weekData</span>?, <span class="hljs-meta-keyword">timeData</span>?, <span class="hljs-meta-keyword">measurementData</span>?, <span class="hljs-meta-keyword">unitPreferenceData</span>?, <span class="hljs-meta-keyword">timezoneData</span>?, <span class="hljs-meta-keyword">characters</span>?, <span class="hljs-meta-keyword">transforms</span>?, <span class="hljs-meta-keyword">metadata</span>?, <span class="hljs-meta-keyword">codeMappings</span>?, <span class="hljs-meta-keyword">parentLocales</span>?, <span class="hljs-meta-keyword">likelySubtags</span>?, <span class="hljs-meta-keyword">metazoneInfo</span>?, <span class="hljs-meta-keyword">plurals</span>?, <span class="hljs-meta-keyword">telephoneCodeData</span>?, <span class="hljs-meta-keyword">numberingSystems</span>?, <span class="hljs-meta-keyword">bcp47KeywordMappings</span>?, <span class="hljs-meta-keyword">gender</span>?, <span class="hljs-meta-keyword">references</span>?, <span class="hljs-meta-keyword">languageMatching</span>?, <span class="hljs-meta-keyword">dayPeriodRuleSet</span>*, <span class="hljs-meta-keyword">metaZones</span>?, <span class="hljs-meta-keyword">primaryZones</span>?, <span class="hljs-meta-keyword">windowsZones</span>?, <span class="hljs-meta-keyword">coverageLevels</span>?, <span class="hljs-meta-keyword">idValidity</span>?, <span class="hljs-meta-keyword">rgScope</span>?) &gt;</span>
 </code></pre><p>The data in CLDR is presently split into multiple files: supplementalData.xml, supplementalMetadata.xml, characters.xml, likelySubtags.xml, ordinals.xml, plurals.xml, telephoneCodeData.xml, genderList.xml, plus transforms (see <em>Part 2 Section 10 <a href="tr35-general.html#Transforms">Transforms</a></em> and <em>Part 2 Section 10.3 <a href="tr35-general.html#Transform_Rules_Syntax">Transform Rule Syntax</a></em>). The split is just for convenience: logically, they are treated as though they were a single file. Future versions of CLDR may split the data in a different fashion. Do not depend on any specific XML filename or path for supplemental data.</p><p>Note that <a href="#Metadata_Elements">Chapter 10</a> presents information about metadata that is maintained on a per-locale basis. It is included in this section because it is not intended to be used as part of the locale itself.</p><h2 id="2-territory-data">2 <a name="Territory_Data" href="#Territory_Data">Territory Data</a></h2><h3 id="21-supplemental-territory-containment">2.1 <a name="Supplemental_Territory_Containment" href="#Supplemental_Territory_Containment">Supplemental Territory Containment</a></h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">territoryContainment</span> ( <span class="hljs-meta-keyword">group</span>* ) &gt;</span>
 <span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">group</span> <span class="hljs-meta-keyword">EMPTY</span> &gt;</span>
@@ -598,7 +618,7 @@
 <li>other canonically equivalent sequences, if there are any</li>
 <li>the explicit <em>substitutes</em> value (in order)</li>
 <li><code>toNFKC</code>(<em>value</em>)</li>
-</ul><h2 id="8-coverage-levels">8 <a name="Coverage_Levels" href="#Coverage_Levels">Coverage Levels</a></h2><p>The following describes the structure used to set coverage levels used for CLDR. 
+</ul><h2 id="8-coverage-levels">8 <a name="Coverage_Levels" href="#Coverage_Levels">Coverage Levels</a></h2><p>The following describes the structure used to set coverage levels used for CLDR.
 That structure is primarily intended for internal use in CLDR tooling — it is not anticipated that users of CLDR data would need it.</p><p>Each level adds to what is in the lower level. This list will change between releases of CLDR, and more detailed information for each level is on <a href="https://cldr.unicode.org/index/cldr-spec/coverage-levels">Coverage Levels</a>.</p><table>
 <thead>
 <tr>
@@ -637,7 +657,7 @@ That structure is primarily intended for internal use in CLDR tooling — it is 
 <td>comprehensive</td>
 <td>Above modern level; typically far more data than is needed in practice.</td>
 </tr>
-</tbody></table><p>Levels 40 through 80 are based on the definitions and specifications listed below. </p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">coverageLevels</span> ( <span class="hljs-meta-keyword">approvalRequirements</span>, <span class="hljs-meta-keyword">coverageVariable</span>*, <span class="hljs-meta-keyword">coverageLevel</span>* ) &gt;</span>
+</tbody></table><p>Levels 40 through 80 are based on the definitions and specifications listed below.</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">coverageLevels</span> ( <span class="hljs-meta-keyword">approvalRequirements</span>, <span class="hljs-meta-keyword">coverageVariable</span>*, <span class="hljs-meta-keyword">coverageLevel</span>* ) &gt;</span>
 <span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">coverageLevel</span> <span class="hljs-meta-keyword">EMPTY</span> &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">coverageLevel</span> <span class="hljs-meta-keyword">inLanguage</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">coverageLevel</span> <span class="hljs-meta-keyword">inScript</span> <span class="hljs-meta-keyword">CDATA</span> <span class="hljs-meta-keyword">#IMPLIED</span> &gt;</span>
@@ -754,7 +774,7 @@ That structure is primarily intended for internal use in CLDR tooling — it is 
     <span class="hljs-tag">&lt;<span class="hljs-name">territoryAlias</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"BU"</span> <span class="hljs-attr">replacement</span>=<span class="hljs-string">"MM"</span>&gt;</span>
     ...
 <span class="hljs-tag">&lt;/<span class="hljs-name">alias</span>&gt;</span>
-</code></pre><p>Attribute values for the *Alias values include the following:</p><h5 id="alias-attribute-values"><a name="Alias_Attribute_Values" href="#Alias_Attribute_Values">Alias Attribute Values</a></h5><table>
+</code></pre><p>Attribute values for the *Alias values include the following:</p><h6 id="alias-attribute-values"><a name="Alias_Attribute_Values" href="#Alias_Attribute_Values">Alias Attribute Values</a></h6><table>
 <thead>
 <tr>
 <th>Attribute</th>

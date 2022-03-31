@@ -540,7 +540,6 @@
 
 
 
-
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
   <tbody>
       <tr>
@@ -569,59 +568,67 @@ the latest information.</p>
 <li>  Part 6: <a href="tr35-info.html#Contents">Supplemental</a> (supplemental data)</li>
 <li>  Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard mappings)</li>
 </ul><h2 id="contents-of-part-7-keyboards"><a name="Contents" href="#Contents">Contents of Part 7, Keyboards</a></h2><ul>
-<li>  1 <a href="#Introduction">Keyboards</a></li>
-<li>  2 <a href="#Goals_and_Nongoals">Goals and Non-goals</a></li>
-<li>  3 <a href="#Definitions">Definitions</a></li>
-<li>  4 <a href="#File_and_Dir_Structure">File and Directory Structure</a></li>
+<li><a href="#important-note"><em>Important Note</em></a></li>
+<li><a href="#summary"><em>Summary</em></a></li>
+<li><a href="#status"><em>Status</em></a></li>
+<li><a href="#Parts">Parts</a></li>
+<li><a href="#Contents">Contents of Part 7, Keyboards</a></li>
+<li>1 <a href="#Introduction">Keyboards</a></li>
+<li>2 <a href="#Goals_and_Nongoals">Goals and Non-goals</a></li>
+<li>3 <a href="#Definitions">Definitions</a><ul>
+<li>3.1 <a href="#Escaping">Escaping</a></li>
+</ul>
+</li>
+<li>4 <a href="#File_and_Dir_Structure">File and Directory Structure</a></li>
 <li>5 <a href="#Element_Heirarchy_Layout_File">Element Hierarchy - Layout File</a><ul>
-<li>  5.1 <a href="#Element_Keyboard">Element: keyboard</a></li>
-<li>  5.2 <a href="#Element_version">Element: version</a></li>
-<li>  5.3 <a href="#Element_generation">Element: generation</a></li>
-<li>  5.4 <a href="#Element_info">Element: info</a></li>
-<li>  5.5 <a href="#Element_names">Element: names</a></li>
-<li>  5.6 <a href="#Element_name">Element: name</a></li>
-<li>  5.7 <a href="#Element_settings">Element: settings</a></li>
+<li>5.1 <a href="#Element_Keyboard">Element: keyboard</a></li>
+<li>5.2 <a href="#Element_version">Element: version</a></li>
+<li>5.3 <del><a href="#Element_generation">Element: generation</a></del></li>
+<li>5.4 <a href="#Element_info">Element: info</a></li>
+<li>5.5 <a href="#Element_names">Element: names</a></li>
+<li>5.6 <a href="#Element_name">Element: name</a></li>
+<li>5.7 <a href="#Element_settings">Element: settings</a></li>
 <li>5.8 <a href="#Element_keyMap">Element: keyMap</a><ul>
-<li>  Table: <a href="#Possible_Modifier_Keys">Possible Modifier Keys</a></li>
+<li><a href="#Possible_Modifier_Keys">Possible Modifier Keys</a></li>
 </ul>
 </li>
 <li>5.9 <a href="#Element_map">Element: map</a><ul>
-<li>  5.9.1 <a href="#Element_flicks">Element: flicks, flick</a></li>
+<li>5.9.1 <a href="#Element_flicks">Elements: flicks, flick</a></li>
 </ul>
 </li>
-<li>  5.10 <a href="#Element_import">Element: import</a></li>
-<li>  5.11 <a href="#Element_displayMap">Element: displayMap</a></li>
-<li>  5.12 <a href="#Element_display">Element: display</a></li>
-<li>  5.13 <a href="#Element_layer">Element: layer</a></li>
-<li>  5.14 <a href="#Element_row">Element: row</a></li>
-<li>  5.15 <a href="#Element_switch">Element: switch</a></li>
-<li>  5.16 <a href="#Element_vkeys">Element: vkeys</a></li>
-<li>  5.17 <a href="#Element_vkey">Element: vkey</a></li>
-<li>  5.18 <a href="#Element_transforms">Element: transforms</a></li>
-<li>  5.19 <a href="#Element_transform">Element: transform</a></li>
-<li>  5.20 <a href="#Element_reorder">Element: reorders, reorder</a></li>
-<li>  5.21 <a href="#Element_final">Element: transform final</a></li>
-<li>  5.22 <a href="#Element_backspaces">Element: backspaces</a></li>
-<li>  5.23 <a href="#Element_backspace">Element: backspace</a></li>
+<li>5.10 <a href="#Element_import">Element: import</a></li>
+<li>5.11 <a href="#Element_displayMap">Element: displayMap</a></li>
+<li>5.12 <a href="#Element_display">Element: display</a></li>
+<li>5.13 <a href="#Element_layer">Element: layer</a></li>
+<li>5.14 <a href="#Element_row">Element: row</a></li>
+<li>5.15 <a href="#Element_switch">Element: switch</a></li>
+<li>5.16 <a href="#Element_vkeys">Element: vkeys</a></li>
+<li>5.17 <a href="#Element_vkey">Element: vkey</a></li>
+<li>5.18 <a href="#Element_transforms">Element: transforms</a></li>
+<li>5.19 <a href="#Element_transform">Element: transform</a></li>
+<li>5.20 <a href="#Element_reorder">Element: reorders, reorder</a></li>
+<li>5.21 <a href="#Element_final">Element: transform final</a></li>
+<li>5.22 <a href="#Element_backspaces">Element: backspaces</a></li>
+<li>5.23 <a href="#Element_backspace">Element: backspace</a></li>
 </ul>
 </li>
 <li>6 <a href="#Element_Heirarchy_Platform_File">Element Hierarchy - Platform File</a><ul>
-<li>  6.1 <a href="#Element_platform">Element: platform</a></li>
-<li>  6.2 <a href="#Element_hardwareMap">Element: hardwareMap</a></li>
-<li>  6.3 <a href="#Element_hardwareMap_map">Element: map</a></li>
+<li>6.1 <a href="#Element_platform">Element: platform</a></li>
+<li>6.2 <a href="#Element_hardwareMap">Element: hardwareMap</a></li>
+<li>6.3 <a href="#Element_hardwareMap_map">Element: map</a></li>
 </ul>
 </li>
-<li>  7 <a href="#Invariants">Invariants</a></li>
+<li>7 <a href="#Invariants">Invariants</a></li>
 <li>8 <a href="#Data_Sources">Data Sources</a><ul>
-<li>  Table: <a href="#Key_Map_Data_Sources">Key Map Data Sources</a></li>
+<li><a href="#Key_Map_Data_Sources">Key Map Data Sources</a></li>
 </ul>
 </li>
 <li>9 <a href="#Keyboard_IDs">Keyboard IDs</a><ul>
-<li>  9.1 <a href="#Principles_for_Keyboard_Ids">Principles for Keyboard Ids</a></li>
+<li>9.1 <a href="#Principles_for_Keyboard_Ids">Principles for Keyboard Ids</a></li>
 </ul>
 </li>
-<li>  10 <a href="#Platform_Behaviors_in_Edge_Cases">Platform Behaviors in Edge Cases</a></li>
-</ul><p><a name="Keyboards"></a></p><h2 id="1-keyboards">1 <a name="Introduction" href="#Introduction">Keyboards</a></h2><p>The CLDR keyboard format provides for the communication of keyboard mapping data between different modules, and the comparison of data across different vendors and platforms. The standardized identifier for keyboards can be used to communicate, internally or externally, a request for a particular keyboard mapping that is to be used to transform either text or keystrokes. The corresponding data can then be used to perform the requested actions.</p><p>For example, a web-based virtual keyboard may transform text in the following way. Suppose the user types a key that produces a "W" on a qwerty keyboard. A web-based tool using an azerty virtual keyboard can map that text ("W") to the text that would have resulted from typing a key on an azerty keyboard, by transforming "W" to "Z". Such transforms are in fact performed in existing web applications.</p><p>The data can also be used in analysis of the capabilities of different keyboards. It also allows better interoperability by making it easier for keyboard designers to see which characters are generally supported on keyboards for given languages.</p><p>To illustrate this specification, here is an abridged layout representing the English US 101 keyboard on the Mac OSX operating system (with an inserted long-press example). For more complete examples, and information collected about keyboards, see keyboard data in XML.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"en-t-k0-osx"</span>&gt;</span>
+<li>10 <a href="#Platform_Behaviors_in_Edge_Cases">Platform Behaviors in Edge Cases</a></li>
+</ul><h2 id="1-keyboards">1 <a name="Introduction" href="#Introduction">Keyboards</a></h2><p>The CLDR keyboard format provides for the communication of keyboard mapping data between different modules, and the comparison of data across different vendors and platforms. The standardized identifier for keyboards can be used to communicate, internally or externally, a request for a particular keyboard mapping that is to be used to transform either text or keystrokes. The corresponding data can then be used to perform the requested actions.</p><p>For example, a web-based virtual keyboard may transform text in the following way. Suppose the user types a key that produces a "W" on a qwerty keyboard. A web-based tool using an azerty virtual keyboard can map that text ("W") to the text that would have resulted from typing a key on an azerty keyboard, by transforming "W" to "Z". Such transforms are in fact performed in existing web applications.</p><p>The data can also be used in analysis of the capabilities of different keyboards. It also allows better interoperability by making it easier for keyboard designers to see which characters are generally supported on keyboards for given languages.</p><p>To illustrate this specification, here is an abridged layout representing the English US 101 keyboard on the Mac OSX operating system (with an inserted long-press example). For more complete examples, and information collected about keyboards, see keyboard data in XML.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"en-t-k0-osx"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">version</span> <span class="hljs-attr">platform</span>=<span class="hljs-string">"10.4"</span> <span class="hljs-attr">number</span>=<span class="hljs-string">"$Revision: 8294 $"</span> /&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">names</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">name</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"U.S."</span> /&gt;</span>
@@ -819,7 +826,7 @@ Occurence: required, multiple</p>
 <p>A set of modifier combinations that cause this key map to be "active". Each combination is separated by a space. The interpretation is that there is a match if any of the combinations match, that is, they are ORed. Therefore, the order of the combinations within this attribute does not matter.</p>
 </blockquote><blockquote>
 <p>A combination is simply a concatenation of words to represent the simultaneous activation of one or more modifier keys. The order of the modifier keys within a combination does not matter, although don't care cases are generally added to the end of the string for readability (see next paragraph). For example: <code>"cmd+caps"</code> represents the Caps Lock and Command modifier key combination. Some keys have right or left variant keys, specified by a 'R' or 'L' suffix. For example: <code>"ctrlR+caps"</code> would represent the Right-Control and Caps Lock combination. For simplicity, the presence of a modifier without a 'R' or 'L' suffix means that either its left or right variants are valid. So <code>"ctrl+caps"</code> represents the same as <code>"ctrlL+ctrlR?+caps ctrlL?+ctrlR+caps"</code>.</p>
-</blockquote><p>A modifier key may be further specified to be in a "don't care" state using the '?' suffix. The "don't care" state simply means that the preceding modifier key may be either ON or OFF. For example <code>"ctrl+shift?"</code> could be expanded into <code>"ctrl ctrl+shift"</code>.</p><p>Within a combination, the presence of a modifier WITHOUT the '?' suffix indicates this key MUST be on. The converse is also true, the absence of a modifier key means it MUST be off for the combination to be active.</p><p>Here is an exhaustive list of all possible modifier keys:</p><h5 id="possible-modifier-keys"><a name="Possible_Modifier_Keys" href="#Possible_Modifier_Keys">Possible Modifier Keys</a></h5><table>
+</blockquote><p>A modifier key may be further specified to be in a "don't care" state using the '?' suffix. The "don't care" state simply means that the preceding modifier key may be either ON or OFF. For example <code>"ctrl+shift?"</code> could be expanded into <code>"ctrl ctrl+shift"</code>.</p><p>Within a combination, the presence of a modifier WITHOUT the '?' suffix indicates this key MUST be on. The converse is also true, the absence of a modifier key means it MUST be off for the combination to be active.</p><p>Here is an exhaustive list of all possible modifier keys:</p><h6 id="possible-modifier-keys"><a name="Possible_Modifier_Keys" href="#Possible_Modifier_Keys">Possible Modifier Keys</a></h6><table>
 <thead>
 <tr>
 <th>Modifier Keys</th>
@@ -1798,7 +1805,7 @@ Occurence: required, multiple
 <td>xLY ⋁ x ⇒ xLY?</td>
 <td></td>
 </tr>
-</tbody></table><hr><h2 id="8-data-sources">8 <a name="Data_Sources" href="#Data_Sources">Data Sources</a></h2><p>Here is a list of the data sources used to generate the initial key map layouts:</p><h5 id="key-map-data-sources"><a name="Key_Map_Data_Sources" href="#Key_Map_Data_Sources">Key Map Data Sources</a></h5><table>
+</tbody></table><hr><h2 id="8-data-sources">8 <a name="Data_Sources" href="#Data_Sources">Data Sources</a></h2><p>Here is a list of the data sources used to generate the initial key map layouts:</p><h6 id="key-map-data-sources"><a name="Key_Map_Data_Sources" href="#Key_Map_Data_Sources">Key Map Data Sources</a></h6><table>
 <thead>
 <tr>
 <th>Platform</th>
@@ -1833,12 +1840,12 @@ Occurence: required, multiple
 </li>
 <li>Use the minimal language id based on <code>likelySubtag</code>s.<ol>
 <li>Eg, instead of <code>en-US-t-k0-xxx</code>, use <code>en-t-k0-xxx</code>. Because there is <code>&lt;likelySubtag from="en" to="en_Latn_US"/&gt;</code>, en-US → en.</li>
-<li>The data is in <a href="https://github.com/unicode-org/cldr/releases/tag/latest/common/supplemental/likelySubtags.xml">https://github.com/unicode-org/cldr/releases/tag/latest/common/supplemental/likelySubtags.xml</a></li>
+<li>The data is in <a href="https://github.com/unicode-org/cldr/tree/main/common/supplemental/likelySubtags.xml">https://github.com/unicode-org/cldr/tree/main/common/supplemental/likelySubtags.xml</a></li>
 </ol>
 </li>
 <li>The platform goes first, if it exists. If a keyboard on the platform changes over time, both are dated, eg <code>bg-t-k0-chromeos-2011</code>. When selecting, if there is no date, it means the latest one.</li>
 <li>Keyboards are only tagged that differ from the "standard for each platform". That is, for each language on a platform, there will be a keyboard with no subtags other than the platform. Subtags with a common semantics across platforms are used, such as <code>-extended</code>, <code>-phonetic</code>, <code>-qwerty</code>, <code>-qwertz</code>, <code>-azerty</code>, …</li>
-<li>In order to get to 8 letters, abbreviations are reused that are already in <a href="https://github.com/unicode-org/cldr/releases/tag/latest/common/bcp47/">bcp47</a> -u/-t extensions and in <a href="https://www.iana.org/assignments/language-subtag-registry">language-subtag-registry</a> variants, eg for Traditional use <code>-trad</code> or <code>-traditio</code> (both exist in <a href="https://github.com/unicode-org/cldr/releases/tag/latest/common/bcp47/">bcp47</a>).</li>
+<li>In order to get to 8 letters, abbreviations are reused that are already in <a href="https://github.com/unicode-org/cldr/tree/main/common/bcp47/">bcp47</a> -u/-t extensions and in <a href="https://www.iana.org/assignments/language-subtag-registry">language-subtag-registry</a> variants, eg for Traditional use <code>-trad</code> or <code>-traditio</code> (both exist in <a href="https://github.com/unicode-org/cldr/tree/main/common/bcp47/">bcp47</a>).</li>
 <li>Multiple languages cannot be indicated, so the predominant target is used.<ol>
 <li>For Finnish + Sami, use <code>fi-t-k0-smi</code> or <code>extended-smi</code></li>
 </ol>

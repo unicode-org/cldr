@@ -312,8 +312,10 @@ public class XMLNormalizingLoader{
                 }
             }
             value = trimWhitespaceSpecial(value);
-            source.add(fullXPath, value)
-            .addSourceLocation(fullXPath, new XMLSource.SourceLocation(documentLocator));
+            source.add(fullXPath, value);
+            if (source.sourceLocationEnabled()) {
+                source.addSourceLocation(fullXPath, new XMLSource.SourceLocation(documentLocator));
+            }
         }
 
         private void pop(String qName) {

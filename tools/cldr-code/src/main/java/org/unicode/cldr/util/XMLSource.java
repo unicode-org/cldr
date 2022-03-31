@@ -102,6 +102,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
          * The toString() format is suitable for printing to the command line
          * and has the format 'file:line:column: '
          */
+        @Override
         public String toString() {
             return toString(null);
         }
@@ -1875,6 +1876,18 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 return true;
             }
         }
+        return false;
+    }
+
+    /**
+     * Enable SourceLocation in this Source. Call this once before populating the XMLSource.
+     * @return
+     */
+    public XMLSource enableSourceLocation() {
+        return this;
+    }
+
+    public boolean sourceLocationEnabled() {
         return false;
     }
 

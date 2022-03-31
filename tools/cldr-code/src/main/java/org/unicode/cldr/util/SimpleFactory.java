@@ -13,6 +13,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 
+import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.XMLSource.ResolvingSource;
 
@@ -634,6 +635,10 @@ public class SimpleFactory extends Factory {
      */
     public static CLDRFile makeSupplemental(String localeName) {
         XMLSource source = new SimpleXMLSource(localeName);
+        // Only enable source location for UNITTEST
+        if (CLDRConfig.getInstance().getEnvironment() == Environment.UNITTEST) {
+            source.enableSourceLocation();
+        }
         CLDRFile result = new CLDRFile(source);
         result.setNonInheriting(true);
         return result;
@@ -694,6 +699,10 @@ public class SimpleFactory extends Factory {
      */
     public static CLDRFile makeFile(String localeName) {
         XMLSource source = new SimpleXMLSource(localeName);
+        // Only enable source location for UNITTEST
+        if (CLDRConfig.getInstance().getEnvironment() == Environment.UNITTEST) {
+            source.enableSourceLocation();
+        }
         return new CLDRFile(source);
     }
 

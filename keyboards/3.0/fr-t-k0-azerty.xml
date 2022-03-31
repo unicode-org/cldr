@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard3.dtd">
+<keyboard locale="fr-t-k0-azerty" conformsTo="42">
+	<!-- 'locale' TBD -->
+	<!-- 'conformsTo' gives CLDR spec conformance. Distinguishes from prior 
+		keyboard formats -->
+	<!-- 'version' element is now optional -->
+	<info author="Team Keyboard" normalization="NFC" layout="AZERTY"
+		indicator="FR" />
+	<names>
+		<name value="French" />
+	</names>
+	<settings fallback="omit" transformPartial="hide" /> <!-- "hide" makes this act like a dead keyTBD -->
+
+	<vkeyMaps>
+		<vkeyMap from="Q" to="A" />
+		<vkeyMap from="W" to="Z" />
+		<vkeyMap from="A" to="Q" />
+		<vkeyMap from="Z" to="W" />
+		<vkeyMap from="BKQUOTE" to="QUOTE" />  <!-- i.e., OEM_3 >>> OEM_7 -->
+		<vkeyMap from="MINUS" to="LBRKT" />
+		<vkeyMap from="LBRKT" to="RBRKT" />
+		<vkeyMap from="COLON" to="M" />
+		<vkeyMap from="QUOTE" to="BKQUOTE" />
+		<vkeyMap from="M" to="COMMA" />
+		<vkeyMap from="COMMA" to="PERIOD" />
+		<vkeyMap from="PERIOD" to="SLASH" />
+		<vkeyMap from="SLASH" to="EXCLAMATION" /> <!-- i.e., OEM_2 >>> OEM_8 -->
+	</vkeyMaps>
+
+	<displayMap>
+		<!-- Note: displayMap is only used for keycap presentation -->
+		<!-- this example is not required for this keyboard as we use the spacing 
+			modifiers -->
+		<display to="\u0300" display="\u02CB" /> <!-- display combining grave as modifier letter grave ˋ -->
+		<!-- Note: We discussed why the existing displayMap was used for display. 
+			rather than adding something closer to the key layout. 1. This way we can 
+			tell the renderer what to do. Could be double diacritics, spacing issues, 
+			etc. 2. We expect that keys have output. Otherwise the input content is malformed. 
+			3. Don't Repeat Yourself : multiple keys (i.e. on different symbol layers) 
+			may have the same display. -->
+	</displayMap>
+
+	<keyMap>
+		<map id="super-2" to="²" longPress="₂" />
+		<map id="amp" to="&amp;" /> <!-- 1 -->
+		<map id="e-grave" to="é" /> <!-- 2 -->
+		<map id="quote" to="\u{22}" /> <!-- 3 to= " -->
+		<map id="apos" to="&apos;" /> <!-- 4 -->
+		<map id="open-paren" to="(" /> <!-- 5 -->
+		<map id="hyphen" to="-" /> <!-- 6 -->
+		<map id="e-acute" to="è" /> <!-- 7 -->
+		<map id="underscore" to="_" /> <!-- 8 -->
+		<map id="c-cedilla" to="ç" /> <!-- 9 -->
+		<map id="a-acute" to="à" /> <!-- 0 -->
+		<map id="close-paren" to=")" /> <!-- - -->
+		<map id="equal" to="=" />
+		<map id="umlaut" to="¨" />
+		<map id="a" to="a" longPress="à â á ä ã å ā" />
+		<map id="A" to="A" longPress="À   Á Ä Ã Å Ā">
+			<flicks> <!-- no attributes -->
+				<flick directions="nw" to="\u1234" />
+				<flick directions="nw se" to="\uFFFF" />
+				<flick directions="e" to="\uFFF0" />
+			</flicks>
+		</map>
+		<!-- TODO: all additional maps, hardware and touch -->
+	</keyMap>
+
+	<layerMaps form="hardware"> <!-- in DTD: required if conformsTo ≥ 41 -->
+		<layerMap id="base">
+			<row
+				keys="super-2 amp e-grave quote apos open-paren hyphen e-acute underscore c-cedilla a-acute close-paren equal" />
+			<row keys="a z e r t y u i o p caret dollar" />
+			<row keys="q s d f g h j k l m u-grave asterisk" />
+			<row
+				keys="less-than w x c v b n comma semi-colon colon exclamation" />
+			<row keys="space" />
+		</layerMap>
+
+		<layerMap id="shift">
+			<row keys="1 2 3 4 5 6 7 8 9 0 degree plus" />
+			<row keys="A Z E R T Y U I O P umlaut pound" />
+			<row keys="Q S D F G H J K L M percent micro" />
+			<row
+				keys="greater-than W X C V B N question-mark period slash section" />
+			<row keys="space" />
+		</layerMap>
+	</layerMaps>
+
+	<layerMaps form="touch" minDeviceWidthMM="150"> <!-- optional attribute for min physical device size -->
+		<layerMap id="base">
+			<row keys="a z e r t y u i o p" />
+			<row keys="q s d f g h j k l m" />
+			<row keys="shift w x c v b n bksp"> <!-- todo: gaps, e.g. "shift gap w x c v b n gap bksp" (gap is stretchable) -->
+				<key id="shift" stretch="true" />
+				<!-- or stretch a gap - which is the pattern in the iOS keyboard? -->
+				<key id="bksp" stretch="true" />
+			</row>
+			<row keys="numeric extra space enter" /> <!-- The default "space" definition includes `stretch="true"` -->
+		</layerMap>
+
+		<layerMap id="shift">
+			<row keys="A Z E R T Y U I O P" />
+			<row keys="Q S D F G H J K L M" />
+			<row keys="base W X C V B N bksp" />
+			<row keys="numeric extra space enter" />
+		</layerMap>
+
+		<layerMap id="numeric">
+			<row keys="1 2 3 4 5 6 7 8 9 0" />
+			<row
+				keys="hyphen slash colon semi-colon open-paren close-paren dollar amp at quote" />
+			<row keys="symbol period comma question exclamation quote bksp" />
+			<row keys="base extra space enter" />
+		</layerMap>
+
+		<layerMap id="symbol">
+			<row
+				keys="open-bracket close-bracket open-brace close-brace hash percent caret star plus equal" />
+			<row
+				keys="underscore backslash pipe tilde less-than greater-than euro pound yen bullet" />
+			<row keys="numeric period comma question exclamation quote bksp" />
+			<row keys="base extra space enter" />
+		</layerMap>
+	</layerMaps>
+
+	<transforms type="simple">
+		<transform from="` " to="`" />
+		<transform from="`a" to="à" />
+		<transform from="`A" to="À" />
+		<transform from="`e" to="è" />
+		<transform from="`E" to="È" />
+		<transform from="`i" to="ì" />
+		<transform from="`I" to="Ì" />
+		<transform from="`o" to="ò" />
+		<transform from="`O" to="Ò" />
+		<transform from="`u" to="ù" />
+		<transform from="`U" to="Ù" />
+		<transform from="^ " to="^" />
+		<transform from="^a" to="â" />
+		<transform from="^A" to=" " />
+		<transform from="^e" to="ê" />
+		<transform from="^E" to="Ê" />
+		<transform from="^i" to="î" />
+		<transform from="^I" to="Î" />
+		<transform from="^o" to="ô" />
+		<transform from="^O" to="Ô" />
+		<transform from="^u" to="û" />
+		<transform from="^U" to="Û" />
+		<transform from="¨ " to="¨" />
+		<transform from="¨a" to="ä" />
+		<transform from="¨A" to="Ä" />
+		<transform from="¨e" to="ë" />
+		<transform from="¨E" to="Ë" />
+		<transform from="¨i" to="ï" />
+		<transform from="¨I" to="Ï" />
+		<transform from="¨o" to="ö" />
+		<transform from="¨O" to="Ö" />
+		<transform from="¨u" to="ü" />
+		<transform from="¨U" to="Ü" />
+		<transform from="¨y" to="ÿ" />
+		<transform from="~ " to="~" />
+		<transform from="~a" to="ã" />
+		<transform from="~A" to="Ã" />
+		<transform from="~n" to="ñ" />
+		<transform from="~N" to="Ñ" />
+		<transform from="~o" to="õ" />
+		<transform from="~O" to="Õ" />
+	</transforms>
+</keyboard>

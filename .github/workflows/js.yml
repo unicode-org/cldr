@@ -1,0 +1,35 @@
+name: JavaScript Tests
+
+on:
+  push:
+    paths:
+      - 'tools/cldr-apps/js/**'
+      - '.github/workflows/js.yml'
+  pull_request:
+    paths:
+      - 'tools/cldr-apps/js/**'
+      - '.github/workflows/js.yml'
+
+jobs:
+  fetest:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        lfs: false # not needed for this job, as we don’t currently do a Java build
+    - name: Cache npm repository
+      uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-lint-${{ hashFiles('.github/workflows/js.yml') }}
+        restore-keys: |
+          ${{ runner.os }}-lint-
+          lint-
+    - name: Prepare JS tests
+      run: (cd tools/cldr-apps/js && npm ci)
+    - name: Run JS tests
+      # stopgap: fail this if it takes too long
+      timeout-minutes: 10
+      run: (cd tools/cldr-apps/js && npm t)
+    - name: Run Webpack build
+      run: (cd tools/cldr-apps/js && npm run build)

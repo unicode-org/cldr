@@ -2,11 +2,7 @@ name: cldr-mvn
 
 on:
   push:
-    branches:
-    - '*'
   pull_request:
-    branches:
-    - '*'
   workflow_dispatch:
     inputs:
       git-ref:
@@ -47,6 +43,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
             node-
+      - name: Lint GitHub Actions
+        run: npx yaml-lint .github/workflows/*.yml
       - name: Build with Maven
         run: >
           mvn -s .github/workflows/mvn-settings.xml -B compile install package --file tools/pom.xml

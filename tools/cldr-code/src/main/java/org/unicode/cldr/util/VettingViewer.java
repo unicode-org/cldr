@@ -911,6 +911,23 @@ public class VettingViewer<T> {
             }
         }
 
+        private static final long MEMORY_LOW_WATER_MARK = 64000000L; // TODO: Parameterize
+
+        private void waitForFreeMemory() {
+            final Runtime r = Runtime.getRuntime();
+            long freeMem = r.freeMemory();
+            while (freeMem < MEMORY_LOW_WATER_MARK) {
+                System.err.println(this + " - sleeping because free mem " + freeMem + " below " + MEMORY_LOW_WATER_MARK);
+                try {
+                    Thread.sleep(10000); // TODO: randomize
+                } catch (InterruptedException ie) {
+                    throw new OutOfMemoryError(this + " InterruptedException while waiting for free space");
+                }
+                freeMem = r.freeMemory();
+            }
+            System.err.println(this + " - memory " + freeMem + " OK");
+        }
+
         /**
          * Calculate the Priority Items Summary output for one locale
          * @param n
@@ -919,6 +936,7 @@ public class VettingViewer<T> {
             if (progressCallback.isStopped()) {
                 throw new RuntimeException("Requested to stop");
             }
+            waitForFreeMemory(); // sleep until memory pressure abates
             final String name = context.localeNames.get(n);
             final String localeID = context.localeIds.get(n);
             if (DEBUG_THREADS) {

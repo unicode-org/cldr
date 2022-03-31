@@ -80,7 +80,10 @@ public class PersonNameFormatter {
         /**
          * Use this instead of valueOf
          */
-        static Length from(String item) {
+        public static Length from(String item) {
+            if (item == null) {
+                return null;
+            }
             Length result = exceptionNames.get(item);
             return result != null ? result : Length.valueOf(item);
         }
@@ -99,6 +102,12 @@ public class PersonNameFormatter {
         informal;
         public static final Comparator<Iterable<Style>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Style>naturalOrder());
         public static final Set<Style> ALL = ImmutableSet.copyOf(Style.values());
+        /**
+         * Use this instead of valueOf if value might be null
+         */
+        public static Style from(String item) {
+            return item == null ? null : Style.valueOf(item);
+        }
     }
 
     public enum Usage {
@@ -107,6 +116,12 @@ public class PersonNameFormatter {
         sorting;
         public static final Comparator<Iterable<Usage>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Usage>naturalOrder());
         public static final Set<Usage> ALL = ImmutableSet.copyOf(Usage.values());
+        /**
+         * Use this instead of valueOf if value might be null
+         */
+        public static Usage from(String item) {
+            return item == null ? null : Usage.valueOf(item);
+        }
     }
 
     public enum Order {
@@ -114,6 +129,12 @@ public class PersonNameFormatter {
         givenFirst;
         public static final Comparator<Iterable<Order>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Order>naturalOrder());
         public static final Set<Order> ALL = ImmutableSet.copyOf(Order.values());
+        /**
+         * Use this instead of valueOf if value might be null
+         */
+        public static Order from(String item) {
+            return item == null ? null : Order.valueOf(item);
+        }
     }
 
 
@@ -308,13 +329,32 @@ public class PersonNameFormatter {
             initialSequenceFormatter = new MessageFormat(initialSequencePattern);
         }
 
-        public String formatInitial(String bestValue) {
-            // TODO Alex if multiword, apply the algorithm to each part
-            BreakIterator breakIterator = characterBreakIterator;
-            breakIterator.setText(bestValue);
-            bestValue = bestValue.substring(0, breakIterator.next());
-            bestValue = initialFormatter.format(new String[] {bestValue});
-            // TODO Alex use initial pattern after defined
+        public String formatInitial(String bestValue, FormatParameters nameFormatParameters) {
+            switch(nameFormatParameters.getLength()) {
+            case monogram:
+            case monogramNarrow:
+                bestValue = getFirstGrapheme(bestValue);
+                break;
+            default:
+                String result = null;
+                for(String part : SPLIT_SPACE.split(bestValue)) {
+                    String partFirst = getFirstGrapheme(part);
+                    bestValue = initialFormatter.format(new String[] {partFirst});
+                    if (result == null) {
+                        result = bestValue;
+                    } else {
+                        result = initialSequenceFormatter.format(new String[] {result, bestValue});
+                    }
+                }
+                bestValue = result;
+                break;
+            }
+            return bestValue;
+        }
+
+        private String getFirstGrapheme(String bestValue) {
+            characterBreakIterator.setText(bestValue);
+            bestValue = bestValue.substring(0, characterBreakIterator.next());
             return bestValue;
         }
 
@@ -348,7 +388,7 @@ public class PersonNameFormatter {
             return rank;
         }
 
-        public String format(NameObject nameObject, FallbackFormatter fallbackInfo) {
+        public String format(NameObject nameObject, FormatParameters nameFormatParameters, FallbackFormatter fallbackInfo) {
             StringBuilder result = new StringBuilder();
             boolean seenLeadingField = false;
             boolean seenEmptyLeadingField = false;
@@ -367,7 +407,7 @@ public class PersonNameFormatter {
                         literalTextBefore.append(literal);
                     }
                 } else {
-                    String bestValue = getBestValueForNameObject(nameObject, element, fallbackInfo);
+                    String bestValue = getBestValueForNameObject(nameObject, element, nameFormatParameters, fallbackInfo);
                     if (bestValue == null) {
                         if (!seenLeadingField) {
                             seenEmptyLeadingField = true;
@@ -397,7 +437,7 @@ public class PersonNameFormatter {
             return result.toString();
         }
 
-        private String getBestValueForNameObject(NameObject nameObject, NamePatternElement element, FallbackFormatter fallbackInfo) {
+        private String getBestValueForNameObject(NameObject nameObject, NamePatternElement element, FormatParameters nameFormatParameters, FallbackFormatter fallbackInfo) {
             Set<Modifier> remainingModifers = EnumSet.noneOf(Modifier.class);
             String bestValue = nameObject.getBestValue(element.getModifiedField(), remainingModifers);
             if (bestValue == null) {
@@ -409,7 +449,7 @@ public class PersonNameFormatter {
                 for (Modifier modifier : remainingModifers) {
                     switch(modifier) {
                     case initial:
-                        bestValue = fallbackInfo.formatInitial(bestValue);
+                        bestValue = fallbackInfo.formatInitial(bestValue, nameFormatParameters);
                         break;
                     case allCaps:
                         bestValue = UCharacter.toUpperCase(fallbackInfo.formatterLocale, bestValue);
@@ -699,6 +739,15 @@ public class PersonNameFormatter {
                 }
             }
             return new FormatParameters(length, style, usage, order);
+        }
+
+        public static FormatParameters from(XPathParts parts) {
+            FormatParameters formatParameters = new FormatParameters(
+                PersonNameFormatter.Length.from(parts.getAttributeValue(2, "length")),
+                PersonNameFormatter.Style.from(parts.getAttributeValue(2, "style")),
+                PersonNameFormatter.Usage.from(parts.getAttributeValue(2, "usage")),
+                PersonNameFormatter.Order.from(parts.getAttributeValue(2, "order")));
+            return formatParameters;
         }
 
         // for thread-safe lazy evaluation
@@ -1169,7 +1218,7 @@ public class PersonNameFormatter {
         // look through the namePatternMap to find the best match for the set of modifiers and the available nameObject fields
         NamePattern bestPattern = namePatternMap.getBestMatch(nameObject, nameFormatParameters);
         // then format using it
-        return bestPattern.format(nameObject, fallbackFormatter);
+        return bestPattern.format(nameObject, nameFormatParameters, fallbackFormatter);
     }
 
     /**

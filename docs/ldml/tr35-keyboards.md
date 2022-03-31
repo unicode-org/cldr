@@ -22,6 +22,11 @@ This document describes parts of an XML format (_vocabulary_) for the exchange o
 
 This is a partial document, describing keyboard mappings. For the other parts of the LDML see the [main LDML document](tr35.md) and the links above.
 
+_Note:_
+Some links may lead to in-development or older
+versions of the data files.
+See <https://cldr.unicode.org> for up-to-date CLDR release data.
+
 ### _Status_
 
 _This is a draft document which may be updated, replaced, or superseded by other documents at any time. Publication does not imply endorsement by the Unicode Consortium. This is not a stable document; it is inappropriate to cite this document as other than a work in progress._

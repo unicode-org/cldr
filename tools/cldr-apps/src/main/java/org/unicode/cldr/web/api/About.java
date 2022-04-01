@@ -99,14 +99,14 @@ public class About {
                 r.put("dbInfo", d.getDBInfo());
             }
         }
-        r.put("memory", getMemoryStats());
+        putMemoryStats(r);
         return Response.ok(r).build();
     }
 
-    private static String getMemoryStats() {
+    private void putMemoryStats(Map<String, String> r) {
         Runtime rt = Runtime.getRuntime();
-        return "total: " + rt.totalMemory() +
-            "; max: " + rt.maxMemory() +
-            "; free: " + rt.freeMemory();
+        r.put("memoryTotal", Long.toString(rt.totalMemory()));
+        r.put("memoryMax", Long.toString(rt.maxMemory()));
+        r.put("memoryFree", Long.toString(rt.freeMemory()));
     }
 }

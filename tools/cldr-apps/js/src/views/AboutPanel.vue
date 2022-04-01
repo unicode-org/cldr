@@ -22,11 +22,7 @@
               <!-- Looks like a URL -->
               <a class="aboutValue" v-bind:href="v">{{ v }}</a>
             </span>
-            <span
-              v-else-if="
-                /^[a-fA-F0-9]{6,40}$/.test(v) && aboutData.CLDR_COMMIT_BASE
-              "
-            >
+            <span v-else-if="valueIsHash(v, k)">
               <!-- Looks like a Git hash, 6…40 hex chars.
                    We need to check that CLDR_COMMIT_BASE is set, because that’s the
                    base URL for the linkification -->
@@ -50,15 +46,29 @@
 
 <script>
 export default {
-  data: function () {
+  data() {
     return {
       aboutData: null,
     };
   },
-  created: function () {
+
+  created() {
     fetch("api/about")
       .then((r) => r.json())
       .then((data) => (this.aboutData = data));
+  },
+
+  methods: {
+    valueIsHash(value, key) {
+      if (
+        this.aboutData.CLDR_COMMIT_BASE &&
+        key.includes("HASH") &&
+        /^[a-fA-F0-9]{6,40}$/.test(value)
+      ) {
+        return true;
+      }
+      return false;
+    },
   },
 };
 </script>

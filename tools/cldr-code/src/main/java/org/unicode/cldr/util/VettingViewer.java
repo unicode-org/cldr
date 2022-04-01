@@ -66,8 +66,12 @@ public class VettingViewer<T> {
 
     private static final Set<CheckCLDR.CheckStatus.Subtype> OK_IF_VOTED = EnumSet.of(Subtype.sameAsEnglish);
 
+    public static Organization getNeutralOrgForSummary() {
+        return Organization.surveytool;
+    }
+
     private static boolean orgIsNeutralForSummary(Organization org) {
-        return org.equals(Organization.surveytool);
+        return org.equals(getNeutralOrgForSummary());
     }
 
     /**
@@ -918,6 +922,9 @@ public class VettingViewer<T> {
         private void computeOne(int n) {
             if (progressCallback.isStopped()) {
                 throw new RuntimeException("Requested to stop");
+            }
+            if (DEBUG) {
+                MemoryHelper.availableMemory("VettingViewer.WriteAction.computeOne", true);
             }
             final String name = context.localeNames.get(n);
             final String localeID = context.localeIds.get(n);

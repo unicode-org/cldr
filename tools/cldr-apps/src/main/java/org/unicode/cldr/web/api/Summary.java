@@ -1,6 +1,10 @@
 package org.unicode.cldr.web.api;
 
 import java.io.IOException;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
@@ -22,8 +26,11 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.json.JSONException;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.web.*;
 import org.unicode.cldr.web.Dashboard.ReviewOutput;
 import org.unicode.cldr.web.VettingViewerQueue.LoadingPolicy;
@@ -31,6 +38,8 @@ import org.unicode.cldr.web.VettingViewerQueue.LoadingPolicy;
 @Path("/summary")
 @Tag(name = "voting", description = "APIs for voting")
 public class Summary {
+
+    private static ScheduledFuture autoSnapshotFuture = null;
 
     /**
      * jsonb enables converting an object to a json string,
@@ -45,6 +54,8 @@ public class Summary {
      * changed here to new SurveySnapshotMap()
      */
     private static final SurveySnapshot snap = new SurveySnapshotDb();
+
+    private static final Logger logger = SurveyLog.forClass(Summary.class);
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
@@ -103,7 +114,10 @@ public class Summary {
         if (SurveySnapshot.SNAP_SHOW.equals(request.snapshotPolicy)) {
             return showSnapshot(request.snapshotId);
         }
-        SummaryResponse sr = getSummaryResponse(cs, request.loadingPolicy);
+        Organization usersOrg = cs.user.vrOrg();
+        VettingViewerQueue vvq = VettingViewerQueue.getInstance();
+        QueueMemberId qmi = new QueueMemberId(cs);
+        SummaryResponse sr = getSummaryResponse(vvq, qmi, usersOrg, request.loadingPolicy);
         if (SurveySnapshot.SNAP_CREATE.equals(request.snapshotPolicy)
             && sr.status == VettingViewerQueue.Status.READY) {
             saveSnapshot(sr);
@@ -114,23 +128,24 @@ public class Summary {
     /**
      * Get the response for Priority Items Summary (new, not an already existing snapshot)
      *
-     * @param cs the CookieSession identifying the user
+     * @param vvq the VettingViewerQueue
+     * @param qmi the QueueMemberId
+     * @param usersOrg the user's organization
      * @param loadingPolicy the LoadingPolicy
      * @return the SummaryResponse
      *
      * @throws IOException
      * @throws JSONException
      */
-    private SummaryResponse getSummaryResponse(CookieSession cs, LoadingPolicy loadingPolicy) throws IOException, JSONException {
-        VettingViewerQueue.Status[] status = new VettingViewerQueue.Status[1];
-        StringBuilder sb = new StringBuilder();
-        VettingViewerQueue vvq = VettingViewerQueue.getInstance();
-        String message = vvq.getPriorityItemsSummaryOutput(cs, status, loadingPolicy, sb);
+    private SummaryResponse getSummaryResponse(VettingViewerQueue vvq, QueueMemberId qmi,
+            Organization usersOrg, LoadingPolicy loadingPolicy) throws IOException, JSONException {
         SummaryResponse sr = new SummaryResponse();
-        sr.status = status[0];
-        sr.message = message;
+        VettingViewerQueue.Args args = vvq.new Args(qmi, usersOrg, loadingPolicy);
+        VettingViewerQueue.Results results = vvq.new Results();
+        sr.message = vvq.getPriorityItemsSummaryOutput(args, results);
         sr.percent = vvq.getPercent();
-        sr.output = sb.toString();
+        sr.status = results.status;
+        sr.output = results.output.toString();
         return sr;
     }
 
@@ -200,6 +215,98 @@ public class Summary {
         }
     }
 
+
+    public static void scheduleAutomaticSnapshots() {
+        if (!autoSnapshotsAreEnabled()) {
+            return;
+        }
+        // TODO: schedule for a particular time of night or early morning;
+        // for now, for testing, just wait two minutes
+        // Reference: https://unicode-org.atlassian.net/browse/CLDR-15369
+        final long initialDelayMinutes = 2L;
+        final long repeatPeriodMinutes = TimeUnit.MINUTES.convert(1L, TimeUnit.DAYS);
+        log("Automatic Summary Snapshots are scheduled to start in " + initialDelayMinutes +
+             " minutes, then repeat every " + repeatPeriodMinutes + " minutes");
+        final ScheduledExecutorService exServ = SurveyThreadManager.getScheduledExecutorService();
+        try {
+            Summary summary = new Summary();
+            Runnable r = summary.new AutoSnapper();
+            autoSnapshotFuture = exServ.scheduleAtFixedRate(r, initialDelayMinutes, repeatPeriodMinutes, TimeUnit.MINUTES);
+        } catch (Throwable t) {
+            SurveyLog.logException(logger, t, "Exception while scheduling automatic snapshots");
+            t.printStackTrace();
+        }
+    }
+
+    private static boolean autoSnapshotsAreEnabled() {
+        if (CLDRConfig.getInstance().getProperty("CLDR_AUTO_SNAP", false)) {
+            log("Automatic Summary Snapshots (CLDR_AUTO_SNAP) are enabled");
+            return true;
+        } else {
+            log("Automatic Summary Snapshots (CLDR_AUTO_SNAP) are not enabled");
+            return false;
+        }
+    }
+
+    private class AutoSnapper implements Runnable {
+        @Override
+        public void run() {
+            try {
+                makeAutoPriorityItemsSnapshot();
+            } catch (Throwable t) {
+                SurveyLog.logException(logger, t, "Exception in AutoSnapper");
+                t.printStackTrace();
+            }
+        }
+    }
+
+    private void makeAutoPriorityItemsSnapshot() throws IOException, JSONException {
+        final VettingViewerQueue vvq = VettingViewerQueue.getInstance();
+        final QueueMemberId qmi = new QueueMemberId();
+        final Organization usersOrg = VettingViewer.getNeutralOrgForSummary();
+        LoadingPolicy loadingPolicy = LoadingPolicy.START;
+        SummaryResponse sr;
+        int count = 0;
+        log("Automatic Summary Snapshot, starting");
+        boolean finished = false;
+        do {
+            sr = getSummaryResponse(vvq, qmi, usersOrg, loadingPolicy);
+            loadingPolicy = LoadingPolicy.NOSTART;
+            ++count;
+            log("Automatic Summary Snapshot, got response " + count + "; percent = " + sr.percent);
+            if (sr.status == VettingViewerQueue.Status.WAITING
+                || sr.status == VettingViewerQueue.Status.PROCESSING) {
+                try {
+                    Thread.sleep(10000); // ten seconds
+                } catch (InterruptedException e) {
+                    finished = true;
+                }
+            } else {
+                finished = true;
+            }
+        } while (!finished && !autoSnapshotFuture.isCancelled());
+        if (sr.status == VettingViewerQueue.Status.READY) {
+            saveSnapshot(sr);
+            log("Automatic Summary Snapshot, saved " + sr.snapshotId);
+        }
+        log("Automatic Summary Snapshot, finished; status = " + sr.status);
+    }
+
+    /**
+     * When Survey Tool is shutting down, cancel any scheduled/running automatic snapshot
+     */
+    public static void shutdown() {
+        try {
+            if (autoSnapshotFuture != null && !autoSnapshotFuture.isCancelled()) {
+                log("Interrupting running auto-snapshot thread");
+                autoSnapshotFuture.cancel(true);
+            }
+        } catch (Throwable t) {
+            SurveyLog.logException(logger, t, "Exception interrupting Automatic Summary Snapshot");
+            t.printStackTrace();
+        }
+    }
+
     @GET
     @Path("/dashboard/{locale}/{level}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -233,5 +340,12 @@ public class Summary {
         ReviewOutput ret = new Dashboard().get(loc, cs.user, coverageLevel);
 
         return Response.ok().entity(ret).build();
+    }
+
+    private static void log(String message) {
+        // TODO: how to enable logger.info? As currently configured, it doesn't print to console
+        // Reference: https://unicode-org.atlassian.net/browse/CLDR-15369
+        // logger.info("[Summary.logger] " + message);
+        System.out.println(message);
     }
 }

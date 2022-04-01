@@ -91,6 +91,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.web.WebContext.HTMLDirection;
+import org.unicode.cldr.web.api.Summary;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
@@ -425,8 +426,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         if (!startUpDatabase()) {
             return;
         }
-        // TODO: call Summary.scheduleAutomaticSnapshots here or in doStartup
-        // Reference: https://unicode-org.atlassian.net/browse/CLDR-15369
+        Summary.scheduleAutomaticSnapshots();
 
         // TODO: check whether doStartup and startUpDatabase have a synchronization problem,
         // sometimes this.dbUtils null when doStartup calls doStartupDb
@@ -3117,6 +3117,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             logger.warning("SurveyTool shutting down.. r" + getCurrevCldrApps());
             progress.update("shutting down mail... " + destroyTimer);
             MailSender.shutdown();
+            progress.update("shutting down summary snapshots... " + destroyTimer);
+            Summary.shutdown();
             progress.update("shutting down SurveyThreadManager... " + destroyTimer);
             startupThread.shutdown();
             progress.update("Shutting down database..." + destroyTimer);

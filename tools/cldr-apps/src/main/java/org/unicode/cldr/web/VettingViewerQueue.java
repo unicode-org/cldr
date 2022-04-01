@@ -69,7 +69,7 @@ public class VettingViewerQueue {
     }
 
     /**
-     * A unique key for hashes
+     * A unique key for storing QueueEntry objects in QueueMemberId objects
      */
     private static final String KEY = VettingViewerQueue.class.getName();
 
@@ -301,6 +301,32 @@ public class VettingViewerQueue {
         }
     }
 
+    /**
+     * Arguments for getPriorityItemsSummaryOutput
+     */
+    public class Args {
+        private QueueMemberId qmi;
+        private Organization usersOrg;
+        private LoadingPolicy loadingPolicy;
+
+        public Args(QueueMemberId qmi, Organization usersOrg, LoadingPolicy loadingPolicy) {
+            this.qmi = qmi;
+            this.usersOrg = usersOrg;
+            this.loadingPolicy = loadingPolicy;
+        }
+    }
+
+    /**
+     * Results for getPriorityItemsSummaryOutput
+     *
+     * These fields get filled in by getPriorityItemsSummaryOutput, and referenced by the caller
+     * after getPriorityItemsSummaryOutput returns
+     */
+    public class Results {
+        public Status status = Status.STOPPED;
+        public Appendable output = new StringBuilder();
+    }
+
     /*
      * Messages returned by getPriorityItemsSummaryOutput
      */
@@ -314,39 +340,29 @@ public class VettingViewerQueue {
     /**
      * Return the status of the vetting viewer output request
      *
-     * @param sess the CookieSession
-     * @param status the array of one new VettingViewerQueue.Status to be filled in
-     * @param loadingPolicy the LoadingPolicy
-     * @param output the empty Appendable (StringBuilder) to be filled in
+     * @param args the VettingViewerQueue.Args
+     * @param results the VettingViewerQueue.Results
      * @return the status message, or null
      * @throws IOException
      * @throws JSONException
      */
-    public synchronized String getPriorityItemsSummaryOutput(CookieSession sess, Status[] status,
-        LoadingPolicy loadingPolicy, Appendable output) throws IOException, JSONException {
+    public synchronized String getPriorityItemsSummaryOutput(VettingViewerQueue.Args args, VettingViewerQueue.Results results)
+            throws IOException, JSONException {
         JSONObject debugStatus = DEBUG ? new JSONObject() : null;
-        QueueEntry entry = getEntry(sess);
-        if (status == null) {
-            status = new Status[1];
-        }
-        Organization usersOrg = sess.user.vrOrg();
-        if (loadingPolicy != LoadingPolicy.FORCESTOP) {
-            VVOutput res = entry.output.get(usersOrg);
+        QueueEntry entry = getEntry(args.qmi);
+        if (args.loadingPolicy != LoadingPolicy.FORCESTOP) {
+            VVOutput res = entry.output.get(args.usersOrg);
             if (res != null) {
-                status[0] = Status.READY;
-                if (output != null) {
-                    output.append(res.output);
-                }
+                results.status = Status.READY;
+                results.output.append(res.output);
                 stop(entry);
-                entry.output.remove(usersOrg);
+                entry.output.remove(args.usersOrg);
                 return SUM_MESSAGE_COMPLETE;
             }
         } else { /* force stop */
             stop(entry);
-            entry.output.remove(usersOrg);
-        }
-        if (loadingPolicy == LoadingPolicy.FORCESTOP) {
-            status[0] = Status.STOPPED;
+            entry.output.remove(args.usersOrg);
+            results.status = Status.STOPPED;
             if (debugStatus != null) {
                 debugStatus.put("t_running", false);
                 debugStatus.put("t_statuscode", Status.STOPPED);
@@ -360,11 +376,11 @@ public class VettingViewerQueue {
             if (debugStatus != null) {
                 putTaskStatus(debugStatus, t);
             }
-            status[0] = Status.PROCESSING;
+            results.status = Status.PROCESSING;
             if (t.myThread.isAlive()) {
                 // get progress from current thread
-                status[0] = t.statusCode;
-                if (status[0] != Status.WAITING) {
+                results.status = t.statusCode;
+                if (results.status != Status.WAITING) {
                     waiting = "";
                 }
                 setPercent(t.getPercent());
@@ -374,20 +390,20 @@ public class VettingViewerQueue {
                 return SUM_MESSAGE_STOPPED_STUCK + " " + t.status;
             }
         }
-        if (loadingPolicy == LoadingPolicy.NOSTART) {
-            status[0] = Status.STOPPED;
+        if (args.loadingPolicy == LoadingPolicy.NOSTART) {
+            results.status = Status.STOPPED;
             setPercent(0);
             return SUM_MESSAGE_NOT_LOADING;
         }
 
         // TODO: May be better to use SurveyThreadManager.getExecutorService().invoke() (rather than a raw thread) but would require
         // some restructuring
-        t = entry.currentTask = new Task(entry, usersOrg);
+        t = entry.currentTask = new Task(entry, args.usersOrg);
         t.myThread = SurveyThreadManager.getThreadFactory().newThread(t);
         t.myThread.start();
         SurveyThreadManager.getThreadFactory().newThread(t);
 
-        status[0] = Status.PROCESSING;
+        results.status = Status.PROCESSING;
         if (DEBUG) {
             putTaskStatus(debugStatus, t);
         }
@@ -429,11 +445,11 @@ public class VettingViewerQueue {
         }
     }
 
-    private QueueEntry getEntry(CookieSession session) {
-        QueueEntry entry = (QueueEntry) session.get(KEY);
+    private QueueEntry getEntry(QueueMemberId qmi) {
+        QueueEntry entry = (QueueEntry) qmi.get(KEY);
         if (entry == null) {
             entry = new QueueEntry();
-            session.put(KEY, entry);
+            qmi.put(KEY, entry);
         }
         return entry;
     }

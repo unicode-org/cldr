@@ -475,7 +475,7 @@ public class UserRegistry {
             }
         }
 
-        Organization vrOrg() {
+        public Organization vrOrg() {
             return Organization.fromString(voterOrg());
         }
 

@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+    # Only run if docs change.
+    paths:
+      - "tools/scripts/tr-archive/**"
+      - "docs/**"
+      - '.github/workflows/gh-pages.yml'
 
 jobs:
   build:
@@ -20,6 +25,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nodetr-
             nodetr-
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Run TR archiver
+        # Note: will update ToC if out of date
+        run: 'cd tools/scripts/tr-archive/ && bash make-tr-archive.sh'
+      - name: Lint Markdown
+        # Warn, don't fail yet
+        run: npx markdownlint-cli *.md {specs,docs}/*.md $(find .github -name '*.md') || (echo Warning, please fix these ; true)
+      - name: Note any changes
+        run: git status ; git diff
       - name: Ruby cache
         uses: actions/cache@v2
         with:
@@ -34,11 +50,6 @@ jobs:
         run: |
           gem install bundler github-pages kramdown-parser-gfm  # should pull in jekyll, etc.
           jekyll build -s docs -d _site
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-      - name: Run TR archiver
-        run: 'cd tools/scripts/tr-archive/ && bash make-tr-archive.sh'
       - name: Rearrange stuff
         run: 'cp -vr tools/scripts/tr-archive/dist/* ./_site/ldml/ && cp tools/scripts/tr-archive/reports-v2.css ./_site/'
       - name: Deploy to GitHub Pages

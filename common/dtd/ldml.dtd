@@ -3164,16 +3164,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST annotation draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
-<!ELEMENT personNames ( alias | ( nameOrder*, initialPattern*, personName+, sampleName*, special* ) ) >
+<!ELEMENT personNames ( alias | ( nameOrderLocales*, initialPattern*, personName+, sampleName*, special* ) ) >
 
-<!ELEMENT nameOrder EMPTY >
-<!ATTLIST nameOrder nameLocales NMTOKENS #REQUIRED >
-    <!--@MATCH:set/validity/locale-->
-<!ATTLIST nameOrder order (surnameFirst | givenFirst) #REQUIRED >
-    <!--@VALUE-->
-<!ATTLIST nameOrder draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+<!ELEMENT nameOrderLocales ( #PCDATA ) >
+<!ATTLIST nameOrderLocales order (givenFirst | surnameFirst) #REQUIRED >
+<!ATTLIST nameOrderLocales alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
+<!ATTLIST nameOrderLocales draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
-<!ATTLIST nameOrder references CDATA #IMPLIED >
+<!ATTLIST nameOrderLocales references CDATA #IMPLIED >
     <!--@METADATA-->
 
 <!ELEMENT initialPattern ( #PCDATA ) >
@@ -3189,11 +3188,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST personName length NMTOKENS #IMPLIED >
     <!--@MATCH:set/literal/long, medium, short, monogram, monogramNarrow-->
 <!ATTLIST personName usage NMTOKENS #IMPLIED >
-    <!--@MATCH:set/literal/addressing, referring, sorting-->
+    <!--@MATCH:set/literal/addressing, referring-->
 <!ATTLIST personName style NMTOKENS #IMPLIED >
     <!--@MATCH:set/literal/formal, informal-->
 <!ATTLIST personName order NMTOKENS #IMPLIED >
-    <!--@MATCH:set/literal/surnameFirst, givenFirst-->
+    <!--@MATCH:set/literal/sorting, givenFirst, surnameFirst-->
 
 <!ELEMENT namePattern ( #PCDATA ) >
 <!ATTLIST namePattern alt (1|2) #IMPLIED >
@@ -3203,11 +3202,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@METADATA-->
 
 <!ELEMENT sampleName ( alias | ( nameField+, special* ) ) >
-<!ATTLIST sampleName item (minimal|simple|full|multiword) #REQUIRED >
+<!ATTLIST sampleName item NMTOKENS #REQUIRED >
+    <!--@MATCH:literal/givenSurname, given2Surname, givenSurname2, informal, full, multiword-->
 
 <!ELEMENT nameField ( #PCDATA ) >
 <!ATTLIST nameField type CDATA #REQUIRED >
-    <!--@MATCH:any--> <!--until we have a better sense, or maybe validity data, for all of the combinations here-->
+    <!--@MATCH:literal/prefix, given, given-informal, given2, surname, surname2, suffix-->
 <!ATTLIST nameField alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST nameField draft (approved | contributed | provisional | unconfirmed) #IMPLIED >

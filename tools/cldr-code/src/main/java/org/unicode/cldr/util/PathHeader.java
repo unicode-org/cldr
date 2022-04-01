@@ -1858,9 +1858,9 @@ public class PathHeader implements Comparable<PathHeader> {
                     // The various personName attribute values in desired sort order
                     final List<String> allValues = Arrays.asList(
                         "long", "medium", "short", "monogram", "monogramNarrow", // length values
-                        "addressing", "referring", "sorting", // usage values
+                        "addressing", "referring", // usage values
                         "formal", "informal", // style values
-                        "surnameFirst", "givenFirst"); //order values
+                        "sorting", "givenFirst", "surnameFirst"); //order values
 
                     List<String> parts = HYPHEN_SPLITTER.splitToList(source);
                     order = 0;
@@ -1878,25 +1878,19 @@ public class PathHeader implements Comparable<PathHeader> {
             functionMap.put("sampleNameOrder", new Transform<String, String>() {
                 @Override
                 public String transform(String source) {
-                    final List<String> sampleItemValues = Arrays.asList("minimal", "simple", "full", "multiword");
-                    final List<String> fieldTypeValues = Arrays.asList("prefix", "given", "given2", "surname", "surname2", "suffix");
+                    final List<String> allValues = Arrays.asList(
+                        "givenSurname", "given2Surname", "givenSurname2", "informal", "full", "multiword", // values for sampleName item
+                        "prefix", "given", "given2", "surname", "surname2", "suffix", // values for nameField type
+                        "informal"); // modifiers for nameField type
 
                     List<String> parts = HYPHEN_SPLITTER.splitToList(source);
-                    if (parts.size() >= 2) {
-                        order = 0;
-                        if (sampleItemValues.contains(parts.get(0))) {
-                            order += sampleItemValues.indexOf(parts.get(0)) * 16;
+                    order = 0;
+                    for (String part: parts) {
+                        if (allValues.contains(part)) {
+                            order += (1 << allValues.indexOf(part));
                         } else {
-                            order += sampleItemValues.size() * 16;
+                            order += (1 << allValues.size());
                         }
-                        if (fieldTypeValues.contains(parts.get(1))) {
-                            order += fieldTypeValues.indexOf(parts.get(1)) * 2;
-                        }
-                        if (parts.size() > 2) {
-                            order += 1;
-                        }
-                    } else {
-                        order = 128;
                     }
                     return source;
                 }

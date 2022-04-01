@@ -88,8 +88,8 @@ class LdmlConvertRulesTest {
         //Keep these as not-a-set for compatibility
         jsonSplittableAttrs.add(Pair.of("paradigmLocales", "locales"));
 
-        //Temporary skip while in development CLDR-15384
-        dtdSplittableAttrs.remove(Pair.of("nameOrder", "nameLocales"));
+        // TODO Temporary skip while in development CLDR-15384
+        dtdSplittableAttrs.remove(Pair.of("nameOrderLocales", "order"));
         dtdSplittableAttrs.remove(Pair.of("initialPattern", "type"));
         dtdSplittableAttrs.remove(Pair.of("personName", "length"));
         dtdSplittableAttrs.remove(Pair.of("personName", "order"));

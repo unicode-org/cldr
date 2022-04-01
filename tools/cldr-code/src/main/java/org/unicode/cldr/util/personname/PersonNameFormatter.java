@@ -112,8 +112,7 @@ public class PersonNameFormatter {
 
     public enum Usage {
         referring,
-        addressing,
-        sorting;
+        addressing;
         public static final Comparator<Iterable<Usage>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Usage>naturalOrder());
         public static final Set<Usage> ALL = ImmutableSet.copyOf(Usage.values());
         /**
@@ -125,8 +124,9 @@ public class PersonNameFormatter {
     }
 
     public enum Order {
-        surnameFirst,
-        givenFirst;
+        sorting,
+        givenFirst,
+        surnameFirst;
         public static final Comparator<Iterable<Order>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Order>naturalOrder());
         public static final Set<Order> ALL = ImmutableSet.copyOf(Order.values());
         /**
@@ -161,8 +161,10 @@ public class PersonNameFormatter {
     }
 
     public enum SampleType {
-        minimal,
-        simple,
+        givenSurname,
+        given2Surname,
+        givenSurname2,
+        informal,
         full,
         multiword,
     }
@@ -1243,7 +1245,7 @@ public class PersonNameFormatter {
                 XPathParts parts = XPathParts.getFrozenInstance(path);
                 switch(parts.getElement(2)) {
                 case "personName":
-                    //ldml/personNames/personName[@length="long"][@usage="sorting"]/namePattern[alt="2"]
+                    //ldml/personNames/personName[@length="long"][@usage="referring"]/namePattern[alt="2"]
                     // value = {surname}, {given} {given2} {suffix}
                     final String altValue = parts.getAttributeValue(-1, "alt");
                     int rank = altValue == null ? 0 : Integer.parseInt(altValue);
@@ -1273,11 +1275,11 @@ public class PersonNameFormatter {
                     default: throw new IllegalArgumentException("Unexpected path: " + path);
                     }
                     break;
-                case "nameOrder":
-                    //ldml/personNames/nameOrder[@nameLocales="und"]
-                    for (String locale : SPLIT_SPACE.split(parts.getAttributeValue(-1, "nameLocales"))) {
-                        // TODO fix Order.valueOf(value) to work.
-                        _localeToOrder.put(new ULocale(locale), Order.givenFirst);
+                case "nameOrderLocales":
+                    //ldml/personNames/nameOrderLocales[@order="givenFirst"], value = list of locales
+                    for (String locale : SPLIT_SPACE.split(value)) {
+                        // TODO fix Order.valueOf(parts.getAttributeValue(-1, "order")) to work.
+                        _localeToOrder.put(new ULocale(locale), Order.surnameFirst);
                     }
                     break;
                 case "sampleName":
@@ -1308,8 +1310,10 @@ public class PersonNameFormatter {
             if (path.startsWith("//ldml/personNames/sampleName")) {
                 //ldml/personNames/sampleName[@item="full"]/nameField[@type="prefix"]
                 String value = cldrFile.getStringValue(path);
-                XPathParts parts = XPathParts.getFrozenInstance(path);
-                names.put(SampleType.valueOf(parts.getAttributeValue(-2, "item")), ModifiedField.from(parts.getAttributeValue(-1, "type")), value);
+                if (!value.equals("∅∅∅")) { // TODO is this how we want to handle ∅∅∅?
+                    XPathParts parts = XPathParts.getFrozenInstance(path);
+                    names.put(SampleType.valueOf(parts.getAttributeValue(-2, "item")), ModifiedField.from(parts.getAttributeValue(-1, "type")), value);
+                }
             }
         }
         Map<SampleType, NameObject> result = new TreeMap<>();

@@ -477,7 +477,7 @@ public class ExampleGenerator {
         //ldml/personNames/personName[@length="long"][@usage="addressing"][@style="formal"][@order="givenFirst"]/namePattern => {prefix} {surname}
         FormatParameters formatParameters = FormatParameters.from(parts);
 
-        if (parts.contains("nameOrder") || parts.contains("initialPattern") || parts.contains("sampleName")) {
+        if (parts.contains("nameOrderLocales") || parts.contains("initialPattern") || parts.contains("sampleName")) {
             return null; // TODO: we do not handle these yet
         }
 

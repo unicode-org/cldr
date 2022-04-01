@@ -11,7 +11,7 @@ import org.unicode.cldr.util.XPathParts;
 public class CheckPlaceHolders extends CheckCLDR {
 
     private static final Pattern PLACEHOLDER_PATTERN = PatternCache.get("([0-9]|[1-9][0-9]+)");
-    private static final Pattern PLACEHOLDER_PATTERN_PERS_NAMES = PatternCache.get("([a-z][a-z23-]+?)"); // CLDR-15384 need alpha, -
+    private static final Pattern PLACEHOLDER_PATTERN_PERS_NAMES = PatternCache.get("([a-z][a-zA-Z23-]+?)"); // CLDR-15384 need alpha, -
     private static final Pattern SKIP_PATH_LIST = Pattern
         .compile("//ldml/characters/(exemplarCharacters|parseLenient).*");
 

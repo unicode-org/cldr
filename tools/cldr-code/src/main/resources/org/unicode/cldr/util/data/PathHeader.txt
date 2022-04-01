@@ -285,19 +285,18 @@
 //ldml/numbers/minimalPairs/caseMinimalPairs[@case=\"%A\"]        ; Misc ; Minimal Pairs ; Case (for measurement units) ; &caseNumber($1) ; LTR_ALWAYS
 //ldml/numbers/minimalPairs/genderMinimalPairs[@gender=\"%A\"]        ; Misc ; Minimal Pairs ; Gender (for measurement units) ; &genderNumber($1) ; LTR_ALWAYS
 
-//ldml/personNames/nameOrder[@nameLocales=\"%A\"]   ; Misc ; Person Name Formats ; Name Order For Languages ; $1
+//ldml/personNames/nameOrderLocales[@order=\"%A\"][@alt=\"%A\"]   ; Misc ; Person Name Formats ; Name Order For Locales ; $1-$2
+//ldml/personNames/nameOrderLocales[@order=\"%A\"]   ; Misc ; Person Name Formats ; Name Order For Locales ; $1
 //ldml/personNames/initialPattern[@type=\"%A\"][@alt=\"%A\"]   ; Misc ; Person Name Formats ; Initial Patterns ; $1-$2
 //ldml/personNames/initialPattern[@type=\"%A\"]   ; Misc ; Person Name Formats ; Initial Patterns ; $1
 //ldml/personNames/personName/namePattern[@alt=\"%A\"]      ; Misc ; Person Name Formats ; Fallback Name Pattern ; any-$1
 //ldml/personNames/personName/namePattern           ; Misc ; Person Name Formats ; Fallback Name Pattern ; any
-//ldml/personNames/personName[@length=\"%A\"][@usage=\"%A\"][@style=\"%A\"][@order=\"%A\"]/namePattern[@alt=\"%A\"]     ; Misc ; Person Name Formats ; Name Patterns for Length $1 ; &personNameOrder($1-$2-$3-$4-$5)
-//ldml/personNames/personName[@length=\"%A\"][@usage=\"%A\"][@style=\"%A\"][@order=\"%A\"]/namePattern      ; Misc ; Person Name Formats ; Name Patterns for Length $1 ; &personNameOrder($1-$2-$3-$4)
-//ldml/personNames/personName[@length=\"%A\"][@usage=\"%A\"][@style=\"%A\"]/namePattern[@alt=\"%A\"]        ; Misc ; Person Name Formats ; Name Patterns for Length $1 ; &personNameOrder($1-$2-$3-$4)
-//ldml/personNames/personName[@length=\"%A\"][@usage=\"%A\"][@style=\"%A\"]/namePattern         ; Misc ; Person Name Formats ; Name Patterns for Length $1 ; &personNameOrder($1-$2-$3)
-//ldml/personNames/personName[@length=\"%A\"][@style=\"%A\"][@order=\"%A\"]/namePattern[@alt=\"%A\"]        ; Misc ; Person Name Formats ; Name Patterns for Length $1 ; &personNameOrder($1-$2-$3-$4)
-//ldml/personNames/personName[@length=\"%A\"][@style=\"%A\"][@order=\"%A\"]/namePattern         ; Misc ; Person Name Formats ; Name Patterns for Length $1 ; &personNameOrder($1-$2-$3)
-//ldml/personNames/sampleName[@item=\"%A\"]/nameField[@type=\"%A\"][@alt=\"%A\"]        ; Misc ; Person Name Formats ; Sample Name Fields for Item $1 ; &sampleNameOrder($1-$2-$3)
-//ldml/personNames/sampleName[@item=\"%A\"]/nameField[@type=\"%A\"]        ; Misc ; Person Name Formats ; Sample Name Fields for Item $1 ; &sampleNameOrder($1-$2)
+//ldml/personNames/personName[@length=\"%A\"][@usage=\"%A\"][@style=\"%A\"][@order=\"%A\"]/namePattern[@alt=\"%A\"]     ; Misc ; Person Name Formats ; Name Patterns for Length &personNameOrder($1) ; &personNameOrder($1-$2-$3-$4-$5)
+//ldml/personNames/personName[@length=\"%A\"][@usage=\"%A\"][@style=\"%A\"][@order=\"%A\"]/namePattern      ; Misc ; Person Name Formats ; Name Patterns for Length &personNameOrder($1) ; &personNameOrder($1-$2-$3-$4)
+//ldml/personNames/personName[@length=\"%A\"][@style=\"%A\"][@order=\"%A\"]/namePattern[@alt=\"%A\"]        ; Misc ; Person Name Formats ; Name Patterns for Length &personNameOrder($1) ; &personNameOrder($1-$2-$3-$4)
+//ldml/personNames/personName[@length=\"%A\"][@style=\"%A\"][@order=\"%A\"]/namePattern         ; Misc ; Person Name Formats ; Name Patterns for Length &personNameOrder($1) ; &personNameOrder($1-$2-$3)
+//ldml/personNames/sampleName[@item=\"%A\"]/nameField[@type=\"%A\"][@alt=\"%A\"]        ; Misc ; Person Name Formats ; Sample Name Fields for Item &sampleNameOrder($1) ; &sampleNameOrder($1-$2-$3)
+//ldml/personNames/sampleName[@item=\"%A\"]/nameField[@type=\"%A\"]        ; Misc ; Person Name Formats ; Sample Name Fields for Item &sampleNameOrder($1) ; &sampleNameOrder($1-$2)
 
 
 #Emoji, etc.

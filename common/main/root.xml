@@ -5368,130 +5368,212 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<featureName type="zero">slashed zero</featureName>
 	</typographicNames>
 	<personNames>
-		<nameOrder nameLocales="und" order="surnameFirst"/>
+		<nameOrderLocales order="givenFirst">und</nameOrderLocales>
+		<nameOrderLocales order="surnameFirst">ja zh ko hu</nameOrderLocales>
 		<initialPattern type="initial">{0}.</initialPattern>
 		<initialPattern type="initialSequence">{0} {1}</initialPattern>
 		<!-- fallback/any pattern -->
 		<personName>
 			<namePattern>{surname} {surname2}, {prefix} {given} {given2} {suffix}</namePattern>
 		</personName>
-		<personName length="long" usage="addressing" style="formal" order="surnameFirst">
+		<personName length="long" usage="addressing" style="formal" order="sorting">
 			<alias source="locale" path="../personName"/>
 		</personName>
 		<personName length="long" usage="addressing" style="formal" order="givenFirst">
 			<alias source="locale" path="../personName"/>
 		</personName>
-		<personName length="long" usage="addressing" style="informal" order="surnameFirst">
+		<personName length="long" usage="addressing" style="formal" order="surnameFirst">
+			<alias source="locale" path="../personName"/>
+		</personName>
+		<personName length="long" usage="addressing" style="informal" order="sorting">
 			<alias source="locale" path="../personName"/>
 		</personName>
 		<personName length="long" usage="addressing" style="informal" order="givenFirst">
 			<alias source="locale" path="../personName"/>
 		</personName>
-		<personName length="long" usage="referring" style="formal" order="surnameFirst">
+		<personName length="long" usage="addressing" style="informal" order="surnameFirst">
+			<alias source="locale" path="../personName"/>
+		</personName>
+		<personName length="long" usage="referring" style="formal" order="sorting">
 			<alias source="locale" path="../personName"/>
 		</personName>
 		<personName length="long" usage="referring" style="formal" order="givenFirst">
 			<alias source="locale" path="../personName"/>
 		</personName>
-		<personName length="long" usage="referring" style="informal" order="surnameFirst">
+		<personName length="long" usage="referring" style="formal" order="surnameFirst">
+			<alias source="locale" path="../personName"/>
+		</personName>
+		<personName length="long" usage="referring" style="informal" order="sorting">
 			<alias source="locale" path="../personName"/>
 		</personName>
 		<personName length="long" usage="referring" style="informal" order="givenFirst">
 			<alias source="locale" path="../personName"/>
 		</personName>
-		<!-- for usage="sorting", ignore order -->
-		<personName length="long" usage="sorting" style="formal">
+		<personName length="long" usage="referring" style="informal" order="surnameFirst">
 			<alias source="locale" path="../personName"/>
 		</personName>
-		<personName length="long" usage="sorting" style="informal">
-			<alias source="locale" path="../personName"/>
-		</personName>
-		<personName length="medium" usage="addressing" style="formal" order="surnameFirst">
+		<personName length="medium" usage="addressing" style="formal" order="sorting">
 			<alias source="locale" path="../personName"/>
 		</personName>
 		<personName length="medium" usage="addressing" style="formal" order="givenFirst">
 			<alias source="locale" path="../personName"/>
 		</personName>
-		<personName length="medium" usage="addressing" style="informal" order="surnameFirst">
+		<personName length="medium" usage="addressing" style="formal" order="surnameFirst">
+			<alias source="locale" path="../personName"/>
+		</personName>
+		<personName length="medium" usage="addressing" style="informal" order="sorting">
 			<alias source="locale" path="../personName"/>
 		</personName>
 		<personName length="medium" usage="addressing" style="informal" order="givenFirst">
 			<alias source="locale" path="../personName"/>
 		</personName>
-		<personName length="medium" usage="referring" style="formal" order="surnameFirst">
+		<personName length="medium" usage="addressing" style="informal" order="surnameFirst">
+			<alias source="locale" path="../personName"/>
+		</personName>
+		<personName length="medium" usage="referring" style="formal" order="sorting">
 			<alias source="locale" path="../personName"/>
 		</personName>
 		<personName length="medium" usage="referring" style="formal" order="givenFirst">
 			<alias source="locale" path="../personName"/>
 		</personName>
-		<personName length="medium" usage="referring" style="informal" order="surnameFirst">
+		<personName length="medium" usage="referring" style="formal" order="surnameFirst">
+			<alias source="locale" path="../personName"/>
+		</personName>
+		<personName length="medium" usage="referring" style="informal" order="sorting">
 			<alias source="locale" path="../personName"/>
 		</personName>
 		<personName length="medium" usage="referring" style="informal" order="givenFirst">
 			<alias source="locale" path="../personName"/>
 		</personName>
-		<!-- for usage="sorting", ignore order -->
-		<personName length="medium" usage="sorting" style="formal">
+		<personName length="medium" usage="referring" style="informal" order="surnameFirst">
 			<alias source="locale" path="../personName"/>
 		</personName>
-		<personName length="medium" usage="sorting" style="informal">
-			<alias source="locale" path="../personName"/>
-		</personName>
-		<personName length="short" usage="addressing" style="formal" order="surnameFirst">
+		<personName length="short" usage="addressing" style="formal" order="sorting">
 			<alias source="locale" path="../personName"/>
 		</personName>
 		<personName length="short" usage="addressing" style="formal" order="givenFirst">
 			<alias source="locale" path="../personName"/>
 		</personName>
-		<personName length="short" usage="addressing" style="informal" order="surnameFirst">
+		<personName length="short" usage="addressing" style="formal" order="surnameFirst">
+			<alias source="locale" path="../personName"/>
+		</personName>
+		<personName length="short" usage="addressing" style="informal" order="sorting">
 			<alias source="locale" path="../personName"/>
 		</personName>
 		<personName length="short" usage="addressing" style="informal" order="givenFirst">
 			<alias source="locale" path="../personName"/>
 		</personName>
-		<personName length="short" usage="referring" style="formal" order="surnameFirst">
+		<personName length="short" usage="addressing" style="informal" order="surnameFirst">
+			<alias source="locale" path="../personName"/>
+		</personName>
+		<personName length="short" usage="referring" style="formal" order="sorting">
 			<alias source="locale" path="../personName"/>
 		</personName>
 		<personName length="short" usage="referring" style="formal" order="givenFirst">
 			<alias source="locale" path="../personName"/>
 		</personName>
-		<personName length="short" usage="referring" style="informal" order="surnameFirst">
+		<personName length="short" usage="referring" style="formal" order="surnameFirst">
+			<alias source="locale" path="../personName"/>
+		</personName>
+		<personName length="short" usage="referring" style="informal" order="sorting">
 			<alias source="locale" path="../personName"/>
 		</personName>
 		<personName length="short" usage="referring" style="informal" order="givenFirst">
 			<alias source="locale" path="../personName"/>
 		</personName>
-		<!-- for usage="sorting", ignore order -->
-		<personName length="short" usage="sorting" style="formal">
-			<alias source="locale" path="../personName"/>
-		</personName>
-		<personName length="short" usage="sorting" style="informal">
+		<personName length="short" usage="referring" style="informal" order="surnameFirst">
 			<alias source="locale" path="../personName"/>
 		</personName>
 		<!-- for length="monogram" or "monogramNarrow", ignore usage -->
-		<personName length="monogram" style="formal" order="surnameFirst">
+		<personName length="monogram" style="formal" order="sorting">
 			<alias source="locale" path="../personName"/>
 		</personName>
 		<personName length="monogram" style="formal" order="givenFirst">
 			<alias source="locale" path="../personName"/>
 		</personName>
-		<personName length="monogram" style="informal" order="surnameFirst">
+		<personName length="monogram" style="formal" order="surnameFirst">
+			<alias source="locale" path="../personName"/>
+		</personName>
+		<personName length="monogram" style="informal" order="sorting">
 			<alias source="locale" path="../personName"/>
 		</personName>
 		<personName length="monogram" style="informal" order="givenFirst">
 			<alias source="locale" path="../personName"/>
 		</personName>
-		<personName length="monogramNarrow" style="formal" order="surnameFirst">
+		<personName length="monogram" style="informal" order="surnameFirst">
+			<alias source="locale" path="../personName"/>
+		</personName>
+		<personName length="monogramNarrow" style="formal" order="sorting">
 			<alias source="locale" path="../personName"/>
 		</personName>
 		<personName length="monogramNarrow" style="formal" order="givenFirst">
 			<alias source="locale" path="../personName"/>
 		</personName>
-		<personName length="monogramNarrow" style="informal" order="surnameFirst">
+		<personName length="monogramNarrow" style="formal" order="surnameFirst">
+			<alias source="locale" path="../personName"/>
+		</personName>
+		<personName length="monogramNarrow" style="informal" order="sorting">
 			<alias source="locale" path="../personName"/>
 		</personName>
 		<personName length="monogramNarrow" style="informal" order="givenFirst">
 			<alias source="locale" path="../personName"/>
 		</personName>
+		<personName length="monogramNarrow" style="informal" order="surnameFirst">
+			<alias source="locale" path="../personName"/>
+		</personName>
+		<sampleName item="givenSurname">
+			<nameField type="prefix">Prefix</nameField>
+			<nameField type="given">Given</nameField>
+			<nameField type="given-informal">given-informal</nameField>
+			<nameField type="given2">Given2</nameField>
+			<nameField type="surname">Surname</nameField>
+			<nameField type="surname2">Surname2</nameField>
+			<nameField type="suffix">Suffix</nameField>
+		</sampleName>
+		<sampleName item="given2Surname">
+			<nameField type="prefix">Prefix</nameField>
+			<nameField type="given">Given</nameField>
+			<nameField type="given-informal">given-informal</nameField>
+			<nameField type="given2">Given2</nameField>
+			<nameField type="surname">Surname</nameField>
+			<nameField type="surname2">Surname2</nameField>
+			<nameField type="suffix">Suffix</nameField>
+		</sampleName>
+		<sampleName item="givenSurname2">
+			<nameField type="prefix">Prefix</nameField>
+			<nameField type="given">Given</nameField>
+			<nameField type="given-informal">given-informal</nameField>
+			<nameField type="given2">Given2</nameField>
+			<nameField type="surname">Surname</nameField>
+			<nameField type="surname2">Surname2</nameField>
+			<nameField type="suffix">Suffix</nameField>
+		</sampleName>
+		<sampleName item="informal">
+			<nameField type="prefix">Prefix</nameField>
+			<nameField type="given">Given</nameField>
+			<nameField type="given-informal">given-informal</nameField>
+			<nameField type="given2">Given2</nameField>
+			<nameField type="surname">Surname</nameField>
+			<nameField type="surname2">Surname2</nameField>
+			<nameField type="suffix">Suffix</nameField>
+		</sampleName>
+		<sampleName item="full">
+			<nameField type="prefix">Prefix</nameField>
+			<nameField type="given">Given</nameField>
+			<nameField type="given-informal">given-informal</nameField>
+			<nameField type="given2">Given2</nameField>
+			<nameField type="surname">Surname</nameField>
+			<nameField type="surname2">Surname2</nameField>
+			<nameField type="suffix">Suffix</nameField>
+		</sampleName>
+		<sampleName item="multiword">
+			<nameField type="prefix">Prefix</nameField>
+			<nameField type="given">Given</nameField>
+			<nameField type="given-informal">given-informal</nameField>
+			<nameField type="given2">Given2</nameField>
+			<nameField type="surname">Surname</nameField>
+			<nameField type="surname2">Surname2</nameField>
+			<nameField type="suffix">Suffix</nameField>
+		</sampleName>
 	</personNames>
 </ldml>

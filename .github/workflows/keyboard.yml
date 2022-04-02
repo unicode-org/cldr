@@ -1,0 +1,75 @@
+name: kbd-check
+
+on:
+  push:
+    paths:
+      - 'keyboards/**'
+  pull_request:
+    paths:
+      - 'keyboards/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repository
+        uses: actions/checkout@v2
+        with:
+          lfs: false
+        if: github.event.inputs.git-ref == ''
+      - name: Clone Repository (manual ref)
+        uses: actions/checkout@v2
+        with:
+          lfs: false
+          ref: ${{ github.event.inputs.git-ref }}
+        if: github.event.inputs.git-ref != ''
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - name: Cache local Maven repository
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-kbd-${{ hashFiles('tools/**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-kbd-
+      - name: Cache local npm repository
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-nodekbd-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nodekbd-
+            nodekbd-
+      - name: Build with Maven
+        run: >
+          mvn -s .github/workflows/mvn-settings.xml -B compile install package --file tools/pom.xml
+          -DskipTests=true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: BOM check in .xml files
+        run: >
+          mvn -s .github/workflows/mvn-settings.xml --file tools/pom.xml -pl cldr-code
+          exec:java -Dexec.mainClass=org.unicode.cldr.util.XMLValidator
+          -Dexec.cleanupDaemonThreads=false
+          -Dexec.args="-q --justCheckBom keyboards"
+          && echo 'No XML BOM detected'
+      - name: Keyboard 3.0 Check
+        run: >
+          mvn -s .github/workflows/mvn-settings.xml --file tools/pom.xml -pl cldr-code
+          exec:java -Dexec.mainClass=org.unicode.cldr.util.XMLValidator
+          -Dexec.cleanupDaemonThreads=false
+          -Dexec.args="keyboards/3.0"
+          && echo 'No XML BOM detected'
+      - name: Upload cldr-code.jar
+        uses: actions/upload-artifact@v2
+        with:
+          name: cldr-code
+          path: tools/cldr-code/target/cldr-code.jar
+      - name: Test with maven
+        run: >
+          mvn -s .github/workflows/mvn-settings.xml -B test --file tools/pom.xml
+          -DCLDR_GITHUB_ANNOTATIONS=true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -25,12 +25,14 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.Style;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Usage;
 import org.unicode.cldr.util.personname.SimpleNameObject;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Multimap;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.util.ULocale;
 
 public class TestPersonNameFormatter extends TestFmwk{
+    private static final boolean DEBUG = false;
 
     private static final FallbackFormatter FALLBACK_FORMATTER = new FallbackFormatter(ULocale.ENGLISH, "{0}*", "{0} {1}");
     private static final CLDRFile ENGLISH = CLDRConfig.getInstance().getEnglish();
@@ -130,6 +132,8 @@ public class TestPersonNameFormatter extends TestFmwk{
         checkFormatterData(personNameFormatter);
     }
 
+    public static final Joiner JOIN_SPACE = Joiner.on(' ');
+
     /**
      * Check that no exceptions happen in expansion and compaction.
      * In verbose mode (-v), show results.
@@ -152,7 +156,8 @@ public class TestPersonNameFormatter extends TestFmwk{
                 sb.append(prefix + "\t" + parameters + "\n");
                 prefix = "";
             }
-            showPattern("⇒", key, sb);
+            sb.setLength(sb.length()-1); // remove final \n
+            showPattern("\t⇒", key, sb);
         }
 
         count = 0;
@@ -165,16 +170,21 @@ public class TestPersonNameFormatter extends TestFmwk{
             final Collection<NamePattern> value = entry.getValue();
 
             String prefix = ++count + ")";
-            sb.append(prefix + "\t" + key + "\n");
+            sb.append(prefix
+                + "\t" + JOIN_SPACE.join(key.getLength())
+                + "\t" + JOIN_SPACE.join(key.getUsage())
+                + "\t" + JOIN_SPACE.join(key.getStyle())
+                + "\t" + JOIN_SPACE.join(key.getOrder())
+                );
             prefix = "";
-            showPattern("⇒", value, sb);
+            showPattern("\t⇒", value, sb);
         }
         logln(sb.toString());
     }
 
     private <T> void showPattern(String prefix, Iterable<T> iterable, StringBuilder sb) {
         for (T item : iterable) {
-            sb.append(prefix + "\t\t︎" + item + "\n");
+            sb.append(prefix + "\t︎" + item + "\n");
             prefix = "";
         }
     }
@@ -296,10 +306,26 @@ public class TestPersonNameFormatter extends TestFmwk{
     public void TestFormatAll() {
         PersonNameFormatter personNameFormatter = new PersonNameFormatter(ENGLISH);
         Map<SampleType, NameObject> samples = PersonNameFormatter.loadSampleNames(ENGLISH);
+        StringBuilder sb = DEBUG ? new StringBuilder() : null;
         // TODO cycle through parameter combinations, check for exceptions even if locale has no data
         for (FormatParameters parameters : FormatParameters.all()) {
             assertNotNull(SampleType.full + " + " + parameters.toLabel(), personNameFormatter.format(samples.get(SampleType.full), parameters));
             assertNotNull(SampleType.multiword + " + " + parameters.toLabel(), personNameFormatter.format(samples.get(SampleType.multiword), parameters));
+            Collection<NamePattern> nps = personNameFormatter.getBestMatchSet(parameters);
+            if (sb != null) {
+                for (NamePattern np : nps) {
+                    sb.append(parameters.getLength()
+                        + "\t" + parameters.getStyle()
+                        + "\t" + parameters.getUsage()
+                        + "\t" + parameters.getOrder()
+                        + "\t" + np
+                        + "\n"
+                        );
+                }
+            }
+        }
+        if (sb != null) {
+            System.out.println(sb);
         }
     }
 

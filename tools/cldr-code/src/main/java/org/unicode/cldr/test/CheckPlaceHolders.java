@@ -26,7 +26,6 @@ import com.google.common.collect.Multimap;
 public class CheckPlaceHolders extends CheckCLDR {
 
     private static final Pattern PLACEHOLDER_PATTERN = PatternCache.get("([0-9]|[1-9][0-9]+)");
-    private static final Pattern PLACEHOLDER_PATTERN_PERS_NAMES = PatternCache.get("([a-z][a-zA-Z23-]+?)"); // CLDR-15384 need alpha, -
     private static final Pattern SKIP_PATH_LIST = Pattern
         .compile("//ldml/characters/(exemplarCharacters|parseLenient).*");
 
@@ -40,6 +39,8 @@ public class CheckPlaceHolders extends CheckCLDR {
         }
 
         if (path.contains("/personNames/personName")) {
+
+            // TODO Mark (maybe not here); validate the nameOrderLocales values and the initialPattern
 
             // check that the name pattern is valid
 
@@ -65,6 +66,9 @@ public class CheckPlaceHolders extends CheckCLDR {
             int firstGiven = Integer.MAX_VALUE;
 
             Multimap<Field, Integer> fieldToPositions = namePattern.getFieldPositions();
+
+            // TODO ALL check for combinations we should enforce; eg, only have given2 if there is a given; only have surname2 if there is a surname; others?
+
             for (Entry<Field, Collection<Integer>> entry : fieldToPositions.asMap().entrySet()) {
 
                 // If a field occurs twice, probably an error. Could relax this upon feedback
@@ -122,14 +126,13 @@ public class CheckPlaceHolders extends CheckCLDR {
                 Set<Order> order = parameterMatcher.getOrder();
 
                 // Handle 'sorting' value. Will usually be compatible with surnameFirst, except for known exceptions
-                // TODO Mark cleanup once sorting is in Order
 
                 ImmutableSet<Object> givenFirstSortingLocales = ImmutableSet.of("is"); // will be static
                 if (order.contains(Order.sorting)) {
                     EnumSet<Order> temp = EnumSet.noneOf(Order.class);
                     temp.addAll(order);
                     temp.remove(Order.sorting);
-                    if (givenFirstSortingLocales.contains(getCldrFileToCheck().getLocaleID())) { // TODO Mark cover in-by-inheritance also
+                    if (givenFirstSortingLocales.contains(getCldrFileToCheck().getLocaleID())) { // TODO Mark cover contains-by-inheritance also
                         temp.add(Order.givenFirst);
                     } else {
                         temp.add(Order.surnameFirst);
@@ -145,6 +148,7 @@ public class CheckPlaceHolders extends CheckCLDR {
                 // that is, it is ok to coalesce patterns of different orders where the order doesn't make a difference
 
                 // TODO Mark We should get rid of the empty matcher; that should be handled by compactor. Then remove this condition
+
                 final boolean parameterMatcherIsMatchAll = parameterMatcher.equals(ParameterMatcher.MATCH_ALL);
                 if (!parameterMatcherIsMatchAll) {
 
@@ -163,8 +167,8 @@ public class CheckPlaceHolders extends CheckCLDR {
                     final Order first = order.iterator().next();
 
                     if (first != foundOrder) {
-                        // TODO Fix HACK
-                        if (first == Order.givenFirst && !"en".equals(getCldrFileToCheck().getLocaleID())) {
+
+                        if (first == Order.givenFirst && !"en".equals(getCldrFileToCheck().getLocaleID())) { // TODO Mark Drop HACK once root is ok
                             return this;
                         }
 
@@ -192,9 +196,7 @@ public class CheckPlaceHolders extends CheckCLDR {
                         .setMessage("Invalid placeholder (missing terminator) in value \"" + value + "\""));
                 } else {
                     String placeHolderString = value.substring(startPlaceHolder + 1, endPlaceHolder);
-                    Matcher matcher = (path.contains("/personNames/personName"))?
-                        PLACEHOLDER_PATTERN_PERS_NAMES.matcher(placeHolderString):
-                            PLACEHOLDER_PATTERN.matcher(placeHolderString);
+                    Matcher matcher = PLACEHOLDER_PATTERN.matcher(placeHolderString);
                     if (!matcher.matches()) {
                         result.add(new CheckStatus().setCause(this)
                             .setMainType(CheckStatus.errorType)

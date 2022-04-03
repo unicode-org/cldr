@@ -446,7 +446,7 @@ public class PersonNameFormatter {
                 return null;
             } if (!remainingModifers.isEmpty()) {
                 // apply default algorithms
-                // TODO specify order among modifiers
+                // TODO ALL Decide if the order among modifiers is rights
 
                 for (Modifier modifier : remainingModifers) {
                     switch(modifier) {
@@ -457,8 +457,8 @@ public class PersonNameFormatter {
                         bestValue = UCharacter.toUpperCase(fallbackInfo.formatterLocale, bestValue);
                         break;
                     case prefix:
-                        // TODO unhandled prefix is special; treat as if null
-                        // TODO if there is no plain, but there is a prefix and core, use that; otherwise use core
+                        // TODO Mark unhandled prefix is special; treat as if null
+                        // TODO Mark if there is no plain, but there is a prefix and core, use that; otherwise use core
                         break;
                     case core:
                     case informal:
@@ -1179,7 +1179,6 @@ public class PersonNameFormatter {
 
         /**
          * Build from strings for ease of testing
-         * TODO Mark make the localeToOrder from strings also
          */
         public NamePatternData(ImmutableMap<ULocale, Order> localeToOrder, String...formatParametersToNamePatterns ) {
             this(localeToOrder, parseFormatParametersToNamePatterns(formatParametersToNamePatterns));
@@ -1235,26 +1234,10 @@ public class PersonNameFormatter {
 
     /**
      * Create a formatter directly from data.
-     * An alternative method would be to create from the viewer's locale, using a resource bundle or CLDR data
-     * @param patternLocale TODO
      */
     public PersonNameFormatter(NamePatternData namePatternMap, FallbackFormatter fallbackFormatter) {
         this.namePatternMap = namePatternMap;
         this.fallbackFormatter = fallbackFormatter;
-    }
-
-    public String format(NameObject nameObject, FormatParameters nameFormatParameters) {
-        // look through the namePatternMap to find the best match for the set of modifiers and the available nameObject fields
-        NamePattern bestPattern = namePatternMap.getBestMatch(nameObject, nameFormatParameters);
-        // then format using it
-        return bestPattern.format(nameObject, nameFormatParameters, fallbackFormatter);
-    }
-
-    /**
-     * For testing
-     */
-    public Collection<NamePattern> getBestMatchSet(FormatParameters nameFormatParameters) {
-        return namePatternMap.getBestMatchSet(nameFormatParameters);
     }
 
     public PersonNameFormatter(CLDRFile cldrFile) {
@@ -1311,6 +1294,20 @@ public class PersonNameFormatter {
         this.fallbackFormatter = new FallbackFormatter(new ULocale(cldrFile.getLocaleID()), initialPattern, initialSequencePattern);
     }
 
+    public String format(NameObject nameObject, FormatParameters nameFormatParameters) {
+        // look through the namePatternMap to find the best match for the set of modifiers and the available nameObject fields
+        NamePattern bestPattern = namePatternMap.getBestMatch(nameObject, nameFormatParameters);
+        // then format using it
+        return bestPattern.format(nameObject, nameFormatParameters, fallbackFormatter);
+    }
+
+    /**
+     * For testing
+     */
+    public Collection<NamePattern> getBestMatchSet(FormatParameters nameFormatParameters) {
+        return namePatternMap.getBestMatchSet(nameFormatParameters);
+    }
+
     /**
      * Utility for constructing data from path and value.
      */
@@ -1327,8 +1324,6 @@ public class PersonNameFormatter {
             parts.getAttributeValue(-2, "order")
             );
 
-        // TODO change en.xml to not have periods after initials
-        value = value.replace(".", "");
         NamePattern np = NamePattern.from(rank, value);
         if (np.toString().isBlank()) {
             throw new IllegalArgumentException("No empty patterns allowed: " + pm);

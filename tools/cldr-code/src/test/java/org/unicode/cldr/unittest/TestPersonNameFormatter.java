@@ -126,9 +126,6 @@ public class TestPersonNameFormatter extends TestFmwk{
         check(personNameFormatter, sampleNameObject1, "length=short; order=sorting", "Smith, J. B.");
         check(personNameFormatter, sampleNameObject1, "length=long; usage=referring; style=formal", "John Bob Smith Jr.");
 
-        // TODO: we are getting the wrong answer for the second one obove.
-        // The problem is that it is matching order='surnameFirst' since that occurs first.
-
         checkFormatterData(personNameFormatter);
     }
 
@@ -284,7 +281,7 @@ public class TestPersonNameFormatter extends TestFmwk{
 
     public void TestExampleGenerator() {
         ExampleGenerator exampleGenerator = new ExampleGenerator(ENGLISH, ENGLISH, "");
-        String[][] tests = { // TODO revise these when we have the real English examples
+        String[][] tests = {
             {
                 "//ldml/personNames/personName[@length=\"long\"][@usage=\"referring\"][@style=\"formal\"][@order=\"givenFirst\"]/namePattern",
                 "〖Katherine Johnson〗〖Alberto Pedro Calderón〗〖John Blue〗〖John William Brown〗〖Dorothy Lavinia Brown M.D.〗〖Erich Oswald Hans Carl Maria von Stroheim〗"
@@ -307,7 +304,9 @@ public class TestPersonNameFormatter extends TestFmwk{
         PersonNameFormatter personNameFormatter = new PersonNameFormatter(ENGLISH);
         Map<SampleType, NameObject> samples = PersonNameFormatter.loadSampleNames(ENGLISH);
         StringBuilder sb = DEBUG ? new StringBuilder() : null;
-        // TODO cycle through parameter combinations, check for exceptions even if locale has no data
+
+        // Cycle through parameter combinations, check for exceptions even if locale has no data
+
         for (FormatParameters parameters : FormatParameters.all()) {
             assertNotNull(SampleType.full + " + " + parameters.toLabel(), personNameFormatter.format(samples.get(SampleType.full), parameters));
             assertNotNull(SampleType.multiword + " + " + parameters.toLabel(), personNameFormatter.format(samples.get(SampleType.multiword), parameters));
@@ -330,9 +329,6 @@ public class TestPersonNameFormatter extends TestFmwk{
     }
 
     public void TestInvalidNameObjectThrows() {
-        // TODO Consider other invariants.
-        // Must have given.
-        // No surname2 unless there is a surname
         final String[] invalidPatterns = new String[] {
             "given2-initial=B",
         };

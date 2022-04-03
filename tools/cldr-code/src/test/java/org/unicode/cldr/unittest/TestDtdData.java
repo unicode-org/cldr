@@ -469,7 +469,7 @@ public class TestDtdData extends TestFmwk {
                 || (elementName.equals("compoundUnitPattern1") && (attribute.equals("case") || attribute.equals("gender")))
                 || (elementName.equals("genderMinimalPairs") && attribute.equals("gender"))
                 || (elementName.equals("caseMinimalPairs") && attribute.equals("case"))
-                || (elementName.equals("nameOrder") && attribute.equals("nameLocales"))
+                || (elementName.equals("nameOrderLocales") && attribute.equals("order"))
                 || (elementName.equals("initialPattern") && attribute.equals("type"))
                 || (elementName.equals("personName") && (attribute.equals("length") || attribute.equals("usage") ||
                                                          attribute.equals("style") || attribute.equals("order")))

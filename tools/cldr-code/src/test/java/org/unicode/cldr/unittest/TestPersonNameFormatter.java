@@ -121,7 +121,7 @@ public class TestPersonNameFormatter extends TestFmwk{
             logln(personNameFormatter.toString());
         }
 
-        check(personNameFormatter, sampleNameObject1, "length=short; usage=sorting", "Smith, J. B.");
+        check(personNameFormatter, sampleNameObject1, "length=short; order=sorting", "Smith, J. B.");
         check(personNameFormatter, sampleNameObject1, "length=long; usage=referring; style=formal", "John Bob Smith Jr.");
 
         // TODO: we are getting the wrong answer for the second one obove.
@@ -197,13 +197,13 @@ public class TestPersonNameFormatter extends TestFmwk{
             assertTrue("label test\t"+ item + "\t" + label + "\t", added);
         }
 
-        FormatParameters testFormatParameters = new FormatParameters(Length.short_name, Style.formal, Usage.sorting, Order.givenFirst);
-        assertEquals("label test", "short-sorting-formal-givenFirst",
+        FormatParameters testFormatParameters = new FormatParameters(Length.short_name, Style.formal, Usage.referring, Order.givenFirst);
+        assertEquals("label test", "short-referring-formal-givenFirst",
             testFormatParameters.toLabel());
 
         // test just one example for ParameterMatcher, since there are too many combinations
         ParameterMatcher test = new ParameterMatcher(removeFirst(Length.ALL), removeFirst(Style.ALL), removeFirst(Usage.ALL), removeFirst(Order.ALL));
-        assertEquals("label test", "medium-short-monogram-monogramNarrow-addressing-sorting-informal-givenFirst",
+        assertEquals("label test", "medium-short-monogram-monogramNarrow-addressing-informal-givenFirst-surnameFirst",
             test.toLabel());
     }
 
@@ -274,13 +274,13 @@ public class TestPersonNameFormatter extends TestFmwk{
 
     public void TestExampleGenerator() {
         ExampleGenerator exampleGenerator = new ExampleGenerator(ENGLISH, ENGLISH, "");
-        String[][] tests = {
+        String[][] tests = { // TODO revise these when we have the real English examples
             {
                 "//ldml/personNames/personName[@length=\"long\"][@usage=\"referring\"][@style=\"formal\"][@order=\"givenFirst\"]/namePattern",
-                "〖Katherine Johnson〗〖Alberto Pedro Calderón〗〖Dorothy Lavinia Brown M.D.〗〖Erich Oswald Hans Carl Maria von Stroheim〗"
+                "〖Katherine Johnson〗〖Alberto Pedro Calderón〗〖John Blue〗〖John William Brown〗〖Dorothy Lavinia Brown M.D.〗〖Erich Oswald Hans Carl Maria von Stroheim〗"
             },{
                 "//ldml/personNames/personName[@length=\"monogram\"][@style=\"informal\"][@order=\"surnameFirst\"]/namePattern",
-                "〖JK〗〖CA〗〖BD〗〖vE〗"
+                "〖JK〗〖CA〗〖BJ〗〖BJ〗〖BD〗〖VE〗"
             }
         };
         for (String[] test : tests) {

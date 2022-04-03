@@ -188,17 +188,12 @@ public class TestExampleGenerator extends TestFmwk {
 
         "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/long/standard", // Error: (TestExampleGenerator.java:245) No background:   <Coordinated Universal Time>    〖Coordinated Universal Time〗
 
-        "//ldml/personNames/nameOrder[@nameLocales=\"([^\"]*+)\"]", // CLDR-15384
+        "//ldml/personNames/nameOrderLocales[@order=\"([^\"]*+)\"]", // CLDR-15384
         "//ldml/personNames/initialPattern[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]", // CLDR-15384
         "//ldml/personNames/initialPattern[@type=\"([^\"]*+)\"]", // CLDR-15384
         "//ldml/personNames/personName/namePattern[@alt=\"([^\"]*+)\"]", // CLDR-15384
-        "//ldml/personNames/personName/namePattern", // CLDR-15384
         "//ldml/personNames/personName[@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@style=\"([^\"]*+)\"][@order=\"([^\"]*+)\"]/namePattern[@alt=\"([^\"]*+)\"]", // CLDR-15384
-        "//ldml/personNames/personName[@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@style=\"([^\"]*+)\"][@order=\"([^\"]*+)\"]/namePattern", // CLDR-15384
-        "//ldml/personNames/personName[@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@style=\"([^\"]*+)\"]/namePattern[@alt=\"([^\"]*+)\"]", // CLDR-15384
-        "//ldml/personNames/personName[@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@style=\"([^\"]*+)\"]/namePattern", // CLDR-15384
         "//ldml/personNames/personName[@length=\"([^\"]*+)\"][@style=\"([^\"]*+)\"][@order=\"([^\"]*+)\"]/namePattern[@alt=\"([^\"]*+)\"]", // CLDR-15384
-        "//ldml/personNames/personName[@length=\"([^\"]*+)\"][@style=\"([^\"]*+)\"][@order=\"([^\"]*+)\"]/namePattern", // CLDR-15384
         "//ldml/personNames/sampleName[@item=\"([^\"]*+)\"]/nameField[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]", // CLDR-15384
         "//ldml/personNames/sampleName[@item=\"([^\"]*+)\"]/nameField[@type=\"([^\"]*+)\"]" // CLDR-15384
 
@@ -245,7 +240,10 @@ public class TestExampleGenerator extends TestFmwk {
         "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/long/standard",
         "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/short/generic",
         "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/short/standard",
-        "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/short/daylight");
+        "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/short/daylight",
+        "//ldml/personNames/personName/namePattern",
+        "//ldml/personNames/personName[@length=\"([^\"]*+)\"][@style=\"([^\"]*+)\"][@order=\"([^\"]*+)\"]/namePattern",
+        "//ldml/personNames/personName[@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@style=\"([^\"]*+)\"][@order=\"([^\"]*+)\"]/namePattern"); // CLDR-15384
     // Add to above if the background SHOULD appear, but we don't have them yet. TODO Add later
 
     public void TestAllPaths() {

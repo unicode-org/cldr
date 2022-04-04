@@ -420,19 +420,19 @@
 </li>
 <li>3 <a href="#Number_Format_Patterns">Number Format Patterns</a><ul>
 <li>3.1 <a href="#Number_Patterns">Number Patterns</a><ul>
-<li><a href="#Number_Pattern_Examples">Number Pattern Examples</a></li>
+<li>Table: <a href="#Number_Pattern_Examples">Number Pattern Examples</a></li>
 </ul>
 </li>
 <li>3.2 <a href="#Special_Pattern_Characters">Special Pattern Characters</a><ul>
-<li><a href="#Number_Pattern_Character_Definitions">Number Pattern Character Definitions</a></li>
-<li><a href="#Sample_Patterns_and_Results">Sample Patterns and Results</a></li>
+<li>Table: <a href="#Number_Pattern_Character_Definitions">Number Pattern Character Definitions</a></li>
+<li>Table: <a href="#Sample_Patterns_and_Results">Sample Patterns and Results</a></li>
 <li>3.2.1 <a href="#Explicit_Plus">Explicit Plus Signs</a></li>
 </ul>
 </li>
 <li>3.3 <a href="#Formatting">Formatting</a></li>
 <li>3.4 <a href="#sci">Scientific Notation</a></li>
 <li>3.5 <a href="#sigdig">Significant Digits</a><ul>
-<li><a href="#Significant_Digits_Examples">Significant Digits Examples</a></li>
+<li>Table: <a href="#Significant_Digits_Examples">Significant Digits Examples</a></li>
 </ul>
 </li>
 <li>3.6 <a href="#Padding">Padding</a></li>
@@ -448,17 +448,17 @@
 <li><a href="#Explicit_0_1_rules">Explicit 0 and 1 rules</a></li>
 <li>5.1 <a href="#Plural_rules_syntax">Plural rules syntax</a><ul>
 <li>5.1.1 <a href="#Operands">Operands</a><ul>
-<li><a href="#Plural_Operand_Meanings">Plural Operand Meanings</a></li>
-<li><a href="#Plural_Operand_Examples">Plural Operand Examples</a></li>
+<li>Table: <a href="#Plural_Operand_Meanings">Plural Operand Meanings</a></li>
+<li>Table: <a href="#Plural_Operand_Examples">Plural Operand Examples</a></li>
 </ul>
 </li>
 <li>5.1.2 <a href="#Relations">Relations</a><ul>
-<li><a href="#Relations_Examples">Relations Examples</a></li>
-<li><a href="#Plural_Rules_Examples">Plural Rules Examples</a></li>
+<li>Table: <a href="#Relations_Examples">Relations Examples</a></li>
+<li>Table: <a href="#Plural_Rules_Examples">Plural Rules Examples</a></li>
 </ul>
 </li>
 <li>5.1.3 <a href="#Samples">Samples</a><ul>
-<li><a href="#Plural_Samples_Examples">Plural Samples Examples</a></li>
+<li>Table: <a href="#Plural_Samples_Examples">Plural Samples Examples</a></li>
 </ul>
 </li>
 <li>5.1.4 <a href="#Using_cardinals">Using Cardinals</a></li>
@@ -703,7 +703,7 @@ For more information on numbering systems and their definitions, see <em><a href
     <span class="hljs-tag">&lt;<span class="hljs-name">genderMinimalPairs</span> <span class="hljs-attr">gender</span>=<span class="hljs-string">"masculine"</span>&gt;</span>Der {0} ist …<span class="hljs-tag">&lt;/<span class="hljs-name">genderMinimalPairs</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">genderMinimalPairs</span> <span class="hljs-attr">gender</span>=<span class="hljs-string">"neuter"</span>&gt;</span>Das {0} ist …<span class="hljs-tag">&lt;/<span class="hljs-name">genderMinimalPairs</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">minimalPairs</span>&gt;</span>
-</code></pre><p>For more information, see <a href="http://cldr.unicode.org/index/cldr-spec/plural-rules">Plural Rules</a> and <a href="http://cldr.unicode.org/translation/grammatical-inflection">Grammatical Inflection</a>.</p><h2 id="3-number-format-patterns">3 <a name="Number_Format_Patterns" href="#Number_Format_Patterns">Number Format Patterns</a></h2><h3 id="31-number-patterns">3.1 <a name="Number_Patterns" href="#Number_Patterns">Number Patterns</a></h3><p>Number patterns affect how numbers are interpreted in a localized context. Here are some examples, based on the French locale. The "." shows where the decimal point should go. The "," shows where the thousands separator should go. A "0" indicates zero-padding: if the number is too short, a zero (in the locale's numeric set) will go there. A "#" indicates no padding: if the number is too short, nothing goes there. A "¤" shows where the currency sign will go. The following illustrates the effects of different patterns for the French locale, with the number "1234.567". Notice how the pattern characters ',' and '.' are replaced by the characters appropriate for the locale.</p><h6 id="number-pattern-examples"><a name="Number_Pattern_Examples" href="#Number_Pattern_Examples">Number Pattern Examples</a></h6><table>
+</code></pre><p>For more information, see <a href="http://cldr.unicode.org/index/cldr-spec/plural-rules">Plural Rules</a> and <a href="http://cldr.unicode.org/translation/grammatical-inflection">Grammatical Inflection</a>.</p><h2 id="3-number-format-patterns">3 <a name="Number_Format_Patterns" href="#Number_Format_Patterns">Number Format Patterns</a></h2><h3 id="31-number-patterns">3.1 <a name="Number_Patterns" href="#Number_Patterns">Number Patterns</a></h3><p>Number patterns affect how numbers are interpreted in a localized context. Here are some examples, based on the French locale. The "." shows where the decimal point should go. The "," shows where the thousands separator should go. A "0" indicates zero-padding: if the number is too short, a zero (in the locale's numeric set) will go there. A "#" indicates no padding: if the number is too short, nothing goes there. A "¤" shows where the currency sign will go. The following illustrates the effects of different patterns for the French locale, with the number "1234.567". Notice how the pattern characters ',' and '.' are replaced by the characters appropriate for the locale.</p><table><caption id="table-number-pattern-examples">Table: <a name="Number_Pattern_Examples" href="#Number_Pattern_Examples">Number Pattern Examples</a></caption>
 <thead>
 <tr>
 <th>Pattern</th>
@@ -746,7 +746,7 @@ For more information on numbering systems and their definitions, see <em><a href
 <td>JPY</td>
 <td>1 235 ¥JP</td>
 </tr>
-</tbody></table><p>The number of # placeholder characters before the decimal do not matter, since no limit is placed on the maximum number of digits. There should, however, be at least one zero someplace in the pattern. In currency formats, the number of digits after the decimal also do not matter, since the information in the supplemental data (see <em><a href="#Supplemental_Currency_Data">Supplemental Currency Data</a>)</em> is used to override the number of decimal places — and the rounding — according to the currency that is being formatted. That can be seen in the above chart, with the difference between Yen and Euro formatting.</p><p>To ensure correct layout, especially in currency patterns in which a a variety of symbols may be used, number patterns may contain (invisible) bidirectional text format characters such as LRM, RLM, and ALM.</p><p><em>When parsing using a pattern, a lenient parse should be used; see <a href="tr35.html#Lenient_Parsing">Lenient Parsing</a>.</em> As noted there, lenient parsing should ignore bidi format characters.</p><h3 id="32-special-pattern-characters">3.2 <a name="Special_Pattern_Characters" href="#Special_Pattern_Characters">Special Pattern Characters</a></h3><p>Many characters in a pattern are taken literally; they are matched during parsing and output unchanged during formatting. Special characters, on the other hand, stand for other characters, strings, or classes of characters. For example, the '#' character is replaced by a localized digit for the chosen numberSystem. Often the replacement character is the same as the pattern character; in the U.S. locale, the ',' grouping character is replaced by ','. However, the replacement is still happening, and if the symbols are modified, the grouping character changes. Some special characters affect the behavior of the formatter by their presence; for example, if the percent character is seen, then the value is multiplied by 100 before being displayed.</p><p>To insert a special character in a pattern as a literal, that is, without any special meaning, the character must be quoted. There are some exceptions to this which are noted below. The Localized Replacement column shows the replacement from <em>Section 2.3 <a href="#Number_Symbols">Number Symbols</a></em> or the numberSystem's digits: <em>italic</em> indicates a special function.</p><p>Invalid sequences of special characters (such as “¤¤¤¤¤¤” in current CLDR) should be handled for formatting and parsing as described in <a href="tr35.html#Invalid_Patterns">Handling Invalid Patterns</a>.</p><h6 id="number-pattern-character-definitions"><a name="Number_Pattern_Character_Definitions" href="#Number_Pattern_Character_Definitions">Number Pattern Character Definitions</a></h6><table>
+</tbody></table><p>The number of # placeholder characters before the decimal do not matter, since no limit is placed on the maximum number of digits. There should, however, be at least one zero someplace in the pattern. In currency formats, the number of digits after the decimal also do not matter, since the information in the supplemental data (see <em><a href="#Supplemental_Currency_Data">Supplemental Currency Data</a>)</em> is used to override the number of decimal places — and the rounding — according to the currency that is being formatted. That can be seen in the above chart, with the difference between Yen and Euro formatting.</p><p>To ensure correct layout, especially in currency patterns in which a a variety of symbols may be used, number patterns may contain (invisible) bidirectional text format characters such as LRM, RLM, and ALM.</p><p><em>When parsing using a pattern, a lenient parse should be used; see <a href="tr35.html#Lenient_Parsing">Lenient Parsing</a>.</em> As noted there, lenient parsing should ignore bidi format characters.</p><h3 id="32-special-pattern-characters">3.2 <a name="Special_Pattern_Characters" href="#Special_Pattern_Characters">Special Pattern Characters</a></h3><p>Many characters in a pattern are taken literally; they are matched during parsing and output unchanged during formatting. Special characters, on the other hand, stand for other characters, strings, or classes of characters. For example, the '#' character is replaced by a localized digit for the chosen numberSystem. Often the replacement character is the same as the pattern character; in the U.S. locale, the ',' grouping character is replaced by ','. However, the replacement is still happening, and if the symbols are modified, the grouping character changes. Some special characters affect the behavior of the formatter by their presence; for example, if the percent character is seen, then the value is multiplied by 100 before being displayed.</p><p>To insert a special character in a pattern as a literal, that is, without any special meaning, the character must be quoted. There are some exceptions to this which are noted below. The Localized Replacement column shows the replacement from <em>Section 2.3 <a href="#Number_Symbols">Number Symbols</a></em> or the numberSystem's digits: <em>italic</em> indicates a special function.</p><p>Invalid sequences of special characters (such as “¤¤¤¤¤¤” in current CLDR) should be handled for formatting and parsing as described in <a href="tr35.html#Invalid_Patterns">Handling Invalid Patterns</a>.</p><table><caption id="table-number-pattern-character-definitions">Table: <a name="Number_Pattern_Character_Definitions" href="#Number_Pattern_Character_Definitions">Number Pattern Character Definitions</a></caption>
 <thead>
 <tr>
 <th align="left">Symbol</th>
@@ -866,7 +866,7 @@ For more information on numbering systems and their definitions, see <em><a href
 <td>Decimal</td>
 <td>"#,##0¤00"</td>
 </tr>
-</tbody></table><p>Below is a sample of patterns, special characters, and results:</p><h6 id="sample-patterns-and-results"><a name="Sample_Patterns_and_Results" href="#Sample_Patterns_and_Results">Sample Patterns and Results</a></h6><table><tbody>
+</tbody></table><p>Below is a sample of patterns, special characters, and results:</p><table><caption id="table-sample-patterns-and-results">Table: <a name="Sample_Patterns_and_Results" href="#Sample_Patterns_and_Results">Sample Patterns and Results</a></caption><tbody>
 <tr><th>explicit pattern:</th><td colspan="2">0.00;-0.00</td><td colspan="2">0.00;0.00-</td><td colspan="2">0.00+;0.00-</td></tr>
 <tr><th>decimalSign:</th><td colspan="2">,</td><td colspan="2">,</td><td colspan="2">,</td></tr>
 <tr><th>minusSign:</th><td colspan="2">∸</td><td colspan="2">∸</td><td colspan="2">∸</td></tr>
@@ -995,7 +995,7 @@ For more information on numbering systems and their definitions, see <em><a href
 </li>
 <li><p>  Exponential patterns may not contain grouping separators.</p>
 </li>
-</ul><h3 id="35-significant-digits">3.5 <a name="sigdig" href="#sigdig">Significant Digits</a></h3><p>There are two ways of controlling how many digits are shows: (a) significant digits counts, or (b) integer and fraction digit counts. Integer and fraction digit counts are described above. When a formatter is using significant digits counts, it uses however many integer and fraction digits are required to display the specified number of significant digits. It may ignore min/max integer/fraction digits, or it may use them to the extent possible.</p><h6 id="significant-digits-examples"><a name="Significant_Digits_Examples" href="#Significant_Digits_Examples">Significant Digits Examples</a></h6><table>
+</ul><h3 id="35-significant-digits">3.5 <a name="sigdig" href="#sigdig">Significant Digits</a></h3><p>There are two ways of controlling how many digits are shows: (a) significant digits counts, or (b) integer and fraction digit counts. Integer and fraction digit counts are described above. When a formatter is using significant digits counts, it uses however many integer and fraction digits are required to display the specified number of significant digits. It may ignore min/max integer/fraction digits, or it may use them to the extent possible.</p><table><caption id="table-significant-digits-examples">Table: <a name="Significant_Digits_Examples" href="#Significant_Digits_Examples">Significant Digits Examples</a></caption>
 <thead>
 <tr>
 <th align="left">Pattern</th>
@@ -1316,7 +1316,7 @@ digitPos        = [1-9]
 <li>The 'other' keyword must have no condition, and all other keywords must have a condition.</li>
 </ul><h4 id="511-operands">5.1.1 <a name="Operands" href="#Operands">Operands</a></h4><p>The operands are numeric values corresponding to features of the <em>source number N</em>, and have the following meanings given in the table below.
 Note that, contrary to source numbers, operands are treated numerically.
-Although some of them are used to describe insignificant 0s in the source number, any insignificant 0s in the operands themselves are ignored, e.g., f=03 is equivalent to f=3.</p><h6 id="plural-operand-meanings"><a name="Plural_Operand_Meanings" href="#Plural_Operand_Meanings">Plural Operand Meanings</a></h6><table>
+Although some of them are used to describe insignificant 0s in the source number, any insignificant 0s in the operands themselves are ignored, e.g., f=03 is equivalent to f=3.</p><table><caption id="table-plural-operand-meanings">Table: <a name="Plural_Operand_Meanings" href="#Plural_Operand_Meanings">Plural Operand Meanings</a></caption>
 <thead>
 <tr>
 <th>Symbol</th>
@@ -1357,7 +1357,7 @@ Although some of them are used to describe insignificant 0s in the source number
 </tr>
 </tbody></table><p>* If there is a compact decimal exponent value (‘c’), then the n, i, f, t, v, and w values are computed <em>after</em> shifting the decimal point in the original by the ‘c’ value.
 So for 1.2c3, the n, i, f, t, v, and w values are the same as those of 1200:  i=1200 and f=0.
-Similarly, 1.2005c3 has i=1200 and f=5 (corresponding to 1200.5).</p><h6 id="plural-operand-examples"><a name="Plural_Operand_Examples" href="#Plural_Operand_Examples">Plural Operand Examples</a></h6><table>
+Similarly, 1.2005c3 has i=1200 and f=5 (corresponding to 1200.5).</p><table><caption id="table-plural-operand-examples">Table: <a name="Plural_Operand_Examples" href="#Plural_Operand_Examples">Plural Operand Examples</a></caption>
 <thead>
 <tr>
 <th align="right">source</th>
@@ -1500,7 +1500,7 @@ Similarly, 1.2005c3 has i=1200 and f=5 (corresponding to 1200.5).</p><h6 id="plu
 <td align="right">5</td>
 <td align="right">3</td>
 </tr>
-</tbody></table><h4 id="512-relations">5.1.2 <a name="Relations" href="#Relations">Relations</a></h4><p>The positive relations are of the format <strong>x = y</strong> and <strong>x = y mod z</strong>. The <strong>y</strong> value can be a comma-separated list, such as <strong>n = 3, 5, 7..15</strong>, and is treated as if each relation were expanded into an OR statement. The range value <strong>a..b</strong> is equivalent to listing all the _<strong>integers</strong>_ between <strong>a</strong> and <strong>b</strong>, inclusive. When <strong>!=</strong> is used, it means the entire relation is negated.</p><h6 id="relations-examples"><a name="Relations_Examples" href="#Relations_Examples">Relations Examples</a></h6><table>
+</tbody></table><h4 id="512-relations">5.1.2 <a name="Relations" href="#Relations">Relations</a></h4><p>The positive relations are of the format <strong>x = y</strong> and <strong>x = y mod z</strong>. The <strong>y</strong> value can be a comma-separated list, such as <strong>n = 3, 5, 7..15</strong>, and is treated as if each relation were expanded into an OR statement. The range value <strong>a..b</strong> is equivalent to listing all the _<strong>integers</strong>_ between <strong>a</strong> and <strong>b</strong>, inclusive. When <strong>!=</strong> is used, it means the entire relation is negated.</p><table><caption id="table-relations-examples">Table: <a name="Relations_Examples" href="#Relations_Examples">Relations Examples</a></caption>
 <thead>
 <tr>
 <th>Expression</th>
@@ -1551,7 +1551,7 @@ Similarly, 1.2005c3 has i=1200 and f=5 (corresponding to 1200.5).</p><h6 id="plu
 </ul>
 </li>
 <li>Otherwise return !R.</li>
-</ol><h6 id="plural-rules-examples"><a name="Plural_Rules_Examples" href="#Plural_Rules_Examples">Plural Rules Examples</a></h6><table>
+</ol><table><caption id="table-plural-rules-examples">Table: <a name="Plural_Rules_Examples" href="#Plural_Rules_Examples">Plural Rules Examples</a></caption>
 <thead>
 <tr>
 <th>Rules</th>
@@ -1570,7 +1570,7 @@ Similarly, 1.2005c3 has i=1200 and f=5 (corresponding to 1200.5).</p><h6 id="plu
 <td>one: n = 1 <br> few: n mod 10 = 2..4 and n mod 100 != 12..14</td>
 <td>This illustrates conjunction and negation. The condition for 'few' has two parts, both of which must be met: "n mod 10 = 2..4" and "n mod 100 != 12..14". The first part applies a modulus to n before the test as in the previous example. The second part applies a different modulus and also uses negation, thus it matches all numbers <em>not</em> in 12, 13, 14, 112, 113, 114, 212, 213, 214…</td>
 </tr>
-</tbody></table><h4 id="513-samples">5.1.3 <a name="Samples" href="#Samples">Samples</a></h4><p>Samples are provided if sample indicator (@integer or @decimal) is present on any rule. (CLDR always provides samples.)</p><p>Where samples are provided, the absence of one of the sample indicators indicates that no numeric values can satisify that rule. For example, the rule "i = 1 and v = 0" can only have integer samples, so @decimal must not occur. The @integer samples have no visible fraction digits, while @decimal samples have visible fraction digits; both can have compact decimal exponent values (if the 'e' operand occurs).</p><p>The sampleRanges have a special notation: <strong>start</strong>~<strong>end</strong>. The <strong>start</strong> and <strong>end</strong> values must have the same number of decimal digits, and the same compact decimal exponent values (or neither have compact decimal exponent values). The range encompasses all and only values those value <strong>v</strong> where <strong>start ≤ v ≤ end</strong>, and where <strong>v</strong> has the same number of decimal places as <strong>start</strong> and <strong>end</strong>, and the same compact decimal exponent values.</p><p>Samples must indicate whether they are infinite or not. The '…' marker must be present if and only infinitely many values (integer or decimal) can satisfy the rule. If a set is not infinite, it must list all the possible values.</p><h6 id="plural-samples-examples"><a name="Plural_Samples_Examples" href="#Plural_Samples_Examples">Plural Samples Examples</a></h6><table>
+</tbody></table><h4 id="513-samples">5.1.3 <a name="Samples" href="#Samples">Samples</a></h4><p>Samples are provided if sample indicator (@integer or @decimal) is present on any rule. (CLDR always provides samples.)</p><p>Where samples are provided, the absence of one of the sample indicators indicates that no numeric values can satisify that rule. For example, the rule "i = 1 and v = 0" can only have integer samples, so @decimal must not occur. The @integer samples have no visible fraction digits, while @decimal samples have visible fraction digits; both can have compact decimal exponent values (if the 'e' operand occurs).</p><p>The sampleRanges have a special notation: <strong>start</strong>~<strong>end</strong>. The <strong>start</strong> and <strong>end</strong> values must have the same number of decimal digits, and the same compact decimal exponent values (or neither have compact decimal exponent values). The range encompasses all and only values those value <strong>v</strong> where <strong>start ≤ v ≤ end</strong>, and where <strong>v</strong> has the same number of decimal places as <strong>start</strong> and <strong>end</strong>, and the same compact decimal exponent values.</p><p>Samples must indicate whether they are infinite or not. The '…' marker must be present if and only infinitely many values (integer or decimal) can satisfy the rule. If a set is not infinite, it must list all the possible values.</p><table><caption id="table-plural-samples-examples">Table: <a name="Plural_Samples_Examples" href="#Plural_Samples_Examples">Plural Samples Examples</a></caption>
 <thead>
 <tr>
 <th>Rules</th>
@@ -1677,4 +1677,4 @@ Similarly, 1.2005c3 has i=1200 and f=5 (corresponding to 1200.5).</p><h6 id="plu
 </ol><p>To determine whether to add spacing, the currently recommended heuristic is:</p><ol>
 <li>If the <em>lower</em> string ends with a character other than a digit, or if the <em>upper</em> string begins with a character other than a digit.</li>
 <li>If the range pattern does not contain a character having the <code>White_Space</code> binary Unicode property after the <code>{0}</code> or before the <code>{1}</code> placeholders.</li>
-</ol><p>These heuristics may be refined in the future.</p><p>To add spacing, insert a non-breaking space (U+00A0) at the positions in item 2 above.</p><hr><p>Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode <a href="https://unicode.org/copyright.html">Terms of Use</a> apply.</p><p>Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.</p></div><script>anchors.add()</script></body></html>
+</ol><p>These heuristics may be refined in the future.</p><p>To add spacing, insert a non-breaking space (U+00A0) at the positions in item 2 above.</p><hr><p>Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode <a href="https://unicode.org/copyright.html">Terms of Use</a> apply.</p><p>Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.</p></div><script>anchors.add('h1, h2, h3, h4, h5, h6, caption');</script></body></html>

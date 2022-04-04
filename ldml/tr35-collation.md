@@ -16,6 +16,11 @@ This document describes parts of an XML format (_vocabulary_) for the exchange o
 
 This is a partial document, describing only those parts of the LDML that are relevant for collation (sorting, searching & grouping). For the other parts of the LDML see the [main LDML document](tr35.md) and the links above.
 
+_Note:_
+Some links may lead to in-development or older
+versions of the data files.
+See <https://cldr.unicode.org> for up-to-date CLDR release data.
+
 ### _Status_
 
 _This is a draft document which may be updated, replaced, or superseded by other documents at any time. Publication does not imply endorsement by the Unicode Consortium. This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
@@ -58,28 +63,28 @@ The LDML specification is divided into the following parts:
 * 3 [Collation Tailorings](#Collation_Tailorings)
   * 3.1 [Collation Types](#Collation_Types)
     * 3.1.1 [Collation Type Fallback](#Collation_Type_Fallback)
-      * [Sample requested and actual collation locales and types](#Sample_requested_and_actual_collation_locales_and_types)
+      * Table: [Sample requested and actual collation locales and types](#Sample_requested_and_actual_collation_locales_and_types)
   * 3.2 [Version](#Collation_Version)
   * 3.3 [Collation Element](#Collation_Element)
   * 3.4 [Setting Options](#Setting_Options)
-    * [Collation Settings](#Collation_Settings)
+    * Table: [Collation Settings](#Collation_Settings)
     * 3.4.1 [Common settings combinations](#Common_Settings)
     * 3.4.2 [Notes on the normalization setting](#Normalization_Setting)
     * 3.4.3 [Notes on variable top settings](#Variable_Top_Settings)
   * 3.5 [Collation Rule Syntax](#Rules)
   * 3.6 [Orderings](#Orderings)
-    * [Specifying Collation Ordering](#Specifying_Collation_Ordering)
-    * [Abbreviating Ordering Specifications](#Abbreviating_Ordering_Specifications)
+    * Table: [Specifying Collation Ordering](#Specifying_Collation_Ordering)
+    * Table: [Abbreviating Ordering Specifications](#Abbreviating_Ordering_Specifications)
   * 3.7 [Contractions](#Contractions)
-    * [Specifying Contractions](#Specifying_Contractions)
+    * Table: [Specifying Contractions](#Specifying_Contractions)
   * 3.8 [Expansions](#Expansions)
   * 3.9 [Context Before](#Context_Before)
-    * [Specifying Previous Context](#Specifying_Previous_Context)
+    * Table: [Specifying Previous Context](#Specifying_Previous_Context)
   * 3.10 [Placing Characters Before Others](#Placing_Characters_Before_Others)
   * 3.11 [Logical Reset Positions](#Logical_Reset_Positions)
-    * [Specifying Logical Positions](#Specifying_Logical_Positions)
+    * Table: [Specifying Logical Positions](#Specifying_Logical_Positions)
   * 3.12 [Special-Purpose Commands](#Special_Purpose_Commands)
-    * [Special-Purpose Elements](#Special_Purpose_Elements)
+    * Table: [Special-Purpose Elements](#Special_Purpose_Elements)
   * 3.13 [Collation Reordering](#Script_Reordering)
     * 3.13.1 [Interpretation of a reordering list](#Interpretation_reordering)
     * 3.13.2 [Reordering Groups for allkeys.txt](#Reordering_Groups_allkeys)
@@ -572,7 +577,7 @@ For example, assume that we have collation data for the following tailorings. ("
 * zh/stroke
 * zh-Hant/defaultCollation=stroke
 
-###### <a name="Sample_requested_and_actual_collation_locales_and_types" href="#Sample_requested_and_actual_collation_locales_and_types">Sample requested and actual collation locales and types</a>
+###### Table: <a name="Sample_requested_and_actual_collation_locales_and_types" href="#Sample_requested_and_actual_collation_locales_and_types">Sample requested and actual collation locales and types</a>
 
 | requested         | actual        | comment |
 | ----------------- | ------------- | ------- |
@@ -615,7 +620,7 @@ Parametric settings can be specified in language tags or in rule syntax (in the 
 
 If a setting is not present, the CLDR default (or the default for the locale, if there is one) is used. That default is listed in bold italics. Where there is a UCA default that is different, it is listed in bold with (**UCA default**). Note that the default value for a locale may be different than the normal default value for the setting.
 
-###### <a name="Collation_Settings" href="#Collation_Settings">Collation Settings</a>
+###### Table: <a name="Collation_Settings" href="#Collation_Settings">Collation Settings</a>
 
 <table><tbody>
 <tr><th>BCP47 Key</th><th>BCP47 Value</th><th>Rule Syntax</th><th>Description</th></tr>
@@ -730,7 +735,7 @@ The root collation mappings form the initial state. Mappings are added and remov
 
 A rule chain consists of a reset followed by one or more relations. The reset position is a string which maps to one or more collation elements according to the current state. A relation consists of an operator and a string; it maps the string to the current collation elements, modified according to the operator.
 
-###### <a name="Specifying_Collation_Ordering" href="#Specifying_Collation_Ordering">Specifying Collation Ordering</a>
+###### Table: <a name="Specifying_Collation_Ordering" href="#Specifying_Collation_Ordering">Specifying Collation Ordering</a>
 
 | Relation Operator | Example | Description |
 | ----------------- | ------- | ----------- |
@@ -777,7 +782,7 @@ Some additional operators are provided to save space with large tailorings. The 
 
 A starred relation operator is followed by a sequence of characters with the same quoting/escaping rules as normal relation strings. Such a sequence can also be followed by one or more pairs of ‘-’ and another sequence of characters. The single characters adjacent to the ‘-’ establish a code point order range. The same character cannot be both the end of a range and the start of another range. (For example, `<a-d-g` is not allowed.)
 
-###### <a name="Abbreviating_Ordering_Specifications" href="#Abbreviating_Ordering_Specifications">Abbreviating Ordering Specifications</a>
+###### Table: <a name="Abbreviating_Ordering_Specifications" href="#Abbreviating_Ordering_Specifications">Abbreviating Ordering Specifications</a>
 
 | Relation Operator | Example                 | Equivalent |
 | ----------------- | ----------------------- | ---------- |
@@ -791,7 +796,7 @@ A starred relation operator is followed by a sequence of characters with the sam
 
 A multi-character relation string defines a contraction.
 
-###### <a name="Specifying_Contractions" href="#Specifying_Contractions">Specifying Contractions</a>
+###### Table: <a name="Specifying_Contractions" href="#Specifying_Contractions">Specifying Contractions</a>
 
 | Example          | Description |
 | ---------------- | ----------- |
@@ -817,7 +822,7 @@ A relation string can have a prefix (context before) which makes the mapping fro
 
 For example, suppose that "-" is sorted like the previous vowel. Then one could have rules that take "a-", "e-", and so on. However, that means that every time a very common character (a, e, ...) is encountered, a system will slow down as it looks for possible contractions. An alternative is to indicate that when "-" is encountered, and it comes after an 'a', it sorts like an 'a', and so on.
 
-###### <a name="Specifying_Previous_Context" href="#Specifying_Previous_Context">Specifying Previous Context</a>
+###### Table: <a name="Specifying_Previous_Context" href="#Specifying_Previous_Context">Specifying Previous Context</a>
 
 | Rules |
 | ----- |
@@ -846,7 +851,7 @@ It is an error if the strength of the reset-before differs from the strength of 
 
 The CLDR table (based on UCA) has the following overall structure for weights, going from low to high.
 
-###### <a name="Specifying_Logical_Positions" href="#Specifying_Logical_Positions">Specifying Logical Positions</a>
+###### Table: <a name="Specifying_Logical_Positions" href="#Specifying_Logical_Positions">Specifying Logical Positions</a>
 
 | Name                                                           | Description      | UCA Examples |
 | -------------------------------------------------------------- | ---------------- | ------------ |
@@ -893,7 +898,7 @@ _Examples:_
 * `[import und-u-co-search]` (not "root-...")
 * `[import ja-u-co-private-kana]` (language "ja" required even when this import itself is in another "ja" tailoring.)
 
-###### <a name="Special_Purpose_Elements" href="#Special_Purpose_Elements">Special-Purpose Elements</a>
+###### Table: <a name="Special_Purpose_Elements" href="#Special_Purpose_Elements">Special-Purpose Elements</a>
 
 | Rule Syntax |
 | ----------- |

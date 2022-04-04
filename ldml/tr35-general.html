@@ -661,6 +661,7 @@
 
 
 
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
   <tbody>
       <tr>
@@ -673,7 +674,10 @@
   </table></div><div class="body"><h2 id="unicode-technical-standard-35">Unicode Technical Standard #35</h2><h1 id="unicode-locale-data-markup-language-ldmlpart-2-general">Unicode Locale Data Markup Language (LDML)<br>Part 2: General</h1><!-- HTML: no header --><table class="simple" width="90%"><tbody>
 <tr><td>Version</td><td>41</td></tr>
 <tr><td>Editors</td><td>Yoshito Umaoka (<a href="mailto:yoshito_umaoka@us.ibm.com">yoshito_umaoka@us.ibm.com</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td></tr>
-</tbody></table><p>For the full header, summary, and status, see <a href="tr35.html">Part 1: Core</a>.</p><h3 id="summary"><em>Summary</em></h3><p>This document describes parts of an XML format (<em>vocabulary</em>) for the exchange of structured locale data. This format is used in the <a href="https://unicode.org/cldr/">Unicode Common Locale Data Repository</a>.</p><p>This is a partial document, describing general parts of the LDML: display names &amp; transforms, etc. For the other parts of the LDML see the <a href="tr35.html">main LDML document</a> and the links above.</p><h3 id="status"><em>Status</em></h3><p><em>This is a draft document which may be updated, replaced, or superseded by other documents at any time. Publication does not imply endorsement by the Unicode Consortium. This is not a stable document; it is inappropriate to cite this document as other than a work in progress.</em></p><blockquote>
+</tbody></table><p>For the full header, summary, and status, see <a href="tr35.html">Part 1: Core</a>.</p><h3 id="summary"><em>Summary</em></h3><p>This document describes parts of an XML format (<em>vocabulary</em>) for the exchange of structured locale data. This format is used in the <a href="https://unicode.org/cldr/">Unicode Common Locale Data Repository</a>.</p><p>This is a partial document, describing general parts of the LDML: display names &amp; transforms, etc. For the other parts of the LDML see the <a href="tr35.html">main LDML document</a> and the links above.</p><p><em>Note:</em>
+Some links may lead to in-development or older
+versions of the data files.
+See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-date CLDR release data.</p><h3 id="status"><em>Status</em></h3><p><em>This is a draft document which may be updated, replaced, or superseded by other documents at any time. Publication does not imply endorsement by the Unicode Consortium. This is not a stable document; it is inappropriate to cite this document as other than a work in progress.</em></p><blockquote>
 <p><em><strong>A Unicode Technical Standard (UTS)</strong> is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS.</em></p>
 </blockquote><p><em>Please submit corrigenda and other comments with the CLDR bug reporting form [<a href="tr35.html#Bugs">Bugs</a>]. Related information that is useful in understanding this document is found in the <a href="tr35.html#References">References</a>. For the latest version of the Unicode Standard see [<a href="tr35.html#Unicode">Unicode</a>]. For a list of current Unicode Technical Reports see [<a href="tr35.html#Reports">Reports</a>]. For more information about versions of the Unicode Standard, see [<a href="tr35.html#Versions">Versions</a>].</em></p><h2 id="parts"><a name="Parts" href="#Parts">Parts</a></h2><p>The LDML specification is divided into the following parts:</p><ul>
 <li>  Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</li>
@@ -764,18 +768,18 @@
 </ul>
 </li>
 <li>12 <a href="#Context_Transform_Elements">ContextTransform Elements</a><ul>
-<li><a href="#contextTransformUsage_type_attribute_values">Element contextTransformUsage type attribute values</a></li>
+<li>Table: <a href="#contextTransformUsage_type_attribute_values">Element contextTransformUsage type attribute values</a></li>
 </ul>
 </li>
 <li>13 <a href="#Choice_Patterns">Choice Patterns</a></li>
 <li>14 <a href="#Annotations">Annotations and Labels</a><ul>
 <li>14.1 <a href="#SynthesizingNames">Synthesizing Sequence Names</a><ul>
-<li><a href="#synthesized-emoji-sequence-names">Synthesized Emoji Sequence Names</a></li>
+<li><a href="#table-synthesized-emoji-sequence-names">Table: Synthesized Emoji Sequence Names</a></li>
 </ul>
 </li>
 <li>14.2 <a href="#Character_Labels">Annotations Character Labels</a><ul>
-<li><a href="#characterlabelpattern">characterLabelPattern</a></li>
-<li><a href="#characterlabel">characterLabel</a></li>
+<li><a href="#table-characterlabelpattern">Table: characterLabelPattern</a></li>
+<li><a href="#table-characterlabel">Table: characterLabel</a></li>
 </ul>
 </li>
 <li>14.3 <a href="#Typographic_Names">Typographic Names</a></li>
@@ -785,19 +789,21 @@
 <li><a href="#features">Features</a><ul>
 <li>15.1 <a href="#Gender">Gender</a><ul>
 <li><a href="#example">Example</a></li>
-<li><a href="#values">Values</a></li>
+<li><a href="#table-values">Table: Values</a></li>
 </ul>
 </li>
 <li>15.2 <a href="#Case">Case</a><ul>
-<li><a href="#case">Case</a><ul>
-<li><a href="#example">Example</a></li>
-<li><a href="#values">Values</a></li>
+<li><a href="#table-case">Table: Case</a><ul>
+<li><a href="#example">Example</a><ul>
+<li><a href="#table-values">Table: Values</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a href="#definiteness">Definiteness</a><ul>
-<li><a href="#values">Values</a></li>
+<li><a href="#table-values">Table: Values</a></li>
 </ul>
 </li>
 </ul>
@@ -2917,7 +2923,7 @@ so this algorithm can be used to write into append-only sinks. Both the back-to-
         <span class="hljs-tag">&lt;<span class="hljs-name">contextTransform</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"uiListOrMenu"</span>&gt;</span>titlecase-firstword<span class="hljs-tag">&lt;/<span class="hljs-name">contextTransform</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">contextTransformUsage</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">contextTransforms</span>&gt;</span>
-</code></pre><h6 id="element-contexttransformusage-type-attribute-values"><a name="contextTransformUsage_type_attribute_values" href="#contextTransformUsage_type_attribute_values">Element contextTransformUsage type attribute values</a></h6><table>
+</code></pre><table><caption id="table-element-contexttransformusage-type-attribute-values">Table: <a name="contextTransformUsage_type_attribute_values" href="#contextTransformUsage_type_attribute_values">Element contextTransformUsage type attribute values</a></caption>
 <thead>
 <tr>
 <th>type attribute value</th>
@@ -3093,7 +3099,7 @@ so this algorithm can be used to write into append-only sinks. Both the back-to-
 <li> For an <strong>emoji flag sequence</strong> or <strong>emoji tag sequence</strong> representing a subdivision, use "flag".</li>
 <li> For keycap sequences, use "keycap".</li>
 <li> For other sequences, add the keywords for the subsequences used to get the short names for <strong>prefixName</strong>, and the short names used for <strong>suffixName</strong>.</li>
-</ol><p>Some examples for English data (v30) are given in the following table.</p><h6 id="synthesized-emoji-sequence-names">Synthesized Emoji Sequence Names</h6><table>
+</ol><p>Some examples for English data (v30) are given in the following table.</p><table><caption id="table-synthesized-emoji-sequence-names">Table: Synthesized Emoji Sequence Names</caption>
 <thead>
 <tr>
 <th>Sequence</th>
@@ -3247,7 +3253,7 @@ so this algorithm can be used to write into append-only sinks. Both the back-to-
 <span class="hljs-meta">&lt;!ELEMENT <span class="hljs-meta-keyword">characterLabel</span> ( <span class="hljs-meta-keyword">#PCDATA</span> ) &gt;</span>
 
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-meta-keyword">characterLabel</span> <span class="hljs-meta-keyword">type</span> <span class="hljs-meta-keyword">NMTOKEN</span> <span class="hljs-meta-keyword">#REQUIRED</span> &gt;</span>
-</code></pre><p>The character labels can be used for categories or groups of characters in a character picker or keyboard palette. They have the above structure. Items with special meanings are explained below. Many of the categories are based on terms used in Unicode. Consult the <a href="https://www.unicode.org/glossary/">Unicode Glossary</a> where the meaning is not clear.</p><p>The following are special patterns used in composing labels.</p><h6 id="characterlabelpattern">characterLabelPattern</h6><table>
+</code></pre><p>The character labels can be used for categories or groups of characters in a character picker or keyboard palette. They have the above structure. Items with special meanings are explained below. Many of the categories are based on terms used in Unicode. Consult the <a href="https://www.unicode.org/glossary/">Unicode Glossary</a> where the meaning is not clear.</p><p>The following are special patterns used in composing labels.</p><table><caption id="table-characterlabelpattern">Table: characterLabelPattern</caption>
 <thead>
 <tr>
 <th>Type</th>
@@ -3315,7 +3321,7 @@ so this algorithm can be used to write into append-only sinks. Both the back-to-
 <td>superscript {0}</td>
 <td>For indicating superscript forms, such as "superscript digits".</td>
 </tr>
-</tbody></table><p>The following are character labels. Where the meaning of the label is fairly clear (like "animal") or is in the Unicode glossary, it is omitted.</p><h6 id="characterlabel">characterLabel</h6><table>
+</tbody></table><p>The following are character labels. Where the meaning of the label is fairly clear (like "animal") or is in the Unicode glossary, it is omitted.</p><table><caption id="table-characterlabel">Table: characterLabel</caption>
 <thead>
 <tr>
 <th>Type</th>
@@ -3537,9 +3543,9 @@ so this algorithm can be used to write into append-only sinks. Both the back-to-
 </code></pre><p>The @targets attribute contains the specific grammatical entities to which the features apply, such as <code>nominal</code> when they apply to nouns only. The @locales attribute contains the specific locales to which the features apply, such as <code>de fr</code> for German and French.</p><p>The @scope attribute, if present, indicates that the values are limited to a specific subset for certain kinds of entities. For example, a particular language might have an animate gender for nouns, but no units of measurement ever have that case; in another language, the language might have a rich set of grammatical cases, but units are invariant. If the @scope attribute is not present, then that has the meaning of "everything else".</p><p>The @scope attributes are targeted at messages created by computers, thus a feature may have a narrower scope if for all practical purposes the feature value is not used in messages created by computers. For example, it may be possible in theory for a kilogram to be in the vocative case (English poetry might have “O Captain! my Captain!/ our fearful trip is done”, but on computers you have little call to need the message “O kilogram! my kilogram! …”).</p><p><strong>Constraints:</strong></p><ul>
 <li>a scope attribute is only used when there is a corresponding “general” element, one for the same language and target without a scope attribute.</li>
 <li>the scope attribute values must be narrower (a proper subset, possibly empty) of those in the corresponding general element.</li>
-</ul><h3 id="151-gender">15.1 <a name="Gender" href="#Gender">Gender</a></h3><p>Feature that classifies nouns in classes. This is grammatical gender, which may be assigned on the basis of sex in some languages, but may be completely separate in others. Also used to tag elements in CLDR that should agree with a particular gender of an associated noun. (adapted from: <a href="http://linguistics-ontology.org/gold/2010/GenderProperty">linguistics-ontology.org/gold/2010/GenderProperty</a>)</p><h6 id="example">Example</h6><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">grammaticalFeatures</span> <span class="hljs-attr">targets</span>=<span class="hljs-string">"nominal"</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">"es fr it pt"</span>&gt;</span>
+</ul><h3 id="151-gender">15.1 <a name="Gender" href="#Gender">Gender</a></h3><p>Feature that classifies nouns in classes. This is grammatical gender, which may be assigned on the basis of sex in some languages, but may be completely separate in others. Also used to tag elements in CLDR that should agree with a particular gender of an associated noun. (adapted from: <a href="http://linguistics-ontology.org/gold/2010/GenderProperty">linguistics-ontology.org/gold/2010/GenderProperty</a>)</p><h4 id="example">Example</h4><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">grammaticalFeatures</span> <span class="hljs-attr">targets</span>=<span class="hljs-string">"nominal"</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">"es fr it pt"</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">grammaticalGender</span> <span class="hljs-attr">values</span>=<span class="hljs-string">"masculine feminine"</span>/&gt;</span>
-</code></pre><h4 id="values">Values</h4><table>
+</code></pre><h4 id="table-values">Table: Values</h4><table>
 <thead>
 <tr>
 <th>Value</th>
@@ -3582,9 +3588,9 @@ so this algorithm can be used to write into append-only sinks. Both the back-to-
 <td>In a masculine/feminine/neuter or common/neuter gender system, gender that generally denotes an object.</td>
 <td>adapted from: <a href="https://en.wikipedia.org/wiki/Grammatical_gender">wikipedia.org/wiki/Grammatical_gender</a>, <a href="http://linguistics-ontology.org/gold/2010/NeuterGender">linguistics-ontology.org/gold/2010/NeuterGender</a></td>
 </tr>
-</tbody></table><h3 id="152-case">15.2 <a name="Case" href="#Case">Case</a></h3><h4 id="case">Case</h4><p>Feature that encodes the syntactic (and sometimes semantic) relationship of a noun with the other constituents of the sentence. (adapted from <a href="http://linguistics-ontology.org/gold/2010/CaseProperty">linguistics-ontology.org/gold/2010/CaseProperty</a>)</p><h6 id="example-1">Example</h6><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">grammaticalFeatures</span> <span class="hljs-attr">targets</span>=<span class="hljs-string">"nominal"</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">"de"</span>&gt;</span>
+</tbody></table><h3 id="152-case">15.2 <a name="Case" href="#Case">Case</a></h3><h4 id="table-case">Table: Case</h4><p>Feature that encodes the syntactic (and sometimes semantic) relationship of a noun with the other constituents of the sentence. (adapted from <a href="http://linguistics-ontology.org/gold/2010/CaseProperty">linguistics-ontology.org/gold/2010/CaseProperty</a>)</p><h5 id="example-1">Example</h5><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">grammaticalFeatures</span> <span class="hljs-attr">targets</span>=<span class="hljs-string">"nominal"</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">"de"</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">grammaticalCase</span> <span class="hljs-attr">values</span>=<span class="hljs-string">"nominative accusative genitive dative"</span>/&gt;</span>
-</code></pre><h6 id="values-1">Values</h6><table>
+</code></pre><table><caption id="table-values-1">Table: Values</caption>
 <thead>
 <tr>
 <th>Value</th>
@@ -3732,7 +3738,7 @@ so this algorithm can be used to write into append-only sinks. Both the back-to-
 <td>Vocative case marks a noun whose referent is being addressed.</td>
 <td><a href="https://purl.org/olia/olia.owl#VocativeCase">purl.org/olia/olia.owl#VocativeCase</a>, <a href="http://linguistics-ontology.org/gold/2010/VocativeCase">linguistics-ontology.org/gold/2010/VocativeCase</a></td>
 </tr>
-</tbody></table><h3 id="definiteness">Definiteness</h3><p>Feature that encodes the fact that a noun has been already mentioned, or is familiar in the discourse. (adapted from <a href="https://glossary.sil.org/term/definiteness">https://glossary.sil.org/term/definiteness</a> )</p><h4 id="values-2">Values</h4><table>
+</tbody></table><h3 id="definiteness">Definiteness</h3><p>Feature that encodes the fact that a noun has been already mentioned, or is familiar in the discourse. (adapted from <a href="https://glossary.sil.org/term/definiteness">https://glossary.sil.org/term/definiteness</a> )</p><h4 id="table-values-2">Table: Values</h4><table>
 <thead>
 <tr>
 <th>Value</th>
@@ -3805,4 +3811,4 @@ so this algorithm can be used to write into append-only sinks. Both the back-to-
 <span class="hljs-tag">&lt;<span class="hljs-name">deriveComponent</span> <span class="hljs-attr">feature</span>=<span class="hljs-string">"case"</span> <span class="hljs-attr">structure</span>=<span class="hljs-string">"prefix"</span> <span class="hljs-attr">value0</span>=<span class="hljs-string">"nominative"</span>  <span class="hljs-attr">value1</span>=<span class="hljs-string">"compound"</span> /&gt;</span><span class="hljs-comment">&lt;!--compound(kilometer) ⇒  nominative(kilo) compound(meter) --&gt;</span>
 </code></pre><p>For example, for gram-per-meter, the first line above means:</p><ul>
 <li>When the accusative form of gram-per-meter is needed, then the gram part of the translation has take the accusative case (eg, “gramu”, in a language that marks the accusative case with 'u'), while the meter part of the translation has a nominative form like “metre”. This would be composed with the pattern for "per" (say "{0} pro {1}") to get "gramu pro metre".</li>
-</ul><hr><p>Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode <a href="https://unicode.org/copyright.html">Terms of Use</a> apply.</p><p>Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.</p></div><script>anchors.add()</script></body></html>
+</ul><hr><p>Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode <a href="https://unicode.org/copyright.html">Terms of Use</a> apply.</p><p>Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.</p></div><script>anchors.add('h1, h2, h3, h4, h5, h6, caption');</script></body></html>

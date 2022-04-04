@@ -22,6 +22,11 @@ This document describes parts of an XML format (_vocabulary_) for the exchange o
 
 This is a partial document, describing keyboard mappings. For the other parts of the LDML see the [main LDML document](tr35.md) and the links above.
 
+_Note:_
+Some links may lead to in-development or older
+versions of the data files.
+See <https://cldr.unicode.org> for up-to-date CLDR release data.
+
 ### _Status_
 
 _This is a draft document which may be updated, replaced, or superseded by other documents at any time. Publication does not imply endorsement by the Unicode Consortium. This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
@@ -63,7 +68,7 @@ The LDML specification is divided into the following parts:
   * 5.6 [Element: name](#Element_name)
   * 5.7 [Element: settings](#Element_settings)
   * 5.8 [Element: keyMap](#Element_keyMap)
-    * [Possible Modifier Keys](#Possible_Modifier_Keys)
+    * Table: [Possible Modifier Keys](#Possible_Modifier_Keys)
   * 5.9 [Element: map](#Element_map)
     * 5.9.1 [Elements: flicks, flick](#Element_flicks)
   * 5.10 [Element: import](#Element_import)
@@ -86,7 +91,7 @@ The LDML specification is divided into the following parts:
   * 6.3 [Element: map](#Element_hardwareMap_map)
 * 7 [Invariants](#Invariants)
 * 8 [Data Sources](#Data_Sources)
-  * [Key Map Data Sources](#Key_Map_Data_Sources)
+  * Table: [Key Map Data Sources](#Key_Map_Data_Sources)
 * 9 [Keyboard IDs](#Keyboard_IDs)
   * 9.1 [Principles for Keyboard Ids](#Principles_for_Keyboard_Ids)
 * 10 [Platform Behaviors in Edge Cases](#Platform_Behaviors_in_Edge_Cases)
@@ -547,7 +552,7 @@ Within a combination, the presence of a modifier WITHOUT the '?' suffix indicate
 
 Here is an exhaustive list of all possible modifier keys:
 
-###### <a name="Possible_Modifier_Keys" href="#Possible_Modifier_Keys">Possible Modifier Keys</a>
+###### Table: <a name="Possible_Modifier_Keys" href="#Possible_Modifier_Keys">Possible Modifier Keys</a>
 
 | Modifier Keys |          | Comments                        |
 |---------------|----------|---------------------------------|
@@ -1890,7 +1895,7 @@ Beyond what the DTD imposes, certain other restrictions on the data are imposed 
 
 Here is a list of the data sources used to generate the initial key map layouts:
 
-###### <a name="Key_Map_Data_Sources" href="#Key_Map_Data_Sources">Key Map Data Sources</a>
+###### Table: <a name="Key_Map_Data_Sources" href="#Key_Map_Data_Sources">Key Map Data Sources</a>
 
 | Platform | Source | Notes |
 |----------|--------|-------|

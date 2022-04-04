@@ -16,6 +16,11 @@ This document describes parts of an XML format (_vocabulary_) for the exchange o
 
 This is a partial document, describing only those parts of the LDML that are relevant for supplemental data. For the other parts of the LDML see the [main LDML document](tr35.md) and the links above.
 
+_Note:_
+Some links may lead to in-development or older
+versions of the data files.
+See <https://cldr.unicode.org> for up-to-date CLDR release data.
+
 ### _Status_
 
 _This is a draft document which may be updated, replaced, or superseded by other documents at any time. Publication does not imply endorsement by the Unicode Consortium. This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
@@ -58,7 +63,7 @@ The LDML specification is divided into the following parts:
   * 8.3 [Default Values](#Coverage_Level_Default_Values)
 * 9 [Supplemental Metadata](#Appendix_Supplemental_Metadata)
   * 9.1 [Supplemental Alias Information](#Supplemental_Alias_Information)
-    * [Alias Attribute Values](#Alias_Attribute_Values)
+    * Table: [Alias Attribute Values](#Alias_Attribute_Values)
   * 9.2 ~~[Supplemental Deprecated Information (Deprecated)](#Supplemental_Deprecated_Information)~~
   * 9.3 [Default Content](#Default_Content)
 * 10 [Locale Metadata Elements](#Metadata_Elements)
@@ -690,7 +695,7 @@ This element provides information as to parts of locale IDs that should be subst
 
 Attribute values for the \*Alias values include the following:
 
-###### <a name="Alias_Attribute_Values" href="#Alias_Attribute_Values">Alias Attribute Values</a>
+###### Table: <a name="Alias_Attribute_Values" href="#Alias_Attribute_Values">Alias Attribute Values</a>
 
 | Attribute   | Value         | Description |
 | ----------- | ------------- | ----------- |

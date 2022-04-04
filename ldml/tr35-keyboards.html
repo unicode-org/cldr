@@ -540,6 +540,7 @@
 
 
 
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
   <tbody>
       <tr>
@@ -557,7 +558,10 @@
 developing major changes to the CLDR keyboard specification. These changes are targeted for
 CLDR version 41. Please see <a href="https://unicode-org.atlassian.net/browse/CLDR-15034">CLDR-15034</a> for
 the latest information.</p>
-</blockquote><h3 id="summary"><em>Summary</em></h3><p>This document describes parts of an XML format (<em>vocabulary</em>) for the exchange of structured locale data. This format is used in the <a href="https://unicode.org/cldr/">Unicode Common Locale Data Repository</a>.</p><p>This is a partial document, describing keyboard mappings. For the other parts of the LDML see the <a href="tr35.html">main LDML document</a> and the links above.</p><h3 id="status"><em>Status</em></h3><p><em>This is a draft document which may be updated, replaced, or superseded by other documents at any time. Publication does not imply endorsement by the Unicode Consortium. This is not a stable document; it is inappropriate to cite this document as other than a work in progress.</em></p><blockquote>
+</blockquote><h3 id="summary"><em>Summary</em></h3><p>This document describes parts of an XML format (<em>vocabulary</em>) for the exchange of structured locale data. This format is used in the <a href="https://unicode.org/cldr/">Unicode Common Locale Data Repository</a>.</p><p>This is a partial document, describing keyboard mappings. For the other parts of the LDML see the <a href="tr35.html">main LDML document</a> and the links above.</p><p><em>Note:</em>
+Some links may lead to in-development or older
+versions of the data files.
+See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-date CLDR release data.</p><h3 id="status"><em>Status</em></h3><p><em>This is a draft document which may be updated, replaced, or superseded by other documents at any time. Publication does not imply endorsement by the Unicode Consortium. This is not a stable document; it is inappropriate to cite this document as other than a work in progress.</em></p><blockquote>
 <p><em><strong>A Unicode Technical Standard (UTS)</strong> is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS.</em></p>
 </blockquote><p><em>Please submit corrigenda and other comments with the CLDR bug reporting form [<a href="tr35.html#Bugs">Bugs</a>]. Related information that is useful in understanding this document is found in the <a href="tr35.html#References">References</a>. For the latest version of the Unicode Standard see [<a href="tr35.html#Unicode">Unicode</a>]. For a list of current Unicode Technical Reports see [<a href="tr35.html#Reports">Reports</a>]. For more information about versions of the Unicode Standard, see [<a href="tr35.html#Versions">Versions</a>].</em></p><h2 id="parts"><a name="Parts" href="#Parts">Parts</a></h2><p>The LDML specification is divided into the following parts:</p><ul>
 <li>  Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</li>
@@ -589,7 +593,7 @@ the latest information.</p>
 <li>5.6 <a href="#Element_name">Element: name</a></li>
 <li>5.7 <a href="#Element_settings">Element: settings</a></li>
 <li>5.8 <a href="#Element_keyMap">Element: keyMap</a><ul>
-<li><a href="#Possible_Modifier_Keys">Possible Modifier Keys</a></li>
+<li>Table: <a href="#Possible_Modifier_Keys">Possible Modifier Keys</a></li>
 </ul>
 </li>
 <li>5.9 <a href="#Element_map">Element: map</a><ul>
@@ -620,7 +624,7 @@ the latest information.</p>
 </li>
 <li>7 <a href="#Invariants">Invariants</a></li>
 <li>8 <a href="#Data_Sources">Data Sources</a><ul>
-<li><a href="#Key_Map_Data_Sources">Key Map Data Sources</a></li>
+<li>Table: <a href="#Key_Map_Data_Sources">Key Map Data Sources</a></li>
 </ul>
 </li>
 <li>9 <a href="#Keyboard_IDs">Keyboard IDs</a><ul>
@@ -826,7 +830,7 @@ Occurence: required, multiple</p>
 <p>A set of modifier combinations that cause this key map to be "active". Each combination is separated by a space. The interpretation is that there is a match if any of the combinations match, that is, they are ORed. Therefore, the order of the combinations within this attribute does not matter.</p>
 </blockquote><blockquote>
 <p>A combination is simply a concatenation of words to represent the simultaneous activation of one or more modifier keys. The order of the modifier keys within a combination does not matter, although don't care cases are generally added to the end of the string for readability (see next paragraph). For example: <code>"cmd+caps"</code> represents the Caps Lock and Command modifier key combination. Some keys have right or left variant keys, specified by a 'R' or 'L' suffix. For example: <code>"ctrlR+caps"</code> would represent the Right-Control and Caps Lock combination. For simplicity, the presence of a modifier without a 'R' or 'L' suffix means that either its left or right variants are valid. So <code>"ctrl+caps"</code> represents the same as <code>"ctrlL+ctrlR?+caps ctrlL?+ctrlR+caps"</code>.</p>
-</blockquote><p>A modifier key may be further specified to be in a "don't care" state using the '?' suffix. The "don't care" state simply means that the preceding modifier key may be either ON or OFF. For example <code>"ctrl+shift?"</code> could be expanded into <code>"ctrl ctrl+shift"</code>.</p><p>Within a combination, the presence of a modifier WITHOUT the '?' suffix indicates this key MUST be on. The converse is also true, the absence of a modifier key means it MUST be off for the combination to be active.</p><p>Here is an exhaustive list of all possible modifier keys:</p><h6 id="possible-modifier-keys"><a name="Possible_Modifier_Keys" href="#Possible_Modifier_Keys">Possible Modifier Keys</a></h6><table>
+</blockquote><p>A modifier key may be further specified to be in a "don't care" state using the '?' suffix. The "don't care" state simply means that the preceding modifier key may be either ON or OFF. For example <code>"ctrl+shift?"</code> could be expanded into <code>"ctrl ctrl+shift"</code>.</p><p>Within a combination, the presence of a modifier WITHOUT the '?' suffix indicates this key MUST be on. The converse is also true, the absence of a modifier key means it MUST be off for the combination to be active.</p><p>Here is an exhaustive list of all possible modifier keys:</p><table><caption id="table-possible-modifier-keys">Table: <a name="Possible_Modifier_Keys" href="#Possible_Modifier_Keys">Possible Modifier Keys</a></caption>
 <thead>
 <tr>
 <th>Modifier Keys</th>
@@ -1805,7 +1809,7 @@ Occurence: required, multiple
 <td>xLY ⋁ x ⇒ xLY?</td>
 <td></td>
 </tr>
-</tbody></table><hr><h2 id="8-data-sources">8 <a name="Data_Sources" href="#Data_Sources">Data Sources</a></h2><p>Here is a list of the data sources used to generate the initial key map layouts:</p><h6 id="key-map-data-sources"><a name="Key_Map_Data_Sources" href="#Key_Map_Data_Sources">Key Map Data Sources</a></h6><table>
+</tbody></table><hr><h2 id="8-data-sources">8 <a name="Data_Sources" href="#Data_Sources">Data Sources</a></h2><p>Here is a list of the data sources used to generate the initial key map layouts:</p><table><caption id="table-key-map-data-sources">Table: <a name="Key_Map_Data_Sources" href="#Key_Map_Data_Sources">Key Map Data Sources</a></caption>
 <thead>
 <tr>
 <th>Platform</th>
@@ -1879,4 +1883,4 @@ Occurence: required, multiple
 <td>No output</td>
 <td>Both keys are output separately</td>
 </tr>
-</tbody></table><hr><p>Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode <a href="https://unicode.org/copyright.html">Terms of Use</a> apply.</p><p>Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.</p></div><script>anchors.add()</script></body></html>
+</tbody></table><hr><p>Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode <a href="https://unicode.org/copyright.html">Terms of Use</a> apply.</p><p>Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.</p></div><script>anchors.add('h1, h2, h3, h4, h5, h6, caption');</script></body></html>

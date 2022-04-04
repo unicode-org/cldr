@@ -1902,7 +1902,7 @@ Here is a list of the data sources used to generate the initial key map layouts:
 | Android  | Android 4.0 - Ice Cream Sandwich ([https://source.android.com/source/downloading.html](https://source.android.com/source/downloading.html)) | Parsed layout files located in packages/inputmethods/LatinIME/java/res |
 | ChromeOS | XKB ([https://www.x.org/wiki/XKB](https://www.x.org/wiki/XKB)) | The ChromeOS represents a very small subset of the keyboards available from XKB.
 | Mac OSX  | Ukelele bundled System Keyboards ([https://software.sil.org/ukelele/](https://software.sil.org/ukelele/)) | These layouts date from Mac OSX 10.4 and are therefore a bit outdated |
-| Windows  | Generated .klc files from the Microsoft Keyboard Layout Creator ([https://support.microsoft.com/en-us/help/823010/the-microsoft-keyboard-layout-creator](https://support.microsoft.com/en-us/help/823010/the-microsoft-keyboard-layout-creator)) |
+| Windows  | Generated .klc files from the Microsoft Keyboard Layout Creator ([https://support.microsoft.com/en-us/topic/906c31e4-d5ea-7988-cb39-7b688880d7cb](https://support.microsoft.com/en-us/topic/906c31e4-d5ea-7988-cb39-7b688880d7cb)) |
 
 * * *
 

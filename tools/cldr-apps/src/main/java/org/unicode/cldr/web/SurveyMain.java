@@ -417,20 +417,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             SurveyMain.config = config;
             verifyConfigSanity();
             ensureCldrToolsIsFunctioning();
+            getDbInstance();
             SurveyThreadManager.getExecutorService().submit(() -> doStartup());
         } catch (Throwable t) {
             SurveyLog.logException(logger, t, "Initializing SurveyTool");
             SurveyMain.busted("Error initializing SurveyTool.", t);
             return;
         }
-        if (!startUpDatabase()) {
-            return;
-        }
-        Summary.scheduleAutomaticSnapshots();
-
-        // TODO: check whether doStartup and startUpDatabase have a synchronization problem,
-        // sometimes this.dbUtils null when doStartup calls doStartupDb
-        // Reference: https://unicode-org.atlassian.net/browse/CLDR-15472
     }
 
     private void verifyConfigSanity() {
@@ -467,18 +460,20 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         PathHeader.PageId.forString(PathHeader.PageId.Africa.name());
     }
 
-    private boolean startUpDatabase() {
+    /**
+     * Initialize dbUtils
+     *
+     * This needs to be run in the same thread as init(), before doStartupDB
+     */
+    private void getDbInstance() {
         try {
             dbUtils = DBUtils.getInstance();
         } catch (Throwable t) {
             SurveyLog.logException(logger, t, "Starting up database");
-
             String dbBroken = DBUtils.getDbBrokenMessage();
-
             SurveyMain.busted("Error starting up database - " + dbBroken, t);
-            return false;
+            throw new InternalError("Couldn't get dbUtils instance");
         }
-        return true;
     }
 
     public SurveyMain() {
@@ -2850,16 +2845,22 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
             progress.update("Wake up the database..");
 
+            if (dbUtils == null) {
+                // This can happen if the server gets shut down in the middle of initialization,
+                // when dbUtils has been set to null by doShutdownDB.
+                // liberty:dev can cause this when compileWait has its default value of 0.5 seconds
+                return;
+            }
             doStartupDB(); // will take over progress 50-60
 
             progress.update("Making your Survey Tool happy..");
 
             if (isBusted == null) {
                 MailSender.getInstance();
+                Summary.scheduleAutomaticSnapshots();
             } else {
                 progress.update("Not loading mail - SurveyTool already busted.");
             }
-
         } catch (Throwable t) {
             t.printStackTrace();
             SurveyLog.logException(logger, t, "StartupThread");
@@ -3459,6 +3460,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private void doStartupDB() {
         if (isMaintenance()) {
             throw new InternalError("SurveyTool is in setup mode.");
+        }
+        if (dbUtils == null) {
+            throw new InternalError("doStartupDB called when dbUtils is null");
         }
         CLDRProgressTask progress = openProgress("Database Setup");
         try {

@@ -884,7 +884,7 @@ public class DBUtils {
     }
 
     public void validateDatasourceExists(SurveyMain sm, CLDRProgressIndicator.CLDRProgressTask progress) {
-        logger.info("StartupDB: datasource=" + datasource);
+        logger.info("validateDatasourceExists: datasource=" + datasource);
         if (datasource == null) {
             throw new RuntimeException(" - JNDI required:  " + getDbBrokenMessage());
         }

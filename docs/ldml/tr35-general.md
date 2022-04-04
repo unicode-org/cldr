@@ -16,6 +16,11 @@ This document describes parts of an XML format (_vocabulary_) for the exchange o
 
 This is a partial document, describing general parts of the LDML: display names & transforms, etc. For the other parts of the LDML see the [main LDML document](tr35.md) and the links above.
 
+_Note:_
+Some links may lead to in-development or older
+versions of the data files.
+See <https://cldr.unicode.org> for up-to-date CLDR release data.
+
 ### _Status_
 
 _This is a draft document which may be updated, replaced, or superseded by other documents at any time. Publication does not imply endorsement by the Unicode Consortium. This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
@@ -92,26 +97,26 @@ The LDML specification is divided into the following parts:
 * 11 [List Patterns](#ListPatterns)
   * 11.1 [Gender of Lists](#List_Gender)
 * 12 [ContextTransform Elements](#Context_Transform_Elements)
-  * [Element contextTransformUsage type attribute values](#contextTransformUsage_type_attribute_values)
+  * Table: [Element contextTransformUsage type attribute values](#contextTransformUsage_type_attribute_values)
 * 13 [Choice Patterns](#Choice_Patterns)
 * 14 [Annotations and Labels](#Annotations)
   * 14.1 [Synthesizing Sequence Names](#SynthesizingNames)
-    * [Synthesized Emoji Sequence Names](#synthesized-emoji-sequence-names)
+    * [Table: Synthesized Emoji Sequence Names](#table-synthesized-emoji-sequence-names)
   * 14.2 [Annotations Character Labels](#Character_Labels)
-    * [characterLabelPattern](#characterlabelpattern)
-    * [characterLabel](#characterlabel)
+    * [Table: characterLabelPattern](#table-characterlabelpattern)
+    * [Table: characterLabel](#table-characterlabel)
   * 14.3 [Typographic Names](#Typographic_Names)
 * 15 [Grammatical Features](#Grammatical_Features)
 * [Features](#features)
   * 15.1 [Gender](#Gender)
     * [Example](#example)
-    * [Values](#values)
+    * [Table: Values](#table-values)
   * 15.2 [Case](#Case)
-    * [Case](#case)
+    * [Table: Case](#table-case)
       * [Example](#example)
-      * [Values](#values)
+        * [Table: Values](#table-values)
   * [Definiteness](#definiteness)
-    * [Values](#values)
+    * [Table: Values](#table-values)
 * 16 [Grammatical Derivations](#Grammatical_Derivations)
   * 16.1 [Deriving the Gender of Compound Units](#gender_compound_units)
   * 16.2 [Deriving the Plural Category of Unit Components](#plural_compound_units)
@@ -2351,7 +2356,7 @@ Example:
 </contextTransforms>
 ```
 
-###### <a name="contextTransformUsage_type_attribute_values" href="#contextTransformUsage_type_attribute_values">Element contextTransformUsage type attribute values</a>
+###### Table: <a name="contextTransformUsage_type_attribute_values" href="#contextTransformUsage_type_attribute_values">Element contextTransformUsage type attribute values</a>
 
 | type attribute value             | Description |
 | -------------------------------- | ----------- |
@@ -2479,7 +2484,7 @@ The synthesized keywords can follow a similar process.
 
 Some examples for English data (v30) are given in the following table.
 
-###### Synthesized Emoji Sequence Names
+###### Table: Synthesized Emoji Sequence Names
 
 | Sequence | Short Name | Keywords |
 | --------- | ---------- | -------- |
@@ -2533,7 +2538,7 @@ The character labels can be used for categories or groups of characters in a cha
 
 The following are special patterns used in composing labels.
 
-###### characterLabelPattern
+###### Table: characterLabelPattern
 
 | Type          | English             | Description of the group specified. |
 | ------------- | ------------------- | ----------------------------------- |
@@ -2552,7 +2557,7 @@ The following are special patterns used in composing labels.
 
 The following are character labels. Where the meaning of the label is fairly clear (like "animal") or is in the Unicode glossary, it is omitted.
 
-###### characterLabel
+###### Table: characterLabel
 
 | Type                        | English                 | Description of the group specified. |
 | --------------------------- | ----------------------- | ----------------------------------- |
@@ -2677,14 +2682,14 @@ The @scope attributes are targeted at messages created by computers, thus a feat
 
 Feature that classifies nouns in classes. This is grammatical gender, which may be assigned on the basis of sex in some languages, but may be completely separate in others. Also used to tag elements in CLDR that should agree with a particular gender of an associated noun. (adapted from: [linguistics-ontology.org/gold/2010/GenderProperty](http://linguistics-ontology.org/gold/2010/GenderProperty))
 
-###### Example
+#### Example
 
 ```xml
 <grammaticalFeatures targets="nominal" locales="es fr it pt">
    <grammaticalGender values="masculine feminine"/>
 ```
 
-#### Values
+#### Table: Values
 
 | Value     | Definition | References |
 | --------- | ---------- | ---------- |
@@ -2698,18 +2703,18 @@ Feature that classifies nouns in classes. This is grammatical gender, which may 
 
 ### 15.2 <a name="Case" href="#Case">Case</a>
 
-#### Case
+#### Table: Case
 
 Feature that encodes the syntactic (and sometimes semantic) relationship of a noun with the other constituents of the sentence. (adapted from [linguistics-ontology.org/gold/2010/CaseProperty](http://linguistics-ontology.org/gold/2010/CaseProperty))
 
-###### Example
+##### Example
 
 ```xml
 <grammaticalFeatures targets="nominal" locales="de">
    <grammaticalCase values="nominative accusative genitive dative"/>
 ```
 
-###### Values
+###### Table: Values
 
 | Value              | Definition | References |
 | ------------------ | ---------- | ---------- |
@@ -2746,7 +2751,7 @@ Feature that encodes the syntactic (and sometimes semantic) relationship of a no
 
 Feature that encodes the fact that a noun has been already mentioned, or is familiar in the discourse. (adapted from [https://glossary.sil.org/term/definiteness](https://glossary.sil.org/term/definiteness) )
 
-#### Values
+#### Table: Values
 
 | Value       | Definition | References |
 | ----------- | ---------- | ---------- |

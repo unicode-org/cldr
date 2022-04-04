@@ -446,7 +446,7 @@ public class PersonNameFormatter {
                 return null;
             } if (!remainingModifers.isEmpty()) {
                 // apply default algorithms
-                // TODO specify order among modifiers
+                // TODO ALL Decide if the order among modifiers is rights
 
                 for (Modifier modifier : remainingModifers) {
                     switch(modifier) {
@@ -457,8 +457,8 @@ public class PersonNameFormatter {
                         bestValue = UCharacter.toUpperCase(fallbackInfo.formatterLocale, bestValue);
                         break;
                     case prefix:
-                        // TODO unhandled prefix is special; treat as if null
-                        // TODO if there is no plain, but there is a prefix and core, use that; otherwise use core
+                        // TODO Mark unhandled prefix is special; treat as if null
+                        // TODO Mark if there is no plain, but there is a prefix and core, use that; otherwise use core
                         break;
                     case core:
                     case informal:
@@ -645,6 +645,26 @@ public class PersonNameFormatter {
         @Override
         public int hashCode() {
             return Objects.hash(rank, fields, elements);
+        }
+
+        /**
+         * Utility for testing validity
+         * @return
+         */
+        public Multimap<Field, Integer> getFieldPositions() {
+            Multimap<Field, Integer> result = TreeMultimap.create();
+            int i = -1;
+            for (NamePatternElement element : elements) {
+                ++i;
+                if (element.literal == null) {
+                    result.put(element.modifiedField.field, i);
+                }
+            }
+            return result;
+        }
+
+        public ModifiedField getModifiedField(int index) {
+            return elements.get(index).modifiedField;
         }
     }
 
@@ -1159,7 +1179,6 @@ public class PersonNameFormatter {
 
         /**
          * Build from strings for ease of testing
-         * TODO Mark make the localeToOrder from strings also
          */
         public NamePatternData(ImmutableMap<ULocale, Order> localeToOrder, String...formatParametersToNamePatterns ) {
             this(localeToOrder, parseFormatParametersToNamePatterns(formatParametersToNamePatterns));
@@ -1187,7 +1206,7 @@ public class PersonNameFormatter {
         }
 
         private String show(ImmutableListMultimap<ParameterMatcher, NamePattern> multimap) {
-            String result = parameterMatcherToNamePattern.asMap().toString();
+            String result = multimap.asMap().toString();
             return result.replace("], ", "],\n\t\t\t"); // for readability
         }
     }
@@ -1207,27 +1226,18 @@ public class PersonNameFormatter {
     }
 
     /**
+     * @internal
+     */
+    public final NamePatternData getNamePatternData() {
+        return namePatternMap;
+    }
+
+    /**
      * Create a formatter directly from data.
-     * An alternative method would be to create from the viewer's locale, using a resource bundle or CLDR data
-     * @param patternLocale TODO
      */
     public PersonNameFormatter(NamePatternData namePatternMap, FallbackFormatter fallbackFormatter) {
         this.namePatternMap = namePatternMap;
         this.fallbackFormatter = fallbackFormatter;
-    }
-
-    public String format(NameObject nameObject, FormatParameters nameFormatParameters) {
-        // look through the namePatternMap to find the best match for the set of modifiers and the available nameObject fields
-        NamePattern bestPattern = namePatternMap.getBestMatch(nameObject, nameFormatParameters);
-        // then format using it
-        return bestPattern.format(nameObject, nameFormatParameters, fallbackFormatter);
-    }
-
-    /**
-     * For testing
-     */
-    public Collection<NamePattern> getBestMatchSet(FormatParameters nameFormatParameters) {
-        return namePatternMap.getBestMatchSet(nameFormatParameters);
     }
 
     public PersonNameFormatter(CLDRFile cldrFile) {
@@ -1239,31 +1249,16 @@ public class PersonNameFormatter {
 
         // read out the data and order it properly
         for (String path : cldrFile) {
-            if (path.startsWith("//ldml/personNames")) {
+            if (path.startsWith("//ldml/personNames") && !path.endsWith("/alias")) {
                 String value = cldrFile.getStringValue(path);
                 //System.out.println(path + ",\t" + value);
                 XPathParts parts = XPathParts.getFrozenInstance(path);
                 switch(parts.getElement(2)) {
                 case "personName":
-                    //ldml/personNames/personName[@length="long"][@usage="referring"]/namePattern[alt="2"]
-                    // value = {surname}, {given} {given2} {suffix}
-                    final String altValue = parts.getAttributeValue(-1, "alt");
-                    int rank = altValue == null ? 0 : Integer.parseInt(altValue);
-                    ParameterMatcher pm = new ParameterMatcher(
-                        hackFix(parts.getAttributeValue(-2, "length")),
-                        parts.getAttributeValue(-2, "style"),
-                        parts.getAttributeValue(-2, "usage"),
-                        parts.getAttributeValue(-2, "order")
-                        );
-                    // TODO change en.xml to not have periods after initials
-                    value = value.replace(".", "");
-                    NamePattern np = NamePattern.from(rank, value);
-                    if (np.toString().isBlank()) {
-                        throw new IllegalArgumentException("No empty patterns allowed: " + pm);
-                    }
-                    boolean added = ordered.add(Pair.of(pm, np));
+                    Pair<ParameterMatcher, NamePattern> pair = fromPathValue(parts, value);
+                    boolean added = ordered.add(pair);
                     if (!added) {
-                        throw new IllegalArgumentException("Duplicate name pattern " + np + ", for " + pm);
+                        throw new IllegalArgumentException("Duplicate path/value " + pair);
                     }
                     break;
                 case "initialPattern":
@@ -1299,6 +1294,43 @@ public class PersonNameFormatter {
         this.fallbackFormatter = new FallbackFormatter(new ULocale(cldrFile.getLocaleID()), initialPattern, initialSequencePattern);
     }
 
+    public String format(NameObject nameObject, FormatParameters nameFormatParameters) {
+        // look through the namePatternMap to find the best match for the set of modifiers and the available nameObject fields
+        NamePattern bestPattern = namePatternMap.getBestMatch(nameObject, nameFormatParameters);
+        // then format using it
+        return bestPattern.format(nameObject, nameFormatParameters, fallbackFormatter);
+    }
+
+    /**
+     * For testing
+     */
+    public Collection<NamePattern> getBestMatchSet(FormatParameters nameFormatParameters) {
+        return namePatternMap.getBestMatchSet(nameFormatParameters);
+    }
+
+    /**
+     * Utility for constructing data from path and value.
+     */
+    public static Pair<ParameterMatcher, NamePattern> fromPathValue(XPathParts parts, String value) {
+
+        //ldml/personNames/personName[@length="long"][@usage="sorting"]/namePattern[alt="2"]
+        // value = {surname}, {given} {given2} {suffix}
+        final String altValue = parts.getAttributeValue(-1, "alt");
+        int rank = altValue == null ? 0 : Integer.parseInt(altValue);
+        ParameterMatcher pm = new ParameterMatcher(
+            hackFix(parts.getAttributeValue(-2, "length")),
+            parts.getAttributeValue(-2, "style"),
+            parts.getAttributeValue(-2, "usage"),
+            parts.getAttributeValue(-2, "order")
+            );
+
+        NamePattern np = NamePattern.from(rank, value);
+        if (np.toString().isBlank()) {
+            throw new IllegalArgumentException("No empty patterns allowed: " + pm);
+        }
+        return Pair.of(pm, np);
+    }
+
     /**
      * Utility for getting sample names. DOES NOT CACHE
      * @param cldrFile
@@ -1329,7 +1361,7 @@ public class PersonNameFormatter {
      * @param attributeValue
      * @return
      */
-    private String hackFix(String attributeValue) {
+    private static String hackFix(String attributeValue) {
         if (attributeValue == null) {
             return null;
         }

@@ -1,31 +1,190 @@
 package org.unicode.cldr.test;
 
+import java.util.Collection;
+import java.util.EnumSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map.Entry;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.personname.PersonNameFormatter;
+import org.unicode.cldr.util.personname.PersonNameFormatter.Field;
+import org.unicode.cldr.util.personname.PersonNameFormatter.Modifier;
+import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
+import org.unicode.cldr.util.personname.PersonNameFormatter.Order;
+import org.unicode.cldr.util.personname.PersonNameFormatter.ParameterMatcher;
+
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
 
 public class CheckPlaceHolders extends CheckCLDR {
 
     private static final Pattern PLACEHOLDER_PATTERN = PatternCache.get("([0-9]|[1-9][0-9]+)");
-    private static final Pattern PLACEHOLDER_PATTERN_PERS_NAMES = PatternCache.get("([a-z][a-zA-Z23-]+?)"); // CLDR-15384 need alpha, -
     private static final Pattern SKIP_PATH_LIST = Pattern
         .compile("//ldml/characters/(exemplarCharacters|parseLenient).*");
 
     @Override
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
-        if (SKIP_PATH_LIST.matcher(path).matches()) {
+        if (value == null
+            || path.endsWith("/alias")
+            || SKIP_PATH_LIST.matcher(path).matches()) {
             return this;
         }
+
+        if (path.contains("/personNames/personName")) {
+
+            // TODO Mark (maybe not here); validate the nameOrderLocales values and the initialPattern
+
+            // check that the name pattern is valid
+
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            Pair<ParameterMatcher, NamePattern> pair = null;
+            try {
+                pair = PersonNameFormatter.fromPathValue(parts, value);
+            } catch (Exception e) {
+                result.add(new CheckStatus().setCause(this)
+                    .setMainType(CheckStatus.errorType)
+                    .setSubtype(Subtype.invalidPlaceHolder)
+                    .setMessage("Invalid placeholder in value: \"" + value + "\""));
+                return this; // fatal error, don't bother with others
+            }
+
+            final ParameterMatcher parameterMatcher = pair.getFirst();
+            final NamePattern namePattern = pair.getSecond();
+
+            // now check that the namePattern is reasonable
+
+            // gather information about the fields
+            int firstSurname = Integer.MAX_VALUE;
+            int firstGiven = Integer.MAX_VALUE;
+
+            Multimap<Field, Integer> fieldToPositions = namePattern.getFieldPositions();
+
+            // TODO ALL check for combinations we should enforce; eg, only have given2 if there is a given; only have surname2 if there is a surname; others?
+
+            for (Entry<Field, Collection<Integer>> entry : fieldToPositions.asMap().entrySet()) {
+
+                // If a field occurs twice, probably an error. Could relax this upon feedback
+
+                Collection<Integer> positions = entry.getValue();
+                if (positions.size() > 1) {
+
+                    // However, do allow prefix&core together
+
+                    boolean skip = false;
+                    if (entry.getKey() == Field.surname) {
+                        Iterator<Integer> it = positions.iterator();
+                        Set<Modifier> m1 = namePattern.getModifiedField(it.next()).getModifiers();
+                        Set<Modifier> m2 = namePattern.getModifiedField(it.next()).getModifiers();
+                        skip = m1.contains(Modifier.core) && m2.contains(Modifier.prefix)
+                            || m1.contains(Modifier.prefix) && m2.contains(Modifier.core);
+                    }
+
+                    if (!skip) {
+                        result.add(new CheckStatus().setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.invalidPlaceHolder)
+                            .setMessage("Duplicate fields: " + entry));
+                    }
+                }
+
+                // gather some info for later
+
+                Integer leastPosition = positions.iterator().next();
+                switch (entry.getKey()) {
+                case given: case given2:
+                    firstGiven = Math.min(leastPosition, firstGiven);
+                    break;
+                case surname: case surname2:
+                    firstSurname = Math.min(leastPosition, firstSurname);
+                    break;
+                default: // ignore
+                }
+            }
+
+            // we must have at least a given* and a surname*
+
+            if (firstGiven == Integer.MAX_VALUE && firstSurname == Integer.MAX_VALUE) {
+                result.add(new CheckStatus().setCause(this)
+                    .setMainType(CheckStatus.errorType)
+                    .setSubtype(Subtype.invalidPlaceHolder)
+                    .setMessage("Must have given, given2, surname, or surname2"));
+                return this; // fatal error, don't bother with others
+            }
+
+            // the rest of the tests are of the pattern, and only apply when we have both given and surname
+
+            if (firstGiven < Integer.MAX_VALUE && firstSurname < Integer.MAX_VALUE) {
+
+                Set<Order> order = parameterMatcher.getOrder();
+
+                // Handle 'sorting' value. Will usually be compatible with surnameFirst, except for known exceptions
+
+                ImmutableSet<Object> givenFirstSortingLocales = ImmutableSet.of("is"); // will be static
+                if (order.contains(Order.sorting)) {
+                    EnumSet<Order> temp = EnumSet.noneOf(Order.class);
+                    temp.addAll(order);
+                    temp.remove(Order.sorting);
+                    if (givenFirstSortingLocales.contains(getCldrFileToCheck().getLocaleID())) { // TODO Mark cover contains-by-inheritance also
+                        temp.add(Order.givenFirst);
+                    } else {
+                        temp.add(Order.surnameFirst);
+                    }
+                    order = temp;
+                }
+
+                if (order.isEmpty()) {
+                    order = Order.ALL;
+                }
+
+                // check that we don't have a difference in the order AND there is a surname or surname2
+                // that is, it is ok to coalesce patterns of different orders where the order doesn't make a difference
+
+                // TODO Mark We should get rid of the empty matcher; that should be handled by compactor. Then remove this condition
+
+                final boolean parameterMatcherIsMatchAll = parameterMatcher.equals(ParameterMatcher.MATCH_ALL);
+                if (!parameterMatcherIsMatchAll) {
+
+                    if(order.contains(Order.givenFirst)
+                        && order.contains(Order.surnameFirst)
+                        ) {
+                        result.add(new CheckStatus().setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.invalidPlaceHolder)
+                            .setMessage("Conflicting Order values: " + order));
+                    }
+
+                    // now check order in pattern is consistent with Order
+
+                    Order foundOrder = firstGiven < firstSurname ? Order.givenFirst : Order.surnameFirst;
+                    final Order first = order.iterator().next();
+
+                    if (first != foundOrder) {
+
+                        if (first == Order.givenFirst && !"en".equals(getCldrFileToCheck().getLocaleID())) { // TODO Mark Drop HACK once root is ok
+                            return this;
+                        }
+
+                        result.add(new CheckStatus().setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.invalidPlaceHolder)
+                            .setMessage("Pattern order {0} is inconsistent with code order {1}", foundOrder, first));
+                    }
+                }
+            }
+            return this;
+            // done with person names
+        }
+
         int startPlaceHolder = 0;
         int endPlaceHolder;
-        if (value == null) {
-            return this;
-        }
         while (startPlaceHolder != -1 && startPlaceHolder < value.length()) {
             startPlaceHolder = value.indexOf('{', startPlaceHolder + 1);
             if (startPlaceHolder != -1) {
@@ -37,9 +196,7 @@ public class CheckPlaceHolders extends CheckCLDR {
                         .setMessage("Invalid placeholder (missing terminator) in value \"" + value + "\""));
                 } else {
                     String placeHolderString = value.substring(startPlaceHolder + 1, endPlaceHolder);
-                    Matcher matcher = (path.contains("/personNames/personName"))?
-                        PLACEHOLDER_PATTERN_PERS_NAMES.matcher(placeHolderString):
-                        PLACEHOLDER_PATTERN.matcher(placeHolderString);
+                    Matcher matcher = PLACEHOLDER_PATTERN.matcher(placeHolderString);
                     if (!matcher.matches()) {
                         result.add(new CheckStatus().setCause(this)
                             .setMainType(CheckStatus.errorType)
@@ -53,7 +210,7 @@ public class CheckPlaceHolders extends CheckCLDR {
         // eg
         //ldml/listPatterns/listPattern/listPatternPart[@type="start"]
         //ldml/listPatterns/listPattern[@type="standard-short"]/listPatternPart[@type="2"]
-        if (path.startsWith("//ldml/listPatterns/listPattern") && !path.endsWith("/alias")) {
+        if (path.startsWith("//ldml/listPatterns/listPattern")) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
             // check order, {0} must be before {1}
 
@@ -77,7 +234,7 @@ public class CheckPlaceHolders extends CheckCLDR {
                         .setSubtype(Subtype.invalidPlaceHolder)
                         .setMessage("Invalid list pattern «" + value + "»: the placeholder {0} must be before {1}."));
                 }}
-                break;
+            break;
             case "3": {
                 int pos1 = value.indexOf("{0}");
                 int pos2 = value.indexOf("{1}");
@@ -88,7 +245,7 @@ public class CheckPlaceHolders extends CheckCLDR {
                         .setSubtype(Subtype.invalidPlaceHolder)
                         .setMessage("Invalid list pattern «" + value + "»: the placeholders {0}, {1}, {2} must appear in that order."));
                 }}
-                break;
+            break;
             }
         }
         return this;

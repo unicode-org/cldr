@@ -666,6 +666,19 @@ public class PersonNameFormatter {
         public ModifiedField getModifiedField(int index) {
             return elements.get(index).modifiedField;
         }
+
+        /**
+         * @internal
+         */
+        public String firstLiteralContaining(String item) {
+            for (NamePatternElement element : elements) {
+                final String literal = element.literal;
+                if (literal != null && literal.contains(item)) {
+                    return literal;
+                }
+            }
+            return null;
+        }
     }
 
     /**
@@ -1208,6 +1221,14 @@ public class PersonNameFormatter {
         private String show(ImmutableListMultimap<ParameterMatcher, NamePattern> multimap) {
             String result = multimap.asMap().toString();
             return result.replace("], ", "],\n\t\t\t"); // for readability
+        }
+
+        /**
+         * For testing
+         * @internal
+         */
+        public ImmutableListMultimap<ParameterMatcher, NamePattern> getMatcherToPatterns() {
+            return parameterMatcherToNamePattern;
         }
     }
 

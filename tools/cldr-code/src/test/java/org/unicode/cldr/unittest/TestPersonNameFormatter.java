@@ -13,6 +13,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FallbackFormatter;
+import org.unicode.cldr.util.personname.PersonNameFormatter.Field;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Length;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
@@ -32,10 +33,12 @@ import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.util.ULocale;
 
 public class TestPersonNameFormatter extends TestFmwk{
-    private static final boolean DEBUG = false;
 
-    private static final FallbackFormatter FALLBACK_FORMATTER = new FallbackFormatter(ULocale.ENGLISH, "{0}*", "{0} {1}");
-    private static final CLDRFile ENGLISH = CLDRConfig.getInstance().getEnglish();
+    public static final boolean DEBUG = System.getProperty("TestPersonNameFormatter.DEBUG") != null;
+
+    final FallbackFormatter FALLBACK_FORMATTER = new FallbackFormatter(ULocale.ENGLISH, "{0}*", "{0} {1}");
+    final CLDRFile ENGLISH = CLDRConfig.getInstance().getEnglish();
+    final PersonNameFormatter ENGLISH_NAME_FORMATTER = new PersonNameFormatter(ENGLISH);
 
     public static void main(String[] args) {
         new TestPersonNameFormatter().run(args);
@@ -118,15 +121,14 @@ public class TestPersonNameFormatter extends TestFmwk{
     }
 
     public void TestWithCLDR() {
-        PersonNameFormatter personNameFormatter = new PersonNameFormatter(ENGLISH);
         if (PersonNameFormatter.DEBUG) {
-            logln(personNameFormatter.toString());
+            logln(ENGLISH_NAME_FORMATTER.toString());
         }
 
-        check(personNameFormatter, sampleNameObject1, "length=short; order=sorting", "Smith, J. B.");
-        check(personNameFormatter, sampleNameObject1, "length=long; usage=referring; style=formal", "John Bob Smith Jr.");
+        check(ENGLISH_NAME_FORMATTER, sampleNameObject1, "length=short; order=sorting", "Smith, J. B.");
+        check(ENGLISH_NAME_FORMATTER, sampleNameObject1, "length=long; usage=referring; style=formal", "John Bob Smith Jr.");
 
-        checkFormatterData(personNameFormatter);
+        checkFormatterData(ENGLISH_NAME_FORMATTER);
     }
 
     public static final Joiner JOIN_SPACE = Joiner.on(' ');
@@ -301,9 +303,9 @@ public class TestPersonNameFormatter extends TestFmwk{
     }
 
     public void TestFormatAll() {
-        PersonNameFormatter personNameFormatter = new PersonNameFormatter(ENGLISH);
+        PersonNameFormatter personNameFormatter = ENGLISH_NAME_FORMATTER;
         Map<SampleType, NameObject> samples = PersonNameFormatter.loadSampleNames(ENGLISH);
-        StringBuilder sb = DEBUG ? new StringBuilder() : null;
+        StringBuilder sb = DEBUG && isVerbose() ? new StringBuilder() : null;
 
         // Cycle through parameter combinations, check for exceptions even if locale has no data
 
@@ -335,6 +337,42 @@ public class TestPersonNameFormatter extends TestFmwk{
         for (final String pattern : invalidPatterns) {
             assertThrows("Invalid Name object " + pattern,
                 () -> SimpleNameObject.from(pattern));
+        }
+    }
+
+    public void TestEnglishComma() {
+        boolean messageShown = false;
+        for (Entry<ParameterMatcher, NamePattern> matcherAndPattern : ENGLISH_NAME_FORMATTER.getNamePatternData().getMatcherToPatterns().entries()) {
+            ParameterMatcher parameterMatcher = matcherAndPattern.getKey();
+            NamePattern namePattern = matcherAndPattern.getValue();
+
+            Set<Order> orders = parameterMatcher.getOrder();
+            Set<Length> lengths = parameterMatcher.getLength();
+
+            // TODO Mark Look at whether it would be cleaner to replace empty values by ALL on building
+
+            Set<Order> resolvedOrders = orders.isEmpty() ? Order.ALL : orders;
+            Set<Length> resolvedLengths = lengths.isEmpty() ? Length.ALL : lengths;
+
+            Set<Field> fields = namePattern.getFields();
+
+            boolean givenAndSurname = (fields.contains(Field.given) || fields.contains(Field.given2))
+                && (fields.contains(Field.surname) || fields.contains(Field.surname2));
+
+            boolean commaRequired = givenAndSurname
+                && resolvedOrders.contains(Order.sorting)
+                && !resolvedLengths.contains(Length.monogram)
+                && !resolvedLengths.contains(Length.monogramNarrow);
+
+            boolean hasComma = namePattern.firstLiteralContaining(",") != null;
+
+            if (!assertEquals("Comma right?\t" + parameterMatcher + " ➡︎ " + namePattern + "\t", commaRequired, hasComma)) {
+                if (!messageShown) {
+                    System.out.println("\t\tNOTE: In English, comma is required IFF the pattern has both given and surname, "
+                + "and order has sorting, and length has neither monogram nor monogramNarrow,");
+                    messageShown = true;
+                }
+            }
         }
     }
 }

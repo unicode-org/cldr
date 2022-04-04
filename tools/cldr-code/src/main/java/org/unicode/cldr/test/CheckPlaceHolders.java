@@ -125,7 +125,8 @@ public class CheckPlaceHolders extends CheckCLDR {
 
                 Set<Order> order = parameterMatcher.getOrder();
 
-                // Handle 'sorting' value. Will usually be compatible with surnameFirst, except for known exceptions
+
+                // Handle 'sorting' value. Will usually be compatible with surnameFirst in foundOrder, except for known exceptions
 
                 ImmutableSet<Object> givenFirstSortingLocales = ImmutableSet.of("is"); // will be static
                 if (order.contains(Order.sorting)) {

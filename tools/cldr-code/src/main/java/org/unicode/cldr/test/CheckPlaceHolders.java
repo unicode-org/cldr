@@ -148,10 +148,7 @@ public class CheckPlaceHolders extends CheckCLDR {
                 // check that we don't have a difference in the order AND there is a surname or surname2
                 // that is, it is ok to coalesce patterns of different orders where the order doesn't make a difference
 
-                // TODO Mark We should get rid of the empty matcher; that should be handled by compactor. Then remove this condition
-
-                final boolean parameterMatcherIsMatchAll = parameterMatcher.equals(ParameterMatcher.MATCH_ALL);
-                if (!parameterMatcherIsMatchAll) {
+                if (true) { // TODO: clean up to avoid block
 
                     if(order.contains(Order.givenFirst)
                         && order.contains(Order.surnameFirst)

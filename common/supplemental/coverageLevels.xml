@@ -914,8 +914,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/personName[@length='%personNameNonMonograms'][@usage='%anyAttribute'][@style='%anyAttribute'][@order='%anyAttribute']/namePattern"/>
 		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/personName[@length='%personNameMonograms'][@style='%anyAttribute'][@order='%anyAttribute']/namePattern[@alt='%anyAttribute']"/>
 		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/personName[@length='%personNameMonograms'][@style='%anyAttribute'][@order='%anyAttribute']/namePattern"/>
-		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/personName/namePattern[@alt='%anyAttribute']"/>
-		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/personName/namePattern"/>
 		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/sampleName[@item='%anyAttribute']/nameField[@type='%anyAttribute'][@alt='%anyAttribute']"/>
 		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/sampleName[@item='%anyAttribute']/nameField[@type='%anyAttribute']"/>
 

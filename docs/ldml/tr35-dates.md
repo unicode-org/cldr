@@ -92,7 +92,7 @@ The LDML specification is divided into the following parts:
 <!ELEMENT dates (alias | (calendars?, fields?, timeZoneNames?, special*)) >
 ```
 
-The LDML top-level `<dates>` element contains information regarding the format and parsing of dates and times, the formatting of date/time intervals, and the the naming of various calendar elements.
+The LDML top-level `<dates>` element contains information regarding the format and parsing of dates and times, the formatting of date/time intervals, and the naming of various calendar elements.
 
 *   The `<calendars>` element is described in section 2 [Calendar Elements](#Calendar_Elements).
 *   The `<fields>` element is described in section 3 [Calendar Fields](#Calendar_Fields).
@@ -470,7 +470,7 @@ Standard date formats have the following form:
 
 ```xml
     <dateFormats>
-        <dateFormatLength type=”full”>
+        <dateFormatLength type="full">
             <dateFormat>
                 <pattern>EEEE, MMMM d, y</pattern>
                 <datetimeSkeleton>yMMMMEEEEd</datetimeSkeleton>
@@ -514,7 +514,7 @@ Standard date and time patterns are each normally provided in four types: full (
 
 The `numbers` attribute can be used to explicitly specify a number system to be used for all of the numeric fields in the date format (as in `numbers="hebr"`), or for a specific field in the date format (as in `numbers="d=hanidays"`). This attribute overrides any default numbering system specified for the locale.
 
-The `datetimeSkeleton` element contains a _skeleton_ (see [availableFormats](#availableFormats_appendItems) derived from the pattern. In the future the intent is to be able to generate the standard patterns from these `datetimeSkeleton` elements. However, in CLDR 40, the mechanisms associated with the `availableFormats` elements are not quite powerful enough to generate patterns that exactly match all of the ones provided in the `pattern` elements.
+The `datetimeSkeleton` element contains a _skeleton_ (see [availableFormats](#availableFormats_appendItems)) derived from the pattern. In the future the intent is to be able to generate the standard patterns from these `datetimeSkeleton` elements. However, in CLDR 40, the mechanisms associated with the `availableFormats` elements are not quite powerful enough to generate patterns that exactly match all of the ones provided in the `pattern` elements.
 
 ### 2.5 <a name="timeFormats" href="#timeFormats">Element timeFormats</a>
 
@@ -528,7 +528,7 @@ Standard time formats have the following form:
 
 ```xml
     <timeFormats>
-        <timeFormatLength type=”full”>
+        <timeFormatLength type="full">
             <timeFormat>
                 <displayName>DIN 5008 (EN 28601)</displayName>
                 <pattern>h:mm:ss a z</pattern>
@@ -550,7 +550,7 @@ To account for customary usage in some countries, APIs should allow for formatti
 
 Friday: 19:00 – 26:00
 
-Time formats use the specific non-location format (z or zzzz) for the time zone name. This is the format that should be used when formatting a specific time for presentation. When formatting a time referring to a recurring time (such as a meeting in a calendar), applications should substitute the generic non-location format (v or vvvv) for the time zone in the time format pattern. See _[Using Time Zone Names](#Using_Time_Zone_Names)._ for a complete description of available time zone formats and their uses.
+Time formats use the specific non-location format (z or zzzz) for the time zone name. This is the format that should be used when formatting a specific time for presentation. When formatting a time referring to a recurring time (such as a meeting in a calendar), applications should substitute the generic non-location format (v or vvvv) for the time zone in the time format pattern. See _[Using Time Zone Names](#Using_Time_Zone_Names)_ for a complete description of available time zone formats and their uses.
 
 ### 2.6 <a name="dateTimeFormats" href="#dateTimeFormats">Element dateTimeFormats</a>
 
@@ -561,12 +561,12 @@ Time formats use the specific non-location format (z or zzzz) for the time zone 
 Date/Time formats have the following form:
 ```xml
     <dateTimeFormats>
-        <dateTimeFormatLength type=”long”>
+        <dateTimeFormatLength type="long">
             <dateTimeFormat>
                 <pattern>{1} 'at' {0}</pattern>
             </dateTimeFormat>
         </dateTimeFormatLength>
-        <dateTimeFormatLength type=”medium”>
+        <dateTimeFormatLength type="medium">
             <dateTimeFormat>
                 <pattern>{1}, {0}</pattern>
             </dateTimeFormat>
@@ -709,10 +709,10 @@ Typically a “best match” from requested skeleton to the `id` portion of a `d
       * MM ≅ M
    3. Numeric and text fields are given a larger distance from each other.
       * MMM ≈ MM
-   4. Symbols representing substantial differences (week of year vs week of month) are given much larger a distances from each other.
+   4. Symbols representing substantial differences (week of year vs week of month) are given a much larger distance from each other.
       * d ≋ D; ...
 3. A requested skeleton that includes both seconds and fractional seconds (e.g. “mmssSSS”) is allowed to match a dateFormatItem skeleton that includes seconds but not fractional seconds (e.g. “ms”). In this case the requested sequence of ‘S’ characters (or its length) should be retained separately and used when adjusting the pattern, as described below.
-4. Otherwise, missing or extra fields between requested skeleton and `id` cause a match to fail. (But see **[Missing Skeleton Fields](#Missing_Skeleton_Fields)** below).
+4. Otherwise, missing or extra fields between requested skeleton and `id` cause a match to fail. (But see **[Missing Skeleton Fields](#Missing_Skeleton_Fields)** below.)
 
 Once a best match is found between requested skeleton and `dateFormatItem` `id`, the corresponding `dateFormatItem` pattern is used, but with adjustments primarily to make the pattern field lengths match the skeleton field lengths. Consider the following `dateFormatItem`:
 
@@ -796,12 +796,12 @@ For example, the English rules that produce "Jan 10–12, 2008", "Jan 10 – Feb
 
 To format a start and end datetime, given a particular "skeleton":
 
-1. Look for the `intervalFormatItem` element that matches the "skeleton", starting in the current locale and then following the locale fallback chain up to, but not including root (better results are obtained by following steps 2-6 below with locale- or language- specific data than by using matching intervalFormats from root).
+1. Look for the `intervalFormatItem` element that matches the "skeleton", starting in the current locale and then following the locale fallback chain up to, but not including root (better results are obtained by following steps 2-6 below with locale- or language-specific data than by using matching intervalFormats from root).
 2. If no match was found from the previous step, check what the closest match is in the fallback locale chain, as in `availableFormats`. That is, this allows for adjusting the string value field's width, including adjusting between "MMM" and "MMMM", and using different variants of the same field, such as 'v' and 'z'.
 3. If no match was found from the previous steps and the skeleton combines date fields such as y,M,d with time fields such as H,h,m,s, then an `intervalFormatItem` can be synthesized as follows:
    1. For `greatestDifference` values corresponding to the date fields in the skeleton, use the mechanisms described under [availableFormats](#availableFormats_appendItems) to generate the complete date-time pattern corresponding to the skeleton, and then combine two such patterns using the `intervalFormatFallback` pattern (the result will be the same for each `greatestDifference` of a day or longer). For example:
       MMMdHm/d → "MMM d 'at' H:mm – MMM d 'at' H:mm" → "Jan 3 at 9:00 – Jan 6 at 11:00"
-   2. For `greatestDifference` values corresponding to the time fields in the skeleton, separate the skeleton into a date fields part and a time fields part. Use the mechanisms described under availableFormats to generate a date pattern corresponding to the date fields part. Use the time fields part to look up an `intervalFormatItem`. For each `greatestDifferent` in the `intervalFormatItem`, generate a pattern by using the [dateTimeFormat](#dateTimeFormat) to combine the date pattern with the `intervalFormatItem`’s `greatestDifference` element value. For example:
+   2. For `greatestDifference` values corresponding to the time fields in the skeleton, separate the skeleton into a date fields part and a time fields part. Use the mechanisms described under availableFormats to generate a date pattern corresponding to the date fields part. Use the time fields part to look up an `intervalFormatItem`. For each `greatestDifference` in the `intervalFormatItem`, generate a pattern by using the [dateTimeFormat](#dateTimeFormat) to combine the date pattern with the `intervalFormatItem`’s `greatestDifference` element value. For example:
       MMMdHm/H → "MMM d 'at' H:mm – H:mm" → "Jan 3 at 9:00 – 11:00"
 4. If a match is found from previous steps, compute the calendar field with the greatest difference between start and end datetime. If there is no difference among any of the fields in the pattern, format as a single date using `availableFormats`, and return.
 5. Otherwise, look for `greatestDifference` element that matches this particular greatest difference.
@@ -1249,9 +1249,9 @@ For examples, see [Day Periods Chart](https://unicode-org.github.io/cldr-staging
 <!ELEMENT exemplarCity ( #PCDATA ) >
 ```
 
-The time zone IDs (tzid) are language-independent, and follow the _TZ time zone database_ [[Olson](tr35.md#Olson)] and naming conventions. However, the display names for those IDs can vary by locale. The generic time is so-called _wall-time_; what clocks use when they are correctly switched from standard to daylight time at the mandated time of the year.
+The time zone IDs (TZID) are language-independent, and follow the _TZ time zone database_ [[Olson](tr35.md#Olson)] and naming conventions. However, the display names for those IDs can vary by locale. The generic time is so-called _wall-time_; what clocks use when they are correctly switched from standard to daylight time at the mandated time of the year.
 
-Unfortunately, the canonical tzid's (those in zone.tab) are not stable: they may change in each release of the _TZ_ Time Zone database. In CLDR, however, stability of identifiers is very important. So the canonical IDs in CLDR are kept stable as described in [Canonical Form](tr35.md#Canonical_Form).
+Unfortunately, the canonical TZIDs (those in zone.tab) are not stable: they may change in each release of the _TZ_ Time Zone database. In CLDR, however, stability of identifiers is very important. So the canonical IDs in CLDR are kept stable as described in [Canonical Form](tr35.md#Canonical_Form).
 
 The _TZ time zone database_ can have multiple IDs that refer to the same entity. It does contain information on equivalence relationships between these IDs, such as "Asia/Calcutta" and "Asia/Kolkata". It does not remove IDs (with a few known exceptions), but it may change the "canonical" ID which is in the file zone.tab.
 
@@ -1312,7 +1312,7 @@ In a few cases, some time zone IDs do not designate a city, as in:
 </zone>
 ```
 
-They may designate countries or territories; their actual capital city may be a name that is too common, or, too uncommon. CLDR time zone IDs follow the [Olson](tr35.md#Olson) naming conventions.
+They may designate countries or territories; their actual capital city may be a name that is too common, or too uncommon. CLDR time zone IDs follow the [Olson](tr35.md#Olson) naming conventions.
 
 > **Note:** CLDR does not allow "GMT", "UT", or "UTC" as translations (short or long) of time zones other than GMT itself.
 
@@ -1351,9 +1351,9 @@ When referring to the abbreviated (short) form of the time zone name, there are 
 
 ### 5.1 <a name="Metazone_Names" href="#Metazone_Names">Metazone Names</a>
 
-A metazone is an grouping of one or more internal TZIDs that share a common display name in current customary usage, or that have shared a common display name during some particular time period. For example, the zones _Europe/Paris, Europe/Andorra, Europe/Tirane, Europe/Vienna, Europe/Sarajevo, Europe/Brussels, Europe/Zurich, Europe/Prague, Europe/Berlin_, and so on are often simply designated _Central European Time_ (or translated equivalent).
+A metazone is a grouping of one or more internal TZIDs that share a common display name in current customary usage, or that have shared a common display name during some particular time period. For example, the zones _Europe/Paris, Europe/Andorra, Europe/Tirane, Europe/Vienna, Europe/Sarajevo, Europe/Brussels, Europe/Zurich, Europe/Prague, Europe/Berlin_, and so on are often simply designated _Central European Time_ (or translated equivalent).
 
-A metazone's display fields become a secondary fallback if an appropriate data field cannot be found in the explicit time zone data. The _usesMetazone_ field indicates that the target metazone is active for a particular time. This also provides a mechanism to effectively deal with situations where the time zone in use has changed for some reason. For example, consider the TZID "America/Indiana/Knox", which observed Central time (GMT-6:00) prior to October 27, 1991, and has currently observed Central time since April 2, 2006, but has observed Eastern time ( GMT-5:00 ) between these two dates. This is denoted as follows
+A metazone's display fields become a secondary fallback if an appropriate data field cannot be found in the explicit time zone data. The _usesMetazone_ field indicates that the target metazone is active for a particular time. This also provides a mechanism to effectively deal with situations where the time zone in use has changed for some reason. For example, consider the TZID "America/Indiana/Knox", which observed Central time (GMT-6:00) prior to October 27, 1991, and has currently observed Central time since April 2, 2006, but has observed Eastern time (GMT-5:00) between these two dates. This is denoted as follows
 
 ```xml
 <timezone type="America/Indiana/Knox">
@@ -1407,16 +1407,16 @@ The metazones can then have translations in different locale files, such as the 
 </metazone>
 ```
 
-When formatting a date and time value using this data, an application can properly be able to display "Eastern Time" for dates between 1991-10-27 and 2006-04-02, but display "Central Time" for current dates. (See also _[Dates and Date Ranges](tr35.md#Date_Ranges)_).
+When formatting a date and time value using this data, an application can properly be able to display "Eastern Time" for dates between 1991-10-27 and 2006-04-02, but display "Central Time" for current dates. (See also _[Dates and Date Ranges](tr35.md#Date_Ranges)_.)
 
-Metazones are used with the 'z', 'zzzz', 'v', and 'vvvv date time pattern characters, and not with the 'Z', 'ZZZZ', 'VVVV' and other pattern characters for time zone formatting. For more information, see [Date Format Patterns](#Date_Format_Patterns) .
+Metazones are used with the 'z', 'zzzz', 'v', and 'vvvv' date time pattern characters, and not with the 'Z', 'ZZZZ', 'VVVV' and other pattern characters for time zone formatting. For more information, see [Date Format Patterns](#Date_Format_Patterns).
 
 Note that several of the CLDR metazone IDs are the same as TZID aliases provided by the _TZ time zone database_ and also included in ICU data. For example:
 * “Japan” is a CLDR metazone ID (which has short ID “japa”), but also an alias to the TZID “Asia/Tokyo” (which has BCP 47 ID “jptyo”).
 * “GMT” is a CLDR metazone ID (which has short ID “mgmt”), but also an alias to the TZID “Etc/GMT” (which has BCP 47 ID “gmt”).
 In practice this is not an issue, since metazone IDs and TZIDs are never used in the same way in any data structure, or in the same APIs in a library such as ICU.
 
-The `commonlyUsed` element is now deprecated. The CLDR committee has found it nearly impossible to obtain accurate and reliable data regarding which time zone abbreviations may be understood in a given territory, and therefore has changed to a simpler approach. Thus, if the short metazone form is available in a given locale, it is to be used for formatting regardless of the value of commonlyUsed. If a given short metazone form is known NOT to be understood in a given locale and the parent locale has this value such that it would normally be inherited, the inheritance of this value can be explicitly disabled by use of the 'no inheritance marker' as the value, which is 3 simultaneous empty set characters ( U+2205 ).
+The `commonlyUsed` element is now deprecated. The CLDR committee has found it nearly impossible to obtain accurate and reliable data regarding which time zone abbreviations may be understood in a given territory, and therefore has changed to a simpler approach. Thus, if the short metazone form is available in a given locale, it is to be used for formatting regardless of the value of commonlyUsed. If a given short metazone form is known NOT to be understood in a given locale and the parent locale has this value such that it would normally be inherited, the inheritance of this value can be explicitly disabled by use of the 'no inheritance marker' as the value, which is 3 simultaneous empty set characters (U+2205).
 
 ## 6 <a name="Supplemental_Time_Zone_Data" href="#Supplemental_Time_Zone_Data">Supplemental Time Zone Data</a>
 
@@ -1448,7 +1448,7 @@ The `commonlyUsed` element is now deprecated. The CLDR committee has found it ne
 <!ATTLIST mapZone references CDATA #IMPLIED >
 ```
 
-The following subelement of `<metaZones>` provides a mapping from a single Unicode time zone id to metazones. For more information about metazones, See _[Time Zone Names](tr35-dates.md#Time_Zone_Names)_.
+The following subelement of `<metaZones>` provides a mapping from a single Unicode time zone id to metazones. For more information about metazones, see _[Time Zone Names](tr35-dates.md#Time_Zone_Names)_.
 
 ```xml
 <metazoneInfo>
@@ -1481,7 +1481,7 @@ The following subelement of `<metaZones>` specifies a mapping from a metazone to
 <!ELEMENT windowsZones (mapTimezones?) >
 ```
 
-The `<mapTimezones>` element can be also used to provide mappings between Unicode time zone IDs and other time zone IDs. This example specifies a mapping from Windows TZIDs to Unicode time zone IDs .
+The `<mapTimezones>` element can be also used to provide mappings between Unicode time zone IDs and other time zone IDs. This example specifies a mapping from Windows TZIDs to Unicode time zone IDs.
 
 ```xml
 <mapTimezones otherVersion="07dc0000" typeVersion="2011n">
@@ -1501,7 +1501,7 @@ The `<mapTimezones>` element can be also used to provide mappings between Unicod
 
 The attributes otherVersion and typeVersion in `<mapTimezones>` specify the versions of two systems. In the example above, otherVersion="07dc0000" specifies the version of Windows time zone and typeVersion="2011n" specifies the version of Unicode time zone IDs. The attribute `territory="001"` in `<mapZone>` element indicates the long canonical Unicode time zone ID specified by the `type` attribute is used as the default mapping for the Windows TZID. For each unique Windows TZID, there must be exactly one `<mapZone>` element with `territory="001"`. `<mapZone>` elements other than `territory="001"` specify territory specific mappings. When multiple Unicode time zone IDs are available for a single territory, the value of the `type` attribute will be a list of Unicode time zone IDs delimited by space. In this case, the first entry represents the default mapping for the territory. The territory "ZZ" is used when a Unicode time zone ID is not associated with a specific territory.
 
-**Note:** The long canonical Unicode time zone ID might be deprecated in the tz database[[Olson](tr35.md#Olson)]. For example, CLDR uses "Asia/Culcutta" as the long canonical time zone ID for Kolkata, India. The same ID was moved to 'backward' file and replaced with a new ID "Asia/Kolkata" in the tz database. Therefore, if you want to get an equivalent Windows TZID for a zone ID in the tz dadtabase, you have to resolve the long canonical Unicode time zone ID (e.g. "Asia/Culcutta") for the zone ID (e.g. "Asia/Kolkata"). For more details, see [Time Zone Identifiers](tr35.md#Time_Zone_Identifiers).
+**Note:** The long canonical Unicode time zone ID might be deprecated in the tz database [[Olson](tr35.md#Olson)]. For example, CLDR uses "Asia/Culcutta" as the long canonical time zone ID for Kolkata, India. The same ID was moved to 'backward' file and replaced with a new ID "Asia/Kolkata" in the tz database. Therefore, if you want to get an equivalent Windows TZID for a zone ID in the tz database, you have to resolve the long canonical Unicode time zone ID (e.g. "Asia/Culcutta") for the zone ID (e.g. "Asia/Kolkata"). For more details, see [Time Zone Identifiers](tr35.md#Time_Zone_Identifiers).
 
 **Note:** Not all Unicode time zones have equivalent Windows TZID mappings. Also, not all Windows TZIDs have equivalent Unicode time zones. For example, there is no equivalent Windows zone for Unicode time zone "Australia/Lord_Howe", and there is no equivalent Unicode time zone for Windows zone "E. Europe Standard Time" (as of CLDR 25 release).
 
@@ -1637,7 +1637,7 @@ Zones may join or leave a metazone over time. The data relating between zones an
 > * The preferred zone for a given metazone and territory XX is in a metazone M during any time when any other zone in XX is also in M
 > * A preferred zone in mapTimezones must have reverse mapping in metazoneInfo
 
-For example, for America_Pacific the preferred zone for Canada is America/Vancouver, and the preferred zone for Mexico is America/Tijuana. The golden zone is America/Los_Angeles, which is also also the preferred zone for any other country.
+For example, for America_Pacific the preferred zone for Canada is America/Vancouver, and the preferred zone for Mexico is America/Tijuana. The golden zone is America/Los_Angeles, which is also the preferred zone for any other country.
 
 ```xml
 <mapZone other="America_Pacific" territory="001" type="America/Los_Angeles" />
@@ -1699,14 +1699,14 @@ The following process is used for the particular formats, with the fallback rule
 
 Some of the examples are drawn from real data, while others are for illustration. For illustration the region format is "Hora de {0}". The fallback format in the examples is "{1} ({0})", which is what is in root.
 
-1. In **all** cases, first canonicalize the _TZ_ ID according to the Unicode Locale Extension _type_ mapping data (See [Time Zone Identifiers](tr35.md#Time_Zone_Identifiers) for more details).. Use that canonical TZID in each of the following steps.
+1. In **all** cases, first canonicalize the _TZ_ ID according to the Unicode Locale Extension _type_ mapping data (see [Time Zone Identifiers](tr35.md#Time_Zone_Identifiers) for more details). Use that canonical TZID in each of the following steps.
    * America/Atka → America/Adak
    * Australia/ACT → Australia/Sydney
 
 2. For the localized GMT format, use the gmtFormat (such as "GMT{0}" or "HMG{0}") with the hourFormat (such as "+HH:mm;-HH:mm" or "+HH.mm;-HH.mm").
    * America/Los_Angeles → "GMT-08:00" // standard time
    * America/Los_Angeles → "HMG-07:00" // daylight time
-   * Etc/GMT+3 → "GMT-03.00" // note that _TZ_ tzids have inverse polarity!
+   * Etc/GMT+3 → "GMT-03.00" // note that _TZ_ TZIDs have inverse polarity!
 
     **Note:** The digits should be whatever are appropriate for the locale used to format the time zone, not necessarily from the western digits, 0..9. For example, they might be from ०..९.
 
@@ -1802,7 +1802,7 @@ The sample describes the parsing of a zone as if it were an isolated string. In 
    * For example, "GMT+3" or "UT+3" or "HPG+3" => Etc/GMT-3
    * When parsing, the absence of a numeric offset should be interpreted as offset 0, whether in localized or global formats. For example, "GMT" or "UT" or "UTC+0" or "HPG" => Etc/GMT
 4. If S matches the fallback format, extract P = {0} [ie, the part in parens in the root format] and N = {1}.
-   If S does not match, set P = "" and N = S
+   If S does not match, set P = "" and N = S.
    If N matches the region format, then M = {0} from that format, otherwise M = N.
    * For example, "United States (Los Angeles) Time" => N = "United States Time", M = "United States", P = "Los Angeles".
    * For example, "United States Time" => N = "United States Time", M = "United States", P = "".
@@ -1818,7 +1818,7 @@ The sample describes the parsing of a zone as if it were an isolated string. In 
    * If it corresponds to only one TZID, return it.
    * If C is set, look up the Metazone + Country => TZID mapping, and return that value if it exists
    * Get the locale's language, and get the default country from that. Look up the Metazone + DefaultCountry => TZID mapping, and return that value if it exists.
-   * Otherwise, lookup Metazone + 001 => TZID and return it (that will always exist)
+   * Otherwise, look up Metazone + 001 => TZID and return it (that will always exist)
 9. If you get this far, return an error.
 
 > **Note:** This CLDR date parsing recommendation does not fully handle all RFC 788 date/time formats, nor is it intended to.
@@ -1868,7 +1868,7 @@ _When parsing using a pattern, a lenient parse should be used; see [Parsing Date
 <!ATTLIST pattern numbers CDATA #IMPLIED >
 ```
 
-The `numbers` attribute is used to indicate that numeric quantities in the pattern are to be rendered using a numbering system other than then default numbering system defined for the given locale. The attribute can be in one of two forms. If the alternate numbering system is intended to apply to ALL numeric quantities in the pattern, then simply use the numbering system ID as found in [Numbering Systems](tr35-numbers.md#Numbering_Systems). To apply the alternate numbering system only to a single field, the syntax `<letter>=<numberingSystem>` can be used one or more times, separated by semicolons.
+The `numbers` attribute is used to indicate that numeric quantities in the pattern are to be rendered using a numbering system other than the default numbering system defined for the given locale. The attribute can be in one of two forms. If the alternate numbering system is intended to apply to ALL numeric quantities in the pattern, then simply use the numbering system ID as found in [Numbering Systems](tr35-numbers.md#Numbering_Systems). To apply the alternate numbering system only to a single field, the syntax `<letter>=<numberingSystem>` can be used one or more times, separated by semicolons.
 
 Examples:
 
@@ -1965,13 +1965,13 @@ Notes for the table below:
     <tr><td>qqqqq</td><td>2</td><td>Narrow</td></tr>
 
 <!-- == == == MONTH == == == -->
-<tr><th rowspan="11"><a name="dfst-month" id="dfst-month" href="#dfst-month">month</a></th><td rowspan="5">M</td><td>M</td><td>9, 12</td><td>Numeric: minimum digits</td><td rowspan="5"><b>Format</b> style month number/name: The format style name is an additional form of the month name (besides the stand-alone style) that can be used in contexts where it is different than the stand-alone form. For example, depending on the language, patterns that combine month with day-of month (e.g. "d MMMM") may require the month to be in genitive form. See discussion of [month element](#months_days_quarters_eras). If a separate form is not needed, the format and stand-alone forms can be the same.</td></tr>
+<tr><th rowspan="11"><a name="dfst-month" id="dfst-month" href="#dfst-month">month</a></th><td rowspan="5">M</td><td>M</td><td>9, 12</td><td>Numeric: minimum digits</td><td rowspan="5"><b>Format</b> style month number/name: The format style name is an additional form of the month name (besides the stand-alone style) that can be used in contexts where it is different than the stand-alone form. For example, depending on the language, patterns that combine month with day-of month (e.g. "d MMMM") may require the month to be in genitive form. See discussion of <a href="#months_days_quarters_eras">month element</a>. If a separate form is not needed, the format and stand-alone forms can be the same.</td></tr>
     <tr><td>MM</td><td>09, 12</td><td>Numeric: 2 digits, zero pad if needed</td></tr>
     <tr><td>MMM</td><td>Sep</td><td>Abbreviated</td></tr>
     <tr><td>MMMM</td><td>September</td><td>Wide</td></tr>
     <tr><td>MMMMM</td><td>S</td><td>Narrow</td></tr>
     <!--  L  -->
-    <tr><td rowspan="5">L</td><td>L</td><td>9, 12</td><td>Numeric: minimum digits</td><td rowspan="5"><b>Stand-Alone</b> month number/name: For use when the month is displayed by itself, and in any other date pattern (e.g. just month and year, e.g. "LLLL y") that shares the same form of the month name. For month names, this is typically the nominative form. See discussion of [month element](#months_days_quarters_eras).</td></tr>
+    <tr><td rowspan="5">L</td><td>L</td><td>9, 12</td><td>Numeric: minimum digits</td><td rowspan="5"><b>Stand-Alone</b> month number/name: For use when the month is displayed by itself, and in any other date pattern (e.g. just month and year, e.g. "LLLL y") that shares the same form of the month name. For month names, this is typically the nominative form. See discussion of <a href="#months_days_quarters_eras">month element</a>.</td></tr>
     <tr><td>LL</td><td>09, 12</td><td>Numeric: 2 digits, zero pad if needed</td></tr>
     <tr><td>LLL</td><td>Sep</td><td>Abbreviated</td></tr>
     <tr><td>LLLL</td><td>September</td><td>Wide</td></tr>
@@ -2034,7 +2034,7 @@ Notes for the table below:
     <!--  b  -->
     <tr><td rowspan="3">b</td><td>b..bbb</td><td>mid. [e.g. 12 mid.]</td><td>Abbreviated</td>
         <td rowspan="3"><strong>am, pm, noon, midnight</strong><br/>May be upper or lowercase depending on the locale and other options.
-                        If the locale doesn't the notion of a unique "noon" = 12:00, then the PM form may be substituted.
+                        If the locale doesn't have the notion of a unique "noon" = 12:00, then the PM form may be substituted.
                         Similarly for "midnight" = 00:00 and the AM form.
                         The narrow form must be unique, unlike some other fields.</td></tr>
     <tr><td>bbbb</td><td>midnight<br/>[e.g. 12 midnight]</td><td>Wide</td></tr>
@@ -2081,7 +2081,7 @@ Notes for the table below:
         <td rowspan="2"><em><strong>Input skeleton symbol</strong></em><br/>It must not occur in pattern or skeleton data.
                         Instead, it is reserved for use in skeletons passed to APIs doing flexible date pattern generation.
                         In such a context, like 'j', it requests the preferred hour format for the locale (h, H, K, or k), as determined by the <strong>preferred</strong> attribute of the <strong>hours</strong> element in supplemental data.
-                        However, unlike 'j', it requests no dayPeriod marker such as “am/pm” (It is typically used where there is enough context that that is not necessary).
+                        However, unlike 'j', it requests no dayPeriod marker such as “am/pm” (it is typically used where there is enough context that that is not necessary).
                         For example, with "jmm", 18:00 could appear as “6:00 PM”, while with "Jmm", it would appear as “6:00” (no PM).</td></tr>
     <tr><td>JJ</td><td>08<br/>08</td><td>Numeric hour (2 digits, zero pad if needed)</td></tr>
     <!--  C  -->
@@ -2115,7 +2115,7 @@ Notes for the table below:
                         This field behaves <i>exactly</i> like a composite of all time-related fields, not including the zone fields.
                         As such, it also reflects discontinuities of those fields on DST transition days. On a day of DST onset, it will jump forward.
                         On a day of DST cessation, it will jump backward.
-                        This reflects the fact that is must be combined with the offset field to obtain a unique local time value.
+                        This reflects the fact that it must be combined with the offset field to obtain a unique local time value.
                         The field length specifies the minimum number of digits, with zero-padding as necessary.</td></tr>
 
 <!-- == == == SEPARATOR == == == -->
@@ -2212,7 +2212,7 @@ Even for countries where the customary date format only has a 24 hour format, bo
 
 ### 8.3 <a name="Date_Patterns_Eras" href="#Date_Patterns_Eras">Eras</a>
 
-There are only two values for era in the Gregorian calendar, with two common naming conventions (here in abbreviated form for English): "BC" and "AD", or "BCE" and "CE". These values can be translated into other languages, like "a.C." and and "d.C." for Spanish, but there are no other eras in the Gregorian calendar. Other calendars have a different numbers of eras. Care should be taken when translating the era names for a specific calendar.
+There are only two values for era in the Gregorian calendar, with two common naming conventions (here in abbreviated form for English): "BC" and "AD", or "BCE" and "CE". These values can be translated into other languages, like "a.C." and "d.C." for Spanish, but there are no other eras in the Gregorian calendar. Other calendars have different numbers of eras. Care should be taken when translating the era names for a specific calendar.
 
 ### 8.4 <a name="Date_Patterns_Week_Of_Year" href="#Date_Patterns_Week_Of_Year">Week of Year</a>
 
@@ -2252,7 +2252,7 @@ The meaning of symbol fields should be easy to determine; the problem is determi
 * When a field or literal is encountered that is not compatible with the pattern:
   * Synchronization is not necessary for symbolic fields, since they are self-identifying. Wait until a numeric field or literal is encountered before attempting to resynchronize.
   * Ignore whether the input token is symbolic or numeric, if it is compatible with the current field in the pattern.
-  * Look forward or backward in the current format string for a literal that matches the one most recently encountered. See if you can resynchronize from that point. Use the value of the numeric field to resynchronize as well, if possible (for example, a number larger than the largest month cannot be a month)
+  * Look forward or backward in the current format string for a literal that matches the one most recently encountered. See if you can resynchronize from that point. Use the value of the numeric field to resynchronize as well, if possible (for example, a number larger than the largest month cannot be a month).
   * If that fails, use other format strings from the locale (including those in `<availableFormats>`) to try to match the previous or next symbol or literal (again, using a loose match).
 
 * * *

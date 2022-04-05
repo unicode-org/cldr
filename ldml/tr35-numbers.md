@@ -96,7 +96,7 @@ The LDML specification is divided into the following parts:
 <!ATTLIST numberingSystem rules CDATA #IMPLIED >
 ```
 
-Numbering systems information is used to define different representations for numeric values to an end user. Numbering systems are defined in CLDR as one of two different types: algorithmic and numeric. Numeric systems are simply a decimal based system that uses a predefined set of digits to represent numbers. Examples are Western ( ASCII digits ), Thai digits, Devanagari digits. Algorithmic systems are more complex in nature, since the proper formatting and presentation of a numeric quantity is based on some algorithm or set of rules. Examples are Chinese numerals, Hebrew numerals, or Roman numerals. In CLDR, the rules for presentation of numbers in an algorithmic system are defined using the RBNF syntax described in _[Section 6: Rule-Based Number Formatting](#Rule-Based_Number_Formatting)_.
+Numbering systems information is used to define different representations for numeric values to an end user. Numbering systems are defined in CLDR as one of two different types: algorithmic and numeric. Numeric systems are simply a decimal based system that uses a predefined set of digits to represent numbers. Examples are Western digits (ASCII digits), Thai digits, Devanagari digits. Algorithmic systems are more complex in nature, since the proper formatting and presentation of a numeric quantity is based on some algorithm or set of rules. Examples are Chinese numerals, Hebrew numerals, or Roman numerals. In CLDR, the rules for presentation of numbers in an algorithmic system are defined using the RBNF syntax described in _[Section 6: Rule-Based Number Formatting](#Rule-Based_Number_Formatting)_.
 
 Attributes for the `<numberingSystem>` element are as follows:
 
@@ -114,10 +114,10 @@ Examples:
 <!-- A numeric system using Thai digits -->
 <numberingSystem id="thai" type="numeric" digits="๐๑๒๓๔๕๖๗๘๙"/>
 
-<!-- An algorithmic system - Georgian numerals , rules found in NumberingSystemRules -->
+<!-- An algorithmic system - Georgian numerals, rules found in NumberingSystemRules -->
 <numberingSystem id="geor" type="algorithmic" rules="georgian"/>
 
-<!-- An algorithmic system. Traditional Chinese Numerals -->
+<!-- An algorithmic system. Traditional Chinese numerals -->
 <numberingSystem id="hant" type="algorithmic" rules="zh_Hant/SpelloutRules/spellout-cardinal"/>
 ```
 
@@ -149,7 +149,7 @@ This element defines general categories of numbering systems that are sometimes 
 
 **native**
 
-> Defines the numbering system used for the native digits, usually defined as a part of the script used to write the language. The native numbering system can only be a numeric positional decimal-digit numbering system, using digits with General_Category=Decimal_Number. Note: In locales where the native numbering system is the default, it is assumed that the numbering system "latn" ( Western Digits 0-9 ) is always acceptable, and can be selected using the -nu keyword as part of a Unicode locale identifier.
+> Defines the numbering system used for the native digits, usually defined as a part of the script used to write the language. The native numbering system can only be a numeric positional decimal-digit numbering system, using digits with General_Category=Decimal_Number. Note: In locales where the native numbering system is the default, it is assumed that the numbering system "latn" (Western digits 0-9) is always acceptable, and can be selected using the -nu keyword as part of a Unicode locale identifier.
 
 **traditional**
 
@@ -220,7 +220,7 @@ The available number symbols are as follows:
 
 **superscriptingExponent**
 
-> (Programmers are used to the fallback exponent style “1.23E4”, but that should not be shown to end-users. Instead, the exponential notation superscriptingExponent should be used to show a format like “1.23 × 104”. ) The superscripting can use markup, such as `<sup>4</sup>` in HTML, or for the special case of Latin digits, use the superscript characters: U+207B ( ⁻ ), U+2070 ( ⁰ ), U+00B9 ( ¹ ), U+00B2 ( ² ), U+00B3 ( ³ ), U+2074 ( ⁴ ) .. U+2079 ( ⁹ ).
+> (Programmers are used to the fallback exponent style “1.23E4”, but that should not be shown to end-users. Instead, the exponential notation superscriptingExponent should be used to show a format like “1.23 × 10<sup>4</sup>”. ) The superscripting can use markup, such as `<sup>4</sup>` in HTML, or for the special case of Latin digits, use the superscript characters: U+207B ( ⁻ ), U+2070 ( ⁰ ), U+00B9 ( ¹ ), U+00B2 ( ² ), U+00B3 ( ³ ), U+2074 ( ⁴ ) .. U+2079 ( ⁹ ).
 
 **perMille**
 
@@ -246,7 +246,7 @@ The available number symbols are as follows:
 
 > This replaces any use of the timeSeparator pattern character in a date-time format pattern (no timeSeparator pattern character is currently defined, see note below). This allows the same time format to be used for multiple number systems when the time separator depends on the number system. For example, the time format for Arabic should be COLON when using the Latin numbering system (0, 1, 2, …), but when the Arabic numbering system is used (٠‎ - ١‎ - ٢‎ …), the traditional time separator in older print styles was often ARABIC COMMA.
 >
-> **Note:** In CLDR 26 the timeSeparator pattern character was specified to be COLON. This was withdrawn in CLDR 28 due to backward compatibility issues, and no timeSeparator pattern character is currently defined. No CLDR locales are known to have a need to specify timeSeparator symbols that depend on number system; if this changes in the future a different timeSeparator pattern character will be defined. In the meantime, since CLDR data consumers can still request the timeSeparator symbol. it should match the symbol actually used in the [timeFormats](tr35-dates.md#timeFormats) and [availableFormats](tr35-dates.md#availableFormats_appendItems) items.
+> **Note:** In CLDR 26 the timeSeparator pattern character was specified to be COLON. This was withdrawn in CLDR 28 due to backward compatibility issues, and no timeSeparator pattern character is currently defined. No CLDR locales are known to have a need to specify timeSeparator symbols that depend on number system; if this changes in the future a different timeSeparator pattern character will be defined. In the meantime, since CLDR data consumers can still request the timeSeparator symbol, it should match the symbol actually used in the [timeFormats](tr35-dates.md#timeFormats) and [availableFormats](tr35-dates.md#availableFormats_appendItems) items.
 
 Example:
 
@@ -394,9 +394,9 @@ The default pattern for any type that is not supplied is the special value “0�
 
  `<pattern type="1" count="one">0</pattern>`
 
-If the value is precisely “0”, either explicit or defaulted, then the normal number format pattern for that sort of object is supplied — either `<decimalFormat>` or `<currencyFormat type="standard">` — with the normal formatting for the locale (such as the grouping separators). However, for the “0” case by default the signficant digits are adjusted for consistency, typically to 2 or 3 digits, and the maximum fractional digits are set to 0 (for both currencies and plain decimal). Thus the output would be $12, not $12.01. APIs may, however, allow these default behaviors to be overridden.
+If the value is precisely “0”, either explicit or defaulted, then the normal number format pattern for that sort of object is supplied — either `<decimalFormat>` or `<currencyFormat type="standard">` — with the normal formatting for the locale (such as the grouping separators). However, for the “0” case by default the significant digits are adjusted for consistency, typically to 2 or 3 digits, and the maximum fractional digits are set to 0 (for both currencies and plain decimal). Thus the output would be $12, not $12.01. APIs may, however, allow these default behaviors to be overridden.
 
-With the data above, N=12345 matches `<pattern type="10000" count="other">00 K</pattern>`. N is divided by 1000 (obtained from10000 after removing "00" and restoring one "0". The result is formatted according to the normal decimal pattern. With no fractional digits, that yields "12 K".
+With the data above, N=12345 matches `<pattern type="10000" count="other">00 K</pattern>`. N is divided by 1000 (obtained from 10000 after removing "00" and restoring one "0"). The result is formatted according to the normal decimal pattern. With no fractional digits, that yields "12 K".
 
 Formatting 1200 in USD would result in “1.2 K $”, while 990 implicitly maps to the special value “0”, which maps to `<currencyFormat type="standard"><pattern>#,##0.00 ¤</pattern>`, and would result in simply “990 $”.
 
@@ -537,9 +537,9 @@ Number patterns affect how numbers are interpreted in a localized context. Here 
 | #,##0.00 ¤ | EUR | 1 234,57 € |
 || JPY | 1 235 ¥JP |
 
-The number of # placeholder characters before the decimal do not matter, since no limit is placed on the maximum number of digits. There should, however, be at least one zero someplace in the pattern. In currency formats, the number of digits after the decimal also do not matter, since the information in the supplemental data (see _[Supplemental Currency Data](#Supplemental_Currency_Data))_ is used to override the number of decimal places — and the rounding — according to the currency that is being formatted. That can be seen in the above chart, with the difference between Yen and Euro formatting.
+The number of # placeholder characters before the decimal does not matter, since no limit is placed on the maximum number of digits. There should, however, be at least one zero someplace in the pattern. In currency formats, the number of digits after the decimal also does not matter, since the information in the supplemental data (see _[Supplemental Currency Data](#Supplemental_Currency_Data))_ is used to override the number of decimal places — and the rounding — according to the currency that is being formatted. That can be seen in the above chart, with the difference between Yen and Euro formatting.
 
-To ensure correct layout, especially in currency patterns in which a a variety of symbols may be used, number patterns may contain (invisible) bidirectional text format characters such as LRM, RLM, and ALM.
+To ensure correct layout, especially in currency patterns in which a variety of symbols may be used, number patterns may contain (invisible) bidirectional text format characters such as LRM, RLM, and ALM.
 
 _When parsing using a pattern, a lenient parse should be used; see [Lenient Parsing](tr35.md#Lenient_Parsing)._ As noted there, lenient parsing should ignore bidi format characters.
 
@@ -567,13 +567,13 @@ Invalid sequences of special characters (such as “¤¤¤¤¤¤” in current C
 | % | Prefix or suffix | percentSign | Multiply by 100 and show as percentage |
 | ‰ (U+2030) | Prefix or suffix | perMille | Multiply by 1000 and show as per mille (aka “basis points”) |
 | ; | Subpattern boundary | _syntax_ | Separates positive and negative subpatterns. When there is no explicit negative subpattern, an implicit negative subpattern is formed from the positive pattern with a prefixed - (ASCII U+002D HYPHEN-MINUS). |
-| ¤ (U+00A4) | Prefix or suffix | _currency symbol/name from currency specified in API_ | Any sequence is replaced by the localized currency symbol for the currency being formatted, as in the table below. If present in a pattern, the monetary decimal separator and grouping separators (if available) are used instead of the numeric ones. If data is unavailable for a given sequence in a given locale, the display may fall back to ¤ or ¤¤. See also the formatting forcurrency display names, steps 2 and 4 in [Currencies](#Currencies). <table><tr><th>No.</th><th>Replacement / Example</th></tr><tr><td rowspan="2">¤</td><td>Standard currency symbol</td></tr><tr><td>_C$12.00_</td></tr><tr><td rowspan="2">¤¤</td><td>ISO currency symbol (constant)</td></tr><tr><td>_CAD 12.00_</td></tr><tr><td rowspan="2">¤¤¤</td><td>Appropriate currency display name for the currency,based on the plural rules in effect for the locale</td></tr><tr><td>_5.00 Canadian dollars_</td></tr><tr><td rowspan="2" >¤¤¤¤¤</td><td>Narrow currency symbol. The same symbols may be used for multiple currencies. Thus the symbol may be ambiguous, and should only be where the context is clear.</td></tr><tr><td>_$12.00_</td></tr><tr><td>_others_</td><td>_Invalid in current CLDR. Reserved for future specification_</td></tr></table> |
+| ¤ (U+00A4) | Prefix or suffix | _currency symbol/name from currency specified in API_ | Any sequence is replaced by the localized currency symbol for the currency being formatted, as in the table below. If present in a pattern, the monetary decimal separator and grouping separators (if available) are used instead of the numeric ones. If data is unavailable for a given sequence in a given locale, the display may fall back to ¤ or ¤¤. See also the formatting for currency display names, steps 2 and 4 in [Currencies](#Currencies). <table><tr><th>No.</th><th>Replacement / Example</th></tr><tr><td rowspan="2">¤</td><td>Standard currency symbol</td></tr><tr><td>_C$12.00_</td></tr><tr><td rowspan="2">¤¤</td><td>ISO currency symbol (constant)</td></tr><tr><td>_CAD 12.00_</td></tr><tr><td rowspan="2">¤¤¤</td><td>Appropriate currency display name for the currency, based on the plural rules in effect for the locale</td></tr><tr><td>_5.00 Canadian dollars_</td></tr><tr><td rowspan="2" >¤¤¤¤¤</td><td>Narrow currency symbol. The same symbols may be used for multiple currencies. Thus the symbol may be ambiguous, and should only be where the context is clear.</td></tr><tr><td>_$12.00_</td></tr><tr><td>_others_</td><td>_Invalid in current CLDR. Reserved for future specification_</td></tr></table> |
 | * | Prefix or suffix boundary | _padding character specified in API_ | Pad escape, precedes pad character |
 | ' | Prefix or suffix | _syntax-only_ | Used to quote special characters in a prefix or suffix, for example, `"'#'#"` formats 123 to `"#123"`. To create a single quote itself, use two in a row: `"# o''clock"`. |
 
 A pattern contains a positive subpattern and may contain a negative subpattern, for example, "#,##0.00;(#,##0.00)". Each subpattern has a prefix, a numeric part, and a suffix. If there is no explicit negative subpattern, the implicit negative subpattern is the ASCII minus sign (-) prefixed to the positive subpattern. That is, "0.00" alone is equivalent to "0.00;-0.00". (The data in CLDR is normalized to remove an explicit negative subpattern where it would be identical to the implicit form.)
 
-Note that if an negative subpattern is used as-is: a minus sign is _not_ added, eg "0.00;0.00" ≠ "0.00;-0.00". Trailing semicolons are ignored, eg "0.00;" = "0.00". Whitespace is not ignored, including those around semicolons, so "0.00 ; -0.00" ≠ "0.00;-0.00".
+Note that if a negative subpattern is used as-is: a minus sign is _not_ added, eg "0.00;0.00" ≠ "0.00;-0.00". Trailing semicolons are ignored, eg "0.00;" = "0.00". Whitespace is not ignored, including those around semicolons, so "0.00 ; -0.00" ≠ "0.00;-0.00".
 
 If there is an explicit negative subpattern, it serves only to specify the negative prefix and suffix; the number of digits, minimal digits, and other characteristics are ignored in the negative subpattern. That means that "#,##0.0#;(#)" has precisely the same result as "#,##0.0#;(#,##0.0#)". However in the CLDR data, the format is normalized so that the other characteristics are preserved, just for readability.
 
@@ -615,7 +615,7 @@ For consistency in the CLDR data, the following conventions are observed:
 * Decimal formats should have three hash marks in the fractional position (for example, #,##0.###).
 * Currency formats should have two zeros in the fractional position (for example, ¤ #,##0.00).
     * The exact number of decimals is overridden with the decimal count in supplementary data or by API settings.
-* The only time two thousands separators needs to be used is when the number of digits varies, such as for Hindi: #,##,##0.
+* The only time two thousands separators need to be used is when the number of digits varies, such as for Hindi: #,##,##0.
 * The **minimumGroupingDigits** can be used to suppress groupings below a certain value. This is used for languages such as Polish, where one would only write the grouping separator for values above 9999. The minimumGroupingDigits contains the default for the locale.
     * The attribute value is used by adding it to the grouping separator value. If the input number has fewer integer digits, the grouping separator is suppressed.
     * ##### <a name="Examples_of_minimumGroupingDigits" href="#Examples_of_minimumGroupingDigits">Examples of minimumGroupingDigits</a>
@@ -657,7 +657,7 @@ Infinity is represented as a single character, typically ∞ `(U+221E)` , with t
 
 ### 3.4 <a name="sci" href="#sci">Scientific Notation</a>
 
-Numbers in scientific notation are expressed as the product of a mantissa and a power of ten, for example, 1234 can be expressed as 1.234 x 103. The mantissa is typically in the half-open interval [1.0, 10.0) or sometimes [0.0, 1.0), but it need not be. In a pattern, the exponent character immediately followed by one or more digit characters indicates scientific notation. Example: "0.###E0" formats the number 1234 as "1.234E3".
+Numbers in scientific notation are expressed as the product of a mantissa and a power of ten, for example, 1234 can be expressed as 1.234 x 10<sup>3</sup>. The mantissa is typically in the half-open interval [1.0, 10.0) or sometimes [0.0, 1.0), but it need not be. In a pattern, the exponent character immediately followed by one or more digit characters indicates scientific notation. Example: "0.###E0" formats the number 1234 as "1.234E3".
 
 * The number of digit characters after the exponent character gives the minimum exponent digit count. There is no maximum. Negative exponents are formatted using the localized minus sign, _not_ the prefix and suffix from the pattern. This allows patterns such as "0.###E0 m/s". To prefix positive exponents with a localized plus sign, specify '+' between the exponent and the digits: "0.###E+0" will produce formats "1E+1", "1E+0", "1E-1", and so on. (In localized patterns, use the localized plus sign rather than '+'.)
 * The minimum number of integer digits is achieved by adjusting the exponent. Example: 0.00123 formatted with "00.###E0" yields "12.3E-4". This only happens if there is no maximum number of integer digits. If there is a maximum, then the minimum number of integer digits is fixed at one.
@@ -687,7 +687,7 @@ Numbers in scientific notation are expressed as the product of a mantissa and a 
 
 ### 3.5 <a name="sigdig" href="#sigdig">Significant Digits</a>
 
-There are two ways of controlling how many digits are shows: (a) significant digits counts, or (b) integer and fraction digit counts. Integer and fraction digit counts are described above. When a formatter is using significant digits counts, it uses however many integer and fraction digits are required to display the specified number of significant digits. It may ignore min/max integer/fraction digits, or it may use them to the extent possible.
+There are two ways of controlling how many digits are shown: (a) significant digits counts, or (b) integer and fraction digit counts. Integer and fraction digit counts are described above. When a formatter is using significant digits counts, it uses however many integer and fraction digits are required to display the specified number of significant digits. It may ignore min/max integer/fraction digits, or it may use them to the extent possible.
 
 ###### Table: <a name="Significant_Digits_Examples" href="#Significant_Digits_Examples">Significant Digits Examples</a>
 
@@ -701,7 +701,7 @@ There are two ways of controlling how many digits are shows: (a) significant dig
 * In order to enable significant digits formatting, use a pattern containing the `'@'` pattern character. In order to disable significant digits formatting, use a pattern that does not contain the `'@'` pattern character.
 * Significant digit counts may be expressed using patterns that specify a minimum and maximum number of significant digits. These are indicated by the `'@'` and `'#'` characters. The minimum number of significant digits is the number of `'@'` characters. The maximum number of significant digits is the number of `'@'` characters plus the number of `'#'` characters following on the right. For example, the pattern `"@@@"` indicates exactly 3 significant digits. The pattern `"@##"` indicates from 1 to 3 significant digits. Trailing zero digits to the right of the decimal separator are suppressed after the minimum number of significant digits have been shown. For example, the pattern `"@##"` formats the number 0.1203 as `"0.12"`.
 * Implementations may forbid the use of significant digits in combination with min/max integer/fraction digits. In such a case, if a pattern uses significant digits, it may not contain a decimal separator, nor the `'0'` pattern character. Patterns such as `"@00"` or `"@.###"` would be disallowed.
-* Any number of `'#'` characters may be prepended to the left of the leftmost `'@'` character. These have no effect on the minimum and maximum significant digits counts, but may be used to position grouping separators. For example, `"#,#@#"` indicates a minimum of one significant digits, a maximum of two significant digits, and a grouping size of three.
+* Any number of `'#'` characters may be prepended to the left of the leftmost `'@'` character. These have no effect on the minimum and maximum significant digits counts, but may be used to position grouping separators. For example, `"#,#@#"` indicates a minimum of one significant digit, a maximum of two significant digits, and a grouping size of three.
 * The number of significant digits has no effect on parsing.
 * Significant digits may be used together with exponential notation. Such patterns are equivalent to a normal exponential pattern with a minimum and maximum integer digit count of one, a minimum fraction digit count of `Minimum Significant Digits - 1`, and a maximum fraction digit count of `Maximum Significant Digits - 1`. For example, the pattern `"@@###E0"` is equivalent to `"0.0###E0"`.
 
@@ -734,7 +734,7 @@ To specify a rounding increment in a pattern, include the increment in the patte
 
 ### 3.8 <a name="Quoting_Rules" href="#Quoting_Rules">Quoting Rules</a>
 
-Single quotes, (**'**), enclose bits of the pattern that should be treated literally. Inside a quoted string, two single quotes ('') are replaced with a single one ('). For example: `'X '`#`' Q '` -> **X 1939 Q** (Literal strings `shaded`.)
+Single quotes (**'**) enclose bits of the pattern that should be treated literally. Inside a quoted string, two single quotes ('') are replaced with a single one ('). For example: `'X '`#`' Q '` -> **X 1939 Q** (Literal strings `shaded`.)
 
 ## 4 <a name="Currencies" href="#Currencies">Currencies</a>
 
@@ -799,7 +799,7 @@ To format a particular currency value "ZWD" for a particular numeric value _n_ u
 4. Next, get the `displayName` element for the currency.
    1. Look for a `displayName` element that matches the `count` value, starting in the current locale and then following the locale fallback chain up to, but not including root.
    2. If no matching `displayName` element was found in the previous step, then look for a `displayName` element that matches `count="other"`, starting in the current locale and then following the locale fallback chain up to, but not including root.
-   3. If no matching `displayName` element was found in the previous step, then look for a `displayName` element that with no count, starting in the current locale and then following the locale fallback chain up to root.
+   3. If no matching `displayName` element was found in the previous step, then look for a `displayName` element with no count, starting in the current locale and then following the locale fallback chain up to root.
    4. If there is no `displayName` element, use the currency code itself (for example, "ZWD").
 5. Format the numeric value according to the locale. Use the locale’s `<decimalFormats …>` pattern, not the `<currencyFormats>` pattern that is used with the symbol (eg, Z$). As when formatting symbol currency values, reset the number of decimals according to the supplemental `<currencyData>` and use the currencyDecimal symbol if different from the decimal symbol.
    1. The number of decimals should be overridable in an API, so that clients can choose between “2 US dollars” and “2.00 US dollars”.
@@ -807,7 +807,7 @@ To format a particular currency value "ZWD" for a particular numeric value _n_ u
 
 While for English this may seem overly complex, for some other languages different plural forms are used for different unit types; the plural forms for certain unit types may not use all of the plural-form tags defined for the language.
 
-For example, if the the currency is ZWD and the number is 1234, then the latter maps to `count="other"` for English. The unit pattern for that is "{0} {1}", and the display name is "Zimbabwe dollars". The final formatted number is then "1,234 Zimbabwe dollars".
+For example, if the currency is ZWD and the number is 1234, then the latter maps to `count="other"` for English. The unit pattern for that is "{0} {1}", and the display name is "Zimbabwe dollars". The final formatted number is then "1,234 Zimbabwe dollars".
 
 When the currency symbol is substituted into a pattern, there may be some further modifications, according to the following.
 
@@ -836,7 +836,7 @@ Currencies can also contain optional grouping, decimal data, and pattern element
 
 > **Note:** _Currency values should **never** be interchanged without a known currency code. You never want the number 3.5 interpreted as $3.50 by one user and €3.50 by another._ Locale data contains localization information for currencies, not a currency value for a country. A currency amount logically consists of a numeric value, plus an accompanying currency code (or equivalent). The currency code may be implicit in a protocol, such as where USD is implicit. But if the raw numeric value is transmitted without any context, then it has no definitive interpretation.
 
-Notice that the currency code is completely independent of the end-user's language or locale. For example, BGN is the code for Bulgarian Lev. A currency amount of <BGN, 1.23456×10³> would be localized for a Bulgarian user into "1 234,56 лв." (using Cyrillic letters). For an English user it would be localized into the string "BGN 1,234.56" The end-user's language is needed for doing this last localization step; but that language is completely orthogonal to the currency code needed in the data. After all, the same English user could be working with dozens of currencies. Notice also that the currency code is also independent of whether currency values are inter-converted, which requires more interesting financial processing: the rate of conversion may depend on a variety of factors.
+Notice that the currency code is completely independent of the end-user's language or locale. For example, BGN is the code for Bulgarian Lev. A currency amount of <BGN, 1.23456×10³> would be localized for a Bulgarian user into "1 234,56 лв." (using Cyrillic letters). For an English user it would be localized into the string "BGN 1,234.56". The end-user's language is needed for doing this last localization step; but that language is completely orthogonal to the currency code needed in the data. After all, the same English user could be working with dozens of currencies. Notice also that the currency code is also independent of whether currency values are inter-converted, which requires more interesting financial processing: the rate of conversion may depend on a variety of factors.
 
 Thus logically speaking, once a currency amount is entered into a system, it should be logically accompanied by a currency code in all processing. This currency code is independent of whatever the user's original locale was. Only in badly-designed software is the currency code (or equivalent) not present, so that the software has to "guess" at the currency code based on the user's locale.
 
@@ -1044,7 +1044,7 @@ Plural categories may also differ according to the visible decimals. For example
 | --- | --- | --- |
 | Base | The fractions are ignored; the category is the same as the category of the integer. | 1.13 has the same plural category as 1. |
 | Separate | All fractions by value are in one category (typically ‘other’ = ‘plural’). | 1.01 gets the same class as 9; <br/> 1.00 gets the same category as 1. |
-| Visible | All visible fractions are in one category (typically ‘other’ = ‘plural). | 1.00, 1.01, 3.5 all get the same category. |
+| Visible | All visible fractions are in one category (typically ‘other’ = ‘plural’). | 1.00, 1.01, 3.5 all get the same category. |
 | Digits | The visible fraction determines the category. | 1.13 gets the same class as 13. |
 
 There are also variants of the above: for example, short fractions may have the Digits behavior, but longer fractions may just look at the final digit of the fraction.
@@ -1112,7 +1112,7 @@ digitPos        = [1-9]
 * Whitespace (defined as Unicode [Pattern_White_Space](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5Cp%7BPattern_White_Space%7D)) can occur between or around any of the above tokens, with the exception of the tokens in value, digit, and sampleValue.
 * In the syntax, **and** binds more tightly than **or**. So **X or Y and Z** is interpreted as **(X or (Y and Z))**.
   * For example, e = 0 and i != 0 and i % 1000000 = 0 and *+v = 0+* or e != 0..5 is parsed as if it were (e = 0 and i != 0 and i % 1000000 = 0 and v = 0) or (e != 0..5)
-* Each plural rule must be written to be self-contained, and not depend on the ordering. Thus rules must be mutually exclusive; for a given numeric value, only one rule can apply (i.e., the condition can only be true for one of the pluralRule elements. Each keyword can have at most one condition. The 'other' keyword must have an empty condition: it is only present for samples.
+* Each plural rule must be written to be self-contained, and not depend on the ordering. Thus rules must be mutually exclusive; for a given numeric value, only one rule can apply (i.e., the condition can only be true for one of the pluralRule elements). Each keyword can have at most one condition. The 'other' keyword must have an empty condition: it is only present for samples.
 * The samples should be included, since they are used by client software for samples and determining whether the keyword has finite values or not.
 * The 'other' keyword must have no condition, and all other keywords must have a condition.
 
@@ -1160,7 +1160,7 @@ Similarly, 1.2005c3 has i=1200 and f=5 (corresponding to 1200.5).
 
 #### 5.1.2 <a name="Relations" href="#Relations">Relations</a>
 
-The positive relations are of the format **x = y** and **x = y mod z**. The **y** value can be a comma-separated list, such as **n = 3, 5, 7..15**, and is treated as if each relation were expanded into an OR statement. The range value **a..b** is equivalent to listing all the _**integers**_ between **a** and **b**, inclusive. When **!=** is used, it means the entire relation is negated.
+The positive relations are of the format **x = y** and **x = y mod z**. The **y** value can be a comma-separated list, such as **n = 3, 5, 7..15**, and is treated as if each relation were expanded into an OR statement. The range value **a..b** is equivalent to listing all the ***integers*** between **a** and **b**, inclusive. When **!=** is used, it means the entire relation is negated.
 
 ###### Table: <a name="Relations_Examples" href="#Relations_Examples">Relations Examples</a>
 
@@ -1196,18 +1196,18 @@ The values of relations are defined according to the operand as follows. Importa
 | Rules | Comments |
 | --- | --- |
 | one: n = 1 <br/> few: n = 2..4 | This defines two rules, for 'one' and 'few'. The condition for 'one' is "n = 1" which means that the number must be equal to 1 for this condition to pass. The condition for 'few' is "n = 2..4" which means that the number must be between 2 and 4 inclusive for this condition to pass. All other numbers are assigned the keyword 'other' by the default rule. |
-| zero: n = 0 or n != 1 and n mod 100 = 1..19 <br/> one: n = 1 | Each rule must not overlap with other rules. Also note that a modulus is applied to n in the last rule, thus its condition holds for 119, 219, 319… |
-| one: n = 1 <br/> few: n mod 10 = 2..4 and n mod 100 != 12..14 | This illustrates conjunction and negation. The condition for 'few' has two parts, both of which must be met: "n mod 10 = 2..4" and "n mod 100 != 12..14". The first part applies a modulus to n before the test as in the previous example. The second part applies a different modulus and also uses negation, thus it matches all numbers _not_ in 12, 13, 14, 112, 113, 114, 212, 213, 214… |
+| zero: n = 0 or n != 1 and n mod 100 = 1..19 <br/> one: n = 1 | Each rule must not overlap with other rules. Also note that a modulus is applied to n in the last rule, thus its condition holds for 119, 219, 319, … |
+| one: n = 1 <br/> few: n mod 10 = 2..4 and n mod 100 != 12..14 | This illustrates conjunction and negation. The condition for 'few' has two parts, both of which must be met: "n mod 10 = 2..4" and "n mod 100 != 12..14". The first part applies a modulus to n before the test as in the previous example. The second part applies a different modulus and also uses negation, thus it matches all numbers _not_ in 12, 13, 14, 112, 113, 114, 212, 213, 214, … |
 
 #### 5.1.3 <a name="Samples" href="#Samples">Samples</a>
 
 Samples are provided if sample indicator (@integer or @decimal) is present on any rule. (CLDR always provides samples.)
 
-Where samples are provided, the absence of one of the sample indicators indicates that no numeric values can satisify that rule. For example, the rule "i = 1 and v = 0" can only have integer samples, so @decimal must not occur. The @integer samples have no visible fraction digits, while @decimal samples have visible fraction digits; both can have compact decimal exponent values (if the 'e' operand occurs).
+Where samples are provided, the absence of one of the sample indicators indicates that no numeric values can satisfy that rule. For example, the rule "i = 1 and v = 0" can only have integer samples, so @decimal must not occur. The @integer samples have no visible fraction digits, while @decimal samples have visible fraction digits; both can have compact decimal exponent values (if the 'e' operand occurs).
 
-The sampleRanges have a special notation: **start**~**end**. The **start** and **end** values must have the same number of decimal digits, and the same compact decimal exponent values (or neither have compact decimal exponent values). The range encompasses all and only values those value **v** where **start ≤ v ≤ end**, and where **v** has the same number of decimal places as **start** and **end**, and the same compact decimal exponent values.
+The sampleRanges have a special notation: **start**~**end**. The **start** and **end** values must have the same number of decimal digits, and the same compact decimal exponent values (or neither have compact decimal exponent values). The range encompasses all and only those values **v** where **start ≤ v ≤ end**, and where **v** has the same number of decimal places as **start** and **end**, and the same compact decimal exponent values.
 
-Samples must indicate whether they are infinite or not. The '…' marker must be present if and only infinitely many values (integer or decimal) can satisfy the rule. If a set is not infinite, it must list all the possible values.
+Samples must indicate whether they are infinite or not. The '…' marker must be present if and only if infinitely many values (integer or decimal) can satisfy the rule. If a set is not infinite, it must list all the possible values.
 
 ###### Table: <a name="Plural_Samples_Examples" href="#Plural_Samples_Examples">Plural Samples Examples</a>
 
@@ -1265,7 +1265,7 @@ For the formatting of number ranges, see <a name="Number_Range_Formatting" href=
 <!ATTLIST rbnfrule decexp CDATA #IMPLIED >
 ```
 
-The rule-based number format (RBNF) encapsulates a set of rules for mapping binary numbers to and from a readable representation. They are typically used for spelling out numbers, but can also be used for other number systems like roman numerals, Chinese numerals, or for ordinal numbers (1st, 2nd, 3rd,…).
+The rule-based number format (RBNF) encapsulates a set of rules for mapping binary numbers to and from a readable representation. They are typically used for spelling out numbers, but can also be used for other number systems like roman numerals, Chinese numerals, or for ordinal numbers (1st, 2nd, 3rd, …).
 
 Where, however, the CLDR plurals or ordinals can be used, their usage is recommended in preference to the RBNF data. First, the RBNF data is not completely fleshed out over all languages that otherwise have modern coverage. Secondly, the alternate forms are neither complete, nor useful without additional information. For example, for German there is spellout-cardinal-masculine, and spellout-cardinal-feminine. But a complete solution would have all genders (masculine/feminine/neuter), all cases (nominative, accusative, dative, genitive), plus context (with strong or weak determiner or none). Moreover, even for the alternate forms that do exist, CLDR does not supply any data for when to use one vs another (eg, when to use spellout-cardinal-masculine vs spellout-cardinal-feminine). So these data are inappropriate for general purpose software.
 
@@ -1276,7 +1276,7 @@ There are 4 common spellout rules. Some languages may provide more than these 4 
 * **cardinal:** This is used when providing the quantity of the number of objects. For many languages, there may not be a default cardinal type. Many languages require the notion of the gender and other grammatical properties so that the number and the objects being referenced are in grammatical agreement. An example of its usage is "one e-mail", "two people" or "three kilometers". Some languages may not have dedicated words for 0 or negative numbers for cardinals. In those cases, the words from the numbering type can be reused.
 * **ordinal:** This is used when providing the order of the number of objects. For many languages, there may not be a default ordinal type. Many languages also require the notion of the gender for ordinal so that the ordinal number and the objects being referenced are in grammatical agreement. An example of its usage is "first place", "second e-mail" or "third house on the right". The rules for this type have undefined behavior for non-integer numbers, and values less than 1.
 
-In addition to the spellout rules, there are also a numbering system rules. Even though they may be derived from a specific culture, they are typically not translated and the rules are in **root**. An example of these rules are the Roman numerals where the value 8 comes out as VIII.
+In addition to the spellout rules, there are also numbering system rules. Even though they may be derived from a specific culture, they are typically not translated and the rules are in **root**. An example of these rules are the Roman numerals where the value 8 comes out as VIII.
 
 With regards to the number range supported for all these number types, the largest possible number range tries to be supported, but some languages may not have words for large numbers. For example, the old Roman numbering system can't support the value 5000 and beyond. For those unsupported cases, the default number format from CLDR is used.
 
@@ -1350,7 +1350,7 @@ For plural rule selection of number ranges, see [Plural Ranges](#Plural_Ranges).
 
 *Approximate number formatting* refers to a specific format of numbers in which the value is understood to not be exact; for example, "\~5 minutes".
 
-To format an approximate number, follow the normal number formatting procedure in Number Format Patterns](#Number_Format_Patterns), but substitute the `approximatelySign` from [Number Symbols](#Number_Symbols) in for the minus sign placeholder.
+To format an approximate number, follow the normal number formatting procedure in [Number Format Patterns](#Number_Format_Patterns), but substitute the `approximatelySign` from [Number Symbols](#Number_Symbols) in for the minus sign placeholder.
 
 If the number is negative, or if the formatting options request the sign to be displayed, *prepend* the `approximatelySign` to the plus or minus sign before substituting it into the pattern. For example, "\~-5" means "approximately negative five". This procedure may change in the future.
 

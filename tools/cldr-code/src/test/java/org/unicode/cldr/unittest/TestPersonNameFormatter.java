@@ -75,7 +75,9 @@ public class TestPersonNameFormatter extends TestFmwk{
             "length=short medium; style=formal; usage=addressing", "{given} {given2-initial} {surname}",
             "length=short medium; style=formal; usage=addressing", "{given} {surname}",
             "length=monogram; style=formal; usage=addressing", "{given-initial}{surname-initial}",
-            "", "{prefix} {given} {given2} {surname} {surname2} {suffix}");
+            "order=givenFirst", "{prefix} {given} {given2} {surname} {surname2} {suffix}",
+            "order=surnameFirst", "{surname} {surname2} {prefix} {given} {given2} {suffix}",
+            "order=sorting", "{surname} {surname2}, {prefix} {given} {given2} {suffix}");
 
         PersonNameFormatter personNameFormatter = new PersonNameFormatter(namePatternData, FALLBACK_FORMATTER);
 
@@ -221,7 +223,7 @@ public class TestPersonNameFormatter extends TestFmwk{
 
         NamePatternData namePatternData = new NamePatternData(
             localeToOrder,
-            "", "1{prefix}1 2{given}2 3{given2}3 4{surname}4 5{surname2}5 6{suffix}6");
+            "order=givenFirst", "1{prefix}1 2{given}2 3{given2}3 4{surname}4 5{surname2}5 6{suffix}6");
 
         PersonNameFormatter personNameFormatter = new PersonNameFormatter(namePatternData, FALLBACK_FORMATTER);
 

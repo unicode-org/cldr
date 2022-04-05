@@ -392,7 +392,7 @@ public class PathDescription {
         + CLDRURLS.PERSON_NAME_FORMATS + ".\n"
         + "^//ldml/personNames/sampleName"
         + RegexLookup.SEPARATOR
-        + "Sample names for person name forma examples (enter ∅∅∅ for unused fields). For more information, please see "
+        + "Sample names for person name format examples (enter ∅∅∅ for unused fields). For more information, please see "
         + CLDRURLS.PERSON_NAME_FORMATS + ".\n"
 
         + "^//ldml/numbers/([a-z]*)Formats(\\[@numberSystem=\"([^\"]*)\"])?/\\1FormatLength/\\1Format\\[@type=\"standard\"]/pattern\\[@type=\"standard\"]$"

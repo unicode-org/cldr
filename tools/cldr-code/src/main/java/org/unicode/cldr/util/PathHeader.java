@@ -1852,12 +1852,44 @@ public class PathHeader implements Comparable<PathHeader> {
                 }
             });
 
+            functionMap.put("personNameSection", new Transform<String, String>() {
+                @Override
+                public String transform(String source) {
+                    // value for personName length and sampleName item in desired sort order
+                    final List<String> lengthValues = Arrays.asList("long", "medium", "short", "monogram", "monogramNarrow");
+                    final List<String> itemValues = Arrays.asList("givenSurname", "given2Surname", "givenSurname2", "informal", "full", "multiword");
+
+                    if (source.equals("NameOrder")) {
+                        order = 0;
+                        return "NameOrder for Locales";
+                    }
+                    if (source.equals("InitialPatterns")) {
+                        order = 10;
+                        return source;
+                    }
+                    String lengthPrefix = "PersonName:";
+                    if (source.startsWith(lengthPrefix)) {
+                        String lengthValue = source.substring(lengthPrefix.length());
+                        order = 20 + lengthValues.indexOf(lengthValue);
+                        return "PersonName Patterns for Length: " + lengthValue;
+                    }
+                    String itemPrefix = "SampleName:";
+                    if (source.startsWith(itemPrefix)) {
+                        String itemValue = source.substring(itemPrefix.length());
+                        order = 30 + itemValues.indexOf(itemValue);
+                        return "SampleName Fields for Item: " + itemValue;
+                    }
+                    order = 40;
+                    return source;
+                }
+            });
+
             functionMap.put("personNameOrder", new Transform<String, String>() {
                 @Override
                 public String transform(String source) {
                     // The various personName attribute values in desired sort order
                     final List<String> allValues = Arrays.asList(
-                        "long", "medium", "short", "monogram", "monogramNarrow", // length values
+                        // length values already handled in &personNameSection
                         "addressing", "referring", // usage values
                         "formal", "informal", // style values
                         "sorting", "givenFirst", "surnameFirst"); //order values
@@ -1867,8 +1899,6 @@ public class PathHeader implements Comparable<PathHeader> {
                     for (String part: parts) {
                         if (allValues.contains(part)) {
                             order += (1 << allValues.indexOf(part));
-                        } else {
-                            order += (1 << allValues.size());
                         }
                     }
                     return source;
@@ -1878,8 +1908,8 @@ public class PathHeader implements Comparable<PathHeader> {
             functionMap.put("sampleNameOrder", new Transform<String, String>() {
                 @Override
                 public String transform(String source) {
+                    // The various nameField attribute values in desired sort order
                     final List<String> allValues = Arrays.asList(
-                        "givenSurname", "given2Surname", "givenSurname2", "informal", "full", "multiword", // values for sampleName item
                         "prefix", "given", "given2", "surname", "surname2", "suffix", // values for nameField type
                         "informal"); // modifiers for nameField type
 
@@ -1888,8 +1918,6 @@ public class PathHeader implements Comparable<PathHeader> {
                     for (String part: parts) {
                         if (allValues.contains(part)) {
                             order += (1 << allValues.indexOf(part));
-                        } else {
-                            order += (1 << allValues.size());
                         }
                     }
                     return source;

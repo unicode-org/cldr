@@ -915,7 +915,7 @@ public class PersonNameFormatter {
             String usage = null;
             String order = null;
             if (string.isBlank()) {
-                return MATCH_ALL;
+                throw new IllegalArgumentException("must have at least one of length, style, usage, or order");
             }
             for (String part : SPLIT_SEMI.split(string)) {
                 List<String> parts = SPLIT_EQUALS.splitToList(part);
@@ -975,7 +975,7 @@ public class PersonNameFormatter {
                 toAddTo.add(title + "='" + JOIN_SPACE.join(set) + "'");
             }
         }
-        public static final ParameterMatcher MATCH_ALL = new ParameterMatcher((Set<Length>)null, null, null, null);
+        //public static final ParameterMatcher MATCH_ALL = new ParameterMatcher((Set<Length>)null, null, null, null);
 
         public static final Comparator<Iterable<ParameterMatcher>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<ParameterMatcher>naturalOrder());
 
@@ -994,12 +994,6 @@ public class PersonNameFormatter {
 
         @Override
         public int compareTo(ParameterMatcher other) {
-            // special case MATCH_ALL to put at end
-            if (this.equals(MATCH_ALL)) {
-                return other.equals(MATCH_ALL) ? 0 : 1;
-            } else if (other.equals(MATCH_ALL)) {
-                return -1;
-            }
             return ComparisonChain.start()
                 .compare(lengths, other.lengths, Length.ITERABLE_COMPARE)
                 .compare(usages, other.usages, Usage.ITERABLE_COMPARE)
@@ -1137,7 +1131,6 @@ public class PersonNameFormatter {
          * <ul>
          * <li>Every possible FormatParameters value must match at least one ParameterMatcher</li>
          * <li>No ParameterMatcher is superfluous; the ones before it must not mask it.</li>
-         * <li>The final ParameterMatcher must be MATCH_ALL.</li>
          * </ul>
          * The multimap values must retain the order they are built with!
          */
@@ -1159,7 +1152,6 @@ public class PersonNameFormatter {
                 Collection<NamePattern> values = entry.getValue();
 
                 // TODO Mark No ParameterMatcher should be completely masked by any previous ones
-                // Except for the final MATCH_ALL
                 // The following code starts with a list of all the items, and removes any that match
                 int matchCount = 0;
                 for (Iterator<FormatParameters> rest = remaining.iterator(); rest.hasNext(); ) {
@@ -1172,7 +1164,7 @@ public class PersonNameFormatter {
                         }
                     }
                 }
-                if (matchCount == 0 && !key.equals(ParameterMatcher.MATCH_ALL)) {
+                if (matchCount == 0) {
                     throw new IllegalArgumentException("key is masked by previous values: " + key
                         + ",\n\t" + JOIN_LFTB.join(formatParametersToNamePattern.entries()));
                 }
@@ -1182,11 +1174,6 @@ public class PersonNameFormatter {
                     throw new IllegalArgumentException("key has no values: " + key);
                 }
                 lastKey = key;
-            }
-
-            // The final entry must have MATCH_ALL as the key
-            if (!lastKey.equals(ParameterMatcher.MATCH_ALL)) {
-                throw new IllegalArgumentException("last key is not MATCH_ALL" + lastKey);
             }
         }
 
@@ -1334,7 +1321,7 @@ public class PersonNameFormatter {
      */
     public static Pair<ParameterMatcher, NamePattern> fromPathValue(XPathParts parts, String value) {
 
-        //ldml/personNames/personName[@length="long"][@usage="sorting"]/namePattern[alt="2"]
+        //ldml/personNames/personName[@length="long"][@usage="referring"][@order="sorting"]/namePattern[alt="2"]
         // value = {surname}, {given} {given2} {suffix}
         final String altValue = parts.getAttributeValue(-1, "alt");
         int rank = altValue == null ? 0 : Integer.parseInt(altValue);
@@ -1363,7 +1350,7 @@ public class PersonNameFormatter {
             if (path.startsWith("//ldml/personNames/sampleName")) {
                 //ldml/personNames/sampleName[@item="full"]/nameField[@type="prefix"]
                 String value = cldrFile.getStringValue(path);
-                if (!value.equals("∅∅∅")) { // TODO is this how we want to handle ∅∅∅?
+                if (!value.equals("∅∅∅")) {
                     XPathParts parts = XPathParts.getFrozenInstance(path);
                     names.put(SampleType.valueOf(parts.getAttributeValue(-2, "item")), ModifiedField.from(parts.getAttributeValue(-1, "type")), value);
                 }
@@ -1439,7 +1426,6 @@ public class PersonNameFormatter {
                 result.putAll(matcher, patterns);
             }
         }
-        result.putAll(ParameterMatcher.MATCH_ALL, optimalAny);
         return result;
     }
 

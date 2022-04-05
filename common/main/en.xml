@@ -9133,9 +9133,6 @@ annotations.
 		<nameOrderLocales order="surnameFirst">ja zh ko</nameOrderLocales>
 		<initialPattern type="initial">{0}.</initialPattern>
 		<initialPattern type="initialSequence">{0} {1}</initialPattern>
-		<personName>
-			<namePattern>{given-informal} {surname}</namePattern>
-		</personName>
 		<personName length="long" usage="addressing" style="formal" order="sorting">
 			<namePattern>{surname}, {given} {given2} {suffix}</namePattern>
 		</personName>

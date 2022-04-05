@@ -491,8 +491,7 @@ public class ExampleGenerator {
         //TODO Peter extract from sampleName data once that is in en.xml
         // eventually, this will cycle through the types of sample names, and extract from CLDRFile
         for (NameObject sampleNameObject1 : sampleNames.values()) {
-            // TODO Remove initial periods from en.xml
-            NamePattern namePattern = NamePattern.from(0, value.replace(".", ""));
+            NamePattern namePattern = NamePattern.from(0, value);
             ULocale locale = new ULocale(getCldrFile().getLocaleID());
             String result = namePattern.format(sampleNameObject1, formatParameters, personNameFormatter.getFallbackInfo());
             examples.add(result);

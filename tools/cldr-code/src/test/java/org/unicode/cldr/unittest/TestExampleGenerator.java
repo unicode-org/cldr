@@ -191,7 +191,6 @@ public class TestExampleGenerator extends TestFmwk {
         "//ldml/personNames/nameOrderLocales[@order=\"([^\"]*+)\"]", // CLDR-15384
         "//ldml/personNames/initialPattern[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]", // CLDR-15384
         "//ldml/personNames/initialPattern[@type=\"([^\"]*+)\"]", // CLDR-15384
-        "//ldml/personNames/personName/namePattern[@alt=\"([^\"]*+)\"]", // CLDR-15384
         "//ldml/personNames/personName[@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@style=\"([^\"]*+)\"][@order=\"([^\"]*+)\"]/namePattern[@alt=\"([^\"]*+)\"]", // CLDR-15384
         "//ldml/personNames/personName[@length=\"([^\"]*+)\"][@style=\"([^\"]*+)\"][@order=\"([^\"]*+)\"]/namePattern[@alt=\"([^\"]*+)\"]", // CLDR-15384
         "//ldml/personNames/sampleName[@item=\"([^\"]*+)\"]/nameField[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]", // CLDR-15384
@@ -241,7 +240,6 @@ public class TestExampleGenerator extends TestFmwk {
         "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/short/generic",
         "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/short/standard",
         "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/short/daylight",
-        "//ldml/personNames/personName/namePattern",
         "//ldml/personNames/personName[@length=\"([^\"]*+)\"][@style=\"([^\"]*+)\"][@order=\"([^\"]*+)\"]/namePattern",
         "//ldml/personNames/personName[@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@style=\"([^\"]*+)\"][@order=\"([^\"]*+)\"]/namePattern"); // CLDR-15384
     // Add to above if the background SHOULD appear, but we don't have them yet. TODO Add later

@@ -12,15 +12,23 @@ Node.js (Tested with v12)
 
 ## How to use
 
+- To generate the .zip file: (Unix)
+
 ```shell
 $ bash make-tr-archive.sh
 ```
 
 You will end up with HTML files under `dist/` and a zipped up `./tr35.zip` archive.
 
+- To generate, and also serve locally via a little web server (Unix):
+
+```shell
+$ npm install
+$ npm run serve
+```
+
 `reports.css` gets downloaded locally so that the relative link ( `../reports.css`) within the HTML will work.
 
-See [../../../README.md](../../../README.md) for full project information.
 
 ## Updating ToC
 
@@ -35,3 +43,6 @@ This will update the tr .md files in place.
 Copyright &copy; 1991-2021 Unicode, Inc.
 All rights reserved.
 [Terms of use](http://www.unicode.org/copyright.html)
+
+See [../../../README.md](../../../README.md) for full project information.
+

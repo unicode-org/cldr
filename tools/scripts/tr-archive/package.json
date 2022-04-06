@@ -6,13 +6,15 @@
   "dependencies": {
     "@not-dalia/gfm-toc": "github:not-dalia/gfm-toc",
     "anchor-js": "^4.3.1",
-    "highlight.js": "^10.7.2",
-    "jsdom": "^16.5.2",
+    "highlight.js": "^11.5.1",
+    "jsdom": "^20.0.0",
     "marked": "^2.0.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "fix-tocs": "node fix-tocs.js"
+    "fix-tocs": "node fix-tocs.js",
+    "build": "bash copy-local-assets.sh && bash make-tr-archive.sh",
+    "serve": "npm run build && npx serve ."
   },
   "keywords": [],
   "author": "Steven R. Loomis <srl295@gmail.com>",

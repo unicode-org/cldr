@@ -4,8 +4,11 @@ const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const path = require("path");
 
+// Setup some options for our markdown renderer
 marked.setOptions({
   renderer: new marked.Renderer(),
+
+  // Add a code highlighter
   highlight: function (code, forlanguage) {
     const hljs = require("highlight.js");
     language = hljs.getLanguage(forlanguage) ? forlanguage : "plaintext";
@@ -20,42 +23,39 @@ marked.setOptions({
   xhtml: false,
 });
 
+/**
+ * Read the input .md file, and write to a corresponding .html file
+ * @param {string} infile path to input file
+ * @returns {Promise<string>} name of output file (for status update)
+ */
 async function renderit(infile) {
   console.log(`Reading ${infile}`);
   basename = path.basename(infile, ".md");
   const outfile = path.join(path.dirname(infile), `${basename}.html`);
   let f1 = await fs.readFile(infile, "utf-8");
-  // oh the irony
+
+  // oh the irony of removing a BOM before posting to unicode.org
   if (f1.charCodeAt(0) == 0xfeff) {
     f1 = f1.substring(3);
   }
 
-  // render
+  // render to HTML
   const rawHtml = marked(f1);
 
-  // now fix
+  // now fix. Spin up a JSDOM so we can manipulate
   const dom = new JSDOM(rawHtml);
   const document = dom.window.document;
 
-  // // setup doctype
-  // if (document.doctype) {
-  //   console.log("have a doctype " + document.doctype);
-  // } else {
-  //   document.doctype = document.implementation.createDocumentType("html","","");
-  //   document.insertBefore(document.childNodes[0], document.doctype);
-  // }
-
+  // First the HEAD
   const head = dom.window.document.getElementsByTagName("head")[0];
 
-  // add CSS
+  // add CSS to HEAD
   head.innerHTML =
     head.innerHTML +
     `<meta charset="utf-8">\n` +
     `<link rel='stylesheet' type='text/css' media='screen' href='../reports-v2.css'>\n`;
 
-
-
-  // Is there a title?
+  // Assume there's not already a title and that we need to add one.
   if (dom.window.document.getElementsByTagName("title").length >= 1) {
     console.log("Already had a <title>… not changing.");
   } else {
@@ -65,26 +65,15 @@ async function renderit(infile) {
     head.appendChild(title);
   }
 
-
   // calculate the header object
   const header = dom.window.document.createElement("div");
   header.setAttribute("class", "header");
-  // taken from prior TRs
-  header.innerHTML = `<table class="header" cellpadding="0" cellspacing="0" width="100%">
-  <tbody>
-      <tr>
-          <td class="icon"><a href="http://www.unicode.org/"><img style="vertical-align:middle;border:0" alt="[Unicode]"
-                        src="http://www.unicode.org/webscripts/logo60s2.gif"
-                        height="33"
-                        width="34" /></a>  <a class="bar" href="http://www.unicode.org/reports/">Technical Reports</a></td>
-      </tr>
-      <tr>
-          <td class="gray"> </td>
-      </tr>
-  </tbody>
-  </table>`;
+
+  // taken from prior TRs, read from the header in 'header.html'
+  header.innerHTML = (await fs.readFile('header.html', 'utf-8')).trim();
 
   // Move all elements out of the top level body and into a subelement
+  // The subelement is <div class="body"/>
   const body = dom.window.document.getElementsByTagName("body")[0];
   const bp = body.parentNode;
   div = dom.window.document.createElement("div");
@@ -101,6 +90,7 @@ async function renderit(infile) {
     } else {
       if (!sawFirstTable && e.tagName === 'TABLE') {
         // Update first table to simple width=90%
+        // The first table is the document header (Author, etc.)
         e.setAttribute("class", "simple");
         e.setAttribute("width", "90%");
         sawFirstTable = true;
@@ -108,7 +98,15 @@ async function renderit(infile) {
       div.appendChild(e);
     }
   }
-  // body already has no content to it at this point.
+
+  /**
+   * create a <SCRIPT/> object.
+   * Choose ONE of src or code.
+   * @param {Object} obj
+   * @param {string} obj.src source of script as url
+   * @param {string} obj.code code for script as text
+   * @returns
+   */
   function getScript({src, code})  {
     const script = dom.window.document.createElement("script");
     if (src) {
@@ -119,9 +117,13 @@ async function renderit(infile) {
     }
     return script;
   }
+
+  // body already has no content to it at this point.
+  // Add all the pieces back.
   body.appendChild(getScript({ src: './js/anchor.min.js' }));
   body.appendChild(header);
   body.appendChild(div);
+
   // now, fix all links from  ….md#…  to ….html#…
   for (const e of dom.window.document.getElementsByTagName("a")) {
     const href = e.getAttribute("href");
@@ -132,8 +134,12 @@ async function renderit(infile) {
       e.setAttribute("href", `${m[1]}.html`);
     }
   }
+
   // put this last
-  body.appendChild(getScript({ code: `anchors.add('h1, h2, h3, h4, h5, h6, caption');` }));
+  body.appendChild(getScript({
+    // This invokes anchor.js
+    code: `anchors.add('h1, h2, h3, h4, h5, h6, caption');`
+  }));
 
   // Now, fixup captions
   // Look for:  <h6>Table: …</h6> followed by <table>…</table>
@@ -168,11 +174,17 @@ async function renderit(infile) {
 
   // OK, done munging the DOM, write it out.
   console.log(`Writing ${outfile}`);
-  // TODO: assume that DOCTYPE is not written.
-  await fs.writeFile(outfile, `<!DOCTYPE html>\n` + dom.serialize());
+
+  // TODO: we assume that DOCTYPE is not written.
+  await fs.writeFile(outfile, `<!DOCTYPE html>\n`
+                              + dom.serialize());
   return outfile;
 }
 
+/**
+ * Convert all files
+ * @returns Promise<String[]> list of output files
+ */
 async function fixall() {
   outbox = "./dist";
 

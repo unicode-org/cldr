@@ -107,11 +107,22 @@ public abstract class MatchValue implements Predicate<String> {
         }
     }
 
-    static class LocaleMatchValue extends MatchValue {
-        private final Predicate<String> lang = new ValidityMatchValue(LstrType.language);
-        private final Predicate<String> script = new ValidityMatchValue(LstrType.script);
-        private final Predicate<String> region = new ValidityMatchValue(LstrType.region);
-        private final Predicate<String> variant = new ValidityMatchValue(LstrType.variant);
+    public static class LocaleMatchValue extends MatchValue {
+        private final Predicate<String> lang;
+        private final Predicate<String> script;
+        private final Predicate<String> region;
+        private final Predicate<String> variant;
+
+        public LocaleMatchValue() {
+            this(null);
+        }
+
+        public LocaleMatchValue(Set<Status> statuses) {
+            lang = new ValidityMatchValue(LstrType.language, statuses, false);
+            script = new ValidityMatchValue(LstrType.script, statuses, false);
+            region = new ValidityMatchValue(LstrType.region, statuses, false);
+            variant = new ValidityMatchValue(LstrType.variant, statuses, false);
+        }
 
         @Override
         public String getName() {
@@ -631,7 +642,7 @@ public abstract class MatchValue implements Predicate<String> {
         @Override
         public  boolean is(String items) {
             List<String> splitItems = SPACE_SPLITTER.splitToList(items);
-            if( (new HashSet<String>(splitItems)).size() != splitItems.size() ) {
+            if( (new HashSet<>(splitItems)).size() != splitItems.size() ) {
                 throw new IllegalArgumentException("Set contains duplicates: " + items);
             }
             return and(subtest, splitItems);

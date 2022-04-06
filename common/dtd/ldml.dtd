@@ -3203,7 +3203,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 <!ELEMENT sampleName ( alias | ( nameField+, special* ) ) >
 <!ATTLIST sampleName item NMTOKENS #REQUIRED >
-    <!--@MATCH:literal/givenSurname, given2Surname, givenSurname2, informal, full, multiword-->
+    <!--@MATCH:literal/givenSurname, given2Surname, givenSurname2, informal, full, multiword, mononym-->
 
 <!ELEMENT nameField ( #PCDATA ) >
 <!ATTLIST nameField type CDATA #REQUIRED >

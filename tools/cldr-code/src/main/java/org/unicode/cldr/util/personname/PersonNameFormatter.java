@@ -167,6 +167,7 @@ public class PersonNameFormatter {
         informal,
         full,
         multiword,
+        mononym,
     }
 
     public static final Splitter SPLIT_SPACE = Splitter.on(' ').trimResults();

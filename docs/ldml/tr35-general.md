@@ -1922,7 +1922,7 @@ $space {$space} → ; # collapse multiple spaces
 
 There is an online demo where the rules can be tested, at:
 
-[http://unicode.org/cldr/utility/transform.jsp](https://util.unicode.org/UnicodeJsps/transform.jsp)
+<https://util.unicode.org/UnicodeJsps/transform.jsp>
 
 #### 10.3.5 <a name="Rule_Syntax" href="#Rule_Syntax">Rule Syntax</a>
 

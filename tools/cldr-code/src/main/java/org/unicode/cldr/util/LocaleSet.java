@@ -75,4 +75,26 @@ public class LocaleSet {
         return set;
     }
 
+    private String[] getAllStringArray() {
+        String s[] = new String[1];
+        s[0] = "*";
+        return s;
+    }
+
+    /**
+     * Return the LocaleSet as an array of Strings
+     * (for API use). Returns {"*"} for allLocales.
+     * @return
+     */
+    public String[] toStringArray() {
+        if (isAllLocales) {
+            return getAllStringArray();
+        } else {
+            Set<String> str = new TreeSet<>();
+            for (final CLDRLocale l : set) {
+                str.add(l.getBaseName());
+            }
+            return str.toArray(new String[str.size()]);
+        }
+    }
 }

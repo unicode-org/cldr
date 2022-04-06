@@ -18,7 +18,7 @@ import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.UserRegistry;
 
 @Path("/userlevels")
-@Tag(name = "userlevels", description = "Get the list of Survey Tool user levels")
+@Tag(name = "user", description = "APIs for user management")
 public class UserLevels {
 
     @GET

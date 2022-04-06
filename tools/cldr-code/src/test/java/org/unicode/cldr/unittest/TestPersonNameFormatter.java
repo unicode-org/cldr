@@ -288,10 +288,10 @@ public class TestPersonNameFormatter extends TestFmwk{
         String[][] tests = {
             {
                 "//ldml/personNames/personName[@length=\"long\"][@usage=\"referring\"][@style=\"formal\"][@order=\"givenFirst\"]/namePattern",
-                "〖Katherine Johnson〗〖Alberto Pedro Calderón〗〖John Blue〗〖John William Brown〗〖Dorothy Lavinia Brown M.D.〗〖Erich Oswald Hans Carl Maria von Stroheim〗"
+                "〖Katherine Johnson〗〖Alberto Pedro Calderón〗〖John Blue〗〖John William Brown〗〖Dorothy Lavinia Brown M.D.〗〖Erich Oswald Hans Carl Maria von Stroheim〗〖Sinbad〗"
             },{
                 "//ldml/personNames/personName[@length=\"monogram\"][@style=\"informal\"][@order=\"surnameFirst\"]/namePattern",
-                "〖JK〗〖CA〗〖BJ〗〖BJ〗〖BD〗〖VE〗"
+                "〖JK〗〖CA〗〖BJ〗〖BJ〗〖BD〗〖VE〗〖S〗"
             }
         };
         for (String[] test : tests) {

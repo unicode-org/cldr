@@ -541,26 +541,26 @@ public class PersonNameFormatter {
             final int patternLength = patternString.length();
             int i = 0;
             while (i < patternLength) {
-                final Character currentCharacter = patternString.charAt(i);
+                final Character currentCharacter = patternString.charAt(i); // this is safe, since syntax is ASCII
 
                 switch (currentCharacter) {
                 case '\\':
                     if (i + 1 < patternLength) {
                         final Character nextCharacter = patternString.charAt(i + 1);
                         if (!ALLOWED_ESCAPED_CHARACTERS.contains(nextCharacter)) {
-                            throw new IllegalArgumentException(String.format("Escaping character '%c' is not supported", nextCharacter));
+                            throwParseError(String.format("Escaping character '%c' is not supported", nextCharacter), patternString, i);
                         }
 
                         rawValue += nextCharacter;
                         i += 2;
                         continue;
                     } else {
-                        throw new IllegalArgumentException("Invalid escape sequence");
+                        throwParseError("Invalid character: ", patternString, i);
                     }
 
                 case '{':
                     if (curlyStarted) {
-                        throw new IllegalArgumentException("Unexpected {");
+                        throwParseError("Unexpected {: ", patternString, i);
                     }
                     curlyStarted = true;
                     if (!rawValue.isEmpty()) {
@@ -571,13 +571,17 @@ public class PersonNameFormatter {
 
                 case '}':
                     if (!curlyStarted) {
-                        throw new IllegalArgumentException("Unexpected }");
+                        throwParseError("Unexpected }", patternString, i);
                     }
                     curlyStarted = false;
                     if (rawValue.isEmpty()) {
-                        throw new IllegalArgumentException("Empty field is not allowed");
+                        throwParseError("Empty field '{}' is not allowed ", patternString, i);
                     } else {
-                        result.add(new NamePatternElement(ModifiedField.from(rawValue)));
+                        try {
+                            result.add(new NamePatternElement(ModifiedField.from(rawValue)));
+                        } catch (Exception e) {
+                            throwParseError("Invalid field: ", rawValue, 0);
+                        }
                         rawValue = "";
                     }
                     break;
@@ -591,13 +595,19 @@ public class PersonNameFormatter {
             }
 
             if (curlyStarted) {
-                throw new IllegalArgumentException("Unmatched {");
+                throwParseError("Unmatched {", patternString, patternString.length());
             }
             if (!rawValue.isEmpty()) {
                 result.add(new NamePatternElement(rawValue));
             }
 
             return result;
+        }
+
+        private static String BAD_POSITION = "❌";
+
+        private static void throwParseError(String message, String patternString, int i) {
+            throw new IllegalArgumentException(message + ": " +  "«" + patternString.substring(0,i) + BAD_POSITION + patternString.substring(i) + "»");
         }
 
         private static List<NamePatternElement> makeList(Object... elements2) {

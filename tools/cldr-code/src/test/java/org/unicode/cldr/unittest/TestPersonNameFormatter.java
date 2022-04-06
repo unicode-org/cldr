@@ -93,20 +93,20 @@ public class TestPersonNameFormatter extends TestFmwk{
     String HACK_INITIAL_FORMATTER = "{0}॰"; // use "unusual" period to mark when we are using fallbacks
 
     public void TestNamePatternParserThrowsWhenInvalidPatterns() {
-        final String[] invalidPatterns = new String[] {
-            "{",
-            "}",
-            "{}",
-            "\\",
-            "blah {given", "blah given}",
-            "blah {given\\}",                           /* blah {given\} */
-            "blah {given} yadda {}",
-            "blah \\n"                                  /* blah \n */
+        final String[][] invalidPatterns = {
+            {"{", "Unmatched {: «{❌»"},
+            {"}", "Unexpected }: «❌}»"},
+            {"{}", "Empty field '{}' is not allowed : «{❌}»"},
+            {"\\", "Invalid character: : «❌\\»"},
+            {"blah {given", "Unmatched {: «blah {given❌»"},
+            {"blah {given\\}", "Unmatched {: «blah {given\\}❌»"},                           /* blah {given\} */
+            {"blah {given} yadda {}", "Empty field '{}' is not allowed : «blah {given} yadda {❌}»"},
+            {"blah \\n", "Escaping character 'n' is not supported: «blah ❌\\n»"}                                  /* blah \n */
         };
-        for (final String pattern : invalidPatterns) {
-            assertThrows(String.format("Pattern '%s'", pattern), () -> {
-                NamePattern.from(0, pattern);
-            });
+        for (final String[] pattern : invalidPatterns) {
+            assertThrows(String.format("Pattern '%s'", pattern[0]), () -> {
+                NamePattern.from(0, pattern[0]);
+            }, pattern[1]);
         }
     }
 
@@ -271,13 +271,13 @@ public class TestPersonNameFormatter extends TestFmwk{
         return result;
     }
 
-    private void assertThrows(String subject, Runnable code) {
+    private void assertThrows(String subject, Runnable code, String expectedMessage) {
         try {
             code.run();
             fail(String.format("%s was supposed to throw an exception.", subject));
         }
         catch (Exception e) {
-            assertTrue(subject + " threw exception as expected", true);
+            assertEquals(subject + " threw exception as expected", expectedMessage, e.getMessage());
         }
     }
 
@@ -333,12 +333,12 @@ public class TestPersonNameFormatter extends TestFmwk{
     }
 
     public void TestInvalidNameObjectThrows() {
-        final String[] invalidPatterns = new String[] {
-            "given2-initial=B",
+        final String[][] invalidPatterns = {
+            {"given2-initial=B","Every field must have a completely modified value given2={[initial]=B}"}
         };
-        for (final String pattern : invalidPatterns) {
-            assertThrows("Invalid Name object " + pattern,
-                () -> SimpleNameObject.from(pattern));
+        for (final String[] pattern : invalidPatterns) {
+            assertThrows("Invalid Name object: " + pattern,
+                () -> SimpleNameObject.from(pattern[0]), pattern[1]);
         }
     }
 
@@ -371,7 +371,7 @@ public class TestPersonNameFormatter extends TestFmwk{
             if (!assertEquals("Comma right?\t" + parameterMatcher + " ➡︎ " + namePattern + "\t", commaRequired, hasComma)) {
                 if (!messageShown) {
                     System.out.println("\t\tNOTE: In English, comma is required IFF the pattern has both given and surname, "
-                + "and order has sorting, and length has neither monogram nor monogramNarrow,");
+                        + "and order has sorting, and length has neither monogram nor monogramNarrow,");
                     messageShown = true;
                 }
             }

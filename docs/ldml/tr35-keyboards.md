@@ -244,7 +244,7 @@ The _UnicodeSet_ notation is described in [UTS#35 section 5.3.3](tr35.md#Unicode
 * `from`, `before`, `after` on the `<reorder>` element
 * `from`, `before`, `after` on the `<backspace>` element
 
-The `\u{...}` notation, a subset of hex notation, is described in [UTS#18 section 1.1](http://www.unicode.org/reports/tr18/#Hex_notation). It can refer to one or multiple individual codepoints. Currently, the following attributes allow the `\u{...}` notation:
+The `\u{...}` notation, a subset of hex notation, is described in [UTS#18 section 1.1](https://www.unicode.org/reports/tr18/#Hex_notation). It can refer to one or multiple individual codepoints. Currently, the following attributes allow the `\u{...}` notation:
 
 * `to`, `longPress`, `multitap`, `hint` on the `<map>` element
 * `to` on the `<transform>` element

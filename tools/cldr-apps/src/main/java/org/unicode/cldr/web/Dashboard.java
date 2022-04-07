@@ -1,26 +1,15 @@
 package org.unicode.cldr.web;
 
-import java.util.ArrayList;
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.json.JSONArray;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.test.CheckCLDR;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
-import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.Choice;
-import org.unicode.cldr.util.VoterProgress;
 
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -64,10 +53,18 @@ public class Dashboard {
             return notification;
         }
 
+        @Schema(description = "Notifications that the user has chosen to hide")
+        private HiddenNotifications hidden;
+
         /**
-         * Notifications that the user has chosen to hide
+         * Get a map from each subtype (String from CheckCLDR.CheckStatus.Subtype)
+         * to an array of path-value pairs
+         *
+         * @return the map
          */
-        public HashMap<String, List<String>> hidden;
+        public Map<String, PathValuePair[]> getHidden() {
+            return hidden.getHidden();
+        }
 
         public VoterProgress voterProgress = null;
     }
@@ -140,13 +137,16 @@ public class Dashboard {
         public String previousEnglish;
 
         @Schema(description = "Baseline value", example = "{0} dstspn Imp")
-        public String old; /* Not currently (2021-08-13) used by front end; should be renamed "baseline" */
+        public String old; /* Not currently (2022-04-05) used by front end; should be renamed "baseline" */
 
-        @Schema(description = "Winning string in this locale", example = "{0} dstspn Imp")
+        @Schema(description = "Winning value in this locale", example = "{0} dstspn Imp")
         public String winning;
 
         @Schema(description = "html comment on the error", example = "&lt;value too wide&gt; Too wide by about 100% (with common fonts).")
         public String comment;
+
+        @Schema(description = "Subtype of the error", example = "largerDifferences")
+        public CheckCLDR.CheckStatus.Subtype subtype;
 
         /**
          * Create a new ReviewEntry
@@ -162,40 +162,27 @@ public class Dashboard {
     /**
      * Get a miniature version of the Dashboard data, for only a single path
      *
-     * Called by SurveyAjax.getRow (deprecated)
-     * TODO: VoteAPI should call this!
-     * Reference: https://unicode-org.atlassian.net/browse/CLDR-14745
-     *
-     * @param locale
-     * @param ctx
-     * @param sess
-     * @param path
-     * @return
+     * Called by SurveyAjax.getRow
      */
-    public JSONArray getErrorOnPath(CLDRLocale locale, WebContext ctx, CookieSession sess, String path) {
-        Level usersLevel;
-        Organization usersOrg;
+    public VettingViewer.SinglePathDashResults getOneRow(CLDRLocale locale, WebContext ctx, CookieSession sess, String path) {
+        VettingViewer.SinglePathDashArgs args = new VettingViewer.SinglePathDashArgs();
         if (ctx != null) {
-            usersLevel = Level.get(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()));
+            args.usersLevel = Level.get(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()));
             sess = ctx.session;
         } else {
             String levelString = sess.settings().get(SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST[0]);
-            usersLevel = Level.get(levelString);
+            args.usersLevel = Level.get(levelString);
         }
-
-        usersOrg = Organization.fromString(sess.user.voterOrg());
-
+        args.organization = Organization.fromString(sess.user.voterOrg());
+        args.choiceSet = VettingViewer.getChoiceSetForOrg(args.organization);
+        args.localeID = locale.getBaseName();
+        args.path = path;
         SurveyMain sm = CookieSession.sm;
         VettingViewer<Organization> vv = new VettingViewer<>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
             new STUsersChoice(sm));
-
-        EnumSet<VettingViewer.Choice> choiceSet = VettingViewer.getChoiceSetForOrg(usersOrg);
-        ArrayList<String> out = vv.getErrorOnPath(choiceSet, locale.getBaseName(), usersOrg, usersLevel, path);
-        JSONArray result = new JSONArray();
-        for (String issues : out) {
-            result.put(issues);
-        }
-        return result;
+        VettingViewer.SinglePathDashResults results = new VettingViewer.SinglePathDashResults();
+        vv.getSinglePathDash(args, results);
+        return results;
     }
 
     /**
@@ -247,7 +234,7 @@ public class Dashboard {
 
         addNotificationEntries(sourceFile, baselineFile, dd.sorted, reviewInfo);
 
-        reviewInfo.hidden = new ReviewHide().getHiddenField(userId, locale.toString());
+        reviewInfo.hidden = new ReviewHide(userId, locale.toString()).get();
 
         reviewInfo.voterProgress = dd.voterProgress;
 
@@ -268,7 +255,7 @@ public class Dashboard {
 
             notification = getNextNotification(reviewInfo, notification, entry);
 
-            addNotificiationGroup(sourceFile, baselineFile, notification, englishFile, entry);
+            addNotificationGroup(sourceFile, baselineFile, notification, englishFile, entry);
         }
     }
 
@@ -299,7 +286,7 @@ public class Dashboard {
         return notification;
     }
 
-    private void addNotificiationGroup(CLDRFile sourceFile, CLDRFile baselineFile, ReviewNotification notification, CLDRFile englishFile,
+    private void addNotificationGroup(CLDRFile sourceFile, CLDRFile baselineFile, ReviewNotification notification, CLDRFile englishFile,
         Entry<R4<Choice, SectionId, PageId, String>, Set<VettingViewer<Organization>.WritingInfo>> entry) {
         String sectionName = entry.getKey().get1().name();
         String pageName = entry.getKey().get2().name();
@@ -328,6 +315,9 @@ public class Dashboard {
             // winning value
             String newWinningValue = sourceFile.getWinningValue(path);
             reviewEntry.winning = newWinningValue;
+
+            // CheckCLDR.CheckStatus.Subtype
+            reviewEntry.subtype = info.subtype;
 
             // comment
             if (!info.htmlMessage.isEmpty()) {

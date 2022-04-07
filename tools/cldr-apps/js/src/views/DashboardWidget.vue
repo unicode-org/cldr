@@ -121,7 +121,7 @@
                   v-model="e.checked"
                   @change="
                     (event) => {
-                      entryCheckmarkChanged(event, e.xpath, n.notification);
+                      entryCheckmarkChanged(event, e);
                     }
                   "
                 />
@@ -293,13 +293,8 @@ export default {
       return str.replaceAll("_", " ");
     },
 
-    entryCheckmarkChanged(event, xpath, category) {
-      cldrDash.saveEntryCheckmark(
-        event.target.checked,
-        xpath,
-        category,
-        this.locale
-      );
+    entryCheckmarkChanged(event, e) {
+      cldrDash.saveEntryCheckmark(event.target.checked, e, this.locale);
     },
 
     canBeHidden(category) {

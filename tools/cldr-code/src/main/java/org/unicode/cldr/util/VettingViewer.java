@@ -392,12 +392,14 @@ public class VettingViewer<T> {
         public final PathHeader codeOutput;
         public final Set<Choice> problems;
         public final String htmlMessage;
+        public final Subtype subtype;
 
-        public WritingInfo(PathHeader ph, EnumSet<Choice> problems, CharSequence htmlMessage) {
+        public WritingInfo(PathHeader ph, EnumSet<Choice> problems, CharSequence htmlMessage, Subtype subtype) {
             super();
             this.codeOutput = ph;
             this.problems = Collections.unmodifiableSet(problems.clone());
             this.htmlMessage = htmlMessage.toString();
+            this.subtype = subtype;
         }
 
         @Override
@@ -577,8 +579,17 @@ public class VettingViewer<T> {
             if (specificSinglePath == null && !problems.isEmpty() && sorted != null) {
                 reasonsToPaths.clear();
                 R2<SectionId, PageId> group = Row.of(ph.getSectionId(), ph.getPageId());
-                sorted.put(group, new WritingInfo(ph, problems, htmlMessage));
+                sorted.put(group, new WritingInfo(ph, problems, htmlMessage, firstSubtype()));
             }
+        }
+
+        private Subtype firstSubtype() {
+            for (Subtype subtype : subtypes) {
+                if (subtype != Subtype.none) {
+                    return subtype;
+                }
+            }
+            return Subtype.none;
         }
 
         private void updateVotedOrAbstained(String path, boolean pathLevelIsTooHigh) {
@@ -1408,47 +1419,47 @@ public class VettingViewer<T> {
             + "</style>";
     }
 
-    /**
-     *
-     * @param choices
-     * @param localeID
-     * @param organization
-     * @param usersLevel
-     * @param path
-     * @return
-     */
-    public ArrayList<String> getErrorOnPath(EnumSet<Choice> choices, String localeID, T organization,
-        Level usersLevel, String path) {
+    public static class SinglePathDashArgs {
+        public String path;
+        public String localeID;
+        public EnumSet<Choice> choiceSet;
+        public Organization organization;
+        public Level usersLevel;
+    }
 
+    public static class SinglePathDashResults {
+        public Subtype subtype;
+        public EnumSet<Choice> categorySet;
+    }
+
+    /**
+     * Get pseudo-dashboard data for a single row
+     */
+    public void getSinglePathDash(SinglePathDashArgs args, SinglePathDashResults results) {
         // Gather the relevant paths
         // each one will be marked with the choice that it triggered.
         Relation<R2<SectionId, PageId>, WritingInfo> sorted = Relation.of(
             new TreeMap<R2<SectionId, PageId>, Set<WritingInfo>>(), TreeSet.class);
 
-        CLDRFile sourceFile = cldrFactory.make(localeID, true);
+        CLDRFile sourceFile = cldrFactory.make(args.localeID, true);
 
         // Initialize
         CLDRFile baselineFile = null;
         try {
             Factory baselineFactory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
-            baselineFile = baselineFactory.make(localeID, true);
+            baselineFile = baselineFactory.make(args.localeID, true);
         } catch (Exception e) {
         }
 
-        FileInfo fileInfo = new FileInfo(localeID, usersLevel, choices, organization);
+        FileInfo fileInfo = new FileInfo(args.localeID, args.usersLevel, args.choiceSet, (T) args.organization);
         fileInfo.setFiles(sourceFile, baselineFile);
         fileInfo.setSorted(sorted);
-        fileInfo.setSinglePath(path);
+        fileInfo.setSinglePath(args.path);
         fileInfo.getFileInfo();
-
-        EnumSet<Choice> errors = fileInfo.problems;
-
-        ArrayList<String> out = new ArrayList<>();
-        for (Object error : errors.toArray()) {
-            out.add(((Choice) error).jsonLabel);
+        results.subtype = fileInfo.firstSubtype();
+        for (Object error : fileInfo.problems.toArray()) {
+            results.categorySet.add(((Choice) error));
         }
-
-        return out;
     }
 
     /**

@@ -1608,15 +1608,21 @@ public class DBUtils {
     public enum Table {
         /* These constants represent names and other attributes of database tables.
          *
-         * The (false, false) constructor makes isVersioned, hasBeta both false for
-         * the FORUM_POSTS and FORUM_TYPES tables: these tables are not version-specific.
-         *
-         * The LOCKED_XPATHS(false, true) constructor makes isVersioned, hasBeta both false.
+         * The (false, false) constructor makes isVersioned, hasBeta both false for some tables.
          *
          * Other constants here have default constructor equivalent to (true, true).
          */
-        VOTE_VALUE, VOTE_VALUE_ALT, VOTE_FLAGGED, FORUM_POSTS(false, false), FORUM_TYPES(false, false),
-        DASH_HIDE, REVIEW_POST, IMPORT, IMPORT_AUTO, LOCKED_XPATHS(false, false), SUMMARY_SNAPSHOTS;
+        VOTE_VALUE,
+        VOTE_VALUE_ALT,
+        VOTE_FLAGGED,
+        FORUM_POSTS(false, false),
+        FORUM_TYPES(false, false),
+        DASH_HIDE(false, false),
+        REVIEW_POST,
+        IMPORT,
+        IMPORT_AUTO,
+        LOCKED_XPATHS(false, false),
+        SUMMARY_SNAPSHOTS;
 
         /**
          * Construct a Table constant with explicit parameters for isVersioned, hasBeta.

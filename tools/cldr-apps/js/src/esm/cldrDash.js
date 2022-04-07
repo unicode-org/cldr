@@ -8,7 +8,8 @@ import * as cldrSurvey from "./cldrSurvey.js";
 
 /**
  * An object whose keys are xpath hex IDs, and whose values are objects whose keys are notification categories
- * such as "Error" or "English_Changed" and values are "entry" objects with code, english, ..., xpath elements.
+ * such as "Error" or "English_Changed" (back end: VettingViewer.Choice.englishChanged) and values are "entry"
+ * objects with code, english, ..., xpath elements.
  *
  * There can be at most one item for an xpath within each category, but the same xpath may have items in
  * multiple categories. For example, the xpath "db7b4f2df0427e4" might have both "Error" and "Warning" items,
@@ -36,9 +37,10 @@ let xpathIndex = {};
  *         english - a string
  *         old - a string (baseline value; unused?)
  *         previousEnglish - a string
- *         winning  - a string
+ *         winning  - a string, the winning value
  *         xpath - a string
  *         comment - a string
+ *         subtype - a string
  *         checked - a boolean, added by makeXpathIndex, not in json
  *
  *   Dashboard only uses data.notifications. There are additional fields
@@ -80,7 +82,7 @@ function makeXpathIndex(data) {
     for (let g in n.entries) {
       for (let k in n.entries[g].entries) {
         const e = n.entries[g].entries[k];
-        e.checked = itemIsChecked(data, e.xpath, n.notification);
+        e.checked = itemIsChecked(data, e);
         if (!xpathIndex[e.xpath]) {
           xpathIndex[e.xpath] = {};
         }
@@ -95,11 +97,14 @@ function makeXpathIndex(data) {
   }
 }
 
-function itemIsChecked(data, xpath, category) {
-  if (!data.hidden || !data.hidden[category]) {
+function itemIsChecked(data, e) {
+  if (!data.hidden || !data.hidden[e.subtype]) {
     return false;
   }
-  return data.hidden[category].includes(xpath);
+  const pathValueArray = data.hidden[e.subtype];
+  return pathValueArray.some(
+    (p) => p.xpath === e.xpath && p.value === e.winning
+  );
 }
 
 /**
@@ -110,6 +115,7 @@ function itemIsChecked(data, xpath, category) {
  *
  * Unfortunately, the Dashboard data and the row json are formatted completely differently.
  * json.issues contains category strings only, like ["Error", "Warning"].
+ * json.subtype is also present.
  */
 function updateRow(data, json) {
   try {
@@ -122,7 +128,7 @@ function updateRow(data, json) {
       oldIssues.forEach((issue) => {
         const catData = getNotificationCategory(data, issue);
         if (newIssues.includes(issue)) {
-          updateNotification(catData, xpath, issue, row);
+          updateNotification(catData, xpath, issue, row, json.subtype);
         } else {
           removeNotification(catData, xpath, issue);
         }
@@ -130,7 +136,7 @@ function updateRow(data, json) {
       newIssues.forEach((issue) => {
         if (!oldIssues.includes(issue)) {
           const catData = getNotificationCategory(data, issue);
-          addNotification(catData, xpath, issue, row);
+          addNotification(catData, xpath, issue, row, json.subtype);
         }
       });
     }
@@ -139,7 +145,7 @@ function updateRow(data, json) {
   }
 }
 
-function updateNotification(catData, xpath, issue, row) {
+function updateNotification(catData, xpath, issue, row, subtype) {
   for (let g in catData.entries) {
     const entries = catData.entries[g].entries;
     for (let k in entries) {
@@ -148,6 +154,7 @@ function updateNotification(catData, xpath, issue, row) {
         entry.winning = row.winningValue;
         entry.english = row.displayName;
         entry.comment = constructMessageFromRow(row, issue);
+        entry.subtype = subtype;
         return;
       }
     }
@@ -168,13 +175,14 @@ function removeNotification(catData, xpath, issue) {
   }
 }
 
-function addNotification(catData, xpath, issue, row) {
+function addNotification(catData, xpath, issue, row, subtype) {
   const e = {
     xpath: xpath,
     code: row.code,
     winning: row.winningValue,
     english: row.displayName,
     comment: constructMessageFromRow(row, issue),
+    subtype: subtype,
   };
   const ph = getPathHeader(xpath);
   const a = {
@@ -241,26 +249,26 @@ function getPathHeader(xpstrid) {
 }
 
 /**
- * Save the checkbox setting to the back end database for a particular xpath/category,
- * as preference of the currrent user
+ * Save the checkbox setting to the back end database for locale+xpath+value+subtype,
+ * as a preference of the currrent user
  *
  * @param checked - boolean, currently unused since back end toggles existing preference
- * @param xpath - the hex xpath id
- * @param category - the notification cateogry string like "ERROR" or "ENGLISH_CHANGED"
+ * @param e - the entry
  * @param locale - the locale string such as "am" for Amharic
  */
-function saveEntryCheckmark(checked, xpath, category, locale) {
-  const url = getCheckmarkUrl(xpath, category, locale);
+function saveEntryCheckmark(checked, e, locale) {
+  const url = getCheckmarkUrl(e, locale);
   cldrAjax.doFetch(url).catch((err) => {
     console.error("Error setting dashboard checkmark preference: " + err);
   });
 }
 
-function getCheckmarkUrl(xpath, category, locale) {
+function getCheckmarkUrl(e, locale) {
   const p = new URLSearchParams();
   p.append("what", "dash_hide"); // cf. WHAT_DASH_HIDE in SurveyAjax.java
-  p.append("path", xpath);
-  p.append("choice", category);
+  p.append("xpath", e.xpath);
+  p.append("value", e.winning);
+  p.append("subtype", e.subtype);
   p.append("locale", locale);
   p.append("s", cldrStatus.getSessionId());
   p.append("cacheKill", cldrSurvey.cacheBuster());

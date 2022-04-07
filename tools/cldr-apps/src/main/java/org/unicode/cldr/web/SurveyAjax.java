@@ -38,24 +38,10 @@ import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRConfigImpl;
-import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.CoverageInfo;
-import org.unicode.cldr.util.DateTimeFormats;
 import org.unicode.cldr.util.DtdData.IllegalByDtdException;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.PathHeader;
-import org.unicode.cldr.util.SpecialLocales;
-import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.XMLSource;
-import org.unicode.cldr.util.XMLUploader;
-import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.BallotBox.InvalidXPathException;
 import org.unicode.cldr.web.BallotBox.VoteNotAcceptedException;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
@@ -378,10 +364,8 @@ public class SurveyAjax extends HttpServlet {
                 if (mySession == null) {
                     sendError(out, "Missing/Expired Session (idle too long? too many users?): " + sess, ErrorCode.E_SESSION_DISCONNECTED);
                 } else {
+                    handleDashHideRequest(mySession.user.id, request);
                     mySession.userDidAction();
-                    ReviewHide review = new ReviewHide();
-                    review.toggleItem(request.getParameter("choice"), request.getParameter("path"), mySession.user.id,
-                        request.getParameter("locale"));
                 }
                 send(new SurveyJSONWrapper(), out);
             } else if (sess != null && !sess.isEmpty()) { // this and following:
@@ -825,6 +809,14 @@ public class SurveyAjax extends HttpServlet {
             SurveyLog.logException(logger, e, "Processing: " + what);
             sendError(out, "SQLException: " + e, ErrorCode.E_INTERNAL);
         }
+    }
+
+    private void handleDashHideRequest(int userId, HttpServletRequest request) {
+        String localeId = request.getParameter("locale");
+        ReviewHide review = new ReviewHide(userId, localeId);
+        review.toggleItem(request.getParameter("subtype"),
+                request.getParameter("xpath"),
+                request.getParameter("value"));
     }
 
     /**
@@ -1927,7 +1919,6 @@ public class SurveyAjax extends HttpServlet {
      * @param r the SurveyJSONWrapper in which to write
      * @param user the User
      * @param sm the SurveyMain instance
-     * @param oldVotesTable the String for the table name like "cldr_vote_value_33"
      * @return how many votes imported
      * @throws ServletException
      * @throws IOException
@@ -2454,14 +2445,12 @@ public class SurveyAjax extends HttpServlet {
      * @throws IOException
      * @throws JSONException
      *
-     * @deprecated - use /api/voting instead
-     *
-     * TODO: in spite of being deprecated, this is used constantly in Survey Tool. Its intended
-     * replacement in /api/voting is not actually used yet, and isn't ready to be used since it
-     * does not produce json compatible with the front end
-     * Reference: https://unicode-org.atlassian.net/browse/CLDR-14745
+     * Note: there is an intended modernized replacement for this code in /api/voting
+     * which is not actually used yet, and isn't ready to be used since it doesn't produce
+     * json compatible with the front end. References:
+     * https://unicode-org.atlassian.net/browse/CLDR-15368
+     * https://unicode-org.atlassian.net/browse/CLDR-15403
      */
-    @Deprecated
     public static void getRow(HttpServletRequest request, HttpServletResponse response, Writer out,
             SurveyMain sm, String sess, CLDRLocale locale, String xpath)
             throws IOException, JSONException {
@@ -2635,8 +2624,7 @@ public class SurveyAjax extends HttpServlet {
                         .key("locale").value(locale)
                         .key("dataLoadTime").value(et.toString());
                     if (ctx.hasField("dashboard")) {
-                        JSONArray issues = new Dashboard().getErrorOnPath(ctx.getLocale(), ctx, ctx.session, baseXp);
-                        r.key("issues").value(issues);
+                        getOneRowDash(r, ctx, baseXp);
                     }
                     r.endObject();
                 } catch (Throwable t) {
@@ -2648,6 +2636,12 @@ public class SurveyAjax extends HttpServlet {
             // put the name back.
             curThread.setName(threadName);
         }
+    }
+
+    private static void getOneRowDash(JSONWriter r, WebContext ctx, String baseXp) throws JSONException {
+        VettingViewer.SinglePathDashResults results = new Dashboard().getOneRow(ctx.getLocale(), ctx, ctx.session, baseXp);
+        r.key("issues").value(results.categorySet);
+        r.key("subtype").value(results.subtype);
     }
 
     /**

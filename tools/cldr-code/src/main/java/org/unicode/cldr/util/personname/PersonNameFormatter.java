@@ -1355,7 +1355,7 @@ public class PersonNameFormatter {
      * @param cldrFile
      * @return
      */
-    public static Map<SampleType, NameObject> loadSampleNames(CLDRFile cldrFile) {
+    public static Map<SampleType, SimpleNameObject> loadSampleNames(CLDRFile cldrFile) {
         M3<SampleType, ModifiedField, String> names = ChainedMap.of(new TreeMap<SampleType, Object>(), new TreeMap<ModifiedField, Object>(), String.class);
         for (String path : cldrFile) {
             if (path.startsWith("//ldml/personNames/sampleName")) {
@@ -1367,9 +1367,9 @@ public class PersonNameFormatter {
                 }
             }
         }
-        Map<SampleType, NameObject> result = new TreeMap<>();
+        Map<SampleType, SimpleNameObject> result = new TreeMap<>();
         for (Entry<SampleType, Map<ModifiedField, String>> entry : names) {
-            NameObject name = new SimpleNameObject(new ULocale(cldrFile.getLocaleID()), entry.getValue());
+            SimpleNameObject name = new SimpleNameObject(new ULocale(cldrFile.getLocaleID()), entry.getValue());
             result.put(entry.getKey(), name);
         }
         return ImmutableMap.copyOf(result);

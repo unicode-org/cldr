@@ -56,6 +56,7 @@ import org.unicode.cldr.util.personname.PersonNameFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
+import org.unicode.cldr.util.personname.SimpleNameObject;
 
 import com.google.common.collect.ImmutableList;
 import com.ibm.icu.impl.Row.R3;
@@ -470,33 +471,44 @@ public class ExampleGenerator {
         return result;
     }
 
-    Map<PersonNameFormatter.SampleType, NameObject> sampleNames = null;
+    Map<PersonNameFormatter.SampleType, SimpleNameObject> sampleNames = null;
     PersonNameFormatter personNameFormatter = null;
 
     private String handlePersonName(XPathParts parts, String value) {
         //ldml/personNames/personName[@length="long"][@usage="addressing"][@style="formal"][@order="givenFirst"]/namePattern => {prefix} {surname}
-        FormatParameters formatParameters = FormatParameters.from(parts);
+        try {
+            FormatParameters formatParameters = FormatParameters.from(parts);
 
-        if (parts.contains("nameOrderLocales") || parts.contains("initialPattern") || parts.contains("sampleName")) {
-            return null; // TODO: we do not handle these yet
+            List<String> examples = null;
+            switch(parts.getElement(2)) {
+            case "nameOrderLocales":
+                examples = new ArrayList<>();
+                for (String localeId : PersonNameFormatter.SPLIT_SPACE.split(value)) {
+                    examples.add(value + " = " + getCldrFile().getName(localeId));
+                }
+                break;
+            case "initialPattern":
+                return null;
+            case "sampleName":
+                return null;
+            case "personName":
+                examples = new ArrayList<>();
+                if (sampleNames == null) {
+                    sampleNames = PersonNameFormatter.loadSampleNames(getCldrFile());
+                    personNameFormatter = new PersonNameFormatter(getCldrFile());
+                }
+                // We might need the alt, however: String alt = parts.getAttributeValue(-1, "alt");
+                for (NameObject sampleNameObject1 : sampleNames.values()) {
+                    NamePattern namePattern = NamePattern.from(0, value);
+                    String result = namePattern.format(sampleNameObject1, formatParameters, personNameFormatter.getFallbackInfo());
+                    examples.add(result);
+                }
+                break;
+            }
+            return formatExampleList(examples);
+        } catch (Exception e) {
+            return "Internal error: " + e.getMessage();
         }
-
-        if (sampleNames == null) {
-            sampleNames = PersonNameFormatter.loadSampleNames(getCldrFile());
-            personNameFormatter = new PersonNameFormatter(getCldrFile());
-        }
-
-        // We might need the alt, however: String alt = parts.getAttributeValue(-1, "alt");
-        List<String> examples = new ArrayList<>();
-        //TODO Peter extract from sampleName data once that is in en.xml
-        // eventually, this will cycle through the types of sample names, and extract from CLDRFile
-        for (NameObject sampleNameObject1 : sampleNames.values()) {
-            NamePattern namePattern = NamePattern.from(0, value);
-            ULocale locale = new ULocale(getCldrFile().getLocaleID());
-            String result = namePattern.format(sampleNameObject1, formatParameters, personNameFormatter.getFallbackInfo());
-            examples.add(result);
-        }
-        return formatExampleList(examples);
     }
 
     private String handleLabelPattern(XPathParts parts, String value) {

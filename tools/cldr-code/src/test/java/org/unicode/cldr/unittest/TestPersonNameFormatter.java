@@ -7,15 +7,20 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FallbackFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Field;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Length;
+import org.unicode.cldr.util.personname.PersonNameFormatter.ModifiedField;
+import org.unicode.cldr.util.personname.PersonNameFormatter.Modifier;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePatternData;
@@ -27,8 +32,11 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.Usage;
 import org.unicode.cldr.util.personname.SimpleNameObject;
 
 import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.util.ULocale;
 
@@ -39,6 +47,8 @@ public class TestPersonNameFormatter extends TestFmwk{
     final FallbackFormatter FALLBACK_FORMATTER = new FallbackFormatter(ULocale.ENGLISH, "{0}*", "{0} {1}");
     final CLDRFile ENGLISH = CLDRConfig.getInstance().getEnglish();
     final PersonNameFormatter ENGLISH_NAME_FORMATTER = new PersonNameFormatter(ENGLISH);
+    final Map<SampleType, SimpleNameObject> ENGLISH_SAMPLES = PersonNameFormatter.loadSampleNames(ENGLISH);
+    final Factory factory = CLDRConfig.getInstance().getCldrFactory();
 
     public static void main(String[] args) {
         new TestPersonNameFormatter().run(args);
@@ -284,6 +294,9 @@ public class TestPersonNameFormatter extends TestFmwk{
     // TODO Mark test that the order of the NamePatterns is maintained when expanding, compacting
 
     public void TestExampleGenerator() {
+
+        // first test some specific examples
+
         ExampleGenerator exampleGenerator = new ExampleGenerator(ENGLISH, ENGLISH, "");
         String[][] tests = {
             {
@@ -302,18 +315,45 @@ public class TestPersonNameFormatter extends TestFmwk{
             String actual = ExampleGenerator.simplify(example);
             assertEquals("Example for " + value, expected, actual);
         }
+
+        // next test that the example generator returns non-null for all expected cases
+
+
+        for (String localeId : Arrays.asList("en", "fr")) {
+            final CLDRFile cldrFile = factory.make(localeId, true);
+            ExampleGenerator exampleGenerator2 = new ExampleGenerator(cldrFile, ENGLISH, "");
+            for (String path : cldrFile) {
+                if (path.startsWith("//ldml/personNames") && !path.endsWith("/alias")) {
+                    XPathParts parts = XPathParts.getFrozenInstance(path);
+                    String value = ENGLISH.getStringValue(path);
+                    String example = exampleGenerator2.getExampleHtml(path, value);
+                    String actual = ExampleGenerator.simplify(example);
+                    switch(parts.getElement(2)) {
+                    case "initialPattern":
+                    case "sampleName":
+                        // expect null
+                        break;
+                    case "nameOrderLocales":
+                    case "personName":
+                        if (!assertNotNull("Locale " + localeId + " example for " + value, actual)) {
+                            example = exampleGenerator.getExampleHtml(path, value); // redo for debugging
+                        }
+                        break;
+                    }
+                }
+            }
+        }
     }
 
     public void TestFormatAll() {
         PersonNameFormatter personNameFormatter = ENGLISH_NAME_FORMATTER;
-        Map<SampleType, NameObject> samples = PersonNameFormatter.loadSampleNames(ENGLISH);
         StringBuilder sb = DEBUG && isVerbose() ? new StringBuilder() : null;
 
         // Cycle through parameter combinations, check for exceptions even if locale has no data
 
         for (FormatParameters parameters : FormatParameters.all()) {
-            assertNotNull(SampleType.full + " + " + parameters.toLabel(), personNameFormatter.format(samples.get(SampleType.full), parameters));
-            assertNotNull(SampleType.multiword + " + " + parameters.toLabel(), personNameFormatter.format(samples.get(SampleType.multiword), parameters));
+            assertNotNull(SampleType.full + " + " + parameters.toLabel(), personNameFormatter.format(ENGLISH_SAMPLES.get(SampleType.full), parameters));
+            assertNotNull(SampleType.multiword + " + " + parameters.toLabel(), personNameFormatter.format(ENGLISH_SAMPLES.get(SampleType.multiword), parameters));
             Collection<NamePattern> nps = personNameFormatter.getBestMatchSet(parameters);
             if (sb != null) {
                 for (NamePattern np : nps) {
@@ -376,5 +416,47 @@ public class TestPersonNameFormatter extends TestFmwk{
                 }
             }
         }
+    }
+
+    public void TestNameSamples() {
+        // TODO Mark move this to a Check
+
+        // define a set with the standard fields we ask for
+        Set<ModifiedField> expectedBase = new TreeSet<>();
+        for (Field field : Field.ALL) {
+            expectedBase.add(new ModifiedField(field));
+        }
+        expectedBase.add(new ModifiedField(Field.given, Modifier.informal));
+        ImmutableSet<ModifiedField> expected = ImmutableSet.copyOf(expectedBase);
+
+        for (String localeId : Arrays.asList("en", "fr")) {
+            final CLDRFile cldrFile = factory.make(localeId, true);
+
+            // check that all fields are covered
+
+            final Map<SampleType, SimpleNameObject> sampleMap = PersonNameFormatter.loadSampleNames(cldrFile);
+            Multimap<ModifiedField, SampleType> samples = getInvertedSamples(sampleMap);
+            assertEquals("Locale " + localeId + " expected field coverage in samples", expected, samples.keySet());
+            if (isVerbose()) {
+                logln("\n\t" + Joiner.on("\n\t").join(samples.asMap().entrySet()));
+            }
+        }
+    }
+
+    private ImmutableListMultimap<ModifiedField, SampleType> getInvertedSamples(Map<SampleType, SimpleNameObject> map) {
+        Multimap<ModifiedField, SampleType> result = TreeMultimap.create();
+        for (Entry<SampleType, SimpleNameObject> sampleEntry : map.entrySet()) {
+            SampleType sampleType = sampleEntry.getKey();
+            SimpleNameObject nameObject = sampleEntry.getValue();
+            for (Entry<Field, Map<Set<Modifier>, String>> entry : nameObject.getPatternData().entrySet()) {
+                Field field = entry.getKey();
+                Map<Set<Modifier>, String> modsToValue = entry.getValue();
+                for (Entry<Set<Modifier>, String> set : modsToValue.entrySet()) {
+                    ModifiedField mf = new ModifiedField(field, set.getKey());
+                    result.put(mf, sampleType);
+                }
+            }
+        }
+        return ImmutableListMultimap.copyOf(result);
     }
 }

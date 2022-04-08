@@ -165,4 +165,8 @@ public class SimpleNameObject implements NameObject {
         }
         return sb.append("}").toString();
     }
+
+    public Map<Field, Map<Set<Modifier>, String>> getPatternData() {
+        return patternData;
+    }
 }

@@ -62,10 +62,12 @@ public final class SurveyJSONWrapper {
                 if (cs.getCause() != null) {
                     put("cause", wrap(cs.getCause()));
                 }
-                Subtype subType = cs.getSubtype();
-                if (subType != null) {
-                    put("subType", subType.name());
-                    put("subTypeUrl", SubtypeToURLMap.forSubtype(subType)); // could be null.
+                Subtype subtype = cs.getSubtype();
+                if (subtype != null) {
+                    // in json, subtype is like "missingPlaceholders" NOT "missing placeholders"
+                    // so use name() not toString() -- this is consistent with SurveyAjax.java (2022-03-07)
+                    put("subtype", subtype.name());
+                    put("subtypeUrl", SubtypeToURLMap.forSubtype(subtype)); // could be null.
                 }
             }
         };

@@ -49,6 +49,13 @@ import com.ibm.icu.util.Output;
 
 /**
  * Note: The functions in this class needed to be separated from VoteAPI because of static init problems.
+ *
+ * As of 2022-04-07, this class hasn't been used yet, except for testing in conjunction
+ * with CldrRows.vue and CldrRow.vue. This is intended to be a modernized replacement
+ * for SurveyAjax.getRow (WHAT_GETROW). It isn't ready to be used since it doesn't produce
+ * json compatible with the front end. References:
+ * https://unicode-org.atlassian.net/browse/CLDR-15368
+ * https://unicode-org.atlassian.net/browse/CLDR-15403
  */
 public class VoteAPIHelper {
     public static final class VoteEntry {
@@ -138,7 +145,12 @@ public class VoteAPIHelper {
                 r.rows = calculateRows(pageData.getAll());
             }
             if (args.getDashboard) {
-                r.issues = new Dashboard().getErrorOnPath(locale, null /* WebContext */, mySession, args.xpath);
+                /*
+                 * TODO: implement single-path dashboard in this modern-api context
+                 * See existing implementation in SurveyAjax.java, Dashboard.java
+                 * Reference: https://unicode-org.atlassian.net/browse/CLDR-15368
+                 */
+                return new STError(ErrorCode.E_INTERNAL, "handleGetRows: single-path dashboard not implemented yet").build();
             }
             return Response.ok(r).build();
         } catch (Throwable t) {

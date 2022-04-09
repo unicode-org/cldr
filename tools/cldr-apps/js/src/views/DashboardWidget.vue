@@ -29,15 +29,15 @@
         >
           ↻
         </button>
-        <span v-for="n in data.notifications" :key="n.notification">
-          <template v-if="n.total">
+        <span v-for="catData of data.notifications" :key="catData.category">
+          <template v-if="catData.total">
             <button
-              :notification="n.notification"
+              :category="catData.category"
               class="scrollto cldr-nav-btn"
               v-on:click.prevent="scrollToCategory"
-              :title="describe(n.notification)"
+              :title="describe(catData.category)"
             >
-              {{ humanize(n.notification) }} ({{ n.total }})
+              {{ humanize(catData.category) }} ({{ catData.total }})
             </button>
             &nbsp;&nbsp;
           </template>
@@ -53,75 +53,83 @@
       </header>
       <section id="DashboardScroller" class="sidebyside-scrollable">
         <template
-          v-for="n in data.notifications"
-          :key="'template-' + n.notification"
+          v-for="catData of data.notifications"
+          :key="'template-' + catData.category"
         >
-          <template v-for="g in n.entries" :key="g.section + g.page + g.header">
-            <template v-for="e in g.entries">
+          <template
+            v-for="group of catData.groups"
+            :key="group.section + group.page + group.header"
+          >
+            <template v-for="entry in group.entries">
               <p
-                v-if="!(hideChecked && e.checked)"
-                :key="'dash-item-' + e.xpath + '-' + n.notification"
-                :id="'dash-item-' + e.xpath + '-' + n.notification"
+                v-if="!(hideChecked && entry.checked)"
+                :key="'dash-item-' + entry.xpstrid + '-' + catData.category"
+                :id="'dash-item-' + entry.xpstrid + '-' + catData.category"
                 :class="
                   'dash-' +
-                  n.notification +
-                  (lastClicked === e.xpath + '-' + n.notification
+                  catData.category +
+                  (lastClicked === entry.xpstrid + '-' + catData.category
                     ? ' last-clicked'
                     : '')
                 "
               >
                 <span class="dashEntry">
                   <a
-                    v-bind:href="'#/' + [locale, g.page, e.xpath].join('/')"
+                    v-bind:href="
+                      '#/' + [locale, group.page, entry.xpstrid].join('/')
+                    "
                     @click="
-                      () => setLastClicked(e.xpath + '-' + n.notification)
+                      () =>
+                        setLastClicked(entry.xpstrid + '-' + catData.category)
                     "
                   >
                     <span
-                      class="notification"
-                      :title="describe(n.notification)"
-                      >{{ abbreviate(n.notification) }}</span
+                      class="category"
+                      :title="describe(catData.category)"
+                      >{{ abbreviate(catData.category) }}</span
                     >
                     <span class="section-page" title="section—page">{{
-                      humanize(g.section + "—" + g.page)
+                      humanize(group.section + "—" + group.page)
                     }}</span>
                     |
                     <span class="entry-header" title="entry header">{{
-                      g.header
+                      group.header
                     }}</span>
                     |
-                    <span class="code" title="code">{{ e.code }}</span>
+                    <span class="code" title="code">{{ entry.code }}</span>
                     |
                     <span
                       class="previous-english"
                       title="previous English"
-                      v-if="e.previousEnglish"
+                      v-if="entry.previousEnglish"
                     >
-                      {{ e.previousEnglish }} →
+                      {{ entry.previousEnglish }} →
                     </span>
-                    <span class="english" title="English">{{ e.english }}</span>
+                    <span class="english" title="English">{{
+                      entry.english
+                    }}</span>
                     |
                     <span
                       class="winning"
                       title="Winning"
                       v-bind:dir="$cldrOpts.localeDir"
-                      >{{ e.winning }}</span
+                      >{{ entry.winning }}</span
                     >
-                    <template v-if="e.comment">
+                    <template v-if="entry.comment">
                       |
-                      <span v-html="e.comment" title="comment"></span>
+                      <span v-html="entry.comment" title="comment"></span>
                     </template>
                   </a>
                 </span>
                 <input
-                  v-if="canBeHidden(n.notification)"
+                  v-if="canBeHidden(catData.category)"
                   type="checkbox"
                   class="right-control"
                   title="You can hide checked items with the hide checkbox above"
-                  v-model="e.checked"
+                  v-model="entry.checked"
                   @change="
                     (event) => {
-                      entryCheckmarkChanged(event, e.xpath, n.notification);
+                      entryCheckmarkChanged(event, entry);
                     }
                   "
                 />
@@ -165,10 +173,10 @@ export default {
 
   methods: {
     scrollToCategory(event) {
-      const whence = event.target.getAttribute("notification");
+      const whence = event.target.getAttribute("category");
       if (this.data && this.data.notifications) {
-        for (let n of this.data.notifications) {
-          if (n.notification == whence) {
+        for (let catData of this.data.notifications) {
+          if (catData.category == whence) {
             const whither = document.querySelector(".dash-" + whence);
             if (whither) {
               whither.scrollIntoView(true);
@@ -242,8 +250,8 @@ export default {
      *
      * @param json - the response to a request by cldrTable.refreshSingleRow
      */
-    updateRow(json) {
-      cldrDash.updateRow(this.data, json);
+    updatePath(json) {
+      cldrDash.updatePath(this.data, json);
     },
 
     resetScrolling() {
@@ -259,7 +267,7 @@ export default {
       this.lastClicked = id;
     },
 
-    closeDashboard(event) {
+    closeDashboard() {
       cldrGui.hideDashboard();
     },
 
@@ -268,7 +276,7 @@ export default {
       if (category.toLowerCase().replaceAll(" ", "_") === "english_changed") {
         return "EC";
       } else {
-        return category.substr(0, 1); // first letter, e.g., "E" for "Error"
+        return category.substr(0, 1); // first letter, like "E" for "Error"
       }
     },
 
@@ -288,18 +296,13 @@ export default {
     },
 
     humanize(str) {
-      // For notification categories like "English_Changed", page names like "Languages_K_N",
+      // For categories like "English_Changed", page names like "Languages_K_N",
       // and section names like "Locale_Display_Names"
       return str.replaceAll("_", " ");
     },
 
-    entryCheckmarkChanged(event, xpath, category) {
-      cldrDash.saveEntryCheckmark(
-        event.target.checked,
-        xpath,
-        category,
-        this.locale
-      );
+    entryCheckmarkChanged(event, entry) {
+      cldrDash.saveEntryCheckmark(event.target.checked, entry, this.locale);
     },
 
     canBeHidden(category) {
@@ -377,7 +380,7 @@ p.bottom-padding {
   align-items: baseline;
 }
 
-.notification {
+.category {
   border: 0.1em solid;
   border-radius: 50%;
   height: 100%;

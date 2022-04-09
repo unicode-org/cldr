@@ -59,7 +59,7 @@ if(request.getParameter("flush") != null) {
 <body>
 
 
-<h1>All error subTypes</h1>
+<h1>All error subtypes</h1>
 
 <p>
 	

@@ -317,6 +317,8 @@ public class XPathTable {
 
     /**
      * API for get by ID
+     * @param id an integer like 677172
+     * @return a string like //ldml/units/unitLength[@type="long"]/unit[@type="volume-pint-metric"]/unitPattern[@count="one"]
      */
     public final String getById(int id) {
         if (id == -1) {
@@ -333,8 +335,8 @@ public class XPathTable {
      * Adds an xpathid-xpath value pair to the XPathTable. This method is used
      * by classes to cache the values obtained by using their own queries.
      *
-     * @param id
-     * @param xpath
+     * @param id an integer like 24600
+     * @param xpath a string like //ldml/dates/timeZoneNames/zone[@type="America/Guadeloupe"]/short/daylight
      */
     public final void setById(int id, String xpath) {
         stringToId.put(idToString_put(id, xpath), id);
@@ -344,9 +346,8 @@ public class XPathTable {
     /**
      * get an xpath id by value, add it if not found
      *
-     * @param xpath
-     *            string string to add
-     * @return the id for the specified path
+     * @param xpath the string to add, like "//ldml/units/..."
+     * @return the id, like 692804, for the specified path
      */
     public final int getByXpath(String xpath) {
         Integer nid = stringToId.get(xpath);
@@ -406,7 +407,6 @@ public class XPathTable {
     /**
      *
      * @param path
-     * @param xpp
      * @return
      */
     public String altFromPathToTinyXpath(String path) {
@@ -431,8 +431,8 @@ public class XPathTable {
      * almost distinguishing, except that certain attributes, such as numbers=,
      * will be left.
      *
-     * @param path
-     * @return
+     * @param path a string like //ldml/typographicNames/styleName[@type="wdth"][@subtype="200"][@alt="wide"]
+     * @return a string like //ldml/typographicNames/styleName[@type="wdth"][@subtype="200"][@alt="wide"]
      */
     public static String removeDraftAltProposed(String path) {
         XPathParts xpp = XPathParts.getFrozenInstance(path).cloneAsThawed(); // not frozen, for removeAttribute
@@ -662,8 +662,8 @@ public class XPathTable {
 
     /**
      * xpid to hex
-     * @param baseXpath
-     * @return
+     * @param baseXpath an integer like 690863
+     * @return a sixteen-digit hex string like "2066782cf4356135"
      */
     public String getStringIDString(int baseXpath) {
         return getStringIDString(getById(baseXpath));
@@ -680,8 +680,8 @@ public class XPathTable {
 
     /**
      * Turn a strid into a xpid (int token)
-     * @param sid
-     * @return
+     * @param sid like "2066782cf4356135"
+     * @return an integer like 690863
      */
     public final int getXpathIdFromStringId(String sid) {
         return getByXpath(getByStringID(sid));

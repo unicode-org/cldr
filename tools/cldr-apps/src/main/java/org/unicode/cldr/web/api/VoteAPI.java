@@ -240,8 +240,8 @@ public class VoteAPI {
     final static public class CheckStatusSummary {
         public String message;
         public Type type;
-        public Subtype subType;
-        public String subTypeUrl;
+        public Subtype subtype;
+        public String subtypeUrl;
         public Phase phase;
 
         @JsonbProperty("class")
@@ -256,10 +256,10 @@ public class VoteAPI {
                 this.clazz = cause.getClass().getSimpleName();
                 this.phase = cause.getPhase();
             }
-            // subType
-            this.subType = checkStatus.getSubtype();
-            if (this.subType != null) {
-                this.subTypeUrl = SubtypeToURLMap.forSubtype(this.subType); // could be null.
+            // subtype
+            this.subtype = checkStatus.getSubtype();
+            if (this.subtype != null) {
+                this.subtypeUrl = SubtypeToURLMap.forSubtype(this.subtype); // could be null.
             }
         }
     }

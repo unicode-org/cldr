@@ -1361,7 +1361,7 @@ public class PersonNameFormatter {
             if (path.startsWith("//ldml/personNames/sampleName")) {
                 //ldml/personNames/sampleName[@item="full"]/nameField[@type="prefix"]
                 String value = cldrFile.getStringValue(path);
-                if (!value.equals("∅∅∅")) {
+                if (value != null && !value.equals("∅∅∅")) {
                     XPathParts parts = XPathParts.getFrozenInstance(path);
                     names.put(SampleType.valueOf(parts.getAttributeValue(-2, "item")), ModifiedField.from(parts.getAttributeValue(-1, "type")), value);
                 }

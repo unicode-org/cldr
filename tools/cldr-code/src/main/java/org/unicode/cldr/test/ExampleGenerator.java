@@ -53,6 +53,7 @@ import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.XListFormatter.ListTypeLength;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
+import org.unicode.cldr.util.personname.PersonNameFormatter.FallbackFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
@@ -476,15 +477,18 @@ public class ExampleGenerator {
 
     private String handlePersonName(XPathParts parts, String value) {
         //ldml/personNames/personName[@length="long"][@usage="addressing"][@style="formal"][@order="givenFirst"]/namePattern => {prefix} {surname}
+        String debugState = "start";
         try {
             FormatParameters formatParameters = FormatParameters.from(parts);
 
             List<String> examples = null;
+            final CLDRFile cldrFile2 = getCldrFile();
             switch(parts.getElement(2)) {
             case "nameOrderLocales":
                 examples = new ArrayList<>();
                 for (String localeId : PersonNameFormatter.SPLIT_SPACE.split(value)) {
-                    examples.add(value + " = " + getCldrFile().getName(localeId));
+                    final String name = localeId.equals("und") ? "«any other»" :  cldrFile2.getName(localeId);
+                    examples.add(localeId + " = " + name);
                 }
                 break;
             case "initialPattern":
@@ -494,20 +498,34 @@ public class ExampleGenerator {
             case "personName":
                 examples = new ArrayList<>();
                 if (sampleNames == null) {
-                    sampleNames = PersonNameFormatter.loadSampleNames(getCldrFile());
-                    personNameFormatter = new PersonNameFormatter(getCldrFile());
+                    sampleNames = PersonNameFormatter.loadSampleNames(cldrFile2);
+                    debugState = "<loadSampleNames: " + sampleNames;
+                    personNameFormatter = new PersonNameFormatter(cldrFile2);
+                    debugState = "<PersonNameFormatter: " + personNameFormatter;
                 }
                 // We might need the alt, however: String alt = parts.getAttributeValue(-1, "alt");
                 for (NameObject sampleNameObject1 : sampleNames.values()) {
                     NamePattern namePattern = NamePattern.from(0, value);
-                    String result = namePattern.format(sampleNameObject1, formatParameters, personNameFormatter.getFallbackInfo());
+                    debugState = "<NamePattern.from: " + namePattern;
+                    final FallbackFormatter fallbackInfo = personNameFormatter.getFallbackInfo();
+                    debugState = "<getFallbackInfo: " + fallbackInfo;
+                    String result = namePattern.format(sampleNameObject1, formatParameters, fallbackInfo);
+                    debugState = "<namePattern.format: " + result;
                     examples.add(result);
                 }
                 break;
             }
             return formatExampleList(examples);
         } catch (Exception e) {
-            return "Internal error: " + e.getMessage();
+            StringBuffer stackTrace = null;
+            try (StringWriter sw = new StringWriter();
+                PrintWriter p = new PrintWriter(sw)) {
+                e.printStackTrace(p);
+                stackTrace = sw.getBuffer();
+            } catch (Exception e2) {
+                stackTrace = new StringBuffer("internal error");
+            }
+            return "Internal error: " + e.getMessage() + "\n" + debugState + "\n" +  stackTrace;
         }
     }
 

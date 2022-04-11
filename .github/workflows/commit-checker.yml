@@ -45,7 +45,7 @@ jobs:
         run: |
           echo "::group::Setup Checker"
           END_HASH=$(cd ${GITHUB_WORKSPACE}/cldr ; git rev-parse --short HEAD )
-          REPORT="CLDR-Report-"$(date +"%Y-%m-%d")-v38-${END_HASH}
+          REPORT="CLDR-Report-"$(date +"%Y-%m-%d")-v${FV}-${END_HASH}
           echo $REPORT
           cd icu/tools/commit-checker
           command -v pipenv >/dev/null 2>/dev/null || sudo pip3 install pipenv
@@ -56,6 +56,8 @@ jobs:
           --nocopyright \
           --jira-query "project=CLDR AND fixVersion=${FV}" \
           --repo-root ${GITHUB_WORKSPACE}/cldr \
+          --fix-version ${FV} \
+          --commit-metadata ${GITHUB_WORKSPACE}/cldr/.github/COMMIT_METADATA.md \
           --github-url https://github.com/unicode-org/cldr \
           --rev-range "release-${LV}..${END_REF}" > ${GITHUB_WORKSPACE}/${REPORT}.md
           echo "::endgroup::"

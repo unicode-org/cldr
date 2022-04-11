@@ -642,6 +642,12 @@ public class ICUServiceBuilder {
             if (currencySymbol == null) {
                 currencySymbol = cldrFile.getWinningValueWithBailey(prefix + "symbol");
             }
+            if (currencySymbol == null) {
+                throw new NullPointerException(
+                    cldrFile.getSourceLocation(prefix + "symbol") +
+                    ": " + cldrFile.getLocaleID()+ ": " +
+                    ": null currencySymbol for " + prefix + "symbol");
+            }
             String currencyDecimal = cldrFile.getWinningValueWithBailey(prefix + "decimal");
             if (currencyDecimal != null) {
                 (symbols = cloneIfNeeded(symbols)).setMonetaryDecimalSeparator(currencyDecimal.charAt(0));

@@ -261,5 +261,11 @@ public class ExampleDependencies {
     .put("//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"]", "//ldml/listPatterns/listPattern[@type=\"*\"]/listPatternPart[@type=\"*\"]")
     .put("//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"]", "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern")
     .put("//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"]", "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"]")
+    .putAll("//ldml/personNames/sampleName[@item=\"*\"]/nameField[@type=\"*\"]",
+        "//ldml/personNames/personName[@length=\"*\"][@usage=\"*\"][@style=\"*\"][@order=\"*\"]/namePattern",
+        "//ldml/personNames/personName[@length=\"*\"][@style=\"*\"][@order=\"*\"]/namePattern")
+    .putAll("//ldml/personNames/initialPattern[@type=\"*\"]",
+        "//ldml/personNames/personName[@length=\"*\"][@usage=\"*\"][@style=\"*\"][@order=\"*\"]/namePattern",
+        "//ldml/personNames/personName[@length=\"*\"][@style=\"*\"][@order=\"*\"]/namePattern")
     .build();
 }

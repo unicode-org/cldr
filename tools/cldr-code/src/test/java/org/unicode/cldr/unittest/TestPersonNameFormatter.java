@@ -13,6 +13,7 @@ import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FallbackFormatter;
@@ -317,9 +318,7 @@ public class TestPersonNameFormatter extends TestFmwk{
             String path = test[0];
             String value = ENGLISH.getStringValue(path);
             String expected = test[1];
-            final String example = exampleGenerator.getExampleHtml(path, value);
-            String actual = ExampleGenerator.simplify(example);
-            assertEquals("Example for " + value, expected, actual);
+            checkExampleGenerator(exampleGenerator, path, value, expected);
         }
 
         // next test that the example generator returns non-null for all expected cases
@@ -349,6 +348,54 @@ public class TestPersonNameFormatter extends TestFmwk{
                 }
             }
         }
+    }
+
+    private void checkExampleGenerator(ExampleGenerator exampleGenerator, String path, String value, String expected) {
+        final String example = exampleGenerator.getExampleHtml(path, value);
+        String actual = ExampleGenerator.simplify(example);
+        assertEquals("Example for " + value, expected, actual);
+    }
+
+    public void TestExampleDependencies() {
+        Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
+        CLDRFile root = cldrFactory.make("root", false);
+        CLDRFile en = cldrFactory.make("en", false);
+
+        // we create a new factory, and add root and a writable English cldrfile
+
+        CLDRFile enWritable = en.cloneAsThawed();
+
+        TestFactory factory = new TestFactory();
+        factory.addFile(root);
+        factory.addFile(enWritable);
+        CLDRFile resolved = factory.make("en", true);
+
+        // List all the paths that have dependencies, so we can verify they are ok
+
+        PathStarrer ps = new PathStarrer().setSubstitutionPattern("*");
+        for (String path : resolved) {
+            if (path.startsWith("//ldml/personNames") && !path.endsWith("/alias")) {
+                logln(ps.set(path));
+            }
+        }
+
+        // First test the example for the regular value
+
+        ExampleGenerator exampleGenerator = new ExampleGenerator(resolved, ENGLISH, "");
+        String path = "//ldml/personNames/personName[@length=\"long\"][@usage=\"referring\"][@style=\"formal\"][@order=\"givenFirst\"]/namePattern";
+        String expected = "〖Katherine Johnson〗〖Alberto Pedro Calderón〗〖John Blue〗〖John William Brown〗〖Dorothy Lavinia Brown M.D.〗〖Erich Oswald Hans Carl Maria von Stroheim〗〖Sinbad〗";
+        String value = enWritable.getStringValue(path);
+
+        checkExampleGenerator(exampleGenerator, path, value, expected);
+
+        // Then change one of the sample names to make sure it alters the example correctly
+
+        String namePath = "//ldml/personNames/sampleName[@item=\"givenSurname\"]/nameField[@type=\"given\"]";
+        enWritable.add(namePath, "KATHY");
+        exampleGenerator.updateCache(namePath);
+
+        String expected2 = "〖KATHY Johnson〗〖Alberto Pedro Calderón〗〖John Blue〗〖John William Brown〗〖Dorothy Lavinia Brown M.D.〗〖Erich Oswald Hans Carl Maria von Stroheim〗〖Sinbad〗";
+        checkExampleGenerator(exampleGenerator, path, value, expected2);
     }
 
     public void TestFormatAll() {

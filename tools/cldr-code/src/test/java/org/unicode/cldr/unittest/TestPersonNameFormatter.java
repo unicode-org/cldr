@@ -305,6 +305,12 @@ public class TestPersonNameFormatter extends TestFmwk{
             },{
                 "//ldml/personNames/personName[@length=\"monogram\"][@style=\"informal\"][@order=\"surnameFirst\"]/namePattern",
                 "〖JK〗〖CA〗〖BJ〗〖BJ〗〖BD〗〖VE〗〖S〗"
+            },{
+                "//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]",
+                "〖und = «any other»〗"
+            },{
+                "//ldml/personNames/nameOrderLocales[@order=\"surnameFirst\"]",
+                "〖ja = Japanese〗〖zh = Chinese〗〖ko = Korean〗"
             }
         };
         for (String[] test : tests) {

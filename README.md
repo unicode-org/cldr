@@ -1,6 +1,6 @@
 # Unicode CLDR Project
 
-Latest Release: [v40.0](https://cldr.unicode.org/index/downloads/cldr-40) published 2021-10-27
+Latest Release: [v41.0](https://cldr.unicode.org/index/downloads/cldr-41) published 2022-04-06
 
 ## Build Status
 

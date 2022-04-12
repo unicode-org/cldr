@@ -1,6 +1,9 @@
 package org.unicode.cldr.web.api;
 
 import java.io.IOException;
+import java.time.Clock;
+import com.ibm.icu.util.Calendar;
+import com.ibm.icu.util.TimeZone;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
@@ -39,7 +42,17 @@ import org.unicode.cldr.web.VettingViewerQueue.LoadingPolicy;
 @Tag(name = "voting", description = "APIs for voting")
 public class Summary {
 
+    private static final int AUTO_SNAP_HOUR_OF_DAY = 1; // 1 am
+    private static final String AUTO_SNAP_TIME_ZONE = "America/Los_Angeles";
     private static ScheduledFuture autoSnapshotFuture = null;
+
+    /**
+     * While an automatic snapshot is in progress, which may take several minutes,
+     * make repeated requests with this delay in between. The log may show the progress
+     * as a percentage. A few times per minute is similar to the frequency of http requests
+     * for manual summaries, and may be convenient for debugging.
+     */
+    private static final long AUTO_SNAP_SLEEP_SECONDS = 20;
 
     /**
      * jsonb enables converting an object to a json string,
@@ -215,18 +228,15 @@ public class Summary {
         }
     }
 
-
     public static void scheduleAutomaticSnapshots() {
         if (!autoSnapshotsAreEnabled()) {
             return;
         }
-        // TODO: schedule for a particular time of night or early morning;
-        // for now, for testing, just wait two minutes
-        // Reference: https://unicode-org.atlassian.net/browse/CLDR-15369
-        final long initialDelayMinutes = 2L;
+        final Calendar when = getNextSnap();
+        final long initialDelayMinutes = getMinutesUntil(when);
         final long repeatPeriodMinutes = TimeUnit.MINUTES.convert(1L, TimeUnit.DAYS);
-        log("Automatic Summary Snapshots are scheduled to start in " + initialDelayMinutes +
-             " minutes, then repeat every " + repeatPeriodMinutes + " minutes");
+        log("Automatic Summary Snapshots are scheduled daily starting in " +
+                initialDelayMinutes + " minutes, at " + when.getTime());
         final ScheduledExecutorService exServ = SurveyThreadManager.getScheduledExecutorService();
         try {
             Summary summary = new Summary();
@@ -246,6 +256,23 @@ public class Summary {
             log("Automatic Summary Snapshots (CLDR_AUTO_SNAP) are not enabled");
             return false;
         }
+    }
+
+    private static Calendar getNextSnap() {
+        final Calendar when = Calendar.getInstance(TimeZone.getTimeZone(AUTO_SNAP_TIME_ZONE));
+        when.add(Calendar.DAY_OF_YEAR, 1);
+        when.set(Calendar.HOUR_OF_DAY, AUTO_SNAP_HOUR_OF_DAY);
+        when.set(Calendar.MINUTE, 0);
+        when.set(Calendar.SECOND, 0);
+        when.set(Calendar.MILLISECOND, 0);
+        return when;
+    }
+
+    private static long getMinutesUntil(Calendar when) {
+        final long nowMillis = System.currentTimeMillis();
+        final long whenMillis = when.getTimeInMillis();
+        final long delayMillis = whenMillis - nowMillis;
+        return TimeUnit.MINUTES.convert(delayMillis, TimeUnit.MILLISECONDS);
     }
 
     private class AutoSnapper implements Runnable {
@@ -268,6 +295,7 @@ public class Summary {
         SummaryResponse sr;
         int count = 0;
         log("Automatic Summary Snapshot, starting");
+
         boolean finished = false;
         do {
             sr = getSummaryResponse(vvq, qmi, usersOrg, loadingPolicy);
@@ -277,7 +305,7 @@ public class Summary {
             if (sr.status == VettingViewerQueue.Status.WAITING
                 || sr.status == VettingViewerQueue.Status.PROCESSING) {
                 try {
-                    Thread.sleep(10000); // ten seconds
+                    Thread.sleep(AUTO_SNAP_SLEEP_SECONDS * 1000L);
                 } catch (InterruptedException e) {
                     finished = true;
                 }

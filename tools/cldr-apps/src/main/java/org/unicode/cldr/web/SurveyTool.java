@@ -20,6 +20,7 @@ public class SurveyTool extends HttpServlet {
     static final Logger logger = SurveyLog.forClass(SurveyTool.class);
 
     private static final long serialVersionUID = 1L;
+    private static final String FAVICON_LINK = "<link rel='icon' href='./favicon.ico' type='image/x-icon'>\n";
 
     @Override
     public final void init(final ServletConfig config) throws ServletException {
@@ -164,6 +165,7 @@ public class SurveyTool extends HttpServlet {
         out.write("<meta name='gigabot' content='noindex'>\n");
         out.write("<meta name='gigabot' content='noarchive'>\n");
         out.write("<meta name='gigabot' content='nofollow'>\n");
+        out.write(FAVICON_LINK);
         includeCss(request, out);
         out.write(VettingViewer.getHeaderStyles() + "\n");
         try {

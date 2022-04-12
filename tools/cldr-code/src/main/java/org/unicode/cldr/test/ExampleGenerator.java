@@ -472,8 +472,43 @@ public class ExampleGenerator {
         return result;
     }
 
-    Map<PersonNameFormatter.SampleType, SimpleNameObject> sampleNames = null;
-    PersonNameFormatter personNameFormatter = null;
+    /**
+     * Holds a map and an object that are relatively expensive to build,
+     * so we don't want to do that on each call.
+     * TODO clean up the synchronization model.
+     */
+    private class PersonNamesCache implements ExampleCache.ClearableCache {
+        Map<PersonNameFormatter.SampleType, SimpleNameObject> sampleNames = null;
+        PersonNameFormatter personNameFormatter = null;
+        @Override
+        public void clear() {
+            sampleNames = null;
+            personNameFormatter = null;
+        }
+        Map<PersonNameFormatter.SampleType, SimpleNameObject> getSampleNames(CLDRFile cldrFile) {
+            synchronized (this) {
+                if (sampleNames == null) {
+                    sampleNames = PersonNameFormatter.loadSampleNames(cldrFile);
+                }
+                return sampleNames;
+            }
+        }
+        PersonNameFormatter getPersonNameFormatter(CLDRFile cldrFile) {
+            synchronized (this) {
+                if (personNameFormatter == null) {
+                    personNameFormatter = new PersonNameFormatter(cldrFile);
+                }
+                return personNameFormatter;
+            }
+        }
+    }
+
+    /**
+     * Register the cache, so that it gets cleared when any of the paths change
+     */
+    PersonNamesCache personNamesCache = exCache.registerCache(new PersonNamesCache(),
+        "//ldml/personNames/sampleName[@item=\"*\"]/nameField[@type=\"*\"]",
+        "//ldml/personNames/initialPattern[@type=\"*\"]");
 
     private String handlePersonName(XPathParts parts, String value) {
         //ldml/personNames/personName[@length="long"][@usage="addressing"][@style="formal"][@order="givenFirst"]/namePattern => {prefix} {surname}
@@ -497,13 +532,11 @@ public class ExampleGenerator {
                 return null;
             case "personName":
                 examples = new ArrayList<>();
-                if (sampleNames == null) {
-                    sampleNames = PersonNameFormatter.loadSampleNames(cldrFile2);
-                    debugState = "<loadSampleNames: " + sampleNames;
-                    personNameFormatter = new PersonNameFormatter(cldrFile2);
-                    debugState = "<PersonNameFormatter: " + personNameFormatter;
-                }
+                Map<PersonNameFormatter.SampleType, SimpleNameObject> sampleNames = personNamesCache.getSampleNames(cldrFile2);
+                PersonNameFormatter personNameFormatter = personNamesCache.getPersonNameFormatter(cldrFile2);
+
                 // We might need the alt, however: String alt = parts.getAttributeValue(-1, "alt");
+
                 for (NameObject sampleNameObject1 : sampleNames.values()) {
                     NamePattern namePattern = NamePattern.from(0, value);
                     debugState = "<NamePattern.from: " + namePattern;

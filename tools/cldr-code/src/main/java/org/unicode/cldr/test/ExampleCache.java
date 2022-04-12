@@ -5,6 +5,9 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.unicode.cldr.util.PathStarrer;
 
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
+
 /**
  * Cache example html strings for ExampleGenerator.
  *
@@ -134,6 +137,35 @@ class ExampleCache {
     private final Map<String, Map<String, Map<String, String>>> cache = new ConcurrentHashMap<>();
 
     /**
+     * A clearable cache is any object that supports being cleared when a path changes.
+     * An example is the cache of person name samples.
+     */
+    static interface ClearableCache {
+        void clear();
+    }
+
+    /**
+     * The nested cache mapping is: starredPath → ClearableCache.
+     * TODO: because there is no concurrent multimap, use synchronization
+     */
+
+    private final Multimap<String, ClearableCache> registeredCache = HashMultimap.create();
+
+    /**
+     * Register other caches. This isn't done often, so synchronized should be ok.
+     * @return
+     */
+
+    <T extends ClearableCache> T registerCache(T clearableCache, String... starredPaths) {
+        synchronized (registeredCache) {
+            for (String starredPath : starredPaths) {
+                registeredCache.put(starredPath, clearableCache);
+            }
+            return clearableCache;
+        }
+    }
+
+    /**
      * The PathStarrer is for getting starredPath from an ordinary (starless) path.
      * Inclusion of starred paths enables performance improvement with AVOID_CLEARING_CACHE.
      */
@@ -179,6 +211,12 @@ class ExampleCache {
             String starredA = pathStarrer.set(xpath);
             for (String starredB : ExampleDependencies.dependencies.get(starredA)) {
                 cache.remove(starredB);
+            }
+            // TODO clean up the synchronization
+            synchronized (registeredCache) {
+                for (ClearableCache item : registeredCache.get(starredA)) {
+                    item.clear();
+                }
             }
         } else {
             cache.clear();

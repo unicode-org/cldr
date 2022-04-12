@@ -448,9 +448,9 @@ public class SubtypeToURLMap {
         return SubtypeToURLMapHelper.INSTANCE;
     }
 
-    public static String forSubtype(Subtype subType) {
+    public static String forSubtype(Subtype subtype) {
         if(SubtypeToURLMapHelper.INSTANCE == null) return null;
-        return SubtypeToURLMapHelper.INSTANCE.get(subType);
+        return SubtypeToURLMapHelper.INSTANCE.get(subtype);
     }
 
     public static SubtypeToURLMap reload() {

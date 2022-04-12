@@ -76,6 +76,14 @@ public class VettingViewer<T> {
 
     /**
      * Notification categories
+     *
+     * TODO: rename VettingViewer.Choice to a better name, such as VettingViewer.Category,
+     * and use it consistently for instances of this type. Currently, instances of this type,
+     * and strings derived from it, are confusingly named "notification", "category", "type",
+     * "issue", "problem", "label", and "choice". Since it normally doesn't represent any kind of a
+     * choice, the name "choice" isn't helpful. The name "notification" is potentially confusable
+     * with objects of type ReviewNotification; such an object "is" a notification and it "has"
+     * (belongs to) a category. Reference: https://unicode-org.atlassian.net/browse/CLDR-14906
      */
     public enum Choice {
         /**
@@ -392,17 +400,55 @@ public class VettingViewer<T> {
         public final PathHeader codeOutput;
         public final Set<Choice> problems;
         public final String htmlMessage;
+        public final Subtype subtype;
 
-        public WritingInfo(PathHeader ph, EnumSet<Choice> problems, CharSequence htmlMessage) {
+        public WritingInfo(PathHeader ph, EnumSet<Choice> problems, CharSequence htmlMessage, Subtype subtype) {
             super();
             this.codeOutput = ph;
             this.problems = Collections.unmodifiableSet(problems.clone());
             this.htmlMessage = htmlMessage.toString();
+            this.subtype = subtype;
         }
 
         @Override
         public int compareTo(WritingInfo other) {
             return codeOutput.compareTo(other.codeOutput);
+        }
+    }
+
+    public static class DashboardArgs {
+        final EnumSet<Choice> choices;
+        final CLDRLocale locale;
+        final Level coverageLevel;
+        int userId = 0;
+        Organization organization = null;
+        CLDRFile sourceFile = null;
+        CLDRFile baselineFile = null;
+
+        /**
+         * A path like "//ldml/dates/timeZoneNames/zone[@type="America/Guadeloupe"]/short/daylight",
+         * or null. If it is null, check all paths, otherwise only check this path.
+         */
+        String specificSinglePath = null;
+
+        public DashboardArgs(EnumSet<Choice> choices, CLDRLocale locale, Level coverageLevel) {
+            this.choices = choices;
+            this.locale = locale;
+            this.coverageLevel = coverageLevel;
+        }
+
+        public void setFiles(CLDRFile sourceFile, CLDRFile baselineFile) {
+            this.sourceFile = sourceFile;
+            this.baselineFile = baselineFile;
+        }
+
+        public void setXpath(String xpath) {
+            this.specificSinglePath = xpath;
+        }
+
+        public void setUserAndOrganization(int id, Organization usersOrg) {
+            this.userId = userId;
+            this.organization = organization;
         }
     }
 
@@ -413,16 +459,23 @@ public class VettingViewer<T> {
         public VoterProgress voterProgress = new VoterProgress();
     }
 
-    public DashboardData generateDashboard(EnumSet<Choice> choices,
-        String localeID, int userId, T organization,
-        Level usersLevel, CLDRFile sourceFile, CLDRFile baselineFile) {
+    /**
+     * Generate the Dashboard
+     *
+     * @param args the DashboardArgs
+     * @return the DashboardData
+     */
+    public DashboardData generateDashboard(DashboardArgs args) {
 
         DashboardData dd = new DashboardData();
 
-        FileInfo fileInfo = new FileInfo(localeID, usersLevel, choices, organization);
-        fileInfo.setFiles(sourceFile, baselineFile);
+        FileInfo fileInfo = new FileInfo(args.locale.getBaseName(), args.coverageLevel, args.choices, (T) args.organization);
+        if (args.specificSinglePath != null) {
+            fileInfo.setSinglePath(args.specificSinglePath);
+        }
+        fileInfo.setFiles(args.sourceFile, args.baselineFile);
         fileInfo.setSorted(dd.sorted);
-        fileInfo.setVoterProgressAndId(dd.voterProgress, userId);
+        fileInfo.setVoterProgressAndId(dd.voterProgress, args.userId);
         fileInfo.getFileInfo();
 
         return dd;
@@ -574,11 +627,20 @@ public class VettingViewer<T> {
                 recordLosingDisputedEtc(path, voteStatus, missingStatus);
             }
             updateVotedOrAbstained(path, pathLevelIsTooHigh);
-            if (specificSinglePath == null && !problems.isEmpty() && sorted != null) {
+            if (!problems.isEmpty() && sorted != null) {
                 reasonsToPaths.clear();
                 R2<SectionId, PageId> group = Row.of(ph.getSectionId(), ph.getPageId());
-                sorted.put(group, new WritingInfo(ph, problems, htmlMessage));
+                sorted.put(group, new WritingInfo(ph, problems, htmlMessage, firstSubtype()));
             }
+        }
+
+        private Subtype firstSubtype() {
+            for (Subtype subtype : subtypes) {
+                if (subtype != Subtype.none) {
+                    return subtype;
+                }
+            }
+            return Subtype.none;
         }
 
         private void updateVotedOrAbstained(String path, boolean pathLevelIsTooHigh) {
@@ -1406,49 +1468,6 @@ public class VettingViewer<T> {
             + ".vvd {}\n"
             + ".vvo {}\n"
             + "</style>";
-    }
-
-    /**
-     *
-     * @param choices
-     * @param localeID
-     * @param organization
-     * @param usersLevel
-     * @param path
-     * @return
-     */
-    public ArrayList<String> getErrorOnPath(EnumSet<Choice> choices, String localeID, T organization,
-        Level usersLevel, String path) {
-
-        // Gather the relevant paths
-        // each one will be marked with the choice that it triggered.
-        Relation<R2<SectionId, PageId>, WritingInfo> sorted = Relation.of(
-            new TreeMap<R2<SectionId, PageId>, Set<WritingInfo>>(), TreeSet.class);
-
-        CLDRFile sourceFile = cldrFactory.make(localeID, true);
-
-        // Initialize
-        CLDRFile baselineFile = null;
-        try {
-            Factory baselineFactory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
-            baselineFile = baselineFactory.make(localeID, true);
-        } catch (Exception e) {
-        }
-
-        FileInfo fileInfo = new FileInfo(localeID, usersLevel, choices, organization);
-        fileInfo.setFiles(sourceFile, baselineFile);
-        fileInfo.setSorted(sorted);
-        fileInfo.setSinglePath(path);
-        fileInfo.getFileInfo();
-
-        EnumSet<Choice> errors = fileInfo.problems;
-
-        ArrayList<String> out = new ArrayList<>();
-        for (Object error : errors.toArray()) {
-            out.add(((Choice) error).jsonLabel);
-        }
-
-        return out;
     }
 
     /**

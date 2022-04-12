@@ -727,7 +727,7 @@ function testsToHtml(tests) {
       ": " +
       (testItem.cause || { class: "Unknown" }).class +
       "." +
-      testItem.subType +
+      testItem.subtype +
       "'>";
     if (testItem.type == "Warning") {
       newHtml += cldrStatus.warnIcon();
@@ -737,8 +737,8 @@ function testsToHtml(tests) {
     newHtml += testItem.message;
     // Add a link
 
-    if (testItem.subTypeUrl) {
-      newHtml += ' <a href="' + testItem.subTypeUrl + '">(how to fix…)</a>';
+    if (testItem.subtypeUrl) {
+      newHtml += ' <a href="' + testItem.subtypeUrl + '">(how to fix…)</a>';
     }
 
     newHtml += "</p>";

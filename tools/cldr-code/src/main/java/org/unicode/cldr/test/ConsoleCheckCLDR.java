@@ -946,15 +946,15 @@ public class ConsoleCheckCLDR {
             true);
 
         private static void addDataToErrorFile(String localeID, String path, ErrorType shortStatus,
-            Subtype subType) {
+            Subtype subtype) {
             String section = path == null ? null : XPathToMenu.xpathToMenu(path);
             if (section == null) {
                 section = "general";
             }
             errorFileCounter.add(
-                new Row.R4<>(localeID, section, shortStatus, subType), 1);
+                new Row.R4<>(localeID, section, shortStatus, subtype), 1);
             ErrorFile.sectionToProblemsToLocaleToCount.add(
-                new Row.R4<>(section, shortStatus, subType, localeID), 1);
+                new Row.R4<>(section, shortStatus, subtype, localeID), 1);
         }
 
         private static void closeErrorFile() {
@@ -1341,12 +1341,12 @@ public class ConsoleCheckCLDR {
     }
 
     private static void showValue(CLDRFile cldrFile, String prettyPath, String localeID, String example,
-        String path, String value, String fullPath, String statusString, Subtype subType) {
+        String path, String value, String fullPath, String statusString, Subtype subtype) {
         ErrorType shortStatus = ErrorType.fromStatusString(statusString);
         subtotalCount.add(shortStatus, 1);
         totalCount.add(shortStatus, 1);
-        if (subType == null) {
-            subType = Subtype.none;
+        if (subtype == null) {
+            subtype = Subtype.none;
         }
         final SourceLocation location = fullPath == null ? null : cldrFile.getSourceLocation(fullPath);
 
@@ -1387,7 +1387,7 @@ public class ConsoleCheckCLDR {
                     + "\t〈" + value + "〉"
                     + "\t«" + fillinValue + "»"
                     + "\t【" + example + "】"
-                    + "\t⁅" + subType + "⁆"
+                    + "\t⁅" + subtype + "⁆"
                     + "\t❮" + statusString + "❯"
                     + "\t" + pathLink
                     + otherSource
@@ -1397,7 +1397,7 @@ public class ConsoleCheckCLDR {
                     + "\t【" + englishExample + "】"
                     + "\t" + value + "〉"
                     + "\t【" + example + "】"
-                    + "\t⁅" + subType + "⁆"
+                    + "\t⁅" + subtype + "⁆"
                     + "\t❮" + statusString + "❯"));
         } else if (ErrorFile.errorFileWriter != null) {
             if (shortStatus == ErrorType.contributed) {
@@ -1411,7 +1411,7 @@ public class ConsoleCheckCLDR {
                 lastHtmlLocaleID = localeID;
             }
             addError(shortStatus);
-            ErrorFile.addDataToErrorFile(localeID, path, shortStatus, subType);
+            ErrorFile.addDataToErrorFile(localeID, path, shortStatus, subtype);
         }
         if (CLDR_GITHUB_ANNOTATIONS) {
             // Annotate anything that needs annotation
@@ -1424,7 +1424,7 @@ public class ConsoleCheckCLDR {
                     // Fallback if SourceLocation fails
                     filePath = "file="+localeXpathToFilePath.computeIfAbsent(Pair.of(localeID, path), locPath -> guessFilePath(locPath));
                 }
-                System.out.println("::" + shortStatus + " " + filePath.trim() + ",title=" + subType + ":: " + statusString);
+                System.out.println("::" + shortStatus + " " + filePath.trim() + ",title=" + subtype + ":: " + statusString);
             }
         }
         if (PATH_IN_COUNT && ErrorFile.generated_html_count != null) {

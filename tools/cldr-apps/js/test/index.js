@@ -4,6 +4,7 @@ import { TestCldrBulkClosePosts } from "./TestCldrBulkClosePosts.js";
 import { TestCldrChecksum } from "./TestCldrChecksum.js";
 import { TestCldrCreateLogin } from "./TestCldrCreateLogin.js";
 import { TestCldrCsvFromTable } from "./TestCldrCsvFromTable.js";
+import { TestCldrDash } from "./TestCldrDash.js";
 import { TestCldrErrorSubtypes } from "./TestCldrErrorSubtypes.js";
 import { TestCldrForum } from "./TestCldrForum.js";
 import { TestCldrForumFilter } from "./TestCldrForumFilter.js";
@@ -22,6 +23,7 @@ export default {
   TestCldrChecksum,
   TestCldrCreateLogin,
   TestCldrCsvFromTable,
+  TestCldrDash,
   TestCldrErrorSubtypes,
   TestCldrForum,
   TestCldrForumFilter,

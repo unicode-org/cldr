@@ -7,27 +7,31 @@ import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 
 /**
- * An object whose keys are xpath hex IDs, and whose values are objects whose keys are notification categories
- * such as "Error" or "English_Changed" and values are "entry" objects with code, english, ..., xpath elements.
+ * An object whose keys are xpstrid (xpath hex IDs like "db7b4f2df0427e4"), and whose values are objects whose
+ * keys are notification categories such as "Error" or "English_Changed" and values are "entry"
+ * objects with code, english, ..., xpstrid, ... elements.
  *
- * There can be at most one item for an xpath within each category, but the same xpath may have items in
- * multiple categories. For example, the xpath "db7b4f2df0427e4" might have both "Error" and "Warning" items,
- * but there can't be more than one "Error" item for the same xpath, since the server will have combined them
- * into a single "Error" item with multiple error messages.
+ * Example: pathIndex[xpstrid][category] = entry
+ *
+ * There can be at most one notification for a path within each category, but the same path may have notifications in
+ * multiple categories. For example, the path with xpstrid = "db7b4f2df0427e4" might have both "Error" and "Warning" notifications,
+ * but there can't be more than one "Error" notification for the same path, since the server will have combined them
+ * into a single "Error" notification with multiple error messages.
  */
-let xpathIndex = {};
+let pathIndex = {};
 
 /**
- * Set the data for the Dashboard, add totals, and index it.
+ * Set the data for the Dashboard, add "total" and "checked" fields, and index it.
  *
  * The json data as received from the back end is ordered by category, then by section, page, header, code, ...
  * (but those are not ordered alphabetically). It is presented to the user in that same order.
  *
  * @param data  - an object with these elements:
- *   notifications - an array of objects, each having these elements:
- *     notification - a category string like "Error" or "English_Changed"
- *     total - an integer (number of entries-within-entries), added by addCounts, not in json
- *     entries - an array of objects, each having these elements:
+ *   notifications - an array of objects (locally named "catData" meaning "all the data for one category"),
+ *   each having these elements:
+ *     category - a string like "Error" or "English_Changed"
+ *     total - an integer (number of entries in this category), added by addCounts, not in json
+ *     groups - an array of objects, each having these elements:
  *       header - a string
  *       page - a string
  *       section - a string
@@ -36,10 +40,11 @@ let xpathIndex = {};
  *         english - a string
  *         old - a string (baseline value; unused?)
  *         previousEnglish - a string
- *         winning  - a string
- *         xpath - a string
+ *         winning  - a string, the winning value
+ *         xpstrid - a string, the xpath hex string id
  *         comment - a string
- *         checked - a boolean, added by makeXpathIndex, not in json
+ *         subtype - a string
+ *         checked - a boolean, added by makePathIndex, not in json
  *
  *   Dashboard only uses data.notifications. There are additional fields
  *   data.* used by cldrProgress for progress meters.
@@ -49,7 +54,7 @@ let xpathIndex = {};
 function setData(data) {
   cldrProgress.updateVoterCompletion(data);
   addCounts(data);
-  makeXpathIndex(data);
+  makePathIndex(data);
   return data;
 }
 
@@ -59,11 +64,10 @@ function setData(data) {
  * @param data
  */
 function addCounts(data) {
-  for (let e in data.notifications) {
-    const n = data.notifications[e];
-    n.total = 0;
-    for (let g in n.entries) {
-      n.total += n.entries[g].entries.length;
+  for (let catData of data.notifications) {
+    catData.total = 0;
+    for (let group of catData.groups) {
+      catData.total += group.entries.length;
     }
   }
 }
@@ -73,198 +77,232 @@ function addCounts(data) {
  *
  * @param data
  */
-function makeXpathIndex(data) {
-  xpathIndex = {};
-  for (let j in data.notifications) {
-    const n = data.notifications[j];
-    for (let g in n.entries) {
-      for (let k in n.entries[g].entries) {
-        const e = n.entries[g].entries[k];
-        e.checked = itemIsChecked(data, e.xpath, n.notification);
-        if (!xpathIndex[e.xpath]) {
-          xpathIndex[e.xpath] = {};
-        }
-        if (xpathIndex[e.xpath][n.notification]) {
+function makePathIndex(data) {
+  pathIndex = {};
+  for (let catData of data.notifications) {
+    for (let group of catData.groups) {
+      for (let entry of group.entries) {
+        entry.checked = itemIsChecked(data, entry);
+        if (!pathIndex[entry.xpstrid]) {
+          pathIndex[entry.xpstrid] = {};
+        } else if (pathIndex[entry.xpstrid][catData.category]) {
           console.error(
-            "Duplicate in makeXpathIndex: " + e.xpath + ", " + n.notification
+            "Duplicate in makePathIndex: " +
+              entry.xpstrid +
+              ", " +
+              catData.category
           );
         }
-        xpathIndex[e.xpath][n.notification] = e;
+        pathIndex[entry.xpstrid][catData.category] = entry;
       }
     }
   }
 }
 
-function itemIsChecked(data, xpath, category) {
-  if (!data.hidden || !data.hidden[category]) {
+function itemIsChecked(data, entry) {
+  if (!data.hidden || !data.hidden[entry.subtype]) {
     return false;
   }
-  return data.hidden[category].includes(xpath);
+  const pathValueArray = data.hidden[entry.subtype];
+  return pathValueArray.some(
+    (p) => p.xpstrid === entry.xpstrid && p.value === entry.winning
+  );
 }
 
 /**
  * A user has voted. Update the Dashboard data and index as needed.
  *
- * @param data - the Dashboard data
- * @param json - the response to a request by cldrTable.refreshSingleRow
+ * Even though the json is only for one path, it may have multiple notifications,
+ * with different categories such as "Warning" and "English_Changed",
+ * affecting multiple Dashboard rows.
  *
- * Unfortunately, the Dashboard data and the row json are formatted completely differently.
- * json.issues contains category strings only, like ["Error", "Warning"].
+ * Ensure that the data gets updated for (1) each new or modified notification,
+ * and (2) each obsolete notification -- if a notification for this path occurs in
+ * the (old) data but not in the (new) json, it's obsolete and must be removed.
+ *
+ * @param data - the Dashboard data for all paths, to be updated
+ * @param json - the response to a request by cldrTable.refreshSingleRow,
+ *               containing notifications for a single path
  */
-function updateRow(data, json) {
+function updatePath(data, json) {
   try {
-    for (let key in json.section.rows) {
-      const row = json.section.rows[key];
-      const xpath = row.xpstrid;
-      const oldIssues =
-        xpath in xpathIndex ? Object.keys(xpathIndex[xpath]).sort() : [];
-      const newIssues = json.issues.sort();
-      oldIssues.forEach((issue) => {
-        const catData = getNotificationCategory(data, issue);
-        if (newIssues.includes(issue)) {
-          updateNotification(catData, xpath, issue, row);
-        } else {
-          removeNotification(catData, xpath, issue);
-        }
-      });
-      newIssues.forEach((issue) => {
-        if (!oldIssues.includes(issue)) {
-          const catData = getNotificationCategory(data, issue);
-          addNotification(catData, xpath, issue, row);
-        }
-      });
-    }
+    const updater = newPathUpdater(data, json);
+    updater.oldCategories.forEach((category) => {
+      if (updater.newCategories.includes(category)) {
+        updateEntry(updater, category);
+      } else {
+        removeEntry(updater, category);
+      }
+    });
+    updater.newCategories.forEach((category) => {
+      if (!updater.oldCategories.includes(category)) {
+        addEntry(updater, category);
+      }
+    });
   } catch (error) {
-    console.error("Caught error in updateRow: " + error);
+    console.error("Caught error in updatePath: " + error);
   }
+  return data; // for unit test
 }
 
-function updateNotification(catData, xpath, issue, row) {
-  for (let g in catData.entries) {
-    const entries = catData.entries[g].entries;
-    for (let k in entries) {
-      if (entries[k].xpath === xpath) {
-        const entry = entries[k];
-        entry.winning = row.winningValue;
-        entry.english = row.displayName;
-        entry.comment = constructMessageFromRow(row, issue);
+function newPathUpdater(data, json) {
+  const updater = {
+    data: data,
+    json: json,
+    xpstrid: getSinglePathFromUpdate(json),
+    oldCategories: [],
+    newCategories: [],
+    group: null,
+  };
+  for (let catData of json.notifications) {
+    updater.newCategories.push(catData.category);
+  }
+  updater.newCategories = updater.newCategories.sort();
+  if (updater.xpstrid in pathIndex) {
+    updater.oldCategories = Object.keys(pathIndex[updater.xpstrid]).sort();
+  }
+  return updater;
+}
+
+function getSinglePathFromUpdate(json) {
+  for (let row of Object.values(json.section.rows)) {
+    if (row.xpstrid) {
+      return row.xpstrid;
+    }
+  }
+  throw "Missing path in getSinglePathFromUpdate";
+}
+
+function updateEntry(updater, category) {
+  const catData = getDataForCategory(updater.data, category);
+  for (let group of catData.groups) {
+    const entries = group.entries;
+    for (let i in entries) {
+      if (entries[i].xpstrid === updater.xpstrid) {
+        const newEntry = getNewEntry(updater, category);
+        pathIndex[updater.xpstrid][category] = entries[i] = newEntry;
         return;
       }
     }
   }
 }
 
-function removeNotification(catData, xpath, issue) {
-  for (let g in catData.entries) {
-    const entries = catData.entries[g].entries;
-    for (let k in entries) {
-      if (entries[k].xpath === xpath) {
-        entries.splice(k, 1);
+function removeEntry(updater, category) {
+  const catData = getDataForCategory(updater.data, category);
+  for (let group of catData.groups) {
+    const entries = group.entries;
+    for (let i in entries) {
+      if (entries[i].xpstrid === updater.xpstrid) {
+        entries.splice(i, 1);
         --catData.total;
-        delete xpathIndex[xpath][issue];
+        delete pathIndex[updater.xpstrid][category];
         return;
       }
     }
   }
 }
 
-function addNotification(catData, xpath, issue, row) {
-  const e = {
-    xpath: xpath,
-    code: row.code,
-    winning: row.winningValue,
-    english: row.displayName,
-    comment: constructMessageFromRow(row, issue),
-  };
-  const ph = getPathHeader(xpath);
-  const a = {
-    header: ph.header,
-    page: ph.page,
-    section: ph.section,
-    entries: [e],
-  };
-  catData.entries.push(a);
+function addEntry(updater, category) {
+  const newEntry = getNewEntry(updater, category); // sets updater.group
+  const catData = getDataForCategory(updater.data, category);
+  const group = getMatchingGroup(catData, updater.group);
+  // TODO: insert in a particular order; see https://unicode-org.atlassian.net/browse/CLDR-15202
+  group.entries.push(newEntry);
   catData.total++;
-  if (!(xpath in xpathIndex)) {
-    xpathIndex[xpath] = {};
+  if (!(updater.xpstrid in pathIndex)) {
+    pathIndex[updater.xpstrid] = {};
   }
-  xpathIndex[xpath][issue] = e;
+  pathIndex[updater.xpstrid][category] = newEntry;
 }
 
-function constructMessageFromRow(row, issue) {
-  let message = "";
-  row.items[row.winningVhash].tests.forEach((t) => {
-    if (t.type === issue) {
-      message += t.message + "<br />";
-    }
-  });
-  return message;
-}
-
-function getNotificationCategory(data, issue) {
-  const notifications = data.notifications;
-  let i = null;
-  for (let j in notifications) {
-    if (issue === notifications[j].notification) {
-      i = j;
-      break;
+function getNewEntry(updater, category) {
+  for (let catData of updater.json.notifications) {
+    if (catData.category === category) {
+      for (let group of catData.groups) {
+        for (let entry of group.entries) {
+          if (entry.xpstrid === updater.xpstrid) {
+            updater.group = group;
+            entry.checked = itemIsChecked(updater.data, entry);
+            return entry;
+          }
+        }
+      }
     }
   }
-  if (i === null) {
-    const obj = {
-      notification: issue,
-      total: 0,
-      entries: [],
-    };
-    notifications.push(obj); // TODO: insert in a particular order?
-    i = notifications.length - 1;
-  }
-  return notifications[i];
+  return null;
 }
 
-function getPathHeader(xpstrid) {
-  const xpathMap = cldrSurvey.getXpathMap();
-  const result = xpathMap.getImmediately({
-    hex: xpstrid,
-  });
-  if (result && result.ph) {
-    // success
-    return result.ph;
+function getMatchingGroup(catData, groupToMatch) {
+  for (let group of catData.groups) {
+    if (groupsMatch(group, groupToMatch)) {
+      return group;
+    }
   }
-  // failure; fall back on dummy header, and current section/page
-  console.error("No path header from xpath map, using fallback");
-  return {
-    header: "[header]",
-    page: cldrStatus.getCurrentPage(),
-    section: cldrStatus.getCurrentSection(),
+  const newGroup = cloneGroup(groupToMatch);
+  // TODO: insert in a particular order; see https://unicode-org.atlassian.net/browse/CLDR-15202
+  catData.groups.push(newGroup);
+  return newGroup;
+}
+
+function groupsMatch(groupA, groupB) {
+  return (
+    groupA.header === groupB.header &&
+    groupA.page === groupB.page &&
+    groupA.section === groupB.section
+  );
+}
+
+function cloneGroup(group) {
+  const newGroup = {
+    header: group.header,
+    page: group.page,
+    section: group.section,
+    entries: [],
   };
+  return newGroup;
+}
+
+function getDataForCategory(data, category) {
+  for (let catData of data.notifications) {
+    if (catData.category === category) {
+      return catData;
+    }
+  }
+  const newCatData = {
+    category: category,
+    total: 0,
+    groups: [],
+  };
+  // TODO: insert in a particular order; see https://unicode-org.atlassian.net/browse/CLDR-15202
+  data.notifications.push(newCatData);
+  return newCatData;
 }
 
 /**
- * Save the checkbox setting to the back end database for a particular xpath/category,
- * as preference of the currrent user
+ * Save the checkbox setting to the back end database for locale+xpstrid+value+subtype,
+ * as a preference of the currrent user
  *
  * @param checked - boolean, currently unused since back end toggles existing preference
- * @param xpath - the hex xpath id
- * @param category - the notification cateogry string like "ERROR" or "ENGLISH_CHANGED"
+ * @param entry - the entry
  * @param locale - the locale string such as "am" for Amharic
  */
-function saveEntryCheckmark(checked, xpath, category, locale) {
-  const url = getCheckmarkUrl(xpath, category, locale);
+function saveEntryCheckmark(checked, entry, locale) {
+  const url = getCheckmarkUrl(entry, locale);
   cldrAjax.doFetch(url).catch((err) => {
     console.error("Error setting dashboard checkmark preference: " + err);
   });
 }
 
-function getCheckmarkUrl(xpath, category, locale) {
+function getCheckmarkUrl(entry, locale) {
   const p = new URLSearchParams();
   p.append("what", "dash_hide"); // cf. WHAT_DASH_HIDE in SurveyAjax.java
-  p.append("path", xpath);
-  p.append("choice", category);
+  p.append("xpstrid", entry.xpstrid);
+  p.append("value", entry.winning);
+  p.append("subtype", entry.subtype);
   p.append("locale", locale);
   p.append("s", cldrStatus.getSessionId());
   p.append("cacheKill", cldrSurvey.cacheBuster());
   return cldrAjax.makeUrl(p);
 }
 
-export { saveEntryCheckmark, setData, updateRow };
+export { saveEntryCheckmark, setData, updatePath };

@@ -57,8 +57,6 @@ class TestVettingViewer {
 
         });
 
-        Organization usersOrg = Organization.surveytool;
-
         final Factory baselineFactory = CLDRConfig.getInstance().getCldrFactory();
         final Factory sourceFactory = baselineFactory;
 
@@ -66,8 +64,10 @@ class TestVettingViewer {
         CLDRFile sourceFile = sourceFactory.make(loc, true);
         CLDRFile baselineFile = baselineFactory.make(loc, true);
         Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> sorted;
-        final Level usersLevel = Level.MODERN;
-        VettingViewer<Organization>.DashboardData dd = vv.generateDashboard(choiceSet, loc, 0, usersOrg, usersLevel, sourceFile, baselineFile);
+        VettingViewer.DashboardArgs args = new VettingViewer.DashboardArgs(choiceSet, locale, Level.MODERN);
+        args.setUserAndOrganization(0 /* userId */, Organization.surveytool);
+        args.setFiles(sourceFile, baselineFile);
+        VettingViewer<Organization>.DashboardData dd = vv.generateDashboard(args);
         boolean foundAny = false;
         for (Entry<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> e : dd.sorted.entrySet()) {
             for(Choice problem : e.getValue().problems) {

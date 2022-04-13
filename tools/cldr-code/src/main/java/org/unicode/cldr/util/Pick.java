@@ -6,18 +6,18 @@
  */
 package org.unicode.cldr.util;
 
+import com.google.common.collect.LinkedHashMultiset;
+import com.google.common.collect.Multiset;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-import com.google.common.collect.LinkedHashMultiset;
-import com.google.common.collect.Multiset;
-import com.ibm.icu.text.UTF16;
-import com.ibm.icu.text.UnicodeSet;
+public abstract class Pick {
 
-abstract public class Pick {
     private static boolean DEBUG = false;
 
     // for using to get strings
@@ -116,13 +116,14 @@ abstract public class Pick {
         return this;
     }
 
-    static public Pick.Sequence makeSequence() {
+    public static Pick.Sequence makeSequence() {
         return new Sequence();
     }
 
-    static public Pick.Alternation makeAlternation() {
+    public static Pick.Alternation makeAlternation() {
         return new Alternation();
     }
+
     /*
     static public Pick.Sequence and(Object item) {
         return new Sequence().and2(item);
@@ -156,17 +157,18 @@ abstract public class Pick {
     }
      */
 
-    static public Pick repeat(int minCount, int maxCount, int[] itemWeights, Pick item) {
+    public static Pick repeat(int minCount, int maxCount, int[] itemWeights, Pick item) {
         return new Repeat(minCount, maxCount, itemWeights, item);
     }
 
-    static public Pick codePoint(UnicodeSet source) {
+    public static Pick codePoint(UnicodeSet source) {
         return new CodePoint(source);
     }
 
-    static public Pick string(String source) {
+    public static Pick string(String source) {
         return new Literal(source);
     }
+
     /*
     static public Pick unquoted(String source) {
         return new Literal(source);
@@ -177,6 +179,7 @@ abstract public class Pick {
      */
 
     public abstract String getInternal(int depth, Set alreadySeen);
+
     // Internals
 
     protected String name;
@@ -186,6 +189,7 @@ abstract public class Pick {
     public abstract boolean match(String input, Position p);
 
     static class DepthExceededException extends RuntimeException {
+
         private static final long serialVersionUID = -2478735802169169979L;
         private final Target target;
         private final Pick pick;
@@ -197,6 +201,7 @@ abstract public class Pick {
     }
 
     public static class Sequence extends ListPick {
+
         public Sequence and2(Pick item) {
             addInternal(new Pick[] { item }); // we don't care about perf
             return this; // for chaining
@@ -228,8 +233,7 @@ abstract public class Pick {
         }
 
         // keep private
-        private Sequence() {
-        }
+        private Sequence() {}
 
         @Override
         public boolean match(String input, Position p) {
@@ -252,6 +256,7 @@ abstract public class Pick {
     }
 
     public static class Alternation extends ListPick {
+
         private WeightedIndex weightedIndex = new WeightedIndex(0);
 
         public Alternation or2(Pick[] newItems) {
@@ -271,7 +276,8 @@ abstract public class Pick {
         public Alternation or2(int[] itemWeights, Pick[] newItems) {
             if (newItems.length != itemWeights.length) {
                 throw new ArrayIndexOutOfBoundsException(
-                    "or lengths must be equal: " + newItems.length + " != " + itemWeights.length);
+                    "or lengths must be equal: " + newItems.length + " != " + itemWeights.length
+                );
             }
             // int lastLen = this.items.length;
             addInternal(newItems);
@@ -287,7 +293,7 @@ abstract public class Pick {
                 last -= weightedIndex.minCount;
                 last += weightedIndex.weights.length;
             }
-            for (int i = index; ;) {
+            for (int i = index;;) {
                 try {
                     target.enterStack(this);
                     items[index].addTo(target); // may cause exception if stack overflows
@@ -299,7 +305,7 @@ abstract public class Pick {
                     if (i == last) {
                         throw e; // we tried all the options, and none of them work.
                     }
-                    i ++;
+                    i++;
                     if (i >= weightedIndex.weights.length) {
                         i -= weightedIndex.weights.length - weightedIndex.minCount;
                     }
@@ -314,14 +320,14 @@ abstract public class Pick {
             result = indent(depth) + result + "OR(";
             for (int i = 0; i < items.length; ++i) {
                 if (i != 0) result += ", ";
-                result += items[i].getInternal(depth + 1, alreadySeen) + "/" + weightedIndex.weights[i];
+                result +=
+                    items[i].getInternal(depth + 1, alreadySeen) + "/" + weightedIndex.weights[i];
             }
             return result + ")";
         }
 
         // keep private
-        private Alternation() {
-        }
+        private Alternation() {}
 
         // take first matching option
         @Override
@@ -344,6 +350,7 @@ abstract public class Pick {
     }
 
     private static class Repeat extends ItemPick {
+
         WeightedIndex weightedIndex;
         int minCount = 0;
 
@@ -375,9 +382,14 @@ abstract public class Pick {
         public String getInternal(int depth, Set alreadySeen) {
             String result = checkName(name, alreadySeen);
             if (result.startsWith("$")) return result;
-            result = indent(depth) + result + "REPEAT(" + weightedIndex
-                + "; " + item.getInternal(depth + 1, alreadySeen)
-                + ")";
+            result =
+                indent(depth) +
+                result +
+                "REPEAT(" +
+                weightedIndex +
+                "; " +
+                item.getInternal(depth + 1, alreadySeen) +
+                ")";
             return result;
         }
 
@@ -404,6 +416,7 @@ abstract public class Pick {
     }
 
     private static class CodePoint extends FinalPick {
+
         private UnicodeSet source;
 
         private CodePoint(UnicodeSet source) {
@@ -435,6 +448,7 @@ abstract public class Pick {
     }
 
     static class Morph extends ItemPick {
+
         Morph(Pick item) {
             super(item);
         }
@@ -443,8 +457,8 @@ abstract public class Pick {
         private Target addBuffer = Target.make(this, null, new Quoter.RuleQuoter());
         private StringBuffer mergeBuffer = new StringBuffer();
 
-        private static final int COPY_NEW = 0, COPY_BOTH = 1, COPY_LAST = 3, SKIP = 4,
-            LEAST_SKIP = 4;
+        private static final int COPY_NEW = 0, COPY_BOTH = 1, COPY_LAST = 3, SKIP = 4, LEAST_SKIP =
+            4;
         // give weights to the above. make sure we delete about the same as we insert
         private static final WeightedIndex choice = new WeightedIndex(0)
             .add(new int[] { 10, 10, 100, 10 });
@@ -466,9 +480,11 @@ abstract public class Pick {
                 // the new length is a random value between old and new.
                 int newLenLimit = pick(target.random, lastValue.length(), newValue.length());
 
-                while (mergeBuffer.length() < newLenLimit
-                    && newIndex < newValue.length()
-                    && lastIndex < lastValue.length()) {
+                while (
+                    mergeBuffer.length() < newLenLimit &&
+                    newIndex < newValue.length() &&
+                    lastIndex < lastValue.length()
+                ) {
                     int c = choice.toIndex(target.nextDouble());
                     if (c == COPY_NEW || c == COPY_BOTH || c == SKIP) {
                         newIndex = getChar(newValue, newIndex, mergeBuffer, c < LEAST_SKIP);
@@ -489,9 +505,9 @@ abstract public class Pick {
         public String getInternal(int depth, Set alreadySeen) {
             String result = checkName(name, alreadySeen);
             if (result.startsWith("$")) return result;
-            return indent(depth) + result + "MORPH("
-            + item.getInternal(depth + 1, alreadySeen)
-            + ")";
+            return (
+                indent(depth) + result + "MORPH(" + item.getInternal(depth + 1, alreadySeen) + ")"
+            );
         }
 
         /* (non-Javadoc)
@@ -525,6 +541,7 @@ abstract public class Pick {
      */
 
     static class Quote extends ItemPick {
+
         Quote(Pick item) {
             super(item);
         }
@@ -545,12 +562,14 @@ abstract public class Pick {
         public String getInternal(int depth, Set alreadySeen) {
             String result = checkName(name, alreadySeen);
             if (result.startsWith("$")) return result;
-            return indent(depth) + result + "QUOTE(" + item.getInternal(depth + 1, alreadySeen)
-            + ")";
+            return (
+                indent(depth) + result + "QUOTE(" + item.getInternal(depth + 1, alreadySeen) + ")"
+            );
         }
     }
 
     private static class Literal extends FinalPick {
+
         @Override
         public String toString() {
             return name;
@@ -583,6 +602,7 @@ abstract public class Pick {
     }
 
     public static class Position {
+
         public ArrayList failures = new ArrayList();
         public int index;
         public int maxInt;
@@ -596,10 +616,9 @@ abstract public class Pick {
 
         @Override
         public String toString() {
-            return "index; " + index
-                + ", maxInt:" + maxInt
-                + ", maxType: " + maxType;
+            return ("index; " + index + ", maxInt:" + maxInt + ", maxType: " + maxType);
         }
+
         /*private static final Object BAD = new Object();
         private static final Object GOOD = new Object();*/
 
@@ -644,6 +663,7 @@ abstract public class Pick {
     // intermediates
 
     abstract static class Visitor {
+
         Set already = new HashSet();
 
         // Note: each visitor should return the Pick that will replace a (or a itself)
@@ -663,6 +683,7 @@ abstract public class Pick {
     protected abstract Pick visit(Visitor visitor);
 
     static class Replacer extends Visitor {
+
         String toReplace;
         Pick replacement;
 
@@ -680,7 +701,8 @@ abstract public class Pick {
         }
     }
 
-    abstract private static class FinalPick extends Pick {
+    private abstract static class FinalPick extends Pick {
+
         @Override
         public Pick visit(Visitor visitor) {
             return visitor.handle(this);
@@ -688,6 +710,7 @@ abstract public class Pick {
     }
 
     private abstract static class ItemPick extends Pick {
+
         protected Pick item;
 
         ItemPick(Pick item) {
@@ -704,6 +727,7 @@ abstract public class Pick {
     }
 
     private abstract static class ListPick extends Pick {
+
         protected Pick[] items = new Pick[0];
 
         Pick simplify() {
@@ -751,6 +775,7 @@ abstract public class Pick {
      */
     // As in other case, we use an array for runtime speed; don't care about buildspeed.
     public static class WeightedIndex {
+
         private int[] weights = new int[0];
         private int minCount = 0;
         private double total;
@@ -818,6 +843,7 @@ abstract public class Pick {
             return result;
         }
     }
+
     /*
     private static Pick convert(Object obj) {
         if (obj instanceof Pick) return (Pick)obj;
@@ -826,23 +852,23 @@ abstract public class Pick {
      */
     // Useful statics
 
-    static public int pick(Random random, int start, int end) {
+    public static int pick(Random random, int start, int end) {
         return start + (int) (random.nextDouble() * (end + 1 - start));
     }
 
-    static public double pick(Random random, double start, double end) {
+    public static double pick(Random random, double start, double end) {
         return start + (random.nextDouble() * (end + 1 - start));
     }
 
-    static public boolean pick(Random random, double percent) {
+    public static boolean pick(Random random, double percent) {
         return random.nextDouble() <= percent;
     }
 
-    static public int pick(Random random, UnicodeSet s) {
+    public static int pick(Random random, UnicodeSet s) {
         return s.charAt(pick(random, 0, s.size() - 1));
     }
 
-    static public String pick(Random random, String[] source) {
+    public static String pick(Random random, String[] source) {
         return source[pick(random, 0, source.length - 1)];
     }
 
@@ -868,7 +894,6 @@ abstract public class Pick {
         if (newSize != 0) System.arraycopy(source, 0, temp, 0, newSize);
         return temp;
     }
-
     // test utilities
     /*private static void append(StringBuffer target, String toAdd, StringBuffer quoteBuffer) {
         Utility.appendToRule(target, (int)-1, true, false, quoteBuffer); // close previous quote

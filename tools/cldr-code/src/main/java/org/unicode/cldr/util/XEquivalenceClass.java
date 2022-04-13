@@ -6,6 +6,7 @@
  */
 package org.unicode.cldr.util;
 
+import com.ibm.icu.text.Transform;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -15,9 +16,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.ibm.icu.text.Transform;
-
 public class XEquivalenceClass<T, R> implements Iterable<T> {
+
     private static final String ARROW = "\u2192";
 
     public SetMaker<T> getSetMaker() {
@@ -25,15 +25,27 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
     }
 
     // quick test
-    static public void main(String[] args) {
+    public static void main(String[] args) {
         XEquivalenceClass<String, Integer> foo1 = new XEquivalenceClass<>(1);
-        String[][] tests = { { "b", "a1" }, { "b", "c" }, { "a1", "c" }, { "d", "e" }, { "e", "f" }, { "c", "d" } };
+        String[][] tests = {
+            { "b", "a1" },
+            { "b", "c" },
+            { "a1", "c" },
+            { "d", "e" },
+            { "e", "f" },
+            { "c", "d" },
+        };
         for (int i = 0; i < tests.length; ++i) {
             System.out.println("Adding: " + tests[i][0] + ", " + tests[i][1]);
             foo1.add(tests[i][0], tests[i][1], new Integer(i));
             for (String item : foo1.getExplicitItems()) {
-                System.out.println("\t" + item + ";\t" + foo1.getSample(item) + ";\t" + foo1.getEquivalences(item));
-                List<Linkage<String, Integer>> reasons = foo1.getReasons(item, foo1.getSample(item));
+                System.out.println(
+                    "\t" + item + ";\t" + foo1.getSample(item) + ";\t" + foo1.getEquivalences(item)
+                );
+                List<Linkage<String, Integer>> reasons = foo1.getReasons(
+                    item,
+                    foo1.getSample(item)
+                );
                 if (reasons != null) {
                     System.out.println("\t\t" + XEquivalenceClass.toString(reasons, null));
                 }
@@ -64,8 +76,7 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
      * Create class
      *
      */
-    public XEquivalenceClass() {
-    }
+    public XEquivalenceClass() {}
 
     /**
      * Create class with comparator, and default reason.
@@ -250,6 +261,7 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
     }
 
     public static class Linkage<T, R> {
+
         public Set<R> reasons;
         public T result;
 
@@ -264,7 +276,10 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
         }
     }
 
-    public static <T, R> String toString(List<Linkage<T, R>> others, Transform<Linkage<T, R>, String> itemTransform) {
+    public static <T, R> String toString(
+        List<Linkage<T, R>> others,
+        Transform<Linkage<T, R>, String> itemTransform
+    ) {
         StringBuffer result = new StringBuffer();
         for (Linkage<T, R> item : others) {
             result.append(itemTransform == null ? item.toString() : itemTransform.transform(item));
@@ -284,7 +299,12 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
         Set<T> bPartitionSet = toPartitionSet.get(b);
 
         // see if they connect
-        if (aPartitionSet == null || bPartitionSet == null || aPartitionSet != bPartitionSet || a.equals(b)) return null;
+        if (
+            aPartitionSet == null ||
+            bPartitionSet == null ||
+            aPartitionSet != bPartitionSet ||
+            a.equals(b)
+        ) return null;
 
         ArrayList<Linkage<T, R>> list = new ArrayList<>();
         list.add(new Linkage(null, a));

@@ -4,10 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.unicode.cldr.draft.FileUtilities;
 
 public class SpreadSheet {
+
     static boolean DEBUG = CldrUtility.getProperty("SpreadSheetDebug", false);
 
     public static List<List<String>> convert(String filename) throws IOException {
@@ -39,7 +39,6 @@ public class SpreadSheet {
         }
         return result;
     }
-
     // for (int i = 0; i < line.length(); ++i) {
     // char ch = line.charAt(i); // don't worry about supplementaries
     // if (inQuote) {

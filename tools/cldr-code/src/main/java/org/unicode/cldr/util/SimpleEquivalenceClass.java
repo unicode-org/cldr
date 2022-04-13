@@ -49,12 +49,11 @@ public class SimpleEquivalenceClass {
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
     private class MyIterator implements Iterator {
+
         private Iterator it;
 
         MyIterator(Comparator comp) {
-            if (comp == null)
-                it = itemToSet.values().iterator();
-            else {
+            if (comp == null) it = itemToSet.values().iterator(); else {
                 TreeSet values = new TreeSet(comp);
                 values.addAll(itemToSet.values());
                 it = values.iterator();

@@ -6,6 +6,7 @@ import java.util.Locale;
 import java.util.Map;
 
 public class EnumNames<T extends Enum<?>> {
+
     private Map<String, T> namesToEnum = new HashMap<>();
     private ArrayList<String> enumToPreferredName = new ArrayList<>();
 
@@ -34,7 +35,9 @@ public class EnumNames<T extends Enum<?>> {
         if (result != null) {
             return result;
         }
-        throw new IllegalArgumentException("No enum value for " + name + ", should be one of " + namesToEnum.keySet());
+        throw new IllegalArgumentException(
+            "No enum value for " + name + ", should be one of " + namesToEnum.keySet()
+        );
     }
 
     public String toString(T item) {

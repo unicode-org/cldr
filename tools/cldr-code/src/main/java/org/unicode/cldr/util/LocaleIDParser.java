@@ -8,6 +8,8 @@
  */
 package org.unicode.cldr.util;
 
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.text.UnicodeSet;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.EnumSet;
@@ -16,10 +18,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-import com.ibm.icu.impl.Utility;
-import com.ibm.icu.text.UnicodeSet;
-
 public class LocaleIDParser {
+
     /**
      * @return Returns the language.
      */
@@ -92,8 +92,12 @@ public class LocaleIDParser {
             script = pieces[i++];
             if (i >= pieces.length) return this;
         }
-        if (pieces[i].length() == 2 && letters.containsAll(pieces[i])
-            || pieces[i].length() == 3 && digits.containsAll(pieces[i])) {
+        if (
+            pieces[i].length() == 2 &&
+            letters.containsAll(pieces[i]) ||
+            pieces[i].length() == 3 &&
+            digits.containsAll(pieces[i])
+        ) {
             region = pieces[i++];
             if (i >= pieces.length) return this;
         }
@@ -155,7 +159,7 @@ public class LocaleIDParser {
     public static String getSimpleBaseLanguage(String localeID) {
         int pos = localeID.indexOf('_');
         if (pos >= 0) {
-            return localeID.substring(0,pos);
+            return localeID.substring(0, pos);
         }
         return localeID;
     }
@@ -211,7 +215,11 @@ public class LocaleIDParser {
     }
 
     public enum Level {
-        Language, Script, Region, Variants, Other
+        Language,
+        Script,
+        Region,
+        Variants,
+        Other,
     }
 
     /**

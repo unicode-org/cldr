@@ -7,18 +7,16 @@
  */
 package org.unicode.cldr.util;
 
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
-
 import org.unicode.cldr.util.CharUtilities.CharSourceWrapper;
 import org.unicode.cldr.util.Dictionary.Matcher.Filter;
 import org.unicode.cldr.util.Dictionary.Matcher.Status;
-
-import com.ibm.icu.util.ICUUncheckedIOException;
 
 /**
  * Provides for detecting all words starting at a given offset, and returning a
@@ -119,6 +117,7 @@ public abstract class Dictionary<T> {
     public abstract Matcher<T> getMatcher();
 
     public abstract static class Matcher<T> {
+
         protected CharSource text;
 
         protected int offset;
@@ -289,7 +288,7 @@ public abstract class Dictionary<T> {
             /**
              * Only one value: the longest MATCH or PARTIAL (but only the Partial if it is at the end).
              */
-            LONGEST_WITH_FINAL_PARTIAL
+            LONGEST_WITH_FINAL_PARTIAL,
         }
 
         /**
@@ -326,11 +325,19 @@ public abstract class Dictionary<T> {
                     matchEnd = lastEnd;
                     matchValue = lastValue;
                     return lastStatus;
-                } else if (status == Status.MATCH
-                    || (status == Status.PARTIAL
-                        && (filter == Filter.LONGEST
-                            || filter == Filter.LONGEST_UNIQUE && nextUniquePartial()
-                            || filter == Filter.LONGEST_WITH_FINAL_PARTIAL && !text.hasCharAt(matchEnd)))) {
+                } else if (
+                    status == Status.MATCH ||
+                    (
+                        status == Status.PARTIAL &&
+                        (
+                            filter == Filter.LONGEST ||
+                            filter == Filter.LONGEST_UNIQUE &&
+                            nextUniquePartial() ||
+                            filter == Filter.LONGEST_WITH_FINAL_PARTIAL &&
+                            !text.hasCharAt(matchEnd)
+                        )
+                    )
+                ) {
                     if (filter == Filter.MATCHES) {
                         return status;
                     }
@@ -427,9 +434,18 @@ public abstract class Dictionary<T> {
          */
         @Override
         public String toString() {
-            return "{offset: " + offset + ", end: " + matchEnd + ", value: " + matchValue + ", text: \""
-                + text.subSequence(0, text.getKnownLength())
-                + (text.hasCharAt(text.getKnownLength()) ? "..." : "") + "\"}";
+            return (
+                "{offset: " +
+                offset +
+                ", end: " +
+                matchEnd +
+                ", value: " +
+                matchValue +
+                ", text: \"" +
+                text.subSequence(0, text.getKnownLength()) +
+                (text.hasCharAt(text.getKnownLength()) ? "..." : "") +
+                "\"}"
+            );
         }
 
         /**
@@ -459,6 +475,7 @@ public abstract class Dictionary<T> {
     };
 
     public static class DictionaryCharList<T extends CharSequence> extends CharSourceWrapper<T> {
+
         protected boolean failOnLength = false;
         protected StringBuilder buffer = new StringBuilder();
         protected int[] sourceOffsets;

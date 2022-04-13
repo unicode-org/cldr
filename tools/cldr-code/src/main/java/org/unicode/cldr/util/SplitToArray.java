@@ -1,10 +1,10 @@
 package org.unicode.cldr.util;
 
+import com.google.common.base.Splitter;
 import java.util.List;
 
-import com.google.common.base.Splitter;
-
 public class SplitToArray {
+
     private Splitter splitter;
 
     public SplitToArray(Splitter splitter) {

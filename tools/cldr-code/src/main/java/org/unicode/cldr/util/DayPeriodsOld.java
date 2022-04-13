@@ -1,22 +1,29 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.util.ULocale;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
-import com.ibm.icu.util.ULocale;
-
 /**
  * This is a first-cut version just to get going. The data is hard coded until we switch over to real data in ICU.
  */
 public class DayPeriodsOld {
+
     private static final int HOUR = 60 * 60 * 1000;
 
     public enum DayPeriod {
-        MORNING1("EARLY_MORNING"), MORNING2("MORNING"), AFTERNOON1("EARLY_AFTERNOON"), AFTERNOON2("AFTERNOON"), EVENING1("EARLY_EVENING"), EVENING2(
-            "EVENING"), NIGHT1("NIGHT"), NIGHT2("LATE_NIGHT");
+        MORNING1("EARLY_MORNING"),
+        MORNING2("MORNING"),
+        AFTERNOON1("EARLY_AFTERNOON"),
+        AFTERNOON2("AFTERNOON"),
+        EVENING1("EARLY_EVENING"),
+        EVENING2("EVENING"),
+        NIGHT1("NIGHT"),
+        NIGHT2("LATE_NIGHT");
+
         public final String name;
 
         DayPeriod(String name) {
@@ -81,9 +88,9 @@ public class DayPeriodsOld {
     public static DayPeriodsOld getInstance(ULocale loc) {
         ULocale base = new ULocale(loc.getLanguage());
         DayPeriodsOld result = DATA.get(base);
-//        if (result == null) {
-//            throw new IllegalArgumentException("No data for locale " + loc);
-//        }
+        //        if (result == null) {
+        //            throw new IllegalArgumentException("No data for locale " + loc);
+        //        }
         return result;
     }
 
@@ -112,7 +119,12 @@ public class DayPeriodsOld {
         samples = Collections.unmodifiableMap(samples2);
     }
 
-    private void fix(DayPeriod[] map, EnumMap<DayPeriod, String> samples2, DayPeriod dayPeriod2, DayPeriod dayPeriod1) {
+    private void fix(
+        DayPeriod[] map,
+        EnumMap<DayPeriod, String> samples2,
+        DayPeriod dayPeriod2,
+        DayPeriod dayPeriod1
+    ) {
         if (samples2.containsKey(dayPeriod2) && !samples2.containsKey(dayPeriod1)) {
             samples2.put(dayPeriod1, samples2.get(dayPeriod2));
             samples2.remove(dayPeriod2);
@@ -134,6 +146,7 @@ public class DayPeriodsOld {
     }
 
     private static class DayPeriodBuilder {
+
         private final ULocale locale;
         private final DayPeriod[] timeMap = new DayPeriod[24];
         private final EnumMap<DayPeriod, String> samples = new EnumMap<>(DayPeriod.class);
@@ -150,7 +163,9 @@ public class DayPeriodsOld {
             }
             for (int i : hours) {
                 if (timeMap[i] != null) {
-                    throw new IllegalArgumentException(locale + " Collision " + i + ", " + timeMap[i] + ", " + dayPeriodEnum);
+                    throw new IllegalArgumentException(
+                        locale + " Collision " + i + ", " + timeMap[i] + ", " + dayPeriodEnum
+                    );
                 }
                 timeMap[i] = dayPeriodEnum;
             }

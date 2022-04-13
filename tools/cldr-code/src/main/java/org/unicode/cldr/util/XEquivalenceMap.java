@@ -6,15 +6,14 @@
  */
 package org.unicode.cldr.util;
 
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
 
 /**
  * Everything that maps to the same value is part of the same equivalence class
@@ -65,8 +64,14 @@ public class XEquivalenceMap<K, V, R> implements Iterable<Set<K>> {
                 }
                 return this;
             }
-            throw new IllegalArgumentException("Same source mapping to different targets: "
-                + source + " => " + otherTarget + " & " + target);
+            throw new IllegalArgumentException(
+                "Same source mapping to different targets: " +
+                source +
+                " => " +
+                otherTarget +
+                " & " +
+                target
+            );
         }
 
         Set<K> s = target_sourceSet.get(target);
@@ -116,6 +121,7 @@ public class XEquivalenceMap<K, V, R> implements Iterable<Set<K>> {
 
     // Should be moved out on its own
     public static class UnmodifiableIterator<T> implements Iterator<T> {
+
         private Iterator<T> source;
 
         public static <T> UnmodifiableIterator<T> from(Iterator<T> source) {

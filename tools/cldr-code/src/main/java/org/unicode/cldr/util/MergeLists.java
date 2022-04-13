@@ -65,8 +65,9 @@ public class MergeLists<T> {
                 Map<T, Collection<T>> reasons = new LinkedHashMap<>();
                 getFirsts(first, reasons);
                 throw new IllegalArgumentException(
-                    "Inconsistent requested ordering: cannot merge if we have [...A...B...] and [...B...A...]: "
-                        + reasons);
+                    "Inconsistent requested ordering: cannot merge if we have [...A...B...] and [...B...A...]: " +
+                    reasons
+                );
             }
             // now get first item that is in first
             T best = extractFirstOk(orderedWorkingSet, first); // removes from working set
@@ -97,7 +98,10 @@ public class MergeLists<T> {
         return !bi.hasNext(); // if we have any left over, we failed
     }
 
-    public static <T> Collection<T> hasConsistentOrderWithEachOf(Collection<T> a, Collection<Collection<T>> bs) {
+    public static <T> Collection<T> hasConsistentOrderWithEachOf(
+        Collection<T> a,
+        Collection<Collection<T>> bs
+    ) {
         for (Collection<T> b : bs) {
             if (!hasConsistentOrder(a, b)) {
                 return b;

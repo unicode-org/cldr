@@ -24,7 +24,8 @@ public class FileCopier {
      * @param out
      * @throws IOException
      */
-    public static void copyAndReplace(Reader rdr, Map<String, String> replacements, Writer out) throws IOException {
+    public static void copyAndReplace(Reader rdr, Map<String, String> replacements, Writer out)
+        throws IOException {
         if (replacements == null || replacements.isEmpty()) {
             copy(rdr, out);
             return;
@@ -55,9 +56,18 @@ public class FileCopier {
      * @param out
      * @throws IOException
      */
-    public static void copyAndReplace(Class<?> cls, String srcFile, Charset charSet, Map<String, String> replacements,
-        Writer out) throws IOException {
-        copyAndReplace(new InputStreamReader(cls.getResourceAsStream(srcFile), charSet), replacements, out);
+    public static void copyAndReplace(
+        Class<?> cls,
+        String srcFile,
+        Charset charSet,
+        Map<String, String> replacements,
+        Writer out
+    ) throws IOException {
+        copyAndReplace(
+            new InputStreamReader(cls.getResourceAsStream(srcFile), charSet),
+            replacements,
+            out
+        );
     }
 
     /**
@@ -87,7 +97,8 @@ public class FileCopier {
      * @param replacements
      * @throws IOException
      */
-    public static void copyAndReplace(Reader rdr, Writer wr, Map<String, String> replacements) throws IOException {
+    public static void copyAndReplace(Reader rdr, Writer wr, Map<String, String> replacements)
+        throws IOException {
         if (replacements == null || replacements.isEmpty()) {
             copy(rdr, wr);
             return;
@@ -116,9 +127,16 @@ public class FileCopier {
      * @param newName
      * @throws IOException
      */
-    public static void copy(Class<?> cls, String sourceFile, String targetDirectory, String newName) throws IOException {
-        try (InputStream is = cls.getResourceAsStream(sourceFile);
-            Writer wr = new FileWriter(Paths.get(targetDirectory, newName).toFile());) {
+    public static void copy(
+        Class<?> cls,
+        String sourceFile,
+        String targetDirectory,
+        String newName
+    ) throws IOException {
+        try (
+            InputStream is = cls.getResourceAsStream(sourceFile);
+            Writer wr = new FileWriter(Paths.get(targetDirectory, newName).toFile());
+        ) {
             copy(new InputStreamReader(is), wr);
         }
     }
@@ -131,7 +149,10 @@ public class FileCopier {
      * @throws IOException
      */
     public static void copy(Class<?> cls, String sourceFile, Writer out) throws IOException {
-        copy(new InputStreamReader(cls.getResourceAsStream(sourceFile), StandardCharsets.UTF_8), out);
+        copy(
+            new InputStreamReader(cls.getResourceAsStream(sourceFile), StandardCharsets.UTF_8),
+            out
+        );
     }
 
     /**
@@ -142,7 +163,8 @@ public class FileCopier {
      * @param out
      * @throws IOException
      */
-    public static void copy(Class<?> cls, String sourceFile, Charset charset, Writer out) throws IOException {
+    public static void copy(Class<?> cls, String sourceFile, Charset charset, Writer out)
+        throws IOException {
         copy(new InputStreamReader(cls.getResourceAsStream(sourceFile), charset), out);
     }
 
@@ -153,7 +175,8 @@ public class FileCopier {
      * @param targetDirectory
      * @throws IOException
      */
-    public static void copy(Class<?> cls, String sourceFile, String targetDirectory) throws IOException {
+    public static void copy(Class<?> cls, String sourceFile, String targetDirectory)
+        throws IOException {
         copy(cls, sourceFile, targetDirectory, sourceFile);
     }
 
@@ -167,9 +190,17 @@ public class FileCopier {
         }
     }
 
-    public static void copyAndReplace(Class<?> cls, String srcFile, String destDir, String destFile, Map<String, String> replacements) throws IOException {
-        copyAndReplace(new InputStreamReader(cls.getResourceAsStream(srcFile)),
-            replacements, new FileWriter(Paths.get(destDir, destFile).toFile()));
-
+    public static void copyAndReplace(
+        Class<?> cls,
+        String srcFile,
+        String destDir,
+        String destFile,
+        Map<String, String> replacements
+    ) throws IOException {
+        copyAndReplace(
+            new InputStreamReader(cls.getResourceAsStream(srcFile)),
+            replacements,
+            new FileWriter(Paths.get(destDir, destFile).toFile())
+        );
     }
 }

@@ -9,10 +9,12 @@ import com.ibm.icu.util.MeasureUnit;
 import com.ibm.icu.util.ULocale;
 
 public final class Timer {
+
     private static final double NANOS_PER_SECOND = 1000000000.0d;
 
     private long startTime;
     private long duration;
+
     {
         start();
     }
@@ -58,9 +60,12 @@ public final class Timer {
         double minutes = Math.floorDiv((int) seconds, 60);
         seconds = seconds - (minutes * 60.0);
 
-        return MeasureFormat.getInstance(ULocale.ENGLISH, FormatWidth.SHORT)
-            .formatMeasures(new Measure(seconds, MeasureUnit.SECOND),
-                new Measure(minutes, MeasureUnit.MINUTE));
+        return MeasureFormat
+            .getInstance(ULocale.ENGLISH, FormatWidth.SHORT)
+            .formatMeasures(
+                new Measure(seconds, MeasureUnit.SECOND),
+                new Measure(minutes, MeasureUnit.MINUTE)
+            );
     }
 
     public String toString(Timer other) {
@@ -72,12 +77,18 @@ public final class Timer {
     }
 
     public String toString(long iterations, long other) {
-        return toString(iterations) + "\t(" + pf.format((double) getDuration() / other - 1D)
-            + ")";
+        return (
+            toString(iterations) + "\t(" + pf.format((double) getDuration() / other - 1D) + ")"
+        );
     }
 
-    private static DecimalFormat nf = (DecimalFormat) NumberFormat.getNumberInstance(ULocale.ENGLISH);
-    private static DecimalFormat pf = (DecimalFormat) NumberFormat.getPercentInstance(ULocale.ENGLISH);
+    private static DecimalFormat nf = (DecimalFormat) NumberFormat.getNumberInstance(
+        ULocale.ENGLISH
+    );
+    private static DecimalFormat pf = (DecimalFormat) NumberFormat.getPercentInstance(
+        ULocale.ENGLISH
+    );
+
     static {
         nf.setMaximumSignificantDigits(3);
         pf.setMaximumFractionDigits(1);

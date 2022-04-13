@@ -12,6 +12,7 @@
 package org.unicode.cldr.util;
 
 public class XPathTokenizer {
+
     char[] xpath;
     int current;
 
@@ -40,19 +41,19 @@ public class XPathTokenizer {
         int save = current;
         while (current < xpath.length) {
             switch (xpath[current]) {
-            case '\'':
-                inquote = (inquote == true) ? false : true;
-                current++;
-                break;
-            case '/':
-                if (inquote == false) {
-                    retval = new String(xpath, save, (current - save));
-                    current++; // skip past the separator
-                    return retval;
-                }
+                case '\'':
+                    inquote = (inquote == true) ? false : true;
+                    current++;
+                    break;
+                case '/':
+                    if (inquote == false) {
+                        retval = new String(xpath, save, (current - save));
+                        current++; // skip past the separator
+                        return retval;
+                    }
                 // fall through
-            default:
-                current++;
+                default:
+                    current++;
             }
         }
         if (current == xpath.length) {
@@ -69,20 +70,20 @@ public class XPathTokenizer {
         while (current > 0) {
             boolean inquote = false;
             switch (xpath.charAt(current)) {
-            case '\'':
-                inquote = (inquote == true) ? false : true;
-                current--;
-                break;
-            case '/':
-                if (inquote == false) {
-                    if (current < length) {
-                        xpath.delete(current, length);
+                case '\'':
+                    inquote = (inquote == true) ? false : true;
+                    current--;
+                    break;
+                case '/':
+                    if (inquote == false) {
+                        if (current < length) {
+                            xpath.delete(current, length);
+                        }
+                        return xpath;
                     }
-                    return xpath;
-                }
                 // fall through
-            default:
-                current--;
+                default:
+                    current--;
             }
         }
         return xpath;
@@ -94,20 +95,20 @@ public class XPathTokenizer {
         while (current > 0) {
             boolean inquote = false;
             switch (xpath.charAt(current)) {
-            case '\'':
-                inquote = (inquote == true) ? false : true;
-                current--;
-                break;
-            case '/':
-                if (inquote == false) {
-                    if (current < length) {
-                        xpath.delete(current, length);
+                case '\'':
+                    inquote = (inquote == true) ? false : true;
+                    current--;
+                    break;
+                case '/':
+                    if (inquote == false) {
+                        if (current < length) {
+                            xpath.delete(current, length);
+                        }
+                        return xpath;
                     }
-                    return xpath;
-                }
                 // fall through
-            default:
-                current--;
+                default:
+                    current--;
             }
         }
         return xpath;

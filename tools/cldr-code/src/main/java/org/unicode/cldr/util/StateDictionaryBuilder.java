@@ -12,7 +12,6 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
-
 import org.unicode.cldr.util.Dictionary.DictionaryBuilder;
 import org.unicode.cldr.util.IntMap.BasicIntMapFactory;
 import org.unicode.cldr.util.IntMap.IntMapFactory;
@@ -119,7 +118,9 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
                 }
             }
         }
-        if (SHOW_SIZE) System.out.println("***ROWS: " + builtRows.size() + "\t REPLACEMENTS: " + replacements.size());
+        if (SHOW_SIZE) System.out.println(
+            "***ROWS: " + builtRows.size() + "\t REPLACEMENTS: " + replacements.size()
+        );
 
         // now replace all references to rows by their equivalents
         for (Row row : builtRows) {
@@ -142,7 +143,13 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
         setUniqueValues(builtBaseRow);
         builtRows = newRows;
         if (SHOW_SIZE) System.out.println("***ROWS: " + builtRows.size());
-        return new StateDictionary<>(builtBaseRow, builtRows, builtResults, builtMaxByteLength, byteConverter);
+        return new StateDictionary<>(
+            builtBaseRow,
+            builtRows,
+            builtResults,
+            builtMaxByteLength,
+            byteConverter
+        );
     }
 
     private Row makeRow() {
@@ -237,7 +244,6 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
     }
 
     static final Comparator<byte[]> SHORTER_BYTE_ARRAY_COMPARATOR = new Comparator<byte[]>() {
-
         @Override
         public int compare(byte[] o1, byte[] o2) {
             int minLen = o1.length;
@@ -251,6 +257,5 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
             }
             return o1.length < o2.length ? -1 : o1.length > o2.length ? 1 : 0;
         }
-
     };
 }

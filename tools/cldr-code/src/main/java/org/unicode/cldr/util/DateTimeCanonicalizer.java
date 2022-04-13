@@ -1,29 +1,45 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.impl.PatternTokenizer;
+import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
+import com.ibm.icu.text.UnicodeSet;
 import java.util.Collections;
 import java.util.EnumSet;
 import java.util.Set;
 
-import com.ibm.icu.impl.PatternTokenizer;
-import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
-import com.ibm.icu.text.UnicodeSet;
-
 public class DateTimeCanonicalizer {
 
     public enum DateTimePatternType {
-        NA, STOCK, AVAILABLE, INTERVAL, GMT;
+        NA,
+        STOCK,
+        AVAILABLE,
+        INTERVAL,
+        GMT;
 
-        public static final Set<DateTimePatternType> STOCK_AVAILABLE_INTERVAL_PATTERNS = Collections
-            .unmodifiableSet(EnumSet.of(DateTimePatternType.STOCK, DateTimePatternType.AVAILABLE,
-                DateTimePatternType.INTERVAL));
+        public static final Set<DateTimePatternType> STOCK_AVAILABLE_INTERVAL_PATTERNS = Collections.unmodifiableSet(
+            EnumSet.of(
+                DateTimePatternType.STOCK,
+                DateTimePatternType.AVAILABLE,
+                DateTimePatternType.INTERVAL
+            )
+        );
 
         public static DateTimePatternType fromPath(String path) {
-            return !path.contains("/dates") ? DateTimePatternType.NA
-                : path.contains("/pattern") && (path.contains("/dateFormats") || path.contains("/timeFormats") || path.contains("/dateTimeFormatLength"))
+            return !path.contains("/dates")
+                ? DateTimePatternType.NA
+                : path.contains("/pattern") &&
+                    (
+                        path.contains("/dateFormats") ||
+                        path.contains("/timeFormats") ||
+                        path.contains("/dateTimeFormatLength")
+                    )
                     ? DateTimePatternType.STOCK
-                    : path.contains("/dateFormatItem") ? DateTimePatternType.AVAILABLE
-                        : path.contains("/intervalFormatItem") ? DateTimePatternType.INTERVAL
-                            : path.contains("/timeZoneNames/hourFormat") ? DateTimePatternType.GMT
+                    : path.contains("/dateFormatItem")
+                        ? DateTimePatternType.AVAILABLE
+                        : path.contains("/intervalFormatItem")
+                            ? DateTimePatternType.INTERVAL
+                            : path.contains("/timeZoneNames/hourFormat")
+                                ? DateTimePatternType.GMT
                                 : DateTimePatternType.NA;
         }
     }
@@ -36,7 +52,9 @@ public class DateTimeCanonicalizer {
 
     private transient PatternTokenizer tokenizer = new PatternTokenizer()
         .setSyntaxCharacters(new UnicodeSet("[a-zA-Z]"))
-        .setExtraQuotingCharacters(new UnicodeSet("[[[:script=Latn:][:script=Cyrl:]]&[[:L:][:M:]]]"))
+        .setExtraQuotingCharacters(
+            new UnicodeSet("[[[:script=Latn:][:script=Cyrl:]]&[[:L:][:M:]]]")
+        )
         // .setEscapeCharacters(new UnicodeSet("[^\\u0020-\\u007E]")) // WARNING: DateFormat doesn't accept \\uXXXX
         .setUsingQuote(true);
 
@@ -44,7 +62,11 @@ public class DateTimeCanonicalizer {
         this.fixYears = fixYears;
     }
 
-    public String getCanonicalDatePattern(String path, String value, DateTimePatternType datetimePatternType) {
+    public String getCanonicalDatePattern(
+        String path,
+        String value,
+        DateTimePatternType datetimePatternType
+    ) {
         formatDateParser.set(value);
 
         // ensure that all y fields are single y, except for the stock short, which can be y or yy.
@@ -55,10 +77,14 @@ public class DateTimeCanonicalizer {
                 String itemString = item.toString();
                 if (item instanceof String) {
                     result.append(tokenizer.quoteLiteral(itemString));
-                } else if (!itemString.startsWith("y")
-                    || (datetimePatternType == DateTimePatternType.STOCK
-                        && path.contains("short")
-                        && itemString.equals("yy"))) {
+                } else if (
+                    !itemString.startsWith("y") ||
+                    (
+                        datetimePatternType == DateTimePatternType.STOCK &&
+                        path.contains("short") &&
+                        itemString.equals("yy")
+                    )
+                ) {
                     result.append(itemString);
                 } else {
                     result.append('y');

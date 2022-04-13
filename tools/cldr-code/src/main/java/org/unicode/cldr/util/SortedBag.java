@@ -1,11 +1,11 @@
 /*
-**********************************************************************
-* Copyright (c) 2002-2012, International Business Machines
-* Corporation and others.  All Rights Reserved.
-**********************************************************************
-* Author: Mark Davis
-**********************************************************************
-*/package org.unicode.cldr.util;
+ **********************************************************************
+ * Copyright (c) 2002-2012, International Business Machines
+ * Corporation and others.  All Rights Reserved.
+ **********************************************************************
+ * Author: Mark Davis
+ **********************************************************************
+ */package org.unicode.cldr.util;
 
 import java.util.Collection;
 import java.util.Comparator;
@@ -22,6 +22,7 @@ import java.util.TreeMap;
  */
 // TODO replace use of Set with a collection that takes an Equator
 public class SortedBag implements Collection {
+
     /**
      * A map of sets, where each corresponds to one sorted element.
      * The sets are never empty
@@ -53,6 +54,7 @@ public class SortedBag implements Collection {
     static Iterator EMPTY_ITERATOR = new HashSet().iterator();
 
     private class MyIterator implements Iterator {
+
         private Iterator mapIterator = m.keySet().iterator();
         private Iterator setIterator = null;
 

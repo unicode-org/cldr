@@ -71,8 +71,12 @@ public abstract class StringByteConverter {
      * @return the result, for chaining.
      * @throws IOException
      */
-    public abstract Appendable fromBytes(byte[] input, int byteStart,
-        int byteLength, Appendable result);
+    public abstract Appendable fromBytes(
+        byte[] input,
+        int byteStart,
+        int byteLength,
+        Appendable result
+    );
 
     /**
      * Write a string to a byte array.

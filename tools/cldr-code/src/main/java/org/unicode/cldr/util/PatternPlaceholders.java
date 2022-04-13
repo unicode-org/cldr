@@ -1,30 +1,30 @@
 package org.unicode.cldr.util;
 
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
-import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
-import org.unicode.cldr.util.RegexLookup.Merger;
-
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.text.Transform;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.util.RegexLookup.Merger;
 
 public class PatternPlaceholders {
 
     public enum PlaceholderStatus {
-        DISALLOWED("No placeholders allowed."),//
-        REQUIRED("Specific number of placeholders allowed."),//
-        LOCALE_DEPENDENT("Some placeholders may be omitted in certain locales"),//
-        MULTIPLE("May have multiple instances of the same placeholder, eg “{0} cats and {0} dogs”.")//
-        ;
+        DISALLOWED("No placeholders allowed."), //
+        REQUIRED("Specific number of placeholders allowed."), //
+        LOCALE_DEPENDENT("Some placeholders may be omitted in certain locales"), //
+        MULTIPLE(
+            "May have multiple instances of the same placeholder, eg “{0} cats and {0} dogs”."
+        ); //
 
         private final String message;
 
         private PlaceholderStatus(String message) {
             this.message = message;
         }
+
         @Override
         public String toString() {
             return name() + ": " + message;
@@ -35,9 +35,11 @@ public class PatternPlaceholders {
         Subtype.gapsInPlaceholderNumbers,
         Subtype.duplicatePlaceholders,
         Subtype.missingPlaceholders,
-        Subtype.extraPlaceholders);
+        Subtype.extraPlaceholders
+    );
 
     private static class PlaceholderData {
+
         PlaceholderStatus status = PlaceholderStatus.REQUIRED;
         Map<String, PlaceholderInfo> data = new LinkedHashMap<>();
 
@@ -48,6 +50,7 @@ public class PatternPlaceholders {
     }
 
     public static class PlaceholderInfo {
+
         public String name;
         public String example;
 
@@ -63,6 +66,7 @@ public class PatternPlaceholders {
     }
 
     private static final class MyMerger implements Merger<PlaceholderData> {
+
         @Override
         public PlaceholderData merge(PlaceholderData a, PlaceholderData into) {
             // check unique
@@ -88,30 +92,32 @@ public class PatternPlaceholders {
                 String[] parts = source.split("\\s*;\\s+");
                 for (String part : parts) {
                     switch (part) {
-                    case "locale":
-                        result.status = PlaceholderStatus.LOCALE_DEPENDENT;
-                        continue;
-                    case "multiple":
-                        result.status = PlaceholderStatus.MULTIPLE;
-                        continue;
-                    default:
-                        int equalsPos = part.indexOf('=');
-                        String id = part.substring(0, equalsPos).trim();
-                        String name = part.substring(equalsPos + 1).trim();
-                        int spacePos = name.indexOf(' ');
-                        String example;
-                        if (spacePos >= 0) {
-                            example = name.substring(spacePos + 1).trim();
-                            name = name.substring(0, spacePos).trim();
-                        } else {
-                            example = "";
-                        }
+                        case "locale":
+                            result.status = PlaceholderStatus.LOCALE_DEPENDENT;
+                            continue;
+                        case "multiple":
+                            result.status = PlaceholderStatus.MULTIPLE;
+                            continue;
+                        default:
+                            int equalsPos = part.indexOf('=');
+                            String id = part.substring(0, equalsPos).trim();
+                            String name = part.substring(equalsPos + 1).trim();
+                            int spacePos = name.indexOf(' ');
+                            String example;
+                            if (spacePos >= 0) {
+                                example = name.substring(spacePos + 1).trim();
+                                name = name.substring(0, spacePos).trim();
+                            } else {
+                                example = "";
+                            }
 
-                        PlaceholderInfo old = result.data.get(id);
-                        if (old != null) {
-                            throw new IllegalArgumentException("Key occurs twice: " + id + "=" + old + "!=" + name);
-                        }
-                        result.add(id, name, example);
+                            PlaceholderInfo old = result.data.get(id);
+                            if (old != null) {
+                                throw new IllegalArgumentException(
+                                    "Key occurs twice: " + id + "=" + old + "!=" + name
+                                );
+                            }
+                            result.add(id, name, example);
                     }
                 }
             } catch (Exception e) {
@@ -119,18 +125,20 @@ public class PatternPlaceholders {
             }
             return result;
         }
-
     }
 
     private final RegexLookup<PlaceholderData> patternPlaceholders;
 
     private PatternPlaceholders() {
-        patternPlaceholders = RegexLookup.of(new MapTransform())
-            .setValueMerger(new MyMerger())
-            .loadFromFile(PatternPlaceholders.class, "data/Placeholders.txt");
+        patternPlaceholders =
+            RegexLookup
+                .of(new MapTransform())
+                .setValueMerger(new MyMerger())
+                .loadFromFile(PatternPlaceholders.class, "data/Placeholders.txt");
     }
 
-    static final private class PatternPlaceholdersHelper {
+    private static final class PatternPlaceholdersHelper {
+
         static final PatternPlaceholders SINGLETON = new PatternPlaceholders();
     }
 

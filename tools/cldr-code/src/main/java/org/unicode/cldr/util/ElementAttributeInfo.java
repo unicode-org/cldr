@@ -1,5 +1,10 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -11,27 +16,30 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
-
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.ext.DeclHandler;
 
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Row.R3;
-import com.ibm.icu.util.ICUUncheckedIOException;
-
 public class ElementAttributeInfo {
 
     private DtdType dtdType;
     private Map<R2<String, String>, R3<Set<String>, String, String>> elementAttribute2Data = new TreeMap<>();
-    private Relation<String, String> element2children = Relation.of(new LinkedHashMap<String, Set<String>>(), LinkedHashSet.class);
-    private Relation<String, String> element2parents = Relation.of(new LinkedHashMap<String, Set<String>>(), LinkedHashSet.class);
-    private Relation<String, String> element2attributes = Relation.of(new LinkedHashMap<String, Set<String>>(), LinkedHashSet.class);
+    private Relation<String, String> element2children = Relation.of(
+        new LinkedHashMap<String, Set<String>>(),
+        LinkedHashSet.class
+    );
+    private Relation<String, String> element2parents = Relation.of(
+        new LinkedHashMap<String, Set<String>>(),
+        LinkedHashSet.class
+    );
+    private Relation<String, String> element2attributes = Relation.of(
+        new LinkedHashMap<String, Set<String>>(),
+        LinkedHashSet.class
+    );
 
     static Map<String, Map<DtdType, ElementAttributeInfo>> cache = new HashMap<>(); // new
+
     // HashMap<DtdType,
     // Data>();
 
@@ -55,16 +63,41 @@ public class ElementAttributeInfo {
                 if (result == null) {
                     result = new HashMap<>();
                     // pick short files that are in repository
-                    result.put(DtdType.ldml, new ElementAttributeInfo(canonicalCommonDirectory + "/main/root.xml",
-                        DtdType.ldml));
-                    result.put(DtdType.supplementalData, new ElementAttributeInfo(canonicalCommonDirectory
-                        + "/supplemental/plurals.xml", DtdType.supplementalData));
-                    result.put(DtdType.ldmlBCP47, new ElementAttributeInfo(canonicalCommonDirectory
-                        + "/bcp47/calendar.xml", DtdType.ldmlBCP47));
-                    result.put(DtdType.keyboard, new ElementAttributeInfo(canonicalCommonDirectory
-                        + "/../keyboards/android/ar-t-k0-android.xml", DtdType.keyboard));
-                    result.put(DtdType.platform, new ElementAttributeInfo(canonicalCommonDirectory
-                        + "/../keyboards/android/_platform.xml", DtdType.keyboard));
+                    result.put(
+                        DtdType.ldml,
+                        new ElementAttributeInfo(
+                            canonicalCommonDirectory + "/main/root.xml",
+                            DtdType.ldml
+                        )
+                    );
+                    result.put(
+                        DtdType.supplementalData,
+                        new ElementAttributeInfo(
+                            canonicalCommonDirectory + "/supplemental/plurals.xml",
+                            DtdType.supplementalData
+                        )
+                    );
+                    result.put(
+                        DtdType.ldmlBCP47,
+                        new ElementAttributeInfo(
+                            canonicalCommonDirectory + "/bcp47/calendar.xml",
+                            DtdType.ldmlBCP47
+                        )
+                    );
+                    result.put(
+                        DtdType.keyboard,
+                        new ElementAttributeInfo(
+                            canonicalCommonDirectory + "/../keyboards/android/ar-t-k0-android.xml",
+                            DtdType.keyboard
+                        )
+                    );
+                    result.put(
+                        DtdType.platform,
+                        new ElementAttributeInfo(
+                            canonicalCommonDirectory + "/../keyboards/android/_platform.xml",
+                            DtdType.keyboard
+                        )
+                    );
                     cache.put(commonDirectory, result);
                     cache.put(canonicalCommonDirectory, result);
                 }
@@ -131,6 +164,7 @@ public class ElementAttributeInfo {
     }
 
     static class MyDeclHandler implements DeclHandler {
+
         private static final boolean SHOW = false;
         private ElementAttributeInfo myData;
 
@@ -141,18 +175,34 @@ public class ElementAttributeInfo {
         }
 
         @Override
-        public void attributeDecl(String eName, String aName, String type, String mode, String value)
-            throws SAXException {
-            if (SHOW)
-                System.out.println(myData.getDtdType() + "\tAttributeDecl\t" + eName + "\t" + aName + "\t" + type
-                    + "\t" + mode + "\t" + value);
+        public void attributeDecl(
+            String eName,
+            String aName,
+            String type,
+            String mode,
+            String value
+        ) throws SAXException {
+            if (SHOW) System.out.println(
+                myData.getDtdType() +
+                "\tAttributeDecl\t" +
+                eName +
+                "\t" +
+                aName +
+                "\t" +
+                type +
+                "\t" +
+                mode +
+                "\t" +
+                value
+            );
             R2<String, String> key = Row.of(eName, aName);
             Set<String> typeSet = getIdentifiers(type);
             R3<Set<String>, String, String> value2 = Row.of(typeSet, mode, value);
             R3<Set<String>, String, String> oldValue = myData.getElementAttribute2Data().get(key);
             if (oldValue != null && !oldValue.equals(value2)) {
-                throw new IllegalArgumentException("Conflict in data: " + key + "\told: " + oldValue + "\tnew: "
-                    + value2);
+                throw new IllegalArgumentException(
+                    "Conflict in data: " + key + "\told: " + oldValue + "\tnew: " + value2
+                );
             }
             myData.getElementAttribute2Data().put(key, value2);
             myData.getElement2Attributes().put(eName, aName);
@@ -186,7 +236,8 @@ public class ElementAttributeInfo {
         }
 
         @Override
-        public void externalEntityDecl(String name, String publicId, String systemId) throws SAXException {
+        public void externalEntityDecl(String name, String publicId, String systemId)
+            throws SAXException {
             // TODO Auto-generated method stub
 
         }

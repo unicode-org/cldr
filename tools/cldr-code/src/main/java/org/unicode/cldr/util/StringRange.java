@@ -1,5 +1,8 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.lang.CharSequences;
+import com.ibm.icu.util.ICUException;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -9,12 +12,9 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.lang.CharSequences;
-import com.ibm.icu.util.ICUException;
-
 @SuppressWarnings("deprecation")
 public class StringRange {
+
     private static final boolean DEBUG = false;
 
     public interface Adder {
@@ -46,7 +46,12 @@ public class StringRange {
      * @param shorterPairs use abc-d instead of abc-abd
      * @param moreCompact use a more compact form, at the expense of more processing. If false, source must be sorted.
      */
-    public static void compact(Set<String> source, Adder adder, boolean shorterPairs, boolean moreCompact) {
+    public static void compact(
+        Set<String> source,
+        Adder adder,
+        boolean shorterPairs,
+        boolean moreCompact
+    ) {
         if (!moreCompact) {
             String start = null;
             String end = null;
@@ -56,16 +61,22 @@ public class StringRange {
                 if (start != null) { // We have something queued up
                     if (s.regionMatches(0, start, 0, prefixLen)) {
                         int currentCp = s.codePointAt(prefixLen);
-                        if (currentCp == 1 + lastCp && s.length() == prefixLen + Character.charCount(currentCp)) {
+                        if (
+                            currentCp == 1 + lastCp &&
+                            s.length() == prefixLen + Character.charCount(currentCp)
+                        ) {
                             end = s;
                             lastCp = currentCp;
                             continue;
                         }
                     }
                     // We failed to find continuation. Add what we have and restart
-                    adder.add(start, end == null ? null
-                        : !shorterPairs ? end
-                            : end.substring(prefixLen, end.length()));
+                    adder.add(
+                        start,
+                        end == null
+                            ? null
+                            : !shorterPairs ? end : end.substring(prefixLen, end.length())
+                    );
                 }
                 // new possible range
                 start = s;
@@ -73,14 +84,18 @@ public class StringRange {
                 lastCp = s.codePointBefore(s.length());
                 prefixLen = s.length() - Character.charCount(lastCp);
             }
-            adder.add(start, end == null ? null
-                : !shorterPairs ? end
-                    : end.substring(prefixLen, end.length()));
+            adder.add(
+                start,
+                end == null ? null : !shorterPairs ? end : end.substring(prefixLen, end.length())
+            );
         } else {
             // not a fast algorithm, but ok for now
             // TODO rewire to use the first (slower) algorithm to generate the ranges, then compact them from there.
             // first sort by lengths
-            Relation<Integer, Ranges> lengthToArrays = Relation.of(new TreeMap<Integer, Set<Ranges>>(), TreeSet.class);
+            Relation<Integer, Ranges> lengthToArrays = Relation.of(
+                new TreeMap<Integer, Set<Ranges>>(),
+                TreeSet.class
+            );
             for (String s : source) {
                 Ranges item = new Ranges(s);
                 lengthToArrays.put(item.size(), item);
@@ -124,6 +139,7 @@ public class StringRange {
     }
 
     static final class Range implements Comparable<Range> {
+
         int min;
         int max;
 
@@ -154,11 +170,14 @@ public class StringRange {
         @Override
         public String toString() {
             StringBuilder result = new StringBuilder().appendCodePoint(min);
-            return min == max ? result.toString() : result.append('~').appendCodePoint(max).toString();
+            return min == max
+                ? result.toString()
+                : result.append('~').appendCodePoint(max).toString();
         }
     }
 
     static final class Ranges implements Comparable<Ranges> {
+
         private final Range[] ranges;
 
         public Ranges(String s) {
@@ -170,9 +189,9 @@ public class StringRange {
         }
 
         public boolean merge(int pivot, Ranges other) {
-//            if (this.toString().equals("afz")) {
-//                int debug = 0;
-//            }
+            //            if (this.toString().equals("afz")) {
+            //                int debug = 0;
+            //            }
             // we will merge items if the pivot is adjacent, and all other ranges are equal
             for (int i = ranges.length - 1; i >= 0; --i) {
                 if (i == pivot) {
@@ -266,11 +285,20 @@ public class StringRange {
         return output;
     }
 
-    private static void add(int endIndex, int startOffset, int[] starts, int[] ends, StringBuilder builder, Collection<String> output) {
+    private static void add(
+        int endIndex,
+        int startOffset,
+        int[] starts,
+        int[] ends,
+        StringBuilder builder,
+        Collection<String> output
+    ) {
         int start = starts[endIndex + startOffset];
         int end = ends[endIndex];
         if (start > end) {
-            throw new ICUException("Each two corresponding characters ...x... and ...y... must have x ≤ y.");
+            throw new ICUException(
+                "Each two corresponding characters ...x... and ...y... must have x ≤ y."
+            );
         }
         boolean last = endIndex == ends.length - 1;
         int startLen = builder.length();

@@ -32,7 +32,10 @@ public class LocaleNormalizer {
     public static final String ALL_LOCALES = "*";
 
     public static boolean isAllLocales(String localeList) {
-        return (localeList != null) && (localeList.contains(ALL_LOCALES) || localeList.trim().equals("all"));
+        return (
+            (localeList != null) &&
+            (localeList.contains(ALL_LOCALES) || localeList.trim().equals("all"))
+        );
     }
 
     /**
@@ -142,7 +145,11 @@ public class LocaleNormalizer {
         return setFromString(null, locales, orgLocaleSet);
     }
 
-    private static LocaleSet setFromString(LocaleNormalizer locNorm, String localeList, LocaleSet orgLocaleSet) {
+    private static LocaleSet setFromString(
+        LocaleNormalizer locNorm,
+        String localeList,
+        LocaleSet orgLocaleSet
+    ) {
         if (isAllLocales(localeList)) {
             if (orgLocaleSet == null || orgLocaleSet.isAllLocales()) {
                 return ALL_LOCALES_SET;

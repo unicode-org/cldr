@@ -1,5 +1,12 @@
 package org.unicode.cldr.util;
 
+import com.google.common.base.Joiner;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Multiset;
+import com.google.common.collect.Sets;
+import com.google.common.collect.TreeMultimap;
+import com.google.common.collect.TreeMultiset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -13,14 +20,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.google.common.base.Joiner;
-import com.google.common.collect.Iterables;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.Multiset;
-import com.google.common.collect.Sets;
-import com.google.common.collect.TreeMultimap;
-import com.google.common.collect.TreeMultiset;
-
 /**
  * Helper class that allows logging the use of regular expressions. A class that will summarize them will get a
  * NavigabSet of PatternCountInterface instances.
@@ -29,6 +28,7 @@ import com.google.common.collect.TreeMultiset;
  *
  */
 public class RegexLogger {
+
     /**
      * Should debugging be done? - if not, a null implementation will be used
      */
@@ -50,6 +50,7 @@ public class RegexLogger {
     }
 
     private static class PatternStringWithBoolean implements Comparable<PatternStringWithBoolean> {
+
         private final String pattern;
         private final boolean calledFromRegexFinder;
         private final int hashCode;
@@ -133,7 +134,14 @@ public class RegexLogger {
 
         void log(Pattern pattern, String matchStr, boolean matched, LogType type, Class<?> cls);
 
-        void log(String pattern, String matchStr, boolean matched, double time, LogType type, Class<?> cls);
+        void log(
+            String pattern,
+            String matchStr,
+            boolean matched,
+            double time,
+            LogType type,
+            Class<?> cls
+        );
 
         /**
          * Get all the entries that matched
@@ -156,21 +164,38 @@ public class RegexLogger {
      * @author ribnitz
      *
      */
-    private static abstract class AbstractRegexLogger implements RegexLoggerInterface {
+    private abstract static class AbstractRegexLogger implements RegexLoggerInterface {
 
         @Override
-        public void log(Matcher matcher, String matchStr, boolean matched, LogType type, Class<?> cls) {
+        public void log(
+            Matcher matcher,
+            String matchStr,
+            boolean matched,
+            LogType type,
+            Class<?> cls
+        ) {
             log(matcher.pattern(), matchStr, matched, type, cls);
-
         }
 
         @Override
-        public void log(Pattern pattern, String matchStr, boolean matched, LogType type, Class<?> cls) {
+        public void log(
+            Pattern pattern,
+            String matchStr,
+            boolean matched,
+            LogType type,
+            Class<?> cls
+        ) {
             log(pattern.pattern(), matchStr, matched, type, cls);
         }
 
         @Override
-        public void log(String pattern, String matchStr, boolean matched, LogType type, Class<?> cls) {
+        public void log(
+            String pattern,
+            String matchStr,
+            boolean matched,
+            LogType type,
+            Class<?> cls
+        ) {
             log(pattern, matchStr, matched, 0, type, cls);
         }
 
@@ -186,7 +211,6 @@ public class RegexLogger {
         public boolean isEnabled() {
             return DEBUG;
         }
-
     }
 
     /**
@@ -197,7 +221,14 @@ public class RegexLogger {
     private static class NullRegexLogger extends AbstractRegexLogger {
 
         @Override
-        public void log(String pattern, String matchStr, boolean matched, double time, LogType type, Class<?> cls) {
+        public void log(
+            String pattern,
+            String matchStr,
+            boolean matched,
+            double time,
+            LogType type,
+            Class<?> cls
+        ) {
             // do nothing
         }
 
@@ -255,7 +286,6 @@ public class RegexLogger {
          * @return
          */
         Set<String> getCallLocations();
-
     }
 
     /**
@@ -267,6 +297,7 @@ public class RegexLogger {
      *
      */
     private static class AddAllEntryProcessor {
+
         protected final int minCount;
         protected final CountSets c;
         protected final Set<PatternStringWithBoolean> seen = new HashSet<>();
@@ -281,7 +312,10 @@ public class RegexLogger {
             return result;
         }
 
-        public void process(PatternStringWithBoolean item, Multiset<PatternStringWithBoolean> countSet) {
+        public void process(
+            PatternStringWithBoolean item,
+            Multiset<PatternStringWithBoolean> countSet
+        ) {
             if (!seen.contains(item)) {
                 result.add(new RegexKeyWithCount(item, c));
                 seen.add(item);
@@ -296,12 +330,16 @@ public class RegexLogger {
      *
      */
     private static class EntryProcessor extends AddAllEntryProcessor {
+
         public EntryProcessor(int minCount, CountSets c) {
             super(minCount, c);
         }
 
         @Override
-        public void process(PatternStringWithBoolean item, Multiset<PatternStringWithBoolean> countSet) {
+        public void process(
+            PatternStringWithBoolean item,
+            Multiset<PatternStringWithBoolean> countSet
+        ) {
             if (countSet.count(item) >= minCount) {
                 super.process(item, countSet);
             }
@@ -316,15 +354,20 @@ public class RegexLogger {
      *
      */
     private static class CountSets {
+
         final Multiset<PatternStringWithBoolean> matchedFindSet;
         final Multiset<PatternStringWithBoolean> failedFindSet;
         final Multiset<PatternStringWithBoolean> matchedMatchSet;
         final Multiset<PatternStringWithBoolean> failedMatchSet;
         final Multimap<PatternStringWithBoolean, String> stacktraces;
 
-        public CountSets(Multiset<PatternStringWithBoolean> matchedFindSet, Multiset<PatternStringWithBoolean> failedFindSet,
-            Multiset<PatternStringWithBoolean> matchedMatchSet, Multiset<PatternStringWithBoolean> failedMatchSet,
-            Multimap<PatternStringWithBoolean, String> occurrences) {
+        public CountSets(
+            Multiset<PatternStringWithBoolean> matchedFindSet,
+            Multiset<PatternStringWithBoolean> failedFindSet,
+            Multiset<PatternStringWithBoolean> matchedMatchSet,
+            Multiset<PatternStringWithBoolean> failedMatchSet,
+            Multimap<PatternStringWithBoolean, String> occurrences
+        ) {
             this.failedFindSet = failedFindSet;
             this.failedMatchSet = failedMatchSet;
             this.matchedMatchSet = matchedMatchSet;
@@ -333,7 +376,9 @@ public class RegexLogger {
         }
     }
 
-    private static class RegexKeyWithCount implements PatternCountInterface, Comparable<PatternCountInterface> {
+    private static class RegexKeyWithCount
+        implements PatternCountInterface, Comparable<PatternCountInterface> {
+
         private final String pattern;
         private final int findMatchCount;
         private final int findFailCount;
@@ -356,13 +401,16 @@ public class RegexLogger {
                     callLocations.add(cur);
                 }
             }
-            this.hashCode = Objects.hash(this.pattern,
-                this.findMatchCount,
-                this.findFailCount,
-                this.matchFailCount,
-                this.matchMatchCount,
-                this.calledFromRegexFinder,
-                this.callLocations);
+            this.hashCode =
+                Objects.hash(
+                    this.pattern,
+                    this.findMatchCount,
+                    this.findFailCount,
+                    this.matchFailCount,
+                    this.matchMatchCount,
+                    this.calledFromRegexFinder,
+                    this.callLocations
+                );
         }
 
         @Override
@@ -439,8 +487,13 @@ public class RegexLogger {
             if (o == null) {
                 return 1;
             }
-            return new Integer(matchFailCount + matchMatchCount + findFailCount + findMatchCount).compareTo(
-                o.getNumberOfFindFailures() + o.getNumberOfFindMatches() + o.getNumberOfMatchFailures() + o.getNumberOfMatchMatches());
+            return new Integer(matchFailCount + matchMatchCount + findFailCount + findMatchCount)
+                .compareTo(
+                    o.getNumberOfFindFailures() +
+                    o.getNumberOfFindMatches() +
+                    o.getNumberOfMatchFailures() +
+                    o.getNumberOfMatchMatches()
+                );
         }
 
         @Override
@@ -452,11 +505,11 @@ public class RegexLogger {
         public Set<String> getCallLocations() {
             return callLocations;
         }
-
     }
 
     public enum LogType {
-        FIND, MATCH
+        FIND,
+        MATCH,
     }
 
     private static interface IterableTransformer<E, F> {
@@ -472,18 +525,23 @@ public class RegexLogger {
             for (String current : input) {
                 String transformed = current;
                 if (lastClass != null) {
-                    if (lastClass.startsWith("RegexLookup") && !current.startsWith("org.unicode.cldr.util.RegexLookup")) {
+                    if (
+                        lastClass.startsWith("RegexLookup") &&
+                        !current.startsWith("org.unicode.cldr.util.RegexLookup")
+                    ) {
                         returned.add(lastClass);
                     }
                     break;
                 }
-                if (current.startsWith("org.unicode.cldr.test.CheckCLDR") &&
+                if (
+                    current.startsWith("org.unicode.cldr.test.CheckCLDR") &&
                     /*
                      * TODO: fix this function to avoid referencing lastClass when it is null.
                      * The condition lastClass == null here prevents compiler warning/error or possible NullPointerException,
                      * since lastClass is ALWAYS null here; but this is obviously not the best solution.
                      */
-                    (lastClass == null || !lastClass.startsWith("org.unicode.cldr.test.CheckCLDR"))) {
+                    (lastClass == null || !lastClass.startsWith("org.unicode.cldr.test.CheckCLDR"))
+                ) {
                     lastClass = current;
                     // leave out
                     continue;
@@ -502,7 +560,8 @@ public class RegexLogger {
         }
     }
 
-    private static class ClassnameOnlyStringTransformer implements IterableTransformer<String, String> {
+    private static class ClassnameOnlyStringTransformer
+        implements IterableTransformer<String, String> {
 
         @Override
         public Iterable<String> transform(Iterable<String> input) {
@@ -544,20 +603,28 @@ public class RegexLogger {
         /*
          * Each has more than 1m hits, together they account for about 14m (of the 26m total)
          */
-        private static final Set<String> exactMatchSet = new HashSet<>(Arrays.asList(new String[] {
-            "^//ldml.*",
-            "^//ldml/dates.*",
-            "^//ldml/units.*",
-            "^//ldml/characters/ellipsis[@type=\"(final|initial|medial)\"]",
-            "^//ldml/characters.*",
-            "^//ldml/listPatterns/listPattern.*",
-            "^//ldml/units/unitLength[@type=\"(long|short|narrow)\"].*",
-        }));
-        private static final Set<String> patternSet = new HashSet<>(Arrays.asList(new String[] {
-            "^//ldml/dates/fields",
-            "^//ldml/dates/calendars/calendar",
-            "/(availableFormats",
-        }));
+        private static final Set<String> exactMatchSet = new HashSet<>(
+            Arrays.asList(
+                new String[] {
+                    "^//ldml.*",
+                    "^//ldml/dates.*",
+                    "^//ldml/units.*",
+                    "^//ldml/characters/ellipsis[@type=\"(final|initial|medial)\"]",
+                    "^//ldml/characters.*",
+                    "^//ldml/listPatterns/listPattern.*",
+                    "^//ldml/units/unitLength[@type=\"(long|short|narrow)\"].*",
+                }
+            )
+        );
+        private static final Set<String> patternSet = new HashSet<>(
+            Arrays.asList(
+                new String[] {
+                    "^//ldml/dates/fields",
+                    "^//ldml/dates/calendars/calendar",
+                    "/(availableFormats",
+                }
+            )
+        );
         private final Multiset<PatternStringWithBoolean> matchedFindSet = TreeMultiset.create();
         private final Multiset<PatternStringWithBoolean> failedFindSet = TreeMultiset.create();
         private final Multiset<PatternStringWithBoolean> matchedMatchSet = TreeMultiset.create();
@@ -567,10 +634,20 @@ public class RegexLogger {
         private final IterableTransformer<String, String> transformer = new StringIterableTransformer();
 
         @Override
-        public void log(String pattern, String matchStr, boolean matched, double time, LogType type, Class<?> cls) {
+        public void log(
+            String pattern,
+            String matchStr,
+            boolean matched,
+            double time,
+            LogType type,
+            Class<?> cls
+        ) {
             boolean isRegexFinder = findClassName("org.unicode.cldr.util.RegexLookup", 10);
             PatternStringWithBoolean key = new PatternStringWithBoolean(pattern, isRegexFinder);
-            Collection<PatternStringWithBoolean> collectionToAdd = determineCollectionToUse(matched, type);
+            Collection<PatternStringWithBoolean> collectionToAdd = determineCollectionToUse(
+                matched,
+                type
+            );
             if (collectionToAdd != null) {
                 collectionToAdd.add(key);
             }
@@ -579,23 +656,26 @@ public class RegexLogger {
             }
         }
 
-        private Collection<PatternStringWithBoolean> determineCollectionToUse(boolean matched, LogType type) {
+        private Collection<PatternStringWithBoolean> determineCollectionToUse(
+            boolean matched,
+            LogType type
+        ) {
             Collection<PatternStringWithBoolean> collectionToAdd = null;
             switch (type) {
-            case FIND:
-                if (matched) {
-                    collectionToAdd = matchedFindSet;
-                } else {
-                    collectionToAdd = failedFindSet;
-                }
-                break;
-            case MATCH:
-                if (matched) {
-                    collectionToAdd = matchedMatchSet;
-                } else {
-                    collectionToAdd = failedMatchSet;
-                }
-                break;
+                case FIND:
+                    if (matched) {
+                        collectionToAdd = matchedFindSet;
+                    } else {
+                        collectionToAdd = failedFindSet;
+                    }
+                    break;
+                case MATCH:
+                    if (matched) {
+                        collectionToAdd = matchedMatchSet;
+                    } else {
+                        collectionToAdd = failedMatchSet;
+                    }
+                    break;
             }
             return collectionToAdd;
         }
@@ -631,7 +711,7 @@ public class RegexLogger {
             return false;
         }
 
-        private final static Joiner JOINER = Joiner.on(";");
+        private static final Joiner JOINER = Joiner.on(";");
 
         private void addElementToList(PatternStringWithBoolean key) {
             List<String> stList = processStackTrace("org.unicode.cldr.util.RegexLookup", 0);
@@ -676,8 +756,16 @@ public class RegexLogger {
 
         @Override
         public NavigableSet<PatternCountInterface> getEntries(final int minCount) {
-            CountSets c = new CountSets(matchedFindSet, failedFindSet, matchedMatchSet, failedMatchSet, occurrences);
-            final AddAllEntryProcessor processor = (minCount == 1) ? new AddAllEntryProcessor(minCount, c) : new EntryProcessor(minCount, c);
+            CountSets c = new CountSets(
+                matchedFindSet,
+                failedFindSet,
+                matchedMatchSet,
+                failedMatchSet,
+                occurrences
+            );
+            final AddAllEntryProcessor processor = (minCount == 1)
+                ? new AddAllEntryProcessor(minCount, c)
+                : new EntryProcessor(minCount, c);
             for (PatternStringWithBoolean item : matchedFindSet) {
                 processor.process(item, matchedFindSet);
             }

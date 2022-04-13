@@ -16,8 +16,7 @@ public final class BoilerplateUtilities {
             Object value = "no-access";
             try {
                 value = fields[i].get(object);
-            } catch (Exception e) {
-            }
+            } catch (Exception e) {}
             if (value == null) continue;
             if (gotOne) result.append(", ");
             result.append(fields[i].getName()).append('=').append(value);
@@ -54,8 +53,7 @@ public final class BoilerplateUtilities {
             try {
                 fields[i].get(a);
                 fields[i].get(b);
-            } catch (Exception e) {
-            }
+            } catch (Exception e) {}
             int result = compareToHelper(a, b, depth + 1);
             if (result != 0) return result;
         }

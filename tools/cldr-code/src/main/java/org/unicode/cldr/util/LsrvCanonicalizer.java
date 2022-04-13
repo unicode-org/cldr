@@ -1,17 +1,4 @@
 package org.unicode.cldr.util;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.EnumSet;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
-
-import org.unicode.cldr.util.StandardCodes.LstrType;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.MoreObjects;
@@ -23,6 +10,18 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Row.R2;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.EnumSet;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
+import org.unicode.cldr.util.StandardCodes.LstrType;
 
 /**
  * Provides Unicode Language Identifier canonicalization for use in testing.
@@ -33,7 +32,12 @@ import com.ibm.icu.impl.Row.R2;
  */
 public class LsrvCanonicalizer {
 
-    public static final Set<LstrType> LSRV = ImmutableSet.of(LstrType.language, LstrType.script, LstrType.region, LstrType.variant);
+    public static final Set<LstrType> LSRV = ImmutableSet.of(
+        LstrType.language,
+        LstrType.script,
+        LstrType.region,
+        LstrType.variant
+    );
     public static final Joiner UNDERBAR_JOINER = Joiner.on('_');
 
     /**
@@ -41,17 +45,21 @@ public class LsrvCanonicalizer {
      * The LSRV fields are represented as multimaps, though the LSR fields restricted to have only have 0 or 1 element.
      */
     public static class XLanguageTag {
+
         final Multimap<LstrType, String> data;
 
         private XLanguageTag(Multimap<LstrType, String> result) {
             data = ImmutableMultimap.copyOf(result);
         }
+
         public Set<LstrType> keys() {
             return data.keySet();
         }
+
         public Collection<String> get(LstrType lstrType) {
             return data.get(lstrType);
         }
+
         public String toLocaleString() {
             StringBuilder buffer = new StringBuilder();
             final Collection<String> region = data.get(LstrType.language);
@@ -66,6 +74,7 @@ public class LsrvCanonicalizer {
 
             return buffer.toString();
         }
+
         @Override
         public String toString() {
             StringBuilder buffer = new StringBuilder();
@@ -76,7 +85,13 @@ public class LsrvCanonicalizer {
             return buffer.toString();
         }
 
-        public void addItem(StringBuilder buffer, LstrType lstrType, String separator, String prefix, final Joiner dashJoiner) {
+        public void addItem(
+            StringBuilder buffer,
+            LstrType lstrType,
+            String separator,
+            String prefix,
+            final Joiner dashJoiner
+        ) {
             final Collection<String> region = data.get(lstrType);
             if (!region.isEmpty()) {
                 if (buffer.length() > 0) {
@@ -87,25 +102,24 @@ public class LsrvCanonicalizer {
         }
 
         public static XLanguageTag fromTag(LstrType lstrType, String tag) {
-            Multimap<LstrType,String> result = TreeMultimap.create();
+            Multimap<LstrType, String> result = TreeMultimap.create();
             LanguageTagParser source = new LanguageTagParser();
             final boolean isLanguage = lstrType == LstrType.language;
             String prefix = isLanguage ? "" : "und_";
             try {
                 source.set(prefix + tag);
             } catch (Exception e) {
-                return null;  // skip ill-formed for now
-//                if (lstrType == LstrType.region && tag.length() == 3) {
-//                    //result.put(LstrType.language, "und");
-//                    result.put(LstrType.region, tag);
-//                } else {
-//                    result.put(LstrType.language, tag);
-//                }
-//                //System.out.println("ILLEGAL SOURCE\t" + lstrType + ":\t" + tag + " ⇒ " + result); // for debugging
-//                return new XLanguageTag(result);
+                return null; // skip ill-formed for now
+                //                if (lstrType == LstrType.region && tag.length() == 3) {
+                //                    //result.put(LstrType.language, "und");
+                //                    result.put(LstrType.region, tag);
+                //                } else {
+                //                    result.put(LstrType.language, tag);
+                //                }
+                //                //System.out.println("ILLEGAL SOURCE\t" + lstrType + ":\t" + tag + " ⇒ " + result); // for debugging
+                //                return new XLanguageTag(result);
             }
-            if (!source.getLanguage().isEmpty()
-                && !source.getLanguage().contains("und")) {
+            if (!source.getLanguage().isEmpty() && !source.getLanguage().contains("und")) {
                 result.put(LstrType.language, source.getLanguage());
             }
             if (!source.getScript().isEmpty()) {
@@ -119,16 +133,19 @@ public class LsrvCanonicalizer {
             }
             return new XLanguageTag(result);
         }
+
         @Override
         public boolean equals(Object obj) {
-            return data.equals(((XLanguageTag)obj).data);
+            return data.equals(((XLanguageTag) obj).data);
         }
+
         @Override
         public int hashCode() {
             return data.hashCode();
         }
+
         public XLanguageTag set(LstrType lstrType, String string) {
-            Multimap<LstrType,String> result = TreeMultimap.create(data);
+            Multimap<LstrType, String> result = TreeMultimap.create(data);
             if (lstrType != LstrType.variant) {
                 result.removeAll(lstrType);
             }
@@ -155,8 +172,11 @@ public class LsrvCanonicalizer {
          * Once a rule matches, this actually does the replacement.<br>
          * It is here instead of on ReplacementRule so we can use it in the denormalization utility used in testing.
          */
-        public XLanguageTag replacePartsFrom(XLanguageTag typeParts, XLanguageTag replacementParts) {
-            Multimap<LstrType,String> result = TreeMultimap.create();
+        public XLanguageTag replacePartsFrom(
+            XLanguageTag typeParts,
+            XLanguageTag replacementParts
+        ) {
+            Multimap<LstrType, String> result = TreeMultimap.create();
             for (LstrType lstrType : LSRV) {
                 Collection<String> sources = get(lstrType);
                 Collection<String> types = typeParts.get(lstrType);
@@ -184,23 +204,37 @@ public class LsrvCanonicalizer {
      */
 
     public static class ReplacementRule implements Comparable<ReplacementRule> {
+
         private final XLanguageTag typeParts;
         final XLanguageTag replacementParts;
         final List<XLanguageTag> secondaryReplacementSet; // TODO, using this information in special cases to impute the best language according to LDML
         final String reason;
         final boolean regular;
 
-        private ReplacementRule(LstrType lstrType, String type, XLanguageTag typeParts, XLanguageTag replacementParts,
-            List<XLanguageTag> secondaryReplacementSet, String reason) {
+        private ReplacementRule(
+            LstrType lstrType,
+            String type,
+            XLanguageTag typeParts,
+            XLanguageTag replacementParts,
+            List<XLanguageTag> secondaryReplacementSet,
+            String reason
+        ) {
             this.typeParts = typeParts;
             this.replacementParts = replacementParts;
             this.secondaryReplacementSet = secondaryReplacementSet;
             this.reason = reason;
-            this.regular = typeParts.keys().equals(replacementParts.keys()) &&
-                typeParts.get(LstrType.variant).size() == replacementParts.get(LstrType.variant).size();
+            this.regular =
+                typeParts.keys().equals(replacementParts.keys()) &&
+                typeParts.get(LstrType.variant).size() ==
+                replacementParts.get(LstrType.variant).size();
         }
 
-        static ReplacementRule from(LstrType lstrType, String type, List<String> replacement, String reason) {
+        static ReplacementRule from(
+            LstrType lstrType,
+            String type,
+            List<String> replacement,
+            String reason
+        ) {
             XLanguageTag typeParts = XLanguageTag.fromTag(lstrType, type);
             if (typeParts == null) {
                 return null; // skip ill-formed for now
@@ -213,34 +247,48 @@ public class LsrvCanonicalizer {
             for (int i = 1; i < replacement.size(); ++i) {
                 secondaryReplacementSet.add(XLanguageTag.fromTag(lstrType, replacement.get(i)));
             }
-            return new ReplacementRule(lstrType, type, typeParts, replacementParts, secondaryReplacementSet, reason);
+            return new ReplacementRule(
+                lstrType,
+                type,
+                typeParts,
+                replacementParts,
+                secondaryReplacementSet,
+                reason
+            );
         }
 
         @Override
         public int compareTo(ReplacementRule o) {
-            return ComparisonChain.start()
+            return ComparisonChain
+                .start()
                 .compare(-getType().keys().size(), -o.getType().keys().size()) // sort most keys first
                 .compare(getType().toString(), o.getType().toString())
                 .result();
         }
+
         @Override
         public boolean equals(Object obj) {
             return compareTo((ReplacementRule) obj) == 0;
         }
+
         @Override
         public int hashCode() {
             return Objects.hashCode(getType());
         }
+
         @Override
         public String toString() {
-            return MoreObjects.toStringHelper(getClass())
+            return MoreObjects
+                .toStringHelper(getClass())
                 .add("type", getType())
                 .add("replacement", replacementParts)
                 .toString();
         }
+
         public XLanguageTag getType() {
             return typeParts;
         }
+
         public XLanguageTag getReplacement() {
             return replacementParts;
         }
@@ -249,7 +297,7 @@ public class LsrvCanonicalizer {
     /**
      * Utility to remove multiple items from Multimap
      */
-    public static <K,V> Multimap<K, V> removeAll(Multimap<K, V> result, K key, Iterable<V> value) {
+    public static <K, V> Multimap<K, V> removeAll(Multimap<K, V> result, K key, Iterable<V> value) {
         for (V type : value) {
             result.remove(key, type);
         }
@@ -285,22 +333,24 @@ public class LsrvCanonicalizer {
             rulesUsed.clear();
         }
         XLanguageTag newTag = fromTag;
-        startAtTheTop:
-            while (true) {
-                for (ReplacementRule rule : getRules()) {
-                    if (newTag.containsAll(rule.getType())) {
-                        XLanguageTag temp = newTag.replacePartsFrom(rule.getType(), rule.getReplacement());
-                        if (!temp.equals(newTag)) {
-                            newTag = temp;
-                            if (rulesUsed != null) {
-                                rulesUsed.add(rule);
-                            }
-                            continue startAtTheTop;
+        startAtTheTop:while (true) {
+            for (ReplacementRule rule : getRules()) {
+                if (newTag.containsAll(rule.getType())) {
+                    XLanguageTag temp = newTag.replacePartsFrom(
+                        rule.getType(),
+                        rule.getReplacement()
+                    );
+                    if (!temp.equals(newTag)) {
+                        newTag = temp;
+                        if (rulesUsed != null) {
+                            rulesUsed.add(rule);
                         }
+                        continue startAtTheTop;
                     }
                 }
-                return newTag;
             }
+            return newTag;
+        }
     }
 
     /**
@@ -319,9 +369,11 @@ public class LsrvCanonicalizer {
                 }
                 for (XLanguageTag newTag : result) {
                     if (newTag.containsAll(rule.getReplacement())) { // reverse normal order
-                        XLanguageTag changed = newTag.replacePartsFrom(rule.getReplacement(), rule.getType()); // reverse normal order
-                        if (!intermediate.contains(changed)
-                            && !result.contains(changed)) {
+                        XLanguageTag changed = newTag.replacePartsFrom(
+                            rule.getReplacement(),
+                            rule.getType()
+                        ); // reverse normal order
+                        if (!intermediate.contains(changed) && !result.contains(changed)) {
                             intermediate.add(changed);
                         }
                     }
@@ -336,7 +388,6 @@ public class LsrvCanonicalizer {
         }
     }
 
-
     /**
      * Utility for getting a filtered list of rules, mostly useful in debugging.
      */
@@ -344,8 +395,7 @@ public class LsrvCanonicalizer {
         List<ReplacementRule> result = new ArrayList<>();
         for (ReplacementRule rule : getRules()) {
             final Collection<String> items = rule.getType().get(lstrType);
-            if (value == null && !items.isEmpty()
-                || value != null && items.contains(value)) {
+            if (value == null && !items.isEmpty() || value != null && items.contains(value)) {
                 result.add(rule);
             }
         }
@@ -355,6 +405,7 @@ public class LsrvCanonicalizer {
     public static final LsrvCanonicalizer getInstance() {
         return SINGLETON;
     }
+
     private static final LsrvCanonicalizer SINGLETON = load();
 
     private static LsrvCanonicalizer load() {
@@ -366,16 +417,22 @@ public class LsrvCanonicalizer {
         for (Entry<String, Map<String, R2<List<String>, String>>> typeTagReplacement : aliases.entrySet()) {
             String type = typeTagReplacement.getKey();
             if (type.contains("-")) {
-                throw new IllegalArgumentException("Bad format for alias: should have _ instead of -.");
+                throw new IllegalArgumentException(
+                    "Bad format for alias: should have _ instead of -."
+                );
             }
             LstrType lstrType = LstrType.fromString(type);
             if (!LSRV.contains(lstrType)) {
                 continue;
             }
-            for (Entry<String, R2<List<String>, String>> tagReplacementReason : typeTagReplacement.getValue().entrySet()) {
+            for (Entry<String, R2<List<String>, String>> tagReplacementReason : typeTagReplacement
+                .getValue()
+                .entrySet()) {
                 String tag = tagReplacementReason.getKey();
                 if (tag.contains("-")) {
-                    throw new IllegalArgumentException("Bad format for alias: should have _ instead of -.");
+                    throw new IllegalArgumentException(
+                        "Bad format for alias: should have _ instead of -."
+                    );
                 }
                 List<String> replacement = tagReplacementReason.getValue().get0();
                 if (replacement == null) {
@@ -383,7 +440,12 @@ public class LsrvCanonicalizer {
                     continue;
                 }
                 String reason = tagReplacementReason.getValue().get1();
-                final ReplacementRule replacementRule = ReplacementRule.from(lstrType, tag, replacement, reason);
+                final ReplacementRule replacementRule = ReplacementRule.from(
+                    lstrType,
+                    tag,
+                    replacement,
+                    reason
+                );
                 if (replacementRule == null) {
                     // System.out.println("No rule: " + tagReplacementReason);
                     continue;
@@ -392,7 +454,7 @@ public class LsrvCanonicalizer {
             }
         }
         rrs.rules = ImmutableSet.copyOf(rrs.rules);
-        for (ReplacementRule rule :  rrs.rules) {
+        for (ReplacementRule rule : rrs.rules) {
             XLanguageTag type = rule.getType();
             XLanguageTag replacement = rule.getReplacement();
             for (LstrType lstrType : LsrvCanonicalizer.LSRV) {
@@ -403,7 +465,9 @@ public class LsrvCanonicalizer {
         rrs.inType = ImmutableMultimap.copyOf(rrs.inType);
 
         for (LstrType lstrType : LsrvCanonicalizer.LSRV) {
-            Set<String> all = new LinkedHashSet<>(Validity.getInstance().getStatusToCodes(lstrType).get(Validity.Status.regular));
+            Set<String> all = new LinkedHashSet<>(
+                Validity.getInstance().getStatusToCodes(lstrType).get(Validity.Status.regular)
+            );
             all.removeAll(rrs.inType.get(lstrType));
             if (lstrType == LstrType.variant && all.contains("fonipa")) {
                 rrs.irrelevant.put(lstrType, "fonipa");
@@ -425,15 +489,20 @@ public class LsrvCanonicalizer {
     /**
      * Types of test data
      */
-    public enum TestDataTypes {explicit, fromAliases, decanonicalized, withIrrelevants}
+    public enum TestDataTypes {
+        explicit,
+        fromAliases,
+        decanonicalized,
+        withIrrelevants,
+    }
 
     /**
      * Returns test data for the rules, used to generate test data files.
      * @param testDataTypes if null, returns all the data; otherwise the specified set.
      * @return
      */
-    public Map<TestDataTypes,Map<String, String>> getTestData(Set<TestDataTypes> testDataTypes) {
-        Map<TestDataTypes,Map<String, String>> result = new TreeMap<>();
+    public Map<TestDataTypes, Map<String, String>> getTestData(Set<TestDataTypes> testDataTypes) {
+        Map<TestDataTypes, Map<String, String>> result = new TreeMap<>();
 
         if (testDataTypes == null) {
             testDataTypes = EnumSet.allOf(TestDataTypes.class);
@@ -442,22 +511,22 @@ public class LsrvCanonicalizer {
         if (testDataTypes.contains(TestDataTypes.explicit)) {
             Map<String, String> testData2 = new TreeMap<>();
             String[][] tests = {
-                {"hye_arevmda", "hyw"},
-                {"art_lojban", "jbo"},
-                {"en_arevela", "en"},
-                {"hy_arevela", "hy"},
-                {"en_arevmda_arevela", "en"},
-                {"hy_arevmda", "hyw"},
-                {"hy_arevmda_arevela", "hyw"},
-                {"en_lojban", "en"},
-                {"en_US_polytoni", "en_US_polyton"},
-                {"en_US_heploc", "en_US_alalc97"},
-                {"en_US_aaland", "en_US"},
-                {"en_aaland", "en_AX"},
-                {"no_nynorsk_bokmal", "no"},
-                {"no_bokmal_nynorsk", "no"},
-                {"zh_guoyu_hakka_xiang", "hak"},
-                {"zh_hakka_xiang", "hak"},
+                { "hye_arevmda", "hyw" },
+                { "art_lojban", "jbo" },
+                { "en_arevela", "en" },
+                { "hy_arevela", "hy" },
+                { "en_arevmda_arevela", "en" },
+                { "hy_arevmda", "hyw" },
+                { "hy_arevmda_arevela", "hyw" },
+                { "en_lojban", "en" },
+                { "en_US_polytoni", "en_US_polyton" },
+                { "en_US_heploc", "en_US_alalc97" },
+                { "en_US_aaland", "en_US" },
+                { "en_aaland", "en_AX" },
+                { "no_nynorsk_bokmal", "no" },
+                { "no_bokmal_nynorsk", "no" },
+                { "zh_guoyu_hakka_xiang", "hak" },
+                { "zh_hakka_xiang", "hak" },
             };
             for (String row[] : tests) {
                 String toTest = row[0];
@@ -474,7 +543,7 @@ public class LsrvCanonicalizer {
                 String toTest = rule.getType().toLocaleString();
                 String expected = rule.getReplacement().toLocaleString();
                 if (!allToTest.contains(toTest)) {
-                    testData2.put(toTest,expected);
+                    testData2.put(toTest, expected);
                 }
             }
             allToTest.addAll(testData2.keySet());
@@ -483,8 +552,10 @@ public class LsrvCanonicalizer {
 
         if (testDataTypes.contains(TestDataTypes.decanonicalized)) {
             Map<String, String> testData2 = new TreeMap<>();
-            for (String testItem: allToTest) {
-                for (XLanguageTag decon : decanonicalizeToX(XLanguageTag.fromTag(LstrType.language, testItem))) {
+            for (String testItem : allToTest) {
+                for (XLanguageTag decon : decanonicalizeToX(
+                    XLanguageTag.fromTag(LstrType.language, testItem)
+                )) {
                     XLanguageTag newTag = canonicalizeToX(decon, null);
                     final String toTest = decon.toLocaleString();
                     if (!allToTest.contains(toTest)) {
@@ -498,14 +569,17 @@ public class LsrvCanonicalizer {
 
         if (testDataTypes.contains(TestDataTypes.withIrrelevants)) {
             Map<String, String> testData2 = new TreeMap<>();
-            for (String testItem: allToTest) {
-                XLanguageTag fluffedUp = fluff(XLanguageTag.fromTag(LstrType.language, testItem), irrelevant);
+            for (String testItem : allToTest) {
+                XLanguageTag fluffedUp = fluff(
+                    XLanguageTag.fromTag(LstrType.language, testItem),
+                    irrelevant
+                );
                 XLanguageTag newTag = canonicalizeToX(fluffedUp, null);
                 final String toTest = fluffedUp.toLocaleString();
                 if (!allToTest.contains(toTest)) {
                     testData2.put(toTest, newTag.toLocaleString());
                 }
-           }
+            }
             allToTest.addAll(testData2.keySet());
             result.put(TestDataTypes.withIrrelevants, ImmutableMap.copyOf(testData2));
         }
@@ -537,5 +611,4 @@ public class LsrvCanonicalizer {
     public String getIrrelevantField(LstrType language) {
         return irrelevant.get(language);
     }
-
 }

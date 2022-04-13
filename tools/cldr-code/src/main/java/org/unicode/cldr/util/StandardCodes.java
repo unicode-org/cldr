@@ -8,6 +8,11 @@
  */
 package org.unicode.cldr.util;
 
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ICUUncheckedIOException;
+import com.ibm.icu.util.Output;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,17 +34,10 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.IdUsage;
 import org.unicode.cldr.util.Iso639Data.Type;
 import org.unicode.cldr.util.ZoneParser.ZoneLine;
-
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ICUUncheckedIOException;
-import com.ibm.icu.util.Output;
 
 /**
  * Provides access to various codes used by CLDR: RFC 3066, ISO 4217, Olson
@@ -48,7 +46,16 @@ import com.ibm.icu.util.Output;
 public class StandardCodes {
 
     public enum CodeType {
-        language, script, territory, extlang, legacy, redundant, variant, currency, tzid;
+        language,
+        script,
+        territory,
+        extlang,
+        legacy,
+        redundant,
+        variant,
+        currency,
+        tzid;
+
         public static CodeType from(String name) {
             if ("region".equals(name)) {
                 return territory;
@@ -57,9 +64,12 @@ public class StandardCodes {
         }
     }
 
-    private static final Set<CodeType> TypeSet = Collections.unmodifiableSet(EnumSet.allOf(CodeType.class));
+    private static final Set<CodeType> TypeSet = Collections.unmodifiableSet(
+        EnumSet.allOf(CodeType.class)
+    );
 
     private static final Set<String> TypeStringSet;
+
     static {
         LinkedHashSet<String> foo = new LinkedHashSet<>();
         for (CodeType x : CodeType.values()) {
@@ -73,13 +83,16 @@ public class StandardCodes {
     public static final String NO_COUNTRY = "001";
 
     private EnumMap<CodeType, Map<String, List<String>>> type_code_data = new EnumMap<>(
-        CodeType.class);
+        CodeType.class
+    );
 
     private EnumMap<CodeType, Map<String, List<String>>> type_name_codes = new EnumMap<>(
-        CodeType.class);
+        CodeType.class
+    );
 
     private EnumMap<CodeType, Map<String, String>> type_code_preferred = new EnumMap<>(
-        CodeType.class);
+        CodeType.class
+    );
 
     private Map<String, Set<String>> country_modernCurrency = new TreeMap<>();
 
@@ -88,12 +101,14 @@ public class StandardCodes {
     private static final boolean DEBUG = false;
 
     private static final class StandardCodesHelper {
+
         static final StandardCodes SINGLETON = new StandardCodes();
     }
+
     /**
      * Get the singleton copy of the standard codes.
      */
-    static public synchronized StandardCodes make() {
+    public static synchronized StandardCodes make() {
         return StandardCodesHelper.SINGLETON;
     }
 
@@ -104,11 +119,9 @@ public class StandardCodes {
      */
     public String getData(String type, String code) {
         Map<String, List<String>> code_data = getCodeData(type);
-        if (code_data == null)
-            return null;
+        if (code_data == null) return null;
         List<String> list = code_data.get(code);
-        if (list == null)
-            return null;
+        if (list == null) return null;
         return list.get(0);
     }
 
@@ -119,8 +132,7 @@ public class StandardCodes {
      */
     public List<String> getFullData(String type, String code) {
         Map<String, List<String>> code_data = getCodeData(type);
-        if (code_data == null)
-            return null;
+        if (code_data == null) return null;
         return code_data.get(code);
     }
 
@@ -131,8 +143,7 @@ public class StandardCodes {
      */
     public List<String> getFullData(CodeType type, String code) {
         Map<String, List<String>> code_data = type_code_data.get(type);
-        if (code_data == null)
-            return null;
+        if (code_data == null) return null;
         return code_data.get(code);
     }
 
@@ -153,9 +164,8 @@ public class StandardCodes {
      */
     public Map<String, String> getLangData(String type, String code) {
         try {
-            if (type.equals("territory"))
-                type = "region";
-            else if (type.equals("variant")) code = code.toLowerCase(Locale.ENGLISH);
+            if (type.equals("territory")) type = "region"; else if (type.equals("variant")) code =
+                code.toLowerCase(Locale.ENGLISH);
             return (Map) ((Map) getLStreg().get(type)).get(code);
         } catch (RuntimeException e) {
             return null;
@@ -167,18 +177,14 @@ public class StandardCodes {
      *
      */
     public String getReplacement(String type, String code) {
-        if (type.equals("currency"))
-            return null; // no replacement codes for currencies
+        if (type.equals("currency")) return null; // no replacement codes for currencies
         List<String> data = getFullData(type, code);
-        if (data == null)
-            return null;
+        if (data == null) return null;
         // if available, the replacement is a non-empty value other than --, in
         // position 2.
-        if (data.size() < 3)
-            return null;
+        if (data.size() < 3) return null;
         String replacement = data.get(2);
-        if (!replacement.equals("") && !replacement.equals("--"))
-            return replacement;
+        if (!replacement.equals("") && !replacement.equals("--")) return replacement;
         return null;
     }
 
@@ -201,8 +207,7 @@ public class StandardCodes {
      */
     public List<String> getCodes(CodeType type, String data) {
         Map<String, List<String>> data_codes = type_name_codes.get(type);
-        if (data_codes == null)
-            return null;
+        if (data_codes == null) return null;
         return Collections.unmodifiableList(data_codes.get(data));
     }
 
@@ -220,11 +225,9 @@ public class StandardCodes {
 
     public String getPreferred(CodeType type, String code) {
         Map<String, String> code_preferred = type_code_preferred.get(type);
-        if (code_preferred == null)
-            return code;
+        if (code_preferred == null) return code;
         String newCode = code_preferred.get(code);
-        if (newCode == null)
-            return code;
+        if (newCode == null) return code;
         return newCode;
     }
 
@@ -281,34 +284,33 @@ public class StandardCodes {
             synchronized (goodCodes) {
                 Map<String, List<String>> code_name = getCodeData(type);
                 SupplementalDataInfo sd = SupplementalDataInfo.getInstance();
-                if (code_name == null)
-                    return null;
+                if (code_name == null) return null;
                 result = new TreeSet<>(code_name.keySet());
                 switch (type) {
-                case currency:
-                    break; // nothing special
-                case language:
-                    return sd.getCLDRLanguageCodes();
-                case script:
-                    return sd.getCLDRScriptCodes();
-                case tzid:
-                    break; // nothing special
-                default:
-                    for (Iterator<String> it = result.iterator(); it.hasNext();) {
-                        String code = it.next();
-                        if (code.equals("root") || code.equals("QO"))
-                            continue;
-                        List<String> data = getFullData(type, code);
-                        if (data.size() < 3) {
-                            if (DEBUG)
-                                System.out.println(code + "\t" + data);
+                    case currency:
+                        break; // nothing special
+                    case language:
+                        return sd.getCLDRLanguageCodes();
+                    case script:
+                        return sd.getCLDRScriptCodes();
+                    case tzid:
+                        break; // nothing special
+                    default:
+                        for (Iterator<String> it = result.iterator(); it.hasNext();) {
+                            String code = it.next();
+                            if (code.equals("root") || code.equals("QO")) continue;
+                            List<String> data = getFullData(type, code);
+                            if (data.size() < 3) {
+                                if (DEBUG) System.out.println(code + "\t" + data);
+                            }
+                            if (
+                                "PRIVATE USE".equalsIgnoreCase(data.get(0)) ||
+                                (!data.get(2).equals("") && !data.get(2).equals("--"))
+                            ) {
+                                // System.out.println("Removing: " + code);
+                                it.remove();
+                            }
                         }
-                        if ("PRIVATE USE".equalsIgnoreCase(data.get(0))
-                            || (!data.get(2).equals("") && !data.get(2).equals("--"))) {
-                            // System.out.println("Removing: " + code);
-                            it.remove();
-                        }
-                    }
                 }
                 result = Collections.unmodifiableSet(result);
                 goodCodes.put(type, result);
@@ -345,31 +347,29 @@ public class StandardCodes {
     private Map<Organization, Relation<Level, String>> platform_level_locale = null;
     private Map<String, Map<String, String>> platform_locale_levelString = null;
 
-//    /**
-//     * Get rid of this
-//     *
-//     * @param type
-//     * @return
-//     * @throws IOException
-//     * @deprecated
-//     */
-//    public String getEffectiveLocaleType(String type) throws IOException {
-//        if ((type != null) && (getLocaleCoverageOrganizations().contains(Organization.valueOf(type)))) {
-//            return type;
-//        } else {
-//            return null; // the default.. for now..
-//        }
-//    }
+    //    /**
+    //     * Get rid of this
+    //     *
+    //     * @param type
+    //     * @return
+    //     * @throws IOException
+    //     * @deprecated
+    //     */
+    //    public String getEffectiveLocaleType(String type) throws IOException {
+    //        if ((type != null) && (getLocaleCoverageOrganizations().contains(Organization.valueOf(type)))) {
+    //            return type;
+    //        } else {
+    //            return null; // the default.. for now..
+    //        }
+    //    }
 
     static Comparator caseless = new Comparator() {
-
         @Override
         public int compare(Object arg0, Object arg1) {
             String s1 = (String) arg0;
             String s2 = (String) arg1;
             return s1.compareToIgnoreCase(s2);
         }
-
     };
 
     /**
@@ -407,18 +407,29 @@ public class StandardCodes {
     }
 
     public Level getLocaleCoverageLevel(Organization organization, String desiredLocale) {
-        return getLocaleCoverageLevel(organization, desiredLocale, new Output<LocaleCoverageType>());
+        return getLocaleCoverageLevel(
+            organization,
+            desiredLocale,
+            new Output<LocaleCoverageType>()
+        );
     }
 
     public enum LocaleCoverageType {
-        explicit, parent, star, undetermined
+        explicit,
+        parent,
+        star,
+        undetermined,
     }
 
     /**
      * Returns coverage level of locale according to organization. Returns Level.UNDETERMINED if information is missing.
      * A locale of "*" in the data means "everything else".
      */
-    public Level getLocaleCoverageLevel(Organization organization, String desiredLocale, Output<LocaleCoverageType> coverageType) {
+    public Level getLocaleCoverageLevel(
+        Organization organization,
+        String desiredLocale,
+        Output<LocaleCoverageType> coverageType
+    ) {
         synchronized (StandardCodes.class) {
             if (platform_locale_level == null) {
                 loadPlatformLocaleStatus();
@@ -437,7 +448,10 @@ public class StandardCodes {
         while (desiredLocale != null) {
             Level status = locale_status.get(desiredLocale);
             if (status != null && status != Level.UNDETERMINED) {
-                coverageType.value = originalLocale == desiredLocale ? LocaleCoverageType.explicit : LocaleCoverageType.parent;
+                coverageType.value =
+                    originalLocale == desiredLocale
+                        ? LocaleCoverageType.explicit
+                        : LocaleCoverageType.parent;
                 return status;
             }
             desiredLocale = LocaleIDParser.getParent(desiredLocale);
@@ -527,15 +541,19 @@ public class StandardCodes {
 
         // Next, Find maximum coverage level
         for (final Organization o : Organization.values()) {
-            if (o == Organization.cldr ||  // Already handled, above
+            if (
+                o == Organization.cldr || // Already handled, above
                 o == Organization.guest ||
-                o == Organization.surveytool) {
+                o == Organization.surveytool
+            ) {
                 continue; // Skip some 'special' orgs
             }
             final Output<StandardCodes.LocaleCoverageType> outputType = new Output<>();
             final Level orgLevel = getLocaleCoverageLevel(o, localeId, outputType);
-            if (outputType.value == StandardCodes.LocaleCoverageType.undetermined ||
-                outputType.value == StandardCodes.LocaleCoverageType.star) {
+            if (
+                outputType.value == StandardCodes.LocaleCoverageType.undetermined ||
+                outputType.value == StandardCodes.LocaleCoverageType.star
+            ) {
                 // Skip undetermined or star
                 continue;
             }
@@ -563,15 +581,13 @@ public class StandardCodes {
             BufferedReader lstreg = CldrUtility.getUTF8Data("Locales.txt");
             while (true) {
                 line = lstreg.readLine();
-                if (line == null)
-                    break;
+                if (line == null) break;
                 int commentPos = line.indexOf('#');
                 if (commentPos >= 0) {
                     line = line.substring(0, commentPos);
                 }
                 line = line.trim();
-                if (line.length() == 0)
-                    continue;
+                if (line.length() == 0) continue;
                 List<String> stuff = CldrUtility.splitList(line, ';', true);
                 Organization organization;
 
@@ -579,7 +595,9 @@ public class StandardCodes {
                 try {
                     organization = Organization.fromString(stuff.get(0));
                 } catch (Exception e) {
-                    throw new IllegalArgumentException("Invalid organization in Locales.txt: " + line);
+                    throw new IllegalArgumentException(
+                        "Invalid organization in Locales.txt: " + line
+                    );
                 }
 
                 // verify that the locale is valid BCP47
@@ -588,13 +606,17 @@ public class StandardCodes {
                     parser.set(locale);
                     String valid = validate(parser);
                     if (valid.length() != 0) {
-                        throw new IllegalArgumentException("Invalid locale in Locales.txt: " + line);
+                        throw new IllegalArgumentException(
+                            "Invalid locale in Locales.txt: " + line
+                        );
                     }
                     locale = parser.toString(); // normalize
 
                     // verify that the locale is not a default content locale
                     if (defaultContentLocales.contains(locale)) {
-                        throw new IllegalArgumentException("Cannot have default content locale in Locales.txt: " + line);
+                        throw new IllegalArgumentException(
+                            "Cannot have default content locale in Locales.txt: " + line
+                        );
                     }
                 }
 
@@ -609,11 +631,9 @@ public class StandardCodes {
                 locale_status.put(locale, status);
                 if (!locale.equals(ALL_LOCALES)) {
                     String scriptLoc = parser.getLanguageScript();
-                    if (locale_status.get(scriptLoc) == null)
-                        locale_status.put(scriptLoc, status);
+                    if (locale_status.get(scriptLoc) == null) locale_status.put(scriptLoc, status);
                     String lang = parser.getLanguage();
-                    if (locale_status.get(lang) == null)
-                        locale_status.put(lang, status);
+                    if (locale_status.get(lang) == null) locale_status.put(lang, status);
                 }
             }
         } catch (IOException e) {
@@ -731,8 +751,7 @@ public class StandardCodes {
                 BufferedReader lstreg = CldrUtility.getUTF8Data(files[fileIndex]);
                 while (true) {
                     String line = originalLine = lstreg.readLine();
-                    if (line == null)
-                        break;
+                    if (line == null) break;
                     if (line.startsWith("\uFEFF")) {
                         line = line.substring(1);
                     }
@@ -743,10 +762,13 @@ public class StandardCodes {
                         comment = line.substring(commentPos + 1).trim();
                         line = line.substring(0, commentPos);
                     }
-                    if (line.length() == 0)
-                        continue;
-                    List<String> pieces = CldrUtility.splitList(line, '|', true,
-                        new ArrayList<String>());
+                    if (line.length() == 0) continue;
+                    List<String> pieces = CldrUtility.splitList(
+                        line,
+                        '|',
+                        true,
+                        new ArrayList<String>()
+                    );
                     CodeType type = CodeType.from(pieces.get(0));
                     pieces.remove(0);
 
@@ -807,9 +829,7 @@ public class StandardCodes {
                     for (int i = 0; i < pieces.size(); ++i) {
                         code = pieces.get(i);
                         add(type, code, data);
-                        if (preferred == null)
-                            preferred = code;
-                        else {
+                        if (preferred == null) preferred = code; else {
                             Map<String, String> code_preferred = type_code_preferred.get(type);
                             code_preferred.put(code, preferred);
                         }
@@ -817,11 +837,13 @@ public class StandardCodes {
                 }
                 lstreg.close();
             } catch (Exception e) {
-                System.err.println("WARNING: " + files[fileIndex]
-                    + " may be a corrupted UTF-8 file. Please check.");
+                System.err.println(
+                    "WARNING: " + files[fileIndex] + " may be a corrupted UTF-8 file. Please check."
+                );
                 throw (IllegalArgumentException) new IllegalArgumentException(
-                    "Can't read " + files[fileIndex] + "\t" + originalLine)
-                        .initCause(e);
+                    "Can't read " + files[fileIndex] + "\t" + originalLine
+                )
+                    .initCause(e);
             }
             country_modernCurrency = CldrUtility.protectCollection(country_modernCurrency);
         }
@@ -844,10 +866,7 @@ public class StandardCodes {
                 String pref = mm.get("Preferred-Value");
                 if (pref == null) {
                     pref = mm.get("Deprecated");
-                    if (pref == null)
-                        pref = "";
-                    else
-                        pref = "deprecated";
+                    if (pref == null) pref = ""; else pref = "deprecated";
                 }
                 data.add(pref);
                 if (type.equals("variant")) {
@@ -949,10 +968,36 @@ public class StandardCodes {
         codes.add(code);
     }
 
-    private List<String> DELETED3166 = Collections.unmodifiableList(Arrays
-        .asList(new String[] { "BQ", "BU", "CT", "DD", "DY", "FQ", "FX", "HV",
-            "JT", "MI", "NH", "NQ", "NT", "PC", "PU", "PZ", "RH", "SU", "TP",
-            "VD", "WK", "YD", "YU", "ZR" }));
+    private List<String> DELETED3166 = Collections.unmodifiableList(
+        Arrays.asList(
+            new String[] {
+                "BQ",
+                "BU",
+                "CT",
+                "DD",
+                "DY",
+                "FQ",
+                "FX",
+                "HV",
+                "JT",
+                "MI",
+                "NH",
+                "NQ",
+                "NT",
+                "PC",
+                "PU",
+                "PZ",
+                "RH",
+                "SU",
+                "TP",
+                "VD",
+                "WK",
+                "YD",
+                "YU",
+                "ZR",
+            }
+        )
+    );
 
     public List<String> getOld3166() {
         return DELETED3166;
@@ -995,8 +1040,7 @@ public class StandardCodes {
             BufferedReader lstreg = CldrUtility.getUTF8Data(filename);
             while (true) {
                 line = lstreg.readLine();
-                if (line == null)
-                    break;
+                if (line == null) break;
                 int commentPos = line.indexOf('#');
                 if (commentPos >= 0) {
                     line = line.substring(0, commentPos);
@@ -1004,14 +1048,15 @@ public class StandardCodes {
                 if (trim) {
                     line = line.trim();
                 }
-                if (line.length() == 0)
-                    continue;
+                if (line.length() == 0) continue;
                 result.add(line);
             }
             return result;
         } catch (Exception e) {
             throw (RuntimeException) new IllegalArgumentException(
-                "Can't process file: data/" + filename).initCause(e);
+                "Can't process file: data/" + filename
+            )
+                .initCause(e);
         }
     }
 
@@ -1073,7 +1118,10 @@ public class StandardCodes {
         // "CLDR", "True", "Deprecated", "True"},
     };
 
-    static final String registryName = CldrUtility.getProperty("registry", "language-subtag-registry");
+    static final String registryName = CldrUtility.getProperty(
+        "registry",
+        "language-subtag-registry"
+    );
 
     public enum LstrType {
         language("und", "zxx", "mul", "mis", "root"),
@@ -1115,10 +1163,10 @@ public class StandardCodes {
 
         boolean isWellFormed(String candidate) {
             switch (this) {
-            case subdivision:
-                return WELLFORMED.matcher(candidate).matches();
-            default:
-                throw new UnsupportedOperationException();
+                case subdivision:
+                    return WELLFORMED.matcher(candidate).matches();
+                default:
+                    throw new UnsupportedOperationException();
             }
         }
 
@@ -1127,10 +1175,14 @@ public class StandardCodes {
          */
         public String toCompatString() {
             switch (this) {
-            case region: return "territory";
-            case legacy: return "language";
-            case redundant: return "language";
-            default: return toString();
+                case region:
+                    return "territory";
+                case legacy:
+                    return "language";
+                case redundant:
+                    return "language";
+                default:
+                    return toString();
             }
         }
 
@@ -1150,7 +1202,20 @@ public class StandardCodes {
     }
 
     public enum LstrField {
-        Type, Subtag, Description, Added, Scope, Tag, Suppress_Script, Macrolanguage, Deprecated, Preferred_Value, Comments, Prefix, CLDR;
+        Type,
+        Subtag,
+        Description,
+        Added,
+        Scope,
+        Tag,
+        Suppress_Script,
+        Macrolanguage,
+        Deprecated,
+        Preferred_Value,
+        Comments,
+        Prefix,
+        CLDR;
+
         public static LstrField from(String s) {
             return LstrField.valueOf(s.trim().replace("-", "_"));
         }
@@ -1211,13 +1276,11 @@ public class StandardCodes {
             LstrField lastLabel = null;
             String lastRest = null;
             boolean inRealContent = false;
-//            Map<String, String> translitCache = new HashMap<String, String>();
+            //            Map<String, String> translitCache = new HashMap<String, String>();
             for (;; ++lineNumber) {
                 line = lstreg.readLine();
-                if (line == null)
-                    break;
-                if (line.length() == 0)
-                    continue; // skip blanks
+                if (line == null) break;
+                if (line.length() == 0) continue; // skip blanks
                 if (line.startsWith("File-Date: ")) {
                     if (DEBUG) System.out.println("Language Subtag Registry: " + line);
                     inRealContent = true;
@@ -1241,8 +1304,7 @@ public class StandardCodes {
                     break;
                 }
 
-                if (line.startsWith("%%"))
-                    continue; // skip separators (ok, since data starts with Type:
+                if (line.startsWith("%%")) continue; // skip separators (ok, since data starts with Type:
                 if (line.startsWith(" ")) {
                     currentData.put(lastLabel, lastRest + " " + line.trim());
                     continue;
@@ -1256,14 +1318,13 @@ public class StandardCodes {
                 LstrField label = LstrField.from(line.substring(0, pos2));
                 String rest = line.substring(pos2 + 1).trim();
                 if (label == LstrField.Type) {
-                    lastType = rest.equals("grandfathered") ?
-                        LstrType.legacy : LstrType.fromString(rest);
+                    lastType =
+                        rest.equals("grandfathered") ? LstrType.legacy : LstrType.fromString(rest);
                     subtagData = CldrUtility.get(result2, lastType);
                     if (subtagData == null) {
                         result2.put(lastType, subtagData = new TreeMap<>());
                     }
-                } else if (label == LstrField.Subtag
-                    || label == LstrField.Tag) {
+                } else if (label == LstrField.Subtag || label == LstrField.Tag) {
                     lastTag = rest;
                     String endTag = null;
                     // Subtag: qaa..qtz
@@ -1284,7 +1345,6 @@ public class StandardCodes {
                             languageCount.add(lastType, 1);
                             // System.out.println(languageCount.getCount(lastType) + "\t" + lastType + "\t" + lastTag);
                         }
-
                     }
                     // label.equalsIgnoreCase("Added") || label.equalsIgnoreCase("Suppress-Script")) {
                     // skip
@@ -1312,12 +1372,12 @@ public class StandardCodes {
             }
         } catch (Exception e) {
             throw (RuntimeException) new IllegalArgumentException(
-                "Can't process file: data/"
-                    + registryName + ";\t at line " + lineNumber).initCause(e);
+                "Can't process file: data/" + registryName + ";\t at line " + lineNumber
+            )
+                .initCause(e);
         } finally {
             if (!funnyTags.isEmpty()) {
-                if (DEBUG)
-                    System.out.println("Funny tags: " + funnyTags);
+                if (DEBUG) System.out.println("Funny tags: " + funnyTags);
             }
         }
         // copy raw
@@ -1338,7 +1398,10 @@ public class StandardCodes {
 
         // add extras
         for (int i = 0; i < extras.length; ++i) {
-            Map<String, Map<LstrField, String>> subtagData = CldrUtility.get(result2, LstrType.fromString(extras[i][0]));
+            Map<String, Map<LstrField, String>> subtagData = CldrUtility.get(
+                result2,
+                LstrType.fromString(extras[i][0])
+            );
             if (subtagData == null) {
                 result2.put(LstrType.fromString(extras[i][0]), subtagData = new TreeMap<>());
             }
@@ -1349,13 +1412,19 @@ public class StandardCodes {
             Map<LstrField, String> old = CldrUtility.get(subtagData, extras[i][1]);
             if (old != null) {
                 if (!"Private use".equals(CldrUtility.get(old, LstrField.Description))) {
-                    throw new IllegalArgumentException("REPLACING data for " + extras[i][1] + "\t" + old + "\twith"
-                        + labelData);
+                    throw new IllegalArgumentException(
+                        "REPLACING data for " + extras[i][1] + "\t" + old + "\twith" + labelData
+                    );
                 }
             }
             if (false) {
-                System.out.println((old != null ? "REPLACING" + "\t" + old : "ADDING") +
-                    " data for " + extras[i][1] + "\twith" + labelData);
+                System.out.println(
+                    (old != null ? "REPLACING" + "\t" + old : "ADDING") +
+                    " data for " +
+                    extras[i][1] +
+                    "\twith" +
+                    labelData
+                );
             }
             subtagData.put(extras[i][1], labelData);
         }
@@ -1376,7 +1445,11 @@ public class StandardCodes {
         LSTREG_ENUM = CldrUtility.protectCollection(result2);
     }
 
-    private static <K, K2, V> Map<K2, V> putSubtagData(K lastTag, Map<K, Map<K2, V>> subtagData, Map<K2, V> currentData) {
+    private static <K, K2, V> Map<K2, V> putSubtagData(
+        K lastTag,
+        Map<K, Map<K2, V>> subtagData,
+        Map<K2, V> currentData
+    ) {
         Map<K2, V> oldData = subtagData.get(lastTag);
         if (oldData != null) {
             if (oldData.get("CLDR") != null) {
@@ -1545,14 +1618,14 @@ public class StandardCodes {
      */
     public static boolean isCountry(String territory) {
         switch (territory) {
-        case "ZZ":
-        case "QO":
-        case "EU":
-        case "UN":
-        case "EZ":
-            return false;
-        default:
-            return territory.length() == 2 && COUNTRY.containsAll(territory);
+            case "ZZ":
+            case "QO":
+            case "EU":
+            case "UN":
+            case "EZ":
+                return false;
+            default:
+                return (territory.length() == 2 && COUNTRY.containsAll(territory));
         }
     }
 

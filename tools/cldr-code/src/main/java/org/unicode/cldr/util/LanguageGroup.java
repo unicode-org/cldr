@@ -1,23 +1,41 @@
 package org.unicode.cldr.util;
 
+import com.google.common.base.Joiner;
+import com.ibm.icu.util.ULocale;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
-
 import org.unicode.cldr.util.ChainedMap.M3;
 
-import com.google.common.base.Joiner;
-import com.ibm.icu.util.ULocale;
-
 public enum LanguageGroup {
-    root("und"), germanic("gem"), celtic("cel"), romance("roa"), slavic("sla"), baltic("bat"),
-    indic("inc"), iranian("ira"), other_indo("ine_001"), caucasian("cau"), dravidian("dra"),
-    uralic("urj"), cjk("und_Hani"), sino_tibetan("sit"), tai("tai"), austronesian("map"),
-    turkic("trk"), afroasiatic("afa"), austroasiatic("aav"), niger_congo("nic"),
-    east_sudanic("sdv"), songhay("son"), american("und_019"), art("art"), other("und_001");
+    root("und"),
+    germanic("gem"),
+    celtic("cel"),
+    romance("roa"),
+    slavic("sla"),
+    baltic("bat"),
+    indic("inc"),
+    iranian("ira"),
+    other_indo("ine_001"),
+    caucasian("cau"),
+    dravidian("dra"),
+    uralic("urj"),
+    cjk("und_Hani"),
+    sino_tibetan("sit"),
+    tai("tai"),
+    austronesian("map"),
+    turkic("trk"),
+    afroasiatic("afa"),
+    austroasiatic("aav"),
+    niger_congo("nic"),
+    east_sudanic("sdv"),
+    songhay("son"),
+    american("und_019"),
+    art("art"),
+    other("und_001");
 
     public final String iso;
 
@@ -26,10 +44,17 @@ public enum LanguageGroup {
     }
 
     static final Map<ULocale, LanguageGroup> LANGUAGE_GROUP;
-    static final M3<LanguageGroup, ULocale, Integer> GROUP_LANGUAGE = ChainedMap.of(new TreeMap<LanguageGroup, Object>(), new LinkedHashMap<ULocale, Object>(),
-        Integer.class);
+    static final M3<LanguageGroup, ULocale, Integer> GROUP_LANGUAGE = ChainedMap.of(
+        new TreeMap<LanguageGroup, Object>(),
+        new LinkedHashMap<ULocale, Object>(),
+        Integer.class
+    );
 
-    private static void add(Map<ULocale, LanguageGroup> map, LanguageGroup group, String... baseLanguages) {
+    private static void add(
+        Map<ULocale, LanguageGroup> map,
+        LanguageGroup group,
+        String... baseLanguages
+    ) {
         Map<ULocale, Integer> soFar = GROUP_LANGUAGE.get(group);
         int count = soFar == null ? 0 : soFar.size();
         for (String s : baseLanguages) {
@@ -46,36 +71,235 @@ public enum LanguageGroup {
         LinkedHashMap<ULocale, LanguageGroup> temp = new LinkedHashMap<>();
         LANGUAGE_GROUP = Collections.unmodifiableMap(temp);
         add(temp, root, "root");
-        add(temp, germanic, "en", "fy", "nl", "af", "de", "gsw", "wae", "ksh", "lb", "sv", "da",
-            "no", "nb", "nn", "fo", "is", "yi", "nds");
+        add(
+            temp,
+            germanic,
+            "en",
+            "fy",
+            "nl",
+            "af",
+            "de",
+            "gsw",
+            "wae",
+            "ksh",
+            "lb",
+            "sv",
+            "da",
+            "no",
+            "nb",
+            "nn",
+            "fo",
+            "is",
+            "yi",
+            "nds"
+        );
         add(temp, celtic, "ga", "gd", "cy", "gv", "kw", "br");
-        add(temp, romance, "fr", "pt", "gl", "es", "ca", "ast", "it", "rm", "ro", "fur", "an",
-            "co", "oc", "sc", "scn", "wa");
-        add(temp, slavic, "pl", "cs", "sk", "sl", "hr", "bs", "mk", "sr", "bg", "ru", "be", "uk",
-            "dsb", "hsb", "cu", "szl");
+        add(
+            temp,
+            romance,
+            "fr",
+            "pt",
+            "gl",
+            "es",
+            "ca",
+            "ast",
+            "it",
+            "rm",
+            "ro",
+            "fur",
+            "an",
+            "co",
+            "oc",
+            "sc",
+            "scn",
+            "wa"
+        );
+        add(
+            temp,
+            slavic,
+            "pl",
+            "cs",
+            "sk",
+            "sl",
+            "hr",
+            "bs",
+            "mk",
+            "sr",
+            "bg",
+            "ru",
+            "be",
+            "uk",
+            "dsb",
+            "hsb",
+            "cu",
+            "szl"
+        );
         add(temp, baltic, "lt", "lv", "prg");
-        add(temp, indic, "ur", "hi", "gu", "sd", "bn", "as", "ccp", "or", "mr", "ne", "pa", "si",
-            "kok", "ks", "mai", "doi", "dv", "sa", "trw");
+        add(
+            temp,
+            indic,
+            "ur",
+            "hi",
+            "gu",
+            "sd",
+            "bn",
+            "as",
+            "ccp",
+            "or",
+            "mr",
+            "ne",
+            "pa",
+            "si",
+            "kok",
+            "ks",
+            "mai",
+            "doi",
+            "dv",
+            "sa",
+            "trw"
+        );
         add(temp, iranian, "fa", "ps", "ku", "os", "ckb", "lrc", "mzn", "tg", "bgn", "sdh");
         add(temp, other_indo, "el", "hy", "sq");
         add(temp, dravidian, "ta", "te", "ml", "kn");
         add(temp, cjk, "zh", "yue", "ja", "ko");
         add(temp, turkic, "tr", "az", "tk", "kk", "ky", "uz", "ug", "sah", "tt", "ba", "cv");
         add(temp, uralic, "hu", "fi", "et", "se", "smn", "myv", "sma", "smj", "sms");
-        add(temp, afroasiatic, "ar", "mt", "he", "om", "so", "ha", "am", "tzm", "zgh", "aa", "kab",
-            "shi", "ssy", "ti", "byn", "gez", "sid", "syr", "tig", "wal");
+        add(
+            temp,
+            afroasiatic,
+            "ar",
+            "mt",
+            "he",
+            "om",
+            "so",
+            "ha",
+            "am",
+            "tzm",
+            "zgh",
+            "aa",
+            "kab",
+            "shi",
+            "ssy",
+            "ti",
+            "byn",
+            "gez",
+            "sid",
+            "syr",
+            "tig",
+            "wal"
+        );
         add(temp, tai, "th", "lo", "blt");
-        add(temp, austronesian, "id", "ms", "jv", "fil", "haw", "mg", "to", "ceb", "mi", "su",
-            "trv");
+        add(
+            temp,
+            austronesian,
+            "id",
+            "ms",
+            "jv",
+            "fil",
+            "haw",
+            "mg",
+            "to",
+            "ceb",
+            "mi",
+            "su",
+            "trv"
+        );
         add(temp, austroasiatic, "vi", "km", "sat");
-        add(temp, niger_congo, "sw", "swc", "yo", "ig", "ff", "sn", "zu", "wo", "xh", "agq", "ak",
-            "asa", "bas", "bem", "bez", "bm", "cgg", "dua", "dyo", "ebu", "ee", "ewo", "guz",
-            "jgo", "kam", "ki", "kkj", "ksb", "ksf", "lag", "lg", "ln", "lu", "luy", "mua", "nd",
-            "nnh", "nr", "nyn", "rn", "rof", "rw", "sbp", "sg", "ss", "tn", "ts", "vai", "ve",
-            "dav", "jmc", "kde", "mer", "mgh", "mgo", "nmg", "nso", "rwk", "seh", "vun", "xog",
-            "yav", "bss", "cch", "gaa", "kaj", "kcg", "ken", "kpe", "nqo", "ny", "st");
-        add(temp, american, "chr", "kl", "lkt", "qu", "arn", "cad", "cic", "gn", "iu", "moh",
-            "mus", "nv", "osa", "quc", "nci");
+        add(
+            temp,
+            niger_congo,
+            "sw",
+            "swc",
+            "yo",
+            "ig",
+            "ff",
+            "sn",
+            "zu",
+            "wo",
+            "xh",
+            "agq",
+            "ak",
+            "asa",
+            "bas",
+            "bem",
+            "bez",
+            "bm",
+            "cgg",
+            "dua",
+            "dyo",
+            "ebu",
+            "ee",
+            "ewo",
+            "guz",
+            "jgo",
+            "kam",
+            "ki",
+            "kkj",
+            "ksb",
+            "ksf",
+            "lag",
+            "lg",
+            "ln",
+            "lu",
+            "luy",
+            "mua",
+            "nd",
+            "nnh",
+            "nr",
+            "nyn",
+            "rn",
+            "rof",
+            "rw",
+            "sbp",
+            "sg",
+            "ss",
+            "tn",
+            "ts",
+            "vai",
+            "ve",
+            "dav",
+            "jmc",
+            "kde",
+            "mer",
+            "mgh",
+            "mgo",
+            "nmg",
+            "nso",
+            "rwk",
+            "seh",
+            "vun",
+            "xog",
+            "yav",
+            "bss",
+            "cch",
+            "gaa",
+            "kaj",
+            "kcg",
+            "ken",
+            "kpe",
+            "nqo",
+            "ny",
+            "st"
+        );
+        add(
+            temp,
+            american,
+            "chr",
+            "kl",
+            "lkt",
+            "qu",
+            "arn",
+            "cad",
+            "cic",
+            "gn",
+            "iu",
+            "moh",
+            "mus",
+            "nv",
+            "osa",
+            "quc",
+            "nci"
+        );
         add(temp, east_sudanic, "luo", "mas", "nus", "saq", "teo", "kln");
         add(temp, sino_tibetan, "my", "bo", "brx", "dz", "ii", "mni");
         add(temp, songhay, "dje", "khq", "ses", "twq");
@@ -86,7 +310,10 @@ public enum LanguageGroup {
     }
 
     public static LanguageGroup get(ULocale locale) {
-        return CldrUtility.ifNull(LANGUAGE_GROUP.get(new ULocale(locale.getLanguage())), LanguageGroup.other);
+        return CldrUtility.ifNull(
+            LANGUAGE_GROUP.get(new ULocale(locale.getLanguage())),
+            LanguageGroup.other
+        );
     }
 
     public static Set<ULocale> getExplicit() {
@@ -127,44 +354,54 @@ public enum LanguageGroup {
 
     public static void main(String[] args) {
         CLDRFile english = CLDRConfig.getInstance().getEnglish();
-        System.out.print("<supplementalData>\n"
-            + "\t<version number=\"$Revision:$\"/>\n"
-            + "\t<languageGroups>\n");
+        System.out.print(
+            "<supplementalData>\n" +
+            "\t<version number=\"$Revision:$\"/>\n" +
+            "\t<languageGroups>\n"
+        );
         for (LanguageGroup languageGroup : LanguageGroup.values()) {
             Set<ULocale> locales = LanguageGroup.getLocales(languageGroup);
             String englishName = languageGroup.getName(english);
-            System.out.print("\t\t<languageGroup id=\"" + languageGroup.iso
-                + "\" code=\"" + Joiner.on(", ").join(locales)
-                + "\"/>\t<!-- " + englishName + " -->\n");
+            System.out.print(
+                "\t\t<languageGroup id=\"" +
+                languageGroup.iso +
+                "\" code=\"" +
+                Joiner.on(", ").join(locales) +
+                "\"/>\t<!-- " +
+                englishName +
+                " -->\n"
+            );
         }
-        System.out.print("\t</languageGroups>"
-            + "\n<supplementalData>\n");
+        System.out.print("\t</languageGroups>" + "\n<supplementalData>\n");
     }
 
     public String getName(CLDRFile cldrFile) {
         String prefix = "";
         LanguageTagParser ltp = new LanguageTagParser().set(iso);
         switch (ltp.getRegion()) {
-        case "001":
-            if (ltp.getLanguage().equals("und")) {
-                return "Other";
-            }
-            prefix = "Other ";
-            break;
-        case "":
-            break;
-        default:
-            return cldrFile.getName(CLDRFile.TERRITORY_NAME, ltp.getRegion());
+            case "001":
+                if (ltp.getLanguage().equals("und")) {
+                    return "Other";
+                }
+                prefix = "Other ";
+                break;
+            case "":
+                break;
+            default:
+                return cldrFile.getName(CLDRFile.TERRITORY_NAME, ltp.getRegion());
         }
         switch (ltp.getScript()) {
-        case "Hani":
-            return "CJK";
-        case "":
-            break;
-        default:
-            throw new IllegalArgumentException("Need to fix code: " + ltp.getScript());
+            case "Hani":
+                return "CJK";
+            case "":
+                break;
+            default:
+                throw new IllegalArgumentException("Need to fix code: " + ltp.getScript());
         }
-        return prefix + cldrFile.getName(ltp.getLanguage()).replace(" [Other]", "").replace(" languages", "");
+        return (
+            prefix +
+            cldrFile.getName(ltp.getLanguage()).replace(" [Other]", "").replace(" languages", "")
+        );
     }
 
     @Override

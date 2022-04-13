@@ -7,10 +7,11 @@ import java.util.Iterator;
 import java.util.List;
 
 public class CharacterFallbacks {
+
     private static CharacterFallbacks SINGLETON = new CharacterFallbacks();
     private HashMap<Integer, List<String>> data = new HashMap<>();
 
-    static public CharacterFallbacks make() {
+    public static CharacterFallbacks make() {
         return SINGLETON;
     }
 
@@ -21,9 +22,17 @@ public class CharacterFallbacks {
     private CharacterFallbacks() {
         Factory cldrFactory = Factory.make(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY, ".*");
         CLDRFile characterFallbacks = cldrFactory.make("characters", false);
-        Comparator<String> comp = DtdData.getInstance(DtdType.supplementalData).getDtdComparator(null);
+        Comparator<String> comp = DtdData
+            .getInstance(DtdType.supplementalData)
+            .getDtdComparator(null);
 
-        for (Iterator<String> it = characterFallbacks.iterator("//supplementalData/characters/", comp); it.hasNext();) {
+        for (
+            Iterator<String> it = characterFallbacks.iterator(
+                "//supplementalData/characters/",
+                comp
+            );
+            it.hasNext();
+        ) {
             String path = it.next();
             String fullPath = characterFallbacks.getFullXPath(path);
             XPathParts parts = XPathParts.getFrozenInstance(fullPath);

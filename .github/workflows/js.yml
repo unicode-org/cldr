@@ -18,7 +18,7 @@ jobs:
       with:
         lfs: false # not needed for this job, as we don’t currently do a Java build
     - name: Cache npm repository
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: ~/.npm
         key: ${{ runner.os }}-lint-${{ hashFiles('.github/workflows/js.yml') }}

@@ -2,18 +2,17 @@
 
 package org.unicode.cldr.util;
 
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
+import com.ibm.icu.text.LocaleDisplayNames;
+import com.ibm.icu.text.Transform;
+import com.ibm.icu.util.ULocale;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutionException;
-
-import com.google.common.cache.Cache;
-import com.google.common.cache.CacheBuilder;
-import com.ibm.icu.text.LocaleDisplayNames;
-import com.ibm.icu.text.Transform;
-import com.ibm.icu.util.ULocale;
 
 /**
  * This class implements a CLDR UTS#35 compliant locale.
@@ -25,6 +24,7 @@ import com.ibm.icu.util.ULocale;
  * @see ULocale
  */
 public final class CLDRLocale implements Comparable<CLDRLocale> {
+
     private static final boolean DEBUG = false;
 
     /*
@@ -35,7 +35,11 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     public interface NameFormatter {
         String getDisplayName(CLDRLocale cldrLocale);
 
-        String getDisplayName(CLDRLocale cldrLocale, boolean onlyConstructCompound, Transform<String, String> altPicker);
+        String getDisplayName(
+            CLDRLocale cldrLocale,
+            boolean onlyConstructCompound,
+            Transform<String, String> altPicker
+        );
 
         String getDisplayLanguage(CLDRLocale cldrLocale);
 
@@ -47,6 +51,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     }
 
     public static class SimpleFormatter implements NameFormatter {
+
         private LocaleDisplayNames ldn;
 
         public SimpleFormatter(ULocale displayLocale) {
@@ -84,9 +89,11 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
             } else {
                 sb.append("?");
             }
-            if ((s != null && !s.isEmpty()) ||
+            if (
+                (s != null && !s.isEmpty()) ||
                 (r != null && !r.isEmpty()) ||
-                (v != null && !v.isEmpty())) {
+                (v != null && !v.isEmpty())
+            ) {
                 sb.append(" (");
                 if (s != null && !s.isEmpty()) {
                     sb.append(getDisplayScript(cldrLocale)).append(",");
@@ -114,7 +121,11 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
         @SuppressWarnings("unused")
         @Override
-        public String getDisplayName(CLDRLocale cldrLocale, boolean onlyConstructCompound, Transform<String, String> altPicker) {
+        public String getDisplayName(
+            CLDRLocale cldrLocale,
+            boolean onlyConstructCompound,
+            Transform<String, String> altPicker
+        ) {
             return getDisplayName(cldrLocale);
         }
     }
@@ -125,6 +136,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
      * This formatter will delegate to CLDRFile.getName if a CLDRFile is given, otherwise StandardCodes
      */
     public static class CLDRFormatter extends SimpleFormatter {
+
         private FormatBehavior behavior = FormatBehavior.extend;
 
         private CLDRFile file = null;
@@ -151,42 +163,74 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
         @Override
         public String getDisplayVariant(CLDRLocale cldrLocale) {
-            if (file != null) return file.getName("variant", cldrLocale.getVariant());
-            return tryForBetter(super.getDisplayVariant(cldrLocale),
-                cldrLocale.getVariant());
+            if (file != null) return file.getName(
+                "variant",
+                cldrLocale.getVariant()
+            );
+            return tryForBetter(
+                super.getDisplayVariant(cldrLocale),
+                cldrLocale.getVariant()
+            );
         }
 
         @Override
         public String getDisplayName(CLDRLocale cldrLocale) {
-            if (file != null) return file.getName(cldrLocale.toDisplayLanguageTag(), true, null);
+            if (file != null) return file.getName(
+                cldrLocale.toDisplayLanguageTag(),
+                true,
+                null
+            );
             return super.getDisplayName(cldrLocale);
         }
 
         @Override
-        public String getDisplayName(CLDRLocale cldrLocale, boolean onlyConstructCompound, Transform<String, String> altPicker) {
-            if (file != null) return file.getName(cldrLocale.toDisplayLanguageTag(), onlyConstructCompound, altPicker);
+        public String getDisplayName(
+            CLDRLocale cldrLocale,
+            boolean onlyConstructCompound,
+            Transform<String, String> altPicker
+        ) {
+            if (file != null) return file.getName(
+                cldrLocale.toDisplayLanguageTag(),
+                onlyConstructCompound,
+                altPicker
+            );
             return super.getDisplayName(cldrLocale);
         }
 
         @Override
         public String getDisplayScript(CLDRLocale cldrLocale) {
-            if (file != null) return file.getName("script", cldrLocale.getScript());
-            return tryForBetter(super.getDisplayScript(cldrLocale),
-                cldrLocale.getScript());
+            if (file != null) return file.getName(
+                "script",
+                cldrLocale.getScript()
+            );
+            return tryForBetter(
+                super.getDisplayScript(cldrLocale),
+                cldrLocale.getScript()
+            );
         }
 
         @Override
         public String getDisplayLanguage(CLDRLocale cldrLocale) {
-            if (file != null) return file.getName("language", cldrLocale.getLanguage());
-            return tryForBetter(super.getDisplayLanguage(cldrLocale),
-                cldrLocale.getLanguage());
+            if (file != null) return file.getName(
+                "language",
+                cldrLocale.getLanguage()
+            );
+            return tryForBetter(
+                super.getDisplayLanguage(cldrLocale),
+                cldrLocale.getLanguage()
+            );
         }
 
         @Override
         public String getDisplayCountry(CLDRLocale cldrLocale) {
-            if (file != null) return file.getName("territory", cldrLocale.getCountry());
-            return tryForBetter(super.getDisplayLanguage(cldrLocale),
-                cldrLocale.getLanguage());
+            if (file != null) return file.getName(
+                "territory",
+                cldrLocale.getCountry()
+            );
+            return tryForBetter(
+                super.getDisplayLanguage(cldrLocale),
+                cldrLocale.getLanguage()
+            );
         }
 
         private String tryForBetter(String superString, String code) {
@@ -194,12 +238,12 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
                 String fromLst = StandardCodes.make().getData("language", code);
                 if (fromLst != null && !fromLst.equals(code)) {
                     switch (behavior) {
-                    case replace:
-                        return fromLst;
-                    case extend:
-                        return superString + " [" + fromLst + "]";
-                    case extendHtml:
-                        return superString + " [<i>" + fromLst + "</i>]";
+                        case replace:
+                            return fromLst;
+                        case extend:
+                            return superString + " [" + fromLst + "]";
+                        case extendHtml:
+                            return superString + " [<i>" + fromLst + "</i>]";
                     }
                 }
             }
@@ -208,7 +252,9 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     }
 
     public enum FormatBehavior {
-        replace, extend, extendHtml
+        replace,
+        extend,
+        extendHtml,
     }
 
     /**
@@ -384,7 +430,10 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
          * ULocale.ROOT.getBaseName() is "", the empty string, not ROOT_NAME = "root".
          * CLDRLocale.ROOT.getBaseName() is ROOT_NAME.
          */
-        return s.equals(ULocale.ROOT.getBaseName()) || s.equalsIgnoreCase(ROOT_NAME);
+        return (
+            s.equals(ULocale.ROOT.getBaseName()) ||
+            s.equalsIgnoreCase(ROOT_NAME)
+        );
     }
 
     /**
@@ -423,7 +472,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         }
         CLDRLocale result = parentLocale;
         if (result == null) {
-            synchronized(this) {
+            synchronized (this) {
                 result = parentLocale;
                 if (result == null) {
                     parentLocale = result = CLDRLocale.getInstance(parentId);
@@ -475,7 +524,6 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
                     public void remove() {
                         throw new InternalError("unmodifiable iterator");
                     }
-
                 };
             }
         };
@@ -546,7 +594,10 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         return getDisplayVariant(getDefaultFormatter());
     }
 
-    public String getDisplayName(boolean combined, Transform<String, String> picker) {
+    public String getDisplayName(
+        boolean combined,
+        Transform<String, String> picker
+    ) {
         return getDisplayName(getDefaultFormatter(), combined, picker);
     }
 
@@ -562,27 +613,34 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         return displayLocale.getDisplayName(this);
     }
 
-//    private static LruMap<ULocale, NameFormatter> defaultFormatters = new LruMap<ULocale, NameFormatter>(1);
-    private static Cache<ULocale, NameFormatter> defaultFormatters = CacheBuilder.newBuilder().initialCapacity(1).build();
-    private static NameFormatter gDefaultFormatter = getSimpleFormatterFor(ULocale.getDefault());
+    //    private static LruMap<ULocale, NameFormatter> defaultFormatters = new LruMap<ULocale, NameFormatter>(1);
+    private static Cache<ULocale, NameFormatter> defaultFormatters = CacheBuilder
+        .newBuilder()
+        .initialCapacity(1)
+        .build();
+    private static NameFormatter gDefaultFormatter = getSimpleFormatterFor(
+        ULocale.getDefault()
+    );
 
     public static NameFormatter getSimpleFormatterFor(ULocale loc) {
-//        NameFormatter nf = defaultFormatters.get(loc);
-//        if (nf == null) {
-//            nf = new SimpleFormatter(loc);
-//            defaultFormatters.put(loc, nf);
-//        }
-//        return nf;
-//        return defaultFormatters.getIfPresent(loc);
+        //        NameFormatter nf = defaultFormatters.get(loc);
+        //        if (nf == null) {
+        //            nf = new SimpleFormatter(loc);
+        //            defaultFormatters.put(loc, nf);
+        //        }
+        //        return nf;
+        //        return defaultFormatters.getIfPresent(loc);
         final ULocale uLocFinal = loc;
         try {
-            return defaultFormatters.get(loc, new Callable<NameFormatter>() {
-
-                @Override
-                public NameFormatter call() throws Exception {
-                    return new SimpleFormatter(uLocFinal);
+            return defaultFormatters.get(
+                loc,
+                new Callable<NameFormatter>() {
+                    @Override
+                    public NameFormatter call() throws Exception {
+                        return new SimpleFormatter(uLocFinal);
+                    }
                 }
-            });
+            );
         } catch (ExecutionException e) {
             e.printStackTrace();
             return null;
@@ -643,7 +701,11 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         public Set<CLDRLocale> subLocalesOf(CLDRLocale forLocale);
     }
 
-    public String getDisplayName(NameFormatter engFormat, boolean combined, Transform<String, String> picker) {
+    public String getDisplayName(
+        NameFormatter engFormat,
+        boolean combined,
+        Transform<String, String> picker
+    ) {
         return engFormat.getDisplayName(this, combined, picker);
     }
 

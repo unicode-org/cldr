@@ -14,7 +14,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.Dictionary.Matcher.Status;
 
 /**
@@ -24,6 +23,7 @@ import org.unicode.cldr.util.Dictionary.Matcher.Status;
  * @author markdavis
  */
 public class SimpleDictionary<T> extends Dictionary<T> {
+
     private TreeMap<CharSequence, T> data = new TreeMap<>();
     private Set<CharSequence> possibleMatchesBefore;
     private Set<CharSequence> possibleMatchesAfter;
@@ -32,13 +32,13 @@ public class SimpleDictionary<T> extends Dictionary<T> {
     private int matchCount;
     private CharSequence lastEntry = "";
 
-    public static class SimpleDictionaryBuilder<T> implements DictionaryBuilder<T> {
+    public static class SimpleDictionaryBuilder<T>
+        implements DictionaryBuilder<T> {
 
         @Override
         public SimpleDictionary<T> make(Map<CharSequence, T> source) {
             return new SimpleDictionary(source);
         }
-
     }
 
     private SimpleDictionary(Map<CharSequence, T> source) {
@@ -72,7 +72,9 @@ public class SimpleDictionary<T> extends Dictionary<T> {
 
     private void addMapping(CharSequence text, T result) {
         if (CharUtilities.compare(text, lastEntry) <= 0) {
-            throw new IllegalArgumentException("Each string must be greater than the previous one.");
+            throw new IllegalArgumentException(
+                "Each string must be greater than the previous one."
+            );
         }
         lastEntry = text;
         data.put(text, result);
@@ -134,7 +136,9 @@ public class SimpleDictionary<T> extends Dictionary<T> {
 
                 // if we have a full match, return it
 
-                if (firstMatch != null && firstMatch.length() == probe.length()) {
+                if (
+                    firstMatch != null && firstMatch.length() == probe.length()
+                ) {
                     possibleMatchesAfter.remove(firstMatch);
                     possibleMatchesBefore = possibleMatchesAfter;
                     matchValue = data.get(firstMatch);
@@ -252,7 +256,6 @@ public class SimpleDictionary<T> extends Dictionary<T> {
             // TODO Auto-generated method stub
             return SimpleDictionary.this;
         }
-
         // public static class CharSequenceComparator implements Comparator<CharSequence> {
         //
         // public int compare(CharSequence first, CharSequence second) {
@@ -270,7 +273,10 @@ public class SimpleDictionary<T> extends Dictionary<T> {
         // }
     }
 
-    public static boolean startsWith(CharSequence first, CharSequence possiblePrefix) {
+    public static boolean startsWith(
+        CharSequence first,
+        CharSequence possiblePrefix
+    ) {
         if (first.length() < possiblePrefix.length()) {
             return false;
         }
@@ -281,5 +287,4 @@ public class SimpleDictionary<T> extends Dictionary<T> {
         }
         return true;
     }
-
 }

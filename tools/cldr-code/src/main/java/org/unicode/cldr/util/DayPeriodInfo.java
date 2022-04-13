@@ -1,5 +1,9 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.util.Output;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -11,19 +15,17 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R3;
-import com.ibm.icu.util.Output;
-
 public class DayPeriodInfo {
+
     public static final int HOUR = 60 * 60 * 1000;
     public static final int MIDNIGHT = 0;
     public static final int NOON = 12 * HOUR;
     public static final int DAY_LIMIT = 24 * HOUR;
 
     public enum Type {
-        format("format"), selection("stand-alone");
+        format("format"),
+        selection("stand-alone");
+
         public final String pathValue;
 
         private Type(String _pathValue) {
@@ -31,11 +33,14 @@ public class DayPeriodInfo {
         }
 
         public static Type fromString(String source) {
-            return selection.pathValue.equals(source) ? selection : Type.valueOf(source);
+            return selection.pathValue.equals(source)
+                ? selection
+                : Type.valueOf(source);
         }
     }
 
     public static class Span implements Comparable<Span> {
+
         public final int start;
         public final int end;
         public final boolean includesEnd;
@@ -63,7 +68,10 @@ public class DayPeriodInfo {
         }
 
         public boolean contains(int millisInDay) {
-            return start <= millisInDay && (millisInDay < end || millisInDay == end && includesEnd);
+            return (
+                start <= millisInDay &&
+                (millisInDay < end || millisInDay == end && includesEnd)
+            );
         }
 
         /**
@@ -92,15 +100,30 @@ public class DayPeriodInfo {
         }
 
         public String toStringPlain() {
-            return formatTime(start) + " – " + formatTime(end) + (includesEnd ? "" : "⁻");
+            return (
+                formatTime(start) +
+                " – " +
+                formatTime(end) +
+                (includesEnd ? "" : "⁻")
+            );
         }
     }
 
     public enum DayPeriod {
         // fixed
-        midnight(MIDNIGHT, MIDNIGHT), am(MIDNIGHT, NOON), noon(NOON, NOON), pm(NOON, DAY_LIMIT),
+        midnight(MIDNIGHT, MIDNIGHT),
+        am(MIDNIGHT, NOON),
+        noon(NOON, NOON),
+        pm(NOON, DAY_LIMIT),
         // flexible
-        morning1, morning2, afternoon1, afternoon2, evening1, evening2, night1, night2;
+        morning1,
+        morning2,
+        afternoon1,
+        afternoon2,
+        evening1,
+        evening2,
+        night1,
+        night2;
 
         public final Span span;
 
@@ -123,19 +146,33 @@ public class DayPeriodInfo {
 
     // the arrays must be in sorted order. First must have start= zero. Last must have end = DAY_LIMIT (and !includesEnd)
     // each of these will have the same length, and correspond.
-    final private Span[] spans;
-    final private DayPeriodInfo.DayPeriod[] dayPeriods;
-    final Relation<DayPeriod, Span> dayPeriodsToSpans = Relation.of(new EnumMap<DayPeriod, Set<Span>>(DayPeriod.class), LinkedHashSet.class);
+    private final Span[] spans;
+    private final DayPeriodInfo.DayPeriod[] dayPeriods;
+    final Relation<DayPeriod, Span> dayPeriodsToSpans = Relation.of(
+        new EnumMap<DayPeriod, Set<Span>>(DayPeriod.class),
+        LinkedHashSet.class
+    );
 
     public static class Builder {
+
         TreeSet<Span> info = new TreeSet<>();
 
         // TODO add rule test that they can't span same 12 hour time.
 
-        public DayPeriodInfo.Builder add(DayPeriodInfo.DayPeriod dayPeriod, int start, boolean includesStart, int end,
-            boolean includesEnd) {
-            if (dayPeriod == null || start < 0 || start > end || end > DAY_LIMIT
-                || end - start > NOON) { // the span can't exceed 12 hours
+        public DayPeriodInfo.Builder add(
+            DayPeriodInfo.DayPeriod dayPeriod,
+            int start,
+            boolean includesStart,
+            int end,
+            boolean includesEnd
+        ) {
+            if (
+                dayPeriod == null ||
+                start < 0 ||
+                start > end ||
+                end > DAY_LIMIT ||
+                end - start > NOON
+            ) { // the span can't exceed 12 hours
                 throw new IllegalArgumentException("Bad data");
             }
             Span span = new Span(start, end, dayPeriod);
@@ -178,8 +215,14 @@ public class DayPeriodInfo {
                 Span current = spans[i];
                 if (current.start != current.end && last.start != last.end) {
                     if (current.start != last.end) {
-                        throw new IllegalArgumentException("Gap or overlapping times:\t"
-                            + current + "\t" + last + "\t" + Arrays.asList(locales));
+                        throw new IllegalArgumentException(
+                            "Gap or overlapping times:\t" +
+                            current +
+                            "\t" +
+                            last +
+                            "\t" +
+                            Arrays.asList(locales)
+                        );
                     }
                 }
                 tempPeriods.add(current.dayPeriod);
@@ -209,8 +252,16 @@ public class DayPeriodInfo {
                         int end2 = span2.getAdjustedEnd() % NOON;
                         // disjoint if e1 < s2 || e2 < s1
                         if (start >= end2 && start2 >= end) {
-                            throw new IllegalArgumentException("Overlapping times for " + dayPeriod + ":\t"
-                                + span + "\t" + span2 + "\t" + Arrays.asList(locales));
+                            throw new IllegalArgumentException(
+                                "Overlapping times for " +
+                                dayPeriod +
+                                ":\t" +
+                                span +
+                                "\t" +
+                                span2 +
+                                "\t" +
+                                Arrays.asList(locales)
+                            );
                         }
                     }
                 }
@@ -239,7 +290,9 @@ public class DayPeriodInfo {
      * @param dayPeriod
      * @return start,end,includesStart,period
      */
-    public R3<Integer, Integer, Boolean> getFirstDayPeriodInfo(DayPeriodInfo.DayPeriod dayPeriod) {
+    public R3<Integer, Integer, Boolean> getFirstDayPeriodInfo(
+        DayPeriodInfo.DayPeriod dayPeriod
+    ) {
         Span span = getFirstDayPeriodSpan(dayPeriod);
         if (span == null) {
             return null;
@@ -249,24 +302,26 @@ public class DayPeriodInfo {
 
     public Span getFirstDayPeriodSpan(DayPeriodInfo.DayPeriod dayPeriod) {
         switch (dayPeriod) {
-        case am:
-            return DayPeriod.am.span;
-        case pm:
-            return DayPeriod.pm.span;
-        default:
-            Set<Span> spanList = dayPeriodsToSpans.get(dayPeriod);
-            return spanList == null ? null : dayPeriodsToSpans.get(dayPeriod).iterator().next();
+            case am:
+                return DayPeriod.am.span;
+            case pm:
+                return DayPeriod.pm.span;
+            default:
+                Set<Span> spanList = dayPeriodsToSpans.get(dayPeriod);
+                return spanList == null
+                    ? null
+                    : dayPeriodsToSpans.get(dayPeriod).iterator().next();
         }
     }
 
     public Set<Span> getDayPeriodSpans(DayPeriodInfo.DayPeriod dayPeriod) {
         switch (dayPeriod) {
-        case am:
-            return Collections.singleton(DayPeriod.am.span);
-        case pm:
-            return Collections.singleton(DayPeriod.pm.span);
-        default:
-            return dayPeriodsToSpans.get(dayPeriod);
+            case am:
+                return Collections.singleton(DayPeriod.am.span);
+            case pm:
+                return Collections.singleton(DayPeriod.pm.span);
+            default:
+                return dayPeriodsToSpans.get(dayPeriod);
         }
     }
 
@@ -325,16 +380,16 @@ public class DayPeriodInfo {
 
     public String toString(DayPeriod dayPeriod) {
         switch (dayPeriod) {
-        case midnight:
-            return "00:00";
-        case noon:
-            return "12:00";
-        case am:
-            return "00:00 – 12:00⁻";
-        case pm:
-            return "12:00 – 24:00⁻";
-        default:
-            break;
+            case midnight:
+                return "00:00";
+            case noon:
+                return "12:00";
+            case am:
+                return "00:00 – 12:00⁻";
+            case pm:
+                return "12:00 – 24:00⁻";
+            default:
+                break;
         }
         StringBuilder result = new StringBuilder();
         Set<Span> set = dayPeriodsToSpans.get(dayPeriod);
@@ -359,10 +414,24 @@ public class DayPeriodInfo {
     }
 
     // Day periods that are allowed to collide
-    private static final EnumMap<DayPeriod, EnumSet<DayPeriod>> allowableCollisions = new EnumMap<>(DayPeriod.class);
+    private static final EnumMap<DayPeriod, EnumSet<DayPeriod>> allowableCollisions = new EnumMap<>(
+        DayPeriod.class
+    );
+
     static {
-        allowableCollisions.put(DayPeriod.am, EnumSet.of(DayPeriod.morning1, DayPeriod.morning2));
-        allowableCollisions.put(DayPeriod.pm, EnumSet.of(DayPeriod.afternoon1, DayPeriod.afternoon2, DayPeriod.evening1, DayPeriod.evening2));
+        allowableCollisions.put(
+            DayPeriod.am,
+            EnumSet.of(DayPeriod.morning1, DayPeriod.morning2)
+        );
+        allowableCollisions.put(
+            DayPeriod.pm,
+            EnumSet.of(
+                DayPeriod.afternoon1,
+                DayPeriod.afternoon2,
+                DayPeriod.evening1,
+                DayPeriod.evening2
+            )
+        );
     }
 
     /**
@@ -374,13 +443,26 @@ public class DayPeriodInfo {
      * @param sampleError TODO
      * @return
      */
-    public boolean collisionIsError(DayPeriodInfo.Type type1, DayPeriod dayPeriod1, Type type2, DayPeriod dayPeriod2,
-        Output<Integer> sampleError) {
+    public boolean collisionIsError(
+        DayPeriodInfo.Type type1,
+        DayPeriod dayPeriod1,
+        Type type2,
+        DayPeriod dayPeriod2,
+        Output<Integer> sampleError
+    ) {
         if (dayPeriod1 == dayPeriod2) {
             return false;
         }
-        if ((allowableCollisions.containsKey(dayPeriod1) && allowableCollisions.get(dayPeriod1).contains(dayPeriod2)) ||
-            (allowableCollisions.containsKey(dayPeriod2) && allowableCollisions.get(dayPeriod2).contains(dayPeriod1))) {
+        if (
+            (
+                allowableCollisions.containsKey(dayPeriod1) &&
+                allowableCollisions.get(dayPeriod1).contains(dayPeriod2)
+            ) ||
+            (
+                allowableCollisions.containsKey(dayPeriod2) &&
+                allowableCollisions.get(dayPeriod2).contains(dayPeriod1)
+            )
+        ) {
             return false;
         }
 
@@ -411,34 +493,56 @@ public class DayPeriodInfo {
         // TODO since periods are sorted, could optimize further
 
         switch (type1) {
-        case format: {
-            if (fixedOrFlexible.span != null) {
-                if (collisionIsErrorFormat(flexible, fixedOrFlexible.span, sampleError)) {
-                    return true;
-                }
-            } else { // flexible
-                for (Span s : dayPeriodsToSpans.get(fixedOrFlexible)) {
-                    if (collisionIsErrorFormat(flexible, s, sampleError)) {
-                        return true;
+            case format:
+                {
+                    if (fixedOrFlexible.span != null) {
+                        if (
+                            collisionIsErrorFormat(
+                                flexible,
+                                fixedOrFlexible.span,
+                                sampleError
+                            )
+                        ) {
+                            return true;
+                        }
+                    } else { // flexible
+                        for (Span s : dayPeriodsToSpans.get(fixedOrFlexible)) {
+                            if (
+                                collisionIsErrorFormat(flexible, s, sampleError)
+                            ) {
+                                return true;
+                            }
+                        }
                     }
+                    break;
                 }
-            }
-            break;
-        }
-        case selection: {
-            if (fixedOrFlexible.span != null) {
-                if (collisionIsErrorSelection(flexible, fixedOrFlexible.span, sampleError)) {
-                    return true;
-                }
-            } else { // flexible
-                for (Span s : dayPeriodsToSpans.get(fixedOrFlexible)) {
-                    if (collisionIsErrorSelection(flexible, s, sampleError)) {
-                        return true;
+            case selection:
+                {
+                    if (fixedOrFlexible.span != null) {
+                        if (
+                            collisionIsErrorSelection(
+                                flexible,
+                                fixedOrFlexible.span,
+                                sampleError
+                            )
+                        ) {
+                            return true;
+                        }
+                    } else { // flexible
+                        for (Span s : dayPeriodsToSpans.get(fixedOrFlexible)) {
+                            if (
+                                collisionIsErrorSelection(
+                                    flexible,
+                                    s,
+                                    sampleError
+                                )
+                            ) {
+                                return true;
+                            }
+                        }
                     }
+                    break;
                 }
-            }
-            break;
-        }
         }
         return false; // no bad collision
     }
@@ -448,7 +552,11 @@ public class DayPeriodInfo {
     // if it doesn't cause a collision when paired with a time.
     // But if 11:00 has the same format (eg 11 X) as 23:00, there IS a collision.
     // So we see if there is an overlap mod 12.
-    private boolean collisionIsErrorFormat(DayPeriod dayPeriod, Span other, Output<Integer> sampleError) {
+    private boolean collisionIsErrorFormat(
+        DayPeriod dayPeriod,
+        Span other,
+        Output<Integer> sampleError
+    ) {
         int otherStart = other.start % NOON;
         int otherEnd = other.getAdjustedEnd() % NOON;
         for (Span s : dayPeriodsToSpans.get(dayPeriod)) {
@@ -466,7 +574,11 @@ public class DayPeriodInfo {
 
     // Selection has stricter collision rules, because is is used to select different messages.
     // So two types with the same localization do collide unless they have exactly the same rules.
-    private boolean collisionIsErrorSelection(DayPeriod dayPeriod, Span other, Output<Integer> sampleError) {
+    private boolean collisionIsErrorSelection(
+        DayPeriod dayPeriod,
+        Span other,
+        Output<Integer> sampleError
+    ) {
         int otherStart = other.start;
         int otherEnd = other.getAdjustedEnd();
         for (Span s : dayPeriodsToSpans.get(dayPeriod)) {

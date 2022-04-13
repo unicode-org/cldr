@@ -1,5 +1,7 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Arrays;
@@ -12,7 +14,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.CountryCodeConverter;
 import org.unicode.cldr.tool.LanguageCodeConverter;
@@ -20,15 +21,14 @@ import org.unicode.cldr.tool.ToolConfig;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.util.ICUUncheckedIOException;
-
 /**
  * To update, copy the list from http://en.wikipedia.org/wiki/List_of_official_languages_by_state into WikipediaOfficialLanguages.txt
  * May take some code updates, since they are not consistent, so a number of tests below are hacks based on current behavior.
  */
 public class WikipediaOfficialLanguages {
+
     public static class Info implements Comparable<Info> {
+
         final String language;
         final OfficialStatus status;
         final String comments;
@@ -56,34 +56,76 @@ public class WikipediaOfficialLanguages {
         }
     }
 
-    private static Relation<String, Info> regionToLanguageStatus = Relation.of(new TreeMap<String, Set<Info>>(), TreeSet.class);
+    private static Relation<String, Info> regionToLanguageStatus = Relation.of(
+        new TreeMap<String, Set<Info>>(),
+        TreeSet.class
+    );
+
     static {
-        Relation<String, String> REPLACE_REGIONS = Relation.of(new HashMap<String, Set<String>>(), HashSet.class);
-        for (String s : Arrays.asList("Abkhazia", "Nagorno-Karabakh", "Northern Cyprus",
-            "Sahrawi Arab Democratic Republic", "Tamazight", "Somaliland", "Somalian", "South Ossetia", "Transnistria")) {
+        Relation<String, String> REPLACE_REGIONS = Relation.of(
+            new HashMap<String, Set<String>>(),
+            HashSet.class
+        );
+        for (String s : Arrays.asList(
+            "Abkhazia",
+            "Nagorno-Karabakh",
+            "Northern Cyprus",
+            "Sahrawi Arab Democratic Republic",
+            "Tamazight",
+            "Somaliland",
+            "Somalian",
+            "South Ossetia",
+            "Transnistria"
+        )) {
             REPLACE_REGIONS.put(s, "SKIP");
         }
         for (String s : Arrays.asList(
             //"Akrotiri and Dhekelia",
-            "Anguilla", "Bermuda",
+            "Anguilla",
+            "Bermuda",
             //"British Antarctic Territory",
-            "British Indian Ocean Territory", "British Virgin Islands", "Cayman Islands", "Falkland Islands", "Gibraltar",
-            "Montserrat", "Pitcairn Islands", "Saint Helena", "Ascension Island", "Tristan da Cunha")) {
+            "British Indian Ocean Territory",
+            "British Virgin Islands",
+            "Cayman Islands",
+            "Falkland Islands",
+            "Gibraltar",
+            "Montserrat",
+            "Pitcairn Islands",
+            "Saint Helena",
+            "Ascension Island",
+            "Tristan da Cunha"
+        )) {
             String region = CountryCodeConverter.getCodeFromName(s, false);
             if (region == null) {
                 System.err.println("Couldn't parse region: <" + s + ">");
             } else {
-                REPLACE_REGIONS.put("United Kingdom and overseas territories", region);
+                REPLACE_REGIONS.put(
+                    "United Kingdom and overseas territories",
+                    region
+                );
             }
         }
-        for (String s : Arrays.asList("French Guiana", "French Polynesia", "Guadeloupe", "Martinique",
-            "Mayotte", "New Caledonia", "Réunion", "Saint Barthélemy", "Saint Martin", "Saint Pierre and Miquelon",
-            "Wallis and Futuna")) {
+        for (String s : Arrays.asList(
+            "French Guiana",
+            "French Polynesia",
+            "Guadeloupe",
+            "Martinique",
+            "Mayotte",
+            "New Caledonia",
+            "Réunion",
+            "Saint Barthélemy",
+            "Saint Martin",
+            "Saint Pierre and Miquelon",
+            "Wallis and Futuna"
+        )) {
             String region = CountryCodeConverter.getCodeFromName(s, false);
             if (region == null) {
                 System.err.println("Couldn't parse region: <" + s + ">");
             } else {
-                REPLACE_REGIONS.put("France and overseas departments and territories", region);
+                REPLACE_REGIONS.put(
+                    "France and overseas departments and territories",
+                    region
+                );
             }
         }
 
@@ -91,7 +133,10 @@ public class WikipediaOfficialLanguages {
         Pattern commentBreak = PatternCache.get("\\)\\s*\\(?|\\s*\\(");
         int count = 0;
         try {
-            BufferedReader input = FileUtilities.openUTF8Reader(CLDRPaths.UTIL_DATA_DIR, "WikipediaOfficialLanguages.txt");
+            BufferedReader input = FileUtilities.openUTF8Reader(
+                CLDRPaths.UTIL_DATA_DIR,
+                "WikipediaOfficialLanguages.txt"
+            );
             Set<String> regionSet = null;
             while (true) {
                 String line = input.readLine();
@@ -111,9 +156,18 @@ public class WikipediaOfficialLanguages {
                         continue;
                     }
 
-                    String region = CountryCodeConverter.getCodeFromName(items[0], false);
+                    String region = CountryCodeConverter.getCodeFromName(
+                        items[0],
+                        false
+                    );
                     if (region == null) {
-                        System.err.println(++count + " Couldn't parse region: <" + items[0] + "> in line: " + line);
+                        System.err.println(
+                            ++count +
+                            " Couldn't parse region: <" +
+                            items[0] +
+                            "> in line: " +
+                            line
+                        );
                         regionSet = Collections.emptySet();
                     } else {
                         regionSet = new HashSet<>();
@@ -129,10 +183,19 @@ public class WikipediaOfficialLanguages {
                     // Pashto (statewide) (official)
                     line = pagenote.reset(line.trim()).replaceAll("");
                     String[] items = commentBreak.split(line);
-                    String language = LanguageCodeConverter.getCodeForName(items[0]);
+                    String language = LanguageCodeConverter.getCodeForName(
+                        items[0]
+                    );
                     if (language == null) {
-                        System.out.println(++count + " Couldn't parse language:\txxx ; " + items[0] + "\tfor <" + regionSet +
-                            "> in line: " + line);
+                        System.out.println(
+                            ++count +
+                            " Couldn't parse language:\txxx ; " +
+                            items[0] +
+                            "\tfor <" +
+                            regionSet +
+                            "> in line: " +
+                            line
+                        );
                     } else if ("sgn".equals(language)) {
                         continue;
                     } else {
@@ -144,12 +207,20 @@ public class WikipediaOfficialLanguages {
                             s.append(items[i]);
                         }
                         String comments = s.toString();
-                        Set<String> narrowRegionSet = getRegionSet(regionSet, comments);
+                        Set<String> narrowRegionSet = getRegionSet(
+                            regionSet,
+                            comments
+                        );
 
                         for (String region : narrowRegionSet) {
-                            regionToLanguageStatus.put(region,
-                                new Info(language, guessStatus(comments),
-                                    comments));
+                            regionToLanguageStatus.put(
+                                region,
+                                new Info(
+                                    language,
+                                    guessStatus(comments),
+                                    comments
+                                )
+                            );
                         }
                     }
                 }
@@ -169,13 +240,20 @@ public class WikipediaOfficialLanguages {
             return OfficialStatus.recognized;
         } else if (line.contains("de facto")) {
             return OfficialStatus.de_facto_official;
-        } else if (line.contains("official") || line.contains("national") || line.isEmpty()) {
+        } else if (
+            line.contains("official") ||
+            line.contains("national") ||
+            line.isEmpty()
+        ) {
             return OfficialStatus.official;
         }
         return OfficialStatus.official;
     }
 
-    private static Set<String> getRegionSet(Set<String> regionSet, String comments) {
+    private static Set<String> getRegionSet(
+        Set<String> regionSet,
+        String comments
+    ) {
         if (regionSet.size() < 2) {
             return regionSet;
         }
@@ -226,15 +304,22 @@ public class WikipediaOfficialLanguages {
         StandardCodes sc = StandardCodes.make();
         Set<String> locales = sc.getLocaleCoverageLocales("google"); // for now, restrict this
 
-        System.out.println("Cc\tCountry\tLc\tLanguage Name\tWiki status (heuristic)\tCLDR status\t\tWiki notes");
+        System.out.println(
+            "Cc\tCountry\tLc\tLanguage Name\tWiki status (heuristic)\tCLDR status\t\tWiki notes"
+        );
         Set<String> seen = new HashSet<>();
         for (String region : getRegions()) {
             //boolean regionShown = false;
-            Set<String> cldrLanguagesRaw = supplementalDataInfo.getLanguagesForTerritoryWithPopulationData(region);
+            Set<String> cldrLanguagesRaw = supplementalDataInfo.getLanguagesForTerritoryWithPopulationData(
+                region
+            );
             Map<String, PopulationData> cldrLanguageInfo = new HashMap<>();
             for (String s : cldrLanguagesRaw) {
                 if (s.contains("_")) {
-                    PopulationData sInfo = supplementalDataInfo.getLanguageAndTerritoryPopulationData(s, region);
+                    PopulationData sInfo = supplementalDataInfo.getLanguageAndTerritoryPopulationData(
+                        s,
+                        region
+                    );
                     s = s.substring(0, s.indexOf('_'));
                     cldrLanguageInfo.put(s, sInfo);
                 }
@@ -243,41 +328,76 @@ public class WikipediaOfficialLanguages {
                 if (!locales.contains(info.language)) {
                     continue;
                 }
-                PopulationData sInfo = supplementalDataInfo.getLanguageAndTerritoryPopulationData(info.language, region);
+                PopulationData sInfo = supplementalDataInfo.getLanguageAndTerritoryPopulationData(
+                    info.language,
+                    region
+                );
                 if (sInfo == null) {
                     sInfo = cldrLanguageInfo.get(info.language);
                 }
-                OfficialStatus cldrStatus = sInfo == null ? OfficialStatus.unknown : sInfo.getOfficialStatus();
+                OfficialStatus cldrStatus = sInfo == null
+                    ? OfficialStatus.unknown
+                    : sInfo.getOfficialStatus();
                 if (!areCompatible(info.status, cldrStatus)) {
-                    System.out.print(region + "\t" + english.getName(CLDRFile.TERRITORY_NAME, region));
+                    System.out.print(
+                        region +
+                        "\t" +
+                        english.getName(CLDRFile.TERRITORY_NAME, region)
+                    );
 
-                    System.out.println("\t" + info.language
-                        + "\t" + english.getName(info.language)
-                        + "\t" + info.status
-                        + "\t" + (cldrStatus == null ? "NOT-IN-CLDR" : cldrStatus)
-                        + "\t-\t" + info.comments);
+                    System.out.println(
+                        "\t" +
+                        info.language +
+                        "\t" +
+                        english.getName(info.language) +
+                        "\t" +
+                        info.status +
+                        "\t" +
+                        (cldrStatus == null ? "NOT-IN-CLDR" : cldrStatus) +
+                        "\t-\t" +
+                        info.comments
+                    );
                 }
                 seen.add(info.language);
             }
             for (String r2 : cldrLanguagesRaw) {
-                if (!seen.contains(r2) && !r2.contains("_") && locales.contains(r2)) {
-                    PopulationData sInfo = supplementalDataInfo.getLanguageAndTerritoryPopulationData(r2, region);
+                if (
+                    !seen.contains(r2) &&
+                    !r2.contains("_") &&
+                    locales.contains(r2)
+                ) {
+                    PopulationData sInfo = supplementalDataInfo.getLanguageAndTerritoryPopulationData(
+                        r2,
+                        region
+                    );
                     OfficialStatus officialStatus = sInfo.getOfficialStatus();
                     if (OfficialStatus.unknown != officialStatus) {
-                        System.out.print(region + "\t" + english.getName(CLDRFile.TERRITORY_NAME, region));
+                        System.out.print(
+                            region +
+                            "\t" +
+                            english.getName(CLDRFile.TERRITORY_NAME, region)
+                        );
 
-                        System.out.println("\t" + r2
-                            + "\t" + english.getName(r2)
-                            + "\t" + "CLDR-ONLY"
-                            + "\t" + (sInfo == null ? "NOT-IN-CLDR" : officialStatus));
+                        System.out.println(
+                            "\t" +
+                            r2 +
+                            "\t" +
+                            english.getName(r2) +
+                            "\t" +
+                            "CLDR-ONLY" +
+                            "\t" +
+                            (sInfo == null ? "NOT-IN-CLDR" : officialStatus)
+                        );
                     }
                 }
             }
         }
         Set<String> errors = LanguageCodeConverter.getParseErrors();
         for (String error : errors) {
-            if (!error.startsWith("Name Collision!")
-                && !error.startsWith("Skipping *OMIT")) {
+            if (
+                !error.startsWith("Name Collision!") &&
+                !error.startsWith("Skipping *OMIT")
+            ) {
                 System.err.println(error);
             }
         }
@@ -288,9 +408,16 @@ public class WikipediaOfficialLanguages {
         //        }
     }
 
-    private static boolean areCompatible(OfficialStatus infoStatus, OfficialStatus cldrStatus) {
-        return infoStatus == cldrStatus
-            || infoStatus == OfficialStatus.official_regional && cldrStatus == OfficialStatus.official_minority
-            || infoStatus == OfficialStatus.official_minority && cldrStatus == OfficialStatus.official_regional;
+    private static boolean areCompatible(
+        OfficialStatus infoStatus,
+        OfficialStatus cldrStatus
+    ) {
+        return (
+            infoStatus == cldrStatus ||
+            infoStatus == OfficialStatus.official_regional &&
+            cldrStatus == OfficialStatus.official_minority ||
+            infoStatus == OfficialStatus.official_minority &&
+            cldrStatus == OfficialStatus.official_regional
+        );
     }
 }

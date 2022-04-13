@@ -32,8 +32,13 @@ import java.util.function.Predicate;
  *
  * @author srl
  */
-@CLDRTool(alias = "test.stacktracker", description = "Test for StackTracker", hidden = "test")
+@CLDRTool(
+    alias = "test.stacktracker",
+    description = "Test for StackTracker",
+    hidden = "test"
+)
 public class StackTracker implements Iterable<Object> {
+
     private Hashtable<Object, String> stacks = new Hashtable<>();
 
     /**
@@ -63,7 +68,10 @@ public class StackTracker implements Iterable<Object> {
      *            start at this index (skip the top stuff)
      * @return
      */
-    public static String stackToString(StackTraceElement[] stackTrace, int skip) {
+    public static String stackToString(
+        StackTraceElement[] stackTrace,
+        int skip
+    ) {
         StringBuffer sb = new StringBuffer();
         for (int i = skip; i < stackTrace.length; i++) {
             sb.append(stackTrace[i].toString() + "\n");
@@ -84,7 +92,15 @@ public class StackTracker implements Iterable<Object> {
         sb.append("{StackTracker:\n");
         int n = 0;
         for (Map.Entry<Object, String> e : stacks.entrySet()) {
-            sb.append("Held Obj #" + (++n) + "/" + stacks.size() + ": " + e.getKey() + "\n");
+            sb.append(
+                "Held Obj #" +
+                (++n) +
+                "/" +
+                stacks.size() +
+                ": " +
+                e.getKey() +
+                "\n"
+            );
             sb.append(e.getValue() + "\n");
         }
         sb.append("}");
@@ -126,9 +142,13 @@ public class StackTracker implements Iterable<Object> {
      *  (StackTraceElement s) ->
      *    !s.getClassName().equals(MyClass.class.getName()));
      */
-    public static StackTraceElement firstCallerMatching(Predicate<StackTraceElement> matchFirst) {
-        final StackTraceElement stacks[] = Thread.currentThread().getStackTrace();
-        for (int i=3; i<stacks.length; i++) {
+    public static StackTraceElement firstCallerMatching(
+        Predicate<StackTraceElement> matchFirst
+    ) {
+        final StackTraceElement stacks[] = Thread
+            .currentThread()
+            .getStackTrace();
+        for (int i = 3; i < stacks.length; i++) {
             if (matchFirst.test(stacks[i])) {
                 return stacks[i];
             }

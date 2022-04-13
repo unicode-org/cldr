@@ -1,5 +1,10 @@
 package org.unicode.cldr.util;
 
+import com.google.common.base.Joiner;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R4;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
@@ -11,19 +16,12 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.ToolConfig;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.AttributeType;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdData.ElementType;
-
-import com.google.common.base.Joiner;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Row.R4;
 
 public class DtdDataCheck {
 
@@ -35,13 +33,16 @@ public class DtdDataCheck {
     private static final boolean CHECK_CORRECTNESS = false;
 
     private static class Walker {
+
         HashSet<Element> seen = new HashSet<>();
         Set<Element> elementsMissingDraft = new LinkedHashSet<>();
         Set<Element> elementsMissingAlt = new LinkedHashSet<>();
-        static final Set<String> SKIP_ATTRIBUTES = new HashSet<>(Arrays.asList(
-            "draft", "alt", "standard", "references"));
-        static final Set<String> SKIP_ELEMENTS = new HashSet<>(Arrays.asList(
-            "alias", "special"));
+        static final Set<String> SKIP_ATTRIBUTES = new HashSet<>(
+            Arrays.asList("draft", "alt", "standard", "references")
+        );
+        static final Set<String> SKIP_ELEMENTS = new HashSet<>(
+            Arrays.asList("alias", "special")
+        );
         Set<Attribute> attributesWithDefaultValues = new LinkedHashSet<>();
 
         private DtdData dtdData;
@@ -51,12 +52,24 @@ public class DtdDataCheck {
         }
 
         private void showSuppressed() {
-            for (Entry<String, Element> ee : dtdData.getElementFromName().entrySet()) {
+            for (Entry<String, Element> ee : dtdData
+                .getElementFromName()
+                .entrySet()) {
                 Element element = ee.getValue();
-                for (Entry<Attribute, Integer> ae : element.getAttributes().entrySet()) {
+                for (Entry<Attribute, Integer> ae : element
+                    .getAttributes()
+                    .entrySet()) {
                     Attribute a = ae.getKey();
                     if (a.defaultValue != null) {
-                        System.out.println(dtdData.ROOT + "\t" + element.name + "\t" + a.name + "\t" + a.defaultValue);
+                        System.out.println(
+                            dtdData.ROOT +
+                            "\t" +
+                            element.name +
+                            "\t" +
+                            a.name +
+                            "\t" +
+                            a.defaultValue
+                        );
                     }
                 }
             }
@@ -65,12 +78,22 @@ public class DtdDataCheck {
         private void show(Element element) {
             show(element, "");
             System.out.println();
-            if (dtdData.dtdType == DtdType.ldml && elementsMissingDraft.size() != 0) {
-                System.out.println("*Elements missing draft:\t" + elementsMissingDraft);
+            if (
+                dtdData.dtdType == DtdType.ldml &&
+                elementsMissingDraft.size() != 0
+            ) {
+                System.out.println(
+                    "*Elements missing draft:\t" + elementsMissingDraft
+                );
                 System.out.println();
             }
-            if (dtdData.dtdType == DtdType.ldml && elementsMissingAlt.size() != 0) {
-                System.out.println("*Elements missing alt:\t" + elementsMissingAlt);
+            if (
+                dtdData.dtdType == DtdType.ldml &&
+                elementsMissingAlt.size() != 0
+            ) {
+                System.out.println(
+                    "*Elements missing alt:\t" + elementsMissingAlt
+                );
                 System.out.println();
             }
             if (attributesWithDefaultValues.size() != 0) {
@@ -81,8 +104,13 @@ public class DtdDataCheck {
                 System.out.println();
             }
             StringBuilder diff = new StringBuilder();
-            for (Entry<String, Set<Attribute>> entry : dtdData.getAttributesFromName().keyValuesSet()) {
-                Relation<String, String> featuresToElements = Relation.of(new TreeMap<String, Set<String>>(), LinkedHashSet.class);
+            for (Entry<String, Set<Attribute>> entry : dtdData
+                .getAttributesFromName()
+                .keyValuesSet()) {
+                Relation<String, String> featuresToElements = Relation.of(
+                    new TreeMap<String, Set<String>>(),
+                    LinkedHashSet.class
+                );
                 for (Attribute a : entry.getValue()) {
                     featuresToElements.put(a.features(), a.element.name);
                 }
@@ -95,7 +123,9 @@ public class DtdDataCheck {
                 }
             }
             if (diff.length() != 0) {
-                System.out.println("*Attributes with different features by element:");
+                System.out.println(
+                    "*Attributes with different features by element:"
+                );
                 System.out.println(diff);
                 System.out.println();
             }
@@ -113,7 +143,11 @@ public class DtdDataCheck {
                     elementsMissingAlt.add(element);
                 }
                 ElementType type = element.getType();
-                System.out.println(indent + element.name + (type == ElementType.CHILDREN ? "" : "\t" + type));
+                System.out.println(
+                    indent +
+                    element.name +
+                    (type == ElementType.CHILDREN ? "" : "\t" + type)
+                );
                 indent += "\t";
                 for (Attribute a : element.getAttributes().keySet()) {
                     if (a.defaultValue != null) {
@@ -124,29 +158,70 @@ public class DtdDataCheck {
                     }
                     String special = "";
                     boolean allDeprecated = false;
-                    if (SUPPLEMENTAL.isDeprecated(dtdData.dtdType, element.name, a.name, "*")) {
+                    if (
+                        SUPPLEMENTAL.isDeprecated(
+                            dtdData.dtdType,
+                            element.name,
+                            a.name,
+                            "*"
+                        )
+                    ) {
                         special += "\t#DEPRECATED#";
                         allDeprecated = true;
-                        DEPRECATED.add(Row.of(dtdData.dtdType, element.name, a.name, "*"));
+                        DEPRECATED.add(
+                            Row.of(dtdData.dtdType, element.name, a.name, "*")
+                        );
                     } else if (a.type == AttributeType.ENUMERATED_TYPE) {
                         for (String value : a.values.keySet()) {
-                            if (SUPPLEMENTAL.isDeprecated(dtdData.dtdType, element.name, a.name, value)) {
+                            if (
+                                SUPPLEMENTAL.isDeprecated(
+                                    dtdData.dtdType,
+                                    element.name,
+                                    a.name,
+                                    value
+                                )
+                            ) {
                                 special += "\t#DEPRECATED:" + value + "#";
-                                DEPRECATED.add(Row.of(dtdData.dtdType, element.name, a.name, value));
+                                DEPRECATED.add(
+                                    Row.of(
+                                        dtdData.dtdType,
+                                        element.name,
+                                        a.name,
+                                        value
+                                    )
+                                );
                             }
                         }
                     }
                     if (!allDeprecated) {
-                        R2<DtdType, String> key = Row.of(dtdData.dtdType, a.name);
-                        boolean isDisting = CLDRFile.isDistinguishing(dtdData.dtdType, element.name, a.name);
+                        R2<DtdType, String> key = Row.of(
+                            dtdData.dtdType,
+                            a.name
+                        );
+                        boolean isDisting = CLDRFile.isDistinguishing(
+                            dtdData.dtdType,
+                            element.name,
+                            a.name
+                        );
                         special += "\t#DISTINGUISHING#";
-                        Relation<Boolean, String> info = TYPE_ATTRIBUTE_TO_DIST_ELEMENTS.get(key);
+                        Relation<Boolean, String> info = TYPE_ATTRIBUTE_TO_DIST_ELEMENTS.get(
+                            key
+                        );
                         if (info == null) {
-                            TYPE_ATTRIBUTE_TO_DIST_ELEMENTS.put(key, info = Relation.of(new TreeMap<Boolean, Set<String>>(), TreeSet.class));
+                            TYPE_ATTRIBUTE_TO_DIST_ELEMENTS.put(
+                                key,
+                                info =
+                                    Relation.of(
+                                        new TreeMap<Boolean, Set<String>>(),
+                                        TreeSet.class
+                                    )
+                            );
                         }
                         info.put(isDisting, element.name);
                     }
-                    System.out.println(indent + "@" + a.name + "\t" + a.features() + special);
+                    System.out.println(
+                        indent + "@" + a.name + "\t" + a.features() + special
+                    );
                 }
                 for (Element e : element.getChildren().keySet()) {
                     if (SKIP_ELEMENTS.contains(e.name)) {
@@ -169,12 +244,13 @@ public class DtdDataCheck {
         }
         Timer timer = new Timer();
         for (String arg : args) {
-
             timer.start();
             DtdType type = DtdType.valueOf(arg);
             DtdData dtdData = DtdData.getInstance(type);
-            PrintWriter br = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "dataproj/src/temp/", type
-                + "-gen.dtd");
+            PrintWriter br = FileUtilities.openUTF8Writer(
+                CLDRPaths.GEN_DIRECTORY + "dataproj/src/temp/",
+                type + "-gen.dtd"
+            );
             br.append(dtdData.toString());
             br.close();
             timer.stop();
@@ -191,18 +267,20 @@ public class DtdDataCheck {
                 //                }
                 //                errors.clear();
                 dtdData = DtdData.getInstance(DtdType.ldml);
-//                AttributeValueComparator avc = new AttributeValueComparator() {
-//                    @Override
-//                    public int compare(String element, String attribute, String value1, String value2) {
-//                        Comparator<String> comp = CLDRFile.getAttributeValueComparator(element, attribute);
-//                        return comp.compare(value1, value2);
-//                    }
-//                };
+                //                AttributeValueComparator avc = new AttributeValueComparator() {
+                //                    @Override
+                //                    public int compare(String element, String attribute, String value1, String value2) {
+                //                        Comparator<String> comp = CLDRFile.getAttributeValueComparator(element, attribute);
+                //                        return comp.compare(value1, value2);
+                //                    }
+                //                };
                 Comparator<String> comp = dtdData.getDtdComparator(null);
                 CLDRFile test = ToolConfig.getToolInstance().getEnglish();
                 Set<String> sorted = new TreeSet(test.getComparator());
                 test.forEach(sorted::add);
-                String[] sortedArray = sorted.toArray(new String[sorted.size()]);
+                String[] sortedArray = sorted.toArray(
+                    new String[sorted.size()]
+                );
 
                 // compare for identity
                 String lastPath = null;
@@ -224,8 +302,12 @@ public class DtdDataCheck {
                 }
                 // check cost
                 checkCost("DtdComparator", sortedArray, comp);
-                checkCost("DtdComparator(null)", sortedArray, dtdData.getDtdComparator(null));
-//                checkCost("CLDRFile.ldmlComparator", sortedArray, CLDRFile.getLdmlComparator());
+                checkCost(
+                    "DtdComparator(null)",
+                    sortedArray,
+                    dtdData.getDtdComparator(null)
+                );
+                //                checkCost("CLDRFile.ldmlComparator", sortedArray, CLDRFile.getLdmlComparator());
                 //checkCost("XPathParts", sortedArray);
 
             }
@@ -264,16 +346,24 @@ public class DtdDataCheck {
                 allElements.add(attribute);
                 continue;
             }
-            System.out.println("            <distinguishingItems"
-                + " type=\"" + type
-                + "\" elements=\"" + Joiner.on(" ").join(areDisting)
-                + "\" attributes=\"" + attribute
-                + "\"/>"
-                + "\n            <!-- NONDISTINGUISH."
-                + " TYPE=\"" + type
-                + "\" ELEMENTS=\"" + Joiner.on(" ").join(areNotDisting)
-                + "\" ATTRIBUTES=\"" + attribute
-                + "\" -->");
+            System.out.println(
+                "            <distinguishingItems" +
+                " type=\"" +
+                type +
+                "\" elements=\"" +
+                Joiner.on(" ").join(areDisting) +
+                "\" attributes=\"" +
+                attribute +
+                "\"/>" +
+                "\n            <!-- NONDISTINGUISH." +
+                " TYPE=\"" +
+                type +
+                "\" ELEMENTS=\"" +
+                Joiner.on(" ").join(areNotDisting) +
+                "\" ATTRIBUTES=\"" +
+                attribute +
+                "\" -->"
+            );
         }
         showAll(lastType, allElements);
         System.out.println("        </distinguishing>");
@@ -291,18 +381,26 @@ public class DtdDataCheck {
     }
 
     public static void showAll(DtdType type, Set<String> allElements) {
-        System.out.println("            <distinguishingItems"
-            + " type=\"" + type
-            + "\" elements=\"*"
-            + "\" attributes=\"" + Joiner.on(" ").join(allElements)
-            + "\"/>");
+        System.out.println(
+            "            <distinguishingItems" +
+            " type=\"" +
+            type +
+            "\" elements=\"*" +
+            "\" attributes=\"" +
+            Joiner.on(" ").join(allElements) +
+            "\"/>"
+        );
         allElements.clear();
         allElements.add("_q");
     }
 
     static final int LOOP = 100;
 
-    private static void checkCost(String title, String[] sortedArray, Comparator<String> comp) {
+    private static void checkCost(
+        String title,
+        String[] sortedArray,
+        Comparator<String> comp
+    ) {
         Timer timer = new Timer();
         for (int i = 0; i < LOOP; ++i) {
             String lastPath = null;

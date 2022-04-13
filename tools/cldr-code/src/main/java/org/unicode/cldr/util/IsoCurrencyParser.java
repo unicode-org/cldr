@@ -1,5 +1,8 @@
 package org.unicode.cldr.util;
 
+import com.google.common.collect.ImmutableMap;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Utility;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Locale;
@@ -7,10 +10,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
-import com.google.common.collect.ImmutableMap;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Utility;
 
 public class IsoCurrencyParser {
 
@@ -61,10 +60,18 @@ public class IsoCurrencyParser {
         .put("BRITISH INDIAN OCEAN TERRITORY (THE)", "IO")
         .put("IRAN (ISLAMIC REPUBLIC OF)", "IR")
         .put("COMOROS (THE)", "KM")
-        .put(Utility.unescape("KOREA (THE DEMOCRATIC PEOPLE\u2019S REPUBLIC OF)"), "KP")
+        .put(
+            Utility.unescape(
+                "KOREA (THE DEMOCRATIC PEOPLE\u2019S REPUBLIC OF)"
+            ),
+            "KP"
+        )
         .put("KOREA (THE REPUBLIC OF)", "KR")
         .put("CAYMAN ISLANDS (THE)", "KY")
-        .put(Utility.unescape("LAO PEOPLE\u2019S DEMOCRATIC REPUBLIC (THE)"), "LA")
+        .put(
+            Utility.unescape("LAO PEOPLE\u2019S DEMOCRATIC REPUBLIC (THE)"),
+            "LA"
+        )
         .put("MOLDOVA (THE REPUBLIC OF)", "MD")
         .put("SAINT MARTIN", "MF")
         .put("MARSHALL ISLANDS (THE)", "MH")
@@ -90,32 +97,53 @@ public class IsoCurrencyParser {
         .put("VIRGIN ISLANDS (U.S.)", "VI")
         .put(Utility.unescape("INTERNATIONAL MONETARY FUND (IMF)\u00A0"), "ZZ")
         .put("MEMBER COUNTRIES OF THE AFRICAN DEVELOPMENT BANK GROUP", "ZZ")
-        .put("SISTEMA UNITARIO DE COMPENSACION REGIONAL DE PAGOS \"SUCRE\"", "ZZ")
+        .put(
+            "SISTEMA UNITARIO DE COMPENSACION REGIONAL DE PAGOS \"SUCRE\"",
+            "ZZ"
+        )
         .put("EUROPEAN MONETARY CO-OPERATION FUND (EMCF)", "ZZ")
         .build();
 
     static Map<String, String> iso4217CountryToCountryCode = new TreeMap<>();
     static Set<String> exceptionList = new LinkedHashSet<>();
+
     static {
         StandardCodes sc = StandardCodes.make();
         Set<String> countries = sc.getAvailableCodes("territory");
         for (String country : countries) {
             String name = sc.getData("territory", country);
-            iso4217CountryToCountryCode.put(name.toUpperCase(Locale.ENGLISH), country);
+            iso4217CountryToCountryCode.put(
+                name.toUpperCase(Locale.ENGLISH),
+                country
+            );
         }
         iso4217CountryToCountryCode.putAll(COUNTRY_CORRECTIONS);
     }
 
-    private Relation<String, Data> codeList = Relation.of(new TreeMap<String, Set<Data>>(), TreeSet.class, null);
-    private Relation<String, String> countryToCodes = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class, null);
+    private Relation<String, Data> codeList = Relation.of(
+        new TreeMap<String, Set<Data>>(),
+        TreeSet.class,
+        null
+    );
+    private Relation<String, String> countryToCodes = Relation.of(
+        new TreeMap<String, Set<String>>(),
+        TreeSet.class,
+        null
+    );
 
     public static class Data implements Comparable<Object> {
+
         private String name;
         private String countryCode;
         private int numericCode;
         private int minor_unit;
 
-        public Data(String countryCode, String name, int numericCode, int minor_unit) {
+        public Data(
+            String countryCode,
+            String name,
+            int numericCode,
+            int minor_unit
+        ) {
             this.countryCode = countryCode;
             this.name = name;
             this.numericCode = numericCode;
@@ -140,25 +168,38 @@ public class IsoCurrencyParser {
 
         @Override
         public String toString() {
-            return String.format("[%s,\t%s [%s],\t%d]", name, countryCode,
-                StandardCodes.make().getData("territory", countryCode), numericCode);
+            return String.format(
+                "[%s,\t%s [%s],\t%d]",
+                name,
+                countryCode,
+                StandardCodes.make().getData("territory", countryCode),
+                numericCode
+            );
         }
 
         @Override
         public int compareTo(Object o) {
             Data other = (Data) o;
             int result;
-            if (0 != (result = countryCode.compareTo(other.countryCode))) return result;
+            if (
+                0 != (result = countryCode.compareTo(other.countryCode))
+            ) return result;
             if (0 != (result = name.compareTo(other.name))) return result;
             return numericCode - other.numericCode;
         }
     }
 
-    private static IsoCurrencyParser INSTANCE_WITHOUT_EXTENSIONS = new IsoCurrencyParser(false);
-    private static IsoCurrencyParser INSTANCE_WITH_EXTENSIONS = new IsoCurrencyParser(true);
+    private static IsoCurrencyParser INSTANCE_WITHOUT_EXTENSIONS = new IsoCurrencyParser(
+        false
+    );
+    private static IsoCurrencyParser INSTANCE_WITH_EXTENSIONS = new IsoCurrencyParser(
+        true
+    );
 
     public static IsoCurrencyParser getInstance(boolean useCLDRExtensions) {
-        return useCLDRExtensions ? INSTANCE_WITH_EXTENSIONS : INSTANCE_WITHOUT_EXTENSIONS;
+        return useCLDRExtensions
+            ? INSTANCE_WITH_EXTENSIONS
+            : INSTANCE_WITHOUT_EXTENSIONS;
     }
 
     public static IsoCurrencyParser getInstance() {
@@ -170,7 +211,6 @@ public class IsoCurrencyParser {
     }
 
     private IsoCurrencyParser(boolean useCLDRExtensions) {
-
         ISOCurrencyHandler isoCurrentHandler = new ISOCurrencyHandler();
         XMLFileReader xfr = new XMLFileReader().setHandler(isoCurrentHandler);
         xfr.readCLDRResource(ISO_CURRENT_CODES_XML, -1, false);
@@ -196,15 +236,22 @@ public class IsoCurrencyParser {
     public static String getCountryCode(String iso4217Country) {
         iso4217Country = iso4217Country.trim();
         if (iso4217Country.startsWith("\"")) {
-            iso4217Country = iso4217Country.substring(1, iso4217Country.length() - 1);
+            iso4217Country =
+                iso4217Country.substring(1, iso4217Country.length() - 1);
         }
         String name = iso4217CountryToCountryCode.get(iso4217Country);
         if (name != null) return name;
         if (iso4217Country.startsWith("ZZ")) {
             return "ZZ";
         }
-        exceptionList.add(String.format(CldrUtility.LINE_SEPARATOR + "\t\t.put(\"%s\", \"XXX\") // fix XXX and add to COUNTRY_CORRECTIONS in "
-            + StackTracker.currentElement(0).getFileName(), iso4217Country));
+        exceptionList.add(
+            String.format(
+                CldrUtility.LINE_SEPARATOR +
+                "\t\t.put(\"%s\", \"XXX\") // fix XXX and add to COUNTRY_CORRECTIONS in " +
+                StackTracker.currentElement(0).getFileName(),
+                iso4217Country
+            )
+        );
         return "ZZ";
     }
 
@@ -215,7 +262,9 @@ public class IsoCurrencyParser {
         // we can remove these as well.
         // SVC - El Salvador Colon - not used anymore ( uses USD instead )
         // ZWL - Last Zimbabwe Dollar - abandoned due to hyper-inflation.
-        Set<String> KNOWN_BAD_ISO_DATA_CODES = new TreeSet<>(Arrays.asList("SVC", "ZWL"));
+        Set<String> KNOWN_BAD_ISO_DATA_CODES = new TreeSet<>(
+            Arrays.asList("SVC", "ZWL")
+        );
         String country_code;
         String currency_name;
         String alphabetic_code;
@@ -225,8 +274,7 @@ public class IsoCurrencyParser {
         /**
          * Finish processing anything left hanging in the file.
          */
-        public void cleanup() {
-        }
+        public void cleanup() {}
 
         @Override
         public void handlePathValue(String path, String value) {
@@ -260,16 +308,25 @@ public class IsoCurrencyParser {
                     }
                 }
 
-                if (type.equals("CcyMnrUnts") && alphabetic_code.length() > 0
-                    && !KNOWN_BAD_ISO_DATA_CODES.contains(alphabetic_code)) {
-                    Data data = new Data(country_code, currency_name, numeric_code, minor_unit);
+                if (
+                    type.equals("CcyMnrUnts") &&
+                    alphabetic_code.length() > 0 &&
+                    !KNOWN_BAD_ISO_DATA_CODES.contains(alphabetic_code)
+                ) {
+                    Data data = new Data(
+                        country_code,
+                        currency_name,
+                        numeric_code,
+                        minor_unit
+                    );
                     codeList.put(alphabetic_code, data);
                     countryToCodes.put(data.getCountryCode(), alphabetic_code);
                 }
-
             } catch (Exception e) {
-                throw (IllegalArgumentException) new IllegalArgumentException("path: "
-                    + path + ",\tvalue: " + value).initCause(e);
+                throw (IllegalArgumentException) new IllegalArgumentException(
+                    "path: " + path + ",\tvalue: " + value
+                )
+                    .initCause(e);
             }
         }
     }

@@ -17,7 +17,10 @@ public class MemoryHelper {
      * @param verbose if true, log the stats
      * @return the available memory, in bytes
      */
-    public static synchronized long availableMemory(String callerId, boolean verbose) {
+    public static synchronized long availableMemory(
+        String callerId,
+        boolean verbose
+    ) {
         final Runtime r = Runtime.getRuntime();
         long freeMem = r.freeMemory();
         long maxMem = r.maxMemory();
@@ -28,10 +31,17 @@ public class MemoryHelper {
         }
         long availMem = freeMem + maxMem - totalMem;
         if (verbose) {
-            log(callerId, "Available memory: " + humanReadableByteCountSI(availMem) +
-                "; free: " +  humanReadableByteCountSI(freeMem) +
-                "; max: " +  humanReadableByteCountSI(maxMem) +
-                "; total: " +  humanReadableByteCountSI(totalMem));
+            log(
+                callerId,
+                "Available memory: " +
+                humanReadableByteCountSI(availMem) +
+                "; free: " +
+                humanReadableByteCountSI(freeMem) +
+                "; max: " +
+                humanReadableByteCountSI(maxMem) +
+                "; total: " +
+                humanReadableByteCountSI(totalMem)
+            );
         }
         return availMem;
     }
@@ -48,7 +58,7 @@ public class MemoryHelper {
      * @return the formatted string such as "1.2 GB"
      *
      * Source: https://programming.guide/java/formatting-byte-size-to-human-readable-format.html
-    */
+     */
     public static String humanReadableByteCountSI(long bytes) {
         if (-1000 < bytes && bytes < 1000) {
             return bytes + " B";

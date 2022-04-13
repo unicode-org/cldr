@@ -7,7 +7,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale.SublocaleProvider;
 import org.unicode.cldr.util.XMLSource.ResolvingSource;
@@ -62,7 +61,9 @@ public abstract class Factory implements SublocaleProvider {
      *
      */
     public enum SourceTreeType {
-        common, seed, other
+        common,
+        seed,
+        other,
     }
 
     /**
@@ -73,7 +74,9 @@ public abstract class Factory implements SublocaleProvider {
      */
     public static final SourceTreeType getSourceTreeType(File fileOrDir) {
         if (fileOrDir == null) return null;
-        File parentDir = fileOrDir.isFile() ? fileOrDir.getParentFile() : fileOrDir;
+        File parentDir = fileOrDir.isFile()
+            ? fileOrDir.getParentFile()
+            : fileOrDir;
         File grandparentDir = parentDir.getParentFile();
 
         try {
@@ -88,12 +91,23 @@ public abstract class Factory implements SublocaleProvider {
     }
 
     public enum DirectoryType {
-        main, supplemental, bcp47, casing, collation, dtd, rbnf, segments, transforms, other
+        main,
+        supplemental,
+        bcp47,
+        casing,
+        collation,
+        dtd,
+        rbnf,
+        segments,
+        transforms,
+        other,
     }
 
     public static final DirectoryType getDirectoryType(File fileOrDir) {
         if (fileOrDir == null) return null;
-        File parentDir = fileOrDir.isFile() ? fileOrDir.getParentFile() : fileOrDir;
+        File parentDir = fileOrDir.isFile()
+            ? fileOrDir.getParentFile()
+            : fileOrDir;
 
         try {
             return DirectoryType.valueOf(parentDir.getName());
@@ -102,15 +116,31 @@ public abstract class Factory implements SublocaleProvider {
         }
     }
 
-    protected abstract CLDRFile handleMake(String localeID, boolean resolved, DraftStatus madeWithMinimalDraftStatus);
+    protected abstract CLDRFile handleMake(
+        String localeID,
+        boolean resolved,
+        DraftStatus madeWithMinimalDraftStatus
+    );
 
-    public CLDRFile make(String localeID, boolean resolved, DraftStatus madeWithMinimalDraftStatus) {
+    public CLDRFile make(
+        String localeID,
+        boolean resolved,
+        DraftStatus madeWithMinimalDraftStatus
+    ) {
         return handleMake(localeID, resolved, madeWithMinimalDraftStatus)
             .setSupplementalDirectory(getSupplementalDirectory());
     }
 
-    public CLDRFile make(String localeID, boolean resolved, boolean includeDraft) {
-        return make(localeID, resolved, includeDraft ? DraftStatus.unconfirmed : DraftStatus.approved);
+    public CLDRFile make(
+        String localeID,
+        boolean resolved,
+        boolean includeDraft
+    ) {
+        return make(
+            localeID,
+            resolved,
+            includeDraft ? DraftStatus.unconfirmed : DraftStatus.approved
+        );
     }
 
     public CLDRFile make(String localeID, boolean resolved) {
@@ -121,10 +151,16 @@ public abstract class Factory implements SublocaleProvider {
         return makeWithFallback(localeID, getMinimalDraftStatus());
     }
 
-    public CLDRFile makeWithFallback(String localeID, DraftStatus madeWithMinimalDraftStatus) {
+    public CLDRFile makeWithFallback(
+        String localeID,
+        DraftStatus madeWithMinimalDraftStatus
+    ) {
         String currentLocaleID = localeID;
         Set<String> availableLocales = this.getAvailable();
-        while (!availableLocales.contains(currentLocaleID) && !"root".equals(currentLocaleID)) {
+        while (
+            !availableLocales.contains(currentLocaleID) &&
+            !"root".equals(currentLocaleID)
+        ) {
             currentLocaleID = LocaleIDParser.getParent(currentLocaleID);
         }
         return make(currentLocaleID, true, madeWithMinimalDraftStatus);
@@ -152,17 +188,32 @@ public abstract class Factory implements SublocaleProvider {
      * @param madeWithMinimalDraftStatus
      * @return
      */
-    protected ResolvingSource makeResolvingSource(String localeID, DraftStatus madeWithMinimalDraftStatus) {
+    protected ResolvingSource makeResolvingSource(
+        String localeID,
+        DraftStatus madeWithMinimalDraftStatus
+    ) {
         List<XMLSource> sourceList = new ArrayList<>();
         String curLocale = localeID;
         while (curLocale != null) {
             if (DEBUG_FACTORY) {
-                System.out.println("Factory.makeResolvingSource: calling handleMake for locale " +
-                    curLocale + " and MimimalDraftStatus " + madeWithMinimalDraftStatus);
+                System.out.println(
+                    "Factory.makeResolvingSource: calling handleMake for locale " +
+                    curLocale +
+                    " and MimimalDraftStatus " +
+                    madeWithMinimalDraftStatus
+                );
             }
-            CLDRFile file = handleMake(curLocale, false, madeWithMinimalDraftStatus);
+            CLDRFile file = handleMake(
+                curLocale,
+                false,
+                madeWithMinimalDraftStatus
+            );
             if (file == null) {
-                throw new NullPointerException(this + ".handleMake returned a null CLDRFile for " + curLocale);
+                throw new NullPointerException(
+                    this +
+                    ".handleMake returned a null CLDRFile for " +
+                    curLocale
+                );
             }
             XMLSource source = file.dataSource;
             sourceList.add(source);
@@ -184,7 +235,10 @@ public abstract class Factory implements SublocaleProvider {
         try {
             return SimpleFactory.make(path, string);
         } catch (Exception e) {
-            throw new IllegalArgumentException("path: " + path + "; string: " + string, e);
+            throw new IllegalArgumentException(
+                "path: " + path + "; string: " + string,
+                e
+            );
         }
     }
 
@@ -196,7 +250,11 @@ public abstract class Factory implements SublocaleProvider {
      * @param approved
      * @return
      */
-    public static Factory make(String mainDirectory, String string, DraftStatus approved) {
+    public static Factory make(
+        String mainDirectory,
+        String string,
+        DraftStatus approved
+    ) {
         return SimpleFactory.make(mainDirectory, string, approved);
     }
 
@@ -214,7 +272,10 @@ public abstract class Factory implements SublocaleProvider {
      */
     public Set<String> getAvailableLanguages() {
         Set<String> result = new TreeSet<>();
-        for (Iterator<String> it = handleGetAvailable().iterator(); it.hasNext();) {
+        for (
+            Iterator<String> it = handleGetAvailable().iterator();
+            it.hasNext();
+        ) {
             String s = it.next();
             if (XPathParts.isLanguage(s)) result.add(s);
         }
@@ -230,7 +291,10 @@ public abstract class Factory implements SublocaleProvider {
     public Set<String> getAvailableWithParent(String parent, boolean isProper) {
         Set<String> result = new TreeSet<>();
 
-        for (Iterator<String> it = handleGetAvailable().iterator(); it.hasNext();) {
+        for (
+            Iterator<String> it = handleGetAvailable().iterator();
+            it.hasNext();
+        ) {
             String s = it.next();
             int relation = XPathParts.isSubLocale(parent, s);
             if (relation >= 0 && !(isProper && relation == 0)) result.add(s);
@@ -259,7 +323,9 @@ public abstract class Factory implements SublocaleProvider {
         try {
             return make("supplementalData", false);
         } catch (RuntimeException e) {
-            return Factory.make(getSupplementalDirectory().getPath(), ".*").make("supplementalData", false);
+            return Factory
+                .make(getSupplementalDirectory().getPath(), ".*")
+                .make("supplementalData", false);
         }
     }
 
@@ -267,7 +333,9 @@ public abstract class Factory implements SublocaleProvider {
         try {
             return make("supplementalMetadata", false);
         } catch (RuntimeException e) {
-            return Factory.make(getSupplementalDirectory().getPath(), ".*").make("supplementalMetadata", false);
+            return Factory
+                .make(getSupplementalDirectory().getPath(), ".*")
+                .make("supplementalMetadata", false);
         }
     }
 
@@ -295,7 +363,10 @@ public abstract class Factory implements SublocaleProvider {
      * @param available
      * @return
      */
-    public Set<CLDRLocale> calculateSubLocalesOf(CLDRLocale locale, Set<CLDRLocale> available) {
+    public Set<CLDRLocale> calculateSubLocalesOf(
+        CLDRLocale locale,
+        Set<CLDRLocale> available
+    ) {
         Set<CLDRLocale> sub = new TreeSet<>();
         for (CLDRLocale l : available) {
             if (l.getParent() == locale) {

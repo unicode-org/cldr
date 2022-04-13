@@ -1,9 +1,8 @@
 package org.unicode.cldr.util;
 
+import com.google.common.collect.ImmutableSortedSet;
 import java.util.Locale;
 import java.util.Set;
-
-import com.google.common.collect.ImmutableSortedSet;
 
 /**
  * A simple class representing an enumeration of possible CLDR coverage levels. Levels may change in the future.
@@ -19,12 +18,19 @@ public enum Level {
     MODERN(80, "G1", 50, "🄼"),
     COMPREHENSIVE(100, "G0", 2, "🄲");
 
-    public static final Set<Level> CORE_TO_MODERN = ImmutableSortedSet.of(CORE, BASIC, MODERATE, MODERN);
+    public static final Set<Level> CORE_TO_MODERN = ImmutableSortedSet.of(
+        CORE,
+        BASIC,
+        MODERATE,
+        MODERN
+    );
 
     @Deprecated
     public static final Level POSIX = BASIC;
+
     @Deprecated
     public static final Level MINIMAL = BASIC;
+
     @Deprecated
     public static final Level OPTIONAL = COMPREHENSIVE;
 
@@ -91,7 +97,10 @@ public enum Level {
 
     static final StandardCodes sc = StandardCodes.make();
 
-    public static int getDefaultWeight(String organization, String desiredLocale) {
+    public static int getDefaultWeight(
+        String organization,
+        String desiredLocale
+    ) {
         Level level = sc.getLocaleCoverageLevel(organization, desiredLocale);
         if (level.compareTo(Level.MODERATE) >= 0) {
             return 4;

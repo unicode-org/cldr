@@ -4,6 +4,7 @@ import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.util.ULocale;
 
 public class RangeAbbreviator {
+
     private BreakIterator breaker1;
     private BreakIterator breaker2;
     private String separator;
@@ -42,7 +43,14 @@ public class RangeAbbreviator {
             if (current2 == BreakIterator.DONE) {
                 break;
             }
-            if (!firstString.regionMatches(start1, secondString, start2, current1 - start1)) {
+            if (
+                !firstString.regionMatches(
+                    start1,
+                    secondString,
+                    start2,
+                    current1 - start1
+                )
+            ) {
                 break;
             }
             start1 = current1;
@@ -62,12 +70,22 @@ public class RangeAbbreviator {
             if (current2 == BreakIterator.DONE) {
                 break;
             }
-            if (!firstString.regionMatches(current1, secondString, current2, end1 - current1)) {
+            if (
+                !firstString.regionMatches(
+                    current1,
+                    secondString,
+                    current2,
+                    end1 - current1
+                )
+            ) {
                 break;
             }
             end1 = current1;
         }
-        return buffer.append(firstString.substring(0, end1)).append(separator).append(secondString.substring(start2))
+        return buffer
+            .append(firstString.substring(0, end1))
+            .append(separator)
+            .append(secondString.substring(start2))
             .toString();
     }
 }

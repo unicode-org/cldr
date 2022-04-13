@@ -1,5 +1,8 @@
 package org.unicode.cldr.util;
 
+import com.google.common.base.Joiner;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Arrays;
@@ -11,11 +14,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import com.google.common.base.Joiner;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ICUUncheckedIOException;
-
 public class IsoRegionData {
+
     static Map<String, String> _numeric = new HashMap<>();
     static Map<String, String> _alpha3 = new HashMap<>();
     static Map<String, String> _fips10 = new HashMap<>();
@@ -24,8 +24,9 @@ public class IsoRegionData {
     static Set<String> available = new HashSet<>();
 
     static final UnicodeSet NMTOKEN = new UnicodeSet(
-        "[\\-.0-\\:A-Z_a-z\\u00B7\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u037D\\u037F-\\u1FFF\\u200C\\u200D\\u203F\\u2040\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD\\U00010000-\\U000EFFFF]")
-            .freeze();
+        "[\\-.0-\\:A-Z_a-z\\u00B7\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u037D\\u037F-\\u1FFF\\u200C\\u200D\\u203F\\u2040\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD\\U00010000-\\U000EFFFF]"
+    )
+        .freeze();
 
     static {
         /*
@@ -46,11 +47,9 @@ public class IsoRegionData {
 
             while (true) {
                 String line = codes.readLine();
-                if (line == null)
-                    break;
+                if (line == null) break;
                 line = line.split("#")[0].trim();
-                if (line.length() == 0)
-                    continue;
+                if (line.length() == 0) continue;
                 // if (line.startsWith("XN--")) {
                 // try {
                 // line = Punycode.decode(line.substring(4), null).toString();
@@ -70,15 +69,15 @@ public class IsoRegionData {
             codes = CldrUtility.getUTF8Data("territory_codes.txt");
             while (true) {
                 String line = codes.readLine();
-                if (line == null)
-                    break;
+                if (line == null) break;
                 line = line.split("#")[0].trim();
-                if (line.length() == 0)
-                    continue;
+                if (line.length() == 0) continue;
                 String[] sourceValues = line.split("\\s+");
                 String[] values = new String[5];
                 for (int i = 0; i < values.length; ++i) {
-                    if (i >= sourceValues.length || sourceValues[i].equals("-")) {
+                    if (
+                        i >= sourceValues.length || sourceValues[i].equals("-")
+                    ) {
                         values[i] = null;
                     } else {
                         values[i] = sourceValues[i];
@@ -91,7 +90,8 @@ public class IsoRegionData {
                 if (internet != null) {
                     internet = internet.toUpperCase();
                     LinkedHashSet<String> internetStrings = new LinkedHashSet<>(
-                        Arrays.asList(internet.split("/")));
+                        Arrays.asList(internet.split("/"))
+                    );
                     if (!other_internet.containsAll(internetStrings)) {
                         errors.addAll(internetStrings);
                         errors.removeAll(other_internet);
@@ -107,7 +107,9 @@ public class IsoRegionData {
             }
             codes.close();
             if (errors.size() != 0) {
-                throw new IllegalArgumentException("Internet values illegal: " + errors);
+                throw new IllegalArgumentException(
+                    "Internet values illegal: " + errors
+                );
             }
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e);

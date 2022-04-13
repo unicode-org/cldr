@@ -7,13 +7,12 @@
  */
 package org.unicode.cldr.util;
 
-import java.util.ArrayList;
-
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.CollationElementIterator;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.util.ULocale;
+import java.util.ArrayList;
 
 /**
  * This is intended to be a reference implementation for StringSearch. The
@@ -28,9 +27,12 @@ import com.ibm.icu.util.ULocale;
  * @author markdavis
  */
 public class ReferenceStringSearch {
+
     private static final int PADDING = 3;
 
-    private RuleBasedCollator collator = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+    private RuleBasedCollator collator = (RuleBasedCollator) Collator.getInstance(
+        ULocale.ROOT
+    );
 
     private BreakIterator breaker;
 
@@ -64,19 +66,30 @@ public class ReferenceStringSearch {
      * boundaries.
      */
     public static class ExtendedRange {
+
         int minStart, maxStart, minLimit, maxLimit;
 
         @Override
         public String toString() {
-            return minStart + ", " + maxStart + ", " + minLimit + ", " + maxLimit;
+            return (
+                minStart + ", " + maxStart + ", " + minLimit + ", " + maxLimit
+            );
         }
 
         public String toString(String key, String target) {
-            return "'" + target.substring(0, minStart) + "["
-                + target.substring(minStart, maxStart) + "{"
-                + target.substring(maxStart, minLimit) + "}"
-                + target.substring(minLimit, maxLimit) + "]"
-                + target.substring(maxLimit) + "'";
+            return (
+                "'" +
+                target.substring(0, minStart) +
+                "[" +
+                target.substring(minStart, maxStart) +
+                "{" +
+                target.substring(maxStart, minLimit) +
+                "}" +
+                target.substring(minLimit, maxLimit) +
+                "]" +
+                target.substring(maxLimit) +
+                "'"
+            );
         }
     }
 
@@ -84,6 +97,7 @@ public class ReferenceStringSearch {
      * A struct that just shows the start/end, based on the settings given.
      */
     public static class Range {
+
         public int start;
         public int limit;
 
@@ -93,9 +107,15 @@ public class ReferenceStringSearch {
         }
 
         public String toString(String key, String target) {
-            return "'" + target.substring(0, start) + "["
-                + target.substring(start, limit) + "]"
-                + target.substring(limit) + "'";
+            return (
+                "'" +
+                target.substring(0, start) +
+                "[" +
+                target.substring(start, limit) +
+                "]" +
+                target.substring(limit) +
+                "'"
+            );
         }
     }
 
@@ -167,7 +187,10 @@ public class ReferenceStringSearch {
     public ReferenceStringSearch setKey(String key) {
         this.key = key;
         ArrayList<Integer> keyBufferList = new ArrayList<>();
-        CollationElementIterator2 keyIterator = new CollationElementIterator2(collator).setText(key);
+        CollationElementIterator2 keyIterator = new CollationElementIterator2(
+            collator
+        )
+            .setText(key);
         while (true) {
             int collationElement = keyIterator.nextProcessed();
             if (collationElement == CollationElementIterator.NULLORDER) {
@@ -256,7 +279,8 @@ public class ReferenceStringSearch {
                 targetBufferLimit -= targetBuffer.length;
             }
             targetBuffer[targetBufferLimit] = ce;
-            targetBackMapBefore[targetBufferLimit] = targetIterator.offsetBefore;
+            targetBackMapBefore[targetBufferLimit] =
+                targetIterator.offsetBefore;
             targetBackMapAfter[targetBufferLimit] = targetIterator.offsetAfter;
             ++targetBufferLength;
         }
@@ -359,9 +383,21 @@ public class ReferenceStringSearch {
         while (true) {
             boolean succeeds = searchForwards(internalPosition);
             if (!succeeds) return false;
-            position.start = getBoundary(breaker, internalPosition.minStart, internalPosition.maxStart, !widestStart);
+            position.start =
+                getBoundary(
+                    breaker,
+                    internalPosition.minStart,
+                    internalPosition.maxStart,
+                    !widestStart
+                );
             if (position.start == -1) continue; // failed to find the right boundary
-            position.limit = getBoundary(breaker, internalPosition.minLimit, internalPosition.maxLimit, widestLimit);
+            position.limit =
+                getBoundary(
+                    breaker,
+                    internalPosition.minLimit,
+                    internalPosition.maxLimit,
+                    widestLimit
+                );
             if (position.limit == -1) continue; // failed to find the right boundary
             return true;
         }
@@ -373,6 +409,7 @@ public class ReferenceStringSearch {
      * This really ought to be just methods on CollationElementIterator.
      */
     public static class CollationElementIterator2 {
+
         private CollationElementIterator keyIterator;
         private int strengthMask;
         private int variableTop;
@@ -405,18 +442,21 @@ public class ReferenceStringSearch {
         public CollationElementIterator2(RuleBasedCollator collator) {
             // gather some information that we will need later
             strengthMask = 0xFFFF0000;
-            variableTop = !collator.isAlternateHandlingShifted() ? -1 : collator.getVariableTop() | 0xFFFF;
+            variableTop =
+                !collator.isAlternateHandlingShifted()
+                    ? -1
+                    : collator.getVariableTop() | 0xFFFF;
             // this needs to be fixed a bit for case-level, etc.
             switch (collator.getStrength()) {
-            case Collator.PRIMARY:
-                strengthMask = 0xFFFF0000;
-                break;
-            case Collator.SECONDARY:
-                strengthMask = 0xFFFFFF00;
-                break;
-            default:
-                strengthMask = 0xFFFFFFFF;
-                break;
+                case Collator.PRIMARY:
+                    strengthMask = 0xFFFF0000;
+                    break;
+                case Collator.SECONDARY:
+                    strengthMask = 0xFFFFFF00;
+                    break;
+                default:
+                    strengthMask = 0xFFFFFFFF;
+                    break;
             }
             keyIterator = collator.getCollationElementIterator("");
         }
@@ -438,20 +478,21 @@ public class ReferenceStringSearch {
                 offsetBefore = keyIterator.getOffset();
                 int collationElement = keyIterator.next();
                 if (collationElement != CollationElementIterator.NULLORDER) {
-
                     // note: the collation element iterator ought to give us processed values, but it doesn't
                     // so we have to simulate that.
                     collationElement &= strengthMask; // mask to only the strengths we have
                     // check for shifted.
                     // TODO This is not exactly right, and we also need to eject any following combining marks,
                     // so fix later.
-                    if (collationElement < variableTop && collationElement > 0xFFFF) {
+                    if (
+                        collationElement < variableTop &&
+                        collationElement > 0xFFFF
+                    ) {
                         continue;
                     }
                     if (collationElement == 0) {
                         continue;
                     }
-
                 }
                 offsetAfter = keyIterator.getOffset();
                 return collationElement;
@@ -463,20 +504,21 @@ public class ReferenceStringSearch {
                 offsetAfter = keyIterator.getOffset();
                 int collationElement = keyIterator.previous();
                 if (collationElement != CollationElementIterator.NULLORDER) {
-
                     // note: the collation element iterator ought to give us processed values, but it doesn't
                     // so we have to simulate that.
                     collationElement &= strengthMask; // mask to only the strengths we have
                     // check for shifted.
                     // TODO This is not exactly right, and we also need to eject any following combining marks,
                     // so fix later.
-                    if (collationElement < variableTop && collationElement > 0xFFFF) {
+                    if (
+                        collationElement < variableTop &&
+                        collationElement > 0xFFFF
+                    ) {
                         continue;
                     }
                     if (collationElement == 0) {
                         continue;
                     }
-
                 }
                 offsetBefore = keyIterator.getOffset();
                 return collationElement;
@@ -511,7 +553,12 @@ public class ReferenceStringSearch {
      * @param greatest
      * @return
      */
-    public static int getBoundary(BreakIterator breaker, int minBoundary, int maxBoundary, boolean greatest) {
+    public static int getBoundary(
+        BreakIterator breaker,
+        int minBoundary,
+        int maxBoundary,
+        boolean greatest
+    ) {
         if (breaker == null) return greatest ? maxBoundary : minBoundary;
         int result;
         // this may or may not be the most efficient way to test; ask Andy
@@ -528,5 +575,4 @@ public class ReferenceStringSearch {
         }
         return result;
     }
-
 }

@@ -8,7 +8,9 @@ public class CharUtilities {
      * @author markdavis
      *
      */
-    public static class CharSourceWrapper<T extends CharSequence> implements CharSource {
+    public static class CharSourceWrapper<T extends CharSequence>
+        implements CharSource {
+
         protected T source;
 
         public CharSourceWrapper(T source) {
@@ -37,7 +39,9 @@ public class CharUtilities {
 
         @Override
         public CharSource sublist(int start) {
-            return new CharSourceWrapper<>(source.subSequence(start, source.length()));
+            return new CharSourceWrapper<>(
+                source.subSequence(start, source.length())
+            );
         }
 
         @Override
@@ -56,7 +60,10 @@ public class CharUtilities {
         }
 
         public CharSequence sourceSubSequence(int start, int end) {
-            return source.subSequence(toSourceOffset(start), toSourceOffset(end));
+            return source.subSequence(
+                toSourceOffset(start),
+                toSourceOffset(end)
+            );
         }
 
         @Override
@@ -102,17 +109,47 @@ public class CharUtilities {
             // if they are different, do a fixup
 
             if (cp1 != cp2) {
-                return (cp1 + utf16Fixup[cp1 >> 11]) -
-                    (cp2 + utf16Fixup[cp2 >> 11]);
+                return (
+                    (cp1 + utf16Fixup[cp1 >> 11]) -
+                    (cp2 + utf16Fixup[cp2 >> 11])
+                );
             }
         }
     }
 
     private static final char utf16Fixup[] = {
-        0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0x2000, 0xf800, 0xf800, 0xf800, 0xf800
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0x2000,
+        0xf800,
+        0xf800,
+        0xf800,
+        0xf800,
     };
 
     /**
@@ -142,10 +179,11 @@ public class CharUtilities {
             // if they are different, do a fixup
 
             if (cp1 != cp2) {
-                return (cp1 + utf16Fixup[cp1 >> 11]) -
-                    (cp2 + utf16Fixup[cp2 >> 11]);
+                return (
+                    (cp1 + utf16Fixup[cp1 >> 11]) -
+                    (cp2 + utf16Fixup[cp2 >> 11])
+                );
             }
         }
     }
-
 }

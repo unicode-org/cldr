@@ -48,6 +48,7 @@ public abstract class IntMap<T> {
     // Concrete classes, embedded for simplicity
 
     public static class BasicIntMap<T> extends IntMap<T> {
+
         private final T[] intToValue;
 
         private BasicIntMap(T[] intToValue) {
@@ -79,10 +80,13 @@ public abstract class IntMap<T> {
     }
 
     public static class BasicIntMapFactory<T> implements IntMapFactory<T> {
+
         @Override
         @SuppressWarnings("unchecked")
         public BasicIntMap<T> make(Collection<T> values) {
-            return new BasicIntMap<>((T[]) new ArrayList<>(new HashSet<>(values)).toArray());
+            return new BasicIntMap<>(
+                (T[]) new ArrayList<>(new HashSet<>(values)).toArray()
+            );
         }
     }
 
@@ -94,6 +98,7 @@ public abstract class IntMap<T> {
      * @author markdavis
      */
     public static class CompactStringIntMap extends IntMap<String> {
+
         private final String data;
         private final int[] intToValue;
 
@@ -131,13 +136,15 @@ public abstract class IntMap<T> {
     public static final Comparator<String> LONGEST_FIRST_COMPARATOR = new Comparator<String>() {
         @Override
         public int compare(String a, String b) {
-            return a.length() > b.length() ? -1
-                : a.length() < b.length() ? 1
-                    : a.compareTo(b);
+            return a.length() > b.length()
+                ? -1
+                : a.length() < b.length() ? 1 : a.compareTo(b);
         }
     };
 
-    public static class CompactStringIntMapFactory implements IntMapFactory<String> {
+    public static class CompactStringIntMapFactory
+        implements IntMapFactory<String> {
+
         @Override
         public CompactStringIntMap make(Collection<String> values) {
             // first sort, longest first
@@ -153,7 +160,8 @@ public abstract class IntMap<T> {
             for (String string : sorted) {
                 if (string.length() > 255) {
                     throw new IllegalArgumentException(
-                        "String too large: CompactStringIntMapFactory only handles strings up to 255 in length");
+                        "String too large: CompactStringIntMapFactory only handles strings up to 255 in length"
+                    );
                 }
                 int position = data.indexOf(string);
                 if (position < 0) { // add if not there
@@ -170,5 +178,4 @@ public abstract class IntMap<T> {
     private static final int OBJECT_OVERHEAD = 16;
     private static final int POINTER_OVERHEAD = 16;
     private static final int STRING_OVERHEAD = 16 + OBJECT_OVERHEAD;
-
 }

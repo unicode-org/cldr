@@ -20,7 +20,8 @@ public class InputStreamFactory {
      * @throws FileNotFoundException - if the File does not exist
      * @throws SecurityException - if a security manager exists and its checkRead method denies read access to the file
      */
-    public static InputStream createInputStream(File f) throws FileNotFoundException {
+    public static InputStream createInputStream(File f)
+        throws FileNotFoundException {
         FileInputStream fis = new FileInputStream(f);
         return InputStreamFactory.buffer(fis);
     }
@@ -36,5 +37,4 @@ public class InputStreamFactory {
         }
         return new BufferedInputStream(in);
     }
-
 }

@@ -1,5 +1,8 @@
 package org.unicode.cldr.util;
 
+import com.google.common.base.Joiner;
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.text.Transform;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -7,29 +10,30 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.google.common.base.Joiner;
-import com.ibm.icu.impl.Utility;
-import com.ibm.icu.text.Transform;
-
 /**
  * Transforms a path by replacing attributes with .*
  *
  * @author markdavis
  */
 public class PathStarrer implements Transform<String, String> {
+
     public static final String STAR_PATTERN = "([^\"]*+)";
 
     private String starredPathString;
     private final List<String> attributes = new ArrayList<>();
-    private final List<String> protectedAttributes = Collections.unmodifiableList(attributes);
+    private final List<String> protectedAttributes = Collections.unmodifiableList(
+        attributes
+    );
     private String substitutionPattern = STAR_PATTERN;
 
-    private static final Pattern ATTRIBUTE_PATTERN_OLD = PatternCache.get("=\"([^\"]*)\"");
+    private static final Pattern ATTRIBUTE_PATTERN_OLD = PatternCache.get(
+        "=\"([^\"]*)\""
+    );
     private final StringBuilder starredPathOld = new StringBuilder();
 
     public String set(String path) {
         XPathParts parts = XPathParts.getFrozenInstance(path).cloneAsThawed();
-        return set(parts, Collections.<String> emptySet());
+        return set(parts, Collections.<String>emptySet());
     }
 
     /**

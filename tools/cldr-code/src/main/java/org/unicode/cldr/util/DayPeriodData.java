@@ -3,7 +3,6 @@ package org.unicode.cldr.util;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.TreeMap;
-
 import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 
@@ -388,15 +387,24 @@ public class DayPeriodData {
         { "my", "16", "EVENING1", "ညနေ" },
         { "my", "19", "NIGHT1", "ည" },
     };
-    static final M3<String, DayPeriod, String> localeToDayPeriodToName = ChainedMap.of(new HashMap<String, Object>(),
+    static final M3<String, DayPeriod, String> localeToDayPeriodToName = ChainedMap.of(
+        new HashMap<String, Object>(),
         new TreeMap<DayPeriod, Object>(),
-        String.class);
+        String.class
+    );
+
     static {
         for (String[] data : RAW_DATA) {
             String locale = data[0];
             String dayPeriodString = data[2];
             String localName = data[3];
-            localeToDayPeriodToName.put(locale, DayPeriod.fromString(dayPeriodString.toLowerCase(Locale.ENGLISH)), localName);
+            localeToDayPeriodToName.put(
+                locale,
+                DayPeriod.fromString(
+                    dayPeriodString.toLowerCase(Locale.ENGLISH)
+                ),
+                localName
+            );
         }
     }
 

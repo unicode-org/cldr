@@ -1,5 +1,10 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.dev.util.CollectionUtilities;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.text.Normalizer2;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.VersionInfo;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -7,16 +12,10 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.util.XPathParts.Comments;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.text.Normalizer2;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.VersionInfo;
-
 public class SimpleXMLSource extends XMLSource {
+
     private Map<String, String> xpath_value = CldrUtility.newConcurrentHashMap();
     private Map<String, String> xpath_fullXPath = CldrUtility.newConcurrentHashMap();
     private Comments xpath_comments = new Comments(); // map from paths to comments.
@@ -38,7 +37,8 @@ public class SimpleXMLSource extends XMLSource {
         this.xpath_fullXPath = copyAsLockedFrom.xpath_fullXPath;
         this.xpath_comments = copyAsLockedFrom.xpath_comments;
         this.setLocaleID(copyAsLockedFrom.getLocaleID());
-        this.locationHash = Collections.unmodifiableMap(copyAsLockedFrom.locationHash);
+        this.locationHash =
+            Collections.unmodifiableMap(copyAsLockedFrom.locationHash);
         locked = true;
     }
 
@@ -103,14 +103,19 @@ public class SimpleXMLSource extends XMLSource {
     public XMLSource cloneAsThawed() {
         SimpleXMLSource result = (SimpleXMLSource) super.cloneAsThawed();
         result.xpath_comments = (Comments) result.xpath_comments.clone();
-        result.xpath_fullXPath = CldrUtility.newConcurrentHashMap(result.xpath_fullXPath);
-        result.xpath_value = CldrUtility.newConcurrentHashMap(result.xpath_value);
+        result.xpath_fullXPath =
+            CldrUtility.newConcurrentHashMap(result.xpath_fullXPath);
+        result.xpath_value =
+            CldrUtility.newConcurrentHashMap(result.xpath_value);
         result.locationHash.putAll(result.locationHash);
         return result;
     }
 
     @Override
-    public void putFullPathAtDPath(String distinguishingXPath, String fullxpath) {
+    public void putFullPathAtDPath(
+        String distinguishingXPath,
+        String fullxpath
+    ) {
         xpath_fullXPath.put(distinguishingXPath, fullxpath);
     }
 
@@ -121,11 +126,18 @@ public class SimpleXMLSource extends XMLSource {
         updateValuePathMapping(distinguishingXPath, oldValue, value);
     }
 
-    private void updateValuePathMapping(String distinguishingXPath, String oldValue, String newValue) {
+    private void updateValuePathMapping(
+        String distinguishingXPath,
+        String oldValue,
+        String newValue
+    ) {
         synchronized (VALUE_TO_PATH_MUTEX) {
             if (VALUE_TO_PATH != null) {
                 if (oldValue != null) {
-                    VALUE_TO_PATH.remove(normalize(oldValue), distinguishingXPath);
+                    VALUE_TO_PATH.remove(
+                        normalize(oldValue),
+                        distinguishingXPath
+                    );
                 }
                 if (newValue != null) {
                     VALUE_TO_PATH.put(normalize(newValue), distinguishingXPath);
@@ -135,14 +147,24 @@ public class SimpleXMLSource extends XMLSource {
     }
 
     @Override
-    public void getPathsWithValue(String valueToMatch, String pathPrefix, Set<String> result) {
+    public void getPathsWithValue(
+        String valueToMatch,
+        String pathPrefix,
+        Set<String> result
+    ) {
         // build a Relation mapping value to paths, if needed
         synchronized (VALUE_TO_PATH_MUTEX) {
             if (VALUE_TO_PATH == null) {
-                VALUE_TO_PATH = Relation.of(new HashMap<String, Set<String>>(), HashSet.class);
+                VALUE_TO_PATH =
+                    Relation.of(
+                        new HashMap<String, Set<String>>(),
+                        HashSet.class
+                    );
                 for (Iterator<String> it = iterator(); it.hasNext();) {
                     String path = it.next();
-                    String value1 = getValueAtDPathSkippingInheritanceMarker(path);
+                    String value1 = getValueAtDPathSkippingInheritanceMarker(
+                        path
+                    );
                     if (value1 == null) {
                         continue;
                     }
@@ -171,7 +193,10 @@ public class SimpleXMLSource extends XMLSource {
     static final Normalizer2 NFKC = Normalizer2.getNFKCInstance();
 
     // The following includes letters, marks, numbers, currencies, and *selected* symbols/punctuation
-    static final UnicodeSet NON_ALPHANUM = new UnicodeSet("[^[:L:][:M:][:N:][:Sc:][\\u202F\uFFFF _ ¡ « ( ) \\- \\[ \\] \\{ \\} § / \\\\ % ٪ ‰ ؉ ‱-″ ` \\^ ¯ ¨ ° + ¬ | ¦ ~ − ⊕ ⍰ ☉ © ®]]").freeze();
+    static final UnicodeSet NON_ALPHANUM = new UnicodeSet(
+        "[^[:L:][:M:][:N:][:Sc:][\\u202F\uFFFF _ ¡ « ( ) \\- \\[ \\] \\{ \\} § / \\\\ % ٪ ‰ ؉ ‱-″ ` \\^ ¯ ¨ ° + ¬ | ¦ ~ − ⊕ ⍰ ☉ © ®]]"
+    )
+        .freeze();
 
     public static String normalize(String valueToMatch) {
         return normalize2(valueToMatch, NFKCCF);
@@ -181,19 +206,31 @@ public class SimpleXMLSource extends XMLSource {
         return normalize2(valueToMatch, NFKC);
     }
 
-    public static String normalize2(String valueToMatch, Normalizer2 normalizer2) {
+    public static String normalize2(
+        String valueToMatch,
+        Normalizer2 normalizer2
+    ) {
         if (valueToMatch.indexOf('\u202F') >= 0) { // special hack to allow \u202f, which is otherwise removed by NFKC
             String temp = valueToMatch.replace('\u202F', '\uFFFF');
-            String result = replace(NON_ALPHANUM, normalizer2.normalize(temp), "");
-            return result.replace('\uFFFF','\u202F');
+            String result = replace(
+                NON_ALPHANUM,
+                normalizer2.normalize(temp),
+                ""
+            );
+            return result.replace('\uFFFF', '\u202F');
         }
         return replace(NON_ALPHANUM, normalizer2.normalize(valueToMatch), "");
     }
 
-    public static String replace(UnicodeSet unicodeSet, String valueToMatch, String substitute) {
+    public static String replace(
+        UnicodeSet unicodeSet,
+        String valueToMatch,
+        String substitute
+    ) {
         // handle patterns
         if (valueToMatch.contains("{")) {
-            valueToMatch = PLACEHOLDER.matcher(valueToMatch).replaceAll("⍰").trim();
+            valueToMatch =
+                PLACEHOLDER.matcher(valueToMatch).replaceAll("⍰").trim();
         }
         StringBuilder b = null; // delay creating until needed
         for (int i = 0; i < valueToMatch.length(); ++i) {
@@ -233,11 +270,16 @@ public class SimpleXMLSource extends XMLSource {
     private Map<String, SourceLocation> locationHash = new HashMap<>();
 
     @Override
-    public XMLSource addSourceLocation(String currentFullXPath, SourceLocation location) {
+    public XMLSource addSourceLocation(
+        String currentFullXPath,
+        SourceLocation location
+    ) {
         if (!isFrozen()) {
             locationHash.put(currentFullXPath.intern(), location);
         } else {
-            System.err.println("SimpleXMLSource::addSourceLocationAttempt to modify frozen source location");
+            System.err.println(
+                "SimpleXMLSource::addSourceLocationAttempt to modify frozen source location"
+            );
         }
         return this;
     }

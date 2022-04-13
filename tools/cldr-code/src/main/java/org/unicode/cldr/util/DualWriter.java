@@ -15,7 +15,7 @@ package org.unicode.cldr.util;
 import java.io.IOException;
 import java.io.Writer;
 
-final public class DualWriter extends Writer {
+public final class DualWriter extends Writer {
 
     private boolean autoflush;
     private Writer a;
@@ -41,9 +41,7 @@ final public class DualWriter extends Writer {
     }
 
     @Override
-    public void write(char cbuf[],
-        int off,
-        int len) throws IOException {
+    public void write(char cbuf[], int off, int len) throws IOException {
         a.write(cbuf, off, len);
         b.write(cbuf, off, len);
         if (autoflush) flush();

@@ -12,6 +12,7 @@ import java.util.Map.Entry;
 import java.util.TreeMap;
 
 public class VariableReplacer {
+
     // simple implementation for now
     Comparator<String> LONGEST_FIRST = new Comparator<String>() {
         @Override
@@ -22,10 +23,9 @@ public class VariableReplacer {
             }
             return o1.compareTo(o2);
         }
-
     };
 
-    private Map<String,String> m = new TreeMap<>(LONGEST_FIRST);
+    private Map<String, String> m = new TreeMap<>(LONGEST_FIRST);
 
     // TODO - fix to do streams also, clean up implementation
 
@@ -54,7 +54,10 @@ public class VariableReplacer {
             if (pos < 0) {
                 return source;
             }
-            source = source.substring(0, pos) + value + source.substring(pos + key.length());
+            source =
+                source.substring(0, pos) +
+                value +
+                source.substring(pos + key.length());
         }
     }
 }

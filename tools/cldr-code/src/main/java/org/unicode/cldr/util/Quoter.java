@@ -10,6 +10,7 @@ import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.UTF16;
 
 public abstract class Quoter {
+
     private static boolean DEBUG = false;
 
     protected boolean quoting = false;
@@ -52,6 +53,7 @@ public abstract class Quoter {
      * Implements standard ICU rule quoting
      */
     public static class RuleQuoter extends Quoter {
+
         private StringBuffer quoteBuffer = new StringBuffer();
 
         @Override

@@ -1,7 +1,6 @@
 package org.unicode.cldr.util;
 
 import java.util.Iterator;
-
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -15,6 +14,7 @@ import org.w3c.dom.NodeList;
  *
  */
 public class NodeListIterator implements Iterator<Node> {
+
     /**
      * The NodeList to work on
      */
@@ -41,7 +41,8 @@ public class NodeListIterator implements Iterator<Node> {
 
     @Override
     public void remove() {
-        throw new UnsupportedOperationException("This iterator does not support item removal");
+        throw new UnsupportedOperationException(
+            "This iterator does not support item removal"
+        );
     }
-
 }

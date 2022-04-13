@@ -1,13 +1,11 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-
 import org.unicode.cldr.util.With.SimpleIterator;
-
-import com.ibm.icu.util.ICUUncheckedIOException;
 
 /**
  * Class to get an Iterable for Strings from a File, returning one line at a time.
@@ -15,6 +13,7 @@ import com.ibm.icu.util.ICUUncheckedIOException;
  *
  */
 public class StringIterables {
+
     /**
      * Simple API to iterate over file lines. Example:
      * for (String s : FileUtilities.in(directory,name)) {
@@ -25,7 +24,11 @@ public class StringIterables {
      *
      */
     public static Iterable<String> in(Class<?> class1, String file) {
-        return With.in(new FileLines(FileReaders.openFile(class1, file, StandardCharsets.UTF_8)));
+        return With.in(
+            new FileLines(
+                FileReaders.openFile(class1, file, StandardCharsets.UTF_8)
+            )
+        );
     }
 
     /**
@@ -37,8 +40,14 @@ public class StringIterables {
      * @author markdavis
      *
      */
-    public static Iterable<String> in(Class<?> class1, String file, Charset charset) {
-        return With.in(new FileLines(FileReaders.openFile(class1, file, charset)));
+    public static Iterable<String> in(
+        Class<?> class1,
+        String file,
+        Charset charset
+    ) {
+        return With.in(
+            new FileLines(FileReaders.openFile(class1, file, charset))
+        );
     }
 
     /**
@@ -51,7 +60,11 @@ public class StringIterables {
      *
      */
     public static Iterable<String> in(String directory, String file) {
-        return With.in(new FileLines(FileReaders.openFile(directory, file, StandardCharsets.UTF_8)));
+        return With.in(
+            new FileLines(
+                FileReaders.openFile(directory, file, StandardCharsets.UTF_8)
+            )
+        );
     }
 
     /**
@@ -76,11 +89,18 @@ public class StringIterables {
      * @author markdavis
      *
      */
-    public static Iterable<String> in(String directory, String file, Charset charset) {
-        return With.in(new FileLines(FileReaders.openFile(directory, file, charset)));
+    public static Iterable<String> in(
+        String directory,
+        String file,
+        Charset charset
+    ) {
+        return With.in(
+            new FileLines(FileReaders.openFile(directory, file, charset))
+        );
     }
 
     private static class FileLines implements SimpleIterator<String> {
+
         private BufferedReader input;
 
         public FileLines(BufferedReader input) {
@@ -99,6 +119,5 @@ public class StringIterables {
                 throw new ICUUncheckedIOException(e); // handle dang'd checked exception
             }
         }
-
     }
 }

@@ -23,7 +23,10 @@ public class RegexUtilities {
 
     public static String showMismatch(Matcher m, CharSequence s) {
         int failPoint = findMismatch(m, s);
-        String show = s.subSequence(0, failPoint) + "☹" + s.subSequence(failPoint, s.length());
+        String show =
+            s.subSequence(0, failPoint) +
+            "☹" +
+            s.subSequence(failPoint, s.length());
         return show;
     }
 

@@ -1,6 +1,7 @@
 package org.unicode.cldr.util;
 
 public class VoterProgress {
+
     /**
      * The number of paths for which this user is expected to vote
      * (in this locale, limited by the coverage level)

@@ -2,7 +2,6 @@ package org.unicode.cldr.util;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;

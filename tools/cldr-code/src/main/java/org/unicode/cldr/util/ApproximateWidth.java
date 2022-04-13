@@ -3,6 +3,7 @@ package org.unicode.cldr.util;
 import com.ibm.icu.dev.util.UnicodeMap;
 
 public class ApproximateWidth {
+
     static UnicodeMap<Integer> data = new UnicodeMap<>();
     static Integer defaultWidth;
 
@@ -35,14 +36,21 @@ public class ApproximateWidth {
             }
 
             @Override
-            protected boolean handleLine(int lineCount, int start, int end, String[] items) {
+            protected boolean handleLine(
+                int lineCount,
+                int start,
+                int end,
+                String[] items
+            ) {
                 data.putAll(start, end, Integer.parseInt(items[1]));
                 return true;
             }
-
         };
 
-        MyFileHander.process(ApproximateWidth.class, "data/ApproximateWidth.txt");
+        MyFileHander.process(
+            ApproximateWidth.class,
+            "data/ApproximateWidth.txt"
+        );
     }
 
     public static void main(String[] args) {

@@ -1,5 +1,9 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.impl.Row.R4;
+import com.ibm.icu.impl.Row.R5;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,20 +15,26 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R3;
-import com.ibm.icu.impl.Row.R4;
-import com.ibm.icu.impl.Row.R5;
-
 public class ChainedMap {
 
-    public static class M3<K2, K1, V> extends ChainedMap implements Iterable<Map.Entry<K2, Map<K1, V>>> {
+    public static class M3<K2, K1, V>
+        extends ChainedMap
+        implements Iterable<Map.Entry<K2, Map<K1, V>>> {
+
         @SuppressWarnings("unchecked")
-        private M3(Map<K2, Object> map2, Map<K1, Object> map1, Class<V> valueClass) {
+        private M3(
+            Map<K2, Object> map2,
+            Map<K1, Object> map1,
+            Class<V> valueClass
+        ) {
             super(map2, map1);
         }
 
-        private M3(Map<?, ?> map2, Constructor<Map<Object, Object>>[] constructors, int indexStart) {
+        private M3(
+            Map<?, ?> map2,
+            Constructor<Map<Object, Object>>[] constructors,
+            int indexStart
+        ) {
             super(map2, constructors, indexStart);
         }
 
@@ -54,8 +64,14 @@ public class ChainedMap {
         public Iterable<Row.R3<K2, K1, V>> rows() {
             List<R3<K2, K1, V>> result = new ArrayList<>();
             for (Entry<Object, Object> entry0 : super.mapBase.entrySet()) {
-                for (Entry<Object, Object> entry1 : ((Map<Object, Object>) entry0.getValue()).entrySet()) {
-                    R3<K2, K1, V> item = (R3<K2, K1, V>) Row.of(entry0.getKey(), entry1.getKey(), entry1.getValue());
+                for (Entry<Object, Object> entry1 : (
+                    (Map<Object, Object>) entry0.getValue()
+                ).entrySet()) {
+                    R3<K2, K1, V> item = (R3<K2, K1, V>) Row.of(
+                        entry0.getKey(),
+                        entry1.getKey(),
+                        entry1.getValue()
+                    );
                     result.add(item);
                 }
             }
@@ -68,13 +84,25 @@ public class ChainedMap {
         }
     }
 
-    public static class M4<K3, K2, K1, V> extends ChainedMap implements Iterable<Map.Entry<K3, Map<K2, Map<K1, V>>>> {
+    public static class M4<K3, K2, K1, V>
+        extends ChainedMap
+        implements Iterable<Map.Entry<K3, Map<K2, Map<K1, V>>>> {
+
         @SuppressWarnings("unchecked")
-        private M4(Map<K3, Object> map3, Map<K2, Object> map2, Map<K1, Object> map1, Class<V> valueClass) {
+        private M4(
+            Map<K3, Object> map3,
+            Map<K2, Object> map2,
+            Map<K1, Object> map1,
+            Class<V> valueClass
+        ) {
             super(map3, map2, map1);
         }
 
-        private M4(Map<?, ?> map2, Constructor<Map<Object, Object>>[] constructors, int indexStart) {
+        private M4(
+            Map<?, ?> map2,
+            Constructor<Map<Object, Object>>[] constructors,
+            int indexStart
+        ) {
             super(map2, constructors, indexStart);
         }
 
@@ -85,7 +113,9 @@ public class ChainedMap {
 
         public M3<K2, K1, V> get(K3 key3) {
             final Map<?, ?> submap = (Map<?, ?>) super.handleGet(key3);
-            return submap == null ? null : new M3<>(submap, super.mapConstructors, super.indexStart + 1);
+            return submap == null
+                ? null
+                : new M3<>(submap, super.mapConstructors, super.indexStart + 1);
         }
 
         @SuppressWarnings("unchecked")
@@ -103,9 +133,18 @@ public class ChainedMap {
         public Iterable<Row.R4<K3, K2, K1, V>> rows() {
             List<R4<K3, K2, K1, V>> result = new ArrayList<>();
             for (Entry<Object, Object> entry0 : super.mapBase.entrySet()) {
-                for (Entry<Object, Object> entry1 : ((Map<Object, Object>) entry0.getValue()).entrySet()) {
-                    for (Entry<Object, Object> entry2 : ((Map<Object, Object>) entry1.getValue()).entrySet()) {
-                        R4<K3, K2, K1, V> item = (R4<K3, K2, K1, V>) Row.of(entry0.getKey(), entry1.getKey(), entry2.getKey(), entry2.getValue());
+                for (Entry<Object, Object> entry1 : (
+                    (Map<Object, Object>) entry0.getValue()
+                ).entrySet()) {
+                    for (Entry<Object, Object> entry2 : (
+                        (Map<Object, Object>) entry1.getValue()
+                    ).entrySet()) {
+                        R4<K3, K2, K1, V> item = (R4<K3, K2, K1, V>) Row.of(
+                            entry0.getKey(),
+                            entry1.getKey(),
+                            entry2.getKey(),
+                            entry2.getValue()
+                        );
                         result.add(item);
                     }
                 }
@@ -119,9 +158,18 @@ public class ChainedMap {
         }
     }
 
-    public static class M5<K4, K3, K2, K1, V> extends ChainedMap implements Iterable<Map.Entry<K4, Map<K3, Map<K2, Map<K1, V>>>>> {
+    public static class M5<K4, K3, K2, K1, V>
+        extends ChainedMap
+        implements Iterable<Map.Entry<K4, Map<K3, Map<K2, Map<K1, V>>>>> {
+
         @SuppressWarnings("unchecked")
-        private M5(Map<K4, Object> map4, Map<K3, Object> map3, Map<K2, Object> map2, Map<K1, Object> map1, Class<V> valueClass) {
+        private M5(
+            Map<K4, Object> map4,
+            Map<K3, Object> map3,
+            Map<K2, Object> map2,
+            Map<K1, Object> map1,
+            Class<V> valueClass
+        ) {
             super(map4, map3, map2, map1);
         }
 
@@ -132,7 +180,8 @@ public class ChainedMap {
 
         public M4<K3, K2, K1, V> get(K4 key4) {
             final Map<?, ?> submap = (Map<?, ?>) super.handleGet(key4);
-            return submap == null ? null
+            return submap == null
+                ? null
                 : new M4<>(submap, super.mapConstructors, super.indexStart + 2);
         }
 
@@ -151,11 +200,22 @@ public class ChainedMap {
         public Iterable<Row.R5<K4, K3, K2, K1, V>> rows() {
             List<R5<K4, K3, K2, K1, V>> result = new ArrayList<>();
             for (Entry<Object, Object> entry0 : super.mapBase.entrySet()) {
-                for (Entry<Object, Object> entry1 : ((Map<Object, Object>) entry0.getValue()).entrySet()) {
-                    for (Entry<Object, Object> entry2 : ((Map<Object, Object>) entry1.getValue()).entrySet()) {
-                        for (Entry<Object, Object> entry3 : ((Map<Object, Object>) entry2.getValue()).entrySet()) {
+                for (Entry<Object, Object> entry1 : (
+                    (Map<Object, Object>) entry0.getValue()
+                ).entrySet()) {
+                    for (Entry<Object, Object> entry2 : (
+                        (Map<Object, Object>) entry1.getValue()
+                    ).entrySet()) {
+                        for (Entry<Object, Object> entry3 : (
+                            (Map<Object, Object>) entry2.getValue()
+                        ).entrySet()) {
                             R5<K4, K3, K2, K1, V> item = (R5<K4, K3, K2, K1, V>) Row.of(
-                                entry0.getKey(), entry1.getKey(), entry2.getKey(), entry3.getKey(), entry3.getValue());
+                                entry0.getKey(),
+                                entry1.getKey(),
+                                entry2.getKey(),
+                                entry3.getKey(),
+                                entry3.getValue()
+                            );
                             result.add(item);
                         }
                     }
@@ -180,23 +240,34 @@ public class ChainedMap {
     }
 
     @SuppressWarnings("unchecked")
-    private ChainedMap(Map<?, ?> mapBase, Constructor<Map<Object, Object>>[] mapConstructors, int indexStart) {
+    private ChainedMap(
+        Map<?, ?> mapBase,
+        Constructor<Map<Object, Object>>[] mapConstructors,
+        int indexStart
+    ) {
         this.mapBase = (Map<Object, Object>) mapBase;
         this.mapConstructors = mapConstructors;
         this.indexStart = indexStart;
     }
 
     @SuppressWarnings("unchecked")
-    private static Constructor<Map<Object, Object>>[] constructorList(Map<? extends Object, ? extends Object>... maps) {
-        Constructor<Map<Object, Object>>[] tempMapConstructors = new Constructor[maps.length - 1];
-        items: for (int i = 0; i < maps.length - 1; ++i) {
-            for (Constructor<?> constructor : maps[i + 1].getClass().getConstructors()) {
+    private static Constructor<Map<Object, Object>>[] constructorList(
+        Map<? extends Object, ? extends Object>... maps
+    ) {
+        Constructor<Map<Object, Object>>[] tempMapConstructors = new Constructor[maps.length -
+        1];
+        items:for (int i = 0; i < maps.length - 1; ++i) {
+            for (Constructor<?> constructor : maps[i + 1].getClass()
+                .getConstructors()) {
                 if (constructor.getParameterTypes().length == 0) {
-                    tempMapConstructors[i] = (Constructor<Map<Object, Object>>) constructor;
+                    tempMapConstructors[i] =
+                        (Constructor<Map<Object, Object>>) constructor;
                     continue items;
                 }
             }
-            throw new IllegalArgumentException("Couldn't create empty constructor for " + maps[i]);
+            throw new IllegalArgumentException(
+                "Couldn't create empty constructor for " + maps[i]
+            );
         }
         return tempMapConstructors;
     }
@@ -210,16 +281,30 @@ public class ChainedMap {
         return null;
     }
 
-    public static <K2, K1, V> M3<K2, K1, V> of(Map<K2, Object> map2, Map<K1, Object> map1, Class<V> valueClass) {
+    public static <K2, K1, V> M3<K2, K1, V> of(
+        Map<K2, Object> map2,
+        Map<K1, Object> map1,
+        Class<V> valueClass
+    ) {
         return new M3<>(map2, map1, valueClass);
     }
 
-    public static <K3, K2, K1, V> M4<K3, K2, K1, V> of(Map<K3, Object> map3, Map<K2, Object> map2, Map<K1, Object> map1, Class<V> valueClass) {
+    public static <K3, K2, K1, V> M4<K3, K2, K1, V> of(
+        Map<K3, Object> map3,
+        Map<K2, Object> map2,
+        Map<K1, Object> map1,
+        Class<V> valueClass
+    ) {
         return new M4<>(map3, map2, map1, valueClass);
     }
 
     public static <K4, K3, K2, K1, V> M5<K4, K3, K2, K1, V> of(
-        Map<K4, Object> map4, Map<K3, Object> map3, Map<K2, Object> map2, Map<K1, Object> map1, Class<V> valueClass) {
+        Map<K4, Object> map4,
+        Map<K3, Object> map3,
+        Map<K2, Object> map2,
+        Map<K1, Object> map1,
+        Class<V> valueClass
+    ) {
         return new M5<>(map4, map3, map2, map1, valueClass);
     }
 
@@ -256,12 +341,17 @@ public class ChainedMap {
                 try {
                     map.put(key, map2 = mapConstructors[i].newInstance());
                 } catch (Exception e) {
-                    throw new IllegalArgumentException("Cannot create map with " + mapConstructors[i], e);
+                    throw new IllegalArgumentException(
+                        "Cannot create map with " + mapConstructors[i],
+                        e
+                    );
                 }
             }
             map = map2;
         }
-        return value == null ? map.remove(keys[last]) : map.put(keys[last], value);
+        return value == null
+            ? map.remove(keys[last])
+            : map.put(keys[last], value);
     }
 
     @Override
@@ -275,7 +365,8 @@ public class ChainedMap {
             new HashMap<Byte, Object>(),
             new TreeMap<String, Object>(),
             new TreeMap<Integer, Object>(),
-            Double.class);
+            Double.class
+        );
 
         System.out.println(foo.put(true, (byte) 0, "abc", 3, 1.5));
         System.out.println(foo.get(true, (byte) 0, "abc", 3));

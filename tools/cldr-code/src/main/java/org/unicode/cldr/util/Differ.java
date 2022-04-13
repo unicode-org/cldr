@@ -1,9 +1,9 @@
 /**
-*******************************************************************************
-* Copyright (C) 1996-2009, International Business Machines Corporation and    *
-* others. All Rights Reserved.                                                *
-*******************************************************************************
-*/
+ *******************************************************************************
+ * Copyright (C) 1996-2009, International Business Machines Corporation and    *
+ * others. All Rights Reserved.                                                *
+ *******************************************************************************
+ */
 
 package org.unicode.cldr.util;
 
@@ -13,7 +13,8 @@ package org.unicode.cldr.util;
  * @author Mark Davis
  * @version 1.0
  */
-final public class Differ<T> {
+public final class Differ<T> {
+
     /**
      * @param stackSize The size of the largest difference you expect.
      * @param matchCount The number of items that have to be the same to count as a match
@@ -97,7 +98,9 @@ final public class Differ<T> {
             return;
         }
 
-        if (aCount - maxSame < EQUALSIZE || bCount - maxSame < EQUALSIZE) return;
+        if (
+            aCount - maxSame < EQUALSIZE || bCount - maxSame < EQUALSIZE
+        ) return;
 
         // now see if the last few a's occur anywhere in the b's, or vice versa
         int match = find(a, aCount - EQUALSIZE, aCount, b, maxSame, bCount);
@@ -126,10 +129,17 @@ final public class Differ<T> {
      * Finds a segment of the first array in the second array.
      * @return -1 if not found, otherwise start position in bArr
      */
-    private int find(T[] aArr, int aStart, int aEnd, T[] bArr, int bStart, int bEnd) {
+    private int find(
+        T[] aArr,
+        int aStart,
+        int aEnd,
+        T[] bArr,
+        int bStart,
+        int bEnd
+    ) {
         int len = aEnd - aStart;
         int bEndMinus = bEnd - len;
-        tryA: for (int i = bStart; i <= bEndMinus; ++i) {
+        tryA:for (int i = bStart; i <= bEndMinus; ++i) {
             for (int j = 0; j < len; ++j) {
                 if (!bArr[i + j].equals(aArr[aStart + j])) continue tryA;
             }

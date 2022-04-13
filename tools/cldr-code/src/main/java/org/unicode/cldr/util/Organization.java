@@ -33,10 +33,20 @@ public enum Organization {
     iran_hci("Iran HCI"),
     kendra("Kendra (Nepal)"),
     kotoistus("Kotoistus (Finnish IT Ctr)"),
-    kunsill_malti("Il-Kunsill Nazzjonali tal-Ilsien Malti", "National Council for the Maltese Language", "malta", "malti"),
+    kunsill_malti(
+        "Il-Kunsill Nazzjonali tal-Ilsien Malti",
+        "National Council for the Maltese Language",
+        "malta",
+        "malti"
+    ),
     lakota_lc("Lakota LC"),
     lao_dpt("Lao Posts/Telecom??"),
-    longnow("The Long Now Foundation", "Long Now", "PanLex", "Utilka Foundation"),
+    longnow(
+        "The Long Now Foundation",
+        "Long Now",
+        "PanLex",
+        "Utilka Foundation"
+    ),
     microsoft("Microsoft"),
     mozilla("Mozilla"),
     netflix("Netflix"),
@@ -54,7 +64,7 @@ public enum Organization {
     surveytool("Survey Tool"),
     welsh_lc("Welsh LC"),
     wikimedia("Wikimedia Foundation"),
-    yahoo("Yahoo"),
+    yahoo("Yahoo")
     // To be removed.
     ;
 
@@ -63,7 +73,9 @@ public enum Organization {
 
     public static Organization fromString(String name) {
         if (name == null) {
-            throw new NullPointerException("Organization.fromString(null) called");
+            throw new NullPointerException(
+                "Organization.fromString(null) called"
+            );
         }
         if (name.contains("Government of Pakistan")) {
             /*
@@ -88,14 +100,24 @@ public enum Organization {
     }
 
     static Map<String, Organization> OrganizationNameMap;
+
     static {
         OrganizationNameMap = new HashMap<>();
         for (Organization x : values()) {
-            OrganizationNameMap.put(x.displayName.toLowerCase().replace('-', '_').replace('.', '_'), x);
+            OrganizationNameMap.put(
+                x.displayName.toLowerCase().replace('-', '_').replace('.', '_'),
+                x
+            );
             for (String name : x.names) {
-                OrganizationNameMap.put(name.toLowerCase().replace('-', '_').replace('.', '_'), x);
+                OrganizationNameMap.put(
+                    name.toLowerCase().replace('-', '_').replace('.', '_'),
+                    x
+                );
             }
-            OrganizationNameMap.put(x.name().toLowerCase().replace('-', '_').replace('.', '_'), x);
+            OrganizationNameMap.put(
+                x.name().toLowerCase().replace('-', '_').replace('.', '_'),
+                x
+            );
         }
     }
 
@@ -112,7 +134,9 @@ public enum Organization {
 
     public LocaleSet getCoveredLocales() {
         if (localeSet == null) {
-            final Set<String> localeNameSet = StandardCodes.make().getLocaleCoverageLocales(this);
+            final Set<String> localeNameSet = StandardCodes
+                .make()
+                .getLocaleCoverageLocales(this);
             if (localeNameSet.contains(LocaleNormalizer.ALL_LOCALES)) {
                 localeSet = LocaleNormalizer.ALL_LOCALES_SET;
             } else {

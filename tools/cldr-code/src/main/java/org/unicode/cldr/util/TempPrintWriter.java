@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -7,10 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Writer;
 import java.util.Random;
-
 import org.unicode.cldr.draft.FileUtilities;
-
-import com.ibm.icu.util.ICUUncheckedIOException;
 
 /**
  * Simple utility to create a temporary file, write into it, then close it.
@@ -19,11 +17,11 @@ import com.ibm.icu.util.ICUUncheckedIOException;
  * @author markdavis
  */
 public class TempPrintWriter extends Writer {
+
     final PrintWriter tempPrintWriter;
     final String tempName;
     final String filename;
     boolean noReplace = false;
-
 
     public static TempPrintWriter openUTF8Writer(String filename) {
         return new TempPrintWriter(new File(filename));
@@ -45,10 +43,15 @@ public class TempPrintWriter extends Writer {
         try {
             File tempFile;
             do {
-                tempFile = new File(parentFile, (0xFFFF & rand.nextInt()) + "-" + file.getName());
+                tempFile =
+                    new File(
+                        parentFile,
+                        (0xFFFF & rand.nextInt()) + "-" + file.getName()
+                    );
             } while (tempFile.exists());
             tempName = tempFile.toString();
-            tempPrintWriter = FileUtilities.openUTF8Writer(parentFile, tempFile.getName());
+            tempPrintWriter =
+                FileUtilities.openUTF8Writer(parentFile, tempFile.getName());
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e);
         }
@@ -97,36 +100,70 @@ public class TempPrintWriter extends Writer {
     /**
      * If contents(newFile) ≠ contents(oldFile), rename newFile to old. Otherwise delete newfile. Return true if replaced. *
      */
-    private static boolean replaceDifferentOrDelete(String oldFile, String newFile, boolean skipCopyright) throws IOException {
+    private static boolean replaceDifferentOrDelete(
+        String oldFile,
+        String newFile,
+        boolean skipCopyright
+    ) throws IOException {
         final File oldFile2 = new File(oldFile);
         if (oldFile2.exists()) {
             final String lines[] = new String[2];
-            final boolean identical = filesAreIdentical(oldFile, newFile, skipCopyright, lines);
+            final boolean identical = filesAreIdentical(
+                oldFile,
+                newFile,
+                skipCopyright,
+                lines
+            );
             if (identical) {
                 new File(newFile).delete();
                 return false;
             }
-            System.out.println("Found difference in : " + oldFile + ", " + newFile);
+            System.out.println(
+                "Found difference in : " + oldFile + ", " + newFile
+            );
             final int diff = compare(lines[0], lines[1]);
-            System.out.println(" File1: '" + lines[0].substring(0,diff) + "', '" + lines[0].substring(diff) + "'");
-            System.out.println(" File2: '" + lines[1].substring(0,diff) + "', '" + lines[1].substring(diff) + "'");
+            System.out.println(
+                " File1: '" +
+                lines[0].substring(0, diff) +
+                "', '" +
+                lines[0].substring(diff) +
+                "'"
+            );
+            System.out.println(
+                " File2: '" +
+                lines[1].substring(0, diff) +
+                "', '" +
+                lines[1].substring(diff) +
+                "'"
+            );
         }
         new File(newFile).renameTo(oldFile2);
         return true;
     }
 
-    private static boolean filesAreIdentical(String file1, String file2, boolean skipCopyright, String[] lines) throws IOException {
+    private static boolean filesAreIdentical(
+        String file1,
+        String file2,
+        boolean skipCopyright,
+        String[] lines
+    ) throws IOException {
         if (file1 == null) {
             lines[0] = null;
             lines[1] = null;
             return false;
         }
-        final BufferedReader br1 = new BufferedReader(new FileReader(file1), 32*1024);
-        final BufferedReader br2 = new BufferedReader(new FileReader(file2), 32*1024);
+        final BufferedReader br1 = new BufferedReader(
+            new FileReader(file1),
+            32 * 1024
+        );
+        final BufferedReader br2 = new BufferedReader(
+            new FileReader(file2),
+            32 * 1024
+        );
         String line1 = "";
         String line2 = "";
         try {
-            for (int lineCount = 0; ; ++lineCount) {
+            for (int lineCount = 0;; ++lineCount) {
                 line1 = getLineWithoutFluff(br1, lineCount == 0, skipCopyright);
                 line2 = getLineWithoutFluff(br2, lineCount == 0, skipCopyright);
                 if (line1 == null) {
@@ -154,7 +191,11 @@ public class TempPrintWriter extends Writer {
         }
     }
 
-    private static String getLineWithoutFluff(BufferedReader br1, boolean first, boolean skipCopyright) throws IOException {
+    private static String getLineWithoutFluff(
+        BufferedReader br1,
+        boolean first,
+        boolean skipCopyright
+    ) throws IOException {
         while (true) {
             String line1 = br1.readLine();
             if (line1 == null) {
@@ -179,11 +220,18 @@ public class TempPrintWriter extends Writer {
             if (line1.startsWith("<p><b>Date:</b>")) {
                 continue;
             }
-            if (line1.startsWith("<td valign=\"top\">20") && line1.endsWith("GMT</td>")) {
+            if (
+                line1.startsWith("<td valign=\"top\">20") &&
+                line1.endsWith("GMT</td>")
+            ) {
                 continue;
             }
 
-            if (line1.equals("# ================================================")) {
+            if (
+                line1.equals(
+                    "# ================================================"
+                )
+            ) {
                 continue;
             }
             if (first && line1.startsWith("#")) {
@@ -212,5 +260,4 @@ public class TempPrintWriter extends Writer {
         }
         return -1;
     }
-
 }

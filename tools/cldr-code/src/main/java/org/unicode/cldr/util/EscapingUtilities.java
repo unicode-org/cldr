@@ -1,12 +1,15 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.text.UnicodeSet;
 import java.io.UnsupportedEncodingException;
 import java.util.Locale;
 
-import com.ibm.icu.text.UnicodeSet;
-
 public class EscapingUtilities {
-    public static UnicodeSet OK_TO_NOT_QUOTE = new UnicodeSet("[!(-*,-\\:A-Z_a-z~]").freeze();
+
+    public static UnicodeSet OK_TO_NOT_QUOTE = new UnicodeSet(
+        "[!(-*,-\\:A-Z_a-z~]"
+    )
+        .freeze();
 
     public static String urlEscape(String path) {
         try {
@@ -21,12 +24,15 @@ public class EscapingUtilities {
                     if (c < 16) {
                         result.append('0');
                     }
-                    result.append(Integer.toHexString(c).toUpperCase(Locale.ENGLISH));
+                    result.append(
+                        Integer.toHexString(c).toUpperCase(Locale.ENGLISH)
+                    );
                 }
             }
             return result.toString();
         } catch (UnsupportedEncodingException e) {
-            throw (IllegalArgumentException) new IllegalArgumentException().initCause(e);
+            throw (IllegalArgumentException) new IllegalArgumentException()
+                .initCause(e);
         }
     }
 }

@@ -8,15 +8,15 @@
  */
 package org.unicode.cldr.util;
 
+import com.ibm.icu.text.Normalizer;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
 
-import com.ibm.icu.text.Normalizer;
-import com.ibm.icu.text.UTF16;
-import com.ibm.icu.text.UnicodeSet;
-
 public class ExtractCollationRules {
+
     Map<String, String> type_rules = new TreeMap<>();
     StringBuffer rules = new StringBuffer();
 
@@ -27,8 +27,13 @@ public class ExtractCollationRules {
 
         String context = null;
 
-        for (Iterator it = file.iterator("//ldml/collations", file.getComparator()); it.hasNext();) {
-
+        for (
+            Iterator it = file.iterator(
+                "//ldml/collations",
+                file.getComparator()
+            );
+            it.hasNext();
+        ) {
             // System.out.print(rules.substring(lastLen, rules.length()));
             // lastLen = rules.length();
 
@@ -54,75 +59,115 @@ public class ExtractCollationRules {
                     ruleType = parts.getElement(5);
                     c = ruleType.charAt(0);
                 }
-                boolean isMultiple = ruleType.length() > 1 && ruleType.charAt(1) == 'c';
+                boolean isMultiple =
+                    ruleType.length() > 1 && ruleType.charAt(1) == 'c';
                 String lastContext = context;
                 context = null;
                 switch (c) {
-                case 'r':
-                    appendOrdering("&", null, value, false, true);
-                    break;
-                case 'p':
-                    appendOrdering("<", lastContext, value, isMultiple, true);
-                    break;
-                case 's':
-                    appendOrdering("<<", lastContext, value, isMultiple, true);
-                    break;
-                case 't':
-                    appendOrdering("<<<", lastContext, value, isMultiple, false);
-                    break;
-                case 'i':
-                    appendOrdering("=", lastContext, value, isMultiple, false);
-                    break;
-                case 'c':
-                    context = value;
-                    break;
-                case 'e':
-                    appendOrdering("/", null, value, false, false);
-                    break;
-                default:
-                    System.out.println("Couldn't handle: " + path + "\t" + value);
+                    case 'r':
+                        appendOrdering("&", null, value, false, true);
+                        break;
+                    case 'p':
+                        appendOrdering(
+                            "<",
+                            lastContext,
+                            value,
+                            isMultiple,
+                            true
+                        );
+                        break;
+                    case 's':
+                        appendOrdering(
+                            "<<",
+                            lastContext,
+                            value,
+                            isMultiple,
+                            true
+                        );
+                        break;
+                    case 't':
+                        appendOrdering(
+                            "<<<",
+                            lastContext,
+                            value,
+                            isMultiple,
+                            false
+                        );
+                        break;
+                    case 'i':
+                        appendOrdering(
+                            "=",
+                            lastContext,
+                            value,
+                            isMultiple,
+                            false
+                        );
+                        break;
+                    case 'c':
+                        context = value;
+                        break;
+                    case 'e':
+                        appendOrdering("/", null, value, false, false);
+                        break;
+                    default:
+                        System.out.println(
+                            "Couldn't handle: " + path + "\t" + value
+                        );
                 }
                 continue;
-            } else {
-
-            }
+            } else {}
             System.out.println("Couldn't handle: " + path + "\t" + value);
         }
         type_rules.put(lastType, rules.toString());
         return this;
     }
 
-    private void appendOrdering(String relation, String context, String valueAfter, boolean isMultiple,
-        boolean lineBreakBefore) {
+    private void appendOrdering(
+        String relation,
+        String context,
+        String valueAfter,
+        boolean isMultiple,
+        boolean lineBreakBefore
+    ) {
         if (isMultiple) {
             int cp;
-            for (int i = 0; i < valueAfter.length(); i += UTF16.getCharCount(cp)) {
+            for (
+                int i = 0;
+                i < valueAfter.length();
+                i += UTF16.getCharCount(cp)
+            ) {
                 cp = UTF16.charAt(valueAfter, i);
-                if (lineBreakBefore)
-                    rules.append(CldrUtility.LINE_SEPARATOR);
-                else
-                    rules.append(' ');
+                if (lineBreakBefore) rules.append(
+                    CldrUtility.LINE_SEPARATOR
+                ); else rules.append(' ');
                 rules.append(relation);
                 if (context != null) rules.append(' ').append(quote(context));
                 rules.append(' ').append(quote(UTF16.valueOf(cp)));
             }
         } else {
-            if (lineBreakBefore)
-                rules.append(CldrUtility.LINE_SEPARATOR);
-            else
-                rules.append(' ');
+            if (lineBreakBefore) rules.append(
+                CldrUtility.LINE_SEPARATOR
+            ); else rules.append(' ');
             rules.append(relation);
             if (context != null) rules.append(' ').append(quote(context));
             rules.append(' ').append(quote(valueAfter));
         }
     }
 
-    private void writeSettings(Map<String, String> attributes, StringBuffer results) {
-        for (Iterator<String> it = attributes.keySet().iterator(); it.hasNext();) {
+    private void writeSettings(
+        Map<String, String> attributes,
+        StringBuffer results
+    ) {
+        for (
+            Iterator<String> it = attributes.keySet().iterator();
+            it.hasNext();
+        ) {
             String attribute = it.next();
             String value = attributes.get(attribute);
             // TODO fix different cases
-            results.append("[" + attribute + " " + value + "]" + CldrUtility.LINE_SEPARATOR);
+            results.append(
+                "[" + attribute + " " + value + "]" + CldrUtility.LINE_SEPARATOR
+            );
             // if (attribute.equals("normalization")) {
             //
             // }
@@ -150,8 +195,10 @@ public class ExtractCollationRules {
              * || c >= '0' && c <= '9'
              * || (c >= 0xA0 && !UCharacterProperty.isRuleWhiteSpace(c))
              */
-            needsQuoting = new UnicodeSet(
-                "[[:whitespace:][:c:][:z:][:ascii:]-[a-zA-Z0-9]]"); //
+            needsQuoting =
+                new UnicodeSet(
+                    "[[:whitespace:][:c:][:z:][:ascii:]-[a-zA-Z0-9]]"
+                ); //
             // "[[:ascii:]-[a-zA-Z0-9]-[:c:]-[:z:]]"); // [:whitespace:][:c:][:z:]
             // for (int i = 0; i <= 0x10FFFF; ++i) {
             // if (UCharacterProperty.isRuleWhiteSpace(i)) needsQuoting.add(i);
@@ -181,8 +228,9 @@ public class ExtractCollationRules {
                         quoteOperandBuffer.append('\'');
                         inQuote = true;
                     }
-                    if (!needsUnicodeForm.contains(cp))
-                        quoteOperandBuffer.append(UTF16.valueOf(cp)); // cp != 0x2028
+                    if (
+                        !needsUnicodeForm.contains(cp)
+                    ) quoteOperandBuffer.append(UTF16.valueOf(cp)); // cp != 0x2028
                     else if (cp > 0xFFFF) {
                         quoteOperandBuffer.append("\\U").append(hex(cp, 8));
                     } else if (cp <= 0x20 || cp > 0x7E) {
@@ -217,7 +265,7 @@ public class ExtractCollationRules {
         return quoteOperandBuffer.toString();
     }
 
-    static public String hex(long i, int places) {
+    public static String hex(long i, int places) {
         if (i == Long.MIN_VALUE) return "-8000000000000000";
         boolean negative = i < 0;
         if (negative) {
@@ -225,12 +273,12 @@ public class ExtractCollationRules {
         }
         String result = Long.toString(i, 16).toUpperCase();
         if (result.length() < places) {
-            result = "0000000000000000".substring(result.length(), places) + result;
+            result =
+                "0000000000000000".substring(result.length(), places) + result;
         }
         if (negative) {
             return '-' + result;
         }
         return result;
     }
-
 }

@@ -3,13 +3,18 @@ package org.unicode.cldr.util;
 import java.util.regex.Pattern;
 
 public abstract class SemiFileReader extends FileProcessor {
-    public final static Pattern SPLIT = PatternCache.get("\\s*;\\s*");
 
-    protected abstract boolean handleLine(int lineCount, int start, int end, String[] items);
+    public static final Pattern SPLIT = PatternCache.get("\\s*;\\s*");
+
+    protected abstract boolean handleLine(
+        int lineCount,
+        int start,
+        int end,
+        String[] items
+    );
 
     @Override
-    protected void handleEnd() {
-    }
+    protected void handleEnd() {}
 
     protected boolean isCodePoint() {
         return true;

@@ -8,6 +8,13 @@
  */
 package org.unicode.cldr.util;
 
+import com.google.common.base.CharMatcher;
+import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.text.UnicodeSet;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -24,23 +31,13 @@ import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.tool.LikelySubtags;
-
-import com.google.common.base.CharMatcher;
-import com.google.common.base.Joiner;
-import com.google.common.base.Splitter;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.text.UnicodeSet;
 
 public class LanguageTagParser {
 
     private static final Joiner HYPHEN_JOINER = Joiner.on('-');
 
     private static final Comparator<? super String> EXTENSION_ORDER = new Comparator<String>() {
-
         @Override
         public int compare(String o1, String o2) {
             int diff = getBucket(o1) - getBucket(o2);
@@ -52,12 +49,12 @@ public class LanguageTagParser {
 
         private int getBucket(String o1) {
             switch (o1.length()) {
-            case 1:
-                return o1.charAt(0) == 't' ? 0 : 2;
-            case 2:
-                return o1.charAt(1) <= '9' ? 1 : 3;
-            default:
-                throw new IllegalArgumentException();
+                case 1:
+                    return o1.charAt(0) == 't' ? 0 : 2;
+                case 2:
+                    return o1.charAt(1) <= '9' ? 1 : 3;
+                default:
+                    throw new IllegalArgumentException();
             }
         }
     };
@@ -156,7 +153,10 @@ public class LanguageTagParser {
      *            Collection of language tag strings
      * @return Returns each of the language-script tags in the collection.
      */
-    public static Set<String> getLanguageAndScript(Collection<String> in, Set<String> output) {
+    public static Set<String> getLanguageAndScript(
+        Collection<String> in,
+        Set<String> output
+    ) {
         if (output == null) output = new TreeSet<>();
         LanguageTagParser lparser = new LanguageTagParser();
         for (Iterator<String> it = in.iterator(); it.hasNext();) {
@@ -174,19 +174,33 @@ public class LanguageTagParser {
     private String region;
     private Set<String> variants = new TreeSet<>();
     private Map<String, List<String>> extensions = new TreeMap<>(); // use tree map
-    private Map<String, List<String>> localeExtensions = new TreeMap<>(EXTENSION_ORDER);
+    private Map<String, List<String>> localeExtensions = new TreeMap<>(
+        EXTENSION_ORDER
+    );
 
     private static final UnicodeSet ALPHA = new UnicodeSet("[a-zA-Z]").freeze();
     private static final UnicodeSet DIGIT = new UnicodeSet("[0-9]").freeze();
-    private static final UnicodeSet ALPHANUM = new UnicodeSet("[0-9a-zA-Z]").freeze();
-    private static final UnicodeSet EXTENSION_VALUE = new UnicodeSet("[0-9a-zA-Z/_]").freeze();
+    private static final UnicodeSet ALPHANUM = new UnicodeSet("[0-9a-zA-Z]")
+        .freeze();
+    private static final UnicodeSet EXTENSION_VALUE = new UnicodeSet(
+        "[0-9a-zA-Z/_]"
+    )
+        .freeze();
     private static final UnicodeSet X = new UnicodeSet("[xX]").freeze();
-    private static final UnicodeSet ALPHA_MINUS_X = new UnicodeSet(ALPHA).removeAll(X).freeze();
+    private static final UnicodeSet ALPHA_MINUS_X = new UnicodeSet(ALPHA)
+        .removeAll(X)
+        .freeze();
     private static StandardCodes standardCodes = StandardCodes.make();
-    private static final Set<String> legacyCodes = standardCodes.getAvailableCodes("legacy");
+    private static final Set<String> legacyCodes = standardCodes.getAvailableCodes(
+        "legacy"
+    );
     private static final String separator = "-_"; // '-' alone for 3066bis language tags
-    private static final UnicodeSet SEPARATORS = new UnicodeSet().addAll(separator).freeze();
-    private static final Splitter SPLIT_BAR = Splitter.on(CharMatcher.anyOf(separator));
+    private static final UnicodeSet SEPARATORS = new UnicodeSet()
+        .addAll(separator)
+        .freeze();
+    private static final Splitter SPLIT_BAR = Splitter.on(
+        CharMatcher.anyOf(separator)
+    );
     private static final Splitter SPLIT_COLON = Splitter.on(';');
     private static final Splitter SPLIT_EQUAL = Splitter.on('=');
     private static SupplementalDataInfo SDI = null; // postpone assignment to avoid re-entrance of SupplementalDataInfo.getInstance
@@ -222,25 +236,33 @@ public class LanguageTagParser {
         original = languageTag;
         int atPosition = languageTag.indexOf('@');
         if (atPosition >= 0) {
-            final String extensionsString = languageTag.substring(atPosition + 1).toLowerCase(Locale.ROOT);
+            final String extensionsString = languageTag
+                .substring(atPosition + 1)
+                .toLowerCase(Locale.ROOT);
             for (String keyValue : SPLIT_COLON.split(extensionsString)) {
-                final Iterator<String> keyValuePair = SPLIT_EQUAL.split(keyValue).iterator();
+                final Iterator<String> keyValuePair = SPLIT_EQUAL
+                    .split(keyValue)
+                    .iterator();
                 final String key = keyValuePair.next();
                 final String value = keyValuePair.next();
-                if (keyValuePair.hasNext() || !ALPHANUM.containsAll(key) || !EXTENSION_VALUE.containsAll(value)) {
+                if (
+                    keyValuePair.hasNext() ||
+                    !ALPHANUM.containsAll(key) ||
+                    !EXTENSION_VALUE.containsAll(value)
+                ) {
                     throwError(keyValue, "Invalid key/value pair");
                 }
                 List<String> valueList = SPLIT_BAR.splitToList(value);
-                switch(key.length()) {
-                case 1:
-                    extensions.put(key, valueList);
-                    break;
-                case 2:
-                    localeExtensions.put(key, valueList);
-                    break;
-                default:
-                    throwError(keyValue, "Invalid key/value pair");
-                    break;
+                switch (key.length()) {
+                    case 1:
+                        extensions.put(key, valueList);
+                        break;
+                    case 2:
+                        localeExtensions.put(key, valueList);
+                        break;
+                    default:
+                        throwError(keyValue, "Invalid key/value pair");
+                        break;
                 }
             }
             languageTag = languageTag.substring(0, atPosition);
@@ -258,7 +280,10 @@ public class LanguageTagParser {
         try {
             subtag = getSubtag(st);
         } catch (Exception e1) {
-            throw new IllegalArgumentException("Illegal language tag: " + languageTag, e1);
+            throw new IllegalArgumentException(
+                "Illegal language tag: " + languageTag,
+                e1
+            );
         }
 
         // check for private use (x-...) and return if so
@@ -278,14 +303,19 @@ public class LanguageTagParser {
             // check for script, 4 letters
             if (subtag.length() == 4 && ALPHA.containsAll(subtag)) {
                 script = subtag;
-                script = script.substring(0, 1).toUpperCase(Locale.ROOT)
-                    + script.substring(1);
+                script =
+                    script.substring(0, 1).toUpperCase(Locale.ROOT) +
+                    script.substring(1);
                 subtag = getSubtag(st); // prepare for next
             }
 
             // check for region, 2 letters or 3 digits
-            if (subtag.length() == 2 && ALPHA.containsAll(subtag)
-                || subtag.length() == 3 && DIGIT.containsAll(subtag)) {
+            if (
+                subtag.length() == 2 &&
+                ALPHA.containsAll(subtag) ||
+                subtag.length() == 3 &&
+                DIGIT.containsAll(subtag)
+            ) {
                 region = subtag.toUpperCase(Locale.ENGLISH);
                 subtag = getSubtag(st); // prepare for next
             }
@@ -309,7 +339,6 @@ public class LanguageTagParser {
 
             // if we make it to this point, then we have an error
             throwError(subtag, "Illegal subtag");
-
         } catch (NoSuchElementException e) {
             // this exception just means we ran out of tokens. That's ok, so we just return.
         }
@@ -317,8 +346,15 @@ public class LanguageTagParser {
     }
 
     private boolean isValidVariant(String subtag) {
-        return subtag != null && ALPHANUM.containsAll(subtag)
-            && (subtag.length() > 4 || subtag.length() == 4 && DIGIT.contains(subtag.charAt(0)));
+        return (
+            subtag != null &&
+            ALPHANUM.containsAll(subtag) &&
+            (
+                subtag.length() > 4 ||
+                subtag.length() == 4 &&
+                DIGIT.contains(subtag.charAt(0))
+            )
+        );
     }
 
     /**
@@ -337,7 +373,10 @@ public class LanguageTagParser {
     }
 
     public enum Status {
-        WELL_FORMED, VALID, CANONICAL, MINIMAL
+        WELL_FORMED,
+        VALID,
+        CANONICAL,
+        MINIMAL,
     }
 
     public Status getStatus(Set<String> errors) {
@@ -351,7 +390,9 @@ public class LanguageTagParser {
             SDI = SupplementalDataInfo.getInstance();
         }
         Map<String, Map<String, R2<List<String>, String>>> aliasInfo = SDI.getLocaleAliasInfo();
-        Map<String, Map<String, String>> languageInfo = StandardCodes.getLStreg().get("language");
+        Map<String, Map<String, String>> languageInfo = StandardCodes
+            .getLStreg()
+            .get("language");
 
         if (aliasInfo.get("language").containsKey(language)) {
             errors.add("Non-canonical language: " + language);
@@ -372,8 +413,15 @@ public class LanguageTagParser {
         if (!errors.isEmpty()) {
             return Status.VALID;
         }
-        String tag = language + (script.isEmpty() ? "" : "_" + script) + (region.isEmpty() ? "" : "_" + region);
-        String minimized = LikelySubtags.minimize(tag, SDI.getLikelySubtags(), false);
+        String tag =
+            language +
+            (script.isEmpty() ? "" : "_" + script) +
+            (region.isEmpty() ? "" : "_" + region);
+        String minimized = LikelySubtags.minimize(
+            tag,
+            SDI.getLikelySubtags(),
+            false
+        );
         if (minimized == null) {
             errors.add("No minimal data for:" + tag);
             if (script.isEmpty() && region.isEmpty()) {
@@ -395,7 +443,10 @@ public class LanguageTagParser {
      * @return true if the subtag is empty, or if it is in the registry
      */
     private boolean validates(String subtag, String type) {
-        return subtag.length() == 0 || standardCodes.getAvailableCodes(type).contains(subtag);
+        return (
+            subtag.length() == 0 ||
+            standardCodes.getAvailableCodes(type).contains(subtag)
+        );
     }
 
     /**
@@ -404,14 +455,21 @@ public class LanguageTagParser {
      * @param minLength
      *            TODO
      */
-    private String getExtension(String subtag, StringTokenizer st, int minLength) {
+    private String getExtension(
+        String subtag,
+        StringTokenizer st,
+        int minLength
+    ) {
         String base = subtag;
         final char extension = subtag.charAt(0);
         if (extensions.containsKey(subtag)) {
             throwError(subtag, "Can't have two extensions with the same key");
         }
         if (!st.hasMoreElements()) {
-            throwError(subtag, "Private Use / Extension requires subsequent subtag");
+            throwError(
+                subtag,
+                "Private Use / Extension requires subsequent subtag"
+            );
         }
         boolean takesSubkeys = extension == 'u' || extension == 't';
         boolean firstT = extension == 't';
@@ -423,11 +481,16 @@ public class LanguageTagParser {
                 if (subtag.length() < minLength) {
                     return subtag;
                 }
-                if (takesSubkeys
-                    && subtag.length() == 2
-                    && (!firstT || isTKey(subtag))) { // start new key-value pair
+                if (
+                    takesSubkeys &&
+                    subtag.length() == 2 &&
+                    (!firstT || isTKey(subtag))
+                ) { // start new key-value pair
                     if (!result.isEmpty() || base.length() != 1) { // don't add empty t- or u-
-                        localeExtensions.put(base, ImmutableList.copyOf(result));
+                        localeExtensions.put(
+                            base,
+                            ImmutableList.copyOf(result)
+                        );
                         haveContents = true;
                         result.clear();
                     }
@@ -445,11 +508,15 @@ public class LanguageTagParser {
                     haveContents = true;
                 }
                 if (!haveContents) {
-                    throw new IllegalArgumentException("extension must not be empty: " + base);
+                    throw new IllegalArgumentException(
+                        "extension must not be empty: " + base
+                    );
                 }
             } else {
                 if (result.isEmpty()) {
-                    throw new IllegalArgumentException("extension must not be empty: " + base);
+                    throw new IllegalArgumentException(
+                        "extension must not be empty: " + base
+                    );
                 }
                 extensions.put(base, ImmutableList.copyOf(result));
             }
@@ -465,7 +532,12 @@ public class LanguageTagParser {
             throwError(result, "Illegal length (must be 1..8)");
         }
         if (!ALPHANUM.containsAll(result)) {
-            throwError(result, "Illegal characters (" + new UnicodeSet().addAll(result).removeAll(ALPHANUM) + ")");
+            throwError(
+                result,
+                "Illegal characters (" +
+                new UnicodeSet().addAll(result).removeAll(ALPHANUM) +
+                ")"
+            );
         }
         return result;
     }
@@ -474,7 +546,9 @@ public class LanguageTagParser {
      * Internal method
      */
     private void throwError(String subtag, String errorText) {
-        throw new IllegalArgumentException(errorText + ": " + subtag + " in " + original);
+        throw new IllegalArgumentException(
+            errorText + ": " + subtag + " in " + original
+        );
     }
 
     public LanguageTagParser setRegion(String region) {
@@ -488,7 +562,10 @@ public class LanguageTagParser {
     }
 
     public enum OutputOption {
-        ICU('_'), ICU_LCVARIANT('_'), BCP47('-');
+        ICU('_'),
+        ICU_LCVARIANT('_'),
+        BCP47('-');
+
         final char separator;
         final Joiner joiner;
 
@@ -497,7 +574,9 @@ public class LanguageTagParser {
             joiner = Joiner.on(separator);
         }
 
-        public Map<String, String> convert(Map<String, List<String>> mapToList) {
+        public Map<String, String> convert(
+            Map<String, List<String>> mapToList
+        ) {
             if (mapToList.isEmpty()) {
                 return Collections.emptyMap();
             }
@@ -516,11 +595,21 @@ public class LanguageTagParser {
 
     public String toString(OutputOption oo) {
         StringBuilder result = new StringBuilder(language); // optimize for the simple cases
-        if (this.script.length() != 0) result.append(oo.separator).append(script);
-        if (this.region.length() != 0) result.append(oo.separator).append(region);
+        if (this.script.length() != 0) result
+            .append(oo.separator)
+            .append(script);
+        if (this.region.length() != 0) result
+            .append(oo.separator)
+            .append(region);
         if (this.variants.size() != 0) {
             for (String variant : variants) {
-                result.append(oo.separator).append(oo != OutputOption.ICU ? variant : variant.toUpperCase(Locale.ROOT));
+                result
+                    .append(oo.separator)
+                    .append(
+                        oo != OutputOption.ICU
+                            ? variant
+                            : variant.toUpperCase(Locale.ROOT)
+                    );
             }
         }
         boolean haveAt = false;
@@ -534,27 +623,30 @@ public class LanguageTagParser {
                 String key = extension.getKey();
                 String value = oo.joiner.join(extension.getValue());
                 switch (key) {
-                case "v":
-                case "w":
-                case "y":
-                case "z":
-                    if (extensionsAfterU == null) {
-                        extensionsAfterU = new StringBuilder();
-                    }
-                    target = extensionsAfterU;
-                    break;
-                case "x":
-                    if (extensionX == null) {
-                        extensionX = new StringBuilder();
-                    }
-                    target = extensionX;
-                    break;
-                default:
+                    case "v":
+                    case "w":
+                    case "y":
+                    case "z":
+                        if (extensionsAfterU == null) {
+                            extensionsAfterU = new StringBuilder();
+                        }
+                        target = extensionsAfterU;
+                        break;
+                    case "x":
+                        if (extensionX == null) {
+                            extensionX = new StringBuilder();
+                        }
+                        target = extensionX;
+                        break;
+                    default:
                     // no action; we already have target set right for earlier items.
                 }
                 if (oo == OutputOption.BCP47) {
-                    target.append(oo.separator).append(key)
-                    .append(oo.separator).append(value);
+                    target
+                        .append(oo.separator)
+                        .append(key)
+                        .append(oo.separator)
+                        .append(value);
                 } else {
                     if (!haveAt) {
                         target.append('@');
@@ -565,8 +657,7 @@ public class LanguageTagParser {
                     } else {
                         needSep = true;
                     }
-                    target.append(key)
-                    .append('=').append(value);
+                    target.append(key).append('=').append(value);
                 }
             }
         }
@@ -574,13 +665,20 @@ public class LanguageTagParser {
             if (oo == OutputOption.BCP47) {
                 List<String> tValue = localeExtensions.get("t");
                 if (tValue != null) {
-                    result.append(oo.separator).append('t')
-                    .append(oo.separator).append(oo.joiner.join(tValue));
+                    result
+                        .append(oo.separator)
+                        .append('t')
+                        .append(oo.separator)
+                        .append(oo.joiner.join(tValue));
                     for (Entry<String, List<String>> extension : localeExtensions.entrySet()) {
                         String key = extension.getKey();
                         if (isTKey(key)) {
                             String value = oo.joiner.join(extension.getValue());
-                            result.append(oo.separator).append(key).append(oo.separator).append(value);
+                            result
+                                .append(oo.separator)
+                                .append(key)
+                                .append(oo.separator)
+                                .append(value);
                         }
                     }
                 }
@@ -590,14 +688,20 @@ public class LanguageTagParser {
                         List<String> uValue = localeExtensions.get("u");
                         result.append(oo.separator).append('u');
                         if (uValue != null) {
-                            result.append(oo.separator).append(oo.joiner.join(uValue));
+                            result
+                                .append(oo.separator)
+                                .append(oo.joiner.join(uValue));
                         }
                         haveU = true;
                     }
                     String key = extension.getKey();
                     if (key.length() == 2 && key.charAt(1) >= 'a') {
                         String value = oo.joiner.join(extension.getValue());
-                        result.append(oo.separator).append(key).append(oo.separator).append(value);
+                        result
+                            .append(oo.separator)
+                            .append(key)
+                            .append(oo.separator)
+                            .append(value);
                     }
                 }
             } else {
@@ -612,8 +716,10 @@ public class LanguageTagParser {
                     }
                     String key = extension.getKey();
                     String value = oo.joiner.join(extension.getValue());
-                    result.append(key.toUpperCase(Locale.ROOT))
-                    .append('=').append(value.toUpperCase(Locale.ROOT));
+                    result
+                        .append(key.toUpperCase(Locale.ROOT))
+                        .append('=')
+                        .append(value.toUpperCase(Locale.ROOT));
                 }
             }
         }
@@ -652,18 +758,28 @@ public class LanguageTagParser {
     }
 
     public enum Fields {
-        LANGUAGE, SCRIPT, REGION, VARIANTS
+        LANGUAGE,
+        SCRIPT,
+        REGION,
+        VARIANTS,
     }
 
-    public static Set<Fields> LANGUAGE_SCRIPT = Collections.unmodifiableSet(EnumSet.of(Fields.LANGUAGE, Fields.SCRIPT));
-    public static Set<Fields> LANGUAGE_REGION = Collections.unmodifiableSet(EnumSet.of(Fields.LANGUAGE, Fields.REGION));
-    public static Set<Fields> LANGUAGE_SCRIPT_REGION = Collections.unmodifiableSet(EnumSet.of(Fields.LANGUAGE,
-        Fields.SCRIPT, Fields.REGION));
+    public static Set<Fields> LANGUAGE_SCRIPT = Collections.unmodifiableSet(
+        EnumSet.of(Fields.LANGUAGE, Fields.SCRIPT)
+    );
+    public static Set<Fields> LANGUAGE_REGION = Collections.unmodifiableSet(
+        EnumSet.of(Fields.LANGUAGE, Fields.REGION)
+    );
+    public static Set<Fields> LANGUAGE_SCRIPT_REGION = Collections.unmodifiableSet(
+        EnumSet.of(Fields.LANGUAGE, Fields.SCRIPT, Fields.REGION)
+    );
 
     public String toString(Set<Fields> selection) {
         String result = language;
-        if (selection.contains(Fields.SCRIPT) && script.length() != 0) result += "_" + script;
-        if (selection.contains(Fields.REGION) && region.length() != 0) result += "_" + region;
+        if (selection.contains(Fields.SCRIPT) && script.length() != 0) result +=
+            "_" + script;
+        if (selection.contains(Fields.REGION) && region.length() != 0) result +=
+            "_" + region;
         if (selection.contains(Fields.VARIANTS) && variants.size() != 0) {
             for (String variant : (Collection<String>) variants) {
                 result += "_" + variant;
@@ -693,15 +809,20 @@ public class LanguageTagParser {
         return this;
     }
 
-    public LanguageTagParser setLocaleExtensions(Map<String, String> localeExtensions) {
-        this.localeExtensions = expandMap(localeExtensions, 1, Integer.MAX_VALUE);
+    public LanguageTagParser setLocaleExtensions(
+        Map<String, String> localeExtensions
+    ) {
+        this.localeExtensions =
+            expandMap(localeExtensions, 1, Integer.MAX_VALUE);
         return this;
     }
 
     public LanguageTagParser setVariants(Collection<String> newVariants) {
         for (String variant : newVariants) {
             if (!isValidVariant(variant)) {
-                throw new IllegalArgumentException("Illegal variant: " + variant);
+                throw new IllegalArgumentException(
+                    "Illegal variant: " + variant
+                );
             }
         }
         variants.clear();
@@ -709,7 +830,9 @@ public class LanguageTagParser {
         return this;
     }
 
-    static final Pattern EXTENSION_PATTERN = PatternCache.get("([0-9a-zA-Z]{2,8}(-[0-9a-zA-Z]{2,8})*)?");
+    static final Pattern EXTENSION_PATTERN = PatternCache.get(
+        "([0-9a-zA-Z]{2,8}(-[0-9a-zA-Z]{2,8})*)?"
+    );
 
     public LanguageTagParser setExtensions(Map<String, String> newExtensions) {
         this.extensions = expandMap(newExtensions, 2, 8);
@@ -721,13 +844,20 @@ public class LanguageTagParser {
         return lastBar >= 0 ? s.substring(0, lastBar) : "";
     }
 
-    private Map<String, List<String>> expandMap(Map<String, String> newLocaleExtensions, int minLength, int maxLength) {
+    private Map<String, List<String>> expandMap(
+        Map<String, String> newLocaleExtensions,
+        int minLength,
+        int maxLength
+    ) {
         if (newLocaleExtensions.isEmpty()) {
             return Collections.emptyMap();
         }
         ImmutableMap.Builder<String, List<String>> result = ImmutableMap.builder();
         for (Entry<String, String> entry : newLocaleExtensions.entrySet()) {
-            result.put(entry.getKey(), split(entry.getValue(), minLength, maxLength));
+            result.put(
+                entry.getKey(),
+                split(entry.getValue(), minLength, maxLength)
+            );
         }
         return result.build();
     }
@@ -736,18 +866,27 @@ public class LanguageTagParser {
         List<String> values = SPLIT_BAR.splitToList(value);
         for (String s : values) {
             if (s.length() < minLength || s.length() > maxLength) {
-                throw new IllegalArgumentException("Illegal subtag length for: " + s);
+                throw new IllegalArgumentException(
+                    "Illegal subtag length for: " + s
+                );
             }
             if (!ALPHANUM.containsAll(s)) {
-                throw new IllegalArgumentException("Illegal locale character in: " + s);
+                throw new IllegalArgumentException(
+                    "Illegal locale character in: " + s
+                );
             }
         }
         return values;
     }
 
-    public enum Format {icu("_","_"), bcp47("-","-"), structure("; ", "=");
+    public enum Format {
+        icu("_", "_"),
+        bcp47("-", "-"),
+        structure("; ", "=");
+
         public final String separator;
         public final String separator2;
+
         private Format(String separator, String separator2) {
             this.separator = separator;
             this.separator2 = separator2;
@@ -763,26 +902,49 @@ public class LanguageTagParser {
         appendField(format, result, "script", script);
         appendField(format, result, "region", region);
         appendField(format, result, "variants", variants);
-        appendField(format, result, "extensions", extensions, new UnicodeSet('a','s'));
+        appendField(
+            format,
+            result,
+            "extensions",
+            extensions,
+            new UnicodeSet('a', 's')
+        );
         appendField(format, result, "localeX", localeExtensions, null);
-        appendField(format, result, "extensions", extensions,  new UnicodeSet('v','w', 'y','z'));
-        appendField(format, result, "extensions", extensions, new UnicodeSet('x','x'));
+        appendField(
+            format,
+            result,
+            "extensions",
+            extensions,
+            new UnicodeSet('v', 'w', 'y', 'z')
+        );
+        appendField(
+            format,
+            result,
+            "extensions",
+            extensions,
+            new UnicodeSet('x', 'x')
+        );
         if (format == Format.structure) {
             result.append("]");
         }
-//            if (script.length() != 0) {
-//                result. += "_" + script;
-//            }
-//            if (selection.contains(Fields.REGION) && region.length() != 0) result += "_" + region;
-//            if (selection.contains(Fields.VARIANTS) && variants.size() != 0) {
-//                for (String variant : (Collection<String>) variants) {
-//                    result += "_" + variant;
-//                }
-//            }
+        //            if (script.length() != 0) {
+        //                result. += "_" + script;
+        //            }
+        //            if (selection.contains(Fields.REGION) && region.length() != 0) result += "_" + region;
+        //            if (selection.contains(Fields.VARIANTS) && variants.size() != 0) {
+        //                for (String variant : (Collection<String>) variants) {
+        //                    result += "_" + variant;
+        //                }
+        //            }
         return result.toString();
     }
 
-    private void appendField(Format format, StringBuilder result, String fieldName, String fieldValue) {
+    private void appendField(
+        Format format,
+        StringBuilder result,
+        String fieldName,
+        String fieldValue
+    ) {
         if (!fieldValue.isEmpty()) {
             if (result.length() > 1) {
                 result.append(format.separator);
@@ -794,20 +956,45 @@ public class LanguageTagParser {
         }
     }
 
-    private void appendFieldKey(Format format, StringBuilder result, String fieldName, String fieldValue) {
-        result.append(format.separator).append(fieldName).append(format.separator2).append(fieldValue);
+    private void appendFieldKey(
+        Format format,
+        StringBuilder result,
+        String fieldName,
+        String fieldValue
+    ) {
+        result
+            .append(format.separator)
+            .append(fieldName)
+            .append(format.separator2)
+            .append(fieldValue);
     }
 
-    private void appendField(Format format, StringBuilder result, String fieldName, Collection<String> fieldValues) {
+    private void appendField(
+        Format format,
+        StringBuilder result,
+        String fieldName,
+        Collection<String> fieldValues
+    ) {
         if (!fieldValues.isEmpty()) {
-            appendField(format, result, fieldName, Joiner.on(",").join(fieldValues));
+            appendField(
+                format,
+                result,
+                fieldName,
+                Joiner.on(",").join(fieldValues)
+            );
         }
     }
 
     /**
      * null match means it is -t- or -u-
      */
-    private void appendField(Format format, StringBuilder result, String fieldName, Map<String, List<String>> fieldValues, UnicodeSet match) {
+    private void appendField(
+        Format format,
+        StringBuilder result,
+        String fieldName,
+        Map<String, List<String>> fieldValues,
+        UnicodeSet match
+    ) {
         if (match == null && format != Format.structure) {
             List<String> tLang = fieldValues.get("t");
             List<String> uSpecial = fieldValues.get("u");
@@ -828,42 +1015,66 @@ public class LanguageTagParser {
                     if (!haveT) {
                         result.append(format.separator).append('t');
                         if (haveTLang) { // empty is illegal, but just in case
-                            result.append(format.separator).append(
-                                Joiner.on(format.separator).join(tLang));
+                            result
+                                .append(format.separator)
+                                .append(
+                                    Joiner.on(format.separator).join(tLang)
+                                );
                             haveTLang = false;
                         }
                         haveT = true;
                     }
-                    appendFieldKey(format, result, entry.getKey(),
-                        Joiner.on(format.separator).join(entry.getValue()));
+                    appendFieldKey(
+                        format,
+                        result,
+                        entry.getKey(),
+                        Joiner.on(format.separator).join(entry.getValue())
+                    );
                 } else {
                     if (!haveU) {
                         result2.append(format.separator).append('u');
                         if (haveUSpecial) { // not yet valid, but just in case
-                            result2.append(format.separator).append(
-                                Joiner.on(format.separator).join(uSpecial));
+                            result2
+                                .append(format.separator)
+                                .append(
+                                    Joiner.on(format.separator).join(uSpecial)
+                                );
                             haveUSpecial = false;
                         }
                         haveU = true;
                     }
-                    appendFieldKey(format, result2, entry.getKey(),
-                        Joiner.on(format.separator).join(entry.getValue()));
+                    appendFieldKey(
+                        format,
+                        result2,
+                        entry.getKey(),
+                        Joiner.on(format.separator).join(entry.getValue())
+                    );
                 }
             }
             if (haveTLang) {
-                result.append(format.separator).append('t').append(format.separator).append(
-                    Joiner.on(format.separator).join(tLang));
+                result
+                    .append(format.separator)
+                    .append('t')
+                    .append(format.separator)
+                    .append(Joiner.on(format.separator).join(tLang));
             }
             if (haveUSpecial) {
-                result2.append(format.separator).append('u').append(format.separator).append(
-                    Joiner.on(format.separator).join(uSpecial));
+                result2
+                    .append(format.separator)
+                    .append('u')
+                    .append(format.separator)
+                    .append(Joiner.on(format.separator).join(uSpecial));
             }
             result.append(result2); // put in right order
         } else {
             for (Entry<String, List<String>> entry : fieldValues.entrySet()) {
                 if (match == null || match.contains(entry.getKey())) {
-                    appendFieldKey(format, result, entry.getKey(),
-                        Joiner.on(format.separator).join(entry.getValue()));
+                    appendFieldKey(
+                        format,
+                        result,
+                        entry.getKey(),
+                        Joiner.on(format.separator).join(entry.getValue())
+                    );
                 }
             }
         }

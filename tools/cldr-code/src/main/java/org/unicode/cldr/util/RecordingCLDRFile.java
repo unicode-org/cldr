@@ -12,13 +12,17 @@ import java.util.HashSet;
  * to get the set of all paths in this file that were accessed to generate the example.
  */
 public class RecordingCLDRFile extends CLDRFile {
+
     private HashSet<String> recordedPaths = new HashSet<>();
 
     public RecordingCLDRFile(XMLSource dataSource) {
         super(dataSource);
     }
 
-    public RecordingCLDRFile(XMLSource dataSource, XMLSource... resolvingParents) {
+    public RecordingCLDRFile(
+        XMLSource dataSource,
+        XMLSource... resolvingParents
+    ) {
         super(dataSource, resolvingParents);
     }
 

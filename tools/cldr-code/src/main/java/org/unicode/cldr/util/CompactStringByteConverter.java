@@ -7,13 +7,13 @@
  */
 package org.unicode.cldr.util;
 
-import java.io.IOException;
-
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.util.ICUUncheckedIOException;
+import java.io.IOException;
 
 public class CompactStringByteConverter extends StringByteConverter {
-    static public final boolean DEBUG = false;
+
+    public static final boolean DEBUG = false;
     private boolean deltaEncoded;
     private int last;
 
@@ -86,7 +86,12 @@ public class CompactStringByteConverter extends StringByteConverter {
      * @see org.unicode.cldr.util.StringByteConverter#fromBytes(byte[], int, int, java.lang.Appendable)
      */
     @Override
-    public Appendable fromBytes(byte[] input, int byteStart, int byteLength, Appendable result) {
+    public Appendable fromBytes(
+        byte[] input,
+        int byteStart,
+        int byteLength,
+        Appendable result
+    ) {
         try {
             int[] ioBytePosition = new int[1];
             ioBytePosition[0] = 0;
@@ -139,7 +144,9 @@ public class CompactStringByteConverter extends StringByteConverter {
         for (; offset > 0; offset -= 7) {
             output[bytePosition++] = (byte) ((source >> offset) & 0x7F);
             if (DEBUG) {
-                System.out.println(Utility.hex(output[bytePosition - 1] & 0xFF, 2));
+                System.out.println(
+                    Utility.hex(output[bytePosition - 1] & 0xFF, 2)
+                );
             }
         }
         // last byte is signed, with real sign in bit 6
@@ -160,7 +167,11 @@ public class CompactStringByteConverter extends StringByteConverter {
                 result <<= 7;
                 result |= nextByte;
                 if (DEBUG) {
-                    System.out.println(Utility.hex(nextByte & 0xFF, 2) + ", " + Utility.hex(result));
+                    System.out.println(
+                        Utility.hex(nextByte & 0xFF, 2) +
+                        ", " +
+                        Utility.hex(result)
+                    );
                 }
             } else { // < 0
                 result <<= 6;
@@ -169,7 +180,11 @@ public class CompactStringByteConverter extends StringByteConverter {
                     result = ~result;
                 }
                 if (DEBUG) {
-                    System.out.println(Utility.hex(nextByte & 0xFF, 2) + ", " + Utility.hex(result));
+                    System.out.println(
+                        Utility.hex(nextByte & 0xFF, 2) +
+                        ", " +
+                        Utility.hex(result)
+                    );
                 }
                 ioBytePosition[0] = bytePosition;
                 return result;
@@ -177,7 +192,11 @@ public class CompactStringByteConverter extends StringByteConverter {
         }
     }
 
-    public static int writeUnsignedInt(int source, byte[] output, int bytePosition) {
+    public static int writeUnsignedInt(
+        int source,
+        byte[] output,
+        int bytePosition
+    ) {
         if (DEBUG) {
             System.out.println(Utility.hex(source));
         }
@@ -192,7 +211,9 @@ public class CompactStringByteConverter extends StringByteConverter {
         for (; offset > 0; offset -= 7) {
             output[bytePosition++] = (byte) ((source >> offset) & 0x7F);
             if (DEBUG) {
-                System.out.println(Utility.hex(output[bytePosition - 1] & 0xFF, 2));
+                System.out.println(
+                    Utility.hex(output[bytePosition - 1] & 0xFF, 2)
+                );
             }
         }
         output[bytePosition++] = (byte) (0x80 | source);
@@ -212,13 +233,21 @@ public class CompactStringByteConverter extends StringByteConverter {
                 result <<= 7;
                 result |= nextByte;
                 if (DEBUG) {
-                    System.out.println(Utility.hex(nextByte & 0xFF, 2) + ", " + Utility.hex(result));
+                    System.out.println(
+                        Utility.hex(nextByte & 0xFF, 2) +
+                        ", " +
+                        Utility.hex(result)
+                    );
                 }
             } else { // < 0
                 result <<= 7;
                 result |= nextByte & 0x7F;
                 if (DEBUG) {
-                    System.out.println(Utility.hex(nextByte & 0xFF, 2) + ", " + Utility.hex(result));
+                    System.out.println(
+                        Utility.hex(nextByte & 0xFF, 2) +
+                        ", " +
+                        Utility.hex(result)
+                    );
                 }
                 ioBytePosition[0] = bytePosition;
                 return result;

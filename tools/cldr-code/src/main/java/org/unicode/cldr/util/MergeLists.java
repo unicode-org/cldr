@@ -27,7 +27,9 @@ public class MergeLists<T> {
         if (orderedItems.size() == 0) { // skip empties
             return this;
         }
-        final LinkedHashSet<T> linkedHashSet = new LinkedHashSet<>(orderedItems);
+        final LinkedHashSet<T> linkedHashSet = new LinkedHashSet<>(
+            orderedItems
+        );
         if (linkedHashSet.size() != orderedItems.size()) {
             throw new IllegalArgumentException("Multiple items in ordering!");
         }
@@ -40,7 +42,9 @@ public class MergeLists<T> {
         return add(Arrays.asList(stuff));
     }
 
-    public MergeLists<T> addAll(Collection<Collection<T>> collectionsOfOrderedItems) {
+    public MergeLists<T> addAll(
+        Collection<Collection<T>> collectionsOfOrderedItems
+    ) {
         for (Collection<T> orderedItems : collectionsOfOrderedItems) {
             add(orderedItems);
         }
@@ -65,8 +69,9 @@ public class MergeLists<T> {
                 Map<T, Collection<T>> reasons = new LinkedHashMap<>();
                 getFirsts(first, reasons);
                 throw new IllegalArgumentException(
-                    "Inconsistent requested ordering: cannot merge if we have [...A...B...] and [...B...A...]: "
-                        + reasons);
+                    "Inconsistent requested ordering: cannot merge if we have [...A...B...] and [...B...A...]: " +
+                    reasons
+                );
             }
             // now get first item that is in first
             T best = extractFirstOk(orderedWorkingSet, first); // removes from working set
@@ -77,7 +82,10 @@ public class MergeLists<T> {
         return result;
     }
 
-    public static <T> boolean hasConsistentOrder(Collection<T> a, Collection<T> b) {
+    public static <T> boolean hasConsistentOrder(
+        Collection<T> a,
+        Collection<T> b
+    ) {
         LinkedHashSet<T> remainder = new LinkedHashSet<>(a);
         remainder.retainAll(b);
         if (remainder.size() == 0) {
@@ -97,7 +105,10 @@ public class MergeLists<T> {
         return !bi.hasNext(); // if we have any left over, we failed
     }
 
-    public static <T> Collection<T> hasConsistentOrderWithEachOf(Collection<T> a, Collection<Collection<T>> bs) {
+    public static <T> Collection<T> hasConsistentOrderWithEachOf(
+        Collection<T> a,
+        Collection<Collection<T>> bs
+    ) {
         for (Collection<T> b : bs) {
             if (!hasConsistentOrder(a, b)) {
                 return b;
@@ -108,7 +119,10 @@ public class MergeLists<T> {
 
     // could be optimized since we know the item will only occur at the head of a list
     private void removeFromSource(T item) {
-        for (Iterator<Collection<T>> iterator = source.iterator(); iterator.hasNext();) {
+        for (
+            Iterator<Collection<T>> iterator = source.iterator();
+            iterator.hasNext();
+        ) {
             Collection<T> sublist = iterator.next();
             sublist.remove(item);
             if (sublist.size() == 0) {

@@ -1,5 +1,10 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -11,27 +16,30 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
-
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.ext.DeclHandler;
 
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Row.R3;
-import com.ibm.icu.util.ICUUncheckedIOException;
-
 public class ElementAttributeInfo {
 
     private DtdType dtdType;
     private Map<R2<String, String>, R3<Set<String>, String, String>> elementAttribute2Data = new TreeMap<>();
-    private Relation<String, String> element2children = Relation.of(new LinkedHashMap<String, Set<String>>(), LinkedHashSet.class);
-    private Relation<String, String> element2parents = Relation.of(new LinkedHashMap<String, Set<String>>(), LinkedHashSet.class);
-    private Relation<String, String> element2attributes = Relation.of(new LinkedHashMap<String, Set<String>>(), LinkedHashSet.class);
+    private Relation<String, String> element2children = Relation.of(
+        new LinkedHashMap<String, Set<String>>(),
+        LinkedHashSet.class
+    );
+    private Relation<String, String> element2parents = Relation.of(
+        new LinkedHashMap<String, Set<String>>(),
+        LinkedHashSet.class
+    );
+    private Relation<String, String> element2attributes = Relation.of(
+        new LinkedHashMap<String, Set<String>>(),
+        LinkedHashSet.class
+    );
 
     static Map<String, Map<DtdType, ElementAttributeInfo>> cache = new HashMap<>(); // new
+
     // HashMap<DtdType,
     // Data>();
 
@@ -39,7 +47,10 @@ public class ElementAttributeInfo {
         return getInstance(CLDRPaths.COMMON_DIRECTORY, dtdType);
     }
 
-    public static final ElementAttributeInfo getInstance(String commonDirectory, DtdType dtdType) {
+    public static final ElementAttributeInfo getInstance(
+        String commonDirectory,
+        DtdType dtdType
+    ) {
         Map<DtdType, ElementAttributeInfo> result = cache.get(commonDirectory);
         if (result == null) {
             try {
@@ -55,16 +66,44 @@ public class ElementAttributeInfo {
                 if (result == null) {
                     result = new HashMap<>();
                     // pick short files that are in repository
-                    result.put(DtdType.ldml, new ElementAttributeInfo(canonicalCommonDirectory + "/main/root.xml",
-                        DtdType.ldml));
-                    result.put(DtdType.supplementalData, new ElementAttributeInfo(canonicalCommonDirectory
-                        + "/supplemental/plurals.xml", DtdType.supplementalData));
-                    result.put(DtdType.ldmlBCP47, new ElementAttributeInfo(canonicalCommonDirectory
-                        + "/bcp47/calendar.xml", DtdType.ldmlBCP47));
-                    result.put(DtdType.keyboard, new ElementAttributeInfo(canonicalCommonDirectory
-                        + "/../keyboards/android/ar-t-k0-android.xml", DtdType.keyboard));
-                    result.put(DtdType.platform, new ElementAttributeInfo(canonicalCommonDirectory
-                        + "/../keyboards/android/_platform.xml", DtdType.keyboard));
+                    result.put(
+                        DtdType.ldml,
+                        new ElementAttributeInfo(
+                            canonicalCommonDirectory + "/main/root.xml",
+                            DtdType.ldml
+                        )
+                    );
+                    result.put(
+                        DtdType.supplementalData,
+                        new ElementAttributeInfo(
+                            canonicalCommonDirectory +
+                            "/supplemental/plurals.xml",
+                            DtdType.supplementalData
+                        )
+                    );
+                    result.put(
+                        DtdType.ldmlBCP47,
+                        new ElementAttributeInfo(
+                            canonicalCommonDirectory + "/bcp47/calendar.xml",
+                            DtdType.ldmlBCP47
+                        )
+                    );
+                    result.put(
+                        DtdType.keyboard,
+                        new ElementAttributeInfo(
+                            canonicalCommonDirectory +
+                            "/../keyboards/android/ar-t-k0-android.xml",
+                            DtdType.keyboard
+                        )
+                    );
+                    result.put(
+                        DtdType.platform,
+                        new ElementAttributeInfo(
+                            canonicalCommonDirectory +
+                            "/../keyboards/android/_platform.xml",
+                            DtdType.keyboard
+                        )
+                    );
                     cache.put(commonDirectory, result);
                     cache.put(canonicalCommonDirectory, result);
                 }
@@ -85,7 +124,8 @@ public class ElementAttributeInfo {
     // }
     // }
 
-    private ElementAttributeInfo(String filename, DtdType type) throws IOException {
+    private ElementAttributeInfo(String filename, DtdType type)
+        throws IOException {
         // StringBufferInputStream fis = new StringBufferInputStream(
         // "<!DOCTYPE ldml SYSTEM \"http://www.unicode.org/cldr/dtd/1.2/ldml.dtd\"><ldml></ldml>");
         FileInputStream fis = new FileInputStream(filename);
@@ -93,13 +133,17 @@ public class ElementAttributeInfo {
             XMLReader xmlReader = CLDRFile.createXMLReader(true);
             this.dtdType = type;
             MyDeclHandler me = new MyDeclHandler(this);
-            xmlReader.setProperty("http://xml.org/sax/properties/declaration-handler", me);
+            xmlReader.setProperty(
+                "http://xml.org/sax/properties/declaration-handler",
+                me
+            );
             InputSource is = new InputSource(fis);
             is.setSystemId(filename);
             // xmlReader.setContentHandler(me);
             // xmlReader.setErrorHandler(me);
             xmlReader.parse(is);
-            this.elementAttribute2Data = Collections.unmodifiableMap(getElementAttribute2Data()); // TODO, protect rows
+            this.elementAttribute2Data =
+                Collections.unmodifiableMap(getElementAttribute2Data()); // TODO, protect rows
             getElement2Children().freeze();
             getElement2Parents().freeze();
             getElement2Attributes().freeze();
@@ -131,28 +175,58 @@ public class ElementAttributeInfo {
     }
 
     static class MyDeclHandler implements DeclHandler {
+
         private static final boolean SHOW = false;
         private ElementAttributeInfo myData;
 
-        Matcher idmatcher = PatternCache.get("[a-zA-Z0-9][-_a-zA-Z0-9]*").matcher("");
+        Matcher idmatcher = PatternCache
+            .get("[a-zA-Z0-9][-_a-zA-Z0-9]*")
+            .matcher("");
 
         public MyDeclHandler(ElementAttributeInfo indata) {
             myData = indata;
         }
 
         @Override
-        public void attributeDecl(String eName, String aName, String type, String mode, String value)
-            throws SAXException {
-            if (SHOW)
-                System.out.println(myData.getDtdType() + "\tAttributeDecl\t" + eName + "\t" + aName + "\t" + type
-                    + "\t" + mode + "\t" + value);
+        public void attributeDecl(
+            String eName,
+            String aName,
+            String type,
+            String mode,
+            String value
+        ) throws SAXException {
+            if (SHOW) System.out.println(
+                myData.getDtdType() +
+                "\tAttributeDecl\t" +
+                eName +
+                "\t" +
+                aName +
+                "\t" +
+                type +
+                "\t" +
+                mode +
+                "\t" +
+                value
+            );
             R2<String, String> key = Row.of(eName, aName);
             Set<String> typeSet = getIdentifiers(type);
-            R3<Set<String>, String, String> value2 = Row.of(typeSet, mode, value);
-            R3<Set<String>, String, String> oldValue = myData.getElementAttribute2Data().get(key);
+            R3<Set<String>, String, String> value2 = Row.of(
+                typeSet,
+                mode,
+                value
+            );
+            R3<Set<String>, String, String> oldValue = myData
+                .getElementAttribute2Data()
+                .get(key);
             if (oldValue != null && !oldValue.equals(value2)) {
-                throw new IllegalArgumentException("Conflict in data: " + key + "\told: " + oldValue + "\tnew: "
-                    + value2);
+                throw new IllegalArgumentException(
+                    "Conflict in data: " +
+                    key +
+                    "\told: " +
+                    oldValue +
+                    "\tnew: " +
+                    value2
+                );
             }
             myData.getElementAttribute2Data().put(key, value2);
             myData.getElement2Attributes().put(eName, aName);
@@ -165,14 +239,18 @@ public class ElementAttributeInfo {
                 result.add(idmatcher.group());
             }
             if (result.size() == 0) {
-                throw new IllegalArgumentException("No identifiers found in: " + type);
+                throw new IllegalArgumentException(
+                    "No identifiers found in: " + type
+                );
             }
             return result;
         }
 
         @Override
         public void elementDecl(String name, String model) throws SAXException {
-            if (SHOW) System.out.println(myData.getDtdType() + "\tElement\t" + name + "\t" + model);
+            if (SHOW) System.out.println(
+                myData.getDtdType() + "\tElement\t" + name + "\t" + model
+            );
             Set<String> identifiers = getIdentifiers(model);
             // identifiers.remove("special");
             // identifiers.remove("alias");
@@ -186,13 +264,18 @@ public class ElementAttributeInfo {
         }
 
         @Override
-        public void externalEntityDecl(String name, String publicId, String systemId) throws SAXException {
+        public void externalEntityDecl(
+            String name,
+            String publicId,
+            String systemId
+        ) throws SAXException {
             // TODO Auto-generated method stub
 
         }
 
         @Override
-        public void internalEntityDecl(String name, String value) throws SAXException {
+        public void internalEntityDecl(String name, String value)
+            throws SAXException {
             // TODO Auto-generated method stub
 
         }

@@ -9,6 +9,7 @@ package org.unicode.cldr.util;
 import java.util.Comparator;
 
 public class ArrayComparator implements Comparator {
+
     public static final Comparator COMPARABLE = new Comparator() {
         @Override
         public int compare(Object o1, Object o2) {
@@ -28,7 +29,9 @@ public class ArrayComparator implements Comparator {
             }
         } else {
             if (this.reordering.length != this.comparators.length) {
-                throw new IllegalArgumentException("comparator and reordering lengths must match");
+                throw new IllegalArgumentException(
+                    "comparator and reordering lengths must match"
+                );
             }
         }
     }
@@ -59,6 +62,7 @@ public class ArrayComparator implements Comparator {
     }
 
     static class CatchExceptionComparator implements Comparator {
+
         private Comparator other;
 
         public CatchExceptionComparator(Comparator other) {
@@ -76,5 +80,4 @@ public class ArrayComparator implements Comparator {
             }
         }
     }
-
 }

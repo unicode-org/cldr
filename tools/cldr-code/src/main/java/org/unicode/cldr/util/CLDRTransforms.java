@@ -3,6 +3,13 @@
  */
 package org.unicode.cldr.util;
 
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UnicodeFilter;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FilenameFilter;
@@ -26,22 +33,14 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.TestTransforms;
 import org.unicode.cldr.tool.LikelySubtags;
 
-import com.google.common.collect.BiMap;
-import com.google.common.collect.HashBiMap;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.lang.UScript;
-import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.text.UnicodeFilter;
-import com.ibm.icu.util.ICUUncheckedIOException;
-
 public class CLDRTransforms {
 
-    public static final String TRANSFORM_DIR = (CLDRPaths.COMMON_DIRECTORY + "transforms/");
+    public static final String TRANSFORM_DIR =
+        (CLDRPaths.COMMON_DIRECTORY + "transforms/");
 
     static final CLDRTransforms SINGLETON = new CLDRTransforms();
 
@@ -61,7 +60,8 @@ public class CLDRTransforms {
     final Set<String> overridden = new HashSet<>();
     final DependencyOrder dependencyOrder = new DependencyOrder();
 
-    static public class RegexFindFilenameFilter implements FilenameFilter {
+    public static class RegexFindFilenameFilter implements FilenameFilter {
+
         Matcher matcher;
 
         public RegexFindFilenameFilter(Matcher filter) {
@@ -86,7 +86,12 @@ public class CLDRTransforms {
      * @return
      */
 
-    public static void registerCldrTransforms(String dir, String namesMatchingRegex, Appendable showProgress, boolean keepDashTIds) {
+    public static void registerCldrTransforms(
+        String dir,
+        String namesMatchingRegex,
+        Appendable showProgress,
+        boolean keepDashTIds
+    ) {
         CLDRTransforms r = getInstance();
         if (dir == null) {
             dir = TRANSFORM_DIR;
@@ -102,16 +107,24 @@ public class CLDRTransforms {
         } else {
             Matcher filter = PatternCache.get(namesMatchingRegex).matcher("");
             r.deregisterIcuTransliterators(filter);
-            files = Arrays.asList(new File(TRANSFORM_DIR).list(new RegexFindFilenameFilter(filter)));
+            files =
+                Arrays.asList(
+                    new File(TRANSFORM_DIR)
+                        .list(new RegexFindFilenameFilter(filter))
+                );
             ordered = r.dependencyOrder.getOrderedItems(files, filter, true);
         }
 
         // System.out.println(ordered);
         for (String cldrFileName : ordered) {
-            r.registerTransliteratorsFromXML(dir, cldrFileName, files, keepDashTIds);
+            r.registerTransliteratorsFromXML(
+                dir,
+                cldrFileName,
+                files,
+                keepDashTIds
+            );
         }
         Transliterator.registerAny(); // do this last!
-
     }
 
     public static List<String> getAvailableIds() {
@@ -122,19 +135,38 @@ public class CLDRTransforms {
         return Collections.unmodifiableSet(overridden);
     }
 
-    static Transliterator fixup = Transliterator.getInstance("[:Mn:]any-hex/java");
+    static Transliterator fixup = Transliterator.getInstance(
+        "[:Mn:]any-hex/java"
+    );
 
     class DependencyOrder {
+
         // String[] doFirst = {"Latin-ConjoiningJamo"};
         // the following are file names, not IDs, so the dependencies have to go both directions
         // List<String> extras = new ArrayList<String>();
 
-        Relation<Matcher, String> dependsOn = Relation.of(new LinkedHashMap<Matcher, Set<String>>(), LinkedHashSet.class);
+        Relation<Matcher, String> dependsOn = Relation.of(
+            new LinkedHashMap<Matcher, Set<String>>(),
+            LinkedHashSet.class
+        );
+
         {
-            addDependency("Latin-(Jamo|Hangul)(/.*)?", "Latin-ConjoiningJamo", "ConjoiningJamo-Latin");
-            addDependency("(Jamo|Hangul)-Latin(/.*)?", "Latin-ConjoiningJamo", "ConjoiningJamo-Latin");
+            addDependency(
+                "Latin-(Jamo|Hangul)(/.*)?",
+                "Latin-ConjoiningJamo",
+                "ConjoiningJamo-Latin"
+            );
+            addDependency(
+                "(Jamo|Hangul)-Latin(/.*)?",
+                "Latin-ConjoiningJamo",
+                "ConjoiningJamo-Latin"
+            );
             addDependency("Latin-Han(/.*)", "Han-Spacedhan");
-            addDependency(".*(Hiragana|Katakana|Han|han).*", "Fullwidth-Halfwidth", "Halfwidth-Fullwidth");
+            addDependency(
+                ".*(Hiragana|Katakana|Han|han).*",
+                "Fullwidth-Halfwidth",
+                "Halfwidth-Fullwidth"
+            );
             addDependency(".*(Hiragana).*", "Latin-Katakana", "Katakana-Latin");
 
             addInterIndicDependency("Arabic");
@@ -149,9 +181,21 @@ public class CLDRTransforms {
             addInterIndicDependency("Telugu");
             addInterIndicDependency("ur");
 
-            addDependency(".*Digit.*", "NumericPinyin-Pinyin", "Pinyin-NumericPinyin");
-            addDependency("Latin-NumericPinyin(/.*)?", "Tone-Digit", "Digit-Tone");
-            addDependency("NumericPinyin-Latin(/.*)?", "Tone-Digit", "Digit-Tone");
+            addDependency(
+                ".*Digit.*",
+                "NumericPinyin-Pinyin",
+                "Pinyin-NumericPinyin"
+            );
+            addDependency(
+                "Latin-NumericPinyin(/.*)?",
+                "Tone-Digit",
+                "Digit-Tone"
+            );
+            addDependency(
+                "NumericPinyin-Latin(/.*)?",
+                "Tone-Digit",
+                "Digit-Tone"
+            );
             addDependency("am-ar", "am-am_FONIPA", "und_FONIPA-ar");
             addDependency("am-chr", "am-am_FONIPA", "und_FONIPA-chr");
             addDependency("am-fa", "am-am_FONIPA", "und_FONIPA-fa");
@@ -175,11 +219,36 @@ public class CLDRTransforms {
             addDependency("es-ar", "es-es_FONIPA", "und_FONIPA-ar");
             addDependency("es-chr", "es-es_FONIPA", "und_FONIPA-chr");
             addDependency("es-fa", "es-es_FONIPA", "und_FONIPA-fa");
-            addDependency("es_419-am", "es-es_FONIPA", "es_FONIPA-es_419_FONIPA", "am-am_FONIPA");
-            addDependency("es_419-ar", "es-es_FONIPA", "es_FONIPA-es_419_FONIPA", "und_FONIPA-ar");
-            addDependency("es_419-chr", "es-es_FONIPA", "es_FONIPA-es_419_FONIPA", "und_FONIPA-chr");
-            addDependency("es_419-fa", "es-es_FONIPA", "es_FONIPA-es_419_FONIPA", "und_FONIPA-fa");
-            addDependency("es_419-ja", "es-es_FONIPA", "es_FONIPA-es_419_FONIPA", "es_FONIPA-ja");
+            addDependency(
+                "es_419-am",
+                "es-es_FONIPA",
+                "es_FONIPA-es_419_FONIPA",
+                "am-am_FONIPA"
+            );
+            addDependency(
+                "es_419-ar",
+                "es-es_FONIPA",
+                "es_FONIPA-es_419_FONIPA",
+                "und_FONIPA-ar"
+            );
+            addDependency(
+                "es_419-chr",
+                "es-es_FONIPA",
+                "es_FONIPA-es_419_FONIPA",
+                "und_FONIPA-chr"
+            );
+            addDependency(
+                "es_419-fa",
+                "es-es_FONIPA",
+                "es_FONIPA-es_419_FONIPA",
+                "und_FONIPA-fa"
+            );
+            addDependency(
+                "es_419-ja",
+                "es-es_FONIPA",
+                "es_FONIPA-es_419_FONIPA",
+                "es_FONIPA-ja"
+            );
             addDependency("es-am", "es-es_FONIPA", "es_FONIPA-am");
             addDependency("es-ja", "es-es_FONIPA", "es_FONIPA-ja");
             addDependency("es-zh", "es-es_FONIPA", "es_FONIPA-zh");
@@ -190,10 +259,26 @@ public class CLDRTransforms {
             addDependency("hy-ar", "hy-hy_FONIPA", "und_FONIPA-ar");
             addDependency("hy-chr", "hy-hy_FONIPA", "und_FONIPA-chr");
             addDependency("hy-fa", "hy-hy_FONIPA", "und_FONIPA-fa");
-            addDependency("hy_AREVMDA-am", "hy_AREVMDA-hy_AREVMDA_FONIPA", "am-am_FONIPA");
-            addDependency("hy_AREVMDA-ar", "hy_AREVMDA-hy_AREVMDA_FONIPA", "und_FONIPA-ar");
-            addDependency("hy_AREVMDA-chr", "hy_AREVMDA-hy_AREVMDA_FONIPA", "und_FONIPA-chr");
-            addDependency("hy_AREVMDA-fa", "hy_AREVMDA-hy_AREVMDA_FONIPA", "und_FONIPA-fa");
+            addDependency(
+                "hy_AREVMDA-am",
+                "hy_AREVMDA-hy_AREVMDA_FONIPA",
+                "am-am_FONIPA"
+            );
+            addDependency(
+                "hy_AREVMDA-ar",
+                "hy_AREVMDA-hy_AREVMDA_FONIPA",
+                "und_FONIPA-ar"
+            );
+            addDependency(
+                "hy_AREVMDA-chr",
+                "hy_AREVMDA-hy_AREVMDA_FONIPA",
+                "und_FONIPA-chr"
+            );
+            addDependency(
+                "hy_AREVMDA-fa",
+                "hy_AREVMDA-hy_AREVMDA_FONIPA",
+                "und_FONIPA-fa"
+            );
             addDependency("ia-am", "ia-ia_FONIPA", "am-am_FONIPA");
             addDependency("ia-ar", "ia-ia_FONIPA", "und_FONIPA-ar");
             addDependency("ia-chr", "ia-ia_FONIPA", "und_FONIPA-chr");
@@ -215,10 +300,26 @@ public class CLDRTransforms {
             addDependency("pl-chr", "pl-pl_FONIPA", "und_FONIPA-chr");
             addDependency("pl-fa", "pl-pl_FONIPA", "und_FONIPA-fa");
             addDependency("pl-ja", "pl-pl_FONIPA", "pl_FONIPA-ja");
-            addDependency("rm_SURSILV-am", "rm_SURSILV-rm_FONIPA_SURSILV", "am-am_FONIPA");
-            addDependency("rm_SURSILV-ar", "rm_SURSILV-rm_FONIPA_SURSILV", "und_FONIPA-ar");
-            addDependency("rm_SURSILV-chr", "rm_SURSILV-rm_FONIPA_SURSILV", "und_FONIPA-chr");
-            addDependency("rm_SURSILV-fa", "rm_SURSILV-rm_FONIPA_SURSILV", "und_FONIPA-fa");
+            addDependency(
+                "rm_SURSILV-am",
+                "rm_SURSILV-rm_FONIPA_SURSILV",
+                "am-am_FONIPA"
+            );
+            addDependency(
+                "rm_SURSILV-ar",
+                "rm_SURSILV-rm_FONIPA_SURSILV",
+                "und_FONIPA-ar"
+            );
+            addDependency(
+                "rm_SURSILV-chr",
+                "rm_SURSILV-rm_FONIPA_SURSILV",
+                "und_FONIPA-chr"
+            );
+            addDependency(
+                "rm_SURSILV-fa",
+                "rm_SURSILV-rm_FONIPA_SURSILV",
+                "und_FONIPA-fa"
+            );
             addDependency("ro-am", "ro-ro_FONIPA", "am-am_FONIPA");
             addDependency("ro-ar", "ro-ro_FONIPA", "und_FONIPA-ar");
             addDependency("ro-chr", "ro-ro_FONIPA", "und_FONIPA-chr");
@@ -250,7 +351,6 @@ public class CLDRTransforms {
             addDependency("zu-chr", "zu-zu_FONIPA", "und_FONIPA-chr");
             addDependency("zu-fa", "zu-zu_FONIPA", "und_FONIPA-fa");
             addDependency("Latin-Bopomofo", "Latin-NumericPinyin");
-
             // addExtras("cs-ja", "cs-ja", "es-am", "es-ja", "es-zh", "Han-Latin/Names");
             // Pinyin-NumericPinyin.xml
         }
@@ -258,14 +358,25 @@ public class CLDRTransforms {
         private void addInterIndicDependency(String script) {
             addPivotDependency(script, "InterIndic");
             if (!script.equals("Arabic")) {
-                addDependency(script + "-Arabic",
-                    script + "-InterIndic", "InterIndic-Arabic");
+                addDependency(
+                    script + "-Arabic",
+                    script + "-InterIndic",
+                    "InterIndic-Arabic"
+                );
             }
         }
 
         private void addPivotDependency(String script, String pivot) {
-            addDependency(script + "-.*", "Bengali" + "-" + pivot, pivot + "-" + "Bengali");
-            addDependency(".*-" + "Bengali" + "(/.*)?", pivot + "-" + "Bengali", pivot + "-" + "Bengali");
+            addDependency(
+                script + "-.*",
+                "Bengali" + "-" + pivot,
+                pivot + "-" + "Bengali"
+            );
+            addDependency(
+                ".*-" + "Bengali" + "(/.*)?",
+                pivot + "-" + "Bengali",
+                pivot + "-" + "Bengali"
+            );
         }
 
         // private void addExtras(String... strings) {
@@ -275,10 +386,17 @@ public class CLDRTransforms {
         // }
 
         private void addDependency(String pattern, String... whatItDependsOn) {
-            dependsOn.putAll(PatternCache.get(pattern).matcher(""), Arrays.asList(whatItDependsOn));
+            dependsOn.putAll(
+                PatternCache.get(pattern).matcher(""),
+                Arrays.asList(whatItDependsOn)
+            );
         }
 
-        public Set<String> getOrderedItems(Collection<String> rawInput, Matcher filter, boolean hasXmlSuffix) {
+        public Set<String> getOrderedItems(
+            Collection<String> rawInput,
+            Matcher filter,
+            boolean hasXmlSuffix
+        ) {
             Set<String> input = new LinkedHashSet<>(rawInput);
             // input.addAll(extras);
 
@@ -304,60 +422,96 @@ public class CLDRTransforms {
             return ordered;
         }
 
-        private void addDependenciesRecursively(String cldrFileName, Set<String> ordered, boolean hasXmlSuffix) {
-            String item = hasXmlSuffix && cldrFileName.endsWith(".xml") ? cldrFileName.substring(0,
-                cldrFileName.length() - 4) : cldrFileName;
+        private void addDependenciesRecursively(
+            String cldrFileName,
+            Set<String> ordered,
+            boolean hasXmlSuffix
+        ) {
+            String item = hasXmlSuffix && cldrFileName.endsWith(".xml")
+                ? cldrFileName.substring(0, cldrFileName.length() - 4)
+                : cldrFileName;
             for (Matcher m : dependsOn.keySet()) {
                 if (m.reset(item).matches()) {
                     for (String other : dependsOn.getAll(m)) {
-                        final String toAdd = hasXmlSuffix ? other + ".xml" : other;
+                        final String toAdd = hasXmlSuffix
+                            ? other + ".xml"
+                            : other;
                         if (other.equals(item) || ordered.contains(toAdd)) {
                             continue;
                         }
-                        addDependenciesRecursively(toAdd, ordered, hasXmlSuffix);
-                        append("Dependency: Adding: " + toAdd + " before " + item + "\n");
+                        addDependenciesRecursively(
+                            toAdd,
+                            ordered,
+                            hasXmlSuffix
+                        );
+                        append(
+                            "Dependency: Adding: " +
+                            toAdd +
+                            " before " +
+                            item +
+                            "\n"
+                        );
                     }
                 }
             }
             ordered.add(item);
         }
-
     }
 
     public Transliterator getInstance(String id) {
         if (!overridden.contains(id)) {
-            throw new IllegalArgumentException("No overriden transform for " + id);
+            throw new IllegalArgumentException(
+                "No overriden transform for " + id
+            );
         }
         return Transliterator.getInstance(id);
     }
 
-    public static Pattern TRANSFORM_ID_PATTERN = PatternCache.get("(.+)-([^/]+)(/(.*))?");
+    public static Pattern TRANSFORM_ID_PATTERN = PatternCache.get(
+        "(.+)-([^/]+)(/(.*))?"
+    );
 
     public Transliterator getReverseInstance(String id) {
         Matcher matcher = TRANSFORM_ID_PATTERN.matcher(id);
         if (!matcher.matches()) {
             throw new IllegalArgumentException("**No transform for " + id);
         }
-        return getInstance(matcher.group(2) + "-" + matcher.group(1)
-            + (matcher.group(4) == null ? "" : "/" + matcher.group(4)));
+        return getInstance(
+            matcher.group(2) +
+            "-" +
+            matcher.group(1) +
+            (matcher.group(4) == null ? "" : "/" + matcher.group(4))
+        );
     }
 
-    private BiMap<String,String> displayNameToId = HashBiMap.create();
+    private BiMap<String, String> displayNameToId = HashBiMap.create();
 
     public BiMap<String, String> getDisplayNameToId() {
         return displayNameToId;
     }
 
-    private void addDisplayNameToId(Map<String, String> ids2, ParsedTransformID directionInfo) {
-        displayNameToId.put(directionInfo.getDisplayId(), directionInfo.toString());
+    private void addDisplayNameToId(
+        Map<String, String> ids2,
+        ParsedTransformID directionInfo
+    ) {
+        displayNameToId.put(
+            directionInfo.getDisplayId(),
+            directionInfo.toString()
+        );
     }
 
-    public void registerTransliteratorsFromXML(String dir, String cldrFileName, List<String> cantSkip, boolean keepDashTIds) {
+    public void registerTransliteratorsFromXML(
+        String dir,
+        String cldrFileName,
+        List<String> cantSkip,
+        boolean keepDashTIds
+    ) {
         ParsedTransformID directionInfo = new ParsedTransformID();
         String ruleString;
         final String cldrFileName2 = cldrFileName + ".xml";
         try {
-            ruleString = getIcuRulesFromXmlFile(dir, cldrFileName2, directionInfo);
+            ruleString =
+                getIcuRulesFromXmlFile(dir, cldrFileName2, directionInfo);
         } catch (RuntimeException e) {
             if (!cantSkip.contains(cldrFileName2)) {
                 return;
@@ -368,7 +522,10 @@ public class CLDRTransforms {
         String id = directionInfo.getId();
         addDisplayNameToId(displayNameToId, directionInfo);
 
-        if (directionInfo.getDirection() == Direction.both || directionInfo.getDirection() == Direction.forward) {
+        if (
+            directionInfo.getDirection() == Direction.both ||
+            directionInfo.getDirection() == Direction.forward
+        ) {
             internalRegister(id, ruleString, Transliterator.FORWARD);
             for (String alias : directionInfo.getAliases()) {
                 if (!keepDashTIds && alias.contains("-t-")) {
@@ -377,13 +534,19 @@ public class CLDRTransforms {
                 Transliterator.registerAlias(alias, id);
             }
         }
-        if (directionInfo.getDirection() == Direction.both || directionInfo.getDirection() == Direction.backward) {
+        if (
+            directionInfo.getDirection() == Direction.both ||
+            directionInfo.getDirection() == Direction.backward
+        ) {
             internalRegister(id, ruleString, Transliterator.REVERSE);
             for (String alias : directionInfo.getBackwardAliases()) {
                 if (!keepDashTIds && alias.contains("-t-")) {
                     continue;
                 }
-                Transliterator.registerAlias(alias, directionInfo.getBackwardId());
+                Transliterator.registerAlias(
+                    alias,
+                    directionInfo.getBackwardId()
+                );
             }
         }
     }
@@ -397,10 +560,18 @@ public class CLDRTransforms {
      * @param directionInfo
      * @return
      */
-    public static String getIcuRulesFromXmlFile(String dir, String cldrFileName, ParsedTransformID directionInfo) {
+    public static String getIcuRulesFromXmlFile(
+        String dir,
+        String cldrFileName,
+        ParsedTransformID directionInfo
+    ) {
         final MyHandler myHandler = new MyHandler(cldrFileName, directionInfo);
         XMLFileReader xfr = new XMLFileReader().setHandler(myHandler);
-        xfr.read(dir + cldrFileName, XMLFileReader.CONTENT_HANDLER | XMLFileReader.ERROR_HANDLER, true);
+        xfr.read(
+            dir + cldrFileName,
+            XMLFileReader.CONTENT_HANDLER | XMLFileReader.ERROR_HANDLER,
+            true
+        );
         return myHandler.getRules();
     }
 
@@ -411,16 +582,23 @@ public class CLDRTransforms {
         internalRegisterNoReverseId(id, ruleString, direction);
     }
 
-    private void internalRegisterNoReverseId(String id, String ruleString, int direction) {
+    private void internalRegisterNoReverseId(
+        String id,
+        String ruleString,
+        int direction
+    ) {
         try {
-            Transliterator t = Transliterator.createFromRules(id, ruleString, direction);
+            Transliterator t = Transliterator.createFromRules(
+                id,
+                ruleString,
+                direction
+            );
             overridden.add(id);
             Transliterator oldTranslit = null;
             if (showProgress != null) {
                 try {
                     oldTranslit = Transliterator.getInstance(id);
-                } catch (Exception e) {
-                }
+                } catch (Exception e) {}
             }
             Transliterator.unregister(id);
             Transliterator.registerInstance(t);
@@ -436,9 +614,16 @@ public class CLDRTransforms {
             // }
             // verifyNullFilter("halfwidth-fullwidth");
             if (showProgress != null) {
-                append("Registered new Transliterator: " + id
-                    + (oldTranslit == null ? "" : "\told:\t" + oldTranslit.getID())
-                    + '\n');
+                append(
+                    "Registered new Transliterator: " +
+                    id +
+                    (
+                        oldTranslit == null
+                            ? ""
+                            : "\told:\t" + oldTranslit.getID()
+                    ) +
+                    '\n'
+                );
                 if (id.startsWith("el-")) {
                     TestTransforms.showTransliterator("", t, 999);
                     Transliterator t2 = Transliterator.getInstance(id);
@@ -448,10 +633,18 @@ public class CLDRTransforms {
         } catch (RuntimeException e) {
             if (showProgress != null) {
                 e.printStackTrace();
-                append("Couldn't register new Transliterator: " + id + "\t" + e.getMessage() + '\n');
+                append(
+                    "Couldn't register new Transliterator: " +
+                    id +
+                    "\t" +
+                    e.getMessage() +
+                    '\n'
+                );
             } else {
-                throw (IllegalArgumentException) new IllegalArgumentException("Couldn't register new Transliterator: "
-                    + id).initCause(e);
+                throw (IllegalArgumentException) new IllegalArgumentException(
+                    "Couldn't register new Transliterator: " + id
+                )
+                    .initCause(e);
             }
         }
     }
@@ -479,20 +672,27 @@ public class CLDRTransforms {
     // ===================================
 
     @SuppressWarnings("deprecation")
-    public void registerFromIcuFormatFiles(String directory) throws IOException {
-
+    public void registerFromIcuFormatFiles(String directory)
+        throws IOException {
         deregisterIcuTransliterators((Matcher) null);
 
         Matcher getId = PatternCache.get("\\s*(\\S*)\\s*\\{\\s*").matcher("");
-        Matcher getSource = PatternCache.get("\\s*(\\S*)\\s*\\{\\s*\\\"(.*)\\\".*").matcher("");
-        Matcher translitID = PatternCache.get("([^-]+)-([^/]+)+(?:[/](.+))?").matcher("");
+        Matcher getSource = PatternCache
+            .get("\\s*(\\S*)\\s*\\{\\s*\\\"(.*)\\\".*")
+            .matcher("");
+        Matcher translitID = PatternCache
+            .get("([^-]+)-([^/]+)+(?:[/](.+))?")
+            .matcher("");
 
         Map<String, String> fixedIDs = new TreeMap<>();
         Set<String> oddIDs = new TreeSet<>();
 
         File dir = new File(directory);
         // get the list of files to take, and their directions
-        BufferedReader input = FileUtilities.openUTF8Reader(directory, "root.txt");
+        BufferedReader input = FileUtilities.openUTF8Reader(
+            directory,
+            "root.txt"
+        );
         String id = null;
         String filename = null;
         Map<String, String> aliasMap = new LinkedHashMap<>();
@@ -542,7 +742,9 @@ public class CLDRTransforms {
                     aliasMap.put(id, source);
                     checkIdFix(id, fixedIDs, oddIDs, translitID);
                     id = null;
-                } else if (operation.equals("resource:process(transliterator)")) {
+                } else if (
+                    operation.equals("resource:process(transliterator)")
+                ) {
                     filename = source;
                 } else if (operation.equals("direction")) {
                     try {
@@ -550,12 +752,16 @@ public class CLDRTransforms {
                             // appendln("skipping: " + line);
                             continue;
                         }
-                        if (filename.indexOf("InterIndic") >= 0 && filename.indexOf("Latin") >= 0) {
+                        if (
+                            filename.indexOf("InterIndic") >= 0 &&
+                            filename.indexOf("Latin") >= 0
+                        ) {
                             // append("**" + id);
                         }
                         checkIdFix(id, fixedIDs, oddIDs, translitID);
 
-                        final int direction = source.equals("FORWARD") ? Transliterator.FORWARD
+                        final int direction = source.equals("FORWARD")
+                            ? Transliterator.FORWARD
                             : Transliterator.REVERSE;
                         registerFromIcuFile(id, directory, filename, direction);
 
@@ -564,7 +770,9 @@ public class CLDRTransforms {
                         id = null;
                         filename = null;
                     } catch (RuntimeException e) {
-                        throw (RuntimeException) new IllegalArgumentException("Failed with " + filename + ", " + source)
+                        throw (RuntimeException) new IllegalArgumentException(
+                            "Failed with " + filename + ", " + source
+                        )
                             .initCause(e);
                     }
                 } else {
@@ -580,7 +788,11 @@ public class CLDRTransforms {
         }
 
         final Set<String> rawIds = idToRules.keySet();
-        Set<String> ordered = dependencyOrder.getOrderedItems(rawIds, null, false);
+        Set<String> ordered = dependencyOrder.getOrderedItems(
+            rawIds,
+            null,
+            false
+        );
         ordered.retainAll(rawIds); // since we are in ID space, kick out anything that isn't
 
         for (String id2 : ordered) {
@@ -589,18 +801,27 @@ public class CLDRTransforms {
             verifyNullFilter("halfwidth-fullwidth"); // TESTING
         }
 
-        for (Iterator<String> it = aliasMap.keySet().iterator(); it.hasNext();) {
+        for (
+            Iterator<String> it = aliasMap.keySet().iterator();
+            it.hasNext();
+        ) {
             id = it.next();
             String source = aliasMap.get(id);
             Transliterator.unregister(id);
-            Transliterator t = Transliterator.createFromRules(id, "::" + source + ";", Transliterator.FORWARD);
+            Transliterator t = Transliterator.createFromRules(
+                id,
+                "::" + source + ";",
+                Transliterator.FORWARD
+            );
             Transliterator.registerInstance(t);
             // verifyNullFilter("halfwidth-fullwidth");
             appendln("Registered new Transliterator Alias: " + id);
-
         }
         appendln("Fixed IDs");
-        for (Iterator<String> it = fixedIDs.keySet().iterator(); it.hasNext();) {
+        for (
+            Iterator<String> it = fixedIDs.keySet().iterator();
+            it.hasNext();
+        ) {
             String id2 = it.next();
             appendln("\t" + id2 + "\t" + fixedIDs.get(id2));
         }
@@ -615,6 +836,7 @@ public class CLDRTransforms {
     Map<String, RuleDirection> idToRules = new TreeMap<>();
 
     private class RuleDirection {
+
         String ruleString;
         int direction;
 
@@ -625,7 +847,12 @@ public class CLDRTransforms {
         }
     }
 
-    private void registerFromIcuFile(String id, String directory, String filename, int direction) {
+    private void registerFromIcuFile(
+        String id,
+        String directory,
+        String filename,
+        int direction
+    ) {
         if (filename == null) {
             filename = id.replace("-", "_").replace("/", "_") + ".txt";
         }
@@ -638,7 +865,12 @@ public class CLDRTransforms {
     // registerFromIcuFile(id, dir, filename, Transliterator.REVERSE);
     // }
 
-    public void checkIdFix(String id, Map<String, String> fixedIDs, Set<String> oddIDs, Matcher translitID) {
+    public void checkIdFix(
+        String id,
+        Map<String, String> fixedIDs,
+        Set<String> oddIDs,
+        Matcher translitID
+    ) {
         if (fixedIDs.containsKey(id)) return;
         if (!translitID.reset(id).matches()) {
             appendln("Can't fix: " + id);
@@ -669,7 +901,10 @@ public class CLDRTransforms {
         // Remove all of the current registrations
         // first load into array, so we don't get sync problems.
         List<String> rawAvailable = new ArrayList<>();
-        for (Enumeration<String> en = Transliterator.getAvailableIDs(); en.hasMoreElements();) {
+        for (
+            Enumeration<String> en = Transliterator.getAvailableIDs();
+            en.hasMoreElements();
+        ) {
             final String id = en.nextElement();
             if (filter != null && !filter.reset(id).matches()) {
                 continue;
@@ -679,7 +914,11 @@ public class CLDRTransforms {
 
         // deregisterIcuTransliterators(rawAvailable);
 
-        Set<String> available = dependencyOrder.getOrderedItems(rawAvailable, filter, false);
+        Set<String> available = dependencyOrder.getOrderedItems(
+            rawAvailable,
+            filter,
+            false
+        );
         List<String> reversed = new LinkedList<>();
         for (String item : available) {
             reversed.add(0, item);
@@ -689,7 +928,10 @@ public class CLDRTransforms {
         // deregisterIcuTransliterators(rawAvailable);
         deregisterIcuTransliterators(reversed);
 
-        for (Enumeration<String> en = Transliterator.getAvailableIDs(); en.hasMoreElements();) {
+        for (
+            Enumeration<String> en = Transliterator.getAvailableIDs();
+            en.hasMoreElements();
+        ) {
             String oldId = en.nextElement();
             append("Retaining: " + oldId + "\n");
         }
@@ -713,9 +955,11 @@ public class CLDRTransforms {
                 throw e;
             }
             String className = t.getClass().getName();
-            if (className.endsWith(".CompoundTransliterator")
-                || className.endsWith(".RuleBasedTransliterator")
-                || className.endsWith(".AnyTransliterator")) {
+            if (
+                className.endsWith(".CompoundTransliterator") ||
+                className.endsWith(".RuleBasedTransliterator") ||
+                className.endsWith(".AnyTransliterator")
+            ) {
                 appendln("REMOVING: " + oldId);
                 Transliterator.unregister(oldId);
             } else {
@@ -725,14 +969,18 @@ public class CLDRTransforms {
     }
 
     public enum Direction {
-        backward, both, forward
+        backward,
+        both,
+        forward,
     }
 
     public enum Visibility {
-        external, internal
+        external,
+        internal,
     }
 
     public static class ParsedTransformID {
+
         public String source = "Any";
         public String target = "Any";
         public String variant;
@@ -742,11 +990,21 @@ public class CLDRTransforms {
         protected Visibility visibility;
 
         public String getId() {
-            return getSource() + "-" + getTarget() + (getVariant() == null ? "" : "/" + getVariant());
+            return (
+                getSource() +
+                "-" +
+                getTarget() +
+                (getVariant() == null ? "" : "/" + getVariant())
+            );
         }
 
         public String getDisplayId() {
-            return getDisplaySource() + "-" + getDisplayTarget() + (getVariant() == null ? "" : "/" + getDisplayVariant());
+            return (
+                getDisplaySource() +
+                "-" +
+                getDisplayTarget() +
+                (getVariant() == null ? "" : "/" + getDisplayVariant())
+            );
         }
 
         private String getDisplayVariant() {
@@ -773,7 +1031,10 @@ public class CLDRTransforms {
                 return "Indic";
             }
             try {
-                String name = CLDRConfig.getInstance().getEnglish().getName(sourceOrTarget);
+                String name = CLDRConfig
+                    .getInstance()
+                    .getEnglish()
+                    .getName(sourceOrTarget);
                 return name;
             } catch (Exception e) {
                 return sourceOrTarget;
@@ -795,20 +1056,31 @@ public class CLDRTransforms {
             }
             try {
                 String max = likely.maximize(sourceOrTarget);
-                return max == null ? null : new LanguageTagParser().set(max).getScript();
+                return max == null
+                    ? null
+                    : new LanguageTagParser().set(max).getScript();
             } catch (Exception e) {
                 return null;
             }
         }
 
         public String getBackwardId() {
-            return getTarget() + "-" + getSource() + (getVariant() == null ? "" : "/" + getVariant());
+            return (
+                getTarget() +
+                "-" +
+                getSource() +
+                (getVariant() == null ? "" : "/" + getVariant())
+            );
         }
 
-        public ParsedTransformID() {
-        }
+        public ParsedTransformID() {}
 
-        public ParsedTransformID set(String source, String target, String variant, Direction direction) {
+        public ParsedTransformID set(
+            String source,
+            String target,
+            String variant,
+            Direction direction
+        ) {
             this.source = source;
             this.target = target;
             this.variant = variant;
@@ -887,7 +1159,11 @@ public class CLDRTransforms {
             return source + "-" + getTargetVariant();
         }
 
-        public static String getId(String source, String target, String variant) {
+        public static String getId(
+            String source,
+            String target,
+            String variant
+        ) {
             String id = source + '-' + target;
             if (variant != null) id += "/" + variant;
             return id;
@@ -936,11 +1212,14 @@ public class CLDRTransforms {
         }
         UnicodeFilter filter = widen.getFilter();
         if (filter != null) {
-            throw new IllegalArgumentException(id + " has non-empty filter: " + filter);
+            throw new IllegalArgumentException(
+                id + " has non-empty filter: " + filter
+            );
         }
     }
 
     public static class MyHandler extends XMLFileReader.SimpleHandler {
+
         boolean first = true;
         ParsedTransformID directionInfo;
         String cldrFileName;
@@ -958,21 +1237,32 @@ public class CLDRTransforms {
 
         @Override
         public void handlePathValue(String path, String value) {
-             if (first) {
+            if (first) {
                 if (path.startsWith("//supplementalData/version")) {
                     return;
                 } else if (path.startsWith("//supplementalData/generation")) {
                     return;
                 }
                 XPathParts parts = XPathParts.getFrozenInstance(path);
-                Map<String, String> attributes = parts.findAttributes("transform");
+                Map<String, String> attributes = parts.findAttributes(
+                    "transform"
+                );
                 if (attributes == null) {
-                    throw new IllegalArgumentException("Not an XML transform file: " + cldrFileName + "\t" + path);
+                    throw new IllegalArgumentException(
+                        "Not an XML transform file: " +
+                        cldrFileName +
+                        "\t" +
+                        path
+                    );
                 }
                 directionInfo.setSource(attributes.get("source"));
                 directionInfo.setTarget(attributes.get("target"));
                 directionInfo.setVariant(attributes.get("variant"));
-                directionInfo.setDirection(Direction.valueOf(attributes.get("direction").toLowerCase(Locale.ENGLISH)));
+                directionInfo.setDirection(
+                    Direction.valueOf(
+                        attributes.get("direction").toLowerCase(Locale.ENGLISH)
+                    )
+                );
 
                 String alias = attributes.get("alias");
                 if (alias != null) {
@@ -981,7 +1271,9 @@ public class CLDRTransforms {
 
                 String backwardAlias = attributes.get("backwardAlias");
                 if (backwardAlias != null) {
-                    directionInfo.setBackwardAliases(backwardAlias.trim().split("\\s+"));
+                    directionInfo.setBackwardAliases(
+                        backwardAlias.trim().split("\\s+")
+                    );
                 }
 
                 directionInfo.setVisibility(attributes.get("visibility"));
@@ -993,7 +1285,9 @@ public class CLDRTransforms {
                 value = fixup.transliterate(value);
                 rules.append(value).append(CldrUtility.LINE_SEPARATOR);
             } else {
-                throw new IllegalArgumentException("Unknown element: " + path + "\t " + value);
+                throw new IllegalArgumentException(
+                    "Unknown element: " + path + "\t " + value
+                );
             }
         }
     }

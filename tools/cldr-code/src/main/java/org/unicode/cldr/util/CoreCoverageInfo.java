@@ -1,5 +1,10 @@
 package org.unicode.cldr.util;
 
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.UnicodeSet;
 import java.io.File;
 import java.util.Arrays;
 import java.util.EnumMap;
@@ -9,7 +14,6 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
-
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.draft.ScriptMetadata.Trinary;
@@ -17,16 +21,12 @@ import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Multimap;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.lang.UScript;
-import com.ibm.icu.text.UnicodeSet;
-
 public class CoreCoverageInfo {
 
     private static final CLDRConfig config = CLDRConfig.getInstance();
-    private static final String CLDR_BASE_DIRECTORY = config.getCldrBaseDirectory().toString();
+    private static final String CLDR_BASE_DIRECTORY = config
+        .getCldrBaseDirectory()
+        .toString();
     private static final SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
     private static final LikelySubtags ls = new LikelySubtags();
 
@@ -45,11 +45,11 @@ public class CoreCoverageInfo {
         collation(Level.MODERATE),
 
         grammar(Level.MODERN),
-        romanization(Level.MODERN),
-        ;
+        romanization(Level.MODERN);
 
         public static Set<CoreItems> ONLY_RECOMMENDED = ImmutableSet.copyOf(
-            EnumSet.of(romanization, ordinals));
+            EnumSet.of(romanization, ordinals)
+        );
 
         public static final int COUNT = CoreItems.values().length;
         public final Level desiredLevel;
@@ -57,17 +57,23 @@ public class CoreCoverageInfo {
         CoreItems(Level desiredLevel) {
             this.desiredLevel = desiredLevel;
         }
+
         CoreItems() {
             this(Level.CORE);
         }
+
         @Override
         public String toString() {
             return desiredLevel.getAbbreviation() + " " + name();
         }
     }
+
     static UnicodeSet RTL = new UnicodeSet("[[:bc=R:][:bc=AL:]]").freeze();
 
-    public static Set<CoreItems> getCoreCoverageInfo(CLDRFile file, Multimap<CoreItems,String> detailedErrors) {
+    public static Set<CoreItems> getCoreCoverageInfo(
+        CLDRFile file,
+        Multimap<CoreItems, String> detailedErrors
+    ) {
         detailedErrors.clear();
         if (file.isResolved()) {
             file = file.getUnresolved();
@@ -98,14 +104,22 @@ public class CoreCoverageInfo {
         if (sdi.getPluralLocales(PluralType.cardinal).contains(baseLanguage)) {
             result.add(CoreItems.plurals);
         } else {
-            detailedErrors.put(CoreItems.plurals, "//supplementalData/plurals[@type=\"cardinal\"]/pluralRules[@locales=\"" + locale
-                + "\"]/pluralRule[@count=\"other\"]");
+            detailedErrors.put(
+                CoreItems.plurals,
+                "//supplementalData/plurals[@type=\"cardinal\"]/pluralRules[@locales=\"" +
+                locale +
+                "\"]/pluralRule[@count=\"other\"]"
+            );
         }
         if (sdi.getPluralLocales(PluralType.ordinal).contains(baseLanguage)) {
             result.add(CoreItems.ordinals);
         } else {
-            detailedErrors.put(CoreItems.ordinals, "//supplementalData/plurals[@type=\"ordinal\"]/pluralRules[@locales=\"" + locale
-                + "\"]/pluralRule[@count=\"other\"]");
+            detailedErrors.put(
+                CoreItems.ordinals,
+                "//supplementalData/plurals[@type=\"ordinal\"]/pluralRules[@locales=\"" +
+                locale +
+                "\"]/pluralRule[@count=\"other\"]"
+            );
         }
 
         //      (01) Default content script and region (normally: normally country with largest population using that language, and normal script for that).  [supplemental/supplementalMetadata.xml]
@@ -114,7 +128,10 @@ public class CoreCoverageInfo {
         if (defaultContent != null || locale.equals("no")) {
             result.add(CoreItems.default_content);
         } else {
-            detailedErrors.put(CoreItems.default_content, "//supplementalData/supplementalMetadata/defaultContent");
+            detailedErrors.put(
+                CoreItems.default_content,
+                "//supplementalData/supplementalMetadata/defaultContent"
+            );
         }
         // likely subtags
         String max = ls.maximize(locale);
@@ -129,7 +146,10 @@ public class CoreCoverageInfo {
             }
         }
         if (!result.contains(CoreItems.likely_subtags)) {
-            detailedErrors.put(CoreItems.likely_subtags, "//supplementalData/likelySubtags");
+            detailedErrors.put(
+                CoreItems.likely_subtags,
+                "//supplementalData/likelySubtags"
+            );
         }
         // (N) Verify the country data ( i.e. which territories in which the language is spoken enough to create a locale ) [supplemental/supplementalData.xml]
         // we verify that there is at least one region
@@ -144,7 +164,10 @@ public class CoreCoverageInfo {
         if (territories != null && territories.size() != 0) {
             result.add(CoreItems.country_data);
         } else {
-            detailedErrors.put(CoreItems.country_data, "//supplementalData/territoryInfo");
+            detailedErrors.put(
+                CoreItems.country_data,
+                "//supplementalData/territoryInfo"
+            );
             sdi.getTerritoriesForPopulationData(locale); // for debugging
         }
         //      *(N) Romanization table (non-Latin writing systems only) [spreadsheet, we'll translate into transforms/xxx-en.xml]
@@ -170,11 +193,15 @@ public class CoreCoverageInfo {
                 }
             }
             if (!found) {
-                detailedErrors.put(CoreItems.romanization, "//supplementalData/transforms/transform"
-                    + "[@source=\"und-" + script + "\"]"
-                    + "[@target=\"und-Latn\"]"
+                detailedErrors.put(
+                    CoreItems.romanization,
+                    "//supplementalData/transforms/transform" +
+                    "[@source=\"und-" +
+                    script +
+                    "\"]" +
+                    "[@target=\"und-Latn\"]"
                     //+ "[@direction=\"forward\"]"
-                    );
+                );
             }
         }
 
@@ -185,7 +212,10 @@ public class CoreCoverageInfo {
             if (hasFile(SpecialDir.casing, baseLanguage)) {
                 result.add(CoreItems.casing);
             } else {
-                detailedErrors.put(CoreItems.casing, "//ldml/metadata/casingData/casingItem[@type=\"*\"]");
+                detailedErrors.put(
+                    CoreItems.casing,
+                    "//ldml/metadata/casingData/casingItem[@type=\"*\"]"
+                );
             }
         } else {
             result.add(CoreItems.casing);
@@ -199,21 +229,30 @@ public class CoreCoverageInfo {
         if (hasFile(SpecialDir.collation, baseLanguage)) {
             result.add(CoreItems.collation);
         } else {
-            detailedErrors.put(CoreItems.collation, "//ldml/collations/collation[@type=\"standard\"]");
+            detailedErrors.put(
+                CoreItems.collation,
+                "//ldml/collations/collation[@type=\"standard\"]"
+            );
         }
 
         Map<String, PreferredAndAllowedHour> timeData = sdi.getTimeData();
         if (timeData.get(region) != null) {
             result.add(CoreItems.time_cycle);
         } else {
-            detailedErrors.put(CoreItems.time_cycle, "//supplementalData/timeData/hours");
+            detailedErrors.put(
+                CoreItems.time_cycle,
+                "//supplementalData/timeData/hours"
+            );
         }
 
         GrammarInfo grammarInfo = sdi.getGrammarInfo(locale);
         if (grammarInfo != null) {
             result.add(CoreItems.grammar);
         } else {
-            detailedErrors.put(CoreItems.grammar, "//supplementalData/grammaticalData/grammaticalFeatures");
+            detailedErrors.put(
+                CoreItems.grammar,
+                "//supplementalData/grammaticalData/grammaticalFeatures"
+            );
         }
 
         // finalize
@@ -226,7 +265,11 @@ public class CoreCoverageInfo {
         { "Latin-", "" },
     };
 
-    private static final Relation SCRIPT_NAMES = Relation.of(new HashMap(), HashSet.class);
+    private static final Relation SCRIPT_NAMES = Relation.of(
+        new HashMap(),
+        HashSet.class
+    );
+
     static {
         SCRIPT_NAMES.putAll("Arab", Arrays.asList("Arabic", "Arab"));
         SCRIPT_NAMES.putAll("Jpan", Arrays.asList("Jpan", "Han"));
@@ -249,10 +292,16 @@ public class CoreCoverageInfo {
     }
 
     private enum SpecialDir {
-        transforms, collation, casing
+        transforms,
+        collation,
+        casing,
     }
 
-    private static final Relation<SpecialDir, String> SPECIAL_FILES = Relation.of(new EnumMap(SpecialDir.class), HashSet.class);
+    private static final Relation<SpecialDir, String> SPECIAL_FILES = Relation.of(
+        new EnumMap(SpecialDir.class),
+        HashSet.class
+    );
+
     static {
         for (SpecialDir dir : SpecialDir.values()) {
             File realDir = new File(CLDR_BASE_DIRECTORY + "/common/" + dir);

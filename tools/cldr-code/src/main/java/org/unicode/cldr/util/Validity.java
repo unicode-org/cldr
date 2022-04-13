@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import com.google.common.base.Splitter;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.EnumMap;
@@ -10,18 +11,19 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
-
 import org.unicode.cldr.util.StandardCodes.LstrType;
-
-import com.google.common.base.Splitter;
 
 public class Validity {
 
     public enum Status {
-        regular, special, // for languages only (special codes like mul)
+        regular,
+        special, // for languages only (special codes like mul)
         macroregion, // regions only (from M.49)
-        deprecated, reserved, private_use,  // for clients of cldr with prior agreements
-        unknown, invalid; //  (anything else)
+        deprecated,
+        reserved,
+        private_use, // for clients of cldr with prior agreements
+        unknown,
+        invalid, //  (anything else)
     }
 
     private static final ConcurrentHashMap<String, Validity> cache = new ConcurrentHashMap<>();
@@ -46,14 +48,23 @@ public class Validity {
     }
 
     private Validity(String validityDirectory) {
-        Splitter space = Splitter.on(PatternCache.get("\\s+")).trimResults().omitEmptyStrings();
-        Map<LstrType, Map<Status, Set<String>>> data = new EnumMap<>(LstrType.class);
-        Map<LstrType, Map<String, Status>> codeToStatus = new EnumMap<>(LstrType.class);
+        Splitter space = Splitter
+            .on(PatternCache.get("\\s+"))
+            .trimResults()
+            .omitEmptyStrings();
+        Map<LstrType, Map<Status, Set<String>>> data = new EnumMap<>(
+            LstrType.class
+        );
+        Map<LstrType, Map<String, Status>> codeToStatus = new EnumMap<>(
+            LstrType.class
+        );
         final String basePath = validityDirectory;
 
         File validityDir = new File(basePath);
         if (!validityDir.isDirectory()) {
-            throw new IllegalArgumentException("Not a directory: " + validityDir.getAbsolutePath());
+            throw new IllegalArgumentException(
+                "Not a directory: " + validityDir.getAbsolutePath()
+            );
         }
         for (String file : validityDir.list()) {
             if (!file.endsWith(".xml")) {
@@ -61,7 +72,8 @@ public class Validity {
             }
             LstrType type = null;
             try {
-                type = LstrType.fromString(file.substring(0, file.length() - 4));
+                type =
+                    LstrType.fromString(file.substring(0, file.length() - 4));
             } catch (Exception e) {
                 continue;
             }
@@ -77,15 +89,23 @@ public class Validity {
 
             XMLFileReader.loadPathValues(basePath + file, lineData, true);
             for (Pair<String, String> item : lineData) {
-                XPathParts parts = XPathParts.getFrozenInstance(item.getFirst());
+                XPathParts parts = XPathParts.getFrozenInstance(
+                    item.getFirst()
+                );
                 if (!"id".equals(parts.getElement(-1))) {
                     continue;
                 }
-                LstrType typeAttr = LstrType.fromString(parts.getAttributeValue(-1, "type"));
+                LstrType typeAttr = LstrType.fromString(
+                    parts.getAttributeValue(-1, "type")
+                );
                 if (typeAttr != type) {
-                    throw new IllegalArgumentException("Corrupt value for " + type);
+                    throw new IllegalArgumentException(
+                        "Corrupt value for " + type
+                    );
                 }
-                Status subtypeAttr = Status.valueOf(parts.getAttributeValue(-1, "idStatus"));
+                Status subtypeAttr = Status.valueOf(
+                    parts.getAttributeValue(-1, "idStatus")
+                );
                 Set<String> set = submap.get(subtypeAttr);
                 if (set == null) {
                     submap.put(subtypeAttr, set = new LinkedHashSet<>());
@@ -98,7 +118,11 @@ public class Validity {
                     if (dashPos < 0) {
                         set.add(value);
                     } else {
-                        StringRange.expand(value.substring(0, dashPos), value.substring(dashPos + 1), set);
+                        StringRange.expand(
+                            value.substring(0, dashPos),
+                            value.substring(dashPos + 1),
+                            set
+                        );
                     }
                 }
                 for (String code : set) {
@@ -107,7 +131,10 @@ public class Validity {
             }
         }
         if (data.keySet().size() < 5) {
-            throw new IllegalArgumentException("Bad directory for validity files: " + validityDir.getAbsolutePath());
+            throw new IllegalArgumentException(
+                "Bad directory for validity files: " +
+                validityDir.getAbsolutePath()
+            );
         }
         typeToStatusToCodes = CldrUtility.protectCollectionX(data);
         typeToCodeToStatus = CldrUtility.protectCollectionX(codeToStatus);

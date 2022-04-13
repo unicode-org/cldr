@@ -32,7 +32,13 @@ public class LocaleNormalizer {
     public static final String ALL_LOCALES = "*";
 
     public static boolean isAllLocales(String localeList) {
-        return (localeList != null) && (localeList.contains(ALL_LOCALES) || localeList.trim().equals("all"));
+        return (
+            (localeList != null) &&
+            (
+                localeList.contains(ALL_LOCALES) ||
+                localeList.trim().equals("all")
+            )
+        );
     }
 
     /**
@@ -102,7 +108,11 @@ public class LocaleNormalizer {
      *        used as a filter unless null or ALL_LOCALES_SET
      * @return the normalized string like "aa zh"
      */
-    private static String norm(LocaleNormalizer locNorm, String list, LocaleSet orgLocaleSet) {
+    private static String norm(
+        LocaleNormalizer locNorm,
+        String list,
+        LocaleSet orgLocaleSet
+    ) {
         if (list == null) {
             return "";
         }
@@ -138,11 +148,18 @@ public class LocaleNormalizer {
         return String.join("<br />\n", messages);
     }
 
-    public static LocaleSet setFromStringQuietly(String locales, LocaleSet orgLocaleSet) {
+    public static LocaleSet setFromStringQuietly(
+        String locales,
+        LocaleSet orgLocaleSet
+    ) {
         return setFromString(null, locales, orgLocaleSet);
     }
 
-    private static LocaleSet setFromString(LocaleNormalizer locNorm, String localeList, LocaleSet orgLocaleSet) {
+    private static LocaleSet setFromString(
+        LocaleNormalizer locNorm,
+        String localeList,
+        LocaleSet orgLocaleSet
+    ) {
         if (isAllLocales(localeList)) {
             if (orgLocaleSet == null || orgLocaleSet.isAllLocales()) {
                 return ALL_LOCALES_SET;
@@ -150,17 +167,24 @@ public class LocaleNormalizer {
             return intersectKnownWithOrgLocales(orgLocaleSet);
         }
         final LocaleSet newSet = new LocaleSet();
-        if (localeList == null || (localeList = localeList.trim()).length() == 0) {
+        if (
+            localeList == null || (localeList = localeList.trim()).length() == 0
+        ) {
             return newSet;
         }
         final String[] array = localeList.split("[, \t\u00a0\\s]+"); // whitespace
         for (String s : array) {
             CLDRLocale locale = CLDRLocale.getInstance(s);
             if (knownLocales == null || knownLocales.contains(locale)) {
-                if (orgLocaleSet == null || orgLocaleSet.containsLocaleOrParent(locale)) {
+                if (
+                    orgLocaleSet == null ||
+                    orgLocaleSet.containsLocaleOrParent(locale)
+                ) {
                     newSet.add(locale);
                 } else if (locNorm != null) {
-                    locNorm.addMessage("Outside org. coverage: " + locale.getBaseName());
+                    locNorm.addMessage(
+                        "Outside org. coverage: " + locale.getBaseName()
+                    );
                 }
             } else if (locNorm != null) {
                 locNorm.addMessage("Unknown: " + locale.getBaseName());
@@ -169,7 +193,9 @@ public class LocaleNormalizer {
         return newSet;
     }
 
-    private static LocaleSet intersectKnownWithOrgLocales(LocaleSet orgLocaleSet) {
+    private static LocaleSet intersectKnownWithOrgLocales(
+        LocaleSet orgLocaleSet
+    ) {
         if (knownLocales == null) {
             final LocaleSet orgSetCopy = new LocaleSet();
             orgSetCopy.addAll(orgLocaleSet.getSet());

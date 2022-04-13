@@ -1,5 +1,7 @@
 package org.unicode.cldr.util.personname;
 
+import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.util.ULocale;
 import java.util.EnumMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -7,15 +9,11 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
-
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Field;
 import org.unicode.cldr.util.personname.PersonNameFormatter.ModifiedField;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Modifier;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
-
-import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.util.ULocale;
 
 /**
  * Simple implementation for testing and using in CLDR examples.
@@ -23,6 +21,7 @@ import com.ibm.icu.util.ULocale;
  * Immutable
  */
 public class SimpleNameObject implements NameObject {
+
     private final ULocale nameLocale;
     private final Map<Field, Map<Set<Modifier>, String>> patternData;
 
@@ -38,13 +37,18 @@ public class SimpleNameObject implements NameObject {
      * We are guaranteed by construction that the last one is empty
      */
     @Override
-    public String getBestValue(ModifiedField modifiedField, Set<Modifier> remainingModifers) {
+    public String getBestValue(
+        ModifiedField modifiedField,
+        Set<Modifier> remainingModifers
+    ) {
         final Set<Modifier> modifiers = modifiedField.getModifiers();
         remainingModifers.clear(); // just in case caller didn't
         remainingModifers.addAll(modifiers); // we may reduce below.
 
         // First check for match to field
-        Map<Set<Modifier>, String> fieldData = patternData.get(modifiedField.getField());
+        Map<Set<Modifier>, String> fieldData = patternData.get(
+            modifiedField.getField()
+        );
         if (fieldData == null) {
             return null;
         }
@@ -74,8 +78,14 @@ public class SimpleNameObject implements NameObject {
                 // we know that we can't get any longer than we have, so we can skip anything else
                 break;
             }
-            int intersectionSize = PersonNameFormatter.getIntersectionSize(dataModifiers, modifiers);
-            if (intersectionSize != 0 && intersectionSize > largestIntersectionSize) {
+            int intersectionSize = PersonNameFormatter.getIntersectionSize(
+                dataModifiers,
+                modifiers
+            );
+            if (
+                intersectionSize != 0 &&
+                intersectionSize > largestIntersectionSize
+            ) {
                 bestValue = lastValue;
                 bestModifiers = dataModifiers;
                 largestIntersectionSize = intersectionSize;
@@ -93,15 +103,23 @@ public class SimpleNameObject implements NameObject {
         return nameLocale;
     }
 
-    public SimpleNameObject(ULocale nameLocale, Map<ModifiedField, String> patternData) {
+    public SimpleNameObject(
+        ULocale nameLocale,
+        Map<ModifiedField, String> patternData
+    ) {
         this.nameLocale = nameLocale == null ? ULocale.ROOT : nameLocale;
-        Map<Field, Map<Set<Modifier>, String>> _patternData = new EnumMap<>(Field.class);
+        Map<Field, Map<Set<Modifier>, String>> _patternData = new EnumMap<>(
+            Field.class
+        );
         for (Entry<ModifiedField, String> entry : patternData.entrySet()) {
             ModifiedField modifiedField = entry.getKey();
             final Field field = modifiedField.getField();
             Map<Set<Modifier>, String> fieldData = _patternData.get(field);
             if (fieldData == null) {
-                _patternData.put(field, fieldData = new TreeMap<>(Modifier.LONGEST_FIRST));
+                _patternData.put(
+                    field,
+                    fieldData = new TreeMap<>(Modifier.LONGEST_FIRST)
+                );
             }
             fieldData.put(modifiedField.getModifiers(), entry.getValue());
         }
@@ -109,7 +127,9 @@ public class SimpleNameObject implements NameObject {
         for (Entry<Field, Map<Set<Modifier>, String>> entry : _patternData.entrySet()) {
             Map<Set<Modifier>, String> map = entry.getValue();
             if (map.get(ImmutableSet.of()) == null) {
-                throw new IllegalArgumentException("Every field must have a completely modified value " + entry);
+                throw new IllegalArgumentException(
+                    "Every field must have a completely modified value " + entry
+                );
             }
         }
         this.patternData = CldrUtility.protectCollection(_patternData);
@@ -121,20 +141,27 @@ public class SimpleNameObject implements NameObject {
     public static SimpleNameObject from(String namePattern) {
         Map<ModifiedField, String> patternData = new LinkedHashMap<>();
         ULocale nameLocale = ULocale.ROOT;
-        for (String setting : PersonNameFormatter.SPLIT_COMMA.split(namePattern)) {
-            List<String> parts = PersonNameFormatter.SPLIT_EQUALS.splitToList(setting);
+        for (String setting : PersonNameFormatter.SPLIT_COMMA.split(
+            namePattern
+        )) {
+            List<String> parts = PersonNameFormatter.SPLIT_EQUALS.splitToList(
+                setting
+            );
             if (parts.size() != 2) {
-                throw new IllegalArgumentException("Bad format, should be like: given=John Bob, given2=Edwin, …: " + namePattern);
+                throw new IllegalArgumentException(
+                    "Bad format, should be like: given=John Bob, given2=Edwin, …: " +
+                    namePattern
+                );
             }
             final String key = parts.get(0);
             final String value = parts.get(1);
-            switch(key) {
-            case "locale":
-                nameLocale = new ULocale(value);
-                break;
-            default:
-                patternData.put(ModifiedField.from(key), value);
-                break;
+            switch (key) {
+                case "locale":
+                    nameLocale = new ULocale(value);
+                    break;
+                default:
+                    patternData.put(ModifiedField.from(key), value);
+                    break;
             }
         }
         return new SimpleNameObject(nameLocale, patternData);
@@ -142,7 +169,14 @@ public class SimpleNameObject implements NameObject {
 
     @Override
     public String toString() {
-        return "{locale=" + nameLocale + " " + "patternData=" + show(patternData) + "}";
+        return (
+            "{locale=" +
+            nameLocale +
+            " " +
+            "patternData=" +
+            show(patternData) +
+            "}"
+        );
     }
 
     private String show(Map<Field, Map<Set<Modifier>, String>> patternData2) {

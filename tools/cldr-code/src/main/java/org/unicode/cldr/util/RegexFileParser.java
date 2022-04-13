@@ -1,7 +1,6 @@
 package org.unicode.cldr.util;
 
 import java.io.BufferedReader;
-
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 
 /**
@@ -11,6 +10,7 @@ import org.unicode.cldr.util.CldrUtility.VariableReplacer;
  * @author jchye
  */
 public class RegexFileParser {
+
     private RegexLineParser lineParser;
     private VariableProcessor varProcessor = DEFAULT_VARIABLE_PROCESSOR;
 
@@ -63,7 +63,9 @@ public class RegexFileParser {
      */
     public void parse(Class<?> baseClass, String filename) {
         BufferedReader reader = FileReaders.openFile(baseClass, filename);
-        Iterable<String> rlsi = With.toIterable(new FileReaders.ReadLineSimpleIterator(reader));
+        Iterable<String> rlsi = With.toIterable(
+            new FileReaders.ReadLineSimpleIterator(reader)
+        );
         parseStrings(filename, rlsi);
     }
 
@@ -90,8 +92,14 @@ public class RegexFileParser {
                 if (line.charAt(0) == '%') {
                     int pos = line.indexOf("=");
                     if (pos < 0) {
-                        throw new IllegalArgumentException("Failed to read variable in " + source + "\t\t("
-                            + lineNumber + ") " + line);
+                        throw new IllegalArgumentException(
+                            "Failed to read variable in " +
+                            source +
+                            "\t\t(" +
+                            lineNumber +
+                            ") " +
+                            line
+                        );
                     }
                     String varName = line.substring(0, pos).trim();
                     String varValue = line.substring(pos + 1).trim();
@@ -105,7 +113,14 @@ public class RegexFileParser {
                 lineParser.parse(line);
             }
         } catch (Exception e) {
-            System.err.println("Error reading " + source + " at line " + lineNumber + ": " + line);
+            System.err.println(
+                "Error reading " +
+                source +
+                " at line " +
+                lineNumber +
+                ": " +
+                line
+            );
             e.printStackTrace();
         }
     }

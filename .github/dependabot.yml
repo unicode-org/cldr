@@ -7,7 +7,7 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "monthly"
     commit-message:
       include: scope
       prefix: "CLDR-15539 gh:"
@@ -22,7 +22,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/tools/cldr-apps/js"
     schedule:
-      interval: "daily"
+      interval: "monthly"
     commit-message:
       include: scope
       prefix: "CLDR-15539 js:"
@@ -36,7 +36,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/tools/scripts/tr-archive"
     schedule:
-      interval: "daily"
+      interval: "monthly"
     commit-message:
       include: scope
       prefix: "CLDR-15539 tr:"
@@ -51,7 +51,7 @@ updates:
   - package-ecosystem: "maven"
     directory: "/tools"
     schedule:
-      interval: "daily"
+      interval: "monthly"
     commit-message:
       include: scope
       prefix: "CLDR-15539 j:"

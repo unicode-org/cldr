@@ -87,7 +87,7 @@ jobs:
           # the ~/.ssh/known_hosts line mentioning SMOKETEST_HOST
           CCC_KNOWNHOSTS: ${{ secrets.CCC_KNOWNHOSTS }}
       - name: Upload CLDR_REPORT.md
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: commit-checker-report
           path: CLDR_REPORT.md

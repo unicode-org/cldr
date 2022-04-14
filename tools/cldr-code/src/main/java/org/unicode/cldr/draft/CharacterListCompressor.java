@@ -128,7 +128,7 @@ public class CharacterListCompressor {
         int result = 0;
         for (int i = 0; i < leng; i++) {
             int c = list.get(start + i);
-            result += c * Math.pow(88, i);
+            result += c * Math.pow(88, i);  // TODO: implict narrowing of double to int.
         }
         return result;
     }

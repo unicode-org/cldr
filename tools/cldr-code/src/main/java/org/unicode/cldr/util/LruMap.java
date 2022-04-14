@@ -29,7 +29,13 @@ public class LruMap<K, V> extends LinkedHashMap<K, V> {
         super(cacheSize, 1, true);
         this.cacheSize = cacheSize;
         if (DEBUG_LRU_MAP) {
-            System.out.println(System.currentTimeMillis() + " " + getClass().getCanonicalName() + ": Instantiated LRUMap with size " + cacheSize);
+            System.out.println(
+                System.currentTimeMillis() +
+                " " +
+                getClass().getCanonicalName() +
+                ": Instantiated LRUMap with size " +
+                cacheSize
+            );
         }
     }
 
@@ -38,8 +44,16 @@ public class LruMap<K, V> extends LinkedHashMap<K, V> {
         boolean shouldRemove = (size() > this.cacheSize);
         if (DEBUG_LRU_MAP) {
             if (shouldRemove) {
-                System.out.println(System.currentTimeMillis() + " " + getClass().getCanonicalName() + ": removing entry for key " + eldest.getKey().toString());
-                System.out.println(System.currentTimeMillis() + " " + getClass().getCanonicalName() + ": Old Map size is: " + size());
+                System.out.println(
+                    System.currentTimeMillis() +
+                    " " +
+                    getClass().getCanonicalName() +
+                    ": removing entry for key " +
+                    eldest.getKey().toString()
+                );
+                System.out.println(
+                    System.currentTimeMillis() + " " + getClass().getCanonicalName() + ": Old Map size is: " + size()
+                );
             }
         }
         return shouldRemove;
@@ -48,10 +62,17 @@ public class LruMap<K, V> extends LinkedHashMap<K, V> {
     @Override
     public V put(K key, V value) {
         if (DEBUG_LRU_MAP) {
-            System.out.println(System.currentTimeMillis() + " " + getClass().getCanonicalName() + ": Adding value for key " + key.toString());
-            System.out.println(System.currentTimeMillis() + " " + getClass().getCanonicalName() + "  Old map size is: " + size());
+            System.out.println(
+                System.currentTimeMillis() +
+                " " +
+                getClass().getCanonicalName() +
+                ": Adding value for key " +
+                key.toString()
+            );
+            System.out.println(
+                System.currentTimeMillis() + " " + getClass().getCanonicalName() + "  Old map size is: " + size()
+            );
         }
         return super.put(key, value);
-
     }
 }

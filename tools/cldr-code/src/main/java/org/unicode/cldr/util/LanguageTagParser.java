@@ -8,6 +8,13 @@
  */
 package org.unicode.cldr.util;
 
+import com.google.common.base.CharMatcher;
+import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.text.UnicodeSet;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -24,23 +31,13 @@ import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.tool.LikelySubtags;
-
-import com.google.common.base.CharMatcher;
-import com.google.common.base.Joiner;
-import com.google.common.base.Splitter;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.text.UnicodeSet;
 
 public class LanguageTagParser {
 
     private static final Joiner HYPHEN_JOINER = Joiner.on('-');
 
     private static final Comparator<? super String> EXTENSION_ORDER = new Comparator<String>() {
-
         @Override
         public int compare(String o1, String o2) {
             int diff = getBucket(o1) - getBucket(o2);
@@ -52,12 +49,12 @@ public class LanguageTagParser {
 
         private int getBucket(String o1) {
             switch (o1.length()) {
-            case 1:
-                return o1.charAt(0) == 't' ? 0 : 2;
-            case 2:
-                return o1.charAt(1) <= '9' ? 1 : 3;
-            default:
-                throw new IllegalArgumentException();
+                case 1:
+                    return o1.charAt(0) == 't' ? 0 : 2;
+                case 2:
+                    return o1.charAt(1) <= '9' ? 1 : 3;
+                default:
+                    throw new IllegalArgumentException();
             }
         }
     };
@@ -231,16 +228,16 @@ public class LanguageTagParser {
                     throwError(keyValue, "Invalid key/value pair");
                 }
                 List<String> valueList = SPLIT_BAR.splitToList(value);
-                switch(key.length()) {
-                case 1:
-                    extensions.put(key, valueList);
-                    break;
-                case 2:
-                    localeExtensions.put(key, valueList);
-                    break;
-                default:
-                    throwError(keyValue, "Invalid key/value pair");
-                    break;
+                switch (key.length()) {
+                    case 1:
+                        extensions.put(key, valueList);
+                        break;
+                    case 2:
+                        localeExtensions.put(key, valueList);
+                        break;
+                    default:
+                        throwError(keyValue, "Invalid key/value pair");
+                        break;
                 }
             }
             languageTag = languageTag.substring(0, atPosition);
@@ -278,14 +275,14 @@ public class LanguageTagParser {
             // check for script, 4 letters
             if (subtag.length() == 4 && ALPHA.containsAll(subtag)) {
                 script = subtag;
-                script = script.substring(0, 1).toUpperCase(Locale.ROOT)
-                    + script.substring(1);
+                script = script.substring(0, 1).toUpperCase(Locale.ROOT) + script.substring(1);
                 subtag = getSubtag(st); // prepare for next
             }
 
             // check for region, 2 letters or 3 digits
-            if (subtag.length() == 2 && ALPHA.containsAll(subtag)
-                || subtag.length() == 3 && DIGIT.containsAll(subtag)) {
+            if (
+                subtag.length() == 2 && ALPHA.containsAll(subtag) || subtag.length() == 3 && DIGIT.containsAll(subtag)
+            ) {
                 region = subtag.toUpperCase(Locale.ENGLISH);
                 subtag = getSubtag(st); // prepare for next
             }
@@ -309,7 +306,6 @@ public class LanguageTagParser {
 
             // if we make it to this point, then we have an error
             throwError(subtag, "Illegal subtag");
-
         } catch (NoSuchElementException e) {
             // this exception just means we ran out of tokens. That's ok, so we just return.
         }
@@ -317,8 +313,11 @@ public class LanguageTagParser {
     }
 
     private boolean isValidVariant(String subtag) {
-        return subtag != null && ALPHANUM.containsAll(subtag)
-            && (subtag.length() > 4 || subtag.length() == 4 && DIGIT.contains(subtag.charAt(0)));
+        return (
+            subtag != null &&
+            ALPHANUM.containsAll(subtag) &&
+            (subtag.length() > 4 || subtag.length() == 4 && DIGIT.contains(subtag.charAt(0)))
+        );
     }
 
     /**
@@ -337,7 +336,10 @@ public class LanguageTagParser {
     }
 
     public enum Status {
-        WELL_FORMED, VALID, CANONICAL, MINIMAL
+        WELL_FORMED,
+        VALID,
+        CANONICAL,
+        MINIMAL,
     }
 
     public Status getStatus(Set<String> errors) {
@@ -423,9 +425,7 @@ public class LanguageTagParser {
                 if (subtag.length() < minLength) {
                     return subtag;
                 }
-                if (takesSubkeys
-                    && subtag.length() == 2
-                    && (!firstT || isTKey(subtag))) { // start new key-value pair
+                if (takesSubkeys && subtag.length() == 2 && (!firstT || isTKey(subtag))) { // start new key-value pair
                     if (!result.isEmpty() || base.length() != 1) { // don't add empty t- or u-
                         localeExtensions.put(base, ImmutableList.copyOf(result));
                         haveContents = true;
@@ -488,7 +488,10 @@ public class LanguageTagParser {
     }
 
     public enum OutputOption {
-        ICU('_'), ICU_LCVARIANT('_'), BCP47('-');
+        ICU('_'),
+        ICU_LCVARIANT('_'),
+        BCP47('-');
+
         final char separator;
         final Joiner joiner;
 
@@ -534,27 +537,26 @@ public class LanguageTagParser {
                 String key = extension.getKey();
                 String value = oo.joiner.join(extension.getValue());
                 switch (key) {
-                case "v":
-                case "w":
-                case "y":
-                case "z":
-                    if (extensionsAfterU == null) {
-                        extensionsAfterU = new StringBuilder();
-                    }
-                    target = extensionsAfterU;
-                    break;
-                case "x":
-                    if (extensionX == null) {
-                        extensionX = new StringBuilder();
-                    }
-                    target = extensionX;
-                    break;
-                default:
+                    case "v":
+                    case "w":
+                    case "y":
+                    case "z":
+                        if (extensionsAfterU == null) {
+                            extensionsAfterU = new StringBuilder();
+                        }
+                        target = extensionsAfterU;
+                        break;
+                    case "x":
+                        if (extensionX == null) {
+                            extensionX = new StringBuilder();
+                        }
+                        target = extensionX;
+                        break;
+                    default:
                     // no action; we already have target set right for earlier items.
                 }
                 if (oo == OutputOption.BCP47) {
-                    target.append(oo.separator).append(key)
-                    .append(oo.separator).append(value);
+                    target.append(oo.separator).append(key).append(oo.separator).append(value);
                 } else {
                     if (!haveAt) {
                         target.append('@');
@@ -565,8 +567,7 @@ public class LanguageTagParser {
                     } else {
                         needSep = true;
                     }
-                    target.append(key)
-                    .append('=').append(value);
+                    target.append(key).append('=').append(value);
                 }
             }
         }
@@ -574,8 +575,7 @@ public class LanguageTagParser {
             if (oo == OutputOption.BCP47) {
                 List<String> tValue = localeExtensions.get("t");
                 if (tValue != null) {
-                    result.append(oo.separator).append('t')
-                    .append(oo.separator).append(oo.joiner.join(tValue));
+                    result.append(oo.separator).append('t').append(oo.separator).append(oo.joiner.join(tValue));
                     for (Entry<String, List<String>> extension : localeExtensions.entrySet()) {
                         String key = extension.getKey();
                         if (isTKey(key)) {
@@ -612,8 +612,7 @@ public class LanguageTagParser {
                     }
                     String key = extension.getKey();
                     String value = oo.joiner.join(extension.getValue());
-                    result.append(key.toUpperCase(Locale.ROOT))
-                    .append('=').append(value.toUpperCase(Locale.ROOT));
+                    result.append(key.toUpperCase(Locale.ROOT)).append('=').append(value.toUpperCase(Locale.ROOT));
                 }
             }
         }
@@ -652,13 +651,17 @@ public class LanguageTagParser {
     }
 
     public enum Fields {
-        LANGUAGE, SCRIPT, REGION, VARIANTS
+        LANGUAGE,
+        SCRIPT,
+        REGION,
+        VARIANTS,
     }
 
     public static Set<Fields> LANGUAGE_SCRIPT = Collections.unmodifiableSet(EnumSet.of(Fields.LANGUAGE, Fields.SCRIPT));
     public static Set<Fields> LANGUAGE_REGION = Collections.unmodifiableSet(EnumSet.of(Fields.LANGUAGE, Fields.REGION));
-    public static Set<Fields> LANGUAGE_SCRIPT_REGION = Collections.unmodifiableSet(EnumSet.of(Fields.LANGUAGE,
-        Fields.SCRIPT, Fields.REGION));
+    public static Set<Fields> LANGUAGE_SCRIPT_REGION = Collections.unmodifiableSet(
+        EnumSet.of(Fields.LANGUAGE, Fields.SCRIPT, Fields.REGION)
+    );
 
     public String toString(Set<Fields> selection) {
         String result = language;
@@ -745,9 +748,14 @@ public class LanguageTagParser {
         return values;
     }
 
-    public enum Format {icu("_","_"), bcp47("-","-"), structure("; ", "=");
+    public enum Format {
+        icu("_", "_"),
+        bcp47("-", "-"),
+        structure("; ", "=");
+
         public final String separator;
         public final String separator2;
+
         private Format(String separator, String separator2) {
             this.separator = separator;
             this.separator2 = separator2;
@@ -763,22 +771,22 @@ public class LanguageTagParser {
         appendField(format, result, "script", script);
         appendField(format, result, "region", region);
         appendField(format, result, "variants", variants);
-        appendField(format, result, "extensions", extensions, new UnicodeSet('a','s'));
+        appendField(format, result, "extensions", extensions, new UnicodeSet('a', 's'));
         appendField(format, result, "localeX", localeExtensions, null);
-        appendField(format, result, "extensions", extensions,  new UnicodeSet('v','w', 'y','z'));
-        appendField(format, result, "extensions", extensions, new UnicodeSet('x','x'));
+        appendField(format, result, "extensions", extensions, new UnicodeSet('v', 'w', 'y', 'z'));
+        appendField(format, result, "extensions", extensions, new UnicodeSet('x', 'x'));
         if (format == Format.structure) {
             result.append("]");
         }
-//            if (script.length() != 0) {
-//                result. += "_" + script;
-//            }
-//            if (selection.contains(Fields.REGION) && region.length() != 0) result += "_" + region;
-//            if (selection.contains(Fields.VARIANTS) && variants.size() != 0) {
-//                for (String variant : (Collection<String>) variants) {
-//                    result += "_" + variant;
-//                }
-//            }
+        //            if (script.length() != 0) {
+        //                result. += "_" + script;
+        //            }
+        //            if (selection.contains(Fields.REGION) && region.length() != 0) result += "_" + region;
+        //            if (selection.contains(Fields.VARIANTS) && variants.size() != 0) {
+        //                for (String variant : (Collection<String>) variants) {
+        //                    result += "_" + variant;
+        //                }
+        //            }
         return result.toString();
     }
 
@@ -807,7 +815,13 @@ public class LanguageTagParser {
     /**
      * null match means it is -t- or -u-
      */
-    private void appendField(Format format, StringBuilder result, String fieldName, Map<String, List<String>> fieldValues, UnicodeSet match) {
+    private void appendField(
+        Format format,
+        StringBuilder result,
+        String fieldName,
+        Map<String, List<String>> fieldValues,
+        UnicodeSet match
+    ) {
         if (match == null && format != Format.structure) {
             List<String> tLang = fieldValues.get("t");
             List<String> uSpecial = fieldValues.get("u");
@@ -828,42 +842,43 @@ public class LanguageTagParser {
                     if (!haveT) {
                         result.append(format.separator).append('t');
                         if (haveTLang) { // empty is illegal, but just in case
-                            result.append(format.separator).append(
-                                Joiner.on(format.separator).join(tLang));
+                            result.append(format.separator).append(Joiner.on(format.separator).join(tLang));
                             haveTLang = false;
                         }
                         haveT = true;
                     }
-                    appendFieldKey(format, result, entry.getKey(),
-                        Joiner.on(format.separator).join(entry.getValue()));
+                    appendFieldKey(format, result, entry.getKey(), Joiner.on(format.separator).join(entry.getValue()));
                 } else {
                     if (!haveU) {
                         result2.append(format.separator).append('u');
                         if (haveUSpecial) { // not yet valid, but just in case
-                            result2.append(format.separator).append(
-                                Joiner.on(format.separator).join(uSpecial));
+                            result2.append(format.separator).append(Joiner.on(format.separator).join(uSpecial));
                             haveUSpecial = false;
                         }
                         haveU = true;
                     }
-                    appendFieldKey(format, result2, entry.getKey(),
-                        Joiner.on(format.separator).join(entry.getValue()));
+                    appendFieldKey(format, result2, entry.getKey(), Joiner.on(format.separator).join(entry.getValue()));
                 }
             }
             if (haveTLang) {
-                result.append(format.separator).append('t').append(format.separator).append(
-                    Joiner.on(format.separator).join(tLang));
+                result
+                    .append(format.separator)
+                    .append('t')
+                    .append(format.separator)
+                    .append(Joiner.on(format.separator).join(tLang));
             }
             if (haveUSpecial) {
-                result2.append(format.separator).append('u').append(format.separator).append(
-                    Joiner.on(format.separator).join(uSpecial));
+                result2
+                    .append(format.separator)
+                    .append('u')
+                    .append(format.separator)
+                    .append(Joiner.on(format.separator).join(uSpecial));
             }
             result.append(result2); // put in right order
         } else {
             for (Entry<String, List<String>> entry : fieldValues.entrySet()) {
                 if (match == null || match.contains(entry.getKey())) {
-                    appendFieldKey(format, result, entry.getKey(),
-                        Joiner.on(format.separator).join(entry.getValue()));
+                    appendFieldKey(format, result, entry.getKey(), Joiner.on(format.separator).join(entry.getValue()));
                 }
             }
         }

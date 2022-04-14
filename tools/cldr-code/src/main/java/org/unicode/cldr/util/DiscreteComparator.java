@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.impl.Utility;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
@@ -14,8 +15,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import com.ibm.icu.impl.Utility;
-
 /**
  * A comparator that can be built from a series of 'less than' relations.
  *
@@ -29,12 +28,15 @@ import com.ibm.icu.impl.Utility;
  *            any class
  */
 public class DiscreteComparator<T> implements Comparator<T> {
+
     /**
      * The builder can take three different orders: input order, natural order
      * (assumes T is Comparable<T>), and arbitrary.
      */
     public enum Ordering {
-        CHRONOLOGICAL, NATURAL, ARBITRARY
+        CHRONOLOGICAL,
+        NATURAL,
+        ARBITRARY,
     }
 
     private static final boolean DEBUG = false;
@@ -67,8 +69,7 @@ public class DiscreteComparator<T> implements Comparator<T> {
         // TODO add option for back ordering
         Integer a = ordering.get(o1);
         Integer b = ordering.get(o2);
-        if (a != null && b != null) {
-        }
+        if (a != null && b != null) {}
         if (a == null) {
             if (backupOrdering != null) {
                 if (b == null) {
@@ -122,9 +123,10 @@ public class DiscreteComparator<T> implements Comparator<T> {
          */
         public Builder(Ordering order) {
             this.order = order;
-            all = order == Ordering.CHRONOLOGICAL ? new LinkedHashMap<>()
-                : order == Ordering.NATURAL ? new TreeMap<>()
-                    : new HashMap<>();
+            all =
+                order == Ordering.CHRONOLOGICAL
+                    ? new LinkedHashMap<>()
+                    : order == Ordering.NATURAL ? new TreeMap<>() : new HashMap<>();
         }
 
         /**
@@ -245,10 +247,9 @@ public class DiscreteComparator<T> implements Comparator<T> {
                         subNode.visit(ordering);
                     } catch (CycleException e) {
                         throw new CycleException(
-                            "\n\tcycle:" + getCycle()
-                                + "\n\tall:" + all
-                                + "\n\tordering:" + ordering,
-                            e);
+                            "\n\tcycle:" + getCycle() + "\n\tall:" + all + "\n\tordering:" + ordering,
+                            e
+                        );
                     }
                 }
             }
@@ -265,7 +266,7 @@ public class DiscreteComparator<T> implements Comparator<T> {
         public List<T> getCycle() {
             List<T> result = new LinkedList<>();
             Collection<Node<T>> lesser = all.values();
-            main: while (true) {
+            main:while (true) {
                 for (Node<T> item : lesser) {
                     if (item.chained) {
                         if (result.contains(item.me)) {
@@ -297,6 +298,7 @@ public class DiscreteComparator<T> implements Comparator<T> {
     }
 
     private static class Node<T> implements Comparable<Node<T>> {
+
         private Set<Node<T>> less;
         private T me;
         private boolean visited = false;
@@ -304,9 +306,10 @@ public class DiscreteComparator<T> implements Comparator<T> {
 
         public Node(T a, Ordering order) {
             less = new LinkedHashSet<>();
-            less = order == Ordering.CHRONOLOGICAL ? new LinkedHashSet<>()
-                : order == Ordering.NATURAL ? new TreeSet<>()
-                    : new HashSet<>();
+            less =
+                order == Ordering.CHRONOLOGICAL
+                    ? new LinkedHashSet<>()
+                    : order == Ordering.NATURAL ? new TreeSet<>() : new HashSet<>();
 
             me = a;
         }
@@ -353,6 +356,7 @@ public class DiscreteComparator<T> implements Comparator<T> {
      * Exception for indicating that a cycle was found.
      */
     public static class CycleException extends RuntimeException {
+
         private static final long serialVersionUID = 1L;
 
         public <T> CycleException(String message) {
@@ -369,6 +373,7 @@ public class DiscreteComparator<T> implements Comparator<T> {
      * of the items compared is not explicitly set.
      */
     public static class MissingItemException extends RuntimeException {
+
         private static final long serialVersionUID = 1L;
 
         public MissingItemException(String message) {

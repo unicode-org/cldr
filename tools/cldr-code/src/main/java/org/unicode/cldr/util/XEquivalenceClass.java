@@ -6,6 +6,7 @@
  */
 package org.unicode.cldr.util;
 
+import com.ibm.icu.text.Transform;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -15,9 +16,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.ibm.icu.text.Transform;
-
 public class XEquivalenceClass<T, R> implements Iterable<T> {
+
     private static final String ARROW = "\u2192";
 
     public SetMaker<T> getSetMaker() {
@@ -25,7 +25,7 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
     }
 
     // quick test
-    static public void main(String[] args) {
+    public static void main(String[] args) {
         XEquivalenceClass<String, Integer> foo1 = new XEquivalenceClass<>(1);
         String[][] tests = { { "b", "a1" }, { "b", "c" }, { "a1", "c" }, { "d", "e" }, { "e", "f" }, { "c", "d" } };
         for (int i = 0; i < tests.length; ++i) {
@@ -64,8 +64,7 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
      * Create class
      *
      */
-    public XEquivalenceClass() {
-    }
+    public XEquivalenceClass() {}
 
     /**
      * Create class with comparator, and default reason.
@@ -250,6 +249,7 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
     }
 
     public static class Linkage<T, R> {
+
         public Set<R> reasons;
         public T result;
 
@@ -284,7 +284,9 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
         Set<T> bPartitionSet = toPartitionSet.get(b);
 
         // see if they connect
-        if (aPartitionSet == null || bPartitionSet == null || aPartitionSet != bPartitionSet || a.equals(b)) return null;
+        if (
+            aPartitionSet == null || bPartitionSet == null || aPartitionSet != bPartitionSet || a.equals(b)
+        ) return null;
 
         ArrayList<Linkage<T, R>> list = new ArrayList<>();
         list.add(new Linkage(null, a));

@@ -55,8 +55,13 @@ public class FileCopier {
      * @param out
      * @throws IOException
      */
-    public static void copyAndReplace(Class<?> cls, String srcFile, Charset charSet, Map<String, String> replacements,
-        Writer out) throws IOException {
+    public static void copyAndReplace(
+        Class<?> cls,
+        String srcFile,
+        Charset charSet,
+        Map<String, String> replacements,
+        Writer out
+    ) throws IOException {
         copyAndReplace(new InputStreamReader(cls.getResourceAsStream(srcFile), charSet), replacements, out);
     }
 
@@ -116,9 +121,12 @@ public class FileCopier {
      * @param newName
      * @throws IOException
      */
-    public static void copy(Class<?> cls, String sourceFile, String targetDirectory, String newName) throws IOException {
-        try (InputStream is = cls.getResourceAsStream(sourceFile);
-            Writer wr = new FileWriter(Paths.get(targetDirectory, newName).toFile());) {
+    public static void copy(Class<?> cls, String sourceFile, String targetDirectory, String newName)
+        throws IOException {
+        try (
+            InputStream is = cls.getResourceAsStream(sourceFile);
+            Writer wr = new FileWriter(Paths.get(targetDirectory, newName).toFile());
+        ) {
             copy(new InputStreamReader(is), wr);
         }
     }
@@ -167,9 +175,17 @@ public class FileCopier {
         }
     }
 
-    public static void copyAndReplace(Class<?> cls, String srcFile, String destDir, String destFile, Map<String, String> replacements) throws IOException {
-        copyAndReplace(new InputStreamReader(cls.getResourceAsStream(srcFile)),
-            replacements, new FileWriter(Paths.get(destDir, destFile).toFile()));
-
+    public static void copyAndReplace(
+        Class<?> cls,
+        String srcFile,
+        String destDir,
+        String destFile,
+        Map<String, String> replacements
+    ) throws IOException {
+        copyAndReplace(
+            new InputStreamReader(cls.getResourceAsStream(srcFile)),
+            replacements,
+            new FileWriter(Paths.get(destDir, destFile).toFile())
+        );
     }
 }

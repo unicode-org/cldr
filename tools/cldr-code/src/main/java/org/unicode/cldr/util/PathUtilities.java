@@ -67,6 +67,7 @@ import java.nio.file.Paths;
  * hopefully some of these methods can eventually be deprecated and removed.
  */
 public final class PathUtilities {
+
     /** Returns the normalized, absolute path string for the given path. */
     public static String getNormalizedPathString(String first, String... rest) {
         return getNormalizedPath(first, rest).toString();

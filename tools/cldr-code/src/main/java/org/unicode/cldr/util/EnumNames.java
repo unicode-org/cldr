@@ -6,6 +6,7 @@ import java.util.Locale;
 import java.util.Map;
 
 public class EnumNames<T extends Enum<?>> {
+
     private Map<String, T> namesToEnum = new HashMap<>();
     private ArrayList<String> enumToPreferredName = new ArrayList<>();
 

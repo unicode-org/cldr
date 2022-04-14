@@ -1,12 +1,11 @@
 package org.unicode.cldr.util;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.regex.Pattern;
-
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheStats;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.regex.Pattern;
 
 /**
  * Simple class for caching Patterns, possibly avoiding the cost of
@@ -17,23 +16,24 @@ import com.google.common.cache.CacheStats;
  *
  */
 public class PatternCache {
-    private final static int INITIAL_CAPACITY = 30;
-    private final static int MAX_CAPACITY = 1000;
+
+    private static final int INITIAL_CAPACITY = 30;
+    private static final int MAX_CAPACITY = 1000;
 
     /**
      * Variable to control whether patterns are cached (true);
      *  or whether they are created all the time */
-    private final static boolean USE_CACHE = true;
+    private static final boolean USE_CACHE = true;
 
     /**
      * Variable that controls whether statistics are recorded for the caching.
      */
-    private final static boolean RECORD_STATISTICS = false;
+    private static final boolean RECORD_STATISTICS = false;
 
     /**
      * The cache object
      */
-    private final static Cache<String, Pattern> cache;
+    private static final Cache<String, Pattern> cache;
 
     /*
      * A static initialization block is used to be able to cleanly handle the three different cases:
@@ -45,7 +45,13 @@ public class PatternCache {
     static {
         if (USE_CACHE) {
             if (RECORD_STATISTICS) {
-                cache = CacheBuilder.newBuilder().initialCapacity(INITIAL_CAPACITY).maximumSize(MAX_CAPACITY).recordStats().build();
+                cache =
+                    CacheBuilder
+                        .newBuilder()
+                        .initialCapacity(INITIAL_CAPACITY)
+                        .maximumSize(MAX_CAPACITY)
+                        .recordStats()
+                        .build();
             } else {
                 cache = CacheBuilder.newBuilder().initialCapacity(INITIAL_CAPACITY).maximumSize(MAX_CAPACITY).build();
             }
@@ -74,13 +80,16 @@ public class PatternCache {
         }
         Pattern result = null;
         try {
-            result = cache.get(patternStr, new Callable<Pattern>() {
-
-                @Override
-                public Pattern call() throws Exception {
-                    return Pattern.compile(patternStr);
-                }
-            });
+            result =
+                cache.get(
+                    patternStr,
+                    new Callable<Pattern>() {
+                        @Override
+                        public Pattern call() throws Exception {
+                            return Pattern.compile(patternStr);
+                        }
+                    }
+                );
         } catch (ExecutionException e) {
             // realistically, this is a PatternSyntaxException
             throw new IllegalArgumentException("The supplied pattern is not valid: " + patternStr, e);
@@ -113,5 +122,4 @@ public class PatternCache {
     public static CacheStats getStatistics() {
         return cache.stats();
     }
-
 }

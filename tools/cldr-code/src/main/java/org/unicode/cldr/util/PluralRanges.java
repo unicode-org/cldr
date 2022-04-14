@@ -1,13 +1,11 @@
 package org.unicode.cldr.util;
 
-import java.util.EnumSet;
-
-import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
-
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
+import java.util.EnumSet;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 /**
  * Utility class for returning the plural category for a range of numbers, such as 1–5, so that appropriate messages can be chosen.
@@ -23,7 +21,9 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
      */
     @Deprecated
     public static final class Matrix implements Comparable<Matrix>, Cloneable {
+
         private byte[] data = new byte[Count.LENGTH * Count.LENGTH];
+
         {
             for (int i = 0; i < data.length; ++i) {
                 data[i] = -1;
@@ -49,8 +49,9 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
         public void setIfNew(Count start, Count end, Count result) {
             byte old = data[start.ordinal() * Count.LENGTH + end.ordinal()];
             if (old >= 0) {
-                throw new IllegalArgumentException("Previously set value for <" +
-                    start + ", " + end + ", " + Count.VALUES.get(old) + ">");
+                throw new IllegalArgumentException(
+                    "Previously set value for <" + start + ", " + end + ", " + Count.VALUES.get(old) + ">"
+                );
             }
             data[start.ordinal() * Count.LENGTH + end.ordinal()] = result == null ? (byte) -1 : (byte) result.ordinal();
         }
@@ -211,8 +212,15 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
      */
     @Deprecated
     public static String showRange(Count start, Count end, Count result) {
-        String startEnd = "start=\"" + start + "\"" + Utility.repeat(" ", 5 - start.toString().length())
-            + " end=\"" + end + "\"" + Utility.repeat(" ", 5 - end.toString().length());
+        String startEnd =
+            "start=\"" +
+            start +
+            "\"" +
+            Utility.repeat(" ", 5 - start.toString().length()) +
+            " end=\"" +
+            end +
+            "\"" +
+            Utility.repeat(" ", 5 - end.toString().length());
         return result == null
             ? "<!--         " + startEnd + " result=? -->"
             : "<pluralRange " + startEnd + " result=\"" + result + "\"/>";

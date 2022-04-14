@@ -1,5 +1,10 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.dev.util.CollectionUtilities;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.text.Normalizer2;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.VersionInfo;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -7,16 +12,10 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.util.XPathParts.Comments;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.text.Normalizer2;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.VersionInfo;
-
 public class SimpleXMLSource extends XMLSource {
+
     private Map<String, String> xpath_value = CldrUtility.newConcurrentHashMap();
     private Map<String, String> xpath_fullXPath = CldrUtility.newConcurrentHashMap();
     private Comments xpath_comments = new Comments(); // map from paths to comments.
@@ -171,7 +170,10 @@ public class SimpleXMLSource extends XMLSource {
     static final Normalizer2 NFKC = Normalizer2.getNFKCInstance();
 
     // The following includes letters, marks, numbers, currencies, and *selected* symbols/punctuation
-    static final UnicodeSet NON_ALPHANUM = new UnicodeSet("[^[:L:][:M:][:N:][:Sc:][\\u202F\uFFFF _ ¡ « ( ) \\- \\[ \\] \\{ \\} § / \\\\ % ٪ ‰ ؉ ‱-″ ` \\^ ¯ ¨ ° + ¬ | ¦ ~ − ⊕ ⍰ ☉ © ®]]").freeze();
+    static final UnicodeSet NON_ALPHANUM = new UnicodeSet(
+        "[^[:L:][:M:][:N:][:Sc:][\\u202F\uFFFF _ ¡ « ( ) \\- \\[ \\] \\{ \\} § / \\\\ % ٪ ‰ ؉ ‱-″ ` \\^ ¯ ¨ ° + ¬ | ¦ ~ − ⊕ ⍰ ☉ © ®]]"
+    )
+        .freeze();
 
     public static String normalize(String valueToMatch) {
         return normalize2(valueToMatch, NFKCCF);
@@ -185,7 +187,7 @@ public class SimpleXMLSource extends XMLSource {
         if (valueToMatch.indexOf('\u202F') >= 0) { // special hack to allow \u202f, which is otherwise removed by NFKC
             String temp = valueToMatch.replace('\u202F', '\uFFFF');
             String result = replace(NON_ALPHANUM, normalizer2.normalize(temp), "");
-            return result.replace('\uFFFF','\u202F');
+            return result.replace('\uFFFF', '\u202F');
         }
         return replace(NON_ALPHANUM, normalizer2.normalize(valueToMatch), "");
     }

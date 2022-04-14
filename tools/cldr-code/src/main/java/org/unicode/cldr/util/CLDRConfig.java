@@ -1,5 +1,15 @@
 package org.unicode.cldr.util;
 
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
+import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.dev.test.TestLog;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.RuleBasedCollator;
+import com.ibm.icu.util.ULocale;
+import com.ibm.icu.util.VersionInfo;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.ArrayList;
@@ -13,19 +23,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-
 import org.unicode.cldr.test.CheckCLDR.Phase;
-
-import com.google.common.cache.CacheBuilder;
-import com.google.common.cache.CacheLoader;
-import com.google.common.cache.LoadingCache;
-import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.test.TestLog;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.util.ULocale;
-import com.ibm.icu.util.VersionInfo;
 
 /**
  * Basic information about the CLDR environment.
@@ -37,6 +35,7 @@ import com.ibm.icu.util.VersionInfo;
  * - Within unit tests, -DCLDR_ENVIRONMENT=UNITTEST is set, which prevents the use of CLDRConfigImpl
  */
 public class CLDRConfig extends Properties {
+
     public static boolean SKIP_SEED = System.getProperty("CLDR_SKIP_SEED") != null;
     private static final long serialVersionUID = -2605254975303398336L;
     public static boolean DEBUG = false;
@@ -52,10 +51,11 @@ public class CLDRConfig extends Properties {
         LOCAL, // < == unknown.
         SMOKETEST, // staging (SurveyTool) area
         PRODUCTION, // production (SurveyTool) server!
-        UNITTEST // unit test setting
+        UNITTEST, // unit test setting
     }
 
     public static final class CLDRConfigHelper {
+
         private static CLDRConfig make() {
             CLDRConfig instance = null;
             final String env = System.getProperty("CLDR_ENVIRONMENT");
@@ -71,15 +71,19 @@ public class CLDRConfig extends Properties {
                     instance = (CLDRConfig) (Class.forName(SUBCLASS).newInstance());
 
                     if (instance != null) {
-                        System.err.println("Using CLDRConfig: " + instance.toString() + " - "
-                            + instance.getClass().getName());
+                        System.err.println(
+                            "Using CLDRConfig: " + instance.toString() + " - " + instance.getClass().getName()
+                        );
                     } else {
                         if (DEBUG) {
                             // Probably occurred because ( config.getEnvironment() == Environment.UNITTEST )
                             // see CLDRConfigImpl
-                            System.err.println("Note: CLDRConfig Subclass " +
-                                SUBCLASS + ".newInstance() returned NULL " +
-                                "( this is OK if we aren't inside the SurveyTool's web server )");
+                            System.err.println(
+                                "Note: CLDRConfig Subclass " +
+                                SUBCLASS +
+                                ".newInstance() returned NULL " +
+                                "( this is OK if we aren't inside the SurveyTool's web server )"
+                            );
                         }
                     }
                 } catch (ClassNotFoundException e) {
@@ -91,8 +95,10 @@ public class CLDRConfig extends Properties {
             if (instance == null) {
                 // this is the "normal" branch for tools and such
                 instance = new CLDRConfig();
-                CldrUtility.checkValidDirectory(instance.getProperty("CLDR_DIR"),
-                    "You have to set -DCLDR_DIR=<validdirectory>");
+                CldrUtility.checkValidDirectory(
+                    instance.getProperty("CLDR_DIR"),
+                    "You have to set -DCLDR_DIR=<validdirectory>"
+                );
             }
             return instance;
         }
@@ -124,7 +130,8 @@ public class CLDRConfig extends Properties {
 
     private Phase phase = null; // default
 
-    private LoadingCache<String, CLDRFile> cldrFileResolvedCache = CacheBuilder.newBuilder()
+    private LoadingCache<String, CLDRFile> cldrFileResolvedCache = CacheBuilder
+        .newBuilder()
         .maximumSize(200)
         .build(
             new CacheLoader<String, CLDRFile>() {
@@ -132,10 +139,12 @@ public class CLDRConfig extends Properties {
                 public CLDRFile load(String locale) {
                     return getFullCldrFactory().make(locale, true);
                 }
-            });
+            }
+        );
 
     // Unresolved CLDRFiles are smaller than resolved, so we can cache more of them safely.
-    private LoadingCache<String, CLDRFile> cldrFileUnresolvedCache = CacheBuilder.newBuilder()
+    private LoadingCache<String, CLDRFile> cldrFileUnresolvedCache = CacheBuilder
+        .newBuilder()
         .maximumSize(1000)
         .build(
             new CacheLoader<String, CLDRFile>() {
@@ -143,7 +152,8 @@ public class CLDRConfig extends Properties {
                 public CLDRFile load(String locale) {
                     return getFullCldrFactory().make(locale, false);
                 }
-            });
+            }
+        );
     private TestLog testLog = null;
 
     // base level
@@ -168,7 +178,10 @@ public class CLDRConfig extends Properties {
     }
 
     private static final class SupplementalDataInfoHelper {
-        static final SupplementalDataInfo SINGLETON = SupplementalDataInfo.getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+
+        static final SupplementalDataInfo SINGLETON = SupplementalDataInfo.getInstance(
+            CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY
+        );
     }
 
     public SupplementalDataInfo getSupplementalDataInfo() {
@@ -177,6 +190,7 @@ public class CLDRConfig extends Properties {
     }
 
     private static final class CoverageInfoHelper {
+
         static final CoverageInfo SINGLETON = new CoverageInfo(getInstance().getSupplementalDataInfo());
     }
 
@@ -185,6 +199,7 @@ public class CLDRConfig extends Properties {
     }
 
     private static final class CldrFactoryHelper {
+
         static final Factory SINGLETON = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
     }
 
@@ -193,6 +208,7 @@ public class CLDRConfig extends Properties {
     }
 
     private static final class ExemplarsFactoryHelper {
+
         static final Factory SINGLETON = Factory.make(CLDRPaths.EXEMPLARS_DIRECTORY, ".*");
     }
 
@@ -201,6 +217,7 @@ public class CLDRConfig extends Properties {
     }
 
     private static final class CollationFactoryHelper {
+
         static final Factory SINGLETON = Factory.make(CLDRPaths.COLLATION_DIRECTORY, ".*");
     }
 
@@ -209,6 +226,7 @@ public class CLDRConfig extends Properties {
     }
 
     private static final class RBNFFactoryHelper {
+
         static final Factory SINGLETON = Factory.make(CLDRPaths.RBNF_DIRECTORY, ".*");
     }
 
@@ -217,6 +235,7 @@ public class CLDRConfig extends Properties {
     }
 
     private static final class AnnotationsFactoryHelper {
+
         static final Factory SINGLETON = Factory.make(CLDRPaths.ANNOTATIONS_DIRECTORY, ".*");
     }
 
@@ -225,6 +244,7 @@ public class CLDRConfig extends Properties {
     }
 
     private static final class SubdivisionsFactoryHelper {
+
         static final Factory SINGLETON = Factory.make(CLDRPaths.SUBDIVISIONS_DIRECTORY, ".*");
     }
 
@@ -233,9 +253,11 @@ public class CLDRConfig extends Properties {
     }
 
     private static final class MainAndAnnotationsFactoryHelper {
+
         private static final File[] paths = {
             new File(CLDRPaths.MAIN_DIRECTORY),
-            new File(CLDRPaths.ANNOTATIONS_DIRECTORY) };
+            new File(CLDRPaths.ANNOTATIONS_DIRECTORY),
+        };
         static final Factory SINGLETON = SimpleFactory.make(paths, ".*");
     }
 
@@ -244,7 +266,11 @@ public class CLDRConfig extends Properties {
     }
 
     private static final class CommonSeedExemplarsFactoryHelper {
-        static final Factory SINGLETON = SimpleFactory.make(getInstance().addStandardSubdirectories(CLDR_DATA_DIRECTORIES), ".*");
+
+        static final Factory SINGLETON = SimpleFactory.make(
+            getInstance().addStandardSubdirectories(CLDR_DATA_DIRECTORIES),
+            ".*"
+        );
     }
 
     public final Factory getCommonSeedExemplarsFactory() {
@@ -252,11 +278,12 @@ public class CLDRConfig extends Properties {
     }
 
     private static final class CommonAndSeedAndMainAndAnnotationsFactoryHelper {
+
         private static final File[] paths = {
             new File(CLDRPaths.MAIN_DIRECTORY),
             new File(CLDRPaths.ANNOTATIONS_DIRECTORY),
             SKIP_SEED ? null : new File(CLDRPaths.SEED_DIRECTORY),
-                SKIP_SEED ? null : new File(CLDRPaths.SEED_ANNOTATIONS_DIRECTORY)
+            SKIP_SEED ? null : new File(CLDRPaths.SEED_ANNOTATIONS_DIRECTORY),
         };
         static final Factory SINGLETON = SimpleFactory.make(paths, ".*");
     }
@@ -266,9 +293,11 @@ public class CLDRConfig extends Properties {
     }
 
     private static final class FullCldrFactoryHelper {
+
         private static final File[] paths = {
             new File(CLDRPaths.MAIN_DIRECTORY),
-            SKIP_SEED ? null : new File(CLDRPaths.SEED_DIRECTORY)};
+            SKIP_SEED ? null : new File(CLDRPaths.SEED_DIRECTORY),
+        };
         static final Factory SINGLETON = SimpleFactory.make(paths, ".*");
     }
 
@@ -277,6 +306,7 @@ public class CLDRConfig extends Properties {
     }
 
     private static final class SupplementalFactoryHelper {
+
         static final Factory SINGLETON = Factory.make(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY, ".*");
     }
 
@@ -297,13 +327,16 @@ public class CLDRConfig extends Properties {
     }
 
     private static final class CollatorRootHelper {
+
         static final RuleBasedCollator SINGLETON = make();
 
         private static final RuleBasedCollator make() {
             RuleBasedCollator colRoot;
 
             CLDRFile root = getInstance().getCollationFactory().make("root", false);
-            String rules = root.getStringValue("//ldml/collations/collation[@type=\"emoji\"][@visibility=\"external\"]/cr");
+            String rules = root.getStringValue(
+                "//ldml/collations/collation[@type=\"emoji\"][@visibility=\"external\"]/cr"
+            );
             try {
                 colRoot = new RuleBasedCollator(rules);
             } catch (Exception e) {
@@ -316,19 +349,24 @@ public class CLDRConfig extends Properties {
             return colRoot;
         }
     }
+
     public final Collator getCollatorRoot() {
         return CollatorRootHelper.SINGLETON;
     }
 
     @SuppressWarnings("unchecked")
     public final Comparator<String> getComparatorRoot() {
-        return (Comparator)(getCollatorRoot());
+        return (Comparator) (getCollatorRoot());
     }
 
     private static final class CollatorHelper {
+
         static final Collator EMOJI_COLLATOR = makeEmojiCollator();
+
         private static final Collator makeEmojiCollator() {
-            final RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance(ULocale.forLanguageTag("en-u-co-emoji"));
+            final RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance(
+                ULocale.forLanguageTag("en-u-co-emoji")
+            );
             col.setStrength(Collator.IDENTICAL);
             col.setNumericCollation(true);
             col.freeze();
@@ -344,6 +382,7 @@ public class CLDRConfig extends Properties {
             return _ROOT_COL;
         }
     }
+
     public Collator getCollator() {
         return CollatorHelper.EMOJI_COLLATOR;
     }
@@ -490,7 +529,9 @@ public class CLDRConfig extends Properties {
     }
 
     private static class FileWrapper {
+
         private File cldrDir = null;
+
         private FileWrapper() {
             String dir = getInstance().getProperty("CLDR_DIR", null);
             if (dir != null) {
@@ -499,11 +540,14 @@ public class CLDRConfig extends Properties {
                 cldrDir = null;
             }
         }
+
         public File getCldrDir() {
             return this.cldrDir;
         }
+
         // singleton
         private static FileWrapper fileWrapperInstance = new FileWrapper();
+
         public static FileWrapper getFileWrapperInstance() {
             return fileWrapperInstance;
         }
@@ -569,7 +613,11 @@ public class CLDRConfig extends Properties {
      * TODO: better place for these constants?
      */
     private static final String CLDR_DATA_DIRECTORIES[] = { COMMON_DIR, SEED_DIR, KEYBOARDS_DIR, EXEMPLARS_DIR };
-    private static final ImmutableSet<String> STANDARD_SUBDIRS = ImmutableSet.of(MAIN_DIR, ANNOTATIONS_DIR, SUBDIVISIONS_DIR);
+    private static final ImmutableSet<String> STANDARD_SUBDIRS = ImmutableSet.of(
+        MAIN_DIR,
+        ANNOTATIONS_DIR,
+        SUBDIVISIONS_DIR
+    );
 
     /**
      * Get a list of CLDR directories containing actual data
@@ -738,8 +786,7 @@ public class CLDRConfig extends Properties {
     private CLDRURLS absoluteUrls = null;
 
     public boolean isCldrVersionBefore(int... version) {
-        return getEnglish().getDtdVersionInfo()
-            .compareTo(getVersion(version)) < 0;
+        return getEnglish().getDtdVersionInfo().compareTo(getVersion(version)) < 0;
     }
 
     public static VersionInfo getVersion(int... versionInput) {
@@ -747,7 +794,6 @@ public class CLDRConfig extends Properties {
         for (int i = 0; i < versionInput.length; ++i) {
             version[i] = versionInput[i];
         }
-        return VersionInfo.getInstance(version[0], version[1], version[2],
-            version[3]);
+        return VersionInfo.getInstance(version[0], version[1], version[2], version[3]);
     }
 }

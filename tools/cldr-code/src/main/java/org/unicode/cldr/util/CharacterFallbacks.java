@@ -7,10 +7,11 @@ import java.util.Iterator;
 import java.util.List;
 
 public class CharacterFallbacks {
+
     private static CharacterFallbacks SINGLETON = new CharacterFallbacks();
     private HashMap<Integer, List<String>> data = new HashMap<>();
 
-    static public CharacterFallbacks make() {
+    public static CharacterFallbacks make() {
         return SINGLETON;
     }
 

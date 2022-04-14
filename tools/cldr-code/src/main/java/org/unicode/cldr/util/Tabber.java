@@ -1,4 +1,3 @@
-
 /*
  *******************************************************************************
  * Copyright (C) 2002-2012, International Business Machines Corporation and    *
@@ -7,13 +6,13 @@
  */
 package org.unicode.cldr.util;
 
+import com.ibm.icu.lang.CharSequences;
+import com.ibm.icu.text.UnicodeSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ibm.icu.lang.CharSequences;
-import com.ibm.icu.text.UnicodeSet;
-
 public abstract class Tabber {
+
     public static final byte LEFT = 0, CENTER = 1, RIGHT = 2;
     private static final String[] ALIGNMENT_NAMES = { "Left", "Center", "Right" };
 
@@ -55,6 +54,7 @@ public abstract class Tabber {
     }
 
     public static class MonoTabber extends Tabber {
+
         int minGap = 0;
 
         private List stops = new ArrayList();
@@ -73,10 +73,7 @@ public abstract class Tabber {
             StringBuffer buffer = new StringBuffer();
             for (int i = 0; i < stops.size(); ++i) {
                 if (i != 0) buffer.append("; ");
-                buffer
-                    .append(ALIGNMENT_NAMES[((Integer) types.get(i)).intValue()])
-                    .append(",")
-                    .append(stops.get(i));
+                buffer.append(ALIGNMENT_NAMES[((Integer) types.get(i)).intValue()]).append(",").append(stops.get(i));
             }
             return buffer.toString();
         }
@@ -123,14 +120,14 @@ public abstract class Tabber {
             int type = getType(count);
             final int pieceLength = getMonospaceWidth(piece);
             switch (type) {
-            case LEFT:
-                break;
-            case RIGHT:
-                startPos = endPos - pieceLength;
-                break;
-            case CENTER:
-                startPos = (startPos + endPos - pieceLength + 1) / 2;
-                break;
+                case LEFT:
+                    break;
+                case RIGHT:
+                    startPos = endPos - pieceLength;
+                    break;
+                case CENTER:
+                    startPos = (startPos + endPos - pieceLength + 1) / 2;
+                    break;
             }
 
             int gap = startPos - getMonospaceWidth(output);
@@ -161,8 +158,10 @@ public abstract class Tabber {
     };
 
     public static class HTMLTabber extends Tabber {
+
         private List<String> parameters = new ArrayList();
         private String element = "td";
+
         {
             setPrefix("<tr>");
             setPostfix("</tr>");
@@ -236,5 +235,4 @@ public abstract class Tabber {
         // does nothing unless overridden
         return this;
     }
-
 }

@@ -8,13 +8,11 @@
  */
 package org.unicode.cldr.util;
 
+import com.ibm.icu.text.Transliterator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
-
 import org.unicode.cldr.test.CheckCLDR;
-
-import com.ibm.icu.text.Transliterator;
 
 /**
  * @deprecated
@@ -22,11 +20,14 @@ import com.ibm.icu.text.Transliterator;
  */
 @Deprecated
 public class PrettyPath {
+
     private Transliterator prettyPathZoneTransform;
+
     {
         prettyPathZoneTransform = CheckCLDR.getTransliteratorFromFile("prettyPathZone", "prettyPathZone.txt");
         Transliterator.registerInstance(prettyPathZoneTransform);
     }
+
     private Transliterator prettyPathTransform = CheckCLDR.getTransliteratorFromFile("ID", "prettyPath.txt");
 
     private Map<String, String> prettyPath_path = new HashMap<>();
@@ -61,7 +62,6 @@ public class PrettyPath {
             // later make exceptions.
             if (prettyString.indexOf("%%") >= 0) {
                 if (showErrors) System.out.println("Warning:\tIncomplete translit:\t" + prettyString + "\t " + path);
-
             } else if (CldrUtility.countInstances(prettyString, "|") != 2) {
                 if (showErrors) System.out.println("Warning:\tpath length != 3: " + prettyString);
             }

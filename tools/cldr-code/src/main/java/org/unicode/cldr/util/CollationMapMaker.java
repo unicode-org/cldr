@@ -7,20 +7,6 @@
  */
 package org.unicode.cldr.util;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
-
-import org.unicode.cldr.util.VariantFolder.CaseVariantFolder;
-
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
@@ -35,6 +21,18 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ULocale;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
+import org.unicode.cldr.util.VariantFolder.CaseVariantFolder;
 
 public class CollationMapMaker {
 
@@ -47,6 +45,7 @@ public class CollationMapMaker {
      *
      */
     static class ExemplarComparator implements java.util.Comparator {
+
         Comparator comp;
 
         @Override
@@ -65,25 +64,22 @@ public class CollationMapMaker {
             // choose the shortest
             result = UTF16.countCodePoint(s2) - UTF16.countCodePoint(s1);
             if (result != 0) { // special fix to make zero be first
-                if (s1.length() == 0)
-                    return -1;
-                if (s2.length() == 0)
-                    return 1;
+                if (s1.length() == 0) return -1;
+                if (s2.length() == 0) return 1;
                 return result;
             }
             result = comp.compare(s1, s2);
-            if (result != 0)
-                return result;
+            if (result != 0) return result;
             return s1.compareTo(s2);
         }
 
         public ExemplarComparator(Comparator comp) {
             this.comp = comp;
         }
-
     }
 
     public static class Folder implements Cloneable {
+
         private UnicodeMap m = new UnicodeMap();
 
         @Override
@@ -133,8 +129,7 @@ public class CollationMapMaker {
         }
 
         public void complete() {
-            while (fixNeeded())
-                ;
+            while (fixNeeded());
         }
 
         public boolean fixNeeded() {
@@ -188,8 +183,9 @@ public class CollationMapMaker {
             return this;
         }
 
-        static Transliterator FullWidthKana = Transliterator
-            .getInstance("fullwidth-halfwidth; [[:script=katakana:][:script=hangul:]] halfwidth-fullwidth; katakana-hiragana");
+        static Transliterator FullWidthKana = Transliterator.getInstance(
+            "fullwidth-halfwidth; [[:script=katakana:][:script=hangul:]] halfwidth-fullwidth; katakana-hiragana"
+        );
 
         static String getSpecialFolded(String a) {
             String result = a;
@@ -202,15 +198,15 @@ public class CollationMapMaker {
 
         public UnicodeMap getUnicodeMap() {
             return m.cloneAsThawed();
-
         }
-
     }
 
     static final boolean showDetails = false;
     static final RuleBasedCollator uca = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
     static final UnicodeSet filteredChars = new UnicodeSet(
-        "[{ss}[^[:Co:][:Cf:][:Cc:][:Cn:][:Cs:][:script=Han:][:script=Hangul:]-[:nfkcquickcheck=no:]]]").freeze(); // skip
+        "[{ss}[^[:Co:][:Cf:][:Cc:][:Cn:][:Cs:][:script=Han:][:script=Hangul:]-[:nfkcquickcheck=no:]]]"
+    )
+        .freeze(); // skip
     // a
     // bunch
     // of
@@ -229,8 +225,10 @@ public class CollationMapMaker {
     Map<String, String> reasonMap = new TreeMap();
     XEquivalenceMap equivMap = new XEquivalenceMap();
 
-    public Map<CharSequence, String> generateCollatorFolding(RuleBasedCollator equivalenceClassCollator,
-        Map<CharSequence, String> mapping) {
+    public Map<CharSequence, String> generateCollatorFolding(
+        RuleBasedCollator equivalenceClassCollator,
+        Map<CharSequence, String> mapping
+    ) {
         this.equivalenceClassCollator = equivalenceClassCollator;
         try {
             RuleBasedCollator exemplarCollator = (RuleBasedCollator) equivalenceClassCollator.clone();
@@ -243,18 +241,18 @@ public class CollationMapMaker {
             exemplarCollator.setFrenchCollation(false);
             exemplarCollator.setHiraganaQuaternary(false);
             exemplarComparator = new ExemplarComparator(exemplarCollator);
-        } catch (CloneNotSupportedException e) {
-        } // will never happen
+        } catch (CloneNotSupportedException e) {} // will never happen
 
         UnicodeSet expansions = new UnicodeSet();
         UnicodeSet contractions = new UnicodeSet();
         try {
             equivalenceClassCollator.getContractionsAndExpansions(contractions, expansions, true);
-        } catch (Exception e) {
-        }
+        } catch (Exception e) {}
 
-        UnicodeSet trialCharacters = new UnicodeSet(filteredChars).addAll(equivalenceClassCollator.getTailoredSet())
-            .addAll(contractions).addAll(expansions);
+        UnicodeSet trialCharacters = new UnicodeSet(filteredChars)
+            .addAll(equivalenceClassCollator.getTailoredSet())
+            .addAll(contractions)
+            .addAll(expansions);
 
         for (UnicodeSetIterator i = new UnicodeSetIterator(trialCharacters); i.next();) {
             String item = i.getString();
@@ -281,8 +279,9 @@ public class CollationMapMaker {
             if (values1.size() == 1) {
                 if (false && SHOW_DEBUG) {
                     String item = values1.iterator().next();
-                    System.out.println("Skipping: " + item + "\t"
-                        + equivalenceClassCollator.getRawCollationKey(item, null));
+                    System.out.println(
+                        "Skipping: " + item + "\t" + equivalenceClassCollator.getRawCollationKey(item, null)
+                    );
                 }
                 continue;
             }
@@ -293,15 +292,27 @@ public class CollationMapMaker {
             // the lowest value is the exemplar value, so use it as the base
             String target = (String) chars.next();
             if (SHOW_DEBUG) {
-                System.out.println("Target: <" + target + ">\t " + Utility.hex(target) + "\t"
-                    + equivalenceClassCollator.getRawCollationKey(target, null));
+                System.out.println(
+                    "Target: <" +
+                    target +
+                    ">\t " +
+                    Utility.hex(target) +
+                    "\t" +
+                    equivalenceClassCollator.getRawCollationKey(target, null)
+                );
             }
             while (chars.hasNext()) {
                 String source = (String) chars.next();
                 mapping.put(source, target);
                 if (SHOW_DEBUG) {
-                    System.out.println("\tSource: <" + source + ">\t " + Utility.hex(source) + "\t"
-                        + equivalenceClassCollator.getRawCollationKey(source, null));
+                    System.out.println(
+                        "\tSource: <" +
+                        source +
+                        ">\t " +
+                        Utility.hex(source) +
+                        "\t" +
+                        equivalenceClassCollator.getRawCollationKey(source, null)
+                    );
                 }
             }
             // for (Iterator it2 = values.iterator(); it.hasNext();) {
@@ -439,12 +450,12 @@ public class CollationMapMaker {
         }
 
         fullExpansions = new UnicodeSet();
-        global: for (UnicodeSetIterator usi = new UnicodeSetIterator(expansions); usi.next();) {
+        global:for (UnicodeSetIterator usi = new UnicodeSetIterator(expansions); usi.next();) {
             trialString.setLength(0);
             String source = usi.getString();
             String key = (String) stringToKey.get(source);
             if (key == null || key.length() == 1) continue;
-            main: while (key.length() > 0) {
+            main:while (key.length() > 0) {
                 for (Iterator it = keyToString.entrySet().iterator(); it.hasNext();) {
                     Entry e = (Entry) it.next();
                     String otherKey = (String) e.getKey();
@@ -560,5 +571,4 @@ public class CollationMapMaker {
         }
         return start;
     }
-
 }

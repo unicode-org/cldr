@@ -12,11 +12,11 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Locale;
-
 import org.unicode.cldr.draft.FileUtilities;
 
 public class Log {
-    static private PrintWriter log;
+
+    private static PrintWriter log;
 
     public static void logln(int test, String message) {
         if (log != null && test != 0) log.println(message);
@@ -57,12 +57,12 @@ public class Log {
     }
 
     public static void setLog(String file) throws IOException {
-        log = FileUtilities.openUTF8Writer((File)null, file);
+        log = FileUtilities.openUTF8Writer((File) null, file);
         log.print('\uFEFF');
     }
 
     public static void setLogNoBOM(String file) throws IOException {
-        log = FileUtilities.openUTF8Writer((File)null, file);
+        log = FileUtilities.openUTF8Writer((File) null, file);
     }
 
     public static void setLogNoBOM(String dir, String file) throws IOException {

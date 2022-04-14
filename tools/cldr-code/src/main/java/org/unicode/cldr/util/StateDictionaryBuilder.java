@@ -12,7 +12,6 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
-
 import org.unicode.cldr.util.Dictionary.DictionaryBuilder;
 import org.unicode.cldr.util.IntMap.BasicIntMapFactory;
 import org.unicode.cldr.util.IntMap.IntMapFactory;
@@ -237,7 +236,6 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
     }
 
     static final Comparator<byte[]> SHORTER_BYTE_ARRAY_COMPARATOR = new Comparator<byte[]>() {
-
         @Override
         public int compare(byte[] o1, byte[] o2) {
             int minLen = o1.length;
@@ -251,6 +249,5 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
             }
             return o1.length < o2.length ? -1 : o1.length > o2.length ? 1 : 0;
         }
-
     };
 }

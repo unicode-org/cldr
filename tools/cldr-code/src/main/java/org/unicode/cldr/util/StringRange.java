@@ -1,5 +1,8 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.lang.CharSequences;
+import com.ibm.icu.util.ICUException;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -9,12 +12,9 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.lang.CharSequences;
-import com.ibm.icu.util.ICUException;
-
 @SuppressWarnings("deprecation")
 public class StringRange {
+
     private static final boolean DEBUG = false;
 
     public interface Adder {
@@ -63,9 +63,7 @@ public class StringRange {
                         }
                     }
                     // We failed to find continuation. Add what we have and restart
-                    adder.add(start, end == null ? null
-                        : !shorterPairs ? end
-                            : end.substring(prefixLen, end.length()));
+                    adder.add(start, end == null ? null : !shorterPairs ? end : end.substring(prefixLen, end.length()));
                 }
                 // new possible range
                 start = s;
@@ -73,9 +71,7 @@ public class StringRange {
                 lastCp = s.codePointBefore(s.length());
                 prefixLen = s.length() - Character.charCount(lastCp);
             }
-            adder.add(start, end == null ? null
-                : !shorterPairs ? end
-                    : end.substring(prefixLen, end.length()));
+            adder.add(start, end == null ? null : !shorterPairs ? end : end.substring(prefixLen, end.length()));
         } else {
             // not a fast algorithm, but ok for now
             // TODO rewire to use the first (slower) algorithm to generate the ranges, then compact them from there.
@@ -124,6 +120,7 @@ public class StringRange {
     }
 
     static final class Range implements Comparable<Range> {
+
         int min;
         int max;
 
@@ -159,6 +156,7 @@ public class StringRange {
     }
 
     static final class Ranges implements Comparable<Ranges> {
+
         private final Range[] ranges;
 
         public Ranges(String s) {
@@ -170,9 +168,9 @@ public class StringRange {
         }
 
         public boolean merge(int pivot, Ranges other) {
-//            if (this.toString().equals("afz")) {
-//                int debug = 0;
-//            }
+            //            if (this.toString().equals("afz")) {
+            //                int debug = 0;
+            //            }
             // we will merge items if the pivot is adjacent, and all other ranges are equal
             for (int i = ranges.length - 1; i >= 0; --i) {
                 if (i == pivot) {
@@ -266,7 +264,14 @@ public class StringRange {
         return output;
     }
 
-    private static void add(int endIndex, int startOffset, int[] starts, int[] ends, StringBuilder builder, Collection<String> output) {
+    private static void add(
+        int endIndex,
+        int startOffset,
+        int[] starts,
+        int[] ends,
+        StringBuilder builder,
+        Collection<String> output
+    ) {
         int start = starts[endIndex + startOffset];
         int end = ends[endIndex];
         if (start > end) {

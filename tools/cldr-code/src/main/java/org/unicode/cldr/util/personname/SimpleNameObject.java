@@ -1,5 +1,7 @@
 package org.unicode.cldr.util.personname;
 
+import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.util.ULocale;
 import java.util.EnumMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -7,15 +9,11 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
-
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Field;
 import org.unicode.cldr.util.personname.PersonNameFormatter.ModifiedField;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Modifier;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
-
-import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.util.ULocale;
 
 /**
  * Simple implementation for testing and using in CLDR examples.
@@ -23,6 +21,7 @@ import com.ibm.icu.util.ULocale;
  * Immutable
  */
 public class SimpleNameObject implements NameObject {
+
     private final ULocale nameLocale;
     private final Map<Field, Map<Set<Modifier>, String>> patternData;
 
@@ -124,17 +123,19 @@ public class SimpleNameObject implements NameObject {
         for (String setting : PersonNameFormatter.SPLIT_COMMA.split(namePattern)) {
             List<String> parts = PersonNameFormatter.SPLIT_EQUALS.splitToList(setting);
             if (parts.size() != 2) {
-                throw new IllegalArgumentException("Bad format, should be like: given=John Bob, given2=Edwin, …: " + namePattern);
+                throw new IllegalArgumentException(
+                    "Bad format, should be like: given=John Bob, given2=Edwin, …: " + namePattern
+                );
             }
             final String key = parts.get(0);
             final String value = parts.get(1);
-            switch(key) {
-            case "locale":
-                nameLocale = new ULocale(value);
-                break;
-            default:
-                patternData.put(ModifiedField.from(key), value);
-                break;
+            switch (key) {
+                case "locale":
+                    nameLocale = new ULocale(value);
+                    break;
+                default:
+                    patternData.put(ModifiedField.from(key), value);
+                    break;
             }
         }
         return new SimpleNameObject(nameLocale, patternData);

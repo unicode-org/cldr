@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.impl.Relation;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -11,15 +12,16 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.ibm.icu.impl.Relation;
-
 public class UExtension {
+
     static SupplementalDataInfo data = SupplementalDataInfo.getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
 
     static Pattern SEP = PatternCache.get("[-_]");
     static Pattern SPACE = PatternCache.get("\\s");
     static Pattern ALPHANUM = PatternCache.get("[0-9A-Za-z]{2,8}");
-    static Pattern CODEPOINTS = PatternCache.get("(10|[0-9A-Fa-f])?[0-9A-Fa-f]{4}(\\s(10|[0-9A-Fa-f])?[0-9A-Fa-f]{4})*");
+    static Pattern CODEPOINTS = PatternCache.get(
+        "(10|[0-9A-Fa-f])?[0-9A-Fa-f]{4}(\\s(10|[0-9A-Fa-f])?[0-9A-Fa-f]{4})*"
+    );
     static Relation<String, String> validKeyTypes = data.getBcp47Keys();
 
     private boolean validating = false;

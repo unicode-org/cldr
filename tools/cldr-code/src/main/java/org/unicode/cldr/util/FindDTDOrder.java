@@ -1,5 +1,7 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.text.UTF16;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -18,7 +20,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;
@@ -30,14 +31,12 @@ import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.ext.DeclHandler;
 
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.text.UTF16;
-
 /**
  * @deprecated
  */
 @Deprecated
 public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
+
     static final boolean SHOW_PROGRESS = CldrUtility.getProperty("verbose", false);
     static final boolean SHOW_ALL = CldrUtility.getProperty("show_all", false);
     private static final boolean DEBUG = false;
@@ -60,8 +59,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
                     XMLReader xmlReader = CLDRFile.createXMLReader(true);
                     xmlReader.setContentHandler(me);
                     xmlReader.setErrorHandler(me);
-                    xmlReader.setProperty(
-                        "http://xml.org/sax/properties/declaration-handler", me);
+                    xmlReader.setProperty("http://xml.org/sax/properties/declaration-handler", me);
 
                     FileInputStream fis;
                     InputSource is;
@@ -71,7 +69,9 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
                     if (DEBUG) {
                         System.out.println("Opening " + file.getCanonicalFile());
                     }
-                    File dtd = new File(PathUtilities.getNormalizedPathString(file) + "/../" + "../../common/dtd/ldml.dtd");
+                    File dtd = new File(
+                        PathUtilities.getNormalizedPathString(file) + "/../" + "../../common/dtd/ldml.dtd"
+                    );
                     if (DEBUG) {
                         System.out.println("Opening " + dtd.getCanonicalFile());
                     }
@@ -91,8 +91,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
                     fis.close();
 
                     me.recordingAttributeElements = false;
-                    filename = CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY
-                        + "/supplementalData.xml";
+                    filename = CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY + "/supplementalData.xml";
                     File file2 = new File(filename);
                     if (DEBUG) {
                         System.out.println("Opening " + file2.getCanonicalFile());
@@ -138,8 +137,11 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
     }
 
     public void writeAttributeElements() {
-        System.out.println(CldrUtility.LINE_SEPARATOR + "======== Start Attributes to Elements (unblocked) "
-            + CldrUtility.LINE_SEPARATOR);
+        System.out.println(
+            CldrUtility.LINE_SEPARATOR +
+            "======== Start Attributes to Elements (unblocked) " +
+            CldrUtility.LINE_SEPARATOR
+        );
         for (String attribute : attributeToElements.keySet()) {
             Set<String> filtered = new TreeSet<>();
             for (String element : attributeToElements.getAll(attribute)) {
@@ -149,13 +151,18 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
             }
             System.out.println(attribute + "\t" + CldrUtility.join(filtered, " "));
         }
-        System.out.println(CldrUtility.LINE_SEPARATOR + "======== End Attributes to Elements"
-            + CldrUtility.LINE_SEPARATOR);
-        System.out.println(CldrUtility.LINE_SEPARATOR + "======== Start Elements to Children (skipping alias, special)"
-            + CldrUtility.LINE_SEPARATOR);
+        System.out.println(
+            CldrUtility.LINE_SEPARATOR + "======== End Attributes to Elements" + CldrUtility.LINE_SEPARATOR
+        );
+        System.out.println(
+            CldrUtility.LINE_SEPARATOR +
+            "======== Start Elements to Children (skipping alias, special)" +
+            CldrUtility.LINE_SEPARATOR
+        );
         showElementTree("ldml", "", new HashSet<String>());
-        System.out.println(CldrUtility.LINE_SEPARATOR + "======== End Elements to Children"
-            + CldrUtility.LINE_SEPARATOR);
+        System.out.println(
+            CldrUtility.LINE_SEPARATOR + "======== End Elements to Children" + CldrUtility.LINE_SEPARATOR
+        );
     }
 
     private void showElementTree(String element, String indent, HashSet<String> seenSoFar) {
@@ -165,8 +172,9 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
         }
         Set<String> children = elementToChildren.getAll(element);
         if (seenSoFar.contains(element)) {
-            System.out.println(indent + element
-                + (children == null || children.size() == 0 ? "" : "\t*dup*\t" + children));
+            System.out.println(
+                indent + element + (children == null || children.size() == 0 ? "" : "\t*dup*\t" + children)
+            );
             return;
         }
         System.out.println(indent + element);
@@ -180,10 +188,12 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
     }
 
     private boolean isBlocked(String element) {
-        return isAncestorOf("supplementalData", element)
-            || isAncestorOf("collation", element)
-            || isAncestorOf("cldrTest", element)
-            || isAncestorOf("transform", element);
+        return (
+            isAncestorOf("supplementalData", element) ||
+            isAncestorOf("collation", element) ||
+            isAncestorOf("cldrTest", element) ||
+            isAncestorOf("transform", element)
+        );
     }
 
     Relation<String, String> ancestorToDescendant = null;
@@ -225,8 +235,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
     Object DONE = new Object(); // marker
 
-    Relation<String, String> elementToChildren = Relation.of(new TreeMap<String, Set<String>>(),
-        TreeSet.class);
+    Relation<String, String> elementToChildren = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
 
     FindDTDOrder() {
         log = new PrintWriter(System.out);
@@ -239,10 +248,9 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
         // do this by building an ordering from the lists.
         // The first item has no greater item in any set. So find an item that is
         // only first
-        MergeLists<String> mergeLists = new MergeLists<>(new TreeSet<>(new UTF16.StringComparator(true,
-            false, 0)))
-                .add(Arrays.asList("ldml"))
-                .addAll(elementOrderings); //
+        MergeLists<String> mergeLists = new MergeLists<>(new TreeSet<>(new UTF16.StringComparator(true, false, 0)))
+            .add(Arrays.asList("ldml"))
+            .addAll(elementOrderings); //
         List<String> result = mergeLists.merge();
         Collection badOrder = MergeLists.hasConsistentOrderWithEachOf(result, elementOrderings);
         if (badOrder != null) {
@@ -260,8 +268,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
         }
         while (true) {
             Object first = getFirst();
-            if (first == DONE)
-                break;
+            if (first == DONE) break;
             if (first != null) {
                 // log.println("Adding:\t" + first);
                 if (orderingList.contains(first)) {
@@ -271,21 +278,16 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
             } else {
                 showReason = true;
                 getFirst();
-                if (SHOW_PROGRESS)
-                    log.println();
-                if (SHOW_PROGRESS)
-                    log.println("Failed ordering. So far:");
-                for (Iterator<String> it = orderingList.iterator(); it.hasNext();)
-                    if (SHOW_PROGRESS)
-                        log.print("\t" + it.next());
-                if (SHOW_PROGRESS)
-                    log.println();
-                if (SHOW_PROGRESS)
-                    log.println("Items:");
+                if (SHOW_PROGRESS) log.println();
+                if (SHOW_PROGRESS) log.println("Failed ordering. So far:");
+                for (Iterator<String> it = orderingList.iterator(); it.hasNext();) if (SHOW_PROGRESS) log.print(
+                    "\t" + it.next()
+                );
+                if (SHOW_PROGRESS) log.println();
+                if (SHOW_PROGRESS) log.println("Items:");
                 // for (Iterator it = element_childComparator.keySet().iterator();
                 // it.hasNext();) showRow(it.next(), true);
-                if (SHOW_PROGRESS)
-                    log.println();
+                if (SHOW_PROGRESS) log.println();
                 break;
             }
         }
@@ -311,13 +313,11 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
                 attributeEquivalents.add(first, it2.next(), ename);
             }
         }
-
     }
 
     String sep = CldrUtility.LINE_SEPARATOR + "\t\t\t";
 
     private void showData() throws IOException {
-
         // finish up
         String oldAttributeOrder = breakLines(CLDRFile.getAttributeOrder());
         log.println("Successful Ordering...");
@@ -338,8 +338,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
         log.println("Attribute Eq: ");
         for (Iterator it = attributeEquivalents.getSamples().iterator(); it.hasNext();) {
-            log.println("\t"
-                + getJavaList(new TreeSet(attributeEquivalents.getEquivalences(it.next()))));
+            log.println("\t" + getJavaList(new TreeSet(attributeEquivalents.getEquivalences(it.next()))));
         }
         if (SHOW_PROGRESS) {
             for (Iterator it = attributeEquivalents.getEquivalenceSets().iterator(); it.hasNext();) {
@@ -347,8 +346,9 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
                 Set s = (Set) it.next();
                 for (Iterator it2 = s.iterator(); it2.hasNext();) {
                     Object temp = it2.next();
-                    if (last != null)
-                        log.println(last + " ~ " + temp + "\t" + attributeEquivalents.getReasons(last, temp));
+                    if (last != null) log.println(
+                        last + " ~ " + temp + "\t" + attributeEquivalents.getReasons(last, temp)
+                    );
                     last = temp;
                 }
                 log.println();
@@ -356,8 +356,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
         }
 
         String oldOrder = getJavaList(CLDRFile.getElementOrder());
-        log.println("Old Element Ordering:\n"
-            + oldOrder);
+        log.println("Old Element Ordering:\n" + oldOrder);
 
         String newOrder = '"' + breakLines(orderingList) + '"';
         if (newOrder.equals(oldOrder)) {
@@ -382,10 +381,8 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
             Iterator oldIt = CLDRFile.getElementOrder().iterator();
             Iterator newIt = orderingList.iterator();
             while (oldIt.hasNext() || newIt.hasNext()) {
-                if (oldIt.hasNext())
-                    differ.addA(oldIt.next());
-                if (newIt.hasNext())
-                    differ.addB(newIt.next());
+                if (oldIt.hasNext()) differ.addA(oldIt.next());
+                if (newIt.hasNext()) differ.addB(newIt.next());
                 differ.checkMatch(!oldIt.hasNext() && !newIt.hasNext());
 
                 if (differ.getACount() != 0 || differ.getBCount() != 0) {
@@ -404,21 +401,38 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
         log.flush();
 
-        writeNewSupplemental(CLDRPaths.SUPPLEMENTAL_DIRECTORY, "supplementalMetadata.xml",
-            "<attributeOrder>", "</attributeOrder>",
-            "<elementOrder>", "</elementOrder>", "\t\t\t", CldrUtility.LINE_SEPARATOR + "\t\t");
-        writeNewSupplemental(CLDRPaths.BASE_DIRECTORY + "/tools/cldr-code/src/main/java/org/unicode/cldr/util/",
+        writeNewSupplemental(
+            CLDRPaths.SUPPLEMENTAL_DIRECTORY,
+            "supplementalMetadata.xml",
+            "<attributeOrder>",
+            "</attributeOrder>",
+            "<elementOrder>",
+            "</elementOrder>",
+            "\t\t\t",
+            CldrUtility.LINE_SEPARATOR + "\t\t"
+        );
+        writeNewSupplemental(
+            CLDRPaths.BASE_DIRECTORY + "/tools/cldr-code/src/main/java/org/unicode/cldr/util/",
             "CLDRFile.java",
             "// START MECHANICALLY attributeOrdering GENERATED BY FindDTDOrder",
             "// END MECHANICALLY attributeOrdering GENERATED BY FindDTDOrder",
             "// START MECHANICALLY elementOrdering GENERATED BY FindDTDOrder",
             "// END MECHANICALLY elementOrdering GENERATED BY FindDTDOrder",
             "\t\t\t\t\t\"",
-            '"' + CldrUtility.LINE_SEPARATOR + "\t\t\t\t\t");
+            '"' + CldrUtility.LINE_SEPARATOR + "\t\t\t\t\t"
+        );
     }
 
-    private void writeNewSupplemental(String dir, String filename, String startAttributeTag, String endAttributeTag,
-        String startElementTag, String endElementTag, String startSep, String endSep) throws IOException {
+    private void writeNewSupplemental(
+        String dir,
+        String filename,
+        String startAttributeTag,
+        String endAttributeTag,
+        String startElementTag,
+        String endElementTag,
+        String startSep,
+        String endSep
+    ) throws IOException {
         BufferedReader oldFile = FileUtilities.openUTF8Reader(dir, filename);
         Log.setLogNoBOM(CLDRPaths.GEN_DIRECTORY + "/DTDOrder/" + filename);
 
@@ -430,13 +444,9 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
         // endAttributeTag +
         // "\\s*"), null, true);
 
-        CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*" +
-            startElementTag +
-            "\\s*"), Log.getLog(), true);
+        CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*" + startElementTag + "\\s*"), Log.getLog(), true);
         Log.println(startSep + breakLines(orderingList) + endSep + endElementTag);
-        CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*" +
-            endElementTag +
-            "\\s*"), null, true);
+        CldrUtility.copyUpTo(oldFile, PatternCache.get("\\s*" + endElementTag + "\\s*"), null, true);
 
         CldrUtility.copyUpTo(oldFile, null, Log.getLog(), false); // copy to end
 
@@ -454,10 +464,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
         StringBuffer result = new StringBuffer();
         result.append('"');
         for (Iterator it = orderingList.iterator(); it.hasNext();) {
-            if (first2)
-                first2 = false;
-            else
-                result.append(" ");
+            if (first2) first2 = false; else result.append(" ");
             result.append(it.next().toString());
         }
         result.append('"');
@@ -492,11 +499,9 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
                 }
             }
         }
-        if (firstItems.size() == 0 && nonFirstItems.size() == 0)
-            return DONE;
+        if (firstItems.size() == 0 && nonFirstItems.size() == 0) return DONE;
         firstItems.removeAll(nonFirstItems);
-        if (firstItems.size() == 0)
-            return null; // failure
+        if (firstItems.size() == 0) return null; // failure
         Object result = firstItems.iterator().next();
         removeEverywhere(result);
         return result;
@@ -512,8 +517,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
             if (SHOW_PROGRESS && list2.contains(possibleFirst)) {
                 log.println("Removing " + possibleFirst + " from " + list2);
             }
-            while (list2.remove(possibleFirst))
-                ; // repeat until returns false
+            while (list2.remove(possibleFirst)); // repeat until returns false
         }
     }
 
@@ -535,22 +539,43 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
     // return true;
     // }
 
-    static final Set<String> ELEMENT_SKIP_LIST = new HashSet<>(Arrays.asList(new String[] {
-        "collation", "base", "settings", "suppress_contractions", "optimize",
-        "rules", "reset", "context", "p", "pc", "s", "sc", "t", "tc",
-        "i", "ic", "extend", "x" }));
+    static final Set<String> ELEMENT_SKIP_LIST = new HashSet<>(
+        Arrays.asList(
+            new String[] {
+                "collation",
+                "base",
+                "settings",
+                "suppress_contractions",
+                "optimize",
+                "rules",
+                "reset",
+                "context",
+                "p",
+                "pc",
+                "s",
+                "sc",
+                "t",
+                "tc",
+                "i",
+                "ic",
+                "extend",
+                "x",
+            }
+        )
+    );
 
-    static final Set<String> SUBELEMENT_SKIP_LIST = new HashSet<>(Arrays
-        .asList(new String[] { "PCDATA", "EMPTY", "ANY" }));
+    static final Set<String> SUBELEMENT_SKIP_LIST = new HashSet<>(
+        Arrays.asList(new String[] { "PCDATA", "EMPTY", "ANY" })
+    );
 
     // refine later; right now, doesn't handle multiple elements well.
     @Override
     public void elementDecl(String name, String model) throws SAXException {
         // if (ELEMENT_SKIP_LIST.contains(name)) return;
-        if (name.indexOf("contractions") >= 0
-            || model
-                .indexOf("[alias, base, settings, suppress, contractions, optimize, rules, special]") >= 0) {
-        }
+        if (
+            name.indexOf("contractions") >= 0 ||
+            model.indexOf("[alias, base, settings, suppress, contractions, optimize, rules, special]") >= 0
+        ) {}
         allDefinedElements.add(name);
         if (SHOW_PROGRESS) {
             log.println("Element\t" + name + "\t" + model);
@@ -562,24 +587,33 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
          * mc.add("pattern"); }
          */
         for (int i = 0; i < list.length; ++i) {
-            if (list[i].length() == 0)
-                continue;
+            if (list[i].length() == 0) continue;
             if (list[i].equals("ANY") && !name.equals("special")) {
-                System.err.println("WARNING- SHOULD NOT HAVE 'ANY': " + name + "\t"
-                    + model);
+                System.err.println("WARNING- SHOULD NOT HAVE 'ANY': " + name + "\t" + model);
             }
-            if (SUBELEMENT_SKIP_LIST.contains(list[i]))
-                continue;
+            if (SUBELEMENT_SKIP_LIST.contains(list[i])) continue;
             // if (SHOW_PROGRESS) log.print("\t" + list[i]);
             if (mc.contains(list[i])) {
-                if (name.equals("currency") && list[i].equals("displayName") || list[i].equals("symbol")
-                    || list[i].equals("pattern")) {
+                if (
+                    name.equals("currency") &&
+                    list[i].equals("displayName") ||
+                    list[i].equals("symbol") ||
+                    list[i].equals("pattern")
+                ) {
                     // do nothing, exception
                 } else if (name.equals("rules") && (list[i].equals("reset") || list[i].equals("import"))) {
                     // do nothing, exception
                 } else {
-                    throw new IllegalArgumentException("Duplicate element in definition of  " + name
-                        + ":\t" + list[i] + ":\t" + Arrays.asList(list) + ":\t" + mc);
+                    throw new IllegalArgumentException(
+                        "Duplicate element in definition of  " +
+                        name +
+                        ":\t" +
+                        list[i] +
+                        ":\t" +
+                        Arrays.asList(list) +
+                        ":\t" +
+                        mc
+                    );
                 }
             } else {
                 mc.add(list[i]);
@@ -604,42 +638,39 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
             }
             elementOrderings.add(mc);
         }
-
         // if (SHOW_PROGRESS) log.println();
     }
 
-    Set<String> skipCommon = new LinkedHashSet<>(Arrays.asList(new String[] { "validSubLocales",
-        "standard", "references",
-        "alt", "draft",
-    }));
+    Set<String> skipCommon = new LinkedHashSet<>(
+        Arrays.asList(new String[] { "validSubLocales", "standard", "references", "alt", "draft" })
+    );
 
     Set<String> attributeSet = new TreeSet<>();
+
     {
         attributeSet.add("_q");
         attributeSet.addAll(skipCommon);
     }
+
     List<String> attributeList;
 
     Map<String, Set<String>> attribEquiv = new TreeMap<>();
 
-    Relation<String, String> attributeToElements = Relation.of(new TreeMap<String, Set<String>>(),
-        TreeSet.class);
+    Relation<String, String> attributeToElements = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
     private XEquivalenceClass attributeEquivalents;
 
     @Override
-    public void attributeDecl(String eName, String aName, String type,
-        String mode, String value) throws SAXException {
-        if (SHOW_ALL)
-            log.println("attributeDecl");
+    public void attributeDecl(String eName, String aName, String type, String mode, String value) throws SAXException {
+        if (SHOW_ALL) log.println("attributeDecl");
         // if (SHOW_ALL) log.println("Attribute\t" + eName + "\t" +
         // aName + "\t" + type + "\t" + mode + "\t" + value);
-        if (SHOW_PROGRESS) System.out.println("Attribute\t" + eName + "\t" + aName + "\t" + type
-            + "\t" + mode + "\t" + value);
+        if (SHOW_PROGRESS) System.out.println(
+            "Attribute\t" + eName + "\t" + aName + "\t" + type + "\t" + mode + "\t" + value
+        );
         if (!skipCommon.contains(aName)) {
             attributeSet.add(aName);
             Set<String> l = attribEquiv.get(eName);
-            if (l == null)
-                attribEquiv.put(eName, l = new TreeSet<>());
+            if (l == null) attribEquiv.put(eName, l = new TreeSet<>());
             l.add(aName);
         }
         if (recordingAttributeElements) {
@@ -649,17 +680,14 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
     @Override
     public void internalEntityDecl(String name, String value) throws SAXException {
-        if (SHOW_ALL)
-            log.println("internalEntityDecl");
+        if (SHOW_ALL) log.println("internalEntityDecl");
         // if (SHOW_ALL) log.println("Internal Entity\t" + name +
         // "\t" + value);
     }
 
     @Override
-    public void externalEntityDecl(String name, String publicId, String systemId)
-        throws SAXException {
-        if (SHOW_ALL)
-            log.println("externalEntityDecl");
+    public void externalEntityDecl(String name, String publicId, String systemId) throws SAXException {
+        if (SHOW_ALL) log.println("externalEntityDecl");
         // if (SHOW_ALL) log.println("Internal Entity\t" + name +
         // "\t" + publicId + "\t" + systemId);
     }
@@ -671,8 +699,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
      */
     @Override
     public void endDocument() throws SAXException {
-        if (SHOW_ALL)
-            log.println("endDocument");
+        if (SHOW_ALL) log.println("endDocument");
     }
 
     /*
@@ -682,8 +709,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
      */
     @Override
     public void startDocument() throws SAXException {
-        if (SHOW_ALL)
-            log.println("startDocument");
+        if (SHOW_ALL) log.println("startDocument");
     }
 
     /*
@@ -693,8 +719,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
      */
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
-        if (SHOW_ALL)
-            log.println("characters");
+        if (SHOW_ALL) log.println("characters");
     }
 
     /*
@@ -703,10 +728,8 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
      * @see org.xml.sax.ContentHandler#ignorableWhitespace(char[], int, int)
      */
     @Override
-    public void ignorableWhitespace(char[] ch, int start, int length)
-        throws SAXException {
-        if (SHOW_ALL)
-            log.println("ignorableWhitespace");
+    public void ignorableWhitespace(char[] ch, int start, int length) throws SAXException {
+        if (SHOW_ALL) log.println("ignorableWhitespace");
     }
 
     /*
@@ -716,8 +739,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
      */
     @Override
     public void endPrefixMapping(String prefix) throws SAXException {
-        if (SHOW_ALL)
-            log.println("endPrefixMapping");
+        if (SHOW_ALL) log.println("endPrefixMapping");
     }
 
     /*
@@ -727,8 +749,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
      */
     @Override
     public void skippedEntity(String name) throws SAXException {
-        if (SHOW_ALL)
-            log.println("skippedEntity");
+        if (SHOW_ALL) log.println("skippedEntity");
     }
 
     /*
@@ -738,8 +759,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
      */
     @Override
     public void setDocumentLocator(Locator locator) {
-        if (SHOW_ALL)
-            log.println("setDocumentLocator");
+        if (SHOW_ALL) log.println("setDocumentLocator");
     }
 
     /*
@@ -749,10 +769,8 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
      * java.lang.String)
      */
     @Override
-    public void processingInstruction(String target, String data)
-        throws SAXException {
-        if (SHOW_ALL)
-            log.println("processingInstruction");
+    public void processingInstruction(String target, String data) throws SAXException {
+        if (SHOW_ALL) log.println("processingInstruction");
     }
 
     /*
@@ -763,8 +781,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
      */
     @Override
     public void startPrefixMapping(String prefix, String uri) throws SAXException {
-        if (SHOW_ALL)
-            log.println("startPrefixMapping");
+        if (SHOW_ALL) log.println("startPrefixMapping");
     }
 
     /*
@@ -774,10 +791,8 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
      * java.lang.String, java.lang.String)
      */
     @Override
-    public void endElement(String namespaceURI, String localName, String qName)
-        throws SAXException {
-        if (SHOW_ALL)
-            log.println("endElement");
+    public void endElement(String namespaceURI, String localName, String qName) throws SAXException {
+        if (SHOW_ALL) log.println("endElement");
     }
 
     /*
@@ -787,10 +802,8 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
      * java.lang.String, java.lang.String, org.xml.sax.Attributes)
      */
     @Override
-    public void startElement(String namespaceURI, String localName, String qName,
-        Attributes atts) throws SAXException {
-        if (SHOW_ALL)
-            log.println("startElement");
+    public void startElement(String namespaceURI, String localName, String qName, Attributes atts) throws SAXException {
+        if (SHOW_ALL) log.println("startElement");
     }
 
     /*
@@ -800,8 +813,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
      */
     @Override
     public void error(SAXParseException exception) throws SAXException {
-        if (SHOW_ALL)
-            log.println("error");
+        if (SHOW_ALL) log.println("error");
         throw exception;
     }
 
@@ -812,8 +824,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
      */
     @Override
     public void fatalError(SAXParseException exception) throws SAXException {
-        if (SHOW_ALL)
-            log.println("fatalError");
+        if (SHOW_ALL) log.println("fatalError");
         throw exception;
     }
 
@@ -824,8 +835,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
      */
     @Override
     public void warning(SAXParseException exception) throws SAXException {
-        if (SHOW_ALL)
-            log.println("warning");
+        if (SHOW_ALL) log.println("warning");
         throw exception;
     }
 
@@ -840,5 +850,4 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
     public Set<String> getCommonAttributes() {
         return skipCommon;
     }
-
 }

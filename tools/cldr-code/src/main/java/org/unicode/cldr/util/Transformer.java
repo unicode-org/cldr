@@ -1,9 +1,8 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.text.Transform;
 import java.util.Arrays;
 import java.util.Iterator;
-
-import com.ibm.icu.text.Transform;
 
 /**
  * Provides transforming iterator and iterable for convenience operations.
@@ -14,15 +13,22 @@ import com.ibm.icu.text.Transform;
  * @param <V>
  */
 public final class Transformer<S, V> implements Iterator<V> {
+
     private final Iterator<? extends S> iterator;
     private final Transform<S, ? extends V> transform;
     private V nextItem;
 
-    public static <S, V> Transformer<S, V> iterator(Transform<S, ? extends V> transform, Iterator<? extends S> iterator) {
+    public static <S, V> Transformer<S, V> iterator(
+        Transform<S, ? extends V> transform,
+        Iterator<? extends S> iterator
+    ) {
         return new Transformer<>(transform, iterator);
     }
 
-    public static <S, V> Transformer<S, V> iterator(Transform<S, ? extends V> transform, Iterable<? extends S> iterable) {
+    public static <S, V> Transformer<S, V> iterator(
+        Transform<S, ? extends V> transform,
+        Iterable<? extends S> iterable
+    ) {
         return new Transformer<>(transform, iterable.iterator());
     }
 

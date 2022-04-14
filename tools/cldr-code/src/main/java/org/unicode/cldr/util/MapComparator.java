@@ -8,6 +8,11 @@
  */
 package org.unicode.cldr.util;
 
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.RuleBasedCollator;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.Freezable;
+import com.ibm.icu.util.ULocale;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -17,15 +22,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.Freezable;
-import com.ibm.icu.util.ULocale;
-
 public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<K>> {
+
     private static final class CollatorHelper {
+
         public static final Collator UCA = getUCA();
+
         /**
          * This does not change, so we can create one and freeze it.
          * @return
@@ -36,6 +38,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
             return newUca.freeze();
         }
     }
+
     // initialize this once
     private Map<K, Integer> ordering = new TreeMap<>(); // maps from name to rank
     private List<K> rankToName = new ArrayList<>();
@@ -88,8 +91,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
         return Collections.unmodifiableList(rankToName);
     }
 
-    public MapComparator() {
-    }
+    public MapComparator() {}
 
     public MapComparator(K[] data) {
         add(data);
@@ -142,9 +144,17 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
             return aa.compareTo(bb);
         }
         if (errorOnMissing) {
-            throw new IllegalArgumentException("Missing Map Comparator value(s): "
-                + a.toString() + "(" + aa + "),\t"
-                + b.toString() + "(" + bb + "),\t");
+            throw new IllegalArgumentException(
+                "Missing Map Comparator value(s): " +
+                a.toString() +
+                "(" +
+                aa +
+                "),\t" +
+                b.toString() +
+                "(" +
+                bb +
+                "),\t"
+            );
         }
         // must handle halfway case, otherwise we are not transitive!!!
         if (aa == null && bb != null) {
@@ -208,10 +218,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
         boolean isFirst = true;
         for (Iterator<K> it = rankToName.iterator(); it.hasNext();) {
             K key = it.next();
-            if (isFirst)
-                isFirst = false;
-            else
-                buffer.append(" ");
+            if (isFirst) isFirst = false; else buffer.append(" ");
             buffer.append("<").append(key).append(">");
         }
         return buffer.toString();

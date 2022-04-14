@@ -34,6 +34,7 @@ import java.util.function.Predicate;
  */
 @CLDRTool(alias = "test.stacktracker", description = "Test for StackTracker", hidden = "test")
 public class StackTracker implements Iterable<Object> {
+
     private Hashtable<Object, String> stacks = new Hashtable<>();
 
     /**
@@ -128,7 +129,7 @@ public class StackTracker implements Iterable<Object> {
      */
     public static StackTraceElement firstCallerMatching(Predicate<StackTraceElement> matchFirst) {
         final StackTraceElement stacks[] = Thread.currentThread().getStackTrace();
-        for (int i=3; i<stacks.length; i++) {
+        for (int i = 3; i < stacks.length; i++) {
             if (matchFirst.test(stacks[i])) {
                 return stacks[i];
             }

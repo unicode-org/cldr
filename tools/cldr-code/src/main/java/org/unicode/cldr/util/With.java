@@ -1,14 +1,13 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.lang.CharSequences;
+import com.ibm.icu.text.Transform;
+import com.ibm.icu.text.UTF16;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-
-import com.ibm.icu.lang.CharSequences;
-import com.ibm.icu.text.Transform;
-import com.ibm.icu.text.UTF16;
 
 /**
  * Simple cover class for converting iterators, lists of items, arrays, and
@@ -33,6 +32,7 @@ import com.ibm.icu.text.UTF16;
  * @param <V>
  */
 public final class With<V> implements Iterable<V>, Iterator<V> {
+
     List<Iterator<V>> iterators = new ArrayList<>();
     int current;
 
@@ -186,17 +186,20 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
      */
     public static String fromCodePoint(int... codePoints) {
         switch (codePoints.length) {
-        case 0: return "";
-        case 1: {
-            return String.valueOf(Character.toChars(codePoints[0]));
-        }
-        default: {
-            StringBuilder b = new StringBuilder();
-            for (int cp : codePoints) {
-                b.appendCodePoint(cp);
-            }
-            return b.toString();
-        }
+            case 0:
+                return "";
+            case 1:
+                {
+                    return String.valueOf(Character.toChars(codePoints[0]));
+                }
+            default:
+                {
+                    StringBuilder b = new StringBuilder();
+                    for (int cp : codePoints) {
+                        b.appendCodePoint(cp);
+                    }
+                    return b.toString();
+                }
         }
     }
 
@@ -279,8 +282,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
         return new With<T>().and(sources);
     }
 
-    private With() {
-    }
+    private With() {}
 
     @SuppressWarnings("unchecked")
     public With<V> and(Iterator<V>... iterators) {
@@ -319,8 +321,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
      */
     public With<V> andCodePoints(CharSequence... sources) {
         for (CharSequence charSequence : sources) {
-            this.iterators
-            .add((Iterator<V>) new ToIterator<>(new CharSequenceSimpleIterator(charSequence)));
+            this.iterators.add((Iterator<V>) new ToIterator<>(new CharSequenceSimpleIterator(charSequence)));
         }
         return this;
     }
@@ -328,6 +329,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
     // new CharSequenceSimpleIterator(source)
 
     private static class CharSequenceSimpleIterator implements SimpleIterator<CharSequence> {
+
         private int position;
         private CharSequence source;
 
@@ -360,6 +362,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
     }
 
     private static class ToIterator<T> implements Iterator<T>, Iterable<T> {
+
         private final SimpleIterator<T> simpleIterator;
         private T current;
 
@@ -395,6 +398,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
     }
 
     public static class ToSimpleIterator<T> implements SimpleIterator<T> {
+
         private final Iterator<T> iterator;
 
         public ToSimpleIterator(Iterator<T> iterator) {

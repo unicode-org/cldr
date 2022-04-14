@@ -7,13 +7,13 @@
  */
 package org.unicode.cldr.util;
 
-import java.io.IOException;
-
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.util.ICUUncheckedIOException;
+import java.io.IOException;
 
 public class CompactStringByteConverter extends StringByteConverter {
-    static public final boolean DEBUG = false;
+
+    public static final boolean DEBUG = false;
     private boolean deltaEncoded;
     private int last;
 

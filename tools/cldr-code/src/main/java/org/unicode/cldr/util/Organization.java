@@ -33,7 +33,12 @@ public enum Organization {
     iran_hci("Iran HCI"),
     kendra("Kendra (Nepal)"),
     kotoistus("Kotoistus (Finnish IT Ctr)"),
-    kunsill_malti("Il-Kunsill Nazzjonali tal-Ilsien Malti", "National Council for the Maltese Language", "malta", "malti"),
+    kunsill_malti(
+        "Il-Kunsill Nazzjonali tal-Ilsien Malti",
+        "National Council for the Maltese Language",
+        "malta",
+        "malti"
+    ),
     lakota_lc("Lakota LC"),
     lao_dpt("Lao Posts/Telecom??"),
     longnow("The Long Now Foundation", "Long Now", "PanLex", "Utilka Foundation"),
@@ -54,7 +59,7 @@ public enum Organization {
     surveytool("Survey Tool"),
     welsh_lc("Welsh LC"),
     wikimedia("Wikimedia Foundation"),
-    yahoo("Yahoo"),
+    yahoo("Yahoo")
     // To be removed.
     ;
 
@@ -88,6 +93,7 @@ public enum Organization {
     }
 
     static Map<String, Organization> OrganizationNameMap;
+
     static {
         OrganizationNameMap = new HashMap<>();
         for (Organization x : values()) {

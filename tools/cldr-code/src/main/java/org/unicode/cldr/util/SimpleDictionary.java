@@ -14,7 +14,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.Dictionary.Matcher.Status;
 
 /**
@@ -24,6 +23,7 @@ import org.unicode.cldr.util.Dictionary.Matcher.Status;
  * @author markdavis
  */
 public class SimpleDictionary<T> extends Dictionary<T> {
+
     private TreeMap<CharSequence, T> data = new TreeMap<>();
     private Set<CharSequence> possibleMatchesBefore;
     private Set<CharSequence> possibleMatchesAfter;
@@ -38,7 +38,6 @@ public class SimpleDictionary<T> extends Dictionary<T> {
         public SimpleDictionary<T> make(Map<CharSequence, T> source) {
             return new SimpleDictionary(source);
         }
-
     }
 
     private SimpleDictionary(Map<CharSequence, T> source) {
@@ -252,7 +251,6 @@ public class SimpleDictionary<T> extends Dictionary<T> {
             // TODO Auto-generated method stub
             return SimpleDictionary.this;
         }
-
         // public static class CharSequenceComparator implements Comparator<CharSequence> {
         //
         // public int compare(CharSequence first, CharSequence second) {
@@ -281,5 +279,4 @@ public class SimpleDictionary<T> extends Dictionary<T> {
         }
         return true;
     }
-
 }

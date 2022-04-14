@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import com.google.common.base.Splitter;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.EnumMap;
@@ -10,18 +11,19 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
-
 import org.unicode.cldr.util.StandardCodes.LstrType;
-
-import com.google.common.base.Splitter;
 
 public class Validity {
 
     public enum Status {
-        regular, special, // for languages only (special codes like mul)
+        regular,
+        special, // for languages only (special codes like mul)
         macroregion, // regions only (from M.49)
-        deprecated, reserved, private_use,  // for clients of cldr with prior agreements
-        unknown, invalid; //  (anything else)
+        deprecated,
+        reserved,
+        private_use, // for clients of cldr with prior agreements
+        unknown,
+        invalid, //  (anything else)
     }
 
     private static final ConcurrentHashMap<String, Validity> cache = new ConcurrentHashMap<>();

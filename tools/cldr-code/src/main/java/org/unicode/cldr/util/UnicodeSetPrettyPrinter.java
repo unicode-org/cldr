@@ -9,11 +9,6 @@
 
 package org.unicode.cldr.util;
 
-import java.io.IOException;
-import java.text.FieldPosition;
-import java.util.Comparator;
-import java.util.TreeSet;
-
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.StringTransform;
@@ -22,14 +17,24 @@ import com.ibm.icu.text.UTF16.StringComparator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ICUUncheckedIOException;
+import java.io.IOException;
+import java.text.FieldPosition;
+import java.util.Comparator;
+import java.util.TreeSet;
 
 /** Provides more flexible formatting of UnicodeSet patterns.
  */
 public class UnicodeSetPrettyPrinter {
+
     private static final StringComparator CODEPOINT_ORDER = new UTF16.StringComparator(true, false, 0);
-    private static final UnicodeSet PATTERN_WHITESPACE = new UnicodeSet("[[:Cn:][:Default_Ignorable_Code_Point:][:patternwhitespace:]]").freeze();
+    private static final UnicodeSet PATTERN_WHITESPACE = new UnicodeSet(
+        "[[:Cn:][:Default_Ignorable_Code_Point:][:patternwhitespace:]]"
+    )
+        .freeze();
     private static final UnicodeSet SORT_AT_END = new UnicodeSet("[[:Cn:][:Cs:][:Co:][:Ideographic:]]").freeze();
-    private static final UnicodeSet QUOTED_SYNTAX = new UnicodeSet("[\\[\\]\\-\\^\\&\\\\\\{\\}\\$\\:]").addAll(PATTERN_WHITESPACE).freeze();
+    private static final UnicodeSet QUOTED_SYNTAX = new UnicodeSet("[\\[\\]\\-\\^\\&\\\\\\{\\}\\$\\:]")
+        .addAll(PATTERN_WHITESPACE)
+        .freeze();
 
     private boolean first = true;
     private StringBuffer target = new StringBuffer();
@@ -43,8 +48,7 @@ public class UnicodeSetPrettyPrinter {
     private Comparator<String> ordering;
     private Comparator<String> spaceComp;
 
-    public UnicodeSetPrettyPrinter() {
-    }
+    public UnicodeSetPrettyPrinter() {}
 
     public StringTransform getQuoter() {
         return quoter;
@@ -77,7 +81,10 @@ public class UnicodeSetPrettyPrinter {
      * @return
      */
     public UnicodeSetPrettyPrinter setOrdering(Comparator ordering) {
-        this.ordering = ordering == null ? CODEPOINT_ORDER : new org.unicode.cldr.util.MultiComparator<String>(ordering, CODEPOINT_ORDER);
+        this.ordering =
+            ordering == null
+                ? CODEPOINT_ORDER
+                : new org.unicode.cldr.util.MultiComparator<String>(ordering, CODEPOINT_ORDER);
         return this;
     }
 
@@ -169,8 +176,7 @@ public class UnicodeSetPrettyPrinter {
     }
 
     private void appendUnicodeSetItem(int cp) {
-        if (!compressRanges)
-            flushLast();
+        if (!compressRanges) flushLast();
         if (cp == lastCodePoint + 1) {
             lastCodePoint = cp; // continue range
         } else { // start range
@@ -250,28 +256,29 @@ public class UnicodeSetPrettyPrinter {
             return this;
         }
         switch (codePoint) {
-        case '[': // SET_OPEN:
-        case ']': // SET_CLOSE:
-        case '-': // HYPHEN:
-        case '^': // COMPLEMENT:
-        case '&': // INTERSECTION:
-        case '\\': //BACKSLASH:
-        case '{':
-        case '}':
-        case '$':
-        case ':':
-            target.append('\\');
-            break;
-        default:
-            // Escape whitespace
-            if (PATTERN_WHITESPACE.contains(codePoint)) {
+            case '[': // SET_OPEN:
+            case ']': // SET_CLOSE:
+            case '-': // HYPHEN:
+            case '^': // COMPLEMENT:
+            case '&': // INTERSECTION:
+            case '\\': //BACKSLASH:
+            case '{':
+            case '}':
+            case '$':
+            case ':':
                 target.append('\\');
-            }
-            break;
+                break;
+            default:
+                // Escape whitespace
+                if (PATTERN_WHITESPACE.contains(codePoint)) {
+                    target.append('\\');
+                }
+                break;
         }
         UTF16.append(target, codePoint);
         return this;
     }
+
     //  Appender append(String s) {
     //  target.append(s);
     //  return this;

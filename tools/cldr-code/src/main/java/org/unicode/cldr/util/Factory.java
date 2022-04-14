@@ -7,7 +7,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale.SublocaleProvider;
 import org.unicode.cldr.util.XMLSource.ResolvingSource;
@@ -62,7 +61,9 @@ public abstract class Factory implements SublocaleProvider {
      *
      */
     public enum SourceTreeType {
-        common, seed, other
+        common,
+        seed,
+        other,
     }
 
     /**
@@ -88,7 +89,16 @@ public abstract class Factory implements SublocaleProvider {
     }
 
     public enum DirectoryType {
-        main, supplemental, bcp47, casing, collation, dtd, rbnf, segments, transforms, other
+        main,
+        supplemental,
+        bcp47,
+        casing,
+        collation,
+        dtd,
+        rbnf,
+        segments,
+        transforms,
+        other,
     }
 
     public static final DirectoryType getDirectoryType(File fileOrDir) {
@@ -157,8 +167,12 @@ public abstract class Factory implements SublocaleProvider {
         String curLocale = localeID;
         while (curLocale != null) {
             if (DEBUG_FACTORY) {
-                System.out.println("Factory.makeResolvingSource: calling handleMake for locale " +
-                    curLocale + " and MimimalDraftStatus " + madeWithMinimalDraftStatus);
+                System.out.println(
+                    "Factory.makeResolvingSource: calling handleMake for locale " +
+                    curLocale +
+                    " and MimimalDraftStatus " +
+                    madeWithMinimalDraftStatus
+                );
             }
             CLDRFile file = handleMake(curLocale, false, madeWithMinimalDraftStatus);
             if (file == null) {

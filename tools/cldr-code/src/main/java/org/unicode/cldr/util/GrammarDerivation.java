@@ -1,20 +1,24 @@
 package org.unicode.cldr.util;
 
-import java.util.Map;
-import java.util.Objects;
-import java.util.TreeMap;
-
-import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
-
 import com.google.common.base.MoreObjects;
 import com.google.common.base.MoreObjects.ToStringHelper;
 import com.ibm.icu.util.Freezable;
+import java.util.Map;
+import java.util.Objects;
+import java.util.TreeMap;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 
-public class GrammarDerivation implements Freezable<GrammarDerivation>{
+public class GrammarDerivation implements Freezable<GrammarDerivation> {
 
-    public enum CompoundUnitStructure {per, times, power, prefix}
+    public enum CompoundUnitStructure {
+        per,
+        times,
+        power,
+        prefix,
+    }
 
     public class Values {
+
         public final String value0;
         public final String value1;
 
@@ -23,6 +27,7 @@ public class GrammarDerivation implements Freezable<GrammarDerivation>{
             this.value0 = values[0];
             this.value1 = values.length == 2 ? values[0] : null;
         }
+
         @Override
         public String toString() {
             final ToStringHelper temp = MoreObjects.toStringHelper(getClass()).add("value0", value0);
@@ -31,7 +36,6 @@ public class GrammarDerivation implements Freezable<GrammarDerivation>{
             }
             return temp.toString();
         }
-
     }
 
     private Map<GrammaticalFeature, Map<CompoundUnitStructure, Values>> data = new TreeMap<>();
@@ -53,7 +57,6 @@ public class GrammarDerivation implements Freezable<GrammarDerivation>{
         }
         return structureToValues.get(structure);
     }
-
 
     @Override
     public boolean isFrozen() {

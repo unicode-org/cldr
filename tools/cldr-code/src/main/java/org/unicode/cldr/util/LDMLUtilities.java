@@ -17,7 +17,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.OutputKeys;
@@ -31,7 +30,6 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
-
 import org.unicode.cldr.icu.LDMLConstants;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
@@ -50,8 +48,7 @@ import org.xml.sax.SAXParseException;
  */
 public class LDMLUtilities {
 
-    public static final int XML = 0,
-        TXT = 1;
+    public static final int XML = 0, TXT = 1;
     private static final boolean DEBUG = false;
 
     /**
@@ -61,16 +58,34 @@ public class LDMLUtilities {
      * @param locale
      * @return
      */
-    public static Document getFullyResolvedLDML(String sourceDir, String locale,
-        boolean ignoreRoot, boolean ignoreUnavailable,
-        boolean ignoreIfNoneAvailable, boolean ignoreDraft) {
-        return getFullyResolvedLDML(sourceDir, locale, ignoreRoot, ignoreUnavailable, ignoreIfNoneAvailable,
-            ignoreDraft, null);
+    public static Document getFullyResolvedLDML(
+        String sourceDir,
+        String locale,
+        boolean ignoreRoot,
+        boolean ignoreUnavailable,
+        boolean ignoreIfNoneAvailable,
+        boolean ignoreDraft
+    ) {
+        return getFullyResolvedLDML(
+            sourceDir,
+            locale,
+            ignoreRoot,
+            ignoreUnavailable,
+            ignoreIfNoneAvailable,
+            ignoreDraft,
+            null
+        );
     }
 
-    private static Document getFullyResolvedLDML(String sourceDir, String locale,
-        boolean ignoreRoot, boolean ignoreUnavailable,
-        boolean ignoreIfNoneAvailable, boolean ignoreDraft, Map<String, String> stack) {
+    private static Document getFullyResolvedLDML(
+        String sourceDir,
+        String locale,
+        boolean ignoreRoot,
+        boolean ignoreUnavailable,
+        boolean ignoreIfNoneAvailable,
+        boolean ignoreDraft,
+        Map<String, String> stack
+    ) {
         Document full = null;
         if (stack != null) {
             // For guarding against cicular references
@@ -96,11 +111,15 @@ public class LDMLUtilities {
             if (DEBUG) {
                 try {
                     java.io.OutputStreamWriter writer = new java.io.OutputStreamWriter(
-                        new java.io.FileOutputStream("./" + File.separator
-                            + "root_debug.xml"),
-                        "UTF-8");
-                    LDMLUtilities.printDOMTree(full, new PrintWriter(writer),
-                        "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd", null);
+                        new java.io.FileOutputStream("./" + File.separator + "root_debug.xml"),
+                        "UTF-8"
+                    );
+                    LDMLUtilities.printDOMTree(
+                        full,
+                        new PrintWriter(writer),
+                        "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd",
+                        null
+                    );
                     writer.flush();
                 } catch (IOException e) {
                     // throw the exceptionaway .. this is for debugging
@@ -156,11 +175,15 @@ public class LDMLUtilities {
                     if (DEBUG) {
                         try {
                             java.io.OutputStreamWriter writer = new java.io.OutputStreamWriter(
-                                new java.io.FileOutputStream("./" + File.separator + loc
-                                    + "_debug.xml"),
-                                "UTF-8");
-                            LDMLUtilities.printDOMTree(full, new PrintWriter(writer),
-                                "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd", null);
+                                new java.io.FileOutputStream("./" + File.separator + loc + "_debug.xml"),
+                                "UTF-8"
+                            );
+                            LDMLUtilities.printDOMTree(
+                                full,
+                                new PrintWriter(writer),
+                                "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd",
+                                null
+                            );
                             writer.flush();
                         } catch (IOException e) {
                             // throw the exceptionaway .. this is for debugging
@@ -196,11 +219,15 @@ public class LDMLUtilities {
         if (DEBUG) {
             try {
                 java.io.OutputStreamWriter writer = new java.io.OutputStreamWriter(
-                    new java.io.FileOutputStream("./" + File.separator + locale
-                        + "_ba_debug.xml"),
-                    "UTF-8");
-                LDMLUtilities.printDOMTree(full, new PrintWriter(writer),
-                    "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd", null);
+                    new java.io.FileOutputStream("./" + File.separator + locale + "_ba_debug.xml"),
+                    "UTF-8"
+                );
+                LDMLUtilities.printDOMTree(
+                    full,
+                    new PrintWriter(writer),
+                    "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd",
+                    null
+                );
                 writer.flush();
             } catch (IOException e) {
                 // throw the exceptionaway .. this is for debugging
@@ -214,11 +241,15 @@ public class LDMLUtilities {
         if (DEBUG) {
             try {
                 java.io.OutputStreamWriter writer = new java.io.OutputStreamWriter(
-                    new java.io.FileOutputStream("./" + File.separator + locale
-                        + "_aa_debug.xml"),
-                    "UTF-8");
-                LDMLUtilities.printDOMTree(full, new PrintWriter(writer),
-                    "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd", null);
+                    new java.io.FileOutputStream("./" + File.separator + locale + "_aa_debug.xml"),
+                    "UTF-8"
+                );
+                LDMLUtilities.printDOMTree(
+                    full,
+                    new PrintWriter(writer),
+                    "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd",
+                    null
+                );
                 writer.flush();
             } catch (IOException e) {
                 // throw the exceptionaway .. this is for debugging
@@ -228,7 +259,6 @@ public class LDMLUtilities {
     }
 
     public static String getLocaleName(Document doc) {
-
         Node ln = LDMLUtilities.getNode(doc, "//ldml/identity/language");
         Node tn = LDMLUtilities.getNode(doc, "//ldml/identity/territory");
         Node sn = LDMLUtilities.getNode(doc, "//ldml/identity/script");
@@ -587,7 +617,7 @@ public class LDMLUtilities {
         if (valEnd < 0) {
             valEnd = valStart + (token.length() - valStart - 1);
         } else {
-            valEnd = token.length() - 1 /* valEnd should be index */;
+            valEnd = token.length() - 1/* valEnd should be index */;
         }
         String value = token.substring(valStart, valEnd);
         int s = value.indexOf('\'');
@@ -608,9 +638,15 @@ public class LDMLUtilities {
     }
 
     @Deprecated
-    public static Node mergeLDMLDocuments(Document source, Node override, StringBuffer xpath,
-        String thisName, String sourceDir, boolean ignoreDraft,
-        boolean ignoreVersion) {
+    public static Node mergeLDMLDocuments(
+        Document source,
+        Node override,
+        StringBuffer xpath,
+        String thisName,
+        String sourceDir,
+        boolean ignoreDraft,
+        boolean ignoreVersion
+    ) {
         StringBuilder sb = new StringBuilder(xpath.toString());
         return mergeLDMLDocuments(source, override, sb, thisName, sourceDir, ignoreDraft, ignoreVersion);
     }
@@ -646,9 +682,15 @@ public class LDMLUtilities {
      * @param override
      * @return the merged document
      */
-    public static Node mergeLDMLDocuments(Document source, Node override, StringBuilder xpath,
-        String thisName, String sourceDir, boolean ignoreDraft,
-        boolean ignoreVersion) {
+    public static Node mergeLDMLDocuments(
+        Document source,
+        Node override,
+        StringBuilder xpath,
+        String thisName,
+        String sourceDir,
+        boolean ignoreDraft,
+        boolean ignoreVersion
+    ) {
         if (source == null) {
             return override;
         }
@@ -846,8 +888,13 @@ public class LDMLUtilities {
      * @param thisLocale
      */
     // TODO guard against circular aliases
-    public static Document resolveAliases(Document fullyResolvedDoc, String sourceDir, String thisLocale,
-        boolean ignoreDraft, Map<String, String> stack) {
+    public static Document resolveAliases(
+        Document fullyResolvedDoc,
+        String sourceDir,
+        String thisLocale,
+        boolean ignoreDraft,
+        Map<String, String> stack
+    ) {
         Node[] array = getNodeArray(fullyResolvedDoc, LDMLConstants.ALIAS);
 
         // resolve all the aliases by iterating over
@@ -880,8 +927,9 @@ public class LDMLUtilities {
             // initialize the stack for every alias!
             stack = new HashMap<>();
             if (node == null) {
-                System.err.println("list.item(" + i + ") returned null!. The list reports it's length as: "
-                    + array.length);
+                System.err.println(
+                    "list.item(" + i + ") returned null!. The list reports it's length as: " + array.length
+                );
                 continue;
             }
             parent = node.getParentNode();
@@ -900,11 +948,9 @@ public class LDMLUtilities {
             String key = "SRC:" + thisLocale + ";XPATH:" + getAbsoluteXPath(node, type);
             if (stack.get(key) != null) {
                 throw new IllegalStateException("Found circular aliases! " + key);
-
             }
             stack.put(key, "");
             if (source.equals(LDMLConstants.LOCALE)) {
-
                 Object[] aliasList = getChildNodeListAsArray(getNode(parent, path), false);
                 Object[] childList = getChildNodeListAsArray(parent, true);
                 replacementList = mergeNodeLists(aliasList, childList);
@@ -912,9 +958,14 @@ public class LDMLUtilities {
                 // if source is defined then path should not be
                 // relative
                 if (path.indexOf("..") > 0) {
-                    throw new IllegalArgumentException("Cannot parse relative xpath: " + path +
-                        " in locale: " + source +
-                        " from source locale: " + thisLocale);
+                    throw new IllegalArgumentException(
+                        "Cannot parse relative xpath: " +
+                        path +
+                        " in locale: " +
+                        source +
+                        " from source locale: " +
+                        thisLocale
+                    );
                 }
                 // this is a is an absolute XPath
                 Document newDoc = getFullyResolvedLDML(sourceDir, source, false, true, false, ignoreDraft, stack);
@@ -963,12 +1014,15 @@ public class LDMLUtilities {
                         parent.appendChild(childToImport);
                     }
                 }
-
             } else {
-                throw new IllegalArgumentException("Could not find node for xpath: " + path +
-                    " in locale: " + source +
-                    " from source locale: " + thisLocale);
-
+                throw new IllegalArgumentException(
+                    "Could not find node for xpath: " +
+                    path +
+                    " in locale: " +
+                    source +
+                    " from source locale: " +
+                    thisLocale
+                );
             }
         }
         return fullyResolvedDoc;
@@ -1183,12 +1237,11 @@ public class LDMLUtilities {
     public static void appendXPathAttribute(Node node, StringBuilder xpath, boolean ignoreAlt, boolean ignoreDraft) {
         boolean terminate = false;
         String val = getAttributeValue(node, LDMLConstants.TYPE);
-        String and = "][";// " and ";
+        String and = "]["; // " and ";
         boolean isStart = true;
         String name = node.getNodeName();
         if (val != null && !name.equals(LDMLConstants.DEFAULT) && !name.equals(LDMLConstants.MS)) {
             if (!(val.equals("standard") && name.equals(LDMLConstants.PATTERN))) {
-
                 if (isStart) {
                     xpath.append("[");
                     isStart = false;
@@ -1213,7 +1266,6 @@ public class LDMLUtilities {
                 xpath.append("'");
                 terminate = true;
             }
-
         }
 
         if (!ignoreDraft) {
@@ -1230,7 +1282,6 @@ public class LDMLUtilities {
                 xpath.append("'");
                 terminate = true;
             }
-
         }
 
         val = getAttributeValue(node, LDMLConstants.KEY);
@@ -1312,7 +1363,6 @@ public class LDMLUtilities {
     }
 
     private static Object[] getChildNodeListAsArray(Node parent, boolean exceptAlias) {
-
         NodeList list = parent.getChildNodes();
         int length = list.getLength();
 
@@ -1328,7 +1378,6 @@ public class LDMLUtilities {
             al.add(item);
         }
         return al.toArray();
-
     }
 
     public static Node[] toNodeArray(NodeList list) {
@@ -1370,7 +1419,6 @@ public class LDMLUtilities {
     public static NodeList getNodeList(Document doc, String xpath) {
         try {
             return XPathAPI_selectNodeList(doc, xpath);
-
         } catch (TransformerException ex) {
             throw new RuntimeException(ex);
         }
@@ -1395,8 +1443,7 @@ public class LDMLUtilities {
                 return node;
             }
         }
-        if (list.getLength() > 0)
-            return list.item(0); // if all have alt=.... then return the first one
+        if (list.getLength() > 0) return list.item(0); // if all have alt=.... then return the first one
         return null;
     }
 
@@ -1441,7 +1488,6 @@ public class LDMLUtilities {
                 return null;
             }
             return nl.item(0);
-
         } catch (TransformerException ex) {
             ex.printStackTrace();
             throw new RuntimeException(ex);
@@ -1460,7 +1506,6 @@ public class LDMLUtilities {
                 return null;
             }
             return nl.item(0);
-
         } catch (TransformerException ex) {
             throw new RuntimeException(ex);
         }
@@ -1491,14 +1536,14 @@ public class LDMLUtilities {
                 for (i = 0; i < len; i++) {
                     all = all + ", " + nl.item(i);
                 }
-                throw new IllegalArgumentException("The XPATH returned more than 1 node!. Check XPATH: " + xpath
-                    + " = " + all);
+                throw new IllegalArgumentException(
+                    "The XPATH returned more than 1 node!. Check XPATH: " + xpath + " = " + all
+                );
             }
             if (len == 0) {
                 return null;
             }
             return nl.item(0);
-
         } catch (TransformerException ex) {
             throw new RuntimeException(ex);
         }
@@ -1508,7 +1553,6 @@ public class LDMLUtilities {
         try {
             NodeList nl = XPathAPI_selectNodeList(node, xpath);
             return getNode(nl, xpath, preferDraft, preferAlt);
-
         } catch (TransformerException ex) {
             throw new RuntimeException(ex);
         }
@@ -1531,8 +1575,13 @@ public class LDMLUtilities {
         return null;
     }
 
-    public static Node getVettedNode(Document fullyResolvedDoc, Node parent, String childName, StringBuffer xpath,
-        boolean ignoreDraft) {
+    public static Node getVettedNode(
+        Document fullyResolvedDoc,
+        Node parent,
+        String childName,
+        StringBuffer xpath,
+        boolean ignoreDraft
+    ) {
         NodeList list = getNodeList(parent, childName, fullyResolvedDoc, xpath.toString());
         int oldLength = xpath.length();
         Node ret = null;
@@ -1591,14 +1640,14 @@ public class LDMLUtilities {
             for (i = 0; i < len; i++) {
                 all = all + ", " + nl.item(i);
             }
-            throw new IllegalArgumentException("The XPATH returned more than 1 node!. Check XPATH: " + xpath + " = "
-                + all);
+            throw new IllegalArgumentException(
+                "The XPATH returned more than 1 node!. Check XPATH: " + xpath + " = " + all
+            );
         }
         if (len == 0) {
             return null;
         }
         return nl.item(0);
-
     }
 
     /**
@@ -1649,7 +1698,6 @@ public class LDMLUtilities {
                 return null;
             }
             return nl;
-
         } catch (TransformerException ex) {
             throw new RuntimeException(ex);
         }
@@ -1738,7 +1786,6 @@ public class LDMLUtilities {
      * @param val
      */
     public static void setAttributeValue(Node sNode, String attribName, String val) {
-
         Node attr = sNode.getAttributes().getNamedItem(attribName);
         if (attr != null) {
             attr.setNodeValue(val);
@@ -1781,8 +1828,13 @@ public class LDMLUtilities {
                     continue;
                 }
                 if (sib.getNodeName().equals(LDMLConstants.ALIAS)) {
-                    resolveAliases(doc, filename.substring(0, filename.lastIndexOf(File.separator) + 1), locale, false,
-                        null);
+                    resolveAliases(
+                        doc,
+                        filename.substring(0, filename.lastIndexOf(File.separator) + 1),
+                        locale,
+                        false,
+                        null
+                    );
                 }
             }
         } else {
@@ -1791,11 +1843,15 @@ public class LDMLUtilities {
         if (DEBUG) {
             try {
                 java.io.OutputStreamWriter writer = new java.io.OutputStreamWriter(
-                    new java.io.FileOutputStream("./" + File.separator + locale
-                        + "_debug_1.xml"),
-                    "UTF-8");
-                LDMLUtilities.printDOMTree(doc, new PrintWriter(writer),
-                    "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd", null);
+                    new java.io.FileOutputStream("./" + File.separator + locale + "_debug_1.xml"),
+                    "UTF-8"
+                );
+                LDMLUtilities.printDOMTree(
+                    doc,
+                    new PrintWriter(writer),
+                    "http://www.unicode.org/cldr/dtd/1.3/ldml.dtd",
+                    null
+                );
                 writer.flush();
             } catch (IOException e) {
                 // throw the exceptionaway .. this is for debugging
@@ -1823,8 +1879,12 @@ public class LDMLUtilities {
         return parse(new InputSource(docURI), filename, ignoreError);
     }
 
-    public static Document parseAndResolveAliases(String locale, String sourceDir, boolean ignoreError,
-        boolean ignoreDraft) {
+    public static Document parseAndResolveAliases(
+        String locale,
+        String sourceDir,
+        boolean ignoreError,
+        boolean ignoreDraft
+    ) {
         try {
             Document full = parse(sourceDir + File.separator + locale, ignoreError);
             if (full != null) {
@@ -1846,7 +1906,6 @@ public class LDMLUtilities {
             }
         }
         return null;
-
     }
 
     private static ErrorHandler getNullErrorHandler(final String filename2, final boolean ignoreError) {
@@ -1856,9 +1915,15 @@ public class LDMLUtilities {
             @Override
             public void warning(SAXParseException e) throws SAXException {
                 int col = e.getColumnNumber();
-                String msg = (filename2 + ":" + e.getLineNumber()
-                    + (col >= 0 ? ":" + col : "") + ": WARNING: "
-                    + e.getMessage());
+                String msg =
+                    (
+                        filename2 +
+                        ":" +
+                        e.getLineNumber() +
+                        (col >= 0 ? ":" + col : "") +
+                        ": WARNING: " +
+                        e.getMessage()
+                    );
 
                 System.err.println(msg);
                 if (!ignoreError) {
@@ -1869,9 +1934,8 @@ public class LDMLUtilities {
             @Override
             public void error(SAXParseException e) throws SAXException {
                 int col = e.getColumnNumber();
-                String msg = (filename2 + ":" + e.getLineNumber()
-                    + (col >= 0 ? ":" + col : "") + ": ERROR: "
-                    + e.getMessage());
+                String msg =
+                    (filename2 + ":" + e.getLineNumber() + (col >= 0 ? ":" + col : "") + ": ERROR: " + e.getMessage());
                 System.err.println(msg);
                 if (!ignoreError) {
                     throw new RuntimeException(msg);
@@ -1951,13 +2015,15 @@ public class LDMLUtilities {
         }
 
         // Don't translate a string that already looks like a URL
-        if (filename.startsWith("file:")
-            || filename.startsWith("http:")
-            || filename.startsWith("ftp:")
-            || filename.startsWith("gopher:")
-            || filename.startsWith("mailto:")
-            || filename.startsWith("news:")
-            || filename.startsWith("telnet:")) {
+        if (
+            filename.startsWith("file:") ||
+            filename.startsWith("http:") ||
+            filename.startsWith("ftp:") ||
+            filename.startsWith("gopher:") ||
+            filename.startsWith("mailto:") ||
+            filename.startsWith("news:") ||
+            filename.startsWith("telnet:")
+        ) {
             return filename;
         }
 
@@ -2009,7 +2075,6 @@ public class LDMLUtilities {
         } catch (TransformerException te) {
             throw new IOException(te.getMessage());
         }
-
         // out.close();
     } // printDOMTree(Node, PrintWriter)
 
@@ -2065,8 +2130,10 @@ public class LDMLUtilities {
             if (lastIndex2 == -1) {
                 fName = fName.trim() + ".xml";
             } else {
-                if (!fName.substring(lastIndex2).equalsIgnoreCase(".xml")
-                    && fName.substring(lastIndex2).equalsIgnoreCase(".xlf")) {
+                if (
+                    !fName.substring(lastIndex2).equalsIgnoreCase(".xml") &&
+                    fName.substring(lastIndex2).equalsIgnoreCase(".xlf")
+                ) {
                     fName = fName.substring(lastIndex1, lastIndex2) + ".xml";
                 }
             }
@@ -2113,10 +2180,10 @@ public class LDMLUtilities {
             ret[1] = null;
         } else {
             int l = alt.indexOf(LDMLConstants.PROPOSED);
-            if (l == -1) { /* no PROPOSED */
+            if (l == -1) {/* no PROPOSED */
                 ret[0] = alt; // all alt,
                 ret[1] = null; // no kind
-            } else if (l == 0) { /* begins with */
+            } else if (l == 0) {/* begins with */
                 ret[0] = null; // all properties
                 ret[1] = alt;
             } else {
@@ -2146,9 +2213,9 @@ public class LDMLUtilities {
      * @see parseAlt
      */
     public static String formatAlt(String altType, String proposedType) {
-
-        if (((altType == null) || (altType.length() == 0)) &&
-            ((proposedType == null) || (proposedType.length() == 0))) {
+        if (
+            ((altType == null) || (altType.length() == 0)) && ((proposedType == null) || (proposedType.length() == 0))
+        ) {
             return null;
         }
 
@@ -2185,8 +2252,8 @@ public class LDMLUtilities {
         }
     }
 
-    private static NodeList XPathAPI_selectNodeList(Document doc, String xpath,
-        Node namespaceNode) throws TransformerException {
+    private static NodeList XPathAPI_selectNodeList(Document doc, String xpath, Node namespaceNode)
+        throws TransformerException {
         XPathFactory factory = XPathFactory.newInstance();
         XPath xPath = factory.newXPath();
         setNamespace(xPath, xpath);
@@ -2198,8 +2265,8 @@ public class LDMLUtilities {
         }
     }
 
-    private static NodeList XPathAPI_selectNodeList(Node context, String xpath,
-        Node namespaceNode) throws TransformerException {
+    private static NodeList XPathAPI_selectNodeList(Node context, String xpath, Node namespaceNode)
+        throws TransformerException {
         XPathFactory factory = XPathFactory.newInstance();
         XPath xPath = factory.newXPath();
         setNamespace(xPath, xpath);
@@ -2211,8 +2278,7 @@ public class LDMLUtilities {
         }
     }
 
-    private static void XPathAPI_eval(Node context, String string,
-        Node namespaceNode) throws TransformerException {
+    private static void XPathAPI_eval(Node context, String string, Node namespaceNode) throws TransformerException {
         XPathAPI_selectNodeList(context, string, namespaceNode);
     }
 
@@ -2222,25 +2288,27 @@ public class LDMLUtilities {
 
     private static void setNamespace(XPath xpath, String string) {
         if (string.contains("special/icu:")) {
-            xpath.setNamespaceContext(new javax.xml.namespace.NamespaceContext() {
-                @Override
-                public String getNamespaceURI(String prefix) {
-                    if (prefix.equals("icu")) {
-                        return "http://www.icu-project.org";
+            xpath.setNamespaceContext(
+                new javax.xml.namespace.NamespaceContext() {
+                    @Override
+                    public String getNamespaceURI(String prefix) {
+                        if (prefix.equals("icu")) {
+                            return "http://www.icu-project.org";
+                        }
+                        return null;
                     }
-                    return null;
-                }
 
-                @Override
-                public String getPrefix(String namespaceURI) {
-                    return null;
-                }
+                    @Override
+                    public String getPrefix(String namespaceURI) {
+                        return null;
+                    }
 
-                @Override
-                public Iterator<String> getPrefixes(String namespaceURI) {
-                    return null;
+                    @Override
+                    public Iterator<String> getPrefixes(String namespaceURI) {
+                        return null;
+                    }
                 }
-            });
+            );
         }
     }
 }

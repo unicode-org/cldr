@@ -1,14 +1,14 @@
 package org.unicode.cldr.util;
 
+import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.text.PluralRules;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.text.PluralRules;
-
 public class PluralRulesUtil {
+
     /**
      * Status of the keyword for the rules, given a set of explicit values.
      */
@@ -32,7 +32,7 @@ public class PluralRulesUtil {
         /**
          * The keyword is valid but not bounded; there are indefinitely many matching values.
          */
-        UNBOUNDED
+        UNBOUNDED,
     }
 
     /**
@@ -57,8 +57,13 @@ public class PluralRulesUtil {
      *         <p>
      *         NOTE: For testing, this is a static with the first parameter being the rules. Those will disappear.
      */
-    public static KeywordStatus getKeywordStatus(PluralRules rules, String keyword, int offset, Set<Double> explicits,
-        boolean integerOnly) {
+    public static KeywordStatus getKeywordStatus(
+        PluralRules rules,
+        String keyword,
+        int offset,
+        Set<Double> explicits,
+        boolean integerOnly
+    ) {
         if (!rules.getKeywords().contains(keyword)) {
             return KeywordStatus.INVALID;
         }
@@ -95,8 +100,13 @@ public class PluralRulesUtil {
      * Locales where 'many' is optional. TODO get ICU to add a method that determines if a plural keyword's rule
      * is only true if the compact operand is set.
      */
-    public static final ImmutableSet<String> LOCALES_WITH_OPTIONAL_MANY = ImmutableSet.of("fr", "it", "es", "pt", "pt_PT");
-
+    public static final ImmutableSet<String> LOCALES_WITH_OPTIONAL_MANY = ImmutableSet.of(
+        "fr",
+        "it",
+        "es",
+        "pt",
+        "pt_PT"
+    );
     // static final Map<String,Set<String>> locale2keywords = new HashMap<String,Set<String>>();
     // static final Map<String,PluralRules> locale2pluralRules = new HashMap<String,PluralRules>();
     // static final Set<Double> explicits = new HashSet<Double>();

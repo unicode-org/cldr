@@ -53,6 +53,7 @@ public class DelegatingIterator<T> implements Iterator<T> {
     }
 
     private static class MyIterable<T> implements Iterable<T> {
+
         public Iterable<T>[] iterables;
 
         @SuppressWarnings("unchecked")

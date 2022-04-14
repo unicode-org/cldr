@@ -14,10 +14,12 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author markdavis
  */
 public final class StringId {
+
     private static final Map<String, Long> STRING_TO_ID = new ConcurrentHashMap<>();
     private static final Map<Long, String> ID_TO_STRING = new ConcurrentHashMap<>();
     private static final MessageDigest digest;
     private static final int RETRY_LIMIT = 9;
+
     static {
         try {
             digest = MessageDigest.getInstance("SHA-1");

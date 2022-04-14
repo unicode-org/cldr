@@ -1,29 +1,41 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.impl.PatternTokenizer;
+import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
+import com.ibm.icu.text.UnicodeSet;
 import java.util.Collections;
 import java.util.EnumSet;
 import java.util.Set;
 
-import com.ibm.icu.impl.PatternTokenizer;
-import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
-import com.ibm.icu.text.UnicodeSet;
-
 public class DateTimeCanonicalizer {
 
     public enum DateTimePatternType {
-        NA, STOCK, AVAILABLE, INTERVAL, GMT;
+        NA,
+        STOCK,
+        AVAILABLE,
+        INTERVAL,
+        GMT;
 
-        public static final Set<DateTimePatternType> STOCK_AVAILABLE_INTERVAL_PATTERNS = Collections
-            .unmodifiableSet(EnumSet.of(DateTimePatternType.STOCK, DateTimePatternType.AVAILABLE,
-                DateTimePatternType.INTERVAL));
+        public static final Set<DateTimePatternType> STOCK_AVAILABLE_INTERVAL_PATTERNS = Collections.unmodifiableSet(
+            EnumSet.of(DateTimePatternType.STOCK, DateTimePatternType.AVAILABLE, DateTimePatternType.INTERVAL)
+        );
 
         public static DateTimePatternType fromPath(String path) {
-            return !path.contains("/dates") ? DateTimePatternType.NA
-                : path.contains("/pattern") && (path.contains("/dateFormats") || path.contains("/timeFormats") || path.contains("/dateTimeFormatLength"))
+            return !path.contains("/dates")
+                ? DateTimePatternType.NA
+                : path.contains("/pattern") &&
+                    (
+                        path.contains("/dateFormats") ||
+                        path.contains("/timeFormats") ||
+                        path.contains("/dateTimeFormatLength")
+                    )
                     ? DateTimePatternType.STOCK
-                    : path.contains("/dateFormatItem") ? DateTimePatternType.AVAILABLE
-                        : path.contains("/intervalFormatItem") ? DateTimePatternType.INTERVAL
-                            : path.contains("/timeZoneNames/hourFormat") ? DateTimePatternType.GMT
+                    : path.contains("/dateFormatItem")
+                        ? DateTimePatternType.AVAILABLE
+                        : path.contains("/intervalFormatItem")
+                            ? DateTimePatternType.INTERVAL
+                            : path.contains("/timeZoneNames/hourFormat")
+                                ? DateTimePatternType.GMT
                                 : DateTimePatternType.NA;
         }
     }
@@ -55,10 +67,14 @@ public class DateTimeCanonicalizer {
                 String itemString = item.toString();
                 if (item instanceof String) {
                     result.append(tokenizer.quoteLiteral(itemString));
-                } else if (!itemString.startsWith("y")
-                    || (datetimePatternType == DateTimePatternType.STOCK
-                        && path.contains("short")
-                        && itemString.equals("yy"))) {
+                } else if (
+                    !itemString.startsWith("y") ||
+                    (
+                        datetimePatternType == DateTimePatternType.STOCK &&
+                        path.contains("short") &&
+                        itemString.equals("yy")
+                    )
+                ) {
                     result.append(itemString);
                 } else {
                     result.append('y');

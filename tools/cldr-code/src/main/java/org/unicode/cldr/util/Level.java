@@ -1,9 +1,8 @@
 package org.unicode.cldr.util;
 
+import com.google.common.collect.ImmutableSortedSet;
 import java.util.Locale;
 import java.util.Set;
-
-import com.google.common.collect.ImmutableSortedSet;
 
 /**
  * A simple class representing an enumeration of possible CLDR coverage levels. Levels may change in the future.
@@ -23,8 +22,10 @@ public enum Level {
 
     @Deprecated
     public static final Level POSIX = BASIC;
+
     @Deprecated
     public static final Level MINIMAL = BASIC;
+
     @Deprecated
     public static final Level OPTIONAL = COMPREHENSIVE;
 

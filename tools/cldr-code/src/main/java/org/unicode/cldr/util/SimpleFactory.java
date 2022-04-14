@@ -1,5 +1,12 @@
 package org.unicode.cldr.util;
 
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableList.Builder;
+import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.util.ICUException;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -12,17 +19,8 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.XMLSource.ResolvingSource;
-
-import com.google.common.cache.Cache;
-import com.google.common.cache.CacheBuilder;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableList.Builder;
-import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.util.ICUException;
-import com.ibm.icu.util.ICUUncheckedIOException;
 
 public class SimpleFactory extends Factory {
 
@@ -54,7 +52,7 @@ public class SimpleFactory extends Factory {
      * Larger numbers are tolerable if more memory is available.
      * This constant may be moved to CldrUtilities in future if needed.
      */
-//    private static final int CACHE_LIMIT = 15;
+    //    private static final int CACHE_LIMIT = 15;
 
     private static final int CACHE_LIMIT = 75;
 
@@ -68,6 +66,7 @@ public class SimpleFactory extends Factory {
      *
      */
     private static class CLDRCacheKey {
+
         private final String localeName;
         private final boolean resolved;
         private final DraftStatus draftStatus;
@@ -81,12 +80,16 @@ public class SimpleFactory extends Factory {
             this.draftStatus = draftStatus;
             // Parameter check: the directory/file supplied must be non-null and readable.
             if (directories == null || directories.isEmpty()) {
-                throw new ICUUncheckedIOException("Attempt to create a CLDRCacheKey with a null directory, please supply a non-null one.");
+                throw new ICUUncheckedIOException(
+                    "Attempt to create a CLDRCacheKey with a null directory, please supply a non-null one."
+                );
             }
             ImmutableSet.Builder<String> _directories = ImmutableSet.builder();
             for (File directory : directories) {
                 if (!directory.canRead()) {
-                    throw new ICUUncheckedIOException("The directory specified, " + directory.getPath() + ", cannot be read");
+                    throw new ICUUncheckedIOException(
+                        "The directory specified, " + directory.getPath() + ", cannot be read"
+                    );
                 }
                 _directories.add(directory.toString());
             }
@@ -132,7 +135,17 @@ public class SimpleFactory extends Factory {
 
         @Override
         public String toString() {
-            return "[ LocaleName: " + localeName + " Resolved: " + resolved + " Draft status: " + draftStatus + " Directories: " + directories + " ]";
+            return (
+                "[ LocaleName: " +
+                localeName +
+                " Resolved: " +
+                resolved +
+                " Draft status: " +
+                draftStatus +
+                " Directories: " +
+                directories +
+                " ]"
+            );
         }
     }
 
@@ -143,6 +156,7 @@ public class SimpleFactory extends Factory {
      *
      */
     private static class SimpleFactoryLookupKey {
+
         private final String directory;
         private final String matchString;
 
@@ -201,7 +215,6 @@ public class SimpleFactory extends Factory {
         public String toString() {
             return "SimpleFactoryLookupKey [directory=" + directory + ", matchString=" + matchString + "]";
         }
-
     }
 
     /**
@@ -210,11 +223,16 @@ public class SimpleFactory extends Factory {
      *
      */
     private static class SimpleFactoryCacheKey {
+
         private List<String> sourceDirectories;
         private String matchString;
         private DraftStatus mimimalDraftStatus;
 
-        public SimpleFactoryCacheKey(List<String> sourceDirectories, String matchString, DraftStatus mimimalDraftStatus) {
+        public SimpleFactoryCacheKey(
+            List<String> sourceDirectories,
+            String matchString,
+            DraftStatus mimimalDraftStatus
+        ) {
             this.sourceDirectories = sourceDirectories;
             this.matchString = matchString;
             this.mimimalDraftStatus = mimimalDraftStatus;
@@ -277,11 +295,16 @@ public class SimpleFactory extends Factory {
         @Override
         public String toString() {
             StringBuilder builder = new StringBuilder();
-            builder.append("SimpleFactoryCacheKey [sourceDirectories=").append(sourceDirectories).append(", matchString=").append(matchString)
-                .append(", mimimalDraftStatus=").append(mimimalDraftStatus).append("]");
+            builder
+                .append("SimpleFactoryCacheKey [sourceDirectories=")
+                .append(sourceDirectories)
+                .append(", matchString=")
+                .append(matchString)
+                .append(", mimimalDraftStatus=")
+                .append(mimimalDraftStatus)
+                .append("]");
             return builder.toString();
         }
-
     }
 
     // private volatile CLDRFile result; // used in handleMake
@@ -291,14 +314,14 @@ public class SimpleFactory extends Factory {
     //private   Map<CLDRCacheKey,CLDRFile> combinedCache=  null;
     //     Collections.synchronizedMap(new LruMap<CLDRCacheKey, CLDRFile>(CACHE_LIMIT));
 
-    private Map<String, CLDRFile>[] mainCache = null; /* new Map[DraftStatus.values().length]; */
-    private Map<String, CLDRFile>[] resolvedCache = null; /*new Map[DraftStatus.values().length]; */
-//    {
-//        for (int i = 0; i < mainCache.length; ++i) {
-//            mainCache[i] = Collections.synchronizedMap(new LruMap<String, CLDRFile>(CACHE_LIMIT));
-//            resolvedCache[i] = Collections.synchronizedMap(new LruMap<String, CLDRFile>(CACHE_LIMIT));
-//        }
-//    }
+    private Map<String, CLDRFile>[] mainCache = null;/* new Map[DraftStatus.values().length]; */
+    private Map<String, CLDRFile>[] resolvedCache = null;/*new Map[DraftStatus.values().length]; */
+    //    {
+    //        for (int i = 0; i < mainCache.length; ++i) {
+    //            mainCache[i] = Collections.synchronizedMap(new LruMap<String, CLDRFile>(CACHE_LIMIT));
+    //            resolvedCache[i] = Collections.synchronizedMap(new LruMap<String, CLDRFile>(CACHE_LIMIT));
+    //        }
+    //    }
     private DraftStatus minimalDraftStatus = DraftStatus.unconfirmed;
 
     /* Use WeakValues - automagically remove a value once it is no longer useed elsewhere */
@@ -306,8 +329,7 @@ public class SimpleFactory extends Factory {
     // private static LockSupportMap<SimpleFactoryCacheKey> factoryCacheLocks=new LockSupportMap<>();
     private static Cache<SimpleFactoryLookupKey, SimpleFactoryCacheKey> factoryLookupMap = null;
 
-    private SimpleFactory() {
-    }
+    private SimpleFactory() {}
 
     @Override
     public DraftStatus getMinimalDraftStatus() {
@@ -469,8 +491,7 @@ public class SimpleFactory extends Factory {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("{" + getClass().getName())
-            .append(" dirs=");
+        StringBuilder sb = new StringBuilder("{" + getClass().getName()).append(" dirs=");
         for (File f : sourceDirectories) {
             sb.append(f.getPath()).append(' ');
         }
@@ -484,6 +505,7 @@ public class SimpleFactory extends Factory {
     }
 
     public static class NoSourceDirectoryException extends ICUUncheckedIOException {
+
         private static final long serialVersionUID = 1L;
         private final String localeName;
 
@@ -539,7 +561,9 @@ public class SimpleFactory extends Factory {
         final Object cacheKey;
         CLDRFile result; // result of the lookup / generation
         if (USE_OLD_HANDLEMAKE_CODE) {
-            final Map<String, CLDRFile> cache = resolved ? resolvedCache[minimalDraftStatus.ordinal()] : mainCache[minimalDraftStatus.ordinal()];
+            final Map<String, CLDRFile> cache = resolved
+                ? resolvedCache[minimalDraftStatus.ordinal()]
+                : mainCache[minimalDraftStatus.ordinal()];
             mapToSynchronizeOn = cache;
             cacheKey = localeName;
             result = cache.get(localeName);
@@ -557,7 +581,7 @@ public class SimpleFactory extends Factory {
             }
             return result;
         }
-//        synchronized (cache) {
+        //        synchronized (cache) {
         synchronized (mapToSynchronizeOn) {
             // Check cache twice to ensure that CLDRFile is only loaded once
             // even with multiple threads.
@@ -658,8 +682,12 @@ public class SimpleFactory extends Factory {
      * @param localeName
      * @param fis
      */
-    public static CLDRFile makeFile(String fileName, String localeName, InputStream fis,
-        CLDRFile.DraftStatus minimalDraftStatus) {
+    public static CLDRFile makeFile(
+        String fileName,
+        String localeName,
+        InputStream fis,
+        CLDRFile.DraftStatus minimalDraftStatus
+    ) {
         return CLDRFile.load(fileName, localeName, fis, minimalDraftStatus);
     }
 
@@ -705,8 +733,11 @@ public class SimpleFactory extends Factory {
      *            directory
      */
     public static CLDRFile makeFile(String localeName, String dir, boolean includeDraft) {
-        return makeFile(localeName, dir, includeDraft ? CLDRFile.DraftStatus.unconfirmed
-            : CLDRFile.DraftStatus.approved);
+        return makeFile(
+            localeName,
+            dir,
+            includeDraft ? CLDRFile.DraftStatus.unconfirmed : CLDRFile.DraftStatus.approved
+        );
     }
 
     @Override
@@ -720,19 +751,22 @@ public class SimpleFactory extends Factory {
         boolean isSupplemental = CLDRFile.isSupplementalName(localeName);
         for (File sourceDirectory : this.sourceDirectories) {
             if (isSupplemental) {
-                sourceDirectory = new File(
-                    sourceDirectory.getAbsolutePath().replace("incoming" + File.separator + "vetted" + File.separator, "common" + File.separator));
+                sourceDirectory =
+                    new File(
+                        sourceDirectory
+                            .getAbsolutePath()
+                            .replace("incoming" + File.separator + "vetted" + File.separator, "common" + File.separator)
+                    );
             }
             final File dir = isSupplemental ? new File(sourceDirectory, "../supplemental") : sourceDirectory;
             final File xmlFile = makeFileName(localeName, dir);
             if (xmlFile.canRead()) {
                 if (result == null) {
-                    result = ImmutableList.<File> builder();
+                    result = ImmutableList.<File>builder();
                 }
                 result.add(dir);
             }
         }
         return result == null ? null : result.build();
     }
-
 }

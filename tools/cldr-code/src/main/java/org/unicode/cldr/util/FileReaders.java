@@ -11,10 +11,10 @@ import java.io.UncheckedIOException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-
 import org.unicode.cldr.util.With.SimpleIterator;
 
 public class FileReaders {
+
     //
     // public static SemiFileReader fillMapFromSemi(Class classLocation, String fileName, SemiFileReader handler) {
     // return handler.process(classLocation, fileName);
@@ -51,11 +51,15 @@ public class FileReaders {
                 String relativeFileName = FileReaders.getRelativeFileName(class1, "../util/");
                 normalizedPath = PathUtilities.getNormalizedPathString(relativeFileName);
             } catch (Exception e1) {
-                throw new IllegalArgumentException("Couldn't open file: " + file + "; relative to class: "
-                    + className, e);
+                throw new IllegalArgumentException(
+                    "Couldn't open file: " + file + "; relative to class: " + className,
+                    e
+                );
             }
-            throw new IllegalArgumentException("Couldn't open file " + file + "; in path " + normalizedPath + "; relative to class: "
-                + className, e);
+            throw new IllegalArgumentException(
+                "Couldn't open file " + file + "; in path " + normalizedPath + "; relative to class: " + className,
+                e
+            );
         }
     }
 
@@ -85,8 +89,8 @@ public class FileReaders {
         }
     }
 
-
     public static class ReadLineSimpleIterator implements SimpleIterator<String> {
+
         final BufferedReader bufferedReader;
 
         public ReadLineSimpleIterator(BufferedReader bufferedReader) {

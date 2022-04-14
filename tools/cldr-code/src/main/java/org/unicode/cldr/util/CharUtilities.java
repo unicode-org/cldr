@@ -9,6 +9,7 @@ public class CharUtilities {
      *
      */
     public static class CharSourceWrapper<T extends CharSequence> implements CharSource {
+
         protected T source;
 
         public CharSourceWrapper(T source) {
@@ -102,17 +103,44 @@ public class CharUtilities {
             // if they are different, do a fixup
 
             if (cp1 != cp2) {
-                return (cp1 + utf16Fixup[cp1 >> 11]) -
-                    (cp2 + utf16Fixup[cp2 >> 11]);
+                return (cp1 + utf16Fixup[cp1 >> 11]) - (cp2 + utf16Fixup[cp2 >> 11]);
             }
         }
     }
 
     private static final char utf16Fixup[] = {
-        0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0x2000, 0xf800, 0xf800, 0xf800, 0xf800
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0x2000,
+        0xf800,
+        0xf800,
+        0xf800,
+        0xf800,
     };
 
     /**
@@ -142,10 +170,8 @@ public class CharUtilities {
             // if they are different, do a fixup
 
             if (cp1 != cp2) {
-                return (cp1 + utf16Fixup[cp1 >> 11]) -
-                    (cp2 + utf16Fixup[cp2 >> 11]);
+                return (cp1 + utf16Fixup[cp1 >> 11]) - (cp2 + utf16Fixup[cp2 >> 11]);
             }
         }
     }
-
 }

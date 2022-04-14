@@ -22,6 +22,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 public final class Counter2<T> implements Iterable<T>, Comparable<Counter2<T>> {
+
     Map<T, Double> map;
     Comparator<T> comparator;
 
@@ -92,6 +93,7 @@ public final class Counter2<T> implements Iterable<T>, Comparable<Counter2<T>> {
     }
 
     private static class Entry<T> {
+
         double count;
         T value;
         int uniqueness;
@@ -104,6 +106,7 @@ public final class Counter2<T> implements Iterable<T>, Comparable<Counter2<T>> {
     }
 
     private static class EntryComparator<T> implements Comparator<Entry<T>> {
+
         int countOrdering;
         Comparator<T> byValue;
 

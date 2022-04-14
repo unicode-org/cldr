@@ -11,6 +11,8 @@
 
 package org.unicode.cldr.util;
 
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -21,10 +23,8 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
-
 public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
+
     Map<T, RWLong> map;
     Comparator<T> comparator;
 
@@ -45,12 +45,14 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
         }
     }
 
-    static private final class RWLong implements Comparable<RWLong> {
+    private static final class RWLong implements Comparable<RWLong> {
+
         // the uniqueCount ensures that two different RWIntegers will always be different
         static int uniqueCount;
         public long value;
         private final int forceUnique;
         public long time;
+
         {
             synchronized (RWLong.class) { // make thread-safe
                 forceUnique = uniqueCount++;
@@ -72,7 +74,6 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
         public String toString() {
             return String.valueOf(value);
         }
-
     }
 
     public Counter<T> add(T obj, long countValue) {
@@ -136,6 +137,7 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
     }
 
     private static class Entry<T> {
+
         RWLong count;
         T value;
         int uniqueness;
@@ -148,6 +150,7 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
     }
 
     private static class EntryComparator<T> implements Comparator<Entry<T>> {
+
         int countOrdering;
         Comparator<T> byValue;
 
@@ -299,7 +302,6 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
         map.remove(key);
         return this;
     }
-
     // public RWLong put(T key, RWLong value) {
     // return map.put(key, value);
     // }

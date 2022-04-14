@@ -4,11 +4,11 @@ import java.util.Collections;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 public class PluralSamples {
+
     private static final Map<String, PluralSamples> cache = new ConcurrentHashMap<>();
     private static final int SAMPLE_SIZE = 4;
     private final Map<Count, Double>[] samples = new Map[SAMPLE_SIZE]; // we do 1, 2, 3, and 4 decimals

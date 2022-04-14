@@ -36,5 +36,4 @@ public class InputStreamFactory {
         }
         return new BufferedInputStream(in);
     }
-
 }

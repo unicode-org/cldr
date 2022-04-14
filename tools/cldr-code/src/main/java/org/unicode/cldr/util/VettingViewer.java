@@ -774,6 +774,9 @@ public class VettingViewer<T> {
         public boolean is(String localeId) {
             StandardCodes sc = StandardCodes.make();
             if (orgIsNeutralForSummary(org)) {
+                if (!SubmissionLocales.CLDR_LOCALES.contains(localeId)) {
+                    return false;
+                }
                 return desiredLevel == sc.getTargetCoverageLevel(localeId);
             } else {
                 Output<LocaleCoverageType> output = new Output<>();

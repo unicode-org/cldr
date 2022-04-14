@@ -38,7 +38,7 @@
       <li class="section-header">My Organization ({{ org }})</li>
       <li v-if="canUseVettingSummary">
         <ul>
-          <li><a href="#vsummary///">Priority Items Summary (slow)</a></li>
+          <li><a href="#vsummary///">Priority Items Summary</a></li>
         </ul>
       </li>
       <li v-if="canListUsers">

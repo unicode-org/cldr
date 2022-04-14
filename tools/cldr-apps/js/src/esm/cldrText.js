@@ -467,7 +467,7 @@ const strings = {
   special_users: "Users",
   special_vetting_participation: "Vetting Participation",
   special_vetting_participation2: "Vetting Participation v2",
-  special_vsummary: "Priority Items Summary (slow)",
+  special_vsummary: "Priority Items Summary",
   special_test_panel: "Experimental Test Panel",
 
   lock_account_admin: "The Admin account cannot be locked.",

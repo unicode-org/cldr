@@ -3,6 +3,11 @@
     <p>{{ accessDenied }}</p>
   </div>
   <div v-else>
+    <h1 v-if="heading">{{ heading }}</h1>
+    <p v-if="whenReceived">Received: {{ whenReceived }}</p>
+    <p v-if="helpMessage">{{ helpMessage }}</p>
+    <span v-html="output"></span>
+    <hr />
     <p v-if="status">Current Status: {{ status }}</p>
     <p v-if="message">
       <span v-html="message"></span>
@@ -42,11 +47,6 @@
         </span>
       </p>
     </section>
-
-    <h1 v-if="heading">{{ heading }}</h1>
-    <p v-if="whenReceived">Received: {{ whenReceived }}</p>
-    <p v-if="helpMessage">{{ helpMessage }}</p>
-    <span v-html="output"></span>
   </div>
 </template>
 
@@ -109,7 +109,22 @@ export default {
         this.output = data.output;
         this.heading = this.makeHeading(data.snapshotId);
         this.helpMessage = this.makeHelp(data.snapshotId);
-        this.whenReceived = new Date().toString();
+        this.whenReceived = this.makeWhenReceived(data.snapshotId);
+      }
+    },
+
+    makeWhenReceived(snapshotId) {
+      if (!this.output) {
+        return null;
+      }
+      if (
+        snapshotId &&
+        snapshotId !== cldrPriorityItems.SNAPID_NOT_APPLICABLE
+      ) {
+        return null;
+      } else {
+        // only show "when received" if it's not a snapshot
+        return new Date().toString();
       }
     },
 
@@ -147,6 +162,9 @@ export default {
 
     setSnapshots(snapshots) {
       this.snapshotArray = snapshots.array.sort().reverse();
+      if (!this.output && this.snapshotArray[0]) {
+        this.showSnapshot(this.snapshotArray[0]);
+      }
     },
 
     canStop() {
@@ -157,12 +175,6 @@ export default {
 </script>
 
 <style scoped>
-h1,
-h2,
-h3 {
-  margin-top: 1em;
-}
-
 button {
   margin: 1ex;
 }

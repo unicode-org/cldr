@@ -1,7 +1,6 @@
 package org.unicode.cldr.web.api;
 
 import java.io.IOException;
-import java.time.Clock;
 import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.TimeZone;
 import java.util.concurrent.ScheduledExecutorService;
@@ -43,8 +42,9 @@ import org.unicode.cldr.web.VettingViewerQueue.LoadingPolicy;
 public class Summary {
 
     private static final int AUTO_SNAP_HOUR_OF_DAY = 1; // 1 am
+    private static final int AUTO_SNAP_MINIMUM_START_MINUTES = 3;
     private static final String AUTO_SNAP_TIME_ZONE = "America/Los_Angeles";
-    private static ScheduledFuture autoSnapshotFuture = null;
+    private static ScheduledFuture<?> autoSnapshotFuture = null;
 
     /**
      * While an automatic snapshot is in progress, which may take several minutes,
@@ -165,7 +165,7 @@ public class Summary {
     /**
      * Return a Response containing the snapshot with the given id
      *
-     * @param snapshotId
+     * @param snapshotId a timestamp identifying a snapshot
      * @return the Response
      */
     private Response showSnapshot(String snapshotId) {
@@ -228,6 +228,9 @@ public class Summary {
         }
     }
 
+    /**
+     * Schedule automatic snapshots, if enabled; this gets called when Survey Tool starts up
+     */
     public static void scheduleAutomaticSnapshots() {
         if (!autoSnapshotsAreEnabled()) {
             return;
@@ -260,11 +263,31 @@ public class Summary {
 
     private static Calendar getNextSnap() {
         final Calendar when = Calendar.getInstance(TimeZone.getTimeZone(AUTO_SNAP_TIME_ZONE));
+        if (when.get(Calendar.HOUR_OF_DAY) < AUTO_SNAP_HOUR_OF_DAY) {
+            return scheduleToStartToday(when);
+        } else {
+            return scheduleToStartTomorrow(when);
+        }
+    }
+
+    private static Calendar scheduleToStartTomorrow(Calendar when) {
         when.add(Calendar.DAY_OF_YEAR, 1);
         when.set(Calendar.HOUR_OF_DAY, AUTO_SNAP_HOUR_OF_DAY);
         when.set(Calendar.MINUTE, 0);
         when.set(Calendar.SECOND, 0);
         when.set(Calendar.MILLISECOND, 0);
+        return when;
+    }
+
+    private static Calendar scheduleToStartToday(Calendar when) {
+        when.set(Calendar.HOUR_OF_DAY, AUTO_SNAP_HOUR_OF_DAY);
+        when.set(Calendar.MINUTE, 0);
+        when.set(Calendar.SECOND, 0);
+        when.set(Calendar.MILLISECOND, 0);
+        // Make sure the server has at least a few minutes to finish starting up before starting a snapshot
+        if (getMinutesUntil(when) < AUTO_SNAP_MINIMUM_START_MINUTES) {
+            when.set(Calendar.MINUTE, AUTO_SNAP_MINIMUM_START_MINUTES);
+        }
         return when;
     }
 

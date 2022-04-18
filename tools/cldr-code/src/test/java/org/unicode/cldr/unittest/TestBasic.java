@@ -995,7 +995,7 @@ public class TestBasic extends TestFmwkPlus {
             PluralType.cardinal, "root");
         Multimap<MissingType, Comparable> errors = TreeMultimap.create();
         errors.put(MissingType.collation, "?");
-        
+
         Multimap<MissingType, Comparable> warnings = TreeMultimap.create();
         warnings.put(MissingType.collation, "?");
         warnings.put(MissingType.index_exemplars, "?");
@@ -1315,7 +1315,7 @@ public class TestBasic extends TestFmwkPlus {
                 type
                     + " DTD elements with children must have 'special' elements",
                 Collections.EMPTY_SET, elementsWithoutSpecial);
-            
+
             if (logKnownIssue("cldrbug:11583", "Comment out test until last release data is available for unit tests")) {
                 return;
             }
@@ -1332,12 +1332,11 @@ public class TestBasic extends TestFmwkPlus {
                     switch (type) {
                     case ldmlBCP47:
                     case ldmlICU:
-                        tooOld = version.isOlderThan(CldrVersion.v1_7_2);
+                        tooOld = version.isOlderThan(CldrVersion.from(type.firstVersion));
                         break;
                     case keyboard:
-                    case platform:
-                        tooOld = version.isOlderThan(CldrVersion.v22_1);
-                        break;
+                        tooOld = version.isOlderThan(CldrVersion.from(type.firstVersion));
+                    break;
                     default:
                         break;
                     }

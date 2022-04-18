@@ -17,13 +17,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           lfs: false
           fetch-depth: 0  # Needed for cldr-archive
         if: github.event.inputs.git-ref == ''
       - name: Clone Repository (manual ref)
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           lfs: false
           fetch-depth: 0  # Needed for cldr-archive

@@ -25,14 +25,13 @@ public enum DtdType {
         "validity"),
     ldmlBCP47("common/dtd/ldmlBCP47.dtd", "1.7.2", null,
         "bcp47"),
-    // keyboard("keyboards/dtd/ldmlKeyboard.dtd", "22.1", null,
-        "../keyboards"),
+
+    // keyboard 3.0
     keyboard("keyboards/dtd/ldmlKeyboard.dtd", "42.0", null,
-        "../keyboards"),
-    // platform("keyboards/dtd/ldmlPlatform.dtd", "22.1", null,
         "../keyboards");
+
     public static final Set<DtdType> STANDARD_SET = ImmutableSet.of(
-        ldmlBCP47, supplementalData, ldml, keyboard, platform);
+        ldmlBCP47, supplementalData, ldml, keyboard);
 
     static Pattern FIRST_ELEMENT = PatternCache.get("//([^/\\[]*)");
 

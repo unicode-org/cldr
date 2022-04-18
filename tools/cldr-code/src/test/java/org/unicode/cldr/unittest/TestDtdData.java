@@ -601,6 +601,19 @@ public class TestDtdData extends TestFmwk {
                 || (elementName.equals("nameOrderLocalesDefault") && attribute.equals("order"))
                 ;
 
+        case keyboard3:
+            if   ( elementName.equals("keyboard3") && attribute.equals("locale")
+                || elementName.equals("vkeyMap") && attribute.equals("from")
+                || elementName.equals("layerMaps") && attribute.equals("form")
+                || elementName.equals("layerMaps") && attribute.equals("minDeviceWidthMM")
+
+                || elementName.equals("map") && attribute.equals("id")
+                || elementName.equals("key") && attribute.equals("id")
+                || elementName.equals("key") && attribute.equals("stretch")
+                || elementName.equals("layerMap") && attribute.equals("id")) {
+                return true;
+            }
+            // fall through to old keyboard
         case keyboard:
             return attribute.equals("_q")
                 || elementName.equals("keyboard") && attribute.equals("locale")

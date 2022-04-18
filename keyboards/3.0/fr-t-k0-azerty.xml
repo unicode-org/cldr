@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE keyboard3 SYSTEM "../dtd/ldmlKeyboard3.dtd">
-<keyboard3 locale="fr-t-k0-azerty" conformsTo="42">
+<!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
+<keyboard locale="fr-t-k0-azerty" conformsTo="42">
 	<!-- 'locale' TBD -->
 	<!-- 'conformsTo' gives CLDR spec conformance. Distinguishes from prior
 		keyboard formats -->
@@ -168,4 +168,4 @@
 		<transform from="~o" to="õ" />
 		<transform from="~O" to="Õ" />
 	</transforms>
-</keyboard3>
+</keyboard>

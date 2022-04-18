@@ -27,6 +27,8 @@ public enum DtdType {
         "bcp47"),
     keyboard("keyboards/dtd/ldmlKeyboard.dtd", "22.1", null,
         "../keyboards"),
+    keyboard3("keyboards/dtd/ldmlKeyboard3.dtd", "42.0", null,
+        "../keyboards"),
     platform("keyboards/dtd/ldmlPlatform.dtd", "22.1", null,
         "../keyboards");
     public static final Set<DtdType> STANDARD_SET = ImmutableSet.of(

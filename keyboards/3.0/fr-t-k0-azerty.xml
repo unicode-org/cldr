@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard3.dtd">
-<keyboard locale="fr-t-k0-azerty" conformsTo="42">
+<!DOCTYPE keyboard3 SYSTEM "../dtd/ldmlKeyboard3.dtd">
+<keyboard3 locale="fr-t-k0-azerty" conformsTo="42">
 	<!-- 'locale' TBD -->
-	<!-- 'conformsTo' gives CLDR spec conformance. Distinguishes from prior 
+	<!-- 'conformsTo' gives CLDR spec conformance. Distinguishes from prior
 		keyboard formats -->
 	<!-- 'version' element is now optional -->
 	<info author="Team Keyboard" normalization="NFC" layout="AZERTY"
@@ -30,14 +30,14 @@
 
 	<displayMap>
 		<!-- Note: displayMap is only used for keycap presentation -->
-		<!-- this example is not required for this keyboard as we use the spacing 
+		<!-- this example is not required for this keyboard as we use the spacing
 			modifiers -->
 		<display to="\u0300" display="\u02CB" /> <!-- display combining grave as modifier letter grave ˋ -->
-		<!-- Note: We discussed why the existing displayMap was used for display. 
-			rather than adding something closer to the key layout. 1. This way we can 
-			tell the renderer what to do. Could be double diacritics, spacing issues, 
-			etc. 2. We expect that keys have output. Otherwise the input content is malformed. 
-			3. Don't Repeat Yourself : multiple keys (i.e. on different symbol layers) 
+		<!-- Note: We discussed why the existing displayMap was used for display.
+			rather than adding something closer to the key layout. 1. This way we can
+			tell the renderer what to do. Could be double diacritics, spacing issues,
+			etc. 2. We expect that keys have output. Otherwise the input content is malformed.
+			3. Don't Repeat Yourself : multiple keys (i.e. on different symbol layers)
 			may have the same display. -->
 	</displayMap>
 
@@ -168,4 +168,4 @@
 		<transform from="~o" to="õ" />
 		<transform from="~O" to="Õ" />
 	</transforms>
-</keyboard>
+</keyboard3>

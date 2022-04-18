@@ -54,7 +54,9 @@ public enum Organization {
     surveytool("Survey Tool"),
     welsh_lc("Welsh LC"),
     wikimedia("Wikimedia Foundation"),
+    wod_nko("WOD N’ko", "World Organization for the Development of N’ko", "WODN"),
     yahoo("Yahoo"),
+
     // To be removed.
     ;
 

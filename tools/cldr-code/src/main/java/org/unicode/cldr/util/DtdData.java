@@ -221,7 +221,6 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
         public void addComment(String commentIn) {
             if (commentIn.startsWith("@")) {
-                // there are exactly 2 cases: deprecated and ordered
                 switch (commentIn) {
                 case "@METADATA":
                     attributeStatus = AttributeStatus.metadata;
@@ -235,7 +234,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 default:
                     int colonPos = commentIn.indexOf(':');
                     if (colonPos < 0) {
-                        throw new IllegalArgumentException("Unrecognized annotation: " + commentIn);
+                        throw new IllegalArgumentException(element.name + " " + name +
+                        "= : Unrecognized ATTLIST annotation: " + commentIn);
                     }
                     String command = commentIn.substring(0, colonPos);
                     String argument = commentIn.substring(colonPos + 1);
@@ -245,12 +245,14 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                         break;
                     case "@MATCH":
                         if (matchValue != null) {
-                            throw new IllegalArgumentException("Conflicting @MATCH: " + matchValue.getName() + " & " + argument);
+                            throw new IllegalArgumentException(element.name + " " + name +
+                            "= : Conflicting @MATCH: " + matchValue.getName() + " & " + argument);
                         }
                         matchValue = MatchValue.of(argument);
                         break;
                     default:
-                        throw new IllegalArgumentException("Unrecognized annotation: " + commentIn);
+                        throw new IllegalArgumentException(element.name + " " + name +
+                            "= : Unrecognized ATTLIST annotation: " + commentIn);
                     }
                 }
                 return;
@@ -493,7 +495,17 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     elementStatus = ElementStatus.metadata;
                     break;
                 default:
-                    throw new IllegalArgumentException("Unrecognized annotation: " + addition);
+                    if (addition.startsWith("@MATCH") ||
+                        addition.startsWith("@VALUE")) {
+                        // Try to catch this case
+                        throw new IllegalArgumentException(name +
+                            ": Unrecognized ELEMENT annotation (this isn't ATTLIST!): " +
+                            addition);
+                    } else {
+                        throw new IllegalArgumentException(name +
+                            ": Unrecognized ELEMENT annotation: " +
+                            addition);
+                    }
                 }
                 return;
             }
@@ -726,7 +738,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             }
         }
         if (simpleHandler.ROOT.children.size() == 0) {
-            throw new IllegalArgumentException(); // should never happen
+            throw new IllegalArgumentException("Internal Error: DtdData.getInstance(" +
+                type + ", ...): readFile() failed to return any children!");
+            // should never happen
         }
         simpleHandler.finish();
         simpleHandler.freeze();
@@ -742,7 +756,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         StringReader s = new StringReader("<?xml version='1.0' encoding='UTF-8' ?>"
             + "<!DOCTYPE " + type
             + " SYSTEM '" + file.getAbsolutePath() + "'>");
-        xfr.read(type.toString(), s, -1, true); //  DTD_TYPE_TO_FILE.get(type)
+        try {
+            xfr.read(type.toString(), s, -1, true); //  DTD_TYPE_TO_FILE.get(type)
+        } catch (IllegalArgumentException iae) {
+            // rethrow
+            throw new IllegalArgumentException("Error while reading " + type, iae);
+        }
     }
 
     private void freeze() {

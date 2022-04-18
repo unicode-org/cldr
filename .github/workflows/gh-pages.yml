@@ -18,7 +18,7 @@ jobs:
         with:
           lfs: false
       - name: Cache local npm repository
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.npm
           key: ${{ runner.os }}-nodetr-${{ hashFiles('tools/scripts/tr-archive/package-lock.json') }}
@@ -37,7 +37,7 @@ jobs:
       - name: Note any changes
         run: git status ; git diff
       - name: Ruby cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/vendor
           key: ${{ runner.os }}-gems-${{ hashFiles('docs/**/Gemfile.lock') }}

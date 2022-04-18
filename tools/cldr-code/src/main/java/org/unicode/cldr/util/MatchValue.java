@@ -107,6 +107,33 @@ public abstract class MatchValue implements Predicate<String> {
         }
     }
 
+    public static class BCP47LocaleMatchValue extends MatchValue {
+        static final UnicodeSet basechars = new UnicodeSet("[A-Za-z0-9_]");
+        public BCP47LocaleMatchValue() {
+        }
+
+        @Override
+        public String getName() {
+            return "validity/bcp47";
+        }
+        @Override
+        public boolean is(String item) {
+            try {
+                ULocale l = ULocale.forLanguageTag(item);
+                if (l == null) {
+                    return false;
+                }
+            } catch(Throwable t) {
+                return false;
+            }
+            return true;
+        }
+        @Override
+        public String getSample() {
+            return "de-u-nu-ethi";
+        }
+    }
+
     public static class LocaleMatchValue extends MatchValue {
         private final Predicate<String> lang;
         private final Predicate<String> script;
@@ -278,6 +305,9 @@ public abstract class MatchValue implements Predicate<String> {
         public static MatchValue of(String typeName) {
             if (typeName.equals("locale")) {
                 return new LocaleMatchValue();
+            }
+            if (typeName.equals("bcp47")) {
+                return new BCP47LocaleMatchValue();
             }
             int slashPos = typeName.indexOf('/');
             Set<Status> statuses = null;

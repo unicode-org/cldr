@@ -3,6 +3,7 @@ package org.unicode.cldr.test;
 import java.util.List;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Type;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.personname.PersonNameFormatter.SampleType;
@@ -47,6 +48,7 @@ public class CheckPersonNames extends CheckCLDR {
         XPathParts parts = XPathParts.getFrozenInstance(path);
         String category = parts.getElement(2);
         if (category.equals("sampleName")) {
+            Type status = CheckStatus.warningType;
             String message = null;
             SampleType item = SampleType.valueOf(parts.getAttributeValue(2, "item"));
             String modifiedField = parts.getAttributeValue(3, "type");
@@ -61,6 +63,7 @@ public class CheckPersonNames extends CheckCLDR {
                     }
                 }
             } else { // not missing, so...
+                status = CheckStatus.errorType;
                 if (REQUIRED_EMPTY.get(item).contains(modifiedField)) {
                     message = "This value must be empty (" + MISSING + ")";
                 } else if (modifiedField.equals("multiword") && !value.contains(" ")) {
@@ -69,7 +72,7 @@ public class CheckPersonNames extends CheckCLDR {
             }
             if (message != null) {
                 result.add(new CheckStatus().setCause(this)
-                    .setMainType(CheckStatus.errorType)
+                    .setMainType(status)
                     .setSubtype(Subtype.badSamplePersonName)
                     .setMessage(message));
             }

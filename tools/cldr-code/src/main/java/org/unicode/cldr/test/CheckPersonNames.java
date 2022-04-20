@@ -16,7 +16,7 @@ public class CheckPersonNames extends CheckCLDR {
     /**
      * @internal, public for testing
      */
-    public static final ImmutableMultimap<SampleType, String> REQUIRED = ImmutableMultimap.<SampleType, String>builder()
+    public static final ImmutableMultimap<SampleType, String> REQUIRED = ImmutableMultimap.<SampleType, String> builder()
         .putAll(SampleType.mononym, "given")
         .putAll(SampleType.givenSurname, "given", "surname")
         .putAll(SampleType.given2Surname, "given", "given2", "surname")
@@ -28,17 +28,19 @@ public class CheckPersonNames extends CheckCLDR {
     /**
      * @internal, public for testing
      */
-    public static final ImmutableMultimap<SampleType, String> REQUIRED_EMPTY = ImmutableMultimap.<SampleType, String>builder()
+    public static final ImmutableMultimap<SampleType, String> REQUIRED_EMPTY = ImmutableMultimap.<SampleType, String> builder()
         .putAll(SampleType.mononym, "prefix", "given-informal", "given2", "surname", "surname2", "suffix")
         .putAll(SampleType.givenSurname, "prefix", "given2", "surname2", "suffix")
         .build();
 
     boolean isRoot = false;
+
     @Override
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         isRoot = cldrFileToCheck.getLocaleID().equals("root");
         return super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
     }
+
     @Override
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {

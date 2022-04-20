@@ -94,7 +94,7 @@ public class CheckPlaceHolders extends CheckCLDR {
                         // we must have a given
                         if (fieldType.getModifiers().isEmpty()) {
                             result.add(new CheckStatus().setCause(this)
-                                .setMainType(CheckStatus.errorType)
+                                .setMainType(CheckStatus.warningType)
                                 .setSubtype(Subtype.invalidPlaceHolder)
                                 .setMessage("Names must have a value for the ‘given‘ field. Mononyms (like ‘Lady Gaga’) use given, not surname"));
                         }

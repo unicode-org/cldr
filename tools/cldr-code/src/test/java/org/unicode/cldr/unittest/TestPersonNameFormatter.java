@@ -2,13 +2,14 @@ package org.unicode.cldr.unittest;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-import java.util.TreeSet;
 
+import org.unicode.cldr.test.CheckPersonNames;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -20,8 +21,6 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.FallbackFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Field;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Length;
-import org.unicode.cldr.util.personname.PersonNameFormatter.ModifiedField;
-import org.unicode.cldr.util.personname.PersonNameFormatter.Modifier;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePatternData;
@@ -33,11 +32,8 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.Usage;
 import org.unicode.cldr.util.personname.SimpleNameObject;
 
 import com.google.common.base.Joiner;
-import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
-import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.util.ULocale;
 
@@ -63,6 +59,9 @@ public class TestPersonNameFormatter extends TestFmwk{
         "locale=fr, prefix=Mr., given=John Bob, surname=Smith, surname2= Barnes Pascal, suffix=Jr.");
     private final NameObject sampleNameObject4 = SimpleNameObject.from(
         "locale=ja, given=Shinzō, surname=Abe");
+    private final NameObject sampleNameObject5 = SimpleNameObject.from(
+        "locale=en, given=Mary, surname=Smith");
+
 
     private void check(PersonNameFormatter personNameFormatter, NameObject nameObject, String nameFormatParameters, String expected) {
         FormatParameters nameFormatParameters1 = FormatParameters.from(nameFormatParameters);
@@ -100,6 +99,38 @@ public class TestPersonNameFormatter extends TestFmwk{
 
         checkFormatterData(personNameFormatter);
     }
+
+public void TestLiteralCollapsing1() {
+    ImmutableMap<ULocale, Order> localeToOrder = ImmutableMap.of(); // don't worry about using the order from the locale right now.
+
+    NamePatternData namePatternData2 = new NamePatternData(
+        localeToOrder,
+        "order=givenFirst",     "⓵{prefix}⓶{given}⓷{given2}⓸{surname}⓹{surname2}⓺{suffix}⓻",
+        "order=surnameFirst",   "⓵{surname-allCaps}⓶{surname2}⓷{prefix}⓸{given}⓹{given2}⓺{suffix}⓻",
+        "order=sorting",        "⓵{surname}⓶{surname2},⓷{prefix}⓸{given}⓹{given2}⓺{suffix}⓻");
+
+    PersonNameFormatter personNameFormatter2 = new PersonNameFormatter(namePatternData2, FALLBACK_FORMATTER);
+
+    check(personNameFormatter2, sampleNameObject5, "order=givenFirst", "Mary⓷⓸Smith"); // reasonable, given no break
+    check(personNameFormatter2, sampleNameObject5, "order=surnameFirst", "⓵SMITH⓶⓸Mary"); // reasonable, given no break
+    check(personNameFormatter2, sampleNameObject5, "order=sorting", "⓵Smith⓶⓸Mary"); // should be something like Smith,⓷❸Mary
+}
+
+public void TestLiteralCollapsing2() {
+    ImmutableMap<ULocale, Order> localeToOrder = ImmutableMap.of(); // don't worry about using the order from the locale right now.
+
+    NamePatternData namePatternData2 = new NamePatternData(
+        localeToOrder,
+        "order=givenFirst",     "❶{prefix}⓶ ❷{given}⓷ ❸{given2}⓸ ❹{surname}⓹ ❺{surname2}⓺ ❻{suffix}❼",
+        "order=surnameFirst",   "❶{surname-allCaps}⓶ ❷{surname2}⓷ ❸{prefix}⓸ ❹{given}⓹ ❺{given2}⓺ ❻{suffix}❼",
+        "order=sorting",        "❶{surname}⓶ ❷{surname2}, ❸{prefix}⓸ ❹{given}⓹ ❺{given2}⓺ ❻{suffix}❼");
+
+    PersonNameFormatter personNameFormatter2 = new PersonNameFormatter(namePatternData2, FALLBACK_FORMATTER);
+
+    check(personNameFormatter2, sampleNameObject5, "order=givenFirst", "Mary⓷ ❹Smith"); // reasonable
+    check(personNameFormatter2, sampleNameObject5, "order=surnameFirst", "❶SMITH⓶ ❹Mary"); // reasonable
+    check(personNameFormatter2, sampleNameObject5, "order=sorting", "❶Smith⓶ ❹Mary"); // should be something like Smith,❸Mary
+}
 
     String HACK_INITIAL_FORMATTER = "{0}॰"; // use "unusual" period to mark when we are using fallbacks
 
@@ -323,8 +354,7 @@ public class TestPersonNameFormatter extends TestFmwk{
 
         // next test that the example generator returns non-null for all expected cases
 
-
-        for (String localeId : Arrays.asList("en", "fr")) {
+        for (String localeId : Arrays.asList("en")) {
             final CLDRFile cldrFile = factory.make(localeId, true);
             ExampleGenerator exampleGenerator2 = new ExampleGenerator(cldrFile, ENGLISH, "");
             for (String path : cldrFile) {
@@ -471,45 +501,13 @@ public class TestPersonNameFormatter extends TestFmwk{
         }
     }
 
-    public void TestNameSamples() {
-        // TODO Mark move this to a Check
-
-        // define a set with the standard fields we ask for
-        Set<ModifiedField> expectedBase = new TreeSet<>();
-        for (Field field : Field.ALL) {
-            expectedBase.add(new ModifiedField(field));
+    public void TestCheckPersonNames() {
+        Map<SampleType, SimpleNameObject> names = PersonNameFormatter.loadSampleNames(ENGLISH);
+        assertEquals("REQUIRED contains all sampleTypes", SampleType.ALL, CheckPersonNames.REQUIRED.keySet());
+        for (SampleType sampleType : SampleType.ALL) {
+            assertTrue(sampleType + " doesn't have conflicts", Collections.disjoint(
+                CheckPersonNames.REQUIRED.get(sampleType),
+                CheckPersonNames.REQUIRED_EMPTY.get(sampleType)));
         }
-        expectedBase.add(new ModifiedField(Field.given, Modifier.informal));
-        ImmutableSet<ModifiedField> expected = ImmutableSet.copyOf(expectedBase);
-
-        for (String localeId : Arrays.asList("en", "fr")) {
-            final CLDRFile cldrFile = factory.make(localeId, true);
-
-            // check that all fields are covered
-
-            final Map<SampleType, SimpleNameObject> sampleMap = PersonNameFormatter.loadSampleNames(cldrFile);
-            Multimap<ModifiedField, SampleType> samples = getInvertedSamples(sampleMap);
-            assertEquals("Locale " + localeId + " expected field coverage in samples", expected, samples.keySet());
-            if (isVerbose()) {
-                logln("\n\t" + Joiner.on("\n\t").join(samples.asMap().entrySet()));
-            }
-        }
-    }
-
-    private ImmutableListMultimap<ModifiedField, SampleType> getInvertedSamples(Map<SampleType, SimpleNameObject> map) {
-        Multimap<ModifiedField, SampleType> result = TreeMultimap.create();
-        for (Entry<SampleType, SimpleNameObject> sampleEntry : map.entrySet()) {
-            SampleType sampleType = sampleEntry.getKey();
-            SimpleNameObject nameObject = sampleEntry.getValue();
-            for (Entry<Field, Map<Set<Modifier>, String>> entry : nameObject.getPatternData().entrySet()) {
-                Field field = entry.getKey();
-                Map<Set<Modifier>, String> modsToValue = entry.getValue();
-                for (Entry<Set<Modifier>, String> set : modsToValue.entrySet()) {
-                    ModifiedField mf = new ModifiedField(field, set.getKey());
-                    result.put(mf, sampleType);
-                }
-            }
-        }
-        return ImmutableListMultimap.copyOf(result);
     }
 }

@@ -167,7 +167,8 @@ public class PersonNameFormatter {
         informal,
         full,
         multiword,
-        mononym,
+        mononym;
+        public static final Set<SampleType> ALL = ImmutableSet.copyOf(SampleType.values());
     }
 
     public static final Splitter SPLIT_SPACE = Splitter.on(' ').trimResults();
@@ -1230,10 +1231,37 @@ public class PersonNameFormatter {
         }
     }
 
+    /**
+     * Interface used by the person name formatter to access name field values.
+     * It provides access not only to values for modified fields directly supported by the NameObject,
+     * but also to values that may be produced or modified by the Name Object.
+     */
     public static interface NameObject {
-        public String getBestValue(ModifiedField modifiedField, Set<Modifier> remainingModifers);
+        /**
+         * Returns the locale of the name, or null if not available.
+         * NOTE: this is not the same as the locale of the person name formatter.
+         * @return
+         */
         public ULocale getNameLocale();
+        /**
+         * Returns a mapping for the modified fields directly supported to their values.
+         */
+        public ImmutableMap<ModifiedField, String> getModifiedFieldToValue();
+        /**
+         * Returns the set of fields directly supported. Should be overridden for speed.
+         * It returns the same value as getModifiedFieldToValue().keySet().stream().map(x -> x.field).collect(Collectors.toSet()),
+         * but may be optimized.
+         */
         public Set<Field> getAvailableFields();
+        /**
+         * Returns the best available value for the modified field, or null if nothing is available.
+         * Null is returned in all and only those cases where !getAvailableFields().contains(modifiedField.field)
+         * @param modifiedField the input modified field, for which the best value is fetched.
+         * @param remainingModifers contains the set of modifiers that were not handled by this method.
+         * The calling code may apply fallback algorithms based on these values.
+         * @return
+         */
+        public String getBestValue(ModifiedField modifiedField, Set<Modifier> remainingModifers);
     }
 
     private final NamePatternData namePatternMap;
@@ -1259,6 +1287,9 @@ public class PersonNameFormatter {
         this.fallbackFormatter = fallbackFormatter;
     }
 
+    /**
+     * Create a formatter from a cldr file.
+     */
     public PersonNameFormatter(CLDRFile cldrFile) {
         ListMultimap<ParameterMatcher, NamePattern> formatParametersToNamePattern = LinkedListMultimap.create();
         Set<Pair<ParameterMatcher, NamePattern>> ordered = new TreeSet<>();

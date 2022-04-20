@@ -601,6 +601,7 @@ abstract public class CheckCLDR {
             .add(new CheckUnits())
             .add(new CheckWidths())
             .add(new CheckPlaceHolders())
+            .add(new CheckPersonNames())
             .add(new CheckNew(factory)) // this is at the end; it will check for other certain other errors and warnings and
             // not add a message if there are any.
             ;
@@ -734,7 +735,7 @@ abstract public class CheckCLDR {
             inheritanceMarkerNotAllowed, invalidDurationUnitPattern, invalidDelimiter, illegalCharactersInPattern,
             badParseLenient, tooManyValues, invalidSymbol, invalidGenderCode,
             mismatchedUnitComponent, longPowerWithSubscripts, gapsInPlaceholderNumbers, duplicatePlaceholders, largerDifferences,
-            missingNonAltPath
+            missingNonAltPath, badSamplePersonName
             ;
 
             @Override

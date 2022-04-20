@@ -109,7 +109,7 @@ jobs:
         with:
           java-version: 11
       - name: Download cldr-code.jar
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: cldr-code
           path: tools/cldr-code/target/
@@ -124,7 +124,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Download cldr-apps.zip
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: cldr-apps-server
     - name: Deploy to cldr-smoke

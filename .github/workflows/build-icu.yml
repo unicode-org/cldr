@@ -76,13 +76,13 @@ jobs:
     steps:
       - name: Download CLDR Production Artifact
         id: downloadprod
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: cldr-prod
           path: .
       - name: Download CLDR tools
         id: downloadtools
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: cldr-code
           path: cldr-code
@@ -174,7 +174,7 @@ jobs:
           ref: ${{ github.event.inputs.icu-ref }}
           lfs: false
       - name: Download icu-data.zip
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: icu-data
           path: .
@@ -220,7 +220,7 @@ jobs:
       - name: Checkout lfs objects
         run: git lfs pull
       - name: Download icu-data.zip
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: icu-data
           path: .

@@ -14,6 +14,7 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.ModifiedField;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Modifier;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
 
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.util.ULocale;
 
@@ -25,10 +26,16 @@ import com.ibm.icu.util.ULocale;
 public class SimpleNameObject implements NameObject {
     private final ULocale nameLocale;
     private final Map<Field, Map<Set<Modifier>, String>> patternData;
+    private ImmutableMap<ModifiedField, String> modifiedFieldToValue;
 
     @Override
     public Set<Field> getAvailableFields() {
         return patternData.keySet();
+    }
+
+    @Override
+    public ImmutableMap<ModifiedField, String> getModifiedFieldToValue() {
+        return modifiedFieldToValue;
     }
 
     /**
@@ -95,6 +102,8 @@ public class SimpleNameObject implements NameObject {
 
     public SimpleNameObject(ULocale nameLocale, Map<ModifiedField, String> patternData) {
         this.nameLocale = nameLocale == null ? ULocale.ROOT : nameLocale;
+        this.modifiedFieldToValue = ImmutableMap.copyOf(patternData);
+
         Map<Field, Map<Set<Modifier>, String>> _patternData = new EnumMap<>(Field.class);
         for (Entry<ModifiedField, String> entry : patternData.entrySet()) {
             ModifiedField modifiedField = entry.getKey();

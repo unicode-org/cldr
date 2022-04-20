@@ -2,6 +2,7 @@ package org.unicode.cldr.web.api;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -90,9 +91,9 @@ public class TestLocaleCompletion {
         tc.invalidateAllCached();
         final int EXPECT_ERROR = 2;
         final int EXPECT_MISSING = 1;
-        final int EXPECT_PROVISIONAL = 0; // 2 when not in limited
+        final int EXPECT_PROVISIONAL = 2;
 
-        assertTrue(CheckCLDR.LIMITED_SUBMISSION, "Error Error. This test becomes invalid if LIMITED_SUBMISSION (or SubmissionLocales) changes.");
+        assertFalse(CheckCLDR.LIMITED_SUBMISSION, "This test becomes invalid if LIMITED_SUBMISSION (or SubmissionLocales) changes.");
 
         {
             LocaleCompletionResponse completion = LocaleCompletion.getLocaleCompletion(locale, stf);

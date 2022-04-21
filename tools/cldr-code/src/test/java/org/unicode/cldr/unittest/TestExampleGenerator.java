@@ -192,7 +192,6 @@ public class TestExampleGenerator extends TestFmwk {
         "//ldml/personNames/initialPattern[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]", // CLDR-15384
         "//ldml/personNames/initialPattern[@type=\"([^\"]*+)\"]", // CLDR-15384
         "//ldml/personNames/personName[@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@style=\"([^\"]*+)\"][@order=\"([^\"]*+)\"]/namePattern[@alt=\"([^\"]*+)\"]", // CLDR-15384
-        "//ldml/personNames/personName[@length=\"([^\"]*+)\"][@style=\"([^\"]*+)\"][@order=\"([^\"]*+)\"]/namePattern[@alt=\"([^\"]*+)\"]", // CLDR-15384
         "//ldml/personNames/sampleName[@item=\"([^\"]*+)\"]/nameField[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]", // CLDR-15384
         "//ldml/personNames/sampleName[@item=\"([^\"]*+)\"]/nameField[@type=\"([^\"]*+)\"]" // CLDR-15384
 

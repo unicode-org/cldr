@@ -3186,13 +3186,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 <!ELEMENT personName ( alias | ( namePattern+, special* ) ) >
 <!ATTLIST personName length NMTOKENS #IMPLIED >
-    <!--@MATCH:set/literal/long, medium, short, monogram, monogramNarrow-->
+    <!--@MATCH:set/literal/long, medium, short-->
 <!ATTLIST personName usage NMTOKENS #IMPLIED >
-    <!--@MATCH:set/literal/addressing, referring-->
+    <!--@MATCH:set/literal/addressing, referring, monogram-->
 <!ATTLIST personName style NMTOKENS #IMPLIED >
     <!--@MATCH:set/literal/formal, informal-->
 <!ATTLIST personName order NMTOKENS #IMPLIED >
-    <!--@MATCH:set/literal/sorting, givenFirst, surnameFirst-->
+    <!--@MATCH:set/literal/givenFirst, surnameFirst, sorting-->
 
 <!ELEMENT namePattern ( #PCDATA ) >
 <!ATTLIST namePattern alt (1|2) #IMPLIED >
@@ -3203,7 +3203,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 <!ELEMENT sampleName ( alias | ( nameField+, special* ) ) >
 <!ATTLIST sampleName item NMTOKENS #REQUIRED >
-    <!--@MATCH:literal/givenSurname, given2Surname, givenSurname2, informal, full, multiword, mononym-->
+    <!--@MATCH:literal/givenOnly, givenSurnameOnly, given12Surname, full-->
 
 <!ELEMENT nameField ( #PCDATA ) >
 <!ATTLIST nameField type CDATA #REQUIRED >

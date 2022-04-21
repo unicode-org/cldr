@@ -103,7 +103,7 @@ public class CheckPlaceHolders extends CheckCLDR {
                         // can't have surname2 unless we have surname
                         String modPath = parts.cloneAsThawed().setAttribute(-1, "type", Field.surname2.toString()).toString();
                         String surname2Value = getCldrFileToCheck().getStringValue(modPath);
-                        if (!surname2Value.equals("∅∅∅")) {
+                        if (surname2Value != null && !surname2Value.equals("∅∅∅")) {
                             result.add(new CheckStatus().setCause(this)
                                 .setMainType(CheckStatus.errorType)
                                 .setSubtype(Subtype.invalidPlaceHolder)

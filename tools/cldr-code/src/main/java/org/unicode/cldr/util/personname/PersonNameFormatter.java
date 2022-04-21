@@ -69,9 +69,7 @@ public class PersonNameFormatter {
         // There is a slight complication because 'long' collides with a keyword.
         long_name,
         medium,
-        short_name,
-        monogram,
-        monogramNarrow;
+        short_name;
 
         private static ImmutableBiMap<String,Length> exceptionNames = ImmutableBiMap.of(
             "long", long_name,
@@ -112,7 +110,8 @@ public class PersonNameFormatter {
 
     public enum Usage {
         referring,
-        addressing;
+        addressing,
+        monogram;
         public static final Comparator<Iterable<Usage>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Usage>naturalOrder());
         public static final Set<Usage> ALL = ImmutableSet.copyOf(Usage.values());
         /**
@@ -124,9 +123,9 @@ public class PersonNameFormatter {
     }
 
     public enum Order {
-        sorting,
         givenFirst,
-        surnameFirst;
+        surnameFirst,
+        sorting;
         public static final Comparator<Iterable<Order>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Order>naturalOrder());
         public static final Set<Order> ALL = ImmutableSet.copyOf(Order.values());
         /**
@@ -161,13 +160,10 @@ public class PersonNameFormatter {
     }
 
     public enum SampleType {
-        givenSurname,
-        given2Surname,
-        givenSurname2,
-        informal,
-        full,
-        multiword,
-        mononym;
+        givenOnly,
+        givenSurnameOnly,
+        given12Surname,
+        full;
         public static final Set<SampleType> ALL = ImmutableSet.copyOf(SampleType.values());
     }
 
@@ -334,26 +330,17 @@ public class PersonNameFormatter {
         }
 
         public String formatInitial(String bestValue, FormatParameters nameFormatParameters) {
-            switch(nameFormatParameters.getLength()) {
-            case monogram:
-            case monogramNarrow:
-                bestValue = getFirstGrapheme(bestValue);
-                break;
-            default:
-                String result = null;
-                for(String part : SPLIT_SPACE.split(bestValue)) {
-                    String partFirst = getFirstGrapheme(part);
-                    bestValue = initialFormatter.format(new String[] {partFirst});
-                    if (result == null) {
-                        result = bestValue;
-                    } else {
-                        result = initialSequenceFormatter.format(new String[] {result, bestValue});
-                    }
+            String result = null;
+            for(String part : SPLIT_SPACE.split(bestValue)) {
+                String partFirst = getFirstGrapheme(part);
+                bestValue = initialFormatter.format(new String[] {partFirst});
+                if (result == null) {
+                    result = bestValue;
+                } else {
+                    result = initialSequenceFormatter.format(new String[] {result, bestValue});
                 }
-                bestValue = result;
-                break;
             }
-            return bestValue;
+            return result;
         }
 
         private String getFirstGrapheme(String bestValue) {
@@ -1368,7 +1355,7 @@ public class PersonNameFormatter {
         final String altValue = parts.getAttributeValue(-1, "alt");
         int rank = altValue == null ? 0 : Integer.parseInt(altValue);
         ParameterMatcher pm = new ParameterMatcher(
-            hackFix(parts.getAttributeValue(-2, "length")),
+            parts.getAttributeValue(-2, "length"),
             parts.getAttributeValue(-2, "style"),
             parts.getAttributeValue(-2, "usage"),
             parts.getAttributeValue(-2, "order")
@@ -1404,20 +1391,6 @@ public class PersonNameFormatter {
             result.put(entry.getKey(), name);
         }
         return ImmutableMap.copyOf(result);
-    }
-
-    /**
-     * Remove once the DTD and en.xml are fixed
-     * @param attributeValue
-     * @return
-     */
-    private static String hackFix(String attributeValue) {
-        if (attributeValue == null) {
-            return null;
-        }
-        else {
-            return attributeValue.replace("monogram-narrow", "monogramNarrow");
-        }
     }
 
     /**

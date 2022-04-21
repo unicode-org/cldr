@@ -1,0 +1,549 @@
+<!--
+
+    Copyright (c) 2002-2003 International Business Machines Corporation and others. All rights reserved.
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of the LDML format and associated documentation files (the "Format"), to deal in the Format without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, and/or sell copies of the Format, and to permit persons to whom the Format is furnished to do so, provided that both the above copyright notice(s) and this permission notice appear in supporting documentation.
+
+    THE FORMAT IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS FORMAT.
+
+    Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Format without prior written authorization of the copyright holder.
+
+    All trademarks and registered trademarks mentioned herein are the property of their respective owners.
+-->
+
+<!ELEMENT ldml ( identity,(alias |(localeDisplayNames?, layout?, characters?, delimiters?, measurement?, dates?, numbers?, collations?, posix?, special*))) >
+<!ATTLIST ldml
+   version          CDATA              #FIXED "1.1"
+>
+<!ATTLIST ldml draft ( true | false ) #IMPLIED >
+
+<!-- ######################################################### -->
+
+<!ELEMENT identity (alias | (version, generation, language, script?, territory?, variant?, special*) ) >
+
+<!ELEMENT version ( #PCDATA ) >
+<!ATTLIST version number NMTOKEN #REQUIRED >
+
+<!ELEMENT generation EMPTY >
+<!ATTLIST generation date NMTOKEN #REQUIRED >
+
+<!ELEMENT language ( #PCDATA ) >
+<!ATTLIST language type NMTOKEN #REQUIRED >
+<!ATTLIST language draft ( true | false ) #IMPLIED >
+
+<!ELEMENT script ( #PCDATA ) >
+<!ATTLIST script type NMTOKEN #REQUIRED >
+<!ATTLIST script draft ( true | false ) #IMPLIED >
+
+<!ELEMENT territory ( #PCDATA ) >
+<!ATTLIST territory type NMTOKEN #REQUIRED >
+<!ATTLIST territory draft ( true | false ) #IMPLIED >
+
+<!ELEMENT variant ( #PCDATA ) >
+<!ATTLIST variant type NMTOKEN #REQUIRED >
+<!ATTLIST variant draft ( true | false ) #IMPLIED >
+
+<!-- ######################################################### -->
+
+<!-- These elements are common to almost all elements defined  -->
+<!-- ######################################################### -->
+
+<!ELEMENT alias  (special*) >
+<!ATTLIST alias source NMTOKEN #REQUIRED >
+<!ATTLIST alias type NMTOKEN #IMPLIED >
+
+<!ELEMENT default (special*) >
+<!ATTLIST default type CDATA #REQUIRED >
+
+<!ELEMENT special ANY >
+
+<!-- This element can occur anywhere there may be localizable data -->
+<!ELEMENT cp (special*) >
+<!ATTLIST cp hex NMTOKEN #REQUIRED >
+
+<!-- ######################################################### -->
+
+
+<!-- ######################################################### -->
+
+<!ELEMENT localeDisplayNames (alias | (languages?, scripts?, territories?, variants?, keys?, types?, special*)) >
+<!ATTLIST localeDisplayNames draft ( true | false ) #IMPLIED >
+
+<!-- Either 1 alias OR any specials, any order, zero or more language -->
+<!ELEMENT languages ( alias | (language | special)* ) >
+<!ATTLIST languages draft ( true | false ) #IMPLIED  >
+<!ATTLIST languages standard CDATA #IMPLIED >
+
+<!-- Either 1 alias OR any specials, any order, zero or more script -->
+<!ELEMENT scripts (alias |(script | special)* ) >
+<!ATTLIST scripts draft ( true | false ) #IMPLIED >
+<!ATTLIST scripts standard CDATA #IMPLIED >
+
+<!-- Either 1 alias OR any specials, any order, zero or more territory -->
+<!ELEMENT territories ( alias | (territory | special)*) >
+<!ATTLIST territories draft ( true | false ) #IMPLIED >
+<!ATTLIST territories standard CDATA #IMPLIED >
+
+<!-- Either 1 alias OR any specials, any order, zero or more variant -->
+<!ELEMENT variants ( alias |(variant | special)*  ) >
+<!ATTLIST variants draft ( true | false ) #IMPLIED >
+<!ATTLIST variants standard CDATA #IMPLIED >
+
+<!-- Either 1 alias OR any specials, any order, zero or more key -->
+<!ELEMENT keys ( alias | (key | special)*) >
+<!ATTLIST keys draft ( true | false ) #IMPLIED >
+<!ATTLIST keys standard CDATA #IMPLIED >
+
+<!ELEMENT key ( #PCDATA ) >
+<!ATTLIST key type NMTOKEN #REQUIRED >
+<!ATTLIST key draft ( true | false ) #IMPLIED >
+
+<!-- Either 1 alias OR any specials, any order, zero or more type -->
+<!ELEMENT types ( alias | (type | special)* ) >
+<!ATTLIST types draft ( true | false ) #IMPLIED >
+<!ATTLIST types standard CDATA #IMPLIED >
+
+<!ELEMENT type ( #PCDATA ) >
+<!ATTLIST type type NMTOKEN #REQUIRED >
+<!ATTLIST type key NMTOKEN #IMPLIED >
+<!ATTLIST type draft ( true | false ) #IMPLIED >
+
+<!-- ######################################################### -->
+
+
+<!-- ######################################################### -->
+
+<!ELEMENT layout ( alias | (orientation?, special*) ) >
+<!ATTLIST layout draft ( true | false ) #IMPLIED >
+<!ATTLIST layout standard CDATA #IMPLIED >
+
+<!ELEMENT orientation ( special* ) >
+<!ATTLIST orientation characters ( left-to-right | right-to-left | top-to-bottom | bottom-to-top ) "left-to-right" >
+<!ATTLIST orientation lines ( left-to-right | right-to-left | top-to-bottom | bottom-to-top ) "top-to-bottom" >
+<!ATTLIST orientation draft ( true | false ) #IMPLIED >
+<!ATTLIST orientation standard CDATA #IMPLIED >
+
+<!-- ######################################################### -->
+
+
+<!-- ######################################################### -->
+
+<!ELEMENT characters (alias | (exemplarCharacters?, mapping*, special*))  >
+<!ATTLIST characters draft ( true | false ) #IMPLIED >
+
+<!ELEMENT exemplarCharacters ( #PCDATA | cp )* >
+<!ATTLIST exemplarCharacters draft ( true | false ) #IMPLIED >
+<!ATTLIST exemplarCharacters standard CDATA #IMPLIED >
+
+<!ELEMENT mapping (special*) >
+<!ATTLIST mapping registry NMTOKEN #REQUIRED >
+<!ATTLIST mapping type NMTOKEN #IMPLIED >
+<!ATTLIST mapping draft ( true | false ) #IMPLIED >
+<!ATTLIST mapping standard CDATA #IMPLIED >
+
+<!-- ######################################################### -->
+
+
+<!-- ######################################################### -->
+
+<!ELEMENT delimiters (alias | (quotationStart?, quotationEnd?, alternateQuotationStart?, alternateQuotationEnd?, special*)) >
+<!ATTLIST delimiters draft ( true | false ) #IMPLIED >
+<!ATTLIST delimiters standard CDATA #IMPLIED >
+
+<!ELEMENT quotationStart ( #PCDATA | cp )* >
+<!ATTLIST quotationStart draft ( true | false ) #IMPLIED >
+
+<!ELEMENT quotationEnd ( #PCDATA | cp )* >
+<!ATTLIST quotationEnd draft ( true | false ) #IMPLIED >
+
+<!ELEMENT alternateQuotationStart ( #PCDATA | cp )* >
+<!ATTLIST alternateQuotationStart draft ( true | false ) #IMPLIED >
+
+<!ELEMENT alternateQuotationEnd ( #PCDATA | cp )* >
+<!ATTLIST alternateQuotationEnd draft ( true | false ) #IMPLIED >
+
+<!-- ######################################################### -->
+
+
+<!-- ######################################################### -->
+
+<!ELEMENT measurement (alias | (measurementSystem?, paperSize?, special*)) >
+<!ATTLIST measurement draft ( true | false ) #IMPLIED >
+<!ATTLIST measurement standard CDATA #IMPLIED >
+
+<!ELEMENT paperSize (alias | (height?, width?, special*)) >
+<!ATTLIST paperSize draft ( true | false ) #IMPLIED >
+<!ATTLIST paperSize standard CDATA #IMPLIED >
+
+<!ELEMENT height ( #PCDATA ) >
+<!ATTLIST height draft ( true | false ) #IMPLIED >
+
+<!ELEMENT width ( #PCDATA ) >
+<!ATTLIST width draft ( true | false ) #IMPLIED >
+
+<!ELEMENT measurementSystem (special*) >
+<!ATTLIST measurementSystem type ( metric | US | UK ) #REQUIRED >
+<!ATTLIST measurementSystem draft ( true | false ) #IMPLIED >
+<!ATTLIST measurementSystem standard CDATA #IMPLIED >
+
+<!-- ######################################################### -->
+
+
+<!-- ######################################################### -->
+
+<!ELEMENT dates (alias | (localizedPatternChars?, calendars?, timeZoneNames?, special*)) >
+<!ATTLIST dates draft ( true | false ) #IMPLIED >
+<!ATTLIST dates standard CDATA #IMPLIED >
+
+<!ELEMENT localizedPatternChars ( #PCDATA | cp )* >
+<!ATTLIST localizedPatternChars draft ( true | false ) #IMPLIED >
+<!ATTLIST localizedPatternChars standard CDATA #IMPLIED >
+
+<!ELEMENT calendars (alias | (default?, calendar*, special*)) >
+<!ATTLIST calendars draft ( true | false ) #IMPLIED >
+
+<!ELEMENT calendar (alias | (months?, monthNames?, monthAbbr?, days?, dayNames?, dayAbbr?, week?, am?, pm?, eras?, dateFormats?, timeFormats?, dateTimeFormats?, special*))>
+<!ATTLIST calendar type NMTOKEN #REQUIRED >
+<!ATTLIST calendar draft ( true | false ) #IMPLIED >
+<!ATTLIST calendar standard CDATA #IMPLIED >
+
+<!ELEMENT months ( alias | (default?, monthContext*, special*)) >
+<!ATTLIST months draft ( true | false ) #IMPLIED >
+
+<!ELEMENT monthContext ( alias | (default?, monthWidth*, special*)) >
+<!ATTLIST monthContext type NMTOKEN #REQUIRED >
+<!ATTLIST monthContext draft ( true | false ) #IMPLIED >
+
+<!ELEMENT monthWidth ( alias | (month*, special*)) >
+<!ATTLIST monthWidth type NMTOKEN #REQUIRED >
+<!ATTLIST monthWidth draft ( true | false ) #IMPLIED >
+
+<!ELEMENT monthNames ( alias | (month*, special*)) >
+<!ATTLIST monthNames type NMTOKEN #REQUIRED >
+<!ATTLIST monthNames draft ( true | false ) #IMPLIED >
+
+<!ELEMENT month ( #PCDATA | cp )* >
+<!ATTLIST month type ( 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 ) #REQUIRED >
+
+<!ELEMENT monthAbbr ( alias | (month*, special*)) >
+<!ATTLIST monthAbbr draft ( true | false ) #IMPLIED >
+
+<!ELEMENT days ( alias | (default?, dayContext*, special*)) >
+<!ATTLIST days draft ( true | false ) #IMPLIED >
+
+<!ELEMENT dayContext ( alias | (default?, dayWidth*, special*)) >
+<!ATTLIST dayContext draft ( true | false ) #IMPLIED >
+<!ATTLIST dayContext type NMTOKEN #REQUIRED >
+
+<!ELEMENT dayWidth ( alias | (day*, special*)) >
+<!ATTLIST dayWidth draft ( true | false ) #IMPLIED >
+<!ATTLIST dayWidth type NMTOKEN #REQUIRED >
+
+<!ELEMENT dayNames ( alias | (day*, special*)) >
+<!ATTLIST dayNames draft ( true | false ) #IMPLIED >
+
+<!ELEMENT day ( #PCDATA ) >
+<!ATTLIST day type ( sun | mon | tue | wed | thu | fri | sat ) #REQUIRED >
+
+<!ELEMENT dayAbbr ( alias | (day*, special*)) >
+<!ATTLIST dayAbbr draft ( true | false ) #IMPLIED >
+
+<!ELEMENT week   (alias | (minDays?, firstDay?, weekendStart?, weekendEnd?, special*)) >
+<!ATTLIST draft draft ( true | false ) #IMPLIED >
+
+<!ELEMENT minDays (special*) >
+<!ATTLIST minDays count ( 1 | 2 | 3 | 4 | 5 | 6 | 7 ) #REQUIRED >
+<!ATTLIST minDays draft ( true | false ) #IMPLIED >
+
+<!ELEMENT firstDay (special*) >
+<!ATTLIST firstDay day NMTOKEN #REQUIRED >
+<!ATTLIST firstDay draft ( true | false ) #IMPLIED >
+
+<!ELEMENT weekendStart (special*) >
+<!ATTLIST weekendStart day NMTOKEN #REQUIRED >
+<!ATTLIST weekendStart time CDATA "00:00" >
+<!ATTLIST weekendStart draft ( true | false ) #IMPLIED >
+
+<!ELEMENT weekendEnd (special*) >
+<!ATTLIST weekendEnd day NMTOKEN #REQUIRED >
+<!ATTLIST weekendEnd time CDATA "24:00" >
+<!ATTLIST weekendEnd draft ( true | false ) #IMPLIED >
+
+<!ELEMENT am ( #PCDATA ) >
+<!ATTLIST am draft ( true | false ) #IMPLIED >
+
+<!ELEMENT pm ( #PCDATA ) >
+<!ATTLIST pm draft ( true | false ) #IMPLIED >
+
+<!ELEMENT eras   (alias | (eraNames?, eraAbbr?, special*)) >
+<!ATTLIST eras draft ( true | false ) #IMPLIED >
+
+<!ELEMENT eraNames ( alias | (era*, special*) ) >
+<!ATTLIST eraNames draft ( true | false ) #IMPLIED >
+
+<!ELEMENT eraAbbr ( alias | (era*, special*) ) >
+<!ATTLIST eraAbbr draft ( true | false ) #IMPLIED >
+
+<!ELEMENT era (#PCDATA) >
+<!ATTLIST era type NMTOKEN #REQUIRED >
+<!ATTLIST era draft ( true | false ) #IMPLIED >
+
+<!ELEMENT dateFormats (alias | (default?, dateFormatLength*, special*)) >
+<!ATTLIST dateFormats draft ( true | false ) #IMPLIED >
+
+<!ELEMENT dateFormatLength (alias | (default?, dateFormat*, special*)) >
+<!ATTLIST dateFormatLength type ( full | long | medium | short ) #REQUIRED >
+<!ATTLIST dateFormatLength draft ( true | false ) #IMPLIED >
+
+<!ELEMENT dateFormat (alias | (pattern?, displayName?, special*))  >
+<!ATTLIST dateFormat type NMTOKEN "standard">
+<!ATTLIST dateFormat draft ( true | false ) #IMPLIED >
+<!ATTLIST dateFormat standard CDATA #IMPLIED >
+
+<!ELEMENT displayName ( #PCDATA ) >
+<!ATTLIST displayName draft ( true | false ) #IMPLIED >
+
+<!ELEMENT timeFormats (alias | (default?, timeFormatLength*, special*)) >
+<!ATTLIST timeFormats draft ( true | false ) #IMPLIED >
+
+<!ELEMENT timeFormatLength (alias | (default?, timeFormat*, special*)) >
+<!ATTLIST timeFormatLength type ( full | long | medium | short ) #REQUIRED >
+<!ATTLIST timeFormatLength draft ( true | false ) #IMPLIED >
+
+<!ELEMENT timeFormat (alias | (pattern?, displayName?, special*)) >
+<!ATTLIST timeFormat type NMTOKEN "standard" >
+<!ATTLIST timeFormat draft ( true | false ) #IMPLIED >
+<!ATTLIST timeFormat standard CDATA #IMPLIED >
+
+<!ELEMENT dateTimeFormats (alias | (default?, dateTimeFormatLength*, special*)) >
+<!ATTLIST dateTimeFormats draft ( true | false ) #IMPLIED >
+
+<!ELEMENT dateTimeFormatLength (alias | (default?, dateTimeFormat*, special*)) >
+<!ATTLIST dateTimeFormatLength type ( full | long | medium | short ) #IMPLIED >
+<!ATTLIST dateTimeFormatLength draft ( true | false ) #IMPLIED >
+
+<!ELEMENT dateTimeFormat (alias | (pattern?, displayName?, special*)) >
+<!ATTLIST dateTimeFormat type NMTOKEN "standard"  >
+<!ATTLIST dateTimeFormat draft ( true | false ) #IMPLIED >
+<!ATTLIST dateTimeFormat standard CDATA #IMPLIED >
+
+<!ELEMENT timeZoneNames (alias | (default?, zone*, special*)) >
+<!ATTLIST timeZoneNames draft ( true | false ) #IMPLIED >
+
+<!ELEMENT zone (alias | ( long?, short?, exemplarCity?, special*)) >
+<!ATTLIST zone type CDATA #REQUIRED >
+<!ATTLIST zone draft ( true | false ) #IMPLIED >
+<!ATTLIST zone standard CDATA #IMPLIED >
+
+<!ELEMENT long (alias | (generic?, standard?, daylight?, special*)) >
+<!ATTLIST long draft ( true | false ) #IMPLIED >
+
+<!ELEMENT generic ( #PCDATA ) >
+<!ATTLIST generic draft ( true | false ) #IMPLIED >
+
+<!ELEMENT standard ( #PCDATA ) >
+<!ATTLIST standard draft ( true | false ) #IMPLIED >
+
+<!ELEMENT short (alias | (generic?, standard?, daylight?, special*)) >
+<!ATTLIST short draft ( true | false ) #IMPLIED >
+
+<!ELEMENT daylight ( #PCDATA ) >
+<!ATTLIST daylight draft ( true | false ) #IMPLIED >
+
+<!ELEMENT exemplarCity ( #PCDATA ) >
+<!ATTLIST exemplarCity draft ( true | false ) #IMPLIED >
+
+<!-- ######################################################### -->
+
+
+<!-- ######################################################### -->
+
+<!ELEMENT numbers (alias | (symbols?, decimalFormats?, scientificFormats?, percentFormats?, currencyFormats?, currencies?, special*)) >
+<!ATTLIST numbers draft ( true | false ) #IMPLIED >
+<!ATTLIST numbers standard CDATA #IMPLIED >
+
+<!ELEMENT symbols (alias | (decimal?, group?, list?, percentSign?, nativeZeroDigit?, patternDigit?, plusSign?, minusSign?, exponential?, perMille?, infinity?, nan?, special*)) >
+<!ATTLIST symbols draft ( true | false ) #IMPLIED >
+<!ATTLIST symbols standard CDATA #IMPLIED >
+
+<!ELEMENT decimal ( #PCDATA ) >
+
+<!ELEMENT group ( #PCDATA ) >
+
+<!ELEMENT list ( #PCDATA ) >
+
+<!ELEMENT percentSign ( #PCDATA ) >
+
+<!ELEMENT nativeZeroDigit ( #PCDATA ) >
+
+<!ELEMENT patternDigit ( #PCDATA ) >
+
+<!ELEMENT plusSign ( #PCDATA ) >
+
+<!ELEMENT minusSign ( #PCDATA ) >
+
+<!ELEMENT exponential ( #PCDATA ) >
+
+<!ELEMENT perMille ( #PCDATA ) >
+
+<!ELEMENT infinity ( #PCDATA ) >
+
+<!ELEMENT nan ( #PCDATA ) >
+
+<!ELEMENT pattern ( #PCDATA ) >
+<!ATTLIST pattern type NMTOKEN "standard" >
+<!ATTLIST pattern draft ( true | false ) #IMPLIED >
+
+<!ELEMENT decimalFormats (alias | (default?, decimalFormatLength*, special*)) >
+<!ATTLIST decimalFormats draft ( true | false ) #IMPLIED >
+
+<!ELEMENT decimalFormatLength (alias | (default?, decimalFormat*, special*)) >
+<!ATTLIST decimalFormatLength type ( full | long | medium | short ) #IMPLIED >
+<!ATTLIST decimalFormatLength draft ( true | false ) #IMPLIED >
+
+<!ELEMENT decimalFormat (alias | (pattern?, special*)) >
+<!ATTLIST decimalFormat type NMTOKEN "standard" >
+<!ATTLIST decimalFormat draft ( true | false ) #IMPLIED >
+<!ATTLIST decimalFormat standard CDATA #IMPLIED >
+
+<!ELEMENT scientificFormats (alias | (default?, scientificFormatLength*, special*)) >
+<!ATTLIST scientificFormats draft ( true | false ) #IMPLIED >
+
+<!ELEMENT scientificFormatLength (alias | (default?, scientificFormat*, special*)) >
+<!ATTLIST scientificFormatLength type ( full | long | medium | short ) #IMPLIED >
+<!ATTLIST scientificFormatLength draft ( true | false ) #IMPLIED >
+
+<!ELEMENT scientificFormat (alias | (pattern?, special*)) >
+<!ATTLIST scientificFormat type NMTOKEN "standard" >
+<!ATTLIST scientificFormat draft ( true | false ) #IMPLIED >
+<!ATTLIST scientificFormat standard CDATA #IMPLIED >
+
+<!ELEMENT percentFormats (alias | (default?, percentFormatLength*, special*)) >
+<!ATTLIST percentFormats draft ( true | false ) #IMPLIED >
+
+<!ELEMENT percentFormatLength (alias | (default?, percentFormat*, special*)) >
+<!ATTLIST percentFormatLength type ( full | long | medium | short ) #IMPLIED >
+<!ATTLIST percentFormatLength draft ( true | false ) #IMPLIED >
+
+<!ELEMENT percentFormat (alias | (pattern?, special*)) >
+<!ATTLIST percentFormat type NMTOKEN "standard" >
+<!ATTLIST percentFormat draft ( true | false ) #IMPLIED >
+
+<!ELEMENT currencyFormats (alias | (default?, currencyFormatLength*, special*)) >
+<!ATTLIST currencyFormats draft ( true | false ) #IMPLIED >
+
+<!ELEMENT currencyFormatLength (alias | (default?, currencyFormat*, special*)) >
+<!ATTLIST currencyFormatLength type ( full | long | medium | short ) #IMPLIED >
+<!ATTLIST currencyFormatLength draft ( true | false ) #IMPLIED >
+
+<!ELEMENT currencyFormat (alias | (pattern?, special*)) >
+<!ATTLIST currencyFormat type NMTOKEN "standard" >
+<!ATTLIST currencyFormat draft ( true | false ) #IMPLIED >
+<!ATTLIST currencyFormat standard CDATA #IMPLIED >
+
+<!ELEMENT currencies (alias | (default?, currency*, special*)) >
+<!ATTLIST currencies draft ( true | false ) #IMPLIED >
+
+<!ELEMENT currency (alias | (displayName?, symbol?, pattern?, decimal?, group?, special*)) >
+<!ATTLIST currency id NMTOKEN #IMPLIED >
+<!ATTLIST currency type NMTOKEN "standard" >
+<!ATTLIST currency draft ( true | false ) #IMPLIED >
+
+<!ELEMENT symbol ( #PCDATA ) >
+<!ATTLIST symbol draft ( true | false ) #IMPLIED >
+
+<!-- ######################################################### -->
+
+
+<!-- ######################################################### -->
+
+<!ELEMENT collations (alias | (default?, collation*, special*)) >
+<!ATTLIST collations version NMTOKEN #IMPLIED >
+<!ATTLIST collations draft ( true | false ) #IMPLIED >
+
+<!ELEMENT collation (alias | (base?, settings?, suppress_contractions?, optimize?, rules?, special*)) >
+<!ATTLIST collation type NMTOKEN "standard" >
+<!ATTLIST collation draft ( true | false ) #IMPLIED >
+<!ATTLIST collation standard CDATA #IMPLIED >
+
+<!ELEMENT base (alias|special) >
+
+<!ELEMENT settings (special*) >
+<!ATTLIST settings strength             ( primary | secondary | tertiary | quaternary | identical ) #IMPLIED >
+<!ATTLIST settings alternate            ( non-ignorable | shifted ) #IMPLIED >
+<!ATTLIST settings backwards            ( on | off)  #IMPLIED >
+<!ATTLIST settings normalization        ( on | off ) #IMPLIED >
+<!ATTLIST settings caseLevel            ( on | off ) #IMPLIED >
+<!ATTLIST settings caseFirst            ( upper | lower | off ) #IMPLIED >
+<!ATTLIST settings hiraganaQuarternary  ( on | off ) #IMPLIED >
+<!ATTLIST settings numeric              ( on | off ) #IMPLIED >
+
+<!ELEMENT suppress_contractions (  #PCDATA | cp )* >
+
+<!ELEMENT optimize ( #PCDATA | cp )* >
+
+<!ELEMENT rules (alias | ( reset, ( reset | p | pc |  s | sc | t | tc | q | qc | i | ic | x)* )) >
+
+<!ELEMENT reset ( #PCDATA | cp  | first_variable| last_variable | first_tertiary_ignorable | last_tertiary_ignorable | first_secondary_ignorable | last_secondary_ignorable | first_primary_ignorable | last_primary_ignorable | first_non_ignorable | last_non_ignorable | first_trailing | last_trailing )* >
+<!ATTLIST reset before NMTOKEN #IMPLIED >
+
+<!ELEMENT p  ( #PCDATA  | cp | last_variable )* >
+
+<!ELEMENT pc ( #PCDATA  | cp | last_variable )* >
+
+<!ELEMENT s  ( #PCDATA  | cp | last_variable )* >
+
+<!ELEMENT sc ( #PCDATA  | cp | last_variable )* >
+
+<!ELEMENT t  ( #PCDATA  | cp | last_variable )* >
+
+<!ELEMENT tc ( #PCDATA  | cp | last_variable )* >
+
+<!ELEMENT q  ( #PCDATA  | cp | last_variable )* >
+
+<!ELEMENT qc ( #PCDATA  | cp | last_variable )* >
+
+<!ELEMENT i  ( #PCDATA  | cp | last_variable )* >
+
+<!ELEMENT ic ( #PCDATA  | cp | last_variable )* >
+
+<!ELEMENT x (context?, (  p | pc |  s | sc | t | tc | q | qc | i | ic )*, extend? )  >
+
+<!ELEMENT extend ( #PCDATA | cp )* >
+
+<!ELEMENT context (  #PCDATA | cp )* >
+
+<!ELEMENT first_variable EMPTY >
+<!ELEMENT last_variable EMPTY >
+<!ELEMENT first_tertiary_ignorable EMPTY >
+<!ELEMENT last_tertiary_ignorable EMPTY >
+<!ELEMENT first_secondary_ignorable EMPTY >
+<!ELEMENT last_secondary_ignorable EMPTY >
+<!ELEMENT first_primary_ignorable EMPTY >
+<!ELEMENT last_primary_ignorable EMPTY >
+<!ELEMENT first_non_ignorable EMPTY >
+<!ELEMENT last_non_ignorable EMPTY >
+<!ELEMENT first_trailing EMPTY >
+<!ELEMENT last_trailing EMPTY >
+
+<!ELEMENT posix (alias | (messages*, special*)) >
+<!ATTLIST posix draft ( true | false ) #IMPLIED >
+
+<!ELEMENT messages (alias | ( yesstr?, nostr?, yesexpr?, noexpr?)) >
+
+<!ELEMENT yesstr ( #PCDATA ) >
+
+<!ELEMENT nostr ( #PCDATA ) >
+
+<!ELEMENT yesexpr ( #PCDATA ) >
+
+<!ELEMENT noexpr ( #PCDATA ) >
+
+
+
+
+
+
+
+
+

@@ -109,6 +109,7 @@ public class ChartDtdDelta extends Chart {
             for (DtdType type : TYPES) {
                 String firstVersion = type.firstVersion; // FIRST_VERSION.get(type);
                 if (firstVersion != null && current != null && current.compareTo(firstVersion) < 0) {
+                    // skip if current is too old to have “type”
                     continue;
                 }
                 DtdData dtdCurrent = null;
@@ -126,14 +127,9 @@ public class ChartDtdDelta extends Chart {
                     continue;
                 }
                 DtdData dtdLast = null;
-                if (last != null) {
-                    try {
-                        dtdLast = DtdData.getInstance(type, last);
-                    } catch (Exception e) {
-                        if (!(e.getCause() instanceof FileNotFoundException)) {
-                            throw e;
-                        }
-                    }
+                if (last != null && (firstVersion == null || last.compareTo(firstVersion) >= 0)) {
+                    // only read if last isn’t too old to have “type”
+                    dtdLast = DtdData.getInstance(type, last);
                 }
                 diff(currentName, dtdLast, dtdCurrent);
             }

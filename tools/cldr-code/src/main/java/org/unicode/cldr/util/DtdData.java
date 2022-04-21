@@ -691,6 +691,13 @@ public class DtdData extends XMLFileReader.SimpleHandler {
      * Special form using version, used only by tests, etc.
      */
     public static DtdData getInstance(DtdType type, String version) {
+        // Map out versions that had no DTD
+        switch (version) {
+            case "1.1.1": version="1.1"; break;
+            case "1.4.1": version="1.4"; break;
+            case "1.5.1": version="1.5.0.1"; break;
+            default:
+        }
         File directory = version == null ? CLDRConfig.getInstance().getCldrBaseDirectory()
             : new File(CLDRPaths.ARCHIVE_DIRECTORY + "/cldr-" + version);
 

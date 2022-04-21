@@ -29,10 +29,13 @@ public class ToolConstants {
 
     // TODO change this to CldrVersion, add add in the ShowLocaleCoverage years.
     public static final List<String> CLDR_VERSIONS = ImmutableList.of(
+        "1.1",
         "1.1.1",
         "1.2",
         "1.3",
+        "1.4",
         "1.4.1",
+        "1.5.0.1",
         "1.5.1",
         "1.6.1",
         "1.7.2",
@@ -62,7 +65,8 @@ public class ToolConstants {
         "38.0",
         "38.1",
         "39.0",
-        "40.0"
+        "40.0",
+        "41.0"
         // add to this once the release is final!
         );
     public static final Set<VersionInfo> CLDR_VERSIONS_VI = ImmutableSet.copyOf(CLDR_VERSIONS.stream()

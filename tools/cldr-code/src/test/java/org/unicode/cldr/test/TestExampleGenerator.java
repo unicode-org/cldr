@@ -18,8 +18,8 @@ public class TestExampleGenerator {
     @Test
     public void testPersonNamesGwen() {
         final String loc = "es";
-        final String X_GIVEN = "//ldml/personNames/sampleName[@item=\"givenSurname\"]/nameField[@type=\"given\"]";
-        final String X_SURNAME = "//ldml/personNames/sampleName[@item=\"givenSurname\"]/nameField[@type=\"surname\"]";
+        final String X_GIVEN = "//ldml/personNames/sampleName[@item=\"givenSurnameOnly\"]/nameField[@type=\"given\"]";
+        final String X_SURNAME = "//ldml/personNames/sampleName[@item=\"givenSurnameOnly\"]/nameField[@type=\"surname\"]";
         final String X_PATTERN = "//ldml/personNames/personName[@length=\"long\"][@usage=\"addressing\"][@style=\"formal\"][@order=\"sorting\"]/namePattern";
 
         final CLDRFile english = CLDRConfig.getInstance().getEnglish();

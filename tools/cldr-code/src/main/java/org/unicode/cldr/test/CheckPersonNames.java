@@ -17,20 +17,17 @@ public class CheckPersonNames extends CheckCLDR {
      * @internal, public for testing
      */
     public static final ImmutableMultimap<SampleType, String> REQUIRED = ImmutableMultimap.<SampleType, String> builder()
-        .putAll(SampleType.mononym, "given")
-        .putAll(SampleType.givenSurname, "given", "surname")
-        .putAll(SampleType.given2Surname, "given", "given2", "surname")
-        .putAll(SampleType.givenSurname2, "given", "surname", "surname2")
-        .putAll(SampleType.informal, "given", "given-informal") // todo, combine with full
-        .putAll(SampleType.full, "prefix", "given", "given2", "surname", "suffix") // TODO add "given-informal", "surname2"
-        .putAll(SampleType.multiword, "given", "given2", "surname") // todo, combine with full
+        .putAll(SampleType.givenOnly, "given")
+        .putAll(SampleType.givenSurnameOnly, "given", "surname")
+        .putAll(SampleType.given12Surname, "given", "given2", "surname")
+        .putAll(SampleType.full, "prefix", "given", "given-informal", "given2", "surname", "surname2", "suffix")
         .build();
     /**
      * @internal, public for testing
      */
     public static final ImmutableMultimap<SampleType, String> REQUIRED_EMPTY = ImmutableMultimap.<SampleType, String> builder()
-        .putAll(SampleType.mononym, "prefix", "given-informal", "given2", "surname", "surname2", "suffix")
-        .putAll(SampleType.givenSurname, "prefix", "given2", "surname2", "suffix")
+        .putAll(SampleType.givenOnly, "prefix", "given-informal", "given2", "surname", "surname2", "suffix")
+        .putAll(SampleType.givenSurnameOnly, "prefix", "given2", "surname2", "suffix")
         .build();
 
     boolean isRoot = false;

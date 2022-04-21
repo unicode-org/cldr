@@ -386,9 +386,17 @@ public class PathDescription {
         + RegexLookup.SEPARATOR
         + "Initials patterns for person name formats. For more information, please see "
         + CLDRURLS.PERSON_NAME_FORMATS + ".\n"
-        + "^//ldml/personNames/personName"
+        + "^//ldml/personNames/personName\\[@length=\"([^\"]*)\"]\\[@usage=\"addressing\"]\\[@style=\"([^\"]*)\"]\\[@order=\"([^\"]*)\"]"
         + RegexLookup.SEPARATOR
-        + "Person name formats by length, usage, style, order. For more information, please see "
+        + "Person name format for addressing a person (with a given length, style, order). For more information, please see "
+        + CLDRURLS.PERSON_NAME_FORMATS + ".\n"
+        + "^//ldml/personNames/personName\\[@length=\"([^\"]*)\"]\\[@usage=\"referring\"]\\[@style=\"([^\"]*)\"]\\[@order=\"([^\"]*)\"]"
+        + RegexLookup.SEPARATOR
+        + "Person name formats for referring to a person (with a given length, style, order). For more information, please see "
+        + CLDRURLS.PERSON_NAME_FORMATS + ".\n"
+        + "^//ldml/personNames/personName\\[@length=\"([^\"]*)\"]\\[@usage=\"monogram\"]\\[@style=\"([^\"]*)\"]\\[@order=\"([^\"]*)\"]"
+        + RegexLookup.SEPARATOR
+        + "Person name formats for monograms (with a given length, style, order). For more information, please see "
         + CLDRURLS.PERSON_NAME_FORMATS + ".\n"
         + "^//ldml/personNames/sampleName"
         + RegexLookup.SEPARATOR

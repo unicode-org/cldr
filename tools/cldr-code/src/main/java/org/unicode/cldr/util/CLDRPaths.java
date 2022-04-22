@@ -34,7 +34,7 @@ public class CLDRPaths {
 
     /** Maintained in GitHub, base directory for CLDR */
 
-    public static final String BASE_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_DIR", null));
+    public static final String BASE_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty(CldrUtility.DIR_KEY, null));
 
     public static final String COMMON_DIRECTORY = CldrUtility.getPath(BASE_DIRECTORY, "common/");
     public static final String COLLATION_DIRECTORY = CldrUtility.getPath(COMMON_DIRECTORY, COLLATION_SUBDIR);

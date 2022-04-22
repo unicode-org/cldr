@@ -11,6 +11,7 @@ import java.util.TreeSet;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.CLDRURLS;
+import org.unicode.cldr.util.CldrUtility;
 
 /**
  * Implement a 'main' for the cldr-code jar.
@@ -82,10 +83,10 @@ class Main {
      */
     public static void tryCurrentDirAsCldrDir() {
         try {
-            if(System.getProperty("CLDR_DIR") == null) {
+            if(System.getProperty(CldrUtility.DIR_KEY) == null) {
                 if(new File("./common/main/root.xml").exists()) {
                     System.err.println("Note: CLDR_DIR was unset but you seem to be in a CLDR directory. Setting -DCLDR_DIR=.");
-                    System.setProperty("CLDR_DIR", ".");
+                    System.setProperty(CldrUtility.DIR_KEY, ".");
                 }
             }
         } catch(SecurityException t) {

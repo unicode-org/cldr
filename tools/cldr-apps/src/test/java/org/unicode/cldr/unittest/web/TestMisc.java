@@ -6,12 +6,7 @@ import java.util.Set;
  * Copyright (C) 2012
  */
 
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRConfigImpl;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.LocaleNormalizer;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.web.STFactory;
 import org.unicode.cldr.web.SurveyMain;
 import org.unicode.cldr.web.WebContext;
@@ -96,18 +91,13 @@ public class TestMisc extends TestFmwk {
                 errln("❌ getCldrBaseDirHash is shorter than 8 chars: " + hash);
             }
         }
-        final String strings[] = {"CLDR-Apps", "CLDR-Tools"};
-        for (String s : strings) {
-            final String version = CLDRConfigImpl.getGitHashForSlug(s);
-            assertNotNull("getting " + s + " version", version);
-            /*
-             * TODO: fail if CLDRURLS.UNKNOWN_REVISION.equals(version).
-             * Currently they do equal CLDRURLS.UNKNOWN_REVISION, since SurveyMain.init isn't called for TestAll.
-             */
-            // if (CLDRURLS.UNKNOWN_REVISION.equals(version)) {
-            //    errln("❌ " + s + " = UNKNOWN_REVISION: " + version);
-            // }
-        }
+        final String slug = CldrUtility.CODE_SLUG;
+        final String version = CLDRConfigImpl.getGitHashForSlug(slug);
+        assertNotNull("getting " + slug + " version", version);
+        // version may equal CLDRURLS.UNKNOWN_REVISION when running tests
+        // if (CLDRURLS.UNKNOWN_REVISION.equals(version)) {
+        //    errln("❌ " + slug + " = UNKNOWN_REVISION: " + version);
+        // }
     }
 
     public void TestLocaleNormalizer() {

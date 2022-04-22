@@ -70,6 +70,7 @@ public class About {
             r.put(props[i].replace('.', '_'), java.lang.System.getProperty(props[i]));
         }
         r.put("GEN_VERSION", CLDRFile.GEN_VERSION);
+        r.put("OLD_VERSION", SurveyMain.getOldVersion());
         r.put("ICU_VERSION", VersionInfo.ICU_VERSION.toString());
         try {
             ServletContext sc = CookieSession.sm.getServletContext();

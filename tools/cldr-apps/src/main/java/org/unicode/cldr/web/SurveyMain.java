@@ -51,6 +51,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.JspWriter;
 
+import javax.inject.Inject;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONString;
@@ -102,6 +104,12 @@ import com.ibm.icu.util.ULocale;
  * The main servlet class of Survey Tool
  */
 public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Externalizable {
+    /**
+     * This needs a global place to access for non-jaxrs callers
+     */
+    @Inject
+    public SurveyMetrics surveyMetrics;
+
     private static final String CLDR_OLDVERSION = "CLDR_OLDVERSION";
     private static final String CLDR_NEWVERSION = "CLDR_NEWVERSION";
     private static final String CLDR_LASTVOTEVERSION = "CLDR_LASTVOTEVERSION";

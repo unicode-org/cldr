@@ -8,6 +8,7 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 import javax.ws.rs.Consumes;
@@ -21,6 +22,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import org.eclipse.microprofile.metrics.annotation.Counted;
+import org.eclipse.microprofile.metrics.annotation.Timed;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
@@ -37,6 +40,7 @@ import org.unicode.cldr.web.*;
 import org.unicode.cldr.web.Dashboard.ReviewOutput;
 import org.unicode.cldr.web.VettingViewerQueue.LoadingPolicy;
 
+@ApplicationScoped
 @Path("/summary")
 @Tag(name = "voting", description = "APIs for voting")
 public class Summary {
@@ -364,6 +368,8 @@ public class Summary {
     @Operation(
         summary = "Fetch the Dashboard for a locale",
         description = "Given a locale, get the summary information, aka Dashboard")
+    @Counted(name = "getDashboardCount", absolute = true, description = "Number of dashboards computed")
+    @Timed(absolute = true, name = "getDashboard", description = "Time to fetch the Dashboard")
     @APIResponses(
         value = {
             @APIResponse(

@@ -75,6 +75,16 @@ public class SurveyLog {
 
     public static void logException(Logger logger, final Throwable exception, String what, WebContext ctx) {
         logger.log(Level.SEVERE, what, exception);
+        countException(exception);
+    }
+
+    /**
+     * Count an exception in the SurveyMetrics
+     */
+    public static void countException(final Throwable exception) {
+        if (CookieSession.sm != null && CookieSession.sm.surveyMetrics != null) {
+            CookieSession.sm.surveyMetrics.countException(exception);
+        }
     }
 
     /**
@@ -105,6 +115,7 @@ public class SurveyLog {
 
     public static void logException(Logger logger, Throwable t, String string) {
         logger.log(Level.SEVERE, string, t);
+        countException(t);
     }
 
     public static void logException(Logger logger, Throwable t, WebContext ctx) {

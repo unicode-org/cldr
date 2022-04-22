@@ -803,15 +803,9 @@ public class SurveyAjax extends HttpServlet {
             } else {
                 sendError(out, "Unknown Request: " + what, ErrorCode.E_INTERNAL);
             }
-        } catch (SurveyException e) {
-            SurveyLog.logException(logger, e, "Processing: " + what);
+        } catch (Throwable e) {
+            SurveyLog.logException(logger, e, "Error in SurveyAjax?what=" + what + ": " + e.getMessage());
             sendError(out, e);
-        } catch (JSONException e) {
-            SurveyLog.logException(logger, e, "Processing: " + what);
-            sendError(out, "JSONException: " + e, ErrorCode.E_INTERNAL);
-        } catch (SQLException e) {
-            SurveyLog.logException(logger, e, "Processing: " + what);
-            sendError(out, "SQLException: " + e, ErrorCode.E_INTERNAL);
         }
     }
 

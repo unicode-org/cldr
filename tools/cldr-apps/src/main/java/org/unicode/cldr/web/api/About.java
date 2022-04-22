@@ -43,10 +43,8 @@ public class About {
                 content =  @Content(mediaType = "application/json",
                 schema = @Schema(type = SchemaType.OBJECT,
                 example = "{\n"
-                    + "  \"CLDR_COMMIT_BASE\": \"https://github.com/unicode-org/cldr/commit/\",\n"
                     + "  \"CLDR_DATA_HASH\": \"f51da9c87d20b8d1236f0ea139a90ab49a879d65\",\n"
-                    + "  \"CLDR_SURVEYTOOL_HASH\": \"(unknown)\",\n"
-                    + "  \"CLDR_UTILITIES_HASH\": \"c27bb5ed340b63d4aa9fcb1ed948767d3a9869f3\",\n"
+                    + "  \"CLDR_CODE_HASH\": \"c27bb5ed340b63d4aa9fcb1ed948767d3a9869f3\",\n"
                     + "  \"GEN_VERSION\": \"39\",\n"
                     + "  \"ICU_VERSION\": \"68.1.0.0\",\n"
                     + "  \"TRANS_HINT_LANGUAGE_NAME\": \"English\",\n"
@@ -90,7 +88,6 @@ public class About {
                 r.put(k, configImpl.getProperty(k));
             }
         }
-        r.put("CLDR_COMMIT_BASE", configImpl.getProperty("CLDR_COMMIT_BASE", CLDRURLS.DEFAULT_COMMIT_BASE));
         if (SurveyMain.isDbSetup) {
             org.unicode.cldr.web.DBUtils d = org.unicode.cldr.web.DBUtils.getInstance();
             if (d != null) {

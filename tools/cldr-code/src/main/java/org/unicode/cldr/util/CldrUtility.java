@@ -65,6 +65,19 @@ import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.TimeZone;
 
 public class CldrUtility {
+    /**
+     * These need to be consistent with "CLDR-Code-Git-Commit" in tools/cldr-code/pom.xml
+     *
+     * If and when "CLDR-Apps-Git-Commit" in tools/cldr-apps/pom.xml becomes usable for the
+     * cldr-apps war file, we may add APPS_SLUG = "CLDR-Apps" here, and in some contexts
+     * use APPS_SLUG in addition to, or instead of, CODE_SLUG
+     */
+    public static final String CODE_SLUG = "CLDR-Code";
+    public static final String GIT_COMMIT_SUFFIX = "-Git-Commit";
+
+    public static final String HOME_KEY = "CLDRHOME";
+    public static final String DIR_KEY = "CLDR_DIR";
+    public static final String MAIN_KEY = "CLDR_MAIN";
 
     public static final boolean DEBUG_MISSING_DIRECTORIES = false;
 
@@ -660,8 +673,6 @@ public class CldrUtility {
      *
      * @param source
      *            The source set
-     * @param escaper
-     *            A transliterator that is used to escape the characters according to the requirements of the regex.
      * @return
      */
     public static String toRegex(UnicodeSet source) {
@@ -1215,8 +1226,7 @@ public class CldrUtility {
      * otherwise the default value (for either empty or null).
      *
      * @param key
-     * @param valueIfNull
-     * @param valueIfEmpty
+     * @param defaultValue
      * @return
      */
     public static String getProperty(String key, String defaultValue) {
@@ -1408,7 +1418,7 @@ public class CldrUtility {
 
     /**
      * Type-safe contains
-     * @param map
+     * @param collection
      * @param key
      * @return value
      */

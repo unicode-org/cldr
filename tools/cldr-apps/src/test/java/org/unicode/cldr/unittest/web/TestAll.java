@@ -53,8 +53,8 @@ public class TestAll extends TestGroup {
      */
     public static synchronized final void sanity() {
         if (!sane) {
-            verifyIsDir(CLDRPaths.BASE_DIRECTORY, "CLDR_DIR", "=${workspace_loc:common/..}");
-            verifyIsDir(CLDRPaths.MAIN_DIRECTORY, "CLDR_MAIN", "=${workspace_loc:common/main}");
+            verifyIsDir(CLDRPaths.BASE_DIRECTORY, CldrUtility.DIR_KEY, "=${workspace_loc:common/..}");
+            verifyIsDir(CLDRPaths.MAIN_DIRECTORY, CldrUtility.MAIN_KEY, "=${workspace_loc:common/main}");
             verifyIsFile(new File(CLDRPaths.MAIN_DIRECTORY, "root.xml"));
             sane = true;
         }

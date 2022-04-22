@@ -91,7 +91,7 @@ public class CLDRConfig extends Properties {
             if (instance == null) {
                 // this is the "normal" branch for tools and such
                 instance = new CLDRConfig();
-                CldrUtility.checkValidDirectory(instance.getProperty("CLDR_DIR"),
+                CldrUtility.checkValidDirectory(instance.getProperty(CldrUtility.DIR_KEY),
                     "You have to set -DCLDR_DIR=<validdirectory>");
             }
             return instance;
@@ -492,7 +492,7 @@ public class CLDRConfig extends Properties {
     private static class FileWrapper {
         private File cldrDir = null;
         private FileWrapper() {
-            String dir = getInstance().getProperty("CLDR_DIR", null);
+            String dir = getInstance().getProperty(CldrUtility.DIR_KEY, null);
             if (dir != null) {
                 cldrDir = new File(dir);
             } else {

@@ -10,6 +10,7 @@ import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CldrUtility;
 
 /**
  * @author srl
@@ -90,7 +91,7 @@ public class SurveyLog {
 
     public static synchronized ChunkyReader getChunkyReader() {
         if (cr == null) {
-            cr = new ChunkyReader(new File(CLDRConfig.getInstance().getProperty("CLDRHOME"), "exception.log"), RECORD_SEP
+            cr = new ChunkyReader(new File(CLDRConfig.getInstance().getProperty(CldrUtility.HOME_KEY), "exception.log"), RECORD_SEP
                 + LogField.SURVEY_EXCEPTION.name(), FIELD_SEP, LogField.DATE.name());
         }
         return cr;

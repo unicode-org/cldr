@@ -4,6 +4,11 @@
 const CLDR_TEXT_DEBUG = false;
 
 const strings = {
+  git_commit_url_prefix: "https://github.com/unicode-org/cldr/commit/",
+  git_compare_url_prefix: "https://github.com/unicode-org/cldr/compare/",
+  git_compare_url_main: "main",
+  git_compare_url_release: "release-41",
+
   loading: "loading",
   loading2: "loading.",
   loading3: "loading..",

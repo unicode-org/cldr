@@ -35,7 +35,11 @@ import org.unicode.cldr.web.WebContext;
  * rather than environment variables.
  */
 public class CLDRConfigImpl extends CLDRConfig implements JSONString {
+    private static final String CODE_HASH_KEY = "CLDR_CODE_HASH";
+    private static final String DATA_HASH_KEY = "CLDR_DATA_HASH";
+
     private static final Logger logger = SurveyLog.forClass(CLDRConfigImpl.class);
+
     /**
      * Get an instance and downcast
      * @return
@@ -200,14 +204,14 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
 
         // SCM versions.
 
-        // The git version of the cldr-apps.war file.
-        survprops.put("CLDR_SURVEYTOOL_HASH", getGitHashForSlug("CLDR-Apps")); // Not available until init() is called.
-        // The git version of the cldr-code.jar file embedded in cldr-apps.
-        survprops.put("CLDR_UTILITIES_HASH", getGitHashForSlug("CLDR-Tools"));
-        // The git version of the CLDR_DIR currently in use.
-        survprops.put("CLDR_DATA_HASH", CldrUtility.getGitHashForDir(survprops.getProperty("CLDR_DIR", null)));
-
-        survprops.put("CLDRHOME", cldrHome);
+        // codeHash = the git version of the cldr-code.jar file embedded in cldr-apps.
+        String codeHash = getGitHashForSlug(CldrUtility.CODE_SLUG);
+        // dataHash = the git version of the CLDR_DIR currently in use.
+        String dir = survprops.getProperty(CldrUtility.DIR_KEY, null);
+        String dataHash = CldrUtility.getGitHashForDir(dir);
+        survprops.put(CODE_HASH_KEY, codeHash);
+        survprops.put(DATA_HASH_KEY, dataHash);
+        survprops.put(CldrUtility.HOME_KEY, cldrHome);
 
         isInitted = true;
     }
@@ -230,7 +234,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         }
     }
 
-    public final static String ALL_GIT_HASHES[] = { "CLDR_SURVEYTOOL_HASH", "CLDR_UTILITIES_HASH", "CLDR_DATA_HASH" };
+    public final static String ALL_GIT_HASHES[] = { CODE_HASH_KEY, DATA_HASH_KEY};
 
     /**
      * Return the git hash for (slug)-Git-Hash.
@@ -238,7 +242,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
      * @return
      */
     public final static String getGitHashForSlug(String slug) {
-//        return Manifests.read(slug+"-Git-Commit");
+//        return Manifests.read(slug + CldrUtility.GIT_COMMIT_SUFFIX);
         try {
             ClassLoader classLoader = CLDRConfigImpl.class.getClassLoader();
             for(final Enumeration<URL> e = classLoader.getResources(JarFile.MANIFEST_NAME);
@@ -246,7 +250,8 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
                 final URL u = e.nextElement();
                 try (InputStream is = u.openStream()) {
                     Manifest mf = new Manifest(is);
-                    String s = mf.getMainAttributes().getValue(slug+"-Git-Commit");
+                    String name = slug + CldrUtility.GIT_COMMIT_SUFFIX;
+                    String s = mf.getMainAttributes().getValue(name);
                     if(s != null && !s.isEmpty()) {
                         return s;
                     }
@@ -380,10 +385,6 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
     public String getProperty(String key) {
         init();
         return survprops.getProperty(key);
-    }
-
-    public void setCldrAppsHash(String hash) {
-        survprops.setProperty("CLDR_SURVEYTOOL_HASH", hash);
     }
 
     @Override

@@ -10,6 +10,8 @@
 		<feature>mpConfig-1.4</feature>
 		<feature>localConnector-1.0</feature>
 		<feature>concurrent-1.0</feature>
+		<feature>mpMetrics-2.0</feature>
+		<feature>monitor-1.0</feature>
 	</featureManager>
 	<!-- end::featureManager[] -->
 
@@ -63,4 +65,8 @@
 
 	<!-- Needed to enable JSPs to be at source level 1.8 (at least) -->
 	<jspEngine jdkSourceLevel="18" />
+
+	<!-- We will be proxying access to the metrics server, so not an issue here -->
+	<mpMetrics authentication="false" />
+
 </server>

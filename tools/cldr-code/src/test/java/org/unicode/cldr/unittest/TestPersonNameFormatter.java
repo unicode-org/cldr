@@ -94,7 +94,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         check(personNameFormatter, sampleNameObject1, "length=short; style=formal; usage=addressing", "John B. Smith");
         check(personNameFormatter, sampleNameObject2, "length=short; style=formal; usage=addressing", "John Smith");
         check(personNameFormatter, sampleNameObject1, "length=long; style=formal; usage=addressing", "Mr. John Bob Smith Barnes Pascal Jr.");
-        check(personNameFormatter, sampleNameObject3, "length=long; style=formal; usage=monogram", "J* B*S*"); // TODO: This seems wrong....
+        check(personNameFormatter, sampleNameObject3, "length=long; style=formal; usage=monogram", "JBS");
         check(personNameFormatter, sampleNameObject4, "length=short; style=formal; usage=addressing; order=surnameFirst", "ABE Shinzō");
 
         checkFormatterData(personNameFormatter);
@@ -113,7 +113,7 @@ public void TestLiteralCollapsing1() {
 
     check(personNameFormatter2, sampleNameObject5, "order=givenFirst", "Mary⓷⓸Smith"); // reasonable, given no break
     check(personNameFormatter2, sampleNameObject5, "order=surnameFirst", "⓵SMITH⓶⓸Mary"); // reasonable, given no break
-    check(personNameFormatter2, sampleNameObject5, "order=sorting", "⓵Smith⓶⓸Mary"); // should be something like Smith,⓷❸Mary
+    check(personNameFormatter2, sampleNameObject5, "order=sorting", "⓵Smith⓶⓸Mary"); //  TODO RICH should be something like ⓵Smith,⓸Mary
 }
 
 public void TestLiteralCollapsing2() {
@@ -121,15 +121,15 @@ public void TestLiteralCollapsing2() {
 
     NamePatternData namePatternData2 = new NamePatternData(
         localeToOrder,
-        "order=givenFirst",     "❶{prefix}⓶ ❷{given}⓷ ❸{given2}⓸ ❹{surname}⓹ ❺{surname2}⓺ ❻{suffix}❼",
-        "order=surnameFirst",   "❶{surname-allCaps}⓶ ❷{surname2}⓷ ❸{prefix}⓸ ❹{given}⓹ ❺{given2}⓺ ❻{suffix}❼",
-        "order=sorting",        "❶{surname}⓶ ❷{surname2}, ❸{prefix}⓸ ❹{given}⓹ ❺{given2}⓺ ❻{suffix}❼");
+        "order=givenFirst",     "⓵{prefix}𝟙 ⓶{given}𝟚 ⓷{given2}𝟛 ⓸{surname}𝟜 ⓹{surname2}𝟝 ⓺{suffix}𝟞",
+        "order=surnameFirst",   "⓵{surname-allCaps}𝟙 ⓶{surname2}𝟚 𝟛{prefix}𝟛 ⓸{given}𝟜 ⓹{given2}𝟝 ⓺{suffix}𝟞",
+        "order=sorting",        "⓵{surname}𝟙 ⓶{surname2}, 𝟛{prefix}𝟛 ⓸{given}𝟜 ⓹{given2}𝟝 ⓺{suffix}𝟞");
 
     PersonNameFormatter personNameFormatter2 = new PersonNameFormatter(namePatternData2, FALLBACK_FORMATTER);
 
-    check(personNameFormatter2, sampleNameObject5, "order=givenFirst", "Mary⓷ ❹Smith"); // reasonable
-    check(personNameFormatter2, sampleNameObject5, "order=surnameFirst", "❶SMITH⓶ ❹Mary"); // reasonable
-    check(personNameFormatter2, sampleNameObject5, "order=sorting", "❶Smith⓶ ❹Mary"); // should be something like Smith,❸Mary
+    check(personNameFormatter2, sampleNameObject5, "order=givenFirst", "Mary𝟚 ⓸Smith"); // reasonable
+    check(personNameFormatter2, sampleNameObject5, "order=surnameFirst", "⓵SMITH𝟙 ⓸Mary"); // reasonable
+    check(personNameFormatter2, sampleNameObject5, "order=sorting", "⓵Smith𝟙 ⓸Mary"); //  TODO RICH should be something like ⓵Smith, ⓸Mary
 }
 
     String HACK_INITIAL_FORMATTER = "{0}॰"; // use "unusual" period to mark when we are using fallbacks
@@ -336,7 +336,7 @@ public void TestLiteralCollapsing2() {
                 "〖Sinbad〗〖Irene Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia Meyer Wolf M.D. Ph.D.〗"
             },{
                 "//ldml/personNames/personName[@length=\"long\"][@usage=\"monogram\"][@style=\"informal\"][@order=\"surnameFirst\"]/namePattern",
-                "〖S.〗〖A.I.〗〖W.J.〗〖M. W.N.〗" // TODO: This seems wrong....
+                "〖S〗〖AI〗〖WJ〗〖MWN〗"
             },{
                 "//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]",
                 "〖und = «any other»〗"

@@ -45,7 +45,11 @@ import org.unicode.cldr.web.VettingViewerQueue.LoadingPolicy;
 @Tag(name = "voting", description = "APIs for voting")
 public class Summary {
 
-    private static final int AUTO_SNAP_HOUR_OF_DAY = 1; // 1 am
+    /**
+     * When to start a daily automatic snapshot
+     */
+    private static final int AUTO_SNAP_HOUR_OF_DAY = 1;
+    private static final int AUTO_SNAP_MINUTE_OF_HOUR = 11; // 1:11 am
     private static final int AUTO_SNAP_MINIMUM_START_MINUTES = 3;
     private static final String AUTO_SNAP_TIME_ZONE = "America/Los_Angeles";
     private static ScheduledFuture<?> autoSnapshotFuture = null;
@@ -57,6 +61,11 @@ public class Summary {
      * for manual summaries, and may be convenient for debugging.
      */
     private static final long AUTO_SNAP_SLEEP_SECONDS = 20;
+
+    /**
+     * An automatic snapshot should not take this long; bail out if it does.
+     */
+    private static final long AUTO_SNAP_MAX_DURATION_MINUTES = 30;
 
     /**
      * jsonb enables converting an object to a json string,
@@ -266,31 +275,34 @@ public class Summary {
     }
 
     private static Calendar getNextSnap() {
-        final Calendar when = Calendar.getInstance(TimeZone.getTimeZone(AUTO_SNAP_TIME_ZONE));
-        if (when.get(Calendar.HOUR_OF_DAY) < AUTO_SNAP_HOUR_OF_DAY) {
-            return scheduleToStartToday(when);
+        final Calendar now = Calendar.getInstance(TimeZone.getTimeZone(AUTO_SNAP_TIME_ZONE));
+        final Calendar today = scheduleToStartToday();
+        if (now.compareTo(today) < 0) {
+            return today;
         } else {
-            return scheduleToStartTomorrow(when);
+            return scheduleToStartTomorrow();
         }
     }
 
-    private static Calendar scheduleToStartTomorrow(Calendar when) {
+    private static Calendar scheduleToStartTomorrow() {
+        final Calendar when = Calendar.getInstance(TimeZone.getTimeZone(AUTO_SNAP_TIME_ZONE));
         when.add(Calendar.DAY_OF_YEAR, 1);
         when.set(Calendar.HOUR_OF_DAY, AUTO_SNAP_HOUR_OF_DAY);
-        when.set(Calendar.MINUTE, 0);
+        when.set(Calendar.MINUTE, AUTO_SNAP_MINUTE_OF_HOUR);
         when.set(Calendar.SECOND, 0);
         when.set(Calendar.MILLISECOND, 0);
         return when;
     }
 
-    private static Calendar scheduleToStartToday(Calendar when) {
+    private static Calendar scheduleToStartToday() {
+        final Calendar when = Calendar.getInstance(TimeZone.getTimeZone(AUTO_SNAP_TIME_ZONE));
         when.set(Calendar.HOUR_OF_DAY, AUTO_SNAP_HOUR_OF_DAY);
-        when.set(Calendar.MINUTE, 0);
+        when.set(Calendar.MINUTE, AUTO_SNAP_MINUTE_OF_HOUR);
         when.set(Calendar.SECOND, 0);
         when.set(Calendar.MILLISECOND, 0);
         // Make sure the server has at least a few minutes to finish starting up before starting a snapshot
         if (getMinutesUntil(when) < AUTO_SNAP_MINIMUM_START_MINUTES) {
-            when.set(Calendar.MINUTE, AUTO_SNAP_MINIMUM_START_MINUTES);
+            when.add(Calendar.MINUTE, AUTO_SNAP_MINIMUM_START_MINUTES);
         }
         return when;
     }
@@ -324,6 +336,7 @@ public class Summary {
         log("Automatic Summary Snapshot, starting");
 
         boolean finished = false;
+        final long startMillis = System.currentTimeMillis();
         do {
             sr = getSummaryResponse(vvq, qmi, usersOrg, loadingPolicy);
             loadingPolicy = LoadingPolicy.NOSTART;
@@ -331,11 +344,7 @@ public class Summary {
             log("Automatic Summary Snapshot, got response " + count + "; percent = " + sr.percent);
             if (sr.status == VettingViewerQueue.Status.WAITING
                 || sr.status == VettingViewerQueue.Status.PROCESSING) {
-                try {
-                    Thread.sleep(AUTO_SNAP_SLEEP_SECONDS * 1000L);
-                } catch (InterruptedException e) {
-                    finished = true;
-                }
+                finished = autoSnapTooLong(startMillis) || autoSnapSleepCatchInterruption();
             } else {
                 finished = true;
             }
@@ -345,6 +354,25 @@ public class Summary {
             log("Automatic Summary Snapshot, saved " + sr.snapshotId);
         }
         log("Automatic Summary Snapshot, finished; status = " + sr.status);
+    }
+
+    private boolean autoSnapTooLong(long startMillis) {
+        final long elapsedMillis = System.currentTimeMillis() - startMillis;
+        final long elapsedMinutes = TimeUnit.MINUTES.convert(elapsedMillis, TimeUnit.MILLISECONDS);
+        if (elapsedMinutes > AUTO_SNAP_MAX_DURATION_MINUTES) {
+            log("Automatic Summary Snapshot timed out, stopping");
+            return true;
+        }
+        return false;
+    }
+
+    private boolean autoSnapSleepCatchInterruption() {
+        try {
+            Thread.sleep(AUTO_SNAP_SLEEP_SECONDS * 1000L);
+        } catch (InterruptedException e) {
+            return true;
+        }
+        return false;
     }
 
     /**

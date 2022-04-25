@@ -175,6 +175,7 @@ public class VettingViewerQueue {
 
             @Override
             public void done() {
+                // note: this method is possibly never called
                 progress.update("Done!");
             }
 
@@ -353,6 +354,7 @@ public class VettingViewerQueue {
         if (args.loadingPolicy != LoadingPolicy.FORCESTOP) {
             VVOutput res = entry.output.get(args.usersOrg);
             if (res != null) {
+                setPercent(100);
                 results.status = Status.READY;
                 results.output.append(res.output);
                 stop(entry);
@@ -434,7 +436,6 @@ public class VettingViewerQueue {
     }
 
     private void stop(QueueEntry entry) {
-        setPercent(0);
         Task t = entry.currentTask;
         if (t != null) {
             if (t.myThread.isAlive() && !t.stop) {

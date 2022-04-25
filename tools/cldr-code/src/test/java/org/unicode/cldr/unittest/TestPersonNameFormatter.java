@@ -100,38 +100,6 @@ public class TestPersonNameFormatter extends TestFmwk{
         checkFormatterData(personNameFormatter);
     }
 
-public void TestLiteralCollapsing1() {
-    ImmutableMap<ULocale, Order> localeToOrder = ImmutableMap.of(); // don't worry about using the order from the locale right now.
-
-    NamePatternData namePatternData2 = new NamePatternData(
-        localeToOrder,
-        "order=givenFirst",     "⓵{prefix}⓶{given}⓷{given2}⓸{surname}⓹{surname2}⓺{suffix}⓻",
-        "order=surnameFirst",   "⓵{surname-allCaps}⓶{surname2}⓷{prefix}⓸{given}⓹{given2}⓺{suffix}⓻",
-        "order=sorting",        "⓵{surname}⓶{surname2},⓷{prefix}⓸{given}⓹{given2}⓺{suffix}⓻");
-
-    PersonNameFormatter personNameFormatter2 = new PersonNameFormatter(namePatternData2, FALLBACK_FORMATTER);
-
-    check(personNameFormatter2, sampleNameObject5, "order=givenFirst", "Mary⓷⓸Smith"); // reasonable, given no break
-    check(personNameFormatter2, sampleNameObject5, "order=surnameFirst", "⓵SMITH⓶⓸Mary"); // reasonable, given no break
-    check(personNameFormatter2, sampleNameObject5, "order=sorting", "⓵Smith⓶⓸Mary"); //  TODO RICH should be something like ⓵Smith,⓸Mary
-}
-
-public void TestLiteralCollapsing2() {
-    ImmutableMap<ULocale, Order> localeToOrder = ImmutableMap.of(); // don't worry about using the order from the locale right now.
-
-    NamePatternData namePatternData2 = new NamePatternData(
-        localeToOrder,
-        "order=givenFirst",     "⓵{prefix}𝟙 ⓶{given}𝟚 ⓷{given2}𝟛 ⓸{surname}𝟜 ⓹{surname2}𝟝 ⓺{suffix}𝟞",
-        "order=surnameFirst",   "⓵{surname-allCaps}𝟙 ⓶{surname2}𝟚 𝟛{prefix}𝟛 ⓸{given}𝟜 ⓹{given2}𝟝 ⓺{suffix}𝟞",
-        "order=sorting",        "⓵{surname}𝟙 ⓶{surname2}, 𝟛{prefix}𝟛 ⓸{given}𝟜 ⓹{given2}𝟝 ⓺{suffix}𝟞");
-
-    PersonNameFormatter personNameFormatter2 = new PersonNameFormatter(namePatternData2, FALLBACK_FORMATTER);
-
-    check(personNameFormatter2, sampleNameObject5, "order=givenFirst", "Mary𝟚 ⓸Smith"); // reasonable
-    check(personNameFormatter2, sampleNameObject5, "order=surnameFirst", "⓵SMITH𝟙 ⓸Mary"); // reasonable
-    check(personNameFormatter2, sampleNameObject5, "order=sorting", "⓵Smith𝟙 ⓸Mary"); //  TODO RICH should be something like ⓵Smith, ⓸Mary
-}
-
     String HACK_INITIAL_FORMATTER = "{0}॰"; // use "unusual" period to mark when we are using fallbacks
 
     public void TestNamePatternParserThrowsWhenInvalidPatterns() {
@@ -303,7 +271,44 @@ public void TestLiteralCollapsing2() {
             "length=short; style=formal; usage=addressing",
             "John2 4Smith"
             );
+    }
 
+    public void TestLiteralTextElisionNoSpaces() {
+        ImmutableMap<ULocale, Order> localeToOrder = ImmutableMap.of(); // don't worry about using the order from the locale right now.
+
+        NamePatternData namePatternData2 = new NamePatternData(
+            localeToOrder,
+            "order=givenFirst",     "¹{prefix}₁²{given}₂³{given2}₃⁴{surname}₄⁵{surname2}₅⁶{suffix}₆",
+            "order=surnameFirst",   "¹{surname-allCaps}₁²{surname2}₂³{prefix}₃⁴{given}₄⁵{given2}₅⁶{suffix}₆",
+            "order=sorting",        "¹{surname}₁²{surname2},³{prefix}₃⁴{given}₄⁵{given2}₅⁶{suffix}₆");
+
+        PersonNameFormatter personNameFormatter2 = new PersonNameFormatter(namePatternData2, FALLBACK_FORMATTER);
+
+        check(personNameFormatter2, sampleNameObject5, "order=givenFirst", "Mary₂³₃⁴Smith"); // reasonable, given no break
+        check(personNameFormatter2, sampleNameObject5, "order=surnameFirst", "¹SMITH₁²₃⁴Mary"); // reasonable, given no break
+        check(personNameFormatter2, sampleNameObject5, "order=sorting", "¹Smith₁²₃⁴Mary"); //  TODO RICH should be ¹Smith,⁴Mary
+    }
+
+    public void TestLiteralTextElisionSpaces() {
+        ImmutableMap<ULocale, Order> localeToOrder = ImmutableMap.of(); // don't worry about using the order from the locale right now.
+
+        NamePatternData namePatternData2 = new NamePatternData(
+            localeToOrder,
+            "order=givenFirst",     "¹{prefix}₁ ²{given}₂ ³{given2}₃ ⁴{surname}₄ ⁵{surname2}₅ ⁶{suffix}₆",
+            "order=surnameFirst",   "¹{surname-allCaps}₁ ²{surname2}₂ ₃{prefix}₃ ⁴{given}₄ ⁵{given2}₅ ⁶{suffix}₆",
+            "order=sorting",        "¹{surname}₁ ²{surname2}, ₃{prefix}₃ ⁴{given}₄ ⁵{given2}₅ ⁶{suffix}₆");
+
+        PersonNameFormatter personNameFormatter2 = new PersonNameFormatter(namePatternData2, FALLBACK_FORMATTER);
+
+        check(personNameFormatter2, sampleNameObject5, "order=givenFirst", "Mary₂ ⁴Smith"); // reasonable
+        check(personNameFormatter2, sampleNameObject5, "order=surnameFirst", "¹SMITH₁ ⁴Mary"); // reasonable
+        check(personNameFormatter2, sampleNameObject5, "order=sorting", "¹Smith₁ ⁴Mary"); //  TODO RICH should be ¹Smith, ⁴Mary
+
+        // TODO Rich: The behavior is not quite what I describe in the guide.
+        // Example: ²{given}₂ means that ² and ₂ "belong to" Mary, so the results should have ²Mary₂.
+        //  But the 2's are being removed except for very leading/trailing fields.
+        //  So we need to decide whether the code needs to change or the description does.
+        //  Same for no spaces: we should decide what the desired behavior is.
     }
 
     private <T> Set<T> removeFirst(Set<T> all) {

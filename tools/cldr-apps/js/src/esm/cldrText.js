@@ -7,7 +7,7 @@ const strings = {
   git_commit_url_prefix: "https://github.com/unicode-org/cldr/commit/",
   git_compare_url_prefix: "https://github.com/unicode-org/cldr/compare/",
   git_compare_url_main: "main",
-  git_compare_url_release: "release-41",
+  git_compare_url_release: "release-${0}",
 
   loading: "loading",
   loading2: "loading.",

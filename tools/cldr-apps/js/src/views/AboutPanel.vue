@@ -24,19 +24,15 @@
             </span>
             <span v-else-if="valueIsHash(v, k)">
               <!-- Looks like a Git hash, 6…40 hex chars. -->
-              <a class="aboutValue" v-bind:href="commitPrefix + v">
+              <a class="aboutValue" v-bind:href="makeCommitUrl(v)">
                 <i class="glyphicon glyphicon-cog" />{{ v }}
               </a>
               |
-              <a
-                class="aboutValue"
-                v-bind:href="comparePrefix + compareRelease + '...' + v"
+              <a class="aboutValue" v-bind:href="makeCompareReleaseUrl(v)"
                 >compare to release</a
               >
               |
-              <a
-                class="aboutValue"
-                v-bind:href="comparePrefix + v + '...' + compareMain"
+              <a class="aboutValue" v-bind:href="makeCompareMainUrl(v)"
                 >compare to main</a
               >
             </span>
@@ -66,17 +62,35 @@ export default {
   },
 
   created() {
-    this.commitPrefix = cldrText.get("git_commit_url_prefix");
-    this.comparePrefix = cldrText.get("git_compare_url_prefix");
-    this.compareMain = cldrText.get("git_compare_url_main");
-    this.compareRelease = cldrText.get("git_compare_url_release");
-
     fetch("api/about")
       .then((r) => r.json())
-      .then((data) => (this.aboutData = data));
+      .then(this.setData);
   },
 
   methods: {
+    setData(data) {
+      this.aboutData = data;
+      const oldVersion = data.OLD_VERSION || "0";
+      this.commitPrefix = cldrText.get("git_commit_url_prefix");
+      this.comparePrefix = cldrText.get("git_compare_url_prefix");
+      this.compareMain = cldrText.get("git_compare_url_main");
+      this.compareRelease = cldrText.sub("git_compare_url_release", [
+        oldVersion,
+      ]);
+    },
+
+    makeCommitUrl(value) {
+      return this.commitPrefix + value;
+    },
+
+    makeCompareMainUrl(value) {
+      return this.comparePrefix + value + "..." + this.compareMain;
+    },
+
+    makeCompareReleaseUrl(value) {
+      return this.comparePrefix + this.compareRelease + "..." + value;
+    },
+
     valueIsHash(value, key) {
       if (key.includes("HASH") && /^[a-fA-F0-9]{6,40}$/.test(value)) {
         return true;

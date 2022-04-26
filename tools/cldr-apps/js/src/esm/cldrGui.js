@@ -542,7 +542,7 @@ function dashboardIsVisible() {
 
 function updateDashboardRow(json) {
   if (dashboardVisible) {
-    dashboardWidgetWrapper?.updateRow(json);
+    dashboardWidgetWrapper?.updatePath(json);
   }
 }
 

@@ -535,6 +535,9 @@ function oneLessPendingVote() {
   if (CLDR_VOTE_DEBUG) {
     console.log("oneLessPendingVote: --pendingVoteCount = " + pendingVoteCount);
   }
+  if (pendingVoteCount == 0) {
+    cldrSurvey.expediteStatusUpdate();
+  }
 }
 
 /**

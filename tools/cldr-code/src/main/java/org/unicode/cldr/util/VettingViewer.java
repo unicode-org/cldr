@@ -446,9 +446,29 @@ public class VettingViewer<T> {
             this.specificSinglePath = xpath;
         }
 
-        public void setUserAndOrganization(int id, Organization usersOrg) {
+        public void setUserAndOrganization(int userId, Organization organization) {
             this.userId = userId;
             this.organization = organization;
+        }
+
+        public CLDRFile getBaselineFile() {
+            return baselineFile;
+        }
+
+        public CLDRFile getSourceFile() {
+            return sourceFile;
+        }
+
+        public int getUserId() {
+            return userId;
+        }
+
+        public CLDRLocale getLocale() {
+            return locale;
+        }
+
+        public boolean isOnlyForSinglePath() {
+            return specificSinglePath != null;
         }
     }
 

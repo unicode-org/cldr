@@ -468,6 +468,8 @@
 
 //supplementalData/timeData/hours[@allowed="%A"][@preferred="%A"]/_%E			; Supplemental ; WeekData ; hours-$2-$3 ; $1 ; HIDE
 
+//supplementalData/personNamesDefaults/nameOrderLocalesDefault[@order="%A"]			; Supplemental ; Person Name Formats ; NameOrder ; $1 ; HIDE
+
 //supplementalData/measurementData/measurementSystem[@type="%A"]/_territories			; Supplemental ; Measurement ; default ; $1 ; HIDE
 //supplementalData/measurementData/measurementSystem[@type="%A"][@category="%A"]/_territories			; Supplemental ; Measurement ; $2 ; $1 ; HIDE
 //supplementalData/measurementData/paperSize[@type="%A"]/_territories			; Supplemental ; Measurement ; Paper ; $1 ; HIDE

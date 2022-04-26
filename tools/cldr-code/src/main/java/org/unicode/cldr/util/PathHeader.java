@@ -1860,7 +1860,7 @@ public class PathHeader implements Comparable<PathHeader> {
                     // personName attribute values: each group in desired
                     // sort order, but groups from least important to most
                     final List<String> pnAttrValues = Arrays.asList(
-                        "addressing", "referring", "monogram", // usage values
+                        "referring", "addressing", "monogram", // usage values
                         "long", "medium", "short"); // length values
 
                     if (source.equals("NameOrder")) {

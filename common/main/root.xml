@@ -5372,24 +5372,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<nameOrderLocales order="surnameFirst">ja zh ko hu</nameOrderLocales>
 		<initialPattern type="initial">{0}.</initialPattern>
 		<initialPattern type="initialSequence">{0} {1}</initialPattern>
-		<personName length="long" usage="addressing" style="formal" order="givenFirst">
-			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='givenFirst']"/>
-		</personName>
-		<personName length="long" usage="addressing" style="formal" order="surnameFirst">
-			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='surnameFirst']"/>
-		</personName>
-		<personName length="long" usage="addressing" style="formal" order="sorting">
-			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='sorting']"/>
-		</personName>
-		<personName length="long" usage="addressing" style="informal" order="givenFirst">
-			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='givenFirst']"/>
-		</personName>
-		<personName length="long" usage="addressing" style="informal" order="surnameFirst">
-			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='surnameFirst']"/>
-		</personName>
-		<personName length="long" usage="addressing" style="informal" order="sorting">
-			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='sorting']"/>
-		</personName>
+
 		<personName length="long" usage="referring" style="formal" order="givenFirst">
 			<namePattern>{prefix} {given} {given2} {surname} {surname2} {suffix}</namePattern>
 		</personName>
@@ -5406,6 +5389,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='surnameFirst']"/>
 		</personName>
 		<personName length="long" usage="referring" style="informal" order="sorting">
+			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='sorting']"/>
+		</personName>
+		<personName length="long" usage="addressing" style="formal" order="givenFirst">
+			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='givenFirst']"/>
+		</personName>
+		<personName length="long" usage="addressing" style="formal" order="surnameFirst">
+			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='surnameFirst']"/>
+		</personName>
+		<personName length="long" usage="addressing" style="formal" order="sorting">
+			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='sorting']"/>
+		</personName>
+		<personName length="long" usage="addressing" style="informal" order="givenFirst">
+			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='givenFirst']"/>
+		</personName>
+		<personName length="long" usage="addressing" style="informal" order="surnameFirst">
+			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='surnameFirst']"/>
+		</personName>
+		<personName length="long" usage="addressing" style="informal" order="sorting">
 			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='sorting']"/>
 		</personName>
 		<personName length="long" usage="monogram" style="formal" order="givenFirst">
@@ -5426,24 +5427,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<personName length="long" usage="monogram" style="informal" order="sorting">
 			<alias source="locale" path="../personName[@length='long'][@usage='monogram'][@style='formal'][@order='sorting']"/>
 		</personName>
-		<personName length="medium" usage="addressing" style="formal" order="givenFirst">
-			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='givenFirst']"/>
-		</personName>
-		<personName length="medium" usage="addressing" style="formal" order="surnameFirst">
-			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='surnameFirst']"/>
-		</personName>
-		<personName length="medium" usage="addressing" style="formal" order="sorting">
-			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='sorting']"/>
-		</personName>
-		<personName length="medium" usage="addressing" style="informal" order="givenFirst">
-			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='givenFirst']"/>
-		</personName>
-		<personName length="medium" usage="addressing" style="informal" order="surnameFirst">
-			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='surnameFirst']"/>
-		</personName>
-		<personName length="medium" usage="addressing" style="informal" order="sorting">
-			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='sorting']"/>
-		</personName>
 		<personName length="medium" usage="referring" style="formal" order="givenFirst">
 			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='givenFirst']"/>
 		</personName>
@@ -5460,6 +5443,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='surnameFirst']"/>
 		</personName>
 		<personName length="medium" usage="referring" style="informal" order="sorting">
+			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='sorting']"/>
+		</personName>
+		<personName length="medium" usage="addressing" style="formal" order="givenFirst">
+			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='givenFirst']"/>
+		</personName>
+		<personName length="medium" usage="addressing" style="formal" order="surnameFirst">
+			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='surnameFirst']"/>
+		</personName>
+		<personName length="medium" usage="addressing" style="formal" order="sorting">
+			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='sorting']"/>
+		</personName>
+		<personName length="medium" usage="addressing" style="informal" order="givenFirst">
+			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='givenFirst']"/>
+		</personName>
+		<personName length="medium" usage="addressing" style="informal" order="surnameFirst">
+			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='surnameFirst']"/>
+		</personName>
+		<personName length="medium" usage="addressing" style="informal" order="sorting">
 			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='sorting']"/>
 		</personName>
 		<personName length="medium" usage="monogram" style="formal" order="givenFirst">
@@ -5480,24 +5481,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<personName length="medium" usage="monogram" style="informal" order="sorting">
 			<alias source="locale" path="../personName[@length='long'][@usage='monogram'][@style='formal'][@order='sorting']"/>
 		</personName>
-		<personName length="short" usage="addressing" style="formal" order="givenFirst">
-			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='givenFirst']"/>
-		</personName>
-		<personName length="short" usage="addressing" style="formal" order="surnameFirst">
-			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='surnameFirst']"/>
-		</personName>
-		<personName length="short" usage="addressing" style="formal" order="sorting">
-			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='sorting']"/>
-		</personName>
-		<personName length="short" usage="addressing" style="informal" order="givenFirst">
-			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='givenFirst']"/>
-		</personName>
-		<personName length="short" usage="addressing" style="informal" order="surnameFirst">
-			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='surnameFirst']"/>
-		</personName>
-		<personName length="short" usage="addressing" style="informal" order="sorting">
-			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='sorting']"/>
-		</personName>
 		<personName length="short" usage="referring" style="formal" order="givenFirst">
 			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='givenFirst']"/>
 		</personName>
@@ -5514,6 +5497,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='surnameFirst']"/>
 		</personName>
 		<personName length="short" usage="referring" style="informal" order="sorting">
+			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='sorting']"/>
+		</personName>
+		<personName length="short" usage="addressing" style="formal" order="givenFirst">
+			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='givenFirst']"/>
+		</personName>
+		<personName length="short" usage="addressing" style="formal" order="surnameFirst">
+			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='surnameFirst']"/>
+		</personName>
+		<personName length="short" usage="addressing" style="formal" order="sorting">
+			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='sorting']"/>
+		</personName>
+		<personName length="short" usage="addressing" style="informal" order="givenFirst">
+			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='givenFirst']"/>
+		</personName>
+		<personName length="short" usage="addressing" style="informal" order="surnameFirst">
+			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='surnameFirst']"/>
+		</personName>
+		<personName length="short" usage="addressing" style="informal" order="sorting">
 			<alias source="locale" path="../personName[@length='long'][@usage='referring'][@style='formal'][@order='sorting']"/>
 		</personName>
 		<personName length="short" usage="monogram" style="formal" order="givenFirst">

@@ -1001,8 +1001,8 @@ public class ShowLocaleCoverage {
                     + "<th style='text-align:left'>" + "Locales" + "</th>"
                     + "</tr>"
                 );
-            int totalCount = 0;
-            int totalLocaleCount = 0;
+            long totalCount = 0;
+            long totalLocaleCount = 0;
             for (Level level : Lists.reverse(Arrays.asList(Level.values()))) {
                 final long count = computedLevels.get(level);
                 final long localesCount = computedSublocaleLevels.get(level);

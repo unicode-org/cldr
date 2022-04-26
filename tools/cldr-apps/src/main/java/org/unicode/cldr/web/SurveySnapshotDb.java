@@ -35,9 +35,9 @@ public class SurveySnapshotDb implements SurveySnapshot {
         }
         String data = null;
         String sql = "SELECT data FROM " + DBUtils.Table.SUMMARY_SNAPSHOTS
-                + " WHERE stamp='" + snapshotId + "'";
+                + " WHERE stamp=?";
         try (Connection conn = DBUtils.getInstance().getAConnection();
-             PreparedStatement ps = DBUtils.prepareStatement(conn, "snapGet", sql)) {
+            PreparedStatement ps = DBUtils.prepareStatementWithArgsFRO(conn, sql, snapshotId)) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 data = rs.getString(1);

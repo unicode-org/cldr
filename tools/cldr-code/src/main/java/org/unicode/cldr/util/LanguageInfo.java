@@ -80,7 +80,7 @@ public class LanguageInfo {
                 if (ostatus != OfficialStatus.unknown) {
                     foo.statusToRegions.put(ostatus, territory);
                 }
-                foo.literatePopulation += data.getLiteratePopulation();
+                foo.literatePopulation += data.getLiteratePopulation();  // TODO: double to int
             }
         }
         // set cldr directory status

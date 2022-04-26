@@ -179,20 +179,18 @@ public class SurveyAjax extends HttpServlet {
         PrintWriter out = response.getWriter();
         String what = request.getParameter(REQ_WHAT);
         String sess = request.getParameter(SurveyMain.QUERY_SESSION);
-        String loc = request.getParameter(SurveyMain.QUERY_LOCALE);
+        String rawloc = request.getParameter(SurveyMain.QUERY_LOCALE);
         String xpath = request.getParameter(SurveyForum.F_XPATH);
         String vhash = request.getParameter("vhash");
         String fieldHash = request.getParameter(SurveyMain.QUERY_FIELDHASH);
         CookieSession mySession = null;
 
-        CLDRLocale l = null;
-        if (sm != null && SurveyMain.isSetup && loc != null && !loc.isEmpty()) {
-            l = validateLocale(out, loc, sess);
-            if (l == null) {
-                return; // error was already thrown.
-            }
-            loc = l.toString(); // normalized
+        CLDRLocale l = validateLocale(out, rawloc, sess); // will send error
+        if (l == null && (rawloc != null && !rawloc.isEmpty())) {
+            return; // validateLocale has already sent an error to the user
         }
+        // Always sanitize 'loc'. Do not pass raw to user.
+        final String loc = (l == null)?null:l.toString();
         try {
             if (sm == null) {
                 sendNoSurveyMain(out);
@@ -1076,6 +1074,9 @@ public class SurveyAjax extends HttpServlet {
      * @throws IOException
      */
     public static CLDRLocale validateLocale(PrintWriter out, String loc, String sess) throws IOException {
+        if (loc == null || loc.isEmpty()) {
+            return null;
+        }
         CLDRLocale ret = null;
         if (CookieSession.sm == null || SurveyMain.isSetup == false) {
             sendNoSurveyMain(out);

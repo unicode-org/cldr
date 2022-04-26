@@ -76,10 +76,11 @@ const statusActionTable = {
 /**
  * How often to fetch updates. Default 15s.
  * Used only for delay in calling updateStatus.
- * May (theoretically, if it were visible) be changed by js written by SurveyMain.showOfflinePage, etc.
  * @property timerSpeed
  */
 let timerSpeed = 15000; // 15 seconds
+let fastTimerSpeed = 3000; // 3 seconds
+let statusTimeout = null;
 
 let overridedir = null;
 
@@ -452,6 +453,7 @@ function updateStatusBox(json) {
  * This is called periodically to fetch latest ST status
  */
 function updateStatus() {
+  statusTimeout = null;
   if (cldrStatus.isDisconnected()) {
     return;
   }
@@ -562,7 +564,7 @@ function updateStatusLoadHandler(json) {
   if (wasBusted == false && json.status.isSetup && loadOnOk != null) {
     window.location.replace(loadOnOk);
   } else {
-    setTimeout(updateStatus, timerSpeed);
+    statusTimeout = setTimeout(updateStatus, timerSpeed);
   }
 }
 
@@ -572,6 +574,13 @@ function updateStatusErrHandler(err) {
     err: err,
     disconnected: true,
   });
+}
+
+function expediteStatusUpdate() {
+  if (statusTimeout) {
+    clearTimeout(statusTimeout);
+  }
+  statusTimeout = setTimeout(updateStatus, fastTimerSpeed);
 }
 
 /**
@@ -929,6 +938,7 @@ export {
   cloneAnon,
   cloneLocalizeAnon,
   createGravatar,
+  expediteStatusUpdate,
   findItemByValue,
   getDidUnbust,
   getTagChildren,

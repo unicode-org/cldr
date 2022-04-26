@@ -28,6 +28,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONString;
+import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
@@ -499,7 +500,11 @@ public class UserRegistry {
         }
 
         public boolean canImportOldVotes() {
-            return UserRegistry.userIsVetter(this) && (CLDRConfig.getInstance().getPhase() == Phase.SUBMISSION);
+            return canImportOldVotes(CLDRConfig.getInstance().getPhase());
+        }
+
+        public boolean canImportOldVotes(CheckCLDR.Phase inPhase) {
+            return UserRegistry.userIsVetter(this) && (inPhase == Phase.SUBMISSION);
         }
 
         @Schema( description="how much this user’s vote counts for")
@@ -982,6 +987,22 @@ public class UserRegistry {
         u.org = "NONE";
         u.password = null;
         u.locales = "";
+        return u;
+    }
+
+    /**
+     * For test use only. Does not register in DB.
+     * @param id
+     * @param o
+     * @param l
+     * @return
+     */
+    UserRegistry.User getTestUser(int id, Organization o, VoteResolver.Level l) {
+        User u = new User(); // Not: User(id) because that makes a DB call
+        u.org = o.name();
+        u.userlevel = l.getSTLevel();
+        u.name = o.name() + "-" + u.getLevel().name();
+        u.email = u.name + "-" + u.id + "@" + u.org + ".example.com";
         return u;
     }
 
@@ -1673,8 +1694,13 @@ public class UserRegistry {
     }
 
     static final boolean userCanSubmit(User u) {
-        if (SurveyMain.isPhaseReadonly())
+        return userCanSubmit(u, SurveyMain.phase());
+    }
+
+    static final boolean userCanSubmit(User u, SurveyMain.Phase phase) {
+        if (phase == SurveyMain.Phase.READONLY) {
             return false;
+        }
         return ((u != null) && userIsStreet(u));
     }
 

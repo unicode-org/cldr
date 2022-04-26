@@ -596,6 +596,7 @@ public class TestDtdData extends TestFmwk {
                 || elementName.equals("deriveComponent") && (attribute.equals("feature") || attribute.equals("structure"))
                 || elementName.equals("grammaticalDerivations") && attribute.equals("locales")
                 || elementName.equals("deriveCompound") && (attribute.equals("feature")|| attribute.equals("structure"))
+                || (elementName.equals("nameOrderLocalesDefault") && attribute.equals("order"))
                 ;
 
         case keyboard:

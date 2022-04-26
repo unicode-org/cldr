@@ -5378,6 +5378,11 @@ XXX Code for transations where no currency is involved
 		<parentLocale parent="zh_Hant_HK" locales="zh_Hant_MO"/>
 	</parentLocales>
 
+	<personNamesDefaults>
+		<nameOrderLocalesDefault order="givenFirst">en und</nameOrderLocalesDefault>
+		<nameOrderLocalesDefault order="surnameFirst">ja zh ko hu</nameOrderLocalesDefault>
+	</personNamesDefaults>
+
 	<references>
 		<reference type="R1000" uri="https://www.cia.gov/cia/publications/factbook/geos/aa.html">Dutch official</reference>
 		<reference type="R1001" uri="http://www.migrationinformation.org/Feature/display.cfm?ID=72">At most 6% are not fluent in English</reference>

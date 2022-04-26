@@ -9138,24 +9138,6 @@ annotations.
 		<nameOrderLocales order="surnameFirst">ja zh ko</nameOrderLocales>
 		<initialPattern type="initial">{0}.</initialPattern>
 		<initialPattern type="initialSequence">{0} {1}</initialPattern>
-		<personName length="long" usage="addressing" style="formal" order="givenFirst">
-			<namePattern>{prefix} {surname}</namePattern>
-		</personName>
-		<personName length="long" usage="addressing" style="formal" order="surnameFirst">
-			<namePattern>{prefix} {surname}</namePattern>
-		</personName>
-		<personName length="long" usage="addressing" style="formal" order="sorting">
-			<namePattern>{surname}, {given} {given2} {suffix}</namePattern>
-		</personName>
-		<personName length="long" usage="addressing" style="informal" order="givenFirst">
-			<namePattern>{given-informal}</namePattern>
-		</personName>
-		<personName length="long" usage="addressing" style="informal" order="surnameFirst">
-			<namePattern>{given-informal}</namePattern>
-		</personName>
-		<personName length="long" usage="addressing" style="informal" order="sorting">
-			<namePattern>{surname}, {given-informal}</namePattern>
-		</personName>
 		<personName length="long" usage="referring" style="formal" order="givenFirst">
 			<namePattern>{given} {given2} {surname} {suffix}</namePattern>
 		</personName>
@@ -9172,6 +9154,24 @@ annotations.
 			<namePattern>{surname} {given-informal}</namePattern>
 		</personName>
 		<personName length="long" usage="referring" style="informal" order="sorting">
+			<namePattern>{surname}, {given-informal}</namePattern>
+		</personName>
+		<personName length="long" usage="addressing" style="formal" order="givenFirst">
+			<namePattern>{prefix} {surname}</namePattern>
+		</personName>
+		<personName length="long" usage="addressing" style="formal" order="surnameFirst">
+			<namePattern>{prefix} {surname}</namePattern>
+		</personName>
+		<personName length="long" usage="addressing" style="formal" order="sorting">
+			<namePattern>{surname}, {given} {given2} {suffix}</namePattern>
+		</personName>
+		<personName length="long" usage="addressing" style="informal" order="givenFirst">
+			<namePattern>{given-informal}</namePattern>
+		</personName>
+		<personName length="long" usage="addressing" style="informal" order="surnameFirst">
+			<namePattern>{given-informal}</namePattern>
+		</personName>
+		<personName length="long" usage="addressing" style="informal" order="sorting">
 			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
 		<personName length="long" usage="monogram" style="formal" order="givenFirst">
@@ -9192,25 +9192,6 @@ annotations.
 		<personName length="long" usage="monogram" style="informal" order="sorting">
 			<namePattern>{surname-initial-allCaps}{given-informal-initial-allCaps}</namePattern>
 		</personName>
-
-		<personName length="medium" usage="addressing" style="formal" order="givenFirst">
-			<namePattern>{prefix} {surname}</namePattern>
-		</personName>
-		<personName length="medium" usage="addressing" style="formal" order="surnameFirst">
-			<namePattern>{prefix} {surname}</namePattern>
-		</personName>
-		<personName length="medium" usage="addressing" style="formal" order="sorting">
-			<namePattern>{surname}, {given} {given2-initial} {suffix}</namePattern>
-		</personName>
-		<personName length="medium" usage="addressing" style="informal" order="givenFirst">
-			<namePattern>{given-informal}</namePattern>
-		</personName>
-		<personName length="medium" usage="addressing" style="informal" order="surnameFirst">
-			<namePattern>{given-informal}</namePattern>
-		</personName>
-		<personName length="medium" usage="addressing" style="informal" order="sorting">
-			<namePattern>{surname}, {given-informal}</namePattern>
-		</personName>
 		<personName length="medium" usage="referring" style="formal" order="givenFirst">
 			<namePattern>{given} {given2-initial} {surname} {suffix}</namePattern>
 		</personName>
@@ -9227,6 +9208,24 @@ annotations.
 			<namePattern>{surname} {given-informal}</namePattern>
 		</personName>
 		<personName length="medium" usage="referring" style="informal" order="sorting">
+			<namePattern>{surname}, {given-informal}</namePattern>
+		</personName>
+		<personName length="medium" usage="addressing" style="formal" order="givenFirst">
+			<namePattern>{prefix} {surname}</namePattern>
+		</personName>
+		<personName length="medium" usage="addressing" style="formal" order="surnameFirst">
+			<namePattern>{prefix} {surname}</namePattern>
+		</personName>
+		<personName length="medium" usage="addressing" style="formal" order="sorting">
+			<namePattern>{surname}, {given} {given2-initial} {suffix}</namePattern>
+		</personName>
+		<personName length="medium" usage="addressing" style="informal" order="givenFirst">
+			<namePattern>{given-informal}</namePattern>
+		</personName>
+		<personName length="medium" usage="addressing" style="informal" order="surnameFirst">
+			<namePattern>{given-informal}</namePattern>
+		</personName>
+		<personName length="medium" usage="addressing" style="informal" order="sorting">
 			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
 		<personName length="medium" usage="monogram" style="formal" order="givenFirst">
@@ -9247,24 +9246,6 @@ annotations.
 		<personName length="medium" usage="monogram" style="informal" order="sorting">
 			<namePattern>{given-informal-initial-allCaps}</namePattern>
 		</personName>
-		<personName length="short" usage="addressing" style="formal" order="givenFirst">
-			<namePattern>{prefix} {surname}</namePattern>
-		</personName>
-		<personName length="short" usage="addressing" style="formal" order="surnameFirst">
-			<namePattern>{prefix} {surname}</namePattern>
-		</personName>
-		<personName length="short" usage="addressing" style="formal" order="sorting">
-			<namePattern>{surname}, {given-initial} {given2-initial}</namePattern>
-		</personName>
-		<personName length="short" usage="addressing" style="informal" order="givenFirst">
-			<namePattern>{given-informal}</namePattern>
-		</personName>
-		<personName length="short" usage="addressing" style="informal" order="surnameFirst">
-			<namePattern>{given-informal}</namePattern>
-		</personName>
-		<personName length="short" usage="addressing" style="informal" order="sorting">
-			<namePattern>{surname}, {given-informal}</namePattern>
-		</personName>
 		<personName length="short" usage="referring" style="formal" order="givenFirst">
 			<namePattern>{given-initial} {given2-initial} {surname}</namePattern>
 		</personName>
@@ -9281,6 +9262,24 @@ annotations.
 			<namePattern>{surname} {given-initial}</namePattern>
 		</personName>
 		<personName length="short" usage="referring" style="informal" order="sorting">
+			<namePattern>{surname}, {given-informal}</namePattern>
+		</personName>
+		<personName length="short" usage="addressing" style="formal" order="givenFirst">
+			<namePattern>{prefix} {surname}</namePattern>
+		</personName>
+		<personName length="short" usage="addressing" style="formal" order="surnameFirst">
+			<namePattern>{prefix} {surname}</namePattern>
+		</personName>
+		<personName length="short" usage="addressing" style="formal" order="sorting">
+			<namePattern>{surname}, {given-initial} {given2-initial}</namePattern>
+		</personName>
+		<personName length="short" usage="addressing" style="informal" order="givenFirst">
+			<namePattern>{given-informal}</namePattern>
+		</personName>
+		<personName length="short" usage="addressing" style="informal" order="surnameFirst">
+			<namePattern>{given-informal}</namePattern>
+		</personName>
+		<personName length="short" usage="addressing" style="informal" order="sorting">
 			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
 		<personName length="short" usage="monogram" style="formal" order="givenFirst">

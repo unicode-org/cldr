@@ -9,6 +9,7 @@ import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.VettingViewer.Choice;
+import org.unicode.cldr.util.VettingViewer.DashboardArgs;
 
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -53,7 +54,7 @@ public class Dashboard {
         }
 
         @Schema(description = "Notifications that the user has chosen to hide")
-        private HiddenNotifications hidden;
+        private HiddenNotifications hidden = null;
 
         /**
          * Get a map from each subtype (String from CheckCLDR.CheckStatus.Subtype)
@@ -62,6 +63,9 @@ public class Dashboard {
          * @return the map
          */
         public Map<String, PathValuePair[]> getHidden() {
+            if (hidden == null) {
+                return null;
+            }
             return hidden.getHidden();
         }
 
@@ -170,15 +174,21 @@ public class Dashboard {
      */
     public ReviewOutput get(CLDRLocale locale, UserRegistry.User user, Level coverageLevel, String xpath) {
         final SurveyMain sm = CookieSession.sm;
-        String loc = locale.getBaseName();
         Organization usersOrg = Organization.fromString(user.voterOrg());
         STFactory sourceFactory = sm.getSTFactory();
-        final Factory baselineFactory = CookieSession.sm.getDiskFactory();
         VettingViewer<Organization> vv = new VettingViewer<>(sm.getSupplementalDataInfo(), sourceFactory,
             new STUsersChoice(sm));
-
         EnumSet<VettingViewer.Choice> choiceSet = VettingViewer.getChoiceSetForOrg(usersOrg);
+        DashboardArgs args = new DashboardArgs(choiceSet, locale, coverageLevel);
+        args.setUserAndOrganization(user.id, usersOrg);
+        setFiles(args, locale, sourceFactory);
+        if (xpath != null) {
+            args.setXpath(xpath);
+        }
+        return reallyGet(vv, args);
+    }
 
+    private void setFiles(DashboardArgs args, CLDRLocale locale, STFactory sourceFactory) {
         /*
          * sourceFile provides the current winning values, taking into account recent votes.
          * baselineFile provides the "baseline" (a.k.a. "trunk") values, i.e., the values that
@@ -186,37 +196,32 @@ public class Dashboard {
          * are generally the last release values plus any changes that have been made by the
          * technical committee by committing directly to version control rather than voting.
          */
-        CLDRFile sourceFile = sourceFactory.make(loc);
-        CLDRFile baselineFile = baselineFactory.make(loc, true);
-        VettingViewer.DashboardArgs args = new VettingViewer.DashboardArgs(choiceSet, locale, coverageLevel);
-        args.setUserAndOrganization(user.id, usersOrg);
+        final String localeId = locale.getBaseName();
+        final CLDRFile sourceFile = sourceFactory.make(localeId);
+        final Factory baselineFactory = CookieSession.sm.getDiskFactory();
+        final CLDRFile baselineFile = baselineFactory.make(localeId, true);
         args.setFiles(sourceFile, baselineFile);
-        if (xpath != null) {
-            args.setXpath(xpath);
-        }
+    }
+
+    private ReviewOutput reallyGet(VettingViewer<Organization> vv, DashboardArgs args) {
         VettingViewer<Organization>.DashboardData dd;
         dd = vv.generateDashboard(args);
-        return reallyGet(sourceFile, baselineFile, dd, locale, user.id);
+
+        ReviewOutput reviewOutput = new ReviewOutput();
+
+        addNotificationEntries(args, dd.sorted, reviewOutput);
+
+        if (!args.isOnlyForSinglePath()) {
+            final String localeId = args.getLocale().toString();
+            reviewOutput.hidden = new ReviewHide(args.getUserId(), localeId).get();
+            reviewOutput.voterProgress = dd.voterProgress;
+        }
+        return reviewOutput;
     }
 
-    private ReviewOutput reallyGet(CLDRFile sourceFile, CLDRFile baselineFile,
-        VettingViewer<Organization>.DashboardData dd,
-        CLDRLocale locale, int userId) {
-
-        ReviewOutput reviewInfo = new ReviewOutput();
-
-        addNotificationEntries(sourceFile, baselineFile, dd.sorted, reviewInfo);
-
-        reviewInfo.hidden = new ReviewHide(userId, locale.toString()).get();
-
-        reviewInfo.voterProgress = dd.voterProgress;
-
-        return reviewInfo;
-    }
-
-    private void addNotificationEntries(CLDRFile sourceFile, CLDRFile baselineFile,
+    private void addNotificationEntries(DashboardArgs args,
         Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> sorted,
-        ReviewOutput reviewInfo) {
+        ReviewOutput reviewOutput) {
         Relation<Row.R4<Choice, SectionId, PageId, String>, VettingViewer<Organization>.WritingInfo> notificationsList = getNotificationsList(sorted);
 
         ReviewNotification notification = null;
@@ -226,9 +231,9 @@ public class Dashboard {
 
         for (Entry<R4<Choice, SectionId, PageId, String>, Set<VettingViewer<Organization>.WritingInfo>> entry : notificationsList.keyValuesSet()) {
 
-            notification = getNextNotification(reviewInfo, notification, entry);
+            notification = getNextNotification(reviewOutput, notification, entry);
 
-            addNotificationGroup(sourceFile, baselineFile, notification, englishFile, entry);
+            addNotificationGroup(args, notification, englishFile, entry);
         }
     }
 
@@ -251,15 +256,15 @@ public class Dashboard {
         return notificationsList;
     }
 
-    private ReviewNotification getNextNotification(ReviewOutput reviewInfo, ReviewNotification notification,
+    private ReviewNotification getNextNotification(ReviewOutput reviewOutput, ReviewNotification notification,
         Entry<R4<Choice, SectionId, PageId, String>, Set<VettingViewer<Organization>.WritingInfo>> entry) {
         String notificationName = entry.getKey().get0().jsonLabel;
 
-        notification = reviewInfo.add(notificationName, notification);
+        notification = reviewOutput.add(notificationName, notification);
         return notification;
     }
 
-    private void addNotificationGroup(CLDRFile sourceFile, CLDRFile baselineFile, ReviewNotification notification, CLDRFile englishFile,
+    private void addNotificationGroup(DashboardArgs args, ReviewNotification notification, CLDRFile englishFile,
         Entry<R4<Choice, SectionId, PageId, String>, Set<VettingViewer<Organization>.WritingInfo>> entry) {
         String sectionName = entry.getKey().get1().name();
         String pageName = entry.getKey().get2().name();
@@ -282,12 +287,11 @@ public class Dashboard {
             }
 
             // old = baseline; not currently used by client
-            final String oldStringValue = baselineFile == null ? null : baselineFile.getWinningValue(path);
-            reviewEntry.old = oldStringValue;
+            final CLDRFile baselineFile = args.getBaselineFile();
+            reviewEntry.old = baselineFile == null ? null : baselineFile.getWinningValue(path);
 
             // winning value
-            String newWinningValue = sourceFile.getWinningValue(path);
-            reviewEntry.winning = newWinningValue;
+            reviewEntry.winning = args.getSourceFile().getWinningValue(path);
 
             // CheckCLDR.CheckStatus.Subtype
             reviewEntry.subtype = info.subtype;

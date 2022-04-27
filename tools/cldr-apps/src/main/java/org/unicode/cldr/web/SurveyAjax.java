@@ -1,5 +1,7 @@
 package org.unicode.cldr.web;
 
+import static org.unicode.cldr.web.XPathTable.getStringIDString;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Writer;
@@ -40,10 +42,24 @@ import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
-import org.unicode.cldr.util.*;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRConfigImpl;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CoverageInfo;
+import org.unicode.cldr.util.DateTimeFormats;
 import org.unicode.cldr.util.DtdData.IllegalByDtdException;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.SpecialLocales;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.util.XMLUploader;
+import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.BallotBox.InvalidXPathException;
 import org.unicode.cldr.web.BallotBox.VoteNotAcceptedException;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
@@ -56,8 +72,6 @@ import org.unicode.cldr.web.WebContext.HTMLDirection;
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Output;
-
-import static org.unicode.cldr.web.XPathTable.getStringIDString;
 
 /**
  * Servlet implementation class SurveyAjax

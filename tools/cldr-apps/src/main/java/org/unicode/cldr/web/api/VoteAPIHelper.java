@@ -29,7 +29,6 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.web.BallotBox;
 import org.unicode.cldr.web.BallotBox.VoteNotAcceptedException;
 import org.unicode.cldr.web.CookieSession;
-import org.unicode.cldr.web.Dashboard;
 import org.unicode.cldr.web.DataSection;
 import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;

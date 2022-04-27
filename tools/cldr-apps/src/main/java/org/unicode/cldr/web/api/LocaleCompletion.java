@@ -11,8 +11,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
-
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
@@ -39,6 +37,8 @@ import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.STFactory;
 import org.unicode.cldr.web.SurveyLog;
 import org.unicode.cldr.web.SurveyMain;
+
+import com.ibm.icu.dev.util.ElapsedTimer;
 
 /**
  * "A locale has complete coverage when there are no Missing values, no Provisional values, and no Errors

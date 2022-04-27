@@ -117,7 +117,7 @@ public class CheckPlaceHolders extends CheckCLDR {
 
                 return this;
             case "personName":
-                //ldml/personNames/personName[@length="long"][@usage="addressing"][@style="formal"][@order="sorting"]/namePattern
+                //ldml/personNames/personName[@order="sorting"][@length="long"][@usage="addressing"][@style="formal"]/namePattern
 
                 // check that the name pattern is valid
 

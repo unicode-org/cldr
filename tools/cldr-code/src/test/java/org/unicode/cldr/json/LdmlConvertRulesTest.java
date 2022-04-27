@@ -91,9 +91,9 @@ class LdmlConvertRulesTest {
         // TODO Temporary skip while in development CLDR-15384
         dtdSplittableAttrs.remove(Pair.of("nameOrderLocales", "order"));
         dtdSplittableAttrs.remove(Pair.of("initialPattern", "type"));
+        dtdSplittableAttrs.remove(Pair.of("personName", "formality"));
         dtdSplittableAttrs.remove(Pair.of("personName", "length"));
         dtdSplittableAttrs.remove(Pair.of("personName", "order"));
-        dtdSplittableAttrs.remove(Pair.of("personName", "style"));
         dtdSplittableAttrs.remove(Pair.of("personName", "usage"));
         dtdSplittableAttrs.remove(Pair.of("sampleName", "item"));
 

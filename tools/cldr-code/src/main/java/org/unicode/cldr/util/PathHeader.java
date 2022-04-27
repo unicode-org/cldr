@@ -1860,8 +1860,8 @@ public class PathHeader implements Comparable<PathHeader> {
                     // personName attribute values: each group in desired
                     // sort order, but groups from least important to most
                     final List<String> pnAttrValues = Arrays.asList(
-                        "referring", "addressing", "monogram", // usage values
-                        "long", "medium", "short"); // length values
+                        "long", "medium", "short", // length values
+                        "givenFirst", "surnameFirst", "sorting"); // order values
 
                     if (source.equals("NameOrder")) {
                         order = 0;
@@ -1879,15 +1879,15 @@ public class PathHeader implements Comparable<PathHeader> {
                     }
                     String pnPrefix = "PersonName:";
                     if (source.startsWith(pnPrefix)) {
-                        String lengthUsageValue = source.substring(pnPrefix.length());
-                        List<String> parts = HYPHEN_SPLITTER.splitToList(lengthUsageValue);
+                        String attrValues = source.substring(pnPrefix.length());
+                        List<String> parts = HYPHEN_SPLITTER.splitToList(attrValues);
                         order = 30;
                         for (String part: parts) {
                          if (pnAttrValues.contains(part)) {
                                 order += (1 << pnAttrValues.indexOf(part));
                             }
                         }
-                        return "PersonName Patterns for Length-Usage: " + lengthUsageValue;
+                        return "PersonName Patterns for Order-Length: " + attrValues;
                     }
                     order = 40;
                     return source;
@@ -1900,9 +1900,9 @@ public class PathHeader implements Comparable<PathHeader> {
                     // personName attribute values: each group in desired
                     // sort order, but groups from least important to most
                     final List<String> attrValues = Arrays.asList(
-                        "givenFirst", "surnameFirst", "sorting", //order values
-                        "formal", "informal"); // style values
-                        // length & usage values handled in &personNameSection
+                        "formal", "informal", //formality values
+                        "referring", "addressing", "monogram"); // usage values
+                        // order & length values handled in &personNameSection
 
                     List<String> parts = HYPHEN_SPLITTER.splitToList(source);
                     order = 0;

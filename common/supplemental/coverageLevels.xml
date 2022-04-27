@@ -908,8 +908,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/nameOrderLocales[@order='%anyAttribute']"/>
 		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/initialPattern[@type='%anyAttribute'][@alt='%anyAttribute']"/>
 		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/initialPattern[@type='%anyAttribute']"/>
-		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/personName[@length='%anyAttribute'][@usage='%anyAttribute'][@style='%anyAttribute'][@order='%anyAttribute']/namePattern[@alt='%anyAttribute']"/>
-		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/personName[@length='%anyAttribute'][@usage='%anyAttribute'][@style='%anyAttribute'][@order='%anyAttribute']/namePattern"/>
+		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/personName[@order='%anyAttribute'][@length='%anyAttribute'][@usage='%anyAttribute'][@formality='%anyAttribute']/namePattern[@alt='%anyAttribute']"/>
+		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/personName[@order='%anyAttribute'][@length='%anyAttribute'][@usage='%anyAttribute'][@formality='%anyAttribute']/namePattern"/>
 		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/sampleName[@item='%anyAttribute']/nameField[@type='%anyAttribute'][@alt='%anyAttribute']"/>
 		<coverageLevel inLanguage="%personNameLanguages" value="modern" match="personNames/sampleName[@item='%anyAttribute']/nameField[@type='%anyAttribute']"/>
 

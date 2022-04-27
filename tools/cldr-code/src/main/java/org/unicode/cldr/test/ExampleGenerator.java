@@ -511,7 +511,7 @@ public class ExampleGenerator {
         "//ldml/personNames/initialPattern[@type=\"*\"]");
 
     private String handlePersonName(XPathParts parts, String value) {
-        //ldml/personNames/personName[@length="long"][@usage="addressing"][@style="formal"][@order="givenFirst"]/namePattern => {prefix} {surname}
+        //ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="addressing"][@style="formal"]/namePattern => {prefix} {surname}
         String debugState = "start";
         try {
             FormatParameters formatParameters = FormatParameters.from(parts);

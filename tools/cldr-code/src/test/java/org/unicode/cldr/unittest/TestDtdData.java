@@ -471,8 +471,8 @@ public class TestDtdData extends TestFmwk {
                 || (elementName.equals("caseMinimalPairs") && attribute.equals("case"))
                 || (elementName.equals("nameOrderLocales") && attribute.equals("order"))
                 || (elementName.equals("initialPattern") && attribute.equals("type"))
-                || (elementName.equals("personName") && (attribute.equals("length") || attribute.equals("usage") ||
-                                                         attribute.equals("style") || attribute.equals("order")))
+                || (elementName.equals("personName") && (attribute.equals("order") || attribute.equals("length") ||
+                                                         attribute.equals("usage") || attribute.equals("formality")))
                 || (elementName.equals("sampleName") && attribute.equals("item"))
                 || (elementName.equals("nameField") && attribute.equals("type"))
                 ;

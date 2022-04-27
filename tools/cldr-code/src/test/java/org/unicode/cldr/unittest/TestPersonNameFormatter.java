@@ -40,6 +40,7 @@ import com.ibm.icu.util.ULocale;
 public class TestPersonNameFormatter extends TestFmwk{
 
     public static final boolean DEBUG = System.getProperty("TestPersonNameFormatter.DEBUG") != null;
+    public static final boolean SHOW = System.getProperty("TestPersonNameFormatter.SHOW") != null;
 
     final FallbackFormatter FALLBACK_FORMATTER = new FallbackFormatter(ULocale.ENGLISH, "{0}*", "{0} {1}");
     final CLDRFile ENGLISH = CLDRConfig.getInstance().getEnglish();
@@ -84,7 +85,7 @@ public class TestPersonNameFormatter extends TestFmwk{
             "length=short; style=formal; usage=addressing; order=surnameFirst", "{surname-allCaps} {given}",
             "length=short medium; style=formal; usage=addressing", "{given} {given2-initial} {surname}",
             "length=short medium; style=formal; usage=addressing", "{given} {surname}",
-            "length=long; style=formal; usage=monogram", "{given-initial}{surname-initial}",
+            "length=long; style=formal; usage=monogram", "{given-monogram}{surname-monogram}",
             "order=givenFirst", "{prefix} {given} {given2} {surname} {surname2} {suffix}",
             "order=surnameFirst", "{surname} {surname2} {prefix} {given} {given2} {suffix}",
             "order=sorting", "{surname} {surname2}, {prefix} {given} {given2} {suffix}");
@@ -94,7 +95,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         check(personNameFormatter, sampleNameObject1, "length=short; style=formal; usage=addressing", "John B. Smith");
         check(personNameFormatter, sampleNameObject2, "length=short; style=formal; usage=addressing", "John Smith");
         check(personNameFormatter, sampleNameObject1, "length=long; style=formal; usage=addressing", "Mr. John Bob Smith Barnes Pascal Jr.");
-        check(personNameFormatter, sampleNameObject3, "length=long; style=formal; usage=monogram", "JBS");
+        check(personNameFormatter, sampleNameObject3, "length=long; style=formal; usage=monogram", "JS");
         check(personNameFormatter, sampleNameObject4, "length=short; style=formal; usage=addressing; order=surnameFirst", "ABE Shinzō");
 
         checkFormatterData(personNameFormatter);
@@ -133,8 +134,10 @@ public class TestPersonNameFormatter extends TestFmwk{
     }
 
     public void TestWithCLDR() {
-        if (PersonNameFormatter.DEBUG) {
-            logln(ENGLISH_NAME_FORMATTER.toString());
+        if (SHOW) {
+            warnln(ENGLISH_NAME_FORMATTER.toString());
+        } else {
+            warnln("To see the contents of the English patterns, use -DTestPersonNameFormatter.SHOW");
         }
 
         check(ENGLISH_NAME_FORMATTER, sampleNameObject1, "length=short; order=sorting", "Smith, J. B.");
@@ -274,6 +277,9 @@ public class TestPersonNameFormatter extends TestFmwk{
     }
 
     public void TestLiteralTextElisionNoSpaces() {
+
+        // Also used to generate examples in the user guide
+
         ImmutableMap<ULocale, Order> localeToOrder = ImmutableMap.of(); // don't worry about using the order from the locale right now.
 
         NamePatternData namePatternData2 = new NamePatternData(
@@ -284,12 +290,24 @@ public class TestPersonNameFormatter extends TestFmwk{
 
         PersonNameFormatter personNameFormatter2 = new PersonNameFormatter(namePatternData2, FALLBACK_FORMATTER);
 
-        check(personNameFormatter2, sampleNameObject5, "order=givenFirst", "Mary₂³₃⁴Smith"); // reasonable, given no break
-        check(personNameFormatter2, sampleNameObject5, "order=surnameFirst", "¹SMITH₁²₃⁴Mary"); // reasonable, given no break
-        check(personNameFormatter2, sampleNameObject5, "order=sorting", "¹Smith₁²₃⁴Mary"); //  TODO RICH should be ¹Smith,⁴Mary
+        check(personNameFormatter2, sampleNameObject5, "order=givenFirst", "Mary₂³₃⁴Smith"); // TODO Rich, make ₁²Mary₂³₃⁴Smith₄ or we change desc.
+        check(personNameFormatter2, sampleNameObject5, "order=surnameFirst", "¹SMITH₁²₃⁴Mary"); // similar
+        check(personNameFormatter2, sampleNameObject5, "order=sorting", "¹Smith₁²₃⁴Mary"); //  TODO RICH should be ¹Smith,³₃⁴Mary₄
     }
 
     public void TestLiteralTextElisionSpaces() {
+
+        // Also used to generate examples in the user guide
+        if (SHOW) {
+            logln("Patterns for User Guide:");
+            final String pattern = "¹{prefix}₁ ²{given}₂ ³{given2}₃ ⁴{surname}₄";
+            final String patternNoSpaces = "¹{prefix}₁²{given}₂³{given2}₃⁴{surname}₄";
+            System.out.println(pattern.replace(" ", "⌴"));
+            System.out.println(patternNoSpaces);
+            System.out.println("[" + pattern.replace(" ", "]⌴[") + "]");
+            System.out.println("[" + patternNoSpaces.replace("}", "}[").replace("{", "]{") + "]");
+        }
+
         ImmutableMap<ULocale, Order> localeToOrder = ImmutableMap.of(); // don't worry about using the order from the locale right now.
 
         NamePatternData namePatternData2 = new NamePatternData(
@@ -300,9 +318,9 @@ public class TestPersonNameFormatter extends TestFmwk{
 
         PersonNameFormatter personNameFormatter2 = new PersonNameFormatter(namePatternData2, FALLBACK_FORMATTER);
 
-        check(personNameFormatter2, sampleNameObject5, "order=givenFirst", "Mary₂ ⁴Smith"); // reasonable
-        check(personNameFormatter2, sampleNameObject5, "order=surnameFirst", "¹SMITH₁ ⁴Mary"); // reasonable
-        check(personNameFormatter2, sampleNameObject5, "order=sorting", "¹Smith₁ ⁴Mary"); //  TODO RICH should be ¹Smith, ⁴Mary
+        check(personNameFormatter2, sampleNameObject5, "order=givenFirst", "Mary₂ ⁴Smith"); // TODO Rich to make ²Mary₂ ⁴Smith₄ (or we change desc.
+        check(personNameFormatter2, sampleNameObject5, "order=surnameFirst", "¹SMITH₁ ⁴Mary"); // similar
+        check(personNameFormatter2, sampleNameObject5, "order=sorting", "¹Smith₁ ⁴Mary"); //  TODO RICH should be ¹Smith, ⁴Mary₄
 
         // TODO Rich: The behavior is not quite what I describe in the guide.
         // Example: ²{given}₂ means that ² and ₂ "belong to" Mary, so the results should have ²Mary₂.
@@ -339,9 +357,10 @@ public class TestPersonNameFormatter extends TestFmwk{
             {
                 "//ldml/personNames/personName[@length=\"long\"][@usage=\"referring\"][@style=\"formal\"][@order=\"givenFirst\"]/namePattern",
                 "〖Sinbad〗〖Irene Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia Meyer Wolf M.D. Ph.D.〗"
-            },{
-                "//ldml/personNames/personName[@length=\"long\"][@usage=\"monogram\"][@style=\"informal\"][@order=\"surnameFirst\"]/namePattern",
-                "〖S〗〖AI〗〖WJ〗〖MWN〗"
+//HACK, reenable after en data changes {xxx-initial} to {xxx-monogram} for monogram patterns
+//            },{
+//                "//ldml/personNames/personName[@length=\"long\"][@usage=\"monogram\"][@style=\"informal\"][@order=\"surnameFirst\"]/namePattern",
+//                "〖S〗〖AI〗〖WJ〗〖MWN〗"
             },{
                 "//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]",
                 "〖und = «any other»〗"

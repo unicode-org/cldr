@@ -141,8 +141,9 @@ public class PersonNameFormatter {
         informal,
         allCaps,
         initial,
+        monogram,
         prefix,
-        core
+        core,
         ;
         public static final Comparator<Iterable<Modifier>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Modifier>naturalOrder());
         public static final Comparator<Collection<Modifier>> LONGEST_FIRST = new Comparator<>() {
@@ -333,17 +334,7 @@ public class PersonNameFormatter {
             // It is probably unusual to have multiple name fields, so this could be optimized for
             // the simpler case.
 
-            // For the case of monograms, don't use the initialFormatter or initialSequenceFormatter
-
-            if (nameFormatParameters.getUsage() == Usage.monogram) {
-                StringBuilder sp = new StringBuilder();
-                for(String part : SPLIT_SPACE.split(bestValue)) {
-                    sp.append(getFirstGrapheme(part));
-                }
-                return sp.toString();
-            }
-
-            // For other usages, employ both the initialFormatter and initialSequenceFormatter
+            // Employ both the initialFormatter and initialSequenceFormatter
 
             String result = null;
             for(String part : SPLIT_SPACE.split(bestValue)) {
@@ -357,6 +348,17 @@ public class PersonNameFormatter {
             }
             return result;
         }
+
+        public String formatMonogram(String bestValue, FormatParameters nameFormatParameters) {
+            // It is probably unusual to have multiple name fields, so this could be optimized for
+            // the simpler case.
+
+            // For the case of monograms, don't use the initialFormatter or initialSequenceFormatter
+            // And just take the first grapheme.
+
+            return getFirstGrapheme(bestValue);
+        }
+
 
         private String getFirstGrapheme(String bestValue) {
             characterBreakIterator.setText(bestValue);
@@ -456,6 +458,9 @@ public class PersonNameFormatter {
                     switch(modifier) {
                     case initial:
                         bestValue = fallbackInfo.formatInitial(bestValue, nameFormatParameters);
+                        break;
+                    case monogram:
+                        bestValue = fallbackInfo.formatMonogram(bestValue, nameFormatParameters);
                         break;
                     case allCaps:
                         bestValue = UCharacter.toUpperCase(fallbackInfo.formatterLocale, bestValue);

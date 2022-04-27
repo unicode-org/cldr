@@ -996,8 +996,8 @@ public class PersonNameFormatter {
         public boolean equals(Object obj) {
             ParameterMatcher that = (ParameterMatcher) obj;
             return orders.equals(that.orders)
-                && lengths.equals(that.usages)
-                && usages.equals(that.lengths)
+                && lengths.equals(that.lengths)
+                && usages.equals(that.usages)
                 && formalities.equals(that.formalities);
         }
         @Override
@@ -1178,6 +1178,7 @@ public class PersonNameFormatter {
                     }
                 }
                 if (matchCount == 0) {
+                    key.equals(lastKey);
                     throw new IllegalArgumentException("key is masked by previous values: " + key
                         + ",\n\t" + JOIN_LFTB.join(formatParametersToNamePattern.entries()));
                 }

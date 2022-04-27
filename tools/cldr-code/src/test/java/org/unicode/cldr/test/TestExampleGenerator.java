@@ -51,6 +51,6 @@ public class TestExampleGenerator {
 
         final String html2 = eg.getExampleHtml(X_PATTERN, source.getValueAtDPath(X_PATTERN));
         // html chunk…
-        //assertTrue(html2.contains(">Person, Gwen<"), () -> "Expected '>Person, Gwen<' in the morass of " + html2); // TODO fails; ExampleGenerator timing issue?
+        assertTrue(html2.contains(">Person, Gwen<"), () -> "Expected '>Person, Gwen<' in the morass of " + html2);
     }
 }

@@ -83,7 +83,7 @@ public class TestPersonNameFormatter extends TestFmwk{
             localeToOrder,
             "order=surnameFirst; length=short; usage=addressing; formality=formal", "{surname-allCaps} {given}",
             "length=short medium; usage=addressing; formality=formal", "{given} {given2-initial} {surname}",
-          //"length=short medium; usage=addressing; formality=formal", "{given} {surname}", // TODO: Got error "key is masked by previous values" for this; OK?
+            "length=short medium; usage=addressing; formality=formal", "{given} {surname}",
             "length=long; usage=monogram; formality=formal", "{given-initial}{surname-initial}",
             "order=givenFirst", "{prefix} {given} {given2} {surname} {surname2} {suffix}",
             "order=surnameFirst", "{surname} {surname2} {prefix} {given} {given2} {suffix}",
@@ -417,7 +417,10 @@ public class TestPersonNameFormatter extends TestFmwk{
         // First test the example for the regular value
 
         ExampleGenerator exampleGenerator = new ExampleGenerator(resolved, ENGLISH, "");
-        String path = "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern";
+        String path = checkPath("//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern");
+        String value2 = enWritable.getStringValue(path); // check that English is as expected
+        assertEquals(path, "{given} {given2} {surname} {suffix}", value2);
+
         String expected = "〖Sinbad〗〖Irene Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia Meyer Wolf M.D. Ph.D.〗";
         String value = enWritable.getStringValue(path);
 
@@ -425,13 +428,20 @@ public class TestPersonNameFormatter extends TestFmwk{
 
         // Then change one of the sample names to make sure it alters the example correctly
 
-        String namePath = "//ldml/personNames/sampleName[@item=\"givenSurnameOnly\"]/nameField[@type=\"given\"]";
+        String namePath = checkPath("//ldml/personNames/sampleName[@item=\"givenSurnameOnly\"]/nameField[@type=\"given\"]");
+        String value3 = enWritable.getStringValue(namePath);
+        assertEquals(namePath, "Irene", value3); // check that English is as expected
+
         enWritable.add(namePath, "IRENE");
         exampleGenerator.updateCache(namePath);
 
-        //String expected2 =  "〖Sinbad〗〖IRENE Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia Meyer Wolf M.D. Ph.D.〗";
-        String expected2 =  "〖Sinbad〗〖Irene Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia Meyer Wolf M.D. Ph.D.〗"; // TODO Is this correct here?
+        String expected2 =  "〖Sinbad〗〖IRENE Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia Meyer Wolf M.D. Ph.D.〗";
         checkExampleGenerator(exampleGenerator, path, value, expected2);
+    }
+
+    private String checkPath(String path) {
+        assertEquals("Path is in canonical form", XPathParts.getFrozenInstance(path).toString(), path);
+        return path;
     }
 
     public void TestFormatAll() {

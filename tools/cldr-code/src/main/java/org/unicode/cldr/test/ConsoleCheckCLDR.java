@@ -60,8 +60,8 @@ import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.CandidateInfo;
 import org.unicode.cldr.util.VoteResolver.UnknownVoterException;
-import org.unicode.cldr.util.XMLSource.SourceLocation;
 import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.util.XMLSource.SourceLocation;
 
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.dev.util.ElapsedTimer;

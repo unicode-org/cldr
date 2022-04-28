@@ -608,23 +608,8 @@ public class CLDRTest extends TestFmwk {
         checkTranslatedCode(cldrfile, codes, "variant", "//ldml/localeDisplayNames/variants/variant", "");
     }
 
-    /**
-     * @param codes
-     * @param type
-     * @param prefix
-     * @param postfix
-     *            TODO
-     */
     private void checkTranslatedCode(CLDRFile cldrfile, StandardCodes codes, String type, String prefix, String postfix) {
-
-        // TODO, expand to other languages
-        Map<String, Set<String>> completionExceptions = new HashMap<>();
-        Set<String> scriptExceptions = new HashSet<>();
-        scriptExceptions.add("Cham");
-        scriptExceptions.add("Thai");
-        scriptExceptions.add("Toto");
-        completionExceptions.put("script", scriptExceptions);
-
+        Map<String, Set<String>> completionExceptions = getCompletionExceptions();
         Set<String> codeItems = codes.getGoodAvailableCodes(type);
         int count = 0;
         Set<String> exceptions = completionExceptions.get(type);
@@ -647,6 +632,21 @@ public class CLDRTest extends TestFmwk {
             }
         }
         logln("Total " + type + ":\t" + count);
+    }
+
+    private Map<String, Set<String>> theCompletionExceptions = null;
+
+    private Map<String, Set<String>> getCompletionExceptions() {
+        if (theCompletionExceptions == null) {
+            theCompletionExceptions = new HashMap<>();
+            final Set<String> scriptExceptions = new HashSet<>();
+            scriptExceptions.add("Cham");
+            scriptExceptions.add("Modi");
+            scriptExceptions.add("Thai");
+            scriptExceptions.add("Toto");
+            theCompletionExceptions.put("script", scriptExceptions);
+        }
+        return theCompletionExceptions;
     }
 
     // <territoryContainment><group type="001" contains="002 009 019 142 150"/>

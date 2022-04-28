@@ -1,0 +1,1 @@
+The files in this directory have been transferred to common/.

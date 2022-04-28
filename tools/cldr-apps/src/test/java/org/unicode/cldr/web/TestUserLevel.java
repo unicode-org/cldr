@@ -3,6 +3,7 @@ package org.unicode.cldr.web;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.sql.SQLException;
 import java.util.function.Supplier;
@@ -38,7 +39,8 @@ public class TestUserLevel {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/org/unicode/cldr/web/TestUserLevel.csv", numLinesToSkip=1)
-    void TestCompatUserLevelDataDriven(String org, String levelStr, String operation, String expStr) throws SQLException {
+    void TestCompatUserLevelDataDriven(String org, String levelStr, String operation, String expStr,
+        String otherOrg, String otherLevel) throws SQLException {
         Boolean expected;
         try {
             expected = Boolean.parseBoolean(expStr);
@@ -46,7 +48,6 @@ public class TestUserLevel {
             System.err.println(t);
             expected = null; // could not parse
         }
-        reg = getRegistry();
         assertNotNull(reg, "reg is null");
         final Organization o = Organization.valueOf(org);
         assertNotNull(o, () -> "Could not parse organization " + org);
@@ -54,13 +55,19 @@ public class TestUserLevel {
         assertNotNull(vrLevel, () -> "Could not parse VR level " + levelStr);
         // just make a new user
         UserRegistry.User u = reg.getTestUser(id++, o, vrLevel);
-        Supplier<String> onFail = () -> (u.toString())+"."+operation+"()≠"+expStr;
+        Organization otherO = null;
+        if (otherOrg != null && !otherOrg.isBlank()) {
+            otherO = Organization.valueOf(otherOrg);
+        }
+        VoteResolver.Level otherL = null;
+        if (otherLevel != null && !otherLevel.isBlank()) {
+            otherL = VoteResolver.Level.valueOf(otherLevel);
+        }
+        Supplier<String> onFail = () -> (u.toString())+"."+operation+"("+otherOrg+","+otherLevel+")≠"+expStr;
+
         switch (operation) {
-        case "isAdminForSameOrg":
-            assertEquals(expected, u.isAdminForOrg(org), onFail);
-            break;
-        case "isAdminForNko":
-            assertEquals(expected, u.isAdminForOrg(Organization.wod_nko.name()), onFail);
+        case "isAdminForOrg":
+            assertEquals(expected, u.isAdminForOrg(otherO.name()), onFail);
             break;
         case "votes":
             assertEquals(Integer.parseInt(expStr), u.getVoteCount(), onFail);
@@ -125,10 +132,148 @@ public class TestUserLevel {
         case "userCanGetEmailList":
             assertEquals(expected, UserRegistry.userCanGetEmailList(u), onFail);
             break;
+        case "canManageSomeUsers":
+            assertEquals(expected, u.getLevel().canManageSomeUsers(), onFail);
+            break;
+        case "isManagerFor":
+            assertEquals(expected, u.getLevel().isManagerFor(o, otherL, otherO), onFail);
+            break;
+        case "canCreateOrSetLevelTo":
+            assertEquals(expected, u.getLevel().canCreateOrSetLevelTo(otherL), onFail);
+            break;
+        case "canVoteWithCount":
+            assertTrue(u.getLevel().canVoteWithCount(Integer.parseInt(expStr)), onFail);
+            break;
+        case "canNOTVoteWithCount":
+            assertFalse(u.getLevel().canVoteWithCount(Integer.parseInt(expStr)), onFail);
+            break;
         default:
             assertFalse(true, "Unsupported operation in TestUserLevel.csv: " + operation);
         }
     }
+
+
+    /**
+     * TODO: NOTE: in theory this test could move OUT of cldr-apps into cldr-code, and perhaps it should.
+     * However, it shares the data file, TestUserLevel.csv
+     * Perhaps a git symlink would do?
+     */
+    @ParameterizedTest
+    @CsvFileSource(resources = "/org/unicode/cldr/web/TestUserLevel.csv", numLinesToSkip=1)
+    void TestVoteResolverLevel(String org, String levelStr, String operation, String expStr,
+        String otherOrg, String otherLevel) throws SQLException {
+        Boolean expected;
+        try {
+            expected = Boolean.parseBoolean(expStr);
+        } catch(Throwable t) {
+            System.err.println(t);
+            expected = null; // could not parse
+        }
+        final Organization o = Organization.valueOf(org);
+        assertNotNull(o, () -> "Could not parse organization " + org);
+        VoteResolver.Level l = VoteResolver.Level.valueOf(levelStr);
+        assertNotNull(l, () -> "Could not parse VR level " + levelStr);
+        Organization otherO = null;
+        if (otherOrg != null && !otherOrg.isBlank()) {
+            otherO = Organization.valueOf(otherOrg);
+        }
+        VoteResolver.Level otherL = null;
+        if (otherLevel != null && !otherLevel.isBlank()) {
+            otherL = VoteResolver.Level.valueOf(otherLevel);
+        }
+        Supplier<String> onFail = () -> (o.name() + "-" + l.name())+"."+operation+"("+otherOrg+","+otherLevel+")≠"+expStr;
+
+        // TODO: remove this!!
+        UserRegistry.User u = reg.getTestUser(id++, o, l);
+
+        switch (operation) {
+        case "isAdminForOrg":
+            assertEquals(expected, l.isAdminForOrg(o, otherO), onFail);
+            break;
+        case "votes":
+            assertEquals(Integer.parseInt(expStr), l.getVotes(), onFail);
+            break;
+        case "canImportOldVotesSUBMISSION":
+            assertEquals(expected, l.canImportOldVotes(CheckCLDR.Phase.SUBMISSION), onFail);
+            break;
+        case "userCanDoList":
+            assertEquals(expected, l.canDoList(), onFail);
+            break;
+        case "userCanCreateUsers":
+            assertEquals(expected, l.canCreateUsers(), onFail);
+            break;
+        case "userCanEmailUsers":
+            assertEquals(expected, l.canEmailUsers(), onFail);
+            break;
+        case "userCanModifyUsers":
+            assertEquals(expected, l.canModifyUsers(), onFail);
+            break;
+        case "userCreateOtherOrgs":
+            assertEquals(expected, l.canCreateOtherOrgs(), onFail);
+            break;
+        case "userIsExactlyManager":
+            assertEquals(expected, l.isExactlyManager(), onFail);
+            break;
+        case "userIsManagerOrStronger":
+            assertEquals(expected, l.isManagerOrStronger(), onFail);
+            break;
+        case "userIsVetter":
+            assertEquals(expected, l.isVetter(), onFail);
+            break;
+        case "userIsAdmin":
+            assertEquals(expected, l.isAdmin(), onFail);
+            break;
+        case "userIsTC":
+            assertEquals(expected, l.isTC(), onFail);
+            break;
+        case "userIsStreet":
+            assertEquals(expected, l.isStreet(), onFail);
+            break;
+        case "userIsLocked":
+            assertEquals(expected, l.isLocked(), onFail);
+            break;
+        case "userIsExactlyAnonymous":
+            assertEquals(expected, l.isExactlyAnonymous(), onFail);
+            break;
+        case "userCanUseVettingSummary":
+            assertEquals(expected, l.canUseVettingSummary(), onFail);
+            break;
+        case "userCanSubmit_SUBMIT":
+            assertEquals(expected, l.canSubmit(SurveyMain.Phase.SUBMIT.getCPhase()), onFail);
+            break;
+        case "userCanCreateSummarySnapshot":
+            assertEquals(expected, l.canCreateSummarySnapshot(), onFail);
+            break;
+        case "userCanMonitorForum":
+            assertEquals(expected, l.canMonitorForum(), onFail);
+            break;
+        case "userCanSetInterestLocales":
+            assertEquals(expected, l.canSetInterestLocales(), onFail);
+            break;
+        case "userCanGetEmailList":
+            assertEquals(expected, l.canGetEmailList(), onFail);
+            break;
+        case "canManageSomeUsers":
+            assertEquals(expected, l.canManageSomeUsers(), onFail);
+            break;
+        case "isManagerFor":
+            assertEquals(expected, l.isManagerFor(o, otherL, otherO), onFail);
+            break;
+        case "canCreateOrSetLevelTo":
+            assertEquals(expected, l.canCreateOrSetLevelTo(otherL), onFail);
+            break;
+        case "canVoteWithCount":
+            assertTrue(l.canVoteWithCount(Integer.parseInt(expStr)), onFail);
+            break;
+        case "canNOTVoteWithCount":
+            assertFalse(l.canVoteWithCount(Integer.parseInt(expStr)), onFail);
+            break;
+        default:
+            assertFalse(true, "Unsupported operation in TestUserLevel.csv: " + operation);
+        }
+    }
+
+
 
     static UserRegistry getRegistry() throws SQLException {
         // We need a real UserRegistry to make this work

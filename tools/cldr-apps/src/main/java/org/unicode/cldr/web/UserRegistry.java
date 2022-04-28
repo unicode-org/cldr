@@ -29,7 +29,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONString;
 import org.unicode.cldr.test.CheckCLDR;
-import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
@@ -459,10 +458,7 @@ public class UserRegistry {
          * @param org
          */
         public boolean isAdminForOrg(String org) {
-            boolean adminOrRelevantTc = UserRegistry.userIsAdmin(this) ||
-
-                ((UserRegistry.userIsTC(this) || this.userlevel == MANAGER) && (org != null) && this.org.equals(org));
-            return adminOrRelevantTc;
+            return getLevel().isAdminForOrg(getOrganization(), Organization.fromString(org));
         }
 
         @Override
@@ -504,7 +500,7 @@ public class UserRegistry {
         }
 
         public boolean canImportOldVotes(CheckCLDR.Phase inPhase) {
-            return UserRegistry.userIsVetter(this) && (inPhase == Phase.SUBMISSION);
+            return getLevel().canImportOldVotes(inPhase);
         }
 
         @Schema( description="how much this user’s vote counts for")
@@ -1158,6 +1154,7 @@ public class UserRegistry {
         return msg;
     }
 
+    // TODO: should be refactored.
     public boolean canSetUserLevel(User me, User them, int newLevel) {
         final VoteResolver.Level myLevel = VoteResolver.Level.fromSTLevel(me.userlevel);
         if (!myLevel.canCreateOrSetLevelTo(VoteResolver.Level.fromSTLevel(newLevel))) {
@@ -1598,50 +1595,50 @@ public class UserRegistry {
 
     // * user types
     public static final boolean userIsAdmin(User u) {
-        return (u != null) && (u.userlevel <= UserRegistry.ADMIN);
+        return (u != null) && u.getLevel().isAdmin();
     }
 
     public static final boolean userIsTC(User u) {
-        return (u != null) && (u.userlevel <= UserRegistry.TC);
+        return (u != null) && u.getLevel().isTC();
     }
 
     public static final boolean userIsExactlyManager(User u) {
-        return (u != null) && (u.userlevel == UserRegistry.MANAGER);
+        return (u != null) && u.getLevel().isExactlyManager();
     }
 
     public static final boolean userIsManagerOrStronger(User u) {
-        return (u != null) && (u.userlevel <= UserRegistry.MANAGER);
+        return (u != null) && u.getLevel().isManagerOrStronger();
     }
 
     public static final boolean userIsVetter(User u) {
-        return (u != null) && (u.userlevel <= UserRegistry.VETTER);
+        return (u != null) && u.getLevel().isVetter();
     }
 
     public static final boolean userIsStreet(User u) {
-        return (u != null) && (u.userlevel <= UserRegistry.STREET);
+        return (u != null) && u.getLevel().isStreet();
     }
 
     public static final boolean userIsLocked(User u) {
-        return (u != null) && (u.userlevel == UserRegistry.LOCKED);
+        return (u != null) && u.getLevel().isLocked();
     }
 
     public static final boolean userIsExactlyAnonymous(User u) {
-        return (u != null) && (u.userlevel == UserRegistry.ANONYMOUS);
+        return (u != null) && u.getLevel().isExactlyAnonymous();
     }
 
     // * user rights
     /** can create a user in a different organization? */
     public static final boolean userCreateOtherOrgs(User u) {
-        return userIsAdmin(u);
+        return u.getLevel().canCreateOtherOrgs();
     }
 
     /** Can the user modify anyone's level? */
     static final boolean userCanModifyUsers(User u) {
-        return userIsTC(u) || userIsExactlyManager(u);
+        return u.getLevel().canModifyUsers();
     }
 
     static final boolean userCanEmailUsers(User u) {
-        return userIsTC(u) || userIsExactlyManager(u);
+        return u.getLevel().canEmailUsers();
     }
 
     /**
@@ -1686,11 +1683,11 @@ public class UserRegistry {
     }
 
     static final boolean userCanDoList(User managerUser) {
-        return (userIsVetter(managerUser));
+        return managerUser.getLevel().canDoList();
     }
 
     public static final boolean userCanCreateUsers(User u) {
-        return (userIsTC(u) || userIsExactlyManager(u));
+        return u.getLevel().canCreateUsers();
     }
 
     static final boolean userCanSubmit(User u) {
@@ -1698,10 +1695,7 @@ public class UserRegistry {
     }
 
     static final boolean userCanSubmit(User u, SurveyMain.Phase phase) {
-        if (phase == SurveyMain.Phase.READONLY) {
-            return false;
-        }
-        return ((u != null) && userIsStreet(u));
+        return u.getLevel().canSubmit(phase.getCPhase());
     }
 
     /**
@@ -1711,7 +1705,7 @@ public class UserRegistry {
      * @return true or false
      */
     public static final boolean userCanUseVettingSummary(User u) {
-        return userIsManagerOrStronger(u);
+        return u.getLevel().canUseVettingSummary();
     }
 
     /**
@@ -1721,7 +1715,7 @@ public class UserRegistry {
      * @return true or false
      */
     public static boolean userCanCreateSummarySnapshot(User u) {
-        return userIsAdmin(u);
+        return u.getLevel().canCreateSummarySnapshot();
     }
 
     /**
@@ -1731,7 +1725,7 @@ public class UserRegistry {
      * @return true or false
      */
     public static final boolean userCanMonitorForum(User u) {
-        return userIsTC(u) || userIsExactlyManager(u);
+        return u.getLevel().canMonitorForum();
     }
 
     /**
@@ -1741,7 +1735,7 @@ public class UserRegistry {
      * @return true or false
      */
     public static boolean userCanSetInterestLocales(User u) {
-        return userIsManagerOrStronger(u);
+        return u.getLevel().canSetInterestLocales();
     }
 
     /**
@@ -1751,7 +1745,7 @@ public class UserRegistry {
      * @return true or false
      */
     public static boolean userCanGetEmailList(User u) {
-        return userIsManagerOrStronger(u);
+        return u.getLevel().canGetEmailList();
     }
 
     public enum ModifyDenial {

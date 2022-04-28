@@ -527,6 +527,10 @@ const strings = {
     "The coverage level for each locale is organization-neutral.",
   summary_access_denied:
     "To see the summary, you must be logged in as a manager, TC, or admin.",
+
+  vote_agree_not_found: "Value not found for Agree vote",
+  vote_agree_value_not_found:
+    "This value is not among the current candidate items: ${0}",
 };
 
 /**

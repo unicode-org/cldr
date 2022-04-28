@@ -263,9 +263,9 @@ public class ExampleDependencies {
     .put("//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"]", "//ldml/units/unitLength[@type=\"*\"]/compoundUnit[@type=\"*\"]/compoundUnitPattern1[@count=\"*\"]")
     .putAll("//ldml/personNames/sampleName[@item=\"*\"]/nameField[@type=\"*\"]",
         "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
-        "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@style=\"*\"]/namePattern")
+        "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@formality=\"*\"]/namePattern")
     .putAll("//ldml/personNames/initialPattern[@type=\"*\"]",
         "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern",
-        "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@style=\"*\"]/namePattern")
+        "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@formality=\"*\"]/namePattern")
     .build();
 }

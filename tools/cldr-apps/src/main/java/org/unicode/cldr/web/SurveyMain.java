@@ -42,6 +42,7 @@ import java.util.TreeSet;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
+import javax.inject.Inject;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -50,8 +51,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.JspWriter;
-
-import javax.inject.Inject;
 
 import org.json.JSONException;
 import org.json.JSONObject;

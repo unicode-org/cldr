@@ -65,6 +65,20 @@ public class PersonNameFormatter {
         public static final Set<Field> ALL = ImmutableSet.copyOf(Field.values());
     }
 
+    public enum Order {
+        givenFirst,
+        surnameFirst,
+        sorting;
+        public static final Comparator<Iterable<Order>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Order>naturalOrder());
+        public static final Set<Order> ALL = ImmutableSet.copyOf(Order.values());
+        /**
+         * Use this instead of valueOf if value might be null
+         */
+        public static Order from(String item) {
+            return item == null ? null : Order.valueOf(item);
+        }
+    }
+
     public enum Length {
         // There is a slight complication because 'long' collides with a keyword.
         long_name,
@@ -95,19 +109,6 @@ public class PersonNameFormatter {
         public static final Set<Length> ALL = ImmutableSet.copyOf(Length.values());
     }
 
-    public enum Style {
-        formal,
-        informal;
-        public static final Comparator<Iterable<Style>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Style>naturalOrder());
-        public static final Set<Style> ALL = ImmutableSet.copyOf(Style.values());
-        /**
-         * Use this instead of valueOf if value might be null
-         */
-        public static Style from(String item) {
-            return item == null ? null : Style.valueOf(item);
-        }
-    }
-
     public enum Usage {
         referring,
         addressing,
@@ -122,20 +123,18 @@ public class PersonNameFormatter {
         }
     }
 
-    public enum Order {
-        givenFirst,
-        surnameFirst,
-        sorting;
-        public static final Comparator<Iterable<Order>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Order>naturalOrder());
-        public static final Set<Order> ALL = ImmutableSet.copyOf(Order.values());
+    public enum Formality {
+        formal,
+        informal;
+        public static final Comparator<Iterable<Formality>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Formality>naturalOrder());
+        public static final Set<Formality> ALL = ImmutableSet.copyOf(Formality.values());
         /**
          * Use this instead of valueOf if value might be null
          */
-        public static Order from(String item) {
-            return item == null ? null : Order.valueOf(item);
+        public static Formality from(String item) {
+            return item == null ? null : Formality.valueOf(item);
         }
     }
-
 
     public enum Modifier {
         informal,
@@ -701,106 +700,106 @@ public class PersonNameFormatter {
     }
 
     /**
-     * Input parameters, such as {length=long_name, style=informal}. Unmentioned items are null, and match any value.
+     * Input parameters, such as {length=long_name, formality=informal}. Unmentioned items are null, and match any value.
      */
     public static class FormatParameters implements Comparable<FormatParameters> {
-        private final Length length;
-        private final Style style;
-        private final Usage usage;
         private final Order order;
+        private final Length length;
+        private final Usage usage;
+        private final Formality formality;
 
         /**
          * Normally we don't often need to create one FormalParameters from another.
          * The one exception is the order, which comes from the NameObject.
          */
         public FormatParameters setOrder(Order order) {
-            return new FormatParameters(length, style, usage, order);
-        }
-
-        public Length getLength() {
-            return length;
-        }
-
-        public Style getStyle() {
-            return style;
-        }
-
-        public Usage getUsage() {
-            return usage;
+            return new FormatParameters(order, length, usage, formality);
         }
 
         public Order getOrder() {
             return order;
         }
 
+        public Length getLength() {
+            return length;
+        }
+
+        public Usage getUsage() {
+            return usage;
+        }
+
+        public Formality getFormality() {
+            return formality;
+        }
+
         public boolean matches(FormatParameters other) {
-            return (length == null || other.length == null || length == other.length)
-                && (style == null || other.style == null || style == other.style)
+            return (order == null || other.order == null || order == other.order)
+                && (length == null || other.length == null || length == other.length)
                 && (usage == null || other.usage == null || usage == other.usage)
-                && (order == null || other.order == null || order == other.order)
+                && (formality == null || other.formality == null || formality == other.formality)
                 ;
         }
 
-        public FormatParameters(Length length, Style style, Usage usage, Order order) {
-            this.length = length;
-            this.style = style;
-            this.usage = usage;
+        public FormatParameters(Order order, Length length, Usage usage, Formality formality) {
             this.order = order;
+            this.length = length;
+            this.usage = usage;
+            this.formality = formality;
         }
         @Override
         public String toString() {
             List<String> items = new ArrayList<>();
+            if (order != null) {
+                items.add("order='" + order + "'");
+            }
             if (length != null) {
                 items.add("length='" + length + "'");
             }
             if (usage != null) {
                 items.add("usage='" + usage + "'");
             }
-            if (style != null) {
-                items.add("style='" + style + "'");
-            }
-            if (order != null) {
-                items.add("order='" + order + "'");
+            if (formality != null) {
+                items.add("formality='" + formality + "'");
             }
             return JOIN_SPACE.join(items);
         }
 
         public static FormatParameters from(String string) {
-            Length length = null;
-            Style style = null;
-            Usage usage = null;
             Order order = null;
+            Length length = null;
+            Usage usage = null;
+            Formality formality = null;
             for (String part : SPLIT_SEMI.split(string)) {
                 List<String> parts = SPLIT_EQUALS.splitToList(part);
                 if (parts.size() != 2) {
-                    throw new IllegalArgumentException("must be of form length=medium; style=… : " + string);
+                    throw new IllegalArgumentException("must be of form length=medium; formality=… : " + string);
                 }
                 final String key = parts.get(0);
                 final String value = parts.get(1);
                 switch(key) {
+                case "order":
+                    order = Order.valueOf(value);
+                    break;
                 case "length":
                     length = Length.from(value);
-                    break;
-                case "style":
-                    style = Style.valueOf(value);
                     break;
                 case "usage":
                     usage = Usage.valueOf(value);
                     break;
-                case "order":
-                    order = Order.valueOf(value);
+                case "formality":
+                    formality = Formality.valueOf(value);
                     break;
                 }
             }
-            return new FormatParameters(length, style, usage, order);
+            return new FormatParameters(order, length, usage, formality);
         }
 
         public static FormatParameters from(XPathParts parts) {
             FormatParameters formatParameters = new FormatParameters(
+                PersonNameFormatter.Order.from(parts.getAttributeValue(2, "order")),
                 PersonNameFormatter.Length.from(parts.getAttributeValue(2, "length")),
-                PersonNameFormatter.Style.from(parts.getAttributeValue(2, "style")),
                 PersonNameFormatter.Usage.from(parts.getAttributeValue(2, "usage")),
-                PersonNameFormatter.Order.from(parts.getAttributeValue(2, "order")));
+                PersonNameFormatter.Formality.from(parts.getAttributeValue(2, "formality")));
             return formatParameters;
         }
 
@@ -809,11 +808,11 @@ public class PersonNameFormatter {
             private static ImmutableSet<FormatParameters> DATA;
             static {
                 Set<FormatParameters> _data = new LinkedHashSet<>();
-                for (Length length : Length.values()) {
-                    for (Usage usage : Usage.values()) {
-                        for (Style style : Style.values()) {
-                            for (Order order : Order.values()) {
-                                _data.add(new FormatParameters(length, style, usage, order));
+                for (Order order : Order.values()) {
+                    for (Length length : Length.values()) {
+                        for (Usage usage : Usage.values()) {
+                            for (Formality formality : Formality.values()) {
+                                _data.add(new FormatParameters(order, length, usage, formality));
                             }
                         }
                     }
@@ -833,19 +832,19 @@ public class PersonNameFormatter {
         @Override
         public int compareTo(FormatParameters other) {
             return ComparisonChain.start()
+                .compare(order, other.order)
                 .compare(length, other.length)
                 .compare(usage, other.usage)
-                .compare(style, other.style)
-                .compare(order, other.order)
+                .compare(formality, other.formality)
                 .result();
         }
 
         public String toLabel() {
             StringBuilder sb  = new StringBuilder();
+            addToLabel(order, sb);
             addToLabel(length, sb);
             addToLabel(usage, sb);
-            addToLabel(style, sb);
-            addToLabel(order, sb);
+            addToLabel(formality, sb);
             return sb.length() == 0 ? "any" : sb.toString();
         }
 
@@ -860,57 +859,57 @@ public class PersonNameFormatter {
     }
 
     /**
-     * Matching parameters, such as {lengths={long_name medium_name}, styles={informal}}. Unmentioned items are empty, and match any value.
+     * Matching parameters, such as {lengths={long_name medium_name}, formalities={informal}}. Unmentioned items are empty, and match any value.
      */
     public static class ParameterMatcher implements Comparable<ParameterMatcher> {
-        private final Set<Length> lengths;
-        private final Set<Style> styles;
-        private final Set<Usage> usages;
         private final Set<Order> orders;
+        private final Set<Length> lengths;
+        private final Set<Usage> usages;
+        private final Set<Formality> formalities;
+
+        public Set<Order> getOrder() {
+            return orders;
+        }
 
         public Set<Length> getLength() {
             return lengths;
-        }
-
-        public Set<Style> getStyle() {
-            return styles;
         }
 
         public Set<Usage> getUsage() {
             return usages;
         }
 
-        public Set<Order> getOrder() {
-            return orders;
+        public Set<Formality> getFormality() {
+            return formalities;
         }
 
         public boolean matches(FormatParameters other) {
-            return (lengths.isEmpty() || other.length == null || lengths.contains(other.length))
-                && (styles.isEmpty() || other.style == null || styles.contains(other.style))
+            return (orders.isEmpty() || other.order == null || orders.contains(other.order))
+                && (lengths.isEmpty() || other.length == null || lengths.contains(other.length))
                 && (usages.isEmpty() || other.usage == null || usages.contains(other.usage))
-                && (orders.isEmpty() || other.order == null || orders.contains(other.order))
+                && (formalities.isEmpty() || other.formality == null || formalities.contains(other.formality))
                 ;
         }
 
-        public ParameterMatcher(Set<Length> lengths, Set<Style> styles, Set<Usage> usages, Set<Order> orders) {
-            this.lengths = lengths == null ? ImmutableSet.of() : ImmutableSet.copyOf(lengths);
-            this.styles = styles == null ? ImmutableSet.of() : ImmutableSet.copyOf(styles);
-            this.usages = usages == null ? ImmutableSet.of() : ImmutableSet.copyOf(usages);
+        public ParameterMatcher(Set<Order> orders, Set<Length> lengths, Set<Usage> usages, Set<Formality> formalities) {
             this.orders = orders == null ? ImmutableSet.of() : ImmutableSet.copyOf(orders);
+            this.lengths = lengths == null ? ImmutableSet.of() : ImmutableSet.copyOf(lengths);
+            this.usages = usages == null ? ImmutableSet.of() : ImmutableSet.copyOf(usages);
+            this.formalities = formalities == null ? ImmutableSet.of() : ImmutableSet.copyOf(formalities);
         }
 
-        public ParameterMatcher(String lengths, String styles, String usages, String orders) {
-            this.lengths = setFrom(lengths, Length::from);
-            this.styles = setFrom(styles, Style::valueOf);
-            this.usages = setFrom(usages, Usage::valueOf);
+        public ParameterMatcher(String orders, String lengths, String usages, String formalities) {
             this.orders = setFrom(orders, Order::valueOf);
+            this.lengths = setFrom(lengths, Length::from);
+            this.usages = setFrom(usages, Usage::valueOf);
+            this.formalities = setFrom(formalities, Formality::valueOf);
         }
 
         public ParameterMatcher(FormatParameters item) {
-            this(SingletonSetOrNull(item.getLength()),
-                SingletonSetOrNull(item.getStyle()),
+            this(SingletonSetOrNull(item.getOrder()),
+                SingletonSetOrNull(item.getLength()),
                 SingletonSetOrNull(item.getUsage()),
-                SingletonSetOrNull(item.getOrder()));
+                SingletonSetOrNull(item.getFormality()));
         }
 
         private static <T> ImmutableSet<T> SingletonSetOrNull(T item) {
@@ -929,54 +928,54 @@ public class PersonNameFormatter {
         }
 
         public static ParameterMatcher from(String string) {
-            String length = null;
-            String style = null;
-            String usage = null;
             String order = null;
+            String length = null;
+            String usage = null;
+            String formality = null;
             if (string.isBlank()) {
-                throw new IllegalArgumentException("must have at least one of length, style, usage, or order");
+                throw new IllegalArgumentException("must have at least one of order, length, usage, or formality");
             }
             for (String part : SPLIT_SEMI.split(string)) {
                 List<String> parts = SPLIT_EQUALS.splitToList(part);
                 if (parts.size() != 2) {
-                    throw new IllegalArgumentException("must be of form length=medium short; style=… : " + string);
+                    throw new IllegalArgumentException("must be of form length=medium short; formality=… : " + string);
                 }
                 final String key = parts.get(0);
                 final String value = parts.get(1);
                 switch(key) {
+                case "order":
+                    order = value;
+                    break;
                 case "length":
                     length = value;
-                    break;
-                case "style":
-                    style = value;
                     break;
                 case "usage":
                     usage = value;
                     break;
-                case "order":
-                    order = value;
+                case "formality":
+                    formality = value;
                     break;
                 }
             }
-            return new ParameterMatcher(length, style, usage, order);
+            return new ParameterMatcher(order, length, usage, formality);
         }
 
         @Override
         public String toString() {
             List<String> items = new ArrayList<>();
+            showAttributes("order", orders, items);
             showAttributes("length", lengths, items);
             showAttributes("usage", usages, items);
-            showAttributes("style", styles, items);
-            showAttributes("order", orders, items);
+            showAttributes("formality", formalities, items);
             return items.isEmpty() ? "ANY" : JOIN_SPACE.join(items);
         }
 
         public String toLabel() {
             StringBuilder sb  = new StringBuilder();
+            addToLabel(orders, sb);
             addToLabel(lengths, sb);
             addToLabel(usages, sb);
-            addToLabel(styles, sb);
-            addToLabel(orders, sb);
+            addToLabel(formalities, sb);
             return sb.length() == 0 ? "any" : sb.toString();
         }
 
@@ -1001,54 +1000,54 @@ public class PersonNameFormatter {
         @Override
         public boolean equals(Object obj) {
             ParameterMatcher that = (ParameterMatcher) obj;
-            return lengths.equals(that.lengths)
-                && styles.equals(that.styles)
+            return orders.equals(that.orders)
+                && lengths.equals(that.lengths)
                 && usages.equals(that.usages)
-                && orders.equals(that.orders);
+                && formalities.equals(that.formalities);
         }
         @Override
         public int hashCode() {
-            return lengths.hashCode() ^ styles.hashCode() ^ usages.hashCode() ^ orders.hashCode();
+            return lengths.hashCode() ^ formalities.hashCode() ^ usages.hashCode() ^ orders.hashCode();
         }
 
         @Override
         public int compareTo(ParameterMatcher other) {
             return ComparisonChain.start()
+                .compare(orders, other.orders, Order.ITERABLE_COMPARE)
                 .compare(lengths, other.lengths, Length.ITERABLE_COMPARE)
                 .compare(usages, other.usages, Usage.ITERABLE_COMPARE)
-                .compare(styles, other.styles, Style.ITERABLE_COMPARE)
-                .compare(orders, other.orders, Order.ITERABLE_COMPARE)
+                .compare(formalities, other.formalities, Formality.ITERABLE_COMPARE)
                 .result();
         }
 
         public ParameterMatcher merge(ParameterMatcher that) {
             // if 3 of the 4 rows are equal, merge the other two
             if (lengths.equals(that.lengths)
-                && styles.equals(that.styles)
+                && usages.equals(that.usages)
+                && formalities.equals(that.formalities)) {
+                return new ParameterMatcher(Sets.union(orders, that.orders), lengths, usages, formalities);
+            } else if (orders.equals(that.orders)
+                && usages.equals(that.usages)
+                && formalities.equals(that.formalities)) {
+                return new ParameterMatcher(orders, Sets.union(lengths, that.lengths), usages, formalities);
+            } else if (orders.equals(that.orders)
+                && lengths.equals(that.lengths)
+                && formalities.equals(that.formalities)) {
+                return new ParameterMatcher(orders, lengths, Sets.union(usages, that.usages), formalities);
+            } else if (orders.equals(that.orders)
+                && lengths.equals(that.lengths)
                 && usages.equals(that.usages)) {
-                return new ParameterMatcher(lengths, styles, usages, Sets.union(orders, that.orders));
-            } else if (lengths.equals(that.lengths)
-                && styles.equals(that.styles)
-                && orders.equals(that.orders)) {
-                return new ParameterMatcher(lengths, styles, Sets.union(usages, that.usages), orders);
-            } else if (lengths.equals(that.lengths)
-                && usages.equals(that.usages)
-                && orders.equals(that.orders)) {
-                return new ParameterMatcher(lengths, Sets.union(styles, that.styles), usages, orders);
-            } else if (styles.equals(that.styles)
-                && usages.equals(that.usages)
-                && orders.equals(that.orders)) {
-                return new ParameterMatcher(Sets.union(lengths, that.lengths), styles, usages, orders);
+                return new ParameterMatcher(orders, lengths, usages, Sets.union(formalities, that.formalities));
             }
             return null;
         }
 
         public ParameterMatcher slim() {
             return new ParameterMatcher(
-                lengths.equals(Length.ALL) ? ImmutableSet.of() : lengths,
-                    styles.equals(Style.ALL) ? ImmutableSet.of() : styles,
+                orders.equals(Length.ALL) ? ImmutableSet.of() : orders,
+                    lengths.equals(Formality.ALL) ? ImmutableSet.of() : lengths,
                         usages.equals(Usage.ALL) ? ImmutableSet.of() : usages,
-                            orders.equals(Order.ALL) ? ImmutableSet.of() : orders
+                            formalities.equals(Order.ALL) ? ImmutableSet.of() : formalities
                 );
         }
 
@@ -1184,6 +1183,7 @@ public class PersonNameFormatter {
                     }
                 }
                 if (matchCount == 0) {
+                    key.equals(lastKey);
                     throw new IllegalArgumentException("key is masked by previous values: " + key
                         + ",\n\t" + JOIN_LFTB.join(formatParametersToNamePattern.entries()));
                 }
@@ -1375,10 +1375,10 @@ public class PersonNameFormatter {
         final String altValue = parts.getAttributeValue(-1, "alt");
         int rank = altValue == null ? 0 : Integer.parseInt(altValue);
         ParameterMatcher pm = new ParameterMatcher(
+            parts.getAttributeValue(-2, "order"),
             parts.getAttributeValue(-2, "length"),
-            parts.getAttributeValue(-2, "style"),
             parts.getAttributeValue(-2, "usage"),
-            parts.getAttributeValue(-2, "order")
+            parts.getAttributeValue(-2, "formality")
             );
 
         NamePattern np = NamePattern.from(rank, value);

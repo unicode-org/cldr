@@ -59,6 +59,7 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
 import org.unicode.cldr.util.personname.SimpleNameObject;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableList;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
@@ -501,6 +502,12 @@ public class ExampleGenerator {
                 return personNameFormatter;
             }
         }
+        @Override
+        public String toString() {
+            return "[" + (sampleNames == null ? "" : Joiner.on('\n').join(sampleNames.entrySet()))
+                + ", " + (personNameFormatter == null ? "" : personNameFormatter.toString())
+                + "]";
+        }
     }
 
     /**
@@ -511,7 +518,7 @@ public class ExampleGenerator {
         "//ldml/personNames/initialPattern[@type=\"*\"]");
 
     private String handlePersonName(XPathParts parts, String value) {
-        //ldml/personNames/personName[@length="long"][@usage="addressing"][@style="formal"][@order="givenFirst"]/namePattern => {prefix} {surname}
+        //ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="addressing"][@style="formal"]/namePattern => {prefix} {surname}
         String debugState = "start";
         try {
             FormatParameters formatParameters = FormatParameters.from(parts);

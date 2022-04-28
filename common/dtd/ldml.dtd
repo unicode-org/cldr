@@ -3185,14 +3185,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@METADATA-->
 
 <!ELEMENT personName ( alias | ( namePattern+, special* ) ) >
+<!ATTLIST personName order NMTOKENS #IMPLIED >
+    <!--@MATCH:set/literal/givenFirst, surnameFirst, sorting-->
 <!ATTLIST personName length NMTOKENS #IMPLIED >
     <!--@MATCH:set/literal/long, medium, short-->
 <!ATTLIST personName usage NMTOKENS #IMPLIED >
     <!--@MATCH:set/literal/referring, addressing, monogram-->
-<!ATTLIST personName style NMTOKENS #IMPLIED >
+<!ATTLIST personName formality NMTOKENS #IMPLIED >
     <!--@MATCH:set/literal/formal, informal-->
-<!ATTLIST personName order NMTOKENS #IMPLIED >
-    <!--@MATCH:set/literal/givenFirst, surnameFirst, sorting-->
 
 <!ELEMENT namePattern ( #PCDATA ) >
 <!ATTLIST namePattern alt (1|2) #IMPLIED >

@@ -19,6 +19,7 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FallbackFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Field;
+import org.unicode.cldr.util.personname.PersonNameFormatter.Formality;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Length;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
@@ -27,7 +28,6 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.NamePatternData;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Order;
 import org.unicode.cldr.util.personname.PersonNameFormatter.ParameterMatcher;
 import org.unicode.cldr.util.personname.PersonNameFormatter.SampleType;
-import org.unicode.cldr.util.personname.PersonNameFormatter.Style;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Usage;
 import org.unicode.cldr.util.personname.SimpleNameObject;
 
@@ -82,21 +82,21 @@ public class TestPersonNameFormatter extends TestFmwk{
 
         NamePatternData namePatternData = new NamePatternData(
             localeToOrder,
-            "length=short; style=formal; usage=addressing; order=surnameFirst", "{surname-allCaps} {given}",
-            "length=short medium; style=formal; usage=addressing", "{given} {given2-initial} {surname}",
-            "length=short medium; style=formal; usage=addressing", "{given} {surname}",
-            "length=long; style=formal; usage=monogram", "{given-monogram}{surname-monogram}",
+            "order=surnameFirst; length=short; usage=addressing; formality=formal", "{surname-allCaps} {given}",
+            "length=short medium; usage=addressing; formality=formal", "{given} {given2-initial} {surname}",
+            "length=short medium; usage=addressing; formality=formal", "{given} {surname}",
+            "length=long; usage=monogram; formality=formal", "{given-initial}{surname-initial}",
             "order=givenFirst", "{prefix} {given} {given2} {surname} {surname2} {suffix}",
             "order=surnameFirst", "{surname} {surname2} {prefix} {given} {given2} {suffix}",
             "order=sorting", "{surname} {surname2}, {prefix} {given} {given2} {suffix}");
 
         PersonNameFormatter personNameFormatter = new PersonNameFormatter(namePatternData, FALLBACK_FORMATTER);
 
-        check(personNameFormatter, sampleNameObject1, "length=short; style=formal; usage=addressing", "John B. Smith");
-        check(personNameFormatter, sampleNameObject2, "length=short; style=formal; usage=addressing", "John Smith");
-        check(personNameFormatter, sampleNameObject1, "length=long; style=formal; usage=addressing", "Mr. John Bob Smith Barnes Pascal Jr.");
-        check(personNameFormatter, sampleNameObject3, "length=long; style=formal; usage=monogram", "JS");
-        check(personNameFormatter, sampleNameObject4, "length=short; style=formal; usage=addressing; order=surnameFirst", "ABE Shinzō");
+        check(personNameFormatter, sampleNameObject1, "length=short; usage=addressing; formality=formal", "John B. Smith");
+        check(personNameFormatter, sampleNameObject2, "length=short; usage=addressing; formality=formal", "John Smith");
+        check(personNameFormatter, sampleNameObject1, "length=long; usage=addressing; formality=formal", "Mr. John Bob Smith Barnes Pascal Jr.");
+        check(personNameFormatter, sampleNameObject3, "length=long; usage=monogram; formality=formal", "J* B*S*"); // TODO This is wrong
+        check(personNameFormatter, sampleNameObject4, "order=surnameFirst; length=short; usage=addressing; formality=formal", "ABE Shinzō");
 
         checkFormatterData(personNameFormatter);
     }
@@ -140,8 +140,8 @@ public class TestPersonNameFormatter extends TestFmwk{
             warnln("To see the contents of the English patterns, use -DTestPersonNameFormatter.SHOW");
         }
 
-        check(ENGLISH_NAME_FORMATTER, sampleNameObject1, "length=short; order=sorting", "Smith, J. B.");
-        check(ENGLISH_NAME_FORMATTER, sampleNameObject1, "length=long; usage=referring; style=formal", "John Bob Smith Jr.");
+        check(ENGLISH_NAME_FORMATTER, sampleNameObject1, "order=sorting; length=short", "Smith, J. B.");
+        check(ENGLISH_NAME_FORMATTER, sampleNameObject1, "length=long; usage=referring; formality=formal", "John Bob Smith Jr.");
 
         checkFormatterData(ENGLISH_NAME_FORMATTER);
     }
@@ -185,10 +185,10 @@ public class TestPersonNameFormatter extends TestFmwk{
 
             String prefix = ++count + ")";
             sb.append(prefix
+                + "\t" + JOIN_SPACE.join(key.getOrder())
                 + "\t" + JOIN_SPACE.join(key.getLength())
                 + "\t" + JOIN_SPACE.join(key.getUsage())
-                + "\t" + JOIN_SPACE.join(key.getStyle())
-                + "\t" + JOIN_SPACE.join(key.getOrder())
+                + "\t" + JOIN_SPACE.join(key.getFormality())
                 );
             prefix = "";
             showPattern("\t⇒", value, sb);
@@ -205,7 +205,7 @@ public class TestPersonNameFormatter extends TestFmwk{
 
     public void TestFields() {
         Set<String> items = new HashSet<>();
-        for (Set<? extends Enum<?>> set : Arrays.asList(Length.ALL, Style.ALL, Usage.ALL, Order.ALL)) {
+        for (Set<? extends Enum<?>> set : Arrays.asList(Order.ALL, Length.ALL, Usage.ALL, Formality.ALL)) {
             for (Enum<?> item : set) {
                 boolean added = items.add(item.toString());
                 assertTrue("value names are disjoint", added);
@@ -221,13 +221,13 @@ public class TestPersonNameFormatter extends TestFmwk{
             assertTrue("label test\t"+ item + "\t" + label + "\t", added);
         }
 
-        FormatParameters testFormatParameters = new FormatParameters(Length.short_name, Style.formal, Usage.referring, Order.givenFirst);
-        assertEquals("label test", "short-referring-formal-givenFirst",
+        FormatParameters testFormatParameters = new FormatParameters(Order.givenFirst, Length.short_name, Usage.referring, Formality.formal);
+        assertEquals("label test", "givenFirst-short-referring-formal",
             testFormatParameters.toLabel());
 
         // test just one example for ParameterMatcher, since there are too many combinations
-        ParameterMatcher test = new ParameterMatcher(removeFirst(Length.ALL), removeFirst(Style.ALL), removeFirst(Usage.ALL), removeFirst(Order.ALL));
-        assertEquals("label test", "medium-short-addressing-monogram-informal-surnameFirst-sorting",
+        ParameterMatcher test = new ParameterMatcher(removeFirst(Order.ALL), removeFirst(Length.ALL), removeFirst(Usage.ALL), removeFirst(Formality.ALL));
+        assertEquals("label test", "surnameFirst-sorting-medium-short-addressing-monogram-informal",
             test.toLabel());
     }
 
@@ -243,35 +243,35 @@ public class TestPersonNameFormatter extends TestFmwk{
         check(personNameFormatter,
             SimpleNameObject.from(
                 "locale=en, prefix=Mr., given=John, given2= Bob, surname=Smith, surname2= Barnes Pascal, suffix=Jr."),
-            "length=short; style=formal; usage=addressing",
+            "length=short; usage=addressing; formality=formal",
             "1Mr.1 2John2 3Bob3 4Smith4 5Barnes Pascal5 6Jr.6"
             );
 
         check(personNameFormatter,
             SimpleNameObject.from(
                 "locale=en, given2= Bob, surname=Smith, surname2= Barnes Pascal, suffix=Jr."),
-            "length=short; style=formal; usage=addressing",
+            "length=short; usage=addressing; formality=formal",
             "Bob3 4Smith4 5Barnes Pascal5 6Jr.6"
             );
 
         check(personNameFormatter,
             SimpleNameObject.from(
                 "locale=en, prefix=Mr., given=John, given2= Bob, surname=Smith"),
-            "length=short; style=formal; usage=addressing",
+            "length=short; usage=addressing; formality=formal",
             "1Mr.1 2John2 3Bob3 4Smith"
             );
 
         check(personNameFormatter,
             SimpleNameObject.from(
                 "locale=en, prefix=Mr., surname=Smith, surname2= Barnes Pascal, suffix=Jr."),
-            "length=short; style=formal; usage=addressing",
+            "length=short; usage=addressing; formality=formal",
             "1Mr.1 4Smith4 5Barnes Pascal5 6Jr.6"
             );
 
         check(personNameFormatter,
             SimpleNameObject.from(
                 "locale=en, given=John, surname=Smith"),
-            "length=short; style=formal; usage=addressing",
+            "length=short; usage=addressing; formality=formal",
             "John2 4Smith"
             );
     }
@@ -355,12 +355,11 @@ public class TestPersonNameFormatter extends TestFmwk{
         ExampleGenerator exampleGenerator = new ExampleGenerator(ENGLISH, ENGLISH, "");
         String[][] tests = {
             {
-                "//ldml/personNames/personName[@length=\"long\"][@usage=\"referring\"][@style=\"formal\"][@order=\"givenFirst\"]/namePattern",
+                "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
                 "〖Sinbad〗〖Irene Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia Meyer Wolf M.D. Ph.D.〗"
-//HACK, reenable after en data changes {xxx-initial} to {xxx-monogram} for monogram patterns
-//            },{
-//                "//ldml/personNames/personName[@length=\"long\"][@usage=\"monogram\"][@style=\"informal\"][@order=\"surnameFirst\"]/namePattern",
-//                "〖S〗〖AI〗〖WJ〗〖MWN〗"
+            },{
+                "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"long\"][@usage=\"monogram\"][@formality=\"informal\"]/namePattern",
+                "〖S〗〖AI〗〖WJ〗〖MN〗"
             },{
                 "//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]",
                 "〖und = «any other»〗"
@@ -436,7 +435,10 @@ public class TestPersonNameFormatter extends TestFmwk{
         // First test the example for the regular value
 
         ExampleGenerator exampleGenerator = new ExampleGenerator(resolved, ENGLISH, "");
-        String path = "//ldml/personNames/personName[@length=\"long\"][@usage=\"referring\"][@style=\"formal\"][@order=\"givenFirst\"]/namePattern";
+        String path = checkPath("//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern");
+        String value2 = enWritable.getStringValue(path); // check that English is as expected
+        assertEquals(path, "{given} {given2} {surname} {suffix}", value2);
+
         String expected = "〖Sinbad〗〖Irene Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia Meyer Wolf M.D. Ph.D.〗";
         String value = enWritable.getStringValue(path);
 
@@ -444,12 +446,20 @@ public class TestPersonNameFormatter extends TestFmwk{
 
         // Then change one of the sample names to make sure it alters the example correctly
 
-        String namePath = "//ldml/personNames/sampleName[@item=\"givenSurnameOnly\"]/nameField[@type=\"given\"]";
+        String namePath = checkPath("//ldml/personNames/sampleName[@item=\"givenSurnameOnly\"]/nameField[@type=\"given\"]");
+        String value3 = enWritable.getStringValue(namePath);
+        assertEquals(namePath, "Irene", value3); // check that English is as expected
+
         enWritable.add(namePath, "IRENE");
         exampleGenerator.updateCache(namePath);
 
         String expected2 =  "〖Sinbad〗〖IRENE Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia Meyer Wolf M.D. Ph.D.〗";
         checkExampleGenerator(exampleGenerator, path, value, expected2);
+    }
+
+    private String checkPath(String path) {
+        assertEquals("Path is in canonical form", XPathParts.getFrozenInstance(path).toString(), path);
+        return path;
     }
 
     public void TestFormatAll() {
@@ -464,10 +474,10 @@ public class TestPersonNameFormatter extends TestFmwk{
             Collection<NamePattern> nps = personNameFormatter.getBestMatchSet(parameters);
             if (sb != null) {
                 for (NamePattern np : nps) {
-                    sb.append(parameters.getLength()
-                        + "\t" + parameters.getStyle()
+                    sb.append(parameters.getOrder()
+                        + "\t" + parameters.getLength()
                         + "\t" + parameters.getUsage()
-                        + "\t" + parameters.getOrder()
+                        + "\t" + parameters.getFormality()
                         + "\t" + np
                         + "\n"
                         );

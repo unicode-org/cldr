@@ -4,7 +4,7 @@
 
 <!-- HTML: no th -->
 <table><tbody>
-<tr><td>Version</td><td>41</td></tr>
+<tr><td>Version</td><td><b>42 (draft)</b></td></tr>
 <tr><td>Editors</td><td>Shane F. Carr (<a href="mailto:shane@unicode.org">shane@unicode.org</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td></tr>
 </tbody></table>
 

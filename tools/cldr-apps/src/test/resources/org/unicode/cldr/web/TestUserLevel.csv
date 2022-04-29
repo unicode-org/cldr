@@ -1,0 +1,162 @@
+org, level, operation, expected
+adlam, admin, isAdminForSameOrg, true
+adlam, tc, isAdminForSameOrg, true
+adlam, manager, isAdminForSameOrg, true
+adlam, vetter, isAdminForSameOrg, false
+adlam, street, isAdminForSameOrg, false
+adlam, locked, isAdminForSameOrg, false
+adlam, anonymous, isAdminForSameOrg, false
+adlam, admin, isAdminForNko, true
+adlam, tc, isAdminForNko, false
+adlam, manager, isAdminForNko, false
+adlam, vetter, isAdminForNko, false
+adlam, street, isAdminForNko, false
+adlam, locked, isAdminForNko, false
+adlam, anonymous, isAdminForNko, false
+adlam, admin, votes,100
+adlam, tc, votes,20
+adlam, manager, votes,4
+adlam, vetter, votes,4
+adlam, street, votes,1
+adlam, locked, votes,0
+adlam, anonymous, votes,0
+adlam, admin, canImportOldVotesSUBMISSION, true
+adlam, tc, canImportOldVotesSUBMISSION, true
+adlam, manager, canImportOldVotesSUBMISSION, true
+adlam, vetter, canImportOldVotesSUBMISSION, true
+adlam, street, canImportOldVotesSUBMISSION, false
+adlam, locked, canImportOldVotesSUBMISSION, false
+adlam, anonymous, canImportOldVotesSUBMISSION, false
+adlam, admin,userCanDoList, true
+adlam, tc,userCanDoList, true
+adlam, manager,userCanDoList, true
+adlam, vetter,userCanDoList, true
+adlam, street,userCanDoList, false
+adlam, locked,userCanDoList, false
+adlam, anonymous,userCanDoList, false
+adlam, admin,userCanCreateUsers, true
+adlam, tc,userCanCreateUsers, true
+adlam, manager,userCanCreateUsers, true
+adlam, vetter,userCanCreateUsers, false
+adlam, street,userCanCreateUsers, false
+adlam, locked,userCanCreateUsers, false
+adlam, anonymous,userCanCreateUsers, false
+adlam, admin,userCanEmailUsers, true
+adlam, tc,userCanEmailUsers, true
+adlam, manager,userCanEmailUsers, true
+adlam, vetter,userCanEmailUsers, false
+adlam, street,userCanEmailUsers, false
+adlam, locked,userCanEmailUsers, false
+adlam, anonymous,userCanEmailUsers, false
+adlam, admin,userCanModifyUsers, true
+adlam, tc,userCanModifyUsers, true
+adlam, manager,userCanModifyUsers, true
+adlam, vetter,userCanModifyUsers, false
+adlam, street,userCanModifyUsers, false
+adlam, locked,userCanModifyUsers, false
+adlam, anonymous,userCanModifyUsers, false
+adlam, admin,userCreateOtherOrgs, true
+adlam, tc,userCreateOtherOrgs, false
+adlam, manager,userCreateOtherOrgs, false
+adlam, vetter,userCreateOtherOrgs, false
+adlam, street,userCreateOtherOrgs, false
+adlam, locked,userCreateOtherOrgs, false
+adlam, anonymous,userCreateOtherOrgs, false
+adlam, admin,userIsExactlyManager, false
+adlam, tc,userIsExactlyManager, false
+adlam, manager,userIsExactlyManager, true
+adlam, vetter,userIsExactlyManager, false
+adlam, street,userIsExactlyManager, false
+adlam, locked,userIsExactlyManager, false
+adlam, anonymous,userIsExactlyManager, false
+adlam, admin,userIsManagerOrStronger, true
+adlam, tc,userIsManagerOrStronger, true
+adlam, manager,userIsManagerOrStronger, true
+adlam, vetter,userIsManagerOrStronger, false
+adlam, street,userIsManagerOrStronger, false
+adlam, locked,userIsManagerOrStronger, false
+adlam, anonymous,userIsManagerOrStronger, false
+adlam, admin,userIsVetter, true
+adlam, tc,userIsVetter, true
+adlam, manager,userIsVetter, true
+adlam, vetter,userIsVetter, true
+adlam, street,userIsVetter, false
+adlam, locked,userIsVetter, false
+adlam, anonymous,userIsVetter, false
+adlam, admin,userIsAdmin, true
+adlam, tc,userIsAdmin, false
+adlam, manager,userIsAdmin, false
+adlam, vetter,userIsAdmin, false
+adlam, street,userIsAdmin, false
+adlam, locked,userIsAdmin, false
+adlam, anonymous,userIsAdmin, false
+adlam, admin,userCanCreateSummarySnapshot, true
+adlam, tc,userCanCreateSummarySnapshot, false
+adlam, manager,userCanCreateSummarySnapshot, false
+adlam, vetter,userCanCreateSummarySnapshot, false
+adlam, street,userCanCreateSummarySnapshot, false
+adlam, locked,userCanCreateSummarySnapshot, false
+adlam, anonymous,userCanCreateSummarySnapshot, false
+adlam, admin,userIsTC, true
+adlam, tc,userIsTC, true
+adlam, manager,userIsTC, false
+adlam, vetter,userIsTC, false
+adlam, street,userIsTC, false
+adlam, locked,userIsTC, false
+adlam, anonymous,userIsTC, false
+adlam, admin,userIsStreet, true
+adlam, tc,userIsStreet, true
+adlam, manager,userIsStreet, true
+adlam, vetter,userIsStreet, true
+adlam, street,userIsStreet, true
+adlam, locked,userIsStreet, false
+adlam, anonymous,userIsStreet, true
+adlam, admin,userIsLocked, false
+adlam, tc,userCanSubmit_SUBMIT, true
+adlam, manager,userCanSubmit_SUBMIT, true
+adlam, vetter,userCanSubmit_SUBMIT, true
+adlam, street,userCanSubmit_SUBMIT, true
+adlam, locked,userCanSubmit_SUBMIT, false
+adlam, anonymous,userCanSubmit_SUBMIT, true
+adlam, admin,userIsLocked, false
+adlam, tc,userIsLocked, false
+adlam, manager,userIsLocked, false
+adlam, vetter,userIsLocked, false
+adlam, street,userIsLocked, false
+adlam, locked,userIsLocked, true
+adlam, anonymous,userIsLocked, false
+adlam, admin,userIsExactlyAnonymous, false
+adlam, tc,userIsExactlyAnonymous, false
+adlam, manager,userIsExactlyAnonymous, false
+adlam, vetter,userIsExactlyAnonymous, false
+adlam, street,userIsExactlyAnonymous, false
+adlam, locked,userIsExactlyAnonymous, false
+adlam, anonymous,userIsExactlyAnonymous, true
+adlam, admin,userCanUseVettingSummary, true
+adlam, tc,userCanUseVettingSummary, true
+adlam, manager,userCanUseVettingSummary, true
+adlam, vetter,userCanUseVettingSummary, false
+adlam, street,userCanUseVettingSummary, false
+adlam, locked,userCanUseVettingSummary, false
+adlam, anonymous,userCanUseVettingSummary, false
+adlam, admin, userCanMonitorForum, true
+adlam, tc,userCanMonitorForum, true
+adlam, manager,userCanMonitorForum, true
+adlam, vetter,userCanMonitorForum, false
+adlam, street,userCanMonitorForum, false
+adlam, locked,userCanMonitorForum, false
+adlam, anonymous,userCanMonitorForum, false
+adlam, admin,userCanSetInterestLocales, true
+adlam, tc,userCanSetInterestLocales, true
+adlam, manager,userCanSetInterestLocales, true
+adlam, vetter,userCanSetInterestLocales, false
+adlam, street,userCanSetInterestLocales, false
+adlam, locked,userCanSetInterestLocales, false
+adlam, anonymous,userCanSetInterestLocales, false
+adlam, admin,userCanGetEmailList, true
+adlam, tc,userCanGetEmailList, true
+adlam, manager,userCanGetEmailList, true
+adlam, vetter,userCanGetEmailList, false
+adlam, street,userCanGetEmailList, false
+adlam, locked,userCanGetEmailList, false
+adlam, anonymous,userCanGetEmailList, false

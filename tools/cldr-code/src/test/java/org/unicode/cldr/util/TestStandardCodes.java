@@ -15,7 +15,7 @@ public class TestStandardCodes {
         "doi,BASIC",  // CLDR locale
         "nn,MODERN",  // CLDR locale
         "hnj,MODERN", // Maximum coverage (hmong)
-        "br,MODERN",  // Maximum (Breton)
+        "br,MODERATE",  // Maximum (Breton)
         "zxx,BASIC",  // "all others: BASIC"
     })
     void testTargetCoverageLevel(final String locale, final String level) {

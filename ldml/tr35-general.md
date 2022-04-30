@@ -4,7 +4,7 @@
 
 <!-- HTML: no header -->
 <table><tbody>
-<tr><td>Version</td><td>41</td></tr>
+<tr><td>Version</td><td><b>42 (draft)</b></td></tr>
 <tr><td>Editors</td><td>Yoshito Umaoka (<a href="mailto:yoshito_umaoka@us.ibm.com">yoshito_umaoka@us.ibm.com</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td></tr>
 </tbody></table>
 

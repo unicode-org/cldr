@@ -2833,6 +2833,17 @@ annotations.
 					<relativeTimePattern count="other">{0} yr. ago</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="year-narrow">
+				<displayName>yr</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0}y</relativeTimePattern>
+					<relativeTimePattern count="other">in {0}y</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0}y ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0}y ago</relativeTimePattern>
+				</relativeTime>
+			</field>
 			<field type="quarter">
 				<displayName>quarter</displayName>
 				<relative type="-1">last quarter</relative>
@@ -2861,6 +2872,17 @@ annotations.
 					<relativeTimePattern count="other">{0} qtrs. ago</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="quarter-narrow">
+				<displayName>qtr</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0}q</relativeTimePattern>
+					<relativeTimePattern count="other">in {0}q</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0}q ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0}q ago</relativeTimePattern>
+				</relativeTime>
+			</field>
 			<field type="month">
 				<displayName>month</displayName>
 				<relative type="-1">last month</relative>
@@ -2887,6 +2909,17 @@ annotations.
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} mo. ago</relativeTimePattern>
 					<relativeTimePattern count="other">{0} mo. ago</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="month-narrow">
+				<displayName>mo</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0}mo</relativeTimePattern>
+					<relativeTimePattern count="other">in {0}mo</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0}mo ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0}mo ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="week">
@@ -2918,6 +2951,17 @@ annotations.
 					<relativeTimePattern count="other">{0} wk. ago</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="week-narrow">
+				<displayName>wk</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0}w</relativeTimePattern>
+					<relativeTimePattern count="other">in {0}w</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0}w ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0}w ago</relativeTimePattern>
+				</relativeTime>
+			</field>
 			<field type="weekOfMonth">
 				<displayName>week of month</displayName>
 			</field>
@@ -2947,6 +2991,17 @@ annotations.
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} day ago</relativeTimePattern>
 					<relativeTimePattern count="other">{0} days ago</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="day-narrow">
+				<displayName>day</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0}d</relativeTimePattern>
+					<relativeTimePattern count="other">in {0}d</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0}d ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0}d ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="dayOfYear">
@@ -3271,6 +3326,17 @@ annotations.
 					<relativeTimePattern count="other">{0} hr. ago</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="hour-narrow">
+				<displayName>hr</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0}h</relativeTimePattern>
+					<relativeTimePattern count="other">in {0}h</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0}h ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0}h ago</relativeTimePattern>
+				</relativeTime>
+			</field>
 			<field type="minute">
 				<displayName>minute</displayName>
 				<relative type="0">this minute</relative>
@@ -3292,6 +3358,17 @@ annotations.
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} min. ago</relativeTimePattern>
 					<relativeTimePattern count="other">{0} min. ago</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="minute-narrow">
+				<displayName>min</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0}m</relativeTimePattern>
+					<relativeTimePattern count="other">in {0}m</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0}m ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0}m ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="second">
@@ -3316,6 +3393,17 @@ annotations.
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} sec. ago</relativeTimePattern>
 					<relativeTimePattern count="other">{0} sec. ago</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="second-narrow">
+				<displayName>sec</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0}s</relativeTimePattern>
+					<relativeTimePattern count="other">in {0}s</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0}s ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0}s ago</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="zone">

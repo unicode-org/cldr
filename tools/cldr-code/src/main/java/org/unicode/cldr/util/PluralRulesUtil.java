@@ -95,7 +95,7 @@ public class PluralRulesUtil {
      * Locales where 'many' is optional. TODO get ICU to add a method that determines if a plural keyword's rule
      * is only true if the compact operand is set.
      */
-    public static final ImmutableSet<String> LOCALES_WITH_OPTIONAL_MANY = ImmutableSet.of("fr", "it", "es", "pt", "pt_PT");
+    public static final ImmutableSet<String> LOCALES_WITH_OPTIONAL_MANY = ImmutableSet.of("ca", "es", "fr", "it", "pt", "pt_PT");
 
     // static final Map<String,Set<String>> locale2keywords = new HashMap<String,Set<String>>();
     // static final Map<String,PluralRules> locale2pluralRules = new HashMap<String,PluralRules>();

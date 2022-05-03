@@ -38,7 +38,6 @@ import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
@@ -501,8 +500,8 @@ public class TestCheckCLDR extends TestFmwk {
         // Outdated
         checkCheckNew("de", "//ldml/localeDisplayNames/territories/territory[@type=\"001\"]",
             "In CLDR 39.0 the English value for this field changed from “World” to “world”, but the corresponding value for your locale didn't change.");
-        checkCheckNew("fr", "//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"digital-gigabit\"]/displayName",
-            "In CLDR 38.0 the English value for this field changed from “Gbit” to “Gb”, but the corresponding value for your locale didn't change.");
+        checkCheckNew("el", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"mass-grain\"]/displayName",
+            "In CLDR 40.0 the English value for this field changed from “grain” to “grains”, but the corresponding value for your locale didn't change.");
     }
 
     public void checkCheckNew(String locale, String path, String expectedMessage) {

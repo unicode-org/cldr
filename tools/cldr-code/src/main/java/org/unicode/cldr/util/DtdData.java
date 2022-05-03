@@ -235,7 +235,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     int colonPos = commentIn.indexOf(':');
                     if (colonPos < 0) {
                         throw new IllegalArgumentException(element.name + " " + name +
-                        "= : Unrecognized ATTLIST annotation: " + commentIn);
+                            "= : Unrecognized ATTLIST annotation: " + commentIn);
                     }
                     String command = commentIn.substring(0, colonPos);
                     String argument = commentIn.substring(colonPos + 1);
@@ -246,7 +246,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     case "@MATCH":
                         if (matchValue != null) {
                             throw new IllegalArgumentException(element.name + " " + name +
-                            "= : Conflicting @MATCH: " + matchValue.getName() + " & " + argument);
+                                "= : Conflicting @MATCH: " + matchValue.getName() + " & " + argument);
                         }
                         matchValue = MatchValue.of(argument);
                         break;
@@ -692,11 +692,19 @@ public class DtdData extends XMLFileReader.SimpleHandler {
      */
     public static DtdData getInstance(DtdType type, String version) {
         // Map out versions that had no DTD
-        switch (version) {
-            case "1.1.1": version="1.1"; break;
-            case "1.4.1": version="1.4"; break;
-            case "1.5.1": version="1.5.0.1"; break;
+        if (version != null) {
+            switch (version) {
+            case "1.1.1":
+                version="1.1";
+                break;
+            case "1.4.1":
+                version="1.4";
+                break;
+            case "1.5.1":
+                version="1.5.0.1";
+                break;
             default:
+            }
         }
         File directory = version == null ? CLDRConfig.getInstance().getCldrBaseDirectory()
             : new File(CLDRPaths.ARCHIVE_DIRECTORY + "/cldr-" + version);
@@ -1109,7 +1117,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 b.append(COMMENT_PREFIX + "<!--@DEPRECATED-->");
             } else if (!deprecatedValues.isEmpty()) {
                 b.append(COMMENT_PREFIX + "<!--@DEPRECATED:" + Joiner.on(", ")
-                    .join(deprecatedValues) + "-->");
+                .join(deprecatedValues) + "-->");
             }
         }
         if (current.children.size() > 0) {
@@ -1404,7 +1412,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "volume-jigger",
         "volume-pinch",
         "volume-quart-imperial"
-       // "volume-pint-imperial"
+        // "volume-pint-imperial"
         ).freeze();
 
     static MapComparator<String> countValueOrder = new MapComparator<String>().add(
@@ -1418,7 +1426,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     static final Comparator<String> COMP = (Comparator) CLDRConfig.getInstance().getCollator();
 
     // Hack for US
-    static final Comparator<String> UNICODE_SET_COMPARATOR = new Comparator<String>() {
+    static final Comparator<String> UNICODE_SET_COMPARATOR = new Comparator<>() {
         @Override
         public int compare(String o1, String o2) {
             if (o1.contains("{")) {

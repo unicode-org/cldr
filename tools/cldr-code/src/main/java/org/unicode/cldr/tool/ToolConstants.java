@@ -73,7 +73,7 @@ public class ToolConstants {
         .map(x -> VersionInfo.getInstance(x))
         .collect(Collectors.toList()));
 
-    public static final String DEV_VERSION = "41";
+    public static final String DEV_VERSION = "42";
     public static final VersionInfo DEV_VERSION_VI = VersionInfo.getInstance(DEV_VERSION);
 
     public static final Set<String> CLDR_RELEASE_VERSION_SET = ImmutableSet.copyOf(ToolConstants.CLDR_VERSIONS);

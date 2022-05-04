@@ -62,7 +62,7 @@ public class GenerateBirth {
         .add("previous", "Stop after writing the English previous data.")
         .add("oldest",
             "\\d+(\\.\\d+)?",
-            "37.0",
+            "38.0",
             "Oldest version to go back to, eg 36.1")
         .add("debug", "Debug");
 

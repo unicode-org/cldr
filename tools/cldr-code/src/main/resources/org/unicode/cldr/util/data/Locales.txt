@@ -201,7 +201,7 @@ Google ; nqo ; moderate ;
 #Google	;	om	;	basic	;	Oromo
 Google	;	or	;	modern	;	T5	Odia
 Google	;	pa	;	modern	;	T4.1	Punjabi
-Google	;	pcm	;	Modern	;	Nigerian Pidgin
+Google	;	pcm	;	modern	;	Nigerian Pidgin
 Google	;	pl	;	modern	;	T1	Polish
 Google	;	ps	;	modern	;	T5	Pashto
 Google	;	pt	;	modern	;	T1	Brazilian Portuguese
@@ -255,19 +255,20 @@ Google	;	zu	;	modern	;	T5	Zulu
 Google ; * ; moderate ; All Others, provisionally
 
 
-Apple ; aa ; moderate ;
+Apple ; aa ; moderate
 Apple	;	ar	;	modern
 Apple	;	as	;	basic
 Apple	;	az	;	basic
 Apple	;	be	;	basic
 Apple	;	bg	;	modern
 Apple	;	bn	;	modern
-Apple ; bo ; moderate ;
+Apple ; bo ; moderate
 Apple	;	bs	;	basic
 Apple	;	ca	;	modern
-Apple ; cad ; moderate ;
-Apple ; ceb ; moderate ;
+Apple ; cad ; moderate
+Apple ; ceb ; moderate
 Apple	;	cs	;	modern
+Apple	;	cv	;	basic
 Apple	;	cy	;	basic
 Apple	;	da	;	modern
 Apple	;	de	;	modern
@@ -279,7 +280,7 @@ Apple	;	es	;	modern
 Apple	;	es_419	;	modern
 Apple	;	es_MX	;	modern
 Apple	;	et	;	modern
-Apple ; eu ; moderate ;
+Apple ; eu ; moderate
 Apple	;	fa	;	modern
 Apple	;	fi	;	modern
 Apple	;	fil	;	modern
@@ -297,18 +298,19 @@ Apple	;	ii	;	basic
 Apple	;	is	;	modern
 Apple	;	it	;	modern
 Apple	;	ja	;	modern
-Apple ; ka ; moderate ;
-Apple	;	kk	;	basic
-Apple ; kl ; moderate ;
+Apple ; ka ; moderate
+Apple	;	kk	;	modern
+Apple ; kl ; moderate
 Apple	;	km	;	basic
 Apple	;	kn	;	modern
 Apple	;	ko	;	modern
-Apple ; kok ; moderate ;
-Apple ; ky ; moderate ;
+Apple ; kok ; moderate
+Apple ; ky ; moderate
 Apple	;	lo	;	basic
-Apple ; lb ; moderate ;
+Apple ; lb ; moderate
 Apple	;	lt	;	modern
 Apple	;	lv	;	modern
+Apple	;	mi	;	modern
 Apple	;	mk	;	modern
 Apple	;	ml	;	modern
 Apple	;	mn	;	basic
@@ -324,7 +326,7 @@ Apple	;	pa	;	modern
 Apple	;	pl	;	modern
 Apple	;	pt	;	modern
 Apple	;	pt_PT	;	modern
-Apple ; pcm ; moderate ;
+Apple ; pcm ; moderate
 Apple	;	ro	;	modern
 Apple	;	ru	;	modern
 Apple	;	sk	;	modern
@@ -333,22 +335,22 @@ Apple	;	sq	;	basic
 Apple	;	sr	;	modern
 Apple	;	sr_Latn	;	modern
 Apple	;	sv	;	modern
-Apple ; sw ; moderate ;
-#Apple ; syr ; moderate ;
+Apple ; sw ; moderate
+#Apple ; syr ; moderate
 Apple	;	ta	;	modern
 Apple	;	te	;	modern
-Apple ; tg ; moderate ;
+Apple ; tg ; moderate
 Apple	;	th	;	modern
 Apple	;	to	;	modern
 Apple	;	tr	;	modern
-Apple ; tt ; moderate ;
+Apple ; tt ; moderate
 Apple	;	ug	;	basic
 Apple	;	uk	;	modern
 Apple	;	ur	;	modern
-Apple ; uz ; moderate ;
+Apple ; uz ; moderate
 Apple	;	vi	;	modern
 Apple	;	yi	;	basic
-Apple ; yue ; moderate ;
+Apple ; yue ; moderate
 Apple	;	zh	;	modern
 Apple	;	zh_Hant	;	modern
 Apple	;	zh_Hant_HK	;	modern
@@ -524,9 +526,11 @@ Cldr	;	ar_DZ	;	modern	; TR Arabic (Algeria)
 #Cldr	other (from Apple)
 #Cldr    ;   fo  ;   modern
 #Cldr    ;   to  ;   moderate	# maybe different level from Apple's
+Cldr  ; cv  ; basic
 Cldr	;	en_AU	;	modern
 Cldr	;	es_MX	;	modern
 Cldr	;	fr_CA	;	modern
+Cldr  ; mi  ; modern
 Cldr	;	zh_Hant_HK	;	modern
 
 #Cldr	other (from Google)
@@ -557,7 +561,7 @@ Cldr	; su ; basic ; Sundanese (script TBD)
 Cldr  ; ks_Deva ; basic ; Kashmiri (Devanagari)
 Cldr	; sd_Deva ; basic ; Sindhi (Devanagari script)
 # Cldr	; cad ; basic ; Caddo
-Cldr	; pcm ; Modern ; Nigerian Pidgin
+Cldr	; pcm ; modern ; Nigerian Pidgin
 
 Cldr    ; nn ; modern ; Nynorsk
 Cldr    ; sa ; basic ; Sanskrit

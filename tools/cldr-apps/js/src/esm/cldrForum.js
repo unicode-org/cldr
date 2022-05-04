@@ -15,6 +15,8 @@ import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
 
+const SUMMARY_CLASS = "getForumSummary";
+
 const FORUM_DEBUG = false;
 
 function forumDebug(s) {
@@ -1289,6 +1291,17 @@ function fmtDateTime(x) {
   );
 }
 
+function refreshSummary() {
+  const locale = cldrStatus.getCurrentLocale();
+  if (locale) {
+    const surveyUser = cldrStatus.getSurveyUser();
+    if (surveyUser?.id && getSummaryClassElements().length) {
+      const html = getForumSummaryHtml(locale, surveyUser.id, false);
+      setAllForumSummaryElements(html);
+    }
+  }
+}
+
 /**
  * Get a piece of html text summarizing the current Forum statistics
  *
@@ -1313,15 +1326,14 @@ function getForumSummaryHtml(locale, userId, getTable) {
  * @return the html
  */
 function reallyGetForumSummaryHtml(canDoAjax, getTable) {
-  const id = "forumSummary";
   const tag = getTable ? "div" : "span";
-  let html = "<" + tag + " id='" + id + "'>\n";
+  let html = "<" + tag + ">\n";
   if (!forumUpdateTime) {
     if (canDoAjax) {
       if (getTable) {
         html += "<p>Loading Forum Summary...</p>\n";
       }
-      loadForumForSummaryOnly(forumLocale, id, getTable);
+      loadForumForSummaryOnly(forumLocale, getTable);
     } else if (getTable) {
       html += "<p>Load failed</p>n";
     }
@@ -1355,36 +1367,32 @@ function reallyGetForumSummaryHtml(canDoAjax, getTable) {
  * Fetch the Forum data from the server, and show a summary
  *
  * @param locale the locale
- * @param id the id of the element to display the summary
  * @param getTable true to get a table, false to get a one-liner
  */
-function loadForumForSummaryOnly(locale, id, getTable) {
+function loadForumForSummaryOnly(locale, getTable) {
   if (typeof cldrAjax === "undefined") {
     return;
   }
   setLocale(locale);
   const url = getLoadForumUrl();
   const errorHandler = function (err) {
-    const el = document.getElementById(id);
-    if (el) {
-      el.innerHTML = err;
-    }
+    setAllForumSummaryElements(err);
   };
   const loadHandler = function (json) {
-    const el = document.getElementById(id);
-    if (!el) {
+    if (!getSummaryClassElements().length) {
       return;
     }
     if (json.err) {
-      el.innerHTML = "Error";
+      setAllForumSummaryElements("Error");
       return;
     }
     const posts = json.ret;
     parseContent(posts, "summary");
-    el.innerHTML = reallyGetForumSummaryHtml(
+    const html = reallyGetForumSummaryHtml(
       false /* do not reload recursively */,
       getTable
     ); // after parseContent
+    setAllForumSummaryElements(html);
   };
   const xhrArgs = {
     url: url,
@@ -1393,6 +1401,17 @@ function loadForumForSummaryOnly(locale, id, getTable) {
     error: errorHandler,
   };
   cldrAjax.sendXhr(xhrArgs);
+}
+
+function setAllForumSummaryElements(html) {
+  const els = getSummaryClassElements();
+  for (const el of Array.from(els)) {
+    el.innerHTML = html;
+  }
+}
+
+function getSummaryClassElements() {
+  return document.getElementsByClassName(SUMMARY_CLASS);
 }
 
 /**
@@ -1469,12 +1488,13 @@ function parseHash(pieces) {
 }
 
 export {
+  SUMMARY_CLASS,
   addNewPostButtons,
-  getForumSummaryHtml,
   handleIdChanged,
   load,
   parseContent,
   parseHash,
+  refreshSummary,
   reload,
   setUserCanPost,
   /*

@@ -45,7 +45,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%allPlurals" value="(zero|one|two|few|many|other)"/>
 		<coverageVariable key="%allWidths" value="(wide|abbreviated|narrow)"/>
 		<coverageVariable key="%ampmTypes" value="(am|pm|noon)"/>
-		<coverageVariable key="%calendarType80" value="(buddhist|chinese|dangi|ethiopic|hebrew|islamic|japanese|persian|roc)"/>
+		<coverageVariable key="%calendarType80" value="(buddhist|chinese|coptic|dangi|ethiopic(-amete-alem)?|hebrew|islamic(-(civil|umalqura))?|japanese|persian|roc)"/>
 		<coverageVariable key="%calendarType100" value="(buddhist|chinese|coptic|dangi|ethiopic(-amete-alem)?|hebrew|indian|islamic(-(civil|rgsa|tbla|umalqura))?|japanese|persian|roc)"/>
 		<coverageVariable key="%calendarType100ForDateFormats" value="(buddhist|chinese|coptic|dangi|ethiopic|hebrew|indian|islamic|japanese|persian|roc)"/>
 		<coverageVariable key="%calendarTypeUniqueNonGregoMonths" value="(chinese|coptic|dangi|ethiopic|hebrew|indian|islamic|persian)"/>
@@ -53,8 +53,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%CJK_Languages" value="(ja|ko|zh)"/>
 		<coverageVariable key="%chineseCalendarTerritories" value="(CN|CX|HK|MO|SG|TW)"/>
 		<coverageVariable key="%collationType80" value="(ducet|search)"/>
-		<coverageVariable key="%collationType80ForTopLangs" value="(buddhist|chinese|hebrew|islamic|islamic-civil|japanese)"/>
-		<coverageVariable key="%collationType80TopLangs" value="(ar|de|en|es|fr|it|ja|ko|nl|pl|pt|ru|th|tr|zh)"/>
+		<coverageVariable key="%collationType80ForTopLangs" value="(big5han|compat|dictionary|gb2312han|phonebook|phonetic|pinyin|reformed|stroke|traditional|unihan|zhuyin)"/>
+		<coverageVariable key="%collationType80TopLangs" value="(ar|bg|ca|cs|da|de|el|en|es|fi|fr|he|hi|hr|hu|id|it|ja|ko|ms|nl|no|pl|pt|ro|ru|sk|sl|sr|sv|th|tr|uk|vi|zh)"/>
 		<coverageVariable key="%collationType100" value="(big5han|compat|dictionary|emoji|eor|gb2312han|phonebook|phonetic|pinyin|reformed|searchjl|stroke|traditional|unihan|zhuyin)"/>
 		<coverageVariable key="%collationAlternateValues" value="(non-ignorable|shifted)"/>
 		<coverageVariable key="%collationCases" value="(upper|lower)"/>
@@ -105,8 +105,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%language60_NG" value="(ff|ha|ibb|ig|kr|yo)"/>
 		<coverageVariable key="%language60_TD" value="(shu|dzg|kbl|mde|mua|sba)"/>
 		<!-- All locales present in main/ MUST have their language's name at least at level 80 (modern) -->
-		<coverageVariable key="%language80" value="(sc|doi|a([fkmrz]|gq|s[at]?)|b([gm-os]|as|e[mz]?|rx?)|c([aosy]|cp|eb?|gg|hr|kb)|d([ez]|av?|je|sb|ua|yo)|e([elnos-u]|bu|wo)|f([afory]|il?|ur)|fa_AF|g([adlv]|sw|uz?)|h([eirtuy]|aw?|mn|sb)|i[adgist]|j([av]|go|mc)|k([imnuwy]|a[bm]?|de|ea|hq|kj?|ln?|ok?|s[bfh]?)|l([bgnotv]|ag?|kt|rc|u[oy]?)|m([iklr-ty]|a[is]|er|fe|g[ho]?|ni?|u[al]|zn)|n([belo]|aq|ds?|mg|nh?|us|yn?)|o[mrs]|p([alst]|cm)|qu|r([mnu]|of?|wk?|hg)|s([dgiklnoqrt-w]|a[hqt]?|bp|e[hs]?|hi|mn?)|t([ag-ikort]|eo?|wq|zm)|u([gkrz]|nd)|v([i]|ai|un)|w(ae|o)|x(h|og)|y([io]|av|ue)|z([hu]|gh|xx))"/>
-		<coverageVariable key="%languagecomp" value="(gan|hak|hsn|nan|wuu)"/> <!-- not currently used, just for reference: the only valid language codes that are not in modern coverage -->
+		<coverageVariable key="%language80" value="(a([bfkmvyz]|ce|d[ay]|gq|in|l[et]|np?|r[nps]?|s[at]?|tj|wa)|b([gm-os]|a[ns]?|e[mz]?|ho|in?|la|rx?|ug|yn)|c([ovy]|ay?|cp|eb?|gg|h[kmopry]?|kb|lc|r[gjklmr]|sw?)|d([evz]|a[krv]?|gr|je|oi|sb|ua|yo|zg)|e([elnos-u]|bu|fi|ka|wo)|f([afjy]|il?|on?|rc?|ur)|fa_AF|g([dlnv]|aa?|ez|il|or|sw|uz?|wi)|h([ertyz]|a[iwx]?|il?|mn|sb|u[pr]?)|i([adgiostu]|b[ab]|kt|lo|nh)|j([av]|bo|go|mc)|k([ijnvy]|a[bcjm]?|bd|cg|de|ea|fo|gp|h[aq]|kj?|ln?|mb?|ok?|pe|r[clu]?|s[bfh]?|um?|wk?)|l([bgntv]|a[dg]?|ez|il?|kt|o[uz]?|rc|sm|u[anosy]?)|m([hklr-ty]|a[dgiks]|df|e[nr]|fe|g[ho]?|i[cn]?|ni?|o[ehs]|u[als]|wl|yv|zn)|n([bglrv]|a[pq]?|ds?|ew?|i[au]|mg|nh?|og?|qo|so|us|yn?)|o([cmrs]|j[bcsw]|ka)|p([lst]|a[gmpu]?|cm|qm)|qu|r([mn]|a[pr]|hg|of?|wk?|up?)|s([dgikoqsv]|a[dhqt]?|b[ap]|c[no]?|e[hs]?|h[in]|lh?|mn?|nk?|rn?|tr?|uk?|wb?|yr)|t([aknos]|ce|e[mot]?|gx?|ht?|ig?|l[hi]|pi|rv?|tm?|um|vl|wq|yv?|zm)|u([gkrz]|dm|mb|nd)|v([ei]|ai|un)|w(a[elr]?|o|uu)|x(al|h|og)|y([io]|av|bb|rl|ue)|z(gh|h|un?|xx|za))"/>
+		<coverageVariable key="%languagecomp" value="(gan|hak|hsn|nan)"/> <!-- not currently used, just for reference: the only valid language codes that are not in modern coverage -->
 		<coverageVariable key="%lbTypes80" value="(strict|normal|loose)"/>
         <coverageVariable key="%lwTypes" value="(normal|breakall|keepall|phrase)"/>
         <coverageVariable key="%m0Types80" value="(bgn|prprname|ungegn)"/>
@@ -134,8 +134,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%miscPatternTypes" value="(atLeast|range)"/>
 		<coverageVariable key="%monthTypes" value="(1[0-3]?|[2-9])"/>
         <coverageVariable key="%msTypes80" value="(metric|u[ks]system)"/>
-		<coverageVariable key="%numberingSystem80" value="(arab(ext)?|armn(low)?|beng|deva|ethi|fullwide|geor|grek(low)?|gujr|guru|hanidec|han[st](fin)?|hebr|jpan(fin)?|khmr|knda|laoo|mlym|mymr|orya|roman(low)?|taml(dec)?|telu|thai|tibt)"/>
-		<coverageVariable key="%numberingSystem100" value="(finance|native|traditional|bali|brah|cakm|cham|diak|gong|gonm|hanidays|hmnp|java|jpanyear|kali|lana(tham)?|lepc|limb|mong|mtei|mymrshan|nkoo|olck|osma|rohg|saur|shrd|sora|sund|takr|talu|tnsa|vaii|wcho)"/>
+		<coverageVariable key="%numberingSystem80" value="(adlm|arab(ext)?|armn(low)?|beng|cakm|deva|ethi|fullwide|geor|grek(low)?|gujr|guru|hanidec|han[st](fin)?|hebr|java|jpan(fin)?|khmr|knda|laoo|mlym|mtei|mymr|native|olck|orya|roman(low)?|taml(dec)?|telu|thai|tibt|vaii)"/>
+		<coverageVariable key="%numberingSystem100" value="(finance|traditional|bali|brah|cham|diak|gong|gonm|hanidays|hmnp|jpanyear|kali|lana(tham)?|lepc|limb|mong|mymrshan|nkoo|osma|rohg|saur|shrd|sora|sund|takr|talu|tnsa|wcho)"/>
 		<coverageVariable key="%persianCalendarTerritories" value="(AF|IR)"/>
 		<coverageVariable key="%personNameLanguages" value="(ar|de|en|es|fr|hu|id|is|ja|ko|nl|ru|uk|zh)"/>
 		<coverageVariable key="%phonebookCollationLanguages" value="(de|fi)"/>
@@ -146,8 +146,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%script30" value="(Zxxx|Zzzz)"/>
 		<coverageVariable key="%script40" value="(Latn|Hans|Hant|Cyrl|Arab)"/>
 		<coverageVariable key="%script60" value="(Jpan|Kore)"/>
-		<coverageVariable key="%script80" value="(Armn|Beng|Bopo|Brai|Deva|Ethi|Geor|Grek|Gujr|Guru|Hani|Hang|Hebr|Hira|Knda|Kana|Khmr|Laoo|Mlym|Mong|Mymr|Orya|Sinh|Taml|Telu|Thaa|Thai|Tibt|Hanb|Hrkt|Jamo|Jpan|Kore|Zmth|Zsye|Zsym|Zxxx|Zyyy|Zzzz)"/>
-		<coverageVariable key="%script100" value="(Afak|Aghb|Ahom|Armi|Avst|Bali|Bamu|Bass|Batk|Blis|Brah|Bugi|Buhd|Cakm|Cans|Cari|Cham|Cher|Chrs|Cirt|Copt|Cpmn|Cprt|Cyrs|Diak|Dogr|Dsrt|Dupl|Egy[dhp]|Elba|Elym|Geok|Glag|Gong|Gonm|Goth|Gran|Hatr|Hano|Hluw|Hmng|Hmnp|Hrkt|Hung|Inds|Ital|Java|Jurc|Kali|Kawi|Khar|Khoj|Kits|Kpel|Kthi|Lana|Lat[fg]|Lepc|Limb|Lin[ab]|Lisu|Loma|Ly[cd]i|Mahj|Maka|Man[di]|Maya|Medf|Mend|Mer[co]|Modi|Moon|Mroo|Mtei|Mult|Nagm|Nand|Narb|Nbat|Nkgb|Nkoo|Nshu|Ogam|Olck|Orkh|Osma|Ougr|Palm|Pauc|Perm|Phag|Phl[ipv]|Phnx|Plrd|Prti|Rjng|Rohg|Roro|Runr|Samr|Sar[ab]|Saur|Sgnw|Shaw|Shrd|Sidd|Sind|Sogd|Sogo|Sora|Soyo|Sund|Sylo|Syr[cejn]|Tagb|Takr|Tal[eu]|Tang|Tavt|Teng|Tfng|Tglg|Tirh|Tnsa|Toto|Ugar|Vaii|Visp|Vith|Wara|Wcho|Wole|Xpeo|Xsux|Yezi|Yiii|Zanb|Zinh|Zmth)"/>
+		<coverageVariable key="%script80" value="(Adlm|Aran|Armn|Beng|Bopo|Brai|Cakm|Cans|Cher|Deva|Ethi|Geor|Grek|Gujr|Guru|Hani|Hang|Hebr|Hira|Knda|Kana|Khmr|Laoo|Mlym|Mong|Mtei|Mymr|Nkoo|Olck|Orya|Rohg|Sinh|Sund|Syrc|Taml|Telu|Tfng|Thaa|Thai|Tibt|Vaii|Yiii|Hanb|Hrkt|Jamo|Jpan|Kore|Zmth|Zsye|Zsym|Zxxx|Zyyy|Zzzz)"/>
+		<coverageVariable key="%script100" value="(Afak|Aghb|Ahom|Armi|Avst|Bali|Bamu|Bass|Batk|Blis|Brah|Bugi|Buhd|Cari|Cham|Chrs|Cirt|Copt|Cpmn|Cprt|Cyrs|Diak|Dogr|Dsrt|Dupl|Egy[dhp]|Elba|Elym|Geok|Glag|Gong|Gonm|Goth|Gran|Hatr|Hano|Hluw|Hmng|Hmnp|Hrkt|Hung|Inds|Ital|Java|Jurc|Kali|Kawi|Khar|Khoj|Kits|Kpel|Kthi|Lana|Lat[fg]|Lepc|Limb|Lin[ab]|Lisu|Loma|Ly[cd]i|Mahj|Maka|Man[di]|Maya|Medf|Mend|Mer[co]|Modi|Moon|Mroo|Mult|Nagm|Nand|Narb|Nbat|Nkgb|Nshu|Ogam|Orkh|Osma|Ougr|Palm|Pauc|Perm|Phag|Phl[ipv]|Phnx|Plrd|Prti|Rjng|Roro|Runr|Samr|Sar[ab]|Saur|Sgnw|Shaw|Shrd|Sidd|Sind|Sogd|Sogo|Sora|Soyo|Sylo|Syr[cejn]|Tagb|Takr|Tal[eu]|Tang|Tavt|Teng|Tglg|Tirh|Tnsa|Toto|Ugar|Visp|Vith|Wara|Wcho|Wole|Xpeo|Xsux|Yezi|Zanb|Zinh|Zmth)"/>
 		<coverageVariable key="%shortLong" value="(short|long)"/>
 		<coverageVariable key="%anyAlphaNum" value="([-a-zA-Z0-9]+)"/>
         <coverageVariable key="%ssTypes" value="(standard|none)"/>
@@ -727,6 +727,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="modern" match="localeDisplayNames/languages/language[@type='%language80']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/languages/language[@type='%language80'][@alt='%anyAttribute']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/scripts/script[@type='%script80']"/>
+		<coverageLevel value="modern" match="localeDisplayNames/scripts/script[@type='%script80'][@alt='%anyAttribute']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/keys/key[@type='%anyAttribute']"/>
 		<coverageLevel inLanguage="pt" value="modern" match="localeDisplayNames/variants/variant[@type='%ptVariants']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='collation'][@type='%collationType80']"/>

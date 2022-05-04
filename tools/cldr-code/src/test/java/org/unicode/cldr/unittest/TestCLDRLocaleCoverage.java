@@ -49,11 +49,39 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
     }
 
     public void TestLanguageNameCoverage() {
-        // not sure why we need rhg here, since it is in seed it should be in mainLocales
-        Set<String> additionsToTranslate = ImmutableSortedSet.of("zxx", "ceb", "ny", "co", "ht", "hmn", "la", "sm", "st", "sa", "mul", "rhg");
+        // mainLocales has the locales in common/main, which is basically the set in attributeValueValidity.xml $language..
+        // We add in additionsToTranslate below the set in attributeValueValidity.xml $languageExceptions
+        // (both sets are included in SDI.getCLDRLanguageCodes() but we do not use that until later).
+        Set<String> additionsToTranslate = ImmutableSortedSet.of("zxx", "mul",
+                        "ab", "ace", "ada", "ady", "ain", "ale", "alt", "an", "anp", "arn", "arp", "ars", "atj", "av", "awa", "ay",
+                        "ba", "ban", "bho", "bi", "bin", "bla", "bug", "byn",
+                        "cay", "ch", "chk", "chm", "cho", "chp", "chy", "clc", "co", "crg", "crj", "crk", "crl", "crm", "crr", "csw", "cv",
+                        "dak", "dar", "dgr", "dv", "dzg",
+                        "efi", "eka",
+                        "fj", "fon", "frc",
+                        "gaa", "gez", "gil", "gn", "gor", "gwi",
+                        "hai", "hax", "hil", "hmn", "ht", "hup", "hur", "hz",
+                        "iba", "ibb", "ikt", "ilo", "inh", "io", "iu",
+                        "jbo",
+                        "kac", "kaj", "kbd", "kcg", "kfo", "kha", "kj", "kmb", "kpe", "kr", "krc", "krl", "kru", "kum", "kv", "kwk",
+                        "la", "lad", "lez", "li", "lil", "lou", "loz", "lsm", "lua", "lun", "lus",
+                        "mad", "mag", "mak", "mdf", "men", "mh", "mic", "min", "moe", "moh", "mos", "mus", "mwl", "myv",
+                        "na", "nap", "new", "ng", "nia", "niu", "nog", "nqo", "nr", "nso", "nv", "ny",
+                        "oc", "ojb", "ojc", "ojs", "ojw", "oka",
+                        "pag", "pam", "pap", "pau", "pqm",
+                        "rap", "rar", "rhg", "rup",
+                        "sad", "sba", "scn", "sco", "shn", "slh", "sm", "snk", "srn", "ss", "st", "str", "suk", "swb", "syr",
+                        "tce", "tem", "tet", "tgx", "tht", "tig", "tlh", "tli", "tn", "tpi", "trv", "ts", "ttm", "tum", "tvl", "ty", "tyv",
+                        "udm", "umb",
+                        "ve",
+                        "wa", "wal", "war", "wuu",
+                        "xal",
+                        "ybb",
+                        "zun", "zza" );
+
         warnln("Locales added for translation; revisit each release: " + additionsToTranslate);
 
-        Set<String> localeIdsAtComprehensive = ImmutableSortedSet.of("kgp", "yrl");
+        Set<String> localeIdsAtComprehensive = ImmutableSortedSet.of();
         warnln("Locales set to comprehensive; revisit each release: " + localeIdsAtComprehensive);
 
         Map<String, Status> validity = Validity.getInstance().getCodeToStatus(LstrType.language);

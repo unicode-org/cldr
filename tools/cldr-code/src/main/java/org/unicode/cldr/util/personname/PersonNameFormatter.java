@@ -41,6 +41,7 @@ import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.BreakIterator;
+import com.ibm.icu.text.CaseMap;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.util.ULocale;
 
@@ -139,6 +140,7 @@ public class PersonNameFormatter {
     public enum Modifier {
         informal,
         allCaps,
+        initialCap,
         initial,
         monogram,
         prefix,
@@ -157,6 +159,7 @@ public class PersonNameFormatter {
 
         };
         public static final Set<Modifier> ALL = ImmutableSet.copyOf(Modifier.values());
+        public static final Set<Modifier> EMPTY = ImmutableSet.of();
     }
 
     public enum SampleType {
@@ -329,6 +332,41 @@ public class PersonNameFormatter {
             initialSequenceFormatter = new MessageFormat(initialSequencePattern);
         }
 
+        /**
+         * Apply the fallbacks for modifiers that are not handled. Public for testing.
+         * @internal
+         */
+        public String applyModifierFallbacks(FormatParameters nameFormatParameters, Set<Modifier> remainingModifers, String bestValue) {
+            // apply default algorithms
+            // TODO ALL Decide if the order among modifiers is rights
+
+            for (Modifier modifier : remainingModifers) {
+                switch(modifier) {
+                case initial:
+                    bestValue = formatInitial(bestValue, nameFormatParameters);
+                    break;
+                case monogram:
+                    bestValue = formatMonogram(bestValue, nameFormatParameters);
+                    break;
+                case initialCap:
+                    bestValue = TO_TITLE_WHOLE_STRING_NO_LOWERCASE.apply(formatterLocale.toLocale(), null, bestValue);
+                    break;
+                case allCaps:
+                    bestValue = UCharacter.toUpperCase(formatterLocale, bestValue);
+                    break;
+                case prefix:
+                    bestValue = null;
+                    // TODO Mark if there is no plain, but there is a prefix and core, use that; otherwise use core
+                    break;
+                case core:
+                case informal:
+                    // no option, just fall back
+                    break;
+                }
+            }
+            return bestValue;
+        }
+
         public String formatInitial(String bestValue, FormatParameters nameFormatParameters) {
             // It is probably unusual to have multiple name fields, so this could be optimized for
             // the simpler case.
@@ -446,34 +484,13 @@ public class PersonNameFormatter {
 
         private String getBestValueForNameObject(NameObject nameObject, NamePatternElement element, FormatParameters nameFormatParameters, FallbackFormatter fallbackInfo) {
             Set<Modifier> remainingModifers = EnumSet.noneOf(Modifier.class);
-            String bestValue = nameObject.getBestValue(element.getModifiedField(), remainingModifers);
+            final ModifiedField modifiedField = element.getModifiedField();
+            String bestValue = nameObject.getBestValue(modifiedField, remainingModifers);
             if (bestValue == null) {
-                return null;
-            } if (!remainingModifers.isEmpty()) {
-                // apply default algorithms
-                // TODO ALL Decide if the order among modifiers is rights
-
-                for (Modifier modifier : remainingModifers) {
-                    switch(modifier) {
-                    case initial:
-                        bestValue = fallbackInfo.formatInitial(bestValue, nameFormatParameters);
-                        break;
-                    case monogram:
-                        bestValue = fallbackInfo.formatMonogram(bestValue, nameFormatParameters);
-                        break;
-                    case allCaps:
-                        bestValue = UCharacter.toUpperCase(fallbackInfo.formatterLocale, bestValue);
-                        break;
-                    case prefix:
-                        // TODO Mark unhandled prefix is special; treat as if null
-                        // TODO Mark if there is no plain, but there is a prefix and core, use that; otherwise use core
-                        break;
-                    case core:
-                    case informal:
-                        // no option, just fall back
-                        break;
-                    }
-                }
+                    return null;
+            }
+            if (!remainingModifers.isEmpty()) {
+                bestValue = fallbackInfo.applyModifierFallbacks(nameFormatParameters, remainingModifers, bestValue);
             }
             return bestValue;
         }
@@ -1477,6 +1494,9 @@ public class PersonNameFormatter {
         }
         return size;
     }
+
+    private static final CaseMap.Title TO_TITLE_WHOLE_STRING_NO_LOWERCASE =
+        CaseMap.toTitle().wholeString().noLowercase();
 
     public FallbackFormatter getFallbackInfo() {
         return fallbackFormatter;

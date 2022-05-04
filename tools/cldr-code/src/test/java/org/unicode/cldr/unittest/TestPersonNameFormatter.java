@@ -22,6 +22,7 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.Field;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Formality;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Length;
+import org.unicode.cldr.util.personname.PersonNameFormatter.Modifier;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePatternData;
@@ -33,6 +34,7 @@ import org.unicode.cldr.util.personname.SimpleNameObject;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.util.ULocale;
@@ -62,6 +64,8 @@ public class TestPersonNameFormatter extends TestFmwk{
         "locale=ja, given=Shinzō, surname=Abe");
     private final NameObject sampleNameObject5 = SimpleNameObject.from(
         "locale=en, given=Mary, surname=Smith");
+    private final NameObject sampleNameObjectPrefixCore = SimpleNameObject.from(
+        "locale=en, given=Mary, surname-prefix=van der, surname-core=Beck");
 
 
     private void check(PersonNameFormatter personNameFormatter, NameObject nameObject, String nameFormatParameters, String expected) {
@@ -91,6 +95,8 @@ public class TestPersonNameFormatter extends TestFmwk{
             "order=sorting", "{surname} {surname2}, {prefix} {given} {given2} {suffix}");
 
         PersonNameFormatter personNameFormatter = new PersonNameFormatter(namePatternData, FALLBACK_FORMATTER);
+
+        check(personNameFormatter, sampleNameObjectPrefixCore, "length=short; usage=addressing; formality=formal", "Mary van der Beck");
 
         check(personNameFormatter, sampleNameObject1, "length=short; usage=addressing; formality=formal", "John B. Smith");
         check(personNameFormatter, sampleNameObject2, "length=short; usage=addressing; formality=formal", "John Smith");
@@ -541,6 +547,35 @@ public class TestPersonNameFormatter extends TestFmwk{
             assertTrue(sampleType + " doesn't have conflicts", Collections.disjoint(
                 CheckPersonNames.REQUIRED.get(sampleType),
                 CheckPersonNames.REQUIRED_EMPTY.get(sampleType)));
+        }
+    }
+
+
+
+    public void TestFallbackFormatter() {
+        FormatParameters testFormatParameters = new FormatParameters(Order.givenFirst, Length.short_name, Usage.referring, Formality.formal);
+        final FallbackFormatter fallbackInfo = ENGLISH_NAME_FORMATTER.getFallbackInfo();
+        for (Modifier m : Modifier.ALL) {
+            String actual = fallbackInfo.applyModifierFallbacks(testFormatParameters, ImmutableSet.of(m), "van Berk");
+            String expected;
+            switch(m) {
+            case allCaps:
+                expected = "VAN BERK"; break;
+            case initial:
+                expected = "v. B."; break;
+            case initialCap:
+                expected = "Van Berk"; break;
+            case monogram:
+                expected = "v"; break;
+            case prefix:
+                expected = null; break;
+            case informal:
+                expected = "van Berk"; break;
+            case core:
+                expected = "van Berk"; break; // TODO fix core
+            default: throw new IllegalArgumentException("Need to add modifier test for " + m);
+            }
+            assertEquals(m.toString(), expected, actual);
         }
     }
 }

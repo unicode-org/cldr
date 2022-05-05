@@ -4558,6 +4558,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="duration-year-person">
 				<alias source="locale" path="../unit[@type='duration-year']"/>
 			</unit>
+			<unit type="duration-quarter">
+				<displayName>qtr</displayName>
+				<unitPattern count="other">{0} q</unitPattern>
+				<perUnitPattern>{0}/q</perUnitPattern>
+			</unit>
 			<unit type="duration-month">
 				<displayName>mon</displayName>
 				<unitPattern count="other">{0} m</unitPattern>

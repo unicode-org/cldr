@@ -943,7 +943,7 @@ public class TestUnits extends TestFmwk {
         "solar-mass", "bit", "byte", "karat", "solar-luminosity", "ofhg", "atmosphere",
         "pixel", "dot", "permillion", "permyriad", "permille", "percent", "karat", "portion",
         "minute", "hour", "day", "day-person", "week", "week-person",
-        "year", "year-person", "decade", "month", "month-person", "century",
+        "year", "year-person", "decade", "month", "month-person", "century", "quarter",
         "arc-second", "arc-minute", "degree", "radian", "revolution",
         "electronvolt",
         // quasi-metric

@@ -1867,7 +1867,7 @@ public class PathHeader implements Comparable<PathHeader> {
                         order = 0;
                         return "NameOrder for Locales";
                     }
-                    if (source.equals("InitialPatterns")) {
+                    if (source.equals("AuxiliaryItems")) {
                         order = 10;
                         return source;
                     }

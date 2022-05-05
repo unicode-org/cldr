@@ -3164,7 +3164,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST annotation draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
-<!ELEMENT personNames ( alias | ( nameOrderLocales*, initialPattern*, personName+, sampleName*, special* ) ) >
+<!ELEMENT personNames ( alias | ( nameOrderLocales*, foreignSpaceReplacement*, initialPattern*, personName*, sampleName*, special* ) ) >
 
 <!ELEMENT nameOrderLocales ( #PCDATA ) >
 <!ATTLIST nameOrderLocales order (givenFirst | surnameFirst) #REQUIRED >
@@ -3173,6 +3173,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST nameOrderLocales draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST nameOrderLocales references CDATA #IMPLIED >
+    <!--@METADATA-->
+
+<!ELEMENT foreignSpaceReplacement ( #PCDATA ) >
+<!ATTLIST foreignSpaceReplacement alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
+<!ATTLIST foreignSpaceReplacement draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+<!ATTLIST foreignSpaceReplacement references CDATA #IMPLIED >
     <!--@METADATA-->
 
 <!ELEMENT initialPattern ( #PCDATA ) >

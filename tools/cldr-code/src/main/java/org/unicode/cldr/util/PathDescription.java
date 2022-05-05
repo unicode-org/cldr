@@ -382,9 +382,17 @@ public class PathDescription {
         + RegexLookup.SEPARATOR
         + "Person name order for locales. For more information, please see "
         + CLDRURLS.PERSON_NAME_FORMATS + ".\n"
-        + "^//ldml/personNames/initialPattern\\[@type=\"([^\"]*)\"]"
+        + "^//ldml/personNames/foreignSpaceReplacement"
         + RegexLookup.SEPARATOR
-        + "Initials patterns for person name formats. For more information, please see "
+        + "For foreign personal names displayed in your locale, any special character that replaces a space (defaults to regular space). For more information, please see "
+        + CLDRURLS.PERSON_NAME_FORMATS + ".\n"
+        + "^//ldml/personNames/initialPattern\\[@type=\"initial\"]"
+        + RegexLookup.SEPARATOR
+        + "The pattern used for a single initial in person name formats. For more information, please see "
+        + CLDRURLS.PERSON_NAME_FORMATS + ".\n"
+        + "^//ldml/personNames/initialPattern\\[@type=\"initialSequence\"]"
+        + RegexLookup.SEPARATOR
+        + "The pattern used to compose sequences of initials in person name formats. For more information, please see "
         + CLDRURLS.PERSON_NAME_FORMATS + ".\n"
         + "^//ldml/personNames/personName\\[@order=\"([^\"]*)\"]\\[@length=\"([^\"]*)\"]\\[@usage=\"referring\"]\\[@formality=\"([^\"]*)\"]"
         + RegexLookup.SEPARATOR

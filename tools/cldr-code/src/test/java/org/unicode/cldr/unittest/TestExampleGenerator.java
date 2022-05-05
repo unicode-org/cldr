@@ -189,6 +189,8 @@ public class TestExampleGenerator extends TestFmwk {
         "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/long/standard", // Error: (TestExampleGenerator.java:245) No background:   <Coordinated Universal Time>    〖Coordinated Universal Time〗
 
         "//ldml/personNames/nameOrderLocales[@order=\"([^\"]*+)\"]", // CLDR-15384
+        "//ldml/personNames/foreignSpaceReplacement[@alt=\"([^\"]*+)\"]", // CLDR-15384
+        "//ldml/personNames/foreignSpaceReplacement", // CLDR-15384
         "//ldml/personNames/initialPattern[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]", // CLDR-15384
         "//ldml/personNames/initialPattern[@type=\"([^\"]*+)\"]", // CLDR-15384
         "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern[@alt=\"([^\"]*+)\"]", // CLDR-15384

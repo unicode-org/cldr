@@ -371,7 +371,7 @@ public class TestPersonNameFormatter extends TestFmwk{
                 "〖und = «any other»〗"
             },{
                 "//ldml/personNames/nameOrderLocales[@order=\"surnameFirst\"]",
-                "〖ja = Japanese〗〖zh = Chinese〗〖ko = Korean〗"
+                "〖ja = Japanese〗〖ko = Korean〗〖zh = Chinese〗"
             }
         };
         for (String[] test : tests) {

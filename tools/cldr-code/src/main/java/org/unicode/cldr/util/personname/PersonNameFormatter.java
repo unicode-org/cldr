@@ -1351,6 +1351,9 @@ public class PersonNameFormatter {
                         _localeToOrder.put(new ULocale(locale), Order.surnameFirst);
                     }
                     break;
+                case "foreignSpaceReplacement":
+                    // TODO use this data
+                    break;
                 case "sampleName":
                     // skip
                     break;

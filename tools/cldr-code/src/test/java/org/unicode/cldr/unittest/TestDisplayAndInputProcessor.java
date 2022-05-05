@@ -361,6 +361,9 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         if (value.equals(input)) {
             return null;
         }
+        if (path.contains("/foreignSpaceReplacement")) {
+            return null; // CLDR-15384 typically inherited; no DAIP processing desired
+        }
         if (path.contains("/exemplarCharacters") || path.contains("/parseLenient")) {
             try {
                 UnicodeSet s1 = new UnicodeSet(value);

@@ -20,6 +20,8 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.test.CheckCLDR;
+import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.CheckWidths;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
@@ -262,7 +264,108 @@ public class VoteResolver<T> {
             admin.voteCountMenu = ImmutableSet.of(vetter.votes, admin.votes); /* Not LOCKING_VOTES; see canVoteWithCount */
             tc.voteCountMenu = ImmutableSet.of(vetter.votes, tc.votes, PERMANENT_VOTES);
         }
-    }
+
+        // The following methods were moved here from UserRegistry
+        // TODO: remove this todo notice
+
+        public boolean isAdmin() {
+            return stlevel <= admin.stlevel;
+        }
+
+        public boolean isTC() {
+            return stlevel <= tc.stlevel;
+        }
+
+        public boolean isExactlyManager() {
+            return stlevel == manager.stlevel;
+        }
+
+        public boolean isManagerOrStronger() {
+            return stlevel <= manager.stlevel;
+        }
+
+        public boolean isVetter() {
+            return stlevel <= vetter.stlevel;
+        }
+
+        public boolean isStreet() {
+            return stlevel <= street.stlevel;
+        }
+
+        public boolean isLocked() {
+            return stlevel == locked.stlevel;
+        }
+
+        public boolean isExactlyAnonymous() {
+            return stlevel == anonymous.stlevel;
+        }
+
+        /**
+         * Is this user an administrator 'over' this user? Always true if admin,
+         * or if TC in same org.
+         *
+         * @param org
+         */
+        public boolean isAdminForOrg(Organization myOrg, Organization target) {
+            boolean adminOrRelevantTc = isAdmin() ||
+
+                ((isTC() || stlevel == manager.stlevel) && (myOrg == target));
+            return adminOrRelevantTc;
+        }
+
+        public boolean canImportOldVotes(CheckCLDR.Phase inPhase) {
+            return isVetter() && (inPhase == Phase.SUBMISSION);
+        }
+
+        public boolean canDoList() {
+            return isVetter();
+        }
+
+        public boolean canCreateUsers() {
+            return isTC() || isExactlyManager();
+        }
+
+        public boolean canEmailUsers() {
+            return isTC() || isExactlyManager();
+        }
+
+        public boolean canModifyUsers() {
+            return isTC() || isExactlyManager();
+        }
+
+        public boolean canCreateOtherOrgs() {
+            return isAdmin();
+        }
+
+        public boolean canUseVettingSummary() {
+            return isManagerOrStronger();
+        }
+
+        public boolean canSubmit(CheckCLDR.Phase inPhase) {
+            if (inPhase == Phase.FINAL_TESTING) {
+                return false;
+                // TODO: Note, this will mean not just READONLY, but VETTING_CLOSED will return false here.
+                // This is probably desired!
+            }
+            return isStreet();
+        }
+
+        public boolean canCreateSummarySnapshot() {
+            return isAdmin();
+        }
+
+        public boolean canMonitorForum() {
+            return isTC() || isExactlyManager();
+        }
+
+        public boolean canSetInterestLocales() {
+            return isManagerOrStronger();
+        }
+
+        public boolean canGetEmailList() {
+            return isManagerOrStronger();
+        }
+     }
 
     /**
      * Internal class for voter information. It is public for testing only
@@ -687,7 +790,7 @@ public class VoteResolver<T> {
     /**
      * Used for comparing objects of type T
      */
-    private final Comparator<T> objectCollator = new Comparator<T>() {
+    private final Comparator<T> objectCollator = new Comparator<>() {
         @Override
         public int compare(T o1, T o2) {
             return englishCollator.compare(String.valueOf(o1), String.valueOf(o2));
@@ -868,7 +971,7 @@ public class VoteResolver<T> {
 
     private Set<T> values = new TreeSet<>(objectCollator);
 
-    private final Comparator<T> votesThenUcaCollator = new Comparator<T>() {
+    private final Comparator<T> votesThenUcaCollator = new Comparator<>() {
 
         /**
          * Compare candidate items by vote count, highest vote first.

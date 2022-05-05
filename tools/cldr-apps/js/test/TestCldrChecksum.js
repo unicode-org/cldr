@@ -26,7 +26,7 @@ const sLong =
   '"raw":"{bailey: “Chinesisch (Traditionell)” trunk: {Chinesisch (traditionell),' +
   " approved}," +
   " {orgToVotes: apple={Chinesisch (traditionell)=4}," +
-  " facebook={Chinesisch (traditionell)=4}," +
+  " meta={Chinesisch (traditionell)=4}," +
   " google={Chinesisch (traditionell)=4}," +
   " microsoft={Chinesisch (traditionell)=4}," +
   " totals: {Chinesisch (traditionell)=16}," +
@@ -40,7 +40,7 @@ const sLong =
   '"orgs":{"apple":{"votes":{"Chinesisch (traditionell)":4},' +
   '"orgVote":"Chinesisch (traditionell)",' +
   '"status":"ok"},' +
-  '"facebook":{"votes":{"Chinesisch (traditionell)":4},' +
+  '"meta":{"votes":{"Chinesisch (traditionell)":4},' +
   '"orgVote":"Chinesisch (traditionell)",' +
   '"status":"ok"},' +
   '"google":{"votes":{"Chinesisch (traditionell)":4},' +
@@ -91,7 +91,7 @@ const sLong =
   '"name":"De",' +
   '"votes":4,' +
   '"email":"002-anon (at) org.com"},' +
-  '"1234":{"org":"facebook",' +
+  '"1234":{"org":"meta",' +
   '"level":"vetter",' +
   '"name":"Anon Anon",' +
   '"votes":4,' +

@@ -1336,6 +1336,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "digital-byte", "digital-bit",
         "duration-century", "duration-decade",
         "duration-year", "duration-year-person",
+        "duration-quarter",
         "duration-month", "duration-month-person",
         "duration-week", "duration-week-person",
         "duration-day", "duration-day-person",

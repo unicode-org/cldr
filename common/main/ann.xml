@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2022 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-DFS-2016
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="ann"/>
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="ann">Obolo</language>
+		</languages>
+	</localeDisplayNames>
+	<characters>
+		<exemplarCharacters>[a à â b {ch} d e è ê f g i ì î j k l m {m̀} n ǹ {n̄} o ò ô ọ {ọ̀} ộ p r s {sh} t u ù û v w y z]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[á ǎ c é ě í ǐ h ḿ ń q ṣ ó ǒ {ọ́} {ọ̌} ú ǔ x]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[, . ? ! ;]</exemplarCharacters>
+		<exemplarCharacters type="index">[a b {ch} d e f g i j k l m n {n̄} o ọ p r s t u v w y z]</exemplarCharacters>
+	</characters>
+	<numbers>
+		<currencies>
+			<currency type="NGN">
+				<symbol>₦</symbol>
+			</currency>
+		</currencies>
+	</numbers>
+</ldml>

@@ -341,8 +341,10 @@ function unpackMenuSideBar(json) {
     html += reportHtml;
     html += "</ul></li>";
   }
-  html +=
-    '<li class="list-unstyled" id="forum-link"><div>Forum<span class="pull-right glyphicon glyphicon-comment"></span></div></li>';
+  html += '<li class="list-unstyled" id="forum-link"><div>';
+  html += 'Forum<span class="pull-right glyphicon glyphicon-comment"></span>';
+  html += '<span class="' + cldrForum.SUMMARY_CLASS + '"></span>';
+  html += "</div></li>";
   html += "</ul>";
 
   html += "<ul>";
@@ -444,6 +446,9 @@ function unpackMenuSideBar(json) {
     var menu = $("#locale-menu #" + curPage);
     menu.closest(".open-menu").click();
   }
+
+  // fill the cldrForum.SUMMARY_CLASS element created above
+  cldrForum.refreshSummary();
 }
 
 /**

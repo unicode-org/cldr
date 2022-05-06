@@ -261,8 +261,11 @@ const topTitle =
         <button id="chgPageNextTop" class="cldr-nav-btn btn-primary" type="button">Next →</button></span
       >
       <span class="counter-infos">
-        <a id="reloadForum">Forum:</a>
-        <span id="vForum"><span id="forumSummary"> 0</span> </span>
+        <a id="reloadForum">Forum: <span class="
+  ` +
+  cldrForum.SUMMARY_CLASS +
+  `
+        "></span></a>
       </span>
       <span id="CompletionSpan"></span>
       <span>
@@ -564,24 +567,7 @@ function refreshCounterVetting() {
     $("#nav-page .counter-infos").hide();
     return;
   }
-  refreshForumSummary();
-}
-
-function refreshForumSummary() {
-  const locale = cldrStatus.getCurrentLocale();
-  if (locale) {
-    const surveyUser = cldrStatus.getSurveyUser();
-    if (surveyUser?.id) {
-      const el = document.getElementById("vForum");
-      if (el) {
-        el.innerHTML = cldrForum.getForumSummaryHtml(
-          locale,
-          surveyUser.id,
-          false
-        );
-      }
-    }
-  }
+  cldrForum.refreshSummary();
 }
 
 export {

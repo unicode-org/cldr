@@ -2639,6 +2639,47 @@ public class SupplementalDataInfo {
         return Level.OPTIONAL.getLevel(); // If no match then return highest possible value
     }
 
+    // The following is for mapping language to the explicit script and region codes in
+    // the locale IDs for CLDR locales. We don't need to worry about the unmarked default
+    // script or region since they are already supplied by the <languageData>.
+    private Map<String, BasicLanguageData> doMapLanguagesToScriptsRegion() {
+        Map<String, BasicLanguageData> langToScriptsRegions = new TreeMap<>();
+        org.unicode.cldr.util.Factory factory = CLDRConfig.getInstance().getCldrFactory();
+        for (CLDRLocale locale : factory.getAvailableCLDRLocales()) {
+            String language = locale.getLanguage();
+            if (language.length() == 0 || language.equals("root")) {
+                continue;
+            }
+            BasicLanguageData scriptsAndRegions = langToScriptsRegions.get(language);
+            if (scriptsAndRegions == null) {
+                scriptsAndRegions = new BasicLanguageData();
+                langToScriptsRegions.put(language, scriptsAndRegions);
+            }
+            String script = locale.getScript();
+            if (script.length() > 0) {
+                scriptsAndRegions.addScript(script);
+            }
+            String region = locale.getCountry();
+            if (region.length() > 0 && region.length() < 3) { // per CLDR TC, do not want 001, 419 etc.
+                scriptsAndRegions.addTerritory(region);
+            }
+        }
+        for (String language: langToScriptsRegions.keySet()) {
+            BasicLanguageData scriptsAndRegions = langToScriptsRegions.get(language);
+            langToScriptsRegions.put(language, scriptsAndRegions.freeze());
+        }
+        return Collections.unmodifiableMap(langToScriptsRegions);
+    }
+
+    private static Map<String, BasicLanguageData> languageToScriptsAndRegions = null;
+
+    private synchronized Map<String, BasicLanguageData> getLanguageToScriptsAndRegions() {
+        if (languageToScriptsAndRegions == null) {
+            languageToScriptsAndRegions = doMapLanguagesToScriptsRegion();
+        }
+        return languageToScriptsAndRegions;
+    }
+
     public CoverageVariableInfo getCoverageVariableInfo(String targetLanguage) {
         CoverageVariableInfo cvi;
         if (localeSpecificVariables.containsKey(targetLanguage)) {
@@ -2668,6 +2709,13 @@ public class SupplementalDataInfo {
                     targetScripts.addAll(addScripts);
                 }
             }
+            Map<String, BasicLanguageData> languageToScriptsAndRegions = getLanguageToScriptsAndRegions();
+            if (languageToScriptsAndRegions != null) {
+                BasicLanguageData scriptsAndRegions = languageToScriptsAndRegions.get(language);
+                if (scriptsAndRegions != null) {
+                    targetScripts.addAll(scriptsAndRegions.getScripts());
+                }
+            }
         } catch (Exception e) {
             // fall through
         }
@@ -2688,6 +2736,13 @@ public class SupplementalDataInfo {
                 Set<String> addTerritories = bl.territories;
                 if (addTerritories != null && bl.getType() != BasicLanguageData.Type.secondary) {
                     targetTerritories.addAll(addTerritories);
+                }
+            }
+            Map<String, BasicLanguageData> languageToScriptsAndRegions = getLanguageToScriptsAndRegions();
+            if (languageToScriptsAndRegions != null) {
+                BasicLanguageData scriptsAndRegions = languageToScriptsAndRegions.get(language);
+                if (scriptsAndRegions != null) {
+                    targetTerritories.addAll(scriptsAndRegions.getTerritories());
                 }
             }
         } catch (Exception e) {

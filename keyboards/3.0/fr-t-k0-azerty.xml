@@ -41,31 +41,36 @@
 			may have the same display. -->
 	</displayMap>
 
-	<keyMap>
-		<map id="super-2" to="²" longPress="₂" />
-		<map id="amp" to="&amp;" /> <!-- 1 -->
-		<map id="e-grave" to="é" /> <!-- 2 -->
-		<map id="quote" to="\u{22}" /> <!-- 3 to= " -->
-		<map id="apos" to="&apos;" /> <!-- 4 -->
-		<map id="open-paren" to="(" /> <!-- 5 -->
-		<map id="hyphen" to="-" /> <!-- 6 -->
-		<map id="e-acute" to="è" /> <!-- 7 -->
-		<map id="underscore" to="_" /> <!-- 8 -->
-		<map id="c-cedilla" to="ç" /> <!-- 9 -->
-		<map id="a-acute" to="à" /> <!-- 0 -->
-		<map id="close-paren" to=")" /> <!-- - -->
-		<map id="equal" to="=" />
-		<map id="umlaut" to="¨" />
-		<map id="a" to="a" longPress="à â á ä ã å ā" />
-		<map id="A" to="A" longPress="À   Á Ä Ã Å Ā">
-			<flicks> <!-- no attributes -->
-				<flick directions="nw" to="\u1234" />
-				<flick directions="nw se" to="\uFFFF" />
-				<flick directions="e" to="\uFFF0" />
-			</flicks>
-		</map>
+	<keys>
+		<key id="super-2" to="²" longPress="₂" />
+		<key id="amp" to="&amp;" /> <!-- 1 -->
+		<key id="e-grave" to="é" /> <!-- 2 -->
+		<key id="quote" to="\u{22}" /> <!-- 3 to= " -->
+		<key id="apos" to="&apos;" /> <!-- 4 -->
+		<key id="open-paren" to="(" /> <!-- 5 -->
+		<key id="hyphen" to="-" /> <!-- 6 -->
+		<key id="e-acute" to="è" /> <!-- 7 -->
+		<key id="underscore" to="_" /> <!-- 8 -->
+		<key id="c-cedilla" to="ç" /> <!-- 9 -->
+		<key id="a-acute" to="à" /> <!-- 0 -->
+		<key id="close-paren" to=")" /> <!-- - -->
+		<key id="equal" to="=" />
+		<key id="umlaut" to="¨" />
+		<key id="a" flicks="a" to="a" longPress="à â á ä ã å ā" />
+		<key id="A" flicks="b" to="A" longPress="À Á Ä Ã Å Ā"/>
+
+		<flicks id="a">
+			<flick directions="nw" to="\u1234"/>
+			<flick directions="nw se" to="\uFFFF"/>
+			<flick directions="e" to="\uFFF0"/>
+		  </flicks>
+		  <flicks id="b">
+			<flick directions="nw" to="\u4567"/>
+			<flick directions="nw se" to="\uFFFF"/>
+			<flick directions="e" to="\uFFF0"/>
+		  </flicks>
 		<!-- TODO: all additional maps, hardware and touch -->
-	</keyMap>
+	</keys>
 
 	<layerMaps form="hardware"> <!-- in DTD: required if conformsTo ≥ 41 -->
 		<layerMap id="base">
@@ -92,11 +97,7 @@
 		<layerMap id="base">
 			<row keys="a z e r t y u i o p" />
 			<row keys="q s d f g h j k l m" />
-			<row keys="shift w x c v b n bksp"> <!-- todo: gaps, e.g. "shift gap w x c v b n gap bksp" (gap is stretchable) -->
-				<key id="shift" stretch="true" />
-				<!-- or stretch a gap - which is the pattern in the iOS keyboard? -->
-				<key id="bksp" stretch="true" />
-			</row>
+			<row keys="shift w x c v b n bksp" stretch="shift bksp"/> <!-- todo: gaps, e.g. "shift gap w x c v b n gap bksp" (gap is stretchable) -->
 			<row keys="numeric extra space enter" /> <!-- The default "space" definition includes `stretch="true"` -->
 		</layerMap>
 

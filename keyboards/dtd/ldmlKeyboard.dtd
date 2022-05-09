@@ -13,7 +13,7 @@ This DTD is a work in progress.
 
 Please see CLDR-15034 for the latest information. -->
 
-<!ELEMENT keyboard ( version?, info?, names, settings?, import*, vkeyMaps*, displayMap*, keyMap, layerMaps*, transforms*, reorders?, backspaces?, special* ) >
+<!ELEMENT keyboard ( version?, info?, names, settings?, import*, vkeyMaps*, displayMap*, keys, layerMaps*, transforms*, reorders?, backspaces?, special* ) >
 <!ATTLIST keyboard locale CDATA #REQUIRED >
     <!--@MATCH:validity/locale-->
 <!ATTLIST keyboard conformsTo CDATA #REQUIRED >
@@ -73,23 +73,34 @@ Please see CLDR-15034 for the latest information. -->
 <!ATTLIST display display CDATA #REQUIRED >
     <!--@VALUE-->
 
-<!ELEMENT keyMap ( map+, special* ) >
+<!ELEMENT keys ( key+, flicks*, special* ) >
 
-<!ELEMENT map ( flicks*, special* ) >
-<!ATTLIST map id CDATA #REQUIRED >
+<!ELEMENT key EMPTY >
+<!ATTLIST key id CDATA #REQUIRED >
     <!--@MATCH:regex/[A-Z][0-9][0-9]-->
-<!ATTLIST map to CDATA #REQUIRED >
+<!ATTLIST key to CDATA #IMPLIED >
     <!--@MATCH:any-->
     <!--@VALUE-->
-<!ATTLIST map longPress CDATA #IMPLIED >
+<!ATTLIST key longPress CDATA #IMPLIED >
     <!--@MATCH:any-->
     <!--@VALUE-->
-<!ATTLIST map transform (no) #IMPLIED >
+<!ATTLIST key transform (no) #IMPLIED >
     <!--@VALUE-->
-<!ATTLIST map multitap CDATA #IMPLIED >
+<!ATTLIST key multitap CDATA #IMPLIED >
     <!--@VALUE-->
+<!ATTLIST key switch CDATA #IMPLIED >
+    <!--@VALUE-->
+<!ATTLIST key stretch (true) #IMPLIED >
+    <!--@VALUE-->
+<!ATTLIST key flicks NMTOKEN #IMPLIED >
+    <!--@MATCH:regex/[A-Za-z0-9]-->
+<!ATTLIST key gap CDATA #IMPLIED >
+    <!--@VALUE-->
+    <!--@MATCH:range/0~999-->
 
 <!ELEMENT flicks ( flick+, special* ) >
+<!ATTLIST flicks id NMTOKEN #REQUIRED >
+    <!--@MATCH:regex/[A-Za-z0-9]-->
 
 <!ELEMENT flick EMPTY >
 <!ATTLIST flick directions NMTOKENS #REQUIRED >
@@ -104,12 +115,11 @@ Please see CLDR-15034 for the latest information. -->
 <!ELEMENT layerMap ( row+, special* ) >
 <!ATTLIST layerMap id NMTOKEN #REQUIRED >
 
-<!ELEMENT row ( key*, special* ) >
-<!ATTLIST row keys NMTOKENS #IMPLIED >
-
-<!ELEMENT key EMPTY >
-<!ATTLIST key id NMTOKEN #REQUIRED >
-<!ATTLIST key stretch (true | false) #IMPLIED >
+<!ELEMENT row EMPTY >
+<!ATTLIST row keys NMTOKENS #REQUIRED >
+    <!--@VALUE -->
+<!ATTLIST row stretch NMTOKENS #IMPLIED >
+    <!--@VALUE -->
 
 <!ELEMENT transforms ( transform+ ) >
 <!ATTLIST transforms type CDATA #REQUIRED >

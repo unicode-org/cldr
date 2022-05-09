@@ -1526,7 +1526,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 <!ELEMENT dateTimeFormat ( alias | ( pattern*, displayName*, special* ) ) >
 <!ATTLIST dateTimeFormat type NMTOKEN "standard" >
-    <!--@MATCH:literal/standard-->
+    <!--@MATCH:literal/standard, atTime-->
 <!ATTLIST dateTimeFormat alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST dateTimeFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >

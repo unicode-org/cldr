@@ -45,7 +45,7 @@ public class TestPseudolocalization extends TestFmwk {
             "[{1} 'åţ' {0} 'one']",
             result.getStringValue(
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/"
-                    + "dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"standard\"]/"
+                    + "dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"atTime\"]/"
                     + "pattern[@type=\"standard\"]"));
     }
 }

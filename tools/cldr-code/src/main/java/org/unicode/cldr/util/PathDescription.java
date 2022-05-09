@@ -583,11 +583,15 @@ public class PathDescription {
         + RegexLookup.SEPARATOR
         + "Provide a name for “the {1} of SOME_DATE”. For more information, please see "
         + CLDRURLS.DATE_TIME_NAMES + ".\n"
-
-        + "^//ldml/dates/calendars/calendar\\[@type=\"([^\"]*)\"]/dateTimeFormats/dateTimeFormatLength\\[@type=\"([^\"]*)\"]/dateTimeFormat\\[@type=\"([^\"]*)\"]/pattern\\[@type=\"([^\"]*)\"]"
+        + "^//ldml/dates/calendars/calendar\\[@type=\"([^\"]*)\"]/dateTimeFormats/dateTimeFormatLength\\[@type=\"([^\"]*)\"]/dateTimeFormat\\[@type=\"standard\"]/pattern\\[@type=\"([^\"]*)\"]"
         + RegexLookup.SEPARATOR
-        + "Provide the {2} version of the date-time pattern. Note: before translating, be sure to read "
+        + "Provide the {2} version of the date-time pattern suitable for most use cases, including combining a date with a time range. Note: before translating, be sure to read "
         + CLDRURLS.DATE_TIME_PATTERNS + ".\n"
+        + "^//ldml/dates/calendars/calendar\\[@type=\"([^\"]*)\"]/dateTimeFormats/dateTimeFormatLength\\[@type=\"([^\"]*)\"]/dateTimeFormat\\[@type=\"atTime\"]/pattern\\[@type=\"([^\"]*)\"]"
+        + RegexLookup.SEPARATOR
+        + "Provide the {2} version of the date-time pattern suitable for expressing a date at a specific time. Note: before translating, be sure to read "
+        + CLDRURLS.DATE_TIME_PATTERNS + ".\n"
+
         + "^//ldml/dates/calendars/calendar\\[@type=\"([^\"]*)\"]/dateFormats/dateFormatLength\\[@type=\"([^\"]*)\"]/dateFormat\\[@type=\"([^\"]*)\"]/pattern\\[@type=\"([^\"]*)\"]"
         + RegexLookup.SEPARATOR
         + "Provide the {2} version of the basic date pattern. Note: before translating, be sure to read "

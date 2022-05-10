@@ -92,7 +92,9 @@ public class CheckPlaceHolders extends CheckCLDR {
                                 result.add(new CheckStatus().setCause(this)
                                     .setMainType(CheckStatus.errorType)
                                     .setSubtype(Subtype.missingLanguage)
-                                    .setMessage("Your locale must be explicitly listed in one of the nameOrderLocales: either givenFirst or surnameFirst."));
+                                    .setMessage("Your locale code (" + myLanguage
+                                        + ") must be explicitly listed in one of the nameOrderLocales:"
+                                        + " either in givenFirst or in surnameFirst."));
                             }
                             if (!items.contains("und")) {
                                 result.add(new CheckStatus().setCause(this)

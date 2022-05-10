@@ -271,8 +271,8 @@ public class UserList {
 
     private void setLevel(String action, UserSettings u, String just) {
         // check an explicit list. Don't allow random levels to be set.
-        for (int i = 0; i < UserRegistry.ALL_LEVELS.length; i++) {
-            int level = UserRegistry.ALL_LEVELS[i];
+        for (final VoteResolver.Level l : VoteResolver.Level.values()) { // like 999
+            final int level = l.getSTLevel();
             if (action.equals(LIST_ACTION_SETLEVEL + level)) {
                 String s = "";
                 if ((just == null) && (level <= UserRegistry.TC)) {
@@ -421,8 +421,8 @@ public class UserList {
             .put("userCanDeleteUser", userCanDeleteUser)
             .put("userlevel", user.userlevel)
             .put("userlevelName", level)
-            .put("votecount", level.getVotes())
-            .put("voteCountMenu", level.getVoteCountMenu())
+            .put("votecount", level.getVotes(user.getOrganization()))
+            .put("voteCountMenu", level.getVoteCountMenu(user.getOrganization()))
         );
     }
 

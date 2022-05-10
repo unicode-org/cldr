@@ -120,9 +120,10 @@ public class VoteResolver<T> {
         locked(   0 /* votes */, 999 /* stlevel */),
         street(   1 /* votes */, 10  /* stlevel */),
         anonymous(0 /* votes */, 8   /* stlevel */),
-        vetter(   4 /* votes */, 5   /* stlevel */),
+        vetter(   4 /* votes */, 5   /* stlevel */), // org dependent- see getVotes()
+        // Manager and below can manage users
         manager(  4 /* votes */, 2   /* stlevel */),
-        tc(      20 /* votes */, 1   /* stlevel */),
+        tc(      50 /* votes */, 1   /* stlevel */),
         admin(  100 /* votes */, 0   /* stlevel */);
 
         /**
@@ -154,9 +155,13 @@ public class VoteResolver<T> {
         }
 
         /**
-         * Get the votes for each level
+         * Get the votes for each level and organization
+         * @param org the given organization
          */
-        public int getVotes() {
+        public int getVotes(Organization o) {
+            if (this == vetter && o.isTCOrg()) {
+                return 6;
+            }
             return votes;
         }
 
@@ -195,7 +200,7 @@ public class VoteResolver<T> {
          */
         public boolean isManagerFor(Organization myOrg, Level otherLevel, Organization otherOrg) {
             return (this == admin || (canManageSomeUsers() &&
-                (myOrg == otherOrg) && this.getSTLevel() <= otherLevel.getSTLevel()));
+                (myOrg == otherOrg) && atLeastAsPowerfulAs(otherLevel)));
         }
 
         /**
@@ -204,7 +209,21 @@ public class VoteResolver<T> {
          * @return
          */
         public boolean canManageSomeUsers() {
-            return this.getSTLevel() <= manager.getSTLevel();
+            return atLeastAsPowerfulAs(manager);
+        }
+
+        /**
+         * Internal: uses the ST Level as a measure of 'power'
+         */
+        boolean morePowerfulThan(Level other) {
+            return getSTLevel() < other.getSTLevel();
+        }
+
+        /**
+         * Internal: uses the ST Level as a measure of 'power'
+         */
+        boolean atLeastAsPowerfulAs(Level other) {
+            return getSTLevel() <= other.getSTLevel();
         }
 
         /**
@@ -216,18 +235,21 @@ public class VoteResolver<T> {
          * on more than this user's level and the other user's desired new level
          */
         public boolean canCreateOrSetLevelTo(Level otherLevel) {
-            return
-                canManageSomeUsers() && // must be some sort of manager
-                otherLevel.getSTLevel() >= getSTLevel(); // can't gain higher privs
+            // Must be a manager at all
+            if (!canManageSomeUsers()) return false;
+            // Cannot elevate privilege
+            if (otherLevel.morePowerfulThan(this)) return false;
+            return true;
         }
 
         /**
-         * Can a user with this level vote with the given vote count?
+         * Can a user with this level and organization vote with the given vote count?
          *
+         * @param org the given organization
          * @param withVotes the given vote count
          * @return true if the user can vote with the given vote count, else false
          */
-        public boolean canVoteWithCount(int withVotes) {
+        public boolean canVoteWithCount(Organization org, int withVotes) {
             /*
              * ADMIN is allowed to vote with LOCKING_VOTES, but not directly in the GUI, only
              * by two TC voting together with PERMANENT_VOTES. Therefore LOCKING_VOTES is omitted
@@ -236,8 +258,8 @@ public class VoteResolver<T> {
             if (withVotes == LOCKING_VOTES && this == admin) {
                 return true;
             }
-            Set<Integer> menu = getVoteCountMenu();
-            return menu == null ? withVotes == this.votes : menu.contains(withVotes);
+            Set<Integer> menu = getVoteCountMenu(org);
+            return menu == null ? withVotes == getVotes(org) : menu.contains(withVotes);
         }
 
         /**
@@ -249,9 +271,12 @@ public class VoteResolver<T> {
         /**
          * Get the ordered immutable set of different vote counts a user of this level can vote with
          *
+         * @param org the given organization
          * @return the set, or null if the user has no choice of vote count
          */
-        public ImmutableSet<Integer> getVoteCountMenu() {
+        public ImmutableSet<Integer> getVoteCountMenu(Organization org) {
+            // Right now, the organization does not affect the menu.
+            // but update the API to future proof.
             return voteCountMenu;
         }
 
@@ -538,8 +563,8 @@ public class VoteResolver<T> {
                 throw new UnknownVoterException(voter);
             }
             Level level = info.getLevel();
-            if (withVotes == null || !level.canVoteWithCount(withVotes)) {
-                withVotes = level.getVotes();
+            if (withVotes == null || !level.canVoteWithCount(info.organization, withVotes)) {
+                withVotes = level.getVotes(info.organization);
             }
             addInternal(value, info, withVotes, date); // do the add
         }

@@ -230,7 +230,7 @@ public class VoteAPIHelper {
             if (overrides != null) {
                 override = overrides.get(u);
             }
-            entries.add(new VoteEntry(u.id, u.getLevel().getVotes(), override));
+            entries.add(new VoteEntry(u.id, u.getVoteCount(), override));
         }
         return entries.toArray(new VoteEntry[entries.size()]);
     }

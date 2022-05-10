@@ -189,13 +189,6 @@ public class UserRegistry {
     private static final String INTERNAL = "INTERNAL";
 
     /**
-     * List of all user levels - for UI presentation
-     *
-     * Code related to UserRegistry.EXPERT removed 2021-05-18 per CLDR-14597
-     */
-    public static final int ALL_LEVELS[] = { ADMIN, TC, MANAGER, VETTER, STREET, LOCKED };
-
-    /**
      * get a level as a string - presentation form
      **/
     public static String levelToStr(int level) {
@@ -486,8 +479,8 @@ public class UserRegistry {
                 .put("emailHash", getEmailHash())
                 .put("name", name)
                 .put("userlevel", userlevel)
-                .put("votecount", getLevel().getVotes())
-                .put("voteCountMenu", getLevel().getVoteCountMenu())
+                .put("votecount", getLevel().getVotes(getOrganization()))
+                .put("voteCountMenu", getLevel().getVoteCountMenu(getOrganization()))
                 .put("userlevelName", UserRegistry.levelAsStr(userlevel))
                 .put("org", vrOrg().name())
                 .put("orgName", vrOrg().displayName)
@@ -506,13 +499,13 @@ public class UserRegistry {
         @Schema( description="how much this user’s vote counts for")
         // @JsonbProperty("votecount")
         public int getVoteCount() {
-            return getLevel().getVotes();
+            return getLevel().getVotes(getOrganization());
         }
 
         @Schema( description="how much this user’s vote counts for")
         // @JsonbProperty("voteCountMenu")
         public Integer[] getVoteCountMenu() {
-            return getLevel().getVoteCountMenu().toArray(new Integer[0]);
+            return getLevel().getVoteCountMenu(getOrganization()).toArray(new Integer[0]);
         }
 
         /**

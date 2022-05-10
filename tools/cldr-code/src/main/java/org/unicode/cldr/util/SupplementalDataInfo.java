@@ -2842,7 +2842,7 @@ public class SupplementalDataInfo {
         ApprovalRequirementMatcher(String xpath) {
             XPathParts parts = XPathParts.getFrozenInstance(xpath);
             if (parts.containsElement("approvalRequirement")) {
-                requiredVotes = Integer.parseInt(parts.getAttributeValue(-1, "votes"));
+                requiredVotes = getRequiredVotes(parts);
                 String localeAttrib = parts.getAttributeValue(-1, "locales");
                 if (localeAttrib == null || localeAttrib.equals(STAR) || localeAttrib.isEmpty()) {
                     locales = null; // no locale listed == '*'
@@ -2872,6 +2872,22 @@ public class SupplementalDataInfo {
                 }
             } else {
                 throw new RuntimeException("Unknown approval requirement: " + xpath);
+            }
+        }
+
+        static int getRequiredVotes(XPathParts parts) {
+            String votesStr = parts.getAttributeValue(-1, "votes");
+            if (votesStr.charAt(0) == '=') {
+                votesStr = votesStr.substring(1);
+                if (votesStr.equals("HIGH_BAR")) {
+                    return VoteResolver.HIGH_BAR;
+                } else if (votesStr.equals("LOWER_BAR")) {
+                    return VoteResolver.LOWER_BAR;
+                }
+                final VoteResolver.Level l = VoteResolver.Level.valueOf(votesStr);
+                return l.getVotes(Organization.guest); // use non-TC vote count
+            } else {
+                return Integer.parseInt(votesStr);
             }
         }
 

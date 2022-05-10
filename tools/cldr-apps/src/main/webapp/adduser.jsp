@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"
-	import="org.unicode.cldr.web.*"%>
+	import="org.unicode.cldr.web.*,org.unicode.cldr.util.VoteResolver"%>
 
 <%
 	String myorg = WebContext.decodeFieldString(request
@@ -9,7 +9,7 @@
 	} else {
 		myorg = "";
 	}
-	
+
 %>
 <html>
 <head>
@@ -36,7 +36,7 @@
 	</tr>
 	<tr>
 		<th><label for="new_org">Organization:</label></th>
-		
+
 		<% if(myorg.length()==0) { %>
 			<td><input id='new_org' name="new_org" value="<%=myorg%>" /></td>
 			<td>
@@ -59,7 +59,8 @@
 		<th><label for="new_userlevel">Userlevel:</label></th>
 		<td><select name="new_userlevel">
 			<%
-				for (int lev : UserRegistry.ALL_LEVELS) {
+				for (final VoteResolver.Level l : VoteResolver.Level.values()) { // like 999
+					final int lev = l.getSTLevel();
 			%>
 			<option value="<%=lev%>"
 				<%=(lev == UserRegistry.VETTER) ? "selected" : ""%>><%=lev%>

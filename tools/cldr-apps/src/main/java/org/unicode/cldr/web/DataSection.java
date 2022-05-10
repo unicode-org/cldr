@@ -440,7 +440,7 @@ public class DataSection implements JSONString {
                         }
                         uu.put("overridedVotes", voteCount);
                         if (voteCount == null) {
-                            voteCount = u.getLevel().getVotes();
+                            voteCount = u.getLevel().getVotes(u.getOrganization());
                         }
                         uu.put("votes", voteCount);
                         if (userForVotelist != null) {

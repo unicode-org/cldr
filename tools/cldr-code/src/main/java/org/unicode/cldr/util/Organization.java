@@ -1,8 +1,11 @@
 package org.unicode.cldr.util;
 
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
+import com.google.common.collect.ImmutableSet;
 
 /**
  * This list needs updating as a new organizations are added; that's by design
@@ -56,9 +59,25 @@ public enum Organization {
     wikimedia("Wikimedia Foundation"),
     wod_nko("WOD N’ko", "World Organization for the Development of N’ko", "WODN"),
     yahoo("Yahoo"),
-
-    // To be removed.
     ;
+
+    private final static Set<Organization> TC_ORGS = ImmutableSet.copyOf(EnumSet.of(google, apple, microsoft));
+
+    /**
+     * Get a list of the TC Organizations
+     * @return
+     */
+    public static Set<Organization> getTCOrgs() {
+        return TC_ORGS;
+    }
+
+    /**
+     * Is this organization a TC Org?
+     * @return
+     */
+    public boolean isTCOrg() {
+        return getTCOrgs().contains(this);
+    }
 
     public final String displayName;
     private final String[] names;

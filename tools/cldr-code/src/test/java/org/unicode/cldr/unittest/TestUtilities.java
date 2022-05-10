@@ -77,7 +77,7 @@ public class TestUtilities extends TestFmwkPlus {
         .getSupplementalDataInfo();
     private static final int STRING_ID_TEST_COUNT = 1024 * 16;
 
-    final int ONE_VETTER_BAR = Level.vetter.getVotes();
+    final int ONE_VETTER_BAR = Level.vetter.getVotes(Organization.guest);
     final int TWO_VETTER_BAR = 2 * ONE_VETTER_BAR;
 
     public static void main(String[] args) {
@@ -241,7 +241,7 @@ public class TestUtilities extends TestFmwkPlus {
 
     public void TestCounter() {
         Counter<String> counter = new Counter<>(true);
-        Comparator<String> uca = new Comparator<String>() {
+        Comparator<String> uca = new Comparator<>() {
             Collator col = Collator.getInstance(ULocale.ENGLISH);
 
             @Override
@@ -347,7 +347,7 @@ public class TestUtilities extends TestFmwkPlus {
         adobeE(204, Organization.adobe, Level.manager),
         adobeV(209, Organization.adobe, Level.vetter),
         ibmS(101, Organization.ibm, Level.street),
-        ibmV(134, Organization.ibm, Level.vetter),
+        microsoftV(134, Organization.microsoft, Level.vetter),
         ibmE(114, Organization.ibm, Level.manager),
         ibmT(129, Organization.ibm, Level.tc),
         guestS2(802, Organization.guest, Level.street);
@@ -541,7 +541,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.setLocale(CLDRLocale.getInstance("mt"), null);
         resolver.setBaseline("foo", oldStatus);
         resolver.add("aardvark", toVoterId("adobeE"));
-        resolver.add("zebra", toVoterId("ibmT"), Level.vetter.getVotes()); // NOTE:
+        resolver.add("zebra", toVoterId("ibmT"), Level.vetter.getVotes(Organization.ibm)); // NOTE:
         // reduced
         // votes:
         // as
@@ -559,7 +559,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.setLocale(CLDRLocale.getInstance("mt"), null);
         resolver.setBaseline("foo", oldStatus);
         resolver.add("aardvark", toVoterId("adobeE"));
-        resolver.add("zebra", toVoterId("ibmT"), Level.vetter.getVotes()); // NOTE:
+        resolver.add("zebra", toVoterId("ibmT"), Level.vetter.getVotes(Organization.ibm)); // NOTE:
         // reduced
         // votes:
         // as
@@ -623,7 +623,7 @@ public class TestUtilities extends TestFmwkPlus {
                 .fromPath(xpath);
         }
         resolver.setLocale(CLDRLocale.getInstance(locale), ph);
-        assertEquals(ph.toString(), required, resolver.getRequiredVotes());
+        assertEquals("verifyRequiredVotes: " + ph.toString(), required, resolver.getRequiredVotes());
     }
 
     public void TestRequiredVotes() {
@@ -983,7 +983,7 @@ public class TestUtilities extends TestFmwkPlus {
     public void TestUnicodeMapCompose() {
         logln("Getting Scripts");
 
-        UnicodeMap.Composer<String> composer = new UnicodeMap.Composer<String>() {
+        UnicodeMap.Composer<String> composer = new UnicodeMap.Composer<>() {
             @Override
             public String compose(int codepoint, String string, String a, String b) {
                 return a.toString() + "_" + b.toString();
@@ -1271,7 +1271,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.setBaseline("foo", Status.approved);
 
         resolver.add("bailey", TestUser.appleV.voterId);
-        resolver.add("bailey", TestUser.ibmV.voterId);
+        resolver.add("bailey", TestUser.microsoftV.voterId);
         resolver.add("bailey", TestUser.googleV.voterId);
         assertEquals("Simple case, all = bailey", "bailey", resolver.getWinningValue());
 
@@ -1285,7 +1285,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.setBaseline("foo", Status.approved);
 
         resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.appleV.voterId);
-        resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.ibmV.voterId);
+        resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.microsoftV.voterId);
         resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.googleV.voterId);
         assertEquals("Another simple case, all = INHERITANCE_MARKER", CldrUtility.INHERITANCE_MARKER, resolver.getWinningValue());
 
@@ -1299,7 +1299,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.setBaseline("foo", Status.approved);
 
         resolver.add("bailey", TestUser.appleV.voterId);
-        resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.ibmV.voterId);
+        resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.microsoftV.voterId);
         resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.googleV.voterId);
         assertEquals("The bailey value and explicit value combine to win", CldrUtility.INHERITANCE_MARKER, resolver.getWinningValue());
 
@@ -1314,7 +1314,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.setBaseline("foo", Status.approved);
 
         resolver.add("bailey", TestUser.appleV.voterId);
-        resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.ibmV.voterId);
+        resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.microsoftV.voterId);
         resolver.add("other-vote", TestUser.googleV.voterId);
         assertEquals("The bailey value and explicit value combine to win again", CldrUtility.INHERITANCE_MARKER, resolver.getWinningValue());
 
@@ -1327,7 +1327,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.setBaseline("foo", Status.approved);
 
         resolver.add("bailey", TestUser.appleV.voterId);
-        resolver.add("not-bailey", TestUser.ibmV.voterId);
+        resolver.add("not-bailey", TestUser.microsoftV.voterId);
         resolver.add("other-vote", TestUser.googleV.voterId);
         assertEquals("Split vote, no action", "foo", resolver.getWinningValue());
 
@@ -1345,7 +1345,7 @@ public class TestUtilities extends TestFmwkPlus {
 
         resolver.add("bailey", TestUser.googleV.voterId);
         resolver.add("bailey", TestUser.appleV.voterId);
-        resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.ibmV.voterId);
+        resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.microsoftV.voterId);
         resolver.add("other-vote", TestUser.adobeV.voterId);
         resolver.add("other-vote", TestUser.gnomeV.voterId);
         assertEquals("Bailey wins with help of INHERITANCE_MARKER", "bailey", resolver.getWinningValue());

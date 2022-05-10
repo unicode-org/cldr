@@ -573,16 +573,19 @@ In this example, the coverge variables %dayTypes and %wideAbbr are used to subst
 
 The approvalRequirements allows to specify the number of survey tool votes required for approval, either based on locale, or path, or both. Certain locales require a higher voting threshold (usually 8 votes instead of 4), in order to promote greater stability in the data. Furthermore, certain fields that are very high visibility fields, such as number formats, require a CLDR TC committee member's vote for approval.
 
+`votes=` can be a numeric value, or it can be of the form `=vetter` where `vetter` is one of the `VoteResolver.Level` enumerated values.
+It can also be `=LOWER_BAR` (8) or `=HIGH_BAR` (same as `=tc`)  referring to the `VoteResolver` constants of the same names.
+
 Here is an example of the approvalRequirements section.
 
 ```xml
 <approvalRequirements>
     <!--  "high bar" items -->
-    <approvalRequirement votes="20" locales="*" paths="//ldml/numbers/symbols[^/]++/(decimal|group)"/>
+    <approvalRequirement votes="=HIGH_BAR" locales="*" paths="//ldml/numbers/symbols[^/]++/(decimal|group)"/>
     <!--  established locales - https://cldr.unicode.org/index/process#h.rm00w9v03ia8 -->
-    <approvalRequirement votes="8" locales="ar ca cs da de el es fi fr he hi hr hu it ja ko nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant" paths=""/>
+    <approvalRequirement votes="=LOWER_BAR" locales="ar ca cs da de el es fi fr he hi hr hu it ja ko nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant" paths=""/>
     <!--  all other items -->
-    <approvalRequirement votes="4" locales="*" paths=""/>
+    <approvalRequirement votes="=vetter" locales="*" paths=""/>
 </approvalRequirements>
 ```
 

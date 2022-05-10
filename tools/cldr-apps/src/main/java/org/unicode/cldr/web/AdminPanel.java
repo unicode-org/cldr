@@ -16,6 +16,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfigImpl;
+import org.unicode.cldr.util.VoteResolver;
 
 public class AdminPanel {
     public void getJson(SurveyJSONWrapper r, HttpServletRequest request, HttpServletResponse response, SurveyMain sm) throws JSONException, IOException {
@@ -191,7 +192,8 @@ public class AdminPanel {
         String orgs[] = UserRegistry.getOrgList();
         String myorg = orgs[(int) Math.rint(Math.random() * (orgs.length - 1))];
         JSONObject levels = new JSONObject();
-        for (int lev : UserRegistry.ALL_LEVELS) { // like 999
+        for (final VoteResolver.Level l : VoteResolver.Level.values()) { // like 999
+            final int lev = l.getSTLevel();
             if (lev != UserRegistry.ADMIN) {
                 JSONObject jo = new JSONObject();
                 jo.put("name", UserRegistry.levelToStr(lev)); // like "locked"

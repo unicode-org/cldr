@@ -1126,9 +1126,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 voteIsAutoImported = true;
             } else if (withVote != null) {
                 Level level = user.getLevel();
-                if (withVote == level.getVotes()) {
+                if (withVote == level.getVotes(user.getOrganization())) {
                     withVote = null; // not an override
-                } else if (!level.canVoteWithCount(withVote)) {
+                } else if (!level.canVoteWithCount(user.getOrganization(), withVote)) {
                     throw new VoteNotAcceptedException(ErrorCode.E_NO_PERMISSION, "User " + user + " cannot vote at " + withVote + " level ");
                 } else if (withVote == VoteResolver.Level.PERMANENT_VOTES) {
                     if (sm.fora.postCountFor(locale, xpathId) < 1) {

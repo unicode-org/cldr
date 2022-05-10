@@ -142,10 +142,10 @@ public class TestUserLevel {
             assertEquals(expected, u.getLevel().canCreateOrSetLevelTo(otherL), onFail);
             break;
         case "canVoteWithCount":
-            assertTrue(u.getLevel().canVoteWithCount(Integer.parseInt(expStr)), onFail);
+            assertTrue(u.getLevel().canVoteWithCount(o, Integer.parseInt(expStr)), onFail);
             break;
         case "canNOTVoteWithCount":
-            assertFalse(u.getLevel().canVoteWithCount(Integer.parseInt(expStr)), onFail);
+            assertFalse(u.getLevel().canVoteWithCount(o, Integer.parseInt(expStr)), onFail);
             break;
         default:
             assertFalse(true, "Unsupported operation in TestUserLevel.csv: " + operation);
@@ -191,7 +191,7 @@ public class TestUserLevel {
             assertEquals(expected, l.isAdminForOrg(o, otherO), onFail);
             break;
         case "votes":
-            assertEquals(Integer.parseInt(expStr), l.getVotes(), onFail);
+            assertEquals(Integer.parseInt(expStr), l.getVotes(o), onFail);
             break;
         case "canImportOldVotesSUBMISSION":
             assertEquals(expected, l.canImportOldVotes(CheckCLDR.Phase.SUBMISSION), onFail);
@@ -263,10 +263,10 @@ public class TestUserLevel {
             assertEquals(expected, l.canCreateOrSetLevelTo(otherL), onFail);
             break;
         case "canVoteWithCount":
-            assertTrue(l.canVoteWithCount(Integer.parseInt(expStr)), onFail);
+            assertTrue(l.canVoteWithCount(o, Integer.parseInt(expStr)), onFail);
             break;
         case "canNOTVoteWithCount":
-            assertFalse(l.canVoteWithCount(Integer.parseInt(expStr)), onFail);
+            assertFalse(l.canVoteWithCount(o, Integer.parseInt(expStr)), onFail);
             break;
         default:
             assertFalse(true, "Unsupported operation in TestUserLevel.csv: " + operation);

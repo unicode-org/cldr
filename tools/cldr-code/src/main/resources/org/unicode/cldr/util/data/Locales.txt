@@ -1,7 +1,46 @@
+# Locales.txt
+#
+# This file controls the coverage used by different organizations for their respective
+# locales, and also controls which locales an organization is allowed to contribute to.
+#
+# The homepage for this file is:
+#   https://cldr.unicode.org/index/survey-tool/coverage
+#
+# Format:
+#
+# Each line is either a comment or of this form:
+#
+#  <organization> ; <@-commands> <language_code> ; <coverage_level> ; <language name - optional>
+#
+# For example,
+#
+#  Oracle	;	ar	;	modern ; Arabic
+#  iaap ; @weight=4 @pathMatch=annotations,characterLabel * ; moderate ; All annotations
+#
+# Fields:
+# <organization>: this is the organization as defined by org.unicode.cldr.util.Organization
+#
+# <@-commands> may be used prior to the language code, as in this example:
+# @weight=4 indicates that the voting weight is restricted to a vote of 4.
+#  (See <https://cldr.unicode.org/index/process#h.mz5r3eqr6cxn> for details)
+# @pathMatch=annotations,characterLabel restricts the voting so that it
+# must match one or the other of the named pathMatches elements. All other
+# paths will show as readonly to these users.
+#
+# <language_code>: the code for each locale.
+# Note, do not list default content locales.  List 'fr', but not 'fr_FR'.
+# Instead of a language code, * can be used if 'all others' is meant.
+#
+# <coverage_level>: the level which will be presented to users for this
+# locale, see <https://cldr.unicode.org/index/cldr-spec/coverage-levels>
+#
+# <language name - optional>
+# This is an optional comment which can be used to give the name of the locale,
+# or any other organization-specific information such as tiers (T0, T1, …)
+
 
 # http://java.sun.com/j2se/1.5.0/docs/guide/intl/locale.doc.html
 # http://developers.sun.com/techtopics/global/index.html
-
 Oracle	;	ar	;	modern
 # The following were added in response to this org's vetter assignment.
 Oracle	;	ja	;	modern
@@ -997,3 +1036,6 @@ wod_nko ; bm_Nkoo ; modern ; Bambara (N’ko)
 
 yahoo ; mul ; modern ;
 # ^no votes in 30…40 for this org
+
+#Example of using weight and pathMatch:
+#iaap ; @weight=4 @pathMatch=annotations1,anotations2,characterLabel1,characterLabel2 * ; moderate ;

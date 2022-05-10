@@ -582,6 +582,8 @@ public class TestDtdData extends TestFmwk {
                 && (attribute.equals("inLanguage") || attribute.equals("inScript") || attribute.equals("inTerritory") || attribute.equals("match"))
                 || elementName.equals("languageMatch")
                 && (attribute.equals("desired") || attribute.equals("supported"))
+                || elementName.equals("pathMatch")
+                && (attribute.equals("id"))
                 || (elementName.equals("transform") && (attribute.equals("source") || attribute.equals("target") || attribute.equals("direction") || attribute
                     .equals("variant")))
                 || (elementName.equals("grammaticalFeatures") && (attribute.equals("locales") || attribute.equals("targets")))

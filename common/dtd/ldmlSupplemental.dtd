@@ -1196,7 +1196,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 <!-- # Coverage levels -->
 
-<!ELEMENT coverageLevels ( approvalRequirements, coverageVariable*, coverageLevel* ) >
+<!ELEMENT coverageLevels ( approvalRequirements, coverageVariable*, coverageLevel*, pathMatch* ) >
     <!--@METADATA-->
 
 <!ELEMENT approvalRequirements ( approvalRequirement* ) >
@@ -1230,6 +1230,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@MATCH:literal/basic, core, minimal, moderate, modern, posix-->
     <!--@VALUE-->
 <!ATTLIST coverageLevel match CDATA #REQUIRED >
+    <!--@MATCH:any-->
+
+<!ELEMENT pathMatch EMPTY >
+<!ATTLIST pathMatch id NMTOKENS #IMPLIED >
+    <!--@MATCH:any-->
+
+<!ATTLIST pathMatch match CDATA #REQUIRED >
+    <!--@VALUE-->
     <!--@MATCH:any-->
 
 <!ELEMENT idValidity ( id* ) >

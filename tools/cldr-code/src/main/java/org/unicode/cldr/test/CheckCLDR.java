@@ -735,7 +735,7 @@ abstract public class CheckCLDR {
             inheritanceMarkerNotAllowed, invalidDurationUnitPattern, invalidDelimiter, illegalCharactersInPattern,
             badParseLenient, tooManyValues, invalidSymbol, invalidGenderCode,
             mismatchedUnitComponent, longPowerWithSubscripts, gapsInPlaceholderNumbers, duplicatePlaceholders, largerDifferences,
-            missingNonAltPath, badSamplePersonName
+            missingNonAltPath, badSamplePersonName, missingLanguage
             ;
 
             @Override

@@ -7,10 +7,12 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.MatchValue.LocaleMatchValue;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
@@ -63,21 +65,43 @@ public class CheckPlaceHolders extends CheckCLDR {
 
             case "nameOrderLocales":
                 //ldml/personNames/nameOrderLocales[@order="givenFirst"]
-                Set<String> orderErrors = null;
-                for (String item : SPLIT_SPACE.split(value)) {
-                    boolean mv = LOCALE_MATCH_VALUE.is(item);
-                    if (!mv) {
-                        if (orderErrors == null) {
-                            orderErrors = new LinkedHashSet<>();
-                        }
-                        orderErrors.add(item);
-                    }
-                }
+                Set<String> items = new TreeSet<>();
+                Set<String> orderErrors = checkForErrorsAndGetLocales(value, items);
                 if (orderErrors != null) {
                     result.add(new CheckStatus().setCause(this)
                         .setMainType(CheckStatus.errorType)
-                        .setSubtype(Subtype.invalidPlaceHolder)
+                        .setSubtype(Subtype.invalidLocale)
                         .setMessage("Invalid locales: \"" + JOIN_SPACE.join(orderErrors) + "\""));
+                }
+                // Check to see that user's language and und are explicitly mentioned.
+                // but only if the value is not inherited.
+                String unresolvedValue = getCldrFileToCheck().getUnresolved().getStringValue(path);
+                if (unresolvedValue != null) {
+                    // And the other value is not inherited.
+                    String otherPath = path.contains("givenFirst")
+                        ? path.replace("givenFirst", "surnameFirst")
+                            : path.replace("surnameFirst", "givenFirst");
+                    String otherValue = getCldrFileToCheck().getStringValue(otherPath);
+                    if (otherValue != null) {
+                        String myLanguage = getCldrFileToCheck().getLocaleID();
+                        if (!myLanguage.equals("root")) { // skip root
+
+                            myLanguage = new LocaleIDParser().set(myLanguage).getLanguage();
+                            checkForErrorsAndGetLocales(otherValue, items); // adds locales from other path
+                            if (!items.contains(myLanguage)) {
+                                result.add(new CheckStatus().setCause(this)
+                                    .setMainType(CheckStatus.errorType)
+                                    .setSubtype(Subtype.missingLanguage)
+                                    .setMessage("Your locale must be explicitly listed in one of the nameOrderLocales: either givenFirst or surnameFirst."));
+                            }
+                            if (!items.contains("und")) {
+                                result.add(new CheckStatus().setCause(this)
+                                    .setMainType(CheckStatus.errorType)
+                                    .setSubtype(Subtype.missingLanguage)
+                                    .setMessage("The special code ‘und’ must be explicitly listed in one of the nameOrderLocales: either givenFirst or surnameFirst."));
+                            }
+                        }
+                    }
                 }
                 return this;
 
@@ -314,6 +338,22 @@ public class CheckPlaceHolders extends CheckCLDR {
             }
         }
         return this;
+    }
+
+    private Set<String> checkForErrorsAndGetLocales(String value, Set<String> items) {
+        Set<String> orderErrors = null;
+        for (String item : SPLIT_SPACE.split(value)) {
+            boolean mv = LOCALE_MATCH_VALUE.is(item);
+            if (!mv) {
+                if (orderErrors == null) {
+                    orderErrors = new LinkedHashSet<>();
+                }
+                orderErrors.add(item);
+            } else {
+                items.add(item);
+            }
+        }
+        return orderErrors;
     }
 
     private void checkNothingAfter1(String value, List<CheckStatus> result) {

@@ -20,30 +20,14 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.LikelySubtags;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Status;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.Counter;
-import org.unicode.cldr.util.DtdType;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
-import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.LocaleIDParser;
-import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
-import org.unicode.cldr.util.PatternCache;
-import org.unicode.cldr.util.PatternPlaceholders;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
-import org.unicode.cldr.util.SimpleFactory;
-import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
@@ -640,25 +624,20 @@ public class TestCLDRFile extends TestFmwk {
         }
     }
 
-    public void TestConstructedBailey() {
+    public void TestConstructedValue() {
         CLDRFile eng = CLDRConfig.getInstance().getEnglish();
 
         String prefix = "//ldml/localeDisplayNames/languages/language[@type=\"";
-        String display = eng.getConstructedBaileyValue(prefix + "zh_Hans"
-            + "\"]", null, null);
-        assertEquals("contructed bailey", "Chinese (Simplified)", display);
-        display = eng.getConstructedBaileyValue(prefix + "es_US" + "\"]", null,
-            null);
-        assertEquals("contructed bailey", "Spanish (United States)", display);
-        display = eng.getConstructedBaileyValue(prefix + "es_US"
-            + "\"][@alt=\"short\"]", null, null);
-        assertEquals("contructed bailey", "Spanish (US)", display);
-        display = eng.getConstructedBaileyValue(prefix + "es" + "\"]", null,
-            null);
-        assertEquals("contructed bailey", "es", display);
-        display = eng.getConstructedBaileyValue(prefix + "missing" + "\"]",
-            null, null);
-        assertEquals("contructed bailey", null, display);
+        String display = eng.getConstructedValue(prefix + "zh_Hans" + "\"]");
+        assertEquals("contructed value", "Chinese (Simplified)", display);
+        display = eng.getConstructedValue(prefix + "es_US" + "\"]");
+        assertEquals("contructed value", "Spanish (United States)", display);
+        display = eng.getConstructedValue(prefix + "es_US" + "\"][@alt=\"short\"]");
+        assertEquals("contructed value", "Spanish (US)", display);
+        display = eng.getConstructedValue(prefix + "es" + "\"]");
+        assertEquals("contructed value", null, display);
+        display = eng.getConstructedValue(prefix + "missing" + "\"]");
+        assertEquals("contructed value", null, display);
     }
 
     public void TestFileLocations() {

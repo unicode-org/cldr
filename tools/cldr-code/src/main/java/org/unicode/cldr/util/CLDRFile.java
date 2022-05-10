@@ -36,6 +36,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckMetazones;
+import org.unicode.cldr.tool.resolver.CldrResolver;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
@@ -630,8 +631,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      */
     public String getBaileyValue(String xpath, Output<String> pathWhereFound, Output<String> localeWhereFound) {
         String result = dataSource.getBaileyValue(xpath, pathWhereFound, localeWhereFound);
+        String fallbackPath = null;
         if ((result == null || result.equals(CldrUtility.INHERITANCE_MARKER)) && dataSource.isResolving()) {
-            final String fallbackPath = getFallbackPath(xpath, false, false); // return null if there is no different sideways path
+            fallbackPath = getFallbackPath(xpath, false, false); // return null if there is no different sideways path
             if (xpath.equals(fallbackPath)) {
                 getFallbackPath(xpath, false, true);
                 throw new IllegalArgumentException(); // should never happen
@@ -647,6 +649,18 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                         pathWhereFound.value = status.pathWhereFound;
                     }
                 }
+            }
+        }
+        if (result == null || CldrResolver.CODE_FALLBACK.equals(fallbackPath)) {
+            String constructedValue = getConstructedValue(xpath);
+            if (constructedValue != null) {
+                if (localeWhereFound != null) {
+                    localeWhereFound.value = getLocaleID();
+                }
+                if (pathWhereFound != null) {
+                    pathWhereFound.value = null; // TODO make more useful
+                }
+                return constructedValue;
             }
         }
         return result;
@@ -671,16 +685,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * @parameter pathWhereFound null if constructed.
      */
     public String getConstructedBaileyValue(String xpath, Output<String> pathWhereFound, Output<String> localeWhereFound) {
-        String constructedValue = getConstructedValue(xpath);
-        if (constructedValue != null) {
-            if (localeWhereFound != null) {
-                localeWhereFound.value = getLocaleID();
-            }
-            if (pathWhereFound != null) {
-                pathWhereFound.value = null; // TODO make more useful
-            }
-            return constructedValue;
-        }
         return getBaileyValue(xpath, pathWhereFound, localeWhereFound);
     }
 

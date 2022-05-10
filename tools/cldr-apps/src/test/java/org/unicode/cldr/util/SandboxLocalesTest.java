@@ -45,6 +45,8 @@ class SandboxLocalesTest {
         // our factory includes common/main, so limit here.
         for(final CLDRLocale l : SpecialLocales.getByType(SpecialLocales.Type.scratch)) {
             System.out.println("Testing " + l);
+            // TODO With the current changes for CLDR-14336 there is an NPE in the following,
+            // see further notes in SimpleFactory.handleMake
             CLDRFile f = factory.make(l.getBaseName(), true, null);
             List<CheckCLDR.CheckStatus> errs = new LinkedList<>();
             check.setCldrFileToCheck(f, options, errs);

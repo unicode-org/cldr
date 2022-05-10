@@ -4896,15 +4896,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<pattern type="1000000000" count="one">↑↑↑</pattern>
 					<pattern type="1000000000" count="other">↑↑↑</pattern>
 					<pattern type="10000000000" count="one">¤00 B</pattern>
+					<pattern type="10000000000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 00 B</pattern>
 					<pattern type="10000000000" count="other">¤00 B</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 00 B</pattern>
 					<pattern type="100000000000" count="one">¤000 B</pattern>
+					<pattern type="100000000000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 000 B</pattern>
 					<pattern type="100000000000" count="other">¤000 B</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 000 B</pattern>
 					<pattern type="1000000000000" count="one">¤0 T</pattern>
+					<pattern type="1000000000000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 0 T</pattern>
 					<pattern type="1000000000000" count="other">¤0 T</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 0 T</pattern>
 					<pattern type="10000000000000" count="one">¤00 T</pattern>
+					<pattern type="10000000000000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 00 T</pattern>
 					<pattern type="10000000000000" count="other">¤00 T</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 00 T</pattern>
 					<pattern type="100000000000000" count="one">¤000 T</pattern>
+					<pattern type="100000000000000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 000 T</pattern>
 					<pattern type="100000000000000" count="other">¤000 T</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 000 T</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="one">↑↑↑</unitPattern>

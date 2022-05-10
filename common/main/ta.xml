@@ -5717,9 +5717,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>¤ #,##,##0.00</pattern>
+					<pattern alt="noCurrency" draft="provisional">#,##,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
+					<pattern alt="alphaNextToNumber" draft="provisional">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="provisional">#,##0.00;(#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
@@ -5738,10 +5741,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern type="100000000" count="other">¤ 000மி</pattern>
 					<pattern type="1000000000" count="one">¤ 0பி</pattern>
 					<pattern type="1000000000" count="other">¤0பி</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 0பி</pattern>
 					<pattern type="10000000000" count="one">¤ 00பி</pattern>
 					<pattern type="10000000000" count="other">¤ 00பி</pattern>
 					<pattern type="100000000000" count="one">¤ 000பி</pattern>
 					<pattern type="100000000000" count="other">¤000பி</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 000பி</pattern>
 					<pattern type="1000000000000" count="one">¤ 0டி</pattern>
 					<pattern type="1000000000000" count="other">¤ 0டி</pattern>
 					<pattern type="10000000000000" count="one">¤ 00டி</pattern>
@@ -5757,6 +5762,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>¤ #,##,##0.00</pattern>
+					<pattern alt="noCurrency" draft="provisional">#,##,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>

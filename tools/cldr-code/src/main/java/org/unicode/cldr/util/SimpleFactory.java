@@ -524,6 +524,11 @@ public class SimpleFactory extends Factory {
                 try {
                     makeResolvingSource = makeResolvingSource(localeName, minimalDraftStatus);
                 } catch (Exception e) {
+                    // TODO: The current changes for CLDR-14336 result in a NPE being caught below when this
+                    // is called from SandboxLocalesTest.test(). In that case this handleMake method is called
+                    // recursively via Factory.makeResolvingSource; the third time it is called is with
+                    // localeName=root and resolved=false, and for that case the call to new CLDRFile below
+                    // generates the NPE.
                     throw new ICUException("Couldn't make resolved CLDR file for " + localeName, e);
                 }
                 result = new CLDRFile(makeResolvingSource);

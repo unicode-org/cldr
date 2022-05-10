@@ -9646,9 +9646,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency" draft="provisional">#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency" draft="provisional">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
@@ -9656,73 +9658,135 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency" draft="provisional">#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency" draft="provisional">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
 					<pattern type="1000" count="one">0 k¤</pattern>
+					<pattern type="1000" count="one" alt="alphaNextToNumber" draft="provisional">0 k ¤</pattern>
 					<pattern type="1000" count="two">0 k¤</pattern>
+					<pattern type="1000" count="two" alt="alphaNextToNumber" draft="provisional">0 k ¤</pattern>
 					<pattern type="1000" count="few">0 k¤</pattern>
+					<pattern type="1000" count="few" alt="alphaNextToNumber" draft="provisional">0 k ¤</pattern>
 					<pattern type="1000" count="many">0 k¤</pattern>
+					<pattern type="1000" count="many" alt="alphaNextToNumber" draft="provisional">0 k ¤</pattern>
 					<pattern type="1000" count="other">0 k¤</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber" draft="provisional">0 k ¤</pattern>
 					<pattern type="10000" count="one">00 k¤</pattern>
+					<pattern type="10000" count="one" alt="alphaNextToNumber" draft="provisional">00 k ¤</pattern>
 					<pattern type="10000" count="two">00 k¤</pattern>
+					<pattern type="10000" count="two" alt="alphaNextToNumber" draft="provisional">00 k ¤</pattern>
 					<pattern type="10000" count="few">00 k¤</pattern>
+					<pattern type="10000" count="few" alt="alphaNextToNumber" draft="provisional">00 k ¤</pattern>
 					<pattern type="10000" count="many">00 k¤</pattern>
+					<pattern type="10000" count="many" alt="alphaNextToNumber" draft="provisional">00 k ¤</pattern>
 					<pattern type="10000" count="other">00 k¤</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber" draft="provisional">00 k ¤</pattern>
 					<pattern type="100000" count="one">000 k¤</pattern>
+					<pattern type="100000" count="one" alt="alphaNextToNumber" draft="provisional">000 k ¤</pattern>
 					<pattern type="100000" count="two">000 k¤</pattern>
+					<pattern type="100000" count="two" alt="alphaNextToNumber" draft="provisional">000 k ¤</pattern>
 					<pattern type="100000" count="few">000 k¤</pattern>
+					<pattern type="100000" count="few" alt="alphaNextToNumber" draft="provisional">000 k ¤</pattern>
 					<pattern type="100000" count="many">000 k¤</pattern>
+					<pattern type="100000" count="many" alt="alphaNextToNumber" draft="provisional">000 k ¤</pattern>
 					<pattern type="100000" count="other">000 k¤</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber" draft="provisional">000 k ¤</pattern>
 					<pattern type="1000000" count="one">0 M¤</pattern>
+					<pattern type="1000000" count="one" alt="alphaNextToNumber" draft="provisional">0 M ¤</pattern>
 					<pattern type="1000000" count="two">0 M¤</pattern>
+					<pattern type="1000000" count="two" alt="alphaNextToNumber" draft="provisional">0 M ¤</pattern>
 					<pattern type="1000000" count="few">0 M¤</pattern>
+					<pattern type="1000000" count="few" alt="alphaNextToNumber" draft="provisional">0 M ¤</pattern>
 					<pattern type="1000000" count="many">0 M¤</pattern>
+					<pattern type="1000000" count="many" alt="alphaNextToNumber" draft="provisional">0 M ¤</pattern>
 					<pattern type="1000000" count="other">0 M¤</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber" draft="provisional">0 M ¤</pattern>
 					<pattern type="10000000" count="one">00 M¤</pattern>
+					<pattern type="10000000" count="one" alt="alphaNextToNumber" draft="provisional">00 M ¤</pattern>
 					<pattern type="10000000" count="two">00 M¤</pattern>
+					<pattern type="10000000" count="two" alt="alphaNextToNumber" draft="provisional">00 M ¤</pattern>
 					<pattern type="10000000" count="few">00 M¤</pattern>
+					<pattern type="10000000" count="few" alt="alphaNextToNumber" draft="provisional">00 M ¤</pattern>
 					<pattern type="10000000" count="many">00 M¤</pattern>
+					<pattern type="10000000" count="many" alt="alphaNextToNumber" draft="provisional">00 M ¤</pattern>
 					<pattern type="10000000" count="other">00 M¤</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber" draft="provisional">00 M ¤</pattern>
 					<pattern type="100000000" count="one">000 M¤</pattern>
+					<pattern type="100000000" count="one" alt="alphaNextToNumber" draft="provisional">000 M ¤</pattern>
 					<pattern type="100000000" count="two">000 M¤</pattern>
+					<pattern type="100000000" count="two" alt="alphaNextToNumber" draft="provisional">000 M ¤</pattern>
 					<pattern type="100000000" count="few">000 M¤</pattern>
+					<pattern type="100000000" count="few" alt="alphaNextToNumber" draft="provisional">000 M ¤</pattern>
 					<pattern type="100000000" count="many">000 M¤</pattern>
+					<pattern type="100000000" count="many" alt="alphaNextToNumber" draft="provisional">000 M ¤</pattern>
 					<pattern type="100000000" count="other">000 M¤</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber" draft="provisional">000 M ¤</pattern>
 					<pattern type="1000000000" count="one">0 G¤</pattern>
+					<pattern type="1000000000" count="one" alt="alphaNextToNumber" draft="provisional">0 G ¤</pattern>
 					<pattern type="1000000000" count="two">0 G¤</pattern>
+					<pattern type="1000000000" count="two" alt="alphaNextToNumber" draft="provisional">0 G ¤</pattern>
 					<pattern type="1000000000" count="few">0 G¤</pattern>
+					<pattern type="1000000000" count="few" alt="alphaNextToNumber" draft="provisional">0 G ¤</pattern>
 					<pattern type="1000000000" count="many">0 G¤</pattern>
+					<pattern type="1000000000" count="many" alt="alphaNextToNumber" draft="provisional">0 G ¤</pattern>
 					<pattern type="1000000000" count="other">0 G¤</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber" draft="provisional">0 G ¤</pattern>
 					<pattern type="10000000000" count="one">00 G¤</pattern>
+					<pattern type="10000000000" count="one" alt="alphaNextToNumber" draft="provisional">00 G ¤</pattern>
 					<pattern type="10000000000" count="two">00 G¤</pattern>
+					<pattern type="10000000000" count="two" alt="alphaNextToNumber" draft="provisional">00 G ¤</pattern>
 					<pattern type="10000000000" count="few">00 G¤</pattern>
+					<pattern type="10000000000" count="few" alt="alphaNextToNumber" draft="provisional">00 G ¤</pattern>
 					<pattern type="10000000000" count="many">00 G¤</pattern>
+					<pattern type="10000000000" count="many" alt="alphaNextToNumber" draft="provisional">00 G ¤</pattern>
 					<pattern type="10000000000" count="other">00 G¤</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber" draft="provisional">00 G ¤</pattern>
 					<pattern type="100000000000" count="one">000 G¤</pattern>
+					<pattern type="100000000000" count="one" alt="alphaNextToNumber" draft="provisional">000 G ¤</pattern>
 					<pattern type="100000000000" count="two">000 G¤</pattern>
+					<pattern type="100000000000" count="two" alt="alphaNextToNumber" draft="provisional">000 G ¤</pattern>
 					<pattern type="100000000000" count="few">000 G¤</pattern>
+					<pattern type="100000000000" count="few" alt="alphaNextToNumber" draft="provisional">000 G ¤</pattern>
 					<pattern type="100000000000" count="many">000 G¤</pattern>
+					<pattern type="100000000000" count="many" alt="alphaNextToNumber" draft="provisional">000 G ¤</pattern>
 					<pattern type="100000000000" count="other">000 G¤</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber" draft="provisional">000 G ¤</pattern>
 					<pattern type="1000000000000" count="one">0 T¤</pattern>
+					<pattern type="1000000000000" count="one" alt="alphaNextToNumber" draft="provisional">0 T ¤</pattern>
 					<pattern type="1000000000000" count="two">0 T¤</pattern>
+					<pattern type="1000000000000" count="two" alt="alphaNextToNumber" draft="provisional">0 T ¤</pattern>
 					<pattern type="1000000000000" count="few">0 T¤</pattern>
+					<pattern type="1000000000000" count="few" alt="alphaNextToNumber" draft="provisional">0 T ¤</pattern>
 					<pattern type="1000000000000" count="many">0 T¤</pattern>
+					<pattern type="1000000000000" count="many" alt="alphaNextToNumber" draft="provisional">0 T ¤</pattern>
 					<pattern type="1000000000000" count="other">0 T¤</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber" draft="provisional">0 T ¤</pattern>
 					<pattern type="10000000000000" count="one">00 T¤</pattern>
+					<pattern type="10000000000000" count="one" alt="alphaNextToNumber" draft="provisional">00 T ¤</pattern>
 					<pattern type="10000000000000" count="two">00 T¤</pattern>
+					<pattern type="10000000000000" count="two" alt="alphaNextToNumber" draft="provisional">00 T ¤</pattern>
 					<pattern type="10000000000000" count="few">00 T¤</pattern>
+					<pattern type="10000000000000" count="few" alt="alphaNextToNumber" draft="provisional">00 T ¤</pattern>
 					<pattern type="10000000000000" count="many">00 T¤</pattern>
+					<pattern type="10000000000000" count="many" alt="alphaNextToNumber" draft="provisional">00 T ¤</pattern>
 					<pattern type="10000000000000" count="other">00 T¤</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber" draft="provisional">00 T ¤</pattern>
 					<pattern type="100000000000000" count="one">000 T¤</pattern>
+					<pattern type="100000000000000" count="one" alt="alphaNextToNumber" draft="provisional">000 T ¤</pattern>
 					<pattern type="100000000000000" count="two">000 T¤</pattern>
+					<pattern type="100000000000000" count="two" alt="alphaNextToNumber" draft="provisional">000 T ¤</pattern>
 					<pattern type="100000000000000" count="few">000 T¤</pattern>
+					<pattern type="100000000000000" count="few" alt="alphaNextToNumber" draft="provisional">000 T ¤</pattern>
 					<pattern type="100000000000000" count="many">000 T¤</pattern>
+					<pattern type="100000000000000" count="many" alt="alphaNextToNumber" draft="provisional">000 T ¤</pattern>
 					<pattern type="100000000000000" count="other">000 T¤</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber" draft="provisional">000 T ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="one">{0} {1}</unitPattern>

@@ -24,6 +24,7 @@ import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.PatternPlaceholders;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.web.BallotBox;
@@ -171,7 +172,8 @@ public class VoteAPIHelper {
         // from DataSection.DataRow.toJSONString()
 
         // TODO: ourVote
-        row.xpath = XPathTable.getStringIDString(r.getXpath());
+        final String xpath = r.getXpath();
+        row.xpath = XPathTable.getStringIDString(xpath);
 
         row.code = r.getCode();
         row.resolver = r.getResolver();
@@ -190,6 +192,9 @@ public class VoteAPIHelper {
         row.rdf = r.getRDFURI();
 
         row.items = calculateItems(r, row);
+        PatternPlaceholders placeholders = PatternPlaceholders.getInstance();
+        row.placeholderStatus = placeholders.getStatus(xpath);
+        row.placeholderInfo = placeholders.get(xpath);
         return row;
     }
 

@@ -613,6 +613,29 @@ div.helpAbstract {
     opacity: 1;
 }
 
+div.placeholderHelp {
+	border: 2px solid gray;
+	padding: .3em;
+}
+
+.placeholderInfo {
+	display: table;
+}
+
+.placeholderRow {
+	display: table-row;
+}
+
+.placeholderRow > span {
+	display: table-cell;
+	padding: .2em;
+}
+
+.placeholderHeading > span {
+	font-weight: bold;
+	border-bottom: 1px solid black;
+}
+
 .nav .popover {
 	position:fixed;
 }

@@ -91,7 +91,7 @@ jobs:
         with:
           java-version: 11
       - name: Setup Maven Settings
-        uses: s4u/maven-settings-action@v2.4.1
+        uses: s4u/maven-settings-action@v2.6.0
         with:
           servers: |
             [{

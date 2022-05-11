@@ -3215,7 +3215,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 <!ELEMENT nameField ( #PCDATA ) >
 <!ATTLIST nameField type CDATA #REQUIRED >
-    <!--@MATCH:literal/prefix, given, given-informal, given2, surname, surname2, suffix-->
+    <!--@MATCH:literal/prefix, given, given-informal, given2, surname, surname-prefix, surname-core, surname2, suffix-->
 <!ATTLIST nameField alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST nameField draft (approved | contributed | provisional | unconfirmed) #IMPLIED >

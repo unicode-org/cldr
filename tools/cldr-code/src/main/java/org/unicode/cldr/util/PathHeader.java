@@ -1922,7 +1922,7 @@ public class PathHeader implements Comparable<PathHeader> {
                     // sort order, but groups from least important to most
                     final List<String> attrValues = Arrays.asList(
                         "informal", // modifiers for nameField type
-                        "prefix", "given", "given2", "surname", "surname2", "suffix"); // values for nameField type
+                        "prefix", "given", "given2", "surname", "surname-prefix", "surname-core", "surname2", "suffix"); // values for nameField type
 
                     List<String> parts = HYPHEN_SPLITTER.splitToList(source);
                     order = 0;

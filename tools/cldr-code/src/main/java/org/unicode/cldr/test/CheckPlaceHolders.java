@@ -135,6 +135,7 @@ public class CheckPlaceHolders extends CheckCLDR {
                                 .setSubtype(Subtype.invalidPlaceHolder)
                                 .setMessage("Names must have a value for the ‘surname’ field if they have a ‘surname2’ field."));
                         }
+                        // Todo: check to be sure we don't have surname-prefix unless we also have surname-core or surname
                         break;
                     default:
                         break;

@@ -26,8 +26,8 @@ public class CheckPersonNames extends CheckCLDR {
      * @internal, public for testing
      */
     public static final ImmutableMultimap<SampleType, String> REQUIRED_EMPTY = ImmutableMultimap.<SampleType, String> builder()
-        .putAll(SampleType.givenOnly, "prefix", "given-informal", "given2", "surname", "surname2", "suffix")
-        .putAll(SampleType.givenSurnameOnly, "prefix", "given2", "surname2", "suffix")
+        .putAll(SampleType.givenOnly, "prefix", "given-informal", "given2", "surname", "surname-prefix", "surname-core", "surname2", "suffix")
+        .putAll(SampleType.givenSurnameOnly, "prefix", "given2", "surname-prefix", "surname-core", "surname2", "suffix")
         .build();
 
     boolean isRoot = false;

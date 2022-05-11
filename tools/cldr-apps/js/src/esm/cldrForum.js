@@ -14,6 +14,7 @@ import * as cldrRetry from "./cldrRetry.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
+import * as cldrVoteAgree from "./cldrVoteAgree.js";
 
 const SUMMARY_CLASS = "getForumSummary";
 
@@ -375,66 +376,71 @@ function submitPost(event) {
  */
 function reallySubmitPost(text) {
   $("#post-form button").fadeOut();
+  const form = getFormValues(text);
+  sendPostRequest(form);
+}
 
-  const xpath = $("#post-form input[name=xpath]").val();
-  const locale = $("#post-form input[name=_]").val();
-  const replyTo = $("#post-form input[name=replyTo]").val();
-  const root = $("#post-form input[name=root]").val();
-  const open = $("#post-form input[name=open]").val();
-  const value = $("#post-form input[name=value]").val();
-  const postType = $("#post-form input[name=postType]").val();
-
-  const subj = document.getElementById("postSubject").innerHTML;
-
-  const url = cldrStatus.getContextPath() + "/SurveyAjax";
-
-  const errorHandler = function (err) {
-    const post = $(".post").first();
-    post.before("<p class='warn'>error! " + err + "</p>");
-  };
-  const loadHandler = function (data) {
-    if (data.err) {
-      const post = $(".post").first();
-      post.before("<p class='warn'>error: " + data.err + "</p>");
-    } else if (data.ret && data.ret.length > 0) {
-      const postModal = $("#post-modal");
-      postModal.modal("hide");
-      const curSpecial = cldrStatus.getCurrentSpecial();
-      if (curSpecial && curSpecial === "forum") {
-        cldrLoad.reloadV();
-      } else {
-        cldrForumPanel.updatePosts(null);
-      }
-    } else {
-      const post = $(".post").first();
-      post.before(
-        "<i>Your post was added, #" +
-          data.postId +
-          " but could not be shown.</i>"
-      );
-    }
-  };
-  const postData = {
-    s: cldrStatus.getSessionId(),
-    _: locale,
-    replyTo: replyTo,
-    xpath: xpath,
+function getFormValues(text) {
+  return {
     text: text,
-    subj: subj,
-    postType: postType,
-    value: value,
-    open: open,
-    root: root,
+    locale: $("#post-form input[name=_]").val(),
+    open: $("#post-form input[name=open]").val(),
+    postType: $("#post-form input[name=postType]").val(),
+    replyTo: $("#post-form input[name=replyTo]").val(),
+    root: $("#post-form input[name=root]").val(),
+    value: $("#post-form input[name=value]").val(),
+    xpath: $("#post-form input[name=xpath]").val(),
+  };
+}
+
+function sendPostRequest(form) {
+  const url = cldrStatus.getContextPath() + "/SurveyAjax";
+  const postData = {
     what: "forum_post",
+    s: cldrStatus.getSessionId(),
+    subj: document.getElementById("postSubject").innerHTML,
+    _: form.locale,
+    open: form.open,
+    postType: form.postType,
+    replyTo: form.replyTo,
+    root: form.root,
+    text: form.text,
+    value: form.value,
+    xpath: form.xpath,
   };
   const xhrArgs = {
     url: url,
     handleAs: "json",
-    load: loadHandler,
-    error: errorHandler,
+    load: loadHandlerForSubmit,
+    error: errorHandlerForSubmit,
     postData: postData,
   };
   cldrAjax.sendXhr(xhrArgs);
+}
+
+function loadHandlerForSubmit(data) {
+  if (data.err) {
+    const post = $(".post").first();
+    post.before("<p class='warn'>error: " + data.err + "</p>");
+  } else if (data.ret && data.ret.length > 0) {
+    const postModal = $("#post-modal");
+    postModal.modal("hide");
+    if (cldrStatus.getCurrentSpecial() === "forum") {
+      cldrLoad.reloadV();
+    } else {
+      cldrForumPanel.updatePosts(null);
+    }
+  } else {
+    const post = $(".post").first();
+    post.before(
+      "<i>Your post was added, #" + data.postId + " but could not be shown.</i>"
+    );
+  }
+}
+
+function errorHandlerForSubmit(err) {
+  const post = $(".post").first();
+  post.before("<p class='warn'>error! " + err + "</p>");
 }
 
 /**
@@ -916,6 +922,7 @@ function makeOneNewPostButton(
     : "addPostButton forumNewButton btn btn-default btn-sm";
 
   const newButton = forumCreateChunk(label, "button", buttonClass);
+  // a "new post" button has type "Request" or "Discuss"
   if (postType === "Request" && value === null) {
     newButton.disabled = true;
   } else {
@@ -956,15 +963,19 @@ function makeOneReplyButton(post, postType, label) {
     "addPostButton btn btn-default btn-sm"
   );
   cldrDom.listenFor(replyButton, "click", function (e) {
-    openPostOrReply({
-      /*
-       * Don't specify locale/xpath/subject/value/open for reply. Instead they will be set to
-       * match the original post in the thread.
-       */
-      replyTo: post.id,
-      replyData: post,
-      postType: postType,
-    });
+    if (postType === "Agree") {
+      cldrVoteAgree.vote(post.locale, post.xpath, post.value);
+    } else {
+      openPostOrReply({
+        /*
+         * Don't specify locale/xpath/subject/value/open for reply. Instead they will be set to
+         * match the original post in the thread.
+         */
+        replyTo: post.id,
+        replyData: post,
+        postType: postType,
+      });
+    }
     cldrEvent.stopPropagation(e);
     return false;
   });

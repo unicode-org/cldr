@@ -20,7 +20,6 @@ import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
 import * as cldrVote from "./cldrVote.js";
-import * as cldrVoteAgree from "./cldrVoteAgree.js";
 import * as cldrXPathUtils from "./cldrXpathUtils.js";
 
 const CLDR_TABLE_DEBUG = false;
@@ -417,7 +416,6 @@ function updateRow(tr, theRow) {
   if (!tr || !theRow) {
     return;
   }
-  cldrVoteAgree.voteIfAgreed(tr, theRow);
   const rowChecksum = cldrChecksum(JSON.stringify(theRow));
   if (tr.checksum !== undefined && rowChecksum === tr.checksum) {
     return; // already up to date

@@ -14,7 +14,6 @@ import * as cldrRetry from "./cldrRetry.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
-import * as cldrVoteAgree from "./cldrVoteAgree.js";
 
 const SUMMARY_CLASS = "getForumSummary";
 
@@ -963,19 +962,15 @@ function makeOneReplyButton(post, postType, label) {
     "addPostButton btn btn-default btn-sm"
   );
   cldrDom.listenFor(replyButton, "click", function (e) {
-    if (postType === "Agree") {
-      cldrVoteAgree.vote(post.locale, post.xpath, post.value);
-    } else {
-      openPostOrReply({
-        /*
-         * Don't specify locale/xpath/subject/value/open for reply. Instead they will be set to
-         * match the original post in the thread.
-         */
-        replyTo: post.id,
-        replyData: post,
-        postType: postType,
-      });
-    }
+    openPostOrReply({
+      /*
+       * Don't specify locale/xpath/subject/value/open for reply. Instead they will be set to
+       * match the original post in the thread.
+       */
+      replyTo: post.id,
+      replyData: post,
+      postType: postType,
+    });
     cldrEvent.stopPropagation(e);
     return false;
   });

@@ -14,6 +14,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.test.CheckCLDR;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
 
 class SandboxLocalesTest {
 
@@ -45,9 +46,14 @@ class SandboxLocalesTest {
         // our factory includes common/main, so limit here.
         for(final CLDRLocale l : SpecialLocales.getByType(SpecialLocales.Type.scratch)) {
             System.out.println("Testing " + l);
-            // TODO With the current changes for CLDR-14336 there is an NPE in the following,
-            // see further notes in SimpleFactory.handleMake
-            CLDRFile f = factory.make(l.getBaseName(), true, null);
+            // As part of CLDR-14336 I had to change the minimalDraftStatus parameter below from null to unconfirmed.
+            // Without that an NPE exception was thrown below the following. The Factory.make call ends up in
+            // SimpleFactory.handleMake; the first call there for "mul" with resolved=true calls makeResolvingSource
+            // which recursively calls SimpleFactory.handleMake, eventually ending up with a call for "root" with
+            // resolved=false that calls new CLDRFile. That ends up in XMLNormalizingLoader.getFrozenInstance. With
+            // the null DraftStatus, the NPE occurred inside the call there to cache.getUnchecked(key) which is
+            // Google library code.
+            CLDRFile f = factory.make(l.getBaseName(), true, DraftStatus.unconfirmed);
             List<CheckCLDR.CheckStatus> errs = new LinkedList<>();
             check.setCldrFileToCheck(f, options, errs);
             for(final CheckCLDR.CheckStatus err : errs) {

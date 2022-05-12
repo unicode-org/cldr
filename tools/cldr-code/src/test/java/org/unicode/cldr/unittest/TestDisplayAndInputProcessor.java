@@ -364,6 +364,10 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         if (path.contains("/foreignSpaceReplacement")) {
             return null; // CLDR-15384 typically inherited; no DAIP processing desired
         }
+        if (logKnownIssue("CLDR-15635", "Skip TestAll() for /intervalFormatItem until we update xml data") &&
+            (path.contains("/timeFormat") || path.contains("/dateFormatItem") || path.contains("/intervalFormatItem"))) {
+            return null; // CLDR-14032 changing normalization for intervalFormats but xml data not yet updated
+        }
         if (path.contains("/exemplarCharacters") || path.contains("/parseLenient")) {
             try {
                 UnicodeSet s1 = new UnicodeSet(value);
@@ -475,6 +479,64 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             };
             return a;
         }
+    }
+
+    /**
+     * Test whether DisplayAndInputProcessor.processInput correctly makes whitespace adjustments
+     */
+    public void TestWhitespaceAdjustments() {
+        class PathSpaceAdjustData {
+            String locale;
+            String xpath;
+            String rawValue;
+            String normValue;
+
+            PathSpaceAdjustData(String loc, String path, String raw, String norm) {
+                this.locale = loc;
+                this.xpath = path;
+                this.rawValue = raw;
+                this.normValue = norm;
+            }
+        }
+
+        PathSpaceAdjustData[] testItems = {
+            new PathSpaceAdjustData("en",
+                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                    "h:mm a", "h:mm a"), // \u202F
+            new PathSpaceAdjustData("ja",
+                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"hm\"]",
+                    "a K:mm", "a K:mm"), // \u202F
+            new PathSpaceAdjustData("en",
+                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"hm\"]/greatestDifference[@id=\"a\"]",
+                    "h:mm - h:m a", "h:mm – h:m a"), // \u2009\u2013\u2009, \u202F
+            new PathSpaceAdjustData("uk",
+                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                    "d MMM y 'р'.", "d MMM y 'р'."), // \u202F after y
+            new PathSpaceAdjustData("uk",
+                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yMMMd\"]",
+                    "d MMM y 'р'.", "d MMM y 'р'."), // \u202F after y
+            new PathSpaceAdjustData("uk",
+                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"yMMMd\"]/greatestDifference[@id=\"M\"]",
+                    "d MMM - d MMM y 'р'.", "d MMM – d MMM y 'р'."), // \u2013, \u202F after y
+            new PathSpaceAdjustData("en",
+                    "//ldml/units/unitLength[@type=\"narrow\"]unit[@type=\"mass-gram\"]/unitPattern[@count=\"other\"]",
+                    "{0} g", "{0} g"), //  \u202F
+            new PathSpaceAdjustData("en",
+                    "//ldml/units/unitLength[@type=\"narrow\"]unit[@type=\"mass-gram\"]/unitPattern[@count=\"other\"]",
+                    "g {0}", "g {0}"), //  \u202F
+            new PathSpaceAdjustData("en",
+                    "//ldml/units/unitLength[@type=\"short\"]unit[@type=\"mass-gram\"]/unitPattern[@count=\"other\"]",
+                    "{0} g", "{0} g"), // \u00A0
+            new PathSpaceAdjustData("en",
+                    "//ldml/units/unitLength[@type=\"short\"]unit[@type=\"mass-gram\"]/unitPattern[@count=\"other\"]",
+                    "g {0}", "g {0}"), // \u00A0
+        };
+
+       for (PathSpaceAdjustData testItem: testItems) {
+           DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getCLDRFile(testItem.locale, true), false);
+           String normValue = daip.processInput(testItem.xpath, testItem.rawValue, null);
+           assertEquals("Whitespace adjustment for " + testItem.xpath, testItem.normValue, normValue);
+       }
     }
 
     /**

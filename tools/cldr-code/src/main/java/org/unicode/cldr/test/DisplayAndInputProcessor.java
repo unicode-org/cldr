@@ -15,6 +15,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckExemplars.ExemplarType;
 import org.unicode.cldr.util.Builder;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
@@ -23,6 +24,7 @@ import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
 import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
@@ -82,6 +84,35 @@ public class DisplayAndInputProcessor {
     private static final Pattern INTERVAL_FORMAT_PATHS = PatternCache.get("//ldml/dates/.+/intervalFormatItem.*");
     private static final Pattern NON_DECIMAL_PERIOD = PatternCache.get("(?<![0#'])\\.(?![0#'])");
 
+    // Pattern to match against paths that might have time formats with h or K (12-hour cycles)
+    private static final Pattern HOUR_FORMAT_XPATHS = PatternCache
+        .get("//ldml/dates/calendars/calendar\\[@type=\"[^\"]*\"]/("
+            + "timeFormats/timeFormatLength\\[@type=\"[^\"]*\"]/timeFormat\\[@type=\"standard\"]/pattern\\[@type=\"standard\"].*|"
+            + "dateTimeFormats/availableFormats/dateFormatItem\\[@id=\"[A-GL-Ma-gl-m]*[hK][A-Za-z]*\"].*|"
+            + "dateTimeFormats/intervalFormats/intervalFormatItem\\[@id=\"[A-GL-Ma-gl-m]*[hK][A-Za-z]*\"].*)");
+
+    private static final Pattern AMPM_SPACE_BEFORE = PatternCache.get("([Khms])[ \\u00A0]+a"); // time, space, a
+    private static final Pattern AMPM_SPACE_AFTER = PatternCache.get("a[ \\u00A0]+([Kh])"); // a space, hour
+
+    // Pattern to match against paths that might have date formats with y
+    private static final Pattern YEAR_FORMAT_XPATHS = PatternCache
+        .get("//ldml/dates/calendars/calendar\\[@type=\"[^\"]*\"]/("
+            + "dateFormats/dateFormatLength\\[@type=\"[^\"]*\"]/dateFormat\\[@type=\"standard\"]/pattern\\[@type=\"standard\"].*|"
+            + "dateTimeFormats/availableFormats/dateFormatItem\\[@id=\"[A-XZa-xz]*y[A-Za-z]*\"].*|"
+            + "dateTimeFormats/intervalFormats/intervalFormatItem\\[@id=\"[A-XZa-xz]*y[A-Za-z]*\"].*)");
+
+    // Cyrillic year markers are or begin with (in various languages) \u0430 \u0433 \u0435 \u0436 \u043E \u0440 \u0441
+    private static final Pattern YEAR_SPACE_YEARMARKER = PatternCache.get("y[ \\u00A0]+('?[агежорс])"); // y, space, Cyrillic year marker start
+
+    public static final Pattern UNIT_NARROW_XPATHS = PatternCache
+        .get("//ldml/units/unitLength\\[@type=\"narrow\"]unit\\[@type=\"[^\"]*\"]/unitPattern.*");
+
+    public static final Pattern UNIT_SHORT_XPATHS = PatternCache
+        .get("//ldml/units/unitLength\\[@type=\"short\"]unit\\[@type=\"[^\"]*\"]/unitPattern.*");
+
+    private static final Pattern PLACEHOLDER_SPACE_AFTER = PatternCache.get("\\}[ \\u00A0\\u202F]+");
+    private static final Pattern PLACEHOLDER_SPACE_BEFORE = PatternCache.get("[ \\u00A0\\u202F]+\\{");
+
     /**
      * string of whitespace not including NBSP, i.e. [\t\n\r]+
      */
@@ -106,6 +137,7 @@ public class DisplayAndInputProcessor {
     private static final Pattern FINAL_NBSP = PatternCache.get("\\u00A0+$");
     private static final Pattern MULTIPLE_NBSP = PatternCache.get("\\u00A0\\u00A0+");
 
+    // The following includes (among others) \u0009, \u0020, \u00A0, \u2007, \u2009, \u202F, \u3000
     private static final UnicodeSet UNICODE_WHITESPACE = new UnicodeSet("[:whitespace:]").freeze();
 
     private static final CLDRLocale MALAYALAM = CLDRLocale.getInstance("ml");
@@ -167,6 +199,7 @@ public class DisplayAndInputProcessor {
     private UnicodeSetPrettyPrinter pp = null;
 
     final private CLDRLocale locale;
+    private String scriptCode; // actual or default script code (not null after init)
     private boolean isPosix;
 
     /**
@@ -212,6 +245,18 @@ public class DisplayAndInputProcessor {
                 .setOrdering(col)
                 .setSpaceComparator(spaceCol);
         }
+        String script = locale.getScript();
+        if (script == null || script.length() < 4) {
+            SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
+            script = sdi.getDefaultScript(locale.getBaseName());
+            if (script == null || script.length() < 4 || script.equals("Zzzz")) {
+                script = sdi.getDefaultScript(locale.getLanguage());
+            }
+            if (script == null || script.length() < 4) {
+                script = "Zzzz";
+            }
+        }
+        scriptCode = script;
     }
 
     public UnicodeSetPrettyPrinter getPrettyPrinter() {
@@ -298,7 +343,7 @@ public class DisplayAndInputProcessor {
         }
         // Fix up hyphens, replacing with N-dash as appropriate
         if (INTERVAL_FORMAT_PATHS.matcher(path).matches()) {
-            value = normalizeIntervalHyphens(value);
+            value = normalizeIntervalHyphensAndSpaces(value); // This may also adjust spaces around en dash
         } else {
             value = normalizeHyphens(value);
         }
@@ -470,7 +515,7 @@ public class DisplayAndInputProcessor {
             }
             // Fix up hyphens, replacing with N-dash as appropriate
             if (INTERVAL_FORMAT_PATHS.matcher(path).matches()) {
-                value = normalizeIntervalHyphens(value);
+                value = normalizeIntervalHyphensAndSpaces(value); // This may also adjust spaces around en dash
             } else if (!isUnicodeSet) {
                 value = normalizeHyphens(value);
             }
@@ -646,20 +691,26 @@ public class DisplayAndInputProcessor {
         }
     }
 
-    private String normalizeIntervalHyphens(String value) {
+    private String normalizeIntervalHyphensAndSpaces(String value) {
         DateTimePatternGenerator.FormatParser fp = new DateTimePatternGenerator.FormatParser();
-        fp.set(DateIntervalInfo.genPatternInfo(value, false).getFirstPart());
+        fp.set(DateIntervalInfo.genPatternInfo(value, false).getFirstPart()); // first format & separator including spaces
         List<Object> items = fp.getItems();
         Object last = items.get(items.size() - 1);
         if (last instanceof String) {
-            String separator = last.toString();
-            if (separator.contains("-")) {
+            String separator = last.toString(); // separator including spaces
+            String replacement = separator;
+            if (scriptCode.equals("Latn") && (separator.equals(" - ") || separator.equals(" \u2013 "))) {
+                replacement = "\u2009\u2013\u2009"; // Per CLDR-14032
+            } else if (separator.contains("-")) {
+                replacement = separator.replace("-", "\u2013");
+            }
+            if (!replacement.equals(separator)) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(DateIntervalInfo.genPatternInfo(value, false).getFirstPart());
                 if (sb.lastIndexOf(separator) >= 0) {
                     sb.delete(sb.lastIndexOf(separator), sb.length());
-                    sb.append(separator.replace("-", "\u2013"));
-                    sb.append(DateIntervalInfo.genPatternInfo(value, false).getSecondPart());
+                    sb.append(replacement);
+                    sb.append(DateIntervalInfo.genPatternInfo(value, false).getSecondPart()); // second format only
                     return sb.toString();
                 }
             }
@@ -1037,6 +1088,24 @@ public class DisplayAndInputProcessor {
         } else {
             throw new IllegalArgumentException("Unknown PathSpaceType " + pst);
         }
+
+        // Further whitespace adjustments per CLDR-14032
+        if (HOUR_FORMAT_XPATHS.matcher(path).matches()) {
+            value = AMPM_SPACE_BEFORE.matcher(value).replaceAll("$1\u202Fa");
+            value = AMPM_SPACE_AFTER.matcher(value).replaceAll("a\u202F$1");
+        }
+        if (scriptCode.equals("Cyrl") && YEAR_FORMAT_XPATHS.matcher(path).matches()) {
+            value = YEAR_SPACE_YEARMARKER.matcher(value).replaceAll("y\u202F$1");
+        }
+        if (UNIT_NARROW_XPATHS.matcher(path).matches()) {
+            value = PLACEHOLDER_SPACE_AFTER.matcher(value).replaceAll("}\u202F"); // Narrow NBSP
+            value = PLACEHOLDER_SPACE_BEFORE.matcher(value).replaceAll("\u202F{");
+        }
+        if (UNIT_SHORT_XPATHS.matcher(path).matches()) {
+            value = PLACEHOLDER_SPACE_AFTER.matcher(value).replaceAll("}\u00A0"); // Regular NBSP
+            value = PLACEHOLDER_SPACE_BEFORE.matcher(value).replaceAll("\u00A0{");
+        }
+
         return value;
     }
 

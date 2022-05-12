@@ -346,7 +346,7 @@ public class TestPathHeader extends TestFmwkPlus {
         ExampleGenerator eg = new ExampleGenerator(cldrFile, cldrFile, CLDRPaths.SUPPLEMENTAL_DIRECTORY);
         String example = eg.getExampleHtml(APPEND_TIMEZONE, cldrFile.getStringValue(APPEND_TIMEZONE));
         String result = ExampleGenerator.simplify(example, false);
-        assertEquals("", "〖❬6:25:59 PM❭ ❬GMT❭〗", result);
+        assertEquals("", "〖❬6:25:59 PM❭ ❬GMT❭〗", result);
     }
 
     public void TestOptional() {

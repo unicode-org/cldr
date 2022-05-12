@@ -339,6 +339,14 @@ public class PathDescription {
         + RegexLookup.SEPARATOR
         + "Special decimal pattern used to obtain the long plural forms of numbers with the same number of digits as {2}. See "
         + CLDRURLS.NUMBERS_PLURAL + " for details.\n"
+        + "^//ldml/numbers/currencyFormats/currencyPatternAppendISO"
+        + RegexLookup.SEPARATOR
+        + "Pattern used to combine a regular currency format with an ISO 4217 code (¤¤). For more information, please see "
+        + CLDRURLS.NUMBER_PATTERNS + ".\n"
+        + "^//ldml/numbers/currencyFormats\\[@numberSystem=\"([^\"]*)\"]/currencyPatternAppendISO"
+        + RegexLookup.SEPARATOR
+        + "Pattern used to combine a regular currency format with an ISO 4217 code (¤¤). For more information, please see "
+        + CLDRURLS.NUMBER_PATTERNS + ".\n"
         + "^//ldml/numbers/currencyFormats\\[@numberSystem=\"([^\"]*)\"]/unitPattern\\[@count=\"(\\w++)\"]"
         + RegexLookup.SEPARATOR
         + "Currency format used for numbers of type {2}. For more information, please see "
@@ -414,6 +422,14 @@ public class PathDescription {
         + "^//ldml/numbers/([a-z]*)Formats(\\[@numberSystem=\"([^\"]*)\"])?/\\1FormatLength/\\1Format\\[@type=\"standard\"]/pattern\\[@type=\"standard\"]$"
         + RegexLookup.SEPARATOR
         + "Special pattern used to compose {1} numbers. Note: before translating, be sure to read "
+        + CLDRURLS.NUMBER_PATTERNS + ".\n"
+        + "^//ldml/numbers/currencyFormats\\[@numberSystem=\"([^\"]*)\"]/currencyFormatLength/currencyFormat\\[@type=\"standard\"]/pattern\\[@type=\"standard\"]\\[@alt=\"alphaNextToNumber\"]"
+        + RegexLookup.SEPARATOR
+        + "Special pattern used to compose currency values when the currency symbol has a letter adjacent to the number. Note: before translating, be sure to read "
+        + CLDRURLS.NUMBER_PATTERNS + ".\n"
+        + "^//ldml/numbers/currencyFormats\\[@numberSystem=\"([^\"]*)\"]/currencyFormatLength/currencyFormat\\[@type=\"standard\"]/pattern\\[@type=\"standard\"]\\[@alt=\"noCurrency\"]"
+        + RegexLookup.SEPARATOR
+        + "Special pattern used to compose currency values for which no currency symbol should be shown. Note: before translating, be sure to read "
         + CLDRURLS.NUMBER_PATTERNS + ".\n"
         + "^//ldml/numbers/currencyFormats\\[@numberSystem=\"([^\"]*)\"]/currencyFormatLength/currencyFormat\\[@type=\"accounting\"]/pattern"
         + RegexLookup.SEPARATOR

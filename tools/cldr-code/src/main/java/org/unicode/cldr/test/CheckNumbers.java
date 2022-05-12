@@ -223,6 +223,12 @@ public class CheckNumbers extends FactoryCheckCLDR {
             if (type == NumericType.CURRENCY || type == NumericType.CURRENCY_ABBREVIATED) {
                 if (type == NumericType.CURRENCY_ABBREVIATED && value.equals("0")) {
                     // do nothing, not problem
+                } else if (path.contains("noCurrency")) {
+                    if (patternPart.indexOf("\u00a4") >= 0) {
+                       result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
+                           .setSubtype(Subtype.currencyPatternUnexpectedCurrencySymbol)
+                           .setMessage("noCurrency formatting pattern must not contain a currency symbol."));
+                    }
                 } else if (patternPart.indexOf("\u00a4") < 0) {
                     // check for compact format
                     result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)

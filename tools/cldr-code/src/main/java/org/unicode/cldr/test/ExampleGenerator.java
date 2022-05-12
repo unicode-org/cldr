@@ -1792,8 +1792,12 @@ public class ExampleGenerator {
         String territory = getDefaultTerritory();
 
         String currency = supplementalDataInfo.getDefaultCurrency(territory);
-        String checkPath = "//ldml/numbers/currencies/currency[@type=\"" + currency + "\"]/symbol";
-        String currencySymbol = cldrFile.getWinningValue(checkPath);
+        String currencySymbol = currency; // default to this if alt=alphaNextToNumber
+        String altValue = parts.getAttributeValue(-1, "alt"); 
+        if (altValue == null ||!altValue.equals("alphaNextToNumber")) {
+            String checkPath = "//ldml/numbers/currencies/currency[@type=\"" + currency + "\"]/symbol";
+            currencySymbol = cldrFile.getWinningValue(checkPath);
+        }
         String numberSystem = parts.getAttributeValue(2, "numberSystem"); // null if not present
 
         DecimalFormat df = icuServiceBuilder.getCurrencyFormat(currency, currencySymbol, numberSystem);

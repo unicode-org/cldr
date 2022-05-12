@@ -203,6 +203,8 @@
 
 ^//ldml/numbers/currencyFormats/unitPattern ; {0}=NUMBER 3; {1}=CURRENCY_NAME Dollars
 ^//ldml/numbers/currencyFormats\[@numberSystem="%A"]/unitPattern ; {0}=NUMBER 3; {1}=CURRENCY_NAME Dollars
+^//ldml/numbers/currencyFormats/currencyPatternAppendISO ; {0}=CURRENCY_FORMAT ¤#,##0.00
+^//ldml/numbers/currencyFormats\[@numberSystem="%A"]/currencyPatternAppendISO ; {0}=CURRENCY_FORMAT ¤#,##0.00
 
 ^//ldml/numbers/miscPatterns\[@numberSystem="%A"]/pattern\[@type=\"range\"] ; {0}=START_NUMBER 3 ; {1}=END_NUMBER 5
 ^//ldml/numbers/miscPatterns\[@numberSystem="%A"]/pattern\[@type=\"%A\"] ; {0}=NUMBER 3

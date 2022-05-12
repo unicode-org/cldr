@@ -463,11 +463,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel	value="moderate"	 	match="numbers/currencyFormats[@numberSystem='latn']/unitPattern[@count='%anyAttribute']"/>
 
 		<coverageLevel	value="moderate"	inLanguage="%arabDefaultLanguages"	match="numbers/currencyFormats[@numberSystem='arab']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel	value="moderate"	inLanguage="%arabDefaultLanguages"	match="numbers/currencyFormats[@numberSystem='arab']/currencyFormatLength/currencyFormat%stdPattern[@alt='%anyAttribute']"/>
 		<coverageLevel	value="moderate"	inLanguage="%arabextDefaultLanguages"	match="numbers/currencyFormats[@numberSystem='arabext']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel	value="moderate"	inLanguage="%arabextDefaultLanguages"	match="numbers/currencyFormats[@numberSystem='arabext']/currencyFormatLength/currencyFormat%stdPattern[@alt='%anyAttribute']"/>
 		<coverageLevel	value="moderate"	inLanguage="%bengDefaultLanguages"	match="numbers/currencyFormats[@numberSystem='beng']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel	value="moderate"	inLanguage="%bengDefaultLanguages"	match="numbers/currencyFormats[@numberSystem='beng']/currencyFormatLength/currencyFormat%stdPattern[@alt='%anyAttribute']"/>
 		<coverageLevel	value="moderate"	inLanguage="%devaDefaultLanguages"	match="numbers/currencyFormats[@numberSystem='deva']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel	value="moderate"	inLanguage="%devaDefaultLanguages"	match="numbers/currencyFormats[@numberSystem='deva']/currencyFormatLength/currencyFormat%stdPattern[@alt='%anyAttribute']"/>
 		<coverageLevel	value="moderate"	inLanguage="%mymrDefaultLanguages"	match="numbers/currencyFormats[@numberSystem='mymr']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel	value="moderate"	inLanguage="%mymrDefaultLanguages"	match="numbers/currencyFormats[@numberSystem='mymr']/currencyFormatLength/currencyFormat%stdPattern[@alt='%anyAttribute']"/>
 		<coverageLevel	value="moderate"	inLanguage="%tibtDefaultLanguages"	match="numbers/currencyFormats[@numberSystem='tibt']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel	value="moderate"	inLanguage="%tibtDefaultLanguages"	match="numbers/currencyFormats[@numberSystem='tibt']/currencyFormatLength/currencyFormat%stdPattern[@alt='%anyAttribute']"/>
 		<coverageLevel	value="moderate"	inLanguage="%arabDefaultLanguages"	match="numbers/decimalFormats[@numberSystem='arab']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
 		<coverageLevel	value="moderate"	inLanguage="%arabDefaultLanguages"	match="numbers/decimalFormats[@numberSystem='arab']/decimalFormatLength/decimalFormat%stdPattern"/>
 		<coverageLevel	value="moderate"	inLanguage="%arabextDefaultLanguages"	match="numbers/decimalFormats[@numberSystem='arabext']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
@@ -540,6 +546,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="%arabextNativeLanguages" value="moderate" match="numbers/symbols[@numberSystem='arabext']/percentSign"/>
 		<coverageLevel inLanguage="%arabextNativeLanguages" value="moderate" match="numbers/decimalFormats[@numberSystem='arabext']/decimalFormatLength/decimalFormat%stdPattern"/>
 		<coverageLevel inLanguage="%arabextNativeLanguages" value="moderate" match="numbers/currencyFormats[@numberSystem='arabext']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel inLanguage="%arabextNativeLanguages" value="moderate" match="numbers/currencyFormats[@numberSystem='arabext']/currencyFormatLength/currencyFormat%stdPattern[@alt='%anyAttribute']"/>
 		<coverageLevel inLanguage="%arabextNativeLanguages" value="moderate" match="numbers/scientificFormats[@numberSystem='arabext']/scientificFormatLength/scientificFormat%stdPattern"/>
 		<coverageLevel inLanguage="%arabextNativeLanguages" value="moderate" match="numbers/percentFormats[@numberSystem='arabext']/percentFormatLength/percentFormat%stdPattern"/>
 		<coverageLevel inLanguage="%arabextNativeLanguages" value="moderate" match="numbers/decimalFormats[@numberSystem='arabext']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
@@ -550,6 +557,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="%devaNativeLanguages" value="moderate" match="numbers/symbols[@numberSystem='deva']/percentSign"/>
 		<coverageLevel inLanguage="%devaNativeLanguages" value="moderate" match="numbers/decimalFormats[@numberSystem='deva']/decimalFormatLength/decimalFormat%stdPattern"/>
 		<coverageLevel inLanguage="%devaNativeLanguages" value="moderate" match="numbers/currencyFormats[@numberSystem='deva']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel inLanguage="%devaNativeLanguages" value="moderate" match="numbers/currencyFormats[@numberSystem='deva']/currencyFormatLength/currencyFormat%stdPattern[@alt='%anyAttribute']"/>
 		<coverageLevel inLanguage="%devaNativeLanguages" value="moderate" match="numbers/scientificFormats[@numberSystem='deva']/scientificFormatLength/scientificFormat%stdPattern"/>
 		<coverageLevel inLanguage="%devaNativeLanguages" value="moderate" match="numbers/percentFormats[@numberSystem='deva']/percentFormatLength/percentFormat%stdPattern"/>
 		<coverageLevel inLanguage="%devaNativeLanguages" value="moderate" match="numbers/decimalFormats[@numberSystem='deva']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
@@ -560,6 +568,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="%gujrNativeLanguages" value="moderate" match="numbers/symbols[@numberSystem='gujr']/percentSign"/>
 		<coverageLevel inLanguage="%gujrNativeLanguages" value="moderate" match="numbers/decimalFormats[@numberSystem='gujr']/decimalFormatLength/decimalFormat%stdPattern"/>
 		<coverageLevel inLanguage="%gujrNativeLanguages" value="moderate" match="numbers/currencyFormats[@numberSystem='gujr']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel inLanguage="%gujrNativeLanguages" value="moderate" match="numbers/currencyFormats[@numberSystem='gujr']/currencyFormatLength/currencyFormat%stdPattern[@alt='%anyAttribute']"/>
 		<coverageLevel inLanguage="%gujrNativeLanguages" value="moderate" match="numbers/scientificFormats[@numberSystem='gujr']/scientificFormatLength/scientificFormat%stdPattern"/>
 		<coverageLevel inLanguage="%gujrNativeLanguages" value="moderate" match="numbers/percentFormats[@numberSystem='gujr']/percentFormatLength/percentFormat%stdPattern"/>
 		<coverageLevel inLanguage="%gujrNativeLanguages" value="moderate" match="numbers/decimalFormats[@numberSystem='gujr']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
@@ -570,6 +579,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="%guruNativeLanguages" value="moderate" match="numbers/symbols[@numberSystem='guru']/percentSign"/>
 		<coverageLevel inLanguage="%guruNativeLanguages" value="moderate" match="numbers/decimalFormats[@numberSystem='guru']/decimalFormatLength/decimalFormat%stdPattern"/>
 		<coverageLevel inLanguage="%guruNativeLanguages" value="moderate" match="numbers/currencyFormats[@numberSystem='guru']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel inLanguage="%guruNativeLanguages" value="moderate" match="numbers/currencyFormats[@numberSystem='guru']/currencyFormatLength/currencyFormat%stdPattern[@alt='%anyAttribute']"/>
 		<coverageLevel inLanguage="%guruNativeLanguages" value="moderate" match="numbers/scientificFormats[@numberSystem='guru']/scientificFormatLength/scientificFormat%stdPattern"/>
 		<coverageLevel inLanguage="%guruNativeLanguages" value="moderate" match="numbers/percentFormats[@numberSystem='guru']/percentFormatLength/percentFormat%stdPattern"/>
 		<coverageLevel inLanguage="%guruNativeLanguages" value="moderate" match="numbers/decimalFormats[@numberSystem='guru']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
@@ -590,6 +600,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="%kndaNativeLanguages" value="moderate" match="numbers/symbols[@numberSystem='knda']/percentSign"/>
 		<coverageLevel inLanguage="%kndaNativeLanguages" value="moderate" match="numbers/decimalFormats[@numberSystem='knda']/decimalFormatLength/decimalFormat%stdPattern"/>
 		<coverageLevel inLanguage="%kndaNativeLanguages" value="moderate" match="numbers/currencyFormats[@numberSystem='knda']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel inLanguage="%kndaNativeLanguages" value="moderate" match="numbers/currencyFormats[@numberSystem='knda']/currencyFormatLength/currencyFormat%stdPattern[@alt='%anyAttribute']"/>
 		<coverageLevel inLanguage="%kndaNativeLanguages" value="moderate" match="numbers/scientificFormats[@numberSystem='knda']/scientificFormatLength/scientificFormat%stdPattern"/>
 		<coverageLevel inLanguage="%kndaNativeLanguages" value="moderate" match="numbers/percentFormats[@numberSystem='knda']/percentFormatLength/percentFormat%stdPattern"/>
 		<coverageLevel inLanguage="%kndaNativeLanguages" value="moderate" match="numbers/decimalFormats[@numberSystem='knda']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
@@ -600,6 +611,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="%mlymNativeLanguages" value="moderate" match="numbers/symbols[@numberSystem='mlym']/percentSign"/>
 		<coverageLevel inLanguage="%mlymNativeLanguages" value="moderate" match="numbers/decimalFormats[@numberSystem='mlym']/decimalFormatLength/decimalFormat%stdPattern"/>
 		<coverageLevel inLanguage="%mlymNativeLanguages" value="moderate" match="numbers/currencyFormats[@numberSystem='mlym']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel inLanguage="%mlymNativeLanguages" value="moderate" match="numbers/currencyFormats[@numberSystem='mlym']/currencyFormatLength/currencyFormat%stdPattern[@alt='%anyAttribute']"/>
 		<coverageLevel inLanguage="%mlymNativeLanguages" value="moderate" match="numbers/scientificFormats[@numberSystem='mlym']/scientificFormatLength/scientificFormat%stdPattern"/>
 		<coverageLevel inLanguage="%mlymNativeLanguages" value="moderate" match="numbers/percentFormats[@numberSystem='mlym']/percentFormatLength/percentFormat%stdPattern"/>
 		<coverageLevel inLanguage="%mlymNativeLanguages" value="moderate" match="numbers/decimalFormats[@numberSystem='mlym']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
@@ -610,6 +622,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="%oryaNativeLanguages" value="moderate" match="numbers/symbols[@numberSystem='orya']/percentSign"/>
 		<coverageLevel inLanguage="%oryaNativeLanguages" value="moderate" match="numbers/decimalFormats[@numberSystem='orya']/decimalFormatLength/decimalFormat%stdPattern"/>
 		<coverageLevel inLanguage="%oryaNativeLanguages" value="moderate" match="numbers/currencyFormats[@numberSystem='orya']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel inLanguage="%oryaNativeLanguages" value="moderate" match="numbers/currencyFormats[@numberSystem='orya']/currencyFormatLength/currencyFormat%stdPattern[@alt='%anyAttribute']"/>
 		<coverageLevel inLanguage="%oryaNativeLanguages" value="moderate" match="numbers/scientificFormats[@numberSystem='orya']/scientificFormatLength/scientificFormat%stdPattern"/>
 		<coverageLevel inLanguage="%oryaNativeLanguages" value="moderate" match="numbers/percentFormats[@numberSystem='orya']/percentFormatLength/percentFormat%stdPattern"/>
 		<coverageLevel inLanguage="%oryaNativeLanguages" value="moderate" match="numbers/decimalFormats[@numberSystem='orya']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
@@ -620,6 +633,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="%tamldecNativeLanguages" value="moderate" match="numbers/symbols[@numberSystem='tamldec']/percentSign"/>
 		<coverageLevel inLanguage="%tamldecNativeLanguages" value="moderate" match="numbers/decimalFormats[@numberSystem='tamldec']/decimalFormatLength/decimalFormat%stdPattern"/>
 		<coverageLevel inLanguage="%tamldecNativeLanguages" value="moderate" match="numbers/currencyFormats[@numberSystem='tamldec']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel inLanguage="%tamldecNativeLanguages" value="moderate" match="numbers/currencyFormats[@numberSystem='tamldec']/currencyFormatLength/currencyFormat%stdPattern[@alt='%anyAttribute']"/>
 		<coverageLevel inLanguage="%tamldecNativeLanguages" value="moderate" match="numbers/scientificFormats[@numberSystem='tamldec']/scientificFormatLength/scientificFormat%stdPattern"/>
 		<coverageLevel inLanguage="%tamldecNativeLanguages" value="moderate" match="numbers/percentFormats[@numberSystem='tamldec']/percentFormatLength/percentFormat%stdPattern"/>
 		<coverageLevel inLanguage="%tamldecNativeLanguages" value="moderate" match="numbers/decimalFormats[@numberSystem='tamldec']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
@@ -630,6 +644,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="%teluNativeLanguages" value="moderate" match="numbers/symbols[@numberSystem='telu']/percentSign"/>
 		<coverageLevel inLanguage="%teluNativeLanguages" value="moderate" match="numbers/decimalFormats[@numberSystem='telu']/decimalFormatLength/decimalFormat%stdPattern"/>
 		<coverageLevel inLanguage="%teluNativeLanguages" value="moderate" match="numbers/currencyFormats[@numberSystem='telu']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel inLanguage="%teluNativeLanguages" value="moderate" match="numbers/currencyFormats[@numberSystem='telu']/currencyFormatLength/currencyFormat%stdPattern[@alt='%anyAttribute']"/>
 		<coverageLevel inLanguage="%teluNativeLanguages" value="moderate" match="numbers/scientificFormats[@numberSystem='telu']/scientificFormatLength/scientificFormat%stdPattern"/>
 		<coverageLevel inLanguage="%teluNativeLanguages" value="moderate" match="numbers/percentFormats[@numberSystem='telu']/percentFormatLength/percentFormat%stdPattern"/>
 		<coverageLevel inLanguage="%teluNativeLanguages" value="moderate" match="numbers/decimalFormats[@numberSystem='telu']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
@@ -640,6 +655,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="%tibtNativeLanguages" value="moderate" match="numbers/symbols[@numberSystem='tibt']/percentSign"/>
 		<coverageLevel inLanguage="%tibtNativeLanguages" value="moderate" match="numbers/decimalFormats[@numberSystem='tibt']/decimalFormatLength/decimalFormat%stdPattern"/>
 		<coverageLevel inLanguage="%tibtNativeLanguages" value="moderate" match="numbers/currencyFormats[@numberSystem='tibt']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel inLanguage="%tibtNativeLanguages" value="moderate" match="numbers/currencyFormats[@numberSystem='tibt']/currencyFormatLength/currencyFormat%stdPattern[@alt='%anyAttribute']"/>
 		<coverageLevel inLanguage="%tibtNativeLanguages" value="moderate" match="numbers/scientificFormats[@numberSystem='tibt']/scientificFormatLength/scientificFormat%stdPattern"/>
 		<coverageLevel inLanguage="%tibtNativeLanguages" value="moderate" match="numbers/percentFormats[@numberSystem='tibt']/percentFormatLength/percentFormat%stdPattern"/>
 		<coverageLevel inLanguage="%tibtNativeLanguages" value="moderate" match="numbers/decimalFormats[@numberSystem='tibt']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
@@ -705,6 +721,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="moderate" match="numbers/currencies/currency[@type='%currency80']/displayName"/>
 		<coverageLevel value="moderate" match="numbers/currencies/currency[@type='%currency80']/displayName[@count='%anyAttribute']"/>
 		<coverageLevel value="moderate" match="numbers/currencyFormats[@numberSystem='latn']/currencyFormatLength/currencyFormat%acctPattern"/>
+		<coverageLevel value="moderate" match="numbers/currencyFormats[@numberSystem='latn']/currencyFormatLength/currencyFormat%acctPattern[@alt='%anyAttribute']"/>
 		<coverageLevel value="moderate" match="numbers/minimumGroupingDigits"/>
 		<coverageLevel value="moderate" match="numbers/miscPatterns[@numberSystem='latn']/pattern[@type='%anyAttribute']"/>
 		<coverageLevel value="moderate" match="numbers/symbols[@numberSystem='latn']/approximatelySign"/>
@@ -880,6 +897,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 
         <coverageLevel value="modern" match="numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes'][@count='%anyAttribute']"/>
         <coverageLevel value="modern" match="numbers/currencyFormats[@numberSystem='latn']/currencyFormatLength[@type='short']/currencyFormat[@type='standard']/pattern[@type='%compactDecimalTypes'][@count='%anyAttribute']"/>
+        <coverageLevel value="modern" match="numbers/currencyFormats[@numberSystem='latn']/currencyFormatLength[@type='short']/currencyFormat[@type='standard']/pattern[@type='%compactDecimalTypes'][@count='%anyAttribute'][@alt='%anyAttribute']"/>
+        <coverageLevel value="modern" match="numbers/currencyFormats[@numberSystem='latn']/currencyPatternAppendISO"/>
 
         <coverageLevel inLanguage="en" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/unitPattern[@count='%anyAttribute']"/>
         <coverageLevel inLanguage="en" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/displayName"/>

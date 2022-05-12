@@ -153,11 +153,15 @@
 
 //ldml/numbers/symbols[@numberSystem="%A"]/timeSeparator                                                ; Numbers ; Symbols ; Time Symbols &numberingSystem($1) ; Time Separator
 //ldml/numbers/symbols[@numberSystem="%A"]/%E                                                           ; Numbers ; Symbols ; Symbols &numberingSystem($1) ; &number($2)
+//ldml/numbers/(currency)Formats[@numberSystem="%A"]/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"][@alt="%A"]    ; Numbers ; Number Formatting Patterns ; Standard Patterns &numberingSystem($2) ; &numberFormat($5-$1)-$7 ; LTR_ALWAYS
 //ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"]    ; Numbers ; Number Formatting Patterns ; Standard Patterns &numberingSystem($2) ; &numberFormat($5-$1) ; LTR_ALWAYS
+//ldml/numbers/currencyFormats[@numberSystem="%A"]/currencyPatternAppendISO                             ; Numbers ; Number Formatting Patterns ; Append-ISO-Code Pattern &numberingSystem($1) ; appendISOCode ; LTR_ALWAYS
 //ldml/numbers/currencyFormats[@numberSystem="%A"]/unitPattern[@count="%A"]                             ; Numbers ; Number Formatting Patterns ; Currency Unit Patterns &numberingSystem($1) ; &count(currencies-$2) ; LTR_ALWAYS
 //ldml/numbers/miscPatterns[@numberSystem="%A"]/pattern[@type=\"%A\"]                                   ; Numbers ; Number Formatting Patterns ; Miscellaneous Patterns &numberingSystem($1) ; $2 ; LTR_ALWAYS
 
+//ldml/numbers/(currency)Formats[@numberSystem="latn"]/%EFormatLength[@type="(short)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"][@alt="%A"] ; Numbers ; Compact Decimal Formatting ; Short Currency &numberingSystem(latn); &count2($6-digits-$3-$7)-$8
 //ldml/numbers/(currency)Formats[@numberSystem="latn"]/%EFormatLength[@type="(short)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Numbers ; Compact Decimal Formatting ; Short Currency &numberingSystem(latn); &count2($6-digits-$3-$7)
+//ldml/numbers/(currency)Formats[@numberSystem="%A"]/%EFormatLength[@type="(short)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"][@alt="%A"] ; Numbers ; Compact Decimal Formatting (Other Numbering Systems) ; Short Currency &numberingSystem($2) ; &count2($7-digits-$4-$8)-$9 ; HIDE
 //ldml/numbers/(currency)Formats[@numberSystem="%A"]/%EFormatLength[@type="(short)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Numbers ; Compact Decimal Formatting (Other Numbering Systems) ; Short Currency &numberingSystem($2) ; &count2($7-digits-$4-$8) ; HIDE
 //ldml/numbers/%EFormats[@numberSystem="latn"]/%EFormatLength[@type="(long)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"]  ; Numbers ; Compact Decimal Formatting ; Long Formats &numberingSystem(latn) ; &count2($6-digits-$3-$7)
 //ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="(long)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"]  ; Numbers ; Compact Decimal Formatting (Other Numbering Systems) ; Long Formats &numberingSystem($2) ; &count2($7-digits-$4-$8) ; HIDE
@@ -170,7 +174,7 @@
 //ldml/numbers/currencies/currency[@type="%A"]/displayName$                 ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &count($1-name)
 //ldml/numbers/currencies/currency[@type="%A"]/symbol$                      ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &currencySymbol($1-symbol)
 //ldml/numbers/currencies/currency[@type="%A"]/symbol[@alt="narrow"]        ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &currencySymbol($1-symbol-narrow)
-//ldml/numbers/currencies/currency[@type="%A"]/symbol[@alt="variant"]        ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &currencySymbol($1-symbol-variant)
+//ldml/numbers/currencies/currency[@type="%A"]/symbol[@alt="variant"]       ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &currencySymbol($1-symbol-variant)
 
 //ldml/numbers/currencies/currency[@type="%A"]/decimal				; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &count($1-name)-decimal
 //ldml/numbers/currencies/currency[@type="%A"]/group				; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &count($1-name)-grouping

@@ -138,12 +138,14 @@ public class TestExampleGenerator extends TestFmwk {
         "//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/currencyMatch",
         "//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/surroundingMatch",
         "//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/insertBetween",
+        "//ldml/numbers/currencyFormats/currencyPatternAppendISO", // TODO see CLDR-14831
         "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/beforeCurrency/currencyMatch",
         "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/beforeCurrency/surroundingMatch",
         "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/beforeCurrency/insertBetween",
         "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/afterCurrency/currencyMatch",
         "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/afterCurrency/surroundingMatch",
         "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/afterCurrency/insertBetween",
+        "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencyPatternAppendISO", // TODO see CLDR-14831
 
         "//ldml/localeDisplayNames/variants/variant[@type=\"([^\"]*+)\"]",
         "//ldml/localeDisplayNames/keys/key[@type=\"([^\"]*+)\"]",
@@ -188,14 +190,14 @@ public class TestExampleGenerator extends TestFmwk {
 
         "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/long/standard", // Error: (TestExampleGenerator.java:245) No background:   <Coordinated Universal Time>    〖Coordinated Universal Time〗
 
-        "//ldml/personNames/nameOrderLocales[@order=\"([^\"]*+)\"]", // CLDR-15384
-        "//ldml/personNames/foreignSpaceReplacement[@alt=\"([^\"]*+)\"]", // CLDR-15384
-        "//ldml/personNames/foreignSpaceReplacement", // CLDR-15384
-        "//ldml/personNames/initialPattern[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]", // CLDR-15384
-        "//ldml/personNames/initialPattern[@type=\"([^\"]*+)\"]", // CLDR-15384
-        "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern[@alt=\"([^\"]*+)\"]", // CLDR-15384
-        "//ldml/personNames/sampleName[@item=\"([^\"]*+)\"]/nameField[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]", // CLDR-15384
-        "//ldml/personNames/sampleName[@item=\"([^\"]*+)\"]/nameField[@type=\"([^\"]*+)\"]" // CLDR-15384
+        "//ldml/personNames/nameOrderLocales[@order=\"([^\"]*+)\"]", // TODO CLDR-15384
+        "//ldml/personNames/foreignSpaceReplacement[@alt=\"([^\"]*+)\"]", // TODO CLDR-15384
+        "//ldml/personNames/foreignSpaceReplacement", // TODO CLDR-15384
+        "//ldml/personNames/initialPattern[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]", // TODO CLDR-15384
+        "//ldml/personNames/initialPattern[@type=\"([^\"]*+)\"]", // TODO CLDR-15384
+        "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern[@alt=\"([^\"]*+)\"]", // TODO CLDR-15384
+        "//ldml/personNames/sampleName[@item=\"([^\"]*+)\"]/nameField[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]", // TODO CLDR-15384
+        "//ldml/personNames/sampleName[@item=\"([^\"]*+)\"]/nameField[@type=\"([^\"]*+)\"]" // TODO CLDR-15384
 
         );
     // Add to above if the example SHOULD appear, but we don't have it yet. TODO Add later

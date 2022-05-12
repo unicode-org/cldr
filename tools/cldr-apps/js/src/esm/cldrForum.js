@@ -19,6 +19,15 @@ const SUMMARY_CLASS = "getForumSummary";
 
 const FORUM_DEBUG = false;
 
+/**
+ * If false, hide (effectively disable) Agree and Decline buttons, pending
+ * (1) better ways to clarify to vetters what the Agree button actually does and doesn't
+ * accomplish, and possibly
+ * (2) automatic vote submission when a user clicks Agree
+ * Reference: https://unicode-org.atlassian.net/browse/CLDR-14922
+ */
+const SHOW_AGREE_AND_DECLINE = false;
+
 function forumDebug(s) {
   if (FORUM_DEBUG) {
     console.log(s);
@@ -998,13 +1007,7 @@ function getPostTypeOptions(isReply, rootPost, value) {
        */
       options["Request"] = "Request";
     }
-    if (
-      value &&
-      isReply &&
-      rootPost &&
-      !userIsPoster(rootPost) &&
-      rootPost.postType === "Request"
-    ) {
+    if (canAgreeOrDecline(value, isReply, rootPost)) {
       options["Agree"] = "Agree";
       options["Decline"] = "Decline";
     }
@@ -1017,6 +1020,21 @@ function getPostTypeOptions(isReply, rootPost, value) {
     }
   }
   return options;
+}
+
+function canAgreeOrDecline(value, isReply, rootPost) {
+  if (
+    SHOW_AGREE_AND_DECLINE &&
+    value &&
+    isReply &&
+    rootPost &&
+    rootPost.postType === "Request" &&
+    !userIsPoster(rootPost)
+  ) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 /**

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2022 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-DFS-2016
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="bho"/>
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="bho" draft="contributed">भोजपुरी</language>
+		</languages>
+		<scripts>
+			<script type="Deva" draft="contributed">देवानागारी</script>
+		</scripts>
+	</localeDisplayNames>
+	<characters>
+		<exemplarCharacters draft="contributed">[क ख ग घ डं च छ ज झ ञ ट ठ ड ढ ण ड़ ढ़ त थ द ध न प फ ब भ म य र ल व श ष स ह क्ष त्र ज्ञ श्र ा  ि  ी  ु  ू  ृ  े  ै  ो  ौ  ँ  ं  ः  ॅ  ्]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[अ आ इ ई उ ऊ ऋ ए ऐ ओ औ]</exemplarCharacters>
+		<exemplarCharacters type="numbers" draft="contributed">[\- ‑ , . % ‰ + 0० 1१ 2२ 3३ 4४ 5५ 6६ 7७ 8८ 9९]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="provisional">[\- _ – — , ; ~ \: \\ ! | ? . … ` &quot; ‘ ’ “ ” ( ) \{ \} \[ \] § @ * / + \&amp; # ′ ″]</exemplarCharacters>
+	</characters>
+	<numbers>
+		<defaultNumberingSystem>deva</defaultNumberingSystem>
+	</numbers>
+</ldml>

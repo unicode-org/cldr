@@ -30,6 +30,7 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
 
 public class CheckPlaceHolders extends CheckCLDR {
 
@@ -45,6 +46,9 @@ public class CheckPlaceHolders extends CheckCLDR {
         Validity.Status.special,
         Validity.Status.unknown)
         );
+    private static final ImmutableSet<Modifier> SINGLE_CORE = ImmutableSet.of(Modifier.core);
+    private static final ImmutableSet<Modifier> SINGLE_PREFIX = ImmutableSet.of(Modifier.prefix);
+    private static final ImmutableSet<Modifier> CORE_AND_PREFIX = ImmutableSet.of(Modifier.prefix, Modifier.core);
 
     @Override
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
@@ -109,11 +113,22 @@ public class CheckPlaceHolders extends CheckCLDR {
 
             case "sampleName":
                 //ldml/personNames/sampleName[@item="informal"]/nameField[@type="surname"]
+
+                // check basic consistency of modifier set
+                ModifiedField fieldType = ModifiedField.from(parts.getAttributeValue(-1, "type"));
+                Field field = fieldType.getField();
+                Set<Modifier> modifiers = fieldType.getModifiers();
+                String errorMessage = Modifier.inconsistentSet(modifiers);
+                if (errorMessage != null) {
+                    result.add(new CheckStatus().setCause(this)
+                        .setMainType(CheckStatus.warningType)
+                        .setSubtype(Subtype.invalidPlaceHolder)
+                        .setMessage(errorMessage));
+                    return this;
+                }
+
                 if (value.equals("∅∅∅")) {
                     // check for required values
-
-                    ModifiedField fieldType = ModifiedField.from(parts.getAttributeValue(-1, "type"));
-                    Field field = fieldType.getField();
 
                     switch(field) {
                     case given:
@@ -135,13 +150,31 @@ public class CheckPlaceHolders extends CheckCLDR {
                                 .setSubtype(Subtype.invalidPlaceHolder)
                                 .setMessage("Names must have a value for the ‘surname’ field if they have a ‘surname2’ field."));
                         }
-                        // Todo: check to be sure we don't have surname-prefix unless we also have surname-core or surname
+
                         break;
                     default:
                         break;
                     }
-                }
+                } else { // real value
+                    // special checks for prefix/core
+                    final boolean hasPrefix = modifiers.contains(Modifier.prefix);
+                    final boolean hasCore = modifiers.contains(Modifier.core);
+                    if (hasPrefix || hasCore) {
+                        // We need consistency among the 3 values if we have either prefix or core
 
+                        String coreValue = hasCore ? value : modifiedFieldValue(parts, field, modifiers, Modifier.core);
+                        String prefixValue = hasCore ? value : modifiedFieldValue(parts, field, modifiers, Modifier.prefix);
+                        String plainValue = modifiedFieldValue(parts, field, modifiers, null);
+
+                        String errorMessage2 = Modifier.inconsistentPrefixCorePlainValues(prefixValue, coreValue, plainValue);
+                        if (errorMessage2 != null) {
+                            result.add(new CheckStatus().setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.invalidPlaceHolder)
+                            .setMessage(errorMessage2));
+                        }
+                    }
+                }
                 return this;
             case "personName":
                 //ldml/personNames/personName[@order="sorting"][@length="long"][@usage="addressing"][@style="formal"]/namePattern
@@ -273,6 +306,7 @@ public class CheckPlaceHolders extends CheckCLDR {
                 return this;
             }
             // done with person names
+            // note: depending on the switch value, may fall through
         }
 
         int startPlaceHolder = 0;
@@ -341,6 +375,26 @@ public class CheckPlaceHolders extends CheckCLDR {
             }
         }
         return this;
+    }
+
+    /**
+     * Gets a string value for a modified path
+     */
+    private String modifiedFieldValue(XPathParts parts, Field field, Set<Modifier> modifiers, Modifier toAdd) {
+        Set<Modifier> adjustedModifiers = Sets.difference(modifiers, CORE_AND_PREFIX);
+        if (toAdd != null) {
+            switch (toAdd) {
+            case core:
+                adjustedModifiers = Sets.union(adjustedModifiers, SINGLE_CORE);
+                break;
+            case prefix:
+                adjustedModifiers = Sets.union(adjustedModifiers, SINGLE_PREFIX);
+                break;
+            }
+        }
+        String modPath  = parts.cloneAsThawed().setAttribute(-1, "type", new ModifiedField(field, adjustedModifiers).toString()).toString();
+        String value = getCldrFileToCheck().getStringValue(modPath);
+        return "∅∅∅".equals(value) ? null : value;
     }
 
     private Set<String> checkForErrorsAndGetLocales(String value, Set<String> items) {

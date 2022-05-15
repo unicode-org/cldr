@@ -362,10 +362,10 @@ public class TestPersonNameFormatter extends TestFmwk{
         String[][] tests = {
             {
                 "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
-                "〖Sinbad〗〖Irene Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia Meyer Wolf M.D. Ph.D.〗"
+                "〖Sinbad〗〖Irene Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia van den Wolf M.D. Ph.D.〗"
             },{
                 "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"long\"][@usage=\"monogram\"][@formality=\"informal\"]/namePattern",
-                "〖S〗〖AI〗〖WJ〗〖MN〗"
+                "〖S〗〖AI〗〖WJ〗〖VN〗"
             },{
                 "//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]",
                 "〖und = «any other»〗〖en = English〗"
@@ -445,7 +445,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         String value2 = enWritable.getStringValue(path); // check that English is as expected
         assertEquals(path, "{given} {given2} {surname} {suffix}", value2);
 
-        String expected = "〖Sinbad〗〖Irene Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia Meyer Wolf M.D. Ph.D.〗";
+        String expected = "〖Sinbad〗〖Irene Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia van den Wolf M.D. Ph.D.〗";
         String value = enWritable.getStringValue(path);
 
         checkExampleGenerator(exampleGenerator, path, value, expected);
@@ -459,7 +459,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         enWritable.add(namePath, "IRENE");
         exampleGenerator.updateCache(namePath);
 
-        String expected2 =  "〖Sinbad〗〖IRENE Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia Meyer Wolf M.D. Ph.D.〗";
+        String expected2 =  "〖Sinbad〗〖IRENE Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia van den Wolf M.D. Ph.D.〗";
         checkExampleGenerator(exampleGenerator, path, value, expected2);
     }
 

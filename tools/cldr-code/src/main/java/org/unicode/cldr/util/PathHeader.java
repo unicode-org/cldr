@@ -1351,10 +1351,13 @@ public class PathHeader implements Comparable<PathHeader> {
             });
             functionMap.put("categoryFromKey", new Transform<String, String>() {
                 Map<String, String> fixNames = Builder.with(new HashMap<String, String>())
+                    .put("cf", "Currency Format")
+                    .put("em", "Emoji Presentation")
+                    .put("fw", "First Day of Week")
                     .put("lb", "Line Break")
                     .put("hc", "Hour Cycle")
                     .put("ms", "Measurement System")
-                    .put("cf", "Currency Format")
+                    .put("ss", "Sentence Break Suppressions")
                     .freeze();
 
                 @Override

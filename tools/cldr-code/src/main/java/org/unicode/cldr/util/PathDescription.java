@@ -103,6 +103,14 @@ public class PathDescription {
         + RegexLookup.SEPARATOR
         + "The name of “{1} calendar”. For more information, please see "
         + CLDRURLS.KEY_NAMES + ".\n"
+        + "^//ldml/localeDisplayNames/types/type\\[@key=\"em\"]\\[@type=\"([^\"]*)\"]"
+        + RegexLookup.SEPARATOR
+        + "The name of “emoji presentation style {1}”. For more information, please see "
+        + CLDRURLS.KEY_NAMES + ".\n"
+        + "^//ldml/localeDisplayNames/types/type\\[@key=\"fw\"]\\[@type=\"([^\"]*)\"]"
+        + RegexLookup.SEPARATOR
+        + "The name of “first day of the week is {1}”. For more information, please see "
+        + CLDRURLS.KEY_NAMES + ".\n"
         + "^//ldml/localeDisplayNames/types/type\\[@key=\"lb\"]\\[@type=\"([^\"]*)\"]"
         + RegexLookup.SEPARATOR
         + "The name of “{1} line break style”. For more information, please see "

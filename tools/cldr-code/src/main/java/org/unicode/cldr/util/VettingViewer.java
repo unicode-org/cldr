@@ -1586,8 +1586,10 @@ public class VettingViewer<T> {
                 VettingViewer.Choice.error,
                 VettingViewer.Choice.warning,
                 VettingViewer.Choice.hasDispute,
-                VettingViewer.Choice.notApproved);
-                // skip missingCoverage, weLost, englishChanged, changedOldValue, abstained
+                VettingViewer.Choice.notApproved,
+                VettingViewer.Choice.missingCoverage
+            );
+            // skip weLost, englishChanged, changedOldValue, abstained
         }
         return choiceSet;
     }

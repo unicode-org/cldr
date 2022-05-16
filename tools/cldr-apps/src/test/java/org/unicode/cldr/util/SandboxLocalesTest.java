@@ -46,14 +46,9 @@ class SandboxLocalesTest {
         // our factory includes common/main, so limit here.
         for(final CLDRLocale l : SpecialLocales.getByType(SpecialLocales.Type.scratch)) {
             System.out.println("Testing " + l);
-            // As part of CLDR-14336 I had to change the minimalDraftStatus parameter below from null to unconfirmed.
-            // Without that an NPE exception was thrown below the following. The Factory.make call ends up in
-            // SimpleFactory.handleMake; the first call there for "mul" with resolved=true calls makeResolvingSource
-            // which recursively calls SimpleFactory.handleMake, eventually ending up with a call for "root" with
-            // resolved=false that calls new CLDRFile. That ends up in XMLNormalizingLoader.getFrozenInstance. With
-            // the null DraftStatus, the NPE occurred inside the call there to cache.getUnchecked(key) which is
-            // Google library code.
-            CLDRFile f = factory.make(l.getBaseName(), true, DraftStatus.unconfirmed);
+            // A noted in CLDR-14336, factory.make needs at least DraftStatus.unconfirmed. That is the default
+            // for the 2-argument form without an explicit minimalDraftStatus param.
+            CLDRFile f = factory.make(l.getBaseName(), true);
             List<CheckCLDR.CheckStatus> errs = new LinkedList<>();
             check.setCldrFileToCheck(f, options, errs);
             for(final CheckCLDR.CheckStatus err : errs) {

@@ -56,6 +56,7 @@ import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.PatternPlaceholders;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Status;
@@ -1052,6 +1053,19 @@ public class DataSection implements JSONString {
                 jo.put("helpHtml", getHelpHTML());
                 jo.put("rdf", getRDFURI());
 
+                final PatternPlaceholders placeholders = PatternPlaceholders.getInstance();
+                jo.put("placeholderStatus", placeholders.getStatus(xpath).name());
+                Map<String, PatternPlaceholders.PlaceholderInfo> placeholderInfoMap = placeholders.get(xpath);
+                if (placeholderInfoMap != null && !placeholderInfoMap.isEmpty()) {
+                    JSONObject placeholderInfo = new JSONObject();
+                    for (final Map.Entry<String, PatternPlaceholders.PlaceholderInfo> e : placeholderInfoMap.entrySet()) {
+                        JSONObject subInfo = new JSONObject();
+                        subInfo.put("name", e.getValue().name);
+                        subInfo.put("example", e.getValue().example);
+                        placeholderInfo.put(e.getKey(), subInfo);
+                    }
+                    jo.put("placeholderInfo", placeholderInfo);
+                }
                 return jo.toString();
             } catch (Throwable t) {
                 SurveyLog.logException(t, "Exception in DataRow.toJSONString of " + this);

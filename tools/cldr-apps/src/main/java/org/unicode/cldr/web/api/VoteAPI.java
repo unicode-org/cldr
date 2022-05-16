@@ -31,6 +31,8 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus.Type;
 import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.CheckCLDR.StatusAction;
 import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
+import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
 import org.unicode.cldr.web.CookieSession;
 // import org.unicode.cldr.web.DataSection;
 import org.unicode.cldr.web.SubtypeToURLMap;
@@ -157,6 +159,10 @@ public class VoteAPI {
             public String inheritedLocale;
             public String winningValue;
             public String inheritedXpath;
+            @Schema(description = "status of placeholder value", example = "REQUIRED")
+            public PlaceholderStatus placeholderStatus;
+            @Schema(description = "map of placeholder string to example value")
+            public Map<String, PlaceholderInfo> placeholderInfo;
         }
 
         public String localeDisplayName;

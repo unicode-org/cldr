@@ -1090,7 +1090,8 @@ public class DisplayAndInputProcessor {
         }
 
         // Further whitespace adjustments per CLDR-14032
-        if (HOUR_FORMAT_XPATHS.matcher(path).matches()) {
+        if ((scriptCode.equals("Latn") || scriptCode.equals("Cyrl") || scriptCode.equals("Grek")) && 
+                HOUR_FORMAT_XPATHS.matcher(path).matches()) {
             value = AMPM_SPACE_BEFORE.matcher(value).replaceAll("$1\u202Fa");
             value = AMPM_SPACE_AFTER.matcher(value).replaceAll("a\u202F$1");
         }

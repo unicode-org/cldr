@@ -3158,20 +3158,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST featureName draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
-<!ELEMENT annotations ( alias | ( annotation*, special* ) ) >
-
-<!ELEMENT annotation ( #PCDATA ) >
-<!ATTLIST annotation cp CDATA #REQUIRED >
-    <!--@MATCH:any-->
-<!ATTLIST annotation tts CDATA #IMPLIED >
-    <!--@VALUE-->
-    <!--@DEPRECATED-->
-<!ATTLIST annotation type (tts) #IMPLIED >
-<!ATTLIST annotation alt NMTOKENS #IMPLIED >
-    <!--@MATCH:literal/variant-->
-<!ATTLIST annotation draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
-    <!--@METADATA-->
-
 <!ELEMENT personNames ( alias | ( nameOrderLocales*, foreignSpaceReplacement*, initialPattern*, personName*, sampleName*, special* ) ) >
 
 <!ELEMENT nameOrderLocales ( #PCDATA ) >
@@ -3192,7 +3178,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@METADATA-->
 
 <!ELEMENT initialPattern ( #PCDATA ) >
-<!ATTLIST initialPattern type (initial|initialSequence) #REQUIRED >
+<!ATTLIST initialPattern type (initial | initialSequence) #REQUIRED >
 <!ATTLIST initialPattern alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST initialPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
@@ -3211,7 +3197,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@MATCH:set/literal/formal, informal-->
 
 <!ELEMENT namePattern ( #PCDATA ) >
-<!ATTLIST namePattern alt (1|2) #IMPLIED >
+<!ATTLIST namePattern alt (1 | 2) #IMPLIED >
 <!ATTLIST namePattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST namePattern references CDATA #IMPLIED >
@@ -3229,6 +3215,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST nameField draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 <!ATTLIST nameField references CDATA #IMPLIED >
+    <!--@METADATA-->
+
+<!ELEMENT annotations ( alias | ( annotation*, special* ) ) >
+
+<!ELEMENT annotation ( #PCDATA ) >
+<!ATTLIST annotation cp CDATA #REQUIRED >
+    <!--@MATCH:any-->
+<!ATTLIST annotation tts CDATA #IMPLIED >
+    <!--@VALUE-->
+    <!--@DEPRECATED-->
+<!ATTLIST annotation type (tts) #IMPLIED >
+<!ATTLIST annotation alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
+<!ATTLIST annotation draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
 <!-- ######################################################### -->

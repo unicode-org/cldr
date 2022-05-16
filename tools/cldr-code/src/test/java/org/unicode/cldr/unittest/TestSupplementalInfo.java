@@ -585,6 +585,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             // % 100 = 1
             {"kw", "many", "00,000,0000"},  // n != 1 and n % 100 = 1,21,41,61,81
             {"kw", "zero", "0"},    // n = 0
+            {"mt", "two", "0"},
             {"fr", "many", ""},    // e is special
             {"ca", "many", ""},    // e = 0 and i != 0 and i % 1000000 = 0 and v = 0 or e != 0..5
             {"es", "many", ""},    // e = 0 and i != 0 and i % 1000000 = 0 and v = 0 or e != 0..5

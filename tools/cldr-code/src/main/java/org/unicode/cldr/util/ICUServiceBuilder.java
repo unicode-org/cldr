@@ -886,7 +886,7 @@ public class ICUServiceBuilder {
         DayPeriodInfo dayPeriodInfo = supplementalData.getDayPeriods(DayPeriodInfo.Type.format, cldrFile.getLocaleID());
         DayPeriod period = dayPeriodInfo.getDayPeriod(timeInDay);
         String dayPeriodFormatString = getDayPeriodValue(getDayPeriodPath(period, context, width), "�", null);
-        String result = formatDayPeriod(timeInDay, dayPeriodFormatString);
+        String result = formatDayPeriod(timeInDay, period, dayPeriodFormatString);
         return result;
     }
 
@@ -919,6 +919,10 @@ public class ICUServiceBuilder {
     static final String BHM_PATH = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Bhm\"]";
 
     public String formatDayPeriod(int timeInDay, String dayPeriodFormatString) {
+        return formatDayPeriod(timeInDay, null, dayPeriodFormatString);
+    }
+
+    private String formatDayPeriod(int timeInDay, DayPeriod period, String dayPeriodFormatString) {
         String pattern = null;
         if ((timeInDay % 6) != 0) { // need a better way to test for this
             // dayPeriods other than am, pm, noon, midnight (want patterns with B)
@@ -932,6 +936,22 @@ public class ICUServiceBuilder {
             pattern = cldrFile.getStringValue(HM_PATH);
             if (pattern != null) {
                 pattern = pattern.replace('a', '\uE000');
+                // If this pattern is used for non am/pm, need to change NNBSP to regular space.
+                boolean fixSpace = true;
+                if (period != null) {
+                    if (period == DayPeriod.am || period == DayPeriod.pm) {
+                        fixSpace = false;
+                    }
+                } else {
+                    // All we have here is a dayPeriod string. If it is actually am/pm
+                    // then do not fix space; but we do not know about other am/pm markers.
+                    if (dayPeriodFormatString.equalsIgnoreCase("am") || dayPeriodFormatString.equalsIgnoreCase("pm")) {
+                        fixSpace = false;
+                    }
+                }
+                if (fixSpace) {
+                    pattern = pattern.replace('\u202F', ' ');
+                }
             }
         }
         if (pattern == null) {

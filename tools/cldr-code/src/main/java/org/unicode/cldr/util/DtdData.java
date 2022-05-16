@@ -1277,6 +1277,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "morning1", "morning2", "afternoon1", "afternoon2", "evening1", "evening2", "night1", "night2",
         // The ones on the following line are no longer used actively. Can be removed later?
         "earlyMorning", "morning", "midDay", "afternoon", "evening", "night", "weeHours").freeze();
+    static MapComparator<String> dateTimeFormatOrder = new MapComparator<String>().add(
+        "standard", "atTime").freeze();
     static MapComparator<String> listPatternOrder = new MapComparator<String>().add(
         "start", "middle", "end", "2", "3").freeze();
     static MapComparator<String> widthOrder = new MapComparator<String>().add(
@@ -1306,6 +1308,19 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "minute", "minute-short", "minute-narrow",
         "second", "second-short", "second-narrow",
         "zone", "zone-short", "zone-narrow").freeze();
+    static MapComparator<String> nameFieldOrder = new MapComparator<String>().add(
+        "prefix", "given", "given-informal", "given2",
+        "surname", "surname-prefix", "surname-core", "surname2", "suffix").freeze();
+    static MapComparator<String> orderValueOrder = new MapComparator<String>().add(
+        "givenFirst", "surnameFirst", "sorting").freeze();
+    static MapComparator<String> lengthValueOrder = new MapComparator<String>().add(
+        "long", "medium", "short").freeze();
+    static MapComparator<String> usageValueOrder = new MapComparator<String>().add(
+        "referring", "addressing", "monogram").freeze();
+    static MapComparator<String> formalityValueOrder = new MapComparator<String>().add(
+        "formal", "informal").freeze();
+    static MapComparator<String> sampleNameItemOrder = new MapComparator<String>().add(
+        "givenOnly", "givenSurnameOnly", "given12Surname", "full").freeze();
 
     /* TODO: change this to be data-file driven. Can do with new Unit preferences info; also put them in a more meaningful order (metric vs other; size) */
 
@@ -1474,7 +1489,21 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 comp = unitOrder;
             } else if (element.equals("dayPeriod")) {
                 comp = dayPeriodOrder;
+            } else if (element.equals("dateTimeFormat")) {
+                comp = dateTimeFormatOrder;
+            } else if (element.equals("nameField")) {
+                comp = nameFieldOrder;
             }
+        } else if (attribute.equals("order") && element.equals("personName")) {
+            comp = orderValueOrder;
+        } else if (attribute.equals("length") && element.equals("personName")) {
+            comp = lengthValueOrder;
+        } else if (attribute.equals("usage")) {
+            comp = usageValueOrder;
+        } else if (attribute.equals("formality")) {
+            comp = formalityValueOrder;
+        } else if (attribute.equals("item") && element.equals("sampleName")) {
+            comp = sampleNameItemOrder;
         } else if (attribute.equals("count") && !element.equals("minDays")) {
             comp = countValueOrder;
         } else if (attribute.equals("cp") && element.equals("annotation")) {

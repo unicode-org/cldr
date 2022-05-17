@@ -2,8 +2,11 @@ package org.unicode.cldr.web.api;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -11,6 +14,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.eclipse.microprofile.metrics.annotation.Counted;
+import org.eclipse.microprofile.metrics.annotation.Timed;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
@@ -30,14 +35,20 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
+import org.unicode.cldr.util.XMLSource.Listener;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.STFactory;
 import org.unicode.cldr.web.SurveyLog;
 import org.unicode.cldr.web.SurveyMain;
 
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
 import com.ibm.icu.dev.util.ElapsedTimer;
 
 /**
@@ -53,6 +64,7 @@ import com.ibm.icu.dev.util.ElapsedTimer;
  *  each push to production, so that they are recomputed afterwards. That is because sometimes we change/add
  *  the baseline values when we push to production.
  */
+@ApplicationScoped
 @Path("/completion")
 @Tag(name = "completion", description = "APIs for voting completion statistics")
 public class LocaleCompletion {
@@ -83,39 +95,68 @@ public class LocaleCompletion {
                 content = @Content(mediaType = "application/json",
                     schema = @Schema(implementation = STError.class))),
         })
+    @Counted(name = "getLocaleCompletionCount", absolute = true, description = "Number of locale completions computed")
+    @Timed(absolute = true, name = "getLocaleCompletionTime", description = "Time to fetch Locale Completion")
     public Response getLocaleCompletion(
-        @PathParam("locale") @Schema(required = true, description = "Locale ID", example = "aa") String localeId) {
-        CLDRLocale cldrLocale = CLDRLocale.getInstance(localeId);
-        return getLocaleCompletion(cldrLocale);
-    }
-
-    /**
-     * Fetch locale completion for the specified locale.
-     * Note: Static and package-private for testability.
-     * @param cldrLocale
-     * @return Response
-     */
-    static Response getLocaleCompletion(CLDRLocale cldrLocale) {
+        @PathParam("locale") @Schema(required = true, description = "Locale ID", example = "aa") String localeId) throws ExecutionException {
         if (SurveyMain.isBusted() || !SurveyMain.wasInitCalled() || !SurveyMain.triedToStartUp()) {
             return STError.surveyNotQuiteReady();
         }
-
-        final STFactory stFactory = CookieSession.sm.getSTFactory();
-        final LocaleCompletionResponse lcr = getLocaleCompletion(cldrLocale, stFactory);
-        return Response.ok(lcr).build();
+        CLDRLocale cldrLocale = CLDRLocale.getInstance(localeId);
+        return Response.ok(getLocaleCompletion(cldrLocale)).build();
     }
 
-    static final class LocaleCompletionHelper {
-        PathHeader.Factory phf = null;
+    static LocaleCompletionResponse getLocaleCompletion(CLDRLocale cldrLocale) throws ExecutionException {
+        return LocaleCompletionHelper.INSTANCE.cache.get(cldrLocale);
+        // return handleGetLocaleCompletion(cldrLocale);
+    }
 
+    /**
+     * This function computes the actual locale completion given a Locale
+     * @param cldrLocale
+     * @return
+     */
+    static LocaleCompletionResponse handleGetLocaleCompletion(CLDRLocale cldrLocale) {
+        final STFactory stFactory = CookieSession.sm.getSTFactory();
+        final LocaleCompletionResponse lcr = handleGetLocaleCompletion(cldrLocale, stFactory);
+        return lcr;
+    }
+
+    static final class LocaleCompletionHelper implements Listener {
+        PathHeader.Factory phf = null;
+        LoadingCache<CLDRLocale, LocaleCompletionResponse> cache;
         LocaleCompletionHelper() {
             phf = PathHeader.getFactory(CLDRConfig.getInstance().getEnglish());
+            cache =  CacheBuilder.newBuilder().maximumSize(500)
+            // We would want the expiry time greater if this were used by users, not just TC.
+            .expireAfterWrite(15, TimeUnit.MINUTES)
+            // .concurrencyLevel()
+            .build(new CacheLoader<CLDRLocale, LocaleCompletionResponse>() {
+                @Override
+                public LocaleCompletionResponse load(CLDRLocale key) throws Exception {
+                    return handleGetLocaleCompletion(key);
+                }
+            });
         }
-
         static LocaleCompletionHelper INSTANCE = new LocaleCompletionHelper();
+
+        @Override
+        public void valueChanged(String xpath, XMLSource source) {
+            // invalidate the named entry
+            // this is registered whenever a calculation happens
+            System.err.println("LCH Invalidating " + source.getLocaleID());
+            cache.invalidate(CLDRLocale.getInstance(source.getLocaleID()));
+        }
     }
 
-    static LocaleCompletionResponse getLocaleCompletion(final CLDRLocale cldrLocale, final STFactory stFactory) {
+    /**
+     *
+     * This function computes the actual locale completion given a Locale abd STFactory
+     * @param cldrLocale
+     * @param stFactory
+     * @return
+     */
+    static LocaleCompletionResponse handleGetLocaleCompletion(final CLDRLocale cldrLocale, final STFactory stFactory) {
         final String localeId = cldrLocale.toString(); // normalized
         final Level level = StandardCodes.make().getTargetCoverageLevel(localeId);
         final CheckCLDR.Options options = new CheckCLDR.Options(cldrLocale, SurveyMain.getTestPhase(),
@@ -124,9 +165,13 @@ public class LocaleCompletion {
         ElapsedTimer et = new ElapsedTimer("LocaleCompletion:" + options.toString());
         logger.info("Starting LocaleCompletion for " + options.toString());
         final TestResultBundle checkCldr = stFactory.getTestResult(cldrLocale, options);
+
+        // we need an XML Source to receive notification
+        final XMLSource mySource = stFactory.makeSource(localeId);
+        mySource.addListener(LocaleCompletionHelper.INSTANCE);
+
         final CLDRFile file = stFactory.make(localeId, true);
         final CLDRFile baselineFile = stFactory.getDiskFile(cldrLocale);
-
         LocaleCompletionResponse lcr = new LocaleCompletionResponse(level);
 
         final SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(stFactory.getSupplementalDirectory());

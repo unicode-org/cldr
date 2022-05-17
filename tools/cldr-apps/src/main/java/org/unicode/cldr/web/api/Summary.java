@@ -406,7 +406,7 @@ public class Summary {
         summary = "Fetch the Dashboard for a locale",
         description = "Given a locale, get the summary information, aka Dashboard")
     @Counted(name = "getDashboardCount", absolute = true, description = "Number of dashboards computed")
-    @Timed(absolute = true, name = "getDashboard", description = "Time to fetch the Dashboard")
+    @Timed(absolute = true, name = "getDashboardTime", description = "Time to fetch the Dashboard")
     @APIResponses(
         value = {
             @APIResponse(

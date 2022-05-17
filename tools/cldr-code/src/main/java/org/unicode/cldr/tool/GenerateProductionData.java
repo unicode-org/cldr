@@ -330,7 +330,7 @@ public class GenerateProductionData {
 
                 // remove items that are the same as their bailey values. This also catches Inheritance Marker
 
-                String bailey = cldrFileResolved.getConstructedBaileyValue(xpath, pathWhereFound, localeWhereFound);
+                String bailey = cldrFileResolved.getBaileyValue(xpath, pathWhereFound, localeWhereFound);
                 if (value.equals(bailey)
                     && (!ADD_SIDEWAYS
                         || pathEqualsOrIsAltVariantOf(xpath, pathWhereFound.value))

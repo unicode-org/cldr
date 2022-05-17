@@ -904,7 +904,7 @@ public class DataSection implements JSONString {
              */
             Output<String> inheritancePathWhereFound = new Output<>(); // may become pathWhereFound
             Output<String> localeWhereFound = new Output<>(); // may be used to construct inheritedLocale
-            inheritedValue = ourSrc.getConstructedBaileyValue(xpath, inheritancePathWhereFound, localeWhereFound);
+            inheritedValue = ourSrc.getBaileyValue(xpath, inheritancePathWhereFound, localeWhereFound);
 
             if (TRACE_TIME) {
                 System.err.println("@@1:" + (System.currentTimeMillis() - lastTime));
@@ -921,7 +921,7 @@ public class DataSection implements JSONString {
                  * xpath = //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMMEEEEd"]
                  * ourValueIsInherited = false; ourValue = "EEEE, d/MM/y"; isExtraPath = false
                  *
-                 * TODO: what are the implications when ourSrc.getConstructedBaileyValue has returned null?
+                 * TODO: what are the implications when ourSrc.getBaileyValue has returned null?
                  * Unless we're at root, shouldn't there always be a non-null inheritedValue here?
                  * See https://unicode.org/cldr/trac/ticket/11299
                  */

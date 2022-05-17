@@ -614,7 +614,18 @@ public class VettingViewer<T> {
             if (ph == null || ph.shouldHide()) {
                 return;
             }
-            String value = sourceFile.getWinningValueForVettingViewer(path);
+            final String value = sourceFile.getWinningValueForVettingViewer(path);
+            final String otherValue = sourceFile.getWinningValue(path);
+            if (value == null) {
+                if (otherValue != null) {
+                    System.out.println("🏄‍♀️ handleOnePath: value is null but otherValue is not, for path " + path);
+                    System.out.println("otherValue: " + otherValue);
+                }
+            } else if (!value.equals(otherValue)) {
+                System.out.println("🏄‍♀️ handleOnePath: difference found for path " + path);
+                System.out.println("value: " + value);
+                System.out.println("otherValue: " + otherValue);
+            }
             statusMessage.setLength(0);
             subtypes.clear();
             ErrorChecker.Status errorStatus = errorChecker.getErrorStatus(path, value, statusMessage, subtypes);

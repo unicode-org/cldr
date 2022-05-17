@@ -43,4 +43,13 @@ public class TestSupplementalDataInfo {
         assertTrue(arrules.getKeywords().contains("two"), "ar did not have two");
         assertEquals(2.0, arrules.getUniqueKeywordValue("two"), "ar unique value for 'two'");
     }
+
+    @Test
+    void TestMaltesePlurals() {
+        final SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
+        PluralRules mtrules = sdi.getPluralRules(ULocale.forLanguageTag("mt"), PluralRules.PluralType.CARDINAL);
+        assertNotNull(mtrules, "mt rules");
+        assertTrue(mtrules.getKeywords().contains("two"), "mt did not have two");
+        assertEquals(2.0, mtrules.getUniqueKeywordValue("two"), "mt unique value for 'two'");
+    }
 }

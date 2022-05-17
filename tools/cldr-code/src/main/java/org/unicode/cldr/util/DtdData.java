@@ -1498,7 +1498,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             comp = orderValueOrder;
         } else if (attribute.equals("length") && element.equals("personName")) {
             comp = lengthValueOrder;
-        } else if (attribute.equals("usage")) {
+        } else if (attribute.equals("usage") && element.equals("personName")) {
             comp = usageValueOrder;
         } else if (attribute.equals("formality")) {
             comp = formalityValueOrder;

@@ -166,7 +166,8 @@ public class GenerateProductionData {
             }
         });
         if (!localeToSubdivisionsToMigrate.isEmpty()) {
-            System.err.println("WARNING: Subdivision files not written");
+            System.err.println("WARNING: Subdivision files not written, " + localeToSubdivisionsToMigrate.size() + " entries\n" +
+                    "For locales: " + localeToSubdivisionsToMigrate.keySet());
             for (Entry<String, Pair<String, String>> entry : localeToSubdivisionsToMigrate.entries()) {
                 System.err.println(entry.getKey() + " \t" + entry.getValue());
             }

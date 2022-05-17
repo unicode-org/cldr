@@ -16,10 +16,12 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.Builder;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.FileReaders;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 import com.ibm.icu.text.DecimalFormat;
@@ -98,7 +100,8 @@ public class GeneratePluralList {
     }
 
     private void getExamples(String locale) {
-        rules = PluralRules.forLocale(new ULocale(locale));
+        SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
+        rules = sdi.getPluralRules(new ULocale(locale), PluralRules.PluralType.CARDINAL);
         // Setup.
         Count[] digits = new Count[1000];
         // 0 is always considered a plural type even if the plural rules say otherwise.
@@ -220,7 +223,8 @@ public class GeneratePluralList {
     static String[] units = { "second", "minute", "hour", "day", "month", "year" };
 
     private void getForms(CLDRFile file) {
-        rules = PluralRules.forLocale(new ULocale(file.getLocaleID()));
+        SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
+        rules = sdi.getPluralRules(new ULocale(file.getLocaleID()), PluralRules.PluralType.CARDINAL);
         System.out.println(file.getLocaleID());
         for (String plural : rules.getKeywords()) {
             out.print(file.getLocaleID() + '\t' + plural + '\t' +

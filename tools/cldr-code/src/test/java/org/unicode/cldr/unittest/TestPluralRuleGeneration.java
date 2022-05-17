@@ -250,8 +250,9 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
             + ops
             + "\tpluralCat"
             );
+        SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
         for (ULocale locale : locales) {
-            PluralRules pr = PluralRules.forLocale(locale);
+            PluralRules pr = sdi.getPluralRules(locale, PluralRules.PluralType.CARDINAL);
 
             for (String test : tests) {
                 final FixedDecimal source = new FixedDecimal(test);

@@ -3969,6 +3969,26 @@ public class SupplementalDataInfo {
         return null;
     }
 
+    /**
+     * CLDR equivalent of com.ibm.icu.text.PluralRules.forLocale()
+     * @param loc
+     * @param type
+     * @return an ICU PluralRules, from CLDR data
+     */
+    public PluralRules getPluralRules(ULocale loc, PluralRules.PluralType type) {
+        return getPluralRules(loc.getBaseName(), type);
+    }
+
+    /**
+     * CLDR equivalent of com.ibm.icu.text.PluralRules.forLocale()
+     * @param loc
+     * @param type
+     * @return an ICU PluralRules, from CLDR data
+     */
+    public PluralRules getPluralRules(String loc, PluralRules.PluralType type) {
+        return getPlurals(PluralType.fromStandardType(type), loc).getPluralRules();
+    }
+
     public DayPeriodInfo getDayPeriods(DayPeriodInfo.Type type, String locale) {
         Map<String, DayPeriodInfo> map1 = typeToLocaleToDayPeriodInfo.get(type);
         while (locale != null) {

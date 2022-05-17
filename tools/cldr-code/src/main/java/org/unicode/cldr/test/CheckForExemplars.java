@@ -18,6 +18,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.Factory;
@@ -47,6 +48,7 @@ import com.ibm.icu.text.Normalizer2;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.PluralRules.PluralType;
 import com.ibm.icu.util.ULocale;
 
 public class CheckForExemplars extends FactoryCheckCLDR {
@@ -480,13 +482,16 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
         if (placeholderStatus == PlaceholderStatus.LOCALE_DEPENDENT || placeholderStatus == PlaceholderStatus.MULTIPLE) {
             // if locale dependent, it is because of count= or ordinal=. Figure out what the values are, and whether we are allowed to have none or one
-            PluralRules rules = PluralRules.forLocale(new ULocale(getCldrFileToCheck().getLocaleID()));
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            PluralRules.PluralType ptype = PluralType.CARDINAL;
+            String keyword = parts.getAttributeValue(-1, "count");
+            if (keyword == null) {
+                keyword = parts.getAttributeValue(-1, "ordinal");
+                ptype = PluralType.ORDINAL;
+            }
+            SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
+            PluralRules rules =  sdi.getPluralRules(new ULocale(getCldrFileToCheck().getLocaleID()), ptype);
             if (rules != null) {
-                XPathParts parts = XPathParts.getFrozenInstance(path);
-                String keyword = parts.getAttributeValue(-1, "count");
-                if (keyword == null) {
-                    keyword = parts.getAttributeValue(-1, "ordinal");
-                }
                 try {
                     if (rules.getUniqueKeywordValue(keyword) != PluralRules.NO_UNIQUE_VALUE) {
                         minimum = 0;

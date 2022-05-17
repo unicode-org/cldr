@@ -3612,8 +3612,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                 try {
                     int item = Integer.parseInt(actualCount);
                     String locale = getLocaleID();
-                    // TODO get data from SupplementalDataInfo...
-                    PluralRules rules = PluralRules.forLocale(new ULocale(locale));
+                    SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
+                    PluralRules rules = sdi.getPluralRules(new ULocale(locale), PluralRules.PluralType.CARDINAL);
                     String keyword = rules.select(item);
                     Count itemCount = Count.valueOf(keyword);
                     result = getCountPathWithFallback2(parts, xpath, itemCount, winning);

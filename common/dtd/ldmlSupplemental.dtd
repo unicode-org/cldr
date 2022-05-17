@@ -1235,10 +1235,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ELEMENT pathMatch EMPTY >
 <!ATTLIST pathMatch id NMTOKENS #IMPLIED >
     <!--@MATCH:any-->
-
 <!ATTLIST pathMatch match CDATA #REQUIRED >
-    <!--@VALUE-->
     <!--@MATCH:any-->
+    <!--@VALUE-->
 
 <!ELEMENT idValidity ( id* ) >
 

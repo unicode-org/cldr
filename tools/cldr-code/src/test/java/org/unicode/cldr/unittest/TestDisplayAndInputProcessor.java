@@ -505,7 +505,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
                     "h:mm a", "h:mm a"), // \u202F
             new PathSpaceAdjustData("ja",
                     "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"hm\"]",
-                    "a K:mm", "a K:mm"), // \u202F
+                    "a K:mm", "a K:mm"),
             new PathSpaceAdjustData("en",
                     "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"hm\"]/greatestDifference[@id=\"a\"]",
                     "h:mm - h:m a", "h:mm – h:m a"), // \u2009\u2013\u2009, \u202F

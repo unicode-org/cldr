@@ -163,7 +163,7 @@ public class CheckPlaceHolders extends CheckCLDR {
                         // We need consistency among the 3 values if we have either prefix or core
 
                         String coreValue = hasCore ? value : modifiedFieldValue(parts, field, modifiers, Modifier.core);
-                        String prefixValue = hasCore ? value : modifiedFieldValue(parts, field, modifiers, Modifier.prefix);
+                        String prefixValue = hasPrefix ? value : modifiedFieldValue(parts, field, modifiers, Modifier.prefix);
                         String plainValue = modifiedFieldValue(parts, field, modifiers, null);
 
                         String errorMessage2 = Modifier.inconsistentPrefixCorePlainValues(prefixValue, coreValue, plainValue);

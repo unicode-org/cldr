@@ -691,7 +691,7 @@ public class DataSection implements JSONString {
          *
          * Sequential order in which addItem may be called (as of 2019-04-19) for a given DataRow:
          *
-         * (1) For INHERITANCE_MARKER (if inheritedValue = ourSrc.getConstructedBaileyValue not null):
+         * (1) For INHERITANCE_MARKER (if inheritedValue = ourSrc.getBaileyValue not null):
          *     in updateInheritedValue (called by populateFromThisXpath):
          *         inheritedItem = addItem(CldrUtility.INHERITANCE_MARKER, "inherited");
          *

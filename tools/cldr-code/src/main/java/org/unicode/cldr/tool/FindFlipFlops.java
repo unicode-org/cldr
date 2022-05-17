@@ -266,7 +266,7 @@ public class FindFlipFlops {
     private static String getProcessedStringValue(String xpath, CLDRFile file, DisplayAndInputProcessor processor) {
         String value = file.getStringValue(xpath);
         if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
-            value = file.getConstructedBaileyValue(xpath, null, null);
+            value = file.getBaileyValue(xpath, null, null);
             if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
                 System.out.println("Warning: INHERITANCE_MARKER not resolved in FindFlipFlops: " + xpath);
             }

@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale="fr-t-k0-azerty" conformsTo="42">
+<keyboard locale="fr-t-k0-azerty" conformsTo="techpreview">
 	<!-- 'locale' TBD -->
 	<!-- 'conformsTo' gives CLDR spec conformance. Distinguishes from prior
 		keyboard formats -->
 	<!-- 'version' element is now optional -->
-	<info author="Team Keyboard" normalization="NFC" layout="AZERTY"
-		indicator="FR" />
+	<info author="Team Keyboard" normalization="NFC" layout="AZERTY" indicator="FR" />
 	<names>
 		<name value="French" />
 	</names>
@@ -17,7 +16,7 @@
 		<vkeyMap from="W" to="Z" />
 		<vkeyMap from="A" to="Q" />
 		<vkeyMap from="Z" to="W" />
-		<vkeyMap from="BKQUOTE" to="QUOTE" />  <!-- i.e., OEM_3 >>> OEM_7 -->
+		<vkeyMap from="BKQUOTE" to="QUOTE" /> <!-- i.e., OEM_3 >>> OEM_7 -->
 		<vkeyMap from="MINUS" to="LBRKT" />
 		<vkeyMap from="LBRKT" to="RBRKT" />
 		<vkeyMap from="COLON" to="M" />
@@ -57,29 +56,31 @@
 		<key id="equal" to="=" />
 		<key id="umlaut" to="¨" />
 		<key id="a" flicks="a" to="a" longPress="à â á ä ã å ā" />
-		<key id="A" flicks="b" to="A" longPress="À Á Ä Ã Å Ā"/>
-
 		<flicks id="a">
-			<flick directions="nw" to="\u1234"/>
-			<flick directions="nw se" to="\uFFFF"/>
-			<flick directions="e" to="\uFFF0"/>
-		  </flicks>
-		  <flicks id="b">
-			<flick directions="nw" to="\u4567"/>
-			<flick directions="nw se" to="\uFFFF"/>
-			<flick directions="e" to="\uFFF0"/>
-		  </flicks>
+			<flick directions="nw" to="\u1234" />
+			<flick directions="nw se" to="\uFFFF" />
+			<flick directions="e" to="\uFFF0" />
+		</flicks>
+
+		<key id="A" flicks="b" to="A" longPress="À Á Ä Ã Å Ā" />
+
+		<flicks id="b">
+			<flick directions="nw" to="\u4567" />
+			<flick directions="nw se" to="\uFFFF" />
+			<flick directions="e" to="\uFFF0" />
+		</flicks>
+
+		<key id="gap" gap="1.0" />
 		<!-- TODO: all additional maps, hardware and touch -->
 	</keys>
 
-	<layerMaps form="hardware"> <!-- in DTD: required if conformsTo ≥ 41 -->
+	<layerMaps form="hardware">
+		<!-- in DTD: required if conformsTo ≥ 41 -->
 		<layerMap id="base">
-			<row
-				keys="super-2 amp e-grave quote apos open-paren hyphen e-acute underscore c-cedilla a-acute close-paren equal" />
+			<row keys="super-2 amp e-grave quote apos open-paren hyphen e-acute underscore c-cedilla a-acute close-paren equal" />
 			<row keys="a z e r t y u i o p caret dollar" />
 			<row keys="q s d f g h j k l m u-grave asterisk" />
-			<row
-				keys="less-than w x c v b n comma semi-colon colon exclamation" />
+			<row keys="less-than w x c v b n comma semi-colon colon exclamation" />
 			<row keys="space" />
 		</layerMap>
 
@@ -87,17 +88,17 @@
 			<row keys="1 2 3 4 5 6 7 8 9 0 degree plus" />
 			<row keys="A Z E R T Y U I O P umlaut pound" />
 			<row keys="Q S D F G H J K L M percent micro" />
-			<row
-				keys="greater-than W X C V B N question-mark period slash section" />
+			<row keys="greater-than W X C V B N question-mark period slash section" />
 			<row keys="space" />
 		</layerMap>
 	</layerMaps>
 
-	<layerMaps form="touch" minDeviceWidthMM="150"> <!-- optional attribute for min physical device size -->
+	<layerMaps form="touch" minDeviceWidthMM="150">
+		<!-- optional attribute for min physical device size -->
 		<layerMap id="base">
 			<row keys="a z e r t y u i o p" />
 			<row keys="q s d f g h j k l m" />
-			<row keys="shift w x c v b n bksp" stretch="shift bksp"/> <!-- todo: gaps, e.g. "shift gap w x c v b n gap bksp" (gap is stretchable) -->
+			<row keys="shift gap w x c v b n gap bksp" stretch="shift bksp" />
 			<row keys="numeric extra space enter" /> <!-- The default "space" definition includes `stretch="true"` -->
 		</layerMap>
 
@@ -110,17 +111,14 @@
 
 		<layerMap id="numeric">
 			<row keys="1 2 3 4 5 6 7 8 9 0" />
-			<row
-				keys="hyphen slash colon semi-colon open-paren close-paren dollar amp at quote" />
+			<row keys="hyphen slash colon semi-colon open-paren close-paren dollar amp at quote" />
 			<row keys="symbol period comma question exclamation quote bksp" />
 			<row keys="base extra space enter" />
 		</layerMap>
 
 		<layerMap id="symbol">
-			<row
-				keys="open-bracket close-bracket open-brace close-brace hash percent caret star plus equal" />
-			<row
-				keys="underscore backslash pipe tilde less-than greater-than euro pound yen bullet" />
+			<row keys="open-bracket close-bracket open-brace close-brace hash percent caret star plus equal" />
+			<row keys="underscore backslash pipe tilde less-than greater-than euro pound yen bullet" />
 			<row keys="numeric period comma question exclamation quote bksp" />
 			<row keys="base extra space enter" />
 		</layerMap>

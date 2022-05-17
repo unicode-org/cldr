@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
+<keyboard locale="en-t-k0-teletype" conformsTo="techpreview">
+  <names>
+    <name value="US English Teletype" />
+  </names>
+
+  <keys>
+    <key id="and" to="\u0026" />
+    <key id="bang" to="!" />
+    <key id="bell" to="\u0007" />
+    <key id="comma" to="," />
+    <key id="dollar" to="$" />
+    <key id="doublequote" to="\u0022" />
+    <key id="figs" switch="figs" />
+    <key id="gap" gap="1.0" />
+    <key id="gap2" gap="1.5" />
+    <key id="hyphen" to="-" />
+    <key id="leftparen" to="(" />
+    <key id="linefeed" to="\u000A" />
+    <key id="ltrs" switch="base" />
+    <key id="null" to="\u0000" />
+    <key id="period" to="." />
+    <key id="question" to="?" />
+    <key id="quote" to="'" />
+    <key id="rightparen" to=")" />
+    <key id="semicolon" to=":" />
+    <key id="slash" to="/" />
+  </keys>
+
+  <layerMaps form="hardware">
+    <layerMap id="base">
+      <row keys="Q W E R T Y U I O P gap2" />
+      <row keys="gap A S D F G H J K L enter gap" />
+      <row keys="figs Z X C B V N M ltrs linefeed null" />
+      <row keys="gap space gap" stretch="space" />
+    </layerMap>
+    <layerMap id="figs">
+      <row keys="1 2 3 4 5 6 7 8 9 0 gap gap" />
+      <row keys="gap hyphen bell dollar bang and hash quote leftparen rightparen enter gap" />
+      <row keys="figs doublequote slash colon question semicolon comma period ltrs linefeed null" />
+      <row keys="gap space gap" stretch="space" />
+    </layerMap>
+  </layerMaps>
+
+</keyboard>

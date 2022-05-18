@@ -42,26 +42,13 @@ import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.CoverageInfo;
-import org.unicode.cldr.util.LDMLUtilities;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
-import org.unicode.cldr.util.PatternCache;
-import org.unicode.cldr.util.PatternPlaceholders;
-import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Status;
-import org.unicode.cldr.util.XMLSource;
-import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
 import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.web.api.VoteAPIHelper;
@@ -1303,7 +1290,7 @@ public class DataSection implements JSONString {
          * This is so that people can search for, e.g., "E12" to find rows for emoji that are new.
          */
         private void addAnnotationRootValue() {
-            if (xpath.startsWith("//ldml/annotations/annotation")) {
+            if (AnnotationUtil.pathIsAnnotation(xpath)) {
                 String rootValue = getRootFile().getStringValue(xpath);
                 if (rootValue != null && !rootValue.equals(inheritedValue)) {
                     /*

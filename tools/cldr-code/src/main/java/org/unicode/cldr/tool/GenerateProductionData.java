@@ -19,19 +19,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.tool.Option.Params;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.DtdType;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.LocaleIDParser;
-import org.unicode.cldr.util.LogicalGrouping;
-import org.unicode.cldr.util.Pair;
-import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.XMLSource;
-import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.*;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableSet;
@@ -317,7 +305,7 @@ public class GenerateProductionData {
                 // special-case the root values that are only for Survey Tool use
 
                 if (isRoot) {
-                    if (xpath.startsWith("//ldml/annotations/annotation")) {
+                    if (AnnotationUtil.pathIsAnnotation(xpath)) {
                         toRemove.add(xpath);
                         continue;
                     }

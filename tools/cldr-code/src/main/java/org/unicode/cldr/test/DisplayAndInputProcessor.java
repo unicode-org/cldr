@@ -14,20 +14,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckExemplars.ExemplarType;
-import org.unicode.cldr.util.Builder;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.DateTimeCanonicalizer;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
-import org.unicode.cldr.util.Emoji;
-import org.unicode.cldr.util.ICUServiceBuilder;
-import org.unicode.cldr.util.PatternCache;
-import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
-import org.unicode.cldr.util.With;
-import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
@@ -522,7 +510,7 @@ public class DisplayAndInputProcessor {
                 value = normalizeHyphens(value);
             }
 
-            if (path.startsWith("//ldml/annotations/annotation")) {
+            if (AnnotationUtil.pathIsAnnotation(path)) {
                 if (path.contains(Emoji.TYPE_TTS)) {
                     // The row has something like "🦓 -name" in the first column. Cf. namePath, getNamePaths.
                     // Normally the value is like "zebra" or "unicorn face", without "|".

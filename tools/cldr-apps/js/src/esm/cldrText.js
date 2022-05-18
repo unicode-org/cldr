@@ -335,6 +335,8 @@ const strings = {
   forum_msg: "Showing posts for ${forum} and all sublocales.",
   forumGuidance:
     "This is the Forum page. This page will not reload when new posts come in, but you can use your browser's Refresh button to load new posts.",
+  forum_remember_vote:
+    "⚠️ Please remember to vote – submitting a forum post does NOT cause any actual vote to be made.",
 
   generic_nolocale: "No locale chosen.",
   defaultContent_msg:

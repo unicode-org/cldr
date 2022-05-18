@@ -274,6 +274,7 @@ function makePostHtml(
   let html = "";
 
   html += '<div id="postSubject" class="topicSubject">' + subject + "</div>\n";
+  html += "<div>" + cldrText.get("forum_remember_vote") + "</div>\n";
   html += '<div class="postTypeLabel">' + typeLabel + "</div>\n";
   html += '<form role="form" id="post-form">\n';
   html += '<div class="form-group">\n';
@@ -293,7 +294,6 @@ function makePostHtml(
 
   html += '<div class="post"></div>\n';
   html += '<div class="forumDiv"></div>\n';
-
   return html;
 }
 

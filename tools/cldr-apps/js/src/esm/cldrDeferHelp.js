@@ -85,10 +85,12 @@ function sparqlQuery(query, endpoint) {
 
 function addPlaceholderHelp(fragment, placeholderStatus, placeholderInfo) {
   const absDiv = $("<div/>", { class: "placeholderHelp" });
-  absDiv.append($("<h4/>", {
-    text: `Placeholders: ${placeholderStatus}`,
-    class: "placeholderStatus"
-  }));
+  absDiv.append(
+    $("<h4/>", {
+      text: `Placeholders: ${placeholderStatus}`,
+      class: "placeholderStatus",
+    })
+  );
   if (placeholderInfo) {
     const pList = $(`<div class="placeholderInfo">
       <div class="placeholderRow placeholderHeading">
@@ -99,11 +101,17 @@ function addPlaceholderHelp(fragment, placeholderStatus, placeholderInfo) {
     </div>`);
 
     for (const placeholder of Object.keys(placeholderInfo).sort()) {
-      const {name, example} = placeholderInfo[placeholder];
+      const { name, example } = placeholderInfo[placeholder];
       const pRow = $("<div/>", { class: "placeholderRow" });
-      const pHolder = $("<span/>", { class: "placeholderSpan", text: placeholder });
+      const pHolder = $("<span/>", {
+        class: "placeholderSpan",
+        text: placeholder,
+      });
       const pName = $("<span/>", { class: "placeholderName", text: name });
-      const pExample = $("<span/>", { class: "placeholderExample", text: example });
+      const pExample = $("<span/>", {
+        class: "placeholderExample",
+        text: example,
+      });
       pRow.append(pHolder);
       pRow.append(pName);
       pRow.append(pExample);

@@ -5414,7 +5414,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	<personNames>
 		<nameOrderLocales order="givenFirst">und</nameOrderLocales>
 		<nameOrderLocales order="surnameFirst">hu ja ko vi yue zh</nameOrderLocales>
-		<foreignSpaceReplacement/>
+		<foreignSpaceReplacement xml:space="preserve"> </foreignSpaceReplacement>
 		<initialPattern type="initial">{0}.</initialPattern>
 		<initialPattern type="initialSequence">{0} {1}</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">

@@ -3170,6 +3170,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@METADATA-->
 
 <!ELEMENT foreignSpaceReplacement ( #PCDATA ) >
+<!ATTLIST foreignSpaceReplacement xml:space (default | preserve) "preserve" >
+    <!--@VALUE-->
 <!ATTLIST foreignSpaceReplacement alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST foreignSpaceReplacement draft (approved | contributed | provisional | unconfirmed) #IMPLIED >

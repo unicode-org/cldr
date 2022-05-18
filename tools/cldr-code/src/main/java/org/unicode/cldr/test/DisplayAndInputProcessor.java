@@ -429,8 +429,10 @@ public class DisplayAndInputProcessor {
                 value = normalizeWhitespace(path, value);
             }
 
-            // all of our values should not have leading or trailing spaces, except insertBetween
-            if (!path.contains("/insertBetween") && !isUnicodeSet) {
+            // all of our values should not have leading or trailing spaces, except insertBetween,
+            // foreignSpaceReplacement, and anything with 
+            if (!path.contains("/insertBetween") && !path.contains("/foreignSpaceReplacement") &&
+                !path.contains("[@xml:space=\"preserve\"]") && !isUnicodeSet) {
                 value = value.trim();
             }
 

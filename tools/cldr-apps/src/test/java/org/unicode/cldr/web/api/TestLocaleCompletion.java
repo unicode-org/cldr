@@ -98,7 +98,7 @@ public class TestLocaleCompletion {
         assertFalse(CheckCLDR.LIMITED_SUBMISSION, "This test becomes invalid if LIMITED_SUBMISSION (or SubmissionLocales) changes.");
 
         {
-            LocaleCompletionResponse completion = LocaleCompletion.getLocaleCompletion(locale, stf);
+            LocaleCompletionResponse completion = LocaleCompletion.handleGetLocaleCompletion(locale, stf);
 
             assertNotNull(completion);
             assertAll("tests on completion - not quite 100%",
@@ -149,7 +149,7 @@ public class TestLocaleCompletion {
         tc.invalidateAllCached();
 
         {
-            LocaleCompletionResponse completion = LocaleCompletion.getLocaleCompletion(locale, stf);
+            LocaleCompletionResponse completion = LocaleCompletion.handleGetLocaleCompletion(locale, stf);
 
             assertNotNull(completion);
             assertAll("tests on completio - 100%",

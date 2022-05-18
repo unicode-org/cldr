@@ -1,5 +1,6 @@
 package org.unicode.cldr.web.api;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -108,7 +109,6 @@ public class LocaleCompletion {
 
     static LocaleCompletionResponse getLocaleCompletion(CLDRLocale cldrLocale) throws ExecutionException {
         return LocaleCompletionHelper.INSTANCE.cache.get(cldrLocale);
-        // return handleGetLocaleCompletion(cldrLocale);
     }
 
     /**
@@ -128,9 +128,8 @@ public class LocaleCompletion {
         LocaleCompletionHelper() {
             phf = PathHeader.getFactory(CLDRConfig.getInstance().getEnglish());
             cache =  CacheBuilder.newBuilder().maximumSize(500)
-            // We would want the expiry time greater if this were used by users, not just TC.
-            .expireAfterWrite(15, TimeUnit.MINUTES)
-            // .concurrencyLevel()
+            .concurrencyLevel(5) // allow 5 threads to compute completion, uncontested
+            .expireAfterWrite(Duration.ofMinutes(20)) // expire 20 min after last change
             .build(new CacheLoader<CLDRLocale, LocaleCompletionResponse>() {
                 @Override
                 public LocaleCompletionResponse load(CLDRLocale key) throws Exception {
@@ -143,15 +142,13 @@ public class LocaleCompletion {
         @Override
         public void valueChanged(String xpath, XMLSource source) {
             // invalidate the named entry
-            // this is registered whenever a calculation happens
-            System.err.println("LCH Invalidating " + source.getLocaleID());
             cache.invalidate(CLDRLocale.getInstance(source.getLocaleID()));
         }
     }
 
     /**
      *
-     * This function computes the actual locale completion given a Locale abd STFactory
+     * This function computes the actual locale completion given a Locale and STFactory
      * @param cldrLocale
      * @param stFactory
      * @return
@@ -166,8 +163,10 @@ public class LocaleCompletion {
         logger.info("Starting LocaleCompletion for " + options.toString());
         final TestResultBundle checkCldr = stFactory.getTestResult(cldrLocale, options);
 
-        // we need an XML Source to receive notification
-        final XMLSource mySource = stFactory.makeSource(localeId);
+        // we need an XML Source to receive notification.
+        // This causes LocaleCompletionHelper.INSRTANCE.valueChanged(...) to be called
+        // whenever a vote happens.
+        final XMLSource mySource = stFactory.makeSource(localeId, false);
         mySource.addListener(LocaleCompletionHelper.INSTANCE);
 
         final CLDRFile file = stFactory.make(localeId, true);

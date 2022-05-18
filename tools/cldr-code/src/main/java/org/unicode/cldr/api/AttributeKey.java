@@ -92,9 +92,9 @@ public final class AttributeKey {
         // 1) we don't expect the attribute name to have a namespace either,
         // 2) the attribute key should be in our cache of known instances.
         if (elementName.indexOf(':') == -1) {
-            checkArgument(attributeName.indexOf(':') == -1,
-                "attributes in an external namespace cannot be present in elements in the default"
-                    + " namespace: %s:%s",
+            checkArgument((attributeName.startsWith("xml:") || attributeName.indexOf(':') == -1),
+                "attributes in an external namespace other than xml: cannot be present in"
+                    + " elements in the default namespace: %s:%s",
                 elementName, attributeName);
             return checkNotNull(KNOWN_KEYS.get(elementName, attributeName),
                 "unknown attribute (was it deprecated?): %s:%s",

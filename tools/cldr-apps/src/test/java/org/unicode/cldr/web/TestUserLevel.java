@@ -10,8 +10,10 @@ import java.util.function.Supplier;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.unittest.web.TestAll;
 import org.unicode.cldr.util.Organization;
@@ -41,13 +43,6 @@ public class TestUserLevel {
     @CsvFileSource(resources = "/org/unicode/cldr/web/TestUserLevel.csv", numLinesToSkip=1)
     void TestCompatUserLevelDataDriven(String org, String levelStr, String operation, String expStr,
         String otherOrg, String otherLevel) throws SQLException {
-        Boolean expected;
-        try {
-            expected = Boolean.parseBoolean(expStr);
-        } catch(Throwable t) {
-            System.err.println(t);
-            expected = null; // could not parse
-        }
         assertNotNull(reg, "reg is null");
         final Organization o = Organization.valueOf(org);
         assertNotNull(o, () -> "Could not parse organization " + org);
@@ -55,6 +50,51 @@ public class TestUserLevel {
         assertNotNull(vrLevel, () -> "Could not parse VR level " + levelStr);
         // just make a new user
         UserRegistry.User u = reg.getTestUser(id++, o, vrLevel);
+        testCompatAction(operation, expStr, otherOrg, otherLevel, o, u);
+    }
+
+    /**
+     * Test that a null user can't do stuff.
+     * Not shared with the other test (CSV).
+     */
+    @ParameterizedTest
+    @CsvSource({
+        // List of all operations of the form UserRegistry.<operation>(null)
+        // org, null, operation, expStr, otherOrg, otherLevel
+        "adlam, null, userCanDoList, false, wod_nko, vetter",
+        "adlam, null, userCanCreateUsers, false, wod_nko, vetter",
+        "adlam, null, userCanEmailUsers, false, wod_nko, vetter",
+        "adlam, null, userCanModifyUsers, false, wod_nko, vetter",
+        "adlam, null, userCreateOtherOrgs, false, wod_nko, vetter",
+        "adlam, null, userIsExactlyManager, false, wod_nko, vetter",
+        "adlam, null, userIsManagerOrStronger, false, wod_nko, vetter",
+        "adlam, null, userIsVetter, false, wod_nko, vetter",
+        "adlam, null, userIsAdmin, false, wod_nko, vetter",
+        "adlam, null, userIsTC, false, wod_nko, vetter",
+        "adlam, null, userIsStreet, false, wod_nko, vetter",
+        "adlam, null, userIsLocked, false, wod_nko, vetter",
+        "adlam, null, userIsExactlyAnonymous, false, wod_nko, vetter",
+        "adlam, null, userCanUseVettingSummary, false, wod_nko, vetter",
+        "adlam, null, userCanSubmit_SUBMIT, false, wod_nko, vetter",
+        "adlam, null, userCanCreateSummarySnapshot, false, wod_nko, vetter",
+        "adlam, null, userCanMonitorForum, false, wod_nko, vetter",
+        "adlam, null, userCanSetInterestLocales, false, wod_nko, vetter",
+        "adlam, null, userCanGetEmailList, false, wod_nko, vetter",
+    })
+    void TestNullUserCompatibility(String org, String levelStr, String operation, String expStr,
+        String otherOrg, String otherLevel) throws SQLException {
+        // test that a null user can't do stuff
+        assertEquals("null", levelStr);
+        UserRegistry.User u = null;
+        final Organization o = Organization.valueOf(org);
+        assertNotNull(o, () -> "Could not parse organization " + org);
+        testCompatAction(operation, expStr, otherOrg, otherLevel, o, u);
+    }
+
+    /**
+     * Test an action using compatibility
+     */
+    private void testCompatAction(String operation, String expStr, String otherOrg, String otherLevel, final Organization o, UserRegistry.User u) {
         Organization otherO = null;
         if (otherOrg != null && !otherOrg.isBlank()) {
             otherO = Organization.valueOf(otherOrg);
@@ -63,7 +103,14 @@ public class TestUserLevel {
         if (otherLevel != null && !otherLevel.isBlank()) {
             otherL = VoteResolver.Level.valueOf(otherLevel);
         }
-        Supplier<String> onFail = () -> (u.toString())+"."+operation+"("+otherOrg+","+otherLevel+")≠"+expStr;
+        Boolean expected;
+        try {
+            expected = Boolean.parseBoolean(expStr);
+        } catch(Throwable t) {
+            System.err.println(t);
+            expected = null; // could not parse
+        }
+        Supplier<String> onFail = () -> (u)+"."+operation+"("+otherOrg+","+otherLevel+")≠"+expStr;
 
         switch (operation) {
         case "isAdminForOrg":

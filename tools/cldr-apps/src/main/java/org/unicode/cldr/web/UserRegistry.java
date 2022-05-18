@@ -1622,16 +1622,16 @@ public class UserRegistry {
     // * user rights
     /** can create a user in a different organization? */
     public static final boolean userCreateOtherOrgs(User u) {
-        return u.getLevel().canCreateOtherOrgs();
+        return (u != null) && u.getLevel().canCreateOtherOrgs();
     }
 
     /** Can the user modify anyone's level? */
     static final boolean userCanModifyUsers(User u) {
-        return u.getLevel().canModifyUsers();
+        return (u != null) && u.getLevel().canModifyUsers();
     }
 
     static final boolean userCanEmailUsers(User u) {
-        return u.getLevel().canEmailUsers();
+        return (u != null) && u.getLevel().canEmailUsers();
     }
 
     /**
@@ -1676,11 +1676,11 @@ public class UserRegistry {
     }
 
     static final boolean userCanDoList(User managerUser) {
-        return managerUser.getLevel().canDoList();
+        return (managerUser != null) && managerUser.getLevel().canDoList();
     }
 
     public static final boolean userCanCreateUsers(User u) {
-        return u.getLevel().canCreateUsers();
+        return (u != null) && u.getLevel().canCreateUsers();
     }
 
     static final boolean userCanSubmit(User u) {
@@ -1688,7 +1688,7 @@ public class UserRegistry {
     }
 
     static final boolean userCanSubmit(User u, SurveyMain.Phase phase) {
-        return u.getLevel().canSubmit(phase.getCPhase());
+        return (u != null) && u.getLevel().canSubmit(phase.getCPhase());
     }
 
     /**
@@ -1698,7 +1698,7 @@ public class UserRegistry {
      * @return true or false
      */
     public static final boolean userCanUseVettingSummary(User u) {
-        return u.getLevel().canUseVettingSummary();
+        return (u != null) && u.getLevel().canUseVettingSummary();
     }
 
     /**
@@ -1708,7 +1708,7 @@ public class UserRegistry {
      * @return true or false
      */
     public static boolean userCanCreateSummarySnapshot(User u) {
-        return u.getLevel().canCreateSummarySnapshot();
+        return (u != null) && u.getLevel().canCreateSummarySnapshot();
     }
 
     /**
@@ -1718,7 +1718,7 @@ public class UserRegistry {
      * @return true or false
      */
     public static final boolean userCanMonitorForum(User u) {
-        return u.getLevel().canMonitorForum();
+        return (u != null) && u.getLevel().canMonitorForum();
     }
 
     /**
@@ -1728,7 +1728,7 @@ public class UserRegistry {
      * @return true or false
      */
     public static boolean userCanSetInterestLocales(User u) {
-        return u.getLevel().canSetInterestLocales();
+        return (u != null) && u.getLevel().canSetInterestLocales();
     }
 
     /**
@@ -1738,7 +1738,7 @@ public class UserRegistry {
      * @return true or false
      */
     public static boolean userCanGetEmailList(User u) {
-        return u.getLevel().canGetEmailList();
+        return (u != null) && u.getLevel().canGetEmailList();
     }
 
     public enum ModifyDenial {

@@ -78,9 +78,13 @@ function show(str, tr, hideIfLast, fn) {
     if (helpHtml || rdf) {
       cldrDeferHelp.addDeferredHelpTo(fragment, helpHtml, rdf);
     }
-    if (placeholderStatus !== 'DISALLOWED') {
+    if (placeholderStatus !== "DISALLOWED") {
       // Hide the placeholder status if DISALLOWED
-      cldrDeferHelp.addPlaceholderHelp(fragment, placeholderStatus, placeholderInfo);
+      cldrDeferHelp.addPlaceholderHelp(
+        fragment,
+        placeholderStatus,
+        placeholderInfo
+      );
     }
     // extra attributes
     if (

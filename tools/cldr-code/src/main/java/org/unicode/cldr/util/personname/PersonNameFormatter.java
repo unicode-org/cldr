@@ -160,6 +160,54 @@ public class PersonNameFormatter {
         };
         public static final Set<Modifier> ALL = ImmutableSet.copyOf(Modifier.values());
         public static final Set<Modifier> EMPTY = ImmutableSet.of();
+
+        static final Set<Set<Modifier>> INCONSISTENT_SETS = ImmutableSet.of(
+            ImmutableSet.of(Modifier.core, Modifier.prefix),
+            ImmutableSet.of(Modifier.initial, Modifier.monogram),
+            ImmutableSet.of(Modifier.allCaps, Modifier.initialCap)
+            );
+
+        /**
+         * Verifies whether a set of modifiers is consistent. Returns null if ok, otherwise error message.
+         */
+        public static String inconsistentSet(Collection<Modifier> modifiers) {
+            String result = null;
+            for (Set<Modifier> inconsistentSet : INCONSISTENT_SETS) {
+                if (modifiers.containsAll(inconsistentSet)) {
+                    if (result == null) {
+                        result = "Inconsistent modifiers: ";
+                    } else {
+                        result += ", ";
+                    }
+                    result += inconsistentSet;
+                }
+            }
+            return result;
+        }
+
+        /**
+         * Verifies that the prefix, core, and plain values are consistent. Returns null if ok, otherwise error message.
+         */
+        public static String inconsistentPrefixCorePlainValues(String prefixValue, String coreValue, String plainValue) {
+            String errorMessage2 = null;
+            if (prefixValue != null) {
+                if (coreValue != null) {
+                    if (plainValue != null) { // prefix = X, core = Y, plain = Z
+                        // ok: prefix = "van", core = "Berg", plain = "van Berg"
+                        // bad: prefix = "van", core = "Berg", plain = "van Wolf"
+                       if (!plainValue.replace(prefixValue, "").trim().equals(coreValue)) {
+                            errorMessage2 = "-core value and -prefix value are inconsistent with plain value";
+                        }
+                    }
+                    // otherwise prefix = "x", core = "y", plain = null, so OK
+                } else { // prefix = X, core = null, plain = ?
+                    errorMessage2 = "cannot have -prefix without -core";
+                }
+            } else if (coreValue != null && plainValue != null && !plainValue.equals(coreValue)) {
+                errorMessage2 = "There is no -prefix, but there is a -core and plain that are unequal";
+            }
+            return errorMessage2;
+        }
     }
 
     public enum SampleType {
@@ -201,12 +249,15 @@ public class PersonNameFormatter {
         public ModifiedField(Field field, Collection<Modifier> modifiers) {
             this.field = field;
             this.modifiers = ImmutableSet.copyOf(modifiers);
+            String errorMessage = Modifier.inconsistentSet(modifiers);
+            if (errorMessage != null) {
+                throw new IllegalArgumentException(errorMessage);
+            }
         }
 
         /** convenience method for testing */
         public ModifiedField(Field field, Modifier... modifiers) {
-            this.field = field;
-            this.modifiers = ImmutableSet.copyOf(modifiers);
+            this(field, ImmutableSet.copyOf(modifiers));
         }
 
         /** convenience method for testing */

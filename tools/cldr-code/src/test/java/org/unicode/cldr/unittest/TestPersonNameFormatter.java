@@ -33,6 +33,7 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.Usage;
 import org.unicode.cldr.util.personname.SimpleNameObject;
 
 import com.google.common.base.Joiner;
+import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
@@ -576,6 +577,62 @@ public class TestPersonNameFormatter extends TestFmwk{
             default: throw new IllegalArgumentException("Need to add modifier test for " + m);
             }
             assertEquals(m.toString(), expected, actual);
+        }
+    }
+
+    public void TestInconsistentModifiers() {
+        String[][] expectedFailures = {
+            {"allCaps", "initialCap", "Inconsistent modifiers: [allCaps, initialCap]"},
+            {"initial", "monogram", "Inconsistent modifiers: [initial, monogram]"},
+            {"prefix", "core","Inconsistent modifiers: [core, prefix]"}
+        };
+        for (Modifier first : Modifier.ALL) {
+            for (Modifier second: Modifier.ALL) {
+                if (first.compareTo(second) >= 0) {
+                    continue;
+                }
+                String expected = null;
+                for (String[] row : expectedFailures) {
+                    if (first ==  Modifier.valueOf(row[0])
+                        && second ==  Modifier.valueOf(row[1])
+                        ) {
+                        expected = row[2];
+                    }
+                }
+
+                final ImmutableSet<Modifier> test = ImmutableSet.of(first, second);
+                String check = Modifier.inconsistentSet(test);
+                assertEquals("Modifier set consistent " + test, expected, check);
+            }
+        }
+    }
+
+    public void TestInconsistentNameValues() {
+        String[][] expectedFailures = {
+            {"van", "Berg", "van Wolf", "-core value and -prefix value are inconsistent with plain value"},
+            {"van", null, "van Berg", "cannot have -prefix without -core"},
+            {"van", null, "van Wolf", "cannot have -prefix without -core"},
+            {"van", null, null, "cannot have -prefix without -core"},
+            {null, "Berg", "van Berg", "There is no -prefix, but there is a -core and plain that are unequal"},
+            {null, "Berg", "van Wolf", "There is no -prefix, but there is a -core and plain that are unequal"},
+        };
+
+        for (String prefix : Arrays.asList("van", null)) {
+            for (String core : Arrays.asList("Berg", null)) {
+                for (String plain : Arrays.asList("van Berg", "van Wolf", null)) {
+                    String check = Modifier.inconsistentPrefixCorePlainValues(prefix, core, plain);
+                    String expected = null;
+                    for (String[] row : expectedFailures) {
+                        if (Objects.equal(prefix, row[0])
+                            && Objects.equal(core, row[1])
+                            && Objects.equal(plain, row[2])
+                            ) {
+                            expected = row[3];
+                        }
+                    }
+                    assertEquals("Name values consistent: prefix=" + prefix + ", core=" + core + ", plain=" + plain, expected, check);
+                }
+            }
         }
     }
 }

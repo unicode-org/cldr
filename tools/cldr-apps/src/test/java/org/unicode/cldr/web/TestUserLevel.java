@@ -9,8 +9,6 @@ import java.sql.SQLException;
 import java.util.function.Supplier;
 
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -20,36 +18,56 @@ import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.VoteResolver;
 
 public class TestUserLevel {
-    static UserRegistry reg;
+    static UserRegistry reg = null;
 
     private static int id = 9468; // Start user IDs here
 
-    @BeforeAll
-    static void setup() throws SQLException {
-        TestAll.doResetDb(null);
-        reg = getRegistry();
-        assertNotNull(reg, "reg is null");
+    static UserRegistry getRegistry() throws SQLException {
+        if (reg == null) {
+            TestAll.doResetDb(null);
+            reg = setupRegistry();
+            assertNotNull(reg, "UserRegistry is null");
+        }
+        return reg;
+    }
+
+    static UserRegistry setupRegistry() throws SQLException {
+        // We need a real UserRegistry to make this work
+        TestAll.setupTestDb();
+
+        if (CookieSession.sm == null) {
+            SurveyMain sm = new SurveyMain();
+            CookieSession.sm = sm; // hack - of course.
+        }
+
+        if (CookieSession.sm.reg == null) {
+            CookieSession.sm.reg = UserRegistry.createRegistry(CookieSession.sm);
+        }
+
+        assertNotNull(CookieSession.sm.reg, "cs.sm.reg is null");
+        return CookieSession.sm.reg;
     }
 
     @AfterAll
     static void cleanup() throws SQLException {
-        // Reset again.
-        TestAll.doResetDb(null);
-        CookieSession.sm = null;
-        reg = null;
+        if (reg != null) {
+            // Reset again.
+            TestAll.doResetDb(null);
+            CookieSession.sm = null;
+            reg = null;
+        }
     }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/org/unicode/cldr/web/TestUserLevel.csv", numLinesToSkip=1)
     void TestCompatUserLevelDataDriven(String org, String levelStr, String operation, String expStr,
         String otherOrg, String otherLevel) throws SQLException {
-        assertNotNull(reg, "reg is null");
         final Organization o = Organization.valueOf(org);
         assertNotNull(o, () -> "Could not parse organization " + org);
         VoteResolver.Level vrLevel = VoteResolver.Level.valueOf(levelStr);
         assertNotNull(vrLevel, () -> "Could not parse VR level " + levelStr);
         // just make a new user
-        UserRegistry.User u = reg.getTestUser(id++, o, vrLevel);
+        UserRegistry.User u = getRegistry().getTestUser(id++, o, vrLevel);
         testCompatAction(operation, expStr, otherOrg, otherLevel, o, u);
     }
 
@@ -230,9 +248,6 @@ public class TestUserLevel {
         }
         Supplier<String> onFail = () -> (o.name() + "-" + l.name())+"."+operation+"("+otherOrg+","+otherLevel+")≠"+expStr;
 
-        // TODO: remove this!!
-        UserRegistry.User u = reg.getTestUser(id++, o, l);
-
         switch (operation) {
         case "isAdminForOrg":
             assertEquals(expected, l.isAdminForOrg(o, otherO), onFail);
@@ -318,24 +333,5 @@ public class TestUserLevel {
         default:
             assertFalse(true, "Unsupported operation in TestUserLevel.csv: " + operation);
         }
-    }
-
-
-
-    static UserRegistry getRegistry() throws SQLException {
-        // We need a real UserRegistry to make this work
-        TestAll.setupTestDb();
-
-        if (CookieSession.sm == null) {
-            SurveyMain sm = new SurveyMain();
-            CookieSession.sm = sm; // hack - of course.
-        }
-
-        if (CookieSession.sm.reg == null) {
-            CookieSession.sm.reg = UserRegistry.createRegistry(CookieSession.sm);
-        }
-
-        assertNotNull(CookieSession.sm.reg, "cs.sm.reg is null");
-        return CookieSession.sm.reg;
     }
 }

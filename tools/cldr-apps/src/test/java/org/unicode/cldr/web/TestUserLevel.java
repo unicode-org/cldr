@@ -13,7 +13,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.unicode.cldr.test.CheckCLDR;
-import org.unicode.cldr.unittest.web.TestAll;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.VoteResolver;
 
@@ -21,42 +20,6 @@ public class TestUserLevel {
     static UserRegistry reg = null;
 
     private static int id = 9468; // Start user IDs here
-
-    static UserRegistry getRegistry() throws SQLException {
-        if (reg == null) {
-            TestAll.doResetDb(null);
-            reg = setupRegistry();
-            assertNotNull(reg, "UserRegistry is null");
-        }
-        return reg;
-    }
-
-    static UserRegistry setupRegistry() throws SQLException {
-        // We need a real UserRegistry to make this work
-        TestAll.setupTestDb();
-
-        if (CookieSession.sm == null) {
-            SurveyMain sm = new SurveyMain();
-            CookieSession.sm = sm; // hack - of course.
-        }
-
-        if (CookieSession.sm.reg == null) {
-            CookieSession.sm.reg = UserRegistry.createRegistry(CookieSession.sm);
-        }
-
-        assertNotNull(CookieSession.sm.reg, "cs.sm.reg is null");
-        return CookieSession.sm.reg;
-    }
-
-    @AfterAll
-    static void cleanup() throws SQLException {
-        if (reg != null) {
-            // Reset again.
-            TestAll.doResetDb(null);
-            CookieSession.sm = null;
-            reg = null;
-        }
-    }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/org/unicode/cldr/web/TestUserLevel.csv", numLinesToSkip=1)
@@ -67,7 +30,11 @@ public class TestUserLevel {
         VoteResolver.Level vrLevel = VoteResolver.Level.valueOf(levelStr);
         assertNotNull(vrLevel, () -> "Could not parse VR level " + levelStr);
         // just make a new user
-        UserRegistry.User u = getRegistry().getTestUser(id++, o, vrLevel);
+        final UserRegistry reg2 = new UserRegistry() {
+            // Hack. Not nearly functional.
+        };
+        assertNotNull(reg2, "getRegistry() returned null");
+        UserRegistry.User u = reg2.getTestUser(id++, o, vrLevel);
         testCompatAction(operation, expStr, otherOrg, otherLevel, o, u);
     }
 

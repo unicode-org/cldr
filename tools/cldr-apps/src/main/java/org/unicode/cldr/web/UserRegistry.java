@@ -225,7 +225,7 @@ public class UserRegistry {
     public static final String SQL_removeIntLoc = "DELETE FROM " + CLDR_INTEREST + " WHERE uid=?";
     public static final String SQL_updateIntLoc = "INSERT INTO " + CLDR_INTEREST + " (uid,forum) VALUES(?,?)";
 
-    private UserSettingsData userSettings;
+    private UserSettingsData userSettings = null;
 
     /**
      * This nested class is the representation of an individual user. It may not
@@ -276,12 +276,16 @@ public class UserRegistry {
         @Deprecated
         private User() {
             this.id = UserRegistry.NO_USER;
-            settings = userSettings.getSettings(id); // may not use settings.
+            if (userSettings != null) {
+                settings = userSettings.getSettings(id); // may not use settings.
+            }
         }
 
         public User(int id) {
             this.id = id;
-            settings = userSettings.getSettings(id);
+            if (userSettings != null) {
+                settings = userSettings.getSettings(id);
+            }
         }
 
         /**

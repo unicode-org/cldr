@@ -35,6 +35,7 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.SurveyLog;
+import org.unicode.cldr.web.DBUserRegistry;
 import org.unicode.cldr.web.UserRegistry;
 
 @Path("/voting/participation")
@@ -96,7 +97,7 @@ public class VotingParticipation {
             results.results.add(p);
             UserRegistry reg = CookieSession.sm.reg;
             try (Connection conn = dbUtils.getAConnection();
-                PreparedStatement userListStatement = reg.list(o.name(), conn);
+                PreparedStatement userListStatement = ((DBUserRegistry)reg).list(o.name(), conn);
                 ResultSet userList = userListStatement.executeQuery();) {
                 // get all vetters
                 final Set<String> localesWithVetters = new TreeSet<String>();

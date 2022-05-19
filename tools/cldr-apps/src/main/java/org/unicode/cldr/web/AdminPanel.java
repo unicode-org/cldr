@@ -189,7 +189,7 @@ public class AdminPanel {
             c1.setMaxAge(0);
             response.addCookie(c1);
         }
-        String orgs[] = UserRegistry.getOrgList();
+        String orgs[] = sm.reg.getOrgList();
         String myorg = orgs[(int) Math.rint(Math.random() * (orgs.length - 1))];
         JSONObject levels = new JSONObject();
         for (final VoteResolver.Level l : VoteResolver.Level.values()) { // like 999

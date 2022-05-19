@@ -45,7 +45,7 @@ public class SurveyVettingParticipation {
         JSONArray participationObj = new JSONArray();
         try {
             conn = DBUtils.getInstance().getAConnection();
-            psUsers = sm.reg.list(org, conn);
+            psUsers = ((DBUserRegistry)sm.reg).list(org, conn);
             if (org == null) {
                 r.put("org", "*");
                 psParticipation = conn.prepareStatement("SELECT v.submitter, count(v.submitter) as count, v.locale \n"

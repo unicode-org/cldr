@@ -47,7 +47,7 @@ public class OrgList {
         public String[] list;
 
         public OrgListResponse() {
-            list = UserRegistry.getOrgList();
+            list = org.unicode.cldr.web.CookieSession.sm.reg.getOrgList();
         }
     }
 }

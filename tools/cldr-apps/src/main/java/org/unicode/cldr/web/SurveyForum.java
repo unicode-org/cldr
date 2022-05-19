@@ -531,7 +531,7 @@ public class SurveyForum {
     }
 
     private static PreparedStatement prepare_pIntUsers(Connection conn) throws SQLException {
-        return DBUtils.prepareStatement(conn, "pIntUsers", "SELECT uid from " + UserRegistry.CLDR_INTEREST + " where forum=?");
+        return DBUtils.prepareStatement(conn, "pIntUsers", "SELECT uid from " + DBUserRegistry.CLDR_INTEREST + " where forum=?");
     }
 
     private static String localeToForum(ULocale locale) {

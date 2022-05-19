@@ -115,7 +115,7 @@ public class UserList {
         r.put("userPerms", userPerms);
         r.put("canShowLocked", canShowLocked);
         if ("true".equals(request.getParameter(GET_ORGS))) {
-            r.put("orgList", UserRegistry.getOrgList());
+            r.put("orgList", reg.getOrgList());
         }
         listUsers(r);
     }
@@ -139,7 +139,7 @@ public class UserList {
         try {
             conn = sm.dbUtils.getAConnection();
             synchronized (reg) {
-                ps = reg.list(org, conn); // org = null to list all
+                ps = ((DBUserRegistry)reg).list(org, conn); // org = null to list all
                 rs = ps.executeQuery();
                 if (rs == null) {
                     return;
@@ -354,7 +354,7 @@ public class UserList {
             if (type == InfoType.INFO_ORG) {
                 s += "<select name='string0" + what + "'>]n";
                 s += "<option value='' >Choose...</option>\n";
-                for (String o : UserRegistry.getOrgList()) {
+                for (String o : reg.getOrgList()) {
                     s += "<option value='" + o + "' ";
                     if (o.equals(u.user.org)) {
                         s += " selected='selected' ";

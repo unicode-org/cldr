@@ -1563,7 +1563,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         try {
             conn = dbUtils.getDBConnection();
             synchronized (reg) {
-                ps = reg.list(org, conn);
+                ps = ((DBUserRegistry)reg).list(org, conn);
                 rs = ps.executeQuery();
                 if (rs == null) {
                     ctx.println("\t<!-- No results -->");
@@ -1806,30 +1806,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         /*
          * Don't show these warnings for example pages.
          */
-        if ((ctx.getLocale() != null) && (!shortHeader(ctx))) {
-            CLDRLocale aliasTarget = isLocaleAliased(ctx.getLocale());
-            if (aliasTarget != null) {
-                /*
-                 * The alias might be a default content locale. Save some clicks here.
-                 */
-                CLDRLocale dcParent = getSupplementalDataInfo().getBaseFromDefaultContent(aliasTarget);
-                if (dcParent == null) {
-                    dcParent = aliasTarget;
-                }
-                ctx.println("<div class='ferrbox'>This locale is aliased to <b>" + getLocaleLink(ctx, aliasTarget, null)
-                    + "</b>. You cannot modify it. Please make all changes in <b>" + getLocaleLink(ctx, dcParent, null)
-                    + "</b>.<br>");
-                ctx.printHelpLink("/AliasedLocale", "Help with Aliased Locale");
-                ctx.print("</div>");
-
-                ctx.println("<div class='ferrbox'><h1>"
-                    + ctx.iconHtml("stop", null)
-                    + "We apologise for the inconvenience, but there is currently an error with how these aliased locales are resolved.  Kindly ignore this locale for the time being. You must make all changes in <b>"
-                    + getLocaleLink(ctx, dcParent, null) + "</b>.</h1>");
-                ctx.print("</div>");
-
-            }
-        }
         doLocale(ctx, baseContext, which, whyBad);
     }
 
@@ -1878,12 +1854,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 if (dot != -1) {
                     localeName = localeName.substring(0, dot);
                     CLDRLocale loc = CLDRLocale.getInstance(localeName);
-
-                    // but, is it just an alias?
-                    CLDRLocale aliasTo = isLocaleAliased(loc);
-                    if (aliasTo == null) {
-                        newLocaleTree.add(loc);
-                    }
                 }
             }
             localeTree = newLocaleTree;
@@ -2321,20 +2291,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         final boolean DDEBUG = false;
         if (DDEBUG)
             logger.warning("Checking directionality for " + id);
-        if (aliasMap == null) {
+        if (directionMap == null) {
             checkAllLocales();
         }
         while (id != null) {
             // TODO use iterator
-            CLDRLocale aliasTo = isLocaleAliased(id);
-            if (DDEBUG)
-                logger.warning("Alias -> " + aliasTo);
-            if (aliasTo != null && !aliasTo.equals(id)) { // prevent loops
-                id = aliasTo;
-                if (DDEBUG)
-                    logger.warning(" -> " + id);
-                continue;
-            }
             String dir = directionMap.get(id);
             if (DDEBUG)
                 logger.warning(" dir:" + dir);
@@ -2462,7 +2423,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return uf;
     }
 
-    private static Hashtable<CLDRLocale, CLDRLocale> aliasMap = null;
     private static Hashtable<CLDRLocale, String> directionMap = null;
 
     /**
@@ -2476,7 +2436,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     private synchronized void checkAllLocales() {
-        if (aliasMap != null)
+        if (directionMap != null)
             return;
 
         boolean useCache = isUnofficial(); // NB: do NOT use the cache if we are
@@ -2486,7 +2446,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         // we want to save some time during development iterations.
         // In production, we want the files to be more carefully checked every time.
 
-        Hashtable<CLDRLocale, CLDRLocale> aliasMapNew = new Hashtable<>();
         Hashtable<CLDRLocale, String> directionMapNew = new Hashtable<>();
         Set<CLDRLocale> locales = getLocalesSet();
         ElapsedTimer et = new ElapsedTimer();
@@ -2513,7 +2472,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
             int n = 0;
             int cachehit = 0;
-            logger.info("Parse " + locales.size() + " locales from XML to look for aliases or errors...");
+            logger.info("Parse " + locales.size() + " locales from XML to look for errors...");
 
             Set<CLDRLocale> failedSuppTest = new TreeSet<>();
 
@@ -2521,7 +2480,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
             for (File f : getInFiles()) {
                 CLDRLocale loc = fileNameToLocale(f.getName());
-
                 try {
                     covInfo.getCoverageValue("//ldml", loc.getBaseName());
                 } catch (Throwable t) {
@@ -2532,14 +2490,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 progress.update(n++, loc.toString());
                 try {
                     String fileHash = fileHash(f);
-                    String aliasTo = null;
                     String direction = null;
                     // logger.warning(fileHash);
 
                     String oldHash = xmlCacheProps.getProperty(locString);
                     if (useCache && oldHash != null && oldHash.equals(fileHash)) {
                         // cache hit! load from cache
-                        aliasTo = xmlCacheProps.getProperty(locString + ".a", null);
                         direction = xmlCacheProps.getProperty(locString + ".d", null);
                         cachehit++;
                     } else {
@@ -2557,13 +2513,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
                         Node[] aliasItems = LDMLUtilities.getNodeListAsArray(d, "//ldml/alias");
 
-                        if ((aliasItems == null) || (aliasItems.length == 0)) {
-                            aliasTo = null;
-                        } else if (aliasItems.length > 1) {
-                            throw new InternalError("found " + aliasItems.length + " items at " + "//ldml/alias"
-                                + " - should have only found 1");
-                        } else {
-                            aliasTo = LDMLUtilities.getAttributeValue(aliasItems[0], "source");
+                        if ((aliasItems != null) && (aliasItems.length != 0)) {
+                            throw new InternalError("found  obsolete //ldml/alias at "
+                                 + loc);
                         }
                     }
 
@@ -2573,15 +2525,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                         directionMapNew.put((loc), direction);
                         xmlCachePropsNew.put(locString + ".d", direction);
                     }
-                    if (aliasTo != null) {
-                        aliasMapNew.put((loc), CLDRLocale.getInstance(aliasTo));
-                        xmlCachePropsNew.put(locString + ".a", aliasTo);
-                    }
                 } catch (Throwable t) {
-                    logger.warning("isLocaleAliased: Failed load/validate on: " + loc + " - " + t.toString());
+                    logger.warning("Failed load/validate on: " + loc + " - " + t.toString());
                     t.printStackTrace();
-                    busted("isLocaleAliased: Failed load/validate on: " + loc + " - ", t);
-                    throw new InternalError("isLocaleAliased: Failed load/validate on: " + loc + " - " + t.toString());
+                    busted("Failed load/validate on: " + loc + " - ", t);
+                    throw new InternalError("Failed load/validate on: " + loc + " - " + t.toString());
                 }
             }
 
@@ -2611,23 +2559,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 busted("Supplemental Data Test failed on startup for: " + ListFormatter.getInstance().format(failedSuppTest));
             }
 
-            logger.warning("Finished verify+alias check of " + locales.size() + ", " + aliasMapNew.size()
-                + " aliased locales (" + cachehit + " in cache) found in " + et.toString());
-            aliasMap = aliasMapNew;
+            logger.warning("Finished verify+alias check of " + locales.size() + ", " + directionMap.size()
+                + " directioned locales (" + cachehit + " in cache) found in " + et.toString());
             directionMap = directionMapNew;
         } finally {
             progress.close();
         }
-    }
-
-    /**
-     * Is this locale fully aliased? If true, returns what it is aliased to.
-     */
-    public synchronized CLDRLocale isLocaleAliased(CLDRLocale id) {
-        if (aliasMap == null) {
-            checkAllLocales();
-        }
-        return aliasMap.get(id);
     }
 
     public Set<String> getMetazones(String subclass) {
@@ -2845,10 +2782,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         }
 
         /**
-         * Cause locale alias to be checked.
+         * Cause locale list to be checked.
          */
         if (!isBusted()) {
-            isLocaleAliased(CLDRLocale.ROOT);
+            checkAllLocales();
         }
 
         {
@@ -3447,9 +3384,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             // now other tables..
             progress.update("Setup databases "); // restore
             try {
-                progress.update("Setup  " + UserRegistry.CLDR_USERS); // restore
-                progress.update("Create UserRegistry  " + UserRegistry.CLDR_USERS); // restore
-                reg = UserRegistry.createRegistry(this);
+                progress.update("Setup  " + DBUserRegistry.CLDR_USERS); // restore
+                progress.update("Create UserRegistry  " + DBUserRegistry.CLDR_USERS); // restore
+                reg = DBUserRegistry.createRegistry(this);
             } catch (SQLException e) {
                 busted("On UserRegistry startup", e);
                 return;

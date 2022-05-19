@@ -12,9 +12,14 @@ public class STError {
         this.message = desc;
     }
 
-
     public STError(Throwable t) {
-        setMessage("Exception: " + t.toString());
+        this(t, null);
+    }
+    public STError(Throwable t, String preMessage) {
+        if (preMessage == null) {
+            preMessage = "Exception:";
+        }
+        setMessage(preMessage + " " + t.toString());
         if (t instanceof SurveyException) {
             SurveyException se = (SurveyException) t;
             setCode(se.getErrCode());

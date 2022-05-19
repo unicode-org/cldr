@@ -529,6 +529,10 @@ const strings = {
     "The coverage level for each locale is organization-neutral.",
   summary_access_denied:
     "To see the summary, you must be logged in as a manager, TC, or admin.",
+
+  // LocaleNormalizer.LocaleRejection
+  locale_rejection_unknown: "Unknown or not in CLDR",
+  locale_rejection_outside_org_coverage: "Outside of org’s coverage",
 };
 
 /**

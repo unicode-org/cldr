@@ -67,14 +67,31 @@
               id="new_locales"
               name="new_locales"
               v-model="newUser.locales"
+              @change="validateLocales"
+              placeholder="en de de_CH fr zh_Hant"
             />
             <button v-on:click="setAllLocales()">All Locales</button><br />
-            (Space separated. Examples: "en de de_CH fr zh_Hant". Use the All
-            Locales button to grant access to all locales. )
+            (Space separated. Use the All Locales button to grant access to all
+            locales. )<br />
+
+            <div v-if="locWarnings">
+              <span class="locWarnings"
+                >The following locales will not be added due to problems:</span
+              >
+              <ul>
+                <li v-bind:key="loc" v-for="loc in Object.keys(locWarnings)">
+                  <tt>{{ loc }}</tt>
+                  {{ getParenthesizedName(loc) }}
+                  — {{ explainWarning(locWarnings[loc]) }}
+                </li>
+              </ul>
+            </div>
           </td>
         </tr>
         <tr class="addButton">
-          <td colspan="2"><button v-on:click="add()">Add</button></td>
+          <td colspan="2">
+            <button v-on:click="add()">Add</button>
+          </td>
         </tr>
       </table>
     </div>
@@ -106,6 +123,8 @@
 import * as cldrAccount from "../esm/cldrAccount.js";
 import * as cldrAjax from "../esm/cldrAjax.js";
 import * as cldrStatus from "../esm/cldrStatus.js";
+import * as cldrLoad from "../esm/cldrLoad.js";
+import * as cldrText from "../esm/cldrText.js";
 
 export default {
   data() {
@@ -113,6 +132,7 @@ export default {
       addedNewUser: false,
       canChooseOrg: null,
       errors: [],
+      locWarnings: null,
       levelList: null,
       loading: false,
       newUser: {
@@ -151,6 +171,27 @@ export default {
       }
     },
 
+    async validateLocales() {
+      await cldrAjax
+        .doFetch(
+          "./api/locales/normalize?" +
+            new URLSearchParams({
+              locs: this.newUser.locales,
+              org: this.newUser.org,
+            })
+        )
+        .then(cldrAjax.handleFetchErrors)
+        .then((r) => r.json())
+        .then(({ messages, normalized }) => {
+          if (this.newUser.locales != normalized) {
+            // only update the warnings if the normalized value changes
+            this.newUser.locales = normalized;
+            this.locWarnings = messages;
+          }
+        })
+        .catch((e) => this.errors.push(`Error: ${e} validating locale`));
+    },
+
     getLevelList() {
       this.levelList = cldrAccount.getLevelList();
       if (this.levelList) {
@@ -176,6 +217,23 @@ export default {
           this.loading = false;
         }
       }
+    },
+
+    getLocaleName(loc) {
+      if (!loc) return null;
+      return cldrLoad.getTheLocaleMap()?.getLocaleName(loc);
+    },
+
+    getParenthesizedName(loc) {
+      const name = this.getLocaleName(loc);
+      if (name && name !== loc) {
+        return `(${name})`;
+      }
+      return "";
+    },
+
+    explainWarning(reason) {
+      return cldrText.get(`locale_rejection_${reason}`, reason);
     },
 
     getOrgList() {
@@ -205,8 +263,9 @@ export default {
       }
     },
 
-    add() {
+    async add() {
       this.validate();
+      await this.validateLocales();
       if (this.errors.length) {
         return;
       }
@@ -320,7 +379,8 @@ export default {
 </script>
 
 <style scoped>
-.addUserErrors {
+.addUserErrors,
+.locWarnings {
   font-weight: bold;
   font-size: large;
   color: red;

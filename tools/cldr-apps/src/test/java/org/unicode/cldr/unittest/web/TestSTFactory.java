@@ -28,6 +28,7 @@ import org.unicode.cldr.web.BallotBox;
 import org.unicode.cldr.web.BallotBox.InvalidXPathException;
 import org.unicode.cldr.web.BallotBox.VoteNotAcceptedException;
 import org.unicode.cldr.web.CookieSession;
+import org.unicode.cldr.web.DBUserRegistry;
 import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.STFactory;
 import org.unicode.cldr.web.SurveyException;
@@ -861,7 +862,7 @@ public class TestSTFactory extends TestFmwk {
             logln(et0.toString());
 
             et0 = new ElapsedTimer("setup Registry");
-            sm.reg = UserRegistry.createRegistry(sm);
+            sm.reg = DBUserRegistry.createRegistry(sm);
             logln(et0.toString());
 
             et0 = new ElapsedTimer("setup XPT");

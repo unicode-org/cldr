@@ -32,11 +32,11 @@ import org.unicode.cldr.util.LocaleSet;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.SandboxLocales;
 import org.unicode.cldr.util.VoteResolver;
-import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
+import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.web.MemoryUserRegistry;
 import org.unicode.cldr.web.STFactory;
 import org.unicode.cldr.web.SurveyMain;
-import org.unicode.cldr.web.UserRegistry;
 import org.unicode.cldr.web.XPathTable;
 import org.unicode.cldr.web.api.LocaleCompletion.LocaleCompletionResponse;
 
@@ -298,7 +298,7 @@ public class TestLocaleCompletion {
     private SurveyMain getSurveyMain() {
         SurveyMain sm = new SurveyMain();
         sm.xpt = new XPathTable();
-        sm.reg = new UserRegistry() {
+        sm.reg = new MemoryUserRegistry() {
             final VoterInfo user0 = new VoterInfo(Organization.guest, VoteResolver.Level.tc, "Test User", new LocaleSet(true));
 
             @Override

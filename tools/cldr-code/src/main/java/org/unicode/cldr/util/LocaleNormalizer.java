@@ -1,7 +1,11 @@
 package org.unicode.cldr.util;
 
-import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 /**
  * Normalize and validate sets of locales. This class was split off from UserRegistry.java with
@@ -20,6 +24,21 @@ import java.util.Set;
  * with special handling for isAllLocales.
  */
 public class LocaleNormalizer {
+    public enum LocaleRejection {
+        outside_org_coverage("Outside org. coverage"),
+        unknown("Unknown");
+
+        LocaleRejection(String message) {
+            this.message = message;
+        }
+        final String message;
+
+        @Override
+        public
+        String toString() {
+            return message;
+        }
+    }
 
     /**
      * Special constant for specifying access to no locales. Used with intlocs (not with locale access)
@@ -29,7 +48,7 @@ public class LocaleNormalizer {
     /**
      * Special String constant for specifying access to all locales.
      */
-    public static final String ALL_LOCALES = "*";
+    public static final String ALL_LOCALES = StandardCodes.ALL_LOCALES;
 
     public static boolean isAllLocales(String localeList) {
         return (localeList != null) && (localeList.contains(ALL_LOCALES) || localeList.trim().equals("all"));
@@ -117,13 +136,13 @@ public class LocaleNormalizer {
         return locSet.toString();
     }
 
-    private ArrayList<String> messages = null;
+    private Map<String, LocaleRejection> messages = null;
 
-    private void addMessage(String s) {
+    private void addMessage(String locale, LocaleRejection rejection) {
         if (messages == null) {
-            messages = new ArrayList<>();
+            messages = new TreeMap<>();
         }
-        messages.add(s);
+        messages.put(locale, rejection);
     }
 
     public boolean hasMessage() {
@@ -131,11 +150,26 @@ public class LocaleNormalizer {
     }
 
     public String getMessagePlain() {
-        return String.join("\n", messages);
+        return String.join("\n", getMessageArrayPlain());
     }
 
     public String getMessageHtml() {
-        return String.join("<br />\n", messages);
+        return String.join("<br />\n", getMessageArrayPlain());
+    }
+
+    public String[] getMessageArrayPlain() {
+        return getMessagesPlain().toArray(new String[0]);
+    }
+
+    public Collection<String> getMessagesPlain() {
+        return getMessages().entrySet().stream()
+            .map(e -> (e.getValue() + ": " + e.getKey()))
+            .collect(Collectors.toList());
+    }
+
+    public Map<String, LocaleRejection> getMessages() {
+        if (messages == null) return Collections.emptyMap();
+        return Collections.unmodifiableMap(messages);
     }
 
     public static LocaleSet setFromStringQuietly(String locales, LocaleSet orgLocaleSet) {
@@ -160,10 +194,10 @@ public class LocaleNormalizer {
                 if (orgLocaleSet == null || orgLocaleSet.containsLocaleOrParent(locale)) {
                     newSet.add(locale);
                 } else if (locNorm != null) {
-                    locNorm.addMessage("Outside org. coverage: " + locale.getBaseName());
+                    locNorm.addMessage(locale.getBaseName(), LocaleRejection.outside_org_coverage);
                 }
             } else if (locNorm != null) {
-                locNorm.addMessage("Unknown: " + locale.getBaseName());
+                locNorm.addMessage(locale.getBaseName(), LocaleRejection.unknown);
             }
         }
         return newSet;

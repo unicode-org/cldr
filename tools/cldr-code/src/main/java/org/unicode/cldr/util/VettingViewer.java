@@ -1033,7 +1033,12 @@ public class VettingViewer<T> {
             }
             Level level = Level.MODERN;
             if (context.organization != null) {
-                level = StandardCodes.make().getLocaleCoverageLevel(context.organization.toString(), localeID);
+                StandardCodes sc = StandardCodes.make();
+                if (orgIsNeutralForSummary((Organization) context.organization)) {
+                    level = sc.getTargetCoverageLevel(localeID);
+                } else {
+                    level = sc.getLocaleCoverageLevel(context.organization.toString(), localeID);
+                }
             }
             FileInfo fileInfo = new FileInfo(localeID, level, choices, context.organization);
             fileInfo.setFiles(sourceFile, baselineFile);

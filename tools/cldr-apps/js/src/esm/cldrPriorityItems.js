@@ -78,10 +78,16 @@ function viewCreated(setData, setSnap) {
 }
 
 function fetchStatus() {
-  if (canSnap) {
-    listSnapshots();
+  if (!canSum || "vsummary" !== cldrStatus.getCurrentSpecial()) {
+    canSum = canSnap = canCreateSnap = false;
+    return;
   }
-  requestSummary(new SummaryArgs(latestArgs, LOAD_NOSTART));
+  if (canSum) {
+    if (canSnap) {
+      listSnapshots();
+    }
+    requestSummary(new SummaryArgs(latestArgs, LOAD_NOSTART));
+  }
 }
 
 function start() {
@@ -144,13 +150,17 @@ function listSnapshots() {
     .catch((error) => console.log(error));
 }
 
+function snapshotIdIsValid(snapshotId) {
+  return snapshotId && snapshotId !== SNAPID_NOT_APPLICABLE;
+}
+
 export {
-  SNAPID_NOT_APPLICABLE,
   canCreateSnapshots,
   canUseSnapshots,
   canUseSummary,
   createSnapshot,
   showSnapshot,
+  snapshotIdIsValid,
   start,
   stop,
   viewCreated,

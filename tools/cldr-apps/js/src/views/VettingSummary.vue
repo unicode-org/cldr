@@ -25,7 +25,7 @@
         Create New Summary
       </button>
     </p>
-    <section v-if="canUseSnapshots" class="snapSection">
+    <section v-if="snapshotsAreReady" class="snapSection">
       <h2 class="snapHeading">Snapshots</h2>
       <p>
         <button
@@ -67,6 +67,7 @@ export default {
       output: null,
       percent: 0,
       snapshotArray: null,
+      snapshotsAreReady: false,
       status: null,
       whenReceived: null,
     };
@@ -110,6 +111,9 @@ export default {
         this.heading = this.makeHeading(data.snapshotId);
         this.helpMessage = this.makeHelp(data.snapshotId);
         this.whenReceived = this.makeWhenReceived(data.snapshotId);
+        this.snapshotsAreReady =
+          this.canUseSnapshots &&
+          cldrPriorityItems.snapshotIdIsValid(data.snapshotId);
       }
     },
 
@@ -117,10 +121,7 @@ export default {
       if (!this.output) {
         return null;
       }
-      if (
-        snapshotId &&
-        snapshotId !== cldrPriorityItems.SNAPID_NOT_APPLICABLE
-      ) {
+      if (cldrPriorityItems.snapshotIdIsValid(snapshotId)) {
         return null;
       } else {
         // only show "when received" if it's not a snapshot
@@ -132,10 +133,7 @@ export default {
       if (!this.output) {
         return null;
       }
-      if (
-        snapshotId &&
-        snapshotId !== cldrPriorityItems.SNAPID_NOT_APPLICABLE
-      ) {
+      if (cldrPriorityItems.snapshotIdIsValid(snapshotId)) {
         return "Snapshot " + snapshotId;
       } else if (this.canUseSnapshots) {
         return "Latest (not a snapshot)";
@@ -149,10 +147,7 @@ export default {
         return null;
       }
       let help = cldrText.get("summary_help") + " ";
-      if (
-        snapshotId &&
-        snapshotId !== cldrPriorityItems.SNAPID_NOT_APPLICABLE
-      ) {
+      if (cldrPriorityItems.snapshotIdIsValid(snapshotId)) {
         help += cldrText.get("summary_coverage_neutral");
       } else {
         help += cldrText.get("summary_coverage_org_specific");
@@ -162,8 +157,15 @@ export default {
 
     setSnapshots(snapshots) {
       this.snapshotArray = snapshots.array.sort().reverse();
-      if (!this.output && this.snapshotArray[0]) {
-        this.showSnapshot(this.snapshotArray[0]);
+      if (!this.output) {
+        if (this.snapshotArray[0]) {
+          // request this most recent snapshot from the back end
+          // -- wait until get response to set snapshotsAreReady
+          this.showSnapshot(this.snapshotArray[0]);
+        } else {
+          // no snapshots are available; we're ready to show the empty menu
+          this.snapshotsAreReady = this.canUseSnapshots;
+        }
       }
     },
 

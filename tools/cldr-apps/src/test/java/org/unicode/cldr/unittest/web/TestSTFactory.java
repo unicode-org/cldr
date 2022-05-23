@@ -1,5 +1,7 @@
 package org.unicode.cldr.unittest.web;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -838,44 +840,7 @@ public class TestSTFactory extends TestFmwk {
 
     private STFactory getFactory() throws SQLException {
         if (gFac == null) {
-            long start = System.currentTimeMillis();
-            TestAll.setupTestDb();
-            logln("Set up test DB: " + ElapsedTimer.elapsedTime(start));
-
-            ElapsedTimer et0 = new ElapsedTimer("clearing directory");
-            //File cacheDir = TestAll.getEmptyDir(CACHETEST);
-            logln(et0.toString());
-
-            et0 = new ElapsedTimer("setup SurveyMain");
-            SurveyMain sm = new SurveyMain();
-            CookieSession.sm = sm; // hack - of course.
-            logln(et0.toString());
-
-            SurveyMain.fileBase = CLDRPaths.MAIN_DIRECTORY;
-            SurveyMain.fileBaseSeed = new File(CLDRPaths.BASE_DIRECTORY, "seed/main/").getAbsolutePath();
-            SurveyMain.fileBaseA = new File(CLDRPaths.BASE_DIRECTORY, "common/annotations/").getAbsolutePath();
-            SurveyMain.fileBaseASeed = new File(CLDRPaths.BASE_DIRECTORY, "seed/annotations/").getAbsolutePath();
-
-            et0 = new ElapsedTimer("setup DB");
-            Connection conn = DBUtils.getInstance().getDBConnection();
-            logln(et0.toString());
-
-            et0 = new ElapsedTimer("setup Registry");
-            sm.reg = UserRegistry.createRegistry(sm);
-            logln(et0.toString());
-
-            et0 = new ElapsedTimer("setup XPT");
-            sm.xpt = XPathTable.createTable(conn);
-            sm.xpt.getByXpath("//foo/bar[@type='baz']");
-            logln(et0.toString());
-            et0 = new ElapsedTimer("close connection");
-            DBUtils.closeDBConnection(conn);
-            logln(et0.toString());
-            et0 = new ElapsedTimer("Set up STFactory");
-            gFac = sm.getSTFactory();
-            logln(et0.toString());
-
-            assertFalse("SurveyTool shouldn’t be busted!", SurveyMain.isBusted());
+            gFac = createFactory();
         }
         return gFac;
     }
@@ -888,6 +853,48 @@ public class TestSTFactory extends TestFmwk {
             logln("--- resetting STFactory() ----- [simulate reload] ------------");
             return gFac = getFactory().TESTING_shutdownAndRestart();
         }
+    }
+
+    public static STFactory createFactory() throws SQLException {
+        long start = System.currentTimeMillis();
+        TestAll.setupTestDb();
+        System.err.println("Set up test DB: " + ElapsedTimer.elapsedTime(start));
+
+        ElapsedTimer et0 = new ElapsedTimer("clearing directory");
+        //File cacheDir = TestAll.getEmptyDir(CACHETEST);
+        System.err.println(et0.toString());
+
+        et0 = new ElapsedTimer("setup SurveyMain");
+        SurveyMain sm = new SurveyMain();
+        CookieSession.sm = sm; // hack - of course.
+        System.err.println(et0.toString());
+
+        SurveyMain.fileBase = CLDRPaths.MAIN_DIRECTORY;
+        SurveyMain.fileBaseSeed = new File(CLDRPaths.BASE_DIRECTORY, "seed/main/").getAbsolutePath();
+        SurveyMain.fileBaseA = new File(CLDRPaths.BASE_DIRECTORY, "common/annotations/").getAbsolutePath();
+        SurveyMain.fileBaseASeed = new File(CLDRPaths.BASE_DIRECTORY, "seed/annotations/").getAbsolutePath();
+
+        et0 = new ElapsedTimer("setup DB");
+        Connection conn = DBUtils.getInstance().getDBConnection();
+        System.err.println(et0.toString());
+
+        et0 = new ElapsedTimer("setup Registry");
+        sm.reg = UserRegistry.createRegistry(sm);
+        System.err.println(et0.toString());
+
+        et0 = new ElapsedTimer("setup XPT");
+        sm.xpt = XPathTable.createTable(conn);
+        sm.xpt.getByXpath("//foo/bar[@type='baz']");
+        System.err.println(et0.toString());
+        et0 = new ElapsedTimer("close connection");
+        DBUtils.closeDBConnection(conn);
+        System.err.println(et0.toString());
+        et0 = new ElapsedTimer("Set up STFactory");
+        STFactory fac = sm.getSTFactory();
+        System.err.println(et0.toString());
+
+        org.junit.jupiter.api.Assertions.assertFalse(SurveyMain.isBusted(), "SurveyTool shouldn’t be busted!");
+        return fac;
     }
 
     static final Map<String, Object> noDtdPlease = new TreeMap<>();

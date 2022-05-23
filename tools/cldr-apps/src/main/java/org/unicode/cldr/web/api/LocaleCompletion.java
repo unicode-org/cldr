@@ -4,7 +4,6 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -46,7 +45,6 @@ import org.unicode.cldr.web.STFactory;
 import org.unicode.cldr.web.SurveyLog;
 import org.unicode.cldr.web.SurveyMain;
 
-import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
@@ -113,26 +111,25 @@ public class LocaleCompletion {
 
     /**
      * This function computes the actual locale completion given a Locale
-     * @param cldrLocale
-     * @return
+     * @param cldrLocale the locale
+     * @return the response
      */
     static LocaleCompletionResponse handleGetLocaleCompletion(CLDRLocale cldrLocale) {
         final STFactory stFactory = CookieSession.sm.getSTFactory();
-        final LocaleCompletionResponse lcr = handleGetLocaleCompletion(cldrLocale, stFactory);
-        return lcr;
+        return handleGetLocaleCompletion(cldrLocale, stFactory);
     }
 
     static final class LocaleCompletionHelper implements Listener {
-        PathHeader.Factory phf = null;
+        PathHeader.Factory phf;
         LoadingCache<CLDRLocale, LocaleCompletionResponse> cache;
         LocaleCompletionHelper() {
             phf = PathHeader.getFactory(CLDRConfig.getInstance().getEnglish());
-            cache =  CacheBuilder.newBuilder().maximumSize(500)
+            cache = CacheBuilder.newBuilder().maximumSize(500)
             .concurrencyLevel(5) // allow 5 threads to compute completion, uncontested
             .expireAfterWrite(Duration.ofMinutes(20)) // expire 20 min after last change
-            .build(new CacheLoader<CLDRLocale, LocaleCompletionResponse>() {
+            .build(new CacheLoader<>() {
                 @Override
-                public LocaleCompletionResponse load(CLDRLocale key) throws Exception {
+                public LocaleCompletionResponse load(CLDRLocale key) {
                     return handleGetLocaleCompletion(key);
                 }
             });
@@ -147,11 +144,11 @@ public class LocaleCompletion {
     }
 
     /**
-     *
      * This function computes the actual locale completion given a Locale and STFactory
-     * @param cldrLocale
-     * @param stFactory
-     * @return
+     *
+     * @param cldrLocale the locale
+     * @param stFactory the STFactory
+     * @return the response
      */
     static LocaleCompletionResponse handleGetLocaleCompletion(final CLDRLocale cldrLocale, final STFactory stFactory) {
         final String localeId = cldrLocale.toString(); // normalized
@@ -164,7 +161,7 @@ public class LocaleCompletion {
         final TestResultBundle checkCldr = stFactory.getTestResult(cldrLocale, options);
 
         // we need an XML Source to receive notification.
-        // This causes LocaleCompletionHelper.INSRTANCE.valueChanged(...) to be called
+        // This causes LocaleCompletionHelper.INSTANCE.valueChanged(...) to be called
         // whenever a vote happens.
         final XMLSource mySource = stFactory.makeSource(localeId, false);
         mySource.addListener(LocaleCompletionHelper.INSTANCE);
@@ -209,7 +206,7 @@ public class LocaleCompletion {
                 continue; // not allowed through by SubmissionLocales.
             }
 
-            if (hasError) {
+            if (hasError || statusMissing) {
                 if (results.size() == 1 && results.get(0).getSubtype() == Subtype.coverageLevel) {
                     lcr.addMissing();
                 } else {

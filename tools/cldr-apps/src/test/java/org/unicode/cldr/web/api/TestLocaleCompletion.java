@@ -21,6 +21,8 @@ import org.opentest4j.MultipleFailuresError;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
+import org.unicode.cldr.unittest.web.TestAll;
+import org.unicode.cldr.unittest.web.TestSTFactory;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
@@ -46,13 +48,21 @@ public class TestLocaleCompletion {
      */
     private static final String TEST_LOCALE = "es";
     /**
+     * Baseline number of items missing in the above locale. This is sensitive to data changes.
+     */
+    final int STILL_MISSING = 41;
+    /**
      * Sanity check amount: Assume at least these many paths are present.
      */
     private int lOCALE_SIZE = 5;
 
     @Test
     void testLocaleCompletion() throws SQLException, IOException {
-        SurveyMain sm = getSurveyMain();
+
+        TestAll.setupTestDb();
+        // initial setup
+        final STFactory aFactory = TestSTFactory.createFactory();
+        final SurveyMain sm = aFactory.sm;
         final TestCache tc = new TestCache();
         final CLDRConfig config = CLDRConfig.getInstance();
         final CLDRFile english = config.getEnglish();
@@ -72,11 +82,10 @@ public class TestLocaleCompletion {
 
         preloadLocaleFile(spanish, localeFile);
 
-        /* TODO Temporarily disabled for CLDR-15585, restore when data for es is fleshed out
+        // TODO Temporarily disabled for CLDR-15585, restore when data for es is fleshed out
         testCompletePaths(tc, locale, localeFile, stf);
 
         testIncompletePaths(tc, locale, localeFile, stf);
-        */
     }
 
     /**
@@ -92,22 +101,22 @@ public class TestLocaleCompletion {
         setIncompletePaths(localeFile);
         tc.invalidateAllCached();
         final int EXPECT_ERROR = 2;
-        final int EXPECT_MISSING = 1;
+        final int EXPECT_MISSING = 1 + STILL_MISSING;
         final int EXPECT_PROVISIONAL = 2;
 
         assertFalse(CheckCLDR.LIMITED_SUBMISSION, "This test becomes invalid if LIMITED_SUBMISSION (or SubmissionLocales) changes.");
 
         {
             LocaleCompletionResponse completion = LocaleCompletion.handleGetLocaleCompletion(locale, stf);
-
+            final int expected_votes = completion.total - (EXPECT_ERROR + EXPECT_MISSING + EXPECT_PROVISIONAL);
             assertNotNull(completion);
             assertAll("tests on completion - not quite 100%",
                 () -> assertEquals(Level.MODERN.name(), completion.level, "completion level"),
                 () -> assertTrue(completion.votes > lOCALE_SIZE, "completion votes should be bigger but was " + completion.votes),
                 () -> assertTrue(completion.votes < completion.total,
                     "completion votes should be less than completion total but was  " + completion.votes + "/" + completion.total),
-                () -> assertEquals(completion.total - (EXPECT_ERROR + EXPECT_MISSING + EXPECT_PROVISIONAL), completion.votes,
-                    "completion votes should be less than completion total but was  " + completion.votes + "/" + completion.total),
+                () -> assertEquals(expected_votes, completion.votes,
+                    "completion votes was not as expected"),
                 () -> assertTrue(completion.total > lOCALE_SIZE, "completion total should be bigger but was " + completion.total),
                 () -> assertEquals(EXPECT_ERROR, completion.error, "error count was " + completion.error),
                 () -> assertEquals(EXPECT_MISSING, completion.missing, "missing count was " + completion.missing),
@@ -155,12 +164,12 @@ public class TestLocaleCompletion {
             assertAll("tests on completio - 100%",
                 () -> assertEquals(Level.MODERN.name(), completion.level, "completion level"),
                 () -> assertTrue(completion.votes > lOCALE_SIZE, "completion votes should be bigger but was " + completion.votes),
-                () -> assertEquals(completion.total, completion.votes,
+                () -> assertEquals(completion.total - STILL_MISSING, completion.votes,
                     "completion votes should be equal completion total but was  " + completion.votes + "/" + completion.total),
                 () -> assertTrue(completion.total > lOCALE_SIZE, "completion total should be bigger but was " + completion.total),
-                () -> assertEquals(0, completion.error),
-                () -> assertEquals(0, completion.missing),
-                () -> assertEquals(0, completion.provisional));
+                () -> assertEquals(0, completion.error, "error"),
+                () -> assertEquals(STILL_MISSING, completion.missing, "missing"),
+                () -> assertEquals(0, completion.provisional, "provisional"));
         }
     }
 

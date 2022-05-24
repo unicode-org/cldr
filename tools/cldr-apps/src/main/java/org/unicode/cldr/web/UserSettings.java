@@ -42,6 +42,23 @@ public abstract class UserSettings implements Comparable<UserSettings> {
     }
 
     /**
+     * Get a long.
+     *
+     * @param name
+     * @param defaultValue
+     *            default value to return
+     * @return the value, or the default
+     */
+    public long get(String name, long defaultValue) {
+        String asStr = get(name, null);
+        if (asStr == null) {
+            return defaultValue;
+        } else {
+            return Long.parseLong(asStr);
+        }
+    }
+
+    /**
      * Set an integer
      *
      * @param name
@@ -50,6 +67,17 @@ public abstract class UserSettings implements Comparable<UserSettings> {
      */
     public void set(String name, int value) {
         set(name, Integer.toString(value));
+    }
+
+    /**
+     * Set an long
+     *
+     * @param name
+     *            should be ASCII
+     * @param value
+     */
+    public void set(String name, long value) {
+        set(name, Long.toString(value));
     }
 
     public boolean get(String name, boolean defaultValue) {

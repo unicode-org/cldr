@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -38,6 +39,7 @@ import org.unicode.cldr.util.LocaleSet;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.util.VoterReportStatus;
 import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 
@@ -231,7 +233,7 @@ public class UserRegistry {
      * This nested class is the representation of an individual user. It may not
      * have all fields filled out, if it is simply from the cache.
      */
-    public class User implements Comparable<User>, UserInfo, JSONString {
+    public class User implements Comparable<User>, UserInfo, JSONString, VoterReportStatus {
         @Schema( description = "User ID")
         public int id; // id number
         @Schema( description = "numeric userlevel")
@@ -594,6 +596,20 @@ public class UserRegistry {
                 return localeSet.firstElement();
             }
             return null;
+        }
+
+        @Override
+        public EnumSet<ReportId> getCompletedReports() {
+            return Reports.getCompletion(settings);
+        }
+
+        @Override
+        public EnumSet<ReportId> getAcceptableReports() {
+            return Reports.getAcceptability(settings);
+        }
+
+        public void markReportComplete(ReportId r, boolean marked, boolean acceptable) {
+            Reports.markReportComplete(settings, r, marked, acceptable);
         }
     }
 

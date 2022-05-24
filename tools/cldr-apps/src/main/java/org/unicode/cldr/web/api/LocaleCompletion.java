@@ -1,11 +1,7 @@
 package org.unicode.cldr.web.api;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.GET;
@@ -23,34 +19,19 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
-import org.unicode.cldr.test.CheckCLDR;
-import org.unicode.cldr.test.CheckCLDR.CheckStatus;
-import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
-import org.unicode.cldr.test.CoverageLevel2;
-import org.unicode.cldr.test.SubmissionLocales;
-import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
-import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.XMLSource.Listener;
-import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.STFactory;
-import org.unicode.cldr.web.SurveyLog;
 import org.unicode.cldr.web.SurveyMain;
 
-import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
-import com.ibm.icu.dev.util.ElapsedTimer;
 
 /**
  * "A locale has complete coverage when there are no Missing values, no Provisional values, and no Errors
@@ -69,7 +50,6 @@ import com.ibm.icu.dev.util.ElapsedTimer;
 @Path("/completion")
 @Tag(name = "completion", description = "APIs for voting completion statistics")
 public class LocaleCompletion {
-    private static final Logger logger = SurveyLog.forClass(LocaleCompletion.class);
 
     @GET
     @Path("/locale/{locale}")
@@ -113,26 +93,25 @@ public class LocaleCompletion {
 
     /**
      * This function computes the actual locale completion given a Locale
-     * @param cldrLocale
-     * @return
+     * @param cldrLocale the locale
+     * @return the response
      */
     static LocaleCompletionResponse handleGetLocaleCompletion(CLDRLocale cldrLocale) {
         final STFactory stFactory = CookieSession.sm.getSTFactory();
-        final LocaleCompletionResponse lcr = handleGetLocaleCompletion(cldrLocale, stFactory);
-        return lcr;
+        return handleGetLocaleCompletion(cldrLocale, stFactory);
     }
 
     static final class LocaleCompletionHelper implements Listener {
-        PathHeader.Factory phf = null;
+        PathHeader.Factory phf;
         LoadingCache<CLDRLocale, LocaleCompletionResponse> cache;
         LocaleCompletionHelper() {
             phf = PathHeader.getFactory(CLDRConfig.getInstance().getEnglish());
-            cache =  CacheBuilder.newBuilder().maximumSize(500)
+            cache = CacheBuilder.newBuilder().maximumSize(500)
             .concurrencyLevel(5) // allow 5 threads to compute completion, uncontested
             .expireAfterWrite(Duration.ofMinutes(20)) // expire 20 min after last change
-            .build(new CacheLoader<CLDRLocale, LocaleCompletionResponse>() {
+            .build(new CacheLoader<>() {
                 @Override
-                public LocaleCompletionResponse load(CLDRLocale key) throws Exception {
+                public LocaleCompletionResponse load(CLDRLocale key) {
                     return handleGetLocaleCompletion(key);
                 }
             });
@@ -147,90 +126,14 @@ public class LocaleCompletion {
     }
 
     /**
-     *
      * This function computes the actual locale completion given a Locale and STFactory
-     * @param cldrLocale
-     * @param stFactory
-     * @return
+     *
+     * @param cldrLocale the locale
+     * @param stFactory the STFactory
+     * @return the response
      */
     static LocaleCompletionResponse handleGetLocaleCompletion(final CLDRLocale cldrLocale, final STFactory stFactory) {
-        final String localeId = cldrLocale.toString(); // normalized
-        final Level level = StandardCodes.make().getTargetCoverageLevel(localeId);
-        final CheckCLDR.Options options = new CheckCLDR.Options(cldrLocale, SurveyMain.getTestPhase(),
-            level.toString(),
-            null);
-        ElapsedTimer et = new ElapsedTimer("LocaleCompletion:" + options.toString());
-        logger.info("Starting LocaleCompletion for " + options.toString());
-        final TestResultBundle checkCldr = stFactory.getTestResult(cldrLocale, options);
-
-        // we need an XML Source to receive notification.
-        // This causes LocaleCompletionHelper.INSRTANCE.valueChanged(...) to be called
-        // whenever a vote happens.
-        final XMLSource mySource = stFactory.makeSource(localeId, false);
-        mySource.addListener(LocaleCompletionHelper.INSTANCE);
-
-        final CLDRFile file = stFactory.make(localeId, true);
-        final CLDRFile baselineFile = stFactory.getDiskFile(cldrLocale);
-        LocaleCompletionResponse lcr = new LocaleCompletionResponse(level);
-
-        final SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(stFactory.getSupplementalDirectory());
-        final CoverageLevel2 covLeveller = CoverageLevel2.getInstance(sdi, localeId);
-
-        final List<CheckStatus> results = new ArrayList<>();
-        for (final String xpath : file) {
-            lcr.allXpaths++;
-            final Level pathLevel = covLeveller.getLevel(xpath);
-            final String fullPath = file.getFullXPath(xpath);
-
-            final PathHeader ph = LocaleCompletionHelper.INSTANCE.phf.fromPath(xpath);
-            SurveyToolStatus surveyToolStatus = ph.getSurveyToolStatus();
-            if (surveyToolStatus == SurveyToolStatus.DEPRECATED || surveyToolStatus == SurveyToolStatus.HIDE) {
-                lcr.ignoredHidden++;
-                continue; // not visible
-            }
-
-            checkCldr.check(xpath, results, file.getStringValue(xpath));
-
-            final boolean hasError = CheckStatus.hasError(results);
-
-            final boolean statusMissing = STFactory.calculateStatus(file, baselineFile, xpath) == VoteResolver.Status.missing;
-
-            if (statusMissing) {
-                lcr.statusMissing++;
-            }
-
-            // TODO: copy and paste from CheckCLDR.getShowRowAction - CLDR-15230
-            if (CheckCLDR.LIMITED_SUBMISSION && !SubmissionLocales.allowEvenIfLimited(
-                localeId,
-                xpath,
-                hasError,
-                statusMissing)) {
-                lcr.ignoredLimited++;
-                continue; // not allowed through by SubmissionLocales.
-            }
-
-            if (hasError) {
-                if (results.size() == 1 && results.get(0).getSubtype() == Subtype.coverageLevel) {
-                    lcr.addMissing();
-                } else {
-                    lcr.addError();
-                }
-            } else {
-                if (pathLevel.getLevel() < level.getLevel()) {
-                    final CLDRFile.DraftStatus status = CLDRFile.DraftStatus.forXpath(fullPath);
-                    if (status == DraftStatus.provisional || status == DraftStatus.unconfirmed) {
-                        lcr.addProvisional();
-                    } else {
-                        lcr.addOk();
-                    }
-                } else {
-                    // out of coverage level, do not count the path.
-                    lcr.ignoredOutOfCov++;
-                }
-            }
-        }
-        logger.info(et.toString());
-        return lcr;
+        return new LocaleCompletionCounter(cldrLocale, stFactory).getResponse();
     }
 
     public static class LocaleCompletionResponse {

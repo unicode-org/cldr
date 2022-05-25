@@ -233,7 +233,7 @@ public class UserRegistry {
      * This nested class is the representation of an individual user. It may not
      * have all fields filled out, if it is simply from the cache.
      */
-    public class User implements Comparable<User>, UserInfo, JSONString, VoterReportStatus {
+    public class User implements Comparable<User>, UserInfo, JSONString {
         @Schema( description = "User ID")
         public int id; // id number
         @Schema( description = "numeric userlevel")
@@ -598,17 +598,32 @@ public class UserRegistry {
             return null;
         }
 
-        @Override
-        public EnumSet<ReportId> getCompletedReports() {
-            return Reports.getCompletion(settings);
+        /**
+         * Access the report status.
+         * Note, this is not simply a getter on User,
+         * because it doesn't need to be serialized with every instance of user.
+         */
+        public VoterReportStatus asVoterReportStatus() {
+            return new VoterReportStatus() {
+                @Override
+                public EnumSet<ReportId> getCompletedReports() {
+                    return Reports.getCompletion(settings);
+                }
+
+                @Override
+                public EnumSet<ReportId> getAcceptableReports() {
+                    return Reports.getAcceptability(settings);
+                }
+            };
         }
 
-        @Override
-        public EnumSet<ReportId> getAcceptableReports() {
-            return Reports.getAcceptability(settings);
-        }
-
-        public void markReportComplete(ReportId r, boolean marked, boolean acceptable) {
+        /**
+         * Update report status
+         * @param r
+         * @param marked
+         * @param acceptable
+         */
+        public void markReportComplete(VoterReportStatus.ReportId r, boolean marked, boolean acceptable) {
             Reports.markReportComplete(settings, r, marked, acceptable);
         }
     }

@@ -55,6 +55,7 @@ public enum Organization {
     sil("SIL", "SIL International"),
     srilanka("Sri Lanka ICTA", "Sri Lanka"),
     surveytool("Survey Tool"),
+    venetian("VeC - Lengua Veneta"),
     welsh_lc("Welsh LC"),
     wikimedia("Wikimedia Foundation"),
     wod_nko("WOD N’ko", "World Organization for the Development of N’ko", "WODN"),

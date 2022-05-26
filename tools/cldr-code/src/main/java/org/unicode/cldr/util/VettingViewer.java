@@ -17,6 +17,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
+import java.util.concurrent.ThreadFactory;
 
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
@@ -50,6 +51,19 @@ import com.ibm.icu.util.ULocale;
  * @author markdavis
  */
 public class VettingViewer<T> {
+
+    private ThreadFactory threadFactory = null;
+
+    /**
+     * Set a ThreadFactory to allow concurrency
+     * @param f
+     */
+    public void setThreadFactory(ThreadFactory f) {
+        if (threadFactory != null && f != threadFactory) {
+            throw new IllegalArgumentException("Can't call setThreadFactory() with two different factories.");
+        }
+        threadFactory = f;
+    }
 
     private static final boolean DEBUG = false;
 
@@ -854,8 +868,7 @@ public class VettingViewer<T> {
      * When done, appendTo() is called to append the output to the original requester.
      * @author srl
      */
-    private class WriteContext {
-
+    private class WriteContext extends ThreadPoolRunner.TPRWriteContext {
         private final List<String> localeNames = new ArrayList<>();
         private final List<String> localeIds = new ArrayList<>();
         private final StringBuffer[] outputs;
@@ -866,6 +879,10 @@ public class VettingViewer<T> {
         private final Map<String, VettingViewer<T>.FileInfo> localeNameToFileInfo;
         private final String header;
         private final int configChunkSize; // Number of locales to process at once, minimum 1
+
+        public int getChunkSize() {
+            return configChunkSize;
+        }
 
         private WriteContext(Set<Entry<String, String>> entrySet, EnumSet<Choice> choices, T organization, VettingCounters totals,
             Map<String, FileInfo> localeNameToFileInfo, String header) {
@@ -900,16 +917,9 @@ public class VettingViewer<T> {
 
             // setup env
             CLDRConfig config = CLDRConfig.getInstance();
-
-            // parallelism. 0 means "let Java decide"
-            int configParallel = Math.max(config.getProperty("CLDR_VETTINGVIEWER_PARALLEL", 0), 0);
-            if (configParallel < 1) {
-                configParallel = java.lang.Runtime.getRuntime().availableProcessors(); // matches ForkJoinPool() behavior
-            }
-            this.configChunkSize = Math.max(config.getProperty("CLDR_VETTINGVIEWER_CHUNKSIZE", 1), 1);
-            if (DEBUG) {
-                System.out.println("vv: CLDR_VETTINGVIEWER_PARALLEL=" + configParallel +
-                    ", CLDR_VETTINGVIEWER_CHUNKSIZE=" + configChunkSize);
+            this.configChunkSize = Math.max(config.getProperty("CLDR_VETTINGVIEWER_CHUNKSIZE", 5), 1);
+            if (DEBUG || DEBUG_THREADS) {
+                System.out.println("vv: CLDR_VETTINGVIEWER_CHUNKSIZE=" + configChunkSize);
             }
         }
 
@@ -942,7 +952,8 @@ public class VettingViewer<T> {
          * How many locales are represented in this context?
          * @return
          */
-        private int size() {
+        @Override
+        public int size() {
             return localeNames.size();
         }
     }
@@ -954,57 +965,25 @@ public class VettingViewer<T> {
      *
      * @author srl
      */
-    private class WriteAction extends RecursiveAction {
-        private final int length;
-        private final int start;
-        private final WriteContext context;
-
+    private class WriteAction extends ThreadPoolRunner<WriteContext> {
         public WriteAction(WriteContext context) {
-            this(context, 0, context.size());
+            super(context);
         }
 
         public WriteAction(WriteContext context, int start, int length) {
-            this.context = context;
-            this.start = start;
-            this.length = length;
-            if (DEBUG_THREADS) {
-                System.out.println("writeAction(…," + start + ", " + length + ") of " + context.size() +
-                    " with outputCount:" + context.outputs.length);
-            }
+            super(context, start, length);
         }
-
-        private static final long serialVersionUID = 1L;
 
         @Override
-        protected void compute() {
-            if (length == 0) {
-                return;
-            } else if (length <= context.configChunkSize) {
-                computeAll();
-            } else {
-                int split = length / 2;
-                // subdivide
-                invokeAll(new WriteAction(context, start, split),
-                    new WriteAction(context, start + split, length - split));
-            }
-        }
-
-        /**
-         * Compute this entire task.
-         * Can call this to run this step as a single thread.
-         */
-        private void computeAll() {
-            // do this many at once
-            for (int n = start; n < (start + length); n++) {
-                computeOne(n);
-            }
+        public ThreadPoolRunner<WriteContext> clone(int start, int length) {
+            return new WriteAction(context, start, length);
         }
 
         /**
          * Calculate the Priority Items Summary output for one locale
          * @param n
          */
-        private void computeOne(int n) {
+        protected void computeOne(int n) {
             if (progressCallback.isStopped()) {
                 throw new RuntimeException("Requested to stop");
             }
@@ -1014,7 +993,7 @@ public class VettingViewer<T> {
             final String name = context.localeNames.get(n);
             final String localeID = context.localeIds.get(n);
             if (DEBUG_THREADS) {
-                System.out.println("writeAction.compute(" + n + ") - " + name + ": " + localeID);
+                System.out.println("writeAction.compute(" + n + "/" + (start+length) + ") - " + name + ": " + localeID);
             }
             EnumSet<Choice> choices = context.choices;
             Appendable output = context.outputs[n];
@@ -1059,7 +1038,7 @@ public class VettingViewer<T> {
                 this.completeExceptionally(new RuntimeException("While writing " + localeID, e));
             }
             if (DEBUG) {
-                System.out.println("writeAction.compute(" + n + ") - DONE " + name + ": " + localeID);
+                System.out.println("writeAction.compute(" + n + "/" + (start+length) + " - DONE " + name + ": " + localeID);
             }
         }
     }
@@ -1093,10 +1072,19 @@ public class VettingViewer<T> {
         if (USE_FORKJOIN) {
             ForkJoinPool.commonPool().invoke(writeAction);
         } else {
-            if (DEBUG) {
-                System.out.println("WARNING: calling writeAction.computeAll(), as the ForkJoinPool is disabled.");
+            if (threadFactory != null) {
+                try {
+                    writeAction.compute(threadFactory);
+                } catch (InterruptedException ie) {
+                    ie.printStackTrace();
+                    throw new IOException("Interruption while generation", ie);
+                }
+            } else {
+                writeAction.computeAll();
+                if (DEBUG) {
+                    System.out.println("WARNING: calling writeAction.computeAll(), as the ForkJoinPool is disabled.");
+                }
             }
-            writeAction.computeAll();
         }
         context.appendTo(output); // write all of the results together
         output.append(header); // add one header at the bottom

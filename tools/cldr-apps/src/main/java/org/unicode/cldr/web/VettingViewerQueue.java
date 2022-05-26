@@ -267,6 +267,8 @@ public class VettingViewerQueue {
             VettingViewer<Organization> vv;
             vv = new VettingViewer<>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
                 new STUsersChoice(sm));
+            // Install the threadFactory
+            vv.setThreadFactory(SurveyThreadManager.getThreadFactory());
             int localeCount = vv.getLocaleCount(usersOrg);
             int pathCount = getMax(sm.getTranslationHintsFile());
             maxn = localeCount * pathCount;

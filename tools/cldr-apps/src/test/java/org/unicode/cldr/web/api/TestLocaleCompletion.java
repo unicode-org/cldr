@@ -7,14 +7,11 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
 
 import org.junit.jupiter.api.Test;
 import org.opentest4j.MultipleFailuresError;
@@ -30,62 +27,72 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.LocaleSet;
-import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.SandboxLocales;
-import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
-import org.unicode.cldr.util.VoteResolver.VoterInfo;
 import org.unicode.cldr.web.STFactory;
 import org.unicode.cldr.web.SurveyMain;
-import org.unicode.cldr.web.UserRegistry;
-import org.unicode.cldr.web.XPathTable;
 import org.unicode.cldr.web.api.LocaleCompletion.LocaleCompletionResponse;
 
 public class TestLocaleCompletion {
     /**
-     * Locale to use. We will start with a blank slate.
+     * Locales to use. We will start with a blank slate.
      */
-    private static final String TEST_LOCALE = "es";
+    private static final String TEST_LOCALE_A = "es";
+    private static final String TEST_LOCALE_B = "fr";
+
     /**
-     * Baseline number of items missing in the above locale. This is sensitive to data changes.
+     * Baseline number of items missing in the above locales. This is sensitive to data changes.
      */
-    final int STILL_MISSING = 41;
+    final int STILL_MISSING_TEST_LOCALE_A = 42;
+    final int STILL_MISSING_TEST_LOCALE_B = 30;
+
+    /**
+     * Baseline number of items provisional in the above locales. This is sensitive to data changes.
+     */
+    final int STILL_PROVISIONAL_LOCALE_A = 0;
+    final int STILL_PROVISIONAL_LOCALE_B = 6;
+
     /**
      * Sanity check amount: Assume at least these many paths are present.
      */
-    private int lOCALE_SIZE = 5;
+    final private int LOCALE_SIZE = 5;
 
     @Test
-    void testLocaleCompletion() throws SQLException, IOException {
+    void testLocaleCompletion() throws SQLException {
 
         TestAll.setupTestDb();
         // initial setup
         final STFactory aFactory = TestSTFactory.createFactory();
         final SurveyMain sm = aFactory.sm;
-        final TestCache tc = new TestCache();
+        final TestCache tcA = new TestCache();
+        final TestCache tcB = new TestCache();
         final CLDRConfig config = CLDRConfig.getInstance();
         final CLDRFile english = config.getEnglish();
-        final CLDRFile spanish = config.getCLDRFile("es", false);
+        final CLDRFile sourceFileUnresolvedA = config.getCLDRFile(TEST_LOCALE_A, false);
+        final CLDRFile sourceFileUnresolvedB = config.getCLDRFile(TEST_LOCALE_B, false);
         CheckCLDR.setDisplayInformation(english);
 
-        final CLDRLocale locale = CLDRLocale.getInstance(TEST_LOCALE);
-        // final CLDRFile mulFile = sandFactory.make(mul.getBaseName(), false);
-        final SandboxLocales.ScratchXMLSource localeSource = new SandboxLocales.ScratchXMLSource(locale.getBaseName());
-        final CLDRFile localeFile = new CLDRFile(localeSource);
+        final CLDRLocale localeA = CLDRLocale.getInstance(TEST_LOCALE_A);
+        final CLDRLocale localeB = CLDRLocale.getInstance(TEST_LOCALE_B);
+        final SandboxLocales.ScratchXMLSource localeSourceA = new SandboxLocales.ScratchXMLSource(localeA.getBaseName());
+        final SandboxLocales.ScratchXMLSource localeSourceB = new SandboxLocales.ScratchXMLSource(localeB.getBaseName());
+        final CLDRFile localeFileA = new CLDRFile(localeSourceA);
+        final CLDRFile localeFileB = new CLDRFile(localeSourceB);
         final SandboxLocales.ScratchXMLSource rootSource = new SandboxLocales.ScratchXMLSource("root");
         final CLDRFile rootFile = new CLDRFile(rootSource);
-        final Factory sandboxFactory = getFactory(english, localeSource, localeFile, rootSource, rootFile);
-        tc.setFactory(sandboxFactory, "(?!.*(CheckCoverage).*).*");
+        final Factory sandboxFactoryA = getFactory(english, localeSourceA, localeFileA, rootSource, rootFile);
+        final Factory sandboxFactoryB = getFactory(english, localeSourceB, localeFileB, rootSource, rootFile);
+        tcA.setFactory(sandboxFactoryA, "(?!.*(CheckCoverage).*).*");
+        tcB.setFactory(sandboxFactoryB, "(?!.*(CheckCoverage).*).*");
 
-        STFactory stf = getSTFactory(sm, tc, sandboxFactory);
+        STFactory stfA = getSTFactory(sm, tcA, sandboxFactoryA);
+        STFactory stfB = getSTFactory(sm, tcB, sandboxFactoryB);
 
-        preloadLocaleFile(spanish, localeFile);
+        preloadLocaleFile(sourceFileUnresolvedA, localeFileA);
+        preloadLocaleFile(sourceFileUnresolvedB, localeFileB);
 
-        // TODO Temporarily disabled for CLDR-15585, restore when data for es is fleshed out
-        testCompletePaths(tc, locale, localeFile, stf);
-
-        testIncompletePaths(tc, locale, localeFile, stf);
+        testCompletePaths(tcA, localeA, localeFileA, stfA);
+        testIncompletePaths(tcB, localeB, localeFileB, stfB);
     }
 
     /**
@@ -100,9 +107,13 @@ public class TestLocaleCompletion {
         // ** Step two.
         setIncompletePaths(localeFile);
         tc.invalidateAllCached();
-        final int EXPECT_ERROR = 2;
-        final int EXPECT_MISSING = 1 + STILL_MISSING;
-        final int EXPECT_PROVISIONAL = 2;
+        final int INTENTIONAL_ERROR = 2;
+        final int INTENTIONAL_MISSING = 2;
+        final int INTENTIONAL_PROVISIONAL = 0;
+
+        final int EXPECT_ERROR = INTENTIONAL_ERROR;
+        final int EXPECT_MISSING = INTENTIONAL_MISSING + STILL_MISSING_TEST_LOCALE_B;
+        final int EXPECT_PROVISIONAL = INTENTIONAL_PROVISIONAL + STILL_PROVISIONAL_LOCALE_B;
 
         assertFalse(CheckCLDR.LIMITED_SUBMISSION, "This test becomes invalid if LIMITED_SUBMISSION (or SubmissionLocales) changes.");
 
@@ -112,12 +123,12 @@ public class TestLocaleCompletion {
             assertNotNull(completion);
             assertAll("tests on completion - not quite 100%",
                 () -> assertEquals(Level.MODERN.name(), completion.level, "completion level"),
-                () -> assertTrue(completion.votes > lOCALE_SIZE, "completion votes should be bigger but was " + completion.votes),
+                () -> assertTrue(completion.votes > LOCALE_SIZE, "completion votes should be bigger but was " + completion.votes),
                 () -> assertTrue(completion.votes < completion.total,
                     "completion votes should be less than completion total but was  " + completion.votes + "/" + completion.total),
                 () -> assertEquals(expected_votes, completion.votes,
                     "completion votes was not as expected"),
-                () -> assertTrue(completion.total > lOCALE_SIZE, "completion total should be bigger but was " + completion.total),
+                () -> assertTrue(completion.total > LOCALE_SIZE, "completion total should be bigger but was " + completion.total),
                 () -> assertEquals(EXPECT_ERROR, completion.error, "error count was " + completion.error),
                 () -> assertEquals(EXPECT_MISSING, completion.missing, "missing count was " + completion.missing),
                 () -> assertEquals(EXPECT_PROVISIONAL, completion.provisional, "provisional count was " + completion.provisional));
@@ -129,17 +140,47 @@ public class TestLocaleCompletion {
      * @param localeFile
      */
     private void setIncompletePaths(final CLDRFile localeFile) {
-        // Make some changes, and we should have a couple of errors.
-        // "Expected <100%"
-        // Mutate
-        localeFile.add("//ldml/characters/exemplarCharacters", "[]");
-        localeFile.add("//ldml/numbers/symbols[@numberSystem=\"latn\"]/group",
-            ",,,"); // err; expected 1, not 3
-        // rootFile.add("//ldml/localeDisplayNames/languages/language[@type=\""+TEST_LOCALE+"\"]",
-        //     TEST_LOCALE); // for fallback
-        localeFile.remove("//ldml/localeDisplayNames/languages/language[@type=\"" + TEST_LOCALE + "\"]");
-        localeFile.add("//ldml/dates/timeZoneNames/zone[@type=\"Pacific/Kanton\"]/exemplarCity[@draft=\"provisional\"]", "cabaca");
-        localeFile.add("//ldml/dates/timeZoneNames/zone[@type=\"Asia/Qyzylorda\"]/exemplarCity[@draft=\"unconfirmed\"]", "bacaba");
+        String path, value;
+
+        // INTENTIONAL_ERROR = 2;
+        path = "//ldml/dates/timeZoneNames/metazone[@type=\"Arabian\"]/long/generic";
+        value = " ";
+        localeFile.add(path, value);
+        assertEquals(value, localeFile.getWinningValue(path), "setIncompletePaths error 1");
+
+        path = "//ldml/characters/exemplarCharacters";
+        value = "[]";
+        localeFile.add(path, value);
+        assertEquals(value, localeFile.getWinningValue(path), "setIncompletePaths error 2");
+
+        // INTENTIONAL_MISSING = 2;
+        path = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"1\"]";
+        localeFile.remove(path);
+        assertEquals(null, localeFile.getWinningValue(path), "setIncompletePaths missing 1");
+
+        path = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"2\"]";
+        localeFile.remove(path);
+        assertEquals(null, localeFile.getWinningValue(path), "setIncompletePaths missing 2");
+
+        // INTENTIONAL_PROVISIONAL = 0
+        // none of the following works for making items provisional; instead, getStatusForOrganization
+        // sees winningStatus = VoteResolver.Status.approved, and returns VoteStatus.ok_novotes rather than VoteStatus.provisionalOrWorse
+        /*
+        localeFile.remove("//ldml/dates/timeZoneNames/zone[@type=\"Asia/Qyzylorda\"]/exemplarCity");
+        localeFile.remove("//ldml/dates/timeZoneNames/zone[@type=\"Pacific/Kanton\"]/exemplarCity");
+
+        path = "//ldml/dates/timeZoneNames/zone[@type=\"Asia/Qyzylorda\"]/exemplarCity[@draft=\"provisional\"]";
+        // path = "//ldml/dates/timeZoneNames/zone[@type=\"Asia/Qyzylorda\"]/exemplarCity";
+        value = "cabaca";
+        localeFile.add(path, value);
+        assertEquals(value, localeFile.getWinningValue(path), "setIncompletePaths provisional 1");
+
+        path = "//ldml/dates/timeZoneNames/zone[@type=\"Pacific/Kanton\"]/exemplarCity[@draft=\"provisional\"]";
+        // path = "//ldml/dates/timeZoneNames/zone[@type=\"Pacific/Kanton\"]/exemplarCity";
+        value = "bacaba";
+        localeFile.add(path, value);
+        assertEquals(value, localeFile.getWinningValue(path), "setIncompletePaths provisional 2");
+        */
     }
 
     /**
@@ -151,7 +192,7 @@ public class TestLocaleCompletion {
      * @throws MultipleFailuresError
      */
     private void testCompletePaths(final TestCache tc, final CLDRLocale locale, final CLDRFile localeFile, STFactory stf) throws MultipleFailuresError {
-        // ** Step one.  Setup the locale
+        // ** Step one.  Set up the locale
         // Expected 100%
         setCompletePaths(localeFile);
 
@@ -161,15 +202,15 @@ public class TestLocaleCompletion {
             LocaleCompletionResponse completion = LocaleCompletion.handleGetLocaleCompletion(locale, stf);
 
             assertNotNull(completion);
-            assertAll("tests on completio - 100%",
+            assertAll("tests on completion - 100%",
                 () -> assertEquals(Level.MODERN.name(), completion.level, "completion level"),
-                () -> assertTrue(completion.votes > lOCALE_SIZE, "completion votes should be bigger but was " + completion.votes),
-                () -> assertEquals(completion.total - STILL_MISSING, completion.votes,
+                () -> assertTrue(completion.votes > LOCALE_SIZE, "completion votes should be bigger but was " + completion.votes),
+                () -> assertEquals(completion.total - STILL_MISSING_TEST_LOCALE_A, completion.votes,
                     "completion votes should be equal completion total but was  " + completion.votes + "/" + completion.total),
-                () -> assertTrue(completion.total > lOCALE_SIZE, "completion total should be bigger but was " + completion.total),
+                () -> assertTrue(completion.total > LOCALE_SIZE, "completion total should be bigger but was " + completion.total),
                 () -> assertEquals(0, completion.error, "error"),
-                () -> assertEquals(STILL_MISSING, completion.missing, "missing"),
-                () -> assertEquals(0, completion.provisional, "provisional"));
+                () -> assertEquals(STILL_MISSING_TEST_LOCALE_A, completion.missing, "missing"),
+                () -> assertEquals(STILL_PROVISIONAL_LOCALE_A, completion.provisional, "provisional"));
         }
     }
 
@@ -181,7 +222,7 @@ public class TestLocaleCompletion {
         localeFile.add("//ldml/characters/exemplarCharacters", "[abc]");
         localeFile.add("//ldml/numbers/symbols[@numberSystem=\"latn\"]/group",
             ","); // ok
-        localeFile.add("//ldml/localeDisplayNames/languages/language[@type=\"" + TEST_LOCALE + "\"]",
+        localeFile.add("//ldml/localeDisplayNames/languages/language[@type=\"" + localeFile.getLocaleID() + "\"]",
             "baccacab"); // for fallback (need to use only 'a,b,c')
 
         localeFile.add("//ldml/numbers/currencies/currency[@type=\"XTS\"]/displayName[@draft=\"provisional\"]",
@@ -192,12 +233,12 @@ public class TestLocaleCompletion {
 
     /**
      * Load some initial paths (with exclusions) from a disk file
-     * @param spanish
-     * @param localeFile
+     * @param sourceFileUnresolved the file from which to get the data to preload
+     * @param localeFile the file to receive the data
      */
-    private void preloadLocaleFile(final CLDRFile spanish, final CLDRFile localeFile) {
+    private void preloadLocaleFile(final CLDRFile sourceFileUnresolved, final CLDRFile localeFile) {
         // Preload some stuff
-        for (final String xpath : spanish) {
+        for (final String xpath : sourceFileUnresolved) {
             // Skip some problematic paths.
             if (xpath.startsWith("//ldml/characters/parseLenients") ||
                 xpath.startsWith("//ldml/numbers/currency") ||
@@ -206,10 +247,10 @@ public class TestLocaleCompletion {
                 xpath.startsWith("//ldml/numbers/percent")) {
                 continue;
             }
-            localeFile.add(xpath, spanish.getStringValue(xpath));
+            String value = sourceFileUnresolved.getWinningValue(xpath);
+            localeFile.add(xpath, value);
         }
     }
-
 
     /**
      * New up a STFactory
@@ -219,7 +260,7 @@ public class TestLocaleCompletion {
      * @return
      */
     private STFactory getSTFactory(SurveyMain sm, final TestCache tc, final Factory sandboxFactory) {
-        STFactory stf = new STFactory(sm) {
+        return new STFactory(sm) {
             @Override
             public TestResultBundle getTestResult(CLDRLocale loc, CheckCLDR.Options options) {
                 return tc.getBundle(options);
@@ -230,7 +271,6 @@ public class TestLocaleCompletion {
                 return sandboxFactory.make(locale, resolved); // pass through
             }
         };
-        return stf;
     }
 
     /**
@@ -244,7 +284,7 @@ public class TestLocaleCompletion {
      */
     private Factory getFactory(final CLDRFile english, final SandboxLocales.ScratchXMLSource localeSource, final CLDRFile localeFile,
         final SandboxLocales.ScratchXMLSource rootSource, final CLDRFile rootFile) {
-        final Factory sandFactory = new Factory() {
+        return new Factory() {
 
             @Override
             public File getSupplementalDirectory() {
@@ -253,14 +293,13 @@ public class TestLocaleCompletion {
 
             @Override
             public File[] getSourceDirectories() {
-                File[] f = { new File(CLDRPaths.MAIN_DIRECTORY) };
-                return f;
+                return new File[]{ new File(CLDRPaths.MAIN_DIRECTORY) };
             }
 
             @Override
             protected CLDRFile handleMake(String localeID, boolean resolved, DraftStatus madeWithMinimalDraftStatus) {
                 if (resolved) {
-                    if (localeID.equals(TEST_LOCALE)) {
+                    if (localeID.equals(localeSource.getLocaleID())) {
                         List<XMLSource> l = new LinkedList<>();
                         l.add(localeSource);
                         l.add(rootSource);
@@ -271,14 +310,16 @@ public class TestLocaleCompletion {
                         l.add(rootSource);
                         XMLSource.ResolvingSource rs = new XMLSource.ResolvingSource(l);
                         return new CLDRFile(rs);
+                    } else if (localeID.equals("en")) {
+                        return english;
                     }
-                    throw new RuntimeException("dont know how to make " + localeID + " r=" + resolved);
-                } else if (localeID.equals(TEST_LOCALE)) {
+                    throw new RuntimeException("Don't know how to make " + localeID + " resolved");
+                } else if (localeID.equals(localeSource.getLocaleID())) {
                     return localeFile;
                 } else if (localeID.equals("root")) {
                     return rootFile;
                 } else {
-                    throw new RuntimeException("dont know how to make " + localeID + " r=" + resolved);
+                    throw new RuntimeException("Don't know how to make " + localeID + " unresolved");
                 }
             }
 
@@ -289,7 +330,7 @@ public class TestLocaleCompletion {
 
             @Override
             protected Set<String> handleGetAvailable() {
-                return Collections.singleton(TEST_LOCALE);
+                return Collections.singleton(localeSource.getLocaleID());
             }
 
             @Override
@@ -297,35 +338,5 @@ public class TestLocaleCompletion {
                 return Collections.singletonList(new File(CLDRPaths.MAIN_DIRECTORY));
             }
         };
-        return sandFactory;
-    }
-
-    /**
-     * New up a SurveyMain
-     * @return
-     */
-    private SurveyMain getSurveyMain() {
-        SurveyMain sm = new SurveyMain();
-        sm.xpt = new XPathTable();
-        sm.reg = new UserRegistry() {
-            final VoterInfo user0 = new VoterInfo(Organization.guest, VoteResolver.Level.tc, "Test User", new LocaleSet(true));
-
-            @Override
-            public synchronized Map<Integer, VoterInfo> getVoterToInfo() {
-                Map<Integer, VoterInfo> m = new TreeMap<Integer, VoterInfo>();
-                m.put(0, user0);
-                return m;
-            }
-
-            @Override
-            public VoterInfo getVoterToInfo(int userid) {
-                if (userid == 0) {
-                    return user0;
-                } else {
-                    return null;
-                }
-            }
-        };
-        return sm;
     }
 }

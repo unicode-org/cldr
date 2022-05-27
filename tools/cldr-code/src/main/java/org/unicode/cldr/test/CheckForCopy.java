@@ -108,13 +108,12 @@ public class CheckForCopy extends FactoryCheckCLDR {
          * otherwise nothing prevents voting to inherit the code value.
          *
          * TODO: clarify the purpose of using topStringValue and getConstructedValue here;
-         * cf. getConstructedBaileyValue. This code is confusing and warrants explanation.
-         * The meaning of "explicit" here seems to be the opposite of its meaning elsewhere.
+         * This code is confusing and warrants explanation.
          */
         String topStringValue = unresolvedFile.getStringValue(path);
-        final boolean isExplicitBailey = CldrUtility.INHERITANCE_MARKER.equals(topStringValue);
+        final boolean topValueIsInheritanceMarker = CldrUtility.INHERITANCE_MARKER.equals(topStringValue);
         String loc = cldrFile.getSourceLocaleID(path, status);
-        if (!contextIsVoteSubmission && !isExplicitBailey) {
+        if (!contextIsVoteSubmission && !topValueIsInheritanceMarker) {
             if (!cldrFile.getLocaleID().equals(loc)
                 || !path.equals(status.pathWhereFound)) {
                 return Failure.ok;
@@ -149,7 +148,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
             return Failure.ok;
         }
         if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
-            value = cldrFile.getConstructedBaileyValue(path, null, null);
+            value = cldrFile.getBaileyValue(path, null, null);
             if (value == null) {
                 return Failure.ok;
             }
@@ -158,7 +157,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
             return Failure.ok;
         }
         String value2 = value;
-        if (isExplicitBailey) {
+        if (topValueIsInheritanceMarker) {
             value2 = cldrFile.getConstructedValue(path);
             if (value2 == null) { // no special constructed value
                 value2 = value;

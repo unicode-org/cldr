@@ -225,7 +225,7 @@ public class GenerateDerivedAnnotations {
 
                 // remove items that are the same as their bailey values. This also catches Inheritance Marker
 
-                String bailey = cldrFileResolved.getConstructedBaileyValue(xpath, null, null);
+                String bailey = cldrFileResolved.getBaileyValue(xpath, null, null);
                 if (value.equals(bailey)) {
                     toRemove.add(xpath);
                     continue;

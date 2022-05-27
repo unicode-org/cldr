@@ -1115,7 +1115,7 @@ abstract public class CheckCLDR {
         // If we're being asked to run tests for an inheritance marker, then we need to change it
         // to the "real" value first before running tests. Testing the value CldrUtility.INHERITANCE_MARKER ("↑↑↑") doesn't make sense.
         if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
-            value = cldrFileToCheck.getConstructedBaileyValue(path, null, null);
+            value = cldrFileToCheck.getBaileyValue(path, null, null);
             // If it hasn't changed, then don't run any tests.
             if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
                 return this;
@@ -1212,7 +1212,7 @@ abstract public class CheckCLDR {
             // If we're being asked to run tests for an inheritance marker, then we need to change it
             // to the "real" value first before running tests. Testing the value CldrUtility.INHERITANCE_MARKER ("↑↑↑") doesn't make sense.
             if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
-                value = getCldrFileToCheck().getConstructedBaileyValue(path, null, null);
+                value = getCldrFileToCheck().getBaileyValue(path, null, null);
             }
             for (Iterator<CheckCLDR> it = filteredCheckList.iterator(); it.hasNext();) {
                 CheckCLDR item = it.next();

@@ -92,7 +92,7 @@ public class TestAlt extends TestFmwk {
         assertEquals("Regular, pathWhereFound", plain, pathWhereFound.value);
         assertEquals("Regular, localeWhereFound", "fr_CA", localeWhereFound.value);
 
-        String actualBailey = testCldrFile.getConstructedBaileyValue(plain+altMedium, pathWhereFound, localeWhereFound);
+        String actualBailey = testCldrFile.getBaileyValue(plain+altMedium, pathWhereFound, localeWhereFound);
         assertEquals("Bailey, " + plain+altMedium, expected, actualBailey);
         
         assertEquals("Bailey, pathWhereFound", plain, pathWhereFound.value);

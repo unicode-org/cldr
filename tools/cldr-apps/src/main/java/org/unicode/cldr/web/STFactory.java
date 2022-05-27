@@ -922,7 +922,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
 
             CLDRFile cf = make(locale, true);
-            r.setBaileyValue(cf.getConstructedBaileyValue(path, null, null));
+            r.setBaileyValue(cf.getBaileyValue(path, null, null));
 
             // add each vote
             if (perXPathData != null && !perXPathData.isEmpty()) {

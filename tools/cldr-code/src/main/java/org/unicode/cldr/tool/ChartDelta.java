@@ -442,11 +442,11 @@ public class ChartDelta extends Chart {
 
                                 currentValue = current.getStringValue(path);
                                 if (CldrUtility.INHERITANCE_MARKER.equals(currentValue)) {
-                                    currentValue = current.getConstructedBaileyValue(path, null, null);
+                                    currentValue = current.getBaileyValue(path, null, null);
                                 }
                                 oldValue = hasReformattedValue.value ? reformattedValue.value : old.getStringValue(path);
                                 if (CldrUtility.INHERITANCE_MARKER.equals(oldValue)) {
-                                    oldValue = old.getConstructedBaileyValue(path, null, null);
+                                    oldValue = old.getBaileyValue(path, null, null);
                                 }
                             }
                             if (highLevelOnly && new SuspiciousChange(oldValue, currentValue, path, locale).isDisruptive() == false) {

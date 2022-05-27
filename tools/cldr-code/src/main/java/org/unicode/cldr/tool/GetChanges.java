@@ -295,7 +295,7 @@ public class GetChanges {
 //                    continue;
 //                }
                 // skip inherited
-                String baileyValue = snapshot.getConstructedBaileyValue(xpath, pathWhereFound, localeWhereFound);
+                String baileyValue = snapshot.getBaileyValue(xpath, pathWhereFound, localeWhereFound);
                 if (!"root".equals(localeWhereFound.value)
                     && !"code-fallback".equals(localeWhereFound.value)
                     && CldrUtility.equals(valueSnapshot, baileyValue)) {

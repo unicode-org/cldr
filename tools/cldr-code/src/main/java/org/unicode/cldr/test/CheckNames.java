@@ -45,6 +45,11 @@ public class CheckNames extends CheckCLDR {
         return this;
     }
 
+    public static boolean matchDigitPattern(String value) {
+        Matcher matcher = YEAR_PATTERN.matcher(value);
+        return matcher.find();
+    }
+
     private boolean isEnclosedByBraces(Matcher matcher, String value, char startBrace, char endBrace) {
         return value.lastIndexOf(startBrace, matcher.start()) > -1 &&
             value.indexOf(endBrace, matcher.end()) >= -1;

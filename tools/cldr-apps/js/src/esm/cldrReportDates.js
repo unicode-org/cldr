@@ -3,9 +3,9 @@
  */
 import * as cldrAjax from "./cldrAjax.js";
 import * as cldrDom from "./cldrDom.js";
-import * as cldrGui from "./cldrGui.js";
 import * as cldrInfo from "./cldrInfo.js";
 import * as cldrLoad from "./cldrLoad.js";
+import * as cldrReport from "./cldrReport.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
@@ -40,11 +40,7 @@ function getUrl() {
 }
 
 function loadHandler(html) {
-  cldrSurvey.hideLoader();
-  cldrLoad.setLoading(false);
-  const frag = cldrDom.construct(html);
-  cldrLoad.flipToOtherDiv(frag);
-  cldrGui.hideRightPanel();
+  cldrReport.reportLoadHandler(html, "datetime");
 }
 
 function errorHandler(err) {

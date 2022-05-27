@@ -5,7 +5,7 @@ import java.util.EnumSet;
 /**
  * This interface is for objects which can expose information on which reports have been completed.
  */
-public interface VoterReportStatus {
+public interface VoterReportStatus<T> {
     /**
      * Enumeration for the reports. In order.
      */
@@ -15,15 +15,27 @@ public interface VoterReportStatus {
         compact,  // aka 'numbers'
     };
 
-    /**
-     * Return a set of which reports the user has completed,
-     * either as all acceptable or with votes entered.
-     */
-    public EnumSet<ReportId> getCompletedReports();
+    public ReportStatus getReportStatus(T user, CLDRLocale locale);
 
-    /**
-     * Return a set of which reports the user has marked as acceptable,
-     * implies that the user has completed the report
-     */
-    public EnumSet<ReportId> getAcceptableReports();
+    public static class ReportStatus {
+        public EnumSet<ReportId> completed = EnumSet.noneOf(ReportId.class);
+        public EnumSet<ReportId> acceptable = EnumSet.noneOf(ReportId.class);
+
+        public ReportStatus mark(ReportId r, boolean asComplete, boolean asAcceptable) {
+            if (!asComplete && asAcceptable) {
+                throw new IllegalArgumentException("Cannot be !complete&&acceptable");
+            }
+            if (asComplete) {
+                completed.add(r);
+            } else {
+                completed.remove(r);
+            }
+            if(asAcceptable) {
+                acceptable.add(r);
+            } else {
+                acceptable.remove(r);
+            }
+            return this;
+        }
+    }
 }

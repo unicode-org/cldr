@@ -16,6 +16,7 @@ import {
   Input,
   Popover,
   Progress,
+  Radio,
   Spin,
   Steps,
   Tooltip,
@@ -26,6 +27,7 @@ import {
 // local components
 import CldrValue from "./views/CldrValue.vue";
 import LoginButton from "./views/LoginButton.vue";
+import ReportResponse from "./views/ReportResponse.vue";
 
 /**
  * The App created and mounted most recently. For .unmount …
@@ -131,6 +133,8 @@ function setupComponents(app) {
   app.component("a-alert", Alert);
   app.component("a-button", Button);
   app.component("a-checkbox", Checkbox);
+  app.component("a-radio", Radio);
+  app.component("a-radio-group", Radio.Group);
   app.component("a-form-item", Form.Item);
   app.component("a-form", Form);
   app.component("a-icon", Icon);
@@ -144,6 +148,7 @@ function setupComponents(app) {
   app.component("a-tooltip", Tooltip);
   app.component("cldr-loginbutton", LoginButton);
   app.component("cldr-value", CldrValue);
+  app.component("cldr-report-response", ReportResponse);
 }
 
 export { showPanel, createCldrApp, setupComponents };

@@ -133,58 +133,30 @@ public class LocaleCompletion {
      * @return the response
      */
     static LocaleCompletionResponse handleGetLocaleCompletion(final CLDRLocale cldrLocale, final STFactory stFactory) {
+        // we need an XML Source to receive notification.
+        // This causes LocaleCompletionHelper.INSTANCE.valueChanged(...) to be called
+        // whenever a vote happens.
+        final XMLSource mySource = stFactory.makeSource(cldrLocale.toString(), false);
+        mySource.addListener(LocaleCompletion.LocaleCompletionHelper.INSTANCE);
+
         return new LocaleCompletionCounter(cldrLocale, stFactory).getResponse();
     }
 
     public static class LocaleCompletionResponse {
+        /*
+         * The front end only uses votes, total, and level
+         * The rest is for debugging, testing, or convenience on the back end
+         */
         public int votes = 0;
         public int total = 0;
+        final public String level;
+
         public int error = 0;
         public int missing = 0;
         public int provisional = 0;
-        final public String level;
-
-        // The following are more or less debug items
-        public int ignoredLimited = 0;
-        public int ignoredHidden = 0;
-        public int allXpaths = 0;
-        public int statusMissing = 0;
-        public int ignoredOutOfCov = 0;
 
         LocaleCompletionResponse(Level l) {
             level = l.name();
-        }
-
-        /**
-         * Add a count for an Error path
-         */
-        void addError() {
-            error++;
-            total++;
-        }
-
-        /**
-         * Add a count for a Missing path
-         */
-        void addMissing() {
-            missing++;
-            total++;
-        }
-
-        /**
-         * Add a count for a Provisional path
-         */
-        void addProvisional() {
-            provisional++;
-            total++;
-        }
-
-        /**
-         * Add a count for an OK path
-         */
-        void addOk() {
-            votes++; // OK count
-            total++;
         }
     }
 }

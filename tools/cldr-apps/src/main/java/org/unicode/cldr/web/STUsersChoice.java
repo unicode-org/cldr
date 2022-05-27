@@ -9,10 +9,10 @@ import org.unicode.cldr.util.VettingViewer.VoteStatus;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.web.UserRegistry.User;
 
-class STUsersChoice implements UsersChoice<Organization> {
+public class STUsersChoice implements UsersChoice<Organization> {
     private final SurveyMain sm;
 
-    STUsersChoice(final SurveyMain msm) {
+    public STUsersChoice(final SurveyMain msm) {
         this.sm = msm;
     }
 

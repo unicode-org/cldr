@@ -501,6 +501,28 @@ public class VettingViewer<T> {
         return dd;
     }
 
+    public LocaleCompletionData generateLocaleCompletion(DashboardArgs args) {
+        LocaleCompletionData lcd = new LocaleCompletionData();
+
+        FileInfo fileInfo = new FileInfo(args.locale.getBaseName(), args.coverageLevel, args.choices, (T) args.organization);
+        fileInfo.setFiles(args.sourceFile, args.baselineFile);
+        fileInfo.setLocaleProgress(lcd.localeProgress);
+        fileInfo.getFileInfo();
+
+        lcd.errorDebug = (int) fileInfo.vc.problemCounter.get(Choice.error);
+        lcd.missingDebug = (int) fileInfo.vc.problemCounter.get(Choice.missingCoverage);
+        lcd.provisionalDebug = (int) fileInfo.vc.problemCounter.get(Choice.notApproved);
+
+        return lcd;
+    }
+
+    public class LocaleCompletionData {
+        public VoterProgress localeProgress = new VoterProgress();
+        public int errorDebug = 0;
+        public int missingDebug = 0;
+        public int provisionalDebug = 0;
+    }
+
     private class VettingCounters {
         private final Counter<Choice> problemCounter = new Counter<>();
         private final Counter<Subtype> errorSubtypeCounter = new Counter<>();
@@ -566,6 +588,12 @@ public class VettingViewer<T> {
         private void setVoterProgressAndId(VoterProgress voterProgress, int userId) {
             this.voterProgress = voterProgress;
             this.voterId = userId;
+        }
+
+        private VoterProgress localeProgress = null;
+
+        private void setLocaleProgress(VoterProgress localeProgress) {
+            this.localeProgress = localeProgress;
         }
 
         private final VettingCounters vc = new VettingCounters();
@@ -646,7 +674,12 @@ public class VettingViewer<T> {
             if (!onlyRecordErrors) {
                 recordLosingDisputedEtc(path, voteStatus, missingStatus);
             }
+            if (pathLevelIsTooHigh && problems.isEmpty()) {
+                return;
+            }
             updateVotedOrAbstained(path, pathLevelIsTooHigh);
+            updateLocaleProgress();
+
             if (!problems.isEmpty() && sorted != null) {
                 reasonsToPaths.clear();
                 R2<SectionId, PageId> group = Row.of(ph.getSectionId(), ph.getPageId());
@@ -667,15 +700,21 @@ public class VettingViewer<T> {
             if (voterProgress == null || voterId == 0) {
                 return;
             }
-            if (pathLevelIsTooHigh && problems.isEmpty()) {
-                return;
-            }
             voterProgress.incrementVotablePathCount();
             if (userVoteStatus.userDidVote(voterId, cldrLocale, path)) {
                 voterProgress.incrementVotedPathCount();
             } else if (choices.contains(Choice.abstained)) {
                 problems.add(Choice.abstained);
                 vc.problemCounter.increment(Choice.abstained);
+            }
+        }
+
+        private void updateLocaleProgress() {
+            if (localeProgress != null) {
+                localeProgress.incrementVotablePathCount();
+                if (problems.isEmpty()) { // "no problems" means ok, a.k.a. "voted"
+                    localeProgress.incrementVotedPathCount();
+                }
             }
         }
 
@@ -702,10 +741,6 @@ public class VettingViewer<T> {
             if (choices.contains(Choice.missingCoverage) && missingStatus == MissingStatus.ABSENT) {
                 problems.add(Choice.missingCoverage);
                 vc.problemCounter.increment(Choice.missingCoverage);
-            }
-            if (SubmissionLocales.pathAllowedInLimitedSubmission(path)) {
-                problems.add(Choice.englishChanged);
-                vc.problemCounter.increment(Choice.englishChanged);
             }
             if (!CheckCLDR.LIMITED_SUBMISSION
                 && !itemsOkIfVoted && outdatedPaths.isOutdated(localeId, path)) {

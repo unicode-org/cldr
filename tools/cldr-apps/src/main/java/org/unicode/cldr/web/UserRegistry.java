@@ -39,7 +39,6 @@ import org.unicode.cldr.util.LocaleSet;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.VoteResolver;
-import org.unicode.cldr.util.VoterReportStatus;
 import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 
@@ -596,35 +595,6 @@ public class UserRegistry {
                 return localeSet.firstElement();
             }
             return null;
-        }
-
-        /**
-         * Access the report status.
-         * Note, this is not simply a getter on User,
-         * because it doesn't need to be serialized with every instance of user.
-         */
-        public VoterReportStatus asVoterReportStatus() {
-            return new VoterReportStatus() {
-                @Override
-                public EnumSet<ReportId> getCompletedReports() {
-                    return Reports.getCompletion(settings);
-                }
-
-                @Override
-                public EnumSet<ReportId> getAcceptableReports() {
-                    return Reports.getAcceptability(settings);
-                }
-            };
-        }
-
-        /**
-         * Update report status
-         * @param r
-         * @param marked
-         * @param acceptable
-         */
-        public void markReportComplete(VoterReportStatus.ReportId r, boolean marked, boolean acceptable) {
-            Reports.markReportComplete(settings, r, marked, acceptable);
         }
     }
 

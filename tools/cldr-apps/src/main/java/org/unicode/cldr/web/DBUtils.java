@@ -3,12 +3,14 @@
  */
 package org.unicode.cldr.web;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.Reader;
+import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
@@ -35,6 +37,7 @@ import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -53,6 +56,7 @@ import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.web.SurveyMain.Phase;
 
+import com.google.common.io.CharStreams;
 import com.ibm.icu.dev.util.ElapsedTimer;
 
 /**
@@ -1612,17 +1616,19 @@ public class DBUtils {
          *
          * Other constants here have default constructor equivalent to (true, true).
          */
-        VOTE_VALUE,
-        VOTE_VALUE_ALT,
-        VOTE_FLAGGED,
+        DASH_HIDE(false, false),
         FORUM_POSTS(false, false),
         FORUM_TYPES(false, false),
-        DASH_HIDE(false, false),
-        REVIEW_POST,
-        IMPORT,
         IMPORT_AUTO,
+        IMPORT,
         LOCKED_XPATHS(false, false),
-        SUMMARY_SNAPSHOTS;
+        REVIEW_POST,
+        SUMMARY_SNAPSHOTS,
+        VOTE_FLAGGED,
+        VOTE_REPORTS,
+        VOTE_VALUE_ALT,
+        VOTE_VALUE,
+        ;
 
         /**
          * Construct a Table constant with explicit parameters for isVersioned, hasBeta.
@@ -1718,13 +1724,34 @@ public class DBUtils {
      * @throws SQLException
      */
     public static void execSql(String sqlName) throws IOException, SQLException {
+        try (InputStream s = DBUtils.class.getResourceAsStream("sql/"+sqlName);
+        Reader r = new InputStreamReader(s);) {
+            execSql(sqlName, r);
+        }
+    }
+
+    public static void execSql(String sqlName, Reader r) throws IOException, SQLException {
         logger.severe("Running SQL:  sql/"+sqlName);
-        try (Connection conn = getInstance().getAConnection();
-            InputStream s = DBUtils.class.getResourceAsStream("sql/"+sqlName);
-            Reader r = new InputStreamReader(s);) {
+        try (Connection conn = getInstance().getAConnection();) {
             ScriptRunner runner = new ScriptRunner(conn);
             runner.runScript(r);
             logger.severe("SQL OK: sql/"+sqlName);
         }
+    }
+
+    public static void execSqlWithSubs(String sqlName, String... subs) throws IOException, SQLException {
+        try (InputStream s = DBUtils.class.getResourceAsStream("sql/"+sqlName);
+        Reader r = new InputStreamReader(s);
+        Reader r2 = substituteInStream(r, subs);) {
+            execSql(sqlName, r2);
+        }
+    }
+
+    public static Reader substituteInStream(Reader r, String[] subs) throws IOException {
+        String asString = CharStreams.toString(r);
+        for (int i=0; i<subs.length; i+=2) {
+            asString = asString.replace(subs[i+0], subs[i+1]);
+        }
+        return new StringReader(asString);
     }
 }

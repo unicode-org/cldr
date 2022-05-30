@@ -19,16 +19,18 @@ import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.VoterReportStatus;
 import org.unicode.cldr.util.VoterReportStatus.ReportId;
 import org.unicode.cldr.web.CookieSession;
+import org.unicode.cldr.web.ReportsDB;
 import org.unicode.cldr.web.UserRegistry;
 
 @Path("/voting/reports")
 @Tag(name = "voting", description = "APIs for voting and retrieving vote and row data")
 public class ReportAPI {
     @GET
-    @Path("/users/{user}")
+    @Path("/users/{user}/locales/{locale}")
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(
         summary = "Get Report Status",
@@ -39,13 +41,14 @@ public class ReportAPI {
                 responseCode = "200",
                 description = "Results of Report Status request",
                 content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = VoterReportStatus.class))),
+                    schema = @Schema(implementation = VoterReportStatus.ReportStatus.class))),
             @APIResponse(
                 responseCode = "403",
                 description = "Forbidden"),
         })
     public Response getReport(
         @Parameter(required = true, example = "1", schema = @Schema(type = SchemaType.INTEGER)) @PathParam("user") Integer user,
+        @Parameter(required=true, example="mt", schema = @Schema(type = SchemaType.STRING)) @PathParam("locale") String locale,
         @HeaderParam(Auth.SESSION_HEADER) String session) {
         final CookieSession mySession = Auth.getSession(session);
         if (mySession == null) {
@@ -56,11 +59,14 @@ public class ReportAPI {
             !(mySession.user.id == user || !mySession.user.isAdminFor(u))) {
             return Response.status(Status.FORBIDDEN).build();
         }
-        return Response.ok().entity(u.asVoterReportStatus()).build();
+
+        return Response.ok().entity(
+            ReportsDB.getInstance()
+                .getReportStatus(user, CLDRLocale.getInstance(locale))).build();
     }
 
     @POST
-    @Path("/users/{user}/reports/{report}")
+    @Path("/users/{user}/locales/{locale}/reports/{report}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(
         summary = "Update Report Status",
@@ -83,6 +89,7 @@ public class ReportAPI {
         })
     public Response updateReport(
         @Parameter(required=true, example="1", schema = @Schema(type = SchemaType.INTEGER)) @PathParam("user") Integer user,
+        @Parameter(required=true, example="mt", schema = @Schema(type = SchemaType.STRING)) @PathParam("locale") String locale,
         // Note:  @Schema(implementation = ReportId.class) did not work here. The following works.
         @Parameter(required=true, example="compact", schema = @Schema(type = SchemaType.STRING)) @PathParam("report") ReportId report,
         @HeaderParam(Auth.SESSION_HEADER) String session,
@@ -96,10 +103,25 @@ public class ReportAPI {
         if (mySession.user == null || mySession.user.id != user) {
             return Response.status(Status.FORBIDDEN).build();
         }
-        mySession.user.markReportComplete(report, update.completed, update.acceptable);
+        ReportsDB.getInstance()
+            .markReportComplete(user, CLDRLocale.getInstance(locale),
+                report, update.completed, update.acceptable);
+
         return Response.status(Status.NO_CONTENT).build();
     }
 
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(summary="List all report types")
+    @APIResponse(
+        responseCode = "200",
+        description = "list responses",
+        content = @Content(mediaType = "application/json",
+        schema = @Schema(type = SchemaType.ARRAY, implementation = String.class))
+    )
+    public Response listReports() {
+        return Response.ok().entity(ReportId.values()).build();
+    }
     @Schema(description = "update to user’s report status")
     public static final class ReportUpdate {
         public ReportUpdate() {

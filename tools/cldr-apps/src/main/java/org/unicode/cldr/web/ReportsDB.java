@@ -14,6 +14,7 @@ public class ReportsDB implements VoterReportStatus<Integer>, ReportStatusUpdate
     public static ReportsDB getInstance() {
         return ReportsDBHelper.INSTANCE;
     }
+
     static final Logger logger = SurveyLog.forClass(ReportsDB.class);
     final String table = DBUtils.Table.VOTE_REPORTS
         .forVersion(SurveyMain.getNewVersion(), false).toString();
@@ -47,11 +48,10 @@ public class ReportsDB implements VoterReportStatus<Integer>, ReportStatusUpdate
         try (
             Connection conn = DBUtils.getInstance().getDBConnection();
             PreparedStatement ps = DBUtils.prepareStatementWithArgsUpdateable(conn,
-                String.format("INSERT INTO %s (submitter, locale, report, completed, acceptable) "+
-                "VALUES(?,?,?,?,?) ON DUPLICATE KEY UPDATE completed=?,acceptable=?", table),
+                String.format("INSERT INTO %s (submitter, locale, report, completed, acceptable) " +
+                    "VALUES(?,?,?,?,?) ON DUPLICATE KEY UPDATE completed=?,acceptable=?", table),
                 user, locale.getBaseName(), r.name(), completed ? 1 : 0, acceptable ? 1 : 0,
-                completed ? 1 : 0, acceptable ? 1 : 0);
-        ) {
+                completed ? 1 : 0, acceptable ? 1 : 0);) {
             ps.execute();
             conn.commit();
         } catch (SQLException e) {
@@ -67,9 +67,8 @@ public class ReportsDB implements VoterReportStatus<Integer>, ReportStatusUpdate
             PreparedStatement ps = DBUtils.prepareStatementWithArgsFRO(conn,
                 String.format("SELECT report, completed, acceptable FROM %s WHERE submitter=? AND locale=?", table),
                 user, locale.getBaseName());
-            ResultSet rs = ps.executeQuery();
-        ) {
-            while(rs.next()) {
+            ResultSet rs = ps.executeQuery();) {
+            while (rs.next()) {
                 final String report = rs.getString("report");
                 final Boolean completed = rs.getBoolean("completed");
                 final Boolean acceptable = rs.getBoolean("acceptable");

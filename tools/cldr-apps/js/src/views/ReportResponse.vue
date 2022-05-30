@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import * as cldrAjax from "../esm/cldrAjax.js";
+import * as cldrClient from "../esm/cldrClient.js";
 import * as cldrStatus from "../esm/cldrStatus.js";
 import * as cldrText from "../esm/cldrText.js";
 export default {
@@ -50,6 +50,7 @@ export default {
     };
   },
   created: async function () {
+    this.client = await cldrClient.getClient();
     await this.reload();
   },
   computed: {
@@ -67,15 +68,11 @@ export default {
     },
   },
   methods: {
-    async changed() {
-      this.loaded = false;
-      const user = cldrStatus.getSurveyUser();
-      if (!user) {
-        this.error = "Not logged in.";
-        this.loaded = true;
-        return;
-      }
-      switch (this.state) {
+    /**
+     * Map state to 2 fields
+     */
+    setFields(state) {
+      switch (state) {
         case "acceptable":
           this.completed = true;
           this.acceptable = true;
@@ -90,27 +87,21 @@ export default {
           this.acceptable = false;
           break;
       }
-      const theUrl = `api/voting/reports/users/${user.id}/locales/${this.$cldrOpts.locale}/reports/${this.report}`;
-      await cldrAjax
-        .doFetch(theUrl, {
-          method: "POST",
-          body: JSON.stringify({
-            acceptable: this.acceptable,
-            completed: this.completed,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-            "X-SurveyTool-Session": this.$cldrOpts.sessionId,
-          },
-        })
-        .catch((e) => {
-          console.error(e);
-          this.error = e;
-          this.loaded = true;
-        });
-      return this.reload(); // will set loaded=true
     },
-    reload() {
+    /**
+     * map 2 fields to a string
+     */
+    getFields(fields) {
+      const { completed, acceptable } = fields;
+      if (acceptable && completed) {
+        return "acceptable";
+      } else if (!acceptable && completed) {
+        return "unacceptable";
+      } else {
+        return "incomplete";
+      }
+    },
+    async changed() {
       this.loaded = false;
       const user = cldrStatus.getSurveyUser();
       if (!user) {
@@ -118,32 +109,55 @@ export default {
         this.loaded = true;
         return;
       }
-      const theUrl = `api/voting/reports/users/${user.id}/locales/${this.$cldrOpts.locale}`;
-      return cldrAjax
-        .doFetch(theUrl, {
-          headers: {
-            "X-SurveyTool-Session": this.$cldrOpts.sessionId,
+      try {
+        this.setFields(this.state);
+        await this.client.apis.voting.updateReport(
+          {
+            user: user.id,
+            locale: this.$cldrOpts.locale,
+            report: this.report,
           },
-        })
-        .then((r) => r.json())
-        .then(({ acceptable, completed }) => {
-          this.completed = completed.includes(this.report);
-          this.acceptable = acceptable.includes(this.report);
-          if (this.acceptable && this.completed) {
-            this.state = "acceptable";
-          } else if (!this.acceptable && this.completed) {
-            this.state = "unacceptable";
-          } else {
-            this.state = "incomplete";
+          {
+            requestBody: {
+              acceptable: this.acceptable,
+              completed: this.completed,
+            },
           }
-          this.loaded = true;
-          this.error = null;
-        })
-        .catch((e) => {
-          console.error(e);
-          this.error = e;
-          this.loaded = true;
+        );
+        await this.reload(); // will set loaded=true
+      } catch (e) {
+        console.error(e);
+        this.error = e;
+        this.loaded = true;
+      }
+    },
+    async reload() {
+      this.loaded = false;
+      const user = cldrStatus.getSurveyUser();
+      if (!user) {
+        this.error = "Not logged in.";
+        this.loaded = true;
+        return;
+      }
+      try {
+        const resp = await this.client.apis.voting.getReport({
+          user: user.id,
+          locale: this.$cldrOpts.locale,
         });
+        const { acceptable, completed } = resp.obj;
+        this.completed = completed.includes(this.report);
+        this.acceptable = acceptable.includes(this.report);
+        this.state = this.getFields({
+          completed: this.completed,
+          acceptable: this.acceptable,
+        });
+        this.loaded = true;
+        this.error = null;
+      } catch (e) {
+        console.error(e);
+        this.error = e;
+        this.loaded = true;
+      }
     },
   },
 };
@@ -176,4 +190,3 @@ export default {
   padding: 5px 5px 3px gray;
 }
 </style>
->

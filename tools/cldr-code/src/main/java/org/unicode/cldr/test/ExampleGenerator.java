@@ -343,7 +343,7 @@ public class ExampleGenerator {
         String result = null;
         try {
             if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
-                value = cldrFile.getConstructedBaileyValue(xpath, null, null);
+                value = cldrFile.getBaileyValue(xpath, null, null);
                 if (value == null) {
                     /*
                      * This can happen for some paths, such as
@@ -1985,7 +1985,7 @@ public class ExampleGenerator {
                 if (value != null && !value.equals(type)) {
                     result = value;
                 } else {
-                    result = cldrFile.getConstructedBaileyValue(xpath, null, null);
+                    result = cldrFile.getBaileyValue(xpath, null, null);
                 }
             } else {
                 value = setBackground(value);

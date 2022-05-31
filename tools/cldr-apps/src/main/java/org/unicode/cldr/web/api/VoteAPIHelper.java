@@ -312,18 +312,7 @@ public class VoteAPIHelper {
         if (val != null) {
             try (SurveyMain.UserLocaleStuff uf = sm.getUserFile(mySession, locale);) {
                 final CLDRFile file = uf.cldrfile;
-                final String checkval = val;
-                if (CldrUtility.INHERITANCE_MARKER.equals(val)) {
-                    final Output<String> localeWhereFound = new Output<>();
-                    /*
-                     * TODO: this looks dubious, see https://unicode.org/cldr/trac/ticket/11299
-                     * temporarily for debugging, don't change checkval, but do call
-                     * getBaileyValue in order to get localeWhereFound
-                     */
-                    // checkval = file.getBaileyValue(xp, null, localeWhereFound);
-                    file.getBaileyValue(xp, null, localeWhereFound);
-                }
-                cc.check(xp, result, checkval);
+                cc.check(xp, result, val);
                 r.dataEmpty = file.isEmpty();
             }
         }

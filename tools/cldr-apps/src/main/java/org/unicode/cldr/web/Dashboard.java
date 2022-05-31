@@ -200,7 +200,7 @@ public class Dashboard {
         return reallyGet(vv, args);
     }
 
-    private void setFiles(DashboardArgs args, CLDRLocale locale, STFactory sourceFactory) {
+    public static void setFiles(DashboardArgs args, CLDRLocale locale, STFactory sourceFactory) {
         /*
          * sourceFile provides the current winning values, taking into account recent votes.
          * baselineFile provides the "baseline" (a.k.a. "trunk") values, i.e., the values that

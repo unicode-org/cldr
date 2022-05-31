@@ -10,9 +10,7 @@ public interface VoterReportStatus<T> {
      * Enumeration for the reports. In order.
      */
     public enum ReportId {
-        datetime,
-        zones,
-        compact,  // aka 'numbers'
+        datetime, zones, compact, // aka 'numbers'
     };
 
     public ReportStatus getReportStatus(T user, CLDRLocale locale);
@@ -30,7 +28,7 @@ public interface VoterReportStatus<T> {
             } else {
                 completed.remove(r);
             }
-            if(asAcceptable) {
+            if (asAcceptable) {
                 acceptable.add(r);
             } else {
                 acceptable.remove(r);

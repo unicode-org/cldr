@@ -248,4 +248,5 @@ export {
   makeUrl,
   mediumTimeout,
   sendXhr,
+  SURVEY_TOOL_SESSION_HEADER,
 };

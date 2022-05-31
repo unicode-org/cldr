@@ -103,6 +103,11 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
     // Hack until cldrbug 6566 is fixed. TODO
     private static final Pattern IGNORE_PLACEHOLDER_PARENTHESES = PatternCache.get("\\p{Ps}#\\p{Pe}");
+    // For the following: traditional placeholders just have {0}, {1}, {2}, ...
+    // But personName namePattern placeHolders start with [a-z], then continue with [0-9a-zA-Z-]+
+    // They need to be distinguished from non-placeholder patterns using {} in UnicodeSets
+    public static final Pattern PLACEHOLDER= PatternCache.get("\\{[0-9a-zA-Z-]+\\}");
+
 
     // private UnicodeSet currencySymbolExemplars;
     private boolean skip;
@@ -110,7 +115,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     private Collator spaceCol;
     UnicodeSetPrettyPrinter prettyPrint;
     private Status otherPathStatus = new Status();
-    private Matcher patternMatcher = ExampleGenerator.PARAMETER.matcher("");
+    private Matcher patternMatcher = PLACEHOLDER.matcher("");
     private boolean errorDefaultOption;
 
     // for extracting date pattern text
@@ -500,6 +505,8 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                     // internal error, skip
                 }
             }
+        } else if (placeholderStatus == PlaceholderStatus.OPTIONAL) {
+            minimum = 1;
         }
 
         // TODO: move these tests to CheckPlaceholder
@@ -513,7 +520,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         final Set<String> distinctPlaceholders = matchList.elementSet();
         int countDistinctPlaceholders = distinctPlaceholders.size();
 
-        if (countDistinctPlaceholders > 0) {
+        if (countDistinctPlaceholders > 0 && placeholderStatus != PlaceholderStatus.OPTIONAL ) {
             // Verify that all placeholders are monotonically increasing from zero.
             int expected = 0;
             for (String element : distinctPlaceholders) {

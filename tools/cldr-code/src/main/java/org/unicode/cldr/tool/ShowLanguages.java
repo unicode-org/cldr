@@ -37,6 +37,7 @@ import org.unicode.cldr.util.ArrayComparator;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.CLDRURLS;
@@ -48,7 +49,6 @@ import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.Iso639Data.Type;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
@@ -65,6 +65,7 @@ import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.TreeMultimap;
@@ -120,6 +121,10 @@ public class ShowLanguages {
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
 
+        LanguageInfo linfo = new LanguageInfo(cldrFactory);
+        linfo.showCoverageGoals(pw);
+
+
         new ChartDtdDelta().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
         ShowLocaleCoverage.showCoverage(SUPPLEMENTAL_INDEX_ANCHORS, null);
 
@@ -134,10 +139,6 @@ public class ShowLanguages {
         // since we don't want these listed on the supplemental page, use null
 
         new ShowPlurals().printPlurals(english, null, pw, cldrFactory);
-
-        LanguageInfo linfo = new LanguageInfo(cldrFactory);
-
-        linfo.showCoverageGoals(pw);
 
         linfo.printLikelySubtags(pw);
 
@@ -639,6 +640,9 @@ public class ShowLanguages {
             throw e;
         }
     }
+
+    // TODO This is old code that read supplemental data. Should be replaced by using SupplementalDataInfo.
+    // https://unicode-org.atlassian.net/browse/CLDR-15673
 
     static class LanguageInfo {
         private static final Map<String, Map<String, String>> localeAliasInfo = new TreeMap<>();
@@ -1148,6 +1152,9 @@ public class ShowLanguages {
             return languageCode;
         }
 
+        static final Set<Organization> TC_Vendors = ImmutableSet.of(
+            Organization.apple, Organization.google, Organization.microsoft, Organization.cldr);
+
         private void showCoverageGoals(PrintWriter pw) throws IOException {
             PrintWriter pw2 = new PrintWriter(new FormattedFileWriter(null, "Coverage Goals",
                 null
@@ -1165,28 +1172,33 @@ public class ShowLanguages {
 
             TablePrinter tablePrinter = new TablePrinter()
                 // tablePrinter.setSortPriorities(0,4)
-                .addColumn("Language", "class='source'", null, "class='source'", true)
+                .addColumn("Language", "class='source'", null, "class='source'", false)
                 .setSortPriority(0)
-                .setBreakSpans(true)
+                .setBreakSpans(false)
                 .addColumn("Code", "class='source'",
-                    "<a href=\"http://www.unicode.org/cldr/data/common/main/{0}.xml\">{0}</a>", "class='source'", false);
+                    "<a href=\"http://www.unicode.org/cldr/data/common/main/{0}.xml\">{0}</a>", "class='source'", false)
+                .addColumn("D. Votes", "class='target'", null, "class='target'", false);
+
             Map<Organization, Map<String, Level>> vendordata = sc.getLocaleTypes();
             Set<String> locales = new TreeSet<>();
             Set<Organization> vendors = new LinkedHashSet<>();
             Set<Organization> smallVendors = new LinkedHashSet<>();
 
+            for (Organization organization : TC_Vendors) {
+                //if (vendor.equals(Organization.java)) continue;
+                Map<String, Level> data = vendordata.get(organization);
+                vendors.add(organization);
+                tablePrinter.addColumn(organization.getDisplayName(), "class='target'", null, "class='target'", false)
+                .setSpanRows(false);
+                locales.addAll(data.keySet());
+            }
+
             for (Entry<Organization, Map<String, Level>> vendorData : vendordata.entrySet()) {
                 Organization vendor = vendorData.getKey();
-                //if (vendor.equals(Organization.java)) continue;
-                Map<String, Level> data = vendorData.getValue();
-                if (data.size() < MINIMAL_BIG_VENDOR) {
+                if (!TC_Vendors.contains(vendor)) {
                     smallVendors.add(vendor);
                     continue;
                 }
-                vendors.add(vendor);
-                tablePrinter.addColumn(vendor.getDisplayName(), "class='target'", null, "class='target'", false)
-                .setSpanRows(true);
-                locales.addAll(data.keySet());
             }
 
             Collection<Comparable[]> data = new ArrayList<>();
@@ -1194,25 +1206,29 @@ public class ShowLanguages {
             LanguageTagParser ltp = new LanguageTagParser();
             //String alias2 = getAlias("sh_YU");
 
+            pw2.append("<h2>TC Orgs</h2>");
+
             for (String locale : locales) {
                 list.clear();
                 String localeCode = locale.equals("*") ? "und" : locale;
                 String alias = getAlias(localeCode);
                 if (!alias.equals(localeCode)) {
-                    System.out.println("Should use canonical form: " + locale + " => " + alias);
+                    throw new IllegalArgumentException("Should use canonical form: " + locale + " => " + alias);
                 }
                 String baseLang = ltp.set(localeCode).getLanguage();
                 String baseLangName = getLanguageName(baseLang);
                 list.add("und".equals(localeCode) ? "other" : baseLangName);
                 list.add(locale);
+                int defaultVotes = supplementalDataInfo.getRequiredVotes(CLDRLocale.getInstance(locale), null);
+                list.add(String.valueOf(defaultVotes));
                 for (Organization vendor : vendors) {
                     String status = getVendorStatus(locale, vendor, vendordata);
-                    if (!baseLang.equals(locale) && !status.startsWith("<")) {
-                        String langStatus = getVendorStatus(baseLang, vendor, vendordata);
-                        if (!langStatus.equals(status)) {
-                            status += "*";
-                        }
-                    }
+//                    if (!baseLang.equals(locale) && !status.startsWith("<")) {
+//                        String langStatus = getVendorStatus(baseLang, vendor, vendordata);
+//                        if (!langStatus.equals(status)) {
+//                            status += "*";
+//                        }
+//                    }
                     list.add(status);
                 }
                 data.add(list.toArray(new String[list.size()]));
@@ -1220,7 +1236,9 @@ public class ShowLanguages {
             Comparable[][] flattened = data.toArray(new Comparable[data.size()][]);
             String value = tablePrinter.addRows(flattened).toTable();
             pw2.println(value);
+
             pw2.append("<h2>Others</h2><div align='left'><ul>");
+
             for (Organization vendor2 : smallVendors) {
                 pw2.append("<li><b>");
                 pw2.append(TransliteratorUtilities.toHTML.transform(
@@ -1275,6 +1293,8 @@ public class ShowLanguages {
 
         LanguageTagParser lpt2 = new LanguageTagParser();
 
+        // TODO replace this with standard call.
+
         private String getAlias(String locale) {
             lpt2.set(locale);
             locale = lpt2.toString(); // normalize
@@ -1307,20 +1327,21 @@ public class ShowLanguages {
 
         private String getVendorStatus(String locale, Organization vendor, Map<Organization, Map<String, Level>> vendordata) {
             Level statusLevel = vendordata.get(vendor).get(locale);
-            String status = statusLevel == null ? null : statusLevel.toString();
-            String curLocale = locale;
-            while (status == null) {
-                curLocale = LocaleIDParser.getParent(curLocale);
-                if ("root".equals(curLocale)) {
-                    status = "&nbsp;";
-                    break;
-                }
-                statusLevel = vendordata.get(vendor).get(curLocale);
-                if (statusLevel != null) {
-                    status = "<i>(" + statusLevel + ")</i>";
-                }
-            }
-            return status;
+            return statusLevel == null ? "" : statusLevel.toString();
+//            String status = statusLevel == null ? null : statusLevel.toString();
+//            String curLocale = locale;
+//            while (status == null) {
+//                curLocale = LocaleIDParser.getParent(curLocale);
+//                if ("root".equals(curLocale)) {
+//                    status = "&nbsp;";
+//                    break;
+//                }
+//                statusLevel = vendordata.get(vendor).get(curLocale);
+//                if (statusLevel != null) {
+//                    status = statusLevel + "†";
+//                }
+//            }
+//            return status;
         }
 
         private void showCountryLanguageInfo(PrintWriter pw) throws IOException {

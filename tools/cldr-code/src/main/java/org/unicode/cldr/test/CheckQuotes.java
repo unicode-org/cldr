@@ -10,7 +10,7 @@ import org.unicode.cldr.util.PatternCache;
 import com.ibm.icu.text.UnicodeSet;
 
 public class CheckQuotes extends CheckCLDR {
-    private static final String VALID_DELIMITER_URL = "https://cldr.unicode.org/translation/characters";
+    public static final String VALID_DELIMITER_URL = "https://cldr.unicode.org/translation/characters";
 
     private static final Pattern ASCII_QUOTES = PatternCache.get("[\'\"]");
     private static final Pattern UNITS = PatternCache.get("//ldml/units/.*");

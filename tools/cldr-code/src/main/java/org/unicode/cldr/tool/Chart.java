@@ -28,8 +28,8 @@ public abstract class Chart {
     public static final String PREV_CHART_VERSION_DIRECTORY = ToolConstants.getBaseDirectory(ToolConstants.PREV_CHART_VERSION);
     public static final String CHART_VERSION_DIRECTORY = ToolConstants.getBaseDirectory(ToolConstants.CHART_VERSION);
 
-    private static final String GITHUB_ROOT = CLDRURLS.CLDR_REPO_ROOT + "/blob/main/";
-    private static final String LDML_SPEC = "https://unicode.org/reports/tr35/";
+    public static final String GITHUB_ROOT = CLDRURLS.CLDR_REPO_ROOT + "/blob/main/";
+    public static final String LDML_SPEC = "https://unicode.org/reports/tr35/";
 
     public static String dataScrapeMessage(String specPart, String testFile, String... dataFiles) {
         final String dataFileList = dataFiles.length == 0 ? null :

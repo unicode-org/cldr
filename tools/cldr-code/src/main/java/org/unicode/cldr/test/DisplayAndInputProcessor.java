@@ -418,7 +418,7 @@ public class DisplayAndInputProcessor {
             }
 
             // all of our values should not have leading or trailing spaces, except insertBetween,
-            // foreignSpaceReplacement, and anything with 
+            // foreignSpaceReplacement, and anything with built-in attribute xml:space="preserve"
             if (!path.contains("/insertBetween") && !path.contains("/foreignSpaceReplacement") &&
                 !path.contains("[@xml:space=\"preserve\"]") && !isUnicodeSet) {
                 value = value.trim();

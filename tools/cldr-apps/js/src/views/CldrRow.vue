@@ -14,11 +14,9 @@
     </td>
     <td title="$flyoverproposed" class="d-win proposedcell">
       <div v-for="item in row.items" :key="item.value">
-        <cldr-value
-          v-if="item.value == row.resolver.winningValue"
-          :value="item.value"
-          :dir="row.dir"
-        />
+        <cldr-value v-if="item.value == row.resolver.winningValue">{{
+          item.value
+        }}</cldr-value>
       </div>
     </td>
     <td title="$flyoveradd" class="d-win addcell">
@@ -28,9 +26,9 @@
       <div v-for="item in row.items" :key="item.value">
         <cldr-value
           v-if="item.value != row.resolver.winningValue"
-          :value="item.value"
           :dir="row.dir"
-        />
+          >{{ item.value }}</cldr-value
+        >
       </div>
     </td>
   </tr>

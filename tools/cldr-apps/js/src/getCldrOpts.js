@@ -6,13 +6,7 @@ import * as cldrSurvey from "./esm/cldrSurvey.js";
 function getCldrOpts() {
   const locale = cldrStatus.getCurrentLocale();
   const locmap = cldrLoad.getTheLocaleMap();
-  let localeDir = null;
-  if (locale) {
-    const localeInfo = locmap.getLocaleInfo(locale);
-    if (localeInfo) {
-      localeDir = localeInfo.dir;
-    }
-  }
+  const localeDir = cldrLoad.getLocaleDir(locale);
   return {
     // modules
     cldrLoad,

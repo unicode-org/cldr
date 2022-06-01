@@ -795,6 +795,13 @@ function setOverrideDir(dir) {
   overridedir = dir;
 }
 
+/**
+ * Set the dir and lang attributes for a node that represents
+ * a CLDR value.
+ * Also appends the 'cldrValue' class to the node.
+ * @param {Node} node DOM node
+ * @param {String} loc locale
+ */
 function setLang(node, loc) {
   var info = locInfo(loc);
 
@@ -807,6 +814,9 @@ function setLang(node, loc) {
   if (info && info.bcp47) {
     node.lang = info.bcp47;
   }
+
+  // defined in surveytool.css and shared with CldrValue.vue
+  node.classList.add("cldrValue");
 }
 
 /**

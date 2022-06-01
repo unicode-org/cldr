@@ -348,7 +348,7 @@ function updateRowVoteInfo(tr, theRow) {
       );
       isectionIsUsed = true;
     }
-    cldrSurvey.setLang(valdiv);
+    cldrSurvey.setLang(valdiv); // want the whole div to be marked as cldrValue
     if (value === cldrSurvey.INHERITANCE_MARKER) {
       /*
        * theRow.inheritedValue can be undefined here; then do not append
@@ -600,7 +600,6 @@ function showItemInfoFn(theRow, item) {
     }
 
     var span = cldrVote.appendItem(h3, displayValue, item.pClass);
-    cldrSurvey.setLang(span);
     h3.className = "span";
     td.appendChild(h3);
 

@@ -86,21 +86,6 @@ function show(str, tr, hideIfLast, fn) {
         placeholderInfo
       );
     }
-    // extra attributes
-    if (
-      theRow.extraAttributes &&
-      Object.keys(theRow.extraAttributes).length > 0
-    ) {
-      var extraHeading = cldrDom.createChunk(
-        cldrText.get("extraAttribute_heading"),
-        "h3",
-        "extraAttribute_heading"
-      );
-      var extraContainer = cldrDom.createChunk("", "div", "extraAttributes");
-      appendExtraAttributes(extraContainer, theRow);
-      theHelp.appendChild(extraHeading);
-      theHelp.appendChild(extraContainer);
-    }
   }
 
   if (str) {

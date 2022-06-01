@@ -61,6 +61,6 @@ jobs:
         run: >
           mvn -s .github/workflows/mvn-settings.xml -B test --file tools/pom.xml
           -pl cldr-code -Dorg.unicode.cldr.unittest.testArgs='-e10 -n'
-          -DCLDR_GITHUB_ANNOTATIONS=true
+          -DCLDR_GITHUB_ANNOTATIONS=true -DCLDR_TEST_ENABLE_NET=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

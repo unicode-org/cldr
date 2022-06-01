@@ -346,9 +346,6 @@ public class SubtypeToURLMap {
 
             Document doc = Jsoup.connect(resource.toString()).get();
             SubtypeToURLMap newMap = getInstance(resource, doc);
-            try(PrintWriter pw = new PrintWriter(new File("/tmp/mymap.txt"), "UTF-8")) { // TODO: in later Java, we can use StandardCharsets.UTF8
-                newMap.write(pw);
-            }
             return newMap;
         } else {
             // assume HTML to parse

@@ -172,8 +172,7 @@ public class PersonNameFormatter {
             );
 
         /**
-         * Verifies whether a set of modifiers is consistent. Returns null if ok, otherwise error message.
-         * @param errorMessage2
+         * If the input modifiers are consistent, returns an ordered set; if not, returns null and sets an error message.
          */
         public static Set<Modifier> getCleanSet(Collection<Modifier> modifierList, Output<String> errorMessage) {
             if (modifierList.isEmpty()) {

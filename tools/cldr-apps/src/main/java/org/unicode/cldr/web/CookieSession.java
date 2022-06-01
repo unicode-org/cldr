@@ -60,7 +60,12 @@ public class CookieSession {
     static final boolean DEBUG_INOUT = false;
     public String id;
     public String ip;
-    private Hashtable<String, Object> stuff = new Hashtable<>(); // user data
+
+    /**
+     * "stuff" must be public since it is referenced by jsp for bulk upload
+     * Reference: https://unicode-org.atlassian.net/browse/CLDR-15676
+     */
+    public Hashtable<String, Object> stuff = new Hashtable<>(); // user data
     public Hashtable<String, Comparable> prefs = new Hashtable<>(); // user prefs
     public UserRegistry.User user = null;
     /**

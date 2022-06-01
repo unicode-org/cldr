@@ -98,23 +98,25 @@
                     |
                     <span class="code" title="code">{{ entry.code }}</span>
                     |
-                    <span
+                    <cldr-value
                       class="previous-english"
                       title="previous English"
+                      lang="en"
+                      dir="ltr"
                       v-if="entry.previousEnglish"
+                      >{{ entry.previousEnglish }} →</cldr-value
                     >
-                      {{ entry.previousEnglish }} →
-                    </span>
-                    <span class="english" title="English">{{
-                      entry.english
-                    }}</span>
+                    <cldr-value
+                      class="english"
+                      lang="en"
+                      dir="ltr"
+                      title="English"
+                      >{{ entry.english }}</cldr-value
+                    >
                     |
-                    <span
-                      class="winning"
-                      title="Winning"
-                      v-bind:dir="$cldrOpts.localeDir"
-                      >{{ entry.winning }}</span
-                    >
+                    <cldr-value class="winning" title="Winning">{{
+                      entry.winning
+                    }}</cldr-value>
                     <template v-if="entry.comment">
                       |
                       <span v-html="entry.comment" title="comment"></span>

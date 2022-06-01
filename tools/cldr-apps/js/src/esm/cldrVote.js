@@ -297,7 +297,6 @@ function showProposedItem(inTd, tr, theRow, value, tests, json) {
     }
     var h3 = document.createElement("span");
     var span = appendItem(h3, value, "value");
-    cldrSurvey.setLang(span);
     ourDiv.appendChild(h3);
     if (otherCell) {
       otherCell.appendChild(tr.myProposal);
@@ -375,7 +374,6 @@ function showProposedItem(inTd, tr, theRow, value, tests, json) {
     if (!ourItem) {
       var h3 = document.createElement("h3");
       var span = appendItem(h3, value, "value");
-      cldrSurvey.setLang(span);
       h3.className = "span";
       div3.appendChild(h3);
     }
@@ -476,6 +474,7 @@ function wrapRadio(button) {
 
 /**
  * Append just an editable span representing a candidate voting item
+ * Calls setLang() automatically
  *
  * @param div {DOM} div to append to
  * @param value {String} string value
@@ -496,6 +495,7 @@ function appendItem(div, value, pClass) {
   } else {
     span.className = "value";
   }
+  cldrSurvey.setLang(span);
   div.appendChild(span);
   return span;
 }

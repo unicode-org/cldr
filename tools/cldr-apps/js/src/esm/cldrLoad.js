@@ -1001,6 +1001,23 @@ function getTheLocaleMap() {
   return locmap;
 }
 
+/**
+ * Get the direction of a locale, if available
+ * @param {String} locale
+ * @returns null or 'ltr' or 'rtl'
+ */
+function getLocaleDir(locale) {
+  const locmap = getTheLocaleMap();
+  let localeDir = null;
+  if (locale) {
+    const localeInfo = locmap.getLocaleInfo(locale);
+    if (localeInfo) {
+      localeDir = localeInfo.dir;
+    }
+  }
+  return localeDir;
+}
+
 function setTheLocaleMap(lm) {
   locmap = lm;
 }
@@ -1117,6 +1134,7 @@ export {
   flipToGenericNoLocale,
   flipToOtherDiv,
   getHash,
+  getLocaleDir,
   getLocaleName,
   getTheLocaleMap,
   handleCoverageChanged,

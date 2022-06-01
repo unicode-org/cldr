@@ -1059,7 +1059,6 @@ function addVitem(td, tr, theRow, item, newButton) {
   var span = cldrVote.appendItem(subSpan, displayValue, item.pClass);
   choiceField.appendChild(subSpan);
 
-  cldrSurvey.setLang(span);
   checkLRmarker(choiceField, item.value);
 
   if (item.isBaselineValue == true) {

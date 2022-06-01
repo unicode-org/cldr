@@ -21,6 +21,8 @@ import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.Choice;
 import org.unicode.cldr.util.VettingViewer.DashboardArgs;
+import org.unicode.cldr.util.VoterReportStatus.ReportId;
+import org.unicode.cldr.util.VoterReportStatus.ReportStatus;
 import org.unicode.cldr.util.VoterProgress;
 
 import com.ibm.icu.impl.Relation;
@@ -82,6 +84,31 @@ public class Dashboard {
         }
 
         public VoterProgress voterProgress = null;
+
+        /**
+         * Add Report status
+         * @param userId
+         * @param localeId
+         */
+        public void addReports(int userId, String localeId) {
+            final CLDRLocale locale = CLDRLocale.getInstance(localeId);
+            ReportStatus reportStatus = ReportsDB.getInstance().getReportStatus(userId, locale);
+            EnumSet<ReportId> incomplete = EnumSet.complementOf(reportStatus.completed);
+            if (!incomplete.isEmpty()) {
+                ReviewNotificationGroup rng = new ReviewNotificationGroup("Reports", "", "");
+                incomplete.forEach(r -> rng.add(r.name()));
+                add("Reports").add(rng);
+            }
+            // update counts. Completed are both voted and votable.
+            reportStatus.completed.forEach(r -> {
+                voterProgress.incrementVotedPathCount();
+                voterProgress.incrementVotablePathCount();
+            });
+            // Incomplete are votable but not voted.
+            incomplete.forEach(r -> {
+                voterProgress.incrementVotablePathCount();
+            });
+        }
     }
 
     @Schema(description = "Heading for a portion of the notifications")
@@ -131,6 +158,12 @@ public class Dashboard {
             return e;
         }
 
+        public ReviewEntry add(String code) {
+            ReviewEntry e = new ReviewEntry(code);
+            this.entries.add(e);
+            return e;
+        }
+
         // for serialization
         public ReviewEntry[] getEntries() {
             return entries.toArray(new ReviewEntry[entries.size()]);
@@ -172,6 +205,11 @@ public class Dashboard {
         public ReviewEntry(String code, String xpath) {
             this.code = code;
             this.xpstrid = XPathTable.getStringIDString(xpath);
+        }
+
+        public ReviewEntry(String code) {
+            this.code = code;
+            this.xpstrid = code;
         }
     }
 
@@ -227,6 +265,7 @@ public class Dashboard {
             final String localeId = args.getLocale().toString();
             reviewOutput.hidden = new ReviewHide(args.getUserId(), localeId).get();
             reviewOutput.voterProgress = dd.voterProgress;
+            reviewOutput.addReports(args.getUserId(), localeId);
         }
         return reviewOutput;
     }

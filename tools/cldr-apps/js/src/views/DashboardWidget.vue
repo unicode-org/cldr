@@ -76,7 +76,11 @@
                 <span class="dashEntry">
                   <a
                     v-bind:href="
-                      '#/' + [locale, group.page, entry.xpstrid].join('/')
+                      getLink(
+                        [locale, group.page, entry.xpstrid],
+                        catData.category,
+                        entry.code
+                      )
                     "
                     @click="
                       () =>
@@ -92,9 +96,12 @@
                       humanize(group.section + "—" + group.page)
                     }}</span>
                     |
-                    <span class="entry-header" title="entry header">{{
-                      group.header
-                    }}</span>
+                    <span
+                      v-if="group.header"
+                      class="entry-header"
+                      title="entry header"
+                      >{{ group.header }}</span
+                    >
                     |
                     <span class="code" title="code">{{ entry.code }}</span>
                     |
@@ -111,16 +118,23 @@
                       lang="en"
                       dir="ltr"
                       title="English"
+                      v-if="entry.english"
                       >{{ entry.english }}</cldr-value
                     >
                     |
-                    <cldr-value class="winning" title="Winning">{{
-                      entry.winning
-                    }}</cldr-value>
+                    <cldr-value
+                      v-if="entry.winning"
+                      class="winning"
+                      title="Winning"
+                      >{{ entry.winning }}</cldr-value
+                    >
                     <template v-if="entry.comment">
                       |
                       <span v-html="entry.comment" title="comment"></span>
                     </template>
+                    <span v-if="catData.category === 'Reports'">{{
+                      humanizeReport(entry.code)
+                    }}</span>
                   </a>
                 </span>
                 <input
@@ -174,6 +188,14 @@ export default {
   },
 
   methods: {
+    getLink(array, category, code) {
+      const [locale, page, xpstrid] = array;
+      if (category === "Reports") {
+        return `#r_${code}/${locale}`;
+      } else {
+        return "#/" + array.join("/");
+      }
+    },
     scrollToCategory(event) {
       const whence = event.target.getAttribute("category");
       if (this.data && this.data.notifications) {
@@ -295,6 +317,10 @@ export default {
         description = this.humanize(category);
       }
       return description;
+    },
+
+    humanizeReport(report) {
+      return cldrText.get(`special_r_${report}`) + " Report";
     },
 
     humanize(str) {

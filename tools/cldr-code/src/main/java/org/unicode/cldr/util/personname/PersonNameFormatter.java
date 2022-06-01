@@ -29,7 +29,6 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.Comparators;
 import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.ImmutableBiMap;
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
@@ -277,7 +276,7 @@ public class PersonNameFormatter {
 
         /** convenience method for testing */
         public ModifiedField(Field field, Modifier... modifiers) {
-            this(field, ImmutableList.copyOf(modifiers));
+            this(field, Arrays.asList(modifiers));
         }
 
         /** convenience method for testing */

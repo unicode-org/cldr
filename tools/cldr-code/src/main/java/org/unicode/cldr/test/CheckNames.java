@@ -5,10 +5,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
-import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.RegexUtilities;
 
 public class CheckNames extends CheckCLDR {
-    private static final Pattern YEAR_PATTERN = PatternCache.get("\\d{3,4}");
     private static final Pattern YEARS_NOT_ALLOWED = Pattern
         .compile(
             "//ldml/localeDisplayNames/(languages|currencies|scripts|territories|measurementSystemNames|transformNames)/.*");
@@ -23,7 +22,7 @@ public class CheckNames extends CheckCLDR {
             !getCldrFileToCheck().isNotRoot(path)) {
             return this;
         }
-        Matcher matcher = YEAR_PATTERN.matcher(value);
+        Matcher matcher = RegexUtilities.DIGIT_PATTERN.matcher(value);
         if (matcher.find()) {
             // If same as the code-fallback value (territories) then no error
             if (path.startsWith("//ldml/localeDisplayNames/territories") &&
@@ -43,11 +42,6 @@ public class CheckNames extends CheckCLDR {
             }
         }
         return this;
-    }
-
-    public static boolean matchDigitPattern(String value) {
-        Matcher matcher = YEAR_PATTERN.matcher(value);
-        return matcher.find();
     }
 
     private boolean isEnclosedByBraces(Matcher matcher, String value, char startBrace, char endBrace) {

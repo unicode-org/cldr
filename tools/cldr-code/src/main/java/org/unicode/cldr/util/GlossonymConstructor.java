@@ -1,7 +1,16 @@
 package org.unicode.cldr.util;
 
+import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
+import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.text.Transform;
 import com.ibm.icu.util.Output;
-import org.unicode.cldr.test.CheckNames;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Automatically construct language names (glossonyms)
@@ -57,7 +66,7 @@ public class GlossonymConstructor {
      * @return true if bogus
      */
     public static boolean valueIsBogus(String value) {
-        return value == null || value.contains(CODE_SEPARATOR) || CheckNames.matchDigitPattern(value);
+        return value == null || value.contains(CODE_SEPARATOR) || RegexUtilities.matchDigitPattern(value);
     }
 
     private final CLDRFile cldrFile;
@@ -80,7 +89,12 @@ public class GlossonymConstructor {
     public String getValueAndTrack(String xpath, Output<String> pathWhereFound, Output<String> localeWhereFound) {
         final String constructedValue = getValue(xpath);
         if (constructedValue != null) {
-            track(pathWhereFound, localeWhereFound);
+            if (localeWhereFound != null) {
+                localeWhereFound.value = cldrFile.getLocaleID();
+            }
+            if (pathWhereFound != null) {
+                pathWhereFound.value = PSEUDO_PATH;
+            }
             return constructedValue;
         }
         return null;
@@ -111,14 +125,5 @@ public class GlossonymConstructor {
             }
         }
         return null;
-    }
-
-    private void track(Output<String> pathWhereFound, Output<String> localeWhereFound) {
-        if (localeWhereFound != null) {
-            localeWhereFound.value = cldrFile.getLocaleID();
-        }
-        if (pathWhereFound != null) {
-            pathWhereFound.value = PSEUDO_PATH;
-        }
     }
 }

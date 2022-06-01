@@ -31,4 +31,11 @@ public class RegexUtilities {
         Matcher m = p.matcher("");
         return showMismatch(m, s);
     }
+
+    public static final Pattern DIGIT_PATTERN = PatternCache.get("\\d{3,4}");
+
+    public static boolean matchDigitPattern(String value) {
+        Matcher matcher = DIGIT_PATTERN.matcher(value);
+        return matcher.find();
+    }
 }

@@ -130,7 +130,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private static UnicodeSet supportedNameSet = new UnicodeSet("[a-zA-Z]").freeze();
     static final int TWELVE_WEEKS = 3600 * 24 * 7 * 12;
 
-    public static final String DEFAULT_CONTENT_LINK = "<i><a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/default-content'>default content locale</a></i>";
+    public static final String DEFAULT_CONTENT_LINK = "<i><a target='CLDR-ST-DOCS' href='https://cldr.unicode.org/translation/translation-guide-general/default-content'>default content locale</a></i>";
 
     private static final long serialVersionUID = -3587451989643792204L;
 

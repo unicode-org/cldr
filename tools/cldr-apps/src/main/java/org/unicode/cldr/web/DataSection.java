@@ -678,7 +678,7 @@ public class DataSection implements JSONString {
          *
          * Sequential order in which addItem may be called (as of 2019-04-19) for a given DataRow:
          *
-         * (1) For INHERITANCE_MARKER (if inheritedValue = ourSrc.getConstructedBaileyValue not null):
+         * (1) For INHERITANCE_MARKER (if inheritedValue = ourSrc.getBaileyValue not null):
          *     in updateInheritedValue (called by populateFromThisXpath):
          *         inheritedItem = addItem(CldrUtility.INHERITANCE_MARKER, "inherited");
          *
@@ -891,7 +891,7 @@ public class DataSection implements JSONString {
              */
             Output<String> inheritancePathWhereFound = new Output<>(); // may become pathWhereFound
             Output<String> localeWhereFound = new Output<>(); // may be used to construct inheritedLocale
-            inheritedValue = ourSrc.getConstructedBaileyValue(xpath, inheritancePathWhereFound, localeWhereFound);
+            inheritedValue = ourSrc.getBaileyValue(xpath, inheritancePathWhereFound, localeWhereFound);
 
             if (TRACE_TIME) {
                 System.err.println("@@1:" + (System.currentTimeMillis() - lastTime));
@@ -908,7 +908,7 @@ public class DataSection implements JSONString {
                  * xpath = //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMMEEEEd"]
                  * ourValueIsInherited = false; ourValue = "EEEE, d/MM/y"; isExtraPath = false
                  *
-                 * TODO: what are the implications when ourSrc.getConstructedBaileyValue has returned null?
+                 * TODO: what are the implications when ourSrc.getBaileyValue has returned null?
                  * Unless we're at root, shouldn't there always be a non-null inheritedValue here?
                  * See https://unicode.org/cldr/trac/ticket/11299
                  */
@@ -1061,7 +1061,10 @@ public class DataSection implements JSONString {
         }
 
         public String getInheritedXPath() {
-            return (pathWhereFound != null) ? XPathTable.getStringIDString(pathWhereFound) : null;
+            if (pathWhereFound != null && !pathWhereFound.equals(GlossonymConstructor.PSEUDO_PATH)) {
+                return XPathTable.getStringIDString(pathWhereFound);
+            }
+            return null;
         }
 
         private String getWinningVHash() {

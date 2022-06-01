@@ -642,7 +642,7 @@ public class VettingViewer<T> {
             if (ph == null || ph.shouldHide()) {
                 return;
             }
-            String value = sourceFile.getWinningValueForVettingViewer(path);
+            String value = sourceFile.getWinningValue(path);
             statusMessage.setLength(0);
             subtypes.clear();
             ErrorChecker.Status errorStatus = errorChecker.getErrorStatus(path, value, statusMessage, subtypes);

@@ -100,7 +100,6 @@ import com.ibm.icu.util.VersionInfo;
 
 public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleStringProvider {
 
-    private static final boolean SEED_ONLY = true;
     private static final ImmutableSet<String> casesNominativeOnly = ImmutableSet.of(GrammaticalFeature.grammaticalCase.getDefault(null));
     /**
      * Variable to control whether File reads are buffered; this will about halve the time spent in
@@ -224,8 +223,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     /**
      * get Unresolved CLDRFile
      * @param localeId
-     * @param file
-     * @param minimumDraftStatus
+     * @param dirs
+     * @param minimalDraftStatus
      */
     public CLDRFile(String localeId, List<File> dirs, DraftStatus minimalDraftStatus) {
         // order matters
@@ -313,9 +312,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     /**
      * Produce a CLDRFile from a localeName, given a directory. (Normally a Factory is used to create CLDRFiles.)
      *
+     * @param f
      * @param localeName
-     * @param dir
-     *            directory
+     * @param minimalDraftStatus
      */
     public static CLDRFile loadFromFile(File f, String localeName, DraftStatus minimalDraftStatus) {
         return loadFromFile(f, localeName, minimalDraftStatus, new SimpleXMLSource(localeName));
@@ -373,7 +372,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     /**
      * Clone the object. Produces unlocked version
      *
-     * @see com.ibm.icu.dev.test.util.Freezeble
+     * @see com.ibm.icu.util.Freezable
      */
     @Override
     public CLDRFile cloneAsThawed() {
@@ -613,8 +612,15 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             String result = dataSource.getValueAtPath(xpath);
             if (result == null && dataSource.isResolving()) {
                 final String fallbackPath = getFallbackPath(xpath, false, true);
+                // often fallbackPath equals xpath -- in such cases, isn't it a waste of time to call getValueAtPath again?
                 if (fallbackPath != null) {
                     result = dataSource.getValueAtPath(fallbackPath);
+                }
+            }
+            if (isResolved() && GlossonymConstructor.valueIsBogus(result) && GlossonymConstructor.pathIsEligible(xpath)) {
+                final String constructedValue = new GlossonymConstructor(this).getValue(xpath);
+                if (constructedValue != null) {
+                    result = constructedValue;
                 }
             }
             return result;
@@ -649,6 +655,13 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                 }
             }
         }
+        if (isResolved() && GlossonymConstructor.valueIsBogus(result) && GlossonymConstructor.pathIsEligible(xpath)) {
+            final GlossonymConstructor gc = new GlossonymConstructor(this);
+            final String constructedValue = gc.getValueAndTrack(xpath, pathWhereFound, localeWhereFound);
+            if (constructedValue != null) {
+                result = constructedValue;
+            }
+        }
         return result;
     }
 
@@ -663,25 +676,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         public String transform(@SuppressWarnings("unused") String source) {
             return alt;
         }
-    }
-
-    /**
-     * Get the constructed GeorgeBailey value: that is, if the item would otherwise be constructed (such as "Chinese (Simplified)") use that.
-     * Otherwise return BaileyValue.
-     * @parameter pathWhereFound null if constructed.
-     */
-    public String getConstructedBaileyValue(String xpath, Output<String> pathWhereFound, Output<String> localeWhereFound) {
-        String constructedValue = getConstructedValue(xpath);
-        if (constructedValue != null) {
-            if (localeWhereFound != null) {
-                localeWhereFound.value = getLocaleID();
-            }
-            if (pathWhereFound != null) {
-                pathWhereFound.value = null; // TODO make more useful
-            }
-            return constructedValue;
-        }
-        return getBaileyValue(xpath, pathWhereFound, localeWhereFound);
     }
 
     /**
@@ -775,6 +769,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             if (fallbackPath != null && !fallbackPath.equals(distinguishedXPath)) {
                 result = dataSource.getSourceLocaleIdExtended(fallbackPath, status, skipInheritanceMarker);
             }
+            if (result == XMLSource.CODE_FALLBACK_ID && getConstructedValue(distinguishedXPath) != null) {
+                if (status != null) {
+                    status.pathWhereFound = GlossonymConstructor.PSEUDO_PATH;
+                }
+                return getLocaleID();
+            }
         }
         return result;
     }
@@ -811,9 +811,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
 
     /**
      * Note where this element was parsed.
-     * @param system system name, such as a filename
-     * @param line line number
-     * @param column column number
      */
     public CLDRFile addSourceLocation(String currentFullXPath, XMLSource.SourceLocation location) {
         dataSource.addSourceLocation(currentFullXPath, location);
@@ -856,8 +853,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * or the other files values are kept.
      *
      * @param other
-     * @param keepMine
-     *            if true, keep my values in case of conflict; otherwise keep the other's values.
+     * @param conflict_resolution
      */
     public CLDRFile putAll(CLDRFile other, int conflict_resolution) {
 
@@ -1044,13 +1040,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
 
     /**
      * Removes all items with same value
-     *
-     * @param keepIfMatches
-     *            TODO
-     * @param removedItems
-     *            TODO
-     * @param keepList
-     *            TODO
      */
     public CLDRFile removeDuplicates(CLDRFile other, boolean butComment, RetentionTest keepIfMatches,
         Collection<String> removedItems) {
@@ -2282,11 +2271,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         if (codeToAlt != null) {
             String alt = codeToAlt.transform(code);
             if (alt != null) {
-                result = getStringValueWithBailey(path + "[@alt=\"" + alt + "\"]");
+                String altPath = path + "[@alt=\"" + alt + "\"]";
+                result = getStringValueWithBaileyNotConstructed(altPath);
             }
         }
         if (result == null) {
-            result = getStringValueWithBailey(path);
+            result = getStringValueWithBaileyNotConstructed(path);
         }
         if (getLocaleID().equals("en")) {
             Status status = new Status();
@@ -2310,6 +2300,28 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             }
         }
         return result;
+    }
+
+    /**
+     * Like getStringValueWithBailey, but reject constructed values, to prevent
+     * circularity problems with getName
+     *
+     * Since GlossonymConstructor uses getName to CREATE constructed values, circularity
+     * problems would occur if getName in turn used GlossonymConstructor to get constructed
+     * Bailey values. Note that getStringValueWithBailey only returns a constructed value if
+     * the value would otherwise be "bogus", and getName has no use for bogus values, so there
+     * is no harm in returning null rather than code-fallback or other bogus values.
+     *
+     * @param path the given xpath
+     * @return the string value, or null
+     */
+    private String getStringValueWithBaileyNotConstructed(String path) {
+        Output<String> pathWhereFound = new Output<>();
+        final String value = getStringValueWithBailey(path, pathWhereFound, null);
+        if (value == null || GlossonymConstructor.PSEUDO_PATH.equals(pathWhereFound.toString())) {
+            return null;
+        }
+        return value;
     }
 
     static final Pattern CLEAN_DESCRIPTION = Pattern.compile("([^\\(\\[]*)[\\(\\[].*");
@@ -2374,6 +2386,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             localeKeyTypePattern, localePattern, localeSeparator, null);
     }
 
+    static int gnu = 1;
+
     /**
      * Returns the name of the given bcp47 identifier. Note that extensions must
      * be specified using the old "\@key=type" syntax.
@@ -2388,7 +2402,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     public synchronized String getName(String localeOrTZID, boolean onlyConstructCompound,
         String localeKeyTypePattern, String localePattern, String localeSeparator,
         Transform<String, String> altPicker) {
-
         // Hack for seed
         if (localePattern == null) {
             localePattern = "{0} ({1})";
@@ -2401,6 +2414,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
 
         boolean isCompound = localeOrTZID.contains("_");
         String name = isCompound && onlyConstructCompound ? null : getName(LANGUAGE_NAME, localeOrTZID, altPicker);
+
         // TODO - handle arbitrary combinations
         if (name != null && !name.contains("_") && !name.contains("-")) {
             name = name.replace('(', '[').replace(')', ']').replace('（', '［').replace('）', '］');
@@ -2408,24 +2422,24 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         }
         LanguageTagParser lparser = new LanguageTagParser().set(localeOrTZID);
         return getName(
-            lparser,
-            onlyConstructCompound,
-            altPicker,
-            localeKeyTypePattern,
-            localePattern,
-            localeSeparator);
+                lparser,
+                onlyConstructCompound,
+                altPicker,
+                localeKeyTypePattern,
+                localePattern,
+                localeSeparator);
     }
 
     public String getName(
-        LanguageTagParser lparser,
-        boolean onlyConstructCompound,
-        Transform<String, String> altPicker,
-        String localeKeyTypePattern,
-        String localePattern,
-        String localeSeparator) {
+            LanguageTagParser lparser,
+            boolean onlyConstructCompound,
+            Transform<String, String> altPicker,
+            String localeKeyTypePattern,
+            String localePattern,
+            String localeSeparator) {
 
         String name;
-        String original;
+        String original = null;
 
         // we need to check for prefixes, for lang+script or lang+country
         boolean haveScript = false;
@@ -2435,7 +2449,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             name = getName(LANGUAGE_NAME, original = lparser.getLanguage(), altPicker);
             if (name == null) name = original;
         } else {
-            name = getName(LANGUAGE_NAME, lparser.toString(LanguageTagParser.LANGUAGE_SCRIPT_REGION), altPicker);
+            String x = lparser.toString(LanguageTagParser.LANGUAGE_SCRIPT_REGION);
+            name = getName(LANGUAGE_NAME, x, altPicker);
             if (name != null) {
                 haveScript = haveRegion = true;
             } else {
@@ -2454,7 +2469,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             }
         }
         name = name.replace('(', '[').replace(')', ']').replace('（', '［').replace('）', '］');
-
         String extras = "";
         if (!haveScript) {
             extras = addDisplayName(lparser.getScript(), SCRIPT_NAME, localeSeparator, extras, altPicker);
@@ -2486,30 +2500,30 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                     kname = key; // should not happen, but just in case
                 }
                 switch (key) {
-                case "t":
-                    List<String> hybrid = lparser.getLocaleExtensionsDetailed().get("h0");
-                    if (hybrid != null) {
-                        kname = getKeyValueName("h0", JOIN_UNDERBAR.join(hybrid));
-                    }
-                    oldFormatType = getName(oldFormatType);
-                    break;
-                case "h0":
-                    continue main;
-                case "cu":
-                    oldFormatType = getName(CURRENCY_SYMBOL, oldFormatType.toUpperCase(Locale.ROOT));
-                    break;
-                case "tz":
-                    oldFormatType = getTZName(oldFormatType, "VVVV");
-                    break;
-                case "kr":
-                    oldFormatType = getReorderName(localeSeparator, keyValue);
-                    break;
-                case "rg":
-                case "sd":
-                    oldFormatType = getName(SUBDIVISION_NAME, oldFormatType);
-                    break;
-                default:
-                    oldFormatType = JOIN_HYPHEN.join(keyValue);
+                    case "t":
+                        List<String> hybrid = lparser.getLocaleExtensionsDetailed().get("h0");
+                        if (hybrid != null) {
+                            kname = getKeyValueName("h0", JOIN_UNDERBAR.join(hybrid));
+                        }
+                        oldFormatType = getName(oldFormatType);
+                        break;
+                    case "h0":
+                        continue main;
+                    case "cu":
+                        oldFormatType = getName(CURRENCY_SYMBOL, oldFormatType.toUpperCase(Locale.ROOT));
+                        break;
+                    case "tz":
+                        oldFormatType = getTZName(oldFormatType, "VVVV");
+                        break;
+                    case "kr":
+                        oldFormatType = getReorderName(localeSeparator, keyValue);
+                        break;
+                    case "rg":
+                    case "sd":
+                        oldFormatType = getName(SUBDIVISION_NAME, oldFormatType);
+                        break;
+                    default:
+                        oldFormatType = JOIN_HYPHEN.join(keyValue);
                 }
                 value = MessageFormat.format(localeKeyTypePattern, new Object[] { kname, oldFormatType });
                 value = value.replace('(', '[').replace(')', ']').replace('（', '［').replace('）', '］');
@@ -2527,6 +2541,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         }
         return MessageFormat.format(localePattern, new Object[] { name, extras });
     }
+
 
     /**
      * Gets timezone name. Not optimized.
@@ -2561,12 +2576,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     static final Joiner JOIN_UNDERBAR = Joiner.on('_');
 
     public String getName(LanguageTagParser lparser,
-        boolean onlyConstructCompound,
-        Transform<String, String> altPicker) {
+                          boolean onlyConstructCompound,
+                          Transform<String, String> altPicker) {
         return getName(lparser, onlyConstructCompound, altPicker,
-            getWinningValueWithBailey("//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern"),
-            getWinningValueWithBailey("//ldml/localeDisplayNames/localeDisplayPattern/localePattern"),
-            getWinningValueWithBailey("//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator"));
+                getWinningValueWithBailey("//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern"),
+                getWinningValueWithBailey("//ldml/localeDisplayNames/localeDisplayPattern/localePattern"),
+                getWinningValueWithBailey("//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator"));
     }
 
     public String getKeyName(String key) {
@@ -2645,12 +2660,13 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     public synchronized String getName(String localeOrTZID,
         boolean onlyConstructCompound,
         Transform<String, String> altPicker) {
-        return getName(localeOrTZID,
+        String value = getName(localeOrTZID,
             onlyConstructCompound,
             getWinningValueWithBailey("//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern"),
             getWinningValueWithBailey("//ldml/localeDisplayNames/localeDisplayPattern/localePattern"),
             getWinningValueWithBailey("//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator"),
             altPicker);
+        return value;
     }
 
     /**
@@ -3165,18 +3181,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      *
      * @param path
      * @return the winning value
-     *
-     * TODO: check whether this is called only when appropriate, see https://unicode.org/cldr/trac/ticket/11299
-     * Compare getStringValueWithBailey which is identical except getStringValue versus getWinningValue.
      */
     public String getWinningValueWithBailey(String path) {
-        String winningValue = getWinningValue(path);
-        if (CldrUtility.INHERITANCE_MARKER.equals(winningValue)) {
-            Output<String> localeWhereFound = new Output<>();
-            Output<String> pathWhereFound = new Output<>();
-            winningValue = getBaileyValue(path, pathWhereFound, localeWhereFound);
-        }
-        return winningValue;
+        final String winningPath = getWinningPath(path);
+        return winningPath == null ? null : getStringValueWithBailey(winningPath);
     }
 
     /**
@@ -3186,18 +3194,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      *
      * @param path
      * @return the string value
-     *
-     * TODO: check whether this is called only when appropriate, see https://unicode.org/cldr/trac/ticket/11299
-     * Compare getWinningValueWithBailey wich is identical except getWinningValue versus getStringValue.
      */
     public String getStringValueWithBailey(String path) {
-        String value = getStringValue(path);
-        if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
-            Output<String> localeWhereFound = new Output<>();
-            Output<String> pathWhereFound = new Output<>();
-            value = getBaileyValue(path, pathWhereFound, localeWhereFound);
-        }
-        return value;
+        return getStringValueWithBailey(path, null, null);
     }
 
     /**
@@ -3205,21 +3204,24 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * If the string value is an INHERITANCE_MARKER (used in survey
      * tool), then the Bailey value is returned.
      *
-     * @param path
+     * @param path the given xpath
+     * @param pathWhereFound if not null, to be filled in with the path where the value is actually found
+     * @param localeWhereFound if not null, to be filled in with the locale where the value is actually found
      * @return the string value
-     *
-     * TODO: check whether this is called only when appropriate, see https://unicode.org/cldr/trac/ticket/11299
-     * Compare getWinningValueWithBailey wich is identical except getWinningValue versus getStringValue.
      */
     public String getStringValueWithBailey(String path, Output<String> pathWhereFound, Output<String> localeWhereFound) {
         String value = getStringValue(path);
         if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
             value = getBaileyValue(path, pathWhereFound, localeWhereFound);
-        } else {
-            Status status = new Status();
-            String localeWhereFound2 = getSourceLocaleID(path, status);
-            if (localeWhereFound != null) localeWhereFound.value = localeWhereFound2;
-            if (pathWhereFound != null) pathWhereFound.value = status.pathWhereFound;
+        } else if (localeWhereFound != null || pathWhereFound != null) {
+            final Status status = new Status();
+            final String localeWhereFound2 = getSourceLocaleID(path, status);
+            if (localeWhereFound != null) {
+                localeWhereFound.value = localeWhereFound2;
+            }
+            if (pathWhereFound != null) {
+                pathWhereFound.value = status.pathWhereFound;
+            }
         }
         return value;
     }
@@ -3253,10 +3255,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     /**
      * Return the distinguished paths that match the pathPrefix and pathMatcher
      * The pathMatcher can be null (equals .*).
-     *
-     * @param valueToMatch
-     * @param pathPrefix
-     * @return
      */
     public Set<String> getPaths(String pathPrefix, Matcher pathMatcher, Set<String> result) {
         if (result == null) {
@@ -3798,75 +3796,13 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * Get a constructed value for the given path, if it is a path for which values can be constructed
      *
      * @param xpath the given path, such as //ldml/localeDisplayNames/languages/language[@type="zh_Hans"]
-     * @return the constructed value, or null if this path doesn't have constructed values
+     * @return the constructed value, or null if this path doesn't have a constructed value
      */
     public String getConstructedValue(String xpath) {
-        if (xpath.startsWith("//ldml/localeDisplayNames/languages/language[@type=\"") && xpath.contains("_")) {
-            XPathParts parts = XPathParts.getFrozenInstance(xpath);
-            String type = parts.getAttributeValue(-1, "type");
-            if (type.contains("_")) {
-                String alt = parts.getAttributeValue(-1, "alt");
-                if (alt == null) {
-                    return getName(type, true);
-                } else {
-                    return getName(type, true, new SimpleAltPicker(alt));
-                }
-            }
+        if (isResolved() && GlossonymConstructor.pathIsEligible(xpath)) {
+            return new GlossonymConstructor(this).getValue(xpath);
         }
         return null;
-    }
-
-    /**
-     * Get the string value for the winning path
-     *
-     * Do so taking constructed values into account.
-     *
-     * Currently this is only intended for use by VettingViewer.FileInfo.getFileInfo,
-     * to fix an urgent Dashboard bug. In the long run maybe it should replace
-     * getWinningValue, or the two methods should be merged somehow.
-     *
-     * Reference:
-     *  CLDR-13457 Dashboard does not show all Error/Missing/New… values
-     *
-     * @param path
-     * @return the winning value
-     */
-    public String getWinningValueForVettingViewer(String path) {
-        final String winningPath = getWinningPath(path);
-        return winningPath == null ? null : getStringValueForVettingViewer(winningPath);
-    }
-
-    /**
-     * Get a string value from an xpath.
-     *
-     * Do so taking constructed values into account.
-     *
-     * Currently called only by getWinningValueForVettingViewer
-     *
-     * References:
-     *  CLDR-13263 Merge getConstructedBaileyValue and getBaileyValue
-     *  CLDR-13457 Dashboard does not show all Error/Missing/New… values
-     */
-    private String getStringValueForVettingViewer(String xpath) {
-        try {
-            String constructedValue = getConstructedValue(xpath);
-            if (constructedValue != null) {
-                String value = getStringValueUnresolved(xpath);
-                if (value == null || CldrUtility.INHERITANCE_MARKER.equals(value)) {
-                    return constructedValue;
-                }
-            }
-            String result = dataSource.getValueAtPath(xpath);
-            if (result == null && dataSource.isResolving()) {
-                final String fallbackPath = getFallbackPath(xpath, false, true);
-                if (fallbackPath != null) {
-                    result = dataSource.getValueAtPath(fallbackPath);
-                }
-            }
-            return result;
-        } catch (Exception e) {
-            throw new UncheckedExecutionException("Bad path: " + xpath, e);
-        }
     }
 
     /**

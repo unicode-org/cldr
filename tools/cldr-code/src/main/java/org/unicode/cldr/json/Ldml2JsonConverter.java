@@ -402,9 +402,13 @@ public class Ldml2JsonConverter {
             final String path = it.next();
             String fullPath = file.getFullXPath(path);
             String value = file.getWinningValue(path);
+            /*
+             * TODO: check whether this next block is superfluous, and remove it if so
+             * Reference: https://unicode-org.atlassian.net/browse/CLDR-13263
+             */
             if (path.startsWith("//ldml/localeDisplayNames/languages") &&
                 file.getSourceLocaleID(path, null).equals("code-fallback")) {
-                value = file.getConstructedBaileyValue(path, null, null);
+                value = file.getBaileyValue(path, null, null);
             }
 
             if (fullPath == null) {

@@ -29,6 +29,7 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.Comparators;
 import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.ImmutableBiMap;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
@@ -36,13 +37,16 @@ import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.LinkedListMultimap;
 import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Multiset;
 import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
+import com.google.common.collect.TreeMultiset;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.CaseMap;
 import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -169,20 +173,37 @@ public class PersonNameFormatter {
 
         /**
          * Verifies whether a set of modifiers is consistent. Returns null if ok, otherwise error message.
+         * @param errorMessage2
          */
-        public static String inconsistentSet(Collection<Modifier> modifiers) {
-            String result = null;
+        public static Set<Modifier> getCleanSet(Collection<Modifier> modifierList, Output<String> errorMessage) {
+            if (modifierList.isEmpty()) {
+                return ImmutableSet.of();
+            }
+            Set<Modifier> modifiers = EnumSet.copyOf(modifierList);
+            String errorMessage1 = null;
+            if (modifiers.size() != modifierList.size()) {
+                Multiset<Modifier> dupCheck = TreeMultiset.create();
+                dupCheck.addAll(modifierList);
+                for (Modifier m : modifiers) {
+                    dupCheck.remove(m);
+                }
+                errorMessage1 = "Duplicate modifiers: " + Joiner.on(", ").join(dupCheck);
+            }
+            String errorMessage2 = null;
             for (Set<Modifier> inconsistentSet : INCONSISTENT_SETS) {
                 if (modifiers.containsAll(inconsistentSet)) {
-                    if (result == null) {
-                        result = "Inconsistent modifiers: ";
+                    if (errorMessage2 == null) {
+                        errorMessage2 = "Inconsistent modifiers: ";
                     } else {
-                        result += ", ";
+                        errorMessage2 += ", ";
                     }
-                    result += inconsistentSet;
+                    errorMessage2 += inconsistentSet;
                 }
             }
-            return result;
+            errorMessage.value = errorMessage1 == null ? errorMessage2
+                : errorMessage2 == null ? errorMessage1
+                    : errorMessage1 + "; " + errorMessage1;
+            return ImmutableSet.copyOf(modifiers);
         }
 
         /**
@@ -248,22 +269,22 @@ public class PersonNameFormatter {
 
         public ModifiedField(Field field, Collection<Modifier> modifiers) {
             this.field = field;
-            this.modifiers = ImmutableSet.copyOf(modifiers);
-            String errorMessage = Modifier.inconsistentSet(modifiers);
-            if (errorMessage != null) {
-                throw new IllegalArgumentException(errorMessage);
+            Output<String> errorMessage = new Output<>();
+            this.modifiers = Modifier.getCleanSet(modifiers, errorMessage);
+            if (errorMessage.value != null) {
+                throw new IllegalArgumentException(errorMessage.value);
             }
         }
 
         /** convenience method for testing */
         public ModifiedField(Field field, Modifier... modifiers) {
-            this(field, ImmutableSet.copyOf(modifiers));
+            this(field, ImmutableList.copyOf(modifiers));
         }
 
         /** convenience method for testing */
         public static ModifiedField from(String string) {
             Field field = null;
-            Set<Modifier> modifiers = new TreeSet<>();
+            List<Modifier> modifiers = new ArrayList<>();
             for (String item : SPLIT_DASH.split(string)) {
                 if (field == null) {
                     field = Field.valueOf(item);

@@ -31,6 +31,7 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
+import com.ibm.icu.util.Output;
 
 public class CheckPlaceHolders extends CheckCLDR {
 
@@ -118,12 +119,13 @@ public class CheckPlaceHolders extends CheckCLDR {
                 ModifiedField fieldType = ModifiedField.from(parts.getAttributeValue(-1, "type"));
                 Field field = fieldType.getField();
                 Set<Modifier> modifiers = fieldType.getModifiers();
-                String errorMessage = Modifier.inconsistentSet(modifiers);
-                if (errorMessage != null) {
+                Output<String> errorMessage = new Output<>();
+                Modifier.getCleanSet(modifiers, errorMessage);
+                if (errorMessage.value != null) {
                     result.add(new CheckStatus().setCause(this)
                         .setMainType(CheckStatus.warningType)
                         .setSubtype(Subtype.invalidPlaceHolder)
-                        .setMessage(errorMessage));
+                        .setMessage(errorMessage.value));
                     return this;
                 }
 

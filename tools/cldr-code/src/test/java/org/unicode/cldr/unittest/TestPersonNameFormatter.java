@@ -34,10 +34,12 @@ import org.unicode.cldr.util.personname.SimpleNameObject;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
 public class TestPersonNameFormatter extends TestFmwk{
@@ -584,14 +586,17 @@ public class TestPersonNameFormatter extends TestFmwk{
         String[][] expectedFailures = {
             {"allCaps", "initialCap", "Inconsistent modifiers: [allCaps, initialCap]"},
             {"initial", "monogram", "Inconsistent modifiers: [initial, monogram]"},
-            {"prefix", "core","Inconsistent modifiers: [core, prefix]"}
+            {"prefix", "core","Inconsistent modifiers: [core, prefix]"},
         };
         for (Modifier first : Modifier.ALL) {
             for (Modifier second: Modifier.ALL) {
-                if (first.compareTo(second) >= 0) {
+                if (first.compareTo(second) > 0) {
                     continue;
                 }
                 String expected = null;
+                if (first.compareTo(second) == 0) {
+                    expected = "Duplicate modifiers: " + first;
+                }
                 for (String[] row : expectedFailures) {
                     if (first ==  Modifier.valueOf(row[0])
                         && second ==  Modifier.valueOf(row[1])
@@ -600,9 +605,10 @@ public class TestPersonNameFormatter extends TestFmwk{
                     }
                 }
 
-                final ImmutableSet<Modifier> test = ImmutableSet.of(first, second);
-                String check = Modifier.inconsistentSet(test);
-                assertEquals("Modifier set consistent " + test, expected, check);
+                final ImmutableList<Modifier> test = ImmutableList.of(first, second);
+                Output<String> check = new Output<>();
+                Modifier.getCleanSet(test, check);
+                assertEquals("Modifier set consistent " + test, expected, check.value);
             }
         }
     }

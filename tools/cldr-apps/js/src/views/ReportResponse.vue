@@ -34,8 +34,10 @@
 
 <script>
 import * as cldrClient from "../esm/cldrClient.js";
+import * as cldrReport from "../esm/cldrReport.js";
 import * as cldrStatus from "../esm/cldrStatus.js";
 import * as cldrText from "../esm/cldrText.js";
+
 export default {
   props: [
     "report", // e.g. 'numbers'
@@ -55,16 +57,10 @@ export default {
   },
   computed: {
     reportName() {
-      return cldrText.get(`special_r_${this.report}`);
+      return cldrReport.reportName(this.report);
     },
     statusClass() {
-      if (this.completed && this.acceptable) {
-        return "d-dr-approved";
-      } else if (this.completed && !this.acceptable) {
-        return "d-dr-contributed";
-      } else {
-        return "d-dr-missing";
-      }
+      return cldrReport.reportClass(this.completed, this.acceptable);
     },
   },
   methods: {
@@ -105,7 +101,7 @@ export default {
       this.loaded = false;
       const user = cldrStatus.getSurveyUser();
       if (!user) {
-        this.error = "Not logged in.";
+        this.error = cldrText.get("E_NOT_LOGGED_IN");
         this.loaded = true;
         return;
       }
@@ -135,7 +131,7 @@ export default {
       this.loaded = false;
       const user = cldrStatus.getSurveyUser();
       if (!user) {
-        this.error = "Not logged in.";
+        this.error = cldrText.get("E_NOT_LOGGED_IN");
         this.loaded = true;
         return;
       }

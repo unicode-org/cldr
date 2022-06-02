@@ -31,4 +31,6 @@ public class RegexUtilities {
         Matcher m = p.matcher("");
         return showMismatch(m, s);
     }
+
+    public static final Pattern PATTERN_3_OR_4_DIGITS = PatternCache.get("\\d{3,4}");
 }

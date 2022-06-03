@@ -29,6 +29,7 @@ import com.google.common.base.Splitter;
 import com.google.common.collect.Comparators;
 import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.ImmutableBiMap;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
@@ -214,7 +215,7 @@ public class PersonNameFormatter {
                     if (plainValue != null) { // prefix = X, core = Y, plain = Z
                         // ok: prefix = "van", core = "Berg", plain = "van Berg"
                         // bad: prefix = "van", core = "Berg", plain = "van Wolf"
-                       if (!plainValue.replace(prefixValue, "").trim().equals(coreValue)) {
+                        if (!plainValue.replace(prefixValue, "").trim().equals(coreValue)) {
                             errorMessage2 = "-core value and -prefix value are inconsistent with plain value";
                         }
                     }
@@ -557,7 +558,7 @@ public class PersonNameFormatter {
             final ModifiedField modifiedField = element.getModifiedField();
             String bestValue = nameObject.getBestValue(modifiedField, remainingModifers);
             if (bestValue == null) {
-                    return null;
+                return null;
             }
             if (!remainingModifers.isEmpty()) {
                 bestValue = fallbackInfo.applyModifierFallbacks(nameFormatParameters, remainingModifers, bestValue);
@@ -594,13 +595,6 @@ public class PersonNameFormatter {
             l2.setLength(0);
 
             return result;
-        }
-
-        private void trimEnd(StringBuilder result) {
-            int len = result.length();
-            if (len > 0 && result.charAt(len-1) == ' ') {
-                result.setLength(len-1);
-            }
         }
 
         public NamePattern(int rank, List<NamePatternElement> elements) {
@@ -943,6 +937,27 @@ public class PersonNameFormatter {
                 sb.append(item.toString());
             }
         }
+
+        /**
+         * Only used to add missing CLDR fields. 
+         * If an item is missing, get the best replacements.
+         * @return
+         */
+        public Iterable<FormatParameters> getFallbacks() {
+            // sorting monograms ==> surnameFirst monograms
+            // sorting addressing ==> sorting referring
+            // TODO generalize this
+            if (order == Order.sorting) {
+                switch (usage) {
+                case monogram:
+                    return ImmutableList.of(new FormatParameters(Order.surnameFirst, length, usage, formality));
+                case addressing:
+                    return ImmutableList.of(new FormatParameters(order, length, Usage.referring, formality));
+                default: break;
+                }
+            }
+            return ImmutableList.of();
+        }
     }
 
     /**
@@ -1178,6 +1193,21 @@ public class PersonNameFormatter {
 
     }
 
+    /** 
+     * Returns a match for the nameFormatParameters, or null if the parameterMatcherToNamePattern has no match.
+     */
+    public static Collection<NamePattern> getBestMatchSet(
+        ListMultimap<ParameterMatcher, NamePattern> parameterMatcherToNamePattern,
+        FormatParameters nameFormatParameters) {
+        for (Entry<ParameterMatcher, Collection<NamePattern>> parametersAndPatterns : parameterMatcherToNamePattern.asMap().entrySet()) {
+            ParameterMatcher parameters = parametersAndPatterns.getKey();
+            if (parameters.matches(nameFormatParameters)) {
+                return parametersAndPatterns.getValue();
+            }
+        }
+        return null; // This will only happen if the NamePatternData is incomplete
+    }
+
     /**
      * Data that maps from NameFormatParameters and a NameObject to the best NamePattern.
      * Immutable
@@ -1194,7 +1224,7 @@ public class PersonNameFormatter {
 
             NamePattern result = null;
 
-            Collection<NamePattern> namePatterns = getBestMatchSet(nameFormatParameters);
+            Collection<NamePattern> namePatterns = getBestMatchSet(parameterMatcherToNamePattern, nameFormatParameters);
             if (namePatterns == null) {
                 // Internal error, should never happen with valid data
                 throw new IllegalArgumentException("Can't find " + nameFormatParameters + " in " + parameterMatcherToNamePattern);
@@ -1218,19 +1248,6 @@ public class PersonNameFormatter {
             return result;
         }
 
-        public Collection<NamePattern> getBestMatchSet(FormatParameters nameFormatParameters) {
-
-            for (Entry<ParameterMatcher, Collection<NamePattern>> parametersAndPatterns : parameterMatcherToNamePattern.asMap().entrySet()) {
-                ParameterMatcher parameters = parametersAndPatterns.getKey();
-                if (parameters.matches(nameFormatParameters)) {
-                    return parametersAndPatterns.getValue();
-                }
-            }
-
-            return null; // for now; this will only happen if the NamePatternData is invalid
-        }
-
-
         /**
          * Build the name pattern data. In the formatParametersToNamePattern:
          * <ul>
@@ -1240,14 +1257,14 @@ public class PersonNameFormatter {
          * The multimap values must retain the order they are built with!
          */
         public NamePatternData(ImmutableMap<ULocale, Order> localeToOrder,
-            ImmutableListMultimap<ParameterMatcher, NamePattern> formatParametersToNamePattern) {
+            ListMultimap<ParameterMatcher, NamePattern> formatParametersToNamePattern) {
 
             if (formatParametersToNamePattern == null || formatParametersToNamePattern.isEmpty()) {
                 throw new IllegalArgumentException("formatParametersToNamePattern must be non-null, non-empty");
             }
 
             this.localeToOrder = localeToOrder == null ? ImmutableMap.of() : localeToOrder;
-            this.parameterMatcherToNamePattern = formatParametersToNamePattern;
+            this.parameterMatcherToNamePattern = ImmutableListMultimap.copyOf(formatParametersToNamePattern);
 
             ParameterMatcher lastKey = null;
             Set<FormatParameters> remaining = new LinkedHashSet<>(FormatParameters.all());
@@ -1290,7 +1307,7 @@ public class PersonNameFormatter {
             this(localeToOrder, parseFormatParametersToNamePatterns(formatParametersToNamePatterns));
         }
 
-        private static ImmutableListMultimap<ParameterMatcher, NamePattern> parseFormatParametersToNamePatterns(String... formatParametersToNamePatterns) {
+        private static ListMultimap<ParameterMatcher, NamePattern> parseFormatParametersToNamePatterns(String... formatParametersToNamePatterns) {
             int count = formatParametersToNamePatterns.length;
             if ((count % 2) != 0) {
                 throw new IllegalArgumentException("Must have even number of strings, fields => pattern: " + Arrays.asList(formatParametersToNamePatterns));
@@ -1302,7 +1319,7 @@ public class PersonNameFormatter {
                 NamePattern np = NamePattern.from(rank++, formatParametersToNamePatterns[i+1]);
                 _formatParametersToNamePatterns.put(pm, np);
             }
-            return ImmutableListMultimap.copyOf(_formatParametersToNamePatterns);
+            return _formatParametersToNamePatterns;
         }
 
         @Override
@@ -1434,11 +1451,34 @@ public class PersonNameFormatter {
         for (Pair<ParameterMatcher, NamePattern> entry : ordered) {
             formatParametersToNamePattern.put(entry.getFirst(), entry.getSecond());
         }
+        addMissing(formatParametersToNamePattern);
+
         // TODO Peter Add locale map to en.xml so we can read it
         ImmutableMap<ULocale, Order> localeToOrder = ImmutableMap.copyOf(_localeToOrder);
 
-        this.namePatternMap = new NamePatternData(localeToOrder, ImmutableListMultimap.copyOf(formatParametersToNamePattern));
+        this.namePatternMap = new NamePatternData(localeToOrder, formatParametersToNamePattern);
         this.fallbackFormatter = new FallbackFormatter(new ULocale(cldrFile.getLocaleID()), initialPattern, initialSequencePattern);
+    }
+
+    /**
+     * Add items that are not in the CLDR file.
+     */
+    private void addMissing(ListMultimap<ParameterMatcher, NamePattern> formatParametersToNamePattern) {
+        for (FormatParameters formatParameters : FormatParameters.all()) {
+            Collection<NamePattern> namePatterns = getBestMatchSet(formatParametersToNamePattern, formatParameters);
+            if (namePatterns == null) {
+                for (FormatParameters fallback : formatParameters.getFallbacks()) {
+                    namePatterns = getBestMatchSet(formatParametersToNamePattern, fallback);
+                    if (namePatterns != null) {
+                        formatParametersToNamePattern.putAll(new ParameterMatcher(formatParameters), namePatterns);
+                        break;
+                    }
+                }
+                if (namePatterns == null) {
+                    throw new IllegalArgumentException("Missing fallback for " + formatParameters);
+                }
+            }
+        }
     }
 
     public String format(NameObject nameObject, FormatParameters nameFormatParameters) {
@@ -1452,7 +1492,7 @@ public class PersonNameFormatter {
      * For testing
      */
     public Collection<NamePattern> getBestMatchSet(FormatParameters nameFormatParameters) {
-        return namePatternMap.getBestMatchSet(nameFormatParameters);
+        return getBestMatchSet(namePatternMap.parameterMatcherToNamePattern, nameFormatParameters);
     }
 
     /**

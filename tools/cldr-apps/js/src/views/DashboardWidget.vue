@@ -132,9 +132,9 @@
                       |
                       <span v-html="entry.comment" title="comment"></span>
                     </template>
-                    <span v-if="catData.category === 'Reports'">{{
-                      humanizeReport(entry.code)
-                    }}</span>
+                    <span v-if="catData.category === 'Reports'"
+                      >{{ humanizeReport(entry.code) }} Report</span
+                    >
                   </a>
                 </span>
                 <input
@@ -165,6 +165,7 @@ import * as cldrCoverage from "../esm/cldrCoverage.js";
 import * as cldrDash from "../esm/cldrDash.js";
 import * as cldrGui from "../esm/cldrGui.js";
 import * as cldrLoad from "../esm/cldrLoad.js";
+import * as cldrReport from "../esm/cldrReport.js";
 import * as cldrStatus from "../esm/cldrStatus.js";
 import * as cldrText from "../esm/cldrText.js";
 
@@ -319,14 +320,14 @@ export default {
       return description;
     },
 
-    humanizeReport(report) {
-      return cldrText.get(`special_r_${report}`) + " Report";
-    },
-
     humanize(str) {
       // For categories like "English_Changed", page names like "Languages_K_N",
       // and section names like "Locale_Display_Names"
       return str.replaceAll("_", " ");
+    },
+
+    humanizeReport(report) {
+      return cldrReport.reportName(report);
     },
 
     entryCheckmarkChanged(event, entry) {

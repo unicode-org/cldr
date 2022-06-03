@@ -8,12 +8,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
-		<language type="es" /> 
+		<language type="fy" />
 	</identity>
 	<collations>
 		<collation>
+			<!--	yY comes just after iI in Frisian
+					see https://en.wikipedia.org/wiki/West_Frisian_alphabet#Alphabetical_order
+			-->
 			<cr><![CDATA[
-				< a < A < â < Â < ä < Ä < b < B < c < C < d < D < e < E < é < É < ê < Ê < ë < Ë < f < F < g < G < h < H < i,y < I,Y < ï < Ï < j < J < k < K < l < L < m < M < n < N < o < O < ô < Ô < ö < Ö < p < P < q < Q < r < R < s < S < t < T < u < U < ú < Ú < û < Û < ü < Ü < v < V < w < W < x < X < z < Z
+				&I<<y<<<Y
 			]]></cr>
 		</collation>
 	</collations>

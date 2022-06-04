@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 2022 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (https://unicode.org/reports/tr35/)
+For terms of use, see https://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="fy"/> 
+	</identity>
+	<collations>
+		<collation type="standard">
+			<!-- Original discussion: CLDR-15542
+			     Sort order according to
+			     https://en.wikipedia.org/wiki/West_Frisian_alphabet#Alphabetical_order
+			     snapshot from 2022-jun-03:
+			     “In alphabetical listings both I and Y are usually found between H and J.
+			      When two words differ only because one has I and the other one has Y
+			      (stikje or stykje), the word with I precedes the one with Y.“
+
+			     Secondary-level difference like in Swedish V<<w<<<W -->
+			<cr><![CDATA[
+				&I<<y<<<Y
+			]]></cr>
+		</collation>
+	</collations>
+</ldml>

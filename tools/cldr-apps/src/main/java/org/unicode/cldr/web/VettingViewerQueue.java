@@ -1,21 +1,17 @@
 package org.unicode.cldr.web;
 
 import java.io.IOException;
-import java.util.EnumSet;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Logger;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.Organization;
-import org.unicode.cldr.util.VettingViewer;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
+import org.unicode.cldr.web.api.LocaleCompletion;
 
 /**
  * @author srl
@@ -43,7 +39,7 @@ public class VettingViewerQueue {
     /**
      * Count the # of paths in this CLDRFile
      *
-     * @param file
+     * @param f
      * @return
      */
     private static int pathCount(CLDRFile f) {
@@ -279,15 +275,41 @@ public class VettingViewerQueue {
 
             EnumSet<VettingViewer.Choice> choiceSet = VettingViewer.getChoiceSetForOrg(usersOrg);
             choiceSet.remove(VettingViewer.Choice.abstained);
-
             if (DEBUG) {
                 System.out.println("Starting generation of Priority Items Summary");
             }
+            vv.setLocaleToProgress(getLocaleToProgress(vv, usersOrg));
             vv.generatePriorityItemsSummary(aBuffer, choiceSet, usersOrg);
             if (myThread.isAlive()) {
                 aBuffer.append("<hr/>Processing time: " + ElapsedTimer.elapsedTime(start));
                 entry.output.put(usersOrg, new VVOutput(aBuffer));
             }
+        }
+
+        /**
+         * Get a map from locale id string to progress percentage string, to be
+         * used in the "Progress" column of the Priority Items Summary
+         *
+         * @param vv the VettingViewer
+         * @param org the Organization
+         * @return the map
+         *
+         * Note: unless the locale completion results have already been cached, this method may
+         * be inefficient since it loops with VettingViewer through all the paths in each locale,
+         * and then the Priority Items Summary again loops with VettingViewer through all the paths
+         * in each locale. It might be up to twice as efficient, especially when values are not yet
+         * cached, to gather the progress stats during the same single pass as the rest of the summary info.
+         */
+        private HashMap<String, String> getLocaleToProgress(VettingViewer<Organization> vv, Organization org) {
+            final HashMap<String, String> map = new HashMap<>();
+            final ArrayList<String> localeList = vv.getLocaleList(org);
+            for (String localeId : localeList) {
+                final CLDRLocale loc = CLDRLocale.getInstance(localeId);
+                final LocaleCompletion.LocaleCompletionResponse response = LocaleCompletion.handleGetLocaleCompletion(loc);
+                final int percent = (100 * response.votes / response.total);
+                map.put(localeId, Integer.toString(percent));
+            }
+            return map;
         }
 
         private int getPercent() {

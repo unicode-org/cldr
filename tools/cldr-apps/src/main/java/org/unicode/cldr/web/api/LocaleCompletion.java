@@ -96,7 +96,7 @@ public class LocaleCompletion {
      * @param cldrLocale the locale
      * @return the response
      */
-    static LocaleCompletionResponse handleGetLocaleCompletion(CLDRLocale cldrLocale) {
+    public static LocaleCompletionResponse handleGetLocaleCompletion(CLDRLocale cldrLocale) {
         final STFactory stFactory = CookieSession.sm.getSTFactory();
         return handleGetLocaleCompletion(cldrLocale, stFactory);
     }

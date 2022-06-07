@@ -53,7 +53,7 @@ public class VettingViewer<T> {
 
     private static final boolean DEBUG = false;
 
-    private static final boolean SHOW_SUBTYPES = true; // CldrUtility.getProperty("SHOW_SUBTYPES", "false").equals("true");
+    private static final boolean SHOW_SUBTYPES = false;
 
     private static final String CONNECT_PREFIX = "₍_";
     private static final String CONNECT_SUFFIX = "₎";
@@ -72,6 +72,16 @@ public class VettingViewer<T> {
 
     private static boolean orgIsNeutralForSummary(Organization org) {
         return org.equals(getNeutralOrgForSummary());
+    }
+
+    /**
+     * Map from locale id (like "aa") to a percentage string (like "100%"),
+     * for the "Progress" column of the Priority Items Summary
+     */
+    private HashMap<String, String> localeToProgress = null;
+
+    public void setLocaleToProgress(HashMap<String, String> localeToProgress) {
+        this.localeToProgress = localeToProgress;
     }
 
     /**
@@ -856,15 +866,36 @@ public class VettingViewer<T> {
         return localeCount;
     }
 
+    /**
+     * Get the list of locales to be summarized for the given organization
+     *
+     * @param org the organization
+     * @return the list of locale id strings
+     */
+    public ArrayList<String> getLocaleList(Organization org) {
+        final ArrayList<String> list = new ArrayList<>();
+        for (Level lv : Level.values()) {
+            final Map<String, String> sortedNames = getSortedNames(org, lv);
+            for (Map.Entry<String,String> entry : sortedNames.entrySet()) {
+                list.add(entry.getValue());
+            }
+        }
+        return list;
+    }
+
     public void generatePriorityItemsSummary(Appendable output, EnumSet<Choice> choices, T organization) {
         try {
             StringBuilder headerRow = new StringBuilder();
             headerRow
                 .append("<tr class='tvs-tr'>")
                 .append(TH_AND_STYLES)
+                .append("Level</th>")
+                .append(TH_AND_STYLES)
                 .append("Locale</th>")
                 .append(TH_AND_STYLES)
-                .append("Codes</th>");
+                .append("Codes</th>")
+                .append(TH_AND_STYLES)
+                .append("Progress</th>");
             for (Choice choice : choices) {
                 headerRow.append("<th class='tv-th'>");
                 choice.appendDisplay(headerRow);
@@ -1084,7 +1115,7 @@ public class VettingViewer<T> {
                 System.out.println("writeAction.compute(" + n + ") - got fileinfo " + name + ": " + localeID);
             }
             try {
-                writeSummaryRow(output, choices, fileInfo.vc.problemCounter, name, localeID);
+                writeSummaryRow(output, choices, fileInfo.vc.problemCounter, name, localeID, level);
                 if (DEBUG_THREADS) {
                     System.out.println("writeAction.compute(" + n + ") - wrote " + name + ": " + localeID);
                 }
@@ -1134,8 +1165,8 @@ public class VettingViewer<T> {
             writeAction.computeAll();
         }
         context.appendTo(output); // write all of the results together
-        output.append(header); // add one header at the bottom
-        writeSummaryRow(output, choices, totals.problemCounter, "Total", null);
+        output.append(header); // add one header at the bottom before the Total row
+        writeSummaryRow(output, choices, totals.problemCounter, "Total", null, desiredLevel);
         output.append("</table>");
         if (SHOW_SUBTYPES) {
             showSubtypes(output, sortedNames, localeNameToFileInfo, totals, true);
@@ -1219,22 +1250,41 @@ public class VettingViewer<T> {
         }
     }
 
+    /**
+     * Write one row of the Priority Items Summary
+     *
+     * @param output
+     * @param choices
+     * @param problemCounter
+     * @param name
+     * @param localeID if null, this is a "Total" row to be shown at the bottom of the table
+     * @param level
+     * @throws IOException
+     *
+     * CAUTION: this method not only uses "th" for "table header" in the usual sense, it also
+     * uses "th" for cells that contain data, including locale names like "Kashmiri (Devanagari)"
+     * and code values like "<code>ks_Deva₍_IN₎</code>". The same row may have both "th" and "td" cells.
+     */
     private void writeSummaryRow(Appendable output, EnumSet<Choice> choices, Counter<Choice> problemCounter,
-        String name, String localeID) throws IOException {
+                                 String name, String localeID, Level level) throws IOException {
         output
             .append("<tr>")
+            .append(TH_AND_STYLES)
+            .append(level.toString())
+            .append("</th>")
             .append(TH_AND_STYLES);
         if (localeID == null) {
             output
                 .append("<i>")
-                .append(name)
+                .append(name) // here always name = "Total"
                 .append("</i>")
                 .append("</th>")
-                .append(TH_AND_STYLES);
+                .append(TH_AND_STYLES); // empty cell for Codes
         } else {
             appendNameAndCode(name, localeID, output);
         }
         output.append("</th>\n");
+        output.append("<td class='tvs-count'>").append(getProgressPercentage(localeID)).append("</td>\n");
         for (Choice choice : choices) {
             long count = problemCounter.get(choice);
             output.append("<td class='tvs-count'>");
@@ -1248,6 +1298,16 @@ public class VettingViewer<T> {
             output.append("</td>\n");
         }
         output.append("</tr>\n");
+    }
+
+    private String getProgressPercentage(String localeID) {
+        if (localeID != null && localeToProgress != null) {
+            final String percent = localeToProgress.get(localeID);
+            if (percent != null) {
+                return percent + "%";
+            }
+        }
+        return "";
     }
 
     private void appendNameAndCode(String name, String localeID, Appendable output) throws IOException {

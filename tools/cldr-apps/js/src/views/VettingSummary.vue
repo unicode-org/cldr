@@ -70,7 +70,7 @@
             :key="locale"
           >
             <td>
-              <tt>{{ locale }}—{{ humanizeLocale(locale) }}</tt>
+              <code>{{ locale }}—{{ humanizeLocale(locale) }}</code>
             </td>
             <td>
               <span

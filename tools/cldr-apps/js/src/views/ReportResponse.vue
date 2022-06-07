@@ -18,14 +18,14 @@
     </p>
 
     <a-radio-group v-model:value="state" @change="changed">
-      <a-radio style="radioStyle" value="acceptable">
+      <a-radio :style="radioStyle" value="acceptable">
         I have reviewed the items below, and they are all acceptable</a-radio
       >
-      <a-radio style="radioStyle" value="unacceptable">
+      <a-radio :style="radioStyle" value="unacceptable">
         The items are not all acceptable, but I have entered in votes for the
         right ones or filed a ticket.</a-radio
       >
-      <a-radio style="radioStyle" value="incomplete">
+      <a-radio :style="radioStyle" value="incomplete">
         I have not reviewed the items.</a-radio
       >
     </a-radio-group>
@@ -37,7 +37,6 @@ import * as cldrClient from "../esm/cldrClient.js";
 import * as cldrReport from "../esm/cldrReport.js";
 import * as cldrStatus from "../esm/cldrStatus.js";
 import * as cldrText from "../esm/cldrText.js";
-
 export default {
   props: [
     "report", // e.g. 'numbers'
@@ -49,6 +48,7 @@ export default {
       loaded: false,
       error: null,
       state: null,
+      radioStyle: { display: "block" },
     };
   },
   created: async function () {
@@ -160,17 +160,12 @@ export default {
 </script>
 
 <style scoped>
-.radioStyle {
-  display: flex;
-}
-
 .reportResponse {
   border: 1px solid gray;
   padding: 0.5em;
   margin: 1em;
   box-shadow: 1em;
   background-color: bisque;
-  width: 50%;
 }
 
 .reportResponse .statusCell,

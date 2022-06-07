@@ -55,8 +55,8 @@ public class ReportAPI {
         Integer id;
         if (user.equals("-")) {
             id = null;
-            if (!UserRegistry.userIsTC(mySession.user)) {
-                // only TC can do this
+            if (!UserRegistry.userIsManagerOrStronger(mySession.user)) {
+                // only Manager+ can do this
                 return Response.status(Status.FORBIDDEN).build();
             }
         } else {

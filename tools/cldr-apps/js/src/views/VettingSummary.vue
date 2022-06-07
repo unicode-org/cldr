@@ -53,6 +53,7 @@
     <section class="snapSection">
       <h2 class="snapHeading">Report Status</h2>
       <button @click="fetchReports">Load</button>
+      <button @click="downloadReports">Download</button>
       <table class="reportTable" v-if="reports">
         <thead>
           <tr>
@@ -75,13 +76,15 @@
             <td>
               <span
                 class="reportEntry"
-                v-for="[kind, count] of Object.entries(
-                  reports.byLocale[locale]
-                )"
+                v-for="kind of ['acceptable', 'unacceptable', 'totalVoters']"
                 :key="kind"
               >
-                <i v-if="count" :class="reportClass(kind)">&nbsp;</i>
-                {{ kind }}={{ count }}
+                <i
+                  v-if="reports.byLocale[locale][kind]"
+                  :class="reportClass(kind)"
+                  >&nbsp;</i
+                >
+                {{ kind }}={{ reports.byLocale[locale][kind] }}
               </span>
             </td>
           </tr>
@@ -239,6 +242,9 @@ export default {
       } else {
         return cldrReport.reportClass(false, false);
       }
+    },
+    downloadReports() {
+      return cldrReport.downloadAllReports("-");
     },
   },
 };

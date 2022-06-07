@@ -68,7 +68,7 @@ function getAjaxUrl() {
  */
 function loadVettingParticipation(json, ourDiv) {
   nf = new Intl.NumberFormat();
-  const { missingLocalesForOrg, languagesNotInCLDR } = json;
+  const { missingLocalesForOrg, languagesNotInCLDR, hasAllLocales } = json;
 
   // crunch the numbers
   const { localeToData, totalCount, uidToUser } = calculateData(json);
@@ -89,7 +89,14 @@ function loadVettingParticipation(json, ourDiv) {
         text: `“No Coverage” locales indicate that there are no regular vetters assigned in the “${missingLocalesForOrg}” organization.`,
       })
     );
-    if (languagesNotInCLDR) {
+    if (hasAllLocales) {
+      div.append(
+        $("<p/>", {
+          text: " The organiation has an asterisk (*) entry, indicating that all locales are allowed. “No coverage” means there is no coverage for a locale which is explicitly listed in Locales.txt. ",
+        })
+      );
+    }
+    if (languagesNotInCLDR && languagesNotInCLDR.length > 0) {
       div.append(
         $("<h4/>", {
           text: "Locales not in CLDR",
@@ -157,15 +164,13 @@ function loadVettingParticipation(json, ourDiv) {
       );
     }
     const myUsers = getUsersFor(e, uidToUser);
-    if (!myUsers) {
-      console.log("No users");
-      return;
+    if (myUsers && myUsers.length > 0) {
+      const theUserBox = $("<span/>", { class: "participatingUsers" });
+      li.append(theUserBox);
+      myUsers.forEach(function (u) {
+        verb(u, theUserBox);
+      });
     }
-    const theUserBox = $("<span/>", { class: "participatingUsers" });
-    li.append(theUserBox);
-    myUsers.forEach(function (u) {
-      verb(u, theUserBox);
-    });
   }
 }
 

@@ -15,7 +15,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleSet;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.web.UserRegistry.User;
@@ -120,12 +122,20 @@ public class SurveyVettingParticipation {
         }
 
         if (missingLocalesForOrg != null) {
+            final Organization o = Organization.fromString(missingLocalesForOrg);
+            final boolean hasAllLocales = sc.getDefaultLocaleCoverageLevel(o) != Level.UNDETERMINED;
+            r.put("hasAllLocales", hasAllLocales);
+            final Set<String> localeCoverageLocales = sc.getLocaleCoverageLocales(o);
             // calculate coverage of requested locales for this organization
             Set<CLDRLocale> languagesNotInCLDR = new TreeSet<>();
             Set<CLDRLocale> languagesMissing = new HashSet<>();
             r.put("missingLocalesForOrg", missingLocalesForOrg);
             for (Iterator<CLDRLocale> li = allLanguages.iterator(); li.hasNext();) {
                 CLDRLocale lang = (li.next());
+                if (!localeCoverageLocales.contains(lang.getBaseName())) {
+                    // outside of explicit coverage locales, skip
+                    continue;
+                }
                 String group = sc.getGroup(lang.getBaseName(), missingLocalesForOrg);
                 if ((group != null) &&
                     (null == sm.getSupplementalDataInfo().getBaseFromDefaultContent(CLDRLocale.getInstance(group)))) {

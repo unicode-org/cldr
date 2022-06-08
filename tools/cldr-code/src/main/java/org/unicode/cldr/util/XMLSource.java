@@ -102,6 +102,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
          * The toString() format is suitable for printing to the command line
          * and has the format 'file:line:column: '
          */
+        @Override
         public String toString() {
             return toString(null);
         }
@@ -1551,6 +1552,11 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             addFallbackCode(CLDRFile.TERRITORY_NAME, "FK", "FK", "variant");
             addFallbackCode(CLDRFile.TERRITORY_NAME, "TL", "TL", "variant");
             addFallbackCode(CLDRFile.TERRITORY_NAME, "SZ", "SZ", "variant");
+
+            // new alternate name
+
+            addFallbackCode(CLDRFile.TERRITORY_NAME, "TR", "TR", "variant");
+
 
             addFallbackCode(CLDRFile.TERRITORY_NAME, "XA", "XA");
             addFallbackCode(CLDRFile.TERRITORY_NAME, "XB", "XB");

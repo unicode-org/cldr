@@ -9,6 +9,7 @@ import * as cldrRetry from "./cldrRetry.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
+import XLSX from "xlsx";
 
 let nf = null; // Intl.NumberFormat initialized later
 
@@ -60,6 +61,68 @@ function getAjaxUrl() {
   return cldrAjax.makeUrl(p);
 }
 
+function downloadVettingParticipation(opts) {
+  const {
+    missingLocalesForOrg,
+    languagesNotInCLDR,
+    hasAllLocales,
+    localeToData,
+    totalCount,
+    uidToUser,
+  } = opts;
+
+  const wb = XLSX.utils.book_new();
+
+  var ws_name = `Vetting Participation for ${missingLocalesForOrg || "(ALL)"}`;
+
+  var ws_data = [
+    ["Org", "Locale", "Code", "Level", "Vetter#", "Email", "Name", "LastSeen"],
+  ];
+
+  for (const [id, user] of Object.entries(uidToUser)) {
+    const row = [
+      user.org,
+      null, // localeName
+      null, // locale
+      user.userlevelName,
+      id,
+      user.email,
+      user.name,
+      user.time,
+    ];
+    if (user.allLocales) {
+      row[1] = "ALL";
+      row[2] = "*";
+      ws_data.push(row);
+    } else if (!user.locales) {
+      // no locales?!
+      row[1] = "NONE";
+      row[2] = "-";
+      ws_data.push(row);
+    } else {
+      for (const locale of user.locales) {
+        row[2] = locale;
+        row[1] = cldrLoad.getLocaleName(locale);
+        ws_data.push([...row]); // clone the array because ws_data will retain a reference
+      }
+    }
+  }
+
+  var ws = XLSX.utils.aoa_to_sheet(ws_data);
+
+  // function pushComment(where, t) {
+  //   ws[where].c = ws[where].c || [];
+  //   ws[where].c.hidden = true;
+  //   ws[where].c.push({ a: "SurveyTool", t });
+  // }
+
+  XLSX.utils.book_append_sheet(wb, ws, ws_name);
+  XLSX.writeFile(
+    wb,
+    `survey_participation_${missingLocalesForOrg || "ALL"}.xlsx`
+  );
+}
+
 /**
  * Populate the given div, given the json for Vetting Participation
  *
@@ -83,6 +146,19 @@ function loadVettingParticipation(json, ourDiv) {
       text: `Total votes: ${nf.format(totalCount || 0)}`,
     })
   );
+  const downloadButton = document.createElement("button");
+  downloadButton.appendChild(document.createTextNode("Download… (.xlsx)"));
+  downloadButton.onclick = () =>
+    downloadVettingParticipation({
+      // for now, throw in all data here.
+      missingLocalesForOrg,
+      languagesNotInCLDR,
+      hasAllLocales,
+      localeToData,
+      totalCount,
+      uidToUser,
+    });
+  div.append(downloadButton);
   if (missingLocalesForOrg) {
     div.append(
       $("<i/>", {
@@ -232,9 +308,6 @@ function calculateData(json) {
   // collect users w/ coverage
   users.forEach((u) => {
     const { locales, id } = u;
-    if (Number(id) === Number(1922)) {
-      console.log("calc got id = " + id);
-    }
     uidToUser[id] = u;
     (locales || []).forEach((loc) => getLocale(loc).vetters.push(id));
   });

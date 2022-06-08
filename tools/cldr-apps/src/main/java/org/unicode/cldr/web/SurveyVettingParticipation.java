@@ -50,7 +50,8 @@ public class SurveyVettingParticipation {
             psUsers = sm.reg.list(org, conn);
             if (org == null) {
                 r.put("org", "*");
-                psParticipation = conn.prepareStatement("SELECT v.submitter, count(v.submitter) as count, v.locale \n"
+                psParticipation = conn.prepareStatement("SELECT v.submitter, count(v.submitter) as count, v.locale, \n"
+                    + "     max(v.last_mod) as last_mod "
                     + "    FROM " + DBUtils.Table.VOTE_VALUE + " as v\n"
                     + " group by v.locale, v.submitter;",
                     ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
@@ -58,8 +59,9 @@ public class SurveyVettingParticipation {
             } else {
                 r.put("org", org);
                 // same, but restrict by org
-                psParticipation = conn.prepareStatement("SELECT v.submitter, count(v.submitter) as count, v.locale \n"
-                    + "    FROM " + DBUtils.Table.VOTE_VALUE + " as v, cldr_users as u\n"
+                psParticipation = conn.prepareStatement("SELECT v.submitter, count(v.submitter) as count, v.locale, \n"
+                + "     max(v.last_mod) as last_mod "
+                + "    FROM " + DBUtils.Table.VOTE_VALUE + " as v, cldr_users as u\n"
                     + "    WHERE v.submitter = u.id\n"
                     + "     AND org = ?\n"
                     + " group by v.locale, v.submitter;",
@@ -101,11 +103,13 @@ public class SurveyVettingParticipation {
                 int theirId = rs.getInt("v.submitter");
                 int count = rs.getInt("count");
                 String locale = rs.getString("v.locale");
+                String last_mod = DBUtils.toISOString(rs.getTimestamp("last_mod"));
 
                 participationObj.put(new JSONObject()
                     .put("user", theirId)
                     .put("count", count)
-                    .put("locale", locale));
+                    .put("locale", locale)
+                    .put("last_mod", last_mod));
             }
             rs.close();
         } finally {

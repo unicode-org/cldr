@@ -134,11 +134,7 @@ public class ReportsDB implements VoterReportStatus<Integer>, ReportStatusUpdate
 
         @Schema(description = "the latest date that something was changed, or null")
         public String getLastMod() {
-            if (lastMod == null) {
-                return null;
-            }
-            return ZonedDateTime.ofInstant(lastMod.toInstant(), ZoneOffset.UTC)
-                .format(DateTimeFormatter.ISO_DATE_TIME);
+            return DBUtils.toISOString(lastMod);
         }
 
         @Schema(description = "User ID")

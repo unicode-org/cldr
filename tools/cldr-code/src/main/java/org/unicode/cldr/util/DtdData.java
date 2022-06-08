@@ -117,7 +117,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         private final Set<String> commentsPre;
         private Set<String> commentsPost;
         private boolean isDeprecatedAttribute;
-        public AttributeStatus attributeStatus = AttributeStatus.distinguished; // default unless reset by annotations
+        public AttributeStatus attributeStatus = AttributeStatus.distinguished; // default unless reset by annotations, or for xml: attributes
         private Set<String> deprecatedValues = Collections.emptySet();
         public MatchValue matchValue;
         private final Comparator<String> attributeValueComparator;
@@ -136,6 +136,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                         System.out.println(element.getName() + ":" + element.getChildren());
                     }
                 }
+            } else if (name.startsWith("xml:")) {
+                attributeStatus = AttributeStatus.metadata;
             }
             mode = mode2;
             defaultValue = value2 == null ? null

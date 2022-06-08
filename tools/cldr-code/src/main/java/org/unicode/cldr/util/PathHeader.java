@@ -1890,6 +1890,7 @@ public class PathHeader implements Comparable<PathHeader> {
                                 order += (1 << pnAttrValues.indexOf(part));
                             }
                         }
+                        attrValues = attrValues.replace("sorting-", "sorting/index-");
                         return "PersonName Patterns for Order-Length: " + attrValues;
                     }
                     order = 40;

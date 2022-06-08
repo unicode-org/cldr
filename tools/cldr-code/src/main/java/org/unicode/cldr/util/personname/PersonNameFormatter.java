@@ -16,11 +16,13 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.function.Function;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.XPathParts;
 
@@ -36,6 +38,7 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.LinkedListMultimap;
 import com.google.common.collect.ListMultimap;
+import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multiset;
 import com.google.common.collect.Sets;
@@ -234,8 +237,12 @@ public class PersonNameFormatter {
         givenOnly,
         givenSurnameOnly,
         given12Surname,
-        full;
-        public static final Set<SampleType> ALL = ImmutableSet.copyOf(SampleType.values());
+        full,
+        foreign;
+        public static final Set<SampleType> ALL = ImmutableSet.of(givenOnly,
+            givenSurnameOnly,
+            given12Surname,
+            full); // exclude foreign for now
     }
 
     public static final Splitter SPLIT_SPACE = Splitter.on(' ').trimResults();
@@ -395,12 +402,14 @@ public class PersonNameFormatter {
         final private BreakIterator characterBreakIterator;
         final private MessageFormat initialFormatter;
         final private MessageFormat initialSequenceFormatter;
+        final private String foreignSpaceReplacement;
 
-        public FallbackFormatter(ULocale uLocale, String initialPattern, String initialSequencePattern) {
+        public FallbackFormatter(ULocale uLocale, String initialPattern, String initialSequencePattern, String foreignSpaceReplacement) {
             formatterLocale = uLocale;
             characterBreakIterator = BreakIterator.getCharacterInstance(uLocale);
             initialFormatter = new MessageFormat(initialPattern);
             initialSequenceFormatter = new MessageFormat(initialSequencePattern);
+            this.foreignSpaceReplacement = foreignSpaceReplacement;
         }
 
         /**
@@ -550,8 +559,19 @@ public class PersonNameFormatter {
             if (!seenEmptyField) {
                 result.append(literalTextBefore);
             }
+            if (fallbackInfo.foreignSpaceReplacement != null && !fallbackInfo.foreignSpaceReplacement.equals(" ")) {
+                ULocale nameLocale = nameObject.getNameLocale();
+                if (!sharesLanguageScript(nameLocale, fallbackInfo.formatterLocale)) {
+                    return SPACES.matcher(result).replaceAll(fallbackInfo.foreignSpaceReplacement);
+                }
+            }
             return result.toString();
         }
+        private boolean sharesLanguageScript(ULocale nameLocale, ULocale formatterLocale) {
+            return Objects.equals(nameLocale, formatterLocale); // TODO, fix to check language and script (maximized)
+        }
+
+        static final Pattern SPACES = Pattern.compile("\\s+"); // TODO pick whitespace
 
         private String getBestValueForNameObject(NameObject nameObject, NamePatternElement element, FormatParameters nameFormatParameters, FallbackFormatter fallbackInfo) {
             Set<Modifier> remainingModifers = EnumSet.noneOf(Modifier.class);
@@ -939,7 +959,7 @@ public class PersonNameFormatter {
         }
 
         /**
-         * Only used to add missing CLDR fields. 
+         * Only used to add missing CLDR fields.
          * If an item is missing, get the best replacements.
          * @return
          */
@@ -1193,7 +1213,7 @@ public class PersonNameFormatter {
 
     }
 
-    /** 
+    /**
      * Returns a match for the nameFormatParameters, or null if the parameterMatcherToNamePattern has no match.
      */
     public static Collection<NamePattern> getBestMatchSet(
@@ -1406,6 +1426,7 @@ public class PersonNameFormatter {
         Set<Pair<ParameterMatcher, NamePattern>> ordered = new TreeSet<>();
         String initialPattern = null;
         String initialSequencePattern = null;
+        String foreignSpaceReplacement = null;
         Map<ULocale, Order> _localeToOrder = new TreeMap<>();
 
         // read out the data and order it properly
@@ -1439,7 +1460,7 @@ public class PersonNameFormatter {
                     }
                     break;
                 case "foreignSpaceReplacement":
-                    // TODO use this data
+                    foreignSpaceReplacement = value;
                     break;
                 case "sampleName":
                     // skip
@@ -1453,11 +1474,10 @@ public class PersonNameFormatter {
         }
         addMissing(formatParametersToNamePattern);
 
-        // TODO Peter Add locale map to en.xml so we can read it
         ImmutableMap<ULocale, Order> localeToOrder = ImmutableMap.copyOf(_localeToOrder);
-
         this.namePatternMap = new NamePatternData(localeToOrder, formatParametersToNamePattern);
-        this.fallbackFormatter = new FallbackFormatter(new ULocale(cldrFile.getLocaleID()), initialPattern, initialSequencePattern);
+        this.fallbackFormatter = new FallbackFormatter(new ULocale(cldrFile.getLocaleID()),
+            initialPattern, initialSequencePattern, foreignSpaceReplacement);
     }
 
     /**
@@ -1518,6 +1538,31 @@ public class PersonNameFormatter {
         return Pair.of(pm, np);
     }
 
+    static final Map<String, SimpleNameObject> FOREIGN_NAME_FOR_NON_SPACING;
+    static {
+        // code     given   surname
+        final String[][] specials = {
+            {"th", "อัลเบิร์ต", "ไอน์สไตน์"},
+            {"my", "အဲလ်ဘတ်", "အိုင်းစတိုင်း"},
+            {"km", "អាល់បឺត", "អែងស្តែង"},
+            {"ko", "알베르트", "아인슈타인"},
+            {"ja", "アルベルト", "アインシュタイン"},
+            {"zh", "阿尔伯特", "爱因斯坦"}
+        };
+        Map<String, SimpleNameObject> temp = Maps.newLinkedHashMap();
+        for (String[] row : specials) {
+            temp.put(row[0], specialNameOf(row));
+        }
+        FOREIGN_NAME_FOR_NON_SPACING = ImmutableMap.copyOf(temp);
+    }
+
+    private static SimpleNameObject specialNameOf(String[] row) {
+        return new SimpleNameObject(new ULocale("de_CH"), ImmutableMap.of(
+            ModifiedField.from("given"), row[1],
+            ModifiedField.from("surname"), row[2]
+            ));
+    }
+
     /**
      * Utility for getting sample names. DOES NOT CACHE
      * @param cldrFile
@@ -1535,10 +1580,18 @@ public class PersonNameFormatter {
                 }
             }
         }
+
         Map<SampleType, SimpleNameObject> result = new TreeMap<>();
         for (Entry<SampleType, Map<ModifiedField, String>> entry : names) {
             SimpleNameObject name = new SimpleNameObject(new ULocale(cldrFile.getLocaleID()), entry.getValue());
             result.put(entry.getKey(), name);
+        }
+
+        // add special foreign name for non-spacing languages
+        LanguageTagParser ltp = new LanguageTagParser();
+        SimpleNameObject extraName = FOREIGN_NAME_FOR_NON_SPACING.get(ltp.set(cldrFile.getLocaleID()).getLanguageScript());
+        if (extraName != null) {
+            result.put(SampleType.foreign, extraName);
         }
         return ImmutableMap.copyOf(result);
     }

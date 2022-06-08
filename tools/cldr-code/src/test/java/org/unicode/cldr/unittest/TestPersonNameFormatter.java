@@ -22,6 +22,7 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.Field;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Formality;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Length;
+import org.unicode.cldr.util.personname.PersonNameFormatter.ModifiedField;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Modifier;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
@@ -47,11 +48,12 @@ public class TestPersonNameFormatter extends TestFmwk{
     public static final boolean DEBUG = System.getProperty("TestPersonNameFormatter.DEBUG") != null;
     public static final boolean SHOW = System.getProperty("TestPersonNameFormatter.SHOW") != null;
 
-    final FallbackFormatter FALLBACK_FORMATTER = new FallbackFormatter(ULocale.ENGLISH, "{0}*", "{0} {1}");
+    final FallbackFormatter FALLBACK_FORMATTER = new FallbackFormatter(ULocale.ENGLISH, "{0}*", "{0} {1}", null);
     final CLDRFile ENGLISH = CLDRConfig.getInstance().getEnglish();
     final PersonNameFormatter ENGLISH_NAME_FORMATTER = new PersonNameFormatter(ENGLISH);
     final Map<SampleType, SimpleNameObject> ENGLISH_SAMPLES = PersonNameFormatter.loadSampleNames(ENGLISH);
     final Factory factory = CLDRConfig.getInstance().getCldrFactory();
+    final CLDRFile jaCldrFile = factory.make("ja", true);
 
     public static void main(String[] args) {
         new TestPersonNameFormatter().run(args);
@@ -361,7 +363,6 @@ public class TestPersonNameFormatter extends TestFmwk{
 
         // first test some specific examples
 
-        ExampleGenerator exampleGenerator = new ExampleGenerator(ENGLISH, ENGLISH, "");
         String[][] tests = {
             {
                 "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
@@ -377,12 +378,16 @@ public class TestPersonNameFormatter extends TestFmwk{
                 "〖ja = Japanese〗〖ko = Korean〗〖zh = Chinese〗"
             }
         };
-        for (String[] test : tests) {
-            String path = test[0];
-            String value = ENGLISH.getStringValue(path);
-            String expected = test[1];
-            checkExampleGenerator(exampleGenerator, path, value, expected);
-        }
+        ExampleGenerator exampleGenerator = checkExamples(ENGLISH, tests);
+
+        String[][] jaTests = { // note: will need updated once we add real Japanese data.
+            {
+                "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
+                "〖アルベルト・アインシュタイン〗"
+            }
+        };
+        ExampleGenerator jaExampleGenerator = checkExamples(jaCldrFile, jaTests);
+
 
         // next test that the example generator returns non-null for all expected cases
 
@@ -412,10 +417,28 @@ public class TestPersonNameFormatter extends TestFmwk{
         }
     }
 
+    private ExampleGenerator checkExamples(CLDRFile cldrFile, String[][] tests) {
+        ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, ENGLISH, "");
+        for (String[] test : tests) {
+            String path = test[0];
+            String value = cldrFile.getStringValue(path);
+            String expected = test[1];
+            checkExampleGenerator(exampleGenerator, path, value, expected);
+        }
+        return exampleGenerator;
+    }
+
     private void checkExampleGenerator(ExampleGenerator exampleGenerator, String path, String value, String expected) {
         final String example = exampleGenerator.getExampleHtml(path, value);
         String actual = ExampleGenerator.simplify(example);
         assertEquals("Example for " + value, expected, actual);
+    }
+
+    public void TestForeignNonSpacingNames() {
+        Map<SampleType, SimpleNameObject> names = PersonNameFormatter.loadSampleNames(jaCldrFile);
+        SimpleNameObject name = names.get(SampleType.foreign);
+        assertEquals("albert", "アルベルト", name.getBestValue(ModifiedField.from("given"), new HashSet<>()));
+        assertEquals("einstein", "アインシュタイン", name.getBestValue(ModifiedField.from("surname"), new HashSet<>()));
     }
 
     public void TestExampleDependencies() {

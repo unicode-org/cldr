@@ -6,7 +6,6 @@
 import * as cldrAjax from "./cldrAjax.js";
 import * as cldrCoverage from "./cldrCoverage.js";
 import * as cldrGui from "./cldrGui.js";
-import * as cldrLoad from "./cldrLoad.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
@@ -25,7 +24,8 @@ let localeProgressStats = null;
 
 let pageProgressRows = null;
 
-let timeLastFetchedLocaleData = 0;
+let timeLastRequestedLocaleData = 0;
+let timeLastReceivedLocaleData = 0;
 
 const LOCALE_METER_REFRESH_MS = 60 * 1000;
 
@@ -52,7 +52,6 @@ class MeterData {
     }
     this.percent = friendlyPercent(votes, total);
     const locale = cldrStatus.getCurrentLocale();
-    const localeName = cldrLoad.getLocaleName(locale);
     this.title =
       `${this.description}: ${this.votes} / ${this.total} ≈ ${this.percent}%` +
       `\n•Coverage: ${this.level}`;
@@ -361,8 +360,12 @@ function fetchLocaleData(unlessLoaded) {
     localeProgressStats.locale === locale
   ) {
     // LocaleMeter is already set
-    // Still refresh if it's been too long
-    if (Date.now() < timeLastFetchedLocaleData + LOCALE_METER_REFRESH_MS) {
+    // Still refresh if it's been long enough since last request and last response
+    const now = Date.now();
+    if (
+      now < timeLastReceivedLocaleData + LOCALE_METER_REFRESH_MS &&
+      now < timeLastRequestedLocaleData + LOCALE_METER_REFRESH_MS
+    ) {
       return;
     }
   }
@@ -371,6 +374,7 @@ function fetchLocaleData(unlessLoaded) {
 }
 
 function reallyFetchLocaleData(locale) {
+  timeLastRequestedLocaleData = Date.now();
   const url = `api/completion/locale/${locale}`;
   cldrAjax
     .doFetch(url)
@@ -390,7 +394,7 @@ function reallyFetchLocaleData(locale) {
         level: json.level,
         locale,
       };
-      timeLastFetchedLocaleData = Date.now();
+      timeLastReceivedLocaleData = Date.now();
       refreshLocaleMeter();
     })
     .catch((err) => {

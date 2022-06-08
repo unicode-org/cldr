@@ -121,7 +121,7 @@ public class TestCLDRLinks {
         return l.stream();
     }
 
-    private static final Pattern URL_PATTERN = Pattern.compile("(https?)://[^ -]*[^ .-]"); // very simplistic
+    private static final Pattern URL_PATTERN = Pattern.compile("(https?)://[^ ]*[^ .]"); // very simplistic
 
     /**
      * Split a String into URLs. Skips trailing period.

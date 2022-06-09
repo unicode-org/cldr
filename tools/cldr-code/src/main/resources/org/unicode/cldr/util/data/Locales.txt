@@ -374,7 +374,7 @@ Adobe	;	zh	;	moderate
 Adobe	;	zh	;	moderate
 
 #Cldr	Tier	0
-Cldr	;	en	;	modern	;	T0	American English
+Cldr	;	en	;	comprehensive	;	T0	American English
 
 #Cldr	Tier	1
 Cldr	;	en_GB	;	modern	;	T1	British English
@@ -476,7 +476,6 @@ Cldr	;	en_AU	;	modern	; TR English (Australia)
 Cldr	;	en_IN	;	modern	; TR English (English)
 Cldr	;	fr_CA	;	modern	; TR French (Canada)
 Cldr	;	de_CH	;	modern	; TR High German (Switzerland)
-Cldr	;	ar_DZ	;	modern	; TR Arabic (Algeria)
 
 #Cldr	other (from Apple)
 #Cldr    ;   fo  ;   modern
@@ -510,7 +509,7 @@ Cldr	;	ceb	;	moderate	;	Cebuano
 Cldr	; mai ; basic ; Maithili (Devanagari script)
 Cldr	; mni ; basic ; Manipuri (Bengali script)
 Cldr	; sat ; basic ; Santali (Olck script)
-Cldr	; kok ; basic ; Konkani
+Cldr	; kok ; modern ; Konkani
 Cldr	; su ; basic ; Sundanese (script TBD)
 # Cldr	; gn ; basic ; Guarani (Bengali script)
 Cldr  ; ks_Deva ; basic ; Kashmiri (Devanagari)
@@ -535,13 +534,20 @@ Cldr  ; chr ; modern  ; Cherokee
 Cldr  ; yue_Hans  ; modern  ; Cantonese (Simplified)
 
 Cldr  ; fo  ; moderate  ; Faroese
-Cldr  ; qu  ; moderate  ; Quechua
+Cldr  ; qu  ; modern  ; Quechua
 Cldr  ; br  ; moderate  ; Breton
 Cldr  ; sc  ; moderate  ; Sardinian
 Cldr  ; kgp ; moderate  ; Kaingang
 Cldr  ; yrl ; moderate  ; Nheetgatu
 Cldr  ; ast ; moderate  ; Asturian
 Cldr  ; ff_Adlm ; moderate ; Fulah (Adlam)
+
+Cldr	;	to	;	modern ; Tongan
+Cldr	;	mt	;	basic ; Maltese
+Cldr	;	tg	;	basic ; Tajik
+Cldr	;	ti	;	modern ; Tigrinya
+Cldr	;	tt	;	basic ; Tatar
+Cldr	;	wo	;	basic ; Wolof
 
 Bangor_Univ ;   cy   ;    modern  ; Welsh
 
@@ -869,3 +875,18 @@ yahoo ; mul ; modern ;
 
 #Example of using weight and pathMatch:
 #iaap ; @weight=4 @pathMatch=annotations1,anotations2,characterLabel1,characterLabel2 * ; moderate ;
+
+special	;	ast	;	moderate	;	Asturian
+special ;	br	;	moderate	;	Breton
+special ;	chr	;	modern	;	Cherokee
+special ;	dsb	;	modern	;	Lower Sorbian
+special ;	ff	;	moderate	;	Fulah
+special ;	ff_Adlm	;	moderate	;	Fulah (Adlam)
+special ;	fo	;	moderate	;	Faroese
+special ;	hi_Latn	;	modern	;	Hindi (Latin)
+special ;	hsb	;	modern	;	Upper Sorbian
+special ;	kgp	;	moderate	;	Kaingang
+special ;	sc	;	moderate	;	Sardinian
+special ;	yrl	;	moderate	;	Nheengatu
+special ;	yue_Hans	;	modern	;	Cantonese (Simplified)
+special ;	sr_Latn	;	modern	;	Cantonese (Simplified)

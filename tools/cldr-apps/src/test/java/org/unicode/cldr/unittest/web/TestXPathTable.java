@@ -133,13 +133,15 @@ public class TestXPathTable extends TestFmwk {
             "numbers=hebrew",
             "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@alt=\"variant-proposedx333\"][@numbers=\"hanidec\"][@draft=\"true\"]",
             "numbers=hanidec",
+            "//ldml/personNames/foreignSpaceReplacement[@xml:space=\"preserve\"]",
+            "",
 
         };
 
         for (int i = 0; i < xpaths.length; i += 2) {
             String xpath = xpaths[i + 0];
             String expect = xpaths[i + 1];
-            Map<String, String> ueMap = xpt.getUndistinguishingElementsFor(xpath);
+            Map<String, String> ueMap = xpt.getUndistinguishingElementsFor(xpath); // just calls XPathParts.getSpecialNondistinguishingAttributes()
             if (ueMap != null) {
                 logln(xpath + "\n -> " + ueMap.toString() + " expect " + expect);
             } else {

@@ -10,13 +10,6 @@ public class LocaleCompletionCounter {
 
     private static final Logger logger = SurveyLog.forClass(LocaleCompletionCounter.class);
 
-    private static final EnumSet<VettingViewer.Choice> choiceSet = EnumSet.of(
-        VettingViewer.Choice.error,
-        VettingViewer.Choice.hasDispute,
-        VettingViewer.Choice.notApproved,
-        VettingViewer.Choice.missingCoverage
-    );
-
     private final String localeId;
     private final Level level;
     private final LocaleCompletion.LocaleCompletionResponse lcr;
@@ -29,7 +22,8 @@ public class LocaleCompletionCounter {
         lcr = new LocaleCompletion.LocaleCompletionResponse(level);
         final SurveyMain sm = CookieSession.sm;
         vv = new VettingViewer<>(sm.getSupplementalDataInfo(), stFactory, new STUsersChoice(sm));
-        args = new VettingViewer.DashboardArgs(choiceSet, cldrLocale, level);
+        final EnumSet<VettingViewer.Choice> set = VettingViewer.getLocaleCompletionCategories();
+        args = new VettingViewer.DashboardArgs(set, cldrLocale, level);
         args.setUserAndOrganization(0, VettingViewer.getNeutralOrgForSummary());
         Dashboard.setFiles(args, cldrLocale, stFactory);
     }

@@ -53,6 +53,7 @@ public enum Organization {
     rumantscha("Lia Rumantscha"),
     sardware("Sardware", "Sardware"),
     sil("SIL", "SIL International"),
+    special("High Coverage and Generated"),
     srilanka("Sri Lanka ICTA", "Sri Lanka"),
     surveytool("Survey Tool"),
     venetian("VeC - Lengua Veneta"),
@@ -60,7 +61,6 @@ public enum Organization {
     wikimedia("Wikimedia Foundation"),
     wod_nko("WOD N’ko", "World Organization for the Development of N’ko", "WODN"),
     yahoo("Yahoo"),
-    special("High Coverage and Generated"),
     ;
 
     private final static Set<Organization> TC_ORGS = ImmutableSet.copyOf(EnumSet.of(google, apple, microsoft));

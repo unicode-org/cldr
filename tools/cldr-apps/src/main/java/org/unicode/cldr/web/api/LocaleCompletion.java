@@ -21,6 +21,7 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.XMLSource.Listener;
@@ -87,7 +88,13 @@ public class LocaleCompletion {
         return Response.ok(getLocaleCompletion(cldrLocale)).build();
     }
 
-    static LocaleCompletionResponse getLocaleCompletion(CLDRLocale cldrLocale) throws ExecutionException {
+    /**
+     * Getter for cached Locale Completion
+     * @param cldrLocale
+     * @return
+     * @throws ExecutionException
+     */
+    public static LocaleCompletionResponse getLocaleCompletion(CLDRLocale cldrLocale) throws ExecutionException {
         return LocaleCompletionHelper.INSTANCE.cache.get(cldrLocale);
     }
 
@@ -95,8 +102,9 @@ public class LocaleCompletion {
      * This function computes the actual locale completion given a Locale
      * @param cldrLocale the locale
      * @return the response
+     * @throws ExecutionException
      */
-    public static LocaleCompletionResponse handleGetLocaleCompletion(CLDRLocale cldrLocale) {
+    static LocaleCompletionResponse handleGetLocaleCompletion(CLDRLocale cldrLocale) throws ExecutionException {
         final STFactory stFactory = CookieSession.sm.getSTFactory();
         return handleGetLocaleCompletion(cldrLocale, stFactory);
     }
@@ -104,6 +112,7 @@ public class LocaleCompletion {
     static final class LocaleCompletionHelper implements Listener {
         PathHeader.Factory phf;
         LoadingCache<CLDRLocale, LocaleCompletionResponse> cache;
+        LoadingCache<CLDRLocale, Integer> basecache;
         LocaleCompletionHelper() {
             phf = PathHeader.getFactory(CLDRConfig.getInstance().getEnglish());
             cache = CacheBuilder.newBuilder().maximumSize(500)
@@ -111,8 +120,17 @@ public class LocaleCompletion {
             .expireAfterWrite(Duration.ofMinutes(20)) // expire 20 min after last change
             .build(new CacheLoader<>() {
                 @Override
-                public LocaleCompletionResponse load(CLDRLocale key) {
+                public LocaleCompletionResponse load(CLDRLocale key) throws ExecutionException {
                     return handleGetLocaleCompletion(key);
+                }
+            });
+            basecache = CacheBuilder.newBuilder().maximumSize(500)
+            .concurrencyLevel(5) // allow 5 threads to compute completion, uncontested
+            // no expiry
+            .build(new CacheLoader<>() {
+                @Override
+                public Integer load(CLDRLocale key) {
+                    return handleGetBaseCount(key);
                 }
             });
         }
@@ -131,15 +149,27 @@ public class LocaleCompletion {
      * @param cldrLocale the locale
      * @param stFactory the STFactory
      * @return the response
+     * @throws ExecutionException
      */
-    static LocaleCompletionResponse handleGetLocaleCompletion(final CLDRLocale cldrLocale, final STFactory stFactory) {
+    static LocaleCompletionResponse handleGetLocaleCompletion(final CLDRLocale cldrLocale, final STFactory stFactory) throws ExecutionException {
         // we need an XML Source to receive notification.
         // This causes LocaleCompletionHelper.INSTANCE.valueChanged(...) to be called
         // whenever a vote happens.
         final XMLSource mySource = stFactory.makeSource(cldrLocale.toString(), false);
         mySource.addListener(LocaleCompletion.LocaleCompletionHelper.INSTANCE);
 
-        return new LocaleCompletionCounter(cldrLocale, stFactory).getResponse();
+        LocaleCompletionResponse lcr = new LocaleCompletionCounter(cldrLocale, stFactory).getResponse();
+        // add in baseline
+        lcr.baselineCount = LocaleCompletionHelper.INSTANCE.basecache.get(cldrLocale);
+        return lcr;
+    }
+
+    static int handleGetBaseCount(final CLDRLocale cldrLocale) {
+        // no need to listen
+        final Factory baselineFactory = CookieSession.sm.getDiskFactory();
+        LocaleCompletionResponse lcr = new LocaleCompletionCounter(cldrLocale, baselineFactory, true)
+            .getResponse();
+        return lcr.error + lcr.missing + lcr.provisional;
     }
 
     public static class LocaleCompletionResponse {
@@ -158,5 +188,8 @@ public class LocaleCompletion {
         LocaleCompletionResponse(Level l) {
             level = l.name();
         }
+
+        @Schema(description = "error+missing+provisional from baseline (HEAD)")
+        public int baselineCount = 0;
     }
 }

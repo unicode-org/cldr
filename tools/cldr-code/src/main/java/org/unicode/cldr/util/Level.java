@@ -150,4 +150,14 @@ public enum Level {
     public static Level max(Level a, Level b) {
         return Level.fromLevel(Math.max(a.getLevel(), b.getLevel()));
     }
+
+    public static Level max(Level... levels) {
+        Level result = Level.UNDETERMINED;
+        for (Level level : levels) {
+            if (level != null) {
+                result = max(result, level);
+            }
+        }
+        return result;
+    }
 }

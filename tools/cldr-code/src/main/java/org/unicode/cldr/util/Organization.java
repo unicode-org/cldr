@@ -53,6 +53,7 @@ public enum Organization {
     rumantscha("Lia Rumantscha"),
     sardware("Sardware", "Sardware"),
     sil("SIL", "SIL International"),
+    special("High Coverage and Generated"),
     srilanka("Sri Lanka ICTA", "Sri Lanka"),
     surveytool("Survey Tool"),
     venetian("VeC - Lengua Veneta"),

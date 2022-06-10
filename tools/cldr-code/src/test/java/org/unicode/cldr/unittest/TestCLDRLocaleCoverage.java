@@ -252,12 +252,12 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
 
             // check the 8 vote count
 
-            int count = (appleLevel == null ? 0 : 1)
-                + (googleLevel == null ? 0 : 1)
-                + (microsoftLevel == null ? 0 : 1)
+            int count = getLevelCount(appleLevel)
+                + getLevelCount(googleLevel)
+                + getLevelCount(microsoftLevel)
                 ;
             int defaultVotes = SupplementalDataInfo.getInstance().getRequiredVotes(CLDRLocale.getInstance(locale), null);
-            assertEquals("8 votes for " + locale + " at " + cldrLevel, count > 2, defaultVotes == 8);
+            assertEquals("8 votes for " + locale + " at " + cldrLevel, count > 2 && cldrLevel.compareTo(Level.MODERN) >= 0, defaultVotes == 8);
 
             // check the max level
 
@@ -277,6 +277,11 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         checkDisjoint("special", special, "apple", apple);
         checkDisjoint("special", special, "google", google);
         checkDisjoint("special", special, "microsoft", microsoft);
+    }
+
+    private int getLevelCount(Level appleLevel) {
+        return appleLevel == null ? 0
+            : appleLevel.compareTo(Level.MODERN) >= 0 ? 1 : 0;
     }
 
     private static final Set<String> ANY_LOCALE_SET = ImmutableSet.of("*");

@@ -9,7 +9,6 @@
 package org.unicode.cldr.util;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -17,7 +16,6 @@ import java.util.Comparator;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -38,7 +36,6 @@ import org.unicode.cldr.util.ZoneParser.ZoneLine;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 
 /**
@@ -459,6 +456,10 @@ public class StandardCodes {
 
     public Set<String> getLocaleCoverageLocales(Organization organization) {
         return loadPlatformLocaleStatus().platform_locale_level.get(organization).keySet();
+    }
+
+    public Map<String, Level> getLocalesToLevelsFor(Organization organization) {
+        return loadPlatformLocaleStatus().platform_locale_level.get(organization);
     }
 
     public Relation<Level, String> getLevelsToLocalesFor(Organization organization) {

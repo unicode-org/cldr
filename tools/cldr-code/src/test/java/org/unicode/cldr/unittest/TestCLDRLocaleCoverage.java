@@ -3,9 +3,9 @@ package org.unicode.cldr.unittest;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumSet;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -230,62 +230,55 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
     }
 
     /**
-     * Tests that cldr is a superset.
+     * Tests that cldr+special is a superset of the TC locales, with the right levels
      */
     public void TestCldrSuperset() {
-        checkCldrLocales(Organization.apple, ERR);
-        checkCldrLocales(Organization.google, ERR);
-        checkCldrLocales(Organization.microsoft, WARN);
-    }
+        Map<String, Level> apple = sc.getLocalesToLevelsFor(Organization.apple);
+        Map<String, Level> google = sc.getLocalesToLevelsFor(Organization.google);
+        Map<String, Level> microsoft = sc.getLocalesToLevelsFor(Organization.microsoft);
+        Map<String, Level> special = sc.getLocalesToLevelsFor(Organization.special);
 
-    /**
-     * Set of locales which are _excluded_ from Cldr-is-a-superset tests
-     */
-    static Set<String> SKIP_SUPERSET = ImmutableSet.of(
-        // Microsoft locales?
-        "to", "fo",
-        // Apple locales
-        "aa", "bo", "cad", "kl", "kok", "lb", "pcm", "tg", "tt",
-        // Google locales
-        "aa", "br", "gd", "ia", "kea", "nqo", "oc", "sc",
-        // Skip "*"
-        StandardCodes.ALL_LOCALES
-    );
+        Map<String, Level> cldr = sc.getLocalesToLevelsFor(Organization.cldr);
 
-    private void checkCldrLocales(Organization organization, int warningLevel) {
-        // use a union, so that items can be higher
-        EnumSet<Level> modernModerate = EnumSet.of(Level.MODERATE, Level.MODERN);
+        // check that the cldr locales (+ special) have the max level of the TC locales
 
-        Set<String> orgLocalesModerate = sc.getLocaleCoverageLocales(organization, modernModerate);
-        Set<String> cldrLocalesModerate = sc.getLocaleCoverageLocales(Organization.cldr, modernModerate);
-        Set<String> failures = checkCldrLocalesSuperset(modernModerate, cldrLocalesModerate, organization, orgLocalesModerate, warningLevel,
-            SKIP_SUPERSET);
-
-        EnumSet<Level> modernSet = EnumSet.of(Level.MODERN);
-        Set<String> orgLocalesModern = sc.getLocaleCoverageLocales(organization, modernSet);
-        Set<String> cldrLocalesModern = sc.getLocaleCoverageLocales(Organization.cldr, modernSet);
-        failures = new HashSet<>(failures);
-        failures.addAll(SKIP_SUPERSET);
-        checkCldrLocalesSuperset(modernSet, cldrLocalesModern, organization, orgLocalesModern, warningLevel, failures);
-    }
-
-    private Set<String> checkCldrLocalesSuperset(Set<Level> level, Set<String> cldrLocales, Organization organization, Set<String> orgLocales, int warningLevel,
-        Set<String> skip) {
-        if (!cldrLocales.containsAll(orgLocales)) {
-            Set<String> diff2 = new LinkedHashSet<>(Sets.difference(orgLocales, cldrLocales));
-            diff2.removeAll(skip);
-            if (!diff2.isEmpty()) {
-                String diffString = diff2.toString();
-                String levelString = Joiner.on("+").join(level);
-                for (String localeId : diff2) {
-                    diffString += "\n\t" + localeId + "\t" + CLDRConfig.getInstance().getEnglish().getName(localeId);
-                }
-                msg("The following " + organization.displayName + " " + levelString + " locales were absent from the "
-                    + Organization.cldr.displayName + " " + levelString + " locales:" + diffString,
-                    warningLevel, true, true);
-            }
-            return diff2;
+        for (Entry<String, Level> entry : cldr.entrySet()) {
+            String locale = entry.getKey();
+            Level cldrLevel = entry.getValue();
+            Level appleLevel = apple.get(locale);
+            Level googleLevel = google.get(locale);
+            Level microsoftLevel = microsoft.get(locale);
+            Level specialLevel = special.get(locale);
+            Level maxLevel = Level.max(appleLevel, googleLevel, microsoftLevel, specialLevel);
+            assertEquals("cldr level = max for " + locale + " (" + ENGLISH.getName(locale) + ")", cldrLevel, maxLevel);
         }
-        return Collections.emptySet();
+
+        // check that the cldr locales include all of the other locale's
+
+        checkCldrContains("cldr", cldr, "apple", apple);
+        checkCldrContains("cldr", cldr, "google", google);
+        checkCldrContains("cldr", cldr, "microsoft", microsoft);
+        checkCldrContains("cldr", cldr, "special", apple);
+
+        // check that special doesn't overlap with TC, except for generated locales
+
+        checkDisjoint("special", special, "apple", apple);
+        checkDisjoint("special", special, "google", google);
+        checkDisjoint("special", special, "microsoft", microsoft);
     }
+
+    private static final Set<String> ANY_LOCALE_SET = ImmutableSet.of("*");
+    private static final Set<String> LOCALE_CONTAINMENT_EXCEPTIONS = ImmutableSet.of(
+        "sr_Latn", // auto-generated
+        "hi", "sr", "yue" // these are inserted by Locales.txt processing TODO don't add to special
+        );
+
+    private void checkCldrContains(String firstName, Map<String, Level> first, String otherName, Map<String, Level> other) {
+        assertEquals(firstName + " ⊇ " + otherName, Collections.emptySet(), Sets.difference(Sets.difference(other.keySet(), ANY_LOCALE_SET), first.keySet()));
+    }
+
+    private void checkDisjoint(String firstName, Map<String, Level> first, String otherName, Map<String, Level> other) {
+        assertEquals(firstName + " ⩃ " + otherName, Collections.emptySet(), Sets.difference(Sets.intersection(other.keySet(), first.keySet()), LOCALE_CONTAINMENT_EXCEPTIONS));
+    }
+
 }

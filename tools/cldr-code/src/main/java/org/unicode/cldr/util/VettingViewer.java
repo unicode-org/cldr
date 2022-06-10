@@ -995,13 +995,12 @@ public class VettingViewer<T> {
                 if (DEBUG_THREADS) {
                     System.out.println("Appending " + name + " - " + outputs[n].length());
                 }
-                output.append(outputs[n]);
-
                 char nextChar = name.charAt(0);
                 if (lastChar != nextChar) {
                     output.append(this.header);
                     lastChar = nextChar;
                 }
+                output.append(outputs[n]);
             }
         }
 

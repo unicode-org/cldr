@@ -51,7 +51,6 @@ class MeterData {
       return;
     }
     this.percent = friendlyPercent(votes, total);
-    const locale = cldrStatus.getCurrentLocale();
     this.title =
       `${this.description}: ${this.votes} / ${this.total} ≈ ${this.percent}%` +
       `\n•Coverage: ${this.level}`;

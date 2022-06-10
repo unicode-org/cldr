@@ -158,9 +158,7 @@ export default {
         this.heading = this.makeHeading(data.snapshotId);
         this.helpMessage = this.makeHelp(data.snapshotId);
         this.whenReceived = this.makeWhenReceived(data.snapshotId);
-        this.snapshotsAreReady =
-          this.canUseSnapshots &&
-          cldrPriorityItems.snapshotIdIsValid(data.snapshotId);
+        this.snapshotsAreReady = this.canUseSnapshots && this.snapshotArray;
       }
     },
 
@@ -256,6 +254,7 @@ export default {
         return cldrReport.reportClass(false, false);
       }
     },
+
     downloadReports() {
       return cldrReport.downloadAllReports("-");
     },

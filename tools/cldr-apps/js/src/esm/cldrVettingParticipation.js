@@ -64,16 +64,16 @@ function getAjaxUrl() {
 function downloadVettingParticipation(opts) {
   const {
     missingLocalesForOrg,
-    languagesNotInCLDR,
-    hasAllLocales,
-    localeToData,
-    totalCount,
+    // languagesNotInCLDR,
+    // hasAllLocales,
+    // localeToData,
+    // totalCount,
     uidToUser,
   } = opts;
 
   const wb = XLSX.utils.book_new();
 
-  var ws_name = `Vetting Participation for ${missingLocalesForOrg || "(ALL)"}`;
+  var ws_name = (missingLocalesForOrg || "ALL").substring(0, 31);
 
   var ws_data = [
     ["Org", "Locale", "Code", "Level", "Vetter#", "Email", "Name", "LastSeen"],
@@ -110,16 +110,10 @@ function downloadVettingParticipation(opts) {
 
   var ws = XLSX.utils.aoa_to_sheet(ws_data);
 
-  // function pushComment(where, t) {
-  //   ws[where].c = ws[where].c || [];
-  //   ws[where].c.hidden = true;
-  //   ws[where].c.push({ a: "SurveyTool", t });
-  // }
-
   XLSX.utils.book_append_sheet(wb, ws, ws_name);
   XLSX.writeFile(
     wb,
-    `survey_participation_${missingLocalesForOrg || "ALL"}.xlsx`
+    `survey_participation.${missingLocalesForOrg || "ALL"}.xlsx`
   );
 }
 

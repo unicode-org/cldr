@@ -228,7 +228,7 @@ public class Dashboard {
         STFactory sourceFactory = sm.getSTFactory();
         VettingViewer<Organization> vv = new VettingViewer<>(sm.getSupplementalDataInfo(), sourceFactory,
             new STUsersChoice(sm));
-        EnumSet<VettingViewer.Choice> choiceSet = VettingViewer.getChoiceSetForOrg(usersOrg);
+        EnumSet<VettingViewer.Choice> choiceSet = VettingViewer.getDashboardNotificationCategories(usersOrg);
         DashboardArgs args = new DashboardArgs(choiceSet, locale, coverageLevel);
         args.setUserAndOrganization(user.id, usersOrg);
         setFiles(args, locale, sourceFactory);

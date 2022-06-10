@@ -273,43 +273,15 @@ public class VettingViewerQueue {
             n = 0;
             vv.setProgressCallback(new CLDRProgressCallback(progress, Thread.currentThread()));
 
-            EnumSet<VettingViewer.Choice> choiceSet = VettingViewer.getChoiceSetForOrg(usersOrg);
-            choiceSet.remove(VettingViewer.Choice.abstained);
+            EnumSet<VettingViewer.Choice> choiceSet = VettingViewer.getPriorityItemsSummaryCategories(usersOrg);
             if (DEBUG) {
                 System.out.println("Starting generation of Priority Items Summary");
             }
-            vv.setLocaleToProgress(getLocaleToProgress(vv, usersOrg));
             vv.generatePriorityItemsSummary(aBuffer, choiceSet, usersOrg);
             if (myThread.isAlive()) {
                 aBuffer.append("<hr/>Processing time: " + ElapsedTimer.elapsedTime(start));
                 entry.output.put(usersOrg, new VVOutput(aBuffer));
             }
-        }
-
-        /**
-         * Get a map from locale id string to progress percentage string, to be
-         * used in the "Progress" column of the Priority Items Summary
-         *
-         * @param vv the VettingViewer
-         * @param org the Organization
-         * @return the map
-         *
-         * Note: unless the locale completion results have already been cached, this method may
-         * be inefficient since it loops with VettingViewer through all the paths in each locale,
-         * and then the Priority Items Summary again loops with VettingViewer through all the paths
-         * in each locale. It might be up to twice as efficient, especially when values are not yet
-         * cached, to gather the progress stats during the same single pass as the rest of the summary info.
-         */
-        private HashMap<String, String> getLocaleToProgress(VettingViewer<Organization> vv, Organization org) {
-            final HashMap<String, String> map = new HashMap<>();
-            final ArrayList<String> localeList = vv.getLocaleList(org);
-            for (String localeId : localeList) {
-                final CLDRLocale loc = CLDRLocale.getInstance(localeId);
-                final LocaleCompletion.LocaleCompletionResponse response = LocaleCompletion.handleGetLocaleCompletion(loc);
-                final int percent = (100 * response.votes / response.total);
-                map.put(localeId, Integer.toString(percent));
-            }
-            return map;
         }
 
         private int getPercent() {

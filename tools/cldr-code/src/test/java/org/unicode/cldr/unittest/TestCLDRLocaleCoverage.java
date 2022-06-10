@@ -81,7 +81,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
             "ybb",
             "zun", "zza" );
 
-        warnln("Locales added for translation; revisit each release:\n"
+        warnln("Locale names added for translation; revisit each release:\n"
             + Joiner.on("\n")
             .join(additionsToTranslate.stream().map(x -> x + "\t(" + ENGLISH.getName(x) + ")").collect(Collectors.toList())));
 

@@ -41,7 +41,7 @@
               title="Show the indicated snapshot of the Priority Items Summary"
               @click="showSnapshot(snapshotId)"
             >
-              {{ snapshotId }}
+              {{ humanizeSnapId(snapshotId) }}
             </button>
           </span>
         </span>
@@ -181,7 +181,7 @@ export default {
         return null;
       }
       if (cldrPriorityItems.snapshotIdIsValid(snapshotId)) {
-        return "Snapshot " + snapshotId;
+        return "Snapshot " + this.humanizeSnapId(snapshotId);
       } else if (this.canUseSnapshots) {
         return "Latest (not a snapshot)";
       } else {
@@ -230,6 +230,19 @@ export default {
 
     humanizeLocale(locale) {
       return cldrLoad.getLocaleName(locale);
+    },
+
+    /**
+     * Display a more user-friendly snapshot id
+     *
+     * @param id like “2022-05-16T08:15:25.083077935Z”
+     * @return like “2022-05-16 08:15 GMT”
+     */
+    humanizeSnapId(id) {
+      if (!id.match(/^\d+\-\d+\-\d+T\d\d:\d\d:\d\d\..+Z$/)) {
+        return id;
+      }
+      return id.replace("T", " ").replace(/:\d\d\..+Z/, " GMT");
     },
 
     reportClass(kind) {

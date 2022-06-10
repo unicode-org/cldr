@@ -9,11 +9,13 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.MinimizeRegex;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -53,36 +55,35 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         // We add in additionsToTranslate below the set in attributeValueValidity.xml $languageExceptions
         // (both sets are included in SDI.getCLDRLanguageCodes() but we do not use that until later).
         Set<String> additionsToTranslate = ImmutableSortedSet.of("zxx", "mul",
-                        "ab", "ace", "ada", "ady", "ain", "ale", "alt", "an", "anp", "arn", "arp", "ars", "atj", "av", "awa", "ay",
-                        "ba", "ban", "bho", "bi", "bin", "bla", "bug", "byn",
-                        "cay", "ch", "chk", "chm", "cho", "chp", "chy", "clc", "co", "crg", "crj", "crk", "crl", "crm", "crr", "csw", "cv",
-                        "dak", "dar", "dgr", "dv", "dzg",
-                        "efi", "eka",
-                        "fj", "fon", "frc",
-                        "gaa", "gez", "gil", "gn", "gor", "gwi",
-                        "hai", "hax", "hil", "hmn", "ht", "hup", "hur", "hz",
-                        "iba", "ibb", "ikt", "ilo", "inh", "io", "iu",
-                        "jbo",
-                        "kac", "kaj", "kbd", "kcg", "kfo", "kha", "kj", "kmb", "kpe", "kr", "krc", "krl", "kru", "kum", "kv", "kwk",
-                        "la", "lad", "lez", "li", "lil", "lou", "loz", "lsm", "lua", "lun", "lus",
-                        "mad", "mag", "mak", "mdf", "men", "mh", "mic", "min", "moe", "moh", "mos", "mus", "mwl", "myv",
-                        "na", "nap", "new", "ng", "nia", "niu", "nog", "nqo", "nr", "nso", "nv", "ny",
-                        "oc", "ojb", "ojc", "ojs", "ojw", "oka",
-                        "pag", "pam", "pap", "pau", "pqm",
-                        "rap", "rar", "rhg", "rup",
-                        "sad", "sba", "scn", "sco", "shn", "slh", "sm", "snk", "srn", "ss", "st", "str", "suk", "swb", "syr",
-                        "tce", "tem", "tet", "tgx", "tht", "tig", "tlh", "tli", "tn", "tpi", "trv", "ts", "ttm", "tum", "tvl", "ty", "tyv",
-                        "udm", "umb",
-                        "ve",
-                        "wa", "wal", "war", "wuu",
-                        "xal",
-                        "ybb",
-                        "zun", "zza" );
+            "ab", "ace", "ada", "ady", "ain", "ale", "alt", "an", "anp", "arn", "arp", "ars", "atj", "av", "awa", "ay",
+            "ba", "ban", "bho", "bi", "bin", "bla", "bug", "byn",
+            "cay", "ch", "chk", "chm", "cho", "chp", "chy", "clc", "co", "crg", "crj", "crk", "crl", "crm", "crr", "csw", "cv",
+            "dak", "dar", "dgr", "dv", "dzg",
+            "efi", "eka",
+            "fj", "fon", "frc",
+            "gaa", "gez", "gil", "gn", "gor", "gwi",
+            "hai", "hax", "hil", "hmn", "ht", "hup", "hur", "hz",
+            "iba", "ibb", "ikt", "ilo", "inh", "io", "iu",
+            "jbo",
+            "kac", "kaj", "kbd", "kcg", "kfo", "kha", "kj", "kmb", "kpe", "kr", "krc", "krl", "kru", "kum", "kv", "kwk",
+            "la", "lad", "lez", "li", "lil", "lou", "loz", "lsm", "lua", "lun", "lus",
+            "mad", "mag", "mak", "mdf", "men", "mh", "mic", "min", "moe", "moh", "mos", "mus", "mwl", "myv",
+            "na", "nap", "new", "ng", "nia", "niu", "nog", "nqo", "nr", "nso", "nv", "ny",
+            "oc", "ojb", "ojc", "ojs", "ojw", "oka",
+            "pag", "pam", "pap", "pau", "pqm",
+            "rap", "rar", "rhg", "rup",
+            "sad", "sba", "scn", "sco", "shn", "slh", "sm", "snk", "srn", "ss", "st", "str", "suk", "swb", "syr",
+            "tce", "tem", "tet", "tgx", "tht", "tig", "tlh", "tli", "tn", "tpi", "trv", "ts", "ttm", "tum", "tvl", "ty", "tyv",
+            "udm", "umb",
+            "ve",
+            "wa", "wal", "war", "wuu",
+            "xal",
+            "ybb",
+            "zun", "zza" );
 
-        warnln("Locales added for translation; revisit each release: " + additionsToTranslate);
-
-        Set<String> localeIdsAtComprehensive = ImmutableSortedSet.of();
-        warnln("Locales set to comprehensive; revisit each release: " + localeIdsAtComprehensive);
+        warnln("Locales added for translation; revisit each release:\n"
+            + Joiner.on("\n")
+            .join(additionsToTranslate.stream().map(x -> x + "\t(" + ENGLISH.getName(x) + ")").collect(Collectors.toList())));
 
         Map<String, Status> validity = Validity.getInstance().getCodeToStatus(LstrType.language);
         Multimap<Status, String> statusToLang = Multimaps.invertFrom(Multimaps.forMap(validity), TreeMultimap.create());
@@ -102,7 +103,6 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         Set<String> localesForNames = new TreeSet<>();
         localesForNames.addAll(mainLocales);
         localesForNames.addAll(additionsToTranslate);
-        localesForNames.removeAll(localeIdsAtComprehensive);
         localesForNames = ImmutableSet.copyOf(localesForNames);
 
         assertContains("regularPlus.containsAll(mainLocales)", regularPlus, localesForNames);
@@ -249,6 +249,18 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
             Level googleLevel = google.get(locale);
             Level microsoftLevel = microsoft.get(locale);
             Level specialLevel = special.get(locale);
+
+            // check the 8 vote count
+
+            int count = getLevelCount(appleLevel)
+                + getLevelCount(googleLevel)
+                + getLevelCount(microsoftLevel)
+                ;
+            int defaultVotes = SupplementalDataInfo.getInstance().getRequiredVotes(CLDRLocale.getInstance(locale), null);
+            assertEquals("8 votes for " + locale + " at " + cldrLevel, count > 2 && cldrLevel.compareTo(Level.MODERN) >= 0, defaultVotes == 8);
+
+            // check the max level
+
             Level maxLevel = Level.max(appleLevel, googleLevel, microsoftLevel, specialLevel);
             assertEquals("cldr level = max for " + locale + " (" + ENGLISH.getName(locale) + ")", cldrLevel, maxLevel);
         }
@@ -265,6 +277,11 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         checkDisjoint("special", special, "apple", apple);
         checkDisjoint("special", special, "google", google);
         checkDisjoint("special", special, "microsoft", microsoft);
+    }
+
+    private int getLevelCount(Level appleLevel) {
+        return appleLevel == null ? 0
+            : appleLevel.compareTo(Level.MODERN) >= 0 ? 1 : 0;
     }
 
     private static final Set<String> ANY_LOCALE_SET = ImmutableSet.of("*");

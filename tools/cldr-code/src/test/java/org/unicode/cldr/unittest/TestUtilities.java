@@ -623,7 +623,7 @@ public class TestUtilities extends TestFmwkPlus {
                 .fromPath(xpath);
         }
         resolver.setLocale(CLDRLocale.getInstance(locale), ph);
-        assertEquals("verifyRequiredVotes: " + ph.toString(), required, resolver.getRequiredVotes());
+        assertEquals(locale + " verifyRequiredVotes: " + ph.toString(), required, resolver.getRequiredVotes());
     }
 
     public void TestRequiredVotes() {
@@ -687,7 +687,7 @@ public class TestUtilities extends TestFmwkPlus {
      * the two locales pt_PT and zh_Hant
      */
     public void TestSublocaleRequiredVotes() {
-        final Set<String> eightVoteSublocales = new HashSet<>(Arrays.asList("pt_PT", "zh_Hant"));
+        final Set<String> eightVoteSublocales = new HashSet<>(Arrays.asList("pt_PT", "zh_Hant", "en_AU", "en_GB", "es_MX", "fr_CA"));
         final VoteResolver<String> resolver = new VoteResolver<>();
         final String path = "//ldml/annotations/annotation[@cp=\"🌏\"][@type=\"tts\"]";
         for (String locale : SubmissionLocales.CLDR_OR_HIGH_LEVEL_LOCALES) {

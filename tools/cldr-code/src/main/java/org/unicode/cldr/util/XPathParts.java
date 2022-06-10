@@ -1312,6 +1312,11 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
     }
 
     public Map<String, String> getSpecialNondistinguishingAttributes() {
+        // This returns the collection of non-distinguishing attribute values that
+        // *should* appear with blue background in the Survey Tool left column
+        // (e.g. the numbers attribute for some date patterns). Non-distinguishing
+        // attributes that should *not* appear must be explicitly listed as
+        // exclusions here (and distinguishing attributes are all excluded here).
         Map<String, String> ueMap = null; // common case, none found.
         for (int i = 0; i < this.size(); i++) {
             // taken from XPathTable.getUndistinguishingElementsFor, with some cleanup
@@ -1320,7 +1325,8 @@ public final class XPathParts implements Freezable<XPathParts>, Comparable<XPath
                 String k = entry.getKey();
                 if (getDtdData().isDistinguishing(getElement(i), k)
                     || k.equals("alt") // is always distinguishing, so we don't really need this.
-                    || k.equals("draft")) {
+                    || k.equals("draft")
+                    || k.startsWith("xml:")) {
                     continue;
                 }
                 if (ueMap == null) {

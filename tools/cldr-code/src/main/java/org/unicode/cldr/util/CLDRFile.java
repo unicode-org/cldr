@@ -2519,6 +2519,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         }
 
         public static String getDistinguishingXPath(String xpath, String[] normalizedPath) {
+            // For example, this removes [@xml:space="preserve"] from a path with element foreignSpaceReplacement.
             //     synchronized (distinguishingMap) {
             String result = distinguishingMap.get(xpath);
             if (result == null) {

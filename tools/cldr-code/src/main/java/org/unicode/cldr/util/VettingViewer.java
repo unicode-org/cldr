@@ -75,16 +75,6 @@ public class VettingViewer<T> {
     }
 
     /**
-     * Map from locale id (like "aa") to a percentage string (like "100%"),
-     * for the "Progress" column of the Priority Items Summary
-     */
-    private HashMap<String, String> localeToProgress = null;
-
-    public void setLocaleToProgress(HashMap<String, String> localeToProgress) {
-        this.localeToProgress = localeToProgress;
-    }
-
-    /**
      * Notification categories
      *
      * TODO: rename VettingViewer.Choice to a better name, such as VettingViewer.Category,
@@ -426,6 +416,8 @@ public class VettingViewer<T> {
         }
     }
 
+    // TODO: rename VettingViewer.DashboardArgs to simply VettingViewer.Args
+    // -- it's now used not only for Dashboard, but also LocaleCompletionCounter, ...
     public static class DashboardArgs {
         final EnumSet<Choice> choices;
         final CLDRLocale locale;
@@ -687,7 +679,7 @@ public class VettingViewer<T> {
             if (pathLevelIsTooHigh && problems.isEmpty()) {
                 return;
             }
-            updateVotedOrAbstained(path, pathLevelIsTooHigh);
+            updateVotedOrAbstained(path);
             updateLocaleProgress();
 
             if (!problems.isEmpty() && sorted != null) {
@@ -706,7 +698,7 @@ public class VettingViewer<T> {
             return Subtype.none;
         }
 
-        private void updateVotedOrAbstained(String path, boolean pathLevelIsTooHigh) {
+        private void updateVotedOrAbstained(String path) {
             if (voterProgress == null || voterId == 0) {
                 return;
             }
@@ -722,10 +714,19 @@ public class VettingViewer<T> {
         private void updateLocaleProgress() {
             if (localeProgress != null) {
                 localeProgress.incrementVotablePathCount();
-                if (problems.isEmpty()) { // "no problems" means ok, a.k.a. "voted"
+                if (!hasLocaleProblems()) {
                     localeProgress.incrementVotedPathCount();
                 }
             }
+        }
+
+        private boolean hasLocaleProblems() {
+            if (problems.isEmpty()) {
+                return false;
+            }
+            EnumSet<Choice> localeProblems = EnumSet.copyOf(problems);
+            localeProblems.retainAll(localeCompletionCategories);
+            return !localeProblems.isEmpty();
         }
 
         private boolean skipForLimitedSubmission(String path, ErrorChecker.Status errorStatus, String oldValue) {
@@ -1106,8 +1107,10 @@ public class VettingViewer<T> {
                     level = sc.getLocaleCoverageLevel(context.organization.toString(), localeID);
                 }
             }
+            final VoterProgress localeProgress = new VoterProgress();
             FileInfo fileInfo = new FileInfo(localeID, level, choices, context.organization);
             fileInfo.setFiles(sourceFile, baselineFile);
+            fileInfo.setLocaleProgress(localeProgress);
             fileInfo.getFileInfo();
             context.localeNameToFileInfo.put(name, fileInfo);
             context.totals.addAll(fileInfo.vc);
@@ -1115,7 +1118,7 @@ public class VettingViewer<T> {
                 System.out.println("writeAction.compute(" + n + ") - got fileinfo " + name + ": " + localeID);
             }
             try {
-                writeSummaryRow(output, choices, fileInfo.vc.problemCounter, name, localeID, level);
+                writeSummaryRow(output, choices, fileInfo.vc.problemCounter, name, localeID, level, localeProgress);
                 if (DEBUG_THREADS) {
                     System.out.println("writeAction.compute(" + n + ") - wrote " + name + ": " + localeID);
                 }
@@ -1166,7 +1169,7 @@ public class VettingViewer<T> {
         }
         context.appendTo(output); // write all of the results together
         output.append(header); // add one header at the bottom before the Total row
-        writeSummaryRow(output, choices, totals.problemCounter, "Total", null, desiredLevel);
+        writeSummaryRow(output, choices, totals.problemCounter, "Total", null, desiredLevel, null);
         output.append("</table>");
         if (SHOW_SUBTYPES) {
             showSubtypes(output, sortedNames, localeNameToFileInfo, totals, true);
@@ -1259,6 +1262,7 @@ public class VettingViewer<T> {
      * @param name
      * @param localeID if null, this is a "Total" row to be shown at the bottom of the table
      * @param level
+     * @param localeProgress
      * @throws IOException
      *
      * CAUTION: this method not only uses "th" for "table header" in the usual sense, it also
@@ -1266,7 +1270,7 @@ public class VettingViewer<T> {
      * and code values like "<code>ks_Deva₍_IN₎</code>". The same row may have both "th" and "td" cells.
      */
     private void writeSummaryRow(Appendable output, EnumSet<Choice> choices, Counter<Choice> problemCounter,
-                                 String name, String localeID, Level level) throws IOException {
+                                 String name, String localeID, Level level, VoterProgress localeProgress) throws IOException {
         output
             .append("<tr>")
             .append(TH_AND_STYLES)
@@ -1284,7 +1288,8 @@ public class VettingViewer<T> {
             appendNameAndCode(name, localeID, output);
         }
         output.append("</th>\n");
-        output.append("<td class='tvs-count'>").append(getProgressPercentage(localeID)).append("</td>\n");
+        final String progPerc = (localeProgress == null) ? "" : localeProgress.friendlyPercent() + "%";
+        output.append("<td class='tvs-count'>").append(progPerc).append("</td>\n");
         for (Choice choice : choices) {
             long count = problemCounter.get(choice);
             output.append("<td class='tvs-count'>");
@@ -1298,16 +1303,6 @@ public class VettingViewer<T> {
             output.append("</td>\n");
         }
         output.append("</tr>\n");
-    }
-
-    private String getProgressPercentage(String localeID) {
-        if (localeID != null && localeToProgress != null) {
-            final String percent = localeToProgress.get(localeID);
-            if (percent != null) {
-                return percent + "%";
-            }
-        }
-        return "";
     }
 
     private void appendNameAndCode(String name, String localeID, Appendable output) throws IOException {
@@ -1679,7 +1674,14 @@ public class VettingViewer<T> {
         }
     }
 
-    public static EnumSet<VettingViewer.Choice> getChoiceSetForOrg(Organization usersOrg) {
+    private static EnumSet<VettingViewer.Choice> localeCompletionCategories = EnumSet.of(
+            VettingViewer.Choice.error,
+            VettingViewer.Choice.hasDispute,
+            VettingViewer.Choice.notApproved,
+            VettingViewer.Choice.missingCoverage
+    );
+
+    public static EnumSet<VettingViewer.Choice> getDashboardNotificationCategories(Organization usersOrg) {
         EnumSet<VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);
         if (orgIsNeutralForSummary(usersOrg)) {
             choiceSet = EnumSet.of(
@@ -1692,5 +1694,15 @@ public class VettingViewer<T> {
             // skip weLost, englishChanged, changedOldValue, abstained
         }
         return choiceSet;
+    }
+
+    public static EnumSet<VettingViewer.Choice> getPriorityItemsSummaryCategories(Organization org) {
+        EnumSet<VettingViewer.Choice> set = getDashboardNotificationCategories(org);
+        set.remove(VettingViewer.Choice.abstained);
+        return set;
+    }
+
+    public static EnumSet<VettingViewer.Choice> getLocaleCompletionCategories() {
+        return localeCompletionCategories;
     }
 }

@@ -253,6 +253,20 @@ public class Dashboard {
         args.setFiles(sourceFile, baselineFile);
     }
 
+    /**
+     * Setup to calculate the baseline ('HEAD') error count
+     * @param args
+     * @param locale
+     * @param baselineFactory
+     * @param isBaseline
+     */
+    public static void setFilesForBaseline(DashboardArgs args, CLDRLocale locale, Factory baselineFactory) {
+        final String localeId = locale.getBaseName();
+        final CLDRFile baselineFile = baselineFactory.make(localeId, true);
+        final CLDRFile sourceFile = baselineFactory.make(localeId, false);
+        args.setFiles(sourceFile, baselineFile);
+    }
+
     private ReviewOutput reallyGet(VettingViewer<Organization> vv, DashboardArgs args) {
         VettingViewer<Organization>.DashboardData dd;
         dd = vv.generateDashboard(args);

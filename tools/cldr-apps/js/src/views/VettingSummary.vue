@@ -38,7 +38,7 @@
         <span v-if="snapshotArray">
           <span v-for="snapshotId of snapshotArray" :key="snapshotId">
             <button
-              title="Show the indicated snapshot of the Priority Items Summary"
+              :title="getSnapshotHover(snapshotId)"
               @click="showSnapshot(snapshotId)"
             >
               {{ humanizeSnapId(snapshotId) }}
@@ -234,13 +234,19 @@ export default {
      * Display a more user-friendly snapshot id
      *
      * @param id like “2022-05-16T08:15:25.083077935Z”
-     * @return like “2022-05-16 08:15 GMT”
+     * @return like “2022-05-16 08:15 UTC
      */
     humanizeSnapId(id) {
       if (!id.match(/^\d+\-\d+\-\d+T\d\d:\d\d:\d\d\..+Z$/)) {
         return id;
       }
-      return id.replace("T", " ").replace(/:\d\d\..+Z/, " GMT");
+      return id.replace("T", " ").replace(/:\d\d\..+Z/, " UTC");
+    },
+
+    getSnapshotHover(id) {
+      const humanizedId = this.humanizeSnapId(id);
+      const args = [humanizedId, id];
+      return cldrText.sub("summary_snapshot_hover", args);
     },
 
     reportClass(kind) {

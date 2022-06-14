@@ -45,9 +45,6 @@ const strings = {
   flyoveradd: "Add another value",
   flyoverdraft: "Approval Status",
   flyovercode: "Code for this item",
-  extraAttribute_desc: "Additional specifiers for this item",
-  extraAttribute_heading:
-    "Note: there are additional specifiers for this item. Read the help page for further details.",
   flyovercomparison: "Comparison value",
   flyoverproposed: "Winning value",
   flyoverothers: "Other non-winning items",

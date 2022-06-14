@@ -531,6 +531,8 @@ const strings = {
     "The coverage level for each locale is organization-neutral.",
   summary_access_denied:
     "To see the summary, you must be logged in as a manager, TC, or admin.",
+  summary_snapshot_hover:
+    "Show the Priority Items Summary snapshot with id “${0}” [${1}]",
 
   // LocaleNormalizer.LocaleRejection
   locale_rejection_unknown: "Unknown or not in CLDR",

@@ -70,6 +70,9 @@ public class CheckPlaceHolders extends CheckCLDR {
 
             case "nameOrderLocales":
                 //ldml/personNames/nameOrderLocales[@order="givenFirst"]
+                if (value.isEmpty()) {
+                    return this;
+                }
                 Set<String> items = new TreeSet<>();
                 Set<String> orderErrors = checkForErrorsAndGetLocales(value, items);
                 if (orderErrors != null) {

@@ -399,6 +399,9 @@ public class CheckPlaceHolders extends CheckCLDR {
     }
 
     private Set<String> checkForErrorsAndGetLocales(String value, Set<String> items) {
+        if (value.isEmpty()) {
+            return null;
+        }
         Set<String> orderErrors = null;
         for (String item : SPLIT_SPACE.split(value)) {
             boolean mv = LOCALE_MATCH_VALUE.is(item);

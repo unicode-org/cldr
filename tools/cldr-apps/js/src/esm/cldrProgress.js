@@ -188,12 +188,21 @@ function refreshVoterMeter() {
 }
 
 function refreshLocaleMeter() {
-  if (localeProgressStats) {
-    progressWrapper?.updateLocaleMeter(
+  if (localeProgressStats && progressWrapper) {
+    const baselineProblems = localeProgressStats.baselineCount;
+    const currentProblems =
+      localeProgressStats.error +
+      localeProgressStats.missing +
+      localeProgressStats.provisional;
+    const solvedProblems =
+      currentProblems >= baselineProblems
+        ? 0
+        : baselineProblems - currentProblems;
+    progressWrapper.updateLocaleMeter(
       new MeterData(
         cldrText.get("progress_all_vetters"),
-        localeProgressStats.votes,
-        localeProgressStats.total,
+        solvedProblems,
+        baselineProblems,
         localeProgressStats.level
       )
     );
@@ -387,12 +396,7 @@ function reallyFetchLocaleData(locale) {
     .then((data) => data.json())
     .then((json) => {
       progressWrapper.setHidden(false);
-      localeProgressStats = {
-        votes: json.votes,
-        total: json.total,
-        level: json.level,
-        locale,
-      };
+      setLocaleProgressStatsFromJson(json, locale);
       timeLastReceivedLocaleData = Date.now();
       refreshLocaleMeter();
     })
@@ -400,6 +404,21 @@ function reallyFetchLocaleData(locale) {
       console.error("Error loading Locale Completion data: " + err);
       progressWrapper.setHidden(true);
     });
+}
+
+function setLocaleProgressStatsFromJson(json, locale) {
+  localeProgressStats = {
+    baselineCount: json.baselineCount,
+    error: json.error,
+    missing: json.missing,
+    provisional: json.provisional,
+    level: json.level,
+    /*
+     * Here locale is NOT from json
+     */
+    locale: locale,
+    // Note: json.votes and json.total are currently unused
+  };
 }
 
 function friendlyPercent(votes, total) {
@@ -410,6 +429,9 @@ function friendlyPercent(votes, total) {
   }
   if (!votes) {
     return 0;
+  }
+  if (votes >= total) {
+    return 100;
   }
   // Do not round 99.9 up to 100
   const floor = Math.floor((100 * votes) / total);

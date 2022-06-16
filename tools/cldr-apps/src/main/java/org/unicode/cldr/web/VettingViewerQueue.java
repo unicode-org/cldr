@@ -2,6 +2,7 @@ package org.unicode.cldr.web;
 
 import java.io.IOException;
 import java.util.*;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Logger;
 
@@ -245,7 +246,7 @@ public class VettingViewerQueue {
                 }
                 status = "Finished.";
                 statusCode = Status.READY;
-            } catch (RuntimeException | InterruptedException re) {
+            } catch (RuntimeException | InterruptedException | ExecutionException re) {
                 SurveyLog.logException(logger, re, "While VettingViewer processing Priority Items Summary");
                 status = "Exception! " + re;
                 // We're done.
@@ -258,7 +259,7 @@ public class VettingViewerQueue {
             }
         }
 
-        private void processCriticalWork(final CLDRProgressTask progress) {
+        private void processCriticalWork(final CLDRProgressTask progress) throws ExecutionException {
             status = "Beginning Process, Calculating";
             VettingViewer<Organization> vv;
             vv = new VettingViewer<>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
@@ -277,6 +278,7 @@ public class VettingViewerQueue {
             if (DEBUG) {
                 System.out.println("Starting generation of Priority Items Summary");
             }
+            vv.setLocaleBaselineCount(new VVQueueLocaleBaselineCount());
             vv.generatePriorityItemsSummary(aBuffer, choiceSet, usersOrg);
             if (myThread.isAlive()) {
                 aBuffer.append("<hr/>Processing time: " + ElapsedTimer.elapsedTime(start));
@@ -300,9 +302,9 @@ public class VettingViewerQueue {
      * Arguments for getPriorityItemsSummaryOutput
      */
     public class Args {
-        private QueueMemberId qmi;
-        private Organization usersOrg;
-        private LoadingPolicy loadingPolicy;
+        final private QueueMemberId qmi;
+        final private Organization usersOrg;
+        final private LoadingPolicy loadingPolicy;
 
         public Args(QueueMemberId qmi, Organization usersOrg, LoadingPolicy loadingPolicy) {
             this.qmi = qmi;
@@ -461,5 +463,12 @@ public class VettingViewerQueue {
 
     public int getPercent() {
         return percent;
+    }
+
+    private static class VVQueueLocaleBaselineCount implements VettingViewer.LocaleBaselineCount {
+
+        public int getBaselineProblemCount(CLDRLocale cldrLocale) throws ExecutionException {
+            return LocaleCompletion.getBaselineCount(cldrLocale);
+        }
     }
 }

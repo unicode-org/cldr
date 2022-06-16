@@ -15,6 +15,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
 
@@ -72,6 +73,12 @@ public class VettingViewer<T> {
 
     private static boolean orgIsNeutralForSummary(Organization org) {
         return org.equals(getNeutralOrgForSummary());
+    }
+
+    private LocaleBaselineCount localeBaselineCount = null;
+
+    public void setLocaleBaselineCount(LocaleBaselineCount localeBaselineCount) {
+        this.localeBaselineCount = localeBaselineCount;
     }
 
     /**
@@ -504,25 +511,13 @@ public class VettingViewer<T> {
     }
 
     public LocaleCompletionData generateLocaleCompletion(DashboardArgs args) {
-        LocaleCompletionData lcd = new LocaleCompletionData();
-
+        if (!args.sourceFile.isResolved()) {
+            throw new IllegalArgumentException("File must be resolved for locale completion");
+        }
         FileInfo fileInfo = new FileInfo(args.locale.getBaseName(), args.coverageLevel, args.choices, (T) args.organization);
         fileInfo.setFiles(args.sourceFile, args.baselineFile);
-        fileInfo.setLocaleProgress(lcd.localeProgress);
         fileInfo.getFileInfo();
-
-        lcd.errorDebug = (int) fileInfo.vc.problemCounter.get(Choice.error);
-        lcd.missingDebug = (int) fileInfo.vc.problemCounter.get(Choice.missingCoverage);
-        lcd.provisionalDebug = (int) fileInfo.vc.problemCounter.get(Choice.notApproved);
-
-        return lcd;
-    }
-
-    public class LocaleCompletionData {
-        public VoterProgress localeProgress = new VoterProgress();
-        public int errorDebug = 0;
-        public int missingDebug = 0;
-        public int provisionalDebug = 0;
+        return new LocaleCompletionData(fileInfo.vc.problemCounter);
     }
 
     private class VettingCounters {
@@ -590,12 +585,6 @@ public class VettingViewer<T> {
         private void setVoterProgressAndId(VoterProgress voterProgress, int userId) {
             this.voterProgress = voterProgress;
             this.voterId = userId;
-        }
-
-        private VoterProgress localeProgress = null;
-
-        private void setLocaleProgress(VoterProgress localeProgress) {
-            this.localeProgress = localeProgress;
         }
 
         private final VettingCounters vc = new VettingCounters();
@@ -680,7 +669,6 @@ public class VettingViewer<T> {
                 return;
             }
             updateVotedOrAbstained(path);
-            updateLocaleProgress();
 
             if (!problems.isEmpty() && sorted != null) {
                 reasonsToPaths.clear();
@@ -709,24 +697,6 @@ public class VettingViewer<T> {
                 problems.add(Choice.abstained);
                 vc.problemCounter.increment(Choice.abstained);
             }
-        }
-
-        private void updateLocaleProgress() {
-            if (localeProgress != null) {
-                localeProgress.incrementVotablePathCount();
-                if (!hasLocaleProblems()) {
-                    localeProgress.incrementVotedPathCount();
-                }
-            }
-        }
-
-        private boolean hasLocaleProblems() {
-            if (problems.isEmpty()) {
-                return false;
-            }
-            EnumSet<Choice> localeProblems = EnumSet.copyOf(problems);
-            localeProblems.retainAll(localeCompletionCategories);
-            return !localeProblems.isEmpty();
         }
 
         private boolean skipForLimitedSubmission(String path, ErrorChecker.Status errorStatus, String oldValue) {
@@ -884,7 +854,7 @@ public class VettingViewer<T> {
         return list;
     }
 
-    public void generatePriorityItemsSummary(Appendable output, EnumSet<Choice> choices, T organization) {
+    public void generatePriorityItemsSummary(Appendable output, EnumSet<Choice> choices, T organization) throws ExecutionException {
         try {
             StringBuilder headerRow = new StringBuilder();
             headerRow
@@ -1106,23 +1076,21 @@ public class VettingViewer<T> {
                     level = sc.getLocaleCoverageLevel(context.organization.toString(), localeID);
                 }
             }
-            final VoterProgress localeProgress = new VoterProgress();
             FileInfo fileInfo = new FileInfo(localeID, level, choices, context.organization);
             fileInfo.setFiles(sourceFile, baselineFile);
-            fileInfo.setLocaleProgress(localeProgress);
             fileInfo.getFileInfo();
+
             context.localeNameToFileInfo.put(name, fileInfo);
             context.totals.addAll(fileInfo.vc);
             if (DEBUG_THREADS) {
                 System.out.println("writeAction.compute(" + n + ") - got fileinfo " + name + ": " + localeID);
             }
             try {
-                writeSummaryRow(output, choices, fileInfo.vc.problemCounter, name, localeID, level, localeProgress);
+                writeSummaryRow(output, choices, fileInfo.vc.problemCounter, name, localeID, level);
                 if (DEBUG_THREADS) {
                     System.out.println("writeAction.compute(" + n + ") - wrote " + name + ": " + localeID);
                 }
-
-            } catch (IOException e) {
+            } catch (IOException | ExecutionException e) {
                 System.err.println("writeAction.compute(" + n + ") - writeexc " + name + ": " + localeID);
                 this.completeExceptionally(new RuntimeException("While writing " + localeID, e));
             }
@@ -1142,7 +1110,7 @@ public class VettingViewer<T> {
      * @throws IOException
      */
     private void writeSummaryTable(Appendable output, String header, Level desiredLevel,
-        EnumSet<Choice> choices, T organization) throws IOException {
+        EnumSet<Choice> choices, T organization) throws IOException, ExecutionException {
         Map<String, String> sortedNames = getSortedNames((Organization) organization, desiredLevel);
         if (sortedNames.isEmpty()) {
             return;
@@ -1168,7 +1136,7 @@ public class VettingViewer<T> {
         }
         context.appendTo(output); // write all of the results together
         output.append(header); // add one header at the bottom before the Total row
-        writeSummaryRow(output, choices, totals.problemCounter, "Total", null, desiredLevel, null);
+        writeSummaryRow(output, choices, totals.problemCounter, "Total", null, desiredLevel);
         output.append("</table>");
         if (SHOW_SUBTYPES) {
             showSubtypes(output, sortedNames, localeNameToFileInfo, totals, true);
@@ -1261,7 +1229,6 @@ public class VettingViewer<T> {
      * @param name
      * @param localeID if null, this is a "Total" row to be shown at the bottom of the table
      * @param level
-     * @param localeProgress
      * @throws IOException
      *
      * CAUTION: this method not only uses "th" for "table header" in the usual sense, it also
@@ -1269,7 +1236,7 @@ public class VettingViewer<T> {
      * and code values like "<code>ks_Deva₍_IN₎</code>". The same row may have both "th" and "td" cells.
      */
     private void writeSummaryRow(Appendable output, EnumSet<Choice> choices, Counter<Choice> problemCounter,
-                                 String name, String localeID, Level level, VoterProgress localeProgress) throws IOException {
+                                 String name, String localeID, Level level) throws IOException, ExecutionException {
         output
             .append("<tr>")
             .append(TH_AND_STYLES)
@@ -1287,7 +1254,7 @@ public class VettingViewer<T> {
             appendNameAndCode(name, localeID, output);
         }
         output.append("</th>\n");
-        final String progPerc = (localeProgress == null) ? "" : localeProgress.friendlyPercent() + "%";
+        final String progPerc = (localeID == null) ? "" : getLocaleProgressPercent(localeID, problemCounter);
         output.append("<td class='tvs-count'>").append(progPerc).append("</td>\n");
         for (Choice choice : choices) {
             long count = problemCounter.get(choice);
@@ -1302,6 +1269,14 @@ public class VettingViewer<T> {
             output.append("</td>\n");
         }
         output.append("</tr>\n");
+    }
+
+    private String getLocaleProgressPercent(String localeId, Counter<Choice> problemCounter) throws ExecutionException {
+        final LocaleCompletionData lcd = new LocaleCompletionData(problemCounter);
+        final int problemCount = lcd.problemCount();
+        final int total = localeBaselineCount.getBaselineProblemCount(CLDRLocale.getInstance(localeId));
+        final int done = (problemCount >= total) ? 0 : total - problemCount;
+        return CompletionPercent.calculate(done, total) + "%";
     }
 
     private void appendNameAndCode(String name, String localeID, Appendable output) throws IOException {
@@ -1673,7 +1648,7 @@ public class VettingViewer<T> {
         }
     }
 
-    private static EnumSet<VettingViewer.Choice> localeCompletionCategories = EnumSet.of(
+    final private static EnumSet<VettingViewer.Choice> localeCompletionCategories = EnumSet.of(
             VettingViewer.Choice.error,
             VettingViewer.Choice.hasDispute,
             VettingViewer.Choice.notApproved,
@@ -1703,5 +1678,9 @@ public class VettingViewer<T> {
 
     public static EnumSet<VettingViewer.Choice> getLocaleCompletionCategories() {
         return localeCompletionCategories;
+    }
+
+    public interface LocaleBaselineCount {
+        int getBaselineProblemCount(CLDRLocale cldrLocale) throws ExecutionException;
     }
 }

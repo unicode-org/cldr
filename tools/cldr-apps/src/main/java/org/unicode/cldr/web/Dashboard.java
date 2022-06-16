@@ -258,12 +258,18 @@ public class Dashboard {
      * @param args
      * @param locale
      * @param baselineFactory
-     * @param isBaseline
      */
     public static void setFilesForBaseline(DashboardArgs args, CLDRLocale locale, Factory baselineFactory) {
         final String localeId = locale.getBaseName();
         final CLDRFile baselineFile = baselineFactory.make(localeId, true);
-        final CLDRFile sourceFile = baselineFactory.make(localeId, false);
+        /*
+         * sourceFile must be resolved, otherwise VettingViewer.getMissingStatus is liable
+         * to get a null value and return MissingStatus.ABSENT where a resolved file
+         * could result in a non-null inherited value (such as en_CA inheriting from en)
+         * and MissingStatus.PRESENT. Any such inconsistencies interfere with comparing
+         * the current and baseline stats.
+         */
+        final CLDRFile sourceFile = baselineFactory.make(localeId, true /* resolved */);
         args.setFiles(sourceFile, baselineFile);
     }
 

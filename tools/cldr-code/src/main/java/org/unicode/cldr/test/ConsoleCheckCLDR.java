@@ -408,6 +408,8 @@ public class ConsoleCheckCLDR {
         String lastBaseLanguage = "";
         PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(english);
 
+        final Map<String, Level> locale_status = StandardCodes.make().getLocaleToLevel(organization);
+
         final List<String> specialPurposeLocales = new ArrayList<>(Arrays.asList("en_US_POSIX", "en_ZZ"));
         for (String localeID : locales) {
             if (CLDRFile.isSupplementalName(localeID)) continue;
@@ -432,20 +434,19 @@ public class ConsoleCheckCLDR {
             // if the organization is set, skip any locale that doesn't have a value in Locales.txt
             Level level = coverageLevel;
             if (level == null) {
-                level = Level.BASIC;
+                level = Level.MODERN;
             }
             if (organization != null) {
-                Map<String, Level> locale_status = StandardCodes.make().getLocaleToLevel(organization);
                 if (locale_status == null) continue;
                 level = locale_status.get(localeID);
                 if (level == null) continue;
-                if (level.compareTo(Level.BASIC) <= 0) continue;
+                if (level.compareTo(Level.BASIC) < 0) continue;
             } else if (!isLanguageLocale) {
                 // otherwise, skip all language locales
                 options.put(Options.Option.CheckCoverage_skip.getKey(), "true");
             }
 
-            if (organization != null) options.put(Options.Option.CoverageLevel_localeType.getKey(), organization.toString());
+            //if (organization != null) options.put(Options.Option.CoverageLevel_localeType.getKey(), organization.toString());
             options.put(Options.Option.phase.getKey(), phase.toString());
 
             if (SHOW_LOCALE) System.out.println();
@@ -518,9 +519,9 @@ public class ConsoleCheckCLDR {
                 if (pathFilter != null && !pathFilter.reset(path).find()) {
                     continue;
                 }
-                if (coverageLevel != null) {
+                if (level != null) {
                     Level currentLevel = covInfo.getCoverageLevel(path, localeID);
-                    if (currentLevel.compareTo(coverageLevel) > 0) {
+                    if (currentLevel.compareTo(level) > 0) {
                         continue;
                     }
                 }
@@ -692,7 +693,10 @@ public class ConsoleCheckCLDR {
                 LocaleVotingData.resolveErrors(localeID);
             }
 
-            showSummary(localeID, level, "Items (including inherited):\t" + pathCount);
+            showSummary(localeID, level, "Items:\t" + pathCount
+                + "\tRaw Missing:\t" + rawMissingCount
+                + "\tRaw Provisional:\t" + rawProvisionalCount);
+
             if (missingExemplars.size() != 0) {
                 missingExemplars.removeAll(new UnicodeSet("[[:Uppercase:]-[İ]]")); // remove uppercase #4670
                 if (missingExemplars.size() != 0) {
@@ -719,12 +723,6 @@ public class ConsoleCheckCLDR {
             }
             for (ErrorType type : subtotalCount.keySet()) {
                 showSummary(localeID, level, "Subtotal " + type + ":\t" + subtotalCount.getCount(type));
-            }
-            if (rawMissingCount != 0) {
-                showSummary(localeID, level, "Raw Missing:\t" + rawMissingCount);
-            }
-            if (rawProvisionalCount != 0) {
-                showSummary(localeID, level, "Raw Provisional:\t" + rawProvisionalCount);
             }
 
             if (checkFlexibleDates) {

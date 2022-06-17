@@ -263,6 +263,34 @@ public class VettingViewer<T> {
         VoteResolver<String> getVoteResolver(CLDRLocale loc, String path);
     }
 
+    public static class EmptyUsersChoice implements UsersChoice<Organization> {
+        final PathHeader.Factory phf = PathHeader.getFactory();
+
+        @Override
+        public String getWinningValueForUsersOrganization(CLDRFile cldrFile, String path, Organization org) {
+            CLDRLocale loc = CLDRLocale.getInstance(cldrFile.getLocaleID());
+            return getVoteResolver(loc, path).getOrgVote(org);
+        }
+
+        @Override
+        public VoteStatus getStatusForUsersOrganization(CLDRFile cldrFile, String path, Organization org) {
+            CLDRLocale loc = CLDRLocale.getInstance(cldrFile.getLocaleID());
+            return getVoteResolver(loc, path).getStatusForOrganization(org);
+        }
+
+        @Override
+        public VoteResolver<String> getVoteResolver(final CLDRLocale loc, final String path) {
+            VoteResolver<String> r = new VoteResolver<>();
+            r.setLocale(loc, phf.fromPath(path));
+            return r;
+        }
+
+        @Override
+        public boolean userDidVote(int userId, CLDRLocale loc, String path) {
+            return false;
+        }
+    }
+
     public interface ErrorChecker {
         enum Status {
             ok, error, warning

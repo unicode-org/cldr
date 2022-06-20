@@ -801,15 +801,6 @@ public class VoteResolver<T> {
     private CLDRLocale locale;
     private PathHeader pathHeader;
 
-    /**
-     * usingKeywordAnnotationVoting: when true, use a special voting method for keyword
-     * annotations that have multiple values separated by bar, like "happy | joyful".
-     * See http://unicode.org/cldr/trac/ticket/10973 .
-     * public, set in STFactory.java; could make it private and add param to
-     * the VoteResolver constructor.
-     */
-    private boolean usingKeywordAnnotationVoting = false;
-
     private static final Collator englishCollator = Collator.getInstance(ULocale.ENGLISH).freeze();
 
     /**
@@ -881,7 +872,6 @@ public class VoteResolver<T> {
         requiredVotes = 0;
         locale = null;
         pathHeader = null;
-        setUsingKeywordAnnotationVoting(false);
         organizationToValueAndVote.clear();
         resolved = valueIsLocked = false;
         values.clear();
@@ -2064,21 +2054,25 @@ public class VoteResolver<T> {
     }
 
     /**
-     * Is this VoteResolver using keyword annotation voting?
+     * Should this VoteResolver use keyword annotation voting?
+     *
+     * Apply special voting method adjustAnnotationVoteCounts only to certain keyword annotations that
+     * can have bar-separated values like "happy | joyful".
+     *
+     * The paths for keyword annotations start with "//ldml/annotations/annotation" and do NOT include Emoji.TYPE_TTS.
+     * Both name paths (cf. namePath, getNamePaths) and keyword paths (cf. keywordPath, getKeywordPaths)
+     * have "//ldml/annotations/annotation". Name paths include Emoji.TYPE_TTS, and keyword paths don't.
+     * Special voting is only for keyword paths, not for name paths.
+     * Compare path dependencies in DisplayAndInputProcessor.java. See also VoteResolver.splitAnnotationIntoComponentsList.
      *
      * @return true or false
      */
-    public boolean isUsingKeywordAnnotationVoting() {
-        return usingKeywordAnnotationVoting;
-    }
-
-    /**
-     * Set whether this VoteResolver should use keyword annotation voting.
-     *
-     * @param usingKeywordAnnotationVoting true or false
-     */
-    public void setUsingKeywordAnnotationVoting(boolean usingKeywordAnnotationVoting) {
-        this.usingKeywordAnnotationVoting = usingKeywordAnnotationVoting;
+    private boolean isUsingKeywordAnnotationVoting() {
+        if (pathHeader == null) {
+            return false; // this happens in some tests
+        }
+        final String path = pathHeader.getOriginalPath();
+        return AnnotationUtil.pathIsAnnotation(path) && !path.contains(Emoji.TYPE_TTS);
     }
 
     /**

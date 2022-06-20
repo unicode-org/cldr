@@ -260,7 +260,7 @@ public class VettingViewer<T> {
          */
         boolean userDidVote(int userId, CLDRLocale loc, String path);
 
-        VoteResolver<String> getVoteResolver(CLDRLocale loc, String path);
+        VoteResolver<String> getVoteResolver(CLDRFile baselineFile, CLDRLocale loc, String path);
     }
 
     public interface ErrorChecker {
@@ -558,11 +558,13 @@ public class VettingViewer<T> {
         }
 
         private CLDRFile sourceFile = null;
+        private CLDRFile baselineFile = null;
         private CLDRFile baselineFileUnresolved = null;
         private boolean latin = false;
 
         private void setFiles(CLDRFile sourceFile, CLDRFile baselineFile) {
             this.sourceFile = sourceFile;
+            this.baselineFile = baselineFile;
             this.baselineFileUnresolved = (baselineFile == null) ? null : baselineFile.getUnresolved();
             this.latin = VettingViewer.isLatinScriptLocale(sourceFile);
         }
@@ -712,7 +714,7 @@ public class VettingViewer<T> {
 
         private MissingStatus recordMissingChangedEtc(String path,
             boolean itemsOkIfVoted, String value, String oldValue) {
-            VoteResolver<String> resolver = userVoteStatus.getVoteResolver(cldrLocale, path);
+            VoteResolver<String> resolver = userVoteStatus.getVoteResolver(baselineFile, cldrLocale, path);
             MissingStatus missingStatus;
             if (resolver.getWinningStatus() == VoteResolver.Status.missing) {
                 missingStatus = getMissingStatus(sourceFile, path, latin);

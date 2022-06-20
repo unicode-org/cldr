@@ -28,7 +28,10 @@ public class LocaleCompletionCounter {
         localeId = cldrLocale.toString();
         level = StandardCodes.make().getTargetCoverageLevel(localeId);
         final SurveyMain sm = CookieSession.sm;
-        vv = new VettingViewer<>(sm.getSupplementalDataInfo(), factory, new STUsersChoice(sm));
+        final VettingViewer.UsersChoice<Organization> userVoteStatus = isBaseline
+            ? new VotelessUsersChoice()
+            : new STUsersChoice(sm);
+        vv = new VettingViewer<>(sm.getSupplementalDataInfo(), factory, userVoteStatus);
         final EnumSet<VettingViewer.Choice> set = VettingViewer.getLocaleCompletionCategories();
         args = new VettingViewer.DashboardArgs(set, cldrLocale, level);
         args.setUserAndOrganization(0, VettingViewer.getNeutralOrgForSummary());

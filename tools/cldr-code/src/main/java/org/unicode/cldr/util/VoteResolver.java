@@ -20,6 +20,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.CheckWidths;
@@ -2092,5 +2093,37 @@ public class VoteResolver<T> {
      */
     public boolean canFlagOnLosing() {
         return valueIsLocked || (getRequiredVotes() == HIGH_BAR);
+    }
+
+    /**
+     * Calculate VoteResolver.Status
+     *
+     * @param baselineFile the 'baseline' file to use
+     * @param path path the xpath
+     * @return the Status
+     */
+    public static Status calculateStatus(CLDRFile baselineFile, String path) {
+        String fullXPath = baselineFile.getFullXPath(path);
+        if (fullXPath == null) {
+            fullXPath = path;
+        }
+        final XPathParts xpp = XPathParts.getFrozenInstance(fullXPath);
+        final String draft = xpp.getAttributeValue(-1, LDMLConstants.DRAFT);
+        Status status = draft == null ? Status.approved : VoteResolver.Status.fromString(draft);
+
+        /*
+         * Reset to missing if the value is inherited from root or code-fallback, unless the XML actually
+         * contains INHERITANCE_MARKER. Pass false for skipInheritanceMarker so that status will not be
+         * missing for explicit INHERITANCE_MARKER.
+         */
+        final String srcid = baselineFile.getSourceLocaleIdExtended(path, null, false /* skipInheritanceMarker */);
+        if (srcid.equals(XMLSource.CODE_FALLBACK_ID)) {
+            status = Status.missing;
+        } else if (srcid.equals("root")) {
+            if (!srcid.equals(baselineFile.getLocaleID())) {
+                status = Status.missing;
+            }
+        }
+        return status;
     }
 }

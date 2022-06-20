@@ -896,17 +896,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             } else {
                 r.clear(); // reuse
             }
-            /* Apply special voting method adjustAnnotationVoteCounts only to certain bar-separated keyword annotations.
-             * See http://unicode.org/cldr/trac/ticket/10973
-             * The paths for keyword annotations start with "//ldml/annotations/annotation" and do NOT include Emoji.TYPE_TTS.
-             * Both name paths (cf. namePath, getNamePaths) and keyword paths (cf. keywordPath, getKeywordPaths)
-             * have "//ldml/annotations/annotation". Name paths include Emoji.TYPE_TTS, and keyword paths don't.
-             * Special voting is only for keyword paths, not for name paths.
-             * Compare path dependencies in DisplayAndInputProcessor.java. See also VoteResolver.splitAnnotationIntoComponentsList.
-             * Note: this does not affect the occurrences of "new VoteResolver" in ConsoleCheckCLDR.java or TestUtilities.java;
-             * if those tests ever involve annotation keywords, they could call setUsingKeywordAnnotationVoting as needed.
-             */
-            r.setUsingKeywordAnnotationVoting(AnnotationUtil.pathIsAnnotation(path) && !path.contains(Emoji.TYPE_TTS));
 
             final ValueChecker vc = ERRORS_ALLOWED_IN_VETTING ? null : new ValueChecker(path);
 

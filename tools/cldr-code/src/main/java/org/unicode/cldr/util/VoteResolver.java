@@ -2109,21 +2109,23 @@ public class VoteResolver<T> {
         }
         final XPathParts xpp = XPathParts.getFrozenInstance(fullXPath);
         final String draft = xpp.getAttributeValue(-1, LDMLConstants.DRAFT);
-        Status status = draft == null ? Status.approved : VoteResolver.Status.fromString(draft);
+        VoteResolver.Status resolverStatus = draft == null ? Status.approved : VoteResolver.Status.fromString(draft);
 
         /*
-         * Reset to missing if the value is inherited from root or code-fallback, unless the XML actually
+         * Reset to missing if the value is constructed or inherited from root or code-fallback, unless the XML actually
          * contains INHERITANCE_MARKER. Pass false for skipInheritanceMarker so that status will not be
          * missing for explicit INHERITANCE_MARKER.
          */
-        final String srcid = baselineFile.getSourceLocaleIdExtended(path, null, false /* skipInheritanceMarker */);
-        if (srcid.equals(XMLSource.CODE_FALLBACK_ID)) {
-            status = Status.missing;
+        CLDRFile.Status fileStatus = new CLDRFile.Status();
+        final String srcid = baselineFile.getSourceLocaleIdExtended(path, fileStatus, false /* skipInheritanceMarker */);
+        if (srcid.equals(XMLSource.CODE_FALLBACK_ID)
+                || GlossonymConstructor.PSEUDO_PATH.equals(fileStatus.pathWhereFound)) {
+            resolverStatus = Status.missing;
         } else if (srcid.equals("root")) {
             if (!srcid.equals(baselineFile.getLocaleID())) {
-                status = Status.missing;
+                resolverStatus = Status.missing;
             }
         }
-        return status;
+        return resolverStatus;
     }
 }

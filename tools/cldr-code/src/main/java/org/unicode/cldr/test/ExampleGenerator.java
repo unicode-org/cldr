@@ -21,17 +21,38 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.tool.CLDRFileTransformer;
 import org.unicode.cldr.tool.CLDRFileTransformer.LocaleTransform;
 import org.unicode.cldr.tool.LikelySubtags;
-import org.unicode.cldr.util.*;
+import org.unicode.cldr.util.AnnotationUtil;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
+import org.unicode.cldr.util.EmojiConstants;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
+import org.unicode.cldr.util.ICUServiceBuilder;
+import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.PathDescription;
+import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.PluralSamples;
 import org.unicode.cldr.util.StandardCodes.LstrType;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
+import org.unicode.cldr.util.TransliteratorUtilities;
+import org.unicode.cldr.util.UnitConverter;
+import org.unicode.cldr.util.Units;
+import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.XListFormatter.ListTypeLength;
+import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FallbackFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
@@ -743,7 +764,7 @@ public class ExampleGenerator {
         switch(parts.getElement(-1)) {
 
         case "ordinalMinimalPairs":   //ldml/numbers/minimalPairs/ordinalMinimalPairs[@count="one"]
-            count = parts.getAttributeValue(-1, "count");
+            count = parts.getAttributeValue(-1, "ordinal");
             sample = bestMinimalPairSamples.getPluralOrOrdinalSample(PluralType.ordinal, count); // Pick a unit that exhibits the most variation
             otherCount = getOtherCount(locale, PluralType.ordinal, count);
             sampleBad = bestMinimalPairSamples.getPluralOrOrdinalSample(PluralType.ordinal, otherCount); // Pick a unit that exhibits the most variation
@@ -1773,7 +1794,7 @@ public class ExampleGenerator {
 
         String currency = supplementalDataInfo.getDefaultCurrency(territory);
         String currencySymbol = currency; // default to this if alt=alphaNextToNumber
-        String altValue = parts.getAttributeValue(-1, "alt"); 
+        String altValue = parts.getAttributeValue(-1, "alt");
         if (altValue == null ||!altValue.equals("alphaNextToNumber")) {
             String checkPath = "//ldml/numbers/currencies/currency[@type=\"" + currency + "\"]/symbol";
             currencySymbol = cldrFile.getWinningValue(checkPath);

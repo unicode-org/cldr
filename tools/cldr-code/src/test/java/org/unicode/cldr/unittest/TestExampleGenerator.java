@@ -604,8 +604,24 @@ public class TestExampleGenerator extends TestFmwk {
 
     public void TestPluralSamples() {
         ExampleGenerator exampleGenerator = getExampleGenerator("sv");
-        String path = "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"length-centimeter\"]/unitPattern[@count=\"one\"]";
-        checkValue("Number should be one", "〖❬1❭ cm〗〖❬Jag tror att 1❭ cm❬ är tillräckligt.❭〗", exampleGenerator, path);
+        String[][] tests = {
+            {"//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"length-centimeter\"]/unitPattern[@count=\"one\"]",
+                "Number should be one",
+            "〖❬1❭ cm〗〖❬Jag tror att 1❭ cm❬ är tillräckligt.❭〗"},
+            {"//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"one\"]",
+                "Ordinal one",
+            "〖Ta ❬1❭:a svängen till höger〗〖❌  Ta ❬3❭:a svängen till höger〗"},
+            {"//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"other\"]",
+                "Ordinal other",
+            "〖Ta ❬3❭:e svängen till höger〗〖❌  Ta ❬1❭:e svängen till höger〗"},
+        };
+        for (String[] row : tests) {
+            String path = row[0];
+            String message = row[1];
+            String expected = row[2];
+            checkValue(message, expected, exampleGenerator, path);
+        }
+
     }
 
     public void TestLocaleDisplayPatterns() {

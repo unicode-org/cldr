@@ -24,7 +24,8 @@ public class VotelessUsersChoice implements VettingViewer.UsersChoice<Organizati
         final String baileyValue = cldrFile.getBaileyValue(path, null, null);
         r.setBaileyValue(baileyValue);
 
-        final String baselineValue = cldrFile.getWinningValue(path);
+        final XMLSource xmlSource = cldrFile.dataSource;
+        final String baselineValue = xmlSource.isHere(path) ? xmlSource.getValueAtDPath(path) : null;
         final VoteResolver.Status status = VoteResolver.calculateStatus(cldrFile, path);
         r.setBaseline(baselineValue, status);
 

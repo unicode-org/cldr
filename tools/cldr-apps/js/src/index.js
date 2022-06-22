@@ -1,4 +1,5 @@
 // This file gets bundled into bundle.js’s cldrBundle global
+// From there, it is imported by SurveyTool.includeJavaScript()
 
 // global stylesheets
 import "./css/cldrForum.css";

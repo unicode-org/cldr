@@ -1,50 +1,11 @@
-@import url("//fonts.googleapis.com/css?family=Noto+Sans:400italic,700italic,400,700");
-@import url("//fonts.googleapis.com/css?family=Noto+Sans+Symbols:400italic,700italic,400,700");
-/* @override
-	http://naf:8080/cldr-apps/css/redesign.css */
+/* redesign.css contains a lot of the 'bootstrap' type css,
+   especially for the 'old' dashboard, the left hand locale picker, etc.
+*/
 
 /*
     Created on : Feb 21, 2014, 11:08:36 AM
     Author     : pwauquie
 */
-
-body {
-	font-family: "Noto Sans",
-	             "Noto Sans Symbols",
-/* The rest of the individual scripts should be looked at later.  The best solution would be to
-   load the appropriate font based on the language being rendered. But we don't want to load
-   everything, as that would be painfully slow.
-				 "Noto Sans Armenian",
-				 "Noto Naskh Arabic",
-				 "Noto Sans Bengali",
-				 "Noto Sans Canadian Aboriginal",
-				 "Noto Sans Cherokee",
-				 "Noto Sans CJK SC",
-				 "Noto Sans Deseret",
-				 "Noto Sans Devanagari",
-				 "Noto Sans Ethiopic",
-				 "Noto Serif Georgian",
-				 "Noto Sans Gujarati",
-				 "Noto Sans Gurmukhi",
-				 "Noto Sans Hebrew",
-				 "Noto Sans Kannada",
-				 "Noto Serif Khmer",
-				 "Noto Serif Lao",
-				 "Noto Sans Malayalam",
-				 "Noto Sans Mongolian",
-				 "Noto Sans Myanmar",
-				 "Noto Sans NKo",
-				 "Noto Sans Oriya",
-				 "Noto Sans Shavian",
-				 "Noto Sans Sinhala",
-				 "Noto Sans Tamil",
-				 "Noto Sans Telugu",
-				 "Noto Serif Thai",
-				 "Noto Sans Tibetan",
-				 "Noto Sans Tifinagh",
-				 "Noto Sans Vai", */
-				 sans-serif;
-}
 
 .hasTooltip {
 	cursor: pointer;

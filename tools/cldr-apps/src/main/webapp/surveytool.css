@@ -1,59 +1,6 @@
-/* @override
-	http://127.0.0.1:8080/cldr-apps/surveytool.css
-	http://naf.:8080/cldr-apps/surveytool.css
-	http://st.unicode.org/cldr-apps/surveytool.css
-	http://naf:8080/cldr-apps/surveytool.css
-	http://localhost:8080/cldr-apps/surveytool.css */
 /* Copyright (c) 2004-2013 IBM and others. All Rights Reserved. */
 /* Made with CSSEdit and Espresso2 */
 @charset "UTF-8";
-
-/* lang specific CSS */
-
-/*
-NOTE: See http://www.w3.org/International/questions/qa-css-lang
-Right now, none by default.
-To add fonts, add links like the following to html head:
-
-       <link href='//fonts.googleapis.com/css?family=UnifrakturCook:bold' rel='stylesheet' type='text/css'>
-
-The the following can work here:
-:lang(de) {
-  font-family: UnifrakturCook;
-}
-Color english brown
-:lang(en) {
-	color: brown !important;
-}
-*/
-
-/* The following is directly includeable as per https://github.com/saturngod/mmwebfonts/issues/4 */
-@font-face {
-font-family:'MON3 Anonta 1';
-src:local('MON3 Anonta 1'),url('//mmwebfonts.comquas.com/fonts/mon3.ttf');
-}
-
-/*
-Use padauk or MM3 if available, otherwise Mon3.
-*/
-:lang(my) {
-  font-family:padauk,Myanmar3,'MON3 Anonta 1';
-}
-
-@font-face {
-	font-family:'NotoSerifNyiakengPuachueHmong-Bold';
-	src:local('NotoSerifNyiakengPuachueHmong-Bold'),url('fonts/NotoSerifNyiakengPuachueHmong-Bold.otf');
-}
-
-@font-face {
-	font-family:'NotoSerifNyiakengPuachueHmong-Regular';
-	src:local('NotoSerifNyiakengPuachueHmong-Regular'),url('fonts/NotoSerifNyiakengPuachueHmong-Regular.ttf');
-}
-
-:lang(hnj) {
-	font-family: "NotoSerifNyiakengPuachueHmong-Regular"
-}
-
 
 span.age  {
 	font-weight: bold;
@@ -1731,6 +1678,54 @@ table#voteinfo thead th:first-child {
 */
 .cldrValue {
 	white-space: pre-wrap;
+	/* See the top of this file for language specific CSS, including specific
+		font overrides. */
+	font-family: "Noto Sans",
+					"Noto Sans Symbols",
+					sans-serif;
+}
+
+/* TODO: should load this locally via webpack, see https://unicode-org.atlassian.net/browse/CLDR-9195 */
+@import url("//fonts.googleapis.com/css?family=Noto+Sans:400italic,700italic,400,700");
+@import url("//fonts.googleapis.com/css?family=Noto+Sans+Symbols:400italic,700italic,400,700");
+
+/* lang specific CSS */
+
+/*
+NOTE: See http://www.w3.org/International/questions/qa-css-lang
+
+The the following can work here:
+:lang(de) {
+  font-family: UnifrakturCook;
+}
+
+*/
+
+/* The following is directly includeable as per https://github.com/saturngod/mmwebfonts/issues/4 */
+@font-face {
+font-family:'MON3 Anonta 1';
+src:local('MON3 Anonta 1'),url('//mmwebfonts.comquas.com/fonts/mon3.ttf');
+}
+
+/*
+Use padauk or MM3 if available, otherwise Mon3.
+*/
+:lang(my) {
+  font-family:padauk,Myanmar3,'MON3 Anonta 1';
+}
+
+@font-face {
+	font-family:'NotoSerifNyiakengPuachueHmong-Bold';
+	src:local('NotoSerifNyiakengPuachueHmong-Bold'),url('fonts/NotoSerifNyiakengPuachueHmong-Bold.otf');
+}
+
+@font-face {
+	font-family:'NotoSerifNyiakengPuachueHmong-Regular';
+	src:local('NotoSerifNyiakengPuachueHmong-Regular'),url('fonts/NotoSerifNyiakengPuachueHmong-Regular.ttf');
+}
+
+:lang(hnj) {
+	font-family: "NotoSerifNyiakengPuachueHmong-Regular"
 }
 
 .voteInfo_perValue {

@@ -15,7 +15,7 @@ public class LocaleCompletionCounter {
     private final String localeId;
     private final Level level;
     private final VettingViewer<Organization> vv;
-    private final VettingViewer.DashboardArgs args;
+    private final VettingParameters args;
     private final boolean isBaseline;
 
     public LocaleCompletionCounter(CLDRLocale cldrLocale, Factory factory) {
@@ -32,8 +32,8 @@ public class LocaleCompletionCounter {
             ? new VotelessUsersChoice()
             : new STUsersChoice(sm);
         vv = new VettingViewer<>(sm.getSupplementalDataInfo(), factory, userVoteStatus);
-        final EnumSet<VettingViewer.Choice> set = VettingViewer.getLocaleCompletionCategories();
-        args = new VettingViewer.DashboardArgs(set, cldrLocale, level);
+        final EnumSet<NotificationCategory> set = VettingViewer.getLocaleCompletionCategories();
+        args = new VettingParameters(set, cldrLocale, level);
         args.setUserAndOrganization(0, VettingViewer.getNeutralOrgForSummary());
         if (isBaseline) {
             Dashboard.setFilesForBaseline(args, cldrLocale, factory);

@@ -19,8 +19,8 @@ import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.VettingViewer;
-import org.unicode.cldr.util.VettingViewer.Choice;
-import org.unicode.cldr.util.VettingViewer.DashboardArgs;
+import org.unicode.cldr.util.NotificationCategory;
+import org.unicode.cldr.util.VettingParameters;
 import org.unicode.cldr.util.VoterReportStatus.ReportId;
 import org.unicode.cldr.util.VoterReportStatus.ReportStatus;
 import org.unicode.cldr.util.VoterProgress;
@@ -228,8 +228,8 @@ public class Dashboard {
         STFactory sourceFactory = sm.getSTFactory();
         VettingViewer<Organization> vv = new VettingViewer<>(sm.getSupplementalDataInfo(), sourceFactory,
             new STUsersChoice(sm));
-        EnumSet<VettingViewer.Choice> choiceSet = VettingViewer.getDashboardNotificationCategories(usersOrg);
-        DashboardArgs args = new DashboardArgs(choiceSet, locale, coverageLevel);
+        EnumSet<NotificationCategory> choiceSet = VettingViewer.getDashboardNotificationCategories(usersOrg);
+        VettingParameters args = new VettingParameters(choiceSet, locale, coverageLevel);
         args.setUserAndOrganization(user.id, usersOrg);
         setFiles(args, locale, sourceFactory);
         if (xpath != null) {
@@ -238,7 +238,7 @@ public class Dashboard {
         return reallyGet(vv, args);
     }
 
-    public static void setFiles(DashboardArgs args, CLDRLocale locale, STFactory sourceFactory) {
+    public static void setFiles(VettingParameters args, CLDRLocale locale, STFactory sourceFactory) {
         /*
          * sourceFile provides the current winning values, taking into account recent votes.
          * baselineFile provides the "baseline" (a.k.a. "trunk") values, i.e., the values that
@@ -259,7 +259,7 @@ public class Dashboard {
      * @param locale
      * @param baselineFactory
      */
-    public static void setFilesForBaseline(DashboardArgs args, CLDRLocale locale, Factory baselineFactory) {
+    public static void setFilesForBaseline(VettingParameters args, CLDRLocale locale, Factory baselineFactory) {
         final String localeId = locale.getBaseName();
         final CLDRFile baselineFile = baselineFactory.make(localeId, true);
         /*
@@ -273,7 +273,7 @@ public class Dashboard {
         args.setFiles(sourceFile, baselineFile);
     }
 
-    private ReviewOutput reallyGet(VettingViewer<Organization> vv, DashboardArgs args) {
+    private ReviewOutput reallyGet(VettingViewer<Organization> vv, VettingParameters args) {
         VettingViewer<Organization>.DashboardData dd;
         dd = vv.generateDashboard(args);
 
@@ -290,17 +290,17 @@ public class Dashboard {
         return reviewOutput;
     }
 
-    private void addNotificationEntries(DashboardArgs args,
-        Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> sorted,
-        ReviewOutput reviewOutput) {
-        Relation<Row.R4<Choice, SectionId, PageId, String>, VettingViewer<Organization>.WritingInfo> notificationsList = getNotificationsList(sorted);
+    private void addNotificationEntries(VettingParameters args,
+                                        Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> sorted,
+                                        ReviewOutput reviewOutput) {
+        Relation<Row.R4<NotificationCategory, SectionId, PageId, String>, VettingViewer<Organization>.WritingInfo> notificationsList = getNotificationsList(sorted);
 
         ReviewNotification notification = null;
 
         SurveyMain sm = CookieSession.sm;
         CLDRFile englishFile = sm.getEnglishFile();
 
-        for (Entry<R4<Choice, SectionId, PageId, String>, Set<VettingViewer<Organization>.WritingInfo>> entry : notificationsList.keyValuesSet()) {
+        for (Entry<R4<NotificationCategory, SectionId, PageId, String>, Set<VettingViewer<Organization>.WritingInfo>> entry : notificationsList.keyValuesSet()) {
 
             notification = getNextNotification(reviewOutput, notification, entry);
 
@@ -308,18 +308,18 @@ public class Dashboard {
         }
     }
 
-    private Relation<Row.R4<Choice, SectionId, PageId, String>, VettingViewer<Organization>.WritingInfo> getNotificationsList(
+    private Relation<Row.R4<NotificationCategory, SectionId, PageId, String>, VettingViewer<Organization>.WritingInfo> getNotificationsList(
         Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> sorted) {
-        Relation<Row.R4<Choice, SectionId, PageId, String>, VettingViewer<Organization>.WritingInfo> notificationsList = Relation
-            .of(new TreeMap<Row.R4<Choice, SectionId, PageId, String>, Set<VettingViewer<Organization>.WritingInfo>>(), TreeSet.class);
+        Relation<Row.R4<NotificationCategory, SectionId, PageId, String>, VettingViewer<Organization>.WritingInfo> notificationsList = Relation
+            .of(new TreeMap<Row.R4<NotificationCategory, SectionId, PageId, String>, Set<VettingViewer<Organization>.WritingInfo>>(), TreeSet.class);
 
         for (Entry<R2<SectionId, PageId>, Set<VettingViewer<Organization>.WritingInfo>> entry0 : sorted.keyValuesSet()) {
             final Set<VettingViewer<Organization>.WritingInfo> rows = entry0.getValue();
             for (VettingViewer<Organization>.WritingInfo pathInfo : rows) {
-                Set<Choice> choicesForPath = pathInfo.problems;
+                Set<NotificationCategory> choicesForPath = pathInfo.problems;
                 SectionId section = entry0.getKey().get0();
                 PageId subsection = entry0.getKey().get1();
-                for (Choice choice : choicesForPath) {
+                for (NotificationCategory choice : choicesForPath) {
                     notificationsList.put(Row.of(choice, section, subsection, pathInfo.codeOutput.getHeader()), pathInfo);
                 }
             }
@@ -328,15 +328,15 @@ public class Dashboard {
     }
 
     private ReviewNotification getNextNotification(ReviewOutput reviewOutput, ReviewNotification notification,
-        Entry<R4<Choice, SectionId, PageId, String>, Set<VettingViewer<Organization>.WritingInfo>> entry) {
+        Entry<R4<NotificationCategory, SectionId, PageId, String>, Set<VettingViewer<Organization>.WritingInfo>> entry) {
         String notificationName = entry.getKey().get0().jsonLabel;
 
         notification = reviewOutput.add(notificationName, notification);
         return notification;
     }
 
-    private void addNotificationGroup(DashboardArgs args, ReviewNotification notification, CLDRFile englishFile,
-        Entry<R4<Choice, SectionId, PageId, String>, Set<VettingViewer<Organization>.WritingInfo>> entry) {
+    private void addNotificationGroup(VettingParameters args, ReviewNotification notification, CLDRFile englishFile,
+                                      Entry<R4<NotificationCategory, SectionId, PageId, String>, Set<VettingViewer<Organization>.WritingInfo>> entry) {
         String sectionName = entry.getKey().get1().name();
         String pageName = entry.getKey().get2().name();
         String headerName = entry.getKey().get3();
@@ -346,13 +346,13 @@ public class Dashboard {
         for (VettingViewer<Organization>.WritingInfo info : entry.getValue()) {
             String code = info.codeOutput.getCode();
             String path = info.codeOutput.getOriginalPath();
-            Set<Choice> choicesForPath = info.problems;
+            Set<NotificationCategory> choicesForPath = info.problems;
 
             ReviewEntry reviewEntry = header.add(code, path);
 
             reviewEntry.english = englishFile.getWinningValue(path);
 
-            if (choicesForPath.contains(Choice.englishChanged)) {
+            if (choicesForPath.contains(NotificationCategory.englishChanged)) {
                 String previous = VettingViewer.getOutdatedPaths().getPreviousEnglish(path);
                 reviewEntry.previousEnglish = previous;
             }

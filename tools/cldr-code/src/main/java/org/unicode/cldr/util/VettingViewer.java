@@ -81,114 +81,6 @@ public class VettingViewer<T> {
         this.localeBaselineCount = localeBaselineCount;
     }
 
-    /**
-     * Notification categories
-     *
-     * TODO: rename VettingViewer.Choice to a better name, such as VettingViewer.Category,
-     * and use it consistently for instances of this type. Currently, instances of this type,
-     * and strings derived from it, are confusingly named "notification", "category", "type",
-     * "issue", "problem", "label", and "choice". Since it normally doesn't represent any kind of a
-     * choice, the name "choice" isn't helpful. The name "notification" is potentially confusable
-     * with objects of type ReviewNotification; such an object "is" a notification and it "has"
-     * (belongs to) a category. Reference: https://unicode-org.atlassian.net/browse/CLDR-14906
-     */
-    public enum Choice {
-        /**
-         * There is a console-check error
-         */
-        error('E',
-            "Error",
-            "The Survey Tool detected an error in the winning value."),
-
-        /**
-         * Given the users' coverage, some items are missing
-         */
-        missingCoverage('M',
-            "Missing",
-            "Your current coverage level requires the item to be present. "
-                + "(During the vetting phase, this is informational: you can’t add new values.)"),
-
-        /**
-         * Provisional: there are not enough votes to be approved
-         */
-        notApproved('P',
-            "Provisional",
-            "There are not enough votes for this item to be approved (and used)."),
-
-        /**
-         * There is a dispute.
-         */
-        hasDispute('D',
-            "Disputed",
-            "Different organizations are choosing different values. Please review to approve or reach consensus."),
-
-        /**
-         * My choice is not the winning item
-         */
-        weLost('L',
-            "Losing",
-            "The value that your organization chose (overall) is either not the winning value, or doesn’t have enough votes to be approved. "
-                + "This might be due to a dispute between members of your organization."),
-
-        /**
-         * There is a console-check warning
-         */
-        warning('W',
-            "Warning",
-            "The Survey Tool detected a warning about the winning value."),
-
-        /**
-         * The English value for the path changed AFTER the current value for
-         * the locale.
-         */
-        englishChanged('U',
-            "English Changed",
-            "The English value has changed in CLDR, but the corresponding value for your language has not. "
-                + "Check if any changes are needed in your language."),
-
-        /**
-         * The value changed from the baseline
-         */
-        changedOldValue('C',
-            "Changed",
-            "The winning value was altered from the baseline value. (Informational)"),
-
-        /**
-         * You have abstained, or not yet voted for any value
-         */
-        abstained('A',
-            "Abstained",
-            "You have abstained, or not yet voted for any value."),
-            ;
-
-        public final char abbreviation;
-        public final String buttonLabel;
-        public final String jsonLabel;
-
-        /**
-         * This human-readable description is used for Priority Items Summary, which still
-         * creates html on the back end. For Dashboard, identical descriptions are on the
-         * front end. When Priority Items Summary is modernized to be more like Dashboard,
-         * these descriptions on the back end should become unnecessary.
-         */
-        public final String description;
-
-        Choice(char abbreviation, String label, String description) {
-            this.abbreviation = abbreviation;
-            this.jsonLabel = label.replace(' ', '_');
-            this.buttonLabel = TransliteratorUtilities.toHTML.transform(label);
-            this.description = TransliteratorUtilities.toHTML.transform(description);
-        }
-
-        private <T extends Appendable> void appendDisplay(T target) throws IOException {
-            target.append("<span title='")
-                .append(description);
-            target.append("'>")
-                .append(buttonLabel)
-                .append("*</span>");
-        }
-    }
-
     public static OutdatedPaths getOutdatedPaths() {
         return outdatedPaths;
     }
@@ -405,11 +297,11 @@ public class VettingViewer<T> {
 
     public class WritingInfo implements Comparable<WritingInfo> {
         public final PathHeader codeOutput;
-        public final Set<Choice> problems;
+        public final Set<NotificationCategory> problems;
         public final String htmlMessage;
         public final Subtype subtype;
 
-        public WritingInfo(PathHeader ph, EnumSet<Choice> problems, CharSequence htmlMessage, Subtype subtype) {
+        public WritingInfo(PathHeader ph, EnumSet<NotificationCategory> problems, CharSequence htmlMessage, Subtype subtype) {
             super();
             this.codeOutput = ph;
             this.problems = Collections.unmodifiableSet(problems.clone());
@@ -420,64 +312,6 @@ public class VettingViewer<T> {
         @Override
         public int compareTo(WritingInfo other) {
             return codeOutput.compareTo(other.codeOutput);
-        }
-    }
-
-    // TODO: rename VettingViewer.DashboardArgs to simply VettingViewer.Args
-    // -- it's now used not only for Dashboard, but also LocaleCompletionCounter, ...
-    public static class DashboardArgs {
-        final EnumSet<Choice> choices;
-        final CLDRLocale locale;
-        final Level coverageLevel;
-        int userId = 0;
-        Organization organization = null;
-        CLDRFile sourceFile = null;
-        CLDRFile baselineFile = null;
-
-        /**
-         * A path like "//ldml/dates/timeZoneNames/zone[@type="America/Guadeloupe"]/short/daylight",
-         * or null. If it is null, check all paths, otherwise only check this path.
-         */
-        String specificSinglePath = null;
-
-        public DashboardArgs(EnumSet<Choice> choices, CLDRLocale locale, Level coverageLevel) {
-            this.choices = choices;
-            this.locale = locale;
-            this.coverageLevel = coverageLevel;
-        }
-
-        public void setFiles(CLDRFile sourceFile, CLDRFile baselineFile) {
-            this.sourceFile = sourceFile;
-            this.baselineFile = baselineFile;
-        }
-
-        public void setXpath(String xpath) {
-            this.specificSinglePath = xpath;
-        }
-
-        public void setUserAndOrganization(int userId, Organization organization) {
-            this.userId = userId;
-            this.organization = organization;
-        }
-
-        public CLDRFile getBaselineFile() {
-            return baselineFile;
-        }
-
-        public CLDRFile getSourceFile() {
-            return sourceFile;
-        }
-
-        public int getUserId() {
-            return userId;
-        }
-
-        public CLDRLocale getLocale() {
-            return locale;
-        }
-
-        public boolean isOnlyForSinglePath() {
-            return specificSinglePath != null;
         }
     }
 
@@ -494,7 +328,7 @@ public class VettingViewer<T> {
      * @param args the DashboardArgs
      * @return the DashboardData
      */
-    public DashboardData generateDashboard(DashboardArgs args) {
+    public DashboardData generateDashboard(VettingParameters args) {
 
         DashboardData dd = new DashboardData();
 
@@ -510,7 +344,7 @@ public class VettingViewer<T> {
         return dd;
     }
 
-    public LocaleCompletionData generateLocaleCompletion(DashboardArgs args) {
+    public LocaleCompletionData generateLocaleCompletion(VettingParameters args) {
         if (!args.sourceFile.isResolved()) {
             throw new IllegalArgumentException("File must be resolved for locale completion");
         }
@@ -521,7 +355,7 @@ public class VettingViewer<T> {
     }
 
     private class VettingCounters {
-        private final Counter<Choice> problemCounter = new Counter<>();
+        private final Counter<NotificationCategory> problemCounter = new Counter<>();
         private final Counter<Subtype> errorSubtypeCounter = new Counter<>();
         private final Counter<Subtype> warningSubtypeCounter = new Counter<>();
 
@@ -546,10 +380,10 @@ public class VettingViewer<T> {
         private final String localeId;
         private final CLDRLocale cldrLocale;
         private final Level usersLevel;
-        private final EnumSet<Choice> choices;
+        private final EnumSet<NotificationCategory> choices;
         private final T organization;
 
-        private FileInfo(String localeId, Level level, EnumSet<Choice> choices, T organization) {
+        private FileInfo(String localeId, Level level, EnumSet<NotificationCategory> choices, T organization) {
             this.localeId = localeId;
             this.cldrLocale = CLDRLocale.getInstance(localeId);
             this.usersLevel = level;
@@ -590,7 +424,7 @@ public class VettingViewer<T> {
         }
 
         private final VettingCounters vc = new VettingCounters();
-        private final EnumSet<Choice> problems = EnumSet.noneOf(Choice.class);
+        private final EnumSet<NotificationCategory> problems = EnumSet.noneOf(NotificationCategory.class);
         private final StringBuilder htmlMessage = new StringBuilder();
         private final StringBuilder statusMessage = new StringBuilder();
         private final EnumSet<Subtype> subtypes = EnumSet.noneOf(Subtype.class);
@@ -654,10 +488,10 @@ public class VettingViewer<T> {
             if (skipForLimitedSubmission(path, errorStatus, oldValue)) {
                 return;
             }
-            if (!onlyRecordErrors && choices.contains(Choice.changedOldValue)) {
+            if (!onlyRecordErrors && choices.contains(NotificationCategory.changedOldValue)) {
                 if (oldValue != null && !oldValue.equals(value)) {
-                    problems.add(Choice.changedOldValue);
-                    vc.problemCounter.increment(Choice.changedOldValue);
+                    problems.add(NotificationCategory.changedOldValue);
+                    vc.problemCounter.increment(NotificationCategory.changedOldValue);
                 }
             }
             VoteStatus voteStatus = userVoteStatus.getStatusForUsersOrganization(sourceFile, path, organization);
@@ -695,9 +529,9 @@ public class VettingViewer<T> {
             voterProgress.incrementVotablePathCount();
             if (userVoteStatus.userDidVote(voterId, cldrLocale, path)) {
                 voterProgress.incrementVotedPathCount();
-            } else if (choices.contains(Choice.abstained)) {
-                problems.add(Choice.abstained);
-                vc.problemCounter.increment(Choice.abstained);
+            } else if (choices.contains(NotificationCategory.abstained)) {
+                problems.add(NotificationCategory.abstained);
+                vc.problemCounter.increment(NotificationCategory.abstained);
             }
         }
 
@@ -721,9 +555,9 @@ public class VettingViewer<T> {
             } else {
                 missingStatus = MissingStatus.PRESENT;
             }
-            if (choices.contains(Choice.missingCoverage) && missingStatus == MissingStatus.ABSENT) {
-                problems.add(Choice.missingCoverage);
-                vc.problemCounter.increment(Choice.missingCoverage);
+            if (choices.contains(NotificationCategory.missingCoverage) && missingStatus == MissingStatus.ABSENT) {
+                problems.add(NotificationCategory.missingCoverage);
+                vc.problemCounter.increment(NotificationCategory.missingCoverage);
             }
             if (!CheckCLDR.LIMITED_SUBMISSION
                 && !itemsOkIfVoted && outdatedPaths.isOutdated(localeId, path)) {
@@ -733,22 +567,22 @@ public class VettingViewer<T> {
         }
 
         private void recordEnglishChanged(String path, String value, String oldValue) {
-            if (Objects.equals(value, oldValue) && choices.contains(Choice.englishChanged)) {
+            if (Objects.equals(value, oldValue) && choices.contains(NotificationCategory.englishChanged)) {
                 String oldEnglishValue = outdatedPaths.getPreviousEnglish(path);
                 if (!OutdatedPaths.NO_VALUE.equals(oldEnglishValue)) {
                     // check to see if we voted
-                    problems.add(Choice.englishChanged);
-                    vc.problemCounter.increment(Choice.englishChanged);
+                    problems.add(NotificationCategory.englishChanged);
+                    vc.problemCounter.increment(NotificationCategory.englishChanged);
                 }
             }
         }
 
         private void recordChoice(ErrorChecker.Status errorStatus, boolean itemsOkIfVoted, boolean onlyRecordErrors) {
-            Choice choice = errorStatus == ErrorChecker.Status.error ? Choice.error
-                : errorStatus == ErrorChecker.Status.warning ? Choice.warning
+            NotificationCategory choice = errorStatus == ErrorChecker.Status.error ? NotificationCategory.error
+                : errorStatus == ErrorChecker.Status.warning ? NotificationCategory.warning
                     : null;
 
-            if (choice == Choice.error && choices.contains(Choice.error)
+            if (choice == NotificationCategory.error && choices.contains(NotificationCategory.error)
                 && (!itemsOkIfVoted
                     || !OK_IF_VOTED.containsAll(subtypes))) {
                 problems.add(choice);
@@ -757,7 +591,7 @@ public class VettingViewer<T> {
                 for (Subtype subtype : subtypes) {
                     vc.errorSubtypeCounter.increment(subtype);
                 }
-            } else if (!onlyRecordErrors && choice == Choice.warning && choices.contains(Choice.warning)
+            } else if (!onlyRecordErrors && choice == NotificationCategory.warning && choices.contains(NotificationCategory.warning)
                 && (!itemsOkIfVoted
                     || !OK_IF_VOTED.containsAll(subtypes))) {
                 problems.add(choice);
@@ -772,9 +606,9 @@ public class VettingViewer<T> {
         private void recordLosingDisputedEtc(String path, VoteStatus voteStatus, MissingStatus missingStatus) {
             switch (voteStatus) {
             case losing:
-                if (choices.contains(Choice.weLost)) {
-                    problems.add(Choice.weLost);
-                    vc.problemCounter.increment(Choice.weLost);
+                if (choices.contains(NotificationCategory.weLost)) {
+                    problems.add(NotificationCategory.weLost);
+                    vc.problemCounter.increment(NotificationCategory.weLost);
                 }
                 String usersValue = userVoteStatus.getWinningValueForUsersOrganization(sourceFile, path, organization);
                 if (usersValue != null) {
@@ -783,15 +617,15 @@ public class VettingViewer<T> {
                 }
                 break;
             case disputed:
-                if (choices.contains(Choice.hasDispute)) {
-                    problems.add(Choice.hasDispute);
-                    vc.problemCounter.increment(Choice.hasDispute);
+                if (choices.contains(NotificationCategory.hasDispute)) {
+                    problems.add(NotificationCategory.hasDispute);
+                    vc.problemCounter.increment(NotificationCategory.hasDispute);
                 }
                 break;
             case provisionalOrWorse:
-                if (missingStatus == MissingStatus.PRESENT && choices.contains(Choice.notApproved)) {
-                    problems.add(Choice.notApproved);
-                    vc.problemCounter.increment(Choice.notApproved);
+                if (missingStatus == MissingStatus.PRESENT && choices.contains(NotificationCategory.notApproved)) {
+                    problems.add(NotificationCategory.notApproved);
+                    vc.problemCounter.increment(NotificationCategory.notApproved);
                 }
                 break;
             default:
@@ -856,7 +690,7 @@ public class VettingViewer<T> {
         return list;
     }
 
-    public void generatePriorityItemsSummary(Appendable output, EnumSet<Choice> choices, T organization) throws ExecutionException {
+    public void generatePriorityItemsSummary(Appendable output, EnumSet<NotificationCategory> choices, T organization) throws ExecutionException {
         try {
             StringBuilder headerRow = new StringBuilder();
             headerRow
@@ -869,9 +703,9 @@ public class VettingViewer<T> {
                 .append("Codes</th>")
                 .append(TH_AND_STYLES)
                 .append("Progress</th>");
-            for (Choice choice : choices) {
+            for (NotificationCategory choice : choices) {
                 headerRow.append("<th class='tv-th'>");
-                choice.appendDisplay(headerRow);
+                appendDisplay(headerRow, choice);
                 headerRow.append("</th>");
             }
             headerRow.append("</tr>\n");
@@ -883,6 +717,14 @@ public class VettingViewer<T> {
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e); // dang'ed checked exceptions
         }
+    }
+
+    private void appendDisplay(StringBuilder target, NotificationCategory category) throws IOException {
+        target.append("<span title='")
+                .append(category.description);
+        target.append("'>")
+                .append(category.buttonLabel)
+                .append("*</span>");
     }
 
     /**
@@ -898,16 +740,16 @@ public class VettingViewer<T> {
         private final List<String> localeNames = new ArrayList<>();
         private final List<String> localeIds = new ArrayList<>();
         private final StringBuffer[] outputs;
-        private final EnumSet<Choice> choices;
-        private final EnumSet<Choice> ourChoicesThatRequireOldFile;
+        private final EnumSet<NotificationCategory> choices;
+        private final EnumSet<NotificationCategory> ourChoicesThatRequireOldFile;
         private final T organization;
         private final VettingViewer<T>.VettingCounters totals;
         private final Map<String, VettingViewer<T>.FileInfo> localeNameToFileInfo;
         private final String header;
         private final int configChunkSize; // Number of locales to process at once, minimum 1
 
-        private WriteContext(Set<Entry<String, String>> entrySet, EnumSet<Choice> choices, T organization, VettingCounters totals,
-            Map<String, FileInfo> localeNameToFileInfo, String header) {
+        private WriteContext(Set<Entry<String, String>> entrySet, EnumSet<NotificationCategory> choices, T organization, VettingCounters totals,
+                             Map<String, FileInfo> localeNameToFileInfo, String header) {
             for (Entry<String, String> e : entrySet) {
                 localeNames.add(e.getKey());
                 localeIds.add(e.getValue());
@@ -924,7 +766,7 @@ public class VettingViewer<T> {
             // other data
             this.choices = choices;
 
-            EnumSet<Choice> thingsThatRequireOldFile = EnumSet.of(Choice.englishChanged, Choice.missingCoverage, Choice.changedOldValue);
+            EnumSet<NotificationCategory> thingsThatRequireOldFile = EnumSet.of(NotificationCategory.englishChanged, NotificationCategory.missingCoverage, NotificationCategory.changedOldValue);
             ourChoicesThatRequireOldFile = choices.clone();
             ourChoicesThatRequireOldFile.retainAll(thingsThatRequireOldFile);
 
@@ -1054,7 +896,7 @@ public class VettingViewer<T> {
             if (DEBUG_THREADS) {
                 System.out.println("writeAction.compute(" + n + ") - " + name + ": " + localeID);
             }
-            EnumSet<Choice> choices = context.choices;
+            EnumSet<NotificationCategory> choices = context.choices;
             Appendable output = context.outputs[n];
             if (output == null) {
                 throw new NullPointerException("output " + n + " null");
@@ -1112,7 +954,7 @@ public class VettingViewer<T> {
      * @throws IOException
      */
     private void writeSummaryTable(Appendable output, String header, Level desiredLevel,
-        EnumSet<Choice> choices, T organization) throws IOException, ExecutionException {
+                                   EnumSet<NotificationCategory> choices, T organization) throws IOException, ExecutionException {
         Map<String, String> sortedNames = getSortedNames((Organization) organization, desiredLevel);
         if (sortedNames.isEmpty()) {
             return;
@@ -1237,7 +1079,7 @@ public class VettingViewer<T> {
      * uses "th" for cells that contain data, including locale names like "Kashmiri (Devanagari)"
      * and code values like "<code>ks_Deva₍_IN₎</code>". The same row may have both "th" and "td" cells.
      */
-    private void writeSummaryRow(Appendable output, EnumSet<Choice> choices, Counter<Choice> problemCounter,
+    private void writeSummaryRow(Appendable output, EnumSet<NotificationCategory> choices, Counter<NotificationCategory> problemCounter,
                                  String name, String localeID, Level level) throws IOException, ExecutionException {
         output
             .append("<tr>")
@@ -1258,7 +1100,7 @@ public class VettingViewer<T> {
         output.append("</th>\n");
         final String progPerc = (localeID == null) ? "" : getLocaleProgressPercent(localeID, problemCounter);
         output.append("<td class='tvs-count'>").append(progPerc).append("</td>\n");
-        for (Choice choice : choices) {
+        for (NotificationCategory choice : choices) {
             long count = problemCounter.get(choice);
             output.append("<td class='tvs-count'>");
             if (localeID == null) {
@@ -1273,7 +1115,7 @@ public class VettingViewer<T> {
         output.append("</tr>\n");
     }
 
-    private String getLocaleProgressPercent(String localeId, Counter<Choice> problemCounter) throws ExecutionException {
+    private String getLocaleProgressPercent(String localeId, Counter<NotificationCategory> problemCounter) throws ExecutionException {
         final LocaleCompletionData lcd = new LocaleCompletionData(problemCounter);
         final int problemCount = lcd.problemCount();
         final int total = localeBaselineCount.getBaselineProblemCount(CLDRLocale.getInstance(localeId));
@@ -1650,35 +1492,35 @@ public class VettingViewer<T> {
         }
     }
 
-    final private static EnumSet<VettingViewer.Choice> localeCompletionCategories = EnumSet.of(
-            VettingViewer.Choice.error,
-            VettingViewer.Choice.hasDispute,
-            VettingViewer.Choice.notApproved,
-            VettingViewer.Choice.missingCoverage
+    final private static EnumSet<NotificationCategory> localeCompletionCategories = EnumSet.of(
+            NotificationCategory.error,
+            NotificationCategory.hasDispute,
+            NotificationCategory.notApproved,
+            NotificationCategory.missingCoverage
     );
 
-    public static EnumSet<VettingViewer.Choice> getDashboardNotificationCategories(Organization usersOrg) {
-        EnumSet<VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);
+    public static EnumSet<NotificationCategory> getDashboardNotificationCategories(Organization usersOrg) {
+        EnumSet<NotificationCategory> choiceSet = EnumSet.allOf(NotificationCategory.class);
         if (orgIsNeutralForSummary(usersOrg)) {
             choiceSet = EnumSet.of(
-                VettingViewer.Choice.error,
-                VettingViewer.Choice.warning,
-                VettingViewer.Choice.hasDispute,
-                VettingViewer.Choice.notApproved,
-                VettingViewer.Choice.missingCoverage
+                NotificationCategory.error,
+                NotificationCategory.warning,
+                NotificationCategory.hasDispute,
+                NotificationCategory.notApproved,
+                NotificationCategory.missingCoverage
             );
             // skip weLost, englishChanged, changedOldValue, abstained
         }
         return choiceSet;
     }
 
-    public static EnumSet<VettingViewer.Choice> getPriorityItemsSummaryCategories(Organization org) {
-        EnumSet<VettingViewer.Choice> set = getDashboardNotificationCategories(org);
-        set.remove(VettingViewer.Choice.abstained);
+    public static EnumSet<NotificationCategory> getPriorityItemsSummaryCategories(Organization org) {
+        EnumSet<NotificationCategory> set = getDashboardNotificationCategories(org);
+        set.remove(NotificationCategory.abstained);
         return set;
     }
 
-    public static EnumSet<VettingViewer.Choice> getLocaleCompletionCategories() {
+    public static EnumSet<NotificationCategory> getLocaleCompletionCategories() {
         return localeCompletionCategories;
     }
 

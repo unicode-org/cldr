@@ -47,7 +47,7 @@ import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.VettingViewer;
-import org.unicode.cldr.util.VettingViewer.Choice;
+import org.unicode.cldr.util.NotificationCategory;
 import org.unicode.cldr.util.VettingViewer.MissingStatus;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
 import org.unicode.cldr.util.VoteResolver;
@@ -221,22 +221,22 @@ public class TestUtilities extends TestFmwkPlus {
 
     public void TestUntimedCounter() {
         // simulates how Counter is used in VettingViewer
-        Counter<Choice> problemCounter = new Counter<>();
-        problemCounter.increment(Choice.error);
-        problemCounter.increment(Choice.error);
-        problemCounter.increment(Choice.warning);
+        Counter<NotificationCategory> problemCounter = new Counter<>();
+        problemCounter.increment(NotificationCategory.error);
+        problemCounter.increment(NotificationCategory.error);
+        problemCounter.increment(NotificationCategory.warning);
 
-        assertEquals("problemCounter error", 2, problemCounter.get(Choice.error));
-        assertEquals("problemCounter warning", 1, problemCounter.get(Choice.warning));
-        assertEquals("problemCounter weLost", 0, problemCounter.get(Choice.weLost));
+        assertEquals("problemCounter error", 2, problemCounter.get(NotificationCategory.error));
+        assertEquals("problemCounter warning", 1, problemCounter.get(NotificationCategory.warning));
+        assertEquals("problemCounter weLost", 0, problemCounter.get(NotificationCategory.weLost));
 
-        Counter<Choice> otherCounter = new Counter<>();
+        Counter<NotificationCategory> otherCounter = new Counter<>();
         otherCounter.addAll(problemCounter);
-        otherCounter.increment(Choice.error);
+        otherCounter.increment(NotificationCategory.error);
 
-        assertEquals("otherCounter error", 3, otherCounter.get(Choice.error));
-        assertEquals("otherCounter warning", 1, otherCounter.get(Choice.warning));
-        assertEquals("otherCounter weLost", 0, otherCounter.get(Choice.weLost));
+        assertEquals("otherCounter error", 3, otherCounter.get(NotificationCategory.error));
+        assertEquals("otherCounter warning", 1, otherCounter.get(NotificationCategory.warning));
+        assertEquals("otherCounter weLost", 0, otherCounter.get(NotificationCategory.weLost));
     }
 
     public void TestCounter() {

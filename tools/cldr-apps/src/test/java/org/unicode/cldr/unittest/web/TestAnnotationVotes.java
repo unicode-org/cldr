@@ -8,6 +8,7 @@ import java.util.Set;
 
 import org.unicode.cldr.unittest.web.TestAll.WebTestInfo;
 import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.util.VoterInfoList;
 
 import com.ibm.icu.dev.test.TestFmwk;
 
@@ -15,7 +16,7 @@ public class TestAnnotationVotes extends TestFmwk {
 
     TestAll.WebTestInfo testInfo = WebTestInfo.getInstance();
 
-    VoteResolver<String> r = new VoteResolver<>();
+    VoteResolver<String> r = new VoteResolver<>(new VoterInfoList());
     Set<String> sortedValuesI = null, sortedValuesO = null; // input and output
     HashMap<String, Long> voteCountI = null; // input
 

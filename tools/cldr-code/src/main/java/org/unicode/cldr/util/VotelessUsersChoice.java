@@ -3,6 +3,7 @@ package org.unicode.cldr.util;
 public class VotelessUsersChoice implements VettingViewer.UsersChoice<Organization> {
 
     final PathHeader.Factory phf = PathHeader.getFactory();
+    static final VoterInfoList noUsers = new VoterInfoList();
 
     @Override
     public String getWinningValueForUsersOrganization(CLDRFile cldrFile, String path, Organization org) {
@@ -18,7 +19,7 @@ public class VotelessUsersChoice implements VettingViewer.UsersChoice<Organizati
 
     @Override
     public VoteResolver<String> getVoteResolver(CLDRFile cldrFile, CLDRLocale loc, String path) {
-        final VoteResolver<String> r = new VoteResolver<>();
+        final VoteResolver<String> r = new VoteResolver<>(noUsers);
         r.setLocale(loc, phf.fromPath(path));
 
         final String baileyValue = cldrFile.getBaileyValue(path, null, null);

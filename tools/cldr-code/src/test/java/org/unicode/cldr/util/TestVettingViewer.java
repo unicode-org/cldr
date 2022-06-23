@@ -26,6 +26,7 @@ class TestVettingViewer {
         final String loc = "de";
         final CLDRLocale locale = CLDRLocale.getInstance(loc);
         final PathHeader.Factory phf = PathHeader.getFactory();
+        final VoterInfoList vil = new VoterInfoList();
         VettingViewer<Organization> vv = new VettingViewer<>(SupplementalDataInfo.getInstance(), CLDRConfig.getInstance().getCldrFactory(), new VettingViewer.UsersChoice<Organization>(){
 
             @Override
@@ -45,7 +46,7 @@ class TestVettingViewer {
 
             @Override
             public VoteResolver<String> getVoteResolver(CLDRFile cldrFile, final CLDRLocale loc, final String path) {
-                VoteResolver<String> r = new VoteResolver<>();
+                VoteResolver<String> r = new VoteResolver<>(vil);
                 r.setLocale(locale, getPathHeader(path));
                 return r;
             }

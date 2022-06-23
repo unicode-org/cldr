@@ -1934,12 +1934,34 @@ p.errCodeMsg .fgred {
     font-style: normal;
 }
 
+.cldr_background_auto {
+	background-color: #E8E8E8;
+    font-weight: normal;
+    font-style: normal;
+}
 
 
 .cldr_example {
     border: 1px solid #66666E;
 	margin-top:-1px;
 	padding:1px;
+}
+
+/* set the direction using html dir, not CSS direction */
+.cldr_example_auto {
+    border: 1px solid #66666E;
+	margin-top:-1px;
+	padding:1px;
+	text-align: center;
+	background-color: #E8E8E8;
+}
+
+/* set the direction using html dir, not CSS direction */
+.cldr_example_rtl {
+    border: 1px solid #66666E;
+	margin-top:-1px;
+	padding:1px;
+	text-align: center;
 }
 
 div.d-example {

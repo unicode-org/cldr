@@ -656,6 +656,16 @@ public class TestExampleGenerator extends TestFmwk {
             "〖€ ❬1295,00❭〗〖-€ ❬1295,00❭〗", actual);
     }
 
+    public void TestCurrencyFormatsWithContext() {
+        ExampleGenerator exampleGenerator = getExampleGenerator("he");
+        String actual = simplify(exampleGenerator
+            .getExampleHtml(
+                "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                "‏#,##0.00 ¤;‏-#,##0.00 ¤"));
+        assertEquals("Currency format example faulty",
+            "【‏❬1,295❭.❬00❭ ₪〗【⃪‏❬1,295❭.❬00❭ ₪〗【‏‎-❬1,295❭.❬00❭ ₪〗【⃪‏‎-❬1,295❭.❬00❭ ₪〗【‏❬1,295❭.❬00❭ ILS〗【⃪‏❬1,295❭.❬00❭ ILS〗【‏‎-❬1,295❭.❬00❭ ILS〗【⃪‏‎-❬1,295❭.❬00❭ ILS〗", actual);
+    }
+
     public void TestSymbols() {
         CLDRFile english = info.getEnglish();
         ExampleGenerator exampleGenerator = new ExampleGenerator(english,

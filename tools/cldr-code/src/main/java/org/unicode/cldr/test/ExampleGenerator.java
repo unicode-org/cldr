@@ -64,6 +64,7 @@ import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableList;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DateFormatSymbols;
@@ -81,6 +82,7 @@ import com.ibm.icu.text.PluralRules.SampleType;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.SimpleFormatter;
 import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.Output;
@@ -120,11 +122,18 @@ public class ExampleGenerator {
     public final static TimeZone GMT_ZONE_SAMPLE = TimeZone.getTimeZone("Etc/GMT");
 
     private static final String exampleStart = "<div class='cldr_example'>";
+    private static final String exampleStartAuto = "<div class='cldr_example_auto' dir='auto'>";
+    private static final String exampleStartRTL = "<div class='cldr_example_rtl' dir='rtl'>";
+    private static final String exampleStartHeader = "<div class='cldr_example_rtl'>";
     private static final String exampleEnd = "</div>";
     private static final String startItalic = "<i>";
     private static final String endItalic = "</i>";
     private static final String startSup = "<sup>";
     private static final String endSup = "</sup>";
+    private static final String backgroundAutoStart = "<span class='cldr_background_auto'>";
+    private static final String backgroundAutoEnd = "</span>";
+    private String backgroundStart = "<span class='cldr_substituted'>"; // overrideable
+    private String backgroundEnd = "</span>"; // overrideable
 
     public static final String backgroundStartSymbol = "\uE234";
     public static final String backgroundEndSymbol = "\uE235";
@@ -134,8 +143,18 @@ public class ExampleGenerator {
     private static final String endItalicSymbol = "\uE239";
     private static final String startSupSymbol = "\uE23A";
     private static final String endSupSymbol = "\uE23B";
+    private static final String backgroundAutoStartSymbol = "\uE23C";
+    private static final String backgroundAutoEndSymbol = "\uE23D";
+    private static final String exampleStartAutoSymbol = "\uE23E";
+    private static final String exampleStartRTLSymbol = "\uE23F";
+    private static final String exampleStartHeaderSymbol = "\uE240";
+    private static final String exampleEndSymbol = "\uE241";
+
+    private static final String contextheader = "Fill=>context: " + backgroundAutoStartSymbol + "neutral" + backgroundAutoEndSymbol + ", RTL";
 
     public static final char TEXT_VARIANT = '\uFE0E';
+
+    private static final UnicodeSet BIDI_MARKS = new UnicodeSet("[[\\u061C \\u200E \\u200F] [\\u202A-\\u202E] [\\u2066-\\u2069]]").freeze();
 
     public final static Date DATE_SAMPLE;
 
@@ -205,8 +224,6 @@ public class ExampleGenerator {
      * cldr-unittest TestAll.java fails. Reference: https://unicode.org/cldr/trac/ticket/12025
      */
     private boolean verboseErrors = false;
-    private String backgroundStart = "<span class='cldr_substituted'>";
-    private String backgroundEnd = "</span>";
 
     private Calendar calendar = Calendar.getInstance(ZONE_SAMPLE, ULocale.ENGLISH);
 
@@ -238,6 +255,11 @@ public class ExampleGenerator {
      * false if it is for generating "native" examples.
      */
     private boolean typeIsEnglish;
+
+    /**
+     * True if this ExampleGenerator is for RTL locale.
+     */
+    private boolean isRTL;
 
     HelpMessages helpMessages;
 
@@ -336,6 +358,9 @@ public class ExampleGenerator {
 
         bestMinimalPairSamples = new BestMinimalPairSamples(cldrFile, icuServiceBuilder, false);
 
+        String characterOrder = cldrFile.getStringValue("//ldml/layout/orientation/characterOrder");
+        this.isRTL = (characterOrder != null && characterOrder.equals("right-to-left"));
+
         if (DEBUG_EXAMPLE_GENERATOR) {
             creationTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime());
             System.out.println("🧞‍ Created new ExampleGenerator for loc " + localeId + " at " + creationTime);
@@ -398,6 +423,7 @@ public class ExampleGenerator {
      */
     private String constructExampleHtml(String xpath, String value) {
         String result = null;
+        boolean showContexts = isRTL || BIDI_MARKS.containsSome(value); // only used for certain example types
         /*
          * Need getInstance, not getFrozenInstance here: some functions such as handleNumberSymbol
          * expect to call functions like parts.addRelative which throw exceptions if parts is frozen.
@@ -420,7 +446,7 @@ public class ExampleGenerator {
                 result = handleMiscPatterns(parts, value);
             } else if (parts.contains("numbers")) {
                 if (parts.contains("currencyFormat")) {
-                    result = handleCurrencyFormat(parts, value);
+                    result = handleCurrencyFormat(parts, value, showContexts);
                 } else {
                     result = handleDecimalFormat(parts, value);
                 }
@@ -1559,10 +1585,19 @@ public class ExampleGenerator {
     }
 
     private String addExampleResult(String resultItem, String resultToAddTo) {
-        if (resultToAddTo.length() != 0) {
-            resultToAddTo += exampleSeparatorSymbol;
+        return addExampleResult(resultItem, resultToAddTo, false);
+    }
+
+    private String addExampleResult(String resultItem, String resultToAddTo, boolean showContexts) {
+        if (!showContexts) {
+            if (resultToAddTo.length() != 0) {
+                resultToAddTo += exampleSeparatorSymbol;
+            }
+            resultToAddTo += resultItem;
+        } else {
+            resultToAddTo += exampleStartAutoSymbol + resultItem + exampleEndSymbol; // example in neutral context
+            resultToAddTo += exampleStartRTLSymbol + resultItem + exampleEndSymbol; // example in RTL context
         }
-        resultToAddTo += resultItem;
         return resultToAddTo;
     }
 
@@ -1782,23 +1817,47 @@ public class ExampleGenerator {
         }
     }
 
+    // Simple check whether the currency symbol seems to be all letters; check start and end
+    private boolean symbolIsLetters(String currencySymbol) {
+        int len = currencySymbol.length();
+        if (len == 0) {
+            return false;
+        }
+        int limitChar = currencySymbol.codePointAt(0);
+        if (!UCharacter.isLetter(limitChar)) {
+            return false;
+        }
+        if (len > 1) {
+            limitChar = currencySymbol.codePointAt(len - 1);
+            if (!UCharacter.isLetter(limitChar)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     /**
      * Creates examples for currency formats.
      *
      * @param value
      * @return
      */
-    private String handleCurrencyFormat(XPathParts parts, String value) {
+    private String handleCurrencyFormat(XPathParts parts, String value, boolean showContexts) {
 
+        String example = showContexts? exampleStartHeaderSymbol + contextheader + exampleEndSymbol : "";
         String territory = getDefaultTerritory();
 
         String currency = supplementalDataInfo.getDefaultCurrency(territory);
-        String currencySymbol = currency; // default to this if alt=alphaNextToNumber
+        String checkPath = "//ldml/numbers/currencies/currency[@type=\"" + currency + "\"]/symbol";
+        String currencySymbol = cldrFile.getWinningValue(checkPath);
         String altValue = parts.getAttributeValue(-1, "alt");
-        if (altValue == null ||!altValue.equals("alphaNextToNumber")) {
-            String checkPath = "//ldml/numbers/currencies/currency[@type=\"" + currency + "\"]/symbol";
-            currencySymbol = cldrFile.getWinningValue(checkPath);
+        boolean altAlpha = (altValue != null && altValue.equals("alphaNextToNumber"));
+        if (altAlpha && !symbolIsLetters(currencySymbol)) {
+            // If this example is for alt="alphaNextToNumber" and the default currency symbol
+            // is not alphabetic, need to use an alphabetic one.
+            currencySymbol = currency;
         }
+
         String numberSystem = parts.getAttributeValue(2, "numberSystem"); // null if not present
 
         DecimalFormat df = icuServiceBuilder.getCurrencyFormat(currency, currencySymbol, numberSystem);
@@ -1810,8 +1869,24 @@ public class ExampleGenerator {
         }
 
         double sampleAmount = 1295.00;
-        String example = formatNumber(df, sampleAmount);
-        example = addExampleResult(formatNumber(df, -sampleAmount), example);
+        example = addExampleResult(formatNumber(df, sampleAmount), example, showContexts);
+        example = addExampleResult(formatNumber(df, -sampleAmount), example, showContexts);
+        
+        if (showContexts && !altAlpha && countValue == null) {
+            // If this example is not for alt="alphaNextToNumber", then if the currency symbol
+            // above used letters add another example with non-letter symbol, or vice versa
+            if (symbolIsLetters(currencySymbol)) {
+                currency = "EUR";
+                checkPath = "//ldml/numbers/currencies/currency[@type=\"" + currency + "\"]/symbol";
+                currencySymbol = cldrFile.getWinningValue(checkPath);
+            } else {
+                currencySymbol = currency;
+            }
+            df = icuServiceBuilder.getCurrencyFormat(currency, currencySymbol, numberSystem);
+            df.applyPattern(value);
+            example = addExampleResult(formatNumber(df, sampleAmount), example, showContexts);
+            example = addExampleResult(formatNumber(df, -sampleAmount), example, showContexts);
+        }
 
         return example;
     }
@@ -2219,9 +2294,10 @@ public class ExampleGenerator {
      * @return string with HTML for the background.
      */
     private String finalizeBackground(String input) {
-        return input == null
-            ? input
-                : exampleStart +
+        if (input == null) {
+            return input;
+        }
+        String coreString =
                 TransliteratorUtilities.toHTML.transliterate(input)
                 .replace(backgroundStartSymbol + backgroundEndSymbol, "")
                 // remove null runs
@@ -2229,12 +2305,22 @@ public class ExampleGenerator {
                 // remove null runs
                 .replace(backgroundStartSymbol, backgroundStart)
                 .replace(backgroundEndSymbol, backgroundEnd)
+                .replace(backgroundAutoStartSymbol, backgroundAutoStart)
+                .replace(backgroundAutoEndSymbol, backgroundAutoEnd)
                 .replace(exampleSeparatorSymbol, exampleEnd + exampleStart)
+                .replace(exampleStartAutoSymbol, exampleStartAuto)
+                .replace(exampleStartRTLSymbol, exampleStartRTL)
+                .replace(exampleStartHeaderSymbol, exampleStartHeader)
+                .replace(exampleEndSymbol, exampleEnd)
                 .replace(startItalicSymbol, startItalic)
                 .replace(endItalicSymbol, endItalic)
                 .replace(startSupSymbol, startSup)
                 .replace(endSupSymbol, endSup)
-                + exampleEnd;
+                ;
+        // If we are not showing context, we use exampleSeparatorSymbol between examples,
+        // and then need to add the initial exampleStart and final exampleEnd.
+        return (input.indexOf(exampleStartAutoSymbol) >= 0)? coreString:
+                exampleStart + coreString + exampleEnd;
     }
 
     private String invertBackground(String input) {
@@ -2379,14 +2465,33 @@ public class ExampleGenerator {
     }
 
     public static String simplify(String exampleHtml, boolean internal) {
-        return exampleHtml == null ? null
-            : internal ? "〖" + exampleHtml
-                .replace("", "❬")
-            .replace("", "❭") + "〗"
-            : exampleHtml
-            .replace("<div class='cldr_example'>", "〖")
-            .replace("</div>", "〗")
-            .replace("<span class='cldr_substituted'>", "❬")
-            .replace("</span>", "❭");
+        if (exampleHtml == null) {
+            return null;
+        }
+        if (internal) {
+            return "〖"
+                    + exampleHtml
+                        .replace("", "❬")
+                        .replace("", "❭")
+                    + "〗";
+        }
+        int startIndex = exampleHtml.indexOf(exampleStartHeader);
+        if (startIndex >= 0) {
+            int endIndex = exampleHtml.indexOf(exampleEnd, startIndex);
+            if (endIndex > startIndex) {
+                // remove header for context examples
+                endIndex += exampleEnd.length();
+                String head = exampleHtml.substring(0,startIndex);
+                String tail = exampleHtml.substring(endIndex);
+                exampleHtml = head + tail;
+            }
+        }
+        return exampleHtml
+                .replace("<div class='cldr_example'>", "〖")
+                .replace("<div class='cldr_example_auto' dir='auto'>", "【")
+                .replace("<div class='cldr_example_rtl' dir='rtl'>", "【⃪")
+                .replace("</div>", "〗")
+                .replace("<span class='cldr_substituted'>", "❬")
+                .replace("</span>", "❭");
     }
 }

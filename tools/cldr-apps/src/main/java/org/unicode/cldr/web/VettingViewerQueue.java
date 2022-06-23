@@ -274,7 +274,7 @@ public class VettingViewerQueue {
             n = 0;
             vv.setProgressCallback(new CLDRProgressCallback(progress, Thread.currentThread()));
 
-            EnumSet<VettingViewer.Choice> choiceSet = VettingViewer.getPriorityItemsSummaryCategories(usersOrg);
+            EnumSet<NotificationCategory> choiceSet = VettingViewer.getPriorityItemsSummaryCategories(usersOrg);
             if (DEBUG) {
                 System.out.println("Starting generation of Priority Items Summary");
             }

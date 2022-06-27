@@ -1,6 +1,9 @@
 package org.unicode.cldr.web.api;
 
 import java.sql.SQLException;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -22,11 +25,14 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoterReportStatus;
+import org.unicode.cldr.util.VoterReportStatus.ReportAcceptability;
 import org.unicode.cldr.util.VoterReportStatus.ReportId;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.ReportsDB;
 import org.unicode.cldr.web.ReportsDB.UserReport;
+import org.unicode.cldr.web.SurveyMain;
 import org.unicode.cldr.web.UserRegistry;
 
 @Path("/voting/reports")
@@ -68,7 +74,7 @@ public class ReportAPI {
                 return Response.status(Status.FORBIDDEN).build();
             }
         }
-        return Response.ok(ReportsDB.getInstance().getAllReports(id)).build();
+        return Response.ok(ReportsDB.getInstance().getAllReports(id, null)).build();
     }
 
     @GET
@@ -106,6 +112,87 @@ public class ReportAPI {
         return Response.ok().entity(
             ReportsDB.getInstance()
                 .getReportStatus(user, CLDRLocale.getInstance(locale))).build();
+    }
+
+
+    @GET
+    @Path("/locales/{locale}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(summary="List vetting results of one or more locales")
+    @APIResponse(
+        responseCode = "200",
+        description = "list responses",
+        content = @Content(mediaType = "application/json",
+            schema = @Schema(implementation = LocaleReportVettingResults.class))
+    )
+    public Response getReportLocaleStatus(
+        @HeaderParam(Auth.SESSION_HEADER) String session,
+        @Parameter(required = true, example = "en",
+            schema = @Schema(type = SchemaType.STRING, description = "Locale ID or '-' for all")) @PathParam("locale") String locale) throws SQLException {
+        final CookieSession mySession = Auth.getSession(session);
+        if (mySession == null) {
+            return Auth.noSessionResponse();
+        }
+        Iterable<CLDRLocale> locales = null;
+        CLDRLocale onlyLoc;
+        if (locale.equals("-")) {
+            locales = SurveyMain.getLocalesSet();
+            onlyLoc = null;
+        } else {
+            onlyLoc = CLDRLocale.getInstance(locale);
+            locales = Collections.singleton(onlyLoc);
+        }
+        LocaleReportVettingResults r = new LocaleReportVettingResults();
+        // make a copy of the DB subset here, for performance.
+        VoterReportStatus<Integer> db = ReportsDB.getInstance().clone(null, onlyLoc);
+        VoteResolver<ReportAcceptability> res = new VoteResolver<>();
+        // set of all valid userids
+        final Set<Integer> allUsers = CookieSession.sm.reg.getVoterToInfo().keySet();
+        for (final CLDRLocale loc : locales) {
+            LocaleReportVettingResult rr = new LocaleReportVettingResult();
+            rr.locale = loc.toString();
+            for (final ReportId report : ReportId.values()) {
+                db.updateResolver(loc, report, allUsers, res);
+                rr.reports.add(new ReportVettingResult(report, res));
+            }
+            r.locales.add(rr);
+        }
+        return Response.ok(r).build();
+    }
+
+
+    public static class LocaleReportVettingResults {
+        public LocaleReportVettingResults() {}
+        private Set<LocaleReportVettingResult> locales = new HashSet<LocaleReportVettingResult>();
+        public LocaleReportVettingResult[] getLocales() {
+            return locales.toArray(new LocaleReportVettingResult[0]);
+        }
+    }
+
+    public static class LocaleReportVettingResult {
+        public String locale;
+        private Set<ReportVettingResult> reports = new HashSet<ReportVettingResult>();
+        public ReportVettingResult[] getReports() {
+            return reports.toArray(new ReportVettingResult[0]);
+        }
+    }
+
+    public static class ReportVettingResult {
+        // @Schema(description = "raw VoteResolver output")
+        // public String raw;
+
+        public ReportVettingResult(ReportId id, VoteResolver<ReportAcceptability> res) {
+            this.report = id;
+            this.status = res.getWinningStatus();
+            if (this.status != VoteResolver.Status.missing) {
+                this.acceptability = res.getWinningValue();
+            } else {
+                this.acceptability = null;
+            }
+        }
+        public ReportId report;
+        public VoteResolver.Status status;
+        public ReportAcceptability acceptability;
     }
 
     @POST

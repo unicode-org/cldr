@@ -150,11 +150,11 @@ public class ExampleGenerator {
     private static final String exampleStartHeaderSymbol = "\uE240";
     private static final String exampleEndSymbol = "\uE241";
 
-    private static final String contextheader = "Fill=>context: " + backgroundAutoStartSymbol + "neutral" + backgroundAutoEndSymbol + ", RTL";
+    private static final String contextheader = "Key: " + backgroundAutoStartSymbol + "neutral" + backgroundAutoEndSymbol + ", RTL";
 
     public static final char TEXT_VARIANT = '\uFE0E';
 
-    private static final UnicodeSet BIDI_MARKS = new UnicodeSet("[[\\u061C \\u200E \\u200F] [\\u202A-\\u202E] [\\u2066-\\u2069]]").freeze();
+    private static final UnicodeSet BIDI_MARKS = new UnicodeSet("[:Bidi_Control:]").freeze();
 
     public final static Date DATE_SAMPLE;
 
@@ -448,7 +448,7 @@ public class ExampleGenerator {
                 if (parts.contains("currencyFormat")) {
                     result = handleCurrencyFormat(parts, value, showContexts);
                 } else {
-                    result = handleDecimalFormat(parts, value);
+                    result = handleDecimalFormat(parts, value, showContexts);
                 }
             }
         } else if (parts.getElement(2).contains("symbols")) {
@@ -1817,23 +1817,27 @@ public class ExampleGenerator {
         }
     }
 
-    // Simple check whether the currency symbol seems to be all letters; check start and end
-    private boolean symbolIsLetters(String currencySymbol) {
+    // Simple check whether the currency symbol has letters on one or both sides
+    private boolean symbolIsLetters(String currencySymbol, boolean onBothSides) {
         int len = currencySymbol.length();
         if (len == 0) {
             return false;
         }
         int limitChar = currencySymbol.codePointAt(0);
-        if (!UCharacter.isLetter(limitChar)) {
+        if (UCharacter.isLetter(limitChar)) {
+            if (!onBothSides) {
+                return true;
+            }
+        } else if (onBothSides) {
             return false;
         }
         if (len > 1) {
             limitChar = currencySymbol.codePointAt(len - 1);
-            if (!UCharacter.isLetter(limitChar)) {
-                return false;
+            if (UCharacter.isLetter(limitChar)) {
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     /**
@@ -1852,9 +1856,9 @@ public class ExampleGenerator {
         String currencySymbol = cldrFile.getWinningValue(checkPath);
         String altValue = parts.getAttributeValue(-1, "alt");
         boolean altAlpha = (altValue != null && altValue.equals("alphaNextToNumber"));
-        if (altAlpha && !symbolIsLetters(currencySymbol)) {
+        if (altAlpha && !symbolIsLetters(currencySymbol, true)) {
             // If this example is for alt="alphaNextToNumber" and the default currency symbol
-            // is not alphabetic, need to use an alphabetic one.
+            // does not have letters on both sides, need to use a fully alphabetic one.
             currencySymbol = currency;
         }
 
@@ -1874,8 +1878,9 @@ public class ExampleGenerator {
         
         if (showContexts && !altAlpha && countValue == null) {
             // If this example is not for alt="alphaNextToNumber", then if the currency symbol
-            // above used letters add another example with non-letter symbol, or vice versa
-            if (symbolIsLetters(currencySymbol)) {
+            // above has letters (strong dir) add another example with non-letter symbol
+            // (weak or neutral), or vice versa
+            if (symbolIsLetters(currencySymbol, false)) {
                 currency = "EUR";
                 checkPath = "//ldml/numbers/currencies/currency[@type=\"" + currency + "\"]/symbol";
                 currencySymbol = cldrFile.getWinningValue(checkPath);
@@ -1919,7 +1924,8 @@ public class ExampleGenerator {
      * @param value
      * @return
      */
-    private String handleDecimalFormat(XPathParts parts, String value) {
+    private String handleDecimalFormat(XPathParts parts, String value, boolean showContexts) {
+        String example = showContexts? exampleStartHeaderSymbol + contextheader + exampleEndSymbol : "";
         String numberSystem = parts.getAttributeValue(2, "numberSystem"); // null if not present
         DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(value, numberSystem);
         String countValue = parts.getAttributeValue(-1, "count");
@@ -1932,10 +1938,10 @@ public class ExampleGenerator {
         if (parts.getElement(4).equals("percentFormat")) {
             sampleNum1 = 0.0543;
         }
-        String example = formatNumber(numberFormat, sampleNum1);
-        example = addExampleResult(formatNumber(numberFormat, sampleNum2), example);
+        example = addExampleResult(formatNumber(numberFormat, sampleNum1), example, showContexts);
+        example = addExampleResult(formatNumber(numberFormat, sampleNum2), example, showContexts);
         // have positive and negative
-        example = addExampleResult(formatNumber(numberFormat, -sampleNum2), example);
+        example = addExampleResult(formatNumber(numberFormat, -sampleNum2), example, showContexts);
         return example;
     }
 
@@ -2471,8 +2477,8 @@ public class ExampleGenerator {
         if (internal) {
             return "〖"
                     + exampleHtml
-                        .replace("", "❬")
-                        .replace("", "❭")
+                        .replace(backgroundStartSymbol, "❬")
+                        .replace(backgroundEndSymbol, "❭")
                     + "〗";
         }
         int startIndex = exampleHtml.indexOf(exampleStartHeader);

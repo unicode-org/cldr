@@ -1,8 +1,14 @@
 <template>
   <div class="reportResponse">
     <div>
-      <div class="d-dr-status statuscell" :class="statusClass">&nbsp;</div>
-      <h4>Review: {{ reportName }}</h4>
+      <a-tooltip class="boxy" v-if="reportStatus">
+        Approval Status:
+        <template #title>
+          {{ reportStatus.status }}: {{ reportStatus.acceptability }}
+        </template>
+        <div class="d-dr-status statuscell" :class="statusClass">&nbsp;</div>
+        {{ humanizeAcceptability }}
+      </a-tooltip>
       <a-spin size="small" v-if="!loaded" />
     </div>
     <a-alert v-if="error" type="error" v-model:message="error" />
@@ -48,6 +54,7 @@ export default {
       loaded: false,
       error: null,
       state: null,
+      reportStatus: null, // { acceptability, status }
       radioStyle: { display: "block" },
     };
   },
@@ -60,7 +67,15 @@ export default {
       return cldrReport.reportName(this.report);
     },
     statusClass() {
-      return cldrReport.reportClass(this.completed, this.acceptable);
+      return `d-dr-${this.reportStatus.status}`;
+    },
+    humanizeAcceptability() {
+      if (!this.reportStatus) {
+        return "loading";
+      }
+      return cldrText.get(
+        `report_${this.reportStatus.acceptability || "missing"}`
+      );
     },
   },
   methods: {
@@ -136,17 +151,26 @@ export default {
         return;
       }
       try {
-        const resp = await this.client.apis.voting.getReport({
+        // get MY vote
+        const resp = this.client.apis.voting.getReport({
           user: user.id,
           locale: this.$cldrOpts.locale,
         });
-        const { acceptable, completed } = resp.obj;
+        // get the overall status for this locale
+        const reportLocaleStatusResponse = cldrReport.getOneReportLocaleStatus(
+          this.$cldrOpts.locale,
+          this.report
+        );
+
+        const { acceptable, completed } = (await resp).obj;
         this.completed = completed.includes(this.report);
         this.acceptable = acceptable.includes(this.report);
         this.state = this.getFields({
           completed: this.completed,
           acceptable: this.acceptable,
         });
+        this.reportStatus = await reportLocaleStatusResponse; // { status: approved, acceptability: acceptable }
+        console.dir(await reportLocaleStatusResponse);
         this.loaded = true;
         this.error = null;
       } catch (e) {
@@ -166,6 +190,14 @@ export default {
   margin: 1em;
   box-shadow: 1em;
   background-color: bisque;
+}
+
+.boxy {
+  border: 1px solid black;
+  padding: 0.25em;
+  margin: 0.5em;
+  background-color: white;
+  display: inline-block;
 }
 
 .reportResponse .statusCell,

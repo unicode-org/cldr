@@ -1,7 +1,9 @@
 package org.unicode.cldr.util;
 
+import java.util.Date;
 import java.util.EnumSet;
 import java.util.Set;
+
 
 /**
  * This interface is for objects which can expose information on which reports have been completed.
@@ -38,8 +40,13 @@ public abstract class VoterReportStatus<T> {
     public static class ReportStatus {
         public EnumSet<ReportId> completed = EnumSet.noneOf(ReportId.class);
         public EnumSet<ReportId> acceptable = EnumSet.noneOf(ReportId.class);
+        public Date date = null;
 
         public ReportStatus mark(ReportId r, boolean asComplete, boolean asAcceptable) {
+            return this.mark(r, asComplete, asAcceptable, null);
+        }
+
+        public ReportStatus mark(ReportId r, boolean asComplete, boolean asAcceptable, Date date) {
             if (!asComplete && asAcceptable) {
                 throw new IllegalArgumentException("Cannot be !complete&&acceptable");
             }
@@ -53,7 +60,12 @@ public abstract class VoterReportStatus<T> {
             } else {
                 acceptable.remove(r);
             }
+            this.date = date;
             return this;
+        }
+
+        public Date getDate() {
+            return date;
         }
 
         /**
@@ -89,7 +101,7 @@ public abstract class VoterReportStatus<T> {
             final ReportAcceptability acc = rs.getAcceptability(r);
             if (acc != null) {
                 // if not an abstention, add
-                res.add(acc, (Integer) id); // TODO: Cast because T must be an Integer. Refactor class to not be templatized
+                res.add(acc, (Integer) id, null, rs.getDate()); // TODO: Cast because T must be an Integer. Refactor class to not be templatized
             }
         });
         return res;

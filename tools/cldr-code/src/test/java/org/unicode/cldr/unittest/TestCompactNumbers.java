@@ -13,15 +13,19 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.VerifyCompactNumbers;
 
 import com.ibm.icu.text.CompactDecimalFormat;
 import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
 import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.PluralRules.FixedDecimal;
+import com.ibm.icu.util.Currency;
 import com.ibm.icu.util.ULocale;
 
 public class TestCompactNumbers  extends TestFmwkPlus {
-    static final boolean DEBUG = false;
+    static final boolean DEBUG = true;
     private static StandardCodes sc = StandardCodes.make();
     private static final CLDRConfig CLDRCONFIG = CLDRConfig.getInstance();
     private static final SupplementalDataInfo SDI = CLDRCONFIG.getSupplementalDataInfo();
@@ -86,6 +90,70 @@ public class TestCompactNumbers  extends TestFmwkPlus {
                 + "\tclnf:\t" + compactLongFormattedNumber
                 + "\tccnf:\t" + compactCurrFormattedNumber
                 );
+        }
+    }
+
+    /** Test case for VerifyCompactNumbers
+     * https://unicode-org.atlassian.net/browse/CLDR-15737
+     * https://unicode-org.atlassian.net/browse/CLDR-15762
+     * */
+
+    public void TestVerifyCompactNumbers() {
+        Set<String> debugCreationErrors = new LinkedHashSet<>();
+        String[] debugOriginals = null;
+        String oldLocale = "";
+        String oldCurrencyCode = "";
+        CompactDecimalFormat cdfCurr = null;
+
+
+        Object[][] tests = {
+            {"cs", "", 1100000d, "1,1 milionu"}, // should be 'many', not 1,1 milionů == 'other'
+            /* Background for cs
+             * <pattern type="1000000" count="one">0 milion</pattern>
+             * <pattern type="1000000" count="few">0 miliony</pattern>
+             * <pattern type="1000000" count="many">0 milionu</pattern>
+             * <pattern type="1000000" count="other">0 milionů</pattern>
+             * https://unicode-org.github.io/cldr-staging/charts/41/supplemental/language_plural_rules.html#cs
+             */
+            {"fr", "EUR", 100d, "100 €"},
+            {"fr", "EUR", 1000d, "1 k €"},
+        };
+
+        for (Object[] row : tests) {
+            String locale = row[0].toString();
+            String currencyCode = row[1].toString();
+            double value = (double) row[2];
+            String expected = row[3].toString();
+
+            if (!locale.equals(oldLocale) || !currencyCode.equals(oldCurrencyCode)) {
+                oldLocale = locale;
+                oldCurrencyCode = currencyCode;
+                CLDRFile cldrFile = factory2.make(locale, true);
+
+                debugCreationErrors.clear();
+                if (currencyCode.isBlank()) {
+                    cdfCurr = BuildIcuCompactDecimalFormat.build(cldrFile, debugCreationErrors,
+                        debugOriginals, CompactStyle.LONG, ULocale.forLanguageTag(locale),
+                        CurrencyStyle.PLAIN, null);
+                    // note: custom data looks good:
+                    // 1000000={other=0 milionů, one=0 milion, few=0 miliony, many=0 milionu}
+                } else {
+                    cdfCurr = BuildIcuCompactDecimalFormat.build(cldrFile, debugCreationErrors,
+                        debugOriginals, CompactStyle.SHORT, ULocale.forLanguageTag(locale), CurrencyStyle.CURRENCY, currencyCode);
+
+                    cdfCurr.setCurrency(Currency.getInstance(currencyCode));
+                    int sigDigits = 3;
+                    cdfCurr.setMaximumSignificantDigits(sigDigits);
+                }
+            }
+            String actual = cdfCurr.format(value);
+            if (!assertEquals("Formatted " + value, expected, actual)) {
+                PluralInfo rules = SupplementalDataInfo.getInstance().getPlurals(locale);
+                int v, f, e;
+                FixedDecimal fd = new FixedDecimal(1.1d, 1, 1, 0);
+                Count count = rules.getCount(fd);
+                System.out.println(fd + " => " + count);
+            }
         }
     }
 }

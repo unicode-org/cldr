@@ -603,8 +603,12 @@ public class ConsoleCheckCLDR {
                     }
                 }
                 if (showMissing && rawStatus != RawStatus.present) {
+                    String englishValue = englishFile.getStringValue(path);
+                    if (englishValue == null) {
+                        englishValue = "n/a";
+                    }
                     System.out.println(getLocaleAndName(localeID) + "\tRaw " + rawStatus
-                        + "\t" + pathHeader + "\t" + path);
+                        + "\t" + pathHeader + "\t" + englishValue + "\t" + path);
                 }
 
 

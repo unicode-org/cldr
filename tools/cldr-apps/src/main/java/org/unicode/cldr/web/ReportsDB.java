@@ -5,9 +5,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.ZoneOffset;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,9 +13,10 @@ import java.util.logging.Logger;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.ReportStatusUpdater;
 import org.unicode.cldr.util.VoterReportStatus;
 
-public class ReportsDB implements VoterReportStatus<Integer>, ReportStatusUpdater<Integer> {
+public class ReportsDB extends VoterReportStatus<Integer> implements ReportStatusUpdater<Integer>{
     public static ReportsDB getInstance() {
         return ReportsDBHelper.INSTANCE;
     }

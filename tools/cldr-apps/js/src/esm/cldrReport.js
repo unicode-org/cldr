@@ -59,8 +59,19 @@ async function internalFetchAllReports(user) {
   return raw;
 }
 
+async function internalFetchAllReportStatus() {
+  const client = await cldrClient.getClient();
+  const raw = (
+    await client.apis.voting.getReportLocaleStatus({
+      locale: "-",
+    })
+  ).body;
+  return raw;
+}
+
 async function fetchAllReports(user) {
   const raw = await internalFetchAllReports(user);
+  const { locales } = await internalFetchAllReportStatus();
   const types = await reportTypes();
   const byLocale = {};
 
@@ -95,6 +106,29 @@ async function fetchAllReports(user) {
       });
     }
   });
+
+  for (const { locale, reports } of locales) {
+    for (const { report, status, acceptability } of reports) {
+      if (!byLocale[locale]) {
+        byLocale[locale] = {
+          acceptable: 0,
+          unacceptable: 0,
+          totalVoters: 0,
+          byReport: {},
+        };
+      }
+      if (!byLocale[locale].byReport[report]) {
+        byLocale[locale].byReport[report] = {
+          acceptable: 0,
+          unacceptable: 0,
+          totalVoters: 0,
+        };
+      }
+      const r = byLocale[locale].byReport[report];
+      r.status = status;
+      r.acceptability = acceptability;
+    }
+  }
 
   return {
     types,

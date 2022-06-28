@@ -437,6 +437,10 @@ const strings = {
 
   TRANS_HINT_LANGUAGE_NAME: "English", // must match SurveyMain.TRANS_HINT_LANGUAGE_NAME
 
+  report_acceptable: "Acceptable",
+  report_notAcceptable: "Not Acceptable",
+  report_missing: "Missing",
+
   special_about: "About Survey Tool",
   special_account: "Account Settings",
   special_admin: "Admin Panel",

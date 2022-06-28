@@ -104,6 +104,41 @@ async function fetchAllReports(user) {
 }
 
 /**
+ * Get one locale's status
+ * @param {String} locale
+ * @returns
+ */
+async function getOneLocaleStatus(locale) {
+  if (locale === "-") {
+    throw Error(
+      "Please call client.apis.voting.getReportLocaleStatus() directly with the “-” parameter."
+    );
+  }
+  const client = await cldrClient.getClient();
+  const { obj } = await client.apis.voting.getReportLocaleStatus({
+    locale,
+  });
+  if (obj.locales.length !== 1) {
+    throw Error(
+      `getOneLocaleStatus(${locale}) expected an array of one item but got ${obj.locales.length}`
+    );
+  }
+  return obj.locales[0].reports;
+}
+
+/**
+ * Get a single report in a single locale
+ * @param {String} locale such as zh
+ * @param {String} report  such as compact
+ * @returns
+ */
+async function getOneReportLocaleStatus(locale, onlyReport) {
+  const reports = await getOneLocaleStatus(locale);
+  const myReport = reports.filter(({ report }) => report === onlyReport)[0];
+  return myReport;
+}
+
+/**
  * Get the report types
  * @returns an array of report types, sorted ['a','b','c']
  */
@@ -185,9 +220,11 @@ async function downloadAllReports(user) {
 
 export {
   downloadAllReports,
-  reportTypes,
   fetchAllReports,
+  getOneLocaleStatus,
+  getOneReportLocaleStatus,
   reportClass,
   reportLoadHandler,
   reportName,
+  reportTypes,
 };

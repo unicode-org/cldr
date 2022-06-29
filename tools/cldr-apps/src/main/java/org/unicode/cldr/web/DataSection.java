@@ -1229,10 +1229,18 @@ public class DataSection implements JSONString {
          *
          * @return the StatusAction
          */
-        public StatusAction getStatusAction() {
+        public StatusAction getStatusAction(InputMethod inputMethod) {
             // null because this is for display.
             return SurveyMain.phase().getCPhase()
-                .getShowRowAction(this, InputMethod.DIRECT, getPathHeader(), userForVotelist);
+                .getShowRowAction(this, inputMethod, getPathHeader(), userForVotelist);
+        }
+
+        /**
+         * Get the status action for a DIRECT (SurveyTool) action
+         * @return
+         */
+        public StatusAction getStatusAction() {
+            return getStatusAction(InputMethod.DIRECT);
         }
 
         /**

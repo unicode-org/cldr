@@ -2737,7 +2737,7 @@ public class SurveyAjax extends HttpServlet {
 
         SurveyTool.includeJavaScript(request, out);
 
-        out.write("</head>\n<body>\n");
+        out.write("</head>\n<body style='padding: 0.5em'>\n");
         out.write("<a href=\"upload.jsp?s=" + sid + "&email=" + theirU.email + "\">Re-Upload File/Try Another</a>");
         out.write(" | ");
         out.write("<a href=\"" + contextPath + "/survey\">Return to the SurveyTool <img src='STLogo.png' style='float: right;' />");
@@ -2796,7 +2796,7 @@ public class SurveyAjax extends HttpServlet {
             out.write("Items listed have been submitted as " + theirU.email);
         }
         out.write("<br>\n");
-        out.write("For help, see: <a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/index/survey-tool/upload'>Using Bulk Upload</a>\n");
+        out.write("For help, see: <a target='CLDR-ST-DOCS' href='https://cldr.unicode.org/index/survey-tool/bulk-data-upload'>Using Bulk Upload</a>\n");
         out.write("</div>\n");
 
         out.write("<table class='data'>\n");
@@ -2867,7 +2867,7 @@ public class SurveyAjax extends HttpServlet {
                     section.setUserForVotelist(cs.user);
 
                     DataSection.DataRow pvi = section.getDataRow(base);
-                    CheckCLDR.StatusAction showRowAction = pvi.getStatusAction();
+                    CheckCLDR.StatusAction showRowAction = pvi.getStatusAction(CheckCLDR.InputMethod.BULK);
 
                     if (CheckForCopy.sameAsCode(val0, x, cldrUnresolved, baseFile)) {
                         showRowAction = CheckCLDR.StatusAction.FORBID_CODE;
@@ -2956,12 +2956,14 @@ public class SurveyAjax extends HttpServlet {
         out.write("</table>\n");
         out.write("<hr />\n");
         if (doFinal) {
-            out.write("Voted on ");
+            out.write("Voted on " + updCnt + " vote(s).");
+        } else if (updCnt > 0) {
+            out.write("Ready to submit " + updCnt + " vote(s).");
         } else {
-            out.write("Ready to submit ");
+            out.write("<div class='helpHtml'>No votes were eligible for bulk submit. ");
+            out.write("<a href=\"upload.jsp?s=" + sid + "&email=" + theirU.email + "\">Re-Upload File/Try Another</a>");
+            out.write("</div>");
         }
-        out.write(updCnt);
-        out.write(" votes.\n");
         if (!doFinal && updCnt > 0) {
             out.write("<form action='" + contextPath + request.getServletPath() + "' method='POST'>\n");
             out.write("<input type='hidden' name='s' value='" + sid + "' />\n");

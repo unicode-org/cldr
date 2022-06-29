@@ -1,5 +1,5 @@
 <template>
-  <div class="reportResponse">
+  <div v-if="loggedIn" class="reportResponse">
     <div>
       <a-tooltip class="boxy" v-if="reportStatus">
         Approval Status:
@@ -63,6 +63,9 @@ export default {
     await this.reload();
   },
   computed: {
+    loggedIn() {
+      return !!cldrStatus.getSurveyUser();
+    },
     reportName() {
       return cldrReport.reportName(this.report);
     },

@@ -52,17 +52,15 @@
 
     <section class="snapSection">
       <h2 class="snapHeading">Report Status</h2>
+      <a-spin size="small" v-if="reportLoad && !reports" />
       <button @click="fetchReports">Load</button>
       <button @click="downloadReports">Download</button>
       <table class="reportTable" v-if="reports">
         <thead>
           <tr>
             <th>Locale</th>
+            <th v-for="type of reports.types" :key="type">{{ humanizeReport(type) }}</th>
             <th>Overall</th>
-            <!--
-              for per-report breakdown
-              <th v-for="type of reports.types" :key="type">{{ humanizeReport(type) }}</th>
-            -->
           </tr>
         </thead>
         <tbody>
@@ -71,7 +69,12 @@
             :key="locale"
           >
             <td>
-              <code>{{ locale }}—{{ humanizeLocale(locale) }}</code>
+              <a class="locale" :href="linkToLocale(locale)">{{ locale }}—{{ humanizeLocale(locale) }}</a>
+            </td>
+            <td :title="humanizeReport(type)" v-for="type of reports.types" :key="type">
+                <div class="d-dr-status statuscell" :class="'d-dr-' + reports.byLocale[locale].byReport[type].status">&nbsp;</div>
+                {{ reports.byLocale[locale].byReport[type].status }}:
+                {{ reports.byLocale[locale].byReport[type].acceptability }}
             </td>
             <td>
               <span
@@ -117,9 +120,9 @@ export default {
       status: null,
       whenReceived: null,
       reports: null,
+      reportLoad: false,
     };
   },
-
   created() {
     cldrPriorityItems.viewCreated(this.setData, this.setSnapshots);
     this.canUseSummary = cldrPriorityItems.canUseSummary();
@@ -219,6 +222,7 @@ export default {
     },
 
     async fetchReports() {
+      this.reportLoad = true;
       this.reports = await cldrReport.fetchAllReports();
     },
 
@@ -228,6 +232,10 @@ export default {
 
     humanizeLocale(locale) {
       return cldrLoad.getLocaleName(locale);
+    },
+
+    linkToLocale(locale) {
+      return cldrLoad.linkToLocale(locale);
     },
 
     /**
@@ -297,5 +305,10 @@ button {
   border-right: 1px solid gray;
   padding-right: 0.5em;
   display: table-cell;
+}
+
+.locale {
+  background-color: beige;
+  padding: 0.25em;
 }
 </style>

@@ -86,7 +86,7 @@ public class CheckPlaceHolders extends CheckCLDR {
                 checkInitialPattern(this, path, value, result);
                 break;// skip to rest of handleCheck
             case "foreignSpaceReplacement":
-                checkForeignSpaceReplacement(this, path, value, result);
+                checkForeignSpaceReplacement(this, value, result);
                 return this;
             case "nameOrderLocales":
                 checkNameOrder(this, path, value, result);
@@ -242,6 +242,8 @@ public class CheckPlaceHolders extends CheckCLDR {
         }
     }
 
+    static final ImmutableSet<Object> givenFirstSortingLocales = ImmutableSet.of("is"); // TODO should be data-driven
+
     /**
      * Verify the that personName patterns are clean.
      * @param path TODO
@@ -394,7 +396,6 @@ public class CheckPlaceHolders extends CheckCLDR {
 
             // Handle 'sorting' value. Will usually be compatible with surnameFirst in foundOrder, except for known exceptions
 
-            ImmutableSet<Object> givenFirstSortingLocales = ImmutableSet.of("is"); // will be static
             if (order.contains(Order.sorting)) {
                 EnumSet<Order> temp = EnumSet.noneOf(Order.class);
                 temp.addAll(order);
@@ -524,27 +525,39 @@ public class CheckPlaceHolders extends CheckCLDR {
     }
 
     /**
-     * Check that both don't have the same literals.
+     * Check that both patterns don't have the same literals.
      */
     public static void checkInitialPattern(CheckAccessor checkAccessor, String path, String value, List<CheckStatus> result) {
         if (path.contains("initialSequence")) {
-            String otherPath = path.replace("initialSequence", "initial");
-            String otherValue = checkAccessor.getUnresolvedStringValue(otherPath);
-            if (otherValue != null) {
-                String literals = otherValue.replace("{0}", "");
-                if (!literals.isBlank() && value.contains(literals)) {
-                    result.add(new CheckStatus().setCause(checkAccessor)
-                        .setMainType(CheckStatus.errorType)
-                        .setSubtype(Subtype.namePlaceholderProblem)
-                        .setMessage("The initialSequence pattern must not contain initial pattern literals: «" + literals + "»"));
+            String valueLiterals = value.replace("{0}", "").replace("{1}", "");
+            if (!valueLiterals.isBlank()) {
+                String otherPath = path.replace("initialSequence", "initial");
+                String otherValue = checkAccessor.getStringValue(otherPath);
+                if (otherValue != null) {
+                    String literals = otherValue.replace("{0}", "");
+                    if (!literals.isBlank() && value.contains(literals)) {
+                        result.add(new CheckStatus().setCause(checkAccessor)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.namePlaceholderProblem)
+                            .setMessage("The initialSequence pattern must not contain initial pattern literals: «" + literals + "»"));
+                        return;
+                    }
                 }
+                result.add(new CheckStatus().setCause(checkAccessor)
+                    .setMainType(CheckStatus.warningType)
+                    .setSubtype(Subtype.namePlaceholderProblem)
+                    .setMessage("Non-space characters are discouraged in the initialSequence pattern: «" + valueLiterals.replace(" ", "") + "»"));
             }
         }
+        // no current check for the type="initial"
     }
 
     static final UnicodeSet allowedForeignSpaceReplacements = new UnicodeSet("[[:whitespace:][:punctuation:]]");
 
-    public static void checkForeignSpaceReplacement(CheckAccessor checkAccessor, String path, String value, List<CheckStatus> result) {
+    /**
+     * Check that the value is limited to punctuation or space, or inherits
+     */
+    public static void checkForeignSpaceReplacement(CheckAccessor checkAccessor, String value, List<CheckStatus> result) {
         if (!allowedForeignSpaceReplacements.containsAll(value) && !value.equals("↑↑↑")) {
             result.add(new CheckStatus().setCause(checkAccessor)
                 .setMainType(CheckStatus.errorType)
@@ -566,6 +579,8 @@ public class CheckPlaceHolders extends CheckCLDR {
                 break;
             case prefix:
                 adjustedModifiers = Sets.union(adjustedModifiers, SINGLE_PREFIX);
+                break;
+            default:
                 break;
             }
         }

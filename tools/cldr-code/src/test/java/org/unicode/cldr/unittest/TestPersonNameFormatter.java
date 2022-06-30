@@ -760,11 +760,12 @@ public class TestPersonNameFormatter extends TestFmwk{
     public void TestCheckInitials() {
         List<CheckStatus> results = new ArrayList<>();
         String[][] tests = {
-            // value, expected-error
+            // initial, initialSequence, expected-error due to conflict between them
             {"{0}.", "{0}.{1}.", "Error: The initialSequence pattern must not contain initial pattern literals: «.»"},
             {"{0}:", "{0}.{1}:", "Error: The initialSequence pattern must not contain initial pattern literals: «:»"},
-            {"{0}:", "{0}.{1}.", ""},
+            {"{0}:", "{0}.{1}.", "Warning: Non-space characters are discouraged in the initialSequence pattern: «..»"},
             {"{0}", "{0} {1}", ""},
+            {"{0}", "{0}{1}", ""},
         };
         int i = 0;
         for (String[] row : tests) {
@@ -800,7 +801,7 @@ public class TestPersonNameFormatter extends TestFmwk{
             String value = row[0];
             String expectedErrors = row[1];
             results.clear();
-            CheckPlaceHolders.checkForeignSpaceReplacement(stub, "somePath", value, results);
+            CheckPlaceHolders.checkForeignSpaceReplacement(stub, value, results);
             assertEquals(i + ") Matching error returns", expectedErrors, joinCheckStatus(results));
         }
     }

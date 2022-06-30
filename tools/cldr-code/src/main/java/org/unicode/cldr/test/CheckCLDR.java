@@ -67,7 +67,7 @@ import com.ibm.icu.util.ICUUncheckedIOException;
  *
  * @author davis
  */
-abstract public class CheckCLDR {
+abstract public class CheckCLDR implements CheckAccessor {
 
     public static final boolean LIMITED_SUBMISSION = false; // TODO represent differently
 
@@ -79,6 +79,24 @@ abstract public class CheckCLDR {
     private boolean skipTest = false;
     private Phase phase;
     private Map<Subtype, List<Pattern>> filtersForLocale = new HashMap<>();
+
+    @Override
+    public String getStringValue(String path) {
+        return getCldrFileToCheck().getStringValue(path);
+    }
+    @Override
+    public String getUnresolvedStringValue(String path) {
+        return getCldrFileToCheck().getUnresolved().getStringValue(path);
+    }
+    @Override
+    public String getLocaleID() {
+        return getCldrFileToCheck().getLocaleID();
+    }
+    @Override
+    public CheckCLDR getCause() {
+        return this;
+    }
+
 
     public enum InputMethod {
         DIRECT, BULK
@@ -735,7 +753,7 @@ abstract public class CheckCLDR {
             inheritanceMarkerNotAllowed, invalidDurationUnitPattern, invalidDelimiter, illegalCharactersInPattern,
             badParseLenient, tooManyValues, invalidSymbol, invalidGenderCode,
             mismatchedUnitComponent, longPowerWithSubscripts, gapsInPlaceholderNumbers, duplicatePlaceholders, largerDifferences,
-            missingNonAltPath, badSamplePersonName, missingLanguage
+            missingNonAltPath, badSamplePersonName, missingLanguage, namePlaceholderProblem
             ;
 
             @Override
@@ -773,7 +791,7 @@ abstract public class CheckCLDR {
         private Subtype subtype = Subtype.none;
         private String messageFormat;
         private Object[] parameters;
-        private CheckCLDR cause;
+        private CheckAccessor cause;
         private boolean checkOnSubmit = true;
 
         public CheckStatus() {
@@ -899,10 +917,10 @@ abstract public class CheckCLDR {
         }
 
         public CheckCLDR getCause() {
-            return cause;
+            return cause instanceof CheckCLDR ? (CheckCLDR) cause : null;
         }
 
-        public CheckStatus setCause(CheckCLDR cause) {
+        public CheckStatus setCause(CheckAccessor cause) {
             this.cause = cause;
             return this;
         }

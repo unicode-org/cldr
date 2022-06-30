@@ -782,6 +782,23 @@ public class PersonNameFormatter {
             return result;
         }
 
+        /**
+         * Get the number of elements (literals and modified fields) in the pattern.
+         */
+        public int getElementCount() {
+            return elements.size();
+        }
+
+        /**
+         * Get the nth literal (or null if the nth element is a field)
+         */
+        public String getLiteral(int index) {
+            return elements.get(index).literal;
+        }
+
+        /**
+         * Get the nth modified field (or null if the nth element is a literal)
+         */
         public ModifiedField getModifiedField(int index) {
             return elements.get(index).modifiedField;
         }

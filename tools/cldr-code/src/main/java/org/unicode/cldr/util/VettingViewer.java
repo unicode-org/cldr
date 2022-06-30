@@ -19,6 +19,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
 
+import org.unicode.cldr.test.CheckAccessor;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -228,7 +229,7 @@ public class VettingViewer<T> {
             String fullPath = cldrFile.getFullXPath(path);
             checkCldr.check(path, fullPath, value, new CheckCLDR.Options(options), result);
             for (CheckStatus checkStatus : result) {
-                final CheckCLDR cause = checkStatus.getCause();
+                final CheckAccessor cause = checkStatus.getCause();
                 /*
                  * CheckCoverage will be shown under Missing, not under Warnings; and
                  * CheckNew will be shown under New, not under Warnings; so skip them here.

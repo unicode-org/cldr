@@ -81,9 +81,10 @@ public class CheckPlaceHolders extends CheckCLDR {
             XPathParts parts = XPathParts.getFrozenInstance(path);
             switch(parts.getElement(2)) {
             default:
-                // eg //ldml/personNames/initialPattern[@type="initial"]
-                // skip to rest of handleCheck
-                break;
+                break;// skip to rest of handleCheck
+            case "initialPattern":
+                checkInitialPattern(this, path, value, result);
+                break;// skip to rest of handleCheck
             case "foreignSpaceReplacement":
                 checkForeignSpaceReplacement(this, path, value, result);
                 return this;
@@ -94,80 +95,38 @@ public class CheckPlaceHolders extends CheckCLDR {
                 checkSampleNames(this, parts, value, result);
                 return this;
             case "personName":
-                checkPersonNames(this, parts, value, result);
+                checkPersonNamePatterns(this, path, parts, value, result);
                 return this;
             }
             // done with person names
             // note: depending on the switch value, may fall through
         }
 
-        int startPlaceHolder = 0;
-        int endPlaceHolder;
-        while (startPlaceHolder != -1 && startPlaceHolder < value.length()) {
-            startPlaceHolder = value.indexOf('{', startPlaceHolder + 1);
-            if (startPlaceHolder != -1) {
-                endPlaceHolder = value.indexOf('}', startPlaceHolder + 1);
-                if (endPlaceHolder == -1) {
-                    result.add(new CheckStatus().setCause(this)
+        checkBasicPlaceholders(value, result);
+        checkListPatterns(path, value, result);
+        return this;
+    }
+
+
+    /**
+     * Check that both don't have the same literals.
+     */
+    public static void checkInitialPattern(CheckAccessor checkAccessor, String path, String value, List<CheckStatus> result) {
+        if (path.contains("initialSequence")) {
+            String otherPath = path.replace("initialSequence", "initial");
+            String otherValue = checkAccessor.getUnresolvedStringValue(otherPath);
+            if (otherValue != null) {
+                String literals = otherValue.replace("{0}", "");
+                if (!literals.isBlank() && value.contains(literals)) {
+                    result.add(new CheckStatus().setCause(checkAccessor)
                         .setMainType(CheckStatus.errorType)
-                        .setSubtype(Subtype.invalidPlaceHolder)
-                        .setMessage("Invalid placeholder (missing terminator) in value \"" + value + "\""));
-                } else {
-                    String placeHolderString = value.substring(startPlaceHolder + 1, endPlaceHolder);
-                    Matcher matcher = PLACEHOLDER_PATTERN.matcher(placeHolderString);
-                    if (!matcher.matches()) {
-                        result.add(new CheckStatus().setCause(this)
-                            .setMainType(CheckStatus.errorType)
-                            .setSubtype(Subtype.invalidPlaceHolder)
-                            .setMessage("Invalid placeholder (contents \"" + placeHolderString + "\") in value \"" + value + "\""));
-                    }
-                    startPlaceHolder = endPlaceHolder;
+                        .setSubtype(Subtype.namePlaceholderProblem)
+                        .setMessage("The initialSequence pattern must not contain initial pattern literals: «" + literals + "»"));
                 }
             }
         }
-        // eg
-        //ldml/listPatterns/listPattern/listPatternPart[@type="start"]
-        //ldml/listPatterns/listPattern[@type="standard-short"]/listPatternPart[@type="2"]
-        if (path.startsWith("//ldml/listPatterns/listPattern")) {
-            XPathParts parts = XPathParts.getFrozenInstance(path);
-            // check order, {0} must be before {1}
-
-            switch(parts.getAttributeValue(-1, "type")) {
-            case "start":
-                checkNothingAfter1(value, result);
-                break;
-            case "middle":
-                checkNothingBefore0(value, result);
-                checkNothingAfter1(value, result);
-                break;
-            case "end":
-                checkNothingBefore0(value, result);
-                break;
-            case "2": {
-                int pos1 = value.indexOf("{0}");
-                int pos2 = value.indexOf("{1}");
-                if (pos1 > pos2) {
-                    result.add(new CheckStatus().setCause(this)
-                        .setMainType(CheckStatus.errorType)
-                        .setSubtype(Subtype.invalidPlaceHolder)
-                        .setMessage("Invalid list pattern «" + value + "»: the placeholder {0} must be before {1}."));
-                }}
-            break;
-            case "3": {
-                int pos1 = value.indexOf("{0}");
-                int pos2 = value.indexOf("{1}");
-                int pos3 = value.indexOf("{2}");
-                if (pos1 > pos2 || pos2 > pos3) {
-                    result.add(new CheckStatus().setCause(this)
-                        .setMainType(CheckStatus.errorType)
-                        .setSubtype(Subtype.invalidPlaceHolder)
-                        .setMessage("Invalid list pattern «" + value + "»: the placeholders {0}, {1}, {2} must appear in that order."));
-                }}
-            break;
-            }
-        }
-        return this;
     }
+
 
     static final UnicodeSet allowedForeignSpaceReplacements = new UnicodeSet("[[:whitespace:][:punctuation:]]");
 
@@ -291,7 +250,7 @@ public class CheckPlaceHolders extends CheckCLDR {
             result.add(new CheckStatus().setCause(checkAccessor)
                 .setMainType(CheckStatus.errorType)
                 .setSubtype(Subtype.invalidPlaceHolder)
-                .setMessage("Illegal name, zxx is only appropriate for NameOrder locales"));
+                .setMessage("Illegal name field; zxx is only appropriate for NameOrder locales"));
         } else { // real value
             // special checks for prefix/core
             final boolean hasPrefix = modifiers.contains(Modifier.prefix);
@@ -314,12 +273,11 @@ public class CheckPlaceHolders extends CheckCLDR {
         }
     }
 
-    static final Set<Field> MONOGRAM_USAGE_FIELDS = ImmutableSet.of(Field.given, Field.given2, Field.surname, Field.surname2);
-
     /**
      * Verify the that personName patterns are clean.
+     * @param path TODO
      */
-    private static void checkPersonNames(CheckAccessor checkAccessor, XPathParts pathParts, String value, List<CheckStatus> result) {
+    public static void checkPersonNamePatterns(CheckAccessor checkAccessor, String path, XPathParts pathParts, String value, List<CheckStatus> result) {
         //ldml/personNames/personName[@order="sorting"][@length="long"][@usage="addressing"][@style="formal"]/namePattern
 
         // check that the name pattern is valid
@@ -354,36 +312,56 @@ public class CheckPlaceHolders extends CheckCLDR {
                 if (literal.contains(".")) {
                     if (lastModifiedField != null) {
                         Set<Modifier> lastModifiers = lastModifiedField.getModifiers();
-                        if (!lastModifiers.contains(Modifier.initial) && !lastModifiers.contains(Modifier.initialCap)) {
+                        if (lastModifiers.contains(Modifier.initial) && lastModifiers.contains(Modifier.initialCap)) {
                             result.add(new CheckStatus().setCause(checkAccessor)
                                 .setMainType(CheckStatus.warningType)
-                                .setSubtype(Subtype.possiblePlaceholderProblem)
-                                .setMessage("Period after an -initial or -initialCap placeholder in " + lastModifiedField));
+                                .setSubtype(Subtype.namePlaceholderProblem)
+                                .setMessage("“.” is strongly discouraged after an -initial or -initialCap placeholder in {" + lastModifiedField + "}"));
+                            continue;
                         }
                     }
                     if (usageIsMonogram) {
                         result.add(new CheckStatus().setCause(checkAccessor)
-                            .setMainType(CheckStatus.errorType)
-                            .setSubtype(Subtype.possiblePlaceholderProblem)
-                            .setMessage("usage=monogram has “.” literal in " + namePattern));
+                            .setMainType(CheckStatus.warningType)
+                            .setSubtype(Subtype.namePlaceholderProblem)
+                            .setMessage("“.” is discouraged when usage=monogram, in " + namePattern));
                     }
                 }
             } else {
                 lastModifiedField = modifiedField;
                 Set<Modifier> modifiers = modifiedField.getModifiers();
-                if (usageIsMonogram) {
-                    Field field = modifiedField.getField();
-                    if (!MONOGRAM_USAGE_FIELDS.contains(field)) {
+                Field field = modifiedField.getField();
+                switch (field) {
+                case prefix: case suffix:
+                    if (usageIsMonogram) {
                         result.add(new CheckStatus().setCause(checkAccessor)
                             .setMainType(CheckStatus.errorType)
                             .setSubtype(Subtype.invalidPlaceHolder)
-                            .setMessage("usage=monogram disallows: {" + field + "…}"));
+                            .setMessage("Disallowed when usage=monogram: {" + field + "…}"));
                     }
-                    if(!modifiers.contains(Modifier.monogram)) {
-                        result.add(new CheckStatus().setCause(checkAccessor)
-                            .setMainType(CheckStatus.errorType)
-                            .setSubtype(Subtype.invalidPlaceHolder)
-                            .setMessage("usage=monogram requires: -monogram in " + modifiedField));
+                    break;
+                default:
+                    final boolean monogramModifier = modifiers.contains(Modifier.monogram);
+                    final boolean allCapsModifier = modifiers.contains(Modifier.allCaps);
+                    if (!usageIsMonogram) {
+                        if (monogramModifier) {
+                            result.add(new CheckStatus().setCause(checkAccessor)
+                                .setMainType(CheckStatus.warningType)
+                                .setSubtype(Subtype.invalidPlaceHolder)
+                                .setMessage("-monogram is strongly discouraged when usage≠monogram, in {" + modifiedField + "}"));
+                        }
+                    } else if (usageIsMonogram) {
+                        if (!monogramModifier) {
+                            result.add(new CheckStatus().setCause(checkAccessor)
+                                .setMainType(CheckStatus.errorType)
+                                .setSubtype(Subtype.invalidPlaceHolder)
+                                .setMessage("-monogram is required when usage=monogram, in {" + modifiedField + "}"));
+                        } else if (!allCapsModifier) {
+                            result.add(new CheckStatus().setCause(checkAccessor)
+                                .setMainType(CheckStatus.warningType)
+                                .setSubtype(Subtype.invalidPlaceHolder)
+                                .setMessage("-allCaps is strongly encouraged with -monogram, in {" + modifiedField + "}"));
+                        }
                     }
                 }
             }
@@ -437,8 +415,10 @@ public class CheckPlaceHolders extends CheckCLDR {
         }
 
         // the rest of the tests are of the pattern, and only apply when we have both given and surname
+        // and not inheriting
 
-        if (firstGiven < Integer.MAX_VALUE && firstSurname < Integer.MAX_VALUE) {
+        if (firstGiven < Integer.MAX_VALUE && firstSurname < Integer.MAX_VALUE
+            && checkAccessor.getUnresolvedStringValue(path) != null) {
 
             Set<Order> order = parameterMatcher.getOrder();
 
@@ -465,7 +445,7 @@ public class CheckPlaceHolders extends CheckCLDR {
             // check that we don't have a difference in the order AND there is a surname or surname2
             // that is, it is ok to coalesce patterns of different orders where the order doesn't make a difference
 
-            if (true) { // TODO: clean up to avoid block
+            { // TODO: clean up to avoid block
 
                 if(order.contains(Order.givenFirst)
                     && order.contains(Order.surnameFirst)
@@ -495,6 +475,85 @@ public class CheckPlaceHolders extends CheckCLDR {
             }
         }
     }
+
+    /**
+     * Check that {\d+} placeholders are ok; no unterminated, only digits
+     */
+    private void checkBasicPlaceholders(String value, List<CheckStatus> result) {
+        int startPlaceHolder = 0;
+        int endPlaceHolder;
+        while (startPlaceHolder != -1 && startPlaceHolder < value.length()) {
+            startPlaceHolder = value.indexOf('{', startPlaceHolder + 1);
+            if (startPlaceHolder != -1) {
+                endPlaceHolder = value.indexOf('}', startPlaceHolder + 1);
+                if (endPlaceHolder == -1) {
+                    result.add(new CheckStatus().setCause(this)
+                        .setMainType(CheckStatus.errorType)
+                        .setSubtype(Subtype.invalidPlaceHolder)
+                        .setMessage("Invalid placeholder (missing terminator) in value \"" + value + "\""));
+                } else {
+                    String placeHolderString = value.substring(startPlaceHolder + 1, endPlaceHolder);
+                    Matcher matcher = PLACEHOLDER_PATTERN.matcher(placeHolderString);
+                    if (!matcher.matches()) {
+                        result.add(new CheckStatus().setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.invalidPlaceHolder)
+                            .setMessage("Invalid placeholder (contents \"" + placeHolderString + "\") in value \"" + value + "\""));
+                    }
+                    startPlaceHolder = endPlaceHolder;
+                }
+            }
+        }
+    }
+
+    /**
+     * Check that list patterns are "ordered" so that they only compose from the right.
+     */
+
+    private void checkListPatterns(String path, String value, List<CheckStatus> result) {
+        // eg
+        //ldml/listPatterns/listPattern/listPatternPart[@type="start"]
+        //ldml/listPatterns/listPattern[@type="standard-short"]/listPatternPart[@type="2"]
+        if (path.startsWith("//ldml/listPatterns/listPattern")) {
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            // check order, {0} must be before {1}
+
+            switch(parts.getAttributeValue(-1, "type")) {
+            case "start":
+                checkNothingAfter1(value, result);
+                break;
+            case "middle":
+                checkNothingBefore0(value, result);
+                checkNothingAfter1(value, result);
+                break;
+            case "end":
+                checkNothingBefore0(value, result);
+                break;
+            case "2": {
+                int pos1 = value.indexOf("{0}");
+                int pos2 = value.indexOf("{1}");
+                if (pos1 > pos2) {
+                    result.add(new CheckStatus().setCause(this)
+                        .setMainType(CheckStatus.errorType)
+                        .setSubtype(Subtype.invalidPlaceHolder)
+                        .setMessage("Invalid list pattern «" + value + "»: the placeholder {0} must be before {1}."));
+                }}
+            break;
+            case "3": {
+                int pos1 = value.indexOf("{0}");
+                int pos2 = value.indexOf("{1}");
+                int pos3 = value.indexOf("{2}");
+                if (pos1 > pos2 || pos2 > pos3) {
+                    result.add(new CheckStatus().setCause(this)
+                        .setMainType(CheckStatus.errorType)
+                        .setSubtype(Subtype.invalidPlaceHolder)
+                        .setMessage("Invalid list pattern «" + value + "»: the placeholders {0}, {1}, {2} must appear in that order."));
+                }}
+            break;
+            }
+        }
+    }
+
 
     /**
      * Gets a string value for a modified path

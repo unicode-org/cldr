@@ -753,7 +753,7 @@ abstract public class CheckCLDR implements CheckAccessor {
             inheritanceMarkerNotAllowed, invalidDurationUnitPattern, invalidDelimiter, illegalCharactersInPattern,
             badParseLenient, tooManyValues, invalidSymbol, invalidGenderCode,
             mismatchedUnitComponent, longPowerWithSubscripts, gapsInPlaceholderNumbers, duplicatePlaceholders, largerDifferences,
-            missingNonAltPath, badSamplePersonName, missingLanguage, possiblePlaceholderProblem
+            missingNonAltPath, badSamplePersonName, missingLanguage, namePlaceholderProblem
             ;
 
             @Override

@@ -746,49 +746,80 @@ public class TestPersonNameFormatter extends TestFmwk{
             if (returnValue.length() != 0) {
                 returnValue.append('|');
             }
-            returnValue.append(result.getMessage());
+            returnValue.append(result.getType() + ": " + result.getMessage());
         }
         return returnValue.toString();
     }
 
-    public void TestForeignSpaceReplacement() {
+    final String initialSequencePattern = "//ldml/personNames/initialPattern[@type=\"initialSequence\"]";
+    final String initialPattern = "//ldml/personNames/initialPattern[@type=\"initial\"]";
+
+    /**
+     * Check for overlapping initial patterns
+     * */
+    public void TestCheckInitials() {
         List<CheckStatus> results = new ArrayList<>();
         String[][] tests = {
+            // value, expected-error
+            {"{0}.", "{0}.{1}.", "Error: The initialSequence pattern must not contain initial pattern literals: «.»"},
+            {"{0}:", "{0}.{1}:", "Error: The initialSequence pattern must not contain initial pattern literals: «:»"},
+            {"{0}:", "{0}.{1}.", ""},
+            {"{0}", "{0} {1}", ""},
+        };
+        int i = 0;
+        for (String[] row : tests) {
+            ++i;
+            String initial = row[0];
+            String initialSequence = row[1];
+            String expectedErrors = row[2];
+            CheckAccessorStub stub = new CheckAccessorStub("fr")
+                .put(initialPattern, initial)
+                ;
+
+            results.clear();
+            CheckPlaceHolders.checkInitialPattern(stub, initialSequencePattern, initialSequence, results);
+            assertEquals(i + ") Matching error returns", expectedErrors, joinCheckStatus(results));
+        }
+    }
+
+    public void TestCheckForeignSpaceReplacement() {
+        List<CheckStatus> results = new ArrayList<>();
+        String[][] tests = {
+            // value, expected-error
             {" ", ""},
             {"・", ""},
             {"·", ""},
             {"↑↑↑", ""},
-            {"∅∅∅", "Invalid choice, must be punctuation or a space: «∅∅∅»"},
-            {"ofifo", "Invalid choice, must be punctuation or a space: «ofifo»"},
+            {"∅∅∅", "Error: Invalid choice, must be punctuation or a space: «∅∅∅»"},
+            {"ofifo", "Error: Invalid choice, must be punctuation or a space: «ofifo»"},
         };
         CheckAccessorStub stub = new CheckAccessorStub("fr"); // we don't depend on any values
-
+        int i = 0;
         for (String[] row : tests) {
+            ++i;
             String value = row[0];
             String expectedErrors = row[1];
             results.clear();
             CheckPlaceHolders.checkForeignSpaceReplacement(stub, "somePath", value, results);
-            String result = joinCheckStatus(results);
-            assertEquals("Matching error returns", expectedErrors, result);
+            assertEquals(i + ") Matching error returns", expectedErrors, joinCheckStatus(results));
         }
     }
 
     final String givenFirstPath = "//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]";
     final String surnameFirstPath = "//ldml/personNames/nameOrderLocales[@order=\"surnameFirst\"]";
-    final String sampleNamePath = "//ldml/personNames/sampleName[@item=\"full\"]/nameField[@type=\"given\"]";
 
-    public void TestNameOrderLocales() {
+    public void TestCheckNameOrderLocales() {
         String[][] tests = {
             // givenFirst-locales, surnameFirst-locales, givenFirstValueErrors, surnameFirstValueErrors
-            {"und fr", "fr", "Locale codes can occur only once: fr", "Locale codes can occur only once: fr"},
-            {"und zzz", "fr", "Invalid locales: zzz", ""},
-            {"und $", "fr", "Invalid locales: $", ""},
+            {"und fr", "fr", "Error: Locale codes can occur only once: fr", "Error: Locale codes can occur only once: fr"},
+            {"und zzz", "fr", "Error: Invalid locales: zzz", ""},
+            {"und $", "fr", "Error: Invalid locales: $", ""},
             {"und fr", "", "", ""},
         };
         List<CheckStatus> results = new ArrayList<>();
-        String result;
-
+        int i = 0;
         for (String[] row : tests) {
+            ++i;
             String givenFirst = row[0];
             String surnameFirst = row[1];
             String expectedGivenErrors = row[2];
@@ -799,27 +830,27 @@ public class TestPersonNameFormatter extends TestFmwk{
                 ;
             results.clear();
             CheckPlaceHolders.checkNameOrder(stub, givenFirstPath, givenFirst, results);
-            result = joinCheckStatus(results);
-            assertEquals("Matching error returns", expectedGivenErrors, result);
+            assertEquals(i + ") Matching error returns", expectedGivenErrors, joinCheckStatus(results));
 
             results.clear();
             CheckPlaceHolders.checkNameOrder(stub, surnameFirstPath, surnameFirst, results);
-            result = joinCheckStatus(results);
-            assertEquals("Matching error returns", expectedSurnameErrors, result);
+            assertEquals(i + ") Matching error returns", expectedSurnameErrors, joinCheckStatus(results));
         }
     }
 
-    public void TestSampleNames() {
+    final String sampleNamePath = "//ldml/personNames/sampleName[@item=\"full\"]/nameField[@type=\"given\"]";
+
+    public void TestCheckSampleNames() {
         String[][] tests = {
             // sample-name-component, error
-            {"zxx", "Illegal name, zxx is only appropriate for NameOrder locales"},
+            {"zxx", "Error: Illegal name field; zxx is only appropriate for NameOrder locales"},
             {"Fred", ""},
         };
         List<CheckStatus> results = new ArrayList<>();
-        String result;
         XPathParts parts = XPathParts.getFrozenInstance(sampleNamePath);
-
+        int i = 0;
         for (String[] row : tests) {
+            ++i;
             String sampleNameComponent = row[0];
             String expectedErrors = row[1];
             CheckAccessorStub stub = new CheckAccessorStub("fr")
@@ -827,9 +858,60 @@ public class TestPersonNameFormatter extends TestFmwk{
                 ;
             results.clear();
             CheckPlaceHolders.checkSampleNames(stub, parts, sampleNameComponent, results);
-            result = joinCheckStatus(results);
-            assertEquals("Matching error returns", expectedErrors, result);
+            assertEquals(i + ") Matching error returns", expectedErrors, joinCheckStatus(results));
         }
     }
 
+    final String sampleMonogramPath = "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"monogram\"][@formality=\"formal\"]/namePattern";
+    final String sampleNonMonogramPath = "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"short\"][@usage=\"referring\"][@formality=\"informal\"]/namePattern";
+
+    public void TestCheckPatterns() {
+        String[][] tests = {
+            // sample-pattern, errorWhenMonogram, errorWhenNonMonogram
+            {"{prefix} {given-monogram-allCaps}",
+                "Error: Disallowed when usage=monogram: {prefix…}",
+                "Warning: -monogram is strongly discouraged when usage≠monogram, in {given-allCaps-monogram}"
+            },
+            {"{given-informal-initial}.",
+                "Error: -monogram is required when usage=monogram, in {given-informal-initial}|Warning: “.” is discouraged when usage=monogram, in \"{given-informal-initial}.\"",
+                ""
+            },
+            {"{surname-monogram}",
+                "Warning: -allCaps is strongly encouraged with -monogram, in {surname-monogram}",
+                "Warning: -monogram is strongly discouraged when usage≠monogram, in {surname-monogram}"
+            },
+            {"{surname-core-monogram-allCaps}",
+                "",
+                "Warning: -monogram is strongly discouraged when usage≠monogram, in {surname-allCaps-monogram-core}"
+            },
+            {"{surname-core-monogram}",
+                "Warning: -allCaps is strongly encouraged with -monogram, in {surname-monogram-core}",
+                "Warning: -monogram is strongly discouraged when usage≠monogram, in {surname-monogram-core}"
+            },
+            {"{given}.{surname}",
+                "Error: -monogram is required when usage=monogram, in {given}|Warning: “.” is discouraged when usage=monogram, in \"{given}.{surname}\"|Error: -monogram is required when usage=monogram, in {surname}",
+                ""
+            },
+        };
+        List<CheckStatus> results = new ArrayList<>();
+        XPathParts monogramPathParts = XPathParts.getFrozenInstance(sampleMonogramPath);
+        XPathParts nonMonogramPathParts = XPathParts.getFrozenInstance(sampleNonMonogramPath);
+        int i = 0;
+        for (String[] row : tests) {
+            ++i;
+            String samplePattern = row[0];
+            String expectedMonogramErrors = row[1];
+            String expectedNonMonogramErrors = row.length < 3 ? row[1] : row[2];
+            CheckAccessorStub stub = new CheckAccessorStub("fr")
+                .put(sampleMonogramPath, samplePattern)
+                .put(sampleNonMonogramPath, samplePattern)
+                ;
+            results.clear();
+            CheckPlaceHolders.checkPersonNamePatterns(stub, sampleMonogramPath, monogramPathParts, samplePattern, results);
+            assertEquals(i + ") monogram, " + samplePattern, expectedMonogramErrors, joinCheckStatus(results));
+            results.clear();
+            CheckPlaceHolders.checkPersonNamePatterns(stub, sampleNonMonogramPath, nonMonogramPathParts, samplePattern, results);
+            assertEquals(i + ") non-monogram, " + samplePattern, expectedNonMonogramErrors, joinCheckStatus(results));
+        }
+    }
 }

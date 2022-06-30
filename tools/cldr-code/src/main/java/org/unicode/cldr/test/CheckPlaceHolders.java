@@ -109,37 +109,6 @@ public class CheckPlaceHolders extends CheckCLDR {
 
 
     /**
-     * Check that both don't have the same literals.
-     */
-    public static void checkInitialPattern(CheckAccessor checkAccessor, String path, String value, List<CheckStatus> result) {
-        if (path.contains("initialSequence")) {
-            String otherPath = path.replace("initialSequence", "initial");
-            String otherValue = checkAccessor.getUnresolvedStringValue(otherPath);
-            if (otherValue != null) {
-                String literals = otherValue.replace("{0}", "");
-                if (!literals.isBlank() && value.contains(literals)) {
-                    result.add(new CheckStatus().setCause(checkAccessor)
-                        .setMainType(CheckStatus.errorType)
-                        .setSubtype(Subtype.namePlaceholderProblem)
-                        .setMessage("The initialSequence pattern must not contain initial pattern literals: «" + literals + "»"));
-                }
-            }
-        }
-    }
-
-
-    static final UnicodeSet allowedForeignSpaceReplacements = new UnicodeSet("[[:whitespace:][:punctuation:]]");
-
-    public static void checkForeignSpaceReplacement(CheckAccessor checkAccessor, String path, String value, List<CheckStatus> result) {
-        if (!allowedForeignSpaceReplacements.containsAll(value) && !value.equals("↑↑↑")) {
-            result.add(new CheckStatus().setCause(checkAccessor)
-                .setMainType(CheckStatus.errorType)
-                .setSubtype(Subtype.invalidLocale)
-                .setMessage("Invalid choice, must be punctuation or a space: «" + value + "»"));
-        }
-    }
-
-    /**
      * Verify the that nameOrder items are clean.
      */
     public static void checkNameOrder(CheckAccessor checkAccessor, String path, String value, List<CheckStatus> result) {
@@ -551,6 +520,36 @@ public class CheckPlaceHolders extends CheckCLDR {
                 }}
             break;
             }
+        }
+    }
+
+    /**
+     * Check that both don't have the same literals.
+     */
+    public static void checkInitialPattern(CheckAccessor checkAccessor, String path, String value, List<CheckStatus> result) {
+        if (path.contains("initialSequence")) {
+            String otherPath = path.replace("initialSequence", "initial");
+            String otherValue = checkAccessor.getUnresolvedStringValue(otherPath);
+            if (otherValue != null) {
+                String literals = otherValue.replace("{0}", "");
+                if (!literals.isBlank() && value.contains(literals)) {
+                    result.add(new CheckStatus().setCause(checkAccessor)
+                        .setMainType(CheckStatus.errorType)
+                        .setSubtype(Subtype.namePlaceholderProblem)
+                        .setMessage("The initialSequence pattern must not contain initial pattern literals: «" + literals + "»"));
+                }
+            }
+        }
+    }
+
+    static final UnicodeSet allowedForeignSpaceReplacements = new UnicodeSet("[[:whitespace:][:punctuation:]]");
+
+    public static void checkForeignSpaceReplacement(CheckAccessor checkAccessor, String path, String value, List<CheckStatus> result) {
+        if (!allowedForeignSpaceReplacements.containsAll(value) && !value.equals("↑↑↑")) {
+            result.add(new CheckStatus().setCause(checkAccessor)
+                .setMainType(CheckStatus.errorType)
+                .setSubtype(Subtype.invalidLocale)
+                .setMessage("Invalid choice, must be punctuation or a space: «" + value + "»"));
         }
     }
 

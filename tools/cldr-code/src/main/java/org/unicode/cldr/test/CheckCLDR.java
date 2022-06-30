@@ -916,8 +916,8 @@ abstract public class CheckCLDR implements CheckAccessor {
             return null;
         }
 
-        public CheckAccessor getCause() {
-            return cause;
+        public CheckCLDR getCause() {
+            return cause instanceof CheckCLDR ? (CheckCLDR) cause : null;
         }
 
         public CheckStatus setCause(CheckAccessor cause) {

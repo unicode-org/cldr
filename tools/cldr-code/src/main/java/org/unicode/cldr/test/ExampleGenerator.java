@@ -441,7 +441,7 @@ public class ExampleGenerator {
             result = handleDayPeriod(parts, value);
         } else if (parts.contains("pattern") || parts.contains("dateFormatItem")) {
             if (parts.contains("calendar")) {
-                result = handleDateFormatItem(xpath, value);
+                result = handleDateFormatItem(xpath, value, showContexts);
             } else if (parts.contains("miscPatterns")) {
                 result = handleMiscPatterns(parts, value);
             } else if (parts.contains("numbers")) {
@@ -1767,13 +1767,14 @@ public class ExampleGenerator {
     }
 
     @SuppressWarnings("deprecation")
-    private String handleDateFormatItem(String xpath, String value) {
+    private String handleDateFormatItem(String xpath, String value, boolean showContexts) {
+        // Get here if parts contains "calendar" and either of "pattern", "dateFormatItem"
 
         String fullpath = cldrFile.getFullXPath(xpath);
         XPathParts parts = XPathParts.getFrozenInstance(fullpath);
         String calendar = parts.findAttributeValue("calendar", "type");
 
-        if (parts.contains("dateTimeFormat")) {
+        if (parts.contains("dateTimeFormat")) { // date-time combining patterns
             String dateFormatXPath = cldrFile.getWinningPath(xpath.replaceAll("dateTimeFormat", "dateFormat").replaceAll("atTime", "standard"));
             String timeFormatXPath = cldrFile.getWinningPath(xpath.replaceAll("dateTimeFormat", "timeFormat").replaceAll("atTime", "standard"));
             String dateFormatValue = cldrFile.getWinningValue(dateFormatXPath);
@@ -1805,7 +1806,16 @@ public class ExampleGenerator {
                 dfs.setTimeSeparatorString(timeSeparator);
                 sdf.setDateFormatSymbols(dfs);
                 if (id == null || id.indexOf('B') < 0) {
-                    return sdf.format(DATE_SAMPLE);
+                    // Standard date/time format, or availableFormat without dayPeriod
+                    if (value.indexOf("MMM") >= 0 || value.indexOf("LLL") >= 0) {
+                        // alpha month, do not need context examples
+                        return sdf.format(DATE_SAMPLE);
+                    } else {
+                        // Use contextExamples if showContexts T
+                        String example = showContexts? exampleStartHeaderSymbol + contextheader + exampleEndSymbol : "";
+                        example = addExampleResult(sdf.format(DATE_SAMPLE), example, showContexts);
+                        return example;
+                    }
                 } else {
                     List<String> examples = new ArrayList<>();
                     examples.add(sdf.format(DATE_SAMPLE3));

@@ -666,6 +666,16 @@ public class TestExampleGenerator extends TestFmwk {
             "【‏❬1,295❭.❬00❭ ₪〗【⃪‏❬1,295❭.❬00❭ ₪〗【‏‎-❬1,295❭.❬00❭ ₪〗【⃪‏‎-❬1,295❭.❬00❭ ₪〗【‏❬1,295❭.❬00❭ ILS〗【⃪‏❬1,295❭.❬00❭ ILS〗【‏‎-❬1,295❭.❬00❭ ILS〗【⃪‏‎-❬1,295❭.❬00❭ ILS〗", actual);
     }
 
+    public void TestDateFormatsWithContext() {
+        ExampleGenerator exampleGenerator = getExampleGenerator("ar");
+        String actual = simplify(exampleGenerator
+            .getExampleHtml(
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"short\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                "d‏/M‏/y"));
+        assertEquals("Currency format example faulty",
+            "【٥‏/٩‏/١٩٩٩〗【⃪٥‏/٩‏/١٩٩٩〗", actual);
+    }
+
     public void TestSymbols() {
         CLDRFile english = info.getEnglish();
         ExampleGenerator exampleGenerator = new ExampleGenerator(english,

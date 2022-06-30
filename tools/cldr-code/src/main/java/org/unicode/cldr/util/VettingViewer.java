@@ -1120,7 +1120,15 @@ public class VettingViewer<T> {
         final int problemCount = lcd.problemCount();
         final int total = localeBaselineCount.getBaselineProblemCount(CLDRLocale.getInstance(localeId));
         final int done = (problemCount >= total) ? 0 : total - problemCount;
-        return CompletionPercent.calculate(done, total) + "%";
+        // return CompletionPercent.calculate(done, total) + "%";
+
+        // Adjust according to https://unicode-org.atlassian.net/browse/CLDR-15785
+        // This is NOT a logical long-term solution
+        int perc = CompletionPercent.calculate(done, total);
+        if (perc == 100 && problemCount > 0) {
+            perc = 99;
+        }
+        return perc + "%";
     }
 
     private void appendNameAndCode(String name, String localeID, Appendable output) throws IOException {

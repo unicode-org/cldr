@@ -198,6 +198,25 @@ function refreshLocaleMeter() {
       currentProblems >= baselineProblems
         ? 0
         : baselineProblems - currentProblems;
+
+    // Adjust according to https://unicode-org.atlassian.net/browse/CLDR-15785
+    // This is NOT a logical long-term solution
+    if (
+      currentProblems > 0 &&
+      friendlyPercent(solvedProblems, baselineProblems) == 100
+    ) {
+      // these numbers are bogus, to arrive at 99%
+      progressWrapper.updateLocaleMeter(
+        new MeterData(
+          cldrText.get("progress_all_vetters"),
+          99,
+          100,
+          localeProgressStats.level
+        )
+      );
+      return;
+    }
+
     progressWrapper.updateLocaleMeter(
       new MeterData(
         cldrText.get("progress_all_vetters"),

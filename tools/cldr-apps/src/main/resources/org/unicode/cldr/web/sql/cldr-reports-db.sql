@@ -9,4 +9,4 @@ CREATE TABLE VOTE_REPORTS (
     last_mod TIMESTAMP
 );
 
-CREATE INDEX VOTE_REPORTS_slr ON VOTE_REPORTS (submitter, locale, report);
+CREATE UNIQUE INDEX VOTE_REPORTS_slr ON VOTE_REPORTS (submitter, locale, report);

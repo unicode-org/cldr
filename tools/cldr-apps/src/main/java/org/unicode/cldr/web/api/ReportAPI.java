@@ -70,7 +70,7 @@ public class ReportAPI {
             UserRegistry.User u = mySession.sm.reg.getInfo(id);
             if (u == null) {
                 return Response.status(Status.NOT_FOUND).build();
-            } else if (!(mySession.user.id == id || !mySession.user.isAdminFor(u))) {
+            } else if (!(mySession.user.id == id || mySession.user.isAdminFor(u))) {
                 return Response.status(Status.FORBIDDEN).build();
             }
         }

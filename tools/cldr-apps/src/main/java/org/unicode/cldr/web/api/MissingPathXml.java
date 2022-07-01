@@ -15,10 +15,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.MissingXmlGetter;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.web.*;
 
 @ApplicationScoped
@@ -60,8 +57,13 @@ public class MissingPathXml {
         // *Beware*  org.unicode.cldr.util.Level (coverage) ≠ VoteResolver.Level (user)
         final Level coverageLevel = org.unicode.cldr.util.Level.fromString(level);
         try {
-            Factory factory = CookieSession.sm.getSTFactory();
-            final String xml = new MissingXmlGetter(loc, factory).getXml(coverageLevel);
+            final Factory factory = CookieSession.sm.getSTFactory();
+            final Factory baselineFactory = CookieSession.sm.getDiskFactory();
+            final VettingViewer.UsersChoice<Organization> usersChoice = new STUsersChoice(CookieSession.sm);
+            final Organization usersOrg = cs.user.vrOrg();
+            final MissingXmlGetter xmlGetter = new MissingXmlGetter(factory, baselineFactory);
+            xmlGetter.setUserInfo(cs.user.id, usersOrg, usersChoice);
+            final String xml = xmlGetter.getXml(loc, coverageLevel);
             return Response.ok().type(MediaType.APPLICATION_XML).entity(xml).build();
         } catch (IOException e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e).build();

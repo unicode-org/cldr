@@ -13,7 +13,6 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader.PageId;
@@ -231,46 +230,11 @@ public class Dashboard {
         EnumSet<NotificationCategory> choiceSet = VettingViewer.getDashboardNotificationCategories(usersOrg);
         VettingParameters args = new VettingParameters(choiceSet, locale, coverageLevel);
         args.setUserAndOrganization(user.id, usersOrg);
-        setFiles(args, locale, sourceFactory);
+        args.setFiles(locale, sourceFactory, sm.getDiskFactory());
         if (xpath != null) {
             args.setXpath(xpath);
         }
         return reallyGet(vv, args);
-    }
-
-    public static void setFiles(VettingParameters args, CLDRLocale locale, STFactory sourceFactory) {
-        /*
-         * sourceFile provides the current winning values, taking into account recent votes.
-         * baselineFile provides the "baseline" (a.k.a. "trunk") values, i.e., the values that
-         * are in the current XML in the cldr version control repository. The baseline values
-         * are generally the last release values plus any changes that have been made by the
-         * technical committee by committing directly to version control rather than voting.
-         */
-        final String localeId = locale.getBaseName();
-        final CLDRFile sourceFile = sourceFactory.make(localeId);
-        final Factory baselineFactory = CookieSession.sm.getDiskFactory();
-        final CLDRFile baselineFile = baselineFactory.make(localeId, true);
-        args.setFiles(sourceFile, baselineFile);
-    }
-
-    /**
-     * Setup to calculate the baseline ('HEAD') error count
-     * @param args
-     * @param locale
-     * @param baselineFactory
-     */
-    public static void setFilesForBaseline(VettingParameters args, CLDRLocale locale, Factory baselineFactory) {
-        final String localeId = locale.getBaseName();
-        final CLDRFile baselineFile = baselineFactory.make(localeId, true);
-        /*
-         * sourceFile must be resolved, otherwise VettingViewer.getMissingStatus is liable
-         * to get a null value and return MissingStatus.ABSENT where a resolved file
-         * could result in a non-null inherited value (such as en_CA inheriting from en)
-         * and MissingStatus.PRESENT. Any such inconsistencies interfere with comparing
-         * the current and baseline stats.
-         */
-        final CLDRFile sourceFile = baselineFactory.make(localeId, true /* resolved */);
-        args.setFiles(sourceFile, baselineFile);
     }
 
     private ReviewOutput reallyGet(VettingViewer<Organization> vv, VettingParameters args) {

@@ -55,8 +55,8 @@ public class ReportsDB extends VoterReportStatus<Integer> implements ReportStatu
         try (
             Connection conn = DBUtils.getInstance().getDBConnection();
             PreparedStatement ps = DBUtils.prepareStatementWithArgsUpdateable(conn,
-                String.format("INSERT INTO %s (submitter, locale, report, completed, acceptable) " +
-                    "VALUES(?,?,?,?,?) ON DUPLICATE KEY UPDATE completed=?,acceptable=?", table),
+                String.format("INSERT INTO %s (submitter, locale, report, completed, acceptable, last_mod) " +
+                    "VALUES(?,?,?,?,?, CURRENT_TIMESTAMP) ON DUPLICATE KEY UPDATE completed=?,acceptable=?,last_mod=CURRENT_TIMESTAMP", table),
                 user, locale.getBaseName(), r.name(), completed ? 1 : 0, acceptable ? 1 : 0,
                 completed ? 1 : 0, acceptable ? 1 : 0);) {
             ps.execute();
@@ -72,7 +72,7 @@ public class ReportsDB extends VoterReportStatus<Integer> implements ReportStatu
         try (
             Connection conn = DBUtils.getInstance().getAConnection();
             PreparedStatement ps = DBUtils.prepareStatementWithArgsFRO(conn,
-                String.format("SELECT report, completed, acceptable FROM %s WHERE submitter=? AND locale=?", table),
+                String.format("SELECT report, completed, acceptable FROM %s WHERE submitter=? AND locale=? order by last_mod asc", table),
                 user, locale.getBaseName());
             ResultSet rs = ps.executeQuery();) {
             while (rs.next()) {
@@ -147,19 +147,19 @@ public class ReportsDB extends VoterReportStatus<Integer> implements ReportStatu
     private PreparedStatement getAllReportsStatement(Connection conn, Integer onlyId, CLDRLocale onlyLoc) throws SQLException {
         if (onlyId != null && onlyLoc != null) {
             return DBUtils.prepareStatementWithArgsFRO(conn,
-                String.format("SELECT * FROM %s WHERE submitter=? and locale=?", table),
+                String.format("SELECT * FROM %s WHERE submitter=? and locale=? order by last_mod a", table),
                 onlyId, onlyLoc);
         } else if (onlyId != null) {
             return DBUtils.prepareStatementWithArgsFRO(conn,
-                String.format("SELECT * FROM %s WHERE submitter=?", table),
+                String.format("SELECT * FROM %s WHERE submitter=? order by last_mod asc", table),
                 onlyId);
         } else if (onlyLoc != null) {
             return DBUtils.prepareStatementWithArgsFRO(conn,
-                String.format("SELECT * FROM %s WHERE locale=?", table),
+                String.format("SELECT * FROM %s WHERE locale=? order by last_mod asc", table),
                 onlyLoc);
         } else {
             return DBUtils.prepareStatementWithArgsFRO(conn,
-                String.format("SELECT * FROM %s", table));
+                String.format("SELECT * FROM %s order by last_mod asc", table));
         }
     }
 

@@ -36,9 +36,9 @@ public class LocaleCompletionCounter {
         args = new VettingParameters(set, cldrLocale, level);
         args.setUserAndOrganization(0, VettingViewer.getNeutralOrgForSummary());
         if (isBaseline) {
-            Dashboard.setFilesForBaseline(args, cldrLocale, factory);
+            args.setFilesForBaseline(cldrLocale, factory);
         } else {
-            Dashboard.setFiles(args, cldrLocale, (STFactory) factory);
+            args.setFiles(cldrLocale, factory, sm.getDiskFactory());
         }
     }
 

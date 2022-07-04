@@ -154,7 +154,7 @@ public enum UnitPathType {
         String countValue = pathParts.getAttributeValue(-1, "count");
         if (countValue != null && !countValue.equals("other")) {
             Status status = new Status();
-            resolvedFile.getSourceLocaleID(result, status);
+            resolvedFile.getSourceLocaleID(path, status);
             if (!path.equals(status.pathWhereFound)) {
                 pathParts = pathParts.cloneAsThawed();
                 pathParts.setAttribute(-1, "count", "other");

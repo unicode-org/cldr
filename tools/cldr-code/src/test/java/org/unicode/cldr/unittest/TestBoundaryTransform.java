@@ -42,16 +42,19 @@ public class TestBoundaryTransform  extends TestFmwk {
         BoundaryTransform bt = null;
 
         String[][] tests = {
+            // rule = contextBefore ⦅ replaceBefore ❙ replaceAfter ⦆ contextAfter → replaceBy
 
-            {"rules", "|ο-|λίτρ|→όλιτρ"},
+            {"rules", "ο-❙λίτρ→όλιτρ"},
             {"χιλιοστο-", "λίτρα", "χιλιοστόλιτρα"},
 
-            {"rules", "[aeiou]|||s→s"},
+            {"rules", "[aáàâãeéêiíoóòôõuú]⦅❙⦆s→s"},
             {"nano", "segundo", "nanossegundo"},
             {"nanx", "segundo", "nanxsegundo"},
             {"nano", "meter", "nanometer"},
+            {"quilô", "segundo", "quilôssegundo"},
 
-            {"rules", "a|b|c|d→x"},
+
+            {"rules", "a⦅b❙c⦆d→x"},
             {".ab", "cd.", ".axd."},
             {".qb", "cd.", ".qbcd."},
             {".ab", "cq.", ".abcq."},
@@ -247,9 +250,6 @@ public class TestBoundaryTransform  extends TestFmwk {
                 String targetUnit = compoundTest[0];
                 String prefix = compoundTest[1];
                 String baseUnit = compoundTest[2];
-                if (baseUnit.contains("inch")) {
-                    int debug = 0;
-                }
                 String prefixType = prefixToType.get(prefix); // will be null for square, cubic
                 final boolean isPrefix = prefixType.startsWith("1");
                 String gender = UnitPathType.gender.getTrans(resolvedCldrFile, "long", baseUnit, null, null, null, null);
@@ -281,13 +281,9 @@ public class TestBoundaryTransform  extends TestFmwk {
                             targetUnitPattern = normalizeSpaces(targetUnitPattern);
                             composedTargetUnitPattern = normalizeSpaces(composedTargetUnitPattern);
 
-                            if (!assertEquals(++testCount + ") " + locale + "/" + targetUnit + "/" + width + "/" + count + "/" + gcase + "/" + prefixValue + "/" + baseUnitPattern
-                                ,
-                                targetUnitPattern,
-                                composedTargetUnitPattern)) {
-                                if (baseUnit.contains("second")) {
-                                    int fail = 0;
-                                }
+                            if (!targetUnitPattern.equals(composedTargetUnitPattern)) {
+                                warnln(++testCount + ") " + locale + "/" + targetUnit + "/" + width + "/" + count + "/" + gcase + "/" + prefixValue + "/" + baseUnitPattern
+                                    + "; expected «" + targetUnitPattern + "», actual  «" + composedTargetUnitPattern + "»");
                             }
                         }
                     }

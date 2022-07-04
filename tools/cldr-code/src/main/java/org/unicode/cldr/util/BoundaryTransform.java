@@ -1,7 +1,6 @@
 package org.unicode.cldr.util;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.function.BiFunction;
@@ -14,9 +13,12 @@ import com.google.common.collect.ImmutableMap;
 
 public class BoundaryTransform implements BiFunction<String, Integer, String> {
     private static final Splitter SEMI = Splitter.on(';').trimResults().omitEmptyStrings();
-    private static final Splitter SEPARATOR = Splitter.on('|');
-    private static final Splitter RESULTS_IN = Splitter.on('→').trimResults();
     private static final Joiner JOIN_SEMI = Joiner.on(";");
+
+    public static final char START_TO_REPLACE = '⦅';
+    public static final char BOUNDARY = '❙';
+    public static final char END_TO_REPLACE = '⦆';
+    public static final char START_REPLACE_BY = '→';
 
     public static class MatchOutput {
         public String s;
@@ -36,22 +38,64 @@ public class BoundaryTransform implements BiFunction<String, Integer, String> {
         /*
          * TODO, change to real syntax
          */
-        private BoundaryRule(String rawPattern, String replaceBy) {
-            Iterator<String> split = SEPARATOR.split(rawPattern).iterator();
-            String pre = split.next();
-            String before = split.next();
-            String after = split.next();
-            String post = split.next();
+        private BoundaryRule(String rawPattern) {
+            int lastFound = 0;
+            String contextBefore = "";
+            String replaceBefore = "";
+            String replaceAfter = "";
+            String contextAfter = "";
+            String replaceBy = "";
+            boolean haveBoundary = false;
+            boolean haveEndToReplace = false;
+            boolean haveArrow = false;
+            for (int i = 0; i < rawPattern.length(); ++i) {
+                // nothing depends on code points, so handle simply
+                switch(rawPattern.charAt(i)) {
+                case START_TO_REPLACE:
+                    contextBefore = rawPattern.substring(lastFound, i);
+                    lastFound = i+1;
+                    break;
+                case BOUNDARY:
+                    haveBoundary = true;
+                    replaceBefore = rawPattern.substring(lastFound, i);
+                    lastFound = i+1;
+                    break;
+                case END_TO_REPLACE:
+                    if (!haveBoundary) {
+                        throw new IllegalArgumentException("Syntax is: contextBefore ⦅ replaceBefore ❙ replaceAfter ⦆ contextAfter → replaceBy; must have ❙ and →");
+                    }
+                    haveEndToReplace = true;
+                    replaceAfter = rawPattern.substring(lastFound, i);
+                    lastFound = i+1;
+                    break;
+                case START_REPLACE_BY:
+                    if (!haveBoundary) {
+                        throw new IllegalArgumentException("Syntax is: contextBefore ⦅ replaceBefore ❙ replaceAfter ⦆ contextAfter → replaceBy; must have ❙ and →");
+                    }
+                    haveArrow = true;
+                    if (!haveEndToReplace) {
+                        replaceAfter = rawPattern.substring(lastFound, i);
+                    } else {
+                        contextAfter = rawPattern.substring(lastFound, i);
+                    }
+                    lastFound = i+1;
+                    break;
+                }
+            }
+            if (!haveArrow) {
+                throw new IllegalArgumentException("Syntax is: contextBefore ⦅ replaceBefore ❙ replaceAfter ⦆ contextAfter → replaceBy; must have ❙ and →");
+            }
+            replaceBy = rawPattern.substring(lastFound);
 
-            hasB = !before.isBlank();
-            hasA = !after.isBlank();
+            hasB = !replaceBefore.isBlank();
+            hasA = !replaceAfter.isBlank();
             this.beforeBoundary = Pattern.compile(
-                pre +
-                (hasB ? "(?<b>" + before + ")" : "")
+                contextBefore +
+                (hasB ? "(?<b>" + replaceBefore + ")" : "")
                 + "$");
             this.afterBoundary = Pattern.compile(
-                (hasA ? "(?<a>" + after + ")" : "")
-                + post);
+                (hasA ? "(?<a>" + replaceAfter + ")" : "")
+                + contextAfter);
             this.replaceBy = replaceBy;
         }
 
@@ -75,7 +119,7 @@ public class BoundaryTransform implements BiFunction<String, Integer, String> {
         }
         @Override
         public String toString() {
-            return beforeBoundary + "|" + afterBoundary + "→" + replaceBy;
+            return beforeBoundary.toString() + BOUNDARY + afterBoundary + START_REPLACE_BY + replaceBy;
         }
     }
 
@@ -85,14 +129,19 @@ public class BoundaryTransform implements BiFunction<String, Integer, String> {
         this.rules = rules;
     }
 
+    /**
+     * The format is:
+     * ruleset = rule (';' rule)*
+     * rule = before '❙' after '→' replaceBy
+     * before = (contextBefore '⦅')? replaceBefore
+     * after = replaceAfter ('⦆' contextAfter)?
+     * @param rulesPattern
+     * @return
+     */
     public static BoundaryTransform from(String rulesPattern) {
         List<BoundaryRule> rules = new ArrayList<>();
         for (String rulePattern : SEMI.split(rulesPattern)) {
-            // HACK for now
-            Iterator<String> it = RESULTS_IN.split(rulePattern).iterator();
-            String source = it.next();
-            String result = it.next();
-            rules.add(new BoundaryRule(source, result));
+            rules.add(new BoundaryRule(rulePattern));
         }
         return new BoundaryTransform(rules);
     }
@@ -113,17 +162,19 @@ public class BoundaryTransform implements BiFunction<String, Integer, String> {
         return JOIN_SEMI.join(rules);
     }
 
+    // rule = contextBefore ⦅ replaceBefore ❙ replaceAfter ⦆ contextAfter → replaceBy
+
     private static Map<String, BoundaryTransform> LOCALE_TO_BOUNDARY_TRANSFORM = ImmutableMap.
         <String, BoundaryTransform>builder()
         .put("pt", BoundaryTransform.from(
-            "|||s→s"))
+            "[aáàâãeéêiíoóòôõuú]⦅❙⦆s→s"))
         .put("el", BoundaryTransform.from(
-            "|ο-|μέ|→όμε;"
-                + "|-|βατ$|→βάτ;"
-                + "|-|μπαρ$|→μπάρ;"
-                + "|-|χερτζ$|→χέρτζ;"
-                + "|ο-|λίτρ|→όλιτρ;"
-            + "|-||→"))
+            "ο-❙μέ→όμε;"
+                + "-❙βατ⦆→βάτ;"
+                + "-❙μπαρ$→μπάρ;"
+                + "-❙χερτζ$→χέρτζ;"
+                + "ο-❙λίτρ→όλιτρ;"
+            + "-❙→"))
         .build();
     public static BoundaryTransform getTransform(String locale) { // TODO do inheritance
         return LOCALE_TO_BOUNDARY_TRANSFORM.get(locale);

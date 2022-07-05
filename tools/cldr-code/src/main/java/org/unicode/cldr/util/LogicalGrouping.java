@@ -77,8 +77,10 @@ public class LogicalGrouping {
 
     /**
      * Return a sorted set of paths that are in the same logical set as the given path
+     *
+     * @param cldrFile the CLDRFile
      * @param path the distinguishing xpath
-     * @param pathType TODO
+     * @param pathTypeOut if not null, gets filled in with the PathType
      *
      * @return the set of paths, or null (to be treated as equivalent to empty set)
      *
@@ -96,13 +98,10 @@ public class LogicalGrouping {
      * Caches: Most of the calculations are independent of the locale, and can be cached on a static basis.
      * The paths that are locale-dependent are /dayPeriods and @count. Those can be computed on a per-locale basis;
      * and cached (they are shared across a number of locales).
-     *
-     * Reference: https://unicode.org/cldr/trac/ticket/11854
      */
     public static Set<String> getPaths(CLDRFile cldrFile, String path, Output<PathType> pathTypeOut) {
         if (path == null) {
             return null; // return null for null path
-            // return new TreeSet<String>(); // return empty set for null path
         }
         XPathParts parts = null;
         PathType pathType = null;
@@ -126,7 +125,6 @@ public class LogicalGrouping {
         if (pathType == PathType.SINGLETON) {
             /*
              * Skip cache for PathType.SINGLETON and simply return a set of one.
-             * TODO: should we ever return null instead of singleton here?
              */
             Set<String> set = new TreeSet<>();
             set.add(path);
@@ -341,19 +339,12 @@ public class LogicalGrouping {
             @Override
             @SuppressWarnings("unused")
             void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
-                String fieldType = parts.findAttributeValue("field", "type");
                 String relativeType = parts.findAttributeValue("relative", "type");
                 Integer relativeValue = relativeType == null ? 999 : Integer.valueOf(relativeType);
                 if (relativeValue >= -3 && relativeValue <= 3) { // This is just a quick check to make sure the path is good.
+                    String fieldType = parts.findAttributeValue("field", "type");
                     if (!(nowUnits.contains(fieldType) && relativeValue == 0)) { // Workaround for "now", "this hour", "this minute"
-                        int limit = 1;
-                        if (fieldType != null && fieldType.startsWith("day")) {
-                            limit = 3;
-                        }
-                        for (Integer i = -1 * limit; i <= limit; i++) {
-                            parts.setAttribute("relative", "type", i.toString());
-                            set.add(parts.toString());
-                        }
+                        addRelativePaths(set, parts, relativeValue, fieldType);
                     }
                 }
             }
@@ -428,9 +419,39 @@ public class LogicalGrouping {
                 Collection<String> rawGenders = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
                 setGrammarAttributes(set, parts, pluralTypes, rawCases, rawGenders);
             }
+        };
+
+        /**
+         * Add to the given set all the paths in the same logical group as the path whose XPathParts are given
+         *
+         * For paths that match //ldml/dates/fields/field[@type="day-narrow"]/relative[@type="n"],
+         * there are separate groups for n in {-1, 0, 1} (close to zero) and {-3, -2, 2, 3} (far from zero)
+         *
+         * @param set the empty set to be filled in
+         * @param parts the XPathParts
+         * @param relativeValue a number in {-3, -2, -1, 0, 1, 2, 3}
+         * @param fieldType a string like "day-narrow"
+         */
+        private static void addRelativePaths(Set<String> set, XPathParts parts, Integer relativeValue, String fieldType) {
+            int limit = 1;
+            boolean farFromZero = false;
+            if (fieldType != null && fieldType.startsWith("day")) {
+                farFromZero = isFarFromZero(relativeValue);
+                if (farFromZero) {
+                    limit = 3;
+                }
+            }
+            for (Integer i = -1 * limit; i <= limit; i++) {
+                if (farFromZero == false || isFarFromZero(i)) {
+                    parts.setAttribute("relative", "type", i.toString());
+                    set.add(parts.toString());
+                }
+            }
         }
 
-        ;
+        private static boolean isFarFromZero(Integer relativeValue) {
+            return relativeValue <= -2 || relativeValue >= 2;
+        }
 
         abstract void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts);
 

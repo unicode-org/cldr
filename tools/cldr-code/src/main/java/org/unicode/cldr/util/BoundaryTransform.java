@@ -3,6 +3,8 @@ package org.unicode.cldr.util;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.function.BiFunction;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -10,6 +12,7 @@ import java.util.regex.Pattern;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
+import com.ibm.icu.impl.locale.XCldrStub.ImmutableSet;
 
 public class BoundaryTransform implements BiFunction<String, Integer, String> {
     private static final Splitter SEMI = Splitter.on(';').trimResults().omitEmptyStrings();
@@ -20,12 +23,15 @@ public class BoundaryTransform implements BiFunction<String, Integer, String> {
     public static final char END_TO_REPLACE = '⦆';
     public static final char START_REPLACE_BY = '→';
 
+    public static final Pattern NAMED_GROUP = Pattern.compile("\\Q(?<\\E([A-Za-z0-9]+)>");
+
     public static class MatchOutput {
         public String s;
         public int start;
         public int boundary;
         public int end;
     }
+
 
     private static class BoundaryRule {
 
@@ -34,6 +40,8 @@ public class BoundaryTransform implements BiFunction<String, Integer, String> {
         private final boolean hasB;
         private final boolean hasA;
         private final String replaceBy;
+        private final Set<String> namedGroupsBefore;
+        private final Set<String> namedGroupsAfter;
 
         /*
          * TODO, change to real syntax
@@ -46,6 +54,7 @@ public class BoundaryTransform implements BiFunction<String, Integer, String> {
             String contextAfter = "";
             String replaceBy = "";
             boolean haveBoundary = false;
+            int boundaryStart = -1;
             boolean haveEndToReplace = false;
             boolean haveArrow = false;
             for (int i = 0; i < rawPattern.length(); ++i) {
@@ -57,6 +66,7 @@ public class BoundaryTransform implements BiFunction<String, Integer, String> {
                     break;
                 case BOUNDARY:
                     haveBoundary = true;
+                    boundaryStart = i;
                     replaceBefore = rawPattern.substring(lastFound, i);
                     lastFound = i+1;
                     break;
@@ -97,6 +107,22 @@ public class BoundaryTransform implements BiFunction<String, Integer, String> {
                 (hasA ? "(?<a>" + replaceAfter + ")" : "")
                 + contextAfter);
             this.replaceBy = replaceBy;
+
+            // get named groups
+            this.namedGroupsBefore = getNamedGroups(rawPattern.substring(0,boundaryStart));
+            this.namedGroupsAfter = getNamedGroups(rawPattern.substring(boundaryStart + 1));
+            if (this.namedGroupsBefore.contains("b") || this.namedGroupsAfter.contains("a")) {
+                throw new IllegalArgumentException("Can't use named groups <b> or <a>");
+            }
+        }
+
+        private Set<String> getNamedGroups(String rawPattern) {
+            Set<String> _namedGroups = new TreeSet<>();
+            Matcher namedGroup = NAMED_GROUP.matcher(rawPattern);
+            while(namedGroup.find()) {
+                _namedGroups.add(namedGroup.group(1));
+            }
+            return ImmutableSet.copyOf(_namedGroups);
         }
 
         private String matches(String s, int start, int boundary, int end) {
@@ -113,8 +139,17 @@ public class BoundaryTransform implements BiFunction<String, Integer, String> {
                 return null;
             }
 
+            // fix namedGroups
+            String toReplaceBy = replaceBy;
+            for (String namedGroup : namedGroupsBefore) {
+                toReplaceBy = toReplaceBy.replace("${" + namedGroup + "}", matchBefore.group(namedGroup));
+            }
+            for (String namedGroup : namedGroupsAfter) {
+                toReplaceBy = toReplaceBy.replace("${" + namedGroup + "}", matchAfter.group(namedGroup));
+            }
+
             return s.substring(0, hasB ? matchBefore.start("b") : boundary)
-                + replaceBy
+                + toReplaceBy
                 + s.substring(hasA ? matchAfter.end("a") : boundary);
         }
         @Override
@@ -175,6 +210,8 @@ public class BoundaryTransform implements BiFunction<String, Integer, String> {
                 + "-❙χερτζ$→χέρτζ;"
                 + "ο-❙λίτρ→όλιτρ;"
             + "-❙→"))
+        .put("fil", BoundaryTransform.from(
+            "⦅(?<before>.*)❙na ⦆→na ${before};")) // move 'na ' to the front
         .build();
     public static BoundaryTransform getTransform(String locale) { // TODO do inheritance
         return LOCALE_TO_BOUNDARY_TRANSFORM.get(locale);

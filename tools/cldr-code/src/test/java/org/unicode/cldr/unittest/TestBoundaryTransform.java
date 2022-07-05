@@ -1,8 +1,11 @@
 package org.unicode.cldr.unittest;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
@@ -12,11 +15,16 @@ import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.util.BoundaryTransform;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.ExemplarType;
+import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
@@ -26,11 +34,13 @@ import org.unicode.cldr.util.UnitPathType;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetSpanner;
 
 public class TestBoundaryTransform  extends TestFmwk {
+    private static final StandardCodes STANDARD_CODES = StandardCodes.make();
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final SupplementalDataInfo SDI = CLDR_CONFIG.getSupplementalDataInfo();
 
@@ -44,6 +54,11 @@ public class TestBoundaryTransform  extends TestFmwk {
         String[][] tests = {
             // rule = contextBefore ⦅ replaceBefore ❙ replaceAfter ⦆ contextAfter → replaceBy
 
+            {"rules", "⦅(?<before>.*)❙na ⦆→na ${before};"}, // move 'na ' to the front
+            {"kilo", "na calorie", "na kilocalorie"},
+            {"giga{0}", "{0} na watt", "{0} na gigawatt"},
+            {"giga{0}", "{0} na bit", "{0} na gigabit"},
+
             {"rules", "ο-❙λίτρ→όλιτρ"},
             {"χιλιοστο-", "λίτρα", "χιλιοστόλιτρα"},
 
@@ -53,7 +68,6 @@ public class TestBoundaryTransform  extends TestFmwk {
             {"nano", "meter", "nanometer"},
             {"quilô", "segundo", "quilôssegundo"},
 
-
             {"rules", "a⦅b❙c⦆d→x"},
             {".ab", "cd.", ".axd."},
             {".qb", "cd.", ".qbcd."},
@@ -61,17 +75,27 @@ public class TestBoundaryTransform  extends TestFmwk {
 
         };
         for (String[] row : tests) {
-            if (row[0].equals("rules")) {
-                bt = BoundaryTransform.from(row[1]);
+            final String prefixValue = row[0];
+            final String baseUnitPattern = row[1];
+            if (prefixValue.equals("rules")) {
+                bt = BoundaryTransform.from(baseUnitPattern);
                 System.out.println(bt);
                 continue;
             }
             if (bt == null) {
                 throw new IllegalArgumentException("Must have rules line first");
             }
-            String actual = bt.apply(row[0] + row[1], row[0].length());
             String expected = row[2];
+            String actual;
+            if (prefixValue.contains("{0}")) {
+                //     «giga{0}»   «{0} na watt» «{0} na gigawatt»
+                actual = combinePattern(bt, baseUnitPattern, prefixValue, true);
+            } else {
+                actual = bt.apply(prefixValue + baseUnitPattern, prefixValue.length());
+            }
             assertEquals("basics", expected, actual);
+
+
         }
     }
 
@@ -213,19 +237,52 @@ public class TestBoundaryTransform  extends TestFmwk {
     public void TestComposition() {
         Factory factory = CLDR_CONFIG.getCldrFactory();
 
-        // options
-        boolean doCases = false;
-        Set<String> localesToTest = ImmutableSet.of("pt", "fr", "el", "de", "cs", "pl"); // factory.getAvailableLanguages();
+        // inclusion options
+        boolean exhaustive = getInclusion() > 6;
+        boolean doCases = exhaustive;
+        boolean doCounts = exhaustive;
+        Set<String> localesToTest;
+        switch (getInclusion()) {
+        case 0: case 1:
+            localesToTest = ImmutableSet.of("fil");
+            break;
+        case 2: case 3: case 4:
+            localesToTest = ImmutableSet.of("pt", "fr", "el", "de", "cs", "pl");
+            break;
+        default:
+            Set<String> temps = STANDARD_CODES.getLocaleCoverageLocales(Organization.cldr);
+            localesToTest = new LinkedHashSet<>();
+            for (String temp : temps) {
+                if (STANDARD_CODES.getLocaleCoverageLevel(Organization.cldr, temp).compareTo(Level.MODERATE) >= 0) {
+                    localesToTest.add(temp);
+                }
+            }
+            break;
+        }
 
         Map<String,String> prefixToType = new LinkedHashMap<>();
         for (String[] prefixRow : PREFIX_NAME_TYPE) {
             prefixToType.put(prefixRow[0], prefixRow[1]);
         }
         prefixToType = ImmutableMap.copyOf(prefixToType);
+        List<String> summary = new ArrayList<>();
 
-        int testCount = 0;
         for (String locale : localesToTest) {
+            int okCount = 0;
+            int badCount = 0;
             CLDRFile resolvedCldrFile = factory.make(locale, true);
+            UnicodeSet main = resolvedCldrFile.getExemplarSet(ExemplarType.main, WinningChoice.WINNING);
+            String script = "?";
+            for (String s : main) {
+                int scriptNo = UScript.getScript(s.codePointAt(0));
+                switch (scriptNo) {
+                case UScript.UNKNOWN: case UScript.COMMON: case UScript.INHERITED:
+                    continue;
+                default:
+                    break;
+                }
+                script = UScript.getSampleString(scriptNo);
+            }
             BoundaryTransform bt = BoundaryTransform.getTransform(locale);
 
             Collection<String> cases = casesNominativeOnly;
@@ -257,7 +314,9 @@ public class TestBoundaryTransform  extends TestFmwk {
                 for (String width : Arrays.asList("long" /*,"short", "narrow" */)) {
                     boolean lowercaseIfSpaced = width.equals("long");
 
-                    for (Count count : pluralInfo.getCounts()) {
+                    final Set<Count> counts = doCounts ? pluralInfo.getCounts() : ImmutableSet.of(Count.other);
+
+                    for (Count count : counts) {
 
                         String pluralCategory = count.toString();
 
@@ -282,14 +341,30 @@ public class TestBoundaryTransform  extends TestFmwk {
                             composedTargetUnitPattern = normalizeSpaces(composedTargetUnitPattern);
 
                             if (!targetUnitPattern.equals(composedTargetUnitPattern)) {
-                                warnln(++testCount + ") " + locale + "/" + targetUnit + "/" + width + "/" + count + "/" + gcase + "/" + prefixValue + "/" + baseUnitPattern
-                                    + "; expected «" + targetUnitPattern + "», actual  «" + composedTargetUnitPattern + "»");
+                                warnln("\t" + locale
+                                    + "\t" + script
+                                    + "\t" + targetUnit
+                                    + "\t" + width + "/" + count + "/" + gcase
+                                    + "\t«" + targetUnitPattern + "»"
+                                    + "\t«" + composedTargetUnitPattern + "»"
+                                    + "\t«" + prefixValue + "»"
+                                    + "\t«" + baseUnitPattern + "»");
+                                ++badCount;
+                            } else {
+                                ++okCount;
                             }
+
                         }
                     }
                 }
             }
+            summary.add("\t" + locale
+                + "\t" + script
+                + "\t" + okCount
+                + "\t" + badCount
+                + "\t\t\t\t");
         }
+        summary.forEach(x -> warnln(x));
     }
 
     private String normalizeSpaces(String targetUnitPattern) {

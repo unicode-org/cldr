@@ -8,6 +8,7 @@ import * as cldrLoad from "./cldrLoad.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
 import * as cldrVueRouter from "../cldrVueRouter.js";
+import * as cldrXlsx from "./cldrXlsx.js";
 import ReportResponse from "../views/ReportResponse.vue";
 import XLSX from "xlsx";
 
@@ -69,59 +70,34 @@ async function internalFetchAllReportStatus() {
   return raw;
 }
 
-async function fetchAllReports(user) {
-  const raw = await internalFetchAllReports(user);
+async function fetchAllReports() {
   const { locales } = await internalFetchAllReportStatus();
   const types = await reportTypes();
   const byLocale = {};
 
-  // collect all data
-  raw.forEach(({ id, statuses }) => {
-    for (const [locale, { acceptable, completed }] of Object.entries(
-      statuses
-    )) {
-      const e = (byLocale[locale] = byLocale[locale] || {
-        acceptable: 0,
-        unacceptable: 0,
-        totalVoters: 0,
-        byReport: {},
-      });
-      e.totalVoters += 1;
-      e.acceptable += acceptable?.length;
-      e.unacceptable += completed?.length - acceptable?.length;
-
-      // now the per-type fields
-      for (const t of types) {
-        e.byReport[t] = { acceptable: 0, unacceptable: 0, totalVoters: 0 };
-      }
-      acceptable.forEach((t) => {
-        e.byReport[t].acceptable++;
-        e.byReport[t].totalVoters++;
-      });
-      completed.forEach((t) => {
-        if (acceptable.indexOf(t) !== -1) {
-          e.byReport[t].unacceptable++;
-          e.byReport[t].totalVoters++;
-        }
-      });
-    }
-  });
-
-  for (const { locale, reports } of locales) {
-    for (const { report, status, acceptability } of reports) {
+  for (const { locale, reports, totalVoters } of locales) {
+    for (const {
+      report,
+      status,
+      acceptability,
+      votersForAcceptable,
+      votersForNotAcceptable,
+      acceptableScore,
+      notAcceptableScore,
+    } of reports) {
       if (!byLocale[locale]) {
         byLocale[locale] = {
-          acceptable: 0,
-          unacceptable: 0,
-          totalVoters: 0,
           byReport: {},
+          totalVoters,
         };
       }
       if (!byLocale[locale].byReport[report]) {
         byLocale[locale].byReport[report] = {
-          acceptable: 0,
-          unacceptable: 0,
-          totalVoters: 0,
+          totalVoters: votersForAcceptable + votersForNotAcceptable,
+          acceptable: votersForAcceptable,
+          unacceptable: votersForNotAcceptable,
+          acceptableScore,
+          notAcceptableScore,
         };
       }
       const r = byLocale[locale].byReport[report];
@@ -132,7 +108,6 @@ async function fetchAllReports(user) {
 
   return {
     types,
-    raw,
     byLocale,
   };
 }
@@ -181,75 +156,48 @@ async function reportTypes() {
   return (await client.apis.voting.listReports()).body.sort();
 }
 
-async function downloadAllReports(user) {
-  const { types, raw, byLocale } = await fetchAllReports(user);
-
-  const wb = XLSX.utils.book_new();
-
-  var ws_name = `SurveyTool Report on Reports ${user}`;
-
-  /* make worksheet */
-  var ws_data = [
-    [
-      "Locale", // 0
-      "Code", // 1
-      "Completion", // 2
-      "Acceptable", // 3
-      "Unacceptable", // 4
-      "Total Votes",
-    ],
-  ];
-  // dynamic columns
+/**
+ * Write all reports as a spreadsheet (66 survey_reports.xlsx)
+ */
+async function downloadAllReports() {
+  const { types, byLocale } = await fetchAllReports();
+  const ws_data = [["Locale", "Code", "Total Votes"]];
   for (const t of types) {
     const n = reportName(t);
-    ws_data[0].push(`${n}-Acceptable`);
-    ws_data[0].push(`${n}-Unacceptable`);
+    ws_data[0].push(`${n}-Status`);
+    ws_data[0].push(`${n}-Result`);
+    ws_data[0].push(`${n}-AcceptableScore`);
+    ws_data[0].push(`${n}-NotAcceptableScore`);
     ws_data[0].push(`${n}-Total`);
   }
-
-  // for (const r of data) {
-  //   ws_data.push([
-  //     r[header.LOCALE_NAME],
-  //     r[header.XPATH_STRHASH],
-  //     r[header.XPATH_CODE],
-  //     r[header.VALUE],
-  //     new Date(r[header.LAST_MOD]), // TODO: convert to 'date'
-  //   ]);
-  // }
-
-  // Now, push the rest of the data
+  // add per-locale rows in sorted order
   for (const loc of Object.keys(byLocale).sort()) {
-    const { acceptable, unacceptable, totalVoters, byReport } = byLocale[loc];
+    const { totalVoters, byReport } = byLocale[loc];
     const row = [];
     row.push(loc);
     row.push(cldrLoad.getLocaleName(loc));
-    row.push("?%");
-    row.push(acceptable);
-    row.push(unacceptable);
     row.push(totalVoters);
-
     for (const t of types) {
-      // important: in same order as header!
-      row.push(byReport[t].acceptable);
-      row.push(byReport[t].unacceptable);
-      row.push(byReport[t].totalVoters);
+      const {
+        status,
+        acceptability,
+        totalVoters,
+        acceptableScore,
+        notAcceptableScore,
+      } = byReport[t];
+      row.push(status);
+      row.push(acceptability || "");
+      row.push(acceptableScore || 0);
+      row.push(notAcceptableScore || 0);
+      row.push(totalVoters);
     }
-    // todo: byReport
-
     ws_data.push(row);
   }
-
-  var ws = XLSX.utils.aoa_to_sheet(ws_data);
-
-  function pushComment(where, t) {
-    ws[where].c = ws[where].c || [];
-    ws[where].c.hidden = true;
-    ws[where].c.push({ a: "SurveyTool", t });
-  }
-  pushComment("C1", `As of ${new Date().toISOString()}`);
-
-  XLSX.utils.book_append_sheet(wb, ws, ws_name);
-  XLSX.writeFile(wb, `survey_reports_${user}.xlsx`);
+  const ws = XLSX.utils.aoa_to_sheet(ws_data);
+  cldrXlsx.pushComment(ws, "C1", `As of ${new Date().toISOString()}`);
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, `SurveyTool Report on Reports`);
+  XLSX.writeFile(wb, `survey_reports.xlsx`);
 }
 
 export {

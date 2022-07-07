@@ -3,6 +3,7 @@ package org.unicode.cldr.web.api;
 import java.sql.SQLException;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import javax.ws.rs.Consumes;
@@ -152,18 +153,21 @@ public class ReportAPI {
             LocaleReportVettingResult rr = new LocaleReportVettingResult();
             rr.locale = loc.toString();
             for (final ReportId report : ReportId.values()) {
-                db.updateResolver(loc, report, allUsers, res);
-                rr.reports.add(new ReportVettingResult(report, res));
+                Map<ReportAcceptability, Set<Integer>> statistics = db.updateResolver(loc, report, allUsers, res);
+                rr.reports.add(new ReportVettingResult(report, res, statistics));
+                statistics.values().forEach(s -> rr.addVoters(s));
             }
             r.locales.add(rr);
         }
         return Response.ok(r).build();
     }
 
-
     public static class LocaleReportVettingResults {
-        public LocaleReportVettingResults() {}
+        public LocaleReportVettingResults() {
+        }
+
         private Set<LocaleReportVettingResult> locales = new HashSet<LocaleReportVettingResult>();
+
         public LocaleReportVettingResult[] getLocales() {
             return locales.toArray(new LocaleReportVettingResult[0]);
         }
@@ -172,16 +176,26 @@ public class ReportAPI {
     public static class LocaleReportVettingResult {
         public String locale;
         private Set<ReportVettingResult> reports = new HashSet<ReportVettingResult>();
+
         public ReportVettingResult[] getReports() {
             return reports.toArray(new ReportVettingResult[0]);
+        }
+
+        private Set<Integer> allUsers = new HashSet<Integer>();
+
+        void addVoters(Set<Integer> s) {
+            allUsers.addAll(s);
+        }
+
+        @Schema(description = "Total voters for this locale. Does not count abstentions.")
+        public int getTotalVoters() {
+            return allUsers.size();
         }
     }
 
     public static class ReportVettingResult {
-        // @Schema(description = "raw VoteResolver output")
-        // public String raw;
-
-        public ReportVettingResult(ReportId id, VoteResolver<ReportAcceptability> res) {
+        public ReportVettingResult(ReportId id, VoteResolver<ReportAcceptability> res,
+            Map<ReportAcceptability, Set<Integer>> statistics) {
             this.report = id;
             this.status = res.getWinningStatus();
             if (this.status != VoteResolver.Status.missing) {
@@ -189,10 +203,32 @@ public class ReportAPI {
             } else {
                 this.acceptability = null;
             }
+
+            // Statistics has a map from each value to voter ids.
+            // For now we just keep the totals
+            final Set<Integer> vfa = statistics.get(ReportAcceptability.acceptable);
+            if (vfa != null) {
+                votersForAcceptable = vfa.size();
+            } else {
+                votersForAcceptable = 0;
+            }
+            final Set<Integer> vfna = statistics.get(ReportAcceptability.notAcceptable);
+            if (vfna != null) {
+                votersForNotAcceptable = vfna.size();
+            } else {
+                votersForNotAcceptable = 0;
+            }
+            Map<ReportAcceptability, Long> rvc = res.getResolvedVoteCounts();
+            acceptableScore = rvc.get(ReportAcceptability.acceptable);
+            notAcceptableScore = rvc.get(ReportAcceptability.notAcceptable);
         }
         public ReportId report;
         public VoteResolver.Status status;
         public ReportAcceptability acceptability;
+        public int votersForAcceptable;
+        public int votersForNotAcceptable;
+        public Long acceptableScore;
+        public Long notAcceptableScore;
     }
 
     @POST

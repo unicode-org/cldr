@@ -59,8 +59,10 @@
         <thead>
           <tr>
             <th>Locale</th>
-            <th v-for="type of reports.types" :key="type">{{ humanizeReport(type) }}</th>
-            <th>Overall</th>
+            <th v-for="type of reports.types" :key="type">
+              {{ humanizeReport(type) }}
+            </th>
+            <th>Vetters</th>
           </tr>
         </thead>
         <tbody>
@@ -69,26 +71,40 @@
             :key="locale"
           >
             <td>
-              <a class="locale" :href="linkToLocale(locale)">{{ locale }}—{{ humanizeLocale(locale) }}</a>
+              <a class="locale" :href="linkToLocale(locale)"
+                >{{ locale }}—{{ humanizeLocale(locale) }}</a
+              >
             </td>
-            <td :title="humanizeReport(type)" v-for="type of reports.types" :key="type">
-                <div class="d-dr-status statuscell" :class="'d-dr-' + reports.byLocale[locale].byReport[type].status">&nbsp;</div>
-                {{ reports.byLocale[locale].byReport[type].status }}:
-                {{ reports.byLocale[locale].byReport[type].acceptability }}
+            <td v-for="type of reports.types" :key="type">
+              <div
+                class="d-dr-status statuscell"
+                :class="
+                  'd-dr-' + reports.byLocale[locale].byReport[type].status
+                "
+              >
+                &nbsp;
+              </div>
+              {{ reports.byLocale[locale].byReport[type].status
+              }}<span
+                v-if="reports.byLocale[locale].byReport[type].acceptability"
+                >:
+                {{
+                  reports.byLocale[locale].byReport[type].acceptability
+                }}</span
+              >
+              <p v-if="reports.byLocale[locale].byReport[type].totalVoters">
+                Acc:{{
+                  reports.byLocale[locale].byReport[type].acceptableScore || 0
+                }}
+                NotAcc:{{
+                  reports.byLocale[locale].byReport[type].notAcceptableScore ||
+                  0
+                }}
+                Voters:{{ reports.byLocale[locale].byReport[type].totalVoters }}
+              </p>
             </td>
             <td>
-              <span
-                class="reportEntry"
-                v-for="kind of ['acceptable', 'unacceptable', 'totalVoters']"
-                :key="kind"
-              >
-                <i
-                  v-if="reports.byLocale[locale][kind]"
-                  :class="reportClass(kind)"
-                  >&nbsp;</i
-                >
-                {{ kind }}={{ reports.byLocale[locale][kind] }}
-              </span>
+              {{ reports.byLocale[locale].totalVoters || 0 }}
             </td>
           </tr>
         </tbody>
@@ -270,7 +286,7 @@ export default {
     },
 
     downloadReports() {
-      return cldrReport.downloadAllReports("-");
+      return cldrReport.downloadAllReports();
     },
   },
 };
@@ -288,7 +304,11 @@ button {
 .snapSection {
   border: 2px solid gray;
   padding: 4px;
-  background-color: #ccdfff; /* light blue */
+}
+
+.snapSection,
+.reportTable thead tr th {
+  background-color: #ccdfff !important; /* light blue */
 }
 
 .summaryPercent {
@@ -299,6 +319,17 @@ button {
 .reportTable td {
   padding: 0.5em;
   border-right: 2px solid gray;
+}
+
+.reportTable thead tr th {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0px;
+  z-index: 2;
+}
+
+.reportTable tr {
+  border-bottom: 1px solid black;
 }
 
 .reportEntry {

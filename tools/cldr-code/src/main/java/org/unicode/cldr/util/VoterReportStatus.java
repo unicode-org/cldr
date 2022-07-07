@@ -2,6 +2,9 @@ package org.unicode.cldr.util;
 
 import java.util.Date;
 import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 
@@ -86,11 +89,12 @@ public abstract class VoterReportStatus<T> {
      * @param userList set of users
      * @param status the source
      * @param res which
-     * @return resolver
+     * @return vote statistics for each acceptability level
      */
-    public VoteResolver<ReportAcceptability>
+    public Map<ReportAcceptability, Set<Integer>>
     updateResolver(CLDRLocale l, ReportId r,
         Set<T> userList, VoteResolver<ReportAcceptability> res) {
+        Map<ReportAcceptability, Set<Integer>> statistics = new HashMap<>();
         res.clear();
         res.setBaileyValue(null);
         // Get the report status for each user
@@ -102,8 +106,10 @@ public abstract class VoterReportStatus<T> {
             if (acc != null) {
                 // if not an abstention, add
                 res.add(acc, (Integer) id, null, rs.getDate()); // TODO: Cast because T must be an Integer. Refactor class to not be templatized
+                statistics.computeIfAbsent(acc, k -> new HashSet<>())
+                    .add((Integer) id);
             }
         });
-        return res;
+        return statistics;
     }
 }

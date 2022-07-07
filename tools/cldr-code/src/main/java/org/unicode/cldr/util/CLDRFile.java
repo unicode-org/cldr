@@ -2091,7 +2091,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     /**
      * For use in getting short names.
      */
-    public static final Transform<String, String> SHORT_ALTS = new Transform<String, String>() {
+    public static final Transform<String, String> SHORT_ALTS = new Transform<>() {
         @Override
         public String transform(@SuppressWarnings("unused") String source) {
             return "short";
@@ -2231,6 +2231,15 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     }
 
     public UnicodeSet getExemplarSet(ExemplarType type, WinningChoice winningChoice, int option) {
+        UnicodeSet result = getRawExemplarSet(type, winningChoice);
+        UnicodeSet toNuke = new UnicodeSet(HACK_CASE_CLOSURE_SET).removeAll(result);
+        result.closeOver(UnicodeSet.CASE);
+        result.removeAll(toNuke);
+        result.remove(0x20);
+        return result;
+    }
+
+    public UnicodeSet getRawExemplarSet(ExemplarType type, WinningChoice winningChoice) {
         String path = getExemplarPath(type);
         if (winningChoice == WinningChoice.WINNING) {
             path = getWinningPath(path);
@@ -2239,12 +2248,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         if (v == null) {
             return UnicodeSet.EMPTY;
         }
-        UnicodeSet result = new UnicodeSet(v);
-        UnicodeSet toNuke = new UnicodeSet(HACK_CASE_CLOSURE_SET).removeAll(result);
-        result.closeOver(UnicodeSet.CASE);
-        result.removeAll(toNuke);
-        result.remove(0x20);
-        return result;
+        return new UnicodeSet(v);
     }
 
     public static String getExemplarPath(ExemplarType type) {

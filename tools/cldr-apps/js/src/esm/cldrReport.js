@@ -9,7 +9,7 @@ import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
 import * as cldrVueRouter from "../cldrVueRouter.js";
 import ReportResponse from "../views/ReportResponse.vue";
-import XLSX from "xlsx";
+import * as XLSX from "xlsx";
 
 let lastrr = null;
 

@@ -1,4 +1,4 @@
-import XLSX from "xlsx";
+import * as XLSX from "xlsx";
 import * as cldrAjax from "./cldrAjax.js";
 // shim global fetch
 const fetch = cldrAjax.doFetch;

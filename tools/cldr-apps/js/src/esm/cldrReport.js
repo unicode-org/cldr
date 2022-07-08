@@ -10,7 +10,7 @@ import * as cldrText from "./cldrText.js";
 import * as cldrVueRouter from "../cldrVueRouter.js";
 import * as cldrXlsx from "./cldrXlsx.js";
 import ReportResponse from "../views/ReportResponse.vue";
-import XLSX from "xlsx";
+import * as XLSX from "xlsx";
 
 let lastrr = null;
 

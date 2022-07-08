@@ -9,7 +9,7 @@ import * as cldrRetry from "./cldrRetry.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
-import XLSX from "xlsx";
+import * as XLSX from "xlsx";
 
 let nf = null; // Intl.NumberFormat initialized later
 

@@ -1207,4 +1207,23 @@ public class TestExampleGenerator extends TestFmwk {
             }
         }
     }
+
+    public void TestExemplars() {
+        String[][] tests = {
+            // current value, winning value, expected
+            {"[a b c]", "[a b d]", "〖➕ c〗〖➖ d〗"},
+            {"[a b]", "[a b d]", "〖➖ d〗"},
+            {"[a b c]", "[a b]", "〖➕ c〗"},
+            {"[a b]", "[a b]", null},
+        };
+        for (String[] row : tests) {
+            String current = row[0];
+            String winning = row[1];
+            String expected = row[2];
+            String actual = ExampleGenerator.simplify(
+                ExampleGenerator.handleExemplarCharacters(current, winning));
+            assertEquals("Exemplar examples, compared to winning", expected, actual);
+        }
+    }
+
 }

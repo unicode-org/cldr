@@ -14,8 +14,21 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckExemplars.ExemplarType;
-import org.unicode.cldr.util.*;
+import org.unicode.cldr.util.AnnotationUtil;
+import org.unicode.cldr.util.Builder;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.DateTimeCanonicalizer;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
+import org.unicode.cldr.util.Emoji;
+import org.unicode.cldr.util.ICUServiceBuilder;
+import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
+import org.unicode.cldr.util.With;
+import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
@@ -595,7 +608,7 @@ public class DisplayAndInputProcessor {
         sorted.removeAll(toRemove);
     }
 
-    private String displayUnicodeSet(String value) {
+    public static String displayUnicodeSet(String value) {
         if (value.startsWith("[") && value.endsWith("]")) {
             value = value.substring(1, value.length() - 1);
         }
@@ -832,7 +845,7 @@ public class DisplayAndInputProcessor {
         return builder.toString();
     }
 
-    private String replace(Pattern pattern, String value, String replacement) {
+    public static String replace(Pattern pattern, String value, String replacement) {
         String value2 = pattern.matcher(value).replaceAll(replacement);
         if (DEBUG_DAIP && !value.equals(value2)) {
             System.out.println("\n" + value + " => " + value2);
@@ -1091,7 +1104,7 @@ public class DisplayAndInputProcessor {
         }
 
         // Further whitespace adjustments per CLDR-14032
-        if ((scriptCode.equals("Latn") || scriptCode.equals("Cyrl") || scriptCode.equals("Grek")) && 
+        if ((scriptCode.equals("Latn") || scriptCode.equals("Cyrl") || scriptCode.equals("Grek")) &&
                 HOUR_FORMAT_XPATHS.matcher(path).matches()) {
             String test = AMPM_SPACE_BEFORE.matcher(value).replaceAll("$1$2"); // value without a+
             if (value.length() - test.length() != 4) { // exclude patterns with aaaa

@@ -1,18 +1,16 @@
 package org.unicode.cldr.util;
 
-import java.util.Set;
 import java.util.TreeSet;
 import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.util.CLDRFile.ExemplarType;
-
 import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
-import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.impl.Utility;
+import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSet.EntryRange;
 import com.ibm.icu.util.ULocale;
@@ -24,6 +22,8 @@ public class UnicodeSetUtils {
         + "[:patternwhitespace:][:whitespace:]"
         + "-[[:block=tags:]-[:cn:]]" // don't quote tag characters, they are only in emoji
         + "]").freeze();
+
+    public static final Pattern END_OF_QUOTE = Pattern.compile("❰(?:([A-F0-9]{2,6})|([A-Z_]*)|([^❱]*))❱");
 
     public static final UnicodeSet EMOJI_EXCEPTIONS = new UnicodeSet("[:emoji_component:]").retainAll(TO_QUOTE).freeze();
     public static final UnicodeSet EMOJI = new UnicodeSet("[:emoji:]");
@@ -80,9 +80,9 @@ public class UnicodeSetUtils {
             return result.toString();
         }
 
-            /** return -1 if out of bounds, else codePointAt */
+        /** return 0xFFFF if out of bounds, else codePointAt */
         private int codePointAtBounded(String source, int index) {
-            return index < 0 || index >= source.length() ? null : source.codePointAt(index);
+            return index < 0 || index >= source.length() ?0xFFFF : source.codePointAt(index);
         }
 
         private void quote(int cp, StringBuilder toAppendTo) {
@@ -152,6 +152,9 @@ public class UnicodeSetUtils {
     public static class FlatUnicodeFormatter implements Function<UnicodeSet, String> {
 
         Collator col = Collator.getInstance(ULocale.ROOT);
+        {
+            col.setStrength(Collator.IDENTICAL);
+        }
 
         public void setLocale(String locale) {
             ICUServiceBuilder isb = null;
@@ -176,16 +179,16 @@ public class UnicodeSetUtils {
         public String apply(UnicodeSet t) {
             StringBuilder result = new StringBuilder();
             if (t.size() > 300) {
-                // do compressed format, no spaces
+                // do compressed format
                 for (EntryRange range : t.ranges()) {
-//                    if (result.length() != 0) {
-//                        result.append(' ');
-//                    }
+                    if (result.length() != 0) {
+                        result.append(' ');
+                    }
                     if (range.codepoint == range.codepointEnd) {
                         QUOTER.format(range.codepoint, result);
                     } else if (range.codepoint == range.codepointEnd - 1) {
                         QUOTER.format(range.codepoint, result);
-                        //result.append(' ');
+                        result.append(' ');
                         QUOTER.format(range.codepointEnd, result);
                     } else {
                         QUOTER.format(range.codepoint, result);
@@ -214,7 +217,6 @@ public class UnicodeSetUtils {
             return result.toString();
         }
 
-        private static final Pattern END_OF_QUOTE = Pattern.compile("(([A-F0-9]{2,6})|([A-Z_]*))❱");
 
         /*
          * uset = range (' ' range)*
@@ -223,120 +225,113 @@ public class UnicodeSetUtils {
          * id = hexCodePoint | character_acronym
          * hexCodePoint = [A-F0-9]{2-6}
          */
-        static final UnicodeSet parse(String source) {
+        public static final UnicodeSet parse(String source) {
             UnicodeSet result = new UnicodeSet();
-            StringBuilder range = new StringBuilder(); // TODO optimize
-            Matcher matcher = END_OF_QUOTE.matcher(source);
+            StringBuilder item = new StringBuilder(); // TODO optimize
+            Matcher matcher = null;
             int rangeStart = -1;
             int cp;
-            for (int i = 0; i < source.length(); i += Character.charCount(cp)) {
+            final int length = source.length();
+            for (int i = 0; i < length;) {
                 cp = source.codePointAt(i);
                 switch (cp) {
                 default:
-                    range.appendCodePoint(cp);
+                    item.appendCodePoint(cp);
                     break;
                 case ' ':
                     if (rangeStart >= 0) {
-                        throw new IllegalArgumentException();
+                        int cp2 = CharSequences.getSingleCodePoint(item);
+                        if (cp2 == Integer.MAX_VALUE) {
+                            throw new FlatUnicodeSetException("Must have exactly one character after '➖'", source, i);
+                        }
+                        result.add(rangeStart, cp2);
+                        rangeStart=-1;
+                    } else if (item.length() != 0) {
+                        result.add(item);
                     }
-                    if (range.length() != 0) {
-                        result.add(range);
-                        range.setLength(0);
-                    }
+                    item.setLength(0);
                     break;
                 case '➖':
-                    switch (range.length()) {
-                    case 1:
-                        break;
-                    case 2: if (Character.codePointCount(range, 0, 2) == 1) {
-                        break;
+                    int cp2 = CharSequences.getSingleCodePoint(item);
+                    if (cp2 == Integer.MAX_VALUE) {
+                        throw new FlatUnicodeSetException("Must have exactly one character before '➖'", source, i);
                     }
-                    default:
-                        throw new IllegalArgumentException();
-                    }
-                    rangeStart = cp;
+                    rangeStart = cp2;
+                    item.setLength(0);
                     break;
                 case '❰':
-                    if (rangeStart >= 0) {
-                        throw new IllegalArgumentException();
+                    if (matcher == null) {
+                        matcher = END_OF_QUOTE.matcher(source);
                     }
-                    matcher.region(i, source.length());
+                    matcher.region(i, length);
                     if (!matcher.lookingAt()) {
-                        throw new IllegalArgumentException();
+                        throw new FlatUnicodeSetException("'❰' without closing '❱'", source, i);
                     }
-                    String group = matcher.group(2);
-                    if (group != null) {
-                        cp = Integer.parseInt(source);
+                    String hex = matcher.group(1);
+                    if (hex != null) {
+                        cp = Integer.parseUnsignedInt(hex, 16);
+                        if (cp < 0 || cp > 0x10FFFF) {
+                            throw new FlatUnicodeSetException("Illegal codepoint number", source, i);
+                        }
                     } else {
-                        group = matcher.group(3);
-                        cp = MAP_CP_TO_NAME.inverse().get(group);
+                        String name = matcher.group(2);
+                        if (name != null) {
+                            Integer cpInt = MAP_CP_TO_NAME.inverse().get(name);
+                            if (cpInt == null) {
+                                throw new FlatUnicodeSetException("'❰name❱' name not recognized", source, i);
+                            }
+                            cp = cpInt;
+                        } else {
+                            throw new FlatUnicodeSetException("'❰…❱' contains invalid name or hex number", source, i);
+                        }
                     }
-                    range.appendCodePoint(Integer.parseInt(source));
-                    break;
+                    i = matcher.end(0);
+                    item.appendCodePoint(cp);
+                    continue;
                 case '❱':
-                    throw new IllegalArgumentException();
+                    throw new FlatUnicodeSetException("'❱' not after '❰'", source, i);
                 }
+                i += Character.charCount(cp);
             }
             if (rangeStart >= 0) {
-                throw new IllegalArgumentException();
-            }
-            if (range.length() != 0) {
-                result.add(range);
+                int cp2 = CharSequences.getSingleCodePoint(item);
+                if (cp2 == Integer.MAX_VALUE) {
+                    throw new FlatUnicodeSetException("Must have exactly one character after '➖'", source, length);
+                }
+                result.add(rangeStart, cp2);
+            } else if (item.length() != 0) {
+                result.add(item);
             }
             return result;
         }
     }
-    // quick tests
-    public static void main(String[] args) {
-        Set<String> cldrLocales = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr);
 
-        FlatUnicodeFormatter fuf = new FlatUnicodeFormatter();
-        String[][] tests = {
-            {"[abcq]", "a b c q"},
-            {"[ab{cq}]", "a b cq"},
-            {"[a\\u0020]", "❰SP❱ a"},
-            {"[\\u0019-!]", "❰19❱ ❰SP❱ !"},
-            {"[{2️⃣} 🪷-🪺 🫃{🫃🏻}{🇿🇼} {🏴\\U000E0067\\U000E0062\\U000E0065\\U000E006E\\U000E0067\\U000E007F}]", "🇿🇼 🏴󠁧󠁢󠁥󠁮󠁧󠁿 🪷 🪸 🪹 🪺 🫃 🫃🏻 2️⃣"},
-        };
-        for (String[] row : tests) {
-            UnicodeSet test = new UnicodeSet(row[0]);
-            String expected = row[1];
-            check("basic", test, fuf, expected);
-        }
-        Set<String> locales = ImmutableSet.of("en", "sv", "ar");
-        locales = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr, ImmutableSet.of(Level.MODERN));
-
-        for (String locale : locales) {
-            if (locale.equals("bgc") || locale.equals("bho")) {
-                continue;
-            }
-            CLDRConfig CONFIG = CLDRConfig.getInstance();
-            Factory factory = CONFIG.getCldrFactory();
-            CLDRFile cldrFile = factory.make(locale, true);
-            fuf.setLocale(locale);
-            for (ExemplarType type : ExemplarType.values()) {
-                UnicodeSet exemplars = cldrFile.getRawExemplarSet(type, null);
-                check(locale + "\t" + type, exemplars, fuf, null);
-            }
+    static class FlatUnicodeSetException extends RuntimeException {
+        private static final long serialVersionUID = -4565820177373342632L;
+        public FlatUnicodeSetException(String message, String source, int position) {
+            super(message + ": «" + source.substring(0, position+1) + "❌" + source.substring(position+1) + "»");
         }
     }
-    private static String check(String message, UnicodeSet sample, FlatUnicodeFormatter fuf, String expected) {
-        try {
-            String formatted = fuf.apply(sample);
-            System.out.println(message + "\t" + formatted);
-            if (expected != null) {
-                if (!formatted.equals(expected)) {
-                    System.out.println("FAIL " + message + "\texpected " + expected + "\tactual " + formatted);
-                }
+
+    public static String matcherGetsTo(String test, int start, int end) {
+        // TODO make it work for code points
+        boolean hitEnd = false;
+        int lastMatch = -1;
+        for (int i = start+1; i < end; ++i) {
+            if (UTF16.findCodePointOffset(test, i) != i) { // skip middle of code point
+                continue;
             }
-            UnicodeSet reversed = FlatUnicodeFormatter.parse(formatted);
-            if (!reversed.equals(sample)) {
-                System.err.println("\tFAIL\t" + reversed);
-                throw new IllegalArgumentException("\tFAIL\t" + reversed);
+            Matcher matcher = UnicodeSetUtils.END_OF_QUOTE.matcher(test);
+            matcher.region(start, i);
+            boolean ok = matcher.lookingAt();
+            if (ok) {
+                lastMatch = i;
             }
-            return formatted;
-        } catch (Exception e) {
-            return e.getMessage();
+            hitEnd = matcher.hitEnd();
+            if (!hitEnd) {
+                return test.substring(0, i-1) + "❌" + test.substring(i-1);
+            }
         }
+        return test + (hitEnd ? "✅" : "❓");
     }
 }

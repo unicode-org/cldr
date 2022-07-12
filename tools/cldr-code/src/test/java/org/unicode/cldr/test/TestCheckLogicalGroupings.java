@@ -4,20 +4,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckCLDR.Phase;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.SimpleXMLSource;
 
 public class TestCheckLogicalGroupings {
     @Test
@@ -78,5 +75,54 @@ public class TestCheckLogicalGroupings {
             assertEquals(0, possibleErrors2.size(),
                 () -> "Expected 0 errors but got " + possibleErrors2.get(0).toString() + " for " + xpath);
         }
+    }
+
+    /**
+     * All non-optional paths that are in the same logical group should have the same coverage level
+     */
+    @Test
+    void testSameCoverageLevel() {
+        String[] locales = { "am", "en", "fr", "pt_PT", "zh" };
+        for (String localeId : locales) {
+            sameLevel(localeId);
+        }
+    }
+
+    void sameLevel(String localeId) {
+        final CLDRConfig config = CLDRConfig.getInstance();
+        final CLDRFile cldrFile = config.getCLDRFile(localeId, true);
+        final SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
+        final CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(sdi, localeId);
+        for (final String path : cldrFile.fullIterable()) {
+            Set<String> grouping = LogicalGrouping.getPaths(cldrFile, path);
+            if (grouping != null && grouping.size() > 1) {
+                LogicalGrouping.removeOptionalPaths(grouping, cldrFile);
+                if (grouping.size() > 1) {
+                    testGrouping(grouping, coverageLevel, localeId);
+                }
+            }
+        }
+    }
+
+    private void testGrouping(Set<String> grouping, CoverageLevel2 coverageLevel, String localeId) {
+        Level firstLevel = Level.UNDETERMINED;
+        for (final String path : grouping) {
+            final Level level = coverageLevel.getLevel(path);
+            assertNotEquals(level, Level.UNDETERMINED, localeId + " " + path);
+            if (firstLevel == Level.UNDETERMINED) {
+                firstLevel = level;
+            } else if (level != firstLevel) {
+                assertEquals(firstLevel, level, groupingDescription(grouping, coverageLevel, localeId));
+            }
+        }
+    }
+
+    private String groupingDescription(Set<String> grouping, CoverageLevel2 coverageLevel, String localeId) {
+        String desc = "Locale: " + localeId + "\n" + "Group size: " + grouping.size() + "\n";
+        for (final String path : grouping) {
+            final Level level = coverageLevel.getLevel(path);
+            desc += level + " " + path + "\n";
+        }
+        return desc;
     }
 }

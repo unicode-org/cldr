@@ -77,8 +77,10 @@ public class LogicalGrouping {
 
     /**
      * Return a sorted set of paths that are in the same logical set as the given path
+     *
+     * @param cldrFile the CLDRFile
      * @param path the distinguishing xpath
-     * @param pathType TODO
+     * @param pathTypeOut if not null, gets filled in with the PathType
      *
      * @return the set of paths, or null (to be treated as equivalent to empty set)
      *
@@ -96,13 +98,10 @@ public class LogicalGrouping {
      * Caches: Most of the calculations are independent of the locale, and can be cached on a static basis.
      * The paths that are locale-dependent are /dayPeriods and @count. Those can be computed on a per-locale basis;
      * and cached (they are shared across a number of locales).
-     *
-     * Reference: https://unicode.org/cldr/trac/ticket/11854
      */
     public static Set<String> getPaths(CLDRFile cldrFile, String path, Output<PathType> pathTypeOut) {
         if (path == null) {
             return null; // return null for null path
-            // return new TreeSet<String>(); // return empty set for null path
         }
         XPathParts parts = null;
         PathType pathType = null;
@@ -126,7 +125,6 @@ public class LogicalGrouping {
         if (pathType == PathType.SINGLETON) {
             /*
              * Skip cache for PathType.SINGLETON and simply return a set of one.
-             * TODO: should we ever return null instead of singleton here?
              */
             Set<String> set = new TreeSet<>();
             set.add(path);
@@ -201,13 +199,6 @@ public class LogicalGrouping {
             return true;
         case "zero": case "one":
             break; // continue
-//        case "many": // special case for french
-//            String localeId = cldrFile.getLocaleID();
-//            if (localeId.startsWith("fr")
-//                && (localeId.length() == 2 || localeId.charAt(2) == '_')) {
-//                return true;
-//            }
-//            return false;
         default:
             return false;
         }
@@ -233,6 +224,15 @@ public class LogicalGrouping {
             }
         }
         return false;
+    }
+
+    public static void removeOptionalPaths(Set<String> grouping, CLDRFile cldrFile) {
+        Set<String> grouping2 = new HashSet<>(grouping);
+        for (String p : grouping2) {
+            if (LogicalGrouping.isOptional(cldrFile, p)) {
+                grouping.remove(p);
+            }
+        }
     }
 
     /**
@@ -428,9 +428,7 @@ public class LogicalGrouping {
                 Collection<String> rawGenders = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
                 setGrammarAttributes(set, parts, pluralTypes, rawCases, rawGenders);
             }
-        }
-
-        ;
+        };
 
         abstract void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts);
 

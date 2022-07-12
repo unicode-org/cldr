@@ -40,6 +40,11 @@ class SummaryArgs {
       snapshotPolicy || defaultArgs?.snapshotPolicy || SNAP_NONE;
     this.snapshotId =
       snapshotId || defaultArgs?.snapshotId || SNAPID_NOT_APPLICABLE;
+    this.summarizeAllLocales = defaultArgs?.summarizeAllLocales || false;
+  }
+
+  setSummarizeAllLocales(summarizeAllLocales) {
+    this.summarizeAllLocales = summarizeAllLocales;
   }
 }
 
@@ -90,8 +95,10 @@ function fetchStatus() {
   }
 }
 
-function start() {
-  requestSummary(new SummaryArgs(null, LOAD_START));
+function start(summarizeAllLocales) {
+  const sa = new SummaryArgs(null, LOAD_START);
+  sa.setSummarizeAllLocales(summarizeAllLocales);
+  requestSummary(sa);
 }
 
 function stop() {

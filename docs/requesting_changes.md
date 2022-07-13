@@ -49,8 +49,8 @@ during the regular CLDR development cycle.
 
 ## Adding New Locales
 
-If you would like to add data for a new locale, 
+If you would like to add data for a new locale: 
 
 * Make sure that you pick the right locale code for the new data. See [Picking the Right Language Code](https://cldr.unicode.org/index/cldr-spec/picking-the-right-language-code)
-* Gather the [Core Data for New Locales](https://sites.google.com/corp/unicode.org/cldr/index/cldr-spec/core-data-for-new-locales). A new locale is only added if someone commits to supplying/maintaining the data.
+* Gather the [Core Data for New Locales](https://cldr.unicode.org/index/cldr-spec/core-data-for-new-locales). A new locale is only added if someone commits to supplying/maintaining the data.
 * Follow the instructions above to file a ticket, requesting the addition.  Add the language code (#1) and core data (#2) in the ticket)

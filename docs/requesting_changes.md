@@ -15,8 +15,8 @@ In CLDR Bug Reports, please try to give as much information as possible to help 
 
 A few areas are particularly tricky.
 
-* For the sort order of a language, see [Collation Guidelines](https://sites.google.com/corp/unicode.org/cldr/index/cldr-spec/collation-guidelines)
-* For plural rules (ordinals and cardinals), see [Plural Rules](https://sites.google.com/corp/unicode.org/cldr/index/cldr-spec/plural-rules)
+* For the sort order of a language, see [Collation Guidelines](https://cldr.unicode.org/index/cldr-spec/collation-guidelines)
+* For plural rules (ordinals and cardinals), see [Plural Rules](https://cldr.unicode.org/index/cldr-spec/plural-rules)
 
 ### Requesting updates to locale data through a ticket
 
@@ -31,7 +31,7 @@ Helpful information include:
 * Evidence of usage in the mainstream media (for example, a newspaper or magazine)
 * If there are alternatives (e.g. different currency symbols), we need to see examples of those (from the most prominent sources). Please note that failure to supply alternatives if they exist significantly reduces credibility.
 
-Note: If you are a regular user of that language you can also contribute directly through the Survey Tool. [More information about the process including opening an account.](https://sites.google.com/corp/unicode.org/cldr/index/survey-tool)
+Note: If you are a regular user of that language you can also contribute directly through the Survey Tool. [More information about the process including opening an account.](https://cldr.unicode.org/index/survey-tool)
 
 ### How to File a Ticket
 
@@ -44,7 +44,7 @@ You must have an account in order to file tickets. If you do not have an account
 
 ## When to fix in survey tool
 
-If you regularly use software in a language and would like to contribute and help fix/add data for that language, please use [the Survey Tool](https://sites.google.com/corp/unicode.org/cldr/index/survey-tool)
+If you regularly use software in a language and would like to contribute and help fix/add data for that language, please use [the Survey Tool]( https://cldr.unicode.org/index/survey-tool)
 during the regular CLDR development cycle.
 
 ## Adding New Locales

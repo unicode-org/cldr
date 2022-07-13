@@ -264,6 +264,7 @@ public class VettingViewerQueue {
             VettingViewer<Organization> vv;
             vv = new VettingViewer<>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
                 new STUsersChoice(sm));
+            vv.setSummarizeAllLocales(summarizeAllLocales);
             int localeCount = vv.getLocaleCount(usersOrg);
             int pathCount = getMax(sm.getTranslationHintsFile());
             maxn = localeCount * pathCount;
@@ -470,5 +471,11 @@ public class VettingViewerQueue {
         public int getBaselineProblemCount(CLDRLocale cldrLocale) throws ExecutionException {
             return LocaleCompletion.getBaselineCount(cldrLocale);
         }
+    }
+
+    private boolean summarizeAllLocales = false;
+
+    public void setSummarizeAllLocales(boolean b) {
+        summarizeAllLocales = b;
     }
 }

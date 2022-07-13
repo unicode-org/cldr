@@ -633,7 +633,7 @@ public class VettingViewer<T> {
         }
     }
 
-    public static final class LocalesWithExplicitLevel implements Predicate<String> {
+    public final class LocalesWithExplicitLevel implements Predicate<String> {
         private final Organization org;
         private final Level desiredLevel;
 
@@ -646,7 +646,7 @@ public class VettingViewer<T> {
         public boolean is(String localeId) {
             StandardCodes sc = StandardCodes.make();
             if (orgIsNeutralForSummary(org)) {
-                if (!SubmissionLocales.CLDR_LOCALES.contains(localeId)) {
+                if (!summarizeAllLocales && !SubmissionLocales.CLDR_LOCALES.contains(localeId)) {
                     return false;
                 }
                 return desiredLevel == sc.getTargetCoverageLevel(localeId);
@@ -1534,5 +1534,11 @@ public class VettingViewer<T> {
 
     public interface LocaleBaselineCount {
         int getBaselineProblemCount(CLDRLocale cldrLocale) throws ExecutionException;
+    }
+
+    private boolean summarizeAllLocales = false;
+
+    public void setSummarizeAllLocales(boolean b) {
+        summarizeAllLocales = b;
     }
 }

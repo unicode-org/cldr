@@ -151,6 +151,7 @@ public class Summary {
         }
         Organization usersOrg = cs.user.vrOrg();
         VettingViewerQueue vvq = VettingViewerQueue.getInstance();
+        vvq.setSummarizeAllLocales(request.summarizeAllLocales);
         QueueMemberId qmi = new QueueMemberId(cs);
         SummaryResponse sr = getSummaryResponse(vvq, qmi, usersOrg, request.loadingPolicy);
         if (SurveySnapshot.SNAP_CREATE.equals(request.snapshotPolicy)

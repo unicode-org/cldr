@@ -129,8 +129,10 @@ function showSnapshot(snapshotId) {
   requestSummary(new SummaryArgs(null, LOAD_START, SNAP_SHOW, snapshotId));
 }
 
-function createSnapshot() {
-  requestSummary(new SummaryArgs(null, LOAD_START, SNAP_CREATE));
+function createSnapshot(summarizeAllLocales) {
+  const sa = new SummaryArgs(null, LOAD_START, SNAP_CREATE);
+  sa.setSummarizeAllLocales(summarizeAllLocales);
+  requestSummary(sa);
 }
 
 function requestSummary(summaryArgs) {
@@ -163,7 +165,7 @@ function setSummaryData(data) {
     }
     latestArgs.snapshotPolicy = SNAP_NONE;
   }
-  if (latestArgs.loadingPolicy === LOAD_NOSTART) {
+  if (latestArgs.loadingPolicy !== LOAD_FORCESTOP) {
     window.setTimeout(fetchStatus.bind(this), NORMAL_RETRY);
   }
 }

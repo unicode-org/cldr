@@ -34,16 +34,8 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.VettingViewer;
-import org.unicode.cldr.web.CookieSession;
-import org.unicode.cldr.web.Dashboard;
+import org.unicode.cldr.web.*;
 import org.unicode.cldr.web.Dashboard.ReviewOutput;
-import org.unicode.cldr.web.QueueMemberId;
-import org.unicode.cldr.web.SurveyLog;
-import org.unicode.cldr.web.SurveySnapshot;
-import org.unicode.cldr.web.SurveySnapshotDb;
-import org.unicode.cldr.web.SurveyThreadManager;
-import org.unicode.cldr.web.UserRegistry;
-import org.unicode.cldr.web.VettingViewerQueue;
 import org.unicode.cldr.web.VettingViewerQueue.LoadingPolicy;
 
 import com.ibm.icu.util.Calendar;
@@ -337,7 +329,10 @@ public class Summary {
     }
 
     private void makeAutoPriorityItemsSnapshot() throws IOException, JSONException {
+        final SurveyMain.Phase phase = SurveyMain.phase();
+        final boolean summarizeAllLocales = (phase == SurveyMain.Phase.VETTING || phase == SurveyMain.Phase.VETTING_CLOSED);
         final VettingViewerQueue vvq = VettingViewerQueue.getInstance();
+        vvq.setSummarizeAllLocales(summarizeAllLocales);
         final QueueMemberId qmi = new QueueMemberId();
         final Organization usersOrg = VettingViewer.getNeutralOrgForSummary();
         LoadingPolicy loadingPolicy = LoadingPolicy.START;

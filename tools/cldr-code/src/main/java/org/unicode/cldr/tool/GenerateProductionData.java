@@ -493,9 +493,9 @@ public class GenerateProductionData {
         if (desiredPath.contains("type=\"en_GB\"") && desiredPath.contains("alt=")) {
             int debug = 0;
         }
-        if (foundPath == null) {
-            // We can do this, because the bailey value has already been checked
-            // Since it isn't null, a null indicates a constructed alt value
+        if (foundPath == null || foundPath.equals(GlossonymConstructor.PSEUDO_PATH)) {
+            // We can do this, because the bailey value has already been checked.
+            // Since it isn't null, a null or PSEUDO_PATH indicates a constructed alt value.
             return true;
         }
         XPathParts desiredPathParts = XPathParts.getFrozenInstance(desiredPath);

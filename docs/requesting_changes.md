@@ -24,7 +24,7 @@ If you are requesting a change to language data with a ticket, please provide ap
 that market to consider during their next review (usually annually and sometimes twice during the year).
 
 Please note that for all formats, CLDR data aligns to the most common usage in the market. That is, decisions are based on the market and
-usage cases, as well as language, so that if a prescriptive language body and/or other authority's recommended use conflicts with the predominant use described in the points above, then the predominant use should still be the one reflected in CLDR. The more important the data, we look for more evidence and discussions among the language specialists.
+usage cases, as well as language, so that if a prescriptive language body and/or other authority's recommended use conflicts with the predominant use described in the points below, then the predominant use should still be the one reflected in CLDR. The more important the data, we look for more evidence and discussions among the language specialists.
 
 Helpful information include:
 * Examples of the most prominent usage(s)

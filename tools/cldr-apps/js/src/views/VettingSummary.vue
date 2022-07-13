@@ -174,7 +174,7 @@ export default {
     },
 
     createSnapshot() {
-      cldrPriorityItems.createSnapshot();
+      cldrPriorityItems.createSnapshot(this.summarizeAllLocales);
     },
 
     setData(data) {

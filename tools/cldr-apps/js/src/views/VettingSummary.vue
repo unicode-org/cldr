@@ -24,6 +24,14 @@
       >
         Create New Summary
       </button>
+      <span v-if="canSummarizeAllLocales">
+        <input
+          type="checkbox"
+          title="Summarize All Locales"
+          id="summarizeAllLocales"
+          v-model="summarizeAllLocales"
+        /><label for="summarizeAllLocales">All Locales</label>
+      </span>
     </p>
     <section v-if="snapshotsAreReady" class="snapSection">
       <h2 class="snapHeading">Snapshots</h2>
@@ -126,6 +134,7 @@ export default {
       canCreateSnapshots: false,
       canUseSnapshots: false,
       canUseSummary: false,
+      canSummarizeAllLocales: false,
       heading: null,
       helpMessage: null,
       message: null,
@@ -137,6 +146,7 @@ export default {
       whenReceived: null,
       reports: null,
       reportLoad: false,
+      summarizeAllLocales: false,
     };
   },
   created() {
@@ -144,6 +154,7 @@ export default {
     this.canUseSummary = cldrPriorityItems.canUseSummary();
     this.canUseSnapshots = cldrPriorityItems.canUseSnapshots();
     this.canCreateSnapshots = cldrPriorityItems.canCreateSnapshots();
+    this.canSummarizeAllLocales = canCreateSnapshots;
     if (!this.canUseSummary) {
       this.accessDenied = cldrText.get("summary_access_denied");
     }
@@ -151,7 +162,7 @@ export default {
 
   methods: {
     start() {
-      cldrPriorityItems.start();
+      cldrPriorityItems.start(this.summarizeAllLocales);
     },
 
     stop() {

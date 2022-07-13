@@ -2,6 +2,7 @@ package org.unicode.cldr.unittest;
 
 import java.util.Set;
 
+import org.unicode.cldr.test.CheckExemplars;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.DisplayAndInputProcessor.PathSpaceType;
 import org.unicode.cldr.util.CLDRConfig;
@@ -574,9 +575,11 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
     }
 
     public void TestFlatFormatExemplars() {
-        FlatUnicodeFormatter fuf = new FlatUnicodeFormatter();
+        FlatUnicodeFormatter fuf = new FlatUnicodeFormatter().setLocale("no");
         String[][] tests = {
             // Unicode Set, expected format
+            {"[ĂÅ z]", "Ă z Å"}, // Ensure that order is according to the locale
+            {"[ÅÅ]", "Å Å"}, // Ensure it doesn't merge two different characters with same NFC, even though a collator is used
             {"[\\u001E-!]", "❰1E❱ ❰1F❱ ❰SP❱ !"},
             {"[a\\u0020]", "❰SP❱ a"},
             {"[abcq]", "a b c q"},
@@ -586,8 +589,19 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         for (String[] row : tests) {
             UnicodeSet test = new UnicodeSet(row[0]);
             String expected = row[1];
-            check("basic", test, fuf, expected);
+            check("basic", test, fuf, expected, null, null);
         }
+
+        String[][] inverse = {
+            // formatted, expected Unicode Set
+            {"❰61❱➖❰65❱", "[a-e]"},
+        };
+        for (String[] row : inverse) {
+            UnicodeSet actual = FlatUnicodeFormatter.parse(row[0]);
+            UnicodeSet expected = new UnicodeSet(row[1]);
+            assertEquals("Format to UnicodeSet" + row[0], expected, actual);
+        }
+
 
         // Expected syntax errors
         String[][] errors = {
@@ -616,7 +630,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         final Set<String> locales;
         switch (getInclusion()) {
         case 0:
-            locales = ImmutableSet.of("en", "sv", "ar");
+            locales = ImmutableSet.of("en", "sv", "ar", "hu");
             break;
         case 1: case 2: case 3: case 4: case 5:
             locales = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr, ImmutableSet.of(Level.MODERN));
@@ -631,16 +645,17 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             Factory factory = CONFIG.getFullCldrFactory();
             CLDRFile cldrFile = factory.make(locale, true);
             fuf.setLocale(locale);
+            DisplayAndInputProcessor daip = new DisplayAndInputProcessor(cldrFile);
             for (ExemplarType type : ExemplarType.values()) {
                 UnicodeSet exemplars = cldrFile.getRawExemplarSet(type, null);
                 if (exemplars != null) {
-                    check(locale + "\t" + type, exemplars, fuf, null);
+                    check(locale + "\t" + type, exemplars, fuf, null, daip, type);
                 }
             }
         }
     }
 
-    private String check(String message, UnicodeSet original, FlatUnicodeFormatter fuf, String expected) {
+    private String check(String message, UnicodeSet original, FlatUnicodeFormatter fuf, String expected, DisplayAndInputProcessor daip, ExemplarType type) {
         String formatted = fuf.apply(original);
         if (expected != null) {
             assertEquals(message, expected, formatted);
@@ -654,9 +669,16 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             e.printStackTrace();
             return "ERROR";
         }
-        if (!assertEquals(message + " round-trip", original.toPattern(false), roundTrip.toPattern(false))) {
+        if (!assertEquals(message, original.toPattern(false), roundTrip.toPattern(false))) {
             warnln("in original, not round-trip" + new UnicodeSet(original).removeAll(roundTrip).toPattern(false));
             warnln("in round-trip, not original" + new UnicodeSet(roundTrip).removeAll(original).toPattern(false));
+        }
+        if (isVerbose() && daip != null) {
+            String oldFormatted =
+                DisplayAndInputProcessor.getCleanedUnicodeSet(
+                    original, daip.getPrettyPrinter(), CheckExemplars.ExemplarType.from(type));
+            logln("  FORMATTED︰OLD︰" + DisplayAndInputProcessor.displayUnicodeSet(oldFormatted));
+            logln("  FORMATTED︰NEW︰" + formatted);
         }
         return formatted;
     }

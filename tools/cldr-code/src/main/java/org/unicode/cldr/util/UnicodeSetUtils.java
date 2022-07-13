@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import java.util.Comparator;
 import java.util.TreeSet;
 import java.util.function.Function;
 import java.util.regex.Matcher;
@@ -10,7 +11,9 @@ import com.google.common.collect.ImmutableBiMap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UTF16.StringComparator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSet.EntryRange;
 import com.ibm.icu.util.ULocale;
@@ -24,6 +27,8 @@ public class UnicodeSetUtils {
         + "]").freeze();
 
     public static final Pattern END_OF_QUOTE = Pattern.compile("❰(?:([A-F0-9]{2,6})|([A-Z_]*)|([^❱]*))❱");
+
+    public static UTF16.StringComparator CODEPOINT_ORDER = new StringComparator(true, false, 0);
 
     public static final UnicodeSet EMOJI_EXCEPTIONS = new UnicodeSet("[:emoji_component:]").retainAll(TO_QUOTE).freeze();
     public static final UnicodeSet EMOJI = new UnicodeSet("[:emoji:]");
@@ -129,12 +134,15 @@ public class UnicodeSetUtils {
         .put(0x2009, "NSP")
         .build();
 
+    static final MultiComparator<String> ROOT_COLLATOR = new MultiComparator<>((Comparator<String>) (Comparator<?>) Collator.getInstance(ULocale.ROOT), CODEPOINT_ORDER);
+
     /**
      * FlatUnicodeSet is a basic format for use in exemplar sets and similar environments.
      * The goal is a simple format for a set of literal characters that dispenses with
      * operations and properties in favor of minimizing syntax and escaping.
-     * For the syntax needed, non-ASCII characters are used to further lessen escaping,
-     * and the escaping structure is semi-verbose.
+     * For the syntax needed, 3 non-ASCII characters are used to further lessen escaping,
+     * and the escaping structure is semi-verbose. Those characters are ➖, ❰, ❱
+     *
      * <br>The structure is:
      * <pre>
      * uset = range (' ' range)*
@@ -144,35 +152,28 @@ public class UnicodeSetUtils {
      * hexCodePoint = [A-F0-9]{2,6}
      * character_acronym = [A-Z_]*
      * </pre>
-     * So the syntax characters are space, ➖, ❰, ❱
-     * To express the literals, use ❰SP❱, ❰RANGE❱, ❰ESC_S❱, and ❰ESC_E❱
+     * To express the literal syntax characters, use ❰SP❱, ❰RANGE❱, ❰ESC_S❱, and ❰ESC_E❱
      * @author markdavis
      *
      */
     public static class FlatUnicodeFormatter implements Function<UnicodeSet, String> {
+        Comparator<String> col = ROOT_COLLATOR;
 
-        Collator col = Collator.getInstance(ULocale.ROOT);
-        {
-            col.setStrength(Collator.IDENTICAL);
-        }
-
-        public void setLocale(String locale) {
-            ICUServiceBuilder isb = null;
+        public FlatUnicodeFormatter setLocale(String locale) {
+            RuleBasedCollator col2 = null;
             try {
-                isb = ICUServiceBuilder.forLocale(CLDRLocale.getInstance(locale));
+                ICUServiceBuilder isb = ICUServiceBuilder.forLocale(CLDRLocale.getInstance(locale));
+                if (isb != null) {
+                    col2 = isb.getRuleBasedCollator();
+                }
             } catch (Exception e) {
             }
-
-            if (isb != null) {
-                try {
-                    col = isb.getRuleBasedCollator();
-                } catch (Exception e) {
-                    col = Collator.getInstance(ULocale.ROOT);
-                }
+            if (col2 != null) {
+                col = new MultiComparator<>((Comparator<String>) (Comparator<?>) col2, CODEPOINT_ORDER);
             } else {
-                col = Collator.getInstance(ULocale.ROOT);
+                col = ROOT_COLLATOR;
             }
-            col.setStrength(Collator.IDENTICAL);
+            return this;
         }
 
         @Override

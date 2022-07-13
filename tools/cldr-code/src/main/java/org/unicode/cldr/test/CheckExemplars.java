@@ -86,9 +86,11 @@ public class CheckExemplars extends FactoryCheckCLDR {
         .freeze();
 
     public enum ExemplarType {
-        main(AllowedInExemplars, "(specific-script - uppercase - invisibles + \u0130)", true), punctuation(ALLOWED_IN_PUNCTUATION, "punctuation",
-            false), auxiliary(ALLOWED_IN_AUX, "(specific-script - uppercase - invisibles + \u0130)",
-                true), index(UAllowedInExemplars, "(specific-script - invisibles)", false), numbers(UAllowedInNumbers, "(specific-script - invisibles)", false),
+        main(AllowedInExemplars, "(specific-script - uppercase - invisibles + \u0130)", true),
+        punctuation(ALLOWED_IN_PUNCTUATION, "punctuation", false),
+        auxiliary(ALLOWED_IN_AUX, "(specific-script - uppercase - invisibles + \u0130)", true),
+        index(UAllowedInExemplars, "(specific-script - invisibles)", false),
+        numbers(UAllowedInNumbers, "(specific-script - invisibles)", false),
         // currencySymbol(AllowedInExemplars, "(specific-script - uppercase - invisibles + \u0130)", false)
         ;
 
@@ -105,6 +107,10 @@ public class CheckExemplars extends FactoryCheckCLDR {
             this.message = message;
             this.toRemove = new UnicodeSet(allowed).complement().freeze();
             this.convertUppercase = convertUppercase;
+        }
+
+        public static ExemplarType from(CLDRFile.ExemplarType type) {
+            return ExemplarType.valueOf(type.name()); // TODO Merge these two enums
         }
     }
 

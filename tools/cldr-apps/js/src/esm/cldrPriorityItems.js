@@ -6,6 +6,8 @@
 import * as cldrAjax from "../esm/cldrAjax.js";
 import * as cldrStatus from "../esm/cldrStatus.js";
 
+const SUMMARY_DEBUG = true;
+
 const SECONDS_IN_MS = 1000;
 
 const NORMAL_RETRY = 10 * SECONDS_IN_MS; // "Normal" retry: starting or about to start
@@ -85,11 +87,20 @@ function viewCreated(setData, setSnap) {
 function fetchStatus() {
   if (!canSum || "vsummary" !== cldrStatus.getCurrentSpecial()) {
     canSum = canSnap = canCreateSnap = false;
+    if (SUMMARY_DEBUG) {
+      console.log("cldrPriorityItems.fetchStatus resetting for other special");
+    }
     return;
   }
   if (canSum) {
     if (canSnap) {
       listSnapshots();
+    }
+    if (SUMMARY_DEBUG) {
+      console.log(
+        "cldrPriorityItems.fetchStatus using latestArgs.summarizeAllLocales = " +
+          latestArgs.summarizeAllLocales
+      );
     }
     requestSummary(new SummaryArgs(latestArgs, LOAD_NOSTART));
   }
@@ -97,11 +108,20 @@ function fetchStatus() {
 
 function start(summarizeAllLocales) {
   const sa = new SummaryArgs(null, LOAD_START);
+  if (SUMMARY_DEBUG) {
+    console.log(
+      "cldrPriorityItems.start using summarizeAllLocales = " +
+        summarizeAllLocales
+    );
+  }
   sa.setSummarizeAllLocales(summarizeAllLocales);
   requestSummary(sa);
 }
 
 function stop() {
+  if (SUMMARY_DEBUG) {
+    console.log("cldrPriorityItems.stop");
+  }
   requestSummary(new SummaryArgs(latestArgs, LOAD_FORCESTOP));
 }
 
@@ -130,6 +150,9 @@ function requestSummary(summaryArgs) {
 }
 
 function setSummaryData(data) {
+  if (SUMMARY_DEBUG) {
+    console.log("cldrPriorityItems.setSummaryData");
+  }
   if (!callbackToSetData) {
     return;
   }

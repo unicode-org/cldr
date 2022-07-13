@@ -154,7 +154,7 @@ export default {
     this.canUseSummary = cldrPriorityItems.canUseSummary();
     this.canUseSnapshots = cldrPriorityItems.canUseSnapshots();
     this.canCreateSnapshots = cldrPriorityItems.canCreateSnapshots();
-    this.canSummarizeAllLocales = canCreateSnapshots;
+    this.canSummarizeAllLocales = this.canCreateSnapshots;
     if (!this.canUseSummary) {
       this.accessDenied = cldrText.get("summary_access_denied");
     }

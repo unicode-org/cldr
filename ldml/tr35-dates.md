@@ -1570,13 +1570,13 @@ Note: A generic location format is constructed by a part of time zone ID represe
 * "GMT+3:30" (short)
 * "UTC-03.00" (long)
 * "UTC-3" (short)
-* "Гриинуич+03:30" (long)
+* "Гринуич+03:30" (long)
 
 Otherwise (when the offset from GMT is zero, referring to GMT itself) the style specified by the `<gmtZeroFormat>` element is used:
 
 * "GMT"
 * "UTC"
-* "Гриинуич"
+* "Гринуич"
 
 **ISO 8601 time zone formats:** The formats based on the [[ISO 8601](tr35.md#ISO8601)]  local time difference from UTC ("+" sign is used when local time offset is 0), or the UTC indicator ("Z" - only when the local time offset is 0 and the specifier X\* is used). The ISO 8601 basic format does not use a separator character between hours and minutes field, while the extended format uses colon (':') as the separator. The ISO 8601 basic format with hours and minutes fields is equivalent to RFC 822 zone format.
 

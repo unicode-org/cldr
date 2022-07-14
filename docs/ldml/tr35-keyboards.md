@@ -106,7 +106,7 @@ The LDML specification is divided into the following parts:
 * 8 [Data Sources](#Data_Sources)
   * Table: [Key Map Data Sources](#Key_Map_Data_Sources)
 * 9 [Keyboard IDs](#Keyboard_IDs)
-  * 9.1 [Principles for Keyboard Ids](#Principles_for_Keyboard_Ids)
+  * 9.1 [Principles for Keyboard IDs](#Principles_for_Keyboard_IDs)
 * 10 [Platform Behaviors in Edge Cases](#Platform_Behaviors_in_Edge_Cases)
 
 ## 1 <a name="Introduction" href="#Introduction">Keyboards</a>
@@ -122,11 +122,11 @@ The Unicode Standard and related technologies such as CLDR have dramatically imp
 
 <!-- The CLDR keyboard format provides for the communication of keyboard mapping data between different modules, and the comparison of data across different vendors and platforms. The standardized identifier for keyboards can be used to communicate, internally or externally, a request for a particular keyboard mapping that is to be used to transform either text or keystrokes. The corresponding data can then be used to perform the requested actions.
 
-For example, a web-based virtual keyboard may transform text in the following way. Suppose the user types a key that produces a "W" on a qwerty keyboard. A web-based tool using an azerty virtual keyboard can map that text ("W") to the text that would have resulted from typing a key on an azerty keyboard, by transforming "W" to "Z". Such transforms are in fact performed in existing web applications.
+For example, a web-based virtual keyboard may transform text in the following way. Suppose the user types a key that produces a "W" on a QWERTY keyboard. A web-based tool using an AZERTY virtual keyboard can map that text ("W") to the text that would have resulted from typing a key on an AZERTY keyboard, by transforming "W" to "Z". Such transforms are in fact performed in existing web applications.
 
 The data can also be used in analysis of the capabilities of different keyboards. It also allows better interoperability by making it easier for keyboard designers to see which characters are generally supported on keyboards for given languages.
 
-To illustrate this specification, here is an abridged layout representing the English US 101 keyboard on the Mac OSX operating system (with an inserted long-press example). For more complete examples, and information collected about keyboards, see keyboard data in XML.
+To illustrate this specification, here is an abridged layout representing the English US 101 keyboard on the Mac OS X operating system (with an inserted long-press example). For more complete examples, and information collected about keyboards, see keyboard data in XML.
 
 -->
 
@@ -160,7 +160,7 @@ Some non-goals (outside the scope of the format) currently are:
 2. Advanced IME features, handwriting recognition, etc.
 3. Roundtrip mappings—the ability to recover precisely the same format as an original platform's representation. In particular, the internal structure may have no relation to the internal structure of external keyboard source data, the only goal is functional equivalence. -->
 
-<!-- Note: During development of this section, it was considered whether the modifier RAlt (=AltGr) should be merged with Option. In the end, they were kept separate, but for comparison across platforms implementers may choose to unify them. -->
+<!-- Note: During development of this section, it was considered whether the modifier RAlt (= AltGr) should be merged with Option. In the end, they were kept separate, but for comparison across platforms implementers may choose to unify them. -->
 
 Note that in parts of this document, the format `@x` is used to indicate the _attribute_ **x**.
 
@@ -218,7 +218,7 @@ If it becomes necessary in the future, the format could extend the ISO layout to
 
 **Long-press key:** also known as a “child key”. A secondary key that is invoked from a top level key on a software keyboard. Secondary keys typically provide access to variants of the top level key, such as accented variants (a => á, à, ä, ã)
 
-**Modifier:** A key that is held to change the behavior of a keyboard. For example, the "Shift" key allows access to upper-case characters on a US keyboard. Other modifier keys include but is not limited to: Ctrl, Alt, Option, Command and Caps Lock.
+**Modifier:** A key that is held to change the behavior of a keyboard. For example, the "Shift" key allows access to upper-case characters on a US keyboard. Other modifier keys include but are not limited to: Ctrl, Alt, Option, Command and Caps Lock.
 
 **Physical keyboard** is an input device which has individual keys that are pressed. Each key has a unique identifier and the arrangement doesn't change, even if the mapping of those keys does.
 
@@ -230,13 +230,13 @@ If it becomes necessary in the future, the format could extend the ISO layout to
 
 When explicitly specified, attributes can contain escaped characters. This specification uses two methods of escaping, the _UnicodeSet_ notation and the `\u{...}` notation.
 
-The _UnicodeSet_ notation is described in [UTS#35 section 5.3.3](tr35.md#Unicode_Sets) and allows for comprehensive character matching, including by character range, properties, names, or codepoints. Currently, the following attributes allow _UnicodeSet_ notation:
+The _UnicodeSet_ notation is described in [UTS #35 section 5.3.3](tr35.md#Unicode_Sets) and allows for comprehensive character matching, including by character range, properties, names, or codepoints. Currently, the following attributes allow _UnicodeSet_ notation:
 
 * `from`, `before`, `after` on the `<transform>` element
 * `from`, `before`, `after` on the `<reorder>` element
 * `from`, `before`, `after` on the `<backspace>` element
 
-The `\u{...}` notation, a subset of hex notation, is described in [UTS#18 section 1.1](https://www.unicode.org/reports/tr18/#Hex_notation). It can refer to one or multiple individual codepoints. Currently, the following attributes allow the `\u{...}` notation:
+The `\u{...}` notation, a subset of hex notation, is described in [UTS #18 section 1.1](https://www.unicode.org/reports/tr18/#Hex_notation). It can refer to one or multiple individual codepoints. Currently, the following attributes allow the `\u{...}` notation:
 
 * `to`, `longPress`, `multitap`, `hint` on the `<map>` element
 * `to` on the `<transform>` element
@@ -256,12 +256,12 @@ Characters of general category of Combining Mark (M), Control characters (Cc), F
 <keyboard conformsTo="42"/>
 ```
 
-<!-- Each platform has its own directory, where a "platform" is a designation for a set of keyboards available from a particular source, such as Windows or ChromeOS. This directory name is the platform name (see Table 2 located further in the document). Within this directory there are two types of files:
+<!-- Each platform has its own directory, where a "platform" is a designation for a set of keyboards available from a particular source, such as Windows or Chrome OS. This directory name is the platform name (see Table 2 located further in the document). Within this directory there are two types of files:
 
 1. A single platform file (see XML structure for Platform file), this file includes a mapping of hardware key codes to the ISO layout positions. This file is also open to expansion for any configuration elements that are valid across the whole platform and that are not layout specific. This file is simply called `_platform.xml`.
-2. Multiple layout files named by their locale identifiers. (eg. `lt-t-k0-chromeos.xml` or `ne-t-k0-windows.xml`).
+2. Multiple layout files named by their locale identifiers (e.g. `lt-t-k0-chromeos.xml` or `ne-t-k0-windows.xml`).
 
-Keyboard data that is not supported on a given platform, but intended for use with that platform, may be added to the directory `/und/`. For example, there could be a file `/und/lt-t-k0-chromeos.xml`, where the data is intended for use with ChromeOS, but does not reflect data that is distributed as part of a standard ChromeOS release. -->
+Keyboard data that is not supported on a given platform, but intended for use with that platform, may be added to the directory `/und/`. For example, there could be a file `/und/lt-t-k0-chromeos.xml`, where the data is intended for use with Chrome OS, but does not reflect data that is distributed as part of a standard Chrome OS release. -->
 
 ### 4.1 <a name="Extensibility" href="#Extensibility">Extensibility</a>
 
@@ -289,13 +289,13 @@ This is the top level element. All other elements defined below are under this e
 >
 > Parents: _none_
 <!-- > Children: [version](#Element_version), [~~generation~~](#Element_generation), [info](#Element_info), [names](#Element_names), [settings](#Element_settings), [import](#Element_import), [keyMap](#Element_KeyMap), [displayMap](#Element_DisplayMap), [layer](#Element_layer), [vkeys](#Element_vkeys), [transforms](#Element_transforms), [reorders](#Element_reorder), [backspaces](#Element_backspaces) -->
-> Occurence: required, single
+> Occurrence: required, single
 >
 > </small>
 
 _Attribute:_ `locale` (required)
 
-This mandatory attribute represents the primary locale of the keyboard using Unicode locale identifiers (see [LDML](tr35.md)) - for example `"el"` for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: `"mul-Deva"`. For details, see [Keyboard IDs](#Keyboard_IDs) .
+This mandatory attribute represents the locale of the keyboard using Unicode locale identifiers (see [LDML](tr35.md)) - for example `"el"` for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: `"mul-Deva"`. For details, see [Keyboard IDs](#Keyboard_IDs).
 
 **Example** (for illustrative purposes only, not indicative of the real data)
 
@@ -344,13 +344,13 @@ Element used to keep track of the source data version.
 >
 > Parents: [keyboard](#Element_keyboard)
 > Children: _none_
-> Occurence: required, single
+> Occurrence: required, single
 >
 > </small>
 
 <!-- _Attribute:_ `platform` (required)
 
-> The platform source version. Specifies what version of the platform the data is from. For example, data from Mac OSX 10.4 would be specified as `platform="10.4"`. For platforms that have unstable version numbers which change frequently (like Linux), this field is set to an integer representing the iteration of the data starting with `"1"`. This number would only increase if there were any significant changes in the keyboard data. -->
+> The platform source version. Specifies what version of the platform the data is from. For example, data from Mac OS X 10.4 would be specified as `platform="10.4"`. For platforms that have unstable version numbers which change frequently (like Linux), this field is set to an integer representing the iteration of the data starting with `"1"`. This number would only increase if there were any significant changes in the keyboard data. -->
 
 _Attribute:_ `number` (required)
 
@@ -389,7 +389,7 @@ Element containing informative properties about the layout, for displaying in us
 >
 > Parents: [keyboard](#Element_keyboard)
 > Children: _none_
-> Occurence: optional, single
+> Occurrence: optional, single
 >
 > </small>
 
@@ -400,11 +400,11 @@ _Attribute:_ `author` (optional)
 _Attribute:_ `normalization` (optional)
 
 > The `normalization` attribute describes the intended normalization form of the keyboard layout output. The valid values are `NFC`, `NFD` or `other`.
-> An example use case is aiding user to choose among the two same layouts with one outputting characters in the normalization form C and one in the normalization form D.
+> An example use case is aiding a user to choose among the two same layouts with one outputting characters in the normalization form C and one in the normalization form D.
 
 _Attribute:_ `layout` (optional)
 
-> The `layout` attribtue describes the layout pattern, such as QWERTY, DVORAK, INSCRIPT, etc. typically used to distinguish various layouts for the same language.
+> The `layout` attribute describes the layout pattern, such as QWERTY, DVORAK, INSCRIPT, etc. typically used to distinguish various layouts for the same language.
 
 <!-- _Attribute:_ `indicator` (optional)
 
@@ -429,7 +429,7 @@ Element used to store any names given to the layout by the platform.
 >
 > Parents: [keyboard](#Element_keyboard)
 > Children: [name](#Element_name)
-> Occurence: required, single
+> Occurrence: required, single
 >
 > </small>
 
@@ -447,7 +447,7 @@ A single name given to the layout by the platform.
 >
 > Parents: [names](#Element_names)
 > Children: _none_
-> Occurence: required, multiple
+> Occurrence: required, multiple
 > </small>
 
 _Attribute:_ `value` (required)
@@ -482,13 +482,13 @@ An element used to keep track of layout specific settings. This element may or m
 >
 > Parents: [keyboard](#Element_keyboard)
 > Children: _none_
-> Occurence: optional, single
+> Occurrence: optional, single
 >
 > </small>
 
 _Attribute:_ `fallback="omit"` (optional)
 
-> The presence of this attribute means that when a modifier key combination goes unmatched, no output is produced. The default behavior (when this attribute is not present) is to fallback to the base map when the modifier key combination goes unmatched.
+> The presence of this attribute means that when a modifier key combination goes unmatched, no output is produced. The default behavior (when this attribute is not present) is to fall back to the base map when the modifier key combination goes unmatched.
 
 If this attribute is present, it must have a value of omit.
 
@@ -514,9 +514,9 @@ If this attribute is present, it must have a value of omit.
 
 _Attribute:_ `transformPartial="hide"` (optional)
 
-> This attribute describes the behavior the system while in a transform. When this attribute is present then don't show the values of the buffer as the user is typing a transform (this behavior can be seen on Windows or Linux platforms).
+> This attribute describes the behavior of the system while in a transform. When this attribute is present then don't show the values of the buffer as the user is typing a transform (this behavior can be seen on Windows or Linux platforms).
 
-By default (when this attribute is not present), show the values of the buffer as the user is typing a transform (this behavior can be seen on the Mac OSX platform).
+By default (when this attribute is not present), show the values of the buffer as the user is typing a transform (this behavior can be seen on the Mac OS X platform).
 
 If this attribute is present, it must have a value of hide.
 
@@ -563,7 +563,7 @@ There is only a single `<keys>` element in each layout.
 >
 > Parents: [keyboard](#Element_keyboard)
 > Children: [key](#Element_key), [flicks](#Element_flicks)
-> Occurence: required, single
+> Occurrence: required, single
 >
 > </small>
 
@@ -596,7 +596,7 @@ This element defines a mapping between an abstract key and its output. This elem
 >
 > Parents: [keys](#Element_keys)
 > Children: _none_
-> Occurence: optional, multiple
+> Occurrence: optional, multiple
 > </small>
 
 **Note**: The `id` attribute is required, as is _at least one of_ `switch`, `gap`, or `to`.
@@ -710,7 +710,7 @@ The `flicks` element is used to generate results from a "flick" of the finger on
 >
 > Parents: [keys](#Element_keys)
 > Children: [flick](#Element_flick)
-> Occurence: optional, multiple
+> Occurrence: optional, multiple
 >
 > </small>
 
@@ -730,7 +730,7 @@ _Attribute:_ `id` (required)
 >
 > Parents: [flicks](#Element_flicks)
 > Children: _none_
-> Occurence: required, multiple
+> Occurrence: required, multiple
 >
 > </small>
 
@@ -822,13 +822,13 @@ After loading, the above example will be the equivalent of the following.
 >
 > Parents: _various_
 > Children: _none_
-> Occurence: optional, multiple
+> Occurrence: optional, multiple
 >
 > </small>
 
 _Attribute:_ `path` (required)
 
-> The value is contains a relative path to the included XML file. There is a standard set of directories to be searched that an application may provide. This set is always prepended with the directory in which the current file being read, is stored.
+> The value is contains a relative path to the included XML file. There is a standard set of directories to be searched that an application may provide. This set is always prepended with the directory in which the current file being read is stored.
 
 If two identical elements <!-- , as described below, --> are defined, the later element will take precedence.
 
@@ -904,7 +904,7 @@ An implementation may substitute a different character for U+25CC.
 >
 > Parents: [keyboard](#Element_keyboard)
 > Children: [display](#Element_display)
-> Occurence: optional, single
+> Occurrence: optional, single
 >
 > </small>
 
@@ -924,7 +924,7 @@ The `display` element describes how a character, that has come from a `keys/key`
 >
 > Parents: [displayMap](#Element_displayMap)
 > Children: _none_
-> Occurence: required, multiple
+> Occurrence: required, multiple
 >
 > </small>
 
@@ -963,7 +963,7 @@ hardware or touch layout.
 >
 > Parents: [keyboard](#Element_keyboard)
 > Children: [layerMap](#Element_layerMap)
-> Occurence: required, multiple
+> Occurrence: required, multiple
 >
 > </small>
 
@@ -998,7 +998,7 @@ A `layerMap` element describes the configuration of keys on a particular layer o
 >
 > Parents: [keyboard](#Element_keyboard)
 > Children: [row](#Element_row)
-> Occurence: optional, multiple
+> Occurrence: optional, multiple
 >
 > </small>
 
@@ -1009,7 +1009,7 @@ _Attribute:_ `modifier` (required for `hardware`)
 
 > This has two roles. It acts as an identifier for the `layer` element for hardware keyboards (in the absence of the id= element) and also provides the linkage from the hardware modifiers into the correct `layer`. To indicate that no modifiers apply the reserved name of "none" can be used. For the purposes of fallback vkey mapping, the following modifier components are reserved: "shift", "ctrl", "alt", "caps", "cmd", "opt" along with the "L" and "R" optional single suffixes for the first 3 in that list.
 
-For hardware layouts, the use of `@modifier` as an identifier for a layer, is sufficient since it is always unique among the set of `layerMap` elements in a keyboard.
+For hardware layouts, the use of `@modifier` as an identifier for a layer is sufficient since it is always unique among the set of `layerMap` elements in a keyboard.
 
 * * *
 
@@ -1037,7 +1037,7 @@ ISOKey denotes a key having an [ISO Position](#Definitions). SpecialKey is used 
 >
 > Parents: [layerMap](#Element_layerMap)
 > Children: _none_
-> Occurence: required, multiple
+> Occurrence: required, multiple
 >
 > </small>
 
@@ -1082,7 +1082,7 @@ The `switch` element describes a function key that has been included in the layo
 >
 > Parents: [layer](#Element_layer)
 > Children: _none_
-> Occurence: optional, multiple
+> Occurrence: optional, multiple
 >
 > </small>
 
@@ -1137,7 +1137,7 @@ On some architectures, applications may directly interact with keys before they 
 >
 > Parents: [layer](#Element_layer), [keyboard](#Element_keyboard)
 > Children: [vkey](#Element_vkey)
-> Occurence: optional, multiple
+> Occurrence: optional, multiple
 >
 > </small>
 
@@ -1149,7 +1149,7 @@ For a physical keyboard there is a layout specific default mapping of keys to vk
 
 The most common model for specifying vkeys is to import a standard mapping, say to the US layout, and then to add a `vkeys` element to change the mapping appropriately for the specific layout.
 
-In addition to describing physical keyboards, vkeys also get used in virtual keyboards. Here the vkey mapping is local to a layer and therefore a `vkeys` element may occur within a `layout` element. In the case where a `layout` element has no `vkeys` element then the resulting mapping may either be empty (none of the keys represent keys that have vkey identifiers) or may fallback to the layout wide vkeys mapping. Fallback only occurs if the layout's `modifier` attribute consists only of standard modifiers as listed as being reserved in the description of the `layout/@modifier` attribute, and if the modifiers are standard for the platform involved. So for Windows, `"cmd"` is a reserved modifier but it is not standard for Windows. Therefore on Windows the vkey mapping for a layout with `@modifier="cmd" `would be empty.
+In addition to describing physical keyboards, vkeys also get used in virtual keyboards. Here the vkey mapping is local to a layer and therefore a `vkeys` element may occur within a `layout` element. In the case where a `layout` element has no `vkeys` element then the resulting mapping may either be empty (none of the keys represent keys that have vkey identifiers) or may fall back to the layout wide vkeys mapping. Fallback only occurs if the layout's `modifier` attribute consists only of standard modifiers as listed as being reserved in the description of the `layout/@modifier` attribute, and if the modifiers are standard for the platform involved. So for Windows, `"cmd"` is a reserved modifier but it is not standard for Windows. Therefore on Windows the vkey mapping for a layout with `@modifier="cmd" `would be empty.
 
 A `vkeys` element consists of a list of `vkey` elements.
 
@@ -1170,7 +1170,7 @@ A `vkey` element describes a mapping between a key and a vkey for a particular p
 >
 > Parents: [vkeys](#Element_vkeys)
 > Children: _none_
-> Occurence: required, multiple
+> Occurrence: required, multiple
 >
 > </small>
 
@@ -1270,7 +1270,7 @@ In the context of a virtual keyboard there might be a symbol layer with the foll
 
 This element defines a group of one or more `transform` elements associated with this keyboard layout. This is used to support features such as dead-keys, character reordering, etc. using a straightforward structure that works for all the keyboards tested, and that results in readable source data.
 
-There can be multiple `<transforms>` elements
+There can be multiple `<transforms>` elements.
 
 Syntax
 
@@ -1284,7 +1284,7 @@ Syntax
 >
 > Parents: [keyboard](#Element_keyboard)
 > Children: [transform](#Element_transform)
-> Occurence: optional, multiple
+> Occurrence: optional, multiple
 >
 > </small>
 
@@ -1305,7 +1305,7 @@ We consider each transform type in turn and consider attributes to the `<transfo
 
 ### 5.19 <a name="Element_transform" href="#Element_transform">Element: transform</a>
 
-This element must have the `transforms` element as its parent. This element represents a single transform that may be performed using the keyboard layout. A transform is an element that specifies a set of conversions from sequences of code points into one (or more) other code points.. For example, in most French keyboards hitting the "^" dead-key followed by the "e" key produces "ê".
+This element must have the `transforms` element as its parent. This element represents a single transform that may be performed using the keyboard layout. A transform is an element that specifies a set of conversions from sequences of code points into (one or more) other code points. For example, in most French keyboards hitting the "^" dead-key followed by the "e" key produces "ê".
 
 **Syntax**
 
@@ -1320,13 +1320,13 @@ This element must have the `transforms` element as its parent. This element repr
 >
 > Parents: [transforms](#Element_transforms)
 > Children: _none_
-> Occurence: required, multiple
+> Occurrence: required, multiple
 >
 > </small>
 
 _Attribute:_ `from` (required)
 
-> The `from` attribute consists of a sequence of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in [UTS#35 section 5.3.3](https://www.unicode.org/reports/tr35/#Unicode_Sets)).
+> The `from` attribute consists of a sequence of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in [UTS #35 section 5.3.3](https://www.unicode.org/reports/tr35/#Unicode_Sets)).
 
 For example, suppose there are the following transforms:
 
@@ -1370,7 +1370,7 @@ Control characters, combining marks and whitespace in this attribute are escaped
 
 _Attribute:_ `to` (required)
 
-> This attribute represents the characters that are output from the transform. The output can contain more than one character, so you could have `<transform from="´A" to="Fred"/>`
+> This attribute represents the characters that are output from the transform. The output can contain more than one character, so you could have `<transform from="´A" to="Fred"/>`.
 
 Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the `\u{...}` notation.
 
@@ -1426,7 +1426,7 @@ For example:
 
 This indicates that it is an error to type two iota subscripts immediately after each other.
 
-In terms of how these different attributes work in processing a sequences of transforms, consider the transform:
+In terms of how these different attributes work in processing a sequence of transforms, consider the transform:
 
 ```xml
 <transform before="X" from="Y" after="Z" to="B" />
@@ -1450,13 +1450,13 @@ And a subsequent transform could transform the Z string, looking back (using @be
 
 ### 5.20 <a name="Element_reorder" href="#Element_reorder">Element: reorders, reorder</a>
 
-The reorder transform is applied after all transform except for those with `type="final"`.
+The reorder transform is applied after all transforms except for those with `type="final"`.
 
 This transform has the job of reordering sequences of characters that have been typed, from their typed order to the desired output order. The primary concern in this transform is to sort combining marks into their correct relative order after a base, as described in this section. The reorder transforms can be quite complex, keyboard layouts will almost always import them.
 
 The reordering algorithm consists of four parts:
 
-1. Create a sort key for each character in the input string. A sort key has 4 parts: (primary, index, tertiary).
+1. Create a sort key for each character in the input string. A sort key has 4 parts (primary, index, tertiary, quaternary):
    * The **primary weight** is the primary order value.
    * The **secondary weight** is the index, a position in the input string, usually of the character itself, but it may be of a character earlier in the string.
    * The **tertiary weight** is a tertiary order value (defaulting to 0).
@@ -1468,7 +1468,7 @@ The reordering algorithm consists of four parts:
 
 The primary order of a character with the Unicode property Combining_Character_Class (ccc) of 0 may well not be 0. In addition, a character may receive a different primary order dependent on context. For example, in the Devanagari sequence ka halant ka, the first ka would have a primary order 0 while the halant ka sequence would give both halant and the second ka a primary order > 0, for example 2. Note that “base” character in this discussion is not a Unicode base character. It is instead a character with primary=0.
 
-In order to get the characters into the correct relative order, it is necessary not only to order combining marks relative to the base character, but also to order some combining marks in a subsequence following another combining mark. For example in Devanagari, a nukta may follow consonant character, but it may also follow a conjunct consisting of consonant, halant, consonant. Notice that the second consonant is not, in this model, the start of a new run because some characters may need to be reordered to before the first base, for example repha. The repha would get primary < 0, and be sorted before the character with order = 0, which is, in the case of Devanagari, the initial consonant of the orthographic syllable.
+In order to get the characters into the correct relative order, it is necessary not only to order combining marks relative to the base character, but also to order some combining marks in a subsequence following another combining mark. For example in Devanagari, a nukta may follow a consonant character, but it may also follow a conjunct consisting of consonant, halant, consonant. Notice that the second consonant is not, in this model, the start of a new run because some characters may need to be reordered to before the first base, for example repha. The repha would get primary < 0, and be sorted before the character with order = 0, which is, in the case of Devanagari, the initial consonant of the orthographic syllable.
 
 The reorder transform consists of a single element type: `<reorder>` encapsulated in a `<reorders>` element. Each is a rule that matches against a string of characters with the action of setting the various ordering attributes (`primary`, `tertiary`, `tertiary_base`, `prebase`) for the matched characters in the string.
 
@@ -1488,13 +1488,13 @@ The reorder transform consists of a single element type: `<reorder>` encapsulate
 >
 > Parents: [reorders](#Element_reorder)
 > Children: _none_
-> Occurence: required, multiple
+> Occurrence: required, multiple
 >
 > </small>
 
 _Attribute:_ `from` (required)
 
-> This attribute follows the `transform/@from` attribute and contains a string of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in UTS#35 section 5.3.3).
+> This attribute follows the `transform/@from` attribute and contains a string of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in UTS #35 section 5.3.3).
 
 _Attribute:_ `before`
 
@@ -1529,7 +1529,7 @@ _Attribute:_ `tertiary`
 >
 > A tertiary character receives its primary order and index from a previous character, which it is intended to sort closely after. The sort key for a tertiary character consists of:
 >
-> * Primary weight is the primary weight of the primary character
+> * Primary weight is the primary weight of the primary character..
 > * Secondary weight is the index of the primary character, not the tertiary character
 > * Tertiary weight is the tertiary value for the character.
 > * Quaternary weight is the index of the tertiary character.
@@ -1559,7 +1559,7 @@ endif
 
 **Example**
 
-For example, consider the word Northern Thai (nod-Lana) word: ᨡ᩠ᩅᩫ᩶ 'roasted'. This is ideally encoded as the following:
+For example, consider the Northern Thai (nod-Lana) word: ᨡ᩠ᩅᩫ᩶ 'roasted'. This is ideally encoded as the following:
 
 | name | _kha_ | _sakot_ | _wa_ | _o_  | _t2_ |
 |------|-------|---------|------|------|------|
@@ -1666,7 +1666,7 @@ A particular Myanmar keyboard layout can have this `reorders` element:
 </reorders>
 ```
 
-The effect of this that the _e-vowel_ will be identified as a prebase and will have an order of 30. Likewise a _medial-r_ will be identified as a prebase and will have an order of 20. Notice that a _shan-e-vowel_ will not be identified as a prebase (even if it should be!). The _kinzi_ is described in the layout since it moves something across a run boundary. By separating such movements (prebase or moving to in front of a base) from the shared ordering rules, the shared ordering rules become a self-contained combining order description that can be used in other keyboards or even in other contexts than keyboarding.
+The effect of this is that the _e-vowel_ will be identified as a prebase and will have an order of 30. Likewise a _medial-r_ will be identified as a prebase and will have an order of 20. Notice that a _shan-e-vowel_ will not be identified as a prebase (even if it should be!). The _kinzi_ is described in the layout since it moves something across a run boundary. By separating such movements (prebase or moving to in front of a base) from the shared ordering rules, the shared ordering rules become a self-contained combining order description that can be used in other keyboards or even in other contexts than keyboarding.
 
 * * *
 
@@ -1697,7 +1697,7 @@ Another example allows a keyboard implementation to alert or stop people typing 
 
 The backspace transform is an optional transform that is not applied on input of normal characters, but is only used to perform extra backspace modifications to previously committed text.
 
-Keyboarding applications typically, but are not required, to work in one of two modes:
+Keyboarding applications typically work, but are not required to, in one of two modes:
 
 **_text entry_**
 
@@ -1723,7 +1723,7 @@ In text editing mode, different keyboard layouts may behave differently in the s
 >
 > Parents: [keyboard](#Element_keyboard)
 > Children: [backspace](#Element_backspace)
-> Occurence: optional, single
+> Occurrence: optional, single
 >
 > </small>
 
@@ -1744,7 +1744,7 @@ In text editing mode, different keyboard layouts may behave differently in the s
 >
 > Parents: [backspaces](#Element_backspaces)
 > Children: _none_
-> Occurence: required, multiple
+> Occurrence: required, multiple
 >
 > </small>
 
@@ -1847,7 +1847,7 @@ This is the top level element. This element contains a set of elements defined b
 >
 > Parents: _none_
 > Children: [hardwareMap](#Element_hardwareMap)
-> Occurence: required, single
+> Occurrence: required, single
 >
 > </small>
 
@@ -1870,7 +1870,7 @@ This element must have a `platform` element as its parent. This element contains
 >
 > Parents: [platform](#Element_platform)
 > Children: [map](#Element_hardwareMap_map)
-> Occurence: optional, single
+> Occurrence: optional, single
 >
 > </small>
 
@@ -1888,7 +1888,7 @@ This element must have a `hardwareMap` element as its parent. This element maps 
 >
 > Parents: [hardwareMap](#Element_hardwareMap)
 > Children: _none_
-> Occurence: required, multiple
+> Occurrence: required, multiple
 > </small>
 
 _Attribute:_ `keycode` (required)
@@ -1897,7 +1897,7 @@ _Attribute:_ `keycode` (required)
 
 _Attribute:_ `iso` (required)
 
-> The corresponding position of a key using the ISO layout convention where rows are identified by letters and columns are identified by numbers. For example, "D01" corresponds to the "Q" key on a US keyboard. (See the definition at the beginning of the document for a diagram).
+> The corresponding position of a key using the ISO layout convention where rows are identified by letters and columns are identified by numbers. For example, "D01" corresponds to the "Q" key on a US keyboard. (See the definition at the beginning of the document for a diagram.)
 
 **Example**
 
@@ -1936,9 +1936,9 @@ Beyond what the DTD imposes, certain other restrictions on the data are imposed 
 
 | Notation                                 | Notes |
 |------------------------------------------|-------|
-| Lower case character (eg. _x_ )          | Interpreted as any combination of modifiers. <br/> (eg. _x_ = CtrlShiftOption) |
-| Upper-case character (eg. _Y_ )          | Interpreted as a single modifier key (which may or may not have a L and R variant) <br/> (eg. _Y_ = Ctrl, _RY_ = RCtrl, etc..) |
-| Y? ⇔ Y ∨ ∅ <br/> Y ⇔ LY ∨ RY ∨ LYRY | Eg. Opt? ⇔ ROpt ∨ LOpt ∨ ROptLOpt ∨ ∅ <br/> Eg. Opt ⇔ ROpt ∨ LOpt ∨ ROptLOpt |
+| Lower case character (e.g. _x_ )          | Interpreted as any combination of modifiers. <br/> (e.g. _x_ = CtrlShiftOption) |
+| Upper-case character (e.g. _Y_ )          | Interpreted as a single modifier key (which may or may not have an L and R variant) <br/> (e.g. _Y_ = Ctrl, _RY_ = RCtrl, etc.) |
+| Y? ⇔ Y ∨ ∅ <br/> Y ⇔ LY ∨ RY ∨ LYRY | E.g. Opt? ⇔ ROpt ∨ LOpt ∨ ROptLOpt ∨ ∅ <br/> E.g. Opt ⇔ ROpt ∨ LOpt ∨ ROptLOpt |
 
 
 | Axiom                                       | Example                                      |
@@ -1966,8 +1966,8 @@ Here is a list of the data sources used to generate the initial key map layouts:
 | Platform | Source | Notes |
 |----------|--------|-------|
 | Android  | Android 4.0 - Ice Cream Sandwich ([https://source.android.com/source/downloading.html](https://source.android.com/source/downloading.html)) | Parsed layout files located in packages/inputmethods/LatinIME/java/res |
-| ChromeOS | XKB ([https://www.x.org/wiki/XKB](https://www.x.org/wiki/XKB)) | The ChromeOS represents a very small subset of the keyboards available from XKB.
-| Mac OSX  | Ukelele bundled System Keyboards ([https://software.sil.org/ukelele/](https://software.sil.org/ukelele/)) | These layouts date from Mac OSX 10.4 and are therefore a bit outdated |
+| Chrome OS | XKB ([https://www.x.org/wiki/XKB](https://www.x.org/wiki/XKB)) | The Chrome OS represents a very small subset of the keyboards available from XKB.
+| Mac OS X  | Ukelele bundled System Keyboards ([https://software.sil.org/ukelele/](https://software.sil.org/ukelele/)) | These layouts date from Mac OS X 10.4 and are therefore a bit outdated |
 | Windows  | Generated .klc files from the Microsoft Keyboard Layout Creator ([https://support.microsoft.com/en-us/topic/906c31e4-d5ea-7988-cb39-7b688880d7cb](https://support.microsoft.com/en-us/topic/906c31e4-d5ea-7988-cb39-7b688880d7cb)) |
 
 * * *
@@ -1976,9 +1976,9 @@ Here is a list of the data sources used to generate the initial key map layouts:
 
 There is a set of subtags that help identify the keyboards. Each of these are used after the `"t-k0"` subtags to help identify the keyboards. The first tag appended is a mandatory platform tag followed by zero or more tags that help differentiate the keyboard from others with the same locale code.
 
-### 9.1 <a name="Principles_for_Keyboard_Ids" href="#Principles_for_Keyboard_Ids">Principles for Keyboard Ids</a>
+### 9.1 <a name="Principles_for_Keyboard_IDs" href="#Principles_for_Keyboard_IDs">Principles for Keyboard IDs</a>
 
-The following are the design principles for the ids.
+The following are the design principles for the IDs.
 
 1. BCP47 compliant.
    1. Eg, `en-t-k0-extended`.
@@ -1997,10 +1997,10 @@ The following are the design principles for the ids.
 
 ## 10 <a name="Platform_Behaviors_in_Edge_Cases" href="#Platform_Behaviors_in_Edge_Cases">Platform Behaviors in Edge Cases</a>
 
-| Platform | No modifier combination match is available | No map match is available for key position | Transform fails (ie. if \^d is pressed when that transform does not exist) |
+| Platform | No modifier combination match is available | No map match is available for key position | Transform fails (i.e. if \^d is pressed when that transform does not exist) |
 |----------|--------------------------------------------|--------------------------------------------|---------------------------------------------------------------------------|
-| ChromeOS | Fall back to base | Fall back to character in a keyMap with same "level" of modifier combination. If this character does not exist, fall back to (n-1) level. (This is handled data-generation side). <br/> In the spec: No output | No output at all |
-| Mac OSX  | Fall back to base (unless combination is some sort of keyboard shortcut, eg. cmd-c) | No output | Both keys are output separately |
+| Chrome OS | Fall back to base | Fall back to character in a keyMap with same "level" of modifier combination. If this character does not exist, fall back to (n-1) level. (This is handled data-generation-side.) <br/> In the spec: No output | No output at all |
+| Mac OS X  | Fall back to base (unless combination is some sort of keyboard shortcut, e.g. cmd-c) | No output | Both keys are output separately |
 | Windows  | No output | No output | Both keys are output separately |
 
 * * *

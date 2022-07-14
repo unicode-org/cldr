@@ -121,7 +121,7 @@ public class VoteResolver<T> {
         locked(   0 /* votes */, 999 /* stlevel */),
         street(   1 /* votes */, 10  /* stlevel */),
         anonymous(0 /* votes */, 8   /* stlevel */),
-        vetter(   4 /* votes */, 5   /* stlevel */), // org dependent- see getVotes()
+        vetter(   4 /* votes */, 5   /* stlevel */, /* tcorgvotes */ 6), // org dependent- see getVotes()
         // Manager and below can manage users
         manager(  4 /* votes */, 2   /* stlevel */),
         tc(      50 /* votes */, 1   /* stlevel */),
@@ -146,13 +146,23 @@ public class VoteResolver<T> {
         private final int votes;
 
         /**
+         * The vote count a user of this level normally votes with if a tc org
+         */
+        private final int tcorgvotes;
+
+        /**
          * The level as an integer, where 0 = admin, ..., 999 = locked
          */
         private final int stlevel;
 
-        private Level(int votes, int stlevel) {
+        private Level(int votes, int stlevel, int tcorgvotes) {
             this.votes = votes;
             this.stlevel = stlevel;
+            this.tcorgvotes = tcorgvotes;
+        }
+
+        private Level(int votes, int stlevel) {
+            this(votes, stlevel, votes);
         }
 
         /**
@@ -161,7 +171,7 @@ public class VoteResolver<T> {
          */
         public int getVotes(Organization o) {
             if (this == vetter && o.isTCOrg()) {
-                return 6;
+                return tcorgvotes;
             }
             return votes;
         }
@@ -287,8 +297,11 @@ public class VoteResolver<T> {
          * vetter.votes needs to be defined before we can set admin.voteCountMenu.
          */
         static {
-            admin.voteCountMenu = ImmutableSet.of(vetter.votes, admin.votes); /* Not LOCKING_VOTES; see canVoteWithCount */
-            tc.voteCountMenu = ImmutableSet.of(vetter.votes, tc.votes, PERMANENT_VOTES);
+            admin.voteCountMenu = ImmutableSet.of(
+                street.votes, vetter.votes, vetter.tcorgvotes, tc.votes, admin.votes, PERMANENT_VOTES);
+            /* Not LOCKING_VOTES; see canVoteWithCount */
+            tc.voteCountMenu = ImmutableSet.of(
+                street.votes, vetter.votes, vetter.tcorgvotes, tc.votes, PERMANENT_VOTES);
         }
 
         // The following methods were moved here from UserRegistry

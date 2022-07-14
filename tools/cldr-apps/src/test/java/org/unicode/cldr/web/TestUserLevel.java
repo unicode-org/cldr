@@ -1,20 +1,24 @@
 package org.unicode.cldr.web;
 
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.sql.SQLException;
 import java.util.function.Supplier;
 
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.VoteResolver;
+
+import com.google.common.collect.ImmutableSet;
 
 public class TestUserLevel {
     static UserRegistry reg = null;
@@ -300,5 +304,16 @@ public class TestUserLevel {
         default:
             assertFalse(true, "Unsupported operation in TestUserLevel.csv: " + operation);
         }
+    }
+
+    @Test
+    public void testVoteMenu() {
+        assertAll("VoteResolver.Level tests",
+            () -> assertEquals(ImmutableSet.of(1, 4, 6, 50, 1000), VoteResolver.Level.tc.getVoteCountMenu(Organization.apple)),
+            () -> assertEquals(ImmutableSet.of(1, 4, 6, 50, 1000), VoteResolver.Level.tc.getVoteCountMenu(Organization.guest)),
+            () -> assertEquals(ImmutableSet.of(1, 4, 6, 50, 100, 1000), VoteResolver.Level.admin.getVoteCountMenu(Organization.surveytool)),
+            () -> assertNull(VoteResolver.Level.vetter.getVoteCountMenu(Organization.apple)),
+            () -> assertNull(VoteResolver.Level.vetter.getVoteCountMenu(Organization.guest)),
+            () -> assertNull(VoteResolver.Level.street.getVoteCountMenu(Organization.guest)));
     }
 }

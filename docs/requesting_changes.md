@@ -31,6 +31,8 @@ Helpful information include:
 * Evidence of usage in the mainstream media (for example, a newspaper or magazine)
 * If there are alternatives (e.g. different currency symbols), we need to see examples of those (from the most prominent sources). Please note that failure to supply alternatives if they exist significantly reduces credibility.
 
+Please file all tickets in English since the people who are reviewing your ticket are likely to not speak your language. You can use automated translation software if you don't speak English well enough, and include the same text in your native language as well.
+
 Note: If you are a regular user of that language you can also contribute directly through the Survey Tool. [More information about the process including opening an account.](https://cldr.unicode.org/index/survey-tool)
 
 ### How to File a Ticket

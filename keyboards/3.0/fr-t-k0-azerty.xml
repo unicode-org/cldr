@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 <keyboard locale="fr-t-k0-azerty" conformsTo="techpreview">
-	<!-- 'locale' TBD -->
+	<locales>
+		<locale id="br" /> <!-- example of including Breton -->
+	</locales>
 	<!-- 'conformsTo' gives CLDR spec conformance. Distinguishes from prior
 		keyboard formats -->
 	<!-- 'version' element is now optional -->
@@ -38,6 +40,7 @@
 			etc. 2. We expect that keys have output. Otherwise the input content is malformed.
 			3. Don't Repeat Yourself : multiple keys (i.e. on different symbol layers)
 			may have the same display. -->
+		<displayOptions baseCharacter="x" />
 	</displayMap>
 
 	<keys>
@@ -70,13 +73,13 @@
 			<flick directions="e" to="\uFFF0" />
 		</flicks>
 
-		<key id="gap" gap="1.0" />
+		<key id="gap" gap="true" width="1.0" />
 		<!-- TODO: all additional maps, hardware and touch -->
 	</keys>
 
 	<layerMaps form="hardware">
 		<!-- in DTD: required if conformsTo ≥ 41 -->
-		<layerMap modifiers="none">
+		<layerMap modifier="none">
 			<row keys="super-2 amp e-grave quote apos open-paren hyphen e-acute underscore c-cedilla a-acute close-paren equal" />
 			<row keys="a z e r t y u i o p caret dollar" />
 			<row keys="q s d f g h j k l m u-grave asterisk" />
@@ -84,7 +87,7 @@
 			<row keys="space" />
 		</layerMap>
 
-		<layerMap modifiers="shift">
+		<layerMap modifier="shift">
 			<row keys="1 2 3 4 5 6 7 8 9 0 degree plus" />
 			<row keys="A Z E R T Y U I O P umlaut pound" />
 			<row keys="Q S D F G H J K L M percent micro" />

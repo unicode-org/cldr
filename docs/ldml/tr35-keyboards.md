@@ -126,7 +126,7 @@ For example, a web-based virtual keyboard may transform text in the following wa
 
 The data can also be used in analysis of the capabilities of different keyboards. It also allows better interoperability by making it easier for keyboard designers to see which characters are generally supported on keyboards for given languages.
 
-To illustrate this specification, here is an abridged layout representing the English US 101 keyboard on the Mac OS X operating system (with an inserted long-press example). For more complete examples, and information collected about keyboards, see keyboard data in XML.
+To illustrate this specification, here is an abridged layout representing the English US 101 keyboard on the macOS operating system (with an inserted long-press example). For more complete examples, and information collected about keyboards, see keyboard data in XML.
 
 -->
 
@@ -516,7 +516,7 @@ _Attribute:_ `transformPartial="hide"` (optional)
 
 > This attribute describes the behavior of the system while in a transform. When this attribute is present then don't show the values of the buffer as the user is typing a transform (this behavior can be seen on Windows or Linux platforms).
 
-By default (when this attribute is not present), show the values of the buffer as the user is typing a transform (this behavior can be seen on the Mac OS X platform).
+By default (when this attribute is not present), show the values of the buffer as the user is typing a transform (this behavior can be seen on the macOS platform).
 
 If this attribute is present, it must have a value of hide.
 
@@ -1967,7 +1967,7 @@ Here is a list of the data sources used to generate the initial key map layouts:
 |----------|--------|-------|
 | Android  | Android 4.0 - Ice Cream Sandwich ([https://source.android.com/source/downloading.html](https://source.android.com/source/downloading.html)) | Parsed layout files located in packages/inputmethods/LatinIME/java/res |
 | Chrome OS | XKB ([https://www.x.org/wiki/XKB](https://www.x.org/wiki/XKB)) | The Chrome OS represents a very small subset of the keyboards available from XKB.
-| Mac OS X  | Ukelele bundled System Keyboards ([https://software.sil.org/ukelele/](https://software.sil.org/ukelele/)) | These layouts date from Mac OS X 10.4 and are therefore a bit outdated |
+| macOS     | Ukelele bundled System Keyboards ([https://software.sil.org/ukelele/](https://software.sil.org/ukelele/)) | These layouts date from Mac OS X 10.4 and are therefore a bit outdated |
 | Windows  | Generated .klc files from the Microsoft Keyboard Layout Creator ([https://support.microsoft.com/en-us/topic/906c31e4-d5ea-7988-cb39-7b688880d7cb](https://support.microsoft.com/en-us/topic/906c31e4-d5ea-7988-cb39-7b688880d7cb)) |
 
 * * *

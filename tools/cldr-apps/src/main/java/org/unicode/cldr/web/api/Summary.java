@@ -328,9 +328,14 @@ public class Summary {
         }
     }
 
+    private static final boolean ENABLE_ALL_LOCALE_SUMMARY = false;
+
     private void makeAutoPriorityItemsSnapshot() throws IOException, JSONException {
-        final SurveyMain.Phase phase = SurveyMain.phase();
-        final boolean summarizeAllLocales = (phase == SurveyMain.Phase.VETTING || phase == SurveyMain.Phase.VETTING_CLOSED);
+        boolean summarizeAllLocales = false;
+        if (ENABLE_ALL_LOCALE_SUMMARY) {
+            final SurveyMain.Phase phase = SurveyMain.phase();
+            summarizeAllLocales = (phase == SurveyMain.Phase.VETTING || phase == SurveyMain.Phase.VETTING_CLOSED);
+        }
         final VettingViewerQueue vvq = VettingViewerQueue.getInstance();
         vvq.setSummarizeAllLocales(summarizeAllLocales);
         final QueueMemberId qmi = new QueueMemberId();

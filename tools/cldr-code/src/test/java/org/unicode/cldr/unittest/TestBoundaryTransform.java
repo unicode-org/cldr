@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.util.BoundaryTransform;
+import org.unicode.cldr.util.BoundaryTransform.BoundaryUsage;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.ExemplarType;
@@ -30,12 +31,14 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.UnitPathType;
+import org.unicode.cldr.util.XListFormatter.ListTypeLength;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.text.SimpleFormatter;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetSpanner;
 
@@ -283,7 +286,7 @@ public class TestBoundaryTransform  extends TestFmwk {
                 }
                 script = UScript.getSampleString(scriptNo);
             }
-            BoundaryTransform bt = BoundaryTransform.getTransform(locale);
+            BoundaryTransform bt = BoundaryTransform.getTransform(locale, BoundaryUsage.unitPrefixes);
 
             Collection<String> cases = casesNominativeOnly;
             if (doCases) {
@@ -369,5 +372,113 @@ public class TestBoundaryTransform  extends TestFmwk {
 
     private String normalizeSpaces(String targetUnitPattern) {
         return SPACE_SPANNER.replaceFrom(targetUnitPattern, " ");
+    }
+
+    public void TestListFormat() {
+        String[][] tests = {
+            {"it", "AND_WIDE", "tigri", "elefanti", "tigri ed elefanti", "elefanti e tigri"},
+            {"it", "OR_WIDE", "rose", "orchidee", "rose od orchidee", "orchidee o rose"},
+            {"it", "OR_WIDE", "tigri", "rose", "tigri o rose", "rose o tigri"},
+
+            {"es", "AND_WIDE", "tigri", "rose", "tigri y rose", "rose y tigri"},
+            {"es", "AND_WIDE", "tigri", "hiyo", "tigri e hiyo", "hiyo y tigri"},
+            {"es", "OR_WIDE", "tigri", "rose", "tigri o rose", "rose o tigri"},
+            {"es", "OR_WIDE", "tigri", "8", "tigri u 8", "8 o tigri"},
+
+            {"he", "AND_WIDE", "א", "ב", "א וב", "ב וא"},
+            {"he", "AND_WIDE", "א", "a", "א ו-a", "a וא"},
+
+            /*
+             *         .put("es", BoundaryTransform.from(""
+            + " ⦅y ❙⦆([iI]|[hH][iI]([^aAeE]|$)→e ;" // y
+            + " ⦅o ❙⦆([uU8]|[hH][oU]|11($| )→u ;" // o
+            ))
+        .put("he", BoundaryTransform.from(""
+            + " \\u05D5⦅❙⦆\\P{sc=Hebr}→-;" // y
+            ))
+
+             */
+        };
+        String locale = null;
+        BoundaryTransform bt = null;
+        CLDRFile cldrFile = null;
+        int i = 0;
+        for (String[] test : tests) {
+            ++i;
+            String newLocale = test[0];
+            ListTypeLength listTypeLength = ListTypeLength.valueOf(test[1]);
+            if (!newLocale.equals(locale)) {
+                locale = newLocale;
+                bt = BoundaryTransform.getTransform(locale, BoundaryUsage.general);
+                cldrFile = CLDR_CONFIG.getCldrFactory().make(locale, true);
+            }
+            ListFormatterX lt = new ListFormatterX(cldrFile, listTypeLength, bt);
+            String actual = lt.format(test[2], test[3]);
+            String expected = test[4];
+            assertEquals(i + ") x " + test[1] + " y", expected, actual);
+            actual = lt.format(test[3], test[2]);
+            expected = test[5];
+            assertEquals(i + ") y " + test[1] + " x", expected, actual);
+        }
+    }
+
+    /**
+     * Text implementation. Rudimentary for now
+     */
+    class ListFormatterX  {
+        String doublePattern;
+        String startPattern;
+        String middlePattern;
+        String endPattern;
+        BoundaryTransform boundaryTransform;
+
+        public ListFormatterX (CLDRFile cldrFile, ListTypeLength listTypeLength, BoundaryTransform bt) {
+            SimpleFormatter listPathFormat = SimpleFormatter.compile(listTypeLength.getPath());
+            doublePattern = cldrFile.getWinningValue(listPathFormat.format("2"));
+            startPattern = cldrFile.getWinningValue(listPathFormat.format("start"));
+            middlePattern = cldrFile.getWinningValue(listPathFormat.format("middle"));
+            endPattern = cldrFile.getWinningValue(listPathFormat.format("end"));
+            boundaryTransform = bt;
+        }
+
+        public String format(String string0, String string1) {
+            // TODO generalize
+            // for testing, assume {0} < {1}
+            int s1 = doublePattern.indexOf("{0}");
+            String pattern2 = doublePattern.replace("{0}", string0);
+            // for now, just apply the the initial position for both items. TODO end position also
+            pattern2 = boundaryTransform.apply(pattern2, s1);
+            int s2 = pattern2.indexOf("{1}");
+            pattern2 = pattern2.replace("{1}", string1);
+            pattern2 = boundaryTransform.apply(pattern2, s2);
+            return pattern2;
+        }
+    }
+
+    public void TestGeneralFormat() {
+        String[][] tests = {
+            {"en", "Take a {0}", "book", "Take a book"},
+            {"en", "Take a {0}", "apple", "Take an apple"},
+            {"zh", "舘{0}", "豈", "舘豈"},
+            {"zh", "舘{0}", "a", "舘 a"},
+            {"en", "Take a {0}", "apple", "Take an apple"},
+        };
+        String locale = null;
+        BoundaryTransform bt = null;
+        int i = 0;
+        for (String[] test : tests) {
+            ++i;
+            String newLocale = test[0];
+            if (!newLocale.equals(locale)) {
+                locale = newLocale;
+                bt = BoundaryTransform.getTransform(locale, BoundaryUsage.general);
+            }
+            String pattern = test[1];
+            int pos = pattern.indexOf("{0}");
+            String result = pattern.replace("{0}", test[2]);
+            String expected = test[3];
+            String actual = bt.apply(result, pos);
+            assertEquals(i + ") " + pattern, expected, actual);
+        }
     }
 }

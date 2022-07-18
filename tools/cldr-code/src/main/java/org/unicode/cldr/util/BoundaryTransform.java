@@ -12,10 +12,10 @@ import java.util.regex.Pattern;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
-import com.ibm.icu.impl.locale.XCldrStub.ImmutableSet;
+import com.google.common.collect.ImmutableSet;
 
 public class BoundaryTransform implements BiFunction<String, Integer, String> {
-    private static final Splitter SEMI = Splitter.on(';').trimResults().omitEmptyStrings();
+    private static final Splitter SEMI = Splitter.on(';').omitEmptyStrings();
     private static final Joiner JOIN_SEMI = Joiner.on(";");
 
     public static final char START_TO_REPLACE = '⦅';
@@ -97,8 +97,8 @@ public class BoundaryTransform implements BiFunction<String, Integer, String> {
             }
             replaceBy = rawPattern.substring(lastFound);
 
-            hasB = !replaceBefore.isBlank();
-            hasA = !replaceAfter.isBlank();
+            hasB = !replaceBefore.isEmpty();
+            hasA = !replaceAfter.isEmpty();
             this.beforeBoundary = Pattern.compile(
                 contextBefore +
                 (hasB ? "(?<b>" + replaceBefore + ")" : "")
@@ -114,6 +114,8 @@ public class BoundaryTransform implements BiFunction<String, Integer, String> {
             if (this.namedGroupsBefore.contains("b") || this.namedGroupsAfter.contains("a")) {
                 throw new IllegalArgumentException("Can't use named groups <b> or <a>");
             }
+            //TODO optimize: if replaceBy == replaceBefore == replaceAfter, then matching doesn't
+            // change the result (it just blocks further rules).
         }
 
         private Set<String> getNamedGroups(String rawPattern) {
@@ -199,7 +201,38 @@ public class BoundaryTransform implements BiFunction<String, Integer, String> {
 
     // rule = contextBefore ⦅ replaceBefore ❙ replaceAfter ⦆ contextAfter → replaceBy
 
-    private static Map<String, BoundaryTransform> LOCALE_TO_BOUNDARY_TRANSFORM = ImmutableMap.
+    // TODO build with data
+    // TODO consider for general having ❙, ❴, or ❵. That is:
+    //   ❴ is only applied at the start of a placeholder
+    //   ❵ is only applied at the end of a placeholder
+    //   ❙ is applied at both positions
+
+
+    public enum BoundaryUsage {general, unitPrefixes}
+
+    private static Map<String, BoundaryTransform> GENERAL_LOCALE_TO_BOUNDARY_TRANSFORM = ImmutableMap.
+        <String, BoundaryTransform>builder()
+        .put("it", BoundaryTransform.from(""
+            + " e⦅ ❙⦆[eE]($|[^dD])→d ;" // ed before e (with exception)
+            + " o⦅ ❙⦆[oO]($|[^dD])→d ;" // od before o (with exception)
+            ))
+        .put("es", BoundaryTransform.from(""
+            + " ⦅y ❙⦆([iI]|[hH][iI]($|[^aAeE]))→e ;" // y
+            + " ⦅o ❙⦆([uU8]|[hH][oU]|11($| ))→u ;" // o
+            ))
+        .put("he", BoundaryTransform.from(""
+            + " \\u05D5⦅❙⦆\\P{sc=Hebr}→-;" // y
+            ))
+        .put("en", BoundaryTransform.from(
+            " a⦅ ❙⦆[aeiou]→n ;" // doesn't handle "an hour", or "an underground"
+            ))
+        .put("zh", BoundaryTransform.from(
+            "[\\p{L}&&\\p{sc=hani}]⦅❙⦆[\\p{L}&&\\P{sc=hani}]→ ;" // add space at chinese/non-chinese letter junction
+           + "[\\p{L}&&\\P{sc=hani}]⦅❙⦆[\\p{L}&&\\p{sc=hani}]→ ;" // add space at non-chinese/chinese letter junction
+            ))
+        .build();
+
+    private static Map<String, BoundaryTransform> UNITS_LOCALE_TO_BOUNDARY_TRANSFORM = ImmutableMap.
         <String, BoundaryTransform>builder()
         .put("pt", BoundaryTransform.from(
             "[aáàâãeéêiíoóòôõuú]⦅❙⦆s→s"))
@@ -213,7 +246,26 @@ public class BoundaryTransform implements BiFunction<String, Integer, String> {
         .put("fil", BoundaryTransform.from(
             "⦅(?<before>.*)❙na ⦆→na ${before};")) // move 'na ' to the front
         .build();
-    public static BoundaryTransform getTransform(String locale) { // TODO do inheritance
-        return LOCALE_TO_BOUNDARY_TRANSFORM.get(locale);
+
+    private static Map<BoundaryUsage, Map<String, BoundaryTransform>> usageTo= ImmutableMap.of(
+        BoundaryUsage.unitPrefixes, UNITS_LOCALE_TO_BOUNDARY_TRANSFORM,
+        BoundaryUsage.general, GENERAL_LOCALE_TO_BOUNDARY_TRANSFORM);
+
+    public static BoundaryTransform getTransform(String locale, BoundaryUsage usage) { // TODO do inheritance
+        Map<String, BoundaryTransform> localeToBoundary = usageTo.get(usage);
+        if (localeToBoundary == null) {
+            return null;
+        }
+        while (true) {
+            BoundaryTransform result = localeToBoundary.get(locale);
+            if (result != null) {
+                return result;
+            }
+            // TODO use real parent
+            locale = LanguageTagParser.getSimpleParent(locale);
+            if (locale == null || locale.equals("root")) {
+                return null;
+            }
+        }
     }
 }

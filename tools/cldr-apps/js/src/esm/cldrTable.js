@@ -22,6 +22,9 @@ import * as cldrText from "./cldrText.js";
 import * as cldrVote from "./cldrVote.js";
 import * as cldrXPathUtils from "./cldrXpathUtils.js";
 
+const HEADER_ID_PREFIX = "header_";
+const ROW_ID_PREFIX = "row_"; // formerly "r@"
+
 const CLDR_TABLE_DEBUG = false;
 
 const TABLE_USES_NEW_API = false;
@@ -214,14 +217,7 @@ function insertRowsIntoTbody(theTable, reuseTable) {
 
       if (newPartition != curPartition) {
         if (newPartition.name != "") {
-          var newPar = cldrSurvey.cloneAnon(parRow);
-          var newTd = cldrSurvey.getTagChildren(newPar);
-          var newHeading = cldrSurvey.getTagChildren(newTd[0]);
-          newHeading[0].innerHTML = newPartition.name;
-          newHeading[0].id = newPartition.name;
-          tbody.appendChild(newPar);
-          newPar.origClass = newPar.className;
-          newPartition.tr = newPar; // heading
+          addSectionHeader(newPartition, tbody, parRow);
         }
         curPartition = newPartition;
       }
@@ -239,9 +235,9 @@ function insertRowsIntoTbody(theTable, reuseTable) {
 
     /*
      * If tbody already contains tr with this id, re-use it
-     * Cf. in updateRow: tr.id = "r@"+tr.xpstrid;
      */
-    var tr = reuseTable ? document.getElementById("r@" + theRow.xpstrid) : null;
+    const rowId = makeRowId(theRow.xpstrid);
+    let tr = reuseTable ? document.getElementById(rowId) : null;
     if (!tr) {
       tr = cldrSurvey.cloneAnon(toAdd);
       tbody.appendChild(tr);
@@ -312,6 +308,30 @@ function findPartition(partitions, partitionList, curPartition, i) {
     }
   }
   return null;
+}
+
+/**
+ * Add a section (partition) header, such as for a section "Western Asia" in the
+ * page for "Locale Display Names - Territories (Asia)"
+ *
+ * @param {Element} newPartition the element that was found by findPartition
+ * @param {Element} tbody the element to which the header should be appended
+ * @param {Element} parRow the element to be cloned to make the new header
+ */
+function addSectionHeader(newPartition, tbody, parRow) {
+  const newPar = cldrSurvey.cloneAnon(parRow);
+  const newTd = cldrSurvey.getTagChildren(newPar);
+  const newHeading = cldrSurvey.getTagChildren(newTd[0]);
+  const headerId = makeHeaderId(newPartition.name);
+  newHeading[0].id = headerId;
+  newHeading[0].innerHTML = newPartition.name;
+  newHeading[0].onclick = function () {
+    cldrStatus.setCurrentId(headerId);
+    cldrLoad.replaceHash();
+  };
+  tbody.appendChild(newPar);
+  newPar.origClass = newPar.className;
+  newPartition.tr = newPar; // heading
 }
 
 /**
@@ -481,15 +501,8 @@ function reallyUpdateRow(tr, theRow) {
     tr.xpathId = theRow.xpathId;
     tr.xpstrid = theRow.xpstrid;
     if (tr.xpstrid) {
-      /*
-       * TODO: usage of '@' in tr.id appears to be problematic for jQuery:
-       * if we try to use selectors like $('#' + tr.id), we get
-       * "Syntax error, unrecognized expression: #r@f3d4397b739b287"
-       * Is there a good reason to keep '@'?
-       */
-      tr.id = "r@" + tr.xpstrid;
+      tr.id = makeRowId(tr.xpstrid);
       tr.sethash = tr.xpstrid;
-      // const test = $('#' + tr.id);
     }
   }
 
@@ -1301,16 +1314,41 @@ function getValidWinningValue(theRow) {
   return null;
 }
 
+function makeRowId(id) {
+  return ROW_ID_PREFIX + id;
+}
+
+function isHeaderId(id) {
+  return id.startsWith(HEADER_ID_PREFIX);
+}
+
+function makeHeaderId(name) {
+  // Replace all sequences of non-alphanumeric characters with underscore, and
+  // start with HEADER_ID_PREFIX to identify this kind of id uniquely
+  return HEADER_ID_PREFIX + name.replaceAll(/[^a-zA-Z0-9]+/g, "_");
+}
+
+function goToHeaderId(headerId) {
+  const el = document.getElementById(headerId);
+  if (el) {
+    el.scrollIntoView({ block: "start" });
+  }
+}
+
 export {
   NO_WINNING_VALUE,
   TABLE_USES_NEW_API,
   appendExample,
   getRowApprovalStatusClass,
+  goToHeaderId,
   insertRows,
+  isHeaderId,
+  makeRowId,
   refreshSingleRow,
   updateRow,
   /*
    * The following are meant to be accessible for unit testing only:
    */
   cldrChecksum,
+  makeHeaderId,
 };

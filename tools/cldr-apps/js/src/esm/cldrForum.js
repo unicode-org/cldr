@@ -591,7 +591,7 @@ function parseContent(posts, context) {
         }
         cldrStatus.setCurrentPage("");
         cldrStatus.setCurrentId(post.id);
-        cldrLoad.replaceHash(false);
+        cldrLoad.replaceHash();
         if (cldrStatus.getCurrentSpecial() != "forum") {
           cldrStatus.setCurrentSpecial("forum");
           cldrLoad.reloadV();

@@ -51,7 +51,7 @@ public class TestBoundaryTransform  extends TestFmwk {
         new TestBoundaryTransform().run(args);
     }
 
-    public void TestBasic() {
+    public void TestBasicUnitPrefixes() {
         BoundaryTransform bt = null;
 
         String[][] tests = {
@@ -237,7 +237,7 @@ public class TestBoundaryTransform  extends TestFmwk {
 
     private static final ImmutableSet<String> casesNominativeOnly = ImmutableSet.of(GrammaticalFeature.grammaticalCase.getDefault(null));
 
-    public void TestComposition() {
+    public void TestLocaleUnitPrefixes() {
         Factory factory = CLDR_CONFIG.getCldrFactory();
 
         // inclusion options
@@ -286,7 +286,7 @@ public class TestBoundaryTransform  extends TestFmwk {
                 }
                 script = UScript.getSampleString(scriptNo);
             }
-            BoundaryTransform bt = BoundaryTransform.getTransform(locale, BoundaryUsage.unitPrefixes);
+            BoundaryTransform bt = BoundaryTransform.getTransform(locale, BoundaryUsage.unitPrefix);
 
             Collection<String> cases = casesNominativeOnly;
             if (doCases) {
@@ -376,6 +376,7 @@ public class TestBoundaryTransform  extends TestFmwk {
 
     public void TestListFormat() {
         String[][] tests = {
+            // Locale, listType, item1, item2, expected12, expected21
             {"it", "AND_WIDE", "tigri", "elefanti", "tigri ed elefanti", "elefanti e tigri"},
             {"it", "OR_WIDE", "rose", "orchidee", "rose od orchidee", "orchidee o rose"},
             {"it", "OR_WIDE", "tigri", "rose", "tigri o rose", "rose o tigri"},
@@ -457,8 +458,10 @@ public class TestBoundaryTransform  extends TestFmwk {
 
     public void TestGeneralFormat() {
         String[][] tests = {
+            // Locale, pattern1, item1, expected
             {"en", "Take a {0}", "book", "Take a book"},
             {"en", "Take a {0}", "apple", "Take an apple"},
+            {"zh", "舘{0}", "《豈》", "舘《豈》"},
             {"zh", "舘{0}", "豈", "舘豈"},
             {"zh", "舘{0}", "a", "舘 a"},
             {"en", "Take a {0}", "apple", "Take an apple"},

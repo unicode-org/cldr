@@ -208,7 +208,7 @@ public class BoundaryTransform implements BiFunction<String, Integer, String> {
     //   ❙ is applied at both positions
 
 
-    public enum BoundaryUsage {general, unitPrefixes}
+    public enum BoundaryUsage {general, unitPrefix}
 
     private static Map<String, BoundaryTransform> GENERAL_LOCALE_TO_BOUNDARY_TRANSFORM = ImmutableMap.
         <String, BoundaryTransform>builder()
@@ -248,7 +248,7 @@ public class BoundaryTransform implements BiFunction<String, Integer, String> {
         .build();
 
     private static Map<BoundaryUsage, Map<String, BoundaryTransform>> usageTo= ImmutableMap.of(
-        BoundaryUsage.unitPrefixes, UNITS_LOCALE_TO_BOUNDARY_TRANSFORM,
+        BoundaryUsage.unitPrefix, UNITS_LOCALE_TO_BOUNDARY_TRANSFORM,
         BoundaryUsage.general, GENERAL_LOCALE_TO_BOUNDARY_TRANSFORM);
 
     public static BoundaryTransform getTransform(String locale, BoundaryUsage usage) { // TODO do inheritance

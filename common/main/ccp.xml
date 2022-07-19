@@ -11,6 +11,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="ccp"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern draft="unconfirmed">↑↑↑</localePattern>
+			<localeSeparator draft="unconfirmed">↑↑↑</localeSeparator>
+			<localeKeyTypePattern draft="unconfirmed">↑↑↑</localeKeyTypePattern>
+		</localeDisplayPattern>
 		<languages>
 			<language type="aa">𑄃𑄜𑄢𑄴</language>
 			<language type="ab">𑄃𑄝𑄴𑄈𑄎𑄨𑄠𑄚𑄴</language>
@@ -525,6 +530,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="zen">𑄎𑄬𑄚𑄉</language>
 			<language type="zgh">𑄉𑄧𑄟𑄴𑄘𑄮𑄣𑄴 𑄟𑄧𑄢𑄧𑄇𑄧𑄧𑄱𑄚𑄴𑄖𑄟𑄎𑄨𑄉𑄖𑄴</language>
 			<language type="zh">𑄌𑄩𑄚</language>
+			<language type="zh" alt="menu" draft="unconfirmed">𑄌𑄨𑄚, 𑄟𑄚𑄴𑄓𑄢𑄨𑄚𑄴</language>
 			<language type="zh_Hans">𑄅𑄪𑄎𑄪𑄅𑄪𑄏𑄫 𑄌𑄩𑄚</language>
 			<language type="zh_Hans" alt="long" draft="unconfirmed">↑↑↑</language>
 			<language type="zh_Hant">𑄢𑄨𑄘𑄨𑄥𑄪𑄘𑄮𑄟𑄴 𑄌𑄩𑄚</language>
@@ -683,6 +689,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="014">𑄛𑄪𑄇𑄴𑄘𑄩 𑄃𑄜𑄳𑄢𑄨𑄇</territory>
 			<territory type="015">𑄅𑄪𑄖𑄴𑄖𑄮𑄢𑄴 𑄃𑄜𑄳𑄢𑄨𑄇</territory>
 			<territory type="017">𑄟𑄧𑄖𑄴𑄙𑄳𑄠𑄧 𑄃𑄜𑄳𑄢𑄨𑄇</territory>
+			<territory type="018" draft="unconfirmed">𑄘𑄧𑄉𑄨𑄚𑄮𑄘𑄨 𑄃𑄜𑄳𑄢𑄨𑄇</territory>
 			<territory type="019">𑄃𑄟𑄬𑄢𑄨𑄇𑄥𑄴</territory>
 			<territory type="021">𑄅𑄪𑄖𑄴𑄖𑄮𑄢𑄴 𑄎𑄉𑄢𑄴 𑄃𑄟𑄬𑄢𑄨𑄇</territory>
 			<territory type="029">𑄇𑄳𑄠𑄢𑄝𑄨𑄠𑄚𑄴</territory>
@@ -701,6 +708,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="151">𑄛𑄪𑄉𑄬𑄘𑄨 𑄄𑄃𑄪𑄢𑄮𑄛𑄴</territory>
 			<territory type="154">𑄅𑄪𑄖𑄴𑄖𑄮𑄢𑄴 𑄄𑄃𑄪𑄢𑄮𑄛𑄴</territory>
 			<territory type="155">𑄛𑄧𑄎𑄨𑄟𑄴 𑄄𑄃𑄪𑄢𑄮𑄛𑄴</territory>
+			<territory type="202" draft="unconfirmed">𑄥𑄝𑄴-𑄥𑄦𑄢𑄚𑄴 𑄃𑄜𑄳𑄢𑄨𑄇</territory>
 			<territory type="419">𑄣𑄳𑄠𑄑𑄨𑄚𑄴 𑄃𑄟𑄬𑄢𑄨𑄇</territory>
 			<territory type="AC">𑄃𑄳𑄠𑄥𑄴𑄥𑄬𑄚𑄴𑄥𑄧𑄚𑄴 𑄃𑄭𑄣𑄳𑄠𑄚𑄴𑄓𑄴</territory>
 			<territory type="AD">𑄃𑄚𑄴𑄓𑄮𑄢</territory>
@@ -780,6 +788,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ES">𑄥𑄳𑄛𑄬𑄚𑄴</territory>
 			<territory type="ET">𑄃𑄨𑄜𑄨𑄃𑄮𑄛𑄨𑄠</territory>
 			<territory type="EU">𑄄𑄃𑄪𑄢𑄮𑄛𑄩𑄠𑄧 𑄄𑄃𑄪𑄚𑄨𑄠𑄧𑄚𑄴</territory>
+			<territory type="EZ" draft="unconfirmed">𑄃𑄨𑄃𑄪𑄢𑄮𑄎𑄮𑄚𑄴</territory>
 			<territory type="FI">𑄜𑄨𑄚𑄴𑄣𑄳𑄠𑄚𑄴𑄓𑄴</territory>
 			<territory type="FJ">𑄜𑄨𑄎𑄨</territory>
 			<territory type="FK">𑄜𑄧𑄇𑄴𑄣𑄳𑄠𑄚𑄴𑄓𑄴 𑄉𑄭 𑄉𑄭 𑄞𑄨𑄘𑄳𑄠</territory>
@@ -967,6 +976,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="VU">𑄞𑄚𑄪𑄠𑄑𑄪</territory>
 			<territory type="WF">𑄤𑄣𑄨𑄌𑄴 𑄃𑄮 𑄜𑄪𑄑𑄪𑄚</territory>
 			<territory type="WS">𑄥𑄟𑄮𑄠</territory>
+			<territory type="XA" draft="unconfirmed">𑄥𑄨𑄃𑄪𑄘𑄮-𑄃𑄬𑄥𑄚𑄴𑄑𑄴𑄥𑄴</territory>
+			<territory type="XB" draft="unconfirmed">𑄥𑄨𑄃𑄪𑄘𑄮-𑄝𑄨𑄘𑄨</territory>
 			<territory type="XK">𑄇𑄧𑄥𑄮𑄞𑄮</territory>
 			<territory type="YE">𑄃𑄨𑄠𑄬𑄟𑄬𑄚𑄴</territory>
 			<territory type="YT">𑄟𑄠𑄮𑄖𑄴𑄖𑄬</territory>
@@ -1133,7 +1144,37 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="index">[𑄃 𑄄 𑄅 𑄆 𑄇 𑄈 𑄉 𑄊 𑄋 𑄌 𑄍 𑄎 𑄏 𑄐 𑄑 𑄒 𑄓 𑄔 𑄕 𑄖 𑄗 𑄘 𑄙 𑄚 𑄛 𑄜 𑄝 𑄞 𑄟 𑄠 𑄡 𑄢 𑄣 𑄤 𑄥 𑄦]</exemplarCharacters>
 		<exemplarCharacters type="numbers" draft="unconfirmed">[\- ‑ , . % ‰ + 𑄶 𑄷 𑄸 𑄹 𑄺 𑄻 𑄼 𑄽 𑄾 𑄿]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐ ‑ – — , ; \: ! ? 𑅃 . … 𑅁 𑅂 𑅀 ' ‘ ’ &quot; “ ” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
+		<ellipsis type="final" draft="unconfirmed">↑↑↑</ellipsis>
+		<ellipsis type="initial" draft="unconfirmed">↑↑↑</ellipsis>
+		<ellipsis type="medial" draft="unconfirmed">↑↑↑</ellipsis>
+		<ellipsis type="word-final" draft="unconfirmed">↑↑↑</ellipsis>
+		<ellipsis type="word-initial" draft="unconfirmed">↑↑↑</ellipsis>
+		<ellipsis type="word-medial" draft="unconfirmed">↑↑↑</ellipsis>
 		<moreInformation draft="unconfirmed">𑅃</moreInformation>
+		<parseLenients scope="date" level="lenient">
+			<parseLenient sample="-" draft="unconfirmed">↑↑↑</parseLenient>
+			<parseLenient sample=":" draft="unconfirmed">↑↑↑</parseLenient>
+		</parseLenients>
+		<parseLenients scope="general" level="lenient">
+			<parseLenient sample="." draft="unconfirmed">↑↑↑</parseLenient>
+			<parseLenient sample="’" draft="unconfirmed">↑↑↑</parseLenient>
+			<parseLenient sample="%" draft="unconfirmed">↑↑↑</parseLenient>
+			<parseLenient sample="‰" draft="unconfirmed">↑↑↑</parseLenient>
+			<parseLenient sample="$" draft="unconfirmed">↑↑↑</parseLenient>
+			<parseLenient sample="£" draft="unconfirmed">↑↑↑</parseLenient>
+			<parseLenient sample="¥" draft="unconfirmed">↑↑↑</parseLenient>
+			<parseLenient sample="₩" draft="unconfirmed">↑↑↑</parseLenient>
+			<parseLenient sample="₹" draft="unconfirmed">↑↑↑</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="lenient">
+			<parseLenient sample="-" draft="unconfirmed">↑↑↑</parseLenient>
+			<parseLenient sample="," draft="unconfirmed">↑↑↑</parseLenient>
+			<parseLenient sample="+" draft="unconfirmed">↑↑↑</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="stricter">
+			<parseLenient sample="," draft="unconfirmed">↑↑↑</parseLenient>
+			<parseLenient sample="." draft="unconfirmed">↑↑↑</parseLenient>
+		</parseLenients>
 	</characters>
 	<delimiters>
 		<quotationStart>“</quotationStart>

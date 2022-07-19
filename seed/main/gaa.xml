@@ -12,14 +12,57 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
-			<localePattern draft="unconfirmed">↑↑↑</localePattern>
-			<localeSeparator draft="unconfirmed">↑↑↑</localeSeparator>
-			<localeKeyTypePattern draft="unconfirmed">↑↑↑</localeKeyTypePattern>
+			<localePattern draft="unconfirmed">{0} ({1})</localePattern>
+			<localeSeparator draft="unconfirmed">{0}, {1}</localeSeparator>
+			<localeKeyTypePattern draft="unconfirmed">{0}: {1}</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
+			<language type="ab" draft="unconfirmed">Abkhazia</language>
+			<language type="ace" draft="unconfirmed">Achinese</language>
+			<language type="ada" draft="unconfirmed">Dangme</language>
+			<language type="ady" draft="unconfirmed">Adyghe</language>
+			<language type="af" draft="unconfirmed">Afrikaans</language>
+			<language type="agq" draft="unconfirmed">Aghem</language>
+			<language type="ain" draft="unconfirmed">Ainu</language>
+			<language type="ak" draft="unconfirmed">Akan</language>
+			<language type="ale" draft="unconfirmed">Aleut</language>
+			<language type="am" draft="unconfirmed">Amharic</language>
+			<language type="an" draft="unconfirmed">Aragonese</language>
+			<language type="anp" draft="unconfirmed">Angika</language>
 			<language type="ar" draft="unconfirmed">Arabik</language>
 			<language type="ar_001" draft="unconfirmed">Ŋmɛnɛŋmɛnɛ Beiaŋ Arabik</language>
+			<language type="arp" draft="unconfirmed">Arapaho</language>
+			<language type="as" draft="unconfirmed">Assamese</language>
+			<language type="asa" draft="unconfirmed">Asu</language>
+			<language type="ast" draft="unconfirmed">Asturian</language>
+			<language type="atj" draft="unconfirmed">Atikamekw</language>
+			<language type="av" draft="unconfirmed">Avaric</language>
+			<language type="awa" draft="unconfirmed">Awadhi</language>
+			<language type="ay" draft="unconfirmed">Aymara</language>
+			<language type="az" draft="unconfirmed">Azerbaijani</language>
+			<language type="az" alt="short" draft="unconfirmed">Azeri</language>
+			<language type="ba" draft="unconfirmed">Bashkir</language>
+			<language type="ban" draft="unconfirmed">Balinese</language>
+			<language type="bas" draft="unconfirmed">Basaa</language>
+			<language type="be" draft="unconfirmed">Belarusian</language>
+			<language type="bem" draft="unconfirmed">Bemba</language>
+			<language type="bez" draft="unconfirmed">Bena</language>
+			<language type="bg" draft="unconfirmed">Bulgarian</language>
+			<language type="bho" draft="unconfirmed">Bhojpuri</language>
+			<language type="bi" draft="unconfirmed">Bislama</language>
+			<language type="bin" draft="unconfirmed">Bini</language>
+			<language type="bm" draft="unconfirmed">Bambara</language>
 			<language type="bn" draft="unconfirmed">Bangla</language>
+			<language type="br" draft="unconfirmed">Breton</language>
+			<language type="brx" draft="unconfirmed">Bodo</language>
+			<language type="bs" draft="unconfirmed">Bosnian</language>
+			<language type="bug" draft="unconfirmed">Buginese</language>
+			<language type="byn" draft="unconfirmed">Blin</language>
+			<language type="ca" draft="unconfirmed">Katalan</language>
+			<language type="cay" draft="unconfirmed">Kayuga</language>
+			<language type="ccp" draft="unconfirmed">Tsakma</language>
+			<language type="ceb" draft="unconfirmed">Sebuano</language>
+			<language type="crr" draft="unconfirmed">Karolina Algonkian</language>
 			<language type="de" draft="unconfirmed">German</language>
 			<language type="de_AT" draft="unconfirmed">Austria German</language>
 			<language type="de_CH" draft="unconfirmed">Switzerland German Krɔŋŋ</language>
@@ -34,15 +77,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="es_419" draft="unconfirmed">Romanse Amerika Spanish</language>
 			<language type="es_ES" draft="unconfirmed">Yuropa Spanish</language>
 			<language type="es_MX" draft="unconfirmed">Meziko Spanish</language>
+			<language type="eu" draft="unconfirmed">Baske</language>
 			<language type="fr" draft="unconfirmed">Frɛntsi</language>
 			<language type="fr_CA" draft="unconfirmed">Kanada Frɛntsi</language>
 			<language type="fr_CH" draft="unconfirmed">Switzerland Frɛntsi</language>
+			<language type="frc" draft="unconfirmed">Kajun Frɛntsi</language>
 			<language type="gaa" draft="contributed">Gã</language>
 			<language type="hi" draft="unconfirmed">Hindi</language>
+			<language type="hy" draft="unconfirmed">Armenian</language>
 			<language type="id" draft="unconfirmed">Indonesian</language>
 			<language type="it" draft="unconfirmed">Italian</language>
 			<language type="ja" draft="unconfirmed">Japanese</language>
 			<language type="ko" draft="unconfirmed">Korean</language>
+			<language type="ksf" draft="unconfirmed">Bafia</language>
+			<language type="my" draft="unconfirmed">Burmese</language>
 			<language type="nl" draft="unconfirmed">Daatsi</language>
 			<language type="nl_BE" draft="unconfirmed">Flemish</language>
 			<language type="pl" draft="unconfirmed">Polish</language>
@@ -50,9 +98,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pt_BR" draft="unconfirmed">Brazil Portuguese</language>
 			<language type="pt_PT" draft="unconfirmed">Yuropa Portuguese</language>
 			<language type="ru" draft="unconfirmed">Russian</language>
+			<language type="rup" draft="unconfirmed">Aromanian</language>
+			<language type="sq" draft="unconfirmed">Albanian</language>
 			<language type="th" draft="unconfirmed">Thai</language>
 			<language type="tr" draft="unconfirmed">Turkish</language>
 			<language type="und" draft="unconfirmed">Wiemɔ ko ni gbɛ́i bɛ mli</language>
+			<language type="yue" draft="unconfirmed">Kantonese</language>
+			<language type="yue" alt="menu" draft="unconfirmed">Tsainesi, Kantonese</language>
 			<language type="zh" draft="unconfirmed">Tsainese</language>
 			<language type="zh" alt="menu" draft="unconfirmed">Tsainese, Mandarin</language>
 			<language type="zh_Hans" draft="unconfirmed">Tsainese Ni Waaa</language>
@@ -255,9 +307,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<measurementSystemName type="US" draft="unconfirmed">↑↑↑</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
-			<codePattern type="language" draft="unconfirmed">↑↑↑</codePattern>
-			<codePattern type="script" draft="unconfirmed">↑↑↑</codePattern>
-			<codePattern type="territory" draft="unconfirmed">↑↑↑</codePattern>
+			<codePattern type="language" draft="unconfirmed">Language: {0}</codePattern>
+			<codePattern type="script" draft="unconfirmed">Script: {0}</codePattern>
+			<codePattern type="territory" draft="unconfirmed">Region: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
@@ -266,13 +318,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="index" draft="unconfirmed">[A B D E Ɛ F G H I J K L M N Ŋ O Ɔ P Q R S T U V W Y Z]</exemplarCharacters>
 		<exemplarCharacters type="numbers" draft="unconfirmed">[\- ‑ , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
 		<exemplarCharacters type="punctuation" draft="unconfirmed">[\- ‐ ‑ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
-		<ellipsis type="final" draft="unconfirmed">↑↑↑</ellipsis>
-		<ellipsis type="initial" draft="unconfirmed">↑↑↑</ellipsis>
-		<ellipsis type="medial" draft="unconfirmed">↑↑↑</ellipsis>
-		<ellipsis type="word-final" draft="unconfirmed">↑↑↑</ellipsis>
-		<ellipsis type="word-initial" draft="unconfirmed">↑↑↑</ellipsis>
-		<ellipsis type="word-medial" draft="unconfirmed">↑↑↑</ellipsis>
-		<moreInformation draft="unconfirmed">↑↑↑</moreInformation>
+		<ellipsis type="final" draft="unconfirmed">{0}…</ellipsis>
+		<ellipsis type="initial" draft="unconfirmed">…{0}</ellipsis>
+		<ellipsis type="medial" draft="unconfirmed">{0}…{1}</ellipsis>
+		<ellipsis type="word-final" draft="unconfirmed">{0} …</ellipsis>
+		<ellipsis type="word-initial" draft="unconfirmed">… {0}</ellipsis>
+		<ellipsis type="word-medial" draft="unconfirmed">{0} … {1}</ellipsis>
+		<moreInformation draft="unconfirmed">?</moreInformation>
 		<parseLenients scope="date" level="lenient">
 			<parseLenient sample="-" draft="unconfirmed">[\--/]</parseLenient>
 			<parseLenient sample=":" draft="unconfirmed">[\:∶︓﹕：]</parseLenient>
@@ -283,26 +335,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<parseLenient sample="%" draft="unconfirmed">[%٪﹪％]</parseLenient>
 			<parseLenient sample="‰" draft="unconfirmed">[؉‰]</parseLenient>
 			<parseLenient sample="$" draft="unconfirmed">[\$﹩＄]</parseLenient>
-			<parseLenient sample="£" draft="unconfirmed">↑↑↑</parseLenient>
-			<parseLenient sample="¥" draft="unconfirmed">↑↑↑</parseLenient>
-			<parseLenient sample="₩" draft="unconfirmed">↑↑↑</parseLenient>
-			<parseLenient sample="₹" draft="unconfirmed">↑↑↑</parseLenient>
+			<parseLenient sample="£" draft="unconfirmed">[£₤￡]</parseLenient>
+			<parseLenient sample="¥" draft="unconfirmed">[¥￥]</parseLenient>
+			<parseLenient sample="₩" draft="unconfirmed">[₩￦]</parseLenient>
+			<parseLenient sample="₹" draft="unconfirmed">[₨₹{Rp}{Rs}]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="lenient">
-			<parseLenient sample="-" draft="unconfirmed">↑↑↑</parseLenient>
-			<parseLenient sample="," draft="unconfirmed">↑↑↑</parseLenient>
-			<parseLenient sample="+" draft="unconfirmed">↑↑↑</parseLenient>
+			<parseLenient sample="-" draft="unconfirmed">[\-‐‒–⁻₋−➖﹣－]</parseLenient>
+			<parseLenient sample="," draft="unconfirmed">[,،٫⹁、︐︑﹐﹑，､]</parseLenient>
+			<parseLenient sample="+" draft="unconfirmed">[+⁺₊➕﬩﹢＋]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="stricter">
-			<parseLenient sample="," draft="unconfirmed">↑↑↑</parseLenient>
-			<parseLenient sample="." draft="unconfirmed">↑↑↑</parseLenient>
+			<parseLenient sample="," draft="unconfirmed">[,٫⹁︐﹐，]</parseLenient>
+			<parseLenient sample="." draft="unconfirmed">[.․﹒．｡]</parseLenient>
 		</parseLenients>
 	</characters>
 	<delimiters>
-		<quotationStart draft="unconfirmed">↑↑↑</quotationStart>
-		<quotationEnd draft="unconfirmed">↑↑↑</quotationEnd>
-		<alternateQuotationStart draft="unconfirmed">↑↑↑</alternateQuotationStart>
-		<alternateQuotationEnd draft="unconfirmed">↑↑↑</alternateQuotationEnd>
+		<quotationStart draft="unconfirmed">“</quotationStart>
+		<quotationEnd draft="unconfirmed">”</quotationEnd>
+		<alternateQuotationStart draft="unconfirmed">‘</alternateQuotationStart>
+		<alternateQuotationEnd draft="unconfirmed">’</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
@@ -2372,9 +2424,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="unconfirmed">↑↑↑</defaultNumberingSystem>
+		<defaultNumberingSystem draft="unconfirmed">latn</defaultNumberingSystem>
 		<otherNumberingSystems>
-			<native draft="unconfirmed">↑↑↑</native>
+			<native draft="unconfirmed">latn</native>
 		</otherNumberingSystems>
 		<minimumGroupingDigits draft="unconfirmed">↑↑↑</minimumGroupingDigits>
 		<symbols numberSystem="latn">
@@ -3248,4 +3300,159 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nostr draft="unconfirmed">dabi:d</nostr>
 		</messages>
 	</posix>
+	<personNames>
+		<nameOrderLocales order="givenFirst">gaa und</nameOrderLocales>
+		<nameOrderLocales order="surnameFirst">zxx</nameOrderLocales>
+		<foreignSpaceReplacement draft="unconfirmed"> </foreignSpaceReplacement>
+		<initialPattern type="initial" draft="unconfirmed">{0}.</initialPattern>
+		<initialPattern type="initialSequence" draft="unconfirmed">{0} {1}</initialPattern>
+		<personName order="givenFirst" length="long" usage="referring" formality="formal">
+			<namePattern draft="unconfirmed">{given} {given2} {surname} {suffix}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="long" usage="referring" formality="informal">
+			<namePattern>{given-informal} {surname}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
+			<namePattern draft="unconfirmed">{prefix} {surname}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="long" usage="addressing" formality="informal">
+			<namePattern draft="unconfirmed">{given-informal}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="long" usage="monogram" formality="formal">
+			<namePattern draft="unconfirmed">{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="long" usage="monogram" formality="informal">
+			<namePattern>{given-informal-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
+			<namePattern draft="unconfirmed">{given} {given2-initial} {surname} {suffix}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
+			<namePattern>{given-informal} {surname}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="medium" usage="addressing" formality="formal">
+			<namePattern draft="unconfirmed">{prefix} {surname}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="medium" usage="addressing" formality="informal">
+			<namePattern draft="unconfirmed">{given-informal}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="medium" usage="monogram" formality="formal">
+			<namePattern draft="unconfirmed">{surname-monogram-allCaps}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="medium" usage="monogram" formality="informal">
+			<namePattern draft="unconfirmed">{given-informal-monogram-allCaps}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="short" usage="referring" formality="formal">
+			<namePattern draft="unconfirmed">{given-initial} {given2-initial} {surname}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="short" usage="referring" formality="informal">
+			<namePattern>{given-informal} {surname-initial}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
+			<namePattern draft="unconfirmed">{prefix} {surname}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="short" usage="addressing" formality="informal">
+			<namePattern draft="unconfirmed">{given-informal}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="short" usage="monogram" formality="formal">
+			<namePattern draft="unconfirmed">{surname-monogram-allCaps}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="short" usage="monogram" formality="informal">
+			<namePattern draft="unconfirmed">{given-informal-monogram-allCaps}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
+			<namePattern draft="unconfirmed">{surname} {given} {given2} {suffix}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
+			<namePattern draft="unconfirmed">{surname} {given-informal}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="long" usage="addressing" formality="formal">
+			<namePattern draft="unconfirmed">{prefix} {surname}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="long" usage="addressing" formality="informal">
+			<namePattern draft="unconfirmed">{given-informal}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="long" usage="monogram" formality="formal">
+			<namePattern draft="unconfirmed">{surname-monogram-allCaps}{given-monogram-allCaps}{given2-monogram-allCaps}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="long" usage="monogram" formality="informal">
+			<namePattern draft="unconfirmed">{surname-monogram-allCaps}{given-informal-monogram-allCaps}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
+			<namePattern draft="unconfirmed">{surname} {given} {given2-initial} {suffix}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="medium" usage="referring" formality="informal">
+			<namePattern draft="unconfirmed">{surname} {given-informal}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="medium" usage="addressing" formality="formal">
+			<namePattern draft="unconfirmed">{prefix} {surname}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="medium" usage="addressing" formality="informal">
+			<namePattern draft="unconfirmed">{given-informal}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="medium" usage="monogram" formality="formal">
+			<namePattern draft="unconfirmed">{surname-monogram-allCaps}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="medium" usage="monogram" formality="informal">
+			<namePattern draft="unconfirmed">{given-informal-monogram-allCaps}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="short" usage="referring" formality="formal">
+			<namePattern draft="unconfirmed">{surname} {given-initial} {given2-initial}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="short" usage="referring" formality="informal">
+			<namePattern draft="unconfirmed">{surname} {given-initial}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="short" usage="addressing" formality="formal">
+			<namePattern draft="unconfirmed">{prefix} {surname}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="short" usage="addressing" formality="informal">
+			<namePattern draft="unconfirmed">{given-informal}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="short" usage="monogram" formality="formal">
+			<namePattern draft="unconfirmed">{surname-monogram-allCaps}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="short" usage="monogram" formality="informal">
+			<namePattern draft="unconfirmed">{given-informal-monogram-allCaps}</namePattern>
+		</personName>
+		<personName order="sorting" length="long" usage="referring" formality="formal">
+			<namePattern draft="unconfirmed">{surname-core}, {given} {given2} {surname-prefix}</namePattern>
+		</personName>
+		<personName order="sorting" length="long" usage="referring" formality="informal">
+			<namePattern draft="unconfirmed">{surname}, {given-informal}</namePattern>
+		</personName>
+		<personName order="sorting" length="medium" usage="referring" formality="formal">
+			<namePattern draft="unconfirmed">{surname-core}, {given} {given2-initial} {surname-prefix}</namePattern>
+		</personName>
+		<personName order="sorting" length="medium" usage="referring" formality="informal">
+			<namePattern draft="unconfirmed">{surname}, {given-informal}</namePattern>
+		</personName>
+		<personName order="sorting" length="short" usage="referring" formality="formal">
+			<namePattern draft="unconfirmed">{surname-core}, {given-initial} {given2-initial} {surname-prefix}</namePattern>
+		</personName>
+		<personName order="sorting" length="short" usage="referring" formality="informal">
+			<namePattern draft="unconfirmed">{surname}, {given-informal}</namePattern>
+		</personName>
+		<sampleName item="givenOnly">
+			<nameField type="given" draft="unconfirmed">Sinbad</nameField>
+		</sampleName>
+		<sampleName item="givenSurnameOnly">
+			<nameField type="given" draft="unconfirmed">Irene</nameField>
+			<nameField type="surname" draft="unconfirmed">Adla</nameField>
+		</sampleName>
+		<sampleName item="given12Surname">
+			<nameField type="given" draft="unconfirmed">Yohane</nameField>
+			<nameField type="given2" draft="unconfirmed">Hamish</nameField>
+			<nameField type="surname" draft="unconfirmed">Watson</nameField>
+		</sampleName>
+		<sampleName item="full">
+			<nameField type="prefix" draft="unconfirmed">Prof. Dr.</nameField>
+			<nameField type="given" draft="unconfirmed">Ada Kornelia</nameField>
+			<nameField type="given-informal" draft="unconfirmed">Neele</nameField>
+			<nameField type="given2" draft="unconfirmed">Eva Sofia</nameField>
+			<nameField type="surname-prefix" draft="unconfirmed">van den</nameField>
+			<nameField type="surname-core" draft="unconfirmed">Wolf</nameField>
+			<nameField type="surname2" draft="unconfirmed">Beker Shmidt</nameField>
+			<nameField type="suffix" draft="unconfirmed">M.D. Ph.D.</nameField>
+		</sampleName>
+	</personNames>
 </ldml>

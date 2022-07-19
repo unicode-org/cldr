@@ -5,7 +5,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
-Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
+the U.S. and other countries. CLDR data files are interpreted according to
+the LDML specification (http://unicode.org/reports/tr35/) Warnings: All cp
+values have U+FE0F characters removed. See /annotationsDerived/ for derived
+annotations.
 -->
 <ldml>
 	<identity>
@@ -42,6 +45,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="―" type="tts">horizontal bar</annotation>
 		<annotation cp="・">dots | interpunct | katakana | katakana middle dot | middot</annotation>
 		<annotation cp="・" type="tts">katakana middle dot</annotation>
+		<annotation cp=",">↑↑↑</annotation>
 		<annotation cp="," type="tts">comma</annotation>
 		<annotation cp="،">arabic | comma</annotation>
 		<annotation cp="،" type="tts">arabic comma</annotation>
@@ -131,7 +135,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="§" type="tts">section</annotation>
 		<annotation cp="¶">alinea | paragraph | paragraph mark | paraph | pilcrow</annotation>
 		<annotation cp="¶" type="tts">paragraph mark</annotation>
-		<annotation cp="@">ampersat | arobase | arroba | at mark | at sign | at-sign | commercial at | strudel</annotation>
+		<annotation cp="@">ampersat | arobase | arroba | at mark | at sign | commercial at | strudel</annotation>
 		<annotation cp="@" type="tts">at-sign</annotation>
 		<annotation cp="*">asterisk | star | wildcard</annotation>
 		<annotation cp="*" type="tts">asterisk</annotation>
@@ -171,7 +175,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="`" type="tts">grave accent</annotation>
 		<annotation cp="´">accent | acute | tone</annotation>
 		<annotation cp="´" type="tts">acute accent</annotation>
-		<annotation cp="^">accent | caret | chevron | circumflex | control | hat | pointer | power | wedge | xor sign</annotation>
+		<annotation cp="^">accent | caret | chevron | circumflex | control | hat | xor sign</annotation>
 		<annotation cp="^" type="tts">circumflex accent</annotation>
 		<annotation cp="¨">diaeresis | tréma | umlaut</annotation>
 		<annotation cp="¨" type="tts">diaeresis</annotation>
@@ -389,7 +393,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="≯" type="tts">isse bada nahi</annotation>
 		<annotation cp="¬">negation | not</annotation>
 		<annotation cp="¬" type="tts">negation</annotation>
-		<annotation cp="|">bar | line | pike | pipe | sheffer stroke | stick | stroke | vbar | vertical bar | vertical line</annotation>
+		<annotation cp="|">pike | pipe | sheffer stroke | stick | vbar | vertical bar | vertical line</annotation>
 		<annotation cp="|" type="tts">vertical line</annotation>
 		<annotation cp="~">tilde</annotation>
 		<annotation cp="~" type="tts">tilde</annotation>
@@ -466,7 +470,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="≣">equality | mathematics | strictly equivalent</annotation>
 		<annotation cp="≣" type="tts">strictly equivalent</annotation>
 		<annotation cp="≤">baraabar | baraabar hai | baraabri na hona | isse chhota | isse chhota yaa baraabar | less-than or equal</annotation>
-		<annotation cp="≤" type="tts">less-than or equal</annotation>
+		<annotation cp="≤" type="tts">isse chhota yaa baraabar</annotation>
 		<annotation cp="≥">baraabar | baraabar hai | baraabri na hona | isse bada | isse bada yaa baraabar</annotation>
 		<annotation cp="≥" type="tts">isse bada yaa baraabar</annotation>
 		<annotation cp="≦">baraabar hone par isse kam | baraabri na hona | mathematics</annotation>
@@ -579,8 +583,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="▮" type="tts">filled vertical rectangle</annotation>
 		<annotation cp="▰">filled parallelogram</annotation>
 		<annotation cp="▰" type="tts">filled parallelogram</annotation>
-		<annotation cp="▲">arrow | filled | filled up-pointing triangle | triangle | up</annotation>
-		<annotation cp="▲" type="tts">filled up-pointing triangle</annotation>
+		<annotation cp="▲">arrow | filled | oopar point karta hua filled triangle | triangle | up</annotation>
+		<annotation cp="▲" type="tts">Oopar point karta hua filled triangle</annotation>
 		<annotation cp="△">hollow up-pointing triangle</annotation>
 		<annotation cp="△" type="tts">hollow up-pointing triangle</annotation>
 		<annotation cp="▴">filled up-pointing small triangle</annotation>
@@ -597,8 +601,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="►" type="tts">filled right-pointing pointer</annotation>
 		<annotation cp="▻">hollow right-pointing pointer</annotation>
 		<annotation cp="▻" type="tts">hollow right-pointing pointer</annotation>
-		<annotation cp="▼">arrow | down | filled | filled down-pointing triangle | triangle</annotation>
-		<annotation cp="▼" type="tts">filled down-pointing triangle</annotation>
+		<annotation cp="▼">arrow | down | filled | neeche point karta hua triangle | triangle</annotation>
+		<annotation cp="▼" type="tts">neeche point karta hua filled triangle</annotation>
 		<annotation cp="▽">hollow down-pointing triangle</annotation>
 		<annotation cp="▽" type="tts">hollow down-pointing triangle</annotation>
 		<annotation cp="▾">filled down-pointing small triangle</annotation>
@@ -703,80 +707,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♭" type="tts">flat</annotation>
 		<annotation cp="♯">dièse | diesis | music | note | sharp</annotation>
 		<annotation cp="♯" type="tts">sharp</annotation>
-		<annotation cp="🥹">Aansoon rokta face | angry | cry | proud | resist | sad</annotation> <!-- 1F979 -->
-		<annotation cp="🥹" type="tts">Aansoon rokta face</annotation>
-		<annotation cp="🧌">fairy tale | fantasy | monster | troll</annotation> <!-- 1F9CC -->
-		<annotation cp="🧌" type="tts">troll</annotation>
-		<annotation cp="🩻">bones | doctor | medical | skeleton | x-ray</annotation> <!-- 1FA7B -->
-		<annotation cp="🩻" type="tts">x-ray</annotation>
-		<annotation cp="🩼">cane | crutch | disability | hurt | mobility aid | stick</annotation> <!-- 1FA7C -->
-		<annotation cp="🩼" type="tts">crutch</annotation>
-		<annotation cp="🪩">dance | disco | glitter | mirror ball | party</annotation> <!-- 1FAA9 -->
-		<annotation cp="🪩" type="tts">mirror ball</annotation>
-		<annotation cp="🪪">credentials | ID | identification card | license | security</annotation> <!-- 1FAAA -->
-		<annotation cp="🪪" type="tts">identification card</annotation>
-		<annotation cp="🪫">electronic | low battery | low energy</annotation> <!-- 1FAAB -->
-		<annotation cp="🪫" type="tts">low battery</annotation>
-		<annotation cp="🪬">Fatima | hamsa | hand | Mary | Miriam | protection | tabeez</annotation> <!-- 1FAAC -->
-		<annotation cp="🪬" type="tts">hamsa</annotation>
-		<annotation cp="🪷">Buddhism | flower | Hinduism | India | lotus | purity | Vietnam</annotation> <!-- 1FAB7 -->
-		<annotation cp="🪷" type="tts">lotus</annotation>
-		<annotation cp="🪸">coral | ocean | reef</annotation> <!-- 1FAB8 -->
-		<annotation cp="🪸" type="tts">coral</annotation>
-		<annotation cp="🪹">khaali nest | Khaali nest | nesting</annotation> <!-- 1FAB9 -->
-		<annotation cp="🪹" type="tts">Khaali nest</annotation>
-		<annotation cp="🪺">eggs wala nest | nesting</annotation> <!-- 1FABA -->
-		<annotation cp="🪺" type="tts">eggs wala nest</annotation>
-		<annotation cp="🫃">belly | bloated | full | pregnant | pregnant man</annotation> <!-- 1FAC3 -->
-		<annotation cp="🫃" type="tts">pregnant man</annotation>
-		<annotation cp="🫄">belly | bloated | full | pregnant | pregnant person</annotation> <!-- 1FAC4 -->
-		<annotation cp="🫄" type="tts">pregnant person</annotation>
-		<annotation cp="🫅">crown wala vyakti | monarch | noble | person with crown | regal | royalty</annotation> <!-- 1FAC5 -->
-		<annotation cp="🫅" type="tts">crown wala vyakti</annotation>
-		<annotation cp="🫗">drink | empty | glass | pouring liquid | spill</annotation> <!-- 1FAD7 -->
-		<annotation cp="🫗" type="tts">pouring liquid</annotation>
-		<annotation cp="🫘">beans | food | kidney | legume</annotation> <!-- 1FAD8 -->
-		<annotation cp="🫘" type="tts">beans</annotation>
-		<annotation cp="🫙">container | jar | khaali | masaala | sauce | store</annotation> <!-- 1FAD9 -->
-		<annotation cp="🫙" type="tts">jar</annotation>
-		<annotation cp="🫠">disappear | dissolve | liquid | melt | melting face</annotation> <!-- 1FAE0 -->
-		<annotation cp="🫠" type="tts">melting face</annotation>
-		<annotation cp="🫡">OK | salute | saluting face | sunny | troops | yes</annotation> <!-- 1FAE1 -->
-		<annotation cp="🫡" type="tts">saluting face</annotation>
-		<annotation cp="🫢">amazement | awe | disbelief | embarrass | khuli aankhein aur mouth par haath wala face | scared | surprise</annotation> <!-- 1FAE2 -->
-		<annotation cp="🫢" type="tts">khuli aankhein aur mouth par haath wala face</annotation>
-		<annotation cp="🫣">captivated | fingers ke beech se jhaankta face | jhaankna | stare</annotation> <!-- 1FAE3 -->
-		<annotation cp="🫣" type="tts">fingers ke beech se jhaankta face</annotation>
-		<annotation cp="🫤">diagonal mouth wala face | disappointed | meh | skeptical | unsure</annotation> <!-- 1FAE4 -->
-		<annotation cp="🫤" type="tts">diagonal mouth wala face</annotation>
-		<annotation cp="🫥">depressed | disappear | dotted line face | hide | introvert | invisible</annotation> <!-- 1FAE5 -->
-		<annotation cp="🫥" type="tts">dotted line face</annotation>
-		<annotation cp="🫦">anxious | biting lip | fear | flirting | nervous | uncomfortable | worried</annotation> <!-- 1FAE6 -->
-		<annotation cp="🫦" type="tts">biting lip</annotation>
-		<annotation cp="🫧">bubbles | burp | clean | soap | underwater</annotation> <!-- 1FAE7 -->
-		<annotation cp="🫧" type="tts">bubbles</annotation>
-		<annotation cp="🫰">expensive | hand with index finger and thumb crossed | heart | love | money | snap</annotation> <!-- 1FAF0 -->
-		<annotation cp="🫰" type="tts">hand with index finger and thumb crossed</annotation>
-		<annotation cp="🫱">hand | right | rightward | rightwards hand</annotation> <!-- 1FAF1 -->
-		<annotation cp="🫱" type="tts">rightwards hand</annotation>
-		<annotation cp="🫲">hand | left | leftward | leftwards hand</annotation> <!-- 1FAF2 -->
-		<annotation cp="🫲" type="tts">leftwards hand</annotation>
-		<annotation cp="🫳">dismiss | drop | palm down hand | shoo</annotation> <!-- 1FAF3 -->
-		<annotation cp="🫳" type="tts">palm down hand</annotation>
-		<annotation cp="🫴">beckon | catch | come | offer | palm up hand</annotation> <!-- 1FAF4 -->
-		<annotation cp="🫴" type="tts">palm up hand</annotation>
-		<annotation cp="🫵">aap | viewer ki taraf pont karti index finger</annotation> <!-- 1FAF5 -->
-		<annotation cp="🫵" type="tts">viewer ki taraf pont karti index finger</annotation>
-		<annotation cp="🫶">haathon se bana heart | heart hands | love</annotation> <!-- 1FAF6 -->
-		<annotation cp="🫶" type="tts">haathon se bana heart</annotation>
-		<annotation cp="🛝">amusement park | play | playground slide</annotation> <!-- 1F6DD -->
-		<annotation cp="🛝" type="tts">playground slide</annotation>
-		<annotation cp="🛞">circle | tire | turn | wheel</annotation> <!-- 1F6DE -->
-		<annotation cp="🛞" type="tts">wheel</annotation>
-		<annotation cp="🛟">float | life preserver | life saver | rescue | ring buoy | safety</annotation> <!-- 1F6DF -->
-		<annotation cp="🛟" type="tts">ring buoy</annotation>
-		<annotation cp="🟰">barrabri | heavy equals sign | math</annotation> <!-- 1F7F0 -->
-		<annotation cp="🟰" type="tts">heavy equals sign</annotation>
 		<annotation cp="😀">face | grin | grinning face</annotation>
 		<annotation cp="😀" type="tts">grinning face</annotation>
 		<annotation cp="😃">badi aankhon wala grinning face | face | mouth | open | smile</annotation>
@@ -791,12 +721,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😅" type="tts">sweating wala grinning face</annotation>
 		<annotation cp="🤣">face | floor | laugh | rofl | rolling | rolling on the floor laughing | rotfl</annotation>
 		<annotation cp="🤣" type="tts">rolling on the floor laughing</annotation>
-		<annotation cp="😂">face | joy | khusi ke aansoon wala face | laugh | tear</annotation>
+		<annotation cp="😂">face | joy | khushi ke aansoo wala face | laugh | tear</annotation>
 		<annotation cp="😂" type="tts">face</annotation>
 		<annotation cp="🙂">face | slightly smiling face | smile</annotation>
 		<annotation cp="🙂" type="tts">slightly smiling face</annotation>
 		<annotation cp="🙃">face | upside-down</annotation>
 		<annotation cp="🙃" type="tts">upside-down face</annotation>
+		<annotation cp="🫠">disappear | dissolve | liquid | melt | melting face</annotation> <!-- 1FAE0 -->
+		<annotation cp="🫠" type="tts">melting face</annotation>
 		<annotation cp="😉">face | wink | winking face</annotation>
 		<annotation cp="😉" type="tts">winking face</annotation>
 		<annotation cp="😊">blush | eye | face | smile | smiling eyes wala smiling face</annotation>
@@ -810,7 +742,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤩">eyes | face | grinning | star | star-struck</annotation>
 		<annotation cp="🤩" type="tts">star-struck</annotation>
 		<annotation cp="😘">face | face blowing a kiss | kiss | kiss deta face</annotation>
-		<annotation cp="😘" type="tts">face blowing a kiss</annotation>
+		<annotation cp="😘" type="tts">kiss deta face</annotation>
 		<annotation cp="😗">face | kiss | kissing face</annotation>
 		<annotation cp="😗" type="tts">kissing face</annotation>
 		<annotation cp="☺">face | outlined | relaxed | smile | smiling face</annotation>
@@ -819,8 +751,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😚" type="tts">closed eyes wala kissing face</annotation>
 		<annotation cp="😙">eye | face | kiss | smile | smiling eyes wala kissing face</annotation>
 		<annotation cp="😙" type="tts">smiling eyes wala kissing face</annotation>
-		<annotation cp="🥲">aansoon wala smiling face | grateful | proud | relieved | smiling | tear | touched</annotation>
-		<annotation cp="🥲" type="tts">aansoon wala smiling face</annotation>
+		<annotation cp="🥲">aansoo wala smiling face | grateful | proud | relieved | smiling | tear | touched</annotation>
+		<annotation cp="🥲" type="tts">aansoo wala smiling face</annotation>
 		<annotation cp="😋">delicious | face | food enjoy karta face | savouring | smile | yum</annotation>
 		<annotation cp="😋" type="tts">food enjoy karta face</annotation>
 		<annotation cp="😛">face | tongue | tongue dikhaata face</annotation>
@@ -837,10 +769,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤗" type="tts">hug karta smiling face</annotation>
 		<annotation cp="🤭">mouth par haath wala face | whoops</annotation>
 		<annotation cp="🤭" type="tts">mouth par haath wala face</annotation>
+		<annotation cp="🫢">amazement | awe | disbelief | embarrass | khuli aankhein aur mouth par haath wala face | scared | surprise</annotation> <!-- 1FAE2 -->
+		<annotation cp="🫢" type="tts">khuli aankhein aur munh par haath</annotation>
+		<annotation cp="🫣">captivated | fingers ke beech se jhaankta face | jhaankna | stare</annotation> <!-- 1FAE3 -->
+		<annotation cp="🫣" type="tts">fingers ke beech se jhaankta face</annotation>
 		<annotation cp="🤫">quiet | shush | shushing face</annotation>
 		<annotation cp="🤫" type="tts">shushing face</annotation>
 		<annotation cp="🤔">face | thinking</annotation>
 		<annotation cp="🤔" type="tts">thinking face</annotation>
+		<annotation cp="🫡">OK | salute | saluting face | sunny | troops | yes</annotation> <!-- 1FAE1 -->
+		<annotation cp="🫡" type="tts">saluting face</annotation>
 		<annotation cp="🤐">face | mouth | zipper | zipper-mouth face</annotation>
 		<annotation cp="🤐" type="tts">zipper-mouth face</annotation>
 		<annotation cp="🤨">distrust | raised eyebrow wala face | skeptic</annotation>
@@ -851,6 +789,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😑" type="tts">expressionless face</annotation>
 		<annotation cp="😶">bina mouth wala face | face | mouth | quiet | silent</annotation>
 		<annotation cp="😶" type="tts">bina mouth wala face</annotation>
+		<annotation cp="🫥">depressed | disappear | dotted line face | hide | introvert | invisible</annotation> <!-- 1FAE5 -->
+		<annotation cp="🫥" type="tts">dotted line face</annotation>
 		<annotation cp="😶‍🌫">absentminded | baadlon mein face | baadlon mein head | fog mein face</annotation> <!-- 1F636 200D 1F32B FE0F: baadlon mein face -->
 		<annotation cp="😶‍🌫" type="tts">baadlon mein face</annotation>
 		<annotation cp="😏">face | smirk | smirking face</annotation>
@@ -865,6 +805,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😮‍💨" type="tts">face exhaling</annotation>
 		<annotation cp="🤥">face | lie | lying face | pinocchio</annotation>
 		<annotation cp="🤥" type="tts">lying face</annotation>
+		<annotation cp="🫨">↑↑↑</annotation>
+		<annotation cp="🫨" type="tts">↑↑↑</annotation>
 		<annotation cp="😌">face | relieved</annotation>
 		<annotation cp="😌" type="tts">relieved face</annotation>
 		<annotation cp="😔">dejected | face | pensive</annotation>
@@ -909,10 +851,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😎" type="tts">sunglasses wala face</annotation>
 		<annotation cp="🤓">face | geek | nerd</annotation>
 		<annotation cp="🤓" type="tts">nerd face</annotation>
-		<annotation cp="🧐">face | face with monocle | monocle | monocle pehne face | stuffy</annotation>
+		<annotation cp="🧐">face | face with monocle | monocle | monocle pahne face | stuffy</annotation>
 		<annotation cp="🧐" type="tts">face with monocle</annotation>
 		<annotation cp="😕">confused | face | meh</annotation>
 		<annotation cp="😕" type="tts">confused face</annotation>
+		<annotation cp="🫤">diagonal mouth wala face | disappointed | meh | skeptical | unsure</annotation> <!-- 1FAE4 -->
+		<annotation cp="🫤" type="tts">diagonal mouth wala face</annotation>
 		<annotation cp="😟">face | worried</annotation>
 		<annotation cp="😟" type="tts">worried face</annotation>
 		<annotation cp="🙁">face | frown | slightly frowning face</annotation>
@@ -929,6 +873,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😳" type="tts">flushed face</annotation>
 		<annotation cp="🥺">begging | mercy | pleading face | puppy eyes</annotation>
 		<annotation cp="🥺" type="tts">pleading face</annotation>
+		<annotation cp="🥹">Aansoo rokta face | angry | cry | proud | resist | sad</annotation> <!-- 1F979 -->
+		<annotation cp="🥹" type="tts">Aansoo rokta face</annotation>
 		<annotation cp="😦">face | frown | mouth | open | open mouth wala frowning face</annotation>
 		<annotation cp="😦" type="tts">open mouth wala frowning face</annotation>
 		<annotation cp="😧">dukhi | face</annotation>
@@ -953,10 +899,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😞" type="tts">disappointed face</annotation>
 		<annotation cp="😓">cold | face | sweat | sweating wala udaas face</annotation>
 		<annotation cp="😓" type="tts">sweating wala udaas face</annotation>
+		<annotation cp="😩">↑↑↑</annotation>
+		<annotation cp="😩" type="tts">↑↑↑</annotation>
+		<annotation cp="😫">↑↑↑</annotation>
+		<annotation cp="😫" type="tts">↑↑↑</annotation>
 		<annotation cp="🥱">bored | tired | yawn | yawning face</annotation>
 		<annotation cp="🥱" type="tts">yawning face</annotation>
-		<annotation cp="😤">face | nose se steam nkalti dikhaane wala face | triumph | won</annotation>
-		<annotation cp="😤" type="tts">nose se steam nkalti dikhaane wala face</annotation>
+		<annotation cp="😤">face | nose se steam nikalti dikhaane wala face | triumph | won</annotation>
+		<annotation cp="😤" type="tts">nose se steam nikalti dikhaane wala face</annotation>
 		<annotation cp="😡">angry | enraged | face | mad | pouting | rage | red</annotation>
 		<annotation cp="😡" type="tts">enraged face</annotation>
 		<annotation cp="😠">anger | angry | face | mad</annotation>
@@ -991,12 +941,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😺" type="tts">grinning cat</annotation>
 		<annotation cp="😸">cat | eye | face | grin | smile | smiling eyes wali grinning cat</annotation>
 		<annotation cp="😸" type="tts">smiling eyes wali grinning cat</annotation>
-		<annotation cp="😹">cat | face | joy | khushi ke aansoon bahaati cat kaa face | tear</annotation>
-		<annotation cp="😹" type="tts">khushi ke aansoon bahaati cat kaa face</annotation>
+		<annotation cp="😹">cat | face | joy | khushi ke aansoo bahaati cat kaa face | tear</annotation>
+		<annotation cp="😹" type="tts">khushi ke aansoo bahaati cat kaa face</annotation>
 		<annotation cp="😻">cat | eye | face | heart | heart-eyes wali smiling cat | love | smile</annotation>
 		<annotation cp="😻" type="tts">heart-eyes wali smiling cat</annotation>
-		<annotation cp="😼">cat | cat with wry smile | face | ironic | smile | wry | wry smile wali cat</annotation>
-		<annotation cp="😼" type="tts">wry smile wali cat</annotation>
+		<annotation cp="😼">cat | cat with wry smile | dissapointment ke saath smile karti cat | face | ironic | smile | wry</annotation>
+		<annotation cp="😼" type="tts">Dissapointment ke saath smile karti cat</annotation>
 		<annotation cp="😽">cat | eye | face | kiss | kissing cat</annotation>
 		<annotation cp="😽" type="tts">kissing cat</annotation>
 		<annotation cp="🙀">cat | face | oh | surprised | weary</annotation>
@@ -1005,12 +955,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😿" type="tts">crying cat</annotation>
 		<annotation cp="😾">cat | face | pouting</annotation>
 		<annotation cp="😾" type="tts">pouting cat</annotation>
-		<annotation cp="🙈">evil | face | forbidden | monkey | see | see-no-evil monkey</annotation>
-		<annotation cp="🙈" type="tts">see-no-evil monkey</annotation>
-		<annotation cp="🙉">evil | face | forbidden | hear | hear-no-evil monkey | monkey</annotation>
-		<annotation cp="🙉" type="tts">hear-no-evil monkey</annotation>
-		<annotation cp="🙊">evil | face | forbidden | monkey | speak | speak-no-evil monkey</annotation>
-		<annotation cp="🙊" type="tts">speak-no-evil monkey</annotation>
+		<annotation cp="🙈">bura na dekhne wala monkey | evil | face | forbidden | monkey | see</annotation>
+		<annotation cp="🙈" type="tts">Bura na dekhne wala monkey</annotation>
+		<annotation cp="🙉">bura na sunne wala monkey | evil | face | forbidden | monkey</annotation>
+		<annotation cp="🙉" type="tts">bura na sunne wala monkey</annotation>
+		<annotation cp="🙊">bura na bolne wala monkey | evil | face | forbidden | monkey | speak</annotation>
+		<annotation cp="🙊" type="tts">bura na bolne wala monkey</annotation>
 		<annotation cp="💋">kiss | kiss mark | lips</annotation>
 		<annotation cp="💋" type="tts">kiss mark</annotation>
 		<annotation cp="💌">heart | letter | love | mail</annotation>
@@ -1051,6 +1001,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💙" type="tts">blue heart</annotation>
 		<annotation cp="💜">purple | purple heart</annotation>
 		<annotation cp="💜" type="tts">purple heart</annotation>
+		<annotation cp="🩵">↑↑↑</annotation>
+		<annotation cp="🩵" type="tts">↑↑↑</annotation>
+		<annotation cp="🩶">↑↑↑</annotation>
+		<annotation cp="🩶" type="tts">↑↑↑</annotation>
+		<annotation cp="🩷">↑↑↑</annotation>
+		<annotation cp="🩷" type="tts">↑↑↑</annotation>
 		<annotation cp="🤎">brown | heart</annotation>
 		<annotation cp="🤎" type="tts">brown heart</annotation>
 		<annotation cp="🖤">black | black heart | evil | wicked</annotation>
@@ -1095,6 +1051,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✋" type="tts">utha hua haath</annotation>
 		<annotation cp="🖖">finger | hand | spock | vulcan | vulcan salute</annotation>
 		<annotation cp="🖖" type="tts">vulcan salute</annotation>
+		<annotation cp="🫱">hand | right | rightward | rightwards hand</annotation> <!-- 1FAF1 -->
+		<annotation cp="🫱" type="tts">rightwards hand</annotation>
+		<annotation cp="🫲">hand | left | leftward | leftwards hand</annotation> <!-- 1FAF2 -->
+		<annotation cp="🫲" type="tts">leftwards hand</annotation>
+		<annotation cp="🫳">dismiss | drop | palm down hand | shoo</annotation> <!-- 1FAF3 -->
+		<annotation cp="🫳" type="tts">palm down hand</annotation>
+		<annotation cp="🫴">beckon | catch | come | offer | palm up hand</annotation> <!-- 1FAF4 -->
+		<annotation cp="🫴" type="tts">palm up hand</annotation>
 		<annotation cp="👌">haath | OK | OK kaa symbol</annotation>
 		<annotation cp="👌" type="tts">OK kaa symbol</annotation>
 		<annotation cp="🤌">fingers | haath kaa gesture | pinched | pooch-taachh | sarcastic</annotation>
@@ -1105,24 +1069,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✌" type="tts">victory dikhaata haath</annotation>
 		<annotation cp="🤞">cross | crossed fingers | finger | hand | luck</annotation>
 		<annotation cp="🤞" type="tts">crossed fingers</annotation>
+		<annotation cp="🫰">expensive | hand with index finger and thumb crossed | heart | love | money | snap</annotation> <!-- 1FAF0 -->
+		<annotation cp="🫰" type="tts">hand with index finger and thumb crossed</annotation>
 		<annotation cp="🤟">hand | ILY | love-you gesture</annotation>
 		<annotation cp="🤟" type="tts">love-you gesture</annotation>
 		<annotation cp="🤘">finger | hand | horns | horns kaa sign | rock-on</annotation>
 		<annotation cp="🤘" type="tts">horns kaa sign</annotation>
 		<annotation cp="🤙">call | call me kaa ishaara karne wala haath | hand | hang loose | Shaka</annotation>
 		<annotation cp="🤙" type="tts">call me kaa ishaara karne wala haath</annotation>
-		<annotation cp="👈">backhand | finger | hand | index | left mein point karti index finger dikhaate haath ki back side | point</annotation>
-		<annotation cp="👈" type="tts">left mein point karti index finger dikhaate haath ki back side</annotation>
+		<annotation cp="👈">backhand | finger | hand | index | left mein point karti index finger | point</annotation>
+		<annotation cp="👈" type="tts">left mein point karti index finger</annotation>
 		<annotation cp="👉">backhand | finger | hand | index | point | right mein point karti index finger dikhaate haath ki back side</annotation>
-		<annotation cp="👉" type="tts">right mein point karti index finger dikhaate haath ki back side</annotation>
+		<annotation cp="👉" type="tts">right mein point karti index finger</annotation>
 		<annotation cp="👆">backhand | finger | hand | oopar point karti index finger dikhaate haath ki back side | point | up</annotation>
-		<annotation cp="👆" type="tts">oopar point karti index finger dikhaate haath ki back side</annotation>
+		<annotation cp="👆" type="tts">oopar ishaara karti index finger</annotation>
 		<annotation cp="🖕">finger | hand | middle finger</annotation>
 		<annotation cp="🖕" type="tts">middle finger</annotation>
 		<annotation cp="👇">backhand | down | finger | hand | neeche point karti index finger dikhaate haath ki back side | point</annotation>
-		<annotation cp="👇" type="tts">neeche point karti index finger dikhaate haath ki back side</annotation>
+		<annotation cp="👇" type="tts">neeche ishaara karti index finger</annotation>
 		<annotation cp="☝">finger | hand | index | oopar point karti index finger | point | up</annotation>
 		<annotation cp="☝" type="tts">oopar point karti index finger</annotation>
+		<annotation cp="🫵">aap | viewer ki taraf pont karti index finger</annotation> <!-- 1FAF5 -->
+		<annotation cp="🫵" type="tts">viewer ki taraf pont karti index finger</annotation>
 		<annotation cp="👍">+1 | hand | thumb | thumbs up | up</annotation>
 		<annotation cp="👍" type="tts">thumbs up</annotation>
 		<annotation cp="👎">-1 | down | hand | thumb | thumbs down</annotation>
@@ -1139,14 +1107,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👏" type="tts">clapping hands</annotation>
 		<annotation cp="🙌">celebration | gesture | hand | hooray | khush hokar dono haath uthaana | raised</annotation>
 		<annotation cp="🙌" type="tts">khush hokar dono haath uthaana</annotation>
+		<annotation cp="🫶">haathon se bana heart | heart hands | love</annotation> <!-- 1FAF6 -->
+		<annotation cp="🫶" type="tts">haathon se bana heart</annotation>
 		<annotation cp="👐">hand | open | open hands</annotation>
 		<annotation cp="👐" type="tts">open hands</annotation>
 		<annotation cp="🤲">palms ko eksaath oopar karna | prayer</annotation>
 		<annotation cp="🤲" type="tts">palms ko eksaath oopar karna</annotation>
 		<annotation cp="🤝">agreement | hand | handshake | meeting | shake</annotation>
 		<annotation cp="🤝" type="tts">handshake</annotation>
-		<annotation cp="🙏">ask | hand | high 5 | high five | namaste karna | please | pray | thanks</annotation>
+		<annotation cp="🙏">ask | high 5 | high five | namaste karna | please | pray | thanks</annotation>
 		<annotation cp="🙏" type="tts">namaste karna</annotation>
+		<annotation cp="🫷">↑↑↑</annotation>
+		<annotation cp="🫷" type="tts">↑↑↑</annotation>
+		<annotation cp="🫸">↑↑↑</annotation>
+		<annotation cp="🫸" type="tts">↑↑↑</annotation>
 		<annotation cp="✍">haath | likhna | likhta hua haath</annotation>
 		<annotation cp="✍" type="tts">likhta hua haath</annotation>
 		<annotation cp="💅">care | cosmetics | manicure | nail | polish</annotation>
@@ -1187,6 +1161,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👅" type="tts">tongue</annotation>
 		<annotation cp="👄">lips | mouth</annotation>
 		<annotation cp="👄" type="tts">mouth</annotation>
+		<annotation cp="🫦">anxious | biting lip | fear | flirting | nervous | uncomfortable | worried</annotation> <!-- 1FAE6 -->
+		<annotation cp="🫦" type="tts">biting lip</annotation>
 		<annotation cp="👶">baby | young</annotation>
 		<annotation cp="👶" type="tts">baby</annotation>
 		<annotation cp="🧒">child | gender-neutral | unspecified gender | young</annotation>
@@ -1401,6 +1377,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👷‍♂" type="tts">man construction worker</annotation>
 		<annotation cp="👷‍♀">construction | woman | worker</annotation>
 		<annotation cp="👷‍♀" type="tts">woman construction worker</annotation>
+		<annotation cp="🫅">crown wala vyakti | monarch | noble | person with crown | regal | royalty</annotation> <!-- 1FAC5 -->
+		<annotation cp="🫅" type="tts">crown wala vyakti</annotation>
 		<annotation cp="🤴">prince</annotation>
 		<annotation cp="🤴" type="tts">prince</annotation>
 		<annotation cp="👸">fairy tale | fantasy | princess</annotation>
@@ -1421,10 +1399,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤵‍♂" type="tts">suit boot mein aadmi</annotation>
 		<annotation cp="🤵‍♀">suit boot mein mahila | tuxedo | woman</annotation> <!-- 1F935 200D 2640 -->
 		<annotation cp="🤵‍♀" type="tts">suit boot mein mahila</annotation>
+		<annotation cp="👰">↑↑↑</annotation>
+		<annotation cp="👰" type="tts">Ghoonghat mein bride</annotation>
 		<annotation cp="👰‍♀">parde mein dulhan | veil | woman</annotation> <!-- 1F470 200D 2640 -->
 		<annotation cp="👰‍♀" type="tts">parde mein dulhan</annotation>
 		<annotation cp="🤰">pregnant | woman</annotation>
 		<annotation cp="🤰" type="tts">pregnant woman</annotation>
+		<annotation cp="🫃">belly | bloated | full | pregnant | pregnant man</annotation> <!-- 1FAC3 -->
+		<annotation cp="🫃" type="tts">pregnant man</annotation>
+		<annotation cp="🫄">belly | bloated | full | pregnant | pregnant person</annotation> <!-- 1FAC4 -->
+		<annotation cp="🫄" type="tts">pregnant person</annotation>
 		<annotation cp="🤱">baby | breast | breast-feeding | nursing</annotation>
 		<annotation cp="🤱" type="tts">breast-feeding</annotation>
 		<annotation cp="👩‍🍼">baby | baby ko feed karti mahila | feeding | nursing | woman</annotation> <!-- 1F469 200D 1F37C -->
@@ -1495,6 +1479,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧟‍♂" type="tts">man zombie</annotation>
 		<annotation cp="🧟‍♀">undead | walking dead | woman zombie</annotation>
 		<annotation cp="🧟‍♀" type="tts">woman zombie</annotation>
+		<annotation cp="🧌">fairy tale | fantasy | monster | troll</annotation> <!-- 1F9CC -->
+		<annotation cp="🧌" type="tts">troll</annotation>
 		<annotation cp="💆">face | massage | massage karwaata vyakti | salon</annotation>
 		<annotation cp="💆" type="tts">massage karwaata vyakti</annotation>
 		<annotation cp="💆‍♂">face | man | massage | massage karwaata aadmi</annotation>
@@ -1553,8 +1539,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💃" type="tts">dance karti mahila</annotation>
 		<annotation cp="🕺">dance | dance karta aadmi | dancing | man</annotation>
 		<annotation cp="🕺" type="tts">dance karta aadmi</annotation>
-		<annotation cp="🕴">business | person | person in suit levitating | suit | suit wala vyakti</annotation>
-		<annotation cp="🕴" type="tts">suit wala vyakti</annotation>
+		<annotation cp="🕴">business | hawa mein udta suit wala vyakti | person | person in suit levitating | suit</annotation>
+		<annotation cp="🕴" type="tts">hawa mein udta suit wala vyakti</annotation>
 		<annotation cp="👯">dancer | khargosh ke kaan | khargosh ke kaan wale log | party karna</annotation>
 		<annotation cp="👯" type="tts">khargosh ke kaan wale log</annotation>
 		<annotation cp="👯‍♂">bunny ear | dancer | khargosh ke kaan wale aadmi | men | partying</annotation>
@@ -1641,8 +1627,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤼‍♂" type="tts">wrestling karte aadmi</annotation>
 		<annotation cp="🤼‍♀">women | wrestle | wrestling karti mahilaayein</annotation>
 		<annotation cp="🤼‍♀" type="tts">wrestling karti mahilaayein</annotation>
-		<annotation cp="🤽">polo | water | water polo khelta vyakt | water polo khelta vyakti</annotation>
-		<annotation cp="🤽" type="tts">water polo khelta vyakt</annotation>
+		<annotation cp="🤽">polo | water | water polo khelta vyakti | water polo kheltaperson</annotation>
+		<annotation cp="🤽" type="tts">water polo khelta vyakti</annotation>
 		<annotation cp="🤽‍♂">man | water polo | water polo khelta aadmi</annotation>
 		<annotation cp="🤽‍♂" type="tts">water polo khelta aadmi</annotation>
 		<annotation cp="🤽‍♀">water polo | water polo khelti mahila | woman</annotation>
@@ -1666,7 +1652,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧘‍♀">meditation | padmaasan mein baithi mahila | yoga</annotation>
 		<annotation cp="🧘‍♀" type="tts">padmaasan mein baithi mahila</annotation>
 		<annotation cp="🛀">bath | bath leta vyakti | bathtub | person taking bath</annotation>
-		<annotation cp="🛀" type="tts">person taking bath</annotation>
+		<annotation cp="🛀" type="tts">bath leta vyakti</annotation>
 		<annotation cp="🛌">bed par sota vyakti | good night | hotel | sleep</annotation>
 		<annotation cp="🛌" type="tts">bed par sota vyakti</annotation>
 		<annotation cp="🧑‍🤝‍🧑">couple | haath pakde huye | haath pakde huye log | hand | hold | person</annotation>
@@ -1675,7 +1661,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👭" type="tts">haath pakde do mahilaayein</annotation>
 		<annotation cp="👫">aadmi | aurat | couple | haath mein haath liye aurat-aadmi | haath pakadna | hand | hold</annotation>
 		<annotation cp="👫" type="tts">haath mein haath liye aurat-aadmi</annotation>
-		<annotation cp="👬">couple | Gemini | haath pakadna | haath pakde do aadmi | man | men | twins | zodiac</annotation>
+		<annotation cp="👬">couple | Gemini | haath pakadna | haath pakde do aadmi | men | twins | zodiac</annotation>
 		<annotation cp="👬" type="tts">haath pakde do aadmi</annotation>
 		<annotation cp="💏">couple | kiss</annotation>
 		<annotation cp="💏" type="tts">kiss</annotation>
@@ -1741,6 +1727,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐆" type="tts">leopard</annotation>
 		<annotation cp="🐴">face | horse</annotation>
 		<annotation cp="🐴" type="tts">horse face</annotation>
+		<annotation cp="🫎">↑↑↑</annotation>
+		<annotation cp="🫎" type="tts">↑↑↑</annotation>
+		<annotation cp="🫏">↑↑↑</annotation>
+		<annotation cp="🫏" type="tts">↑↑↑</annotation>
 		<annotation cp="🐎">equestrian | horse | racehorse | racing</annotation>
 		<annotation cp="🐎" type="tts">horse</annotation>
 		<annotation cp="🦄">face | unicorn</annotation>
@@ -1777,7 +1767,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐪" type="tts">camel</annotation>
 		<annotation cp="🐫">bactrian | camel | do hump wala camel | hump</annotation>
 		<annotation cp="🐫" type="tts">do hump wala camel</annotation>
-		<annotation cp="🦙">alpaca | guanaco | llama | vicuña | wool</annotation>
+		<annotation cp="🦙">alpaca | guanaco | llama | vicuna | wool</annotation>
 		<annotation cp="🦙" type="tts">llama</annotation>
 		<annotation cp="🦒">giraffe | spots</annotation>
 		<annotation cp="🦒" type="tts">giraffe</annotation>
@@ -1865,6 +1855,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦚" type="tts">peacock</annotation>
 		<annotation cp="🦜">bird | parrot | pirate | talk</annotation>
 		<annotation cp="🦜" type="tts">parrot</annotation>
+		<annotation cp="🪽">↑↑↑</annotation>
+		<annotation cp="🪽" type="tts">↑↑↑</annotation>
+		<annotation cp="🪿">↑↑↑</annotation>
+		<annotation cp="🪿" type="tts">↑↑↑</annotation>
 		<annotation cp="🐸">face | frog</annotation>
 		<annotation cp="🐸" type="tts">frog</annotation>
 		<annotation cp="🐊">crocodile</annotation>
@@ -1903,6 +1897,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐙" type="tts">octopus</annotation>
 		<annotation cp="🐚">shell | spiral</annotation>
 		<annotation cp="🐚" type="tts">spiral shell</annotation>
+		<annotation cp="🪸">coral | ocean | reef</annotation> <!-- 1FAB8 -->
+		<annotation cp="🪸" type="tts">coral</annotation>
+		<annotation cp="🪼">↑↑↑</annotation>
+		<annotation cp="🪼" type="tts">↑↑↑</annotation>
 		<annotation cp="🐌">snail</annotation>
 		<annotation cp="🐌" type="tts">snail</annotation>
 		<annotation cp="🦋">butterfly | insect | pretty</annotation>
@@ -1941,12 +1939,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌸" type="tts">cherry blossom</annotation>
 		<annotation cp="💮">flower | white flower</annotation>
 		<annotation cp="💮" type="tts">white flower</annotation>
+		<annotation cp="🪷">Buddhism | flower | Hinduism | India | lotus | purity | Vietnam</annotation> <!-- 1FAB7 -->
+		<annotation cp="🪷" type="tts">lotus</annotation>
 		<annotation cp="🏵">plant | rosette</annotation>
 		<annotation cp="🏵" type="tts">rosette</annotation>
 		<annotation cp="🌹">flower | rose</annotation>
 		<annotation cp="🌹" type="tts">rose</annotation>
-		<annotation cp="🥀">flower | murjhaaya huya phool</annotation>
-		<annotation cp="🥀" type="tts">murjhaaya huya phool</annotation>
+		<annotation cp="🥀">flower | murjhaaya hua phool</annotation>
+		<annotation cp="🥀" type="tts">murjhaaya hua phool</annotation>
 		<annotation cp="🌺">flower | hibiscus</annotation>
 		<annotation cp="🌺" type="tts">hibiscus</annotation>
 		<annotation cp="🌻">flower | sun | sunflower</annotation>
@@ -1955,6 +1955,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌼" type="tts">blossom</annotation>
 		<annotation cp="🌷">flower | tulip</annotation>
 		<annotation cp="🌷" type="tts">tulip</annotation>
+		<annotation cp="🪻">↑↑↑</annotation>
+		<annotation cp="🪻" type="tts">↑↑↑</annotation>
 		<annotation cp="🌱">seedling | young</annotation>
 		<annotation cp="🌱" type="tts">seedling</annotation>
 		<annotation cp="🪴">boring | grow | house | nurture karna | plant | pot mein laga plant | useless</annotation>
@@ -1981,6 +1983,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍂" type="tts">giri hui leaf</annotation>
 		<annotation cp="🍃">blow | flutter | hawa mein lahraati leaf | leaf | wind</annotation>
 		<annotation cp="🍃" type="tts">hawa mein lahraati leaf</annotation>
+		<annotation cp="🪹">khaali nest | Khaali nest | nesting</annotation> <!-- 1FAB9 -->
+		<annotation cp="🪹" type="tts">Khaali nest</annotation>
+		<annotation cp="🪺">eggs wala nest | nesting</annotation> <!-- 1FABA -->
+		<annotation cp="🪺" type="tts">eggs wala nest</annotation>
 		<annotation cp="🍇">fruit | grape | grapes</annotation>
 		<annotation cp="🍇" type="tts">grapes</annotation>
 		<annotation cp="🍈">fruit | melon</annotation>
@@ -2017,7 +2023,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍅" type="tts">tomato</annotation>
 		<annotation cp="🫒">food | olive</annotation>
 		<annotation cp="🫒" type="tts">olive</annotation>
-		<annotation cp="🥥">coconut | palm | piña colada</annotation>
+		<annotation cp="🥥">coconut | palm | pina colada</annotation>
 		<annotation cp="🥥" type="tts">coconut</annotation>
 		<annotation cp="🥑">avocado | food | fruit</annotation>
 		<annotation cp="🥑" type="tts">avocado</annotation>
@@ -2047,8 +2053,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍄" type="tts">mushroom</annotation>
 		<annotation cp="🥜">food | nut | peanut | peanuts | vegetable</annotation>
 		<annotation cp="🥜" type="tts">peanuts</annotation>
+		<annotation cp="🫘">beans | food | kidney | legume</annotation> <!-- 1FAD8 -->
+		<annotation cp="🫘" type="tts">beans</annotation>
 		<annotation cp="🌰">chestnut | plant</annotation>
 		<annotation cp="🌰" type="tts">chestnut</annotation>
+		<annotation cp="🫚">↑↑↑</annotation>
+		<annotation cp="🫚" type="tts">↑↑↑</annotation>
+		<annotation cp="🫛">↑↑↑</annotation>
+		<annotation cp="🫛" type="tts">↑↑↑</annotation>
 		<annotation cp="🍞">bread | loaf</annotation>
 		<annotation cp="🍞" type="tts">bread</annotation>
 		<annotation cp="🥐">bread | breakfast | croissant | food | french | roll</annotation>
@@ -2061,7 +2073,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥨" type="tts">pretzel</annotation>
 		<annotation cp="🥯">bagel | bakery | breakfast | schmear</annotation>
 		<annotation cp="🥯" type="tts">bagel</annotation>
-		<annotation cp="🥞">breakfast | crêpe | food | hotcake | pancake | pancakes</annotation>
+		<annotation cp="🥞">breakfast | crepe | food | hotcake | pancake | pancakes</annotation>
 		<annotation cp="🥞" type="tts">pancakes</annotation>
 		<annotation cp="🧇">breakfast | indecisive | iron | waffle</annotation>
 		<annotation cp="🧇" type="tts">waffle</annotation>
@@ -2105,7 +2117,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍲" type="tts">food pot</annotation>
 		<annotation cp="🫕">cheese | chocolate | fondue | melted | pot | Swiss</annotation>
 		<annotation cp="🫕" type="tts">fondue</annotation>
-		<annotation cp="🥣">bowl ke saath spoon | bowl with spoon | breakfast | cereal | congee</annotation>
+		<annotation cp="🥣">bowl ke saath spoon | breakfast | cereal | congee</annotation>
 		<annotation cp="🥣" type="tts">bowl ke saath spoon</annotation>
 		<annotation cp="🥗">food | green | salad</annotation>
 		<annotation cp="🥗" type="tts">green salad</annotation>
@@ -2141,11 +2153,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍤" type="tts">fried shrimp</annotation>
 		<annotation cp="🍥">cake | fish | pastry | swirl | swirls wala fish cake</annotation>
 		<annotation cp="🍥" type="tts">swirls wala fish cake</annotation>
-		<annotation cp="🥮">autumn | festival | moon cake | yuèbǐng</annotation>
+		<annotation cp="🥮">autumn | festival | moon cake | yuebing</annotation>
 		<annotation cp="🥮" type="tts">moon cake</annotation>
 		<annotation cp="🍡">dango | dessert | Japanese | skewer | stick | sweet</annotation>
 		<annotation cp="🍡" type="tts">dango</annotation>
-		<annotation cp="🥟">dumpling | empanada | gyōza | jiaozi | pierogi | potsticker</annotation>
+		<annotation cp="🥟">dumpling | empanada | gyoza | jiaozi | pierogi | potsticker</annotation>
 		<annotation cp="🥟" type="tts">dumpling</annotation>
 		<annotation cp="🥠">fortune cookie | prophecy</annotation>
 		<annotation cp="🥠" type="tts">fortune cookie</annotation>
@@ -2197,7 +2209,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☕" type="tts">hot beverage</annotation>
 		<annotation cp="🫖">drink | pot | tea | teapot</annotation>
 		<annotation cp="🫖" type="tts">teapot</annotation>
-		<annotation cp="🍵">beverage | bina handle wala teacup | cup | drink | tea | teacup | teacup without handle</annotation>
+		<annotation cp="🍵">beverage | bina handle wala teacup | cup | drink | tea | teacup</annotation>
 		<annotation cp="🍵" type="tts">bina handle wala teacup</annotation>
 		<annotation cp="🍶">bar | beverage | bottle | cup | drink | sake</annotation>
 		<annotation cp="🍶" type="tts">sake</annotation>
@@ -2217,8 +2229,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥂" type="tts">cheers karte glasses</annotation>
 		<annotation cp="🥃">glass | liquor | shot | tumbler | whisky</annotation>
 		<annotation cp="🥃" type="tts">tumbler glass</annotation>
-		<annotation cp="🥤">juice | soda | straw ke saath cup</annotation>
-		<annotation cp="🥤" type="tts">straw ke saath cup</annotation>
+		<annotation cp="🫗">drink | empty | glass | pouring liquid | spill</annotation> <!-- 1FAD7 -->
+		<annotation cp="🫗" type="tts">pouring liquid</annotation>
+		<annotation cp="🥤">cup ke saath straw | juice | soda</annotation>
+		<annotation cp="🥤" type="tts">cup ke saath straw</annotation>
 		<annotation cp="🧋">bubble | milk | pearl | tea</annotation>
 		<annotation cp="🧋" type="tts">bubble tea</annotation>
 		<annotation cp="🧃">beverage | box | juice | straw | sweet</annotation>
@@ -2237,6 +2251,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥄" type="tts">spoon</annotation>
 		<annotation cp="🔪">cooking | hocho | kitchen knife | knife | tool | weapon</annotation>
 		<annotation cp="🔪" type="tts">kitchen knife</annotation>
+		<annotation cp="🫙">container | jar | khaali | masaala | sauce | store</annotation> <!-- 1FAD9 -->
+		<annotation cp="🫙" type="tts">jar</annotation>
 		<annotation cp="🏺">amphora | Aquarius | cooking | drink | jug | zodiac</annotation>
 		<annotation cp="🏺" type="tts">amphora</annotation>
 		<annotation cp="🌍">Africa | earth | Europe | Europe-Africa dikhaata globe | globe | world</annotation>
@@ -2361,6 +2377,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♨" type="tts">hot springs</annotation>
 		<annotation cp="🎠">carousel | horse</annotation>
 		<annotation cp="🎠" type="tts">carousel horse</annotation>
+		<annotation cp="🛝">amusement park | play | playground slide</annotation> <!-- 1F6DD -->
+		<annotation cp="🛝" type="tts">playground slide</annotation>
 		<annotation cp="🎡">amusement park | ferris | wheel</annotation>
 		<annotation cp="🎡" type="tts">ferris wheel</annotation>
 		<annotation cp="🎢">amusement park | coaster | roller</annotation>
@@ -2457,6 +2475,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛢" type="tts">oil drum</annotation>
 		<annotation cp="⛽">diesel | fuel | fuelpump | gas | pump | station</annotation>
 		<annotation cp="⛽" type="tts">fuel pump</annotation>
+		<annotation cp="🛞">circle | tire | turn | wheel</annotation> <!-- 1F6DE -->
+		<annotation cp="🛞" type="tts">wheel</annotation>
 		<annotation cp="🚨">beacon | car | light | police | police car ki light | revolve karti light</annotation>
 		<annotation cp="🚨" type="tts">police car ki light</annotation>
 		<annotation cp="🚥">horizontal traffic light | light | signal | traffic</annotation>
@@ -2469,6 +2489,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚧" type="tts">construction</annotation>
 		<annotation cp="⚓">anchor | ship | tool</annotation>
 		<annotation cp="⚓" type="tts">anchor</annotation>
+		<annotation cp="🛟">float | life preserver | life saver | rescue | ring buoy | safety</annotation> <!-- 1F6DF -->
+		<annotation cp="🛟" type="tts">ring buoy</annotation>
 		<annotation cp="⛵">boat | resort | sailboat | sea | yacht</annotation>
 		<annotation cp="⛵" type="tts">sailboat</annotation>
 		<annotation cp="🛶">boat | canoe</annotation>
@@ -2528,7 +2550,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🕰">clock | mantelpiece clock</annotation>
 		<annotation cp="🕰" type="tts">mantelpiece clock</annotation>
 		<annotation cp="🕛">00 | 12 | 12:00 | clock | o’clock | twelve</annotation>
-		<annotation cp="🕛" type="tts">twelve o’clock</annotation>
+		<annotation cp="🕛" type="tts">twelve o’ clock</annotation>
 		<annotation cp="🕧">12 | 12:30 | clock | thirty | twelve | twelve-thirty</annotation>
 		<annotation cp="🕧" type="tts">twelve-thirty</annotation>
 		<annotation cp="🕐">00 | 1 | 1:00 | clock | o’clock | one</annotation>
@@ -2699,7 +2721,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎐" type="tts">wind chime</annotation>
 		<annotation cp="🎑">celebration | ceremony | moon | moon dekhne ki ceremony</annotation>
 		<annotation cp="🎑" type="tts">moon dekhne ki ceremony</annotation>
-		<annotation cp="🧧">gift | good luck | hóngbāo | lai see | money | red envelope</annotation>
+		<annotation cp="🧧">gift | good luck | hongbao | lai see | money | red envelope</annotation>
 		<annotation cp="🧧" type="tts">red envelope</annotation>
 		<annotation cp="🎀">celebration | ribbon</annotation>
 		<annotation cp="🎀" type="tts">ribbon</annotation>
@@ -2761,8 +2783,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥋" type="tts">martial arts uniform</annotation>
 		<annotation cp="🥅">goal | net</annotation>
 		<annotation cp="🥅" type="tts">goal net</annotation>
-		<annotation cp="⛳">flag in hole | golf | hole</annotation>
-		<annotation cp="⛳" type="tts">flag in hole</annotation>
+		<annotation cp="⛳">golf | hole | hole mein flag</annotation>
+		<annotation cp="⛳" type="tts">hole mein flag</annotation>
 		<annotation cp="⛸">ice | skate</annotation>
 		<annotation cp="⛸" type="tts">ice skate</annotation>
 		<annotation cp="🎣">fish | fishing pole | pole</annotation>
@@ -2791,6 +2813,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪄" type="tts">jaadoo ki chhadi</annotation>
 		<annotation cp="🧿">bead | charm | evil-eye | nazar | nazar ki taabeez | talisman</annotation>
 		<annotation cp="🧿" type="tts">nazar ki taabeez</annotation>
+		<annotation cp="🪬">Fatima | hamsa | hand | Mary | Miriam | protection | tabeez</annotation> <!-- 1FAAC -->
+		<annotation cp="🪬" type="tts">hamsa</annotation>
 		<annotation cp="🎮">controller | game | video game</annotation>
 		<annotation cp="🎮" type="tts">video game</annotation>
 		<annotation cp="🕹">game | joystick | video game</annotation>
@@ -2799,12 +2823,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎰" type="tts">slot machine</annotation>
 		<annotation cp="🎲">dice | die | game</annotation>
 		<annotation cp="🎲" type="tts">game die</annotation>
-		<annotation cp="🧩">clue | interlocking | jigsaw | piece | puzzle | puzzle game</annotation>
+		<annotation cp="🧩">clue | interlocking | jigsaw | piece | puzzle</annotation>
 		<annotation cp="🧩" type="tts">puzzle game</annotation>
 		<annotation cp="🧸">plaything | plush | stuffed | teddy bear | toy</annotation>
 		<annotation cp="🧸" type="tts">teddy bear</annotation>
-		<annotation cp="🪅">celebration | party | piñata</annotation>
-		<annotation cp="🪅" type="tts">piñata</annotation>
+		<annotation cp="🪅">celebration | party | pinata</annotation>
+		<annotation cp="🪅" type="tts">pinata</annotation>
+		<annotation cp="🪩">dance | disco | glitter | mirror ball | party</annotation> <!-- 1FAA9 -->
+		<annotation cp="🪩" type="tts">mirror ball</annotation>
 		<annotation cp="🪆">doll | nesting | nesting dolls | russia</annotation>
 		<annotation cp="🪆" type="tts">nesting dolls</annotation>
 		<annotation cp="♠">card | game | spade suit</annotation>
@@ -2877,6 +2903,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👙" type="tts">bikini</annotation>
 		<annotation cp="👚">clothing | woman | woman’s clothes</annotation>
 		<annotation cp="👚" type="tts">woman’s clothes</annotation>
+		<annotation cp="🪭">↑↑↑</annotation>
+		<annotation cp="🪭" type="tts">↑↑↑</annotation>
+		<annotation cp="🪮">↑↑↑</annotation>
+		<annotation cp="🪮" type="tts">↑↑↑</annotation>
 		<annotation cp="👛">clothing | coin | purse</annotation>
 		<annotation cp="👛" type="tts">purse</annotation>
 		<annotation cp="👜">bag | clothing | handbag | purse</annotation>
@@ -2887,7 +2917,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛍" type="tts">shopping bags</annotation>
 		<annotation cp="🎒">backpack | bag | rucksack | satchel | school</annotation>
 		<annotation cp="🎒" type="tts">backpack</annotation>
-		<annotation cp="🩴">beach sandals | sandals | thong sandal | thong sandals | thongs | zōri</annotation>
+		<annotation cp="🩴">beach sandals | sandals | thong sandal | thong sandals | thongs | zori</annotation>
 		<annotation cp="🩴" type="tts">thong sandal</annotation>
 		<annotation cp="👞">clothing | man | man’s shoe | shoe</annotation>
 		<annotation cp="👞" type="tts">man’s shoe</annotation>
@@ -2899,8 +2929,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥿" type="tts">flat shoe</annotation>
 		<annotation cp="👠">clothing | heel | high-heel kaa shoe | shoe | woman</annotation>
 		<annotation cp="👠" type="tts">high-heel kaa shoe</annotation>
-		<annotation cp="👡">clothing | mahilaaon kaa sandal | sandal | shoe | woman</annotation>
-		<annotation cp="👡" type="tts">mahilaaon kaa sandal</annotation>
+		<annotation cp="👡">clothing | mahilaaon ki sandal | sandal | shoe | woman</annotation>
+		<annotation cp="👡" type="tts">mahilaaon ki sandal</annotation>
 		<annotation cp="🩰">ballet | ballet shoes | dance</annotation>
 		<annotation cp="🩰" type="tts">ballet shoes</annotation>
 		<annotation cp="👢">boot | clothing | mahilaaon kaa boot | shoe | woman</annotation>
@@ -2981,6 +3011,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥁" type="tts">drum</annotation>
 		<annotation cp="🪘">beat | conga | drum | long drum | rhythm</annotation>
 		<annotation cp="🪘" type="tts">long drum</annotation>
+		<annotation cp="🪇">↑↑↑</annotation>
+		<annotation cp="🪇" type="tts">↑↑↑</annotation>
+		<annotation cp="🪈">↑↑↑</annotation>
+		<annotation cp="🪈" type="tts">↑↑↑</annotation>
 		<annotation cp="📱">cell | mobile | phone | telephone</annotation>
 		<annotation cp="📱" type="tts">mobile phone</annotation>
 		<annotation cp="📲">arrow | arrow ke saath mobile phone | cell | mobile | phone | receive</annotation>
@@ -2995,6 +3029,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📠" type="tts">fax machine</annotation>
 		<annotation cp="🔋">battery</annotation>
 		<annotation cp="🔋" type="tts">battery</annotation>
+		<annotation cp="🪫">electronic | low battery | low energy</annotation> <!-- 1FAAB -->
+		<annotation cp="🪫" type="tts">low battery</annotation>
 		<annotation cp="🔌">electric | electricity | plug</annotation>
 		<annotation cp="🔌" type="tts">electric plug</annotation>
 		<annotation cp="💻">computer | laptop | pc | personal</annotation>
@@ -3163,10 +3199,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗓" type="tts">spiral calendar</annotation>
 		<annotation cp="📇">card | index | rolodex</annotation>
 		<annotation cp="📇" type="tts">card index</annotation>
-		<annotation cp="📈">chart | chart increasing | graph | growth | trend | upward</annotation>
-		<annotation cp="📈" type="tts">chart increasing</annotation>
-		<annotation cp="📉">chart | chart decreasing | down | graph | trend</annotation>
-		<annotation cp="📉" type="tts">chart decreasing</annotation>
+		<annotation cp="📈">badhat dikhaata chart | chart | graph | growth | trend | upward</annotation>
+		<annotation cp="📈" type="tts">Badhat dikhaata chart</annotation>
+		<annotation cp="📉">chart | down | graph | kami dikhaata chart | trend</annotation>
+		<annotation cp="📉" type="tts">Kami dikhaata chart</annotation>
 		<annotation cp="📊">bar | chart | graph</annotation>
 		<annotation cp="📊" type="tts">bar chart</annotation>
 		<annotation cp="📋">clipboard</annotation>
@@ -3197,8 +3233,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔓" type="tts">unlocked</annotation>
 		<annotation cp="🔏">ink | lock | nib | pen | pen ke saath lock | privacy</annotation>
 		<annotation cp="🔏" type="tts">pen ke saath lock</annotation>
-		<annotation cp="🔐">closed | key | key ke saath lock | lock | secure</annotation>
-		<annotation cp="🔐" type="tts">key ke saath lock</annotation>
+		<annotation cp="🔐">closed | key | key se lock kiya gaya | lock | secure</annotation>
+		<annotation cp="🔐" type="tts">key se lock kiya gaya</annotation>
 		<annotation cp="🔑">key | lock | password</annotation>
 		<annotation cp="🔑" type="tts">key</annotation>
 		<annotation cp="🗝">clue | key | lock | old | puraani key</annotation>
@@ -3217,7 +3253,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗡" type="tts">kataar</annotation>
 		<annotation cp="⚔">crossed | swords | weapon</annotation>
 		<annotation cp="⚔" type="tts">crossed swords</annotation>
-		<annotation cp="🔫">gun | handgun | paani ki pistol | pistol | revolver | tool | water | weapon</annotation>
+		<annotation cp="🔫">gun | handgun | pistol | revolver | tool | water | weapon</annotation>
 		<annotation cp="🔫" type="tts">paani ki pistol</annotation>
 		<annotation cp="🪃">australia | boomerang | rebound | repercussion</annotation>
 		<annotation cp="🪃" type="tts">boomerang</annotation>
@@ -3275,8 +3311,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💊" type="tts">pill</annotation>
 		<annotation cp="🩹">bandage | chipkaane wali bandage</annotation>
 		<annotation cp="🩹" type="tts">chipkaane wali bandage</annotation>
+		<annotation cp="🩼">cane | crutch | disability | hurt | mobility aid | stick</annotation> <!-- 1FA7C -->
+		<annotation cp="🩼" type="tts">crutch</annotation>
 		<annotation cp="🩺">doctor | heart | medicine | stethoscope</annotation>
 		<annotation cp="🩺" type="tts">stethoscope</annotation>
+		<annotation cp="🩻">bones | doctor | medical | skeleton | x-ray</annotation> <!-- 1FA7B -->
+		<annotation cp="🩻" type="tts">x-ray</annotation>
 		<annotation cp="🚪">door</annotation>
 		<annotation cp="🚪" type="tts">door</annotation>
 		<annotation cp="🛗">accessibility | elevator | hoist | lift</annotation>
@@ -3317,6 +3357,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪣" type="tts">bucket</annotation>
 		<annotation cp="🧼">bar | bathing | cleaning | lather | soap | soapdish</annotation>
 		<annotation cp="🧼" type="tts">soap</annotation>
+		<annotation cp="🫧">bubbles | burp | clean | soap | underwater</annotation> <!-- 1FAE7 -->
+		<annotation cp="🫧" type="tts">bubbles</annotation>
 		<annotation cp="🪥">bathroom | brush | clean | dental | hygiene | teeth | toothbrush</annotation>
 		<annotation cp="🪥" type="tts">toothbrush</annotation>
 		<annotation cp="🧽">absorbing | cleaning | porous | sponge</annotation>
@@ -3337,6 +3379,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗿" type="tts">moai</annotation>
 		<annotation cp="🪧">demonstration | picket | placard | protest | sign</annotation>
 		<annotation cp="🪧" type="tts">placard</annotation>
+		<annotation cp="🪪">credentials | ID | identification card | license | security</annotation> <!-- 1FAAA -->
+		<annotation cp="🪪" type="tts">identification card</annotation>
 		<annotation cp="🏧">ATM | ATM sign | automated | bank | teller</annotation>
 		<annotation cp="🏧" type="tts">ATM sign</annotation>
 		<annotation cp="🚮">bin mein garbage daalne kaa sign | litter | litter bin | litter in bin sign</annotation>
@@ -3365,8 +3409,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛅" type="tts">chhuta hua luggage</annotation>
 		<annotation cp="⚠">warning</annotation>
 		<annotation cp="⚠" type="tts">warning</annotation>
-		<annotation cp="🚸">bachche nikal rahe hain | child | crossing | pedestrian | traffic</annotation>
-		<annotation cp="🚸" type="tts">bachche nikal rahe hain</annotation>
+		<annotation cp="🚸">bachche cross kar rahe hain | child | crossing | pedestrian | traffic</annotation>
+		<annotation cp="🚸" type="tts">bachche cross kar rahe hain</annotation>
 		<annotation cp="⛔">entry | forbidden | no | not | prohibited | traffic</annotation>
 		<annotation cp="⛔" type="tts">no entry</annotation>
 		<annotation cp="🚫">entry | forbidden | no | not | prohibited</annotation>
@@ -3382,15 +3426,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚷">forbidden | no | not | paidal chalne ki permission nahi | pedestrian | prohibited</annotation>
 		<annotation cp="🚷" type="tts">paidal chalne ki permission nahi</annotation>
 		<annotation cp="📵">cell | forbidden | mobile | mobile phones use karne ki permission nahi | no | phone</annotation>
-		<annotation cp="📵" type="tts">mobile phones use karne ki permission nahi</annotation>
+		<annotation cp="📵" type="tts">mobile phones ki permission nahi</annotation>
 		<annotation cp="🔞">18 | age restriction | eighteen | prohibited | under 18 ko permission nahi | underage</annotation>
 		<annotation cp="🔞" type="tts">under 18 ko permission nahi</annotation>
 		<annotation cp="☢">radioactive | sign</annotation>
 		<annotation cp="☢" type="tts">radioactive</annotation>
 		<annotation cp="☣">biohazard | sign</annotation>
 		<annotation cp="☣" type="tts">biohazard</annotation>
-		<annotation cp="⬆">arrow | cardinal | direction | north | Oopar ki ore arrow</annotation>
-		<annotation cp="⬆" type="tts">Oopar ki ore arrow</annotation>
+		<annotation cp="⬆">↑↑↑</annotation>
+		<annotation cp="⬆" type="tts">↑↑↑</annotation>
 		<annotation cp="↗">arrow | direction | intercardinal | northeast | up-right arrow</annotation>
 		<annotation cp="↗" type="tts">up-right arrow</annotation>
 		<annotation cp="➡">arrow | cardinal | direction | east | right arrow</annotation>
@@ -3417,8 +3461,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↪" type="tts">right side muda hua left arrow</annotation>
 		<annotation cp="⤴">arrow | oopar ki taraf muda hua right arrow</annotation>
 		<annotation cp="⤴" type="tts">oopar ki taraf muda hua right arrow</annotation>
-		<annotation cp="⤵">arrow | down | niche ki taraf muda hua right arrow</annotation>
-		<annotation cp="⤵" type="tts">niche ki taraf muda hua right arrow</annotation>
+		<annotation cp="⤵">arrow | down | neeche ki taraf muda hua right arrow</annotation>
+		<annotation cp="⤵" type="tts">neeche ki taraf muda hua right arrow</annotation>
 		<annotation cp="🔃">arrow | clockwise | clockwise vertical arrows | reload</annotation>
 		<annotation cp="🔃" type="tts">clockwise vertical arrows</annotation>
 		<annotation cp="🔄">anticlockwise | anticlockwise arrows button | arrow | counterclockwise | withershins</annotation>
@@ -3441,7 +3485,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🕉" type="tts">om</annotation>
 		<annotation cp="✡">David | Jew | Jewish | religion | star | star of David</annotation>
 		<annotation cp="✡" type="tts">star of David</annotation>
-		<annotation cp="☸">Buddhist | dharma | dharma chakra | religion | wheel | wheel of dharma</annotation>
+		<annotation cp="☸">Buddhist | dharma | dharma chakra | religion | wheel</annotation>
 		<annotation cp="☸" type="tts">dharma chakra</annotation>
 		<annotation cp="☯">religion | tao | taoist | yang | yin</annotation>
 		<annotation cp="☯" type="tts">yin yang</annotation>
@@ -3449,7 +3493,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✝" type="tts">latin cross</annotation>
 		<annotation cp="☦">Christian | cross | orthodox cross | religion</annotation>
 		<annotation cp="☦" type="tts">orthodox cross</annotation>
-		<annotation cp="☪">islam | Muslim | religion | star and crescent | star aur crescent</annotation>
+		<annotation cp="☪">islam | Muslim | religion | star aur crescent</annotation>
 		<annotation cp="☪" type="tts">star aur crescent</annotation>
 		<annotation cp="☮">peace | peace symbol</annotation>
 		<annotation cp="☮" type="tts">peace symbol</annotation>
@@ -3457,6 +3501,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🕎" type="tts">menorah</annotation>
 		<annotation cp="🔯">6 point wala dotted star | fortune | star</annotation>
 		<annotation cp="🔯" type="tts">6 point wala dotted star</annotation>
+		<annotation cp="🪯">↑↑↑</annotation>
+		<annotation cp="🪯" type="tts">↑↑↑</annotation>
 		<annotation cp="♈">Aries | ram | zodiac</annotation>
 		<annotation cp="♈" type="tts">Aries</annotation>
 		<annotation cp="♉">bull | ox | Taurus | zodiac</annotation>
@@ -3507,7 +3553,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔼" type="tts">upwards button</annotation>
 		<annotation cp="⏫">arrow | double | fast up button</annotation>
 		<annotation cp="⏫" type="tts">fast up button</annotation>
-		<annotation cp="🔽">arrow | button | down | downwards button | red</annotation>
+		<annotation cp="🔽">arrow | button | down | downwards button</annotation>
 		<annotation cp="🔽" type="tts">downwards button</annotation>
 		<annotation cp="⏬">arrow | double | down | fast down button</annotation>
 		<annotation cp="⏬" type="tts">fast down button</annotation>
@@ -3531,6 +3577,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📳" type="tts">vibration mode</annotation>
 		<annotation cp="📴">cell | mobile | off | phone | telephone</annotation>
 		<annotation cp="📴" type="tts">mobile phone off</annotation>
+		<annotation cp="🛜">↑↑↑</annotation>
+		<annotation cp="🛜" type="tts">↑↑↑</annotation>
 		<annotation cp="♀">female sign | woman</annotation>
 		<annotation cp="♀" type="tts">female sign</annotation>
 		<annotation cp="♂">male sign | man</annotation>
@@ -3545,11 +3593,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="➖" type="tts">minus</annotation>
 		<annotation cp="➗">÷ | divide | division | math | sign</annotation>
 		<annotation cp="➗" type="tts">divide</annotation>
+		<annotation cp="🟰">baraabri | heavy equals sign | math</annotation> <!-- 1F7F0 -->
+		<annotation cp="🟰" type="tts">heavy equals sign</annotation>
 		<annotation cp="♾">forever | infinity | unbounded | universal</annotation>
 		<annotation cp="♾" type="tts">infinity</annotation>
 		<annotation cp="‼">! | !! | bangbang | double exclamation mark | exclamation | mark</annotation>
 		<annotation cp="‼" type="tts">double exclamation mark</annotation>
-		<annotation cp="⁉">! | !? | ? | exclamation | interrobang | mark | punctuation | question</annotation>
+		<annotation cp="⁉">! | !? | ? | exclamation | interrobang | punctuation | question mark</annotation>
 		<annotation cp="⁉" type="tts">exclamation question mark</annotation>
 		<annotation cp="❓">? | mark | punctuation | question | red question mark</annotation>
 		<annotation cp="❓" type="tts">red question mark</annotation>
@@ -3581,8 +3631,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⭕" type="tts">hole wala big red circle</annotation>
 		<annotation cp="✅">✓ | button | check | mark</annotation>
 		<annotation cp="✅" type="tts">check mark button</annotation>
-		<annotation cp="☑">✓ | box | check | check box with check</annotation>
-		<annotation cp="☑" type="tts">check box with check</annotation>
+		<annotation cp="☑">✓ | box | check | check mark wala check box</annotation>
+		<annotation cp="☑" type="tts">check mark wala check box</annotation>
 		<annotation cp="✔">✓ | check | mark</annotation>
 		<annotation cp="✔" type="tts">check mark</annotation>
 		<annotation cp="❌">× | cancel | cross | mark | multiplication | multiply | x</annotation>
@@ -3633,8 +3683,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="ℹ" type="tts">information</annotation>
 		<annotation cp="🆔">ID | ID button | identity</annotation>
 		<annotation cp="🆔" type="tts">ID button</annotation>
-		<annotation cp="Ⓜ">circle | circle wala M | M</annotation>
-		<annotation cp="Ⓜ" type="tts">circle wala M</annotation>
+		<annotation cp="Ⓜ">circle | circle mein M | M</annotation>
+		<annotation cp="Ⓜ" type="tts">Circle kiya hua M</annotation>
 		<annotation cp="🆕">NEW | NEW button</annotation>
 		<annotation cp="🆕" type="tts">NEW button</annotation>
 		<annotation cp="🆖">NG | NG button</annotation>
@@ -3741,12 +3791,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔸" type="tts">small orange diamond</annotation>
 		<annotation cp="🔹">blue | diamond | geometric | small blue diamond</annotation>
 		<annotation cp="🔹" type="tts">small blue diamond</annotation>
-		<annotation cp="🔺">geometric | red | red triangle pointed up</annotation>
-		<annotation cp="🔺" type="tts">red triangle pointed up</annotation>
-		<annotation cp="🔻">down | geometric | red | red triangle pointed down</annotation>
-		<annotation cp="🔻" type="tts">red triangle pointed down</annotation>
-		<annotation cp="💠">comic | diamond | diamond with a dot | geometric | inside</annotation>
-		<annotation cp="💠" type="tts">diamond with a dot</annotation>
+		<annotation cp="🔺">geometric | oopar point karta red triangle | red</annotation>
+		<annotation cp="🔺" type="tts">Oopar point karta red triangle</annotation>
+		<annotation cp="🔻">down | geometric | neeche point karta red triangle | red</annotation>
+		<annotation cp="🔻" type="tts">Neeche point karta red triangle</annotation>
+		<annotation cp="💠">comic | diamond | dot wala diamond | geometric | inside</annotation>
+		<annotation cp="💠" type="tts">dot wala diamond</annotation>
 		<annotation cp="🔘">button | geometric | radio</annotation>
 		<annotation cp="🔘" type="tts">radio button</annotation>
 		<annotation cp="🔳">button | geometric | outlined | square | white square button</annotation>

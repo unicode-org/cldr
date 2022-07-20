@@ -12,6 +12,7 @@ import { TestCldrForumParticipation } from "./TestCldrForumParticipation.js";
 import { TestCldrGui } from "./TestCldrGui.js";
 import { TestCldrListUsers } from "./TestCldrListUsers.js";
 import { TestCldrStatus } from "./TestCldrStatus.js";
+import { TestCldrTable } from "./TestCldrTable.js";
 import { TestCldrText } from "./TestCldrText.js";
 
 import * as TestCldrTest from "./TestCldrTest.js";
@@ -31,6 +32,7 @@ export default {
   TestCldrGui,
   TestCldrListUsers,
   TestCldrStatus,
+  TestCldrTable,
   TestCldrTest,
   TestCldrText,
 };

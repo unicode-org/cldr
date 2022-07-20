@@ -10,6 +10,7 @@ import * as cldrLoad from "./cldrLoad.js";
 import * as cldrRetry from "./cldrRetry.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
+import * as cldrTable from "./cldrTable.js";
 import * as cldrText from "./cldrText.js";
 
 /**
@@ -324,10 +325,8 @@ function getUsersValue(theRow) {
 function updatePosts(tr) {
   if (!tr) {
     if (cldrStatus.getCurrentId() !== "") {
-      /*
-       * TODO: encapsulate this usage of 'r@' somewhere
-       */
-      tr = document.getElementById("r@" + cldrStatus.getCurrentId());
+      const rowId = cldrTable.makeRowId(cldrStatus.getCurrentId());
+      tr = document.getElementById(rowId);
     } else {
       /*
        * This is normal when adding a post in the main forum interface, which has no Info Panel).

@@ -20,7 +20,7 @@ import org.unicode.cldr.web.*;
 
 @ApplicationScoped
 @Path("/missingxml")
-@Tag(name = "Missing XML", description = "Generate XML for error/missing/provisional paths")
+@Tag(name = "missing xml", description = "Generate XML for error/missing/provisional paths")
 public class MissingPathXml {
 
     @GET

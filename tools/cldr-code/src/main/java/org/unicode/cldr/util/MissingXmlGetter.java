@@ -8,6 +8,8 @@ import java.util.TreeMap;
 
 public class MissingXmlGetter {
 
+    private static final String VALUE_PLACEHOLDER = "n/a";
+
     private final Factory factory;
     private final CLDRFile englishFile;
     private final Factory baselineFactory;
@@ -50,13 +52,14 @@ public class MissingXmlGetter {
         args.setUserAndOrganization(userId, usersOrg);
         args.setFiles(locale, factory, baselineFactory);
         final VettingViewer<Organization>.DashboardData dd = vv.generateDashboard(args);
-        return reallyGetXml(locale, dd);
+        return reallyGetXml(locale, dd, args.getSourceFile());
     }
 
-    private String reallyGetXml(CLDRLocale locale, VettingViewer<Organization>.DashboardData dd) throws IOException {
-        final XMLSource source = new SimpleXMLSource(locale.getBaseName());
-        final CLDRFile cldrFile = new CLDRFile(source);
-        populateMissingCldrFile(cldrFile, dd);
+    private String reallyGetXml(CLDRLocale locale, VettingViewer<Organization>.DashboardData dd, CLDRFile sourceFile)
+        throws IOException {
+        final XMLSource xmlSource = new SimpleXMLSource(locale.getBaseName());
+        final CLDRFile cldrFile = new CLDRFile(xmlSource);
+        populateMissingCldrFile(cldrFile, sourceFile, dd);
         try (StringWriter sw = new StringWriter(); PrintWriter pw = new PrintWriter(sw)) {
             Map<String, Object> options = new TreeMap<>();
             cldrFile.write(pw, options);
@@ -64,37 +67,59 @@ public class MissingXmlGetter {
         }
     }
 
-    private void populateMissingCldrFile(CLDRFile cldrFile, VettingViewer<Organization>.DashboardData dd) {
+    private void populateMissingCldrFile(
+        CLDRFile cldrFile,
+        CLDRFile sourceFile,
+        VettingViewer<Organization>.DashboardData dd
+    ) {
         for (Map.Entry<Row.R2<PathHeader.SectionId, PathHeader.PageId>, VettingViewer<Organization>.WritingInfo> e : dd.sorted.entrySet()) {
             final VettingViewer<Organization>.WritingInfo wi = e.getValue();
             final String path = wi.codeOutput.getOriginalPath();
-            for (NotificationCategory cat : wi.problems) {
-                if (
-                    cat == NotificationCategory.error ||
-                    cat == NotificationCategory.missingCoverage ||
-                    cat == NotificationCategory.notApproved
-                ) {
-                    addPath(cldrFile, path, wi, cat);
-                }
+            if (wi.problems.contains(NotificationCategory.missingCoverage)) {
+                addMissingPath(cldrFile, path);
+            } else if (
+                wi.problems.contains(NotificationCategory.error) ||
+                wi.problems.contains(NotificationCategory.notApproved)
+            ) {
+                addPresentPath(cldrFile, sourceFile, path, wi);
             }
         }
     }
 
-    private void addPath(
+    private void addMissingPath(CLDRFile cldrFile, String path) {
+        final String comment = "English: " + englishFile.getStringValue(path);
+        addPathCommentValue(cldrFile, path, comment, VALUE_PLACEHOLDER);
+    }
+
+    private void addPresentPath(
         CLDRFile cldrFile,
+        CLDRFile sourceFile,
         String path,
-        VettingViewer<Organization>.WritingInfo wi,
-        NotificationCategory cat
+        VettingViewer<Organization>.WritingInfo wi
     ) {
-        cldrFile.add(path, "n/a");
-        // most common category is missingCoverage; only show category label for the others
-        String comment = (cat == NotificationCategory.missingCoverage) ? "" : cat.buttonLabel + "; ";
-        if (cat == NotificationCategory.error) {
-            comment += " " + wi.subtype + "; ";
-            // TODO: convert htmlMessage into plain text for legibility/legality inside xml comment
-            comment += " " + wi.htmlMessage + "; ";
+        String value = sourceFile.getStringValue(path);
+        if (value == null) {
+            value = VALUE_PLACEHOLDER;
         }
-        comment += "English: " + englishFile.getStringValue(path);
+        String comment = "";
+        // put notApproved (provisional) before error, if both are present
+        if (wi.problems.contains(NotificationCategory.notApproved)) {
+            comment = NotificationCategory.notApproved.buttonLabel;
+        }
+        if (wi.problems.contains(NotificationCategory.error)) {
+            if (!comment.isEmpty()) {
+                comment += "; ";
+            }
+            comment += NotificationCategory.error.buttonLabel + ": " + wi.subtype + "; ";
+            // TODO: convert htmlMessage into plain text for legibility/legality inside xml comment
+            comment += wi.htmlMessage;
+        }
+        comment += "; English: " + englishFile.getStringValue(path);
+        addPathCommentValue(cldrFile, path, comment, value);
+    }
+
+    private void addPathCommentValue(CLDRFile cldrFile, String path, String comment, String value) {
+        cldrFile.add(path, value);
         cldrFile.addComment(path, comment, XPathParts.Comments.CommentType.PREBLOCK);
     }
 }

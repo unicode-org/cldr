@@ -388,10 +388,10 @@ public class TestPersonNameFormatter extends TestFmwk{
         };
         ExampleGenerator exampleGenerator = checkExamples(ENGLISH, tests);
 
-        String[][] jaTests = { // note: will need updated once we add real Japanese data.
+        String[][] jaTests = {
             {
                 "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
-                "〖アルベルト・アインシュタイン〗"
+                "〖慎太郎〗〖一郎 安藤〗〖太郎 トーマス 山田〗〖ドクター 英子 ソフィア 内田さん〗〖アルベルト・アインシュタイン〗"
             }
         };
         ExampleGenerator jaExampleGenerator = checkExamples(jaCldrFile, jaTests);

@@ -17,7 +17,6 @@ import java.util.Date;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -592,7 +591,7 @@ public class GenerateSidewaysView {
     // return lastChar + 1 == valueChar;
     // }
 
-    static UnicodeMap.Composer<Set<String>> setComposer = new UnicodeMap.Composer<Set<String>>() {
+    static UnicodeMap.Composer<Set<String>> setComposer = new UnicodeMap.Composer<>() {
         @Override
         public Set<String> compose(int codepoint, String string, Set<String> a, Set<String> b) {
             if (a == null) {
@@ -708,11 +707,8 @@ public class GenerateSidewaysView {
      */
     private static void removeAttributes(XPathParts parts, Set<String> skipAttributes) {
         for (int i = 0; i < parts.size(); ++i) {
-            // String element = parts.getElement(i);
-            Map<String, String> attributes = parts.getAttributes(i);
-            for (Iterator<String> it = attributes.keySet().iterator(); it.hasNext();) {
-                String attribute = it.next();
-                if (skipAttributes.contains(attribute)) it.remove();
+            for (String attributeToRemove : skipAttributes) {
+                parts.removeAttribute(i, attributeToRemove);
             }
         }
     }

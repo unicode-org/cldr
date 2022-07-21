@@ -686,7 +686,7 @@ public class TestPersonNameFormatter extends TestFmwk{
             String expectedErrors = row[1];
             String expectedResults = row[2];
             resultSet.clear();
-            Set<String> errors = CheckPlaceHolders.checkForErrorsAndGetLocales(localeList, resultSet);
+            Set<String> errors = CheckPlaceHolders.checkForErrorsAndGetLocales(null, localeList, resultSet);
             assertEquals("The error-returns match", expectedErrors, errors == null ? "" : Joiner.on(' ').join(errors));
             assertEquals("The results match", expectedResults, Joiner.on(' ').join(resultSet));
         }

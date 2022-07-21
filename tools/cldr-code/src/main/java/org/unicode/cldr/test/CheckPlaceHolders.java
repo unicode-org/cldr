@@ -113,8 +113,9 @@ public class CheckPlaceHolders extends CheckCLDR {
      */
     public static void checkNameOrder(CheckAccessor checkAccessor, String path, String value, List<CheckStatus> result) {
         //ldml/personNames/nameOrderLocales[@order="givenFirst"]
+        final String localeID = checkAccessor.getLocaleID();
         Set<String> items = new TreeSet<>();
-        Set<String> orderErrors = checkForErrorsAndGetLocales(value, items);
+        Set<String> orderErrors = checkForErrorsAndGetLocales(localeID, value, items);
         if (orderErrors != null) {
             result.add(new CheckStatus().setCause(checkAccessor)
                 .setMainType(CheckStatus.errorType)
@@ -132,11 +133,11 @@ public class CheckPlaceHolders extends CheckCLDR {
                     : path.replace("surnameFirst", "givenFirst");
             String otherValue = checkAccessor.getStringValue(otherPath);
             if (otherValue != null) {
-                String myLanguage = checkAccessor.getLocaleID();
+                String myLanguage = localeID;
                 if (!myLanguage.equals("root")) { // skip root
 
                     Set<String> items2 = new TreeSet<>();
-                    orderErrors = checkForErrorsAndGetLocales(otherValue, items2); // adds locales from other path. We don't check for errors there.
+                    orderErrors = checkForErrorsAndGetLocales(localeID, otherValue, items2); // adds locales from other path. We don't check for errors there.
                     if (!Collections.disjoint(items, items2)) {
                         result.add(new CheckStatus().setCause(checkAccessor)
                             .setMainType(CheckStatus.errorType)
@@ -589,13 +590,14 @@ public class CheckPlaceHolders extends CheckCLDR {
         return "∅∅∅".equals(value) ? null : value;
     }
 
-    public static Set<String> checkForErrorsAndGetLocales(String value, Set<String> items) {
+    public static Set<String> checkForErrorsAndGetLocales(String locale, String value, Set<String> items) {
         if (value.isEmpty()) {
             return null;
         }
         Set<String> orderErrors = null;
         for (String item : SPLIT_SPACE.split(value)) {
-            boolean mv = CLDR_LOCALES_FOR_NAME_ORDER.contains(item);
+            boolean mv = (item.equals(locale))
+               || CLDR_LOCALES_FOR_NAME_ORDER.contains(item);
             if (!mv) {
                 if (orderErrors == null) {
                     orderErrors = new LinkedHashSet<>();

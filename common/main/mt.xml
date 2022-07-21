@@ -1672,9 +1672,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="month">
 				<displayName>xahar</displayName>
-				<relative type="-1">Ix-xahar li għadda</relative>
-				<relative type="0">Dan ix-xahar</relative>
-				<relative type="1">Ix-xahar id-dieħel</relative>
+				<relative type="-1">ix-xahar li għadda</relative>
+				<relative type="0">dan ix-xahar</relative>
+				<relative type="1">ix-xahar id-dieħel</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">sa xahar ieħor</relativeTimePattern>
 					<relativeTimePattern count="two">fi xahrejn oħra</relativeTimePattern>
@@ -1692,7 +1692,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="month-short">
 				<displayName>Xahar</displayName>
+				<relative type="-1" draft="unconfirmed">ix-xahar li għadda</relative>
 				<relative type="0" draft="unconfirmed">dan ix-xahar</relative>
+				<relative type="1" draft="unconfirmed">ix-xahar id-dieħel</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">sa xahar ieħor</relativeTimePattern>
 					<relativeTimePattern count="two">sa xahrejn oħra</relativeTimePattern>

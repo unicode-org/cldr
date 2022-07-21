@@ -7,6 +7,7 @@
 - 00decafbad CLDR-0000 Bad commit message
 - 50257a7a3eba7bbed634961a2aa74e77b12810bf - Early commit, no bug id
 - 283dc84d81cfc47fb15cd664fce4b0151d070ea6 - Early commit, no bug id
+- 02198373a591a15b804127acddd32582ec985b7e CLDR-15852 v42 merge commit
 
 ### The following are items to skip for a certain CLDR version
 ### Format: `# SKIP v00` followed by a list of commits to skip for that version

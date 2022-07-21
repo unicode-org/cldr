@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.ExecutionException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,7 +36,7 @@ public class SurveyVettingParticipation {
         this.missingLocalesForOrg = org;
     }
 
-    public void getJson(SurveyJSONWrapper r) throws SQLException, JSONException {
+    public void getJson(SurveyJSONWrapper r) throws SQLException, JSONException, ExecutionException {
         final StandardCodes sc = StandardCodes.make();
         Set<CLDRLocale> allVettedLocales = new HashSet<>();
         Connection conn = null;
@@ -45,6 +46,7 @@ public class SurveyVettingParticipation {
         Map<CLDRLocale, User> localeToUser = new TreeMap<>();
         JSONArray userObj = new JSONArray();
         JSONArray participationObj = new JSONArray();
+        OrgCoverageLevelCounter covcounter = OrgCoverageLevelCounter.getInstance();
         try {
             conn = DBUtils.getInstance().getAConnection();
             psUsers = sm.reg.list(org, conn);
@@ -104,12 +106,13 @@ public class SurveyVettingParticipation {
                 int count = rs.getInt("count");
                 String locale = rs.getString("v.locale");
                 String last_mod = DBUtils.toISOString(rs.getTimestamp("last_mod"));
-
+                final int cov_count = covcounter.countPathsInCoverage(Organization.cldr, CLDRLocale.getInstance(locale));
                 participationObj.put(new JSONObject()
                     .put("user", theirId)
                     .put("count", count)
                     .put("locale", locale)
-                    .put("last_mod", last_mod));
+                    .put("last_mod", last_mod)
+                    .put("cov_count", cov_count));
             }
             rs.close();
         } finally {

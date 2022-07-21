@@ -66,7 +66,7 @@ function downloadVettingParticipation(opts) {
     missingLocalesForOrg,
     // languagesNotInCLDR,
     // hasAllLocales,
-    // localeToData,
+    localeToData,
     // totalCount,
     uidToUser,
   } = opts;
@@ -76,7 +76,18 @@ function downloadVettingParticipation(opts) {
   var ws_name = (missingLocalesForOrg || "ALL").substring(0, 31);
 
   var ws_data = [
-    ["Org", "Locale", "Code", "Level", "Vetter#", "Email", "Name", "LastSeen"],
+    [
+      "Org",
+      "Locale",
+      "Code",
+      "Level",
+      "Votes",
+      "CldrCovCount",
+      "Vetter#",
+      "Email",
+      "Name",
+      "LastSeen",
+    ],
   ];
 
   for (const [id, user] of Object.entries(uidToUser)) {
@@ -85,6 +96,8 @@ function downloadVettingParticipation(opts) {
       null, // localeName
       null, // locale
       user.userlevelName,
+      0, // votes
+      0, // CldrCovCount
       id,
       user.email,
       user.name,
@@ -101,8 +114,10 @@ function downloadVettingParticipation(opts) {
       ws_data.push(row);
     } else {
       for (const locale of user.locales) {
-        row[2] = locale;
         row[1] = cldrLoad.getLocaleName(locale);
+        row[2] = locale;
+        row[4] = localeToData[locale].participation[id] || 0;
+        row[5] = localeToData[locale].cov_count || 0;
         ws_data.push([...row]); // clone the array because ws_data will retain a reference
       }
     }
@@ -307,11 +322,12 @@ function calculateData(json) {
   });
   // collect missing
   (languagesMissing || []).forEach((loc) => (getLocale(loc).missing = true));
-  participation.forEach(({ count, locale, user }) => {
+  participation.forEach(({ count, locale, user, cov_count }) => {
     const e = getLocale(locale);
     e.count += count;
     totalCount += count;
     e.participation[user] = count;
+    e.cov_count = cov_count; // cov_count is currently per-locale data.
   });
 
   return { localeToData, totalCount, uidToUser };

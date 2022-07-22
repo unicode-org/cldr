@@ -11,9 +11,10 @@ jobs:
         with:
           lfs: false
       - name: Set up JDK
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v3
         with:
           java-version: 11
+          distribution: 'temurin'
       - name: Cache local Maven repository
         uses: actions/cache@v3
         with:

@@ -31,9 +31,9 @@ See <https://cldr.unicode.org> for up-to-date CLDR release data.
 
 This document is a draft of a _technical preview_ of the Keyboard standard.
 This document has _not_ been approved for publication by the Unicode Consortium,
-and may be substantially altered before any publication.
+and may be substantially altered before any publication. For the latest published version of UTS#35, see <https://www.unicode.org/reports/tr35/>
 
-For the latest published version of UTS#35, see <https://www.unicode.org/reports/tr35/>
+In particular, Element and attribute names are expected to change pending further review.
 
 The CLDR [Keyboard Workgroup](https://cldr.unicode.org/index/keyboard-workgroup) is currently
 developing major changes to the CLDR keyboard specification.
@@ -67,7 +67,7 @@ The LDML specification is divided into the following parts:
   * [Escaping](#Escaping)
 * [File and Directory Structure](#File_and_Dir_Structure)
   * [Extensibility](#Extensibility)
-* [Element Hierarchy - Layout File](#Element_Heirarchy_Layout_File)
+* [Element Hierarchy](#element-hierarchy)
   * [Element: keyboard](#Element_Keyboard)
   * [Element: locales](#Element_locales)
   * [Element: locale](#Element_locale)
@@ -245,11 +245,16 @@ Characters of general category of Combining Mark (M), Control characters (Cc), F
 ## <a name="File_and_Dir_Structure" href="#File_and_Dir_Structure">File and Directory Structure</a>
 
 * New collection of layouts that are prescriptive, and define the common core for a keyboard that can be consumed as data for implementation on different platforms. This collection will be in a different location than the existing CLDR keyboard files under main/keyboards. We should remove the existing data files, but keep the old DTD in the same place for compatibility, and also so that conversion tools can use it to read older files.
-* New layouts are designed to be used outside of the CLDR source tree, and should ideally use a URN or FPI. See <https://unicode-org.atlassian.net/browse/CLDR-15505> for discussion. For this tech preview, a relative path to the dtd will continue to be used.
-* New layouts will have version metadata to indicate their spec compliance versi​​on number:
+* New layouts will have version metadata to indicate their spec compliance versi​​on number.  For this tech preview, the value used must be `techpreview`.
 
 ```xml
-<keyboard conformsTo="42"/>
+<keyboard conformsTo="techpreview"/>
+```
+
+> _Note_: Unlike other LDML files, layouts are designed to be used outside of the CLDR source tree.  A new mechanism for referencing the DTD path should ideally be used, such as a URN or FPI. See <https://unicode-org.atlassian.net/browse/CLDR-15505> for discussion. For this tech preview, a relative path to the dtd will continue to be used as below.  Future versions may give other recommendations.
+
+```xml
+<!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 ```
 
 <!-- Each platform has its own directory, where a "platform" is a designation for a set of keyboards available from a particular source, such as Windows or Chrome OS. This directory name is the platform name (see Table 2 located further in the document). Within this directory there are two types of files:
@@ -261,13 +266,15 @@ Keyboard data that is not supported on a given platform, but intended for use wi
 
 ### <a name="Extensibility" href="#Extensibility">Extensibility</a>
 
-For extensibility, the `<special>` element will be allowed at every level.
+For extensibility, the `<special>` element will be allowed at every nearly every level.
 
 See [Element special](tr35.md#special) in Part 1.
 
 * * *
 
-## <a name="Element_Heirarchy_Layout_File" href="#Element_Heirarchy_Layout_File">Element Hierarchy - Layout File</a>
+## Element Hierarchy
+
+This section describes the XML elements in a keyboard layout file, beginning with the top level element `<keyboard>`.
 
 ### <a name="Element_Keyboard" href="#Element_Keyboard">Element: keyboard</a>
 
@@ -284,10 +291,23 @@ This is the top level element. All other elements defined below are under this e
 > <small>
 >
 > Parents: _none_
-<!-- > Children: [version](#Element_version), [~~generation~~](#Element_generation), [info](#Element_info), [names](#Element_names), [settings](#Element_settings), [import](#Element_import), [keyMap](#Element_KeyMap), [displayMap](#Element_DisplayMap), [layer](#Element_layer), [vkeys](#Element_vkeys), [transforms](#Element_transforms), [reorders](#Element_reorder), [backspaces](#Element_backspaces) -->
+>
+> Children: [backspaces](#Element_backspaces), [displayMap](#Element_displayMap), [info](#Element_info), [keys](#Element_keys), [layerMaps](#Element_layerMaps), [locales](#Element_locales), [names](#Element_names), [reorders](#Element_reorders), [settings](#Element_settings), [_special_](tr35.md#special), [transforms](#Element_transforms), [version](#Element_version), [vkeyMaps](#Element_vkeyMaps)
+>
 > Occurrence: required, single
 >
 > </small>
+
+_Attribute:_ `conformsTo` (required)
+
+This attribute distinguishes the keyboard from prior versions,
+and it also specifies the minimum CLDR version required.
+
+For purposes of this current draft spec, the value should always be `techpreview`
+
+```xml
+<keyboard … conformsTo="techpreview"/>
+```
 
 _Attribute:_ `locale` (required)
 
@@ -307,17 +327,6 @@ This mandatory attribute represents the primary locale of the keyboard using Uni
 </keyboard>
 ```
 
-_Attribute:_ `conformsTo` (required)
-
-This attribute distinguishes the keyboard from prior versions,
-and it also specifies the minimum CLDR version required.
-
-For purposes of this current draft spec, the value should always be `techpreview`
-
-```xml
-<keyboard … conformsTo="techpreview"/>
-```
-
 * * *
 
 ### <a name="Element_locales" href="#Element_locales">Element: locales</a>
@@ -335,8 +344,10 @@ The optional `<locales>` element allows specifying additional or alternate local
 
 > <small>
 >
-> Parents: `keyboard`
-> Children: `locale`
+> Parents: [keyboard](#Element_keyboard)
+>
+> Children: [locale](#Element_locale)
+>
 > Occurrence: optional, single
 >
 > </small>
@@ -353,8 +364,10 @@ The optional `<locales>` element allows specifying additional or alternate local
 
 > <small>
 >
-> Parents: `locales`
+> Parents: [locales](#Element_locales)
+>
 > Children: _none_
+>
 > Occurrence: optional, multiple
 >
 > </small>
@@ -394,8 +407,10 @@ Element used to keep track of the source data version.
 > <small>
 >
 > Parents: [keyboard](#Element_keyboard)
+>
 > Children: _none_
-> Occurrence: required, single
+>
+> Occurrence: optional, single
 >
 > </small>
 
@@ -435,28 +450,30 @@ Element containing informative properties about the layout, for displaying in us
 > <small>
 >
 > Parents: [keyboard](#Element_keyboard)
+>
 > Children: _none_
+>
 > Occurrence: optional, single
 >
 > </small>
 
-_Attribute:_ `author` (optional)
+_Attribute:_ `author`
 
 > The `author` attribute contains the name of the author of the layout file.
 
-_Attribute:_ `normalization` (optional)
+_Attribute:_ `normalization`
 
 > The `normalization` attribute describes the intended normalization form of the keyboard layout output. The valid values are `NFC`, `NFD` or `other`.
 > An example use case is aiding a user to choose among the two same layouts with one outputting characters in the normalization form C and one in the normalization form D.
 
-_Attribute:_ `layout` (optional)
+_Attribute:_ `layout`
 
 > The `layout` attribute describes the layout pattern, such as QWERTY, DVORAK, INSCRIPT, etc. typically used to distinguish various layouts for the same language.
 
-<!-- _Attribute:_ `indicator` (optional)
+_Attribute:_ `indicator`
 
 > The `indicator` attribute describes a short string to be used in currently selected layout indicator, such as US, SI9 etc.
-> Typically, this is shown on a UI element that allows switching keyboard layouts and/or input languages. -->
+> Typically, this is shown on a UI element that allows switching keyboard layouts and/or input languages.
 
 * * *
 
@@ -477,7 +494,9 @@ These names are not currently localized.
 > <small>
 >
 > Parents: [keyboard](#Element_keyboard)
-> Children: [name](#Element_name)
+>
+> Children: [name](#Element_name), [_special_](tr35.md#special)
+>
 > Occurrence: required, single
 >
 > </small>
@@ -495,8 +514,11 @@ A single name given to the layout.
 > <small>
 >
 > Parents: [names](#Element_names)
+>
 > Children: _none_
+>
 > Occurrence: required, multiple
+>
 > </small>
 
 _Attribute:_ `value` (required)
@@ -530,18 +552,20 @@ An element used to keep track of layout specific settings. This element may or m
 > <small>
 >
 > Parents: [keyboard](#Element_keyboard)
+>
 > Children: _none_
+>
 > Occurrence: optional, single
 >
 > </small>
 
-_Attribute:_ `fallback="omit"` (optional)
+_Attribute:_ `fallback="omit"`
 
 > The presence of this attribute means that when a modifier key combination goes unmatched, no output is produced. The default behavior (when this attribute is not present) is to fall back to the base map when the modifier key combination goes unmatched.
 
 If this attribute is present, it must have a value of omit.
 
-_Attribute:_ `transformFailure="omit"` (optional)
+_Attribute:_ `transformFailure="omit"`
 
 > This attribute describes the behavior of a transform when it is escaped (see the `transform` element in the Layout file for more information). A transform is escaped when it can no longer continue due to the entry of an invalid key. For example, suppose the following set of transforms are valid:
 >
@@ -561,7 +585,7 @@ The default behavior (when this attribute is not present) is to emit the content
 
 If this attribute is present, it must have a value of omit.
 
-_Attribute:_ `transformPartial="hide"` (optional)
+_Attribute:_ `transformPartial="hide"`
 
 > This attribute describes the behavior of the system while in a transform. When this attribute is present then don't show the values of the buffer as the user is typing a transform (this behavior can be seen on Windows or Linux platforms).
 
@@ -644,7 +668,9 @@ This element defines a mapping between an abstract key and its output. This elem
 > <small>
 >
 > Parents: [keys](#Element_keys)
+>
 > Children: _none_
+>
 > Occurrence: optional, multiple
 > </small>
 
@@ -699,7 +725,6 @@ _Attribute:_ `switch="shift"` (optional)
 > Also note that `switch=` is ignored for hardware layouts: their shifting is controlled via
 > the modifier keys.
 
-
 _Attribute:_ `to` (required)
 
 > The `to` attribute contains the output sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the `\u{...}` notation. More than one key may output the same output.
@@ -707,7 +732,7 @@ _Attribute:_ `to` (required)
 _Attribute:_ `transform="no"` (optional)
 
 > The `transform` attribute is used to define a key that never participates in a transform but its output shows up as part of a transform. This attribute is necessary because two different keys could output the same characters (with different keys or modifier combinations) but only one of them is intended to be a dead-key and participate in a transform. This attribute value must be no if it is present.
-
+>
 > For example, suppose there are the following keys, their output and one transform:
 
 ```xml
@@ -780,7 +805,9 @@ The `flicks` element is used to generate results from a "flick" of the finger on
 > <small>
 >
 > Parents: [keys](#Element_keys)
-> Children: [flick](#Element_flick)
+>
+> Children: [flick](#Element_flick), [_special_](tr35.md#special)
+>
 > Occurrence: optional, multiple
 >
 > </small>
@@ -800,7 +827,9 @@ _Attribute:_ `id` (required)
 > <small>
 >
 > Parents: [flicks](#Element_flicks)
+>
 > Children: _none_
+>
 > Occurrence: required, multiple
 >
 > </small>
@@ -892,8 +921,10 @@ After loading, the above example will be the equivalent of the following.
 
 > <small>
 >
-> Parents: _various_
+> Parents: [backspaces](#Element_backspaces), [layerMaps](#Element_layerMaps), [reorders](#Element_reorders), [transforms](#Element_transforms), [vkeyMaps](#Element_vkeyMaps)
+>
 > Children: _none_
+>
 > Occurrence: optional, multiple
 >
 > </small>
@@ -974,7 +1005,9 @@ See  [`<displayOptions baseCharacter=…/>`](#Element_displayOptions).
 > <small>
 >
 > Parents: [keyboard](#Element_keyboard)
-> Children: [display](#Element_display), [displayOptions](#Element_displayOptions)
+>
+> Children: [display](#Element_display), [displayOptions](#Element_displayOptions), [_special_](tr35.md#special)
+>
 > Occurrence: optional, single
 >
 > </small>
@@ -994,7 +1027,9 @@ The `display` element describes how a character, that has come from a `keys/key`
 > <small>
 >
 > Parents: [displayMap](#Element_displayMap)
+>
 > Children: _none_
+>
 > Occurrence: required, multiple
 >
 > </small>
@@ -1047,7 +1082,9 @@ The `displayOptions` is an optional singleton element providing additional setti
 > <small>
 >
 > Parents: [displayMap](#Element_displayMap)
+>
 > Children: _none_
+>
 > Occurrence: optional, single
 >
 > </small>
@@ -1074,7 +1111,9 @@ hardware or touch layout.
 > <small>
 >
 > Parents: [keyboard](#Element_keyboard)
-> Children: [layerMap](#Element_layerMap)
+>
+> Children: [import](#Element_import), [layerMap](#Element_layerMap), [_special_](tr35.md#special)
+>
 > Occurrence: required, multiple
 >
 > </small>
@@ -1109,7 +1148,9 @@ A `layerMap` element describes the configuration of keys on a particular layer o
 > <small>
 >
 > Parents: [keyboard](#Element_keyboard)
-> Children: [row](#Element_row)
+>
+> Children: [row](#Element_row), [_special_](tr35.md#special)
+>
 > Occurrence: optional, multiple
 >
 > </small>
@@ -1142,7 +1183,9 @@ A `row` element describes the keys that are present in the row of a keyboard.
 > <small>
 >
 > Parents: [layerMap](#Element_layerMap)
+>
 > Children: _none_
+>
 > Occurrence: required, multiple
 >
 > </small>
@@ -1176,7 +1219,9 @@ On some architectures, applications may directly interact with keys before they 
 > <small>
 >
 > Parents: [keyboard](#Element_keyboard)
-> Children: [vkeyMap](#Element_vkeyMap)
+>
+> Children: [import](#Element_import), [_special_](tr35.md#special), [vkeyMap](#Element_vkeyMap)
+>
 > Occurrence: optional, single
 >
 > </small>
@@ -1200,7 +1245,9 @@ A `vkeyMap` element describes a mapping between a key and a vkey.
 > <small>
 >
 > Parents: [vkeyMaps](#Element_vkeyMaps)
+>
 > Children: _none_
+>
 > Occurrence: required, multiple
 >
 > </small>
@@ -1247,7 +1294,9 @@ Syntax
 > <small>
 >
 > Parents: [keyboard](#Element_keyboard)
-> Children: [transform](#Element_transform)
+>
+> Children: [import](#Element_import), [_special_](tr35.md#special), [transform](#Element_transform)
+>
 > Occurrence: optional, multiple
 >
 > </small>
@@ -1411,7 +1460,22 @@ And a subsequent transform could transform the Z string, looking back (using @be
 
 * * *
 
-### <a name="Element_reorder" href="#Element_reorder">Element: reorders, reorder</a>
+### <a name="Element_reorders" href="#Element_reorders">Element: reorders</a>
+
+This element defines a group of one or more `reorder` elements associated with this keyboard layout.
+
+> <small>
+>
+> Parents: [keyboard](#Element_keyboard)
+>
+> Children: [import](#Element_import), [reorder](#Element_reorder), [_special_](tr35.md#special)
+>
+> Occurrence: Optional, multiple
+> </small>
+
+* * *
+
+### <a name="Element_reorder" href="#Element_reorder">Element: reorder</a>
 
 The reorder transform is applied after all transforms except for those with `type="final"`.
 
@@ -1433,7 +1497,7 @@ The primary order of a character with the Unicode property Combining_Character_C
 
 In order to get the characters into the correct relative order, it is necessary not only to order combining marks relative to the base character, but also to order some combining marks in a subsequence following another combining mark. For example in Devanagari, a nukta may follow a consonant character, but it may also follow a conjunct consisting of consonant, halant, consonant. Notice that the second consonant is not, in this model, the start of a new run because some characters may need to be reordered to before the first base, for example repha. The repha would get primary < 0, and be sorted before the character with order = 0, which is, in the case of Devanagari, the initial consonant of the orthographic syllable.
 
-The reorder transform consists of a single element type: `<reorder>` encapsulated in a `<reorders>` element. Each is a rule that matches against a string of characters with the action of setting the various ordering attributes (`primary`, `tertiary`, `tertiary_base`, `prebase`) for the matched characters in the string.
+The reorder transform consists of `<reorder>` elements encapsulated in a `<reorders>` element. Each is a rule that matches against a string of characters with the action of setting the various ordering attributes (`primary`, `tertiary`, `tertiary_base`, `prebase`) for the matched characters in the string.
 
 **Syntax**
 
@@ -1507,7 +1571,7 @@ _Attribute:_ `prebase`
 >
 > If a primary character has a true prebase value then the character is marked as being typed before the base character of a run, even though it is intended to be stored after it. The primary order gives the intended position in the order after the base character, that the prebase character will end up. Thus `@order` shall not be 0. These characters are part of the run prefix. If such characters are typed then, in order to give the run a base character after which characters can be sorted, an appropriate base character, such as a dotted circle, is inserted into the output run, until a real base character has been typed. A value of `"false"` indicates that the character is not a prebase.
 
-There is no `@error` attribute.
+_Note:_ Unlike on the similar `transform` and `backspace` elements, there is no `@error` attribute.
 
 For `@from` attributes with a match string length greater than 1, the sort key information (`@order`, `@tertiary`, `@tertiary_base`, `@prebase`) may consist of a space separated list of values, one for each element matched. The last value is repeated to fill out any missing values. Such a list may not contain more values than there are elements in the `@from` attribute:
 
@@ -1685,7 +1749,9 @@ In text editing mode, different keyboard layouts may behave differently in the s
 > <small>
 >
 > Parents: [keyboard](#Element_keyboard)
-> Children: [backspace](#Element_backspace)
+>
+> Children: [backspace](#Element_backspace), [import](#Element_import), [_special_](tr35.md#special)
+>
 > Occurrence: optional, single
 >
 > </small>
@@ -1706,7 +1772,9 @@ In text editing mode, different keyboard layouts may behave differently in the s
 > <small>
 >
 > Parents: [backspaces](#Element_backspaces)
+>
 > Children: _none_
+>
 > Occurrence: required, multiple
 >
 > </small>
@@ -1788,9 +1856,6 @@ X Y | Z → X B | Z
 
 Whereas a simple or final transform would then run other transforms in the transform list, advancing the processing position until it gets to the end of the string, the backspace transform only matches a single backspace rule and then finishes.
 
-
-<!-- There is no section 6. -->
-
 * * *
 
 ## <a name="Invariants" href="#Invariants">Invariants</a>
@@ -1819,7 +1884,6 @@ TODO: Rewrite this? Probably push out to each element's section?
 | Upper-case character (e.g. _Y_ )          | Interpreted as a single modifier key (which may or may not have an L and R variant) <br/> (e.g. _Y_ = Ctrl, _RY_ = RCtrl, etc.) |
 | Y? ⇔ Y ∨ ∅ <br/> Y ⇔ LY ∨ RY ∨ LYRY | E.g. Opt? ⇔ ROpt ∨ LOpt ∨ ROptLOpt ∨ ∅ <br/> E.g. Opt ⇔ ROpt ∨ LOpt ∨ ROptLOpt |
 
-
 | Axiom                                       | Example                                      |
 |---------------------------------------------|----------------------------------------------|
 | xY ∨ x ⇒ xY?                              | OptCtrlShift OptCtrl → OptCtrlShift?         |
@@ -1834,27 +1898,6 @@ TODO: Rewrite this? Probably push out to each element's section?
 | xLY? ⋁ x ⇒ xLY?                            |                                              |
 | xLY ⋁ x ⇒ xLY?                             |                                              |
 -->
-
-* * *
-
-## <a name="Data_Sources" href="#Data_Sources">Data Sources</a>
-
-See comments in each XML keyboard file for information on its source location.
-
-<!--
-
-TODO: THese were all removed. Removing the notice for now.
-
-Here is a list of the data sources used to generate the initial key map layouts:
-
-######: <a name="Key_Map_Data_Sources" href="#Key_Map_Data_Sources">Key Map Data Sources</a>
-
-| Platform | Source | Notes |
-|----------|--------|-------|
-| Android  | Android 4.0 - Ice Cream Sandwich ([https://source.android.com/source/downloading.html](https://source.android.com/source/downloading.html)) | Parsed layout files located in packages/inputmethods/LatinIME/java/res |
-| Chrome OS | XKB ([https://www.x.org/wiki/XKB](https://www.x.org/wiki/XKB)) | The Chrome OS represents a very small subset of the keyboards available from XKB.
-| macOS     | Ukelele bundled System Keyboards ([https://software.sil.org/ukelele/](https://software.sil.org/ukelele/)) | These layouts date from Mac OS X 10.4 and are therefore a bit outdated |
-| Windows  | Generated .klc files from the Microsoft Keyboard Layout Creator ([https://support.microsoft.com/en-us/topic/906c31e4-d5ea-7988-cb39-7b688880d7cb](https://support.microsoft.com/en-us/topic/906c31e4-d5ea-7988-cb39-7b688880d7cb)) | -->
 
 * * *
 
@@ -1881,7 +1924,6 @@ The following are the design principles for the IDs.
 8. Otherwise, platform names are used as a guide.
 
 **Examples**
-
 
 ```xml
 <!-- Serbian Latin -->
@@ -1913,8 +1955,6 @@ The following are the design principles for the IDs.
 </keyboard>
 ```
 
-
-
 * * *
 
 ## <a name="Platform_Behaviors_in_Edge_Cases" href="#Platform_Behaviors_in_Edge_Cases">Platform Behaviors in Edge Cases</a>
@@ -1929,7 +1969,9 @@ The following are the design principles for the IDs.
 
 ## <a name="CLDR_VKey_Enum" href="#CLDR_VKey_Enum">CLDR VKey Enum</a></a>
 
-| Name      | US English ISO | Hex<sup>1</sup> | Notes       |
+In the following chart, “CLDR Name” indicates the value used with the `from` and `to` attributes of the [vkeyMap](#Element_vkeyMap) element.
+
+| CLDR Name | US English ISO | Hex<sup>1</sup> | Notes       |
 |-----------|----------------|-----------------|-------------|
 | SPACE     | A03            | 0x20            |
 | 0         | E10            | 0x30            |

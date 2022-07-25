@@ -963,7 +963,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyQQQQ">G y QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback draft="unconfirmed">{0} - {1}</intervalFormatFallback>
+						<intervalFormatFallback draft="unconfirmed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d–d</greatestDifference>
 						</intervalFormatItem>
@@ -1420,7 +1420,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMMMW" count="one">W 'ġimgħa' 'ta''' MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="two">W 'ġimgħatejn' 'ta''' MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="few">W 'ġimgħat' 'ta''' MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="many">W'-il ġimgħa' 'ta''' MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="many">W-'il' 'ġimgħa' 'ta''' MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">W 'ġimgħa' 'ta''' MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
@@ -1436,14 +1436,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yw" count="one">w 'ġimgħa' 'ta''' Y</dateFormatItem>
 						<dateFormatItem id="yw" count="two">w 'ġimgħatejn' 'ta''' Y</dateFormatItem>
 						<dateFormatItem id="yw" count="few">w 'ġimgħat' 'ta''' Y</dateFormatItem>
-						<dateFormatItem id="yw" count="many">w'-il ġimgħa' 'ta''' Y</dateFormatItem>
+						<dateFormatItem id="yw" count="many">w-'il' 'ġimgħa' 'ta''' Y</dateFormatItem>
 						<dateFormatItem id="yw" count="other">w 'ġimgħa' 'ta''' Y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone">{0} {1}</appendItem>
 					</appendItems>
 					<intervalFormats>
-						<intervalFormatFallback draft="unconfirmed">{0} - {1}</intervalFormatFallback>
+						<intervalFormatFallback draft="unconfirmed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d–d</greatestDifference>
 						</intervalFormatItem>

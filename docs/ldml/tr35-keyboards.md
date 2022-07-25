@@ -1,14 +1,10 @@
-## Unicode Technical Standard #35
-
-# Heads Up!
-
-This is a very early draft of the '3.0' spec. Please pardon our dust!
+## Unicode Technical Standard #35 Tech Preview
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 7: Keyboards
 
 <!-- HTML: no th -->
 <table><tbody>
-<tr><td>Version</td><td>3.0 PREDRAFT</td></tr>
+<tr><td>Version</td><td>Technical Preview (3.0)</td></tr>
 <tr><td>Editors</td><td>Steven R. Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) (for this draft), the <a href="https://cldr.unicode.org/index/keyboard-workgroup">CLDR Keyboard-SC</a>, and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td></tr>
 </tbody></table>
 
@@ -16,10 +12,7 @@ For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
 #### _Important Note_
 
-> The CLDR [Keyboard Workgroup](https://cldr.unicode.org/index/keyboard-workgroup) is currently
-> developing major changes to the CLDR keyboard specification. These changes are targeted for
-> future CLDR versions. Please see [CLDR-15034](https://unicode-org.atlassian.net/browse/CLDR-15034) for
-> the latest information.
+> This is a technical preview of a future version of the LDML Part 7. See [_Status_](#status), below.
 >
 > There are breaking changes, see [Compatibility Notice](#Compatibility_Notice)
 
@@ -36,14 +29,16 @@ See <https://cldr.unicode.org> for up-to-date CLDR release data.
 
 ### _Status_
 
-_THIS DOCUMENT IS AN EARLY DRAFT_
+This document is a draft of a _technical preview_ of the Keyboard standard.
+This document has _not_ been approved for publication by the Unicode Consortium,
+and may be substantially altered before any publication.
 
-<!--
-_This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium. This is a stable document and may be used as reference material or cited as a normative reference by other specifications._
+For the latest published version of UTS#35, see <https://www.unicode.org/reports/tr35/>
 
-> _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
-
-_Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](tr35.md#Bugs)]. Related information that is useful in understanding this document is found in the [References](tr35.md#References). For the latest version of the Unicode Standard see [[Unicode](tr35.md#Unicode)]. For a list of current Unicode Technical Reports see [[Reports](tr35.md#Reports)]. For more information about versions of the Unicode Standard, see [[Versions](tr35.md#Versions)]._ -->
+The CLDR [Keyboard Workgroup](https://cldr.unicode.org/index/keyboard-workgroup) is currently
+developing major changes to the CLDR keyboard specification.
+For this draft, please see [CLDR-15034](https://unicode-org.atlassian.net/browse/CLDR-15034) for
+status, the latest information, or to provide feedback.
 
 ## <a name="Parts" href="#Parts">Parts</a>
 
@@ -115,19 +110,17 @@ The Unicode Standard and related technologies such as CLDR have dramatically imp
 > “More and more language communities are determining that digitization is vital to their approach to language preservation and that engagement with Unicode is essential to becoming fully digitized. For many of these communities, however, getting new characters or a new script added to The Unicode Standard is not the end of their journey. The next, often more challenging stage is to get device makers, operating systems, apps and services to implement the script requirements that Unicode has just added to support their language. …
 >
 > “However, commensurate improvements to streamline new language support on the input side have been lacking. CLDR’s new Keyboard Subcommittee has been established to address this very gap.”
-> _(Cornelius et. al, “Standardizing Keyboards with CLDR,” presented at the 45th Internationalization and Unicode Conference, Santa Clara, California, October 2021)_
+> _(Cornelius et. al, “Standardizing Keyboards with CLDR,” presented at the 45th Internationalization and Unicode Conference, Santa Clara, California, USA, October 2021)_
 
+The CLDR keyboard format seeks to address these challenges, by providing an interchange format for the communication of keyboard mapping data independent of vendors and platforms. Keyboard authors can then create a single mapping file for their language, which implementations can use to provide that language’s keyboard mapping on their own platform.
 
-
-<!-- The CLDR keyboard format provides for the communication of keyboard mapping data between different modules, and the comparison of data across different vendors and platforms. The standardized identifier for keyboards can be used to communicate, internally or externally, a request for a particular keyboard mapping that is to be used to transform either text or keystrokes. The corresponding data can then be used to perform the requested actions.
-
-For example, a web-based virtual keyboard may transform text in the following way. Suppose the user types a key that produces a "W" on a QWERTY keyboard. A web-based tool using an AZERTY virtual keyboard can map that text ("W") to the text that would have resulted from typing a key on an AZERTY keyboard, by transforming "W" to "Z". Such transforms are in fact performed in existing web applications.
+Additionally, the standardized identifier for keyboards can be used to communicate, internally or externally, a request for a particular keyboard mapping that is to be used to transform either text or keystrokes. The corresponding data can then be used to perform the requested actions.  For example, a remote screen-access application (such as used for customer service or server management) would be able to communicate and choose the same keyboard layout on the remote device as is used in front of the user, even if the two systems used different platforms.
 
 The data can also be used in analysis of the capabilities of different keyboards. It also allows better interoperability by making it easier for keyboard designers to see which characters are generally supported on keyboards for given languages.
 
-To illustrate this specification, here is an abridged layout representing the English US 101 keyboard on the macOS operating system (with an inserted long-press example). For more complete examples, and information collected about keyboards, see keyboard data in XML.
+To illustrate this specification, here is an abridged layout representing the English US 101 keyboard on the macOS operating system (with an inserted long-press example).
 
--->
+For more complete examples, and information collected about keyboards, see keyboard data in XML.
 
 * * *
 
@@ -154,6 +147,7 @@ Some non-goals (outside the scope of the format) currently are:
 2. Unify the world's vkey and scan code mapping information
 3. Unify pre-existing platform layouts themselves (i.e. existing fr-azerty on platform a, b, c)
 4. Support for prior (pre 3.0) CLDR keyboard files. See [Compatibility Notice](#Compatibility_Notice).
+5. Run-time efficiency. [LDML is explicitly an interchange format](./tr35.md#Introduction), and so it is expected that data will be transformed to a more compact format for use by a keystroke processing engine.
 
 <!-- 1. Display names or symbols for keycaps (eg, the German name for "Return"). If that were added to LDML, it would be in a different structure, outside the scope of this section.
 2. Advanced IME features, handwriting recognition, etc.
@@ -177,7 +171,6 @@ Keyboard use can be challenging for individuals with various types of disabiliti
 1. Having an industry-wide standard format for keyboards will enable accessibility software to make use of keyboard data with a reduced dependence on platform-specific knowledge.
 2. Some features, such as multitap and flicks, have the potential to reduce accessibility and thus should be discouraged. For example, multitap requires pressing keys at a certain speed, and flicks require a more complex movement (press-and-flick) beyond a simple tap.
 3. Public feedback is welcome on any aspects of this document which might hinder accessibility.
-
 
 ## 3 <a name="Definitions" href="#Definitions">Definitions</a>
 
@@ -213,6 +206,8 @@ If it becomes necessary in the future, the format could extend the ISO layout to
 **Key map:** The basic mapping between hardware or on-screen positions and the output characters for each set of modifier combinations associated with a particular layout. There may be multiple key maps for each layout.
 
 **Keyboard:** A particular arrangement of keys for the inputting of text, such as either a physical or virtual keyboard.
+
+**Keyboard author:** The person or group of people designing and producing a particular keyboard layout designed to support one or more languages. In the context of this specification, that author may be editing the LDML XML file directly or by means of software tools.
 
 **Keyboard layout:** A layout is the overall keyboard configuration for a particular locale. Within a keyboard layout, there is a single base map, one or more key maps and zero or more transforms.
 

@@ -1,6 +1,7 @@
 # Commit Metadata
 
-### The following list of commits is parsed by the ICU/CLDR commit checker.
+### These lines are comments.
+### The following list of commits is parsed by the ICU/CLDR commit checker to make corrections
 ### It has the following structure:
 ### `- <commit> <bug id or hyphen> <message>`
 
@@ -8,9 +9,11 @@
 - 50257a7a3eba7bbed634961a2aa74e77b12810bf - Early commit, no bug id
 - 283dc84d81cfc47fb15cd664fce4b0151d070ea6 - Early commit, no bug id
 - 02198373a591a15b804127acddd32582ec985b7e CLDR-15852 v42 merge commit
+- 9e15f63e30cadf57b8eee0f6d6c3398263dfcdac CLDR-15470 v41 cherry pick
 
-### The following are items to skip for a certain CLDR version
-### Format: `# SKIP v00` followed by a list of commits to skip for that version
+### The following are items to skip for a certain CLDR version.
+### Format: `# SKIP v00` followed by a list of commits to skip for that version (same structure as above)
+### Note: if something is both to be skipped AND has a bad commit message, add it to this file twice: once in the skip list, and once in the corrections section at the top.
 
 # SKIP v41
 

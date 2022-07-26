@@ -200,7 +200,7 @@
 			<attributeValues dtds='ldml' elements='monthPatternWidth' attributes='type' type='choice'>abbreviated narrow wide all</attributeValues>
 			<attributeValues dtds='ldml' elements='monthWidth quarterWidth cyclicNameWidth' attributes='type' order='given'>abbreviated narrow wide</attributeValues>
 			<attributeValues dtds='ldml' elements='pattern' attributes='type' type='choice'>standard atLeast range 1000 10000 100000 1000000 10000000
-				10000000 100000000 1000000000 10000000000 100000000000 1000000000000 10000000000000 100000000000000</attributeValues>
+				100000000 1000000000 10000000000 100000000000 1000000000000 10000000000000 100000000000000</attributeValues>
 			<attributeValues dtds='ldml' elements='preferenceOrdering' attributes='type' type='list'>$_bcp47_timezone</attributeValues>
 			<attributeValues dtds='ldml' elements='quarter' attributes='type' type='choice'>1 2 3 4</attributeValues> <!-- move to DTD? -->
 			<attributeValues dtds='ldml' elements='reference' attributes='type'>$reference</attributeValues>
@@ -269,13 +269,13 @@
 			<attributeValues dtds='supplementalData' elements='approvalRequirement' attributes='votes' type='choice'>20 4 8</attributeValues>
 			<attributeValues dtds='supplementalData' elements='attributeValues' attributes='attributes' type='choice'>_q aliases allowed alt before
 				before from to contains type count date day digits hex id iso3166 iso4217 key multizone number numberSystem path preferred regions registry
-				replacement replacement type request rounding scripts source territories territory time type uri validSubLocales value variants version</attributeValues>
+				replacement type request rounding scripts source territories territory time type uri validSubLocales value variants version</attributeValues>
 			<attributeValues dtds='supplementalData' elements='attributeValues' attributes='dtds' type='choice'>supplementalData</attributeValues>
 			<attributeValues dtds='supplementalData' elements='attributeValues' attributes='elements' type='choice'>alias appendItem calendar character
 				collation collations contextTransform contextTransformUsage cp currency currencyFormat currencyFormats decimalFormats percentFormats
 				scientificFormats cyclicName cyclicNameContext cyclicNameSet dateFormat dateTimeFormat decimalFormat percentFormat scientificFormat timeFormat
 				dateFormatLength timeFormatLength dateTimeFormatLength decimalFormatLength scientificFormatLength percentFormatLength currencyFormatLength day
-				dayWidth default era field firstDay weekendEnd weekendStart generation group hours info key language languageAlias mapTimezones mapZone mapping
+				dayWidth default era field firstDay generation group hours info key language languageAlias mapTimezones mapZone mapping
 				minDays month monthPattern monthPatternContext monthPatternWidth monthWidth quarterWidth cyclicNameWidth numberingSystem pattern
 				preferenceOrdering quarter reference region relative relativeTime reset rule script scriptAlias segmentation supplementalData symbols territory
 				territoryAlias type unit variable variant variantAlias version weekendEnd weekendStart zone zoneFormatting zoneItem</attributeValues>

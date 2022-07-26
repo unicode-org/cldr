@@ -400,7 +400,6 @@ public class VettingViewerQueue {
         t = entry.currentTask = new Task(entry, args.usersOrg);
         t.myThread = SurveyThreadManager.getThreadFactory().newThread(t);
         t.myThread.start();
-        SurveyThreadManager.getThreadFactory().newThread(t);
 
         results.status = Status.PROCESSING;
         if (DEBUG) {

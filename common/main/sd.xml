@@ -1427,12 +1427,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">صبح، منجهند</dayPeriod>
-							<dayPeriod type="pm">شام، منجهند</dayPeriod>
+							<dayPeriod type="am">صبح، منجهند</dayPeriod>
+							<dayPeriod type="pm">شام، منجهند</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">صبح، منجهند</dayPeriod>
-							<dayPeriod type="pm">منجهند، شام</dayPeriod>
+							<dayPeriod type="am">صبح، منجهند</dayPeriod>
+							<dayPeriod type="pm">منجهند، شام</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">صبح، منجهند</dayPeriod>
@@ -1441,12 +1441,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">صبح، منجهند</dayPeriod>
-							<dayPeriod type="pm">منجهند، شام</dayPeriod>
+							<dayPeriod type="am">صبح، منجهند</dayPeriod>
+							<dayPeriod type="pm">منجهند، شام</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">صبح، منجهند</dayPeriod>
-							<dayPeriod type="pm">منجهند، شام</dayPeriod>
+							<dayPeriod type="am">صبح، منجهند</dayPeriod>
+							<dayPeriod type="pm">منجهند، شام</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">صبح، منجهند</dayPeriod>
@@ -8936,7 +8936,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<personNames>
 		<nameOrderLocales order="givenFirst">und sd</nameOrderLocales>
 		<nameOrderLocales order="surnameFirst">ja ko zh</nameOrderLocales>
-		<foreignSpaceReplacement>↑↑↑</foreignSpaceReplacement>
+		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">

@@ -1584,9 +1584,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">a. m.</dayPeriod>
+							<dayPeriod type="am">a. m.</dayPeriod>
 							<dayPeriod type="noon">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">p. m.</dayPeriod>
+							<dayPeriod type="pm">p. m.</dayPeriod>
 							<dayPeriod type="morning1">↑↑↑</dayPeriod>
 							<dayPeriod type="morning2">↑↑↑</dayPeriod>
 							<dayPeriod type="evening1">↑↑↑</dayPeriod>
@@ -1613,18 +1613,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">a. m.</dayPeriod>
+							<dayPeriod type="am">a. m.</dayPeriod>
 							<dayPeriod type="noon">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">p. m.</dayPeriod>
+							<dayPeriod type="pm">p. m.</dayPeriod>
 							<dayPeriod type="morning1">↑↑↑</dayPeriod>
 							<dayPeriod type="morning2">↑↑↑</dayPeriod>
 							<dayPeriod type="evening1">↑↑↑</dayPeriod>
 							<dayPeriod type="night1">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">a. m.</dayPeriod>
+							<dayPeriod type="am">a. m.</dayPeriod>
 							<dayPeriod type="noon">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">p. m.</dayPeriod>
+							<dayPeriod type="pm">p. m.</dayPeriod>
 							<dayPeriod type="morning1">↑↑↑</dayPeriod>
 							<dayPeriod type="morning2">↑↑↑</dayPeriod>
 							<dayPeriod type="evening1">↑↑↑</dayPeriod>
@@ -1807,7 +1807,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<appendItem request="Timezone">↑↑↑</appendItem>
 					</appendItems>
 					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">↑↑↑</greatestDifference>
 							<greatestDifference id="h">↑↑↑</greatestDifference>
@@ -9681,7 +9681,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<personNames>
 		<nameOrderLocales order="givenFirst">↑↑↑</nameOrderLocales>
 		<nameOrderLocales order="surnameFirst">ja ko zh</nameOrderLocales>
-		<foreignSpaceReplacement>↑↑↑</foreignSpaceReplacement>
+		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">

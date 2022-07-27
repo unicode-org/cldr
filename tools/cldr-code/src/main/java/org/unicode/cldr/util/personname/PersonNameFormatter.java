@@ -33,7 +33,6 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableListMultimap;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.LinkedListMultimap;
 import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Maps;
@@ -229,6 +228,10 @@ public class PersonNameFormatter {
         }
     }
 
+    /**
+     * Types of samples, only for use by CLDR
+     * @internal
+     */
     public enum SampleType {
         givenOnly,
         givenSurnameOnly,
@@ -241,6 +244,9 @@ public class PersonNameFormatter {
             full); // exclude foreign for now
     }
 
+    /**
+     * @internal (all of these)
+     */
     public static final Splitter SPLIT_SPACE = Splitter.on(' ').trimResults();
     public static final Splitter SPLIT_DASH = Splitter.on('-').trimResults();
     public static final Splitter SPLIT_EQUALS = Splitter.on('=').trimResults();
@@ -252,8 +258,6 @@ public class PersonNameFormatter {
     public static final Joiner JOIN_SEMI = Joiner.on("; ");
     public static final Joiner JOIN_COMMA = Joiner.on(", ");
     public static final Joiner JOIN_LFTB = Joiner.on("\n\t\t");
-
-
 
     /**
      * A Field and its modifiers, corresponding to a string form like {given-initial}.
@@ -327,8 +331,9 @@ public class PersonNameFormatter {
 
     /**
      * An element of a name pattern: either a literal string (like ", ") or a modified field (like {given-initial})
-     * The literal is null IFF then modifiedField is not null
+     * The literal is null IFF the modifiedField is not null
      * Immutable
+     * @internal
      */
     public static class NamePatternElement implements Comparable<NamePatternElement> {
         private final String literal;
@@ -392,21 +397,28 @@ public class PersonNameFormatter {
 
     /**
      * Format fallback results, for when modifiers are not found
+     * NOTE: CLDR needs to be able to create from data.
+     * @internal
      */
-
     public static class FallbackFormatter {
         final private ULocale formatterLocale;
         final private BreakIterator characterBreakIterator;
         final private MessageFormat initialFormatter;
         final private MessageFormat initialSequenceFormatter;
         final private String foreignSpaceReplacement;
+        final private boolean uppercaseSurnameIfSurnameFirst;
 
-        public FallbackFormatter(ULocale uLocale, String initialPattern, String initialSequencePattern, String foreignSpaceReplacement) {
+        public FallbackFormatter(ULocale uLocale,
+            String initialPattern,
+            String initialSequencePattern,
+            String foreignSpaceReplacement,
+            boolean uppercaseSurnameIfSurnameFirst) {
             formatterLocale = uLocale;
             characterBreakIterator = BreakIterator.getCharacterInstance(uLocale);
             initialFormatter = new MessageFormat(initialPattern);
             initialSequenceFormatter = new MessageFormat(initialSequencePattern);
             this.foreignSpaceReplacement = foreignSpaceReplacement;
+            this.uppercaseSurnameIfSurnameFirst = uppercaseSurnameIfSurnameFirst;
         }
 
         /**
@@ -415,7 +427,6 @@ public class PersonNameFormatter {
          */
         public String applyModifierFallbacks(FormatParameters nameFormatParameters, Set<Modifier> remainingModifers, String bestValue) {
             // apply default algorithms
-            // TODO ALL Decide if the order among modifiers is rights
 
             for (Modifier modifier : remainingModifers) {
                 switch(modifier) {
@@ -483,11 +494,26 @@ public class PersonNameFormatter {
         public String formatAllCaps(String bestValue) {
             return UCharacter.toUpperCase(formatterLocale, bestValue);
         }
+
+        /**
+         * Apply other modifications. Currently just the surname capitalization, but can be extended in the future.
+         * @param modifiedField
+         */
+        public String tweak(ModifiedField modifiedField, String bestValue, FormatParameters nameFormatParameters) {
+            if (uppercaseSurnameIfSurnameFirst
+                && nameFormatParameters.matchesOrder(Order.surnameFirst)
+                && (modifiedField.getField() == Field.surname || modifiedField.getField() == Field.surname2)) {
+                bestValue = UCharacter.toUpperCase(formatterLocale, bestValue);
+            }
+            return bestValue;
+        }
     }
 
     /**
      * A name pattern, corresponding to a string such as "{given-initial} {surname}"
      * Immutable
+     * NOTE: CLDR needs to be able to create from data.
+     * @internal
      */
     public static class NamePattern implements Comparable<NamePattern> {
         private final int rank;
@@ -564,6 +590,7 @@ public class PersonNameFormatter {
             }
             return result.toString();
         }
+
         private boolean sharesLanguageScript(ULocale nameLocale, ULocale formatterLocale) {
             return Objects.equals(nameLocale, formatterLocale); // TODO, fix to check language and script (maximized)
         }
@@ -580,7 +607,7 @@ public class PersonNameFormatter {
             if (!remainingModifers.isEmpty()) {
                 bestValue = fallbackInfo.applyModifierFallbacks(nameFormatParameters, remainingModifers, bestValue);
             }
-            return bestValue;
+            return fallbackInfo.tweak(modifiedField, bestValue, nameFormatParameters);
         }
 
         private String coalesceLiterals(StringBuilder l1, StringBuilder l2) {
@@ -816,6 +843,7 @@ public class PersonNameFormatter {
 
     /**
      * Input parameters, such as {length=long_name, formality=informal}. Unmentioned items are null, and match any value.
+     * Passed in when formatting.
      */
     public static class FormatParameters implements Comparable<FormatParameters> {
         private final Order order;
@@ -953,15 +981,6 @@ public class PersonNameFormatter {
             return new FormatParameters(order, length, usage, formality);
         }
 
-        public static FormatParameters from(XPathParts parts) {
-            FormatParameters formatParameters = new FormatParameters(
-                PersonNameFormatter.Order.from(parts.getAttributeValue(2, "order")),
-                PersonNameFormatter.Length.from(parts.getAttributeValue(2, "length")),
-                PersonNameFormatter.Usage.from(parts.getAttributeValue(2, "usage")),
-                PersonNameFormatter.Formality.from(parts.getAttributeValue(2, "formality")));
-            return formatParameters;
-        }
-
         // for thread-safe lazy evaluation
         private static class LazyEval {
             private static ImmutableSet<FormatParameters> DATA;
@@ -1067,238 +1086,6 @@ public class PersonNameFormatter {
         }
     }
 
-//    /**
-//     * Matching parameters, such as {lengths={long_name medium_name}, formalities={informal}}. Unmentioned items are empty, and match any value.
-//     */
-//    public static class ParameterMatcher implements Comparable<ParameterMatcher> {
-//        private final Set<Order> orders;
-//        private final Set<Length> lengths;
-//        private final Set<Usage> usages;
-//        private final Set<Formality> formalities;
-//
-//        public Set<Order> getOrder() {
-//            return orders;
-//        }
-//
-//        public Set<Length> getLength() {
-//            return lengths;
-//        }
-//
-//        public Set<Usage> getUsage() {
-//            return usages;
-//        }
-//
-//        public Set<Formality> getFormality() {
-//            return formalities;
-//        }
-//
-//        public boolean matches(FormatParameters other) {
-//            return (orders.isEmpty() || other.order == null || orders.contains(other.order))
-//                && (lengths.isEmpty() || other.length == null || lengths.contains(other.length))
-//                && (usages.isEmpty() || other.usage == null || usages.contains(other.usage))
-//                && (formalities.isEmpty() || other.formality == null || formalities.contains(other.formality))
-//                ;
-//        }
-//
-//        public ParameterMatcher(Set<Order> orders, Set<Length> lengths, Set<Usage> usages, Set<Formality> formalities) {
-//            this.orders = orders == null ? ImmutableSet.of() : ImmutableSet.copyOf(orders);
-//            this.lengths = lengths == null ? ImmutableSet.of() : ImmutableSet.copyOf(lengths);
-//            this.usages = usages == null ? ImmutableSet.of() : ImmutableSet.copyOf(usages);
-//            this.formalities = formalities == null ? ImmutableSet.of() : ImmutableSet.copyOf(formalities);
-//        }
-//
-//        public ParameterMatcher(String orders, String lengths, String usages, String formalities) {
-//            this.orders = setFrom(orders, Order::valueOf);
-//            this.lengths = setFrom(lengths, Length::from);
-//            this.usages = setFrom(usages, Usage::valueOf);
-//            this.formalities = setFrom(formalities, Formality::valueOf);
-//        }
-//
-//        public ParameterMatcher(FormatParameters item) {
-//            this(SingletonSetOrNull(item.getOrder()),
-//                SingletonSetOrNull(item.getLength()),
-//                SingletonSetOrNull(item.getUsage()),
-//                SingletonSetOrNull(item.getFormality()));
-//        }
-//
-//        private static <T> ImmutableSet<T> SingletonSetOrNull(T item) {
-//            return item == null ? null : ImmutableSet.of(item);
-//        }
-//
-//        private <T> Set<T> setFrom(String parameter, Function<String, T> func) {
-//            if (parameter == null || parameter.isBlank()) {
-//                return ImmutableSet.of();
-//            }
-//            Set<T> result = new TreeSet<>();
-//            for (String part : SPLIT_SPACE.split(parameter)) {
-//                result.add(func.apply(part));
-//            }
-//            return ImmutableSet.copyOf(result);
-//        }
-//
-//        public static ParameterMatcher from(String string) {
-//            String order = null;
-//            String length = null;
-//            String usage = null;
-//            String formality = null;
-//            if (string.isBlank()) {
-//                throw new IllegalArgumentException("must have at least one of order, length, usage, or formality");
-//            }
-//            for (String part : SPLIT_SEMI.split(string)) {
-//                List<String> parts = SPLIT_EQUALS.splitToList(part);
-//                if (parts.size() != 2) {
-//                    throw new IllegalArgumentException("must be of form length=medium short; formality=… : " + string);
-//                }
-//                final String key = parts.get(0);
-//                final String value = parts.get(1);
-//                switch(key) {
-//                case "order":
-//                    order = value;
-//                    break;
-//                case "length":
-//                    length = value;
-//                    break;
-//                case "usage":
-//                    usage = value;
-//                    break;
-//                case "formality":
-//                    formality = value;
-//                    break;
-//                }
-//            }
-//            return new ParameterMatcher(order, length, usage, formality);
-//        }
-//
-//        @Override
-//        public String toString() {
-//            List<String> items = new ArrayList<>();
-//            showAttributes("order", orders, items);
-//            showAttributes("length", lengths, items);
-//            showAttributes("usage", usages, items);
-//            showAttributes("formality", formalities, items);
-//            return items.isEmpty() ? "ANY" : JOIN_SPACE.join(items);
-//        }
-//
-//        public String toLabel() {
-//            StringBuilder sb  = new StringBuilder();
-//            addToLabel(orders, sb);
-//            addToLabel(lengths, sb);
-//            addToLabel(usages, sb);
-//            addToLabel(formalities, sb);
-//            return sb.length() == 0 ? "any" : sb.toString();
-//        }
-//
-//        private <T> void addToLabel(Set<T> set, StringBuilder sb) {
-//            for (T item : set) {
-//                if (sb.length() != 0) {
-//                    sb.append('-');
-//                }
-//                sb.append(item.toString());
-//            }
-//        }
-//
-//        private <T> void showAttributes(String title, Set<T> set, List<String> toAddTo) {
-//            if (!set.isEmpty()) {
-//                toAddTo.add(title + "='" + JOIN_SPACE.join(set) + "'");
-//            }
-//        }
-//        //public static final ParameterMatcher MATCH_ALL = new ParameterMatcher((Set<Length>)null, null, null, null);
-//
-//        public static final Comparator<Iterable<ParameterMatcher>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<ParameterMatcher>naturalOrder());
-//
-//        @Override
-//        public boolean equals(Object obj) {
-//            ParameterMatcher that = (ParameterMatcher) obj;
-//            return orders.equals(that.orders)
-//                && lengths.equals(that.lengths)
-//                && usages.equals(that.usages)
-//                && formalities.equals(that.formalities);
-//        }
-//        @Override
-//        public int hashCode() {
-//            return lengths.hashCode() ^ formalities.hashCode() ^ usages.hashCode() ^ orders.hashCode();
-//        }
-//
-//        @Override
-//        public int compareTo(ParameterMatcher other) {
-//            return ComparisonChain.start()
-//                .compare(orders, other.orders, Order.ITERABLE_COMPARE)
-//                .compare(lengths, other.lengths, Length.ITERABLE_COMPARE)
-//                .compare(usages, other.usages, Usage.ITERABLE_COMPARE)
-//                .compare(formalities, other.formalities, Formality.ITERABLE_COMPARE)
-//                .result();
-//        }
-//
-//        public ParameterMatcher merge(ParameterMatcher that) {
-//            // if 3 of the 4 rows are equal, merge the other two
-//            if (lengths.equals(that.lengths)
-//                && usages.equals(that.usages)
-//                && formalities.equals(that.formalities)) {
-//                return new ParameterMatcher(Sets.union(orders, that.orders), lengths, usages, formalities);
-//            } else if (orders.equals(that.orders)
-//                && usages.equals(that.usages)
-//                && formalities.equals(that.formalities)) {
-//                return new ParameterMatcher(orders, Sets.union(lengths, that.lengths), usages, formalities);
-//            } else if (orders.equals(that.orders)
-//                && lengths.equals(that.lengths)
-//                && formalities.equals(that.formalities)) {
-//                return new ParameterMatcher(orders, lengths, Sets.union(usages, that.usages), formalities);
-//            } else if (orders.equals(that.orders)
-//                && lengths.equals(that.lengths)
-//                && usages.equals(that.usages)) {
-//                return new ParameterMatcher(orders, lengths, usages, Sets.union(formalities, that.formalities));
-//            }
-//            return null;
-//        }
-//
-//        public ParameterMatcher slim() {
-//            return new ParameterMatcher(
-//                orders.equals(Length.ALL) ? ImmutableSet.of() : orders,
-//                    lengths.equals(Formality.ALL) ? ImmutableSet.of() : lengths,
-//                        usages.equals(Usage.ALL) ? ImmutableSet.of() : usages,
-//                            formalities.equals(Order.ALL) ? ImmutableSet.of() : formalities
-//                );
-//        }
-//
-//        /**
-//         * Compact a set of FormatParameters into a (smaller) collection of ParameterMatchers
-//         */
-//        public static Set<ParameterMatcher> compact(Collection<FormatParameters> expanded) {
-//            Set<ParameterMatcher> result = new TreeSet<>();
-//            for (FormatParameters item : expanded) {
-//                result.add(new ParameterMatcher(item));
-//            }
-//            // try merging each pair
-//            // if we can merge, then start over from the top
-//            // look at optimizing later
-//            main:
-//                while (true) {
-//                    for (ParameterMatcher item1 : result) {
-//                        for (ParameterMatcher item2: result) {
-//                            if (item1 == item2) { // skip ourselves
-//                                continue;
-//                            }
-//                            ParameterMatcher item12 = item1.merge(item2); // merge if possible
-//                            if (item12 != null) {
-//                                result.remove(item1);
-//                                result.remove(item2);
-//                                result.add(item12);
-//                                continue main; // retry everything
-//                            }
-//                        }
-//                    }
-//                    break;
-//                }
-//
-//            // now replace any "complete" items by empty.
-//            Set<ParameterMatcher> result2 = new TreeSet<>();
-//            for (ParameterMatcher item1 : result) {
-//                result2.add(item1.slim());
-//            }
-//            return ImmutableSet.copyOf(result2);
-//        }
-//
-//    }
 
     /**
      * Returns a match for the nameFormatParameters, or null if the parameterMatcherToNamePattern has no match.
@@ -1319,7 +1106,8 @@ public class PersonNameFormatter {
      * Data that maps from NameFormatParameters and a NameObject to the best NamePattern.
      * It must be complete: that is, it must match every possible value.
      * Immutable
-     * @internal for testing only
+     * @internal
+     * NOTE: CLDR needs access to this.
      */
     public static class NamePatternData {
         private final ImmutableMap<ULocale, Order> localeToOrder;
@@ -1469,7 +1257,6 @@ public class PersonNameFormatter {
         /**
          * Returns the locale of the name, or null if not available.
          * NOTE: this is not the same as the locale of the person name formatter.
-         * @return
          */
         public ULocale getNameLocale();
         /**
@@ -1510,6 +1297,8 @@ public class PersonNameFormatter {
 
     /**
      * Create a formatter directly from data.
+     * NOTE CLDR will need to have access to this creation method.
+     * @internal
      */
     public PersonNameFormatter(NamePatternData namePatternMap, FallbackFormatter fallbackFormatter) {
         this.namePatternMap = namePatternMap;
@@ -1517,7 +1306,8 @@ public class PersonNameFormatter {
     }
 
     /**
-     * Create a formatter from a cldr file.
+     * Create a formatter from a CLDR file.
+     * @internal
      */
     public PersonNameFormatter(CLDRFile cldrFile) {
         ListMultimap<FormatParameters, NamePattern> formatParametersToNamePattern = LinkedListMultimap.create();
@@ -1575,7 +1365,7 @@ public class PersonNameFormatter {
         ImmutableMap<ULocale, Order> localeToOrder = ImmutableMap.copyOf(_localeToOrder);
         this.namePatternMap = new NamePatternData(localeToOrder, formatParametersToNamePattern);
         this.fallbackFormatter = new FallbackFormatter(new ULocale(cldrFile.getLocaleID()),
-            initialPattern, initialSequencePattern, foreignSpaceReplacement);
+            initialPattern, initialSequencePattern, foreignSpaceReplacement, false);
     }
 
     /**
@@ -1602,6 +1392,20 @@ public class PersonNameFormatter {
         }
     }
 
+    /**
+     * Main function for formatting names.
+     * @param nameObject — A name object, which supplies data.
+     * @param nameFormatParameters - The specification of which parameters are desired.
+     * @return formatted string
+     * TODO make most public methods be @internal (public but just for testing).
+     *      The NameObject and FormatParameters are exceptions.
+     * TODO decide how to allow clients to customize data in the name object. Options:
+     *      a. Leave it to implementers (eg they can write a FilteredNameObject that changes some fields).
+     *      b. Pass in explicit override parameters, like whether to uppercase the surname in surnameFirst.
+     * TODO decide whether/how to allow clients to customize the built-in data (namePatternData, fallbackFormatter)
+     *      a. CLDR will need to be be able to customize it completely.
+     *      b. Clients may want to set the contextual uppercasing of surnames, the handling of which locales cause surnameFirst, etc.
+     */
     public String format(NameObject nameObject, FormatParameters nameFormatParameters) {
         // look through the namePatternMap to find the best match for the set of modifiers and the available nameObject fields
         NamePattern bestPattern = namePatternMap.getBestMatch(nameObject, nameFormatParameters);
@@ -1611,6 +1415,7 @@ public class PersonNameFormatter {
 
     /**
      * For testing
+     * @internal
      */
     public Collection<NamePattern> getBestMatchSet(FormatParameters nameFormatParameters) {
         return getBestMatchSet(namePatternMap.parameterMatcherToNamePattern, nameFormatParameters);
@@ -1618,9 +1423,9 @@ public class PersonNameFormatter {
 
     /**
      * Utility for constructing data from path and value.
+     * @internal
      */
     public static Pair<FormatParameters, NamePattern> fromPathValue(XPathParts parts, String value) {
-
         //ldml/personNames/personName[@length="long"][@usage="referring"][@order="sorting"]/namePattern[alt="2"]
         // value = {surname}, {given} {given2} {suffix}
         final String altValue = parts.getAttributeValue(-1, "alt");
@@ -1639,7 +1444,10 @@ public class PersonNameFormatter {
         return Pair.of(pm, np);
     }
 
-    static final Map<String, SimpleNameObject> FOREIGN_NAME_FOR_NON_SPACING;
+    /**
+     * Special data for vetters, to how what foreign names would format
+     */
+    private static final Map<String, SimpleNameObject> FOREIGN_NAME_FOR_NON_SPACING;
     static {
         // code     given   surname
         final String[][] specials = {
@@ -1668,6 +1476,7 @@ public class PersonNameFormatter {
      * Utility for getting sample names. DOES NOT CACHE
      * @param cldrFile
      * @return
+     * @internal
      */
     public static Map<SampleType, SimpleNameObject> loadSampleNames(CLDRFile cldrFile) {
         M3<SampleType, ModifiedField, String> names = ChainedMap.of(new TreeMap<SampleType, Object>(), new TreeMap<ModifiedField, Object>(), String.class);
@@ -1696,57 +1505,6 @@ public class PersonNameFormatter {
         }
         return ImmutableMap.copyOf(result);
     }
-
-    /**
-     * Expand the name pattern data into a mapping from all possible FormatParameters to NamePatterns. Retains the order of the NamePatterns
-     * @return
-     */
-    public Multimap<FormatParameters, NamePattern> expand() {
-        Multimap<FormatParameters, NamePattern> parametersToPatterns = LinkedHashMultimap.create();
-
-        for (FormatParameters item : FormatParameters.all()) {
-            parametersToPatterns.putAll(item, getBestMatchSet(item));
-        }
-        return parametersToPatterns;
-    }
-
-    /**
-     * Group FormatParameters by lists of NamePatterns that have the same FormatParameters
-     */
-    public static TreeMultimap<Iterable<NamePattern>, FormatParameters> groupByNamePatterns(Multimap<FormatParameters, NamePattern> parametersToPatterns) {
-        TreeMultimap<Iterable<NamePattern>, FormatParameters> patternsToParameters =
-            TreeMultimap.create(NamePattern.ITERABLE_COMPARE, Comparator.<FormatParameters>naturalOrder());
-
-        for (Entry<FormatParameters, Collection<NamePattern>> entry : parametersToPatterns.asMap().entrySet()) {
-            patternsToParameters.put(entry.getValue(), entry.getKey());
-        }
-        return patternsToParameters;
-    }
-
-//    public static Multimap<FormatParameters, NamePattern> compact(Multimap<Iterable<NamePattern>, FormatParameters> patternsToParameters) {
-//        Multimap<FormatParameters, NamePattern> result = LinkedListMultimap.create();
-//
-//        // first find the Collection<FormatParameters> that is repeated the most often, so we can use that for the ANY value
-//        Counter<Iterable<NamePattern>> counter = new Counter<>();
-//        for (Entry<Iterable<NamePattern>, Collection<FormatParameters>> entry : patternsToParameters.asMap().entrySet()) {
-//            counter.add(entry.getKey(), 1);
-//        }
-//        Set<R2<Long, Iterable<NamePattern>>> sorted = counter.getEntrySetSortedByCount(false, NamePattern.ITERABLE_COMPARE);
-//        Iterable<NamePattern> optimalAny = sorted.iterator().next().get1();
-//
-//        for (Entry<Iterable<NamePattern>, Collection<FormatParameters>> entry : patternsToParameters.asMap().entrySet()) {
-//            Iterable<NamePattern> patterns = entry.getKey();
-//            if (patterns.equals(optimalAny)) {
-//                continue; // will replace by ANY
-//            }
-//            Collection<FormatParameters> parameterSet = entry.getValue();
-//            Set<FormatParameters> compacted = FormatParameters.compact(parameterSet);
-//            for (FormatParameters matcher : compacted) {
-//                result.putAll(matcher, patterns);
-//            }
-//        }
-//        return result;
-//    }
 
     /**
      * General Utility

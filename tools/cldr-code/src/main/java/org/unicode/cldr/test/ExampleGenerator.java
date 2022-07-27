@@ -548,7 +548,11 @@ public class ExampleGenerator {
         //ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="addressing"][@style="formal"]/namePattern => {prefix} {surname}
         String debugState = "start";
         try {
-            FormatParameters formatParameters = FormatParameters.from(parts);
+            FormatParameters formatParameters = new FormatParameters(
+            PersonNameFormatter.Order.from(parts.getAttributeValue(2, "order")),
+            PersonNameFormatter.Length.from(parts.getAttributeValue(2, "length")),
+            PersonNameFormatter.Usage.from(parts.getAttributeValue(2, "usage")),
+            PersonNameFormatter.Formality.from(parts.getAttributeValue(2, "formality")));
 
             List<String> examples = null;
             final CLDRFile cldrFile2 = getCldrFile();

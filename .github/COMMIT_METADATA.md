@@ -22,3 +22,11 @@
 - 382f36702d763713f010a3bf87d34605c0226ebd - v40 commit
 - bc8a79f9b1b71b00c716b8b4c8e0185515a6d0b8 - v40 commit
 - 4b87f2d718dd9cab45517ebe7f996ac10b6b1fff - v40 commit
+
+# SKIP v42
+- f86c67b CLDR-15290 v41 spec
+- 0eace83 CLDR-15115 v41 spec
+- 5aca9fd CLDR-15398 v41 spec
+- bbffc61 CLDR-15408 v41 spec
+- 953c013 CLDR-15461 v41 BRS
+- 1b84c52 CLDR-15461 v41 BRS

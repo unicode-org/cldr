@@ -505,7 +505,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Mong">Mongol elipbiýi</script>
 			<script type="Mtei" draft="contributed">Meýteý Maýek</script>
 			<script type="Mymr">Mýanma elipbiýi</script>
-			<script type="Nkoo" draft="contributed">N'Ko</script>
+			<script type="Nkoo" draft="contributed">N’Ko</script>
 			<script type="Olck" draft="contributed">Ol Çiki</script>
 			<script type="Orya">Oriýa elipbiýi</script>
 			<script type="Rohg" draft="contributed">Hanifi</script>
@@ -1101,7 +1101,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyQQQQ">G y QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback>{0} - {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">h B – h B</greatestDifference>
 							<greatestDifference id="h">h–h B</greatestDifference>
@@ -1641,7 +1641,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<appendItem request="Timezone">{0} {1}</appendItem>
 					</appendItems>
 					<intervalFormats>
-						<intervalFormatFallback>{0} - {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">h B – h B</greatestDifference>
 							<greatestDifference id="h">h – h B</greatestDifference>
@@ -9408,7 +9408,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<personNames>
 		<nameOrderLocales order="givenFirst" draft="contributed">und tk</nameOrderLocales>
 		<nameOrderLocales order="surnameFirst" draft="contributed"/>
-		<foreignSpaceReplacement>↑↑↑</foreignSpaceReplacement>
+		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">

@@ -5,13 +5,13 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import org.unicode.cldr.test.CheckAccessor;
 import org.unicode.cldr.test.CheckCLDR;
@@ -22,7 +22,10 @@ import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathStarrer;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FallbackFormatter;
@@ -36,7 +39,6 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePatternData;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Order;
-import org.unicode.cldr.util.personname.PersonNameFormatter.ParameterMatcher;
 import org.unicode.cldr.util.personname.PersonNameFormatter.SampleType;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Usage;
 import org.unicode.cldr.util.personname.SimpleNameObject;
@@ -47,6 +49,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
@@ -56,7 +59,7 @@ public class TestPersonNameFormatter extends TestFmwk{
     public static final boolean DEBUG = System.getProperty("TestPersonNameFormatter.DEBUG") != null;
     public static final boolean SHOW = System.getProperty("TestPersonNameFormatter.SHOW") != null;
 
-    final FallbackFormatter FALLBACK_FORMATTER = new FallbackFormatter(ULocale.ENGLISH, "{0}*", "{0} {1}", null);
+    final FallbackFormatter FALLBACK_FORMATTER = new FallbackFormatter(ULocale.ENGLISH, "{0}*", "{0} {1}", null, false);
     final CLDRFile ENGLISH = CLDRConfig.getInstance().getEnglish();
     final PersonNameFormatter ENGLISH_NAME_FORMATTER = new PersonNameFormatter(ENGLISH);
     final Map<SampleType, SimpleNameObject> ENGLISH_SAMPLES = PersonNameFormatter.loadSampleNames(ENGLISH);
@@ -100,8 +103,10 @@ public class TestPersonNameFormatter extends TestFmwk{
         NamePatternData namePatternData = new NamePatternData(
             localeToOrder,
             "order=surnameFirst; length=short; usage=addressing; formality=formal", "{surname-allCaps} {given}",
-            "length=short medium; usage=addressing; formality=formal", "{given} {given2-initial} {surname}",
-            "length=short medium; usage=addressing; formality=formal", "{given} {surname}",
+            "length=short; usage=addressing; formality=formal", "{given} {given2-initial} {surname}",
+            "length=medium; usage=addressing; formality=formal", "{given} {given2-initial} {surname}",
+            "length=medium; usage=addressing; formality=formal", "{given} {surname}",
+            "length=medium; usage=addressing; formality=formal", "{given} {surname}",
             "length=long; usage=monogram; formality=formal", "{given-initial}{surname-initial}",
             "order=givenFirst", "{prefix} {given} {given2} {surname} {surname2} {suffix}",
             "order=surnameFirst", "{surname} {surname2} {prefix} {given} {given2} {suffix}",
@@ -116,8 +121,6 @@ public class TestPersonNameFormatter extends TestFmwk{
         check(personNameFormatter, sampleNameObject1, "length=long; usage=addressing; formality=formal", "Mr. John Bob Smith Barnes Pascal Jr.");
         check(personNameFormatter, sampleNameObject3, "length=long; usage=monogram; formality=formal", "J* B*S*"); // TODO This is wrong
         check(personNameFormatter, sampleNameObject4, "order=surnameFirst; length=short; usage=addressing; formality=formal", "ABE Shinzō");
-
-        checkFormatterData(personNameFormatter);
     }
 
     String HACK_INITIAL_FORMATTER = "{0}॰"; // use "unusual" period to mark when we are using fallbacks
@@ -162,65 +165,11 @@ public class TestPersonNameFormatter extends TestFmwk{
         check(ENGLISH_NAME_FORMATTER, sampleNameObject1, "order=sorting; length=short", "Smith, J. B.");
         check(ENGLISH_NAME_FORMATTER, sampleNameObject1, "length=long; usage=referring; formality=formal", "John Bob Smith Jr.");
 
-        checkFormatterData(ENGLISH_NAME_FORMATTER);
+//        checkFormatterData(ENGLISH_NAME_FORMATTER);
     }
 
     public static final Joiner JOIN_SPACE = Joiner.on(' ');
 
-    /**
-     * Check that no exceptions happen in expansion and compaction.
-     * In verbose mode (-v), show results.
-     */
-
-    private void checkFormatterData(PersonNameFormatter personNameFormatter) {
-        // check that no exceptions happen
-        // sort by the output patterns
-        Multimap<Iterable<NamePattern>, FormatParameters> patternsToParameters = PersonNameFormatter.groupByNamePatterns(personNameFormatter.expand());
-
-        StringBuilder sb = new StringBuilder("\n");
-        int count = 0;
-        sb.append("\nEXPANDED:\n");
-        for (Entry<Iterable<NamePattern>, Collection<FormatParameters>> entry : patternsToParameters.asMap().entrySet()) {
-            final Iterable<NamePattern> key = entry.getKey();
-            final Collection<FormatParameters> value = entry.getValue();
-
-            String prefix = ++count + ")";
-            for (FormatParameters parameters : value) {
-                sb.append(prefix + "\t" + parameters + "\n");
-                prefix = "";
-            }
-            sb.setLength(sb.length()-1); // remove final \n
-            showPattern("\t⇒", key, sb);
-        }
-
-        count = 0;
-        sb.append("\nCOMPACTED:\n");
-
-        Multimap<ParameterMatcher, NamePattern> compacted = PersonNameFormatter.compact(patternsToParameters);
-
-        for (Entry<ParameterMatcher, Collection<NamePattern>> entry : compacted.asMap().entrySet()) {
-            final ParameterMatcher key = entry.getKey();
-            final Collection<NamePattern> value = entry.getValue();
-
-            String prefix = ++count + ")";
-            sb.append(prefix
-                + "\t" + JOIN_SPACE.join(key.getOrder())
-                + "\t" + JOIN_SPACE.join(key.getLength())
-                + "\t" + JOIN_SPACE.join(key.getUsage())
-                + "\t" + JOIN_SPACE.join(key.getFormality())
-                );
-            prefix = "";
-            showPattern("\t⇒", value, sb);
-        }
-        logln(sb.toString());
-    }
-
-    private <T> void showPattern(String prefix, Iterable<T> iterable, StringBuilder sb) {
-        for (T item : iterable) {
-            sb.append(prefix + "\t︎" + item + "\n");
-            prefix = "";
-        }
-    }
 
     public void TestFields() {
         Set<String> items = new HashSet<>();
@@ -244,9 +193,9 @@ public class TestPersonNameFormatter extends TestFmwk{
         assertEquals("label test", "givenFirst-short-referring-formal",
             testFormatParameters.toLabel());
 
-        // test just one example for ParameterMatcher, since there are too many combinations
-        ParameterMatcher test = new ParameterMatcher(removeFirst(Order.ALL), removeFirst(Length.ALL), removeFirst(Usage.ALL), removeFirst(Formality.ALL));
-        assertEquals("label test", "surnameFirst-sorting-medium-short-addressing-monogram-informal",
+        // test just one example for FormatParameters
+        FormatParameters test = new FormatParameters(Order.sorting, Length.medium, Usage.addressing, Formality.informal);
+        assertEquals("label test", "sorting-medium-addressing-informal",
             test.toLabel());
     }
 
@@ -348,12 +297,12 @@ public class TestPersonNameFormatter extends TestFmwk{
         //  Same for no spaces: we should decide what the desired behavior is.
     }
 
-    private <T> Set<T> removeFirst(Set<T> all) {
-        Set<T> result = new LinkedHashSet<>(all);
-        T first = all.iterator().next();
-        result.remove(first);
-        return result;
-    }
+//    private <T> Set<T> removeFirst(Set<T> all) {
+//        Set<T> result = new LinkedHashSet<>(all);
+//        T first = all.iterator().next();
+//        result.remove(first);
+//        return result;
+//    }
 
     private void assertThrows(String subject, Runnable code, String expectedMessage) {
         try {
@@ -541,17 +490,9 @@ public class TestPersonNameFormatter extends TestFmwk{
 
     public void TestEnglishComma() {
         boolean messageShown = false;
-        for (Entry<ParameterMatcher, NamePattern> matcherAndPattern : ENGLISH_NAME_FORMATTER.getNamePatternData().getMatcherToPatterns().entries()) {
-            ParameterMatcher parameterMatcher = matcherAndPattern.getKey();
+        for (Entry<FormatParameters, NamePattern> matcherAndPattern : ENGLISH_NAME_FORMATTER.getNamePatternData().getMatcherToPatterns().entries()) {
+            FormatParameters parameterMatcher = matcherAndPattern.getKey();
             NamePattern namePattern = matcherAndPattern.getValue();
-
-            Set<Order> orders = parameterMatcher.getOrder();
-            Set<Usage> usages = parameterMatcher.getUsage();
-
-            // TODO Mark Look at whether it would be cleaner to replace empty values by ALL on building
-
-            Set<Order> resolvedOrders = orders.isEmpty() ? Order.ALL : orders;
-            Set<Usage> resolvedUsages = usages.isEmpty() ? Usage.ALL : usages;
 
             Set<Field> fields = namePattern.getFields();
 
@@ -559,8 +500,9 @@ public class TestPersonNameFormatter extends TestFmwk{
                 && (fields.contains(Field.surname) || fields.contains(Field.surname2));
 
             boolean commaRequired = givenAndSurname
-                && resolvedOrders.contains(Order.sorting)
-                && !resolvedUsages.contains(Usage.monogram);
+                && parameterMatcher.matchesOrder(Order.sorting)
+//                && !parameterMatcher.matchesUsage(Usage.monogram)
+                ;
 
             boolean hasComma = namePattern.firstLiteralContaining(",") != null;
 
@@ -913,6 +855,40 @@ public class TestPersonNameFormatter extends TestFmwk{
             results.clear();
             CheckPlaceHolders.checkPersonNamePatterns(stub, sampleNonMonogramPath, nonMonogramPathParts, samplePattern, results);
             assertEquals(i + ") non-monogram, " + samplePattern, expectedNonMonogramErrors, joinCheckStatus(results));
+        }
+    }
+
+    public void TestAll() {
+        for (String locale : StandardCodes.make().getLocaleCoverageLocales(Organization.cldr)) {
+            if (Level.MODERN != StandardCodes.make().getLocaleCoverageLevel(Organization.cldr, locale)) {
+                continue;
+            }
+            CLDRFile cldrFile = factory.make(locale, true);
+            Map<SampleType, SimpleNameObject> names = PersonNameFormatter.loadSampleNames(cldrFile);
+            if (names.isEmpty()) {
+                continue;
+            }
+            PersonNameFormatter formatter = new PersonNameFormatter(cldrFile);
+            Multimap<String, FormatParameters> formattedToParameters = TreeMultimap.create();
+            for (Entry<SampleType, SimpleNameObject> entry : names.entrySet()) {
+                final SampleType sampleType = entry.getKey();
+                final SimpleNameObject nameObject = entry.getValue();
+                // abbreviated for now
+                if (sampleType != SampleType.full) {
+                    continue;
+                }
+                for (FormatParameters parameters : FormatParameters.allCldr()) {
+                    String result = formatter.format(nameObject, parameters);
+                    formattedToParameters.put(result, parameters);
+                }
+                for (Entry<String, Collection<FormatParameters>> entry2 : formattedToParameters.asMap().entrySet()) {
+                    final Set<String> shortSet = entry2.getValue().stream().map(x -> x.abbreviated()).collect(Collectors.toSet());
+                    logln("\t" + locale
+                        + "\t" + sampleType
+                        + "\t" + entry2.getKey()
+                        + "\t" + shortSet);
+                }
+            }
         }
     }
 }

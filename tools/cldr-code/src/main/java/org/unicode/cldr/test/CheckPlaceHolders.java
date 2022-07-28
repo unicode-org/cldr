@@ -26,7 +26,6 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.ModifiedField;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Modifier;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Order;
-import org.unicode.cldr.util.personname.PersonNameFormatter.ParameterMatcher;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Usage;
 
 import com.google.common.base.Joiner;
@@ -254,7 +253,7 @@ public class CheckPlaceHolders extends CheckCLDR {
 
         // check that the name pattern is valid
 
-        Pair<ParameterMatcher, NamePattern> pair = null;
+        Pair<FormatParameters, NamePattern> pair = null;
         try {
             pair = PersonNameFormatter.fromPathValue(pathParts, value);
         } catch (Exception e) {
@@ -265,7 +264,7 @@ public class CheckPlaceHolders extends CheckCLDR {
             return; // fatal error, don't bother with others
         }
 
-        final ParameterMatcher parameterMatcher = pair.getFirst();
+        final FormatParameters parameterMatcher = pair.getFirst();
         final NamePattern namePattern = pair.getSecond();
 
         // now check that the namePattern is reasonable
@@ -392,8 +391,9 @@ public class CheckPlaceHolders extends CheckCLDR {
         if (firstGiven < Integer.MAX_VALUE && firstSurname < Integer.MAX_VALUE
             && checkAccessor.getUnresolvedStringValue(path) != null) {
 
-            Set<Order> order = parameterMatcher.getOrder();
-
+            Order orderRaw = parameterMatcher.getOrder();
+            Set<Order> order = orderRaw == null ? Order.ALL : ImmutableSet.of(orderRaw);
+            // TODO, fix to avoid set (a holdover from using PatternMatcher)
 
             // Handle 'sorting' value. Will usually be compatible with surnameFirst in foundOrder, except for known exceptions
 

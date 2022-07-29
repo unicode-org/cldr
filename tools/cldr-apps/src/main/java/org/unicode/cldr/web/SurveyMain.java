@@ -135,22 +135,60 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private static final long serialVersionUID = -3587451989643792204L;
 
     /**
-     * This class enumerates the current phase of the survey tool.
-     * It is distinct from CheckCLDR.Phase, though related.
+     * This class enumerates the current phase of the Survey Tool.
+     * Not to be confused with CheckCLDR.Phase.
+     * More than one SurveyMain.Phase enums may map to the same CheckCLDR.Phase.
      *
+     * @see org.unicode.cldr.test.CheckCLDR.Phase
      * @author srl
      */
     public enum Phase {
+        /**
+         * SurveyTool is open for data submission: both votes and
+         * the addition of new data items.
+         */
         SUBMIT("Data Submission", CheckCLDR.Phase.SUBMISSION),
+        /**
+         * Most new data items are not allowed, with an emphasis
+         * on voting for existing items. Some new data items may be entered
+         * in response to an error.
+         */
         VETTING("Vetting", CheckCLDR.Phase.VETTING),
         /*
-         * VETTING_CLOSED means, "closed after vetting, while still open for admin tasks"
+         * This is the normal phase to bse used before moving to XML.
+         * TC/Admin may make changes, but the SurveyTool is locked to any lower levels.
          */
         VETTING_CLOSED("Vetting Closed", CheckCLDR.Phase.FINAL_TESTING),
+        /**
+         * DEPRECATED: use VETTING_CLOSED
+         * @see #VETTING_CLOSED
+         * @deprecated
+         */
+        @Deprecated
         CLOSED("Closed", CheckCLDR.Phase.FINAL_TESTING),
+        /**
+         * DEPRECATED: use VETTING
+         * @see #VETTING
+         * @deprecated
+         */
+        @Deprecated
         DISPUTED("Dispute Resolution", CheckCLDR.Phase.VETTING),
+        /**
+         * DEPRECATED: Not to be used in the SurveyTool.
+         * @see #VETTING_CLOSED
+         * @deprecated
+         */
+        @Deprecated
         FINAL_TESTING("Final Testing", CheckCLDR.Phase.FINAL_TESTING),
+        /**
+         * The SurveyTool is not open for any changes.
+         */
         READONLY("Read-Only", CheckCLDR.Phase.FINAL_TESTING),
+        /**
+         * Do not use.
+         * @deprecated
+         */
+        @Deprecated
         BETA("Beta", CheckCLDR.Phase.SUBMISSION);
 
         private String what;
@@ -167,9 +205,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         }
 
         /**
-         * Get the CheckCLDR.Phase equivalent
-         *
-         * @return
+         * Get the CheckCLDR.Phase equivalent for this SurveyTool Phase.
+         * @see org.unicode.cldr.test.CheckCLDR.Phase
+         * @return the CheckCLDR.Phase
          */
         public CheckCLDR.Phase getCPhase() {
             return cphase;

@@ -364,10 +364,6 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         if (path.contains("/foreignSpaceReplacement")) {
             return null; // CLDR-15384 typically inherited; no DAIP processing desired
         }
-        if (logKnownIssue("CLDR-15635", "Skip TestAll() for /intervalFormatItem until we update xml data") &&
-            (path.contains("/timeFormat") || path.contains("/dateFormatItem") || path.contains("/intervalFormatItem"))) {
-            return null; // CLDR-14032 changing normalization for intervalFormats but xml data not yet updated
-        }
         if (path.contains("/exemplarCharacters") || path.contains("/parseLenient")) {
             try {
                 UnicodeSet s1 = new UnicodeSet(value);

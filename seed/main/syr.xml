@@ -7304,7 +7304,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</posix>
 	<personNames>
 		<nameOrderLocales order="givenFirst">und syr</nameOrderLocales>
-		<foreignSpaceReplacement>↑↑↑</foreignSpaceReplacement>
+		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">{0} {1}</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">

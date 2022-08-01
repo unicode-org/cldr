@@ -127,13 +127,13 @@ For more complete examples, and information collected about keyboards, see keybo
 
 Some goals of this format are:
 
-1. Physical and virtual keyboard layouts defined in a single file
+1. Physical and virtual keyboard layouts defined in a single file.
 2. Provide definitive platform-independent definitions for new keyboard layouts.
     * For example, a new French standard keyboard layout would have a single definition which would be usable across all implementations.
 3. Allow platforms to be able to use CLDR keyboard data for the character-emitting keys (non-frame) aspects of keyboard layouts.
     * For example, platform-specific keys such as Fn, Numpad, IME swap keys, and cursor keys are out of scope.
     * This also means that modifier (frame) keys cannot generate output, such as capslock -> backslash.
-4. Deprecate & archive existing LDML platform-specific layouts so they are not part of future releases
+4. Deprecate & archive existing LDML platform-specific layouts so they are not part of future releases.
 
 <!--
 1. Make the XML as readable as possible.
@@ -143,8 +143,8 @@ Some goals of this format are:
 Some non-goals (outside the scope of the format) currently are:
 
 1. Adaptation for screen scaling resolution. Instead, keyboards should define layouts based on physical size. Platforms may interpret physical size definitions and adapt for different physical screen sizes with different resolutions.
-2. Unify the world's vkey and scan code mapping information
-3. Unify pre-existing platform layouts themselves (i.e. existing fr-azerty on platform a, b, c)
+2. Unification of platform-specific vkey and scan code mapping tables.
+3. Unification of pre-existing platform layouts themselves (e.g. existing fr-azerty on platform a, b, c).
 4. Support for prior (pre 3.0) CLDR keyboard files. See [Compatibility Notice](#Compatibility_Notice).
 5. Run-time efficiency. [LDML is explicitly an interchange format](./tr35.md#Introduction), and so it is expected that data will be transformed to a more compact format for use by a keystroke processing engine.
 
@@ -177,7 +177,7 @@ Keyboard use can be challenging for individuals with various types of disabiliti
 
 **Base character:** The character emitted by a particular key when no modifiers are active. In ISO terms, this is group 1, level 1.
 
-**Base map:** A mapping from the positions to the base characters. There is only one base map per layout. The characters on this map can be output by not using any modifier keys.
+**Base map:** A mapping from the positions to the base characters. There is only one base map per layout. The characters on this map can be output without the use of any modifier keys.
 
 **Core keys:** also known as “alpha” block. The primary set of key values on a keyboard that are used for typing the target language of the keyboard. For example, the three rows of letters on a standard US QWERTY keyboard (QWERTYUIOP, ASDFGHJKL, ZXCVBNM) together with the most significant punctuation keys. Usually this equates to the minimal keyset for a language as seen on mobile phone keyboards.
 Distinguished from the **frame keys**.
@@ -210,11 +210,11 @@ If it becomes necessary in the future, the format could extend the ISO layout to
 
 **Keyboard layout:** A layout is the overall keyboard configuration for a particular locale. Within a keyboard layout, there is a single base map, one or more key maps and zero or more transforms.
 
-**Layer** is an arrangement of keys on a virtual keyboard. Since it is often not intended to use two hands on a visual keyboard to allow the pressing of modifier keys. Modifier keys are made sticky in that one presses one, the visual representation, and even arrangement, of the keys change, and you press the key. This visual representation is a layer. Thus a virtual keyboard is made up of a set of layers.
+**Layer** is an arrangement of keys on a virtual keyboard. A virtual keyboard is made up of a set of layers. Each layer may have a different key layout, unlike with a physical keyboard, and may not correspond directly to a physical keyboard's modifier keys. A layer is accessed via a switch key. See also virtual keyboard, modifier, switch. 
 
 **Long-press key:** also known as a “child key”. A secondary key that is invoked from a top level key on a software keyboard. Secondary keys typically provide access to variants of the top level key, such as accented variants (a => á, à, ä, ã)
 
-**Modifier:** A key that is held to change the behavior of a keyboard. For example, the "Shift" key allows access to upper-case characters on a US keyboard. Other modifier keys include but are not limited to: Ctrl, Alt, Option, Command and Caps Lock.
+**Modifier:** A key that is held to change the behavior of a hardware keyboard. For example, the "Shift" key allows access to upper-case characters on a US keyboard. Other modifier keys include but are not limited to: Ctrl, Alt, Option, Command and Caps Lock. On a touch layout, keys that appear to be modifier keys should be considered to be layer-switching keys.
 
 **Physical keyboard** is an input device which has individual keys that are pressed. Each key has a unique identifier and the arrangement doesn't change, even if the mapping of those keys does.
 
@@ -704,7 +704,7 @@ _Attribute:_ `longPressDefault` (optional)
 >
 > ![keycap hint](images/keycapHint.png)
 
-_Attribute:_ `multitap` (optional) (discouraged, see [Accessibility]
+_Attribute:_ `multitap` (optional) (discouraged, see [Accessibility])
 
 > A space-delimited list of strings, where each successive element of the list is produced by the corresponding number of quick taps. For example, three taps on the key C01 will produce a “c” in the following example (first tap produces “a”, two taps produce “bb” etc.).
 >
@@ -746,12 +746,12 @@ _Attribute:_ `transform="no"` (optional)
 </transforms>
 ```
 
-* **X** outputs `^` (the Carat)
+* **X** outputs `^` (caret)
 * Option-**X** outputs `^` but is intended to be the first part of a transform.
 * Option-**X** + `e` → `ê`
 
 > Without the `transform="no"` on the base key **X**, it would not be possible to
-> type the sequence `^e` (carat+e) as it would turn into `ê` per the transform.
+> type the sequence `^e` (caret+e) as it would turn into `ê` per the transform.
 > However, since there is `transform="no`" on **X**, if the user types **X** + `e` the sequence remains `^e`.
 
 * **X** + `e` → `^e`
@@ -981,7 +981,7 @@ The `displayMap` consists of a list of display subelements.
 
 displayMaps are designed to be shared across many different keyboard layout descriptions, and imported with `<import>` in where needed.
 
-For combining characters, U+25CC `◌` is used as a base.
+For combining characters, U+25CC `◌` is used as a base. It is an error to use a combining character without a base in the `display` attribute.
 
 For example, a key which outputs a combining tilde (U+0303) can be represented as follows:
 

@@ -117,9 +117,9 @@ Additionally, the standardized identifier for keyboards can be used to communica
 
 The data can also be used in analysis of the capabilities of different keyboards. It also allows better interoperability by making it easier for keyboard designers to see which characters are generally supported on keyboards for given languages.
 
-To illustrate this specification, here is an abridged layout representing the English US 101 keyboard on the macOS operating system (with an inserted long-press example).
+<!-- To illustrate this specification, here is an abridged layout representing the English US 101 keyboard on the macOS operating system (with an inserted long-press example). -->
 
-For more complete examples, and information collected about keyboards, see keyboard data in XML.
+For complete examples, see the XML files in the CLDR source repository.
 
 * * *
 
@@ -184,6 +184,8 @@ Distinguished from the **frame keys**.
 
 **Frame keys:** These are keys which do not emit characters and are outside of the area of the **core keys**. These keys include both **modifier** keys, such as Shift or Ctrl, but also include platform specific keys: Fn, IME and layout-switching keys, cursor keys, emoji keys.
 
+**Hardware keyboard:** an input device which has individual keys that are pressed. Each key has a unique identifier and the arrangement doesn't change, even if the mapping of those keys does. Also known as a physical keyboard.
+
 <!-- **Hardware map:** A mapping between  and layout positions. -->
 
 **Input Method Editor (IME):** a component or program that supports input of large character sets. Typically, IMEs employ contextual logic and candidate UI to identify the Unicode characters intended by the user.
@@ -216,11 +218,13 @@ If it becomes necessary in the future, the format could extend the ISO layout to
 
 **Modifier:** A key that is held to change the behavior of a hardware keyboard. For example, the "Shift" key allows access to upper-case characters on a US keyboard. Other modifier keys include but are not limited to: Ctrl, Alt, Option, Command and Caps Lock. On a touch layout, keys that appear to be modifier keys should be considered to be layer-switching keys.
 
-**Physical keyboard** is an input device which has individual keys that are pressed. Each key has a unique identifier and the arrangement doesn't change, even if the mapping of those keys does.
+**Physical keyboard:** see **Hardware keyboard**
+
+**Touch keyboard** is a keyboard that is rendered on a, typically, touch surface. It has a dynamic arrangement and contrasts with a hardware keyboard. This term has many synonyms: software keyboard, SIP (Software Input Panel), virtual keyboard. This contrasts with other uses of the term virtual keyboard as an on-screen keyboard for reference or accessibility data entry.
 
 **Transform:** A transform is an element that specifies a set of conversions from sequences of code points into one (or more) other code points. For example, in most latin keyboards hitting the "^" dead-key followed by the "e" key produces "ê".
 
-**Virtual keyboard** is a keyboard that is rendered on a, typically, touch surface. It has a dynamic arrangement and contrasts with a physical keyboard. This term has many synonyms: touch keyboard, software keyboard, SIP (Software Input Panel). This contrasts with other uses of the term virtual keyboard as an on-screen keyboard for reference or accessibility data entry.
+**Virtual keyboard:** see **Touch keyboard**
 
 ### <a name="Escaping" href="#Escaping">Escaping</a>
 

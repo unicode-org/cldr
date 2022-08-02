@@ -55,7 +55,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp=":" type="tts">վերջակետ</annotation>
 		<annotation cp="!">բացականչության կետ | բացականչության նշան | բացականչություն | հարված</annotation>
 		<annotation cp="!" type="tts">բացականչության նշան</annotation>
-		<annotation cp="¡">բացականչական նշան | բացականչություն | շրջված</annotation>
+		<annotation cp="¡">բացականչական նշան | բացականչություն | շրջված | շրջված բացականչության նշան</annotation>
 		<annotation cp="¡" type="tts">շրջված բացականչության նշան</annotation>
 		<annotation cp="?">հարց | հարցի նշան</annotation>
 		<annotation cp="?" type="tts">հարցի նշան</annotation>
@@ -131,7 +131,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="§" type="tts">հատված</annotation>
 		<annotation cp="¶">պարբերության նշան | պարբերություն</annotation>
 		<annotation cp="¶" type="tts">պարբերության նշան</annotation>
-		<annotation cp="@">at | շնիկ</annotation>
+		<annotation cp="@">at | ըթ-ի նշան | շնիկ</annotation>
 		<annotation cp="@" type="tts">ըթ-ի նշան</annotation>
 		<annotation cp="*">աստղ | աստղանիշ | էջատակ | հղում | տեղադրման նշան</annotation>
 		<annotation cp="*" type="tts">աստղանիշ</annotation>
@@ -715,13 +715,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😀" type="tts">ծիծաղող դեմք</annotation>
 		<annotation cp="😃">բաց | բերան | դեմք | ժպտալ | ժպտացող դեմք բաց բերանով</annotation>
 		<annotation cp="😃" type="tts">ժպտացող դեմք բաց բերանով</annotation>
-		<annotation cp="😄">աչք | բաց | բաց բերնով ժպտացող դեմք՝ ժպտացող աչքերով | բերան | դեմք | ժպտալ</annotation>
+		<annotation cp="😄">աչք | բաց | բաց բերնով ժպտացող դեմք՝ ժպտացող աչքերով | բերան | դեմք | ժպտալ | ժպտացող աչքերով լայն ժպիտով դեմք</annotation>
 		<annotation cp="😄" type="tts">ժպտացող աչքերով լայն ժպիտով դեմք</annotation>
 		<annotation cp="😁">աչք | դեմք | ժպտալ | ծիծաղող դեմք ժպտացող աչքերով | քմծիծաղել</annotation>
 		<annotation cp="😁" type="tts">ծիծաղող դեմք ժպտացող աչքերով</annotation>
-		<annotation cp="😆">բաց | բերան | գոհ | ժպտացող դեմք բաց բերանով և ամուր փակած աչքերով | ծիծաղել | քմծիծաղող շեղված դեմք</annotation>
+		<annotation cp="😆">աչքերը կկոցած լայն ժպիտով դեմք | բաց | բերան | գոհ | ժպտացող դեմք բաց բերանով և ամուր փակած աչքերով | ծիծաղել | քմծիծաղող շեղված դեմք</annotation>
 		<annotation cp="😆" type="tts">աչքերը կկոցած լայն ժպիտով դեմք</annotation>
-		<annotation cp="😅">բաց | դեմք | ժպտալ | ժպտացող դեմք բաց բերանով և սառը քրտինքով | քրտինք</annotation>
+		<annotation cp="😅">բաց | դեմք | ժպտալ | ժպտացող դեմք բաց բերանով և սառը քրտինքով | սառը քրտինքով լայն ժպիտով դեմք | քրտինք</annotation>
 		<annotation cp="😅" type="tts">սառը քրտինքով լայն ժպիտով դեմք</annotation>
 		<annotation cp="🤣">գլորվել | դեմք | ծիծաղ | ծիծաղից գլորվում է</annotation>
 		<annotation cp="🤣" type="tts">ծիծաղից գլորվում է</annotation>
@@ -773,7 +773,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤗" type="tts">գրկող դեմք</annotation>
 		<annotation cp="🤭">ձեռքը բերանին դեմք | վայ</annotation>
 		<annotation cp="🤭" type="tts">ձեռքը բերանին դեմք</annotation>
-		<annotation cp="🫢">ամոթ | բերանը փակած | զարմանք | խայտառակություն | վախ</annotation>
+		<annotation cp="🫢" draft="provisional">բաց աչքերով դեմք եւ ձեռքով՝ բերանի վրա</annotation>
 		<annotation cp="🫢" type="tts" draft="provisional">բաց աչքերով դեմք եւ ձեռքով՝ բերանի վրա</annotation>
 		<annotation cp="🫣">աչք դնել | զննել | ծկրակող աչքով դեմք | հմայված</annotation>
 		<annotation cp="🫣" type="tts">ծկրակող աչքով դեմք</annotation>
@@ -781,7 +781,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤫" type="tts">«սուս» անող դեմք</annotation>
 		<annotation cp="🤔">դեմք | մտածող</annotation>
 		<annotation cp="🤔" type="tts">մտածող դեմք</annotation>
-		<annotation cp="🫡">արևոտ | բանակ | եղավ | լավ | ողջույն | ոնց ասես</annotation>
+		<annotation cp="🫡">արևոտ | բանակ | եղավ | լավ | ողջույն | ողջունող դեմք | ոնց ասես</annotation>
 		<annotation cp="🫡" type="tts">ողջունող դեմք</annotation>
 		<annotation cp="🤐">բերան | դեմք | ճարմանդ | ճարմանդավոր բերանով դեմք | շղթա</annotation>
 		<annotation cp="🤐" type="tts">ճարմանդավոր բերանով դեմք</annotation>
@@ -809,7 +809,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😮‍💨" type="tts">արտաշնչող դեմք</annotation>
 		<annotation cp="🤥">դեմք | խաբող դեմք | պինոկիո | սուտ</annotation>
 		<annotation cp="🤥" type="tts">խաբող դեմք</annotation>
-		<annotation cp="🫨">երկրաշարժ | հարված | շոկ | վիբրացիա | ցնցում</annotation>
+		<annotation cp="🫨">երկրաշարժ | հարված | շոկ | վիբրացիա | ցնցում | ցնցվող դեմք</annotation>
 		<annotation cp="🫨" type="tts">ցնցվող դեմք</annotation>
 		<annotation cp="😌">դեմք | թեթևացած</annotation>
 		<annotation cp="😌" type="tts">թեթևացած դեմք</annotation>
@@ -851,7 +851,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥳" type="tts">խնջույքավոր դեմք</annotation>
 		<annotation cp="🥸">ակնոց | դիմակ | դիմակով դեմք | ինկոգնիտո | քիթ | քողարկված</annotation>
 		<annotation cp="🥸" type="tts">դիմակով դեմք</annotation>
-		<annotation cp="😎">արև | արևային ակնոց | դեմք | զիլ | թույն</annotation>
+		<annotation cp="😎">արև | արևային ակնոց | դեմք | զիլ | թույն | ժպտացող դեմք արևային ակնոցով</annotation>
 		<annotation cp="😎" type="tts">ժպտացող դեմք արևային ակնոցով</annotation>
 		<annotation cp="🤓">գերազանցիկ | դեմք | խելացի | խելոքի դեմք</annotation>
 		<annotation cp="🤓" type="tts">խելոքի դեմք</annotation>
@@ -1005,7 +1005,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💙" type="tts">կապույտ սիրտ</annotation>
 		<annotation cp="💜">մանուշակագույն | սիրտ</annotation>
 		<annotation cp="💜" type="tts">մանուշակագույն սիրտ</annotation>
-		<annotation cp="🩵">երկնագույն | կապույտ | սիրտ | սրտիկ</annotation>
+		<annotation cp="🩵">բաց կապույտ սիրտ | երկնագույն | կապույտ | սիրտ | սրտիկ</annotation>
 		<annotation cp="🩵" type="tts">բաց կապույտ սիրտ</annotation>
 		<annotation cp="🩶">արծաթագույն | գորշ | մոխրագույն | սիրտ | սրտիկ</annotation>
 		<annotation cp="🩶" type="tts">մոխրագույն սիրտ</annotation>
@@ -1059,9 +1059,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫱" type="tts">աջակողմ ձեռք</annotation>
 		<annotation cp="🫲">ձախ | ձախակողմ | ձեռք</annotation>
 		<annotation cp="🫲" type="tts">ձախակողմ ձեռք</annotation>
-		<annotation cp="🫳">գցել | հրաժարվել | ներքև | վար</annotation>
+		<annotation cp="🫳">գցել | հրաժարվել | ձեռքը ափով ներքև | ներքև | վար</annotation>
 		<annotation cp="🫳" type="tts">ձեռքը ափով ներքև</annotation>
-		<annotation cp="🫴">առաջարկ | արի | բռնել | կանչել</annotation>
+		<annotation cp="🫴">առաջարկ | արի | ափը՝ վեր ձեռք | բռնել | կանչել</annotation>
 		<annotation cp="🫴" type="tts">ափը՝ վեր ձեռք</annotation>
 		<annotation cp="👌">ok | ok ցույց տվող ձեռք | ձեռք | մարմին</annotation>
 		<annotation cp="👌" type="tts">ok ցույց տվող ձեռք</annotation>
@@ -1121,9 +1121,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤝" type="tts">ձեռքսեղմում</annotation>
 		<annotation cp="🙏">աղոթել | ժեստ | խնդրել | խնդրում եմ | խոնարհվել | ձեռք | ձեռքերի ափերը միացված | մարմին | միացված | շնորհակալություն</annotation>
 		<annotation cp="🙏" type="tts">ձեռքերի ափերը միացված</annotation>
-		<annotation cp="🫷">գնա | դեպի ձախ | կանգնիր | հրաժարվել | հրել | ոչ | սպասիր</annotation>
+		<annotation cp="🫷">գնա | դեպի ձախ | դեպի ձախ հրող ձեռք | կանգնիր | հրաժարվել | հրել | ոչ | սպասիր</annotation>
 		<annotation cp="🫷" type="tts">դեպի ձախ հրող ձեռք</annotation>
-		<annotation cp="🫸">գնա | դեպի աջ | կանգնիր | հրաժարվել | հրել | ոչ | սպասիր</annotation>
+		<annotation cp="🫸">գնա | դեպի աջ | դեպի աջ հրող ձեռք | կանգնիր | հրաժարվել | հրել | ոչ | սպասիր</annotation>
 		<annotation cp="🫸" type="tts">դեպի աջ հրող ձեռք</annotation>
 		<annotation cp="✍">գրել | գրող ձեռք | ձեռք | մարմին</annotation>
 		<annotation cp="✍" type="tts">գրող ձեռք</annotation>
@@ -1223,7 +1223,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙆‍♂" type="tts">տղամարդը կողմ է</annotation>
 		<annotation cp="🙆‍♀">ժեստ | կին | կինը կողմ է | կողմ | ձեռք</annotation>
 		<annotation cp="🙆‍♀" type="tts">կինը կողմ է</annotation>
-		<annotation cp="💁">հանդուգն | ձեռձեռքը թեքած անձ | տեղեկատվություն | օգնել</annotation>
+		<annotation cp="💁">հանդուգն | ձեռձեռքը թեքած անձ | ձեռքը թեքած անձ | տեղեկատվություն | օգնել</annotation>
 		<annotation cp="💁" type="tts">ձեռքը թեքած անձ</annotation>
 		<annotation cp="💁‍♂">հանդուգն | տղամարդ | տղամարդը բացում է իր մտադրությունները</annotation>
 		<annotation cp="💁‍♂" type="tts">տղամարդը բացում է իր մտադրությունները</annotation>
@@ -1437,7 +1437,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦸‍♂" type="tts">տղամարդ սուպերհերոս</annotation>
 		<annotation cp="🦸‍♀">գերուժ | լավ | կին սուպերհերոս | հերոս | հերոսուհի</annotation>
 		<annotation cp="🦸‍♀" type="tts">կին սուպերհերոս</annotation>
-		<annotation cp="🦹">գերուժ | գերչարագործ | հանցագործ | չարագործ | չարիք</annotation>
+		<annotation cp="🦹">գերուժ | գերչարագործ | հանցագործ | չարագործ | չարիք | սուպերչարագործ</annotation>
 		<annotation cp="🦹" type="tts">սուպերչարագործ</annotation>
 		<annotation cp="🦹‍♂">գերուժ | հանցագործ | չարագործ | չարիք | տղամարդ</annotation>
 		<annotation cp="🦹‍♂" type="tts">տղամարդ չարագործ</annotation>
@@ -1485,7 +1485,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧟‍♂" type="tts">տղամարդ զոմբի</annotation>
 		<annotation cp="🧟‍♀">կենդանի | կին | կին զոմբի | մեռել</annotation>
 		<annotation cp="🧟‍♀" type="tts">կին զոմբի</annotation>
-		<annotation cp="🧌">հեքիաթ | հորինվածք | հրեշ | չարք</annotation>
+		<annotation cp="🧌">հեքիաթ | հորինվածք | հրեշ | չարք | տրոլլ</annotation>
 		<annotation cp="🧌" type="tts">տրոլլ</annotation>
 		<annotation cp="💆">դեմք | մերսում | մերսվող անձ | սրահ</annotation>
 		<annotation cp="💆" type="tts">մերսվող անձ</annotation>
@@ -1545,7 +1545,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💃" type="tts">պարուհի</annotation>
 		<annotation cp="🕺">մարդ | պար | պարող մարդ | պարող տղամարդ</annotation>
 		<annotation cp="🕺" type="tts">պարող մարդ</annotation>
-		<annotation cp="🕴">անձ | գործարարություն | հագուստ | տեղաճախրող անձ | տեղում ճախրող գործնական հագուստով մարդ</annotation>
+		<annotation cp="🕴">անձ | գործարարություն | հագուստ | տեղաճախրող անձ | տեղում ճախրող գործնական կոստյումով մարդ | տեղում ճախրող գործնական հագուստով մարդ</annotation>
 		<annotation cp="🕴" type="tts">տեղում ճախրող գործնական կոստյումով մարդ</annotation>
 		<annotation cp="👯">ականջ | աղջիկ | կին | ճագար | ճագարի ականջներով մարդիկ | պարող | պարող կանայք</annotation>
 		<annotation cp="👯" type="tts">ճագարի ականջներով մարդիկ</annotation>
@@ -1733,7 +1733,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐆" type="tts">ընձառյուծ</annotation>
 		<annotation cp="🐴">ձի | ձիու մռութ | մռութ</annotation>
 		<annotation cp="🐴" type="tts">ձիու մռութ</annotation>
-		<annotation cp="🫎" draft="provisional">եղջյուրներ | կաթնասուն | կենդանի</annotation>
+		<annotation cp="🫎">եղջյուրներ | կաթնասուն | կենդանի | որմզդեղն</annotation>
 		<annotation cp="🫎" type="tts">որմզդեղն</annotation>
 		<annotation cp="🫏">էշ | ընտանի | կաթնասուն | կամակոր | կենդանի | ջորի</annotation>
 		<annotation cp="🫏" type="tts">էշ</annotation>
@@ -1861,9 +1861,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦚" type="tts">սիրամարգ</annotation>
 		<annotation cp="🦜">թութակ | թռչուն | խոսոց | ծովահեն</annotation>
 		<annotation cp="🦜" type="tts">թութակ</annotation>
-		<annotation cp="🪽">ավիացիա | դիցաբանություն | թռչող | թռչուն | հրեշտակ</annotation>
+		<annotation cp="🪽">ավիացիա | դիցաբանություն | թև | թռչող | թռչուն | հրեշտակ</annotation>
 		<annotation cp="🪽" type="tts">թև</annotation>
-		<annotation cp="🪿">ընտանի | թռչուն</annotation>
+		<annotation cp="🪿">ընտանի | թռչուն | սագ</annotation>
 		<annotation cp="🪿" type="tts">սագ</annotation>
 		<annotation cp="🐸">գորտ | դեմք | մռութ</annotation>
 		<annotation cp="🐸" type="tts">գորտ</annotation>
@@ -1903,9 +1903,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐙" type="tts">ութոտնուկ</annotation>
 		<annotation cp="🐚">խխունջ | պարույր | պարուրաձև խխունջախեցի</annotation>
 		<annotation cp="🐚" type="tts">պարուրաձև խխունջախեցի</annotation>
-		<annotation cp="🪸">խութ | կորալ | ովկիանոս</annotation>
+		<annotation cp="🪸">բուստ | խութ | կորալ | ովկիանոս</annotation>
 		<annotation cp="🪸" type="tts">բուստ</annotation>
-		<annotation cp="🪼">այրոց | անողնաշար | դոնդող | ծովային | կծան</annotation>
+		<annotation cp="🪼" draft="provisional">ծովամայր</annotation>
 		<annotation cp="🪼" type="tts" draft="provisional">ծովամայր</annotation>
 		<annotation cp="🐌">դանդաղաշարժ | խեցի | խխունջ | տնակ</annotation>
 		<annotation cp="🐌" type="tts">խխունջ</annotation>
@@ -1947,7 +1947,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💮" type="tts">սպիտակ ծաղիկ</annotation>
 		<annotation cp="🪷">բուդդայականություն | լոտոս | ծաղիկ | հինդուականություն | Հնդկաստան | սրբություն | Վիետնամ</annotation>
 		<annotation cp="🪷" type="tts">լոտոս</annotation>
-		<annotation cp="🏵">բույս | վարդակ</annotation>
+		<annotation cp="🏵">բույս | վարդակ | վարդանախշ</annotation>
 		<annotation cp="🏵" type="tts">վարդանախշ</annotation>
 		<annotation cp="🌹">բույս | ծաղիկ | վարդ</annotation>
 		<annotation cp="🌹" type="tts">վարդ</annotation>
@@ -1961,7 +1961,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌼" type="tts">ծաղիկ</annotation>
 		<annotation cp="🌷">բույս | ծաղիկ | կակաչ</annotation>
 		<annotation cp="🌷" type="tts">կակաչ</annotation>
-		<annotation cp="🪻" draft="provisional">ծաղիկ | հակինտ | նարդոս</annotation>
+		<annotation cp="🪻">ծաղիկ | հակինթ | հակինտ | նարդոս</annotation>
 		<annotation cp="🪻" type="tts">հակինթ</annotation>
 		<annotation cp="🌱">բույս | ծիլ | մատղաշ</annotation>
 		<annotation cp="🌱" type="tts">ծիլ</annotation>
@@ -2063,9 +2063,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫘" type="tts">լոբի</annotation>
 		<annotation cp="🌰">բույս | շագանակ</annotation>
 		<annotation cp="🌰" type="tts">շագանակ</annotation>
-		<annotation cp="🫚">արմատ | իմբիր | համեմունք | տաքկոճ</annotation>
+		<annotation cp="🫚">արմատ | իմբիր | կոճապղպեղի արմատ | համեմունք | տաքկոճ</annotation>
 		<annotation cp="🫚" type="tts">կոճապղպեղի արմատ</annotation>
-		<annotation cp="🫛">բանջարեղեն | լոբազգի | ոլոռ | սիսեռ</annotation>
+		<annotation cp="🫛">բանջարեղեն | լոբազգի | ոլոռ | սիսեռ | սիսեռապատիճ</annotation>
 		<annotation cp="🫛" type="tts">սիսեռապատիճ</annotation>
 		<annotation cp="🍞">բոքոն | հաց</annotation>
 		<annotation cp="🍞" type="tts">հաց</annotation>
@@ -2115,7 +2115,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧆" type="tts">ֆալաֆել</annotation>
 		<annotation cp="🥚">ձու | ուտելիք</annotation>
 		<annotation cp="🥚" type="tts">ձու</annotation>
-		<annotation cp="🍳">եփել | թավա | թավայով ձվածեղ | ձու | նախաճաշ | տապակել</annotation>
+		<annotation cp="🍳">եփել | եփում | թավա | թավայով ձվածեղ | ձու | նախաճաշ | տապակել</annotation>
 		<annotation cp="🍳" type="tts">եփում</annotation>
 		<annotation cp="🥘">թավա | ուտելիք | պաելյա | տապակ | տապակա | տապակած</annotation>
 		<annotation cp="🥘" type="tts">տապակ</annotation>
@@ -2145,7 +2145,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍚" type="tts">եփած բրինձ</annotation>
 		<annotation cp="🍛">բրինձ | կարրի | քարրիով բրինձ</annotation>
 		<annotation cp="🍛" type="tts">քարրիով բրինձ</annotation>
-		<annotation cp="🍜">գոլորշի | թաս | լապշա | ռամեն | ռամյոն | տաք ուտեստ</annotation>
+		<annotation cp="🍜">գոլորշի | թաս | լապշա | ռամեն | ռամյոն | տաք ապուր | տաք ուտեստ</annotation>
 		<annotation cp="🍜" type="tts">տաք ապուր</annotation>
 		<annotation cp="🍝">մակարոնեղեն | սպագետի</annotation>
 		<annotation cp="🍝" type="tts">սպագետի</annotation>
@@ -2235,7 +2235,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥂" type="tts">զնգացող բաժակներ</annotation>
 		<annotation cp="🥃">բաժակ | գինի | խոշոր բաժակ | կոնյակ | վիսկի | օղի</annotation>
 		<annotation cp="🥃" type="tts">խոշոր բաժակ</annotation>
-		<annotation cp="🫗">բաժակ | դատարկել | ըմպելիք | լցնել | խմիչք</annotation>
+		<annotation cp="🫗">բաժակ | դատարկել | ըմպելիք | լցնել | խմիչք | հեղուկի լցում</annotation>
 		<annotation cp="🫗" type="tts">հեղուկի լցում</annotation>
 		<annotation cp="🥤">զովացուցիչ | ըմպելիք | կոլա | հյութ | ձողիկով բաժակ</annotation>
 		<annotation cp="🥤" type="tts">ձողիկով բաժակ</annotation>
@@ -2251,7 +2251,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥢" type="tts">փայտիկներ</annotation>
 		<annotation cp="🍽">ափսե | դանակ | խոհարարություն | պատառաքաղ | պատառաքաղ և դանակ ափսեի հետ</annotation>
 		<annotation cp="🍽" type="tts">պատառաքաղ և դանակ ափսեի հետ</annotation>
-		<annotation cp="🍴">դանակ | եփել | խոհարարություն | պատառաքաղ | սպասք</annotation>
+		<annotation cp="🍴">դանակ | եփել | խոհարարություն | պատառաքաղ | պատառաքաղ և դանակ | սպասք</annotation>
 		<annotation cp="🍴" type="tts">պատառաքաղ և դանակ</annotation>
 		<annotation cp="🥄">գդալ | սպասք</annotation>
 		<annotation cp="🥄" type="tts">գդալ</annotation>
@@ -2383,7 +2383,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♨" type="tts">տաք աղբյուրներ</annotation>
 		<annotation cp="🎠">կարուսել | կարուսելի ձի | ձի</annotation>
 		<annotation cp="🎠" type="tts">կարուսելի ձի</annotation>
-		<annotation cp="🛝">զբոսայգի | խաղ | խաղահրապարակ | պարկ | սղալ</annotation>
+		<annotation cp="🛝">զբոսայգի | խաղ | խաղահրապարակ | խաղահրապարակի սղարան | պարկ | սղալ</annotation>
 		<annotation cp="🛝" type="tts">խաղահրապարակի սղարան</annotation>
 		<annotation cp="🎡">անիվ | զվարճանքների այգի | սատանայի</annotation>
 		<annotation cp="🎡" type="tts">սատանայի անիվ</annotation>
@@ -2399,7 +2399,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚃" type="tts">երկաթուղային վագոն</annotation>
 		<annotation cp="🚄">արագություն | գնացք | երկաթուղի | ճեպընթաց գնացք | սինկանսեն | փոխադրամիջոց</annotation>
 		<annotation cp="🚄" type="tts">ճեպընթաց գնացք</annotation>
-		<annotation cp="🚅">արագություն | գերարագ | երկաթգիծ | երկաթուղի | շինկանսեն | սինկանսեն</annotation>
+		<annotation cp="🚅">արագություն | գերարագ | գերճեպընթաց գնացք | երկաթգիծ | երկաթուղի | շինկանսեն | սինկանսեն</annotation>
 		<annotation cp="🚅" type="tts">գերճեպընթաց գնացք</annotation>
 		<annotation cp="🚆">գնացք | երկաթուղի | փոխադրամիջոց</annotation>
 		<annotation cp="🚆" type="tts">գնացք</annotation>
@@ -2495,7 +2495,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚧" type="tts">շինարարություն</annotation>
 		<annotation cp="⚓">գործիք | խարիսխ | նավ</annotation>
 		<annotation cp="⚓" type="tts">խարիսխ</annotation>
-		<annotation cp="🛟">անվտանգություն | փրկել | օղակ</annotation>
+		<annotation cp="🛟">անվտանգություն | փրկել | փրկօղակ | օղակ</annotation>
 		<annotation cp="🛟" type="tts">փրկօղակ</annotation>
 		<annotation cp="⛵">առագաստանավ | զբոսանավ | ծով | հանգստավայր | նավակ | փոխադրամիջոց</annotation>
 		<annotation cp="⛵" type="tts">առագաստանավ</annotation>
@@ -2695,7 +2695,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔥" type="tts">կրակ</annotation>
 		<annotation cp="💧">եղանակ | կաթիլ | կոմիքս | սառը | քրտինք</annotation>
 		<annotation cp="💧" type="tts">կաթիլ</annotation>
-		<annotation cp="🌊">ծով | ջուր | օվկիանոս</annotation>
+		<annotation cp="🌊">ծով | ջուր | ջրի ալիք | օվկիանոս</annotation>
 		<annotation cp="🌊" type="tts">ջրի ալիք</annotation>
 		<annotation cp="🎃">լապտեր | հելոուին | ջեք | ջեքի լապտեր | տոն</annotation>
 		<annotation cp="🎃" type="tts">ջեքի լապտեր</annotation>
@@ -2909,9 +2909,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👙" type="tts">բիկինի</annotation>
 		<annotation cp="👚">կին | կնոջ հագուստ | հագուստ</annotation>
 		<annotation cp="👚" type="tts">կնոջ հագուստ</annotation>
-		<annotation cp="🪭">ամաչկոտ | հով | շոգ | պարել</annotation>
+		<annotation cp="🪭">ամաչկոտ | հով | ձեռքի հովհար | շոգ | պարել</annotation>
 		<annotation cp="🪭" type="tts">ձեռքի հովհար</annotation>
-		<annotation cp="🪮">աֆրո | մազեր | սանր | վարսեր</annotation>
+		<annotation cp="🪮">աֆրո | մազեր | սանր | սանրիկ | վարսեր</annotation>
 		<annotation cp="🪮" type="tts">սանրիկ</annotation>
 		<annotation cp="👛">դրամապանակ | հագուստ | մետաղադրամ</annotation>
 		<annotation cp="👛" type="tts">դրամապանակ</annotation>
@@ -2969,7 +2969,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔈" type="tts">բարձրախոս</annotation>
 		<annotation cp="🔉">ալիք | բարձրախոս | բարձրախոսը միացված է | ձայն | ցածր</annotation>
 		<annotation cp="🔉" type="tts">բարձրախոսը միացված է</annotation>
-		<annotation cp="🔊">բարձր ձայն | բարձրաձայն | ձայնարկիչ</annotation>
+		<annotation cp="🔊">բարձր ձայն | բարձրախոսի ձայնը բարձր է | բարձրաձայն | ձայնարկիչ</annotation>
 		<annotation cp="🔊" type="tts">բարձրախոսի ձայնը բարձր է</annotation>
 		<annotation cp="📢">բարձրաձայն | հասարակական | մեծ բարձրախոս</annotation>
 		<annotation cp="📢" type="tts">մեծ բարձրախոս</annotation>
@@ -3017,9 +3017,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥁" type="tts">թմբուկ</annotation>
 		<annotation cp="🪘">թմբուկ | կոնգա | ռիթմ</annotation>
 		<annotation cp="🪘" type="tts">կոնգա</annotation>
-		<annotation cp="🪇">գործիք | երաժշտություն | հարվածային | չխկչխկան | պերկուսիա</annotation>
+		<annotation cp="🪇">գործիք | երաժշտություն | հարվածային | մարակաս | չխկչխկան | պերկուսիա</annotation>
 		<annotation cp="🪇" type="tts">մարակաս</annotation>
-		<annotation cp="🪈">գործիք | երաժշտություն | փայտափողային | փողային | ֆլեյտա</annotation>
+		<annotation cp="🪈">գործիք | երաժշտություն | սրինգ | փայտափողային | փողային | ֆլեյտա</annotation>
 		<annotation cp="🪈" type="tts">սրինգ</annotation>
 		<annotation cp="📱">բջջային | հեռախոս | շարժական</annotation>
 		<annotation cp="📱" type="tts">բջջային հեռախոս</annotation>
@@ -3041,7 +3041,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔌" type="tts">էլեկտրական խրոց</annotation>
 		<annotation cp="💻">անձնական | համակարգիչ | նոթբուք</annotation>
 		<annotation cp="💻" type="tts">նոթբուք</annotation>
-		<annotation cp="🖥">համակարգիչ | սեղան</annotation>
+		<annotation cp="🖥">համակարգիչ | սեղան | սեղանի համակարգիչ</annotation>
 		<annotation cp="🖥" type="tts">սեղանի համակարգիչ</annotation>
 		<annotation cp="🖨">համակարգիչ | տպիչ</annotation>
 		<annotation cp="🖨" type="tts">տպիչ</annotation>
@@ -3059,11 +3059,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💿" type="tts">օպտիկական սկավառակ</annotation>
 		<annotation cp="📀">blu-ray | cd | DVD | համակարգիչ | սկավառակ | օպտիկական</annotation>
 		<annotation cp="📀" type="tts">DVD</annotation>
-		<annotation cp="🧮">հաշվիչ</annotation>
+		<annotation cp="🧮">համրիչ | հաշվիչ</annotation>
 		<annotation cp="🧮" type="tts">համրիչ</annotation>
 		<annotation cp="🎥">խցիկ | կինո | կինոխցիկ</annotation>
 		<annotation cp="🎥" type="tts">կինոխցիկ</annotation>
-		<annotation cp="🎞">ժապավեն | կադր | կինո</annotation>
+		<annotation cp="🎞">ժապավեն | ժապավենի կադրեր | կադր | կինո</annotation>
 		<annotation cp="🎞" type="tts">ժապավենի կադրեր</annotation>
 		<annotation cp="📽">ժապավեն | ժապավենային պրոյեկտոր | կինո | պրոյեկտոր | վիդեո | ֆիլմ</annotation>
 		<annotation cp="📽" type="tts">ժապավենային պրոյեկտոր</annotation>
@@ -3385,7 +3385,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗿" type="tts">մոաի</annotation>
 		<annotation cp="🪧">բողոք | հանրահավաք | պաստառ | ցույց</annotation>
 		<annotation cp="🪧" type="tts">պաստառ</annotation>
-		<annotation cp="🪪">ID | անվտանգություն | նույնականացման քարտ | նույնականացում</annotation>
+		<annotation cp="🪪">ID | անվտանգություն | նույնականացման քարտ | նույնականացում | նույնացուցիչ քարտ</annotation>
 		<annotation cp="🪪" type="tts">նույնացուցիչ քարտ</annotation>
 		<annotation cp="🏧">atm | բանկ | բանկոմատ | բանկոմատի նշան | գանձապահ</annotation>
 		<annotation cp="🏧" type="tts">բանկոմատի նշան</annotation>
@@ -3507,7 +3507,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🕎" type="tts">մենորա</annotation>
 		<annotation cp="🔯">աստղ | բախտ | կետիկով վեցթևանի աստղ</annotation>
 		<annotation cp="🔯" type="tts">կետիկով վեցթևանի աստղ</annotation>
-		<annotation cp="🪯" draft="provisional">խորհրդանիշ | կրոն | սիք</annotation>
+		<annotation cp="🪯" draft="provisional">քանդա</annotation>
 		<annotation cp="🪯" type="tts" draft="provisional">քանդա</annotation>
 		<annotation cp="♈">Խոյ | կենդանակերպ</annotation>
 		<annotation cp="♈" type="tts">Խոյ</annotation>
@@ -3583,7 +3583,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📳" type="tts">թրթռազանգի ռեժիմ</annotation>
 		<annotation cp="📴">անջատված | բջջային | բջջայինն անջատված է | հեռախոս | շարժական</annotation>
 		<annotation cp="📴" type="tts">բջջայինն անջատված է</annotation>
-		<annotation cp="🛜">առցանց | ինտերնետ | կապ | ցանց</annotation>
+		<annotation cp="🛜">անլար | առցանց | ինտերնետ | կապ | ցանց</annotation>
 		<annotation cp="🛜" type="tts">անլար</annotation>
 		<annotation cp="♀">կին | կնոջ նշան</annotation>
 		<annotation cp="♀" type="tts">կնոջ նշան</annotation>

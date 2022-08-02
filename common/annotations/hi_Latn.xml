@@ -135,7 +135,7 @@ annotations.
 		<annotation cp="§" type="tts">section</annotation>
 		<annotation cp="¶">alinea | paragraph | paragraph mark | paraph | pilcrow</annotation>
 		<annotation cp="¶" type="tts">paragraph mark</annotation>
-		<annotation cp="@">ampersat | arobase | arroba | at mark | at sign | commercial at | strudel</annotation>
+		<annotation cp="@">ampersat | arobase | arroba | at mark | at sign | at-sign | commercial at | strudel</annotation>
 		<annotation cp="@" type="tts">at-sign</annotation>
 		<annotation cp="*">asterisk | star | wildcard</annotation>
 		<annotation cp="*" type="tts">asterisk</annotation>
@@ -583,7 +583,7 @@ annotations.
 		<annotation cp="▮" type="tts">filled vertical rectangle</annotation>
 		<annotation cp="▰">filled parallelogram</annotation>
 		<annotation cp="▰" type="tts">filled parallelogram</annotation>
-		<annotation cp="▲">arrow | filled | oopar point karta hua filled triangle | triangle | up</annotation>
+		<annotation cp="▲">arrow | filled | oopar point karta hua filled triangle | Oopar point karta hua filled triangle | triangle | up</annotation>
 		<annotation cp="▲" type="tts">Oopar point karta hua filled triangle</annotation>
 		<annotation cp="△">hollow up-pointing triangle</annotation>
 		<annotation cp="△" type="tts">hollow up-pointing triangle</annotation>
@@ -601,7 +601,7 @@ annotations.
 		<annotation cp="►" type="tts">filled right-pointing pointer</annotation>
 		<annotation cp="▻">hollow right-pointing pointer</annotation>
 		<annotation cp="▻" type="tts">hollow right-pointing pointer</annotation>
-		<annotation cp="▼">arrow | down | filled | neeche point karta hua triangle | triangle</annotation>
+		<annotation cp="▼">arrow | down | filled | neeche point karta hua filled triangle | neeche point karta hua triangle | triangle</annotation>
 		<annotation cp="▼" type="tts">neeche point karta hua filled triangle</annotation>
 		<annotation cp="▽">hollow down-pointing triangle</annotation>
 		<annotation cp="▽" type="tts">hollow down-pointing triangle</annotation>
@@ -769,7 +769,7 @@ annotations.
 		<annotation cp="🤗" type="tts">hug karta smiling face</annotation>
 		<annotation cp="🤭">mouth par haath wala face | whoops</annotation>
 		<annotation cp="🤭" type="tts">mouth par haath wala face</annotation>
-		<annotation cp="🫢">amazement | awe | disbelief | embarrass | khuli aankhein aur mouth par haath wala face | scared | surprise</annotation> <!-- 1FAE2 -->
+		<annotation cp="🫢">amazement | awe | disbelief | embarrass | khuli aankhein aur mouth par haath wala face | khuli aankhein aur munh par haath | scared | surprise</annotation> <!-- 1FAE2 -->
 		<annotation cp="🫢" type="tts">khuli aankhein aur munh par haath</annotation>
 		<annotation cp="🫣">captivated | fingers ke beech se jhaankta face | jhaankna | stare</annotation> <!-- 1FAE3 -->
 		<annotation cp="🫣" type="tts">fingers ke beech se jhaankta face</annotation>
@@ -945,7 +945,7 @@ annotations.
 		<annotation cp="😹" type="tts">khushi ke aansoo bahaati cat kaa face</annotation>
 		<annotation cp="😻">cat | eye | face | heart | heart-eyes wali smiling cat | love | smile</annotation>
 		<annotation cp="😻" type="tts">heart-eyes wali smiling cat</annotation>
-		<annotation cp="😼">cat | cat with wry smile | dissapointment ke saath smile karti cat | face | ironic | smile | wry</annotation>
+		<annotation cp="😼">cat | cat with wry smile | dissapointment ke saath smile karti cat | Dissapointment ke saath smile karti cat | face | ironic | smile | wry</annotation>
 		<annotation cp="😼" type="tts">Dissapointment ke saath smile karti cat</annotation>
 		<annotation cp="😽">cat | eye | face | kiss | kissing cat</annotation>
 		<annotation cp="😽" type="tts">kissing cat</annotation>
@@ -955,7 +955,7 @@ annotations.
 		<annotation cp="😿" type="tts">crying cat</annotation>
 		<annotation cp="😾">cat | face | pouting</annotation>
 		<annotation cp="😾" type="tts">pouting cat</annotation>
-		<annotation cp="🙈">bura na dekhne wala monkey | evil | face | forbidden | monkey | see</annotation>
+		<annotation cp="🙈">bura na dekhne wala monkey | Bura na dekhne wala monkey | evil | face | forbidden | monkey | see</annotation>
 		<annotation cp="🙈" type="tts">Bura na dekhne wala monkey</annotation>
 		<annotation cp="🙉">bura na sunne wala monkey | evil | face | forbidden | monkey</annotation>
 		<annotation cp="🙉" type="tts">bura na sunne wala monkey</annotation>
@@ -1079,13 +1079,13 @@ annotations.
 		<annotation cp="🤙" type="tts">call me kaa ishaara karne wala haath</annotation>
 		<annotation cp="👈">backhand | finger | hand | index | left mein point karti index finger | point</annotation>
 		<annotation cp="👈" type="tts">left mein point karti index finger</annotation>
-		<annotation cp="👉">backhand | finger | hand | index | point | right mein point karti index finger dikhaate haath ki back side</annotation>
+		<annotation cp="👉">backhand | finger | hand | index | point | right mein point karti index finger | right mein point karti index finger dikhaate haath ki back side</annotation>
 		<annotation cp="👉" type="tts">right mein point karti index finger</annotation>
-		<annotation cp="👆">backhand | finger | hand | oopar point karti index finger dikhaate haath ki back side | point | up</annotation>
+		<annotation cp="👆">backhand | finger | hand | oopar ishaara karti index finger | oopar point karti index finger dikhaate haath ki back side | point | up</annotation>
 		<annotation cp="👆" type="tts">oopar ishaara karti index finger</annotation>
 		<annotation cp="🖕">finger | hand | middle finger</annotation>
 		<annotation cp="🖕" type="tts">middle finger</annotation>
-		<annotation cp="👇">backhand | down | finger | hand | neeche point karti index finger dikhaate haath ki back side | point</annotation>
+		<annotation cp="👇">backhand | down | finger | hand | neeche ishaara karti index finger | neeche point karti index finger dikhaate haath ki back side | point</annotation>
 		<annotation cp="👇" type="tts">neeche ishaara karti index finger</annotation>
 		<annotation cp="☝">finger | hand | index | oopar point karti index finger | point | up</annotation>
 		<annotation cp="☝" type="tts">oopar point karti index finger</annotation>
@@ -1399,7 +1399,7 @@ annotations.
 		<annotation cp="🤵‍♂" type="tts">suit boot mein aadmi</annotation>
 		<annotation cp="🤵‍♀">suit boot mein mahila | tuxedo | woman</annotation> <!-- 1F935 200D 2640 -->
 		<annotation cp="🤵‍♀" type="tts">suit boot mein mahila</annotation>
-		<annotation cp="👰">↑↑↑</annotation>
+		<annotation cp="👰">bride | Ghoonghat mein bride | person | person with veil | veil | wedding</annotation>
 		<annotation cp="👰" type="tts">Ghoonghat mein bride</annotation>
 		<annotation cp="👰‍♀">parde mein dulhan | veil | woman</annotation> <!-- 1F470 200D 2640 -->
 		<annotation cp="👰‍♀" type="tts">parde mein dulhan</annotation>
@@ -2549,7 +2549,7 @@ annotations.
 		<annotation cp="⏲" type="tts">timer clock</annotation>
 		<annotation cp="🕰">clock | mantelpiece clock</annotation>
 		<annotation cp="🕰" type="tts">mantelpiece clock</annotation>
-		<annotation cp="🕛">00 | 12 | 12:00 | clock | o’clock | twelve</annotation>
+		<annotation cp="🕛">00 | 12 | 12:00 | clock | o’clock | twelve | twelve o’ clock</annotation>
 		<annotation cp="🕛" type="tts">twelve o’ clock</annotation>
 		<annotation cp="🕧">12 | 12:30 | clock | thirty | twelve | twelve-thirty</annotation>
 		<annotation cp="🕧" type="tts">twelve-thirty</annotation>
@@ -2823,7 +2823,7 @@ annotations.
 		<annotation cp="🎰" type="tts">slot machine</annotation>
 		<annotation cp="🎲">dice | die | game</annotation>
 		<annotation cp="🎲" type="tts">game die</annotation>
-		<annotation cp="🧩">clue | interlocking | jigsaw | piece | puzzle</annotation>
+		<annotation cp="🧩">clue | interlocking | jigsaw | piece | puzzle | puzzle game</annotation>
 		<annotation cp="🧩" type="tts">puzzle game</annotation>
 		<annotation cp="🧸">plaything | plush | stuffed | teddy bear | toy</annotation>
 		<annotation cp="🧸" type="tts">teddy bear</annotation>
@@ -3199,9 +3199,9 @@ annotations.
 		<annotation cp="🗓" type="tts">spiral calendar</annotation>
 		<annotation cp="📇">card | index | rolodex</annotation>
 		<annotation cp="📇" type="tts">card index</annotation>
-		<annotation cp="📈">badhat dikhaata chart | chart | graph | growth | trend | upward</annotation>
+		<annotation cp="📈">badhat dikhaata chart | Badhat dikhaata chart | chart | graph | growth | trend | upward</annotation>
 		<annotation cp="📈" type="tts">Badhat dikhaata chart</annotation>
-		<annotation cp="📉">chart | down | graph | kami dikhaata chart | trend</annotation>
+		<annotation cp="📉">chart | down | graph | kami dikhaata chart | Kami dikhaata chart | trend</annotation>
 		<annotation cp="📉" type="tts">Kami dikhaata chart</annotation>
 		<annotation cp="📊">bar | chart | graph</annotation>
 		<annotation cp="📊" type="tts">bar chart</annotation>
@@ -3253,7 +3253,7 @@ annotations.
 		<annotation cp="🗡" type="tts">kataar</annotation>
 		<annotation cp="⚔">crossed | swords | weapon</annotation>
 		<annotation cp="⚔" type="tts">crossed swords</annotation>
-		<annotation cp="🔫">gun | handgun | pistol | revolver | tool | water | weapon</annotation>
+		<annotation cp="🔫">gun | handgun | paani ki pistol | pistol | revolver | tool | water | weapon</annotation>
 		<annotation cp="🔫" type="tts">paani ki pistol</annotation>
 		<annotation cp="🪃">australia | boomerang | rebound | repercussion</annotation>
 		<annotation cp="🪃" type="tts">boomerang</annotation>
@@ -3425,7 +3425,7 @@ annotations.
 		<annotation cp="🚱" type="tts">peene laayak paani nahi</annotation>
 		<annotation cp="🚷">forbidden | no | not | paidal chalne ki permission nahi | pedestrian | prohibited</annotation>
 		<annotation cp="🚷" type="tts">paidal chalne ki permission nahi</annotation>
-		<annotation cp="📵">cell | forbidden | mobile | mobile phones use karne ki permission nahi | no | phone</annotation>
+		<annotation cp="📵">cell | forbidden | mobile | mobile phones ki permission nahi | mobile phones use karne ki permission nahi | no | phone</annotation>
 		<annotation cp="📵" type="tts">mobile phones ki permission nahi</annotation>
 		<annotation cp="🔞">18 | age restriction | eighteen | prohibited | under 18 ko permission nahi | underage</annotation>
 		<annotation cp="🔞" type="tts">under 18 ko permission nahi</annotation>
@@ -3599,7 +3599,7 @@ annotations.
 		<annotation cp="♾" type="tts">infinity</annotation>
 		<annotation cp="‼">! | !! | bangbang | double exclamation mark | exclamation | mark</annotation>
 		<annotation cp="‼" type="tts">double exclamation mark</annotation>
-		<annotation cp="⁉">! | !? | ? | exclamation | interrobang | punctuation | question mark</annotation>
+		<annotation cp="⁉">! | !? | ? | exclamation | exclamation question mark | interrobang | punctuation | question mark</annotation>
 		<annotation cp="⁉" type="tts">exclamation question mark</annotation>
 		<annotation cp="❓">? | mark | punctuation | question | red question mark</annotation>
 		<annotation cp="❓" type="tts">red question mark</annotation>
@@ -3683,7 +3683,7 @@ annotations.
 		<annotation cp="ℹ" type="tts">information</annotation>
 		<annotation cp="🆔">ID | ID button | identity</annotation>
 		<annotation cp="🆔" type="tts">ID button</annotation>
-		<annotation cp="Ⓜ">circle | circle mein M | M</annotation>
+		<annotation cp="Ⓜ">circle | Circle kiya hua M | circle mein M | M</annotation>
 		<annotation cp="Ⓜ" type="tts">Circle kiya hua M</annotation>
 		<annotation cp="🆕">NEW | NEW button</annotation>
 		<annotation cp="🆕" type="tts">NEW button</annotation>
@@ -3791,9 +3791,9 @@ annotations.
 		<annotation cp="🔸" type="tts">small orange diamond</annotation>
 		<annotation cp="🔹">blue | diamond | geometric | small blue diamond</annotation>
 		<annotation cp="🔹" type="tts">small blue diamond</annotation>
-		<annotation cp="🔺">geometric | oopar point karta red triangle | red</annotation>
+		<annotation cp="🔺">geometric | oopar point karta red triangle | Oopar point karta red triangle | red</annotation>
 		<annotation cp="🔺" type="tts">Oopar point karta red triangle</annotation>
-		<annotation cp="🔻">down | geometric | neeche point karta red triangle | red</annotation>
+		<annotation cp="🔻">down | geometric | neeche point karta red triangle | Neeche point karta red triangle | red</annotation>
 		<annotation cp="🔻" type="tts">Neeche point karta red triangle</annotation>
 		<annotation cp="💠">comic | diamond | dot wala diamond | geometric | inside</annotation>
 		<annotation cp="💠" type="tts">dot wala diamond</annotation>

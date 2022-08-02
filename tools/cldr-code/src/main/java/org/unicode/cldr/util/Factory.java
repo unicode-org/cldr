@@ -17,6 +17,18 @@ import org.unicode.cldr.util.XMLSource.ResolvingSource;
  * See SimpleFactory for a concrete subclass.
  */
 public abstract class Factory implements SublocaleProvider {
+    private boolean ignoreExplicitParentLocale = false;
+
+    /**
+     * Whether to ignore explicit parent locale / fallback script behavior
+     * with a resolving source.
+     *
+     * Long story short, call setIgnoreExplictParentLocale(true) for collation trees.
+     */
+    public Factory setIgnoreExplicitParentLocale(boolean newIgnore) {
+        ignoreExplicitParentLocale = newIgnore;
+        return this;
+    }
 
     /**
      * Flag to set more verbose output in makeServolingSource
@@ -125,7 +137,7 @@ public abstract class Factory implements SublocaleProvider {
         String currentLocaleID = localeID;
         Set<String> availableLocales = this.getAvailable();
         while (!availableLocales.contains(currentLocaleID) && !"root".equals(currentLocaleID)) {
-            currentLocaleID = LocaleIDParser.getParent(currentLocaleID);
+            currentLocaleID = LocaleIDParser.getParent(currentLocaleID, ignoreExplicitParentLocale);
         }
         return make(currentLocaleID, true, madeWithMinimalDraftStatus);
     }
@@ -166,7 +178,7 @@ public abstract class Factory implements SublocaleProvider {
             }
             XMLSource source = file.dataSource;
             sourceList.add(source);
-            curLocale = LocaleIDParser.getParent(curLocale);
+            curLocale = LocaleIDParser.getParent(curLocale, ignoreExplicitParentLocale);
         }
         return new ResolvingSource(sourceList);
     }

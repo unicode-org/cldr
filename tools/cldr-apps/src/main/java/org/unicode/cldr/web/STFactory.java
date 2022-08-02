@@ -52,7 +52,7 @@ import com.ibm.icu.util.VersionInfo;
  * @author srl
  *
  */
-public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.User>, UserRegistry.UserChangedListener {
+public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.User> {
     /**
      * Q: Do we want different loggers for the multiplicity of inner classes?
      */
@@ -838,7 +838,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 throw new IllegalArgumentException("path must not be null");
             }
             if (r == null) {
-                r = new VoteResolver<>(); // create
+                r = new VoteResolver<>(sm.reg.getVoterInfoList()); // create
             } else {
                 r.clear(); // reuse
             }
@@ -870,7 +870,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             try {
                 r = getResolverInternal(perXPathData, path, r);
             } catch (VoteResolver.UnknownVoterException uve) {
-                handleUserChanged(null);
+                sm.reg.userModified();  // try reloading user table
                 try {
                     r = getResolverInternal(perXPathData, path, r);
                 } catch (VoteResolver.UnknownVoterException uve2) {
@@ -1474,9 +1474,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             gTestCache.setFactory(this, "(?!.*(CheckCoverage).*).*");
             progress.update("setup disk test cache");
             gDiskTestCache.setFactory(sm.getDiskFactory(), "(?!.*(CheckCoverage).*).*");
-            sm.reg.addListener(this);
             progress.update("reload all users");
-            handleUserChanged(null);
+            sm.reg.getVoterInfoList();
             progress.update("setup pathheader factory");
             phf = PathHeader.getFactory(sm.getEnglishFile());
         }
@@ -1987,11 +1986,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     public STFactory TESTING_shutdownAndRestart() {
         sm.TESTING_removeSTFactory();
         return sm.getSTFactory();
-    }
-
-    @Override
-    public synchronized void handleUserChanged(User u) {
-        VoteResolver.setVoterToInfo(sm.reg.getVoterToInfo());
     }
 
     public final PathHeader getPathHeader(String xpath) {

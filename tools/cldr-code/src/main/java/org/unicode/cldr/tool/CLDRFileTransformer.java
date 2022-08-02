@@ -169,8 +169,9 @@ public class CLDRFileTransformer {
     public CLDRFile transform(LocaleTransform localeTransform) {
         Transliterator transliterator = loadTransliterator(localeTransform);
         CLDRFile input;
+        final String inputLocale = localeTransform.getInputLocale();
         try {
-            input = factory.make(localeTransform.getInputLocale(), false);
+            input = factory.make(inputLocale, false);
         } catch (ICUUncheckedIOException e1) {
             return null; // input file is missing (or otherwise unavailable)
         }
@@ -187,13 +188,18 @@ public class CLDRFileTransformer {
         String outputParentString = LocaleIDParser.getParent(localeTransform.getOutputLocale());
         CLDRFile outputParent = factory.make(outputParentString, true);
 
-        outputParent = factory.make(localeTransform.getInputLocale(), false);
+        outputParent = factory.make(inputLocale, false);
         XMLSource outputSource = new SimpleXMLSource(localeTransform.toString());
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(output, true);
         for (String xpath : input) {
             String value = input.getStringValue(xpath);
             if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
-                value = null;
+                final String foundIn = input.getSourceLocaleID(xpath, null);
+                // Include these only when they are actually present in this file
+                if (!foundIn.equals(inputLocale)) {
+                    // inheritance marker came from somewhere else, ignore it
+                    continue;
+                }
             }
             if (value == null) {
                 continue;
@@ -202,7 +208,16 @@ public class CLDRFileTransformer {
             String oldValue = output.getStringValue(xpath);
             String parentValue = outputParent.getStringValue(xpath);
             value = transformValue(transliterator, localeTransform, xpath, value, oldValue, parentValue);
-            if (value != null && !CldrUtility.INHERITANCE_MARKER.equals(value)) {
+            if (value != null) {
+                // check again
+                if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                    final String foundIn = input.getSourceLocaleID(xpath, null);
+                    // Include these only when they are actually present in this file
+                    if (!foundIn.equals(inputLocale)) {
+                        // inheritance marker came from somewhere else, ignore it
+                        continue;
+                    }
+                }
                 value = daip.processInput(xpath, value, null);
                 outputSource.putValueAtPath(fullPath, value);
             }

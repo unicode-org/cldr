@@ -39,9 +39,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="・" type="tts">titik tengah katakana</annotation>
 		<annotation cp=",">pada lingsa</annotation>
 		<annotation cp="," type="tts">pada lingsa</annotation>
-		<annotation cp="،">arab | pada lingsa</annotation>
+		<annotation cp="،">arab | pada lingsa | pada lingsa arab</annotation>
 		<annotation cp="،" type="tts">pada lingsa arab</annotation>
-		<annotation cp="、">nduweni sifat gambar | pada lingsa</annotation>
+		<annotation cp="、">nduweni sifat gambar | pada lingsa | pada lingsa nduweni sifat gambar</annotation>
 		<annotation cp="、" type="tts">pada lingsa nduweni sifat gambar</annotation>
 		<annotation cp=";">pada lungsi pada lingsa</annotation>
 		<annotation cp=";" type="tts">pada lungsi pada lingsa</annotation>
@@ -167,7 +167,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="¨" type="tts">diaeresis</annotation>
 		<annotation cp="°">bukti | drajat | jam</annotation>
 		<annotation cp="°" type="tts">drajat</annotation>
-		<annotation cp="℗">hak cipta | rekaman | swara</annotation>
+		<annotation cp="℗">hak cipta | hak cipta rekaman swara | rekaman | swara</annotation>
 		<annotation cp="℗" type="tts">hak cipta rekaman swara</annotation>
 		<annotation cp="←">kiwo | panah | panah nuding ngiwo</annotation>
 		<annotation cp="←" type="tts">panah nuding ngiwo</annotation>
@@ -211,7 +211,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="~" type="tts">garis kriwil</annotation>
 		<annotation cp="−">dikurangi | kurang | tandha kurang</annotation>
 		<annotation cp="−" type="tts">tandha kurang</annotation>
-		<annotation cp="⁻">kurang | tika ngisor</annotation>
+		<annotation cp="⁻">kurang | tandha kurang ing dhuwur | tika ngisor</annotation>
 		<annotation cp="⁻" type="tts">tandha kurang ing dhuwur</annotation>
 		<annotation cp="√">oyod | oyod peng loro | radikal | radix | surd</annotation>
 		<annotation cp="√" type="tts">oyod peng loro</annotation>
@@ -239,7 +239,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="◊" type="tts">pesagi papat kupatan</annotation>
 		<annotation cp="○">binderan | bunderan kothong | cincen</annotation>
 		<annotation cp="○" type="tts">bunderan kothong</annotation>
-		<annotation cp="●">bunderan | bunderan kapenuhan</annotation>
+		<annotation cp="●">bundera kapenuhan | bunderan | bunderan kapenuhan</annotation>
 		<annotation cp="●" type="tts">bundera kapenuhan</annotation>
 		<annotation cp="◯">bunderan | bunderan kothong gedhe | cincen</annotation>
 		<annotation cp="◯" type="tts">bunderan kothong gedhe</annotation>
@@ -543,7 +543,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💙" type="tts">ati biru</annotation>
 		<annotation cp="💜">ati wungu | wungu</annotation>
 		<annotation cp="💜" type="tts">ati wungu</annotation>
-		<annotation cp="🩵">ati | biru enom | biru kaijoan | biru semburat ijo</annotation>
+		<annotation cp="🩵">ati | ati biru enom | biru enom | biru kaijoan | biru semburat ijo</annotation>
 		<annotation cp="🩵" type="tts">ati biru enom</annotation>
 		<annotation cp="🩶">ati | awu-awu | awu-awu tuwa | salaka</annotation>
 		<annotation cp="🩶" type="tts">ati awu-awu</annotation>
@@ -659,9 +659,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤝" type="tts">salaman</annotation>
 		<annotation cp="🙏">maturnuwun | ndonga | njaluk | nyenyuwun | tangan | tangan nyembah</annotation>
 		<annotation cp="🙏" type="tts">tangan nyembah</annotation>
-		<annotation cp="🫷">mandeg | ngenteni | nolak | nyurung | sisih kiwa | tos</annotation>
+		<annotation cp="🫷">mandeg | ngenteni | nolak | nyurung | sisih kiwa | tangan sisih kiwa nyurung | tos</annotation>
 		<annotation cp="🫷" type="tts">tangan sisih kiwa nyurung</annotation>
-		<annotation cp="🫸">mandeg | ngenteni | nolak | nyurung | sisih tengen | tos</annotation>
+		<annotation cp="🫸">mandeg | ngenteni | nolak | nyurung | sisih tengen | tangan sisih tengen nyurung | tos</annotation>
 		<annotation cp="🫸" type="tts">tangan sisih tengen nyurung</annotation>
 		<annotation cp="✍">nulis | tangan</annotation>
 		<annotation cp="✍" type="tts">tangan nulis</annotation>
@@ -1271,9 +1271,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐆" type="tts">macan tutul</annotation>
 		<annotation cp="🐴">jaran | rai</annotation>
 		<annotation cp="🐴" type="tts">rai jaran</annotation>
-		<annotation cp="🫎">elk | kewan | kewan nyusoni | sungu menjangan</annotation>
+		<annotation cp="🫎">elk | kewan | kewan nyusoni | menjangan | sungu menjangan</annotation>
 		<annotation cp="🫎" type="tts">menjangan</annotation>
-		<annotation cp="🫏">bagal | bokong | kewan | kewan nyusoni | kuldi cilik | wangkal</annotation>
+		<annotation cp="🫏">bagal | bokong | kewan | kewan nyusoni | kuldi | kuldi cilik | wangkal</annotation>
 		<annotation cp="🫏" type="tts">kuldi</annotation>
 		<annotation cp="🐎">balap jaran | balapan | ekuestrian | jaran</annotation>
 		<annotation cp="🐎" type="tts">jaran</annotation>
@@ -1399,9 +1399,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦚" type="tts">merak</annotation>
 		<annotation cp="🦜">beo | manuk | omong | perompak</annotation>
 		<annotation cp="🦜" type="tts">beo</annotation>
-		<annotation cp="🪽">babakan mabur | mabur | malekat | manuk | mitologi</annotation>
+		<annotation cp="🪽">babakan mabur | mabur | malekat | manuk | mitologi | swiwi</annotation>
 		<annotation cp="🪽" type="tts">swiwi</annotation>
-		<annotation cp="🪿">bodho | manuk | menthog njerit | unggas</annotation>
+		<annotation cp="🪿">bodho | manuk | menthog | menthog njerit | unggas</annotation>
 		<annotation cp="🪿" type="tts">menthog</annotation>
 		<annotation cp="🐸">kodhok | rai</annotation>
 		<annotation cp="🐸" type="tts">kodhok</annotation>
@@ -1443,7 +1443,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐚" type="tts">keong spiral</annotation>
 		<annotation cp="🪸">karang | koral | samodra</annotation>
 		<annotation cp="🪸" type="tts">koral</annotation>
-		<annotation cp="🪼">adhuh | invertebrata | jeli | ngobong | panyengat | segara</annotation>
+		<annotation cp="🪼">adhuh | invertebrata | jeli | ngobong | panyengat | segara | ubur-ubur</annotation>
 		<annotation cp="🪼" type="tts">ubur-ubur</annotation>
 		<annotation cp="🐌">bekicot</annotation>
 		<annotation cp="🐌" type="tts">bekicot</annotation>
@@ -1499,7 +1499,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌼" type="tts">sekar</annotation>
 		<annotation cp="🌷">kembang | tulip</annotation>
 		<annotation cp="🌷" type="tts">tulip</annotation>
-		<annotation cp="🪻">blubonet | kembang | lavender | lupin | snapdragon</annotation>
+		<annotation cp="🪻">blubonet | hyacin | kembang | lavender | lupin | snapdragon</annotation>
 		<annotation cp="🪻" type="tts">hyacin</annotation>
 		<annotation cp="🌱">cilik | pembibitan</annotation>
 		<annotation cp="🌱" type="tts">pembibitan</annotation>
@@ -1601,7 +1601,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫘" type="tts">buncis</annotation>
 		<annotation cp="🌰">kenari | tetuwuhan</annotation>
 		<annotation cp="🌰" type="tts">kenari</annotation>
-		<annotation cp="🫚">bir | bumbu | oyod</annotation>
+		<annotation cp="🫚">bir | bumbu | jahe | oyod</annotation>
 		<annotation cp="🫚" type="tts">jahe</annotation>
 		<annotation cp="🫛">buncis | edamame | kacang | polong | polong-polongan | sayuran</annotation>
 		<annotation cp="🫛" type="tts">kacang polong</annotation>
@@ -1777,7 +1777,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫗" type="tts">nyuntak banyu</annotation>
 		<annotation cp="🥤">gelas mawa sedhotan | soda | wedang jus</annotation>
 		<annotation cp="🥤" type="tts">gelas mawa sedhotan</annotation>
-		<annotation cp="🧋">mutiyara | plembungan | susu | teh</annotation>
+		<annotation cp="🧋">mutiyara | plembungan | susu | teh | teh kocok</annotation>
 		<annotation cp="🧋" type="tts">teh kocok</annotation>
 		<annotation cp="🧃">jus kothakan | wedang kothakan</annotation>
 		<annotation cp="🧃" type="tts">wedang kothakan</annotation>
@@ -2447,7 +2447,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👙" type="tts">bikini</annotation>
 		<annotation cp="👚">sandhangan | sandhangan wong wadon | wong wadon</annotation>
 		<annotation cp="👚" type="tts">sandhangan wong wadon</annotation>
-		<annotation cp="🪭">isin | kipas | nari | ngadem | ngelirik | panas</annotation>
+		<annotation cp="🪭">isin | kipas | kipas lipat | nari | ngadem | ngelirik | panas</annotation>
 		<annotation cp="🪭" type="tts">kipas lipat</annotation>
 		<annotation cp="🪮">Afro | jungkat | milih | rambut</annotation>
 		<annotation cp="🪮" type="tts">jungkat</annotation>
@@ -2555,9 +2555,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥁" type="tts">dram</annotation>
 		<annotation cp="🪘">dram | irama | kendhang | konga | nabuh</annotation>
 		<annotation cp="🪘" type="tts">kendhang</annotation>
-		<annotation cp="🪇">goyangake | musik | perkusi | piranti | ratel</annotation>
+		<annotation cp="🪇">goyangake | marakas | musik | perkusi | piranti | ratel</annotation>
 		<annotation cp="🪇" type="tts">marakas</annotation>
-		<annotation cp="🪈">fife | musik | perkakas musik sebul | pipa | rekam</annotation>
+		<annotation cp="🪈">fife | musik | perkakas musik sebul | pipa | rekam | suling</annotation>
 		<annotation cp="🪈" type="tts">suling</annotation>
 		<annotation cp="📱">sel | seluler | telepon | telpon</annotation>
 		<annotation cp="📱" type="tts">telepon seluler</annotation>
@@ -3043,7 +3043,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕎" type="tts">menorah lilin</annotation>
 		<annotation cp="🔯">kabegjan | lintang | lintang mata enem mawa titik tengah</annotation>
 		<annotation cp="🔯" type="tts">lintang mata enem mawa titik tengah</annotation>
-		<annotation cp="🪯">agama | Sikh</annotation>
+		<annotation cp="🪯">agama | Sikh | tandha kanda</annotation>
 		<annotation cp="🪯" type="tts">tandha kanda</annotation>
 		<annotation cp="♈">Aries | Lintang Aries | palintangan | wedhus gembel</annotation>
 		<annotation cp="♈" type="tts">Lintang Aries</annotation>
@@ -3119,7 +3119,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📳" type="tts">modhe kedher</annotation>
 		<annotation cp="📴">hp | mati | ponsel | tilpun</annotation>
 		<annotation cp="📴" type="tts">hp mati</annotation>
-		<annotation cp="🛜">internet | jaringan | komputer</annotation>
+		<annotation cp="🛜">internet | jaringan | komputer | nirkabel</annotation>
 		<annotation cp="🛜" type="tts">nirkabel</annotation>
 		<annotation cp="♀">tandha wanita | wadon</annotation>
 		<annotation cp="♀" type="tts">tandha wanita</annotation>
@@ -3383,7 +3383,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="₽" type="tts">ruble</annotation>
 		<annotation cp="₿">bitcoin | BTC</annotation>
 		<annotation cp="₿" type="tts">bitcoin</annotation>
-		<annotation cp="¹">siji | tika dhuwur</annotation>
+		<annotation cp="¹">siji | tandha siji ing dhuwur | tika dhuwur</annotation>
 		<annotation cp="¹" type="tts">tandha siji ing dhuwur</annotation>
 		<annotation cp="²">loro | tandha loro ing dhuwur | tika dhuwur</annotation>
 		<annotation cp="²" type="tts">tandha loro ing dhuwur</annotation>

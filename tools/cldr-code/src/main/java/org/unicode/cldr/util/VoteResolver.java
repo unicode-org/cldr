@@ -69,13 +69,19 @@ import com.ibm.icu.util.ULocale;
  * </pre>
  */
 public class VoteResolver<T> {
+    private final VoterInfoList voterInfoList;
+
+    public VoteResolver(VoterInfoList vil) {
+        voterInfoList = vil;
+    }
+
     private static final boolean DEBUG = false;
 
     /**
      * A placeholder for winningValue when it would otherwise be null.
      * It must match NO_WINNING_VALUE in the client JavaScript code.
      */
-    private static String NO_WINNING_VALUE = "no-winning-value";
+    private static final String NO_WINNING_VALUE = "no-winning-value";
 
     /**
      * The status levels according to the committee, in ascending order
@@ -422,6 +428,10 @@ public class VoteResolver<T> {
          */
         private Set<CLDRLocale> locales = new TreeSet<>();
 
+        public Iterable<CLDRLocale> getLocales() {
+            return locales;
+        }
+
         public VoterInfo(Organization organization, Level level, String name, LocaleSet localeSet) {
             this.setOrganization(organization);
             this.setLevel(level);
@@ -469,7 +479,7 @@ public class VoteResolver<T> {
             return name;
         }
 
-        private void addLocale(CLDRLocale locale) {
+        void addLocale(CLDRLocale locale) {
             this.locales.add(locale);
         }
 
@@ -519,7 +529,7 @@ public class VoteResolver<T> {
     /**
      * Internal class for getting from an organization to its vote.
      */
-    private static class OrganizationToValueAndVote<T> {
+    private class OrganizationToValueAndVote<T> {
         private final Map<Organization, MaxCounter<T>> orgToVotes = new EnumMap<>(Organization.class);
         private final Counter<T> totalVotes = new Counter<>();
         private final Map<Organization, Integer> orgToMax = new EnumMap<>(Organization.class);
@@ -572,7 +582,7 @@ public class VoteResolver<T> {
          * @param date
          */
         public void add(T value, int voter, Integer withVotes, Date date) {
-            final VoterInfo info = getVoterToInfo().get(voter);
+            final VoterInfo info = voterInfoList.get(voter);
             if (info == null) {
                 throw new UnknownVoterException(voter);
             }
@@ -783,13 +793,6 @@ public class VoteResolver<T> {
             return result;
         }
     }
-
-    /**
-     * Static info read from file
-     */
-    private static Map<Integer, VoterInfo> voterToInfo;
-
-    private static TreeMap<String, Map<Organization, Level>> localeToOrganizationToMaxVote;
 
     /**
      * Data built internally
@@ -1637,159 +1640,6 @@ public class VoteResolver<T> {
             + "}";
     }
 
-    private static Map<Integer, VoterInfo> getVoterToInfo() {
-        synchronized (VoteResolver.class) {
-            return voterToInfo;
-        }
-    }
-
-    public static VoterInfo getInfoForVoter(int voter) {
-        return getVoterToInfo().get(voter);
-    }
-
-    /**
-     * Set the voter info.
-     * <p>
-     * Synchronized, however, once this is called, you must NOT change the contents of your copy of testVoterToInfo. You
-     * can create a whole new one and set it.
-     */
-    public static void setVoterToInfo(Map<Integer, VoterInfo> testVoterToInfo) {
-        synchronized (VoteResolver.class) {
-            VoteResolver.voterToInfo = testVoterToInfo;
-        }
-        if (DEBUG) {
-            for (int id : testVoterToInfo.keySet()) {
-                System.out.println("\t" + id + "=" + testVoterToInfo.get(id));
-            }
-        }
-        computeMaxVotes();
-    }
-
-    /**
-     * Set the voter info from a users.xml file.
-     * <p>
-     * Synchronized, however, once this is called, you must NOT change the contents of your copy of testVoterToInfo. You
-     * can create a whole new one and set it.
-     */
-    public static void setVoterToInfo(String fileName) {
-        MyHandler myHandler = new MyHandler();
-        XMLFileReader xfr = new XMLFileReader().setHandler(myHandler);
-        xfr.read(fileName, XMLFileReader.CONTENT_HANDLER | XMLFileReader.ERROR_HANDLER, false);
-        setVoterToInfo(myHandler.testVoterToInfo);
-
-        computeMaxVotes();
-    }
-
-    private static synchronized void computeMaxVotes() {
-        // compute the localeToOrganizationToMaxVote
-        localeToOrganizationToMaxVote = new TreeMap<>();
-        for (int voter : getVoterToInfo().keySet()) {
-            VoterInfo info = getVoterToInfo().get(voter);
-            if (info.getLevel() == Level.tc || info.getLevel() == Level.locked) {
-                continue; // skip TCs, locked
-            }
-
-            for (CLDRLocale loc : info.locales) {
-                String locale = loc.getBaseName();
-                Map<Organization, Level> organizationToMaxVote = localeToOrganizationToMaxVote.get(locale);
-                if (organizationToMaxVote == null) {
-                    localeToOrganizationToMaxVote.put(locale,
-                        organizationToMaxVote = new TreeMap<>());
-                }
-                Level maxVote = organizationToMaxVote.get(info.getOrganization());
-                if (maxVote == null || info.getLevel().compareTo(maxVote) > 0) {
-                    organizationToMaxVote.put(info.getOrganization(), info.getLevel());
-                    // System.out.println("Example best voter for " + locale + " for " + info.organization + " is " +
-                    // info);
-                }
-            }
-        }
-        CldrUtility.protectCollection(localeToOrganizationToMaxVote);
-    }
-
-    /**
-     * Handles fine in xml format, turning into:
-     * //users[@host="sarasvati.unicode.org"]/user[@id="286"][@email="mike.tardif@adobe.com"]/level[@n="1"][@type="TC"]
-     * //users[@host="sarasvati.unicode.org"]/user[@id="286"][@email="mike.tardif@adobe.com"]/name
-     * Mike Tardif
-     * //users[@host="sarasvati.unicode.org"]/user[@id="286"][@email="mike.tardif@adobe.com"]/org
-     * Adobe
-     * //users[@host="sarasvati.unicode.org"]/user[@id="286"][@email="mike.tardif@adobe.com"]/locales[@type="edit"]
-     *
-     * Steven's new format:
-     * //users[@generated="Wed May 07 15:57:15 PDT 2008"][@host="tintin"][@obscured="true"]
-     * /user[@id="286"][@email="?@??.??"]
-     * /level[@n="1"][@type="TC"]
-     */
-
-    static class MyHandler extends XMLFileReader.SimpleHandler {
-        private static final Pattern userPathMatcher = Pattern
-            .compile(
-                "//users(?:[^/]*)"
-                    + "/user\\[@id=\"([^\"]*)\"](?:[^/]*)"
-                    + "/("
-                    + "org" +
-                    "|name" +
-                    "|level\\[@n=\"([^\"]*)\"]\\[@type=\"([^\"]*)\"]" +
-                    "|locales\\[@type=\"([^\"]*)\"]" +
-                    "(?:/locale\\[@id=\"([^\"]*)\"])?"
-                    + ")",
-                Pattern.COMMENTS);
-
-        enum Group {
-            all, userId, mainType, n, levelType, localeType, localeId;
-            String get(Matcher matcher) {
-                return matcher.group(this.ordinal());
-            }
-        }
-
-        private static final boolean DEBUG_HANDLER = false;
-        Map<Integer, VoterInfo> testVoterToInfo = new TreeMap<>();
-        Matcher matcher = userPathMatcher.matcher("");
-
-        @Override
-        public void handlePathValue(String path, String value) {
-            if (DEBUG_HANDLER)
-                System.out.println(path + "\t" + value);
-            if (matcher.reset(path).matches()) {
-                if (DEBUG_HANDLER) {
-                    for (int i = 1; i <= matcher.groupCount(); ++i) {
-                        Group group = Group.values()[i];
-                        System.out.println(i + "\t" + group + "\t" + group.get(matcher));
-                    }
-                }
-                int id = Integer.parseInt(Group.userId.get(matcher));
-                VoterInfo voterInfo = testVoterToInfo.get(id);
-                if (voterInfo == null) {
-                    testVoterToInfo.put(id, voterInfo = new VoterInfo());
-                }
-                final String mainType = Group.mainType.get(matcher);
-                if (mainType.equals("org")) {
-                    Organization org = Organization.fromString(value);
-                    voterInfo.setOrganization(org);
-                    value = org.name(); // copy name back into value
-                } else if (mainType.equals("name")) {
-                    voterInfo.setName(value);
-                } else if (mainType.startsWith("level")) {
-                    String level = Group.levelType.get(matcher).toLowerCase();
-                    voterInfo.setLevel(Level.valueOf(level));
-                } else if (mainType.startsWith("locale")) {
-                    final String localeIdString = Group.localeId.get(matcher);
-                    if (localeIdString != null) {
-                        CLDRLocale locale = CLDRLocale.getInstance(localeIdString.split("_")[0]);
-                        voterInfo.addLocale(locale);
-                    } else if (DEBUG_HANDLER) {
-                        System.out.println("\tskipping");
-                    }
-                } else if (DEBUG_HANDLER) {
-                    System.out.println("\tFailed match* with " + path + "=" + value);
-                }
-            } else {
-                System.out.println("\tFailed match with " + path + "=" + value);
-            }
-        }
-    }
-
     public static Map<Integer, String> getIdToPath(String fileName) {
         XPathTableHandler myHandler = new XPathTableHandler();
         XMLFileReader xfr = new XMLFileReader().setHandler(myHandler);
@@ -1813,9 +1663,9 @@ public class VoteResolver<T> {
         }
     }
 
-    public static Map<Integer, Map<Integer, CandidateInfo>> getBaseToAlternateToInfo(String fileName) {
+    public static Map<Integer, Map<Integer, CandidateInfo>> getBaseToAlternateToInfo(String fileName, VoterInfoList vil) {
         try {
-            VotesHandler myHandler = new VotesHandler();
+            VotesHandler myHandler = new VotesHandler(vil);
             XMLFileReader xfr = new XMLFileReader().setHandler(myHandler);
             xfr.read(fileName, XMLFileReader.CONTENT_HANDLER | XMLFileReader.ERROR_HANDLER, false);
             return myHandler.basepathToInfo;
@@ -1833,12 +1683,17 @@ public class VoteResolver<T> {
         public Type surveyType;
         public Status surveyStatus;
         public Set<Integer> voters = new TreeSet<>();
+        private VoterInfoList voterInfoList;
+
+        CandidateInfo(VoterInfoList vil) {
+            this.voterInfoList = vil;
+        }
 
         @Override
         public String toString() {
             StringBuilder voterString = new StringBuilder("{");
             for (int voter : voters) {
-                VoterInfo voterInfo = getInfoForVoter(voter);
+                VoterInfo voterInfo = voterInfoList.get(voter);
                 if (voterString.length() > 1) {
                     voterString.append(" ");
                 }
@@ -1871,6 +1726,11 @@ public class VoteResolver<T> {
      * A base path has a set of candidates. Each candidate has various items of information.
      */
     static class VotesHandler extends XMLFileReader.SimpleHandler {
+        private VoterInfoList voterInfoList;
+
+        VotesHandler(VoterInfoList vil) {
+            this.voterInfoList = vil;
+        }
         Map<Integer, Map<Integer, CandidateInfo>> basepathToInfo = new TreeMap<>();
 
         @Override
@@ -1889,7 +1749,7 @@ public class VoteResolver<T> {
                 int itemId = Integer.parseInt(parts.getAttributeValue(2, "xpath"));
                 CandidateInfo candidateInfo = info.get(itemId);
                 if (candidateInfo == null) {
-                    info.put(itemId, candidateInfo = new CandidateInfo());
+                    info.put(itemId, candidateInfo = new CandidateInfo(voterInfoList));
                     candidateInfo.surveyType = Type.valueOf(parts.getAttributeValue(2, "type"));
                     candidateInfo.surveyStatus = Status.valueOf(fixBogusDraftStatusValues(parts.getAttributeValue(2,
                         "status")));
@@ -1912,31 +1772,6 @@ public class VoteResolver<T> {
             }
         }
 
-    }
-
-    public static Map<Organization, Level> getOrganizationToMaxVote(String locale) {
-        locale = locale.split("_")[0]; // take base language
-        Map<Organization, Level> result = localeToOrganizationToMaxVote.get(locale);
-        if (result == null) {
-            result = Collections.emptyMap();
-        }
-        return result;
-    }
-
-    public static Map<Organization, Level> getOrganizationToMaxVote(Set<Integer> voters) {
-        Map<Organization, Level> orgToMaxVoteHere = new TreeMap<>();
-        for (int voter : voters) {
-            VoterInfo info = getInfoForVoter(voter);
-            if (info == null) {
-                continue; // skip unknown voter
-            }
-            Level maxVote = orgToMaxVoteHere.get(info.getOrganization());
-            if (maxVote == null || info.getLevel().compareTo(maxVote) > 0) {
-                orgToMaxVoteHere.put(info.getOrganization(), info.getLevel());
-                // System.out.println("*Best voter for " + info.organization + " is " + info);
-            }
-        }
-        return orgToMaxVoteHere;
     }
 
     public static class UnknownVoterException extends RuntimeException {

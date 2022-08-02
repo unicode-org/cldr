@@ -59,6 +59,7 @@ import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.util.VoterInfoList;
 import org.unicode.cldr.util.VoteResolver.CandidateInfo;
 import org.unicode.cldr.util.VoteResolver.UnknownVoterException;
 import org.unicode.cldr.util.XMLSource;
@@ -358,9 +359,9 @@ public class ConsoleCheckCLDR {
         if (options[VOTE_RESOLVE].doesOccur) {
             resolveVotesDirectory = CldrUtility.checkValidFile(CLDRPaths.BASE_DIRECTORY + "incoming/vetted/votes/",
                 true, null);
-            VoteResolver.setVoterToInfo(CldrUtility.checkValidFile(CLDRPaths.BASE_DIRECTORY
+            voterInfoList.setVoterToInfo(CldrUtility.checkValidFile(CLDRPaths.BASE_DIRECTORY
                 + "incoming/vetted/usersa/usersa.xml", false, null));
-            voteResolver = new VoteResolver<>();
+            voteResolver = new VoteResolver<>(voterInfoList);
         }
 
         String user = options[USER].value;
@@ -808,10 +809,10 @@ public class ConsoleCheckCLDR {
 
         public LocaleVotingData(String locale) {
 
-            Map<Organization, VoteResolver.Level> orgToMaxVote = VoteResolver.getOrganizationToMaxVote(locale);
+            Map<Organization, VoteResolver.Level> orgToMaxVote = voterInfoList.getOrganizationToMaxVote(locale);
 
             Map<Integer, Map<Integer, CandidateInfo>> info = VoteResolver
-                .getBaseToAlternateToInfo(resolveVotesDirectory + locale + ".xml");
+                .getBaseToAlternateToInfo(resolveVotesDirectory + locale + ".xml", voterInfoList);
 
             Map<String, Integer> valueToItem = new HashMap<>();
 
@@ -853,7 +854,7 @@ public class ConsoleCheckCLDR {
                 }
 
                 CandidateInfo candidateInfo = itemInfo.get(valueToItem.get(winningValue));
-                Map<Organization, VoteResolver.Level> orgToMaxVoteHere = VoteResolver
+                Map<Organization, VoteResolver.Level> orgToMaxVoteHere = voterInfoList
                     .getOrganizationToMaxVote(candidateInfo.voters);
 
                 // if the winning item is less than contributed, record the organizations that haven't given their
@@ -1487,6 +1488,7 @@ public class ConsoleCheckCLDR {
     }
 
     static String lastHtmlLocaleID = "";
+    private static VoterInfoList voterInfoList;
     private static VoteResolver<String> voteResolver;
     private static String resolveVotesDirectory;
     private static boolean idView;

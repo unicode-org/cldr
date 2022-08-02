@@ -39,6 +39,7 @@ import org.unicode.cldr.util.LocaleSet;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.util.VoterInfoList;
 import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 
@@ -778,8 +779,9 @@ public class UserRegistry {
      *
      * @see #getVoterToInfo()
      */
-    private void userModified() {
+    void userModified() {
         voterInfo = null;
+        getVoterToInfo(); // reset maps
     }
 
     /**
@@ -1880,6 +1882,11 @@ public class UserRegistry {
         return getVoterToInfo().get(userid);
     }
 
+    public synchronized VoterInfoList getVoterInfoList() {
+        getVoterToInfo(); // to make sure voterInfoList is up to date
+        return voterInfoList;
+    }
+
     // Interface for VoteResolver interface
     /**
      * Fetch the user map in VoterInfo format.
@@ -1921,6 +1928,14 @@ public class UserRegistry {
                     map.put(u.id, v);
                 }
                 voterInfo = map;
+                VoterInfoList vil = voterInfoList;
+                if(voterInfoList == null) {
+                    vil = new VoterInfoList();
+                }
+                vil.setVoterToInfo(map);
+                if (voterInfoList != vil) {
+                    voterInfoList = vil;
+                }
             } catch (SQLException se) {
                 logger.log(java.util.logging.Level.SEVERE,
                     "UserRegistry: SQL error trying to  update VoterInfo - " + DBUtils.unchainSqlException(se), se);
@@ -1939,6 +1954,7 @@ public class UserRegistry {
      * VoterInfo map
      */
     private Map<Integer, VoterInfo> voterInfo = null;
+    VoterInfoList voterInfoList = null;
 
     /**
      * The list of organizations

@@ -118,18 +118,37 @@ public class LocaleIDParser {
      * CLDRLocale.process() changes "__" to "_" before this function is called.
      * Reference: https://unicode-org.atlassian.net/browse/CLDR-13133
      */
-    public static String getParent(String localeName) {
+    public static final String getParent(String localeName) {
+        return getParent(localeName, false);
+    }
+
+    /**
+     * Get the parent of a locale. If the input is "root", then return null.
+     * For example, if localeName is "fr_CA", return "fr".
+     *
+     * Only works on canonical locale names (right casing, etc.)!
+     *
+     * Formerly this function returned an empty string when localeName was "_VETTING".
+     * Now it returns "root" where it would have returned an empty string.
+     * TODO: explain "__VETTING", somehow related to SUMMARY_LOCALE. Note that
+     * CLDRLocale.process() changes "__" to "_" before this function is called.
+     * Reference: https://unicode-org.atlassian.net/browse/CLDR-13133
+     * @param ignoreParentLocale true of the parentLocale and default script behavior should be ignored (such as with collation)
+     */
+    public static String getParent(String localeName, boolean ignoreParentLocale) {
         SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
-        String explicitParent = sdi.getExplicitParentLocale(localeName);
-        if (explicitParent != null) {
-            return explicitParent;
+        if (!ignoreParentLocale) {
+            String explicitParent = sdi.getExplicitParentLocale(localeName);
+            if (explicitParent != null) {
+                return explicitParent;
+            }
         }
         int pos = localeName.lastIndexOf('_');
         if (pos >= 0) {
             String truncated = localeName.substring(0, pos);
             // if the final item is a script, and it is not the default content, then go directly to root
             int pos2 = getScriptPosition(localeName);
-            if (pos2 > 0) {
+            if (pos2 > 0 && !ignoreParentLocale) {
                 String script = localeName.substring(pos + 1);
                 String defaultScript = sdi.getDefaultScript(truncated);
                 if (!script.equals(defaultScript)) {

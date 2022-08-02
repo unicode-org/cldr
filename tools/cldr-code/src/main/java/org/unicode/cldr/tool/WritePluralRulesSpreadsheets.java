@@ -57,7 +57,7 @@ public class WritePluralRulesSpreadsheets {
         Set<String> cldrLocales = // new TreeSet<>(Arrays.asList(tests));
             new TreeSet<>(STD.getLocaleCoverageLocales(Organization.cldr));
         cldrLocales.addAll(STD.getLocaleCoverageLocales(Organization.google));
-
+        cldrLocales.remove(StandardCodes.ALL_LOCALES); // '*' is not a real locale id.
         writeRanges("Core", cldrLocales, missingMinimalPairs);
 
         for (Entry<Set<String>, String> missing : missingMinimalPairs.entries()) {
@@ -186,7 +186,7 @@ public class WritePluralRulesSpreadsheets {
                 FixedDecimal small = getSample(rules, start, null); // smallest
                 String startPattern = getSamplePattern(samplePatterns, start);
                 if (startPattern == null) {
-                    throw new NullPointerException("no startPattern: getSamplePattern(["+locale+"],"+start+") returned null"+
+                    throw new NullPointerException("no startPattern: get[Cardinal]SamplePattern(["+locale+"],"+start+") returned null"+
                         "- samplePatterns: " + samplePatterns.toString());
                 }
                 for (String end : keywords) {
@@ -196,7 +196,7 @@ public class WritePluralRulesSpreadsheets {
                     }
                     String endPattern = getSamplePattern(samplePatterns, end);
                     if (endPattern == null) {
-                        throw new NullPointerException("no endPattern: getSamplePattern(["+locale+"],"+end+") returned null"+
+                        throw new NullPointerException("no endPattern: get[Cardinal]SamplePattern(["+locale+"],"+end+") returned null"+
                             "- samplePatterns: " + samplePatterns.toString());
                     }
                     String range = MessageFormat.format(rangePattern, small.toString(), large.toString());

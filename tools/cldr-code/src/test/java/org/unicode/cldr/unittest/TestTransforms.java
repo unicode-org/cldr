@@ -29,6 +29,7 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UCharacterEnums.ECharacterCategory;
@@ -111,8 +112,8 @@ public class TestTransforms extends TestFmwkPlus {
             CLDRFile uzLatn = factory.make("uz_Latn", false);
             CLDRFile uzCyrl = factory.make("uz", false);
 
-            Set<String> latinFromCyrillicSucceeds = new TreeSet<String>();
-            Set<String> latinFromCyrillicFails = new TreeSet<String>();
+            Set<String> latinFromCyrillicSucceeds = new TreeSet<>();
+            Set<String> latinFromCyrillicFails = new TreeSet<>();
             for (String path : uzCyrl) {
                 String latnValue = uzLatn.getStringValue(path);
                 if (latnValue == null) {
@@ -185,7 +186,7 @@ public class TestTransforms extends TestFmwkPlus {
 
     enum Options {
         transliterator, roundtrip
-    };
+    }
 
     private String makeLegacyTransformID(String source, String target, String variant) {
         if (variant != null) {
@@ -251,7 +252,7 @@ public class TestTransforms extends TestFmwkPlus {
     }
 
     private Map<String, File> getTransformIDs(String transformsDirectoryPath) {
-        Map<String, File> ids = new HashMap<String, File>();
+        Map<String, File> ids = new HashMap<>();
         File dir = new File(transformsDirectoryPath);
         if (!dir.exists()) {
             errln("Cannot find transforms directory at " + transformsDirectoryPath);
@@ -276,6 +277,10 @@ public class TestTransforms extends TestFmwkPlus {
         return ids;
     }
 
+    final ImmutableSet<String> OK_MISSING_FROM_OLD = ImmutableSet.of("und-Sarb-t-und-ethi",
+        "Ethi-Sarb", "und-Ethi-t-und-latn", "Musnad-Ethiopic", "und-Ethi-t-und-sarb",
+        "Sarb-Ethi", "Ethiopic-Musnad");
+
     public void TestTransformIDs() {
         Map<String, File> transforms = getTransformIDs(CLDRPaths.TRANSFORMS_DIRECTORY);
         for (Map.Entry<String, File> entry : transforms.entrySet()) {
@@ -287,13 +292,15 @@ public class TestTransforms extends TestFmwkPlus {
             return;
         }
 
-        Set<String> removedTransforms = new HashSet<String>();
+        Set<String> removedTransforms = new HashSet<>();
         removedTransforms.add("ASCII-Latin"); // http://unicode.org/cldr/trac/ticket/9163
 
         Map<String, File> oldTransforms = getTransformIDs(CLDRPaths.LAST_TRANSFORMS_DIRECTORY);
         for (Map.Entry<String, File> entry : oldTransforms.entrySet()) {
             String id = entry.getKey();
-            if (!transforms.containsKey(id) && !removedTransforms.contains(id)) {
+            if (!transforms.containsKey(id)
+                && !removedTransforms.contains(id)
+                && !OK_MISSING_FROM_OLD.contains(id)) {
                 File oldFile = entry.getValue();
                 errln("Missing transform \"" + id +
                     "\"; the previous CLDR release had defined it in " + oldFile.getName());
@@ -413,7 +420,7 @@ public class TestTransforms extends TestFmwkPlus {
             File fileDirectory = new File(CLDRPaths.TEST_DATA + "transforms/");
             String fileDirectoryName = PathUtilities.getNormalizedPathString(fileDirectory);
             assertTrue(fileDirectoryName, fileDirectory.exists());
-            
+
             logln("Testing files in: " + fileDirectoryName);
 
             Set<String> foundTranslitsLower = new TreeSet();

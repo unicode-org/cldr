@@ -146,7 +146,8 @@ public class ReportAPI {
         LocaleReportVettingResults r = new LocaleReportVettingResults();
         // make a copy of the DB subset here, for performance.
         VoterReportStatus<Integer> db = ReportsDB.getInstance().clone(null, onlyLoc);
-        VoteResolver<ReportAcceptability> res = new VoteResolver<>();
+        VoteResolver<ReportAcceptability> res = new VoteResolver<>(CookieSession.sm.reg.getVoterInfoList()); // create
+
         // set of all valid userids
         final Set<Integer> allUsers = CookieSession.sm.reg.getVoterToInfo().keySet();
         for (final CLDRLocale loc : locales) {

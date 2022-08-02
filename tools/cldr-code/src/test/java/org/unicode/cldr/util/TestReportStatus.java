@@ -100,10 +100,8 @@ public class TestReportStatus {
             VoteResolver.Level.vetter,
             "1-wiki-vetter",
             new LocaleSet(true)));
-        // TODO: next two clauses: "NEW" = post CLDR-15765, "OLD" = pre.
-        VoteResolver.setVoterToInfo(m); // OLD - REMOVE after CLDR-15765
         VoteResolver<ReportAcceptability> res = new VoteResolver<>(
-        // new VoterInfoList().setVoterToInfo(m) // NEW - UNCOMMENT after CLDR-15765
+            new VoterInfoList().setVoterToInfo(m) // NEW - UNCOMMENT after CLDR-15765
         );
 
         MemVoterReportStatus<Integer> mrv = new MemVoterReportStatus<>();

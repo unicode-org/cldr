@@ -183,7 +183,7 @@ public class VettingViewerQueue {
             @Override
             public boolean isStopped() {
                 // if the calling thread is gone, stop processing
-                return !(thread.isAlive());
+                return stop || !(thread.isAlive());
             }
         }
 

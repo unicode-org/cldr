@@ -129,16 +129,16 @@ public class TestAttributeValues extends TestFmwk {
             return;
         }
         if (!dirFile.isDirectory()) {
-            if (getInclusion() <= 5
-                && dtdType == DtdType.ldml) {
-                if (path.contains("/annotationsDerived/")) {
-                    return;
-                }
-                String ending = path.substring(path.lastIndexOf('/')+1);
-                if (!CLDR_LOCALES.contains(ending)) {
-                    return;
-                }
-            }
+//            if (getInclusion() <= 5
+//                && dtdType == DtdType.ldml) {
+//                if (path.contains("/annotationsDerived/")) {
+//                    return;
+//                }
+//                String ending = path.substring(path.lastIndexOf('/')+1);
+//                if (!CLDR_LOCALES.contains(ending)) {
+//                    return;
+//                }
+//            }
             files.add(path);
         } else {
             for (String file : dirFile.list()) {
@@ -431,7 +431,9 @@ public class TestAttributeValues extends TestFmwk {
     }
 
     public void oldTestCoreValidity() {
-        int maxPerDirectory = getInclusion() <= 5 ? 20 : Integer.MAX_VALUE;
+        int maxPerDirectory =
+            // getInclusion() <= 5 ? 20 :
+            Integer.MAX_VALUE;
         Matcher fileMatcher = null;
         Set<AttributeValueSpec> missing = new LinkedHashSet<>();
         Errors errors = new Errors();

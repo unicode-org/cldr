@@ -212,7 +212,7 @@ If it becomes necessary in the future, the format could extend the ISO layout to
 
 **Keyboard layout:** A layout is the overall keyboard configuration for a particular locale. Within a keyboard layout, there is a single base map, one or more key maps and zero or more transforms.
 
-**Layer** is an arrangement of keys on a virtual keyboard. A virtual keyboard is made up of a set of layers. Each layer may have a different key layout, unlike with a physical keyboard, and may not correspond directly to a physical keyboard's modifier keys. A layer is accessed via a switch key. See also virtual keyboard, modifier, switch. 
+**Layer** is an arrangement of keys on a virtual keyboard. A virtual keyboard is made up of a set of layers. Each layer may have a different key layout, unlike with a physical keyboard, and may not correspond directly to a physical keyboard's modifier keys. A layer is accessed via a switch key. See also virtual keyboard, modifier, switch.
 
 **Long-press key:** also known as a “child key”. A secondary key that is invoked from a top level key on a software keyboard. Secondary keys typically provide access to variants of the top level key, such as accented variants (a => á, à, ä, ã)
 
@@ -859,9 +859,14 @@ where a flick to the Northeast then South produces two code points.
 
 ### <a name="Element_import" href="#Element_import">Element: import</a>
 
-
 The `import` element is used to reference another xml file so that elements are imported from
 another file.
+
+_Attribute:_ `base`
+
+> The base may be omitted (indicating a local import) or have the value `"cldr"` (specifying CLDR standard files).
+
+_Attribute:_ `path` (required)
 
 The use case is to be able to import a standard set of vkeyMaps, transforms, and similar
 from the CLDR repository.  `<import>` is not recommended as a way for keyboard authors to
@@ -982,7 +987,6 @@ Another useful scenario is where there are doubled diacritics, or multiple chara
 
 The `displayMap` consists of a list of display subelements.
 
-
 displayMaps are designed to be shared across many different keyboard layout descriptions, and imported with `<import>` in where needed.
 
 For combining characters, U+25CC `◌` is used as a base. It is an error to use a combining character without a base in the `display` attribute.
@@ -1005,6 +1009,8 @@ See  [`<displayOptions baseCharacter=…/>`](#Element_displayOptions).
     {a set of display elements}
 </displayMap>
 ```
+
+**Note**: There is currently no way to indicate a custom display for a key without output (i.e. without a `to=` attribute), nor is there a way to indicate that such a key has a standardized identity (e.g. that a key should be identified as a “Shift”). These may be addressed in future versions of this standard.
 
 > <small>
 >

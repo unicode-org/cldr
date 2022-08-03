@@ -73,6 +73,9 @@ Please see CLDR-15034 for the latest information. -->
     <!--@MATCH:any-->
     <!--@VALUE-->
 
+<!ATTLIST import base (cldr) #IMPLIED >
+    <!--@VALUE-->
+
 <!ELEMENT vkeyMap EMPTY >
 <!ATTLIST vkeyMap from CDATA #REQUIRED >
     <!--@MATCH:any-->
@@ -148,9 +151,6 @@ Please see CLDR-15034 for the latest information. -->
 <!ELEMENT row EMPTY >
     <!--@ORDERED-->
 <!ATTLIST row keys NMTOKENS #REQUIRED >
-    <!--@MATCH:any-->
-    <!--@VALUE-->
-<!ATTLIST row stretch NMTOKENS #IMPLIED >
     <!--@MATCH:any-->
     <!--@VALUE-->
 

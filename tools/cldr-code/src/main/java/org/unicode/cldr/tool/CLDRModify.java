@@ -347,7 +347,20 @@ public class CLDRModify {
             if (!new File(sourceDir).isDirectory()) continue;
             String targetDir = targetDirBase + dir;
             try {
-                Factory cldrFactory = Factory.make(sourceDir, ".*");
+                Factory cldrFactoryForAvailable = Factory.make(sourceDir, ".*");
+                Factory cldrFactory = cldrFactoryForAvailable;
+                // Fix for annotations.  Need root.xml or else cannot load resolved
+                // locales.
+                if (sourceDir.endsWith("/seed/annotations/") && "Q".equals(options[FIX].value)) {
+                    System.err.println("Correcting factory so that annotations can load, including " + CLDRPaths.ANNOTATIONS_DIRECTORY);
+                    final File[] paths = {
+                        new File(sourceDir),
+                        new File(CLDRPaths.ANNOTATIONS_DIRECTORY) // common/annotations - to load root.xml
+                    };
+                    cldrFactory = SimpleFactory.make(paths, ".*");
+                } else {
+                    System.err.println("!!! " + sourceDir);
+                }
 
                 if (options[VET_ADD].doesOccur) {
                     VettingAdder va = new VettingAdder(options[VET_ADD].value);
@@ -372,7 +385,7 @@ public class CLDRModify {
                     }
                     mergeFactory = Factory.make(mergeDir, ".*");
                 }
-                Set<String> locales = new TreeSet<>(cldrFactory.getAvailable());
+                Set<String> locales = new TreeSet<>(cldrFactoryForAvailable.getAvailable());
                 if (mergeFactory != null) {
                     Set<String> temp = new TreeSet<>(mergeFactory.getAvailable());
                     Set<String> locales3 = new TreeSet<>();
@@ -1633,7 +1646,7 @@ public class CLDRModify {
         });
 
         fixList.add('Q', "add annotation names to keywords", new CLDRFilter() {
-            Set<String> available = Annotations.getAvailable();
+            Set<String> available = Annotations.getAllAvailable();
             TreeSet<String> sorted = new TreeSet<>(Collator.getInstance(ULocale.ROOT));
             CLDRFile resolved;
 

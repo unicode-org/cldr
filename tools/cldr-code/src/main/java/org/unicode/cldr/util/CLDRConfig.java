@@ -217,7 +217,11 @@ public class CLDRConfig extends Properties {
     }
 
     private static final class AnnotationsFactoryHelper {
-        static final Factory SINGLETON = Factory.make(CLDRPaths.ANNOTATIONS_DIRECTORY, ".*");
+        private static final File[] paths = {
+            new File(CLDRPaths.ANNOTATIONS_DIRECTORY),
+                SKIP_SEED ? null : new File(CLDRPaths.SEED_ANNOTATIONS_DIRECTORY)
+        };
+        static final Factory SINGLETON = SimpleFactory.make(paths, ".*");
     }
 
     public Factory getAnnotationsFactory() {

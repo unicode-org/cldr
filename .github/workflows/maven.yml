@@ -17,11 +17,13 @@ jobs:
         uses: actions/checkout@v3
         with:
           lfs: false
+          fetch-depth: 0  # Needed for cldr-archive
         if: github.event.inputs.git-ref == ''
       - name: Clone Repository (manual ref)
         uses: actions/checkout@v3
         with:
           lfs: false
+          fetch-depth: 0  # Needed for cldr-archive
           ref: ${{ github.event.inputs.git-ref }}
         if: github.event.inputs.git-ref != ''
       - name: Set up JDK
@@ -52,6 +54,9 @@ jobs:
           -DskipTests=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout CLDR archve
+        run: >
+          mkdir -v ../cldr-archive && java -jar tools/cldr-code/target/cldr-code.jar checkout-archive
       - name: Build liberty server
         run: >
           mvn -s .github/workflows/mvn-settings.xml -B  -pl cldr-apps liberty:create liberty:deploy liberty:package -Dinclude=usr --file tools/pom.xml
@@ -88,6 +93,9 @@ jobs:
           mvn -s .github/workflows/mvn-settings.xml -B test --file tools/pom.xml
           '-Dorg.unicode.cldr.unittest.web.jdbcurl=jdbc:mysql://cldrtest:VbrB3LFCr6A!@localhost/cldrtest?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC'
           '-Dorg.unicode.cldr.unittest.web.KeepDb=true' -DCLDR_GITHUB_ANNOTATIONS=true
+          '-Dorg.unicode.cldr.unittest.testArgs=-e10 -n'
+          '-Dorg.unicode.cldr.unittest.web.testArgs=-e10 -n'
+          '-Dorg.unicode.cldr.api.testArgs=-e10 -n'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   check:

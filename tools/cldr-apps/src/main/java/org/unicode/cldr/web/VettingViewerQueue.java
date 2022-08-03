@@ -1,6 +1,7 @@
 package org.unicode.cldr.web;
 
 import java.io.IOException;
+import java.time.LocalTime;
 import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Semaphore;
@@ -161,6 +162,9 @@ public class VettingViewerQueue {
                     maxn = n + 10;
                 }
                 if ((now - last) > 1200) {
+                    if (DEBUG) {
+                        System.out.println("Task.nudge() for Priority Items Summary, " + taskDescription());
+                    }
                     last = now;
                     if (n > 500) {
                         progress.update(n, setRemStr(now));
@@ -227,28 +231,42 @@ public class VettingViewerQueue {
             final CLDRProgressTask progress = CookieSession.sm.openProgress("vv: Priority Items Summary", maxn + 100);
 
             if (DEBUG) {
-                System.out.println("Starting up vv task: Priority Items Summary");
+                System.out.println("Starting up vv task: Priority Items Summary, " + taskDescription());
             }
 
             try {
                 status = "Waiting...";
                 progress.update("Waiting...");
+                if (DEBUG) {
+                    System.out.println("Calling OnlyOneVetter.acquire(), " + taskDescription());
+                }
                 OnlyOneVetter.acquire();
+                if (DEBUG) {
+                    System.out.println("Did call OnlyOneVetter.acquire(), " + taskDescription());
+                }
                 try {
                     if (stop) {
+                        // this NEVER happens?
+                        if (DEBUG) {
+                            System.out.println("VettingViewerQueue.Task.run -- stopping, " + taskDescription());
+                        }
                         status = "Stopped on request.";
                         statusCode = Status.STOPPED;
                         return;
                     }
                     processCriticalWork(progress);
                 } finally {
+                    // this happens sometimes six minutes after pressing Stop button
+                    if (DEBUG) {
+                        System.out.println("Calling OnlyOneVetter.release(), " + taskDescription());
+                    }
                     OnlyOneVetter.release();
                 }
                 status = "Finished.";
                 statusCode = Status.READY;
             } catch (RuntimeException | InterruptedException | ExecutionException re) {
-                SurveyLog.logException(logger, re, "While VettingViewer processing Priority Items Summary");
-                status = "Exception! " + re;
+                SurveyLog.logException(logger, re, "While VettingViewer processing Priority Items Summary, " + taskDescription());
+                status = "Exception! " + re + ", " + taskDescription();
                 // We're done.
                 statusCode = Status.STOPPED;
             } finally {
@@ -257,6 +275,10 @@ public class VettingViewerQueue {
                     progress.close();
                 }
             }
+        }
+
+        private String taskDescription() {
+            return "thread " + myThread.getId() + ", " + LocalTime.now();
         }
 
         private void processCriticalWork(final CLDRProgressTask progress) throws ExecutionException {
@@ -277,13 +299,20 @@ public class VettingViewerQueue {
 
             EnumSet<NotificationCategory> choiceSet = VettingViewer.getPriorityItemsSummaryCategories(usersOrg);
             if (DEBUG) {
-                System.out.println("Starting generation of Priority Items Summary");
+                System.out.println("Starting generation of Priority Items Summary, " + taskDescription());
             }
             vv.setLocaleBaselineCount(new VVQueueLocaleBaselineCount());
             vv.generatePriorityItemsSummary(aBuffer, choiceSet, usersOrg);
             if (myThread.isAlive()) {
+                if (DEBUG) {
+                   System.out.println("Finished generation of Priority Items Summary, " + taskDescription());
+                }
                 aBuffer.append("<hr/>Processing time: " + ElapsedTimer.elapsedTime(start));
                 entry.output.put(usersOrg, new VVOutput(aBuffer));
+            } else {
+                if (DEBUG) {
+                    System.out.println("Stopped generation of Priority Items Summary (thread is dead), " + taskDescription());
+                }
             }
         }
 
@@ -348,17 +377,26 @@ public class VettingViewerQueue {
             throws IOException, JSONException {
         JSONObject debugStatus = DEBUG ? new JSONObject() : null;
         QueueEntry entry = getEntry(args.qmi);
+        Task t = entry.currentTask;
         if (args.loadingPolicy != LoadingPolicy.FORCESTOP) {
             VVOutput res = entry.output.get(args.usersOrg);
             if (res != null) {
                 setPercent(100);
                 results.status = Status.READY;
                 results.output.append(res.output);
+                if (DEBUG) {
+                    final String desc = (t == null) ? "[null task]" : t.taskDescription();
+                    System.out.println("Got result, calling stop for Priority Items Summary, " + desc);
+                }
                 stop(entry);
                 entry.output.remove(args.usersOrg);
                 return SUM_MESSAGE_COMPLETE;
             }
         } else { /* force stop */
+            if (DEBUG) {
+                final String desc = (t == null) ? "[null task]" : t.taskDescription();
+                System.out.println("Forced stop of Priority Items Summary, " + desc);
+            }
             stop(entry);
             entry.output.remove(args.usersOrg);
             results.status = Status.STOPPED;
@@ -369,7 +407,6 @@ public class VettingViewerQueue {
             }
             return SUM_MESSAGE_STOPPED_ON_REQUEST;
         }
-        Task t = entry.currentTask;
         if (t != null) {
             String waiting = waitingString();
             if (debugStatus != null) {
@@ -399,6 +436,9 @@ public class VettingViewerQueue {
         // some restructuring
         t = entry.currentTask = new Task(entry, args.usersOrg);
         t.myThread = SurveyThreadManager.getThreadFactory().newThread(t);
+        if (DEBUG) {
+            System.out.println("Starting new thread for Priority Items Summary, " + t.taskDescription());
+        }
         t.myThread.start();
 
         results.status = Status.PROCESSING;
@@ -435,10 +475,20 @@ public class VettingViewerQueue {
         Task t = entry.currentTask;
         if (t != null) {
             if (t.myThread.isAlive() && !t.stop) {
+                if (DEBUG) {
+                    System.out.println("Alive; stop() setting stop = true for Priority Items Summary, " + t.taskDescription());
+                }
                 t.stop = true;
                 t.myThread.interrupt();
+                if (DEBUG) {
+                    System.out.println("Alive; called interrupt() for Priority Items Summary, " + t.taskDescription());
+                }
+            } else if (DEBUG) {
+                System.out.println("Not alive or already stopped for Priority Items Summary, " + t.taskDescription());
             }
             entry.currentTask = null;
+        } else if (DEBUG) {
+            System.out.println("Task was null in stop() for Priority Items Summary");
         }
     }
 

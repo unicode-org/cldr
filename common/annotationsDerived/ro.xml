@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,46 +12,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="ro"/>
 	</identity>
 	<annotations>
-		<annotation cp="🫃🏻">balonat | bărbat însărcinat | burtă | gravid | însărcinat | ton deschis al pielii | umflat</annotation>
-		<annotation cp="🫃🏻" type="tts">bărbat însărcinat: ton deschis al pielii</annotation>
-		<annotation cp="🫃🏼">balonat | bărbat însărcinat | burtă | gravid | însărcinat | ton semi‑deschis al pielii | umflat</annotation>
-		<annotation cp="🫃🏼" type="tts">bărbat însărcinat: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🫃🏽">balonat | bărbat însărcinat | burtă | gravid | însărcinat | ton mediu al pielii | umflat</annotation>
-		<annotation cp="🫃🏽" type="tts">bărbat însărcinat: ton mediu al pielii</annotation>
-		<annotation cp="🫃🏾">balonat | bărbat însărcinat | burtă | gravid | însărcinat | ton semi‑închis al pielii | umflat</annotation>
-		<annotation cp="🫃🏾" type="tts">bărbat însărcinat: ton semi‑închis al pielii</annotation>
-		<annotation cp="🫃🏿">balonat | bărbat însărcinat | burtă | gravid | însărcinat | ton închis al pielii | umflat</annotation>
-		<annotation cp="🫃🏿" type="tts">bărbat însărcinat: ton închis al pielii</annotation>
-		<annotation cp="🫄🏻">balonat | burtă | gravid | însărcinat | persoană însărcinată | ton deschis al pielii | umflat</annotation>
-		<annotation cp="🫄🏻" type="tts">persoană însărcinată: ton deschis al pielii</annotation>
-		<annotation cp="🫄🏼">balonat | burtă | gravid | însărcinat | persoană însărcinată | ton semi‑deschis al pielii | umflat</annotation>
-		<annotation cp="🫄🏼" type="tts">persoană însărcinată: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🫄🏽">balonat | burtă | gravid | însărcinat | persoană însărcinată | ton mediu al pielii | umflat</annotation>
-		<annotation cp="🫄🏽" type="tts">persoană însărcinată: ton mediu al pielii</annotation>
-		<annotation cp="🫄🏾">balonat | burtă | gravid | însărcinat | persoană însărcinată | ton semi‑închis al pielii | umflat</annotation>
-		<annotation cp="🫄🏾" type="tts">persoană însărcinată: ton semi‑închis al pielii</annotation>
-		<annotation cp="🫄🏿">balonat | burtă | gravid | însărcinat | persoană însărcinată | ton închis al pielii | umflat</annotation>
-		<annotation cp="🫄🏿" type="tts">persoană însărcinată: ton închis al pielii</annotation>
-		<annotation cp="🫅🏻">monarh | monarhie | nobil | persoană cu coroană | regal | regalitate | ton deschis al pielii</annotation>
-		<annotation cp="🫅🏻" type="tts">persoană cu coroană: ton deschis al pielii</annotation>
-		<annotation cp="🫅🏼">monarh | monarhie | nobil | persoană cu coroană | regal | regalitate | ton semi‑deschis al pielii</annotation>
-		<annotation cp="🫅🏼" type="tts">persoană cu coroană: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🫅🏽">monarh | monarhie | nobil | persoană cu coroană | regal | regalitate | ton mediu al pielii</annotation>
-		<annotation cp="🫅🏽" type="tts">persoană cu coroană: ton mediu al pielii</annotation>
-		<annotation cp="🫅🏾">monarh | monarhie | nobil | persoană cu coroană | regal | regalitate | ton semi‑închis al pielii</annotation>
-		<annotation cp="🫅🏾" type="tts">persoană cu coroană: ton semi‑închis al pielii</annotation>
-		<annotation cp="🫅🏿">monarh | monarhie | nobil | persoană cu coroană | regal | regalitate | ton închis al pielii</annotation>
-		<annotation cp="🫅🏿" type="tts">persoană cu coroană: ton închis al pielii</annotation>
-		<annotation cp="🫰🏻">bani | ciubuc | mână cu degetul mare și arătătorul încrucișate | pocnet | scump | ton deschis al pielii</annotation>
-		<annotation cp="🫰🏻" type="tts">mână cu degetul mare și arătătorul încrucișate: ton deschis al pielii</annotation>
-		<annotation cp="🫰🏼">bani | ciubuc | mână cu degetul mare și arătătorul încrucișate | pocnet | scump | ton semi‑deschis al pielii</annotation>
-		<annotation cp="🫰🏼" type="tts">mână cu degetul mare și arătătorul încrucișate: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🫰🏽">bani | ciubuc | mână cu degetul mare și arătătorul încrucișate | pocnet | scump | ton mediu al pielii</annotation>
-		<annotation cp="🫰🏽" type="tts">mână cu degetul mare și arătătorul încrucișate: ton mediu al pielii</annotation>
-		<annotation cp="🫰🏾">bani | ciubuc | mână cu degetul mare și arătătorul încrucișate | pocnet | scump | ton semi‑închis al pielii</annotation>
-		<annotation cp="🫰🏾" type="tts">mână cu degetul mare și arătătorul încrucișate: ton semi‑închis al pielii</annotation>
-		<annotation cp="🫰🏿">bani | ciubuc | mână cu degetul mare și arătătorul încrucișate | pocnet | scump | ton închis al pielii</annotation>
-		<annotation cp="🫰🏿" type="tts">mână cu degetul mare și arătătorul încrucișate: ton închis al pielii</annotation>
+		<annotation cp="👋🏻">despărțire | mână | mână fluturată | semn | ton deschis al pielii</annotation>
+		<annotation cp="👋🏻" type="tts">mână fluturată: ton deschis al pielii</annotation>
+		<annotation cp="👋🏼">despărțire | mână | mână fluturată | semn | ton semi‑deschis al pielii</annotation>
+		<annotation cp="👋🏼" type="tts">mână fluturată: ton semi‑deschis al pielii</annotation>
+		<annotation cp="👋🏽">despărțire | mână | mână fluturată | semn | ton mediu al pielii</annotation>
+		<annotation cp="👋🏽" type="tts">mână fluturată: ton mediu al pielii</annotation>
+		<annotation cp="👋🏾">despărțire | mână | mână fluturată | semn | ton semi‑închis al pielii</annotation>
+		<annotation cp="👋🏾" type="tts">mână fluturată: ton semi‑închis al pielii</annotation>
+		<annotation cp="👋🏿">despărțire | mână | mână fluturată | semn | ton închis al pielii</annotation>
+		<annotation cp="👋🏿" type="tts">mână fluturată: ton închis al pielii</annotation>
+		<annotation cp="🤚🏻">dosul palmei | dosul palmei ridicat | ridicat | ton deschis al pielii</annotation>
+		<annotation cp="🤚🏻" type="tts">dosul palmei ridicat: ton deschis al pielii</annotation>
+		<annotation cp="🤚🏼">dosul palmei | dosul palmei ridicat | ridicat | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🤚🏼" type="tts">dosul palmei ridicat: ton semi‑deschis al pielii</annotation>
+		<annotation cp="🤚🏽">dosul palmei | dosul palmei ridicat | ridicat | ton mediu al pielii</annotation>
+		<annotation cp="🤚🏽" type="tts">dosul palmei ridicat: ton mediu al pielii</annotation>
+		<annotation cp="🤚🏾">dosul palmei | dosul palmei ridicat | ridicat | ton semi‑închis al pielii</annotation>
+		<annotation cp="🤚🏾" type="tts">dosul palmei ridicat: ton semi‑închis al pielii</annotation>
+		<annotation cp="🤚🏿">dosul palmei | dosul palmei ridicat | ridicat | ton închis al pielii</annotation>
+		<annotation cp="🤚🏿" type="tts">dosul palmei ridicat: ton închis al pielii</annotation>
+		<annotation cp="🖐🏻">deget | deschis | mână | mână ridicată cu degetele depărtate | ton deschis al pielii</annotation>
+		<annotation cp="🖐🏻" type="tts">mână ridicată cu degetele depărtate: ton deschis al pielii</annotation>
+		<annotation cp="🖐🏼">deget | deschis | mână | mână ridicată cu degetele depărtate | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🖐🏼" type="tts">mână ridicată cu degetele depărtate: ton semi‑deschis al pielii</annotation>
+		<annotation cp="🖐🏽">deget | deschis | mână | mână ridicată cu degetele depărtate | ton mediu al pielii</annotation>
+		<annotation cp="🖐🏽" type="tts">mână ridicată cu degetele depărtate: ton mediu al pielii</annotation>
+		<annotation cp="🖐🏾">deget | deschis | mână | mână ridicată cu degetele depărtate | ton semi‑închis al pielii</annotation>
+		<annotation cp="🖐🏾" type="tts">mână ridicată cu degetele depărtate: ton semi‑închis al pielii</annotation>
+		<annotation cp="🖐🏿">deget | deschis | mână | mână ridicată cu degetele depărtate | ton închis al pielii</annotation>
+		<annotation cp="🖐🏿" type="tts">mână ridicată cu degetele depărtate: ton închis al pielii</annotation>
+		<annotation cp="✋🏻">mână | mână ridicată | sus | ton deschis al pielii</annotation>
+		<annotation cp="✋🏻" type="tts">mână ridicată: ton deschis al pielii</annotation>
+		<annotation cp="✋🏼">mână | mână ridicată | sus | ton semi‑deschis al pielii</annotation>
+		<annotation cp="✋🏼" type="tts">mână ridicată: ton semi‑deschis al pielii</annotation>
+		<annotation cp="✋🏽">mână | mână ridicată | sus | ton mediu al pielii</annotation>
+		<annotation cp="✋🏽" type="tts">mână ridicată: ton mediu al pielii</annotation>
+		<annotation cp="✋🏾">mână | mână ridicată | sus | ton semi‑închis al pielii</annotation>
+		<annotation cp="✋🏾" type="tts">mână ridicată: ton semi‑închis al pielii</annotation>
+		<annotation cp="✋🏿">mână | mână ridicată | sus | ton închis al pielii</annotation>
+		<annotation cp="✋🏿" type="tts">mână ridicată: ton închis al pielii</annotation>
+		<annotation cp="🖖🏻">deget | salut | salut vulcanian | spock | ton deschis al pielii | vulcan</annotation>
+		<annotation cp="🖖🏻" type="tts">salut vulcanian: ton deschis al pielii</annotation>
+		<annotation cp="🖖🏼">deget | salut | salut vulcanian | spock | ton semi‑deschis al pielii | vulcan</annotation>
+		<annotation cp="🖖🏼" type="tts">salut vulcanian: ton semi‑deschis al pielii</annotation>
+		<annotation cp="🖖🏽">deget | salut | salut vulcanian | spock | ton mediu al pielii | vulcan</annotation>
+		<annotation cp="🖖🏽" type="tts">salut vulcanian: ton mediu al pielii</annotation>
+		<annotation cp="🖖🏾">deget | salut | salut vulcanian | spock | ton semi‑închis al pielii | vulcan</annotation>
+		<annotation cp="🖖🏾" type="tts">salut vulcanian: ton semi‑închis al pielii</annotation>
+		<annotation cp="🖖🏿">deget | salut | salut vulcanian | spock | ton închis al pielii | vulcan</annotation>
+		<annotation cp="🖖🏿" type="tts">salut vulcanian: ton închis al pielii</annotation>
 		<annotation cp="🫱🏻">dreapta | la dreapta | mână | mână spre dreapta | spre dreapta | ton deschis al pielii</annotation>
 		<annotation cp="🫱🏻" type="tts">mână spre dreapta: ton deschis al pielii</annotation>
 		<annotation cp="🫱🏼">dreapta | la dreapta | mână | mână spre dreapta | spre dreapta | ton semi‑deschis al pielii</annotation>
@@ -122,86 +132,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫳🏾" type="tts">mână cu palma în jos: ton semi‑închis al pielii</annotation>
 		<annotation cp="🫳🏿">concedia | mână cu palma în jos | renunță | respinge | ton închis al pielii | uș</annotation>
 		<annotation cp="🫳🏿" type="tts">mână cu palma în jos: ton închis al pielii</annotation>
-		<annotation cp="🫴🏻">chemare | mână cu palma în sus | oferi | prinde | ton deschis al pielii | vino</annotation>
+		<annotation cp="🫴🏻">atrage | chemare | mână cu palma în sus | oferi | prinde | ton deschis al pielii | vino</annotation>
 		<annotation cp="🫴🏻" type="tts">mână cu palma în sus: ton deschis al pielii</annotation>
-		<annotation cp="🫴🏼">chemare | mână cu palma în sus | oferi | prinde | ton semi‑deschis al pielii | vino</annotation>
+		<annotation cp="🫴🏼">atrage | chemare | mână cu palma în sus | oferi | prinde | ton semi‑deschis al pielii | vino</annotation>
 		<annotation cp="🫴🏼" type="tts">mână cu palma în sus: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🫴🏽">chemare | mână cu palma în sus | oferi | prinde | ton mediu al pielii | vino</annotation>
+		<annotation cp="🫴🏽">atrage | chemare | mână cu palma în sus | oferi | prinde | ton mediu al pielii | vino</annotation>
 		<annotation cp="🫴🏽" type="tts">mână cu palma în sus: ton mediu al pielii</annotation>
-		<annotation cp="🫴🏾">chemare | mână cu palma în sus | oferi | prinde | ton semi‑închis al pielii | vino</annotation>
+		<annotation cp="🫴🏾">atrage | chemare | mână cu palma în sus | oferi | prinde | ton semi‑închis al pielii | vino</annotation>
 		<annotation cp="🫴🏾" type="tts">mână cu palma în sus: ton semi‑închis al pielii</annotation>
-		<annotation cp="🫴🏿">chemare | mână cu palma în sus | oferi | prinde | ton închis al pielii | vino</annotation>
+		<annotation cp="🫴🏿">atrage | chemare | mână cu palma în sus | oferi | prinde | ton închis al pielii | vino</annotation>
 		<annotation cp="🫴🏿" type="tts">mână cu palma în sus: ton închis al pielii</annotation>
-		<annotation cp="🫵🏻">arăta | deget arătător îndreptat spre privitor | indica | ton deschis al pielii | tu</annotation>
-		<annotation cp="🫵🏻" type="tts">deget arătător îndreptat spre privitor: ton deschis al pielii</annotation>
-		<annotation cp="🫵🏼">arăta | deget arătător îndreptat spre privitor | indica | ton semi‑deschis al pielii | tu</annotation>
-		<annotation cp="🫵🏼" type="tts">deget arătător îndreptat spre privitor: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🫵🏽">arăta | deget arătător îndreptat spre privitor | indica | ton mediu al pielii | tu</annotation>
-		<annotation cp="🫵🏽" type="tts">deget arătător îndreptat spre privitor: ton mediu al pielii</annotation>
-		<annotation cp="🫵🏾">arăta | deget arătător îndreptat spre privitor | indica | ton semi‑închis al pielii | tu</annotation>
-		<annotation cp="🫵🏾" type="tts">deget arătător îndreptat spre privitor: ton semi‑închis al pielii</annotation>
-		<annotation cp="🫵🏿">arăta | deget arătător îndreptat spre privitor | indica | ton închis al pielii | tu</annotation>
-		<annotation cp="🫵🏿" type="tts">deget arătător îndreptat spre privitor: ton închis al pielii</annotation>
-		<annotation cp="🫶🏻">dragoste | iubire | mâini care formează o inimă | ton deschis al pielii</annotation>
-		<annotation cp="🫶🏻" type="tts">mâini care formează o inimă: ton deschis al pielii</annotation>
-		<annotation cp="🫶🏼">dragoste | iubire | mâini care formează o inimă | ton semi‑deschis al pielii</annotation>
-		<annotation cp="🫶🏼" type="tts">mâini care formează o inimă: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🫶🏽">dragoste | iubire | mâini care formează o inimă | ton mediu al pielii</annotation>
-		<annotation cp="🫶🏽" type="tts">mâini care formează o inimă: ton mediu al pielii</annotation>
-		<annotation cp="🫶🏾">dragoste | iubire | mâini care formează o inimă | ton semi‑închis al pielii</annotation>
-		<annotation cp="🫶🏾" type="tts">mâini care formează o inimă: ton semi‑închis al pielii</annotation>
-		<annotation cp="🫶🏿">dragoste | iubire | mâini care formează o inimă | ton închis al pielii</annotation>
-		<annotation cp="🫶🏿" type="tts">mâini care formează o inimă: ton închis al pielii</annotation>
-		<annotation cp="👋🏻">despărțire | mână | mână fluturată | semn | ton deschis al pielii</annotation>
-		<annotation cp="👋🏻" type="tts">mână fluturată: ton deschis al pielii</annotation>
-		<annotation cp="👋🏼">despărțire | mână | mână fluturată | semn | ton semi‑deschis al pielii</annotation>
-		<annotation cp="👋🏼" type="tts">mână fluturată: ton semi‑deschis al pielii</annotation>
-		<annotation cp="👋🏽">despărțire | mână | mână fluturată | semn | ton mediu al pielii</annotation>
-		<annotation cp="👋🏽" type="tts">mână fluturată: ton mediu al pielii</annotation>
-		<annotation cp="👋🏾">despărțire | mână | mână fluturată | semn | ton semi‑închis al pielii</annotation>
-		<annotation cp="👋🏾" type="tts">mână fluturată: ton semi‑închis al pielii</annotation>
-		<annotation cp="👋🏿">despărțire | mână | mână fluturată | semn | ton închis al pielii</annotation>
-		<annotation cp="👋🏿" type="tts">mână fluturată: ton închis al pielii</annotation>
-		<annotation cp="🤚🏻">dosul palmei | dosul palmei ridicat | ridicat | ton deschis al pielii</annotation>
-		<annotation cp="🤚🏻" type="tts">dosul palmei ridicat: ton deschis al pielii</annotation>
-		<annotation cp="🤚🏼">dosul palmei | dosul palmei ridicat | ridicat | ton semi‑deschis al pielii</annotation>
-		<annotation cp="🤚🏼" type="tts">dosul palmei ridicat: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🤚🏽">dosul palmei | dosul palmei ridicat | ridicat | ton mediu al pielii</annotation>
-		<annotation cp="🤚🏽" type="tts">dosul palmei ridicat: ton mediu al pielii</annotation>
-		<annotation cp="🤚🏾">dosul palmei | dosul palmei ridicat | ridicat | ton semi‑închis al pielii</annotation>
-		<annotation cp="🤚🏾" type="tts">dosul palmei ridicat: ton semi‑închis al pielii</annotation>
-		<annotation cp="🤚🏿">dosul palmei | dosul palmei ridicat | ridicat | ton închis al pielii</annotation>
-		<annotation cp="🤚🏿" type="tts">dosul palmei ridicat: ton închis al pielii</annotation>
-		<annotation cp="🖐🏻">deget | deschis | mână | mână ridicată cu degetele depărtate | ton deschis al pielii</annotation>
-		<annotation cp="🖐🏻" type="tts">mână ridicată cu degetele depărtate: ton deschis al pielii</annotation>
-		<annotation cp="🖐🏼">deget | deschis | mână | mână ridicată cu degetele depărtate | ton semi‑deschis al pielii</annotation>
-		<annotation cp="🖐🏼" type="tts">mână ridicată cu degetele depărtate: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🖐🏽">deget | deschis | mână | mână ridicată cu degetele depărtate | ton mediu al pielii</annotation>
-		<annotation cp="🖐🏽" type="tts">mână ridicată cu degetele depărtate: ton mediu al pielii</annotation>
-		<annotation cp="🖐🏾">deget | deschis | mână | mână ridicată cu degetele depărtate | ton semi‑închis al pielii</annotation>
-		<annotation cp="🖐🏾" type="tts">mână ridicată cu degetele depărtate: ton semi‑închis al pielii</annotation>
-		<annotation cp="🖐🏿">deget | deschis | mână | mână ridicată cu degetele depărtate | ton închis al pielii</annotation>
-		<annotation cp="🖐🏿" type="tts">mână ridicată cu degetele depărtate: ton închis al pielii</annotation>
-		<annotation cp="✋🏻">mână | mână ridicată | sus | ton deschis al pielii</annotation>
-		<annotation cp="✋🏻" type="tts">mână ridicată: ton deschis al pielii</annotation>
-		<annotation cp="✋🏼">mână | mână ridicată | sus | ton semi‑deschis al pielii</annotation>
-		<annotation cp="✋🏼" type="tts">mână ridicată: ton semi‑deschis al pielii</annotation>
-		<annotation cp="✋🏽">mână | mână ridicată | sus | ton mediu al pielii</annotation>
-		<annotation cp="✋🏽" type="tts">mână ridicată: ton mediu al pielii</annotation>
-		<annotation cp="✋🏾">mână | mână ridicată | sus | ton semi‑închis al pielii</annotation>
-		<annotation cp="✋🏾" type="tts">mână ridicată: ton semi‑închis al pielii</annotation>
-		<annotation cp="✋🏿">mână | mână ridicată | sus | ton închis al pielii</annotation>
-		<annotation cp="✋🏿" type="tts">mână ridicată: ton închis al pielii</annotation>
-		<annotation cp="🖖🏻">deget | salut | salut vulcanian | spock | ton deschis al pielii | vulcan</annotation>
-		<annotation cp="🖖🏻" type="tts">salut vulcanian: ton deschis al pielii</annotation>
-		<annotation cp="🖖🏼">deget | salut | salut vulcanian | spock | ton semi‑deschis al pielii | vulcan</annotation>
-		<annotation cp="🖖🏼" type="tts">salut vulcanian: ton semi‑deschis al pielii</annotation>
-		<annotation cp="🖖🏽">deget | salut | salut vulcanian | spock | ton mediu al pielii | vulcan</annotation>
-		<annotation cp="🖖🏽" type="tts">salut vulcanian: ton mediu al pielii</annotation>
-		<annotation cp="🖖🏾">deget | salut | salut vulcanian | spock | ton semi‑închis al pielii | vulcan</annotation>
-		<annotation cp="🖖🏾" type="tts">salut vulcanian: ton semi‑închis al pielii</annotation>
-		<annotation cp="🖖🏿">deget | salut | salut vulcanian | spock | ton închis al pielii | vulcan</annotation>
-		<annotation cp="🖖🏿" type="tts">salut vulcanian: ton închis al pielii</annotation>
 		<annotation cp="👌🏻">gest | mână | ok | semnul ok | ton deschis al pielii</annotation>
 		<annotation cp="👌🏻" type="tts">semnul ok: ton deschis al pielii</annotation>
 		<annotation cp="👌🏼">gest | mână | ok | semnul ok | ton semi‑deschis al pielii</annotation>
@@ -252,6 +192,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤞🏾" type="tts">degete încrucișate: ton semi‑închis al pielii</annotation>
 		<annotation cp="🤞🏿">degete | degete încrucișate | încrucișare | mână | noroc | ton închis al pielii</annotation>
 		<annotation cp="🤞🏿" type="tts">degete încrucișate: ton închis al pielii</annotation>
+		<annotation cp="🫰🏻">bani | ciubuc | mână cu degetul mare și arătătorul încrucișate | pocnet | scump | ton deschis al pielii</annotation>
+		<annotation cp="🫰🏻" type="tts">mână cu degetul mare și arătătorul încrucișate: ton deschis al pielii</annotation>
+		<annotation cp="🫰🏼">bani | ciubuc | mână cu degetul mare și arătătorul încrucișate | pocnet | scump | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🫰🏼" type="tts">mână cu degetul mare și arătătorul încrucișate: ton semi‑deschis al pielii</annotation>
+		<annotation cp="🫰🏽">bani | ciubuc | mână cu degetul mare și arătătorul încrucișate | pocnet | scump | ton mediu al pielii</annotation>
+		<annotation cp="🫰🏽" type="tts">mână cu degetul mare și arătătorul încrucișate: ton mediu al pielii</annotation>
+		<annotation cp="🫰🏾">bani | ciubuc | mână cu degetul mare și arătătorul încrucișate | pocnet | scump | ton semi‑închis al pielii</annotation>
+		<annotation cp="🫰🏾" type="tts">mână cu degetul mare și arătătorul încrucișate: ton semi‑închis al pielii</annotation>
+		<annotation cp="🫰🏿">bani | ciubuc | mână cu degetul mare și arătătorul încrucișate | pocnet | scump | ton închis al pielii</annotation>
+		<annotation cp="🫰🏿" type="tts">mână cu degetul mare și arătătorul încrucișate: ton închis al pielii</annotation>
 		<annotation cp="🤟🏻">gest cu semnificația te iubesc | mână | te iubesc | ton deschis al pielii</annotation>
 		<annotation cp="🤟🏻" type="tts">gest cu semnificația te iubesc: ton deschis al pielii</annotation>
 		<annotation cp="🤟🏼">gest cu semnificația te iubesc | mână | te iubesc | ton semi‑deschis al pielii</annotation>
@@ -342,6 +292,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☝🏾" type="tts">deget arătător îndreptat în sus: ton semi‑închis al pielii</annotation>
 		<annotation cp="☝🏿">deget | deget arătător îndreptat în sus | indicator | sus | ton închis al pielii</annotation>
 		<annotation cp="☝🏿" type="tts">deget arătător îndreptat în sus: ton închis al pielii</annotation>
+		<annotation cp="🫵🏻">arăta | deget arătător îndreptat spre privitor | indica | ton deschis al pielii | tu</annotation>
+		<annotation cp="🫵🏻" type="tts">deget arătător îndreptat spre privitor: ton deschis al pielii</annotation>
+		<annotation cp="🫵🏼">arăta | deget arătător îndreptat spre privitor | indica | ton semi‑deschis al pielii | tu</annotation>
+		<annotation cp="🫵🏼" type="tts">deget arătător îndreptat spre privitor: ton semi‑deschis al pielii</annotation>
+		<annotation cp="🫵🏽">arăta | deget arătător îndreptat spre privitor | indica | ton mediu al pielii | tu</annotation>
+		<annotation cp="🫵🏽" type="tts">deget arătător îndreptat spre privitor: ton mediu al pielii</annotation>
+		<annotation cp="🫵🏾">arăta | deget arătător îndreptat spre privitor | indica | ton semi‑închis al pielii | tu</annotation>
+		<annotation cp="🫵🏾" type="tts">deget arătător îndreptat spre privitor: ton semi‑închis al pielii</annotation>
+		<annotation cp="🫵🏿">arăta | deget arătător îndreptat spre privitor | indica | ton închis al pielii | tu</annotation>
+		<annotation cp="🫵🏿" type="tts">deget arătător îndreptat spre privitor: ton închis al pielii</annotation>
 		<annotation cp="👍🏻">+1 | aprobare | da | mână | pozitiv | semn de aprobare | ton deschis al pielii</annotation>
 		<annotation cp="👍🏻" type="tts">semn de aprobare: ton deschis al pielii</annotation>
 		<annotation cp="👍🏼">+1 | aprobare | da | mână | pozitiv | semn de aprobare | ton semi‑deschis al pielii</annotation>
@@ -422,6 +382,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">mâini ridicate: ton semi‑închis al pielii</annotation>
 		<annotation cp="🙌🏿">mâini | mâini ridicate | ridicat | sărbătoare | ton închis al pielii | ura</annotation>
 		<annotation cp="🙌🏿" type="tts">mâini ridicate: ton închis al pielii</annotation>
+		<annotation cp="🫶🏻">dragoste | iubire | mâini care formează o inimă | ton deschis al pielii</annotation>
+		<annotation cp="🫶🏻" type="tts">mâini care formează o inimă: ton deschis al pielii</annotation>
+		<annotation cp="🫶🏼">dragoste | iubire | mâini care formează o inimă | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🫶🏼" type="tts">mâini care formează o inimă: ton semi‑deschis al pielii</annotation>
+		<annotation cp="🫶🏽">dragoste | iubire | mâini care formează o inimă | ton mediu al pielii</annotation>
+		<annotation cp="🫶🏽" type="tts">mâini care formează o inimă: ton mediu al pielii</annotation>
+		<annotation cp="🫶🏾">dragoste | iubire | mâini care formează o inimă | ton semi‑închis al pielii</annotation>
+		<annotation cp="🫶🏾" type="tts">mâini care formează o inimă: ton semi‑închis al pielii</annotation>
+		<annotation cp="🫶🏿">dragoste | iubire | mâini care formează o inimă | ton închis al pielii</annotation>
+		<annotation cp="🫶🏿" type="tts">mâini care formează o inimă: ton închis al pielii</annotation>
 		<annotation cp="👐🏻">deschise | mână | palme | ton deschis al pielii</annotation>
 		<annotation cp="👐🏻" type="tts">palme deschise: ton deschis al pielii</annotation>
 		<annotation cp="👐🏼">deschise | mână | palme | ton semi‑deschis al pielii</annotation>
@@ -462,6 +432,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙏🏾" type="tts">mâini unite: ton semi‑închis al pielii</annotation>
 		<annotation cp="🙏🏿">mâini | mâini unite | mulțumiri | rugăciune | te rog | ton închis al pielii</annotation>
 		<annotation cp="🙏🏿" type="tts">mâini unite: ton închis al pielii</annotation>
+		<annotation cp="🫷🏻">așteaptă | bate palma | împinge | mână care împinge spre stânga | refuz | spre stânga | stop | ton deschis al pielii</annotation>
+		<annotation cp="🫷🏻" type="tts">mână care împinge spre stânga: ton deschis al pielii</annotation>
+		<annotation cp="🫷🏼">așteaptă | bate palma | împinge | mână care împinge spre stânga | refuz | spre stânga | stop | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🫷🏼" type="tts">mână care împinge spre stânga: ton semi‑deschis al pielii</annotation>
+		<annotation cp="🫷🏽">așteaptă | bate palma | împinge | mână care împinge spre stânga | refuz | spre stânga | stop | ton mediu al pielii</annotation>
+		<annotation cp="🫷🏽" type="tts">mână care împinge spre stânga: ton mediu al pielii</annotation>
+		<annotation cp="🫷🏾">așteaptă | bate palma | împinge | mână care împinge spre stânga | refuz | spre stânga | stop | ton semi‑închis al pielii</annotation>
+		<annotation cp="🫷🏾" type="tts">mână care împinge spre stânga: ton semi‑închis al pielii</annotation>
+		<annotation cp="🫷🏿">așteaptă | bate palma | împinge | mână care împinge spre stânga | refuz | spre stânga | stop | ton închis al pielii</annotation>
+		<annotation cp="🫷🏿" type="tts">mână care împinge spre stânga: ton închis al pielii</annotation>
+		<annotation cp="🫸🏻">așteaptă | bate palma | împinge | mână care împinge spre dreapta | refuz | spre dreapta | stop | ton deschis al pielii</annotation>
+		<annotation cp="🫸🏻" type="tts">mână care împinge spre dreapta: ton deschis al pielii</annotation>
+		<annotation cp="🫸🏼">așteaptă | bate palma | împinge | mână care împinge spre dreapta | refuz | spre dreapta | stop | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🫸🏼" type="tts">mână care împinge spre dreapta: ton semi‑deschis al pielii</annotation>
+		<annotation cp="🫸🏽">așteaptă | bate palma | împinge | mână care împinge spre dreapta | refuz | spre dreapta | stop | ton mediu al pielii</annotation>
+		<annotation cp="🫸🏽" type="tts">mână care împinge spre dreapta: ton mediu al pielii</annotation>
+		<annotation cp="🫸🏾">așteaptă | bate palma | împinge | mână care împinge spre dreapta | refuz | spre dreapta | stop | ton semi‑închis al pielii</annotation>
+		<annotation cp="🫸🏾" type="tts">mână care împinge spre dreapta: ton semi‑închis al pielii</annotation>
+		<annotation cp="🫸🏿">așteaptă | bate palma | împinge | mână care împinge spre dreapta | refuz | spre dreapta | stop | ton închis al pielii</annotation>
+		<annotation cp="🫸🏿" type="tts">mână care împinge spre dreapta: ton închis al pielii</annotation>
 		<annotation cp="✍🏻">mână | mână scriind | scris | ton deschis al pielii</annotation>
 		<annotation cp="✍🏻" type="tts">mână scriind: ton deschis al pielii</annotation>
 		<annotation cp="✍🏼">mână | mână scriind | scris | ton semi‑deschis al pielii</annotation>
@@ -2146,6 +2136,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👷🏾‍♀" type="tts">muncitoare în construcții: ton semi‑închis al pielii</annotation>
 		<annotation cp="👷🏿‍♀">construcții | muncitoare | muncitoare în construcții | ton închis al pielii</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">muncitoare în construcții: ton închis al pielii</annotation>
+		<annotation cp="🫅🏻">monarh | monarhie | nobil | persoană cu coroană | regal | regalitate | ton deschis al pielii</annotation>
+		<annotation cp="🫅🏻" type="tts">persoană cu coroană: ton deschis al pielii</annotation>
+		<annotation cp="🫅🏼">monarh | monarhie | nobil | persoană cu coroană | regal | regalitate | ton semi‑deschis al pielii</annotation>
+		<annotation cp="🫅🏼" type="tts">persoană cu coroană: ton semi‑deschis al pielii</annotation>
+		<annotation cp="🫅🏽">monarh | monarhie | nobil | persoană cu coroană | regal | regalitate | ton mediu al pielii</annotation>
+		<annotation cp="🫅🏽" type="tts">persoană cu coroană: ton mediu al pielii</annotation>
+		<annotation cp="🫅🏾">monarh | monarhie | nobil | persoană cu coroană | regal | regalitate | ton semi‑închis al pielii</annotation>
+		<annotation cp="🫅🏾" type="tts">persoană cu coroană: ton semi‑închis al pielii</annotation>
+		<annotation cp="🫅🏿">monarh | monarhie | nobil | persoană cu coroană | regal | regalitate | ton închis al pielii</annotation>
+		<annotation cp="🫅🏿" type="tts">persoană cu coroană: ton închis al pielii</annotation>
 		<annotation cp="🤴🏻">principe | prinț | ton deschis al pielii</annotation>
 		<annotation cp="🤴🏻" type="tts">prinț: ton deschis al pielii</annotation>
 		<annotation cp="🤴🏼">principe | prinț | ton semi‑deschis al pielii</annotation>
@@ -2286,6 +2286,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">femeie însărcinată: ton semi‑închis al pielii</annotation>
 		<annotation cp="🤰🏿">femeie | femeie însărcinată | gravidă | ton închis al pielii</annotation>
 		<annotation cp="🤰🏿" type="tts">femeie însărcinată: ton închis al pielii</annotation>
+		<annotation cp="🫃🏻">balonat | bărbat însărcinat | burtă | gravid | însărcinat | ton deschis al pielii | umflat</annotation>
+		<annotation cp="🫃🏻" type="tts">bărbat însărcinat: ton deschis al pielii</annotation>
+		<annotation cp="🫃🏼">balonat | bărbat însărcinat | burtă | gravid | însărcinat | ton semi‑deschis al pielii | umflat</annotation>
+		<annotation cp="🫃🏼" type="tts">bărbat însărcinat: ton semi‑deschis al pielii</annotation>
+		<annotation cp="🫃🏽">balonat | bărbat însărcinat | burtă | gravid | însărcinat | ton mediu al pielii | umflat</annotation>
+		<annotation cp="🫃🏽" type="tts">bărbat însărcinat: ton mediu al pielii</annotation>
+		<annotation cp="🫃🏾">balonat | bărbat însărcinat | burtă | gravid | însărcinat | ton semi‑închis al pielii | umflat</annotation>
+		<annotation cp="🫃🏾" type="tts">bărbat însărcinat: ton semi‑închis al pielii</annotation>
+		<annotation cp="🫃🏿">balonat | bărbat însărcinat | burtă | gravid | însărcinat | ton închis al pielii | umflat</annotation>
+		<annotation cp="🫃🏿" type="tts">bărbat însărcinat: ton închis al pielii</annotation>
+		<annotation cp="🫄🏻">balonată | burtă | gravidă | însărcinat | persoană însărcinată | ton deschis al pielii | umflată</annotation>
+		<annotation cp="🫄🏻" type="tts">persoană însărcinată: ton deschis al pielii</annotation>
+		<annotation cp="🫄🏼">balonată | burtă | gravidă | însărcinat | persoană însărcinată | ton semi‑deschis al pielii | umflată</annotation>
+		<annotation cp="🫄🏼" type="tts">persoană însărcinată: ton semi‑deschis al pielii</annotation>
+		<annotation cp="🫄🏽">balonată | burtă | gravidă | însărcinat | persoană însărcinată | ton mediu al pielii | umflată</annotation>
+		<annotation cp="🫄🏽" type="tts">persoană însărcinată: ton mediu al pielii</annotation>
+		<annotation cp="🫄🏾">balonată | burtă | gravidă | însărcinat | persoană însărcinată | ton semi‑închis al pielii | umflată</annotation>
+		<annotation cp="🫄🏾" type="tts">persoană însărcinată: ton semi‑închis al pielii</annotation>
+		<annotation cp="🫄🏿">balonată | burtă | gravidă | însărcinat | persoană însărcinată | ton închis al pielii | umflată</annotation>
+		<annotation cp="🫄🏿" type="tts">persoană însărcinată: ton închis al pielii</annotation>
 		<annotation cp="🤱🏻">alăptare | alăptare la sân | bebeluș | piept | sân | ton deschis al pielii</annotation>
 		<annotation cp="🤱🏻" type="tts">alăptare la sân: ton deschis al pielii</annotation>
 		<annotation cp="🤱🏼">alăptare | alăptare la sân | bebeluș | piept | sân | ton semi‑deschis al pielii</annotation>
@@ -4185,7 +4205,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="₡" type="tts">colón costarican</annotation>
 		<annotation cp="₦" type="tts">naira nigeriană</annotation>
 		<annotation cp="₧" type="tts">pesetă spaniolă</annotation>
-		<annotation cp="₪" type="tts">șechel israelian nou</annotation>
+		<annotation cp="₪" type="tts">shekel israelian nou</annotation>
 		<annotation cp="₫" type="tts">dong vietnamez</annotation>
 		<annotation cp="₭" type="tts">kip laoțian</annotation>
 		<annotation cp="₮" type="tts">tugrik mongol</annotation>

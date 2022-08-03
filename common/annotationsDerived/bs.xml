@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,46 +12,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="bs"/>
 	</identity>
 	<annotations>
-		<annotation cp="🫃🏻">napuhan | sit | stomak | svijetla boja kože | trudan | trudan muškarac</annotation>
-		<annotation cp="🫃🏻" type="tts">trudan muškarac: svijetla boja kože</annotation>
-		<annotation cp="🫃🏼">napuhan | sit | stomak | trudan | trudan muškarac | umjereno svijetla boja kože</annotation>
-		<annotation cp="🫃🏼" type="tts">trudan muškarac: umjereno svijetla boja kože</annotation>
-		<annotation cp="🫃🏽">napuhan | sit | stomak | trudan | trudan muškarac | umjerena boja kože</annotation>
-		<annotation cp="🫃🏽" type="tts">trudan muškarac: umjerena boja kože</annotation>
-		<annotation cp="🫃🏾">napuhan | sit | stomak | trudan | trudan muškarac | umjereno tamna boja kože</annotation>
-		<annotation cp="🫃🏾" type="tts">trudan muškarac: umjereno tamna boja kože</annotation>
-		<annotation cp="🫃🏿">napuhan | sit | stomak | tamna boja kože | trudan | trudan muškarac</annotation>
-		<annotation cp="🫃🏿" type="tts">trudan muškarac: tamna boja kože</annotation>
-		<annotation cp="🫄🏻">napuhan | sit | stomak | svijetla boja kože | trudna osoba | trudnoća</annotation>
-		<annotation cp="🫄🏻" type="tts">trudna osoba: svijetla boja kože</annotation>
-		<annotation cp="🫄🏼">napuhan | sit | stomak | trudna osoba | trudnoća | umjereno svijetla boja kože</annotation>
-		<annotation cp="🫄🏼" type="tts">trudna osoba: umjereno svijetla boja kože</annotation>
-		<annotation cp="🫄🏽">napuhan | sit | stomak | trudna osoba | trudnoća | umjerena boja kože</annotation>
-		<annotation cp="🫄🏽" type="tts">trudna osoba: umjerena boja kože</annotation>
-		<annotation cp="🫄🏾">napuhan | sit | stomak | trudna osoba | trudnoća | umjereno tamna boja kože</annotation>
-		<annotation cp="🫄🏾" type="tts">trudna osoba: umjereno tamna boja kože</annotation>
-		<annotation cp="🫄🏿">napuhan | sit | stomak | tamna boja kože | trudna osoba | trudnoća</annotation>
-		<annotation cp="🫄🏿" type="tts">trudna osoba: tamna boja kože</annotation>
-		<annotation cp="🫅🏻">kraljevski | osoba s krunom | plemićki | plemstvo | svijetla boja kože | vladar</annotation>
-		<annotation cp="🫅🏻" type="tts">osoba s krunom: svijetla boja kože</annotation>
-		<annotation cp="🫅🏼">kraljevski | osoba s krunom | plemićki | plemstvo | umjereno svijetla boja kože | vladar</annotation>
-		<annotation cp="🫅🏼" type="tts">osoba s krunom: umjereno svijetla boja kože</annotation>
-		<annotation cp="🫅🏽">kraljevski | osoba s krunom | plemićki | plemstvo | umjerena boja kože | vladar</annotation>
-		<annotation cp="🫅🏽" type="tts">osoba s krunom: umjerena boja kože</annotation>
-		<annotation cp="🫅🏾">kraljevski | osoba s krunom | plemićki | plemstvo | umjereno tamna boja kože | vladar</annotation>
-		<annotation cp="🫅🏾" type="tts">osoba s krunom: umjereno tamna boja kože</annotation>
-		<annotation cp="🫅🏿">kraljevski | osoba s krunom | plemićki | plemstvo | tamna boja kože | vladar</annotation>
-		<annotation cp="🫅🏿" type="tts">osoba s krunom: tamna boja kože</annotation>
-		<annotation cp="🫰🏻">ljubav | novac | pucketanje | ruka s prekrštenim kažiprstom i palcem | skupo | srce | svijetla boja kože</annotation>
-		<annotation cp="🫰🏻" type="tts">ruka s prekrštenim kažiprstom i palcem: svijetla boja kože</annotation>
-		<annotation cp="🫰🏼">ljubav | novac | pucketanje | ruka s prekrštenim kažiprstom i palcem | skupo | srce | umjereno svijetla boja kože</annotation>
-		<annotation cp="🫰🏼" type="tts">ruka s prekrštenim kažiprstom i palcem: umjereno svijetla boja kože</annotation>
-		<annotation cp="🫰🏽">ljubav | novac | pucketanje | ruka s prekrštenim kažiprstom i palcem | skupo | srce | umjerena boja kože</annotation>
-		<annotation cp="🫰🏽" type="tts">ruka s prekrštenim kažiprstom i palcem: umjerena boja kože</annotation>
-		<annotation cp="🫰🏾">ljubav | novac | pucketanje | ruka s prekrštenim kažiprstom i palcem | skupo | srce | umjereno tamna boja kože</annotation>
-		<annotation cp="🫰🏾" type="tts">ruka s prekrštenim kažiprstom i palcem: umjereno tamna boja kože</annotation>
-		<annotation cp="🫰🏿">ljubav | novac | pucketanje | ruka s prekrštenim kažiprstom i palcem | skupo | srce | tamna boja kože</annotation>
-		<annotation cp="🫰🏿" type="tts">ruka s prekrštenim kažiprstom i palcem: tamna boja kože</annotation>
+		<annotation cp="👋🏻">mahanje | mahanje rukom | ruka | svijetla boja kože</annotation>
+		<annotation cp="👋🏻" type="tts">mahanje rukom: svijetla boja kože</annotation>
+		<annotation cp="👋🏼">mahanje | mahanje rukom | ruka | umjereno svijetla boja kože</annotation>
+		<annotation cp="👋🏼" type="tts">mahanje rukom: umjereno svijetla boja kože</annotation>
+		<annotation cp="👋🏽">mahanje | mahanje rukom | ruka | umjerena boja kože</annotation>
+		<annotation cp="👋🏽" type="tts">mahanje rukom: umjerena boja kože</annotation>
+		<annotation cp="👋🏾">mahanje | mahanje rukom | ruka | umjereno tamna boja kože</annotation>
+		<annotation cp="👋🏾" type="tts">mahanje rukom: umjereno tamna boja kože</annotation>
+		<annotation cp="👋🏿">mahanje | mahanje rukom | ruka | tamna boja kože</annotation>
+		<annotation cp="👋🏿" type="tts">mahanje rukom: tamna boja kože</annotation>
+		<annotation cp="🤚🏻">dlan | podignuto | ruka | ruka gore | svijetla boja kože | uspravno</annotation>
+		<annotation cp="🤚🏻" type="tts">ruka gore: svijetla boja kože</annotation>
+		<annotation cp="🤚🏼">dlan | podignuto | ruka | ruka gore | umjereno svijetla boja kože | uspravno</annotation>
+		<annotation cp="🤚🏼" type="tts">ruka gore: umjereno svijetla boja kože</annotation>
+		<annotation cp="🤚🏽">dlan | podignuto | ruka | ruka gore | umjerena boja kože | uspravno</annotation>
+		<annotation cp="🤚🏽" type="tts">ruka gore: umjerena boja kože</annotation>
+		<annotation cp="🤚🏾">dlan | podignuto | ruka | ruka gore | umjereno tamna boja kože | uspravno</annotation>
+		<annotation cp="🤚🏾" type="tts">ruka gore: umjereno tamna boja kože</annotation>
+		<annotation cp="🤚🏿">dlan | podignuto | ruka | ruka gore | tamna boja kože | uspravno</annotation>
+		<annotation cp="🤚🏿" type="tts">ruka gore: tamna boja kože</annotation>
+		<annotation cp="🖐🏻">podignuta šaka s raširenim prstima | pokazivanje | prsti | rašireno | ruka | svijetla boja kože</annotation>
+		<annotation cp="🖐🏻" type="tts">podignuta šaka s raširenim prstima: svijetla boja kože</annotation>
+		<annotation cp="🖐🏼">podignuta šaka s raširenim prstima | pokazivanje | prsti | rašireno | ruka | umjereno svijetla boja kože</annotation>
+		<annotation cp="🖐🏼" type="tts">podignuta šaka s raširenim prstima: umjereno svijetla boja kože</annotation>
+		<annotation cp="🖐🏽">podignuta šaka s raširenim prstima | pokazivanje | prsti | rašireno | ruka | umjerena boja kože</annotation>
+		<annotation cp="🖐🏽" type="tts">podignuta šaka s raširenim prstima: umjerena boja kože</annotation>
+		<annotation cp="🖐🏾">podignuta šaka s raširenim prstima | pokazivanje | prsti | rašireno | ruka | umjereno tamna boja kože</annotation>
+		<annotation cp="🖐🏾" type="tts">podignuta šaka s raširenim prstima: umjereno tamna boja kože</annotation>
+		<annotation cp="🖐🏿">podignuta šaka s raširenim prstima | pokazivanje | prsti | rašireno | ruka | tamna boja kože</annotation>
+		<annotation cp="🖐🏿" type="tts">podignuta šaka s raširenim prstima: tamna boja kože</annotation>
+		<annotation cp="✋🏻">podignuta šaka | pokazivanje | prsti | ruka | svijetla boja kože</annotation>
+		<annotation cp="✋🏻" type="tts">podignuta šaka: svijetla boja kože</annotation>
+		<annotation cp="✋🏼">podignuta šaka | pokazivanje | prsti | ruka | umjereno svijetla boja kože</annotation>
+		<annotation cp="✋🏼" type="tts">podignuta šaka: umjereno svijetla boja kože</annotation>
+		<annotation cp="✋🏽">podignuta šaka | pokazivanje | prsti | ruka | umjerena boja kože</annotation>
+		<annotation cp="✋🏽" type="tts">podignuta šaka: umjerena boja kože</annotation>
+		<annotation cp="✋🏾">podignuta šaka | pokazivanje | prsti | ruka | umjereno tamna boja kože</annotation>
+		<annotation cp="✋🏾" type="tts">podignuta šaka: umjereno tamna boja kože</annotation>
+		<annotation cp="✋🏿">podignuta šaka | pokazivanje | prsti | ruka | tamna boja kože</annotation>
+		<annotation cp="✋🏿" type="tts">podignuta šaka: tamna boja kože</annotation>
+		<annotation cp="🖖🏻">pozdrav | ruka | spock | svijetla boja kože | vulkanac | vulkanski pozdrav</annotation>
+		<annotation cp="🖖🏻" type="tts">vulkanski pozdrav: svijetla boja kože</annotation>
+		<annotation cp="🖖🏼">pozdrav | ruka | spock | umjereno svijetla boja kože | vulkanac | vulkanski pozdrav</annotation>
+		<annotation cp="🖖🏼" type="tts">vulkanski pozdrav: umjereno svijetla boja kože</annotation>
+		<annotation cp="🖖🏽">pozdrav | ruka | spock | umjerena boja kože | vulkanac | vulkanski pozdrav</annotation>
+		<annotation cp="🖖🏽" type="tts">vulkanski pozdrav: umjerena boja kože</annotation>
+		<annotation cp="🖖🏾">pozdrav | ruka | spock | umjereno tamna boja kože | vulkanac | vulkanski pozdrav</annotation>
+		<annotation cp="🖖🏾" type="tts">vulkanski pozdrav: umjereno tamna boja kože</annotation>
+		<annotation cp="🖖🏿">pozdrav | ruka | spock | tamna boja kože | vulkanac | vulkanski pozdrav</annotation>
+		<annotation cp="🖖🏿" type="tts">vulkanski pozdrav: tamna boja kože</annotation>
 		<annotation cp="🫱🏻">desno | ruka | svijetla boja kože | udesno</annotation>
 		<annotation cp="🫱🏻" type="tts">ruka udesno: svijetla boja kože</annotation>
 		<annotation cp="🫱🏼">desno | ruka | udesno | umjereno svijetla boja kože</annotation>
@@ -132,76 +142,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫴🏾" type="tts">ruka s dlanom nagore: umjereno tamna boja kože</annotation>
 		<annotation cp="🫴🏿">dođi | dozivanje | hvatanje | nuđenje | ruka s dlanom nagore | tamna boja kože</annotation>
 		<annotation cp="🫴🏿" type="tts">ruka s dlanom nagore: tamna boja kože</annotation>
-		<annotation cp="🫵🏻">kažiprst uperen u gledaoca | pokazivanje | svijetla boja kože | ti</annotation>
-		<annotation cp="🫵🏻" type="tts">kažiprst uperen u gledaoca: svijetla boja kože</annotation>
-		<annotation cp="🫵🏼">kažiprst uperen u gledaoca | pokazivanje | ti | umjereno svijetla boja kože</annotation>
-		<annotation cp="🫵🏼" type="tts">kažiprst uperen u gledaoca: umjereno svijetla boja kože</annotation>
-		<annotation cp="🫵🏽">kažiprst uperen u gledaoca | pokazivanje | ti | umjerena boja kože</annotation>
-		<annotation cp="🫵🏽" type="tts">kažiprst uperen u gledaoca: umjerena boja kože</annotation>
-		<annotation cp="🫵🏾">kažiprst uperen u gledaoca | pokazivanje | ti | umjereno tamna boja kože</annotation>
-		<annotation cp="🫵🏾" type="tts">kažiprst uperen u gledaoca: umjereno tamna boja kože</annotation>
-		<annotation cp="🫵🏿">kažiprst uperen u gledaoca | pokazivanje | tamna boja kože | ti</annotation>
-		<annotation cp="🫵🏿" type="tts">kažiprst uperen u gledaoca: tamna boja kože</annotation>
-		<annotation cp="🫶🏻">ljubav | ruke formiraju srce | svijetla boja kože</annotation>
-		<annotation cp="🫶🏻" type="tts">ruke formiraju srce: svijetla boja kože</annotation>
-		<annotation cp="🫶🏼">ljubav | ruke formiraju srce | umjereno svijetla boja kože</annotation>
-		<annotation cp="🫶🏼" type="tts">ruke formiraju srce: umjereno svijetla boja kože</annotation>
-		<annotation cp="🫶🏽">ljubav | ruke formiraju srce | umjerena boja kože</annotation>
-		<annotation cp="🫶🏽" type="tts">ruke formiraju srce: umjerena boja kože</annotation>
-		<annotation cp="🫶🏾">ljubav | ruke formiraju srce | umjereno tamna boja kože</annotation>
-		<annotation cp="🫶🏾" type="tts">ruke formiraju srce: umjereno tamna boja kože</annotation>
-		<annotation cp="🫶🏿">ljubav | ruke formiraju srce | tamna boja kože</annotation>
-		<annotation cp="🫶🏿" type="tts">ruke formiraju srce: tamna boja kože</annotation>
-		<annotation cp="👋🏻">mahanje | mahanje rukom | ruka | svijetla boja kože</annotation>
-		<annotation cp="👋🏻" type="tts">mahanje rukom: svijetla boja kože</annotation>
-		<annotation cp="👋🏼">mahanje | mahanje rukom | ruka | umjereno svijetla boja kože</annotation>
-		<annotation cp="👋🏼" type="tts">mahanje rukom: umjereno svijetla boja kože</annotation>
-		<annotation cp="👋🏽">mahanje | mahanje rukom | ruka | umjerena boja kože</annotation>
-		<annotation cp="👋🏽" type="tts">mahanje rukom: umjerena boja kože</annotation>
-		<annotation cp="👋🏾">mahanje | mahanje rukom | ruka | umjereno tamna boja kože</annotation>
-		<annotation cp="👋🏾" type="tts">mahanje rukom: umjereno tamna boja kože</annotation>
-		<annotation cp="👋🏿">mahanje | mahanje rukom | ruka | tamna boja kože</annotation>
-		<annotation cp="👋🏿" type="tts">mahanje rukom: tamna boja kože</annotation>
-		<annotation cp="🤚🏻">dlan | podignuto | ruka | ruka gore | svijetla boja kože | uspravno</annotation>
-		<annotation cp="🤚🏻" type="tts">ruka gore: svijetla boja kože</annotation>
-		<annotation cp="🤚🏼">dlan | podignuto | ruka | ruka gore | umjereno svijetla boja kože | uspravno</annotation>
-		<annotation cp="🤚🏼" type="tts">ruka gore: umjereno svijetla boja kože</annotation>
-		<annotation cp="🤚🏽">dlan | podignuto | ruka | ruka gore | umjerena boja kože | uspravno</annotation>
-		<annotation cp="🤚🏽" type="tts">ruka gore: umjerena boja kože</annotation>
-		<annotation cp="🤚🏾">dlan | podignuto | ruka | ruka gore | umjereno tamna boja kože | uspravno</annotation>
-		<annotation cp="🤚🏾" type="tts">ruka gore: umjereno tamna boja kože</annotation>
-		<annotation cp="🤚🏿">dlan | podignuto | ruka | ruka gore | tamna boja kože | uspravno</annotation>
-		<annotation cp="🤚🏿" type="tts">ruka gore: tamna boja kože</annotation>
-		<annotation cp="🖐🏻">podignuta šaka s raširenim prstima | pokazivanje | prsti | rašireno | ruka | svijetla boja kože</annotation>
-		<annotation cp="🖐🏻" type="tts">podignuta šaka s raširenim prstima: svijetla boja kože</annotation>
-		<annotation cp="🖐🏼">podignuta šaka s raširenim prstima | pokazivanje | prsti | rašireno | ruka | umjereno svijetla boja kože</annotation>
-		<annotation cp="🖐🏼" type="tts">podignuta šaka s raširenim prstima: umjereno svijetla boja kože</annotation>
-		<annotation cp="🖐🏽">podignuta šaka s raširenim prstima | pokazivanje | prsti | rašireno | ruka | umjerena boja kože</annotation>
-		<annotation cp="🖐🏽" type="tts">podignuta šaka s raširenim prstima: umjerena boja kože</annotation>
-		<annotation cp="🖐🏾">podignuta šaka s raširenim prstima | pokazivanje | prsti | rašireno | ruka | umjereno tamna boja kože</annotation>
-		<annotation cp="🖐🏾" type="tts">podignuta šaka s raširenim prstima: umjereno tamna boja kože</annotation>
-		<annotation cp="🖐🏿">podignuta šaka s raširenim prstima | pokazivanje | prsti | rašireno | ruka | tamna boja kože</annotation>
-		<annotation cp="🖐🏿" type="tts">podignuta šaka s raširenim prstima: tamna boja kože</annotation>
-		<annotation cp="✋🏻">podignuta šaka | pokazivanje | prsti | ruka | svijetla boja kože</annotation>
-		<annotation cp="✋🏻" type="tts">podignuta šaka: svijetla boja kože</annotation>
-		<annotation cp="✋🏼">podignuta šaka | pokazivanje | prsti | ruka | umjereno svijetla boja kože</annotation>
-		<annotation cp="✋🏼" type="tts">podignuta šaka: umjereno svijetla boja kože</annotation>
-		<annotation cp="✋🏽">podignuta šaka | pokazivanje | prsti | ruka | umjerena boja kože</annotation>
-		<annotation cp="✋🏽" type="tts">podignuta šaka: umjerena boja kože</annotation>
-		<annotation cp="✋🏾">podignuta šaka | pokazivanje | prsti | ruka | umjereno tamna boja kože</annotation>
-		<annotation cp="✋🏾" type="tts">podignuta šaka: umjereno tamna boja kože</annotation>
-		<annotation cp="✋🏿">podignuta šaka | pokazivanje | prsti | ruka | tamna boja kože</annotation>
-		<annotation cp="✋🏿" type="tts">podignuta šaka: tamna boja kože</annotation>
-		<annotation cp="🖖🏻">pozdrav | ruka | spock | svijetla boja kože | vulkanac | vulkanski pozdrav</annotation>
-		<annotation cp="🖖🏻" type="tts">vulkanski pozdrav: svijetla boja kože</annotation>
-		<annotation cp="🖖🏼">pozdrav | ruka | spock | umjereno svijetla boja kože | vulkanac | vulkanski pozdrav</annotation>
-		<annotation cp="🖖🏼" type="tts">vulkanski pozdrav: umjereno svijetla boja kože</annotation>
-		<annotation cp="🖖🏽">pozdrav | ruka | spock | umjerena boja kože | vulkanac | vulkanski pozdrav</annotation>
-		<annotation cp="🖖🏽" type="tts">vulkanski pozdrav: umjerena boja kože</annotation>
-		<annotation cp="🖖🏾">pozdrav | ruka | spock | umjereno tamna boja kože | vulkanac | vulkanski pozdrav</annotation>
-		<annotation cp="🖖🏾" type="tts">vulkanski pozdrav: umjereno tamna boja kože</annotation>
-		<annotation cp="🖖🏿">pozdrav | ruka | spock | tamna boja kože | vulkanac | vulkanski pozdrav</annotation>
-		<annotation cp="🖖🏿" type="tts">vulkanski pozdrav: tamna boja kože</annotation>
 		<annotation cp="👌🏻">ok | prsti pokazuju ok | svijetla boja kože</annotation>
 		<annotation cp="👌🏻" type="tts">prsti pokazuju ok: svijetla boja kože</annotation>
 		<annotation cp="👌🏼">ok | prsti pokazuju ok | umjereno svijetla boja kože</annotation>
@@ -252,6 +192,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤞🏾" type="tts">držanje palčeva: umjereno tamna boja kože</annotation>
 		<annotation cp="🤞🏿">držanje palčeva | držati | fige | palac | sreća | tamna boja kože</annotation>
 		<annotation cp="🤞🏿" type="tts">držanje palčeva: tamna boja kože</annotation>
+		<annotation cp="🫰🏻">ljubav | novac | pucketanje | ruka s prekrštenim kažiprstom i palcem | skupo | srce | svijetla boja kože</annotation>
+		<annotation cp="🫰🏻" type="tts">ruka s prekrštenim kažiprstom i palcem: svijetla boja kože</annotation>
+		<annotation cp="🫰🏼">ljubav | novac | pucketanje | ruka s prekrštenim kažiprstom i palcem | skupo | srce | umjereno svijetla boja kože</annotation>
+		<annotation cp="🫰🏼" type="tts">ruka s prekrštenim kažiprstom i palcem: umjereno svijetla boja kože</annotation>
+		<annotation cp="🫰🏽">ljubav | novac | pucketanje | ruka s prekrštenim kažiprstom i palcem | skupo | srce | umjerena boja kože</annotation>
+		<annotation cp="🫰🏽" type="tts">ruka s prekrštenim kažiprstom i palcem: umjerena boja kože</annotation>
+		<annotation cp="🫰🏾">ljubav | novac | pucketanje | ruka s prekrštenim kažiprstom i palcem | skupo | srce | umjereno tamna boja kože</annotation>
+		<annotation cp="🫰🏾" type="tts">ruka s prekrštenim kažiprstom i palcem: umjereno tamna boja kože</annotation>
+		<annotation cp="🫰🏿">ljubav | novac | pucketanje | ruka s prekrštenim kažiprstom i palcem | skupo | srce | tamna boja kože</annotation>
+		<annotation cp="🫰🏿" type="tts">ruka s prekrštenim kažiprstom i palcem: tamna boja kože</annotation>
 		<annotation cp="🤟🏻">ruka | svijetla boja kože | volim | volim te | VT</annotation>
 		<annotation cp="🤟🏻" type="tts">volim te: svijetla boja kože</annotation>
 		<annotation cp="🤟🏼">ruka | umjereno svijetla boja kože | volim | volim te | VT</annotation>
@@ -342,6 +292,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☝🏾" type="tts">kažiprst pokazuje gore: umjereno tamna boja kože</annotation>
 		<annotation cp="☝🏿">dlan | gore | kažiprst | kažiprst pokazuje gore | pokazivanje | pokazivanje kažiprstom gore s okrenutim dlanom | tamna boja kože</annotation>
 		<annotation cp="☝🏿" type="tts">kažiprst pokazuje gore: tamna boja kože</annotation>
+		<annotation cp="🫵🏻">kažiprst uperen u gledaoca | pokazivanje | svijetla boja kože | ti</annotation>
+		<annotation cp="🫵🏻" type="tts">kažiprst uperen u gledaoca: svijetla boja kože</annotation>
+		<annotation cp="🫵🏼">kažiprst uperen u gledaoca | pokazivanje | ti | umjereno svijetla boja kože</annotation>
+		<annotation cp="🫵🏼" type="tts">kažiprst uperen u gledaoca: umjereno svijetla boja kože</annotation>
+		<annotation cp="🫵🏽">kažiprst uperen u gledaoca | pokazivanje | ti | umjerena boja kože</annotation>
+		<annotation cp="🫵🏽" type="tts">kažiprst uperen u gledaoca: umjerena boja kože</annotation>
+		<annotation cp="🫵🏾">kažiprst uperen u gledaoca | pokazivanje | ti | umjereno tamna boja kože</annotation>
+		<annotation cp="🫵🏾" type="tts">kažiprst uperen u gledaoca: umjereno tamna boja kože</annotation>
+		<annotation cp="🫵🏿">kažiprst uperen u gledaoca | pokazivanje | tamna boja kože | ti</annotation>
+		<annotation cp="🫵🏿" type="tts">kažiprst uperen u gledaoca: tamna boja kože</annotation>
 		<annotation cp="👍🏻">+1 | gore | palac | ruka | svijetla boja kože</annotation>
 		<annotation cp="👍🏻" type="tts">palac gore: svijetla boja kože</annotation>
 		<annotation cp="👍🏼">+1 | gore | palac | ruka | umjereno svijetla boja kože</annotation>
@@ -422,6 +382,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">ruke podignute u zrak: umjereno tamna boja kože</annotation>
 		<annotation cp="🙌🏿">dlanovi | gestikulacija | radovanje | ruke | ruke podignute u zrak | tamna boja kože</annotation>
 		<annotation cp="🙌🏿" type="tts">ruke podignute u zrak: tamna boja kože</annotation>
+		<annotation cp="🫶🏻">ljubav | ruke formiraju srce | svijetla boja kože</annotation>
+		<annotation cp="🫶🏻" type="tts">ruke formiraju srce: svijetla boja kože</annotation>
+		<annotation cp="🫶🏼">ljubav | ruke formiraju srce | umjereno svijetla boja kože</annotation>
+		<annotation cp="🫶🏼" type="tts">ruke formiraju srce: umjereno svijetla boja kože</annotation>
+		<annotation cp="🫶🏽">ljubav | ruke formiraju srce | umjerena boja kože</annotation>
+		<annotation cp="🫶🏽" type="tts">ruke formiraju srce: umjerena boja kože</annotation>
+		<annotation cp="🫶🏾">ljubav | ruke formiraju srce | umjereno tamna boja kože</annotation>
+		<annotation cp="🫶🏾" type="tts">ruke formiraju srce: umjereno tamna boja kože</annotation>
+		<annotation cp="🫶🏿">ljubav | ruke formiraju srce | tamna boja kože</annotation>
+		<annotation cp="🫶🏿" type="tts">ruke formiraju srce: tamna boja kože</annotation>
 		<annotation cp="👐🏻">dlanovi | otvoreni dlanovi | ruke | svijetla boja kože</annotation>
 		<annotation cp="👐🏻" type="tts">otvoreni dlanovi: svijetla boja kože</annotation>
 		<annotation cp="👐🏼">dlanovi | otvoreni dlanovi | ruke | umjereno svijetla boja kože</annotation>
@@ -462,6 +432,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙏🏾" type="tts">sastavljeni dlanovi: umjereno tamna boja kože</annotation>
 		<annotation cp="🙏🏿">gestikulacija | molba | molitva | sastavljeni dlanovi | tamna boja kože | zahvalnost</annotation>
 		<annotation cp="🙏🏿" type="tts">sastavljeni dlanovi: tamna boja kože</annotation>
+		<annotation cp="🫷🏻">čekaj | daj pet | guranje | odbijanje | ruka koja gura ulijevo | stani | svijetla boja kože | ulijevo</annotation>
+		<annotation cp="🫷🏻" type="tts">ruka koja gura ulijevo: svijetla boja kože</annotation>
+		<annotation cp="🫷🏼">čekaj | daj pet | guranje | odbijanje | ruka koja gura ulijevo | stani | ulijevo | umjereno svijetla boja kože</annotation>
+		<annotation cp="🫷🏼" type="tts">ruka koja gura ulijevo: umjereno svijetla boja kože</annotation>
+		<annotation cp="🫷🏽">čekaj | daj pet | guranje | odbijanje | ruka koja gura ulijevo | stani | ulijevo | umjerena boja kože</annotation>
+		<annotation cp="🫷🏽" type="tts">ruka koja gura ulijevo: umjerena boja kože</annotation>
+		<annotation cp="🫷🏾">čekaj | daj pet | guranje | odbijanje | ruka koja gura ulijevo | stani | ulijevo | umjereno tamna boja kože</annotation>
+		<annotation cp="🫷🏾" type="tts">ruka koja gura ulijevo: umjereno tamna boja kože</annotation>
+		<annotation cp="🫷🏿">čekaj | daj pet | guranje | odbijanje | ruka koja gura ulijevo | stani | tamna boja kože | ulijevo</annotation>
+		<annotation cp="🫷🏿" type="tts">ruka koja gura ulijevo: tamna boja kože</annotation>
+		<annotation cp="🫸🏻">čekaj | daj pet | guranje | odbijanje | ruka koja gura udesno | stani | svijetla boja kože | udesno</annotation>
+		<annotation cp="🫸🏻" type="tts">ruka koja gura udesno: svijetla boja kože</annotation>
+		<annotation cp="🫸🏼">čekaj | daj pet | guranje | odbijanje | ruka koja gura udesno | stani | udesno | umjereno svijetla boja kože</annotation>
+		<annotation cp="🫸🏼" type="tts">ruka koja gura udesno: umjereno svijetla boja kože</annotation>
+		<annotation cp="🫸🏽">čekaj | daj pet | guranje | odbijanje | ruka koja gura udesno | stani | udesno | umjerena boja kože</annotation>
+		<annotation cp="🫸🏽" type="tts">ruka koja gura udesno: umjerena boja kože</annotation>
+		<annotation cp="🫸🏾">čekaj | daj pet | guranje | odbijanje | ruka koja gura udesno | stani | udesno | umjereno tamna boja kože</annotation>
+		<annotation cp="🫸🏾" type="tts">ruka koja gura udesno: umjereno tamna boja kože</annotation>
+		<annotation cp="🫸🏿">čekaj | daj pet | guranje | odbijanje | ruka koja gura udesno | stani | tamna boja kože | udesno</annotation>
+		<annotation cp="🫸🏿" type="tts">ruka koja gura udesno: tamna boja kože</annotation>
 		<annotation cp="✍🏻">pisanje | ruka | ruka koja piše | svijetla boja kože</annotation>
 		<annotation cp="✍🏻" type="tts">ruka koja piše: svijetla boja kože</annotation>
 		<annotation cp="✍🏼">pisanje | ruka | ruka koja piše | umjereno svijetla boja kože</annotation>
@@ -2146,6 +2136,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👷🏾‍♀" type="tts">građevinska radnica: umjereno tamna boja kože</annotation>
 		<annotation cp="👷🏿‍♀">građevina | građevinska radnica | građevinski radovi | radnik | šljem | tamna boja kože</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">građevinska radnica: tamna boja kože</annotation>
+		<annotation cp="🫅🏻">kraljevski | osoba s krunom | plemićki | plemstvo | svijetla boja kože | vladar</annotation>
+		<annotation cp="🫅🏻" type="tts">osoba s krunom: svijetla boja kože</annotation>
+		<annotation cp="🫅🏼">kraljevski | osoba s krunom | plemićki | plemstvo | umjereno svijetla boja kože | vladar</annotation>
+		<annotation cp="🫅🏼" type="tts">osoba s krunom: umjereno svijetla boja kože</annotation>
+		<annotation cp="🫅🏽">kraljevski | osoba s krunom | plemićki | plemstvo | umjerena boja kože | vladar</annotation>
+		<annotation cp="🫅🏽" type="tts">osoba s krunom: umjerena boja kože</annotation>
+		<annotation cp="🫅🏾">kraljevski | osoba s krunom | plemićki | plemstvo | umjereno tamna boja kože | vladar</annotation>
+		<annotation cp="🫅🏾" type="tts">osoba s krunom: umjereno tamna boja kože</annotation>
+		<annotation cp="🫅🏿">kraljevski | osoba s krunom | plemićki | plemstvo | tamna boja kože | vladar</annotation>
+		<annotation cp="🫅🏿" type="tts">osoba s krunom: tamna boja kože</annotation>
 		<annotation cp="🤴🏻">princ | svijetla boja kože</annotation>
 		<annotation cp="🤴🏻" type="tts">princ: svijetla boja kože</annotation>
 		<annotation cp="🤴🏼">princ | umjereno svijetla boja kože</annotation>
@@ -2286,6 +2286,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">trudnica: umjereno tamna boja kože</annotation>
 		<annotation cp="🤰🏿">tamna boja kože | trudnica | žena</annotation>
 		<annotation cp="🤰🏿" type="tts">trudnica: tamna boja kože</annotation>
+		<annotation cp="🫃🏻">napuhan | sit | stomak | svijetla boja kože | trudan | trudan muškarac</annotation>
+		<annotation cp="🫃🏻" type="tts">trudan muškarac: svijetla boja kože</annotation>
+		<annotation cp="🫃🏼">napuhan | sit | stomak | trudan | trudan muškarac | umjereno svijetla boja kože</annotation>
+		<annotation cp="🫃🏼" type="tts">trudan muškarac: umjereno svijetla boja kože</annotation>
+		<annotation cp="🫃🏽">napuhan | sit | stomak | trudan | trudan muškarac | umjerena boja kože</annotation>
+		<annotation cp="🫃🏽" type="tts">trudan muškarac: umjerena boja kože</annotation>
+		<annotation cp="🫃🏾">napuhan | sit | stomak | trudan | trudan muškarac | umjereno tamna boja kože</annotation>
+		<annotation cp="🫃🏾" type="tts">trudan muškarac: umjereno tamna boja kože</annotation>
+		<annotation cp="🫃🏿">napuhan | sit | stomak | tamna boja kože | trudan | trudan muškarac</annotation>
+		<annotation cp="🫃🏿" type="tts">trudan muškarac: tamna boja kože</annotation>
+		<annotation cp="🫄🏻">napuhan | sit | stomak | svijetla boja kože | trudna osoba | trudnoća</annotation>
+		<annotation cp="🫄🏻" type="tts">trudna osoba: svijetla boja kože</annotation>
+		<annotation cp="🫄🏼">napuhan | sit | stomak | trudna osoba | trudnoća | umjereno svijetla boja kože</annotation>
+		<annotation cp="🫄🏼" type="tts">trudna osoba: umjereno svijetla boja kože</annotation>
+		<annotation cp="🫄🏽">napuhan | sit | stomak | trudna osoba | trudnoća | umjerena boja kože</annotation>
+		<annotation cp="🫄🏽" type="tts">trudna osoba: umjerena boja kože</annotation>
+		<annotation cp="🫄🏾">napuhan | sit | stomak | trudna osoba | trudnoća | umjereno tamna boja kože</annotation>
+		<annotation cp="🫄🏾" type="tts">trudna osoba: umjereno tamna boja kože</annotation>
+		<annotation cp="🫄🏿">napuhan | sit | stomak | tamna boja kože | trudna osoba | trudnoća</annotation>
+		<annotation cp="🫄🏿" type="tts">trudna osoba: tamna boja kože</annotation>
 		<annotation cp="🤱🏻">beba | dojenče | dojenje | hranjenje | svijetla boja kože</annotation>
 		<annotation cp="🤱🏻" type="tts">dojenje: svijetla boja kože</annotation>
 		<annotation cp="🤱🏼">beba | dojenče | dojenje | hranjenje | umjereno svijetla boja kože</annotation>
@@ -3516,55 +3536,55 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏿‍🤝‍👨🏾" type="tts">muškarac i žena se drže za ruke: tamna boja kože i umjereno tamna boja kože</annotation>
 		<annotation cp="👫🏿">držanje za ruke | muškarac | muškarac i žena se drže za ruke | par | tamna boja kože | žena</annotation>
 		<annotation cp="👫🏿" type="tts">muškarac i žena se drže za ruke: tamna boja kože</annotation>
-		<annotation cp="👬🏻">blizanac | blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | svijetla boja kože</annotation>
+		<annotation cp="👬🏻">blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | svijetla boja kože</annotation>
 		<annotation cp="👬🏻" type="tts">dva muškarca se drže za ruke: svijetla boja kože</annotation>
-		<annotation cp="👨🏻‍🤝‍👨🏼">blizanac | blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | svijetla boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | svijetla boja kože | umjereno svijetla boja kože</annotation>
 		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">dva muškarca se drže za ruke: svijetla boja kože i umjereno svijetla boja kože</annotation>
-		<annotation cp="👨🏻‍🤝‍👨🏽">blizanac | blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | svijetla boja kože | umjerena boja kože</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | svijetla boja kože | umjerena boja kože</annotation>
 		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">dva muškarca se drže za ruke: svijetla boja kože i umjerena boja kože</annotation>
-		<annotation cp="👨🏻‍🤝‍👨🏾">blizanac | blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | svijetla boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | svijetla boja kože | umjereno tamna boja kože</annotation>
 		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">dva muškarca se drže za ruke: svijetla boja kože i umjereno tamna boja kože</annotation>
-		<annotation cp="👨🏻‍🤝‍👨🏿">blizanac | blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | svijetla boja kože | tamna boja kože</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | svijetla boja kože | tamna boja kože</annotation>
 		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">dva muškarca se drže za ruke: svijetla boja kože i tamna boja kože</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏻">blizanac | blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | svijetla boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻">blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | svijetla boja kože | umjereno svijetla boja kože</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">dva muškarca se drže za ruke: umjereno svijetla boja kože i svijetla boja kože</annotation>
-		<annotation cp="👬🏼">blizanac | blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | umjereno svijetla boja kože</annotation>
+		<annotation cp="👬🏼">blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | umjereno svijetla boja kože</annotation>
 		<annotation cp="👬🏼" type="tts">dva muškarca se drže za ruke: umjereno svijetla boja kože</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏽">blizanac | blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | umjerena boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | umjerena boja kože | umjereno svijetla boja kože</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">dva muškarca se drže za ruke: umjereno svijetla boja kože i umjerena boja kože</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏾">blizanac | blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | umjereno svijetla boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | umjereno svijetla boja kože | umjereno tamna boja kože</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">dva muškarca se drže za ruke: umjereno svijetla boja kože i umjereno tamna boja kože</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏿">blizanac | blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | tamna boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | tamna boja kože | umjereno svijetla boja kože</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">dva muškarca se drže za ruke: umjereno svijetla boja kože i tamna boja kože</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏻">blizanac | blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | svijetla boja kože | umjerena boja kože</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻">blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | svijetla boja kože | umjerena boja kože</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">dva muškarca se drže za ruke: umjerena boja kože i svijetla boja kože</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏼">blizanac | blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | umjerena boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼">blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | umjerena boja kože | umjereno svijetla boja kože</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">dva muškarca se drže za ruke: umjerena boja kože i umjereno svijetla boja kože</annotation>
-		<annotation cp="👬🏽">blizanac | blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | umjerena boja kože</annotation>
+		<annotation cp="👬🏽">blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | umjerena boja kože</annotation>
 		<annotation cp="👬🏽" type="tts">dva muškarca se drže za ruke: umjerena boja kože</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏾">blizanac | blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | umjerena boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | umjerena boja kože | umjereno tamna boja kože</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">dva muškarca se drže za ruke: umjerena boja kože i umjereno tamna boja kože</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏿">blizanac | blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | tamna boja kože | umjerena boja kože</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | tamna boja kože | umjerena boja kože</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">dva muškarca se drže za ruke: umjerena boja kože i tamna boja kože</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏻">blizanac | blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | svijetla boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻">blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | svijetla boja kože | umjereno tamna boja kože</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">dva muškarca se drže za ruke: umjereno tamna boja kože i svijetla boja kože</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏼">blizanac | blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | umjereno svijetla boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼">blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | umjereno svijetla boja kože | umjereno tamna boja kože</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼" type="tts">dva muškarca se drže za ruke: umjereno tamna boja kože i umjereno svijetla boja kože</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏽">blizanac | blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | umjerena boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽">blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | umjerena boja kože | umjereno tamna boja kože</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">dva muškarca se drže za ruke: umjereno tamna boja kože i umjerena boja kože</annotation>
-		<annotation cp="👬🏾">blizanac | blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | umjereno tamna boja kože</annotation>
+		<annotation cp="👬🏾">blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | umjereno tamna boja kože</annotation>
 		<annotation cp="👬🏾" type="tts">dva muškarca se drže za ruke: umjereno tamna boja kože</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏿">blizanac | blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | tamna boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | tamna boja kože | umjereno tamna boja kože</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">dva muškarca se drže za ruke: umjereno tamna boja kože i tamna boja kože</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏻">blizanac | blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | svijetla boja kože | tamna boja kože</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻">blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | svijetla boja kože | tamna boja kože</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">dva muškarca se drže za ruke: tamna boja kože i svijetla boja kože</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏼">blizanac | blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | tamna boja kože | umjereno svijetla boja kože</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼">blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | tamna boja kože | umjereno svijetla boja kože</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼" type="tts">dva muškarca se drže za ruke: tamna boja kože i umjereno svijetla boja kože</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏽">blizanac | blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | tamna boja kože | umjerena boja kože</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽">blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | tamna boja kože | umjerena boja kože</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏽" type="tts">dva muškarca se drže za ruke: tamna boja kože i umjerena boja kože</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏾">blizanac | blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | tamna boja kože | umjereno tamna boja kože</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾">blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | tamna boja kože | umjereno tamna boja kože</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">dva muškarca se drže za ruke: tamna boja kože i umjereno tamna boja kože</annotation>
-		<annotation cp="👬🏿">blizanac | blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | tamna boja kože</annotation>
+		<annotation cp="👬🏿">blizanci | držanje za ruke | dva muškarca se drže za ruke | muškarac | muškarci | muškarci se drže za ruke | par | tamna boja kože</annotation>
 		<annotation cp="👬🏿" type="tts">dva muškarca se drže za ruke: tamna boja kože</annotation>
 		<annotation cp="💏🏻">par | poljubac | svijetla boja kože</annotation>
 		<annotation cp="💏🏻" type="tts">poljubac: svijetla boja kože</annotation>

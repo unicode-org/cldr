@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,46 +12,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="he"/>
 	</identity>
 	<annotations>
-		<annotation cp="🫃🏻">איש עם בטן היריון | בטן | גוון עור בהיר | היריון | כרס | נפוח | שמן</annotation>
-		<annotation cp="🫃🏻" type="tts">איש עם בטן היריון: גוון עור בהיר</annotation>
-		<annotation cp="🫃🏼">איש עם בטן היריון | בטן | גוון עור בהיר בינוני | היריון | כרס | נפוח | שמן</annotation>
-		<annotation cp="🫃🏼" type="tts">איש עם בטן היריון: גוון עור בהיר בינוני</annotation>
-		<annotation cp="🫃🏽">איש עם בטן היריון | בטן | גוון עור בינוני | היריון | כרס | נפוח | שמן</annotation>
-		<annotation cp="🫃🏽" type="tts">איש עם בטן היריון: גוון עור בינוני</annotation>
-		<annotation cp="🫃🏾">איש עם בטן היריון | בטן | גוון עור כהה בינוני | היריון | כרס | נפוח | שמן</annotation>
-		<annotation cp="🫃🏾" type="tts">איש עם בטן היריון: גוון עור כהה בינוני</annotation>
-		<annotation cp="🫃🏿">איש עם בטן היריון | בטן | גוון עור כהה | היריון | כרס | נפוח | שמן</annotation>
-		<annotation cp="🫃🏿" type="tts">איש עם בטן היריון: גוון עור כהה</annotation>
-		<annotation cp="🫄🏻">גוון עור בהיר | מישהי בהיריון</annotation>
-		<annotation cp="🫄🏻" type="tts">מישהי בהיריון: גוון עור בהיר</annotation>
-		<annotation cp="🫄🏼">גוון עור בהיר בינוני | מישהי בהיריון</annotation>
-		<annotation cp="🫄🏼" type="tts">מישהי בהיריון: גוון עור בהיר בינוני</annotation>
-		<annotation cp="🫄🏽">גוון עור בינוני | מישהי בהיריון</annotation>
-		<annotation cp="🫄🏽" type="tts">מישהי בהיריון: גוון עור בינוני</annotation>
-		<annotation cp="🫄🏾">גוון עור כהה בינוני | מישהי בהיריון</annotation>
-		<annotation cp="🫄🏾" type="tts">מישהי בהיריון: גוון עור כהה בינוני</annotation>
-		<annotation cp="🫄🏿">גוון עור כהה | מישהי בהיריון</annotation>
-		<annotation cp="🫄🏿" type="tts">מישהי בהיריון: גוון עור כהה</annotation>
-		<annotation cp="🫅🏻">אציל | גוון עור בהיר | מלך | מלכותי | נסיך | פרצוף עם כתר</annotation>
-		<annotation cp="🫅🏻" type="tts">פרצוף עם כתר: גוון עור בהיר</annotation>
-		<annotation cp="🫅🏼">אציל | גוון עור בהיר בינוני | מלך | מלכותי | נסיך | פרצוף עם כתר</annotation>
-		<annotation cp="🫅🏼" type="tts">פרצוף עם כתר: גוון עור בהיר בינוני</annotation>
-		<annotation cp="🫅🏽">אציל | גוון עור בינוני | מלך | מלכותי | נסיך | פרצוף עם כתר</annotation>
-		<annotation cp="🫅🏽" type="tts">פרצוף עם כתר: גוון עור בינוני</annotation>
-		<annotation cp="🫅🏾">אציל | גוון עור כהה בינוני | מלך | מלכותי | נסיך | פרצוף עם כתר</annotation>
-		<annotation cp="🫅🏾" type="tts">פרצוף עם כתר: גוון עור כהה בינוני</annotation>
-		<annotation cp="🫅🏿">אציל | גוון עור כהה | מלך | מלכותי | נסיך | פרצוף עם כתר</annotation>
-		<annotation cp="🫅🏿" type="tts">פרצוף עם כתר: גוון עור כהה</annotation>
-		<annotation cp="🫰🏻">אצבעות | גוון עור בהיר | יאללה | יקר | קליק באצבעות</annotation>
-		<annotation cp="🫰🏻" type="tts">קליק באצבעות: גוון עור בהיר</annotation>
-		<annotation cp="🫰🏼">אצבעות | גוון עור בהיר בינוני | יאללה | יקר | קליק באצבעות</annotation>
-		<annotation cp="🫰🏼" type="tts">קליק באצבעות: גוון עור בהיר בינוני</annotation>
-		<annotation cp="🫰🏽">אצבעות | גוון עור בינוני | יאללה | יקר | קליק באצבעות</annotation>
-		<annotation cp="🫰🏽" type="tts">קליק באצבעות: גוון עור בינוני</annotation>
-		<annotation cp="🫰🏾">אצבעות | גוון עור כהה בינוני | יאללה | יקר | קליק באצבעות</annotation>
-		<annotation cp="🫰🏾" type="tts">קליק באצבעות: גוון עור כהה בינוני</annotation>
-		<annotation cp="🫰🏿">אצבעות | גוון עור כהה | יאללה | יקר | קליק באצבעות</annotation>
-		<annotation cp="🫰🏿" type="tts">קליק באצבעות: גוון עור כהה</annotation>
+		<annotation cp="👋🏻">ביי | גוון עור בהיר | יד | להתראות | מנופפת</annotation>
+		<annotation cp="👋🏻" type="tts">יד מנופפת: גוון עור בהיר</annotation>
+		<annotation cp="👋🏼">ביי | גוון עור בהיר בינוני | יד | להתראות | מנופפת</annotation>
+		<annotation cp="👋🏼" type="tts">יד מנופפת: גוון עור בהיר בינוני</annotation>
+		<annotation cp="👋🏽">ביי | גוון עור בינוני | יד | להתראות | מנופפת</annotation>
+		<annotation cp="👋🏽" type="tts">יד מנופפת: גוון עור בינוני</annotation>
+		<annotation cp="👋🏾">ביי | גוון עור כהה בינוני | יד | להתראות | מנופפת</annotation>
+		<annotation cp="👋🏾" type="tts">יד מנופפת: גוון עור כהה בינוני</annotation>
+		<annotation cp="👋🏿">ביי | גוון עור כהה | יד | להתראות | מנופפת</annotation>
+		<annotation cp="👋🏿" type="tts">יד מנופפת: גוון עור כהה</annotation>
+		<annotation cp="🤚🏻">גב יד | גב יד פרוש | גוון עור בהיר | כלפי מעלה</annotation>
+		<annotation cp="🤚🏻" type="tts">גב יד פרוש: גוון עור בהיר</annotation>
+		<annotation cp="🤚🏼">גב יד | גב יד פרוש | גוון עור בהיר בינוני | כלפי מעלה</annotation>
+		<annotation cp="🤚🏼" type="tts">גב יד פרוש: גוון עור בהיר בינוני</annotation>
+		<annotation cp="🤚🏽">גב יד | גב יד פרוש | גוון עור בינוני | כלפי מעלה</annotation>
+		<annotation cp="🤚🏽" type="tts">גב יד פרוש: גוון עור בינוני</annotation>
+		<annotation cp="🤚🏾">גב יד | גב יד פרוש | גוון עור כהה בינוני | כלפי מעלה</annotation>
+		<annotation cp="🤚🏾" type="tts">גב יד פרוש: גוון עור כהה בינוני</annotation>
+		<annotation cp="🤚🏿">גב יד | גב יד פרוש | גוון עור כהה | כלפי מעלה</annotation>
+		<annotation cp="🤚🏿" type="tts">גב יד פרוש: גוון עור כהה</annotation>
+		<annotation cp="🖐🏻">גוון עור בהיר | חמסה | יד | כיף | כף יד פתוחה מורמת | מורמת | פתוחה</annotation>
+		<annotation cp="🖐🏻" type="tts">כף יד פתוחה מורמת: גוון עור בהיר</annotation>
+		<annotation cp="🖐🏼">גוון עור בהיר בינוני | חמסה | יד | כיף | כף יד פתוחה מורמת | מורמת | פתוחה</annotation>
+		<annotation cp="🖐🏼" type="tts">כף יד פתוחה מורמת: גוון עור בהיר בינוני</annotation>
+		<annotation cp="🖐🏽">גוון עור בינוני | חמסה | יד | כיף | כף יד פתוחה מורמת | מורמת | פתוחה</annotation>
+		<annotation cp="🖐🏽" type="tts">כף יד פתוחה מורמת: גוון עור בינוני</annotation>
+		<annotation cp="🖐🏾">גוון עור כהה בינוני | חמסה | יד | כיף | כף יד פתוחה מורמת | מורמת | פתוחה</annotation>
+		<annotation cp="🖐🏾" type="tts">כף יד פתוחה מורמת: גוון עור כהה בינוני</annotation>
+		<annotation cp="🖐🏿">גוון עור כהה | חמסה | יד | כיף | כף יד פתוחה מורמת | מורמת | פתוחה</annotation>
+		<annotation cp="🖐🏿" type="tts">כף יד פתוחה מורמת: גוון עור כהה</annotation>
+		<annotation cp="✋🏻">גוון עור בהיר | יד | כף יד מורמת | מורמת | עצור</annotation>
+		<annotation cp="✋🏻" type="tts">כף יד מורמת: גוון עור בהיר</annotation>
+		<annotation cp="✋🏼">גוון עור בהיר בינוני | יד | כף יד מורמת | מורמת | עצור</annotation>
+		<annotation cp="✋🏼" type="tts">כף יד מורמת: גוון עור בהיר בינוני</annotation>
+		<annotation cp="✋🏽">גוון עור בינוני | יד | כף יד מורמת | מורמת | עצור</annotation>
+		<annotation cp="✋🏽" type="tts">כף יד מורמת: גוון עור בינוני</annotation>
+		<annotation cp="✋🏾">גוון עור כהה בינוני | יד | כף יד מורמת | מורמת | עצור</annotation>
+		<annotation cp="✋🏾" type="tts">כף יד מורמת: גוון עור כהה בינוני</annotation>
+		<annotation cp="✋🏿">גוון עור כהה | יד | כף יד מורמת | מורמת | עצור</annotation>
+		<annotation cp="✋🏿" type="tts">כף יד מורמת: גוון עור כהה</annotation>
+		<annotation cp="🖖🏻">אצבעות | ברכת וולקנים | ברכת כהנים | גוון עור בהיר | הצדעה וולקנית | וולקן | וולקנים | יד | ספוק</annotation>
+		<annotation cp="🖖🏻" type="tts">הצדעה וולקנית: גוון עור בהיר</annotation>
+		<annotation cp="🖖🏼">אצבעות | ברכת וולקנים | ברכת כהנים | גוון עור בהיר בינוני | הצדעה וולקנית | וולקן | וולקנים | יד | ספוק</annotation>
+		<annotation cp="🖖🏼" type="tts">הצדעה וולקנית: גוון עור בהיר בינוני</annotation>
+		<annotation cp="🖖🏽">אצבעות | ברכת וולקנים | ברכת כהנים | גוון עור בינוני | הצדעה וולקנית | וולקן | וולקנים | יד | ספוק</annotation>
+		<annotation cp="🖖🏽" type="tts">הצדעה וולקנית: גוון עור בינוני</annotation>
+		<annotation cp="🖖🏾">אצבעות | ברכת וולקנים | ברכת כהנים | גוון עור כהה בינוני | הצדעה וולקנית | וולקן | וולקנים | יד | ספוק</annotation>
+		<annotation cp="🖖🏾" type="tts">הצדעה וולקנית: גוון עור כהה בינוני</annotation>
+		<annotation cp="🖖🏿">אצבעות | ברכת וולקנים | ברכת כהנים | גוון עור כהה | הצדעה וולקנית | וולקן | וולקנים | יד | ספוק</annotation>
+		<annotation cp="🖖🏿" type="tts">הצדעה וולקנית: גוון עור כהה</annotation>
 		<annotation cp="🫱🏻">גוון עור בהיר | יד | יד פונה ימינה | ימינה | נעים להכיר</annotation>
 		<annotation cp="🫱🏻" type="tts">יד פונה ימינה: גוון עור בהיר</annotation>
 		<annotation cp="🫱🏼">גוון עור בהיר בינוני | יד | יד פונה ימינה | ימינה | נעים להכיר</annotation>
@@ -122,86 +132,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫳🏾" type="tts">כף יד פונה למטה: גוון עור כהה בינוני</annotation>
 		<annotation cp="🫳🏿">גוון עור כהה | כף יד פונה למטה | לא משנה | לך מפה | קישטה</annotation>
 		<annotation cp="🫳🏿" type="tts">כף יד פונה למטה: גוון עור כהה</annotation>
-		<annotation cp="🫴🏻">בוא הנה | בקשה | גוון עור בהיר | הצעה | כף יד פונה למעלה | תפיסה</annotation>
+		<annotation cp="🫴🏻">בוא הנה | בקשה | גוון עור בהיר | הצעה | כף יד פונה למעלה | לתפוס | תפיסה</annotation>
 		<annotation cp="🫴🏻" type="tts">כף יד פונה למעלה: גוון עור בהיר</annotation>
-		<annotation cp="🫴🏼">בוא הנה | בקשה | גוון עור בהיר בינוני | הצעה | כף יד פונה למעלה | תפיסה</annotation>
+		<annotation cp="🫴🏼">בוא הנה | בקשה | גוון עור בהיר בינוני | הצעה | כף יד פונה למעלה | לתפוס | תפיסה</annotation>
 		<annotation cp="🫴🏼" type="tts">כף יד פונה למעלה: גוון עור בהיר בינוני</annotation>
-		<annotation cp="🫴🏽">בוא הנה | בקשה | גוון עור בינוני | הצעה | כף יד פונה למעלה | תפיסה</annotation>
+		<annotation cp="🫴🏽">בוא הנה | בקשה | גוון עור בינוני | הצעה | כף יד פונה למעלה | לתפוס | תפיסה</annotation>
 		<annotation cp="🫴🏽" type="tts">כף יד פונה למעלה: גוון עור בינוני</annotation>
-		<annotation cp="🫴🏾">בוא הנה | בקשה | גוון עור כהה בינוני | הצעה | כף יד פונה למעלה | תפיסה</annotation>
+		<annotation cp="🫴🏾">בוא הנה | בקשה | גוון עור כהה בינוני | הצעה | כף יד פונה למעלה | לתפוס | תפיסה</annotation>
 		<annotation cp="🫴🏾" type="tts">כף יד פונה למעלה: גוון עור כהה בינוני</annotation>
-		<annotation cp="🫴🏿">בוא הנה | בקשה | גוון עור כהה | הצעה | כף יד פונה למעלה | תפיסה</annotation>
+		<annotation cp="🫴🏿">בוא הנה | בקשה | גוון עור כהה | הצעה | כף יד פונה למעלה | לתפוס | תפיסה</annotation>
 		<annotation cp="🫴🏿" type="tts">כף יד פונה למעלה: גוון עור כהה</annotation>
-		<annotation cp="🫵🏻">אצבע | אצבע מצביעה | גוון עור בהיר | הצבעה עליך | מצביע</annotation>
-		<annotation cp="🫵🏻" type="tts">אצבע מצביעה: גוון עור בהיר</annotation>
-		<annotation cp="🫵🏼">אצבע | אצבע מצביעה | גוון עור בהיר בינוני | הצבעה עליך | מצביע</annotation>
-		<annotation cp="🫵🏼" type="tts">אצבע מצביעה: גוון עור בהיר בינוני</annotation>
-		<annotation cp="🫵🏽">אצבע | אצבע מצביעה | גוון עור בינוני | הצבעה עליך | מצביע</annotation>
-		<annotation cp="🫵🏽" type="tts">אצבע מצביעה: גוון עור בינוני</annotation>
-		<annotation cp="🫵🏾">אצבע | אצבע מצביעה | גוון עור כהה בינוני | הצבעה עליך | מצביע</annotation>
-		<annotation cp="🫵🏾" type="tts">אצבע מצביעה: גוון עור כהה בינוני</annotation>
-		<annotation cp="🫵🏿">אצבע | אצבע מצביעה | גוון עור כהה | הצבעה עליך | מצביע</annotation>
-		<annotation cp="🫵🏿" type="tts">אצבע מצביעה: גוון עור כהה</annotation>
-		<annotation cp="🫶🏻">אהבה | אוהבים | גוון עור בהיר | לב | סימן לב עם הידיים</annotation>
-		<annotation cp="🫶🏻" type="tts">סימן לב עם הידיים: גוון עור בהיר</annotation>
-		<annotation cp="🫶🏼">אהבה | אוהבים | גוון עור בהיר בינוני | לב | סימן לב עם הידיים</annotation>
-		<annotation cp="🫶🏼" type="tts">סימן לב עם הידיים: גוון עור בהיר בינוני</annotation>
-		<annotation cp="🫶🏽">אהבה | אוהבים | גוון עור בינוני | לב | סימן לב עם הידיים</annotation>
-		<annotation cp="🫶🏽" type="tts">סימן לב עם הידיים: גוון עור בינוני</annotation>
-		<annotation cp="🫶🏾">אהבה | אוהבים | גוון עור כהה בינוני | לב | סימן לב עם הידיים</annotation>
-		<annotation cp="🫶🏾" type="tts">סימן לב עם הידיים: גוון עור כהה בינוני</annotation>
-		<annotation cp="🫶🏿">אהבה | אוהבים | גוון עור כהה | לב | סימן לב עם הידיים</annotation>
-		<annotation cp="🫶🏿" type="tts">סימן לב עם הידיים: גוון עור כהה</annotation>
-		<annotation cp="👋🏻">ביי | גוון עור בהיר | יד | להתראות | מנופפת</annotation>
-		<annotation cp="👋🏻" type="tts">יד מנופפת: גוון עור בהיר</annotation>
-		<annotation cp="👋🏼">ביי | גוון עור בהיר בינוני | יד | להתראות | מנופפת</annotation>
-		<annotation cp="👋🏼" type="tts">יד מנופפת: גוון עור בהיר בינוני</annotation>
-		<annotation cp="👋🏽">ביי | גוון עור בינוני | יד | להתראות | מנופפת</annotation>
-		<annotation cp="👋🏽" type="tts">יד מנופפת: גוון עור בינוני</annotation>
-		<annotation cp="👋🏾">ביי | גוון עור כהה בינוני | יד | להתראות | מנופפת</annotation>
-		<annotation cp="👋🏾" type="tts">יד מנופפת: גוון עור כהה בינוני</annotation>
-		<annotation cp="👋🏿">ביי | גוון עור כהה | יד | להתראות | מנופפת</annotation>
-		<annotation cp="👋🏿" type="tts">יד מנופפת: גוון עור כהה</annotation>
-		<annotation cp="🤚🏻">גב יד | גב יד פרוש | גוון עור בהיר | כלפי מעלה</annotation>
-		<annotation cp="🤚🏻" type="tts">גב יד פרוש: גוון עור בהיר</annotation>
-		<annotation cp="🤚🏼">גב יד | גב יד פרוש | גוון עור בהיר בינוני | כלפי מעלה</annotation>
-		<annotation cp="🤚🏼" type="tts">גב יד פרוש: גוון עור בהיר בינוני</annotation>
-		<annotation cp="🤚🏽">גב יד | גב יד פרוש | גוון עור בינוני | כלפי מעלה</annotation>
-		<annotation cp="🤚🏽" type="tts">גב יד פרוש: גוון עור בינוני</annotation>
-		<annotation cp="🤚🏾">גב יד | גב יד פרוש | גוון עור כהה בינוני | כלפי מעלה</annotation>
-		<annotation cp="🤚🏾" type="tts">גב יד פרוש: גוון עור כהה בינוני</annotation>
-		<annotation cp="🤚🏿">גב יד | גב יד פרוש | גוון עור כהה | כלפי מעלה</annotation>
-		<annotation cp="🤚🏿" type="tts">גב יד פרוש: גוון עור כהה</annotation>
-		<annotation cp="🖐🏻">גוון עור בהיר | חמסה | יד | כיף | כף יד פתוחה מורמת | מורמת | פתוחה</annotation>
-		<annotation cp="🖐🏻" type="tts">כף יד פתוחה מורמת: גוון עור בהיר</annotation>
-		<annotation cp="🖐🏼">גוון עור בהיר בינוני | חמסה | יד | כיף | כף יד פתוחה מורמת | מורמת | פתוחה</annotation>
-		<annotation cp="🖐🏼" type="tts">כף יד פתוחה מורמת: גוון עור בהיר בינוני</annotation>
-		<annotation cp="🖐🏽">גוון עור בינוני | חמסה | יד | כיף | כף יד פתוחה מורמת | מורמת | פתוחה</annotation>
-		<annotation cp="🖐🏽" type="tts">כף יד פתוחה מורמת: גוון עור בינוני</annotation>
-		<annotation cp="🖐🏾">גוון עור כהה בינוני | חמסה | יד | כיף | כף יד פתוחה מורמת | מורמת | פתוחה</annotation>
-		<annotation cp="🖐🏾" type="tts">כף יד פתוחה מורמת: גוון עור כהה בינוני</annotation>
-		<annotation cp="🖐🏿">גוון עור כהה | חמסה | יד | כיף | כף יד פתוחה מורמת | מורמת | פתוחה</annotation>
-		<annotation cp="🖐🏿" type="tts">כף יד פתוחה מורמת: גוון עור כהה</annotation>
-		<annotation cp="✋🏻">גוון עור בהיר | יד | כף יד מורמת | מורמת | עצור</annotation>
-		<annotation cp="✋🏻" type="tts">כף יד מורמת: גוון עור בהיר</annotation>
-		<annotation cp="✋🏼">גוון עור בהיר בינוני | יד | כף יד מורמת | מורמת | עצור</annotation>
-		<annotation cp="✋🏼" type="tts">כף יד מורמת: גוון עור בהיר בינוני</annotation>
-		<annotation cp="✋🏽">גוון עור בינוני | יד | כף יד מורמת | מורמת | עצור</annotation>
-		<annotation cp="✋🏽" type="tts">כף יד מורמת: גוון עור בינוני</annotation>
-		<annotation cp="✋🏾">גוון עור כהה בינוני | יד | כף יד מורמת | מורמת | עצור</annotation>
-		<annotation cp="✋🏾" type="tts">כף יד מורמת: גוון עור כהה בינוני</annotation>
-		<annotation cp="✋🏿">גוון עור כהה | יד | כף יד מורמת | מורמת | עצור</annotation>
-		<annotation cp="✋🏿" type="tts">כף יד מורמת: גוון עור כהה</annotation>
-		<annotation cp="🖖🏻">אצבעות | ברכת וולקנים | ברכת כהנים | גוון עור בהיר | הצדעה וולקנית | וולקן | וולקנים | יד | ספוק</annotation>
-		<annotation cp="🖖🏻" type="tts">הצדעה וולקנית: גוון עור בהיר</annotation>
-		<annotation cp="🖖🏼">אצבעות | ברכת וולקנים | ברכת כהנים | גוון עור בהיר בינוני | הצדעה וולקנית | וולקן | וולקנים | יד | ספוק</annotation>
-		<annotation cp="🖖🏼" type="tts">הצדעה וולקנית: גוון עור בהיר בינוני</annotation>
-		<annotation cp="🖖🏽">אצבעות | ברכת וולקנים | ברכת כהנים | גוון עור בינוני | הצדעה וולקנית | וולקן | וולקנים | יד | ספוק</annotation>
-		<annotation cp="🖖🏽" type="tts">הצדעה וולקנית: גוון עור בינוני</annotation>
-		<annotation cp="🖖🏾">אצבעות | ברכת וולקנים | ברכת כהנים | גוון עור כהה בינוני | הצדעה וולקנית | וולקן | וולקנים | יד | ספוק</annotation>
-		<annotation cp="🖖🏾" type="tts">הצדעה וולקנית: גוון עור כהה בינוני</annotation>
-		<annotation cp="🖖🏿">אצבעות | ברכת וולקנים | ברכת כהנים | גוון עור כהה | הצדעה וולקנית | וולקן | וולקנים | יד | ספוק</annotation>
-		<annotation cp="🖖🏿" type="tts">הצדעה וולקנית: גוון עור כהה</annotation>
 		<annotation cp="👌🏻">ok | אוקיי | אישור | בסדר | גוון עור בהיר | יד | יד מסמנת שהכל בסדר</annotation>
 		<annotation cp="👌🏻" type="tts">יד מסמנת שהכל בסדר: גוון עור בהיר</annotation>
 		<annotation cp="👌🏼">ok | אוקיי | אישור | בסדר | גוון עור בהיר בינוני | יד | יד מסמנת שהכל בסדר</annotation>
@@ -252,6 +192,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤞🏾" type="tts">יד מחזיקה אצבעות: גוון עור כהה בינוני</annotation>
 		<annotation cp="🤞🏿">אצבעות | בהצלחה | גוון עור כהה | יד מחזיקה אצבעות | מחזיק</annotation>
 		<annotation cp="🤞🏿" type="tts">יד מחזיקה אצבעות: גוון עור כהה</annotation>
+		<annotation cp="🫰🏻">אצבעות | גוון עור בהיר | יאללה | יקר | קליק באצבעות</annotation>
+		<annotation cp="🫰🏻" type="tts">קליק באצבעות: גוון עור בהיר</annotation>
+		<annotation cp="🫰🏼">אצבעות | גוון עור בהיר בינוני | יאללה | יקר | קליק באצבעות</annotation>
+		<annotation cp="🫰🏼" type="tts">קליק באצבעות: גוון עור בהיר בינוני</annotation>
+		<annotation cp="🫰🏽">אצבעות | גוון עור בינוני | יאללה | יקר | קליק באצבעות</annotation>
+		<annotation cp="🫰🏽" type="tts">קליק באצבעות: גוון עור בינוני</annotation>
+		<annotation cp="🫰🏾">אצבעות | גוון עור כהה בינוני | יאללה | יקר | קליק באצבעות</annotation>
+		<annotation cp="🫰🏾" type="tts">קליק באצבעות: גוון עור כהה בינוני</annotation>
+		<annotation cp="🫰🏿">אצבעות | גוון עור כהה | יאללה | יקר | קליק באצבעות</annotation>
+		<annotation cp="🫰🏿" type="tts">קליק באצבעות: גוון עור כהה</annotation>
 		<annotation cp="🤟🏻">אהבה | בוהן, אצבע וזרת מורמות | גוון עור בהיר | יד</annotation>
 		<annotation cp="🤟🏻" type="tts">בוהן, אצבע וזרת מורמות: גוון עור בהיר</annotation>
 		<annotation cp="🤟🏼">אהבה | בוהן, אצבע וזרת מורמות | גוון עור בהיר בינוני | יד</annotation>
@@ -342,6 +292,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☝🏾" type="tts">יד מצביעה למעלה: גוון עור כהה בינוני</annotation>
 		<annotation cp="☝🏿">אצבע | גוון עור כהה | יד | להצביע | למעלה | מצביעה</annotation>
 		<annotation cp="☝🏿" type="tts">יד מצביעה למעלה: גוון עור כהה</annotation>
+		<annotation cp="🫵🏻">אצבע | אצבע מצביעה | גוון עור בהיר | הצבעה עליך | מצביע</annotation>
+		<annotation cp="🫵🏻" type="tts">אצבע מצביעה: גוון עור בהיר</annotation>
+		<annotation cp="🫵🏼">אצבע | אצבע מצביעה | גוון עור בהיר בינוני | הצבעה עליך | מצביע</annotation>
+		<annotation cp="🫵🏼" type="tts">אצבע מצביעה: גוון עור בהיר בינוני</annotation>
+		<annotation cp="🫵🏽">אצבע | אצבע מצביעה | גוון עור בינוני | הצבעה עליך | מצביע</annotation>
+		<annotation cp="🫵🏽" type="tts">אצבע מצביעה: גוון עור בינוני</annotation>
+		<annotation cp="🫵🏾">אצבע | אצבע מצביעה | גוון עור כהה בינוני | הצבעה עליך | מצביע</annotation>
+		<annotation cp="🫵🏾" type="tts">אצבע מצביעה: גוון עור כהה בינוני</annotation>
+		<annotation cp="🫵🏿">אצבע | אצבע מצביעה | גוון עור כהה | הצבעה עליך | מצביע</annotation>
+		<annotation cp="🫵🏿" type="tts">אצבע מצביעה: גוון עור כהה</annotation>
 		<annotation cp="👍🏻">אגודל | אהבתי | אישור | גוון עור בהיר | טוב | לייק | למעלה | סבבה</annotation>
 		<annotation cp="👍🏻" type="tts">אגודל למעלה: גוון עור בהיר</annotation>
 		<annotation cp="👍🏼">אגודל | אהבתי | אישור | גוון עור בהיר בינוני | טוב | לייק | למעלה | סבבה</annotation>
@@ -422,6 +382,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">כפות ידיים מורמות: גוון עור כהה בינוני</annotation>
 		<annotation cp="🙌🏿">גוון עור כהה | כפות ידיים | כפות ידיים מורמות | סימן | שמחה</annotation>
 		<annotation cp="🙌🏿" type="tts">כפות ידיים מורמות: גוון עור כהה</annotation>
+		<annotation cp="🫶🏻">אהבה | אוהבים | גוון עור בהיר | לב | סימן לב עם הידיים</annotation>
+		<annotation cp="🫶🏻" type="tts">סימן לב עם הידיים: גוון עור בהיר</annotation>
+		<annotation cp="🫶🏼">אהבה | אוהבים | גוון עור בהיר בינוני | לב | סימן לב עם הידיים</annotation>
+		<annotation cp="🫶🏼" type="tts">סימן לב עם הידיים: גוון עור בהיר בינוני</annotation>
+		<annotation cp="🫶🏽">אהבה | אוהבים | גוון עור בינוני | לב | סימן לב עם הידיים</annotation>
+		<annotation cp="🫶🏽" type="tts">סימן לב עם הידיים: גוון עור בינוני</annotation>
+		<annotation cp="🫶🏾">אהבה | אוהבים | גוון עור כהה בינוני | לב | סימן לב עם הידיים</annotation>
+		<annotation cp="🫶🏾" type="tts">סימן לב עם הידיים: גוון עור כהה בינוני</annotation>
+		<annotation cp="🫶🏿">אהבה | אוהבים | גוון עור כהה | לב | סימן לב עם הידיים</annotation>
+		<annotation cp="🫶🏿" type="tts">סימן לב עם הידיים: גוון עור כהה</annotation>
 		<annotation cp="👐🏻">גוון עור בהיר | ידיים פתוחות | כפות ידיים פתוחות | קבלה</annotation>
 		<annotation cp="👐🏻" type="tts">כפות ידיים פתוחות: גוון עור בהיר</annotation>
 		<annotation cp="👐🏼">גוון עור בהיר בינוני | ידיים פתוחות | כפות ידיים פתוחות | קבלה</annotation>
@@ -462,6 +432,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙏🏾" type="tts">כפות ידיים מוצמדות: גוון עור כהה בינוני</annotation>
 		<annotation cp="🙏🏿">גוון עור כהה | כפות ידיים | כפות ידיים מוצמדות | סימן ידיים | תודה | תפילה</annotation>
 		<annotation cp="🙏🏿" type="tts">כפות ידיים מוצמדות: גוון עור כהה</annotation>
+		<annotation cp="🫷🏻">גוון עור בהיר | דחיפה | יד דוחפת שמאלה | כיף | לך מפה | סירוב | עד כאן | שמאלה</annotation>
+		<annotation cp="🫷🏻" type="tts">יד דוחפת שמאלה: גוון עור בהיר</annotation>
+		<annotation cp="🫷🏼">גוון עור בהיר בינוני | דחיפה | יד דוחפת שמאלה | כיף | לך מפה | סירוב | עד כאן | שמאלה</annotation>
+		<annotation cp="🫷🏼" type="tts">יד דוחפת שמאלה: גוון עור בהיר בינוני</annotation>
+		<annotation cp="🫷🏽">גוון עור בינוני | דחיפה | יד דוחפת שמאלה | כיף | לך מפה | סירוב | עד כאן | שמאלה</annotation>
+		<annotation cp="🫷🏽" type="tts">יד דוחפת שמאלה: גוון עור בינוני</annotation>
+		<annotation cp="🫷🏾">גוון עור כהה בינוני | דחיפה | יד דוחפת שמאלה | כיף | לך מפה | סירוב | עד כאן | שמאלה</annotation>
+		<annotation cp="🫷🏾" type="tts">יד דוחפת שמאלה: גוון עור כהה בינוני</annotation>
+		<annotation cp="🫷🏿">גוון עור כהה | דחיפה | יד דוחפת שמאלה | כיף | לך מפה | סירוב | עד כאן | שמאלה</annotation>
+		<annotation cp="🫷🏿" type="tts">יד דוחפת שמאלה: גוון עור כהה</annotation>
+		<annotation cp="🫸🏻">גוון עור בהיר | דחיפה | יד דוחפת ימינה | ימינה | כיף | לך מפה | סירוב | עד כאן</annotation>
+		<annotation cp="🫸🏻" type="tts">יד דוחפת ימינה: גוון עור בהיר</annotation>
+		<annotation cp="🫸🏼">גוון עור בהיר בינוני | דחיפה | יד דוחפת ימינה | ימינה | כיף | לך מפה | סירוב | עד כאן</annotation>
+		<annotation cp="🫸🏼" type="tts">יד דוחפת ימינה: גוון עור בהיר בינוני</annotation>
+		<annotation cp="🫸🏽">גוון עור בינוני | דחיפה | יד דוחפת ימינה | ימינה | כיף | לך מפה | סירוב | עד כאן</annotation>
+		<annotation cp="🫸🏽" type="tts">יד דוחפת ימינה: גוון עור בינוני</annotation>
+		<annotation cp="🫸🏾">גוון עור כהה בינוני | דחיפה | יד דוחפת ימינה | ימינה | כיף | לך מפה | סירוב | עד כאן</annotation>
+		<annotation cp="🫸🏾" type="tts">יד דוחפת ימינה: גוון עור כהה בינוני</annotation>
+		<annotation cp="🫸🏿">גוון עור כהה | דחיפה | יד דוחפת ימינה | ימינה | כיף | לך מפה | סירוב | עד כאן</annotation>
+		<annotation cp="🫸🏿" type="tts">יד דוחפת ימינה: גוון עור כהה</annotation>
 		<annotation cp="✍🏻">גוון עור בהיר | יד | כותבת | כתב יד | כתיבה</annotation>
 		<annotation cp="✍🏻" type="tts">יד כותבת: גוון עור בהיר</annotation>
 		<annotation cp="✍🏼">גוון עור בהיר בינוני | יד | כותבת | כתב יד | כתיבה</annotation>
@@ -1266,15 +1256,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙍🏾‍♀" type="tts">אישה מדוכדכת: גוון עור כהה בינוני</annotation>
 		<annotation cp="🙍🏿‍♀">אישה | אישה מדוכדכת | גוון עור כהה | זועפת | מדוכאת | עצובה</annotation>
 		<annotation cp="🙍🏿‍♀" type="tts">אישה מדוכדכת: גוון עור כהה</annotation>
-		<annotation cp="🙎🏻">אישה זועפת | גוון עור בהיר | זועפת | כועסת</annotation>
+		<annotation cp="🙎🏻">אדם | אישה זועפת | גוון עור בהיר | זועף | זועפת | כועס | כועסת</annotation>
 		<annotation cp="🙎🏻" type="tts">אישה זועפת: גוון עור בהיר</annotation>
-		<annotation cp="🙎🏼">אישה זועפת | גוון עור בהיר בינוני | זועפת | כועסת</annotation>
+		<annotation cp="🙎🏼">אדם | אישה זועפת | גוון עור בהיר בינוני | זועף | זועפת | כועס | כועסת</annotation>
 		<annotation cp="🙎🏼" type="tts">אישה זועפת: גוון עור בהיר בינוני</annotation>
-		<annotation cp="🙎🏽">אישה זועפת | גוון עור בינוני | זועפת | כועסת</annotation>
+		<annotation cp="🙎🏽">אדם | אישה זועפת | גוון עור בינוני | זועף | זועפת | כועס | כועסת</annotation>
 		<annotation cp="🙎🏽" type="tts">אישה זועפת: גוון עור בינוני</annotation>
-		<annotation cp="🙎🏾">אישה זועפת | גוון עור כהה בינוני | זועפת | כועסת</annotation>
+		<annotation cp="🙎🏾">אדם | אישה זועפת | גוון עור כהה בינוני | זועף | זועפת | כועס | כועסת</annotation>
 		<annotation cp="🙎🏾" type="tts">אישה זועפת: גוון עור כהה בינוני</annotation>
-		<annotation cp="🙎🏿">אישה זועפת | גוון עור כהה | זועפת | כועסת</annotation>
+		<annotation cp="🙎🏿">אדם | אישה זועפת | גוון עור כהה | זועף | זועפת | כועס | כועסת</annotation>
 		<annotation cp="🙎🏿" type="tts">אישה זועפת: גוון עור כהה</annotation>
 		<annotation cp="🙎🏻‍♂">אוף | איש | גבר | גבר מבואס | גוון עור בהיר | מחמיץ פנים | מעקם את האף</annotation>
 		<annotation cp="🙎🏻‍♂" type="tts">גבר מבואס: גוון עור בהיר</annotation>
@@ -1296,15 +1286,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙎🏾‍♀" type="tts">אישה מבואסת: גוון עור כהה בינוני</annotation>
 		<annotation cp="🙎🏿‍♀">אוף | אישה | אישה מבואסת | גוון עור כהה | מחמיצה פנים | מעקמת את האף</annotation>
 		<annotation cp="🙎🏿‍♀" type="tts">אישה מבואסת: גוון עור כהה</annotation>
-		<annotation cp="🙅🏻">אישה מסמנת ״לא בסדר״ | אסור | גוון עור בהיר | לא | סימן ידיים</annotation>
+		<annotation cp="🙅🏻">אדם | אישה מסמנת ״לא בסדר״ | אסור | גוון עור בהיר | לא | מסמן | סימן ידיים</annotation>
 		<annotation cp="🙅🏻" type="tts">אישה מסמנת ״לא בסדר״: גוון עור בהיר</annotation>
-		<annotation cp="🙅🏼">אישה מסמנת ״לא בסדר״ | אסור | גוון עור בהיר בינוני | לא | סימן ידיים</annotation>
+		<annotation cp="🙅🏼">אדם | אישה מסמנת ״לא בסדר״ | אסור | גוון עור בהיר בינוני | לא | מסמן | סימן ידיים</annotation>
 		<annotation cp="🙅🏼" type="tts">אישה מסמנת ״לא בסדר״: גוון עור בהיר בינוני</annotation>
-		<annotation cp="🙅🏽">אישה מסמנת ״לא בסדר״ | אסור | גוון עור בינוני | לא | סימן ידיים</annotation>
+		<annotation cp="🙅🏽">אדם | אישה מסמנת ״לא בסדר״ | אסור | גוון עור בינוני | לא | מסמן | סימן ידיים</annotation>
 		<annotation cp="🙅🏽" type="tts">אישה מסמנת ״לא בסדר״: גוון עור בינוני</annotation>
-		<annotation cp="🙅🏾">אישה מסמנת ״לא בסדר״ | אסור | גוון עור כהה בינוני | לא | סימן ידיים</annotation>
+		<annotation cp="🙅🏾">אדם | אישה מסמנת ״לא בסדר״ | אסור | גוון עור כהה בינוני | לא | מסמן | סימן ידיים</annotation>
 		<annotation cp="🙅🏾" type="tts">אישה מסמנת ״לא בסדר״: גוון עור כהה בינוני</annotation>
-		<annotation cp="🙅🏿">אישה מסמנת ״לא בסדר״ | אסור | גוון עור כהה | לא | סימן ידיים</annotation>
+		<annotation cp="🙅🏿">אדם | אישה מסמנת ״לא בסדר״ | אסור | גוון עור כהה | לא | מסמן | סימן ידיים</annotation>
 		<annotation cp="🙅🏿" type="tts">אישה מסמנת ״לא בסדר״: גוון עור כהה</annotation>
 		<annotation cp="🙅🏻‍♂">איש | אסור | גבר | גבר מסמן ״לא״ | גבר מסמן ״לא״ עם הידיים | גוון עור בהיר | לא | לא בסדר</annotation>
 		<annotation cp="🙅🏻‍♂" type="tts">גבר מסמן ״לא״: גוון עור בהיר</annotation>
@@ -1326,15 +1316,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙅🏾‍♀" type="tts">אישה מסמנת ״לא״: גוון עור כהה בינוני</annotation>
 		<annotation cp="🙅🏿‍♀">אישה | אישה מסמנת ״לא טוב״ | אישה מסמנת ״לא״ | אסור | גוון עור כהה | לא | לא בסדר</annotation>
 		<annotation cp="🙅🏿‍♀" type="tts">אישה מסמנת ״לא״: גוון עור כהה</annotation>
-		<annotation cp="🙆🏻">ok | אוקיי | אישה מסמנת OK עם הידיים | גוון עור בהיר | סימן ידיים</annotation>
+		<annotation cp="🙆🏻">ok | אדם | אדם מסמן | אוקיי | אישה מסמנת OK עם הידיים | גוון עור בהיר | סימן ידיים</annotation>
 		<annotation cp="🙆🏻" type="tts">אישה מסמנת OK עם הידיים: גוון עור בהיר</annotation>
-		<annotation cp="🙆🏼">ok | אוקיי | אישה מסמנת OK עם הידיים | גוון עור בהיר בינוני | סימן ידיים</annotation>
+		<annotation cp="🙆🏼">ok | אדם | אדם מסמן | אוקיי | אישה מסמנת OK עם הידיים | גוון עור בהיר בינוני | סימן ידיים</annotation>
 		<annotation cp="🙆🏼" type="tts">אישה מסמנת OK עם הידיים: גוון עור בהיר בינוני</annotation>
-		<annotation cp="🙆🏽">ok | אוקיי | אישה מסמנת OK עם הידיים | גוון עור בינוני | סימן ידיים</annotation>
+		<annotation cp="🙆🏽">ok | אדם | אדם מסמן | אוקיי | אישה מסמנת OK עם הידיים | גוון עור בינוני | סימן ידיים</annotation>
 		<annotation cp="🙆🏽" type="tts">אישה מסמנת OK עם הידיים: גוון עור בינוני</annotation>
-		<annotation cp="🙆🏾">ok | אוקיי | אישה מסמנת OK עם הידיים | גוון עור כהה בינוני | סימן ידיים</annotation>
+		<annotation cp="🙆🏾">ok | אדם | אדם מסמן | אוקיי | אישה מסמנת OK עם הידיים | גוון עור כהה בינוני | סימן ידיים</annotation>
 		<annotation cp="🙆🏾" type="tts">אישה מסמנת OK עם הידיים: גוון עור כהה בינוני</annotation>
-		<annotation cp="🙆🏿">ok | אוקיי | אישה מסמנת OK עם הידיים | גוון עור כהה | סימן ידיים</annotation>
+		<annotation cp="🙆🏿">ok | אדם | אדם מסמן | אוקיי | אישה מסמנת OK עם הידיים | גוון עור כהה | סימן ידיים</annotation>
 		<annotation cp="🙆🏿" type="tts">אישה מסמנת OK עם הידיים: גוון עור כהה</annotation>
 		<annotation cp="🙆🏻‍♂">איש | בסדר | גבר | גבר עם הידיים על הראש | גוון עור בהיר | ידיים על הראש | כן</annotation>
 		<annotation cp="🙆🏻‍♂" type="tts">גבר עם הידיים על הראש: גוון עור בהיר</annotation>
@@ -1386,15 +1376,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💁🏾‍♀" type="tts">אישה מבקשת טיפ: גוון עור כהה בינוני</annotation>
 		<annotation cp="💁🏿‍♀">אישה | אישה מבקשת טיפ | גוון עור כהה | דלפק מידע | חוצפה | טיפ | יד | מידע | עזרה</annotation>
 		<annotation cp="💁🏿‍♀" type="tts">אישה מבקשת טיפ: גוון עור כהה</annotation>
-		<annotation cp="🙋🏻">אישה מרימה את היד | אישה שמחה מרימה יד | גוון עור בהיר | יד מורמת | סימן ידיים | שמחה</annotation>
+		<annotation cp="🙋🏻">אדם | אישה מרימה את היד | אישה שמחה מרימה יד | גוון עור בהיר | יד מורמת | מרים את היד | סימן ידיים | שמחה</annotation>
 		<annotation cp="🙋🏻" type="tts">אישה מרימה את היד: גוון עור בהיר</annotation>
-		<annotation cp="🙋🏼">אישה מרימה את היד | אישה שמחה מרימה יד | גוון עור בהיר בינוני | יד מורמת | סימן ידיים | שמחה</annotation>
+		<annotation cp="🙋🏼">אדם | אישה מרימה את היד | אישה שמחה מרימה יד | גוון עור בהיר בינוני | יד מורמת | מרים את היד | סימן ידיים | שמחה</annotation>
 		<annotation cp="🙋🏼" type="tts">אישה מרימה את היד: גוון עור בהיר בינוני</annotation>
-		<annotation cp="🙋🏽">אישה מרימה את היד | אישה שמחה מרימה יד | גוון עור בינוני | יד מורמת | סימן ידיים | שמחה</annotation>
+		<annotation cp="🙋🏽">אדם | אישה מרימה את היד | אישה שמחה מרימה יד | גוון עור בינוני | יד מורמת | מרים את היד | סימן ידיים | שמחה</annotation>
 		<annotation cp="🙋🏽" type="tts">אישה מרימה את היד: גוון עור בינוני</annotation>
-		<annotation cp="🙋🏾">אישה מרימה את היד | אישה שמחה מרימה יד | גוון עור כהה בינוני | יד מורמת | סימן ידיים | שמחה</annotation>
+		<annotation cp="🙋🏾">אדם | אישה מרימה את היד | אישה שמחה מרימה יד | גוון עור כהה בינוני | יד מורמת | מרים את היד | סימן ידיים | שמחה</annotation>
 		<annotation cp="🙋🏾" type="tts">אישה מרימה את היד: גוון עור כהה בינוני</annotation>
-		<annotation cp="🙋🏿">אישה מרימה את היד | אישה שמחה מרימה יד | גוון עור כהה | יד מורמת | סימן ידיים | שמחה</annotation>
+		<annotation cp="🙋🏿">אדם | אישה מרימה את היד | אישה שמחה מרימה יד | גוון עור כהה | יד מורמת | מרים את היד | סימן ידיים | שמחה</annotation>
 		<annotation cp="🙋🏿" type="tts">אישה מרימה את היד: גוון עור כהה</annotation>
 		<annotation cp="🙋🏻‍♂">איש | גבר | גבר מרים יד | גוון עור בהיר | מצביע | מרים יד</annotation>
 		<annotation cp="🙋🏻‍♂" type="tts">גבר מרים יד: גוון עור בהיר</annotation>
@@ -2146,6 +2136,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👷🏾‍♀" type="tts">פועלת בניין: גוון עור כהה בינוני</annotation>
 		<annotation cp="👷🏿‍♀">אישה | בניין | גוון עור כהה | פועלת</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">פועלת בניין: גוון עור כהה</annotation>
+		<annotation cp="🫅🏻">אציל | גוון עור בהיר | מלך | מלכותי | נסיך | פרצוף עם כתר</annotation>
+		<annotation cp="🫅🏻" type="tts">פרצוף עם כתר: גוון עור בהיר</annotation>
+		<annotation cp="🫅🏼">אציל | גוון עור בהיר בינוני | מלך | מלכותי | נסיך | פרצוף עם כתר</annotation>
+		<annotation cp="🫅🏼" type="tts">פרצוף עם כתר: גוון עור בהיר בינוני</annotation>
+		<annotation cp="🫅🏽">אציל | גוון עור בינוני | מלך | מלכותי | נסיך | פרצוף עם כתר</annotation>
+		<annotation cp="🫅🏽" type="tts">פרצוף עם כתר: גוון עור בינוני</annotation>
+		<annotation cp="🫅🏾">אציל | גוון עור כהה בינוני | מלך | מלכותי | נסיך | פרצוף עם כתר</annotation>
+		<annotation cp="🫅🏾" type="tts">פרצוף עם כתר: גוון עור כהה בינוני</annotation>
+		<annotation cp="🫅🏿">אציל | גוון עור כהה | מלך | מלכותי | נסיך | פרצוף עם כתר</annotation>
+		<annotation cp="🫅🏿" type="tts">פרצוף עם כתר: גוון עור כהה</annotation>
 		<annotation cp="🤴🏻">גוון עור בהיר | כתר | נסיך | נסיך עם כתר</annotation>
 		<annotation cp="🤴🏻" type="tts">נסיך עם כתר: גוון עור בהיר</annotation>
 		<annotation cp="🤴🏼">גוון עור בהיר בינוני | כתר | נסיך | נסיך עם כתר</annotation>
@@ -2286,6 +2286,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">אישה בהיריון: גוון עור כהה בינוני</annotation>
 		<annotation cp="🤰🏿">אישה | אישה בהיריון | גוון עור כהה | היריון | הרה | הריונית</annotation>
 		<annotation cp="🤰🏿" type="tts">אישה בהיריון: גוון עור כהה</annotation>
+		<annotation cp="🫃🏻">איש עם בטן היריון | בטן | גוון עור בהיר | היריון | כרס | נפוח | שמן</annotation>
+		<annotation cp="🫃🏻" type="tts">איש עם בטן היריון: גוון עור בהיר</annotation>
+		<annotation cp="🫃🏼">איש עם בטן היריון | בטן | גוון עור בהיר בינוני | היריון | כרס | נפוח | שמן</annotation>
+		<annotation cp="🫃🏼" type="tts">איש עם בטן היריון: גוון עור בהיר בינוני</annotation>
+		<annotation cp="🫃🏽">איש עם בטן היריון | בטן | גוון עור בינוני | היריון | כרס | נפוח | שמן</annotation>
+		<annotation cp="🫃🏽" type="tts">איש עם בטן היריון: גוון עור בינוני</annotation>
+		<annotation cp="🫃🏾">איש עם בטן היריון | בטן | גוון עור כהה בינוני | היריון | כרס | נפוח | שמן</annotation>
+		<annotation cp="🫃🏾" type="tts">איש עם בטן היריון: גוון עור כהה בינוני</annotation>
+		<annotation cp="🫃🏿">איש עם בטן היריון | בטן | גוון עור כהה | היריון | כרס | נפוח | שמן</annotation>
+		<annotation cp="🫃🏿" type="tts">איש עם בטן היריון: גוון עור כהה</annotation>
+		<annotation cp="🫄🏻">בהריון | בטן | גוון עור בהיר | היריון | הריון | כרס | נפוח | נפוחה | שמן | שמנה</annotation>
+		<annotation cp="🫄🏻" type="tts">בהריון: גוון עור בהיר</annotation>
+		<annotation cp="🫄🏼">בהריון | בטן | גוון עור בהיר בינוני | היריון | הריון | כרס | נפוח | נפוחה | שמן | שמנה</annotation>
+		<annotation cp="🫄🏼" type="tts">בהריון: גוון עור בהיר בינוני</annotation>
+		<annotation cp="🫄🏽">בהריון | בטן | גוון עור בינוני | היריון | הריון | כרס | נפוח | נפוחה | שמן | שמנה</annotation>
+		<annotation cp="🫄🏽" type="tts">בהריון: גוון עור בינוני</annotation>
+		<annotation cp="🫄🏾">בהריון | בטן | גוון עור כהה בינוני | היריון | הריון | כרס | נפוח | נפוחה | שמן | שמנה</annotation>
+		<annotation cp="🫄🏾" type="tts">בהריון: גוון עור כהה בינוני</annotation>
+		<annotation cp="🫄🏿">בהריון | בטן | גוון עור כהה | היריון | הריון | כרס | נפוח | נפוחה | שמן | שמנה</annotation>
+		<annotation cp="🫄🏿" type="tts">בהריון: גוון עור כהה</annotation>
 		<annotation cp="🤱🏻">אישה מניקה | גוון עור בהיר | הנקה | מיניקה | מניקה</annotation>
 		<annotation cp="🤱🏻" type="tts">אישה מניקה: גוון עור בהיר</annotation>
 		<annotation cp="🤱🏼">אישה מניקה | גוון עור בהיר בינוני | הנקה | מיניקה | מניקה</annotation>
@@ -3725,7 +3745,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇧🇻">דגל</annotation>
 		<annotation cp="🇧🇻" type="tts">דגל: האי בובה</annotation>
 		<annotation cp="🇧🇼">דגל</annotation>
-		<annotation cp="🇧🇼" type="tts">דגל: בוצוואנה</annotation>
+		<annotation cp="🇧🇼" type="tts">דגל: בוטסואנה</annotation>
 		<annotation cp="🇧🇾">דגל</annotation>
 		<annotation cp="🇧🇾" type="tts">דגל: בלארוס</annotation>
 		<annotation cp="🇧🇿">דגל</annotation>
@@ -4071,7 +4091,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇸🇰">דגל</annotation>
 		<annotation cp="🇸🇰" type="tts">דגל: סלובקיה</annotation>
 		<annotation cp="🇸🇱">דגל</annotation>
-		<annotation cp="🇸🇱" type="tts">דגל: סיירה לאונה</annotation>
+		<annotation cp="🇸🇱" type="tts">דגל: סיירה לאון</annotation>
 		<annotation cp="🇸🇲">דגל</annotation>
 		<annotation cp="🇸🇲" type="tts">דגל: סן מרינו</annotation>
 		<annotation cp="🇸🇳">דגל</annotation>

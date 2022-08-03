@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,46 +12,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="is"/>
 	</identity>
 	<annotations>
-		<annotation cp="🫃🏻">barnshafandi | barnshafandi maður | fullur | kviður | ljós húðlitur | uppblásinn</annotation>
-		<annotation cp="🫃🏻" type="tts">barnshafandi maður: ljós húðlitur</annotation>
-		<annotation cp="🫃🏼">barnshafandi | barnshafandi maður | fullur | kviður | meðalljós húðlitur | uppblásinn</annotation>
-		<annotation cp="🫃🏼" type="tts">barnshafandi maður: meðalljós húðlitur</annotation>
-		<annotation cp="🫃🏽">barnshafandi | barnshafandi maður | fullur | kviður | millihúðlitur | uppblásinn</annotation>
-		<annotation cp="🫃🏽" type="tts">barnshafandi maður: millihúðlitur</annotation>
-		<annotation cp="🫃🏾">barnshafandi | barnshafandi maður | fullur | kviður | meðaldökkur húðlitur | uppblásinn</annotation>
-		<annotation cp="🫃🏾" type="tts">barnshafandi maður: meðaldökkur húðlitur</annotation>
-		<annotation cp="🫃🏿">barnshafandi | barnshafandi maður | dökkur húðlitur | fullur | kviður | uppblásinn</annotation>
-		<annotation cp="🫃🏿" type="tts">barnshafandi maður: dökkur húðlitur</annotation>
-		<annotation cp="🫄🏻">barnshafandi | barnshafandi manneskja | fullur | kviður | ljós húðlitur | uppblásinn</annotation>
-		<annotation cp="🫄🏻" type="tts">barnshafandi manneskja: ljós húðlitur</annotation>
-		<annotation cp="🫄🏼">barnshafandi | barnshafandi manneskja | fullur | kviður | meðalljós húðlitur | uppblásinn</annotation>
-		<annotation cp="🫄🏼" type="tts">barnshafandi manneskja: meðalljós húðlitur</annotation>
-		<annotation cp="🫄🏽">barnshafandi | barnshafandi manneskja | fullur | kviður | millihúðlitur | uppblásinn</annotation>
-		<annotation cp="🫄🏽" type="tts">barnshafandi manneskja: millihúðlitur</annotation>
-		<annotation cp="🫄🏾">barnshafandi | barnshafandi manneskja | fullur | kviður | meðaldökkur húðlitur | uppblásinn</annotation>
-		<annotation cp="🫄🏾" type="tts">barnshafandi manneskja: meðaldökkur húðlitur</annotation>
-		<annotation cp="🫄🏿">barnshafandi | barnshafandi manneskja | dökkur húðlitur | fullur | kviður | uppblásinn</annotation>
-		<annotation cp="🫄🏿" type="tts">barnshafandi manneskja: dökkur húðlitur</annotation>
-		<annotation cp="🫅🏻">kóngafólk | konunglegt | ljós húðlitur | manneskja með kórónu | tiginn | þjóðhöfðingi</annotation>
-		<annotation cp="🫅🏻" type="tts">manneskja með kórónu: ljós húðlitur</annotation>
-		<annotation cp="🫅🏼">kóngafólk | konunglegt | manneskja með kórónu | meðalljós húðlitur | tiginn | þjóðhöfðingi</annotation>
-		<annotation cp="🫅🏼" type="tts">manneskja með kórónu: meðalljós húðlitur</annotation>
-		<annotation cp="🫅🏽">kóngafólk | konunglegt | manneskja með kórónu | millihúðlitur | tiginn | þjóðhöfðingi</annotation>
-		<annotation cp="🫅🏽" type="tts">manneskja með kórónu: millihúðlitur</annotation>
-		<annotation cp="🫅🏾">kóngafólk | konunglegt | manneskja með kórónu | meðaldökkur húðlitur | tiginn | þjóðhöfðingi</annotation>
-		<annotation cp="🫅🏾" type="tts">manneskja með kórónu: meðaldökkur húðlitur</annotation>
-		<annotation cp="🫅🏿">dökkur húðlitur | kóngafólk | konunglegt | manneskja með kórónu | tiginn | þjóðhöfðingi</annotation>
-		<annotation cp="🫅🏿" type="tts">manneskja með kórónu: dökkur húðlitur</annotation>
-		<annotation cp="🫰🏻">ást | dýr | hendi með vísifingur og þumal í kross | hjarta | ljós húðlitur | peningar | smella</annotation>
-		<annotation cp="🫰🏻" type="tts">hendi með vísifingur og þumal í kross: ljós húðlitur</annotation>
-		<annotation cp="🫰🏼">ást | dýr | hendi með vísifingur og þumal í kross | hjarta | meðalljós húðlitur | peningar | smella</annotation>
-		<annotation cp="🫰🏼" type="tts">hendi með vísifingur og þumal í kross: meðalljós húðlitur</annotation>
-		<annotation cp="🫰🏽">ást | dýr | hendi með vísifingur og þumal í kross | hjarta | millihúðlitur | peningar | smella</annotation>
-		<annotation cp="🫰🏽" type="tts">hendi með vísifingur og þumal í kross: millihúðlitur</annotation>
-		<annotation cp="🫰🏾">ást | dýr | hendi með vísifingur og þumal í kross | hjarta | meðaldökkur húðlitur | peningar | smella</annotation>
-		<annotation cp="🫰🏾" type="tts">hendi með vísifingur og þumal í kross: meðaldökkur húðlitur</annotation>
-		<annotation cp="🫰🏿">ást | dökkur húðlitur | dýr | hendi með vísifingur og þumal í kross | hjarta | peningar | smella</annotation>
-		<annotation cp="🫰🏿" type="tts">hendi með vísifingur og þumal í kross: dökkur húðlitur</annotation>
+		<annotation cp="👋🏻">hönd | hönd veifar | ljós húðlitur | veifa</annotation>
+		<annotation cp="👋🏻" type="tts">hönd veifar: ljós húðlitur</annotation>
+		<annotation cp="👋🏼">hönd | hönd veifar | meðalljós húðlitur | veifa</annotation>
+		<annotation cp="👋🏼" type="tts">hönd veifar: meðalljós húðlitur</annotation>
+		<annotation cp="👋🏽">hönd | hönd veifar | millihúðlitur | veifa</annotation>
+		<annotation cp="👋🏽" type="tts">hönd veifar: millihúðlitur</annotation>
+		<annotation cp="👋🏾">hönd | hönd veifar | meðaldökkur húðlitur | veifa</annotation>
+		<annotation cp="👋🏾" type="tts">hönd veifar: meðaldökkur húðlitur</annotation>
+		<annotation cp="👋🏿">dökkur húðlitur | hönd | hönd veifar | veifa</annotation>
+		<annotation cp="👋🏿" type="tts">hönd veifar: dökkur húðlitur</annotation>
+		<annotation cp="🤚🏻">hönd | ljós húðlitur | lófi | upprétt</annotation>
+		<annotation cp="🤚🏻" type="tts">upprétt hönd: ljós húðlitur</annotation>
+		<annotation cp="🤚🏼">hönd | lófi | meðalljós húðlitur | upprétt</annotation>
+		<annotation cp="🤚🏼" type="tts">upprétt hönd: meðalljós húðlitur</annotation>
+		<annotation cp="🤚🏽">hönd | lófi | millihúðlitur | upprétt</annotation>
+		<annotation cp="🤚🏽" type="tts">upprétt hönd: millihúðlitur</annotation>
+		<annotation cp="🤚🏾">hönd | lófi | meðaldökkur húðlitur | upprétt</annotation>
+		<annotation cp="🤚🏾" type="tts">upprétt hönd: meðaldökkur húðlitur</annotation>
+		<annotation cp="🤚🏿">dökkur húðlitur | hönd | lófi | upprétt</annotation>
+		<annotation cp="🤚🏿" type="tts">upprétt hönd: dökkur húðlitur</annotation>
+		<annotation cp="🖐🏻">fingur | glennt | hönd | líkami | ljós húðlitur | upprétt hönd með glennta fingur</annotation>
+		<annotation cp="🖐🏻" type="tts">upprétt hönd með glennta fingur: ljós húðlitur</annotation>
+		<annotation cp="🖐🏼">fingur | glennt | hönd | líkami | meðalljós húðlitur | upprétt hönd með glennta fingur</annotation>
+		<annotation cp="🖐🏼" type="tts">upprétt hönd með glennta fingur: meðalljós húðlitur</annotation>
+		<annotation cp="🖐🏽">fingur | glennt | hönd | líkami | millihúðlitur | upprétt hönd með glennta fingur</annotation>
+		<annotation cp="🖐🏽" type="tts">upprétt hönd með glennta fingur: millihúðlitur</annotation>
+		<annotation cp="🖐🏾">fingur | glennt | hönd | líkami | meðaldökkur húðlitur | upprétt hönd með glennta fingur</annotation>
+		<annotation cp="🖐🏾" type="tts">upprétt hönd með glennta fingur: meðaldökkur húðlitur</annotation>
+		<annotation cp="🖐🏿">dökkur húðlitur | fingur | glennt | hönd | líkami | upprétt hönd með glennta fingur</annotation>
+		<annotation cp="🖐🏿" type="tts">upprétt hönd með glennta fingur: dökkur húðlitur</annotation>
+		<annotation cp="✋🏻">ljós húðlitur | lófi | upprétt hönd</annotation>
+		<annotation cp="✋🏻" type="tts">lófi: ljós húðlitur</annotation>
+		<annotation cp="✋🏼">lófi | meðalljós húðlitur | upprétt hönd</annotation>
+		<annotation cp="✋🏼" type="tts">lófi: meðalljós húðlitur</annotation>
+		<annotation cp="✋🏽">lófi | millihúðlitur | upprétt hönd</annotation>
+		<annotation cp="✋🏽" type="tts">lófi: millihúðlitur</annotation>
+		<annotation cp="✋🏾">lófi | meðaldökkur húðlitur | upprétt hönd</annotation>
+		<annotation cp="✋🏾" type="tts">lófi: meðaldökkur húðlitur</annotation>
+		<annotation cp="✋🏿">dökkur húðlitur | lófi | upprétt hönd</annotation>
+		<annotation cp="✋🏿" type="tts">lófi: dökkur húðlitur</annotation>
+		<annotation cp="🖖🏻">fingur | hendi | kveðja | ljós húðlitur | spock | vulcan-kveðja | vúlkan</annotation>
+		<annotation cp="🖖🏻" type="tts">vulcan-kveðja: ljós húðlitur</annotation>
+		<annotation cp="🖖🏼">fingur | hendi | kveðja | meðalljós húðlitur | spock | vulcan-kveðja | vúlkan</annotation>
+		<annotation cp="🖖🏼" type="tts">vulcan-kveðja: meðalljós húðlitur</annotation>
+		<annotation cp="🖖🏽">fingur | hendi | kveðja | millihúðlitur | spock | vulcan-kveðja | vúlkan</annotation>
+		<annotation cp="🖖🏽" type="tts">vulcan-kveðja: millihúðlitur</annotation>
+		<annotation cp="🖖🏾">fingur | hendi | kveðja | meðaldökkur húðlitur | spock | vulcan-kveðja | vúlkan</annotation>
+		<annotation cp="🖖🏾" type="tts">vulcan-kveðja: meðaldökkur húðlitur</annotation>
+		<annotation cp="🖖🏿">dökkur húðlitur | fingur | hendi | kveðja | spock | vulcan-kveðja | vúlkan</annotation>
+		<annotation cp="🖖🏿" type="tts">vulcan-kveðja: dökkur húðlitur</annotation>
 		<annotation cp="🫱🏻">hægra megin | hægri | hendi | hendi hægra megin | ljós húðlitur</annotation>
 		<annotation cp="🫱🏻" type="tts">hendi hægra megin: ljós húðlitur</annotation>
 		<annotation cp="🫱🏼">hægra megin | hægri | hendi | hendi hægra megin | meðalljós húðlitur</annotation>
@@ -132,76 +142,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫴🏾" type="tts">hendi með lófa upp: meðaldökkur húðlitur</annotation>
 		<annotation cp="🫴🏿">benda | bjóða | dökkur húðlitur | grípa | hendi með lófa upp | koma</annotation>
 		<annotation cp="🫴🏿" type="tts">hendi með lófa upp: dökkur húðlitur</annotation>
-		<annotation cp="🫵🏻">benda | ljós húðlitur | vísifingur bendir á áhorfandann | þú</annotation>
-		<annotation cp="🫵🏻" type="tts">vísifingur bendir á áhorfandann: ljós húðlitur</annotation>
-		<annotation cp="🫵🏼">benda | meðalljós húðlitur | vísifingur bendir á áhorfandann | þú</annotation>
-		<annotation cp="🫵🏼" type="tts">vísifingur bendir á áhorfandann: meðalljós húðlitur</annotation>
-		<annotation cp="🫵🏽">benda | millihúðlitur | vísifingur bendir á áhorfandann | þú</annotation>
-		<annotation cp="🫵🏽" type="tts">vísifingur bendir á áhorfandann: millihúðlitur</annotation>
-		<annotation cp="🫵🏾">benda | meðaldökkur húðlitur | vísifingur bendir á áhorfandann | þú</annotation>
-		<annotation cp="🫵🏾" type="tts">vísifingur bendir á áhorfandann: meðaldökkur húðlitur</annotation>
-		<annotation cp="🫵🏿">benda | dökkur húðlitur | vísifingur bendir á áhorfandann | þú</annotation>
-		<annotation cp="🫵🏿" type="tts">vísifingur bendir á áhorfandann: dökkur húðlitur</annotation>
-		<annotation cp="🫶🏻">ást | hjartahendur | ljós húðlitur</annotation>
-		<annotation cp="🫶🏻" type="tts">hjartahendur: ljós húðlitur</annotation>
-		<annotation cp="🫶🏼">ást | hjartahendur | meðalljós húðlitur</annotation>
-		<annotation cp="🫶🏼" type="tts">hjartahendur: meðalljós húðlitur</annotation>
-		<annotation cp="🫶🏽">ást | hjartahendur | millihúðlitur</annotation>
-		<annotation cp="🫶🏽" type="tts">hjartahendur: millihúðlitur</annotation>
-		<annotation cp="🫶🏾">ást | hjartahendur | meðaldökkur húðlitur</annotation>
-		<annotation cp="🫶🏾" type="tts">hjartahendur: meðaldökkur húðlitur</annotation>
-		<annotation cp="🫶🏿">ást | dökkur húðlitur | hjartahendur</annotation>
-		<annotation cp="🫶🏿" type="tts">hjartahendur: dökkur húðlitur</annotation>
-		<annotation cp="👋🏻">hönd | hönd veifar | ljós húðlitur | veifa</annotation>
-		<annotation cp="👋🏻" type="tts">hönd veifar: ljós húðlitur</annotation>
-		<annotation cp="👋🏼">hönd | hönd veifar | meðalljós húðlitur | veifa</annotation>
-		<annotation cp="👋🏼" type="tts">hönd veifar: meðalljós húðlitur</annotation>
-		<annotation cp="👋🏽">hönd | hönd veifar | millihúðlitur | veifa</annotation>
-		<annotation cp="👋🏽" type="tts">hönd veifar: millihúðlitur</annotation>
-		<annotation cp="👋🏾">hönd | hönd veifar | meðaldökkur húðlitur | veifa</annotation>
-		<annotation cp="👋🏾" type="tts">hönd veifar: meðaldökkur húðlitur</annotation>
-		<annotation cp="👋🏿">dökkur húðlitur | hönd | hönd veifar | veifa</annotation>
-		<annotation cp="👋🏿" type="tts">hönd veifar: dökkur húðlitur</annotation>
-		<annotation cp="🤚🏻">hönd | ljós húðlitur | lófi | upprétt</annotation>
-		<annotation cp="🤚🏻" type="tts">upprétt hönd: ljós húðlitur</annotation>
-		<annotation cp="🤚🏼">hönd | lófi | meðalljós húðlitur | upprétt</annotation>
-		<annotation cp="🤚🏼" type="tts">upprétt hönd: meðalljós húðlitur</annotation>
-		<annotation cp="🤚🏽">hönd | lófi | millihúðlitur | upprétt</annotation>
-		<annotation cp="🤚🏽" type="tts">upprétt hönd: millihúðlitur</annotation>
-		<annotation cp="🤚🏾">hönd | lófi | meðaldökkur húðlitur | upprétt</annotation>
-		<annotation cp="🤚🏾" type="tts">upprétt hönd: meðaldökkur húðlitur</annotation>
-		<annotation cp="🤚🏿">dökkur húðlitur | hönd | lófi | upprétt</annotation>
-		<annotation cp="🤚🏿" type="tts">upprétt hönd: dökkur húðlitur</annotation>
-		<annotation cp="🖐🏻">fingur | glennt | hönd | líkami | ljós húðlitur | upprétt hönd með glennta fingur</annotation>
-		<annotation cp="🖐🏻" type="tts">upprétt hönd með glennta fingur: ljós húðlitur</annotation>
-		<annotation cp="🖐🏼">fingur | glennt | hönd | líkami | meðalljós húðlitur | upprétt hönd með glennta fingur</annotation>
-		<annotation cp="🖐🏼" type="tts">upprétt hönd með glennta fingur: meðalljós húðlitur</annotation>
-		<annotation cp="🖐🏽">fingur | glennt | hönd | líkami | millihúðlitur | upprétt hönd með glennta fingur</annotation>
-		<annotation cp="🖐🏽" type="tts">upprétt hönd með glennta fingur: millihúðlitur</annotation>
-		<annotation cp="🖐🏾">fingur | glennt | hönd | líkami | meðaldökkur húðlitur | upprétt hönd með glennta fingur</annotation>
-		<annotation cp="🖐🏾" type="tts">upprétt hönd með glennta fingur: meðaldökkur húðlitur</annotation>
-		<annotation cp="🖐🏿">dökkur húðlitur | fingur | glennt | hönd | líkami | upprétt hönd með glennta fingur</annotation>
-		<annotation cp="🖐🏿" type="tts">upprétt hönd með glennta fingur: dökkur húðlitur</annotation>
-		<annotation cp="✋🏻">ljós húðlitur | lófi | upprétt hönd</annotation>
-		<annotation cp="✋🏻" type="tts">lófi: ljós húðlitur</annotation>
-		<annotation cp="✋🏼">lófi | meðalljós húðlitur | upprétt hönd</annotation>
-		<annotation cp="✋🏼" type="tts">lófi: meðalljós húðlitur</annotation>
-		<annotation cp="✋🏽">lófi | millihúðlitur | upprétt hönd</annotation>
-		<annotation cp="✋🏽" type="tts">lófi: millihúðlitur</annotation>
-		<annotation cp="✋🏾">lófi | meðaldökkur húðlitur | upprétt hönd</annotation>
-		<annotation cp="✋🏾" type="tts">lófi: meðaldökkur húðlitur</annotation>
-		<annotation cp="✋🏿">dökkur húðlitur | lófi | upprétt hönd</annotation>
-		<annotation cp="✋🏿" type="tts">lófi: dökkur húðlitur</annotation>
-		<annotation cp="🖖🏻">fingur | hendi | kveðja | ljós húðlitur | spock | vulcan-kveðja | vúlkan</annotation>
-		<annotation cp="🖖🏻" type="tts">vulcan-kveðja: ljós húðlitur</annotation>
-		<annotation cp="🖖🏼">fingur | hendi | kveðja | meðalljós húðlitur | spock | vulcan-kveðja | vúlkan</annotation>
-		<annotation cp="🖖🏼" type="tts">vulcan-kveðja: meðalljós húðlitur</annotation>
-		<annotation cp="🖖🏽">fingur | hendi | kveðja | millihúðlitur | spock | vulcan-kveðja | vúlkan</annotation>
-		<annotation cp="🖖🏽" type="tts">vulcan-kveðja: millihúðlitur</annotation>
-		<annotation cp="🖖🏾">fingur | hendi | kveðja | meðaldökkur húðlitur | spock | vulcan-kveðja | vúlkan</annotation>
-		<annotation cp="🖖🏾" type="tts">vulcan-kveðja: meðaldökkur húðlitur</annotation>
-		<annotation cp="🖖🏿">dökkur húðlitur | fingur | hendi | kveðja | spock | vulcan-kveðja | vúlkan</annotation>
-		<annotation cp="🖖🏿" type="tts">vulcan-kveðja: dökkur húðlitur</annotation>
 		<annotation cp="👌🏻">bending | handarmerki | Í lagi | ljós húðlitur | OK | ókei</annotation>
 		<annotation cp="👌🏻" type="tts">Í lagi: ljós húðlitur</annotation>
 		<annotation cp="👌🏼">bending | handarmerki | Í lagi | meðalljós húðlitur | OK | ókei</annotation>
@@ -252,6 +192,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤞🏾" type="tts">krosslagðir fingur: meðaldökkur húðlitur</annotation>
 		<annotation cp="🤞🏿">dökkur húðlitur | fingur | hendi | kross | krosslagðir fingur | lukka</annotation>
 		<annotation cp="🤞🏿" type="tts">krosslagðir fingur: dökkur húðlitur</annotation>
+		<annotation cp="🫰🏻">ást | dýr | hendi með vísifingur og þumal í kross | hjarta | ljós húðlitur | peningar | smella</annotation>
+		<annotation cp="🫰🏻" type="tts">hendi með vísifingur og þumal í kross: ljós húðlitur</annotation>
+		<annotation cp="🫰🏼">ást | dýr | hendi með vísifingur og þumal í kross | hjarta | meðalljós húðlitur | peningar | smella</annotation>
+		<annotation cp="🫰🏼" type="tts">hendi með vísifingur og þumal í kross: meðalljós húðlitur</annotation>
+		<annotation cp="🫰🏽">ást | dýr | hendi með vísifingur og þumal í kross | hjarta | millihúðlitur | peningar | smella</annotation>
+		<annotation cp="🫰🏽" type="tts">hendi með vísifingur og þumal í kross: millihúðlitur</annotation>
+		<annotation cp="🫰🏾">ást | dýr | hendi með vísifingur og þumal í kross | hjarta | meðaldökkur húðlitur | peningar | smella</annotation>
+		<annotation cp="🫰🏾" type="tts">hendi með vísifingur og þumal í kross: meðaldökkur húðlitur</annotation>
+		<annotation cp="🫰🏿">ást | dökkur húðlitur | dýr | hendi með vísifingur og þumal í kross | hjarta | peningar | smella</annotation>
+		<annotation cp="🫰🏿" type="tts">hendi með vísifingur og þumal í kross: dökkur húðlitur</annotation>
 		<annotation cp="🤟🏻">elska-þig merki | hendi | ILY | ljós húðlitur</annotation>
 		<annotation cp="🤟🏻" type="tts">elska-þig merki: ljós húðlitur</annotation>
 		<annotation cp="🤟🏼">elska-þig merki | hendi | ILY | meðalljós húðlitur</annotation>
@@ -342,6 +292,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☝🏾" type="tts">vísifingur bendir upp: meðaldökkur húðlitur</annotation>
 		<annotation cp="☝🏿">benda | benda upp | dökkur húðlitur | fingur | hönd | vísifingur | vísifingur bendir upp</annotation>
 		<annotation cp="☝🏿" type="tts">vísifingur bendir upp: dökkur húðlitur</annotation>
+		<annotation cp="🫵🏻">benda | ljós húðlitur | vísifingur bendir á áhorfandann | þú</annotation>
+		<annotation cp="🫵🏻" type="tts">vísifingur bendir á áhorfandann: ljós húðlitur</annotation>
+		<annotation cp="🫵🏼">benda | meðalljós húðlitur | vísifingur bendir á áhorfandann | þú</annotation>
+		<annotation cp="🫵🏼" type="tts">vísifingur bendir á áhorfandann: meðalljós húðlitur</annotation>
+		<annotation cp="🫵🏽">benda | millihúðlitur | vísifingur bendir á áhorfandann | þú</annotation>
+		<annotation cp="🫵🏽" type="tts">vísifingur bendir á áhorfandann: millihúðlitur</annotation>
+		<annotation cp="🫵🏾">benda | meðaldökkur húðlitur | vísifingur bendir á áhorfandann | þú</annotation>
+		<annotation cp="🫵🏾" type="tts">vísifingur bendir á áhorfandann: meðaldökkur húðlitur</annotation>
+		<annotation cp="🫵🏿">benda | dökkur húðlitur | vísifingur bendir á áhorfandann | þú</annotation>
+		<annotation cp="🫵🏿" type="tts">vísifingur bendir á áhorfandann: dökkur húðlitur</annotation>
 		<annotation cp="👍🏻">bending | hönd | ljós húðlitur | þumall upp</annotation>
 		<annotation cp="👍🏻" type="tts">þumall upp: ljós húðlitur</annotation>
 		<annotation cp="👍🏼">bending | hönd | meðalljós húðlitur | þumall upp</annotation>
@@ -422,6 +382,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">húrra: meðaldökkur húðlitur</annotation>
 		<annotation cp="🙌🏿">báðar hendur | dökkur húðlitur | fagna | hendur upp í loft | húrra</annotation>
 		<annotation cp="🙌🏿" type="tts">húrra: dökkur húðlitur</annotation>
+		<annotation cp="🫶🏻">ást | hjartahendur | ljós húðlitur</annotation>
+		<annotation cp="🫶🏻" type="tts">hjartahendur: ljós húðlitur</annotation>
+		<annotation cp="🫶🏼">ást | hjartahendur | meðalljós húðlitur</annotation>
+		<annotation cp="🫶🏼" type="tts">hjartahendur: meðalljós húðlitur</annotation>
+		<annotation cp="🫶🏽">ást | hjartahendur | millihúðlitur</annotation>
+		<annotation cp="🫶🏽" type="tts">hjartahendur: millihúðlitur</annotation>
+		<annotation cp="🫶🏾">ást | hjartahendur | meðaldökkur húðlitur</annotation>
+		<annotation cp="🫶🏾" type="tts">hjartahendur: meðaldökkur húðlitur</annotation>
+		<annotation cp="🫶🏿">ást | dökkur húðlitur | hjartahendur</annotation>
+		<annotation cp="🫶🏿" type="tts">hjartahendur: dökkur húðlitur</annotation>
 		<annotation cp="👐🏻">hendur | ljós húðlitur | lófar | opinn lófi | opnir lófar</annotation>
 		<annotation cp="👐🏻" type="tts">opinn lófi: ljós húðlitur</annotation>
 		<annotation cp="👐🏼">hendur | lófar | meðalljós húðlitur | opinn lófi | opnir lófar</annotation>
@@ -462,6 +432,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙏🏾" type="tts">bæn: meðaldökkur húðlitur</annotation>
 		<annotation cp="🙏🏿">bæn | dökkur húðlitur | spenna greipar | spenntar greipar</annotation>
 		<annotation cp="🙏🏿" type="tts">bæn: dökkur húðlitur</annotation>
+		<annotation cp="🫷🏻">bíddu | fimma | hafna | hönd ýtt til vinstri | ljós húðlitur | stopp | til vinstri | ýta</annotation>
+		<annotation cp="🫷🏻" type="tts">hönd ýtt til vinstri: ljós húðlitur</annotation>
+		<annotation cp="🫷🏼">bíddu | fimma | hafna | hönd ýtt til vinstri | meðalljós húðlitur | stopp | til vinstri | ýta</annotation>
+		<annotation cp="🫷🏼" type="tts">hönd ýtt til vinstri: meðalljós húðlitur</annotation>
+		<annotation cp="🫷🏽">bíddu | fimma | hafna | hönd ýtt til vinstri | millihúðlitur | stopp | til vinstri | ýta</annotation>
+		<annotation cp="🫷🏽" type="tts">hönd ýtt til vinstri: millihúðlitur</annotation>
+		<annotation cp="🫷🏾">bíddu | fimma | hafna | hönd ýtt til vinstri | meðaldökkur húðlitur | stopp | til vinstri | ýta</annotation>
+		<annotation cp="🫷🏾" type="tts">hönd ýtt til vinstri: meðaldökkur húðlitur</annotation>
+		<annotation cp="🫷🏿">bíddu | dökkur húðlitur | fimma | hafna | hönd ýtt til vinstri | stopp | til vinstri | ýta</annotation>
+		<annotation cp="🫷🏿" type="tts">hönd ýtt til vinstri: dökkur húðlitur</annotation>
+		<annotation cp="🫸🏻">bíddu | fimma | hafna | hönd ýtt til hægri | ljós húðlitur | stopp | til hægri | ýta</annotation>
+		<annotation cp="🫸🏻" type="tts">hönd ýtt til hægri: ljós húðlitur</annotation>
+		<annotation cp="🫸🏼">bíddu | fimma | hafna | hönd ýtt til hægri | meðalljós húðlitur | stopp | til hægri | ýta</annotation>
+		<annotation cp="🫸🏼" type="tts">hönd ýtt til hægri: meðalljós húðlitur</annotation>
+		<annotation cp="🫸🏽">bíddu | fimma | hafna | hönd ýtt til hægri | millihúðlitur | stopp | til hægri | ýta</annotation>
+		<annotation cp="🫸🏽" type="tts">hönd ýtt til hægri: millihúðlitur</annotation>
+		<annotation cp="🫸🏾">bíddu | fimma | hafna | hönd ýtt til hægri | meðaldökkur húðlitur | stopp | til hægri | ýta</annotation>
+		<annotation cp="🫸🏾" type="tts">hönd ýtt til hægri: meðaldökkur húðlitur</annotation>
+		<annotation cp="🫸🏿">bíddu | dökkur húðlitur | fimma | hafna | hönd ýtt til hægri | stopp | til hægri | ýta</annotation>
+		<annotation cp="🫸🏿" type="tts">hönd ýtt til hægri: dökkur húðlitur</annotation>
 		<annotation cp="✍🏻">hönd | líkami | ljós húðlitur | skrifa | skrifandi hönd</annotation>
 		<annotation cp="✍🏻" type="tts">skrifandi hönd: ljós húðlitur</annotation>
 		<annotation cp="✍🏼">hönd | líkami | meðalljós húðlitur | skrifa | skrifandi hönd</annotation>
@@ -2146,15 +2136,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👷🏾‍♀" type="tts">kvenkyns byggingarstarfsmaður: meðaldökkur húðlitur</annotation>
 		<annotation cp="👷🏿‍♀">byggingar | dökkur húðlitur | kona | kvenkyns byggingarstarfsmaður | verkamaður</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">kvenkyns byggingarstarfsmaður: dökkur húðlitur</annotation>
-		<annotation cp="🤴🏻">ljós húðlitur | prins</annotation>
+		<annotation cp="🫅🏻">kóngafólk | konunglegt | ljós húðlitur | manneskja með kórónu | tiginn | þjóðhöfðingi</annotation>
+		<annotation cp="🫅🏻" type="tts">manneskja með kórónu: ljós húðlitur</annotation>
+		<annotation cp="🫅🏼">kóngafólk | konunglegt | manneskja með kórónu | meðalljós húðlitur | tiginn | þjóðhöfðingi</annotation>
+		<annotation cp="🫅🏼" type="tts">manneskja með kórónu: meðalljós húðlitur</annotation>
+		<annotation cp="🫅🏽">kóngafólk | konunglegt | manneskja með kórónu | millihúðlitur | tiginn | þjóðhöfðingi</annotation>
+		<annotation cp="🫅🏽" type="tts">manneskja með kórónu: millihúðlitur</annotation>
+		<annotation cp="🫅🏾">kóngafólk | konunglegt | manneskja með kórónu | meðaldökkur húðlitur | tiginn | þjóðhöfðingi</annotation>
+		<annotation cp="🫅🏾" type="tts">manneskja með kórónu: meðaldökkur húðlitur</annotation>
+		<annotation cp="🫅🏿">dökkur húðlitur | kóngafólk | konunglegt | manneskja með kórónu | tiginn | þjóðhöfðingi</annotation>
+		<annotation cp="🫅🏿" type="tts">manneskja með kórónu: dökkur húðlitur</annotation>
+		<annotation cp="🤴🏻">ævintýri | fólk | ljós húðlitur | prins</annotation>
 		<annotation cp="🤴🏻" type="tts">prins: ljós húðlitur</annotation>
-		<annotation cp="🤴🏼">meðalljós húðlitur | prins</annotation>
+		<annotation cp="🤴🏼">ævintýri | fólk | meðalljós húðlitur | prins</annotation>
 		<annotation cp="🤴🏼" type="tts">prins: meðalljós húðlitur</annotation>
-		<annotation cp="🤴🏽">millihúðlitur | prins</annotation>
+		<annotation cp="🤴🏽">ævintýri | fólk | millihúðlitur | prins</annotation>
 		<annotation cp="🤴🏽" type="tts">prins: millihúðlitur</annotation>
-		<annotation cp="🤴🏾">meðaldökkur húðlitur | prins</annotation>
+		<annotation cp="🤴🏾">ævintýri | fólk | meðaldökkur húðlitur | prins</annotation>
 		<annotation cp="🤴🏾" type="tts">prins: meðaldökkur húðlitur</annotation>
-		<annotation cp="🤴🏿">dökkur húðlitur | prins</annotation>
+		<annotation cp="🤴🏿">ævintýri | dökkur húðlitur | fólk | prins</annotation>
 		<annotation cp="🤴🏿" type="tts">prins: dökkur húðlitur</annotation>
 		<annotation cp="👸🏻">ævintýri | fólk | ljós húðlitur | prinsessa</annotation>
 		<annotation cp="👸🏻" type="tts">prinsessa: ljós húðlitur</annotation>
@@ -2286,6 +2286,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">ólétt kona: meðaldökkur húðlitur</annotation>
 		<annotation cp="🤰🏿">dökkur húðlitur | kona | ófrísk | ólétt</annotation>
 		<annotation cp="🤰🏿" type="tts">ólétt kona: dökkur húðlitur</annotation>
+		<annotation cp="🫃🏻">barnshafandi | barnshafandi maður | fullur | kviður | ljós húðlitur | uppblásinn</annotation>
+		<annotation cp="🫃🏻" type="tts">barnshafandi maður: ljós húðlitur</annotation>
+		<annotation cp="🫃🏼">barnshafandi | barnshafandi maður | fullur | kviður | meðalljós húðlitur | uppblásinn</annotation>
+		<annotation cp="🫃🏼" type="tts">barnshafandi maður: meðalljós húðlitur</annotation>
+		<annotation cp="🫃🏽">barnshafandi | barnshafandi maður | fullur | kviður | millihúðlitur | uppblásinn</annotation>
+		<annotation cp="🫃🏽" type="tts">barnshafandi maður: millihúðlitur</annotation>
+		<annotation cp="🫃🏾">barnshafandi | barnshafandi maður | fullur | kviður | meðaldökkur húðlitur | uppblásinn</annotation>
+		<annotation cp="🫃🏾" type="tts">barnshafandi maður: meðaldökkur húðlitur</annotation>
+		<annotation cp="🫃🏿">barnshafandi | barnshafandi maður | dökkur húðlitur | fullur | kviður | uppblásinn</annotation>
+		<annotation cp="🫃🏿" type="tts">barnshafandi maður: dökkur húðlitur</annotation>
+		<annotation cp="🫄🏻">barnshafandi | barnshafandi manneskja | fullur | kviður | ljós húðlitur | uppblásinn</annotation>
+		<annotation cp="🫄🏻" type="tts">barnshafandi manneskja: ljós húðlitur</annotation>
+		<annotation cp="🫄🏼">barnshafandi | barnshafandi manneskja | fullur | kviður | meðalljós húðlitur | uppblásinn</annotation>
+		<annotation cp="🫄🏼" type="tts">barnshafandi manneskja: meðalljós húðlitur</annotation>
+		<annotation cp="🫄🏽">barnshafandi | barnshafandi manneskja | fullur | kviður | millihúðlitur | uppblásinn</annotation>
+		<annotation cp="🫄🏽" type="tts">barnshafandi manneskja: millihúðlitur</annotation>
+		<annotation cp="🫄🏾">barnshafandi | barnshafandi manneskja | fullur | kviður | meðaldökkur húðlitur | uppblásinn</annotation>
+		<annotation cp="🫄🏾" type="tts">barnshafandi manneskja: meðaldökkur húðlitur</annotation>
+		<annotation cp="🫄🏿">barnshafandi | barnshafandi manneskja | dökkur húðlitur | fullur | kviður | uppblásinn</annotation>
+		<annotation cp="🫄🏿" type="tts">barnshafandi manneskja: dökkur húðlitur</annotation>
 		<annotation cp="🤱🏻">barn | brjóst | brjóstagjöf | ljós húðlitur</annotation>
 		<annotation cp="🤱🏻" type="tts">brjóstagjöf: ljós húðlitur</annotation>
 		<annotation cp="🤱🏼">barn | brjóst | brjóstagjöf | meðalljós húðlitur</annotation>
@@ -3196,16 +3216,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚵🏾‍♀" type="tts">kona á fjallahjóli: meðaldökkur húðlitur</annotation>
 		<annotation cp="🚵🏿‍♀">dökkur húðlitur | fjallahjól | hjólreiðar | kona | kona á fjallahjóli</annotation>
 		<annotation cp="🚵🏿‍♀" type="tts">kona á fjallahjóli: dökkur húðlitur</annotation>
-		<annotation cp="🤸🏻">fimleikar | handalaup | hlaup | íþrótt | ljós húðlitur</annotation>
-		<annotation cp="🤸🏻" type="tts">handalaup: ljós húðlitur</annotation>
-		<annotation cp="🤸🏼">fimleikar | handalaup | hlaup | íþrótt | meðalljós húðlitur</annotation>
-		<annotation cp="🤸🏼" type="tts">handalaup: meðalljós húðlitur</annotation>
-		<annotation cp="🤸🏽">fimleikar | handalaup | hlaup | íþrótt | millihúðlitur</annotation>
-		<annotation cp="🤸🏽" type="tts">handalaup: millihúðlitur</annotation>
-		<annotation cp="🤸🏾">fimleikar | handalaup | hlaup | íþrótt | meðaldökkur húðlitur</annotation>
-		<annotation cp="🤸🏾" type="tts">handalaup: meðaldökkur húðlitur</annotation>
-		<annotation cp="🤸🏿">dökkur húðlitur | fimleikar | handalaup | hlaup | íþrótt</annotation>
-		<annotation cp="🤸🏿" type="tts">handalaup: dökkur húðlitur</annotation>
+		<annotation cp="🤸🏻">fimleikar | handahlaup | hlaup | íþrótt | ljós húðlitur</annotation>
+		<annotation cp="🤸🏻" type="tts">handahlaup: ljós húðlitur</annotation>
+		<annotation cp="🤸🏼">fimleikar | handahlaup | hlaup | íþrótt | meðalljós húðlitur</annotation>
+		<annotation cp="🤸🏼" type="tts">handahlaup: meðalljós húðlitur</annotation>
+		<annotation cp="🤸🏽">fimleikar | handahlaup | hlaup | íþrótt | millihúðlitur</annotation>
+		<annotation cp="🤸🏽" type="tts">handahlaup: millihúðlitur</annotation>
+		<annotation cp="🤸🏾">fimleikar | handahlaup | hlaup | íþrótt | meðaldökkur húðlitur</annotation>
+		<annotation cp="🤸🏾" type="tts">handahlaup: meðaldökkur húðlitur</annotation>
+		<annotation cp="🤸🏿">dökkur húðlitur | fimleikar | handahlaup | hlaup | íþrótt</annotation>
+		<annotation cp="🤸🏿" type="tts">handahlaup: dökkur húðlitur</annotation>
 		<annotation cp="🤸🏻‍♂">fimleikar | handahlaup | karl | ljós húðlitur | maður á handahlaupum</annotation>
 		<annotation cp="🤸🏻‍♂" type="tts">maður á handahlaupum: ljós húðlitur</annotation>
 		<annotation cp="🤸🏼‍♂">fimleikar | handahlaup | karl | maður á handahlaupum | meðalljós húðlitur</annotation>

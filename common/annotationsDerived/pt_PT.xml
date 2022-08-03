@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -14,46 +14,56 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<territory type="PT"/>
 	</identity>
 	<annotations>
-		<annotation cp="🫃🏻">barriga | cheio | grávido | homem grávido | inchado | tipo de pele 1–2</annotation>
-		<annotation cp="🫃🏻" type="tts">homem grávido: tipo de pele 1–2</annotation>
-		<annotation cp="🫃🏼">barriga | cheio | grávido | homem grávido | inchado | tipo de pele 3</annotation>
-		<annotation cp="🫃🏼" type="tts">homem grávido: tipo de pele 3</annotation>
-		<annotation cp="🫃🏽">barriga | cheio | grávido | homem grávido | inchado | tipo de pele 4</annotation>
-		<annotation cp="🫃🏽" type="tts">homem grávido: tipo de pele 4</annotation>
-		<annotation cp="🫃🏾">barriga | cheio | grávido | homem grávido | inchado | tipo de pele 5</annotation>
-		<annotation cp="🫃🏾" type="tts">homem grávido: tipo de pele 5</annotation>
-		<annotation cp="🫃🏿">barriga | cheio | grávido | homem grávido | inchado | tipo de pele 6</annotation>
-		<annotation cp="🫃🏿" type="tts">homem grávido: tipo de pele 6</annotation>
-		<annotation cp="🫄🏻">barriga | cheio | gravidez | inchada | pessoa grávida | tipo de pele 1–2</annotation>
-		<annotation cp="🫄🏻" type="tts">pessoa grávida: tipo de pele 1–2</annotation>
-		<annotation cp="🫄🏼">barriga | cheio | gravidez | inchada | pessoa grávida | tipo de pele 3</annotation>
-		<annotation cp="🫄🏼" type="tts">pessoa grávida: tipo de pele 3</annotation>
-		<annotation cp="🫄🏽">barriga | cheio | gravidez | inchada | pessoa grávida | tipo de pele 4</annotation>
-		<annotation cp="🫄🏽" type="tts">pessoa grávida: tipo de pele 4</annotation>
-		<annotation cp="🫄🏾">barriga | cheio | gravidez | inchada | pessoa grávida | tipo de pele 5</annotation>
-		<annotation cp="🫄🏾" type="tts">pessoa grávida: tipo de pele 5</annotation>
-		<annotation cp="🫄🏿">barriga | cheio | gravidez | inchada | pessoa grávida | tipo de pele 6</annotation>
-		<annotation cp="🫄🏿" type="tts">pessoa grávida: tipo de pele 6</annotation>
-		<annotation cp="🫅🏻">monarca | nobre | pessoa com coroa | real | realeza | tipo de pele 1–2</annotation>
-		<annotation cp="🫅🏻" type="tts">pessoa com coroa: tipo de pele 1–2</annotation>
-		<annotation cp="🫅🏼">monarca | nobre | pessoa com coroa | real | realeza | tipo de pele 3</annotation>
-		<annotation cp="🫅🏼" type="tts">pessoa com coroa: tipo de pele 3</annotation>
-		<annotation cp="🫅🏽">monarca | nobre | pessoa com coroa | real | realeza | tipo de pele 4</annotation>
-		<annotation cp="🫅🏽" type="tts">pessoa com coroa: tipo de pele 4</annotation>
-		<annotation cp="🫅🏾">monarca | nobre | pessoa com coroa | real | realeza | tipo de pele 5</annotation>
-		<annotation cp="🫅🏾" type="tts">pessoa com coroa: tipo de pele 5</annotation>
-		<annotation cp="🫅🏿">monarca | nobre | pessoa com coroa | real | realeza | tipo de pele 6</annotation>
-		<annotation cp="🫅🏿" type="tts">pessoa com coroa: tipo de pele 6</annotation>
-		<annotation cp="🫰🏻">amor | caro | coração | dinheiro | estalar | mão com dedo indicador e polegar cruzados | tipo de pele 1–2</annotation>
-		<annotation cp="🫰🏻" type="tts">mão com dedo indicador e polegar cruzados: tipo de pele 1–2</annotation>
-		<annotation cp="🫰🏼">amor | caro | coração | dinheiro | estalar | mão com dedo indicador e polegar cruzados | tipo de pele 3</annotation>
-		<annotation cp="🫰🏼" type="tts">mão com dedo indicador e polegar cruzados: tipo de pele 3</annotation>
-		<annotation cp="🫰🏽">amor | caro | coração | dinheiro | estalar | mão com dedo indicador e polegar cruzados | tipo de pele 4</annotation>
-		<annotation cp="🫰🏽" type="tts">mão com dedo indicador e polegar cruzados: tipo de pele 4</annotation>
-		<annotation cp="🫰🏾">amor | caro | coração | dinheiro | estalar | mão com dedo indicador e polegar cruzados | tipo de pele 5</annotation>
-		<annotation cp="🫰🏾" type="tts">mão com dedo indicador e polegar cruzados: tipo de pele 5</annotation>
-		<annotation cp="🫰🏿">amor | caro | coração | dinheiro | estalar | mão com dedo indicador e polegar cruzados | tipo de pele 6</annotation>
-		<annotation cp="🫰🏿" type="tts">mão com dedo indicador e polegar cruzados: tipo de pele 6</annotation>
+		<annotation cp="👋🏻">acenar | aceno | corpo | mão | mão a acenar | tipo de pele 1–2</annotation>
+		<annotation cp="👋🏻" type="tts">mão a acenar: tipo de pele 1–2</annotation>
+		<annotation cp="👋🏼">acenar | aceno | corpo | mão | mão a acenar | tipo de pele 3</annotation>
+		<annotation cp="👋🏼" type="tts">mão a acenar: tipo de pele 3</annotation>
+		<annotation cp="👋🏽">acenar | aceno | corpo | mão | mão a acenar | tipo de pele 4</annotation>
+		<annotation cp="👋🏽" type="tts">mão a acenar: tipo de pele 4</annotation>
+		<annotation cp="👋🏾">acenar | aceno | corpo | mão | mão a acenar | tipo de pele 5</annotation>
+		<annotation cp="👋🏾" type="tts">mão a acenar: tipo de pele 5</annotation>
+		<annotation cp="👋🏿">acenar | aceno | corpo | mão | mão a acenar | tipo de pele 6</annotation>
+		<annotation cp="👋🏿" type="tts">mão a acenar: tipo de pele 6</annotation>
+		<annotation cp="🤚🏻">levantada | mão com costas para fora | palma | tipo de pele 1–2</annotation>
+		<annotation cp="🤚🏻" type="tts">mão com costas para fora: tipo de pele 1–2</annotation>
+		<annotation cp="🤚🏼">levantada | mão com costas para fora | palma | tipo de pele 3</annotation>
+		<annotation cp="🤚🏼" type="tts">mão com costas para fora: tipo de pele 3</annotation>
+		<annotation cp="🤚🏽">levantada | mão com costas para fora | palma | tipo de pele 4</annotation>
+		<annotation cp="🤚🏽" type="tts">mão com costas para fora: tipo de pele 4</annotation>
+		<annotation cp="🤚🏾">levantada | mão com costas para fora | palma | tipo de pele 5</annotation>
+		<annotation cp="🤚🏾" type="tts">mão com costas para fora: tipo de pele 5</annotation>
+		<annotation cp="🤚🏿">levantada | mão com costas para fora | palma | tipo de pele 6</annotation>
+		<annotation cp="🤚🏿" type="tts">mão com costas para fora: tipo de pele 6</annotation>
+		<annotation cp="🖐🏻">corpo | dedo | dedos abertos | mão | mão erguida com dedos afastados | tipo de pele 1–2</annotation>
+		<annotation cp="🖐🏻" type="tts">mão erguida com dedos afastados: tipo de pele 1–2</annotation>
+		<annotation cp="🖐🏼">corpo | dedo | dedos abertos | mão | mão erguida com dedos afastados | tipo de pele 3</annotation>
+		<annotation cp="🖐🏼" type="tts">mão erguida com dedos afastados: tipo de pele 3</annotation>
+		<annotation cp="🖐🏽">corpo | dedo | dedos abertos | mão | mão erguida com dedos afastados | tipo de pele 4</annotation>
+		<annotation cp="🖐🏽" type="tts">mão erguida com dedos afastados: tipo de pele 4</annotation>
+		<annotation cp="🖐🏾">corpo | dedo | dedos abertos | mão | mão erguida com dedos afastados | tipo de pele 5</annotation>
+		<annotation cp="🖐🏾" type="tts">mão erguida com dedos afastados: tipo de pele 5</annotation>
+		<annotation cp="🖐🏿">corpo | dedo | dedos abertos | mão | mão erguida com dedos afastados | tipo de pele 6</annotation>
+		<annotation cp="🖐🏿" type="tts">mão erguida com dedos afastados: tipo de pele 6</annotation>
+		<annotation cp="✋🏻">corpo | mão | mão erguida | tipo de pele 1–2</annotation>
+		<annotation cp="✋🏻" type="tts">mão erguida: tipo de pele 1–2</annotation>
+		<annotation cp="✋🏼">corpo | mão | mão erguida | tipo de pele 3</annotation>
+		<annotation cp="✋🏼" type="tts">mão erguida: tipo de pele 3</annotation>
+		<annotation cp="✋🏽">corpo | mão | mão erguida | tipo de pele 4</annotation>
+		<annotation cp="✋🏽" type="tts">mão erguida: tipo de pele 4</annotation>
+		<annotation cp="✋🏾">corpo | mão | mão erguida | tipo de pele 5</annotation>
+		<annotation cp="✋🏾" type="tts">mão erguida: tipo de pele 5</annotation>
+		<annotation cp="✋🏿">corpo | mão | mão erguida | tipo de pele 6</annotation>
+		<annotation cp="✋🏿" type="tts">mão erguida: tipo de pele 6</annotation>
+		<annotation cp="🖖🏻">corpo | dedo | mão | saudação vulcana | spock | tipo de pele 1–2 | vulcano</annotation>
+		<annotation cp="🖖🏻" type="tts">saudação vulcana: tipo de pele 1–2</annotation>
+		<annotation cp="🖖🏼">corpo | dedo | mão | saudação vulcana | spock | tipo de pele 3 | vulcano</annotation>
+		<annotation cp="🖖🏼" type="tts">saudação vulcana: tipo de pele 3</annotation>
+		<annotation cp="🖖🏽">corpo | dedo | mão | saudação vulcana | spock | tipo de pele 4 | vulcano</annotation>
+		<annotation cp="🖖🏽" type="tts">saudação vulcana: tipo de pele 4</annotation>
+		<annotation cp="🖖🏾">corpo | dedo | mão | saudação vulcana | spock | tipo de pele 5 | vulcano</annotation>
+		<annotation cp="🖖🏾" type="tts">saudação vulcana: tipo de pele 5</annotation>
+		<annotation cp="🖖🏿">corpo | dedo | mão | saudação vulcana | spock | tipo de pele 6 | vulcano</annotation>
+		<annotation cp="🖖🏿" type="tts">saudação vulcana: tipo de pele 6</annotation>
 		<annotation cp="🫱🏻">direita | mão | mão para a direita | para a direita | tipo de pele 1–2</annotation>
 		<annotation cp="🫱🏻" type="tts">mão para a direita: tipo de pele 1–2</annotation>
 		<annotation cp="🫱🏼">direita | mão | mão para a direita | para a direita | tipo de pele 3</annotation>
@@ -134,76 +144,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🫴🏾" type="tts">mão com a palma para cima: tipo de pele 5</annotation>
 		<annotation cp="🫴🏿">acenar | mão com a palma para cima | oferecer | pegar | tipo de pele 6 | venha</annotation>
 		<annotation cp="🫴🏿" type="tts">mão com a palma para cima: tipo de pele 6</annotation>
-		<annotation cp="🫵🏻">apontar | indicador a apontar para o espetador | tipo de pele 1–2 | você</annotation>
-		<annotation cp="🫵🏻" type="tts">indicador a apontar para o espetador: tipo de pele 1–2</annotation>
-		<annotation cp="🫵🏼">apontar | indicador a apontar para o espetador | tipo de pele 3 | você</annotation>
-		<annotation cp="🫵🏼" type="tts">indicador a apontar para o espetador: tipo de pele 3</annotation>
-		<annotation cp="🫵🏽">apontar | indicador a apontar para o espetador | tipo de pele 4 | você</annotation>
-		<annotation cp="🫵🏽" type="tts">indicador a apontar para o espetador: tipo de pele 4</annotation>
-		<annotation cp="🫵🏾">apontar | indicador a apontar para o espetador | tipo de pele 5 | você</annotation>
-		<annotation cp="🫵🏾" type="tts">indicador a apontar para o espetador: tipo de pele 5</annotation>
-		<annotation cp="🫵🏿">apontar | indicador a apontar para o espetador | tipo de pele 6 | você</annotation>
-		<annotation cp="🫵🏿" type="tts">indicador a apontar para o espetador: tipo de pele 6</annotation>
-		<annotation cp="🫶🏻">amor | mãos em forma de coração | tipo de pele 1–2</annotation>
-		<annotation cp="🫶🏻" type="tts">mãos em forma de coração: tipo de pele 1–2</annotation>
-		<annotation cp="🫶🏼">amor | mãos em forma de coração | tipo de pele 3</annotation>
-		<annotation cp="🫶🏼" type="tts">mãos em forma de coração: tipo de pele 3</annotation>
-		<annotation cp="🫶🏽">amor | mãos em forma de coração | tipo de pele 4</annotation>
-		<annotation cp="🫶🏽" type="tts">mãos em forma de coração: tipo de pele 4</annotation>
-		<annotation cp="🫶🏾">amor | mãos em forma de coração | tipo de pele 5</annotation>
-		<annotation cp="🫶🏾" type="tts">mãos em forma de coração: tipo de pele 5</annotation>
-		<annotation cp="🫶🏿">amor | mãos em forma de coração | tipo de pele 6</annotation>
-		<annotation cp="🫶🏿" type="tts">mãos em forma de coração: tipo de pele 6</annotation>
-		<annotation cp="👋🏻">acenar | aceno | corpo | mão | mão a acenar | tipo de pele 1–2</annotation>
-		<annotation cp="👋🏻" type="tts">mão a acenar: tipo de pele 1–2</annotation>
-		<annotation cp="👋🏼">acenar | aceno | corpo | mão | mão a acenar | tipo de pele 3</annotation>
-		<annotation cp="👋🏼" type="tts">mão a acenar: tipo de pele 3</annotation>
-		<annotation cp="👋🏽">acenar | aceno | corpo | mão | mão a acenar | tipo de pele 4</annotation>
-		<annotation cp="👋🏽" type="tts">mão a acenar: tipo de pele 4</annotation>
-		<annotation cp="👋🏾">acenar | aceno | corpo | mão | mão a acenar | tipo de pele 5</annotation>
-		<annotation cp="👋🏾" type="tts">mão a acenar: tipo de pele 5</annotation>
-		<annotation cp="👋🏿">acenar | aceno | corpo | mão | mão a acenar | tipo de pele 6</annotation>
-		<annotation cp="👋🏿" type="tts">mão a acenar: tipo de pele 6</annotation>
-		<annotation cp="🤚🏻">levantada | mão com costas para fora | palma | tipo de pele 1–2</annotation>
-		<annotation cp="🤚🏻" type="tts">mão com costas para fora: tipo de pele 1–2</annotation>
-		<annotation cp="🤚🏼">levantada | mão com costas para fora | palma | tipo de pele 3</annotation>
-		<annotation cp="🤚🏼" type="tts">mão com costas para fora: tipo de pele 3</annotation>
-		<annotation cp="🤚🏽">levantada | mão com costas para fora | palma | tipo de pele 4</annotation>
-		<annotation cp="🤚🏽" type="tts">mão com costas para fora: tipo de pele 4</annotation>
-		<annotation cp="🤚🏾">levantada | mão com costas para fora | palma | tipo de pele 5</annotation>
-		<annotation cp="🤚🏾" type="tts">mão com costas para fora: tipo de pele 5</annotation>
-		<annotation cp="🤚🏿">levantada | mão com costas para fora | palma | tipo de pele 6</annotation>
-		<annotation cp="🤚🏿" type="tts">mão com costas para fora: tipo de pele 6</annotation>
-		<annotation cp="🖐🏻">corpo | dedo | dedos abertos | mão | mão erguida com dedos afastados | tipo de pele 1–2</annotation>
-		<annotation cp="🖐🏻" type="tts">mão erguida com dedos afastados: tipo de pele 1–2</annotation>
-		<annotation cp="🖐🏼">corpo | dedo | dedos abertos | mão | mão erguida com dedos afastados | tipo de pele 3</annotation>
-		<annotation cp="🖐🏼" type="tts">mão erguida com dedos afastados: tipo de pele 3</annotation>
-		<annotation cp="🖐🏽">corpo | dedo | dedos abertos | mão | mão erguida com dedos afastados | tipo de pele 4</annotation>
-		<annotation cp="🖐🏽" type="tts">mão erguida com dedos afastados: tipo de pele 4</annotation>
-		<annotation cp="🖐🏾">corpo | dedo | dedos abertos | mão | mão erguida com dedos afastados | tipo de pele 5</annotation>
-		<annotation cp="🖐🏾" type="tts">mão erguida com dedos afastados: tipo de pele 5</annotation>
-		<annotation cp="🖐🏿">corpo | dedo | dedos abertos | mão | mão erguida com dedos afastados | tipo de pele 6</annotation>
-		<annotation cp="🖐🏿" type="tts">mão erguida com dedos afastados: tipo de pele 6</annotation>
-		<annotation cp="✋🏻">corpo | mão | mão erguida | tipo de pele 1–2</annotation>
-		<annotation cp="✋🏻" type="tts">mão erguida: tipo de pele 1–2</annotation>
-		<annotation cp="✋🏼">corpo | mão | mão erguida | tipo de pele 3</annotation>
-		<annotation cp="✋🏼" type="tts">mão erguida: tipo de pele 3</annotation>
-		<annotation cp="✋🏽">corpo | mão | mão erguida | tipo de pele 4</annotation>
-		<annotation cp="✋🏽" type="tts">mão erguida: tipo de pele 4</annotation>
-		<annotation cp="✋🏾">corpo | mão | mão erguida | tipo de pele 5</annotation>
-		<annotation cp="✋🏾" type="tts">mão erguida: tipo de pele 5</annotation>
-		<annotation cp="✋🏿">corpo | mão | mão erguida | tipo de pele 6</annotation>
-		<annotation cp="✋🏿" type="tts">mão erguida: tipo de pele 6</annotation>
-		<annotation cp="🖖🏻">corpo | dedo | mão | saudação vulcana | spock | tipo de pele 1–2 | vulcano</annotation>
-		<annotation cp="🖖🏻" type="tts">saudação vulcana: tipo de pele 1–2</annotation>
-		<annotation cp="🖖🏼">corpo | dedo | mão | saudação vulcana | spock | tipo de pele 3 | vulcano</annotation>
-		<annotation cp="🖖🏼" type="tts">saudação vulcana: tipo de pele 3</annotation>
-		<annotation cp="🖖🏽">corpo | dedo | mão | saudação vulcana | spock | tipo de pele 4 | vulcano</annotation>
-		<annotation cp="🖖🏽" type="tts">saudação vulcana: tipo de pele 4</annotation>
-		<annotation cp="🖖🏾">corpo | dedo | mão | saudação vulcana | spock | tipo de pele 5 | vulcano</annotation>
-		<annotation cp="🖖🏾" type="tts">saudação vulcana: tipo de pele 5</annotation>
-		<annotation cp="🖖🏿">corpo | dedo | mão | saudação vulcana | spock | tipo de pele 6 | vulcano</annotation>
-		<annotation cp="🖖🏿" type="tts">saudação vulcana: tipo de pele 6</annotation>
 		<annotation cp="👌🏻">corpo | gesto de OK | mão | mão com gesto de OK | ok | OK com a mão | sinal de OK com a mão | tipo de pele 1–2</annotation>
 		<annotation cp="👌🏻" type="tts">gesto de OK: tipo de pele 1–2</annotation>
 		<annotation cp="👌🏼">corpo | gesto de OK | mão | mão com gesto de OK | ok | OK com a mão | sinal de OK com a mão | tipo de pele 3</annotation>
@@ -254,6 +194,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤞🏾" type="tts">figas: tipo de pele 5</annotation>
 		<annotation cp="🤞🏿">cruzados | dedos | figas | mão | sorte | tipo de pele 6</annotation>
 		<annotation cp="🤞🏿" type="tts">figas: tipo de pele 6</annotation>
+		<annotation cp="🫰🏻">amor | caro | coração | dinheiro | estalar | mão com dedo indicador e polegar cruzados | tipo de pele 1–2</annotation>
+		<annotation cp="🫰🏻" type="tts">mão com dedo indicador e polegar cruzados: tipo de pele 1–2</annotation>
+		<annotation cp="🫰🏼">amor | caro | coração | dinheiro | estalar | mão com dedo indicador e polegar cruzados | tipo de pele 3</annotation>
+		<annotation cp="🫰🏼" type="tts">mão com dedo indicador e polegar cruzados: tipo de pele 3</annotation>
+		<annotation cp="🫰🏽">amor | caro | coração | dinheiro | estalar | mão com dedo indicador e polegar cruzados | tipo de pele 4</annotation>
+		<annotation cp="🫰🏽" type="tts">mão com dedo indicador e polegar cruzados: tipo de pele 4</annotation>
+		<annotation cp="🫰🏾">amor | caro | coração | dinheiro | estalar | mão com dedo indicador e polegar cruzados | tipo de pele 5</annotation>
+		<annotation cp="🫰🏾" type="tts">mão com dedo indicador e polegar cruzados: tipo de pele 5</annotation>
+		<annotation cp="🫰🏿">amor | caro | coração | dinheiro | estalar | mão com dedo indicador e polegar cruzados | tipo de pele 6</annotation>
+		<annotation cp="🫰🏿" type="tts">mão com dedo indicador e polegar cruzados: tipo de pele 6</annotation>
 		<annotation cp="🤟🏻">amo-te | gesto &quot;amo-te&quot; | gesto de amo-te | mão | tipo de pele 1–2</annotation>
 		<annotation cp="🤟🏻" type="tts">gesto &quot;amo-te&quot;: tipo de pele 1–2</annotation>
 		<annotation cp="🤟🏼">amo-te | gesto &quot;amo-te&quot; | gesto de amo-te | mão | tipo de pele 3</annotation>
@@ -344,6 +294,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="☝🏾" type="tts">dedo indicador a apontar para cima: tipo de pele 5</annotation>
 		<annotation cp="☝🏿">apontar | dedo | dedo indicador a apontar para cima | indicador | mão | para cima | tipo de pele 6</annotation>
 		<annotation cp="☝🏿" type="tts">dedo indicador a apontar para cima: tipo de pele 6</annotation>
+		<annotation cp="🫵🏻">apontar | indicador a apontar para o espetador | tipo de pele 1–2 | você</annotation>
+		<annotation cp="🫵🏻" type="tts">indicador a apontar para o espetador: tipo de pele 1–2</annotation>
+		<annotation cp="🫵🏼">apontar | indicador a apontar para o espetador | tipo de pele 3 | você</annotation>
+		<annotation cp="🫵🏼" type="tts">indicador a apontar para o espetador: tipo de pele 3</annotation>
+		<annotation cp="🫵🏽">apontar | indicador a apontar para o espetador | tipo de pele 4 | você</annotation>
+		<annotation cp="🫵🏽" type="tts">indicador a apontar para o espetador: tipo de pele 4</annotation>
+		<annotation cp="🫵🏾">apontar | indicador a apontar para o espetador | tipo de pele 5 | você</annotation>
+		<annotation cp="🫵🏾" type="tts">indicador a apontar para o espetador: tipo de pele 5</annotation>
+		<annotation cp="🫵🏿">apontar | indicador a apontar para o espetador | tipo de pele 6 | você</annotation>
+		<annotation cp="🫵🏿" type="tts">indicador a apontar para o espetador: tipo de pele 6</annotation>
 		<annotation cp="👍🏻">corpo | gosto | mão | para cima | polegar | polegar para cima | tipo de pele 1–2</annotation>
 		<annotation cp="👍🏻" type="tts">polegar para cima: tipo de pele 1–2</annotation>
 		<annotation cp="👍🏼">corpo | gosto | mão | para cima | polegar | polegar para cima | tipo de pele 3</annotation>
@@ -424,6 +384,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙌🏾" type="tts">mãos no ar: tipo de pele 5</annotation>
 		<annotation cp="🙌🏿">celebração | corpo | gesto | mão | mãos levantadas | mãos no ar | tipo de pele 6 | viva</annotation>
 		<annotation cp="🙌🏿" type="tts">mãos no ar: tipo de pele 6</annotation>
+		<annotation cp="🫶🏻">amor | mãos em forma de coração | tipo de pele 1–2</annotation>
+		<annotation cp="🫶🏻" type="tts">mãos em forma de coração: tipo de pele 1–2</annotation>
+		<annotation cp="🫶🏼">amor | mãos em forma de coração | tipo de pele 3</annotation>
+		<annotation cp="🫶🏼" type="tts">mãos em forma de coração: tipo de pele 3</annotation>
+		<annotation cp="🫶🏽">amor | mãos em forma de coração | tipo de pele 4</annotation>
+		<annotation cp="🫶🏽" type="tts">mãos em forma de coração: tipo de pele 4</annotation>
+		<annotation cp="🫶🏾">amor | mãos em forma de coração | tipo de pele 5</annotation>
+		<annotation cp="🫶🏾" type="tts">mãos em forma de coração: tipo de pele 5</annotation>
+		<annotation cp="🫶🏿">amor | mãos em forma de coração | tipo de pele 6</annotation>
+		<annotation cp="🫶🏿" type="tts">mãos em forma de coração: tipo de pele 6</annotation>
 		<annotation cp="👐🏻">aberta | corpo | mão | mãos abertas | tipo de pele 1–2</annotation>
 		<annotation cp="👐🏻" type="tts">mãos abertas: tipo de pele 1–2</annotation>
 		<annotation cp="👐🏼">aberta | corpo | mão | mãos abertas | tipo de pele 3</annotation>
@@ -464,6 +434,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙏🏾" type="tts">mãos juntas: tipo de pele 5</annotation>
 		<annotation cp="🙏🏿">agradecimento | mão | mãos juntas | pedido | por favor | reverência | rezar | tipo de pele 6</annotation>
 		<annotation cp="🙏🏿" type="tts">mãos juntas: tipo de pele 6</annotation>
+		<annotation cp="🫷🏻">aguardar | empurrar | esperar | esquerda | mais cinco | mão a empurrar para a esquerda | parar | recusar | tipo de pele 1–2</annotation>
+		<annotation cp="🫷🏻" type="tts">mão a empurrar para a esquerda: tipo de pele 1–2</annotation>
+		<annotation cp="🫷🏼">aguardar | empurrar | esperar | esquerda | mais cinco | mão a empurrar para a esquerda | parar | recusar | tipo de pele 3</annotation>
+		<annotation cp="🫷🏼" type="tts">mão a empurrar para a esquerda: tipo de pele 3</annotation>
+		<annotation cp="🫷🏽">aguardar | empurrar | esperar | esquerda | mais cinco | mão a empurrar para a esquerda | parar | recusar | tipo de pele 4</annotation>
+		<annotation cp="🫷🏽" type="tts">mão a empurrar para a esquerda: tipo de pele 4</annotation>
+		<annotation cp="🫷🏾">aguardar | empurrar | esperar | esquerda | mais cinco | mão a empurrar para a esquerda | parar | recusar | tipo de pele 5</annotation>
+		<annotation cp="🫷🏾" type="tts">mão a empurrar para a esquerda: tipo de pele 5</annotation>
+		<annotation cp="🫷🏿">aguardar | empurrar | esperar | esquerda | mais cinco | mão a empurrar para a esquerda | parar | recusar | tipo de pele 6</annotation>
+		<annotation cp="🫷🏿" type="tts">mão a empurrar para a esquerda: tipo de pele 6</annotation>
+		<annotation cp="🫸🏻">aguardar | direita | empurrar | esperar | mais cinco | mão a empurrar para a direita | parar | recusar | tipo de pele 1–2</annotation>
+		<annotation cp="🫸🏻" type="tts">mão a empurrar para a direita: tipo de pele 1–2</annotation>
+		<annotation cp="🫸🏼">aguardar | direita | empurrar | esperar | mais cinco | mão a empurrar para a direita | parar | recusar | tipo de pele 3</annotation>
+		<annotation cp="🫸🏼" type="tts">mão a empurrar para a direita: tipo de pele 3</annotation>
+		<annotation cp="🫸🏽">aguardar | direita | empurrar | esperar | mais cinco | mão a empurrar para a direita | parar | recusar | tipo de pele 4</annotation>
+		<annotation cp="🫸🏽" type="tts">mão a empurrar para a direita: tipo de pele 4</annotation>
+		<annotation cp="🫸🏾">aguardar | direita | empurrar | esperar | mais cinco | mão a empurrar para a direita | parar | recusar | tipo de pele 5</annotation>
+		<annotation cp="🫸🏾" type="tts">mão a empurrar para a direita: tipo de pele 5</annotation>
+		<annotation cp="🫸🏿">aguardar | direita | empurrar | esperar | mais cinco | mão a empurrar para a direita | parar | recusar | tipo de pele 6</annotation>
+		<annotation cp="🫸🏿" type="tts">mão a empurrar para a direita: tipo de pele 6</annotation>
 		<annotation cp="✍🏻">corpo | escrever | mão | mão a escrever | tipo de pele 1–2</annotation>
 		<annotation cp="✍🏻" type="tts">mão a escrever: tipo de pele 1–2</annotation>
 		<annotation cp="✍🏼">corpo | escrever | mão | mão a escrever | tipo de pele 3</annotation>
@@ -2142,6 +2132,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👷🏾‍♀" type="tts">operária da construção civil: tipo de pele 5</annotation>
 		<annotation cp="👷🏿‍♀">construção | mulher | operária da construção civil | tipo de pele 6 | trabalhadora | trabalhadora da construção civil</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">operária da construção civil: tipo de pele 6</annotation>
+		<annotation cp="🫅🏻">monarca | nobre | pessoa com coroa | real | realeza | tipo de pele 1–2</annotation>
+		<annotation cp="🫅🏻" type="tts">pessoa com coroa: tipo de pele 1–2</annotation>
+		<annotation cp="🫅🏼">monarca | nobre | pessoa com coroa | real | realeza | tipo de pele 3</annotation>
+		<annotation cp="🫅🏼" type="tts">pessoa com coroa: tipo de pele 3</annotation>
+		<annotation cp="🫅🏽">monarca | nobre | pessoa com coroa | real | realeza | tipo de pele 4</annotation>
+		<annotation cp="🫅🏽" type="tts">pessoa com coroa: tipo de pele 4</annotation>
+		<annotation cp="🫅🏾">monarca | nobre | pessoa com coroa | real | realeza | tipo de pele 5</annotation>
+		<annotation cp="🫅🏾" type="tts">pessoa com coroa: tipo de pele 5</annotation>
+		<annotation cp="🫅🏿">monarca | nobre | pessoa com coroa | real | realeza | tipo de pele 6</annotation>
+		<annotation cp="🫅🏿" type="tts">pessoa com coroa: tipo de pele 6</annotation>
 		<annotation cp="🤴🏻">príncipe | tipo de pele 1–2</annotation>
 		<annotation cp="🤴🏻" type="tts">príncipe: tipo de pele 1–2</annotation>
 		<annotation cp="🤴🏼">príncipe | tipo de pele 3</annotation>
@@ -2282,6 +2282,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤰🏾" type="tts">grávida: tipo de pele 5</annotation>
 		<annotation cp="🤰🏿">grávida | mulher | tipo de pele 6</annotation>
 		<annotation cp="🤰🏿" type="tts">grávida: tipo de pele 6</annotation>
+		<annotation cp="🫃🏻">barriga | cheio | grávido | homem grávido | inchado | tipo de pele 1–2</annotation>
+		<annotation cp="🫃🏻" type="tts">homem grávido: tipo de pele 1–2</annotation>
+		<annotation cp="🫃🏼">barriga | cheio | grávido | homem grávido | inchado | tipo de pele 3</annotation>
+		<annotation cp="🫃🏼" type="tts">homem grávido: tipo de pele 3</annotation>
+		<annotation cp="🫃🏽">barriga | cheio | grávido | homem grávido | inchado | tipo de pele 4</annotation>
+		<annotation cp="🫃🏽" type="tts">homem grávido: tipo de pele 4</annotation>
+		<annotation cp="🫃🏾">barriga | cheio | grávido | homem grávido | inchado | tipo de pele 5</annotation>
+		<annotation cp="🫃🏾" type="tts">homem grávido: tipo de pele 5</annotation>
+		<annotation cp="🫃🏿">barriga | cheio | grávido | homem grávido | inchado | tipo de pele 6</annotation>
+		<annotation cp="🫃🏿" type="tts">homem grávido: tipo de pele 6</annotation>
+		<annotation cp="🫄🏻">barriga | cheio | gravidez | inchada | pessoa grávida | tipo de pele 1–2</annotation>
+		<annotation cp="🫄🏻" type="tts">pessoa grávida: tipo de pele 1–2</annotation>
+		<annotation cp="🫄🏼">barriga | cheio | gravidez | inchada | pessoa grávida | tipo de pele 3</annotation>
+		<annotation cp="🫄🏼" type="tts">pessoa grávida: tipo de pele 3</annotation>
+		<annotation cp="🫄🏽">barriga | cheio | gravidez | inchada | pessoa grávida | tipo de pele 4</annotation>
+		<annotation cp="🫄🏽" type="tts">pessoa grávida: tipo de pele 4</annotation>
+		<annotation cp="🫄🏾">barriga | cheio | gravidez | inchada | pessoa grávida | tipo de pele 5</annotation>
+		<annotation cp="🫄🏾" type="tts">pessoa grávida: tipo de pele 5</annotation>
+		<annotation cp="🫄🏿">barriga | cheio | gravidez | inchada | pessoa grávida | tipo de pele 6</annotation>
+		<annotation cp="🫄🏿" type="tts">pessoa grávida: tipo de pele 6</annotation>
 		<annotation cp="🤱🏻">amamentação | amamentar | bebé | dar de mamar | seio | tipo de pele 1–2</annotation>
 		<annotation cp="🤱🏻" type="tts">amamentar: tipo de pele 1–2</annotation>
 		<annotation cp="🤱🏼">amamentação | amamentar | bebé | dar de mamar | seio | tipo de pele 3</annotation>
@@ -3673,6 +3693,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇱🇰" type="tts">bandeira: Sri Lanca</annotation>
 		<annotation cp="🇱🇻" type="tts">bandeira: Letónia</annotation>
 		<annotation cp="🇲🇨" type="tts">bandeira: Mónaco</annotation>
+		<annotation cp="🇲🇫" type="tts">bandeira: São Martinho (Saint-Martin)</annotation>
 		<annotation cp="🇲🇬" type="tts">bandeira: Madagáscar</annotation>
 		<annotation cp="🇲🇰" type="tts">bandeira: Macedónia do Norte</annotation>
 		<annotation cp="🇲🇸" type="tts">bandeira: Monserrate</annotation>

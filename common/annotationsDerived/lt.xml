@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,46 +12,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="lt"/>
 	</identity>
 	<annotations>
-		<annotation cp="🫃🏻">išsipūtęs | nėščias | nėščias vyras | pilnas | pilvas | šviesios odos</annotation>
-		<annotation cp="🫃🏻" type="tts">nėščias vyras: šviesios odos</annotation>
-		<annotation cp="🫃🏼">išsipūtęs | nėščias | nėščias vyras | pilnas | pilvas | vidutinio gymio</annotation>
-		<annotation cp="🫃🏼" type="tts">nėščias vyras: vidutinio gymio</annotation>
-		<annotation cp="🫃🏽">išsipūtęs | nėščias | nėščias vyras | pilnas | pilvas | rusvos odos</annotation>
-		<annotation cp="🫃🏽" type="tts">nėščias vyras: rusvos odos</annotation>
-		<annotation cp="🫃🏾">išsipūtęs | nėščias | nėščias vyras | pilnas | pilvas | tamsios odos</annotation>
-		<annotation cp="🫃🏾" type="tts">nėščias vyras: tamsios odos</annotation>
-		<annotation cp="🫃🏿">išsipūtęs | itin tamsios odos | nėščias | nėščias vyras | pilnas | pilvas</annotation>
-		<annotation cp="🫃🏿" type="tts">nėščias vyras: itin tamsios odos</annotation>
-		<annotation cp="🫄🏻">išsipūtęs | nėščias | nėščias asmuo | pilnas | pilvas | šviesios odos</annotation>
-		<annotation cp="🫄🏻" type="tts">nėščias asmuo: šviesios odos</annotation>
-		<annotation cp="🫄🏼">išsipūtęs | nėščias | nėščias asmuo | pilnas | pilvas | vidutinio gymio</annotation>
-		<annotation cp="🫄🏼" type="tts">nėščias asmuo: vidutinio gymio</annotation>
-		<annotation cp="🫄🏽">išsipūtęs | nėščias | nėščias asmuo | pilnas | pilvas | rusvos odos</annotation>
-		<annotation cp="🫄🏽" type="tts">nėščias asmuo: rusvos odos</annotation>
-		<annotation cp="🫄🏾">išsipūtęs | nėščias | nėščias asmuo | pilnas | pilvas | tamsios odos</annotation>
-		<annotation cp="🫄🏾" type="tts">nėščias asmuo: tamsios odos</annotation>
-		<annotation cp="🫄🏿">išsipūtęs | itin tamsios odos | nėščias | nėščias asmuo | pilnas | pilvas</annotation>
-		<annotation cp="🫄🏿" type="tts">nėščias asmuo: itin tamsios odos</annotation>
-		<annotation cp="🫅🏻">asmuo su karūna | didikas | karališkas | karališkoji šeima | monarchas | šviesios odos</annotation>
-		<annotation cp="🫅🏻" type="tts">asmuo su karūna: šviesios odos</annotation>
-		<annotation cp="🫅🏼">asmuo su karūna | didikas | karališkas | karališkoji šeima | monarchas | vidutinio gymio</annotation>
-		<annotation cp="🫅🏼" type="tts">asmuo su karūna: vidutinio gymio</annotation>
-		<annotation cp="🫅🏽">asmuo su karūna | didikas | karališkas | karališkoji šeima | monarchas | rusvos odos</annotation>
-		<annotation cp="🫅🏽" type="tts">asmuo su karūna: rusvos odos</annotation>
-		<annotation cp="🫅🏾">asmuo su karūna | didikas | karališkas | karališkoji šeima | monarchas | tamsios odos</annotation>
-		<annotation cp="🫅🏾" type="tts">asmuo su karūna: tamsios odos</annotation>
-		<annotation cp="🫅🏿">asmuo su karūna | didikas | itin tamsios odos | karališkas | karališkoji šeima | monarchas</annotation>
-		<annotation cp="🫅🏿" type="tts">asmuo su karūna: itin tamsios odos</annotation>
-		<annotation cp="🫰🏻">brangu | meilė | pinigai | ranka sukryžiuotu smiliumi ir nykščiu | širdis | spragtelėjimas | šviesios odos</annotation>
-		<annotation cp="🫰🏻" type="tts">ranka sukryžiuotu smiliumi ir nykščiu: šviesios odos</annotation>
-		<annotation cp="🫰🏼">brangu | meilė | pinigai | ranka sukryžiuotu smiliumi ir nykščiu | širdis | spragtelėjimas | vidutinio gymio</annotation>
-		<annotation cp="🫰🏼" type="tts">ranka sukryžiuotu smiliumi ir nykščiu: vidutinio gymio</annotation>
-		<annotation cp="🫰🏽">brangu | meilė | pinigai | ranka sukryžiuotu smiliumi ir nykščiu | rusvos odos | širdis | spragtelėjimas</annotation>
-		<annotation cp="🫰🏽" type="tts">ranka sukryžiuotu smiliumi ir nykščiu: rusvos odos</annotation>
-		<annotation cp="🫰🏾">brangu | meilė | pinigai | ranka sukryžiuotu smiliumi ir nykščiu | širdis | spragtelėjimas | tamsios odos</annotation>
-		<annotation cp="🫰🏾" type="tts">ranka sukryžiuotu smiliumi ir nykščiu: tamsios odos</annotation>
-		<annotation cp="🫰🏿">brangu | itin tamsios odos | meilė | pinigai | ranka sukryžiuotu smiliumi ir nykščiu | širdis | spragtelėjimas</annotation>
-		<annotation cp="🫰🏿" type="tts">ranka sukryžiuotu smiliumi ir nykščiu: itin tamsios odos</annotation>
+		<annotation cp="👋🏻">mojuoja | mojuojanti ranka | mojuoti | ranka | šviesios odos</annotation>
+		<annotation cp="👋🏻" type="tts">mojuojanti ranka: šviesios odos</annotation>
+		<annotation cp="👋🏼">mojuoja | mojuojanti ranka | mojuoti | ranka | vidutinio gymio</annotation>
+		<annotation cp="👋🏼" type="tts">mojuojanti ranka: vidutinio gymio</annotation>
+		<annotation cp="👋🏽">mojuoja | mojuojanti ranka | mojuoti | ranka | rusvos odos</annotation>
+		<annotation cp="👋🏽" type="tts">mojuojanti ranka: rusvos odos</annotation>
+		<annotation cp="👋🏾">mojuoja | mojuojanti ranka | mojuoti | ranka | tamsios odos</annotation>
+		<annotation cp="👋🏾" type="tts">mojuojanti ranka: tamsios odos</annotation>
+		<annotation cp="👋🏿">itin tamsios odos | mojuoja | mojuojanti ranka | mojuoti | ranka</annotation>
+		<annotation cp="👋🏿" type="tts">mojuojanti ranka: itin tamsios odos</annotation>
+		<annotation cp="🤚🏻">pakelta | pakelta viršutinė plaštakos pusė | plaštaka | šviesios odos</annotation>
+		<annotation cp="🤚🏻" type="tts">pakelta viršutinė plaštakos pusė: šviesios odos</annotation>
+		<annotation cp="🤚🏼">pakelta | pakelta viršutinė plaštakos pusė | plaštaka | vidutinio gymio</annotation>
+		<annotation cp="🤚🏼" type="tts">pakelta viršutinė plaštakos pusė: vidutinio gymio</annotation>
+		<annotation cp="🤚🏽">pakelta | pakelta viršutinė plaštakos pusė | plaštaka | rusvos odos</annotation>
+		<annotation cp="🤚🏽" type="tts">pakelta viršutinė plaštakos pusė: rusvos odos</annotation>
+		<annotation cp="🤚🏾">pakelta | pakelta viršutinė plaštakos pusė | plaštaka | tamsios odos</annotation>
+		<annotation cp="🤚🏾" type="tts">pakelta viršutinė plaštakos pusė: tamsios odos</annotation>
+		<annotation cp="🤚🏿">itin tamsios odos | pakelta | pakelta viršutinė plaštakos pusė | plaštaka</annotation>
+		<annotation cp="🤚🏿" type="tts">pakelta viršutinė plaštakos pusė: itin tamsios odos</annotation>
+		<annotation cp="🖐🏻">iškelta ranka su išskėstais pirštais | išskėsta | pirštas | ranka | šviesios odos</annotation>
+		<annotation cp="🖐🏻" type="tts">iškelta ranka su išskėstais pirštais: šviesios odos</annotation>
+		<annotation cp="🖐🏼">iškelta ranka su išskėstais pirštais | išskėsta | pirštas | ranka | vidutinio gymio</annotation>
+		<annotation cp="🖐🏼" type="tts">iškelta ranka su išskėstais pirštais: vidutinio gymio</annotation>
+		<annotation cp="🖐🏽">iškelta ranka su išskėstais pirštais | išskėsta | pirštas | ranka | rusvos odos</annotation>
+		<annotation cp="🖐🏽" type="tts">iškelta ranka su išskėstais pirštais: rusvos odos</annotation>
+		<annotation cp="🖐🏾">iškelta ranka su išskėstais pirštais | išskėsta | pirštas | ranka | tamsios odos</annotation>
+		<annotation cp="🖐🏾" type="tts">iškelta ranka su išskėstais pirštais: tamsios odos</annotation>
+		<annotation cp="🖐🏿">iškelta ranka su išskėstais pirštais | išskėsta | itin tamsios odos | pirštas | ranka</annotation>
+		<annotation cp="🖐🏿" type="tts">iškelta ranka su išskėstais pirštais: itin tamsios odos</annotation>
+		<annotation cp="✋🏻">iškelta ranka | ranka | šviesios odos</annotation>
+		<annotation cp="✋🏻" type="tts">iškelta ranka: šviesios odos</annotation>
+		<annotation cp="✋🏼">iškelta ranka | ranka | vidutinio gymio</annotation>
+		<annotation cp="✋🏼" type="tts">iškelta ranka: vidutinio gymio</annotation>
+		<annotation cp="✋🏽">iškelta ranka | ranka | rusvos odos</annotation>
+		<annotation cp="✋🏽" type="tts">iškelta ranka: rusvos odos</annotation>
+		<annotation cp="✋🏾">iškelta ranka | ranka | tamsios odos</annotation>
+		<annotation cp="✋🏾" type="tts">iškelta ranka: tamsios odos</annotation>
+		<annotation cp="✋🏿">iškelta ranka | itin tamsios odos | ranka</annotation>
+		<annotation cp="✋🏿" type="tts">iškelta ranka: itin tamsios odos</annotation>
+		<annotation cp="🖖🏻">kūnas | pirštas | ranka | šviesios odos | vulkanai | vulkanų rasės pasisveikinimo ženklas</annotation>
+		<annotation cp="🖖🏻" type="tts">vulkanų rasės pasisveikinimo ženklas: šviesios odos</annotation>
+		<annotation cp="🖖🏼">kūnas | pirštas | ranka | vidutinio gymio | vulkanai | vulkanų rasės pasisveikinimo ženklas</annotation>
+		<annotation cp="🖖🏼" type="tts">vulkanų rasės pasisveikinimo ženklas: vidutinio gymio</annotation>
+		<annotation cp="🖖🏽">kūnas | pirštas | ranka | rusvos odos | vulkanai | vulkanų rasės pasisveikinimo ženklas</annotation>
+		<annotation cp="🖖🏽" type="tts">vulkanų rasės pasisveikinimo ženklas: rusvos odos</annotation>
+		<annotation cp="🖖🏾">kūnas | pirštas | ranka | tamsios odos | vulkanai | vulkanų rasės pasisveikinimo ženklas</annotation>
+		<annotation cp="🖖🏾" type="tts">vulkanų rasės pasisveikinimo ženklas: tamsios odos</annotation>
+		<annotation cp="🖖🏿">itin tamsios odos | kūnas | pirštas | ranka | vulkanai | vulkanų rasės pasisveikinimo ženklas</annotation>
+		<annotation cp="🖖🏿" type="tts">vulkanų rasės pasisveikinimo ženklas: itin tamsios odos</annotation>
 		<annotation cp="🫱🏻">dešinė | į dešinę | į dešinę rodanti ranka | ranka | šviesios odos</annotation>
 		<annotation cp="🫱🏻" type="tts">į dešinę rodanti ranka: šviesios odos</annotation>
 		<annotation cp="🫱🏼">dešinė | į dešinę | į dešinę rodanti ranka | ranka | vidutinio gymio</annotation>
@@ -132,76 +142,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫴🏾" type="tts">ranka delnu į viršų: tamsios odos</annotation>
 		<annotation cp="🫴🏿">ateik | gaudyti | itin tamsios odos | kviesti | ranka delnu į viršų | siūlymas</annotation>
 		<annotation cp="🫴🏿" type="tts">ranka delnu į viršų: itin tamsios odos</annotation>
-		<annotation cp="🫵🏻">į žiūrovą rodantis smilius | rodyti | šviesios odos | tu</annotation>
-		<annotation cp="🫵🏻" type="tts">į žiūrovą rodantis smilius: šviesios odos</annotation>
-		<annotation cp="🫵🏼">į žiūrovą rodantis smilius | rodyti | tu | vidutinio gymio</annotation>
-		<annotation cp="🫵🏼" type="tts">į žiūrovą rodantis smilius: vidutinio gymio</annotation>
-		<annotation cp="🫵🏽">į žiūrovą rodantis smilius | rodyti | rusvos odos | tu</annotation>
-		<annotation cp="🫵🏽" type="tts">į žiūrovą rodantis smilius: rusvos odos</annotation>
-		<annotation cp="🫵🏾">į žiūrovą rodantis smilius | rodyti | tamsios odos | tu</annotation>
-		<annotation cp="🫵🏾" type="tts">į žiūrovą rodantis smilius: tamsios odos</annotation>
-		<annotation cp="🫵🏿">į žiūrovą rodantis smilius | itin tamsios odos | rodyti | tu</annotation>
-		<annotation cp="🫵🏿" type="tts">į žiūrovą rodantis smilius: itin tamsios odos</annotation>
-		<annotation cp="🫶🏻">meilė | širdelė iš rankų | šviesios odos</annotation>
-		<annotation cp="🫶🏻" type="tts">širdelė iš rankų: šviesios odos</annotation>
-		<annotation cp="🫶🏼">meilė | širdelė iš rankų | vidutinio gymio</annotation>
-		<annotation cp="🫶🏼" type="tts">širdelė iš rankų: vidutinio gymio</annotation>
-		<annotation cp="🫶🏽">meilė | rusvos odos | širdelė iš rankų</annotation>
-		<annotation cp="🫶🏽" type="tts">širdelė iš rankų: rusvos odos</annotation>
-		<annotation cp="🫶🏾">meilė | širdelė iš rankų | tamsios odos</annotation>
-		<annotation cp="🫶🏾" type="tts">širdelė iš rankų: tamsios odos</annotation>
-		<annotation cp="🫶🏿">itin tamsios odos | meilė | širdelė iš rankų</annotation>
-		<annotation cp="🫶🏿" type="tts">širdelė iš rankų: itin tamsios odos</annotation>
-		<annotation cp="👋🏻">mojuoja | mojuojanti ranka | mojuoti | ranka | šviesios odos</annotation>
-		<annotation cp="👋🏻" type="tts">mojuojanti ranka: šviesios odos</annotation>
-		<annotation cp="👋🏼">mojuoja | mojuojanti ranka | mojuoti | ranka | vidutinio gymio</annotation>
-		<annotation cp="👋🏼" type="tts">mojuojanti ranka: vidutinio gymio</annotation>
-		<annotation cp="👋🏽">mojuoja | mojuojanti ranka | mojuoti | ranka | rusvos odos</annotation>
-		<annotation cp="👋🏽" type="tts">mojuojanti ranka: rusvos odos</annotation>
-		<annotation cp="👋🏾">mojuoja | mojuojanti ranka | mojuoti | ranka | tamsios odos</annotation>
-		<annotation cp="👋🏾" type="tts">mojuojanti ranka: tamsios odos</annotation>
-		<annotation cp="👋🏿">itin tamsios odos | mojuoja | mojuojanti ranka | mojuoti | ranka</annotation>
-		<annotation cp="👋🏿" type="tts">mojuojanti ranka: itin tamsios odos</annotation>
-		<annotation cp="🤚🏻">pakelta | pakelta viršutinė plaštakos pusė | plaštaka | šviesios odos</annotation>
-		<annotation cp="🤚🏻" type="tts">pakelta viršutinė plaštakos pusė: šviesios odos</annotation>
-		<annotation cp="🤚🏼">pakelta | pakelta viršutinė plaštakos pusė | plaštaka | vidutinio gymio</annotation>
-		<annotation cp="🤚🏼" type="tts">pakelta viršutinė plaštakos pusė: vidutinio gymio</annotation>
-		<annotation cp="🤚🏽">pakelta | pakelta viršutinė plaštakos pusė | plaštaka | rusvos odos</annotation>
-		<annotation cp="🤚🏽" type="tts">pakelta viršutinė plaštakos pusė: rusvos odos</annotation>
-		<annotation cp="🤚🏾">pakelta | pakelta viršutinė plaštakos pusė | plaštaka | tamsios odos</annotation>
-		<annotation cp="🤚🏾" type="tts">pakelta viršutinė plaštakos pusė: tamsios odos</annotation>
-		<annotation cp="🤚🏿">itin tamsios odos | pakelta | pakelta viršutinė plaštakos pusė | plaštaka</annotation>
-		<annotation cp="🤚🏿" type="tts">pakelta viršutinė plaštakos pusė: itin tamsios odos</annotation>
-		<annotation cp="🖐🏻">iškelta ranka su išskėstais pirštais | išskėsta | pirštas | ranka | šviesios odos</annotation>
-		<annotation cp="🖐🏻" type="tts">iškelta ranka su išskėstais pirštais: šviesios odos</annotation>
-		<annotation cp="🖐🏼">iškelta ranka su išskėstais pirštais | išskėsta | pirštas | ranka | vidutinio gymio</annotation>
-		<annotation cp="🖐🏼" type="tts">iškelta ranka su išskėstais pirštais: vidutinio gymio</annotation>
-		<annotation cp="🖐🏽">iškelta ranka su išskėstais pirštais | išskėsta | pirštas | ranka | rusvos odos</annotation>
-		<annotation cp="🖐🏽" type="tts">iškelta ranka su išskėstais pirštais: rusvos odos</annotation>
-		<annotation cp="🖐🏾">iškelta ranka su išskėstais pirštais | išskėsta | pirštas | ranka | tamsios odos</annotation>
-		<annotation cp="🖐🏾" type="tts">iškelta ranka su išskėstais pirštais: tamsios odos</annotation>
-		<annotation cp="🖐🏿">iškelta ranka su išskėstais pirštais | išskėsta | itin tamsios odos | pirštas | ranka</annotation>
-		<annotation cp="🖐🏿" type="tts">iškelta ranka su išskėstais pirštais: itin tamsios odos</annotation>
-		<annotation cp="✋🏻">iškelta ranka | ranka | šviesios odos</annotation>
-		<annotation cp="✋🏻" type="tts">iškelta ranka: šviesios odos</annotation>
-		<annotation cp="✋🏼">iškelta ranka | ranka | vidutinio gymio</annotation>
-		<annotation cp="✋🏼" type="tts">iškelta ranka: vidutinio gymio</annotation>
-		<annotation cp="✋🏽">iškelta ranka | ranka | rusvos odos</annotation>
-		<annotation cp="✋🏽" type="tts">iškelta ranka: rusvos odos</annotation>
-		<annotation cp="✋🏾">iškelta ranka | ranka | tamsios odos</annotation>
-		<annotation cp="✋🏾" type="tts">iškelta ranka: tamsios odos</annotation>
-		<annotation cp="✋🏿">iškelta ranka | itin tamsios odos | ranka</annotation>
-		<annotation cp="✋🏿" type="tts">iškelta ranka: itin tamsios odos</annotation>
-		<annotation cp="🖖🏻">kūnas | pirštas | ranka | šviesios odos | vulkanai | vulkanų rasės pasisveikinimo ženklas</annotation>
-		<annotation cp="🖖🏻" type="tts">vulkanų rasės pasisveikinimo ženklas: šviesios odos</annotation>
-		<annotation cp="🖖🏼">kūnas | pirštas | ranka | vidutinio gymio | vulkanai | vulkanų rasės pasisveikinimo ženklas</annotation>
-		<annotation cp="🖖🏼" type="tts">vulkanų rasės pasisveikinimo ženklas: vidutinio gymio</annotation>
-		<annotation cp="🖖🏽">kūnas | pirštas | ranka | rusvos odos | vulkanai | vulkanų rasės pasisveikinimo ženklas</annotation>
-		<annotation cp="🖖🏽" type="tts">vulkanų rasės pasisveikinimo ženklas: rusvos odos</annotation>
-		<annotation cp="🖖🏾">kūnas | pirštas | ranka | tamsios odos | vulkanai | vulkanų rasės pasisveikinimo ženklas</annotation>
-		<annotation cp="🖖🏾" type="tts">vulkanų rasės pasisveikinimo ženklas: tamsios odos</annotation>
-		<annotation cp="🖖🏿">itin tamsios odos | kūnas | pirštas | ranka | vulkanai | vulkanų rasės pasisveikinimo ženklas</annotation>
-		<annotation cp="🖖🏿" type="tts">vulkanų rasės pasisveikinimo ženklas: itin tamsios odos</annotation>
 		<annotation cp="👌🏻">gerai | GERAI ženklas rankomis | ranka | šviesios odos</annotation>
 		<annotation cp="👌🏻" type="tts">GERAI ženklas rankomis: šviesios odos</annotation>
 		<annotation cp="👌🏼">gerai | GERAI ženklas rankomis | ranka | vidutinio gymio</annotation>
@@ -252,6 +192,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤞🏾" type="tts">sukryžiuoti pirštai: tamsios odos</annotation>
 		<annotation cp="🤞🏿">itin tamsios odos | kryžius | laimė | pirštai | ranka | sukryžiuoti pirštai</annotation>
 		<annotation cp="🤞🏿" type="tts">sukryžiuoti pirštai: itin tamsios odos</annotation>
+		<annotation cp="🫰🏻">brangu | meilė | pinigai | ranka sukryžiuotu smiliumi ir nykščiu | širdis | spragtelėjimas | šviesios odos</annotation>
+		<annotation cp="🫰🏻" type="tts">ranka sukryžiuotu smiliumi ir nykščiu: šviesios odos</annotation>
+		<annotation cp="🫰🏼">brangu | meilė | pinigai | ranka sukryžiuotu smiliumi ir nykščiu | širdis | spragtelėjimas | vidutinio gymio</annotation>
+		<annotation cp="🫰🏼" type="tts">ranka sukryžiuotu smiliumi ir nykščiu: vidutinio gymio</annotation>
+		<annotation cp="🫰🏽">brangu | meilė | pinigai | ranka sukryžiuotu smiliumi ir nykščiu | rusvos odos | širdis | spragtelėjimas</annotation>
+		<annotation cp="🫰🏽" type="tts">ranka sukryžiuotu smiliumi ir nykščiu: rusvos odos</annotation>
+		<annotation cp="🫰🏾">brangu | meilė | pinigai | ranka sukryžiuotu smiliumi ir nykščiu | širdis | spragtelėjimas | tamsios odos</annotation>
+		<annotation cp="🫰🏾" type="tts">ranka sukryžiuotu smiliumi ir nykščiu: tamsios odos</annotation>
+		<annotation cp="🫰🏿">brangu | itin tamsios odos | meilė | pinigai | ranka sukryžiuotu smiliumi ir nykščiu | širdis | spragtelėjimas</annotation>
+		<annotation cp="🫰🏿" type="tts">ranka sukryžiuotu smiliumi ir nykščiu: itin tamsios odos</annotation>
 		<annotation cp="🤟🏻">„myliu tave“ gestas | MYLIU | ranka | šviesios odos</annotation>
 		<annotation cp="🤟🏻" type="tts">„myliu tave“ gestas: šviesios odos</annotation>
 		<annotation cp="🤟🏼">„myliu tave“ gestas | MYLIU | ranka | vidutinio gymio</annotation>
@@ -342,6 +292,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☝🏾" type="tts">delnu atsukta aukštyn pirštu rodanti ranka: tamsios odos</annotation>
 		<annotation cp="☝🏿">delnu atsukta aukštyn pirštu rodanti ranka | į viršų | indeksas | itin tamsios odos | pirštas | ranka | rodyti</annotation>
 		<annotation cp="☝🏿" type="tts">delnu atsukta aukštyn pirštu rodanti ranka: itin tamsios odos</annotation>
+		<annotation cp="🫵🏻">į žiūrovą rodantis smilius | rodyti | šviesios odos | tu</annotation>
+		<annotation cp="🫵🏻" type="tts">į žiūrovą rodantis smilius: šviesios odos</annotation>
+		<annotation cp="🫵🏼">į žiūrovą rodantis smilius | rodyti | tu | vidutinio gymio</annotation>
+		<annotation cp="🫵🏼" type="tts">į žiūrovą rodantis smilius: vidutinio gymio</annotation>
+		<annotation cp="🫵🏽">į žiūrovą rodantis smilius | rodyti | rusvos odos | tu</annotation>
+		<annotation cp="🫵🏽" type="tts">į žiūrovą rodantis smilius: rusvos odos</annotation>
+		<annotation cp="🫵🏾">į žiūrovą rodantis smilius | rodyti | tamsios odos | tu</annotation>
+		<annotation cp="🫵🏾" type="tts">į žiūrovą rodantis smilius: tamsios odos</annotation>
+		<annotation cp="🫵🏿">į žiūrovą rodantis smilius | itin tamsios odos | rodyti | tu</annotation>
+		<annotation cp="🫵🏿" type="tts">į žiūrovą rodantis smilius: itin tamsios odos</annotation>
 		<annotation cp="👍🏻">į viršų | liuks | nykštys | nykštys į viršų | ranka | šviesios odos</annotation>
 		<annotation cp="👍🏻" type="tts">nykštys į viršų: šviesios odos</annotation>
 		<annotation cp="👍🏼">į viršų | liuks | nykštys | nykštys į viršų | ranka | vidutinio gymio</annotation>
@@ -422,6 +382,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">žmogus, iškėlęs rankas: tamsios odos</annotation>
 		<annotation cp="🙌🏿">gestas | iškelta | itin tamsios odos | kūnas | ranka | šventė | valio | žmogus, iškėlęs rankas</annotation>
 		<annotation cp="🙌🏿" type="tts">žmogus, iškėlęs rankas: itin tamsios odos</annotation>
+		<annotation cp="🫶🏻">meilė | širdelė iš rankų | šviesios odos</annotation>
+		<annotation cp="🫶🏻" type="tts">širdelė iš rankų: šviesios odos</annotation>
+		<annotation cp="🫶🏼">meilė | širdelė iš rankų | vidutinio gymio</annotation>
+		<annotation cp="🫶🏼" type="tts">širdelė iš rankų: vidutinio gymio</annotation>
+		<annotation cp="🫶🏽">meilė | rusvos odos | širdelė iš rankų</annotation>
+		<annotation cp="🫶🏽" type="tts">širdelė iš rankų: rusvos odos</annotation>
+		<annotation cp="🫶🏾">meilė | širdelė iš rankų | tamsios odos</annotation>
+		<annotation cp="🫶🏾" type="tts">širdelė iš rankų: tamsios odos</annotation>
+		<annotation cp="🫶🏿">itin tamsios odos | meilė | širdelė iš rankų</annotation>
+		<annotation cp="🫶🏿" type="tts">širdelė iš rankų: itin tamsios odos</annotation>
 		<annotation cp="👐🏻">atviros | rankos | šviesios odos</annotation>
 		<annotation cp="👐🏻" type="tts">atviros rankos: šviesios odos</annotation>
 		<annotation cp="👐🏼">atviros | rankos | vidutinio gymio</annotation>
@@ -462,6 +432,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙏🏾" type="tts">suglausti delnai: tamsios odos</annotation>
 		<annotation cp="🙏🏿">itin tamsios odos | melstis | prašymas | ranka | suglausti delnai</annotation>
 		<annotation cp="🙏🏿" type="tts">suglausti delnai: itin tamsios odos</annotation>
+		<annotation cp="🫷🏻">atsisakyti | duok penkis | į kairę | į kairę stumianti ranka | laukti | stumti | sustoti | šviesios odos</annotation>
+		<annotation cp="🫷🏻" type="tts">į kairę stumianti ranka: šviesios odos</annotation>
+		<annotation cp="🫷🏼">atsisakyti | duok penkis | į kairę | į kairę stumianti ranka | laukti | stumti | sustoti | vidutinio gymio</annotation>
+		<annotation cp="🫷🏼" type="tts">į kairę stumianti ranka: vidutinio gymio</annotation>
+		<annotation cp="🫷🏽">atsisakyti | duok penkis | į kairę | į kairę stumianti ranka | laukti | rusvos odos | stumti | sustoti</annotation>
+		<annotation cp="🫷🏽" type="tts">į kairę stumianti ranka: rusvos odos</annotation>
+		<annotation cp="🫷🏾">atsisakyti | duok penkis | į kairę | į kairę stumianti ranka | laukti | stumti | sustoti | tamsios odos</annotation>
+		<annotation cp="🫷🏾" type="tts">į kairę stumianti ranka: tamsios odos</annotation>
+		<annotation cp="🫷🏿">atsisakyti | duok penkis | į kairę | į kairę stumianti ranka | itin tamsios odos | laukti | stumti | sustoti</annotation>
+		<annotation cp="🫷🏿" type="tts">į kairę stumianti ranka: itin tamsios odos</annotation>
+		<annotation cp="🫸🏻">atsisakyti | duok penkis | į dešinę | į dešinę stumianti ranka | laukti | stumti | sustoti | šviesios odos</annotation>
+		<annotation cp="🫸🏻" type="tts">į dešinę stumianti ranka: šviesios odos</annotation>
+		<annotation cp="🫸🏼">atsisakyti | duok penkis | į dešinę | į dešinę stumianti ranka | laukti | stumti | sustoti | vidutinio gymio</annotation>
+		<annotation cp="🫸🏼" type="tts">į dešinę stumianti ranka: vidutinio gymio</annotation>
+		<annotation cp="🫸🏽">atsisakyti | duok penkis | į dešinę | į dešinę stumianti ranka | laukti | rusvos odos | stumti | sustoti</annotation>
+		<annotation cp="🫸🏽" type="tts">į dešinę stumianti ranka: rusvos odos</annotation>
+		<annotation cp="🫸🏾">atsisakyti | duok penkis | į dešinę | į dešinę stumianti ranka | laukti | stumti | sustoti | tamsios odos</annotation>
+		<annotation cp="🫸🏾" type="tts">į dešinę stumianti ranka: tamsios odos</annotation>
+		<annotation cp="🫸🏿">atsisakyti | duok penkis | į dešinę | į dešinę stumianti ranka | itin tamsios odos | laukti | stumti | sustoti</annotation>
+		<annotation cp="🫸🏿" type="tts">į dešinę stumianti ranka: itin tamsios odos</annotation>
 		<annotation cp="✍🏻">ranka | rašanti ranka | rašyti | šviesios odos</annotation>
 		<annotation cp="✍🏻" type="tts">rašanti ranka: šviesios odos</annotation>
 		<annotation cp="✍🏼">ranka | rašanti ranka | rašyti | vidutinio gymio</annotation>
@@ -2146,6 +2136,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👷🏾‍♀" type="tts">statybininkė: tamsios odos</annotation>
 		<annotation cp="👷🏿‍♀">darbininkė | itin tamsios odos | moteris | statybininkė</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">statybininkė: itin tamsios odos</annotation>
+		<annotation cp="🫅🏻">asmuo su karūna | didikas | karališkas | karališkoji šeima | monarchas | šviesios odos</annotation>
+		<annotation cp="🫅🏻" type="tts">asmuo su karūna: šviesios odos</annotation>
+		<annotation cp="🫅🏼">asmuo su karūna | didikas | karališkas | karališkoji šeima | monarchas | vidutinio gymio</annotation>
+		<annotation cp="🫅🏼" type="tts">asmuo su karūna: vidutinio gymio</annotation>
+		<annotation cp="🫅🏽">asmuo su karūna | didikas | karališkas | karališkoji šeima | monarchas | rusvos odos</annotation>
+		<annotation cp="🫅🏽" type="tts">asmuo su karūna: rusvos odos</annotation>
+		<annotation cp="🫅🏾">asmuo su karūna | didikas | karališkas | karališkoji šeima | monarchas | tamsios odos</annotation>
+		<annotation cp="🫅🏾" type="tts">asmuo su karūna: tamsios odos</annotation>
+		<annotation cp="🫅🏿">asmuo su karūna | didikas | itin tamsios odos | karališkas | karališkoji šeima | monarchas</annotation>
+		<annotation cp="🫅🏿" type="tts">asmuo su karūna: itin tamsios odos</annotation>
 		<annotation cp="🤴🏻">princas | šviesios odos</annotation>
 		<annotation cp="🤴🏻" type="tts">princas: šviesios odos</annotation>
 		<annotation cp="🤴🏼">princas | vidutinio gymio</annotation>
@@ -2286,6 +2286,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">nėščia moteris: tamsios odos</annotation>
 		<annotation cp="🤰🏿">itin tamsios odos | moteris | neščia | nėščia moteris</annotation>
 		<annotation cp="🤰🏿" type="tts">nėščia moteris: itin tamsios odos</annotation>
+		<annotation cp="🫃🏻">išsipūtęs | nėščias | nėščias vyras | pilnas | pilvas | šviesios odos</annotation>
+		<annotation cp="🫃🏻" type="tts">nėščias vyras: šviesios odos</annotation>
+		<annotation cp="🫃🏼">išsipūtęs | nėščias | nėščias vyras | pilnas | pilvas | vidutinio gymio</annotation>
+		<annotation cp="🫃🏼" type="tts">nėščias vyras: vidutinio gymio</annotation>
+		<annotation cp="🫃🏽">išsipūtęs | nėščias | nėščias vyras | pilnas | pilvas | rusvos odos</annotation>
+		<annotation cp="🫃🏽" type="tts">nėščias vyras: rusvos odos</annotation>
+		<annotation cp="🫃🏾">išsipūtęs | nėščias | nėščias vyras | pilnas | pilvas | tamsios odos</annotation>
+		<annotation cp="🫃🏾" type="tts">nėščias vyras: tamsios odos</annotation>
+		<annotation cp="🫃🏿">išsipūtęs | itin tamsios odos | nėščias | nėščias vyras | pilnas | pilvas</annotation>
+		<annotation cp="🫃🏿" type="tts">nėščias vyras: itin tamsios odos</annotation>
+		<annotation cp="🫄🏻">išsipūtęs | nėščias | nėščias asmuo | pilnas | pilvas | šviesios odos</annotation>
+		<annotation cp="🫄🏻" type="tts">nėščias asmuo: šviesios odos</annotation>
+		<annotation cp="🫄🏼">išsipūtęs | nėščias | nėščias asmuo | pilnas | pilvas | vidutinio gymio</annotation>
+		<annotation cp="🫄🏼" type="tts">nėščias asmuo: vidutinio gymio</annotation>
+		<annotation cp="🫄🏽">išsipūtęs | nėščias | nėščias asmuo | pilnas | pilvas | rusvos odos</annotation>
+		<annotation cp="🫄🏽" type="tts">nėščias asmuo: rusvos odos</annotation>
+		<annotation cp="🫄🏾">išsipūtęs | nėščias | nėščias asmuo | pilnas | pilvas | tamsios odos</annotation>
+		<annotation cp="🫄🏾" type="tts">nėščias asmuo: tamsios odos</annotation>
+		<annotation cp="🫄🏿">išsipūtęs | itin tamsios odos | nėščias | nėščias asmuo | pilnas | pilvas</annotation>
+		<annotation cp="🫄🏿" type="tts">nėščias asmuo: itin tamsios odos</annotation>
 		<annotation cp="🤱🏻">krūtinė | kūdikis | maitinimas krūtimi | priežiūra | šviesios odos</annotation>
 		<annotation cp="🤱🏻" type="tts">maitinimas krūtimi: šviesios odos</annotation>
 		<annotation cp="🤱🏼">krūtinė | kūdikis | maitinimas krūtimi | priežiūra | vidutinio gymio</annotation>

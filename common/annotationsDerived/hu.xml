@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,46 +12,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="hu"/>
 	</identity>
 	<annotations>
-		<annotation cp="🫃🏻">has | puffadt | teli | terhes | terhes férfi | világos bőrtónus</annotation>
-		<annotation cp="🫃🏻" type="tts">terhes férfi: világos bőrtónus</annotation>
-		<annotation cp="🫃🏼">has | közepesen világos bőrtónus | puffadt | teli | terhes | terhes férfi</annotation>
-		<annotation cp="🫃🏼" type="tts">terhes férfi: közepesen világos bőrtónus</annotation>
-		<annotation cp="🫃🏽">has | közepes bőrtónus | puffadt | teli | terhes | terhes férfi</annotation>
-		<annotation cp="🫃🏽" type="tts">terhes férfi: közepes bőrtónus</annotation>
-		<annotation cp="🫃🏾">has | közepesen sötét bőrtónus | puffadt | teli | terhes | terhes férfi</annotation>
-		<annotation cp="🫃🏾" type="tts">terhes férfi: közepesen sötét bőrtónus</annotation>
-		<annotation cp="🫃🏿">has | puffadt | sötét bőrtónus | teli | terhes | terhes férfi</annotation>
-		<annotation cp="🫃🏿" type="tts">terhes férfi: sötét bőrtónus</annotation>
-		<annotation cp="🫄🏻">has | puffadt | teli | terhes | terhes személy | világos bőrtónus</annotation>
-		<annotation cp="🫄🏻" type="tts">terhes személy: világos bőrtónus</annotation>
-		<annotation cp="🫄🏼">has | közepesen világos bőrtónus | puffadt | teli | terhes | terhes személy</annotation>
-		<annotation cp="🫄🏼" type="tts">terhes személy: közepesen világos bőrtónus</annotation>
-		<annotation cp="🫄🏽">has | közepes bőrtónus | puffadt | teli | terhes | terhes személy</annotation>
-		<annotation cp="🫄🏽" type="tts">terhes személy: közepes bőrtónus</annotation>
-		<annotation cp="🫄🏾">has | közepesen sötét bőrtónus | puffadt | teli | terhes | terhes személy</annotation>
-		<annotation cp="🫄🏾" type="tts">terhes személy: közepesen sötét bőrtónus</annotation>
-		<annotation cp="🫄🏿">has | puffadt | sötét bőrtónus | teli | terhes | terhes személy</annotation>
-		<annotation cp="🫄🏿" type="tts">terhes személy: sötét bőrtónus</annotation>
-		<annotation cp="🫅🏻">koronás személy | méltóság | nemes | uralkodó | uralkodói | világos bőrtónus</annotation>
-		<annotation cp="🫅🏻" type="tts">koronás személy: világos bőrtónus</annotation>
-		<annotation cp="🫅🏼">koronás személy | közepesen világos bőrtónus | méltóság | nemes | uralkodó | uralkodói</annotation>
-		<annotation cp="🫅🏼" type="tts">koronás személy: közepesen világos bőrtónus</annotation>
-		<annotation cp="🫅🏽">koronás személy | közepes bőrtónus | méltóság | nemes | uralkodó | uralkodói</annotation>
-		<annotation cp="🫅🏽" type="tts">koronás személy: közepes bőrtónus</annotation>
-		<annotation cp="🫅🏾">koronás személy | közepesen sötét bőrtónus | méltóság | nemes | uralkodó | uralkodói</annotation>
-		<annotation cp="🫅🏾" type="tts">koronás személy: közepesen sötét bőrtónus</annotation>
-		<annotation cp="🫅🏿">koronás személy | méltóság | nemes | sötét bőrtónus | uralkodó | uralkodói</annotation>
-		<annotation cp="🫅🏿" type="tts">koronás személy: sötét bőrtónus</annotation>
-		<annotation cp="🫰🏻">csettint | drága | keresztezett mutató- és hüvelykujjú kéz | pénz | szeretet | szív | világos bőrtónus</annotation>
-		<annotation cp="🫰🏻" type="tts">keresztezett mutató- és hüvelykujjú kéz: világos bőrtónus</annotation>
-		<annotation cp="🫰🏼">csettint | drága | keresztezett mutató- és hüvelykujjú kéz | közepesen világos bőrtónus | pénz | szeretet | szív</annotation>
-		<annotation cp="🫰🏼" type="tts">keresztezett mutató- és hüvelykujjú kéz: közepesen világos bőrtónus</annotation>
-		<annotation cp="🫰🏽">csettint | drága | keresztezett mutató- és hüvelykujjú kéz | közepes bőrtónus | pénz | szeretet | szív</annotation>
-		<annotation cp="🫰🏽" type="tts">keresztezett mutató- és hüvelykujjú kéz: közepes bőrtónus</annotation>
-		<annotation cp="🫰🏾">csettint | drága | keresztezett mutató- és hüvelykujjú kéz | közepesen sötét bőrtónus | pénz | szeretet | szív</annotation>
-		<annotation cp="🫰🏾" type="tts">keresztezett mutató- és hüvelykujjú kéz: közepesen sötét bőrtónus</annotation>
-		<annotation cp="🫰🏿">csettint | drága | keresztezett mutató- és hüvelykujjú kéz | pénz | sötét bőrtónus | szeretet | szív</annotation>
-		<annotation cp="🫰🏿" type="tts">keresztezett mutató- és hüvelykujjú kéz: sötét bőrtónus</annotation>
+		<annotation cp="👋🏻">integetés | integető kéz | kéz | test | világos bőrtónus</annotation>
+		<annotation cp="👋🏻" type="tts">integető kéz: világos bőrtónus</annotation>
+		<annotation cp="👋🏼">integetés | integető kéz | kéz | közepesen világos bőrtónus | test</annotation>
+		<annotation cp="👋🏼" type="tts">integető kéz: közepesen világos bőrtónus</annotation>
+		<annotation cp="👋🏽">integetés | integető kéz | kéz | közepes bőrtónus | test</annotation>
+		<annotation cp="👋🏽" type="tts">integető kéz: közepes bőrtónus</annotation>
+		<annotation cp="👋🏾">integetés | integető kéz | kéz | közepesen sötét bőrtónus | test</annotation>
+		<annotation cp="👋🏾" type="tts">integető kéz: közepesen sötét bőrtónus</annotation>
+		<annotation cp="👋🏿">integetés | integető kéz | kéz | sötét bőrtónus | test</annotation>
+		<annotation cp="👋🏿" type="tts">integető kéz: sötét bőrtónus</annotation>
+		<annotation cp="🤚🏻">felemelt | kézfej | világos bőrtónus</annotation>
+		<annotation cp="🤚🏻" type="tts">kézfej: világos bőrtónus</annotation>
+		<annotation cp="🤚🏼">felemelt | kézfej | közepesen világos bőrtónus</annotation>
+		<annotation cp="🤚🏼" type="tts">kézfej: közepesen világos bőrtónus</annotation>
+		<annotation cp="🤚🏽">felemelt | kézfej | közepes bőrtónus</annotation>
+		<annotation cp="🤚🏽" type="tts">kézfej: közepes bőrtónus</annotation>
+		<annotation cp="🤚🏾">felemelt | kézfej | közepesen sötét bőrtónus</annotation>
+		<annotation cp="🤚🏾" type="tts">kézfej: közepesen sötét bőrtónus</annotation>
+		<annotation cp="🤚🏿">felemelt | kézfej | sötét bőrtónus</annotation>
+		<annotation cp="🤚🏿" type="tts">kézfej: sötét bőrtónus</annotation>
+		<annotation cp="🖐🏻">felemelt kéz szétálló ujjakkal | kéz | szétálló | test | ujj | világos bőrtónus</annotation>
+		<annotation cp="🖐🏻" type="tts">felemelt kéz szétálló ujjakkal: világos bőrtónus</annotation>
+		<annotation cp="🖐🏼">felemelt kéz szétálló ujjakkal | kéz | közepesen világos bőrtónus | szétálló | test | ujj</annotation>
+		<annotation cp="🖐🏼" type="tts">felemelt kéz szétálló ujjakkal: közepesen világos bőrtónus</annotation>
+		<annotation cp="🖐🏽">felemelt kéz szétálló ujjakkal | kéz | közepes bőrtónus | szétálló | test | ujj</annotation>
+		<annotation cp="🖐🏽" type="tts">felemelt kéz szétálló ujjakkal: közepes bőrtónus</annotation>
+		<annotation cp="🖐🏾">felemelt kéz szétálló ujjakkal | kéz | közepesen sötét bőrtónus | szétálló | test | ujj</annotation>
+		<annotation cp="🖐🏾" type="tts">felemelt kéz szétálló ujjakkal: közepesen sötét bőrtónus</annotation>
+		<annotation cp="🖐🏿">felemelt kéz szétálló ujjakkal | kéz | sötét bőrtónus | szétálló | test | ujj</annotation>
+		<annotation cp="🖐🏿" type="tts">felemelt kéz szétálló ujjakkal: sötét bőrtónus</annotation>
+		<annotation cp="✋🏻">fel | felemelt kéz | kéz | test | világos bőrtónus</annotation>
+		<annotation cp="✋🏻" type="tts">felemelt kéz: világos bőrtónus</annotation>
+		<annotation cp="✋🏼">fel | felemelt kéz | kéz | közepesen világos bőrtónus | test</annotation>
+		<annotation cp="✋🏼" type="tts">felemelt kéz: közepesen világos bőrtónus</annotation>
+		<annotation cp="✋🏽">fel | felemelt kéz | kéz | közepes bőrtónus | test</annotation>
+		<annotation cp="✋🏽" type="tts">felemelt kéz: közepes bőrtónus</annotation>
+		<annotation cp="✋🏾">fel | felemelt kéz | kéz | közepesen sötét bőrtónus | test</annotation>
+		<annotation cp="✋🏾" type="tts">felemelt kéz: közepesen sötét bőrtónus</annotation>
+		<annotation cp="✋🏿">fel | felemelt kéz | kéz | sötét bőrtónus | test</annotation>
+		<annotation cp="✋🏿" type="tts">felemelt kéz: sötét bőrtónus</annotation>
+		<annotation cp="🖖🏻">kéz | spock | star trek | star trek-üdvözlet | test | ujj | világos bőrtónus | vulcan</annotation>
+		<annotation cp="🖖🏻" type="tts">star trek-üdvözlet: világos bőrtónus</annotation>
+		<annotation cp="🖖🏼">kéz | közepesen világos bőrtónus | spock | star trek | star trek-üdvözlet | test | ujj | vulcan</annotation>
+		<annotation cp="🖖🏼" type="tts">star trek-üdvözlet: közepesen világos bőrtónus</annotation>
+		<annotation cp="🖖🏽">kéz | közepes bőrtónus | spock | star trek | star trek-üdvözlet | test | ujj | vulcan</annotation>
+		<annotation cp="🖖🏽" type="tts">star trek-üdvözlet: közepes bőrtónus</annotation>
+		<annotation cp="🖖🏾">kéz | közepesen sötét bőrtónus | spock | star trek | star trek-üdvözlet | test | ujj | vulcan</annotation>
+		<annotation cp="🖖🏾" type="tts">star trek-üdvözlet: közepesen sötét bőrtónus</annotation>
+		<annotation cp="🖖🏿">kéz | sötét bőrtónus | spock | star trek | star trek-üdvözlet | test | ujj | vulcan</annotation>
+		<annotation cp="🖖🏿" type="tts">star trek-üdvözlet: sötét bőrtónus</annotation>
 		<annotation cp="🫱🏻">jobb | jobbra néző | jobbra néző kéz | kéz | világos bőrtónus</annotation>
 		<annotation cp="🫱🏻" type="tts">jobbra néző kéz: világos bőrtónus</annotation>
 		<annotation cp="🫱🏼">jobb | jobbra néző | jobbra néző kéz | kéz | közepesen világos bőrtónus</annotation>
@@ -132,76 +142,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫴🏾" type="tts">felfelé néző kéz: közepesen sötét bőrtónus</annotation>
 		<annotation cp="🫴🏿">elkap | felajánl | felfelé néző kéz | hív | int | sötét bőrtónus</annotation>
 		<annotation cp="🫴🏿" type="tts">felfelé néző kéz: sötét bőrtónus</annotation>
-		<annotation cp="🫵🏻">felhasználóra mutató ujj | mutat | te | világos bőrtónus</annotation>
-		<annotation cp="🫵🏻" type="tts">felhasználóra mutató ujj: világos bőrtónus</annotation>
-		<annotation cp="🫵🏼">felhasználóra mutató ujj | közepesen világos bőrtónus | mutat | te</annotation>
-		<annotation cp="🫵🏼" type="tts">felhasználóra mutató ujj: közepesen világos bőrtónus</annotation>
-		<annotation cp="🫵🏽">felhasználóra mutató ujj | közepes bőrtónus | mutat | te</annotation>
-		<annotation cp="🫵🏽" type="tts">felhasználóra mutató ujj: közepes bőrtónus</annotation>
-		<annotation cp="🫵🏾">felhasználóra mutató ujj | közepesen sötét bőrtónus | mutat | te</annotation>
-		<annotation cp="🫵🏾" type="tts">felhasználóra mutató ujj: közepesen sötét bőrtónus</annotation>
-		<annotation cp="🫵🏿">felhasználóra mutató ujj | mutat | sötét bőrtónus | te</annotation>
-		<annotation cp="🫵🏿" type="tts">felhasználóra mutató ujj: sötét bőrtónus</annotation>
-		<annotation cp="🫶🏻">szeretet | szívet formázó kezek | világos bőrtónus</annotation>
-		<annotation cp="🫶🏻" type="tts">szívet formázó kezek: világos bőrtónus</annotation>
-		<annotation cp="🫶🏼">közepesen világos bőrtónus | szeretet | szívet formázó kezek</annotation>
-		<annotation cp="🫶🏼" type="tts">szívet formázó kezek: közepesen világos bőrtónus</annotation>
-		<annotation cp="🫶🏽">közepes bőrtónus | szeretet | szívet formázó kezek</annotation>
-		<annotation cp="🫶🏽" type="tts">szívet formázó kezek: közepes bőrtónus</annotation>
-		<annotation cp="🫶🏾">közepesen sötét bőrtónus | szeretet | szívet formázó kezek</annotation>
-		<annotation cp="🫶🏾" type="tts">szívet formázó kezek: közepesen sötét bőrtónus</annotation>
-		<annotation cp="🫶🏿">sötét bőrtónus | szeretet | szívet formázó kezek</annotation>
-		<annotation cp="🫶🏿" type="tts">szívet formázó kezek: sötét bőrtónus</annotation>
-		<annotation cp="👋🏻">integetés | integető kéz | kéz | test | világos bőrtónus</annotation>
-		<annotation cp="👋🏻" type="tts">integető kéz: világos bőrtónus</annotation>
-		<annotation cp="👋🏼">integetés | integető kéz | kéz | közepesen világos bőrtónus | test</annotation>
-		<annotation cp="👋🏼" type="tts">integető kéz: közepesen világos bőrtónus</annotation>
-		<annotation cp="👋🏽">integetés | integető kéz | kéz | közepes bőrtónus | test</annotation>
-		<annotation cp="👋🏽" type="tts">integető kéz: közepes bőrtónus</annotation>
-		<annotation cp="👋🏾">integetés | integető kéz | kéz | közepesen sötét bőrtónus | test</annotation>
-		<annotation cp="👋🏾" type="tts">integető kéz: közepesen sötét bőrtónus</annotation>
-		<annotation cp="👋🏿">integetés | integető kéz | kéz | sötét bőrtónus | test</annotation>
-		<annotation cp="👋🏿" type="tts">integető kéz: sötét bőrtónus</annotation>
-		<annotation cp="🤚🏻">felemelt | kézfej | világos bőrtónus</annotation>
-		<annotation cp="🤚🏻" type="tts">kézfej: világos bőrtónus</annotation>
-		<annotation cp="🤚🏼">felemelt | kézfej | közepesen világos bőrtónus</annotation>
-		<annotation cp="🤚🏼" type="tts">kézfej: közepesen világos bőrtónus</annotation>
-		<annotation cp="🤚🏽">felemelt | kézfej | közepes bőrtónus</annotation>
-		<annotation cp="🤚🏽" type="tts">kézfej: közepes bőrtónus</annotation>
-		<annotation cp="🤚🏾">felemelt | kézfej | közepesen sötét bőrtónus</annotation>
-		<annotation cp="🤚🏾" type="tts">kézfej: közepesen sötét bőrtónus</annotation>
-		<annotation cp="🤚🏿">felemelt | kézfej | sötét bőrtónus</annotation>
-		<annotation cp="🤚🏿" type="tts">kézfej: sötét bőrtónus</annotation>
-		<annotation cp="🖐🏻">felemelt kéz szétálló ujjakkal | kéz | szétálló | test | ujj | világos bőrtónus</annotation>
-		<annotation cp="🖐🏻" type="tts">felemelt kéz szétálló ujjakkal: világos bőrtónus</annotation>
-		<annotation cp="🖐🏼">felemelt kéz szétálló ujjakkal | kéz | közepesen világos bőrtónus | szétálló | test | ujj</annotation>
-		<annotation cp="🖐🏼" type="tts">felemelt kéz szétálló ujjakkal: közepesen világos bőrtónus</annotation>
-		<annotation cp="🖐🏽">felemelt kéz szétálló ujjakkal | kéz | közepes bőrtónus | szétálló | test | ujj</annotation>
-		<annotation cp="🖐🏽" type="tts">felemelt kéz szétálló ujjakkal: közepes bőrtónus</annotation>
-		<annotation cp="🖐🏾">felemelt kéz szétálló ujjakkal | kéz | közepesen sötét bőrtónus | szétálló | test | ujj</annotation>
-		<annotation cp="🖐🏾" type="tts">felemelt kéz szétálló ujjakkal: közepesen sötét bőrtónus</annotation>
-		<annotation cp="🖐🏿">felemelt kéz szétálló ujjakkal | kéz | sötét bőrtónus | szétálló | test | ujj</annotation>
-		<annotation cp="🖐🏿" type="tts">felemelt kéz szétálló ujjakkal: sötét bőrtónus</annotation>
-		<annotation cp="✋🏻">fel | felemelt kéz | kéz | test | világos bőrtónus</annotation>
-		<annotation cp="✋🏻" type="tts">felemelt kéz: világos bőrtónus</annotation>
-		<annotation cp="✋🏼">fel | felemelt kéz | kéz | közepesen világos bőrtónus | test</annotation>
-		<annotation cp="✋🏼" type="tts">felemelt kéz: közepesen világos bőrtónus</annotation>
-		<annotation cp="✋🏽">fel | felemelt kéz | kéz | közepes bőrtónus | test</annotation>
-		<annotation cp="✋🏽" type="tts">felemelt kéz: közepes bőrtónus</annotation>
-		<annotation cp="✋🏾">fel | felemelt kéz | kéz | közepesen sötét bőrtónus | test</annotation>
-		<annotation cp="✋🏾" type="tts">felemelt kéz: közepesen sötét bőrtónus</annotation>
-		<annotation cp="✋🏿">fel | felemelt kéz | kéz | sötét bőrtónus | test</annotation>
-		<annotation cp="✋🏿" type="tts">felemelt kéz: sötét bőrtónus</annotation>
-		<annotation cp="🖖🏻">kéz | spock | star trek | star trek-üdvözlet | test | ujj | világos bőrtónus | vulcan</annotation>
-		<annotation cp="🖖🏻" type="tts">star trek-üdvözlet: világos bőrtónus</annotation>
-		<annotation cp="🖖🏼">kéz | közepesen világos bőrtónus | spock | star trek | star trek-üdvözlet | test | ujj | vulcan</annotation>
-		<annotation cp="🖖🏼" type="tts">star trek-üdvözlet: közepesen világos bőrtónus</annotation>
-		<annotation cp="🖖🏽">kéz | közepes bőrtónus | spock | star trek | star trek-üdvözlet | test | ujj | vulcan</annotation>
-		<annotation cp="🖖🏽" type="tts">star trek-üdvözlet: közepes bőrtónus</annotation>
-		<annotation cp="🖖🏾">kéz | közepesen sötét bőrtónus | spock | star trek | star trek-üdvözlet | test | ujj | vulcan</annotation>
-		<annotation cp="🖖🏾" type="tts">star trek-üdvözlet: közepesen sötét bőrtónus</annotation>
-		<annotation cp="🖖🏿">kéz | sötét bőrtónus | spock | star trek | star trek-üdvözlet | test | ujj | vulcan</annotation>
-		<annotation cp="🖖🏿" type="tts">star trek-üdvözlet: sötét bőrtónus</annotation>
 		<annotation cp="👌🏻">kéz | ok jel | oké | rendben | test | világos bőrtónus</annotation>
 		<annotation cp="👌🏻" type="tts">ok jel: világos bőrtónus</annotation>
 		<annotation cp="👌🏼">kéz | közepesen világos bőrtónus | ok jel | oké | rendben | test</annotation>
@@ -252,6 +192,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤞🏾" type="tts">keresztezett ujjak: közepesen sötét bőrtónus</annotation>
 		<annotation cp="🤞🏿">keresztezett | keresztezett ujjak | sötét bőrtónus | szerencse | ujj</annotation>
 		<annotation cp="🤞🏿" type="tts">keresztezett ujjak: sötét bőrtónus</annotation>
+		<annotation cp="🫰🏻">csettint | drága | keresztezett mutató- és hüvelykujjú kéz | pénz | szeretet | szív | világos bőrtónus</annotation>
+		<annotation cp="🫰🏻" type="tts">keresztezett mutató- és hüvelykujjú kéz: világos bőrtónus</annotation>
+		<annotation cp="🫰🏼">csettint | drága | keresztezett mutató- és hüvelykujjú kéz | közepesen világos bőrtónus | pénz | szeretet | szív</annotation>
+		<annotation cp="🫰🏼" type="tts">keresztezett mutató- és hüvelykujjú kéz: közepesen világos bőrtónus</annotation>
+		<annotation cp="🫰🏽">csettint | drága | keresztezett mutató- és hüvelykujjú kéz | közepes bőrtónus | pénz | szeretet | szív</annotation>
+		<annotation cp="🫰🏽" type="tts">keresztezett mutató- és hüvelykujjú kéz: közepes bőrtónus</annotation>
+		<annotation cp="🫰🏾">csettint | drága | keresztezett mutató- és hüvelykujjú kéz | közepesen sötét bőrtónus | pénz | szeretet | szív</annotation>
+		<annotation cp="🫰🏾" type="tts">keresztezett mutató- és hüvelykujjú kéz: közepesen sötét bőrtónus</annotation>
+		<annotation cp="🫰🏿">csettint | drága | keresztezett mutató- és hüvelykujjú kéz | pénz | sötét bőrtónus | szeretet | szív</annotation>
+		<annotation cp="🫰🏿" type="tts">keresztezett mutató- és hüvelykujjú kéz: sötét bőrtónus</annotation>
 		<annotation cp="🤟🏻">kéz | szeretlek | szeretlek kézmozdulat | világos bőrtónus</annotation>
 		<annotation cp="🤟🏻" type="tts">szeretlek kézmozdulat: világos bőrtónus</annotation>
 		<annotation cp="🤟🏼">kéz | közepesen világos bőrtónus | szeretlek | szeretlek kézmozdulat</annotation>
@@ -342,6 +292,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☝🏾" type="tts">kéz felfelé mutató ujjal: közepesen sötét bőrtónus</annotation>
 		<annotation cp="☝🏿">felfelé | kéz | kéz felfelé mutató ujjal | mutatóujj | sötét bőrtónus | test | ujj</annotation>
 		<annotation cp="☝🏿" type="tts">kéz felfelé mutató ujjal: sötét bőrtónus</annotation>
+		<annotation cp="🫵🏻">felhasználóra mutató ujj | mutat | te | világos bőrtónus</annotation>
+		<annotation cp="🫵🏻" type="tts">felhasználóra mutató ujj: világos bőrtónus</annotation>
+		<annotation cp="🫵🏼">felhasználóra mutató ujj | közepesen világos bőrtónus | mutat | te</annotation>
+		<annotation cp="🫵🏼" type="tts">felhasználóra mutató ujj: közepesen világos bőrtónus</annotation>
+		<annotation cp="🫵🏽">felhasználóra mutató ujj | közepes bőrtónus | mutat | te</annotation>
+		<annotation cp="🫵🏽" type="tts">felhasználóra mutató ujj: közepes bőrtónus</annotation>
+		<annotation cp="🫵🏾">felhasználóra mutató ujj | közepesen sötét bőrtónus | mutat | te</annotation>
+		<annotation cp="🫵🏾" type="tts">felhasználóra mutató ujj: közepesen sötét bőrtónus</annotation>
+		<annotation cp="🫵🏿">felhasználóra mutató ujj | mutat | sötét bőrtónus | te</annotation>
+		<annotation cp="🫵🏿" type="tts">felhasználóra mutató ujj: sötét bőrtónus</annotation>
 		<annotation cp="👍🏻">felfelé mutató hüvelykujj | hüvelykujj felfelé | kéz | oké | rendben | test | világos bőrtónus</annotation>
 		<annotation cp="👍🏻" type="tts">felfelé mutató hüvelykujj: világos bőrtónus</annotation>
 		<annotation cp="👍🏼">felfelé mutató hüvelykujj | hüvelykujj felfelé | kéz | közepesen világos bőrtónus | oké | rendben | test</annotation>
@@ -422,6 +382,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">kezét felemelő ember: közepesen sötét bőrtónus</annotation>
 		<annotation cp="🙌🏿">kéz | kezét felemelő ember | sötét bőrtónus | test | ünneplés | vidámság</annotation>
 		<annotation cp="🙌🏿" type="tts">kezét felemelő ember: sötét bőrtónus</annotation>
+		<annotation cp="🫶🏻">szeretet | szívet formázó kezek | világos bőrtónus</annotation>
+		<annotation cp="🫶🏻" type="tts">szívet formázó kezek: világos bőrtónus</annotation>
+		<annotation cp="🫶🏼">közepesen világos bőrtónus | szeretet | szívet formázó kezek</annotation>
+		<annotation cp="🫶🏼" type="tts">szívet formázó kezek: közepesen világos bőrtónus</annotation>
+		<annotation cp="🫶🏽">közepes bőrtónus | szeretet | szívet formázó kezek</annotation>
+		<annotation cp="🫶🏽" type="tts">szívet formázó kezek: közepes bőrtónus</annotation>
+		<annotation cp="🫶🏾">közepesen sötét bőrtónus | szeretet | szívet formázó kezek</annotation>
+		<annotation cp="🫶🏾" type="tts">szívet formázó kezek: közepesen sötét bőrtónus</annotation>
+		<annotation cp="🫶🏿">sötét bőrtónus | szeretet | szívet formázó kezek</annotation>
+		<annotation cp="🫶🏿" type="tts">szívet formázó kezek: sötét bőrtónus</annotation>
 		<annotation cp="👐🏻">kéz | kitárva | széttárt kéz | test | világos bőrtónus</annotation>
 		<annotation cp="👐🏻" type="tts">széttárt kéz: világos bőrtónus</annotation>
 		<annotation cp="👐🏼">kéz | kitárva | közepesen világos bőrtónus | széttárt kéz | test</annotation>
@@ -462,6 +432,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙏🏾" type="tts">összetett kéz: közepesen sötét bőrtónus</annotation>
 		<annotation cp="🙏🏿">ima | kérés | köszönet | összetett kéz | sötét bőrtónus | test</annotation>
 		<annotation cp="🙏🏿" type="tts">összetett kéz: sötét bőrtónus</annotation>
+		<annotation cp="🫷🏻">balra | balra toló kéz | elutasít | pacsi | stop | tol | vár | világos bőrtónus</annotation>
+		<annotation cp="🫷🏻" type="tts">balra toló kéz: világos bőrtónus</annotation>
+		<annotation cp="🫷🏼">balra | balra toló kéz | elutasít | közepesen világos bőrtónus | pacsi | stop | tol | vár</annotation>
+		<annotation cp="🫷🏼" type="tts">balra toló kéz: közepesen világos bőrtónus</annotation>
+		<annotation cp="🫷🏽">balra | balra toló kéz | elutasít | közepes bőrtónus | pacsi | stop | tol | vár</annotation>
+		<annotation cp="🫷🏽" type="tts">balra toló kéz: közepes bőrtónus</annotation>
+		<annotation cp="🫷🏾">balra | balra toló kéz | elutasít | közepesen sötét bőrtónus | pacsi | stop | tol | vár</annotation>
+		<annotation cp="🫷🏾" type="tts">balra toló kéz: közepesen sötét bőrtónus</annotation>
+		<annotation cp="🫷🏿">balra | balra toló kéz | elutasít | pacsi | sötét bőrtónus | stop | tol | vár</annotation>
+		<annotation cp="🫷🏿" type="tts">balra toló kéz: sötét bőrtónus</annotation>
+		<annotation cp="🫸🏻">elutasít | jobbra | jobbra toló kéz | pacsi | stop | tol | vár | világos bőrtónus</annotation>
+		<annotation cp="🫸🏻" type="tts">jobbra toló kéz: világos bőrtónus</annotation>
+		<annotation cp="🫸🏼">elutasít | jobbra | jobbra toló kéz | közepesen világos bőrtónus | pacsi | stop | tol | vár</annotation>
+		<annotation cp="🫸🏼" type="tts">jobbra toló kéz: közepesen világos bőrtónus</annotation>
+		<annotation cp="🫸🏽">elutasít | jobbra | jobbra toló kéz | közepes bőrtónus | pacsi | stop | tol | vár</annotation>
+		<annotation cp="🫸🏽" type="tts">jobbra toló kéz: közepes bőrtónus</annotation>
+		<annotation cp="🫸🏾">elutasít | jobbra | jobbra toló kéz | közepesen sötét bőrtónus | pacsi | stop | tol | vár</annotation>
+		<annotation cp="🫸🏾" type="tts">jobbra toló kéz: közepesen sötét bőrtónus</annotation>
+		<annotation cp="🫸🏿">elutasít | jobbra | jobbra toló kéz | pacsi | sötét bőrtónus | stop | tol | vár</annotation>
+		<annotation cp="🫸🏿" type="tts">jobbra toló kéz: sötét bőrtónus</annotation>
 		<annotation cp="✍🏻">írás | író kéz | kéz | test | világos bőrtónus</annotation>
 		<annotation cp="✍🏻" type="tts">író kéz: világos bőrtónus</annotation>
 		<annotation cp="✍🏼">írás | író kéz | kéz | közepesen világos bőrtónus | test</annotation>
@@ -2146,6 +2136,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👷🏾‍♀" type="tts">építőmunkás nő: közepesen sötét bőrtónus</annotation>
 		<annotation cp="👷🏿‍♀">építkezés | építőmunkás | építőmunkásnő | munkás | nő | sötét bőrtónus</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">építőmunkás nő: sötét bőrtónus</annotation>
+		<annotation cp="🫅🏻">koronás személy | méltóság | nemes | uralkodó | uralkodói | világos bőrtónus</annotation>
+		<annotation cp="🫅🏻" type="tts">koronás személy: világos bőrtónus</annotation>
+		<annotation cp="🫅🏼">koronás személy | közepesen világos bőrtónus | méltóság | nemes | uralkodó | uralkodói</annotation>
+		<annotation cp="🫅🏼" type="tts">koronás személy: közepesen világos bőrtónus</annotation>
+		<annotation cp="🫅🏽">koronás személy | közepes bőrtónus | méltóság | nemes | uralkodó | uralkodói</annotation>
+		<annotation cp="🫅🏽" type="tts">koronás személy: közepes bőrtónus</annotation>
+		<annotation cp="🫅🏾">koronás személy | közepesen sötét bőrtónus | méltóság | nemes | uralkodó | uralkodói</annotation>
+		<annotation cp="🫅🏾" type="tts">koronás személy: közepesen sötét bőrtónus</annotation>
+		<annotation cp="🫅🏿">koronás személy | méltóság | nemes | sötét bőrtónus | uralkodó | uralkodói</annotation>
+		<annotation cp="🫅🏿" type="tts">koronás személy: sötét bőrtónus</annotation>
 		<annotation cp="🤴🏻">herceg | világos bőrtónus</annotation>
 		<annotation cp="🤴🏻" type="tts">herceg: világos bőrtónus</annotation>
 		<annotation cp="🤴🏼">herceg | közepesen világos bőrtónus</annotation>
@@ -2286,6 +2286,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">terhes nő: közepesen sötét bőrtónus</annotation>
 		<annotation cp="🤰🏿">nő | sötét bőrtónus | terhes | várandós</annotation>
 		<annotation cp="🤰🏿" type="tts">terhes nő: sötét bőrtónus</annotation>
+		<annotation cp="🫃🏻">has | puffadt | teli | terhes | terhes férfi | világos bőrtónus</annotation>
+		<annotation cp="🫃🏻" type="tts">terhes férfi: világos bőrtónus</annotation>
+		<annotation cp="🫃🏼">has | közepesen világos bőrtónus | puffadt | teli | terhes | terhes férfi</annotation>
+		<annotation cp="🫃🏼" type="tts">terhes férfi: közepesen világos bőrtónus</annotation>
+		<annotation cp="🫃🏽">has | közepes bőrtónus | puffadt | teli | terhes | terhes férfi</annotation>
+		<annotation cp="🫃🏽" type="tts">terhes férfi: közepes bőrtónus</annotation>
+		<annotation cp="🫃🏾">has | közepesen sötét bőrtónus | puffadt | teli | terhes | terhes férfi</annotation>
+		<annotation cp="🫃🏾" type="tts">terhes férfi: közepesen sötét bőrtónus</annotation>
+		<annotation cp="🫃🏿">has | puffadt | sötét bőrtónus | teli | terhes | terhes férfi</annotation>
+		<annotation cp="🫃🏿" type="tts">terhes férfi: sötét bőrtónus</annotation>
+		<annotation cp="🫄🏻">has | puffadt | teli | terhes | terhes személy | világos bőrtónus</annotation>
+		<annotation cp="🫄🏻" type="tts">terhes személy: világos bőrtónus</annotation>
+		<annotation cp="🫄🏼">has | közepesen világos bőrtónus | puffadt | teli | terhes | terhes személy</annotation>
+		<annotation cp="🫄🏼" type="tts">terhes személy: közepesen világos bőrtónus</annotation>
+		<annotation cp="🫄🏽">has | közepes bőrtónus | puffadt | teli | terhes | terhes személy</annotation>
+		<annotation cp="🫄🏽" type="tts">terhes személy: közepes bőrtónus</annotation>
+		<annotation cp="🫄🏾">has | közepesen sötét bőrtónus | puffadt | teli | terhes | terhes személy</annotation>
+		<annotation cp="🫄🏾" type="tts">terhes személy: közepesen sötét bőrtónus</annotation>
+		<annotation cp="🫄🏿">has | puffadt | sötét bőrtónus | teli | terhes | terhes személy</annotation>
+		<annotation cp="🫄🏿" type="tts">terhes személy: sötét bőrtónus</annotation>
 		<annotation cp="🤱🏻">baba | mell | szoptatás | világos bőrtónus</annotation>
 		<annotation cp="🤱🏻" type="tts">szoptatás: világos bőrtónus</annotation>
 		<annotation cp="🤱🏼">baba | közepesen világos bőrtónus | mell | szoptatás</annotation>

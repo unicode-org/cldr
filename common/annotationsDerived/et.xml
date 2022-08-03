@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,46 +12,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="et"/>
 	</identity>
 	<annotations>
-		<annotation cp="🫃🏻">hele nahatoon | kõht | pundunud | rase | rase mees | täis</annotation>
-		<annotation cp="🫃🏻" type="tts">rase mees: hele nahatoon</annotation>
-		<annotation cp="🫃🏼">keskmiselt hele nahatoon | kõht | pundunud | rase | rase mees | täis</annotation>
-		<annotation cp="🫃🏼" type="tts">rase mees: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🫃🏽">keskmine nahatoon | kõht | pundunud | rase | rase mees | täis</annotation>
-		<annotation cp="🫃🏽" type="tts">rase mees: keskmine nahatoon</annotation>
-		<annotation cp="🫃🏾">keskmiselt tume nahatoon | kõht | pundunud | rase | rase mees | täis</annotation>
-		<annotation cp="🫃🏾" type="tts">rase mees: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🫃🏿">kõht | pundunud | rase | rase mees | täis | tume nahatoon</annotation>
-		<annotation cp="🫃🏿" type="tts">rase mees: tume nahatoon</annotation>
-		<annotation cp="🫄🏻">hele nahatoon | kõht | pundunud | rase | rase inimene | täis</annotation>
-		<annotation cp="🫄🏻" type="tts">rase inimene: hele nahatoon</annotation>
-		<annotation cp="🫄🏼">keskmiselt hele nahatoon | kõht | pundunud | rase | rase inimene | täis</annotation>
-		<annotation cp="🫄🏼" type="tts">rase inimene: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🫄🏽">keskmine nahatoon | kõht | pundunud | rase | rase inimene | täis</annotation>
-		<annotation cp="🫄🏽" type="tts">rase inimene: keskmine nahatoon</annotation>
-		<annotation cp="🫄🏾">keskmiselt tume nahatoon | kõht | pundunud | rase | rase inimene | täis</annotation>
-		<annotation cp="🫄🏾" type="tts">rase inimene: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🫄🏿">kõht | pundunud | rase | rase inimene | täis | tume nahatoon</annotation>
-		<annotation cp="🫄🏿" type="tts">rase inimene: tume nahatoon</annotation>
-		<annotation cp="🫅🏻">hele nahatoon | krooniga inimene | kuningas | kuninglik | monarh | valitseja</annotation>
-		<annotation cp="🫅🏻" type="tts">krooniga inimene: hele nahatoon</annotation>
-		<annotation cp="🫅🏼">keskmiselt hele nahatoon | krooniga inimene | kuningas | kuninglik | monarh | valitseja</annotation>
-		<annotation cp="🫅🏼" type="tts">krooniga inimene: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🫅🏽">keskmine nahatoon | krooniga inimene | kuningas | kuninglik | monarh | valitseja</annotation>
-		<annotation cp="🫅🏽" type="tts">krooniga inimene: keskmine nahatoon</annotation>
-		<annotation cp="🫅🏾">keskmiselt tume nahatoon | krooniga inimene | kuningas | kuninglik | monarh | valitseja</annotation>
-		<annotation cp="🫅🏾" type="tts">krooniga inimene: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🫅🏿">krooniga inimene | kuningas | kuninglik | monarh | tume nahatoon | valitseja</annotation>
-		<annotation cp="🫅🏿" type="tts">krooniga inimene: tume nahatoon</annotation>
-		<annotation cp="🫰🏻">armastus | hele nahatoon | kallis | nips | pöialt ja nimetissõrme risti hoidev käsi | raha | süda</annotation>
-		<annotation cp="🫰🏻" type="tts">pöialt ja nimetissõrme risti hoidev käsi: hele nahatoon</annotation>
-		<annotation cp="🫰🏼">armastus | kallis | keskmiselt hele nahatoon | nips | pöialt ja nimetissõrme risti hoidev käsi | raha | süda</annotation>
-		<annotation cp="🫰🏼" type="tts">pöialt ja nimetissõrme risti hoidev käsi: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🫰🏽">armastus | kallis | keskmine nahatoon | nips | pöialt ja nimetissõrme risti hoidev käsi | raha | süda</annotation>
-		<annotation cp="🫰🏽" type="tts">pöialt ja nimetissõrme risti hoidev käsi: keskmine nahatoon</annotation>
-		<annotation cp="🫰🏾">armastus | kallis | keskmiselt tume nahatoon | nips | pöialt ja nimetissõrme risti hoidev käsi | raha | süda</annotation>
-		<annotation cp="🫰🏾" type="tts">pöialt ja nimetissõrme risti hoidev käsi: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🫰🏿">armastus | kallis | nips | pöialt ja nimetissõrme risti hoidev käsi | raha | süda | tume nahatoon</annotation>
-		<annotation cp="🫰🏿" type="tts">pöialt ja nimetissõrme risti hoidev käsi: tume nahatoon</annotation>
+		<annotation cp="👋🏻">hele nahatoon | käsi | keha | lehvitav käsi | lehvitus</annotation>
+		<annotation cp="👋🏻" type="tts">lehvitav käsi: hele nahatoon</annotation>
+		<annotation cp="👋🏼">käsi | keha | keskmiselt hele nahatoon | lehvitav käsi | lehvitus</annotation>
+		<annotation cp="👋🏼" type="tts">lehvitav käsi: keskmiselt hele nahatoon</annotation>
+		<annotation cp="👋🏽">käsi | keha | keskmine nahatoon | lehvitav käsi | lehvitus</annotation>
+		<annotation cp="👋🏽" type="tts">lehvitav käsi: keskmine nahatoon</annotation>
+		<annotation cp="👋🏾">käsi | keha | keskmiselt tume nahatoon | lehvitav käsi | lehvitus</annotation>
+		<annotation cp="👋🏾" type="tts">lehvitav käsi: keskmiselt tume nahatoon</annotation>
+		<annotation cp="👋🏿">käsi | keha | lehvitav käsi | lehvitus | tume nahatoon</annotation>
+		<annotation cp="👋🏿" type="tts">lehvitav käsi: tume nahatoon</annotation>
+		<annotation cp="🤚🏻">hele nahatoon | käsi | tõstetud</annotation>
+		<annotation cp="🤚🏻" type="tts">tõstetud käsi: hele nahatoon</annotation>
+		<annotation cp="🤚🏼">käsi | keskmiselt hele nahatoon | tõstetud</annotation>
+		<annotation cp="🤚🏼" type="tts">tõstetud käsi: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🤚🏽">käsi | keskmine nahatoon | tõstetud</annotation>
+		<annotation cp="🤚🏽" type="tts">tõstetud käsi: keskmine nahatoon</annotation>
+		<annotation cp="🤚🏾">käsi | keskmiselt tume nahatoon | tõstetud</annotation>
+		<annotation cp="🤚🏾" type="tts">tõstetud käsi: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🤚🏿">käsi | tõstetud | tume nahatoon</annotation>
+		<annotation cp="🤚🏿" type="tts">tõstetud käsi: tume nahatoon</annotation>
+		<annotation cp="🖐🏻">harali | harali sõrmedega käsi | hele nahatoon | käsi | keha | sõrm</annotation>
+		<annotation cp="🖐🏻" type="tts">harali sõrmedega käsi: hele nahatoon</annotation>
+		<annotation cp="🖐🏼">harali | harali sõrmedega käsi | käsi | keha | keskmiselt hele nahatoon | sõrm</annotation>
+		<annotation cp="🖐🏼" type="tts">harali sõrmedega käsi: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🖐🏽">harali | harali sõrmedega käsi | käsi | keha | keskmine nahatoon | sõrm</annotation>
+		<annotation cp="🖐🏽" type="tts">harali sõrmedega käsi: keskmine nahatoon</annotation>
+		<annotation cp="🖐🏾">harali | harali sõrmedega käsi | käsi | keha | keskmiselt tume nahatoon | sõrm</annotation>
+		<annotation cp="🖐🏾" type="tts">harali sõrmedega käsi: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🖐🏿">harali | harali sõrmedega käsi | käsi | keha | sõrm | tume nahatoon</annotation>
+		<annotation cp="🖐🏿" type="tts">harali sõrmedega käsi: tume nahatoon</annotation>
+		<annotation cp="✋🏻">hele nahatoon | käsi | keha | ülestõstetud käsi</annotation>
+		<annotation cp="✋🏻" type="tts">ülestõstetud käsi: hele nahatoon</annotation>
+		<annotation cp="✋🏼">käsi | keha | keskmiselt hele nahatoon | ülestõstetud käsi</annotation>
+		<annotation cp="✋🏼" type="tts">ülestõstetud käsi: keskmiselt hele nahatoon</annotation>
+		<annotation cp="✋🏽">käsi | keha | keskmine nahatoon | ülestõstetud käsi</annotation>
+		<annotation cp="✋🏽" type="tts">ülestõstetud käsi: keskmine nahatoon</annotation>
+		<annotation cp="✋🏾">käsi | keha | keskmiselt tume nahatoon | ülestõstetud käsi</annotation>
+		<annotation cp="✋🏾" type="tts">ülestõstetud käsi: keskmiselt tume nahatoon</annotation>
+		<annotation cp="✋🏿">käsi | keha | tume nahatoon | ülestõstetud käsi</annotation>
+		<annotation cp="✋🏿" type="tts">ülestõstetud käsi: tume nahatoon</annotation>
+		<annotation cp="🖖🏻">hele nahatoon | käsi | keha | sõrm | spock | vulcan | vulcanite tervitus</annotation>
+		<annotation cp="🖖🏻" type="tts">vulcanite tervitus: hele nahatoon</annotation>
+		<annotation cp="🖖🏼">käsi | keha | keskmiselt hele nahatoon | sõrm | spock | vulcan | vulcanite tervitus</annotation>
+		<annotation cp="🖖🏼" type="tts">vulcanite tervitus: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🖖🏽">käsi | keha | keskmine nahatoon | sõrm | spock | vulcan | vulcanite tervitus</annotation>
+		<annotation cp="🖖🏽" type="tts">vulcanite tervitus: keskmine nahatoon</annotation>
+		<annotation cp="🖖🏾">käsi | keha | keskmiselt tume nahatoon | sõrm | spock | vulcan | vulcanite tervitus</annotation>
+		<annotation cp="🖖🏾" type="tts">vulcanite tervitus: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🖖🏿">käsi | keha | sõrm | spock | tume nahatoon | vulcan | vulcanite tervitus</annotation>
+		<annotation cp="🖖🏿" type="tts">vulcanite tervitus: tume nahatoon</annotation>
 		<annotation cp="🫱🏻">hele nahatoon | käsi | parem | paremale</annotation>
 		<annotation cp="🫱🏻" type="tts">käsi paremale: hele nahatoon</annotation>
 		<annotation cp="🫱🏼">käsi | keskmiselt hele nahatoon | parem | paremale</annotation>
@@ -132,76 +142,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫴🏾" type="tts">käsi peopesaga ülespoole: keskmiselt tume nahatoon</annotation>
 		<annotation cp="🫴🏿">käsi peopesaga ülespoole | kutsuma | pakkuma | püüdma | tule | tume nahatoon</annotation>
 		<annotation cp="🫴🏿" type="tts">käsi peopesaga ülespoole: tume nahatoon</annotation>
-		<annotation cp="🫵🏻">hele nahatoon | osutama | sina | vaataja poole osutav nimetissõrm</annotation>
-		<annotation cp="🫵🏻" type="tts">vaataja poole osutav nimetissõrm: hele nahatoon</annotation>
-		<annotation cp="🫵🏼">keskmiselt hele nahatoon | osutama | sina | vaataja poole osutav nimetissõrm</annotation>
-		<annotation cp="🫵🏼" type="tts">vaataja poole osutav nimetissõrm: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🫵🏽">keskmine nahatoon | osutama | sina | vaataja poole osutav nimetissõrm</annotation>
-		<annotation cp="🫵🏽" type="tts">vaataja poole osutav nimetissõrm: keskmine nahatoon</annotation>
-		<annotation cp="🫵🏾">keskmiselt tume nahatoon | osutama | sina | vaataja poole osutav nimetissõrm</annotation>
-		<annotation cp="🫵🏾" type="tts">vaataja poole osutav nimetissõrm: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🫵🏿">osutama | sina | tume nahatoon | vaataja poole osutav nimetissõrm</annotation>
-		<annotation cp="🫵🏿" type="tts">vaataja poole osutav nimetissõrm: tume nahatoon</annotation>
-		<annotation cp="🫶🏻">armastus | hele nahatoon | südant moodustavad käed</annotation>
-		<annotation cp="🫶🏻" type="tts">südant moodustavad käed: hele nahatoon</annotation>
-		<annotation cp="🫶🏼">armastus | keskmiselt hele nahatoon | südant moodustavad käed</annotation>
-		<annotation cp="🫶🏼" type="tts">südant moodustavad käed: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🫶🏽">armastus | keskmine nahatoon | südant moodustavad käed</annotation>
-		<annotation cp="🫶🏽" type="tts">südant moodustavad käed: keskmine nahatoon</annotation>
-		<annotation cp="🫶🏾">armastus | keskmiselt tume nahatoon | südant moodustavad käed</annotation>
-		<annotation cp="🫶🏾" type="tts">südant moodustavad käed: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🫶🏿">armastus | südant moodustavad käed | tume nahatoon</annotation>
-		<annotation cp="🫶🏿" type="tts">südant moodustavad käed: tume nahatoon</annotation>
-		<annotation cp="👋🏻">hele nahatoon | käsi | keha | lehvitav käsi | lehvitus</annotation>
-		<annotation cp="👋🏻" type="tts">lehvitav käsi: hele nahatoon</annotation>
-		<annotation cp="👋🏼">käsi | keha | keskmiselt hele nahatoon | lehvitav käsi | lehvitus</annotation>
-		<annotation cp="👋🏼" type="tts">lehvitav käsi: keskmiselt hele nahatoon</annotation>
-		<annotation cp="👋🏽">käsi | keha | keskmine nahatoon | lehvitav käsi | lehvitus</annotation>
-		<annotation cp="👋🏽" type="tts">lehvitav käsi: keskmine nahatoon</annotation>
-		<annotation cp="👋🏾">käsi | keha | keskmiselt tume nahatoon | lehvitav käsi | lehvitus</annotation>
-		<annotation cp="👋🏾" type="tts">lehvitav käsi: keskmiselt tume nahatoon</annotation>
-		<annotation cp="👋🏿">käsi | keha | lehvitav käsi | lehvitus | tume nahatoon</annotation>
-		<annotation cp="👋🏿" type="tts">lehvitav käsi: tume nahatoon</annotation>
-		<annotation cp="🤚🏻">hele nahatoon | käsi | tõstetud</annotation>
-		<annotation cp="🤚🏻" type="tts">tõstetud käsi: hele nahatoon</annotation>
-		<annotation cp="🤚🏼">käsi | keskmiselt hele nahatoon | tõstetud</annotation>
-		<annotation cp="🤚🏼" type="tts">tõstetud käsi: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🤚🏽">käsi | keskmine nahatoon | tõstetud</annotation>
-		<annotation cp="🤚🏽" type="tts">tõstetud käsi: keskmine nahatoon</annotation>
-		<annotation cp="🤚🏾">käsi | keskmiselt tume nahatoon | tõstetud</annotation>
-		<annotation cp="🤚🏾" type="tts">tõstetud käsi: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🤚🏿">käsi | tõstetud | tume nahatoon</annotation>
-		<annotation cp="🤚🏿" type="tts">tõstetud käsi: tume nahatoon</annotation>
-		<annotation cp="🖐🏻">harali | harali sõrmedega käsi | hele nahatoon | käsi | keha | sõrm</annotation>
-		<annotation cp="🖐🏻" type="tts">harali sõrmedega käsi: hele nahatoon</annotation>
-		<annotation cp="🖐🏼">harali | harali sõrmedega käsi | käsi | keha | keskmiselt hele nahatoon | sõrm</annotation>
-		<annotation cp="🖐🏼" type="tts">harali sõrmedega käsi: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🖐🏽">harali | harali sõrmedega käsi | käsi | keha | keskmine nahatoon | sõrm</annotation>
-		<annotation cp="🖐🏽" type="tts">harali sõrmedega käsi: keskmine nahatoon</annotation>
-		<annotation cp="🖐🏾">harali | harali sõrmedega käsi | käsi | keha | keskmiselt tume nahatoon | sõrm</annotation>
-		<annotation cp="🖐🏾" type="tts">harali sõrmedega käsi: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🖐🏿">harali | harali sõrmedega käsi | käsi | keha | sõrm | tume nahatoon</annotation>
-		<annotation cp="🖐🏿" type="tts">harali sõrmedega käsi: tume nahatoon</annotation>
-		<annotation cp="✋🏻">hele nahatoon | käsi | keha | ülestõstetud käsi</annotation>
-		<annotation cp="✋🏻" type="tts">ülestõstetud käsi: hele nahatoon</annotation>
-		<annotation cp="✋🏼">käsi | keha | keskmiselt hele nahatoon | ülestõstetud käsi</annotation>
-		<annotation cp="✋🏼" type="tts">ülestõstetud käsi: keskmiselt hele nahatoon</annotation>
-		<annotation cp="✋🏽">käsi | keha | keskmine nahatoon | ülestõstetud käsi</annotation>
-		<annotation cp="✋🏽" type="tts">ülestõstetud käsi: keskmine nahatoon</annotation>
-		<annotation cp="✋🏾">käsi | keha | keskmiselt tume nahatoon | ülestõstetud käsi</annotation>
-		<annotation cp="✋🏾" type="tts">ülestõstetud käsi: keskmiselt tume nahatoon</annotation>
-		<annotation cp="✋🏿">käsi | keha | tume nahatoon | ülestõstetud käsi</annotation>
-		<annotation cp="✋🏿" type="tts">ülestõstetud käsi: tume nahatoon</annotation>
-		<annotation cp="🖖🏻">hele nahatoon | käsi | keha | sõrm | spock | vulcan | vulcanite tervitus</annotation>
-		<annotation cp="🖖🏻" type="tts">vulcanite tervitus: hele nahatoon</annotation>
-		<annotation cp="🖖🏼">käsi | keha | keskmiselt hele nahatoon | sõrm | spock | vulcan | vulcanite tervitus</annotation>
-		<annotation cp="🖖🏼" type="tts">vulcanite tervitus: keskmiselt hele nahatoon</annotation>
-		<annotation cp="🖖🏽">käsi | keha | keskmine nahatoon | sõrm | spock | vulcan | vulcanite tervitus</annotation>
-		<annotation cp="🖖🏽" type="tts">vulcanite tervitus: keskmine nahatoon</annotation>
-		<annotation cp="🖖🏾">käsi | keha | keskmiselt tume nahatoon | sõrm | spock | vulcan | vulcanite tervitus</annotation>
-		<annotation cp="🖖🏾" type="tts">vulcanite tervitus: keskmiselt tume nahatoon</annotation>
-		<annotation cp="🖖🏿">käsi | keha | sõrm | spock | tume nahatoon | vulcan | vulcanite tervitus</annotation>
-		<annotation cp="🖖🏿" type="tts">vulcanite tervitus: tume nahatoon</annotation>
 		<annotation cp="👌🏻">hele nahatoon | käsi | keha | OK-käemärk</annotation>
 		<annotation cp="👌🏻" type="tts">OK-käemärk: hele nahatoon</annotation>
 		<annotation cp="👌🏼">käsi | keha | keskmiselt hele nahatoon | OK-käemärk</annotation>
@@ -252,6 +192,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤞🏾" type="tts">sõrmed risti: keskmiselt tume nahatoon</annotation>
 		<annotation cp="🤞🏿">käsi | õnn | risti | sõrmed | tume nahatoon</annotation>
 		<annotation cp="🤞🏿" type="tts">sõrmed risti: tume nahatoon</annotation>
+		<annotation cp="🫰🏻">armastus | hele nahatoon | kallis | nips | pöialt ja nimetissõrme risti hoidev käsi | raha | süda</annotation>
+		<annotation cp="🫰🏻" type="tts">pöialt ja nimetissõrme risti hoidev käsi: hele nahatoon</annotation>
+		<annotation cp="🫰🏼">armastus | kallis | keskmiselt hele nahatoon | nips | pöialt ja nimetissõrme risti hoidev käsi | raha | süda</annotation>
+		<annotation cp="🫰🏼" type="tts">pöialt ja nimetissõrme risti hoidev käsi: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🫰🏽">armastus | kallis | keskmine nahatoon | nips | pöialt ja nimetissõrme risti hoidev käsi | raha | süda</annotation>
+		<annotation cp="🫰🏽" type="tts">pöialt ja nimetissõrme risti hoidev käsi: keskmine nahatoon</annotation>
+		<annotation cp="🫰🏾">armastus | kallis | keskmiselt tume nahatoon | nips | pöialt ja nimetissõrme risti hoidev käsi | raha | süda</annotation>
+		<annotation cp="🫰🏾" type="tts">pöialt ja nimetissõrme risti hoidev käsi: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🫰🏿">armastus | kallis | nips | pöialt ja nimetissõrme risti hoidev käsi | raha | süda | tume nahatoon</annotation>
+		<annotation cp="🫰🏿" type="tts">pöialt ja nimetissõrme risti hoidev käsi: tume nahatoon</annotation>
 		<annotation cp="🤟🏻">armastust väljendav žest | hele nahatoon | ILY | käsi</annotation>
 		<annotation cp="🤟🏻" type="tts">armastust väljendav žest: hele nahatoon</annotation>
 		<annotation cp="🤟🏼">armastust väljendav žest | ILY | käsi | keskmiselt hele nahatoon</annotation>
@@ -342,6 +292,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☝🏾" type="tts">üles osutav sõrm: keskmiselt tume nahatoon</annotation>
 		<annotation cp="☝🏿">käsi | keha | nimetissõrm | osutamine | sõrm | tume nahatoon | üles osutav sõrm</annotation>
 		<annotation cp="☝🏿" type="tts">üles osutav sõrm: tume nahatoon</annotation>
+		<annotation cp="🫵🏻">hele nahatoon | osutama | sina | vaataja poole osutav nimetissõrm</annotation>
+		<annotation cp="🫵🏻" type="tts">vaataja poole osutav nimetissõrm: hele nahatoon</annotation>
+		<annotation cp="🫵🏼">keskmiselt hele nahatoon | osutama | sina | vaataja poole osutav nimetissõrm</annotation>
+		<annotation cp="🫵🏼" type="tts">vaataja poole osutav nimetissõrm: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🫵🏽">keskmine nahatoon | osutama | sina | vaataja poole osutav nimetissõrm</annotation>
+		<annotation cp="🫵🏽" type="tts">vaataja poole osutav nimetissõrm: keskmine nahatoon</annotation>
+		<annotation cp="🫵🏾">keskmiselt tume nahatoon | osutama | sina | vaataja poole osutav nimetissõrm</annotation>
+		<annotation cp="🫵🏾" type="tts">vaataja poole osutav nimetissõrm: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🫵🏿">osutama | sina | tume nahatoon | vaataja poole osutav nimetissõrm</annotation>
+		<annotation cp="🫵🏿" type="tts">vaataja poole osutav nimetissõrm: tume nahatoon</annotation>
 		<annotation cp="👍🏻">hele nahatoon | käsi | keha | meeldib | pöial</annotation>
 		<annotation cp="👍🏻" type="tts">meeldib: hele nahatoon</annotation>
 		<annotation cp="👍🏼">käsi | keha | keskmiselt hele nahatoon | meeldib | pöial</annotation>
@@ -422,6 +382,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">ülestõstetud käed: keskmiselt tume nahatoon</annotation>
 		<annotation cp="🙌🏿">hurraa | käed | tähistamine | tume nahatoon | ülestõstetud käed | žest</annotation>
 		<annotation cp="🙌🏿" type="tts">ülestõstetud käed: tume nahatoon</annotation>
+		<annotation cp="🫶🏻">armastus | hele nahatoon | südant moodustavad käed</annotation>
+		<annotation cp="🫶🏻" type="tts">südant moodustavad käed: hele nahatoon</annotation>
+		<annotation cp="🫶🏼">armastus | keskmiselt hele nahatoon | südant moodustavad käed</annotation>
+		<annotation cp="🫶🏼" type="tts">südant moodustavad käed: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🫶🏽">armastus | keskmine nahatoon | südant moodustavad käed</annotation>
+		<annotation cp="🫶🏽" type="tts">südant moodustavad käed: keskmine nahatoon</annotation>
+		<annotation cp="🫶🏾">armastus | keskmiselt tume nahatoon | südant moodustavad käed</annotation>
+		<annotation cp="🫶🏾" type="tts">südant moodustavad käed: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🫶🏿">armastus | südant moodustavad käed | tume nahatoon</annotation>
+		<annotation cp="🫶🏿" type="tts">südant moodustavad käed: tume nahatoon</annotation>
 		<annotation cp="👐🏻">avatud | avatud käed | hele nahatoon | käsi | keha</annotation>
 		<annotation cp="👐🏻" type="tts">avatud käed: hele nahatoon</annotation>
 		<annotation cp="👐🏼">avatud | avatud käed | käsi | keha | keskmiselt hele nahatoon</annotation>
@@ -462,6 +432,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙏🏾" type="tts">palveasendis käed: keskmiselt tume nahatoon</annotation>
 		<annotation cp="🙏🏿">aitäh | käed | palve | palveasendis käed | tänan | tume nahatoon | žest</annotation>
 		<annotation cp="🙏🏿" type="tts">palveasendis käed: tume nahatoon</annotation>
+		<annotation cp="🫷🏻">hele nahatoon | keeldu | lükka | oota | stopp | vasakue | vasakule lükkav käsi | viska viis</annotation>
+		<annotation cp="🫷🏻" type="tts">vasakule lükkav käsi: hele nahatoon</annotation>
+		<annotation cp="🫷🏼">keeldu | keskmiselt hele nahatoon | lükka | oota | stopp | vasakue | vasakule lükkav käsi | viska viis</annotation>
+		<annotation cp="🫷🏼" type="tts">vasakule lükkav käsi: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🫷🏽">keeldu | keskmine nahatoon | lükka | oota | stopp | vasakue | vasakule lükkav käsi | viska viis</annotation>
+		<annotation cp="🫷🏽" type="tts">vasakule lükkav käsi: keskmine nahatoon</annotation>
+		<annotation cp="🫷🏾">keeldu | keskmiselt tume nahatoon | lükka | oota | stopp | vasakue | vasakule lükkav käsi | viska viis</annotation>
+		<annotation cp="🫷🏾" type="tts">vasakule lükkav käsi: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🫷🏿">keeldu | lükka | oota | stopp | tume nahatoon | vasakue | vasakule lükkav käsi | viska viis</annotation>
+		<annotation cp="🫷🏿" type="tts">vasakule lükkav käsi: tume nahatoon</annotation>
+		<annotation cp="🫸🏻">hele nahatoon | keeldu | lükka | oota | paremale | paremale lükkav käsi | stopp | viska viis</annotation>
+		<annotation cp="🫸🏻" type="tts">paremale lükkav käsi: hele nahatoon</annotation>
+		<annotation cp="🫸🏼">keeldu | keskmiselt hele nahatoon | lükka | oota | paremale | paremale lükkav käsi | stopp | viska viis</annotation>
+		<annotation cp="🫸🏼" type="tts">paremale lükkav käsi: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🫸🏽">keeldu | keskmine nahatoon | lükka | oota | paremale | paremale lükkav käsi | stopp | viska viis</annotation>
+		<annotation cp="🫸🏽" type="tts">paremale lükkav käsi: keskmine nahatoon</annotation>
+		<annotation cp="🫸🏾">keeldu | keskmiselt tume nahatoon | lükka | oota | paremale | paremale lükkav käsi | stopp | viska viis</annotation>
+		<annotation cp="🫸🏾" type="tts">paremale lükkav käsi: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🫸🏿">keeldu | lükka | oota | paremale | paremale lükkav käsi | stopp | tume nahatoon | viska viis</annotation>
+		<annotation cp="🫸🏿" type="tts">paremale lükkav käsi: tume nahatoon</annotation>
 		<annotation cp="✍🏻">hele nahatoon | käsi | keha | kirjutamine | kirjutav käsi</annotation>
 		<annotation cp="✍🏻" type="tts">kirjutav käsi: hele nahatoon</annotation>
 		<annotation cp="✍🏼">käsi | keha | keskmiselt hele nahatoon | kirjutamine | kirjutav käsi</annotation>
@@ -2146,6 +2136,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👷🏾‍♀" type="tts">naisehitaja: keskmiselt tume nahatoon</annotation>
 		<annotation cp="👷🏿‍♀">ehitaja | ehitus | kiiver | naine | naisehitaja | tume nahatoon</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">naisehitaja: tume nahatoon</annotation>
+		<annotation cp="🫅🏻">hele nahatoon | krooniga inimene | kuningas | kuninglik | monarh | valitseja</annotation>
+		<annotation cp="🫅🏻" type="tts">krooniga inimene: hele nahatoon</annotation>
+		<annotation cp="🫅🏼">keskmiselt hele nahatoon | krooniga inimene | kuningas | kuninglik | monarh | valitseja</annotation>
+		<annotation cp="🫅🏼" type="tts">krooniga inimene: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🫅🏽">keskmine nahatoon | krooniga inimene | kuningas | kuninglik | monarh | valitseja</annotation>
+		<annotation cp="🫅🏽" type="tts">krooniga inimene: keskmine nahatoon</annotation>
+		<annotation cp="🫅🏾">keskmiselt tume nahatoon | krooniga inimene | kuningas | kuninglik | monarh | valitseja</annotation>
+		<annotation cp="🫅🏾" type="tts">krooniga inimene: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🫅🏿">krooniga inimene | kuningas | kuninglik | monarh | tume nahatoon | valitseja</annotation>
+		<annotation cp="🫅🏿" type="tts">krooniga inimene: tume nahatoon</annotation>
 		<annotation cp="🤴🏻">hele nahatoon | prints</annotation>
 		<annotation cp="🤴🏻" type="tts">prints: hele nahatoon</annotation>
 		<annotation cp="🤴🏼">keskmiselt hele nahatoon | prints</annotation>
@@ -2286,6 +2286,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">rase naine: keskmiselt tume nahatoon</annotation>
 		<annotation cp="🤰🏿">naine | rase | tume nahatoon</annotation>
 		<annotation cp="🤰🏿" type="tts">rase naine: tume nahatoon</annotation>
+		<annotation cp="🫃🏻">hele nahatoon | kõht | pundunud | rase | rase mees | täis</annotation>
+		<annotation cp="🫃🏻" type="tts">rase mees: hele nahatoon</annotation>
+		<annotation cp="🫃🏼">keskmiselt hele nahatoon | kõht | pundunud | rase | rase mees | täis</annotation>
+		<annotation cp="🫃🏼" type="tts">rase mees: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🫃🏽">keskmine nahatoon | kõht | pundunud | rase | rase mees | täis</annotation>
+		<annotation cp="🫃🏽" type="tts">rase mees: keskmine nahatoon</annotation>
+		<annotation cp="🫃🏾">keskmiselt tume nahatoon | kõht | pundunud | rase | rase mees | täis</annotation>
+		<annotation cp="🫃🏾" type="tts">rase mees: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🫃🏿">kõht | pundunud | rase | rase mees | täis | tume nahatoon</annotation>
+		<annotation cp="🫃🏿" type="tts">rase mees: tume nahatoon</annotation>
+		<annotation cp="🫄🏻">hele nahatoon | kõht | pundunud | rase | rase inimene | täis</annotation>
+		<annotation cp="🫄🏻" type="tts">rase inimene: hele nahatoon</annotation>
+		<annotation cp="🫄🏼">keskmiselt hele nahatoon | kõht | pundunud | rase | rase inimene | täis</annotation>
+		<annotation cp="🫄🏼" type="tts">rase inimene: keskmiselt hele nahatoon</annotation>
+		<annotation cp="🫄🏽">keskmine nahatoon | kõht | pundunud | rase | rase inimene | täis</annotation>
+		<annotation cp="🫄🏽" type="tts">rase inimene: keskmine nahatoon</annotation>
+		<annotation cp="🫄🏾">keskmiselt tume nahatoon | kõht | pundunud | rase | rase inimene | täis</annotation>
+		<annotation cp="🫄🏾" type="tts">rase inimene: keskmiselt tume nahatoon</annotation>
+		<annotation cp="🫄🏿">kõht | pundunud | rase | rase inimene | täis | tume nahatoon</annotation>
+		<annotation cp="🫄🏿" type="tts">rase inimene: tume nahatoon</annotation>
 		<annotation cp="🤱🏻">hele nahatoon | imetamine | imik | rind | rinnaga toitmine</annotation>
 		<annotation cp="🤱🏻" type="tts">rinnaga toitmine: hele nahatoon</annotation>
 		<annotation cp="🤱🏼">imetamine | imik | keskmiselt hele nahatoon | rind | rinnaga toitmine</annotation>

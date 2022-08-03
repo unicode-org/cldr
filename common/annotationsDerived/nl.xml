@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,46 +12,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="nl"/>
 	</identity>
 	<annotations>
-		<annotation cp="🫃🏻">buik | lichte huidskleur | opgeblazen | vol | zwanger | zwangere man</annotation>
-		<annotation cp="🫃🏻" type="tts">zwangere man: lichte huidskleur</annotation>
-		<annotation cp="🫃🏼">buik | lichtgetinte huidskleur | opgeblazen | vol | zwanger | zwangere man</annotation>
-		<annotation cp="🫃🏼" type="tts">zwangere man: lichtgetinte huidskleur</annotation>
-		<annotation cp="🫃🏽">buik | getinte huidskleur | opgeblazen | vol | zwanger | zwangere man</annotation>
-		<annotation cp="🫃🏽" type="tts">zwangere man: getinte huidskleur</annotation>
-		<annotation cp="🫃🏾">buik | donkergetinte huidskleur | opgeblazen | vol | zwanger | zwangere man</annotation>
-		<annotation cp="🫃🏾" type="tts">zwangere man: donkergetinte huidskleur</annotation>
-		<annotation cp="🫃🏿">buik | donkere huidskleur | opgeblazen | vol | zwanger | zwangere man</annotation>
-		<annotation cp="🫃🏿" type="tts">zwangere man: donkere huidskleur</annotation>
-		<annotation cp="🫄🏻">buik | lichte huidskleur | opgeblazen | vol | zwanger | zwanger persoon</annotation>
-		<annotation cp="🫄🏻" type="tts">zwanger persoon: lichte huidskleur</annotation>
-		<annotation cp="🫄🏼">buik | lichtgetinte huidskleur | opgeblazen | vol | zwanger | zwanger persoon</annotation>
-		<annotation cp="🫄🏼" type="tts">zwanger persoon: lichtgetinte huidskleur</annotation>
-		<annotation cp="🫄🏽">buik | getinte huidskleur | opgeblazen | vol | zwanger | zwanger persoon</annotation>
-		<annotation cp="🫄🏽" type="tts">zwanger persoon: getinte huidskleur</annotation>
-		<annotation cp="🫄🏾">buik | donkergetinte huidskleur | opgeblazen | vol | zwanger | zwanger persoon</annotation>
-		<annotation cp="🫄🏾" type="tts">zwanger persoon: donkergetinte huidskleur</annotation>
-		<annotation cp="🫄🏿">buik | donkere huidskleur | opgeblazen | vol | zwanger | zwanger persoon</annotation>
-		<annotation cp="🫄🏿" type="tts">zwanger persoon: donkere huidskleur</annotation>
-		<annotation cp="🫅🏻">edele | heerser | iemand van koninklijken bloede | lichte huidskleur | persoon met kroon | regaal</annotation>
-		<annotation cp="🫅🏻" type="tts">persoon met kroon: lichte huidskleur</annotation>
-		<annotation cp="🫅🏼">edele | heerser | iemand van koninklijken bloede | lichtgetinte huidskleur | persoon met kroon | regaal</annotation>
-		<annotation cp="🫅🏼" type="tts">persoon met kroon: lichtgetinte huidskleur</annotation>
-		<annotation cp="🫅🏽">edele | getinte huidskleur | heerser | iemand van koninklijken bloede | persoon met kroon | regaal</annotation>
-		<annotation cp="🫅🏽" type="tts">persoon met kroon: getinte huidskleur</annotation>
-		<annotation cp="🫅🏾">donkergetinte huidskleur | edele | heerser | iemand van koninklijken bloede | persoon met kroon | regaal</annotation>
-		<annotation cp="🫅🏾" type="tts">persoon met kroon: donkergetinte huidskleur</annotation>
-		<annotation cp="🫅🏿">donkere huidskleur | edele | heerser | iemand van koninklijken bloede | persoon met kroon | regaal</annotation>
-		<annotation cp="🫅🏿" type="tts">persoon met kroon: donkere huidskleur</annotation>
-		<annotation cp="🫰🏻">duur | geld | hand met wijsvinger en duim gekruist | hart | lichte huidskleur | liefde | vingerknip</annotation>
-		<annotation cp="🫰🏻" type="tts">hand met wijsvinger en duim gekruist: lichte huidskleur</annotation>
-		<annotation cp="🫰🏼">duur | geld | hand met wijsvinger en duim gekruist | hart | lichtgetinte huidskleur | liefde | vingerknip</annotation>
-		<annotation cp="🫰🏼" type="tts">hand met wijsvinger en duim gekruist: lichtgetinte huidskleur</annotation>
-		<annotation cp="🫰🏽">duur | geld | getinte huidskleur | hand met wijsvinger en duim gekruist | hart | liefde | vingerknip</annotation>
-		<annotation cp="🫰🏽" type="tts">hand met wijsvinger en duim gekruist: getinte huidskleur</annotation>
-		<annotation cp="🫰🏾">donkergetinte huidskleur | duur | geld | hand met wijsvinger en duim gekruist | hart | liefde | vingerknip</annotation>
-		<annotation cp="🫰🏾" type="tts">hand met wijsvinger en duim gekruist: donkergetinte huidskleur</annotation>
-		<annotation cp="🫰🏿">donkere huidskleur | duur | geld | hand met wijsvinger en duim gekruist | hart | liefde | vingerknip</annotation>
-		<annotation cp="🫰🏿" type="tts">hand met wijsvinger en duim gekruist: donkere huidskleur</annotation>
+		<annotation cp="👋🏻">hand | lichte huidskleur | zwaai | zwaaien | zwaaiende hand</annotation>
+		<annotation cp="👋🏻" type="tts">zwaaiende hand: lichte huidskleur</annotation>
+		<annotation cp="👋🏼">hand | lichtgetinte huidskleur | zwaai | zwaaien | zwaaiende hand</annotation>
+		<annotation cp="👋🏼" type="tts">zwaaiende hand: lichtgetinte huidskleur</annotation>
+		<annotation cp="👋🏽">getinte huidskleur | hand | zwaai | zwaaien | zwaaiende hand</annotation>
+		<annotation cp="👋🏽" type="tts">zwaaiende hand: getinte huidskleur</annotation>
+		<annotation cp="👋🏾">donkergetinte huidskleur | hand | zwaai | zwaaien | zwaaiende hand</annotation>
+		<annotation cp="👋🏾" type="tts">zwaaiende hand: donkergetinte huidskleur</annotation>
+		<annotation cp="👋🏿">donkere huidskleur | hand | zwaai | zwaaien | zwaaiende hand</annotation>
+		<annotation cp="👋🏿" type="tts">zwaaiende hand: donkere huidskleur</annotation>
+		<annotation cp="🤚🏻">achterkant van opgeheven hand | hand | handrug | lichte huidskleur | opgestoken</annotation>
+		<annotation cp="🤚🏻" type="tts">achterkant van opgeheven hand: lichte huidskleur</annotation>
+		<annotation cp="🤚🏼">achterkant van opgeheven hand | hand | handrug | lichtgetinte huidskleur | opgestoken</annotation>
+		<annotation cp="🤚🏼" type="tts">achterkant van opgeheven hand: lichtgetinte huidskleur</annotation>
+		<annotation cp="🤚🏽">achterkant van opgeheven hand | getinte huidskleur | hand | handrug | opgestoken</annotation>
+		<annotation cp="🤚🏽" type="tts">achterkant van opgeheven hand: getinte huidskleur</annotation>
+		<annotation cp="🤚🏾">achterkant van opgeheven hand | donkergetinte huidskleur | hand | handrug | opgestoken</annotation>
+		<annotation cp="🤚🏾" type="tts">achterkant van opgeheven hand: donkergetinte huidskleur</annotation>
+		<annotation cp="🤚🏿">achterkant van opgeheven hand | donkere huidskleur | hand | handrug | opgestoken</annotation>
+		<annotation cp="🤚🏿" type="tts">achterkant van opgeheven hand: donkere huidskleur</annotation>
+		<annotation cp="🖐🏻">gespreid | hand | lichte huidskleur | opgeheven hand met uitgestoken vingers | vinger</annotation>
+		<annotation cp="🖐🏻" type="tts">opgeheven hand met uitgestoken vingers: lichte huidskleur</annotation>
+		<annotation cp="🖐🏼">gespreid | hand | lichtgetinte huidskleur | opgeheven hand met uitgestoken vingers | vinger</annotation>
+		<annotation cp="🖐🏼" type="tts">opgeheven hand met uitgestoken vingers: lichtgetinte huidskleur</annotation>
+		<annotation cp="🖐🏽">gespreid | getinte huidskleur | hand | opgeheven hand met uitgestoken vingers | vinger</annotation>
+		<annotation cp="🖐🏽" type="tts">opgeheven hand met uitgestoken vingers: getinte huidskleur</annotation>
+		<annotation cp="🖐🏾">donkergetinte huidskleur | gespreid | hand | opgeheven hand met uitgestoken vingers | vinger</annotation>
+		<annotation cp="🖐🏾" type="tts">opgeheven hand met uitgestoken vingers: donkergetinte huidskleur</annotation>
+		<annotation cp="🖐🏿">donkere huidskleur | gespreid | hand | opgeheven hand met uitgestoken vingers | vinger</annotation>
+		<annotation cp="🖐🏿" type="tts">opgeheven hand met uitgestoken vingers: donkere huidskleur</annotation>
+		<annotation cp="✋🏻">hand | lichte huidskleur | opgeheven hand</annotation>
+		<annotation cp="✋🏻" type="tts">opgeheven hand: lichte huidskleur</annotation>
+		<annotation cp="✋🏼">hand | lichtgetinte huidskleur | opgeheven hand</annotation>
+		<annotation cp="✋🏼" type="tts">opgeheven hand: lichtgetinte huidskleur</annotation>
+		<annotation cp="✋🏽">getinte huidskleur | hand | opgeheven hand</annotation>
+		<annotation cp="✋🏽" type="tts">opgeheven hand: getinte huidskleur</annotation>
+		<annotation cp="✋🏾">donkergetinte huidskleur | hand | opgeheven hand</annotation>
+		<annotation cp="✋🏾" type="tts">opgeheven hand: donkergetinte huidskleur</annotation>
+		<annotation cp="✋🏿">donkere huidskleur | hand | opgeheven hand</annotation>
+		<annotation cp="✋🏿" type="tts">opgeheven hand: donkere huidskleur</annotation>
+		<annotation cp="🖖🏻">hand | lichte huidskleur | spock | vinger | Vulcaanse groet | vulcan</annotation>
+		<annotation cp="🖖🏻" type="tts">Vulcaanse groet: lichte huidskleur</annotation>
+		<annotation cp="🖖🏼">hand | lichtgetinte huidskleur | spock | vinger | Vulcaanse groet | vulcan</annotation>
+		<annotation cp="🖖🏼" type="tts">Vulcaanse groet: lichtgetinte huidskleur</annotation>
+		<annotation cp="🖖🏽">getinte huidskleur | hand | spock | vinger | Vulcaanse groet | vulcan</annotation>
+		<annotation cp="🖖🏽" type="tts">Vulcaanse groet: getinte huidskleur</annotation>
+		<annotation cp="🖖🏾">donkergetinte huidskleur | hand | spock | vinger | Vulcaanse groet | vulcan</annotation>
+		<annotation cp="🖖🏾" type="tts">Vulcaanse groet: donkergetinte huidskleur</annotation>
+		<annotation cp="🖖🏿">donkere huidskleur | hand | spock | vinger | Vulcaanse groet | vulcan</annotation>
+		<annotation cp="🖖🏿" type="tts">Vulcaanse groet: donkere huidskleur</annotation>
 		<annotation cp="🫱🏻">hand | hand naar rechts | lichte huidskleur | naar rechts | rechts</annotation>
 		<annotation cp="🫱🏻" type="tts">hand naar rechts: lichte huidskleur</annotation>
 		<annotation cp="🫱🏼">hand | hand naar rechts | lichtgetinte huidskleur | naar rechts | rechts</annotation>
@@ -132,76 +142,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫴🏾" type="tts">handpalm omhoog: donkergetinte huidskleur</annotation>
 		<annotation cp="🫴🏿">aanbieden | donkere huidskleur | handpalm omhoog | kom | vangen | wenken</annotation>
 		<annotation cp="🫴🏿" type="tts">handpalm omhoog: donkere huidskleur</annotation>
-		<annotation cp="🫵🏻">jij | lichte huidskleur | wijsvinger die naar de kijker wijst | wijzen</annotation>
-		<annotation cp="🫵🏻" type="tts">wijsvinger die naar de kijker wijst: lichte huidskleur</annotation>
-		<annotation cp="🫵🏼">jij | lichtgetinte huidskleur | wijsvinger die naar de kijker wijst | wijzen</annotation>
-		<annotation cp="🫵🏼" type="tts">wijsvinger die naar de kijker wijst: lichtgetinte huidskleur</annotation>
-		<annotation cp="🫵🏽">getinte huidskleur | jij | wijsvinger die naar de kijker wijst | wijzen</annotation>
-		<annotation cp="🫵🏽" type="tts">wijsvinger die naar de kijker wijst: getinte huidskleur</annotation>
-		<annotation cp="🫵🏾">donkergetinte huidskleur | jij | wijsvinger die naar de kijker wijst | wijzen</annotation>
-		<annotation cp="🫵🏾" type="tts">wijsvinger die naar de kijker wijst: donkergetinte huidskleur</annotation>
-		<annotation cp="🫵🏿">donkere huidskleur | jij | wijsvinger die naar de kijker wijst | wijzen</annotation>
-		<annotation cp="🫵🏿" type="tts">wijsvinger die naar de kijker wijst: donkere huidskleur</annotation>
-		<annotation cp="🫶🏻">handen in de vorm van een hart | lichte huidskleur | liefde</annotation>
-		<annotation cp="🫶🏻" type="tts">handen in de vorm van een hart: lichte huidskleur</annotation>
-		<annotation cp="🫶🏼">handen in de vorm van een hart | lichtgetinte huidskleur | liefde</annotation>
-		<annotation cp="🫶🏼" type="tts">handen in de vorm van een hart: lichtgetinte huidskleur</annotation>
-		<annotation cp="🫶🏽">getinte huidskleur | handen in de vorm van een hart | liefde</annotation>
-		<annotation cp="🫶🏽" type="tts">handen in de vorm van een hart: getinte huidskleur</annotation>
-		<annotation cp="🫶🏾">donkergetinte huidskleur | handen in de vorm van een hart | liefde</annotation>
-		<annotation cp="🫶🏾" type="tts">handen in de vorm van een hart: donkergetinte huidskleur</annotation>
-		<annotation cp="🫶🏿">donkere huidskleur | handen in de vorm van een hart | liefde</annotation>
-		<annotation cp="🫶🏿" type="tts">handen in de vorm van een hart: donkere huidskleur</annotation>
-		<annotation cp="👋🏻">hand | lichte huidskleur | zwaai | zwaaien | zwaaiende hand</annotation>
-		<annotation cp="👋🏻" type="tts">zwaaiende hand: lichte huidskleur</annotation>
-		<annotation cp="👋🏼">hand | lichtgetinte huidskleur | zwaai | zwaaien | zwaaiende hand</annotation>
-		<annotation cp="👋🏼" type="tts">zwaaiende hand: lichtgetinte huidskleur</annotation>
-		<annotation cp="👋🏽">getinte huidskleur | hand | zwaai | zwaaien | zwaaiende hand</annotation>
-		<annotation cp="👋🏽" type="tts">zwaaiende hand: getinte huidskleur</annotation>
-		<annotation cp="👋🏾">donkergetinte huidskleur | hand | zwaai | zwaaien | zwaaiende hand</annotation>
-		<annotation cp="👋🏾" type="tts">zwaaiende hand: donkergetinte huidskleur</annotation>
-		<annotation cp="👋🏿">donkere huidskleur | hand | zwaai | zwaaien | zwaaiende hand</annotation>
-		<annotation cp="👋🏿" type="tts">zwaaiende hand: donkere huidskleur</annotation>
-		<annotation cp="🤚🏻">achterkant van opgeheven hand | hand | handrug | lichte huidskleur | opgestoken</annotation>
-		<annotation cp="🤚🏻" type="tts">achterkant van opgeheven hand: lichte huidskleur</annotation>
-		<annotation cp="🤚🏼">achterkant van opgeheven hand | hand | handrug | lichtgetinte huidskleur | opgestoken</annotation>
-		<annotation cp="🤚🏼" type="tts">achterkant van opgeheven hand: lichtgetinte huidskleur</annotation>
-		<annotation cp="🤚🏽">achterkant van opgeheven hand | getinte huidskleur | hand | handrug | opgestoken</annotation>
-		<annotation cp="🤚🏽" type="tts">achterkant van opgeheven hand: getinte huidskleur</annotation>
-		<annotation cp="🤚🏾">achterkant van opgeheven hand | donkergetinte huidskleur | hand | handrug | opgestoken</annotation>
-		<annotation cp="🤚🏾" type="tts">achterkant van opgeheven hand: donkergetinte huidskleur</annotation>
-		<annotation cp="🤚🏿">achterkant van opgeheven hand | donkere huidskleur | hand | handrug | opgestoken</annotation>
-		<annotation cp="🤚🏿" type="tts">achterkant van opgeheven hand: donkere huidskleur</annotation>
-		<annotation cp="🖐🏻">gespreid | hand | lichte huidskleur | opgeheven hand met uitgestoken vingers | vinger</annotation>
-		<annotation cp="🖐🏻" type="tts">opgeheven hand met uitgestoken vingers: lichte huidskleur</annotation>
-		<annotation cp="🖐🏼">gespreid | hand | lichtgetinte huidskleur | opgeheven hand met uitgestoken vingers | vinger</annotation>
-		<annotation cp="🖐🏼" type="tts">opgeheven hand met uitgestoken vingers: lichtgetinte huidskleur</annotation>
-		<annotation cp="🖐🏽">gespreid | getinte huidskleur | hand | opgeheven hand met uitgestoken vingers | vinger</annotation>
-		<annotation cp="🖐🏽" type="tts">opgeheven hand met uitgestoken vingers: getinte huidskleur</annotation>
-		<annotation cp="🖐🏾">donkergetinte huidskleur | gespreid | hand | opgeheven hand met uitgestoken vingers | vinger</annotation>
-		<annotation cp="🖐🏾" type="tts">opgeheven hand met uitgestoken vingers: donkergetinte huidskleur</annotation>
-		<annotation cp="🖐🏿">donkere huidskleur | gespreid | hand | opgeheven hand met uitgestoken vingers | vinger</annotation>
-		<annotation cp="🖐🏿" type="tts">opgeheven hand met uitgestoken vingers: donkere huidskleur</annotation>
-		<annotation cp="✋🏻">hand | lichte huidskleur | opgeheven hand</annotation>
-		<annotation cp="✋🏻" type="tts">opgeheven hand: lichte huidskleur</annotation>
-		<annotation cp="✋🏼">hand | lichtgetinte huidskleur | opgeheven hand</annotation>
-		<annotation cp="✋🏼" type="tts">opgeheven hand: lichtgetinte huidskleur</annotation>
-		<annotation cp="✋🏽">getinte huidskleur | hand | opgeheven hand</annotation>
-		<annotation cp="✋🏽" type="tts">opgeheven hand: getinte huidskleur</annotation>
-		<annotation cp="✋🏾">donkergetinte huidskleur | hand | opgeheven hand</annotation>
-		<annotation cp="✋🏾" type="tts">opgeheven hand: donkergetinte huidskleur</annotation>
-		<annotation cp="✋🏿">donkere huidskleur | hand | opgeheven hand</annotation>
-		<annotation cp="✋🏿" type="tts">opgeheven hand: donkere huidskleur</annotation>
-		<annotation cp="🖖🏻">hand | lichte huidskleur | spock | vinger | Vulcaanse groet | vulcan</annotation>
-		<annotation cp="🖖🏻" type="tts">Vulcaanse groet: lichte huidskleur</annotation>
-		<annotation cp="🖖🏼">hand | lichtgetinte huidskleur | spock | vinger | Vulcaanse groet | vulcan</annotation>
-		<annotation cp="🖖🏼" type="tts">Vulcaanse groet: lichtgetinte huidskleur</annotation>
-		<annotation cp="🖖🏽">getinte huidskleur | hand | spock | vinger | Vulcaanse groet | vulcan</annotation>
-		<annotation cp="🖖🏽" type="tts">Vulcaanse groet: getinte huidskleur</annotation>
-		<annotation cp="🖖🏾">donkergetinte huidskleur | hand | spock | vinger | Vulcaanse groet | vulcan</annotation>
-		<annotation cp="🖖🏾" type="tts">Vulcaanse groet: donkergetinte huidskleur</annotation>
-		<annotation cp="🖖🏿">donkere huidskleur | hand | spock | vinger | Vulcaanse groet | vulcan</annotation>
-		<annotation cp="🖖🏿" type="tts">Vulcaanse groet: donkere huidskleur</annotation>
 		<annotation cp="👌🏻">hand | lichte huidskleur | OK | OK-handgebaar</annotation>
 		<annotation cp="👌🏻" type="tts">OK-handgebaar: lichte huidskleur</annotation>
 		<annotation cp="👌🏼">hand | lichtgetinte huidskleur | OK | OK-handgebaar</annotation>
@@ -252,6 +192,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤞🏾" type="tts">gekruiste vingers: donkergetinte huidskleur</annotation>
 		<annotation cp="🤞🏿">donkere huidskleur | gekruist | gekruiste vingers | geluk | hand | vinger</annotation>
 		<annotation cp="🤞🏿" type="tts">gekruiste vingers: donkere huidskleur</annotation>
+		<annotation cp="🫰🏻">duur | geld | hand met wijsvinger en duim gekruist | hart | lichte huidskleur | liefde | vingerknip</annotation>
+		<annotation cp="🫰🏻" type="tts">hand met wijsvinger en duim gekruist: lichte huidskleur</annotation>
+		<annotation cp="🫰🏼">duur | geld | hand met wijsvinger en duim gekruist | hart | lichtgetinte huidskleur | liefde | vingerknip</annotation>
+		<annotation cp="🫰🏼" type="tts">hand met wijsvinger en duim gekruist: lichtgetinte huidskleur</annotation>
+		<annotation cp="🫰🏽">duur | geld | getinte huidskleur | hand met wijsvinger en duim gekruist | hart | liefde | vingerknip</annotation>
+		<annotation cp="🫰🏽" type="tts">hand met wijsvinger en duim gekruist: getinte huidskleur</annotation>
+		<annotation cp="🫰🏾">donkergetinte huidskleur | duur | geld | hand met wijsvinger en duim gekruist | hart | liefde | vingerknip</annotation>
+		<annotation cp="🫰🏾" type="tts">hand met wijsvinger en duim gekruist: donkergetinte huidskleur</annotation>
+		<annotation cp="🫰🏿">donkere huidskleur | duur | geld | hand met wijsvinger en duim gekruist | hart | liefde | vingerknip</annotation>
+		<annotation cp="🫰🏿" type="tts">hand met wijsvinger en duim gekruist: donkere huidskleur</annotation>
 		<annotation cp="🤟🏻">hand | ik-hou-van-je-gebaar | ILY | lichte huidskleur</annotation>
 		<annotation cp="🤟🏻" type="tts">ik-hou-van-je-gebaar: lichte huidskleur</annotation>
 		<annotation cp="🤟🏼">hand | ik-hou-van-je-gebaar | ILY | lichtgetinte huidskleur</annotation>
@@ -342,6 +292,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☝🏾" type="tts">omhoog wijzende wijsvinger: donkergetinte huidskleur</annotation>
 		<annotation cp="☝🏿">donkere huidskleur | hand | omhoog | omhoog wijzende wijsvinger | vinger | wijsvinger | wijzen</annotation>
 		<annotation cp="☝🏿" type="tts">omhoog wijzende wijsvinger: donkere huidskleur</annotation>
+		<annotation cp="🫵🏻">jij | lichte huidskleur | wijsvinger die naar de kijker wijst | wijzen</annotation>
+		<annotation cp="🫵🏻" type="tts">wijsvinger die naar de kijker wijst: lichte huidskleur</annotation>
+		<annotation cp="🫵🏼">jij | lichtgetinte huidskleur | wijsvinger die naar de kijker wijst | wijzen</annotation>
+		<annotation cp="🫵🏼" type="tts">wijsvinger die naar de kijker wijst: lichtgetinte huidskleur</annotation>
+		<annotation cp="🫵🏽">getinte huidskleur | jij | wijsvinger die naar de kijker wijst | wijzen</annotation>
+		<annotation cp="🫵🏽" type="tts">wijsvinger die naar de kijker wijst: getinte huidskleur</annotation>
+		<annotation cp="🫵🏾">donkergetinte huidskleur | jij | wijsvinger die naar de kijker wijst | wijzen</annotation>
+		<annotation cp="🫵🏾" type="tts">wijsvinger die naar de kijker wijst: donkergetinte huidskleur</annotation>
+		<annotation cp="🫵🏿">donkere huidskleur | jij | wijsvinger die naar de kijker wijst | wijzen</annotation>
+		<annotation cp="🫵🏿" type="tts">wijsvinger die naar de kijker wijst: donkere huidskleur</annotation>
 		<annotation cp="👍🏻">+1 | duim | hand | lichte huidskleur | omhoog</annotation>
 		<annotation cp="👍🏻" type="tts">duim omhoog: lichte huidskleur</annotation>
 		<annotation cp="👍🏼">+1 | duim | hand | lichtgetinte huidskleur | omhoog</annotation>
@@ -422,6 +382,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">juichend omhooggestoken handen: donkergetinte huidskleur</annotation>
 		<annotation cp="🙌🏿">donkere huidskleur | gebaar | hand | hoera | juichend omhooggestoken handen | omhoog | viering</annotation>
 		<annotation cp="🙌🏿" type="tts">juichend omhooggestoken handen: donkere huidskleur</annotation>
+		<annotation cp="🫶🏻">handen in de vorm van een hart | lichte huidskleur | liefde</annotation>
+		<annotation cp="🫶🏻" type="tts">handen in de vorm van een hart: lichte huidskleur</annotation>
+		<annotation cp="🫶🏼">handen in de vorm van een hart | lichtgetinte huidskleur | liefde</annotation>
+		<annotation cp="🫶🏼" type="tts">handen in de vorm van een hart: lichtgetinte huidskleur</annotation>
+		<annotation cp="🫶🏽">getinte huidskleur | handen in de vorm van een hart | liefde</annotation>
+		<annotation cp="🫶🏽" type="tts">handen in de vorm van een hart: getinte huidskleur</annotation>
+		<annotation cp="🫶🏾">donkergetinte huidskleur | handen in de vorm van een hart | liefde</annotation>
+		<annotation cp="🫶🏾" type="tts">handen in de vorm van een hart: donkergetinte huidskleur</annotation>
+		<annotation cp="🫶🏿">donkere huidskleur | handen in de vorm van een hart | liefde</annotation>
+		<annotation cp="🫶🏿" type="tts">handen in de vorm van een hart: donkere huidskleur</annotation>
 		<annotation cp="👐🏻">hand | lichte huidskleur | open | open handen</annotation>
 		<annotation cp="👐🏻" type="tts">open handen: lichte huidskleur</annotation>
 		<annotation cp="👐🏼">hand | lichtgetinte huidskleur | open | open handen</annotation>
@@ -462,6 +432,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙏🏾" type="tts">gevouwen handen: donkergetinte huidskleur</annotation>
 		<annotation cp="🙏🏿">alsjeblieft | bedankt | bidden | donkere huidskleur | gevouwen handen | hand | vragen</annotation>
 		<annotation cp="🙏🏿" type="tts">gevouwen handen: donkere huidskleur</annotation>
+		<annotation cp="🫷🏻">duwen | hand die naar links duwt | high five | lichte huidskleur | naar links | stoppen | wachten | weigeren</annotation>
+		<annotation cp="🫷🏻" type="tts">hand die naar links duwt: lichte huidskleur</annotation>
+		<annotation cp="🫷🏼">duwen | hand die naar links duwt | high five | lichtgetinte huidskleur | naar links | stoppen | wachten | weigeren</annotation>
+		<annotation cp="🫷🏼" type="tts">hand die naar links duwt: lichtgetinte huidskleur</annotation>
+		<annotation cp="🫷🏽">duwen | getinte huidskleur | hand die naar links duwt | high five | naar links | stoppen | wachten | weigeren</annotation>
+		<annotation cp="🫷🏽" type="tts">hand die naar links duwt: getinte huidskleur</annotation>
+		<annotation cp="🫷🏾">donkergetinte huidskleur | duwen | hand die naar links duwt | high five | naar links | stoppen | wachten | weigeren</annotation>
+		<annotation cp="🫷🏾" type="tts">hand die naar links duwt: donkergetinte huidskleur</annotation>
+		<annotation cp="🫷🏿">donkere huidskleur | duwen | hand die naar links duwt | high five | naar links | stoppen | wachten | weigeren</annotation>
+		<annotation cp="🫷🏿" type="tts">hand die naar links duwt: donkere huidskleur</annotation>
+		<annotation cp="🫸🏻">duwen | hand die naar rechts duwt | high five | lichte huidskleur | naar rechts | stoppen | wachten | weigeren</annotation>
+		<annotation cp="🫸🏻" type="tts">hand die naar rechts duwt: lichte huidskleur</annotation>
+		<annotation cp="🫸🏼">duwen | hand die naar rechts duwt | high five | lichtgetinte huidskleur | naar rechts | stoppen | wachten | weigeren</annotation>
+		<annotation cp="🫸🏼" type="tts">hand die naar rechts duwt: lichtgetinte huidskleur</annotation>
+		<annotation cp="🫸🏽">duwen | getinte huidskleur | hand die naar rechts duwt | high five | naar rechts | stoppen | wachten | weigeren</annotation>
+		<annotation cp="🫸🏽" type="tts">hand die naar rechts duwt: getinte huidskleur</annotation>
+		<annotation cp="🫸🏾">donkergetinte huidskleur | duwen | hand die naar rechts duwt | high five | naar rechts | stoppen | wachten | weigeren</annotation>
+		<annotation cp="🫸🏾" type="tts">hand die naar rechts duwt: donkergetinte huidskleur</annotation>
+		<annotation cp="🫸🏿">donkere huidskleur | duwen | hand die naar rechts duwt | high five | naar rechts | stoppen | wachten | weigeren</annotation>
+		<annotation cp="🫸🏿" type="tts">hand die naar rechts duwt: donkere huidskleur</annotation>
 		<annotation cp="✍🏻">hand | lichte huidskleur | schrijven | schrijvende hand</annotation>
 		<annotation cp="✍🏻" type="tts">schrijvende hand: lichte huidskleur</annotation>
 		<annotation cp="✍🏼">hand | lichtgetinte huidskleur | schrijven | schrijvende hand</annotation>
@@ -2146,6 +2136,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👷🏾‍♀" type="tts">vrouwelijke bouwvakker: donkergetinte huidskleur</annotation>
 		<annotation cp="👷🏿‍♀">bouw | bouwvakker | donkere huidskleur | vrouw | vrouwelijke bouwvakker</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">vrouwelijke bouwvakker: donkere huidskleur</annotation>
+		<annotation cp="🫅🏻">edele | heerser | iemand van koninklijken bloede | lichte huidskleur | persoon met kroon | regaal</annotation>
+		<annotation cp="🫅🏻" type="tts">persoon met kroon: lichte huidskleur</annotation>
+		<annotation cp="🫅🏼">edele | heerser | iemand van koninklijken bloede | lichtgetinte huidskleur | persoon met kroon | regaal</annotation>
+		<annotation cp="🫅🏼" type="tts">persoon met kroon: lichtgetinte huidskleur</annotation>
+		<annotation cp="🫅🏽">edele | getinte huidskleur | heerser | iemand van koninklijken bloede | persoon met kroon | regaal</annotation>
+		<annotation cp="🫅🏽" type="tts">persoon met kroon: getinte huidskleur</annotation>
+		<annotation cp="🫅🏾">donkergetinte huidskleur | edele | heerser | iemand van koninklijken bloede | persoon met kroon | regaal</annotation>
+		<annotation cp="🫅🏾" type="tts">persoon met kroon: donkergetinte huidskleur</annotation>
+		<annotation cp="🫅🏿">donkere huidskleur | edele | heerser | iemand van koninklijken bloede | persoon met kroon | regaal</annotation>
+		<annotation cp="🫅🏿" type="tts">persoon met kroon: donkere huidskleur</annotation>
 		<annotation cp="🤴🏻">lichte huidskleur | prins</annotation>
 		<annotation cp="🤴🏻" type="tts">prins: lichte huidskleur</annotation>
 		<annotation cp="🤴🏼">lichtgetinte huidskleur | prins</annotation>
@@ -2286,6 +2286,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">zwangere vrouw: donkergetinte huidskleur</annotation>
 		<annotation cp="🤰🏿">donkere huidskleur | vrouw | zwanger | zwangere vrouw</annotation>
 		<annotation cp="🤰🏿" type="tts">zwangere vrouw: donkere huidskleur</annotation>
+		<annotation cp="🫃🏻">buik | lichte huidskleur | opgeblazen | vol | zwanger | zwangere man</annotation>
+		<annotation cp="🫃🏻" type="tts">zwangere man: lichte huidskleur</annotation>
+		<annotation cp="🫃🏼">buik | lichtgetinte huidskleur | opgeblazen | vol | zwanger | zwangere man</annotation>
+		<annotation cp="🫃🏼" type="tts">zwangere man: lichtgetinte huidskleur</annotation>
+		<annotation cp="🫃🏽">buik | getinte huidskleur | opgeblazen | vol | zwanger | zwangere man</annotation>
+		<annotation cp="🫃🏽" type="tts">zwangere man: getinte huidskleur</annotation>
+		<annotation cp="🫃🏾">buik | donkergetinte huidskleur | opgeblazen | vol | zwanger | zwangere man</annotation>
+		<annotation cp="🫃🏾" type="tts">zwangere man: donkergetinte huidskleur</annotation>
+		<annotation cp="🫃🏿">buik | donkere huidskleur | opgeblazen | vol | zwanger | zwangere man</annotation>
+		<annotation cp="🫃🏿" type="tts">zwangere man: donkere huidskleur</annotation>
+		<annotation cp="🫄🏻">buik | lichte huidskleur | opgeblazen | vol | zwanger | zwanger persoon</annotation>
+		<annotation cp="🫄🏻" type="tts">zwanger persoon: lichte huidskleur</annotation>
+		<annotation cp="🫄🏼">buik | lichtgetinte huidskleur | opgeblazen | vol | zwanger | zwanger persoon</annotation>
+		<annotation cp="🫄🏼" type="tts">zwanger persoon: lichtgetinte huidskleur</annotation>
+		<annotation cp="🫄🏽">buik | getinte huidskleur | opgeblazen | vol | zwanger | zwanger persoon</annotation>
+		<annotation cp="🫄🏽" type="tts">zwanger persoon: getinte huidskleur</annotation>
+		<annotation cp="🫄🏾">buik | donkergetinte huidskleur | opgeblazen | vol | zwanger | zwanger persoon</annotation>
+		<annotation cp="🫄🏾" type="tts">zwanger persoon: donkergetinte huidskleur</annotation>
+		<annotation cp="🫄🏿">buik | donkere huidskleur | opgeblazen | vol | zwanger | zwanger persoon</annotation>
+		<annotation cp="🫄🏿" type="tts">zwanger persoon: donkere huidskleur</annotation>
 		<annotation cp="🤱🏻">baby | borst | borstvoeding | de borst geven | lichte huidskleur</annotation>
 		<annotation cp="🤱🏻" type="tts">borstvoeding: lichte huidskleur</annotation>
 		<annotation cp="🤱🏼">baby | borst | borstvoeding | de borst geven | lichtgetinte huidskleur</annotation>

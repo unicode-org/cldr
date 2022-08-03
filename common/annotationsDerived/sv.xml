@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,46 +12,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="sv"/>
 	</identity>
 	<annotations>
-		<annotation cp="🫃🏻">gravid | gravid man | ljus hy | stor mage | uppsvälld</annotation>
-		<annotation cp="🫃🏻" type="tts">gravid man: ljus hy</annotation>
-		<annotation cp="🫃🏼">gravid | gravid man | mellanljus hy | stor mage | uppsvälld</annotation>
-		<annotation cp="🫃🏼" type="tts">gravid man: mellanljus hy</annotation>
-		<annotation cp="🫃🏽">gravid | gravid man | mellanfärgad hy | stor mage | uppsvälld</annotation>
-		<annotation cp="🫃🏽" type="tts">gravid man: mellanfärgad hy</annotation>
-		<annotation cp="🫃🏾">gravid | gravid man | mellanmörk hy | stor mage | uppsvälld</annotation>
-		<annotation cp="🫃🏾" type="tts">gravid man: mellanmörk hy</annotation>
-		<annotation cp="🫃🏿">gravid | gravid man | mörk hy | stor mage | uppsvälld</annotation>
-		<annotation cp="🫃🏿" type="tts">gravid man: mörk hy</annotation>
-		<annotation cp="🫄🏻">gravid | gravid person | ljus hy | stor mage | uppsvälld</annotation>
-		<annotation cp="🫄🏻" type="tts">gravid person: ljus hy</annotation>
-		<annotation cp="🫄🏼">gravid | gravid person | mellanljus hy | stor mage | uppsvälld</annotation>
-		<annotation cp="🫄🏼" type="tts">gravid person: mellanljus hy</annotation>
-		<annotation cp="🫄🏽">gravid | gravid person | mellanfärgad hy | stor mage | uppsvälld</annotation>
-		<annotation cp="🫄🏽" type="tts">gravid person: mellanfärgad hy</annotation>
-		<annotation cp="🫄🏾">gravid | gravid person | mellanmörk hy | stor mage | uppsvälld</annotation>
-		<annotation cp="🫄🏾" type="tts">gravid person: mellanmörk hy</annotation>
-		<annotation cp="🫄🏿">gravid | gravid person | mörk hy | stor mage | uppsvälld</annotation>
-		<annotation cp="🫄🏿" type="tts">gravid person: mörk hy</annotation>
-		<annotation cp="🫅🏻">ädling | kung | kunglighet | ljus hy | monark | person med krona</annotation>
-		<annotation cp="🫅🏻" type="tts">person med krona: ljus hy</annotation>
-		<annotation cp="🫅🏼">ädling | kung | kunglighet | mellanljus hy | monark | person med krona</annotation>
-		<annotation cp="🫅🏼" type="tts">person med krona: mellanljus hy</annotation>
-		<annotation cp="🫅🏽">ädling | kung | kunglighet | mellanfärgad hy | monark | person med krona</annotation>
-		<annotation cp="🫅🏽" type="tts">person med krona: mellanfärgad hy</annotation>
-		<annotation cp="🫅🏾">ädling | kung | kunglighet | mellanmörk hy | monark | person med krona</annotation>
-		<annotation cp="🫅🏾" type="tts">person med krona: mellanmörk hy</annotation>
-		<annotation cp="🫅🏿">ädling | kung | kunglighet | monark | mörk hy | person med krona</annotation>
-		<annotation cp="🫅🏿" type="tts">person med krona: mörk hy</annotation>
-		<annotation cp="🫰🏻">dyrt | hand med tummen och pekfingret korsade | knäppa med fingrarna | ljus hy | pengaprassel | pengar | snäppa med fingrarna</annotation>
-		<annotation cp="🫰🏻" type="tts">hand med tummen och pekfingret korsade: ljus hy</annotation>
-		<annotation cp="🫰🏼">dyrt | hand med tummen och pekfingret korsade | knäppa med fingrarna | mellanljus hy | pengaprassel | pengar | snäppa med fingrarna</annotation>
-		<annotation cp="🫰🏼" type="tts">hand med tummen och pekfingret korsade: mellanljus hy</annotation>
-		<annotation cp="🫰🏽">dyrt | hand med tummen och pekfingret korsade | knäppa med fingrarna | mellanfärgad hy | pengaprassel | pengar | snäppa med fingrarna</annotation>
-		<annotation cp="🫰🏽" type="tts">hand med tummen och pekfingret korsade: mellanfärgad hy</annotation>
-		<annotation cp="🫰🏾">dyrt | hand med tummen och pekfingret korsade | knäppa med fingrarna | mellanmörk hy | pengaprassel | pengar | snäppa med fingrarna</annotation>
-		<annotation cp="🫰🏾" type="tts">hand med tummen och pekfingret korsade: mellanmörk hy</annotation>
-		<annotation cp="🫰🏿">dyrt | hand med tummen och pekfingret korsade | knäppa med fingrarna | mörk hy | pengaprassel | pengar | snäppa med fingrarna</annotation>
-		<annotation cp="🫰🏿" type="tts">hand med tummen och pekfingret korsade: mörk hy</annotation>
+		<annotation cp="👋🏻">hand | ljus hy | vinka | vinkande hand</annotation>
+		<annotation cp="👋🏻" type="tts">vinkande hand: ljus hy</annotation>
+		<annotation cp="👋🏼">hand | mellanljus hy | vinka | vinkande hand</annotation>
+		<annotation cp="👋🏼" type="tts">vinkande hand: mellanljus hy</annotation>
+		<annotation cp="👋🏽">hand | mellanfärgad hy | vinka | vinkande hand</annotation>
+		<annotation cp="👋🏽" type="tts">vinkande hand: mellanfärgad hy</annotation>
+		<annotation cp="👋🏾">hand | mellanmörk hy | vinka | vinkande hand</annotation>
+		<annotation cp="👋🏾" type="tts">vinkande hand: mellanmörk hy</annotation>
+		<annotation cp="👋🏿">hand | mörk hy | vinka | vinkande hand</annotation>
+		<annotation cp="👋🏿" type="tts">vinkande hand: mörk hy</annotation>
+		<annotation cp="🤚🏻">hand | höjd handrygg | ljus hy | lyft</annotation>
+		<annotation cp="🤚🏻" type="tts">höjd handrygg: ljus hy</annotation>
+		<annotation cp="🤚🏼">hand | höjd handrygg | lyft | mellanljus hy</annotation>
+		<annotation cp="🤚🏼" type="tts">höjd handrygg: mellanljus hy</annotation>
+		<annotation cp="🤚🏽">hand | höjd handrygg | lyft | mellanfärgad hy</annotation>
+		<annotation cp="🤚🏽" type="tts">höjd handrygg: mellanfärgad hy</annotation>
+		<annotation cp="🤚🏾">hand | höjd handrygg | lyft | mellanmörk hy</annotation>
+		<annotation cp="🤚🏾" type="tts">höjd handrygg: mellanmörk hy</annotation>
+		<annotation cp="🤚🏿">hand | höjd handrygg | lyft | mörk hy</annotation>
+		<annotation cp="🤚🏿" type="tts">höjd handrygg: mörk hy</annotation>
+		<annotation cp="🖐🏻">finger | hand | hand med utspretade fingrar | ljus hy</annotation>
+		<annotation cp="🖐🏻" type="tts">hand med utspretade fingrar: ljus hy</annotation>
+		<annotation cp="🖐🏼">finger | hand | hand med utspretade fingrar | mellanljus hy</annotation>
+		<annotation cp="🖐🏼" type="tts">hand med utspretade fingrar: mellanljus hy</annotation>
+		<annotation cp="🖐🏽">finger | hand | hand med utspretade fingrar | mellanfärgad hy</annotation>
+		<annotation cp="🖐🏽" type="tts">hand med utspretade fingrar: mellanfärgad hy</annotation>
+		<annotation cp="🖐🏾">finger | hand | hand med utspretade fingrar | mellanmörk hy</annotation>
+		<annotation cp="🖐🏾" type="tts">hand med utspretade fingrar: mellanmörk hy</annotation>
+		<annotation cp="🖐🏿">finger | hand | hand med utspretade fingrar | mörk hy</annotation>
+		<annotation cp="🖐🏿" type="tts">hand med utspretade fingrar: mörk hy</annotation>
+		<annotation cp="✋🏻">hand | hand i luften | handflata | ljus hy | uppräckt</annotation>
+		<annotation cp="✋🏻" type="tts">hand i luften: ljus hy</annotation>
+		<annotation cp="✋🏼">hand | hand i luften | handflata | mellanljus hy | uppräckt</annotation>
+		<annotation cp="✋🏼" type="tts">hand i luften: mellanljus hy</annotation>
+		<annotation cp="✋🏽">hand | hand i luften | handflata | mellanfärgad hy | uppräckt</annotation>
+		<annotation cp="✋🏽" type="tts">hand i luften: mellanfärgad hy</annotation>
+		<annotation cp="✋🏾">hand | hand i luften | handflata | mellanmörk hy | uppräckt</annotation>
+		<annotation cp="✋🏾" type="tts">hand i luften: mellanmörk hy</annotation>
+		<annotation cp="✋🏿">hand | hand i luften | handflata | mörk hy | uppräckt</annotation>
+		<annotation cp="✋🏿" type="tts">hand i luften: mörk hy</annotation>
+		<annotation cp="🖖🏻">hand | ljus hy | spock | Star Trek | vulcan | vulcan-hälsning</annotation>
+		<annotation cp="🖖🏻" type="tts">vulcan-hälsning: ljus hy</annotation>
+		<annotation cp="🖖🏼">hand | mellanljus hy | spock | Star Trek | vulcan | vulcan-hälsning</annotation>
+		<annotation cp="🖖🏼" type="tts">vulcan-hälsning: mellanljus hy</annotation>
+		<annotation cp="🖖🏽">hand | mellanfärgad hy | spock | Star Trek | vulcan | vulcan-hälsning</annotation>
+		<annotation cp="🖖🏽" type="tts">vulcan-hälsning: mellanfärgad hy</annotation>
+		<annotation cp="🖖🏾">hand | mellanmörk hy | spock | Star Trek | vulcan | vulcan-hälsning</annotation>
+		<annotation cp="🖖🏾" type="tts">vulcan-hälsning: mellanmörk hy</annotation>
+		<annotation cp="🖖🏿">hand | mörk hy | spock | Star Trek | vulcan | vulcan-hälsning</annotation>
+		<annotation cp="🖖🏿" type="tts">vulcan-hälsning: mörk hy</annotation>
 		<annotation cp="🫱🏻">hand | hand som pekar till höger | höger | ljus hy | till höger</annotation>
 		<annotation cp="🫱🏻" type="tts">hand som pekar till höger: ljus hy</annotation>
 		<annotation cp="🫱🏼">hand | hand som pekar till höger | höger | mellanljus hy | till höger</annotation>
@@ -132,76 +142,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫴🏾" type="tts">handflatan uppåt: mellanmörk hy</annotation>
 		<annotation cp="🫴🏿">bjuda in | erbjuda | fånga | handflatan uppåt | kalla på | mörk hy</annotation>
 		<annotation cp="🫴🏿" type="tts">handflatan uppåt: mörk hy</annotation>
-		<annotation cp="🫵🏻">finger som pekar på mig | ljus hy | mig | peka</annotation>
-		<annotation cp="🫵🏻" type="tts">finger som pekar på mig: ljus hy</annotation>
-		<annotation cp="🫵🏼">finger som pekar på mig | mellanljus hy | mig | peka</annotation>
-		<annotation cp="🫵🏼" type="tts">finger som pekar på mig: mellanljus hy</annotation>
-		<annotation cp="🫵🏽">finger som pekar på mig | mellanfärgad hy | mig | peka</annotation>
-		<annotation cp="🫵🏽" type="tts">finger som pekar på mig: mellanfärgad hy</annotation>
-		<annotation cp="🫵🏾">finger som pekar på mig | mellanmörk hy | mig | peka</annotation>
-		<annotation cp="🫵🏾" type="tts">finger som pekar på mig: mellanmörk hy</annotation>
-		<annotation cp="🫵🏿">finger som pekar på mig | mig | mörk hy | peka</annotation>
-		<annotation cp="🫵🏿" type="tts">finger som pekar på mig: mörk hy</annotation>
-		<annotation cp="🫶🏻">handhjärta | kärlek | ljus hy</annotation>
-		<annotation cp="🫶🏻" type="tts">handhjärta: ljus hy</annotation>
-		<annotation cp="🫶🏼">handhjärta | kärlek | mellanljus hy</annotation>
-		<annotation cp="🫶🏼" type="tts">handhjärta: mellanljus hy</annotation>
-		<annotation cp="🫶🏽">handhjärta | kärlek | mellanfärgad hy</annotation>
-		<annotation cp="🫶🏽" type="tts">handhjärta: mellanfärgad hy</annotation>
-		<annotation cp="🫶🏾">handhjärta | kärlek | mellanmörk hy</annotation>
-		<annotation cp="🫶🏾" type="tts">handhjärta: mellanmörk hy</annotation>
-		<annotation cp="🫶🏿">handhjärta | kärlek | mörk hy</annotation>
-		<annotation cp="🫶🏿" type="tts">handhjärta: mörk hy</annotation>
-		<annotation cp="👋🏻">hand | ljus hy | vinka | vinkande hand</annotation>
-		<annotation cp="👋🏻" type="tts">vinkande hand: ljus hy</annotation>
-		<annotation cp="👋🏼">hand | mellanljus hy | vinka | vinkande hand</annotation>
-		<annotation cp="👋🏼" type="tts">vinkande hand: mellanljus hy</annotation>
-		<annotation cp="👋🏽">hand | mellanfärgad hy | vinka | vinkande hand</annotation>
-		<annotation cp="👋🏽" type="tts">vinkande hand: mellanfärgad hy</annotation>
-		<annotation cp="👋🏾">hand | mellanmörk hy | vinka | vinkande hand</annotation>
-		<annotation cp="👋🏾" type="tts">vinkande hand: mellanmörk hy</annotation>
-		<annotation cp="👋🏿">hand | mörk hy | vinka | vinkande hand</annotation>
-		<annotation cp="👋🏿" type="tts">vinkande hand: mörk hy</annotation>
-		<annotation cp="🤚🏻">hand | höjd handrygg | ljus hy | lyft</annotation>
-		<annotation cp="🤚🏻" type="tts">höjd handrygg: ljus hy</annotation>
-		<annotation cp="🤚🏼">hand | höjd handrygg | lyft | mellanljus hy</annotation>
-		<annotation cp="🤚🏼" type="tts">höjd handrygg: mellanljus hy</annotation>
-		<annotation cp="🤚🏽">hand | höjd handrygg | lyft | mellanfärgad hy</annotation>
-		<annotation cp="🤚🏽" type="tts">höjd handrygg: mellanfärgad hy</annotation>
-		<annotation cp="🤚🏾">hand | höjd handrygg | lyft | mellanmörk hy</annotation>
-		<annotation cp="🤚🏾" type="tts">höjd handrygg: mellanmörk hy</annotation>
-		<annotation cp="🤚🏿">hand | höjd handrygg | lyft | mörk hy</annotation>
-		<annotation cp="🤚🏿" type="tts">höjd handrygg: mörk hy</annotation>
-		<annotation cp="🖐🏻">finger | hand | hand med utspretade fingrar | ljus hy</annotation>
-		<annotation cp="🖐🏻" type="tts">hand med utspretade fingrar: ljus hy</annotation>
-		<annotation cp="🖐🏼">finger | hand | hand med utspretade fingrar | mellanljus hy</annotation>
-		<annotation cp="🖐🏼" type="tts">hand med utspretade fingrar: mellanljus hy</annotation>
-		<annotation cp="🖐🏽">finger | hand | hand med utspretade fingrar | mellanfärgad hy</annotation>
-		<annotation cp="🖐🏽" type="tts">hand med utspretade fingrar: mellanfärgad hy</annotation>
-		<annotation cp="🖐🏾">finger | hand | hand med utspretade fingrar | mellanmörk hy</annotation>
-		<annotation cp="🖐🏾" type="tts">hand med utspretade fingrar: mellanmörk hy</annotation>
-		<annotation cp="🖐🏿">finger | hand | hand med utspretade fingrar | mörk hy</annotation>
-		<annotation cp="🖐🏿" type="tts">hand med utspretade fingrar: mörk hy</annotation>
-		<annotation cp="✋🏻">hand | hand i luften | handflata | ljus hy | uppräckt</annotation>
-		<annotation cp="✋🏻" type="tts">hand i luften: ljus hy</annotation>
-		<annotation cp="✋🏼">hand | hand i luften | handflata | mellanljus hy | uppräckt</annotation>
-		<annotation cp="✋🏼" type="tts">hand i luften: mellanljus hy</annotation>
-		<annotation cp="✋🏽">hand | hand i luften | handflata | mellanfärgad hy | uppräckt</annotation>
-		<annotation cp="✋🏽" type="tts">hand i luften: mellanfärgad hy</annotation>
-		<annotation cp="✋🏾">hand | hand i luften | handflata | mellanmörk hy | uppräckt</annotation>
-		<annotation cp="✋🏾" type="tts">hand i luften: mellanmörk hy</annotation>
-		<annotation cp="✋🏿">hand | hand i luften | handflata | mörk hy | uppräckt</annotation>
-		<annotation cp="✋🏿" type="tts">hand i luften: mörk hy</annotation>
-		<annotation cp="🖖🏻">hand | ljus hy | spock | Star Trek | vulcan | vulcan-hälsning</annotation>
-		<annotation cp="🖖🏻" type="tts">vulcan-hälsning: ljus hy</annotation>
-		<annotation cp="🖖🏼">hand | mellanljus hy | spock | Star Trek | vulcan | vulcan-hälsning</annotation>
-		<annotation cp="🖖🏼" type="tts">vulcan-hälsning: mellanljus hy</annotation>
-		<annotation cp="🖖🏽">hand | mellanfärgad hy | spock | Star Trek | vulcan | vulcan-hälsning</annotation>
-		<annotation cp="🖖🏽" type="tts">vulcan-hälsning: mellanfärgad hy</annotation>
-		<annotation cp="🖖🏾">hand | mellanmörk hy | spock | Star Trek | vulcan | vulcan-hälsning</annotation>
-		<annotation cp="🖖🏾" type="tts">vulcan-hälsning: mellanmörk hy</annotation>
-		<annotation cp="🖖🏿">hand | mörk hy | spock | Star Trek | vulcan | vulcan-hälsning</annotation>
-		<annotation cp="🖖🏿" type="tts">vulcan-hälsning: mörk hy</annotation>
 		<annotation cp="👌🏻">hand | ljus hy | OK | OK-tecken | tecken</annotation>
 		<annotation cp="👌🏻" type="tts">OK-tecken: ljus hy</annotation>
 		<annotation cp="👌🏼">hand | mellanljus hy | OK | OK-tecken | tecken</annotation>
@@ -252,6 +192,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤞🏾" type="tts">korsade fingrar: mellanmörk hy</annotation>
 		<annotation cp="🤞🏿">finger | hand | korsa | korsade fingrar | lycka | mörk hy</annotation>
 		<annotation cp="🤞🏿" type="tts">korsade fingrar: mörk hy</annotation>
+		<annotation cp="🫰🏻">dyrt | hand med tummen och pekfingret korsade | knäppa med fingrarna | ljus hy | pengaprassel | pengar | snäppa med fingrarna</annotation>
+		<annotation cp="🫰🏻" type="tts">hand med tummen och pekfingret korsade: ljus hy</annotation>
+		<annotation cp="🫰🏼">dyrt | hand med tummen och pekfingret korsade | knäppa med fingrarna | mellanljus hy | pengaprassel | pengar | snäppa med fingrarna</annotation>
+		<annotation cp="🫰🏼" type="tts">hand med tummen och pekfingret korsade: mellanljus hy</annotation>
+		<annotation cp="🫰🏽">dyrt | hand med tummen och pekfingret korsade | knäppa med fingrarna | mellanfärgad hy | pengaprassel | pengar | snäppa med fingrarna</annotation>
+		<annotation cp="🫰🏽" type="tts">hand med tummen och pekfingret korsade: mellanfärgad hy</annotation>
+		<annotation cp="🫰🏾">dyrt | hand med tummen och pekfingret korsade | knäppa med fingrarna | mellanmörk hy | pengaprassel | pengar | snäppa med fingrarna</annotation>
+		<annotation cp="🫰🏾" type="tts">hand med tummen och pekfingret korsade: mellanmörk hy</annotation>
+		<annotation cp="🫰🏿">dyrt | hand med tummen och pekfingret korsade | knäppa med fingrarna | mörk hy | pengaprassel | pengar | snäppa med fingrarna</annotation>
+		<annotation cp="🫰🏿" type="tts">hand med tummen och pekfingret korsade: mörk hy</annotation>
 		<annotation cp="🤟🏻">hand | jag älskar dig-gest | ljus hy</annotation>
 		<annotation cp="🤟🏻" type="tts">jag älskar dig-gest: ljus hy</annotation>
 		<annotation cp="🤟🏼">hand | jag älskar dig-gest | mellanljus hy</annotation>
@@ -342,6 +292,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☝🏾" type="tts">finger upp: mellanmörk hy</annotation>
 		<annotation cp="☝🏿">finger | finger upp | förmaning | mörk hy | peka</annotation>
 		<annotation cp="☝🏿" type="tts">finger upp: mörk hy</annotation>
+		<annotation cp="🫵🏻">du | finger som pekar mot tittaren | finger som pekar på mig | ljus hy | mig | peka</annotation>
+		<annotation cp="🫵🏻" type="tts">finger som pekar på mig: ljus hy</annotation>
+		<annotation cp="🫵🏼">du | finger som pekar mot tittaren | finger som pekar på mig | mellanljus hy | mig | peka</annotation>
+		<annotation cp="🫵🏼" type="tts">finger som pekar på mig: mellanljus hy</annotation>
+		<annotation cp="🫵🏽">du | finger som pekar mot tittaren | finger som pekar på mig | mellanfärgad hy | mig | peka</annotation>
+		<annotation cp="🫵🏽" type="tts">finger som pekar på mig: mellanfärgad hy</annotation>
+		<annotation cp="🫵🏾">du | finger som pekar mot tittaren | finger som pekar på mig | mellanmörk hy | mig | peka</annotation>
+		<annotation cp="🫵🏾" type="tts">finger som pekar på mig: mellanmörk hy</annotation>
+		<annotation cp="🫵🏿">du | finger som pekar mot tittaren | finger som pekar på mig | mig | mörk hy | peka</annotation>
+		<annotation cp="🫵🏿" type="tts">finger som pekar på mig: mörk hy</annotation>
 		<annotation cp="👍🏻">gillar | ljus hy | tumme | tummen upp | upp</annotation>
 		<annotation cp="👍🏻" type="tts">tummen upp: ljus hy</annotation>
 		<annotation cp="👍🏼">gillar | mellanljus hy | tumme | tummen upp | upp</annotation>
@@ -422,6 +382,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">båda händerna i luften: mellanmörk hy</annotation>
 		<annotation cp="🙌🏿">båda händerna i luften | hurra | mörk hy | räcker upp händerna</annotation>
 		<annotation cp="🙌🏿" type="tts">båda händerna i luften: mörk hy</annotation>
+		<annotation cp="🫶🏻">handhjärta | kärlek | ljus hy</annotation>
+		<annotation cp="🫶🏻" type="tts">handhjärta: ljus hy</annotation>
+		<annotation cp="🫶🏼">handhjärta | kärlek | mellanljus hy</annotation>
+		<annotation cp="🫶🏼" type="tts">handhjärta: mellanljus hy</annotation>
+		<annotation cp="🫶🏽">handhjärta | kärlek | mellanfärgad hy</annotation>
+		<annotation cp="🫶🏽" type="tts">handhjärta: mellanfärgad hy</annotation>
+		<annotation cp="🫶🏾">handhjärta | kärlek | mellanmörk hy</annotation>
+		<annotation cp="🫶🏾" type="tts">handhjärta: mellanmörk hy</annotation>
+		<annotation cp="🫶🏿">handhjärta | kärlek | mörk hy</annotation>
+		<annotation cp="🫶🏿" type="tts">handhjärta: mörk hy</annotation>
 		<annotation cp="👐🏻">händer | ljus hy | öppna</annotation>
 		<annotation cp="👐🏻" type="tts">öppna händer: ljus hy</annotation>
 		<annotation cp="👐🏼">händer | mellanljus hy | öppna</annotation>
@@ -462,6 +432,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙏🏾" type="tts">beende händer: mellanmörk hy</annotation>
 		<annotation cp="🙏🏿">be | beende händer | ber | händer | knäppta händer | mörk hy</annotation>
 		<annotation cp="🙏🏿" type="tts">beende händer: mörk hy</annotation>
+		<annotation cp="🫷🏻">hand som knuffar åt vänster | high five | ljus hy | stopp | till vänster | trycka | vänta</annotation>
+		<annotation cp="🫷🏻" type="tts">hand som knuffar åt vänster: ljus hy</annotation>
+		<annotation cp="🫷🏼">hand som knuffar åt vänster | high five | mellanljus hy | stopp | till vänster | trycka | vänta</annotation>
+		<annotation cp="🫷🏼" type="tts">hand som knuffar åt vänster: mellanljus hy</annotation>
+		<annotation cp="🫷🏽">hand som knuffar åt vänster | high five | mellanfärgad hy | stopp | till vänster | trycka | vänta</annotation>
+		<annotation cp="🫷🏽" type="tts">hand som knuffar åt vänster: mellanfärgad hy</annotation>
+		<annotation cp="🫷🏾">hand som knuffar åt vänster | high five | mellanmörk hy | stopp | till vänster | trycka | vänta</annotation>
+		<annotation cp="🫷🏾" type="tts">hand som knuffar åt vänster: mellanmörk hy</annotation>
+		<annotation cp="🫷🏿">hand som knuffar åt vänster | high five | mörk hy | stopp | till vänster | trycka | vänta</annotation>
+		<annotation cp="🫷🏿" type="tts">hand som knuffar åt vänster: mörk hy</annotation>
+		<annotation cp="🫸🏻">hand som knuffar åt höger | high five | ljus hy | stopp | till höger | trycka | vänta</annotation>
+		<annotation cp="🫸🏻" type="tts">hand som knuffar åt höger: ljus hy</annotation>
+		<annotation cp="🫸🏼">hand som knuffar åt höger | high five | mellanljus hy | stopp | till höger | trycka | vänta</annotation>
+		<annotation cp="🫸🏼" type="tts">hand som knuffar åt höger: mellanljus hy</annotation>
+		<annotation cp="🫸🏽">hand som knuffar åt höger | high five | mellanfärgad hy | stopp | till höger | trycka | vänta</annotation>
+		<annotation cp="🫸🏽" type="tts">hand som knuffar åt höger: mellanfärgad hy</annotation>
+		<annotation cp="🫸🏾">hand som knuffar åt höger | high five | mellanmörk hy | stopp | till höger | trycka | vänta</annotation>
+		<annotation cp="🫸🏾" type="tts">hand som knuffar åt höger: mellanmörk hy</annotation>
+		<annotation cp="🫸🏿">hand som knuffar åt höger | high five | mörk hy | stopp | till höger | trycka | vänta</annotation>
+		<annotation cp="🫸🏿" type="tts">hand som knuffar åt höger: mörk hy</annotation>
 		<annotation cp="✍🏻">hand | hand som skriver | ljus hy | skriver</annotation>
 		<annotation cp="✍🏻" type="tts">hand som skriver: ljus hy</annotation>
 		<annotation cp="✍🏼">hand | hand som skriver | mellanljus hy | skriver</annotation>
@@ -2146,6 +2136,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👷🏾‍♀" type="tts">kvinnlig byggarbetare: mellanmörk hy</annotation>
 		<annotation cp="👷🏿‍♀">arbetare | bygge | kvinna | kvinnlig byggarbetare | mörk hy</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">kvinnlig byggarbetare: mörk hy</annotation>
+		<annotation cp="🫅🏻">ädling | kung | kunglighet | ljus hy | monark | person med krona</annotation>
+		<annotation cp="🫅🏻" type="tts">person med krona: ljus hy</annotation>
+		<annotation cp="🫅🏼">ädling | kung | kunglighet | mellanljus hy | monark | person med krona</annotation>
+		<annotation cp="🫅🏼" type="tts">person med krona: mellanljus hy</annotation>
+		<annotation cp="🫅🏽">ädling | kung | kunglighet | mellanfärgad hy | monark | person med krona</annotation>
+		<annotation cp="🫅🏽" type="tts">person med krona: mellanfärgad hy</annotation>
+		<annotation cp="🫅🏾">ädling | kung | kunglighet | mellanmörk hy | monark | person med krona</annotation>
+		<annotation cp="🫅🏾" type="tts">person med krona: mellanmörk hy</annotation>
+		<annotation cp="🫅🏿">ädling | kung | kunglighet | monark | mörk hy | person med krona</annotation>
+		<annotation cp="🫅🏿" type="tts">person med krona: mörk hy</annotation>
 		<annotation cp="🤴🏻">ljus hy | prins</annotation>
 		<annotation cp="🤴🏻" type="tts">prins: ljus hy</annotation>
 		<annotation cp="🤴🏼">mellanljus hy | prins</annotation>
@@ -2286,6 +2286,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">gravid kvinna: mellanmörk hy</annotation>
 		<annotation cp="🤰🏿">gravid | kvinna | mörk hy</annotation>
 		<annotation cp="🤰🏿" type="tts">gravid kvinna: mörk hy</annotation>
+		<annotation cp="🫃🏻">gravid | gravid man | ljus hy | stor mage | uppsvälld</annotation>
+		<annotation cp="🫃🏻" type="tts">gravid man: ljus hy</annotation>
+		<annotation cp="🫃🏼">gravid | gravid man | mellanljus hy | stor mage | uppsvälld</annotation>
+		<annotation cp="🫃🏼" type="tts">gravid man: mellanljus hy</annotation>
+		<annotation cp="🫃🏽">gravid | gravid man | mellanfärgad hy | stor mage | uppsvälld</annotation>
+		<annotation cp="🫃🏽" type="tts">gravid man: mellanfärgad hy</annotation>
+		<annotation cp="🫃🏾">gravid | gravid man | mellanmörk hy | stor mage | uppsvälld</annotation>
+		<annotation cp="🫃🏾" type="tts">gravid man: mellanmörk hy</annotation>
+		<annotation cp="🫃🏿">gravid | gravid man | mörk hy | stor mage | uppsvälld</annotation>
+		<annotation cp="🫃🏿" type="tts">gravid man: mörk hy</annotation>
+		<annotation cp="🫄🏻">gravid | gravid person | ljus hy | stor mage | uppsvälld</annotation>
+		<annotation cp="🫄🏻" type="tts">gravid person: ljus hy</annotation>
+		<annotation cp="🫄🏼">gravid | gravid person | mellanljus hy | stor mage | uppsvälld</annotation>
+		<annotation cp="🫄🏼" type="tts">gravid person: mellanljus hy</annotation>
+		<annotation cp="🫄🏽">gravid | gravid person | mellanfärgad hy | stor mage | uppsvälld</annotation>
+		<annotation cp="🫄🏽" type="tts">gravid person: mellanfärgad hy</annotation>
+		<annotation cp="🫄🏾">gravid | gravid person | mellanmörk hy | stor mage | uppsvälld</annotation>
+		<annotation cp="🫄🏾" type="tts">gravid person: mellanmörk hy</annotation>
+		<annotation cp="🫄🏿">gravid | gravid person | mörk hy | stor mage | uppsvälld</annotation>
+		<annotation cp="🫄🏿" type="tts">gravid person: mörk hy</annotation>
 		<annotation cp="🤱🏻">amma | amning | baby | bröst | ljus hy</annotation>
 		<annotation cp="🤱🏻" type="tts">amning: ljus hy</annotation>
 		<annotation cp="🤱🏼">amma | amning | baby | bröst | mellanljus hy</annotation>
@@ -4091,7 +4111,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇸🇾">flagga</annotation>
 		<annotation cp="🇸🇾" type="tts">flagga: Syrien</annotation>
 		<annotation cp="🇸🇿">flagga</annotation>
-		<annotation cp="🇸🇿" type="tts">flagga: Swaziland</annotation>
+		<annotation cp="🇸🇿" type="tts">flagga: Eswatini</annotation>
 		<annotation cp="🇹🇦">flagga</annotation>
 		<annotation cp="🇹🇦" type="tts">flagga: Tristan da Cunha</annotation>
 		<annotation cp="🇹🇨">flagga</annotation>

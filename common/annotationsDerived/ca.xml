@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,46 +12,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="ca"/>
 	</identity>
 	<annotations>
-		<annotation cp="🫃🏻">embaràs | embarassat | home embarassat | panxa | pell molt clara | prenyat</annotation>
-		<annotation cp="🫃🏻" type="tts">home embarassat: pell molt clara</annotation>
-		<annotation cp="🫃🏼">embaràs | embarassat | home embarassat | panxa | pell bastant clara | prenyat</annotation>
-		<annotation cp="🫃🏼" type="tts">home embarassat: pell bastant clara</annotation>
-		<annotation cp="🫃🏽">embaràs | embarassat | home embarassat | panxa | pell morena | prenyat</annotation>
-		<annotation cp="🫃🏽" type="tts">home embarassat: pell morena</annotation>
-		<annotation cp="🫃🏾">embaràs | embarassat | home embarassat | panxa | pell fosca | prenyat</annotation>
-		<annotation cp="🫃🏾" type="tts">home embarassat: pell fosca</annotation>
-		<annotation cp="🫃🏿">embaràs | embarassat | home embarassat | panxa | pell molt fosca | prenyat</annotation>
-		<annotation cp="🫃🏿" type="tts">home embarassat: pell molt fosca</annotation>
-		<annotation cp="🫄🏻">embaràs | embarassada | embarassat | panxa | pell molt clara | persona embarassada | prenyada | prenyat</annotation>
-		<annotation cp="🫄🏻" type="tts">persona embarassada: pell molt clara</annotation>
-		<annotation cp="🫄🏼">embaràs | embarassada | embarassat | panxa | pell bastant clara | persona embarassada | prenyada | prenyat</annotation>
-		<annotation cp="🫄🏼" type="tts">persona embarassada: pell bastant clara</annotation>
-		<annotation cp="🫄🏽">embaràs | embarassada | embarassat | panxa | pell morena | persona embarassada | prenyada | prenyat</annotation>
-		<annotation cp="🫄🏽" type="tts">persona embarassada: pell morena</annotation>
-		<annotation cp="🫄🏾">embaràs | embarassada | embarassat | panxa | pell fosca | persona embarassada | prenyada | prenyat</annotation>
-		<annotation cp="🫄🏾" type="tts">persona embarassada: pell fosca</annotation>
-		<annotation cp="🫄🏿">embaràs | embarassada | embarassat | panxa | pell molt fosca | persona embarassada | prenyada | prenyat</annotation>
-		<annotation cp="🫄🏿" type="tts">persona embarassada: pell molt fosca</annotation>
-		<annotation cp="🫅🏻">monarca | noble | noblesa | pell molt clara | persona amb corona | reialesa</annotation>
-		<annotation cp="🫅🏻" type="tts">persona amb corona: pell molt clara</annotation>
-		<annotation cp="🫅🏼">monarca | noble | noblesa | pell bastant clara | persona amb corona | reialesa</annotation>
-		<annotation cp="🫅🏼" type="tts">persona amb corona: pell bastant clara</annotation>
-		<annotation cp="🫅🏽">monarca | noble | noblesa | pell morena | persona amb corona | reialesa</annotation>
-		<annotation cp="🫅🏽" type="tts">persona amb corona: pell morena</annotation>
-		<annotation cp="🫅🏾">monarca | noble | noblesa | pell fosca | persona amb corona | reialesa</annotation>
-		<annotation cp="🫅🏾" type="tts">persona amb corona: pell fosca</annotation>
-		<annotation cp="🫅🏿">monarca | noble | noblesa | pell molt fosca | persona amb corona | reialesa</annotation>
-		<annotation cp="🫅🏿" type="tts">persona amb corona: pell molt fosca</annotation>
-		<annotation cp="🫰🏻">car | diners | fregar els dits | mà amb el dit índex i el polze creuats | pell molt clara | petar els dits</annotation>
-		<annotation cp="🫰🏻" type="tts">mà amb el dit índex i el polze creuats: pell molt clara</annotation>
-		<annotation cp="🫰🏼">car | diners | fregar els dits | mà amb el dit índex i el polze creuats | pell bastant clara | petar els dits</annotation>
-		<annotation cp="🫰🏼" type="tts">mà amb el dit índex i el polze creuats: pell bastant clara</annotation>
-		<annotation cp="🫰🏽">car | diners | fregar els dits | mà amb el dit índex i el polze creuats | pell morena | petar els dits</annotation>
-		<annotation cp="🫰🏽" type="tts">mà amb el dit índex i el polze creuats: pell morena</annotation>
-		<annotation cp="🫰🏾">car | diners | fregar els dits | mà amb el dit índex i el polze creuats | pell fosca | petar els dits</annotation>
-		<annotation cp="🫰🏾" type="tts">mà amb el dit índex i el polze creuats: pell fosca</annotation>
-		<annotation cp="🫰🏿">car | diners | fregar els dits | mà amb el dit índex i el polze creuats | pell molt fosca | petar els dits</annotation>
-		<annotation cp="🫰🏿" type="tts">mà amb el dit índex i el polze creuats: pell molt fosca</annotation>
+		<annotation cp="👋🏻">mà | mà que saluda | pell molt clara | salutació</annotation>
+		<annotation cp="👋🏻" type="tts">mà que saluda: pell molt clara</annotation>
+		<annotation cp="👋🏼">mà | mà que saluda | pell bastant clara | salutació</annotation>
+		<annotation cp="👋🏼" type="tts">mà que saluda: pell bastant clara</annotation>
+		<annotation cp="👋🏽">mà | mà que saluda | pell morena | salutació</annotation>
+		<annotation cp="👋🏽" type="tts">mà que saluda: pell morena</annotation>
+		<annotation cp="👋🏾">mà | mà que saluda | pell fosca | salutació</annotation>
+		<annotation cp="👋🏾" type="tts">mà que saluda: pell fosca</annotation>
+		<annotation cp="👋🏿">mà | mà que saluda | pell molt fosca | salutació</annotation>
+		<annotation cp="👋🏿" type="tts">mà que saluda: pell molt fosca</annotation>
+		<annotation cp="🤚🏻">alçada | mà | pell molt clara | revers | revers de la mà</annotation>
+		<annotation cp="🤚🏻" type="tts">revers de la mà: pell molt clara</annotation>
+		<annotation cp="🤚🏼">alçada | mà | pell bastant clara | revers | revers de la mà</annotation>
+		<annotation cp="🤚🏼" type="tts">revers de la mà: pell bastant clara</annotation>
+		<annotation cp="🤚🏽">alçada | mà | pell morena | revers | revers de la mà</annotation>
+		<annotation cp="🤚🏽" type="tts">revers de la mà: pell morena</annotation>
+		<annotation cp="🤚🏾">alçada | mà | pell fosca | revers | revers de la mà</annotation>
+		<annotation cp="🤚🏾" type="tts">revers de la mà: pell fosca</annotation>
+		<annotation cp="🤚🏿">alçada | mà | pell molt fosca | revers | revers de la mà</annotation>
+		<annotation cp="🤚🏿" type="tts">revers de la mà: pell molt fosca</annotation>
+		<annotation cp="🖐🏻">dits | dits oberts | mà amb els dits oberts | mà oberta | pell molt clara</annotation>
+		<annotation cp="🖐🏻" type="tts">mà oberta: pell molt clara</annotation>
+		<annotation cp="🖐🏼">dits | dits oberts | mà amb els dits oberts | mà oberta | pell bastant clara</annotation>
+		<annotation cp="🖐🏼" type="tts">mà oberta: pell bastant clara</annotation>
+		<annotation cp="🖐🏽">dits | dits oberts | mà amb els dits oberts | mà oberta | pell morena</annotation>
+		<annotation cp="🖐🏽" type="tts">mà oberta: pell morena</annotation>
+		<annotation cp="🖐🏾">dits | dits oberts | mà amb els dits oberts | mà oberta | pell fosca</annotation>
+		<annotation cp="🖐🏾" type="tts">mà oberta: pell fosca</annotation>
+		<annotation cp="🖐🏿">dits | dits oberts | mà amb els dits oberts | mà oberta | pell molt fosca</annotation>
+		<annotation cp="🖐🏿" type="tts">mà oberta: pell molt fosca</annotation>
+		<annotation cp="✋🏻">cos | mà | mà aixecada | pell molt clara</annotation>
+		<annotation cp="✋🏻" type="tts">mà aixecada: pell molt clara</annotation>
+		<annotation cp="✋🏼">cos | mà | mà aixecada | pell bastant clara</annotation>
+		<annotation cp="✋🏼" type="tts">mà aixecada: pell bastant clara</annotation>
+		<annotation cp="✋🏽">cos | mà | mà aixecada | pell morena</annotation>
+		<annotation cp="✋🏽" type="tts">mà aixecada: pell morena</annotation>
+		<annotation cp="✋🏾">cos | mà | mà aixecada | pell fosca</annotation>
+		<annotation cp="✋🏾" type="tts">mà aixecada: pell fosca</annotation>
+		<annotation cp="✋🏿">cos | mà | mà aixecada | pell molt fosca</annotation>
+		<annotation cp="✋🏿" type="tts">mà aixecada: pell molt fosca</annotation>
+		<annotation cp="🖖🏻">dit | mà | pell molt clara | salutació vulcaniana | Spock | vulcanià</annotation>
+		<annotation cp="🖖🏻" type="tts">salutació vulcaniana: pell molt clara</annotation>
+		<annotation cp="🖖🏼">dit | mà | pell bastant clara | salutació vulcaniana | Spock | vulcanià</annotation>
+		<annotation cp="🖖🏼" type="tts">salutació vulcaniana: pell bastant clara</annotation>
+		<annotation cp="🖖🏽">dit | mà | pell morena | salutació vulcaniana | Spock | vulcanià</annotation>
+		<annotation cp="🖖🏽" type="tts">salutació vulcaniana: pell morena</annotation>
+		<annotation cp="🖖🏾">dit | mà | pell fosca | salutació vulcaniana | Spock | vulcanià</annotation>
+		<annotation cp="🖖🏾" type="tts">salutació vulcaniana: pell fosca</annotation>
+		<annotation cp="🖖🏿">dit | mà | pell molt fosca | salutació vulcaniana | Spock | vulcanià</annotation>
+		<annotation cp="🖖🏿" type="tts">salutació vulcaniana: pell molt fosca</annotation>
 		<annotation cp="🫱🏻">a la dreta | dreta | mà | mà cap a la dreta | pell molt clara</annotation>
 		<annotation cp="🫱🏻" type="tts">mà cap a la dreta: pell molt clara</annotation>
 		<annotation cp="🫱🏼">a la dreta | dreta | mà | mà cap a la dreta | pell bastant clara</annotation>
@@ -132,76 +142,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫴🏾" type="tts">mà amb el palmell cap amunt: pell fosca</annotation>
 		<annotation cp="🫴🏿">acosta’t | dona’m | mà amb el palmell cap amunt | ofereix | pell molt fosca | vine</annotation>
 		<annotation cp="🫴🏿" type="tts">mà amb el palmell cap amunt: pell molt fosca</annotation>
-		<annotation cp="🫵🏻">apuntar | assenyalar | índex que assenyala l’espectador | pell molt clara | tu</annotation>
-		<annotation cp="🫵🏻" type="tts">índex que assenyala l’espectador: pell molt clara</annotation>
-		<annotation cp="🫵🏼">apuntar | assenyalar | índex que assenyala l’espectador | pell bastant clara | tu</annotation>
-		<annotation cp="🫵🏼" type="tts">índex que assenyala l’espectador: pell bastant clara</annotation>
-		<annotation cp="🫵🏽">apuntar | assenyalar | índex que assenyala l’espectador | pell morena | tu</annotation>
-		<annotation cp="🫵🏽" type="tts">índex que assenyala l’espectador: pell morena</annotation>
-		<annotation cp="🫵🏾">apuntar | assenyalar | índex que assenyala l’espectador | pell fosca | tu</annotation>
-		<annotation cp="🫵🏾" type="tts">índex que assenyala l’espectador: pell fosca</annotation>
-		<annotation cp="🫵🏿">apuntar | assenyalar | índex que assenyala l’espectador | pell molt fosca | tu</annotation>
-		<annotation cp="🫵🏿" type="tts">índex que assenyala l’espectador: pell molt fosca</annotation>
-		<annotation cp="🫶🏻">amor | mans que formen un cor | pell molt clara</annotation>
-		<annotation cp="🫶🏻" type="tts">mans que formen un cor: pell molt clara</annotation>
-		<annotation cp="🫶🏼">amor | mans que formen un cor | pell bastant clara</annotation>
-		<annotation cp="🫶🏼" type="tts">mans que formen un cor: pell bastant clara</annotation>
-		<annotation cp="🫶🏽">amor | mans que formen un cor | pell morena</annotation>
-		<annotation cp="🫶🏽" type="tts">mans que formen un cor: pell morena</annotation>
-		<annotation cp="🫶🏾">amor | mans que formen un cor | pell fosca</annotation>
-		<annotation cp="🫶🏾" type="tts">mans que formen un cor: pell fosca</annotation>
-		<annotation cp="🫶🏿">amor | mans que formen un cor | pell molt fosca</annotation>
-		<annotation cp="🫶🏿" type="tts">mans que formen un cor: pell molt fosca</annotation>
-		<annotation cp="👋🏻">mà | mà que saluda | pell molt clara | salutació</annotation>
-		<annotation cp="👋🏻" type="tts">mà que saluda: pell molt clara</annotation>
-		<annotation cp="👋🏼">mà | mà que saluda | pell bastant clara | salutació</annotation>
-		<annotation cp="👋🏼" type="tts">mà que saluda: pell bastant clara</annotation>
-		<annotation cp="👋🏽">mà | mà que saluda | pell morena | salutació</annotation>
-		<annotation cp="👋🏽" type="tts">mà que saluda: pell morena</annotation>
-		<annotation cp="👋🏾">mà | mà que saluda | pell fosca | salutació</annotation>
-		<annotation cp="👋🏾" type="tts">mà que saluda: pell fosca</annotation>
-		<annotation cp="👋🏿">mà | mà que saluda | pell molt fosca | salutació</annotation>
-		<annotation cp="👋🏿" type="tts">mà que saluda: pell molt fosca</annotation>
-		<annotation cp="🤚🏻">alçada | mà | pell molt clara | revers | revers de la mà</annotation>
-		<annotation cp="🤚🏻" type="tts">revers de la mà: pell molt clara</annotation>
-		<annotation cp="🤚🏼">alçada | mà | pell bastant clara | revers | revers de la mà</annotation>
-		<annotation cp="🤚🏼" type="tts">revers de la mà: pell bastant clara</annotation>
-		<annotation cp="🤚🏽">alçada | mà | pell morena | revers | revers de la mà</annotation>
-		<annotation cp="🤚🏽" type="tts">revers de la mà: pell morena</annotation>
-		<annotation cp="🤚🏾">alçada | mà | pell fosca | revers | revers de la mà</annotation>
-		<annotation cp="🤚🏾" type="tts">revers de la mà: pell fosca</annotation>
-		<annotation cp="🤚🏿">alçada | mà | pell molt fosca | revers | revers de la mà</annotation>
-		<annotation cp="🤚🏿" type="tts">revers de la mà: pell molt fosca</annotation>
-		<annotation cp="🖐🏻">dits | dits oberts | mà amb els dits oberts | mà oberta | pell molt clara</annotation>
-		<annotation cp="🖐🏻" type="tts">mà oberta: pell molt clara</annotation>
-		<annotation cp="🖐🏼">dits | dits oberts | mà amb els dits oberts | mà oberta | pell bastant clara</annotation>
-		<annotation cp="🖐🏼" type="tts">mà oberta: pell bastant clara</annotation>
-		<annotation cp="🖐🏽">dits | dits oberts | mà amb els dits oberts | mà oberta | pell morena</annotation>
-		<annotation cp="🖐🏽" type="tts">mà oberta: pell morena</annotation>
-		<annotation cp="🖐🏾">dits | dits oberts | mà amb els dits oberts | mà oberta | pell fosca</annotation>
-		<annotation cp="🖐🏾" type="tts">mà oberta: pell fosca</annotation>
-		<annotation cp="🖐🏿">dits | dits oberts | mà amb els dits oberts | mà oberta | pell molt fosca</annotation>
-		<annotation cp="🖐🏿" type="tts">mà oberta: pell molt fosca</annotation>
-		<annotation cp="✋🏻">cos | mà | mà aixecada | pell molt clara</annotation>
-		<annotation cp="✋🏻" type="tts">mà aixecada: pell molt clara</annotation>
-		<annotation cp="✋🏼">cos | mà | mà aixecada | pell bastant clara</annotation>
-		<annotation cp="✋🏼" type="tts">mà aixecada: pell bastant clara</annotation>
-		<annotation cp="✋🏽">cos | mà | mà aixecada | pell morena</annotation>
-		<annotation cp="✋🏽" type="tts">mà aixecada: pell morena</annotation>
-		<annotation cp="✋🏾">cos | mà | mà aixecada | pell fosca</annotation>
-		<annotation cp="✋🏾" type="tts">mà aixecada: pell fosca</annotation>
-		<annotation cp="✋🏿">cos | mà | mà aixecada | pell molt fosca</annotation>
-		<annotation cp="✋🏿" type="tts">mà aixecada: pell molt fosca</annotation>
-		<annotation cp="🖖🏻">dit | mà | pell molt clara | salutació vulcaniana | Spock | vulcanià</annotation>
-		<annotation cp="🖖🏻" type="tts">salutació vulcaniana: pell molt clara</annotation>
-		<annotation cp="🖖🏼">dit | mà | pell bastant clara | salutació vulcaniana | Spock | vulcanià</annotation>
-		<annotation cp="🖖🏼" type="tts">salutació vulcaniana: pell bastant clara</annotation>
-		<annotation cp="🖖🏽">dit | mà | pell morena | salutació vulcaniana | Spock | vulcanià</annotation>
-		<annotation cp="🖖🏽" type="tts">salutació vulcaniana: pell morena</annotation>
-		<annotation cp="🖖🏾">dit | mà | pell fosca | salutació vulcaniana | Spock | vulcanià</annotation>
-		<annotation cp="🖖🏾" type="tts">salutació vulcaniana: pell fosca</annotation>
-		<annotation cp="🖖🏿">dit | mà | pell molt fosca | salutació vulcaniana | Spock | vulcanià</annotation>
-		<annotation cp="🖖🏿" type="tts">salutació vulcaniana: pell molt fosca</annotation>
 		<annotation cp="👌🏻">acceptació | mà | mà d’acceptació | ok | pell molt clara | senyal d’aprovació | senyal d’aprovació amb la mà</annotation>
 		<annotation cp="👌🏻" type="tts">senyal d’aprovació amb la mà: pell molt clara</annotation>
 		<annotation cp="👌🏼">acceptació | mà | mà d’acceptació | ok | pell bastant clara | senyal d’aprovació | senyal d’aprovació amb la mà</annotation>
@@ -252,6 +192,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤞🏾" type="tts">dits creuats: pell fosca</annotation>
 		<annotation cp="🤞🏿">creuats | dits | pell molt fosca | sort</annotation>
 		<annotation cp="🤞🏿" type="tts">dits creuats: pell molt fosca</annotation>
+		<annotation cp="🫰🏻">car | diners | fregar els dits | mà amb el dit índex i el polze creuats | pell molt clara | petar els dits</annotation>
+		<annotation cp="🫰🏻" type="tts">mà amb el dit índex i el polze creuats: pell molt clara</annotation>
+		<annotation cp="🫰🏼">car | diners | fregar els dits | mà amb el dit índex i el polze creuats | pell bastant clara | petar els dits</annotation>
+		<annotation cp="🫰🏼" type="tts">mà amb el dit índex i el polze creuats: pell bastant clara</annotation>
+		<annotation cp="🫰🏽">car | diners | fregar els dits | mà amb el dit índex i el polze creuats | pell morena | petar els dits</annotation>
+		<annotation cp="🫰🏽" type="tts">mà amb el dit índex i el polze creuats: pell morena</annotation>
+		<annotation cp="🫰🏾">car | diners | fregar els dits | mà amb el dit índex i el polze creuats | pell fosca | petar els dits</annotation>
+		<annotation cp="🫰🏾" type="tts">mà amb el dit índex i el polze creuats: pell fosca</annotation>
+		<annotation cp="🫰🏿">car | diners | fregar els dits | mà amb el dit índex i el polze creuats | pell molt fosca | petar els dits</annotation>
+		<annotation cp="🫰🏿" type="tts">mà amb el dit índex i el polze creuats: pell molt fosca</annotation>
 		<annotation cp="🤟🏻">dits | gest de t’estimo | mà | pell molt clara | t’estimo</annotation>
 		<annotation cp="🤟🏻" type="tts">gest de t’estimo: pell molt clara</annotation>
 		<annotation cp="🤟🏼">dits | gest de t’estimo | mà | pell bastant clara | t’estimo</annotation>
@@ -342,6 +292,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☝🏾" type="tts">índex que apunta cap amunt: pell fosca</annotation>
 		<annotation cp="☝🏿">amunt | índex | índex que apunta cap amunt | pell molt fosca</annotation>
 		<annotation cp="☝🏿" type="tts">índex que apunta cap amunt: pell molt fosca</annotation>
+		<annotation cp="🫵🏻">apuntar | assenyalar | índex que assenyala l’espectador | pell molt clara | tu</annotation>
+		<annotation cp="🫵🏻" type="tts">índex que assenyala l’espectador: pell molt clara</annotation>
+		<annotation cp="🫵🏼">apuntar | assenyalar | índex que assenyala l’espectador | pell bastant clara | tu</annotation>
+		<annotation cp="🫵🏼" type="tts">índex que assenyala l’espectador: pell bastant clara</annotation>
+		<annotation cp="🫵🏽">apuntar | assenyalar | índex que assenyala l’espectador | pell morena | tu</annotation>
+		<annotation cp="🫵🏽" type="tts">índex que assenyala l’espectador: pell morena</annotation>
+		<annotation cp="🫵🏾">apuntar | assenyalar | índex que assenyala l’espectador | pell fosca | tu</annotation>
+		<annotation cp="🫵🏾" type="tts">índex que assenyala l’espectador: pell fosca</annotation>
+		<annotation cp="🫵🏿">apuntar | assenyalar | índex que assenyala l’espectador | pell molt fosca | tu</annotation>
+		<annotation cp="🫵🏿" type="tts">índex que assenyala l’espectador: pell molt fosca</annotation>
 		<annotation cp="👍🏻">amunt | pell molt clara | polze | polze cap amunt</annotation>
 		<annotation cp="👍🏻" type="tts">polze cap amunt: pell molt clara</annotation>
 		<annotation cp="👍🏼">amunt | pell bastant clara | polze | polze cap amunt</annotation>
@@ -422,6 +382,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">mans enlaire: pell fosca</annotation>
 		<annotation cp="🙌🏿">celebració | hurra | mans aixecades | mans enlaire | pell molt fosca</annotation>
 		<annotation cp="🙌🏿" type="tts">mans enlaire: pell molt fosca</annotation>
+		<annotation cp="🫶🏻">amor | mans que formen un cor | pell molt clara</annotation>
+		<annotation cp="🫶🏻" type="tts">mans que formen un cor: pell molt clara</annotation>
+		<annotation cp="🫶🏼">amor | mans que formen un cor | pell bastant clara</annotation>
+		<annotation cp="🫶🏼" type="tts">mans que formen un cor: pell bastant clara</annotation>
+		<annotation cp="🫶🏽">amor | mans que formen un cor | pell morena</annotation>
+		<annotation cp="🫶🏽" type="tts">mans que formen un cor: pell morena</annotation>
+		<annotation cp="🫶🏾">amor | mans que formen un cor | pell fosca</annotation>
+		<annotation cp="🫶🏾" type="tts">mans que formen un cor: pell fosca</annotation>
+		<annotation cp="🫶🏿">amor | mans que formen un cor | pell molt fosca</annotation>
+		<annotation cp="🫶🏿" type="tts">mans que formen un cor: pell molt fosca</annotation>
 		<annotation cp="👐🏻">cos | mà | mans obertes | oberta | pell molt clara</annotation>
 		<annotation cp="👐🏻" type="tts">mans obertes: pell molt clara</annotation>
 		<annotation cp="👐🏼">cos | mà | mans obertes | oberta | pell bastant clara</annotation>
@@ -452,16 +422,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤝🏾" type="tts">encaixada de mans: pell fosca</annotation>
 		<annotation cp="🤝🏿">acord | encaixada | encaixada de mans | mans | pell molt fosca | salutació</annotation>
 		<annotation cp="🤝🏿" type="tts">encaixada de mans: pell molt fosca</annotation>
-		<annotation cp="🙏🏻">gràcies | mans | mans en oració | pell molt clara | pregar | si us plau</annotation>
-		<annotation cp="🙏🏻" type="tts">mans en oració: pell molt clara</annotation>
-		<annotation cp="🙏🏼">gràcies | mans | mans en oració | pell bastant clara | pregar | si us plau</annotation>
-		<annotation cp="🙏🏼" type="tts">mans en oració: pell bastant clara</annotation>
-		<annotation cp="🙏🏽">gràcies | mans | mans en oració | pell morena | pregar | si us plau</annotation>
-		<annotation cp="🙏🏽" type="tts">mans en oració: pell morena</annotation>
-		<annotation cp="🙏🏾">gràcies | mans | mans en oració | pell fosca | pregar | si us plau</annotation>
-		<annotation cp="🙏🏾" type="tts">mans en oració: pell fosca</annotation>
-		<annotation cp="🙏🏿">gràcies | mans | mans en oració | pell molt fosca | pregar | si us plau</annotation>
-		<annotation cp="🙏🏿" type="tts">mans en oració: pell molt fosca</annotation>
+		<annotation cp="🙏🏻">gràcies | mans | mans ajuntades | pell molt clara | pregar | si us plau</annotation>
+		<annotation cp="🙏🏻" type="tts">mans ajuntades: pell molt clara</annotation>
+		<annotation cp="🙏🏼">gràcies | mans | mans ajuntades | pell bastant clara | pregar | si us plau</annotation>
+		<annotation cp="🙏🏼" type="tts">mans ajuntades: pell bastant clara</annotation>
+		<annotation cp="🙏🏽">gràcies | mans | mans ajuntades | pell morena | pregar | si us plau</annotation>
+		<annotation cp="🙏🏽" type="tts">mans ajuntades: pell morena</annotation>
+		<annotation cp="🙏🏾">gràcies | mans | mans ajuntades | pell fosca | pregar | si us plau</annotation>
+		<annotation cp="🙏🏾" type="tts">mans ajuntades: pell fosca</annotation>
+		<annotation cp="🙏🏿">gràcies | mans | mans ajuntades | pell molt fosca | pregar | si us plau</annotation>
+		<annotation cp="🙏🏿" type="tts">mans ajuntades: pell molt fosca</annotation>
+		<annotation cp="🫷🏻">aturar | empènyer | esperar | esquerra | mà que empeny cap a l’esquerra | pell molt clara | prou | rebutjar</annotation>
+		<annotation cp="🫷🏻" type="tts">mà que empeny cap a l’esquerra: pell molt clara</annotation>
+		<annotation cp="🫷🏼">aturar | empènyer | esperar | esquerra | mà que empeny cap a l’esquerra | pell bastant clara | prou | rebutjar</annotation>
+		<annotation cp="🫷🏼" type="tts">mà que empeny cap a l’esquerra: pell bastant clara</annotation>
+		<annotation cp="🫷🏽">aturar | empènyer | esperar | esquerra | mà que empeny cap a l’esquerra | pell morena | prou | rebutjar</annotation>
+		<annotation cp="🫷🏽" type="tts">mà que empeny cap a l’esquerra: pell morena</annotation>
+		<annotation cp="🫷🏾">aturar | empènyer | esperar | esquerra | mà que empeny cap a l’esquerra | pell fosca | prou | rebutjar</annotation>
+		<annotation cp="🫷🏾" type="tts">mà que empeny cap a l’esquerra: pell fosca</annotation>
+		<annotation cp="🫷🏿">aturar | empènyer | esperar | esquerra | mà que empeny cap a l’esquerra | pell molt fosca | prou | rebutjar</annotation>
+		<annotation cp="🫷🏿" type="tts">mà que empeny cap a l’esquerra: pell molt fosca</annotation>
+		<annotation cp="🫸🏻">aturar | dreta | empènyer | esperar | mà que empeny cap a la dreta | pell molt clara | prou | rebutjar</annotation>
+		<annotation cp="🫸🏻" type="tts">mà que empeny cap a la dreta: pell molt clara</annotation>
+		<annotation cp="🫸🏼">aturar | dreta | empènyer | esperar | mà que empeny cap a la dreta | pell bastant clara | prou | rebutjar</annotation>
+		<annotation cp="🫸🏼" type="tts">mà que empeny cap a la dreta: pell bastant clara</annotation>
+		<annotation cp="🫸🏽">aturar | dreta | empènyer | esperar | mà que empeny cap a la dreta | pell morena | prou | rebutjar</annotation>
+		<annotation cp="🫸🏽" type="tts">mà que empeny cap a la dreta: pell morena</annotation>
+		<annotation cp="🫸🏾">aturar | dreta | empènyer | esperar | mà que empeny cap a la dreta | pell fosca | prou | rebutjar</annotation>
+		<annotation cp="🫸🏾" type="tts">mà que empeny cap a la dreta: pell fosca</annotation>
+		<annotation cp="🫸🏿">aturar | dreta | empènyer | esperar | mà que empeny cap a la dreta | pell molt fosca | prou | rebutjar</annotation>
+		<annotation cp="🫸🏿" type="tts">mà que empeny cap a la dreta: pell molt fosca</annotation>
 		<annotation cp="✍🏻">escriure | mà | mà que escriu | pell molt clara</annotation>
 		<annotation cp="✍🏻" type="tts">mà que escriu: pell molt clara</annotation>
 		<annotation cp="✍🏼">escriure | mà | mà que escriu | pell bastant clara</annotation>
@@ -2146,6 +2136,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👷🏾‍♀" type="tts">dona paleta: pell fosca</annotation>
 		<annotation cp="👷🏿‍♀">construcció | dona | dona paleta | femení | pell molt fosca | treballadora</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">dona paleta: pell molt fosca</annotation>
+		<annotation cp="🫅🏻">monarca | noble | noblesa | pell molt clara | persona amb corona | reialesa</annotation>
+		<annotation cp="🫅🏻" type="tts">persona amb corona: pell molt clara</annotation>
+		<annotation cp="🫅🏼">monarca | noble | noblesa | pell bastant clara | persona amb corona | reialesa</annotation>
+		<annotation cp="🫅🏼" type="tts">persona amb corona: pell bastant clara</annotation>
+		<annotation cp="🫅🏽">monarca | noble | noblesa | pell morena | persona amb corona | reialesa</annotation>
+		<annotation cp="🫅🏽" type="tts">persona amb corona: pell morena</annotation>
+		<annotation cp="🫅🏾">monarca | noble | noblesa | pell fosca | persona amb corona | reialesa</annotation>
+		<annotation cp="🫅🏾" type="tts">persona amb corona: pell fosca</annotation>
+		<annotation cp="🫅🏿">monarca | noble | noblesa | pell molt fosca | persona amb corona | reialesa</annotation>
+		<annotation cp="🫅🏿" type="tts">persona amb corona: pell molt fosca</annotation>
 		<annotation cp="🤴🏻">pell molt clara | príncep</annotation>
 		<annotation cp="🤴🏻" type="tts">príncep: pell molt clara</annotation>
 		<annotation cp="🤴🏼">pell bastant clara | príncep</annotation>
@@ -2286,6 +2286,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">dona embarassada: pell fosca</annotation>
 		<annotation cp="🤰🏿">dona | embaràs | embarassada | pell molt fosca | prenyada</annotation>
 		<annotation cp="🤰🏿" type="tts">dona embarassada: pell molt fosca</annotation>
+		<annotation cp="🫃🏻">embaràs | embarassat | home embarassat | panxa | pell molt clara | prenyat</annotation>
+		<annotation cp="🫃🏻" type="tts">home embarassat: pell molt clara</annotation>
+		<annotation cp="🫃🏼">embaràs | embarassat | home embarassat | panxa | pell bastant clara | prenyat</annotation>
+		<annotation cp="🫃🏼" type="tts">home embarassat: pell bastant clara</annotation>
+		<annotation cp="🫃🏽">embaràs | embarassat | home embarassat | panxa | pell morena | prenyat</annotation>
+		<annotation cp="🫃🏽" type="tts">home embarassat: pell morena</annotation>
+		<annotation cp="🫃🏾">embaràs | embarassat | home embarassat | panxa | pell fosca | prenyat</annotation>
+		<annotation cp="🫃🏾" type="tts">home embarassat: pell fosca</annotation>
+		<annotation cp="🫃🏿">embaràs | embarassat | home embarassat | panxa | pell molt fosca | prenyat</annotation>
+		<annotation cp="🫃🏿" type="tts">home embarassat: pell molt fosca</annotation>
+		<annotation cp="🫄🏻">embaràs | embarassada | embarassat | panxa | pell molt clara | persona embarassada | prenyada | prenyat</annotation>
+		<annotation cp="🫄🏻" type="tts">persona embarassada: pell molt clara</annotation>
+		<annotation cp="🫄🏼">embaràs | embarassada | embarassat | panxa | pell bastant clara | persona embarassada | prenyada | prenyat</annotation>
+		<annotation cp="🫄🏼" type="tts">persona embarassada: pell bastant clara</annotation>
+		<annotation cp="🫄🏽">embaràs | embarassada | embarassat | panxa | pell morena | persona embarassada | prenyada | prenyat</annotation>
+		<annotation cp="🫄🏽" type="tts">persona embarassada: pell morena</annotation>
+		<annotation cp="🫄🏾">embaràs | embarassada | embarassat | panxa | pell fosca | persona embarassada | prenyada | prenyat</annotation>
+		<annotation cp="🫄🏾" type="tts">persona embarassada: pell fosca</annotation>
+		<annotation cp="🫄🏿">embaràs | embarassada | embarassat | panxa | pell molt fosca | persona embarassada | prenyada | prenyat</annotation>
+		<annotation cp="🫄🏿" type="tts">persona embarassada: pell molt fosca</annotation>
 		<annotation cp="🤱🏻">alletar | dona que alleta | lactància | nadó | pell molt clara</annotation>
 		<annotation cp="🤱🏻" type="tts">dona que alleta: pell molt clara</annotation>
 		<annotation cp="🤱🏼">alletar | dona que alleta | lactància | nadó | pell bastant clara</annotation>
@@ -2516,15 +2536,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧛🏾‍♀" type="tts">dona vampir: pell fosca</annotation>
 		<annotation cp="🧛🏿‍♀">dona vampir | morta vivent | pell molt fosca | vampiressa</annotation>
 		<annotation cp="🧛🏿‍♀" type="tts">dona vampir: pell molt fosca</annotation>
-		<annotation cp="🧜🏻">dona sirena | pell molt clara | persona sirena | sirena</annotation>
+		<annotation cp="🧜🏻">pell molt clara | persona sirena | sirena | tritó</annotation>
 		<annotation cp="🧜🏻" type="tts">persona sirena: pell molt clara</annotation>
-		<annotation cp="🧜🏼">dona sirena | pell bastant clara | persona sirena | sirena</annotation>
+		<annotation cp="🧜🏼">pell bastant clara | persona sirena | sirena | tritó</annotation>
 		<annotation cp="🧜🏼" type="tts">persona sirena: pell bastant clara</annotation>
-		<annotation cp="🧜🏽">dona sirena | pell morena | persona sirena | sirena</annotation>
+		<annotation cp="🧜🏽">pell morena | persona sirena | sirena | tritó</annotation>
 		<annotation cp="🧜🏽" type="tts">persona sirena: pell morena</annotation>
-		<annotation cp="🧜🏾">dona sirena | pell fosca | persona sirena | sirena</annotation>
+		<annotation cp="🧜🏾">pell fosca | persona sirena | sirena | tritó</annotation>
 		<annotation cp="🧜🏾" type="tts">persona sirena: pell fosca</annotation>
-		<annotation cp="🧜🏿">dona sirena | pell molt fosca | persona sirena | sirena</annotation>
+		<annotation cp="🧜🏿">pell molt fosca | persona sirena | sirena | tritó</annotation>
 		<annotation cp="🧜🏿" type="tts">persona sirena: pell molt fosca</annotation>
 		<annotation cp="🧜🏻‍♂">home sirena | pell molt clara | Tritó</annotation>
 		<annotation cp="🧜🏻‍♂" type="tts">home sirena: pell molt clara</annotation>
@@ -2576,16 +2596,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧝🏾‍♀" type="tts">dona elfa: pell fosca</annotation>
 		<annotation cp="🧝🏿‍♀">dona elfa | màgic | màgica | pell molt fosca</annotation>
 		<annotation cp="🧝🏿‍♀" type="tts">dona elfa: pell molt fosca</annotation>
-		<annotation cp="💆🏻">cara | massatge | pell molt clara | persona que rep un massatge facial | saló</annotation>
-		<annotation cp="💆🏻" type="tts">persona que rep un massatge facial: pell molt clara</annotation>
-		<annotation cp="💆🏼">cara | massatge | pell bastant clara | persona que rep un massatge facial | saló</annotation>
-		<annotation cp="💆🏼" type="tts">persona que rep un massatge facial: pell bastant clara</annotation>
-		<annotation cp="💆🏽">cara | massatge | pell morena | persona que rep un massatge facial | saló</annotation>
-		<annotation cp="💆🏽" type="tts">persona que rep un massatge facial: pell morena</annotation>
-		<annotation cp="💆🏾">cara | massatge | pell fosca | persona que rep un massatge facial | saló</annotation>
-		<annotation cp="💆🏾" type="tts">persona que rep un massatge facial: pell fosca</annotation>
-		<annotation cp="💆🏿">cara | massatge | pell molt fosca | persona que rep un massatge facial | saló</annotation>
-		<annotation cp="💆🏿" type="tts">persona que rep un massatge facial: pell molt fosca</annotation>
+		<annotation cp="💆🏻">bellesa | cara | massatge | pell molt clara | persona que rep un massatge al cap | saló</annotation>
+		<annotation cp="💆🏻" type="tts">persona que rep un massatge al cap: pell molt clara</annotation>
+		<annotation cp="💆🏼">bellesa | cara | massatge | pell bastant clara | persona que rep un massatge al cap | saló</annotation>
+		<annotation cp="💆🏼" type="tts">persona que rep un massatge al cap: pell bastant clara</annotation>
+		<annotation cp="💆🏽">bellesa | cara | massatge | pell morena | persona que rep un massatge al cap | saló</annotation>
+		<annotation cp="💆🏽" type="tts">persona que rep un massatge al cap: pell morena</annotation>
+		<annotation cp="💆🏾">bellesa | cara | massatge | pell fosca | persona que rep un massatge al cap | saló</annotation>
+		<annotation cp="💆🏾" type="tts">persona que rep un massatge al cap: pell fosca</annotation>
+		<annotation cp="💆🏿">bellesa | cara | massatge | pell molt fosca | persona que rep un massatge al cap | saló</annotation>
+		<annotation cp="💆🏿" type="tts">persona que rep un massatge al cap: pell molt fosca</annotation>
 		<annotation cp="💆🏻‍♂">cara | home | masculí | massatge | massatge facial a un home | pell molt clara</annotation>
 		<annotation cp="💆🏻‍♂" type="tts">massatge facial a un home: pell molt clara</annotation>
 		<annotation cp="💆🏼‍♂">cara | home | masculí | massatge | massatge facial a un home | pell bastant clara</annotation>
@@ -3685,7 +3705,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇦🇼">bandera</annotation>
 		<annotation cp="🇦🇼" type="tts">bandera: Aruba</annotation>
 		<annotation cp="🇦🇽">bandera</annotation>
-		<annotation cp="🇦🇽" type="tts">bandera: Illes Aland</annotation>
+		<annotation cp="🇦🇽" type="tts">bandera: Illes Åland</annotation>
 		<annotation cp="🇦🇿">bandera</annotation>
 		<annotation cp="🇦🇿" type="tts">bandera: Azerbaidjan</annotation>
 		<annotation cp="🇧🇦">bandera</annotation>
@@ -3715,7 +3735,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇧🇴">bandera</annotation>
 		<annotation cp="🇧🇴" type="tts">bandera: Bolívia</annotation>
 		<annotation cp="🇧🇶">bandera</annotation>
-		<annotation cp="🇧🇶" type="tts">bandera: Antilles Neerlandeses</annotation>
+		<annotation cp="🇧🇶" type="tts">bandera: Carib Neerlandès</annotation>
 		<annotation cp="🇧🇷">bandera</annotation>
 		<annotation cp="🇧🇷" type="tts">bandera: Brasil</annotation>
 		<annotation cp="🇧🇸">bandera</annotation>
@@ -3897,7 +3917,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇰🇪">bandera</annotation>
 		<annotation cp="🇰🇪" type="tts">bandera: Kenya</annotation>
 		<annotation cp="🇰🇬">bandera</annotation>
-		<annotation cp="🇰🇬" type="tts">bandera: Kirguizistan</annotation>
+		<annotation cp="🇰🇬" type="tts">bandera: Kirguizstan</annotation>
 		<annotation cp="🇰🇭">bandera</annotation>
 		<annotation cp="🇰🇭" type="tts">bandera: Cambodja</annotation>
 		<annotation cp="🇰🇮">bandera</annotation>
@@ -3963,7 +3983,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇲🇴">bandera</annotation>
 		<annotation cp="🇲🇴" type="tts">bandera: Macau (RAE Xina)</annotation>
 		<annotation cp="🇲🇵">bandera</annotation>
-		<annotation cp="🇲🇵" type="tts">bandera: Illes Mariannes del Nord</annotation>
+		<annotation cp="🇲🇵" type="tts">bandera: Illes Mariannes Septentrionals</annotation>
 		<annotation cp="🇲🇶">bandera</annotation>
 		<annotation cp="🇲🇶" type="tts">bandera: Martinica</annotation>
 		<annotation cp="🇲🇷">bandera</annotation>
@@ -4091,7 +4111,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇸🇾">bandera</annotation>
 		<annotation cp="🇸🇾" type="tts">bandera: Síria</annotation>
 		<annotation cp="🇸🇿">bandera</annotation>
-		<annotation cp="🇸🇿" type="tts">bandera: eSwatini</annotation>
+		<annotation cp="🇸🇿" type="tts">bandera: Eswatini</annotation>
 		<annotation cp="🇹🇦">bandera</annotation>
 		<annotation cp="🇹🇦" type="tts">bandera: Tristan da Cunha</annotation>
 		<annotation cp="🇹🇨">bandera</annotation>
@@ -4109,7 +4129,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇹🇰">bandera</annotation>
 		<annotation cp="🇹🇰" type="tts">bandera: Tokelau</annotation>
 		<annotation cp="🇹🇱">bandera</annotation>
-		<annotation cp="🇹🇱" type="tts">bandera: Timor Oriental</annotation>
+		<annotation cp="🇹🇱" type="tts">bandera: Timor-Leste</annotation>
 		<annotation cp="🇹🇲">bandera</annotation>
 		<annotation cp="🇹🇲" type="tts">bandera: Turkmenistan</annotation>
 		<annotation cp="🇹🇳">bandera</annotation>

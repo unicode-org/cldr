@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,46 +12,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="fil"/>
 	</identity>
 	<annotations>
-		<annotation cp="🫃🏻">lalaking buntis | light na kulay ng balat</annotation>
-		<annotation cp="🫃🏻" type="tts">lalaking buntis: light na kulay ng balat</annotation>
-		<annotation cp="🫃🏼">katamtamang light na kulay ng balat | lalaking buntis</annotation>
-		<annotation cp="🫃🏼" type="tts">lalaking buntis: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🫃🏽">katamtamang kulay ng balat | lalaking buntis</annotation>
-		<annotation cp="🫃🏽" type="tts">lalaking buntis: katamtamang kulay ng balat</annotation>
-		<annotation cp="🫃🏾">katamtamang dark na kulay ng balat | lalaking buntis</annotation>
-		<annotation cp="🫃🏾" type="tts">lalaking buntis: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🫃🏿">dark na kulay ng balat | lalaking buntis</annotation>
-		<annotation cp="🫃🏿" type="tts">lalaking buntis: dark na kulay ng balat</annotation>
-		<annotation cp="🫄🏻">light na kulay ng balat | taong buntis</annotation>
-		<annotation cp="🫄🏻" type="tts">taong buntis: light na kulay ng balat</annotation>
-		<annotation cp="🫄🏼">katamtamang light na kulay ng balat | taong buntis</annotation>
-		<annotation cp="🫄🏼" type="tts">taong buntis: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🫄🏽">katamtamang kulay ng balat | taong buntis</annotation>
-		<annotation cp="🫄🏽" type="tts">taong buntis: katamtamang kulay ng balat</annotation>
-		<annotation cp="🫄🏾">katamtamang dark na kulay ng balat | taong buntis</annotation>
-		<annotation cp="🫄🏾" type="tts">taong buntis: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🫄🏿">dark na kulay ng balat | taong buntis</annotation>
-		<annotation cp="🫄🏿" type="tts">taong buntis: dark na kulay ng balat</annotation>
-		<annotation cp="🫅🏻">light na kulay ng balat | taong may korona</annotation>
-		<annotation cp="🫅🏻" type="tts">taong may korona: light na kulay ng balat</annotation>
-		<annotation cp="🫅🏼">katamtamang light na kulay ng balat | taong may korona</annotation>
-		<annotation cp="🫅🏼" type="tts">taong may korona: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🫅🏽">katamtamang kulay ng balat | taong may korona</annotation>
-		<annotation cp="🫅🏽" type="tts">taong may korona: katamtamang kulay ng balat</annotation>
-		<annotation cp="🫅🏾">katamtamang dark na kulay ng balat | taong may korona</annotation>
-		<annotation cp="🫅🏾" type="tts">taong may korona: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🫅🏿">dark na kulay ng balat | taong may korona</annotation>
-		<annotation cp="🫅🏿" type="tts">taong may korona: dark na kulay ng balat</annotation>
-		<annotation cp="🫰🏻">kamay na magkakrus ang hintuturo at hinlalaki | light na kulay ng balat | mahal | pag-ibig | pera | pitik | puso</annotation>
-		<annotation cp="🫰🏻" type="tts">kamay na magkakrus ang hintuturo at hinlalaki: light na kulay ng balat</annotation>
-		<annotation cp="🫰🏼">kamay na magkakrus ang hintuturo at hinlalaki | katamtamang light na kulay ng balat | mahal | pag-ibig | pera | pitik | puso</annotation>
-		<annotation cp="🫰🏼" type="tts">kamay na magkakrus ang hintuturo at hinlalaki: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🫰🏽">kamay na magkakrus ang hintuturo at hinlalaki | katamtamang kulay ng balat | mahal | pag-ibig | pera | pitik | puso</annotation>
-		<annotation cp="🫰🏽" type="tts">kamay na magkakrus ang hintuturo at hinlalaki: katamtamang kulay ng balat</annotation>
-		<annotation cp="🫰🏾">kamay na magkakrus ang hintuturo at hinlalaki | katamtamang dark na kulay ng balat | mahal | pag-ibig | pera | pitik | puso</annotation>
-		<annotation cp="🫰🏾" type="tts">kamay na magkakrus ang hintuturo at hinlalaki: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🫰🏿">dark na kulay ng balat | kamay na magkakrus ang hintuturo at hinlalaki | mahal | pag-ibig | pera | pitik | puso</annotation>
-		<annotation cp="🫰🏿" type="tts">kamay na magkakrus ang hintuturo at hinlalaki: dark na kulay ng balat</annotation>
+		<annotation cp="👋🏻">bumabati | kamay | kumakaway | kumakaway na kamay | light na kulay ng balat</annotation>
+		<annotation cp="👋🏻" type="tts">kumakaway na kamay: light na kulay ng balat</annotation>
+		<annotation cp="👋🏼">bumabati | kamay | katamtamang light na kulay ng balat | kumakaway | kumakaway na kamay</annotation>
+		<annotation cp="👋🏼" type="tts">kumakaway na kamay: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="👋🏽">bumabati | kamay | katamtamang kulay ng balat | kumakaway | kumakaway na kamay</annotation>
+		<annotation cp="👋🏽" type="tts">kumakaway na kamay: katamtamang kulay ng balat</annotation>
+		<annotation cp="👋🏾">bumabati | kamay | katamtamang dark na kulay ng balat | kumakaway | kumakaway na kamay</annotation>
+		<annotation cp="👋🏾" type="tts">kumakaway na kamay: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="👋🏿">bumabati | dark na kulay ng balat | kamay | kumakaway | kumakaway na kamay</annotation>
+		<annotation cp="👋🏿" type="tts">kumakaway na kamay: dark na kulay ng balat</annotation>
+		<annotation cp="🤚🏻">baliktad | light na kulay ng balat | nakataas | nakataas na baliktad na kamay</annotation>
+		<annotation cp="🤚🏻" type="tts">nakataas na baliktad na kamay: light na kulay ng balat</annotation>
+		<annotation cp="🤚🏼">baliktad | katamtamang light na kulay ng balat | nakataas | nakataas na baliktad na kamay</annotation>
+		<annotation cp="🤚🏼" type="tts">nakataas na baliktad na kamay: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🤚🏽">baliktad | katamtamang kulay ng balat | nakataas | nakataas na baliktad na kamay</annotation>
+		<annotation cp="🤚🏽" type="tts">nakataas na baliktad na kamay: katamtamang kulay ng balat</annotation>
+		<annotation cp="🤚🏾">baliktad | katamtamang dark na kulay ng balat | nakataas | nakataas na baliktad na kamay</annotation>
+		<annotation cp="🤚🏾" type="tts">nakataas na baliktad na kamay: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🤚🏿">baliktad | dark na kulay ng balat | nakataas | nakataas na baliktad na kamay</annotation>
+		<annotation cp="🤚🏿" type="tts">nakataas na baliktad na kamay: dark na kulay ng balat</annotation>
+		<annotation cp="🖐🏻">daliri | kamay | light na kulay ng balat | nakabukas na kamay | nakataas na nakabukas na kamay | palad | tumigil</annotation>
+		<annotation cp="🖐🏻" type="tts">nakataas na nakabukas na kamay: light na kulay ng balat</annotation>
+		<annotation cp="🖐🏼">daliri | kamay | katamtamang light na kulay ng balat | nakabukas na kamay | nakataas na nakabukas na kamay | palad | tumigil</annotation>
+		<annotation cp="🖐🏼" type="tts">nakataas na nakabukas na kamay: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🖐🏽">daliri | kamay | katamtamang kulay ng balat | nakabukas na kamay | nakataas na nakabukas na kamay | palad | tumigil</annotation>
+		<annotation cp="🖐🏽" type="tts">nakataas na nakabukas na kamay: katamtamang kulay ng balat</annotation>
+		<annotation cp="🖐🏾">daliri | kamay | katamtamang dark na kulay ng balat | nakabukas na kamay | nakataas na nakabukas na kamay | palad | tumigil</annotation>
+		<annotation cp="🖐🏾" type="tts">nakataas na nakabukas na kamay: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🖐🏿">daliri | dark na kulay ng balat | kamay | nakabukas na kamay | nakataas na nakabukas na kamay | palad | tumigil</annotation>
+		<annotation cp="🖐🏿" type="tts">nakataas na nakabukas na kamay: dark na kulay ng balat</annotation>
+		<annotation cp="✋🏻">kamay | light na kulay ng balat | nakataas na kamay | palad</annotation>
+		<annotation cp="✋🏻" type="tts">nakataas na kamay: light na kulay ng balat</annotation>
+		<annotation cp="✋🏼">kamay | katamtamang light na kulay ng balat | nakataas na kamay | palad</annotation>
+		<annotation cp="✋🏼" type="tts">nakataas na kamay: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="✋🏽">kamay | katamtamang kulay ng balat | nakataas na kamay | palad</annotation>
+		<annotation cp="✋🏽" type="tts">nakataas na kamay: katamtamang kulay ng balat</annotation>
+		<annotation cp="✋🏾">kamay | katamtamang dark na kulay ng balat | nakataas na kamay | palad</annotation>
+		<annotation cp="✋🏾" type="tts">nakataas na kamay: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="✋🏿">dark na kulay ng balat | kamay | nakataas na kamay | palad</annotation>
+		<annotation cp="✋🏿" type="tts">nakataas na kamay: dark na kulay ng balat</annotation>
+		<annotation cp="🖖🏻">daliri | kamay | light na kulay ng balat | spock | star trek | vulcan salute</annotation>
+		<annotation cp="🖖🏻" type="tts">vulcan salute: light na kulay ng balat</annotation>
+		<annotation cp="🖖🏼">daliri | kamay | katamtamang light na kulay ng balat | spock | star trek | vulcan salute</annotation>
+		<annotation cp="🖖🏼" type="tts">vulcan salute: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🖖🏽">daliri | kamay | katamtamang kulay ng balat | spock | star trek | vulcan salute</annotation>
+		<annotation cp="🖖🏽" type="tts">vulcan salute: katamtamang kulay ng balat</annotation>
+		<annotation cp="🖖🏾">daliri | kamay | katamtamang dark na kulay ng balat | spock | star trek | vulcan salute</annotation>
+		<annotation cp="🖖🏾" type="tts">vulcan salute: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🖖🏿">daliri | dark na kulay ng balat | kamay | spock | star trek | vulcan salute</annotation>
+		<annotation cp="🖖🏿" type="tts">vulcan salute: dark na kulay ng balat</annotation>
 		<annotation cp="🫱🏻">light na kulay ng balat | pakanang kamay</annotation>
 		<annotation cp="🫱🏻" type="tts">pakanang kamay: light na kulay ng balat</annotation>
 		<annotation cp="🫱🏼">katamtamang light na kulay ng balat | pakanang kamay</annotation>
@@ -132,76 +142,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫴🏾" type="tts">nakasalong palad: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="🫴🏿">dark na kulay ng balat | nakasalong palad</annotation>
 		<annotation cp="🫴🏿" type="tts">nakasalong palad: dark na kulay ng balat</annotation>
-		<annotation cp="🫵🏻">hintuturong nakaturo sa tumitingin | light na kulay ng balat</annotation>
-		<annotation cp="🫵🏻" type="tts">hintuturong nakaturo sa tumitingin: light na kulay ng balat</annotation>
-		<annotation cp="🫵🏼">hintuturong nakaturo sa tumitingin | katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🫵🏼" type="tts">hintuturong nakaturo sa tumitingin: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🫵🏽">hintuturong nakaturo sa tumitingin | katamtamang kulay ng balat</annotation>
-		<annotation cp="🫵🏽" type="tts">hintuturong nakaturo sa tumitingin: katamtamang kulay ng balat</annotation>
-		<annotation cp="🫵🏾">hintuturong nakaturo sa tumitingin | katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🫵🏾" type="tts">hintuturong nakaturo sa tumitingin: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🫵🏿">dark na kulay ng balat | hintuturong nakaturo sa tumitingin</annotation>
-		<annotation cp="🫵🏿" type="tts">hintuturong nakaturo sa tumitingin: dark na kulay ng balat</annotation>
-		<annotation cp="🫶🏻">light na kulay ng balat | nakapusong kamay</annotation>
-		<annotation cp="🫶🏻" type="tts">nakapusong kamay: light na kulay ng balat</annotation>
-		<annotation cp="🫶🏼">katamtamang light na kulay ng balat | nakapusong kamay</annotation>
-		<annotation cp="🫶🏼" type="tts">nakapusong kamay: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🫶🏽">katamtamang kulay ng balat | nakapusong kamay</annotation>
-		<annotation cp="🫶🏽" type="tts">nakapusong kamay: katamtamang kulay ng balat</annotation>
-		<annotation cp="🫶🏾">katamtamang dark na kulay ng balat | nakapusong kamay</annotation>
-		<annotation cp="🫶🏾" type="tts">nakapusong kamay: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🫶🏿">dark na kulay ng balat | nakapusong kamay</annotation>
-		<annotation cp="🫶🏿" type="tts">nakapusong kamay: dark na kulay ng balat</annotation>
-		<annotation cp="👋🏻">bumabati | kamay | kumakaway | kumakaway na kamay | light na kulay ng balat</annotation>
-		<annotation cp="👋🏻" type="tts">kumakaway na kamay: light na kulay ng balat</annotation>
-		<annotation cp="👋🏼">bumabati | kamay | katamtamang light na kulay ng balat | kumakaway | kumakaway na kamay</annotation>
-		<annotation cp="👋🏼" type="tts">kumakaway na kamay: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="👋🏽">bumabati | kamay | katamtamang kulay ng balat | kumakaway | kumakaway na kamay</annotation>
-		<annotation cp="👋🏽" type="tts">kumakaway na kamay: katamtamang kulay ng balat</annotation>
-		<annotation cp="👋🏾">bumabati | kamay | katamtamang dark na kulay ng balat | kumakaway | kumakaway na kamay</annotation>
-		<annotation cp="👋🏾" type="tts">kumakaway na kamay: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="👋🏿">bumabati | dark na kulay ng balat | kamay | kumakaway | kumakaway na kamay</annotation>
-		<annotation cp="👋🏿" type="tts">kumakaway na kamay: dark na kulay ng balat</annotation>
-		<annotation cp="🤚🏻">baliktad | light na kulay ng balat | nakataas | nakataas na baliktad na kamay</annotation>
-		<annotation cp="🤚🏻" type="tts">nakataas na baliktad na kamay: light na kulay ng balat</annotation>
-		<annotation cp="🤚🏼">baliktad | katamtamang light na kulay ng balat | nakataas | nakataas na baliktad na kamay</annotation>
-		<annotation cp="🤚🏼" type="tts">nakataas na baliktad na kamay: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🤚🏽">baliktad | katamtamang kulay ng balat | nakataas | nakataas na baliktad na kamay</annotation>
-		<annotation cp="🤚🏽" type="tts">nakataas na baliktad na kamay: katamtamang kulay ng balat</annotation>
-		<annotation cp="🤚🏾">baliktad | katamtamang dark na kulay ng balat | nakataas | nakataas na baliktad na kamay</annotation>
-		<annotation cp="🤚🏾" type="tts">nakataas na baliktad na kamay: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🤚🏿">baliktad | dark na kulay ng balat | nakataas | nakataas na baliktad na kamay</annotation>
-		<annotation cp="🤚🏿" type="tts">nakataas na baliktad na kamay: dark na kulay ng balat</annotation>
-		<annotation cp="🖐🏻">daliri | kamay | light na kulay ng balat | nakabukas na kamay | nakataas na nakabukas na kamay | palad | tumigil</annotation>
-		<annotation cp="🖐🏻" type="tts">nakataas na nakabukas na kamay: light na kulay ng balat</annotation>
-		<annotation cp="🖐🏼">daliri | kamay | katamtamang light na kulay ng balat | nakabukas na kamay | nakataas na nakabukas na kamay | palad | tumigil</annotation>
-		<annotation cp="🖐🏼" type="tts">nakataas na nakabukas na kamay: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🖐🏽">daliri | kamay | katamtamang kulay ng balat | nakabukas na kamay | nakataas na nakabukas na kamay | palad | tumigil</annotation>
-		<annotation cp="🖐🏽" type="tts">nakataas na nakabukas na kamay: katamtamang kulay ng balat</annotation>
-		<annotation cp="🖐🏾">daliri | kamay | katamtamang dark na kulay ng balat | nakabukas na kamay | nakataas na nakabukas na kamay | palad | tumigil</annotation>
-		<annotation cp="🖐🏾" type="tts">nakataas na nakabukas na kamay: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🖐🏿">daliri | dark na kulay ng balat | kamay | nakabukas na kamay | nakataas na nakabukas na kamay | palad | tumigil</annotation>
-		<annotation cp="🖐🏿" type="tts">nakataas na nakabukas na kamay: dark na kulay ng balat</annotation>
-		<annotation cp="✋🏻">kamay | light na kulay ng balat | nakataas na kamay | palad</annotation>
-		<annotation cp="✋🏻" type="tts">nakataas na kamay: light na kulay ng balat</annotation>
-		<annotation cp="✋🏼">kamay | katamtamang light na kulay ng balat | nakataas na kamay | palad</annotation>
-		<annotation cp="✋🏼" type="tts">nakataas na kamay: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="✋🏽">kamay | katamtamang kulay ng balat | nakataas na kamay | palad</annotation>
-		<annotation cp="✋🏽" type="tts">nakataas na kamay: katamtamang kulay ng balat</annotation>
-		<annotation cp="✋🏾">kamay | katamtamang dark na kulay ng balat | nakataas na kamay | palad</annotation>
-		<annotation cp="✋🏾" type="tts">nakataas na kamay: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="✋🏿">dark na kulay ng balat | kamay | nakataas na kamay | palad</annotation>
-		<annotation cp="✋🏿" type="tts">nakataas na kamay: dark na kulay ng balat</annotation>
-		<annotation cp="🖖🏻">daliri | kamay | light na kulay ng balat | spock | star trek | vulcan salute</annotation>
-		<annotation cp="🖖🏻" type="tts">vulcan salute: light na kulay ng balat</annotation>
-		<annotation cp="🖖🏼">daliri | kamay | katamtamang light na kulay ng balat | spock | star trek | vulcan salute</annotation>
-		<annotation cp="🖖🏼" type="tts">vulcan salute: katamtamang light na kulay ng balat</annotation>
-		<annotation cp="🖖🏽">daliri | kamay | katamtamang kulay ng balat | spock | star trek | vulcan salute</annotation>
-		<annotation cp="🖖🏽" type="tts">vulcan salute: katamtamang kulay ng balat</annotation>
-		<annotation cp="🖖🏾">daliri | kamay | katamtamang dark na kulay ng balat | spock | star trek | vulcan salute</annotation>
-		<annotation cp="🖖🏾" type="tts">vulcan salute: katamtamang dark na kulay ng balat</annotation>
-		<annotation cp="🖖🏿">daliri | dark na kulay ng balat | kamay | spock | star trek | vulcan salute</annotation>
-		<annotation cp="🖖🏿" type="tts">vulcan salute: dark na kulay ng balat</annotation>
 		<annotation cp="👌🏻">kamay | kamay na nagpapahiwatig ng ok | light na kulay ng balat | ok | pera</annotation>
 		<annotation cp="👌🏻" type="tts">kamay na nagpapahiwatig ng ok: light na kulay ng balat</annotation>
 		<annotation cp="👌🏼">kamay | kamay na nagpapahiwatig ng ok | katamtamang light na kulay ng balat | ok | pera</annotation>
@@ -252,6 +192,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤞🏾" type="tts">naka-cross na mga daliri: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="🤞🏿">cross | daliri | dark na kulay ng balat | kamay | naka-cross na mga daliri | swerte</annotation>
 		<annotation cp="🤞🏿" type="tts">naka-cross na mga daliri: dark na kulay ng balat</annotation>
+		<annotation cp="🫰🏻">kamay na magkakrus ang hintuturo at hinlalaki | light na kulay ng balat | mahal | pag-ibig | pera | pitik | puso</annotation>
+		<annotation cp="🫰🏻" type="tts">kamay na magkakrus ang hintuturo at hinlalaki: light na kulay ng balat</annotation>
+		<annotation cp="🫰🏼">kamay na magkakrus ang hintuturo at hinlalaki | katamtamang light na kulay ng balat | mahal | pag-ibig | pera | pitik | puso</annotation>
+		<annotation cp="🫰🏼" type="tts">kamay na magkakrus ang hintuturo at hinlalaki: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🫰🏽">kamay na magkakrus ang hintuturo at hinlalaki | katamtamang kulay ng balat | mahal | pag-ibig | pera | pitik | puso</annotation>
+		<annotation cp="🫰🏽" type="tts">kamay na magkakrus ang hintuturo at hinlalaki: katamtamang kulay ng balat</annotation>
+		<annotation cp="🫰🏾">kamay na magkakrus ang hintuturo at hinlalaki | katamtamang dark na kulay ng balat | mahal | pag-ibig | pera | pitik | puso</annotation>
+		<annotation cp="🫰🏾" type="tts">kamay na magkakrus ang hintuturo at hinlalaki: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🫰🏿">dark na kulay ng balat | kamay na magkakrus ang hintuturo at hinlalaki | mahal | pag-ibig | pera | pitik | puso</annotation>
+		<annotation cp="🫰🏿" type="tts">kamay na magkakrus ang hintuturo at hinlalaki: dark na kulay ng balat</annotation>
 		<annotation cp="🤟🏻">ILY | kamay | light na kulay ng balat | love-you gesture</annotation>
 		<annotation cp="🤟🏻" type="tts">love-you gesture: light na kulay ng balat</annotation>
 		<annotation cp="🤟🏼">ILY | kamay | katamtamang light na kulay ng balat | love-you gesture</annotation>
@@ -342,6 +292,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☝🏾" type="tts">hintuturo na nakaturo sa itaas: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="☝🏿">daliri | dark na kulay ng balat | hintuturo | hintuturo na nakaturo sa itaas | hintuturong nakaturo sa itaas | kamay</annotation>
 		<annotation cp="☝🏿" type="tts">hintuturo na nakaturo sa itaas: dark na kulay ng balat</annotation>
+		<annotation cp="🫵🏻">hintuturong nakaturo sa tumitingin | light na kulay ng balat</annotation>
+		<annotation cp="🫵🏻" type="tts">hintuturong nakaturo sa tumitingin: light na kulay ng balat</annotation>
+		<annotation cp="🫵🏼">hintuturong nakaturo sa tumitingin | katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🫵🏼" type="tts">hintuturong nakaturo sa tumitingin: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🫵🏽">hintuturong nakaturo sa tumitingin | katamtamang kulay ng balat</annotation>
+		<annotation cp="🫵🏽" type="tts">hintuturong nakaturo sa tumitingin: katamtamang kulay ng balat</annotation>
+		<annotation cp="🫵🏾">hintuturong nakaturo sa tumitingin | katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🫵🏾" type="tts">hintuturong nakaturo sa tumitingin: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🫵🏿">dark na kulay ng balat | hintuturong nakaturo sa tumitingin</annotation>
+		<annotation cp="🫵🏿" type="tts">hintuturong nakaturo sa tumitingin: dark na kulay ng balat</annotation>
 		<annotation cp="👍🏻">+1 | hinlalaki | kamay | light na kulay ng balat | ok | thumbs up</annotation>
 		<annotation cp="👍🏻" type="tts">thumbs up: light na kulay ng balat</annotation>
 		<annotation cp="👍🏼">+1 | hinlalaki | kamay | katamtamang light na kulay ng balat | ok | thumbs up</annotation>
@@ -422,6 +382,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">nakataas na mga kamay: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="🙌🏿">dark na kulay ng balat | hooray | kamay | nagdiriwang | nakataas na mga kamay</annotation>
 		<annotation cp="🙌🏿" type="tts">nakataas na mga kamay: dark na kulay ng balat</annotation>
+		<annotation cp="🫶🏻">light na kulay ng balat | nakapusong kamay</annotation>
+		<annotation cp="🫶🏻" type="tts">nakapusong kamay: light na kulay ng balat</annotation>
+		<annotation cp="🫶🏼">katamtamang light na kulay ng balat | nakapusong kamay</annotation>
+		<annotation cp="🫶🏼" type="tts">nakapusong kamay: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🫶🏽">katamtamang kulay ng balat | nakapusong kamay</annotation>
+		<annotation cp="🫶🏽" type="tts">nakapusong kamay: katamtamang kulay ng balat</annotation>
+		<annotation cp="🫶🏾">katamtamang dark na kulay ng balat | nakapusong kamay</annotation>
+		<annotation cp="🫶🏾" type="tts">nakapusong kamay: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🫶🏿">dark na kulay ng balat | nakapusong kamay</annotation>
+		<annotation cp="🫶🏿" type="tts">nakapusong kamay: dark na kulay ng balat</annotation>
 		<annotation cp="👐🏻">bukas-palad | gesture | kamay | light na kulay ng balat | palad</annotation>
 		<annotation cp="👐🏻" type="tts">bukas-palad: light na kulay ng balat</annotation>
 		<annotation cp="👐🏼">bukas-palad | gesture | kamay | katamtamang light na kulay ng balat | palad</annotation>
@@ -462,6 +432,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙏🏾" type="tts">magkalapat na mga palad: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="🙏🏿">dark na kulay ng balat | humihiling | kamay | magkalapat na mga palad | nagdarasal | nagpapasalamat | nakikisuyo | yuko</annotation>
 		<annotation cp="🙏🏿" type="tts">magkalapat na mga palad: dark na kulay ng balat</annotation>
+		<annotation cp="🫷🏻">hintay | light na kulay ng balat | nakaaper | pakaliwa | pakaliwang tumutulak na kamay | tigil | tumatanggi | tumutulak</annotation>
+		<annotation cp="🫷🏻" type="tts">pakaliwang tumutulak na kamay: light na kulay ng balat</annotation>
+		<annotation cp="🫷🏼">hintay | katamtamang light na kulay ng balat | nakaaper | pakaliwa | pakaliwang tumutulak na kamay | tigil | tumatanggi | tumutulak</annotation>
+		<annotation cp="🫷🏼" type="tts">pakaliwang tumutulak na kamay: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🫷🏽">hintay | katamtamang kulay ng balat | nakaaper | pakaliwa | pakaliwang tumutulak na kamay | tigil | tumatanggi | tumutulak</annotation>
+		<annotation cp="🫷🏽" type="tts">pakaliwang tumutulak na kamay: katamtamang kulay ng balat</annotation>
+		<annotation cp="🫷🏾">hintay | katamtamang dark na kulay ng balat | nakaaper | pakaliwa | pakaliwang tumutulak na kamay | tigil | tumatanggi | tumutulak</annotation>
+		<annotation cp="🫷🏾" type="tts">pakaliwang tumutulak na kamay: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🫷🏿">dark na kulay ng balat | hintay | nakaaper | pakaliwa | pakaliwang tumutulak na kamay | tigil | tumatanggi | tumutulak</annotation>
+		<annotation cp="🫷🏿" type="tts">pakaliwang tumutulak na kamay: dark na kulay ng balat</annotation>
+		<annotation cp="🫸🏻">hintay | light na kulay ng balat | nakaaper | pakanan | pakanang tumutulak na kamay | tanggi | tigil | tulak</annotation>
+		<annotation cp="🫸🏻" type="tts">pakanang tumutulak na kamay: light na kulay ng balat</annotation>
+		<annotation cp="🫸🏼">hintay | katamtamang light na kulay ng balat | nakaaper | pakanan | pakanang tumutulak na kamay | tanggi | tigil | tulak</annotation>
+		<annotation cp="🫸🏼" type="tts">pakanang tumutulak na kamay: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🫸🏽">hintay | katamtamang kulay ng balat | nakaaper | pakanan | pakanang tumutulak na kamay | tanggi | tigil | tulak</annotation>
+		<annotation cp="🫸🏽" type="tts">pakanang tumutulak na kamay: katamtamang kulay ng balat</annotation>
+		<annotation cp="🫸🏾">hintay | katamtamang dark na kulay ng balat | nakaaper | pakanan | pakanang tumutulak na kamay | tanggi | tigil | tulak</annotation>
+		<annotation cp="🫸🏾" type="tts">pakanang tumutulak na kamay: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🫸🏿">dark na kulay ng balat | hintay | nakaaper | pakanan | pakanang tumutulak na kamay | tanggi | tigil | tulak</annotation>
+		<annotation cp="🫸🏿" type="tts">pakanang tumutulak na kamay: dark na kulay ng balat</annotation>
 		<annotation cp="✍🏻">kamay | light na kulay ng balat | nagsusulat | nagsusulat na kamay</annotation>
 		<annotation cp="✍🏻" type="tts">nagsusulat na kamay: light na kulay ng balat</annotation>
 		<annotation cp="✍🏼">kamay | katamtamang light na kulay ng balat | nagsusulat | nagsusulat na kamay</annotation>
@@ -2146,6 +2136,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👷🏾‍♀" type="tts">babaeng trabahador sa konstruksyon: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="👷🏿‍♀">babae | babaeng trabahador sa konstruksyon | dark na kulay ng balat | konstruksyon | trabahador</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">babaeng trabahador sa konstruksyon: dark na kulay ng balat</annotation>
+		<annotation cp="🫅🏻">light na kulay ng balat | taong may korona</annotation>
+		<annotation cp="🫅🏻" type="tts">taong may korona: light na kulay ng balat</annotation>
+		<annotation cp="🫅🏼">katamtamang light na kulay ng balat | taong may korona</annotation>
+		<annotation cp="🫅🏼" type="tts">taong may korona: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🫅🏽">katamtamang kulay ng balat | taong may korona</annotation>
+		<annotation cp="🫅🏽" type="tts">taong may korona: katamtamang kulay ng balat</annotation>
+		<annotation cp="🫅🏾">katamtamang dark na kulay ng balat | taong may korona</annotation>
+		<annotation cp="🫅🏾" type="tts">taong may korona: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🫅🏿">dark na kulay ng balat | taong may korona</annotation>
+		<annotation cp="🫅🏿" type="tts">taong may korona: dark na kulay ng balat</annotation>
 		<annotation cp="🤴🏻">light na kulay ng balat | prinsipe</annotation>
 		<annotation cp="🤴🏻" type="tts">prinsipe: light na kulay ng balat</annotation>
 		<annotation cp="🤴🏼">katamtamang light na kulay ng balat | prinsipe</annotation>
@@ -2286,6 +2286,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">buntis: katamtamang dark na kulay ng balat</annotation>
 		<annotation cp="🤰🏿">babae | buntis | dark na kulay ng balat</annotation>
 		<annotation cp="🤰🏿" type="tts">buntis: dark na kulay ng balat</annotation>
+		<annotation cp="🫃🏻">lalaking buntis | light na kulay ng balat</annotation>
+		<annotation cp="🫃🏻" type="tts">lalaking buntis: light na kulay ng balat</annotation>
+		<annotation cp="🫃🏼">katamtamang light na kulay ng balat | lalaking buntis</annotation>
+		<annotation cp="🫃🏼" type="tts">lalaking buntis: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🫃🏽">katamtamang kulay ng balat | lalaking buntis</annotation>
+		<annotation cp="🫃🏽" type="tts">lalaking buntis: katamtamang kulay ng balat</annotation>
+		<annotation cp="🫃🏾">katamtamang dark na kulay ng balat | lalaking buntis</annotation>
+		<annotation cp="🫃🏾" type="tts">lalaking buntis: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🫃🏿">dark na kulay ng balat | lalaking buntis</annotation>
+		<annotation cp="🫃🏿" type="tts">lalaking buntis: dark na kulay ng balat</annotation>
+		<annotation cp="🫄🏻">light na kulay ng balat | taong buntis</annotation>
+		<annotation cp="🫄🏻" type="tts">taong buntis: light na kulay ng balat</annotation>
+		<annotation cp="🫄🏼">katamtamang light na kulay ng balat | taong buntis</annotation>
+		<annotation cp="🫄🏼" type="tts">taong buntis: katamtamang light na kulay ng balat</annotation>
+		<annotation cp="🫄🏽">katamtamang kulay ng balat | taong buntis</annotation>
+		<annotation cp="🫄🏽" type="tts">taong buntis: katamtamang kulay ng balat</annotation>
+		<annotation cp="🫄🏾">katamtamang dark na kulay ng balat | taong buntis</annotation>
+		<annotation cp="🫄🏾" type="tts">taong buntis: katamtamang dark na kulay ng balat</annotation>
+		<annotation cp="🫄🏿">dark na kulay ng balat | taong buntis</annotation>
+		<annotation cp="🫄🏿" type="tts">taong buntis: dark na kulay ng balat</annotation>
 		<annotation cp="🤱🏻">breast | breast-feeding | light na kulay ng balat | nagpapadede | sanggol</annotation>
 		<annotation cp="🤱🏻" type="tts">breast-feeding: light na kulay ng balat</annotation>
 		<annotation cp="🤱🏼">breast | breast-feeding | katamtamang light na kulay ng balat | nagpapadede | sanggol</annotation>
@@ -4184,12 +4204,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="៛" type="tts">Cambodian Riel</annotation>
 		<annotation cp="₡" type="tts">Colón ng Costa Rica</annotation>
 		<annotation cp="₦" type="tts">Nigerian Naira</annotation>
-		<annotation cp="₪" type="tts">Israeli New Sheqel</annotation>
+		<annotation cp="₪" type="tts">New Shekel ng Israel</annotation>
 		<annotation cp="₫" type="tts">Vietnamese Dong</annotation>
 		<annotation cp="₭" type="tts">Laotian Kip</annotation>
 		<annotation cp="₮" type="tts">Mongolian Tugrik</annotation>
 		<annotation cp="₲" type="tts">Paraguayan Guarani</annotation>
-		<annotation cp="₴" type="tts">Ukrainian Hryvnia</annotation>
+		<annotation cp="₴" type="tts">Hryvnia ng Ukraine</annotation>
 		<annotation cp="₵" type="tts">Ghanaian Cedi</annotation>
 		<annotation cp="₸" type="tts">Kazakhstani Tenge</annotation>
 		<annotation cp="₺" type="tts">Turkish Lira</annotation>

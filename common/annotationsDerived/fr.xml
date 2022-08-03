@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,46 +12,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="fr"/>
 	</identity>
 	<annotations>
-		<annotation cp="🫃🏻">enceinte | grossesse | homme enceinte | peau claire | ventre</annotation>
-		<annotation cp="🫃🏻" type="tts">homme enceinte : peau claire</annotation>
-		<annotation cp="🫃🏼">enceinte | grossesse | homme enceinte | peau moyennement claire | ventre</annotation>
-		<annotation cp="🫃🏼" type="tts">homme enceinte : peau moyennement claire</annotation>
-		<annotation cp="🫃🏽">enceinte | grossesse | homme enceinte | peau légèrement mate | ventre</annotation>
-		<annotation cp="🫃🏽" type="tts">homme enceinte : peau légèrement mate</annotation>
-		<annotation cp="🫃🏾">enceinte | grossesse | homme enceinte | peau mate | ventre</annotation>
-		<annotation cp="🫃🏾" type="tts">homme enceinte : peau mate</annotation>
-		<annotation cp="🫃🏿">enceinte | grossesse | homme enceinte | peau foncée | ventre</annotation>
-		<annotation cp="🫃🏿" type="tts">homme enceinte : peau foncée</annotation>
-		<annotation cp="🫄🏻">enceinte | grossesse | peau claire | personne enceinte | ventre</annotation>
-		<annotation cp="🫄🏻" type="tts">personne enceinte : peau claire</annotation>
-		<annotation cp="🫄🏼">enceinte | grossesse | peau moyennement claire | personne enceinte | ventre</annotation>
-		<annotation cp="🫄🏼" type="tts">personne enceinte : peau moyennement claire</annotation>
-		<annotation cp="🫄🏽">enceinte | grossesse | peau légèrement mate | personne enceinte | ventre</annotation>
-		<annotation cp="🫄🏽" type="tts">personne enceinte : peau légèrement mate</annotation>
-		<annotation cp="🫄🏾">enceinte | grossesse | peau mate | personne enceinte | ventre</annotation>
-		<annotation cp="🫄🏾" type="tts">personne enceinte : peau mate</annotation>
-		<annotation cp="🫄🏿">enceinte | grossesse | peau foncée | personne enceinte | ventre</annotation>
-		<annotation cp="🫄🏿" type="tts">personne enceinte : peau foncée</annotation>
-		<annotation cp="🫅🏻">monarque | noble | peau claire | personne avec une couronne | royal | royauté</annotation>
-		<annotation cp="🫅🏻" type="tts">personne avec une couronne : peau claire</annotation>
-		<annotation cp="🫅🏼">monarque | noble | peau moyennement claire | personne avec une couronne | royal | royauté</annotation>
-		<annotation cp="🫅🏼" type="tts">personne avec une couronne : peau moyennement claire</annotation>
-		<annotation cp="🫅🏽">monarque | noble | peau légèrement mate | personne avec une couronne | royal | royauté</annotation>
-		<annotation cp="🫅🏽" type="tts">personne avec une couronne : peau légèrement mate</annotation>
-		<annotation cp="🫅🏾">monarque | noble | peau mate | personne avec une couronne | royal | royauté</annotation>
-		<annotation cp="🫅🏾" type="tts">personne avec une couronne : peau mate</annotation>
-		<annotation cp="🫅🏿">monarque | noble | peau foncée | personne avec une couronne | royal | royauté</annotation>
-		<annotation cp="🫅🏿" type="tts">personne avec une couronne : peau foncée</annotation>
-		<annotation cp="🫰🏻">amour | argent | cher | claquer des doigts | cœur | main avec index et pouce croisés | peau claire</annotation>
-		<annotation cp="🫰🏻" type="tts">main avec index et pouce croisés : peau claire</annotation>
-		<annotation cp="🫰🏼">amour | argent | cher | claquer des doigts | cœur | main avec index et pouce croisés | peau moyennement claire</annotation>
-		<annotation cp="🫰🏼" type="tts">main avec index et pouce croisés : peau moyennement claire</annotation>
-		<annotation cp="🫰🏽">amour | argent | cher | claquer des doigts | cœur | main avec index et pouce croisés | peau légèrement mate</annotation>
-		<annotation cp="🫰🏽" type="tts">main avec index et pouce croisés : peau légèrement mate</annotation>
-		<annotation cp="🫰🏾">amour | argent | cher | claquer des doigts | cœur | main avec index et pouce croisés | peau mate</annotation>
-		<annotation cp="🫰🏾" type="tts">main avec index et pouce croisés : peau mate</annotation>
-		<annotation cp="🫰🏿">amour | argent | cher | claquer des doigts | cœur | main avec index et pouce croisés | peau foncée</annotation>
-		<annotation cp="🫰🏿" type="tts">main avec index et pouce croisés : peau foncée</annotation>
+		<annotation cp="👋🏻">coucou | main | peau claire | signe de la main</annotation>
+		<annotation cp="👋🏻" type="tts">signe de la main : peau claire</annotation>
+		<annotation cp="👋🏼">coucou | main | peau moyennement claire | signe de la main</annotation>
+		<annotation cp="👋🏼" type="tts">signe de la main : peau moyennement claire</annotation>
+		<annotation cp="👋🏽">coucou | main | peau légèrement mate | signe de la main</annotation>
+		<annotation cp="👋🏽" type="tts">signe de la main : peau légèrement mate</annotation>
+		<annotation cp="👋🏾">coucou | main | peau mate | signe de la main</annotation>
+		<annotation cp="👋🏾" type="tts">signe de la main : peau mate</annotation>
+		<annotation cp="👋🏿">coucou | main | peau foncée | signe de la main</annotation>
+		<annotation cp="👋🏿" type="tts">signe de la main : peau foncée</annotation>
+		<annotation cp="🤚🏻">dos de main levée | levée | main | peau claire</annotation>
+		<annotation cp="🤚🏻" type="tts">dos de main levée : peau claire</annotation>
+		<annotation cp="🤚🏼">dos de main levée | levée | main | peau moyennement claire</annotation>
+		<annotation cp="🤚🏼" type="tts">dos de main levée : peau moyennement claire</annotation>
+		<annotation cp="🤚🏽">dos de main levée | levée | main | peau légèrement mate</annotation>
+		<annotation cp="🤚🏽" type="tts">dos de main levée : peau légèrement mate</annotation>
+		<annotation cp="🤚🏾">dos de main levée | levée | main | peau mate</annotation>
+		<annotation cp="🤚🏾" type="tts">dos de main levée : peau mate</annotation>
+		<annotation cp="🤚🏿">dos de main levée | levée | main | peau foncée</annotation>
+		<annotation cp="🤚🏿" type="tts">dos de main levée : peau foncée</annotation>
+		<annotation cp="🖐🏻">main | main levée doigts écartés | peau claire</annotation>
+		<annotation cp="🖐🏻" type="tts">main levée doigts écartés : peau claire</annotation>
+		<annotation cp="🖐🏼">main | main levée doigts écartés | peau moyennement claire</annotation>
+		<annotation cp="🖐🏼" type="tts">main levée doigts écartés : peau moyennement claire</annotation>
+		<annotation cp="🖐🏽">main | main levée doigts écartés | peau légèrement mate</annotation>
+		<annotation cp="🖐🏽" type="tts">main levée doigts écartés : peau légèrement mate</annotation>
+		<annotation cp="🖐🏾">main | main levée doigts écartés | peau mate</annotation>
+		<annotation cp="🖐🏾" type="tts">main levée doigts écartés : peau mate</annotation>
+		<annotation cp="🖐🏿">main | main levée doigts écartés | peau foncée</annotation>
+		<annotation cp="🖐🏿" type="tts">main levée doigts écartés : peau foncée</annotation>
+		<annotation cp="✋🏻">feuille | main | main levée | peau claire</annotation>
+		<annotation cp="✋🏻" type="tts">main levée : peau claire</annotation>
+		<annotation cp="✋🏼">feuille | main | main levée | peau moyennement claire</annotation>
+		<annotation cp="✋🏼" type="tts">main levée : peau moyennement claire</annotation>
+		<annotation cp="✋🏽">feuille | main | main levée | peau légèrement mate</annotation>
+		<annotation cp="✋🏽" type="tts">main levée : peau légèrement mate</annotation>
+		<annotation cp="✋🏾">feuille | main | main levée | peau mate</annotation>
+		<annotation cp="✋🏾" type="tts">main levée : peau mate</annotation>
+		<annotation cp="✋🏿">feuille | main | main levée | peau foncée</annotation>
+		<annotation cp="✋🏿" type="tts">main levée : peau foncée</annotation>
+		<annotation cp="🖖🏻">main | peau claire | salut vulcain | vulcain</annotation>
+		<annotation cp="🖖🏻" type="tts">salut vulcain : peau claire</annotation>
+		<annotation cp="🖖🏼">main | peau moyennement claire | salut vulcain | vulcain</annotation>
+		<annotation cp="🖖🏼" type="tts">salut vulcain : peau moyennement claire</annotation>
+		<annotation cp="🖖🏽">main | peau légèrement mate | salut vulcain | vulcain</annotation>
+		<annotation cp="🖖🏽" type="tts">salut vulcain : peau légèrement mate</annotation>
+		<annotation cp="🖖🏾">main | peau mate | salut vulcain | vulcain</annotation>
+		<annotation cp="🖖🏾" type="tts">salut vulcain : peau mate</annotation>
+		<annotation cp="🖖🏿">main | peau foncée | salut vulcain | vulcain</annotation>
+		<annotation cp="🖖🏿" type="tts">salut vulcain : peau foncée</annotation>
 		<annotation cp="🫱🏻">droite | main vers la droite | peau claire | vers la droite</annotation>
 		<annotation cp="🫱🏻" type="tts">main vers la droite : peau claire</annotation>
 		<annotation cp="🫱🏼">droite | main vers la droite | peau moyennement claire | vers la droite</annotation>
@@ -132,76 +142,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫴🏾" type="tts">main paume vers le haut : peau mate</annotation>
 		<annotation cp="🫴🏿">appeler de la main | attirer | faire venir | main paume vers le haut | offre | peau foncée</annotation>
 		<annotation cp="🫴🏿" type="tts">main paume vers le haut : peau foncée</annotation>
-		<annotation cp="🫵🏻">index pointant vers l’utilisateur | peau claire | pointer | toi</annotation>
-		<annotation cp="🫵🏻" type="tts">index pointant vers l’utilisateur : peau claire</annotation>
-		<annotation cp="🫵🏼">index pointant vers l’utilisateur | peau moyennement claire | pointer | toi</annotation>
-		<annotation cp="🫵🏼" type="tts">index pointant vers l’utilisateur : peau moyennement claire</annotation>
-		<annotation cp="🫵🏽">index pointant vers l’utilisateur | peau légèrement mate | pointer | toi</annotation>
-		<annotation cp="🫵🏽" type="tts">index pointant vers l’utilisateur : peau légèrement mate</annotation>
-		<annotation cp="🫵🏾">index pointant vers l’utilisateur | peau mate | pointer | toi</annotation>
-		<annotation cp="🫵🏾" type="tts">index pointant vers l’utilisateur : peau mate</annotation>
-		<annotation cp="🫵🏿">index pointant vers l’utilisateur | peau foncée | pointer | toi</annotation>
-		<annotation cp="🫵🏿" type="tts">index pointant vers l’utilisateur : peau foncée</annotation>
-		<annotation cp="🫶🏻">amour | cœur | mains qui forment un cœur | peau claire</annotation>
-		<annotation cp="🫶🏻" type="tts">mains qui forment un cœur : peau claire</annotation>
-		<annotation cp="🫶🏼">amour | cœur | mains qui forment un cœur | peau moyennement claire</annotation>
-		<annotation cp="🫶🏼" type="tts">mains qui forment un cœur : peau moyennement claire</annotation>
-		<annotation cp="🫶🏽">amour | cœur | mains qui forment un cœur | peau légèrement mate</annotation>
-		<annotation cp="🫶🏽" type="tts">mains qui forment un cœur : peau légèrement mate</annotation>
-		<annotation cp="🫶🏾">amour | cœur | mains qui forment un cœur | peau mate</annotation>
-		<annotation cp="🫶🏾" type="tts">mains qui forment un cœur : peau mate</annotation>
-		<annotation cp="🫶🏿">amour | cœur | mains qui forment un cœur | peau foncée</annotation>
-		<annotation cp="🫶🏿" type="tts">mains qui forment un cœur : peau foncée</annotation>
-		<annotation cp="👋🏻">coucou | main | peau claire | signe de la main</annotation>
-		<annotation cp="👋🏻" type="tts">signe de la main : peau claire</annotation>
-		<annotation cp="👋🏼">coucou | main | peau moyennement claire | signe de la main</annotation>
-		<annotation cp="👋🏼" type="tts">signe de la main : peau moyennement claire</annotation>
-		<annotation cp="👋🏽">coucou | main | peau légèrement mate | signe de la main</annotation>
-		<annotation cp="👋🏽" type="tts">signe de la main : peau légèrement mate</annotation>
-		<annotation cp="👋🏾">coucou | main | peau mate | signe de la main</annotation>
-		<annotation cp="👋🏾" type="tts">signe de la main : peau mate</annotation>
-		<annotation cp="👋🏿">coucou | main | peau foncée | signe de la main</annotation>
-		<annotation cp="👋🏿" type="tts">signe de la main : peau foncée</annotation>
-		<annotation cp="🤚🏻">dos de main levée | levée | main | peau claire</annotation>
-		<annotation cp="🤚🏻" type="tts">dos de main levée : peau claire</annotation>
-		<annotation cp="🤚🏼">dos de main levée | levée | main | peau moyennement claire</annotation>
-		<annotation cp="🤚🏼" type="tts">dos de main levée : peau moyennement claire</annotation>
-		<annotation cp="🤚🏽">dos de main levée | levée | main | peau légèrement mate</annotation>
-		<annotation cp="🤚🏽" type="tts">dos de main levée : peau légèrement mate</annotation>
-		<annotation cp="🤚🏾">dos de main levée | levée | main | peau mate</annotation>
-		<annotation cp="🤚🏾" type="tts">dos de main levée : peau mate</annotation>
-		<annotation cp="🤚🏿">dos de main levée | levée | main | peau foncée</annotation>
-		<annotation cp="🤚🏿" type="tts">dos de main levée : peau foncée</annotation>
-		<annotation cp="🖐🏻">main | main levée doigts écartés | peau claire</annotation>
-		<annotation cp="🖐🏻" type="tts">main levée doigts écartés : peau claire</annotation>
-		<annotation cp="🖐🏼">main | main levée doigts écartés | peau moyennement claire</annotation>
-		<annotation cp="🖐🏼" type="tts">main levée doigts écartés : peau moyennement claire</annotation>
-		<annotation cp="🖐🏽">main | main levée doigts écartés | peau légèrement mate</annotation>
-		<annotation cp="🖐🏽" type="tts">main levée doigts écartés : peau légèrement mate</annotation>
-		<annotation cp="🖐🏾">main | main levée doigts écartés | peau mate</annotation>
-		<annotation cp="🖐🏾" type="tts">main levée doigts écartés : peau mate</annotation>
-		<annotation cp="🖐🏿">main | main levée doigts écartés | peau foncée</annotation>
-		<annotation cp="🖐🏿" type="tts">main levée doigts écartés : peau foncée</annotation>
-		<annotation cp="✋🏻">feuille | main | main levée | peau claire</annotation>
-		<annotation cp="✋🏻" type="tts">main levée : peau claire</annotation>
-		<annotation cp="✋🏼">feuille | main | main levée | peau moyennement claire</annotation>
-		<annotation cp="✋🏼" type="tts">main levée : peau moyennement claire</annotation>
-		<annotation cp="✋🏽">feuille | main | main levée | peau légèrement mate</annotation>
-		<annotation cp="✋🏽" type="tts">main levée : peau légèrement mate</annotation>
-		<annotation cp="✋🏾">feuille | main | main levée | peau mate</annotation>
-		<annotation cp="✋🏾" type="tts">main levée : peau mate</annotation>
-		<annotation cp="✋🏿">feuille | main | main levée | peau foncée</annotation>
-		<annotation cp="✋🏿" type="tts">main levée : peau foncée</annotation>
-		<annotation cp="🖖🏻">main | peau claire | salut vulcain | vulcain</annotation>
-		<annotation cp="🖖🏻" type="tts">salut vulcain : peau claire</annotation>
-		<annotation cp="🖖🏼">main | peau moyennement claire | salut vulcain | vulcain</annotation>
-		<annotation cp="🖖🏼" type="tts">salut vulcain : peau moyennement claire</annotation>
-		<annotation cp="🖖🏽">main | peau légèrement mate | salut vulcain | vulcain</annotation>
-		<annotation cp="🖖🏽" type="tts">salut vulcain : peau légèrement mate</annotation>
-		<annotation cp="🖖🏾">main | peau mate | salut vulcain | vulcain</annotation>
-		<annotation cp="🖖🏾" type="tts">salut vulcain : peau mate</annotation>
-		<annotation cp="🖖🏿">main | peau foncée | salut vulcain | vulcain</annotation>
-		<annotation cp="🖖🏿" type="tts">salut vulcain : peau foncée</annotation>
 		<annotation cp="👌🏻">geste | main | ok | peau claire</annotation>
 		<annotation cp="👌🏻" type="tts">ok : peau claire</annotation>
 		<annotation cp="👌🏼">geste | main | ok | peau moyennement claire</annotation>
@@ -252,6 +192,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤞🏾" type="tts">doigts croisés : peau mate</annotation>
 		<annotation cp="🤞🏿">croisés | doigts | main | peau foncée</annotation>
 		<annotation cp="🤞🏿" type="tts">doigts croisés : peau foncée</annotation>
+		<annotation cp="🫰🏻">amour | argent | cher | claquer des doigts | cœur | main avec index et pouce croisés | peau claire</annotation>
+		<annotation cp="🫰🏻" type="tts">main avec index et pouce croisés : peau claire</annotation>
+		<annotation cp="🫰🏼">amour | argent | cher | claquer des doigts | cœur | main avec index et pouce croisés | peau moyennement claire</annotation>
+		<annotation cp="🫰🏼" type="tts">main avec index et pouce croisés : peau moyennement claire</annotation>
+		<annotation cp="🫰🏽">amour | argent | cher | claquer des doigts | cœur | main avec index et pouce croisés | peau légèrement mate</annotation>
+		<annotation cp="🫰🏽" type="tts">main avec index et pouce croisés : peau légèrement mate</annotation>
+		<annotation cp="🫰🏾">amour | argent | cher | claquer des doigts | cœur | main avec index et pouce croisés | peau mate</annotation>
+		<annotation cp="🫰🏾" type="tts">main avec index et pouce croisés : peau mate</annotation>
+		<annotation cp="🫰🏿">amour | argent | cher | claquer des doigts | cœur | main avec index et pouce croisés | peau foncée</annotation>
+		<annotation cp="🫰🏿" type="tts">main avec index et pouce croisés : peau foncée</annotation>
 		<annotation cp="🤟🏻">amour | main | peau claire | signe je t’aime</annotation>
 		<annotation cp="🤟🏻" type="tts">signe je t’aime : peau claire</annotation>
 		<annotation cp="🤟🏼">amour | main | peau moyennement claire | signe je t’aime</annotation>
@@ -342,6 +292,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☝🏾" type="tts">index pointant vers le haut : peau mate</annotation>
 		<annotation cp="☝🏿">doigt | index | index pointant vers le haut | main | peau foncée</annotation>
 		<annotation cp="☝🏿" type="tts">index pointant vers le haut : peau foncée</annotation>
+		<annotation cp="🫵🏻">index pointant vers l’utilisateur | peau claire | pointer | toi</annotation>
+		<annotation cp="🫵🏻" type="tts">index pointant vers l’utilisateur : peau claire</annotation>
+		<annotation cp="🫵🏼">index pointant vers l’utilisateur | peau moyennement claire | pointer | toi</annotation>
+		<annotation cp="🫵🏼" type="tts">index pointant vers l’utilisateur : peau moyennement claire</annotation>
+		<annotation cp="🫵🏽">index pointant vers l’utilisateur | peau légèrement mate | pointer | toi</annotation>
+		<annotation cp="🫵🏽" type="tts">index pointant vers l’utilisateur : peau légèrement mate</annotation>
+		<annotation cp="🫵🏾">index pointant vers l’utilisateur | peau mate | pointer | toi</annotation>
+		<annotation cp="🫵🏾" type="tts">index pointant vers l’utilisateur : peau mate</annotation>
+		<annotation cp="🫵🏿">index pointant vers l’utilisateur | peau foncée | pointer | toi</annotation>
+		<annotation cp="🫵🏿" type="tts">index pointant vers l’utilisateur : peau foncée</annotation>
 		<annotation cp="👍🏻">main | peau claire | pouce vers le haut | super</annotation>
 		<annotation cp="👍🏻" type="tts">pouce vers le haut : peau claire</annotation>
 		<annotation cp="👍🏼">main | peau moyennement claire | pouce vers le haut | super</annotation>
@@ -422,6 +382,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">mains levées : peau mate</annotation>
 		<annotation cp="🙌🏿">air | mains | mains levées | peau foncée</annotation>
 		<annotation cp="🙌🏿" type="tts">mains levées : peau foncée</annotation>
+		<annotation cp="🫶🏻">amour | cœur | mains qui forment un cœur | peau claire</annotation>
+		<annotation cp="🫶🏻" type="tts">mains qui forment un cœur : peau claire</annotation>
+		<annotation cp="🫶🏼">amour | cœur | mains qui forment un cœur | peau moyennement claire</annotation>
+		<annotation cp="🫶🏼" type="tts">mains qui forment un cœur : peau moyennement claire</annotation>
+		<annotation cp="🫶🏽">amour | cœur | mains qui forment un cœur | peau légèrement mate</annotation>
+		<annotation cp="🫶🏽" type="tts">mains qui forment un cœur : peau légèrement mate</annotation>
+		<annotation cp="🫶🏾">amour | cœur | mains qui forment un cœur | peau mate</annotation>
+		<annotation cp="🫶🏾" type="tts">mains qui forment un cœur : peau mate</annotation>
+		<annotation cp="🫶🏿">amour | cœur | mains qui forment un cœur | peau foncée</annotation>
+		<annotation cp="🫶🏿" type="tts">mains qui forment un cœur : peau foncée</annotation>
 		<annotation cp="👐🏻">main | mains ouvertes | ouvert | peau claire</annotation>
 		<annotation cp="👐🏻" type="tts">mains ouvertes : peau claire</annotation>
 		<annotation cp="👐🏼">main | mains ouvertes | ouvert | peau moyennement claire</annotation>
@@ -462,6 +432,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙏🏾" type="tts">mains en prière : peau mate</annotation>
 		<annotation cp="🙏🏿">mains | mains en prière | peau foncée | prière</annotation>
 		<annotation cp="🙏🏿" type="tts">mains en prière : peau foncée</annotation>
+		<annotation cp="🫷🏻">arrêter | attendre | gauche | high five | main qui pousse vers la gauche | peau claire | pousser | refuser</annotation>
+		<annotation cp="🫷🏻" type="tts">main qui pousse vers la gauche : peau claire</annotation>
+		<annotation cp="🫷🏼">arrêter | attendre | gauche | high five | main qui pousse vers la gauche | peau moyennement claire | pousser | refuser</annotation>
+		<annotation cp="🫷🏼" type="tts">main qui pousse vers la gauche : peau moyennement claire</annotation>
+		<annotation cp="🫷🏽">arrêter | attendre | gauche | high five | main qui pousse vers la gauche | peau légèrement mate | pousser | refuser</annotation>
+		<annotation cp="🫷🏽" type="tts">main qui pousse vers la gauche : peau légèrement mate</annotation>
+		<annotation cp="🫷🏾">arrêter | attendre | gauche | high five | main qui pousse vers la gauche | peau mate | pousser | refuser</annotation>
+		<annotation cp="🫷🏾" type="tts">main qui pousse vers la gauche : peau mate</annotation>
+		<annotation cp="🫷🏿">arrêter | attendre | gauche | high five | main qui pousse vers la gauche | peau foncée | pousser | refuser</annotation>
+		<annotation cp="🫷🏿" type="tts">main qui pousse vers la gauche : peau foncée</annotation>
+		<annotation cp="🫸🏻">arrêter | attendre | droite | high five | main qui pousse vers la droite | peau claire | pousser | refuser</annotation>
+		<annotation cp="🫸🏻" type="tts">main qui pousse vers la droite : peau claire</annotation>
+		<annotation cp="🫸🏼">arrêter | attendre | droite | high five | main qui pousse vers la droite | peau moyennement claire | pousser | refuser</annotation>
+		<annotation cp="🫸🏼" type="tts">main qui pousse vers la droite : peau moyennement claire</annotation>
+		<annotation cp="🫸🏽">arrêter | attendre | droite | high five | main qui pousse vers la droite | peau légèrement mate | pousser | refuser</annotation>
+		<annotation cp="🫸🏽" type="tts">main qui pousse vers la droite : peau légèrement mate</annotation>
+		<annotation cp="🫸🏾">arrêter | attendre | droite | high five | main qui pousse vers la droite | peau mate | pousser | refuser</annotation>
+		<annotation cp="🫸🏾" type="tts">main qui pousse vers la droite : peau mate</annotation>
+		<annotation cp="🫸🏿">arrêter | attendre | droite | high five | main qui pousse vers la droite | peau foncée | pousser | refuser</annotation>
+		<annotation cp="🫸🏿" type="tts">main qui pousse vers la droite : peau foncée</annotation>
 		<annotation cp="✍🏻">écrire | main | main qui écrit | peau claire</annotation>
 		<annotation cp="✍🏻" type="tts">main qui écrit : peau claire</annotation>
 		<annotation cp="✍🏼">écrire | main | main qui écrit | peau moyennement claire</annotation>
@@ -2146,6 +2136,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👷🏾‍♀" type="tts">ouvrière du bâtiment : peau mate</annotation>
 		<annotation cp="👷🏿‍♀">bâtiment | femme | ouvrière | ouvrière du bâtiment | peau foncée</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">ouvrière du bâtiment : peau foncée</annotation>
+		<annotation cp="🫅🏻">monarque | noble | peau claire | personne avec une couronne | royal | royauté</annotation>
+		<annotation cp="🫅🏻" type="tts">personne avec une couronne : peau claire</annotation>
+		<annotation cp="🫅🏼">monarque | noble | peau moyennement claire | personne avec une couronne | royal | royauté</annotation>
+		<annotation cp="🫅🏼" type="tts">personne avec une couronne : peau moyennement claire</annotation>
+		<annotation cp="🫅🏽">monarque | noble | peau légèrement mate | personne avec une couronne | royal | royauté</annotation>
+		<annotation cp="🫅🏽" type="tts">personne avec une couronne : peau légèrement mate</annotation>
+		<annotation cp="🫅🏾">monarque | noble | peau mate | personne avec une couronne | royal | royauté</annotation>
+		<annotation cp="🫅🏾" type="tts">personne avec une couronne : peau mate</annotation>
+		<annotation cp="🫅🏿">monarque | noble | peau foncée | personne avec une couronne | royal | royauté</annotation>
+		<annotation cp="🫅🏿" type="tts">personne avec une couronne : peau foncée</annotation>
 		<annotation cp="🤴🏻">peau claire | prince</annotation>
 		<annotation cp="🤴🏻" type="tts">prince : peau claire</annotation>
 		<annotation cp="🤴🏼">peau moyennement claire | prince</annotation>
@@ -2286,6 +2286,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">femme enceinte : peau mate</annotation>
 		<annotation cp="🤰🏿">enceinte | femme | peau foncée</annotation>
 		<annotation cp="🤰🏿" type="tts">femme enceinte : peau foncée</annotation>
+		<annotation cp="🫃🏻">enceinte | grossesse | homme enceint | homme enceinte | peau claire | ventre</annotation>
+		<annotation cp="🫃🏻" type="tts">homme enceint : peau claire</annotation>
+		<annotation cp="🫃🏼">enceinte | grossesse | homme enceint | homme enceinte | peau moyennement claire | ventre</annotation>
+		<annotation cp="🫃🏼" type="tts">homme enceint : peau moyennement claire</annotation>
+		<annotation cp="🫃🏽">enceinte | grossesse | homme enceint | homme enceinte | peau légèrement mate | ventre</annotation>
+		<annotation cp="🫃🏽" type="tts">homme enceint : peau légèrement mate</annotation>
+		<annotation cp="🫃🏾">enceinte | grossesse | homme enceint | homme enceinte | peau mate | ventre</annotation>
+		<annotation cp="🫃🏾" type="tts">homme enceint : peau mate</annotation>
+		<annotation cp="🫃🏿">enceinte | grossesse | homme enceint | homme enceinte | peau foncée | ventre</annotation>
+		<annotation cp="🫃🏿" type="tts">homme enceint : peau foncée</annotation>
+		<annotation cp="🫄🏻">enceinte | grossesse | peau claire | personne enceinte | ventre</annotation>
+		<annotation cp="🫄🏻" type="tts">personne enceinte : peau claire</annotation>
+		<annotation cp="🫄🏼">enceinte | grossesse | peau moyennement claire | personne enceinte | ventre</annotation>
+		<annotation cp="🫄🏼" type="tts">personne enceinte : peau moyennement claire</annotation>
+		<annotation cp="🫄🏽">enceinte | grossesse | peau légèrement mate | personne enceinte | ventre</annotation>
+		<annotation cp="🫄🏽" type="tts">personne enceinte : peau légèrement mate</annotation>
+		<annotation cp="🫄🏾">enceinte | grossesse | peau mate | personne enceinte | ventre</annotation>
+		<annotation cp="🫄🏾" type="tts">personne enceinte : peau mate</annotation>
+		<annotation cp="🫄🏿">enceinte | grossesse | peau foncée | personne enceinte | ventre</annotation>
+		<annotation cp="🫄🏿" type="tts">personne enceinte : peau foncée</annotation>
 		<annotation cp="🤱🏻">allaitement | bébé | peau claire | sein | soins</annotation>
 		<annotation cp="🤱🏻" type="tts">allaitement : peau claire</annotation>
 		<annotation cp="🤱🏼">allaitement | bébé | peau moyennement claire | sein | soins</annotation>

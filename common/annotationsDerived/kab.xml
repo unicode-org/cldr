@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,36 +12,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="kab"/>
 	</identity>
 	<annotations>
-		<annotation cp="🫃🏻">argaz s tadist | taglimt taceɛlalt</annotation>
-		<annotation cp="🫃🏻" type="tts">argaz s tadist: taglimt taceɛlalt</annotation>
-		<annotation cp="🫃🏼">argaz s tadist | tagwlimt taceɛlalt talemmast</annotation>
-		<annotation cp="🫃🏼" type="tts">argaz s tadist: tagwlimt taceɛlalt talemmast</annotation>
-		<annotation cp="🫃🏽">argaz s tadist | taglimt talemmast</annotation>
-		<annotation cp="🫃🏽" type="tts">argaz s tadist: taglimt talemmast</annotation>
-		<annotation cp="🫃🏾">argaz s tadist | taglimt tubrikt talemmast</annotation>
-		<annotation cp="🫃🏾" type="tts">argaz s tadist: taglimt tubrikt talemmast</annotation>
-		<annotation cp="🫃🏿">argaz s tadist | taglimt tubrikt</annotation>
-		<annotation cp="🫃🏿" type="tts">argaz s tadist: taglimt tubrikt</annotation>
-		<annotation cp="🫄🏻">amdan s tawist | taglimt taceɛlalt</annotation>
-		<annotation cp="🫄🏻" type="tts">amdan s tawist: taglimt taceɛlalt</annotation>
-		<annotation cp="🫄🏼">amdan s tawist | tagwlimt taceɛlalt talemmast</annotation>
-		<annotation cp="🫄🏼" type="tts">amdan s tawist: tagwlimt taceɛlalt talemmast</annotation>
-		<annotation cp="🫄🏽">amdan s tawist | taglimt talemmast</annotation>
-		<annotation cp="🫄🏽" type="tts">amdan s tawist: taglimt talemmast</annotation>
-		<annotation cp="🫄🏾">amdan s tawist | taglimt tubrikt talemmast</annotation>
-		<annotation cp="🫄🏾" type="tts">amdan s tawist: taglimt tubrikt talemmast</annotation>
-		<annotation cp="🫄🏿">amdan s tawist | taglimt tubrikt</annotation>
-		<annotation cp="🫄🏿" type="tts">amdan s tawist: taglimt tubrikt</annotation>
-		<annotation cp="🫰🏻">afus s udebbuz d ccahed yemcubbaken | taglimt taceɛlalt</annotation>
-		<annotation cp="🫰🏻" type="tts">afus s udebbuz d ccahed yemcubbaken: taglimt taceɛlalt</annotation>
-		<annotation cp="🫰🏼">afus s udebbuz d ccahed yemcubbaken | tagwlimt taceɛlalt talemmast</annotation>
-		<annotation cp="🫰🏼" type="tts">afus s udebbuz d ccahed yemcubbaken: tagwlimt taceɛlalt talemmast</annotation>
-		<annotation cp="🫰🏽">afus s udebbuz d ccahed yemcubbaken | taglimt talemmast</annotation>
-		<annotation cp="🫰🏽" type="tts">afus s udebbuz d ccahed yemcubbaken: taglimt talemmast</annotation>
-		<annotation cp="🫰🏾">afus s udebbuz d ccahed yemcubbaken | taglimt tubrikt talemmast</annotation>
-		<annotation cp="🫰🏾" type="tts">afus s udebbuz d ccahed yemcubbaken: taglimt tubrikt talemmast</annotation>
-		<annotation cp="🫰🏿">afus s udebbuz d ccahed yemcubbaken | taglimt tubrikt</annotation>
-		<annotation cp="🫰🏿" type="tts">afus s udebbuz d ccahed yemcubbaken: taglimt tubrikt</annotation>
+		<annotation cp="👋🏻">afus yettwehhin | taglimt taceɛlalt</annotation>
+		<annotation cp="👋🏻" type="tts">afus yettwehhin: taglimt taceɛlalt</annotation>
+		<annotation cp="👋🏼">afus yettwehhin | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="👋🏼" type="tts">afus yettwehhin: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="👋🏽">afus yettwehhin | taglimt talemmast</annotation>
+		<annotation cp="👋🏽" type="tts">afus yettwehhin: taglimt talemmast</annotation>
+		<annotation cp="👋🏾">afus yettwehhin | taglimt tubrikt talemmast</annotation>
+		<annotation cp="👋🏾" type="tts">afus yettwehhin: taglimt tubrikt talemmast</annotation>
+		<annotation cp="👋🏿">afus yettwehhin | taglimt tubrikt</annotation>
+		<annotation cp="👋🏿" type="tts">afus yettwehhin: taglimt tubrikt</annotation>
+		<annotation cp="🤚🏻">taglimt taceɛlalt | talwaḥt n ufus irefden</annotation>
+		<annotation cp="🤚🏻" type="tts">talwaḥt n ufus irefden: taglimt taceɛlalt</annotation>
+		<annotation cp="🤚🏼">tagwlimt taceɛlalt talemmast | talwaḥt n ufus irefden</annotation>
+		<annotation cp="🤚🏼" type="tts">talwaḥt n ufus irefden: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🤚🏽">taglimt talemmast | talwaḥt n ufus irefden</annotation>
+		<annotation cp="🤚🏽" type="tts">talwaḥt n ufus irefden: taglimt talemmast</annotation>
+		<annotation cp="🤚🏾">taglimt tubrikt talemmast | talwaḥt n ufus irefden</annotation>
+		<annotation cp="🤚🏾" type="tts">talwaḥt n ufus irefden: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🤚🏿">taglimt tubrikt | talwaḥt n ufus irefden</annotation>
+		<annotation cp="🤚🏿" type="tts">talwaḥt n ufus irefden: taglimt tubrikt</annotation>
+		<annotation cp="🖐🏻">afus s yiḍudan yeldin | taglimt taceɛlalt</annotation>
+		<annotation cp="🖐🏻" type="tts">afus s yiḍudan yeldin: taglimt taceɛlalt</annotation>
+		<annotation cp="🖐🏼">afus s yiḍudan yeldin | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🖐🏼" type="tts">afus s yiḍudan yeldin: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🖐🏽">afus s yiḍudan yeldin | taglimt talemmast</annotation>
+		<annotation cp="🖐🏽" type="tts">afus s yiḍudan yeldin: taglimt talemmast</annotation>
+		<annotation cp="🖐🏾">afus s yiḍudan yeldin | taglimt tubrikt talemmast</annotation>
+		<annotation cp="🖐🏾" type="tts">afus s yiḍudan yeldin: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🖐🏿">afus s yiḍudan yeldin | taglimt tubrikt</annotation>
+		<annotation cp="🖐🏿" type="tts">afus s yiḍudan yeldin: taglimt tubrikt</annotation>
+		<annotation cp="✋🏻">afus irefden | taglimt taceɛlalt</annotation>
+		<annotation cp="✋🏻" type="tts">afus irefden: taglimt taceɛlalt</annotation>
+		<annotation cp="✋🏼">afus irefden | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="✋🏼" type="tts">afus irefden: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="✋🏽">afus irefden | taglimt talemmast</annotation>
+		<annotation cp="✋🏽" type="tts">afus irefden: taglimt talemmast</annotation>
+		<annotation cp="✋🏾">afus irefden | taglimt tubrikt talemmast</annotation>
+		<annotation cp="✋🏾" type="tts">afus irefden: taglimt tubrikt talemmast</annotation>
+		<annotation cp="✋🏿">afus irefden | taglimt tubrikt</annotation>
+		<annotation cp="✋🏿" type="tts">afus irefden: taglimt tubrikt</annotation>
+		<annotation cp="🖖🏻">aburkan n tezmert | taglimt taceɛlalt</annotation>
+		<annotation cp="🖖🏻" type="tts">aburkan n tezmert: taglimt taceɛlalt</annotation>
+		<annotation cp="🖖🏼">aburkan n tezmert | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🖖🏼" type="tts">aburkan n tezmert: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🖖🏽">aburkan n tezmert | taglimt talemmast</annotation>
+		<annotation cp="🖖🏽" type="tts">aburkan n tezmert: taglimt talemmast</annotation>
+		<annotation cp="🖖🏾">aburkan n tezmert | taglimt tubrikt talemmast</annotation>
+		<annotation cp="🖖🏾" type="tts">aburkan n tezmert: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🖖🏿">aburkan n tezmert | taglimt tubrikt</annotation>
+		<annotation cp="🖖🏿" type="tts">aburkan n tezmert: taglimt tubrikt</annotation>
 		<annotation cp="🫱🏻">afus ayeffus | taglimt taceɛlalt</annotation>
 		<annotation cp="🫱🏻" type="tts">afus ayeffus: taglimt taceɛlalt</annotation>
 		<annotation cp="🫱🏼">afus ayeffus | tagwlimt taceɛlalt talemmast</annotation>
@@ -122,76 +142,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫴🏾" type="tts">tidikelt d asawen: taglimt tubrikt talemmast</annotation>
 		<annotation cp="🫴🏿">taglimt tubrikt | tidikelt d asawen</annotation>
 		<annotation cp="🫴🏿" type="tts">tidikelt d asawen: taglimt tubrikt</annotation>
-		<annotation cp="🫵🏻">ccahed iwehhan ɣer useqdac | taglimt taceɛlalt</annotation>
-		<annotation cp="🫵🏻" type="tts">ccahed iwehhan ɣer useqdac: taglimt taceɛlalt</annotation>
-		<annotation cp="🫵🏼">ccahed iwehhan ɣer useqdac | tagwlimt taceɛlalt talemmast</annotation>
-		<annotation cp="🫵🏼" type="tts">ccahed iwehhan ɣer useqdac: tagwlimt taceɛlalt talemmast</annotation>
-		<annotation cp="🫵🏽">ccahed iwehhan ɣer useqdac | taglimt talemmast</annotation>
-		<annotation cp="🫵🏽" type="tts">ccahed iwehhan ɣer useqdac: taglimt talemmast</annotation>
-		<annotation cp="🫵🏾">ccahed iwehhan ɣer useqdac | taglimt tubrikt talemmast</annotation>
-		<annotation cp="🫵🏾" type="tts">ccahed iwehhan ɣer useqdac: taglimt tubrikt talemmast</annotation>
-		<annotation cp="🫵🏿">ccahed iwehhan ɣer useqdac | taglimt tubrikt</annotation>
-		<annotation cp="🫵🏿" type="tts">ccahed iwehhan ɣer useqdac: taglimt tubrikt</annotation>
-		<annotation cp="🫶🏻">ifassen am wul | taglimt taceɛlalt</annotation>
-		<annotation cp="🫶🏻" type="tts">ifassen am wul: taglimt taceɛlalt</annotation>
-		<annotation cp="🫶🏼">ifassen am wul | tagwlimt taceɛlalt talemmast</annotation>
-		<annotation cp="🫶🏼" type="tts">ifassen am wul: tagwlimt taceɛlalt talemmast</annotation>
-		<annotation cp="🫶🏽">ifassen am wul | taglimt talemmast</annotation>
-		<annotation cp="🫶🏽" type="tts">ifassen am wul: taglimt talemmast</annotation>
-		<annotation cp="🫶🏾">ifassen am wul | taglimt tubrikt talemmast</annotation>
-		<annotation cp="🫶🏾" type="tts">ifassen am wul: taglimt tubrikt talemmast</annotation>
-		<annotation cp="🫶🏿">ifassen am wul | taglimt tubrikt</annotation>
-		<annotation cp="🫶🏿" type="tts">ifassen am wul: taglimt tubrikt</annotation>
-		<annotation cp="👋🏻">afus yettwehhin | taglimt taceɛlalt</annotation>
-		<annotation cp="👋🏻" type="tts">afus yettwehhin: taglimt taceɛlalt</annotation>
-		<annotation cp="👋🏼">afus yettwehhin | tagwlimt taceɛlalt talemmast</annotation>
-		<annotation cp="👋🏼" type="tts">afus yettwehhin: tagwlimt taceɛlalt talemmast</annotation>
-		<annotation cp="👋🏽">afus yettwehhin | taglimt talemmast</annotation>
-		<annotation cp="👋🏽" type="tts">afus yettwehhin: taglimt talemmast</annotation>
-		<annotation cp="👋🏾">afus yettwehhin | taglimt tubrikt talemmast</annotation>
-		<annotation cp="👋🏾" type="tts">afus yettwehhin: taglimt tubrikt talemmast</annotation>
-		<annotation cp="👋🏿">afus yettwehhin | taglimt tubrikt</annotation>
-		<annotation cp="👋🏿" type="tts">afus yettwehhin: taglimt tubrikt</annotation>
-		<annotation cp="🤚🏻">taglimt taceɛlalt | talwaḥt n ufus irefden</annotation>
-		<annotation cp="🤚🏻" type="tts">talwaḥt n ufus irefden: taglimt taceɛlalt</annotation>
-		<annotation cp="🤚🏼">tagwlimt taceɛlalt talemmast | talwaḥt n ufus irefden</annotation>
-		<annotation cp="🤚🏼" type="tts">talwaḥt n ufus irefden: tagwlimt taceɛlalt talemmast</annotation>
-		<annotation cp="🤚🏽">taglimt talemmast | talwaḥt n ufus irefden</annotation>
-		<annotation cp="🤚🏽" type="tts">talwaḥt n ufus irefden: taglimt talemmast</annotation>
-		<annotation cp="🤚🏾">taglimt tubrikt talemmast | talwaḥt n ufus irefden</annotation>
-		<annotation cp="🤚🏾" type="tts">talwaḥt n ufus irefden: taglimt tubrikt talemmast</annotation>
-		<annotation cp="🤚🏿">taglimt tubrikt | talwaḥt n ufus irefden</annotation>
-		<annotation cp="🤚🏿" type="tts">talwaḥt n ufus irefden: taglimt tubrikt</annotation>
-		<annotation cp="🖐🏻">afus s yiḍudan yeldin | taglimt taceɛlalt</annotation>
-		<annotation cp="🖐🏻" type="tts">afus s yiḍudan yeldin: taglimt taceɛlalt</annotation>
-		<annotation cp="🖐🏼">afus s yiḍudan yeldin | tagwlimt taceɛlalt talemmast</annotation>
-		<annotation cp="🖐🏼" type="tts">afus s yiḍudan yeldin: tagwlimt taceɛlalt talemmast</annotation>
-		<annotation cp="🖐🏽">afus s yiḍudan yeldin | taglimt talemmast</annotation>
-		<annotation cp="🖐🏽" type="tts">afus s yiḍudan yeldin: taglimt talemmast</annotation>
-		<annotation cp="🖐🏾">afus s yiḍudan yeldin | taglimt tubrikt talemmast</annotation>
-		<annotation cp="🖐🏾" type="tts">afus s yiḍudan yeldin: taglimt tubrikt talemmast</annotation>
-		<annotation cp="🖐🏿">afus s yiḍudan yeldin | taglimt tubrikt</annotation>
-		<annotation cp="🖐🏿" type="tts">afus s yiḍudan yeldin: taglimt tubrikt</annotation>
-		<annotation cp="✋🏻">afus irefden | taglimt taceɛlalt</annotation>
-		<annotation cp="✋🏻" type="tts">afus irefden: taglimt taceɛlalt</annotation>
-		<annotation cp="✋🏼">afus irefden | tagwlimt taceɛlalt talemmast</annotation>
-		<annotation cp="✋🏼" type="tts">afus irefden: tagwlimt taceɛlalt talemmast</annotation>
-		<annotation cp="✋🏽">afus irefden | taglimt talemmast</annotation>
-		<annotation cp="✋🏽" type="tts">afus irefden: taglimt talemmast</annotation>
-		<annotation cp="✋🏾">afus irefden | taglimt tubrikt talemmast</annotation>
-		<annotation cp="✋🏾" type="tts">afus irefden: taglimt tubrikt talemmast</annotation>
-		<annotation cp="✋🏿">afus irefden | taglimt tubrikt</annotation>
-		<annotation cp="✋🏿" type="tts">afus irefden: taglimt tubrikt</annotation>
-		<annotation cp="🖖🏻">aburkan n tezmert | taglimt taceɛlalt</annotation>
-		<annotation cp="🖖🏻" type="tts">aburkan n tezmert: taglimt taceɛlalt</annotation>
-		<annotation cp="🖖🏼">aburkan n tezmert | tagwlimt taceɛlalt talemmast</annotation>
-		<annotation cp="🖖🏼" type="tts">aburkan n tezmert: tagwlimt taceɛlalt talemmast</annotation>
-		<annotation cp="🖖🏽">aburkan n tezmert | taglimt talemmast</annotation>
-		<annotation cp="🖖🏽" type="tts">aburkan n tezmert: taglimt talemmast</annotation>
-		<annotation cp="🖖🏾">aburkan n tezmert | taglimt tubrikt talemmast</annotation>
-		<annotation cp="🖖🏾" type="tts">aburkan n tezmert: taglimt tubrikt talemmast</annotation>
-		<annotation cp="🖖🏿">aburkan n tezmert | taglimt tubrikt</annotation>
-		<annotation cp="🖖🏿" type="tts">aburkan n tezmert: taglimt tubrikt</annotation>
 		<annotation cp="👌🏻">afus n IH | taglimt taceɛlalt</annotation>
 		<annotation cp="👌🏻" type="tts">afus n IH: taglimt taceɛlalt</annotation>
 		<annotation cp="👌🏼">afus n IH | tagwlimt taceɛlalt talemmast</annotation>
@@ -242,6 +192,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤞🏾" type="tts">iḍudan yemcubbaken: taglimt tubrikt talemmast</annotation>
 		<annotation cp="🤞🏿">iḍudan yemcubbaken | taglimt tubrikt</annotation>
 		<annotation cp="🤞🏿" type="tts">iḍudan yemcubbaken: taglimt tubrikt</annotation>
+		<annotation cp="🫰🏻">afus s udebbuz d ccahed yemcubbaken | taglimt taceɛlalt</annotation>
+		<annotation cp="🫰🏻" type="tts">afus s udebbuz d ccahed yemcubbaken: taglimt taceɛlalt</annotation>
+		<annotation cp="🫰🏼">afus s udebbuz d ccahed yemcubbaken | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🫰🏼" type="tts">afus s udebbuz d ccahed yemcubbaken: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🫰🏽">afus s udebbuz d ccahed yemcubbaken | taglimt talemmast</annotation>
+		<annotation cp="🫰🏽" type="tts">afus s udebbuz d ccahed yemcubbaken: taglimt talemmast</annotation>
+		<annotation cp="🫰🏾">afus s udebbuz d ccahed yemcubbaken | taglimt tubrikt talemmast</annotation>
+		<annotation cp="🫰🏾" type="tts">afus s udebbuz d ccahed yemcubbaken: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🫰🏿">afus s udebbuz d ccahed yemcubbaken | taglimt tubrikt</annotation>
+		<annotation cp="🫰🏿" type="tts">afus s udebbuz d ccahed yemcubbaken: taglimt tubrikt</annotation>
 		<annotation cp="🤟🏻">afus n tayri | taglimt taceɛlalt</annotation>
 		<annotation cp="🤟🏻" type="tts">afus n tayri: taglimt taceɛlalt</annotation>
 		<annotation cp="🤟🏼">afus n tayri | tagwlimt taceɛlalt talemmast</annotation>
@@ -332,6 +292,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☝🏾" type="tts">ccahed yerran d asawen: taglimt tubrikt talemmast</annotation>
 		<annotation cp="☝🏿">ccahed yerran d asawen | taglimt tubrikt</annotation>
 		<annotation cp="☝🏿" type="tts">ccahed yerran d asawen: taglimt tubrikt</annotation>
+		<annotation cp="🫵🏻">ccahed iwehhan ɣer useqdac | taglimt taceɛlalt</annotation>
+		<annotation cp="🫵🏻" type="tts">ccahed iwehhan ɣer useqdac: taglimt taceɛlalt</annotation>
+		<annotation cp="🫵🏼">ccahed iwehhan ɣer useqdac | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🫵🏼" type="tts">ccahed iwehhan ɣer useqdac: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🫵🏽">ccahed iwehhan ɣer useqdac | taglimt talemmast</annotation>
+		<annotation cp="🫵🏽" type="tts">ccahed iwehhan ɣer useqdac: taglimt talemmast</annotation>
+		<annotation cp="🫵🏾">ccahed iwehhan ɣer useqdac | taglimt tubrikt talemmast</annotation>
+		<annotation cp="🫵🏾" type="tts">ccahed iwehhan ɣer useqdac: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🫵🏿">ccahed iwehhan ɣer useqdac | taglimt tubrikt</annotation>
+		<annotation cp="🫵🏿" type="tts">ccahed iwehhan ɣer useqdac: taglimt tubrikt</annotation>
 		<annotation cp="👍🏻">adebbuz d asawen | taglimt taceɛlalt</annotation>
 		<annotation cp="👍🏻" type="tts">adebbuz d asawen: taglimt taceɛlalt</annotation>
 		<annotation cp="👍🏼">adebbuz d asawen | tagwlimt taceɛlalt talemmast</annotation>
@@ -412,6 +382,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">ifassen yulin: taglimt tubrikt talemmast</annotation>
 		<annotation cp="🙌🏿">ifassen yulin | taglimt tubrikt</annotation>
 		<annotation cp="🙌🏿" type="tts">ifassen yulin: taglimt tubrikt</annotation>
+		<annotation cp="🫶🏻">ifassen am wul | taglimt taceɛlalt</annotation>
+		<annotation cp="🫶🏻" type="tts">ifassen am wul: taglimt taceɛlalt</annotation>
+		<annotation cp="🫶🏼">ifassen am wul | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🫶🏼" type="tts">ifassen am wul: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🫶🏽">ifassen am wul | taglimt talemmast</annotation>
+		<annotation cp="🫶🏽" type="tts">ifassen am wul: taglimt talemmast</annotation>
+		<annotation cp="🫶🏾">ifassen am wul | taglimt tubrikt talemmast</annotation>
+		<annotation cp="🫶🏾" type="tts">ifassen am wul: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🫶🏿">ifassen am wul | taglimt tubrikt</annotation>
+		<annotation cp="🫶🏿" type="tts">ifassen am wul: taglimt tubrikt</annotation>
 		<annotation cp="👐🏻">ifassen yeldin | taglimt taceɛlalt</annotation>
 		<annotation cp="👐🏻" type="tts">ifassen yeldin: taglimt taceɛlalt</annotation>
 		<annotation cp="👐🏼">ifassen yeldin | tagwlimt taceɛlalt talemmast</annotation>
@@ -1066,6 +1046,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">tameṭṭut s tadist: taglimt tubrikt talemmast</annotation>
 		<annotation cp="🤰🏿">taglimt tubrikt | tameṭṭut s tadist</annotation>
 		<annotation cp="🤰🏿" type="tts">tameṭṭut s tadist: taglimt tubrikt</annotation>
+		<annotation cp="🫃🏻">argaz s tadist | taglimt taceɛlalt</annotation>
+		<annotation cp="🫃🏻" type="tts">argaz s tadist: taglimt taceɛlalt</annotation>
+		<annotation cp="🫃🏼">argaz s tadist | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🫃🏼" type="tts">argaz s tadist: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🫃🏽">argaz s tadist | taglimt talemmast</annotation>
+		<annotation cp="🫃🏽" type="tts">argaz s tadist: taglimt talemmast</annotation>
+		<annotation cp="🫃🏾">argaz s tadist | taglimt tubrikt talemmast</annotation>
+		<annotation cp="🫃🏾" type="tts">argaz s tadist: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🫃🏿">argaz s tadist | taglimt tubrikt</annotation>
+		<annotation cp="🫃🏿" type="tts">argaz s tadist: taglimt tubrikt</annotation>
+		<annotation cp="🫄🏻">amdan s tawist | taglimt taceɛlalt</annotation>
+		<annotation cp="🫄🏻" type="tts">amdan s tawist: taglimt taceɛlalt</annotation>
+		<annotation cp="🫄🏼">amdan s tawist | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🫄🏼" type="tts">amdan s tawist: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🫄🏽">amdan s tawist | taglimt talemmast</annotation>
+		<annotation cp="🫄🏽" type="tts">amdan s tawist: taglimt talemmast</annotation>
+		<annotation cp="🫄🏾">amdan s tawist | taglimt tubrikt talemmast</annotation>
+		<annotation cp="🫄🏾" type="tts">amdan s tawist: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🫄🏿">amdan s tawist | taglimt tubrikt</annotation>
+		<annotation cp="🫄🏿" type="tts">amdan s tawist: taglimt tubrikt</annotation>
 		<annotation cp="👼🏻">aṭufan aneglus | taglimt taceɛlalt</annotation>
 		<annotation cp="👼🏻" type="tts">aṭufan aneglus: taglimt taceɛlalt</annotation>
 		<annotation cp="👼🏼">aṭufan aneglus | tagwlimt taceɛlalt talemmast</annotation>
@@ -1555,7 +1555,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇪🇹">anay</annotation>
 		<annotation cp="🇪🇹" type="tts">anay: Utyupi</annotation>
 		<annotation cp="🇪🇺">anay</annotation>
-		<annotation cp="🇪🇺" type="tts">anay: Tiddukla n Turuft</annotation>
+		<annotation cp="🇪🇺" type="tts">anay: Tiddukkla n Turuft</annotation>
 		<annotation cp="🇫🇮">anay</annotation>
 		<annotation cp="🇫🇮" type="tts">anay: Finlund</annotation>
 		<annotation cp="🇫🇯">anay</annotation>
@@ -1885,7 +1885,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇺🇲">anay</annotation>
 		<annotation cp="🇺🇲" type="tts">anay: Tigzirin ibeɛden n Marikan</annotation>
 		<annotation cp="🇺🇳">anay</annotation>
-		<annotation cp="🇺🇳" type="tts">anay: Timura Idduklen</annotation>
+		<annotation cp="🇺🇳" type="tts">anay: Timura Iddukklen</annotation>
 		<annotation cp="🇺🇸">anay</annotation>
 		<annotation cp="🇺🇸" type="tts">anay: WDM</annotation>
 		<annotation cp="🇺🇾">anay</annotation>

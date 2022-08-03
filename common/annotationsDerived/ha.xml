@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,46 +12,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="ha"/>
 	</identity>
 	<annotations>
-		<annotation cp="🫃🏻">cika | ciki | kumbura | launin fata mai haske | mai ciki | namiji mai ciki</annotation>
-		<annotation cp="🫃🏻" type="tts">namiji mai ciki: launin fata mai haske</annotation>
-		<annotation cp="🫃🏼">cika | ciki | kumbura | launin fata mai madaidaicin haske | mai ciki | namiji mai ciki</annotation>
-		<annotation cp="🫃🏼" type="tts">namiji mai ciki: launin fata mai madaidaicin haske</annotation>
-		<annotation cp="🫃🏽">cika | ciki | kumbura | madaidaicin launin fata | mai ciki | namiji mai ciki</annotation>
-		<annotation cp="🫃🏽" type="tts">namiji mai ciki: madaidaicin launin fata</annotation>
-		<annotation cp="🫃🏾">cika | ciki | kumbura | launin fata mai madaidaicin duhu | mai ciki | namiji mai ciki</annotation>
-		<annotation cp="🫃🏾" type="tts">namiji mai ciki: launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="🫃🏿">cika | ciki | kumbura | launin fata mai duhu | mai ciki | namiji mai ciki</annotation>
-		<annotation cp="🫃🏿" type="tts">namiji mai ciki: launin fata mai duhu</annotation>
-		<annotation cp="🫄🏻">cika | ciki | kumbura | launin fata mai haske | mai ciki | mutum mai ciki</annotation>
-		<annotation cp="🫄🏻" type="tts">mutum mai ciki: launin fata mai haske</annotation>
-		<annotation cp="🫄🏼">cika | ciki | kumbura | launin fata mai madaidaicin haske | mai ciki | mutum mai ciki</annotation>
-		<annotation cp="🫄🏼" type="tts">mutum mai ciki: launin fata mai madaidaicin haske</annotation>
-		<annotation cp="🫄🏽">cika | ciki | kumbura | madaidaicin launin fata | mai ciki | mutum mai ciki</annotation>
-		<annotation cp="🫄🏽" type="tts">mutum mai ciki: madaidaicin launin fata</annotation>
-		<annotation cp="🫄🏾">cika | ciki | kumbura | launin fata mai madaidaicin duhu | mai ciki | mutum mai ciki</annotation>
-		<annotation cp="🫄🏾" type="tts">mutum mai ciki: launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="🫄🏿">cika | ciki | kumbura | launin fata mai duhu | mai ciki | mutum mai ciki</annotation>
-		<annotation cp="🫄🏿" type="tts">mutum mai ciki: launin fata mai duhu</annotation>
-		<annotation cp="🫅🏻">daraja | launin fata mai haske | masarauta | mulki | mutum mai kambi | sarauta</annotation>
-		<annotation cp="🫅🏻" type="tts">mutum mai kambi: launin fata mai haske</annotation>
-		<annotation cp="🫅🏼">daraja | launin fata mai madaidaicin haske | masarauta | mulki | mutum mai kambi | sarauta</annotation>
-		<annotation cp="🫅🏼" type="tts">mutum mai kambi: launin fata mai madaidaicin haske</annotation>
-		<annotation cp="🫅🏽">daraja | madaidaicin launin fata | masarauta | mulki | mutum mai kambi | sarauta</annotation>
-		<annotation cp="🫅🏽" type="tts">mutum mai kambi: madaidaicin launin fata</annotation>
-		<annotation cp="🫅🏾">daraja | launin fata mai madaidaicin duhu | masarauta | mulki | mutum mai kambi | sarauta</annotation>
-		<annotation cp="🫅🏾" type="tts">mutum mai kambi: launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="🫅🏿">daraja | launin fata mai duhu | masarauta | mulki | mutum mai kambi | sarauta</annotation>
-		<annotation cp="🫅🏿" type="tts">mutum mai kambi: launin fata mai duhu</annotation>
-		<annotation cp="🫰🏻">hannu da yatsa da babban yatsa a kewaye | karye | kuɗi | launin fata mai haske | soyayya | tsada | zuciya</annotation>
-		<annotation cp="🫰🏻" type="tts">hannu da yatsa da babban yatsa a kewaye: launin fata mai haske</annotation>
-		<annotation cp="🫰🏼">hannu da yatsa da babban yatsa a kewaye | karye | kuɗi | launin fata mai madaidaicin haske | soyayya | tsada | zuciya</annotation>
-		<annotation cp="🫰🏼" type="tts">hannu da yatsa da babban yatsa a kewaye: launin fata mai madaidaicin haske</annotation>
-		<annotation cp="🫰🏽">hannu da yatsa da babban yatsa a kewaye | karye | kuɗi | madaidaicin launin fata | soyayya | tsada | zuciya</annotation>
-		<annotation cp="🫰🏽" type="tts">hannu da yatsa da babban yatsa a kewaye: madaidaicin launin fata</annotation>
-		<annotation cp="🫰🏾">hannu da yatsa da babban yatsa a kewaye | karye | kuɗi | launin fata mai madaidaicin duhu | soyayya | tsada | zuciya</annotation>
-		<annotation cp="🫰🏾" type="tts">hannu da yatsa da babban yatsa a kewaye: launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="🫰🏿">hannu da yatsa da babban yatsa a kewaye | karye | kuɗi | launin fata mai duhu | soyayya | tsada | zuciya</annotation>
-		<annotation cp="🫰🏿" type="tts">hannu da yatsa da babban yatsa a kewaye: launin fata mai duhu</annotation>
+		<annotation cp="👋🏻">hannu | hannu mai wurgawa | launin fata mai haske | wurga | wurgawa</annotation>
+		<annotation cp="👋🏻" type="tts">hannu mai wurgawa: launin fata mai haske</annotation>
+		<annotation cp="👋🏼">hannu | hannu mai wurgawa | launin fata mai madaidaicin haske | wurga | wurgawa</annotation>
+		<annotation cp="👋🏼" type="tts">hannu mai wurgawa: launin fata mai madaidaicin haske</annotation>
+		<annotation cp="👋🏽">hannu | hannu mai wurgawa | madaidaicin launin fata | wurga | wurgawa</annotation>
+		<annotation cp="👋🏽" type="tts">hannu mai wurgawa: madaidaicin launin fata</annotation>
+		<annotation cp="👋🏾">hannu | hannu mai wurgawa | launin fata mai madaidaicin duhu | wurga | wurgawa</annotation>
+		<annotation cp="👋🏾" type="tts">hannu mai wurgawa: launin fata mai madaidaicin duhu</annotation>
+		<annotation cp="👋🏿">hannu | hannu mai wurgawa | launin fata mai duhu | wurga | wurgawa</annotation>
+		<annotation cp="👋🏿" type="tts">hannu mai wurgawa: launin fata mai duhu</annotation>
+		<annotation cp="🤚🏻">bayan hannu | ɗagagge | ɗagaggen bayan hannu | launin fata mai haske</annotation>
+		<annotation cp="🤚🏻" type="tts">ɗagaggen bayan hannu: launin fata mai haske</annotation>
+		<annotation cp="🤚🏼">bayan hannu | ɗagagge | ɗagaggen bayan hannu | launin fata mai madaidaicin haske</annotation>
+		<annotation cp="🤚🏼" type="tts">ɗagaggen bayan hannu: launin fata mai madaidaicin haske</annotation>
+		<annotation cp="🤚🏽">bayan hannu | ɗagagge | ɗagaggen bayan hannu | madaidaicin launin fata</annotation>
+		<annotation cp="🤚🏽" type="tts">ɗagaggen bayan hannu: madaidaicin launin fata</annotation>
+		<annotation cp="🤚🏾">bayan hannu | ɗagagge | ɗagaggen bayan hannu | launin fata mai madaidaicin duhu</annotation>
+		<annotation cp="🤚🏾" type="tts">ɗagaggen bayan hannu: launin fata mai madaidaicin duhu</annotation>
+		<annotation cp="🤚🏿">bayan hannu | ɗagagge | ɗagaggen bayan hannu | launin fata mai duhu</annotation>
+		<annotation cp="🤚🏿" type="tts">ɗagaggen bayan hannu: launin fata mai duhu</annotation>
+		<annotation cp="🖐🏻">ɗagaggen hannu tare da yatsa a faɗaɗɗe | faɗaɗa hannu | hannu | launin fata mai haske | yatsa</annotation>
+		<annotation cp="🖐🏻" type="tts">ɗagaggen hannu tare da yatsa a faɗaɗɗe: launin fata mai haske</annotation>
+		<annotation cp="🖐🏼">ɗagaggen hannu tare da yatsa a faɗaɗɗe | faɗaɗa hannu | hannu | launin fata mai madaidaicin haske | yatsa</annotation>
+		<annotation cp="🖐🏼" type="tts">ɗagaggen hannu tare da yatsa a faɗaɗɗe: launin fata mai madaidaicin haske</annotation>
+		<annotation cp="🖐🏽">ɗagaggen hannu tare da yatsa a faɗaɗɗe | faɗaɗa hannu | hannu | madaidaicin launin fata | yatsa</annotation>
+		<annotation cp="🖐🏽" type="tts">ɗagaggen hannu tare da yatsa a faɗaɗɗe: madaidaicin launin fata</annotation>
+		<annotation cp="🖐🏾">ɗagaggen hannu tare da yatsa a faɗaɗɗe | faɗaɗa hannu | hannu | launin fata mai madaidaicin duhu | yatsa</annotation>
+		<annotation cp="🖐🏾" type="tts">ɗagaggen hannu tare da yatsa a faɗaɗɗe: launin fata mai madaidaicin duhu</annotation>
+		<annotation cp="🖐🏿">ɗagaggen hannu tare da yatsa a faɗaɗɗe | faɗaɗa hannu | hannu | launin fata mai duhu | yatsa</annotation>
+		<annotation cp="🖐🏿" type="tts">ɗagaggen hannu tare da yatsa a faɗaɗɗe: launin fata mai duhu</annotation>
+		<annotation cp="✋🏻">ɗagaggen hannu | hannu | launin fata mai haske | tafa yatsu biyar</annotation>
+		<annotation cp="✋🏻" type="tts">ɗagaggen hannu: launin fata mai haske</annotation>
+		<annotation cp="✋🏼">ɗagaggen hannu | hannu | launin fata mai madaidaicin haske | tafa yatsu biyar</annotation>
+		<annotation cp="✋🏼" type="tts">ɗagaggen hannu: launin fata mai madaidaicin haske</annotation>
+		<annotation cp="✋🏽">ɗagaggen hannu | hannu | madaidaicin launin fata | tafa yatsu biyar</annotation>
+		<annotation cp="✋🏽" type="tts">ɗagaggen hannu: madaidaicin launin fata</annotation>
+		<annotation cp="✋🏾">ɗagaggen hannu | hannu | launin fata mai madaidaicin duhu | tafa yatsu biyar</annotation>
+		<annotation cp="✋🏾" type="tts">ɗagaggen hannu: launin fata mai madaidaicin duhu</annotation>
+		<annotation cp="✋🏿">ɗagaggen hannu | hannu | launin fata mai duhu | tafa yatsu biyar</annotation>
+		<annotation cp="✋🏿" type="tts">ɗagaggen hannu: launin fata mai duhu</annotation>
+		<annotation cp="🖖🏻">gaisuwar vulcan | hannu | launin fata mai haske | spock | vulcan | yatsa</annotation>
+		<annotation cp="🖖🏻" type="tts">gaisuwar vulcan: launin fata mai haske</annotation>
+		<annotation cp="🖖🏼">gaisuwar vulcan | hannu | launin fata mai madaidaicin haske | spock | vulcan | yatsa</annotation>
+		<annotation cp="🖖🏼" type="tts">gaisuwar vulcan: launin fata mai madaidaicin haske</annotation>
+		<annotation cp="🖖🏽">gaisuwar vulcan | hannu | madaidaicin launin fata | spock | vulcan | yatsa</annotation>
+		<annotation cp="🖖🏽" type="tts">gaisuwar vulcan: madaidaicin launin fata</annotation>
+		<annotation cp="🖖🏾">gaisuwar vulcan | hannu | launin fata mai madaidaicin duhu | spock | vulcan | yatsa</annotation>
+		<annotation cp="🖖🏾" type="tts">gaisuwar vulcan: launin fata mai madaidaicin duhu</annotation>
+		<annotation cp="🖖🏿">gaisuwar vulcan | hannu | launin fata mai duhu | spock | vulcan | yatsa</annotation>
+		<annotation cp="🖖🏿" type="tts">gaisuwar vulcan: launin fata mai duhu</annotation>
 		<annotation cp="🫱🏻">dama | dama gaba | hannu | hannun dama gaba | launin fata mai haske</annotation>
 		<annotation cp="🫱🏻" type="tts">hannun dama gaba: launin fata mai haske</annotation>
 		<annotation cp="🫱🏼">dama | dama gaba | hannu | hannun dama gaba | launin fata mai madaidaicin haske</annotation>
@@ -132,76 +142,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫴🏾" type="tts">tafin hannu sama: launin fata mai madaidaicin duhu</annotation>
 		<annotation cp="🫴🏿">kama | kwalliya | launin fata mai duhu | tafin hannu sama | tayi | zo</annotation>
 		<annotation cp="🫴🏿" type="tts">tafin hannu sama: launin fata mai duhu</annotation>
-		<annotation cp="🫵🏻">ka | launin fata mai haske | nuna | yatsa yana nuna mai kallo</annotation>
-		<annotation cp="🫵🏻" type="tts">yatsa yana nuna mai kallo: launin fata mai haske</annotation>
-		<annotation cp="🫵🏼">ka | launin fata mai madaidaicin haske | nuna | yatsa yana nuna mai kallo</annotation>
-		<annotation cp="🫵🏼" type="tts">yatsa yana nuna mai kallo: launin fata mai madaidaicin haske</annotation>
-		<annotation cp="🫵🏽">ka | madaidaicin launin fata | nuna | yatsa yana nuna mai kallo</annotation>
-		<annotation cp="🫵🏽" type="tts">yatsa yana nuna mai kallo: madaidaicin launin fata</annotation>
-		<annotation cp="🫵🏾">ka | launin fata mai madaidaicin duhu | nuna | yatsa yana nuna mai kallo</annotation>
-		<annotation cp="🫵🏾" type="tts">yatsa yana nuna mai kallo: launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="🫵🏿">ka | launin fata mai duhu | nuna | yatsa yana nuna mai kallo</annotation>
-		<annotation cp="🫵🏿" type="tts">yatsa yana nuna mai kallo: launin fata mai duhu</annotation>
-		<annotation cp="🫶🏻">hannayen zuciya | launin fata mai haske | soyayya</annotation>
-		<annotation cp="🫶🏻" type="tts">hannayen zuciya: launin fata mai haske</annotation>
-		<annotation cp="🫶🏼">hannayen zuciya | launin fata mai madaidaicin haske | soyayya</annotation>
-		<annotation cp="🫶🏼" type="tts">hannayen zuciya: launin fata mai madaidaicin haske</annotation>
-		<annotation cp="🫶🏽">hannayen zuciya | madaidaicin launin fata | soyayya</annotation>
-		<annotation cp="🫶🏽" type="tts">hannayen zuciya: madaidaicin launin fata</annotation>
-		<annotation cp="🫶🏾">hannayen zuciya | launin fata mai madaidaicin duhu | soyayya</annotation>
-		<annotation cp="🫶🏾" type="tts">hannayen zuciya: launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="🫶🏿">hannayen zuciya | launin fata mai duhu | soyayya</annotation>
-		<annotation cp="🫶🏿" type="tts">hannayen zuciya: launin fata mai duhu</annotation>
-		<annotation cp="👋🏻">hannu | hannu mai wurgawa | launin fata mai haske | wurga | wurgawa</annotation>
-		<annotation cp="👋🏻" type="tts">hannu mai wurgawa: launin fata mai haske</annotation>
-		<annotation cp="👋🏼">hannu | hannu mai wurgawa | launin fata mai madaidaicin haske | wurga | wurgawa</annotation>
-		<annotation cp="👋🏼" type="tts">hannu mai wurgawa: launin fata mai madaidaicin haske</annotation>
-		<annotation cp="👋🏽">hannu | hannu mai wurgawa | madaidaicin launin fata | wurga | wurgawa</annotation>
-		<annotation cp="👋🏽" type="tts">hannu mai wurgawa: madaidaicin launin fata</annotation>
-		<annotation cp="👋🏾">hannu | hannu mai wurgawa | launin fata mai madaidaicin duhu | wurga | wurgawa</annotation>
-		<annotation cp="👋🏾" type="tts">hannu mai wurgawa: launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="👋🏿">hannu | hannu mai wurgawa | launin fata mai duhu | wurga | wurgawa</annotation>
-		<annotation cp="👋🏿" type="tts">hannu mai wurgawa: launin fata mai duhu</annotation>
-		<annotation cp="🤚🏻">bayan hannu | ɗagagge | ɗagaggen bayan hannu | launin fata mai haske</annotation>
-		<annotation cp="🤚🏻" type="tts">ɗagaggen bayan hannu: launin fata mai haske</annotation>
-		<annotation cp="🤚🏼">bayan hannu | ɗagagge | ɗagaggen bayan hannu | launin fata mai madaidaicin haske</annotation>
-		<annotation cp="🤚🏼" type="tts">ɗagaggen bayan hannu: launin fata mai madaidaicin haske</annotation>
-		<annotation cp="🤚🏽">bayan hannu | ɗagagge | ɗagaggen bayan hannu | madaidaicin launin fata</annotation>
-		<annotation cp="🤚🏽" type="tts">ɗagaggen bayan hannu: madaidaicin launin fata</annotation>
-		<annotation cp="🤚🏾">bayan hannu | ɗagagge | ɗagaggen bayan hannu | launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="🤚🏾" type="tts">ɗagaggen bayan hannu: launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="🤚🏿">bayan hannu | ɗagagge | ɗagaggen bayan hannu | launin fata mai duhu</annotation>
-		<annotation cp="🤚🏿" type="tts">ɗagaggen bayan hannu: launin fata mai duhu</annotation>
-		<annotation cp="🖐🏻">ɗagaggen hannu tare da yatsa a faɗaɗɗe | faɗaɗa hannu | hannu | launin fata mai haske | yatsa</annotation>
-		<annotation cp="🖐🏻" type="tts">ɗagaggen hannu tare da yatsa a faɗaɗɗe: launin fata mai haske</annotation>
-		<annotation cp="🖐🏼">ɗagaggen hannu tare da yatsa a faɗaɗɗe | faɗaɗa hannu | hannu | launin fata mai madaidaicin haske | yatsa</annotation>
-		<annotation cp="🖐🏼" type="tts">ɗagaggen hannu tare da yatsa a faɗaɗɗe: launin fata mai madaidaicin haske</annotation>
-		<annotation cp="🖐🏽">ɗagaggen hannu tare da yatsa a faɗaɗɗe | faɗaɗa hannu | hannu | madaidaicin launin fata | yatsa</annotation>
-		<annotation cp="🖐🏽" type="tts">ɗagaggen hannu tare da yatsa a faɗaɗɗe: madaidaicin launin fata</annotation>
-		<annotation cp="🖐🏾">ɗagaggen hannu tare da yatsa a faɗaɗɗe | faɗaɗa hannu | hannu | launin fata mai madaidaicin duhu | yatsa</annotation>
-		<annotation cp="🖐🏾" type="tts">ɗagaggen hannu tare da yatsa a faɗaɗɗe: launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="🖐🏿">ɗagaggen hannu tare da yatsa a faɗaɗɗe | faɗaɗa hannu | hannu | launin fata mai duhu | yatsa</annotation>
-		<annotation cp="🖐🏿" type="tts">ɗagaggen hannu tare da yatsa a faɗaɗɗe: launin fata mai duhu</annotation>
-		<annotation cp="✋🏻">ɗagaggen hannu | hannu | launin fata mai haske | tafa yatsu biyar</annotation>
-		<annotation cp="✋🏻" type="tts">ɗagaggen hannu: launin fata mai haske</annotation>
-		<annotation cp="✋🏼">ɗagaggen hannu | hannu | launin fata mai madaidaicin haske | tafa yatsu biyar</annotation>
-		<annotation cp="✋🏼" type="tts">ɗagaggen hannu: launin fata mai madaidaicin haske</annotation>
-		<annotation cp="✋🏽">ɗagaggen hannu | hannu | madaidaicin launin fata | tafa yatsu biyar</annotation>
-		<annotation cp="✋🏽" type="tts">ɗagaggen hannu: madaidaicin launin fata</annotation>
-		<annotation cp="✋🏾">ɗagaggen hannu | hannu | launin fata mai madaidaicin duhu | tafa yatsu biyar</annotation>
-		<annotation cp="✋🏾" type="tts">ɗagaggen hannu: launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="✋🏿">ɗagaggen hannu | hannu | launin fata mai duhu | tafa yatsu biyar</annotation>
-		<annotation cp="✋🏿" type="tts">ɗagaggen hannu: launin fata mai duhu</annotation>
-		<annotation cp="🖖🏻">gaisuwar vulcan | hannu | launin fata mai haske | spock | vulcan | yatsa</annotation>
-		<annotation cp="🖖🏻" type="tts">gaisuwar vulcan: launin fata mai haske</annotation>
-		<annotation cp="🖖🏼">gaisuwar vulcan | hannu | launin fata mai madaidaicin haske | spock | vulcan | yatsa</annotation>
-		<annotation cp="🖖🏼" type="tts">gaisuwar vulcan: launin fata mai madaidaicin haske</annotation>
-		<annotation cp="🖖🏽">gaisuwar vulcan | hannu | madaidaicin launin fata | spock | vulcan | yatsa</annotation>
-		<annotation cp="🖖🏽" type="tts">gaisuwar vulcan: madaidaicin launin fata</annotation>
-		<annotation cp="🖖🏾">gaisuwar vulcan | hannu | launin fata mai madaidaicin duhu | spock | vulcan | yatsa</annotation>
-		<annotation cp="🖖🏾" type="tts">gaisuwar vulcan: launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="🖖🏿">gaisuwar vulcan | hannu | launin fata mai duhu | spock | vulcan | yatsa</annotation>
-		<annotation cp="🖖🏿" type="tts">gaisuwar vulcan: launin fata mai duhu</annotation>
 		<annotation cp="👌🏻">hannu | hannun TO | launin fata mai haske | TO</annotation>
 		<annotation cp="👌🏻" type="tts">hannun TO: launin fata mai haske</annotation>
 		<annotation cp="👌🏼">hannu | hannun TO | launin fata mai madaidaicin haske | TO</annotation>
@@ -252,6 +192,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤞🏾" type="tts">haɗaɗɗun yatsu: launin fata mai madaidaicin duhu</annotation>
 		<annotation cp="🤞🏿">haɗa | haɗaɗɗun yatsu | hannu | launin fata mai duhu | sa’a | yatsa</annotation>
 		<annotation cp="🤞🏿" type="tts">haɗaɗɗun yatsu: launin fata mai duhu</annotation>
+		<annotation cp="🫰🏻">hannu da yatsa da babban yatsa a kewaye | karye | kuɗi | launin fata mai haske | soyayya | tsada | zuciya</annotation>
+		<annotation cp="🫰🏻" type="tts">hannu da yatsa da babban yatsa a kewaye: launin fata mai haske</annotation>
+		<annotation cp="🫰🏼">hannu da yatsa da babban yatsa a kewaye | karye | kuɗi | launin fata mai madaidaicin haske | soyayya | tsada | zuciya</annotation>
+		<annotation cp="🫰🏼" type="tts">hannu da yatsa da babban yatsa a kewaye: launin fata mai madaidaicin haske</annotation>
+		<annotation cp="🫰🏽">hannu da yatsa da babban yatsa a kewaye | karye | kuɗi | madaidaicin launin fata | soyayya | tsada | zuciya</annotation>
+		<annotation cp="🫰🏽" type="tts">hannu da yatsa da babban yatsa a kewaye: madaidaicin launin fata</annotation>
+		<annotation cp="🫰🏾">hannu da yatsa da babban yatsa a kewaye | karye | kuɗi | launin fata mai madaidaicin duhu | soyayya | tsada | zuciya</annotation>
+		<annotation cp="🫰🏾" type="tts">hannu da yatsa da babban yatsa a kewaye: launin fata mai madaidaicin duhu</annotation>
+		<annotation cp="🫰🏿">hannu da yatsa da babban yatsa a kewaye | karye | kuɗi | launin fata mai duhu | soyayya | tsada | zuciya</annotation>
+		<annotation cp="🫰🏿" type="tts">hannu da yatsa da babban yatsa a kewaye: launin fata mai duhu</annotation>
 		<annotation cp="🤟🏻">hannu | ILY | launin fata mai haske | nunin soyayya</annotation>
 		<annotation cp="🤟🏻" type="tts">nunin soyayya: launin fata mai haske</annotation>
 		<annotation cp="🤟🏼">hannu | ILY | launin fata mai madaidaicin haske | nunin soyayya</annotation>
@@ -342,6 +292,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☝🏾" type="tts">ɗan ali mai nunawa sama: launin fata mai madaidaicin duhu</annotation>
 		<annotation cp="☝🏿">ɗan ali | ɗan ali mai nunawa sama | hannu | launin fata mai duhu | nuna | sama | yatsa</annotation>
 		<annotation cp="☝🏿" type="tts">ɗan ali mai nunawa sama: launin fata mai duhu</annotation>
+		<annotation cp="🫵🏻">ka | launin fata mai haske | nuna | yatsa yana nuna mai kallo</annotation>
+		<annotation cp="🫵🏻" type="tts">yatsa yana nuna mai kallo: launin fata mai haske</annotation>
+		<annotation cp="🫵🏼">ka | launin fata mai madaidaicin haske | nuna | yatsa yana nuna mai kallo</annotation>
+		<annotation cp="🫵🏼" type="tts">yatsa yana nuna mai kallo: launin fata mai madaidaicin haske</annotation>
+		<annotation cp="🫵🏽">ka | madaidaicin launin fata | nuna | yatsa yana nuna mai kallo</annotation>
+		<annotation cp="🫵🏽" type="tts">yatsa yana nuna mai kallo: madaidaicin launin fata</annotation>
+		<annotation cp="🫵🏾">ka | launin fata mai madaidaicin duhu | nuna | yatsa yana nuna mai kallo</annotation>
+		<annotation cp="🫵🏾" type="tts">yatsa yana nuna mai kallo: launin fata mai madaidaicin duhu</annotation>
+		<annotation cp="🫵🏿">ka | launin fata mai duhu | nuna | yatsa yana nuna mai kallo</annotation>
+		<annotation cp="🫵🏿" type="tts">yatsa yana nuna mai kallo: launin fata mai duhu</annotation>
 		<annotation cp="👍🏻">+1 | babban yatsa | da kyau | hannu | launin fata mai haske | sama</annotation>
 		<annotation cp="👍🏻" type="tts">da kyau: launin fata mai haske</annotation>
 		<annotation cp="👍🏼">+1 | babban yatsa | da kyau | hannu | launin fata mai madaidaicin haske | sama</annotation>
@@ -422,6 +382,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">ɗagaggun hannuwa: launin fata mai madaidaicin duhu</annotation>
 		<annotation cp="🙌🏿">ɗagagge | ɗagaggun hannuwa | hannu | karimcin | launin fata mai duhu | murna | shagali</annotation>
 		<annotation cp="🙌🏿" type="tts">ɗagaggun hannuwa: launin fata mai duhu</annotation>
+		<annotation cp="🫶🏻">hannayen zuciya | launin fata mai haske | soyayya</annotation>
+		<annotation cp="🫶🏻" type="tts">hannayen zuciya: launin fata mai haske</annotation>
+		<annotation cp="🫶🏼">hannayen zuciya | launin fata mai madaidaicin haske | soyayya</annotation>
+		<annotation cp="🫶🏼" type="tts">hannayen zuciya: launin fata mai madaidaicin haske</annotation>
+		<annotation cp="🫶🏽">hannayen zuciya | madaidaicin launin fata | soyayya</annotation>
+		<annotation cp="🫶🏽" type="tts">hannayen zuciya: madaidaicin launin fata</annotation>
+		<annotation cp="🫶🏾">hannayen zuciya | launin fata mai madaidaicin duhu | soyayya</annotation>
+		<annotation cp="🫶🏾" type="tts">hannayen zuciya: launin fata mai madaidaicin duhu</annotation>
+		<annotation cp="🫶🏿">hannayen zuciya | launin fata mai duhu | soyayya</annotation>
+		<annotation cp="🫶🏿" type="tts">hannayen zuciya: launin fata mai duhu</annotation>
 		<annotation cp="👐🏻">a buɗe | buɗaɗɗun hannuwa | hannu | launin fata mai haske</annotation>
 		<annotation cp="👐🏻" type="tts">buɗaɗɗun hannuwa: launin fata mai haske</annotation>
 		<annotation cp="👐🏼">a buɗe | buɗaɗɗun hannuwa | hannu | launin fata mai madaidaicin haske</annotation>
@@ -462,6 +432,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙏🏾" type="tts">kalmasassun hannuwa: launin fata mai madaidaicin duhu</annotation>
 		<annotation cp="🙏🏿">addu’a | don Allah | godiya | hannu | kalmasassun hannuwa | launin fata mai duhu | roƙo</annotation>
 		<annotation cp="🙏🏿" type="tts">kalmasassun hannuwa: launin fata mai duhu</annotation>
+		<annotation cp="🫷🏻">hagu | hannun yana turawa hagu | jira | kin | launin fata mai haske | tafawa | tsaya | tura</annotation>
+		<annotation cp="🫷🏻" type="tts">hannun yana turawa hagu: launin fata mai haske</annotation>
+		<annotation cp="🫷🏼">hagu | hannun yana turawa hagu | jira | kin | launin fata mai madaidaicin haske | tafawa | tsaya | tura</annotation>
+		<annotation cp="🫷🏼" type="tts">hannun yana turawa hagu: launin fata mai madaidaicin haske</annotation>
+		<annotation cp="🫷🏽">hagu | hannun yana turawa hagu | jira | kin | madaidaicin launin fata | tafawa | tsaya | tura</annotation>
+		<annotation cp="🫷🏽" type="tts">hannun yana turawa hagu: madaidaicin launin fata</annotation>
+		<annotation cp="🫷🏾">hagu | hannun yana turawa hagu | jira | kin | launin fata mai madaidaicin duhu | tafawa | tsaya | tura</annotation>
+		<annotation cp="🫷🏾" type="tts">hannun yana turawa hagu: launin fata mai madaidaicin duhu</annotation>
+		<annotation cp="🫷🏿">hagu | hannun yana turawa hagu | jira | kin | launin fata mai duhu | tafawa | tsaya | tura</annotation>
+		<annotation cp="🫷🏿" type="tts">hannun yana turawa hagu: launin fata mai duhu</annotation>
+		<annotation cp="🫸🏻">hannu yana turawa dama | jira | ƙi | launin fata mai haske | tafawa | tsaya | tura | zuwa</annotation>
+		<annotation cp="🫸🏻" type="tts">hannu yana turawa dama: launin fata mai haske</annotation>
+		<annotation cp="🫸🏼">hannu yana turawa dama | jira | ƙi | launin fata mai madaidaicin haske | tafawa | tsaya | tura | zuwa</annotation>
+		<annotation cp="🫸🏼" type="tts">hannu yana turawa dama: launin fata mai madaidaicin haske</annotation>
+		<annotation cp="🫸🏽">hannu yana turawa dama | jira | ƙi | madaidaicin launin fata | tafawa | tsaya | tura | zuwa</annotation>
+		<annotation cp="🫸🏽" type="tts">hannu yana turawa dama: madaidaicin launin fata</annotation>
+		<annotation cp="🫸🏾">hannu yana turawa dama | jira | ƙi | launin fata mai madaidaicin duhu | tafawa | tsaya | tura | zuwa</annotation>
+		<annotation cp="🫸🏾" type="tts">hannu yana turawa dama: launin fata mai madaidaicin duhu</annotation>
+		<annotation cp="🫸🏿">hannu yana turawa dama | jira | ƙi | launin fata mai duhu | tafawa | tsaya | tura | zuwa</annotation>
+		<annotation cp="🫸🏿" type="tts">hannu yana turawa dama: launin fata mai duhu</annotation>
 		<annotation cp="✍🏻">hannu | hannu mai rubutawa | launin fata mai haske | rubuta</annotation>
 		<annotation cp="✍🏻" type="tts">hannu mai rubutawa: launin fata mai haske</annotation>
 		<annotation cp="✍🏼">hannu | hannu mai rubutawa | launin fata mai madaidaicin haske | rubuta</annotation>
@@ -512,15 +502,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦵🏾" type="tts">ƙafa: launin fata mai madaidaicin duhu</annotation>
 		<annotation cp="🦵🏿">harbi | ƙafa | ƙashin ƙafa | launin fata mai duhu</annotation>
 		<annotation cp="🦵🏿" type="tts">ƙafa: launin fata mai duhu</annotation>
-		<annotation cp="🦶🏻">harbi | ƙafa | launin fata mai haske | tafin ƙafa | tattaka</annotation>
+		<annotation cp="🦶🏻">harbi | launin fata mai haske | tafin ƙafa | tattaka</annotation>
 		<annotation cp="🦶🏻" type="tts">tafin ƙafa: launin fata mai haske</annotation>
-		<annotation cp="🦶🏼">harbi | ƙafa | launin fata mai madaidaicin haske | tafin ƙafa | tattaka</annotation>
+		<annotation cp="🦶🏼">harbi | launin fata mai madaidaicin haske | tafin ƙafa | tattaka</annotation>
 		<annotation cp="🦶🏼" type="tts">tafin ƙafa: launin fata mai madaidaicin haske</annotation>
-		<annotation cp="🦶🏽">harbi | ƙafa | madaidaicin launin fata | tafin ƙafa | tattaka</annotation>
+		<annotation cp="🦶🏽">harbi | madaidaicin launin fata | tafin ƙafa | tattaka</annotation>
 		<annotation cp="🦶🏽" type="tts">tafin ƙafa: madaidaicin launin fata</annotation>
-		<annotation cp="🦶🏾">harbi | ƙafa | launin fata mai madaidaicin duhu | tafin ƙafa | tattaka</annotation>
+		<annotation cp="🦶🏾">harbi | launin fata mai madaidaicin duhu | tafin ƙafa | tattaka</annotation>
 		<annotation cp="🦶🏾" type="tts">tafin ƙafa: launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="🦶🏿">harbi | ƙafa | launin fata mai duhu | tafin ƙafa | tattaka</annotation>
+		<annotation cp="🦶🏿">harbi | launin fata mai duhu | tafin ƙafa | tattaka</annotation>
 		<annotation cp="🦶🏿" type="tts">tafin ƙafa: launin fata mai duhu</annotation>
 		<annotation cp="👂🏻">jiki | kunne | launin fata mai haske</annotation>
 		<annotation cp="👂🏻" type="tts">kunne: launin fata mai haske</annotation>
@@ -1186,15 +1176,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏾‍🦲" type="tts">mace: launin fata mai madaidaicin duhu, sanƙo</annotation>
 		<annotation cp="👩🏿‍🦲">launin fata mai duhu | mace | sanƙo</annotation>
 		<annotation cp="👩🏿‍🦲" type="tts">mace: launin fata mai duhu, sanƙo</annotation>
-		<annotation cp="🧓🏻">babba mafi tsoho | babba mafi tsufa | launin fata mai haske | mara danganta ga jinsi | tsoho</annotation>
+		<annotation cp="🧓🏻">babba | babba mafi tsufa | jinsi da ba a fayyace ba | launin fata mai haske | mara danganta ga jinsi | tsoho</annotation>
 		<annotation cp="🧓🏻" type="tts">babba mafi tsufa: launin fata mai haske</annotation>
-		<annotation cp="🧓🏼">babba mafi tsoho | babba mafi tsufa | launin fata mai madaidaicin haske | mara danganta ga jinsi | tsoho</annotation>
+		<annotation cp="🧓🏼">babba | babba mafi tsufa | jinsi da ba a fayyace ba | launin fata mai madaidaicin haske | mara danganta ga jinsi | tsoho</annotation>
 		<annotation cp="🧓🏼" type="tts">babba mafi tsufa: launin fata mai madaidaicin haske</annotation>
-		<annotation cp="🧓🏽">babba mafi tsoho | babba mafi tsufa | madaidaicin launin fata | mara danganta ga jinsi | tsoho</annotation>
+		<annotation cp="🧓🏽">babba | babba mafi tsufa | jinsi da ba a fayyace ba | madaidaicin launin fata | mara danganta ga jinsi | tsoho</annotation>
 		<annotation cp="🧓🏽" type="tts">babba mafi tsufa: madaidaicin launin fata</annotation>
-		<annotation cp="🧓🏾">babba mafi tsoho | babba mafi tsufa | launin fata mai madaidaicin duhu | mara danganta ga jinsi | tsoho</annotation>
+		<annotation cp="🧓🏾">babba | babba mafi tsufa | jinsi da ba a fayyace ba | launin fata mai madaidaicin duhu | mara danganta ga jinsi | tsoho</annotation>
 		<annotation cp="🧓🏾" type="tts">babba mafi tsufa: launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="🧓🏿">babba mafi tsoho | babba mafi tsufa | launin fata mai duhu | mara danganta ga jinsi | tsoho</annotation>
+		<annotation cp="🧓🏿">babba | babba mafi tsufa | jinsi da ba a fayyace ba | launin fata mai duhu | mara danganta ga jinsi | tsoho</annotation>
 		<annotation cp="🧓🏿" type="tts">babba mafi tsufa: launin fata mai duhu</annotation>
 		<annotation cp="👴🏻">dattijo | launin fata mai haske | mutum | tsoho</annotation>
 		<annotation cp="👴🏻" type="tts">dattijo: launin fata mai haske</annotation>
@@ -1206,15 +1196,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👴🏾" type="tts">dattijo: launin fata mai madaidaicin duhu</annotation>
 		<annotation cp="👴🏿">dattijo | launin fata mai duhu | mutum | tsoho</annotation>
 		<annotation cp="👴🏿" type="tts">dattijo: launin fata mai duhu</annotation>
-		<annotation cp="👵🏻">baliga | dattijuwa | launin fata mai haske | mace | tsohuwa</annotation>
+		<annotation cp="👵🏻">baliga | dattijuwa | launin fata mai haske | mace</annotation>
 		<annotation cp="👵🏻" type="tts">dattijuwa: launin fata mai haske</annotation>
-		<annotation cp="👵🏼">baliga | dattijuwa | launin fata mai madaidaicin haske | mace | tsohuwa</annotation>
+		<annotation cp="👵🏼">baliga | dattijuwa | launin fata mai madaidaicin haske | mace</annotation>
 		<annotation cp="👵🏼" type="tts">dattijuwa: launin fata mai madaidaicin haske</annotation>
-		<annotation cp="👵🏽">baliga | dattijuwa | mace | madaidaicin launin fata | tsohuwa</annotation>
+		<annotation cp="👵🏽">baliga | dattijuwa | mace | madaidaicin launin fata</annotation>
 		<annotation cp="👵🏽" type="tts">dattijuwa: madaidaicin launin fata</annotation>
-		<annotation cp="👵🏾">baliga | dattijuwa | launin fata mai madaidaicin duhu | mace | tsohuwa</annotation>
+		<annotation cp="👵🏾">baliga | dattijuwa | launin fata mai madaidaicin duhu | mace</annotation>
 		<annotation cp="👵🏾" type="tts">dattijuwa: launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="👵🏿">baliga | dattijuwa | launin fata mai duhu | mace | tsohuwa</annotation>
+		<annotation cp="👵🏿">baliga | dattijuwa | launin fata mai duhu | mace</annotation>
 		<annotation cp="👵🏿" type="tts">dattijuwa: launin fata mai duhu</annotation>
 		<annotation cp="🙍🏻">ɓacin rai | karimcin | launin fata mai haske | mutum mai ɓacin rai</annotation>
 		<annotation cp="🙍🏻" type="tts">mutum mai ɓacin rai: launin fata mai haske</annotation>
@@ -1946,6 +1936,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👷🏾‍♀" type="tts">mace ma’aikacin gini: launin fata mai madaidaicin duhu</annotation>
 		<annotation cp="👷🏿‍♀">gini | launin fata mai duhu | ma’aikaci | mace | mace ma’aikacin gini</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">mace ma’aikacin gini: launin fata mai duhu</annotation>
+		<annotation cp="🫅🏻">daraja | launin fata mai haske | masarauta | mulki | mutum mai kambi | sarauta</annotation>
+		<annotation cp="🫅🏻" type="tts">mutum mai kambi: launin fata mai haske</annotation>
+		<annotation cp="🫅🏼">daraja | launin fata mai madaidaicin haske | masarauta | mulki | mutum mai kambi | sarauta</annotation>
+		<annotation cp="🫅🏼" type="tts">mutum mai kambi: launin fata mai madaidaicin haske</annotation>
+		<annotation cp="🫅🏽">daraja | madaidaicin launin fata | masarauta | mulki | mutum mai kambi | sarauta</annotation>
+		<annotation cp="🫅🏽" type="tts">mutum mai kambi: madaidaicin launin fata</annotation>
+		<annotation cp="🫅🏾">daraja | launin fata mai madaidaicin duhu | masarauta | mulki | mutum mai kambi | sarauta</annotation>
+		<annotation cp="🫅🏾" type="tts">mutum mai kambi: launin fata mai madaidaicin duhu</annotation>
+		<annotation cp="🫅🏿">daraja | launin fata mai duhu | masarauta | mulki | mutum mai kambi | sarauta</annotation>
+		<annotation cp="🫅🏿" type="tts">mutum mai kambi: launin fata mai duhu</annotation>
 		<annotation cp="🤴🏻">ɗan sarki | launin fata mai haske</annotation>
 		<annotation cp="🤴🏻" type="tts">ɗan sarki: launin fata mai haske</annotation>
 		<annotation cp="🤴🏼">ɗan sarki | launin fata mai madaidaicin haske</annotation>
@@ -2046,6 +2046,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">mace mai ciki: launin fata mai madaidaicin duhu</annotation>
 		<annotation cp="🤰🏿">ciki | launin fata mai duhu | mace | mace mai ciki</annotation>
 		<annotation cp="🤰🏿" type="tts">mace mai ciki: launin fata mai duhu</annotation>
+		<annotation cp="🫃🏻">cika | ciki | kumbura | launin fata mai haske | mai ciki | namiji mai ciki</annotation>
+		<annotation cp="🫃🏻" type="tts">namiji mai ciki: launin fata mai haske</annotation>
+		<annotation cp="🫃🏼">cika | ciki | kumbura | launin fata mai madaidaicin haske | mai ciki | namiji mai ciki</annotation>
+		<annotation cp="🫃🏼" type="tts">namiji mai ciki: launin fata mai madaidaicin haske</annotation>
+		<annotation cp="🫃🏽">cika | ciki | kumbura | madaidaicin launin fata | mai ciki | namiji mai ciki</annotation>
+		<annotation cp="🫃🏽" type="tts">namiji mai ciki: madaidaicin launin fata</annotation>
+		<annotation cp="🫃🏾">cika | ciki | kumbura | launin fata mai madaidaicin duhu | mai ciki | namiji mai ciki</annotation>
+		<annotation cp="🫃🏾" type="tts">namiji mai ciki: launin fata mai madaidaicin duhu</annotation>
+		<annotation cp="🫃🏿">cika | ciki | kumbura | launin fata mai duhu | mai ciki | namiji mai ciki</annotation>
+		<annotation cp="🫃🏿" type="tts">namiji mai ciki: launin fata mai duhu</annotation>
+		<annotation cp="🫄🏻">cika | ciki | kumbura | launin fata mai haske | mai ciki | mutum mai ciki</annotation>
+		<annotation cp="🫄🏻" type="tts">mutum mai ciki: launin fata mai haske</annotation>
+		<annotation cp="🫄🏼">cika | ciki | kumbura | launin fata mai madaidaicin haske | mai ciki | mutum mai ciki</annotation>
+		<annotation cp="🫄🏼" type="tts">mutum mai ciki: launin fata mai madaidaicin haske</annotation>
+		<annotation cp="🫄🏽">cika | ciki | kumbura | madaidaicin launin fata | mai ciki | mutum mai ciki</annotation>
+		<annotation cp="🫄🏽" type="tts">mutum mai ciki: madaidaicin launin fata</annotation>
+		<annotation cp="🫄🏾">cika | ciki | kumbura | launin fata mai madaidaicin duhu | mai ciki | mutum mai ciki</annotation>
+		<annotation cp="🫄🏾" type="tts">mutum mai ciki: launin fata mai madaidaicin duhu</annotation>
+		<annotation cp="🫄🏿">cika | ciki | kumbura | launin fata mai duhu | mai ciki | mutum mai ciki</annotation>
+		<annotation cp="🫄🏿" type="tts">mutum mai ciki: launin fata mai duhu</annotation>
 		<annotation cp="🤱🏻">jariri | jego | launin fata mai haske | nono | shayarwa</annotation>
 		<annotation cp="🤱🏻" type="tts">shayarwa: launin fata mai haske</annotation>
 		<annotation cp="🤱🏼">jariri | jego | launin fata mai madaidaicin haske | nono | shayarwa</annotation>
@@ -2496,15 +2516,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏇🏾" type="tts">sukuwa: launin fata mai madaidaicin duhu</annotation>
 		<annotation cp="🏇🏿">doki | launin fata mai duhu | mahayi | sukuwa | tsere</annotation>
 		<annotation cp="🏇🏿" type="tts">sukuwa: launin fata mai duhu</annotation>
-		<annotation cp="🏂🏻">allon wasan ƙanƙara | ƙanƙara | launin fata mai haske | mai tsere kan ƙanƙara | ski | snowboarder</annotation>
+		<annotation cp="🏂🏻">allon wasan ƙanƙara | ƙanƙara | launin fata mai haske | mai tsere kan ƙanƙara | ski</annotation>
 		<annotation cp="🏂🏻" type="tts">mai tsere kan ƙanƙara: launin fata mai haske</annotation>
-		<annotation cp="🏂🏼">allon wasan ƙanƙara | ƙanƙara | launin fata mai madaidaicin haske | mai tsere kan ƙanƙara | ski | snowboarder</annotation>
+		<annotation cp="🏂🏼">allon wasan ƙanƙara | ƙanƙara | launin fata mai madaidaicin haske | mai tsere kan ƙanƙara | ski</annotation>
 		<annotation cp="🏂🏼" type="tts">mai tsere kan ƙanƙara: launin fata mai madaidaicin haske</annotation>
-		<annotation cp="🏂🏽">allon wasan ƙanƙara | ƙanƙara | madaidaicin launin fata | mai tsere kan ƙanƙara | ski | snowboarder</annotation>
+		<annotation cp="🏂🏽">allon wasan ƙanƙara | ƙanƙara | madaidaicin launin fata | mai tsere kan ƙanƙara | ski</annotation>
 		<annotation cp="🏂🏽" type="tts">mai tsere kan ƙanƙara: madaidaicin launin fata</annotation>
-		<annotation cp="🏂🏾">allon wasan ƙanƙara | ƙanƙara | launin fata mai madaidaicin duhu | mai tsere kan ƙanƙara | ski | snowboarder</annotation>
+		<annotation cp="🏂🏾">allon wasan ƙanƙara | ƙanƙara | launin fata mai madaidaicin duhu | mai tsere kan ƙanƙara | ski</annotation>
 		<annotation cp="🏂🏾" type="tts">mai tsere kan ƙanƙara: launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="🏂🏿">allon wasan ƙanƙara | ƙanƙara | launin fata mai duhu | mai tsere kan ƙanƙara | ski | snowboarder</annotation>
+		<annotation cp="🏂🏿">allon wasan ƙanƙara | ƙanƙara | launin fata mai duhu | mai tsere kan ƙanƙara | ski</annotation>
 		<annotation cp="🏂🏿" type="tts">mai tsere kan ƙanƙara: launin fata mai duhu</annotation>
 		<annotation cp="🏌🏻">ƙwallo | launin fata mai haske | mutum mai buga wasan golf | wasan golf</annotation>
 		<annotation cp="🏌🏻" type="tts">mutum mai buga wasan golf: launin fata mai haske</annotation>
@@ -2916,155 +2936,155 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛌🏾" type="tts">mutum a kan gado: launin fata mai madaidaicin duhu</annotation>
 		<annotation cp="🛌🏿">barci | hotal | launin fata mai duhu | mutum a kan gado</annotation>
 		<annotation cp="🛌🏿" type="tts">mutum a kan gado: launin fata mai duhu</annotation>
-		<annotation cp="👭🏻">hannu | launin fata mai haske | mace | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe</annotation>
+		<annotation cp="👭🏻">hannu | launin fata mai haske | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👭🏻" type="tts">namiji da mata suna riƙew da hannuwa: launin fata mai haske</annotation>
-		<annotation cp="👩🏻‍🤝‍👩🏼">hannu | launin fata mai haske | launin fata mai madaidaicin haske | mace | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">hannu | launin fata mai haske | launin fata mai madaidaicin haske | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">namiji da mata suna riƙew da hannuwa: launin fata mai haske, launin fata mai madaidaicin haske</annotation>
-		<annotation cp="👩🏻‍🤝‍👩🏽">hannu | launin fata mai haske | mace | madaidaicin launin fata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">hannu | launin fata mai haske | madaidaicin launin fata | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">namiji da mata suna riƙew da hannuwa: launin fata mai haske, madaidaicin launin fata</annotation>
-		<annotation cp="👩🏻‍🤝‍👩🏾">hannu | launin fata mai haske | launin fata mai madaidaicin duhu | mace | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">hannu | launin fata mai haske | launin fata mai madaidaicin duhu | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">namiji da mata suna riƙew da hannuwa: launin fata mai haske, launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="👩🏻‍🤝‍👩🏿">hannu | launin fata mai duhu | launin fata mai haske | mace | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">hannu | launin fata mai duhu | launin fata mai haske | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">namiji da mata suna riƙew da hannuwa: launin fata mai haske, launin fata mai duhu</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻">hannu | launin fata mai haske | launin fata mai madaidaicin haske | mace | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻">hannu | launin fata mai haske | launin fata mai madaidaicin haske | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">namiji da mata suna riƙew da hannuwa: launin fata mai madaidaicin haske, launin fata mai haske</annotation>
-		<annotation cp="👭🏼">hannu | launin fata mai madaidaicin haske | mace | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe</annotation>
+		<annotation cp="👭🏼">hannu | launin fata mai madaidaicin haske | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👭🏼" type="tts">namiji da mata suna riƙew da hannuwa: launin fata mai madaidaicin haske</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏽">hannu | launin fata mai madaidaicin haske | mace | madaidaicin launin fata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">hannu | launin fata mai madaidaicin haske | madaidaicin launin fata | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">namiji da mata suna riƙew da hannuwa: launin fata mai madaidaicin haske, madaidaicin launin fata</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏾">hannu | launin fata mai madaidaicin duhu | launin fata mai madaidaicin haske | mace | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">hannu | launin fata mai madaidaicin duhu | launin fata mai madaidaicin haske | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">namiji da mata suna riƙew da hannuwa: launin fata mai madaidaicin haske, launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏿">hannu | launin fata mai duhu | launin fata mai madaidaicin haske | mace | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">hannu | launin fata mai duhu | launin fata mai madaidaicin haske | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">namiji da mata suna riƙew da hannuwa: launin fata mai madaidaicin haske, launin fata mai duhu</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻">hannu | launin fata mai haske | mace | madaidaicin launin fata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻">hannu | launin fata mai haske | madaidaicin launin fata | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">namiji da mata suna riƙew da hannuwa: madaidaicin launin fata, launin fata mai haske</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼">hannu | launin fata mai madaidaicin haske | mace | madaidaicin launin fata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼">hannu | launin fata mai madaidaicin haske | madaidaicin launin fata | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">namiji da mata suna riƙew da hannuwa: madaidaicin launin fata, launin fata mai madaidaicin haske</annotation>
-		<annotation cp="👭🏽">hannu | mace | madaidaicin launin fata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe</annotation>
+		<annotation cp="👭🏽">hannu | madaidaicin launin fata | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👭🏽" type="tts">namiji da mata suna riƙew da hannuwa: madaidaicin launin fata</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏾">hannu | launin fata mai madaidaicin duhu | mace | madaidaicin launin fata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">hannu | launin fata mai madaidaicin duhu | madaidaicin launin fata | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">namiji da mata suna riƙew da hannuwa: madaidaicin launin fata, launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏿">hannu | launin fata mai duhu | mace | madaidaicin launin fata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">hannu | launin fata mai duhu | madaidaicin launin fata | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">namiji da mata suna riƙew da hannuwa: madaidaicin launin fata, launin fata mai duhu</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻">hannu | launin fata mai haske | launin fata mai madaidaicin duhu | mace | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻">hannu | launin fata mai haske | launin fata mai madaidaicin duhu | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">namiji da mata suna riƙew da hannuwa: launin fata mai madaidaicin duhu, launin fata mai haske</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼">hannu | launin fata mai madaidaicin duhu | launin fata mai madaidaicin haske | mace | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼">hannu | launin fata mai madaidaicin duhu | launin fata mai madaidaicin haske | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">namiji da mata suna riƙew da hannuwa: launin fata mai madaidaicin duhu, launin fata mai madaidaicin haske</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽">hannu | launin fata mai madaidaicin duhu | mace | madaidaicin launin fata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽">hannu | launin fata mai madaidaicin duhu | madaidaicin launin fata | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">namiji da mata suna riƙew da hannuwa: launin fata mai madaidaicin duhu, madaidaicin launin fata</annotation>
-		<annotation cp="👭🏾">hannu | launin fata mai madaidaicin duhu | mace | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe</annotation>
+		<annotation cp="👭🏾">hannu | launin fata mai madaidaicin duhu | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👭🏾" type="tts">namiji da mata suna riƙew da hannuwa: launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏿">hannu | launin fata mai duhu | launin fata mai madaidaicin duhu | mace | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">hannu | launin fata mai duhu | launin fata mai madaidaicin duhu | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">namiji da mata suna riƙew da hannuwa: launin fata mai madaidaicin duhu, launin fata mai duhu</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻">hannu | launin fata mai duhu | launin fata mai haske | mace | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻">hannu | launin fata mai duhu | launin fata mai haske | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">namiji da mata suna riƙew da hannuwa: launin fata mai duhu, launin fata mai haske</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼">hannu | launin fata mai duhu | launin fata mai madaidaicin haske | mace | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼">hannu | launin fata mai duhu | launin fata mai madaidaicin haske | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">namiji da mata suna riƙew da hannuwa: launin fata mai duhu, launin fata mai madaidaicin haske</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽">hannu | launin fata mai duhu | mace | madaidaicin launin fata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽">hannu | launin fata mai duhu | madaidaicin launin fata | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">namiji da mata suna riƙew da hannuwa: launin fata mai duhu, madaidaicin launin fata</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾">hannu | launin fata mai duhu | launin fata mai madaidaicin duhu | mace | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾">hannu | launin fata mai duhu | launin fata mai madaidaicin duhu | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">namiji da mata suna riƙew da hannuwa: launin fata mai duhu, launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="👭🏿">hannu | launin fata mai duhu | mace | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe</annotation>
+		<annotation cp="👭🏿">hannu | launin fata mai duhu | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👭🏿" type="tts">namiji da mata suna riƙew da hannuwa: launin fata mai duhu</annotation>
-		<annotation cp="👫🏻">hannu | launin fata mai haske | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | namiji da mata suna riƙe da hannuwa | riƙe</annotation>
+		<annotation cp="👫🏻">hannu | launin fata mai haske | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👫🏻" type="tts">namiji da mace riƙe da hannuwa: launin fata mai haske</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏼">hannu | launin fata mai haske | launin fata mai madaidaicin haske | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | namiji da mata suna riƙe da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏼">hannu | launin fata mai haske | launin fata mai madaidaicin haske | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏼" type="tts">namiji da mace riƙe da hannuwa: launin fata mai haske, launin fata mai madaidaicin haske</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏽">hannu | launin fata mai haske | mace | madaidaicin launin fata | miji da mata | mutum | namiji da mace riƙe da hannuwa | namiji da mata suna riƙe da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏽">hannu | launin fata mai haske | mace | madaidaicin launin fata | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏽" type="tts">namiji da mace riƙe da hannuwa: launin fata mai haske, madaidaicin launin fata</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏾">hannu | launin fata mai haske | launin fata mai madaidaicin duhu | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | namiji da mata suna riƙe da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏾">hannu | launin fata mai haske | launin fata mai madaidaicin duhu | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏾" type="tts">namiji da mace riƙe da hannuwa: launin fata mai haske, launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏿">hannu | launin fata mai duhu | launin fata mai haske | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | namiji da mata suna riƙe da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏿">hannu | launin fata mai duhu | launin fata mai haske | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏿" type="tts">namiji da mace riƙe da hannuwa: launin fata mai haske, launin fata mai duhu</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏻">hannu | launin fata mai haske | launin fata mai madaidaicin haske | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | namiji da mata suna riƙe da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏻">hannu | launin fata mai haske | launin fata mai madaidaicin haske | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏼‍🤝‍👨🏻" type="tts">namiji da mace riƙe da hannuwa: launin fata mai madaidaicin haske, launin fata mai haske</annotation>
-		<annotation cp="👫🏼">hannu | launin fata mai madaidaicin haske | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | namiji da mata suna riƙe da hannuwa | riƙe</annotation>
+		<annotation cp="👫🏼">hannu | launin fata mai madaidaicin haske | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👫🏼" type="tts">namiji da mace riƙe da hannuwa: launin fata mai madaidaicin haske</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏽">hannu | launin fata mai madaidaicin haske | mace | madaidaicin launin fata | miji da mata | mutum | namiji da mace riƙe da hannuwa | namiji da mata suna riƙe da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏽">hannu | launin fata mai madaidaicin haske | mace | madaidaicin launin fata | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏼‍🤝‍👨🏽" type="tts">namiji da mace riƙe da hannuwa: launin fata mai madaidaicin haske, madaidaicin launin fata</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏾">hannu | launin fata mai madaidaicin duhu | launin fata mai madaidaicin haske | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | namiji da mata suna riƙe da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏾">hannu | launin fata mai madaidaicin duhu | launin fata mai madaidaicin haske | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏼‍🤝‍👨🏾" type="tts">namiji da mace riƙe da hannuwa: launin fata mai madaidaicin haske, launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏿">hannu | launin fata mai duhu | launin fata mai madaidaicin haske | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | namiji da mata suna riƙe da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏿">hannu | launin fata mai duhu | launin fata mai madaidaicin haske | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏼‍🤝‍👨🏿" type="tts">namiji da mace riƙe da hannuwa: launin fata mai madaidaicin haske, launin fata mai duhu</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏻">hannu | launin fata mai haske | mace | madaidaicin launin fata | miji da mata | mutum | namiji da mace riƙe da hannuwa | namiji da mata suna riƙe da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏻">hannu | launin fata mai haske | mace | madaidaicin launin fata | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏽‍🤝‍👨🏻" type="tts">namiji da mace riƙe da hannuwa: madaidaicin launin fata, launin fata mai haske</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏼">hannu | launin fata mai madaidaicin haske | mace | madaidaicin launin fata | miji da mata | mutum | namiji da mace riƙe da hannuwa | namiji da mata suna riƙe da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏼">hannu | launin fata mai madaidaicin haske | mace | madaidaicin launin fata | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏽‍🤝‍👨🏼" type="tts">namiji da mace riƙe da hannuwa: madaidaicin launin fata, launin fata mai madaidaicin haske</annotation>
-		<annotation cp="👫🏽">hannu | mace | madaidaicin launin fata | miji da mata | mutum | namiji da mace riƙe da hannuwa | namiji da mata suna riƙe da hannuwa | riƙe</annotation>
+		<annotation cp="👫🏽">hannu | mace | madaidaicin launin fata | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👫🏽" type="tts">namiji da mace riƙe da hannuwa: madaidaicin launin fata</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏾">hannu | launin fata mai madaidaicin duhu | mace | madaidaicin launin fata | miji da mata | mutum | namiji da mace riƙe da hannuwa | namiji da mata suna riƙe da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏾">hannu | launin fata mai madaidaicin duhu | mace | madaidaicin launin fata | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏽‍🤝‍👨🏾" type="tts">namiji da mace riƙe da hannuwa: madaidaicin launin fata, launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏿">hannu | launin fata mai duhu | mace | madaidaicin launin fata | miji da mata | mutum | namiji da mace riƙe da hannuwa | namiji da mata suna riƙe da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏿">hannu | launin fata mai duhu | mace | madaidaicin launin fata | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏽‍🤝‍👨🏿" type="tts">namiji da mace riƙe da hannuwa: madaidaicin launin fata, launin fata mai duhu</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏻">hannu | launin fata mai haske | launin fata mai madaidaicin duhu | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | namiji da mata suna riƙe da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏻">hannu | launin fata mai haske | launin fata mai madaidaicin duhu | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏾‍🤝‍👨🏻" type="tts">namiji da mace riƙe da hannuwa: launin fata mai madaidaicin duhu, launin fata mai haske</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏼">hannu | launin fata mai madaidaicin duhu | launin fata mai madaidaicin haske | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | namiji da mata suna riƙe da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏼">hannu | launin fata mai madaidaicin duhu | launin fata mai madaidaicin haske | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏾‍🤝‍👨🏼" type="tts">namiji da mace riƙe da hannuwa: launin fata mai madaidaicin duhu, launin fata mai madaidaicin haske</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏽">hannu | launin fata mai madaidaicin duhu | mace | madaidaicin launin fata | miji da mata | mutum | namiji da mace riƙe da hannuwa | namiji da mata suna riƙe da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏽">hannu | launin fata mai madaidaicin duhu | mace | madaidaicin launin fata | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏾‍🤝‍👨🏽" type="tts">namiji da mace riƙe da hannuwa: launin fata mai madaidaicin duhu, madaidaicin launin fata</annotation>
-		<annotation cp="👫🏾">hannu | launin fata mai madaidaicin duhu | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | namiji da mata suna riƙe da hannuwa | riƙe</annotation>
+		<annotation cp="👫🏾">hannu | launin fata mai madaidaicin duhu | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👫🏾" type="tts">namiji da mace riƙe da hannuwa: launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏿">hannu | launin fata mai duhu | launin fata mai madaidaicin duhu | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | namiji da mata suna riƙe da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏿">hannu | launin fata mai duhu | launin fata mai madaidaicin duhu | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏾‍🤝‍👨🏿" type="tts">namiji da mace riƙe da hannuwa: launin fata mai madaidaicin duhu, launin fata mai duhu</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏻">hannu | launin fata mai duhu | launin fata mai haske | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | namiji da mata suna riƙe da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏻">hannu | launin fata mai duhu | launin fata mai haske | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏿‍🤝‍👨🏻" type="tts">namiji da mace riƙe da hannuwa: launin fata mai duhu, launin fata mai haske</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏼">hannu | launin fata mai duhu | launin fata mai madaidaicin haske | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | namiji da mata suna riƙe da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏼">hannu | launin fata mai duhu | launin fata mai madaidaicin haske | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏿‍🤝‍👨🏼" type="tts">namiji da mace riƙe da hannuwa: launin fata mai duhu, launin fata mai madaidaicin haske</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏽">hannu | launin fata mai duhu | mace | madaidaicin launin fata | miji da mata | mutum | namiji da mace riƙe da hannuwa | namiji da mata suna riƙe da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏽">hannu | launin fata mai duhu | mace | madaidaicin launin fata | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏿‍🤝‍👨🏽" type="tts">namiji da mace riƙe da hannuwa: launin fata mai duhu, madaidaicin launin fata</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏾">hannu | launin fata mai duhu | launin fata mai madaidaicin duhu | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | namiji da mata suna riƙe da hannuwa | riƙe</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏾">hannu | launin fata mai duhu | launin fata mai madaidaicin duhu | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👩🏿‍🤝‍👨🏾" type="tts">namiji da mace riƙe da hannuwa: launin fata mai duhu, launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="👫🏿">hannu | launin fata mai duhu | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | namiji da mata suna riƙe da hannuwa | riƙe</annotation>
+		<annotation cp="👫🏿">hannu | launin fata mai duhu | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👫🏿" type="tts">namiji da mace riƙe da hannuwa: launin fata mai duhu</annotation>
-		<annotation cp="👬🏻">falaki | launin fata mai haske | mata da miji | maza | maza biyu riƙe da hannuwa | maza biyu suna riƙe da hannu | namiji | riƙe hannu | tagwai | Tagwaye</annotation>
+		<annotation cp="👬🏻">falaki | launin fata mai haske | mata da miji | maza | maza biyu riƙe da hannuwa | namiji | riƙe hannu | Tagwaye</annotation>
 		<annotation cp="👬🏻" type="tts">maza biyu riƙe da hannuwa: launin fata mai haske</annotation>
-		<annotation cp="👨🏻‍🤝‍👨🏼">falaki | launin fata mai haske | launin fata mai madaidaicin haske | mata da miji | maza | maza biyu riƙe da hannuwa | maza biyu suna riƙe da hannu | namiji | riƙe hannu | tagwai | Tagwaye</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏼">falaki | launin fata mai haske | launin fata mai madaidaicin haske | mata da miji | maza | maza biyu riƙe da hannuwa | namiji | riƙe hannu | Tagwaye</annotation>
 		<annotation cp="👨🏻‍🤝‍👨🏼" type="tts">maza biyu riƙe da hannuwa: launin fata mai haske, launin fata mai madaidaicin haske</annotation>
-		<annotation cp="👨🏻‍🤝‍👨🏽">falaki | launin fata mai haske | madaidaicin launin fata | mata da miji | maza | maza biyu riƙe da hannuwa | maza biyu suna riƙe da hannu | namiji | riƙe hannu | tagwai | Tagwaye</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏽">falaki | launin fata mai haske | madaidaicin launin fata | mata da miji | maza | maza biyu riƙe da hannuwa | namiji | riƙe hannu | Tagwaye</annotation>
 		<annotation cp="👨🏻‍🤝‍👨🏽" type="tts">maza biyu riƙe da hannuwa: launin fata mai haske, madaidaicin launin fata</annotation>
-		<annotation cp="👨🏻‍🤝‍👨🏾">falaki | launin fata mai haske | launin fata mai madaidaicin duhu | mata da miji | maza | maza biyu riƙe da hannuwa | maza biyu suna riƙe da hannu | namiji | riƙe hannu | tagwai | Tagwaye</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏾">falaki | launin fata mai haske | launin fata mai madaidaicin duhu | mata da miji | maza | maza biyu riƙe da hannuwa | namiji | riƙe hannu | Tagwaye</annotation>
 		<annotation cp="👨🏻‍🤝‍👨🏾" type="tts">maza biyu riƙe da hannuwa: launin fata mai haske, launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="👨🏻‍🤝‍👨🏿">falaki | launin fata mai duhu | launin fata mai haske | mata da miji | maza | maza biyu riƙe da hannuwa | maza biyu suna riƙe da hannu | namiji | riƙe hannu | tagwai | Tagwaye</annotation>
+		<annotation cp="👨🏻‍🤝‍👨🏿">falaki | launin fata mai duhu | launin fata mai haske | mata da miji | maza | maza biyu riƙe da hannuwa | namiji | riƙe hannu | Tagwaye</annotation>
 		<annotation cp="👨🏻‍🤝‍👨🏿" type="tts">maza biyu riƙe da hannuwa: launin fata mai haske, launin fata mai duhu</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏻">falaki | launin fata mai haske | launin fata mai madaidaicin haske | mata da miji | maza | maza biyu riƙe da hannuwa | maza biyu suna riƙe da hannu | namiji | riƙe hannu | tagwai | Tagwaye</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏻">falaki | launin fata mai haske | launin fata mai madaidaicin haske | mata da miji | maza | maza biyu riƙe da hannuwa | namiji | riƙe hannu | Tagwaye</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏻" type="tts">maza biyu riƙe da hannuwa: launin fata mai madaidaicin haske, launin fata mai haske</annotation>
-		<annotation cp="👬🏼">falaki | launin fata mai madaidaicin haske | mata da miji | maza | maza biyu riƙe da hannuwa | maza biyu suna riƙe da hannu | namiji | riƙe hannu | tagwai | Tagwaye</annotation>
+		<annotation cp="👬🏼">falaki | launin fata mai madaidaicin haske | mata da miji | maza | maza biyu riƙe da hannuwa | namiji | riƙe hannu | Tagwaye</annotation>
 		<annotation cp="👬🏼" type="tts">maza biyu riƙe da hannuwa: launin fata mai madaidaicin haske</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏽">falaki | launin fata mai madaidaicin haske | madaidaicin launin fata | mata da miji | maza | maza biyu riƙe da hannuwa | maza biyu suna riƙe da hannu | namiji | riƙe hannu | tagwai | Tagwaye</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏽">falaki | launin fata mai madaidaicin haske | madaidaicin launin fata | mata da miji | maza | maza biyu riƙe da hannuwa | namiji | riƙe hannu | Tagwaye</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏽" type="tts">maza biyu riƙe da hannuwa: launin fata mai madaidaicin haske, madaidaicin launin fata</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏾">falaki | launin fata mai madaidaicin duhu | launin fata mai madaidaicin haske | mata da miji | maza | maza biyu riƙe da hannuwa | maza biyu suna riƙe da hannu | namiji | riƙe hannu | tagwai | Tagwaye</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏾">falaki | launin fata mai madaidaicin duhu | launin fata mai madaidaicin haske | mata da miji | maza | maza biyu riƙe da hannuwa | namiji | riƙe hannu | Tagwaye</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏾" type="tts">maza biyu riƙe da hannuwa: launin fata mai madaidaicin haske, launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="👨🏼‍🤝‍👨🏿">falaki | launin fata mai duhu | launin fata mai madaidaicin haske | mata da miji | maza | maza biyu riƙe da hannuwa | maza biyu suna riƙe da hannu | namiji | riƙe hannu | tagwai | Tagwaye</annotation>
+		<annotation cp="👨🏼‍🤝‍👨🏿">falaki | launin fata mai duhu | launin fata mai madaidaicin haske | mata da miji | maza | maza biyu riƙe da hannuwa | namiji | riƙe hannu | Tagwaye</annotation>
 		<annotation cp="👨🏼‍🤝‍👨🏿" type="tts">maza biyu riƙe da hannuwa: launin fata mai madaidaicin haske, launin fata mai duhu</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏻">falaki | launin fata mai haske | madaidaicin launin fata | mata da miji | maza | maza biyu riƙe da hannuwa | maza biyu suna riƙe da hannu | namiji | riƙe hannu | tagwai | Tagwaye</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏻">falaki | launin fata mai haske | madaidaicin launin fata | mata da miji | maza | maza biyu riƙe da hannuwa | namiji | riƙe hannu | Tagwaye</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏻" type="tts">maza biyu riƙe da hannuwa: madaidaicin launin fata, launin fata mai haske</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏼">falaki | launin fata mai madaidaicin haske | madaidaicin launin fata | mata da miji | maza | maza biyu riƙe da hannuwa | maza biyu suna riƙe da hannu | namiji | riƙe hannu | tagwai | Tagwaye</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏼">falaki | launin fata mai madaidaicin haske | madaidaicin launin fata | mata da miji | maza | maza biyu riƙe da hannuwa | namiji | riƙe hannu | Tagwaye</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏼" type="tts">maza biyu riƙe da hannuwa: madaidaicin launin fata, launin fata mai madaidaicin haske</annotation>
-		<annotation cp="👬🏽">falaki | madaidaicin launin fata | mata da miji | maza | maza biyu riƙe da hannuwa | maza biyu suna riƙe da hannu | namiji | riƙe hannu | tagwai | Tagwaye</annotation>
+		<annotation cp="👬🏽">falaki | madaidaicin launin fata | mata da miji | maza | maza biyu riƙe da hannuwa | namiji | riƙe hannu | Tagwaye</annotation>
 		<annotation cp="👬🏽" type="tts">maza biyu riƙe da hannuwa: madaidaicin launin fata</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏾">falaki | launin fata mai madaidaicin duhu | madaidaicin launin fata | mata da miji | maza | maza biyu riƙe da hannuwa | maza biyu suna riƙe da hannu | namiji | riƙe hannu | tagwai | Tagwaye</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏾">falaki | launin fata mai madaidaicin duhu | madaidaicin launin fata | mata da miji | maza | maza biyu riƙe da hannuwa | namiji | riƙe hannu | Tagwaye</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏾" type="tts">maza biyu riƙe da hannuwa: madaidaicin launin fata, launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="👨🏽‍🤝‍👨🏿">falaki | launin fata mai duhu | madaidaicin launin fata | mata da miji | maza | maza biyu riƙe da hannuwa | maza biyu suna riƙe da hannu | namiji | riƙe hannu | tagwai | Tagwaye</annotation>
+		<annotation cp="👨🏽‍🤝‍👨🏿">falaki | launin fata mai duhu | madaidaicin launin fata | mata da miji | maza | maza biyu riƙe da hannuwa | namiji | riƙe hannu | Tagwaye</annotation>
 		<annotation cp="👨🏽‍🤝‍👨🏿" type="tts">maza biyu riƙe da hannuwa: madaidaicin launin fata, launin fata mai duhu</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏻">falaki | launin fata mai haske | launin fata mai madaidaicin duhu | mata da miji | maza | maza biyu riƙe da hannuwa | maza biyu suna riƙe da hannu | namiji | riƙe hannu | tagwai | Tagwaye</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏻">falaki | launin fata mai haske | launin fata mai madaidaicin duhu | mata da miji | maza | maza biyu riƙe da hannuwa | namiji | riƙe hannu | Tagwaye</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏻" type="tts">maza biyu riƙe da hannuwa: launin fata mai madaidaicin duhu, launin fata mai haske</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏼">falaki | launin fata mai madaidaicin duhu | launin fata mai madaidaicin haske | mata da miji | maza | maza biyu riƙe da hannuwa | maza biyu suna riƙe da hannu | namiji | riƙe hannu | tagwai | Tagwaye</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏼">falaki | launin fata mai madaidaicin duhu | launin fata mai madaidaicin haske | mata da miji | maza | maza biyu riƙe da hannuwa | namiji | riƙe hannu | Tagwaye</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏼" type="tts">maza biyu riƙe da hannuwa: launin fata mai madaidaicin duhu, launin fata mai madaidaicin haske</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏽">falaki | launin fata mai madaidaicin duhu | madaidaicin launin fata | mata da miji | maza | maza biyu riƙe da hannuwa | maza biyu suna riƙe da hannu | namiji | riƙe hannu | tagwai | Tagwaye</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏽">falaki | launin fata mai madaidaicin duhu | madaidaicin launin fata | mata da miji | maza | maza biyu riƙe da hannuwa | namiji | riƙe hannu | Tagwaye</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏽" type="tts">maza biyu riƙe da hannuwa: launin fata mai madaidaicin duhu, madaidaicin launin fata</annotation>
-		<annotation cp="👬🏾">falaki | launin fata mai madaidaicin duhu | mata da miji | maza | maza biyu riƙe da hannuwa | maza biyu suna riƙe da hannu | namiji | riƙe hannu | tagwai | Tagwaye</annotation>
+		<annotation cp="👬🏾">falaki | launin fata mai madaidaicin duhu | mata da miji | maza | maza biyu riƙe da hannuwa | namiji | riƙe hannu | Tagwaye</annotation>
 		<annotation cp="👬🏾" type="tts">maza biyu riƙe da hannuwa: launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="👨🏾‍🤝‍👨🏿">falaki | launin fata mai duhu | launin fata mai madaidaicin duhu | mata da miji | maza | maza biyu riƙe da hannuwa | maza biyu suna riƙe da hannu | namiji | riƙe hannu | tagwai | Tagwaye</annotation>
+		<annotation cp="👨🏾‍🤝‍👨🏿">falaki | launin fata mai duhu | launin fata mai madaidaicin duhu | mata da miji | maza | maza biyu riƙe da hannuwa | namiji | riƙe hannu | Tagwaye</annotation>
 		<annotation cp="👨🏾‍🤝‍👨🏿" type="tts">maza biyu riƙe da hannuwa: launin fata mai madaidaicin duhu, launin fata mai duhu</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏻">falaki | launin fata mai duhu | launin fata mai haske | mata da miji | maza | maza biyu riƙe da hannuwa | maza biyu suna riƙe da hannu | namiji | riƙe hannu | tagwai | Tagwaye</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏻">falaki | launin fata mai duhu | launin fata mai haske | mata da miji | maza | maza biyu riƙe da hannuwa | namiji | riƙe hannu | Tagwaye</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏻" type="tts">maza biyu riƙe da hannuwa: launin fata mai duhu, launin fata mai haske</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏼">falaki | launin fata mai duhu | launin fata mai madaidaicin haske | mata da miji | maza | maza biyu riƙe da hannuwa | maza biyu suna riƙe da hannu | namiji | riƙe hannu | tagwai | Tagwaye</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏼">falaki | launin fata mai duhu | launin fata mai madaidaicin haske | mata da miji | maza | maza biyu riƙe da hannuwa | namiji | riƙe hannu | Tagwaye</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏼" type="tts">maza biyu riƙe da hannuwa: launin fata mai duhu, launin fata mai madaidaicin haske</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏽">falaki | launin fata mai duhu | madaidaicin launin fata | mata da miji | maza | maza biyu riƙe da hannuwa | maza biyu suna riƙe da hannu | namiji | riƙe hannu | tagwai | Tagwaye</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏽">falaki | launin fata mai duhu | madaidaicin launin fata | mata da miji | maza | maza biyu riƙe da hannuwa | namiji | riƙe hannu | Tagwaye</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏽" type="tts">maza biyu riƙe da hannuwa: launin fata mai duhu, madaidaicin launin fata</annotation>
-		<annotation cp="👨🏿‍🤝‍👨🏾">falaki | launin fata mai duhu | launin fata mai madaidaicin duhu | mata da miji | maza | maza biyu riƙe da hannuwa | maza biyu suna riƙe da hannu | namiji | riƙe hannu | tagwai | Tagwaye</annotation>
+		<annotation cp="👨🏿‍🤝‍👨🏾">falaki | launin fata mai duhu | launin fata mai madaidaicin duhu | mata da miji | maza | maza biyu riƙe da hannuwa | namiji | riƙe hannu | Tagwaye</annotation>
 		<annotation cp="👨🏿‍🤝‍👨🏾" type="tts">maza biyu riƙe da hannuwa: launin fata mai duhu, launin fata mai madaidaicin duhu</annotation>
-		<annotation cp="👬🏿">falaki | launin fata mai duhu | mata da miji | maza | maza biyu riƙe da hannuwa | maza biyu suna riƙe da hannu | namiji | riƙe hannu | tagwai | Tagwaye</annotation>
+		<annotation cp="👬🏿">falaki | launin fata mai duhu | mata da miji | maza | maza biyu riƙe da hannuwa | namiji | riƙe hannu | Tagwaye</annotation>
 		<annotation cp="👬🏿" type="tts">maza biyu riƙe da hannuwa: launin fata mai duhu</annotation>
 		<annotation cp="💏🏻">launin fata mai haske | miji da mata | sumba</annotation>
 		<annotation cp="💏🏻" type="tts">sumba: launin fata mai haske</annotation>
@@ -3493,7 +3513,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇳🇫">tuta</annotation>
 		<annotation cp="🇳🇫" type="tts">tuta: Tsibirin Narfalk</annotation>
 		<annotation cp="🇳🇬">tuta</annotation>
-		<annotation cp="🇳🇬" type="tts">tuta: Najeriya</annotation>
+		<annotation cp="🇳🇬" type="tts">tuta: Nijeriya</annotation>
 		<annotation cp="🇳🇮">tuta</annotation>
 		<annotation cp="🇳🇮" type="tts">tuta: Nikaraguwa</annotation>
 		<annotation cp="🇳🇱">tuta</annotation>

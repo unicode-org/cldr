@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -13,21 +13,56 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<language type="nn"/>
 	</identity>
 	<annotations>
-		<annotation cp="🫅🏻">adel | hudtype 1–2 | kongeleg | majestetisk | monark | person med krone</annotation>
-		<annotation cp="🫅🏼">adel | hudtype 3 | kongeleg | majestetisk | monark | person med krone</annotation>
-		<annotation cp="🫅🏽">adel | hudtype 4 | kongeleg | majestetisk | monark | person med krone</annotation>
-		<annotation cp="🫅🏾">adel | hudtype 5 | kongeleg | majestetisk | monark | person med krone</annotation>
-		<annotation cp="🫅🏿">adel | hudtype 6 | kongeleg | majestetisk | monark | person med krone</annotation>
-		<annotation cp="🫰🏻">dyrt | hand med peikefinger og tommel kryssa | hjarte | hudtype 1–2 | kjærleik | knipse | pengar</annotation>
-		<annotation cp="🫰🏻" type="tts">hand med peikefinger og tommel kryssa: hudtype 1–2</annotation>
-		<annotation cp="🫰🏼">dyrt | hand med peikefinger og tommel kryssa | hjarte | hudtype 3 | kjærleik | knipse | pengar</annotation>
-		<annotation cp="🫰🏼" type="tts">hand med peikefinger og tommel kryssa: hudtype 3</annotation>
-		<annotation cp="🫰🏽">dyrt | hand med peikefinger og tommel kryssa | hjarte | hudtype 4 | kjærleik | knipse | pengar</annotation>
-		<annotation cp="🫰🏽" type="tts">hand med peikefinger og tommel kryssa: hudtype 4</annotation>
-		<annotation cp="🫰🏾">dyrt | hand med peikefinger og tommel kryssa | hjarte | hudtype 5 | kjærleik | knipse | pengar</annotation>
-		<annotation cp="🫰🏾" type="tts">hand med peikefinger og tommel kryssa: hudtype 5</annotation>
-		<annotation cp="🫰🏿">dyrt | hand med peikefinger og tommel kryssa | hjarte | hudtype 6 | kjærleik | knipse | pengar</annotation>
-		<annotation cp="🫰🏿" type="tts">hand med peikefinger og tommel kryssa: hudtype 6</annotation>
+		<annotation cp="👋🏻">hand | hudtype 1–2 | vinkande hand | vinke | vinking</annotation>
+		<annotation cp="👋🏻" type="tts">vinkande hand: hudtype 1–2</annotation>
+		<annotation cp="👋🏼">hand | hudtype 3 | vinkande hand | vinke | vinking</annotation>
+		<annotation cp="👋🏼" type="tts">vinkande hand: hudtype 3</annotation>
+		<annotation cp="👋🏽">hand | hudtype 4 | vinkande hand | vinke | vinking</annotation>
+		<annotation cp="👋🏽" type="tts">vinkande hand: hudtype 4</annotation>
+		<annotation cp="👋🏾">hand | hudtype 5 | vinkande hand | vinke | vinking</annotation>
+		<annotation cp="👋🏾" type="tts">vinkande hand: hudtype 5</annotation>
+		<annotation cp="👋🏿">hand | hudtype 6 | vinkande hand | vinke | vinking</annotation>
+		<annotation cp="👋🏿" type="tts">vinkande hand: hudtype 6</annotation>
+		<annotation cp="🤚🏻">handbak | hudtype 1–2 | løfta</annotation>
+		<annotation cp="🤚🏻" type="tts">løfta handbak: hudtype 1–2</annotation>
+		<annotation cp="🤚🏼">handbak | hudtype 3 | løfta</annotation>
+		<annotation cp="🤚🏼" type="tts">løfta handbak: hudtype 3</annotation>
+		<annotation cp="🤚🏽">handbak | hudtype 4 | løfta</annotation>
+		<annotation cp="🤚🏽" type="tts">løfta handbak: hudtype 4</annotation>
+		<annotation cp="🤚🏾">handbak | hudtype 5 | løfta</annotation>
+		<annotation cp="🤚🏾" type="tts">løfta handbak: hudtype 5</annotation>
+		<annotation cp="🤚🏿">handbak | hudtype 6 | løfta</annotation>
+		<annotation cp="🤚🏿" type="tts">løfta handbak: hudtype 6</annotation>
+		<annotation cp="🖐🏻">finger | flat hand med spreidde fingrar | hand | hudtype 1–2 | spreidd</annotation>
+		<annotation cp="🖐🏻" type="tts">flat hand med spreidde fingrar: hudtype 1–2</annotation>
+		<annotation cp="🖐🏼">finger | flat hand med spreidde fingrar | hand | hudtype 3 | spreidd</annotation>
+		<annotation cp="🖐🏼" type="tts">flat hand med spreidde fingrar: hudtype 3</annotation>
+		<annotation cp="🖐🏽">finger | flat hand med spreidde fingrar | hand | hudtype 4 | spreidd</annotation>
+		<annotation cp="🖐🏽" type="tts">flat hand med spreidde fingrar: hudtype 4</annotation>
+		<annotation cp="🖐🏾">finger | flat hand med spreidde fingrar | hand | hudtype 5 | spreidd</annotation>
+		<annotation cp="🖐🏾" type="tts">flat hand med spreidde fingrar: hudtype 5</annotation>
+		<annotation cp="🖐🏿">finger | flat hand med spreidde fingrar | hand | hudtype 6 | spreidd</annotation>
+		<annotation cp="🖐🏿" type="tts">flat hand med spreidde fingrar: hudtype 6</annotation>
+		<annotation cp="✋🏻">flat hand | handflate | heva hand | hudtype 1–2</annotation>
+		<annotation cp="✋🏻" type="tts">heva hand: hudtype 1–2</annotation>
+		<annotation cp="✋🏼">flat hand | handflate | heva hand | hudtype 3</annotation>
+		<annotation cp="✋🏼" type="tts">heva hand: hudtype 3</annotation>
+		<annotation cp="✋🏽">flat hand | handflate | heva hand | hudtype 4</annotation>
+		<annotation cp="✋🏽" type="tts">heva hand: hudtype 4</annotation>
+		<annotation cp="✋🏾">flat hand | handflate | heva hand | hudtype 5</annotation>
+		<annotation cp="✋🏾" type="tts">heva hand: hudtype 5</annotation>
+		<annotation cp="✋🏿">flat hand | handflate | heva hand | hudtype 6</annotation>
+		<annotation cp="✋🏿" type="tts">heva hand: hudtype 6</annotation>
+		<annotation cp="🖖🏻">finger | hand | hudtype 1–2 | spock | vulcan | Vulcan-helsing</annotation>
+		<annotation cp="🖖🏻" type="tts">Vulcan-helsing: hudtype 1–2</annotation>
+		<annotation cp="🖖🏼">finger | hand | hudtype 3 | spock | vulcan | Vulcan-helsing</annotation>
+		<annotation cp="🖖🏼" type="tts">Vulcan-helsing: hudtype 3</annotation>
+		<annotation cp="🖖🏽">finger | hand | hudtype 4 | spock | vulcan | Vulcan-helsing</annotation>
+		<annotation cp="🖖🏽" type="tts">Vulcan-helsing: hudtype 4</annotation>
+		<annotation cp="🖖🏾">finger | hand | hudtype 5 | spock | vulcan | Vulcan-helsing</annotation>
+		<annotation cp="🖖🏾" type="tts">Vulcan-helsing: hudtype 5</annotation>
+		<annotation cp="🖖🏿">finger | hand | hudtype 6 | spock | vulcan | Vulcan-helsing</annotation>
+		<annotation cp="🖖🏿" type="tts">Vulcan-helsing: hudtype 6</annotation>
 		<annotation cp="🫱🏻">hand | hand mot høgre | høgre | hudtype 1–2</annotation>
 		<annotation cp="🫱🏻" type="tts">hand mot høgre: hudtype 1–2</annotation>
 		<annotation cp="🫱🏼">hand | hand mot høgre | høgre | hudtype 3</annotation>
@@ -108,76 +143,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🫴🏾" type="tts">handflata opp: hudtype 5</annotation>
 		<annotation cp="🫴🏿">gripe | handflata opp | hudtype 6 | invitere | kalle på | lokke | tilby</annotation>
 		<annotation cp="🫴🏿" type="tts">handflata opp: hudtype 6</annotation>
-		<annotation cp="🫵🏻">deg | hudtype 1–2 | peikefinger peiker på lesaren | peiker | peiker på deg | uncle sam</annotation>
-		<annotation cp="🫵🏻" type="tts">peikefinger peiker på lesaren: hudtype 1–2</annotation>
-		<annotation cp="🫵🏼">deg | hudtype 3 | peikefinger peiker på lesaren | peiker | peiker på deg | uncle sam</annotation>
-		<annotation cp="🫵🏼" type="tts">peikefinger peiker på lesaren: hudtype 3</annotation>
-		<annotation cp="🫵🏽">deg | hudtype 4 | peikefinger peiker på lesaren | peiker | peiker på deg | uncle sam</annotation>
-		<annotation cp="🫵🏽" type="tts">peikefinger peiker på lesaren: hudtype 4</annotation>
-		<annotation cp="🫵🏾">deg | hudtype 5 | peikefinger peiker på lesaren | peiker | peiker på deg | uncle sam</annotation>
-		<annotation cp="🫵🏾" type="tts">peikefinger peiker på lesaren: hudtype 5</annotation>
-		<annotation cp="🫵🏿">deg | hudtype 6 | peikefinger peiker på lesaren | peiker | peiker på deg | uncle sam</annotation>
-		<annotation cp="🫵🏿" type="tts">peikefinger peiker på lesaren: hudtype 6</annotation>
-		<annotation cp="🫶🏻">hender som lagar hjarte | hjartehender | hudtype 1–2 | kjærleik</annotation>
-		<annotation cp="🫶🏻" type="tts">hjartehender: hudtype 1–2</annotation>
-		<annotation cp="🫶🏼">hender som lagar hjarte | hjartehender | hudtype 3 | kjærleik</annotation>
-		<annotation cp="🫶🏼" type="tts">hjartehender: hudtype 3</annotation>
-		<annotation cp="🫶🏽">hender som lagar hjarte | hjartehender | hudtype 4 | kjærleik</annotation>
-		<annotation cp="🫶🏽" type="tts">hjartehender: hudtype 4</annotation>
-		<annotation cp="🫶🏾">hender som lagar hjarte | hjartehender | hudtype 5 | kjærleik</annotation>
-		<annotation cp="🫶🏾" type="tts">hjartehender: hudtype 5</annotation>
-		<annotation cp="🫶🏿">hender som lagar hjarte | hjartehender | hudtype 6 | kjærleik</annotation>
-		<annotation cp="🫶🏿" type="tts">hjartehender: hudtype 6</annotation>
-		<annotation cp="👋🏻">hand | hudtype 1–2 | vinkande hand | vinke | vinking</annotation>
-		<annotation cp="👋🏻" type="tts">vinkande hand: hudtype 1–2</annotation>
-		<annotation cp="👋🏼">hand | hudtype 3 | vinkande hand | vinke | vinking</annotation>
-		<annotation cp="👋🏼" type="tts">vinkande hand: hudtype 3</annotation>
-		<annotation cp="👋🏽">hand | hudtype 4 | vinkande hand | vinke | vinking</annotation>
-		<annotation cp="👋🏽" type="tts">vinkande hand: hudtype 4</annotation>
-		<annotation cp="👋🏾">hand | hudtype 5 | vinkande hand | vinke | vinking</annotation>
-		<annotation cp="👋🏾" type="tts">vinkande hand: hudtype 5</annotation>
-		<annotation cp="👋🏿">hand | hudtype 6 | vinkande hand | vinke | vinking</annotation>
-		<annotation cp="👋🏿" type="tts">vinkande hand: hudtype 6</annotation>
-		<annotation cp="🤚🏻">handbak | hudtype 1–2 | løfta</annotation>
-		<annotation cp="🤚🏻" type="tts">løfta handbak: hudtype 1–2</annotation>
-		<annotation cp="🤚🏼">handbak | hudtype 3 | løfta</annotation>
-		<annotation cp="🤚🏼" type="tts">løfta handbak: hudtype 3</annotation>
-		<annotation cp="🤚🏽">handbak | hudtype 4 | løfta</annotation>
-		<annotation cp="🤚🏽" type="tts">løfta handbak: hudtype 4</annotation>
-		<annotation cp="🤚🏾">handbak | hudtype 5 | løfta</annotation>
-		<annotation cp="🤚🏾" type="tts">løfta handbak: hudtype 5</annotation>
-		<annotation cp="🤚🏿">handbak | hudtype 6 | løfta</annotation>
-		<annotation cp="🤚🏿" type="tts">løfta handbak: hudtype 6</annotation>
-		<annotation cp="🖐🏻">finger | flat hand med spreidde fingrar | hand | hudtype 1–2 | spreidd</annotation>
-		<annotation cp="🖐🏻" type="tts">flat hand med spreidde fingrar: hudtype 1–2</annotation>
-		<annotation cp="🖐🏼">finger | flat hand med spreidde fingrar | hand | hudtype 3 | spreidd</annotation>
-		<annotation cp="🖐🏼" type="tts">flat hand med spreidde fingrar: hudtype 3</annotation>
-		<annotation cp="🖐🏽">finger | flat hand med spreidde fingrar | hand | hudtype 4 | spreidd</annotation>
-		<annotation cp="🖐🏽" type="tts">flat hand med spreidde fingrar: hudtype 4</annotation>
-		<annotation cp="🖐🏾">finger | flat hand med spreidde fingrar | hand | hudtype 5 | spreidd</annotation>
-		<annotation cp="🖐🏾" type="tts">flat hand med spreidde fingrar: hudtype 5</annotation>
-		<annotation cp="🖐🏿">finger | flat hand med spreidde fingrar | hand | hudtype 6 | spreidd</annotation>
-		<annotation cp="🖐🏿" type="tts">flat hand med spreidde fingrar: hudtype 6</annotation>
-		<annotation cp="✋🏻">flat hand | handflate | heva hand | hudtype 1–2</annotation>
-		<annotation cp="✋🏻" type="tts">heva hand: hudtype 1–2</annotation>
-		<annotation cp="✋🏼">flat hand | handflate | heva hand | hudtype 3</annotation>
-		<annotation cp="✋🏼" type="tts">heva hand: hudtype 3</annotation>
-		<annotation cp="✋🏽">flat hand | handflate | heva hand | hudtype 4</annotation>
-		<annotation cp="✋🏽" type="tts">heva hand: hudtype 4</annotation>
-		<annotation cp="✋🏾">flat hand | handflate | heva hand | hudtype 5</annotation>
-		<annotation cp="✋🏾" type="tts">heva hand: hudtype 5</annotation>
-		<annotation cp="✋🏿">flat hand | handflate | heva hand | hudtype 6</annotation>
-		<annotation cp="✋🏿" type="tts">heva hand: hudtype 6</annotation>
-		<annotation cp="🖖🏻">finger | hand | hudtype 1–2 | spock | vulcan | Vulcan-helsing</annotation>
-		<annotation cp="🖖🏻" type="tts">Vulcan-helsing: hudtype 1–2</annotation>
-		<annotation cp="🖖🏼">finger | hand | hudtype 3 | spock | vulcan | Vulcan-helsing</annotation>
-		<annotation cp="🖖🏼" type="tts">Vulcan-helsing: hudtype 3</annotation>
-		<annotation cp="🖖🏽">finger | hand | hudtype 4 | spock | vulcan | Vulcan-helsing</annotation>
-		<annotation cp="🖖🏽" type="tts">Vulcan-helsing: hudtype 4</annotation>
-		<annotation cp="🖖🏾">finger | hand | hudtype 5 | spock | vulcan | Vulcan-helsing</annotation>
-		<annotation cp="🖖🏾" type="tts">Vulcan-helsing: hudtype 5</annotation>
-		<annotation cp="🖖🏿">finger | hand | hudtype 6 | spock | vulcan | Vulcan-helsing</annotation>
-		<annotation cp="🖖🏿" type="tts">Vulcan-helsing: hudtype 6</annotation>
 		<annotation cp="👌🏻">hand | hudtype 1–2 | OK | OK-hand | teikn</annotation>
 		<annotation cp="👌🏻" type="tts">OK-hand: hudtype 1–2</annotation>
 		<annotation cp="👌🏼">hand | hudtype 3 | OK | OK-hand | teikn</annotation>
@@ -228,6 +193,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤞🏾" type="tts">kryssande fingrar: hudtype 5</annotation>
 		<annotation cp="🤞🏿">finger | hand | hell | hudtype 6 | kryss | kryssande fingrar</annotation>
 		<annotation cp="🤞🏿" type="tts">kryssande fingrar: hudtype 6</annotation>
+		<annotation cp="🫰🏻">dyrt | hand med peikefinger og tommel kryssa | hjarte | hudtype 1–2 | kjærleik | knipse | pengar</annotation>
+		<annotation cp="🫰🏻" type="tts">hand med peikefinger og tommel kryssa: hudtype 1–2</annotation>
+		<annotation cp="🫰🏼">dyrt | hand med peikefinger og tommel kryssa | hjarte | hudtype 3 | kjærleik | knipse | pengar</annotation>
+		<annotation cp="🫰🏼" type="tts">hand med peikefinger og tommel kryssa: hudtype 3</annotation>
+		<annotation cp="🫰🏽">dyrt | hand med peikefinger og tommel kryssa | hjarte | hudtype 4 | kjærleik | knipse | pengar</annotation>
+		<annotation cp="🫰🏽" type="tts">hand med peikefinger og tommel kryssa: hudtype 4</annotation>
+		<annotation cp="🫰🏾">dyrt | hand med peikefinger og tommel kryssa | hjarte | hudtype 5 | kjærleik | knipse | pengar</annotation>
+		<annotation cp="🫰🏾" type="tts">hand med peikefinger og tommel kryssa: hudtype 5</annotation>
+		<annotation cp="🫰🏿">dyrt | hand med peikefinger og tommel kryssa | hjarte | hudtype 6 | kjærleik | knipse | pengar</annotation>
+		<annotation cp="🫰🏿" type="tts">hand med peikefinger og tommel kryssa: hudtype 6</annotation>
 		<annotation cp="🤟🏻">glad i deg | glad i deg-teikn | hand | hudtype 1–2 | ILY | teiknspråk</annotation>
 		<annotation cp="🤟🏻" type="tts">glad i deg-teikn: hudtype 1–2</annotation>
 		<annotation cp="🤟🏼">glad i deg | glad i deg-teikn | hand | hudtype 3 | ILY | teiknspråk</annotation>
@@ -308,6 +283,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="☝🏾" type="tts">peikar opp: hudtype 5</annotation>
 		<annotation cp="☝🏿">finger | hand | hudtype 6 | kropp | opp | peikar opp | peike | peikefinger</annotation>
 		<annotation cp="☝🏿" type="tts">peikar opp: hudtype 6</annotation>
+		<annotation cp="🫵🏻">deg | hudtype 1–2 | peikefinger peiker på lesaren | peiker | peiker på deg | uncle sam</annotation>
+		<annotation cp="🫵🏻" type="tts">peikefinger peiker på lesaren: hudtype 1–2</annotation>
+		<annotation cp="🫵🏼">deg | hudtype 3 | peikefinger peiker på lesaren | peiker | peiker på deg | uncle sam</annotation>
+		<annotation cp="🫵🏼" type="tts">peikefinger peiker på lesaren: hudtype 3</annotation>
+		<annotation cp="🫵🏽">deg | hudtype 4 | peikefinger peiker på lesaren | peiker | peiker på deg | uncle sam</annotation>
+		<annotation cp="🫵🏽" type="tts">peikefinger peiker på lesaren: hudtype 4</annotation>
+		<annotation cp="🫵🏾">deg | hudtype 5 | peikefinger peiker på lesaren | peiker | peiker på deg | uncle sam</annotation>
+		<annotation cp="🫵🏾" type="tts">peikefinger peiker på lesaren: hudtype 5</annotation>
+		<annotation cp="🫵🏿">deg | hudtype 6 | peikefinger peiker på lesaren | peiker | peiker på deg | uncle sam</annotation>
+		<annotation cp="🫵🏿" type="tts">peikefinger peiker på lesaren: hudtype 6</annotation>
 		<annotation cp="👍🏻">hand | hudtype 1–2 | teikn | tommel | tommel opp</annotation>
 		<annotation cp="👍🏼">hand | hudtype 3 | teikn | tommel | tommel opp</annotation>
 		<annotation cp="👍🏽">hand | hudtype 4 | teikn | tommel | tommel opp</annotation>
@@ -368,6 +353,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙌🏾" type="tts">heva hender: hudtype 5</annotation>
 		<annotation cp="🙌🏿">begge hender | feirar | feiring | hand | heva hender | hudtype 6 | rekkjer begge armane i vêret</annotation>
 		<annotation cp="🙌🏿" type="tts">heva hender: hudtype 6</annotation>
+		<annotation cp="🫶🏻">hender som lagar hjarte | hjartehender | hudtype 1–2 | kjærleik</annotation>
+		<annotation cp="🫶🏻" type="tts">hjartehender: hudtype 1–2</annotation>
+		<annotation cp="🫶🏼">hender som lagar hjarte | hjartehender | hudtype 3 | kjærleik</annotation>
+		<annotation cp="🫶🏼" type="tts">hjartehender: hudtype 3</annotation>
+		<annotation cp="🫶🏽">hender som lagar hjarte | hjartehender | hudtype 4 | kjærleik</annotation>
+		<annotation cp="🫶🏽" type="tts">hjartehender: hudtype 4</annotation>
+		<annotation cp="🫶🏾">hender som lagar hjarte | hjartehender | hudtype 5 | kjærleik</annotation>
+		<annotation cp="🫶🏾" type="tts">hjartehender: hudtype 5</annotation>
+		<annotation cp="🫶🏿">hender som lagar hjarte | hjartehender | hudtype 6 | kjærleik</annotation>
+		<annotation cp="🫶🏿" type="tts">hjartehender: hudtype 6</annotation>
 		<annotation cp="👐🏻">hand | hender | hudtype 1–2 | opne</annotation>
 		<annotation cp="👐🏻" type="tts">opne hender: hudtype 1–2</annotation>
 		<annotation cp="👐🏼">hand | hender | hudtype 3 | opne</annotation>
@@ -408,6 +403,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙏🏾" type="tts">falda hender: hudtype 5</annotation>
 		<annotation cp="🙏🏿">be | ber | bøn | falda hender | hand | hudtype 6 | rørsle</annotation>
 		<annotation cp="🙏🏿" type="tts">falda hender: hudtype 6</annotation>
+		<annotation cp="🫷🏻">handflate heva mot venstre | high five | hudtype 1–2 | mot venstre | nekta | nekte | skuva | skuve | skyva | skyve | stopp | vent</annotation>
+		<annotation cp="🫷🏻" type="tts">handflate heva mot venstre: hudtype 1–2</annotation>
+		<annotation cp="🫷🏼">handflate heva mot venstre | high five | hudtype 3 | mot venstre | nekta | nekte | skuva | skuve | skyva | skyve | stopp | vent</annotation>
+		<annotation cp="🫷🏼" type="tts">handflate heva mot venstre: hudtype 3</annotation>
+		<annotation cp="🫷🏽">handflate heva mot venstre | high five | hudtype 4 | mot venstre | nekta | nekte | skuva | skuve | skyva | skyve | stopp | vent</annotation>
+		<annotation cp="🫷🏽" type="tts">handflate heva mot venstre: hudtype 4</annotation>
+		<annotation cp="🫷🏾">handflate heva mot venstre | high five | hudtype 5 | mot venstre | nekta | nekte | skuva | skuve | skyva | skyve | stopp | vent</annotation>
+		<annotation cp="🫷🏾" type="tts">handflate heva mot venstre: hudtype 5</annotation>
+		<annotation cp="🫷🏿">handflate heva mot venstre | high five | hudtype 6 | mot venstre | nekta | nekte | skuva | skuve | skyva | skyve | stopp | vent</annotation>
+		<annotation cp="🫷🏿" type="tts">handflate heva mot venstre: hudtype 6</annotation>
+		<annotation cp="🫸🏻">handflate heva mot høgre | high five | hudtype 1–2 | mot høgre | nekta | nekte | skuva | skuve | skyva | skyve | stopp | vent</annotation>
+		<annotation cp="🫸🏻" type="tts">handflate heva mot høgre: hudtype 1–2</annotation>
+		<annotation cp="🫸🏼">handflate heva mot høgre | high five | hudtype 3 | mot høgre | nekta | nekte | skuva | skuve | skyva | skyve | stopp | vent</annotation>
+		<annotation cp="🫸🏼" type="tts">handflate heva mot høgre: hudtype 3</annotation>
+		<annotation cp="🫸🏽">handflate heva mot høgre | high five | hudtype 4 | mot høgre | nekta | nekte | skuva | skuve | skyva | skyve | stopp | vent</annotation>
+		<annotation cp="🫸🏽" type="tts">handflate heva mot høgre: hudtype 4</annotation>
+		<annotation cp="🫸🏾">handflate heva mot høgre | high five | hudtype 5 | mot høgre | nekta | nekte | skuva | skuve | skyva | skyve | stopp | vent</annotation>
+		<annotation cp="🫸🏾" type="tts">handflate heva mot høgre: hudtype 5</annotation>
+		<annotation cp="🫸🏿">handflate heva mot høgre | high five | hudtype 6 | mot høgre | nekta | nekte | skuva | skuve | skyva | skyve | stopp | vent</annotation>
+		<annotation cp="🫸🏿" type="tts">handflate heva mot høgre: hudtype 6</annotation>
 		<annotation cp="✍🏻">hand | hudtype 1–2 | kropp | skrivande hand | skrive</annotation>
 		<annotation cp="✍🏻" type="tts">skrivande hand: hudtype 1–2</annotation>
 		<annotation cp="✍🏼">hand | hudtype 3 | kropp | skrivande hand | skrive</annotation>
@@ -1715,6 +1730,11 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👷🏾‍♀" type="tts">kvinneleg anleggsarbeidar: hudtype 5</annotation>
 		<annotation cp="👷🏿‍♀">anlegg | arbeidar | bygg | hjelm | hudtype 6 | ingeniør | kvinne | kvinneleg anleggsarbeidar</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">kvinneleg anleggsarbeidar: hudtype 6</annotation>
+		<annotation cp="🫅🏻">adel | hudtype 1–2 | kongeleg | majestetisk | monark | person med krone</annotation>
+		<annotation cp="🫅🏼">adel | hudtype 3 | kongeleg | majestetisk | monark | person med krone</annotation>
+		<annotation cp="🫅🏽">adel | hudtype 4 | kongeleg | majestetisk | monark | person med krone</annotation>
+		<annotation cp="🫅🏾">adel | hudtype 5 | kongeleg | majestetisk | monark | person med krone</annotation>
+		<annotation cp="🫅🏿">adel | hudtype 6 | kongeleg | majestetisk | monark | person med krone</annotation>
 		<annotation cp="🧕🏻">hijab | hovudskjerf | hovudslør | hudtype 1–2 | kvinne med hovudslør | muslim</annotation>
 		<annotation cp="🧕🏻" type="tts">kvinne med hovudslør: hudtype 1–2</annotation>
 		<annotation cp="🧕🏼">hijab | hovudskjerf | hovudslør | hudtype 3 | kvinne med hovudslør | muslim</annotation>
@@ -2622,7 +2642,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🔟" type="tts">tastar: 10</annotation>
 		<annotation cp="🇦🇪" type="tts">flagg: Dei sameinte arabiske emirata</annotation>
 		<annotation cp="🇦🇹" type="tts">flagg: Austerrike</annotation>
-		<annotation cp="🇧🇱" type="tts">flagg: Saint Barthélemy</annotation>
 		<annotation cp="🇧🇾" type="tts">flagg: Kviterussland</annotation>
 		<annotation cp="🇨🇨" type="tts">flagg: Kokosøyane</annotation>
 		<annotation cp="🇨🇩" type="tts">flagg: Kongo-Kinshasa</annotation>

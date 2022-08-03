@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,46 +12,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="no"/>
 	</identity>
 	<annotations>
-		<annotation cp="🫃🏻">full mage | gravid | hudtype 1–2 | mann | mett | oppblåst</annotation>
-		<annotation cp="🫃🏻" type="tts">gravid mann: hudtype 1–2</annotation>
-		<annotation cp="🫃🏼">full mage | gravid | hudtype 3 | mann | mett | oppblåst</annotation>
-		<annotation cp="🫃🏼" type="tts">gravid mann: hudtype 3</annotation>
-		<annotation cp="🫃🏽">full mage | gravid | hudtype 4 | mann | mett | oppblåst</annotation>
-		<annotation cp="🫃🏽" type="tts">gravid mann: hudtype 4</annotation>
-		<annotation cp="🫃🏾">full mage | gravid | hudtype 5 | mann | mett | oppblåst</annotation>
-		<annotation cp="🫃🏾" type="tts">gravid mann: hudtype 5</annotation>
-		<annotation cp="🫃🏿">full mage | gravid | hudtype 6 | mann | mett | oppblåst</annotation>
-		<annotation cp="🫃🏿" type="tts">gravid mann: hudtype 6</annotation>
-		<annotation cp="🫄🏻">full mage | gravid | gravid person | hudtype 1–2 | kjønnsnøytral | mett | oppblåst</annotation>
-		<annotation cp="🫄🏻" type="tts">gravid person: hudtype 1–2</annotation>
-		<annotation cp="🫄🏼">full mage | gravid | gravid person | hudtype 3 | kjønnsnøytral | mett | oppblåst</annotation>
-		<annotation cp="🫄🏼" type="tts">gravid person: hudtype 3</annotation>
-		<annotation cp="🫄🏽">full mage | gravid | gravid person | hudtype 4 | kjønnsnøytral | mett | oppblåst</annotation>
-		<annotation cp="🫄🏽" type="tts">gravid person: hudtype 4</annotation>
-		<annotation cp="🫄🏾">full mage | gravid | gravid person | hudtype 5 | kjønnsnøytral | mett | oppblåst</annotation>
-		<annotation cp="🫄🏾" type="tts">gravid person: hudtype 5</annotation>
-		<annotation cp="🫄🏿">full mage | gravid | gravid person | hudtype 6 | kjønnsnøytral | mett | oppblåst</annotation>
-		<annotation cp="🫄🏿" type="tts">gravid person: hudtype 6</annotation>
-		<annotation cp="🫅🏻">adel | hudtype 1–2 | kongelig | majestetisk | monark | person med krone</annotation>
-		<annotation cp="🫅🏻" type="tts">person med krone: hudtype 1–2</annotation>
-		<annotation cp="🫅🏼">adel | hudtype 3 | kongelig | majestetisk | monark | person med krone</annotation>
-		<annotation cp="🫅🏼" type="tts">person med krone: hudtype 3</annotation>
-		<annotation cp="🫅🏽">adel | hudtype 4 | kongelig | majestetisk | monark | person med krone</annotation>
-		<annotation cp="🫅🏽" type="tts">person med krone: hudtype 4</annotation>
-		<annotation cp="🫅🏾">adel | hudtype 5 | kongelig | majestetisk | monark | person med krone</annotation>
-		<annotation cp="🫅🏾" type="tts">person med krone: hudtype 5</annotation>
-		<annotation cp="🫅🏿">adel | hudtype 6 | kongelig | majestetisk | monark | person med krone</annotation>
-		<annotation cp="🫅🏿" type="tts">person med krone: hudtype 6</annotation>
-		<annotation cp="🫰🏻">dyrt | hånd med pekefinger og tommel krysset | hjerte | hudtype 1–2 | kjærlighet | knipse | penger</annotation>
-		<annotation cp="🫰🏻" type="tts">hånd med pekefinger og tommel krysset: hudtype 1–2</annotation>
-		<annotation cp="🫰🏼">dyrt | hånd med pekefinger og tommel krysset | hjerte | hudtype 3 | kjærlighet | knipse | penger</annotation>
-		<annotation cp="🫰🏼" type="tts">hånd med pekefinger og tommel krysset: hudtype 3</annotation>
-		<annotation cp="🫰🏽">dyrt | hånd med pekefinger og tommel krysset | hjerte | hudtype 4 | kjærlighet | knipse | penger</annotation>
-		<annotation cp="🫰🏽" type="tts">hånd med pekefinger og tommel krysset: hudtype 4</annotation>
-		<annotation cp="🫰🏾">dyrt | hånd med pekefinger og tommel krysset | hjerte | hudtype 5 | kjærlighet | knipse | penger</annotation>
-		<annotation cp="🫰🏾" type="tts">hånd med pekefinger og tommel krysset: hudtype 5</annotation>
-		<annotation cp="🫰🏿">dyrt | hånd med pekefinger og tommel krysset | hjerte | hudtype 6 | kjærlighet | knipse | penger</annotation>
-		<annotation cp="🫰🏿" type="tts">hånd med pekefinger og tommel krysset: hudtype 6</annotation>
+		<annotation cp="👋🏻">hånd | hudtype 1–2 | vinke | vinkende hånd | vinking</annotation>
+		<annotation cp="👋🏻" type="tts">vinkende hånd: hudtype 1–2</annotation>
+		<annotation cp="👋🏼">hånd | hudtype 3 | vinke | vinkende hånd | vinking</annotation>
+		<annotation cp="👋🏼" type="tts">vinkende hånd: hudtype 3</annotation>
+		<annotation cp="👋🏽">hånd | hudtype 4 | vinke | vinkende hånd | vinking</annotation>
+		<annotation cp="👋🏽" type="tts">vinkende hånd: hudtype 4</annotation>
+		<annotation cp="👋🏾">hånd | hudtype 5 | vinke | vinkende hånd | vinking</annotation>
+		<annotation cp="👋🏾" type="tts">vinkende hånd: hudtype 5</annotation>
+		<annotation cp="👋🏿">hånd | hudtype 6 | vinke | vinkende hånd | vinking</annotation>
+		<annotation cp="👋🏿" type="tts">vinkende hånd: hudtype 6</annotation>
+		<annotation cp="🤚🏻">hånd | håndbak | hudtype 1–2 | løftet</annotation>
+		<annotation cp="🤚🏻" type="tts">løftet håndbak: hudtype 1–2</annotation>
+		<annotation cp="🤚🏼">hånd | håndbak | hudtype 3 | løftet</annotation>
+		<annotation cp="🤚🏼" type="tts">løftet håndbak: hudtype 3</annotation>
+		<annotation cp="🤚🏽">hånd | håndbak | hudtype 4 | løftet</annotation>
+		<annotation cp="🤚🏽" type="tts">løftet håndbak: hudtype 4</annotation>
+		<annotation cp="🤚🏾">hånd | håndbak | hudtype 5 | løftet</annotation>
+		<annotation cp="🤚🏾" type="tts">løftet håndbak: hudtype 5</annotation>
+		<annotation cp="🤚🏿">hånd | håndbak | hudtype 6 | løftet</annotation>
+		<annotation cp="🤚🏿" type="tts">løftet håndbak: hudtype 6</annotation>
+		<annotation cp="🖐🏻">finger | flat hånd med spredte fingre | hånd | hudtype 1–2 | spredt</annotation>
+		<annotation cp="🖐🏻" type="tts">flat hånd med spredte fingre: hudtype 1–2</annotation>
+		<annotation cp="🖐🏼">finger | flat hånd med spredte fingre | hånd | hudtype 3 | spredt</annotation>
+		<annotation cp="🖐🏼" type="tts">flat hånd med spredte fingre: hudtype 3</annotation>
+		<annotation cp="🖐🏽">finger | flat hånd med spredte fingre | hånd | hudtype 4 | spredt</annotation>
+		<annotation cp="🖐🏽" type="tts">flat hånd med spredte fingre: hudtype 4</annotation>
+		<annotation cp="🖐🏾">finger | flat hånd med spredte fingre | hånd | hudtype 5 | spredt</annotation>
+		<annotation cp="🖐🏾" type="tts">flat hånd med spredte fingre: hudtype 5</annotation>
+		<annotation cp="🖐🏿">finger | flat hånd med spredte fingre | hånd | hudtype 6 | spredt</annotation>
+		<annotation cp="🖐🏿" type="tts">flat hånd med spredte fingre: hudtype 6</annotation>
+		<annotation cp="✋🏻">flat hånd | håndflate | hevet hånd | hudtype 1–2</annotation>
+		<annotation cp="✋🏻" type="tts">hevet hånd: hudtype 1–2</annotation>
+		<annotation cp="✋🏼">flat hånd | håndflate | hevet hånd | hudtype 3</annotation>
+		<annotation cp="✋🏼" type="tts">hevet hånd: hudtype 3</annotation>
+		<annotation cp="✋🏽">flat hånd | håndflate | hevet hånd | hudtype 4</annotation>
+		<annotation cp="✋🏽" type="tts">hevet hånd: hudtype 4</annotation>
+		<annotation cp="✋🏾">flat hånd | håndflate | hevet hånd | hudtype 5</annotation>
+		<annotation cp="✋🏾" type="tts">hevet hånd: hudtype 5</annotation>
+		<annotation cp="✋🏿">flat hånd | håndflate | hevet hånd | hudtype 6</annotation>
+		<annotation cp="✋🏿" type="tts">hevet hånd: hudtype 6</annotation>
+		<annotation cp="🖖🏻">finger | hånd | hudtype 1–2 | spock | vulcan | Vulcan-hilsen</annotation>
+		<annotation cp="🖖🏻" type="tts">Vulcan-hilsen: hudtype 1–2</annotation>
+		<annotation cp="🖖🏼">finger | hånd | hudtype 3 | spock | vulcan | Vulcan-hilsen</annotation>
+		<annotation cp="🖖🏼" type="tts">Vulcan-hilsen: hudtype 3</annotation>
+		<annotation cp="🖖🏽">finger | hånd | hudtype 4 | spock | vulcan | Vulcan-hilsen</annotation>
+		<annotation cp="🖖🏽" type="tts">Vulcan-hilsen: hudtype 4</annotation>
+		<annotation cp="🖖🏾">finger | hånd | hudtype 5 | spock | vulcan | Vulcan-hilsen</annotation>
+		<annotation cp="🖖🏾" type="tts">Vulcan-hilsen: hudtype 5</annotation>
+		<annotation cp="🖖🏿">finger | hånd | hudtype 6 | spock | vulcan | Vulcan-hilsen</annotation>
+		<annotation cp="🖖🏿" type="tts">Vulcan-hilsen: hudtype 6</annotation>
 		<annotation cp="🫱🏻">hånd | hånd mot høyre | høyre | hudtype 1–2</annotation>
 		<annotation cp="🫱🏻" type="tts">hånd mot høyre: hudtype 1–2</annotation>
 		<annotation cp="🫱🏼">hånd | hånd mot høyre | høyre | hudtype 3</annotation>
@@ -132,76 +142,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫴🏾" type="tts">håndflaten opp: hudtype 5</annotation>
 		<annotation cp="🫴🏿">gripe | håndflaten opp | hudtype 6 | invitere | kalle på | lokke | tilby</annotation>
 		<annotation cp="🫴🏿" type="tts">håndflaten opp: hudtype 6</annotation>
-		<annotation cp="🫵🏻">deg | hudtype 1–2 | pekefinger peker på leseren | peker | peker på deg | uncle sam</annotation>
-		<annotation cp="🫵🏻" type="tts">pekefinger peker på leseren: hudtype 1–2</annotation>
-		<annotation cp="🫵🏼">deg | hudtype 3 | pekefinger peker på leseren | peker | peker på deg | uncle sam</annotation>
-		<annotation cp="🫵🏼" type="tts">pekefinger peker på leseren: hudtype 3</annotation>
-		<annotation cp="🫵🏽">deg | hudtype 4 | pekefinger peker på leseren | peker | peker på deg | uncle sam</annotation>
-		<annotation cp="🫵🏽" type="tts">pekefinger peker på leseren: hudtype 4</annotation>
-		<annotation cp="🫵🏾">deg | hudtype 5 | pekefinger peker på leseren | peker | peker på deg | uncle sam</annotation>
-		<annotation cp="🫵🏾" type="tts">pekefinger peker på leseren: hudtype 5</annotation>
-		<annotation cp="🫵🏿">deg | hudtype 6 | pekefinger peker på leseren | peker | peker på deg | uncle sam</annotation>
-		<annotation cp="🫵🏿" type="tts">pekefinger peker på leseren: hudtype 6</annotation>
-		<annotation cp="🫶🏻">hender som lager hjerte | hjertehender | hudtype 1–2 | kjærlighet</annotation>
-		<annotation cp="🫶🏻" type="tts">hjertehender: hudtype 1–2</annotation>
-		<annotation cp="🫶🏼">hender som lager hjerte | hjertehender | hudtype 3 | kjærlighet</annotation>
-		<annotation cp="🫶🏼" type="tts">hjertehender: hudtype 3</annotation>
-		<annotation cp="🫶🏽">hender som lager hjerte | hjertehender | hudtype 4 | kjærlighet</annotation>
-		<annotation cp="🫶🏽" type="tts">hjertehender: hudtype 4</annotation>
-		<annotation cp="🫶🏾">hender som lager hjerte | hjertehender | hudtype 5 | kjærlighet</annotation>
-		<annotation cp="🫶🏾" type="tts">hjertehender: hudtype 5</annotation>
-		<annotation cp="🫶🏿">hender som lager hjerte | hjertehender | hudtype 6 | kjærlighet</annotation>
-		<annotation cp="🫶🏿" type="tts">hjertehender: hudtype 6</annotation>
-		<annotation cp="👋🏻">hånd | hudtype 1–2 | vinke | vinkende hånd | vinking</annotation>
-		<annotation cp="👋🏻" type="tts">vinkende hånd: hudtype 1–2</annotation>
-		<annotation cp="👋🏼">hånd | hudtype 3 | vinke | vinkende hånd | vinking</annotation>
-		<annotation cp="👋🏼" type="tts">vinkende hånd: hudtype 3</annotation>
-		<annotation cp="👋🏽">hånd | hudtype 4 | vinke | vinkende hånd | vinking</annotation>
-		<annotation cp="👋🏽" type="tts">vinkende hånd: hudtype 4</annotation>
-		<annotation cp="👋🏾">hånd | hudtype 5 | vinke | vinkende hånd | vinking</annotation>
-		<annotation cp="👋🏾" type="tts">vinkende hånd: hudtype 5</annotation>
-		<annotation cp="👋🏿">hånd | hudtype 6 | vinke | vinkende hånd | vinking</annotation>
-		<annotation cp="👋🏿" type="tts">vinkende hånd: hudtype 6</annotation>
-		<annotation cp="🤚🏻">hånd | håndbak | hudtype 1–2 | løftet</annotation>
-		<annotation cp="🤚🏻" type="tts">løftet håndbak: hudtype 1–2</annotation>
-		<annotation cp="🤚🏼">hånd | håndbak | hudtype 3 | løftet</annotation>
-		<annotation cp="🤚🏼" type="tts">løftet håndbak: hudtype 3</annotation>
-		<annotation cp="🤚🏽">hånd | håndbak | hudtype 4 | løftet</annotation>
-		<annotation cp="🤚🏽" type="tts">løftet håndbak: hudtype 4</annotation>
-		<annotation cp="🤚🏾">hånd | håndbak | hudtype 5 | løftet</annotation>
-		<annotation cp="🤚🏾" type="tts">løftet håndbak: hudtype 5</annotation>
-		<annotation cp="🤚🏿">hånd | håndbak | hudtype 6 | løftet</annotation>
-		<annotation cp="🤚🏿" type="tts">løftet håndbak: hudtype 6</annotation>
-		<annotation cp="🖐🏻">finger | flat hånd med spredte fingre | hånd | hudtype 1–2 | spredt</annotation>
-		<annotation cp="🖐🏻" type="tts">flat hånd med spredte fingre: hudtype 1–2</annotation>
-		<annotation cp="🖐🏼">finger | flat hånd med spredte fingre | hånd | hudtype 3 | spredt</annotation>
-		<annotation cp="🖐🏼" type="tts">flat hånd med spredte fingre: hudtype 3</annotation>
-		<annotation cp="🖐🏽">finger | flat hånd med spredte fingre | hånd | hudtype 4 | spredt</annotation>
-		<annotation cp="🖐🏽" type="tts">flat hånd med spredte fingre: hudtype 4</annotation>
-		<annotation cp="🖐🏾">finger | flat hånd med spredte fingre | hånd | hudtype 5 | spredt</annotation>
-		<annotation cp="🖐🏾" type="tts">flat hånd med spredte fingre: hudtype 5</annotation>
-		<annotation cp="🖐🏿">finger | flat hånd med spredte fingre | hånd | hudtype 6 | spredt</annotation>
-		<annotation cp="🖐🏿" type="tts">flat hånd med spredte fingre: hudtype 6</annotation>
-		<annotation cp="✋🏻">flat hånd | håndflate | hevet hånd | hudtype 1–2</annotation>
-		<annotation cp="✋🏻" type="tts">hevet hånd: hudtype 1–2</annotation>
-		<annotation cp="✋🏼">flat hånd | håndflate | hevet hånd | hudtype 3</annotation>
-		<annotation cp="✋🏼" type="tts">hevet hånd: hudtype 3</annotation>
-		<annotation cp="✋🏽">flat hånd | håndflate | hevet hånd | hudtype 4</annotation>
-		<annotation cp="✋🏽" type="tts">hevet hånd: hudtype 4</annotation>
-		<annotation cp="✋🏾">flat hånd | håndflate | hevet hånd | hudtype 5</annotation>
-		<annotation cp="✋🏾" type="tts">hevet hånd: hudtype 5</annotation>
-		<annotation cp="✋🏿">flat hånd | håndflate | hevet hånd | hudtype 6</annotation>
-		<annotation cp="✋🏿" type="tts">hevet hånd: hudtype 6</annotation>
-		<annotation cp="🖖🏻">finger | hånd | hudtype 1–2 | spock | vulcan | Vulcan-hilsen</annotation>
-		<annotation cp="🖖🏻" type="tts">Vulcan-hilsen: hudtype 1–2</annotation>
-		<annotation cp="🖖🏼">finger | hånd | hudtype 3 | spock | vulcan | Vulcan-hilsen</annotation>
-		<annotation cp="🖖🏼" type="tts">Vulcan-hilsen: hudtype 3</annotation>
-		<annotation cp="🖖🏽">finger | hånd | hudtype 4 | spock | vulcan | Vulcan-hilsen</annotation>
-		<annotation cp="🖖🏽" type="tts">Vulcan-hilsen: hudtype 4</annotation>
-		<annotation cp="🖖🏾">finger | hånd | hudtype 5 | spock | vulcan | Vulcan-hilsen</annotation>
-		<annotation cp="🖖🏾" type="tts">Vulcan-hilsen: hudtype 5</annotation>
-		<annotation cp="🖖🏿">finger | hånd | hudtype 6 | spock | vulcan | Vulcan-hilsen</annotation>
-		<annotation cp="🖖🏿" type="tts">Vulcan-hilsen: hudtype 6</annotation>
 		<annotation cp="👌🏻">hånd | hudtype 1–2 | OK | OK-hånd | tegn</annotation>
 		<annotation cp="👌🏻" type="tts">OK-hånd: hudtype 1–2</annotation>
 		<annotation cp="👌🏼">hånd | hudtype 3 | OK | OK-hånd | tegn</annotation>
@@ -252,6 +192,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤞🏾" type="tts">kryssede fingre: hudtype 5</annotation>
 		<annotation cp="🤞🏿">finger | hånd | hell | hudtype 6 | kryss | kryssede fingre</annotation>
 		<annotation cp="🤞🏿" type="tts">kryssede fingre: hudtype 6</annotation>
+		<annotation cp="🫰🏻">dyrt | hånd med pekefinger og tommel krysset | hjerte | hudtype 1–2 | kjærlighet | knipse | penger</annotation>
+		<annotation cp="🫰🏻" type="tts">hånd med pekefinger og tommel krysset: hudtype 1–2</annotation>
+		<annotation cp="🫰🏼">dyrt | hånd med pekefinger og tommel krysset | hjerte | hudtype 3 | kjærlighet | knipse | penger</annotation>
+		<annotation cp="🫰🏼" type="tts">hånd med pekefinger og tommel krysset: hudtype 3</annotation>
+		<annotation cp="🫰🏽">dyrt | hånd med pekefinger og tommel krysset | hjerte | hudtype 4 | kjærlighet | knipse | penger</annotation>
+		<annotation cp="🫰🏽" type="tts">hånd med pekefinger og tommel krysset: hudtype 4</annotation>
+		<annotation cp="🫰🏾">dyrt | hånd med pekefinger og tommel krysset | hjerte | hudtype 5 | kjærlighet | knipse | penger</annotation>
+		<annotation cp="🫰🏾" type="tts">hånd med pekefinger og tommel krysset: hudtype 5</annotation>
+		<annotation cp="🫰🏿">dyrt | hånd med pekefinger og tommel krysset | hjerte | hudtype 6 | kjærlighet | knipse | penger</annotation>
+		<annotation cp="🫰🏿" type="tts">hånd med pekefinger og tommel krysset: hudtype 6</annotation>
 		<annotation cp="🤟🏻">glad i deg | glad i deg-tegn | hånd | hudtype 1–2 | ILY | tegnspråk</annotation>
 		<annotation cp="🤟🏻" type="tts">glad i deg-tegn: hudtype 1–2</annotation>
 		<annotation cp="🤟🏼">glad i deg | glad i deg-tegn | hånd | hudtype 3 | ILY | tegnspråk</annotation>
@@ -342,6 +292,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☝🏾" type="tts">peker opp: hudtype 5</annotation>
 		<annotation cp="☝🏿">finger | hånd | hudtype 6 | kropp | opp | peke | pekefinger | peker opp</annotation>
 		<annotation cp="☝🏿" type="tts">peker opp: hudtype 6</annotation>
+		<annotation cp="🫵🏻">deg | hudtype 1–2 | pekefinger peker på leseren | peker | peker på deg | uncle sam</annotation>
+		<annotation cp="🫵🏻" type="tts">pekefinger peker på leseren: hudtype 1–2</annotation>
+		<annotation cp="🫵🏼">deg | hudtype 3 | pekefinger peker på leseren | peker | peker på deg | uncle sam</annotation>
+		<annotation cp="🫵🏼" type="tts">pekefinger peker på leseren: hudtype 3</annotation>
+		<annotation cp="🫵🏽">deg | hudtype 4 | pekefinger peker på leseren | peker | peker på deg | uncle sam</annotation>
+		<annotation cp="🫵🏽" type="tts">pekefinger peker på leseren: hudtype 4</annotation>
+		<annotation cp="🫵🏾">deg | hudtype 5 | pekefinger peker på leseren | peker | peker på deg | uncle sam</annotation>
+		<annotation cp="🫵🏾" type="tts">pekefinger peker på leseren: hudtype 5</annotation>
+		<annotation cp="🫵🏿">deg | hudtype 6 | pekefinger peker på leseren | peker | peker på deg | uncle sam</annotation>
+		<annotation cp="🫵🏿" type="tts">pekefinger peker på leseren: hudtype 6</annotation>
 		<annotation cp="👍🏻">hånd | hudtype 1–2 | tegn | tommel | tommel opp</annotation>
 		<annotation cp="👍🏻" type="tts">tommel opp: hudtype 1–2</annotation>
 		<annotation cp="👍🏼">hånd | hudtype 3 | tegn | tommel | tommel opp</annotation>
@@ -422,6 +382,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">hevede hender: hudtype 5</annotation>
 		<annotation cp="🙌🏿">begge hender | feirer | feiring | hånd | hevede hender | hudtype 6 | rekker begge armene i været</annotation>
 		<annotation cp="🙌🏿" type="tts">hevede hender: hudtype 6</annotation>
+		<annotation cp="🫶🏻">hender som lager hjerte | hjertehender | hudtype 1–2 | kjærlighet</annotation>
+		<annotation cp="🫶🏻" type="tts">hjertehender: hudtype 1–2</annotation>
+		<annotation cp="🫶🏼">hender som lager hjerte | hjertehender | hudtype 3 | kjærlighet</annotation>
+		<annotation cp="🫶🏼" type="tts">hjertehender: hudtype 3</annotation>
+		<annotation cp="🫶🏽">hender som lager hjerte | hjertehender | hudtype 4 | kjærlighet</annotation>
+		<annotation cp="🫶🏽" type="tts">hjertehender: hudtype 4</annotation>
+		<annotation cp="🫶🏾">hender som lager hjerte | hjertehender | hudtype 5 | kjærlighet</annotation>
+		<annotation cp="🫶🏾" type="tts">hjertehender: hudtype 5</annotation>
+		<annotation cp="🫶🏿">hender som lager hjerte | hjertehender | hudtype 6 | kjærlighet</annotation>
+		<annotation cp="🫶🏿" type="tts">hjertehender: hudtype 6</annotation>
 		<annotation cp="👐🏻">åpne | hånd | hender | hudtype 1–2</annotation>
 		<annotation cp="👐🏻" type="tts">åpne hender: hudtype 1–2</annotation>
 		<annotation cp="👐🏼">åpne | hånd | hender | hudtype 3</annotation>
@@ -462,6 +432,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙏🏾" type="tts">foldede hender: hudtype 5</annotation>
 		<annotation cp="🙏🏿">be | ber | bevegelse | bønn | foldede hender | hånd | hudtype 6</annotation>
 		<annotation cp="🙏🏿" type="tts">foldede hender: hudtype 6</annotation>
+		<annotation cp="🫷🏻">håndflate hevet mot venstre | high five | hudtype 1–2 | mot venstre | nekte | skyv | stopp | vent</annotation>
+		<annotation cp="🫷🏻" type="tts">håndflate hevet mot venstre: hudtype 1–2</annotation>
+		<annotation cp="🫷🏼">håndflate hevet mot venstre | high five | hudtype 3 | mot venstre | nekte | skyv | stopp | vent</annotation>
+		<annotation cp="🫷🏼" type="tts">håndflate hevet mot venstre: hudtype 3</annotation>
+		<annotation cp="🫷🏽">håndflate hevet mot venstre | high five | hudtype 4 | mot venstre | nekte | skyv | stopp | vent</annotation>
+		<annotation cp="🫷🏽" type="tts">håndflate hevet mot venstre: hudtype 4</annotation>
+		<annotation cp="🫷🏾">håndflate hevet mot venstre | high five | hudtype 5 | mot venstre | nekte | skyv | stopp | vent</annotation>
+		<annotation cp="🫷🏾" type="tts">håndflate hevet mot venstre: hudtype 5</annotation>
+		<annotation cp="🫷🏿">håndflate hevet mot venstre | high five | hudtype 6 | mot venstre | nekte | skyv | stopp | vent</annotation>
+		<annotation cp="🫷🏿" type="tts">håndflate hevet mot venstre: hudtype 6</annotation>
+		<annotation cp="🫸🏻">håndflate hevet mot høyre | high five | hudtype 1–2 | mot høyre | nekte | skyv | stopp | vent</annotation>
+		<annotation cp="🫸🏻" type="tts">håndflate hevet mot høyre: hudtype 1–2</annotation>
+		<annotation cp="🫸🏼">håndflate hevet mot høyre | high five | hudtype 3 | mot høyre | nekte | skyv | stopp | vent</annotation>
+		<annotation cp="🫸🏼" type="tts">håndflate hevet mot høyre: hudtype 3</annotation>
+		<annotation cp="🫸🏽">håndflate hevet mot høyre | high five | hudtype 4 | mot høyre | nekte | skyv | stopp | vent</annotation>
+		<annotation cp="🫸🏽" type="tts">håndflate hevet mot høyre: hudtype 4</annotation>
+		<annotation cp="🫸🏾">håndflate hevet mot høyre | high five | hudtype 5 | mot høyre | nekte | skyv | stopp | vent</annotation>
+		<annotation cp="🫸🏾" type="tts">håndflate hevet mot høyre: hudtype 5</annotation>
+		<annotation cp="🫸🏿">håndflate hevet mot høyre | high five | hudtype 6 | mot høyre | nekte | skyv | stopp | vent</annotation>
+		<annotation cp="🫸🏿" type="tts">håndflate hevet mot høyre: hudtype 6</annotation>
 		<annotation cp="✍🏻">hånd | hudtype 1–2 | kropp | skrive | skrivende hånd</annotation>
 		<annotation cp="✍🏻" type="tts">skrivende hånd: hudtype 1–2</annotation>
 		<annotation cp="✍🏼">hånd | hudtype 3 | kropp | skrive | skrivende hånd</annotation>
@@ -2146,6 +2136,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👷🏾‍♀" type="tts">kvinnelig anleggsarbeider: hudtype 5</annotation>
 		<annotation cp="👷🏿‍♀">anlegg | arbeider | bygg | hjelm | hudtype 6 | ingeniør | kvinne | kvinnelig anleggsarbeider</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">kvinnelig anleggsarbeider: hudtype 6</annotation>
+		<annotation cp="🫅🏻">adel | hudtype 1–2 | kongelig | majestetisk | monark | person med krone</annotation>
+		<annotation cp="🫅🏻" type="tts">person med krone: hudtype 1–2</annotation>
+		<annotation cp="🫅🏼">adel | hudtype 3 | kongelig | majestetisk | monark | person med krone</annotation>
+		<annotation cp="🫅🏼" type="tts">person med krone: hudtype 3</annotation>
+		<annotation cp="🫅🏽">adel | hudtype 4 | kongelig | majestetisk | monark | person med krone</annotation>
+		<annotation cp="🫅🏽" type="tts">person med krone: hudtype 4</annotation>
+		<annotation cp="🫅🏾">adel | hudtype 5 | kongelig | majestetisk | monark | person med krone</annotation>
+		<annotation cp="🫅🏾" type="tts">person med krone: hudtype 5</annotation>
+		<annotation cp="🫅🏿">adel | hudtype 6 | kongelig | majestetisk | monark | person med krone</annotation>
+		<annotation cp="🫅🏿" type="tts">person med krone: hudtype 6</annotation>
 		<annotation cp="🤴🏻">hudtype 1–2 | prins</annotation>
 		<annotation cp="🤴🏻" type="tts">prins: hudtype 1–2</annotation>
 		<annotation cp="🤴🏼">hudtype 3 | prins</annotation>
@@ -2286,6 +2286,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">gravid kvinne: hudtype 5</annotation>
 		<annotation cp="🤰🏿">gravid | hudtype 6 | kvinne</annotation>
 		<annotation cp="🤰🏿" type="tts">gravid kvinne: hudtype 6</annotation>
+		<annotation cp="🫃🏻">full mage | gravid | hudtype 1–2 | mann | mett | oppblåst</annotation>
+		<annotation cp="🫃🏻" type="tts">gravid mann: hudtype 1–2</annotation>
+		<annotation cp="🫃🏼">full mage | gravid | hudtype 3 | mann | mett | oppblåst</annotation>
+		<annotation cp="🫃🏼" type="tts">gravid mann: hudtype 3</annotation>
+		<annotation cp="🫃🏽">full mage | gravid | hudtype 4 | mann | mett | oppblåst</annotation>
+		<annotation cp="🫃🏽" type="tts">gravid mann: hudtype 4</annotation>
+		<annotation cp="🫃🏾">full mage | gravid | hudtype 5 | mann | mett | oppblåst</annotation>
+		<annotation cp="🫃🏾" type="tts">gravid mann: hudtype 5</annotation>
+		<annotation cp="🫃🏿">full mage | gravid | hudtype 6 | mann | mett | oppblåst</annotation>
+		<annotation cp="🫃🏿" type="tts">gravid mann: hudtype 6</annotation>
+		<annotation cp="🫄🏻">full mage | gravid | gravid person | hudtype 1–2 | kjønnsnøytral | mett | oppblåst</annotation>
+		<annotation cp="🫄🏻" type="tts">gravid person: hudtype 1–2</annotation>
+		<annotation cp="🫄🏼">full mage | gravid | gravid person | hudtype 3 | kjønnsnøytral | mett | oppblåst</annotation>
+		<annotation cp="🫄🏼" type="tts">gravid person: hudtype 3</annotation>
+		<annotation cp="🫄🏽">full mage | gravid | gravid person | hudtype 4 | kjønnsnøytral | mett | oppblåst</annotation>
+		<annotation cp="🫄🏽" type="tts">gravid person: hudtype 4</annotation>
+		<annotation cp="🫄🏾">full mage | gravid | gravid person | hudtype 5 | kjønnsnøytral | mett | oppblåst</annotation>
+		<annotation cp="🫄🏾" type="tts">gravid person: hudtype 5</annotation>
+		<annotation cp="🫄🏿">full mage | gravid | gravid person | hudtype 6 | kjønnsnøytral | mett | oppblåst</annotation>
+		<annotation cp="🫄🏿" type="tts">gravid person: hudtype 6</annotation>
 		<annotation cp="🤱🏻">ammer | amming | baby | bryst | hudtype 1–2 | morsmelk</annotation>
 		<annotation cp="🤱🏻" type="tts">ammer: hudtype 1–2</annotation>
 		<annotation cp="🤱🏼">ammer | amming | baby | bryst | hudtype 3 | morsmelk</annotation>

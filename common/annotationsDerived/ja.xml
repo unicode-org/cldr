@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,46 +12,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="ja"/>
 	</identity>
 	<annotations>
-		<annotation cp="🫃🏻">妊夫 | 妊娠 | 男 | 男性 | 薄い肌色</annotation>
-		<annotation cp="🫃🏻" type="tts">妊夫: 薄い肌色</annotation>
-		<annotation cp="🫃🏼">やや薄い肌色 | 妊夫 | 妊娠 | 男 | 男性</annotation>
-		<annotation cp="🫃🏼" type="tts">妊夫: やや薄い肌色</annotation>
-		<annotation cp="🫃🏽">中間の肌色 | 妊夫 | 妊娠 | 男 | 男性</annotation>
-		<annotation cp="🫃🏽" type="tts">妊夫: 中間の肌色</annotation>
-		<annotation cp="🫃🏾">やや濃い肌色 | 妊夫 | 妊娠 | 男 | 男性</annotation>
-		<annotation cp="🫃🏾" type="tts">妊夫: やや濃い肌色</annotation>
-		<annotation cp="🫃🏿">妊夫 | 妊娠 | 濃い肌色 | 男 | 男性</annotation>
-		<annotation cp="🫃🏿" type="tts">妊夫: 濃い肌色</annotation>
-		<annotation cp="🫄🏻">お腹 | 妊夫 | 妊娠 | 妊娠した人 | 妊婦 | 薄い肌色</annotation>
-		<annotation cp="🫄🏻" type="tts">妊娠した人: 薄い肌色</annotation>
-		<annotation cp="🫄🏼">お腹 | やや薄い肌色 | 妊夫 | 妊娠 | 妊娠した人 | 妊婦</annotation>
-		<annotation cp="🫄🏼" type="tts">妊娠した人: やや薄い肌色</annotation>
-		<annotation cp="🫄🏽">お腹 | 中間の肌色 | 妊夫 | 妊娠 | 妊娠した人 | 妊婦</annotation>
-		<annotation cp="🫄🏽" type="tts">妊娠した人: 中間の肌色</annotation>
-		<annotation cp="🫄🏾">お腹 | やや濃い肌色 | 妊夫 | 妊娠 | 妊娠した人 | 妊婦</annotation>
-		<annotation cp="🫄🏾" type="tts">妊娠した人: やや濃い肌色</annotation>
-		<annotation cp="🫄🏿">お腹 | 妊夫 | 妊娠 | 妊娠した人 | 妊婦 | 濃い肌色</annotation>
-		<annotation cp="🫄🏿" type="tts">妊娠した人: 濃い肌色</annotation>
-		<annotation cp="🫅🏻">君主 | 王冠をかぶった人 | 王家 | 王族 | 王様 | 薄い肌色</annotation>
-		<annotation cp="🫅🏻" type="tts">王冠をかぶった人: 薄い肌色</annotation>
-		<annotation cp="🫅🏼">やや薄い肌色 | 君主 | 王冠をかぶった人 | 王家 | 王族 | 王様</annotation>
-		<annotation cp="🫅🏼" type="tts">王冠をかぶった人: やや薄い肌色</annotation>
-		<annotation cp="🫅🏽">中間の肌色 | 君主 | 王冠をかぶった人 | 王家 | 王族 | 王様</annotation>
-		<annotation cp="🫅🏽" type="tts">王冠をかぶった人: 中間の肌色</annotation>
-		<annotation cp="🫅🏾">やや濃い肌色 | 君主 | 王冠をかぶった人 | 王家 | 王族 | 王様</annotation>
-		<annotation cp="🫅🏾" type="tts">王冠をかぶった人: やや濃い肌色</annotation>
-		<annotation cp="🫅🏿">君主 | 濃い肌色 | 王冠をかぶった人 | 王家 | 王族 | 王様</annotation>
-		<annotation cp="🫅🏿" type="tts">王冠をかぶった人: 濃い肌色</annotation>
-		<annotation cp="🫰🏻">手 | 指 | 指をクロス | 薄い肌色 | 親指と人差し指をクロス</annotation>
-		<annotation cp="🫰🏻" type="tts">親指と人差し指をクロス: 薄い肌色</annotation>
-		<annotation cp="🫰🏼">やや薄い肌色 | 手 | 指 | 指をクロス | 親指と人差し指をクロス</annotation>
-		<annotation cp="🫰🏼" type="tts">親指と人差し指をクロス: やや薄い肌色</annotation>
-		<annotation cp="🫰🏽">中間の肌色 | 手 | 指 | 指をクロス | 親指と人差し指をクロス</annotation>
-		<annotation cp="🫰🏽" type="tts">親指と人差し指をクロス: 中間の肌色</annotation>
-		<annotation cp="🫰🏾">やや濃い肌色 | 手 | 指 | 指をクロス | 親指と人差し指をクロス</annotation>
-		<annotation cp="🫰🏾" type="tts">親指と人差し指をクロス: やや濃い肌色</annotation>
-		<annotation cp="🫰🏿">手 | 指 | 指をクロス | 濃い肌色 | 親指と人差し指をクロス</annotation>
-		<annotation cp="🫰🏿" type="tts">親指と人差し指をクロス: 濃い肌色</annotation>
+		<annotation cp="👋🏻">バイバイ | 手 | 手を振る | 薄い肌色</annotation>
+		<annotation cp="👋🏻" type="tts">手を振る: 薄い肌色</annotation>
+		<annotation cp="👋🏼">バイバイ | やや薄い肌色 | 手 | 手を振る</annotation>
+		<annotation cp="👋🏼" type="tts">手を振る: やや薄い肌色</annotation>
+		<annotation cp="👋🏽">バイバイ | 中間の肌色 | 手 | 手を振る</annotation>
+		<annotation cp="👋🏽" type="tts">手を振る: 中間の肌色</annotation>
+		<annotation cp="👋🏾">バイバイ | やや濃い肌色 | 手 | 手を振る</annotation>
+		<annotation cp="👋🏾" type="tts">手を振る: やや濃い肌色</annotation>
+		<annotation cp="👋🏿">バイバイ | 手 | 手を振る | 濃い肌色</annotation>
+		<annotation cp="👋🏿" type="tts">手を振る: 濃い肌色</annotation>
+		<annotation cp="🤚🏻">手 | 手の甲 | 薄い肌色</annotation>
+		<annotation cp="🤚🏻" type="tts">手の甲: 薄い肌色</annotation>
+		<annotation cp="🤚🏼">やや薄い肌色 | 手 | 手の甲</annotation>
+		<annotation cp="🤚🏼" type="tts">手の甲: やや薄い肌色</annotation>
+		<annotation cp="🤚🏽">中間の肌色 | 手 | 手の甲</annotation>
+		<annotation cp="🤚🏽" type="tts">手の甲: 中間の肌色</annotation>
+		<annotation cp="🤚🏾">やや濃い肌色 | 手 | 手の甲</annotation>
+		<annotation cp="🤚🏾" type="tts">手の甲: やや濃い肌色</annotation>
+		<annotation cp="🤚🏿">手 | 手の甲 | 濃い肌色</annotation>
+		<annotation cp="🤚🏿" type="tts">手の甲: 濃い肌色</annotation>
+		<annotation cp="🖐🏻">パー | 手 | 薄い肌色 | 開いた手</annotation>
+		<annotation cp="🖐🏻" type="tts">開いた手: 薄い肌色</annotation>
+		<annotation cp="🖐🏼">パー | やや薄い肌色 | 手 | 開いた手</annotation>
+		<annotation cp="🖐🏼" type="tts">開いた手: やや薄い肌色</annotation>
+		<annotation cp="🖐🏽">パー | 中間の肌色 | 手 | 開いた手</annotation>
+		<annotation cp="🖐🏽" type="tts">開いた手: 中間の肌色</annotation>
+		<annotation cp="🖐🏾">パー | やや濃い肌色 | 手 | 開いた手</annotation>
+		<annotation cp="🖐🏾" type="tts">開いた手: やや濃い肌色</annotation>
+		<annotation cp="🖐🏿">パー | 手 | 濃い肌色 | 開いた手</annotation>
+		<annotation cp="🖐🏿" type="tts">開いた手: 濃い肌色</annotation>
+		<annotation cp="✋🏻">パー | 手 | 挙手 | 薄い肌色</annotation>
+		<annotation cp="✋🏻" type="tts">挙手: 薄い肌色</annotation>
+		<annotation cp="✋🏼">パー | やや薄い肌色 | 手 | 挙手</annotation>
+		<annotation cp="✋🏼" type="tts">挙手: やや薄い肌色</annotation>
+		<annotation cp="✋🏽">パー | 中間の肌色 | 手 | 挙手</annotation>
+		<annotation cp="✋🏽" type="tts">挙手: 中間の肌色</annotation>
+		<annotation cp="✋🏾">パー | やや濃い肌色 | 手 | 挙手</annotation>
+		<annotation cp="✋🏾" type="tts">挙手: やや濃い肌色</annotation>
+		<annotation cp="✋🏿">パー | 手 | 挙手 | 濃い肌色</annotation>
+		<annotation cp="✋🏿" type="tts">挙手: 濃い肌色</annotation>
+		<annotation cp="🖖🏻">スポック | バルカンの挨拶 | バルカン人 | 手 | 薄い肌色</annotation>
+		<annotation cp="🖖🏻" type="tts">バルカンの挨拶: 薄い肌色</annotation>
+		<annotation cp="🖖🏼">スポック | バルカンの挨拶 | バルカン人 | やや薄い肌色 | 手</annotation>
+		<annotation cp="🖖🏼" type="tts">バルカンの挨拶: やや薄い肌色</annotation>
+		<annotation cp="🖖🏽">スポック | バルカンの挨拶 | バルカン人 | 中間の肌色 | 手</annotation>
+		<annotation cp="🖖🏽" type="tts">バルカンの挨拶: 中間の肌色</annotation>
+		<annotation cp="🖖🏾">スポック | バルカンの挨拶 | バルカン人 | やや濃い肌色 | 手</annotation>
+		<annotation cp="🖖🏾" type="tts">バルカンの挨拶: やや濃い肌色</annotation>
+		<annotation cp="🖖🏿">スポック | バルカンの挨拶 | バルカン人 | 手 | 濃い肌色</annotation>
+		<annotation cp="🖖🏿" type="tts">バルカンの挨拶: 濃い肌色</annotation>
 		<annotation cp="🫱🏻">右に向けた手 | 右側 | 手 | 方向 | 薄い肌色</annotation>
 		<annotation cp="🫱🏻" type="tts">右に向けた手: 薄い肌色</annotation>
 		<annotation cp="🫱🏼">やや薄い肌色 | 右に向けた手 | 右側 | 手 | 方向</annotation>
@@ -132,76 +142,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫴🏾" type="tts">上に向けた手: やや濃い肌色</annotation>
 		<annotation cp="🫴🏿">上 | 上に向けた手 | 受ける | 手 | 濃い肌色</annotation>
 		<annotation cp="🫴🏿" type="tts">上に向けた手: 濃い肌色</annotation>
-		<annotation cp="🫵🏻">おまえだ | 人を指差している手 | 手 | 指差し | 薄い肌色</annotation>
-		<annotation cp="🫵🏻" type="tts">人を指差している手: 薄い肌色</annotation>
-		<annotation cp="🫵🏼">おまえだ | やや薄い肌色 | 人を指差している手 | 手 | 指差し</annotation>
-		<annotation cp="🫵🏼" type="tts">人を指差している手: やや薄い肌色</annotation>
-		<annotation cp="🫵🏽">おまえだ | 中間の肌色 | 人を指差している手 | 手 | 指差し</annotation>
-		<annotation cp="🫵🏽" type="tts">人を指差している手: 中間の肌色</annotation>
-		<annotation cp="🫵🏾">おまえだ | やや濃い肌色 | 人を指差している手 | 手 | 指差し</annotation>
-		<annotation cp="🫵🏾" type="tts">人を指差している手: やや濃い肌色</annotation>
-		<annotation cp="🫵🏿">おまえだ | 人を指差している手 | 手 | 指差し | 濃い肌色</annotation>
-		<annotation cp="🫵🏿" type="tts">人を指差している手: 濃い肌色</annotation>
-		<annotation cp="🫶🏻">ハート形の手 | ラブ | 愛 | 手 | 薄い肌色</annotation>
-		<annotation cp="🫶🏻" type="tts">ハート形の手: 薄い肌色</annotation>
-		<annotation cp="🫶🏼">ハート形の手 | やや薄い肌色 | ラブ | 愛 | 手</annotation>
-		<annotation cp="🫶🏼" type="tts">ハート形の手: やや薄い肌色</annotation>
-		<annotation cp="🫶🏽">ハート形の手 | ラブ | 中間の肌色 | 愛 | 手</annotation>
-		<annotation cp="🫶🏽" type="tts">ハート形の手: 中間の肌色</annotation>
-		<annotation cp="🫶🏾">ハート形の手 | やや濃い肌色 | ラブ | 愛 | 手</annotation>
-		<annotation cp="🫶🏾" type="tts">ハート形の手: やや濃い肌色</annotation>
-		<annotation cp="🫶🏿">ハート形の手 | ラブ | 愛 | 手 | 濃い肌色</annotation>
-		<annotation cp="🫶🏿" type="tts">ハート形の手: 濃い肌色</annotation>
-		<annotation cp="👋🏻">バイバイ | 手 | 手を振る | 薄い肌色</annotation>
-		<annotation cp="👋🏻" type="tts">手を振る: 薄い肌色</annotation>
-		<annotation cp="👋🏼">バイバイ | やや薄い肌色 | 手 | 手を振る</annotation>
-		<annotation cp="👋🏼" type="tts">手を振る: やや薄い肌色</annotation>
-		<annotation cp="👋🏽">バイバイ | 中間の肌色 | 手 | 手を振る</annotation>
-		<annotation cp="👋🏽" type="tts">手を振る: 中間の肌色</annotation>
-		<annotation cp="👋🏾">バイバイ | やや濃い肌色 | 手 | 手を振る</annotation>
-		<annotation cp="👋🏾" type="tts">手を振る: やや濃い肌色</annotation>
-		<annotation cp="👋🏿">バイバイ | 手 | 手を振る | 濃い肌色</annotation>
-		<annotation cp="👋🏿" type="tts">手を振る: 濃い肌色</annotation>
-		<annotation cp="🤚🏻">手 | 手の甲 | 薄い肌色</annotation>
-		<annotation cp="🤚🏻" type="tts">手の甲: 薄い肌色</annotation>
-		<annotation cp="🤚🏼">やや薄い肌色 | 手 | 手の甲</annotation>
-		<annotation cp="🤚🏼" type="tts">手の甲: やや薄い肌色</annotation>
-		<annotation cp="🤚🏽">中間の肌色 | 手 | 手の甲</annotation>
-		<annotation cp="🤚🏽" type="tts">手の甲: 中間の肌色</annotation>
-		<annotation cp="🤚🏾">やや濃い肌色 | 手 | 手の甲</annotation>
-		<annotation cp="🤚🏾" type="tts">手の甲: やや濃い肌色</annotation>
-		<annotation cp="🤚🏿">手 | 手の甲 | 濃い肌色</annotation>
-		<annotation cp="🤚🏿" type="tts">手の甲: 濃い肌色</annotation>
-		<annotation cp="🖐🏻">パー | 手 | 薄い肌色 | 開いた手</annotation>
-		<annotation cp="🖐🏻" type="tts">開いた手: 薄い肌色</annotation>
-		<annotation cp="🖐🏼">パー | やや薄い肌色 | 手 | 開いた手</annotation>
-		<annotation cp="🖐🏼" type="tts">開いた手: やや薄い肌色</annotation>
-		<annotation cp="🖐🏽">パー | 中間の肌色 | 手 | 開いた手</annotation>
-		<annotation cp="🖐🏽" type="tts">開いた手: 中間の肌色</annotation>
-		<annotation cp="🖐🏾">パー | やや濃い肌色 | 手 | 開いた手</annotation>
-		<annotation cp="🖐🏾" type="tts">開いた手: やや濃い肌色</annotation>
-		<annotation cp="🖐🏿">パー | 手 | 濃い肌色 | 開いた手</annotation>
-		<annotation cp="🖐🏿" type="tts">開いた手: 濃い肌色</annotation>
-		<annotation cp="✋🏻">パー | 手 | 挙手 | 薄い肌色</annotation>
-		<annotation cp="✋🏻" type="tts">挙手: 薄い肌色</annotation>
-		<annotation cp="✋🏼">パー | やや薄い肌色 | 手 | 挙手</annotation>
-		<annotation cp="✋🏼" type="tts">挙手: やや薄い肌色</annotation>
-		<annotation cp="✋🏽">パー | 中間の肌色 | 手 | 挙手</annotation>
-		<annotation cp="✋🏽" type="tts">挙手: 中間の肌色</annotation>
-		<annotation cp="✋🏾">パー | やや濃い肌色 | 手 | 挙手</annotation>
-		<annotation cp="✋🏾" type="tts">挙手: やや濃い肌色</annotation>
-		<annotation cp="✋🏿">パー | 手 | 挙手 | 濃い肌色</annotation>
-		<annotation cp="✋🏿" type="tts">挙手: 濃い肌色</annotation>
-		<annotation cp="🖖🏻">スポック | バルカンの挨拶 | バルカン人 | 手 | 薄い肌色</annotation>
-		<annotation cp="🖖🏻" type="tts">バルカンの挨拶: 薄い肌色</annotation>
-		<annotation cp="🖖🏼">スポック | バルカンの挨拶 | バルカン人 | やや薄い肌色 | 手</annotation>
-		<annotation cp="🖖🏼" type="tts">バルカンの挨拶: やや薄い肌色</annotation>
-		<annotation cp="🖖🏽">スポック | バルカンの挨拶 | バルカン人 | 中間の肌色 | 手</annotation>
-		<annotation cp="🖖🏽" type="tts">バルカンの挨拶: 中間の肌色</annotation>
-		<annotation cp="🖖🏾">スポック | バルカンの挨拶 | バルカン人 | やや濃い肌色 | 手</annotation>
-		<annotation cp="🖖🏾" type="tts">バルカンの挨拶: やや濃い肌色</annotation>
-		<annotation cp="🖖🏿">スポック | バルカンの挨拶 | バルカン人 | 手 | 濃い肌色</annotation>
-		<annotation cp="🖖🏿" type="tts">バルカンの挨拶: 濃い肌色</annotation>
 		<annotation cp="👌🏻">OK | OKの手 | オーケー | オッケー | 手 | 薄い肌色</annotation>
 		<annotation cp="👌🏻" type="tts">OKの手: 薄い肌色</annotation>
 		<annotation cp="👌🏼">OK | OKの手 | オーケー | オッケー | やや薄い肌色 | 手</annotation>
@@ -252,6 +192,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤞🏾" type="tts">指をクロス: やや濃い肌色</annotation>
 		<annotation cp="🤞🏿">手 | 指 | 指をクロス | 濃い肌色</annotation>
 		<annotation cp="🤞🏿" type="tts">指をクロス: 濃い肌色</annotation>
+		<annotation cp="🫰🏻">手 | 指 | 指をクロス | 薄い肌色 | 親指と人差し指をクロス</annotation>
+		<annotation cp="🫰🏻" type="tts">親指と人差し指をクロス: 薄い肌色</annotation>
+		<annotation cp="🫰🏼">やや薄い肌色 | 手 | 指 | 指をクロス | 親指と人差し指をクロス</annotation>
+		<annotation cp="🫰🏼" type="tts">親指と人差し指をクロス: やや薄い肌色</annotation>
+		<annotation cp="🫰🏽">中間の肌色 | 手 | 指 | 指をクロス | 親指と人差し指をクロス</annotation>
+		<annotation cp="🫰🏽" type="tts">親指と人差し指をクロス: 中間の肌色</annotation>
+		<annotation cp="🫰🏾">やや濃い肌色 | 手 | 指 | 指をクロス | 親指と人差し指をクロス</annotation>
+		<annotation cp="🫰🏾" type="tts">親指と人差し指をクロス: やや濃い肌色</annotation>
+		<annotation cp="🫰🏿">手 | 指 | 指をクロス | 濃い肌色 | 親指と人差し指をクロス</annotation>
+		<annotation cp="🫰🏿" type="tts">親指と人差し指をクロス: 濃い肌色</annotation>
 		<annotation cp="🤟🏻">アイラブユー | 愛してる | 手 | 薄い肌色</annotation>
 		<annotation cp="🤟🏻" type="tts">アイラブユー: 薄い肌色</annotation>
 		<annotation cp="🤟🏼">アイラブユー | やや薄い肌色 | 愛してる | 手</annotation>
@@ -342,6 +292,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☝🏾" type="tts">上指差し: やや濃い肌色</annotation>
 		<annotation cp="☝🏿">上 | 上指差し | 手 | 指差し | 濃い肌色</annotation>
 		<annotation cp="☝🏿" type="tts">上指差し: 濃い肌色</annotation>
+		<annotation cp="🫵🏻">おまえだ | 人を指差している手 | 手 | 指差し | 薄い肌色</annotation>
+		<annotation cp="🫵🏻" type="tts">人を指差している手: 薄い肌色</annotation>
+		<annotation cp="🫵🏼">おまえだ | やや薄い肌色 | 人を指差している手 | 手 | 指差し</annotation>
+		<annotation cp="🫵🏼" type="tts">人を指差している手: やや薄い肌色</annotation>
+		<annotation cp="🫵🏽">おまえだ | 中間の肌色 | 人を指差している手 | 手 | 指差し</annotation>
+		<annotation cp="🫵🏽" type="tts">人を指差している手: 中間の肌色</annotation>
+		<annotation cp="🫵🏾">おまえだ | やや濃い肌色 | 人を指差している手 | 手 | 指差し</annotation>
+		<annotation cp="🫵🏾" type="tts">人を指差している手: やや濃い肌色</annotation>
+		<annotation cp="🫵🏿">おまえだ | 人を指差している手 | 手 | 指差し | 濃い肌色</annotation>
+		<annotation cp="🫵🏿" type="tts">人を指差している手: 濃い肌色</annotation>
 		<annotation cp="👍🏻">OK | オーケー | オッケー | グッド | サムズアップ | 上 | 手 | 薄い肌色 | 親指</annotation>
 		<annotation cp="👍🏻" type="tts">サムズアップ: 薄い肌色</annotation>
 		<annotation cp="👍🏼">OK | オーケー | オッケー | グッド | サムズアップ | やや薄い肌色 | 上 | 手 | 親指</annotation>
@@ -422,6 +382,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">バンザイ: やや濃い肌色</annotation>
 		<annotation cp="🙌🏿">バンザイ | 両手 | 手 | 手を上げる | 濃い肌色</annotation>
 		<annotation cp="🙌🏿" type="tts">バンザイ: 濃い肌色</annotation>
+		<annotation cp="🫶🏻">ハートポーズ | ハート形の手 | ラブ | 愛 | 手 | 薄い肌色</annotation>
+		<annotation cp="🫶🏻" type="tts">ハート形の手: 薄い肌色</annotation>
+		<annotation cp="🫶🏼">ハートポーズ | ハート形の手 | やや薄い肌色 | ラブ | 愛 | 手</annotation>
+		<annotation cp="🫶🏼" type="tts">ハート形の手: やや薄い肌色</annotation>
+		<annotation cp="🫶🏽">ハートポーズ | ハート形の手 | ラブ | 中間の肌色 | 愛 | 手</annotation>
+		<annotation cp="🫶🏽" type="tts">ハート形の手: 中間の肌色</annotation>
+		<annotation cp="🫶🏾">ハートポーズ | ハート形の手 | やや濃い肌色 | ラブ | 愛 | 手</annotation>
+		<annotation cp="🫶🏾" type="tts">ハート形の手: やや濃い肌色</annotation>
+		<annotation cp="🫶🏿">ハートポーズ | ハート形の手 | ラブ | 愛 | 手 | 濃い肌色</annotation>
+		<annotation cp="🫶🏿" type="tts">ハート形の手: 濃い肌色</annotation>
 		<annotation cp="👐🏻">おっはー | 両手のひら | 手 | 手のひら | 薄い肌色</annotation>
 		<annotation cp="👐🏻" type="tts">両手のひら: 薄い肌色</annotation>
 		<annotation cp="👐🏼">おっはー | やや薄い肌色 | 両手のひら | 手 | 手のひら</annotation>
@@ -462,6 +432,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙏🏾" type="tts">祈り: やや濃い肌色</annotation>
 		<annotation cp="🙏🏿">お願い | ごめんなさい | 合掌 | 濃い肌色 | 祈り</annotation>
 		<annotation cp="🙏🏿" type="tts">祈り: 濃い肌色</annotation>
+		<annotation cp="🫷🏻">ストップ | ハイタッチ | 左向き | 左向きに押している手 | 待て | 押す | 断る | 薄い肌色</annotation>
+		<annotation cp="🫷🏻" type="tts">左向きに押している手: 薄い肌色</annotation>
+		<annotation cp="🫷🏼">ストップ | ハイタッチ | やや薄い肌色 | 左向き | 左向きに押している手 | 待て | 押す | 断る</annotation>
+		<annotation cp="🫷🏼" type="tts">左向きに押している手: やや薄い肌色</annotation>
+		<annotation cp="🫷🏽">ストップ | ハイタッチ | 中間の肌色 | 左向き | 左向きに押している手 | 待て | 押す | 断る</annotation>
+		<annotation cp="🫷🏽" type="tts">左向きに押している手: 中間の肌色</annotation>
+		<annotation cp="🫷🏾">ストップ | ハイタッチ | やや濃い肌色 | 左向き | 左向きに押している手 | 待て | 押す | 断る</annotation>
+		<annotation cp="🫷🏾" type="tts">左向きに押している手: やや濃い肌色</annotation>
+		<annotation cp="🫷🏿">ストップ | ハイタッチ | 左向き | 左向きに押している手 | 待て | 押す | 断る | 濃い肌色</annotation>
+		<annotation cp="🫷🏿" type="tts">左向きに押している手: 濃い肌色</annotation>
+		<annotation cp="🫸🏻">ストップ | ハイタッチ | 右向き | 右向きに押している手 | 待て | 押す | 断る | 薄い肌色</annotation>
+		<annotation cp="🫸🏻" type="tts">右向きに押している手: 薄い肌色</annotation>
+		<annotation cp="🫸🏼">ストップ | ハイタッチ | やや薄い肌色 | 右向き | 右向きに押している手 | 待て | 押す | 断る</annotation>
+		<annotation cp="🫸🏼" type="tts">右向きに押している手: やや薄い肌色</annotation>
+		<annotation cp="🫸🏽">ストップ | ハイタッチ | 中間の肌色 | 右向き | 右向きに押している手 | 待て | 押す | 断る</annotation>
+		<annotation cp="🫸🏽" type="tts">右向きに押している手: 中間の肌色</annotation>
+		<annotation cp="🫸🏾">ストップ | ハイタッチ | やや濃い肌色 | 右向き | 右向きに押している手 | 待て | 押す | 断る</annotation>
+		<annotation cp="🫸🏾" type="tts">右向きに押している手: やや濃い肌色</annotation>
+		<annotation cp="🫸🏿">ストップ | ハイタッチ | 右向き | 右向きに押している手 | 待て | 押す | 断る | 濃い肌色</annotation>
+		<annotation cp="🫸🏿" type="tts">右向きに押している手: 濃い肌色</annotation>
 		<annotation cp="✍🏻">手 | 手で書く | 手書き | 書いている手 | 薄い肌色</annotation>
 		<annotation cp="✍🏻" type="tts">書いている手: 薄い肌色</annotation>
 		<annotation cp="✍🏼">やや薄い肌色 | 手 | 手で書く | 手書き | 書いている手</annotation>
@@ -2146,6 +2136,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👷🏾‍♀" type="tts">女性の建設作業員: やや濃い肌色</annotation>
 		<annotation cp="👷🏿‍♀">ハンマー | ヘルメット | 女性 | 女性の建設作業員 | 工事 | 建設作業員 | 濃い肌色</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">女性の建設作業員: 濃い肌色</annotation>
+		<annotation cp="🫅🏻">君主 | 王冠をかぶった人 | 王家 | 王族 | 王様 | 薄い肌色</annotation>
+		<annotation cp="🫅🏻" type="tts">王冠をかぶった人: 薄い肌色</annotation>
+		<annotation cp="🫅🏼">やや薄い肌色 | 君主 | 王冠をかぶった人 | 王家 | 王族 | 王様</annotation>
+		<annotation cp="🫅🏼" type="tts">王冠をかぶった人: やや薄い肌色</annotation>
+		<annotation cp="🫅🏽">中間の肌色 | 君主 | 王冠をかぶった人 | 王家 | 王族 | 王様</annotation>
+		<annotation cp="🫅🏽" type="tts">王冠をかぶった人: 中間の肌色</annotation>
+		<annotation cp="🫅🏾">やや濃い肌色 | 君主 | 王冠をかぶった人 | 王家 | 王族 | 王様</annotation>
+		<annotation cp="🫅🏾" type="tts">王冠をかぶった人: やや濃い肌色</annotation>
+		<annotation cp="🫅🏿">君主 | 濃い肌色 | 王冠をかぶった人 | 王家 | 王族 | 王様</annotation>
+		<annotation cp="🫅🏿" type="tts">王冠をかぶった人: 濃い肌色</annotation>
 		<annotation cp="🤴🏻">プリンス | 王子 | 男 | 男性 | 薄い肌色</annotation>
 		<annotation cp="🤴🏻" type="tts">プリンス: 薄い肌色</annotation>
 		<annotation cp="🤴🏼">プリンス | やや薄い肌色 | 王子 | 男 | 男性</annotation>
@@ -2286,6 +2286,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">妊婦: やや濃い肌色</annotation>
 		<annotation cp="🤰🏿">女 | 女性 | 妊娠 | 妊婦 | 濃い肌色</annotation>
 		<annotation cp="🤰🏿" type="tts">妊婦: 濃い肌色</annotation>
+		<annotation cp="🫃🏻">妊夫 | 妊娠 | 男 | 男性 | 薄い肌色</annotation>
+		<annotation cp="🫃🏻" type="tts">妊夫: 薄い肌色</annotation>
+		<annotation cp="🫃🏼">やや薄い肌色 | 妊夫 | 妊娠 | 男 | 男性</annotation>
+		<annotation cp="🫃🏼" type="tts">妊夫: やや薄い肌色</annotation>
+		<annotation cp="🫃🏽">中間の肌色 | 妊夫 | 妊娠 | 男 | 男性</annotation>
+		<annotation cp="🫃🏽" type="tts">妊夫: 中間の肌色</annotation>
+		<annotation cp="🫃🏾">やや濃い肌色 | 妊夫 | 妊娠 | 男 | 男性</annotation>
+		<annotation cp="🫃🏾" type="tts">妊夫: やや濃い肌色</annotation>
+		<annotation cp="🫃🏿">妊夫 | 妊娠 | 濃い肌色 | 男 | 男性</annotation>
+		<annotation cp="🫃🏿" type="tts">妊夫: 濃い肌色</annotation>
+		<annotation cp="🫄🏻">お腹 | 妊夫 | 妊娠 | 妊娠した人 | 妊婦 | 薄い肌色</annotation>
+		<annotation cp="🫄🏻" type="tts">妊娠した人: 薄い肌色</annotation>
+		<annotation cp="🫄🏼">お腹 | やや薄い肌色 | 妊夫 | 妊娠 | 妊娠した人 | 妊婦</annotation>
+		<annotation cp="🫄🏼" type="tts">妊娠した人: やや薄い肌色</annotation>
+		<annotation cp="🫄🏽">お腹 | 中間の肌色 | 妊夫 | 妊娠 | 妊娠した人 | 妊婦</annotation>
+		<annotation cp="🫄🏽" type="tts">妊娠した人: 中間の肌色</annotation>
+		<annotation cp="🫄🏾">お腹 | やや濃い肌色 | 妊夫 | 妊娠 | 妊娠した人 | 妊婦</annotation>
+		<annotation cp="🫄🏾" type="tts">妊娠した人: やや濃い肌色</annotation>
+		<annotation cp="🫄🏿">お腹 | 妊夫 | 妊娠 | 妊娠した人 | 妊婦 | 濃い肌色</annotation>
+		<annotation cp="🫄🏿" type="tts">妊娠した人: 濃い肌色</annotation>
 		<annotation cp="🤱🏻">ミルク | 女 | 女性 | 授乳 | 薄い肌色 | 赤ちゃん</annotation>
 		<annotation cp="🤱🏻" type="tts">授乳: 薄い肌色</annotation>
 		<annotation cp="🤱🏼">ミルク | やや薄い肌色 | 女 | 女性 | 授乳 | 赤ちゃん</annotation>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,46 +12,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="sk"/>
 	</identity>
 	<annotations>
-		<annotation cp="🫃🏻">brucho | nafúknuté | plné | svetlý tón pleti | tehotná | tehotný muž</annotation>
-		<annotation cp="🫃🏻" type="tts">tehotný muž: svetlý tón pleti</annotation>
-		<annotation cp="🫃🏼">brucho | nafúknuté | plné | stredne svetlý tón pleti | tehotná | tehotný muž</annotation>
-		<annotation cp="🫃🏼" type="tts">tehotný muž: stredne svetlý tón pleti</annotation>
-		<annotation cp="🫃🏽">brucho | nafúknuté | plné | stredný tón pleti | tehotná | tehotný muž</annotation>
-		<annotation cp="🫃🏽" type="tts">tehotný muž: stredný tón pleti</annotation>
-		<annotation cp="🫃🏾">brucho | nafúknuté | plné | stredne tmavý tón pleti | tehotná | tehotný muž</annotation>
-		<annotation cp="🫃🏾" type="tts">tehotný muž: stredne tmavý tón pleti</annotation>
-		<annotation cp="🫃🏿">brucho | nafúknuté | plné | tehotná | tehotný muž | tmavý tón pleti</annotation>
-		<annotation cp="🫃🏿" type="tts">tehotný muž: tmavý tón pleti</annotation>
-		<annotation cp="🫄🏻">brucho | nafúknuté | plné | svetlý tón pleti | tehotná osoba | tehotný</annotation>
-		<annotation cp="🫄🏻" type="tts">tehotná osoba: svetlý tón pleti</annotation>
-		<annotation cp="🫄🏼">brucho | nafúknuté | plné | stredne svetlý tón pleti | tehotná osoba | tehotný</annotation>
-		<annotation cp="🫄🏼" type="tts">tehotná osoba: stredne svetlý tón pleti</annotation>
-		<annotation cp="🫄🏽">brucho | nafúknuté | plné | stredný tón pleti | tehotná osoba | tehotný</annotation>
-		<annotation cp="🫄🏽" type="tts">tehotná osoba: stredný tón pleti</annotation>
-		<annotation cp="🫄🏾">brucho | nafúknuté | plné | stredne tmavý tón pleti | tehotná osoba | tehotný</annotation>
-		<annotation cp="🫄🏾" type="tts">tehotná osoba: stredne tmavý tón pleti</annotation>
-		<annotation cp="🫄🏿">brucho | nafúknuté | plné | tehotná osoba | tehotný | tmavý tón pleti</annotation>
-		<annotation cp="🫄🏿" type="tts">tehotná osoba: tmavý tón pleti</annotation>
-		<annotation cp="🫅🏻">kráľovský | kráľovstvo | monarcha | osoba s korunou | svetlý tón pleti | vládca</annotation>
-		<annotation cp="🫅🏻" type="tts">osoba s korunou: svetlý tón pleti</annotation>
-		<annotation cp="🫅🏼">kráľovský | kráľovstvo | monarcha | osoba s korunou | stredne svetlý tón pleti | vládca</annotation>
-		<annotation cp="🫅🏼" type="tts">osoba s korunou: stredne svetlý tón pleti</annotation>
-		<annotation cp="🫅🏽">kráľovský | kráľovstvo | monarcha | osoba s korunou | stredný tón pleti | vládca</annotation>
-		<annotation cp="🫅🏽" type="tts">osoba s korunou: stredný tón pleti</annotation>
-		<annotation cp="🫅🏾">kráľovský | kráľovstvo | monarcha | osoba s korunou | stredne tmavý tón pleti | vládca</annotation>
-		<annotation cp="🫅🏾" type="tts">osoba s korunou: stredne tmavý tón pleti</annotation>
-		<annotation cp="🫅🏿">kráľovský | kráľovstvo | monarcha | osoba s korunou | tmavý tón pleti | vládca</annotation>
-		<annotation cp="🫅🏿" type="tts">osoba s korunou: tmavý tón pleti</annotation>
-		<annotation cp="🫰🏻">drahé | láska | lusknutie | peniaze | ruka s prekríženým ukazovákom a palcom | srdce | svetlý tón pleti</annotation>
-		<annotation cp="🫰🏻" type="tts">ruka s prekríženým ukazovákom a palcom: svetlý tón pleti</annotation>
-		<annotation cp="🫰🏼">drahé | láska | lusknutie | peniaze | ruka s prekríženým ukazovákom a palcom | srdce | stredne svetlý tón pleti</annotation>
-		<annotation cp="🫰🏼" type="tts">ruka s prekríženým ukazovákom a palcom: stredne svetlý tón pleti</annotation>
-		<annotation cp="🫰🏽">drahé | láska | lusknutie | peniaze | ruka s prekríženým ukazovákom a palcom | srdce | stredný tón pleti</annotation>
-		<annotation cp="🫰🏽" type="tts">ruka s prekríženým ukazovákom a palcom: stredný tón pleti</annotation>
-		<annotation cp="🫰🏾">drahé | láska | lusknutie | peniaze | ruka s prekríženým ukazovákom a palcom | srdce | stredne tmavý tón pleti</annotation>
-		<annotation cp="🫰🏾" type="tts">ruka s prekríženým ukazovákom a palcom: stredne tmavý tón pleti</annotation>
-		<annotation cp="🫰🏿">drahé | láska | lusknutie | peniaze | ruka s prekríženým ukazovákom a palcom | srdce | tmavý tón pleti</annotation>
-		<annotation cp="🫰🏿" type="tts">ruka s prekríženým ukazovákom a palcom: tmavý tón pleti</annotation>
+		<annotation cp="👋🏻">mávajúca ruka | mávať | ruka | svetlý tón pleti</annotation>
+		<annotation cp="👋🏻" type="tts">mávajúca ruka: svetlý tón pleti</annotation>
+		<annotation cp="👋🏼">mávajúca ruka | mávať | ruka | stredne svetlý tón pleti</annotation>
+		<annotation cp="👋🏼" type="tts">mávajúca ruka: stredne svetlý tón pleti</annotation>
+		<annotation cp="👋🏽">mávajúca ruka | mávať | ruka | stredný tón pleti</annotation>
+		<annotation cp="👋🏽" type="tts">mávajúca ruka: stredný tón pleti</annotation>
+		<annotation cp="👋🏾">mávajúca ruka | mávať | ruka | stredne tmavý tón pleti</annotation>
+		<annotation cp="👋🏾" type="tts">mávajúca ruka: stredne tmavý tón pleti</annotation>
+		<annotation cp="👋🏿">mávajúca ruka | mávať | ruka | tmavý tón pleti</annotation>
+		<annotation cp="👋🏿" type="tts">mávajúca ruka: tmavý tón pleti</annotation>
+		<annotation cp="🤚🏻">ruka | spakruky | svetlý tón pleti | zdvihnutá</annotation>
+		<annotation cp="🤚🏻" type="tts">zdvihnutá ruka spakruky: svetlý tón pleti</annotation>
+		<annotation cp="🤚🏼">ruka | spakruky | stredne svetlý tón pleti | zdvihnutá</annotation>
+		<annotation cp="🤚🏼" type="tts">zdvihnutá ruka spakruky: stredne svetlý tón pleti</annotation>
+		<annotation cp="🤚🏽">ruka | spakruky | stredný tón pleti | zdvihnutá</annotation>
+		<annotation cp="🤚🏽" type="tts">zdvihnutá ruka spakruky: stredný tón pleti</annotation>
+		<annotation cp="🤚🏾">ruka | spakruky | stredne tmavý tón pleti | zdvihnutá</annotation>
+		<annotation cp="🤚🏾" type="tts">zdvihnutá ruka spakruky: stredne tmavý tón pleti</annotation>
+		<annotation cp="🤚🏿">ruka | spakruky | tmavý tón pleti | zdvihnutá</annotation>
+		<annotation cp="🤚🏿" type="tts">zdvihnutá ruka spakruky: tmavý tón pleti</annotation>
+		<annotation cp="🖐🏻">prst | roztiahnutá | ruka | svetlý tón pleti</annotation>
+		<annotation cp="🖐🏻" type="tts">roztiahnutá ruka: svetlý tón pleti</annotation>
+		<annotation cp="🖐🏼">prst | roztiahnutá | ruka | stredne svetlý tón pleti</annotation>
+		<annotation cp="🖐🏼" type="tts">roztiahnutá ruka: stredne svetlý tón pleti</annotation>
+		<annotation cp="🖐🏽">prst | roztiahnutá | ruka | stredný tón pleti</annotation>
+		<annotation cp="🖐🏽" type="tts">roztiahnutá ruka: stredný tón pleti</annotation>
+		<annotation cp="🖐🏾">prst | roztiahnutá | ruka | stredne tmavý tón pleti</annotation>
+		<annotation cp="🖐🏾" type="tts">roztiahnutá ruka: stredne tmavý tón pleti</annotation>
+		<annotation cp="🖐🏿">prst | roztiahnutá | ruka | tmavý tón pleti</annotation>
+		<annotation cp="🖐🏿" type="tts">roztiahnutá ruka: tmavý tón pleti</annotation>
+		<annotation cp="✋🏻">ruka | stáť | stop | svetlý tón pleti | zdvihnutá ruka</annotation>
+		<annotation cp="✋🏻" type="tts">zdvihnutá ruka: svetlý tón pleti</annotation>
+		<annotation cp="✋🏼">ruka | stáť | stop | stredne svetlý tón pleti | zdvihnutá ruka</annotation>
+		<annotation cp="✋🏼" type="tts">zdvihnutá ruka: stredne svetlý tón pleti</annotation>
+		<annotation cp="✋🏽">ruka | stáť | stop | stredný tón pleti | zdvihnutá ruka</annotation>
+		<annotation cp="✋🏽" type="tts">zdvihnutá ruka: stredný tón pleti</annotation>
+		<annotation cp="✋🏾">ruka | stáť | stop | stredne tmavý tón pleti | zdvihnutá ruka</annotation>
+		<annotation cp="✋🏾" type="tts">zdvihnutá ruka: stredne tmavý tón pleti</annotation>
+		<annotation cp="✋🏿">ruka | stáť | stop | tmavý tón pleti | zdvihnutá ruka</annotation>
+		<annotation cp="✋🏿" type="tts">zdvihnutá ruka: tmavý tón pleti</annotation>
+		<annotation cp="🖖🏻">prst | ruka | spock | svetlý tón pleti | vulkán | vulkánsky pozdrav</annotation>
+		<annotation cp="🖖🏻" type="tts">vulkánsky pozdrav: svetlý tón pleti</annotation>
+		<annotation cp="🖖🏼">prst | ruka | spock | stredne svetlý tón pleti | vulkán | vulkánsky pozdrav</annotation>
+		<annotation cp="🖖🏼" type="tts">vulkánsky pozdrav: stredne svetlý tón pleti</annotation>
+		<annotation cp="🖖🏽">prst | ruka | spock | stredný tón pleti | vulkán | vulkánsky pozdrav</annotation>
+		<annotation cp="🖖🏽" type="tts">vulkánsky pozdrav: stredný tón pleti</annotation>
+		<annotation cp="🖖🏾">prst | ruka | spock | stredne tmavý tón pleti | vulkán | vulkánsky pozdrav</annotation>
+		<annotation cp="🖖🏾" type="tts">vulkánsky pozdrav: stredne tmavý tón pleti</annotation>
+		<annotation cp="🖖🏿">prst | ruka | spock | tmavý tón pleti | vulkán | vulkánsky pozdrav</annotation>
+		<annotation cp="🖖🏿" type="tts">vulkánsky pozdrav: tmavý tón pleti</annotation>
 		<annotation cp="🫱🏻">doprava | ruka | svetlý tón pleti | vpravo</annotation>
 		<annotation cp="🫱🏻" type="tts">ruka doprava: svetlý tón pleti</annotation>
 		<annotation cp="🫱🏼">doprava | ruka | stredne svetlý tón pleti | vpravo</annotation>
@@ -132,76 +142,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫴🏾" type="tts">ruka dlaňou nahor: stredne tmavý tón pleti</annotation>
 		<annotation cp="🫴🏿">chytiť | mávať | poď | ponúkať | ruka dlaňou nahor | tmavý tón pleti</annotation>
 		<annotation cp="🫴🏿" type="tts">ruka dlaňou nahor: tmavý tón pleti</annotation>
-		<annotation cp="🫵🏻">na teba | svetlý tón pleti | ukazovanie | ukazovanie ukazovákom</annotation>
-		<annotation cp="🫵🏻" type="tts">ukazovanie ukazovákom: svetlý tón pleti</annotation>
-		<annotation cp="🫵🏼">na teba | stredne svetlý tón pleti | ukazovanie | ukazovanie ukazovákom</annotation>
-		<annotation cp="🫵🏼" type="tts">ukazovanie ukazovákom: stredne svetlý tón pleti</annotation>
-		<annotation cp="🫵🏽">na teba | stredný tón pleti | ukazovanie | ukazovanie ukazovákom</annotation>
-		<annotation cp="🫵🏽" type="tts">ukazovanie ukazovákom: stredný tón pleti</annotation>
-		<annotation cp="🫵🏾">na teba | stredne tmavý tón pleti | ukazovanie | ukazovanie ukazovákom</annotation>
-		<annotation cp="🫵🏾" type="tts">ukazovanie ukazovákom: stredne tmavý tón pleti</annotation>
-		<annotation cp="🫵🏿">na teba | tmavý tón pleti | ukazovanie | ukazovanie ukazovákom</annotation>
-		<annotation cp="🫵🏿" type="tts">ukazovanie ukazovákom: tmavý tón pleti</annotation>
-		<annotation cp="🫶🏻">láska | srdce z dlaní | svetlý tón pleti</annotation>
-		<annotation cp="🫶🏻" type="tts">srdce z dlaní: svetlý tón pleti</annotation>
-		<annotation cp="🫶🏼">láska | srdce z dlaní | stredne svetlý tón pleti</annotation>
-		<annotation cp="🫶🏼" type="tts">srdce z dlaní: stredne svetlý tón pleti</annotation>
-		<annotation cp="🫶🏽">láska | srdce z dlaní | stredný tón pleti</annotation>
-		<annotation cp="🫶🏽" type="tts">srdce z dlaní: stredný tón pleti</annotation>
-		<annotation cp="🫶🏾">láska | srdce z dlaní | stredne tmavý tón pleti</annotation>
-		<annotation cp="🫶🏾" type="tts">srdce z dlaní: stredne tmavý tón pleti</annotation>
-		<annotation cp="🫶🏿">láska | srdce z dlaní | tmavý tón pleti</annotation>
-		<annotation cp="🫶🏿" type="tts">srdce z dlaní: tmavý tón pleti</annotation>
-		<annotation cp="👋🏻">mávajúca ruka | mávať | ruka | svetlý tón pleti</annotation>
-		<annotation cp="👋🏻" type="tts">mávajúca ruka: svetlý tón pleti</annotation>
-		<annotation cp="👋🏼">mávajúca ruka | mávať | ruka | stredne svetlý tón pleti</annotation>
-		<annotation cp="👋🏼" type="tts">mávajúca ruka: stredne svetlý tón pleti</annotation>
-		<annotation cp="👋🏽">mávajúca ruka | mávať | ruka | stredný tón pleti</annotation>
-		<annotation cp="👋🏽" type="tts">mávajúca ruka: stredný tón pleti</annotation>
-		<annotation cp="👋🏾">mávajúca ruka | mávať | ruka | stredne tmavý tón pleti</annotation>
-		<annotation cp="👋🏾" type="tts">mávajúca ruka: stredne tmavý tón pleti</annotation>
-		<annotation cp="👋🏿">mávajúca ruka | mávať | ruka | tmavý tón pleti</annotation>
-		<annotation cp="👋🏿" type="tts">mávajúca ruka: tmavý tón pleti</annotation>
-		<annotation cp="🤚🏻">ruka | spakruky | svetlý tón pleti | zdvihnutá</annotation>
-		<annotation cp="🤚🏻" type="tts">zdvihnutá ruka spakruky: svetlý tón pleti</annotation>
-		<annotation cp="🤚🏼">ruka | spakruky | stredne svetlý tón pleti | zdvihnutá</annotation>
-		<annotation cp="🤚🏼" type="tts">zdvihnutá ruka spakruky: stredne svetlý tón pleti</annotation>
-		<annotation cp="🤚🏽">ruka | spakruky | stredný tón pleti | zdvihnutá</annotation>
-		<annotation cp="🤚🏽" type="tts">zdvihnutá ruka spakruky: stredný tón pleti</annotation>
-		<annotation cp="🤚🏾">ruka | spakruky | stredne tmavý tón pleti | zdvihnutá</annotation>
-		<annotation cp="🤚🏾" type="tts">zdvihnutá ruka spakruky: stredne tmavý tón pleti</annotation>
-		<annotation cp="🤚🏿">ruka | spakruky | tmavý tón pleti | zdvihnutá</annotation>
-		<annotation cp="🤚🏿" type="tts">zdvihnutá ruka spakruky: tmavý tón pleti</annotation>
-		<annotation cp="🖐🏻">prst | roztiahnutá | ruka | svetlý tón pleti</annotation>
-		<annotation cp="🖐🏻" type="tts">roztiahnutá ruka: svetlý tón pleti</annotation>
-		<annotation cp="🖐🏼">prst | roztiahnutá | ruka | stredne svetlý tón pleti</annotation>
-		<annotation cp="🖐🏼" type="tts">roztiahnutá ruka: stredne svetlý tón pleti</annotation>
-		<annotation cp="🖐🏽">prst | roztiahnutá | ruka | stredný tón pleti</annotation>
-		<annotation cp="🖐🏽" type="tts">roztiahnutá ruka: stredný tón pleti</annotation>
-		<annotation cp="🖐🏾">prst | roztiahnutá | ruka | stredne tmavý tón pleti</annotation>
-		<annotation cp="🖐🏾" type="tts">roztiahnutá ruka: stredne tmavý tón pleti</annotation>
-		<annotation cp="🖐🏿">prst | roztiahnutá | ruka | tmavý tón pleti</annotation>
-		<annotation cp="🖐🏿" type="tts">roztiahnutá ruka: tmavý tón pleti</annotation>
-		<annotation cp="✋🏻">ruka | stáť | stop | svetlý tón pleti | zdvihnutá ruka</annotation>
-		<annotation cp="✋🏻" type="tts">zdvihnutá ruka: svetlý tón pleti</annotation>
-		<annotation cp="✋🏼">ruka | stáť | stop | stredne svetlý tón pleti | zdvihnutá ruka</annotation>
-		<annotation cp="✋🏼" type="tts">zdvihnutá ruka: stredne svetlý tón pleti</annotation>
-		<annotation cp="✋🏽">ruka | stáť | stop | stredný tón pleti | zdvihnutá ruka</annotation>
-		<annotation cp="✋🏽" type="tts">zdvihnutá ruka: stredný tón pleti</annotation>
-		<annotation cp="✋🏾">ruka | stáť | stop | stredne tmavý tón pleti | zdvihnutá ruka</annotation>
-		<annotation cp="✋🏾" type="tts">zdvihnutá ruka: stredne tmavý tón pleti</annotation>
-		<annotation cp="✋🏿">ruka | stáť | stop | tmavý tón pleti | zdvihnutá ruka</annotation>
-		<annotation cp="✋🏿" type="tts">zdvihnutá ruka: tmavý tón pleti</annotation>
-		<annotation cp="🖖🏻">prst | ruka | spock | svetlý tón pleti | vulkán | vulkánsky pozdrav</annotation>
-		<annotation cp="🖖🏻" type="tts">vulkánsky pozdrav: svetlý tón pleti</annotation>
-		<annotation cp="🖖🏼">prst | ruka | spock | stredne svetlý tón pleti | vulkán | vulkánsky pozdrav</annotation>
-		<annotation cp="🖖🏼" type="tts">vulkánsky pozdrav: stredne svetlý tón pleti</annotation>
-		<annotation cp="🖖🏽">prst | ruka | spock | stredný tón pleti | vulkán | vulkánsky pozdrav</annotation>
-		<annotation cp="🖖🏽" type="tts">vulkánsky pozdrav: stredný tón pleti</annotation>
-		<annotation cp="🖖🏾">prst | ruka | spock | stredne tmavý tón pleti | vulkán | vulkánsky pozdrav</annotation>
-		<annotation cp="🖖🏾" type="tts">vulkánsky pozdrav: stredne tmavý tón pleti</annotation>
-		<annotation cp="🖖🏿">prst | ruka | spock | tmavý tón pleti | vulkán | vulkánsky pozdrav</annotation>
-		<annotation cp="🖖🏿" type="tts">vulkánsky pozdrav: tmavý tón pleti</annotation>
 		<annotation cp="👌🏻">ok | ruka | svetlý tón pleti | výborne</annotation>
 		<annotation cp="👌🏻" type="tts">výborne: svetlý tón pleti</annotation>
 		<annotation cp="👌🏼">ok | ruka | stredne svetlý tón pleti | výborne</annotation>
@@ -252,6 +192,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤞🏾" type="tts">držím palce: stredne tmavý tón pleti</annotation>
 		<annotation cp="🤞🏿">držať | držím palce | palce | ruka | šťastie | tmavý tón pleti</annotation>
 		<annotation cp="🤞🏿" type="tts">držím palce: tmavý tón pleti</annotation>
+		<annotation cp="🫰🏻">drahé | láska | lusknutie | peniaze | ruka s prekríženým ukazovákom a palcom | srdce | svetlý tón pleti</annotation>
+		<annotation cp="🫰🏻" type="tts">ruka s prekríženým ukazovákom a palcom: svetlý tón pleti</annotation>
+		<annotation cp="🫰🏼">drahé | láska | lusknutie | peniaze | ruka s prekríženým ukazovákom a palcom | srdce | stredne svetlý tón pleti</annotation>
+		<annotation cp="🫰🏼" type="tts">ruka s prekríženým ukazovákom a palcom: stredne svetlý tón pleti</annotation>
+		<annotation cp="🫰🏽">drahé | láska | lusknutie | peniaze | ruka s prekríženým ukazovákom a palcom | srdce | stredný tón pleti</annotation>
+		<annotation cp="🫰🏽" type="tts">ruka s prekríženým ukazovákom a palcom: stredný tón pleti</annotation>
+		<annotation cp="🫰🏾">drahé | láska | lusknutie | peniaze | ruka s prekríženým ukazovákom a palcom | srdce | stredne tmavý tón pleti</annotation>
+		<annotation cp="🫰🏾" type="tts">ruka s prekríženým ukazovákom a palcom: stredne tmavý tón pleti</annotation>
+		<annotation cp="🫰🏿">drahé | láska | lusknutie | peniaze | ruka s prekríženým ukazovákom a palcom | srdce | tmavý tón pleti</annotation>
+		<annotation cp="🫰🏿" type="tts">ruka s prekríženým ukazovákom a palcom: tmavý tón pleti</annotation>
 		<annotation cp="🤟🏻">ľúbim ťa | ľúbiť | ruka | svetlý tón pleti</annotation>
 		<annotation cp="🤟🏻" type="tts">ľúbim ťa: svetlý tón pleti</annotation>
 		<annotation cp="🤟🏼">ľúbim ťa | ľúbiť | ruka | stredne svetlý tón pleti</annotation>
@@ -342,6 +292,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☝🏾" type="tts">ukazovák nahor: stredne tmavý tón pleti</annotation>
 		<annotation cp="☝🏿">nahor | prst | ruka | tmavý tón pleti | ukazovák | ukazovať</annotation>
 		<annotation cp="☝🏿" type="tts">ukazovák nahor: tmavý tón pleti</annotation>
+		<annotation cp="🫵🏻">na teba | svetlý tón pleti | ukazovanie | ukazovanie ukazovákom</annotation>
+		<annotation cp="🫵🏻" type="tts">ukazovanie ukazovákom: svetlý tón pleti</annotation>
+		<annotation cp="🫵🏼">na teba | stredne svetlý tón pleti | ukazovanie | ukazovanie ukazovákom</annotation>
+		<annotation cp="🫵🏼" type="tts">ukazovanie ukazovákom: stredne svetlý tón pleti</annotation>
+		<annotation cp="🫵🏽">na teba | stredný tón pleti | ukazovanie | ukazovanie ukazovákom</annotation>
+		<annotation cp="🫵🏽" type="tts">ukazovanie ukazovákom: stredný tón pleti</annotation>
+		<annotation cp="🫵🏾">na teba | stredne tmavý tón pleti | ukazovanie | ukazovanie ukazovákom</annotation>
+		<annotation cp="🫵🏾" type="tts">ukazovanie ukazovákom: stredne tmavý tón pleti</annotation>
+		<annotation cp="🫵🏿">na teba | tmavý tón pleti | ukazovanie | ukazovanie ukazovákom</annotation>
+		<annotation cp="🫵🏿" type="tts">ukazovanie ukazovákom: tmavý tón pleti</annotation>
 		<annotation cp="👍🏻">+1 | nahor | palec | ruka | svetlý tón pleti</annotation>
 		<annotation cp="👍🏻" type="tts">palec nahor: svetlý tón pleti</annotation>
 		<annotation cp="👍🏼">+1 | nahor | palec | ruka | stredne svetlý tón pleti</annotation>
@@ -422,6 +382,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">zdvihnuté ruky: stredne tmavý tón pleti</annotation>
 		<annotation cp="🙌🏿">gesto | hurá | oslava | ruka | tmavý tón pleti | zdvihnuté | zdvihnuté ruky</annotation>
 		<annotation cp="🙌🏿" type="tts">zdvihnuté ruky: tmavý tón pleti</annotation>
+		<annotation cp="🫶🏻">láska | srdce z dlaní | svetlý tón pleti</annotation>
+		<annotation cp="🫶🏻" type="tts">srdce z dlaní: svetlý tón pleti</annotation>
+		<annotation cp="🫶🏼">láska | srdce z dlaní | stredne svetlý tón pleti</annotation>
+		<annotation cp="🫶🏼" type="tts">srdce z dlaní: stredne svetlý tón pleti</annotation>
+		<annotation cp="🫶🏽">láska | srdce z dlaní | stredný tón pleti</annotation>
+		<annotation cp="🫶🏽" type="tts">srdce z dlaní: stredný tón pleti</annotation>
+		<annotation cp="🫶🏾">láska | srdce z dlaní | stredne tmavý tón pleti</annotation>
+		<annotation cp="🫶🏾" type="tts">srdce z dlaní: stredne tmavý tón pleti</annotation>
+		<annotation cp="🫶🏿">láska | srdce z dlaní | tmavý tón pleti</annotation>
+		<annotation cp="🫶🏿" type="tts">srdce z dlaní: tmavý tón pleti</annotation>
 		<annotation cp="👐🏻">otvorená | roztvorené dlane | ruka | svetlý tón pleti</annotation>
 		<annotation cp="👐🏻" type="tts">roztvorené dlane: svetlý tón pleti</annotation>
 		<annotation cp="👐🏼">otvorená | roztvorené dlane | ruka | stredne svetlý tón pleti</annotation>
@@ -462,6 +432,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙏🏾" type="tts">zopäté ruky: stredne tmavý tón pleti</annotation>
 		<annotation cp="🙏🏿">ďakovať | modliť sa | modlitba | prosba | prosiť | ruka | tmavý tón pleti | zopäté ruky</annotation>
 		<annotation cp="🙏🏿" type="tts">zopäté ruky: tmavý tón pleti</annotation>
+		<annotation cp="🫷🏻">čakať | high five | ruka tlačiaca vľavo | stop | svetlý tón pleti | tlačiť | vľavo | zákaz</annotation>
+		<annotation cp="🫷🏻" type="tts">ruka tlačiaca vľavo: svetlý tón pleti</annotation>
+		<annotation cp="🫷🏼">čakať | high five | ruka tlačiaca vľavo | stop | stredne svetlý tón pleti | tlačiť | vľavo | zákaz</annotation>
+		<annotation cp="🫷🏼" type="tts">ruka tlačiaca vľavo: stredne svetlý tón pleti</annotation>
+		<annotation cp="🫷🏽">čakať | high five | ruka tlačiaca vľavo | stop | stredný tón pleti | tlačiť | vľavo | zákaz</annotation>
+		<annotation cp="🫷🏽" type="tts">ruka tlačiaca vľavo: stredný tón pleti</annotation>
+		<annotation cp="🫷🏾">čakať | high five | ruka tlačiaca vľavo | stop | stredne tmavý tón pleti | tlačiť | vľavo | zákaz</annotation>
+		<annotation cp="🫷🏾" type="tts">ruka tlačiaca vľavo: stredne tmavý tón pleti</annotation>
+		<annotation cp="🫷🏿">čakať | high five | ruka tlačiaca vľavo | stop | tlačiť | tmavý tón pleti | vľavo | zákaz</annotation>
+		<annotation cp="🫷🏿" type="tts">ruka tlačiaca vľavo: tmavý tón pleti</annotation>
+		<annotation cp="🫸🏻">čakať | high five | ruka tlačiaca vpravo | stop | svetlý tón pleti | tlačiť | vpravo | zákaz</annotation>
+		<annotation cp="🫸🏻" type="tts">ruka tlačiaca vpravo: svetlý tón pleti</annotation>
+		<annotation cp="🫸🏼">čakať | high five | ruka tlačiaca vpravo | stop | stredne svetlý tón pleti | tlačiť | vpravo | zákaz</annotation>
+		<annotation cp="🫸🏼" type="tts">ruka tlačiaca vpravo: stredne svetlý tón pleti</annotation>
+		<annotation cp="🫸🏽">čakať | high five | ruka tlačiaca vpravo | stop | stredný tón pleti | tlačiť | vpravo | zákaz</annotation>
+		<annotation cp="🫸🏽" type="tts">ruka tlačiaca vpravo: stredný tón pleti</annotation>
+		<annotation cp="🫸🏾">čakať | high five | ruka tlačiaca vpravo | stop | stredne tmavý tón pleti | tlačiť | vpravo | zákaz</annotation>
+		<annotation cp="🫸🏾" type="tts">ruka tlačiaca vpravo: stredne tmavý tón pleti</annotation>
+		<annotation cp="🫸🏿">čakať | high five | ruka tlačiaca vpravo | stop | tlačiť | tmavý tón pleti | vpravo | zákaz</annotation>
+		<annotation cp="🫸🏿" type="tts">ruka tlačiaca vpravo: tmavý tón pleti</annotation>
 		<annotation cp="✍🏻">pero | písať | píšuca ruka | ruka | svetlý tón pleti</annotation>
 		<annotation cp="✍🏻" type="tts">píšuca ruka: svetlý tón pleti</annotation>
 		<annotation cp="✍🏼">pero | písať | píšuca ruka | ruka | stredne svetlý tón pleti</annotation>
@@ -2146,6 +2136,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👷🏾‍♀" type="tts">stavbárka: stredne tmavý tón pleti</annotation>
 		<annotation cp="👷🏿‍♀">robotníčka | stavba | stavbárka | tmavý tón pleti | žena</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">stavbárka: tmavý tón pleti</annotation>
+		<annotation cp="🫅🏻">kráľovský | kráľovstvo | monarcha | osoba s korunou | svetlý tón pleti | vládca</annotation>
+		<annotation cp="🫅🏻" type="tts">osoba s korunou: svetlý tón pleti</annotation>
+		<annotation cp="🫅🏼">kráľovský | kráľovstvo | monarcha | osoba s korunou | stredne svetlý tón pleti | vládca</annotation>
+		<annotation cp="🫅🏼" type="tts">osoba s korunou: stredne svetlý tón pleti</annotation>
+		<annotation cp="🫅🏽">kráľovský | kráľovstvo | monarcha | osoba s korunou | stredný tón pleti | vládca</annotation>
+		<annotation cp="🫅🏽" type="tts">osoba s korunou: stredný tón pleti</annotation>
+		<annotation cp="🫅🏾">kráľovský | kráľovstvo | monarcha | osoba s korunou | stredne tmavý tón pleti | vládca</annotation>
+		<annotation cp="🫅🏾" type="tts">osoba s korunou: stredne tmavý tón pleti</annotation>
+		<annotation cp="🫅🏿">kráľovský | kráľovstvo | monarcha | osoba s korunou | tmavý tón pleti | vládca</annotation>
+		<annotation cp="🫅🏿" type="tts">osoba s korunou: tmavý tón pleti</annotation>
 		<annotation cp="🤴🏻">princ | svetlý tón pleti</annotation>
 		<annotation cp="🤴🏻" type="tts">princ: svetlý tón pleti</annotation>
 		<annotation cp="🤴🏼">princ | stredne svetlý tón pleti</annotation>
@@ -2286,6 +2286,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">tehotná žena: stredne tmavý tón pleti</annotation>
 		<annotation cp="🤰🏿">tehotenstvo | tehotná žena | tmavý tón pleti | žena</annotation>
 		<annotation cp="🤰🏿" type="tts">tehotná žena: tmavý tón pleti</annotation>
+		<annotation cp="🫃🏻">brucho | nafúknuté | plné | svetlý tón pleti | tehotná | tehotný muž</annotation>
+		<annotation cp="🫃🏻" type="tts">tehotný muž: svetlý tón pleti</annotation>
+		<annotation cp="🫃🏼">brucho | nafúknuté | plné | stredne svetlý tón pleti | tehotná | tehotný muž</annotation>
+		<annotation cp="🫃🏼" type="tts">tehotný muž: stredne svetlý tón pleti</annotation>
+		<annotation cp="🫃🏽">brucho | nafúknuté | plné | stredný tón pleti | tehotná | tehotný muž</annotation>
+		<annotation cp="🫃🏽" type="tts">tehotný muž: stredný tón pleti</annotation>
+		<annotation cp="🫃🏾">brucho | nafúknuté | plné | stredne tmavý tón pleti | tehotná | tehotný muž</annotation>
+		<annotation cp="🫃🏾" type="tts">tehotný muž: stredne tmavý tón pleti</annotation>
+		<annotation cp="🫃🏿">brucho | nafúknuté | plné | tehotná | tehotný muž | tmavý tón pleti</annotation>
+		<annotation cp="🫃🏿" type="tts">tehotný muž: tmavý tón pleti</annotation>
+		<annotation cp="🫄🏻">brucho | nafúknuté | plné | svetlý tón pleti | tehotná osoba | tehotný</annotation>
+		<annotation cp="🫄🏻" type="tts">tehotná osoba: svetlý tón pleti</annotation>
+		<annotation cp="🫄🏼">brucho | nafúknuté | plné | stredne svetlý tón pleti | tehotná osoba | tehotný</annotation>
+		<annotation cp="🫄🏼" type="tts">tehotná osoba: stredne svetlý tón pleti</annotation>
+		<annotation cp="🫄🏽">brucho | nafúknuté | plné | stredný tón pleti | tehotná osoba | tehotný</annotation>
+		<annotation cp="🫄🏽" type="tts">tehotná osoba: stredný tón pleti</annotation>
+		<annotation cp="🫄🏾">brucho | nafúknuté | plné | stredne tmavý tón pleti | tehotná osoba | tehotný</annotation>
+		<annotation cp="🫄🏾" type="tts">tehotná osoba: stredne tmavý tón pleti</annotation>
+		<annotation cp="🫄🏿">brucho | nafúknuté | plné | tehotná osoba | tehotný | tmavý tón pleti</annotation>
+		<annotation cp="🫄🏿" type="tts">tehotná osoba: tmavý tón pleti</annotation>
 		<annotation cp="🤱🏻">bábä | dojčenie | dojčiť | svetlý tón pleti</annotation>
 		<annotation cp="🤱🏻" type="tts">dojčenie: svetlý tón pleti</annotation>
 		<annotation cp="🤱🏼">bábä | dojčenie | dojčiť | stredne svetlý tón pleti</annotation>

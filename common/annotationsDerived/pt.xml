@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,46 +12,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="pt"/>
 	</identity>
 	<annotations>
-		<annotation cp="🫃🏻">barriga | cheio | grávido | homem grávido | inchado | pele clara</annotation>
-		<annotation cp="🫃🏻" type="tts">homem grávido: pele clara</annotation>
-		<annotation cp="🫃🏼">barriga | cheio | grávido | homem grávido | inchado | pele morena clara</annotation>
-		<annotation cp="🫃🏼" type="tts">homem grávido: pele morena clara</annotation>
-		<annotation cp="🫃🏽">barriga | cheio | grávido | homem grávido | inchado | pele morena</annotation>
-		<annotation cp="🫃🏽" type="tts">homem grávido: pele morena</annotation>
-		<annotation cp="🫃🏾">barriga | cheio | grávido | homem grávido | inchado | pele morena escura</annotation>
-		<annotation cp="🫃🏾" type="tts">homem grávido: pele morena escura</annotation>
-		<annotation cp="🫃🏿">barriga | cheio | grávido | homem grávido | inchado | pele escura</annotation>
-		<annotation cp="🫃🏿" type="tts">homem grávido: pele escura</annotation>
-		<annotation cp="🫄🏻">barriga | cheio | gravidez | inchada | pele clara | pessoa grávida</annotation>
-		<annotation cp="🫄🏻" type="tts">pessoa grávida: pele clara</annotation>
-		<annotation cp="🫄🏼">barriga | cheio | gravidez | inchada | pele morena clara | pessoa grávida</annotation>
-		<annotation cp="🫄🏼" type="tts">pessoa grávida: pele morena clara</annotation>
-		<annotation cp="🫄🏽">barriga | cheio | gravidez | inchada | pele morena | pessoa grávida</annotation>
-		<annotation cp="🫄🏽" type="tts">pessoa grávida: pele morena</annotation>
-		<annotation cp="🫄🏾">barriga | cheio | gravidez | inchada | pele morena escura | pessoa grávida</annotation>
-		<annotation cp="🫄🏾" type="tts">pessoa grávida: pele morena escura</annotation>
-		<annotation cp="🫄🏿">barriga | cheio | gravidez | inchada | pele escura | pessoa grávida</annotation>
-		<annotation cp="🫄🏿" type="tts">pessoa grávida: pele escura</annotation>
-		<annotation cp="🫅🏻">monarca | nobre | pele clara | pessoa com coroa | real | realeza</annotation>
-		<annotation cp="🫅🏻" type="tts">pessoa com coroa: pele clara</annotation>
-		<annotation cp="🫅🏼">monarca | nobre | pele morena clara | pessoa com coroa | real | realeza</annotation>
-		<annotation cp="🫅🏼" type="tts">pessoa com coroa: pele morena clara</annotation>
-		<annotation cp="🫅🏽">monarca | nobre | pele morena | pessoa com coroa | real | realeza</annotation>
-		<annotation cp="🫅🏽" type="tts">pessoa com coroa: pele morena</annotation>
-		<annotation cp="🫅🏾">monarca | nobre | pele morena escura | pessoa com coroa | real | realeza</annotation>
-		<annotation cp="🫅🏾" type="tts">pessoa com coroa: pele morena escura</annotation>
-		<annotation cp="🫅🏿">monarca | nobre | pele escura | pessoa com coroa | real | realeza</annotation>
-		<annotation cp="🫅🏿" type="tts">pessoa com coroa: pele escura</annotation>
-		<annotation cp="🫰🏻">amor | caro | coração | dinheiro | estalar | mão com dedo indicador e polegar cruzados | pele clara</annotation>
-		<annotation cp="🫰🏻" type="tts">mão com dedo indicador e polegar cruzados: pele clara</annotation>
-		<annotation cp="🫰🏼">amor | caro | coração | dinheiro | estalar | mão com dedo indicador e polegar cruzados | pele morena clara</annotation>
-		<annotation cp="🫰🏼" type="tts">mão com dedo indicador e polegar cruzados: pele morena clara</annotation>
-		<annotation cp="🫰🏽">amor | caro | coração | dinheiro | estalar | mão com dedo indicador e polegar cruzados | pele morena</annotation>
-		<annotation cp="🫰🏽" type="tts">mão com dedo indicador e polegar cruzados: pele morena</annotation>
-		<annotation cp="🫰🏾">amor | caro | coração | dinheiro | estalar | mão com dedo indicador e polegar cruzados | pele morena escura</annotation>
-		<annotation cp="🫰🏾" type="tts">mão com dedo indicador e polegar cruzados: pele morena escura</annotation>
-		<annotation cp="🫰🏿">amor | caro | coração | dinheiro | estalar | mão com dedo indicador e polegar cruzados | pele escura</annotation>
-		<annotation cp="🫰🏿" type="tts">mão com dedo indicador e polegar cruzados: pele escura</annotation>
+		<annotation cp="👋🏻">aceno | mão | mão acenando | pele clara</annotation>
+		<annotation cp="👋🏻" type="tts">mão acenando: pele clara</annotation>
+		<annotation cp="👋🏼">aceno | mão | mão acenando | pele morena clara</annotation>
+		<annotation cp="👋🏼" type="tts">mão acenando: pele morena clara</annotation>
+		<annotation cp="👋🏽">aceno | mão | mão acenando | pele morena</annotation>
+		<annotation cp="👋🏽" type="tts">mão acenando: pele morena</annotation>
+		<annotation cp="👋🏾">aceno | mão | mão acenando | pele morena escura</annotation>
+		<annotation cp="👋🏾" type="tts">mão acenando: pele morena escura</annotation>
+		<annotation cp="👋🏿">aceno | mão | mão acenando | pele escura</annotation>
+		<annotation cp="👋🏿" type="tts">mão acenando: pele escura</annotation>
+		<annotation cp="🤚🏻">dorso da mão levantado | levantada | mão | palma | pare | pele clara</annotation>
+		<annotation cp="🤚🏻" type="tts">dorso da mão levantado: pele clara</annotation>
+		<annotation cp="🤚🏼">dorso da mão levantado | levantada | mão | palma | pare | pele morena clara</annotation>
+		<annotation cp="🤚🏼" type="tts">dorso da mão levantado: pele morena clara</annotation>
+		<annotation cp="🤚🏽">dorso da mão levantado | levantada | mão | palma | pare | pele morena</annotation>
+		<annotation cp="🤚🏽" type="tts">dorso da mão levantado: pele morena</annotation>
+		<annotation cp="🤚🏾">dorso da mão levantado | levantada | mão | palma | pare | pele morena escura</annotation>
+		<annotation cp="🤚🏾" type="tts">dorso da mão levantado: pele morena escura</annotation>
+		<annotation cp="🤚🏿">dorso da mão levantado | levantada | mão | palma | pare | pele escura</annotation>
+		<annotation cp="🤚🏿" type="tts">dorso da mão levantado: pele escura</annotation>
+		<annotation cp="🖐🏻">cinco dedos | dedos | mão | mão aberta com os dedos separados | mão aberta indicando cinco | palma da mão | pele clara</annotation>
+		<annotation cp="🖐🏻" type="tts">mão aberta com os dedos separados: pele clara</annotation>
+		<annotation cp="🖐🏼">cinco dedos | dedos | mão | mão aberta com os dedos separados | mão aberta indicando cinco | palma da mão | pele morena clara</annotation>
+		<annotation cp="🖐🏼" type="tts">mão aberta com os dedos separados: pele morena clara</annotation>
+		<annotation cp="🖐🏽">cinco dedos | dedos | mão | mão aberta com os dedos separados | mão aberta indicando cinco | palma da mão | pele morena</annotation>
+		<annotation cp="🖐🏽" type="tts">mão aberta com os dedos separados: pele morena</annotation>
+		<annotation cp="🖐🏾">cinco dedos | dedos | mão | mão aberta com os dedos separados | mão aberta indicando cinco | palma da mão | pele morena escura</annotation>
+		<annotation cp="🖐🏾" type="tts">mão aberta com os dedos separados: pele morena escura</annotation>
+		<annotation cp="🖐🏿">cinco dedos | dedos | mão | mão aberta com os dedos separados | mão aberta indicando cinco | palma da mão | pele escura</annotation>
+		<annotation cp="🖐🏿" type="tts">mão aberta com os dedos separados: pele escura</annotation>
+		<annotation cp="✋🏻">mão erguida | mão levantada | pele clara</annotation>
+		<annotation cp="✋🏻" type="tts">mão levantada: pele clara</annotation>
+		<annotation cp="✋🏼">mão erguida | mão levantada | pele morena clara</annotation>
+		<annotation cp="✋🏼" type="tts">mão levantada: pele morena clara</annotation>
+		<annotation cp="✋🏽">mão erguida | mão levantada | pele morena</annotation>
+		<annotation cp="✋🏽" type="tts">mão levantada: pele morena</annotation>
+		<annotation cp="✋🏾">mão erguida | mão levantada | pele morena escura</annotation>
+		<annotation cp="✋🏾" type="tts">mão levantada: pele morena escura</annotation>
+		<annotation cp="✋🏿">mão erguida | mão levantada | pele escura</annotation>
+		<annotation cp="✋🏿" type="tts">mão levantada: pele escura</annotation>
+		<annotation cp="🖖🏻">dedos | jornada nas estrelas | mão | pele clara | saudação | saudação vulcana | spock | star trek</annotation>
+		<annotation cp="🖖🏻" type="tts">saudação vulcana: pele clara</annotation>
+		<annotation cp="🖖🏼">dedos | jornada nas estrelas | mão | pele morena clara | saudação | saudação vulcana | spock | star trek</annotation>
+		<annotation cp="🖖🏼" type="tts">saudação vulcana: pele morena clara</annotation>
+		<annotation cp="🖖🏽">dedos | jornada nas estrelas | mão | pele morena | saudação | saudação vulcana | spock | star trek</annotation>
+		<annotation cp="🖖🏽" type="tts">saudação vulcana: pele morena</annotation>
+		<annotation cp="🖖🏾">dedos | jornada nas estrelas | mão | pele morena escura | saudação | saudação vulcana | spock | star trek</annotation>
+		<annotation cp="🖖🏾" type="tts">saudação vulcana: pele morena escura</annotation>
+		<annotation cp="🖖🏿">dedos | jornada nas estrelas | mão | pele escura | saudação | saudação vulcana | spock | star trek</annotation>
+		<annotation cp="🖖🏿" type="tts">saudação vulcana: pele escura</annotation>
 		<annotation cp="🫱🏻">direita | mão | mão para a direita | para a direita | pele clara</annotation>
 		<annotation cp="🫱🏻" type="tts">mão para a direita: pele clara</annotation>
 		<annotation cp="🫱🏼">direita | mão | mão para a direita | para a direita | pele morena clara</annotation>
@@ -132,76 +142,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫴🏾" type="tts">mão com a palma para cima: pele morena escura</annotation>
 		<annotation cp="🫴🏿">acenar | mão com a palma para cima | oferecer | pegar | pele escura | venha</annotation>
 		<annotation cp="🫴🏿" type="tts">mão com a palma para cima: pele escura</annotation>
-		<annotation cp="🫵🏻">apontar | indicador apontando para o visualizador | pele clara | você</annotation>
-		<annotation cp="🫵🏻" type="tts">indicador apontando para o visualizador: pele clara</annotation>
-		<annotation cp="🫵🏼">apontar | indicador apontando para o visualizador | pele morena clara | você</annotation>
-		<annotation cp="🫵🏼" type="tts">indicador apontando para o visualizador: pele morena clara</annotation>
-		<annotation cp="🫵🏽">apontar | indicador apontando para o visualizador | pele morena | você</annotation>
-		<annotation cp="🫵🏽" type="tts">indicador apontando para o visualizador: pele morena</annotation>
-		<annotation cp="🫵🏾">apontar | indicador apontando para o visualizador | pele morena escura | você</annotation>
-		<annotation cp="🫵🏾" type="tts">indicador apontando para o visualizador: pele morena escura</annotation>
-		<annotation cp="🫵🏿">apontar | indicador apontando para o visualizador | pele escura | você</annotation>
-		<annotation cp="🫵🏿" type="tts">indicador apontando para o visualizador: pele escura</annotation>
-		<annotation cp="🫶🏻">amor | mãos de coração | pele clara</annotation>
-		<annotation cp="🫶🏻" type="tts">mãos de coração: pele clara</annotation>
-		<annotation cp="🫶🏼">amor | mãos de coração | pele morena clara</annotation>
-		<annotation cp="🫶🏼" type="tts">mãos de coração: pele morena clara</annotation>
-		<annotation cp="🫶🏽">amor | mãos de coração | pele morena</annotation>
-		<annotation cp="🫶🏽" type="tts">mãos de coração: pele morena</annotation>
-		<annotation cp="🫶🏾">amor | mãos de coração | pele morena escura</annotation>
-		<annotation cp="🫶🏾" type="tts">mãos de coração: pele morena escura</annotation>
-		<annotation cp="🫶🏿">amor | mãos de coração | pele escura</annotation>
-		<annotation cp="🫶🏿" type="tts">mãos de coração: pele escura</annotation>
-		<annotation cp="👋🏻">aceno | mão | mão acenando | pele clara</annotation>
-		<annotation cp="👋🏻" type="tts">mão acenando: pele clara</annotation>
-		<annotation cp="👋🏼">aceno | mão | mão acenando | pele morena clara</annotation>
-		<annotation cp="👋🏼" type="tts">mão acenando: pele morena clara</annotation>
-		<annotation cp="👋🏽">aceno | mão | mão acenando | pele morena</annotation>
-		<annotation cp="👋🏽" type="tts">mão acenando: pele morena</annotation>
-		<annotation cp="👋🏾">aceno | mão | mão acenando | pele morena escura</annotation>
-		<annotation cp="👋🏾" type="tts">mão acenando: pele morena escura</annotation>
-		<annotation cp="👋🏿">aceno | mão | mão acenando | pele escura</annotation>
-		<annotation cp="👋🏿" type="tts">mão acenando: pele escura</annotation>
-		<annotation cp="🤚🏻">dorso da mão levantado | levantada | mão | palma | pare | pele clara</annotation>
-		<annotation cp="🤚🏻" type="tts">dorso da mão levantado: pele clara</annotation>
-		<annotation cp="🤚🏼">dorso da mão levantado | levantada | mão | palma | pare | pele morena clara</annotation>
-		<annotation cp="🤚🏼" type="tts">dorso da mão levantado: pele morena clara</annotation>
-		<annotation cp="🤚🏽">dorso da mão levantado | levantada | mão | palma | pare | pele morena</annotation>
-		<annotation cp="🤚🏽" type="tts">dorso da mão levantado: pele morena</annotation>
-		<annotation cp="🤚🏾">dorso da mão levantado | levantada | mão | palma | pare | pele morena escura</annotation>
-		<annotation cp="🤚🏾" type="tts">dorso da mão levantado: pele morena escura</annotation>
-		<annotation cp="🤚🏿">dorso da mão levantado | levantada | mão | palma | pare | pele escura</annotation>
-		<annotation cp="🤚🏿" type="tts">dorso da mão levantado: pele escura</annotation>
-		<annotation cp="🖐🏻">cinco dedos | dedos | mão | mão aberta com os dedos separados | mão aberta indicando cinco | palma da mão | pele clara</annotation>
-		<annotation cp="🖐🏻" type="tts">mão aberta com os dedos separados: pele clara</annotation>
-		<annotation cp="🖐🏼">cinco dedos | dedos | mão | mão aberta com os dedos separados | mão aberta indicando cinco | palma da mão | pele morena clara</annotation>
-		<annotation cp="🖐🏼" type="tts">mão aberta com os dedos separados: pele morena clara</annotation>
-		<annotation cp="🖐🏽">cinco dedos | dedos | mão | mão aberta com os dedos separados | mão aberta indicando cinco | palma da mão | pele morena</annotation>
-		<annotation cp="🖐🏽" type="tts">mão aberta com os dedos separados: pele morena</annotation>
-		<annotation cp="🖐🏾">cinco dedos | dedos | mão | mão aberta com os dedos separados | mão aberta indicando cinco | palma da mão | pele morena escura</annotation>
-		<annotation cp="🖐🏾" type="tts">mão aberta com os dedos separados: pele morena escura</annotation>
-		<annotation cp="🖐🏿">cinco dedos | dedos | mão | mão aberta com os dedos separados | mão aberta indicando cinco | palma da mão | pele escura</annotation>
-		<annotation cp="🖐🏿" type="tts">mão aberta com os dedos separados: pele escura</annotation>
-		<annotation cp="✋🏻">mão erguida | mão levantada | pele clara</annotation>
-		<annotation cp="✋🏻" type="tts">mão levantada: pele clara</annotation>
-		<annotation cp="✋🏼">mão erguida | mão levantada | pele morena clara</annotation>
-		<annotation cp="✋🏼" type="tts">mão levantada: pele morena clara</annotation>
-		<annotation cp="✋🏽">mão erguida | mão levantada | pele morena</annotation>
-		<annotation cp="✋🏽" type="tts">mão levantada: pele morena</annotation>
-		<annotation cp="✋🏾">mão erguida | mão levantada | pele morena escura</annotation>
-		<annotation cp="✋🏾" type="tts">mão levantada: pele morena escura</annotation>
-		<annotation cp="✋🏿">mão erguida | mão levantada | pele escura</annotation>
-		<annotation cp="✋🏿" type="tts">mão levantada: pele escura</annotation>
-		<annotation cp="🖖🏻">dedos | jornada nas estrelas | mão | pele clara | saudação | saudação vulcana | spock | star trek</annotation>
-		<annotation cp="🖖🏻" type="tts">saudação vulcana: pele clara</annotation>
-		<annotation cp="🖖🏼">dedos | jornada nas estrelas | mão | pele morena clara | saudação | saudação vulcana | spock | star trek</annotation>
-		<annotation cp="🖖🏼" type="tts">saudação vulcana: pele morena clara</annotation>
-		<annotation cp="🖖🏽">dedos | jornada nas estrelas | mão | pele morena | saudação | saudação vulcana | spock | star trek</annotation>
-		<annotation cp="🖖🏽" type="tts">saudação vulcana: pele morena</annotation>
-		<annotation cp="🖖🏾">dedos | jornada nas estrelas | mão | pele morena escura | saudação | saudação vulcana | spock | star trek</annotation>
-		<annotation cp="🖖🏾" type="tts">saudação vulcana: pele morena escura</annotation>
-		<annotation cp="🖖🏿">dedos | jornada nas estrelas | mão | pele escura | saudação | saudação vulcana | spock | star trek</annotation>
-		<annotation cp="🖖🏿" type="tts">saudação vulcana: pele escura</annotation>
 		<annotation cp="👌🏻">mão | mão sinalizando ok | ok | pele clara | sinal | sinal de ok</annotation>
 		<annotation cp="👌🏻" type="tts">sinal de ok: pele clara</annotation>
 		<annotation cp="👌🏼">mão | mão sinalizando ok | ok | pele morena clara | sinal | sinal de ok</annotation>
@@ -252,6 +192,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤞🏾" type="tts">dedos cruzados: pele morena escura</annotation>
 		<annotation cp="🤞🏿">cruzados | dedos | mão | pele escura | sorte</annotation>
 		<annotation cp="🤞🏿" type="tts">dedos cruzados: pele escura</annotation>
+		<annotation cp="🫰🏻">amor | caro | coração | dinheiro | estalar | mão com dedo indicador e polegar cruzados | pele clara</annotation>
+		<annotation cp="🫰🏻" type="tts">mão com dedo indicador e polegar cruzados: pele clara</annotation>
+		<annotation cp="🫰🏼">amor | caro | coração | dinheiro | estalar | mão com dedo indicador e polegar cruzados | pele morena clara</annotation>
+		<annotation cp="🫰🏼" type="tts">mão com dedo indicador e polegar cruzados: pele morena clara</annotation>
+		<annotation cp="🫰🏽">amor | caro | coração | dinheiro | estalar | mão com dedo indicador e polegar cruzados | pele morena</annotation>
+		<annotation cp="🫰🏽" type="tts">mão com dedo indicador e polegar cruzados: pele morena</annotation>
+		<annotation cp="🫰🏾">amor | caro | coração | dinheiro | estalar | mão com dedo indicador e polegar cruzados | pele morena escura</annotation>
+		<annotation cp="🫰🏾" type="tts">mão com dedo indicador e polegar cruzados: pele morena escura</annotation>
+		<annotation cp="🫰🏿">amor | caro | coração | dinheiro | estalar | mão com dedo indicador e polegar cruzados | pele escura</annotation>
+		<annotation cp="🫰🏿" type="tts">mão com dedo indicador e polegar cruzados: pele escura</annotation>
 		<annotation cp="🤟🏻">gesto de &quot;te amo&quot; | mão | pele clara | te amo</annotation>
 		<annotation cp="🤟🏻" type="tts">gesto de &quot;te amo&quot;: pele clara</annotation>
 		<annotation cp="🤟🏼">gesto de &quot;te amo&quot; | mão | pele morena clara | te amo</annotation>
@@ -342,6 +292,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☝🏾" type="tts">indicador apontando para cima: pele morena escura</annotation>
 		<annotation cp="☝🏿">dedo | dedo apontando para cima | indicador | indicador apontando para cima | mão | pele escura</annotation>
 		<annotation cp="☝🏿" type="tts">indicador apontando para cima: pele escura</annotation>
+		<annotation cp="🫵🏻">apontar | indicador apontando para o visualizador | pele clara | você</annotation>
+		<annotation cp="🫵🏻" type="tts">indicador apontando para o visualizador: pele clara</annotation>
+		<annotation cp="🫵🏼">apontar | indicador apontando para o visualizador | pele morena clara | você</annotation>
+		<annotation cp="🫵🏼" type="tts">indicador apontando para o visualizador: pele morena clara</annotation>
+		<annotation cp="🫵🏽">apontar | indicador apontando para o visualizador | pele morena | você</annotation>
+		<annotation cp="🫵🏽" type="tts">indicador apontando para o visualizador: pele morena</annotation>
+		<annotation cp="🫵🏾">apontar | indicador apontando para o visualizador | pele morena escura | você</annotation>
+		<annotation cp="🫵🏾" type="tts">indicador apontando para o visualizador: pele morena escura</annotation>
+		<annotation cp="🫵🏿">apontar | indicador apontando para o visualizador | pele escura | você</annotation>
+		<annotation cp="🫵🏿" type="tts">indicador apontando para o visualizador: pele escura</annotation>
 		<annotation cp="👍🏻">dedão | mão | para cima | pele clara | polegar para cima | sinal</annotation>
 		<annotation cp="👍🏻" type="tts">polegar para cima: pele clara</annotation>
 		<annotation cp="👍🏼">dedão | mão | para cima | pele morena clara | polegar para cima | sinal</annotation>
@@ -422,6 +382,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">mãos para cima: pele morena escura</annotation>
 		<annotation cp="🙌🏿">ambas as mãos | comemoração | levantando ambas as mãos para comemorar | mãos para cima | pele escura</annotation>
 		<annotation cp="🙌🏿" type="tts">mãos para cima: pele escura</annotation>
+		<annotation cp="🫶🏻">amor | mãos de coração | pele clara</annotation>
+		<annotation cp="🫶🏻" type="tts">mãos de coração: pele clara</annotation>
+		<annotation cp="🫶🏼">amor | mãos de coração | pele morena clara</annotation>
+		<annotation cp="🫶🏼" type="tts">mãos de coração: pele morena clara</annotation>
+		<annotation cp="🫶🏽">amor | mãos de coração | pele morena</annotation>
+		<annotation cp="🫶🏽" type="tts">mãos de coração: pele morena</annotation>
+		<annotation cp="🫶🏾">amor | mãos de coração | pele morena escura</annotation>
+		<annotation cp="🫶🏾" type="tts">mãos de coração: pele morena escura</annotation>
+		<annotation cp="🫶🏿">amor | mãos de coração | pele escura</annotation>
+		<annotation cp="🫶🏿" type="tts">mãos de coração: pele escura</annotation>
 		<annotation cp="👐🏻">abertas | mão | mãos abertas | pele clara | sinal | sinal de mãos abertas</annotation>
 		<annotation cp="👐🏻" type="tts">mãos abertas: pele clara</annotation>
 		<annotation cp="👐🏼">abertas | mão | mãos abertas | pele morena clara | sinal | sinal de mãos abertas</annotation>
@@ -462,6 +432,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙏🏾" type="tts">mãos juntas: pele morena escura</annotation>
 		<annotation cp="🙏🏿">gesto | mão | mãos juntas | pele escura | reza | rezando | rezar</annotation>
 		<annotation cp="🙏🏿" type="tts">mãos juntas: pele escura</annotation>
+		<annotation cp="🫷🏻">empurrar | esperar | esquerda | mão empurrando para a esquerda | parar | pele clara | recusar | toca aqui</annotation>
+		<annotation cp="🫷🏻" type="tts">mão empurrando para a esquerda: pele clara</annotation>
+		<annotation cp="🫷🏼">empurrar | esperar | esquerda | mão empurrando para a esquerda | parar | pele morena clara | recusar | toca aqui</annotation>
+		<annotation cp="🫷🏼" type="tts">mão empurrando para a esquerda: pele morena clara</annotation>
+		<annotation cp="🫷🏽">empurrar | esperar | esquerda | mão empurrando para a esquerda | parar | pele morena | recusar | toca aqui</annotation>
+		<annotation cp="🫷🏽" type="tts">mão empurrando para a esquerda: pele morena</annotation>
+		<annotation cp="🫷🏾">empurrar | esperar | esquerda | mão empurrando para a esquerda | parar | pele morena escura | recusar | toca aqui</annotation>
+		<annotation cp="🫷🏾" type="tts">mão empurrando para a esquerda: pele morena escura</annotation>
+		<annotation cp="🫷🏿">empurrar | esperar | esquerda | mão empurrando para a esquerda | parar | pele escura | recusar | toca aqui</annotation>
+		<annotation cp="🫷🏿" type="tts">mão empurrando para a esquerda: pele escura</annotation>
+		<annotation cp="🫸🏻">direita | empurrar | esperar | mão empurrando para a direita | parar | pele clara | recusar | toca aqui</annotation>
+		<annotation cp="🫸🏻" type="tts">mão empurrando para a direita: pele clara</annotation>
+		<annotation cp="🫸🏼">direita | empurrar | esperar | mão empurrando para a direita | parar | pele morena clara | recusar | toca aqui</annotation>
+		<annotation cp="🫸🏼" type="tts">mão empurrando para a direita: pele morena clara</annotation>
+		<annotation cp="🫸🏽">direita | empurrar | esperar | mão empurrando para a direita | parar | pele morena | recusar | toca aqui</annotation>
+		<annotation cp="🫸🏽" type="tts">mão empurrando para a direita: pele morena</annotation>
+		<annotation cp="🫸🏾">direita | empurrar | esperar | mão empurrando para a direita | parar | pele morena escura | recusar | toca aqui</annotation>
+		<annotation cp="🫸🏾" type="tts">mão empurrando para a direita: pele morena escura</annotation>
+		<annotation cp="🫸🏿">direita | empurrar | esperar | mão empurrando para a direita | parar | pele escura | recusar | toca aqui</annotation>
+		<annotation cp="🫸🏿" type="tts">mão empurrando para a direita: pele escura</annotation>
 		<annotation cp="✍🏻">caneta | escrevendo | escrevendo à mão | mão | pele clara</annotation>
 		<annotation cp="✍🏻" type="tts">escrevendo à mão: pele clara</annotation>
 		<annotation cp="✍🏼">caneta | escrevendo | escrevendo à mão | mão | pele morena clara</annotation>
@@ -2146,6 +2136,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👷🏾‍♀" type="tts">pedreira: pele morena escura</annotation>
 		<annotation cp="👷🏿‍♀">construção | mulher | operária | pedreira | pele escura</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">pedreira: pele escura</annotation>
+		<annotation cp="🫅🏻">monarca | nobre | pele clara | pessoa com coroa | real | realeza</annotation>
+		<annotation cp="🫅🏻" type="tts">pessoa com coroa: pele clara</annotation>
+		<annotation cp="🫅🏼">monarca | nobre | pele morena clara | pessoa com coroa | real | realeza</annotation>
+		<annotation cp="🫅🏼" type="tts">pessoa com coroa: pele morena clara</annotation>
+		<annotation cp="🫅🏽">monarca | nobre | pele morena | pessoa com coroa | real | realeza</annotation>
+		<annotation cp="🫅🏽" type="tts">pessoa com coroa: pele morena</annotation>
+		<annotation cp="🫅🏾">monarca | nobre | pele morena escura | pessoa com coroa | real | realeza</annotation>
+		<annotation cp="🫅🏾" type="tts">pessoa com coroa: pele morena escura</annotation>
+		<annotation cp="🫅🏿">monarca | nobre | pele escura | pessoa com coroa | real | realeza</annotation>
+		<annotation cp="🫅🏿" type="tts">pessoa com coroa: pele escura</annotation>
 		<annotation cp="🤴🏻">pele clara | príncipe</annotation>
 		<annotation cp="🤴🏻" type="tts">príncipe: pele clara</annotation>
 		<annotation cp="🤴🏼">pele morena clara | príncipe</annotation>
@@ -2286,6 +2286,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">grávida: pele morena escura</annotation>
 		<annotation cp="🤰🏿">grávida | mulher | pele escura</annotation>
 		<annotation cp="🤰🏿" type="tts">grávida: pele escura</annotation>
+		<annotation cp="🫃🏻">barriga | cheio | grávido | homem grávido | inchado | pele clara</annotation>
+		<annotation cp="🫃🏻" type="tts">homem grávido: pele clara</annotation>
+		<annotation cp="🫃🏼">barriga | cheio | grávido | homem grávido | inchado | pele morena clara</annotation>
+		<annotation cp="🫃🏼" type="tts">homem grávido: pele morena clara</annotation>
+		<annotation cp="🫃🏽">barriga | cheio | grávido | homem grávido | inchado | pele morena</annotation>
+		<annotation cp="🫃🏽" type="tts">homem grávido: pele morena</annotation>
+		<annotation cp="🫃🏾">barriga | cheio | grávido | homem grávido | inchado | pele morena escura</annotation>
+		<annotation cp="🫃🏾" type="tts">homem grávido: pele morena escura</annotation>
+		<annotation cp="🫃🏿">barriga | cheio | grávido | homem grávido | inchado | pele escura</annotation>
+		<annotation cp="🫃🏿" type="tts">homem grávido: pele escura</annotation>
+		<annotation cp="🫄🏻">barriga | cheio | gravidez | inchada | pele clara | pessoa grávida</annotation>
+		<annotation cp="🫄🏻" type="tts">pessoa grávida: pele clara</annotation>
+		<annotation cp="🫄🏼">barriga | cheio | gravidez | inchada | pele morena clara | pessoa grávida</annotation>
+		<annotation cp="🫄🏼" type="tts">pessoa grávida: pele morena clara</annotation>
+		<annotation cp="🫄🏽">barriga | cheio | gravidez | inchada | pele morena | pessoa grávida</annotation>
+		<annotation cp="🫄🏽" type="tts">pessoa grávida: pele morena</annotation>
+		<annotation cp="🫄🏾">barriga | cheio | gravidez | inchada | pele morena escura | pessoa grávida</annotation>
+		<annotation cp="🫄🏾" type="tts">pessoa grávida: pele morena escura</annotation>
+		<annotation cp="🫄🏿">barriga | cheio | gravidez | inchada | pele escura | pessoa grávida</annotation>
+		<annotation cp="🫄🏿" type="tts">pessoa grávida: pele escura</annotation>
 		<annotation cp="🤱🏻">amamentação | amamentando | bebê | neném | pele clara</annotation>
 		<annotation cp="🤱🏻" type="tts">amamentando: pele clara</annotation>
 		<annotation cp="🤱🏼">amamentação | amamentando | bebê | neném | pele morena clara</annotation>

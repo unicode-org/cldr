@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,46 +12,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="da"/>
 	</identity>
 	<annotations>
-		<annotation cp="🫃🏻">gravid | gravid mand | lys teint | mæt | mave | oppustet</annotation>
-		<annotation cp="🫃🏻" type="tts">gravid mand: lys teint</annotation>
-		<annotation cp="🫃🏼">gravid | gravid mand | mæt | mave | medium til lys teint | oppustet</annotation>
-		<annotation cp="🫃🏼" type="tts">gravid mand: medium til lys teint</annotation>
-		<annotation cp="🫃🏽">gravid | gravid mand | mæt | mave | medium teint | oppustet</annotation>
-		<annotation cp="🫃🏽" type="tts">gravid mand: medium teint</annotation>
-		<annotation cp="🫃🏾">gravid | gravid mand | mæt | mave | medium til mørk teint | oppustet</annotation>
-		<annotation cp="🫃🏾" type="tts">gravid mand: medium til mørk teint</annotation>
-		<annotation cp="🫃🏿">gravid | gravid mand | mæt | mave | mørk teint | oppustet</annotation>
-		<annotation cp="🫃🏿" type="tts">gravid mand: mørk teint</annotation>
-		<annotation cp="🫄🏻">gravid | gravid person | lys teint | mæt | mave | oppustet</annotation>
-		<annotation cp="🫄🏻" type="tts">gravid person: lys teint</annotation>
-		<annotation cp="🫄🏼">gravid | gravid person | mæt | mave | medium til lys teint | oppustet</annotation>
-		<annotation cp="🫄🏼" type="tts">gravid person: medium til lys teint</annotation>
-		<annotation cp="🫄🏽">gravid | gravid person | mæt | mave | medium teint | oppustet</annotation>
-		<annotation cp="🫄🏽" type="tts">gravid person: medium teint</annotation>
-		<annotation cp="🫄🏾">gravid | gravid person | mæt | mave | medium til mørk teint | oppustet</annotation>
-		<annotation cp="🫄🏾" type="tts">gravid person: medium til mørk teint</annotation>
-		<annotation cp="🫄🏿">gravid | gravid person | mæt | mave | mørk teint | oppustet</annotation>
-		<annotation cp="🫄🏿" type="tts">gravid person: mørk teint</annotation>
-		<annotation cp="🫅🏻">adelig | kongelig | lys teint | monark | person med krone | royal</annotation>
-		<annotation cp="🫅🏻" type="tts">person med krone: lys teint</annotation>
-		<annotation cp="🫅🏼">adelig | kongelig | medium til lys teint | monark | person med krone | royal</annotation>
-		<annotation cp="🫅🏼" type="tts">person med krone: medium til lys teint</annotation>
-		<annotation cp="🫅🏽">adelig | kongelig | medium teint | monark | person med krone | royal</annotation>
-		<annotation cp="🫅🏽" type="tts">person med krone: medium teint</annotation>
-		<annotation cp="🫅🏾">adelig | kongelig | medium til mørk teint | monark | person med krone | royal</annotation>
-		<annotation cp="🫅🏾" type="tts">person med krone: medium til mørk teint</annotation>
-		<annotation cp="🫅🏿">adelig | kongelig | monark | mørk teint | person med krone | royal</annotation>
-		<annotation cp="🫅🏿" type="tts">person med krone: mørk teint</annotation>
-		<annotation cp="🫰🏻">dyrt | hjerte | kærlighed | knips | krydset pegefinger og tommelfinger | lys teint | penge</annotation>
-		<annotation cp="🫰🏻" type="tts">krydset pegefinger og tommelfinger: lys teint</annotation>
-		<annotation cp="🫰🏼">dyrt | hjerte | kærlighed | knips | krydset pegefinger og tommelfinger | medium til lys teint | penge</annotation>
-		<annotation cp="🫰🏼" type="tts">krydset pegefinger og tommelfinger: medium til lys teint</annotation>
-		<annotation cp="🫰🏽">dyrt | hjerte | kærlighed | knips | krydset pegefinger og tommelfinger | medium teint | penge</annotation>
-		<annotation cp="🫰🏽" type="tts">krydset pegefinger og tommelfinger: medium teint</annotation>
-		<annotation cp="🫰🏾">dyrt | hjerte | kærlighed | knips | krydset pegefinger og tommelfinger | medium til mørk teint | penge</annotation>
-		<annotation cp="🫰🏾" type="tts">krydset pegefinger og tommelfinger: medium til mørk teint</annotation>
-		<annotation cp="🫰🏿">dyrt | hjerte | kærlighed | knips | krydset pegefinger og tommelfinger | mørk teint | penge</annotation>
-		<annotation cp="🫰🏿" type="tts">krydset pegefinger og tommelfinger: mørk teint</annotation>
+		<annotation cp="👋🏻">hånd | lys teint | vinker</annotation>
+		<annotation cp="👋🏻" type="tts">vinker: lys teint</annotation>
+		<annotation cp="👋🏼">hånd | medium til lys teint | vinker</annotation>
+		<annotation cp="👋🏼" type="tts">vinker: medium til lys teint</annotation>
+		<annotation cp="👋🏽">hånd | medium teint | vinker</annotation>
+		<annotation cp="👋🏽" type="tts">vinker: medium teint</annotation>
+		<annotation cp="👋🏾">hånd | medium til mørk teint | vinker</annotation>
+		<annotation cp="👋🏾" type="tts">vinker: medium til mørk teint</annotation>
+		<annotation cp="👋🏿">hånd | mørk teint | vinker</annotation>
+		<annotation cp="👋🏿" type="tts">vinker: mørk teint</annotation>
+		<annotation cp="🤚🏻">bagside af hånd | hånd | håndryg | løftet hånd | løftet håndryg | lys teint</annotation>
+		<annotation cp="🤚🏻" type="tts">løftet håndryg: lys teint</annotation>
+		<annotation cp="🤚🏼">bagside af hånd | hånd | håndryg | løftet hånd | løftet håndryg | medium til lys teint</annotation>
+		<annotation cp="🤚🏼" type="tts">løftet håndryg: medium til lys teint</annotation>
+		<annotation cp="🤚🏽">bagside af hånd | hånd | håndryg | løftet hånd | løftet håndryg | medium teint</annotation>
+		<annotation cp="🤚🏽" type="tts">løftet håndryg: medium teint</annotation>
+		<annotation cp="🤚🏾">bagside af hånd | hånd | håndryg | løftet hånd | løftet håndryg | medium til mørk teint</annotation>
+		<annotation cp="🤚🏾" type="tts">løftet håndryg: medium til mørk teint</annotation>
+		<annotation cp="🤚🏿">bagside af hånd | hånd | håndryg | løftet hånd | løftet håndryg | mørk teint</annotation>
+		<annotation cp="🤚🏿" type="tts">løftet håndryg: mørk teint</annotation>
+		<annotation cp="🖐🏻">finger | hånd | hånd med spredte fingre | krop | lys teint | spredte</annotation>
+		<annotation cp="🖐🏻" type="tts">hånd med spredte fingre: lys teint</annotation>
+		<annotation cp="🖐🏼">finger | hånd | hånd med spredte fingre | krop | medium til lys teint | spredte</annotation>
+		<annotation cp="🖐🏼" type="tts">hånd med spredte fingre: medium til lys teint</annotation>
+		<annotation cp="🖐🏽">finger | hånd | hånd med spredte fingre | krop | medium teint | spredte</annotation>
+		<annotation cp="🖐🏽" type="tts">hånd med spredte fingre: medium teint</annotation>
+		<annotation cp="🖐🏾">finger | hånd | hånd med spredte fingre | krop | medium til mørk teint | spredte</annotation>
+		<annotation cp="🖐🏾" type="tts">hånd med spredte fingre: medium til mørk teint</annotation>
+		<annotation cp="🖐🏿">finger | hånd | hånd med spredte fingre | krop | mørk teint | spredte</annotation>
+		<annotation cp="🖐🏿" type="tts">hånd med spredte fingre: mørk teint</annotation>
+		<annotation cp="✋🏻">hånd | krop | løftet hånd | lys teint</annotation>
+		<annotation cp="✋🏻" type="tts">løftet hånd: lys teint</annotation>
+		<annotation cp="✋🏼">hånd | krop | løftet hånd | medium til lys teint</annotation>
+		<annotation cp="✋🏼" type="tts">løftet hånd: medium til lys teint</annotation>
+		<annotation cp="✋🏽">hånd | krop | løftet hånd | medium teint</annotation>
+		<annotation cp="✋🏽" type="tts">løftet hånd: medium teint</annotation>
+		<annotation cp="✋🏾">hånd | krop | løftet hånd | medium til mørk teint</annotation>
+		<annotation cp="✋🏾" type="tts">løftet hånd: medium til mørk teint</annotation>
+		<annotation cp="✋🏿">hånd | krop | løftet hånd | mørk teint</annotation>
+		<annotation cp="✋🏿" type="tts">løftet hånd: mørk teint</annotation>
+		<annotation cp="🖖🏻">finger | hånd | krop | lys teint | spock | vulcan | vulcan-hilsen</annotation>
+		<annotation cp="🖖🏻" type="tts">vulcan-hilsen: lys teint</annotation>
+		<annotation cp="🖖🏼">finger | hånd | krop | medium til lys teint | spock | vulcan | vulcan-hilsen</annotation>
+		<annotation cp="🖖🏼" type="tts">vulcan-hilsen: medium til lys teint</annotation>
+		<annotation cp="🖖🏽">finger | hånd | krop | medium teint | spock | vulcan | vulcan-hilsen</annotation>
+		<annotation cp="🖖🏽" type="tts">vulcan-hilsen: medium teint</annotation>
+		<annotation cp="🖖🏾">finger | hånd | krop | medium til mørk teint | spock | vulcan | vulcan-hilsen</annotation>
+		<annotation cp="🖖🏾" type="tts">vulcan-hilsen: medium til mørk teint</annotation>
+		<annotation cp="🖖🏿">finger | hånd | krop | mørk teint | spock | vulcan | vulcan-hilsen</annotation>
+		<annotation cp="🖖🏿" type="tts">vulcan-hilsen: mørk teint</annotation>
 		<annotation cp="🫱🏻">hånd | hånd til højre | højre | lys teint</annotation>
 		<annotation cp="🫱🏻" type="tts">hånd til højre: lys teint</annotation>
 		<annotation cp="🫱🏼">hånd | hånd til højre | højre | medium til lys teint</annotation>
@@ -132,76 +142,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫴🏾" type="tts">håndflade opad: medium til mørk teint</annotation>
 		<annotation cp="🫴🏿">gribe | håndflade opad | kom | lokke | mørk teint | tilbyde | vinke hen</annotation>
 		<annotation cp="🫴🏿" type="tts">håndflade opad: mørk teint</annotation>
-		<annotation cp="🫵🏻">dig | lys teint | pegefinger | peger på seeren</annotation>
-		<annotation cp="🫵🏻" type="tts">peger på seeren: lys teint</annotation>
-		<annotation cp="🫵🏼">dig | medium til lys teint | pegefinger | peger på seeren</annotation>
-		<annotation cp="🫵🏼" type="tts">peger på seeren: medium til lys teint</annotation>
-		<annotation cp="🫵🏽">dig | medium teint | pegefinger | peger på seeren</annotation>
-		<annotation cp="🫵🏽" type="tts">peger på seeren: medium teint</annotation>
-		<annotation cp="🫵🏾">dig | medium til mørk teint | pegefinger | peger på seeren</annotation>
-		<annotation cp="🫵🏾" type="tts">peger på seeren: medium til mørk teint</annotation>
-		<annotation cp="🫵🏿">dig | mørk teint | pegefinger | peger på seeren</annotation>
-		<annotation cp="🫵🏿" type="tts">peger på seeren: mørk teint</annotation>
-		<annotation cp="🫶🏻">hjertehænder | kærlighed | lys teint</annotation>
-		<annotation cp="🫶🏻" type="tts">hjertehænder: lys teint</annotation>
-		<annotation cp="🫶🏼">hjertehænder | kærlighed | medium til lys teint</annotation>
-		<annotation cp="🫶🏼" type="tts">hjertehænder: medium til lys teint</annotation>
-		<annotation cp="🫶🏽">hjertehænder | kærlighed | medium teint</annotation>
-		<annotation cp="🫶🏽" type="tts">hjertehænder: medium teint</annotation>
-		<annotation cp="🫶🏾">hjertehænder | kærlighed | medium til mørk teint</annotation>
-		<annotation cp="🫶🏾" type="tts">hjertehænder: medium til mørk teint</annotation>
-		<annotation cp="🫶🏿">hjertehænder | kærlighed | mørk teint</annotation>
-		<annotation cp="🫶🏿" type="tts">hjertehænder: mørk teint</annotation>
-		<annotation cp="👋🏻">hånd | lys teint | vinker</annotation>
-		<annotation cp="👋🏻" type="tts">vinker: lys teint</annotation>
-		<annotation cp="👋🏼">hånd | medium til lys teint | vinker</annotation>
-		<annotation cp="👋🏼" type="tts">vinker: medium til lys teint</annotation>
-		<annotation cp="👋🏽">hånd | medium teint | vinker</annotation>
-		<annotation cp="👋🏽" type="tts">vinker: medium teint</annotation>
-		<annotation cp="👋🏾">hånd | medium til mørk teint | vinker</annotation>
-		<annotation cp="👋🏾" type="tts">vinker: medium til mørk teint</annotation>
-		<annotation cp="👋🏿">hånd | mørk teint | vinker</annotation>
-		<annotation cp="👋🏿" type="tts">vinker: mørk teint</annotation>
-		<annotation cp="🤚🏻">bagside af hånd | hånd | håndryg | løftet hånd | løftet håndryg | lys teint</annotation>
-		<annotation cp="🤚🏻" type="tts">løftet håndryg: lys teint</annotation>
-		<annotation cp="🤚🏼">bagside af hånd | hånd | håndryg | løftet hånd | løftet håndryg | medium til lys teint</annotation>
-		<annotation cp="🤚🏼" type="tts">løftet håndryg: medium til lys teint</annotation>
-		<annotation cp="🤚🏽">bagside af hånd | hånd | håndryg | løftet hånd | løftet håndryg | medium teint</annotation>
-		<annotation cp="🤚🏽" type="tts">løftet håndryg: medium teint</annotation>
-		<annotation cp="🤚🏾">bagside af hånd | hånd | håndryg | løftet hånd | løftet håndryg | medium til mørk teint</annotation>
-		<annotation cp="🤚🏾" type="tts">løftet håndryg: medium til mørk teint</annotation>
-		<annotation cp="🤚🏿">bagside af hånd | hånd | håndryg | løftet hånd | løftet håndryg | mørk teint</annotation>
-		<annotation cp="🤚🏿" type="tts">løftet håndryg: mørk teint</annotation>
-		<annotation cp="🖐🏻">finger | hånd | hånd med spredte fingre | krop | lys teint | spredte</annotation>
-		<annotation cp="🖐🏻" type="tts">hånd med spredte fingre: lys teint</annotation>
-		<annotation cp="🖐🏼">finger | hånd | hånd med spredte fingre | krop | medium til lys teint | spredte</annotation>
-		<annotation cp="🖐🏼" type="tts">hånd med spredte fingre: medium til lys teint</annotation>
-		<annotation cp="🖐🏽">finger | hånd | hånd med spredte fingre | krop | medium teint | spredte</annotation>
-		<annotation cp="🖐🏽" type="tts">hånd med spredte fingre: medium teint</annotation>
-		<annotation cp="🖐🏾">finger | hånd | hånd med spredte fingre | krop | medium til mørk teint | spredte</annotation>
-		<annotation cp="🖐🏾" type="tts">hånd med spredte fingre: medium til mørk teint</annotation>
-		<annotation cp="🖐🏿">finger | hånd | hånd med spredte fingre | krop | mørk teint | spredte</annotation>
-		<annotation cp="🖐🏿" type="tts">hånd med spredte fingre: mørk teint</annotation>
-		<annotation cp="✋🏻">hånd | krop | løftet hånd | lys teint</annotation>
-		<annotation cp="✋🏻" type="tts">løftet hånd: lys teint</annotation>
-		<annotation cp="✋🏼">hånd | krop | løftet hånd | medium til lys teint</annotation>
-		<annotation cp="✋🏼" type="tts">løftet hånd: medium til lys teint</annotation>
-		<annotation cp="✋🏽">hånd | krop | løftet hånd | medium teint</annotation>
-		<annotation cp="✋🏽" type="tts">løftet hånd: medium teint</annotation>
-		<annotation cp="✋🏾">hånd | krop | løftet hånd | medium til mørk teint</annotation>
-		<annotation cp="✋🏾" type="tts">løftet hånd: medium til mørk teint</annotation>
-		<annotation cp="✋🏿">hånd | krop | løftet hånd | mørk teint</annotation>
-		<annotation cp="✋🏿" type="tts">løftet hånd: mørk teint</annotation>
-		<annotation cp="🖖🏻">finger | hånd | krop | lys teint | spock | vulcan | vulcan-hilsen</annotation>
-		<annotation cp="🖖🏻" type="tts">vulcan-hilsen: lys teint</annotation>
-		<annotation cp="🖖🏼">finger | hånd | krop | medium til lys teint | spock | vulcan | vulcan-hilsen</annotation>
-		<annotation cp="🖖🏼" type="tts">vulcan-hilsen: medium til lys teint</annotation>
-		<annotation cp="🖖🏽">finger | hånd | krop | medium teint | spock | vulcan | vulcan-hilsen</annotation>
-		<annotation cp="🖖🏽" type="tts">vulcan-hilsen: medium teint</annotation>
-		<annotation cp="🖖🏾">finger | hånd | krop | medium til mørk teint | spock | vulcan | vulcan-hilsen</annotation>
-		<annotation cp="🖖🏾" type="tts">vulcan-hilsen: medium til mørk teint</annotation>
-		<annotation cp="🖖🏿">finger | hånd | krop | mørk teint | spock | vulcan | vulcan-hilsen</annotation>
-		<annotation cp="🖖🏿" type="tts">vulcan-hilsen: mørk teint</annotation>
 		<annotation cp="👌🏻">lys teint | OK-håndtegn | ok-tegn | OK-tegn</annotation>
 		<annotation cp="👌🏻" type="tts">ok-tegn: lys teint</annotation>
 		<annotation cp="👌🏼">medium til lys teint | OK-håndtegn | ok-tegn | OK-tegn</annotation>
@@ -252,6 +192,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤞🏾" type="tts">krydsede fingre: medium til mørk teint</annotation>
 		<annotation cp="🤞🏿">finger | håb | hånd | held og lykke | krop | krydsede fingre | krydser fingre | mørk teint</annotation>
 		<annotation cp="🤞🏿" type="tts">krydsede fingre: mørk teint</annotation>
+		<annotation cp="🫰🏻">dyrt | hjerte | kærlighed | knips | krydset pegefinger og tommelfinger | lys teint | penge</annotation>
+		<annotation cp="🫰🏻" type="tts">krydset pegefinger og tommelfinger: lys teint</annotation>
+		<annotation cp="🫰🏼">dyrt | hjerte | kærlighed | knips | krydset pegefinger og tommelfinger | medium til lys teint | penge</annotation>
+		<annotation cp="🫰🏼" type="tts">krydset pegefinger og tommelfinger: medium til lys teint</annotation>
+		<annotation cp="🫰🏽">dyrt | hjerte | kærlighed | knips | krydset pegefinger og tommelfinger | medium teint | penge</annotation>
+		<annotation cp="🫰🏽" type="tts">krydset pegefinger og tommelfinger: medium teint</annotation>
+		<annotation cp="🫰🏾">dyrt | hjerte | kærlighed | knips | krydset pegefinger og tommelfinger | medium til mørk teint | penge</annotation>
+		<annotation cp="🫰🏾" type="tts">krydset pegefinger og tommelfinger: medium til mørk teint</annotation>
+		<annotation cp="🫰🏿">dyrt | hjerte | kærlighed | knips | krydset pegefinger og tommelfinger | mørk teint | penge</annotation>
+		<annotation cp="🫰🏿" type="tts">krydset pegefinger og tommelfinger: mørk teint</annotation>
 		<annotation cp="🤟🏻">Elsker dig | elsker dig-gestus | Hånd | lys teint</annotation>
 		<annotation cp="🤟🏻" type="tts">elsker dig-gestus: lys teint</annotation>
 		<annotation cp="🤟🏼">Elsker dig | elsker dig-gestus | Hånd | medium til lys teint</annotation>
@@ -332,16 +282,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👇🏾" type="tts">peger nedad: medium til mørk teint</annotation>
 		<annotation cp="👇🏿">finger | finger peger ned | mørk teint | pegefinger | peger ned | peger nedad</annotation>
 		<annotation cp="👇🏿" type="tts">peger nedad: mørk teint</annotation>
-		<annotation cp="☝🏻">finger | hånd | krop | lys teint | op | opadvendt | pege | pegefinger | rækker finger op</annotation>
+		<annotation cp="☝🏻">finger | hånd | krop | lys teint | op | pege | pegefinger | rækker finger op</annotation>
 		<annotation cp="☝🏻" type="tts">rækker finger op: lys teint</annotation>
-		<annotation cp="☝🏼">finger | hånd | krop | medium til lys teint | op | opadvendt | pege | pegefinger | rækker finger op</annotation>
+		<annotation cp="☝🏼">finger | hånd | krop | medium til lys teint | op | pege | pegefinger | rækker finger op</annotation>
 		<annotation cp="☝🏼" type="tts">rækker finger op: medium til lys teint</annotation>
-		<annotation cp="☝🏽">finger | hånd | krop | medium teint | op | opadvendt | pege | pegefinger | rækker finger op</annotation>
+		<annotation cp="☝🏽">finger | hånd | krop | medium teint | op | pege | pegefinger | rækker finger op</annotation>
 		<annotation cp="☝🏽" type="tts">rækker finger op: medium teint</annotation>
-		<annotation cp="☝🏾">finger | hånd | krop | medium til mørk teint | op | opadvendt | pege | pegefinger | rækker finger op</annotation>
+		<annotation cp="☝🏾">finger | hånd | krop | medium til mørk teint | op | pege | pegefinger | rækker finger op</annotation>
 		<annotation cp="☝🏾" type="tts">rækker finger op: medium til mørk teint</annotation>
-		<annotation cp="☝🏿">finger | hånd | krop | mørk teint | op | opadvendt | pege | pegefinger | rækker finger op</annotation>
+		<annotation cp="☝🏿">finger | hånd | krop | mørk teint | op | pege | pegefinger | rækker finger op</annotation>
 		<annotation cp="☝🏿" type="tts">rækker finger op: mørk teint</annotation>
+		<annotation cp="🫵🏻">dig | lys teint | pegefinger | peger på seeren</annotation>
+		<annotation cp="🫵🏻" type="tts">peger på seeren: lys teint</annotation>
+		<annotation cp="🫵🏼">dig | medium til lys teint | pegefinger | peger på seeren</annotation>
+		<annotation cp="🫵🏼" type="tts">peger på seeren: medium til lys teint</annotation>
+		<annotation cp="🫵🏽">dig | medium teint | pegefinger | peger på seeren</annotation>
+		<annotation cp="🫵🏽" type="tts">peger på seeren: medium teint</annotation>
+		<annotation cp="🫵🏾">dig | medium til mørk teint | pegefinger | peger på seeren</annotation>
+		<annotation cp="🫵🏾" type="tts">peger på seeren: medium til mørk teint</annotation>
+		<annotation cp="🫵🏿">dig | mørk teint | pegefinger | peger på seeren</annotation>
+		<annotation cp="🫵🏿" type="tts">peger på seeren: mørk teint</annotation>
 		<annotation cp="👍🏻">håndtegn | lys teint | ok | OK | tommelfinger op</annotation>
 		<annotation cp="👍🏻" type="tts">tommelfinger op: lys teint</annotation>
 		<annotation cp="👍🏼">håndtegn | medium til lys teint | ok | OK | tommelfinger op</annotation>
@@ -422,6 +382,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">løftede hænder: medium til mørk teint</annotation>
 		<annotation cp="🙌🏿">begge hænder oppe | hænderne over hovedet | hurra | juhu | løftede hænder | mørk teint</annotation>
 		<annotation cp="🙌🏿" type="tts">løftede hænder: mørk teint</annotation>
+		<annotation cp="🫶🏻">hjertehænder | kærlighed | lys teint</annotation>
+		<annotation cp="🫶🏻" type="tts">hjertehænder: lys teint</annotation>
+		<annotation cp="🫶🏼">hjertehænder | kærlighed | medium til lys teint</annotation>
+		<annotation cp="🫶🏼" type="tts">hjertehænder: medium til lys teint</annotation>
+		<annotation cp="🫶🏽">hjertehænder | kærlighed | medium teint</annotation>
+		<annotation cp="🫶🏽" type="tts">hjertehænder: medium teint</annotation>
+		<annotation cp="🫶🏾">hjertehænder | kærlighed | medium til mørk teint</annotation>
+		<annotation cp="🫶🏾" type="tts">hjertehænder: medium til mørk teint</annotation>
+		<annotation cp="🫶🏿">hjertehænder | kærlighed | mørk teint</annotation>
+		<annotation cp="🫶🏿" type="tts">hjertehænder: mørk teint</annotation>
 		<annotation cp="👐🏻">åbne hænder | åbne hænder-tegn | håndtegn | lys teint</annotation>
 		<annotation cp="👐🏻" type="tts">åbne hænder: lys teint</annotation>
 		<annotation cp="👐🏼">åbne hænder | åbne hænder-tegn | håndtegn | medium til lys teint</annotation>
@@ -462,6 +432,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙏🏾" type="tts">foldede hænder: medium til mørk teint</annotation>
 		<annotation cp="🙏🏿">bøn | foldede hænder | mørk teint | namaste | namasté</annotation>
 		<annotation cp="🙏🏿" type="tts">foldede hænder: mørk teint</annotation>
+		<annotation cp="🫷🏻">afslå | hånd skubber mod venstre | highfive | lys teint | mod venstre | skub | stop | vent</annotation>
+		<annotation cp="🫷🏻" type="tts">hånd skubber mod venstre: lys teint</annotation>
+		<annotation cp="🫷🏼">afslå | hånd skubber mod venstre | highfive | medium til lys teint | mod venstre | skub | stop | vent</annotation>
+		<annotation cp="🫷🏼" type="tts">hånd skubber mod venstre: medium til lys teint</annotation>
+		<annotation cp="🫷🏽">afslå | hånd skubber mod venstre | highfive | medium teint | mod venstre | skub | stop | vent</annotation>
+		<annotation cp="🫷🏽" type="tts">hånd skubber mod venstre: medium teint</annotation>
+		<annotation cp="🫷🏾">afslå | hånd skubber mod venstre | highfive | medium til mørk teint | mod venstre | skub | stop | vent</annotation>
+		<annotation cp="🫷🏾" type="tts">hånd skubber mod venstre: medium til mørk teint</annotation>
+		<annotation cp="🫷🏿">afslå | hånd skubber mod venstre | highfive | mod venstre | mørk teint | skub | stop | vent</annotation>
+		<annotation cp="🫷🏿" type="tts">hånd skubber mod venstre: mørk teint</annotation>
+		<annotation cp="🫸🏻">afslå | hånd skubber mod højre | highfive | lys teint | mod højre | skub | stop | vent</annotation>
+		<annotation cp="🫸🏻" type="tts">hånd skubber mod højre: lys teint</annotation>
+		<annotation cp="🫸🏼">afslå | hånd skubber mod højre | highfive | medium til lys teint | mod højre | skub | stop | vent</annotation>
+		<annotation cp="🫸🏼" type="tts">hånd skubber mod højre: medium til lys teint</annotation>
+		<annotation cp="🫸🏽">afslå | hånd skubber mod højre | highfive | medium teint | mod højre | skub | stop | vent</annotation>
+		<annotation cp="🫸🏽" type="tts">hånd skubber mod højre: medium teint</annotation>
+		<annotation cp="🫸🏾">afslå | hånd skubber mod højre | highfive | medium til mørk teint | mod højre | skub | stop | vent</annotation>
+		<annotation cp="🫸🏾" type="tts">hånd skubber mod højre: medium til mørk teint</annotation>
+		<annotation cp="🫸🏿">afslå | hånd skubber mod højre | highfive | mod højre | mørk teint | skub | stop | vent</annotation>
+		<annotation cp="🫸🏿" type="tts">hånd skubber mod højre: mørk teint</annotation>
 		<annotation cp="✍🏻">hånd | lys teint | skrive | skrivende hånd</annotation>
 		<annotation cp="✍🏻" type="tts">skrivende hånd: lys teint</annotation>
 		<annotation cp="✍🏼">hånd | medium til lys teint | skrive | skrivende hånd</annotation>
@@ -482,15 +472,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💅🏾" type="tts">neglelak: medium til mørk teint</annotation>
 		<annotation cp="💅🏿">kosmetik | manicure | mørk teint | negle | neglelak</annotation>
 		<annotation cp="💅🏿" type="tts">neglelak: mørk teint</annotation>
-		<annotation cp="🤳🏻">arm | foto | fotografere | fotografi | kamera | lys teint | mobil | mobiltelefon | selfie | tager billeder | tager selfies | telefon</annotation>
+		<annotation cp="🤳🏻">arm | foto | kamera | lys teint | mobiltelefon | selfie | tager selfies | telefon</annotation>
 		<annotation cp="🤳🏻" type="tts">selfie: lys teint</annotation>
-		<annotation cp="🤳🏼">arm | foto | fotografere | fotografi | kamera | medium til lys teint | mobil | mobiltelefon | selfie | tager billeder | tager selfies | telefon</annotation>
+		<annotation cp="🤳🏼">arm | foto | kamera | medium til lys teint | mobiltelefon | selfie | tager selfies | telefon</annotation>
 		<annotation cp="🤳🏼" type="tts">selfie: medium til lys teint</annotation>
-		<annotation cp="🤳🏽">arm | foto | fotografere | fotografi | kamera | medium teint | mobil | mobiltelefon | selfie | tager billeder | tager selfies | telefon</annotation>
+		<annotation cp="🤳🏽">arm | foto | kamera | medium teint | mobiltelefon | selfie | tager selfies | telefon</annotation>
 		<annotation cp="🤳🏽" type="tts">selfie: medium teint</annotation>
-		<annotation cp="🤳🏾">arm | foto | fotografere | fotografi | kamera | medium til mørk teint | mobil | mobiltelefon | selfie | tager billeder | tager selfies | telefon</annotation>
+		<annotation cp="🤳🏾">arm | foto | kamera | medium til mørk teint | mobiltelefon | selfie | tager selfies | telefon</annotation>
 		<annotation cp="🤳🏾" type="tts">selfie: medium til mørk teint</annotation>
-		<annotation cp="🤳🏿">arm | foto | fotografere | fotografi | kamera | mobil | mobiltelefon | mørk teint | selfie | tager billeder | tager selfies | telefon</annotation>
+		<annotation cp="🤳🏿">arm | foto | kamera | mobiltelefon | mørk teint | selfie | tager selfies | telefon</annotation>
 		<annotation cp="🤳🏿" type="tts">selfie: mørk teint</annotation>
 		<annotation cp="💪🏻">armmuskler | lys teint | muskel | stærk</annotation>
 		<annotation cp="💪🏻" type="tts">armmuskler: lys teint</annotation>
@@ -1476,15 +1466,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙇🏾‍♀" type="tts">kvinde bukker dybt: medium til mørk teint</annotation>
 		<annotation cp="🙇🏿‍♀">buk | kvinde | kvinde bukker dybt | mørk teint | undskyld | undskyldning</annotation>
 		<annotation cp="🙇🏿‍♀" type="tts">kvinde bukker dybt: mørk teint</annotation>
-		<annotation cp="🤦🏻">ansigt | dumt | facepalm | hånd | håndflade | irriteret | lys teint | skepsis | slå sig for panden</annotation>
+		<annotation cp="🤦🏻">ansigt | dumt | facepalm | hånd | irriteret | lys teint | skepsis | slå sig for panden</annotation>
 		<annotation cp="🤦🏻" type="tts">slå sig for panden: lys teint</annotation>
-		<annotation cp="🤦🏼">ansigt | dumt | facepalm | hånd | håndflade | irriteret | medium til lys teint | skepsis | slå sig for panden</annotation>
+		<annotation cp="🤦🏼">ansigt | dumt | facepalm | hånd | irriteret | medium til lys teint | skepsis | slå sig for panden</annotation>
 		<annotation cp="🤦🏼" type="tts">slå sig for panden: medium til lys teint</annotation>
-		<annotation cp="🤦🏽">ansigt | dumt | facepalm | hånd | håndflade | irriteret | medium teint | skepsis | slå sig for panden</annotation>
+		<annotation cp="🤦🏽">ansigt | dumt | facepalm | hånd | irriteret | medium teint | skepsis | slå sig for panden</annotation>
 		<annotation cp="🤦🏽" type="tts">slå sig for panden: medium teint</annotation>
-		<annotation cp="🤦🏾">ansigt | dumt | facepalm | hånd | håndflade | irriteret | medium til mørk teint | skepsis | slå sig for panden</annotation>
+		<annotation cp="🤦🏾">ansigt | dumt | facepalm | hånd | irriteret | medium til mørk teint | skepsis | slå sig for panden</annotation>
 		<annotation cp="🤦🏾" type="tts">slå sig for panden: medium til mørk teint</annotation>
-		<annotation cp="🤦🏿">ansigt | dumt | facepalm | hånd | håndflade | irriteret | mørk teint | skepsis | slå sig for panden</annotation>
+		<annotation cp="🤦🏿">ansigt | dumt | facepalm | hånd | irriteret | mørk teint | skepsis | slå sig for panden</annotation>
 		<annotation cp="🤦🏿" type="tts">slå sig for panden: mørk teint</annotation>
 		<annotation cp="🤦🏻‍♂">facepalm | græmmes | håndflade | irritation | irriteret | lys teint | mand | mand slår sig for panden | skepsis</annotation>
 		<annotation cp="🤦🏻‍♂" type="tts">mand slår sig for panden: lys teint</annotation>
@@ -1506,15 +1496,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤦🏾‍♀" type="tts">kvinde slår sig for panden: medium til mørk teint</annotation>
 		<annotation cp="🤦🏿‍♀">facepalm | græmmes | håndflade | irritation | irriteret | kvinde | kvinde slår sig for panden | mørk teint | skepsis</annotation>
 		<annotation cp="🤦🏿‍♀" type="tts">kvinde slår sig for panden: mørk teint</annotation>
-		<annotation cp="🤷🏻">aner det ikke | ligeglad | ligegyldighed | ligegyldigt | lys teint | pas | skulder | skuldre | træk | trækker på skuldrene | tvivl | uvidenhed | ved det ikke | ved ikke</annotation>
+		<annotation cp="🤷🏻">aner det ikke | ligeglad | ligegyldigt | lys teint | pas | trækker på skuldrene | tvivl | ved det ikke</annotation>
 		<annotation cp="🤷🏻" type="tts">trækker på skuldrene: lys teint</annotation>
-		<annotation cp="🤷🏼">aner det ikke | ligeglad | ligegyldighed | ligegyldigt | medium til lys teint | pas | skulder | skuldre | træk | trækker på skuldrene | tvivl | uvidenhed | ved det ikke | ved ikke</annotation>
+		<annotation cp="🤷🏼">aner det ikke | ligeglad | ligegyldigt | medium til lys teint | pas | trækker på skuldrene | tvivl | ved det ikke</annotation>
 		<annotation cp="🤷🏼" type="tts">trækker på skuldrene: medium til lys teint</annotation>
-		<annotation cp="🤷🏽">aner det ikke | ligeglad | ligegyldighed | ligegyldigt | medium teint | pas | skulder | skuldre | træk | trækker på skuldrene | tvivl | uvidenhed | ved det ikke | ved ikke</annotation>
+		<annotation cp="🤷🏽">aner det ikke | ligeglad | ligegyldigt | medium teint | pas | trækker på skuldrene | tvivl | ved det ikke</annotation>
 		<annotation cp="🤷🏽" type="tts">trækker på skuldrene: medium teint</annotation>
-		<annotation cp="🤷🏾">aner det ikke | ligeglad | ligegyldighed | ligegyldigt | medium til mørk teint | pas | skulder | skuldre | træk | trækker på skuldrene | tvivl | uvidenhed | ved det ikke | ved ikke</annotation>
+		<annotation cp="🤷🏾">aner det ikke | ligeglad | ligegyldigt | medium til mørk teint | pas | trækker på skuldrene | tvivl | ved det ikke</annotation>
 		<annotation cp="🤷🏾" type="tts">trækker på skuldrene: medium til mørk teint</annotation>
-		<annotation cp="🤷🏿">aner det ikke | ligeglad | ligegyldighed | ligegyldigt | mørk teint | pas | skulder | skuldre | træk | trækker på skuldrene | tvivl | uvidenhed | ved det ikke | ved ikke</annotation>
+		<annotation cp="🤷🏿">aner det ikke | ligeglad | ligegyldigt | mørk teint | pas | trækker på skuldrene | tvivl | ved det ikke</annotation>
 		<annotation cp="🤷🏿" type="tts">trækker på skuldrene: mørk teint</annotation>
 		<annotation cp="🤷🏻‍♂">ingen anelse | ligeglad | ligegyldighed | lys teint | mand | mand trækker på skuldrene | pas | skuldre | tvivl | uvidenhed</annotation>
 		<annotation cp="🤷🏻‍♂" type="tts">mand trækker på skuldrene: lys teint</annotation>
@@ -2146,6 +2136,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👷🏾‍♀" type="tts">kvindelig bygningsarbejder: medium til mørk teint</annotation>
 		<annotation cp="👷🏿‍♀">arbejder | byggearbejder | byggeri | hammer | kvinde | kvindelig bygningsarbejder | mørk teint</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">kvindelig bygningsarbejder: mørk teint</annotation>
+		<annotation cp="🫅🏻">adelig | kongelig | lys teint | monark | person med krone | royal</annotation>
+		<annotation cp="🫅🏻" type="tts">person med krone: lys teint</annotation>
+		<annotation cp="🫅🏼">adelig | kongelig | medium til lys teint | monark | person med krone | royal</annotation>
+		<annotation cp="🫅🏼" type="tts">person med krone: medium til lys teint</annotation>
+		<annotation cp="🫅🏽">adelig | kongelig | medium teint | monark | person med krone | royal</annotation>
+		<annotation cp="🫅🏽" type="tts">person med krone: medium teint</annotation>
+		<annotation cp="🫅🏾">adelig | kongelig | medium til mørk teint | monark | person med krone | royal</annotation>
+		<annotation cp="🫅🏾" type="tts">person med krone: medium til mørk teint</annotation>
+		<annotation cp="🫅🏿">adelig | kongelig | monark | mørk teint | person med krone | royal</annotation>
+		<annotation cp="🫅🏿" type="tts">person med krone: mørk teint</annotation>
 		<annotation cp="🤴🏻">kongelig | kongesøn | krone | lys teint | prins | royal</annotation>
 		<annotation cp="🤴🏻" type="tts">prins: lys teint</annotation>
 		<annotation cp="🤴🏼">kongelig | kongesøn | krone | medium til lys teint | prins | royal</annotation>
@@ -2286,6 +2286,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">gravid kvinde: medium til mørk teint</annotation>
 		<annotation cp="🤰🏿">gravid | kvinde | mave | mor | mørk teint | vordende mor</annotation>
 		<annotation cp="🤰🏿" type="tts">gravid kvinde: mørk teint</annotation>
+		<annotation cp="🫃🏻">gravid | gravid mand | lys teint | mæt | mave | oppustet</annotation>
+		<annotation cp="🫃🏻" type="tts">gravid mand: lys teint</annotation>
+		<annotation cp="🫃🏼">gravid | gravid mand | mæt | mave | medium til lys teint | oppustet</annotation>
+		<annotation cp="🫃🏼" type="tts">gravid mand: medium til lys teint</annotation>
+		<annotation cp="🫃🏽">gravid | gravid mand | mæt | mave | medium teint | oppustet</annotation>
+		<annotation cp="🫃🏽" type="tts">gravid mand: medium teint</annotation>
+		<annotation cp="🫃🏾">gravid | gravid mand | mæt | mave | medium til mørk teint | oppustet</annotation>
+		<annotation cp="🫃🏾" type="tts">gravid mand: medium til mørk teint</annotation>
+		<annotation cp="🫃🏿">gravid | gravid mand | mæt | mave | mørk teint | oppustet</annotation>
+		<annotation cp="🫃🏿" type="tts">gravid mand: mørk teint</annotation>
+		<annotation cp="🫄🏻">gravid | gravid person | lys teint | mæt | mave | oppustet</annotation>
+		<annotation cp="🫄🏻" type="tts">gravid person: lys teint</annotation>
+		<annotation cp="🫄🏼">gravid | gravid person | mæt | mave | medium til lys teint | oppustet</annotation>
+		<annotation cp="🫄🏼" type="tts">gravid person: medium til lys teint</annotation>
+		<annotation cp="🫄🏽">gravid | gravid person | mæt | mave | medium teint | oppustet</annotation>
+		<annotation cp="🫄🏽" type="tts">gravid person: medium teint</annotation>
+		<annotation cp="🫄🏾">gravid | gravid person | mæt | mave | medium til mørk teint | oppustet</annotation>
+		<annotation cp="🫄🏾" type="tts">gravid person: medium til mørk teint</annotation>
+		<annotation cp="🫄🏿">gravid | gravid person | mæt | mave | mørk teint | oppustet</annotation>
+		<annotation cp="🫄🏿" type="tts">gravid person: mørk teint</annotation>
 		<annotation cp="🤱🏻">baby | bryst | kvinde | kvinde, der ammer | lys teint</annotation>
 		<annotation cp="🤱🏻" type="tts">kvinde, der ammer: lys teint</annotation>
 		<annotation cp="🤱🏼">baby | bryst | kvinde | kvinde, der ammer | medium til lys teint</annotation>
@@ -3727,7 +3747,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇧🇼">flag</annotation>
 		<annotation cp="🇧🇼" type="tts">flag: Botswana</annotation>
 		<annotation cp="🇧🇾">flag</annotation>
-		<annotation cp="🇧🇾" type="tts">flag: Hviderusland</annotation>
+		<annotation cp="🇧🇾" type="tts">flag: Belarus</annotation>
 		<annotation cp="🇧🇿">flag</annotation>
 		<annotation cp="🇧🇿" type="tts">flag: Belize</annotation>
 		<annotation cp="🇨🇦">flag</annotation>
@@ -3997,7 +4017,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🇳🇮">flag</annotation>
 		<annotation cp="🇳🇮" type="tts">flag: Nicaragua</annotation>
 		<annotation cp="🇳🇱">flag</annotation>
-		<annotation cp="🇳🇱" type="tts">flag: Holland</annotation>
+		<annotation cp="🇳🇱" type="tts">flag: Nederlandene</annotation>
 		<annotation cp="🇳🇴">flag</annotation>
 		<annotation cp="🇳🇴" type="tts">flag: Norge</annotation>
 		<annotation cp="🇳🇵">flag</annotation>

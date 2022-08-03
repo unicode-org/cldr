@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -15,30 +15,42 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<territory type="BA"/>
 	</identity>
 	<annotations>
-		<annotation cp="🫃🏻">nadut | pun | stomak | svijetla koža | trudan | trudni muškarac</annotation>
-		<annotation cp="🫃🏻" type="tts">trudni muškarac: svijetla koža</annotation>
-		<annotation cp="🫃🏼">nadut | pun | srednje svijetla koža | stomak | trudan | trudni muškarac</annotation>
-		<annotation cp="🫃🏼" type="tts">trudni muškarac: srednje svijetla koža</annotation>
-		<annotation cp="🫃🏽">nadut | ni svijetla ni tamna koža | pun | stomak | trudan | trudni muškarac</annotation>
-		<annotation cp="🫃🏽" type="tts">trudni muškarac: ni svijetla ni tamna koža</annotation>
-		<annotation cp="🫄🏻">nadut | pun | stomak | svijetla koža | trudan | trudna osoba</annotation>
-		<annotation cp="🫄🏻" type="tts">trudna osoba: svijetla koža</annotation>
-		<annotation cp="🫄🏼">nadut | pun | srednje svijetla koža | stomak | trudan | trudna osoba</annotation>
-		<annotation cp="🫄🏼" type="tts">trudna osoba: srednje svijetla koža</annotation>
-		<annotation cp="🫄🏽">nadut | ni svijetla ni tamna koža | pun | stomak | trudan | trudna osoba</annotation>
-		<annotation cp="🫄🏽" type="tts">trudna osoba: ni svijetla ni tamna koža</annotation>
-		<annotation cp="🫅🏻">kraljevski | monarh | osoba sa krunom | plemenit | plemić | svijetla koža</annotation>
-		<annotation cp="🫅🏻" type="tts">osoba sa krunom: svijetla koža</annotation>
-		<annotation cp="🫅🏼">kraljevski | monarh | osoba sa krunom | plemenit | plemić | srednje svijetla koža</annotation>
-		<annotation cp="🫅🏼" type="tts">osoba sa krunom: srednje svijetla koža</annotation>
-		<annotation cp="🫅🏽">kraljevski | monarh | ni svijetla ni tamna koža | osoba sa krunom | plemenit | plemić</annotation>
-		<annotation cp="🫅🏽" type="tts">osoba sa krunom: ni svijetla ni tamna koža</annotation>
-		<annotation cp="🫰🏻">ljubav | novac | pucketanje | ruka sa prekrštenim palcem i kažiprstom | skupo | srce | svijetla koža</annotation>
-		<annotation cp="🫰🏻" type="tts">ruka sa prekrštenim palcem i kažiprstom: svijetla koža</annotation>
-		<annotation cp="🫰🏼">ljubav | novac | pucketanje | ruka sa prekrštenim palcem i kažiprstom | skupo | srce | srednje svijetla koža</annotation>
-		<annotation cp="🫰🏼" type="tts">ruka sa prekrštenim palcem i kažiprstom: srednje svijetla koža</annotation>
-		<annotation cp="🫰🏽">ljubav | ni svijetla ni tamna koža | novac | pucketanje | ruka sa prekrštenim palcem i kažiprstom | skupo | srce</annotation>
-		<annotation cp="🫰🏽" type="tts">ruka sa prekrštenim palcem i kažiprstom: ni svijetla ni tamna koža</annotation>
+		<annotation cp="👋🏻">ruka koja maše | svijetla koža</annotation>
+		<annotation cp="👋🏻" type="tts">ruka koja maše: svijetla koža</annotation>
+		<annotation cp="👋🏼">ruka koja maše | srednje svijetla koža</annotation>
+		<annotation cp="👋🏼" type="tts">ruka koja maše: srednje svijetla koža</annotation>
+		<annotation cp="👋🏽">ni svijetla ni tamna koža | ruka koja maše</annotation>
+		<annotation cp="👋🏽" type="tts">ruka koja maše: ni svijetla ni tamna koža</annotation>
+		<annotation cp="👋🏾">ruka koja maše | srednje tamna koža</annotation>
+		<annotation cp="👋🏿">ruka koja maše | tamna koža</annotation>
+		<annotation cp="🤚🏻">dlan | podignut dlan | podignuto | svijetla koža</annotation>
+		<annotation cp="🤚🏻" type="tts">podignut dlan: svijetla koža</annotation>
+		<annotation cp="🤚🏼">dlan | podignut dlan | podignuto | srednje svijetla koža</annotation>
+		<annotation cp="🤚🏼" type="tts">podignut dlan: srednje svijetla koža</annotation>
+		<annotation cp="🤚🏽">dlan | ni svijetla ni tamna koža | podignut dlan | podignuto</annotation>
+		<annotation cp="🤚🏽" type="tts">podignut dlan: ni svijetla ni tamna koža</annotation>
+		<annotation cp="🖐🏻">prst | rašireno | ruka | šaka sa raširenim prstima | svijetla koža</annotation>
+		<annotation cp="🖐🏻" type="tts">šaka sa raširenim prstima: svijetla koža</annotation>
+		<annotation cp="🖐🏼">prst | rašireno | ruka | šaka sa raširenim prstima | srednje svijetla koža</annotation>
+		<annotation cp="🖐🏼" type="tts">šaka sa raširenim prstima: srednje svijetla koža</annotation>
+		<annotation cp="🖐🏽">ni svijetla ni tamna koža | prst | rašireno | ruka | šaka sa raširenim prstima</annotation>
+		<annotation cp="🖐🏽" type="tts">šaka sa raširenim prstima: ni svijetla ni tamna koža</annotation>
+		<annotation cp="✋🏻">podignuta ruka | svijetla koža</annotation>
+		<annotation cp="✋🏻" type="tts">podignuta ruka: svijetla koža</annotation>
+		<annotation cp="✋🏼">podignuta ruka | srednje svijetla koža</annotation>
+		<annotation cp="✋🏼" type="tts">podignuta ruka: srednje svijetla koža</annotation>
+		<annotation cp="✋🏽">ni svijetla ni tamna koža | podignuta ruka</annotation>
+		<annotation cp="✋🏽" type="tts">podignuta ruka: ni svijetla ni tamna koža</annotation>
+		<annotation cp="✋🏾">podignuta ruka | srednje tamna koža</annotation>
+		<annotation cp="✋🏿">podignuta ruka | tamna koža</annotation>
+		<annotation cp="🖖🏻">svijetla koža | vulkanski pozdrav</annotation>
+		<annotation cp="🖖🏻" type="tts">vulkanski pozdrav: svijetla koža</annotation>
+		<annotation cp="🖖🏼">srednje svijetla koža | vulkanski pozdrav</annotation>
+		<annotation cp="🖖🏼" type="tts">vulkanski pozdrav: srednje svijetla koža</annotation>
+		<annotation cp="🖖🏽">ni svijetla ni tamna koža | vulkanski pozdrav</annotation>
+		<annotation cp="🖖🏽" type="tts">vulkanski pozdrav: ni svijetla ni tamna koža</annotation>
+		<annotation cp="🖖🏾">srednje tamna koža | vulkanski pozdrav</annotation>
+		<annotation cp="🖖🏿">tamna koža | vulkanski pozdrav</annotation>
 		<annotation cp="🫱🏻">desno | nadesno | ruka | ruka okrenuta nadesno | svijetla koža</annotation>
 		<annotation cp="🫱🏻" type="tts">ruka okrenuta nadesno: svijetla koža</annotation>
 		<annotation cp="🫱🏼">desno | nadesno | ruka | ruka okrenuta nadesno | srednje svijetla koža</annotation>
@@ -101,54 +113,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🫴🏼" type="tts">dlan okrenut nagore: srednje svijetla koža</annotation>
 		<annotation cp="🫴🏽">dlan okrenut nagore | dozivati | ni svijetla ni tamna koža | ponuda | pozuiv | uhvatiti</annotation>
 		<annotation cp="🫴🏽" type="tts">dlan okrenut nagore: ni svijetla ni tamna koža</annotation>
-		<annotation cp="🫵🏻">kažiprst koji pokazuje prema gledaocu | pokazivanje | svijetla koža | ti | vi</annotation>
-		<annotation cp="🫵🏻" type="tts">kažiprst koji pokazuje prema gledaocu: svijetla koža</annotation>
-		<annotation cp="🫵🏼">kažiprst koji pokazuje prema gledaocu | pokazivanje | srednje svijetla koža | ti | vi</annotation>
-		<annotation cp="🫵🏼" type="tts">kažiprst koji pokazuje prema gledaocu: srednje svijetla koža</annotation>
-		<annotation cp="🫵🏽">kažiprst koji pokazuje prema gledaocu | ni svijetla ni tamna koža | pokazivanje | ti | vi</annotation>
-		<annotation cp="🫵🏽" type="tts">kažiprst koji pokazuje prema gledaocu: ni svijetla ni tamna koža</annotation>
-		<annotation cp="🫶🏻">ljubav | ruke koje prave srce | svijetla koža</annotation>
-		<annotation cp="🫶🏻" type="tts">ruke koje prave srce: svijetla koža</annotation>
-		<annotation cp="🫶🏼">ljubav | ruke koje prave srce | srednje svijetla koža</annotation>
-		<annotation cp="🫶🏼" type="tts">ruke koje prave srce: srednje svijetla koža</annotation>
-		<annotation cp="🫶🏽">ljubav | ni svijetla ni tamna koža | ruke koje prave srce</annotation>
-		<annotation cp="🫶🏽" type="tts">ruke koje prave srce: ni svijetla ni tamna koža</annotation>
-		<annotation cp="👋🏻">ruka koja maše | svijetla koža</annotation>
-		<annotation cp="👋🏻" type="tts">ruka koja maše: svijetla koža</annotation>
-		<annotation cp="👋🏼">ruka koja maše | srednje svijetla koža</annotation>
-		<annotation cp="👋🏼" type="tts">ruka koja maše: srednje svijetla koža</annotation>
-		<annotation cp="👋🏽">ni svijetla ni tamna koža | ruka koja maše</annotation>
-		<annotation cp="👋🏽" type="tts">ruka koja maše: ni svijetla ni tamna koža</annotation>
-		<annotation cp="👋🏾">ruka koja maše | srednje tamna koža</annotation>
-		<annotation cp="👋🏿">ruka koja maše | tamna koža</annotation>
-		<annotation cp="🤚🏻">dlan | podignut dlan | podignuto | svijetla koža</annotation>
-		<annotation cp="🤚🏻" type="tts">podignut dlan: svijetla koža</annotation>
-		<annotation cp="🤚🏼">dlan | podignut dlan | podignuto | srednje svijetla koža</annotation>
-		<annotation cp="🤚🏼" type="tts">podignut dlan: srednje svijetla koža</annotation>
-		<annotation cp="🤚🏽">dlan | ni svijetla ni tamna koža | podignut dlan | podignuto</annotation>
-		<annotation cp="🤚🏽" type="tts">podignut dlan: ni svijetla ni tamna koža</annotation>
-		<annotation cp="🖐🏻">prst | rašireno | ruka | šaka sa raširenim prstima | svijetla koža</annotation>
-		<annotation cp="🖐🏻" type="tts">šaka sa raširenim prstima: svijetla koža</annotation>
-		<annotation cp="🖐🏼">prst | rašireno | ruka | šaka sa raširenim prstima | srednje svijetla koža</annotation>
-		<annotation cp="🖐🏼" type="tts">šaka sa raširenim prstima: srednje svijetla koža</annotation>
-		<annotation cp="🖐🏽">ni svijetla ni tamna koža | prst | rašireno | ruka | šaka sa raširenim prstima</annotation>
-		<annotation cp="🖐🏽" type="tts">šaka sa raširenim prstima: ni svijetla ni tamna koža</annotation>
-		<annotation cp="✋🏻">podignuta ruka | svijetla koža</annotation>
-		<annotation cp="✋🏻" type="tts">podignuta ruka: svijetla koža</annotation>
-		<annotation cp="✋🏼">podignuta ruka | srednje svijetla koža</annotation>
-		<annotation cp="✋🏼" type="tts">podignuta ruka: srednje svijetla koža</annotation>
-		<annotation cp="✋🏽">ni svijetla ni tamna koža | podignuta ruka</annotation>
-		<annotation cp="✋🏽" type="tts">podignuta ruka: ni svijetla ni tamna koža</annotation>
-		<annotation cp="✋🏾">podignuta ruka | srednje tamna koža</annotation>
-		<annotation cp="✋🏿">podignuta ruka | tamna koža</annotation>
-		<annotation cp="🖖🏻">svijetla koža | vulkanski pozdrav</annotation>
-		<annotation cp="🖖🏻" type="tts">vulkanski pozdrav: svijetla koža</annotation>
-		<annotation cp="🖖🏼">srednje svijetla koža | vulkanski pozdrav</annotation>
-		<annotation cp="🖖🏼" type="tts">vulkanski pozdrav: srednje svijetla koža</annotation>
-		<annotation cp="🖖🏽">ni svijetla ni tamna koža | vulkanski pozdrav</annotation>
-		<annotation cp="🖖🏽" type="tts">vulkanski pozdrav: ni svijetla ni tamna koža</annotation>
-		<annotation cp="🖖🏾">srednje tamna koža | vulkanski pozdrav</annotation>
-		<annotation cp="🖖🏿">tamna koža | vulkanski pozdrav</annotation>
 		<annotation cp="👌🏻">ruka | svijetla koža | u redu | znak rukom „u redu“</annotation>
 		<annotation cp="👌🏻" type="tts">znak rukom „u redu“: svijetla koža</annotation>
 		<annotation cp="👌🏼">ruka | srednje svijetla koža | u redu | znak rukom „u redu“</annotation>
@@ -185,6 +149,12 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤞🏽" type="tts">prekršteni prsti: ni svijetla ni tamna koža</annotation>
 		<annotation cp="🤞🏾">prekršteni prsti | prekršteno | prst | ruka | sreća | srednje tamna koža</annotation>
 		<annotation cp="🤞🏿">prekršteni prsti | prekršteno | prst | ruka | sreća | tamna koža</annotation>
+		<annotation cp="🫰🏻">ljubav | novac | pucketanje | ruka sa prekrštenim palcem i kažiprstom | skupo | srce | svijetla koža</annotation>
+		<annotation cp="🫰🏻" type="tts">ruka sa prekrštenim palcem i kažiprstom: svijetla koža</annotation>
+		<annotation cp="🫰🏼">ljubav | novac | pucketanje | ruka sa prekrštenim palcem i kažiprstom | skupo | srce | srednje svijetla koža</annotation>
+		<annotation cp="🫰🏼" type="tts">ruka sa prekrštenim palcem i kažiprstom: srednje svijetla koža</annotation>
+		<annotation cp="🫰🏽">ljubav | ni svijetla ni tamna koža | novac | pucketanje | ruka sa prekrštenim palcem i kažiprstom | skupo | srce</annotation>
+		<annotation cp="🫰🏽" type="tts">ruka sa prekrštenim palcem i kažiprstom: ni svijetla ni tamna koža</annotation>
 		<annotation cp="🤟🏻">pokret volim te | ruka | svijetla koža | volim te</annotation>
 		<annotation cp="🤟🏻" type="tts">pokret volim te: svijetla koža</annotation>
 		<annotation cp="🤟🏼">pokret volim te | ruka | srednje svijetla koža | volim te</annotation>
@@ -257,6 +227,12 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="☝🏼" type="tts">kažiprst koji pokazuje nagore: srednje svijetla koža</annotation>
 		<annotation cp="☝🏽">gore | kažiprst | kažiprst koji pokazuje nagore | ni svijetla ni tamna koža | pokazivanje | prst | ruka</annotation>
 		<annotation cp="☝🏽" type="tts">kažiprst koji pokazuje nagore: ni svijetla ni tamna koža</annotation>
+		<annotation cp="🫵🏻">kažiprst koji pokazuje prema gledaocu | pokazivanje | svijetla koža | ti | vi</annotation>
+		<annotation cp="🫵🏻" type="tts">kažiprst koji pokazuje prema gledaocu: svijetla koža</annotation>
+		<annotation cp="🫵🏼">kažiprst koji pokazuje prema gledaocu | pokazivanje | srednje svijetla koža | ti | vi</annotation>
+		<annotation cp="🫵🏼" type="tts">kažiprst koji pokazuje prema gledaocu: srednje svijetla koža</annotation>
+		<annotation cp="🫵🏽">kažiprst koji pokazuje prema gledaocu | ni svijetla ni tamna koža | pokazivanje | ti | vi</annotation>
+		<annotation cp="🫵🏽" type="tts">kažiprst koji pokazuje prema gledaocu: ni svijetla ni tamna koža</annotation>
 		<annotation cp="👍🏻">+1 | nagore | palac | ruka | svijetla koža</annotation>
 		<annotation cp="👍🏻" type="tts">palac nagore: svijetla koža</annotation>
 		<annotation cp="👍🏼">+1 | nagore | palac | ruka | srednje svijetla koža</annotation>
@@ -321,6 +297,12 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙌🏽" type="tts">podignute ruke: ni svijetla ni tamna koža</annotation>
 		<annotation cp="🙌🏾">bravo | podići | podignute ruke | pokret | ruka | slava | srednje tamna koža</annotation>
 		<annotation cp="🙌🏿">bravo | podići | podignute ruke | pokret | ruka | slava | tamna koža</annotation>
+		<annotation cp="🫶🏻">ljubav | ruke koje prave srce | svijetla koža</annotation>
+		<annotation cp="🫶🏻" type="tts">ruke koje prave srce: svijetla koža</annotation>
+		<annotation cp="🫶🏼">ljubav | ruke koje prave srce | srednje svijetla koža</annotation>
+		<annotation cp="🫶🏼" type="tts">ruke koje prave srce: srednje svijetla koža</annotation>
+		<annotation cp="🫶🏽">ljubav | ni svijetla ni tamna koža | ruke koje prave srce</annotation>
+		<annotation cp="🫶🏽" type="tts">ruke koje prave srce: ni svijetla ni tamna koža</annotation>
 		<annotation cp="👐🏻">otvoreno | rasklopljene šake | ruka | svijetla koža</annotation>
 		<annotation cp="👐🏻" type="tts">rasklopljene šake: svijetla koža</annotation>
 		<annotation cp="👐🏼">otvoreno | rasklopljene šake | ruka | srednje svijetla koža</annotation>
@@ -1632,6 +1614,12 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👷🏽‍♀" type="tts">građevinarka: ni svijetla ni tamna koža</annotation>
 		<annotation cp="👷🏾‍♀">građevinarka | srednje tamna koža</annotation>
 		<annotation cp="👷🏿‍♀">građevinarka | tamna koža</annotation>
+		<annotation cp="🫅🏻">kraljevski | monarh | osoba sa krunom | plemenit | plemić | svijetla koža</annotation>
+		<annotation cp="🫅🏻" type="tts">osoba sa krunom: svijetla koža</annotation>
+		<annotation cp="🫅🏼">kraljevski | monarh | osoba sa krunom | plemenit | plemić | srednje svijetla koža</annotation>
+		<annotation cp="🫅🏼" type="tts">osoba sa krunom: srednje svijetla koža</annotation>
+		<annotation cp="🫅🏽">kraljevski | monarh | ni svijetla ni tamna koža | osoba sa krunom | plemenit | plemić</annotation>
+		<annotation cp="🫅🏽" type="tts">osoba sa krunom: ni svijetla ni tamna koža</annotation>
 		<annotation cp="🤴🏻">princ | svijetla koža</annotation>
 		<annotation cp="🤴🏻" type="tts">princ: svijetla koža</annotation>
 		<annotation cp="🤴🏼">princ | srednje svijetla koža</annotation>
@@ -1734,6 +1722,18 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤰🏼" type="tts">trudnica: srednje svijetla koža</annotation>
 		<annotation cp="🤰🏽">ni svijetla ni tamna koža | trudnica | žena</annotation>
 		<annotation cp="🤰🏽" type="tts">trudnica: ni svijetla ni tamna koža</annotation>
+		<annotation cp="🫃🏻">nadut | pun | stomak | svijetla koža | trudan | trudni muškarac</annotation>
+		<annotation cp="🫃🏻" type="tts">trudni muškarac: svijetla koža</annotation>
+		<annotation cp="🫃🏼">nadut | pun | srednje svijetla koža | stomak | trudan | trudni muškarac</annotation>
+		<annotation cp="🫃🏼" type="tts">trudni muškarac: srednje svijetla koža</annotation>
+		<annotation cp="🫃🏽">nadut | ni svijetla ni tamna koža | pun | stomak | trudan | trudni muškarac</annotation>
+		<annotation cp="🫃🏽" type="tts">trudni muškarac: ni svijetla ni tamna koža</annotation>
+		<annotation cp="🫄🏻">nadut | pun | stomak | svijetla koža | trudan | trudna osoba</annotation>
+		<annotation cp="🫄🏻" type="tts">trudna osoba: svijetla koža</annotation>
+		<annotation cp="🫄🏼">nadut | pun | srednje svijetla koža | stomak | trudan | trudna osoba</annotation>
+		<annotation cp="🫄🏼" type="tts">trudna osoba: srednje svijetla koža</annotation>
+		<annotation cp="🫄🏽">nadut | ni svijetla ni tamna koža | pun | stomak | trudan | trudna osoba</annotation>
+		<annotation cp="🫄🏽" type="tts">trudna osoba: ni svijetla ni tamna koža</annotation>
 		<annotation cp="🤱🏻">dojenje | svijetla koža</annotation>
 		<annotation cp="🤱🏻" type="tts">dojenje: svijetla koža</annotation>
 		<annotation cp="🤱🏼">dojenje | srednje svijetla koža</annotation>

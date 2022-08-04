@@ -19,6 +19,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
 import org.unicode.cldr.tool.Option.Options;
@@ -58,6 +59,7 @@ import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 
@@ -237,6 +239,9 @@ public class ChartDelta extends Chart {
     private Map<String, Counter<ChangeType>> fileCounters = new TreeMap<>();
     private Set<String> badHeaders = new TreeSet<>();
 
+    /**
+     * Add the count of changed items
+     */
     private void addChange(String file, ChangeType changeType, int count) {
         counter.add(changeType, count); // unified add
         Counter<ChangeType> fileCounter = fileCounters.get(file);
@@ -385,6 +390,8 @@ public class ChartDelta extends Chart {
                         }
                         CLDRFile current = makeWithFallback(factory, locale, resolving);
                         CLDRFile old = makeWithFallback(oldFactory, locale, resolving);
+                        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(old);
+
                         if (!locale.equals("root") && current.getLocaleID().equals("root") && old.getLocaleID().equals("root")) {
                             continue;
                         }
@@ -422,8 +429,8 @@ public class ChartDelta extends Chart {
                                 continue;
                             }
 
-                            String oldValue = null;
-                            String currentValue = null;
+                            String oldValue;
+                            String currentValue;
 
                             {
                                 String sourceLocaleCurrent = current.getSourceLocaleID(path, currentStatus);
@@ -444,10 +451,13 @@ public class ChartDelta extends Chart {
                                 if (CldrUtility.INHERITANCE_MARKER.equals(currentValue)) {
                                     currentValue = current.getBaileyValue(path, null, null);
                                 }
-                                oldValue = hasReformattedValue.value ? reformattedValue.value : old.getStringValue(path);
-                                if (CldrUtility.INHERITANCE_MARKER.equals(oldValue)) {
-                                    oldValue = old.getBaileyValue(path, null, null);
+
+                                String oldRawValue = hasReformattedValue.value ? reformattedValue.value : old.getStringValue(path);
+                                if (CldrUtility.INHERITANCE_MARKER.equals(oldRawValue)) {
+                                    oldRawValue = old.getBaileyValue(path, null, null);
                                 }
+                                // ignore differences due to old DAIP
+                                oldValue = dontDaipValue(oldRawValue, path) ? oldRawValue : daip.processInput(path, oldRawValue, null);
                             }
                             if (highLevelOnly && new SuspiciousChange(oldValue, currentValue, path, locale).isDisruptive() == false) {
                                 continue;
@@ -466,6 +476,10 @@ public class ChartDelta extends Chart {
 
             writeCounter(tsvCountFile, "Count", counts);
         }
+    }
+
+    public boolean dontDaipValue(String oldRawValue, String path) {
+        return oldRawValue == null || path.startsWith("//ldml/collations");
     }
 
     private boolean allowPath(String locale, String path) {
@@ -628,6 +642,16 @@ public class ChartDelta extends Chart {
                 sameAndNotInSecond[0] = sameAndNotInSecond[1] = 0;
                 valueCurrent = getFilteredValue(setNew, setOld, sameAndNotInSecond);
                 addChange(parentAndName, ChangeType.added, sameAndNotInSecond[1]);
+            } else if (hasUnicodeSetValue(ph.getOriginalPath())) {
+                UnicodeSet usOld = valueOld == null ? UnicodeSet.EMPTY : new UnicodeSet(valueOld);
+                UnicodeSet usCurrent = valueCurrent == null ? UnicodeSet.EMPTY : new UnicodeSet(valueCurrent);
+                UnicodeSet oldOnly = new UnicodeSet(usOld).removeAll(usCurrent);
+                UnicodeSet currentOnly = new UnicodeSet(usCurrent).removeAll(usOld);
+                addChange(parentAndName, ChangeType.same, usOld.size()-oldOnly.size());
+                addChange(parentAndName, ChangeType.deleted, oldOnly.size());
+                addChange(parentAndName, ChangeType.added, currentOnly.size());
+                valueOld = usOld.size()==oldOnly.size() ? oldOnly.toPattern(false) : "…" + oldOnly + "…";
+                valueCurrent = usCurrent.size()==currentOnly.size() ? currentOnly.toPattern(false) : "…" + currentOnly + "…";
             } else {
                 addChange(parentAndName, ChangeType.get(valueOld, valueCurrent), count);
             }
@@ -635,6 +659,10 @@ public class ChartDelta extends Chart {
             diff.add(row);
             diffAll.put(ph, locale);
         }
+    }
+
+    private boolean hasUnicodeSetValue(String xpath) {
+        return xpath.startsWith("//ldml/characters/exemplar");
     }
 
     private List<String> splitHandlingNull(Splitter splitter, String value) {

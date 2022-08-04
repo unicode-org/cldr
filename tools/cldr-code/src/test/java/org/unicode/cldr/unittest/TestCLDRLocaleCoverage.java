@@ -20,6 +20,7 @@ import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrType;
@@ -302,4 +303,33 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         assertEquals(firstName + " ⩃ " + otherName, Collections.emptySet(), Sets.difference(Sets.intersection(other.keySet(), first.keySet()), LOCALE_CONTAINMENT_EXCEPTIONS));
     }
 
+    public void TestParentCoverage() {
+        for (Organization organization : sc.getLocaleCoverageOrganizations()) {
+            if (organization == Organization.special) {
+                continue;
+            }
+            final Map<String, Level> localesToLevels = sc.getLocalesToLevelsFor(organization);
+            for (Entry<String, Level> localeAndLevel : localesToLevels.entrySet()) {
+                String originalLevel = localeAndLevel.getKey();
+                Level level = localeAndLevel.getValue();
+                String locale = originalLevel;
+                while (true) {
+                    String parent = LocaleIDParser.getParent(locale);
+                    if (parent == null || parent.equals("root")) {
+                        break;
+                    }
+                    if (!parent.equals("en_001")) { // en_001 is generated later from en_GB
+                        Level parentLevel = localesToLevels.get(parent);
+                        assertTrue(organization
+                            + "; locale=" + originalLevel
+                            + "; level=" + level
+                            + "; parent=" + parent
+                            + "; level=" + parentLevel,
+                            parentLevel != null && parentLevel.compareTo(level) >= 0);
+                    }
+                    locale = parent;
+                }
+            }
+        }
+    }
 }

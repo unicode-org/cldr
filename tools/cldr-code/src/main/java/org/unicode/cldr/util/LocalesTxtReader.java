@@ -15,8 +15,6 @@ import com.ibm.icu.impl.Relation;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
 class LocalesTxtReader {
-    static final boolean DEBUG = false;
-
     Map<Organization, Map<String, Level>> platform_locale_level = null;
     Map<Organization, Relation<Level, String>> platform_level_locale = null;
     Map<String, Map<String, String>> platform_locale_levelString = null;
@@ -137,18 +135,6 @@ class LocalesTxtReader {
                     platform_locale_level.put(organization, locale_status = new TreeMap<>());
                 }
                 locale_status.put(locale, status);
-                if (!locale.equals(StandardCodes.ALL_LOCALES) && organization != Organization.special) {
-                    String scriptLoc = parser.getLanguageScript();
-                    if (locale_status.get(scriptLoc) == null) {
-                        locale_status.put(scriptLoc, status);
-                        logExtra(organization, locale, status, scriptLoc);
-                    }
-                    String lang = parser.getLanguage();
-                    if (locale_status.get(lang) == null) {
-                        locale_status.put(lang, status);
-                        logExtra(organization, locale, status, lang);
-                    }
-                }
 
                 if (weight != null) {
                     organization_locale_weight
@@ -165,35 +151,6 @@ class LocalesTxtReader {
             throw new ICUUncheckedIOException("Internal Error", e);
         }
 
-        // now reset the parent to be the max of the children
-        for (Organization platform : platform_locale_level.keySet()) {
-            if (platform == Organization.special) {
-                continue;
-            }
-            Map<String, Level> locale_level = platform_locale_level.get(platform);
-            for (String locale : locale_level.keySet()) {
-                parser.set(locale);
-                Level childLevel = locale_level.get(locale);
-
-                String language = parser.getLanguage();
-                if (!language.equals(locale)) {
-                    Level languageLevel = locale_level.get(language);
-                    if (languageLevel == null || languageLevel.compareTo(childLevel) < 0) {
-                        locale_level.put(language, childLevel);
-                        logExtra(platform, locale, childLevel, language);
-                    }
-                }
-                String oldLanguage = language;
-                language = parser.getLanguageScript();
-                if (!language.equals(oldLanguage)) {
-                    Level languageLevel = locale_level.get(language);
-                    if (languageLevel == null || languageLevel.compareTo(childLevel) < 0) {
-                        locale_level.put(language, childLevel);
-                        logExtra(platform, locale, childLevel, language);
-                    }
-                }
-            }
-        }
         // backwards compat hack
         platform_locale_levelString = new TreeMap<>();
         platform_level_locale = new EnumMap<>(Organization.class);
@@ -204,7 +161,7 @@ class LocalesTxtReader {
             for (String locale : locale_level.keySet()) {
                 locale_levelString.put(locale, locale_level.get(locale).toString());
             }
-            Relation level_locale = Relation.of(new EnumMap(Level.class), HashSet.class);
+            Relation<Level, String> level_locale = Relation.of(new EnumMap(Level.class), HashSet.class);
             level_locale.addAllInverted(locale_level).freeze();
             platform_level_locale.put(platform, level_locale);
         }
@@ -212,11 +169,5 @@ class LocalesTxtReader {
         platform_locale_level = CldrUtility.protectCollection(platform_locale_level);
         platform_locale_levelString = CldrUtility.protectCollection(platform_locale_levelString);
         return this;
-    }
-
-    public void logExtra(Organization organization, String locale, Level status, String scriptLoc) {
-        if (DEBUG) {
-            System.out.println("Adding " + locale + ", " + scriptLoc + ", " + status);
-        }
     }
 }

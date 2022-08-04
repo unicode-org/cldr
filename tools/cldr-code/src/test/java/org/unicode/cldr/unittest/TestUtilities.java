@@ -37,6 +37,7 @@ import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DelegatingIterator;
 import org.unicode.cldr.util.EscapingUtilities;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.NotificationCategory;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
@@ -47,14 +48,13 @@ import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.VettingViewer;
-import org.unicode.cldr.util.NotificationCategory;
 import org.unicode.cldr.util.VettingViewer.MissingStatus;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
 import org.unicode.cldr.util.VoteResolver;
-import org.unicode.cldr.util.VoterInfoList;
 import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
+import org.unicode.cldr.util.VoterInfoList;
 import org.unicode.cldr.util.XMLUploader;
 import org.unicode.cldr.util.props.ICUPropertyFactory;
 
@@ -621,7 +621,9 @@ public class TestUtilities extends TestFmwkPlus {
                 .fromPath(xpath);
         }
         resolver.setLocale(CLDRLocale.getInstance(locale), ph);
-        assertEquals(locale + " verifyRequiredVotes: " + ph.toString(), required, resolver.getRequiredVotes());
+        if (!assertEquals(locale + " verifyRequiredVotes: " + ph.toString(), required, resolver.getRequiredVotes())) {
+            int debug = 0;
+        }
     }
 
     public void TestRequiredVotes() {
@@ -681,10 +683,10 @@ public class TestUtilities extends TestFmwkPlus {
 
     /**
      * In sublocales, for a typical path, the required votes should be 4, except for
-     * the two locales pt_PT and zh_Hant
+     * a few specified locales.
      */
     public void TestSublocaleRequiredVotes() {
-        final Set<String> eightVoteSublocales = new HashSet<>(Arrays.asList("pt_PT", "zh_Hant", "en_AU", "en_GB", "es_MX", "fr_CA"));
+        final Set<String> eightVoteSublocales = new HashSet<>(Arrays.asList("pt_PT", "zh_Hant", "en_AU", "en_GB", "es_MX", "fr_CA", "es_419"));
         final VoteResolver<String> resolver = new VoteResolver<>(getTestVoterInfoList());
         final String path = "//ldml/annotations/annotation[@cp=\"🌏\"][@type=\"tts\"]";
         for (String locale : SubmissionLocales.CLDR_OR_HIGH_LEVEL_LOCALES) {

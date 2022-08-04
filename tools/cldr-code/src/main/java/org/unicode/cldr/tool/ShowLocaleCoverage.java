@@ -22,6 +22,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
+import java.util.stream.Collectors;
 
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
@@ -779,7 +780,9 @@ public class ShowLocaleCoverage {
                     String region = ltp.set(locale).getRegion();
                     if (!region.isEmpty()) continue; // skip regions
 
-                    final Level cldrLocaleLevelGoal = SC.getLocaleCoverageLevel(Organization.cldr.toString(), locale);
+                    final Level cldrLocaleLevelGoal = SC.getLocaleCoverageLevel(Organization.cldr, locale);
+                    final String specialFlag = getSpecialFlag(locale);
+
                     final boolean cldrLevelGoalBasicToModern = Level.CORE_TO_MODERN.contains(cldrLocaleLevelGoal);
 
                     String max = likelySubtags.maximize(locale);
@@ -844,14 +847,14 @@ public class ShowLocaleCoverage {
                             String status = entry.getKey().toString();
                             Level foundLevel = coverageInfo.getCoverageLevel(path, locale);
                             if (goalLevel.compareTo(foundLevel) >= 0) {
-                                String line = spreadsheetLine(locale, language, script, file.getStringValue(path), goalLevel, foundLevel, status, path, file, pathToLocale);
+                                String line = spreadsheetLine(locale, language, script, specialFlag, file.getStringValue(path), goalLevel, foundLevel, status, path, file, pathToLocale);
                                 tsv_missing.println(line);
                             }
                         }
                         for (String path : unconfirmed) {
                             Level foundLevel = coverageInfo.getCoverageLevel(path, locale);
                             if (goalLevel.compareTo(foundLevel) >= 0) {
-                                String line = spreadsheetLine(locale, language, script, file.getStringValue(path), goalLevel, foundLevel, "n/a", path, file, pathToLocale);
+                                String line = spreadsheetLine(locale, language, script, specialFlag, file.getStringValue(path), goalLevel, foundLevel, "n/a", path, file, pathToLocale);
                                 tsv_missing.println(line);
                             }
                         }
@@ -876,12 +879,12 @@ public class ShowLocaleCoverage {
                         for (Entry<String, StatusData> starred : starredCounter.starredPathToData.entrySet()) {
                             String starredPath = starred.getKey();
                             StatusData statusData = starred.getValue();
-                            tsv_missing_basic.println(locale //
+                            tsv_missing_basic.println(locale + specialFlag //
                                 + "\t" + statusData.missing //
                                 + "\t" + statusData.provisional //
                                 + "\t" + starredPath.replace("\"*\"", "'*'"));
                         }
-                        tsv_missing_basic.println(locale //
+                        tsv_missing_basic.println(locale + specialFlag //
                             + "\t" + starredCounter.missingTotal //
                             + "\t" + starredCounter.provisionalTotal //
                             + "\tTotals");
@@ -972,7 +975,7 @@ public class ShowLocaleCoverage {
 
                     tablePrinter.addRow()
                     .addCell(seedString)
-                    .addCell(language)
+                    .addCell(language + specialFlag)
                     .addCell(ENGLISH.getName(language))
                     .addCell(file.getName(language))
                     .addCell(script)
@@ -1088,7 +1091,7 @@ public class ShowLocaleCoverage {
                     tsv_missing_summary.println(
                         level
                         + "\t" + localeSet.size()
-                        + "\t" + Joiner.on(" ").join(localeSet)
+                        + "\t" + Joiner.on(" ").join(localeSet.stream().map(x -> x + getSpecialFlag(x)).collect(Collectors.toSet()))
                         + "\t" + phString
                         );
                 }
@@ -1099,6 +1102,10 @@ public class ShowLocaleCoverage {
                 + ((end - start) / localeCount) + " millis/locale");
             ShowPlurals.appendBlanksForScrolling(pw);
         }
+    }
+
+    public static String getSpecialFlag(String locale) {
+        return SC.getLocaleCoverageLevel(Organization.special, locale) == Level.UNDETERMINED ? "" : "‡";
     }
 
     private static class IterableFilter implements Iterable<String> {
@@ -1247,9 +1254,9 @@ public class ShowLocaleCoverage {
         }
     };
 
-    private static String spreadsheetLine(String locale, String language, String script, String nativeValue, Level cldrLocaleLevelGoal,
-        Level itemLevel, String status, String path, CLDRFile resolvedFile,
-        Multimap<String, String> pathToLocale) {
+    private static String spreadsheetLine(String locale, String language, String script, String specialFlag,
+        String nativeValue, Level cldrLocaleLevelGoal, Level itemLevel, String status, String path,
+        CLDRFile resolvedFile, Multimap<String, String> pathToLocale) {
         if (pathToLocale != null) {
             pathToLocale.put(path, locale);
         }
@@ -1273,7 +1280,7 @@ public class ShowLocaleCoverage {
         }
 
         String line =
-            language
+            language + specialFlag
             + "\t" + ENGLISH.getName(language)
             + "\t" + ENGLISH.getName("script", script)
             + "\t" + cldrLocaleLevelGoal

@@ -26,6 +26,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.BaseUrl;
 import org.unicode.cldr.util.PathUtilities;
@@ -33,7 +34,9 @@ import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Sets;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.VersionInfo;
@@ -75,6 +78,8 @@ public class SearchCLDR {
     // + "-s\t show English value"
     // ;
 
+    enum PathStyle {none, path, fullPath, pathHeader}
+
     final static Options myOptions = new Options()
         .add("source", ".*", CLDRPaths.MAIN_DIRECTORY, "source directory")
         .add("file", ".*", ".*", "regex to filter files/locales.")
@@ -88,7 +93,8 @@ public class SearchCLDR {
         .add("q-showParent", null, null, "show parent value")
         .add("english", null, null, "show english value")
         .add("Verbose", null, null, "verbose output")
-        .add("PathHeader", null, null, "show path header and string ID")
+        .add("PathStyle", Joiner.on('|').join(PathStyle.values()), "path", "show path header")
+        .add("SurveyTool", null, null, "show Survey Tool URL")
         .add("diff", "\\d+(\\.\\d+)?", null, "show only paths whose values changed from specified version (and were present in that version)")
         .add("Error", ".*", null, "filter by errors, eg CheckForCopy, or CheckForCopy:sameAsCode")
         ;
@@ -97,12 +103,15 @@ public class SearchCLDR {
     private static Matcher pathMatcher;
     private static boolean countOnly;
     private static boolean showPath;
-    private static PathHeader.Factory PATH_HEADER_FACTORY = null;
-
+    private static boolean showSurveyToolUrl;
     private static Subtype subtype;
     private static CheckCLDR checkCldr;
 
-    private static String organization;
+    static PathHeader.Factory pathHeaderFactory = PathHeader.getFactory();
+
+    private static Organization organization;
+
+    private static PathStyle showPathHeader;
 
     public static void main(String[] args) {
         myOptions.parse(args, true);
@@ -126,13 +135,14 @@ public class SearchCLDR {
         boolean resolved = myOptions.get("resolved").doesOccur();
 
         showPath = myOptions.get("z-showPath").doesOccur();
-        organization = myOptions.get("organization").getValue();
+        String orgString = myOptions.get("organization").getValue();
+        Organization organization = orgString == null ? null : Organization.fromString(orgString);
 
         final CLDRFile english = CLDRConfig.getInstance().getEnglish();
 
-        if (myOptions.get("PathHeader").doesOccur()) {
-            PATH_HEADER_FACTORY = PathHeader.getFactory(english);
-        }
+        showPathHeader = PathStyle.valueOf(myOptions.get("PathStyle").getValue());
+
+        showSurveyToolUrl = myOptions.get("SurveyTool").doesOccur();
 
         boolean showParent = myOptions.get("q-showParent").doesOccur();
 
@@ -154,8 +164,6 @@ public class SearchCLDR {
             File[] files = getCorrespondingDirectories(base, cldrFactory);
             cldrDiffFactory = SimpleFactory.make(files, ".*");
         }
-
-        PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(english);
 
         String errorMatcherText = myOptions.get("Error").getValue();
         subtype = null;
@@ -191,6 +199,10 @@ public class SearchCLDR {
             System.out.println();
         }
 
+        if (organization != null) {
+            locales = Sets.intersection(locales, StandardCodes.make().getLocaleCoverageLocales(organization));
+        }
+
         List<CheckStatus> result = new ArrayList<>();
         Map<String, String> options = new HashMap<>();
 
@@ -198,8 +210,8 @@ public class SearchCLDR {
 
         for (String locale : locales) {
             int localeCount = 0;
-            Level organizationLevel = organization == null ? null
-                : StandardCodes.make().getLocaleCoverageLevel(organization, locale);
+//            Level organizationLevel = organization == null ? null
+//                : StandardCodes.make().getLocaleCoverageLevel(organization, locale);
 
             CLDRFile file = cldrFactory.make(locale, resolved);
             CLDRFile resolvedFile = resolved == true ? file
@@ -314,8 +326,8 @@ public class SearchCLDR {
                     continue;
                 }
                 if (!headerShown) {
-                    showLine(showPath, showParent, showEnglish, resolved, locale, "Path", "Full-Path", "Value",
-                        "PathHeader", "Parent-Value", "English-Value", "Source-Locale\tSource-Path", "Org-Level");
+                    showLine(showPathHeader, showParent, showEnglish, resolved, locale, "Path", "Full-Path", "Value",
+                        "Parent-Value", "English-Value", "Source-Locale\tSource-Path", "Org-Level");
                     headerShown = true;
                 }
                 //                if (showParent && parent == null) {
@@ -331,9 +343,8 @@ public class SearchCLDR {
                 if (checkCldr != null) {
                     SearchXml.show(ConfigOption.delete, "", locale, CLDRFile.getDistinguishingXPath(fullPath, null), value, null, null, null);
                 } else {
-                    showLine(showPath, showParent, showEnglish, resolved, locale,
+                    showLine(showPathHeader, showParent, showEnglish, resolved, locale,
                         path, fullPath, value,
-                        cleanShort,
                         !showParent ? null : english.getBaileyValue(path, null, null),
                             english == null ? null : english.getStringValue(path),
                                 resolvedSource,
@@ -378,24 +389,24 @@ public class SearchCLDR {
         return CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + versionInfo.getVersionString(2, 3) + "/";
     }
 
-    private static void showLine(boolean showPath, boolean showParent, boolean showEnglish,
+    private static void showLine(PathStyle showPath, boolean showParent, boolean showEnglish,
         boolean resolved, String locale, String path, String fullPath, String value,
-        String shortPath, String parentValue, String englishValue, String resolvedSource, String organizationLevel) {
+        String parentValue, String englishValue, String resolvedSource, String organizationLevel) {
         String pathHeaderInfo = "";
-        if (PATH_HEADER_FACTORY != null) {
-            PathHeader pathHeader = PATH_HEADER_FACTORY.fromPath(path);
-            if (pathHeader != null) {
-                pathHeaderInfo = "\n\t" + pathHeader
-                    + "\n\t" + pathHeader.getUrl(BaseUrl.PRODUCTION, locale);
-            }
+        PathHeader pathHeader = pathHeaderFactory.fromPath(path);
+
+        if (showSurveyToolUrl) {
+            pathHeaderInfo = "\n\t" + pathHeader.getUrl(BaseUrl.PRODUCTION, locale);
         }
-        System.out.println("# "
+        System.out.println("#\t"
             + locale
             + "\t⟪" + value + "⟫"
             + (showEnglish ? "\t⟪" + englishValue + "⟫" : "")
             + (!showParent ? "" : Objects.equals(value, parentValue) ? "\t≣" : "\t⟪" + parentValue + "⟫")
-            + "\t" + shortPath
-            + (showPath ? "\t" + fullPath : "")
+            + (showPath == PathStyle.path ? "\t" + path
+                : showPath == PathStyle.fullPath ? "\t" + fullPath
+                    : showPath == PathStyle.pathHeader ? "\t" + pathHeader
+                : "")
             + (resolved ? "\t" + resolvedSource : "")
             + (organizationLevel != null ? "\t" + organizationLevel : "")
             + pathHeaderInfo);

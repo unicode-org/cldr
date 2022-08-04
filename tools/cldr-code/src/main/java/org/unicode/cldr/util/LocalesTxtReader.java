@@ -15,6 +15,8 @@ import com.ibm.icu.impl.Relation;
 import com.ibm.icu.util.ICUUncheckedIOException;
 
 class LocalesTxtReader {
+    static final boolean DEBUG = false;
+
     Map<Organization, Map<String, Level>> platform_locale_level = null;
     Map<Organization, Relation<Level, String>> platform_level_locale = null;
     Map<String, Map<String, String>> platform_locale_levelString = null;
@@ -135,23 +137,27 @@ class LocalesTxtReader {
                     platform_locale_level.put(organization, locale_status = new TreeMap<>());
                 }
                 locale_status.put(locale, status);
-                if (!locale.equals(StandardCodes.ALL_LOCALES)) {
+                if (!locale.equals(StandardCodes.ALL_LOCALES) && organization != Organization.special) {
                     String scriptLoc = parser.getLanguageScript();
-                    if (locale_status.get(scriptLoc) == null)
+                    if (locale_status.get(scriptLoc) == null) {
                         locale_status.put(scriptLoc, status);
+                        logExtra(organization, locale, status, scriptLoc);
+                    }
                     String lang = parser.getLanguage();
-                    if (locale_status.get(lang) == null)
+                    if (locale_status.get(lang) == null) {
                         locale_status.put(lang, status);
+                        logExtra(organization, locale, status, lang);
+                    }
                 }
 
                 if (weight != null) {
                     organization_locale_weight
-                        .computeIfAbsent(organization, ignored -> new TreeMap<String, Integer>())
+                        .computeIfAbsent(organization, ignored -> new TreeMap<>())
                         .put(locale, weight);
                 }
                 if (pathMatch != null) {
                     organization_locale_match
-                        .computeIfAbsent(organization, ignored -> new TreeMap<String, Set<String>>())
+                        .computeIfAbsent(organization, ignored -> new TreeMap<>())
                         .put(locale, ImmutableSet.copyOf(pathMatch.split(",")));
                 }
             }
@@ -161,6 +167,9 @@ class LocalesTxtReader {
 
         // now reset the parent to be the max of the children
         for (Organization platform : platform_locale_level.keySet()) {
+            if (platform == Organization.special) {
+                continue;
+            }
             Map<String, Level> locale_level = platform_locale_level.get(platform);
             for (String locale : locale_level.keySet()) {
                 parser.set(locale);
@@ -171,6 +180,7 @@ class LocalesTxtReader {
                     Level languageLevel = locale_level.get(language);
                     if (languageLevel == null || languageLevel.compareTo(childLevel) < 0) {
                         locale_level.put(language, childLevel);
+                        logExtra(platform, locale, childLevel, language);
                     }
                 }
                 String oldLanguage = language;
@@ -179,6 +189,7 @@ class LocalesTxtReader {
                     Level languageLevel = locale_level.get(language);
                     if (languageLevel == null || languageLevel.compareTo(childLevel) < 0) {
                         locale_level.put(language, childLevel);
+                        logExtra(platform, locale, childLevel, language);
                     }
                 }
             }
@@ -201,5 +212,11 @@ class LocalesTxtReader {
         platform_locale_level = CldrUtility.protectCollection(platform_locale_level);
         platform_locale_levelString = CldrUtility.protectCollection(platform_locale_levelString);
         return this;
+    }
+
+    public void logExtra(Organization organization, String locale, Level status, String scriptLoc) {
+        if (DEBUG) {
+            System.out.println("Adding " + locale + ", " + scriptLoc + ", " + status);
+        }
     }
 }

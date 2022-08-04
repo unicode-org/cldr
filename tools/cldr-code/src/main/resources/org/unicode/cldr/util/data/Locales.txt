@@ -526,6 +526,7 @@ Cldr    ; doi ; basic ; Dogri
 #Cldr    ; nv ; basic ; Navajo
 
 #Cldr other (high coverage locales)
+
 Cldr  ; hsb ; modern ; Upper Sorbian
 Cldr  ; dsb ; modern  ; Lower Sorbian
 Cldr  ; gd  ; modern  ; Scottish Gaelic
@@ -616,6 +617,7 @@ Microsoft	;	en_AU	;	modern	;	English (Australia)
 Microsoft	;	en_CA	;	modern	;	English (Canada)
 Microsoft	;	en_GB	;	modern	;	English (UK)
 Microsoft	;	en_IN	;	modern	;	English (India)
+Microsoft	;	es_419	;	modern	;   English (LA America) # added explicitly (was implicit before; parent of es_MX)
 Microsoft	;	es_MX	;	modern	;	Spanish (Mexico)
 Microsoft	;	es_US	;	modern	;	Spanish (US)
 Microsoft	;	fr_CA	;	modern	;	French (Canada)
@@ -764,6 +766,7 @@ Meta  ; bn  ; modern
 Meta ; cy ; moderate ;
 Meta	;	da	;	modern
 Meta ; de ; moderate ;
+Meta ; en ; comprehensive # added explicitly (was implicit before, parent of en_GB)
 Meta ; en_GB ; moderate ;
 Meta	;	es	;	modern
 Meta	;	es_419	;	modern
@@ -845,6 +848,7 @@ wikimedia ; lrc ; moderate ;
 wikimedia ; ml ; moderate ;
 wikimedia ; mzn ; moderate ;
 wikimedia ; ne ; moderate ;
+wikimedia	;	no	;	moderate # added explicitly (was implicit before; parent of nn)
 wikimedia ; nn ; moderate ;
 wikimedia ; or ; moderate ;
 wikimedia ; pl ; moderate ;
@@ -881,7 +885,7 @@ special	;	ast	;	moderate	;	Asturian
 special ;	br	;	moderate	;	Breton
 special ;	chr	;	modern	;	Cherokee
 special ;	dsb	;	modern	;	Lower Sorbian
-special ;	ff	;	moderate	;	Fulah
+special ;	ff	;	basic	;	Fulah
 special ;	ff_Adlm	;	moderate	;	Fulah (Adlam)
 special ;	fo	;	moderate	;	Faroese
 special ;	hi_Latn	;	modern	;	Hindi (Latin)

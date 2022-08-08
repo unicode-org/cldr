@@ -15,6 +15,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.PathHeader;
 
 public class CompareEn {
 
@@ -58,6 +59,7 @@ public class CompareEn {
 
     private static void uplevelEnGB() throws IOException {
         System.out.println("Copying values from en_GB to en_001");
+        Values values = new Values();
 
         for (Factory factory : Arrays.asList(mainFactory, annotationsFactory)) {
             String outDir = factory.getSourceDirectory(); // CLDRPaths.GEN_DIRECTORY + "uplevel/" + new File(factory.getSourceDirectory()).getName();
@@ -74,36 +76,17 @@ public class CompareEn {
             en_GB.forEach(paths::add);
 
             for (String path : paths) {
-                if (path.startsWith("//ldml/identity")) {
-                    continue;
-                }
-             // skip certain paths
-                if (path.startsWith("//ldml/dates/timeZoneNames/") && path.contains("/short/")) {
-                    if (VERBOSE) {
-                        System.out.println("Skipping\t" + path);
-                    }
-                    continue;
-                }
-                String valueGBR = en_GBR.getStringValue(path);
-                if (valueGBR == null || CldrUtility.INHERITANCE_MARKER.equals(valueGBR)) {
-                    continue;
-                }
-
-                String value001R = en_001R.getStringValue(path);
-                if (CldrUtility.INHERITANCE_MARKER.equals(value001R)) {
-                    value001R = null;
-                }
-
-                if (Objects.equals(valueGBR, value001R)) {
+                // skip certain paths
+                if (failsFilter(path, en_GBR, en_001R, values) != FilterStatus.accept) {
                     continue;
                 }
 
                 // replace the en_001 value
                 String fullPath = en_GBR.getFullXPath(path);
                 if (VERBOSE) {
-                    System.out.println("Changing «" + value001R + "» to «" + valueGBR + "» in\t" + path);
+                    System.out.println("Changing «" + values.value001R + "» to «" + values.valueGBR + "» in\t" + path);
                 }
-                en_001Out.add(fullPath, valueGBR);
+                en_001Out.add(fullPath, values.valueGBR);
             }
 
             try (PrintWriter out = FileUtilities.openUTF8Writer(outDir, "en_001.xml")) {
@@ -112,12 +95,62 @@ public class CompareEn {
         }
     }
 
+    static final class Values {
+        String valueGBR;
+        String value001R;
+    }
+
+    static enum FilterStatus {
+        /** don't make the change */
+        skip,
+        /** don't make the change, but note in the comparison file */
+        skipButNote,
+        /** make the change */
+        accept
+    }
+
+    /**
+     * Check whether we should skip or not. If we accept the change, then values contains the values.
+     * @param path
+     * @param en_GBR
+     * @param en_001R
+     * @param values
+     * @return
+     */
+    public static FilterStatus failsFilter(String path, CLDRFile en_GBR, CLDRFile en_001R, Values values) {
+        if (path.startsWith("//ldml/identity")) {
+            return FilterStatus.skip;
+        }
+        if (path.startsWith("//ldml/dates/timeZoneNames/") && path.contains("/short/")) {
+            if (VERBOSE) {
+                System.out.println("Skipping\t" + path);
+            }
+            return FilterStatus.skipButNote;
+        }
+        values.valueGBR = en_GBR.getStringValue(path);
+        if (values.valueGBR == null || CldrUtility.INHERITANCE_MARKER.equals(values.valueGBR)) {
+            return FilterStatus.skip;
+        }
+
+        values.value001R = en_001R.getStringValue(path);
+        if (CldrUtility.INHERITANCE_MARKER.equals(values.value001R)) {
+            values.value001R = null;
+        }
+
+        if (Objects.equals(values.valueGBR, values.value001R)) {
+            return FilterStatus.skip;
+        }
+        return FilterStatus.accept;
+    }
+
     private static void writeComparison() throws IOException {
-        System.out.println("Writing to: " + CLDRPaths.GEN_DIRECTORY + "comparison" + "en.txt");
+        System.out.println("Writing to: " + CLDRPaths.GEN_DIRECTORY + "comparison/en.txt");
+        PathHeader.Factory phf = PathHeader.getFactory();
+        Values values = new Values();
 
         try (PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "comparison", "en.txt")) {
             out.println("From CompareEn.java");
-            out.println("Proposed Disposition\ten\ten_001\ten_GB\tPath");
+            out.println("Proposed Disposition\tSection\tPage\tHeader\tCode\ten\ten_001\ten_GB\tPath");
             for (Factory factory : Arrays.asList(mainFactory, annotationsFactory)) {
                 CLDRFile en = factory.make("en", false);
                 CLDRFile en_001 = factory.make("en_001", false);
@@ -133,27 +166,27 @@ public class CompareEn {
                 en_GB.forEach(paths::add);
                 en_001.forEach(paths::add);
 
+                main:
                 for (String path : paths) {
-                    if (path.startsWith("//ldml/identity")) {
-                        continue;
+                    String note = "";
+                    // skip certain paths
+                    switch(failsFilter(path, en_GBR, en_001R, values)) {
+                    case skipButNote:
+                        note = "AUTOSKIP";
+                        break;
+                    case accept:
+                        break;
+                    case skip:
+                        continue main;
                     }
-                    String value001R = en_001R.getStringValue(path);
-                    if (CldrUtility.INHERITANCE_MARKER.equals(value001R)) {
-                        value001R = null;
-                    }
-                    String valueGBR = en_GBR.getStringValue(path);
-                    if (CldrUtility.INHERITANCE_MARKER.equals(valueGBR)) {
-                        valueGBR = null;
-                    }
+
                     String valueR = enR.getStringValue(path);
 
                     // drop the cases that will disappear with minimization
 
-                    if (Objects.equals(value001R, valueGBR)) {
-                        continue;
-                    }
-                    out.println(
-                        "\t" + valueR
+                    out.println(note
+                        + "\t" + phf.fromPath(path)
+                        + "\t" + valueR
                         + "\t" + en_001.getStringValue(path)
                         + "\t" + en_GB.getStringValue(path)
                         + "\t" + path);

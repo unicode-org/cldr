@@ -13,12 +13,19 @@ This DTD is a work in progress.
 
 Please see CLDR-15034 for the latest information. -->
 
-<!ELEMENT keyboard ( locales?, version?, info?, names, settings?, vkeyMaps*, displayMap*, keys, layerMaps*, transforms*, reorders?, backspaces?, special* ) >
+<!ELEMENT keyboard ( import*, locales?, version?, info?, names, settings?, vkeyMaps*, displayMap*, keys, layerMaps*, transforms*, reorders?, backspaces?, special* ) >
 <!ATTLIST keyboard locale CDATA #REQUIRED >
     <!--@MATCH:validity/bcp47-->
 <!ATTLIST keyboard conformsTo (techpreview) #REQUIRED >
     <!--@MATCH:any-->
     <!--@METADATA-->
+
+<!ELEMENT import EMPTY >
+<!ATTLIST import path CDATA #REQUIRED >
+    <!--@MATCH:any-->
+    <!--@VALUE-->
+<!ATTLIST import base (cldr) #IMPLIED >
+    <!--@VALUE-->
 
 <!ELEMENT locales ( locale* ) >
 
@@ -30,7 +37,7 @@ Please see CLDR-15034 for the latest information. -->
 <!ELEMENT version EMPTY >
 <!ATTLIST version number CDATA #IMPLIED >
     <!--@VALUE-->
-<!ATTLIST version cldrVersion CDATA #FIXED "42" >
+<!ATTLIST version cldrVersion CDATA #FIXED "techpreview" >
     <!--@MATCH:version-->
     <!--@METADATA-->
 
@@ -48,7 +55,7 @@ Please see CLDR-15034 for the latest information. -->
     <!--@MATCH:any-->
     <!--@VALUE-->
 
-<!ELEMENT names ( name+, special* ) >
+<!ELEMENT names ( import*, name+, special* ) >
 
 <!ELEMENT name EMPTY >
 <!ATTLIST name value CDATA #REQUIRED >
@@ -66,15 +73,7 @@ Please see CLDR-15034 for the latest information. -->
 <!ATTLIST settings transformPartial (hide) #IMPLIED >
     <!--@VALUE-->
 
-<!ELEMENT vkeyMaps ( import | vkeyMap | special )+ >
-
-<!ELEMENT import EMPTY >
-<!ATTLIST import path CDATA #REQUIRED >
-    <!--@MATCH:any-->
-    <!--@VALUE-->
-
-<!ATTLIST import base (cldr) #IMPLIED >
-    <!--@VALUE-->
+<!ELEMENT vkeyMaps ( import*, vkeyMap*, special* ) >
 
 <!ELEMENT vkeyMap EMPTY >
 <!ATTLIST vkeyMap from CDATA #REQUIRED >
@@ -83,7 +82,7 @@ Please see CLDR-15034 for the latest information. -->
     <!--@MATCH:any-->
     <!--@VALUE-->
 
-<!ELEMENT displayMap ( display | displayOptions | special )+ >
+<!ELEMENT displayMap ( import*, display*, displayOptions*, special* ) >
 
 <!ELEMENT display EMPTY >
 <!ATTLIST display to CDATA #REQUIRED >
@@ -97,7 +96,7 @@ Please see CLDR-15034 for the latest information. -->
     <!--@MATCH:any-->
     <!--@VALUE-->
 
-<!ELEMENT keys ( ( key | flicks )*, special* ) >
+<!ELEMENT keys ( import*, ( key | flicks )*, special* ) >
 
 <!ELEMENT key EMPTY >
 <!ATTLIST key id CDATA #REQUIRED >
@@ -137,7 +136,7 @@ Please see CLDR-15034 for the latest information. -->
     <!--@MATCH:any-->
     <!--@VALUE-->
 
-<!ELEMENT layerMaps ( import | layerMap | special )+ >
+<!ELEMENT layerMaps ( import*, layerMap*, special* ) >
 <!ATTLIST layerMaps form (hardware | touch) #REQUIRED >
 <!ATTLIST layerMaps minDeviceWidthMM CDATA #IMPLIED >
     <!--@MATCH:range/1~999-->
@@ -154,7 +153,7 @@ Please see CLDR-15034 for the latest information. -->
     <!--@MATCH:any-->
     <!--@VALUE-->
 
-<!ELEMENT transforms ( import | transform | special )+ >
+<!ELEMENT transforms ( import*, transform*, special* ) >
 <!ATTLIST transforms type CDATA #REQUIRED >
     <!--@MATCH:literal/simple, final-->
 
@@ -168,7 +167,7 @@ Please see CLDR-15034 for the latest information. -->
 <!ATTLIST transform error (fail) #IMPLIED >
     <!--@VALUE-->
 
-<!ELEMENT reorders ( import | reorder | special )+ >
+<!ELEMENT reorders ( import*, reorder*, special* ) >
 
 <!ELEMENT reorder EMPTY >
 <!ATTLIST reorder before CDATA #IMPLIED >
@@ -182,7 +181,7 @@ Please see CLDR-15034 for the latest information. -->
 <!ATTLIST reorder prebase CDATA #IMPLIED >
     <!--@VALUE-->
 
-<!ELEMENT backspaces ( import, backspace, special )+ >
+<!ELEMENT backspaces ( import*, backspace*, special* ) >
 
 <!ELEMENT backspace EMPTY >
 <!ATTLIST backspace before CDATA #IMPLIED >

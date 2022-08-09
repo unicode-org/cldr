@@ -298,7 +298,7 @@ This is the top level element. All other elements defined below are under this e
 >
 > Parents: _none_
 >
-> Children: [backspaces](#Element_backspaces), [displayMap](#Element_displayMap), [info](#Element_info), [keys](#Element_keys), [layerMaps](#Element_layerMaps), [locales](#Element_locales), [names](#Element_names), [reorders](#Element_reorders), [settings](#Element_settings), [_special_](tr35.md#special), [transforms](#Element_transforms), [version](#Element_version), [vkeyMaps](#Element_vkeyMaps)
+> Children: [backspaces](#Element_backspaces), [displayMap](#Element_displayMap), [import](#Element_import), [info](#Element_info), [keys](#Element_keys), [layerMaps](#Element_layerMaps), [locales](#Element_locales), [names](#Element_names), [reorders](#Element_reorders), [settings](#Element_settings), [_special_](tr35.md#special), [transforms](#Element_transforms), [version](#Element_version), [vkeyMaps](#Element_vkeyMaps)
 >
 > Occurrence: required, single
 >
@@ -874,7 +874,8 @@ The use case is to be able to import a standard set of vkeyMaps, transforms, and
 from the CLDR repository.  `<import>` is not recommended as a way for keyboard authors to
 split up their keyboard into multiple files, as the intent is for each single XML file to contain all that is needed for a keyboard layout.
 
-`<import>` can be used as a child of a number of elements.
+`<import>` can be used as a child of a number of elements. Multiple `<import>` elements may be used, however, `<import>` elements must come before any other sibling elements.
+
 <!-- TODO: which ones?-->
 
 **Syntax**
@@ -883,10 +884,8 @@ split up their keyboard into multiple files, as the intent is for each single XM
 <!-- in a keyboard xml file-->
 …
 <transforms type="simple">
-    <!-- This line is before the import -->
-    <transform from="` " to="`" />
     <import path="cldr/standard_transforms.xml"/>
-    <!-- This line is after the import -->
+    <transform from="` " to="`" />
     <transform from="^ " to="^" />
 </transforms>
 …
@@ -914,9 +913,6 @@ After loading, the above example will be the equivalent of the following.
 
 ```xml
 <transforms type="simple">
-    <!-- This line is before the import -->
-    <transform from="` " to="`" />
-
     <!-- begin imported part-->
     <transform from="`a" to="à" />
     <transform from="`e" to="è" />
@@ -925,14 +921,15 @@ After loading, the above example will be the equivalent of the following.
     <transform from="`u" to="ù" />
     <!-- end imported part -->
 
-    <!-- This line is after the import -->
+    <!-- this line is after the import -->
     <transform from="^ " to="^" />
+    <transform from="` " to="`" />
 </transforms>
 ```
 
 > <small>
 >
-> Parents: [backspaces](#Element_backspaces), [layerMaps](#Element_layerMaps), [reorders](#Element_reorders), [transforms](#Element_transforms), [vkeyMaps](#Element_vkeyMaps)
+> Parents: [backspaces](#Element_backspaces), [displayMap](#Element_displayMap), [keyboard](#Element_keyboard), [keys](#Element_keys), [layerMaps](#Element_layerMaps), [names](#Element_names), [reorders](#Element_reorders), [transforms](#Element_transforms), [vkeyMaps](#Element_vkeyMaps)
 >
 > Children: _none_
 >

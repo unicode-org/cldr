@@ -261,6 +261,8 @@ Characters of general category of Combining Mark (M), Control characters (Cc), F
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
 ```
 
+* The filename of a keyboard .xml file does not have to match the BCP47 primary locale ID, but it is recommended to do so. The CLDR repository may enforce filename consistency.
+
 <!-- Each platform has its own directory, where a "platform" is a designation for a set of keyboards available from a particular source, such as Windows or Chrome OS. This directory name is the platform name (see Table 2 located further in the document). Within this directory there are two types of files:
 
 1. A single platform file (see XML structure for Platform file), this file includes a mapping of hardware key codes to the ISO layout positions. This file is also open to expansion for any configuration elements that are valid across the whole platform and that are not layout specific. This file is simply called `_platform.xml`.

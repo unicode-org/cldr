@@ -101,9 +101,9 @@ Please see CLDR-15034 for the latest information. -->
 
 <!ELEMENT key EMPTY >
 <!ATTLIST key id CDATA #REQUIRED >
-    <!--@MATCH:regex/[A-Za-z0-9-]+-->
+    <!--@MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]*-->
 <!ATTLIST key flicks NMTOKEN #IMPLIED >
-    <!--@MATCH:regex/[A-Za-z0-9-]+-->
+    <!--@MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]*-->
 <!ATTLIST key gap (true) #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST key to CDATA #IMPLIED >
@@ -118,7 +118,7 @@ Please see CLDR-15034 for the latest information. -->
 <!ATTLIST key multitap CDATA #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST key switch NMTOKEN #IMPLIED >
-    <!--@MATCH:regex/[A-Za-z0-9]*-->
+    <!--@MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]*-->
     <!--@VALUE-->
 <!ATTLIST key transform (no) #IMPLIED >
     <!--@VALUE-->
@@ -128,7 +128,7 @@ Please see CLDR-15034 for the latest information. -->
 
 <!ELEMENT flicks ( flick+, special* ) >
 <!ATTLIST flicks id NMTOKEN #REQUIRED >
-    <!--@MATCH:regex/[A-Za-z0-9-]+-->
+    <!--@MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]*-->
 
 <!ELEMENT flick EMPTY >
 <!ATTLIST flick directions NMTOKENS #REQUIRED >

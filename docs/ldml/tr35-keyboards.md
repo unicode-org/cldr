@@ -420,7 +420,8 @@ Element used to keep track of the source data version.
 
 _Attribute:_ `number` (required)
 
-> The data revision version. The attribute value must start with `$Revision` and end with `$`.
+> Must be a [semver-compatible](https://semver.org) version number.
+<!-- TODO make the above into a reverence to SEMVER -->
 
 _Attribute:_ `cldrVersion` (fixed by DTD)
 
@@ -692,12 +693,11 @@ _Attribute:_ `gap="true"` (optional)
 
 > The `gap` attribute indicates that this key does not have any appearance, but represents a "gap" of the specified number of key widths. Can be used with `width` to set a width.
 
-
 ```xml
 <key id="mediumgap" gap="true" width="1.5"/>
 ```
 
-_Attribute:_ `longPress="optional"` (optional) (discouraged, see [Accessibility](#Accessibility))
+_Attribute:_ `longPress="a b c"` (optional) (discouraged, see [Accessibility](#Accessibility))
 
 > The `longPress` attribute contains any characters that can be emitted by "long-pressing" a key, this feature is prominent in mobile devices. The possible sequences of characters that can be emitted are whitespace delimited. Control characters, combining marks and whitespace (which is intended to be a long-press option) in this attribute are escaped using the `\u{...}` notation.
 

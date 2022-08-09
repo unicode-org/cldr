@@ -121,7 +121,9 @@ public class CompareEn {
         if (path.startsWith("//ldml/identity")) {
             return FilterStatus.skip;
         }
-        if (path.startsWith("//ldml/dates/timeZoneNames/") && path.contains("/short/")) {
+        if (path.startsWith("//ldml/dates/timeZoneNames/") && path.contains("/short/")
+            || path.contains("/datetimeSkeleton")
+            || path.contains("/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]")) {
             if (VERBOSE) {
                 System.out.println("Skipping\t" + path);
             }
@@ -162,12 +164,13 @@ public class CompareEn {
 
                 // walk through all the new paths and values to check them.
 
-                TreeSet<String> paths = new TreeSet<>();
-                en_GB.forEach(paths::add);
-                en_001.forEach(paths::add);
+                TreeSet<PathHeader> paths = new TreeSet<>();
+                en_GB.forEach(x -> paths.add(phf.fromPath(x)));
+                en_001.forEach(x -> paths.add(phf.fromPath(x)));
 
                 main:
-                for (String path : paths) {
+                for (PathHeader pathHeader : paths) {
+                    String path = pathHeader.getOriginalPath();
                     String note = "";
                     // skip certain paths
                     switch(failsFilter(path, en_GBR, en_001R, values)) {
@@ -185,7 +188,7 @@ public class CompareEn {
                     // drop the cases that will disappear with minimization
 
                     out.println(note
-                        + "\t" + phf.fromPath(path)
+                        + "\t" + pathHeader
                         + "\t" + valueR
                         + "\t" + en_001.getStringValue(path)
                         + "\t" + en_GB.getStringValue(path)

@@ -814,9 +814,9 @@ public class ShowLocaleCoverage {
                         pathHeaderFactory, foundCounter, unconfirmedCounter,
                         missingCounter, missingPaths, unconfirmed);
                     {
-                        int found = 0;
-                        int unconfirmedc = 0;
-                        int missing = 0;
+                        long found = 0;
+                        long unconfirmedc = 0;
+                        long missing = 0;
                         Level adjustedGoal = cldrLocaleLevelGoal.compareTo(Level.BASIC) < 0 ? Level.BASIC : cldrLocaleLevelGoal;
                         for (Level level : Level.values()) {
                             if (level.compareTo(adjustedGoal) <= 0) {

@@ -1469,12 +1469,15 @@ public class VettingViewer<T> {
             }
 
             Level level = coverageLevel2.getLevel(path);
+            if (level.compareTo(Level.MODERN) > 0) {
+                continue;
+            }
             MissingStatus missingStatus = VettingViewer.getMissingStatus(file, path, latin);
 
             switch (missingStatus) {
             case ABSENT:
                 missingCounter.add(level, 1);
-                if (missingPaths != null && level.compareTo(Level.MODERN) <= 0) {
+                if (missingPaths != null) {
                     missingPaths.put(missingStatus, path);
                 }
                 break;
@@ -1484,7 +1487,7 @@ public class VettingViewer<T> {
                 if (fullPath.contains("unconfirmed")
                     || fullPath.contains("provisional")) {
                     unconfirmedCounter.add(level, 1);
-                    if (unconfirmedPaths != null && level.compareTo(Level.MODERN) <= 0) {
+                    if (unconfirmedPaths != null) {
                         unconfirmedPaths.add(path);
                     }
                 } else {

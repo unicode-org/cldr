@@ -138,8 +138,9 @@ public class GenerateProductionData {
 
         // get directories
 
-        Arrays.asList(DtdType.values()).parallelStream()
-            .unordered()
+        Arrays.asList(DtdType.values())
+            //.parallelStream()
+            //.unordered()
             .forEach(type -> {
             boolean isLdmlDtdType = type == DtdType.ldml;
 
@@ -227,7 +228,7 @@ public class GenerateProductionData {
             final Factory theFactory = factory;
             final boolean isLdmlDtdType2 = isLdmlDtdType;
             sorted
-                .parallelStream()
+                //.parallelStream()
                 .forEach(file -> {
                     File sourceFile2 = new File(sourceFile, file);
                     File destinationFile2 = new File(destinationFile, file);

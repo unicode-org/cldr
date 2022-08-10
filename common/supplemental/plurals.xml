@@ -155,9 +155,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
         <!-- 4: one,two,many,other -->
 
         <pluralRules locales="he iw">
-            <pluralRule count="one">i = 1 and v = 0 @integer 1</pluralRule>
+            <pluralRule count="one">i = 1 and v = 0 or i = 0 and v != 0 @integer 1</pluralRule>
             <pluralRule count="two">i = 2 and v = 0 @integer 2</pluralRule>
-            <pluralRule count="many">v = 0 and n != 0..10 and n % 10 = 0 @integer 20, 30, 40, 50, 60, 70, 80, 90, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
+            <!--  <pluralRule count="many">v = 0 and n != 0..10 and n % 10 = 0 @integer 20, 30, 40, 50, 60, 70, 80, 90, 100, 1000, 10000, 100000, 1000000, …</pluralRule> -->
             <pluralRule count="other"> @integer 0, 3~17, 101, 1001, … @decimal 0.0~1.5, 10.0, 100.0, 1000.0, 10000.0, 100000.0, 1000000.0, …</pluralRule>
         </pluralRules>
 

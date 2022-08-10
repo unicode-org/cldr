@@ -14,8 +14,21 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckExemplars.ExemplarType;
-import org.unicode.cldr.util.*;
+import org.unicode.cldr.util.AnnotationUtil;
+import org.unicode.cldr.util.Builder;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.DateTimeCanonicalizer;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
+import org.unicode.cldr.util.Emoji;
+import org.unicode.cldr.util.ICUServiceBuilder;
+import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
+import org.unicode.cldr.util.With;
+import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
@@ -353,6 +366,7 @@ public class DisplayAndInputProcessor {
     public static final Splitter SPLIT_BAR = Splitter.on(Pattern.compile(BAR_REGEX)).trimResults().omitEmptyStrings();
     static final Splitter SPLIT_SPACE = Splitter.on(' ').trimResults().omitEmptyStrings();
     static final Joiner JOIN_BAR = Joiner.on(" | ");
+    static final Joiner JOIN_SPACE = Joiner.on(' ');
 
     /**
      * Process the value for input. The result is a cleaned-up value. For example,
@@ -493,6 +507,10 @@ public class DisplayAndInputProcessor {
                 value = value.replace("...", "…");
             }
 
+            if (path.startsWith("//ldml/personNames/nameOrderLocales")) {
+                value = normalizeNameOrderLocales(value);
+            }
+
             // Replace Arabic presentation forms with their nominal counterparts
             value = replaceArabicPresentationForms(value);
 
@@ -531,6 +549,19 @@ public class DisplayAndInputProcessor {
             }
             return original;
         }
+    }
+
+    private String normalizeNameOrderLocales(String value) {
+        TreeSet<String> result = new TreeSet<>(SPLIT_SPACE.splitToList(value));
+        result.remove("zxx");
+        if (result.remove("und")) { // put und at the front
+            if (result.isEmpty()) {
+                return "und";
+            } else {
+                return "und " + JOIN_SPACE.join(result);
+            }
+        }
+        return JOIN_SPACE.join(result);
     }
 
     /**
@@ -1091,7 +1122,7 @@ public class DisplayAndInputProcessor {
         }
 
         // Further whitespace adjustments per CLDR-14032
-        if ((scriptCode.equals("Latn") || scriptCode.equals("Cyrl") || scriptCode.equals("Grek")) && 
+        if ((scriptCode.equals("Latn") || scriptCode.equals("Cyrl") || scriptCode.equals("Grek")) &&
                 HOUR_FORMAT_XPATHS.matcher(path).matches()) {
             String test = AMPM_SPACE_BEFORE.matcher(value).replaceAll("$1$2"); // value without a+
             if (value.length() - test.length() != 4) { // exclude patterns with aaaa

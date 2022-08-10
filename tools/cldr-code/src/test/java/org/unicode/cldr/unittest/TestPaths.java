@@ -454,7 +454,8 @@ public class TestPaths extends TestFmwkPlus {
                                     logKnownIssue("cldrbug:9784", "fix TODO's in Attribute validity tests");
                                 }
                             }
-                            if ((elementType == ElementType.PCDATA) == (value.isEmpty())) {
+                            if ((elementType == ElementType.PCDATA) == (value.isEmpty())
+                                && !finalElement.name.equals("nameOrderLocales")) {
                                 errln("PCDATA ≠ emptyValue inconsistency:"
                                     + "\tfile=" + fileName + "/" + file
                                     + "\telementType=" + elementType

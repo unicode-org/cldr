@@ -2688,48 +2688,82 @@ public class TestUnits extends TestFmwk {
         }
     }
 
-    public void TestUnitIdComponents() {
-        // structure will be (prefix* base* suffix*) per ((prefix* base* suffix*)
-        for (String longUnit : VALID_REGULAR_UNITS) {
-            String unit = SDI.getUnitConverter().getShortId(longUnit);
-            List<String> parts = SPLIT_DASH.splitToList(unit);
-            List<String> simpleUnit = new ArrayList<>();
-            UnitIdComponentType lastType = UnitIdComponentType.suffix;
-            logln(unit);
-            for (String part : parts) {
-                UnitIdComponentType type = getUnitIdComponentType(part);
-                switch(type) {
-                case prefix:
-                    if (lastType != UnitIdComponentType.prefix) {
-                        emit(simpleUnit);
-                    }
-                    break;
-                case base:
-                    if (lastType != UnitIdComponentType.prefix) {
-                        emit(simpleUnit);
-                    }
-                    break;
-                case suffix:
-                    assertFalse("suffix after prefix or odd", lastType == UnitIdComponentType.prefix || lastType == UnitIdComponentType.odd);
-                    break;
-                case odd:
-                    emit(simpleUnit);
-                    break;
-                }
-                simpleUnit.add(part + "*" + type.toShortId());
-                lastType = type;
-            }
-            assertTrue("last item must be base or suffix", lastType == UnitIdComponentType.base || lastType == UnitIdComponentType.suffix);
-            emit(simpleUnit);
-        }
+    static final String marker = "➗";
 
+    public void TestValidUnitIdComponents() {
+        for (String longUnit : VALID_REGULAR_UNITS) {
+            String shortUnit = SDI.getUnitConverter().getShortId(longUnit);
+            checkShortUnit(shortUnit);
+        }
     }
 
-    Map<String, UnitIdComponentType> fakeData = new TreeMap();
+    public void TestDeprecatedUnitIdComponents() {
+        for (String longUnit : DEPRECATED_REGULAR_UNITS) {
+            String shortUnit = SDI.getUnitConverter().getShortId(longUnit);
+            checkShortUnit(shortUnit);
+        }
+    }
+
+    public void TestSelectedUnitIdComponents() {
+        checkShortUnit("curr-chf");
+    }
+
+
+    public void checkShortUnit(String shortUnit) {
+        List<String> parts = SPLIT_DASH.splitToList(shortUnit);
+        List<String> simpleUnit = new ArrayList<>();
+        UnitIdComponentType lastType = null;
+        // structure is (prefix* base* suffix*) per ((prefix* base* suffix*)
+
+        for (String part : parts) {
+            UnitIdComponentType type = getUnitIdComponentType(part);
+            switch(type) {
+            case prefix:
+                if (lastType != UnitIdComponentType.prefix && !simpleUnit.isEmpty()) {
+                    simpleUnit.add(marker);
+                }
+                break;
+            case base:
+                if (lastType != UnitIdComponentType.prefix && !simpleUnit.isEmpty()) {
+                    simpleUnit.add(marker);
+                }
+                break;
+            case suffix:
+                if (!(lastType == UnitIdComponentType.base || lastType == UnitIdComponentType.suffix)) {
+                    if ("metric".equals(part)) { // backward compatibility for metric ton; only needed if deprecated ids are allowed
+                        lastType = UnitIdComponentType.prefix;
+                    } else {
+                        errln(simpleUnit + "/" + part + "; suffix only after base or suffix: " + false);
+                    }
+                }
+                break;
+            // could add more conditions on these
+            case and:
+                assertNotNull(simpleUnit + "/" + part + "; not at start", lastType);
+                // fall through
+            case power:
+            case per:
+                assertNotEquals(simpleUnit + "/" + part + "; illegal after prefix", UnitIdComponentType.prefix, lastType);
+                if (!simpleUnit.isEmpty()) {
+                    simpleUnit.add(marker);
+                }
+                break;
+            }
+            simpleUnit.add(part + "*" + type.toShortId());
+            lastType = type;
+        }
+        assertTrue(simpleUnit + ": last item must be base or suffix",
+            lastType == UnitIdComponentType.base || lastType == UnitIdComponentType.suffix);
+        logln("\t" + shortUnit + "\t" + simpleUnit.toString());
+    }
+
+    Map<String, UnitIdComponentType> fakeData = new TreeMap<>();
     {
-        add(fakeData, UnitIdComponentType.prefix, "arc british dessert fluid light nautical");
+        add(fakeData, UnitIdComponentType.prefix, "arc british dessert fluid light nautical xxx x curr");
         add(fakeData, UnitIdComponentType.suffix, "force imperial luminosity mass metric person radius scandinavian troy unit us");
-        add(fakeData, UnitIdComponentType.odd, "per and square cubic xxx x curr");
+        add(fakeData, UnitIdComponentType.power, "square cubic");
+        add(fakeData, UnitIdComponentType.and, "and");
+        add(fakeData, UnitIdComponentType.per, "per");
     }
 
     public UnitIdComponentType getUnitIdComponentType(String part) {
@@ -2744,10 +2778,8 @@ public class TestUnits extends TestFmwk {
         }
     }
 
-    public void emit(List<String> simpleUnit) {
-        if (!simpleUnit.isEmpty()) {
-            logln("\t" + simpleUnit.toString());
-            simpleUnit.clear();
-        }
+    public void TestMetricTon() {
+        assertTrue("metric-ton is deprecated", DEPRECATED_REGULAR_UNITS.contains("mass-metric-ton"));
+        assertEquals("metric-ton is deprecated", "tonne", SDI.getUnitConverter().fixDenormalized("metric-ton"));
     }
 }

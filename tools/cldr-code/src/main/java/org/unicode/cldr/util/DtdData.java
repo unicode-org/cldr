@@ -1386,7 +1386,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "light-candela",
         "light-lumen",
         "light-solar-luminosity",
-        "mass-tonne", "mass-kilogram", "mass-gram", "mass-milligram", "mass-microgram",
+        "mass-tonne", "mass-metric-ton", "mass-kilogram", "mass-gram", "mass-milligram", "mass-microgram",
         "mass-ton", "mass-stone", "mass-pound", "mass-ounce",
         "mass-ounce-troy", "mass-carat",
         "mass-dalton",

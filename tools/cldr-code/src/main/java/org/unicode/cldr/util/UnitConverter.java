@@ -1569,7 +1569,12 @@ public class UnitConverter implements Freezable<UnitConverter> {
     }
 
     public String getShortId(String longUnitId) {
-        return CldrUtility.ifNull(SHORT_TO_LONG_ID.inverse().get(longUnitId), longUnitId);
+        String result = SHORT_TO_LONG_ID.inverse().get(longUnitId);
+        if (result != null) {
+            return result;
+        }
+        int dashPos = longUnitId.indexOf('-');
+        return dashPos < 0 ? longUnitId : longUnitId.substring(dashPos+1);
     }
 
     public Set<String> getShortIds(Iterable<String> longUnitIds) {

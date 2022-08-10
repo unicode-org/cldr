@@ -114,7 +114,7 @@ public class SupplementalDataInfo {
     // TODO: verify that we get everything by writing the files solely from the API, and verifying identity.
 
     public enum UnitIdComponentType {
-        prefix, base, suffix, odd;
+        prefix, base, suffix, per, and, power;
         public String toShortId() {
             return name().substring(0,1).toUpperCase();
         }

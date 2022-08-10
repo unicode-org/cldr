@@ -127,6 +127,7 @@ public class ShowLocaleCoverage {
 ;
 
     private static final String TSV_MISSING_BASIC_HEADER = "#Locale\tMissing\tProvisional\tPath*";
+    private static final String TSV_MISSING_COUNTS_HEADER = "#Locale\tTargetLevel\t№ Found\t№ Unconfirmed\t№ Missing";
 
     private static final boolean DEBUG = true;
     private static final char DEBUG_FILTER = 0; // use letter to only load locales starting with that letter
@@ -588,11 +589,14 @@ public class ShowLocaleCoverage {
             PrintWriter tsv_missing = FileUtilities.openUTF8Writer(CLDRPaths.CHART_DIRECTORY + "tsv/", "locale-missing.tsv");
             PrintWriter tsv_missing_summary = FileUtilities.openUTF8Writer(CLDRPaths.CHART_DIRECTORY + "tsv/", "locale-missing-summary.tsv");
             PrintWriter tsv_missing_basic = FileUtilities.openUTF8Writer(CLDRPaths.CHART_DIRECTORY + "tsv/", "locale-missing-basic.tsv");
+            PrintWriter tsv_missing_counts = FileUtilities.openUTF8Writer(CLDRPaths.CHART_DIRECTORY + "tsv/", "locale-missing-counts.tsv");
             PrintWriter propertiesCoverage = FileUtilities.openUTF8Writer(CLDRPaths.COMMON_DIRECTORY + "properties/", "coverageLevels.txt");
             ){
             tsv_missing_summary.println(TSV_MISSING_SUMMARY_HEADER);
             tsv_missing.println(TSV_MISSING_HEADER);
             tsv_missing_basic.println(TSV_MISSING_BASIC_HEADER);
+            tsv_missing_counts.println(TSV_MISSING_COUNTS_HEADER);
+
             propertiesCoverage.println(PROPERTIES_HEADER);
 
             Set<String> checkModernLocales = STANDARD_CODES.getLocaleCoverageLocales(Organization.cldr, EnumSet.of(Level.MODERN));
@@ -631,7 +635,8 @@ public class ShowLocaleCoverage {
                 + "<tr><th>Default Region</th><td>The default region for locale code, based on likely subtags</td></tr>\n"
                 + "<tr><th>№ Locales</th><td>Note that the coverage of regional locales inherits from their parents.</td></tr>\n"
                 + "<tr><th>Target Level</th><td>The default target Coverage Level in CLDR. "
-                + "Particular organizations may have different target levels.</td></tr>\n"
+                + "Particular organizations may have different target levels. "
+                + "Languages with high levels of coverage are marked with ‡, even though they are not tracked by the technical committee.</td></tr>\n"
                 + "<tr><th>≟</th><td>Indicates whether the Computed Level equals the CLDR Target or not.</td></tr>\n"
                 + "<tr><th>Computed Level</th><td>Computed from the percentage values, "
                 + "taking the first level that meets a threshold (currently 🄼 "
@@ -654,11 +659,13 @@ public class ShowLocaleCoverage {
                 + "They are listed if missing at the computed level.<br>"
                 + "Example: <i>ⓜ collation</i> means this feature should be supported at a Moderate level.<br>"
                 + "<i>Except for Core, these are not accounted for in the percent values.</i></td></tr>\n"
-                + "<tr><th><a href='https://github.com/unicode-org/cldr-staging/tree/main/docs/charts/41/tsv'>TSV Files</a>:</th><td>\n"
+                + "<tr><th><a href='https://github.com/unicode-org/cldr-staging/tree/main/docs/charts/42/tsv'>TSV Files</a>:</th><td>\n"
                 + "<ul><li>locale-coverage.tsv — A version of this file, suitable for loading into a spreadsheet.</li>\n"
                 + "<li>locale-missing.tsv — Missing items for the CLDR target locales.</li>\n"
                 + "<li>locale-missing-summary.tsv — Summary of missing items for the CLDR target locales, by Section/Page/Header.</li>\n"
                 + "<li>locale-missing-basic.tsv — Missing items that keep locales from reaching the Basic level.</li></td></tr>\n"
+                + "<li>locale-missing-count.tsv — Counts of items per locale that are found, unconfirmed, or missing, at the target level. "
+                + "(Or at *basic, if there is no target level.)</li></td></tr>\n"
                 + "</table>\n"
                 );
 
@@ -774,6 +781,7 @@ public class ShowLocaleCoverage {
                     tsv_missing_summary.flush();
                     tsv_missing.flush();
                     tsv_missing_basic.flush();
+                    tsv_missing_counts.flush();
 
                     boolean isSeed = new File(CLDRPaths.SEED_DIRECTORY, locale + ".xml").exists();
 
@@ -805,6 +813,21 @@ public class ShowLocaleCoverage {
                     VettingViewer.getStatus(pathSource, file,
                         pathHeaderFactory, foundCounter, unconfirmedCounter,
                         missingCounter, missingPaths, unconfirmed);
+                    {
+                        long found = 0;
+                        long unconfirmedc = 0;
+                        long missing = 0;
+                        Level adjustedGoal = cldrLocaleLevelGoal.compareTo(Level.BASIC) < 0 ? Level.BASIC : cldrLocaleLevelGoal;
+                        for (Level level : Level.values()) {
+                            if (level.compareTo(adjustedGoal) <= 0) {
+                                found += foundCounter.get(level);
+                                unconfirmedc += unconfirmedCounter.get(level);
+                                missing += missingCounter.get(level);
+                            }
+                        }
+                        String goalFlag = cldrLocaleLevelGoal == adjustedGoal ? "" : "*";
+                        tsv_missing_counts.println(specialFlag + locale + "\t" + goalFlag + adjustedGoal + "\t" + found + "\t" + unconfirmedc + "\t" + missing);
+                    }
 
                     Collection<String> sublocales = languageToRegion.asMap().get(language);
                     if (sublocales == null) {
@@ -879,12 +902,12 @@ public class ShowLocaleCoverage {
                         for (Entry<String, StatusData> starred : starredCounter.starredPathToData.entrySet()) {
                             String starredPath = starred.getKey();
                             StatusData statusData = starred.getValue();
-                            tsv_missing_basic.println(locale + specialFlag //
+                            tsv_missing_basic.println(specialFlag + locale //
                                 + "\t" + statusData.missing //
                                 + "\t" + statusData.provisional //
                                 + "\t" + starredPath.replace("\"*\"", "'*'"));
                         }
-                        tsv_missing_basic.println(locale + specialFlag //
+                        tsv_missing_basic.println(specialFlag + locale  //
                             + "\t" + starredCounter.missingTotal //
                             + "\t" + starredCounter.provisionalTotal //
                             + "\tTotals");
@@ -975,13 +998,13 @@ public class ShowLocaleCoverage {
 
                     tablePrinter.addRow()
                     .addCell(seedString)
-                    .addCell(language + specialFlag)
+                    .addCell(language)
                     .addCell(ENGLISH.getName(language))
                     .addCell(file.getName(language))
                     .addCell(script)
                     .addCell(defRegion)
                     .addCell(sublocales.size())
-                    .addCell(cldrLocaleLevelGoal == Level.UNDETERMINED ? "" : cldrLocaleLevelGoal.toString())
+                    .addCell(cldrLocaleLevelGoal == Level.UNDETERMINED ? "" : specialFlag + cldrLocaleLevelGoal.toString())
                     .addCell(computed == cldrLocaleLevelGoal ? " ≡" : " ≠")
                     .addCell(visibleComputed)
                     .addCell(getIcuValue(language))
@@ -1280,7 +1303,7 @@ public class ShowLocaleCoverage {
         }
 
         String line =
-            language + specialFlag
+            specialFlag + language
             + "\t" + ENGLISH.getName(language)
             + "\t" + ENGLISH.getName("script", script)
             + "\t" + cldrLocaleLevelGoal

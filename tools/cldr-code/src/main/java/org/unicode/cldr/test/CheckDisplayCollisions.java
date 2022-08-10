@@ -178,13 +178,13 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
 
         // Add OK collisions for /unit[@type=\"digital-byte\"]
         Set<String> set6 = new HashSet<>();
-        set6.add("/unit[@type=\"mass-metric-ton\"]");
+        set6.add("/unit[@type=\"mass-tonne\"]");
         mapPathPartsToSets.put("/unit[@type=\"digital-byte\"]", set6);
 
-        // Add OK collisions for /unit[@type=\"mass-metric-ton\"]
+        // Add OK collisions for /unit[@type=\"mass-tonne\"]
         Set<String> set7 = new HashSet<>();
         set7.add("/unit[@type=\"digital-byte\"]");
-        mapPathPartsToSets.put("/unit[@type=\"mass-metric-ton\"]", set7);
+        mapPathPartsToSets.put("/unit[@type=\"mass-tonne\"]", set7);
 
         // delete the exceptions allowing acceleration-g-force and mass-gram to have the same symbol, see #7561
 

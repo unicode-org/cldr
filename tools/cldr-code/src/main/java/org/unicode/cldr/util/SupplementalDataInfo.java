@@ -113,6 +113,14 @@ public class SupplementalDataInfo {
      */
     // TODO: verify that we get everything by writing the files solely from the API, and verifying identity.
 
+    public enum UnitIdComponentType {
+        prefix, base, suffix, odd;
+        public String toShortId() {
+            return name().substring(0,1).toUpperCase();
+        }
+    }
+
+
     /**
      * Official status of languages
      */
@@ -943,6 +951,8 @@ public class SupplementalDataInfo {
 
     private final UnitPreferences unitPreferences = new UnitPreferences();
 
+    private Map<String, UnitIdComponentType> unitIdComponentType = new TreeMap<>();
+
     public Map<String, GrammarInfo> grammarLocaleToTargetToFeatureToValues = new TreeMap<>();
     public Map<String, GrammarDerivation> localeToGrammarDerivation = new TreeMap<>();
 
@@ -1181,6 +1191,8 @@ public class SupplementalDataInfo {
         rationalParser.freeze();
         unitPreferences.freeze();
 
+        unitIdComponentType = CldrUtility.protectCollection(unitIdComponentType);
+
         timeData = CldrUtility.protectCollection(timeData);
 
         validityInfo = CldrUtility.protectCollection(validityInfo);
@@ -1326,6 +1338,10 @@ public class SupplementalDataInfo {
                     if (handleMeasurementData(level2, parts)) {
                         return;
                     }
+                } else if (level1.equals("unitIdComponents")) {
+                    if (handleUnitUnitIdComponents(parts)) {
+                        return;
+                    }
                 } else if (level1.equals("unitConstants")) {
                     if (handleUnitConstants(parts)) {
                         return;
@@ -1368,6 +1384,18 @@ public class SupplementalDataInfo {
                 throw (IllegalArgumentException) new IllegalArgumentException("Exception while processing path: "
                     + path + ",\tvalue: " + value).initCause(e);
             }
+        }
+
+        private boolean handleUnitUnitIdComponents(XPathParts parts) {
+            //      <unitIdComponent type="prefix" values="arc british dessert fluid light nautical"/>
+            UnitIdComponentType type = UnitIdComponentType.valueOf(parts.getAttributeValue(-1, "type"));
+            for (String value : split_space.split(parts.getAttributeValue(-1, "values"))) {
+                UnitIdComponentType old = unitIdComponentType.put(value, type);
+                if (old != null) {
+                    throw new IllegalArgumentException("Duplicate component: " + value);
+                }
+            }
+            return true;
         }
 
         private boolean handleGrammaticalData(String value, XPathParts parts) {
@@ -1825,7 +1853,7 @@ public class SupplementalDataInfo {
                         String cleaned = SubdivisionNames.isOldSubdivisionCode(item)
                             ? replacement.replace("-", "").toLowerCase(Locale.ROOT)
                                 : item;
-                            builder.add(cleaned);
+                        builder.add(cleaned);
                     }
                     replacementList = ImmutableList.copyOf(builder);
                 }
@@ -4600,6 +4628,11 @@ public class SupplementalDataInfo {
 
     public UnitPreferences getUnitPreferences() {
         return unitPreferences;
+    }
+
+    public UnitIdComponentType getUnitIdComponentType(String component) {
+        UnitIdComponentType result = unitIdComponentType.get(component);
+        return result == null ? UnitIdComponentType.base : result;
     }
 
     /**

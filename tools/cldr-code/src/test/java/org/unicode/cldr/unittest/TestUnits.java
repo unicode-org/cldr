@@ -66,6 +66,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
+import org.unicode.cldr.util.SupplementalDataInfo.UnitIdComponentType;
 import org.unicode.cldr.util.UnitConverter;
 import org.unicode.cldr.util.UnitConverter.Continuation;
 import org.unicode.cldr.util.UnitConverter.Continuation.UnitIterator;
@@ -126,6 +127,7 @@ public class TestUnits extends TestFmwk {
     static final Splitter SPLIT_SEMI = Splitter.on(Pattern.compile("\\s*;\\s*")).trimResults();
     static final Splitter SPLIT_SPACE = Splitter.on(' ').trimResults().omitEmptyStrings();
     static final Splitter SPLIT_AND = Splitter.on("-and-").trimResults().omitEmptyStrings();
+    static final Splitter SPLIT_DASH = Splitter.on('-').trimResults().omitEmptyStrings();
 
     static final Rational R1000 = Rational.of(1000);
 
@@ -2683,6 +2685,69 @@ public class TestUnits extends TestFmwk {
                 + "\t" + (converter.isSimple(shortUnit) ? "simple" : "complex")
                 + "\t" + status40
                 );
+        }
+    }
+
+    public void TestUnitIdComponents() {
+        // structure will be (prefix* base* suffix*) per ((prefix* base* suffix*)
+        for (String longUnit : VALID_REGULAR_UNITS) {
+            String unit = SDI.getUnitConverter().getShortId(longUnit);
+            List<String> parts = SPLIT_DASH.splitToList(unit);
+            List<String> simpleUnit = new ArrayList<>();
+            UnitIdComponentType lastType = UnitIdComponentType.suffix;
+            logln(unit);
+            for (String part : parts) {
+                UnitIdComponentType type = getUnitIdComponentType(part);
+                switch(type) {
+                case prefix:
+                    if (lastType != UnitIdComponentType.prefix) {
+                        emit(simpleUnit);
+                    }
+                    break;
+                case base:
+                    if (lastType != UnitIdComponentType.prefix) {
+                        emit(simpleUnit);
+                    }
+                    break;
+                case suffix:
+                    assertFalse("suffix after prefix or odd", lastType == UnitIdComponentType.prefix || lastType == UnitIdComponentType.odd);
+                    break;
+                case odd:
+                    emit(simpleUnit);
+                    break;
+                }
+                simpleUnit.add(part + "*" + type.toShortId());
+                lastType = type;
+            }
+            assertTrue("last item must be base or suffix", lastType == UnitIdComponentType.base || lastType == UnitIdComponentType.suffix);
+            emit(simpleUnit);
+        }
+
+    }
+
+    Map<String, UnitIdComponentType> fakeData = new TreeMap();
+    {
+        add(fakeData, UnitIdComponentType.prefix, "arc british dessert fluid light nautical");
+        add(fakeData, UnitIdComponentType.suffix, "force imperial luminosity mass metric person radius scandinavian troy unit us");
+        add(fakeData, UnitIdComponentType.odd, "per and square cubic xxx x curr");
+    }
+
+    public UnitIdComponentType getUnitIdComponentType(String part) {
+//        return SDI.getUnitIdComponentType(part);
+        UnitIdComponentType result = fakeData.get(part);
+        return result == null ? UnitIdComponentType.base : result;
+    }
+
+    private void add(Map<String, UnitIdComponentType> fakeData2, UnitIdComponentType type, String string) {
+        for (String item : string.split(" ")) {
+            fakeData2.put(item, type);
+        }
+    }
+
+    public void emit(List<String> simpleUnit) {
+        if (!simpleUnit.isEmpty()) {
+            logln("\t" + simpleUnit.toString());
+            simpleUnit.clear();
         }
     }
 }

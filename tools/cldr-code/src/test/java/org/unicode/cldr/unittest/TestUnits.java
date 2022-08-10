@@ -2761,7 +2761,7 @@ public class TestUnits extends TestFmwk {
     {
         add(fakeData, UnitIdComponentType.prefix, "arc british dessert fluid light nautical xxx x curr");
         add(fakeData, UnitIdComponentType.suffix, "force imperial luminosity mass metric person radius scandinavian troy unit us");
-        add(fakeData, UnitIdComponentType.power, "square cubic");
+        add(fakeData, UnitIdComponentType.power, "square cubic pow");
         add(fakeData, UnitIdComponentType.and, "and");
         add(fakeData, UnitIdComponentType.per, "per");
     }

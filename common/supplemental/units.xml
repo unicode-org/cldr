@@ -10,9 +10,11 @@ For terms of use, see http://www.unicode.org/copyright.html
     <version number="$Revision$"/>
     <!--  
     <unitIdComponents>
-    	<unitIdComponent type="prefix" values="arc british dessert fluid light nautical"/>
+    	<unitIdComponent type="prefix" values="arc british dessert fluid light nautical xxx x curr"/>
 		<unitIdComponent type="suffix" values="force imperial luminosity mass metric person radius scandinavian troy unit us"/> 
-		<unitIdComponent type="odd" values="per and square cubic xxx x curr"/>
+		<unitIdComponent type="power" values="square cubic pow"/>
+		<unitIdComponent type="and" values="and"/>
+		<unitIdComponent type="per" values="per"/>
     </unitIdComponents>
     -->
     <unitConstants>

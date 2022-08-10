@@ -1642,7 +1642,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     errln(loc + ": has no scripts in BasicLanguageData");
                 } else if (!data.getScripts().contains(defaultScript)) {
                     errln(loc + ": " + defaultScript
-                        + " not in BasicLanguageData " + data.getScripts());
+                        + " not in BasicLanguageData - check <languages> in supplementalData.xml and language_script_raw.txt  " + data.getScripts());
                 }
             }
 

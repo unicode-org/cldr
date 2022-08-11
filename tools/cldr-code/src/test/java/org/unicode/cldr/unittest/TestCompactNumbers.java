@@ -19,11 +19,12 @@ import org.unicode.cldr.util.VerifyCompactNumbers;
 
 import com.google.common.base.Objects;
 import com.ibm.icu.impl.locale.XCldrStub.Splitter;
+import com.ibm.icu.impl.number.DecimalQuantity;
+import com.ibm.icu.impl.number.DecimalQuantity_DualStorageBCD;
 import com.ibm.icu.text.CompactDecimalFormat;
 import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.PluralRules.FixedDecimal;
 import com.ibm.icu.util.Currency;
 import com.ibm.icu.util.ULocale;
 
@@ -166,8 +167,8 @@ public class TestCompactNumbers  extends TestFmwkPlus {
                 if (DEBUG) {
                 PluralInfo rules = SupplementalDataInfo.getInstance().getPlurals(locale);
                 int v, f, e;
-                FixedDecimal fd = new FixedDecimal(1.1d, 1, 1, 0);
-                Count count = rules.getCount(fd);
+                DecimalQuantity dq = DecimalQuantity_DualStorageBCD.fromExponentString("1.1");
+                Count count = rules.getCount(dq);
                 System.out.println("Locale: " + locale);
                 ICUServiceBuilder builder = new ICUServiceBuilder().setCldrFile(cldrFile);
 
@@ -179,7 +180,7 @@ public class TestCompactNumbers  extends TestFmwkPlus {
                 System.out.println("Fallback pattern: " + pattern);
                 System.out.println("Plural Rules: ");
                 semiSplit.split(rules.getRules()).forEach(x -> System.out.println("\t" + x + ";"));
-                System.out.println("Plural sample result: " + fd + " => " + count);
+                System.out.println("Plural sample result: " + dq + " => " + count);
 
                 Map<String, Map<String, String>> customData = BuildIcuCompactDecimalFormat.buildCustomData(cldrFile, compactStyle, currencyStyle);
                 customData.forEach((k, vv) -> System.out.println("\t" + k + "\t" + vv));

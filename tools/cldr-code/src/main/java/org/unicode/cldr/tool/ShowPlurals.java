@@ -21,10 +21,11 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
 import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Utility;
+import com.ibm.icu.impl.number.DecimalQuantity;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.PluralRules.FixedDecimal;
-import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
+import com.ibm.icu.text.PluralRules.DecimalQuantitySamples;
+import com.ibm.icu.text.PluralRules.Operand;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.ULocale;
 
@@ -147,8 +148,8 @@ public class ShowPlurals {
                 Set<Count> counts = plurals.getCounts();
                 for (PluralInfo.Count count : counts) {
                     String keyword = count.toString();
-                    FixedDecimalSamples exampleList = pluralRules.getDecimalSamples(keyword, PluralRules.SampleType.INTEGER); // plurals.getSamples9999(count);
-                    FixedDecimalSamples exampleList2 = pluralRules.getDecimalSamples(keyword, PluralRules.SampleType.DECIMAL);
+                    DecimalQuantitySamples exampleList = pluralRules.getDecimalSamples(keyword, PluralRules.SampleType.INTEGER); // plurals.getSamples9999(count);
+                    DecimalQuantitySamples exampleList2 = pluralRules.getDecimalSamples(keyword, PluralRules.SampleType.DECIMAL);
                     if (exampleList == null) {
                         exampleList = exampleList2;
                         exampleList2 = null;
@@ -168,7 +169,7 @@ public class ShowPlurals {
                     if (samplePatterns != null) {
                         String samplePattern = samplePatterns.get(pluralType.standardType, Count.valueOf(keyword)); // CldrUtility.get(samplePatterns.keywordToPattern, Count.valueOf(keyword));
                         if (samplePattern != null) {
-                            FixedDecimal sampleDecimal = PluralInfo.getNonZeroSampleIfPossible(exampleList);
+                            DecimalQuantity sampleDecimal = PluralInfo.getNonZeroSampleIfPossible(exampleList);
                             sample = getSample(sampleDecimal, samplePattern, nf);
                             if (exampleList2 != null) {
                                 sampleDecimal = PluralInfo.getNonZeroSampleIfPossible(exampleList2);
@@ -220,17 +221,17 @@ public class ShowPlurals {
         appendable.append(tablePrinter.toTable()).append(System.lineSeparator());
     }
 
-    private String getExamples(FixedDecimalSamples exampleList) {
+    private String getExamples(DecimalQuantitySamples exampleList) {
         return Joiner.on(", ").join(exampleList.getSamples()) + (exampleList.bounded ? "" : ", …");
     }
 
-    private String getSample(FixedDecimal numb, String samplePattern, NumberFormat nf) {
+    private String getSample(DecimalQuantity numb, String samplePattern, NumberFormat nf) {
         String sample;
-        nf.setMaximumFractionDigits(numb.getVisibleDecimalDigitCount());
-        nf.setMinimumFractionDigits(numb.getVisibleDecimalDigitCount());
+        nf.setMaximumFractionDigits((int) numb.getPluralOperand(Operand.v));
+        nf.setMinimumFractionDigits((int) numb.getPluralOperand(Operand.v));
         sample = samplePattern
             .replace('\u00A0', '\u0020')
-            .replace("{0}", nf.format(numb.getSource()))
+            .replace("{0}", nf.format(numb.toDouble()))
             .replace(". ", ".<br>");
         return sample;
     }

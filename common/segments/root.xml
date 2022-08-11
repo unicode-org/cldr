@@ -348,7 +348,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<!-- Now normal variables -->
 				<variable id="$Format">\p{Word_Break=Format}</variable>
 				<variable id="$Katakana">\p{Word_Break=Katakana}</variable>
-				<variable id="$ALetter">\p{Word_Break=ALetter}</variable>
+				<variable id="$ALetter">[\p{Word_Break=ALetter}@]</variable>
 				<variable id="$MidLetter">[[\p{Word_Break=MidLetter}] - [\u003A \uFE55 \uFF1A]]</variable>
 				<variable id="$MidNum">\p{Word_Break=MidNum}</variable>
 				<variable id="$MidNumLet">\p{Word_Break=MidNumLet}</variable>

@@ -136,8 +136,8 @@ final class ExternalUnitConversionData {
         oldSource = source;
 
         source = source.replace("degree ", "");
-        source = source.replace("tonne", "metric-ton");
-        source = source.replace("ton-metric", "metric-ton");
+        source = source.replace("metric-ton", "tonne");
+        source = source.replace("ton-metric", "tonne");
         source = source.replace("psi", "pound-force-per-square-inch");
         source = source.replace("ounce fluid", "fluid-ounce");
         source = source.replace("unitthi", "unit");

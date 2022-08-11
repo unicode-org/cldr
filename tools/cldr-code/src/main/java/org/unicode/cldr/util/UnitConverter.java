@@ -86,6 +86,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
     private ImmutableMap<String, UnitId> idToUnitId;
 
     public final BiMap<String,String> SHORT_TO_LONG_ID = Units.LONG_TO_SHORT.inverse();
+    public final Set<String> LONG_PREFIXES = Units.TYPE_TO_CORE.keySet();
 
     private boolean frozen = false;
 
@@ -1569,12 +1570,19 @@ public class UnitConverter implements Freezable<UnitConverter> {
     }
 
     public String getShortId(String longUnitId) {
+        if (longUnitId == null) {
+            return null;
+        }
         String result = SHORT_TO_LONG_ID.inverse().get(longUnitId);
         if (result != null) {
             return result;
         }
         int dashPos = longUnitId.indexOf('-');
-        return dashPos < 0 ? longUnitId : longUnitId.substring(dashPos+1);
+        if (dashPos < 0) {
+            return longUnitId;
+        }
+        String type = longUnitId.substring(0,dashPos);
+        return LONG_PREFIXES.contains(type) ? longUnitId.substring(dashPos+1) : longUnitId;
     }
 
     public Set<String> getShortIds(Iterable<String> longUnitIds) {

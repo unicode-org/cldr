@@ -59,9 +59,9 @@ import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.VoteResolver;
-import org.unicode.cldr.util.VoterInfoList;
 import org.unicode.cldr.util.VoteResolver.CandidateInfo;
 import org.unicode.cldr.util.VoteResolver.UnknownVoterException;
+import org.unicode.cldr.util.VoterInfoList;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XMLSource.SourceLocation;
 import org.unicode.cldr.util.XPathParts;
@@ -212,7 +212,7 @@ public class ConsoleCheckCLDR {
         UOption.create("missingPaths", 'm', UOption.NO_ARG)
     };
 
-    private static final Comparator<String> baseFirstCollator = new Comparator<>() {
+    private static final Comparator<String> baseFirstCollator = new Comparator<String>() {
         LanguageTagParser languageTagParser1 = new LanguageTagParser();
         LanguageTagParser languageTagParser2 = new LanguageTagParser();
 

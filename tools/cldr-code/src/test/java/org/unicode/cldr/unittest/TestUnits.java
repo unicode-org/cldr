@@ -2080,9 +2080,11 @@ public class TestUnits extends TestFmwk {
             }
         }
         if (!localeToErrorCount.isEmpty()) {
-            warnln("Use -v for details");
-            for (R2<Long, String> entry : localeToErrorCount.getEntrySetSortedByCount(false, null)) {
-                warnln("composed name ≠ translated name: " + entry.get0() + "\t" + entry.get1());
+            warnln("composed name ≠ translated name: " + localeToErrorCount.getTotal() + "\nUse -DTestUnits:SHOW_DATA to see list");
+            if (SHOW_DATA) {
+                for (R2<Long, String> entry : localeToErrorCount.getEntrySetSortedByCount(false, null)) {
+                    warnln("composed name ≠ translated name: " + entry.get0() + "\t" + entry.get1());
+                }
             }
         }
 
@@ -2254,6 +2256,7 @@ public class TestUnits extends TestFmwk {
                 warnln("No genders for " + localeID);
                 continue;
             }
+
             for (Entry<String,String> entry : shortUnitToGender.entrySet()) {
                 warnln(localeID + "\t" + entry);
             }
@@ -2761,9 +2764,10 @@ public class TestUnits extends TestFmwk {
     {
         add(fakeData, UnitIdComponentType.prefix, "arc british dessert fluid light nautical xxx x curr");
         add(fakeData, UnitIdComponentType.suffix, "force imperial luminosity mass metric person radius scandinavian troy unit us");
-        add(fakeData, UnitIdComponentType.power, "square cubic pow");
+        add(fakeData, UnitIdComponentType.power, "square cubic pow2 pow3 pow4 pow5 pow6 pow7 pow8 pow8 pow10 pow11 pow12 pow13 pow14 pow15");
         add(fakeData, UnitIdComponentType.and, "and");
         add(fakeData, UnitIdComponentType.per, "per");
+        // all else is UnitIdComponentType.base
     }
 
     public UnitIdComponentType getUnitIdComponentType(String part) {
@@ -2781,5 +2785,7 @@ public class TestUnits extends TestFmwk {
     public void TestMetricTon() {
         assertTrue("metric-ton is deprecated", DEPRECATED_REGULAR_UNITS.contains("mass-metric-ton"));
         assertEquals("metric-ton is deprecated", "tonne", SDI.getUnitConverter().fixDenormalized("metric-ton"));
+        assertEquals("to short", "metric-ton", SDI.getUnitConverter().getShortId("mass-metric-ton"));
+        //assertEquals("to long", "mass-metric-ton", SDI.getUnitConverter().getLongId("metric-ton"));
     }
 }

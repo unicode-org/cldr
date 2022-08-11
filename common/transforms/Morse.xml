@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="Any" target="Morse" direction="both" draft="contributed" alias="und-t-d0-morse" backwardAlias="und-t-s0-morse">
+		<!-- The transform described in prose:
+		  This is a conversion from Latin script to Latin script, and the reversal.
+		-->
+			<tRule><![CDATA[
+## TODO for testing: Latin-Latin/Morse
+
+########################################################################
+# Prepared by Steven R. Loomis <srl295@gmail.com>
+#
+# Based on am-Ethi-t-d0-morse by Daniel Yacob
+#
+# Implements M.1677-1, International Morse Code
+# <https://www.itu.int/rec/R-REC-M.1677-1-200910-I>
+#
+########################################################################
+#
+# MINIMAL FILTER: Latin-Morse Code
+#
+::[[:Zs:]0-9A-ZÉ!\?\+/@()\[\]_:;,\.'"$=\-];
+::Lower;
+
+#
+########################################################################
+
+########################################################################
+#
+# Define All Transformation Variables
+#
+########################################################################
+#
+
+# 1.1.1 Letters
+
+a ↔ '.- ' ;
+b ↔ '-... ';
+c ↔ '-.-. ';
+d ↔ '-.. ';
+e ↔ '. ';
+f ↔ '..-. ';
+g ↔ '--. ';
+h ↔ '.... ';
+i ↔ '.. ';
+j ↔ '.--- ';
+k ↔ '-.- ';
+l ↔ '.-.. ';
+m ↔ '-- ';
+n ↔ '-. ';
+o ↔ '--- ';
+p ↔ '.--. ';
+q ↔ '--.- ';
+r ↔ '.-. ';
+s ↔ '... ';
+t ↔ '- ';
+u ↔ '..- ';
+v ↔ '...- ';
+w ↔ '.-- ';
+x ↔ '-..- ';
+y ↔ '-.-- ';
+z ↔ '--.. ';
+
+# 1.1.1 Accented E
+é → '..-.. ';
+è → '..-.. ';
+
+# 1.1.2 Figures
+
+1 ↔ '.---- ' ;
+2 ↔ '..--- ' ;
+3 ↔ '...-- ' ;
+4 ↔ '....- ' ;
+5 ↔ '..... ' ;
+6 ↔ '-.... ' ;
+7 ↔ '--... ' ;
+8 ↔ '---.. ' ;
+9 ↔ '----. ' ; 
+0 ↔ '----- ' ; 
+
+# 1.1.3 Punctuation
+
+\. → '.-.-.- ' ;
+\, ↔ '--..-- ' ;
+\: ↔ '---... ' ;
+\? ↔ '..--..' ;
+\' ↔ '.----. ' ;
+\- ↔ '-....- ' ;
+\/ ↔ '-..-. ' ;
+\( ↔ '-.--. ' ;
+\) ↔ '-.--.- ' ;
+# treat [] like ()
+\[ → '-.--. ' ;
+\] → '-.--.- ' ;
+\= → '-...- ' ;
+\+ → '.-.-. ' ;
+
+\" ↔ '.-..-. ' ;
+\! ↔ '-.-.--' ;
+\$ ↔ '...-..- ' ;
+\_ ↔ '..--.- ' ;
+\@ ↔ '.--.-. ' ;
+
+
+#Skipping:
+# understood ...-.
+# err ........
+# invitation -.- (= K)
+# wait .-...
+# end of work ...-.-
+# starting signal -.-.- - maybe SOT?
+
+::Null;
+#
+# TODO: Seek a better way to handle this. The conversion adds a space to the end of every sequence to terminate it.
+#       The CLDR "TestTransforms" unit test will strip off the space at the end of a line in the und-Latn-t-d0-morse.txt
+#       test file thus breaking the comparison with generated words.  The following will strip off the space at the end of
+#       a converted string to fascilitate compatibility with the unit tests.
+#
+([.-])' '[$] → $1;
+
+# Inverse Fiter : Morse Code-Latin
+#
+## fix this:
+:: ([.- ]) ;
+#
+########################################################################
+			]]></tRule>
+		</transform>
+	</transforms>
+</supplementalData>

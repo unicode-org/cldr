@@ -410,6 +410,7 @@ public class TestTransforms extends TestFmwkPlus {
 
     public void TestData() {
         register();
+        String lastFile = null;
         try {
             // get the folder name
             String name = TestTransforms.class.getResource(".").toString();
@@ -430,6 +431,7 @@ public class TestTransforms extends TestFmwkPlus {
                     continue;
                 }
                 logln("Testing file: " + file);
+                lastFile = file;
                 String transName = file.substring(0, file.length() - 4);
                 if (transName.equals("ka-Latn-t-ka-m0-bgn")) {
                     logKnownIssue("cldrbug:10566", "Jenkins build failing on translit problem");
@@ -476,10 +478,10 @@ public class TestTransforms extends TestFmwkPlus {
                 }
             }
 
-        } catch (IOException e) {
-            throw new IllegalArgumentException(e);
+        } catch (Throwable e) {
+            throw new IllegalArgumentException("While testing " + lastFile, e);
         }
-    }
+}
 
     private <T, U extends Collection<T>> U oldEnumConvert(Enumeration<T> source, U target) {
         while (source.hasMoreElements()) {

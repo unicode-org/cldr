@@ -66,6 +66,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
+import org.unicode.cldr.util.SupplementalDataInfo.UnitIdComponentType;
 import org.unicode.cldr.util.UnitConverter;
 import org.unicode.cldr.util.UnitConverter.Continuation;
 import org.unicode.cldr.util.UnitConverter.Continuation.UnitIterator;
@@ -126,6 +127,7 @@ public class TestUnits extends TestFmwk {
     static final Splitter SPLIT_SEMI = Splitter.on(Pattern.compile("\\s*;\\s*")).trimResults();
     static final Splitter SPLIT_SPACE = Splitter.on(' ').trimResults().omitEmptyStrings();
     static final Splitter SPLIT_AND = Splitter.on("-and-").trimResults().omitEmptyStrings();
+    static final Splitter SPLIT_DASH = Splitter.on('-').trimResults().omitEmptyStrings();
 
     static final Rational R1000 = Rational.of(1000);
 
@@ -2078,9 +2080,11 @@ public class TestUnits extends TestFmwk {
             }
         }
         if (!localeToErrorCount.isEmpty()) {
-            warnln("Use -v for details");
-            for (R2<Long, String> entry : localeToErrorCount.getEntrySetSortedByCount(false, null)) {
-                warnln("composed name ≠ translated name: " + entry.get0() + "\t" + entry.get1());
+            warnln("composed name ≠ translated name: " + localeToErrorCount.getTotal() + "\nUse -DTestUnits:SHOW_DATA to see list");
+            if (SHOW_DATA) {
+                for (R2<Long, String> entry : localeToErrorCount.getEntrySetSortedByCount(false, null)) {
+                    warnln("composed name ≠ translated name: " + entry.get0() + "\t" + entry.get1());
+                }
             }
         }
 
@@ -2252,6 +2256,7 @@ public class TestUnits extends TestFmwk {
                 warnln("No genders for " + localeID);
                 continue;
             }
+
             for (Entry<String,String> entry : shortUnitToGender.entrySet()) {
                 warnln(localeID + "\t" + entry);
             }
@@ -2684,5 +2689,103 @@ public class TestUnits extends TestFmwk {
                 + "\t" + status40
                 );
         }
+    }
+
+    static final String marker = "➗";
+
+    public void TestValidUnitIdComponents() {
+        for (String longUnit : VALID_REGULAR_UNITS) {
+            String shortUnit = SDI.getUnitConverter().getShortId(longUnit);
+            checkShortUnit(shortUnit);
+        }
+    }
+
+    public void TestDeprecatedUnitIdComponents() {
+        for (String longUnit : DEPRECATED_REGULAR_UNITS) {
+            String shortUnit = SDI.getUnitConverter().getShortId(longUnit);
+            checkShortUnit(shortUnit);
+        }
+    }
+
+    public void TestSelectedUnitIdComponents() {
+        checkShortUnit("curr-chf");
+    }
+
+
+    public void checkShortUnit(String shortUnit) {
+        List<String> parts = SPLIT_DASH.splitToList(shortUnit);
+        List<String> simpleUnit = new ArrayList<>();
+        UnitIdComponentType lastType = null;
+        // structure is (prefix* base* suffix*) per ((prefix* base* suffix*)
+
+        for (String part : parts) {
+            UnitIdComponentType type = getUnitIdComponentType(part);
+            switch(type) {
+            case prefix:
+                if (lastType != UnitIdComponentType.prefix && !simpleUnit.isEmpty()) {
+                    simpleUnit.add(marker);
+                }
+                break;
+            case base:
+                if (lastType != UnitIdComponentType.prefix && !simpleUnit.isEmpty()) {
+                    simpleUnit.add(marker);
+                }
+                break;
+            case suffix:
+                if (!(lastType == UnitIdComponentType.base || lastType == UnitIdComponentType.suffix)) {
+                    if ("metric".equals(part)) { // backward compatibility for metric ton; only needed if deprecated ids are allowed
+                        lastType = UnitIdComponentType.prefix;
+                    } else {
+                        errln(simpleUnit + "/" + part + "; suffix only after base or suffix: " + false);
+                    }
+                }
+                break;
+            // could add more conditions on these
+            case and:
+                assertNotNull(simpleUnit + "/" + part + "; not at start", lastType);
+                // fall through
+            case power:
+            case per:
+                assertNotEquals(simpleUnit + "/" + part + "; illegal after prefix", UnitIdComponentType.prefix, lastType);
+                if (!simpleUnit.isEmpty()) {
+                    simpleUnit.add(marker);
+                }
+                break;
+            }
+            simpleUnit.add(part + "*" + type.toShortId());
+            lastType = type;
+        }
+        assertTrue(simpleUnit + ": last item must be base or suffix",
+            lastType == UnitIdComponentType.base || lastType == UnitIdComponentType.suffix);
+        logln("\t" + shortUnit + "\t" + simpleUnit.toString());
+    }
+
+    Map<String, UnitIdComponentType> fakeData = new TreeMap<>();
+    {
+        add(fakeData, UnitIdComponentType.prefix, "arc british dessert fluid light nautical xxx x curr");
+        add(fakeData, UnitIdComponentType.suffix, "force imperial luminosity mass metric person radius scandinavian troy unit us");
+        add(fakeData, UnitIdComponentType.power, "square cubic pow2 pow3 pow4 pow5 pow6 pow7 pow8 pow8 pow10 pow11 pow12 pow13 pow14 pow15");
+        add(fakeData, UnitIdComponentType.and, "and");
+        add(fakeData, UnitIdComponentType.per, "per");
+        // all else is UnitIdComponentType.base
+    }
+
+    public UnitIdComponentType getUnitIdComponentType(String part) {
+//        return SDI.getUnitIdComponentType(part);
+        UnitIdComponentType result = fakeData.get(part);
+        return result == null ? UnitIdComponentType.base : result;
+    }
+
+    private void add(Map<String, UnitIdComponentType> fakeData2, UnitIdComponentType type, String string) {
+        for (String item : string.split(" ")) {
+            fakeData2.put(item, type);
+        }
+    }
+
+    public void TestMetricTon() {
+        assertTrue("metric-ton is deprecated", DEPRECATED_REGULAR_UNITS.contains("mass-metric-ton"));
+        assertEquals("metric-ton is deprecated", "tonne", SDI.getUnitConverter().fixDenormalized("metric-ton"));
+        assertEquals("to short", "metric-ton", SDI.getUnitConverter().getShortId("mass-metric-ton"));
+        //assertEquals("to long", "mass-metric-ton", SDI.getUnitConverter().getLongId("metric-ton"));
     }
 }

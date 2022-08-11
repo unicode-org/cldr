@@ -5,7 +5,7 @@ SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 
-<!ELEMENT supplementalData ( version, generation?, cldrVersion?, currencyData?, territoryContainment?, subdivisionContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, timeData?, measurementData?, unitConstants*, unitQuantities*, convertUnits*, unitPreferenceData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, parentLocales?, personNamesDefaults?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, gender?, references?, languageMatching?, dayPeriodRuleSet*, metaZones?, primaryZones?, windowsZones?, coverageLevels?, idValidity?, rgScope?, languageGroups?, grammaticalData? ) >
+<!ELEMENT supplementalData ( version, generation?, cldrVersion?, currencyData?, territoryContainment?, subdivisionContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, timeData?, measurementData?, unitIdComponents?, unitConstants*, unitQuantities*, convertUnits*, unitPreferenceData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, parentLocales?, personNamesDefaults?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, gender?, references?, languageMatching?, dayPeriodRuleSet*, metaZones?, primaryZones?, windowsZones?, coverageLevels?, idValidity?, rgScope?, languageGroups?, grammaticalData? ) >
 
 <!ELEMENT version EMPTY >
     <!--@METADATA-->
@@ -368,6 +368,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST paperSize alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 
+<!ELEMENT unitIdComponents ( unitIdComponent* ) >
+
+<!ELEMENT unitIdComponent EMPTY >
+<!ATTLIST unitIdComponent type NMTOKEN #REQUIRED >
+    <!--@MATCH:literal/prefix, suffix, special-->
+<!ATTLIST unitIdComponent values NMTOKENS #REQUIRED >
+    <!--@MATCH:set/regex/[a-z]+ -->
+    <!--@VALUE-->
+
 <!ELEMENT unitConstants ( unitConstant* ) >
 
 <!ELEMENT unitConstant EMPTY >
@@ -447,7 +456,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@METADATA-->
 <!ATTLIST unitPreference alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/informal, variant-->
-
+    
 <!ELEMENT timezoneData ( mapTimezones*, zoneFormatting* ) >
     <!--@DEPRECATED-->
 

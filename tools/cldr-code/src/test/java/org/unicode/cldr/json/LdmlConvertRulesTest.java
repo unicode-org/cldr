@@ -97,6 +97,9 @@ class LdmlConvertRulesTest {
         dtdSplittableAttrs.remove(Pair.of("personName", "usage"));
         dtdSplittableAttrs.remove(Pair.of("sampleName", "item"));
 
+        // TODO Temporary skip while in development CLDR-14421
+        dtdSplittableAttrs.remove(Pair.of("unitIdComponent", "values"));
+
 
         SetView<Pair<String, String>> onlyInDtd = Sets.difference(dtdSplittableAttrs, jsonSplittableAttrs);
 

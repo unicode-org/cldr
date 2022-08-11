@@ -8,6 +8,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 <supplementalData>
     <version number="$Revision$"/>
+    <!--  
+    <unitIdComponents>
+    	<unitIdComponent type="prefix" values="arc british dessert fluid light nautical xxx x curr"/>
+		<unitIdComponent type="suffix" values="force imperial luminosity mass metric person radius scandinavian troy unit us"/> 
+		<unitIdComponent type="power" values="square cubic pow2 pow3 pow4 pow5 pow6 pow7 pow8 pow8 pow10 pow11 pow12 pow13 pow14 pow15"/>
+		<unitIdComponent type="and" values="and"/>
+		<unitIdComponent type="per" values="per"/>
+    </unitIdComponents>
+    -->
     <unitConstants>
         <unitConstant constant="lb_to_kg" value="0.45359237"/>
         <unitConstant constant="ft_to_m" value="0.3048"/>
@@ -113,7 +122,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         <convertUnit source='kilogram' baseUnit='kilogram' systems="metric si"/>
         <convertUnit source='stone' baseUnit='kilogram' factor='lb_to_kg*14' systems="uksystem"/>
         <convertUnit source='ton' baseUnit='kilogram' factor='lb_to_kg*2000' systems="ussystem uksystem"/>
-        <convertUnit source='metric-ton' baseUnit='kilogram' factor='1000' systems="metric"/>
+        <convertUnit source='tonne' baseUnit='kilogram' factor='1000' systems="metric"/>
         <convertUnit source='earth-mass' baseUnit='kilogram' factor='5.9722E+24'/>
         <convertUnit source='solar-mass' baseUnit='kilogram' factor='1.98847E+30'/>
         
@@ -386,7 +395,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <unitPreference regions="GB US">foot</unitPreference>
         </unitPreferences>
         <unitPreferences category="mass" usage="default">
-            <unitPreference regions="001">metric-ton</unitPreference>
+            <unitPreference regions="001">tonne</unitPreference>
             <unitPreference regions="001">kilogram</unitPreference>
             <unitPreference regions="001">gram</unitPreference>
             <unitPreference regions="001">milligram</unitPreference>
@@ -492,6 +501,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <unitAlias type="pound-foot" replacement="pound-force-foot" reason="deprecated"/>
             <unitAlias type="pound-per-square-inch" replacement="pound-force-per-square-inch" reason="deprecated"/>
             <unitAlias type="milligram-per-deciliter" replacement="milligram-ofglucose-per-deciliter" reason="deprecated"/>
+            <unitAlias type="metric-ton" replacement="tonne" reason="deprecated"/>
             <usageAlias type="music-track" replacement="media" reason="deprecated"/>
             <usageAlias type="tv-program" replacement="media" reason="deprecated"/>
        </alias>

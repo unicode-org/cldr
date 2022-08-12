@@ -27,6 +27,9 @@ For terms of use, see http://www.unicode.org/copyright.html
         <unitConstant constant="gal_imp_to_m3" value="0.00454609"/>
         <unitConstant constant="glucose_molar_mass" value="180.1557" description="derivation from the mean atomic weights according to STANDARD ATOMIC WEIGHTS 2019 on https://ciaaw.org/atomic-weights.htm"/>
         <unitConstant constant="item_per_mole" value="6.02214076E+23"/>
+        <unitConstant constant="speed_of_light_meters_per_second" value="299792458"/>
+        <unitConstant constant="sec_per_julian_year" value="31557600"/>
+        <unitConstant constant="meters_per_AU" value="149597870700" description="https://www.iau.org/public/themes/measuring/"/> 
         
         
         <unitConstant constant="gravity" value="9.80665"/>
@@ -168,9 +171,9 @@ For terms of use, see http://www.unicode.org/copyright.html
         <convertUnit source='100-kilometer' baseUnit='meter' factor='100000' systems="metric"/>
         <convertUnit source='earth-radius' baseUnit='meter' factor='6.3781E6'/>
         <convertUnit source='solar-radius' baseUnit='meter' factor='695700000'/>
-        <convertUnit source='astronomical-unit' baseUnit='meter' factor='149597900000'/>
-        <convertUnit source='light-year' baseUnit='meter' factor='9460730000000000'/>
-        <convertUnit source='parsec' baseUnit='meter' factor='30856780000000000'/>
+        <convertUnit source='astronomical-unit' baseUnit='meter' factor='meters_per_AU'/>
+        <convertUnit source='light-year' baseUnit='meter' factor='speed_of_light_meters_per_second*sec_per_julian_year'/>
+        <convertUnit source='parsec' baseUnit='meter' factor='meters_per_AU*60*60*180/PI'/> <!-- https://www.iau.org/public/themes/measuring/ distance where 1 AU subtends 1 arcsecond -->
         
         <!-- time -->
         <convertUnit source='second' baseUnit='second' systems="si metric"/>

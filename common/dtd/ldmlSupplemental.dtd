@@ -372,9 +372,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 <!ELEMENT unitIdComponent EMPTY >
 <!ATTLIST unitIdComponent type NMTOKEN #REQUIRED >
-    <!--@MATCH:literal/prefix, suffix, special-->
+    <!--@MATCH:literal/prefix, suffix, power, and, per-->
 <!ATTLIST unitIdComponent values NMTOKENS #REQUIRED >
-    <!--@MATCH:set/regex/[a-z]+ -->
+    <!--@MATCH:set/regex/[a-z]+[0-9]* -->
     <!--@VALUE-->
 
 <!ELEMENT unitConstants ( unitConstant* ) >

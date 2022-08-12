@@ -115,6 +115,7 @@ public class TestUnits extends TestFmwk {
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final Integer INTEGER_ONE = Integer.valueOf(1);
     private static final boolean SHOW_DATA = CldrUtility.getProperty("TestUnits:SHOW_DATA", false); // set for verbose debugging information
+    private static final boolean SHOW_COMPOSE = CldrUtility.getProperty("TestUnits:SHOW_COMPOSE", false); // set for verbose debugging information
     private static final boolean GENERATE_TESTS = CldrUtility.getProperty("TestUnits:GENERATE_TESTS", false);
 
     private static final String TEST_SEP = ";\t";
@@ -1260,6 +1261,8 @@ public class TestUnits extends TestFmwk {
             PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out));
             foo.write(out);
             out.flush();
+        } else {
+            warnln("Use  -DTestUnits:SHOW_DATA to get the reformatted source");
         }
     }
 
@@ -1447,7 +1450,7 @@ public class TestUnits extends TestFmwk {
     }
 
     public void TestUnitPreferences() {
-        warnln("\n\t\t If this fails, check the output of TestUnitPreferencesSource (with -DTestUnits:SHOW_DATA), fix as needed, then incorporate.");
+        warnln("If this fails, check the output of TestUnitPreferencesSource (with -DTestUnits:SHOW_DATA), fix as needed, then incorporate.");
         UnitPreferences prefs = SDI.getUnitPreferences();
         checkUnitPreferences(prefs);
 //        Map<String, Map<String, Map<String, UnitPreference>>> fastMap = prefs.getFastMap(converter);
@@ -1624,11 +1627,20 @@ public class TestUnits extends TestFmwk {
             }
         }
 
+        // check for missing external data
+        int unitsWithoutExternalCheck = 0;
         for (String remainingUnit : remainingCldrUnits) {
             final TargetInfo targetInfo = converter.getInternalConversionData().get(remainingUnit);
             if (!targetInfo.target.contentEquals(remainingUnit)) {
-                warnln("Not tested against external data\t" + remainingUnit + "\t" + targetInfo);
+                if (SHOW_DATA) {
+                    printlnIfZero(unitsWithoutExternalCheck);
+                    System.out.println("Not tested against external data\t" + remainingUnit + "\t" + targetInfo);
+                }
+                unitsWithoutExternalCheck++;
             }
+        }
+        if (unitsWithoutExternalCheck != 0 && !SHOW_DATA) {
+            warnln(unitsWithoutExternalCheck + " units without external data verification.  Use -DTestUnits:SHOW_DATA for details.");
         }
 
         boolean showDiagnostics = false;
@@ -1718,16 +1730,14 @@ public class TestUnits extends TestFmwk {
                     mark="²";
                 }
             }
-            logln("Could add 10^X conversion from a"
+            if (SHOW_DATA) System.out.println("Could add 10^X conversion from a"
                 + "\t" +  s.source
                 + "\tto" + mark
                 + "\t" + endFactor.toString(FormatStyle.simple)
                 + "\t" + target);
         }
-        if (!DEBUG_ADD) warnln("\n\t\tSet -v to show units we could add");
+        if (!SHOW_DATA) warnln("Use -DTestUnits:SHOW_DATA to show units we could add from NIST.");
     }
-
-    static final boolean DEBUG_ADD = false;
 
     private Rational showDelta(String firstUnit, String secondUnit, boolean showYourWork) {
         Rational x = converter.convert(Rational.ONE, firstUnit, secondUnit, showYourWork);
@@ -1908,6 +1918,7 @@ public class TestUnits extends TestFmwk {
         Multimap<UnitPathType, String> partsUsed = TreeMultimap.create();
         Factory factory = CLDR_CONFIG.getFullCldrFactory();
         Set<String> available = factory.getAvailable();
+        int bad = 0;
 
         for (String locale : SDI.hasGrammarInfo()) {
             // skip ones without gender info
@@ -1931,17 +1942,20 @@ public class TestUnits extends TestFmwk {
                 if (rawGender != null) {
                     String gender = unitId.getGender(resolvedFile, source, partsUsed);
                     if (gender != null && !shortUnitId.equals(source.value)) {
-                        assertEqualsWarning("See if computed gender = raw gender for " + locale + "/" + shortUnitId + "\n\t" + Joiner.on("\n\t\t").join(partsUsed.asMap().entrySet()), rawGender, gender);
+                        if (!Objects.equals(rawGender, gender)) {
+                            if (SHOW_DATA) {
+                                printlnIfZero(bad);
+                                System.out.println(locale + ": computed gender = raw gender for\t" + shortUnitId + "\t"
+                                    + Joiner.on("\n\t\t").join(partsUsed.asMap().entrySet()));
+                            }
+                            ++bad;
+                        }
                     }
                 }
             }
         }
-    }
-
-    private void assertEqualsWarning(String message, Object expected, Object actual) {
-        if (!Objects.equals(expected, actual)) {
-            warnln(message + ": expected «" + expected + "», got «"
-                + "»");
+        if (bad > 0) {
+            warnln(bad + " units x locales with incorrect computed gender. Use -DTestUnits:SHOW_DATA for details." );
         }
     }
 
@@ -2080,16 +2094,17 @@ public class TestUnits extends TestFmwk {
             }
         }
         if (!localeToErrorCount.isEmpty()) {
-            warnln("composed name ≠ translated name: " + localeToErrorCount.getTotal() + "\nUse -DTestUnits:SHOW_DATA to see list");
-            if (SHOW_DATA) {
+            warnln("composed name ≠ translated name: " + localeToErrorCount.getTotal() + ". Use -DTestUnits:SHOW_COMPOSE to see summary");
+            if (SHOW_COMPOSE) {
+                System.out.println();
                 for (R2<Long, String> entry : localeToErrorCount.getEntrySetSortedByCount(false, null)) {
-                    warnln("composed name ≠ translated name: " + entry.get0() + "\t" + entry.get1());
+                    System.out.println("composed name ≠ translated name: " + entry.get0() + "\t" + entry.get1());
                 }
             }
         }
 
         if (!skippedUnits.isEmpty()) {
-            warnln("Skipping unsupported unit: " + skippedUnits);
+            warnln("Skipped unsupported units: " + skippedUnits);
         }
     }
 
@@ -2182,6 +2197,10 @@ public class TestUnits extends TestFmwk {
     public void TestGenderOfCompounds() {
         Set<String> skipUnits = ImmutableSet.of("kilocalorie", "kilopascal", "terabyte", "gigabyte", "kilobyte", "gigabit", "kilobit", "megabit", "megabyte", "terabit");
         final ImmutableSet<String> keyValues = ImmutableSet.of("length", "mass", "duration", "power");
+        int noGendersForLocales = 0;
+        int localesWithNoGenders = 0;
+        int localesWithSomeMissingGenders = 0;
+
         for (String localeID : GrammarInfo.getGrammarLocales()) {
             GrammarInfo grammarInfo = SDI.getGrammarInfo(localeID);
             if (grammarInfo == null) {
@@ -2253,12 +2272,20 @@ public class TestUnits extends TestFmwk {
                 }
             }
             if (quantityToGenderToUnits.keySet().isEmpty()) {
-                warnln("No genders for " + localeID);
+                if (SHOW_DATA) {
+                    printlnIfZero(noGendersForLocales);
+                    System.out.println("No genders for\t" + localeID);
+                }
+                localesWithNoGenders++;
                 continue;
             }
 
             for (Entry<String,String> entry : shortUnitToGender.entrySet()) {
-                warnln(localeID + "\t" + entry);
+                if (SHOW_COMPOSE) {
+                    printlnIfZero(noGendersForLocales);
+                    System.out.println(localeID + "\t" + entry);
+                }
+                noGendersForLocales++;
             }
 
             Set<String> missing = new LinkedHashSet<>(genderInfo);
@@ -2272,8 +2299,22 @@ public class TestUnits extends TestFmwk {
                 showData(localeID, missing, quantity, genderToUnits);
             }
             for (String gender : missing) {
-                warnln("Missing values: " + localeID + "\t" + "?" + "\t" + gender + "\t?");
+                if (SHOW_DATA) {
+                    printlnIfZero(noGendersForLocales);
+                    System.out.println("Missing values: " + localeID + "\t" + "?" + "\t" + gender + "\t?");
+                }
+                noGendersForLocales++;
             }
+        }
+        if (noGendersForLocales > 0) {
+            warnln(noGendersForLocales + " units x locales with missing gender. Use -DTestUnits:SHOW_DATA for info, -DTestUnits:SHOW_COMPOSE for compositions" );
+        }
+
+    }
+
+    public void printlnIfZero(int noGendersForLocales) {
+        if (noGendersForLocales == 0) {
+            System.out.println();
         }
     }
 
@@ -2740,7 +2781,7 @@ public class TestUnits extends TestFmwk {
                     }
                 }
                 break;
-            // could add more conditions on these
+                // could add more conditions on these
             case and:
                 assertNotNull(simpleUnit + "/" + part + "; not at start", lastType);
                 // fall through
@@ -2760,26 +2801,8 @@ public class TestUnits extends TestFmwk {
         logln("\t" + shortUnit + "\t" + simpleUnit.toString());
     }
 
-    Map<String, UnitIdComponentType> fakeData = new TreeMap<>();
-    {
-        add(fakeData, UnitIdComponentType.prefix, "arc british dessert fluid light nautical xxx x curr");
-        add(fakeData, UnitIdComponentType.suffix, "force imperial luminosity mass metric person radius scandinavian troy unit us");
-        add(fakeData, UnitIdComponentType.power, "square cubic pow2 pow3 pow4 pow5 pow6 pow7 pow8 pow8 pow10 pow11 pow12 pow13 pow14 pow15");
-        add(fakeData, UnitIdComponentType.and, "and");
-        add(fakeData, UnitIdComponentType.per, "per");
-        // all else is UnitIdComponentType.base
-    }
-
     public UnitIdComponentType getUnitIdComponentType(String part) {
-//        return SDI.getUnitIdComponentType(part);
-        UnitIdComponentType result = fakeData.get(part);
-        return result == null ? UnitIdComponentType.base : result;
-    }
-
-    private void add(Map<String, UnitIdComponentType> fakeData2, UnitIdComponentType type, String string) {
-        for (String item : string.split(" ")) {
-            fakeData2.put(item, type);
-        }
+        return SDI.getUnitIdComponentType(part);
     }
 
     public void TestMetricTon() {

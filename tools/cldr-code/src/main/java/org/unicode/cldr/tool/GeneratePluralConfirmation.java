@@ -3,11 +3,11 @@ package org.unicode.cldr.tool;
 import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.EnumSet;
+import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRConfig;
@@ -20,10 +20,11 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
 import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.number.DecimalQuantity;
+import com.ibm.icu.impl.number.DecimalQuantity_DualStorageBCD;
 import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.PluralRules.FixedDecimal;
-import com.ibm.icu.text.PluralRules.FixedDecimalRange;
-import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
+import com.ibm.icu.text.PluralRules.DecimalQuantitySamples;
+import com.ibm.icu.text.PluralRules.DecimalQuantitySamplesRange;
 
 public class GeneratePluralConfirmation {
     private static final com.ibm.icu.text.PluralRules.PluralType ICU_ORDINAL = com.ibm.icu.text.PluralRules.PluralType.ORDINAL;
@@ -128,12 +129,12 @@ public class GeneratePluralConfirmation {
                 values.type = type;
 
                 for (int i = 0; i < 30; ++i) {
-                    FixedDecimal fd = new FixedDecimal(i);
-                    String keyword = rules.select(fd);
-                    values.showValue(keyword, fd);
+                    DecimalQuantity dq = new DecimalQuantity_DualStorageBCD(i);
+                    String keyword = rules.select(dq);
+                    values.showValue(keyword, dq);
                 }
                 for (String keyword : rules.getKeywords()) {
-                    FixedDecimalSamples samples;
+                    DecimalQuantitySamples samples;
                     samples = rules.getDecimalSamples(keyword, PluralRules.SampleType.DECIMAL);
                     values.showSamples(keyword, samples);
                     samples = rules.getDecimalSamples(keyword, PluralRules.SampleType.INTEGER);
@@ -147,24 +148,24 @@ public class GeneratePluralConfirmation {
     static class Values {
         String locale;
         PluralType type;
-        Relation<Count, FixedDecimal> soFar = Relation.of(new EnumMap(Count.class), TreeSet.class);
-        Map<FixedDecimal, String> sorted = new TreeMap();
+        Relation<Count, DecimalQuantity> soFar = Relation.of(new EnumMap(Count.class), LinkedHashMap.class);
+        Map<String, String> sorted = new LinkedHashMap<>();
 
-        private void showValue(String keyword, FixedDecimal fd) {
-            Set<FixedDecimal> soFarSet = soFar.getAll(keyword);
-            if (soFarSet != null && soFarSet.contains(fd)) {
+        private void showValue(String keyword, DecimalQuantity dq) {
+            Set<DecimalQuantity> soFarSet = soFar.getAll(keyword);
+            if (soFarSet != null && soFarSet.contains(dq)) {
                 return;
             }
-            soFar.put(Count.valueOf(keyword), fd);
-            sorted.put(fd, keyword);
+            soFar.put(Count.valueOf(keyword), dq);
+            sorted.put(dq.toExponentString(), keyword);
         }
 
-        public void showSamples(String keyword, FixedDecimalSamples samples) {
+        public void showSamples(String keyword, DecimalQuantitySamples samples) {
             if (samples == null) {
                 return;
             }
-            for (FixedDecimalRange range : samples.getSamples()) {
-                Set<FixedDecimal> soFarSet = soFar.getAll(keyword);
+            for (DecimalQuantitySamplesRange range : samples.getSamples()) {
+                Set<DecimalQuantity> soFarSet = soFar.getAll(keyword);
                 if (soFarSet != null && soFarSet.size() > 10) {
                     break;
                 }
@@ -182,11 +183,11 @@ public class GeneratePluralConfirmation {
         @Override
         public String toString() {
             StringBuilder buffer = new StringBuilder();
-            for (Entry<Count, Set<FixedDecimal>> entry : soFar.keyValuesSet()) {
+            for (Entry<Count, Set<DecimalQuantity>> entry : soFar.keyValuesSet()) {
                 Count count = entry.getKey();
-                for (FixedDecimal fd : entry.getValue()) {
+                for (DecimalQuantity dq : entry.getValue()) {
                     String pattern = PluralRulesFactory.getSamplePattern(locale, type.standardType, count);
-                    buffer.append(locale + "\t" + type + "\t" + count + "\t" + fd + "\t«" + pattern.replace("{0}", String.valueOf(fd)) + "»\n");
+                    buffer.append(locale + "\t" + type + "\t" + count + "\t" + dq + "\t«" + pattern.replace("{0}", String.valueOf(dq)) + "»\n");
                 }
                 buffer.append("\n");
             }

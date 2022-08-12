@@ -78,14 +78,14 @@ import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
+import com.ibm.icu.impl.number.DecimalQuantity;
+import com.ibm.icu.impl.number.DecimalQuantity_DualStorageBCD;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UCharacterEnums;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.PluralRules.FixedDecimal;
-import com.ibm.icu.text.PluralRules.FixedDecimalRange;
-import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
-import com.ibm.icu.text.PluralRules.Operand;
+import com.ibm.icu.text.PluralRules.DecimalQuantitySamples;
+import com.ibm.icu.text.PluralRules.DecimalQuantitySamplesRange;
 import com.ibm.icu.text.PluralRules.SampleType;
 import com.ibm.icu.text.StringTransform;
 import com.ibm.icu.text.UnicodeSet;
@@ -118,7 +118,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             seen.add(pi);
             for (SampleType s : SampleType.values()) {
                 for (Count c : pi.getCounts(s)) {
-                    FixedDecimalSamples sSamples = pi.getPluralRules()
+                    DecimalQuantitySamples sSamples = pi.getPluralRules()
                         .getDecimalSamples(c.toString(), s);
                     if (sSamples == null) {
                         errln(locale + " no sample for " + c);
@@ -127,8 +127,8 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     if (s == SampleType.DECIMAL) {
                         continue; // skip
                     }
-                    FixedDecimalRange lastSample = null;
-                    for (FixedDecimalRange sample : sSamples.samples) {
+                    DecimalQuantitySamplesRange lastSample = null;
+                    for (DecimalQuantitySamplesRange sample : sSamples.getSamples()) {
                         if (lastSample != null) {
                             if (compare(lastSample.start,sample.start) > 0) {
                                 errln(locale + ":" + c + ": out of order with "
@@ -145,28 +145,13 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         }
     }
 
-    /**
-     * Hack until ICU's FixedDecimal is fixed
-     *
-     */
-    public static int compare(PluralRules.FixedDecimal me, PluralRules.FixedDecimal other) {
-        if (me.getPluralOperand(Operand.e) != other.getPluralOperand(Operand.e)) {
-            return me.getPluralOperand(Operand.e) < other.getPluralOperand(Operand.e) ? -1 : 1;
+    public static int compare(DecimalQuantity me, DecimalQuantity other) {
+        // We place exponent notation samples entirely after ones without exponent
+        if (me.getExponent() != other.getExponent()) {
+            return me.getExponent() < other.getExponent() ? -1 : 1;
         }
-        if (me.getIntegerValue() != other.getIntegerValue()) {
-            return me.getIntegerValue() < other.getIntegerValue() ? -1 : 1;
-        }
-        if (me.getSource() != other.getSource()) {
-            return me.getSource() < other.getSource() ? -1 : 1;
-        }
-        if (me.getVisibleDecimalDigitCount() != other.getVisibleDecimalDigitCount()) {
-            return me.getVisibleDecimalDigitCount() < other.getVisibleDecimalDigitCount() ? -1 : 1;
-        }
-        long diff = me.getDecimalDigits() - other.getDecimalDigits();
-        if (diff != 0) {
-            return diff < 0 ? -1 : 1;
-        }
-        return 0;
+
+        return (int) (me.toDouble() - other.toDouble());
     }
 
     public void TestPluralRanges() {
@@ -184,8 +169,8 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             .getLocaleCoverageLocales(Organization.cldr,
                 EnumSet.of(Level.MODERN));
 
-        Output<FixedDecimal> maxSample = new Output<>();
-        Output<FixedDecimal> minSample = new Output<>();
+        Output<DecimalQuantity> maxSample = new Output<>();
+        Output<DecimalQuantity> minSample = new Output<>();
 
         for (String locale : localesToTest) {
             final String templateLine = "Template for " + ULocale.getDisplayName(locale, "en") + " (" + locale + ") translators to fix:";
@@ -290,7 +275,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
     }
 
     private String getRangeLine(Count start, Count end, Count result,
-        Output<FixedDecimal> maxSample, Output<FixedDecimal> minSample,
+        Output<DecimalQuantity> maxSample, Output<DecimalQuantity> minSample,
         PluralMinimalPairs samplePatterns) {
         final String range = minSample + "–" + maxSample;
         String example = range;
@@ -312,11 +297,11 @@ public class TestSupplementalInfo extends TestFmwkPlus {
 
     private String getRangeLine(Count count, PluralRules pluralRules, String pattern) {
         String sample = "?";
-        FixedDecimalSamples exampleList = pluralRules.getDecimalSamples(count.toString(), PluralRules.SampleType.INTEGER);
+        DecimalQuantitySamples exampleList = pluralRules.getDecimalSamples(count.toString(), PluralRules.SampleType.INTEGER);
         if (exampleList == null) {
             exampleList = pluralRules.getDecimalSamples(count.toString(), PluralRules.SampleType.DECIMAL);
         }
-        FixedDecimal sampleDecimal = PluralInfo.getNonZeroSampleIfPossible(exampleList);
+        DecimalQuantity sampleDecimal = PluralInfo.getNonZeroSampleIfPossible(exampleList);
         sample = sampleDecimal.toString();
 
         String example = pattern == null ? "NO-SAMPLE!" : "«" + pattern.replace("{0}", sample) + "»";
@@ -410,7 +395,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
     public void checkPluralSamples(String... row) {
         PluralInfo pluralInfo = SUPPLEMENTAL.getPlurals(
             PluralType.valueOf(row[1]), row[0]);
-        Count count = pluralInfo.getCount(new FixedDecimal(row[2]));
+        Count count = pluralInfo.getCount(DecimalQuantity_DualStorageBCD.fromExponentString(row[2]));
         assertEquals(String.join(", ", row),
             Count.valueOf(row[3]), count);
     }

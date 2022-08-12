@@ -8,7 +8,6 @@ import java.util.BitSet;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
@@ -64,6 +63,8 @@ import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableList;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
+import com.ibm.icu.impl.number.DecimalQuantity;
+import com.ibm.icu.impl.number.DecimalQuantity_DualStorageBCD;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.DateFormat;
@@ -75,9 +76,9 @@ import com.ibm.icu.text.ListFormatter;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.PluralRules.FixedDecimal;
-import com.ibm.icu.text.PluralRules.FixedDecimalRange;
-import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
+import com.ibm.icu.text.PluralRules.DecimalQuantitySamples;
+import com.ibm.icu.text.PluralRules.DecimalQuantitySamplesRange;
+import com.ibm.icu.text.PluralRules.Operand;
 import com.ibm.icu.text.PluralRules.SampleType;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.SimpleFormatter;
@@ -176,13 +177,13 @@ public class ExampleGenerator {
     }
 
     @SuppressWarnings("deprecation")
-    static final List<FixedDecimal> CURRENCY_SAMPLES = ImmutableList.of(
-        new FixedDecimal(1.23),
-        new FixedDecimal(0),
-        new FixedDecimal(2.34),
-        new FixedDecimal(3.45),
-        new FixedDecimal(5.67),
-        new FixedDecimal(1));
+    static final List<DecimalQuantity> CURRENCY_SAMPLES = ImmutableList.of(
+        DecimalQuantity_DualStorageBCD.fromExponentString("1.23"),
+        DecimalQuantity_DualStorageBCD.fromExponentString("0"),
+        DecimalQuantity_DualStorageBCD.fromExponentString("2.34"),
+        DecimalQuantity_DualStorageBCD.fromExponentString("3.45"),
+        DecimalQuantity_DualStorageBCD.fromExponentString("5.67"),
+        DecimalQuantity_DualStorageBCD.fromExponentString("1"));
 
     public static final Pattern PARAMETER = PatternCache.get("(\\{(?:0|[1-9][0-9]*)\\})");
     public static final Pattern PARAMETER_SKIP0 = PatternCache.get("(\\{[1-9][0-9]*\\})");
@@ -885,14 +886,14 @@ public class ExampleGenerator {
          * also used to mark internal methods (which are OK for us to use in CLDR).
          */
         @SuppressWarnings("deprecation")
-        FixedDecimal amount = getBest(Count.valueOf(count));
+        DecimalQuantity amount = getBest(Count.valueOf(count));
         if (amount == null) {
             return null;
         }
         DecimalFormat numberFormat = null;
         String formattedAmount = null;
         numberFormat = icuServiceBuilder.getNumberFormat(1);
-        formattedAmount = numberFormat.format(amount);
+        formattedAmount = numberFormat.format(amount.toBigDecimal());
         examples.add(format(unitPattern, backgroundStartSymbol + formattedAmount + backgroundEndSymbol));
 
         if (parts.getElement(-2).equals("unit")) {
@@ -981,11 +982,11 @@ public class ExampleGenerator {
          */
 
         // we want to get a number that works for the count passed in.
-        FixedDecimal amount = getBest(count);
+        DecimalQuantity amount = getBest(count);
         if (amount == null) {
             return "n/a";
         }
-        FixedDecimal oneValue = new FixedDecimal(1d, 0);
+        DecimalQuantity oneValue = DecimalQuantity_DualStorageBCD.fromExponentString("1");
 
         String unit1mid;
         String unit2mid;
@@ -997,7 +998,7 @@ public class ExampleGenerator {
             unit2mid = getFormattedUnit("duration-second", unitLength, oneValue, "");
             break;
         case "times":
-            unit1mid = getFormattedUnit("force-newton", unitLength, oneValue, icuServiceBuilder.getNumberFormat(1).format(amount));
+            unit1mid = getFormattedUnit("force-newton", unitLength, oneValue, icuServiceBuilder.getNumberFormat(1).format(amount.toBigDecimal()));
             unit2mid = getFormattedUnit("length-meter", unitLength, amount, "");
             break;
         }
@@ -1034,7 +1035,7 @@ public class ExampleGenerator {
 
         // we want to get a number that works for the count passed in.
         @SuppressWarnings("deprecation")
-        FixedDecimal amount = getBest(count);
+        DecimalQuantity amount = getBest(count);
         if (amount == null) {
             return "n/a";
         }
@@ -1054,7 +1055,7 @@ public class ExampleGenerator {
 
         String modFormat = combinePrefix(meterFormat, compoundPattern, unitLength == UnitLength.LONG);
 
-        return removeEmptyRuns(format(modFormat, numberFormat.format(amount)));
+        return removeEmptyRuns(format(modFormat, numberFormat.format(amount.toBigDecimal())));
     }
 
     // TODO, pass in unitLength instead of last parameter, and do work in Units.combinePattern.
@@ -1078,16 +1079,16 @@ public class ExampleGenerator {
     }
 
     @SuppressWarnings("deprecation")
-    private FixedDecimal getBest(Count count) {
-        FixedDecimalSamples samples = pluralInfo.getPluralRules().getDecimalSamples(count.name(), SampleType.DECIMAL);
+    private DecimalQuantity getBest(Count count) {
+        DecimalQuantitySamples samples = pluralInfo.getPluralRules().getDecimalSamples(count.name(), SampleType.DECIMAL);
         if (samples == null) {
             samples = pluralInfo.getPluralRules().getDecimalSamples(count.name(), SampleType.INTEGER);
         }
         if (samples == null) {
             return null;
         }
-        Set<FixedDecimalRange> samples2 = samples.getSamples();
-        FixedDecimalRange range = samples2.iterator().next();
+        Set<DecimalQuantitySamplesRange> samples2 = samples.getSamples();
+        DecimalQuantitySamplesRange range = samples2.iterator().next();
         return range.end;
     }
 
@@ -1230,18 +1231,18 @@ public class ExampleGenerator {
     }
 
     @SuppressWarnings("deprecation")
-    private String getFormattedUnit(String unitType, UnitLength unitWidth, FixedDecimal unitAmount) {
+    private String getFormattedUnit(String unitType, UnitLength unitWidth, DecimalQuantity unitAmount) {
         DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(1);
-        return getFormattedUnit(unitType, unitWidth, unitAmount, numberFormat.format(unitAmount));
+        return getFormattedUnit(unitType, unitWidth, unitAmount, numberFormat.format(unitAmount.toBigDecimal()));
     }
 
     @SuppressWarnings("deprecation")
     private String getFormattedUnit(String unitType, UnitLength unitWidth, double unitAmount) {
-        return getFormattedUnit(unitType, unitWidth, new FixedDecimal(unitAmount));
+        return getFormattedUnit(unitType, unitWidth, new DecimalQuantity_DualStorageBCD(unitAmount));
     }
 
     @SuppressWarnings("deprecation")
-    private String getFormattedUnit(String unitType, UnitLength unitWidth, FixedDecimal unitAmount, String formattedUnitAmount) {
+    private String getFormattedUnit(String unitType, UnitLength unitWidth, DecimalQuantity unitAmount, String formattedUnitAmount) {
         String form = this.pluralInfo.getPluralRules().select(unitAmount);
         String pathFormat = "//ldml/units/unitLength" + unitWidth.typeString
             + "/unit[@type=\"{0}\"]/unitPattern[@count=\"{1}\"]";
@@ -1457,7 +1458,7 @@ public class ExampleGenerator {
         final boolean isCurrency = !parts.contains("units");
 
         Count count = null;
-        final LinkedHashSet<FixedDecimal> exampleCount = new LinkedHashSet<>();
+        final LinkedHashSet<DecimalQuantity> exampleCount = new LinkedHashSet<>();
         exampleCount.addAll(CURRENCY_SAMPLES);
         String countString = parts.getAttributeValue(-1, "count");
         if (countString == null) {
@@ -1479,18 +1480,26 @@ public class ExampleGenerator {
         DecimalFormat currencyFormat = icuServiceBuilder.getCurrencyFormat(unitType);
         int decimalCount = currencyFormat.getMinimumFractionDigits();
 
+        // Unless/until DecimalQuantity overrides hashCode() or implements Comparable, we
+        // should use a concrete collection type for examplesSeen for which .contains() only
+        // relies on DecimalQuantity.equals() . The reason is that the default hashCode()
+        // implementation for DecimalQuantity may return false when .equals() returns true.
+        Collection<DecimalQuantity> examplesSeen = new ArrayList<>();
+
         // we will cycle until we have (at most) two examples.
-        Set<FixedDecimal> examplesSeen = new HashSet<>();
         int maxCount = 2;
         main:
             // If we are a currency, we will try to see if we can set the decimals to match.
             // but if nothing works, we will just use a plain sample.
             for (int phase = 0; phase < 2; ++phase) {
-                for (FixedDecimal example : exampleCount) {
+                for (DecimalQuantity example : exampleCount) {
                     // we have to first see whether we have a currency. If so, we have to see if the count works.
 
                     if (isCurrency && phase == 0) {
-                        example = new FixedDecimal(example.getSource(), decimalCount);
+                        DecimalQuantity_DualStorageBCD newExample = new DecimalQuantity_DualStorageBCD();
+                        newExample.copyFrom(example);
+                        newExample.setMinFraction(decimalCount);
+                        example = newExample;
                     }
                     // skip if we've done before (can happen because of the currency reset)
                     if (examplesSeen.contains(example)) {
@@ -1534,9 +1543,9 @@ public class ExampleGenerator {
     }
 
     @SuppressWarnings("deprecation")
-    static public void getStartEndSamples(PluralRules.FixedDecimalSamples samples, Set<FixedDecimal> target) {
+    static public void getStartEndSamples(DecimalQuantitySamples samples, Set<DecimalQuantity> target) {
         if (samples != null) {
-            for (FixedDecimalRange item : samples.getSamples()) {
+            for (DecimalQuantitySamplesRange item : samples.getSamples()) {
                 target.add(item.start);
                 target.add(item.end);
             }
@@ -1545,7 +1554,7 @@ public class ExampleGenerator {
 
     @SuppressWarnings("deprecation")
     private String formatCurrency(String value, String unitType, final boolean isPattern, final boolean isCurrency, Count count,
-        FixedDecimal example) {
+        DecimalQuantity example) {
         String resultItem;
         {
             // If we have a pattern, get the unit from the count
@@ -1574,10 +1583,10 @@ public class ExampleGenerator {
             // TODO fix this for special currency overrides
 
             DecimalFormat unitDecimalFormat = icuServiceBuilder.getNumberFormat(1); // decimal
-            unitDecimalFormat.setMaximumFractionDigits(example.getVisibleDecimalDigitCount());
-            unitDecimalFormat.setMinimumFractionDigits(example.getVisibleDecimalDigitCount());
+            unitDecimalFormat.setMaximumFractionDigits((int) example.getPluralOperand(Operand.v));
+            unitDecimalFormat.setMinimumFractionDigits((int) example.getPluralOperand(Operand.v));
 
-            String formattedNumber = unitDecimalFormat.format(example.getSource());
+            String formattedNumber = unitDecimalFormat.format(example.toDouble());
             unitPatternFormat.setFormatByArgumentIndex(0, unitDecimalFormat);
             resultItem = unitPattern.replace("{0}", formattedNumber).replace("{1}", unitName);
 
@@ -1966,7 +1975,7 @@ public class ExampleGenerator {
         } catch (Exception e) {
             String locale = getCldrFile().getLocaleID();
             PluralInfo pluralInfo = supplementalDataInfo.getPlurals(locale);
-            count = pluralInfo.getCount(new FixedDecimal(countValue));
+            count = pluralInfo.getCount(DecimalQuantity_DualStorageBCD.fromExponentString(countValue));
         }
         Double numberSample = getExampleForPattern(numberFormat, count);
         if (numberSample == null) {

@@ -16,8 +16,9 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.number.DecimalQuantity;
+import com.ibm.icu.impl.number.DecimalQuantity_DualStorageBCD;
 import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.PluralRules.FixedDecimal;
 import com.ibm.icu.text.PluralRules.PluralType;
 import com.ibm.icu.util.ULocale;
 
@@ -172,7 +173,7 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
 //        return OVERRIDES;
 //    }
 
-    public Relation<ULocale, FixedDecimal> getExtraSamples() {
+    public Relation<ULocale, DecimalQuantity> getExtraSamples() {
         if (EXTRA_SAMPLES == null) {
             loadData();
         }
@@ -181,12 +182,12 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
 
     //private Map<ULocale, PluralMinimalPairs> LOCALE_TO_SAMPLE_PATTERNS = null;
     //private Map<ULocale, PluralRules> OVERRIDES = null;
-    private Relation<ULocale, FixedDecimal> EXTRA_SAMPLES = null;
+    private Relation<ULocale, DecimalQuantity> EXTRA_SAMPLES = null;
 
     private void loadData() {
 //        LinkedHashMap<ULocale, PluralMinimalPairs> temp = new LinkedHashMap<ULocale, PluralMinimalPairs>();
 //        HashMap<ULocale, PluralRules> tempOverrides = new HashMap<ULocale, PluralRules>();
-        Relation<ULocale, FixedDecimal> tempSamples = Relation.of(new HashMap<ULocale, Set<FixedDecimal>>(), HashSet.class);
+        Relation<ULocale, DecimalQuantity> tempSamples = Relation.of(new HashMap<ULocale, Set<DecimalQuantity>>(), HashSet.class);
 //        Factory factory = CLDRConfig.getInstance().getFullCldrFactory();
 //        for (String localeId : supplementalDataInfo.getPluralLocales()) {
 //            ULocale ulocale = new ULocale(localeId);
@@ -286,7 +287,7 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
                     throw new IllegalArgumentException("Duplicate locale: " + uLocale);
                 }
                 for (String item : pair[1].split("\\s*,\\s*")) {
-                    tempSamples.put(uLocale, new PluralRules.FixedDecimal(item));
+                    tempSamples.put(uLocale, DecimalQuantity_DualStorageBCD.fromExponentString(item));
                 }
             }
         }

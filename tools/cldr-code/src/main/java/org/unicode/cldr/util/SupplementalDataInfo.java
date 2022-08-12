@@ -60,13 +60,16 @@ import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R4;
+import com.ibm.icu.impl.number.DecimalQuantity;
+import com.ibm.icu.impl.number.DecimalQuantity_DualStorageBCD;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.text.PluralRules.DecimalQuantitySamples;
+import com.ibm.icu.text.PluralRules.DecimalQuantitySamplesRange;
 import com.ibm.icu.text.PluralRules.FixedDecimal;
-import com.ibm.icu.text.PluralRules.FixedDecimalRange;
-import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
+import com.ibm.icu.text.PluralRules.Operand;
 import com.ibm.icu.text.PluralRules.SampleType;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
@@ -3710,7 +3713,7 @@ public class SupplementalDataInfo {
             return Count.valueOf(pluralRules.select(exampleCount));
         }
 
-        public Count getCount(PluralRules.FixedDecimal exampleCount) {
+        public Count getCount(DecimalQuantity exampleCount) {
             return Count.valueOf(pluralRules.select(exampleCount));
         }
 
@@ -3806,18 +3809,18 @@ public class SupplementalDataInfo {
             MIN, MAX
         }
 
-        public static final FixedDecimal NEGATIVE_INFINITY = new FixedDecimal(Double.NEGATIVE_INFINITY, 0, 0);
-        public static final FixedDecimal POSITIVE_INFINITY = new FixedDecimal(Double.POSITIVE_INFINITY, 0, 0);
+        public static final DecimalQuantity NEGATIVE_INFINITY = new DecimalQuantity_DualStorageBCD(Double.NEGATIVE_INFINITY);
+        public static final DecimalQuantity POSITIVE_INFINITY = new DecimalQuantity_DualStorageBCD(Double.POSITIVE_INFINITY);
 
-        static double doubleValue(FixedDecimal a) {
-            return a.doubleValue();
+        static double doubleValue(DecimalQuantity a) {
+            return a.toDouble();
         }
 
-        public boolean rangeExists(Count s, Count e, Output<FixedDecimal> minSample, Output<FixedDecimal> maxSample) {
+        public boolean rangeExists(Count s, Count e, Output<DecimalQuantity> minSample, Output<DecimalQuantity> maxSample) {
             if (!getCounts().contains(s) || !getCounts().contains(e)) {
                 return false;
             }
-            FixedDecimal temp;
+            DecimalQuantity temp;
             minSample.value = getLeastIn(s, SampleType.INTEGER, NEGATIVE_INFINITY, POSITIVE_INFINITY);
             temp = getLeastIn(s, SampleType.DECIMAL, NEGATIVE_INFINITY, POSITIVE_INFINITY);
             if (lessOrFewerDecimals(temp, minSample.value)) {
@@ -3834,13 +3837,14 @@ public class SupplementalDataInfo {
             }
             // see if we can get a better range, with not such a large end range
 
-            FixedDecimal lowestMax = new FixedDecimal(doubleValue(minSample.value) + 0.00001, 5);
+            DecimalQuantity lowestMax = new DecimalQuantity_DualStorageBCD(minSample.value.toBigDecimal().add(new java.math.BigDecimal("0.00001")));
+            lowestMax.setMinFraction(5);
             SampleType bestType = getCounts(SampleType.INTEGER).contains(e) ? SampleType.INTEGER : SampleType.DECIMAL;
             temp = getLeastIn(e, bestType, lowestMax, POSITIVE_INFINITY);
             if (lessOrFewerDecimals(temp, maxSample.value)) {
                 maxSample.value = temp;
             }
-            if (maxSample.value.getSource() > 100000) {
+            if (maxSample.value.toDouble() > 100000) {
                 temp = getLeastIn(e, bestType, lowestMax, POSITIVE_INFINITY);
                 if (lessOrFewerDecimals(temp, maxSample.value)) {
                     maxSample.value = temp;
@@ -3850,29 +3854,29 @@ public class SupplementalDataInfo {
             return true;
         }
 
-        public boolean greaterOrFewerDecimals(FixedDecimal a, FixedDecimal b) {
+        public boolean greaterOrFewerDecimals(DecimalQuantity a, DecimalQuantity b) {
             return doubleValue(a) > doubleValue(b)
-                || doubleValue(b) == doubleValue(a) && b.getDecimalDigits() > a.getDecimalDigits();
+                || doubleValue(b) == doubleValue(a) && b.getPluralOperand(Operand.f) > a.getPluralOperand(Operand.f);
         }
 
-        public boolean lessOrFewerDecimals(FixedDecimal a, FixedDecimal b) {
+        public boolean lessOrFewerDecimals(DecimalQuantity a, DecimalQuantity b) {
             return doubleValue(a) < doubleValue(b)
-                || doubleValue(b) == doubleValue(a) && b.getDecimalDigits() > a.getDecimalDigits();
+                || doubleValue(b) == doubleValue(a) && b.getPluralOperand(Operand.f) > a.getPluralOperand(Operand.f);
         }
 
-        private FixedDecimal getLeastIn(Count s, SampleType sampleType, FixedDecimal min, FixedDecimal max) {
-            FixedDecimal result = POSITIVE_INFINITY;
-            FixedDecimalSamples sSamples1 = pluralRules.getDecimalSamples(s.toString(), sampleType);
+        private DecimalQuantity getLeastIn(Count s, SampleType sampleType, DecimalQuantity min, DecimalQuantity max) {
+            DecimalQuantity result = POSITIVE_INFINITY;
+            DecimalQuantitySamples sSamples1 = pluralRules.getDecimalSamples(s.toString(), sampleType);
             if (sSamples1 != null) {
-                for (FixedDecimalRange x : sSamples1.samples) {
+                for (DecimalQuantitySamplesRange x : sSamples1.samples) {
                     // overlap in ranges??
                     if (doubleValue(x.start) > doubleValue(max)
                         || doubleValue(x.end) < doubleValue(min)) {
                         continue; // no, continue
                     }
                     // get restricted range
-                    FixedDecimal minOverlap = greaterOrFewerDecimals(min, x.start) ? max : x.start;
-                    //FixedDecimal maxOverlap = lessOrFewerDecimals(max, x.end) ? max : x.end;
+                    DecimalQuantity minOverlap = greaterOrFewerDecimals(min, x.start) ? max : x.start;
+                    //DecimalQuantity maxOverlap = lessOrFewerDecimals(max, x.end) ? max : x.end;
 
                     // replace if better
                     if (lessOrFewerDecimals(minOverlap, result)) {
@@ -3883,19 +3887,19 @@ public class SupplementalDataInfo {
             return result;
         }
 
-        private FixedDecimal getGreatestIn(Count s, SampleType sampleType, FixedDecimal min, FixedDecimal max) {
-            FixedDecimal result = NEGATIVE_INFINITY;
-            FixedDecimalSamples sSamples1 = pluralRules.getDecimalSamples(s.toString(), sampleType);
+        private DecimalQuantity getGreatestIn(Count s, SampleType sampleType, DecimalQuantity min, DecimalQuantity max) {
+            DecimalQuantity result = NEGATIVE_INFINITY;
+            DecimalQuantitySamples sSamples1 = pluralRules.getDecimalSamples(s.toString(), sampleType);
             if (sSamples1 != null) {
-                for (FixedDecimalRange x : sSamples1.samples) {
+                for (DecimalQuantitySamplesRange x : sSamples1.getSamples()) {
                     // overlap in ranges??
                     if (doubleValue(x.start) > doubleValue(max)
                         || doubleValue(x.end) < doubleValue(min)) {
                         continue; // no, continue
                     }
                     // get restricted range
-                    //FixedDecimal minOverlap = greaterOrFewerDecimals(min, x.start) ? max : x.start;
-                    FixedDecimal maxOverlap = lessOrFewerDecimals(max, x.end) ? max : x.end;
+                    //DecimalQuantity minOverlap = greaterOrFewerDecimals(min, x.start) ? max : x.start;
+                    DecimalQuantity maxOverlap = lessOrFewerDecimals(max, x.end) ? max : x.end;
 
                     // replace if better
                     if (greaterOrFewerDecimals(maxOverlap, result)) {
@@ -3906,17 +3910,17 @@ public class SupplementalDataInfo {
             return result;
         }
 
-        public static FixedDecimal getNonZeroSampleIfPossible(FixedDecimalSamples exampleList) {
-            Set<FixedDecimalRange> sampleSet = exampleList.getSamples();
-            FixedDecimal sampleDecimal = null;
+        public static DecimalQuantity getNonZeroSampleIfPossible(DecimalQuantitySamples exampleList) {
+            Set<DecimalQuantitySamplesRange> sampleSet = exampleList.getSamples();
+            DecimalQuantity sampleDecimal = null;
             // skip 0 if possible
-            for (FixedDecimalRange range : sampleSet) {
+            for (DecimalQuantitySamplesRange range : sampleSet) {
                 sampleDecimal = range.start;
-                if (sampleDecimal.getSource() != 0.0) {
+                if (sampleDecimal.toDouble() != 0.0) {
                     break;
                 }
                 sampleDecimal = range.end;
-                if (sampleDecimal.getSource() != 0.0) {
+                if (sampleDecimal.toDouble() != 0.0) {
                     break;
                 }
             }

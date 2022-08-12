@@ -32,10 +32,11 @@ import org.unicode.cldr.util.TempPrintWriter;
 
 import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.number.DecimalQuantity;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.PluralRules.FixedDecimal;
+import com.ibm.icu.text.PluralRules.Operand;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
@@ -132,8 +133,8 @@ public class GeneratePluralRanges {
 //            }
 //        }
 
-        Output<FixedDecimal> maxSample = new Output<>();
-        Output<FixedDecimal> minSample = new Output<>();
+        Output<DecimalQuantity> maxSample = new Output<>();
+        Output<DecimalQuantity> minSample = new Output<>();
 
         ICUServiceBuilder icusb = new ICUServiceBuilder();
         icusb.setCldrFile(cldrFile);
@@ -171,7 +172,7 @@ public class GeneratePluralRanges {
     public static class RangeSample {
         // Category Examples    Minimal Pairs   Rules
         public RangeSample(Count start, Count end, Count result,
-            FixedDecimal min, FixedDecimal max,
+            DecimalQuantity min, DecimalQuantity max,
             String startExample, String endExample, String resultExample) {
             this.start = start;
             this.end = end;
@@ -186,20 +187,20 @@ public class GeneratePluralRanges {
         final Count start;
         final Count end;
         final Count result;
-        final FixedDecimal min;
-        final FixedDecimal max;
+        final DecimalQuantity min;
+        final DecimalQuantity max;
         final String startExample;
         final String endExample;
         final String resultExample;
     }
 
-    public static String format(DecimalFormat nf, FixedDecimal minSample) {
-        nf.setMinimumFractionDigits(minSample.getVisibleDecimalDigitCount());
-        nf.setMaximumFractionDigits(minSample.getVisibleDecimalDigitCount());
+    public static String format(DecimalFormat nf, DecimalQuantity minSample) {
+        nf.setMinimumFractionDigits((int) minSample.getPluralOperand(Operand.v));
+        nf.setMaximumFractionDigits((int) minSample.getPluralOperand(Operand.v));
         return nf.format(minSample);
     }
 
-    //    private String format(String decimal, Output<FixedDecimal> minSample) {
+    //    private String format(String decimal, Output<DecimalQuantity> minSample) {
     //        return minSample.toString().replace(".", decimal);
     //    }
 
@@ -322,8 +323,8 @@ public class GeneratePluralRanges {
         Set<String> result = new LinkedHashSet<>();
         // make it easier to manage
         PluralRanges.Matrix matrix = new PluralRanges.Matrix();
-        Output<FixedDecimal> maxSample = new Output<>();
-        Output<FixedDecimal> minSample = new Output<>();
+        Output<DecimalQuantity> maxSample = new Output<>();
+        Output<DecimalQuantity> minSample = new Output<>();
         for (Count s : Count.VALUES) {
             for (Count e : Count.VALUES) {
                 if (!pluralInfo.rangeExists(s, e, minSample, maxSample)) {

@@ -75,6 +75,7 @@ import org.unicode.cldr.util.UnitConverter.TargetInfo;
 import org.unicode.cldr.util.UnitConverter.UnitComplexity;
 import org.unicode.cldr.util.UnitConverter.UnitId;
 import org.unicode.cldr.util.UnitConverter.UnitSystem;
+import org.unicode.cldr.util.UnitParser;
 import org.unicode.cldr.util.UnitPathType;
 import org.unicode.cldr.util.UnitPreferences;
 import org.unicode.cldr.util.UnitPreferences.UnitPreference;
@@ -2810,5 +2811,84 @@ public class TestUnits extends TestFmwk {
         assertEquals("metric-ton is deprecated", "tonne", SDI.getUnitConverter().fixDenormalized("metric-ton"));
         assertEquals("to short", "metric-ton", SDI.getUnitConverter().getShortId("mass-metric-ton"));
         //assertEquals("to long", "mass-metric-ton", SDI.getUnitConverter().getLongId("metric-ton"));
+    }
+
+    public void TestUnitParser() {
+        UnitParser up = new UnitParser();
+        for (String longUnit : VALID_REGULAR_UNITS) {
+            String shortUnit = SDI.getUnitConverter().getShortId(longUnit);
+            checkParse(up, shortUnit);
+        }
+    }
+
+    private List<Pair<String, UnitIdComponentType>> checkParse(UnitParser up, String shortUnit) {
+        up.set(shortUnit);
+        List<Pair<String, UnitIdComponentType>> results = new ArrayList<>();
+       Output<UnitIdComponentType> type = new Output<>();
+        while (true) {
+            String result = up.nextParse(type);
+            if (result == null) {
+                break;
+            }
+            results.add(new Pair<>(result, type.value));
+        }
+        logln(shortUnit + "\t" + results);
+        return results;
+    }
+
+    public void TestUnitParserSelected() {
+        UnitParser up = new UnitParser();
+        String[][] tests = {
+            // unit, exception, resultList
+            {"british-force", "Unit suffix must follow base: british ❌ force"}, // prefix-suffix
+            {"force", "Unit suffix must follow base: null ❌ force"}, // suffix
+            {"british-and-french", "Unit prefix must be followed with base: british ❌ and"}, // prefix-and
+            {"british", "Unit prefix must be followed with base: british ❌ null"}, // prefix
+            {"g-force-light-year", null, "[(g-force,base), (light-year,base)]"}, // suffix
+        };
+        for (String[] test : tests) {
+            String shortUnit = test[0];
+            String expectedError = test[1];
+            String expectedResult = test.length <= 2 ? null : test[2];
+
+            String actualError = null;
+            List<Pair<String, UnitIdComponentType>> actualResult  = null;
+            try {
+                actualResult  = checkParse(up, shortUnit);
+            } catch (Exception e) {
+                actualError = e.getMessage();
+            }
+            assertEquals(shortUnit + " exception", expectedError, actualError);
+            assertEquals(shortUnit + " result", expectedResult, actualResult == null ? null : actualResult.toString());
+        }
+    }
+
+    public void TestUnitParserAgainstContinuations() {
+        UnitParser up = new UnitParser();
+        UnitConverter uc = SDI.getUnitConverter();
+        Multimap<String, Continuation> continuations = uc.getContinuations();
+        Output<UnitIdComponentType> type = new Output<>();
+        for (String longUnit : VALID_REGULAR_UNITS) {
+            String shortUnit = SDI.getUnitConverter().getShortId(longUnit);
+            up.set(shortUnit);
+            UnitIterator x = UnitConverter.Continuation.split(shortUnit, continuations);
+
+            int count = 0;
+            while (true) {
+                String upSegment = up.nextParse(type);
+                String continuationSegment = x.hasNext() ? x.next() : null;
+                if (upSegment == null || continuationSegment == null) {
+                    assertEquals(count + ") " + shortUnit
+                        + " Same number of segments ", continuationSegment == null, upSegment == null);
+                    break;
+                }
+                assertTrue("type is never suffix or prefix", UnitIdComponentType.suffix != type.value &&  UnitIdComponentType.prefix != type.value);
+                ++count;
+                if (!assertEquals(count + ") " + shortUnit
+                    + " Segments equal ", continuationSegment, upSegment)) {
+                    break; // stop at first difference
+                }
+            }
+        }
     }
 }

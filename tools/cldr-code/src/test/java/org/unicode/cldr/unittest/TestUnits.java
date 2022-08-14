@@ -2870,6 +2870,10 @@ public class TestUnits extends TestFmwk {
         Output<UnitIdComponentType> type = new Output<>();
         for (String longUnit : VALID_REGULAR_UNITS) {
             String shortUnit = SDI.getUnitConverter().getShortId(longUnit);
+            if (shortUnit.contains("100")) {
+                logKnownIssue("CLDR-15929", "Code doesn't handle 100");
+                continue;
+            }
             up.set(shortUnit);
             UnitIterator x = UnitConverter.Continuation.split(shortUnit, continuations);
 

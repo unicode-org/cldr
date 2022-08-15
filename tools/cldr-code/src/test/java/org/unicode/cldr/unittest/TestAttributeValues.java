@@ -40,6 +40,7 @@ import org.unicode.cldr.util.DtdData.ValueStatus;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.LanguageInfo;
 import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
@@ -201,10 +202,11 @@ public class TestAttributeValues extends TestFmwk {
                 }
             } catch (Throwable e) {
                 if(r == null) throw e;
-                throw (IllegalArgumentException) new IllegalArgumentException(" at " + r.getLocation()).initCause(e);
+                throw (IllegalArgumentException) new IllegalArgumentException(" at " + r.getLocation(), e);
             }
         } catch (Exception e) {
-            errln("Exception occured in " + fullFile + " after parsing " + lastElement);
+            e.printStackTrace(this.getErrorLogPrintWriter());
+            errln("Exception occured in " + fullFile + " after parsing " + lastElement + " - " + e);
         }
         pathChecker.elementCount.addAndGet(_elementCount);
         pathChecker.attributeCount.addAndGet(_attributeCount);

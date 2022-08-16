@@ -64,13 +64,10 @@ public class DisplayAndInputProcessor {
             "[:Default_Ignorable_Code_Point:]" +
             "[:patternwhitespace:]" +
             "[:Me:][:Mn:]]" // add non-spacing marks
-    ).freeze();
+        ).freeze();
 
     public static final Pattern NUMBER_FORMAT_XPATH = Pattern
         .compile("//ldml/numbers/.*Format\\[@type=\"standard\"]/pattern.*");
-
-    public static final Pattern NUMBER_SEPARATOR_PATTERN = Pattern
-        .compile("//ldml/numbers/symbols.*/(decimal|group)");
 
     private static final Pattern APOSTROPHE_SKIP_PATHS = PatternCache.get("//ldml/("
         + "localeDisplayNames/languages/language\\[@type=\"mic\"].*|"
@@ -335,10 +332,7 @@ public class DisplayAndInputProcessor {
                 }
             }
         }
-        // Fix up any apostrophes in number symbols
-        if (NUMBER_SEPARATOR_PATTERN.matcher(path).matches()) {
-            value = value.replace('\'', '\u2019');
-        }
+
         // Fix up any apostrophes as appropriate (Don't do so for things like date patterns...
         if (!APOSTROPHE_SKIP_PATHS.matcher(path).matches()) {
             value = normalizeApostrophes(value);
@@ -518,10 +512,7 @@ public class DisplayAndInputProcessor {
             if (!APOSTROPHE_SKIP_PATHS.matcher(path).matches()) {
                 value = normalizeApostrophes(value);
             }
-            // Fix up any apostrophes in number symbols
-            if (NUMBER_SEPARATOR_PATTERN.matcher(path).matches()) {
-                value = value.replace('\'', '\u2019');
-            }
+
             // Fix up hyphens, replacing with N-dash as appropriate
             if (INTERVAL_FORMAT_PATHS.matcher(path).matches()) {
                 value = normalizeIntervalHyphensAndSpaces(value); // This may also adjust spaces around en dash
@@ -924,7 +915,7 @@ public class DisplayAndInputProcessor {
 
     public static String fixAdlamNasalization(String fromString) {
         return ADLAM_MISNASALIZED.matcher(fromString)
-        .replaceAll("$1"+ADLAM_NASALIZATION+"$2");  // replace quote with 𞥋
+            .replaceAll("$1"+ADLAM_NASALIZATION+"$2");  // replace quote with 𞥋
     }
 
     static Pattern REMOVE_QUOTE1 = PatternCache.get("(\\s)(\\\\[-\\}\\]\\&])()");
@@ -1123,7 +1114,7 @@ public class DisplayAndInputProcessor {
 
         // Further whitespace adjustments per CLDR-14032
         if ((scriptCode.equals("Latn") || scriptCode.equals("Cyrl") || scriptCode.equals("Grek")) &&
-                HOUR_FORMAT_XPATHS.matcher(path).matches()) {
+            HOUR_FORMAT_XPATHS.matcher(path).matches()) {
             String test = AMPM_SPACE_BEFORE.matcher(value).replaceAll("$1$2"); // value without a+
             if (value.length() - test.length() != 4) { // exclude patterns with aaaa
                 value = AMPM_SPACE_BEFORE.matcher(value).replaceAll("$1\u202F$3");

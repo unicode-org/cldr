@@ -131,6 +131,11 @@ public class CLDRTransforms {
 
         Relation<Matcher, String> dependsOn = Relation.of(new LinkedHashMap<Matcher, Set<String>>(), LinkedHashSet.class);
         {
+	    addDependency( "und-Ethi-t-und-latn-m0-alaloc-geminate", "am-Ethi-t-am-ethi-m0-geminate", "und-Ethi-t-und-latn-m0-alaloc" );
+	    addDependency( "und-Ethi-t-und-latn-m0-aethiopi-geminate", "am-Ethi-t-am-ethi-m0-geminate", "und-Ethi-t-und-latn-m0-aethiopi" );
+	    addDependency( "und-Ethi-t-und-latn-m0-beta_metsehaf-geminate", "am-Ethi-t-am-ethi-m0-geminate", "und-Ethi-t-und-latn-m0-beta_metsehaf" );
+	    addDependency( "und-Ethi-t-und-latn-m0-ies-jes-1964-geminate", "am-Ethi-t-am-ethi-m0-geminate", "und-Ethi-t-und-latn-m0-ies-jes-1964" );
+
             addDependency("Latin-(Jamo|Hangul)(/.*)?", "Latin-ConjoiningJamo", "ConjoiningJamo-Latin");
             addDependency("(Jamo|Hangul)-Latin(/.*)?", "Latin-ConjoiningJamo", "ConjoiningJamo-Latin");
             addDependency("Latin-Han(/.*)", "Han-Spacedhan");

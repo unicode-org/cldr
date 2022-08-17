@@ -3944,7 +3944,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<standard>ግዜ ጋላፓጎስ</standard>
 				</long>
-			 </metazone>
+			</metazone>
 			<metazone type="GMT">
 				<long>
 					<standard>GMT</standard>
@@ -5516,6 +5516,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<styleName type="wght" subtype="900">ጸሊም</styleName>
 	</typographicNames>
 	<personNames>
+		<nameOrderLocales order="givenFirst">und ti</nameOrderLocales>
+		<nameOrderLocales order="surnameFirst">ko te vi yue zh</nameOrderLocales>
 		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>

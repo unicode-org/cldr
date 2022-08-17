@@ -15076,7 +15076,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="formal">
 			<namePattern>{surname} {surname2-initial}, {prefix} {given} {given2-initial}</namePattern>
-			<namePattern alt="1">{surname} {surname2-initial}, {prefix} {given} {given2-initial}</namePattern>
+			<namePattern alt="1">{surname}, {prefix} {given} {given2-initial}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="informal">
 			<namePattern>{given-informal} {given2} {suffix}</namePattern>
@@ -15084,7 +15084,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="formal">
 			<namePattern>{surname} {surname2-initial}, {given-initial} {given2-initial}</namePattern>
-			<namePattern alt="1">{surname} {surname2-initial}, {given-initial} {given2-initial}</namePattern>
+			<namePattern alt="1">{surname}, {given-initial} {given2-initial}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="informal">
 			<namePattern>{given-informal} {given2-initial}</namePattern>

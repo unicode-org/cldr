@@ -332,7 +332,7 @@ public class TestPersonNameFormatter extends TestFmwk{
                 "〖und = «any other»〗〖en = English〗"
             },{
                 "//ldml/personNames/nameOrderLocales[@order=\"surnameFirst\"]",
-                "〖ja = Japanese〗〖ko = Korean〗〖zh = Chinese〗"
+                "〖ja = Japanese〗〖ko = Korean〗〖vi = Vietnamese〗〖yue = Cantonese〗〖zh = Chinese〗"
             }
         };
         ExampleGenerator exampleGenerator = checkExamples(ENGLISH, tests);
@@ -388,7 +388,9 @@ public class TestPersonNameFormatter extends TestFmwk{
     private void checkExampleGenerator(ExampleGenerator exampleGenerator, String path, String value, String expected) {
         final String example = exampleGenerator.getExampleHtml(path, value);
         String actual = ExampleGenerator.simplify(example);
-        assertEquals("Example for " + value, expected, actual);
+        if (!assertEquals("Example for " + value, expected, actual)) {
+            int debug = 0;
+        }
     }
 
     public void TestForeignNonSpacingNames() {

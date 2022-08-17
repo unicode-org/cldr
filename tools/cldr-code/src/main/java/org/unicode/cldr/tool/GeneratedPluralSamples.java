@@ -28,8 +28,9 @@ import org.unicode.cldr.util.TempPrintWriter;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.impl.number.DecimalQuantity;
+import com.ibm.icu.impl.number.DecimalQuantity_DualStorageBCD;
 import com.ibm.icu.impl.Relation;
-import com.ibm.icu.text.FixedDecimal;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.Operand;
 
@@ -52,66 +53,65 @@ public class GeneratedPluralSamples {
 
     static SupplementalDataInfo sInfo = CLDRConfig.getInstance().getSupplementalDataInfo(); // forward declaration
 
-    static final Pattern FIX_E = Pattern.compile("0*e");
+    private static String formatFormC(DecimalQuantity dq) {
+        return dq.toExponentString();
+    }
 
-    private static String formatFormC(FixedDecimal fixedDecimal) {
-        // HACK, since ICU isn't yet updated
-        return FIX_E.matcher(fixedDecimal.toString()).replaceAll("c");
+    private static String toSampleString(DecimalQuantity dq) {
+        if (dq.getPluralOperand(Operand.e) != 0) {
+            return dq.toExponentString();
+        } else if (dq.getPluralOperand(Operand.c) != 0) {
+            return dq.toExponentString();
+        } else {
+            return dq.toPlainString();
+        }
     }
 
     static class Range implements Comparable<Range> {
         // invariant: visibleFractionDigitCount are the same
-        private final long startValue;
-        private long endValue;
-        final long offset;
+        private final DecimalQuantity start;
+        private DecimalQuantity end;
         final long visibleFractionDigitCount;
 
         /**
          * Must only be called if visibleFractionDigitCount are the same.
          */
-        public Range(FixedDecimal start, FixedDecimal end) {
-            int temp = 1;
-            for (long i = start.getVisibleDecimalDigitCount(); i > 0; --i) {
-                temp *= 10;
-            }
-            offset = temp;
-            visibleFractionDigitCount = start.getVisibleDecimalDigitCount();
-            startValue = start.getIntegerValue() * offset + start.getDecimalDigits();
-            endValue = end.getIntegerValue() * offset + end.getDecimalDigits();
-            if (startValue < 0 || endValue < 0) {
+        public Range(DecimalQuantity start, DecimalQuantity end) {
+            this.start = start;
+            this.end = end;
+            this.visibleFractionDigitCount = (long) start.getPluralOperand(Operand.v);
+            if (start.toDouble() < 0 || end.toDouble() < 0) {
                 throw new IllegalArgumentException("Must not be negative");
             }
         }
 
         public Range(Range other) {
-            startValue = other.startValue;
-            endValue = other.endValue;
-            offset = other.offset;
+            start = other.start;
+            end = other.end;
             visibleFractionDigitCount = other.visibleFractionDigitCount;
         }
 
         @Override
         public int compareTo(Range o) {
             // TODO Auto-generated method stub
-            int diff = startValue == o.startValue ? 0 : startValue < o.startValue ? -1 : 1;
+            int diff = start == o.start ? 0 : start.toDouble() < o.start.toDouble() ? -1 : 1;
             if (diff != 0) {
                 return diff;
             }
-            return endValue == o.endValue ? 0 : endValue < o.endValue ? -1 : 1;
+            return end == o.end ? 0 : end.toDouble() < o.end.toDouble() ? -1 : 1;
         }
 
         enum Status {
             inside, rightBefore, other
         }
 
-        /**
-         * Must only be called if visibleFractionDigitCount are the same.
-         */
-        Status getStatus(FixedDecimal ni) {
-            long newValue = ni.getIntegerValue() * offset + ni.getDecimalDigits();
+        Status getStatus(DecimalQuantity ni) {
+            long newValue = ni.toLong(true);
             if (newValue < 0) {
                 throw new IllegalArgumentException("Must not be negative");
             }
+            long startValue = start.toLong(true);
+            long endValue = end.toLong(true);
             Status status = startValue <= newValue && newValue <= endValue ? Status.inside
                 : endValue + 1 == newValue ? Status.rightBefore
                     : Status.other;
@@ -122,16 +122,18 @@ public class GeneratedPluralSamples {
         }
 
         public StringBuilder format(StringBuilder b) {
+            long startValue = start.toLong(true);
+            long endValue = end.toLong(true);
             if (visibleFractionDigitCount == 0) {
-                b.append(startValue);
+                b.append(toSampleString(start));
                 if (startValue != endValue) {
-                    b.append(startValue + 1 == endValue ? SEQUENCE_SEPARATOR : RANGE_SEPARATOR).append(endValue);
+                    b.append(startValue + 1 == endValue ? SEQUENCE_SEPARATOR : RANGE_SEPARATOR).append(toSampleString(end));
                 }
             } else {
-                append(b, startValue, visibleFractionDigitCount);
+                b.append(toSampleString(start));
                 if (startValue != endValue) {
                     b.append(startValue + 1 == endValue ? SEQUENCE_SEPARATOR : RANGE_SEPARATOR);
-                    append(b, endValue, visibleFractionDigitCount);
+                    b.append(toSampleString(end));
                 }
             }
             return b;
@@ -141,25 +143,6 @@ public class GeneratedPluralSamples {
         public String toString() {
             return format(new StringBuilder()).toString();
         }
-    }
-
-
-    private static void append(StringBuilder b, long startValue2, long visibleFractionDigitCount2) {
-        int len = b.length();
-        for (int i = 0; i < visibleFractionDigitCount2; ++i) {
-            b.insert(len, startValue2 % 10);
-            startValue2 /= 10;
-        }
-        b.insert(len, '.');
-        b.insert(len, startValue2);
-    }
-
-    public static long getFlatValue(FixedDecimal start) {
-        int temp = 1;
-        for (long i = start.getVisibleDecimalDigitCount(); i != 0; i /= 10) {
-            temp *= 10;
-        }
-        return start.getIntegerValue() * temp + start.getDecimalDigits();
     }
 
     /**
@@ -187,8 +170,9 @@ public class GeneratedPluralSamples {
             // TODO Auto-generated constructor stub
         }
 
-        void add(FixedDecimal ni) {
-            Set<Range> set = data[ni.getVisibleDecimalDigitCount()];
+        void add(DecimalQuantity ni) {
+            int visibleFracDigits = (int) ni.getPluralOperand(Operand.v);
+            Set<Range> set = data[visibleFracDigits];
             for (Range item : set) {
                 switch (item.getStatus(ni)) {
                 case inside:
@@ -261,16 +245,16 @@ public class GeneratedPluralSamples {
         }
     }
 
-    static final Double CELTIC_SPECIAL = new Double(1000000.0d);
+    static final DecimalQuantity CELTIC_SPECIAL = DecimalQuantity_DualStorageBCD.fromExponentString("1000000.0");
 
     static class DataSample {
         int count;
         int countNoTrailing = -1;
         final Set<Double> noTrailing = new TreeSet<>();
         final Ranges samples = new Ranges();
-        final FixedDecimal[] digitToSample = new FixedDecimal[20];
+        final DecimalQuantity[] digitToSample = new DecimalQuantity[20];
         final PluralRules.SampleType sampleType;
-        final Set<FixedDecimal> exponentSamples = new TreeSet<>();
+        final Set<DecimalQuantity> exponentSamples = new TreeSet<>();
         private boolean isBounded;
 
         public DataSample(PluralRules.SampleType sampleType) {
@@ -280,7 +264,7 @@ public class GeneratedPluralSamples {
         @Override
         public String toString() {
             Ranges samples2 = new Ranges(samples);
-            for (FixedDecimal ni : digitToSample) {
+            for (DecimalQuantity ni : digitToSample) {
                 if (ni != null) {
                     samples2.add(ni);
                 }
@@ -291,7 +275,7 @@ public class GeneratedPluralSamples {
         private String format(Ranges samples2) {
             StringBuilder builder = new StringBuilder().append(samples2);
             int max = 5;
-            for (FixedDecimal exponentSample : exponentSamples) {
+            for (DecimalQuantity exponentSample : exponentSamples) {
                 if (builder.length() != 0) {
                     builder.append(", ");
                 }
@@ -303,7 +287,7 @@ public class GeneratedPluralSamples {
             return builder.toString();
         }
 
-        private void add(FixedDecimal ni) {
+        private void add(DecimalQuantity ni) {
             if (ni.getPluralOperand(Operand.e) != 0) {
                 exponentSamples.add(ni);
                 return;
@@ -313,7 +297,7 @@ public class GeneratedPluralSamples {
                 samples.add(ni);
             }
             if (noTrailing.size() <= UNBOUNDED_LIMIT * 2) {
-                noTrailing.add(ni.getSource());
+                noTrailing.add(ni.getPluralOperand(Operand.n));
             }
             int digit = getDigit(ni);
             if (digitToSample[digit] == null) {
@@ -394,11 +378,11 @@ public class GeneratedPluralSamples {
             this.rules = rules;
         }
 
-        private void add(FixedDecimal ni) {
+        private void add(DecimalQuantity ni) {
             if (boundsComputed) {
                 throw new IllegalArgumentException("Can't call 'add' after 'toString'");
             }
-            if (ni.getVisibleDecimalDigitCount() == 0) {
+            if (ni.getPluralOperand(Operand.v) == 0) {
                 integers.add(ni);
             } else {
                 decimals.add(ni);
@@ -466,9 +450,9 @@ public class GeneratedPluralSamples {
     //        return true;
     //    }
 
-    static private int getDigit(FixedDecimal ni) {
+    static private int getDigit(DecimalQuantity ni) {
         int result = 0;
-        long value = ni.getIntegerValue();
+        long value = ni.toLong(true);
         do {
             ++result;
             value /= 10;
@@ -512,15 +496,15 @@ public class GeneratedPluralSamples {
             if (!Collections.disjoint(equivalentLocales, SPECIAL_MANY)) {
                 final PluralRules pluralRules = pluralInfo.getPluralRules();
                 for (int i = 1; i < 15; ++i) {
-                    add(pluralRules, i, 0, 3);
-                    add(pluralRules, i, 0, 6);
-                    add(pluralRules, i, 0, 9);
-                    add(pluralRules, i+0.1, 1, 3);
-                    add(pluralRules, i+0.1, 1, 6);
-                    add(pluralRules, i+0.1, 1, 9);
-                    add(pluralRules, i+0.0001, 4, 3);
-                    add(pluralRules, i+0.0000001, 7, 6);
-                    add(pluralRules, i+0.0000000001, 10, 9);
+                    add(pluralRules, DecimalQuantity_DualStorageBCD.fromExponentString(i + "c" + 3));
+                    add(pluralRules, DecimalQuantity_DualStorageBCD.fromExponentString(i + "c" + 6));
+                    add(pluralRules, DecimalQuantity_DualStorageBCD.fromExponentString(i + "c" + 9));
+                    add(pluralRules, DecimalQuantity_DualStorageBCD.fromExponentString(i + ".1c" + 3));
+                    add(pluralRules, DecimalQuantity_DualStorageBCD.fromExponentString(i + ".1c" + 6));
+                    add(pluralRules, DecimalQuantity_DualStorageBCD.fromExponentString(i + ".1c" + 9));
+                    add(pluralRules, DecimalQuantity_DualStorageBCD.fromExponentString(i + ".0001c" + 3));
+                    add(pluralRules, DecimalQuantity_DualStorageBCD.fromExponentString(i + ".0000001c" + 6));
+                    add(pluralRules, DecimalQuantity_DualStorageBCD.fromExponentString(i + ".0000000001c" + 9));
                 }
                 int debug = 0;
             }
@@ -532,45 +516,45 @@ public class GeneratedPluralSamples {
     }
 
     private void collect10s(PluralInfo pluralInfo, long start, long end, int decimals) {
-        double power = Math.pow(10, decimals);
-        for (long i = start * (int) power; i <= end * (int) power; i *= 10) {
-            add(pluralInfo, i / power, decimals);
+        DecimalQuantity_DualStorageBCD endDq = new DecimalQuantity_DualStorageBCD(end);
+        endDq.adjustMagnitude(decimals);
+        long scaledEnd = endDq.toLong(true);
+        for (long i = start; i <= scaledEnd; i *= 10) {
+            DecimalQuantity_DualStorageBCD dq = new DecimalQuantity_DualStorageBCD(i);
+            dq.adjustMagnitude(-decimals);
+            add(pluralInfo, dq);
         }
     }
 
     private void collect(PluralInfo pluralInfo, long start, long limit, int decimals) {
-        double power = Math.pow(10, decimals);
-        for (long i = start; i <= limit * (int) power; ++i) {
-            add(pluralInfo, i / power, decimals);
+        DecimalQuantity_DualStorageBCD limitDq = new DecimalQuantity_DualStorageBCD(limit);
+        limitDq.adjustMagnitude(decimals);
+        long scaledLimit = limitDq.toLong(true);
+        for (long i = start; i < scaledLimit; ++i) {
+            DecimalQuantity_DualStorageBCD dq = new DecimalQuantity_DualStorageBCD(i);
+            dq.adjustMagnitude(-decimals);
+            add(pluralInfo, dq);
         }
     }
 
-    private void add(PluralInfo pluralInfo, double d, int visibleDecimals) {
-        FixedDecimal ni = new FixedDecimal(d, visibleDecimals);
+    private void add(PluralInfo pluralInfo, DecimalQuantity dq) {
         PluralRules pluralRules = pluralInfo.getPluralRules();
-        if (CHECK_VALUE && d == VALUE_TO_CHECK) {
+        if (CHECK_VALUE && dq.toDouble() == VALUE_TO_CHECK) {
             int debug = 0; // debugging
         }
-        String keyword = pluralRules.select(ni);
+        String keyword = pluralRules.select(dq);
 
-        INFO.add(Info.Type.Warning, checkForDuplicates(pluralRules, ni));
-        add(pluralRules, keyword, ni);
+        INFO.add(Info.Type.Warning, checkForDuplicates(pluralRules, dq));
+        add(pluralRules, keyword, dq);
     }
 
-    public void add(final PluralRules pluralRules, double n, int v, int e) {
-        FixedDecimal ni = FixedDecimal.createWithExponent(n * Math.pow(10, e), v, e);
-        String keyword = pluralRules.select(ni);
-        System.out.println("{" + n + ", " + v + ", " + e + "} " + ni + " => " + keyword + ", " + (ni.getVisibleDecimalDigitCount() == 0 ? "integer" : "decimal"));
-        add(pluralRules, keyword, ni);
-    }
+   public void add(PluralRules pluralRules, DecimalQuantity ni) {
+       String keyword = pluralRules.select(ni);
+       System.out.println(ni + " => " + keyword + ", " + (ni.getPluralOperand(Operand.v) == 0 ? "integer" : "decimal"));
+       add(pluralRules, keyword, ni);
+   }
 
-//    public void add(PluralRules pluralRules, FixedDecimal ni) {
-//        String keyword = pluralRules.select(ni);
-//        System.out.println(ni + " => " + keyword + ", " + (ni.getVisibleDecimalDigitCount() == 0 ? "integer" : "decimal"));
-//        add(pluralRules, keyword, ni);
-//    }
-
-    public void add(PluralRules pluralRules, String keyword, FixedDecimal ni) {
+    public void add(PluralRules pluralRules, String keyword, DecimalQuantity ni) {
         DataSamples data = keywordToData.get(keyword);
         if (data == null) {
             keywordToData.put(keyword, data = new DataSamples(keyword, pluralRules));
@@ -578,7 +562,7 @@ public class GeneratedPluralSamples {
         data.add(ni);
     }
 
-    public static String checkForDuplicates(PluralRules pluralRules, FixedDecimal ni) {
+    public static String checkForDuplicates(PluralRules pluralRules, DecimalQuantity ni) {
         // add test that there are no duplicates
         // TODO restore when "CLDR-14206", "Fix CLDR code for FixedDecimal" is done
 //        Set<String> keywords = new LinkedHashSet<>();
@@ -638,7 +622,7 @@ public class GeneratedPluralSamples {
         int failureCount = 0;
 
         PluralRules pluralRules2 = PluralRules.createRules("one: n is 3..9; two: n is 7..12");
-        System.out.println("Check: " + checkForDuplicates(pluralRules2, new FixedDecimal("8e1")));
+        System.out.println("Check: " + checkForDuplicates(pluralRules2, DecimalQuantity_DualStorageBCD.fromExponentString("8e1")));
 
         for (PluralType type : PluralType.values()) {
             try (TempPrintWriter out = TempPrintWriter.openUTF8Writer(MyOptions.output.option.getValue(), type == PluralType.cardinal ? "plurals.xml" : "ordinals.xml")) {

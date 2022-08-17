@@ -254,7 +254,7 @@ public class GeneratedPluralSamples {
         final Ranges samples = new Ranges();
         final DecimalQuantity[] digitToSample = new DecimalQuantity[20];
         final PluralRules.SampleType sampleType;
-        final Set<DecimalQuantity> exponentSamples = new TreeSet<>();
+        final Set<DecimalQuantity> exponentSamples = new LinkedHashSet<>();
         private boolean isBounded;
 
         public DataSample(PluralRules.SampleType sampleType) {

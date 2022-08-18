@@ -545,7 +545,7 @@ public class ZoneParser {
     private static List<String> errorData = Arrays.asList(new String[] {
         new Double(Double.MIN_VALUE).toString(), new Double(Double.MIN_VALUE).toString(), "" });
 
-    private Comparator<String> TZIDComparator = new Comparator<String>() {
+    private Comparator<String> TZIDComparator = new Comparator<>() {
         Map<String, List<String>> data = getZoneData();
 
         @Override
@@ -672,6 +672,7 @@ public class ZoneParser {
             { "Asia/Ho_Chi_Minh", "Asia/Saigon" },
             { "Asia/Yangon", "Asia/Rangoon" },
             { "Asia/Kathmandu", "Asia/Katmandu" },
+            { "Europe/Kyiv", "Europe/Kiev" },
             { "Pacific/Pohnpei", "Pacific/Ponape" },
             { "Pacific/Chuuk", "Pacific/Truk" },
             { "Pacific/Honolulu", "Pacific/Johnston" }

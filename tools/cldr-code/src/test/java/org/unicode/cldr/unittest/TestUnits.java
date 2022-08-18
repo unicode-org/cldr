@@ -130,6 +130,7 @@ public class TestUnits extends TestFmwk {
     static final Splitter SPLIT_SPACE = Splitter.on(' ').trimResults().omitEmptyStrings();
     static final Splitter SPLIT_AND = Splitter.on("-and-").trimResults().omitEmptyStrings();
     static final Splitter SPLIT_DASH = Splitter.on('-').trimResults().omitEmptyStrings();
+    static final Joiner JOIN_DASH = Joiner.on('-');
 
     static final Rational R1000 = Rational.of(1000);
 
@@ -2208,7 +2209,6 @@ public class TestUnits extends TestFmwk {
                 logln("No grammar info for: " + localeID);
                 continue;
             }
-            UnitConverter converter = SDI.getUnitConverter();
             Collection<String> genderInfo = grammarInfo.get(GrammaticalTarget.nominal, GrammaticalFeature.grammaticalGender, GrammaticalScope.units);
             if (genderInfo.isEmpty()) {
                 continue;
@@ -2737,14 +2737,14 @@ public class TestUnits extends TestFmwk {
 
     public void TestValidUnitIdComponents() {
         for (String longUnit : VALID_REGULAR_UNITS) {
-            String shortUnit = SDI.getUnitConverter().getShortId(longUnit);
+            String shortUnit = converter.getShortId(longUnit);
             checkShortUnit(shortUnit);
         }
     }
 
     public void TestDeprecatedUnitIdComponents() {
         for (String longUnit : DEPRECATED_REGULAR_UNITS) {
-            String shortUnit = SDI.getUnitConverter().getShortId(longUnit);
+            String shortUnit = converter.getShortId(longUnit);
             checkShortUnit(shortUnit);
         }
     }
@@ -2808,15 +2808,15 @@ public class TestUnits extends TestFmwk {
 
     public void TestMetricTon() {
         assertTrue("metric-ton is deprecated", DEPRECATED_REGULAR_UNITS.contains("mass-metric-ton"));
-        assertEquals("metric-ton is deprecated", "tonne", SDI.getUnitConverter().fixDenormalized("metric-ton"));
-        assertEquals("to short", "metric-ton", SDI.getUnitConverter().getShortId("mass-metric-ton"));
-        //assertEquals("to long", "mass-metric-ton", SDI.getUnitConverter().getLongId("metric-ton"));
+        assertEquals("metric-ton is deprecated", "tonne", converter.fixDenormalized("metric-ton"));
+        assertEquals("to short", "metric-ton", converter.getShortId("mass-metric-ton"));
+        //assertEquals("to long", "mass-metric-ton", converter.getLongId("metric-ton"));
     }
 
     public void TestUnitParser() {
         UnitParser up = new UnitParser();
         for (String longUnit : VALID_REGULAR_UNITS) {
-            String shortUnit = SDI.getUnitConverter().getShortId(longUnit);
+            String shortUnit = converter.getShortId(longUnit);
             checkParse(up, shortUnit);
         }
     }
@@ -2824,7 +2824,7 @@ public class TestUnits extends TestFmwk {
     private List<Pair<String, UnitIdComponentType>> checkParse(UnitParser up, String shortUnit) {
         up.set(shortUnit);
         List<Pair<String, UnitIdComponentType>> results = new ArrayList<>();
-       Output<UnitIdComponentType> type = new Output<>();
+        Output<UnitIdComponentType> type = new Output<>();
         while (true) {
             String result = up.nextParse(type);
             if (result == null) {
@@ -2865,11 +2865,10 @@ public class TestUnits extends TestFmwk {
 
     public void TestUnitParserAgainstContinuations() {
         UnitParser up = new UnitParser();
-        UnitConverter uc = SDI.getUnitConverter();
-        Multimap<String, Continuation> continuations = uc.getContinuations();
+        Multimap<String, Continuation> continuations = converter.getContinuations();
         Output<UnitIdComponentType> type = new Output<>();
         for (String longUnit : VALID_REGULAR_UNITS) {
-            String shortUnit = SDI.getUnitConverter().getShortId(longUnit);
+            String shortUnit = converter.getShortId(longUnit);
             if (shortUnit.contains("100")) {
                 logKnownIssue("CLDR-15929", "Code doesn't handle 100");
                 continue;
@@ -2893,6 +2892,117 @@ public class TestUnits extends TestFmwk {
                     break; // stop at first difference
                 }
             }
+        }
+    }
+
+    static final Set<String> BCP_TRUNCATION_EXCEPTIONS = ImmutableSet.of(
+        "kilocalorieit", // From NIST. we would turn into a suffix -it anyway
+        "yottapercent", "yottapermille", "yottapermillion", "yottapermyriad"); // these don't take SI prefixes anyway
+
+    public void TestBcp47Readiness() {
+//        assertEquals("bcp47ize prefix", "milli-meter", bcp47izeUnit("millimeter"));
+
+        Set<String> components = new TreeSet<>(SDI.getStringsWithUnitIdComponentType());
+        Set<String> testUnits = new TreeSet<>();
+        VALID_REGULAR_UNITS.forEach(x -> testUnits.add(converter.getShortId(x)));
+        components.addAll(testUnits);
+
+        Multimap<String,String> unique = TreeMultimap.create();
+        ImmutableSet<UnitSystem> siOrMetric = ImmutableSet.of(UnitSystem.si, UnitSystem.metric);
+        Output<Rational> deprefix = new Output<>();
+        Set<String> takesMetricPrefix = new TreeSet<>();
+
+        for (String shortUnit : components) {
+            for (String subtag : SPLIT_DASH.split(shortUnit)) {
+                unique.put(bcp47ize(subtag), subtag);
+                Set<UnitSystem> systems = converter.getSystemsEnum(subtag);
+                if (!Collections.disjoint(systems, siOrMetric)) { // if it takes a prefix,
+                    String sansPrefix = UnitConverter.stripPrefix(subtag, deprefix); // we check for one
+                    if (sansPrefix.equals(subtag)) {
+                        takesMetricPrefix.add(subtag);
+                    }
+                }
+            }
+        }
+
+        for (String shortUnit : takesMetricPrefix) {
+            String expanded = "yotta" + shortUnit;
+            unique.put(bcp47ize(expanded), expanded);
+            if (SHOW_DATA) {
+                System.out.println(shortUnit + " " + converter.getSystemsEnum(shortUnit));
+            }
+        }
+        logln("NIST unitToQuantity");
+        for (Entry<String, Collection<String>> entry : NistUnits.unitToQuantity.asMap().entrySet()) {
+            //System.out.println(entry.getKey() + "\t" + entry.getValue());
+            final String shortUnit = entry.getKey();
+            if (hasNoPrefix(shortUnit)) {
+                testUnits.add(shortUnit);
+            }
+            for (String subtag : SPLIT_DASH.split(shortUnit)) {
+                unique.put(bcp47ize(subtag), subtag);
+            }
+        }
+        logln("NIST externalConversionData");
+        for (ExternalUnitConversionData entry : NistUnits.externalConversionData) {
+            String shortUnit = entry.source;
+            //System.out.println(entry.source + "\t" + entry.quantity);
+            if (hasNoPrefix(shortUnit)) {
+                testUnits.add(shortUnit);
+            }
+            for (String subtag : SPLIT_DASH.split(entry.source)) {
+                unique.put(bcp47ize(subtag), subtag);
+            }
+        }
+
+        for (Entry<String, Collection<String>> entry : unique.asMap().entrySet()) {
+            if (entry.getValue().size() > 1) {
+                if (Sets.difference((Set<String>)entry.getValue(), BCP_TRUNCATION_EXCEPTIONS).size() > 1) {
+                    errln("Non unique: " + entry);
+                }
+            }
+        }
+        if (SHOW_DATA) {
+            for (String shortUnit : testUnits) {
+                final String bcp47ized = bcp47izeUnit(shortUnit);
+                if (!shortUnit.equals(bcp47ized)) {
+                    System.out.println(shortUnit + " => " + bcp47ized);
+                }
+            }
+        }
+    }
+
+    public String bcp47izeUnit(String shortUnit) {
+        return JOIN_DASH.join(SPLIT_DASH
+            .splitToList(shortUnit)
+            .stream()
+            .map(x -> bcp47ize(x))
+            .collect(Collectors.toList()));
+    }
+
+    private String bcp47ize(String subtag) {
+        if (true) return fixBcp47Length( subtag);
+        Output<Rational> deprefix = new Output<>();
+        String sansPrefix = UnitConverter.stripPrefix(subtag, deprefix);
+        if (sansPrefix.equals(subtag)) {
+            return fixBcp47Length(subtag);
+        } else {
+            return subtag.substring(0, subtag.length() - sansPrefix.length()) + "-" + fixBcp47Length(sansPrefix);
+        }
+    }
+
+    public boolean hasNoPrefix(String subtag) {
+        Output<Rational> deprefix = new Output<>();
+        UnitConverter.stripPrefix(subtag, deprefix);
+        return deprefix.value != Rational.ONE;
+    }
+
+    public String fixBcp47Length(String subtag) {
+        switch (subtag.length()) {
+        case 1: return subtag + "00";
+        case 2: return subtag + "0";
+        case 3: case 4: case 5: case 6: case 7: case 8: return subtag;
+        default: return subtag.substring(0,8);
         }
     }
 }

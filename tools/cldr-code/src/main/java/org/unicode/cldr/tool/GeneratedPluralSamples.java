@@ -105,12 +105,19 @@ public class GeneratedPluralSamples {
         }
 
         Status getStatus(DecimalQuantity ni) {
-            long newValue = ni.toLong(true);
+            DecimalQuantity newTemp = ni.createCopy();
+            newTemp.adjustMagnitude((int) visibleFractionDigitCount);
+            long newValue = newTemp.toLong(true);
             if (newValue < 0) {
                 throw new IllegalArgumentException("Must not be negative");
             }
-            long startValue = start.toLong(true);
-            long endValue = end.toLong(true);
+            DecimalQuantity startTemp = start.createCopy();
+            startTemp.adjustMagnitude((int) visibleFractionDigitCount);
+            DecimalQuantity endTemp = end.createCopy();
+            endTemp.adjustMagnitude((int) visibleFractionDigitCount);
+            long startValue = startTemp.toLong(true);
+            long endValue = endTemp.toLong(true);
+
             Status status = startValue <= newValue && newValue <= endValue ? Status.inside
                 : endValue + 1 == newValue ? Status.rightBefore
                     : Status.other;
@@ -121,8 +128,13 @@ public class GeneratedPluralSamples {
         }
 
         public StringBuilder format(StringBuilder b) {
-            long startValue = start.toLong(true);
-            long endValue = end.toLong(true);
+            DecimalQuantity startTemp = start.createCopy();
+            startTemp.adjustMagnitude((int) visibleFractionDigitCount);
+            DecimalQuantity endTemp = end.createCopy();
+            endTemp.adjustMagnitude((int) visibleFractionDigitCount);
+            long startValue = startTemp.toLong(true);
+            long endValue = endTemp.toLong(true);
+
             if (visibleFractionDigitCount == 0) {
                 b.append(toSampleString(start));
                 if (startValue != endValue) {
@@ -246,6 +258,15 @@ public class GeneratedPluralSamples {
 
     static final DecimalQuantity CELTIC_SPECIAL = DecimalQuantity_DualStorageBCD.fromExponentString("1000000.0");
 
+    /**
+     * High-level background:
+     *
+     * The code calculates the samples and adds … if the set is unbounded.
+     * There are two ways to see if something is unbounded: one is by a rule analysis and one way is by looking at the samples.
+     *    They are both imperfect, so we do both ways and check against one another.
+     *    Eg if it is supposed to be unbounded, but we only a small set of samples, then we adjust the sample generation to get more.
+     *
+     */
     static class DataSample {
         int count;
         int countNoTrailing = -1;

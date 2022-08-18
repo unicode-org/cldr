@@ -1,124 +1,27 @@
 # constructed line for modify_config.txt file
-# CLDR-14951 english date format separators for ch and ln
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="short"]/dateFormat[@type="standard"]/pattern[@type="standard"]  ; new_value=dd.MM.y
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMd"]  ; new_value=d.M.y G
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Md"]  ; new_value=dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MEd"]  ; new_value=E, dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MMdd"]  ; new_value=dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yM"]  ; new_value=MM.y 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMd"]  ≣  ; new_value=dd.MM.y 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMEd"]  ; new_value=E, dd.MM.y 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="generic"]/dateFormats/dateFormatLength[@type="short"]/dateFormat[@type="standard"]/pattern[@type="standard"]  ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMd"]  ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Md"]  ; new_value=dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MEd"]  ; new_value=E, dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyM"]  ; new_value=MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMd"]  ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMEd"]  ; new_value=E, dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="buddhist"]/dateFormats/dateFormatLength[@type="short"]/dateFormat[@type="standard"]/pattern[@type="standard"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="buddhist"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="buddhist"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Md"]   ; new_value=dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="buddhist"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MEd"]   ; new_value=E, dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="buddhist"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyM"]   ; new_value=MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="buddhist"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="buddhist"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMEd"]   ; new_value=E, dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="chinese"]/dateFormats/dateFormatLength[@type="short"]/dateFormat[@type="standard"]/pattern[@type="standard"]  ; new_value=dd.MM.r 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="chinese"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMEd"]  ≣  ; new_value=E, dd.MM.r 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="chinese"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MEd"] ; new_value=E, dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="chinese"]/dateTimeFormats/availableFormats/dateFormatItem[@id="UM"] en ≣  ; new_value=M.U 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="chinese"]/dateTimeFormats/availableFormats/dateFormatItem[@id="UMd"] ; new_value=dd.MM.U 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="chinese"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyM"] ; new_value=MM.r 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="chinese"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMd"] ; new_value=dd.MM.r 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="chinese"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMEd"] ; new_value=E, dd.MM.r 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="coptic"]/dateFormats/dateFormatLength[@type="short"]/dateFormat[@type="standard"]/pattern[@type="standard"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="coptic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="coptic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Md"]   ; new_value=dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="coptic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MEd"]   ; new_value=E, dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="coptic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyM"]   ; new_value=MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="coptic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="coptic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMEd"]   ; new_value=E, dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="dangi"]/dateFormats/dateFormatLength[@type="short"]/dateFormat[@type="standard"]/pattern[@type="standard"]   ; new_value=dd.MM.r 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="dangi"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Md"]   ; new_value=dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="dangi"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MEd"]   ; new_value=E, dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="dangi"]/dateTimeFormats/availableFormats/dateFormatItem[@id="UM"] en  ; new_value=M.U 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="dangi"]/dateTimeFormats/availableFormats/dateFormatItem[@id="UMd"]   ; new_value=dd.MM.U 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="dangi"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyM"]   ; new_value=MM.r 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="dangi"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMd"]   ; new_value=dd.MM.r 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="dangi"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMEd"]   ; new_value=E, dd.MM.r 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="ethiopic"]/dateFormats/dateFormatLength[@type="short"]/dateFormat[@type="standard"]/pattern[@type="standard"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="ethiopic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="ethiopic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Md"]   ; new_value=dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="ethiopic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MEd"]   ; new_value=E, dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="ethiopic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyM"]   ; new_value=MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="ethiopic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="ethiopic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMEd"]   ; new_value=E, dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="hebrew"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyM"]   ; new_value=MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="hebrew"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="hebrew"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMEd"]   ; new_value=E, dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="indian"]/dateFormats/dateFormatLength[@type="short"]/dateFormat[@type="standard"]/pattern[@type="standard"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="indian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="indian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Md"]   ; new_value=dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="indian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MEd"]   ; new_value=E, dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="indian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyM"]   ; new_value=MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="indian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="indian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMEd"]   ; new_value=E, dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic"]/dateFormats/dateFormatLength[@type="short"]/dateFormat[@type="standard"]/pattern[@type="standard"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Md"]   ; new_value=dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MEd"]  ≣  ; new_value=E dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyM"]   ; new_value=MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMEd"]   ; new_value=E, dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="japanese"]/dateFormats/dateFormatLength[@type="short"]/dateFormat[@type="standard"]/pattern[@type="standard"] en ≣  ; new_value=M.d.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="japanese"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="japanese"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Md"]   ; new_value=dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="japanese"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MEd"]   ; new_value=E, dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="japanese"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyM"]   ; new_value=MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="japanese"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="japanese"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMEd"]   ; new_value=E, dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="persian"]/dateFormats/dateFormatLength[@type="short"]/dateFormat[@type="standard"]/pattern[@type="standard"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="persian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="persian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Md"]   ; new_value=dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="persian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MEd"]   ; new_value=E, dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="persian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyM"]   ; new_value=MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="persian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="persian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMEd"]   ; new_value=E, dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="roc"]/dateFormats/dateFormatLength[@type="short"]/dateFormat[@type="standard"]/pattern[@type="standard"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="roc"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="roc"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Md"]   ; new_value=dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="roc"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MEd"]   ; new_value=E, dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="roc"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyM"]   ; new_value=MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="roc"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="roc"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMEd"]   ; new_value=E, dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="ethiopic-amete-alem"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="ethiopic-amete-alem"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Md"]   ; new_value=dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="ethiopic-amete-alem"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MEd"]   ; new_value=E, dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="ethiopic-amete-alem"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyM"]   ; new_value=MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="ethiopic-amete-alem"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="ethiopic-amete-alem"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMEd"]   ; new_value=E, dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic-civil"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic-civil"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Md"]   ; new_value=dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic-civil"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MEd"]   ; new_value=E dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic-civil"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyM"]   ; new_value=MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic-civil"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic-civil"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMEd"]   ; new_value=E, dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic-rgsa"]/dateFormats/dateFormatLength[@type="short"]/dateFormat[@type="standard"]/pattern[@type="standard"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic-rgsa"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic-rgsa"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Md"]   ; new_value=dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic-rgsa"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MEd"]   ; new_value=E dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic-rgsa"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyM"]   ; new_value=MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic-rgsa"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic-rgsa"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMEd"]   ; new_value=E, dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic-tbla"]/dateFormats/dateFormatLength[@type="short"]/dateFormat[@type="standard"]/pattern[@type="standard"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic-tbla"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic-tbla"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Md"]   ; new_value=dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic-tbla"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MEd"]   ; new_value=E dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic-tbla"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyM"]   ; new_value=MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic-tbla"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic-tbla"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMEd"]   ; new_value=E, dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic-umalqura"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic-umalqura"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Md"]   ; new_value=dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic-umalqura"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MEd"]   ; new_value=E dd.MM 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic-umalqura"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyM"]   ; new_value=MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic-umalqura"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMd"]   ; new_value=dd.MM.y GGGGG 
-locale=en_CH ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="islamic-umalqura"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yyyyMEd"]   ; new_value=E, dd.MM.y GGGGG 
+# red fixes from spreadsheet
+locale=brx ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ja ko si ta te vi yue zh
+locale=ur ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ja ko si ta te vi yue zh
+locale=as ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
+locale=doi ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
+locale=gu ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
+locale=hi ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
+locale=hi_Latn ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
+locale=kn ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
+locale=kok ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
+locale=ks ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
+locale=ks_Deva ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
+locale=mai ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
+locale=ml ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
+locale=mni ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
+locale=mr ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
+locale=my ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
+locale=ne ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
+locale=or ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
+locale=pa ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
+locale=pcm ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
+locale=sa ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
+locale=sd ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
+locale=sd_Deva ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
+locale=te ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
+locale=ti ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh

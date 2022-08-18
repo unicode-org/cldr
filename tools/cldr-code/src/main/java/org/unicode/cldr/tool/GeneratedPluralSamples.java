@@ -13,7 +13,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.GeneratedPluralSamples.Info.Type;
 import org.unicode.cldr.tool.Option.Options;
@@ -28,9 +27,9 @@ import org.unicode.cldr.util.TempPrintWriter;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.number.DecimalQuantity;
 import com.ibm.icu.impl.number.DecimalQuantity_DualStorageBCD;
-import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.Operand;
 
@@ -250,7 +249,7 @@ public class GeneratedPluralSamples {
     static class DataSample {
         int count;
         int countNoTrailing = -1;
-        final Set<Double> noTrailing = new TreeSet<>();
+        final Set<DecimalQuantity> noTrailing = new LinkedHashSet<>();
         final Ranges samples = new Ranges();
         final DecimalQuantity[] digitToSample = new DecimalQuantity[20];
         final PluralRules.SampleType sampleType;
@@ -297,7 +296,7 @@ public class GeneratedPluralSamples {
                 samples.add(ni);
             }
             if (noTrailing.size() <= UNBOUNDED_LIMIT * 2) {
-                noTrailing.add(ni.getPluralOperand(Operand.n));
+                noTrailing.add(ni);
             }
             int digit = getDigit(ni);
             if (digitToSample[digit] == null) {

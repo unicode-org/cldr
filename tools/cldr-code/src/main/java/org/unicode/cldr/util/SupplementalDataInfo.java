@@ -4707,6 +4707,10 @@ public class SupplementalDataInfo {
         return result == null ? UnitIdComponentType.base : result;
     }
 
+    public Set<String> getStringsWithUnitIdComponentType() {
+        return unitIdComponentType.keySet();
+    }
+
     /**
      * Locales that have grammar info
      */

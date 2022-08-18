@@ -242,7 +242,7 @@ public class CheckPlaceHolders extends CheckCLDR {
         }
     }
 
-    static final ImmutableSet<Object> givenFirstSortingLocales = ImmutableSet.of("is"); // TODO should be data-driven
+    static final ImmutableSet<Object> givenFirstSortingLocales = ImmutableSet.of("is", "ta", "si"); // TODO should be data-driven
 
     /**
      * Verify the that personName patterns are clean.

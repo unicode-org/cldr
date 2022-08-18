@@ -1,27 +1,56 @@
 # constructed line for modify_config.txt file
-# red fixes from spreadsheet
-locale=brx ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ja ko si ta te vi yue zh
-locale=ur ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ja ko si ta te vi yue zh
-locale=as ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
-locale=doi ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
-locale=gu ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
-locale=hi ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
-locale=hi_Latn ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
-locale=kn ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
-locale=kok ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
-locale=ks ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
-locale=ks_Deva ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
-locale=mai ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
-locale=ml ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
-locale=mni ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
-locale=mr ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
-locale=my ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
-locale=ne ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
-locale=or ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
-locale=pa ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
-locale=pcm ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
-locale=sa ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
-locale=sd ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
-locale=sd_Deva ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
-locale=te ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
-locale=ti ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=ko si ta te vi yue zh
+locale=km ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=km ko vi yue zh
+locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="monogram"][@formality="informal"]/namePattern; new_value={given-informal-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}.
+locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="medium"][@usage="monogram"][@formality="informal"]/namePattern; new_value={given-informal-monogram-allCaps}{surname-monogram-allCaps}.
+locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="short"][@usage="referring"][@formality="informal"]/namePattern; new_value={given-informal}
+locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="monogram"][@formality="formal"]/namePattern; new_value={given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}
+locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="referring"][@formality="formal"]/namePattern; new_value={given} {given2} {surname} {surname2} {suffix}
+locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="addressing"][@formality="formal"]/namePattern; new_value={prefix} {given} {surname}
+locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="medium"][@usage="addressing"][@formality="formal"]/namePattern; new_value={prefix} {given-initial} {surname}
+locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="medium"][@usage="monogram"][@formality="formal"]/namePattern; new_value={given-monogram-allCaps}{surname-monogram-allCaps}
+locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="sorting"][@length="short"][@usage="referring"][@formality="formal"]/namePattern; new_value={given} {given2-initial}, {surname-initial}
+locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="sorting"][@length="medium"][@usage="referring"][@formality="formal"]/namePattern; new_value={given} {given2}, {surname-initial}
+locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="sorting"][@length="long"][@usage="referring"][@formality="formal"]/namePattern; new_value={given} {given2}, {surname}
+locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="sorting"][@length="long"][@usage="referring"][@formality="informal"]/namePattern; new_value={given-informal} {given2}, {surname
+locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="sorting"][@length="medium"][@usage="referring"][@formality="informal"]/namePattern; new_value={given-informal} {given2}, {surname-initial
+locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="sorting"][@length="short"][@usage="referring"][@formality="informal"]/namePattern; new_value={given-informal} {given2-initial}, {surname-initial
+locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="addressing"][@formality="formal"]/namePattern; new_value={prefix} {surname-initial} {given}
+locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="addressing"][@formality="formal"]/namePattern; new_value={prefix} {surname-initial} {given}
+locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="addressing"][@formality="formal"]/namePattern; new_value={prefix} {given}
+locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="monogram"][@formality="formal"]/namePattern; new_value={surname-monogram-allCaps}{given-monogram-allCaps}
+locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="monogram"][@formality="formal"]/namePattern; new_value={given-monogram-allCaps}
+locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="referring"][@formality="informal"]/namePattern; new_value={surname-initial} {given-informal}
+locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="referring"][@formality="formal"]/namePattern; new_value={surname-initial} {given}
+locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="referring"][@formality="informal"]/namePattern; new_value={given-informal}
+locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="referring"][@formality="formal"]/namePattern; new_value={surname-initial} {given} {given2} {suffix}
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="short"][@usage="referring"][@formality="informal"]/namePattern; new_value={given-informal}
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="monogram"][@formality="formal"]/namePattern; new_value={given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="monogram"][@formality="informal"]/namePattern; new_value={given-informal-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}.
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="medium"][@usage="monogram"][@formality="formal"]/namePattern; new_value={given-monogram-allCaps}.{surname-monogram-allCaps}.
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="medium"][@usage="monogram"][@formality="informal"]/namePattern; new_value={given-informal-monogram-allCaps}{surname-monogram-allCaps}.
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="short"][@usage="monogram"][@formality="formal"]/namePattern; new_value={surname-monogram-allCaps}
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="short"][@usage="monogram"][@formality="informal"]/namePattern; new_value={given-informal-monogram-allCaps}
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="referring"][@formality="informal"]/namePattern; new_value={given-informal} {surname}
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="medium"][@usage="referring"][@formality="informal"]/namePattern; new_value={given-informal} {surname}
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="addressing"][@formality="formal"]/namePattern; new_value={prefix} {given} {surname}
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="referring"][@formality="formal"]/namePattern; new_value={given} {given2} {surname} {surname2} {suffix}
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="medium"][@usage="referring"][@formality="formal"]/namePattern; new_value={given} {given2-initial} {surname} {suffix}
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="medium"][@usage="addressing"][@formality="formal"]/namePattern; new_value={prefix} {given-initial} {surname}
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="sorting"][@length="short"][@usage="referring"][@formality="formal"]/namePattern; new_value={given} {given2-initial}, {surname-initial}
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="sorting"][@length="long"][@usage="referring"][@formality="formal"]/namePattern; new_value={given} {given2}, {surname}
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="sorting"][@length="medium"][@usage="referring"][@formality="formal"]/namePattern; new_value={given} {given2}, {surname-initial}
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="sorting"][@length="long"][@usage="referring"][@formality="informal"]/namePattern; new_value={given-informal} {given2}, {surname
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="sorting"][@length="medium"][@usage="referring"][@formality="informal"]/namePattern; new_value={given-informal} {given2}, {surname-initial
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="sorting"][@length="short"][@usage="referring"][@formality="informal"]/namePattern; new_value={given-informal} {given2-initial}, {surname-initial
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="addressing"][@formality="formal"]/namePattern; new_value={prefix} {surname-initial} {given}
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="addressing"][@formality="formal"]/namePattern; new_value={prefix} {surname-initial} {given}
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="addressing"][@formality="formal"]/namePattern; new_value={prefix} {given}
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="monogram"][@formality="formal"]/namePattern; new_value={surname-monogram-allCaps}{given-monogram-allCaps}
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="monogram"][@formality="formal"]/namePattern; new_value={given-monogram-allCaps}
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="referring"][@formality="informal"]/namePattern; new_value={surname-initial} {given-informal}
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="referring"][@formality="formal"]/namePattern; new_value={surname-initial} {given} {given2} {suffix}
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="referring"][@formality="formal"]/namePattern; new_value={surname-initial} {given}
+locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="referring"][@formality="informal"]/namePattern; new_value={given-informal}
+locale=si ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="givenFirst"]; new_value=und
+locale=ta ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="givenFirst"]; new_value=und
+locale=he ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="givenFirst"]; new_value=und he

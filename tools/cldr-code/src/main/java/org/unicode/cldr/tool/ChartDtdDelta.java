@@ -230,19 +230,17 @@ public class ChartDtdDelta extends Chart {
             boolean lastDeprecated = dtdLast == null ? false : oldElement.isDeprecated(); //  + (currentDeprecated ? "ⓓ" : "")
             boolean lastTechPreview = dtdLast == null ? false : oldElement.isTechPreview(); //  + (currentDeprecated ? "ⓓ" : "")
 
-            boolean newlyDeprecated = currentDeprecated && !lastDeprecated;
-
             String deprecatedStatus = currentDeprecated == lastDeprecated ? ""
-                : ordered ? DEPRECATED_PREFIX : UNDEPRECATED_PREFIX ;
+                : currentDeprecated ? DEPRECATED_PREFIX : UNDEPRECATED_PREFIX ;
             String orderingStatus = (ordered == oldOrdered || currentDeprecated) ? ""
                 : ordered ? ORDERED_SIGN : UNORDERED_SIGN;
+            String previewStatus = (currentTechPreview == lastTechPreview || currentDeprecated) ? ""
+                : currentTechPreview ? TECHPREVIEW_SIGN : UNTECHPREVIEW_SIGN;
 
-            String previewStatus = (currentTechPreview == lastTechPreview || currentDeprecated) ? "" :
-                currentTechPreview ? TECHPREVIEW_SIGN : UNTECHPREVIEW_SIGN;
-
-            if (!orderingStatus.isEmpty() || !previewStatus.isEmpty() || !deprecatedStatus.isEmpty()) {
-                addData(dtdCurrent, deprecatedStatus + previewStatus + name + orderingStatus, version, newPath, Collections.emptySet());
-            } else if (!attributeNames.isEmpty()) {
+            if (!orderingStatus.isEmpty()
+                || !previewStatus.isEmpty()
+                || !deprecatedStatus.isEmpty()
+                || !attributeNames.isEmpty()) {
                 addData(dtdCurrent, deprecatedStatus + previewStatus + name + orderingStatus, version, newPath, attributeNames);
             }
         }

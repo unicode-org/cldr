@@ -242,8 +242,7 @@ public class ChartDtdDelta extends Chart {
 
             if (!orderingStatus.isEmpty() || !previewStatus.isEmpty() || !deprecatedStatus.isEmpty()) {
                 addData(dtdCurrent, deprecatedStatus + previewStatus + name + orderingStatus, version, newPath, Collections.emptySet());
-            }
-            if (!attributeNames.isEmpty()) {
+            } else if (!attributeNames.isEmpty()) {
                 addData(dtdCurrent, deprecatedStatus + previewStatus + name + orderingStatus, version, newPath, attributeNames);
             }
         }

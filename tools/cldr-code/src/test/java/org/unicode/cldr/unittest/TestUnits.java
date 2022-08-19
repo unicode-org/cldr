@@ -126,6 +126,7 @@ public class TestUnits extends TestFmwk {
     private static final ImmutableSet<String> WORLD_SET = ImmutableSet.of("001");
     private static final CLDRConfig info = CLDR_CONFIG;
     private static final SupplementalDataInfo SDI = info.getSupplementalDataInfo();
+    private static final UnitPreferences UNIT_PREFERENCES = SDI.getUnitPreferences();
 
     static final UnitConverter converter = SDI.getUnitConverter();
     static final Splitter SPLIT_SEMI = Splitter.on(Pattern.compile("\\s*;\\s*")).trimResults();
@@ -133,6 +134,7 @@ public class TestUnits extends TestFmwk {
     static final Splitter SPLIT_AND = Splitter.on("-and-").trimResults().omitEmptyStrings();
     static final Splitter SPLIT_DASH = Splitter.on('-').trimResults().omitEmptyStrings();
     static final Joiner JOIN_DASH = Joiner.on('-');
+    static final Joiner JOIN_LB = Joiner.on('\n');
 
     static final Rational R1000 = Rational.of(1000);
 
@@ -1400,7 +1402,7 @@ public class TestUnits extends TestFmwk {
 
     public void TestBcp47() {
         checkBcp47("Quantity", converter.getQuantities(), lowercaseAZ, false);
-        checkBcp47("Usage", SDI.getUnitPreferences().getUsages(), lowercaseAZ09, true);
+        checkBcp47("Usage", UNIT_PREFERENCES.getUsages(), lowercaseAZ09, true);
         checkBcp47("Unit", converter.getSimpleUnits(), lowercaseAZ09, true);
     }
 
@@ -1458,8 +1460,7 @@ public class TestUnits extends TestFmwk {
 
     public void TestUnitPreferences() {
         warnln("If this fails, check the output of TestUnitPreferencesSource (with -DTestUnits:SHOW_DATA), fix as needed, then incorporate.");
-        UnitPreferences prefs = SDI.getUnitPreferences();
-        checkUnitPreferences(prefs);
+        checkUnitPreferences(UNIT_PREFERENCES);
 //        Map<String, Map<String, Map<String, UnitPreference>>> fastMap = prefs.getFastMap(converter);
 //        for (Entry<String, Map<String, Map<String, UnitPreference>>> entry : fastMap.entrySet()) {
 //            String quantity = entry.getKey();
@@ -1473,11 +1474,10 @@ public class TestUnits extends TestFmwk {
 //                }
 //            }
 //        }
-        prefs.getFastMap(converter); // call just to make sure we don't get an exception
+        UNIT_PREFERENCES.getFastMap(converter); // call just to make sure we don't get an exception
 
         if (GENERATE_TESTS) {
             try (TempPrintWriter pw = TempPrintWriter.openUTF8Writer(CLDRPaths.TEST_DATA + "units", "unitPreferencesTest.txt")) {
-
                 pw.println(
                     "\n# Test data for unit preferences\n"
                         + CldrUtility.getCopyrightString("#  ") + "\n"
@@ -1505,7 +1505,7 @@ public class TestUnits extends TestFmwk {
 
                 // Note that for production usage, precomputed data like the prefs.getFastMap(converter) would be used instead of the raw data.
 
-                for (Entry<String, Map<String, Multimap<Set<String>, UnitPreference>>> entry : prefs.getData().entrySet()) {
+                for (Entry<String, Map<String, Multimap<Set<String>, UnitPreference>>> entry : UNIT_PREFERENCES.getData().entrySet()) {
                     String quantity = entry.getKey();
                     String baseUnit = converter.getBaseUnitFromQuantity(quantity);
                     for (Entry<String, Multimap<Set<String>, UnitPreference>> entry2 : entry.getValue().entrySet()) {
@@ -1523,21 +1523,22 @@ public class TestUnits extends TestFmwk {
                                 }
                                 samples.add(converter.convert(pref.geq, topUnit, baseUnit, false));
                                 samples.add(converter.convert(pref.geq.subtract(ONE_TENTH), topUnit, baseUnit, false));
+                                }
+                                // show samples
+                                Set<String> regions = entry3.getKey();
+                                String sampleRegion = regions.iterator().next();
+                                Collection<UnitPreference> uprefs = entry3.getValue();
+                                for (Rational sample : samples) {
+                                    showSample(quantity, usage, sampleRegion, sample, baseUnit, uprefs, pw);
+                                }
+                                pw.println();
                             }
-                            // show samples
-                            Set<String> regions = entry3.getKey();
-                            String sampleRegion = regions.iterator().next();
-                            Collection<UnitPreference> uprefs = entry3.getValue();
-                            for (Rational sample : samples) {
-                                showSample(quantity, usage, sampleRegion, sample, baseUnit, uprefs, pw);
-                            }
-                            pw.println();
                         }
                     }
                 }
             }
         }
-    }
+
 
     private void showSample(String quantity, String usage, String sampleRegion, Rational sampleBaseValue, String baseUnit, Collection<UnitPreference> prefs, TempPrintWriter pw) {
         String lastUnit = null;
@@ -2917,6 +2918,8 @@ public class TestUnits extends TestFmwk {
         VALID_REGULAR_UNITS.forEach(x -> testUnits.add(converter.getShortId(x)));
         components.addAll(testUnits);
 
+        Multimap<String, String> unitMap = checkBcp47Identifiers(testUnits);
+
         Multimap<String,String> unique = TreeMultimap.create();
         ImmutableSet<UnitSystem> siOrMetric = ImmutableSet.of(UnitSystem.si, UnitSystem.metric);
         Output<Rational> deprefix = new Output<>();
@@ -2980,6 +2983,62 @@ public class TestUnits extends TestFmwk {
                 }
             }
         }
+        Multimap<String, String> quantityMap = checkBcp47Identifiers(converter.getQuantities());
+        if (SHOW_DATA) {
+            System.out.println("\nQuantities:\n" + JOIN_LB.join(quantityMap.keys()));
+        }
+        Multimap<String, String> usageMap = checkBcp47Identifiers(UNIT_PREFERENCES.getUsages());
+        if (SHOW_DATA) {
+            System.out.println("\nUsages:\n" + JOIN_LB.join(usageMap.keys()));
+        }
+
+        // check that no quantity overlaps with any usage
+        for (String quantity : quantityMap.keySet()) {
+            for (String usage : usageMap.keySet()) {
+                verifyNoOverlap("Quantity & usage overlap: ", quantity, usage);
+            }
+        }
+
+        // check that no usage overlaps with any unit
+        for (String usage : usageMap.keySet()) {
+            for (String unit : unitMap.keySet()) {
+                verifyNoOverlap("Usage & unit overlap: ", usage, unit);
+            }
+        }
+    }
+
+    /**
+     * check that two hyphen-separated strings don't overlap. That is, there is no hyphen point in the first string where the remainder starts the second.
+     */
+    private void verifyNoOverlap(String message, String a, String b) {
+        String trailing = a;
+        for (int subtagStart = 0; ;) {
+            boolean isBad = b.startsWith(trailing) // b starts with trailing
+                && (b.length() == trailing.length() // and either that is all
+                || b.charAt(trailing.length()) == '-'); // or there is a - right after trailing in b.
+            if (!assertFalse(message + " " + a + " " + b, isBad)) {
+                break;
+            }
+            subtagStart = a.indexOf('-', subtagStart) + 1;
+            if (subtagStart <= 0) {
+                break;
+            }
+            trailing = a.substring(subtagStart);
+        }
+    }
+
+    private Multimap<String, String> checkBcp47Identifiers(Set<String> identifiers) {
+        Multimap<String, String> bcp47ToOriginal = TreeMultimap.create();
+        for (String identifier : identifiers) {
+            bcp47ToOriginal.put(bcp47izeUnit(identifier), identifier);
+        }
+        bcp47ToOriginal = ImmutableMultimap.copyOf(bcp47ToOriginal);
+        for (Entry<String, Collection<String>> entry : bcp47ToOriginal.asMap().entrySet()) {
+            if (entry.getValue().size() > 1) {
+                errln("Quantity not unique: " + entry);
+            }
+        }
+        return bcp47ToOriginal;
     }
 
     public String bcp47izeUnit(String shortUnit) {

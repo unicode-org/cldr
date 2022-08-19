@@ -384,6 +384,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         private String model;
         private boolean isOrderedElement;
         private boolean isDeprecatedElement;
+        private boolean isTechPreviewElement;
         private ElementStatus elementStatus = ElementStatus.regular;
 
         private Element(String name2) {
@@ -485,7 +486,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
         public void addComment(String addition) {
             if (addition.startsWith("@")) {
-                // there are exactly 3 cases: deprecated, ordered, and metadata
+                // there are exactly 4 cases: deprecated, ordered, techPreview and metadata
                 switch (addition) {
                 case "@ORDERED":
                     isOrderedElement = true;
@@ -495,6 +496,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     break;
                 case "@METADATA":
                     elementStatus = ElementStatus.metadata;
+                    break;
+                case "@TECHPREVIEW":
+                    isTechPreviewElement = true;
                     break;
                 default:
                     if (addition.startsWith("@MATCH") ||
@@ -552,6 +556,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
         public boolean isOrdered() {
             return isOrderedElement;
+        }
+
+        public boolean isTechPreview() {
+            return isTechPreviewElement;
         }
 
         public ElementStatus getElementStatus() {
@@ -1056,6 +1064,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         if (isOrdered(current.name)) {
             b.append(COMMENT_PREFIX + "<!--@ORDERED-->");
         }
+        if (isTechPreview(current.name)) {
+            b.append(COMMENT_PREFIX + "<!--@TECHPREVIEW-->");
+        }
         if (current.getElementStatus() != ElementStatus.regular) {
             b.append(COMMENT_PREFIX + "<!--@"
                 + current.getElementStatus().toString().toUpperCase(Locale.ROOT)
@@ -1217,10 +1228,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
     //@SuppressWarnings("unused")
     public boolean isDeprecated(String elementName, String attributeName, String attributeValue) {
-        Element element = nameToElement.get(elementName);
-        if (element == null) {
-            throw new IllegalByDtdException(elementName, attributeName, attributeValue);
-        } else if (element.isDeprecatedElement) {
+        Element element = getElementThrowingIfNull(elementName, null, null);
+        if (element.isDeprecatedElement) {
             return true;
         }
         if ("*".equals(attributeName) || "_q".equals(attributeName)) {
@@ -1241,12 +1250,28 @@ public class DtdData extends XMLFileReader.SimpleHandler {
      * throw IllegalByDtdException for unknown elements. See CLDR-8614 for more background.
      */
     public boolean isOrdered(String elementName) {
+        Element element = getElementThrowingIfNull(elementName, null, null);
+        return element.isOrdered();
+    }
+
+    public Element getElementThrowingIfNull(String elementName, String attributeName, String value) {
         Element element = nameToElement.get(elementName);
         if (element == null) {
-            throw new IllegalByDtdException(elementName, null, null);
+            throw new IllegalByDtdException(elementName, attributeName, value);
         }
-        return element.isOrderedElement;
+        return element;
     }
+
+    /**
+     * Returns whether an element (specified by its full name) is a tech preview. This method
+     * understands all elements in the DTDs used (including the ICU extensions), but will
+     * throw IllegalByDtdException for unknown elements. See CLDR-8614 for more background.
+     */
+    public boolean isTechPreview(String elementName) {
+        Element element = getElementThrowingIfNull(elementName, null, null);
+        return element.isTechPreview();
+    }
+
 
     public AttributeStatus getAttributeStatus(String elementName, String attributeName) {
         if ("_q".equals(attributeName)) {

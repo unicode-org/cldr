@@ -40,11 +40,16 @@ public class ChartDtdDelta extends Chart {
 
     private static final Splitter SPLITTER_SPACE = Splitter.on(' ');
 
-    private static final String DEPRECATED_PREFIX = "⊖";
-
     private static final String NEW_PREFIX = "+";
+
+    private static final String DEPRECATED_PREFIX = "⊖";
+    private static final String UNDEPRECATED_PREFIX = "⊙"; // no occurances yet
+
     private static final String ORDERED_SIGN = "⇣";
     private static final String UNORDERED_SIGN = "⇟";
+
+    private static final String TECHPREVIEW_SIGN = "🅟";
+    private static final String UNTECHPREVIEW_SIGN = "ⓟ";
 
 
     private static final Set<String> OMITTED_ATTRIBUTES = Collections.singleton("⊕");
@@ -78,6 +83,7 @@ public class ChartDtdDelta extends Chart {
             + "<li>Attribute value constraints are marked with ⟨…⟩ (for DTD constraints) and ⟪…⟫ (for augmented constraints, added in v35.0).</li>\n"
             + "<li>Changes in status or constraints are shown with ➠, with identical sections shown with ….</li>\n"
             + "<li>Newly ordered elements are indicated with " + ORDERED_SIGN + "; newly unordered with " + UNORDERED_SIGN + ".</li>\n"
+            + "<li>Newly tech-preview items are marked with " + TECHPREVIEW_SIGN + "; newly graduated from tech preview with " + UNTECHPREVIEW_SIGN + ".</li>\n"
             + "</ul></li></ul>\n"
             + "<p>For more information, see the LDML spec.</p>";
     }
@@ -210,23 +216,35 @@ public class ChartDtdDelta extends Chart {
 
         Element oldElement = null;
         boolean ordered = element.isOrdered();
+        boolean currentTechPreview = element.isTechPreview();
 
         if (!oldNameToElement.containsKey(name)) {
             Set<String> attributeNames = getAttributeNames(dtdCurrent, dtdLast, name, Collections.emptyMap(), element.getAttributes());
-            addData(dtdCurrent, NEW_PREFIX + name + (ordered ? ORDERED_SIGN : ""), version, newPath, attributeNames);
+            final String prefix = NEW_PREFIX + (currentTechPreview ? TECHPREVIEW_SIGN : "");
+            addData(dtdCurrent, prefix + name + (ordered ? ORDERED_SIGN : ""), version, newPath, attributeNames);
         } else {
             oldElement = oldNameToElement.get(name);
             boolean oldOrdered = oldElement.isOrdered();
             Set<String> attributeNames = getAttributeNames(dtdCurrent, dtdLast, name, oldElement.getAttributes(), element.getAttributes());
             boolean currentDeprecated = element.isDeprecated();
             boolean lastDeprecated = dtdLast == null ? false : oldElement.isDeprecated(); //  + (currentDeprecated ? "ⓓ" : "")
+            boolean lastTechPreview = dtdLast == null ? false : oldElement.isTechPreview(); //  + (currentDeprecated ? "ⓓ" : "")
+
             boolean newlyDeprecated = currentDeprecated && !lastDeprecated;
-            String orderingStatus = (ordered == oldOrdered || currentDeprecated) ? "" : ordered ? ORDERED_SIGN : UNORDERED_SIGN;
-            if (newlyDeprecated) {
-                addData(dtdCurrent, DEPRECATED_PREFIX + name + orderingStatus, version, newPath, Collections.emptySet());
+
+            String deprecatedStatus = currentDeprecated == lastDeprecated ? ""
+                : ordered ? DEPRECATED_PREFIX : UNDEPRECATED_PREFIX ;
+            String orderingStatus = (ordered == oldOrdered || currentDeprecated) ? ""
+                : ordered ? ORDERED_SIGN : UNORDERED_SIGN;
+
+            String previewStatus = (currentTechPreview == lastTechPreview || currentDeprecated) ? "" :
+                currentTechPreview ? TECHPREVIEW_SIGN : UNTECHPREVIEW_SIGN;
+
+            if (!orderingStatus.isEmpty() || !previewStatus.isEmpty() || !deprecatedStatus.isEmpty()) {
+                addData(dtdCurrent, deprecatedStatus + previewStatus + name + orderingStatus, version, newPath, Collections.emptySet());
             }
             if (!attributeNames.isEmpty()) {
-                addData(dtdCurrent, (newlyDeprecated ? DEPRECATED_PREFIX : "") + name + orderingStatus, version, newPath, attributeNames);
+                addData(dtdCurrent, deprecatedStatus + previewStatus + name + orderingStatus, version, newPath, attributeNames);
             }
         }
         if (element.getName().equals("coordinateUnit")) {

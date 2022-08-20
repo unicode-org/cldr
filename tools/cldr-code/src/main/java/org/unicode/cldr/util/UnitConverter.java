@@ -506,6 +506,10 @@ public class UnitConverter implements Freezable<UnitConverter> {
             return Collections.emptySet();
         }
         String quantity = baseUnitToQuantity.get(targetInfo.target);
+        return getSimpleUnits(quantity);
+    }
+
+    public Set<String> getSimpleUnits(String quantity) {
         return ImmutableSet.copyOf(quantityToSimpleUnits.get(quantity));
     }
 

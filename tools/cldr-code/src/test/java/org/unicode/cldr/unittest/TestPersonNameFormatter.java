@@ -899,26 +899,34 @@ public class TestPersonNameFormatter extends TestFmwk{
     public void TestSupplementalConsistency() {
         Multimap<Order, String> defaultOrderToString = CONFIG.getSupplementalDataInfo().getPersonNameOrder();
         Multimap<Order, String> orderToString = TreeMultimap.create();
+        final Set<String> defaultSurnameFirst = ImmutableSet.copyOf(defaultOrderToString.get(Order.surnameFirst));
         for (String locale : factory.getAvailableLanguages()) {
             CLDRFile cldrFile = factory.make(locale, false);
             getValues(cldrFile, locale, Order.givenFirst, orderToString);
-            getValues(cldrFile, locale, Order.surnameFirst, orderToString);
+            List<String> surnameItems = getValues(cldrFile, locale, Order.surnameFirst, orderToString);
+            // Check that a locale doesn't list a non-surname.
+            // Might not be an issue, but need to review and make an exception set if ok.
+            if (!defaultSurnameFirst.containsAll(surnameItems))
+                warnln(defaultSurnameFirst + " ⊉ " + surnameItems);
         }
         assertEquals(Order.givenFirst.toString(), Collections.singletonList("und"), defaultOrderToString.get(Order.givenFirst));
         // If this test fails, it is usally an indication that a new surnameFirst locale has been added,
         // but the supplemental data hasn't been updated.
-        assertEquals(Order.surnameFirst.toString(), orderToString.get(Order.surnameFirst), new TreeSet<>(defaultOrderToString.get(Order.surnameFirst)));
+        assertEquals(Order.surnameFirst.toString(), orderToString.get(Order.surnameFirst), new TreeSet<>(defaultSurnameFirst));
     }
 
     private static Splitter SPLIT_SPACE = Splitter.on(' ').trimResults().omitEmptyStrings();
 
-    public void getValues(CLDRFile cldrFile, String locale, Order order, Multimap<Order, String> orderToString) {
+    public List<String> getValues(CLDRFile cldrFile, String locale, Order order, Multimap<Order, String> orderToString) {
         String givenFirstLocales = cldrFile.getStringValue("//ldml/personNames/nameOrderLocales[@order=\""
             + order
             + "\"]");
         if (givenFirstLocales != null && !givenFirstLocales.equals("↑↑↑")) {
-            orderToString.putAll(order, SPLIT_SPACE.split(givenFirstLocales));
+            List<String> locales = SPLIT_SPACE.splitToList(givenFirstLocales);
+            orderToString.putAll(order, locales);
             logln("Checking\t" + locale + "\t" + ENGLISH.getName(locale) + "\t" + order + "\t" + givenFirstLocales);
+            return locales;
         }
+        return Collections.emptyList();
     }
 }

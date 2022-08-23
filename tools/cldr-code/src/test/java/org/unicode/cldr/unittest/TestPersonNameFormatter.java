@@ -45,6 +45,7 @@ import org.unicode.cldr.util.personname.SimpleNameObject;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
+import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
@@ -59,11 +60,12 @@ public class TestPersonNameFormatter extends TestFmwk{
     public static final boolean DEBUG = System.getProperty("TestPersonNameFormatter.DEBUG") != null;
     public static final boolean SHOW = System.getProperty("TestPersonNameFormatter.SHOW") != null;
 
+    private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
     final FallbackFormatter FALLBACK_FORMATTER = new FallbackFormatter(ULocale.ENGLISH, "{0}*", "{0} {1}", null, false);
-    final CLDRFile ENGLISH = CLDRConfig.getInstance().getEnglish();
+    final CLDRFile ENGLISH = CONFIG.getEnglish();
     final PersonNameFormatter ENGLISH_NAME_FORMATTER = new PersonNameFormatter(ENGLISH);
     final Map<SampleType, SimpleNameObject> ENGLISH_SAMPLES = PersonNameFormatter.loadSampleNames(ENGLISH);
-    final Factory factory = CLDRConfig.getInstance().getCldrFactory();
+    final Factory factory = CONFIG.getCldrFactory();
     final CLDRFile jaCldrFile = factory.make("ja", true);
 
     public static void main(String[] args) {
@@ -401,7 +403,7 @@ public class TestPersonNameFormatter extends TestFmwk{
     }
 
     public void TestExampleDependencies() {
-        Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
+        Factory cldrFactory = CONFIG.getCldrFactory();
         CLDRFile root = cldrFactory.make("root", false);
         CLDRFile en = cldrFactory.make("en", false);
 
@@ -892,5 +894,39 @@ public class TestPersonNameFormatter extends TestFmwk{
                 }
             }
         }
+    }
+
+    public void TestSupplementalConsistency() {
+        Multimap<Order, String> defaultOrderToString = CONFIG.getSupplementalDataInfo().getPersonNameOrder();
+        Multimap<Order, String> orderToString = TreeMultimap.create();
+        final Set<String> defaultSurnameFirst = ImmutableSet.copyOf(defaultOrderToString.get(Order.surnameFirst));
+        for (String locale : factory.getAvailableLanguages()) {
+            CLDRFile cldrFile = factory.make(locale, false);
+            getValues(cldrFile, locale, Order.givenFirst, orderToString);
+            List<String> surnameItems = getValues(cldrFile, locale, Order.surnameFirst, orderToString);
+            // Check that a locale doesn't list a non-surname.
+            // Might not be an issue, but need to review and make an exception set if ok.
+            if (!defaultSurnameFirst.containsAll(surnameItems))
+                warnln(defaultSurnameFirst + " ⊉ " + surnameItems);
+        }
+        assertEquals(Order.givenFirst.toString(), Collections.singletonList("und"), defaultOrderToString.get(Order.givenFirst));
+        // If this test fails, it is usally an indication that a new surnameFirst locale has been added,
+        // but the supplemental data hasn't been updated.
+        assertEquals(Order.surnameFirst.toString(), orderToString.get(Order.surnameFirst), new TreeSet<>(defaultSurnameFirst));
+    }
+
+    private static Splitter SPLIT_SPACE = Splitter.on(' ').trimResults().omitEmptyStrings();
+
+    public List<String> getValues(CLDRFile cldrFile, String locale, Order order, Multimap<Order, String> orderToString) {
+        String givenFirstLocales = cldrFile.getStringValue("//ldml/personNames/nameOrderLocales[@order=\""
+            + order
+            + "\"]");
+        if (givenFirstLocales != null && !givenFirstLocales.equals("↑↑↑")) {
+            List<String> locales = SPLIT_SPACE.splitToList(givenFirstLocales);
+            orderToString.putAll(order, locales);
+            logln("Checking\t" + locale + "\t" + ENGLISH.getName(locale) + "\t" + order + "\t" + givenFirstLocales);
+            return locales;
+        }
+        return Collections.emptyList();
     }
 }

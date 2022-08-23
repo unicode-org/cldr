@@ -1204,6 +1204,10 @@ public class PersonNameFormatter {
             this.parameterMatcherToNamePattern = ImmutableListMultimap.copyOf(formatParametersToNamePattern);
         }
 
+        public Map<ULocale, Order> getLocaleToOrder() {
+            return localeToOrder;
+        }
+
         /**
          * Build from strings for ease of testing
          */
@@ -1343,8 +1347,8 @@ public class PersonNameFormatter {
                 case "nameOrderLocales":
                     //ldml/personNames/nameOrderLocales[@order="givenFirst"], value = list of locales
                     for (String locale : SPLIT_SPACE.split(value)) {
-                        // TODO fix Order.valueOf(parts.getAttributeValue(-1, "order")) to work.
-                        _localeToOrder.put(new ULocale(locale), Order.surnameFirst);
+                        Order order = Order.valueOf(parts.getAttributeValue(-1, "order"));
+                        _localeToOrder.put(new ULocale(locale), order);
                     }
                     break;
                 case "foreignSpaceReplacement":

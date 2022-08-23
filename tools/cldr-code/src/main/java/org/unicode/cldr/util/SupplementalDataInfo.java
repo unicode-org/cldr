@@ -47,6 +47,8 @@ import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.NumberingSystemInfo.NumberingSystemType;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.Validity.Status;
+import org.unicode.cldr.util.personname.PersonNameFormatter;
+import org.unicode.cldr.util.personname.PersonNameFormatter.Order;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
@@ -959,6 +961,8 @@ public class SupplementalDataInfo {
     public Map<String, GrammarInfo> grammarLocaleToTargetToFeatureToValues = new TreeMap<>();
     public Map<String, GrammarDerivation> localeToGrammarDerivation = new TreeMap<>();
 
+    public Multimap<PersonNameFormatter.Order, String> personNameOrder = TreeMultimap.create();
+
     public enum MeasurementType {
         measurementSystem, paperSize
     }
@@ -1205,6 +1209,7 @@ public class SupplementalDataInfo {
 
         grammarLocaleToTargetToFeatureToValues = CldrUtility.protectCollection(grammarLocaleToTargetToFeatureToValues);
         localeToGrammarDerivation = CldrUtility.protectCollection(localeToGrammarDerivation);
+        personNameOrder = CldrUtility.protectCollection(personNameOrder);
 
         ImmutableSet.Builder<String> newScripts = ImmutableSet.<String> builder();
         Map<Validity.Status, Set<String>> scripts = Validity.getInstance().getStatusToCodes(LstrType.script);
@@ -1373,6 +1378,10 @@ public class SupplementalDataInfo {
                     if (handleGrammaticalData(value, parts)) {
                         return;
                     }
+                } else if (level1.contentEquals("personNamesDefaults")) {
+                    if (handlePersonNamesDefaults(value, parts)) {
+                        return;
+                    }
                 }
 
                 // capture elements we didn't look at, since we should cover everything.
@@ -1387,6 +1396,11 @@ public class SupplementalDataInfo {
                 throw (IllegalArgumentException) new IllegalArgumentException("Exception while processing path: "
                     + path + ",\tvalue: " + value).initCause(e);
             }
+        }
+
+        private boolean handlePersonNamesDefaults(String value, XPathParts parts) {
+            personNameOrder.putAll(Order.valueOf(parts.getAttributeValue(-1, "order")), split_space.split(value));
+            return true;
         }
 
         private boolean handleUnitUnitIdComponents(XPathParts parts) {
@@ -4705,5 +4719,9 @@ public class SupplementalDataInfo {
             }
         }
         return null;
+    }
+
+    public Multimap<Order, String> getPersonNameOrder() {
+        return personNameOrder;
     }
 }

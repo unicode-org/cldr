@@ -34,14 +34,15 @@ class MeterData {
    * Construct a new MeterData object
    *
    * @param {String} description description of this meter
-   * @param {Number} votes number of votes for this meter
-   * @param {Number} total number of total votes for this meter
+   * @param {Number} done the number of tasks completed for this meter; maybe negative for locale meter
+   *                      if new tasks (error/missing/provisional items) have been introduced
+   * @param {Number} total the total number of tasks for this meter
    * @param {String} level coverage level
-   * @returns
+   * @returns the new MeterData object
    */
-  constructor(description, votes, total, level) {
+  constructor(description, done, total, level) {
     this.description = description;
-    this.votes = votes || 0;
+    this.done = done || 0;
     this.total = total || 0;
     this.level = level || cldrText.get("coverage_unknown");
     this.exceptional = false;
@@ -50,10 +51,18 @@ class MeterData {
       this.title = "No data";
       return;
     }
-    this.percent = friendlyPercent(votes, total);
-    this.title =
-      `${this.description}: ${this.votes} / ${this.total} ≈ ${this.percent}%` +
+    this.percent = friendlyPercent(done, total);
+    this.title = this.makeTitle();
+  }
+
+  makeTitle() {
+    let newTitle =
+      `${this.description}: ${this.done} / ${this.total} ≈ ${this.percent}%` +
       `\n•Coverage: ${this.level}`;
+    if (this.done < 0) {
+      newTitle += "\n•Note: " + cldrText.get("progress_negative");
+    }
+    return newTitle;
   }
 
   /**
@@ -130,7 +139,7 @@ function updateWidgetsWithCoverage() {
   if (progressWrapper) {
     if (pageProgressRows) {
       // For page meter, we have saved a pointer to the rows; we need to recalculate
-      // the votes and total based on the coverage level of each row
+      // votes and total based on the coverage level of each row
       pageProgressStats = getPageCompletionFromRows(pageProgressRows);
     }
     // For voter meter, the back end delivers data along with dashboard, and dashboard
@@ -155,7 +164,7 @@ function refreshPageMeter() {
   if (pageProgressStats) {
     const md = new MeterData(
       cldrText.get("progress_page"),
-      pageProgressStats.votes,
+      pageProgressStats.votes /* done */,
       pageProgressStats.total,
       pageProgressStats.level
     );
@@ -172,7 +181,7 @@ function refreshVoterMeter() {
       progressWrapper?.updateVoterMeter(
         new MeterData(
           cldrText.get("progress_voter"),
-          voterProgressStats.votes,
+          voterProgressStats.votes /* done */,
           voterProgressStats.total,
           voterProgressStats.level
         )
@@ -194,34 +203,13 @@ function refreshLocaleMeter() {
       localeProgressStats.error +
       localeProgressStats.missing +
       localeProgressStats.provisional;
-    const solvedProblems =
-      currentProblems >= baselineProblems
-        ? 0
-        : baselineProblems - currentProblems;
-
-    // Adjust according to https://unicode-org.atlassian.net/browse/CLDR-15785
-    // This is NOT a logical long-term solution
-    if (
-      currentProblems > 0 &&
-      friendlyPercent(solvedProblems, baselineProblems) == 100
-    ) {
-      // these numbers are bogus, to arrive at 99%
-      progressWrapper.updateLocaleMeter(
-        new MeterData(
-          cldrText.get("progress_all_vetters"),
-          99,
-          100,
-          localeProgressStats.level
-        )
-      );
-      return;
-    }
+    const solvedProblems = baselineProblems - currentProblems; // can be negative!
 
     progressWrapper.updateLocaleMeter(
       new MeterData(
         cldrText.get("progress_all_vetters"),
-        solvedProblems,
-        baselineProblems,
+        solvedProblems /* done */,
+        baselineProblems /* total */,
         localeProgressStats.level
       )
     );
@@ -369,9 +357,9 @@ function updateVoterStats(votes, total) {
 }
 
 /**
+ * Fetch locale data from the back end
  *
- * @param {Boolean} unlessLoaded if true, skip if already present
- * @returns
+ * @param {Boolean} unlessLoaded if true, skip if data is already present
  */
 function fetchLocaleData(unlessLoaded) {
   if (!progressWrapper || !cldrStatus.getSurveyUser()) {
@@ -440,20 +428,39 @@ function setLocaleProgressStatsFromJson(json, locale) {
   };
 }
 
-function friendlyPercent(votes, total) {
+/**
+ * Calculate a user-friendly percentage
+ *
+ * @param {Number} done the number of tasks completed for this meter
+ *        - For the page meter and voter meter, this is the number of items the user has voted on within the set
+ *          of items that the user was expected to vote on
+ *        - For the locale meter, this normally includes the number of problem (error/missing/provisional) items
+ *          that were in baseline and have now been fixed
+ *          CAUTION: it may be negative if there are now more problems than there were in baseline
+ *          (for example, there were zero baseline errors and now there is one error)
+ * @param {Number} total the total number of tasks for this meter
+ *        - For the page meter and voter meter, this is the number of items the user was expected to vote on
+ *        - For the locale meter, this normally includes the number of problem (error/missing/provisional) items
+ *          that were in baseline
+ * @returns a whole number between 0 and 100 inclusive
+ */
+function friendlyPercent(done, total) {
+  if (done < 0) {
+    return 0; // even if !total
+  }
   if (!total) {
     // The task is finished since nothing needed to be done
     // Do not divide by zero (0 / 0 = NaN%)
     return 100;
   }
-  if (!votes) {
+  if (!done) {
     return 0;
   }
-  if (votes >= total) {
+  if (done >= total) {
     return 100;
   }
   // Do not round 99.9 up to 100
-  const floor = Math.floor((100 * votes) / total);
+  const floor = Math.floor((100 * done) / total);
   if (!floor) {
     // Do not round 0.001 down to zero
     // Instead, provide indication of slight progress
@@ -471,4 +478,8 @@ export {
   updatePageCompletion,
   updateVoterCompletion,
   updateWidgetsWithCoverage,
+  /*
+   * The following are meant to be accessible for unit testing only:
+   */
+  friendlyPercent,
 };

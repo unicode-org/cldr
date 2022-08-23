@@ -524,6 +524,8 @@ const strings = {
   progress_voter_disabled:
     "This meter will be enabled if you open the Dashboard",
   progress_all_vetters: "Completion for all vetters in this locale",
+  progress_negative:
+    "A negative numerator indicates new problems not in baseline",
 
   summary_help: "The following summarizes the Priority Items across locales.",
   summary_coverage_org_specific:

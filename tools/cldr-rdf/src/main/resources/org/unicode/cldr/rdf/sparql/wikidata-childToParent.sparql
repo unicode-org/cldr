@@ -13,14 +13,18 @@ PREFIX bd: <http://www.bigdata.com/rdf#>
 
 
 SELECT DISTINCT ?child ?parent WHERE {
-  ?child p:P279/ps:P279 ?parent.    #child is subclass of parent
   {
+    ?child p:P279/ps:P279 ?parent.    #child is subclass of parent
     ?parent wdt:P31 wd:Q25295. #parent is language family, OR
   } UNION {
+    ?child p:P279/ps:P279 ?parent.    #child is subclass of parent
     ?child wdt:P31 wd:Q25295.  #child is language family, OR
   } UNION {
+    ?child p:P279/ps:P279 ?parent.    #child is subclass of parent
     ?parent wdt:P31 wd:Q34770. #parent is language, OR
   } UNION {
+    ?child p:P279/ps:P279 ?parent.    #child is subclass of parent
     ?child wdt:P31 wd:Q34770.  #child is language
   }
 }
+ORDER BY ?parent ?child

@@ -126,7 +126,7 @@ public class ShowLocaleCoverage {
 //            + " ;\tHigher Level"
 ;
 
-    private static final String TSV_MISSING_BASIC_HEADER = "#Locale\tMissing\tProvisional\tPath*";
+    private static final String TSV_MISSING_BASIC_HEADER = "#Locale\tProv.\tUnconf.\tMissing\tPath*";
     private static final String TSV_MISSING_COUNTS_HEADER = "#Locale\tTargetLevel\t№ Found\t№ Unconfirmed\t№ Missing";
 
     private static final boolean DEBUG = true;
@@ -199,12 +199,14 @@ public class ShowLocaleCoverage {
     static class StatusData {
         int missing;
         int provisional;
+        int unconfirmed;
     }
     static class StatusCounter {
         PathStarrer pathStarrer = new PathStarrer().setSubstitutionPattern("*");
         Map<String, StatusData> starredPathToData = new TreeMap<>();
         int missingTotal;
         int provisionalTotal;
+        int unconfirmedTotal;
 
         public void gatherStarred(String path, DraftStatus draftStatus) {
             String starredPath = pathStarrer.set(path);
@@ -216,7 +218,10 @@ public class ShowLocaleCoverage {
                 ++statusData.missing;
                 ++missingTotal;
             } else switch(draftStatus) {
-            case unconfirmed: // for now, we don't distinguish these
+            case unconfirmed:
+                ++statusData.unconfirmed;
+                ++unconfirmedTotal;
+                break;
             case provisional:
                 ++statusData.provisional;
                 ++provisionalTotal;
@@ -891,9 +896,12 @@ public class ShowLocaleCoverage {
                             }
                         }
                         for (String path : unconfirmed) {
+                            String fullPath = file.getFullXPath(path);
+                            DraftStatus draftStatus = fullPath.contains("unconfirmed") ? DraftStatus.unconfirmed : DraftStatus.provisional;
+
                             Level foundLevel = coverageInfo.getCoverageLevel(path, locale);
                             if (goalLevel.compareTo(foundLevel) >= 0) {
-                                starredCounter.gatherStarred(path, DraftStatus.provisional);
+                                starredCounter.gatherStarred(path, draftStatus);
                             }
                         }
                     }
@@ -905,11 +913,13 @@ public class ShowLocaleCoverage {
                             tsv_missing_basic.println(specialFlag + locale //
                                 + "\t" + statusData.missing //
                                 + "\t" + statusData.provisional //
+                                + "\t" + statusData.unconfirmed //
                                 + "\t" + starredPath.replace("\"*\"", "'*'"));
                         }
                         tsv_missing_basic.println(specialFlag + locale  //
                             + "\t" + starredCounter.missingTotal //
                             + "\t" + starredCounter.provisionalTotal //
+                            + "\t" + starredCounter.unconfirmedTotal //
                             + "\tTotals");
                         tsv_missing_basic.println("\t\t\t"); // for a proper table in github
                     }

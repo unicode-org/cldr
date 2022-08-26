@@ -7284,6 +7284,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern type="1000000000000" count="other">0兆</pattern>
 					<pattern type="10000000000000" count="other">00兆</pattern>
 					<pattern type="100000000000000" count="other">000兆</pattern>
+					<pattern type="1000000000000000" count="other">0000兆</pattern>
+					<pattern type="10000000000000000" count="other">0京</pattern>
+					<pattern type="100000000000000000" count="other">00京</pattern>
+					<pattern type="1000000000000000000" count="other">000京</pattern>
+					<pattern type="10000000000000000000" count="other">0000京</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
@@ -7300,6 +7305,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern type="1000000000000" count="other">0兆</pattern>
 					<pattern type="10000000000000" count="other">00兆</pattern>
 					<pattern type="100000000000000" count="other">000兆</pattern>
+					<pattern type="1000000000000000" count="other">0000兆</pattern>
+					<pattern type="10000000000000000" count="other">0京</pattern>
+					<pattern type="100000000000000000" count="other">00京</pattern>
+					<pattern type="1000000000000000000" count="other">000京</pattern>
+					<pattern type="10000000000000000000" count="other">0000京</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -7355,6 +7365,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">¤ 00兆</pattern>
 					<pattern type="100000000000000" count="other">¤000兆</pattern>
 					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">¤ 000兆</pattern>
+					<pattern type="1000000000000000" count="other">¤0000兆</pattern>
+					<pattern type="1000000000000000" count="other" alt="alphaNextToNumber">¤ 0000兆</pattern>
+					<pattern type="10000000000000000" count="other">¤0京</pattern>
+					<pattern type="10000000000000000" count="other" alt="alphaNextToNumber">¤ 0京</pattern>
+					<pattern type="100000000000000000" count="other">¤00京</pattern>
+					<pattern type="100000000000000000" count="other" alt="alphaNextToNumber">¤ 00京</pattern>
+					<pattern type="1000000000000000000" count="other">¤000京</pattern>
+					<pattern type="1000000000000000000" count="other" alt="alphaNextToNumber">¤ 000京</pattern>
+					<pattern type="10000000000000000000" count="other">¤0000京</pattern>
+					<pattern type="10000000000000000000" count="other" alt="alphaNextToNumber">¤ 0000京</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>

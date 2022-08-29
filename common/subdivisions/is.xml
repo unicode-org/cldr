@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,7 +12,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<subdivisions>
+			<subdivision type="ad07" draft="contributed">Andorra la Vella</subdivision>
 			<subdivision type="aeaj" draft="contributed">Adsman</subdivision>
+			<subdivision type="aefu" draft="contributed">Fúdsaíra</subdivision>
+			<subdivision type="aerk" draft="contributed">Ras al-Kaíma</subdivision>
 			<subdivision type="afnur" draft="contributed">Núristan</subdivision>
 			<subdivision type="amer" draft="contributed">Jerevan</subdivision>
 			<subdivision type="arc" draft="contributed">Búenos Aíres</subdivision>
@@ -36,6 +39,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="auwa" draft="contributed">Vestur-Ástralía</subdivision>
 			<subdivision type="azba" draft="contributed">Bakú</subdivision>
 			<subdivision type="azsm" draft="contributed">Sumqayit</subdivision>
+			<subdivision type="azxa" draft="contributed">Stepanakert</subdivision>
 			<subdivision type="bebru" draft="contributed">Brussel</subdivision>
 			<subdivision type="bevan" draft="contributed">Antwerpen-hérað</subdivision>
 			<subdivision type="bevbr" draft="contributed">Flæmska Brabant</subdivision>
@@ -54,6 +58,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bram" draft="contributed">Amazonas</subdivision>
 			<subdivision type="brba" draft="contributed">Bahia</subdivision>
 			<subdivision type="brce" draft="contributed">Ceará</subdivision>
+			<subdivision type="brdf" draft="contributed">Distrito Federal</subdivision>
 			<subdivision type="brmg" draft="contributed">Minas Gerais</subdivision>
 			<subdivision type="brpb" draft="contributed">Paraíba</subdivision>
 			<subdivision type="brpe" draft="contributed">Pernambuco</subdivision>
@@ -105,25 +110,46 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="clbi" draft="contributed">Biobío-fylki</subdivision>
 			<subdivision type="clll" draft="contributed">Los Lagos-fylki</subdivision>
 			<subdivision type="cllr" draft="contributed">Los Ríos-fylki</subdivision>
+			<subdivision type="cnah" draft="contributed">Anhui</subdivision>
 			<subdivision type="cnbj" draft="contributed">Beijing</subdivision>
 			<subdivision type="cncq" draft="contributed">Chongqing</subdivision>
+			<subdivision type="cnfj" draft="contributed">Fujian</subdivision>
 			<subdivision type="cngd" draft="contributed">Guangdong</subdivision>
+			<subdivision type="cngs" draft="contributed">Gansu</subdivision>
+			<subdivision type="cngx" draft="contributed">Guangxi</subdivision>
+			<subdivision type="cngz" draft="contributed">Guizhou</subdivision>
+			<subdivision type="cnha" draft="contributed">Henan</subdivision>
 			<subdivision type="cnhb" draft="contributed">Hubei</subdivision>
+			<subdivision type="cnhe" draft="contributed">Hebei</subdivision>
 			<subdivision type="cnhi" draft="contributed">Hainan</subdivision>
 			<subdivision type="cnhk" draft="contributed">Hong Kong</subdivision>
+			<subdivision type="cnhl" draft="contributed">Heilongjiang</subdivision>
+			<subdivision type="cnhn" draft="contributed">Hunan</subdivision>
+			<subdivision type="cnjl" draft="contributed">Jilin</subdivision>
+			<subdivision type="cnjs" draft="contributed">Jiangsu</subdivision>
+			<subdivision type="cnjx" draft="contributed">Jiangxi</subdivision>
+			<subdivision type="cnln" draft="contributed">Liaoning</subdivision>
 			<subdivision type="cnmo" draft="contributed">Makaó</subdivision>
+			<subdivision type="cnnm" draft="contributed">Innri Mongólía</subdivision>
+			<subdivision type="cnnx" draft="contributed">Ningxia</subdivision>
+			<subdivision type="cnqh" draft="contributed">Qinghai</subdivision>
 			<subdivision type="cnsc" draft="contributed">Sesúan</subdivision>
+			<subdivision type="cnsd" draft="contributed">Shandong</subdivision>
 			<subdivision type="cnsh" draft="contributed">Sjanghæ</subdivision>
+			<subdivision type="cnsn" draft="contributed">Shaanxi</subdivision>
+			<subdivision type="cnsx" draft="contributed">Shansi</subdivision>
 			<subdivision type="cntj" draft="contributed">Tianjin</subdivision>
 			<subdivision type="cnxj" draft="contributed">Xinjiang</subdivision>
 			<subdivision type="cnxz" draft="contributed">Tíbet</subdivision>
 			<subdivision type="cnyn" draft="contributed">Yunnan</subdivision>
+			<subdivision type="cnzj" draft="contributed">Zhejiang</subdivision>
 			<subdivision type="codc" draft="contributed">Bógóta</subdivision>
 			<subdivision type="cz10" draft="contributed">Prag</subdivision>
 			<subdivision type="debb" draft="contributed">Brandenborg</subdivision>
 			<subdivision type="debe" draft="contributed">Berlín</subdivision>
 			<subdivision type="debw" draft="contributed">Baden-Württemberg</subdivision>
 			<subdivision type="deby" draft="contributed">Bæjaraland</subdivision>
+			<subdivision type="dehb" draft="contributed">Bremen (sambandsríki)</subdivision>
 			<subdivision type="dehe" draft="contributed">Hessen</subdivision>
 			<subdivision type="dehh" draft="contributed">Hamborg</subdivision>
 			<subdivision type="demv" draft="contributed">Mecklenborg-Vorpommern</subdivision>
@@ -140,10 +166,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="esan" draft="contributed">Andalúsía</subdivision>
 			<subdivision type="esar" draft="contributed">Aragon</subdivision>
 			<subdivision type="esas" draft="contributed">Astúría</subdivision>
+			<subdivision type="esb" draft="contributed">Barselóna-hérað</subdivision>
 			<subdivision type="escb" draft="contributed">Kantabría</subdivision>
 			<subdivision type="esce" draft="contributed">Ceuta</subdivision>
 			<subdivision type="escl" draft="contributed">Kastilía-León</subdivision>
 			<subdivision type="escm" draft="contributed">Kastilía-La Mancha</subdivision>
+			<subdivision type="escn" draft="contributed">Kanaríeyjar</subdivision>
 			<subdivision type="esct" draft="contributed">Katalónía</subdivision>
 			<subdivision type="esex" draft="contributed">Extremadúra</subdivision>
 			<subdivision type="esga" draft="contributed">Galisía</subdivision>
@@ -161,8 +189,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ess" draft="contributed">Kantabría²</subdivision>
 			<subdivision type="esvc" draft="contributed">Valensía (hérað)</subdivision>
 			<subdivision type="etaa" draft="contributed">Addis Ababa</subdivision>
+			<subdivision type="fi08" draft="contributed">Mið-Finnland</subdivision>
+			<subdivision type="fi10" draft="contributed">Lappland</subdivision>
+			<subdivision type="fi14" draft="contributed">Norður-Austurbotn</subdivision>
+			<subdivision type="fi17" draft="contributed">Satakunta</subdivision>
+			<subdivision type="fi18" draft="contributed">Uusimaa</subdivision>
+			<subdivision type="fi19" draft="contributed">Suðvestur-Finnland</subdivision>
 			<subdivision type="fjr" draft="contributed">Rotuma</subdivision>
 			<subdivision type="fr18" draft="contributed">Cher</subdivision>
+			<subdivision type="fr20r" draft="contributed">Korsíka</subdivision>
 			<subdivision type="fr21" draft="contributed">Côte-d’Or</subdivision>
 			<subdivision type="fr22" draft="contributed">Côtes-d’Armor</subdivision>
 			<subdivision type="fr28" draft="contributed">Eure-et-Loir</subdivision>
@@ -173,14 +208,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr41" draft="contributed">Loir-et-Cher</subdivision>
 			<subdivision type="fr45" draft="contributed">Loiret</subdivision>
 			<subdivision type="fr56" draft="contributed">Morbihan</subdivision>
-			<subdivision type="fr75" draft="contributed">París</subdivision>
+			<subdivision type="fr75c" draft="contributed">París</subdivision>
 			<subdivision type="fr85" draft="contributed">Vendée</subdivision>
+			<subdivision type="fr86" draft="contributed">Vienne</subdivision>
+			<subdivision type="fr971" draft="contributed">Gvadelúpeyjar</subdivision>
 			<subdivision type="frara" draft="contributed">Auvergne-Rhône-Alpes</subdivision>
+			<subdivision type="frbfc" draft="contributed">Búrgund-Franche-Comté</subdivision>
 			<subdivision type="frbre" draft="contributed">Bretanía</subdivision>
-			<subdivision type="frcor" draft="contributed">Korsíka</subdivision>
 			<subdivision type="frcvl" draft="contributed">Centre</subdivision>
+			<subdivision type="frges" draft="contributed">Grand Est</subdivision>
+			<subdivision type="frhdf" draft="contributed">Hauts-de-France</subdivision>
 			<subdivision type="fridf" draft="contributed">Île-de-France</subdivision>
 			<subdivision type="frnaq" draft="contributed">Nýja-Akvitanía</subdivision>
+			<subdivision type="frocc" draft="contributed">Occitanie</subdivision>
+			<subdivision type="frpac" draft="contributed">Provence-Alpes-Côte d’Azur</subdivision>
+			<subdivision type="frpdl" draft="contributed">Pays de la Loire</subdivision>
 			<subdivision type="gbabe" draft="contributed">Aberdeen</subdivision>
 			<subdivision type="gbagy" draft="contributed">Öngulsey</subdivision>
 			<subdivision type="gbbdg" draft="contributed">Barking og Dagenham</subdivision>
@@ -189,6 +231,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbbir" draft="contributed">Birmingham</subdivision>
 			<subdivision type="gbbkm" draft="contributed">Buckinghamshire</subdivision>
 			<subdivision type="gbbne" draft="contributed">Barnet</subdivision>
+			<subdivision type="gbbnh" draft="contributed">Brighton og Hove</subdivision>
 			<subdivision type="gbbpl" draft="contributed">Blackpool</subdivision>
 			<subdivision type="gbbry" draft="contributed">Bromley</subdivision>
 			<subdivision type="gbbst" draft="contributed">Bristol</subdivision>
@@ -209,6 +252,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbedh" draft="contributed">Edinborg</subdivision>
 			<subdivision type="gbels" draft="contributed">Ytri Suðureyjar</subdivision>
 			<subdivision type="gbenf" draft="contributed">Enfield</subdivision>
+			<subdivision type="gbeng" draft="contributed">England</subdivision>
 			<subdivision type="gbery" draft="contributed">Austur-Yorkshire</subdivision>
 			<subdivision type="gbess" draft="contributed">Essex</subdivision>
 			<subdivision type="gbesx" draft="contributed">Austur-Sussex</subdivision>
@@ -245,6 +289,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gblut" draft="contributed">Luton</subdivision>
 			<subdivision type="gbman" draft="contributed">Manchester</subdivision>
 			<subdivision type="gbmdb" draft="contributed">Middlesbrough</subdivision>
+			<subdivision type="gbmdw" draft="contributed">Medway</subdivision>
 			<subdivision type="gbmrt" draft="contributed">Merton</subdivision>
 			<subdivision type="gbnbl" draft="contributed">Norðymbraland</subdivision>
 			<subdivision type="gbnet" draft="contributed">Newcastle upon Tyne</subdivision>
@@ -264,6 +309,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbrdb" draft="contributed">Redbridge</subdivision>
 			<subdivision type="gbric" draft="contributed">Richmond upon Thames</subdivision>
 			<subdivision type="gbrut" draft="contributed">Rutland</subdivision>
+			<subdivision type="gbsct" draft="contributed">Skotland</subdivision>
 			<subdivision type="gbsfk" draft="contributed">Suffolk</subdivision>
 			<subdivision type="gbshf" draft="contributed">Sheffield</subdivision>
 			<subdivision type="gbshr" draft="contributed">Shropshire</subdivision>
@@ -283,6 +329,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbwar" draft="contributed">Warwickshire</subdivision>
 			<subdivision type="gbwft" draft="contributed">Waltham Forest</subdivision>
 			<subdivision type="gbwil" draft="contributed">Wiltshire</subdivision>
+			<subdivision type="gbwls" draft="contributed">Wales</subdivision>
 			<subdivision type="gbwlv" draft="contributed">Wolverhampton</subdivision>
 			<subdivision type="gbwnd" draft="contributed">Wandsworth</subdivision>
 			<subdivision type="gbwor" draft="contributed">Worcestershire</subdivision>
@@ -295,6 +342,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="glku" draft="contributed">Kujalleq</subdivision>
 			<subdivision type="glqa" draft="contributed">Qaasuitsup</subdivision>
 			<subdivision type="glqe" draft="contributed">Qeqqata</subdivision>
+			<subdivision type="glqt" draft="contributed">Qeqertalik</subdivision>
 			<subdivision type="glsm" draft="contributed">Sermersooq</subdivision>
 			<subdivision type="gmb" draft="contributed">Banjul</subdivision>
 			<subdivision type="gnc" draft="contributed">Kónakrí</subdivision>
@@ -319,6 +367,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="iece" draft="contributed">County Clare</subdivision>
 			<subdivision type="ieco" draft="contributed">County Cork</subdivision>
 			<subdivision type="ied" draft="contributed">County Dublin</subdivision>
+			<subdivision type="iedl" draft="contributed">County Donegal</subdivision>
 			<subdivision type="ieg" draft="contributed">County Galway</subdivision>
 			<subdivision type="ielm" draft="contributed">County Leitrim</subdivision>
 			<subdivision type="iemo" draft="contributed">County Mayo</subdivision>
@@ -361,6 +410,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inut" draft="contributed">Uttarakhand</subdivision>
 			<subdivision type="inwb" draft="contributed">Vestur-Bengal</subdivision>
 			<subdivision type="ir12" draft="contributed">Semnan-hérað, Íran</subdivision>
+			<subdivision type="ir20" draft="contributed">Semnan-hérað, Íran²</subdivision>
 			<subdivision type="is1" draft="contributed">Höfuðborgarsvæðið</subdivision>
 			<subdivision type="is2" draft="contributed">Suðurnes</subdivision>
 			<subdivision type="is3" draft="contributed">Vesturland</subdivision>
@@ -369,6 +419,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="is6" draft="contributed">Norðurland eystra</subdivision>
 			<subdivision type="is7" draft="contributed">Austurland</subdivision>
 			<subdivision type="is8" draft="contributed">Suðurland</subdivision>
+			<subdivision type="isakh" draft="contributed">Akrahreppur</subdivision>
+			<subdivision type="isakn" draft="contributed">Akraneskaupstaður</subdivision>
+			<subdivision type="isaku" draft="contributed">Akureyri</subdivision>
+			<subdivision type="isarn" draft="contributed">Árneshreppur</subdivision>
+			<subdivision type="isasa" draft="contributed">Ásahreppur</subdivision>
+			<subdivision type="isbla" draft="contributed">Bláskógabyggð</subdivision>
+			<subdivision type="isblo" draft="contributed">Blönduósbær</subdivision>
+			<subdivision type="isbog" draft="contributed">Borgarbyggð</subdivision>
+			<subdivision type="isbol" draft="contributed">Bolungarvíkurkaupstaður</subdivision>
+			<subdivision type="isdab" draft="contributed">Dalabyggð</subdivision>
+			<subdivision type="isdav" draft="contributed">Dalvíkurbyggð</subdivision>
+			<subdivision type="iseom" draft="contributed">Eyja- og Miklaholtshreppur</subdivision>
+			<subdivision type="iseyf" draft="contributed">Eyjafjarðarsveit</subdivision>
+			<subdivision type="isfjd" draft="contributed">Fjarðabyggð</subdivision>
+			<subdivision type="isfjl" draft="contributed">Fjallabyggð</subdivision>
+			<subdivision type="isfla" draft="contributed">Flóahreppur</subdivision>
+			<subdivision type="isflr" draft="contributed">Fljótsdalshreppur</subdivision>
+			<subdivision type="isgrn" draft="contributed">Grindavíkurbær</subdivision>
+			<subdivision type="isgru" draft="contributed">Grundarfjarðarbær</subdivision>
+			<subdivision type="ishuv" draft="contributed">Húnaþing vestra</subdivision>
+			<subdivision type="ismul" draft="contributed">Múlaþing</subdivision>
+			<subdivision type="issdv" draft="contributed">Súðavíkurhreppur</subdivision>
+			<subdivision type="issfa" draft="contributed">Sveitarfélagið Árborg</subdivision>
+			<subdivision type="issss" draft="contributed">Sveitarfélagið Skagaströnd</subdivision>
 			<subdivision type="it21" draft="contributed">Fjallaland</subdivision>
 			<subdivision type="it23" draft="contributed">Ágústudalur</subdivision>
 			<subdivision type="it25" draft="contributed">Langbarðaland</subdivision>
@@ -426,6 +500,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kzman" draft="contributed">Mangystáfylki</subdivision>
 			<subdivision type="kzpav" draft="contributed">Pavlódarfylki</subdivision>
 			<subdivision type="kzsev" draft="contributed">Norður-Kasakstanfylki</subdivision>
+			<subdivision type="kzshy" draft="contributed">Sjimkent</subdivision>
 			<subdivision type="kzvos" draft="contributed">Austur-Kasakstanfylki</subdivision>
 			<subdivision type="kzyuz" draft="contributed">Suður-Kasakstanfylki</subdivision>
 			<subdivision type="kzzap" draft="contributed">Vestur-Kasakstanfylki</subdivision>
@@ -499,9 +574,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="no20" draft="contributed">Finnmörk</subdivision>
 			<subdivision type="no21" draft="contributed">Svalbarði</subdivision>
 			<subdivision type="no22" draft="contributed">Jan Mayen</subdivision>
+			<subdivision type="no30" draft="contributed">Viken</subdivision>
+			<subdivision type="no34" draft="contributed">Innlandet</subdivision>
+			<subdivision type="no38" draft="contributed">Vestfold og Þelamörk</subdivision>
+			<subdivision type="no42" draft="contributed">Agðir</subdivision>
+			<subdivision type="no46" draft="contributed">Vesturland (fylki í Noregi)</subdivision>
+			<subdivision type="no50" draft="contributed">Þrændalög</subdivision>
+			<subdivision type="no54" draft="contributed">Troms og Finnmörk</subdivision>
+			<subdivision type="nr14" draft="contributed">Jaren</subdivision>
 			<subdivision type="nzcan" draft="contributed">Canterbury</subdivision>
 			<subdivision type="pgncd" draft="contributed">Port Moresby</subdivision>
+			<subdivision type="pgnsb" draft="contributed">Bougainville</subdivision>
 			<subdivision type="phaur" draft="contributed">Aurora</subdivision>
+			<subdivision type="phboh" draft="contributed">Bóhol</subdivision>
 			<subdivision type="pksd" draft="contributed">Sind</subdivision>
 			<subdivision type="pl02" draft="contributed">Neðri-Slesía</subdivision>
 			<subdivision type="pl04" draft="contributed">Kujavíska-Pommern</subdivision>
@@ -526,27 +611,71 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="rob" draft="contributed">Búkarest</subdivision>
 			<subdivision type="rs00" draft="contributed">Belgrad</subdivision>
 			<subdivision type="ruad" draft="contributed">Adigea</subdivision>
+			<subdivision type="rualt" draft="contributed">Altaífylki</subdivision>
 			<subdivision type="ruamu" draft="contributed">Amúrfylki</subdivision>
 			<subdivision type="ruark" draft="contributed">Arkangelskfylki</subdivision>
 			<subdivision type="ruast" draft="contributed">Astrakanfylki</subdivision>
 			<subdivision type="ruba" draft="contributed">Basjkortostan</subdivision>
 			<subdivision type="rubel" draft="contributed">Belgorodfylki</subdivision>
+			<subdivision type="rubry" draft="contributed">Brjanskfylki</subdivision>
 			<subdivision type="ruce" draft="contributed">Téténía</subdivision>
+			<subdivision type="ruche" draft="contributed">Tsjeljabinskfylki</subdivision>
 			<subdivision type="ruda" draft="contributed">Dagestan</subdivision>
+			<subdivision type="ruirk" draft="contributed">Irkútskfylki</subdivision>
+			<subdivision type="ruiva" draft="contributed">Ívanovófylki</subdivision>
 			<subdivision type="rukam" draft="contributed">Kamtsjatka skagi</subdivision>
 			<subdivision type="rukda" draft="contributed">Krasnodarfylki</subdivision>
+			<subdivision type="rukem" draft="contributed">Kemeróvofylki</subdivision>
+			<subdivision type="rukgd" draft="contributed">Kaliníngradfylki</subdivision>
+			<subdivision type="rukgn" draft="contributed">Kúrganfylki</subdivision>
+			<subdivision type="rukha" draft="contributed">Kabarovskfylki</subdivision>
+			<subdivision type="rukir" draft="contributed">Kírovfylki</subdivision>
+			<subdivision type="ruklu" draft="contributed">Kalúgafylki</subdivision>
+			<subdivision type="rukos" draft="contributed">Kostrómafylki</subdivision>
+			<subdivision type="rukrs" draft="contributed">Kúrskfylki</subdivision>
+			<subdivision type="rukya" draft="contributed">Krasnojarskfylki</subdivision>
 			<subdivision type="rulen" draft="contributed">Leníngradfylki</subdivision>
+			<subdivision type="rulip" draft="contributed">Lípetskfylki</subdivision>
 			<subdivision type="rumag" draft="contributed">Magadanfylki</subdivision>
+			<subdivision type="rumos" draft="contributed">Moskvufylki</subdivision>
 			<subdivision type="rumow" draft="contributed">Moskva</subdivision>
+			<subdivision type="rumur" draft="contributed">Múrmanskfylki</subdivision>
+			<subdivision type="rungr" draft="contributed">Novgorodfylki</subdivision>
+			<subdivision type="runiz" draft="contributed">Nisjníj-Novgorodfylki</subdivision>
+			<subdivision type="runvs" draft="contributed">Novosíbírskfylki</subdivision>
+			<subdivision type="ruoms" draft="contributed">Omskfylki</subdivision>
+			<subdivision type="ruore" draft="contributed">Orenbúrgfylki</subdivision>
+			<subdivision type="ruorl" draft="contributed">Orjolfylki</subdivision>
+			<subdivision type="ruper" draft="contributed">Permfylki</subdivision>
+			<subdivision type="rupnz" draft="contributed">Pensafylki</subdivision>
 			<subdivision type="rupri" draft="contributed">Prímorja</subdivision>
+			<subdivision type="rupsk" draft="contributed">Pskovfylki</subdivision>
+			<subdivision type="ruros" draft="contributed">Rostovfylki</subdivision>
+			<subdivision type="rurya" draft="contributed">Rjasanfylki</subdivision>
 			<subdivision type="rusa" draft="contributed">Saka</subdivision>
 			<subdivision type="rusak" draft="contributed">Sakalínfylki</subdivision>
+			<subdivision type="rusam" draft="contributed">Samarafylki</subdivision>
+			<subdivision type="rusar" draft="contributed">Saratovfylki</subdivision>
 			<subdivision type="ruse" draft="contributed">Norður-Ossetía</subdivision>
+			<subdivision type="rusmo" draft="contributed">Smolenskfylki</subdivision>
 			<subdivision type="ruspe" draft="contributed">Sankti Pétursborg</subdivision>
+			<subdivision type="rusta" draft="contributed">Stavrópolfylki</subdivision>
+			<subdivision type="rusve" draft="contributed">Sverdlovskfylki</subdivision>
 			<subdivision type="ruta" draft="contributed">Tatarstan</subdivision>
+			<subdivision type="rutam" draft="contributed">Tambovfylki</subdivision>
+			<subdivision type="rutom" draft="contributed">Tomskfylki</subdivision>
+			<subdivision type="rutul" draft="contributed">Túlafylki</subdivision>
+			<subdivision type="rutve" draft="contributed">Tverfylki</subdivision>
+			<subdivision type="rutyu" draft="contributed">Tjúmenfylki</subdivision>
 			<subdivision type="ruud" draft="contributed">Údmúrtía</subdivision>
+			<subdivision type="ruuly" draft="contributed">Úljanovskfylki</subdivision>
+			<subdivision type="ruvgg" draft="contributed">Volgógradfylki</subdivision>
+			<subdivision type="ruvla" draft="contributed">Vladimírfylki</subdivision>
 			<subdivision type="ruvlg" draft="contributed">Vologdafylki</subdivision>
+			<subdivision type="ruvor" draft="contributed">Voronesjfylki</subdivision>
+			<subdivision type="ruyar" draft="contributed">Yaroslavlfylki</subdivision>
 			<subdivision type="ruyev" draft="contributed">Hebreska sjálfstjórnarfylkið</subdivision>
+			<subdivision type="ruzab" draft="contributed">Tsabajkalfylki</subdivision>
 			<subdivision type="rw01" draft="contributed">Kígalí</subdivision>
 			<subdivision type="sbct" draft="contributed">Honíara</subdivision>
 			<subdivision type="seab" draft="contributed">Stokkhólms lán</subdivision>
@@ -576,13 +705,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tr09" draft="contributed">Aydın</subdivision>
 			<subdivision type="tr31" draft="contributed">Hatay</subdivision>
 			<subdivision type="ttpos" draft="contributed">Port of Spain</subdivision>
+			<subdivision type="tttob" draft="contributed">Tóbagó</subdivision>
 			<subdivision type="tvfun" draft="contributed">Fúnafútí</subdivision>
+			<subdivision type="twkhh" draft="contributed">Kaohsiung</subdivision>
 			<subdivision type="twpen" draft="contributed">Penghu</subdivision>
+			<subdivision type="twtnn" draft="contributed">Taínan</subdivision>
 			<subdivision type="twtpe" draft="contributed">Taípei</subdivision>
+			<subdivision type="ua09" draft="contributed">Lúhanska Oblast</subdivision>
+			<subdivision type="ua12" draft="contributed">Dníprópetrovskfylki</subdivision>
+			<subdivision type="ua14" draft="contributed">Donetska Oblast</subdivision>
 			<subdivision type="ua18" draft="contributed">Zjytómýrfylki</subdivision>
 			<subdivision type="ua23" draft="contributed">Zapórizjyskfylki</subdivision>
 			<subdivision type="ua30" draft="contributed">Kíev</subdivision>
 			<subdivision type="ua40" draft="contributed">Sevastópol</subdivision>
+			<subdivision type="ua59" draft="contributed">Sumska oblast (hérað)</subdivision>
+			<subdivision type="ua61" draft="contributed">Ternopílska oblast</subdivision>
 			<subdivision type="um67" draft="contributed">Johnstoneyja</subdivision>
 			<subdivision type="um71" draft="contributed">Midwayeyja</subdivision>
 			<subdivision type="um76" draft="contributed">Navassaeyja</subdivision>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -17,6 +17,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ad04" draft="contributed">La Massana</subdivision>
 			<subdivision type="ad05" draft="contributed">Ordino</subdivision>
 			<subdivision type="ad06" draft="contributed">Sant Julià de Lòria</subdivision>
+			<subdivision type="ad07" draft="contributed">Andorra la Vella</subdivision>
 			<subdivision type="ad08" draft="contributed">Escaldes-Engordany</subdivision>
 			<subdivision type="aeaj" draft="contributed">Ajman</subdivision>
 			<subdivision type="aeaz" draft="contributed">Abu Dhabi Emirate</subdivision>
@@ -49,6 +50,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="afnan" draft="contributed">Provinsi Nangarhar</subdivision>
 			<subdivision type="afnim" draft="contributed">Nimruz</subdivision>
 			<subdivision type="afnur" draft="contributed">Nurestan</subdivision>
+			<subdivision type="afpan" draft="contributed">Provinsi Panjshir</subdivision>
 			<subdivision type="afpar" draft="contributed">Provinsi Parwan</subdivision>
 			<subdivision type="afpia" draft="contributed">Paktia</subdivision>
 			<subdivision type="afpka" draft="contributed">Paktika</subdivision>
@@ -68,8 +70,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ag11" draft="contributed">Redonda</subdivision>
 			<subdivision type="al01" draft="contributed">Berat County</subdivision>
 			<subdivision type="al02" draft="contributed">Durrës County</subdivision>
+			<subdivision type="al03" draft="contributed">County Elbasan</subdivision>
+			<subdivision type="al04" draft="contributed">County Fier</subdivision>
 			<subdivision type="al05" draft="contributed">Gjirokastër County</subdivision>
 			<subdivision type="al06" draft="contributed">Korçë County</subdivision>
+			<subdivision type="al07" draft="contributed">County Kukës</subdivision>
+			<subdivision type="al08" draft="contributed">County Lezhë</subdivision>
+			<subdivision type="al09" draft="contributed">County Dibër</subdivision>
+			<subdivision type="al10" draft="contributed">County Shkodër</subdivision>
+			<subdivision type="al11" draft="contributed">County Tiranë</subdivision>
 			<subdivision type="al12" draft="contributed">Vlorë County</subdivision>
 			<subdivision type="amag" draft="contributed">Aragatsotn</subdivision>
 			<subdivision type="amar" draft="contributed">Provinsi Ararat</subdivision>
@@ -309,6 +318,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bfsis" draft="contributed">Provinsi Sissili</subdivision>
 			<subdivision type="bfsmt" draft="contributed">Provinsi Sanmatenga</subdivision>
 			<subdivision type="bfsng" draft="contributed">Provinsi Sanguié</subdivision>
+			<subdivision type="bfsom" draft="contributed">Provinsi Soum</subdivision>
 			<subdivision type="bfsor" draft="contributed">Provinsi Sourou</subdivision>
 			<subdivision type="bftap" draft="contributed">Provinsi Tapoa</subdivision>
 			<subdivision type="bftui" draft="contributed">Provinsi Tuy</subdivision>
@@ -456,8 +466,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bt13" draft="contributed">Distrik Haa</subdivision>
 			<subdivision type="bt14" draft="contributed">Distrik Samtse</subdivision>
 			<subdivision type="bt15" draft="contributed">Distrik Thimphu</subdivision>
+			<subdivision type="bt21" draft="contributed">Distrik Tsirang</subdivision>
+			<subdivision type="bt22" draft="contributed">Distrik Dagana</subdivision>
 			<subdivision type="bt23" draft="contributed">Distrik Punakha</subdivision>
 			<subdivision type="bt24" draft="contributed">Distrik Wangdue Phodrang</subdivision>
+			<subdivision type="bt31" draft="contributed">Distrik Sarpang</subdivision>
 			<subdivision type="bt32" draft="contributed">Distrik Trongsa</subdivision>
 			<subdivision type="bt33" draft="contributed">Distrik Bumthang</subdivision>
 			<subdivision type="bt34" draft="contributed">Distrik Zhemgang</subdivision>
@@ -469,6 +482,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="btga" draft="contributed">Distrik Gasa</subdivision>
 			<subdivision type="btty" draft="contributed">Distrik Trashiyangtse</subdivision>
 			<subdivision type="bwce" draft="contributed">Distrik Central</subdivision>
+			<subdivision type="bwch" draft="contributed">Distrik Chobe</subdivision>
 			<subdivision type="bwfr" draft="contributed">Francistown</subdivision>
 			<subdivision type="bwga" draft="contributed">Gaborone</subdivision>
 			<subdivision type="bwgh" draft="contributed">Distrik Ghanzi</subdivision>
@@ -510,13 +524,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cask" draft="contributed">Saskatchewan</subdivision>
 			<subdivision type="cayt" draft="contributed">Yukon</subdivision>
 			<subdivision type="cdbc" draft="contributed">Kongo Central</subdivision>
+			<subdivision type="cdbu" draft="contributed">Provinsi Bas-Uélé</subdivision>
 			<subdivision type="cdeq" draft="contributed">Équateur</subdivision>
+			<subdivision type="cdhk" draft="contributed">Provinsi Haut-Katanga</subdivision>
+			<subdivision type="cdhl" draft="contributed">Provinsi Haut-Lomami</subdivision>
+			<subdivision type="cdhu" draft="contributed">Provinsi Haut-Uélé</subdivision>
 			<subdivision type="cdke" draft="contributed">Kasai-Oriental</subdivision>
+			<subdivision type="cdkg" draft="contributed">Provinsi Kwango</subdivision>
+			<subdivision type="cdkl" draft="contributed">Provinsi Kwilu</subdivision>
 			<subdivision type="cdkn" draft="contributed">Kinshasa</subdivision>
+			<subdivision type="cdlo" draft="contributed">Provinsi Lomami</subdivision>
+			<subdivision type="cdlu" draft="contributed">Provinsi Lualaba</subdivision>
 			<subdivision type="cdma" draft="contributed">Maniema</subdivision>
+			<subdivision type="cdmn" draft="contributed">Provinsi Mai-Ndombe</subdivision>
+			<subdivision type="cdmo" draft="contributed">Provinsi Mongala</subdivision>
 			<subdivision type="cdnk" draft="contributed">Nord-Kivu</subdivision>
 			<subdivision type="cdnu" draft="contributed">Nord-Ubangi</subdivision>
+			<subdivision type="cdsa" draft="contributed">Provinsi Sankuru</subdivision>
 			<subdivision type="cdsk" draft="contributed">Sud-Kivu</subdivision>
+			<subdivision type="cdsu" draft="contributed">Provinsi Sud-Ubangi</subdivision>
+			<subdivision type="cdta" draft="contributed">Provinsi Tanganyika</subdivision>
+			<subdivision type="cdto" draft="contributed">Provinsi Tshopo</subdivision>
+			<subdivision type="cdtu" draft="contributed">Provinsi Tshuapa</subdivision>
 			<subdivision type="cfac" draft="contributed">Prefektur Ouham</subdivision>
 			<subdivision type="cfbb" draft="contributed">Bamingui-Bangoran</subdivision>
 			<subdivision type="cfbgf" draft="contributed">Bangui</subdivision>
@@ -580,6 +609,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cizz" draft="contributed">Wilayah Zanzan</subdivision>
 			<subdivision type="clai" draft="contributed">Region Aisén</subdivision>
 			<subdivision type="clan" draft="contributed">Wilayah Antofagasta</subdivision>
+			<subdivision type="clap" draft="contributed">Region Arica y Parinacota</subdivision>
 			<subdivision type="clar" draft="contributed">Wilayah Araucanía</subdivision>
 			<subdivision type="clat" draft="contributed">Wilayah Atacama</subdivision>
 			<subdivision type="clbi" draft="contributed">Wilayah Bío Bío</subdivision>
@@ -589,6 +619,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cllr" draft="contributed">Wilayah Los Ríos</subdivision>
 			<subdivision type="clma" draft="contributed">Region Magallanes y la Antártica</subdivision>
 			<subdivision type="clml" draft="contributed">Wilayah Maule</subdivision>
+			<subdivision type="clnb" draft="contributed">Region Ñuble</subdivision>
 			<subdivision type="clrm" draft="contributed">Wilayah Metropolitan Santiago</subdivision>
 			<subdivision type="clta" draft="contributed">Wilayah Tarapacá</subdivision>
 			<subdivision type="clvs" draft="contributed">Wilayah Valparaíso</subdivision>
@@ -691,6 +722,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cu15" draft="contributed">Provinsi Artemisa</subdivision>
 			<subdivision type="cu16" draft="contributed">Provinsi Mayabeque</subdivision>
 			<subdivision type="cu99" draft="contributed">Isla de la Juventud</subdivision>
+			<subdivision type="cvb" draft="contributed">Kepulauan Barlavento</subdivision>
 			<subdivision type="cvbr" draft="contributed">Brava</subdivision>
 			<subdivision type="cvbv" draft="contributed">Boa Vista</subdivision>
 			<subdivision type="cvca" draft="contributed">Santa Catarina</subdivision>
@@ -703,16 +735,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cvrb" draft="contributed">Ribeira Brava</subdivision>
 			<subdivision type="cvrg" draft="contributed">Ribeira Grande</subdivision>
 			<subdivision type="cvrs" draft="contributed">Ribeira Grande de Santiago</subdivision>
+			<subdivision type="cvs" draft="contributed">Kepulauan Sotavento</subdivision>
 			<subdivision type="cvsd" draft="contributed">São Domingos</subdivision>
 			<subdivision type="cvsf" draft="contributed">São Filipe</subdivision>
 			<subdivision type="cvsl" draft="contributed">Sal</subdivision>
+			<subdivision type="cvsm" draft="contributed">São Miguel, Tanjung Verde</subdivision>
 			<subdivision type="cvso" draft="contributed">São Lourenço dos Órgãos</subdivision>
 			<subdivision type="cvss" draft="contributed">São Salvador do Mundo</subdivision>
 			<subdivision type="cvsv" draft="contributed">São Vicente</subdivision>
 			<subdivision type="cvta" draft="contributed">Tarrafal</subdivision>
 			<subdivision type="cvts" draft="contributed">Tarrafal de São Nicolau</subdivision>
+			<subdivision type="cy01" draft="contributed">Distrik Nicosia</subdivision>
 			<subdivision type="cy02" draft="contributed">Distrik Limassol</subdivision>
 			<subdivision type="cy03" draft="contributed">Distrik Larnaca</subdivision>
+			<subdivision type="cy04" draft="contributed">Distrik Famagusta</subdivision>
+			<subdivision type="cy05" draft="contributed">Distrik Paphos</subdivision>
 			<subdivision type="cy06" draft="contributed">Distrik Kyrenia</subdivision>
 			<subdivision type="cz10" draft="contributed">Praha</subdivision>
 			<subdivision type="cz20" draft="contributed">Daerah Bohemia Tengah</subdivision>
@@ -728,6 +765,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cz71" draft="contributed">Daerah Olomouc</subdivision>
 			<subdivision type="cz72" draft="contributed">Daerah Zlín</subdivision>
 			<subdivision type="cz80" draft="contributed">Daerah Moravia-Silesia</subdivision>
+			<subdivision type="cz317" draft="contributed">Distrik Tábor</subdivision>
+			<subdivision type="cz644" draft="contributed">Distrik Břeclav</subdivision>
+			<subdivision type="cz645" draft="contributed">Distrik Hodonín</subdivision>
+			<subdivision type="cz712" draft="contributed">Distrik Olomouc</subdivision>
+			<subdivision type="cz713" draft="contributed">Distrik Prostějov</subdivision>
 			<subdivision type="debb" draft="contributed">Brandenburg</subdivision>
 			<subdivision type="debe" draft="contributed">Berlin</subdivision>
 			<subdivision type="debw" draft="contributed">Baden-Württemberg</subdivision>
@@ -768,6 +810,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="do02" draft="contributed">Provinsi Azua</subdivision>
 			<subdivision type="do03" draft="contributed">Provinsi Baoruco</subdivision>
 			<subdivision type="do04" draft="contributed">Provinsi Barahona</subdivision>
+			<subdivision type="do05" draft="contributed">Provinsi Dajabón</subdivision>
 			<subdivision type="do06" draft="contributed">Provinsi Duarte</subdivision>
 			<subdivision type="do07" draft="contributed">Provinsi Elías Piña</subdivision>
 			<subdivision type="do08" draft="contributed">Provinsi El Seibo</subdivision>
@@ -897,6 +940,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="egkb" draft="contributed">Kegubernuran Al Qalyubiyah</subdivision>
 			<subdivision type="egkfs" draft="contributed">Kegubernuran Kafr asy Syaykh</subdivision>
 			<subdivision type="egkn" draft="contributed">Kegubernuran Qina</subdivision>
+			<subdivision type="eglx" draft="contributed">Kegubernuran Luxor</subdivision>
 			<subdivision type="egmn" draft="contributed">Al Minya</subdivision>
 			<subdivision type="egmnf" draft="contributed">Kegubernuran Al Minufiyah</subdivision>
 			<subdivision type="egmt" draft="contributed">Kegubernuran Matruh</subdivision>
@@ -930,6 +974,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="esce" draft="contributed">Ceuta</subdivision>
 			<subdivision type="escl" draft="contributed">Castilla y León</subdivision>
 			<subdivision type="escm" draft="contributed">Castilla-La Mancha</subdivision>
+			<subdivision type="escn" draft="contributed">Kepulauan Canaria</subdivision>
 			<subdivision type="esco" draft="contributed">Provinsi Córdoba</subdivision>
 			<subdivision type="escr" draft="contributed">Provinsi Ciudad Real</subdivision>
 			<subdivision type="escs" draft="contributed">Provinsi Castellón</subdivision>
@@ -1034,6 +1079,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr17" draft="contributed">Charente-Maritime</subdivision>
 			<subdivision type="fr18" draft="contributed">Cher</subdivision>
 			<subdivision type="fr19" draft="contributed">Corrèze</subdivision>
+			<subdivision type="fr20r" draft="contributed">Korsika</subdivision>
 			<subdivision type="fr21" draft="contributed">Côte-d’Or</subdivision>
 			<subdivision type="fr22" draft="contributed">Côtes-d’Armor</subdivision>
 			<subdivision type="fr23" draft="contributed">Creuse</subdivision>
@@ -1088,7 +1134,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr72" draft="contributed">Sarthe</subdivision>
 			<subdivision type="fr73" draft="contributed">Savoie</subdivision>
 			<subdivision type="fr74" draft="contributed">Haute-Savoie</subdivision>
-			<subdivision type="fr75" draft="contributed">Paris</subdivision>
+			<subdivision type="fr75c" draft="contributed">Paris</subdivision>
 			<subdivision type="fr76" draft="contributed">Seine-Maritime</subdivision>
 			<subdivision type="fr77" draft="contributed">Seine-et-Marne</subdivision>
 			<subdivision type="fr78" draft="contributed">Yvelines</subdivision>
@@ -1109,10 +1155,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr93" draft="contributed">Seine-Saint-Denis</subdivision>
 			<subdivision type="fr94" draft="contributed">Val-de-Marne</subdivision>
 			<subdivision type="fr95" draft="contributed">Val-d’Oise</subdivision>
+			<subdivision type="fr971" draft="contributed">Guadeloupe</subdivision>
 			<subdivision type="frara" draft="contributed">Auvergne-Rhône-Alpes</subdivision>
 			<subdivision type="frbfc" draft="contributed">Bourgogne-Franche-Comté</subdivision>
 			<subdivision type="frbre" draft="contributed">Bretagne</subdivision>
-			<subdivision type="frcor" draft="contributed">Korsika</subdivision>
 			<subdivision type="frcvl" draft="contributed">Centre, Perancis</subdivision>
 			<subdivision type="frges" draft="contributed">Timur Raya</subdivision>
 			<subdivision type="frhdf" draft="contributed">Nord-Pas-de-Calais-Picardie</subdivision>
@@ -1162,6 +1208,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbedh" draft="contributed">Edinburgh</subdivision>
 			<subdivision type="gbedu" draft="contributed">East Dunbartonshire</subdivision>
 			<subdivision type="gbels" draft="contributed">Hebrides Luar</subdivision>
+			<subdivision type="gbeng" draft="contributed">Inggris</subdivision>
 			<subdivision type="gbery" draft="contributed">Yorkshire Timur</subdivision>
 			<subdivision type="gbess" draft="contributed">Essex</subdivision>
 			<subdivision type="gbesx" draft="contributed">East Sussex</subdivision>
@@ -1192,6 +1239,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gblut" draft="contributed">Luton</subdivision>
 			<subdivision type="gbman" draft="contributed">Manchester</subdivision>
 			<subdivision type="gbmdb" draft="contributed">Middlesbrough</subdivision>
+			<subdivision type="gbmdw" draft="contributed">Medway</subdivision>
 			<subdivision type="gbmon" draft="contributed">Monmouthshire</subdivision>
 			<subdivision type="gbnbl" draft="contributed">Northumberland</subdivision>
 			<subdivision type="gbnet" draft="contributed">Newcastle upon Tyne</subdivision>
@@ -1204,12 +1252,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbnyk" draft="contributed">Yorkshire Utara</subdivision>
 			<subdivision type="gbork" draft="contributed">Orkney</subdivision>
 			<subdivision type="gboxf" draft="contributed">Oxfordshire</subdivision>
+			<subdivision type="gbpem" draft="contributed">Pembrokeshire</subdivision>
 			<subdivision type="gbply" draft="contributed">Plymouth</subdivision>
 			<subdivision type="gbpor" draft="contributed">Portsmouth</subdivision>
 			<subdivision type="gbpte" draft="contributed">Peterborough</subdivision>
 			<subdivision type="gbrdg" draft="contributed">Reading</subdivision>
 			<subdivision type="gbrut" draft="contributed">Rutland</subdivision>
 			<subdivision type="gbscb" draft="contributed">Scottish Borders</subdivision>
+			<subdivision type="gbsct" draft="contributed">Skotlandia</subdivision>
 			<subdivision type="gbsfk" draft="contributed">Suffolk</subdivision>
 			<subdivision type="gbshf" draft="contributed">Sheffield</subdivision>
 			<subdivision type="gbshr" draft="contributed">Shropshire</subdivision>
@@ -1225,6 +1275,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbukm" draft="contributed">Britania Raya</subdivision>
 			<subdivision type="gbwar" draft="contributed">Warwickshire</subdivision>
 			<subdivision type="gbwil" draft="contributed">Wiltshire</subdivision>
+			<subdivision type="gbwls" draft="contributed">Wales</subdivision>
 			<subdivision type="gbwlv" draft="contributed">Wolverhampton</subdivision>
 			<subdivision type="gbwnd" draft="contributed">Wandsworth</subdivision>
 			<subdivision type="gbwor" draft="contributed">Worcestershire</subdivision>
@@ -1261,9 +1312,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ghue" draft="contributed">Region Timur Atas</subdivision>
 			<subdivision type="ghuw" draft="contributed">Region Barat Atas</subdivision>
 			<subdivision type="ghwp" draft="contributed">Region Barat</subdivision>
+			<subdivision type="glav" draft="contributed">Avannaata</subdivision>
 			<subdivision type="glku" draft="contributed">Kujalleq</subdivision>
 			<subdivision type="glqa" draft="contributed">Qaasuitsup</subdivision>
 			<subdivision type="glqe" draft="contributed">Qeqqata</subdivision>
+			<subdivision type="glqt" draft="contributed">Qeqertalik</subdivision>
 			<subdivision type="glsm" draft="contributed">Sermersooq</subdivision>
 			<subdivision type="gmb" draft="contributed">Banjul</subdivision>
 			<subdivision type="gml" draft="contributed">Lower River Division</subdivision>
@@ -1281,6 +1334,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gndi" draft="contributed">Prefektur Dinguiraye</subdivision>
 			<subdivision type="gndl" draft="contributed">Prefektur Dalaba</subdivision>
 			<subdivision type="gndu" draft="contributed">Prefektur Dubréka</subdivision>
+			<subdivision type="gnf" draft="contributed">Region Faranah</subdivision>
 			<subdivision type="gnfr" draft="contributed">Prefektur Fria</subdivision>
 			<subdivision type="gnga" draft="contributed">Prefektur Gaoual</subdivision>
 			<subdivision type="gngu" draft="contributed">Prefektur Guéckédou</subdivision>
@@ -1290,6 +1344,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gnkn" draft="contributed">Prefektur Koundara</subdivision>
 			<subdivision type="gnko" draft="contributed">Prefektur Kouroussa</subdivision>
 			<subdivision type="gnks" draft="contributed">Prefektur Kissidougou</subdivision>
+			<subdivision type="gnl" draft="contributed">Region Labé</subdivision>
 			<subdivision type="gnla" draft="contributed">Prefektur Labé</subdivision>
 			<subdivision type="gnle" draft="contributed">Prefektur Lélouma</subdivision>
 			<subdivision type="gnlo" draft="contributed">Prefektur Lola</subdivision>
@@ -1322,28 +1377,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="grj" draft="contributed">Peloponnesa</subdivision>
 			<subdivision type="grk" draft="contributed">Aegea Utara</subdivision>
 			<subdivision type="grl" draft="contributed">Aegea Selatan</subdivision>
-			<subdivision type="gtav" draft="contributed">Alta Verapaz</subdivision>
-			<subdivision type="gtbv" draft="contributed">Baja Verapaz</subdivision>
-			<subdivision type="gtcm" draft="contributed">Departemen Chimaltenango</subdivision>
-			<subdivision type="gtcq" draft="contributed">Departemen Chiquimula</subdivision>
-			<subdivision type="gtes" draft="contributed">Departemen Escuintla</subdivision>
-			<subdivision type="gtgu" draft="contributed">Departemen Guatemala</subdivision>
-			<subdivision type="gthu" draft="contributed">Departemen Huehuetenango</subdivision>
-			<subdivision type="gtiz" draft="contributed">Departemen Izabal</subdivision>
-			<subdivision type="gtja" draft="contributed">Departemen Jalapa</subdivision>
-			<subdivision type="gtju" draft="contributed">Jutiapa Department</subdivision>
-			<subdivision type="gtpe" draft="contributed">Departemen El Petén</subdivision>
-			<subdivision type="gtpr" draft="contributed">Departemen El Progreso</subdivision>
-			<subdivision type="gtqc" draft="contributed">Departemen El Quiché</subdivision>
-			<subdivision type="gtqz" draft="contributed">Departemen Quetzaltenango</subdivision>
-			<subdivision type="gtre" draft="contributed">Departemen Retalhuleu</subdivision>
-			<subdivision type="gtsa" draft="contributed">Departemen Sacatepéquez</subdivision>
-			<subdivision type="gtsm" draft="contributed">Departemen San Marcos</subdivision>
-			<subdivision type="gtso" draft="contributed">Departemen Sololá</subdivision>
-			<subdivision type="gtsr" draft="contributed">Departemen Santa Rosa</subdivision>
-			<subdivision type="gtsu" draft="contributed">Departemen Suchitepequez</subdivision>
-			<subdivision type="gtto" draft="contributed">Totonicapán Department</subdivision>
-			<subdivision type="gtza" draft="contributed">Departemen Zacapa</subdivision>
+			<subdivision type="gt01" draft="contributed">Departemen Guatemala</subdivision>
+			<subdivision type="gt02" draft="contributed">Departemen El Progreso</subdivision>
+			<subdivision type="gt03" draft="contributed">Departemen Sacatepéquez</subdivision>
+			<subdivision type="gt04" draft="contributed">Departemen Chimaltenango</subdivision>
+			<subdivision type="gt05" draft="contributed">Departemen Escuintla</subdivision>
+			<subdivision type="gt06" draft="contributed">Departemen Santa Rosa</subdivision>
+			<subdivision type="gt07" draft="contributed">Departemen Sololá</subdivision>
+			<subdivision type="gt08" draft="contributed">Totonicapán Department</subdivision>
+			<subdivision type="gt09" draft="contributed">Departemen Quetzaltenango</subdivision>
+			<subdivision type="gt10" draft="contributed">Departemen Suchitepequez</subdivision>
+			<subdivision type="gt11" draft="contributed">Departemen Retalhuleu</subdivision>
+			<subdivision type="gt12" draft="contributed">Departemen San Marcos</subdivision>
+			<subdivision type="gt13" draft="contributed">Departemen Huehuetenango</subdivision>
+			<subdivision type="gt14" draft="contributed">Departemen El Quiché</subdivision>
+			<subdivision type="gt15" draft="contributed">Baja Verapaz</subdivision>
+			<subdivision type="gt16" draft="contributed">Alta Verapaz</subdivision>
+			<subdivision type="gt17" draft="contributed">Departemen El Petén</subdivision>
+			<subdivision type="gt18" draft="contributed">Departemen Izabal</subdivision>
+			<subdivision type="gt19" draft="contributed">Departemen Zacapa</subdivision>
+			<subdivision type="gt20" draft="contributed">Departemen Chiquimula</subdivision>
+			<subdivision type="gt21" draft="contributed">Departemen Jalapa</subdivision>
+			<subdivision type="gt22" draft="contributed">Jutiapa Department</subdivision>
 			<subdivision type="gwba" draft="contributed">Wilayah Bafatá</subdivision>
 			<subdivision type="gwbl" draft="contributed">Wilayah Bolama</subdivision>
 			<subdivision type="gwbm" draft="contributed">Wilayah Biombo</subdivision>
@@ -1549,6 +1604,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="injk" draft="contributed">Jammu dan Kashmir</subdivision>
 			<subdivision type="inka" draft="contributed">Karnataka</subdivision>
 			<subdivision type="inkl" draft="contributed">Kerala</subdivision>
+			<subdivision type="inla" draft="contributed">Ladakh</subdivision>
 			<subdivision type="inld" draft="contributed">Lakshadweep</subdivision>
 			<subdivision type="inmh" draft="contributed">Maharashtra</subdivision>
 			<subdivision type="inml" draft="contributed">Meghalaya</subdivision>
@@ -1585,6 +1641,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="iqsd" draft="contributed">Kegubernuran Salah ad Din</subdivision>
 			<subdivision type="iqsu" draft="contributed">Kegubernuran As Sulaymaniyah</subdivision>
 			<subdivision type="iqwa" draft="contributed">Kegubernuran Wasit</subdivision>
+			<subdivision type="ir00" draft="contributed">Provinsi Markazi²</subdivision>
 			<subdivision type="ir01" draft="contributed">Provinsi Azarbaijan Timur</subdivision>
 			<subdivision type="ir02" draft="contributed">Provinsi Azarbaijan Barat</subdivision>
 			<subdivision type="ir03" draft="contributed">Provinsi Ardabil</subdivision>
@@ -1593,6 +1650,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ir06" draft="contributed">Provinsi Bushehr</subdivision>
 			<subdivision type="ir07" draft="contributed">Provinsi Tehran</subdivision>
 			<subdivision type="ir08" draft="contributed">Provinsi Chaharmahal dan Bakhtiari</subdivision>
+			<subdivision type="ir09" draft="contributed">Provinsi Razavi Khorasan²</subdivision>
 			<subdivision type="ir10" draft="contributed">Provinsi Khūzestān</subdivision>
 			<subdivision type="ir11" draft="contributed">Provinsi Zanjan</subdivision>
 			<subdivision type="ir12" draft="contributed">Provinsi Semnān</subdivision>
@@ -1624,6 +1682,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="is6" draft="contributed">Norðurland eystra</subdivision>
 			<subdivision type="is7" draft="contributed">Austurland</subdivision>
 			<subdivision type="is8" draft="contributed">Suðurland</subdivision>
+			<subdivision type="isakh" draft="contributed">Akrahreppur</subdivision>
+			<subdivision type="isakn" draft="contributed">Akranes</subdivision>
+			<subdivision type="isaku" draft="contributed">Akureyri</subdivision>
+			<subdivision type="isarn" draft="contributed">Árneshreppur</subdivision>
+			<subdivision type="isasa" draft="contributed">Ásahreppur</subdivision>
+			<subdivision type="isbla" draft="contributed">Bláskógabyggð</subdivision>
+			<subdivision type="isblo" draft="contributed">Blönduósbær</subdivision>
+			<subdivision type="isbol" draft="contributed">Bolungarvík</subdivision>
+			<subdivision type="isdab" draft="contributed">Dalabyggð</subdivision>
+			<subdivision type="isdav" draft="contributed">Dalvíkurbyggð</subdivision>
+			<subdivision type="iseom" draft="contributed">Eyja- og Miklaholtshreppur</subdivision>
+			<subdivision type="iseyf" draft="contributed">Eyjafjarðarsveit</subdivision>
+			<subdivision type="isfjd" draft="contributed">Fjarðabyggð</subdivision>
+			<subdivision type="isfjl" draft="contributed">Fjallabyggð</subdivision>
+			<subdivision type="isfla" draft="contributed">Flóahreppur</subdivision>
+			<subdivision type="isflr" draft="contributed">Fljótsdalshreppur</subdivision>
+			<subdivision type="isgru" draft="contributed">Grundarfjarðarbær</subdivision>
+			<subdivision type="ishuv" draft="contributed">Húnaþing vestra</subdivision>
+			<subdivision type="issdv" draft="contributed">Súðavíkurhreppur</subdivision>
+			<subdivision type="issfa" draft="contributed">Árborg</subdivision>
 			<subdivision type="it21" draft="contributed">Piemonte</subdivision>
 			<subdivision type="it23" draft="contributed">Lembah Aosta</subdivision>
 			<subdivision type="it25" draft="contributed">Lombardia</subdivision>
@@ -1735,6 +1813,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="itsp" draft="contributed">Provinsi La Spezia</subdivision>
 			<subdivision type="itsr" draft="contributed">Provinsi Sirakusa</subdivision>
 			<subdivision type="itss" draft="contributed">Provinsi Sassari</subdivision>
+			<subdivision type="itsu" draft="contributed">Provinsi Sardinia Selatan</subdivision>
 			<subdivision type="itsv" draft="contributed">Provinsi Savona</subdivision>
 			<subdivision type="itta" draft="contributed">Provinsi Taranto</subdivision>
 			<subdivision type="itte" draft="contributed">Provinsi Teramo</subdivision>
@@ -1827,8 +1906,53 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="jp45" draft="contributed">Prefektur Miyazaki</subdivision>
 			<subdivision type="jp46" draft="contributed">Prefektur Kagoshima</subdivision>
 			<subdivision type="jp47" draft="contributed">Prefektur Okinawa</subdivision>
+			<subdivision type="ke01" draft="contributed">County Baringo</subdivision>
+			<subdivision type="ke02" draft="contributed">County Bomet</subdivision>
+			<subdivision type="ke03" draft="contributed">County Bungoma</subdivision>
+			<subdivision type="ke04" draft="contributed">County Busia</subdivision>
+			<subdivision type="ke05" draft="contributed">County Elgeyo-Marakwet</subdivision>
+			<subdivision type="ke06" draft="contributed">County Embu</subdivision>
+			<subdivision type="ke07" draft="contributed">County Garissa</subdivision>
+			<subdivision type="ke08" draft="contributed">County Homa Bay</subdivision>
+			<subdivision type="ke09" draft="contributed">County Isiolo</subdivision>
+			<subdivision type="ke10" draft="contributed">County Kajiado</subdivision>
+			<subdivision type="ke11" draft="contributed">County Kakamega</subdivision>
+			<subdivision type="ke12" draft="contributed">County Kericho</subdivision>
+			<subdivision type="ke13" draft="contributed">County Kiambu</subdivision>
+			<subdivision type="ke14" draft="contributed">County Kilifi</subdivision>
+			<subdivision type="ke15" draft="contributed">County Kirinyaga</subdivision>
+			<subdivision type="ke16" draft="contributed">County Kisii</subdivision>
+			<subdivision type="ke17" draft="contributed">County Kisumu</subdivision>
+			<subdivision type="ke18" draft="contributed">County Kitui</subdivision>
+			<subdivision type="ke19" draft="contributed">County Kwale</subdivision>
+			<subdivision type="ke20" draft="contributed">County Laikipia</subdivision>
+			<subdivision type="ke21" draft="contributed">County Lamu</subdivision>
+			<subdivision type="ke22" draft="contributed">County Machakos</subdivision>
+			<subdivision type="ke23" draft="contributed">County Makueni</subdivision>
+			<subdivision type="ke24" draft="contributed">County Mandera</subdivision>
+			<subdivision type="ke25" draft="contributed">County Marsabit</subdivision>
+			<subdivision type="ke26" draft="contributed">County Meru</subdivision>
+			<subdivision type="ke27" draft="contributed">County Migori</subdivision>
+			<subdivision type="ke28" draft="contributed">County Mombasa</subdivision>
+			<subdivision type="ke29" draft="contributed">County Murang’a</subdivision>
 			<subdivision type="ke30" draft="contributed">Nairobi County</subdivision>
+			<subdivision type="ke31" draft="contributed">County Nakuru</subdivision>
+			<subdivision type="ke32" draft="contributed">County Nandi</subdivision>
+			<subdivision type="ke33" draft="contributed">County Narok</subdivision>
+			<subdivision type="ke34" draft="contributed">County Nyamira</subdivision>
+			<subdivision type="ke35" draft="contributed">County Nyandarua</subdivision>
+			<subdivision type="ke36" draft="contributed">County Nyeri</subdivision>
+			<subdivision type="ke37" draft="contributed">County Samburu</subdivision>
+			<subdivision type="ke38" draft="contributed">County Siaya</subdivision>
+			<subdivision type="ke39" draft="contributed">County Taita–Taveta</subdivision>
+			<subdivision type="ke40" draft="contributed">County Tana River</subdivision>
+			<subdivision type="ke41" draft="contributed">County Tharaka-Nithi</subdivision>
+			<subdivision type="ke42" draft="contributed">County Trans-Nzoia</subdivision>
 			<subdivision type="ke43" draft="contributed">Kabupaten Turkana</subdivision>
+			<subdivision type="ke44" draft="contributed">County Uasin Gishu</subdivision>
+			<subdivision type="ke45" draft="contributed">County Vihiga</subdivision>
+			<subdivision type="ke46" draft="contributed">County Wajir</subdivision>
+			<subdivision type="ke47" draft="contributed">County West Pokot</subdivision>
 			<subdivision type="kgb" draft="contributed">Provinsi Batken</subdivision>
 			<subdivision type="kgc" draft="contributed">Provinsi Chui</subdivision>
 			<subdivision type="kggb" draft="contributed">Bishkek</subdivision>
@@ -1882,6 +2006,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kn12" draft="contributed">Paroki Saint Thomas Lowland</subdivision>
 			<subdivision type="kn13" draft="contributed">Paroki Saint Thomas Middle Island</subdivision>
 			<subdivision type="kn15" draft="contributed">Paroki Trinity Palmetto Point</subdivision>
+			<subdivision type="knk" draft="contributed">Saint Kitts</subdivision>
+			<subdivision type="knn" draft="contributed">Nevis</subdivision>
 			<subdivision type="kp01" draft="contributed">Pyongyang</subdivision>
 			<subdivision type="kp02" draft="contributed">P’yŏngan Selatan</subdivision>
 			<subdivision type="kp03" draft="contributed">P’yŏngan Utara</subdivision>
@@ -1893,6 +2019,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kp09" draft="contributed">Hamgyong Utara</subdivision>
 			<subdivision type="kp10" draft="contributed">Ryanggang</subdivision>
 			<subdivision type="kp13" draft="contributed">Rason</subdivision>
+			<subdivision type="kp14" draft="contributed">Nampo</subdivision>
 			<subdivision type="kr11" draft="contributed">Seoul</subdivision>
 			<subdivision type="kr26" draft="contributed">Busan</subdivision>
 			<subdivision type="kr27" draft="contributed">Daegu</subdivision>
@@ -1929,6 +2056,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kzman" draft="contributed">Provinsi Mangghystau</subdivision>
 			<subdivision type="kzpav" draft="contributed">Provinsi Pavlodar</subdivision>
 			<subdivision type="kzsev" draft="contributed">Provinsi Kazakhstan Utara</subdivision>
+			<subdivision type="kzshy" draft="contributed">Shymkent</subdivision>
 			<subdivision type="kzvos" draft="contributed">Provinsi Kazakhstan Timur</subdivision>
 			<subdivision type="kzyuz" draft="contributed">Provinsi Kazakhstan Selatan</subdivision>
 			<subdivision type="kzzap" draft="contributed">Provinsi Kazakhstan Barat</subdivision>
@@ -1957,10 +2085,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="lbjl" draft="contributed">Kegubernuran Gunung Lebanon</subdivision>
 			<subdivision type="lbna" draft="contributed">Kegubernuran Nabatiye</subdivision>
 			<subdivision type="lc01" draft="contributed">Anse la Raye Quarter</subdivision>
+			<subdivision type="lc02" draft="contributed">Kuarter Castries</subdivision>
+			<subdivision type="lc03" draft="contributed">Kuarter Choiseul</subdivision>
 			<subdivision type="lc05" draft="contributed">Dennery Quarter</subdivision>
 			<subdivision type="lc06" draft="contributed">Gros Islet Quarter</subdivision>
 			<subdivision type="lc07" draft="contributed">Laborie Quarter</subdivision>
 			<subdivision type="lc08" draft="contributed">Micoud Quarter</subdivision>
+			<subdivision type="lc10" draft="contributed">Kuarter Soufrière</subdivision>
 			<subdivision type="lc11" draft="contributed">Vieux Fort Quarter</subdivision>
 			<subdivision type="lc12" draft="contributed">Canaries</subdivision>
 			<subdivision type="li01" draft="contributed">Balzers</subdivision>
@@ -1980,6 +2111,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="lk4" draft="contributed">Provinsi Utara, Sri Lanka</subdivision>
 			<subdivision type="lk5" draft="contributed">Provinsi Timur, Sri Lanka</subdivision>
 			<subdivision type="lk6" draft="contributed">Provinsi Barat Laut, Sri Lanka</subdivision>
+			<subdivision type="lk7" draft="contributed">Provinsi Tengah Utara, Sri Lanka</subdivision>
 			<subdivision type="lk8" draft="contributed">Provinsi Uva</subdivision>
 			<subdivision type="lk9" draft="contributed">Provinsi Sabaragamuwa</subdivision>
 			<subdivision type="lk11" draft="contributed">Distrik Kolombo</subdivision>
@@ -2219,6 +2351,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="maskh" draft="contributed">Temara</subdivision>
 			<subdivision type="masyb" draft="contributed">Marrakesh³</subdivision>
 			<subdivision type="matng" draft="contributed">Tangier</subdivision>
+			<subdivision type="mcco" draft="contributed">La Condamine</subdivision>
 			<subdivision type="mcmc" draft="contributed">Monte Carlo</subdivision>
 			<subdivision type="mdan" draft="contributed">Raionul Anenii Noi</subdivision>
 			<subdivision type="mdba" draft="contributed">Bălţi</subdivision>
@@ -2265,86 +2398,131 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="me07" draft="contributed">Kotamadya Danilovgrad</subdivision>
 			<subdivision type="me08" draft="contributed">Kotamadya Herceg Novi</subdivision>
 			<subdivision type="me09" draft="contributed">Kotamadya Kolašin</subdivision>
+			<subdivision type="me10" draft="contributed">Munisipalitas Kotor</subdivision>
 			<subdivision type="me11" draft="contributed">Kotamadya Mojkovac</subdivision>
 			<subdivision type="me12" draft="contributed">Kotamadya Nikšić</subdivision>
 			<subdivision type="me13" draft="contributed">Kotamadya Plav</subdivision>
 			<subdivision type="me14" draft="contributed">Kotamadya Pljevlja</subdivision>
 			<subdivision type="me15" draft="contributed">Kotamadya Plužine</subdivision>
+			<subdivision type="me16" draft="contributed">Munisipalitas Podgorica</subdivision>
+			<subdivision type="me17" draft="contributed">Munisipalitas Rožaje</subdivision>
 			<subdivision type="me18" draft="contributed">Kotamadya Šavnik</subdivision>
 			<subdivision type="me19" draft="contributed">Kota praja Tivat</subdivision>
 			<subdivision type="me20" draft="contributed">Kotamadya Ulcinj</subdivision>
 			<subdivision type="me21" draft="contributed">Kotamadya Žabljak</subdivision>
+			<subdivision type="me22" draft="contributed">Munisipalitas Gusinje</subdivision>
+			<subdivision type="me23" draft="contributed">Munisipalitas Petnjica</subdivision>
 			<subdivision type="mga" draft="contributed">Provinsi Toamasina</subdivision>
 			<subdivision type="mgd" draft="contributed">Provinsi Antsiranana</subdivision>
 			<subdivision type="mgf" draft="contributed">Provinsi Fianarantsoa</subdivision>
 			<subdivision type="mgm" draft="contributed">Provinsi Mahajanga</subdivision>
 			<subdivision type="mgt" draft="contributed">Provinsi Antananarivo</subdivision>
 			<subdivision type="mgu" draft="contributed">Provinsi Toliara</subdivision>
+			<subdivision type="mhalk" draft="contributed">Atol Ailuk</subdivision>
+			<subdivision type="mhall" draft="contributed">Atol Ailinglaplap</subdivision>
+			<subdivision type="mharn" draft="contributed">Atol Arno</subdivision>
 			<subdivision type="mhaur" draft="contributed">Atol Aur</subdivision>
+			<subdivision type="mhebo" draft="contributed">Atol Ebon</subdivision>
 			<subdivision type="mheni" draft="contributed">Atol Enewetak</subdivision>
+			<subdivision type="mhjab" draft="contributed">Pulau Jabat</subdivision>
+			<subdivision type="mhjal" draft="contributed">Atol Jaluit</subdivision>
+			<subdivision type="mhkil" draft="contributed">Pulau Kili</subdivision>
+			<subdivision type="mhkwa" draft="contributed">Atol Kwajalein</subdivision>
 			<subdivision type="mhl" draft="contributed">Ralik Chain</subdivision>
+			<subdivision type="mhlae" draft="contributed">Atol Lae</subdivision>
+			<subdivision type="mhlib" draft="contributed">Pulau Lib</subdivision>
+			<subdivision type="mhlik" draft="contributed">Atol Likiep</subdivision>
 			<subdivision type="mhmaj" draft="contributed">Majuro</subdivision>
+			<subdivision type="mhmal" draft="contributed">Atol Maloelap</subdivision>
+			<subdivision type="mhmej" draft="contributed">Pulau Mejit</subdivision>
+			<subdivision type="mhmil" draft="contributed">Atol Mili</subdivision>
+			<subdivision type="mhnmk" draft="contributed">Atol Namorik</subdivision>
+			<subdivision type="mhnmu" draft="contributed">Atol Namu</subdivision>
+			<subdivision type="mhron" draft="contributed">Atol Rongelap</subdivision>
 			<subdivision type="mht" draft="contributed">Ratak Chain</subdivision>
 			<subdivision type="mhuja" draft="contributed">Atol Ujae</subdivision>
+			<subdivision type="mhuti" draft="contributed">Atol Utirik</subdivision>
 			<subdivision type="mhwth" draft="contributed">Atol Wotho</subdivision>
-			<subdivision type="mk02" draft="contributed">Kotamadya Aračinovo</subdivision>
-			<subdivision type="mk03" draft="contributed">Kotamadya Berovo</subdivision>
-			<subdivision type="mk04" draft="contributed">Kotamadya Bitola</subdivision>
-			<subdivision type="mk05" draft="contributed">Kotamadya Bogdanci</subdivision>
-			<subdivision type="mk06" draft="contributed">Kotamadya Bogovinje</subdivision>
-			<subdivision type="mk07" draft="contributed">Kotamadya Bosilovo</subdivision>
-			<subdivision type="mk08" draft="contributed">Kotamadya Brvenica</subdivision>
-			<subdivision type="mk11" draft="contributed">Kotamadya Vasilevo</subdivision>
-			<subdivision type="mk14" draft="contributed">Kotamadya Vinica</subdivision>
-			<subdivision type="mk19" draft="contributed">Kotamadya Gostivar</subdivision>
-			<subdivision type="mk20" draft="contributed">Kotamadya Gradsko</subdivision>
-			<subdivision type="mk21" draft="contributed">Kotamadya Debar</subdivision>
-			<subdivision type="mk22" draft="contributed">Kotamadya Debarca</subdivision>
-			<subdivision type="mk23" draft="contributed">Kotamadya Delčevo</subdivision>
-			<subdivision type="mk27" draft="contributed">Kotamadya Dolneni</subdivision>
-			<subdivision type="mk30" draft="contributed">Kotamadya Želino</subdivision>
-			<subdivision type="mk32" draft="contributed">Kotamadya Zelenikovo</subdivision>
-			<subdivision type="mk33" draft="contributed">Kotamadya Zrnovci</subdivision>
-			<subdivision type="mk34" draft="contributed">Kotamadya Ilinden</subdivision>
-			<subdivision type="mk35" draft="contributed">Kotamadya Jegunovce</subdivision>
-			<subdivision type="mk36" draft="contributed">Kotamadya Kavadarci</subdivision>
-			<subdivision type="mk37" draft="contributed">Karbinci</subdivision>
-			<subdivision type="mk40" draft="contributed">Kotamadya Kičevo</subdivision>
-			<subdivision type="mk41" draft="contributed">Kotamadya Konče</subdivision>
-			<subdivision type="mk42" draft="contributed">Kotamadya Kočani</subdivision>
-			<subdivision type="mk43" draft="contributed">Kotamadya Kratovo</subdivision>
-			<subdivision type="mk44" draft="contributed">Kotamadya Kriva Palanka</subdivision>
-			<subdivision type="mk45" draft="contributed">Kotamadya Krivogaštani</subdivision>
-			<subdivision type="mk46" draft="contributed">Kotamadya Kruševo</subdivision>
-			<subdivision type="mk47" draft="contributed">Kotamadya Kumanovo</subdivision>
-			<subdivision type="mk48" draft="contributed">Kotamadya Lipkovo</subdivision>
-			<subdivision type="mk49" draft="contributed">Kotamadya Lozovo</subdivision>
-			<subdivision type="mk50" draft="contributed">Kotamadya Mavrovo dan Rostuša</subdivision>
-			<subdivision type="mk51" draft="contributed">Kotamadya Makedonska Kamenica</subdivision>
-			<subdivision type="mk52" draft="contributed">Kotamadya Makedonski Brod</subdivision>
-			<subdivision type="mk54" draft="contributed">Kotamadya Negotino</subdivision>
-			<subdivision type="mk56" draft="contributed">Kotamadya Novo Selo</subdivision>
-			<subdivision type="mk58" draft="contributed">Kotamadya Ohrid</subdivision>
-			<subdivision type="mk60" draft="contributed">Kotamadya Pehčevo</subdivision>
-			<subdivision type="mk61" draft="contributed">Kotamadya Plasnica</subdivision>
-			<subdivision type="mk62" draft="contributed">Kotamadya Prilep</subdivision>
-			<subdivision type="mk63" draft="contributed">Kotamadya Probištip</subdivision>
-			<subdivision type="mk64" draft="contributed">Kotamadya Radoviš</subdivision>
-			<subdivision type="mk65" draft="contributed">Kotamadya Rankovce</subdivision>
-			<subdivision type="mk66" draft="contributed">Kotamadya Resen</subdivision>
-			<subdivision type="mk69" draft="contributed">Kotamadya Sveti Nikole</subdivision>
-			<subdivision type="mk70" draft="contributed">Kotamadya Sopište</subdivision>
-			<subdivision type="mk72" draft="contributed">Kotamadya Struga</subdivision>
-			<subdivision type="mk73" draft="contributed">Kotamadya Strumica</subdivision>
-			<subdivision type="mk74" draft="contributed">Kotamadya Studeničani</subdivision>
-			<subdivision type="mk75" draft="contributed">Kotamadya Tearce</subdivision>
-			<subdivision type="mk76" draft="contributed">Kotamadya Tetovo</subdivision>
-			<subdivision type="mk78" draft="contributed">Kotamadya Centar Župa</subdivision>
-			<subdivision type="mk80" draft="contributed">Kotamadya Čaška</subdivision>
-			<subdivision type="mk81" draft="contributed">Kotamadya Češinovo-Obleševo</subdivision>
-			<subdivision type="mk82" draft="contributed">Kotamadya Čučer-Sandevo</subdivision>
-			<subdivision type="mk83" draft="contributed">Kotamadya Štip</subdivision>
+			<subdivision type="mhwtj" draft="contributed">Atol Wotje</subdivision>
 			<subdivision type="mk85" draft="contributed">Skopje</subdivision>
+			<subdivision type="mk101" draft="contributed">Munisipalitas Veles</subdivision>
+			<subdivision type="mk102" draft="contributed">Kotamadya Gradsko</subdivision>
+			<subdivision type="mk103" draft="contributed">Munisipalitas Demir Kapija</subdivision>
+			<subdivision type="mk104" draft="contributed">Kotamadya Kavadarci</subdivision>
+			<subdivision type="mk105" draft="contributed">Kotamadya Lozovo</subdivision>
+			<subdivision type="mk106" draft="contributed">Kotamadya Negotino</subdivision>
+			<subdivision type="mk107" draft="contributed">Munisipalitas Rosoman</subdivision>
+			<subdivision type="mk108" draft="contributed">Kotamadya Sveti Nikole</subdivision>
+			<subdivision type="mk109" draft="contributed">Kotamadya Čaška</subdivision>
+			<subdivision type="mk201" draft="contributed">Kotamadya Berovo</subdivision>
+			<subdivision type="mk202" draft="contributed">Kotamadya Vinica</subdivision>
+			<subdivision type="mk203" draft="contributed">Kotamadya Delčevo</subdivision>
+			<subdivision type="mk204" draft="contributed">Kotamadya Zrnovci</subdivision>
+			<subdivision type="mk205" draft="contributed">Karbinci</subdivision>
+			<subdivision type="mk206" draft="contributed">Kotamadya Kočani</subdivision>
+			<subdivision type="mk207" draft="contributed">Kotamadya Makedonska Kamenica</subdivision>
+			<subdivision type="mk208" draft="contributed">Kotamadya Pehčevo</subdivision>
+			<subdivision type="mk209" draft="contributed">Kotamadya Probištip</subdivision>
+			<subdivision type="mk210" draft="contributed">Kotamadya Češinovo-Obleševo</subdivision>
+			<subdivision type="mk211" draft="contributed">Kotamadya Štip</subdivision>
+			<subdivision type="mk301" draft="contributed">Munisipalitas Vevčani</subdivision>
+			<subdivision type="mk303" draft="contributed">Kotamadya Debar</subdivision>
+			<subdivision type="mk304" draft="contributed">Kotamadya Debarca</subdivision>
+			<subdivision type="mk307" draft="contributed">Kotamadya Kičevo</subdivision>
+			<subdivision type="mk308" draft="contributed">Kotamadya Makedonski Brod</subdivision>
+			<subdivision type="mk310" draft="contributed">Kotamadya Ohrid</subdivision>
+			<subdivision type="mk311" draft="contributed">Kotamadya Plasnica</subdivision>
+			<subdivision type="mk312" draft="contributed">Kotamadya Struga</subdivision>
+			<subdivision type="mk313" draft="contributed">Kotamadya Centar Župa</subdivision>
+			<subdivision type="mk401" draft="contributed">Kotamadya Bogdanci</subdivision>
+			<subdivision type="mk402" draft="contributed">Kotamadya Bosilovo</subdivision>
+			<subdivision type="mk403" draft="contributed">Munisipalitas Valandovo</subdivision>
+			<subdivision type="mk404" draft="contributed">Kotamadya Vasilevo</subdivision>
+			<subdivision type="mk405" draft="contributed">Munisipalitas Gevgelija</subdivision>
+			<subdivision type="mk406" draft="contributed">Munisipalitas Dojran</subdivision>
+			<subdivision type="mk407" draft="contributed">Kotamadya Konče</subdivision>
+			<subdivision type="mk408" draft="contributed">Kotamadya Novo Selo</subdivision>
+			<subdivision type="mk409" draft="contributed">Kotamadya Radoviš</subdivision>
+			<subdivision type="mk410" draft="contributed">Kotamadya Strumica</subdivision>
+			<subdivision type="mk501" draft="contributed">Kotamadya Bitola</subdivision>
+			<subdivision type="mk502" draft="contributed">Munisipalitas Demir Hisar</subdivision>
+			<subdivision type="mk503" draft="contributed">Kotamadya Dolneni</subdivision>
+			<subdivision type="mk504" draft="contributed">Kotamadya Krivogaštani</subdivision>
+			<subdivision type="mk505" draft="contributed">Kotamadya Kruševo</subdivision>
+			<subdivision type="mk506" draft="contributed">Munisipalitas Mogila</subdivision>
+			<subdivision type="mk507" draft="contributed">Munisipalitas Novaci</subdivision>
+			<subdivision type="mk508" draft="contributed">Kotamadya Prilep</subdivision>
+			<subdivision type="mk509" draft="contributed">Kotamadya Resen</subdivision>
+			<subdivision type="mk601" draft="contributed">Kotamadya Bogovinje</subdivision>
+			<subdivision type="mk602" draft="contributed">Kotamadya Brvenica</subdivision>
+			<subdivision type="mk603" draft="contributed">Munisipalitas Vrapčište</subdivision>
+			<subdivision type="mk604" draft="contributed">Kotamadya Gostivar</subdivision>
+			<subdivision type="mk605" draft="contributed">Kotamadya Želino</subdivision>
+			<subdivision type="mk606" draft="contributed">Kotamadya Jegunovce</subdivision>
+			<subdivision type="mk607" draft="contributed">Kotamadya Mavrovo dan Rostuša</subdivision>
+			<subdivision type="mk608" draft="contributed">Kotamadya Tearce</subdivision>
+			<subdivision type="mk609" draft="contributed">Kotamadya Tetovo</subdivision>
+			<subdivision type="mk701" draft="contributed">Kotamadya Kratovo</subdivision>
+			<subdivision type="mk702" draft="contributed">Kotamadya Kriva Palanka</subdivision>
+			<subdivision type="mk703" draft="contributed">Kotamadya Kumanovo</subdivision>
+			<subdivision type="mk704" draft="contributed">Kotamadya Lipkovo</subdivision>
+			<subdivision type="mk705" draft="contributed">Kotamadya Rankovce</subdivision>
+			<subdivision type="mk706" draft="contributed">Munisipalitas Staro Nagoričane</subdivision>
+			<subdivision type="mk802" draft="contributed">Kotamadya Aračinovo</subdivision>
+			<subdivision type="mk803" draft="contributed">Munisipalitas Butel</subdivision>
+			<subdivision type="mk804" draft="contributed">Munisipalitas Gazi Baba</subdivision>
+			<subdivision type="mk805" draft="contributed">Munisipalitas Gjorče Petrov</subdivision>
+			<subdivision type="mk806" draft="contributed">Kotamadya Zelenikovo</subdivision>
+			<subdivision type="mk807" draft="contributed">Kotamadya Ilinden</subdivision>
+			<subdivision type="mk808" draft="contributed">Munisipalitas Karpoš</subdivision>
+			<subdivision type="mk809" draft="contributed">Munisipalitas Kisela Voda</subdivision>
+			<subdivision type="mk810" draft="contributed">Munisipalitas Petrovec</subdivision>
+			<subdivision type="mk811" draft="contributed">Munisipalitas Saraj</subdivision>
+			<subdivision type="mk812" draft="contributed">Kotamadya Sopište</subdivision>
+			<subdivision type="mk813" draft="contributed">Kotamadya Studeničani</subdivision>
+			<subdivision type="mk815" draft="contributed">Munisipalitas Čair</subdivision>
+			<subdivision type="mk816" draft="contributed">Kotamadya Čučer-Sandevo</subdivision>
+			<subdivision type="mk817" draft="contributed">Munisipalitas Šuto Orizari</subdivision>
 			<subdivision type="ml1" draft="contributed">Region Kayes</subdivision>
 			<subdivision type="ml2" draft="contributed">Region Koulikoro</subdivision>
 			<subdivision type="ml3" draft="contributed">Region Sikasso</subdivision>
@@ -2427,6 +2605,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mt23" draft="contributed">Kirkop</subdivision>
 			<subdivision type="mt24" draft="contributed">Lija</subdivision>
 			<subdivision type="mt25" draft="contributed">Luqa</subdivision>
+			<subdivision type="mt26" draft="contributed">Marsa, Malta</subdivision>
 			<subdivision type="mt27" draft="contributed">Marsaskala</subdivision>
 			<subdivision type="mt28" draft="contributed">Marsaxlokk</subdivision>
 			<subdivision type="mt29" draft="contributed">Mdina</subdivision>
@@ -2441,6 +2620,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mt38" draft="contributed">Naxxar</subdivision>
 			<subdivision type="mt39" draft="contributed">Paola</subdivision>
 			<subdivision type="mt40" draft="contributed">Pembroke</subdivision>
+			<subdivision type="mt41" draft="contributed">Pietà, Malta</subdivision>
 			<subdivision type="mt42" draft="contributed">Qala</subdivision>
 			<subdivision type="mt43" draft="contributed">Qormi</subdivision>
 			<subdivision type="mt44" draft="contributed">Qrendi</subdivision>
@@ -2464,6 +2644,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mt62" draft="contributed">Xewkija</subdivision>
 			<subdivision type="mt63" draft="contributed">Xgħajra</subdivision>
 			<subdivision type="mt64" draft="contributed">Żabbar</subdivision>
+			<subdivision type="mt65" draft="contributed">Żebbuġ, Gozo</subdivision>
 			<subdivision type="mt66" draft="contributed">Żebbuġ</subdivision>
 			<subdivision type="mt67" draft="contributed">Żejtun</subdivision>
 			<subdivision type="mt68" draft="contributed">Żurrieq</subdivision>
@@ -2599,9 +2780,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="naer" draft="contributed">Wilayah Erongo</subdivision>
 			<subdivision type="naha" draft="contributed">Wilayah Hardap</subdivision>
 			<subdivision type="naka" draft="contributed">Wilayah Karas</subdivision>
+			<subdivision type="nake" draft="contributed">Region Kavango East</subdivision>
 			<subdivision type="nakh" draft="contributed">Wilayah Khomas</subdivision>
 			<subdivision type="naku" draft="contributed">Wilayah Kunene</subdivision>
+			<subdivision type="nakw" draft="contributed">Region Kavango West</subdivision>
 			<subdivision type="naod" draft="contributed">Wilayah Otjozondjupa</subdivision>
+			<subdivision type="naoh" draft="contributed">Region Omaheke</subdivision>
 			<subdivision type="naon" draft="contributed">Wilayah Oshana</subdivision>
 			<subdivision type="naos" draft="contributed">Wilayah Omusati</subdivision>
 			<subdivision type="naot" draft="contributed">Wilayah Oshikoto</subdivision>
@@ -2704,6 +2888,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="no20" draft="contributed">Finnmark</subdivision>
 			<subdivision type="no21" draft="contributed">Svalbard</subdivision>
 			<subdivision type="no22" draft="contributed">Jan Mayen</subdivision>
+			<subdivision type="no34" draft="contributed">Innlandet</subdivision>
+			<subdivision type="no50" draft="contributed">Trøndelag</subdivision>
 			<subdivision type="npba" draft="contributed">Zona Bagmati</subdivision>
 			<subdivision type="npbh" draft="contributed">Bheri Zone</subdivision>
 			<subdivision type="npdh" draft="contributed">Dhaulagiri Zone</subdivision>
@@ -2932,6 +3118,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="psdeb" draft="contributed">Kegubernuran Deir al-Balah</subdivision>
 			<subdivision type="psgza" draft="contributed">Kegubernuran Gaza</subdivision>
 			<subdivision type="pshbn" draft="contributed">Hebron Governorate</subdivision>
+			<subdivision type="psjem" draft="contributed">Kegubernuran Yerusalem</subdivision>
 			<subdivision type="psjen" draft="contributed">Kegubernuran Jenin</subdivision>
 			<subdivision type="pskys" draft="contributed">Kegubernuran Khan Yunis</subdivision>
 			<subdivision type="psnbs" draft="contributed">Nablus Governorate</subdivision>
@@ -3070,6 +3257,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="rs22" draft="contributed">Distrik Pirot</subdivision>
 			<subdivision type="rs23" draft="contributed">Distrik Jablanica</subdivision>
 			<subdivision type="rs24" draft="contributed">Distrik Pčinja</subdivision>
+			<subdivision type="rs25" draft="contributed">Distrik Kosovo</subdivision>
+			<subdivision type="rs29" draft="contributed">Distrik Kosovo-Pomoravlje</subdivision>
 			<subdivision type="rskm" draft="contributed">Kosovo dan Metohija</subdivision>
 			<subdivision type="rsvo" draft="contributed">Vojvodina</subdivision>
 			<subdivision type="ruad" draft="contributed">Adygea</subdivision>
@@ -3197,6 +3386,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="sc12" draft="contributed">Glacis</subdivision>
 			<subdivision type="sc13" draft="contributed">Grand’Anse Mahé</subdivision>
 			<subdivision type="sc14" draft="contributed">Grand’Anse Praslin</subdivision>
+			<subdivision type="sc15" draft="contributed">La Digue dan Inner Islands</subdivision>
 			<subdivision type="sc16" draft="contributed">La Rivière Anglaise</subdivision>
 			<subdivision type="sc17" draft="contributed">Mont Buxton</subdivision>
 			<subdivision type="sc18" draft="contributed">Mont Fleuri</subdivision>
@@ -3246,6 +3436,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="sex" draft="contributed">Daerah Gävleborg</subdivision>
 			<subdivision type="sey" draft="contributed">Daerah Västernorrland</subdivision>
 			<subdivision type="sez" draft="contributed">Daerah Jämtland</subdivision>
+			<subdivision type="sg01" draft="contributed">Dewan Pengembangan Masyarakat Singapura Tengah</subdivision>
+			<subdivision type="sg02" draft="contributed">Dewan Pengembangan Masyarakat Timur Laut</subdivision>
+			<subdivision type="sg03" draft="contributed">Dewan Pengembangan Masyarakat Barat Laut</subdivision>
+			<subdivision type="sg04" draft="contributed">Dewan Pengembangan Masyarakat Tenggara</subdivision>
+			<subdivision type="sg05" draft="contributed">Dewan Pengembangan Masyarakat Barat Daya</subdivision>
 			<subdivision type="shac" draft="contributed">Ascension</subdivision>
 			<subdivision type="shhl" draft="contributed">Saint Helena</subdivision>
 			<subdivision type="si001" draft="contributed">Ajdovščina</subdivision>
@@ -3269,17 +3464,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="si020" draft="contributed">Kotamadya Dobrepolje</subdivision>
 			<subdivision type="si021" draft="contributed">Kotamadya Dobrova–Polhov Gradec</subdivision>
 			<subdivision type="si022" draft="contributed">Kotamadya Dol pri Ljubljani</subdivision>
+			<subdivision type="si023" draft="contributed">Munisipalitas Domžale</subdivision>
 			<subdivision type="si024" draft="contributed">Kotamadya Dornava</subdivision>
 			<subdivision type="si025" draft="contributed">Kotamadya Dravograd</subdivision>
 			<subdivision type="si026" draft="contributed">Kotamadya Duplek</subdivision>
 			<subdivision type="si027" draft="contributed">Kotamadya Gorenja Vas–Poljane</subdivision>
 			<subdivision type="si028" draft="contributed">Kotamadya Gorišnica</subdivision>
+			<subdivision type="si029" draft="contributed">Munisipalitas Gornja Radgona</subdivision>
 			<subdivision type="si030" draft="contributed">Kotamadya Gornji Grad</subdivision>
 			<subdivision type="si031" draft="contributed">Kotamadya Gornji Petrovci</subdivision>
 			<subdivision type="si032" draft="contributed">Kotamadya Grosuplje</subdivision>
 			<subdivision type="si033" draft="contributed">Šalovci</subdivision>
 			<subdivision type="si034" draft="contributed">Kotamadya Hrastnik</subdivision>
 			<subdivision type="si035" draft="contributed">Kotamadya Hrpelje–Kozina</subdivision>
+			<subdivision type="si036" draft="contributed">Munisipalitas Idrija</subdivision>
 			<subdivision type="si037" draft="contributed">Kotamadya Ig</subdivision>
 			<subdivision type="si038" draft="contributed">Kota praja Ilirska Bistrica</subdivision>
 			<subdivision type="si039" draft="contributed">Kotamadya Ivančna Gorica</subdivision>
@@ -3293,6 +3491,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="si047" draft="contributed">Kotamadya Kobilje</subdivision>
 			<subdivision type="si048" draft="contributed">Kočevje</subdivision>
 			<subdivision type="si049" draft="contributed">Kotamadya Komen</subdivision>
+			<subdivision type="si050" draft="contributed">Munisipalitas Koper</subdivision>
 			<subdivision type="si051" draft="contributed">Kotamadya Kozje</subdivision>
 			<subdivision type="si052" draft="contributed">Kotamadya Kranj City</subdivision>
 			<subdivision type="si053" draft="contributed">Kotamadya Kranjska Gora</subdivision>
@@ -3303,7 +3502,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="si058" draft="contributed">Kotamadya Lenart</subdivision>
 			<subdivision type="si059" draft="contributed">Lendava</subdivision>
 			<subdivision type="si060" draft="contributed">Kotamadya Litija</subdivision>
+			<subdivision type="si061" draft="contributed">Munisipalitas Ljubljana</subdivision>
 			<subdivision type="si062" draft="contributed">Kotamadya Ljubno</subdivision>
+			<subdivision type="si063" draft="contributed">Munisipalitas Ljutomer</subdivision>
 			<subdivision type="si064" draft="contributed">Logatec</subdivision>
 			<subdivision type="si065" draft="contributed">Kotamadya Loška Dolina</subdivision>
 			<subdivision type="si066" draft="contributed">Kotamadya Loški Potok</subdivision>
@@ -3327,6 +3528,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="si085" draft="contributed">Kotamadya Novo Mesto</subdivision>
 			<subdivision type="si086" draft="contributed">Odranci</subdivision>
 			<subdivision type="si087" draft="contributed">Ormož</subdivision>
+			<subdivision type="si088" draft="contributed">Munisipalitas Osilnica</subdivision>
 			<subdivision type="si089" draft="contributed">Kotamadya Pesnica</subdivision>
 			<subdivision type="si090" draft="contributed">Piran, Slovenia</subdivision>
 			<subdivision type="si091" draft="contributed">Kotamadya Pivka</subdivision>
@@ -3335,8 +3537,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="si094" draft="contributed">Kotamadya Postojna</subdivision>
 			<subdivision type="si095" draft="contributed">Kotamadya Preddvor</subdivision>
 			<subdivision type="si096" draft="contributed">Ptuj</subdivision>
+			<subdivision type="si097" draft="contributed">Munisipalitas Puconci</subdivision>
 			<subdivision type="si098" draft="contributed">Kotamadya Rače–Fram</subdivision>
 			<subdivision type="si099" draft="contributed">Radeče</subdivision>
+			<subdivision type="si100" draft="contributed">Munisipalitas Radenci</subdivision>
 			<subdivision type="si101" draft="contributed">Kotamadya Radlje ob Dravi</subdivision>
 			<subdivision type="si102" draft="contributed">Kotamadya Radovljica</subdivision>
 			<subdivision type="si103" draft="contributed">Ravne na Koroškem</subdivision>
@@ -3368,16 +3572,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="si129" draft="contributed">Trbovlje</subdivision>
 			<subdivision type="si130" draft="contributed">Kotamadya Trebnje</subdivision>
 			<subdivision type="si131" draft="contributed">Kotamadya Tržič</subdivision>
+			<subdivision type="si132" draft="contributed">Munisipalitas Turnišče</subdivision>
+			<subdivision type="si133" draft="contributed">Munisipalitas Velenje</subdivision>
 			<subdivision type="si134" draft="contributed">Kotamadya Velike Lašče</subdivision>
+			<subdivision type="si135" draft="contributed">Munisipalitas Videm</subdivision>
 			<subdivision type="si136" draft="contributed">Kotamadya Vipava</subdivision>
 			<subdivision type="si137" draft="contributed">Vitanje</subdivision>
 			<subdivision type="si138" draft="contributed">Vodice</subdivision>
 			<subdivision type="si139" draft="contributed">Kotamadya Vojnik</subdivision>
 			<subdivision type="si140" draft="contributed">Kotamadya Vrhnika</subdivision>
 			<subdivision type="si141" draft="contributed">Kotamadya Vuzenica</subdivision>
+			<subdivision type="si142" draft="contributed">Munisipalitas Zagorje ob Savi</subdivision>
 			<subdivision type="si143" draft="contributed">Kotamadya Zavrč</subdivision>
 			<subdivision type="si144" draft="contributed">Kotamadya Zreče</subdivision>
 			<subdivision type="si146" draft="contributed">Kotamadya Železniki</subdivision>
+			<subdivision type="si147" draft="contributed">Munisipalitas Žiri</subdivision>
 			<subdivision type="si148" draft="contributed">Kotamadya Benedikt</subdivision>
 			<subdivision type="si149" draft="contributed">Kotamadya Bistrica ob Sotli</subdivision>
 			<subdivision type="si150" draft="contributed">Kotamadya Bloke</subdivision>
@@ -3386,6 +3595,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="si153" draft="contributed">Kotamadya Cerkvenjak</subdivision>
 			<subdivision type="si154" draft="contributed">Kotamadya Dobje</subdivision>
 			<subdivision type="si155" draft="contributed">Kotamadya Dobrna</subdivision>
+			<subdivision type="si156" draft="contributed">Munisipalitas Dobrovnik</subdivision>
 			<subdivision type="si157" draft="contributed">Kotamadya Dolenjske Toplice</subdivision>
 			<subdivision type="si158" draft="contributed">Kotamadya Grad</subdivision>
 			<subdivision type="si159" draft="contributed">Kotamadya Hajdina</subdivision>
@@ -3396,7 +3606,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="si164" draft="contributed">Kotamadya Komenda</subdivision>
 			<subdivision type="si165" draft="contributed">Kotamadya Kostel</subdivision>
 			<subdivision type="si166" draft="contributed">Kotamadya Križevci</subdivision>
+			<subdivision type="si167" draft="contributed">Munisipalitas Lovrenc na Pohorju</subdivision>
 			<subdivision type="si168" draft="contributed">Kotamadya Markovci</subdivision>
+			<subdivision type="si169" draft="contributed">Munisipalitas Miklavž na Dravskem Polju</subdivision>
 			<subdivision type="si170" draft="contributed">Kotamadya Mirna Peč</subdivision>
 			<subdivision type="si171" draft="contributed">Kotamadya Oplotnica</subdivision>
 			<subdivision type="si172" draft="contributed">Kotamadya Podlehnik</subdivision>
@@ -3407,6 +3619,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="si177" draft="contributed">Kotamadya Ribnica na Pohorju</subdivision>
 			<subdivision type="si178" draft="contributed">Kotamadya Selnica ob Dravi</subdivision>
 			<subdivision type="si179" draft="contributed">Kotamadya Sodražica</subdivision>
+			<subdivision type="si180" draft="contributed">Munisipalitas Solčava</subdivision>
 			<subdivision type="si181" draft="contributed">Kotamadya Sveta Ana</subdivision>
 			<subdivision type="si182" draft="contributed">Kotamadya Sveti Andraž v Slovenskih Goricah</subdivision>
 			<subdivision type="si183" draft="contributed">Kotamadya Šempeter–Vrtojba</subdivision>
@@ -3421,6 +3634,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="si192" draft="contributed">Kotamadya Žirovnica</subdivision>
 			<subdivision type="si193" draft="contributed">Žužemberk</subdivision>
 			<subdivision type="si194" draft="contributed">Šmartno pri Litiji</subdivision>
+			<subdivision type="si195" draft="contributed">Munisipalitas Apače</subdivision>
+			<subdivision type="si196" draft="contributed">Munisipalitas Cirkulane</subdivision>
+			<subdivision type="si197" draft="contributed">Munisipalitas Kostanjevica na Krki</subdivision>
+			<subdivision type="si198" draft="contributed">Munisipalitas Makole</subdivision>
+			<subdivision type="si199" draft="contributed">Munisipalitas Mokronog-Trebelno</subdivision>
+			<subdivision type="si200" draft="contributed">Munisipalitas Poljčane</subdivision>
+			<subdivision type="si201" draft="contributed">Munisipalitas Renče–Vogrsko</subdivision>
+			<subdivision type="si202" draft="contributed">Munisipalitas Središče ob Dravi</subdivision>
+			<subdivision type="si203" draft="contributed">Munisipalitas Straža</subdivision>
+			<subdivision type="si204" draft="contributed">Munisipalitas Sveta Trojica v Slovenskih Goricah</subdivision>
+			<subdivision type="si205" draft="contributed">Munisipalitas Sveti Tomaž</subdivision>
+			<subdivision type="si206" draft="contributed">Munisipalitas Šmarješke Toplice</subdivision>
+			<subdivision type="si207" draft="contributed">Munisipalitas Gorje</subdivision>
+			<subdivision type="si208" draft="contributed">Munisipalitas Log-Dragomer</subdivision>
+			<subdivision type="si210" draft="contributed">Munisipalitas Sveti Jurij v Slovenskih Goricah</subdivision>
+			<subdivision type="si211" draft="contributed">Munisipalitas Šentrupert</subdivision>
 			<subdivision type="si213" draft="contributed">Ankaran</subdivision>
 			<subdivision type="skbc" draft="contributed">Region Banská Bystrica</subdivision>
 			<subdivision type="skbl" draft="contributed">Region Bratislava</subdivision>
@@ -3491,6 +3720,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ssnu" draft="contributed">Nil Hulu</subdivision>
 			<subdivision type="ssuy" draft="contributed">Wahdah</subdivision>
 			<subdivision type="sswr" draft="contributed">Warab</subdivision>
+			<subdivision type="st01" draft="contributed">Distrik Água Grande</subdivision>
+			<subdivision type="st02" draft="contributed">Distrik Cantagalo</subdivision>
+			<subdivision type="st03" draft="contributed">Distrik Caué</subdivision>
+			<subdivision type="st04" draft="contributed">Distrik Lembá</subdivision>
+			<subdivision type="st05" draft="contributed">Distrik Lobata</subdivision>
+			<subdivision type="st06" draft="contributed">Distrik Mé-Zóchi</subdivision>
 			<subdivision type="svah" draft="contributed">Departemen Ahuachapán</subdivision>
 			<subdivision type="svca" draft="contributed">Departemen Cabañas</subdivision>
 			<subdivision type="svch" draft="contributed">Departemen Chalatenango</subdivision>
@@ -3777,6 +4012,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tttob" draft="contributed">Tobago</subdivision>
 			<subdivision type="tttup" draft="contributed">Korporasi Wilayah Tunapuna-Piarco</subdivision>
 			<subdivision type="tvfun" draft="contributed">Funafuti</subdivision>
+			<subdivision type="tvnit" draft="contributed">Niutao</subdivision>
+			<subdivision type="tvnkf" draft="contributed">Nukufetau</subdivision>
+			<subdivision type="tvnkl" draft="contributed">Nukulaelae</subdivision>
+			<subdivision type="tvnma" draft="contributed">Nanumea</subdivision>
+			<subdivision type="tvnmg" draft="contributed">Nanumanga</subdivision>
+			<subdivision type="tvnui" draft="contributed">Nui (atol)</subdivision>
+			<subdivision type="tvvai" draft="contributed">Vaitupu</subdivision>
 			<subdivision type="twcha" draft="contributed">Kabupaten Changhua</subdivision>
 			<subdivision type="twcyi" draft="contributed">Kabupaten Chiayi</subdivision>
 			<subdivision type="twcyq" draft="contributed">Kota Chiayi</subdivision>
@@ -3790,6 +4032,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="twlie" draft="contributed">Kepulauan Lienchiang</subdivision>
 			<subdivision type="twmia" draft="contributed">Kabupaten Miaoli</subdivision>
 			<subdivision type="twnan" draft="contributed">Kabupaten Nantou</subdivision>
+			<subdivision type="twnwt" draft="contributed">Kabupaten Taipei</subdivision>
 			<subdivision type="twpen" draft="contributed">Kabupaten Penghu</subdivision>
 			<subdivision type="twpif" draft="contributed">Kabupaten Pingtung</subdivision>
 			<subdivision type="twtao" draft="contributed">Kabupaten Taoyuan</subdivision>
@@ -3800,6 +4043,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="twyun" draft="contributed">Kabupaten Yunlin</subdivision>
 			<subdivision type="tz01" draft="contributed">Wilayah Arusha</subdivision>
 			<subdivision type="tz02" draft="contributed">Wilayah Dar es Salaam</subdivision>
+			<subdivision type="tz03" draft="contributed">Region Dodoma</subdivision>
 			<subdivision type="tz04" draft="contributed">Wilayah Iringa</subdivision>
 			<subdivision type="tz05" draft="contributed">Region Kagera</subdivision>
 			<subdivision type="tz06" draft="contributed">Wilayah Pemba Utara</subdivision>
@@ -3807,6 +4051,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tz08" draft="contributed">Wilayah Kigoma</subdivision>
 			<subdivision type="tz09" draft="contributed">Wilayah Kilimanjaro</subdivision>
 			<subdivision type="tz10" draft="contributed">Wilayah Pemba Selatan</subdivision>
+			<subdivision type="tz11" draft="contributed">Region Unguja Selatan</subdivision>
 			<subdivision type="tz12" draft="contributed">Wilayah Lindi</subdivision>
 			<subdivision type="tz13" draft="contributed">Wilayah Mara</subdivision>
 			<subdivision type="tz14" draft="contributed">Wilayah Mbeya</subdivision>
@@ -3877,6 +4122,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ug122" draft="contributed">Distrik Kalungu</subdivision>
 			<subdivision type="ug123" draft="contributed">Distrik Kyankwanzi</subdivision>
 			<subdivision type="ug124" draft="contributed">Distrik Lwengo</subdivision>
+			<subdivision type="ug201" draft="contributed">Distrik Bugiri</subdivision>
 			<subdivision type="ug202" draft="contributed">Distrik Busia</subdivision>
 			<subdivision type="ug203" draft="contributed">Distrik Iganga</subdivision>
 			<subdivision type="ug204" draft="contributed">Distrik Jinja</subdivision>
@@ -3919,6 +4165,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ug309" draft="contributed">Distrik Moyo</subdivision>
 			<subdivision type="ug310" draft="contributed">Distrik Nebbi</subdivision>
 			<subdivision type="ug311" draft="contributed">Distrik Nakapiripirit</subdivision>
+			<subdivision type="ug312" draft="contributed">Distrik Pader</subdivision>
 			<subdivision type="ug313" draft="contributed">Distrik Yumbe</subdivision>
 			<subdivision type="ug314" draft="contributed">Distrik Abim</subdivision>
 			<subdivision type="ug315" draft="contributed">Distrik Amolatar</subdivision>
@@ -3944,6 +4191,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ug405" draft="contributed">Distrik Kabarole</subdivision>
 			<subdivision type="ug406" draft="contributed">Distrik Kasese</subdivision>
 			<subdivision type="ug407" draft="contributed">Distrik Kibaale</subdivision>
+			<subdivision type="ug408" draft="contributed">Distrik Kisoro</subdivision>
 			<subdivision type="ug409" draft="contributed">Distrik Masindi</subdivision>
 			<subdivision type="ug410" draft="contributed">Distrik Mbarara</subdivision>
 			<subdivision type="ug411" draft="contributed">Distrik Ntungamo</subdivision>
@@ -3962,6 +4210,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ug424" draft="contributed">Distrik Ntoroko</subdivision>
 			<subdivision type="ug425" draft="contributed">Distrik Rubirizi</subdivision>
 			<subdivision type="ug426" draft="contributed">Distrik Sheema</subdivision>
+			<subdivision type="ugc" draft="contributed">Region Tengah, Uganda</subdivision>
+			<subdivision type="uge" draft="contributed">Region Timur, Uganda</subdivision>
+			<subdivision type="ugn" draft="contributed">Region Utara, Uganda</subdivision>
+			<subdivision type="ugw" draft="contributed">Region Barat, Uganda</subdivision>
 			<subdivision type="um67" draft="contributed">Atol Johnston</subdivision>
 			<subdivision type="um71" draft="contributed">Atol Midway</subdivision>
 			<subdivision type="um76" draft="contributed">Pulau Navassa</subdivision>
@@ -4191,11 +4443,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="yeta" draft="contributed">Kegubernuran Ta’izz</subdivision>
 			<subdivision type="zaec" draft="contributed">Eastern Cape</subdivision>
 			<subdivision type="zafs" draft="contributed">Free State</subdivision>
-			<subdivision type="zagt" draft="contributed">Gauteng</subdivision>
+			<subdivision type="zagp" draft="contributed">Gauteng</subdivision>
+			<subdivision type="zakzn" draft="contributed">KwaZulu-Natal</subdivision>
 			<subdivision type="zalp" draft="contributed">Limpopo</subdivision>
 			<subdivision type="zamp" draft="contributed">Mpumalanga</subdivision>
 			<subdivision type="zanc" draft="contributed">Northern Cape</subdivision>
-			<subdivision type="zanl" draft="contributed">KwaZulu-Natal</subdivision>
 			<subdivision type="zanw" draft="contributed">North West, Afrika Selatan</subdivision>
 			<subdivision type="zawc" draft="contributed">Western Cape</subdivision>
 			<subdivision type="zm01" draft="contributed">Provinsi Barat, Zambia</subdivision>

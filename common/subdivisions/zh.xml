@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -17,6 +17,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ad04" draft="contributed">马萨纳</subdivision>
 			<subdivision type="ad05" draft="contributed">奥尔迪诺</subdivision>
 			<subdivision type="ad06" draft="contributed">圣胡利娅-德洛里亚</subdivision>
+			<subdivision type="ad07" draft="contributed">安道尔城</subdivision>
 			<subdivision type="ad08" draft="contributed">萊塞斯卡爾德-恩戈爾達</subdivision>
 			<subdivision type="aeaj" draft="contributed">阿吉曼</subdivision>
 			<subdivision type="aeaz" draft="contributed">阿布扎比</subdivision>
@@ -503,12 +504,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bsmg" draft="contributed">馬亞瓜納島</subdivision>
 			<subdivision type="bsne" draft="contributed">北伊柳塞拉</subdivision>
 			<subdivision type="bsno" draft="contributed">北阿巴科區</subdivision>
+			<subdivision type="bsns" draft="contributed">北安德罗斯岛</subdivision>
 			<subdivision type="bsrc" draft="contributed">拉姆岛</subdivision>
 			<subdivision type="bsri" draft="contributed">拉吉德岛</subdivision>
 			<subdivision type="bssa" draft="contributed">南安德羅斯</subdivision>
 			<subdivision type="bsse" draft="contributed">南伊柳塞拉</subdivision>
 			<subdivision type="bsso" draft="contributed">南阿巴科區</subdivision>
 			<subdivision type="bsss" draft="contributed">圣萨尔瓦多岛</subdivision>
+			<subdivision type="bssw" draft="contributed">西艦井</subdivision>
 			<subdivision type="bswg" draft="contributed">西大巴哈馬島區</subdivision>
 			<subdivision type="bt11" draft="contributed">帕罗宗</subdivision>
 			<subdivision type="bt12" draft="contributed">楚卡宗</subdivision>
@@ -583,6 +586,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cdkg" draft="contributed">宽果省</subdivision>
 			<subdivision type="cdkl" draft="contributed">奎卢省</subdivision>
 			<subdivision type="cdkn" draft="contributed">金夏沙</subdivision>
+			<subdivision type="cdks" draft="contributed">开赛</subdivision>
 			<subdivision type="cdlo" draft="contributed">洛马米省</subdivision>
 			<subdivision type="cdlu" draft="contributed">卢阿拉巴省</subdivision>
 			<subdivision type="cdma" draft="contributed">马涅马省</subdivision>
@@ -676,6 +680,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cllr" draft="contributed">河大区</subdivision>
 			<subdivision type="clma" draft="contributed">麦哲伦-智利南极大区</subdivision>
 			<subdivision type="clml" draft="contributed">马乌莱大区</subdivision>
+			<subdivision type="clnb" draft="contributed">纽夫莱大区</subdivision>
 			<subdivision type="clrm" draft="contributed">圣地亚哥首都大区</subdivision>
 			<subdivision type="clta" draft="contributed">塔拉帕卡大区</subdivision>
 			<subdivision type="clvs" draft="contributed">瓦尔帕莱索大区</subdivision>
@@ -1107,6 +1112,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="esce" draft="contributed">休达</subdivision>
 			<subdivision type="escl" draft="contributed">卡斯蒂利亚-莱昂</subdivision>
 			<subdivision type="escm" draft="contributed">卡斯蒂利亚-拉曼恰</subdivision>
+			<subdivision type="escn" draft="contributed">加那利群岛</subdivision>
 			<subdivision type="esco" draft="contributed">科爾多瓦省</subdivision>
 			<subdivision type="escr" draft="contributed">雷阿爾城省</subdivision>
 			<subdivision type="escs" draft="contributed">卡斯特利翁省</subdivision>
@@ -1214,6 +1220,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr04" draft="contributed">上普罗旺斯阿尔卑斯省</subdivision>
 			<subdivision type="fr05" draft="contributed">上阿尔卑斯省</subdivision>
 			<subdivision type="fr06" draft="contributed">滨海阿尔卑斯省</subdivision>
+			<subdivision type="fr6ae" draft="contributed">阿尔萨斯欧洲集体</subdivision>
 			<subdivision type="fr07" draft="contributed">阿尔代什省</subdivision>
 			<subdivision type="fr08" draft="contributed">阿登省</subdivision>
 			<subdivision type="fr09" draft="contributed">阿列日省</subdivision>
@@ -1227,6 +1234,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr17" draft="contributed">滨海夏朗德省</subdivision>
 			<subdivision type="fr18" draft="contributed">谢尔省</subdivision>
 			<subdivision type="fr19" draft="contributed">科雷兹省</subdivision>
+			<subdivision type="fr20r" draft="contributed">科西嘉</subdivision>
 			<subdivision type="fr21" draft="contributed">科多尔省</subdivision>
 			<subdivision type="fr22" draft="contributed">阿摩尔滨海省</subdivision>
 			<subdivision type="fr23" draft="contributed">克勒兹省</subdivision>
@@ -1281,7 +1289,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr72" draft="contributed">萨尔特省</subdivision>
 			<subdivision type="fr73" draft="contributed">萨瓦省</subdivision>
 			<subdivision type="fr74" draft="contributed">上萨瓦省</subdivision>
-			<subdivision type="fr75" draft="contributed">巴黎</subdivision>
+			<subdivision type="fr75c" draft="contributed">巴黎</subdivision>
 			<subdivision type="fr76" draft="contributed">滨海塞纳省</subdivision>
 			<subdivision type="fr77" draft="contributed">塞纳-马恩省</subdivision>
 			<subdivision type="fr78" draft="contributed">伊夫林省</subdivision>
@@ -1302,6 +1310,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr93" draft="contributed">塞纳-圣但尼省</subdivision>
 			<subdivision type="fr94" draft="contributed">马恩河谷省</subdivision>
 			<subdivision type="fr95" draft="contributed">瓦勒德瓦兹省</subdivision>
+			<subdivision type="fr971" draft="contributed">瓜德羅普</subdivision>
 			<subdivision type="frara" draft="contributed">奧文尼-隆-阿爾卑斯</subdivision>
 			<subdivision type="frbfc" draft="contributed">勃艮第-弗朗什-孔泰大區</subdivision>
 			<subdivision type="frbre" draft="contributed">布列塔尼</subdivision>
@@ -1332,6 +1341,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbans" draft="contributed">安格斯</subdivision>
 			<subdivision type="gbbas" draft="contributed">巴斯和東北薩默塞特</subdivision>
 			<subdivision type="gbbbd" draft="contributed">布莱克本-達文</subdivision>
+			<subdivision type="gbbcp" draft="contributed">伯恩茅斯，基督城和普尔统一管理区</subdivision>
 			<subdivision type="gbbdf" draft="contributed">貝德福德區</subdivision>
 			<subdivision type="gbbdg" draft="contributed">巴金-達格納姆區</subdivision>
 			<subdivision type="gbben" draft="contributed">布倫特區</subdivision>
@@ -1388,6 +1398,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbeln" draft="contributed">东洛锡安</subdivision>
 			<subdivision type="gbels" draft="contributed">埃利安锡尔</subdivision>
 			<subdivision type="gbenf" draft="contributed">恩菲爾德區</subdivision>
+			<subdivision type="gbeng" draft="contributed">英格兰</subdivision>
 			<subdivision type="gberw" draft="contributed">东伦弗鲁郡</subdivision>
 			<subdivision type="gbery" draft="contributed">东约克郡</subdivision>
 			<subdivision type="gbess" draft="contributed">埃塞克斯郡</subdivision>
@@ -1437,6 +1448,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbman" draft="contributed">曼彻斯特</subdivision>
 			<subdivision type="gbmdb" draft="contributed">米德爾斯伯勒</subdivision>
 			<subdivision type="gbmdw" draft="contributed">梅德韋</subdivision>
+			<subdivision type="gbmik" draft="contributed">米尔顿凯恩斯区</subdivision>
 			<subdivision type="gbmln" draft="contributed">中洛锡安</subdivision>
 			<subdivision type="gbmon" draft="contributed">蒙茅斯郡</subdivision>
 			<subdivision type="gbmrt" draft="contributed">默頓區</subdivision>
@@ -1479,6 +1491,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbsaw" draft="contributed">砂井</subdivision>
 			<subdivision type="gbsay" draft="contributed">南艾尔郡</subdivision>
 			<subdivision type="gbscb" draft="contributed">蘇格蘭邊區</subdivision>
+			<subdivision type="gbsct" draft="contributed">蘇格蘭</subdivision>
 			<subdivision type="gbsfk" draft="contributed">薩福克郡</subdivision>
 			<subdivision type="gbsft" draft="contributed">塞夫頓都會自治市</subdivision>
 			<subdivision type="gbsgc" draft="contributed">南告羅士打郡</subdivision>
@@ -1522,6 +1535,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbwkf" draft="contributed">韋克菲爾德市</subdivision>
 			<subdivision type="gbwll" draft="contributed">華素爾區</subdivision>
 			<subdivision type="gbwln" draft="contributed">西洛锡安</subdivision>
+			<subdivision type="gbwls" draft="contributed">威爾斯</subdivision>
 			<subdivision type="gbwlv" draft="contributed">伍爾弗漢普頓</subdivision>
 			<subdivision type="gbwnd" draft="contributed">旺茲沃思區</subdivision>
 			<subdivision type="gbwnm" draft="contributed">溫莎-梅登黑德</subdivision>
@@ -1554,18 +1568,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gesz" draft="contributed">薩梅格列羅-上斯瓦涅季亞州</subdivision>
 			<subdivision type="getb" draft="contributed">第比利斯</subdivision>
 			<subdivision type="ghaa" draft="contributed">大阿克拉地區</subdivision>
+			<subdivision type="ghaf" draft="contributed">阿哈福區</subdivision>
 			<subdivision type="ghah" draft="contributed">阿散蒂地區</subdivision>
 			<subdivision type="ghba" draft="contributed">布朗阿哈福地區</subdivision>
+			<subdivision type="ghbe" draft="contributed">博諾東區</subdivision>
+			<subdivision type="ghbo" draft="contributed">博諾區</subdivision>
 			<subdivision type="ghcp" draft="contributed">中部地區</subdivision>
 			<subdivision type="ghep" draft="contributed">東部地區</subdivision>
+			<subdivision type="ghne" draft="contributed">東北區 (加納)</subdivision>
 			<subdivision type="ghnp" draft="contributed">北部地區</subdivision>
+			<subdivision type="ghot" draft="contributed">奧蒂大區</subdivision>
+			<subdivision type="ghsv" draft="contributed">薩凡納大區</subdivision>
 			<subdivision type="ghtv" draft="contributed">沃爾特地區</subdivision>
 			<subdivision type="ghue" draft="contributed">東北地區</subdivision>
 			<subdivision type="ghuw" draft="contributed">西北地區</subdivision>
+			<subdivision type="ghwn" draft="contributed">西北區 (加納)</subdivision>
 			<subdivision type="ghwp" draft="contributed">西部地區</subdivision>
+			<subdivision type="glav" draft="contributed">阿万纳塔</subdivision>
 			<subdivision type="glku" draft="contributed">库雅雷哥</subdivision>
 			<subdivision type="glqa" draft="contributed">卡苏伊特萨普</subdivision>
 			<subdivision type="glqe" draft="contributed">凯克卡塔</subdivision>
+			<subdivision type="glqt" draft="contributed">奎克塔利克</subdivision>
 			<subdivision type="glsm" draft="contributed">瑟莫蘇克</subdivision>
 			<subdivision type="gmb" draft="contributed">班竹</subdivision>
 			<subdivision type="gml" draft="contributed">下河區</subdivision>
@@ -1614,10 +1637,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gnte" draft="contributed">泰利梅萊省</subdivision>
 			<subdivision type="gnto" draft="contributed">圖蓋省</subdivision>
 			<subdivision type="gnyo" draft="contributed">約穆省</subdivision>
+			<subdivision type="gqan" draft="contributed">安诺本省</subdivision>
 			<subdivision type="gqbn" draft="contributed">北比奥科省</subdivision>
 			<subdivision type="gqbs" draft="contributed">南比奥科省</subdivision>
 			<subdivision type="gqc" draft="contributed">木尼河区</subdivision>
 			<subdivision type="gqcs" draft="contributed">中南省</subdivision>
+			<subdivision type="gqdj" draft="contributed">吉布劳</subdivision>
 			<subdivision type="gqi" draft="contributed">海岛大区</subdivision>
 			<subdivision type="gqkn" draft="contributed">基埃恩特姆省</subdivision>
 			<subdivision type="gqli" draft="contributed">滨海省</subdivision>
@@ -1635,28 +1660,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="grj" draft="contributed">伯罗奔尼撒</subdivision>
 			<subdivision type="grk" draft="contributed">北愛琴</subdivision>
 			<subdivision type="grl" draft="contributed">南愛琴</subdivision>
-			<subdivision type="gtav" draft="contributed">上維拉帕斯省</subdivision>
-			<subdivision type="gtbv" draft="contributed">下維拉帕斯省</subdivision>
-			<subdivision type="gtcm" draft="contributed">奇馬爾特南戈省</subdivision>
-			<subdivision type="gtcq" draft="contributed">奇基穆拉省</subdivision>
-			<subdivision type="gtes" draft="contributed">埃斯昆特拉省</subdivision>
-			<subdivision type="gtgu" draft="contributed">瓜地馬拉省</subdivision>
-			<subdivision type="gthu" draft="contributed">韋韋特南戈省</subdivision>
-			<subdivision type="gtiz" draft="contributed">伊薩瓦爾省</subdivision>
-			<subdivision type="gtja" draft="contributed">哈拉帕省</subdivision>
-			<subdivision type="gtju" draft="contributed">胡蒂亞帕省</subdivision>
-			<subdivision type="gtpe" draft="contributed">貝登省</subdivision>
-			<subdivision type="gtpr" draft="contributed">普羅格雷索省</subdivision>
-			<subdivision type="gtqc" draft="contributed">基切省</subdivision>
-			<subdivision type="gtqz" draft="contributed">克薩爾特南戈省</subdivision>
-			<subdivision type="gtre" draft="contributed">雷塔盧萊烏省</subdivision>
-			<subdivision type="gtsa" draft="contributed">薩卡特佩克斯省</subdivision>
-			<subdivision type="gtsm" draft="contributed">聖馬科斯省</subdivision>
-			<subdivision type="gtso" draft="contributed">索洛拉省</subdivision>
-			<subdivision type="gtsr" draft="contributed">聖羅薩省</subdivision>
-			<subdivision type="gtsu" draft="contributed">蘇奇特佩克斯省</subdivision>
-			<subdivision type="gtto" draft="contributed">托托尼卡潘省</subdivision>
-			<subdivision type="gtza" draft="contributed">薩卡帕省</subdivision>
+			<subdivision type="grm" draft="contributed">克里特</subdivision>
+			<subdivision type="gt01" draft="contributed">瓜地馬拉省</subdivision>
+			<subdivision type="gt02" draft="contributed">普羅格雷索省</subdivision>
+			<subdivision type="gt03" draft="contributed">薩卡特佩克斯省</subdivision>
+			<subdivision type="gt04" draft="contributed">奇馬爾特南戈省</subdivision>
+			<subdivision type="gt05" draft="contributed">埃斯昆特拉省</subdivision>
+			<subdivision type="gt06" draft="contributed">聖羅薩省</subdivision>
+			<subdivision type="gt07" draft="contributed">索洛拉省</subdivision>
+			<subdivision type="gt08" draft="contributed">托托尼卡潘省</subdivision>
+			<subdivision type="gt09" draft="contributed">克薩爾特南戈省</subdivision>
+			<subdivision type="gt10" draft="contributed">蘇奇特佩克斯省</subdivision>
+			<subdivision type="gt11" draft="contributed">雷塔盧萊烏省</subdivision>
+			<subdivision type="gt12" draft="contributed">聖馬科斯省</subdivision>
+			<subdivision type="gt13" draft="contributed">韋韋特南戈省</subdivision>
+			<subdivision type="gt14" draft="contributed">基切省</subdivision>
+			<subdivision type="gt15" draft="contributed">下維拉帕斯省</subdivision>
+			<subdivision type="gt16" draft="contributed">上維拉帕斯省</subdivision>
+			<subdivision type="gt17" draft="contributed">貝登省</subdivision>
+			<subdivision type="gt18" draft="contributed">伊薩瓦爾省</subdivision>
+			<subdivision type="gt19" draft="contributed">薩卡帕省</subdivision>
+			<subdivision type="gt20" draft="contributed">奇基穆拉省</subdivision>
+			<subdivision type="gt21" draft="contributed">哈拉帕省</subdivision>
+			<subdivision type="gt22" draft="contributed">胡蒂亞帕省</subdivision>
 			<subdivision type="gwba" draft="contributed">巴法塔區</subdivision>
 			<subdivision type="gwbl" draft="contributed">博拉馬區</subdivision>
 			<subdivision type="gwbm" draft="contributed">比翁博區</subdivision>
@@ -1769,6 +1795,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="huza" draft="contributed">佐洛州</subdivision>
 			<subdivision type="huze" draft="contributed">佐洛埃格塞格</subdivision>
 			<subdivision type="idac" draft="contributed">亞齊</subdivision>
+			<subdivision type="idba" draft="contributed">巴厘岛</subdivision>
 			<subdivision type="idbb" draft="contributed">邦加-勿里洞省</subdivision>
 			<subdivision type="idbe" draft="contributed">明古魯省</subdivision>
 			<subdivision type="idbt" draft="contributed">万丹省</subdivision>
@@ -1852,6 +1879,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inch" draft="contributed">昌迪加尔</subdivision>
 			<subdivision type="inct" draft="contributed">恰蒂斯加尔邦</subdivision>
 			<subdivision type="indd" draft="contributed">达曼-第乌</subdivision>
+			<subdivision type="indh" draft="contributed">達德拉-納加爾哈維利和達曼-第烏</subdivision>
 			<subdivision type="indl" draft="contributed">德里</subdivision>
 			<subdivision type="indn" draft="contributed">达德拉-纳加尔哈维利</subdivision>
 			<subdivision type="inga" draft="contributed">果阿邦</subdivision>
@@ -1862,6 +1890,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="injk" draft="contributed">查谟－克什米尔邦</subdivision>
 			<subdivision type="inka" draft="contributed">卡纳塔克邦</subdivision>
 			<subdivision type="inkl" draft="contributed">喀拉拉邦</subdivision>
+			<subdivision type="inla" draft="contributed">拉達克</subdivision>
 			<subdivision type="inld" draft="contributed">拉克沙群島</subdivision>
 			<subdivision type="inmh" draft="contributed">马哈拉施特拉邦</subdivision>
 			<subdivision type="inml" draft="contributed">梅加拉亚邦</subdivision>
@@ -1898,6 +1927,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="iqsd" draft="contributed">萨拉赫丁省</subdivision>
 			<subdivision type="iqsu" draft="contributed">蘇萊曼尼亞省</subdivision>
 			<subdivision type="iqwa" draft="contributed">瓦西特省</subdivision>
+			<subdivision type="ir00" draft="contributed">中央省²</subdivision>
 			<subdivision type="ir01" draft="contributed">東亞塞拜疆省</subdivision>
 			<subdivision type="ir02" draft="contributed">西亞塞拜然省</subdivision>
 			<subdivision type="ir03" draft="contributed">阿爾達比勒省</subdivision>
@@ -1906,6 +1936,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ir06" draft="contributed">布什爾省</subdivision>
 			<subdivision type="ir07" draft="contributed">德黑蘭省</subdivision>
 			<subdivision type="ir08" draft="contributed">恰哈馬哈勒－巴赫蒂亞里省</subdivision>
+			<subdivision type="ir09" draft="contributed">礼萨呼罗珊省²</subdivision>
 			<subdivision type="ir10" draft="contributed">胡齊斯坦省</subdivision>
 			<subdivision type="ir11" draft="contributed">贊詹省</subdivision>
 			<subdivision type="ir12" draft="contributed">塞姆南省</subdivision>
@@ -1937,6 +1968,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="is6" draft="contributed">東北區</subdivision>
 			<subdivision type="is7" draft="contributed">東部區</subdivision>
 			<subdivision type="is8" draft="contributed">南部區</subdivision>
+			<subdivision type="isakh" draft="contributed">阿克拉区</subdivision>
+			<subdivision type="isakn" draft="contributed">阿克拉内斯</subdivision>
+			<subdivision type="isaku" draft="contributed">阿克雷里</subdivision>
+			<subdivision type="isarn" draft="contributed">奥尔内斯区</subdivision>
+			<subdivision type="isasa" draft="contributed">奥萨区</subdivision>
+			<subdivision type="isbla" draft="contributed">布劳斯科加比格兹</subdivision>
+			<subdivision type="isblo" draft="contributed">布倫迪歐斯</subdivision>
+			<subdivision type="isbog" draft="contributed">博尔加比格兹</subdivision>
+			<subdivision type="isbol" draft="contributed">博隆加维克</subdivision>
+			<subdivision type="isdab" draft="contributed">达拉比格兹</subdivision>
+			<subdivision type="isdav" draft="contributed">达尔维克比格兹</subdivision>
+			<subdivision type="iseom" draft="contributed">埃亚-米克拉霍尔特区</subdivision>
+			<subdivision type="iseyf" draft="contributed">埃亚菲亚扎乡</subdivision>
+			<subdivision type="isfjd" draft="contributed">菲亚扎比格兹</subdivision>
+			<subdivision type="isfjl" draft="contributed">菲亚德拉比格兹</subdivision>
+			<subdivision type="isfla" draft="contributed">弗洛阿区</subdivision>
+			<subdivision type="isflr" draft="contributed">弗廖斯达尔区</subdivision>
+			<subdivision type="isgru" draft="contributed">格倫達菲厄澤</subdivision>
+			<subdivision type="ishuv" draft="contributed">西胡纳辛</subdivision>
+			<subdivision type="ismul" draft="contributed">穆拉辛</subdivision>
+			<subdivision type="issfa" draft="contributed">阿堡</subdivision>
 			<subdivision type="it21" draft="contributed">皮埃蒙特</subdivision>
 			<subdivision type="it23" draft="contributed">瓦莱达奥斯塔</subdivision>
 			<subdivision type="it25" draft="contributed">伦巴第</subdivision>
@@ -2048,6 +2100,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="itsp" draft="contributed">拉斯佩齊亞省</subdivision>
 			<subdivision type="itsr" draft="contributed">錫拉庫薩省</subdivision>
 			<subdivision type="itss" draft="contributed">薩薩里省</subdivision>
+			<subdivision type="itsu" draft="contributed">南撒丁省</subdivision>
 			<subdivision type="itsv" draft="contributed">薩沃納省</subdivision>
 			<subdivision type="itta" draft="contributed">塔蘭托省</subdivision>
 			<subdivision type="itte" draft="contributed">泰拉莫省</subdivision>
@@ -2219,6 +2272,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kh22" draft="contributed">奥多棉吉省</subdivision>
 			<subdivision type="kh23" draft="contributed">白馬市</subdivision>
 			<subdivision type="kh24" draft="contributed">拜林市</subdivision>
+			<subdivision type="kh25" draft="contributed">特本克蒙省</subdivision>
 			<subdivision type="kig" draft="contributed">吉尔伯特群岛</subdivision>
 			<subdivision type="kil" draft="contributed">莱恩群岛</subdivision>
 			<subdivision type="kip" draft="contributed">菲尼克斯群岛</subdivision>
@@ -2289,6 +2343,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kzman" draft="contributed">曼格斯套州</subdivision>
 			<subdivision type="kzpav" draft="contributed">巴甫洛達爾州</subdivision>
 			<subdivision type="kzsev" draft="contributed">北哈薩克斯坦州</subdivision>
+			<subdivision type="kzshy" draft="contributed">希姆肯特</subdivision>
 			<subdivision type="kzvos" draft="contributed">東哈薩克斯坦州</subdivision>
 			<subdivision type="kzyuz" draft="contributed">南哈薩克斯坦州</subdivision>
 			<subdivision type="kzzap" draft="contributed">西哈薩克斯坦州</subdivision>
@@ -2423,8 +2478,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="lt25" draft="contributed">馬里揚泊列區</subdivision>
 			<subdivision type="lt26" draft="contributed">馬爾熱基艾地區</subdivision>
 			<subdivision type="lt27" draft="contributed">莫萊泰地區</subdivision>
+			<subdivision type="lt28" draft="contributed">内林加</subdivision>
 			<subdivision type="lt29" draft="contributed">帕蓋吉艾區</subdivision>
 			<subdivision type="lt30" draft="contributed">帕克魯奧伊斯地區</subdivision>
+			<subdivision type="lt31" draft="contributed">帕兰加市</subdivision>
 			<subdivision type="lt33" draft="contributed">帕內韋日斯地區</subdivision>
 			<subdivision type="lt34" draft="contributed">帕斯瓦利斯地區</subdivision>
 			<subdivision type="lt35" draft="contributed">普倫蓋地區</subdivision>
@@ -2462,8 +2519,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ltte" draft="contributed">特爾希艾縣</subdivision>
 			<subdivision type="ltut" draft="contributed">烏田納縣</subdivision>
 			<subdivision type="ltvl" draft="contributed">維爾紐斯縣</subdivision>
+			<subdivision type="luca" draft="contributed">卡佩伦县</subdivision>
 			<subdivision type="lucl" draft="contributed">克莱沃县</subdivision>
 			<subdivision type="ludi" draft="contributed">迪基希县</subdivision>
+			<subdivision type="luec" draft="contributed">埃希特纳赫县</subdivision>
+			<subdivision type="lues" draft="contributed">阿尔泽特河畔埃施县</subdivision>
+			<subdivision type="lugr" draft="contributed">格雷文马赫县</subdivision>
+			<subdivision type="lulu" draft="contributed">卢森堡县</subdivision>
+			<subdivision type="lume" draft="contributed">梅尔施县</subdivision>
+			<subdivision type="lurd" draft="contributed">雷当日县</subdivision>
+			<subdivision type="lurm" draft="contributed">雷米希县</subdivision>
+			<subdivision type="luvd" draft="contributed">菲安登县</subdivision>
+			<subdivision type="luwi" draft="contributed">维尔茨县</subdivision>
 			<subdivision type="lv001" draft="contributed">阿格洛納自治市</subdivision>
 			<subdivision type="lv002" draft="contributed">艾茲克勞克萊自治市</subdivision>
 			<subdivision type="lv003" draft="contributed">艾茲普泰自治市</subdivision>
@@ -2572,6 +2639,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="lv108" draft="contributed">維拉卡自治市</subdivision>
 			<subdivision type="lv109" draft="contributed">維利亞尼自治市</subdivision>
 			<subdivision type="lv110" draft="contributed">濟盧佩自治市</subdivision>
+			<subdivision type="lv111" draft="contributed">上道加瓦市镇</subdivision>
+			<subdivision type="lv112" draft="contributed">南库尔泽梅市镇</subdivision>
+			<subdivision type="lv113" draft="contributed">瓦尔米耶拉市镇</subdivision>
 			<subdivision type="lvdgv" draft="contributed">陶格夫匹尔斯</subdivision>
 			<subdivision type="lvjel" draft="contributed">叶尔加瓦</subdivision>
 			<subdivision type="lvjkb" draft="contributed">葉卡布皮爾斯</subdivision>
@@ -2628,17 +2698,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mabes" draft="contributed">本蘇萊曼省</subdivision>
 			<subdivision type="mabod" draft="contributed">布支杜爾省</subdivision>
 			<subdivision type="mabom" draft="contributed">布勒曼省</subdivision>
+			<subdivision type="mabrr" draft="contributed">拜賴希德省</subdivision>
 			<subdivision type="macas" draft="contributed">卡萨布兰卡</subdivision>
 			<subdivision type="mache" draft="contributed">謝夫沙萬省</subdivision>
 			<subdivision type="machi" draft="contributed">希沙瓦省</subdivision>
 			<subdivision type="macht" draft="contributed">希圖卡阿伊特巴哈省</subdivision>
+			<subdivision type="madri" draft="contributed">代爾尤什省</subdivision>
 			<subdivision type="maerr" draft="contributed">拉希迪耶省</subdivision>
 			<subdivision type="maesi" draft="contributed">索維拉省</subdivision>
 			<subdivision type="maesm" draft="contributed">塞馬拉省</subdivision>
 			<subdivision type="mafah" draft="contributed">法斯-安傑拉省</subdivision>
 			<subdivision type="mafes" draft="contributed">非斯</subdivision>
 			<subdivision type="mafig" draft="contributed">菲吉格省</subdivision>
+			<subdivision type="mafqh" draft="contributed">弗基赫拜尼塞拉赫省</subdivision>
 			<subdivision type="mague" draft="contributed">蓋勒敏省</subdivision>
+			<subdivision type="maguf" draft="contributed">蓋爾西夫省</subdivision>
 			<subdivision type="mahaj" draft="contributed">哈傑卜省</subdivision>
 			<subdivision type="mahao" draft="contributed">豪茲省</subdivision>
 			<subdivision type="mahoc" draft="contributed">胡塞馬省</subdivision>
@@ -2653,8 +2727,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="makho" draft="contributed">胡里卜蓋省</subdivision>
 			<subdivision type="malaa" draft="contributed">阿尤恩省</subdivision>
 			<subdivision type="malar" draft="contributed">拉臘什省</subdivision>
+			<subdivision type="mamdf" draft="contributed">邁迪格省</subdivision>
 			<subdivision type="mamed" draft="contributed">梅久那省</subdivision>
 			<subdivision type="mamek" draft="contributed">梅克内斯</subdivision>
+			<subdivision type="mamid" draft="contributed">米德勒特省</subdivision>
 			<subdivision type="mammd" draft="contributed">马拉喀什</subdivision>
 			<subdivision type="mammn" draft="contributed">马拉喀什²</subdivision>
 			<subdivision type="mamoh" draft="contributed">穆罕默迪耶</subdivision>
@@ -2664,23 +2740,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="maoua" draft="contributed">瓦爾扎扎特省</subdivision>
 			<subdivision type="maoud" draft="contributed">黃金谷地省</subdivision>
 			<subdivision type="maouj" draft="contributed">乌季达</subdivision>
+			<subdivision type="maouz" draft="contributed">沃贊省</subdivision>
 			<subdivision type="marab" draft="contributed">拉巴特</subdivision>
+			<subdivision type="mareh" draft="contributed">賴哈姆納省</subdivision>
 			<subdivision type="masaf" draft="contributed">薩非省</subdivision>
 			<subdivision type="masal" draft="contributed">塞拉</subdivision>
 			<subdivision type="masef" draft="contributed">塞夫勞省</subdivision>
 			<subdivision type="maset" draft="contributed">塞塔特省</subdivision>
+			<subdivision type="masib" draft="contributed">西迪·本努尔省</subdivision>
+			<subdivision type="masif" draft="contributed">西迪伊夫尼省</subdivision>
 			<subdivision type="masik" draft="contributed">西迪卡塞姆省</subdivision>
+			<subdivision type="masil" draft="contributed">西迪斯利曼省</subdivision>
 			<subdivision type="maskh" draft="contributed">特马拉</subdivision>
 			<subdivision type="masyb" draft="contributed">马拉喀什³</subdivision>
+			<subdivision type="mataf" draft="contributed">塔尔法亚省</subdivision>
 			<subdivision type="matai" draft="contributed">陶里爾特省</subdivision>
 			<subdivision type="matao" draft="contributed">陶納特省</subdivision>
 			<subdivision type="matar" draft="contributed">塔魯丹特省</subdivision>
 			<subdivision type="matat" draft="contributed">塔塔省</subdivision>
 			<subdivision type="mataz" draft="contributed">塔扎省</subdivision>
 			<subdivision type="matet" draft="contributed">得土安省</subdivision>
+			<subdivision type="matin" draft="contributed">廷吉爾省</subdivision>
 			<subdivision type="matiz" draft="contributed">提茲尼特省</subdivision>
 			<subdivision type="matng" draft="contributed">丹吉尔</subdivision>
 			<subdivision type="matnt" draft="contributed">坦坦省</subdivision>
+			<subdivision type="mayus" draft="contributed">尤素菲耶省</subdivision>
 			<subdivision type="mazag" draft="contributed">扎古拉省</subdivision>
 			<subdivision type="mccl" draft="contributed">拉科尔</subdivision>
 			<subdivision type="mcco" draft="contributed">拉康达明</subdivision>
@@ -2690,6 +2774,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mcmc" draft="contributed">蒙特卡洛</subdivision>
 			<subdivision type="mcmg" draft="contributed">莫内盖蒂</subdivision>
 			<subdivision type="mcmo" draft="contributed">摩纳哥城</subdivision>
+			<subdivision type="mcph" draft="contributed">赫庫勒斯港</subdivision>
 			<subdivision type="mcsr" draft="contributed">圣罗曼</subdivision>
 			<subdivision type="mdan" draft="contributed">新阿內尼區</subdivision>
 			<subdivision type="mdba" draft="contributed">伯爾茲</subdivision>
@@ -2733,6 +2818,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="me03" draft="contributed">貝拉內區</subdivision>
 			<subdivision type="me04" draft="contributed">比耶洛波列區</subdivision>
 			<subdivision type="me05" draft="contributed">布德瓦區</subdivision>
+			<subdivision type="me06" draft="contributed">采蒂涅王家旧都</subdivision>
 			<subdivision type="me07" draft="contributed">達尼洛夫格勒區</subdivision>
 			<subdivision type="me08" draft="contributed">赫爾采格諾維區</subdivision>
 			<subdivision type="me09" draft="contributed">科拉欣區</subdivision>
@@ -2742,6 +2828,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="me13" draft="contributed">普拉夫區</subdivision>
 			<subdivision type="me14" draft="contributed">普列夫利亞區</subdivision>
 			<subdivision type="me15" draft="contributed">普盧日內區</subdivision>
+			<subdivision type="me16" draft="contributed">波德戈里察首都市</subdivision>
 			<subdivision type="me17" draft="contributed">羅扎耶區</subdivision>
 			<subdivision type="me18" draft="contributed">沙夫尼克區</subdivision>
 			<subdivision type="me19" draft="contributed">蒂瓦特區</subdivision>
@@ -2781,77 +2868,87 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mhuti" draft="contributed">烏蒂里克環礁</subdivision>
 			<subdivision type="mhwth" draft="contributed">沃特環礁</subdivision>
 			<subdivision type="mhwtj" draft="contributed">沃特傑環礁</subdivision>
-			<subdivision type="mk02" draft="contributed">阿拉津诺沃区</subdivision>
-			<subdivision type="mk03" draft="contributed">贝罗沃区</subdivision>
-			<subdivision type="mk04" draft="contributed">比托拉区</subdivision>
-			<subdivision type="mk05" draft="contributed">博格丹奇区</subdivision>
-			<subdivision type="mk06" draft="contributed">博戈维涅区</subdivision>
-			<subdivision type="mk07" draft="contributed">博西洛沃区</subdivision>
-			<subdivision type="mk08" draft="contributed">布尔韦尼察区</subdivision>
-			<subdivision type="mk10" draft="contributed">瓦蘭多沃區</subdivision>
-			<subdivision type="mk11" draft="contributed">瓦西列沃區</subdivision>
-			<subdivision type="mk12" draft="contributed">維夫查尼區</subdivision>
-			<subdivision type="mk13" draft="contributed">韋萊斯區</subdivision>
-			<subdivision type="mk14" draft="contributed">维尼察区</subdivision>
-			<subdivision type="mk16" draft="contributed">弗拉普契什泰區</subdivision>
-			<subdivision type="mk18" draft="contributed">蓋夫蓋利亞區</subdivision>
-			<subdivision type="mk19" draft="contributed">戈斯蒂瓦区</subdivision>
-			<subdivision type="mk20" draft="contributed">格拉茲科區</subdivision>
-			<subdivision type="mk21" draft="contributed">德巴尔区</subdivision>
-			<subdivision type="mk22" draft="contributed">德巴尔查区</subdivision>
-			<subdivision type="mk23" draft="contributed">德尔塞沃区</subdivision>
-			<subdivision type="mk24" draft="contributed">德米尔卡皮雅区</subdivision>
-			<subdivision type="mk25" draft="contributed">德米尔希萨尔区</subdivision>
-			<subdivision type="mk26" draft="contributed">多伊兰区</subdivision>
-			<subdivision type="mk27" draft="contributed">多尔涅尼区</subdivision>
-			<subdivision type="mk30" draft="contributed">熱利諾區</subdivision>
-			<subdivision type="mk32" draft="contributed">澤倫尼科沃區</subdivision>
-			<subdivision type="mk33" draft="contributed">日尔诺维奇区</subdivision>
-			<subdivision type="mk34" draft="contributed">伊林登區</subdivision>
-			<subdivision type="mk35" draft="contributed">耶古诺夫策区</subdivision>
-			<subdivision type="mk36" draft="contributed">卡瓦達爾齊區</subdivision>
-			<subdivision type="mk37" draft="contributed">卡尔宾奇区</subdivision>
-			<subdivision type="mk40" draft="contributed">基切沃區</subdivision>
-			<subdivision type="mk41" draft="contributed">孔切區</subdivision>
-			<subdivision type="mk42" draft="contributed">科查尼區</subdivision>
-			<subdivision type="mk43" draft="contributed">克拉托沃區</subdivision>
-			<subdivision type="mk44" draft="contributed">克里瓦帕蘭卡區</subdivision>
-			<subdivision type="mk45" draft="contributed">克里沃加什塔尼区</subdivision>
-			<subdivision type="mk46" draft="contributed">克鲁舍沃区</subdivision>
-			<subdivision type="mk47" draft="contributed">库马诺沃区</subdivision>
-			<subdivision type="mk48" draft="contributed">里普科沃區</subdivision>
-			<subdivision type="mk49" draft="contributed">洛佐沃區</subdivision>
-			<subdivision type="mk50" draft="contributed">馬夫羅沃和羅斯圖沙區</subdivision>
-			<subdivision type="mk51" draft="contributed">馬其頓卡梅尼察區</subdivision>
-			<subdivision type="mk52" draft="contributed">馬其頓布羅德區</subdivision>
-			<subdivision type="mk53" draft="contributed">莫吉拉區</subdivision>
-			<subdivision type="mk54" draft="contributed">內戈蒂諾區</subdivision>
-			<subdivision type="mk55" draft="contributed">諾瓦濟區</subdivision>
-			<subdivision type="mk56" draft="contributed">諾沃塞洛區</subdivision>
-			<subdivision type="mk58" draft="contributed">奧赫里德區</subdivision>
-			<subdivision type="mk59" draft="contributed">彼得羅韋茨區</subdivision>
-			<subdivision type="mk60" draft="contributed">佩赫塞沃區</subdivision>
-			<subdivision type="mk61" draft="contributed">普拉斯尼察區</subdivision>
-			<subdivision type="mk62" draft="contributed">普里萊普區</subdivision>
-			<subdivision type="mk63" draft="contributed">普羅比什蒂普區</subdivision>
-			<subdivision type="mk64" draft="contributed">拉多維什區</subdivision>
-			<subdivision type="mk65" draft="contributed">蘭科夫采區</subdivision>
-			<subdivision type="mk66" draft="contributed">里森区</subdivision>
-			<subdivision type="mk67" draft="contributed">羅索曼區</subdivision>
-			<subdivision type="mk69" draft="contributed">聖尼古萊區</subdivision>
-			<subdivision type="mk70" draft="contributed">蘇皮什特區</subdivision>
-			<subdivision type="mk71" draft="contributed">斯塔羅納戈里查內區</subdivision>
-			<subdivision type="mk72" draft="contributed">斯特魯加區</subdivision>
-			<subdivision type="mk73" draft="contributed">斯特魯米察區</subdivision>
-			<subdivision type="mk74" draft="contributed">斯圖登尼查尼區</subdivision>
-			<subdivision type="mk75" draft="contributed">特阿爾塞區</subdivision>
-			<subdivision type="mk76" draft="contributed">特托沃區</subdivision>
-			<subdivision type="mk78" draft="contributed">辛塔尔祖帕区</subdivision>
-			<subdivision type="mk80" draft="contributed">查什卡区</subdivision>
-			<subdivision type="mk81" draft="contributed">切希诺沃-奥布莱舍沃区</subdivision>
-			<subdivision type="mk82" draft="contributed">楚塞尔桑德沃区</subdivision>
-			<subdivision type="mk83" draft="contributed">什提普區</subdivision>
 			<subdivision type="mk85" draft="contributed">斯科普里</subdivision>
+			<subdivision type="mk101" draft="contributed">韋萊斯區</subdivision>
+			<subdivision type="mk102" draft="contributed">格拉茲科區</subdivision>
+			<subdivision type="mk103" draft="contributed">德米尔卡皮雅区</subdivision>
+			<subdivision type="mk104" draft="contributed">卡瓦達爾齊區</subdivision>
+			<subdivision type="mk105" draft="contributed">洛佐沃區</subdivision>
+			<subdivision type="mk106" draft="contributed">內戈蒂諾區</subdivision>
+			<subdivision type="mk107" draft="contributed">羅索曼區</subdivision>
+			<subdivision type="mk108" draft="contributed">聖尼古萊區</subdivision>
+			<subdivision type="mk109" draft="contributed">查什卡区</subdivision>
+			<subdivision type="mk201" draft="contributed">贝罗沃区</subdivision>
+			<subdivision type="mk202" draft="contributed">维尼察区</subdivision>
+			<subdivision type="mk203" draft="contributed">德尔塞沃区</subdivision>
+			<subdivision type="mk204" draft="contributed">日尔诺维奇区</subdivision>
+			<subdivision type="mk205" draft="contributed">卡尔宾奇区</subdivision>
+			<subdivision type="mk206" draft="contributed">科查尼區</subdivision>
+			<subdivision type="mk207" draft="contributed">馬其頓卡梅尼察區</subdivision>
+			<subdivision type="mk208" draft="contributed">佩赫塞沃區</subdivision>
+			<subdivision type="mk209" draft="contributed">普羅比什蒂普區</subdivision>
+			<subdivision type="mk210" draft="contributed">切希诺沃-奥布莱舍沃区</subdivision>
+			<subdivision type="mk211" draft="contributed">什提普區</subdivision>
+			<subdivision type="mk301" draft="contributed">維夫查尼區</subdivision>
+			<subdivision type="mk303" draft="contributed">德巴尔区</subdivision>
+			<subdivision type="mk304" draft="contributed">德巴尔查区</subdivision>
+			<subdivision type="mk307" draft="contributed">基切沃區</subdivision>
+			<subdivision type="mk308" draft="contributed">馬其頓布羅德區</subdivision>
+			<subdivision type="mk310" draft="contributed">奧赫里德區</subdivision>
+			<subdivision type="mk311" draft="contributed">普拉斯尼察區</subdivision>
+			<subdivision type="mk312" draft="contributed">斯特魯加區</subdivision>
+			<subdivision type="mk313" draft="contributed">辛塔尔祖帕区</subdivision>
+			<subdivision type="mk401" draft="contributed">博格丹奇区</subdivision>
+			<subdivision type="mk402" draft="contributed">博西洛沃区</subdivision>
+			<subdivision type="mk403" draft="contributed">瓦蘭多沃區</subdivision>
+			<subdivision type="mk404" draft="contributed">瓦西列沃區</subdivision>
+			<subdivision type="mk405" draft="contributed">蓋夫蓋利亞區</subdivision>
+			<subdivision type="mk406" draft="contributed">多伊兰区</subdivision>
+			<subdivision type="mk407" draft="contributed">孔切區</subdivision>
+			<subdivision type="mk408" draft="contributed">諾沃塞洛區</subdivision>
+			<subdivision type="mk409" draft="contributed">拉多維什區</subdivision>
+			<subdivision type="mk410" draft="contributed">斯特魯米察區</subdivision>
+			<subdivision type="mk501" draft="contributed">比托拉区</subdivision>
+			<subdivision type="mk502" draft="contributed">德米尔希萨尔区</subdivision>
+			<subdivision type="mk503" draft="contributed">多尔涅尼区</subdivision>
+			<subdivision type="mk504" draft="contributed">克里沃加什塔尼区</subdivision>
+			<subdivision type="mk505" draft="contributed">克鲁舍沃区</subdivision>
+			<subdivision type="mk506" draft="contributed">莫吉拉區</subdivision>
+			<subdivision type="mk507" draft="contributed">諾瓦濟區</subdivision>
+			<subdivision type="mk508" draft="contributed">普里萊普區</subdivision>
+			<subdivision type="mk509" draft="contributed">里森区</subdivision>
+			<subdivision type="mk601" draft="contributed">博戈维涅区</subdivision>
+			<subdivision type="mk602" draft="contributed">布尔韦尼察区</subdivision>
+			<subdivision type="mk603" draft="contributed">弗拉普契什泰區</subdivision>
+			<subdivision type="mk604" draft="contributed">戈斯蒂瓦区</subdivision>
+			<subdivision type="mk605" draft="contributed">熱利諾區</subdivision>
+			<subdivision type="mk606" draft="contributed">耶古诺夫策区</subdivision>
+			<subdivision type="mk607" draft="contributed">馬夫羅沃和羅斯圖沙區</subdivision>
+			<subdivision type="mk608" draft="contributed">特阿爾塞區</subdivision>
+			<subdivision type="mk609" draft="contributed">特托沃區</subdivision>
+			<subdivision type="mk701" draft="contributed">克拉托沃區</subdivision>
+			<subdivision type="mk702" draft="contributed">克里瓦帕蘭卡區</subdivision>
+			<subdivision type="mk703" draft="contributed">库马诺沃区</subdivision>
+			<subdivision type="mk704" draft="contributed">里普科沃區</subdivision>
+			<subdivision type="mk705" draft="contributed">蘭科夫采區</subdivision>
+			<subdivision type="mk706" draft="contributed">斯塔羅納戈里查內區</subdivision>
+			<subdivision type="mk801" draft="contributed">艾罗德隆区</subdivision>
+			<subdivision type="mk802" draft="contributed">阿拉津诺沃区</subdivision>
+			<subdivision type="mk803" draft="contributed">布特尔区</subdivision>
+			<subdivision type="mk804" draft="contributed">加齊巴巴區</subdivision>
+			<subdivision type="mk805" draft="contributed">佐塞彼得羅夫區</subdivision>
+			<subdivision type="mk806" draft="contributed">澤倫尼科沃區</subdivision>
+			<subdivision type="mk807" draft="contributed">伊林登區</subdivision>
+			<subdivision type="mk808" draft="contributed">卡爾波什區</subdivision>
+			<subdivision type="mk809" draft="contributed">基塞拉沃達區</subdivision>
+			<subdivision type="mk810" draft="contributed">彼得羅韋茨區</subdivision>
+			<subdivision type="mk811" draft="contributed">薩拉伊區</subdivision>
+			<subdivision type="mk812" draft="contributed">蘇皮什特區</subdivision>
+			<subdivision type="mk813" draft="contributed">斯圖登尼查尼區</subdivision>
+			<subdivision type="mk814" draft="contributed">辛塔尔区</subdivision>
+			<subdivision type="mk815" draft="contributed">查伊尔区</subdivision>
+			<subdivision type="mk816" draft="contributed">楚塞尔桑德沃区</subdivision>
+			<subdivision type="mk817" draft="contributed">舒托奧里扎里區</subdivision>
 			<subdivision type="ml1" draft="contributed">卡伊區</subdivision>
 			<subdivision type="ml2" draft="contributed">库利科罗区</subdivision>
 			<subdivision type="ml3" draft="contributed">锡卡索区</subdivision>
@@ -2910,6 +3007,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mr10" draft="contributed">吉迪馬卡省</subdivision>
 			<subdivision type="mr11" draft="contributed">提里斯-宰穆爾省</subdivision>
 			<subdivision type="mr12" draft="contributed">因希里省</subdivision>
+			<subdivision type="mr13" draft="contributed">西努瓦克肖特大区</subdivision>
+			<subdivision type="mr14" draft="contributed">北努瓦克肖特大区</subdivision>
+			<subdivision type="mr15" draft="contributed">南努瓦克肖特大区</subdivision>
 			<subdivision type="mt01" draft="contributed">阿塔爾德</subdivision>
 			<subdivision type="mt02" draft="contributed">巴尔灿</subdivision>
 			<subdivision type="mt03" draft="contributed">比尔古</subdivision>
@@ -3113,6 +3213,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="nake" draft="contributed">東卡萬戈區</subdivision>
 			<subdivision type="nakh" draft="contributed">霍馬斯區</subdivision>
 			<subdivision type="naku" draft="contributed">庫內內區</subdivision>
+			<subdivision type="nakw" draft="contributed">西卡万戈区</subdivision>
 			<subdivision type="naod" draft="contributed">奧喬宗朱帕區</subdivision>
 			<subdivision type="naoh" draft="contributed">奧馬海凱區</subdivision>
 			<subdivision type="naon" draft="contributed">奧沙納區</subdivision>
@@ -3217,6 +3318,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="no20" draft="contributed">芬马克郡</subdivision>
 			<subdivision type="no21" draft="contributed">斯瓦尔巴群岛</subdivision>
 			<subdivision type="no22" draft="contributed">揚馬延島</subdivision>
+			<subdivision type="no30" draft="contributed">維肯郡</subdivision>
+			<subdivision type="no34" draft="contributed">內陸郡</subdivision>
+			<subdivision type="no38" draft="contributed">西福尔-泰勒马克郡</subdivision>
+			<subdivision type="no42" draft="contributed">阿格德爾</subdivision>
+			<subdivision type="no46" draft="contributed">韋斯特蘭郡</subdivision>
+			<subdivision type="no50" draft="contributed">特倫德拉格</subdivision>
+			<subdivision type="no54" draft="contributed">特罗姆斯-芬马克郡</subdivision>
 			<subdivision type="np1" draft="contributed">中部發展區</subdivision>
 			<subdivision type="np2" draft="contributed">中西部發展區</subdivision>
 			<subdivision type="np3" draft="contributed">西部发展区</subdivision>
@@ -3347,6 +3455,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ph09" draft="contributed">三宝颜半岛</subdivision>
 			<subdivision type="ph10" draft="contributed">北棉兰老</subdivision>
 			<subdivision type="ph11" draft="contributed">达沃区</subdivision>
+			<subdivision type="ph12" draft="contributed">索科斯克薩爾根</subdivision>
 			<subdivision type="ph13" draft="contributed">卡拉加区</subdivision>
 			<subdivision type="ph14" draft="contributed">棉兰老穆斯林自治区</subdivision>
 			<subdivision type="ph15" draft="contributed">科迪勒拉行政區</subdivision>
@@ -3861,6 +3970,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="si071" draft="contributed">梅德沃代</subdivision>
 			<subdivision type="si072" draft="contributed">門蓋什</subdivision>
 			<subdivision type="si073" draft="contributed">梅特利卡</subdivision>
+			<subdivision type="si074" draft="contributed">梅日察區</subdivision>
 			<subdivision type="si075" draft="contributed">米伦-科斯塔涅维察</subdivision>
 			<subdivision type="si076" draft="contributed">米斯利尼亚</subdivision>
 			<subdivision type="si077" draft="contributed">摩拉夫切</subdivision>
@@ -3883,6 +3993,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="si094" draft="contributed">波斯托伊納鎮</subdivision>
 			<subdivision type="si095" draft="contributed">普雷德沃尔</subdivision>
 			<subdivision type="si096" draft="contributed">普图伊</subdivision>
+			<subdivision type="si097" draft="contributed">普聰齊區</subdivision>
 			<subdivision type="si098" draft="contributed">拉切-弗拉姆</subdivision>
 			<subdivision type="si099" draft="contributed">拉代切</subdivision>
 			<subdivision type="si100" draft="contributed">拉登齐</subdivision>
@@ -3964,10 +4075,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="si177" draft="contributed">波霍爾尤爾地區里布尼察</subdivision>
 			<subdivision type="si178" draft="contributed">德拉維河畔賽爾尼察</subdivision>
 			<subdivision type="si179" draft="contributed">索德拉日卡</subdivision>
+			<subdivision type="si180" draft="contributed">索爾察瓦區</subdivision>
 			<subdivision type="si181" draft="contributed">斯洛文尼亞丘陵內斯維塔安那</subdivision>
 			<subdivision type="si182" draft="contributed">斯洛文尼亞丘陵內斯韋提安德拉日</subdivision>
 			<subdivision type="si183" draft="contributed">塞姆皮特-普羅特伊巴</subdivision>
 			<subdivision type="si184" draft="contributed">塔博爾</subdivision>
+			<subdivision type="si185" draft="contributed">特爾諾沃村區</subdivision>
 			<subdivision type="si186" draft="contributed">特尔津</subdivision>
 			<subdivision type="si187" draft="contributed">韋利卡波拉那</subdivision>
 			<subdivision type="si188" draft="contributed">韋爾熱</subdivision>
@@ -3994,6 +4107,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="si209" draft="contributed">薩文利畔雷契察</subdivision>
 			<subdivision type="si210" draft="contributed">斯洛文尼亞丘陵內斯韋提尤爾利</subdivision>
 			<subdivision type="si211" draft="contributed">申特魯佩爾特</subdivision>
+			<subdivision type="si212" draft="contributed">米爾納區</subdivision>
 			<subdivision type="si213" draft="contributed">安卡蘭</subdivision>
 			<subdivision type="skbc" draft="contributed">班斯卡·比斯特理察州</subdivision>
 			<subdivision type="skbl" draft="contributed">布拉迪斯拉發州</subdivision>
@@ -4005,6 +4119,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="skzi" draft="contributed">日利納州</subdivision>
 			<subdivision type="sle" draft="contributed">東方省</subdivision>
 			<subdivision type="sln" draft="contributed">北方省</subdivision>
+			<subdivision type="slnw" draft="contributed">塞拉利昂西北省</subdivision>
 			<subdivision type="sls" draft="contributed">南方省</subdivision>
 			<subdivision type="slw" draft="contributed">西部區</subdivision>
 			<subdivision type="sm01" draft="contributed">阿夸维瓦</subdivision>
@@ -4068,6 +4183,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ssnu" draft="contributed">上尼罗省</subdivision>
 			<subdivision type="ssuy" draft="contributed">猶尼提省</subdivision>
 			<subdivision type="sswr" draft="contributed">瓦拉布省</subdivision>
+			<subdivision type="st01" draft="contributed">阿瓜格蘭德縣</subdivision>
+			<subdivision type="st02" draft="contributed">坎塔加洛縣</subdivision>
+			<subdivision type="st03" draft="contributed">考埃縣</subdivision>
+			<subdivision type="st04" draft="contributed">倫巴縣</subdivision>
+			<subdivision type="st05" draft="contributed">洛巴塔縣</subdivision>
+			<subdivision type="st06" draft="contributed">梅索西縣</subdivision>
+			<subdivision type="stp" draft="contributed">普林西比自治区</subdivision>
 			<subdivision type="svah" draft="contributed">阿瓦查潘省</subdivision>
 			<subdivision type="svca" draft="contributed">卡瓦尼亚斯省</subdivision>
 			<subdivision type="svch" draft="contributed">查拉特南戈省</subdivision>
@@ -4104,6 +4226,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tdbg" draft="contributed">加扎勒河區</subdivision>
 			<subdivision type="tdbo" draft="contributed">博爾庫區</subdivision>
 			<subdivision type="tdcb" draft="contributed">沙里-巴吉尔米区</subdivision>
+			<subdivision type="tdee" draft="contributed">東恩內迪區</subdivision>
 			<subdivision type="tdeo" draft="contributed">西恩內迪區</subdivision>
 			<subdivision type="tdgr" draft="contributed">蓋拉區</subdivision>
 			<subdivision type="tdhl" draft="contributed">哈傑爾-拉密區</subdivision>
@@ -4339,13 +4462,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tr79" draft="contributed">基利斯省</subdivision>
 			<subdivision type="tr80" draft="contributed">奧斯曼尼耶省</subdivision>
 			<subdivision type="tr81" draft="contributed">迪兹杰省</subdivision>
+			<subdivision type="ttari" draft="contributed">阿里马</subdivision>
 			<subdivision type="ttcha" draft="contributed">查瓜納斯</subdivision>
+			<subdivision type="ttctt" draft="contributed">库瓦-塔瓦基特-塔尔帕罗地区</subdivision>
+			<subdivision type="ttdmn" draft="contributed">迭戈马丁地区</subdivision>
+			<subdivision type="ttmrc" draft="contributed">马亚罗-里奥克拉罗区</subdivision>
 			<subdivision type="ttped" draft="contributed">皮納爾-德貝郡</subdivision>
 			<subdivision type="ttpos" draft="contributed">西班牙港</subdivision>
 			<subdivision type="ttprt" draft="contributed">王子城郡</subdivision>
 			<subdivision type="ttptf" draft="contributed">波因特福廷</subdivision>
 			<subdivision type="ttsfo" draft="contributed">聖費爾南多</subdivision>
+			<subdivision type="ttsge" draft="contributed">大桑格雷地区</subdivision>
 			<subdivision type="ttsip" draft="contributed">錫帕里亞郡</subdivision>
+			<subdivision type="ttsjl" draft="contributed">圣胡安-拉文蒂尔区</subdivision>
 			<subdivision type="tttob" draft="contributed">多巴哥岛</subdivision>
 			<subdivision type="tttup" draft="contributed">麥高耶</subdivision>
 			<subdivision type="tvfun" draft="contributed">富纳富提</subdivision>
@@ -4369,6 +4498,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="twlie" draft="contributed">連江縣</subdivision>
 			<subdivision type="twmia" draft="contributed">苗栗縣</subdivision>
 			<subdivision type="twnan" draft="contributed">南投縣</subdivision>
+			<subdivision type="twnwt" draft="contributed">新北市</subdivision>
 			<subdivision type="twpen" draft="contributed">澎湖縣</subdivision>
 			<subdivision type="twpif" draft="contributed">屏東縣</subdivision>
 			<subdivision type="twtao" draft="contributed">桃園市</subdivision>
@@ -4403,7 +4533,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tz24" draft="contributed">塔波拉區</subdivision>
 			<subdivision type="tz25" draft="contributed">坦噶区</subdivision>
 			<subdivision type="tz26" draft="contributed">曼亞拉區</subdivision>
+			<subdivision type="tz27" draft="contributed">盖塔区</subdivision>
+			<subdivision type="tz28" draft="contributed">卡塔维区</subdivision>
 			<subdivision type="tz29" draft="contributed">恩瓊貝區</subdivision>
+			<subdivision type="tz30" draft="contributed">锡米尤区</subdivision>
 			<subdivision type="ua05" draft="contributed">文尼察州</subdivision>
 			<subdivision type="ua07" draft="contributed">沃倫州</subdivision>
 			<subdivision type="ua09" draft="contributed">盧甘斯克州</subdivision>
@@ -4777,11 +4910,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="yeta" draft="contributed">塔伊茲省</subdivision>
 			<subdivision type="zaec" draft="contributed">東開普省</subdivision>
 			<subdivision type="zafs" draft="contributed">自由邦省</subdivision>
-			<subdivision type="zagt" draft="contributed">豪登省</subdivision>
+			<subdivision type="zagp" draft="contributed">豪登省</subdivision>
+			<subdivision type="zakzn" draft="contributed">夸祖魯-納塔爾省</subdivision>
 			<subdivision type="zalp" draft="contributed">林波波省</subdivision>
 			<subdivision type="zamp" draft="contributed">普馬蘭加省</subdivision>
 			<subdivision type="zanc" draft="contributed">北開普省</subdivision>
-			<subdivision type="zanl" draft="contributed">夸祖魯-納塔爾省</subdivision>
 			<subdivision type="zanw" draft="contributed">西北省</subdivision>
 			<subdivision type="zawc" draft="contributed">西開普省</subdivision>
 			<subdivision type="zm01" draft="contributed">西方省</subdivision>
@@ -4794,6 +4927,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="zm08" draft="contributed">铜带省</subdivision>
 			<subdivision type="zm09" draft="contributed">卢萨卡省</subdivision>
 			<subdivision type="zm10" draft="contributed">穆欽加省</subdivision>
+			<subdivision type="zwbu" draft="contributed">布拉瓦约省</subdivision>
+			<subdivision type="zwha" draft="contributed">哈拉雷省</subdivision>
 			<subdivision type="zwma" draft="contributed">馬尼卡蘭省</subdivision>
 			<subdivision type="zwmc" draft="contributed">中馬紹納蘭省</subdivision>
 			<subdivision type="zwme" draft="contributed">東馬紹納蘭省</subdivision>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,6 +12,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<subdivisions>
+			<subdivision type="ad07" draft="contributed">Andorra la Vella</subdivision>
+			<subdivision type="aedu" draft="contributed">Dubai</subdivision>
+			<subdivision type="afkab" draft="contributed">Cabúl</subdivision>
 			<subdivision type="ag11" draft="contributed">Redonda</subdivision>
 			<subdivision type="al01" draft="contributed">Contae Berat</subdivision>
 			<subdivision type="al02" draft="contributed">Contae Durrës</subdivision>
@@ -29,6 +32,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="arc" draft="contributed">Buenos Aires</subdivision>
 			<subdivision type="at1" draft="contributed">Burgenland</subdivision>
 			<subdivision type="at2" draft="contributed">Carinthia</subdivision>
+			<subdivision type="at3" draft="contributed">An Ostair Íochtarach</subdivision>
+			<subdivision type="at4" draft="contributed">An Ostair Uachtarach</subdivision>
 			<subdivision type="at5" draft="contributed">Salzburg</subdivision>
 			<subdivision type="at6" draft="contributed">Styria</subdivision>
 			<subdivision type="at7" draft="contributed">An Tioróil</subdivision>
@@ -43,9 +48,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="auvic" draft="contributed">Victoria</subdivision>
 			<subdivision type="auwa" draft="contributed">Iarthar na hAstráile</subdivision>
 			<subdivision type="azba" draft="contributed">Bakı</subdivision>
+			<subdivision type="azga" draft="contributed">Ganja</subdivision>
+			<subdivision type="aznx" draft="contributed">Poblacht Fhéinrialaitheach Nakhichevan</subdivision>
+			<subdivision type="azsm" draft="contributed">Sumgait</subdivision>
+			<subdivision type="azxa" draft="contributed">Príomh chathair Poblacht na hArtsac</subdivision>
 			<subdivision type="bebru" draft="contributed">An Bhruiséil</subdivision>
+			<subdivision type="bevan" draft="contributed">Cúige Antuairp</subdivision>
+			<subdivision type="bevbr" draft="contributed">Brabant Fhlóndras</subdivision>
 			<subdivision type="bevlg" draft="contributed">Flóndras</subdivision>
+			<subdivision type="bevli" draft="contributed">Limburg</subdivision>
+			<subdivision type="bevov" draft="contributed">Flóndras Thoir</subdivision>
+			<subdivision type="bevwv" draft="contributed">Flóndras Thiar</subdivision>
 			<subdivision type="bewal" draft="contributed">An Vallóin</subdivision>
+			<subdivision type="bewbr" draft="contributed">Brabant Vallúnach</subdivision>
+			<subdivision type="bewht" draft="contributed">Hainaut</subdivision>
+			<subdivision type="bewlg" draft="contributed">Cúige Liege</subdivision>
+			<subdivision type="bewlx" draft="contributed">Lucsamburg</subdivision>
+			<subdivision type="bewna" draft="contributed">Namur</subdivision>
 			<subdivision type="bg01" draft="contributed">Cúige Blagoevgrad</subdivision>
 			<subdivision type="bg02" draft="contributed">Cúige Burgas</subdivision>
 			<subdivision type="bg03" draft="contributed">Cúige Varna</subdivision>
@@ -74,6 +93,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bg26" draft="contributed">Cúige Haskovo</subdivision>
 			<subdivision type="bg27" draft="contributed">Cúige Shumen</subdivision>
 			<subdivision type="bg28" draft="contributed">Cúige Yambol</subdivision>
+			<subdivision type="bqsa" draft="contributed">Saba</subdivision>
 			<subdivision type="brac" draft="contributed">Acre</subdivision>
 			<subdivision type="bral" draft="contributed">Alagoas</subdivision>
 			<subdivision type="bram" draft="contributed">Amazonas</subdivision>
@@ -102,6 +122,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="brto" draft="contributed">Tocantins</subdivision>
 			<subdivision type="bwga" draft="contributed">Gaborone</subdivision>
 			<subdivision type="byhm" draft="contributed">Minsc</subdivision>
+			<subdivision type="bymi" draft="contributed">Réigiún Mhionsc</subdivision>
 			<subdivision type="caab" draft="contributed">Alberta</subdivision>
 			<subdivision type="cabc" draft="contributed">An Cholóim Bhriotanach</subdivision>
 			<subdivision type="camb" draft="contributed">Manitoba</subdivision>
@@ -118,8 +139,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cdkn" draft="contributed">Kinshasa</subdivision>
 			<subdivision type="cfbgf" draft="contributed">Bangui</subdivision>
 			<subdivision type="cgbzv" draft="contributed">Brazzaville</subdivision>
+			<subdivision type="chag" draft="contributed">cantún Aargau</subdivision>
+			<subdivision type="chai" draft="contributed">Appenzell Innerrhoden</subdivision>
+			<subdivision type="char" draft="contributed">Appenzell Ausserrhoden</subdivision>
+			<subdivision type="chbe" draft="contributed">cantún Bern</subdivision>
+			<subdivision type="chbl" draft="contributed">Basel-Landschaft</subdivision>
+			<subdivision type="chbs" draft="contributed">Basel-Stadt</subdivision>
+			<subdivision type="chfr" draft="contributed">cantún Fribourg</subdivision>
+			<subdivision type="chge" draft="contributed">cantún na Ginéive</subdivision>
+			<subdivision type="chgl" draft="contributed">cantún Glarus</subdivision>
+			<subdivision type="chgr" draft="contributed">Graubünden</subdivision>
+			<subdivision type="chju" draft="contributed">cantún Jura</subdivision>
+			<subdivision type="chlu" draft="contributed">cantún Lucerne</subdivision>
+			<subdivision type="chne" draft="contributed">cantún Neuchâtel</subdivision>
+			<subdivision type="chnw" draft="contributed">Nidwalden</subdivision>
+			<subdivision type="chow" draft="contributed">Obwalden</subdivision>
+			<subdivision type="chsg" draft="contributed">cantún St. Gallen</subdivision>
+			<subdivision type="chsh" draft="contributed">cantún Schaffhausen</subdivision>
+			<subdivision type="chso" draft="contributed">cantún Solothurn</subdivision>
+			<subdivision type="chsz" draft="contributed">Schwyz</subdivision>
+			<subdivision type="chtg" draft="contributed">Thurgau</subdivision>
+			<subdivision type="chti" draft="contributed">cantún Ticino</subdivision>
+			<subdivision type="chur" draft="contributed">Uri</subdivision>
+			<subdivision type="chvd" draft="contributed">cantún Vaud</subdivision>
+			<subdivision type="chvs" draft="contributed">cantún Valais</subdivision>
+			<subdivision type="chzg" draft="contributed">cantún Zug</subdivision>
+			<subdivision type="chzh" draft="contributed">cantún Zürich</subdivision>
 			<subdivision type="ciab" draft="contributed">Abidjan</subdivision>
 			<subdivision type="ciym" draft="contributed">Yamoussoukro</subdivision>
+			<subdivision type="clll" draft="contributed">Réigiún Los Lagos</subdivision>
 			<subdivision type="cnah" draft="contributed">Anhui</subdivision>
 			<subdivision type="cnbj" draft="contributed">Béising</subdivision>
 			<subdivision type="cncq" draft="contributed">Chongqing</subdivision>
@@ -150,6 +198,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cnsx" draft="contributed">Shanxi</subdivision>
 			<subdivision type="cntj" draft="contributed">Tianjin</subdivision>
 			<subdivision type="cnxj" draft="contributed">Xinjiang</subdivision>
+			<subdivision type="cnxz" draft="contributed">An Tibéid</subdivision>
 			<subdivision type="cnyn" draft="contributed">Yunnan</subdivision>
 			<subdivision type="cnzj" draft="contributed">Zhejiang</subdivision>
 			<subdivision type="coama" draft="contributed">Amazonas</subdivision>
@@ -158,6 +207,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="coatl" draft="contributed">Atlántico</subdivision>
 			<subdivision type="coboy" draft="contributed">Boyacá</subdivision>
 			<subdivision type="codc" draft="contributed">Bogotá</subdivision>
+			<subdivision type="cohui" draft="contributed">Huila</subdivision>
+			<subdivision type="cu99" draft="contributed">Isla de la Juventud</subdivision>
 			<subdivision type="cz10" draft="contributed">Prág</subdivision>
 			<subdivision type="debb" draft="contributed">Brandenburg</subdivision>
 			<subdivision type="debe" draft="contributed">Beirlín</subdivision>
@@ -176,6 +227,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="dest" draft="contributed">An tSacsain-Anhalt</subdivision>
 			<subdivision type="deth" draft="contributed">Thüringen</subdivision>
 			<subdivision type="djdj" draft="contributed">Diobúití</subdivision>
+			<subdivision type="dk84" draft="contributed">Réigiún Phríomhchathair na Danmhairge</subdivision>
+			<subdivision type="dz14" draft="contributed">Cúige Tiaret</subdivision>
+			<subdivision type="dz16" draft="contributed">Cúige Chathair na hAilgéire</subdivision>
 			<subdivision type="ee37" draft="contributed">Harjumaa</subdivision>
 			<subdivision type="ee39" draft="contributed">Hiiumaa</subdivision>
 			<subdivision type="ee44" draft="contributed">Virumaa Thoir</subdivision>
@@ -191,16 +245,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ee82" draft="contributed">Valgamaa</subdivision>
 			<subdivision type="ee84" draft="contributed">Viljandimaa</subdivision>
 			<subdivision type="ee86" draft="contributed">Võrumaa</subdivision>
+			<subdivision type="egc" draft="contributed">Gobharnóireacht Chaireo</subdivision>
 			<subdivision type="esan" draft="contributed">An Andalúis</subdivision>
 			<subdivision type="esar" draft="contributed">An Aragóin</subdivision>
 			<subdivision type="esas" draft="contributed">Asturies</subdivision>
+			<subdivision type="esb" draft="contributed">Cúige Barcelona</subdivision>
 			<subdivision type="esba" draft="contributed">Badajoz</subdivision>
+			<subdivision type="esbi" draft="contributed">An Bhioscáin</subdivision>
 			<subdivision type="esc" draft="contributed">A Coruña</subdivision>
 			<subdivision type="escb" draft="contributed">Cantabria</subdivision>
 			<subdivision type="escc" draft="contributed">Cáceres</subdivision>
 			<subdivision type="esce" draft="contributed">Ceuta</subdivision>
 			<subdivision type="escl" draft="contributed">Castilla y León</subdivision>
 			<subdivision type="escm" draft="contributed">Castilla-La Mancha</subdivision>
+			<subdivision type="escn" draft="contributed">Na hOileáin Chanáracha</subdivision>
 			<subdivision type="esco" draft="contributed">Córdoba</subdivision>
 			<subdivision type="esct" draft="contributed">An Chatalóin</subdivision>
 			<subdivision type="escu" draft="contributed">Cuenca</subdivision>
@@ -209,6 +267,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="esgr" draft="contributed">Granada</subdivision>
 			<subdivision type="esib" draft="contributed">Na hOileáin Bhailéaracha</subdivision>
 			<subdivision type="eslo" draft="contributed">La Rioja</subdivision>
+			<subdivision type="eslu" draft="contributed">Provincia de Lugo</subdivision>
 			<subdivision type="esma" draft="contributed">Málaga</subdivision>
 			<subdivision type="esmc" draft="contributed">Murcia</subdivision>
 			<subdivision type="esmd" draft="contributed">Comhphobal Mhaidrid</subdivision>
@@ -220,20 +279,71 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="espv" draft="contributed">Tír na mBascach Theas</subdivision>
 			<subdivision type="esri" draft="contributed">La Rioja²</subdivision>
 			<subdivision type="ess" draft="contributed">Cantabria²</subdivision>
+			<subdivision type="esso" draft="contributed">Soria (cúige)</subdivision>
+			<subdivision type="esss" draft="contributed">Gipuzkoa</subdivision>
 			<subdivision type="esva" draft="contributed">Valladolid</subdivision>
 			<subdivision type="esvc" draft="contributed">Comhphobal Valencia</subdivision>
 			<subdivision type="etaa" draft="contributed">Adas Ababa</subdivision>
+			<subdivision type="etdd" draft="contributed">Dire Dawa</subdivision>
 			<subdivision type="fi02" draft="contributed">An Chairéil Theas</subdivision>
+			<subdivision type="fi03" draft="contributed">An Ostrabóitne Theas</subdivision>
+			<subdivision type="fi04" draft="contributed">An tSabhóin Theas</subdivision>
 			<subdivision type="fi05" draft="contributed">Kainuu</subdivision>
+			<subdivision type="fi06" draft="contributed">Bun na Tabhastlainne</subdivision>
+			<subdivision type="fi07" draft="contributed">Lár na hOstrabóitne</subdivision>
+			<subdivision type="fi08" draft="contributed">Lár na Fionlainne</subdivision>
+			<subdivision type="fi09" draft="contributed">Gleann Kymi</subdivision>
+			<subdivision type="fi10" draft="contributed">Laplainn na Fionlainne</subdivision>
 			<subdivision type="fi11" draft="contributed">Pirkanmaa</subdivision>
+			<subdivision type="fi12" draft="contributed">An Ostrabóitne</subdivision>
+			<subdivision type="fi13" draft="contributed">An Chairéil Thuaidh</subdivision>
+			<subdivision type="fi14" draft="contributed">An Ostrabóitne Thuaidh</subdivision>
+			<subdivision type="fi15" draft="contributed">An tSabhóin Thuaidh</subdivision>
 			<subdivision type="fi16" draft="contributed">Päijät-Häme</subdivision>
 			<subdivision type="fi17" draft="contributed">Satakunta</subdivision>
 			<subdivision type="fi18" draft="contributed">An Nualainn</subdivision>
+			<subdivision type="fi19" draft="contributed">Iardheisceart na Fionlainne</subdivision>
+			<subdivision type="fr01" draft="contributed">Ain</subdivision>
+			<subdivision type="fr02" draft="contributed">Aisne</subdivision>
+			<subdivision type="fr2a" draft="contributed">Corse-du-Sud</subdivision>
+			<subdivision type="fr2b" draft="contributed">Haute-Corse</subdivision>
+			<subdivision type="fr14" draft="contributed">Calvados</subdivision>
+			<subdivision type="fr20r" draft="contributed">An Chorsaic</subdivision>
+			<subdivision type="fr24" draft="contributed">Dordogne</subdivision>
+			<subdivision type="fr25" draft="contributed">Doubs</subdivision>
+			<subdivision type="fr27" draft="contributed">Eure</subdivision>
 			<subdivision type="fr29" draft="contributed">Penn-ar-Bed</subdivision>
-			<subdivision type="fr75" draft="contributed">Páras</subdivision>
-			<subdivision type="frcor" draft="contributed">An Chorsaic</subdivision>
+			<subdivision type="fr31" draft="contributed">Haute-Garonne</subdivision>
+			<subdivision type="fr32" draft="contributed">Gers</subdivision>
+			<subdivision type="fr34" draft="contributed">Hérault</subdivision>
+			<subdivision type="fr35" draft="contributed">Ille-et-Vilaine</subdivision>
+			<subdivision type="fr44" draft="contributed">Liger-Atlantel</subdivision>
+			<subdivision type="fr49" draft="contributed">Maine-et-Loire</subdivision>
+			<subdivision type="fr50" draft="contributed">Manche</subdivision>
+			<subdivision type="fr52" draft="contributed">Haute-Marne</subdivision>
+			<subdivision type="fr54" draft="contributed">Meurthe-et-Moselle</subdivision>
+			<subdivision type="fr57" draft="contributed">Moselle</subdivision>
+			<subdivision type="fr58" draft="contributed">Nièvre</subdivision>
+			<subdivision type="fr61" draft="contributed">Orne</subdivision>
+			<subdivision type="fr64" draft="contributed">Pyrénées-Atlantiques</subdivision>
+			<subdivision type="fr65" draft="contributed">Hautes-Pyrénées</subdivision>
+			<subdivision type="fr67" draft="contributed">Bas-Rhin</subdivision>
+			<subdivision type="fr68" draft="contributed">Haut-Rhin</subdivision>
+			<subdivision type="fr71" draft="contributed">Saône-et-Loire</subdivision>
+			<subdivision type="fr73" draft="contributed">Savoie</subdivision>
+			<subdivision type="fr75c" draft="contributed">Páras</subdivision>
+			<subdivision type="fr77" draft="contributed">Seine-et-Marne</subdivision>
+			<subdivision type="fr80" draft="contributed">Somme</subdivision>
+			<subdivision type="fr88" draft="contributed">Vosges</subdivision>
+			<subdivision type="fr89" draft="contributed">Yonne</subdivision>
+			<subdivision type="fr90" draft="contributed">Territoire de Belfort</subdivision>
+			<subdivision type="fr971" draft="contributed">Guadalúip</subdivision>
+			<subdivision type="frbre" draft="contributed">an Bhriotáin</subdivision>
 			<subdivision type="frges" draft="contributed">Alsace-Champagne-Ardenne-Lorraine</subdivision>
 			<subdivision type="fridf" draft="contributed">Île-de-France</subdivision>
+			<subdivision type="frnaq" draft="contributed">Nouvelle-Aquitaine</subdivision>
+			<subdivision type="frnor" draft="contributed">An Normainn</subdivision>
+			<subdivision type="frocc" draft="contributed">An Ocsatáin</subdivision>
 			<subdivision type="frpac" draft="contributed">Provence-Alpes-Côte d’Azur</subdivision>
 			<subdivision type="frpdl" draft="contributed">Pays de la Loire</subdivision>
 			<subdivision type="gbabd" draft="contributed">Contae Obar Deathain</subdivision>
@@ -241,24 +351,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbagb" draft="contributed">Earra-Ghaidheal agus Bód</subdivision>
 			<subdivision type="gbagy" draft="contributed">Ynys Môn</subdivision>
 			<subdivision type="gbans" draft="contributed">Aonghas</subdivision>
+			<subdivision type="gbbdf" draft="contributed">Bedford</subdivision>
 			<subdivision type="gbbdg" draft="contributed">Buirg Londan Barking agus Dagenham</subdivision>
 			<subdivision type="gbben" draft="contributed">Buirg Londan Brent</subdivision>
 			<subdivision type="gbbex" draft="contributed">London Borough of Bexley</subdivision>
+			<subdivision type="gbbfs" draft="contributed">ceantar Bhéal Feirste</subdivision>
 			<subdivision type="gbbge" draft="contributed">Pen-y-bont ar Ogwr</subdivision>
 			<subdivision type="gbbgw" draft="contributed">Blaenau Gwent</subdivision>
+			<subdivision type="gbbir" draft="contributed">Birmingham</subdivision>
 			<subdivision type="gbbkm" draft="contributed">Buckinghamshire</subdivision>
 			<subdivision type="gbbne" draft="contributed">Buirg Londan Barnet</subdivision>
 			<subdivision type="gbbnh" draft="contributed">Brighton &amp; Hove</subdivision>
+			<subdivision type="gbbns" draft="contributed">Barnsley</subdivision>
+			<subdivision type="gbbol" draft="contributed">Bolton</subdivision>
 			<subdivision type="gbbpl" draft="contributed">Blackpool</subdivision>
+			<subdivision type="gbbrc" draft="contributed">Bracknell Forest</subdivision>
+			<subdivision type="gbbrd" draft="contributed">Bradford</subdivision>
 			<subdivision type="gbbry" draft="contributed">Bromley</subdivision>
 			<subdivision type="gbbst" draft="contributed">Briostó</subdivision>
+			<subdivision type="gbbur" draft="contributed">Bury</subdivision>
 			<subdivision type="gbcam" draft="contributed">Cambridgeshire</subdivision>
 			<subdivision type="gbcay" draft="contributed">Caerffili</subdivision>
 			<subdivision type="gbcgn" draft="contributed">Ceredigion</subdivision>
+			<subdivision type="gbche" draft="contributed">Cheshire Thoir</subdivision>
+			<subdivision type="gbcld" draft="contributed">Calderdale</subdivision>
 			<subdivision type="gbclk" draft="contributed">Clach Mhanainn</subdivision>
 			<subdivision type="gbcma" draft="contributed">Cumbria</subdivision>
 			<subdivision type="gbcmd" draft="contributed">Buirg Londan Camden</subdivision>
 			<subdivision type="gbcmn" draft="contributed">Sir Gaerfyrddin</subdivision>
+			<subdivision type="gbcon" draft="contributed">Corn na Breataine</subdivision>
+			<subdivision type="gbcov" draft="contributed">Coventry</subdivision>
 			<subdivision type="gbcrf" draft="contributed">Caerdydd</subdivision>
 			<subdivision type="gbcry" draft="contributed">Buirg Londan Croydon</subdivision>
 			<subdivision type="gbcwy" draft="contributed">Conwy</subdivision>
@@ -267,7 +389,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbder" draft="contributed">Derby</subdivision>
 			<subdivision type="gbdev" draft="contributed">Devon</subdivision>
 			<subdivision type="gbdgy" draft="contributed">Comhairle Dhún Phrís is Gall-Ghaidhealaibh</subdivision>
+			<subdivision type="gbdnc" draft="contributed">Doncaster</subdivision>
 			<subdivision type="gbdnd" draft="contributed">Dún Déagh</subdivision>
+			<subdivision type="gbdrs" draft="contributed">Cathair Dhoire agus an Srath Bán</subdivision>
+			<subdivision type="gbdud" draft="contributed">Dudley</subdivision>
+			<subdivision type="gbdur" draft="contributed">Contae Durham</subdivision>
 			<subdivision type="gbeal" draft="contributed">Buirg Londan Ealing</subdivision>
 			<subdivision type="gbeay" draft="contributed">Comhairle Shiorrachd Áir an Ear</subdivision>
 			<subdivision type="gbedh" draft="contributed">Dún Éideann</subdivision>
@@ -275,17 +401,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbeln" draft="contributed">Lodainn an Ear</subdivision>
 			<subdivision type="gbels" draft="contributed">Na hOileáin Siar</subdivision>
 			<subdivision type="gbenf" draft="contributed">London Borough of Enfield</subdivision>
+			<subdivision type="gbeng" draft="contributed">Sasana</subdivision>
 			<subdivision type="gberw" draft="contributed">Comhairle Shiorrachd Rinn Friú an Ear</subdivision>
 			<subdivision type="gbery" draft="contributed">East Riding of Yorkshire</subdivision>
 			<subdivision type="gbess" draft="contributed">Essex</subdivision>
+			<subdivision type="gbesx" draft="contributed">Sussex Thoir</subdivision>
 			<subdivision type="gbfal" draft="contributed">Comhairle na h-Eaglaise Brice</subdivision>
 			<subdivision type="gbfif" draft="contributed">Foibhe</subdivision>
 			<subdivision type="gbfln" draft="contributed">Sir y Fflint</subdivision>
 			<subdivision type="gbfmo" draft="contributed">Fhear Manach agus na hÓmaí</subdivision>
+			<subdivision type="gbgat" draft="contributed">Gateshead</subdivision>
 			<subdivision type="gbgbn" draft="contributed">An Bhreatain</subdivision>
 			<subdivision type="gbglg" draft="contributed">Glaschú</subdivision>
 			<subdivision type="gbgls" draft="contributed">Gloucestershire</subdivision>
+			<subdivision type="gbgre" draft="contributed">Buirg Ríoga Greenwich</subdivision>
 			<subdivision type="gbgwn" draft="contributed">Gwynedd</subdivision>
+			<subdivision type="gbhal" draft="contributed">Halton</subdivision>
 			<subdivision type="gbham" draft="contributed">Hampshire</subdivision>
 			<subdivision type="gbhav" draft="contributed">Buirg Londan Havering</subdivision>
 			<subdivision type="gbhck" draft="contributed">London Borough of Hackney</subdivision>
@@ -304,14 +435,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbkec" draft="contributed">Buirg Ríoga Kensington agus Chelsea</subdivision>
 			<subdivision type="gbken" draft="contributed">Kent</subdivision>
 			<subdivision type="gbkhl" draft="contributed">Kingston upon Hull</subdivision>
+			<subdivision type="gbkir" draft="contributed">Kirklees</subdivision>
 			<subdivision type="gbktt" draft="contributed">Ríoga Buirg an Kingston ar Tamais</subdivision>
+			<subdivision type="gbkwl" draft="contributed">Knowsley</subdivision>
 			<subdivision type="gblan" draft="contributed">Lancashire</subdivision>
 			<subdivision type="gblbh" draft="contributed">Buirg Londan Lambeth</subdivision>
+			<subdivision type="gblce" draft="contributed">Cathair Leicester</subdivision>
+			<subdivision type="gblds" draft="contributed">Leeds</subdivision>
 			<subdivision type="gblec" draft="contributed">Leicestershire</subdivision>
 			<subdivision type="gblew" draft="contributed">Buirg Londan Lewisham</subdivision>
 			<subdivision type="gblin" draft="contributed">Lincolnshire</subdivision>
+			<subdivision type="gbliv" draft="contributed">Learpholl</subdivision>
 			<subdivision type="gblnd" draft="contributed">Cathair Londan</subdivision>
 			<subdivision type="gblut" draft="contributed">Luton</subdivision>
+			<subdivision type="gbman" draft="contributed">Manchain</subdivision>
 			<subdivision type="gbmdb" draft="contributed">Middlesbrough</subdivision>
 			<subdivision type="gbmdw" draft="contributed">Medway</subdivision>
 			<subdivision type="gbmln" draft="contributed">Labhaidh Láir</subdivision>
@@ -321,69 +458,136 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbmul" draft="contributed">Lár Uladh</subdivision>
 			<subdivision type="gbnay" draft="contributed">Comhairle Shiorrachd Áir a Tuath</subdivision>
 			<subdivision type="gbnbl" draft="contributed">Northumberland</subdivision>
+			<subdivision type="gbnet" draft="contributed">Newcastle upon Tyne</subdivision>
 			<subdivision type="gbnfk" draft="contributed">Norfolk</subdivision>
 			<subdivision type="gbngm" draft="contributed">Nottingham</subdivision>
 			<subdivision type="gbnir" draft="contributed">Tuaisceart Éireann</subdivision>
 			<subdivision type="gbnlk" draft="contributed">Comhairle Shiorrachd Lannraig a Tuath</subdivision>
+			<subdivision type="gbnln" draft="contributed">Lincolnshire Thuaidh</subdivision>
 			<subdivision type="gbnth" draft="contributed">Northamptonshire</subdivision>
 			<subdivision type="gbntl" draft="contributed">Castell-nedd Port Talbot</subdivision>
 			<subdivision type="gbntt" draft="contributed">Nottinghamshire</subdivision>
+			<subdivision type="gbnty" draft="contributed">Tyneside Thuaidh</subdivision>
 			<subdivision type="gbnwm" draft="contributed">Buirg Londan Newham</subdivision>
+			<subdivision type="gbnwp" draft="contributed">Casnewydd</subdivision>
 			<subdivision type="gbnyk" draft="contributed">Yorkshire Thuaidh</subdivision>
+			<subdivision type="gbold" draft="contributed">Oldham</subdivision>
 			<subdivision type="gbork" draft="contributed">Inse Orc</subdivision>
 			<subdivision type="gboxf" draft="contributed">Oxford</subdivision>
 			<subdivision type="gbpem" draft="contributed">Sir Benfro</subdivision>
 			<subdivision type="gbpkn" draft="contributed">Comhairle Pheairt is Cheann Rois</subdivision>
+			<subdivision type="gbply" draft="contributed">Cathair Plymouth</subdivision>
 			<subdivision type="gbpor" draft="contributed">Portsmouth</subdivision>
 			<subdivision type="gbpow" draft="contributed">Powys</subdivision>
+			<subdivision type="gbrcc" draft="contributed">Redcar agus Cleveland</subdivision>
+			<subdivision type="gbrch" draft="contributed">Rochdale</subdivision>
 			<subdivision type="gbrct" draft="contributed">Rhondda Cynon Taf</subdivision>
 			<subdivision type="gbrdb" draft="contributed">London Borough of Redbridge</subdivision>
 			<subdivision type="gbrdg" draft="contributed">Reading</subdivision>
 			<subdivision type="gbrfw" draft="contributed">Comhairle Shiorrachd Rinn Friú</subdivision>
 			<subdivision type="gbric" draft="contributed">Buirg Londan Richmond ar Tamais</subdivision>
+			<subdivision type="gbrot" draft="contributed">Rotherham</subdivision>
 			<subdivision type="gbrut" draft="contributed">Rutland</subdivision>
+			<subdivision type="gbsaw" draft="contributed">Sandwell</subdivision>
+			<subdivision type="gbsay" draft="contributed">Comhairle Shiorrachd Áir a Deas</subdivision>
 			<subdivision type="gbscb" draft="contributed">Comhairle nan Críochan</subdivision>
+			<subdivision type="gbsct" draft="contributed">Albain</subdivision>
 			<subdivision type="gbsfk" draft="contributed">Suffolk</subdivision>
+			<subdivision type="gbsft" draft="contributed">Sefton</subdivision>
+			<subdivision type="gbsgc" draft="contributed">Gloucestershire Theas</subdivision>
+			<subdivision type="gbshf" draft="contributed">Sheffield</subdivision>
+			<subdivision type="gbshn" draft="contributed">St Helens</subdivision>
 			<subdivision type="gbshr" draft="contributed">Shropshire</subdivision>
+			<subdivision type="gbskp" draft="contributed">Stockport</subdivision>
+			<subdivision type="gbslf" draft="contributed">Salford</subdivision>
 			<subdivision type="gbslk" draft="contributed">Comhairle Shiorrachd Lannraig a Deas</subdivision>
+			<subdivision type="gbsnd" draft="contributed">Sunderland</subdivision>
+			<subdivision type="gbsol" draft="contributed">Solihull</subdivision>
 			<subdivision type="gbsom" draft="contributed">Somerset</subdivision>
 			<subdivision type="gbsos" draft="contributed">Southend-on-Sea</subdivision>
 			<subdivision type="gbsry" draft="contributed">Surrey</subdivision>
+			<subdivision type="gbste" draft="contributed">Stoke-on-Trent</subdivision>
 			<subdivision type="gbstg" draft="contributed">Comhairle Shruighlea</subdivision>
 			<subdivision type="gbsth" draft="contributed">Southampton</subdivision>
+			<subdivision type="gbstn" draft="contributed">Buirg Londan Sutton</subdivision>
 			<subdivision type="gbsts" draft="contributed">Staffordshire</subdivision>
+			<subdivision type="gbsty" draft="contributed">Tyneside Theas</subdivision>
 			<subdivision type="gbswa" draft="contributed">Abertawe</subdivision>
 			<subdivision type="gbswk" draft="contributed">Buirg Londan Southwark</subdivision>
 			<subdivision type="gbtam" draft="contributed">Tameside</subdivision>
+			<subdivision type="gbtfw" draft="contributed">Telford agus Wrekin</subdivision>
+			<subdivision type="gbthr" draft="contributed">Thurrock</subdivision>
+			<subdivision type="gbtob" draft="contributed">Torbay</subdivision>
 			<subdivision type="gbtof" draft="contributed">Tor-faen</subdivision>
 			<subdivision type="gbtrf" draft="contributed">Trafford</subdivision>
 			<subdivision type="gbtwh" draft="contributed">Buirg Londan Tower Hamlets</subdivision>
 			<subdivision type="gbukm" draft="contributed">An Ríocht Aontaithe</subdivision>
 			<subdivision type="gbvgl" draft="contributed">Bro Morgannwg</subdivision>
 			<subdivision type="gbwar" draft="contributed">Warwickshire</subdivision>
+			<subdivision type="gbwbk" draft="contributed">Berkshire Thiar</subdivision>
 			<subdivision type="gbwdu" draft="contributed">Comhairle Dhún Breatainn an Iar</subdivision>
 			<subdivision type="gbwft" draft="contributed">Buirg Londan Waltham Forest</subdivision>
+			<subdivision type="gbwgn" draft="contributed">Wigan</subdivision>
+			<subdivision type="gbwil" draft="contributed">Wiltshire</subdivision>
+			<subdivision type="gbwkf" draft="contributed">Wakefield</subdivision>
+			<subdivision type="gbwll" draft="contributed">Walsall</subdivision>
 			<subdivision type="gbwln" draft="contributed">Labhaidh Thoir</subdivision>
+			<subdivision type="gbwls" draft="contributed">An Bhreatain Bheag</subdivision>
+			<subdivision type="gbwlv" draft="contributed">Wolverhampton</subdivision>
 			<subdivision type="gbwnd" draft="contributed">London Borough of Wandsworth</subdivision>
+			<subdivision type="gbwnm" draft="contributed">Windsor agus Maidenhead</subdivision>
 			<subdivision type="gbwor" draft="contributed">Worcestershire</subdivision>
+			<subdivision type="gbwrl" draft="contributed">Wirral</subdivision>
+			<subdivision type="gbwrx" draft="contributed">Contaebhuirg Wrecsam</subdivision>
 			<subdivision type="gbwsm" draft="contributed">Cathair Westminster</subdivision>
 			<subdivision type="gbwsx" draft="contributed">Sussex Thiar</subdivision>
+			<subdivision type="gbyor" draft="contributed">Cathair Eabhrac</subdivision>
 			<subdivision type="gbzet" draft="contributed">Inse Shealtainn</subdivision>
 			<subdivision type="getb" draft="contributed">Tbilisi</subdivision>
 			<subdivision type="gmb" draft="contributed">Banjul</subdivision>
 			<subdivision type="gnc" draft="contributed">Conacraí</subdivision>
+			<subdivision type="gr69" draft="contributed">Sliabh Athos</subdivision>
 			<subdivision type="gre" draft="contributed">An Teasáil</subdivision>
 			<subdivision type="gwbs" draft="contributed">Bissau</subdivision>
 			<subdivision type="hr01" draft="contributed">Contae Ságrab</subdivision>
+			<subdivision type="hr02" draft="contributed">Contae Krapina-Zagorje</subdivision>
+			<subdivision type="hr03" draft="contributed">Contae Sisak-Moslavina</subdivision>
+			<subdivision type="hr04" draft="contributed">Contae Karlovac</subdivision>
 			<subdivision type="hr05" draft="contributed">Contae Varaždin</subdivision>
+			<subdivision type="hr06" draft="contributed">Contae Koprivnica-Križevci</subdivision>
+			<subdivision type="hr07" draft="contributed">Contae Bjelovar-Bilogora</subdivision>
+			<subdivision type="hr08" draft="contributed">Contae Primorje-Gorski Kotar</subdivision>
+			<subdivision type="hr09" draft="contributed">Contae Lika-Senj</subdivision>
+			<subdivision type="hr10" draft="contributed">Contae Virovitica-Podravina</subdivision>
+			<subdivision type="hr11" draft="contributed">Contae Požega-Slavonia</subdivision>
+			<subdivision type="hr12" draft="contributed">Contae Brod-Posavina</subdivision>
+			<subdivision type="hr13" draft="contributed">Contae Zadar</subdivision>
+			<subdivision type="hr14" draft="contributed">Contae Osijek-Baranja</subdivision>
+			<subdivision type="hr15" draft="contributed">Contae Šibenik-Knin</subdivision>
+			<subdivision type="hr16" draft="contributed">Contae Vukovar-Syrmia</subdivision>
+			<subdivision type="hr17" draft="contributed">Contae Split-Dalmatia</subdivision>
+			<subdivision type="hr18" draft="contributed">Contae Istria</subdivision>
+			<subdivision type="hr19" draft="contributed">Contae Dubrovnik-Neretva</subdivision>
+			<subdivision type="hr20" draft="contributed">Contae Međimurje</subdivision>
 			<subdivision type="hr21" draft="contributed">Ságrab</subdivision>
 			<subdivision type="hubu" draft="contributed">Búdaipeist</subdivision>
+			<subdivision type="hude" draft="contributed">Debrecen</subdivision>
+			<subdivision type="hufe" draft="contributed">Contae Fejér</subdivision>
+			<subdivision type="hugy" draft="contributed">Győr</subdivision>
+			<subdivision type="hukm" draft="contributed">Kecskemét</subdivision>
+			<subdivision type="humi" draft="contributed">Miskolc</subdivision>
+			<subdivision type="huny" draft="contributed">Nyíregyháza</subdivision>
+			<subdivision type="hups" draft="contributed">Pécs</subdivision>
+			<subdivision type="husd" draft="contributed">Szeged</subdivision>
+			<subdivision type="husf" draft="contributed">Székesfehérvár</subdivision>
 			<subdivision type="idac" draft="contributed">Aceh</subdivision>
 			<subdivision type="idba" draft="contributed">Bali</subdivision>
+			<subdivision type="idji" draft="contributed">Iáva Thoir</subdivision>
 			<subdivision type="idjk" draft="contributed">Iacárta</subdivision>
 			<subdivision type="idjt" draft="contributed">Jawa Tengah</subdivision>
 			<subdivision type="idjw" draft="contributed">Iáva</subdivision>
 			<subdivision type="idml" draft="contributed">Na Molacaí</subdivision>
+			<subdivision type="idsa" draft="contributed">An tSulaivéis Thuaidh</subdivision>
 			<subdivision type="idsl" draft="contributed">An Cheilibéis</subdivision>
 			<subdivision type="idsm" draft="contributed">Sumatra</subdivision>
 			<subdivision type="idyo" draft="contributed">Yogyakarta</subdivision>
@@ -417,6 +621,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="iewh" draft="contributed">Contae na hIarmhí</subdivision>
 			<subdivision type="ieww" draft="contributed">Contae Chill Mhantáin</subdivision>
 			<subdivision type="iewx" draft="contributed">Contae Loch Garman</subdivision>
+			<subdivision type="inan" draft="contributed">Oileáin Andaman agus Nicobar</subdivision>
 			<subdivision type="inap" draft="contributed">Andhra Pradesh</subdivision>
 			<subdivision type="inar" draft="contributed">Arunachal Pradesh</subdivision>
 			<subdivision type="inas" draft="contributed">Assam</subdivision>
@@ -432,6 +637,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="injk" draft="contributed">Jammu agus Kashmir</subdivision>
 			<subdivision type="inka" draft="contributed">Karnataka</subdivision>
 			<subdivision type="inkl" draft="contributed">Kerala</subdivision>
+			<subdivision type="inla" draft="contributed">Ladakh</subdivision>
 			<subdivision type="inmh" draft="contributed">Maharashtra</subdivision>
 			<subdivision type="inml" draft="contributed">Meghalaya</subdivision>
 			<subdivision type="inmn" draft="contributed">Manipur</subdivision>
@@ -447,6 +653,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inup" draft="contributed">Uttar Pradesh</subdivision>
 			<subdivision type="inut" draft="contributed">Uttarakhand</subdivision>
 			<subdivision type="inwb" draft="contributed">Beangál Thiar</subdivision>
+			<subdivision type="ir23" draft="contributed">Cúige Tehran</subdivision>
 			<subdivision type="is1" draft="contributed">Höfuðborgarsvæði</subdivision>
 			<subdivision type="is2" draft="contributed">Suðurnes</subdivision>
 			<subdivision type="is3" draft="contributed">Vesturland</subdivision>
@@ -455,6 +662,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="is6" draft="contributed">Norðurland eystra</subdivision>
 			<subdivision type="is7" draft="contributed">Austurland</subdivision>
 			<subdivision type="is8" draft="contributed">Suðurland</subdivision>
+			<subdivision type="isakn" draft="contributed">Akranes</subdivision>
+			<subdivision type="isaku" draft="contributed">Akureyri</subdivision>
+			<subdivision type="isbol" draft="contributed">Bolungarvík</subdivision>
+			<subdivision type="issss" draft="contributed">Sveitarfélagið Skagaströnd</subdivision>
 			<subdivision type="it21" draft="contributed">Píodmant</subdivision>
 			<subdivision type="it23" draft="contributed">Valle d’Aosta</subdivision>
 			<subdivision type="it25" draft="contributed">An Lombaird</subdivision>
@@ -475,7 +686,114 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="it78" draft="contributed">Calabria</subdivision>
 			<subdivision type="it82" draft="contributed">An tSicil</subdivision>
 			<subdivision type="it88" draft="contributed">An tSairdín</subdivision>
+			<subdivision type="itag" draft="contributed">Libero consorzio comunale Agrigento</subdivision>
+			<subdivision type="ital" draft="contributed">Cúige Alessandria</subdivision>
+			<subdivision type="itan" draft="contributed">Cúige Ancona</subdivision>
+			<subdivision type="itap" draft="contributed">Cúige Ascoli Piceno</subdivision>
+			<subdivision type="itaq" draft="contributed">Cúige L’Aquila</subdivision>
+			<subdivision type="itar" draft="contributed">Cúige Arezzo</subdivision>
+			<subdivision type="itat" draft="contributed">Cúige Asti</subdivision>
+			<subdivision type="itav" draft="contributed">Cúige Avellino</subdivision>
+			<subdivision type="itba" draft="contributed">Ceannchathair Bari</subdivision>
+			<subdivision type="itbg" draft="contributed">Cúige Bergamo</subdivision>
+			<subdivision type="itbi" draft="contributed">Cúige Biella</subdivision>
+			<subdivision type="itbl" draft="contributed">Cúige Belluno</subdivision>
+			<subdivision type="itbn" draft="contributed">Cúige Benevento</subdivision>
+			<subdivision type="itbo" draft="contributed">Ceannchathair Bologna</subdivision>
+			<subdivision type="itbr" draft="contributed">Cúige Brindisi</subdivision>
+			<subdivision type="itbs" draft="contributed">Cúige Brescia</subdivision>
+			<subdivision type="itbt" draft="contributed">Cúige Barletta-Andria-Trani</subdivision>
+			<subdivision type="itbz" draft="contributed">An Tioróil Theas</subdivision>
+			<subdivision type="itca" draft="contributed">Ceannchathair Cagliari</subdivision>
+			<subdivision type="itcb" draft="contributed">Cúige Campobasso</subdivision>
+			<subdivision type="itce" draft="contributed">Cúige Caserta</subdivision>
+			<subdivision type="itch" draft="contributed">Cúige Chieti</subdivision>
+			<subdivision type="itcl" draft="contributed">Libero consorzio comunale Caltanissetta</subdivision>
+			<subdivision type="itcn" draft="contributed">Cúige Cuneo</subdivision>
+			<subdivision type="itco" draft="contributed">Cúige Como</subdivision>
+			<subdivision type="itcr" draft="contributed">Cúige Cremona</subdivision>
+			<subdivision type="itcs" draft="contributed">Cúige Cosenza</subdivision>
+			<subdivision type="itct" draft="contributed">Ceannchathair Catania</subdivision>
+			<subdivision type="itcz" draft="contributed">Cúige Catanzaro</subdivision>
+			<subdivision type="iten" draft="contributed">Libero consorzio comunale Enna</subdivision>
+			<subdivision type="itfc" draft="contributed">Cúige Forlì-Cesena</subdivision>
+			<subdivision type="itfe" draft="contributed">Cúige Ferrara</subdivision>
+			<subdivision type="itfg" draft="contributed">Cúige Foggia</subdivision>
+			<subdivision type="itfi" draft="contributed">Ceannchathair Fhlórans</subdivision>
+			<subdivision type="itfm" draft="contributed">Cúige Fermo</subdivision>
+			<subdivision type="itfr" draft="contributed">Cúige Frosinone</subdivision>
+			<subdivision type="itge" draft="contributed">Ceannchathair Genova</subdivision>
+			<subdivision type="itgo" draft="contributed">Cúige Gorizia</subdivision>
+			<subdivision type="itgr" draft="contributed">Cúige Grosseto</subdivision>
+			<subdivision type="itim" draft="contributed">Cúige Imperia</subdivision>
+			<subdivision type="itis" draft="contributed">Cúige Isernia</subdivision>
+			<subdivision type="itkr" draft="contributed">Cúige Crotone</subdivision>
+			<subdivision type="itlc" draft="contributed">Cúige Lecco</subdivision>
+			<subdivision type="itle" draft="contributed">Cúige Lecce</subdivision>
+			<subdivision type="itli" draft="contributed">Cúige Livorno</subdivision>
+			<subdivision type="itlo" draft="contributed">Cúige Lodi</subdivision>
+			<subdivision type="itlt" draft="contributed">Cúige Latina</subdivision>
+			<subdivision type="itlu" draft="contributed">Cúige Lucca</subdivision>
+			<subdivision type="itmb" draft="contributed">Cúige Monza agus Brianza</subdivision>
+			<subdivision type="itmc" draft="contributed">Cúige Macerata</subdivision>
+			<subdivision type="itme" draft="contributed">Ceannchathair Messina</subdivision>
+			<subdivision type="itmi" draft="contributed">Ceannchathair Milano</subdivision>
+			<subdivision type="itmn" draft="contributed">Cúige Mantua</subdivision>
+			<subdivision type="itmo" draft="contributed">Cúige Modena</subdivision>
+			<subdivision type="itms" draft="contributed">Cúige Massa-Carrara</subdivision>
+			<subdivision type="itmt" draft="contributed">Cúige Matera</subdivision>
+			<subdivision type="itna" draft="contributed">Ceannchathair Napoli</subdivision>
+			<subdivision type="itno" draft="contributed">Cúige Novara</subdivision>
+			<subdivision type="itnu" draft="contributed">Cúige Nuoro</subdivision>
+			<subdivision type="itor" draft="contributed">Cúige Oristano</subdivision>
+			<subdivision type="itpa" draft="contributed">Ceannchathair Palermo</subdivision>
+			<subdivision type="itpc" draft="contributed">Cúige Piacenza</subdivision>
 			<subdivision type="itpd" draft="contributed">Padova</subdivision>
+			<subdivision type="itpe" draft="contributed">Cúige Pescara</subdivision>
+			<subdivision type="itpg" draft="contributed">Cúige Perugia</subdivision>
+			<subdivision type="itpi" draft="contributed">Cúige Pisa</subdivision>
+			<subdivision type="itpn" draft="contributed">Cúige Pordenone</subdivision>
+			<subdivision type="itpo" draft="contributed">Cúige Prato</subdivision>
+			<subdivision type="itpr" draft="contributed">Cúige Parma</subdivision>
+			<subdivision type="itpt" draft="contributed">Cúige Pistoia</subdivision>
+			<subdivision type="itpu" draft="contributed">Cúige Pesaro agus Urbino</subdivision>
+			<subdivision type="itpv" draft="contributed">Cúige Pavia</subdivision>
+			<subdivision type="itpz" draft="contributed">Cúige Potenza</subdivision>
+			<subdivision type="itra" draft="contributed">Cúige Ravenna</subdivision>
+			<subdivision type="itrc" draft="contributed">Ceannchathair Reggio Calabria</subdivision>
+			<subdivision type="itre" draft="contributed">Cúige Reggio Emilia</subdivision>
+			<subdivision type="itrg" draft="contributed">Libero consorzio comunale Ragusa</subdivision>
+			<subdivision type="itri" draft="contributed">Cúige Rieti</subdivision>
+			<subdivision type="itrm" draft="contributed">Ceannchathair na Róimhe</subdivision>
+			<subdivision type="itrn" draft="contributed">Cúige Rimini</subdivision>
+			<subdivision type="itro" draft="contributed">Cúige Rovigo</subdivision>
+			<subdivision type="itsa" draft="contributed">Cúige Salerno</subdivision>
+			<subdivision type="itsi" draft="contributed">Cúige Siena</subdivision>
+			<subdivision type="itso" draft="contributed">Cúige Sondrio</subdivision>
+			<subdivision type="itsp" draft="contributed">Cúige La Spezia</subdivision>
+			<subdivision type="itsr" draft="contributed">Libero consorzio comunale Siracusa</subdivision>
+			<subdivision type="itss" draft="contributed">Cúige Sassari</subdivision>
+			<subdivision type="itsu" draft="contributed">Cúige na Sairdíne Theas</subdivision>
+			<subdivision type="itsv" draft="contributed">Cúige Savona</subdivision>
+			<subdivision type="itta" draft="contributed">Cúige Taranto</subdivision>
+			<subdivision type="itte" draft="contributed">Cúige Teramo</subdivision>
+			<subdivision type="ittn" draft="contributed">Trentino</subdivision>
+			<subdivision type="itto" draft="contributed">Ceannchathair Torino</subdivision>
+			<subdivision type="ittp" draft="contributed">Libero consorzio comunale Trapani</subdivision>
+			<subdivision type="ittr" draft="contributed">Cúige Terni</subdivision>
+			<subdivision type="itts" draft="contributed">Cúige Trieste</subdivision>
+			<subdivision type="ittv" draft="contributed">Cúige Treviso</subdivision>
+			<subdivision type="itud" draft="contributed">Cúige Udine</subdivision>
+			<subdivision type="itva" draft="contributed">Cúige Varese</subdivision>
+			<subdivision type="itvb" draft="contributed">Cúige Verbano-Cusio-Ossola</subdivision>
+			<subdivision type="itvc" draft="contributed">Cúige Vercelli</subdivision>
+			<subdivision type="itve" draft="contributed">Ceannchathair na Veinéise</subdivision>
+			<subdivision type="itvi" draft="contributed">Cúige Vicenza</subdivision>
+			<subdivision type="itvr" draft="contributed">Cúige Verona</subdivision>
+			<subdivision type="itvt" draft="contributed">Cúige Viterbo</subdivision>
+			<subdivision type="itvv" draft="contributed">Cúige Vibo Valentia</subdivision>
+			<subdivision type="joaq" draft="contributed">Gobharnóireacht Aqaba</subdivision>
+			<subdivision type="jp01" draft="contributed">Maoracht Hokkaido</subdivision>
 			<subdivision type="jp02" draft="contributed">Maoracht Aomori</subdivision>
 			<subdivision type="jp03" draft="contributed">Maoracht Iwate</subdivision>
 			<subdivision type="jp04" draft="contributed">Maoracht Miyagi</subdivision>
@@ -522,13 +840,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="jp45" draft="contributed">Maoracht Miyazaki</subdivision>
 			<subdivision type="jp46" draft="contributed">Maoracht Kagoshima</subdivision>
 			<subdivision type="jp47" draft="contributed">Maoracht Okinawa</subdivision>
+			<subdivision type="ke13" draft="contributed">Contae Kiambu</subdivision>
+			<subdivision type="kggb" draft="contributed">Bishkek</subdivision>
+			<subdivision type="kggo" draft="contributed">Osh</subdivision>
+			<subdivision type="kh9" draft="contributed">Cúige Koh Kong</subdivision>
 			<subdivision type="kh12" draft="contributed">Phnom Penh</subdivision>
 			<subdivision type="kp01" draft="contributed">Pyongyang</subdivision>
 			<subdivision type="kp13" draft="contributed">Rason</subdivision>
+			<subdivision type="kp14" draft="contributed">Nampho</subdivision>
 			<subdivision type="kr11" draft="contributed">Seoul</subdivision>
 			<subdivision type="kr26" draft="contributed">Busan</subdivision>
+			<subdivision type="kr27" draft="contributed">Daegu</subdivision>
+			<subdivision type="kr28" draft="contributed">Incheon</subdivision>
+			<subdivision type="kr29" draft="contributed">Gwangju</subdivision>
+			<subdivision type="kr30" draft="contributed">Daejeon</subdivision>
+			<subdivision type="kr31" draft="contributed">Ulsan</subdivision>
+			<subdivision type="kr50" draft="contributed">Cathair Sejong</subdivision>
 			<subdivision type="kzala" draft="contributed">Almaty</subdivision>
 			<subdivision type="kzast" draft="contributed">Astana</subdivision>
+			<subdivision type="kzshy" draft="contributed">Shymkent</subdivision>
+			<subdivision type="lc11" draft="contributed">Vieux Fort</subdivision>
 			<subdivision type="li11" draft="contributed">Vadús</subdivision>
 			<subdivision type="ltal" draft="contributed">Contae Alytus</subdivision>
 			<subdivision type="ltkl" draft="contributed">Contae Klaipėda</subdivision>
@@ -540,9 +871,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ltte" draft="contributed">Contae Telšiai</subdivision>
 			<subdivision type="ltut" draft="contributed">Contae Utena</subdivision>
 			<subdivision type="ltvl" draft="contributed">Contae Vilnius</subdivision>
+			<subdivision type="lvdgv" draft="contributed">Daugavpils</subdivision>
 			<subdivision type="lvrix" draft="contributed">Ríge</subdivision>
 			<subdivision type="lyba" draft="contributed">Benghazi</subdivision>
+			<subdivision type="ma02" draft="contributed">Oriental</subdivision>
+			<subdivision type="macas" draft="contributed">Casablanca</subdivision>
+			<subdivision type="mafes" draft="contributed">Fez</subdivision>
+			<subdivision type="mamoh" draft="contributed">Mohammedia</subdivision>
+			<subdivision type="maouj" draft="contributed">Oujda</subdivision>
 			<subdivision type="marab" draft="contributed">Rabat</subdivision>
+			<subdivision type="masal" draft="contributed">Salé</subdivision>
+			<subdivision type="maskh" draft="contributed">Temara</subdivision>
+			<subdivision type="matng" draft="contributed">Tangier</subdivision>
 			<subdivision type="mcmc" draft="contributed">Monte Carlo</subdivision>
 			<subdivision type="mdba" draft="contributed">Bălți</subdivision>
 			<subdivision type="mdbd" draft="contributed">Bender</subdivision>
@@ -561,6 +901,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mn071" draft="contributed">Bayan-Ölgii</subdivision>
 			<subdivision type="mn073" draft="contributed">Arkhangai</subdivision>
 			<subdivision type="mt04" draft="contributed">Birkirkara</subdivision>
+			<subdivision type="mt18" draft="contributed">Ħamrun</subdivision>
 			<subdivision type="mt21" draft="contributed">Kalkara</subdivision>
 			<subdivision type="mt60" draft="contributed">Vaileite</subdivision>
 			<subdivision type="mupu" draft="contributed">Port Louis</subdivision>
@@ -597,10 +938,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mxver" draft="contributed">Veracruz</subdivision>
 			<subdivision type="mxyuc" draft="contributed">Yucatán</subdivision>
 			<subdivision type="mxzac" draft="contributed">Zacatecas</subdivision>
+			<subdivision type="my11" draft="contributed">Terengganu</subdivision>
 			<subdivision type="my14" draft="contributed">Kuala Lumpur</subdivision>
 			<subdivision type="my16" draft="contributed">Putrajaya</subdivision>
 			<subdivision type="mzmpm" draft="contributed">Maputo</subdivision>
 			<subdivision type="ne8" draft="contributed">Niamey</subdivision>
+			<subdivision type="nged" draft="contributed">Stát Edo</subdivision>
+			<subdivision type="ngla" draft="contributed">Lagos</subdivision>
+			<subdivision type="nlbq2" draft="contributed">Saba</subdivision>
 			<subdivision type="nldr" draft="contributed">Drenthe</subdivision>
 			<subdivision type="nlfl" draft="contributed">Flevoland</subdivision>
 			<subdivision type="nlfr" draft="contributed">Friesland</subdivision>
@@ -616,8 +961,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="no03" draft="contributed">Osló</subdivision>
 			<subdivision type="no21" draft="contributed">Oileánra Svalbard</subdivision>
 			<subdivision type="no22" draft="contributed">Jan Mayen</subdivision>
+			<subdivision type="no34" draft="contributed">Innlandet</subdivision>
+			<subdivision type="nzbop" draft="contributed">Réigiún Bhá na Flúirse</subdivision>
 			<subdivision type="peapu" draft="contributed">Apurímac</subdivision>
+			<subdivision type="peare" draft="contributed">Arequipa</subdivision>
+			<subdivision type="pelim" draft="contributed">Líoma</subdivision>
 			<subdivision type="pgncd" draft="contributed">Port Moresby</subdivision>
+			<subdivision type="phtar" draft="contributed">Tarlac</subdivision>
 			<subdivision type="pkba" draft="contributed">An Bhalúcastáin</subdivision>
 			<subdivision type="pksd" draft="contributed">An tSind</subdivision>
 			<subdivision type="pt20" draft="contributed">Na hAsóir</subdivision>
@@ -627,6 +977,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="qara" draft="contributed">Al Rayyan</subdivision>
 			<subdivision type="qawa" draft="contributed">Al Wakrah</subdivision>
 			<subdivision type="rob" draft="contributed">Búcairist</subdivision>
+			<subdivision type="robz" draft="contributed">Contae Buzău</subdivision>
+			<subdivision type="rois" draft="contributed">Contae Iași</subdivision>
+			<subdivision type="romm" draft="contributed">Contae Maramureș</subdivision>
+			<subdivision type="rosv" draft="contributed">Contae Suceava</subdivision>
 			<subdivision type="rs00" draft="contributed">Béalgrád</subdivision>
 			<subdivision type="rsvo" draft="contributed">An Vóvaidín</subdivision>
 			<subdivision type="ruad" draft="contributed">Adygea</subdivision>
@@ -714,6 +1068,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ruzab" draft="contributed">Zabaykalsky Krai</subdivision>
 			<subdivision type="rw01" draft="contributed">Kigali</subdivision>
 			<subdivision type="sbct" draft="contributed">Hóiniára</subdivision>
+			<subdivision type="seab" draft="contributed">Contae Stócólm</subdivision>
+			<subdivision type="sed" draft="contributed">Contae Södermanland</subdivision>
+			<subdivision type="sen" draft="contributed">Halland</subdivision>
 			<subdivision type="shac" draft="contributed">Oileán na Deascabhála</subdivision>
 			<subdivision type="shhl" draft="contributed">San Héilin</subdivision>
 			<subdivision type="si040" draft="contributed">Izola</subdivision>
@@ -724,23 +1081,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tdnd" draft="contributed">N’Djamena</subdivision>
 			<subdivision type="th10" draft="contributed">Bancác</subdivision>
 			<subdivision type="th21" draft="contributed">Rayong</subdivision>
+			<subdivision type="ths" draft="contributed">Pattaya</subdivision>
 			<subdivision type="tjdu" draft="contributed">Dushanbe</subdivision>
 			<subdivision type="tms" draft="contributed">Ashgabat</subdivision>
 			<subdivision type="tr09" draft="contributed">Aydın</subdivision>
+			<subdivision type="tr34" draft="contributed">Cúige Iostanbúl</subdivision>
 			<subdivision type="ttcha" draft="contributed">Chaguanas</subdivision>
 			<subdivision type="ttpos" draft="contributed">Port of Spain</subdivision>
 			<subdivision type="ttsfo" draft="contributed">San Fernando</subdivision>
 			<subdivision type="tttob" draft="contributed">Tobága</subdivision>
+			<subdivision type="twhsz" draft="contributed">Hsinchu</subdivision>
+			<subdivision type="twkee" draft="contributed">Keelung</subdivision>
+			<subdivision type="twkhh" draft="contributed">Kaohsiung</subdivision>
+			<subdivision type="twtao" draft="contributed">Taoyuan</subdivision>
 			<subdivision type="twtnn" draft="contributed">Tainan</subdivision>
 			<subdivision type="twtpe" draft="contributed">Taipei</subdivision>
 			<subdivision type="twtxg" draft="contributed">Taichung</subdivision>
+			<subdivision type="tz02" draft="contributed">Réigiún Dárasalám</subdivision>
 			<subdivision type="ua09" draft="contributed">Cúige Luhansk</subdivision>
 			<subdivision type="ua23" draft="contributed">Cúige Zaporizhia</subdivision>
 			<subdivision type="ua30" draft="contributed">Cív</subdivision>
+			<subdivision type="ua40" draft="contributed">Sevastopol</subdivision>
 			<subdivision type="ua43" draft="contributed">Poblacht Fhéinrialaitheach na Crimé</subdivision>
 			<subdivision type="ua59" draft="contributed">Cúige Shumy</subdivision>
 			<subdivision type="ua65" draft="contributed">Cúige Kherson</subdivision>
 			<subdivision type="ua71" draft="contributed">Cúige Cherkasy</subdivision>
+			<subdivision type="ug220" draft="contributed">Ceantar Bukwo</subdivision>
 			<subdivision type="usak" draft="contributed">Alasca</subdivision>
 			<subdivision type="usal" draft="contributed">Alabama</subdivision>
 			<subdivision type="usar" draft="contributed">Arkansas</subdivision>
@@ -794,13 +1160,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="uymo" draft="contributed">Montevideo</subdivision>
 			<subdivision type="uztk" draft="contributed">Tashkent</subdivision>
 			<subdivision type="vn24" draft="contributed">Quang Binh</subdivision>
+			<subdivision type="vn28" draft="contributed">Cúige Kon Tum</subdivision>
 			<subdivision type="vn39" draft="contributed">Dong Nai</subdivision>
+			<subdivision type="vnct" draft="contributed">Cần Thơ</subdivision>
+			<subdivision type="vndn" draft="contributed">Da Nang</subdivision>
 			<subdivision type="vnhn" draft="contributed">Ha Noi</subdivision>
+			<subdivision type="vnhp" draft="contributed">Haiphong</subdivision>
 			<subdivision type="vnsg" draft="contributed">Cathair Ho Chi Minh</subdivision>
 			<subdivision type="wfal" draft="contributed">Alo</subdivision>
 			<subdivision type="wfsg" draft="contributed">Sigave</subdivision>
 			<subdivision type="wfuv" draft="contributed">Uvea</subdivision>
 			<subdivision type="yesa" draft="contributed">San’a</subdivision>
+			<subdivision type="zafs" draft="contributed">an Saorstát Oráisteach</subdivision>
+			<subdivision type="zm07" draft="contributed">Cúige an Deiscirt</subdivision>
 		</subdivisions>
 	</localeDisplayNames>
 </ldml>

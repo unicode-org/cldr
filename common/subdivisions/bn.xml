@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -17,6 +17,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ad04" draft="contributed">লা মাসসানা</subdivision>
 			<subdivision type="ad05" draft="contributed">অর্ডিনো</subdivision>
 			<subdivision type="ad06" draft="contributed">সান্ট জুলিয়া ডে লোরিয়া</subdivision>
+			<subdivision type="ad07" draft="contributed">আন্দরা লা ভেলিয়া</subdivision>
 			<subdivision type="ad08" draft="contributed">এস্ক্যাল্ডেস-এঙ্গোরোদ</subdivision>
 			<subdivision type="aeaj" draft="contributed">আজমান এমিরাত</subdivision>
 			<subdivision type="aeaz" draft="contributed">আবুধাবি আমিরাত</subdivision>
@@ -483,8 +484,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bt13" draft="contributed">হা জেলা</subdivision>
 			<subdivision type="bt14" draft="contributed">সামটসে জেলা</subdivision>
 			<subdivision type="bt15" draft="contributed">থিম্পো জেলা</subdivision>
+			<subdivision type="bt21" draft="contributed">সিরাং জেলা</subdivision>
+			<subdivision type="bt22" draft="contributed">দাগানা জেলা</subdivision>
 			<subdivision type="bt23" draft="contributed">পোনাকা জেলা</subdivision>
 			<subdivision type="bt24" draft="contributed">ওয়াংডু পোড্রাং জেলা</subdivision>
+			<subdivision type="bt31" draft="contributed">সার্পাং জেলা</subdivision>
 			<subdivision type="bt32" draft="contributed">ট্রোনসা জেলা</subdivision>
 			<subdivision type="bt33" draft="contributed">বোমতাং জেলা</subdivision>
 			<subdivision type="bt34" draft="contributed">জেমগাং জেলা</subdivision>
@@ -933,6 +937,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="esab" draft="contributed">আল্বাসেটে প্রদেশ</subdivision>
 			<subdivision type="esal" draft="contributed">আল্মেরিয়া প্রদেশ</subdivision>
 			<subdivision type="esan" draft="contributed">আন্দালুসিয়া</subdivision>
+			<subdivision type="esar" draft="contributed">আরাগোন</subdivision>
 			<subdivision type="esas" draft="contributed">আস্তুরিয়াস</subdivision>
 			<subdivision type="esav" draft="contributed">এভিলা প্রদেশ</subdivision>
 			<subdivision type="esb" draft="contributed">বার্সেলোনা প্রদেশ</subdivision>
@@ -944,11 +949,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="escb" draft="contributed">কান্তাব্রিয়া</subdivision>
 			<subdivision type="escc" draft="contributed">সিরেরেস প্রদেশ</subdivision>
 			<subdivision type="esce" draft="contributed">সিউচা</subdivision>
+			<subdivision type="escn" draft="contributed">কানারি দ্বীপপুঞ্জ</subdivision>
 			<subdivision type="esco" draft="contributed">কর্ডোবা প্রদেশ</subdivision>
 			<subdivision type="escr" draft="contributed">কিউদাদ</subdivision>
 			<subdivision type="escs" draft="contributed">ক্যাস্টেল্লন প্রদেশ</subdivision>
 			<subdivision type="esct" draft="contributed">কাতালোনিয়া</subdivision>
 			<subdivision type="escu" draft="contributed">কুয়েঙ্কা প্রদেশ</subdivision>
+			<subdivision type="esex" draft="contributed">এক্সত্রেমাদুরা</subdivision>
 			<subdivision type="esga" draft="contributed">গালিথিয়া</subdivision>
 			<subdivision type="esgc" draft="contributed">লাস পালমাস প্রদেশ</subdivision>
 			<subdivision type="esgi" draft="contributed">গিরোনা প্রদেশ</subdivision>
@@ -1038,6 +1045,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr17" draft="contributed">শারন্ত্‌-ম্যারিটাইম</subdivision>
 			<subdivision type="fr18" draft="contributed">চের</subdivision>
 			<subdivision type="fr19" draft="contributed">কুরেজে</subdivision>
+			<subdivision type="fr20r" draft="contributed">কর্স</subdivision>
 			<subdivision type="fr21" draft="contributed">কোট-ডী‘অর</subdivision>
 			<subdivision type="fr22" draft="contributed">কোট-ডি‘আমর</subdivision>
 			<subdivision type="fr23" draft="contributed">ক্রুজ</subdivision>
@@ -1092,7 +1100,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr72" draft="contributed">সাঁর্তে</subdivision>
 			<subdivision type="fr73" draft="contributed">সাভুয়ে</subdivision>
 			<subdivision type="fr74" draft="contributed">হাঊত সেভুয়ে</subdivision>
-			<subdivision type="fr75" draft="contributed">প্যারিস</subdivision>
+			<subdivision type="fr75c" draft="contributed">প্যারিস</subdivision>
 			<subdivision type="fr76" draft="contributed">সেইন-মেরিটাইম</subdivision>
 			<subdivision type="fr77" draft="contributed">সেইন-এট-মার্নে</subdivision>
 			<subdivision type="fr78" draft="contributed">ইয়েভলিন্স</subdivision>
@@ -1113,10 +1121,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr93" draft="contributed">সেইন-সেন্ট-ডেনিস</subdivision>
 			<subdivision type="fr94" draft="contributed">ভাল-ডে-মার্ন</subdivision>
 			<subdivision type="fr95" draft="contributed">ভাল-ডি‘অইস</subdivision>
+			<subdivision type="fr971" draft="contributed">গুয়াদলুপ</subdivision>
+			<subdivision type="frara" draft="contributed">ওভের্ন-রোন-আল্প</subdivision>
+			<subdivision type="frbfc" draft="contributed">বুর্গোইন-ফ্রঁশ-কোঁতে</subdivision>
 			<subdivision type="frbre" draft="contributed">ব্রতাইন</subdivision>
-			<subdivision type="frcor" draft="contributed">কর্স</subdivision>
 			<subdivision type="frcvl" draft="contributed">সঁত্র্‌</subdivision>
+			<subdivision type="frges" draft="contributed">গ্রঁতেস্ত</subdivision>
+			<subdivision type="frhdf" draft="contributed">ও-দ্য-ফ্রঁস</subdivision>
 			<subdivision type="fridf" draft="contributed">ইল্‌-দ্য-ফ্রঁস (অঞ্চল)</subdivision>
+			<subdivision type="frnaq" draft="contributed">নুভেল-আকিতেন</subdivision>
+			<subdivision type="frnor" draft="contributed">নরমঁদি</subdivision>
+			<subdivision type="frocc" draft="contributed">অক্সিতানি</subdivision>
 			<subdivision type="frpac" draft="contributed">প্রোভঁস-আল্প-কোত দাজ্যুর</subdivision>
 			<subdivision type="frpdl" draft="contributed">পেই দ্য লা লোয়ার</subdivision>
 			<subdivision type="ga1" draft="contributed">আমোরিয়া প্রদেশ</subdivision>
@@ -1174,6 +1189,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbedu" draft="contributed">ইস্ট ডানবার্টনশায়ার</subdivision>
 			<subdivision type="gbeln" draft="contributed">ইস্ট লোথিয়ান</subdivision>
 			<subdivision type="gbenf" draft="contributed">এনফিল্ড</subdivision>
+			<subdivision type="gbeng" draft="contributed">ইংল্যান্ড</subdivision>
 			<subdivision type="gbery" draft="contributed">ইয়র্কশায়ার ইস্ট রাইডিং</subdivision>
 			<subdivision type="gbess" draft="contributed">এসেক্স</subdivision>
 			<subdivision type="gbesx" draft="contributed">ইস্ট সাসেক্স</subdivision>
@@ -1249,6 +1265,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbrut" draft="contributed">রাটল্যান্ড</subdivision>
 			<subdivision type="gbsay" draft="contributed">সাউথ আরশায়ার</subdivision>
 			<subdivision type="gbscb" draft="contributed">স্কটিশ বর্ডার</subdivision>
+			<subdivision type="gbsct" draft="contributed">স্কটল্যান্ড</subdivision>
 			<subdivision type="gbsfk" draft="contributed">সাফোক</subdivision>
 			<subdivision type="gbsgc" draft="contributed">সাউথ গ্লৌচেস্টারশায়ার</subdivision>
 			<subdivision type="gbshf" draft="contributed">শেফিল্ড</subdivision>
@@ -1274,8 +1291,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbwar" draft="contributed">ওয়ারউইকশায়ার</subdivision>
 			<subdivision type="gbwbk" draft="contributed">ওয়েস্ট বার্কশায়ার</subdivision>
 			<subdivision type="gbwft" draft="contributed">ওয়ালথম ফরেস্ট</subdivision>
+			<subdivision type="gbwil" draft="contributed">উইল্টশায়ার</subdivision>
 			<subdivision type="gbwll" draft="contributed">ওয়ালসাল</subdivision>
 			<subdivision type="gbwln" draft="contributed">ওয়েস্ট লোথিয়ান</subdivision>
+			<subdivision type="gbwls" draft="contributed">ওয়েল্স্</subdivision>
 			<subdivision type="gbwlv" draft="contributed">উভারহ্যাম্পটন</subdivision>
 			<subdivision type="gbwnm" draft="contributed">উইন্ডসর ও মেইডেনল্যান্ড</subdivision>
 			<subdivision type="gbwok" draft="contributed">ওকিংহাম</subdivision>
@@ -1374,28 +1393,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="grj" draft="contributed">পেলোপোনেসে অঞ্চল</subdivision>
 			<subdivision type="grk" draft="contributed">নর্থ এজিয়ান অঞ্চল</subdivision>
 			<subdivision type="grl" draft="contributed">দক্ষিণ এজিয়েন</subdivision>
-			<subdivision type="gtav" draft="contributed">আল্টা ভেরাপাজ বিভাগ</subdivision>
-			<subdivision type="gtbv" draft="contributed">বাজা ভারাপ্যাজ বিভাগ</subdivision>
-			<subdivision type="gtcm" draft="contributed">কিমালতেনাগো বিভাগ</subdivision>
-			<subdivision type="gtcq" draft="contributed">কিকুইমোলা বিভাগ</subdivision>
-			<subdivision type="gtes" draft="contributed">এস্কুইন্টাল বিভাগ</subdivision>
-			<subdivision type="gtgu" draft="contributed">গোয়াতেমালা বিভাগ</subdivision>
+			<subdivision type="gt01" draft="contributed">গোয়াতেমালা বিভাগ</subdivision>
+			<subdivision type="gt02" draft="contributed">এল প্রোগ্রেসো বিভাগ</subdivision>
+			<subdivision type="gt03" draft="contributed">সাকাতেপেকুয়েজ বিভাগ</subdivision>
+			<subdivision type="gt04" draft="contributed">কিমালতেনাগো বিভাগ</subdivision>
+			<subdivision type="gt05" draft="contributed">এস্কুইন্টাল বিভাগ</subdivision>
+			<subdivision type="gt06" draft="contributed">সান্তা রোসা বিভাগ</subdivision>
+			<subdivision type="gt07" draft="contributed">স্লিয়েমা</subdivision>
+			<subdivision type="gt08" draft="contributed">তুতুনিকাপান বিভাগ</subdivision>
+			<subdivision type="gt09" draft="contributed">কুয়ােটজালেনাং বিভাগ</subdivision>
+			<subdivision type="gt10" draft="contributed">সুখীতেপেকুয়েজ বিভাগ</subdivision>
+			<subdivision type="gt11" draft="contributed">রেতালহোলে বিভাগ</subdivision>
+			<subdivision type="gt12" draft="contributed">সান মার্কো বিভাগ</subdivision>
+			<subdivision type="gt13" draft="contributed">ওয়েওয়েতেনানগো বিভাগ</subdivision>
+			<subdivision type="gt14" draft="contributed">কিচে বিভাগ</subdivision>
+			<subdivision type="gt15" draft="contributed">বাজা ভারাপ্যাজ বিভাগ</subdivision>
+			<subdivision type="gt16" draft="contributed">আল্টা ভেরাপাজ বিভাগ</subdivision>
+			<subdivision type="gt17" draft="contributed">পেটেন</subdivision>
+			<subdivision type="gt18" draft="contributed">ইজাবাল বিভাগ</subdivision>
+			<subdivision type="gt19" draft="contributed">জাকাপা বিভাগ</subdivision>
+			<subdivision type="gt20" draft="contributed">কিকুইমোলা বিভাগ</subdivision>
+			<subdivision type="gt21" draft="contributed">জ্যাালাপা বিভাগ</subdivision>
+			<subdivision type="gt22" draft="contributed">জুতিপা বিভাগ</subdivision>
 			<subdivision type="gthu" draft="contributed">হিউইউইটেনংগো বিভাগ</subdivision>
-			<subdivision type="gtiz" draft="contributed">ইজাবাল বিভাগ</subdivision>
-			<subdivision type="gtja" draft="contributed">জ্যাালাপা বিভাগ</subdivision>
-			<subdivision type="gtju" draft="contributed">জুতিপা বিভাগ</subdivision>
-			<subdivision type="gtpe" draft="contributed">পেটেন</subdivision>
-			<subdivision type="gtpr" draft="contributed">এল প্রোগ্রেসো বিভাগ</subdivision>
-			<subdivision type="gtqc" draft="contributed">কিচে বিভাগ</subdivision>
-			<subdivision type="gtqz" draft="contributed">কুয়ােটজালেনাং বিভাগ</subdivision>
-			<subdivision type="gtre" draft="contributed">রেতালহোলে বিভাগ</subdivision>
-			<subdivision type="gtsa" draft="contributed">সাকাতেপেকুয়েজ বিভাগ</subdivision>
-			<subdivision type="gtsm" draft="contributed">সান মার্কো বিভাগ</subdivision>
-			<subdivision type="gtso" draft="contributed">স্লিয়েমা</subdivision>
-			<subdivision type="gtsr" draft="contributed">সান্তা রোসা বিভাগ</subdivision>
-			<subdivision type="gtsu" draft="contributed">সুখীতেপেকুয়েজ বিভাগ</subdivision>
-			<subdivision type="gtto" draft="contributed">তুতুনিকাপান বিভাগ</subdivision>
-			<subdivision type="gtza" draft="contributed">জাকাপা বিভাগ</subdivision>
 			<subdivision type="gwba" draft="contributed">বোফাতা অঞ্চল</subdivision>
 			<subdivision type="gwbl" draft="contributed">বুলামা অঞ্চল</subdivision>
 			<subdivision type="gwbm" draft="contributed">বায়োম্বু অঞ্চল</subdivision>
@@ -1498,6 +1518,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="huza" draft="contributed">জালা কাউন্টি</subdivision>
 			<subdivision type="huze" draft="contributed">জালায়েসেগ</subdivision>
 			<subdivision type="idac" draft="contributed">আচেহ</subdivision>
+			<subdivision type="idba" draft="contributed">বালি, ইন্দোনেশিয়া</subdivision>
 			<subdivision type="idbb" draft="contributed">বাঙ্কা বেলিটুং দ্বীপপুঞ্জ</subdivision>
 			<subdivision type="idbe" draft="contributed">বেংকুলু প্রদেশ</subdivision>
 			<subdivision type="idbt" draft="contributed">ব্যান্টেন প্রদেশ</subdivision>
@@ -1514,8 +1535,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="idkr" draft="contributed">কেপুলাউয়ান প্রদেশ</subdivision>
 			<subdivision type="idks" draft="contributed">কালিমান্টান সেলাটান</subdivision>
 			<subdivision type="idkt" draft="contributed">কালিমান্টন টেঙ্গাহ</subdivision>
+			<subdivision type="idku" draft="contributed">উত্তর কালিমান্তান</subdivision>
 			<subdivision type="idla" draft="contributed">ল্যাম্পুং প্রদেশ</subdivision>
 			<subdivision type="idma" draft="contributed">মালাকু প্রদেশ</subdivision>
+			<subdivision type="idml" draft="contributed">মালুকু দ্বীপপুঞ্জ</subdivision>
 			<subdivision type="idmu" draft="contributed">উত্তর মালুকা প্রদেশ</subdivision>
 			<subdivision type="idnb" draft="contributed">ওয়েস্ট নুসা তেনগারা</subdivision>
 			<subdivision type="idnt" draft="contributed">পূর্ব নুসা টেঙ্গারা প্রদেশ</subdivision>
@@ -1526,6 +1549,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="idsa" draft="contributed">উত্তর সুলাবেসি প্রদেশ</subdivision>
 			<subdivision type="idsb" draft="contributed">পশ্চিম সুমাত্রা</subdivision>
 			<subdivision type="idsg" draft="contributed">দক্ষিণ পূর্ব সুলভিসী প্রদেশ</subdivision>
+			<subdivision type="idsl" draft="contributed">সুলাওসি</subdivision>
 			<subdivision type="idsm" draft="contributed">সুমাত্রা</subdivision>
 			<subdivision type="idsn" draft="contributed">দক্ষিন সুলাবেসি</subdivision>
 			<subdivision type="idsr" draft="contributed">ওয়েস্ট সুলাবেসি</subdivision>
@@ -1560,6 +1584,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="iewx" draft="contributed">কাউন্টি ওয়েক্সফোর্ড</subdivision>
 			<subdivision type="ilha" draft="contributed">হাইফা জেলা</subdivision>
 			<subdivision type="ilm" draft="contributed">সেন্ট্রাল জেলা</subdivision>
+			<subdivision type="ilta" draft="contributed">তেল আবিব জেলা</subdivision>
 			<subdivision type="ilz" draft="contributed">নর্দান জেলা</subdivision>
 			<subdivision type="inan" draft="contributed">আন্দামান ও নিকোবর দ্বীপপুঞ্জ</subdivision>
 			<subdivision type="inap" draft="contributed">অন্ধ্রপ্রদেশ</subdivision>
@@ -1569,6 +1594,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inch" draft="contributed">চণ্ডীগড়</subdivision>
 			<subdivision type="inct" draft="contributed">ছত্তীসগঢ়</subdivision>
 			<subdivision type="indd" draft="contributed">দমন ও দিউ</subdivision>
+			<subdivision type="indh" draft="contributed">দাদরা ও নগর হাভেলি এবং দমন ও দিউ</subdivision>
 			<subdivision type="indl" draft="contributed">দিল্লি</subdivision>
 			<subdivision type="indn" draft="contributed">দাদরা ও নগর হাভেলি</subdivision>
 			<subdivision type="inga" draft="contributed">গোয়া</subdivision>
@@ -1579,6 +1605,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="injk" draft="contributed">জম্মু ও কাশ্মীর</subdivision>
 			<subdivision type="inka" draft="contributed">কর্ণাটক</subdivision>
 			<subdivision type="inkl" draft="contributed">কেরল</subdivision>
+			<subdivision type="inla" draft="contributed">লাদাখ</subdivision>
 			<subdivision type="inld" draft="contributed">লক্ষদ্বীপ</subdivision>
 			<subdivision type="inmh" draft="contributed">মহারাষ্ট্র</subdivision>
 			<subdivision type="inml" draft="contributed">মেঘালয়</subdivision>
@@ -1615,6 +1642,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="iqsd" draft="contributed">সালাহউদ্দিন প্রদেশ</subdivision>
 			<subdivision type="iqsu" draft="contributed">আস সুলায়মানিয়াহ প্রদেশ</subdivision>
 			<subdivision type="iqwa" draft="contributed">ওয়াসিত প্রদেশ</subdivision>
+			<subdivision type="ir00" draft="contributed">মার্কাজি প্রদেশ²</subdivision>
 			<subdivision type="ir01" draft="contributed">পূর্ব আজারবাইজন প্রদেশ</subdivision>
 			<subdivision type="ir02" draft="contributed">পশ্চিম অজারবাইজন প্রদেশ</subdivision>
 			<subdivision type="ir03" draft="contributed">আর্দাবিল প্রদেশ</subdivision>
@@ -1623,6 +1651,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ir06" draft="contributed">বুশেহর প্রদেশ</subdivision>
 			<subdivision type="ir07" draft="contributed">তেহরন প্রদেশ</subdivision>
 			<subdivision type="ir08" draft="contributed">চাহর-মাহাল ও বাখতেয়রি প্রদেশ</subdivision>
+			<subdivision type="ir09" draft="contributed">রাজাভি খোরসন প্রদেশ²</subdivision>
 			<subdivision type="ir10" draft="contributed">খুজেস্তন প্রদেশ</subdivision>
 			<subdivision type="ir11" draft="contributed">জান্‌জন প্রদেশ</subdivision>
 			<subdivision type="ir12" draft="contributed">সেম্‌নন প্রদেশ</subdivision>
@@ -1656,7 +1685,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="is8" draft="contributed">সাউদার্ন অঞ্চল</subdivision>
 			<subdivision type="it23" draft="contributed">ভাল্লে দি অস্টা</subdivision>
 			<subdivision type="it25" draft="contributed">লোম্বার্ডি</subdivision>
+			<subdivision type="it34" draft="contributed">ভেনেটো</subdivision>
 			<subdivision type="it52" draft="contributed">টাস্কানি</subdivision>
+			<subdivision type="it62" draft="contributed">লাৎসিও</subdivision>
+			<subdivision type="it65" draft="contributed">আবরুৎসো</subdivision>
+			<subdivision type="it67" draft="contributed">মোলিজে</subdivision>
 			<subdivision type="it72" draft="contributed">কাম্পানিয়া</subdivision>
 			<subdivision type="it82" draft="contributed">সিসিল</subdivision>
 			<subdivision type="itag" draft="contributed">অ্যাগ্রিগেন্টো</subdivision>
@@ -1866,6 +1899,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kh22" draft="contributed">অড্ডার মিনকে প্রদেশ</subdivision>
 			<subdivision type="kh23" draft="contributed">কেপ প্রদেশ</subdivision>
 			<subdivision type="kh24" draft="contributed">পাইলিন প্রদেশ</subdivision>
+			<subdivision type="kh25" draft="contributed">তবৌং খমুম প্রদেশ</subdivision>
 			<subdivision type="kma" draft="contributed">আঞ্জুয়ান</subdivision>
 			<subdivision type="kmg" draft="contributed">গ্রান্ডে কোমোর</subdivision>
 			<subdivision type="kmm" draft="contributed">মুহেলি</subdivision>
@@ -1927,6 +1961,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kzman" draft="contributed">মঙ্গিস্টৌ অঞ্চল</subdivision>
 			<subdivision type="kzpav" draft="contributed">পাভলোদার প্রদেশ</subdivision>
 			<subdivision type="kzsev" draft="contributed">উত্তর কাজাখস্তান প্রদেশ</subdivision>
+			<subdivision type="kzshy" draft="contributed">শ্যামকেন্ট</subdivision>
 			<subdivision type="kzvos" draft="contributed">ইস্ট কাজাকাস্তান অঞ্চল</subdivision>
 			<subdivision type="kzyuz" draft="contributed">সাউথ কাজাকাস্তান অঞ্চল</subdivision>
 			<subdivision type="kzzap" draft="contributed">পশ্চি্চিম কাজাকস্তান প্রদেশ</subdivision>
@@ -1942,9 +1977,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="laph" draft="contributed">ফংসালি প্রদেশ</subdivision>
 			<subdivision type="lasl" draft="contributed">সালভান প্রদেশ</subdivision>
 			<subdivision type="lasv" draft="contributed">স্যাভান্নাখেত প্রদেশ</subdivision>
+			<subdivision type="lavi" draft="contributed">ভিয়েনচান প্রদেশ</subdivision>
+			<subdivision type="lavt" draft="contributed">ভিয়েনচান প্রিফেকচার</subdivision>
 			<subdivision type="laxa" draft="contributed">সাইনিয়াবুলি প্রদেশ</subdivision>
 			<subdivision type="laxe" draft="contributed">সেকং প্রদেশ</subdivision>
 			<subdivision type="laxi" draft="contributed">জিয়াংখুয়াং প্রদেশ</subdivision>
+			<subdivision type="laxs" draft="contributed">সাইসম্বুন প্রদেশ</subdivision>
 			<subdivision type="lbas" draft="contributed">উত্তর গভর্নোরেট</subdivision>
 			<subdivision type="lbba" draft="contributed">বৈরুত গভর্নোরেট</subdivision>
 			<subdivision type="lbjl" draft="contributed">মাউন্ট লেবানন গভর্নোরেট</subdivision>
@@ -1957,6 +1995,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="lc11" draft="contributed">ভিয়ক্স ফোর্ট কোয়ার্টার</subdivision>
 			<subdivision type="lc12" draft="contributed">কানারাইসে</subdivision>
 			<subdivision type="li11" draft="contributed">ফাডুৎস</subdivision>
+			<subdivision type="lk1" draft="contributed">পশ্চিমাঞ্চল প্রদেশ</subdivision>
+			<subdivision type="lk2" draft="contributed">মধ্যাঞ্চল প্রদেশ</subdivision>
+			<subdivision type="lk3" draft="contributed">দক্ষিণাঞ্চল প্রদেশ</subdivision>
+			<subdivision type="lk4" draft="contributed">উত্তরাঞ্চল প্রদেশ</subdivision>
+			<subdivision type="lk5" draft="contributed">পূর্বাঞ্চল প্রদেশ</subdivision>
+			<subdivision type="lk6" draft="contributed">উত্তর পশ্চিমাঞ্চল প্রদেশ</subdivision>
+			<subdivision type="lk7" draft="contributed">উত্তর মধ্যাঞ্চল প্রদেশ</subdivision>
+			<subdivision type="lk8" draft="contributed">উভা প্রদেশ</subdivision>
+			<subdivision type="lk9" draft="contributed">সাবরাগমুওয়া প্রদেশ</subdivision>
+			<subdivision type="lk11" draft="contributed">কলম্বো জেলা</subdivision>
 			<subdivision type="lk12" draft="contributed">গাম্পাহা জেলা</subdivision>
 			<subdivision type="lk13" draft="contributed">কুলোটারা জেলা</subdivision>
 			<subdivision type="lk22" draft="contributed">মাতালে জেলা</subdivision>
@@ -2160,6 +2208,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ma15" draft="contributed">লয়োনি বুজদোর সাকিয়া এল হামরা</subdivision>
 			<subdivision type="maagd" draft="contributed">আগাদির</subdivision>
 			<subdivision type="macas" draft="contributed">কাসাব্লাংকা</subdivision>
+			<subdivision type="mafes" draft="contributed">ফেজ</subdivision>
 			<subdivision type="mague" draft="contributed">গুয়েল্মিম প্রদেশ</subdivision>
 			<subdivision type="mamek" draft="contributed">মেকনাস</subdivision>
 			<subdivision type="mammd" draft="contributed">মারাক্কেশ</subdivision>
@@ -2228,64 +2277,65 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mhl" draft="contributed">রালিকচেইন</subdivision>
 			<subdivision type="mhmaj" draft="contributed">মাজুরো</subdivision>
 			<subdivision type="mht" draft="contributed">রাতাক চেইন</subdivision>
-			<subdivision type="mk02" draft="contributed">আরাকিনোভো পৌরসভা</subdivision>
-			<subdivision type="mk03" draft="contributed">বেরোভো পৌরসভা</subdivision>
-			<subdivision type="mk04" draft="contributed">বিটোলা পৌরসভা</subdivision>
-			<subdivision type="mk05" draft="contributed">বোগদাঞ্চি পৌরসভা</subdivision>
-			<subdivision type="mk06" draft="contributed">বগোভিঞ্জে পৌরসভা</subdivision>
-			<subdivision type="mk07" draft="contributed">বসিলভো পৌরসভা</subdivision>
-			<subdivision type="mk08" draft="contributed">ব্রভেনিকা পৌরসভা</subdivision>
-			<subdivision type="mk11" draft="contributed">ভাসিলেভো পৌরসভা</subdivision>
-			<subdivision type="mk14" draft="contributed">ভিনিকা পৌরসভা</subdivision>
-			<subdivision type="mk19" draft="contributed">গোস্টিভার পৌরসভা</subdivision>
-			<subdivision type="mk20" draft="contributed">গ্রাডস্কো পৌরসভা</subdivision>
-			<subdivision type="mk21" draft="contributed">দেবার পৌরসভা</subdivision>
-			<subdivision type="mk22" draft="contributed">ডিবার্কা পৌরসভা</subdivision>
-			<subdivision type="mk23" draft="contributed">ডেলচেভো পৌরসভা</subdivision>
-			<subdivision type="mk27" draft="contributed">ডলনেনি পৌরসভা</subdivision>
-			<subdivision type="mk30" draft="contributed">জেলিনো পৌরসভা</subdivision>
-			<subdivision type="mk32" draft="contributed">জেলেনিকোভো পৌরসভা</subdivision>
-			<subdivision type="mk33" draft="contributed">জার্নোভচি পৌরসভা</subdivision>
-			<subdivision type="mk34" draft="contributed">ইলিন্ডেন পৌরসভা</subdivision>
-			<subdivision type="mk35" draft="contributed">জেগুনোভচে পৌরসভা</subdivision>
-			<subdivision type="mk36" draft="contributed">কার্ভাদারচি পৌরসভা</subdivision>
-			<subdivision type="mk37" draft="contributed">কারাবিনকি</subdivision>
-			<subdivision type="mk40" draft="contributed">কিয়েভো পৌরসভা</subdivision>
-			<subdivision type="mk41" draft="contributed">কঞ্চি পৌরসভা</subdivision>
-			<subdivision type="mk42" draft="contributed">কৈয়ানি পৌরসভা</subdivision>
-			<subdivision type="mk43" draft="contributed">ক্রাটোভো পৌরসভা</subdivision>
-			<subdivision type="mk44" draft="contributed">ক্রিভা পালাঙ্কা পৌরসভা</subdivision>
-			<subdivision type="mk45" draft="contributed">ক্রিভোগাস্টানি পৌরসভা</subdivision>
-			<subdivision type="mk46" draft="contributed">ক্রুসেভো পৌরসভা</subdivision>
-			<subdivision type="mk47" draft="contributed">কুমানোভো পৌরসভা</subdivision>
-			<subdivision type="mk48" draft="contributed">লিপকোভ পৌরসভা</subdivision>
-			<subdivision type="mk49" draft="contributed">লোজোভো পৌরসভা</subdivision>
-			<subdivision type="mk50" draft="contributed">মাভ্রোভো অ্যান্ড রোতুঁসা পৌরসভা</subdivision>
-			<subdivision type="mk51" draft="contributed">মেকাডনস্কা কামেনিয়া পৌরসভা</subdivision>
-			<subdivision type="mk52" draft="contributed">মেকাডনস্কি ব্রড পৌরসভা</subdivision>
-			<subdivision type="mk54" draft="contributed">নাগোটিনো পৌরসভা</subdivision>
-			<subdivision type="mk56" draft="contributed">নোভো সেলো পৌরসভা</subdivision>
-			<subdivision type="mk58" draft="contributed">ওহরিড পৌরসভা</subdivision>
-			<subdivision type="mk60" draft="contributed">পেচেভো পৌরসভা</subdivision>
-			<subdivision type="mk61" draft="contributed">প্লাস্নিকা পৌরসভা</subdivision>
-			<subdivision type="mk62" draft="contributed">প্রিলেপ পৌরসভা</subdivision>
-			<subdivision type="mk63" draft="contributed">প্রবিস্টিপ পৌরসভা</subdivision>
-			<subdivision type="mk64" draft="contributed">রাডোভিস পৌরসভা</subdivision>
 			<subdivision type="mk65" draft="contributed">র‍্যাঙ্কোভচে পৌরসভা</subdivision>
-			<subdivision type="mk66" draft="contributed">রাসেন পৌরসভা</subdivision>
-			<subdivision type="mk69" draft="contributed">ভেটি নিকোল পৌরসভা</subdivision>
-			<subdivision type="mk70" draft="contributed">সোপিসতেঁ পৌরসভা</subdivision>
-			<subdivision type="mk72" draft="contributed">স্টুগা পৌরসভা]</subdivision>
-			<subdivision type="mk73" draft="contributed">স্ট্রুমিকা পৌরসভা</subdivision>
-			<subdivision type="mk74" draft="contributed">স্টুডেনিকানি পৌরসভা</subdivision>
-			<subdivision type="mk75" draft="contributed">টিয়ারচ পৌরসভা</subdivision>
-			<subdivision type="mk76" draft="contributed">তেতোভো পৌরসভা</subdivision>
-			<subdivision type="mk78" draft="contributed">সেন্টার জুপা পৌরসভা</subdivision>
-			<subdivision type="mk80" draft="contributed">ক্যাস্কা পৌরসভা</subdivision>
-			<subdivision type="mk81" draft="contributed">চেচিনোভো-অব্লেচেভো পৌরসভা</subdivision>
-			<subdivision type="mk82" draft="contributed">কুচার-সান্দেভো পৌরসভা</subdivision>
-			<subdivision type="mk83" draft="contributed">স্টিপ পৌরসভা</subdivision>
 			<subdivision type="mk85" draft="contributed">স্কোপজে</subdivision>
+			<subdivision type="mk102" draft="contributed">গ্রাডস্কো পৌরসভা</subdivision>
+			<subdivision type="mk104" draft="contributed">কার্ভাদারচি পৌরসভা</subdivision>
+			<subdivision type="mk105" draft="contributed">লোজোভো পৌরসভা</subdivision>
+			<subdivision type="mk106" draft="contributed">নাগোটিনো পৌরসভা</subdivision>
+			<subdivision type="mk108" draft="contributed">ভেটি নিকোল পৌরসভা</subdivision>
+			<subdivision type="mk109" draft="contributed">ক্যাস্কা পৌরসভা</subdivision>
+			<subdivision type="mk201" draft="contributed">বেরোভো পৌরসভা</subdivision>
+			<subdivision type="mk202" draft="contributed">ভিনিকা পৌরসভা</subdivision>
+			<subdivision type="mk203" draft="contributed">ডেলচেভো পৌরসভা</subdivision>
+			<subdivision type="mk204" draft="contributed">জার্নোভচি পৌরসভা</subdivision>
+			<subdivision type="mk205" draft="contributed">কারাবিনকি</subdivision>
+			<subdivision type="mk206" draft="contributed">কৈয়ানি পৌরসভা</subdivision>
+			<subdivision type="mk207" draft="contributed">মেকাডনস্কা কামেনিয়া পৌরসভা</subdivision>
+			<subdivision type="mk208" draft="contributed">পেচেভো পৌরসভা</subdivision>
+			<subdivision type="mk209" draft="contributed">প্রবিস্টিপ পৌরসভা</subdivision>
+			<subdivision type="mk210" draft="contributed">চেচিনোভো-অব্লেচেভো পৌরসভা</subdivision>
+			<subdivision type="mk211" draft="contributed">স্টিপ পৌরসভা</subdivision>
+			<subdivision type="mk303" draft="contributed">দেবার পৌরসভা</subdivision>
+			<subdivision type="mk304" draft="contributed">ডিবার্কা পৌরসভা</subdivision>
+			<subdivision type="mk307" draft="contributed">কিয়েভো পৌরসভা</subdivision>
+			<subdivision type="mk308" draft="contributed">মেকাডনস্কি ব্রড পৌরসভা</subdivision>
+			<subdivision type="mk310" draft="contributed">ওহরিড পৌরসভা</subdivision>
+			<subdivision type="mk311" draft="contributed">প্লাস্নিকা পৌরসভা</subdivision>
+			<subdivision type="mk312" draft="contributed">স্টুগা পৌরসভা]</subdivision>
+			<subdivision type="mk313" draft="contributed">সেন্টার জুপা পৌরসভা</subdivision>
+			<subdivision type="mk401" draft="contributed">বোগদাঞ্চি পৌরসভা</subdivision>
+			<subdivision type="mk402" draft="contributed">বসিলভো পৌরসভা</subdivision>
+			<subdivision type="mk404" draft="contributed">ভাসিলেভো পৌরসভা</subdivision>
+			<subdivision type="mk407" draft="contributed">কঞ্চি পৌরসভা</subdivision>
+			<subdivision type="mk408" draft="contributed">নোভো সেলো পৌরসভা</subdivision>
+			<subdivision type="mk409" draft="contributed">রাডোভিস পৌরসভা</subdivision>
+			<subdivision type="mk410" draft="contributed">স্ট্রুমিকা পৌরসভা</subdivision>
+			<subdivision type="mk501" draft="contributed">বিটোলা পৌরসভা</subdivision>
+			<subdivision type="mk503" draft="contributed">ডলনেনি পৌরসভা</subdivision>
+			<subdivision type="mk504" draft="contributed">ক্রিভোগাস্টানি পৌরসভা</subdivision>
+			<subdivision type="mk505" draft="contributed">ক্রুসেভো পৌরসভা</subdivision>
+			<subdivision type="mk508" draft="contributed">প্রিলেপ পৌরসভা</subdivision>
+			<subdivision type="mk509" draft="contributed">রাসেন পৌরসভা</subdivision>
+			<subdivision type="mk601" draft="contributed">বগোভিঞ্জে পৌরসভা</subdivision>
+			<subdivision type="mk602" draft="contributed">ব্রভেনিকা পৌরসভা</subdivision>
+			<subdivision type="mk604" draft="contributed">গোস্টিভার পৌরসভা</subdivision>
+			<subdivision type="mk605" draft="contributed">জেলিনো পৌরসভা</subdivision>
+			<subdivision type="mk606" draft="contributed">জেগুনোভচে পৌরসভা</subdivision>
+			<subdivision type="mk607" draft="contributed">মাভ্রোভো অ্যান্ড রোতুঁসা পৌরসভা</subdivision>
+			<subdivision type="mk608" draft="contributed">টিয়ারচ পৌরসভা</subdivision>
+			<subdivision type="mk609" draft="contributed">তেতোভো পৌরসভা</subdivision>
+			<subdivision type="mk701" draft="contributed">ক্রাটোভো পৌরসভা</subdivision>
+			<subdivision type="mk702" draft="contributed">ক্রিভা পালাঙ্কা পৌরসভা</subdivision>
+			<subdivision type="mk703" draft="contributed">কুমানোভো পৌরসভা</subdivision>
+			<subdivision type="mk704" draft="contributed">লিপকোভ পৌরসভা</subdivision>
+			<subdivision type="mk705" draft="contributed">র্যাঙ্কোভচে পৌরসভা</subdivision>
+			<subdivision type="mk802" draft="contributed">আরাকিনোভো পৌরসভা</subdivision>
+			<subdivision type="mk806" draft="contributed">জেলেনিকোভো পৌরসভা</subdivision>
+			<subdivision type="mk807" draft="contributed">ইলিন্ডেন পৌরসভা</subdivision>
+			<subdivision type="mk812" draft="contributed">সোপিসতেঁ পৌরসভা</subdivision>
+			<subdivision type="mk813" draft="contributed">স্টুডেনিকানি পৌরসভা</subdivision>
+			<subdivision type="mk816" draft="contributed">কুচার-সান্দেভো পৌরসভা</subdivision>
 			<subdivision type="ml1" draft="contributed">কায়েস অঞ্চল</subdivision>
 			<subdivision type="ml2" draft="contributed">কউলিকুরো অঞ্চল</subdivision>
 			<subdivision type="ml3" draft="contributed">সিকাসো অঞ্চল</subdivision>
@@ -2309,6 +2359,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mm15" draft="contributed">মন রাজ্য</subdivision>
 			<subdivision type="mm16" draft="contributed">আরাকান রাজ্য</subdivision>
 			<subdivision type="mm17" draft="contributed">শান রাজ্য</subdivision>
+			<subdivision type="mm18" draft="contributed">নেপিডো কেন্দ্রশাসিত অঞ্চল</subdivision>
 			<subdivision type="mn1" draft="contributed">উলানবাটর</subdivision>
 			<subdivision type="mn035" draft="contributed">ওরকন প্রদেশ</subdivision>
 			<subdivision type="mn037" draft="contributed">দারখান-উল প্রদেশ</subdivision>
@@ -2565,6 +2616,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ngko" draft="contributed">কোজি অঙ্গরাজ্য</subdivision>
 			<subdivision type="ngkt" draft="contributed">ক্যাটসিনা অঙ্গরাজ্য</subdivision>
 			<subdivision type="ngkw" draft="contributed">কওড়া রাজ্য</subdivision>
+			<subdivision type="ngla" draft="contributed">লেগোস</subdivision>
 			<subdivision type="ngna" draft="contributed">নাসারাও অঙ্গরাজ্য</subdivision>
 			<subdivision type="ngni" draft="contributed">নাইজার অঙ্গরাজ্য</subdivision>
 			<subdivision type="ngog" draft="contributed">ওগুন অঙ্গরাজ্য</subdivision>
@@ -2735,6 +2787,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pgwbk" draft="contributed">পশ্চিম নিউ ব্রিটেন প্রদেশ</subdivision>
 			<subdivision type="pgwhm" draft="contributed">ওয়েস্টার্ন হাইল্যান্ড প্রদেশ</subdivision>
 			<subdivision type="ph00" draft="contributed">মেট্রো মানিলা</subdivision>
+			<subdivision type="ph05" draft="contributed">বিকোল অঞ্চল</subdivision>
 			<subdivision type="ph11" draft="contributed">দাভাও অঞ্চল</subdivision>
 			<subdivision type="phabr" draft="contributed">আব্রা</subdivision>
 			<subdivision type="phagn" draft="contributed">আগুসান ডেল নর্থে</subdivision>
@@ -2765,6 +2818,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="phdao" draft="contributed">দাভাও ওরিয়েন্টাল</subdivision>
 			<subdivision type="phdas" draft="contributed">ডাভাও ডেল সুর</subdivision>
 			<subdivision type="phdav" draft="contributed">দাভাও দেল নর্টে</subdivision>
+			<subdivision type="phdin" draft="contributed">দিনাগাত দ্বীপপুঞ্জ</subdivision>
 			<subdivision type="pheas" draft="contributed">ইস্টার্ন সামার</subdivision>
 			<subdivision type="phgui" draft="contributed">গুইমারাস</subdivision>
 			<subdivision type="phifu" draft="contributed">ইফুগাও</subdivision>
@@ -2841,12 +2895,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pl32" draft="contributed">পশ্চিম পেমারানিয়ান ভয়ভোডেশিপ</subdivision>
 			<subdivision type="psbth" draft="contributed">বেথেলহাম গভর্নোরেট</subdivision>
 			<subdivision type="psdeb" draft="contributed">দেইর আল-বালাহ গভর্নোরেট</subdivision>
+			<subdivision type="psgza" draft="contributed">গাজা গভর্নরেট</subdivision>
 			<subdivision type="pshbn" draft="contributed">হেবরন গভর্নোরেট</subdivision>
 			<subdivision type="psnbs" draft="contributed">নাব্লুস গভর্নোরেট</subdivision>
 			<subdivision type="psngz" draft="contributed">উত্তর গাজা গভর্নোরেট</subdivision>
 			<subdivision type="psqqa" draft="contributed">কাল্কিলিয়া গভর্নোরেট</subdivision>
 			<subdivision type="psrbh" draft="contributed">রামাল্লাহ ও আল-বিরেহ গভর্নোরেট</subdivision>
 			<subdivision type="psslt" draft="contributed">সালফিত গভর্নোরেট</subdivision>
+			<subdivision type="pstbs" draft="contributed">তুবাস গভর্নরেট</subdivision>
 			<subdivision type="pstkm" draft="contributed">তুল্কারম গভর্নোরেট</subdivision>
 			<subdivision type="pt02" draft="contributed">বেজা জেলা</subdivision>
 			<subdivision type="pt03" draft="contributed">ব্রাগা জেলা</subdivision>
@@ -3084,6 +3140,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="sc11" draft="contributed">ক্যাস্কেড</subdivision>
 			<subdivision type="sc12" draft="contributed">গ্লাচিচ</subdivision>
 			<subdivision type="sc14" draft="contributed">গ্রান্ড’আন্সে প্রাস্লিন</subdivision>
+			<subdivision type="sc15" draft="contributed">লা ডিগ ও ইনার আইল্যান্ডস</subdivision>
 			<subdivision type="sc16" draft="contributed">লা রিভেরে এংলাইস</subdivision>
 			<subdivision type="sc17" draft="contributed">মন্ট বাক্সটন</subdivision>
 			<subdivision type="sc18" draft="contributed">মন্ট ফ্লেঊরি</subdivision>
@@ -3100,6 +3157,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="sdds" draft="contributed">দক্ষিণ দারফুর</subdivision>
 			<subdivision type="sddw" draft="contributed">পশ্চিম দারফুর</subdivision>
 			<subdivision type="sdgd" draft="contributed">আল কাদারিফ</subdivision>
+			<subdivision type="sdgk" draft="contributed">পশ্চিম কুরদুফান</subdivision>
 			<subdivision type="sdgz" draft="contributed">আল জাজিরা</subdivision>
 			<subdivision type="sdka" draft="contributed">কাসালা</subdivision>
 			<subdivision type="sdkh" draft="contributed">খার্তুম</subdivision>
@@ -3520,6 +3578,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tlvi" draft="contributed">ভিকুয়েকুয়ে পৌরসভা</subdivision>
 			<subdivision type="tma" draft="contributed">আহাল প্রদেশ</subdivision>
 			<subdivision type="tmb" draft="contributed">বলকান প্রদেশ</subdivision>
+			<subdivision type="tmd" draft="contributed">দাসোগুজ প্রদেশ</subdivision>
+			<subdivision type="tml" draft="contributed">লেবাপ প্রদেশ</subdivision>
 			<subdivision type="tmm" draft="contributed">মেরি প্রদেশ</subdivision>
 			<subdivision type="tms" draft="contributed">আশখাবাদ</subdivision>
 			<subdivision type="tn13" draft="contributed">বেন আরুস গভর্নোরেট</subdivision>
@@ -3637,6 +3697,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ttsjl" draft="contributed">সান জুয়ান-লাভেন্তিলে আঞ্চলিক কর্পোরেশন</subdivision>
 			<subdivision type="tttob" draft="contributed">টোবাগো</subdivision>
 			<subdivision type="tttup" draft="contributed">টোনাপোনা-পিয়াকু আঞ্চলিক কর্পোরেশন</subdivision>
+			<subdivision type="tvfun" draft="contributed">ফুনাফুতি</subdivision>
 			<subdivision type="twcha" draft="contributed">চ্যাংহুয়া কাউন্টি</subdivision>
 			<subdivision type="twcyi" draft="contributed">চিয়ায়ি কাউন্টি</subdivision>
 			<subdivision type="twcyq" draft="contributed">সিয়াই শহর</subdivision>
@@ -3649,6 +3710,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="twkin" draft="contributed">কোয়েময়</subdivision>
 			<subdivision type="twmia" draft="contributed">মিয়াওলি কাউন্টি</subdivision>
 			<subdivision type="twnan" draft="contributed">নান্তু কাউন্টি</subdivision>
+			<subdivision type="twnwt" draft="contributed">নিউ তাইপে সিটি</subdivision>
 			<subdivision type="twpif" draft="contributed">পিংটুং কাউন্টি</subdivision>
 			<subdivision type="twtao" draft="contributed">তাওউয়ান শহর</subdivision>
 			<subdivision type="twtnn" draft="contributed">তাইনান</subdivision>
@@ -4043,11 +4105,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="yeta" draft="contributed">তা‘ইজ গভর্নোরেট</subdivision>
 			<subdivision type="zaec" draft="contributed">পূর্ব কেপ প্রদেশ</subdivision>
 			<subdivision type="zafs" draft="contributed">ফ্রি অঙ্গরাজ্য</subdivision>
-			<subdivision type="zagt" draft="contributed">গুটেং</subdivision>
+			<subdivision type="zagp" draft="contributed">গুটেং</subdivision>
+			<subdivision type="zakzn" draft="contributed">কোয়া-জুলু নাটাল প্রদেশ</subdivision>
 			<subdivision type="zalp" draft="contributed">লিম্পোপো</subdivision>
 			<subdivision type="zamp" draft="contributed">এম্পোমালাগা</subdivision>
 			<subdivision type="zanc" draft="contributed">উত্তর কেপ প্রদেশ</subdivision>
-			<subdivision type="zanl" draft="contributed">কোয়া-জুলু নাটাল প্রদেশ</subdivision>
 			<subdivision type="zanw" draft="contributed">উত্তর পশ্চিম প্রদেশ</subdivision>
 			<subdivision type="zawc" draft="contributed">পশ্চিম কেপ প্রদেশ</subdivision>
 			<subdivision type="zm01" draft="contributed">ওয়েস্টার্ন প্রদেশ</subdivision>

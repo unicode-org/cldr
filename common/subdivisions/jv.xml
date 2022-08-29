@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,7 +12,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<subdivisions>
+			<subdivision type="ad07" draft="contributed">Andorra la Vella</subdivision>
 			<subdivision type="aeaz" draft="contributed">Abu Dhabi</subdivision>
+			<subdivision type="afnur" draft="contributed">Nuristan</subdivision>
 			<subdivision type="amer" draft="contributed">Yerevan</subdivision>
 			<subdivision type="arc" draft="contributed">Buenos Aires</subdivision>
 			<subdivision type="ard" draft="contributed">Provinsi San Luis</subdivision>
@@ -85,12 +87,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="dest" draft="contributed">Sachsen-Anhalt</subdivision>
 			<subdivision type="deth" draft="contributed">Thüringen</subdivision>
 			<subdivision type="djdj" draft="contributed">Djibouti</subdivision>
+			<subdivision type="ect" draft="contributed">Tungurahua</subdivision>
 			<subdivision type="esan" draft="contributed">Andalusia</subdivision>
 			<subdivision type="esar" draft="contributed">Aragon</subdivision>
 			<subdivision type="esas" draft="contributed">Asturias</subdivision>
 			<subdivision type="esce" draft="contributed">Ceuta</subdivision>
 			<subdivision type="escl" draft="contributed">Castile-Leon</subdivision>
 			<subdivision type="escm" draft="contributed">Castile-La Mancha</subdivision>
+			<subdivision type="escn" draft="contributed">Kapuloan Canary</subdivision>
 			<subdivision type="esct" draft="contributed">Catalunya</subdivision>
 			<subdivision type="esga" draft="contributed">Galicia</subdivision>
 			<subdivision type="esib" draft="contributed">Kapuloan Baleares</subdivision>
@@ -106,19 +110,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr02" draft="contributed">Aisne</subdivision>
 			<subdivision type="fr03" draft="contributed">Allier</subdivision>
 			<subdivision type="fr14" draft="contributed">Calvados</subdivision>
+			<subdivision type="fr20r" draft="contributed">Korsika</subdivision>
 			<subdivision type="fr21" draft="contributed">Côte-d’Or</subdivision>
 			<subdivision type="fr33" draft="contributed">Dhépartemèn Gironde</subdivision>
-			<subdivision type="fr75" draft="contributed">Paris</subdivision>
+			<subdivision type="fr75c" draft="contributed">Paris</subdivision>
 			<subdivision type="fr86" draft="contributed">Vienne</subdivision>
 			<subdivision type="fr92" draft="contributed">Hauts-de-Seine</subdivision>
+			<subdivision type="fr971" draft="contributed">Guadeloupe</subdivision>
 			<subdivision type="frbre" draft="contributed">Bretagne</subdivision>
-			<subdivision type="frcor" draft="contributed">Korsika</subdivision>
 			<subdivision type="frcvl" draft="contributed">Centre</subdivision>
 			<subdivision type="fridf" draft="contributed">Île-de-France</subdivision>
 			<subdivision type="frpac" draft="contributed">Provence-Alpes-Côte d’Azur</subdivision>
 			<subdivision type="frpdl" draft="contributed">Pays de la Loire</subdivision>
 			<subdivision type="gbcrf" draft="contributed">Cardiff</subdivision>
 			<subdivision type="gbder" draft="contributed">Derby</subdivision>
+			<subdivision type="gbedh" draft="contributed">Edinburgh</subdivision>
+			<subdivision type="gbeng" draft="contributed">Inggris</subdivision>
 			<subdivision type="gbglg" draft="contributed">Glasgow</subdivision>
 			<subdivision type="gbham" draft="contributed">Hampshire</subdivision>
 			<subdivision type="gblec" draft="contributed">Leicestershire</subdivision>
@@ -126,7 +133,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbnir" draft="contributed">Irlandia Lor</subdivision>
 			<subdivision type="gboxf" draft="contributed">Oxford</subdivision>
 			<subdivision type="gbpor" draft="contributed">Portsmouth</subdivision>
+			<subdivision type="gbsct" draft="contributed">Skotlandia</subdivision>
 			<subdivision type="gbukm" draft="contributed">Britania Raya</subdivision>
+			<subdivision type="gbwls" draft="contributed">Wales</subdivision>
 			<subdivision type="geaj" draft="contributed">Ajaria</subdivision>
 			<subdivision type="getb" draft="contributed">Tbilisi</subdivision>
 			<subdivision type="gmb" draft="contributed">Banjul</subdivision>
@@ -189,8 +198,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="idsu" draft="contributed">Sumatra Lor</subdivision>
 			<subdivision type="idyo" draft="contributed">Dhaérah Istiméwa Yogyakarta</subdivision>
 			<subdivision type="inan" draft="contributed">Kapuloan Andaman lan Nikobar</subdivision>
+			<subdivision type="inar" draft="contributed">Arunachal Pradesh</subdivision>
 			<subdivision type="inas" draft="contributed">Assam</subdivision>
 			<subdivision type="inor" draft="contributed">Odisha</subdivision>
+			<subdivision type="inrj" draft="contributed">Rajasthan</subdivision>
+			<subdivision type="intn" draft="contributed">Tamil Nadu</subdivision>
+			<subdivision type="inup" draft="contributed">Uttar Pradesh</subdivision>
 			<subdivision type="iqda" draft="contributed">Kagubernuran Dohuk</subdivision>
 			<subdivision type="it21" draft="contributed">Piemonte</subdivision>
 			<subdivision type="it23" draft="contributed">Lembah Aosta</subdivision>
@@ -381,6 +394,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="my04" draft="contributed">Melaka</subdivision>
 			<subdivision type="my05" draft="contributed">Negeri Sembilan</subdivision>
 			<subdivision type="my07" draft="contributed">Pulo Pinang</subdivision>
+			<subdivision type="my10" draft="contributed">Selangor</subdivision>
 			<subdivision type="my11" draft="contributed">Terengganu</subdivision>
 			<subdivision type="my12" draft="contributed">Sabah</subdivision>
 			<subdivision type="my13" draft="contributed">Sarawak</subdivision>
@@ -401,6 +415,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="no03" draft="contributed">Oslo</subdivision>
 			<subdivision type="no21" draft="contributed">Svalbard</subdivision>
 			<subdivision type="no22" draft="contributed">Jan Mayen</subdivision>
+			<subdivision type="no34" draft="contributed">Innlandet</subdivision>
 			<subdivision type="nr01" draft="contributed">Aiwo</subdivision>
 			<subdivision type="nr02" draft="contributed">Anabar</subdivision>
 			<subdivision type="nr03" draft="contributed">Anetan</subdivision>
@@ -415,10 +430,122 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="nr12" draft="contributed">Nibok</subdivision>
 			<subdivision type="nr13" draft="contributed">Uaboe</subdivision>
 			<subdivision type="nr14" draft="contributed">Yaren</subdivision>
+			<subdivision type="pelma" draft="contributed">Propinsi Lima</subdivision>
 			<subdivision type="pgmrl" draft="contributed">Provinsi Manus</subdivision>
 			<subdivision type="pgncd" draft="contributed">Port Moresby</subdivision>
+			<subdivision type="ph00" draft="contributed">Metro Manila</subdivision>
+			<subdivision type="ph01" draft="contributed">Ilocos</subdivision>
+			<subdivision type="ph02" draft="contributed">Cagayan Valley</subdivision>
+			<subdivision type="ph03" draft="contributed">Central Luzon</subdivision>
+			<subdivision type="ph05" draft="contributed">Bicol</subdivision>
+			<subdivision type="ph06" draft="contributed">Western Visayas</subdivision>
+			<subdivision type="ph07" draft="contributed">Central Visayas</subdivision>
+			<subdivision type="ph08" draft="contributed">Eastern Visayas</subdivision>
+			<subdivision type="ph09" draft="contributed">Zamboanga Peninsula</subdivision>
+			<subdivision type="ph10" draft="contributed">Northern Mindanao</subdivision>
+			<subdivision type="ph11" draft="contributed">Davao Region</subdivision>
+			<subdivision type="ph12" draft="contributed">Soccsksargen</subdivision>
+			<subdivision type="ph13" draft="contributed">Caraga</subdivision>
+			<subdivision type="ph15" draft="contributed">Cordillera Administrative Region</subdivision>
+			<subdivision type="ph40" draft="contributed">Calabarzon</subdivision>
+			<subdivision type="ph41" draft="contributed">Mimaropa</subdivision>
+			<subdivision type="phabr" draft="contributed">Abra</subdivision>
+			<subdivision type="phagn" draft="contributed">Agusan del Norte</subdivision>
+			<subdivision type="phags" draft="contributed">Agusan del Sur</subdivision>
+			<subdivision type="phakl" draft="contributed">Aklan</subdivision>
+			<subdivision type="phalb" draft="contributed">Albay</subdivision>
+			<subdivision type="phant" draft="contributed">Antique</subdivision>
+			<subdivision type="phapa" draft="contributed">Apayao</subdivision>
+			<subdivision type="phaur" draft="contributed">Aurora</subdivision>
+			<subdivision type="phban" draft="contributed">Bataan</subdivision>
+			<subdivision type="phbas" draft="contributed">Basilan</subdivision>
+			<subdivision type="phben" draft="contributed">Benguet</subdivision>
+			<subdivision type="phbil" draft="contributed">Biliran</subdivision>
 			<subdivision type="phboh" draft="contributed">Bohol</subdivision>
+			<subdivision type="phbtg" draft="contributed">Batangas</subdivision>
+			<subdivision type="phbtn" draft="contributed">Batanes</subdivision>
+			<subdivision type="phbuk" draft="contributed">Bukidnon</subdivision>
+			<subdivision type="phbul" draft="contributed">Bulacan</subdivision>
+			<subdivision type="phcag" draft="contributed">Cagayan</subdivision>
+			<subdivision type="phcam" draft="contributed">Camiguin</subdivision>
+			<subdivision type="phcan" draft="contributed">Camarines Norte</subdivision>
+			<subdivision type="phcap" draft="contributed">Capiz</subdivision>
+			<subdivision type="phcas" draft="contributed">Camarines Sur</subdivision>
+			<subdivision type="phcat" draft="contributed">Catanduanes</subdivision>
+			<subdivision type="phcav" draft="contributed">Cavite</subdivision>
+			<subdivision type="phceb" draft="contributed">Cebu</subdivision>
+			<subdivision type="phcom" draft="contributed">Davao de Oro</subdivision>
+			<subdivision type="phdao" draft="contributed">Davao Oriental</subdivision>
+			<subdivision type="phdas" draft="contributed">Davao del Sur</subdivision>
+			<subdivision type="phdav" draft="contributed">Davao del Norte</subdivision>
+			<subdivision type="phdin" draft="contributed">Dinagat Islands</subdivision>
+			<subdivision type="phdvo" draft="contributed">Davao Occidental</subdivision>
+			<subdivision type="pheas" draft="contributed">Eastern Samar</subdivision>
+			<subdivision type="phgui" draft="contributed">Guimaras</subdivision>
+			<subdivision type="phifu" draft="contributed">Ifugao</subdivision>
+			<subdivision type="phili" draft="contributed">Iloilo</subdivision>
+			<subdivision type="philn" draft="contributed">Ilocos Norte</subdivision>
+			<subdivision type="phils" draft="contributed">Ilocos Sur</subdivision>
+			<subdivision type="phisa" draft="contributed">Isabela</subdivision>
+			<subdivision type="phkal" draft="contributed">Kalinga</subdivision>
+			<subdivision type="phlag" draft="contributed">Laguna</subdivision>
+			<subdivision type="phlan" draft="contributed">Lanao del Norte</subdivision>
+			<subdivision type="phlas" draft="contributed">Lanao del Sur</subdivision>
+			<subdivision type="phley" draft="contributed">Leyte</subdivision>
+			<subdivision type="phlun" draft="contributed">La Union</subdivision>
+			<subdivision type="phmad" draft="contributed">Marinduque</subdivision>
+			<subdivision type="phmag" draft="contributed">Maguindanao</subdivision>
+			<subdivision type="phmas" draft="contributed">Masbate</subdivision>
+			<subdivision type="phmdc" draft="contributed">Occidental Mindoro</subdivision>
+			<subdivision type="phmdr" draft="contributed">Oriental Mindoro</subdivision>
+			<subdivision type="phmou" draft="contributed">Mountain Province</subdivision>
+			<subdivision type="phmsc" draft="contributed">Misamis Occidental</subdivision>
+			<subdivision type="phmsr" draft="contributed">Misamis Oriental</subdivision>
+			<subdivision type="phnco" draft="contributed">Cotabato</subdivision>
+			<subdivision type="phnec" draft="contributed">Negros Occidental</subdivision>
+			<subdivision type="phner" draft="contributed">Negros Oriental</subdivision>
+			<subdivision type="phnsa" draft="contributed">Northern Samar</subdivision>
+			<subdivision type="phnue" draft="contributed">Nueva Ecija</subdivision>
+			<subdivision type="phnuv" draft="contributed">Nueva Vizcaya</subdivision>
+			<subdivision type="phpam" draft="contributed">Pampanga</subdivision>
 			<subdivision type="phpan" draft="contributed">Pangasinan</subdivision>
+			<subdivision type="phplw" draft="contributed">Palawan</subdivision>
+			<subdivision type="phque" draft="contributed">Quezon</subdivision>
+			<subdivision type="phqui" draft="contributed">Quirino</subdivision>
+			<subdivision type="phriz" draft="contributed">Rizal</subdivision>
+			<subdivision type="phrom" draft="contributed">Romblon</subdivision>
+			<subdivision type="phsar" draft="contributed">Sarangani</subdivision>
+			<subdivision type="phsco" draft="contributed">South Cotabato</subdivision>
+			<subdivision type="phsig" draft="contributed">Siquijor</subdivision>
+			<subdivision type="phsle" draft="contributed">Southern Leyte</subdivision>
+			<subdivision type="phslu" draft="contributed">Sulu</subdivision>
+			<subdivision type="phsor" draft="contributed">Sorsogon</subdivision>
+			<subdivision type="phsuk" draft="contributed">Sultan Kudarat</subdivision>
+			<subdivision type="phsun" draft="contributed">Surigao del Norte</subdivision>
+			<subdivision type="phsur" draft="contributed">Surigao del Sur</subdivision>
+			<subdivision type="phtar" draft="contributed">Tarlac</subdivision>
+			<subdivision type="phtaw" draft="contributed">Tawi-Tawi</subdivision>
+			<subdivision type="phwsa" draft="contributed">Samar</subdivision>
+			<subdivision type="phzan" draft="contributed">Zamboanga del Norte</subdivision>
+			<subdivision type="phzas" draft="contributed">Zamboanga del Sur</subdivision>
+			<subdivision type="phzmb" draft="contributed">Zambales</subdivision>
+			<subdivision type="phzsi" draft="contributed">Zamboanga Sibugay</subdivision>
+			<subdivision type="pl02" draft="contributed">Provinsi Silesia Hilir</subdivision>
+			<subdivision type="pl04" draft="contributed">Provinsi Kuyawia-Pomerania</subdivision>
+			<subdivision type="pl06" draft="contributed">Provinsi Lublin</subdivision>
+			<subdivision type="pl08" draft="contributed">Provinsi Lubusz</subdivision>
+			<subdivision type="pl10" draft="contributed">Provinsi Lodz</subdivision>
+			<subdivision type="pl12" draft="contributed">Provinsi Malopolskie</subdivision>
+			<subdivision type="pl14" draft="contributed">Provinsi Mazowia</subdivision>
+			<subdivision type="pl16" draft="contributed">Provinsi Opole</subdivision>
+			<subdivision type="pl18" draft="contributed">Provinsi Subkarpathia</subdivision>
+			<subdivision type="pl20" draft="contributed">Provinsi Podlachia</subdivision>
+			<subdivision type="pl22" draft="contributed">Provinsi Pomerania</subdivision>
+			<subdivision type="pl24" draft="contributed">Provinsi Silesia</subdivision>
+			<subdivision type="pl26" draft="contributed">Provinsi Święty Krzyż</subdivision>
+			<subdivision type="pl28" draft="contributed">Provinsi Warmia-Mazuria</subdivision>
+			<subdivision type="pl30" draft="contributed">Provinsi Wielkopolskie</subdivision>
+			<subdivision type="pl32" draft="contributed">Provinsi Pomerania Kulon</subdivision>
 			<subdivision type="pt20" draft="contributed">Azores</subdivision>
 			<subdivision type="pt30" draft="contributed">Madeira</subdivision>
 			<subdivision type="pyasu" draft="contributed">Asunción</subdivision>
@@ -431,6 +558,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ruda" draft="contributed">Dagestan</subdivision>
 			<subdivision type="ruin" draft="contributed">Ingushetia</subdivision>
 			<subdivision type="rumow" draft="contributed">Moskwa</subdivision>
+			<subdivision type="rusak" draft="contributed">Oblast Sakhalin</subdivision>
 			<subdivision type="ruspe" draft="contributed">St. Petersburg</subdivision>
 			<subdivision type="rw01" draft="contributed">Kigali</subdivision>
 			<subdivision type="sa02" draft="contributed">Provinsi Mekkah</subdivision>
@@ -456,6 +584,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="sosd" draft="contributed">Shabeellaha Dhexe</subdivision>
 			<subdivision type="sosh" draft="contributed">Shabeellaha Hoose</subdivision>
 			<subdivision type="soso" draft="contributed">Sool</subdivision>
+			<subdivision type="srbr" draft="contributed">Dhistrik Brokopondo</subdivision>
+			<subdivision type="srpm" draft="contributed">Dhistrik Paramaribo</subdivision>
+			<subdivision type="srpr" draft="contributed">Dhistrik Para</subdivision>
+			<subdivision type="srsa" draft="contributed">Dhistrik Saramacca</subdivision>
+			<subdivision type="srsi" draft="contributed">Dhistrik Sipaliwini</subdivision>
+			<subdivision type="syhl" draft="contributed">Kagubernuran Aleppo</subdivision>
 			<subdivision type="tdnd" draft="contributed">N’Djamena</subdivision>
 			<subdivision type="th10" draft="contributed">Bangkok</subdivision>
 			<subdivision type="th21" draft="contributed">Rayong</subdivision>

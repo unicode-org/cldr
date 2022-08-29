@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -17,6 +17,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ad04" draft="contributed">Λα Μασάνα</subdivision>
 			<subdivision type="ad05" draft="contributed">Ορντίνο</subdivision>
 			<subdivision type="ad06" draft="contributed">Σαντ Ζουλιά ντε Λόρια</subdivision>
+			<subdivision type="ad07" draft="contributed">Ανδόρρα λα Βέλια</subdivision>
 			<subdivision type="ad08" draft="contributed">Εσκάλντες-Ενγκορντάνι</subdivision>
 			<subdivision type="aeaj" draft="contributed">Αϊμάν</subdivision>
 			<subdivision type="aeaz" draft="contributed">Άμπου Ντάμπι</subdivision>
@@ -178,6 +179,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="azkan" draft="contributed">Κανγκαρλί</subdivision>
 			<subdivision type="azkur" draft="contributed">Κουρνταμίρ</subdivision>
 			<subdivision type="azla" draft="contributed">Λάνκαραν</subdivision>
+			<subdivision type="azlac" draft="contributed">Επαρχία Λατσίν</subdivision>
 			<subdivision type="azlan" draft="contributed">Λανκαράν</subdivision>
 			<subdivision type="azler" draft="contributed">Λέρικ</subdivision>
 			<subdivision type="azmas" draft="contributed">Μασάλι</subdivision>
@@ -215,6 +217,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="azxac" draft="contributed">Κατσμάζ</subdivision>
 			<subdivision type="azxci" draft="contributed">Κχοτζάλι</subdivision>
 			<subdivision type="azyar" draft="contributed">Γιαρντιμλί</subdivision>
+			<subdivision type="azye" draft="contributed">Γιεβλάχ</subdivision>
 			<subdivision type="azyev" draft="contributed">Γιεβλάκ</subdivision>
 			<subdivision type="azzan" draft="contributed">Ζάνγκιλαν</subdivision>
 			<subdivision type="azzaq" draft="contributed">Ζακατάλα</subdivision>
@@ -258,6 +261,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bdd" draft="contributed">Κούλνα</subdivision>
 			<subdivision type="bde" draft="contributed">Διαίρεση Ρατζσάχι</subdivision>
 			<subdivision type="bdf" draft="contributed">Διαίρεση Ρανγκπούρ</subdivision>
+			<subdivision type="bdg" draft="contributed">Σιλέτ</subdivision>
 			<subdivision type="bdh" draft="contributed">Διαίρεση Μίμενσινγκ</subdivision>
 			<subdivision type="bebru" draft="contributed">Περιοχή των Βρυξελλών</subdivision>
 			<subdivision type="bevan" draft="contributed">Αμβέρσα</subdivision>
@@ -273,8 +277,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bewlx" draft="contributed">Λουξεμβούργο</subdivision>
 			<subdivision type="bewna" draft="contributed">Ναμύρ</subdivision>
 			<subdivision type="bf02" draft="contributed">Κασκάντ</subdivision>
+			<subdivision type="bf03" draft="contributed">Σαντρ</subdivision>
+			<subdivision type="bf05" draft="contributed">Σαντρ-Νορ</subdivision>
 			<subdivision type="bf06" draft="contributed">Σαντρ-Ουέστ</subdivision>
 			<subdivision type="bf09" draft="contributed">Ω-Μπασάν</subdivision>
+			<subdivision type="bf10" draft="contributed">Νορ</subdivision>
+			<subdivision type="bf11" draft="contributed">Πλατώ-Σαντράλ</subdivision>
+			<subdivision type="bf12" draft="contributed">Σαχέλ</subdivision>
 			<subdivision type="bf13" draft="contributed">Συντ-Ουέστ</subdivision>
 			<subdivision type="bfbal" draft="contributed">Μπαλέ</subdivision>
 			<subdivision type="bfbam" draft="contributed">Μπαμ</subdivision>
@@ -312,6 +321,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bfsis" draft="contributed">Σισσίλι</subdivision>
 			<subdivision type="bfsmt" draft="contributed">Σανματένγκα</subdivision>
 			<subdivision type="bfsng" draft="contributed">Σανγκιέ</subdivision>
+			<subdivision type="bfsom" draft="contributed">Σουμ</subdivision>
 			<subdivision type="bfsor" draft="contributed">Σούρου</subdivision>
 			<subdivision type="bftap" draft="contributed">Ταπόα</subdivision>
 			<subdivision type="bftui" draft="contributed">Τούι</subdivision>
@@ -347,7 +357,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bg26" draft="contributed">Χάσκοβο</subdivision>
 			<subdivision type="bg27" draft="contributed">Σούμεν</subdivision>
 			<subdivision type="bg28" draft="contributed">Γιάμπολ</subdivision>
+			<subdivision type="bh13" draft="contributed">Κυβερνείο της Πρωτεύουσας</subdivision>
 			<subdivision type="bh15" draft="contributed">Μουχαράκ</subdivision>
+			<subdivision type="bh17" draft="contributed">Βόρειο Κυβερνείο</subdivision>
 			<subdivision type="bibb" draft="contributed">Μπουμπάνζα</subdivision>
 			<subdivision type="bibl" draft="contributed">Μπουζουμπουρά-Ρουράλ</subdivision>
 			<subdivision type="bibm" draft="contributed">Μπουτζουμπούρα</subdivision>
@@ -550,6 +562,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="chbl" draft="contributed">Καντόνι της Μπάζελ-Λάντσαφτ</subdivision>
 			<subdivision type="chbs" draft="contributed">Καντόνι της Μπάζελ-Στατ</subdivision>
 			<subdivision type="chfr" draft="contributed">Κάντον οφ Φρίμπουργκ</subdivision>
+			<subdivision type="chge" draft="contributed">καντόνι της Γενεύης</subdivision>
 			<subdivision type="chgl" draft="contributed">Κάντον οφ Γκλάρους</subdivision>
 			<subdivision type="chgr" draft="contributed">Γκραουμπούντεν</subdivision>
 			<subdivision type="chju" draft="contributed">Τζούρα</subdivision>
@@ -813,6 +826,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="dz13" draft="contributed">Τλεμσέν</subdivision>
 			<subdivision type="dz14" draft="contributed">Τιαρέτ</subdivision>
 			<subdivision type="dz15" draft="contributed">Τιζί Ουζού</subdivision>
+			<subdivision type="dz16" draft="contributed">Επαρχία Αλγερίου</subdivision>
 			<subdivision type="dz17" draft="contributed">Τζέλφα</subdivision>
 			<subdivision type="dz18" draft="contributed">Τζίτζελ</subdivision>
 			<subdivision type="dz19" draft="contributed">Σετίφ</subdivision>
@@ -935,6 +949,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="esce" draft="contributed">Θέουτα</subdivision>
 			<subdivision type="escl" draft="contributed">Καστίλλη και Λεόν</subdivision>
 			<subdivision type="escm" draft="contributed">Καστίλλη-Λα Μάντσα</subdivision>
+			<subdivision type="escn" draft="contributed">Κανάριες Νήσοι</subdivision>
 			<subdivision type="esco" draft="contributed">Κόρδοβα</subdivision>
 			<subdivision type="escr" draft="contributed">Θιουδάδ Ρεάλ</subdivision>
 			<subdivision type="escs" draft="contributed">Επαρχία της Καστελιό</subdivision>
@@ -1025,6 +1040,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr04" draft="contributed">Αλπ-ντε-Ωτ-Προβάνς</subdivision>
 			<subdivision type="fr05" draft="contributed">Ωτ-Αλπ</subdivision>
 			<subdivision type="fr06" draft="contributed">Αλπ-Μαριτίμ</subdivision>
+			<subdivision type="fr6ae" draft="contributed">Ελληνική Συλλογικότητα της Αλσατίας</subdivision>
 			<subdivision type="fr07" draft="contributed">Αρντές</subdivision>
 			<subdivision type="fr08" draft="contributed">Αρδέννες</subdivision>
 			<subdivision type="fr09" draft="contributed">Αριέζ</subdivision>
@@ -1038,6 +1054,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr17" draft="contributed">Σαράντ-Μαριτίμ</subdivision>
 			<subdivision type="fr18" draft="contributed">Σερ</subdivision>
 			<subdivision type="fr19" draft="contributed">Κορέζ</subdivision>
+			<subdivision type="fr20r" draft="contributed">Κορσική</subdivision>
 			<subdivision type="fr21" draft="contributed">Κοτ-ντ’Ορ</subdivision>
 			<subdivision type="fr22" draft="contributed">Κοτ-ντ’Αρμόρ</subdivision>
 			<subdivision type="fr23" draft="contributed">Κρεζ</subdivision>
@@ -1092,7 +1109,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr72" draft="contributed">Σαρτ</subdivision>
 			<subdivision type="fr73" draft="contributed">Σαβοΐα</subdivision>
 			<subdivision type="fr74" draft="contributed">Άνω Σαβοΐα</subdivision>
-			<subdivision type="fr75" draft="contributed">Παρίσι</subdivision>
+			<subdivision type="fr75c" draft="contributed">Παρίσι</subdivision>
 			<subdivision type="fr76" draft="contributed">Σεν-Μαριτίμ</subdivision>
 			<subdivision type="fr77" draft="contributed">Σεν-ε-Μαρν</subdivision>
 			<subdivision type="fr78" draft="contributed">Υβελίν</subdivision>
@@ -1113,10 +1130,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr93" draft="contributed">Σεν-Σαιν-Ντενί</subdivision>
 			<subdivision type="fr94" draft="contributed">Βαλ-ντε-Μαρν</subdivision>
 			<subdivision type="fr95" draft="contributed">Βαλ-ντ’Ουάζ</subdivision>
+			<subdivision type="fr971" draft="contributed">Γουαδελούπη</subdivision>
 			<subdivision type="frara" draft="contributed">Ωβέρνη-Ρον-Αλπ</subdivision>
 			<subdivision type="frbfc" draft="contributed">Βουργουνδία-Φρανς-Κοντέ</subdivision>
 			<subdivision type="frbre" draft="contributed">Βρετάνη</subdivision>
-			<subdivision type="frcor" draft="contributed">Κορσική</subdivision>
 			<subdivision type="frcvl" draft="contributed">Κεντρική Περιοχή</subdivision>
 			<subdivision type="frges" draft="contributed">Αλσατία-Καμπανία-Αρδέννες-Λωρραίνη</subdivision>
 			<subdivision type="frhdf" draft="contributed">Ω-ντε-Φρανς</subdivision>
@@ -1135,6 +1152,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ga7" draft="contributed">Ογκοουέ-Λόλο</subdivision>
 			<subdivision type="ga8" draft="contributed">Ογκοουέ-Μαριτίμε</subdivision>
 			<subdivision type="ga9" draft="contributed">Γόλεου-Ντεμ</subdivision>
+			<subdivision type="gbabd" draft="contributed">Αμπερντήνσαϊρ</subdivision>
 			<subdivision type="gbabe" draft="contributed">Αμπερντήν</subdivision>
 			<subdivision type="gbagy" draft="contributed">Άνγκλεσι</subdivision>
 			<subdivision type="gbans" draft="contributed">Άνγκους</subdivision>
@@ -1156,8 +1174,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbdev" draft="contributed">Ντέβον</subdivision>
 			<subdivision type="gbdnd" draft="contributed">Ντάντι</subdivision>
 			<subdivision type="gbdor" draft="contributed">Ντόρσετ</subdivision>
+			<subdivision type="gbdur" draft="contributed">κομητεία Ντέραμ</subdivision>
 			<subdivision type="gbeay" draft="contributed">Ανατολικό Άυρσαιρ</subdivision>
 			<subdivision type="gbedh" draft="contributed">Εδιμβούργο</subdivision>
+			<subdivision type="gbels" draft="contributed">Εξωτερικές Εβρίδες</subdivision>
+			<subdivision type="gbeng" draft="contributed">Αγγλία</subdivision>
 			<subdivision type="gbess" draft="contributed">Έσσεξ</subdivision>
 			<subdivision type="gbesx" draft="contributed">Ηστ Σάσσεξ</subdivision>
 			<subdivision type="gbfif" draft="contributed">Φάιφ</subdivision>
@@ -1174,8 +1195,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbios" draft="contributed">Νησιά Σίλι</subdivision>
 			<subdivision type="gbiow" draft="contributed">Νήσος Γουάιτ</subdivision>
 			<subdivision type="gbisl" draft="contributed">Ίσλινγκτον, Λονδίνο</subdivision>
+			<subdivision type="gbkec" draft="contributed">Βασιλικός Δήμος του Κένσινγκτον και Τσέλσι</subdivision>
 			<subdivision type="gbken" draft="contributed">Κεντ</subdivision>
 			<subdivision type="gbkhl" draft="contributed">Κίνγκστον απόν Χαλ</subdivision>
+			<subdivision type="gbkir" draft="contributed">Κέρκλις</subdivision>
 			<subdivision type="gblan" draft="contributed">Λανκασάιρ</subdivision>
 			<subdivision type="gblbh" draft="contributed">Λάμπεθ, δημοτικό διαμέρισμα του Λονδίνου</subdivision>
 			<subdivision type="gblce" draft="contributed">Λέστερ</subdivision>
@@ -1186,6 +1209,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gblut" draft="contributed">Λούτον</subdivision>
 			<subdivision type="gbman" draft="contributed">Μάντσεστερ</subdivision>
 			<subdivision type="gbmdb" draft="contributed">Μίντλεσμπρο</subdivision>
+			<subdivision type="gbmik" draft="contributed">Μίλτον Κινζ</subdivision>
 			<subdivision type="gbmln" draft="contributed">Μιντλόδιαν</subdivision>
 			<subdivision type="gbmrt" draft="contributed">Λονδρέζικος Δήμος του Μέρτον</subdivision>
 			<subdivision type="gbnbl" draft="contributed">Νορθάμπερλαντ</subdivision>
@@ -1195,6 +1219,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbnir" draft="contributed">Βόρεια Ιρλανδία</subdivision>
 			<subdivision type="gbnln" draft="contributed">Βόρειο Λινκολνσάιρ</subdivision>
 			<subdivision type="gbnth" draft="contributed">Νορθάμπτονσαϊρ</subdivision>
+			<subdivision type="gbntl" draft="contributed">Νιθ Ποτ Τόλμποτ</subdivision>
 			<subdivision type="gbntt" draft="contributed">Νότιγχαμσιερ</subdivision>
 			<subdivision type="gbnwm" draft="contributed">Νιούχαμ</subdivision>
 			<subdivision type="gbork" draft="contributed">Ορκάδες</subdivision>
@@ -1206,11 +1231,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbrct" draft="contributed">Ρόντα Σίνον Ταφ</subdivision>
 			<subdivision type="gbrdg" draft="contributed">Ρέντινγκ</subdivision>
 			<subdivision type="gbric" draft="contributed">Ρίτσμοντ</subdivision>
+			<subdivision type="gbsct" draft="contributed">Σκωτία</subdivision>
 			<subdivision type="gbsfk" draft="contributed">Σάφολκ</subdivision>
+			<subdivision type="gbsgc" draft="contributed">Σάουθ Γκλόστερσιρ</subdivision>
 			<subdivision type="gbshf" draft="contributed">Σέφιλντ</subdivision>
 			<subdivision type="gbshr" draft="contributed">Σρόπσαϊρ</subdivision>
 			<subdivision type="gbslf" draft="contributed">Πόλη του Σάλφορντ</subdivision>
 			<subdivision type="gbslg" draft="contributed">Σλάου</subdivision>
+			<subdivision type="gbsnd" draft="contributed">Δήμος του Σάντερλαντ</subdivision>
 			<subdivision type="gbsom" draft="contributed">Σόμερσετ</subdivision>
 			<subdivision type="gbsry" draft="contributed">Σάρρεϋ</subdivision>
 			<subdivision type="gbste" draft="contributed">Στόουκ ον Τρεντ</subdivision>
@@ -1218,6 +1246,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbsth" draft="contributed">Σαουθάμπτον</subdivision>
 			<subdivision type="gbsts" draft="contributed">Στάφορντσαϊρ</subdivision>
 			<subdivision type="gbswa" draft="contributed">Σουόνσι</subdivision>
+			<subdivision type="gbthr" draft="contributed">Θάροκ</subdivision>
 			<subdivision type="gbtrf" draft="contributed">Τράφορντ</subdivision>
 			<subdivision type="gbukm" draft="contributed">Ηνωμένο Βασίλειο</subdivision>
 			<subdivision type="gbvgl" draft="contributed">κοιλάδα του Γκλαμόργκαν</subdivision>
@@ -1226,9 +1255,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbwdu" draft="contributed">Γουέστ Ντανμπάρτοσάιρ</subdivision>
 			<subdivision type="gbwgn" draft="contributed">Μητροπολιτικός Δήμος του Γουίγκαν</subdivision>
 			<subdivision type="gbwil" draft="contributed">Γουίλτσιρ</subdivision>
+			<subdivision type="gbwkf" draft="contributed">Γουέικφιλντ</subdivision>
 			<subdivision type="gbwll" draft="contributed">Μητροπολιτικός Δήμος του Γουόλσολ</subdivision>
+			<subdivision type="gbwls" draft="contributed">Ουαλία</subdivision>
 			<subdivision type="gbwlv" draft="contributed">Γουλβερχάμπτον</subdivision>
 			<subdivision type="gbwnd" draft="contributed">Δημοτικό διαμέρισμα Ουόντσουορθ</subdivision>
+			<subdivision type="gbwor" draft="contributed">Γούστερσιρ</subdivision>
 			<subdivision type="gbwrx" draft="contributed">Κομητειακός Δήμος Ρέξαμ</subdivision>
 			<subdivision type="gbwsm" draft="contributed">Πόλη του Ουεστμίνστερ</subdivision>
 			<subdivision type="gbwsx" draft="contributed">Δυτικό Σάσσεξ</subdivision>
@@ -1335,28 +1367,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="grk" draft="contributed">Περιφέρεια Βορείου Αιγαίου</subdivision>
 			<subdivision type="grl" draft="contributed">Περιφέρεια Νοτίου Αιγαίου</subdivision>
 			<subdivision type="grm" draft="contributed">Περιφέρεια Κρήτης</subdivision>
+			<subdivision type="gt01" draft="contributed">Γουατεμάλα</subdivision>
+			<subdivision type="gt02" draft="contributed">Ελ Προγκρέσο</subdivision>
+			<subdivision type="gt03" draft="contributed">Σακατεπέκεζ</subdivision>
+			<subdivision type="gt04" draft="contributed">Τσιμαλτενάνγκο</subdivision>
+			<subdivision type="gt05" draft="contributed">Εσκουίντλα</subdivision>
+			<subdivision type="gt06" draft="contributed">Σάντα Ρόζα</subdivision>
+			<subdivision type="gt07" draft="contributed">Σολολά</subdivision>
+			<subdivision type="gt08" draft="contributed">Τοτονικαπάν</subdivision>
+			<subdivision type="gt09" draft="contributed">Κουετζαλτενάνγκο</subdivision>
+			<subdivision type="gt10" draft="contributed">Σουτσιτεπέκεζ</subdivision>
+			<subdivision type="gt11" draft="contributed">Ρεταλουλέου</subdivision>
+			<subdivision type="gt12" draft="contributed">Σαν Μάρκος</subdivision>
+			<subdivision type="gt13" draft="contributed">Χουεχουετενάνγκο</subdivision>
+			<subdivision type="gt14" draft="contributed">Κουιτσέ</subdivision>
+			<subdivision type="gt15" draft="contributed">Μπάχα Βεραπάζ</subdivision>
+			<subdivision type="gt16" draft="contributed">Άλτα Βεραπάς</subdivision>
+			<subdivision type="gt17" draft="contributed">Πετέν</subdivision>
+			<subdivision type="gt18" draft="contributed">Ιζαμπάλ</subdivision>
+			<subdivision type="gt19" draft="contributed">Ζάκαπα</subdivision>
+			<subdivision type="gt20" draft="contributed">Τσικουιμούλα</subdivision>
+			<subdivision type="gt21" draft="contributed">Τζαλάπα</subdivision>
+			<subdivision type="gt22" draft="contributed">Τζουτιάπα</subdivision>
 			<subdivision type="gtav" draft="contributed">Άλτα Βεραπάζ</subdivision>
-			<subdivision type="gtbv" draft="contributed">Μπάχα Βεραπάζ</subdivision>
-			<subdivision type="gtcm" draft="contributed">Τσιμαλτενάνγκο</subdivision>
-			<subdivision type="gtcq" draft="contributed">Τσικουιμούλα</subdivision>
-			<subdivision type="gtes" draft="contributed">Εσκουίντλα</subdivision>
-			<subdivision type="gtgu" draft="contributed">Γουατεμάλα</subdivision>
-			<subdivision type="gthu" draft="contributed">Χουεχουετενάνγκο</subdivision>
-			<subdivision type="gtiz" draft="contributed">Ιζαμπάλ</subdivision>
-			<subdivision type="gtja" draft="contributed">Τζαλάπα</subdivision>
-			<subdivision type="gtju" draft="contributed">Τζουτιάπα</subdivision>
-			<subdivision type="gtpe" draft="contributed">Πετέν</subdivision>
-			<subdivision type="gtpr" draft="contributed">Ελ Προγκρέσο</subdivision>
-			<subdivision type="gtqc" draft="contributed">Κουιτσέ</subdivision>
-			<subdivision type="gtqz" draft="contributed">Κουετζαλτενάνγκο</subdivision>
-			<subdivision type="gtre" draft="contributed">Ρεταλουλέου</subdivision>
-			<subdivision type="gtsa" draft="contributed">Σακατεπέκεζ</subdivision>
-			<subdivision type="gtsm" draft="contributed">Σαν Μάρκος</subdivision>
-			<subdivision type="gtso" draft="contributed">Σολολά</subdivision>
-			<subdivision type="gtsr" draft="contributed">Σάντα Ρόζα</subdivision>
-			<subdivision type="gtsu" draft="contributed">Σουτσιτεπέκεζ</subdivision>
-			<subdivision type="gtto" draft="contributed">Τοτονικαπάν</subdivision>
-			<subdivision type="gtza" draft="contributed">Ζάκαπα</subdivision>
 			<subdivision type="gwba" draft="contributed">Μπαφατά</subdivision>
 			<subdivision type="gwbl" draft="contributed">Μπολάμα</subdivision>
 			<subdivision type="gwbm" draft="contributed">Μπιόμπο</subdivision>
@@ -1430,6 +1463,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="hubz" draft="contributed">Μπόρσοντ-Αμπαούτζ-Ζεμπλέν</subdivision>
 			<subdivision type="hucs" draft="contributed">Κσονγκράντ</subdivision>
 			<subdivision type="hude" draft="contributed">Ντέμπρετσεν</subdivision>
+			<subdivision type="hudu" draft="contributed">Ντούναουϊβαρος</subdivision>
 			<subdivision type="hueg" draft="contributed">Έγκερ</subdivision>
 			<subdivision type="hufe" draft="contributed">Επαρχία Φετζέρ</subdivision>
 			<subdivision type="hugs" draft="contributed">Γκιόρ-Μοσόν-Σοπρόν</subdivision>
@@ -1462,6 +1496,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="huza" draft="contributed">Ζάλα</subdivision>
 			<subdivision type="huze" draft="contributed">Ζάλαεγκερσεγκ</subdivision>
 			<subdivision type="idac" draft="contributed">Άτσεχ</subdivision>
+			<subdivision type="idba" draft="contributed">Μπαλί</subdivision>
 			<subdivision type="idbb" draft="contributed">Μπάνγκα Μπελίτουνγκ</subdivision>
 			<subdivision type="idbe" draft="contributed">Μπενγκούλου</subdivision>
 			<subdivision type="idbt" draft="contributed">Μπάντεν</subdivision>
@@ -1472,11 +1507,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="idjk" draft="contributed">Τζακάρτα</subdivision>
 			<subdivision type="idjt" draft="contributed">Σέντραλ Τζάβα</subdivision>
 			<subdivision type="idjw" draft="contributed">Ιάβα</subdivision>
+			<subdivision type="idka" draft="contributed">Καλιμαντάν²</subdivision>
 			<subdivision type="idkb" draft="contributed">Γουέστ Καλιμάνταν</subdivision>
 			<subdivision type="idki" draft="contributed">Ανατολικό Καλιμαντάν</subdivision>
 			<subdivision type="idkr" draft="contributed">Νησιά Ριάου</subdivision>
 			<subdivision type="idks" draft="contributed">Καλιμαντάν</subdivision>
 			<subdivision type="idkt" draft="contributed">Κεντρικό Καλιμαντάν</subdivision>
+			<subdivision type="idku" draft="contributed">Βόρειο Καλιμαντάν</subdivision>
 			<subdivision type="idla" draft="contributed">Λαμπούνγκ</subdivision>
 			<subdivision type="idma" draft="contributed">Μαλούκου</subdivision>
 			<subdivision type="idml" draft="contributed">Μολούκες</subdivision>
@@ -1529,7 +1566,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="iewh" draft="contributed">Κομητεία Ουέστμιθ</subdivision>
 			<subdivision type="ieww" draft="contributed">Κομητεία Ουΐκλοου</subdivision>
 			<subdivision type="iewx" draft="contributed">Κομητεία Ουέξφορντ</subdivision>
+			<subdivision type="ild" draft="contributed">Νότιο Διαμέρισμα (Ισραήλ)</subdivision>
 			<subdivision type="ilha" draft="contributed">Χαΐφα</subdivision>
+			<subdivision type="iljm" draft="contributed">Διαμέρισμα των Ιεροσολύμων</subdivision>
 			<subdivision type="ilm" draft="contributed">Σέντραλ Ντίστρικτ, Ισραήλ</subdivision>
 			<subdivision type="ilta" draft="contributed">Διαμέρισμα του Τελ Αβίβ</subdivision>
 			<subdivision type="ilz" draft="contributed">Βόρεια Περιοχή, Ισραήλ</subdivision>
@@ -1551,6 +1590,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="injk" draft="contributed">Γιαμού και Κασμίρ</subdivision>
 			<subdivision type="inka" draft="contributed">Καρνάτακα</subdivision>
 			<subdivision type="inkl" draft="contributed">Κεράλα</subdivision>
+			<subdivision type="inla" draft="contributed">Λαντάχ</subdivision>
 			<subdivision type="inld" draft="contributed">Λακσαντγουίπ</subdivision>
 			<subdivision type="inmh" draft="contributed">Μαχαράστρα</subdivision>
 			<subdivision type="inml" draft="contributed">Μεγκαλάγια</subdivision>
@@ -1586,12 +1626,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="iqsd" draft="contributed">Κυβερνείο Σαλαντίν</subdivision>
 			<subdivision type="iqsu" draft="contributed">Σουλαϊμανιγιά</subdivision>
 			<subdivision type="iqwa" draft="contributed">Βάσιτ</subdivision>
+			<subdivision type="ir00" draft="contributed">Μαρκαζί²</subdivision>
 			<subdivision type="ir01" draft="contributed">Ανατολικό Αζερμπαϊτζάν</subdivision>
 			<subdivision type="ir02" draft="contributed">Δυτικό Αζερμπαϊτζάν</subdivision>
 			<subdivision type="ir03" draft="contributed">Αρνταμπίλ</subdivision>
 			<subdivision type="ir04" draft="contributed">Ισφαχάν</subdivision>
+			<subdivision type="ir05" draft="contributed">Κερμανσάχ²</subdivision>
+			<subdivision type="ir06" draft="contributed">Χουζεστάν²</subdivision>
 			<subdivision type="ir07" draft="contributed">Τεχράν</subdivision>
 			<subdivision type="ir08" draft="contributed">Τσαχαρμαχάλ και Μπαχτιαρί</subdivision>
+			<subdivision type="ir09" draft="contributed">Ραζάβι Χορασάν²</subdivision>
 			<subdivision type="ir10" draft="contributed">Χουζεστάν</subdivision>
 			<subdivision type="ir11" draft="contributed">Ζαντζάν</subdivision>
 			<subdivision type="ir12" draft="contributed">Επαρχία Σεμνάν</subdivision>
@@ -1605,6 +1649,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ir20" draft="contributed">Λορεστάν</subdivision>
 			<subdivision type="ir21" draft="contributed">Μαζανταράν</subdivision>
 			<subdivision type="ir22" draft="contributed">Μαρκαζί</subdivision>
+			<subdivision type="ir23" draft="contributed">Επαρχία Τεχεράνης</subdivision>
 			<subdivision type="ir24" draft="contributed">Χαμαντάν</subdivision>
 			<subdivision type="ir25" draft="contributed">Επαρχία Γιαζντ</subdivision>
 			<subdivision type="ir26" draft="contributed">Κομ</subdivision>
@@ -1622,6 +1667,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="is6" draft="contributed">Βορειοανατολική Ισλανδία</subdivision>
 			<subdivision type="is7" draft="contributed">Ανατολική Ισλανδία</subdivision>
 			<subdivision type="is8" draft="contributed">Νότια Ισλανδία</subdivision>
+			<subdivision type="isakn" draft="contributed">Άκρανες</subdivision>
+			<subdivision type="isaku" draft="contributed">Άκουρεϋρι</subdivision>
+			<subdivision type="isfjd" draft="contributed">Φιαρδαμπίγκδ</subdivision>
 			<subdivision type="it21" draft="contributed">Πεδεμόντιο</subdivision>
 			<subdivision type="it23" draft="contributed">Κοιλάδα της Αόστα</subdivision>
 			<subdivision type="it25" draft="contributed">Λομβαρδία</subdivision>
@@ -1733,6 +1781,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="itsp" draft="contributed">Σπέτσια</subdivision>
 			<subdivision type="itsr" draft="contributed">Συρακούσες</subdivision>
 			<subdivision type="itss" draft="contributed">Σάσσαρι</subdivision>
+			<subdivision type="itsu" draft="contributed">Επαρχία της Νότιας Σαρδηνίας</subdivision>
 			<subdivision type="itsv" draft="contributed">Σαβόνα</subdivision>
 			<subdivision type="itta" draft="contributed">Τάραντας</subdivision>
 			<subdivision type="itte" draft="contributed">Επαρχία του Τέραμο</subdivision>
@@ -1889,8 +1938,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kp06" draft="contributed">Βόρειο Χουανγκέ</subdivision>
 			<subdivision type="kp07" draft="contributed">Κάνγκγουον</subdivision>
 			<subdivision type="kp08" draft="contributed">Σάουθ Χάμγκιονγκ</subdivision>
+			<subdivision type="kp09" draft="contributed">Επαρχία Βόρειου Χαμγκιόνγκ</subdivision>
 			<subdivision type="kp10" draft="contributed">Ριανγκάνγκ</subdivision>
 			<subdivision type="kp13" draft="contributed">Ράσον</subdivision>
+			<subdivision type="kp14" draft="contributed">Ναμπό</subdivision>
 			<subdivision type="kr11" draft="contributed">Σεούλ</subdivision>
 			<subdivision type="kr26" draft="contributed">Μπούσαν</subdivision>
 			<subdivision type="kr27" draft="contributed">Ντέγκου</subdivision>
@@ -1926,6 +1977,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kzman" draft="contributed">Περιφέρεια Μανγκιστάου</subdivision>
 			<subdivision type="kzpav" draft="contributed">Περιφέρεια Παβλοντάρ</subdivision>
 			<subdivision type="kzsev" draft="contributed">Περιφέρεια Βορείου Καζακστάν</subdivision>
+			<subdivision type="kzshy" draft="contributed">Σίμκεντ</subdivision>
 			<subdivision type="kzvos" draft="contributed">Περιφέρεια Ανατολικού Καζακστάν</subdivision>
 			<subdivision type="kzyuz" draft="contributed">Περιφέρεια Νότιου Καζακστάν</subdivision>
 			<subdivision type="kzzap" draft="contributed">Περιφέρεια Δυτικού Καζακστάν</subdivision>
@@ -1945,8 +1997,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="laxa" draft="contributed">Σενγιαμπούλι</subdivision>
 			<subdivision type="laxe" draft="contributed">Ξεκόνγκ</subdivision>
 			<subdivision type="laxi" draft="contributed">Ξιανγκχοάνγκ</subdivision>
+			<subdivision type="lbak" draft="contributed">Κυβερνείο Ακάρ</subdivision>
 			<subdivision type="lbas" draft="contributed">Νορθ Γκοβερνοράτε</subdivision>
 			<subdivision type="lbba" draft="contributed">Μπεϊρούτ</subdivision>
+			<subdivision type="lbbh" draft="contributed">Κυβερνείο Μπάαλμπεκ-Χερμέλ</subdivision>
+			<subdivision type="lbbi" draft="contributed">Κυβερνείο της Μπεκάα</subdivision>
+			<subdivision type="lbja" draft="contributed">Κυβερνείο του Νότιου Λιβάνου</subdivision>
 			<subdivision type="lbjl" draft="contributed">Μάουντ Λέμπανον</subdivision>
 			<subdivision type="lbna" draft="contributed">Ναμπατιέχ</subdivision>
 			<subdivision type="lc01" draft="contributed">Άνς λα Ράιγ</subdivision>
@@ -1956,7 +2012,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="lc08" draft="contributed">Μικούντ</subdivision>
 			<subdivision type="lc11" draft="contributed">Βίε Φορ</subdivision>
 			<subdivision type="lc12" draft="contributed">Κανάριες</subdivision>
+			<subdivision type="li01" draft="contributed">Μπάλτσερς</subdivision>
 			<subdivision type="li02" draft="contributed">Έσκεν</subdivision>
+			<subdivision type="li03" draft="contributed">Γκάμπριν</subdivision>
 			<subdivision type="li06" draft="contributed">Ρούγκελ</subdivision>
 			<subdivision type="li07" draft="contributed">Σάαν</subdivision>
 			<subdivision type="li08" draft="contributed">Σέλενμπεργκ</subdivision>
@@ -2212,6 +2270,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="macas" draft="contributed">Καζαμπλάνκα</subdivision>
 			<subdivision type="mafes" draft="contributed">Φεζ</subdivision>
 			<subdivision type="mague" draft="contributed">Γκουελμίμ</subdivision>
+			<subdivision type="mamar" draft="contributed">Νομαρχία του Μαρακές</subdivision>
 			<subdivision type="mamek" draft="contributed">Μεκνές</subdivision>
 			<subdivision type="mammd" draft="contributed">Μαρακές</subdivision>
 			<subdivision type="mammn" draft="contributed">Μαρακές²</subdivision>
@@ -2225,8 +2284,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="maskh" draft="contributed">Τεμάρα</subdivision>
 			<subdivision type="masyb" draft="contributed">Μαρακές³</subdivision>
 			<subdivision type="matng" draft="contributed">Ταγγέρη</subdivision>
+			<subdivision type="mcco" draft="contributed">Λα Κονταμίν</subdivision>
 			<subdivision type="mcfo" draft="contributed">Φοντβιέγ</subdivision>
+			<subdivision type="mcla" draft="contributed">Λαρβοττό</subdivision>
 			<subdivision type="mcmc" draft="contributed">Μόντε Κάρλο</subdivision>
+			<subdivision type="mcmo" draft="contributed">Μονακό-Βιλ</subdivision>
+			<subdivision type="mcph" draft="contributed">Λιμάνι του Ηρακλή</subdivision>
 			<subdivision type="mdan" draft="contributed">Ανένιι Νόι</subdivision>
 			<subdivision type="mdba" draft="contributed">Μπέλτσι</subdivision>
 			<subdivision type="mdbd" draft="contributed">Μπέντερ</subdivision>
@@ -2291,69 +2354,126 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mhl" draft="contributed">Ράλικ Τσέιν</subdivision>
 			<subdivision type="mhmaj" draft="contributed">Ματζούρο</subdivision>
 			<subdivision type="mht" draft="contributed">Ρατάκ Τσέιν</subdivision>
-			<subdivision type="mk02" draft="contributed">Δήμος Αρατσίνοβο</subdivision>
-			<subdivision type="mk03" draft="contributed">Δήμος Μπερόβου</subdivision>
 			<subdivision type="mk04" draft="contributed">Δήμος Μοναστηρίου</subdivision>
 			<subdivision type="mk05" draft="contributed">Δήμος Μπογδάντσας</subdivision>
-			<subdivision type="mk06" draft="contributed">Δήμος Μπογοβίντσε</subdivision>
 			<subdivision type="mk07" draft="contributed">Δήμος Μποσιλόβου</subdivision>
 			<subdivision type="mk08" draft="contributed">Δήμος Μπρεβένιτσας</subdivision>
 			<subdivision type="mk10" draft="contributed">Δήμος Βαλάντοβο</subdivision>
 			<subdivision type="mk11" draft="contributed">Δήμος Βασιλέβου</subdivision>
-			<subdivision type="mk14" draft="contributed">Δήμος Βίνιτσας</subdivision>
-			<subdivision type="mk18" draft="contributed">Δήμος Γευγελής</subdivision>
-			<subdivision type="mk19" draft="contributed">Δήμος Γκόστιβαρ</subdivision>
 			<subdivision type="mk20" draft="contributed">Δήμος Γκράντσκου</subdivision>
-			<subdivision type="mk21" draft="contributed">Δήμος Δίβρης</subdivision>
 			<subdivision type="mk22" draft="contributed">Δήμος Ντεμπάρτσας</subdivision>
-			<subdivision type="mk23" draft="contributed">Δήμος Ντελτσέβου</subdivision>
 			<subdivision type="mk25" draft="contributed">Δήμος του Ντεμίρ Χισάρ</subdivision>
 			<subdivision type="mk27" draft="contributed">Δήμος Ντολμένης</subdivision>
 			<subdivision type="mk30" draft="contributed">Δήμος Ζέλινου</subdivision>
 			<subdivision type="mk32" draft="contributed">Δήμος Ζελενικόβου</subdivision>
 			<subdivision type="mk33" draft="contributed">Δήμος Ζιρνοφτσίου</subdivision>
-			<subdivision type="mk34" draft="contributed">Δήμος Ίλιντεν</subdivision>
 			<subdivision type="mk35" draft="contributed">Δήμος Τζεγκούνοφτσε</subdivision>
 			<subdivision type="mk36" draft="contributed">Δήμος Καφανταρτσίου</subdivision>
 			<subdivision type="mk37" draft="contributed">Δήμος Καρμπιντσίου</subdivision>
 			<subdivision type="mk40" draft="contributed">Δήμος Κιτσέβου</subdivision>
-			<subdivision type="mk41" draft="contributed">Δήμος Κόντσε</subdivision>
-			<subdivision type="mk42" draft="contributed">Δήμος Κότσανης</subdivision>
 			<subdivision type="mk43" draft="contributed">Δήμος Κρατόβου</subdivision>
-			<subdivision type="mk44" draft="contributed">Δήμος Κρίβα Παλάνκα</subdivision>
 			<subdivision type="mk45" draft="contributed">Δήμος Κριβοκάστανης</subdivision>
-			<subdivision type="mk46" draft="contributed">Δήμος Κρουσόβου</subdivision>
-			<subdivision type="mk47" draft="contributed">Δήμος Κουμανόβου</subdivision>
 			<subdivision type="mk48" draft="contributed">Δήμος Λιπκόβου</subdivision>
 			<subdivision type="mk49" draft="contributed">Δήμος Λοζόβου</subdivision>
 			<subdivision type="mk50" draft="contributed">Δήμος Μαυρόβου και Ροστούσας</subdivision>
 			<subdivision type="mk51" draft="contributed">Δήμος Ματσεντόνσκα Καμένιτσα</subdivision>
 			<subdivision type="mk52" draft="contributed">Δήμος Μακεντόσκι Μπροντ</subdivision>
 			<subdivision type="mk54" draft="contributed">Δήμος Νεγκότινου</subdivision>
-			<subdivision type="mk56" draft="contributed">Δήμος Νόβο Σέλο</subdivision>
-			<subdivision type="mk58" draft="contributed">Δήμος Οχρίδας</subdivision>
 			<subdivision type="mk59" draft="contributed">Δήμος του Πέτροβετς</subdivision>
-			<subdivision type="mk60" draft="contributed">Δήμος Πεχτσέβου</subdivision>
 			<subdivision type="mk61" draft="contributed">Δήμος Πλάσνιτσας</subdivision>
 			<subdivision type="mk62" draft="contributed">Πρίλεπ</subdivision>
 			<subdivision type="mk63" draft="contributed">Δήμος Πρόμπιστιπ</subdivision>
-			<subdivision type="mk64" draft="contributed">Δήμος Ράντοβις</subdivision>
-			<subdivision type="mk65" draft="contributed">Δήμος Ρανκόβιτσε</subdivision>
-			<subdivision type="mk66" draft="contributed">Δήμος Ρέσνας</subdivision>
 			<subdivision type="mk67" draft="contributed">Δήμος του Ρόσομαν</subdivision>
 			<subdivision type="mk69" draft="contributed">Δήμος Σβέτι Νίκολα</subdivision>
 			<subdivision type="mk70" draft="contributed">Δήμος Σόπιστας</subdivision>
 			<subdivision type="mk72" draft="contributed">Δήμος Στρούγγας</subdivision>
 			<subdivision type="mk73" draft="contributed">Δήμος Στρούμιτσας</subdivision>
 			<subdivision type="mk74" draft="contributed">Δήμος Στουντενίτσανης</subdivision>
-			<subdivision type="mk75" draft="contributed">Δήμος Τέαρτσε</subdivision>
 			<subdivision type="mk76" draft="contributed">Δήμος Τετόβου</subdivision>
 			<subdivision type="mk78" draft="contributed">Δήμος Τσένταρ Ζούπα</subdivision>
 			<subdivision type="mk80" draft="contributed">Δήμος Τσάσκας</subdivision>
 			<subdivision type="mk81" draft="contributed">Δήμος Ομπλεσόβου</subdivision>
-			<subdivision type="mk82" draft="contributed">Δήμος Τσούτσερ Σάντσεβο</subdivision>
-			<subdivision type="mk83" draft="contributed">Δήμος Στιπ</subdivision>
 			<subdivision type="mk85" draft="contributed">Σκόπια</subdivision>
+			<subdivision type="mk101" draft="contributed">Δήμος Βελεσών</subdivision>
+			<subdivision type="mk102" draft="contributed">Δήμος Γκράντσκο</subdivision>
+			<subdivision type="mk103" draft="contributed">Δήμος Ντέμιρ Κάπιγια</subdivision>
+			<subdivision type="mk104" draft="contributed">Δήμος Καβάνταρτσι</subdivision>
+			<subdivision type="mk105" draft="contributed">Δήμος Λόζοβο</subdivision>
+			<subdivision type="mk106" draft="contributed">Δήμος Νεγκότινο</subdivision>
+			<subdivision type="mk107" draft="contributed">Δήμος Ρόσομαν</subdivision>
+			<subdivision type="mk108" draft="contributed">Δήμος Σβέτι Νίκολε</subdivision>
+			<subdivision type="mk109" draft="contributed">Δήμος Τσάσκα</subdivision>
+			<subdivision type="mk201" draft="contributed">Δήμος Μπερόβου</subdivision>
+			<subdivision type="mk202" draft="contributed">Δήμος Βίνιτσας</subdivision>
+			<subdivision type="mk203" draft="contributed">Δήμος Ντελτσέβου</subdivision>
+			<subdivision type="mk204" draft="contributed">Δήμος Ζρνόβτσι</subdivision>
+			<subdivision type="mk205" draft="contributed">Δήμος Καρμπίντσι</subdivision>
+			<subdivision type="mk206" draft="contributed">Δήμος Κότσανης</subdivision>
+			<subdivision type="mk207" draft="contributed">Δήμος Μακέντονσκα Καμένιτσα</subdivision>
+			<subdivision type="mk208" draft="contributed">Δήμος Πεχτσέβου</subdivision>
+			<subdivision type="mk209" draft="contributed">Δήμος Πρόβιστιπ</subdivision>
+			<subdivision type="mk210" draft="contributed">Δήμος Τσεσίνοβο-Ομπλέσοβο</subdivision>
+			<subdivision type="mk211" draft="contributed">Δήμος Στιπ</subdivision>
+			<subdivision type="mk301" draft="contributed">Δήμος Βεύτσανης</subdivision>
+			<subdivision type="mk303" draft="contributed">Δήμος Δίβρης</subdivision>
+			<subdivision type="mk304" draft="contributed">Δήμος Ντεμπάρτσα</subdivision>
+			<subdivision type="mk307" draft="contributed">Δήμος Κίτσεβο</subdivision>
+			<subdivision type="mk308" draft="contributed">Δήμος Μακέντονσκι Μπροντ</subdivision>
+			<subdivision type="mk310" draft="contributed">Δήμος Οχρίδας</subdivision>
+			<subdivision type="mk311" draft="contributed">Δήμος Πλάσνιτσα</subdivision>
+			<subdivision type="mk312" draft="contributed">Δήμος Στρούγκας</subdivision>
+			<subdivision type="mk313" draft="contributed">Δήμος Τσεντάρ Ζούπα</subdivision>
+			<subdivision type="mk401" draft="contributed">Δήμος Βογδάντσας</subdivision>
+			<subdivision type="mk402" draft="contributed">Δήμος Μποσίλοβο</subdivision>
+			<subdivision type="mk403" draft="contributed">Δήμος Βαλαντόβου</subdivision>
+			<subdivision type="mk404" draft="contributed">Δήμος Βασίλεβο</subdivision>
+			<subdivision type="mk405" draft="contributed">Δήμος Γευγελής</subdivision>
+			<subdivision type="mk406" draft="contributed">Δήμος Δοϊράνης (Βόρεια Μακεδονία)</subdivision>
+			<subdivision type="mk407" draft="contributed">Δήμος Κόντσε</subdivision>
+			<subdivision type="mk408" draft="contributed">Δήμος Νόβο Σέλο</subdivision>
+			<subdivision type="mk409" draft="contributed">Δήμος Ράντοβις</subdivision>
+			<subdivision type="mk410" draft="contributed">Δήμος Στρώμνιτσας</subdivision>
+			<subdivision type="mk501" draft="contributed">Δήμος Μπίτολα</subdivision>
+			<subdivision type="mk502" draft="contributed">Δήμος Ντεμίρ Χισάρ</subdivision>
+			<subdivision type="mk503" draft="contributed">Δήμος Ντόλνενι</subdivision>
+			<subdivision type="mk504" draft="contributed">Δήμος Κριβογκάστανι</subdivision>
+			<subdivision type="mk505" draft="contributed">Δήμος Κρουσόβου</subdivision>
+			<subdivision type="mk506" draft="contributed">Δήμος Μόγκιλα</subdivision>
+			<subdivision type="mk507" draft="contributed">Δήμος Νόβατσι</subdivision>
+			<subdivision type="mk508" draft="contributed">Δήμος Πρίλεπ</subdivision>
+			<subdivision type="mk509" draft="contributed">Δήμος Ρέσνας</subdivision>
+			<subdivision type="mk601" draft="contributed">Δήμος Μπογοβίντσε</subdivision>
+			<subdivision type="mk602" draft="contributed">Δήμος Μπρεβένιτσα</subdivision>
+			<subdivision type="mk603" draft="contributed">Δήμος Βραπτσίστα</subdivision>
+			<subdivision type="mk604" draft="contributed">Δήμος Γκόστιβαρ</subdivision>
+			<subdivision type="mk605" draft="contributed">Δήμος Ζέλινο</subdivision>
+			<subdivision type="mk606" draft="contributed">Δήμος Γεγκούνοφτσε</subdivision>
+			<subdivision type="mk607" draft="contributed">Δήμος Μαυρόβο και Ροστούσα</subdivision>
+			<subdivision type="mk608" draft="contributed">Δήμος Τέαρτσε</subdivision>
+			<subdivision type="mk609" draft="contributed">Δήμος Τέτοβο</subdivision>
+			<subdivision type="mk701" draft="contributed">Δήμος του Κράτοβο</subdivision>
+			<subdivision type="mk702" draft="contributed">Δήμος Κρίβα Παλάνκα</subdivision>
+			<subdivision type="mk703" draft="contributed">Δήμος Κουμανόβου</subdivision>
+			<subdivision type="mk704" draft="contributed">Δήμος Λίπκοβο</subdivision>
+			<subdivision type="mk705" draft="contributed">Δήμος Ρανκόβιτσε</subdivision>
+			<subdivision type="mk706" draft="contributed">Δήμος Στάρο Ναγκορίτσανε</subdivision>
+			<subdivision type="mk801" draft="contributed">Δήμος Άεροντρομ</subdivision>
+			<subdivision type="mk802" draft="contributed">Δήμος Αρατσίνοβο</subdivision>
+			<subdivision type="mk803" draft="contributed">Δήμος Μπούτελ</subdivision>
+			<subdivision type="mk804" draft="contributed">Δήμος Γκάζι Μπάμπα</subdivision>
+			<subdivision type="mk805" draft="contributed">Δήμος Γκιόρτσε Πέτροφ</subdivision>
+			<subdivision type="mk806" draft="contributed">Δήμος Ζελενίκοβο</subdivision>
+			<subdivision type="mk807" draft="contributed">Δήμος Ίλιντεν</subdivision>
+			<subdivision type="mk808" draft="contributed">Δήμος Κάρπος</subdivision>
+			<subdivision type="mk809" draft="contributed">Δήμος Κίσελα Βόντα</subdivision>
+			<subdivision type="mk810" draft="contributed">Δήμος Πέτροβετς</subdivision>
+			<subdivision type="mk811" draft="contributed">Δήμος Σαράι</subdivision>
+			<subdivision type="mk812" draft="contributed">Δήμος Σόπιστα</subdivision>
+			<subdivision type="mk813" draft="contributed">Δήμος Στουντενίτσανη</subdivision>
+			<subdivision type="mk814" draft="contributed">Δήμος Τσένταρ</subdivision>
+			<subdivision type="mk815" draft="contributed">Δήμος Τσάιρ</subdivision>
+			<subdivision type="mk816" draft="contributed">Δήμος Τσούτσερ Σάντσεβο</subdivision>
+			<subdivision type="mk817" draft="contributed">Δήμος Σούτο Ορυζάρι</subdivision>
 			<subdivision type="ml1" draft="contributed">Περιφέρεια Καγιές</subdivision>
 			<subdivision type="ml2" draft="contributed">Περιφέρεια Κουλικορό</subdivision>
 			<subdivision type="ml3" draft="contributed">Περιφέρεια Σικασσό</subdivision>
@@ -2362,6 +2482,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ml6" draft="contributed">Περιφέρεια Τομπουκτού</subdivision>
 			<subdivision type="ml7" draft="contributed">Περιφέρεια Γκαό</subdivision>
 			<subdivision type="ml8" draft="contributed">Περιφέρεια Κιντάλ</subdivision>
+			<subdivision type="ml9" draft="contributed">Περιοχή της Μενακά</subdivision>
+			<subdivision type="ml10" draft="contributed">Περιοχή του Ταουντενίτ</subdivision>
 			<subdivision type="mlbko" draft="contributed">Μπαμακό</subdivision>
 			<subdivision type="mm01" draft="contributed">Σαγκάινγκ</subdivision>
 			<subdivision type="mm02" draft="contributed">Μπάγκο</subdivision>
@@ -2693,14 +2815,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="no07" draft="contributed">Βέστφολντ</subdivision>
 			<subdivision type="no08" draft="contributed">Τέλεμαρκ</subdivision>
 			<subdivision type="no10" draft="contributed">Βεστ-Άγκντερ</subdivision>
+			<subdivision type="no11" draft="contributed">Ρόγκαλαντ</subdivision>
 			<subdivision type="no12" draft="contributed">Χόρνταλαντ</subdivision>
 			<subdivision type="no14" draft="contributed">Σόγνκ ογκ Φτζορντάνε</subdivision>
+			<subdivision type="no15" draft="contributed">Μέρε ογκ Ρόμσνταλ</subdivision>
 			<subdivision type="no16" draft="contributed">Σορ-Τροντελάγκ</subdivision>
 			<subdivision type="no17" draft="contributed">Νόρντ-Τροντελάγκ</subdivision>
 			<subdivision type="no18" draft="contributed">Νόρντλαντ</subdivision>
 			<subdivision type="no19" draft="contributed">Τρομς</subdivision>
 			<subdivision type="no21" draft="contributed">Αρχιπέλαγος Σβάλμπαρντ</subdivision>
 			<subdivision type="no22" draft="contributed">Γιαν Μαγιέν</subdivision>
+			<subdivision type="no30" draft="contributed">Βίκεν</subdivision>
+			<subdivision type="no34" draft="contributed">Ίνλαντετ</subdivision>
+			<subdivision type="no38" draft="contributed">Βέστφολντ ογκ Τέλεμαρκ</subdivision>
+			<subdivision type="no42" draft="contributed">Άγκντερ</subdivision>
+			<subdivision type="no46" draft="contributed">Βέστλαντ</subdivision>
+			<subdivision type="no50" draft="contributed">Τρόντελαγκ</subdivision>
+			<subdivision type="no54" draft="contributed">Τρομς ογκ Φίνμαρκ</subdivision>
 			<subdivision type="np1" draft="contributed">Κεντρική αναπτυξιακή περιοχή</subdivision>
 			<subdivision type="np2" draft="contributed">Μεσοδυτική αναπτυξιακή περιοχή</subdivision>
 			<subdivision type="np3" draft="contributed">Δυτική αναπτυξιακή περιοχή</subdivision>
@@ -2809,6 +2940,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pgshm" draft="contributed">Νότια Υψίπεδα</subdivision>
 			<subdivision type="pgwbk" draft="contributed">Δυτική Νέα Βρετανία</subdivision>
 			<subdivision type="pgwhm" draft="contributed">Δυτικά Υψίπεδα</subdivision>
+			<subdivision type="ph06" draft="contributed">Δυτικά Βισάϊας</subdivision>
 			<subdivision type="phabr" draft="contributed">Άμπρα</subdivision>
 			<subdivision type="phagn" draft="contributed">Αγκουσάν ντελ Νόρτε</subdivision>
 			<subdivision type="phags" draft="contributed">Αγκουσάν ντελ Σουρ</subdivision>
@@ -2912,14 +3044,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pl32" draft="contributed">Δυτική Πομερανία</subdivision>
 			<subdivision type="psbth" draft="contributed">Βηθλεέμ Γκοβερνορατόρε</subdivision>
 			<subdivision type="psdeb" draft="contributed">Ντέιρ Αλ Μπαλάχ</subdivision>
+			<subdivision type="psgza" draft="contributed">Κυβερνείο Γάζας</subdivision>
 			<subdivision type="pshbn" draft="contributed">Χέμπρον</subdivision>
 			<subdivision type="psjem" draft="contributed">Κυβερνείο Ιερουσαλήμ</subdivision>
+			<subdivision type="psjen" draft="contributed">Κυβερνείο Τζενίν</subdivision>
+			<subdivision type="psjrh" draft="contributed">Κυβερνείο Ιεριχούς</subdivision>
+			<subdivision type="pskys" draft="contributed">Κυβερνείο Χαν Γιουνίς</subdivision>
 			<subdivision type="psnbs" draft="contributed">Νάμπλους Γκοβερνοράτε</subdivision>
 			<subdivision type="psngz" draft="contributed">Βόρεια Γάζα</subdivision>
 			<subdivision type="psqqa" draft="contributed">Καλκίλγια</subdivision>
 			<subdivision type="psrbh" draft="contributed">Ραμάλα και αλ-Μπίρεχ</subdivision>
+			<subdivision type="psrfh" draft="contributed">Κυβερνείο Ράφαχ</subdivision>
 			<subdivision type="psslt" draft="contributed">Σαλφίτ Γκοβερνοράτε</subdivision>
+			<subdivision type="pstbs" draft="contributed">Κυβερνείο Τουμπάς</subdivision>
 			<subdivision type="pstkm" draft="contributed">Τουλκάρμ</subdivision>
+			<subdivision type="pt01" draft="contributed">διαμέρισμα του Αβέιρο</subdivision>
 			<subdivision type="pt02" draft="contributed">Μπέτζα</subdivision>
 			<subdivision type="pt03" draft="contributed">Μπράγκα</subdivision>
 			<subdivision type="pt05" draft="contributed">Καστέλο Μπράνκο</subdivision>
@@ -2927,6 +3066,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pt07" draft="contributed">Έβορα</subdivision>
 			<subdivision type="pt08" draft="contributed">Φάρο</subdivision>
 			<subdivision type="pt10" draft="contributed">Λειρία</subdivision>
+			<subdivision type="pt11" draft="contributed">διαμέρισμα της Λισαβόνας</subdivision>
+			<subdivision type="pt12" draft="contributed">διαμέρισμα του Πορταλέγκρε</subdivision>
+			<subdivision type="pt13" draft="contributed">διαμέρισμα του Πόρτο</subdivision>
 			<subdivision type="pt14" draft="contributed">Σανταρέμ</subdivision>
 			<subdivision type="pt15" draft="contributed">Σετούμπαλ</subdivision>
 			<subdivision type="pt16" draft="contributed">Βιάνα ντο Καστέλο</subdivision>
@@ -2976,6 +3118,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="roag" draft="contributed">Άρτζες</subdivision>
 			<subdivision type="roar" draft="contributed">Αράντ</subdivision>
 			<subdivision type="rob" draft="contributed">Βουκουρέστι</subdivision>
+			<subdivision type="robc" draft="contributed">Τζουντέτς του Μπακάου</subdivision>
 			<subdivision type="robh" draft="contributed">Μπιχόρ</subdivision>
 			<subdivision type="robn" draft="contributed">Μπιστρίτα-Νασόντ</subdivision>
 			<subdivision type="robr" draft="contributed">Βραΐλα</subdivision>
@@ -2998,6 +3141,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="roil" draft="contributed">Ιαλομίτα</subdivision>
 			<subdivision type="rois" draft="contributed">Ιασί</subdivision>
 			<subdivision type="romh" draft="contributed">Μεχεντίντι</subdivision>
+			<subdivision type="romm" draft="contributed">Τζουντέτς του Μαραμούρες</subdivision>
 			<subdivision type="roms" draft="contributed">Μουρές</subdivision>
 			<subdivision type="ront" draft="contributed">Κομητεία Νεάμτς</subdivision>
 			<subdivision type="root" draft="contributed">Όλτ</subdivision>
@@ -3259,6 +3403,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="si047" draft="contributed">Κομπίλτζε</subdivision>
 			<subdivision type="si048" draft="contributed">Κοτσέβιε</subdivision>
 			<subdivision type="si049" draft="contributed">Κόμεν</subdivision>
+			<subdivision type="si050" draft="contributed">Αστικός Δήμος του Κόπερ</subdivision>
 			<subdivision type="si051" draft="contributed">Κόζτζε</subdivision>
 			<subdivision type="si052" draft="contributed">Κραντζ</subdivision>
 			<subdivision type="si053" draft="contributed">Κράντζσκα Γκόρα</subdivision>
@@ -3334,6 +3479,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="si128" draft="contributed">Τόλμιν</subdivision>
 			<subdivision type="si130" draft="contributed">Τρέμπντζε</subdivision>
 			<subdivision type="si131" draft="contributed">Τρζικ</subdivision>
+			<subdivision type="si133" draft="contributed">Δήμος Βελένιε</subdivision>
 			<subdivision type="si134" draft="contributed">Βελίκε Λάσκε</subdivision>
 			<subdivision type="si136" draft="contributed">Βιπάβα</subdivision>
 			<subdivision type="si137" draft="contributed">Βιτάντζε</subdivision>
@@ -3422,6 +3568,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="sntc" draft="contributed">Ταμπακούντα</subdivision>
 			<subdivision type="snth" draft="contributed">Τιες</subdivision>
 			<subdivision type="snzg" draft="contributed">Ζιγκινσόρ</subdivision>
+			<subdivision type="soaw" draft="contributed">Αουντάλ</subdivision>
 			<subdivision type="sobk" draft="contributed">Μπακούλ</subdivision>
 			<subdivision type="sobn" draft="contributed">Μπανααντίρ</subdivision>
 			<subdivision type="sobr" draft="contributed">Μπάρι</subdivision>
@@ -3716,6 +3863,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tr73" draft="contributed">Σίρνακ</subdivision>
 			<subdivision type="tr74" draft="contributed">Επαρχία Μπαρτίν</subdivision>
 			<subdivision type="tr75" draft="contributed">Αρνταχάν</subdivision>
+			<subdivision type="tr76" draft="contributed">Επαρχία Ιγκντίρ</subdivision>
 			<subdivision type="tr77" draft="contributed">Επαρχία Γιάλοβας</subdivision>
 			<subdivision type="tr78" draft="contributed">Επαρχία Καραμπούκ</subdivision>
 			<subdivision type="tr79" draft="contributed">Επαρχία Κιλίς</subdivision>
@@ -3737,6 +3885,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tttob" draft="contributed">Τομπάγκο</subdivision>
 			<subdivision type="tttup" draft="contributed">Τουναπούνα-Πιάρκο</subdivision>
 			<subdivision type="tvfun" draft="contributed">Φουναφούτι</subdivision>
+			<subdivision type="tvvai" draft="contributed">Βαϊτούπου</subdivision>
 			<subdivision type="twcha" draft="contributed">Τσάνγκουα</subdivision>
 			<subdivision type="twcyi" draft="contributed">Κομητεία Τσιαγί</subdivision>
 			<subdivision type="twcyq" draft="contributed">Τσιάγι</subdivision>
@@ -3747,8 +3896,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="twkee" draft="contributed">Κίλανγκ</subdivision>
 			<subdivision type="twkhh" draft="contributed">Καοσιούνγκ</subdivision>
 			<subdivision type="twkin" draft="contributed">Κίνμεν</subdivision>
+			<subdivision type="twlie" draft="contributed">Λιέντζιανγκ Κάουντι</subdivision>
 			<subdivision type="twmia" draft="contributed">Μιαολί</subdivision>
 			<subdivision type="twnan" draft="contributed">Ναντού</subdivision>
+			<subdivision type="twnwt" draft="contributed">Νιού Ταϊπέι Σίτι</subdivision>
 			<subdivision type="twpif" draft="contributed">Πίνγκτουνγκ</subdivision>
 			<subdivision type="twtao" draft="contributed">Ταογιουάν</subdivision>
 			<subdivision type="twtnn" draft="contributed">Ταϊνάν</subdivision>
@@ -4148,7 +4299,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="yeta" draft="contributed">Ταΐζ Γκοβερνοράτε</subdivision>
 			<subdivision type="zaec" draft="contributed">Ανατολικό Ακρωτήριο</subdivision>
 			<subdivision type="zafs" draft="contributed">Ελεύθερο Κράτος της Οράγγης</subdivision>
-			<subdivision type="zagt" draft="contributed">Γκαουτένγκ</subdivision>
+			<subdivision type="zagp" draft="contributed">Γκαουτένγκ</subdivision>
+			<subdivision type="zakzn" draft="contributed">Κουαζούλου-Νατάλ</subdivision>
 			<subdivision type="zalp" draft="contributed">Λιμπόπο</subdivision>
 			<subdivision type="zamp" draft="contributed">Μπουμαλάνγκα</subdivision>
 			<subdivision type="zanc" draft="contributed">Βόρειο Ακρωτήριο</subdivision>

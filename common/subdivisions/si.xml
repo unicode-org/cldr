@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -17,6 +17,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ad04" draft="contributed">ලා මස්සනා</subdivision>
 			<subdivision type="ad05" draft="contributed">ඔර්ඩිනෝ</subdivision>
 			<subdivision type="ad06" draft="contributed">සැන්ට් ජුලිය ඩි ලෝරියා</subdivision>
+			<subdivision type="ad07" draft="contributed">ඇන්ඩෝරා ලා වෙල්ලා</subdivision>
 			<subdivision type="ad08" draft="contributed">එස්කල්ඩෙස්-එන්ගොර්ඩෙනි</subdivision>
 			<subdivision type="aeaj" draft="contributed">අජ්මන් එමිරේටය</subdivision>
 			<subdivision type="aeaz" draft="contributed">අබුඩාබි එමිරේට්</subdivision>
@@ -868,6 +869,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="escb" draft="contributed">කැන්ටබ්රියා</subdivision>
 			<subdivision type="escc" draft="contributed">කාසේරෙස් පළාත</subdivision>
 			<subdivision type="esce" draft="contributed">සියුටා</subdivision>
+			<subdivision type="escn" draft="contributed">කැනරි දූපත්</subdivision>
 			<subdivision type="esco" draft="contributed">කොර්ඩොබා පළාත</subdivision>
 			<subdivision type="escr" draft="contributed">කියුඩැඩ්</subdivision>
 			<subdivision type="escs" draft="contributed">කැස්ටෙලෝන් පළාත</subdivision>
@@ -1015,7 +1017,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr72" draft="contributed">සර්තේ</subdivision>
 			<subdivision type="fr73" draft="contributed">සැවෝයි</subdivision>
 			<subdivision type="fr74" draft="contributed">හෞටේ -සැවෝයි</subdivision>
-			<subdivision type="fr75" draft="contributed">පැරිස්</subdivision>
+			<subdivision type="fr75c" draft="contributed">පැරිස්</subdivision>
 			<subdivision type="fr76" draft="contributed">සීනේ-මාරිටයිම්</subdivision>
 			<subdivision type="fr77" draft="contributed">සෙයිනේ-එට්-මර්නේ</subdivision>
 			<subdivision type="fr78" draft="contributed">යුවෙලයින්ස්</subdivision>
@@ -1036,6 +1038,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr93" draft="contributed">සෙයිනේ-ශාන්ත-ඩෙනිස්</subdivision>
 			<subdivision type="fr94" draft="contributed">වල්-ඩේ-මර්නේ</subdivision>
 			<subdivision type="fr95" draft="contributed">වල් ඩි ඔයිස්</subdivision>
+			<subdivision type="fr971" draft="contributed">ගඩෙලුපේ</subdivision>
 			<subdivision type="ga1" draft="contributed">එස්ටුඅයර් පළාත</subdivision>
 			<subdivision type="ga2" draft="contributed">හෞට්-ඔගෞඑ පළාත</subdivision>
 			<subdivision type="ga3" draft="contributed">මොයෙන්-ඔගුවේ පළාත</subdivision>
@@ -1067,11 +1070,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbply" draft="contributed">ප්ලයිමවුත්</subdivision>
 			<subdivision type="gbpor" draft="contributed">පොර්ට්ස්මවුත්</subdivision>
 			<subdivision type="gbpte" draft="contributed">පීටර්බොරෝ</subdivision>
+			<subdivision type="gbsct" draft="contributed">ස්කොට්ලන්තය</subdivision>
 			<subdivision type="gbshf" draft="contributed">ෂෙෆීල්ඩ්</subdivision>
 			<subdivision type="gbste" draft="contributed">ස්ටොක් - ඕන් - ට්‍රෙන්ට්</subdivision>
 			<subdivision type="gbsth" draft="contributed">සදම්ප්ටන්</subdivision>
 			<subdivision type="gbswa" draft="contributed">ස්වැන්සෝ</subdivision>
 			<subdivision type="gbukm" draft="contributed">එක්සත් රාජධානිය</subdivision>
+			<subdivision type="gbwls" draft="contributed">වේල්ස්</subdivision>
 			<subdivision type="gbwlv" draft="contributed">වුල්වර්හැම්ටන්</subdivision>
 			<subdivision type="gbwsm" draft="contributed">වෙස්ට්මිනිස්ටර් නගරය</subdivision>
 			<subdivision type="gbyor" draft="contributed">යෝක්</subdivision>
@@ -1163,28 +1168,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="grj" draft="contributed">පෙලොපොනිස් කලාපය</subdivision>
 			<subdivision type="grk" draft="contributed">උතුරු එයිජියන් කලාපය</subdivision>
 			<subdivision type="grl" draft="contributed">දකුණු අයිජියන්</subdivision>
-			<subdivision type="gtav" draft="contributed">අල්ටා වෙරපාස් දෙපාර්තමේන්තුව</subdivision>
-			<subdivision type="gtbv" draft="contributed">බජා වෙරපාස් දෙපාර්තමේන්තුව</subdivision>
-			<subdivision type="gtcm" draft="contributed">චිමල්ටෙනන්ගෝ දෙපාර්තමේන්තුව</subdivision>
-			<subdivision type="gtcq" draft="contributed">ච්කුයිමුලා දෙපාර්තෙමේන්තුව</subdivision>
-			<subdivision type="gtes" draft="contributed">එස්කුයින්ට්ලා දෙපාර්තමේන්තුව</subdivision>
-			<subdivision type="gtgu" draft="contributed">ගෝතමාලා දෙපාර්තමේන්තුව</subdivision>
-			<subdivision type="gthu" draft="contributed">හියුහියුටෙනන්ගෝ දෙපාර්තමේන්තුව</subdivision>
-			<subdivision type="gtiz" draft="contributed">ඉසබල් දෙපාර්තමේන්තුව</subdivision>
-			<subdivision type="gtja" draft="contributed">ජලපා දෙපාර්තමේන්තුව</subdivision>
-			<subdivision type="gtju" draft="contributed">ජුටියපා දෙපාර්තමේන්තුව</subdivision>
-			<subdivision type="gtpe" draft="contributed">පෙටේන් දෙපාර්තමේන්තුව</subdivision>
-			<subdivision type="gtpr" draft="contributed">එල් ප්රෝග්රෙසෝ දෙපාර්තමේන්තුව</subdivision>
-			<subdivision type="gtqc" draft="contributed">කුයිචේ දෙපාර්තමේන්තුව</subdivision>
-			<subdivision type="gtqz" draft="contributed">කෙට්සල්ටේනංගෝ දෙපාර්තමේන්තුව</subdivision>
-			<subdivision type="gtre" draft="contributed">රෙටල්හුලෙවූ දෙපාර්තමේන්තුව</subdivision>
-			<subdivision type="gtsa" draft="contributed">සකටෙපේක්වෙස් දෙපාර්තමේන්තුව</subdivision>
-			<subdivision type="gtsm" draft="contributed">සැන් මාර්කෝස් දෙපාර්තමේන්තුව</subdivision>
-			<subdivision type="gtso" draft="contributed">සොලොලා ඩිපාර්ට්මන්ට්</subdivision>
-			<subdivision type="gtsr" draft="contributed">සැන්ටා රෝසා ඩිපාර්ට්මන්ට්</subdivision>
-			<subdivision type="gtsu" draft="contributed">සුචිටෙපෙක්වෙස් දෙපාර්තමේන්තුව</subdivision>
-			<subdivision type="gtto" draft="contributed">ටෝටෝනිකපන් දෙපාර්තමේන්තුව</subdivision>
-			<subdivision type="gtza" draft="contributed">සකපා දෙපාර්තමේන්තුව</subdivision>
+			<subdivision type="gt01" draft="contributed">ගෝතමාලා දෙපාර්තමේන්තුව</subdivision>
+			<subdivision type="gt02" draft="contributed">එල් ප්රෝග්රෙසෝ දෙපාර්තමේන්තුව</subdivision>
+			<subdivision type="gt03" draft="contributed">සකටෙපේක්වෙස් දෙපාර්තමේන්තුව</subdivision>
+			<subdivision type="gt04" draft="contributed">චිමල්ටෙනන්ගෝ දෙපාර්තමේන්තුව</subdivision>
+			<subdivision type="gt05" draft="contributed">එස්කුයින්ට්ලා දෙපාර්තමේන්තුව</subdivision>
+			<subdivision type="gt06" draft="contributed">සැන්ටා රෝසා ඩිපාර්ට්මන්ට්</subdivision>
+			<subdivision type="gt07" draft="contributed">සොලොලා ඩිපාර්ට්මන්ට්</subdivision>
+			<subdivision type="gt08" draft="contributed">ටෝටෝනිකපන් දෙපාර්තමේන්තුව</subdivision>
+			<subdivision type="gt09" draft="contributed">කෙට්සල්ටේනංගෝ දෙපාර්තමේන්තුව</subdivision>
+			<subdivision type="gt10" draft="contributed">සුචිටෙපෙක්වෙස් දෙපාර්තමේන්තුව</subdivision>
+			<subdivision type="gt11" draft="contributed">රෙටල්හුලෙවූ දෙපාර්තමේන්තුව</subdivision>
+			<subdivision type="gt12" draft="contributed">සැන් මාර්කෝස් දෙපාර්තමේන්තුව</subdivision>
+			<subdivision type="gt13" draft="contributed">හියුහියුටෙනන්ගෝ දෙපාර්තමේන්තුව</subdivision>
+			<subdivision type="gt14" draft="contributed">කුයිචේ දෙපාර්තමේන්තුව</subdivision>
+			<subdivision type="gt15" draft="contributed">බජා වෙරපාස් දෙපාර්තමේන්තුව</subdivision>
+			<subdivision type="gt16" draft="contributed">අල්ටා වෙරපාස් දෙපාර්තමේන්තුව</subdivision>
+			<subdivision type="gt17" draft="contributed">පෙටේන් දෙපාර්තමේන්තුව</subdivision>
+			<subdivision type="gt18" draft="contributed">ඉසබල් දෙපාර්තමේන්තුව</subdivision>
+			<subdivision type="gt19" draft="contributed">සකපා දෙපාර්තමේන්තුව</subdivision>
+			<subdivision type="gt20" draft="contributed">ච්කුයිමුලා දෙපාර්තෙමේන්තුව</subdivision>
+			<subdivision type="gt21" draft="contributed">ජලපා දෙපාර්තමේන්තුව</subdivision>
+			<subdivision type="gt22" draft="contributed">ජුටියපා දෙපාර්තමේන්තුව</subdivision>
 			<subdivision type="gwba" draft="contributed">බෆාටා කලාපය</subdivision>
 			<subdivision type="gwbl" draft="contributed">බොලමා කලාපය</subdivision>
 			<subdivision type="gwbm" draft="contributed">බයෝම්බෝ කලාපය</subdivision>
@@ -1399,13 +1404,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="iqsd" draft="contributed">සලඩින් පළාත</subdivision>
 			<subdivision type="iqsu" draft="contributed">සුලේමනියා පළාත</subdivision>
 			<subdivision type="iqwa" draft="contributed">වෙයිස්ට් පරිපාලන දිස්ත්‍රික්කය</subdivision>
+			<subdivision type="ir00" draft="contributed">මර්කාසි පළාත²</subdivision>
 			<subdivision type="ir01" draft="contributed">නැගෙනහිර අසේර්බජාන් පළාත</subdivision>
 			<subdivision type="ir02" draft="contributed">බටහිර අසර්බජාන් පළාත</subdivision>
 			<subdivision type="ir03" draft="contributed">අර්ඩබිල් පළාත</subdivision>
 			<subdivision type="ir04" draft="contributed">ඉස්ෆහන් පළාත</subdivision>
+			<subdivision type="ir05" draft="contributed">කර්මන්ශා පළාත²</subdivision>
+			<subdivision type="ir06" draft="contributed">කුසේස්තාන් පළාත²</subdivision>
 			<subdivision type="ir07" draft="contributed">ටෙහ්රාන් පළාත</subdivision>
 			<subdivision type="ir08" draft="contributed">චහර්මහල් සහ බක්ටියරි පළාත</subdivision>
+			<subdivision type="ir09" draft="contributed">රසවි කොරසන් පළාත²</subdivision>
 			<subdivision type="ir10" draft="contributed">කුසේස්තාන් පළාත</subdivision>
+			<subdivision type="ir11" draft="contributed">සිස්ටන් සහ බලුචෙස්ටාන්²</subdivision>
+			<subdivision type="ir12" draft="contributed">කුර්දිස්තාන් පළාත²</subdivision>
 			<subdivision type="ir13" draft="contributed">සිස්ටන් සහ බලුචෙස්ටාන්</subdivision>
 			<subdivision type="ir14" draft="contributed">ෆාර්ස් පළාත</subdivision>
 			<subdivision type="ir15" draft="contributed">කර්මන් පළාත</subdivision>
@@ -1416,7 +1427,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ir20" draft="contributed">ලොරෙස්ටන් පළාත</subdivision>
 			<subdivision type="ir21" draft="contributed">මසන්ඩරන් පළාත</subdivision>
 			<subdivision type="ir22" draft="contributed">මර්කාසි පළාත</subdivision>
+			<subdivision type="ir23" draft="contributed">ටෙහ්රාන් පළාත²</subdivision>
 			<subdivision type="ir24" draft="contributed">හමඩන් පළාත</subdivision>
+			<subdivision type="ir25" draft="contributed">කොම් පළාත²</subdivision>
 			<subdivision type="ir26" draft="contributed">කොම් පළාත</subdivision>
 			<subdivision type="ir27" draft="contributed">ගොලේස්තාන් පළාත</subdivision>
 			<subdivision type="ir28" draft="contributed">කස්වින් පළාත</subdivision>
@@ -1701,6 +1714,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kzman" draft="contributed">මැන්ගිස්ටවු කලාපය</subdivision>
 			<subdivision type="kzpav" draft="contributed">පව්ලොදාර් පළාත</subdivision>
 			<subdivision type="kzsev" draft="contributed">උතුරු කසකස්තාන් පළාත</subdivision>
+			<subdivision type="kzshy" draft="contributed">ශිම්කෙන්ට්</subdivision>
 			<subdivision type="kzvos" draft="contributed">නැගෙනහිර කසකස්තාන් කලාපය</subdivision>
 			<subdivision type="kzyuz" draft="contributed">දකුණු කසකස්තානය</subdivision>
 			<subdivision type="kzzap" draft="contributed">බටහිර කසකස්තාන් පළාත</subdivision>
@@ -1951,6 +1965,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ma15" draft="contributed">ලායොඋනේ බොඋජ්දෝර්-සකියා එල් හම්රා</subdivision>
 			<subdivision type="maagd" draft="contributed">අගඩිර්</subdivision>
 			<subdivision type="macas" draft="contributed">කැසබ්ලැන්කා</subdivision>
+			<subdivision type="mafes" draft="contributed">ෆේස්</subdivision>
 			<subdivision type="mague" draft="contributed">ගුලෙමිම් පළාත</subdivision>
 			<subdivision type="mamek" draft="contributed">මෙක්නෙස්</subdivision>
 			<subdivision type="mammd" draft="contributed">මරකෙෂ්</subdivision>
@@ -2019,64 +2034,71 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mhl" draft="contributed">රලික් චේන්</subdivision>
 			<subdivision type="mhmaj" draft="contributed">මජුරෝ</subdivision>
 			<subdivision type="mht" draft="contributed">රටක් චේන්</subdivision>
-			<subdivision type="mk02" draft="contributed">අරසිනොවෝ නගර සභාව</subdivision>
-			<subdivision type="mk03" draft="contributed">බෙරෝවො නගර සභාව</subdivision>
-			<subdivision type="mk04" draft="contributed">බිටෝලා නගර සභාව</subdivision>
-			<subdivision type="mk05" draft="contributed">බෝග්ඩන්චි නගර සභාව</subdivision>
-			<subdivision type="mk06" draft="contributed">බෝගොවින්ජේ නගර සභාව</subdivision>
-			<subdivision type="mk07" draft="contributed">බොසිලොවෝ නගර සභාව</subdivision>
 			<subdivision type="mk08" draft="contributed">බ්‍රවෙනිකා නගරසභාව</subdivision>
-			<subdivision type="mk11" draft="contributed">වසිලේවෝ නගර සභාව</subdivision>
-			<subdivision type="mk14" draft="contributed">විනිසා නගර සභාව</subdivision>
-			<subdivision type="mk19" draft="contributed">ගොස්ටිවාර් නගර සභාව</subdivision>
 			<subdivision type="mk20" draft="contributed">ග්‍රඩ්ස්කෝ නගර සභාව</subdivision>
-			<subdivision type="mk21" draft="contributed">ඩෙබාර් නගර සභාව</subdivision>
-			<subdivision type="mk22" draft="contributed">ඩෙබර්කා නගර සභාව</subdivision>
-			<subdivision type="mk23" draft="contributed">ඩෙල්කෙවෝ නගර සභාව</subdivision>
-			<subdivision type="mk27" draft="contributed">දොල්නෙනි නගර සභාව</subdivision>
-			<subdivision type="mk30" draft="contributed">සෙලිනෝ නගර සභාව</subdivision>
-			<subdivision type="mk32" draft="contributed">සෙලෙනිකොවෝ නගර සභාව</subdivision>
-			<subdivision type="mk33" draft="contributed">ස්රෝනොව්සි නගර සභාව</subdivision>
-			<subdivision type="mk34" draft="contributed">ලින්ඩෙන් නගර සභාව</subdivision>
-			<subdivision type="mk35" draft="contributed">ජෙගොනොවිස් නගර සභාව</subdivision>
-			<subdivision type="mk36" draft="contributed">කවඩර්සි නගර සභාව</subdivision>
-			<subdivision type="mk37" draft="contributed">කර්බින්සි</subdivision>
-			<subdivision type="mk40" draft="contributed">කිසේවෝ නගර සභාව</subdivision>
-			<subdivision type="mk41" draft="contributed">කොන්සේ නගර සභාව</subdivision>
-			<subdivision type="mk42" draft="contributed">කොකානි නගර සභාව</subdivision>
-			<subdivision type="mk43" draft="contributed">ක්රටෝවෝ නගර සභාව</subdivision>
 			<subdivision type="mk44" draft="contributed">ක්‍රිවා පලන්කා නගර සභාව</subdivision>
 			<subdivision type="mk45" draft="contributed">ක්‍රිවෝගස්තානි නගර සභාව</subdivision>
-			<subdivision type="mk46" draft="contributed">කෘසේවෝ නගර සභාව</subdivision>
-			<subdivision type="mk47" draft="contributed">කුමනොවෝ නගර සභාව</subdivision>
-			<subdivision type="mk48" draft="contributed">ලිප්කොවෝ නගර සභාව</subdivision>
-			<subdivision type="mk49" draft="contributed">ලොසොවෝ නගර සභාව</subdivision>
-			<subdivision type="mk50" draft="contributed">මව්රෝවෝ සහ රෝස්ටුසා නගර සභාව</subdivision>
-			<subdivision type="mk51" draft="contributed">මකෙඩොන්ස්කා කමෙනිකා නගර සභාව</subdivision>
 			<subdivision type="mk52" draft="contributed">මකෙදොන්ස්කි බ්‍රොඩ් නගර සභාව</subdivision>
-			<subdivision type="mk54" draft="contributed">නෙගොටිනෝ නගර සභාව</subdivision>
-			<subdivision type="mk56" draft="contributed">නොවෝ සෙලෝ නගර සභාව</subdivision>
-			<subdivision type="mk58" draft="contributed">ඔහ්රිඩ් නගර සභාව</subdivision>
-			<subdivision type="mk60" draft="contributed">පෙසෙවෝ නගර සභාව</subdivision>
-			<subdivision type="mk61" draft="contributed">ප්ලස්නිකා නගර සභාව</subdivision>
 			<subdivision type="mk62" draft="contributed">ප්‍රිලේප් නගර සභාව</subdivision>
-			<subdivision type="mk63" draft="contributed">ප්රෝබිස්ටිප් නගර සභාව</subdivision>
-			<subdivision type="mk64" draft="contributed">රඩොවිස් නගර සභාව</subdivision>
-			<subdivision type="mk65" draft="contributed">රන්කොව්සේ නගර සභාව</subdivision>
-			<subdivision type="mk66" draft="contributed">රෙසෙන් නගර සභාව</subdivision>
-			<subdivision type="mk69" draft="contributed">ස්වෙටි නිකොලේ නගර සභාව</subdivision>
-			<subdivision type="mk70" draft="contributed">සොපිස්ටේ නගර සභාව</subdivision>
-			<subdivision type="mk72" draft="contributed">ස්ට්රුගා නගර සභාව</subdivision>
-			<subdivision type="mk73" draft="contributed">සට්රුමිකා නගර සභාව</subdivision>
-			<subdivision type="mk74" draft="contributed">සටුදෙනිකණි නගර සභාව</subdivision>
-			<subdivision type="mk75" draft="contributed">ටියර්ස් නගර සභාව</subdivision>
-			<subdivision type="mk76" draft="contributed">ටෙටෝවෝ නගර සභාව</subdivision>
 			<subdivision type="mk78" draft="contributed">මද්‍යම සුපා නගර සභාව</subdivision>
-			<subdivision type="mk80" draft="contributed">කස්කා නගර සභාව</subdivision>
-			<subdivision type="mk81" draft="contributed">සෙන්සිනොවෝ-ඔබ්ලෙසේ වෝ නගර සභාව</subdivision>
-			<subdivision type="mk82" draft="contributed">කුසර්-සැන්ඩෙවෝ නගර සභාව</subdivision>
-			<subdivision type="mk83" draft="contributed">ස්ටිප් නගර සභාව</subdivision>
 			<subdivision type="mk85" draft="contributed">ස්කොපියේ</subdivision>
+			<subdivision type="mk102" draft="contributed">ග්රඩ්ස්කෝ නගර සභාව</subdivision>
+			<subdivision type="mk104" draft="contributed">කවඩර්සි නගර සභාව</subdivision>
+			<subdivision type="mk105" draft="contributed">ලොසොවෝ නගර සභාව</subdivision>
+			<subdivision type="mk106" draft="contributed">නෙගොටිනෝ නගර සභාව</subdivision>
+			<subdivision type="mk108" draft="contributed">ස්වෙටි නිකොලේ නගර සභාව</subdivision>
+			<subdivision type="mk109" draft="contributed">කස්කා නගර සභාව</subdivision>
+			<subdivision type="mk201" draft="contributed">බෙරෝවො නගර සභාව</subdivision>
+			<subdivision type="mk202" draft="contributed">විනිසා නගර සභාව</subdivision>
+			<subdivision type="mk203" draft="contributed">ඩෙල්කෙවෝ නගර සභාව</subdivision>
+			<subdivision type="mk204" draft="contributed">ස්රෝනොව්සි නගර සභාව</subdivision>
+			<subdivision type="mk205" draft="contributed">කර්බින්සි</subdivision>
+			<subdivision type="mk206" draft="contributed">කොකානි නගර සභාව</subdivision>
+			<subdivision type="mk207" draft="contributed">මකෙඩොන්ස්කා කමෙනිකා නගර සභාව</subdivision>
+			<subdivision type="mk208" draft="contributed">පෙසෙවෝ නගර සභාව</subdivision>
+			<subdivision type="mk209" draft="contributed">ප්රෝබිස්ටිප් නගර සභාව</subdivision>
+			<subdivision type="mk210" draft="contributed">සෙන්සිනොවෝ-ඔබ්ලෙසේ වෝ නගර සභාව</subdivision>
+			<subdivision type="mk211" draft="contributed">ස්ටිප් නගර සභාව</subdivision>
+			<subdivision type="mk303" draft="contributed">ඩෙබාර් නගර සභාව</subdivision>
+			<subdivision type="mk304" draft="contributed">ඩෙබර්කා නගර සභාව</subdivision>
+			<subdivision type="mk307" draft="contributed">කිසේවෝ නගර සභාව</subdivision>
+			<subdivision type="mk308" draft="contributed">මකෙදොන්ස්කි බ්රොඩ් නගර සභාව</subdivision>
+			<subdivision type="mk310" draft="contributed">ඔහ්රිඩ් නගර සභාව</subdivision>
+			<subdivision type="mk311" draft="contributed">ප්ලස්නිකා නගර සභාව</subdivision>
+			<subdivision type="mk312" draft="contributed">ස්ට්රුගා නගර සභාව</subdivision>
+			<subdivision type="mk313" draft="contributed">මද්යම සුපා නගර සභාව</subdivision>
+			<subdivision type="mk401" draft="contributed">බෝග්ඩන්චි නගර සභාව</subdivision>
+			<subdivision type="mk402" draft="contributed">බොසිලොවෝ නගර සභාව</subdivision>
+			<subdivision type="mk404" draft="contributed">වසිලේවෝ නගර සභාව</subdivision>
+			<subdivision type="mk407" draft="contributed">කොන්සේ නගර සභාව</subdivision>
+			<subdivision type="mk408" draft="contributed">නොවෝ සෙලෝ නගර සභාව</subdivision>
+			<subdivision type="mk409" draft="contributed">රඩොවිස් නගර සභාව</subdivision>
+			<subdivision type="mk410" draft="contributed">සට්රුමිකා නගර සභාව</subdivision>
+			<subdivision type="mk501" draft="contributed">බිටෝලා නගර සභාව</subdivision>
+			<subdivision type="mk503" draft="contributed">දොල්නෙනි නගර සභාව</subdivision>
+			<subdivision type="mk504" draft="contributed">ක්රිවෝගස්තානි නගර සභාව</subdivision>
+			<subdivision type="mk505" draft="contributed">කෘසේවෝ නගර සභාව</subdivision>
+			<subdivision type="mk508" draft="contributed">ප්රිලේප් නගර සභාව</subdivision>
+			<subdivision type="mk509" draft="contributed">රෙසෙන් නගර සභාව</subdivision>
+			<subdivision type="mk601" draft="contributed">බෝගොවින්ජේ නගර සභාව</subdivision>
+			<subdivision type="mk602" draft="contributed">බ්රවෙනිකා නගරසභාව</subdivision>
+			<subdivision type="mk604" draft="contributed">ගොස්ටිවාර් නගර සභාව</subdivision>
+			<subdivision type="mk605" draft="contributed">සෙලිනෝ නගර සභාව</subdivision>
+			<subdivision type="mk606" draft="contributed">ජෙගොනොවිස් නගර සභාව</subdivision>
+			<subdivision type="mk607" draft="contributed">මව්රෝවෝ සහ රෝස්ටුසා නගර සභාව</subdivision>
+			<subdivision type="mk608" draft="contributed">ටියර්ස් නගර සභාව</subdivision>
+			<subdivision type="mk609" draft="contributed">ටෙටෝවෝ නගර සභාව</subdivision>
+			<subdivision type="mk701" draft="contributed">ක්රටෝවෝ නගර සභාව</subdivision>
+			<subdivision type="mk702" draft="contributed">ක්රිවා පලන්කා නගර සභාව</subdivision>
+			<subdivision type="mk703" draft="contributed">කුමනොවෝ නගර සභාව</subdivision>
+			<subdivision type="mk704" draft="contributed">ලිප්කොවෝ නගර සභාව</subdivision>
+			<subdivision type="mk705" draft="contributed">රන්කොව්සේ නගර සභාව</subdivision>
+			<subdivision type="mk802" draft="contributed">අරසිනොවෝ නගර සභාව</subdivision>
+			<subdivision type="mk806" draft="contributed">සෙලෙනිකොවෝ නගර සභාව</subdivision>
+			<subdivision type="mk807" draft="contributed">ලින්ඩෙන් නගර සභාව</subdivision>
+			<subdivision type="mk812" draft="contributed">සොපිස්ටේ නගර සභාව</subdivision>
+			<subdivision type="mk813" draft="contributed">සටුදෙනිකණි නගර සභාව</subdivision>
+			<subdivision type="mk816" draft="contributed">කුසර්-සැන්ඩෙවෝ නගර සභාව</subdivision>
 			<subdivision type="ml1" draft="contributed">කේයස් ප්‍රාන්තය</subdivision>
 			<subdivision type="ml2" draft="contributed">කොවුලිකොරෝ කලාපය</subdivision>
 			<subdivision type="ml3" draft="contributed">සිකස්සෝ කලාපය</subdivision>
@@ -2859,6 +2881,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="sc11" draft="contributed">කැස්කෙඩ්</subdivision>
 			<subdivision type="sc12" draft="contributed">ග්ලාසිස්</subdivision>
 			<subdivision type="sc14" draft="contributed">ග්රෑන්ඩ්‘අන්සේ ප්‍රස්ලින්</subdivision>
+			<subdivision type="sc15" draft="contributed">ලා ඩිගු සහ ඇතුල් දුපත්</subdivision>
 			<subdivision type="sc16" draft="contributed">ලා රිවෙයිරේ ඇන්ග්ලය්සේ</subdivision>
 			<subdivision type="sc17" draft="contributed">මොන්ට් බක්ස්ටන්</subdivision>
 			<subdivision type="sc18" draft="contributed">මොන්ට් ෆ්ලෙයුරි</subdivision>
@@ -3422,6 +3445,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="twkin" draft="contributed">කින්මෙන්</subdivision>
 			<subdivision type="twmia" draft="contributed">මියාඔලි ප්‍රාන්තය</subdivision>
 			<subdivision type="twnan" draft="contributed">නන්ටෝඋ ප්‍රාන්තය</subdivision>
+			<subdivision type="twnwt" draft="contributed">නිව් තායිපේ නගරය</subdivision>
 			<subdivision type="twpif" draft="contributed">පින්ග්ටුන්ග් ප්‍රාන්තය</subdivision>
 			<subdivision type="twtao" draft="contributed">ටොයුආන්</subdivision>
 			<subdivision type="twtnn" draft="contributed">ටයිනන්</subdivision>
@@ -3815,11 +3839,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="yeta" draft="contributed">ටාඉස් පළාත</subdivision>
 			<subdivision type="zaec" draft="contributed">නැගෙනහිර කේප්</subdivision>
 			<subdivision type="zafs" draft="contributed">නිදහස් රාජ්‍ය</subdivision>
-			<subdivision type="zagt" draft="contributed">ගවුටෙන්ග්</subdivision>
+			<subdivision type="zagp" draft="contributed">ගවුටෙන්ග්</subdivision>
+			<subdivision type="zakzn" draft="contributed">ක්වාසුලු-නටාල්</subdivision>
 			<subdivision type="zalp" draft="contributed">ලිම්පොපෝ</subdivision>
 			<subdivision type="zamp" draft="contributed">එම්පුමලන්ගා</subdivision>
 			<subdivision type="zanc" draft="contributed">උතුරු කේප්</subdivision>
-			<subdivision type="zanl" draft="contributed">ක්වාසුලු-නටාල්</subdivision>
 			<subdivision type="zanw" draft="contributed">උතුරු බටහිර</subdivision>
 			<subdivision type="zawc" draft="contributed">බටහිර කේප්</subdivision>
 			<subdivision type="zm01" draft="contributed">බටහිර පළාත</subdivision>

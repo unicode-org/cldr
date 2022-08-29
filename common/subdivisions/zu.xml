@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,10 +12,97 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<subdivisions>
+			<subdivision type="aobgo" draft="contributed">Bengo Province</subdivision>
+			<subdivision type="aobgu" draft="contributed">Benguela Province</subdivision>
+			<subdivision type="aobie" draft="contributed">Bié Province</subdivision>
+			<subdivision type="aocab" draft="contributed">Cabinda Province</subdivision>
+			<subdivision type="aoccu" draft="contributed">Cuando Cubango Province</subdivision>
+			<subdivision type="aocnn" draft="contributed">Cunene Province</subdivision>
+			<subdivision type="aocno" draft="contributed">Cuanza Norte Province</subdivision>
+			<subdivision type="aocus" draft="contributed">Cuanza Sul Province</subdivision>
+			<subdivision type="aohua" draft="contributed">Huambo Province</subdivision>
+			<subdivision type="aohui" draft="contributed">Huíla Province</subdivision>
+			<subdivision type="aolno" draft="contributed">Lunda Norte Province</subdivision>
+			<subdivision type="aolsu" draft="contributed">Lunda Sul Province</subdivision>
+			<subdivision type="aolua" draft="contributed">Luanda Province</subdivision>
+			<subdivision type="aomal" draft="contributed">Malanje Province</subdivision>
+			<subdivision type="aomox" draft="contributed">Moxico Province</subdivision>
+			<subdivision type="aonam" draft="contributed">Namibe Province</subdivision>
+			<subdivision type="aouig" draft="contributed">Uíge Province</subdivision>
+			<subdivision type="aozai" draft="contributed">Zaire Province</subdivision>
 			<subdivision type="arc" draft="contributed">Buenos Aires</subdivision>
+			<subdivision type="azba" draft="contributed">Baku</subdivision>
+			<subdivision type="bibb" draft="contributed">Bubanza Province</subdivision>
+			<subdivision type="bibl" draft="contributed">Bujumbura Rural Province</subdivision>
+			<subdivision type="bibm" draft="contributed">Bujumbura Mairie Province</subdivision>
+			<subdivision type="bibr" draft="contributed">Bururi Province</subdivision>
+			<subdivision type="bica" draft="contributed">Cankuzo Province</subdivision>
+			<subdivision type="bici" draft="contributed">Cibitoke Province</subdivision>
+			<subdivision type="bigi" draft="contributed">Gitega Province</subdivision>
+			<subdivision type="biki" draft="contributed">Kirundo Province</subdivision>
+			<subdivision type="bikr" draft="contributed">Karuzi Province</subdivision>
+			<subdivision type="biky" draft="contributed">Kayanza Province</subdivision>
+			<subdivision type="bima" draft="contributed">Makamba Province</subdivision>
+			<subdivision type="bimu" draft="contributed">Muramvya Province</subdivision>
+			<subdivision type="bimw" draft="contributed">Mwaro Province</subdivision>
+			<subdivision type="bimy" draft="contributed">Muyinga Province</subdivision>
+			<subdivision type="bing" draft="contributed">Ngozi Province</subdivision>
+			<subdivision type="birm" draft="contributed">Rumonge Province</subdivision>
+			<subdivision type="birt" draft="contributed">Rutana Province</subdivision>
+			<subdivision type="biry" draft="contributed">Ruyigi Province</subdivision>
 			<subdivision type="brrs" draft="contributed">BR-RS</subdivision>
+			<subdivision type="bwce" draft="contributed">Central District, Butswana</subdivision>
+			<subdivision type="bwch" draft="contributed">Chobe District</subdivision>
+			<subdivision type="bwfr" draft="contributed">Francistown, Butswana</subdivision>
 			<subdivision type="bwga" draft="contributed">IGaborone</subdivision>
+			<subdivision type="bwgh" draft="contributed">Ghanzi District</subdivision>
+			<subdivision type="bwjw" draft="contributed">Jwaneng</subdivision>
+			<subdivision type="bwkg" draft="contributed">Kgalagadi District</subdivision>
+			<subdivision type="bwkl" draft="contributed">Kgatleng District</subdivision>
+			<subdivision type="bwkw" draft="contributed">Kweneng District</subdivision>
+			<subdivision type="bwlo" draft="contributed">Lobatse</subdivision>
+			<subdivision type="bwne" draft="contributed">North-East District, Butswana</subdivision>
+			<subdivision type="bwnw" draft="contributed">North-West District, Butswana</subdivision>
+			<subdivision type="bwse" draft="contributed">South-East District, Butswana</subdivision>
+			<subdivision type="bwso" draft="contributed">Southern District, Butswana</subdivision>
+			<subdivision type="bwsp" draft="contributed">Selebi-Phikwe</subdivision>
+			<subdivision type="bwst" draft="contributed">Sowa, Butswana</subdivision>
 			<subdivision type="byhm" draft="contributed">Minsk</subdivision>
+			<subdivision type="cdbc" draft="contributed">Kongo Central</subdivision>
+			<subdivision type="cdbu" draft="contributed">Bas-Uélé</subdivision>
+			<subdivision type="cdeq" draft="contributed">Équateur Province</subdivision>
+			<subdivision type="cdhk" draft="contributed">Haut-Katanga Province</subdivision>
+			<subdivision type="cdhl" draft="contributed">Haut-Lomami</subdivision>
+			<subdivision type="cdhu" draft="contributed">Haut-Uélé</subdivision>
+			<subdivision type="cdkc" draft="contributed">Kasaï-Central</subdivision>
+			<subdivision type="cdke" draft="contributed">Kasaï-Oriental</subdivision>
+			<subdivision type="cdkg" draft="contributed">Kwango</subdivision>
+			<subdivision type="cdkl" draft="contributed">Kwilu Province</subdivision>
+			<subdivision type="cdkn" draft="contributed">Kinshasa</subdivision>
+			<subdivision type="cdlo" draft="contributed">Lomami Province</subdivision>
+			<subdivision type="cdlu" draft="contributed">Lualaba Province</subdivision>
+			<subdivision type="cdma" draft="contributed">Maniema</subdivision>
+			<subdivision type="cdmn" draft="contributed">Mai-Ndombe Province</subdivision>
+			<subdivision type="cdmo" draft="contributed">Mongala</subdivision>
+			<subdivision type="cdnk" draft="contributed">North Kivu</subdivision>
+			<subdivision type="cdnu" draft="contributed">Nord-Ubangi</subdivision>
+			<subdivision type="cdsa" draft="contributed">Sankuru</subdivision>
+			<subdivision type="cdsk" draft="contributed">South Kivu</subdivision>
+			<subdivision type="cdsu" draft="contributed">Sud-Ubangi</subdivision>
+			<subdivision type="cdta" draft="contributed">Tanganyika Province</subdivision>
+			<subdivision type="cdto" draft="contributed">Tshopo</subdivision>
+			<subdivision type="cdtu" draft="contributed">Tshuapa</subdivision>
+			<subdivision type="cg2" draft="contributed">Lékoumou Department</subdivision>
+			<subdivision type="cg5" draft="contributed">Kouilou Department</subdivision>
+			<subdivision type="cg7" draft="contributed">Likouala Department</subdivision>
+			<subdivision type="cg8" draft="contributed">Cuvette Department</subdivision>
+			<subdivision type="cg9" draft="contributed">Niari Department</subdivision>
+			<subdivision type="cg11" draft="contributed">Bouenza Department</subdivision>
+			<subdivision type="cg12" draft="contributed">Pool Department</subdivision>
+			<subdivision type="cg13" draft="contributed">Sangha Department, Khongo-Brazzaville</subdivision>
+			<subdivision type="cg14" draft="contributed">Plateaux Department, Khongo-Brazzaville</subdivision>
+			<subdivision type="cg15" draft="contributed">Cuvette-Ouest Department</subdivision>
+			<subdivision type="cgbzv" draft="contributed">Brazzaville</subdivision>
 			<subdivision type="cnbj" draft="contributed">Beijing</subdivision>
 			<subdivision type="cnhk" draft="contributed">Hong Kong</subdivision>
 			<subdivision type="cnsh" draft="contributed">Shanghai</subdivision>
@@ -25,28 +112,524 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="debe" draft="contributed">IBerlini</subdivision>
 			<subdivision type="debw" draft="contributed">Baden-Württemberg</subdivision>
 			<subdivision type="dehh" draft="contributed">Hamburg</subdivision>
+			<subdivision type="djar" draft="contributed">Arta Region</subdivision>
+			<subdivision type="djas" draft="contributed">Ali Sabieh Region</subdivision>
+			<subdivision type="djdi" draft="contributed">Dikhil Region</subdivision>
+			<subdivision type="djdj" draft="contributed">Djibouti, Idolobha</subdivision>
+			<subdivision type="djob" draft="contributed">Obock Region</subdivision>
+			<subdivision type="djta" draft="contributed">Tadjourah Region</subdivision>
+			<subdivision type="dz01" draft="contributed">Adrar Province</subdivision>
+			<subdivision type="dz02" draft="contributed">Chlef Province</subdivision>
+			<subdivision type="dz03" draft="contributed">Laghouat Province</subdivision>
+			<subdivision type="dz04" draft="contributed">Oum El Bouaghi Province</subdivision>
+			<subdivision type="dz05" draft="contributed">Batna Province</subdivision>
+			<subdivision type="dz06" draft="contributed">Bejaia Province</subdivision>
+			<subdivision type="dz07" draft="contributed">Biskra Province</subdivision>
+			<subdivision type="dz08" draft="contributed">Bechar Province</subdivision>
+			<subdivision type="dz09" draft="contributed">Blida Province</subdivision>
+			<subdivision type="dz10" draft="contributed">Bouïra Province</subdivision>
+			<subdivision type="dz11" draft="contributed">Tamanrasset Province</subdivision>
+			<subdivision type="dz12" draft="contributed">Tebessa Province</subdivision>
+			<subdivision type="dz13" draft="contributed">Tlemcen Province</subdivision>
+			<subdivision type="dz14" draft="contributed">Tiaret Province</subdivision>
+			<subdivision type="dz15" draft="contributed">Tizi Ouzou Province</subdivision>
+			<subdivision type="dz16" draft="contributed">Algiers Province</subdivision>
+			<subdivision type="dz17" draft="contributed">Djelfa Province</subdivision>
+			<subdivision type="dz18" draft="contributed">Jijel Province</subdivision>
+			<subdivision type="dz19" draft="contributed">Sétif Province</subdivision>
+			<subdivision type="dz20" draft="contributed">Saïda Province</subdivision>
+			<subdivision type="dz21" draft="contributed">Skikda Province</subdivision>
+			<subdivision type="dz22" draft="contributed">Sidi Bel Abbès Province</subdivision>
+			<subdivision type="dz23" draft="contributed">Annaba Province</subdivision>
+			<subdivision type="dz24" draft="contributed">Guelma Province</subdivision>
+			<subdivision type="dz25" draft="contributed">Constantine Province</subdivision>
+			<subdivision type="dz26" draft="contributed">Médéa Province</subdivision>
+			<subdivision type="dz27" draft="contributed">Mostaganem Province</subdivision>
+			<subdivision type="dz28" draft="contributed">M’Sila Province</subdivision>
+			<subdivision type="dz29" draft="contributed">Mascara Province</subdivision>
+			<subdivision type="dz30" draft="contributed">Ouargla Province</subdivision>
+			<subdivision type="dz31" draft="contributed">Oran Province</subdivision>
+			<subdivision type="dz32" draft="contributed">El Bayadh Province</subdivision>
+			<subdivision type="dz33" draft="contributed">Illizi Province</subdivision>
+			<subdivision type="dz34" draft="contributed">Bordj Bou Arréridj Province</subdivision>
+			<subdivision type="dz35" draft="contributed">Boumerdès Province</subdivision>
+			<subdivision type="dz36" draft="contributed">El Taref Province</subdivision>
+			<subdivision type="dz37" draft="contributed">Tindouf Province</subdivision>
+			<subdivision type="dz38" draft="contributed">Tissemsilt Province</subdivision>
+			<subdivision type="dz39" draft="contributed">El Oued Province</subdivision>
+			<subdivision type="dz40" draft="contributed">Khenchela Province</subdivision>
+			<subdivision type="dz41" draft="contributed">Souk Ahras Province</subdivision>
+			<subdivision type="dz42" draft="contributed">Tipaza Province</subdivision>
+			<subdivision type="dz43" draft="contributed">Mila Province</subdivision>
+			<subdivision type="dz44" draft="contributed">Aïn Defla Province</subdivision>
+			<subdivision type="dz45" draft="contributed">Naâma Province</subdivision>
+			<subdivision type="dz46" draft="contributed">Aïn Témouchent Province</subdivision>
+			<subdivision type="dz47" draft="contributed">Ghardaïa Province</subdivision>
+			<subdivision type="dz48" draft="contributed">Relizane Province</subdivision>
+			<subdivision type="egalx" draft="contributed">Alexandria Governorate</subdivision>
+			<subdivision type="egasn" draft="contributed">Aswan Governorate</subdivision>
+			<subdivision type="egast" draft="contributed">Asyut Governorate</subdivision>
+			<subdivision type="egba" draft="contributed">Red Sea Governorate</subdivision>
+			<subdivision type="egbh" draft="contributed">Beheira Governorate</subdivision>
+			<subdivision type="egbns" draft="contributed">Beni Suef Governorate</subdivision>
+			<subdivision type="egc" draft="contributed">Cairo Governorate</subdivision>
+			<subdivision type="egdk" draft="contributed">Dakahlia Governorate</subdivision>
+			<subdivision type="egdt" draft="contributed">Damietta Governorate</subdivision>
+			<subdivision type="egfym" draft="contributed">Faiyum Governorate</subdivision>
+			<subdivision type="eggh" draft="contributed">Gharbia Governorate</subdivision>
+			<subdivision type="eggz" draft="contributed">Giza Governorate</subdivision>
+			<subdivision type="egis" draft="contributed">Ismailia Governorate</subdivision>
+			<subdivision type="egjs" draft="contributed">South Sinai Governorate</subdivision>
+			<subdivision type="egkb" draft="contributed">Qalyubiyya Governorate</subdivision>
+			<subdivision type="egkfs" draft="contributed">Kafr El Sheikh Governorate</subdivision>
+			<subdivision type="egkn" draft="contributed">Qena Governorate</subdivision>
+			<subdivision type="eglx" draft="contributed">Luxor Governorate</subdivision>
+			<subdivision type="egmn" draft="contributed">Minya Governorate</subdivision>
+			<subdivision type="egmnf" draft="contributed">Monufia Governorate</subdivision>
+			<subdivision type="egmt" draft="contributed">Matrouh Governorate</subdivision>
+			<subdivision type="egpts" draft="contributed">Port Said Governorate</subdivision>
+			<subdivision type="egshg" draft="contributed">Sohag Governorate</subdivision>
+			<subdivision type="egshr" draft="contributed">Sharqia Governorate</subdivision>
+			<subdivision type="egsin" draft="contributed">North Sinai Governorate</subdivision>
+			<subdivision type="egsuz" draft="contributed">Suez Governorate</subdivision>
+			<subdivision type="egwad" draft="contributed">New Valley Governorate</subdivision>
+			<subdivision type="eran" draft="contributed">Anseba Region</subdivision>
+			<subdivision type="erdk" draft="contributed">Southern Red Sea Region</subdivision>
+			<subdivision type="erdu" draft="contributed">Debub Region</subdivision>
+			<subdivision type="ergb" draft="contributed">Gash-Barka Region</subdivision>
+			<subdivision type="erma" draft="contributed">Maekel Region</subdivision>
+			<subdivision type="ersk" draft="contributed">Northern Red Sea Region</subdivision>
 			<subdivision type="esce" draft="contributed">Ceuta</subdivision>
+			<subdivision type="escn" draft="contributed">Iziqhingi iKhaneli</subdivision>
 			<subdivision type="esml" draft="contributed">IMelilla</subdivision>
+			<subdivision type="etaa" draft="contributed">Addis Ababa</subdivision>
+			<subdivision type="etaf" draft="contributed">Afar Region</subdivision>
+			<subdivision type="etam" draft="contributed">Amhara Region</subdivision>
 			<subdivision type="etbe" draft="contributed">Benishangul-Gumaz</subdivision>
-			<subdivision type="fr75" draft="contributed">IParisi</subdivision>
+			<subdivision type="etdd" draft="contributed">Dire Dawa</subdivision>
+			<subdivision type="etga" draft="contributed">Gambela Region</subdivision>
+			<subdivision type="etha" draft="contributed">Harari Region</subdivision>
+			<subdivision type="etor" draft="contributed">Oromia Region</subdivision>
+			<subdivision type="etsn" draft="contributed">Southern Nations, Nationalities, and Peoples’ Region</subdivision>
+			<subdivision type="etso" draft="contributed">Somali Region</subdivision>
+			<subdivision type="etti" draft="contributed">Tigray Region</subdivision>
+			<subdivision type="fr75c" draft="contributed">IParisi</subdivision>
+			<subdivision type="ga1" draft="contributed">Estuaire Province</subdivision>
+			<subdivision type="ga2" draft="contributed">Haut-Ogooué Province</subdivision>
+			<subdivision type="ga3" draft="contributed">Moyen-Ogooué Province</subdivision>
+			<subdivision type="ga4" draft="contributed">Ngounié Province</subdivision>
+			<subdivision type="ga5" draft="contributed">Nyanga Province</subdivision>
+			<subdivision type="ga6" draft="contributed">Ogooué-Ivindo Province</subdivision>
+			<subdivision type="ga7" draft="contributed">Ogooué-Lolo Province</subdivision>
+			<subdivision type="ga8" draft="contributed">Ogooué-Maritime Province</subdivision>
+			<subdivision type="ga9" draft="contributed">Woleu-Ntem Province</subdivision>
 			<subdivision type="gbbir" draft="contributed">Birmingham</subdivision>
+			<subdivision type="gbeng" draft="contributed">INgilandi</subdivision>
 			<subdivision type="gblnd" draft="contributed">Idolobha weLondon</subdivision>
+			<subdivision type="gbsct" draft="contributed">IsiKotilandi</subdivision>
 			<subdivision type="gbukm" draft="contributed">Umbuso Ohlangeneyo</subdivision>
+			<subdivision type="gbwls" draft="contributed">IWelisi</subdivision>
+			<subdivision type="gqan" draft="contributed">Annobón</subdivision>
+			<subdivision type="gqbn" draft="contributed">Bioko Norte</subdivision>
+			<subdivision type="gqbs" draft="contributed">Bioko Sur</subdivision>
+			<subdivision type="gqc" draft="contributed">Río Muni</subdivision>
+			<subdivision type="gqcs" draft="contributed">Centro Sur</subdivision>
+			<subdivision type="gqdj" draft="contributed">Djibloho</subdivision>
+			<subdivision type="gqi" draft="contributed">Insular Region, Nkabazwe Gini</subdivision>
+			<subdivision type="gqkn" draft="contributed">Kié-Ntem</subdivision>
+			<subdivision type="gqli" draft="contributed">Litoral, Nkabazwe Gini</subdivision>
+			<subdivision type="gqwn" draft="contributed">Wele-Nzas</subdivision>
 			<subdivision type="idac" draft="contributed">Aceh</subdivision>
 			<subdivision type="idba" draft="contributed">Bali</subdivision>
 			<subdivision type="idjt" draft="contributed">Jawa Tengah</subdivision>
 			<subdivision type="idyo" draft="contributed">Yogyakarta</subdivision>
 			<subdivision type="jp13" draft="contributed">ITokyo</subdivision>
+			<subdivision type="ke01" draft="contributed">Baringo County</subdivision>
+			<subdivision type="ke02" draft="contributed">Bomet County</subdivision>
+			<subdivision type="ke03" draft="contributed">Bungoma County</subdivision>
+			<subdivision type="ke04" draft="contributed">Busia County</subdivision>
+			<subdivision type="ke05" draft="contributed">Elgeyo-Marakwet County</subdivision>
+			<subdivision type="ke06" draft="contributed">Embu County</subdivision>
+			<subdivision type="ke07" draft="contributed">Garissa County</subdivision>
+			<subdivision type="ke08" draft="contributed">Homa Bay County</subdivision>
+			<subdivision type="ke09" draft="contributed">Isiolo County</subdivision>
+			<subdivision type="ke10" draft="contributed">Kajiado County</subdivision>
+			<subdivision type="ke11" draft="contributed">Kakamega County</subdivision>
+			<subdivision type="ke12" draft="contributed">Kericho County</subdivision>
+			<subdivision type="ke13" draft="contributed">Kiambu County</subdivision>
+			<subdivision type="ke14" draft="contributed">Kilifi County</subdivision>
+			<subdivision type="ke15" draft="contributed">Kirinyaga County</subdivision>
+			<subdivision type="ke16" draft="contributed">Kisii County</subdivision>
+			<subdivision type="ke17" draft="contributed">Kisumu County</subdivision>
+			<subdivision type="ke18" draft="contributed">Kitui County</subdivision>
+			<subdivision type="ke19" draft="contributed">Kwale County</subdivision>
+			<subdivision type="ke20" draft="contributed">Laikipia County</subdivision>
+			<subdivision type="ke21" draft="contributed">Lamu County</subdivision>
+			<subdivision type="ke22" draft="contributed">Machakos County</subdivision>
+			<subdivision type="ke23" draft="contributed">Makueni County</subdivision>
+			<subdivision type="ke24" draft="contributed">Mandera County</subdivision>
+			<subdivision type="ke25" draft="contributed">Marsabit County</subdivision>
+			<subdivision type="ke26" draft="contributed">Meru County</subdivision>
+			<subdivision type="ke27" draft="contributed">Migori County</subdivision>
+			<subdivision type="ke28" draft="contributed">Mombasa County</subdivision>
+			<subdivision type="ke29" draft="contributed">Muranga County</subdivision>
+			<subdivision type="ke30" draft="contributed">Nairobi County</subdivision>
+			<subdivision type="ke31" draft="contributed">Nakuru County</subdivision>
+			<subdivision type="ke32" draft="contributed">Nandi County</subdivision>
+			<subdivision type="ke33" draft="contributed">Narok County</subdivision>
+			<subdivision type="ke34" draft="contributed">Nyamira County</subdivision>
+			<subdivision type="ke35" draft="contributed">Nyandarua County</subdivision>
+			<subdivision type="ke36" draft="contributed">Nyeri County</subdivision>
+			<subdivision type="ke37" draft="contributed">Samburu County</subdivision>
+			<subdivision type="ke38" draft="contributed">Siaya County</subdivision>
+			<subdivision type="ke40" draft="contributed">Tana River County</subdivision>
+			<subdivision type="ke41" draft="contributed">Tharaka-Nithi County</subdivision>
+			<subdivision type="ke42" draft="contributed">Trans-Nzoia County</subdivision>
+			<subdivision type="ke43" draft="contributed">Turkana County</subdivision>
+			<subdivision type="ke44" draft="contributed">Uasin Gishu County</subdivision>
+			<subdivision type="ke45" draft="contributed">Vihiga County</subdivision>
+			<subdivision type="ke46" draft="contributed">Wajir County</subdivision>
+			<subdivision type="ke47" draft="contributed">West Pokot County</subdivision>
 			<subdivision type="kzala" draft="contributed">Almaty</subdivision>
+			<subdivision type="lsa" draft="contributed">Maseru, Isifunda</subdivision>
+			<subdivision type="lsb" draft="contributed">Butha-Buthe, Isifunda</subdivision>
+			<subdivision type="lsc" draft="contributed">Leribe, Isifunda</subdivision>
+			<subdivision type="lsd" draft="contributed">Berea, Lesotho</subdivision>
+			<subdivision type="lse" draft="contributed">Mafeteng, Isifunda</subdivision>
+			<subdivision type="lsf" draft="contributed">Mohale’s Hoek, Isifunda</subdivision>
+			<subdivision type="lsg" draft="contributed">Quthing, Isifunda</subdivision>
+			<subdivision type="lsh" draft="contributed">Qacha’s Nek, Isifunda</subdivision>
+			<subdivision type="lsj" draft="contributed">Mokhotlong, Isifunda</subdivision>
+			<subdivision type="lsk" draft="contributed">Thaba-Tseka, Isifunda</subdivision>
 			<subdivision type="lvrix" draft="contributed">IRiga</subdivision>
+			<subdivision type="lyba" draft="contributed">Benghazi</subdivision>
+			<subdivision type="lybu" draft="contributed">Butnan District</subdivision>
+			<subdivision type="lydr" draft="contributed">Derna District</subdivision>
+			<subdivision type="lygt" draft="contributed">Ghat District</subdivision>
+			<subdivision type="lyja" draft="contributed">Jabal al Akhdar</subdivision>
+			<subdivision type="lyjg" draft="contributed">Jabal al Gharbi District</subdivision>
+			<subdivision type="lyji" draft="contributed">Jafara District</subdivision>
+			<subdivision type="lyju" draft="contributed">Jufra District</subdivision>
+			<subdivision type="lykf" draft="contributed">Kufra District</subdivision>
+			<subdivision type="lymb" draft="contributed">Murqub District</subdivision>
+			<subdivision type="lymi" draft="contributed">Misrata District</subdivision>
+			<subdivision type="lymj" draft="contributed">Marj District</subdivision>
+			<subdivision type="lymq" draft="contributed">Murzuq District</subdivision>
+			<subdivision type="lynl" draft="contributed">Nalut District</subdivision>
+			<subdivision type="lynq" draft="contributed">Nuqat al Khams</subdivision>
+			<subdivision type="lysb" draft="contributed">Sabha District</subdivision>
+			<subdivision type="lysr" draft="contributed">Sirte District</subdivision>
+			<subdivision type="lytb" draft="contributed">Tripoli District, Libhiya</subdivision>
+			<subdivision type="lywa" draft="contributed">Al Wahat District</subdivision>
+			<subdivision type="lywd" draft="contributed">Wadi al Hayaa District</subdivision>
+			<subdivision type="lyws" draft="contributed">Wadi Al Shatii District</subdivision>
+			<subdivision type="lyza" draft="contributed">Zawiya District</subdivision>
 			<subdivision type="mdbd" draft="contributed">Bender</subdivision>
+			<subdivision type="mga" draft="contributed">Toamasina Province</subdivision>
+			<subdivision type="mgd" draft="contributed">Antsiranana Province</subdivision>
+			<subdivision type="mgf" draft="contributed">Fianarantsoa Province</subdivision>
+			<subdivision type="mgm" draft="contributed">Mahajanga Province</subdivision>
+			<subdivision type="mgt" draft="contributed">Antananarivo Province</subdivision>
+			<subdivision type="mgu" draft="contributed">Toliara Province</subdivision>
 			<subdivision type="mt21" draft="contributed">Kalkara</subdivision>
+			<subdivision type="mwba" draft="contributed">Balaka District</subdivision>
+			<subdivision type="mwbl" draft="contributed">Blantyre District</subdivision>
+			<subdivision type="mwc" draft="contributed">Central Region, Malawi</subdivision>
+			<subdivision type="mwck" draft="contributed">Chikwawa District</subdivision>
+			<subdivision type="mwcr" draft="contributed">Chiradzulu District</subdivision>
+			<subdivision type="mwct" draft="contributed">Chitipa District</subdivision>
+			<subdivision type="mwde" draft="contributed">Dedza District</subdivision>
+			<subdivision type="mwdo" draft="contributed">Dowa District</subdivision>
+			<subdivision type="mwkr" draft="contributed">Karonga District</subdivision>
+			<subdivision type="mwks" draft="contributed">Kasungu District</subdivision>
+			<subdivision type="mwli" draft="contributed">Lilongwe District</subdivision>
+			<subdivision type="mwlk" draft="contributed">Likoma District</subdivision>
+			<subdivision type="mwmc" draft="contributed">Mchinji District</subdivision>
+			<subdivision type="mwmg" draft="contributed">Mangochi District</subdivision>
+			<subdivision type="mwmh" draft="contributed">Machinga District</subdivision>
+			<subdivision type="mwmu" draft="contributed">Mulanje District</subdivision>
+			<subdivision type="mwmw" draft="contributed">Mwanza District</subdivision>
+			<subdivision type="mwmz" draft="contributed">Mzimba District</subdivision>
+			<subdivision type="mwn" draft="contributed">Northern Region, Malawi</subdivision>
+			<subdivision type="mwnb" draft="contributed">Nkhata Bay District</subdivision>
+			<subdivision type="mwne" draft="contributed">Neno District</subdivision>
+			<subdivision type="mwni" draft="contributed">Ntchisi District</subdivision>
+			<subdivision type="mwnk" draft="contributed">Nkhotakota District</subdivision>
+			<subdivision type="mwns" draft="contributed">Nsanje District</subdivision>
+			<subdivision type="mwnu" draft="contributed">Ntcheu District</subdivision>
+			<subdivision type="mwph" draft="contributed">Phalombe District</subdivision>
+			<subdivision type="mwru" draft="contributed">Rumphi District</subdivision>
+			<subdivision type="mws" draft="contributed">Southern Region, Malawi</subdivision>
+			<subdivision type="mwsa" draft="contributed">Salima District</subdivision>
+			<subdivision type="mwth" draft="contributed">Thyolo District</subdivision>
+			<subdivision type="mwzo" draft="contributed">Zomba District</subdivision>
 			<subdivision type="my16" draft="contributed">Putrajaya</subdivision>
+			<subdivision type="mza" draft="contributed">Niassa (Isifundazwe)</subdivision>
+			<subdivision type="mzb" draft="contributed">Manica (Isifundazwe)</subdivision>
+			<subdivision type="mzg" draft="contributed">Gaza, Mozambiki</subdivision>
+			<subdivision type="mzi" draft="contributed">Inhambane (Isifundazwe)</subdivision>
+			<subdivision type="mzl" draft="contributed">Maputo (Isifundazwe)</subdivision>
+			<subdivision type="mzmpm" draft="contributed">Maputo</subdivision>
+			<subdivision type="mzn" draft="contributed">Nampula (Isifundazwe)</subdivision>
+			<subdivision type="mzp" draft="contributed">Cabo Delgado (Isifundazwe)</subdivision>
+			<subdivision type="mzq" draft="contributed">Zambezia (Isifundazwe)</subdivision>
+			<subdivision type="mzs" draft="contributed">Sofala (Isifundazwe)</subdivision>
+			<subdivision type="mzt" draft="contributed">Tete (Isifundazwe)</subdivision>
+			<subdivision type="naca" draft="contributed">Zambezi Region</subdivision>
+			<subdivision type="naer" draft="contributed">Erongo Region</subdivision>
+			<subdivision type="naha" draft="contributed">Hardap Region</subdivision>
+			<subdivision type="naka" draft="contributed">ǁKaras Region</subdivision>
+			<subdivision type="nake" draft="contributed">Kavango East</subdivision>
+			<subdivision type="nakh" draft="contributed">Khomas Region</subdivision>
+			<subdivision type="naku" draft="contributed">Kunene Region</subdivision>
+			<subdivision type="nakw" draft="contributed">Kavango West</subdivision>
+			<subdivision type="naod" draft="contributed">Otjozondjupa Region</subdivision>
+			<subdivision type="naoh" draft="contributed">Omaheke Region</subdivision>
+			<subdivision type="naon" draft="contributed">Oshana Region</subdivision>
+			<subdivision type="naos" draft="contributed">Omusati Region</subdivision>
+			<subdivision type="naot" draft="contributed">Oshikoto Region</subdivision>
+			<subdivision type="naow" draft="contributed">Ohangwena Region</subdivision>
+			<subdivision type="no34" draft="contributed">Innlandet</subdivision>
 			<subdivision type="pt30" draft="contributed">IMadira</subdivision>
 			<subdivision type="rumow" draft="contributed">IMoskwa</subdivision>
+			<subdivision type="rw01" draft="contributed">Kigali</subdivision>
+			<subdivision type="rw02" draft="contributed">Eastern Province, Ruwanda</subdivision>
+			<subdivision type="rw03" draft="contributed">Northern Province, Ruwanda</subdivision>
+			<subdivision type="rw04" draft="contributed">Western Province, Ruwanda</subdivision>
+			<subdivision type="rw05" draft="contributed">Southern Province, Ruwanda</subdivision>
+			<subdivision type="sddc" draft="contributed">Central Darfur</subdivision>
+			<subdivision type="sdde" draft="contributed">East Darfur</subdivision>
+			<subdivision type="sddn" draft="contributed">North Darfur</subdivision>
+			<subdivision type="sdds" draft="contributed">South Darfur</subdivision>
+			<subdivision type="sddw" draft="contributed">West Darfur</subdivision>
+			<subdivision type="sdgd" draft="contributed">Al Qadarif (isifundazwe)</subdivision>
+			<subdivision type="sdgk" draft="contributed">West Kordofan</subdivision>
+			<subdivision type="sdgz" draft="contributed">Gezira (isifundazwe)</subdivision>
+			<subdivision type="sdka" draft="contributed">Kassala (isifundazwe)</subdivision>
+			<subdivision type="sdkh" draft="contributed">Khartoum (isifundazwe)</subdivision>
+			<subdivision type="sdkn" draft="contributed">North Kordofan</subdivision>
+			<subdivision type="sdks" draft="contributed">South Kordofan</subdivision>
+			<subdivision type="sdnb" draft="contributed">Blue Nile (isifundazwe)</subdivision>
+			<subdivision type="sdno" draft="contributed">Northern (isifundazwe), Sudan</subdivision>
+			<subdivision type="sdnr" draft="contributed">River Nile (isifundazwe)</subdivision>
+			<subdivision type="sdnw" draft="contributed">White Nile (isifundazwe)</subdivision>
+			<subdivision type="sdrs" draft="contributed">Red Sea (isifundazwe)</subdivision>
+			<subdivision type="sdsi" draft="contributed">Sennar (isifundazwe)</subdivision>
 			<subdivision type="si213" draft="contributed">Ankaran</subdivision>
+			<subdivision type="soaw" draft="contributed">Awdal</subdivision>
+			<subdivision type="sobk" draft="contributed">Bakool</subdivision>
+			<subdivision type="sobn" draft="contributed">Banaadir</subdivision>
+			<subdivision type="sobr" draft="contributed">Bari, Somaliya</subdivision>
+			<subdivision type="soby" draft="contributed">Bay, Somaliya</subdivision>
+			<subdivision type="soga" draft="contributed">Galguduud</subdivision>
+			<subdivision type="soge" draft="contributed">Gedo, Somaliya</subdivision>
+			<subdivision type="sohi" draft="contributed">Hiran, Somaliya</subdivision>
+			<subdivision type="sojd" draft="contributed">Middle Juba</subdivision>
+			<subdivision type="sojh" draft="contributed">Lower Juba</subdivision>
+			<subdivision type="somu" draft="contributed">Mudug</subdivision>
+			<subdivision type="sonu" draft="contributed">Nugal, Somaliya</subdivision>
+			<subdivision type="sosa" draft="contributed">Sanaag</subdivision>
+			<subdivision type="sosd" draft="contributed">Middle Shabelle</subdivision>
+			<subdivision type="sosh" draft="contributed">Lower Shabelle</subdivision>
+			<subdivision type="soso" draft="contributed">Sool, Somaliland</subdivision>
+			<subdivision type="soto" draft="contributed">Togdheer</subdivision>
+			<subdivision type="sowo" draft="contributed">Maroodi Jeex</subdivision>
+			<subdivision type="ssbn" draft="contributed">Northern Bahr el Ghazal</subdivision>
+			<subdivision type="ssbw" draft="contributed">Western Bahr el Ghazal</subdivision>
+			<subdivision type="ssec" draft="contributed">Central Equatoria</subdivision>
+			<subdivision type="ssee" draft="contributed">Eastern Equatoria</subdivision>
+			<subdivision type="ssew" draft="contributed">Western Equatoria</subdivision>
+			<subdivision type="ssjg" draft="contributed">Jonglei (isifundazwe)</subdivision>
+			<subdivision type="sslk" draft="contributed">Lakes (isifundazwe)</subdivision>
+			<subdivision type="ssnu" draft="contributed">Upper Nile (isifundazwe)</subdivision>
+			<subdivision type="ssuy" draft="contributed">Unity (isifundazwe)</subdivision>
+			<subdivision type="sswr" draft="contributed">Warrap (isifundazwe)</subdivision>
+			<subdivision type="szhh" draft="contributed">IHhohho</subdivision>
+			<subdivision type="szlu" draft="contributed">ILubombo</subdivision>
+			<subdivision type="szma" draft="contributed">IManzini, Isifunda</subdivision>
+			<subdivision type="szsh" draft="contributed">EShiselweni</subdivision>
 			<subdivision type="th21" draft="contributed">Rayong</subdivision>
+			<subdivision type="tn11" draft="contributed">Tunis Governorate</subdivision>
+			<subdivision type="tn12" draft="contributed">Ariana Governorate</subdivision>
+			<subdivision type="tn13" draft="contributed">Ben Arous Governorate</subdivision>
+			<subdivision type="tn14" draft="contributed">Manouba Governorate</subdivision>
+			<subdivision type="tn21" draft="contributed">Nabeul Governorate</subdivision>
+			<subdivision type="tn22" draft="contributed">Zaghouan Governorate</subdivision>
+			<subdivision type="tn23" draft="contributed">Bizerte Governorate</subdivision>
+			<subdivision type="tn31" draft="contributed">Béja Governorate</subdivision>
+			<subdivision type="tn32" draft="contributed">Jendouba Governorate</subdivision>
+			<subdivision type="tn33" draft="contributed">Kef Governorate</subdivision>
+			<subdivision type="tn34" draft="contributed">Siliana Governorate</subdivision>
+			<subdivision type="tn41" draft="contributed">Kairouan Governorate</subdivision>
+			<subdivision type="tn42" draft="contributed">Kasserine Governorate</subdivision>
+			<subdivision type="tn43" draft="contributed">Sidi Bouzid Governorate</subdivision>
+			<subdivision type="tn51" draft="contributed">Sousse Governorate</subdivision>
+			<subdivision type="tn52" draft="contributed">Monastir Governorate</subdivision>
+			<subdivision type="tn53" draft="contributed">Mahdia Governorate</subdivision>
+			<subdivision type="tn61" draft="contributed">Sfax Governorate</subdivision>
+			<subdivision type="tn71" draft="contributed">Gafsa Governorate</subdivision>
+			<subdivision type="tn72" draft="contributed">Tozeur Governorate</subdivision>
+			<subdivision type="tn73" draft="contributed">Kebili Governorate</subdivision>
+			<subdivision type="tn81" draft="contributed">Gabès Governorate</subdivision>
+			<subdivision type="tn82" draft="contributed">Medenine Governorate</subdivision>
+			<subdivision type="tn83" draft="contributed">Tataouine Governorate</subdivision>
+			<subdivision type="tz01" draft="contributed">Arusha Region</subdivision>
+			<subdivision type="tz03" draft="contributed">Dodoma Region</subdivision>
+			<subdivision type="tz04" draft="contributed">Iringa Region</subdivision>
+			<subdivision type="tz05" draft="contributed">Kagera Region</subdivision>
+			<subdivision type="tz06" draft="contributed">Pemba North Region</subdivision>
+			<subdivision type="tz07" draft="contributed">Unguja North Region</subdivision>
+			<subdivision type="tz08" draft="contributed">Kigoma Region</subdivision>
+			<subdivision type="tz09" draft="contributed">Kilimanjaro Region</subdivision>
+			<subdivision type="tz10" draft="contributed">Pemba South Region</subdivision>
+			<subdivision type="tz11" draft="contributed">Unguja South Region</subdivision>
+			<subdivision type="tz12" draft="contributed">Lindi Region</subdivision>
+			<subdivision type="tz13" draft="contributed">Mara Region</subdivision>
+			<subdivision type="tz14" draft="contributed">Mbeya Region</subdivision>
+			<subdivision type="tz15" draft="contributed">Mjini Magharibi Region</subdivision>
+			<subdivision type="tz16" draft="contributed">Morogoro Region</subdivision>
+			<subdivision type="tz17" draft="contributed">Mtwara Region</subdivision>
+			<subdivision type="tz18" draft="contributed">Mwanza Region</subdivision>
+			<subdivision type="tz19" draft="contributed">Pwani Region</subdivision>
+			<subdivision type="tz20" draft="contributed">Rukwa Region</subdivision>
+			<subdivision type="tz21" draft="contributed">Ruvuma Region</subdivision>
+			<subdivision type="tz22" draft="contributed">Shinyanga Region</subdivision>
+			<subdivision type="tz23" draft="contributed">Singida Region</subdivision>
+			<subdivision type="tz24" draft="contributed">Tabora Region</subdivision>
+			<subdivision type="tz25" draft="contributed">Tanga Region</subdivision>
+			<subdivision type="tz26" draft="contributed">Manyara Region</subdivision>
+			<subdivision type="tz27" draft="contributed">Geita Region</subdivision>
+			<subdivision type="tz28" draft="contributed">Katavi Region</subdivision>
+			<subdivision type="tz29" draft="contributed">Njombe Region</subdivision>
+			<subdivision type="tz30" draft="contributed">Simiyu Region</subdivision>
 			<subdivision type="ua30" draft="contributed">IKiyevi</subdivision>
+			<subdivision type="ug101" draft="contributed">Kalangala District</subdivision>
+			<subdivision type="ug103" draft="contributed">Kiboga District</subdivision>
+			<subdivision type="ug104" draft="contributed">Luweero District</subdivision>
+			<subdivision type="ug105" draft="contributed">Masaka District</subdivision>
+			<subdivision type="ug106" draft="contributed">Mpigi District</subdivision>
+			<subdivision type="ug107" draft="contributed">Mubende District</subdivision>
+			<subdivision type="ug108" draft="contributed">Mukono District</subdivision>
+			<subdivision type="ug109" draft="contributed">Nakasongola District</subdivision>
+			<subdivision type="ug110" draft="contributed">Rakai District</subdivision>
+			<subdivision type="ug111" draft="contributed">Sembabule District</subdivision>
+			<subdivision type="ug112" draft="contributed">Kayunga District</subdivision>
+			<subdivision type="ug113" draft="contributed">Wakiso District</subdivision>
+			<subdivision type="ug114" draft="contributed">Lyantonde District</subdivision>
+			<subdivision type="ug115" draft="contributed">Mityana District</subdivision>
+			<subdivision type="ug116" draft="contributed">Nakaseke District</subdivision>
+			<subdivision type="ug117" draft="contributed">Buikwe District</subdivision>
+			<subdivision type="ug118" draft="contributed">Bukomansimbi District</subdivision>
+			<subdivision type="ug119" draft="contributed">Butambala District</subdivision>
+			<subdivision type="ug120" draft="contributed">Buvuma District</subdivision>
+			<subdivision type="ug121" draft="contributed">Gomba District</subdivision>
+			<subdivision type="ug122" draft="contributed">Kalungu District</subdivision>
+			<subdivision type="ug123" draft="contributed">Kyankwanzi District</subdivision>
+			<subdivision type="ug124" draft="contributed">Lwengo District</subdivision>
+			<subdivision type="ug125" draft="contributed">Kyotera District</subdivision>
+			<subdivision type="ug201" draft="contributed">Bugiri District</subdivision>
+			<subdivision type="ug202" draft="contributed">Busia District, Yuganda</subdivision>
+			<subdivision type="ug203" draft="contributed">Iganga District</subdivision>
+			<subdivision type="ug204" draft="contributed">Jinja District</subdivision>
+			<subdivision type="ug205" draft="contributed">Kamuli District</subdivision>
+			<subdivision type="ug206" draft="contributed">Kapchorwa District</subdivision>
+			<subdivision type="ug207" draft="contributed">Katakwi District</subdivision>
+			<subdivision type="ug208" draft="contributed">Kumi District</subdivision>
+			<subdivision type="ug209" draft="contributed">Mbale District</subdivision>
+			<subdivision type="ug210" draft="contributed">Pallisa District</subdivision>
+			<subdivision type="ug211" draft="contributed">Soroti District</subdivision>
+			<subdivision type="ug212" draft="contributed">Tororo District</subdivision>
+			<subdivision type="ug213" draft="contributed">Kaberamaido District</subdivision>
+			<subdivision type="ug214" draft="contributed">Mayuge District</subdivision>
+			<subdivision type="ug215" draft="contributed">Sironko District</subdivision>
+			<subdivision type="ug216" draft="contributed">Amuria District</subdivision>
+			<subdivision type="ug217" draft="contributed">Budaka District</subdivision>
+			<subdivision type="ug218" draft="contributed">Bududa District</subdivision>
+			<subdivision type="ug219" draft="contributed">Bukedea District</subdivision>
+			<subdivision type="ug220" draft="contributed">Bukwo District</subdivision>
+			<subdivision type="ug221" draft="contributed">Butaleja District</subdivision>
+			<subdivision type="ug222" draft="contributed">Kaliro District</subdivision>
+			<subdivision type="ug223" draft="contributed">Manafwa District</subdivision>
+			<subdivision type="ug224" draft="contributed">Namutumba District</subdivision>
+			<subdivision type="ug225" draft="contributed">Bulambuli District</subdivision>
+			<subdivision type="ug226" draft="contributed">Buyende District</subdivision>
+			<subdivision type="ug227" draft="contributed">Kibuku District</subdivision>
+			<subdivision type="ug228" draft="contributed">Kween District</subdivision>
+			<subdivision type="ug229" draft="contributed">Luuka District</subdivision>
+			<subdivision type="ug230" draft="contributed">Namayingo District</subdivision>
+			<subdivision type="ug231" draft="contributed">Ngora District</subdivision>
+			<subdivision type="ug232" draft="contributed">Serere District</subdivision>
+			<subdivision type="ug233" draft="contributed">Butebo District</subdivision>
+			<subdivision type="ug234" draft="contributed">Namisindwa District</subdivision>
+			<subdivision type="ug301" draft="contributed">Adjumani District</subdivision>
+			<subdivision type="ug302" draft="contributed">Apac District</subdivision>
+			<subdivision type="ug303" draft="contributed">Arua District</subdivision>
+			<subdivision type="ug304" draft="contributed">Gulu District</subdivision>
+			<subdivision type="ug305" draft="contributed">Kitgum District</subdivision>
+			<subdivision type="ug306" draft="contributed">Kotido District</subdivision>
+			<subdivision type="ug307" draft="contributed">Lira District</subdivision>
+			<subdivision type="ug308" draft="contributed">Moroto District</subdivision>
+			<subdivision type="ug309" draft="contributed">Moyo District</subdivision>
+			<subdivision type="ug310" draft="contributed">Nebbi District</subdivision>
+			<subdivision type="ug311" draft="contributed">Nakapiripirit District</subdivision>
+			<subdivision type="ug312" draft="contributed">Pader District</subdivision>
+			<subdivision type="ug313" draft="contributed">Yumbe District</subdivision>
+			<subdivision type="ug314" draft="contributed">Abim District</subdivision>
+			<subdivision type="ug315" draft="contributed">Amolatar District</subdivision>
+			<subdivision type="ug316" draft="contributed">Amuru District</subdivision>
+			<subdivision type="ug317" draft="contributed">Dokolo District</subdivision>
+			<subdivision type="ug318" draft="contributed">Kaabong District</subdivision>
+			<subdivision type="ug319" draft="contributed">Koboko District</subdivision>
+			<subdivision type="ug320" draft="contributed">Maracha District</subdivision>
+			<subdivision type="ug321" draft="contributed">Oyam District</subdivision>
+			<subdivision type="ug322" draft="contributed">Agago District</subdivision>
+			<subdivision type="ug323" draft="contributed">Alebtong District</subdivision>
+			<subdivision type="ug324" draft="contributed">Amudat District</subdivision>
+			<subdivision type="ug325" draft="contributed">Kole District</subdivision>
+			<subdivision type="ug326" draft="contributed">Lamwo District</subdivision>
+			<subdivision type="ug327" draft="contributed">Napak District</subdivision>
+			<subdivision type="ug328" draft="contributed">Nwoya District</subdivision>
+			<subdivision type="ug329" draft="contributed">Otuke District</subdivision>
+			<subdivision type="ug330" draft="contributed">Zombo District</subdivision>
+			<subdivision type="ug331" draft="contributed">Omoro District</subdivision>
+			<subdivision type="ug332" draft="contributed">Pakwach District</subdivision>
+			<subdivision type="ug335" draft="contributed">Karenga District</subdivision>
+			<subdivision type="ug337" draft="contributed">Obongi District</subdivision>
+			<subdivision type="ug401" draft="contributed">Bundibugyo District</subdivision>
+			<subdivision type="ug402" draft="contributed">Bushenyi District</subdivision>
+			<subdivision type="ug403" draft="contributed">Hoima District</subdivision>
+			<subdivision type="ug404" draft="contributed">Kabale District</subdivision>
+			<subdivision type="ug405" draft="contributed">Kabarole District</subdivision>
+			<subdivision type="ug406" draft="contributed">Kasese District</subdivision>
+			<subdivision type="ug407" draft="contributed">Kibaale District</subdivision>
+			<subdivision type="ug408" draft="contributed">Kisoro District</subdivision>
+			<subdivision type="ug409" draft="contributed">Masindi District</subdivision>
+			<subdivision type="ug410" draft="contributed">Mbarara District</subdivision>
+			<subdivision type="ug411" draft="contributed">Ntungamo District</subdivision>
+			<subdivision type="ug412" draft="contributed">Rukungiri District</subdivision>
+			<subdivision type="ug413" draft="contributed">Kamwenge District</subdivision>
+			<subdivision type="ug414" draft="contributed">Kanungu District</subdivision>
+			<subdivision type="ug415" draft="contributed">Kyenjojo District</subdivision>
+			<subdivision type="ug416" draft="contributed">Buliisa District</subdivision>
+			<subdivision type="ug417" draft="contributed">Ibanda District</subdivision>
+			<subdivision type="ug418" draft="contributed">Isingiro District</subdivision>
+			<subdivision type="ug419" draft="contributed">Kiruhura District</subdivision>
+			<subdivision type="ug420" draft="contributed">Buhweju District</subdivision>
+			<subdivision type="ug421" draft="contributed">Kiryandongo District</subdivision>
+			<subdivision type="ug422" draft="contributed">Kyegegwa District</subdivision>
+			<subdivision type="ug423" draft="contributed">Mitooma District</subdivision>
+			<subdivision type="ug424" draft="contributed">Ntoroko District</subdivision>
+			<subdivision type="ug425" draft="contributed">Rubirizi District</subdivision>
+			<subdivision type="ug426" draft="contributed">Sheema District</subdivision>
+			<subdivision type="ug427" draft="contributed">Kagadi District</subdivision>
+			<subdivision type="ug428" draft="contributed">Kakumiro District</subdivision>
+			<subdivision type="ug429" draft="contributed">Rubanda District</subdivision>
+			<subdivision type="ug430" draft="contributed">Bunyangabu District</subdivision>
+			<subdivision type="ug431" draft="contributed">Rukiga District</subdivision>
+			<subdivision type="ugc" draft="contributed">Central Region, Yuganda</subdivision>
+			<subdivision type="uge" draft="contributed">Eastern Region, Yuganda</subdivision>
+			<subdivision type="ugn" draft="contributed">Northern Region, Yuganda</subdivision>
+			<subdivision type="ugw" draft="contributed">Western Region, Yuganda</subdivision>
 			<subdivision type="usaz" draft="contributed">Arizona</subdivision>
 			<subdivision type="usca" draft="contributed">California</subdivision>
 			<subdivision type="usco" draft="contributed">Colorado</subdivision>
@@ -74,13 +657,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="wfuv" draft="contributed">Uvea</subdivision>
 			<subdivision type="zaec" draft="contributed">KwaXhosa</subdivision>
 			<subdivision type="zafs" draft="contributed">IFleyistata</subdivision>
-			<subdivision type="zagt" draft="contributed">IGauteng</subdivision>
+			<subdivision type="zagp" draft="contributed">IGauteng</subdivision>
+			<subdivision type="zakzn" draft="contributed">KwaZulu-Natal</subdivision>
 			<subdivision type="zalp" draft="contributed">Limpopo</subdivision>
 			<subdivision type="zamp" draft="contributed">Mpumalanga</subdivision>
 			<subdivision type="zanc" draft="contributed">IKipi laseNyakatho</subdivision>
-			<subdivision type="zanl" draft="contributed">KwaZulu-Natal</subdivision>
 			<subdivision type="zanw" draft="contributed">Nyakatho-Ntshonalanga</subdivision>
 			<subdivision type="zawc" draft="contributed">IKipi laseNtshonalanga</subdivision>
+			<subdivision type="zm01" draft="contributed">Western Province, Zambiya</subdivision>
+			<subdivision type="zm02" draft="contributed">Central Province, Zambiya</subdivision>
+			<subdivision type="zm03" draft="contributed">Eastern Province, Zambiya</subdivision>
+			<subdivision type="zm04" draft="contributed">Luapula Province</subdivision>
+			<subdivision type="zm05" draft="contributed">Northern Province, Zambiya</subdivision>
+			<subdivision type="zm06" draft="contributed">North-Western Province, Zambiya</subdivision>
+			<subdivision type="zm07" draft="contributed">Southern Province, Zambiya</subdivision>
+			<subdivision type="zm08" draft="contributed">Copperbelt Province</subdivision>
+			<subdivision type="zm09" draft="contributed">Lusaka Province</subdivision>
+			<subdivision type="zm10" draft="contributed">Muchinga Province</subdivision>
+			<subdivision type="zwha" draft="contributed">Harare, Isifundazwe</subdivision>
+			<subdivision type="zwma" draft="contributed">Manicaland</subdivision>
+			<subdivision type="zwmc" draft="contributed">Mashonaland Central</subdivision>
+			<subdivision type="zwme" draft="contributed">Mashonaland East</subdivision>
+			<subdivision type="zwmi" draft="contributed">Midlands (Isifundazwe)</subdivision>
+			<subdivision type="zwmn" draft="contributed">Matabeleland North</subdivision>
+			<subdivision type="zwms" draft="contributed">Matabeleland South</subdivision>
+			<subdivision type="zwmv" draft="contributed">Masvingo (Isifundazwe)</subdivision>
+			<subdivision type="zwmw" draft="contributed">Mashonaland West</subdivision>
 		</subdivisions>
 	</localeDisplayNames>
 </ldml>

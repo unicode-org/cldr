@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -21,6 +21,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ad08" draft="contributed">Escaldes-Engordany</subdivision>
 			<subdivision type="aeaj" draft="contributed">Ajman</subdivision>
 			<subdivision type="aeaz" draft="contributed">Abu Dhabi Emirate</subdivision>
+			<subdivision type="aedu" draft="contributed">Amiriah Dubai</subdivision>
 			<subdivision type="aefu" draft="contributed">Fujairah</subdivision>
 			<subdivision type="aerk" draft="contributed">Ras al-Khaimah</subdivision>
 			<subdivision type="aesh" draft="contributed">Sharjah</subdivision>
@@ -977,6 +978,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="esce" draft="contributed">Ceuta</subdivision>
 			<subdivision type="escl" draft="contributed">Castile-León</subdivision>
 			<subdivision type="escm" draft="contributed">Castile-La Mancha</subdivision>
+			<subdivision type="escn" draft="contributed">Kepulauan Canary</subdivision>
 			<subdivision type="esco" draft="contributed">Provinsi Córdoba</subdivision>
 			<subdivision type="escr" draft="contributed">Wilayah Ciudad Real</subdivision>
 			<subdivision type="escs" draft="contributed">Wilayah Castellón</subdivision>
@@ -1081,6 +1083,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr17" draft="contributed">Charente-Maritime</subdivision>
 			<subdivision type="fr18" draft="contributed">Cher</subdivision>
 			<subdivision type="fr19" draft="contributed">Corrèze</subdivision>
+			<subdivision type="fr20r" draft="contributed">Corse</subdivision>
 			<subdivision type="fr21" draft="contributed">Côte-d’Or</subdivision>
 			<subdivision type="fr22" draft="contributed">Côtes-d’Armor</subdivision>
 			<subdivision type="fr23" draft="contributed">Creuse</subdivision>
@@ -1135,7 +1138,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr72" draft="contributed">Sarthe</subdivision>
 			<subdivision type="fr73" draft="contributed">Savoie</subdivision>
 			<subdivision type="fr74" draft="contributed">Haute-Savoie</subdivision>
-			<subdivision type="fr75" draft="contributed">Paris</subdivision>
+			<subdivision type="fr75c" draft="contributed">Paris</subdivision>
 			<subdivision type="fr76" draft="contributed">Seine-Maritime</subdivision>
 			<subdivision type="fr77" draft="contributed">Seine-et-Marne</subdivision>
 			<subdivision type="fr78" draft="contributed">Yvelines</subdivision>
@@ -1156,8 +1159,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr93" draft="contributed">Seine-Saint-Denis</subdivision>
 			<subdivision type="fr94" draft="contributed">Val-de-Marne</subdivision>
 			<subdivision type="fr95" draft="contributed">Val-d’Oise</subdivision>
+			<subdivision type="fr971" draft="contributed">Guadeloupe</subdivision>
 			<subdivision type="frbre" draft="contributed">Bretagne</subdivision>
-			<subdivision type="frcor" draft="contributed">Corse</subdivision>
 			<subdivision type="frcvl" draft="contributed">Centre</subdivision>
 			<subdivision type="fridf" draft="contributed">Île-de-France</subdivision>
 			<subdivision type="frpac" draft="contributed">Provence-Alpes-Côte d’Azur</subdivision>
@@ -1181,6 +1184,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbder" draft="contributed">Derby</subdivision>
 			<subdivision type="gbdnd" draft="contributed">Dundee</subdivision>
 			<subdivision type="gbedh" draft="contributed">Edinburgh</subdivision>
+			<subdivision type="gbeng" draft="contributed">England</subdivision>
 			<subdivision type="gbess" draft="contributed">Essex</subdivision>
 			<subdivision type="gbgbn" draft="contributed">Great Britain</subdivision>
 			<subdivision type="gbglg" draft="contributed">Glasgow</subdivision>
@@ -1195,12 +1199,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbnet" draft="contributed">Newcastle upon Tyne</subdivision>
 			<subdivision type="gbngm" draft="contributed">Nottingham</subdivision>
 			<subdivision type="gbnir" draft="contributed">Ireland Utara</subdivision>
+			<subdivision type="gbnth" draft="contributed">Northamptonshire</subdivision>
 			<subdivision type="gboxf" draft="contributed">Oxford</subdivision>
 			<subdivision type="gbpem" draft="contributed">Pembrokeshire</subdivision>
 			<subdivision type="gbply" draft="contributed">Plymouth</subdivision>
 			<subdivision type="gbpor" draft="contributed">Portsmouth</subdivision>
 			<subdivision type="gbpte" draft="contributed">Peterborough</subdivision>
 			<subdivision type="gbrdg" draft="contributed">Reading</subdivision>
+			<subdivision type="gbsct" draft="contributed">Scotland</subdivision>
 			<subdivision type="gbsfk" draft="contributed">Suffolk</subdivision>
 			<subdivision type="gbshf" draft="contributed">Sheffield</subdivision>
 			<subdivision type="gbsom" draft="contributed">Somerset</subdivision>
@@ -1212,6 +1218,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbtrf" draft="contributed">Trafford</subdivision>
 			<subdivision type="gbtwh" draft="contributed">Tower Hamlets</subdivision>
 			<subdivision type="gbukm" draft="contributed">United Kingdom</subdivision>
+			<subdivision type="gbwls" draft="contributed">Wales</subdivision>
 			<subdivision type="gbwlv" draft="contributed">Wolverhampton</subdivision>
 			<subdivision type="gbwsm" draft="contributed">Bandar Westminster</subdivision>
 			<subdivision type="gbyor" draft="contributed">York</subdivision>
@@ -1303,28 +1310,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="grj" draft="contributed">Peloponnesa</subdivision>
 			<subdivision type="grk" draft="contributed">Aegea Utara</subdivision>
 			<subdivision type="grl" draft="contributed">Aegea Selatan</subdivision>
-			<subdivision type="gtav" draft="contributed">Alta Verapaz Department</subdivision>
-			<subdivision type="gtbv" draft="contributed">Baja Verapaz Department</subdivision>
-			<subdivision type="gtcm" draft="contributed">Chimaltenango Department</subdivision>
-			<subdivision type="gtcq" draft="contributed">Chiquimula Department</subdivision>
-			<subdivision type="gtes" draft="contributed">Escuintla Department</subdivision>
-			<subdivision type="gtgu" draft="contributed">Guatemala Department</subdivision>
-			<subdivision type="gthu" draft="contributed">Huehuetenango Department</subdivision>
-			<subdivision type="gtiz" draft="contributed">Izabal Department</subdivision>
-			<subdivision type="gtja" draft="contributed">Jabatan Jalapa</subdivision>
-			<subdivision type="gtju" draft="contributed">Jutiapa Department</subdivision>
-			<subdivision type="gtpe" draft="contributed">Peten Department</subdivision>
-			<subdivision type="gtpr" draft="contributed">El Progreso Department</subdivision>
-			<subdivision type="gtqc" draft="contributed">Quiche Department</subdivision>
-			<subdivision type="gtqz" draft="contributed">Quetzaltenango Department</subdivision>
-			<subdivision type="gtre" draft="contributed">Retalhuleu Department</subdivision>
-			<subdivision type="gtsa" draft="contributed">Sacatepequez Department</subdivision>
-			<subdivision type="gtsm" draft="contributed">San Marcos Department</subdivision>
-			<subdivision type="gtso" draft="contributed">Solola Department</subdivision>
-			<subdivision type="gtsr" draft="contributed">Santa Rosa Department</subdivision>
-			<subdivision type="gtsu" draft="contributed">Suchitepequez Department</subdivision>
-			<subdivision type="gtto" draft="contributed">Totonicapan Department</subdivision>
-			<subdivision type="gtza" draft="contributed">Zacapa Department</subdivision>
+			<subdivision type="gt01" draft="contributed">Guatemala Department</subdivision>
+			<subdivision type="gt02" draft="contributed">El Progreso Department</subdivision>
+			<subdivision type="gt03" draft="contributed">Sacatepequez Department</subdivision>
+			<subdivision type="gt04" draft="contributed">Chimaltenango Department</subdivision>
+			<subdivision type="gt05" draft="contributed">Escuintla Department</subdivision>
+			<subdivision type="gt06" draft="contributed">Santa Rosa Department</subdivision>
+			<subdivision type="gt07" draft="contributed">Solola Department</subdivision>
+			<subdivision type="gt08" draft="contributed">Totonicapan Department</subdivision>
+			<subdivision type="gt09" draft="contributed">Quetzaltenango Department</subdivision>
+			<subdivision type="gt10" draft="contributed">Suchitepequez Department</subdivision>
+			<subdivision type="gt11" draft="contributed">Retalhuleu Department</subdivision>
+			<subdivision type="gt12" draft="contributed">San Marcos Department</subdivision>
+			<subdivision type="gt13" draft="contributed">Huehuetenango Department</subdivision>
+			<subdivision type="gt14" draft="contributed">Quiche Department</subdivision>
+			<subdivision type="gt15" draft="contributed">Baja Verapaz Department</subdivision>
+			<subdivision type="gt16" draft="contributed">Alta Verapaz Department</subdivision>
+			<subdivision type="gt17" draft="contributed">Peten Department</subdivision>
+			<subdivision type="gt18" draft="contributed">Izabal Department</subdivision>
+			<subdivision type="gt19" draft="contributed">Zacapa Department</subdivision>
+			<subdivision type="gt20" draft="contributed">Chiquimula Department</subdivision>
+			<subdivision type="gt21" draft="contributed">Jabatan Jalapa</subdivision>
+			<subdivision type="gt22" draft="contributed">Jutiapa Department</subdivision>
 			<subdivision type="gwba" draft="contributed">Bafata Region</subdivision>
 			<subdivision type="gwbl" draft="contributed">Bolama Region</subdivision>
 			<subdivision type="gwbm" draft="contributed">Biombo Region</subdivision>
@@ -1524,6 +1531,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="injk" draft="contributed">Jammu dan Kashmir</subdivision>
 			<subdivision type="inka" draft="contributed">Karnataka</subdivision>
 			<subdivision type="inkl" draft="contributed">Kerala</subdivision>
+			<subdivision type="inla" draft="contributed">Ladakh</subdivision>
 			<subdivision type="inld" draft="contributed">Lakshadweep</subdivision>
 			<subdivision type="inmh" draft="contributed">Maharashtra</subdivision>
 			<subdivision type="inml" draft="contributed">Meghalaya</subdivision>
@@ -1560,6 +1568,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="iqsd" draft="contributed">Pentadbiran Salah ad Din</subdivision>
 			<subdivision type="iqsu" draft="contributed">Pentadbiran As Sulaymaniyah</subdivision>
 			<subdivision type="iqwa" draft="contributed">Pentadbiran Wasit</subdivision>
+			<subdivision type="ir00" draft="contributed">Markazi²</subdivision>
 			<subdivision type="ir01" draft="contributed">Azarbaijan Timur</subdivision>
 			<subdivision type="ir02" draft="contributed">Azarbaijan Barat</subdivision>
 			<subdivision type="ir03" draft="contributed">Ardabil</subdivision>
@@ -1568,6 +1577,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ir06" draft="contributed">Bushehr</subdivision>
 			<subdivision type="ir07" draft="contributed">Teheran</subdivision>
 			<subdivision type="ir08" draft="contributed">Chaharmahal dan Bakhtiari</subdivision>
+			<subdivision type="ir09" draft="contributed">Razavi Khorasan²</subdivision>
 			<subdivision type="ir10" draft="contributed">Khuzestan</subdivision>
 			<subdivision type="ir11" draft="contributed">Zanjan</subdivision>
 			<subdivision type="ir12" draft="contributed">Wilayah Semnan</subdivision>
@@ -1599,6 +1609,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="is6" draft="contributed">Northeastern Region</subdivision>
 			<subdivision type="is7" draft="contributed">Eastern Region</subdivision>
 			<subdivision type="is8" draft="contributed">Southern Region</subdivision>
+			<subdivision type="isakh" draft="contributed">Akrahreppur</subdivision>
+			<subdivision type="isakn" draft="contributed">Akranes</subdivision>
+			<subdivision type="isaku" draft="contributed">Akureyri</subdivision>
+			<subdivision type="isblo" draft="contributed">Blönduós</subdivision>
+			<subdivision type="isfjd" draft="contributed">Fjarðabyggð</subdivision>
+			<subdivision type="ishuv" draft="contributed">Húnaþing vestra</subdivision>
+			<subdivision type="issfa" draft="contributed">Árborg</subdivision>
 			<subdivision type="it21" draft="contributed">Piemonte</subdivision>
 			<subdivision type="it23" draft="contributed">Lembah Aosta</subdivision>
 			<subdivision type="it25" draft="contributed">Lombardy</subdivision>
@@ -1709,6 +1726,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="itsp" draft="contributed">Wilayah La Spezia</subdivision>
 			<subdivision type="itsr" draft="contributed">Wilayah Syracuse</subdivision>
 			<subdivision type="itss" draft="contributed">Wilayah Sassari</subdivision>
+			<subdivision type="itsu" draft="contributed">Wilayah Selatan Sardinia</subdivision>
 			<subdivision type="itsv" draft="contributed">Wilayah Savona</subdivision>
 			<subdivision type="itta" draft="contributed">Wilayah Taranto</subdivision>
 			<subdivision type="itte" draft="contributed">Wilayah Teramo</subdivision>
@@ -1897,6 +1915,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kzman" draft="contributed">Wilayah Mangystau</subdivision>
 			<subdivision type="kzpav" draft="contributed">Wilayah Pavlodar</subdivision>
 			<subdivision type="kzsev" draft="contributed">Wilayah Kazakhstan Utara</subdivision>
+			<subdivision type="kzshy" draft="contributed">Shymkent</subdivision>
 			<subdivision type="kzvos" draft="contributed">Wilayah Kazakhstan Timur</subdivision>
 			<subdivision type="kzyuz" draft="contributed">Wilayah Kazakhstan Selatan</subdivision>
 			<subdivision type="kzzap" draft="contributed">Wilayah Kazakhstan Barat</subdivision>
@@ -2210,64 +2229,64 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mhl" draft="contributed">Ralik Chain</subdivision>
 			<subdivision type="mhmaj" draft="contributed">Majuro</subdivision>
 			<subdivision type="mht" draft="contributed">Ratak Chain</subdivision>
-			<subdivision type="mk02" draft="contributed">Aracinovo Municipality</subdivision>
-			<subdivision type="mk03" draft="contributed">Berovo Municipality</subdivision>
-			<subdivision type="mk04" draft="contributed">Bitola Municipality</subdivision>
-			<subdivision type="mk05" draft="contributed">Bogdanci Municipality</subdivision>
-			<subdivision type="mk06" draft="contributed">Bogovinje Municipality</subdivision>
-			<subdivision type="mk07" draft="contributed">Perbandaran Bosilovo</subdivision>
-			<subdivision type="mk08" draft="contributed">Brvenica Municipality</subdivision>
-			<subdivision type="mk11" draft="contributed">Vasilevo Municipality</subdivision>
-			<subdivision type="mk14" draft="contributed">Vinica Municipality</subdivision>
-			<subdivision type="mk19" draft="contributed">Gostivar Municipality</subdivision>
-			<subdivision type="mk20" draft="contributed">Gradsko Municipality</subdivision>
-			<subdivision type="mk21" draft="contributed">Debar Municipality</subdivision>
-			<subdivision type="mk22" draft="contributed">Debarca Municipality</subdivision>
-			<subdivision type="mk23" draft="contributed">Delcevo Municipality</subdivision>
-			<subdivision type="mk27" draft="contributed">Perbandaran Dolneni</subdivision>
-			<subdivision type="mk30" draft="contributed">Zelino Municipality</subdivision>
-			<subdivision type="mk32" draft="contributed">Zelenikovo Municipality</subdivision>
-			<subdivision type="mk33" draft="contributed">Zrnovci Municipality</subdivision>
-			<subdivision type="mk34" draft="contributed">Ilinden Municipality</subdivision>
-			<subdivision type="mk35" draft="contributed">Jegunovce Municipality</subdivision>
-			<subdivision type="mk36" draft="contributed">Kavadarci Municipality</subdivision>
-			<subdivision type="mk37" draft="contributed">Karbinci</subdivision>
-			<subdivision type="mk40" draft="contributed">Kicevo Municipality</subdivision>
-			<subdivision type="mk41" draft="contributed">Konce Municipality</subdivision>
-			<subdivision type="mk42" draft="contributed">Kocani Municipality</subdivision>
-			<subdivision type="mk43" draft="contributed">Kratovo Municipality</subdivision>
-			<subdivision type="mk44" draft="contributed">Kriva Palanka Municipality</subdivision>
-			<subdivision type="mk45" draft="contributed">Krivogastani Municipality</subdivision>
-			<subdivision type="mk46" draft="contributed">Krusevo Municipality</subdivision>
-			<subdivision type="mk47" draft="contributed">Kumanovo Municipality</subdivision>
-			<subdivision type="mk48" draft="contributed">Lipkovo Municipality</subdivision>
-			<subdivision type="mk49" draft="contributed">Lozovo Municipality</subdivision>
-			<subdivision type="mk50" draft="contributed">Mavrovo and Rostusa Municipality</subdivision>
-			<subdivision type="mk51" draft="contributed">Perbandaran Makedonska Kamenica</subdivision>
-			<subdivision type="mk52" draft="contributed">Perbandaran Makedonski Brod</subdivision>
-			<subdivision type="mk54" draft="contributed">Negotino Municipality</subdivision>
-			<subdivision type="mk56" draft="contributed">Novo Selo Municipality</subdivision>
-			<subdivision type="mk58" draft="contributed">Ohrid Municipality</subdivision>
-			<subdivision type="mk60" draft="contributed">Pehcevo Municipality</subdivision>
-			<subdivision type="mk61" draft="contributed">Plasnica Municipality</subdivision>
-			<subdivision type="mk62" draft="contributed">Prilep Municipality</subdivision>
-			<subdivision type="mk63" draft="contributed">Probistip Municipality</subdivision>
-			<subdivision type="mk64" draft="contributed">Radovis Municipality</subdivision>
-			<subdivision type="mk65" draft="contributed">Rankovce Municipality</subdivision>
-			<subdivision type="mk66" draft="contributed">Perbandaran Resen</subdivision>
-			<subdivision type="mk69" draft="contributed">Sveti Nikole Municipality</subdivision>
-			<subdivision type="mk70" draft="contributed">Sopiste Municipality</subdivision>
-			<subdivision type="mk72" draft="contributed">Struga Municipality</subdivision>
-			<subdivision type="mk73" draft="contributed">Strumica Municipality</subdivision>
-			<subdivision type="mk74" draft="contributed">Studenicani Municipality</subdivision>
-			<subdivision type="mk75" draft="contributed">Tearce Municipality</subdivision>
-			<subdivision type="mk76" draft="contributed">Tetovo Municipality</subdivision>
-			<subdivision type="mk78" draft="contributed">Centar Zupa Municipality</subdivision>
-			<subdivision type="mk80" draft="contributed">Caska Municipality</subdivision>
-			<subdivision type="mk81" draft="contributed">Cesinovo-Oblesevo Municipality</subdivision>
-			<subdivision type="mk82" draft="contributed">Cucer-Sandevo Municipality</subdivision>
-			<subdivision type="mk83" draft="contributed">Stip Municipality</subdivision>
 			<subdivision type="mk85" draft="contributed">Skopje</subdivision>
+			<subdivision type="mk102" draft="contributed">Gradsko Municipality</subdivision>
+			<subdivision type="mk104" draft="contributed">Kavadarci Municipality</subdivision>
+			<subdivision type="mk105" draft="contributed">Lozovo Municipality</subdivision>
+			<subdivision type="mk106" draft="contributed">Negotino Municipality</subdivision>
+			<subdivision type="mk108" draft="contributed">Sveti Nikole Municipality</subdivision>
+			<subdivision type="mk109" draft="contributed">Caska Municipality</subdivision>
+			<subdivision type="mk201" draft="contributed">Berovo Municipality</subdivision>
+			<subdivision type="mk202" draft="contributed">Vinica Municipality</subdivision>
+			<subdivision type="mk203" draft="contributed">Delcevo Municipality</subdivision>
+			<subdivision type="mk204" draft="contributed">Zrnovci Municipality</subdivision>
+			<subdivision type="mk205" draft="contributed">Karbinci</subdivision>
+			<subdivision type="mk206" draft="contributed">Kocani Municipality</subdivision>
+			<subdivision type="mk207" draft="contributed">Perbandaran Makedonska Kamenica</subdivision>
+			<subdivision type="mk208" draft="contributed">Pehcevo Municipality</subdivision>
+			<subdivision type="mk209" draft="contributed">Probistip Municipality</subdivision>
+			<subdivision type="mk210" draft="contributed">Cesinovo-Oblesevo Municipality</subdivision>
+			<subdivision type="mk211" draft="contributed">Stip Municipality</subdivision>
+			<subdivision type="mk303" draft="contributed">Debar Municipality</subdivision>
+			<subdivision type="mk304" draft="contributed">Debarca Municipality</subdivision>
+			<subdivision type="mk307" draft="contributed">Kicevo Municipality</subdivision>
+			<subdivision type="mk308" draft="contributed">Perbandaran Makedonski Brod</subdivision>
+			<subdivision type="mk310" draft="contributed">Ohrid Municipality</subdivision>
+			<subdivision type="mk311" draft="contributed">Plasnica Municipality</subdivision>
+			<subdivision type="mk312" draft="contributed">Struga Municipality</subdivision>
+			<subdivision type="mk313" draft="contributed">Centar Zupa Municipality</subdivision>
+			<subdivision type="mk401" draft="contributed">Bogdanci Municipality</subdivision>
+			<subdivision type="mk402" draft="contributed">Perbandaran Bosilovo</subdivision>
+			<subdivision type="mk404" draft="contributed">Vasilevo Municipality</subdivision>
+			<subdivision type="mk407" draft="contributed">Konce Municipality</subdivision>
+			<subdivision type="mk408" draft="contributed">Novo Selo Municipality</subdivision>
+			<subdivision type="mk409" draft="contributed">Radovis Municipality</subdivision>
+			<subdivision type="mk410" draft="contributed">Strumica Municipality</subdivision>
+			<subdivision type="mk501" draft="contributed">Bitola Municipality</subdivision>
+			<subdivision type="mk503" draft="contributed">Perbandaran Dolneni</subdivision>
+			<subdivision type="mk504" draft="contributed">Krivogastani Municipality</subdivision>
+			<subdivision type="mk505" draft="contributed">Krusevo Municipality</subdivision>
+			<subdivision type="mk508" draft="contributed">Prilep Municipality</subdivision>
+			<subdivision type="mk509" draft="contributed">Perbandaran Resen</subdivision>
+			<subdivision type="mk601" draft="contributed">Bogovinje Municipality</subdivision>
+			<subdivision type="mk602" draft="contributed">Brvenica Municipality</subdivision>
+			<subdivision type="mk604" draft="contributed">Gostivar Municipality</subdivision>
+			<subdivision type="mk605" draft="contributed">Zelino Municipality</subdivision>
+			<subdivision type="mk606" draft="contributed">Jegunovce Municipality</subdivision>
+			<subdivision type="mk607" draft="contributed">Mavrovo and Rostusa Municipality</subdivision>
+			<subdivision type="mk608" draft="contributed">Tearce Municipality</subdivision>
+			<subdivision type="mk609" draft="contributed">Tetovo Municipality</subdivision>
+			<subdivision type="mk701" draft="contributed">Kratovo Municipality</subdivision>
+			<subdivision type="mk702" draft="contributed">Kriva Palanka Municipality</subdivision>
+			<subdivision type="mk703" draft="contributed">Kumanovo Municipality</subdivision>
+			<subdivision type="mk704" draft="contributed">Lipkovo Municipality</subdivision>
+			<subdivision type="mk705" draft="contributed">Rankovce Municipality</subdivision>
+			<subdivision type="mk802" draft="contributed">Aracinovo Municipality</subdivision>
+			<subdivision type="mk806" draft="contributed">Zelenikovo Municipality</subdivision>
+			<subdivision type="mk807" draft="contributed">Ilinden Municipality</subdivision>
+			<subdivision type="mk812" draft="contributed">Sopiste Municipality</subdivision>
+			<subdivision type="mk813" draft="contributed">Studenicani Municipality</subdivision>
+			<subdivision type="mk816" draft="contributed">Cucer-Sandevo Municipality</subdivision>
 			<subdivision type="ml1" draft="contributed">Kayes Region</subdivision>
 			<subdivision type="ml2" draft="contributed">Koulikoro Region</subdivision>
 			<subdivision type="ml3" draft="contributed">Sikasso Region</subdivision>
@@ -2605,6 +2624,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="no19" draft="contributed">Troms</subdivision>
 			<subdivision type="no21" draft="contributed">Svalbard</subdivision>
 			<subdivision type="no22" draft="contributed">Jan Mayen</subdivision>
+			<subdivision type="no34" draft="contributed">Innlandet</subdivision>
 			<subdivision type="npba" draft="contributed">Bagmati Zone</subdivision>
 			<subdivision type="npbh" draft="contributed">Bheri Zone</subdivision>
 			<subdivision type="npdh" draft="contributed">Dhaulagiri Zone</subdivision>
@@ -2714,10 +2734,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pgwbk" draft="contributed">West New Britain Province</subdivision>
 			<subdivision type="pgwhm" draft="contributed">Western Highlands Province</subdivision>
 			<subdivision type="ph00" draft="contributed">Metro Manila</subdivision>
+			<subdivision type="ph01" draft="contributed">Daerah Ilocos</subdivision>
 			<subdivision type="ph02" draft="contributed">Lembah Cagayan</subdivision>
+			<subdivision type="ph03" draft="contributed">Luzon Tengah</subdivision>
+			<subdivision type="ph05" draft="contributed">Daerah Bicol</subdivision>
+			<subdivision type="ph06" draft="contributed">Bisayak Barat</subdivision>
+			<subdivision type="ph07" draft="contributed">Bisayak Tengah</subdivision>
+			<subdivision type="ph08" draft="contributed">Bisayak Timur</subdivision>
+			<subdivision type="ph09" draft="contributed">Semenanjung Zamboanga</subdivision>
+			<subdivision type="ph10" draft="contributed">Mindanao Utara</subdivision>
 			<subdivision type="ph11" draft="contributed">Daerah Davao</subdivision>
+			<subdivision type="ph12" draft="contributed">Soccsksargen</subdivision>
+			<subdivision type="ph13" draft="contributed">Caraga</subdivision>
 			<subdivision type="ph14" draft="contributed">Wilayah Autonomi Islam Mindanao</subdivision>
+			<subdivision type="ph15" draft="contributed">Daerah Pentadbiran Cordillera</subdivision>
 			<subdivision type="ph40" draft="contributed">CALABARZON</subdivision>
+			<subdivision type="ph41" draft="contributed">Mimaropa</subdivision>
 			<subdivision type="phabr" draft="contributed">Abra</subdivision>
 			<subdivision type="phagn" draft="contributed">Agusan del Norte</subdivision>
 			<subdivision type="phags" draft="contributed">Agusan del Sur</subdivision>
@@ -2747,6 +2779,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="phdao" draft="contributed">Davao Oriental</subdivision>
 			<subdivision type="phdas" draft="contributed">Davao del Sur</subdivision>
 			<subdivision type="phdav" draft="contributed">Davao del Norte</subdivision>
+			<subdivision type="phdin" draft="contributed">Kepulauan Dinagat</subdivision>
+			<subdivision type="phdvo" draft="contributed">Davao Barat</subdivision>
 			<subdivision type="pheas" draft="contributed">Eastern Samar</subdivision>
 			<subdivision type="phgui" draft="contributed">Guimaras</subdivision>
 			<subdivision type="phifu" draft="contributed">Ifugao</subdivision>
@@ -3046,6 +3080,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="rw03" draft="contributed">Northern Province</subdivision>
 			<subdivision type="rw04" draft="contributed">Western Province</subdivision>
 			<subdivision type="rw05" draft="contributed">Southern Province</subdivision>
+			<subdivision type="sa01" draft="contributed">Wilayah Riyadh</subdivision>
 			<subdivision type="sa02" draft="contributed">Makkah Region</subdivision>
 			<subdivision type="sa03" draft="contributed">Al Madinah</subdivision>
 			<subdivision type="sa04" draft="contributed">Ash Syarqiyah</subdivision>
@@ -3081,6 +3116,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="sc12" draft="contributed">Glacis</subdivision>
 			<subdivision type="sc13" draft="contributed">Grand’Anse Mahé</subdivision>
 			<subdivision type="sc14" draft="contributed">Grand’Anse Praslin</subdivision>
+			<subdivision type="sc15" draft="contributed">Kepulauan La Digue dan Inner</subdivision>
 			<subdivision type="sc16" draft="contributed">La Rivière Anglaise</subdivision>
 			<subdivision type="sc17" draft="contributed">Mont Buxton</subdivision>
 			<subdivision type="sc18" draft="contributed">Mont Fleuri</subdivision>
@@ -3129,6 +3165,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="sex" draft="contributed">Daerah Gävleborg</subdivision>
 			<subdivision type="sey" draft="contributed">Daerah Västernorrland</subdivision>
 			<subdivision type="sez" draft="contributed">Daerah Jämtland</subdivision>
+			<subdivision type="sg02" draft="contributed">Majlis Pembangunan Masyarakat Timur Laut</subdivision>
 			<subdivision type="shac" draft="contributed">Pulau Ascension</subdivision>
 			<subdivision type="shhl" draft="contributed">Saint Helena</subdivision>
 			<subdivision type="si001" draft="contributed">Ajdovscina Municipality</subdivision>
@@ -3660,6 +3697,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="twkin" draft="contributed">Kinmen</subdivision>
 			<subdivision type="twmia" draft="contributed">Daerah Miaoli</subdivision>
 			<subdivision type="twnan" draft="contributed">Nantou County</subdivision>
+			<subdivision type="twnwt" draft="contributed">New Taipei City</subdivision>
 			<subdivision type="twpen" draft="contributed">Penghu</subdivision>
 			<subdivision type="twpif" draft="contributed">Pingtung County</subdivision>
 			<subdivision type="twtao" draft="contributed">Taoyuan</subdivision>
@@ -4055,11 +4093,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="yeta" draft="contributed">Ta’izz Governorate</subdivision>
 			<subdivision type="zaec" draft="contributed">Cape Timur</subdivision>
 			<subdivision type="zafs" draft="contributed">Free State</subdivision>
-			<subdivision type="zagt" draft="contributed">Gauteng</subdivision>
+			<subdivision type="zagp" draft="contributed">Gauteng</subdivision>
+			<subdivision type="zakzn" draft="contributed">KwaZulu-Natal</subdivision>
 			<subdivision type="zalp" draft="contributed">Limpopo</subdivision>
 			<subdivision type="zamp" draft="contributed">Mpumalanga</subdivision>
 			<subdivision type="zanc" draft="contributed">Northern Cape</subdivision>
-			<subdivision type="zanl" draft="contributed">KwaZulu-Natal</subdivision>
 			<subdivision type="zanw" draft="contributed">North West, Afrika Selatan</subdivision>
 			<subdivision type="zawc" draft="contributed">Cape Barat</subdivision>
 			<subdivision type="zm01" draft="contributed">Western Province</subdivision>

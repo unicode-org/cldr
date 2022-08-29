@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -17,6 +17,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ad04" draft="contributed">ラ・マサナ教区</subdivision>
 			<subdivision type="ad05" draft="contributed">オルディノ教区</subdivision>
 			<subdivision type="ad06" draft="contributed">サン・ジュリア・デ・ロリア教区</subdivision>
+			<subdivision type="ad07" draft="contributed">アンドラ・ラ・ベリャ教区</subdivision>
 			<subdivision type="aeaj" draft="contributed">アジュマーン</subdivision>
 			<subdivision type="aeaz" draft="contributed">アブダビ</subdivision>
 			<subdivision type="aedu" draft="contributed">ドバイ首長国</subdivision>
@@ -655,6 +656,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cibs" draft="contributed">低サッサンドラ</subdivision>
 			<subdivision type="cicm" draft="contributed">コモエ地方</subdivision>
 			<subdivision type="cidn" draft="contributed">デンゲレ</subdivision>
+			<subdivision type="cilc" draft="contributed">ラック地方</subdivision>
+			<subdivision type="cilg" draft="contributed">ラギューヌ地方</subdivision>
+			<subdivision type="cimg" draft="contributed">モンターニュ地方</subdivision>
 			<subdivision type="cisv" draft="contributed">サヴァヌ</subdivision>
 			<subdivision type="civb" draft="contributed">バンダマ渓谷地方</subdivision>
 			<subdivision type="ciwr" draft="contributed">ウォロバ地方</subdivision>
@@ -821,6 +825,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cz72" draft="contributed">ズリーン州</subdivision>
 			<subdivision type="cz80" draft="contributed">モラヴィア・スレスコ州</subdivision>
 			<subdivision type="cz201" draft="contributed">ベネショフ郡</subdivision>
+			<subdivision type="cz202" draft="contributed">ベロウン郡</subdivision>
 			<subdivision type="cz206" draft="contributed">ムニェルニーク地区</subdivision>
 			<subdivision type="cz312" draft="contributed">チェスキー・クルムロフ郡</subdivision>
 			<subdivision type="cz313" draft="contributed">インジフーフ・フラデツ郡</subdivision>
@@ -830,7 +835,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cz524" draft="contributed">リフノフ・ナド・クニェジュノウ郡</subdivision>
 			<subdivision type="cz533" draft="contributed">スヴィタヴィ郡</subdivision>
 			<subdivision type="cz534" draft="contributed">ウスティ・ナドゥ・オーリシ</subdivision>
+			<subdivision type="cz641" draft="contributed">ブランスコ地区</subdivision>
 			<subdivision type="cz644" draft="contributed">ブジェツラフ郡</subdivision>
+			<subdivision type="cz711" draft="contributed">イェセニーク郡</subdivision>
 			<subdivision type="cz713" draft="contributed">プロスチェヨフ郡</subdivision>
 			<subdivision type="cz714" draft="contributed">プルジェロフ郡</subdivision>
 			<subdivision type="cz721" draft="contributed">クロミェジージュ郡</subdivision>
@@ -1035,6 +1042,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="esce" draft="contributed">セウタ</subdivision>
 			<subdivision type="escl" draft="contributed">カスティーリャ・レオン州</subdivision>
 			<subdivision type="escm" draft="contributed">カスティーリャ・ラ・マンチャ州</subdivision>
+			<subdivision type="escn" draft="contributed">カナリア諸島</subdivision>
 			<subdivision type="esco" draft="contributed">コルドバ県</subdivision>
 			<subdivision type="escr" draft="contributed">シウダ・レアル県</subdivision>
 			<subdivision type="escs" draft="contributed">カステリョン県</subdivision>
@@ -1148,6 +1156,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr16" draft="contributed">シャラント県</subdivision>
 			<subdivision type="fr18" draft="contributed">シェール県</subdivision>
 			<subdivision type="fr19" draft="contributed">コレーズ県</subdivision>
+			<subdivision type="fr20r" draft="contributed">コルシカ島</subdivision>
 			<subdivision type="fr23" draft="contributed">クルーズ県</subdivision>
 			<subdivision type="fr24" draft="contributed">ドルドーニュ県</subdivision>
 			<subdivision type="fr25" draft="contributed">ドゥー県</subdivision>
@@ -1179,7 +1188,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr69" draft="contributed">ローヌ県</subdivision>
 			<subdivision type="fr72" draft="contributed">サルト県</subdivision>
 			<subdivision type="fr73" draft="contributed">サヴォワ県</subdivision>
-			<subdivision type="fr75" draft="contributed">パリ</subdivision>
+			<subdivision type="fr75c" draft="contributed">パリ</subdivision>
 			<subdivision type="fr78" draft="contributed">イヴリーヌ県</subdivision>
 			<subdivision type="fr80" draft="contributed">ソンム県</subdivision>
 			<subdivision type="fr81" draft="contributed">タルヌ県</subdivision>
@@ -1191,8 +1200,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr89" draft="contributed">ヨンヌ県</subdivision>
 			<subdivision type="fr90" draft="contributed">テリトワール・ド・ベルフォール県</subdivision>
 			<subdivision type="fr91" draft="contributed">エソンヌ県</subdivision>
+			<subdivision type="fr971" draft="contributed">グアドループ</subdivision>
 			<subdivision type="frbre" draft="contributed">ブルターニュ地域圏</subdivision>
-			<subdivision type="frcor" draft="contributed">コルシカ島</subdivision>
 			<subdivision type="frcvl" draft="contributed">サントル地域圏</subdivision>
 			<subdivision type="frges" draft="contributed">グラン・テスト地域圏</subdivision>
 			<subdivision type="frnor" draft="contributed">ノルマンディー地域圏</subdivision>
@@ -1217,6 +1226,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbans" draft="contributed">アンガス</subdivision>
 			<subdivision type="gbbas" draft="contributed">バース・アンド・ノース・イースト・サマセット</subdivision>
 			<subdivision type="gbbbd" draft="contributed">ブラックバーン・ウィズ・ダーウェン</subdivision>
+			<subdivision type="gbbcp" draft="contributed">ボーンマス・クライストチャーチ・アンド・プール</subdivision>
 			<subdivision type="gbbdf" draft="contributed">ベッドフォード (バラ)</subdivision>
 			<subdivision type="gbbdg" draft="contributed">バーキング・アンド・ダゲナム・ロンドン特別区</subdivision>
 			<subdivision type="gbben" draft="contributed">ブレント・ロンドン特別区</subdivision>
@@ -1274,6 +1284,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbeln" draft="contributed">イースト・ロージアン</subdivision>
 			<subdivision type="gbels" draft="contributed">アウター・ヘブリディーズ</subdivision>
 			<subdivision type="gbenf" draft="contributed">インフィールド・ロンドン特別区</subdivision>
+			<subdivision type="gbeng" draft="contributed">イングランド</subdivision>
 			<subdivision type="gberw" draft="contributed">イースト・レンフルーシャー</subdivision>
 			<subdivision type="gbery" draft="contributed">イースト・ライディング・オブ・ヨークシャー</subdivision>
 			<subdivision type="gbess" draft="contributed">エセックス</subdivision>
@@ -1349,6 +1360,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbntt" draft="contributed">ノッティンガムシャー</subdivision>
 			<subdivision type="gbnty" draft="contributed">ノース・タインサイド</subdivision>
 			<subdivision type="gbnwm" draft="contributed">ニューハム・ロンドン特別区</subdivision>
+			<subdivision type="gbnwp" draft="contributed">シティ・オヴ・ニューポート</subdivision>
 			<subdivision type="gbnyk" draft="contributed">ノース・ヨークシャー</subdivision>
 			<subdivision type="gbold" draft="contributed">メトロポリタン・バラ・オブ・オールダム</subdivision>
 			<subdivision type="gbork" draft="contributed">オークニー諸島</subdivision>
@@ -1372,6 +1384,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbsaw" draft="contributed">サンドウェル</subdivision>
 			<subdivision type="gbsay" draft="contributed">サウス・エアシャー</subdivision>
 			<subdivision type="gbscb" draft="contributed">スコティッシュ・ボーダーズ</subdivision>
+			<subdivision type="gbsct" draft="contributed">スコットランド</subdivision>
 			<subdivision type="gbsfk" draft="contributed">サフォーク</subdivision>
 			<subdivision type="gbsft" draft="contributed">メトロポリタン・バラ・オブ・セフトン</subdivision>
 			<subdivision type="gbsgc" draft="contributed">サウス・グロスターシャー</subdivision>
@@ -1415,6 +1428,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbwkf" draft="contributed">シティ・オブ・ウェイクフィールド</subdivision>
 			<subdivision type="gbwll" draft="contributed">ワルサル</subdivision>
 			<subdivision type="gbwln" draft="contributed">ウェスト・ロージアン</subdivision>
+			<subdivision type="gbwls" draft="contributed">ウェールズ</subdivision>
 			<subdivision type="gbwlv" draft="contributed">ウォルヴァーハンプトン</subdivision>
 			<subdivision type="gbwnd" draft="contributed">ワンズワース・ロンドン特別区</subdivision>
 			<subdivision type="gbwnm" draft="contributed">ウィンザー・アンド・メイデンヘッド</subdivision>
@@ -1443,17 +1457,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gesk" draft="contributed">シダ・カルトリ州</subdivision>
 			<subdivision type="getb" draft="contributed">トビリシ</subdivision>
 			<subdivision type="ghaa" draft="contributed">グレーター・アクラ州</subdivision>
+			<subdivision type="ghaf" draft="contributed">アハフォ州</subdivision>
 			<subdivision type="ghah" draft="contributed">アシャンティ州</subdivision>
+			<subdivision type="ghbe" draft="contributed">ボノ・イースト州</subdivision>
+			<subdivision type="ghbo" draft="contributed">ボノ州</subdivision>
 			<subdivision type="ghcp" draft="contributed">セントラル州</subdivision>
 			<subdivision type="ghep" draft="contributed">イースタン州</subdivision>
+			<subdivision type="ghne" draft="contributed">ノース・イースト州</subdivision>
 			<subdivision type="ghnp" draft="contributed">ノーザン州</subdivision>
+			<subdivision type="ghot" draft="contributed">オティ州</subdivision>
+			<subdivision type="ghsv" draft="contributed">サバンナ州</subdivision>
 			<subdivision type="ghtv" draft="contributed">ヴォルタ州</subdivision>
 			<subdivision type="ghue" draft="contributed">アッパー・イースト州</subdivision>
 			<subdivision type="ghuw" draft="contributed">アッパー・ウエスト州</subdivision>
+			<subdivision type="ghwn" draft="contributed">ウェスタン・ノース州</subdivision>
 			<subdivision type="ghwp" draft="contributed">ウェスタン州</subdivision>
+			<subdivision type="glav" draft="contributed">アヴァンナータ</subdivision>
 			<subdivision type="glku" draft="contributed">クヤレック</subdivision>
 			<subdivision type="glqa" draft="contributed">カースートスップ</subdivision>
 			<subdivision type="glqe" draft="contributed">ケカッタ</subdivision>
+			<subdivision type="glqt" draft="contributed">ケケタリク</subdivision>
 			<subdivision type="glsm" draft="contributed">セルメルソーク</subdivision>
 			<subdivision type="gmb" draft="contributed">バンジュール</subdivision>
 			<subdivision type="gml" draft="contributed">ガンビア川下流地方</subdivision>
@@ -1507,6 +1530,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gqbs" draft="contributed">南ビオコ県</subdivision>
 			<subdivision type="gqc" draft="contributed">リオ・ムニ</subdivision>
 			<subdivision type="gqcs" draft="contributed">中南部県</subdivision>
+			<subdivision type="gqdj" draft="contributed">ジブロホ県</subdivision>
 			<subdivision type="gqi" draft="contributed">島嶼地方 (赤道ギニア)</subdivision>
 			<subdivision type="gqkn" draft="contributed">キエンテム県</subdivision>
 			<subdivision type="gqli" draft="contributed">リトラル県</subdivision>
@@ -1523,28 +1547,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="grj" draft="contributed">ペロポネソス</subdivision>
 			<subdivision type="grk" draft="contributed">北エーゲ</subdivision>
 			<subdivision type="grl" draft="contributed">南エーゲ</subdivision>
-			<subdivision type="gtav" draft="contributed">アルタ・ベラパス県</subdivision>
-			<subdivision type="gtbv" draft="contributed">バハ・ベラパス県</subdivision>
-			<subdivision type="gtcm" draft="contributed">チマルテナンゴ県</subdivision>
-			<subdivision type="gtcq" draft="contributed">チキムラ県</subdivision>
-			<subdivision type="gtes" draft="contributed">エスクィントラ県</subdivision>
-			<subdivision type="gtgu" draft="contributed">グアテマラ県</subdivision>
-			<subdivision type="gthu" draft="contributed">ウェウェテナンゴ県</subdivision>
-			<subdivision type="gtiz" draft="contributed">イサバル県</subdivision>
-			<subdivision type="gtja" draft="contributed">ハラパ県</subdivision>
-			<subdivision type="gtju" draft="contributed">フティアパ県</subdivision>
-			<subdivision type="gtpe" draft="contributed">ペテン県</subdivision>
-			<subdivision type="gtpr" draft="contributed">エル・プログレソ県</subdivision>
-			<subdivision type="gtqc" draft="contributed">キチェ県</subdivision>
-			<subdivision type="gtqz" draft="contributed">ケツァルテナンゴ県</subdivision>
-			<subdivision type="gtre" draft="contributed">レタルレウ県</subdivision>
-			<subdivision type="gtsa" draft="contributed">サカテペケス県</subdivision>
-			<subdivision type="gtsm" draft="contributed">サン・マルコス県</subdivision>
-			<subdivision type="gtso" draft="contributed">ソロラ県</subdivision>
-			<subdivision type="gtsr" draft="contributed">サンタ・ローサ県</subdivision>
-			<subdivision type="gtsu" draft="contributed">スチテペケス県</subdivision>
-			<subdivision type="gtto" draft="contributed">トトニカパン県</subdivision>
-			<subdivision type="gtza" draft="contributed">サカパ県</subdivision>
+			<subdivision type="gt01" draft="contributed">グアテマラ県</subdivision>
+			<subdivision type="gt02" draft="contributed">エル・プログレソ県</subdivision>
+			<subdivision type="gt03" draft="contributed">サカテペケス県</subdivision>
+			<subdivision type="gt04" draft="contributed">チマルテナンゴ県</subdivision>
+			<subdivision type="gt05" draft="contributed">エスクィントラ県</subdivision>
+			<subdivision type="gt06" draft="contributed">サンタ・ローサ県</subdivision>
+			<subdivision type="gt07" draft="contributed">ソロラ県</subdivision>
+			<subdivision type="gt08" draft="contributed">トトニカパン県</subdivision>
+			<subdivision type="gt09" draft="contributed">ケツァルテナンゴ県</subdivision>
+			<subdivision type="gt10" draft="contributed">スチテペケス県</subdivision>
+			<subdivision type="gt11" draft="contributed">レタルレウ県</subdivision>
+			<subdivision type="gt12" draft="contributed">サン・マルコス県</subdivision>
+			<subdivision type="gt13" draft="contributed">ウェウェテナンゴ県</subdivision>
+			<subdivision type="gt14" draft="contributed">キチェ県</subdivision>
+			<subdivision type="gt15" draft="contributed">バハ・ベラパス県</subdivision>
+			<subdivision type="gt16" draft="contributed">アルタ・ベラパス県</subdivision>
+			<subdivision type="gt17" draft="contributed">ペテン県</subdivision>
+			<subdivision type="gt18" draft="contributed">イサバル県</subdivision>
+			<subdivision type="gt19" draft="contributed">サカパ県</subdivision>
+			<subdivision type="gt20" draft="contributed">チキムラ県</subdivision>
+			<subdivision type="gt21" draft="contributed">ハラパ県</subdivision>
+			<subdivision type="gt22" draft="contributed">フティアパ県</subdivision>
 			<subdivision type="gwba" draft="contributed">バファタ州</subdivision>
 			<subdivision type="gwbl" draft="contributed">ボラマ州</subdivision>
 			<subdivision type="gwbm" draft="contributed">ビオンボ州</subdivision>
@@ -1719,6 +1743,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inch" draft="contributed">チャンディーガル</subdivision>
 			<subdivision type="inct" draft="contributed">チャッティースガル州</subdivision>
 			<subdivision type="indd" draft="contributed">ダマン・ディーウ連邦直轄領</subdivision>
+			<subdivision type="indh" draft="contributed">ダードラー・ナガル・ハヴェーリーおよびダマン・ディーウ連邦直轄領</subdivision>
 			<subdivision type="indl" draft="contributed">デリー</subdivision>
 			<subdivision type="indn" draft="contributed">ダードラー及びナガル・ハヴェーリー連邦直轄領</subdivision>
 			<subdivision type="inga" draft="contributed">ゴア州</subdivision>
@@ -1729,6 +1754,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="injk" draft="contributed">ジャンムー・カシミール州</subdivision>
 			<subdivision type="inka" draft="contributed">カルナータカ州</subdivision>
 			<subdivision type="inkl" draft="contributed">ケーララ州</subdivision>
+			<subdivision type="inla" draft="contributed">ラダック</subdivision>
 			<subdivision type="inld" draft="contributed">ラクシャディープ諸島</subdivision>
 			<subdivision type="inmh" draft="contributed">マハーラーシュトラ州</subdivision>
 			<subdivision type="inml" draft="contributed">メーガーラヤ州</subdivision>
@@ -1765,6 +1791,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="iqsd" draft="contributed">サラーフッディーン県</subdivision>
 			<subdivision type="iqsu" draft="contributed">スレイマニヤ県</subdivision>
 			<subdivision type="iqwa" draft="contributed">ワーシト県</subdivision>
+			<subdivision type="ir00" draft="contributed">マルキャズィー州²</subdivision>
 			<subdivision type="ir01" draft="contributed">東アーザルバーイジャーン州</subdivision>
 			<subdivision type="ir02" draft="contributed">西アーザルバーイジャーン州</subdivision>
 			<subdivision type="ir03" draft="contributed">アルダビール州</subdivision>
@@ -1772,6 +1799,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ir05" draft="contributed">イーラーム州</subdivision>
 			<subdivision type="ir06" draft="contributed">ブーシェフル州</subdivision>
 			<subdivision type="ir07" draft="contributed">テヘラン州</subdivision>
+			<subdivision type="ir08" draft="contributed">ケルマーン州²</subdivision>
+			<subdivision type="ir09" draft="contributed">ラザヴィー・ホラーサーン州²</subdivision>
 			<subdivision type="ir10" draft="contributed">フーゼスターン州</subdivision>
 			<subdivision type="ir11" draft="contributed">ザンジャーン州</subdivision>
 			<subdivision type="ir12" draft="contributed">セムナーン州</subdivision>
@@ -1780,6 +1809,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ir15" draft="contributed">ケルマーン州</subdivision>
 			<subdivision type="ir16" draft="contributed">コルデスターン州</subdivision>
 			<subdivision type="ir17" draft="contributed">ケルマーンシャー州</subdivision>
+			<subdivision type="ir18" draft="contributed">ブーシェフル州²</subdivision>
 			<subdivision type="ir19" draft="contributed">ギーラーン州</subdivision>
 			<subdivision type="ir20" draft="contributed">ロレスターン州</subdivision>
 			<subdivision type="ir21" draft="contributed">マーザンダラーン州</subdivision>
@@ -1802,6 +1832,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="is6" draft="contributed">北アイスランド東部</subdivision>
 			<subdivision type="is7" draft="contributed">東アイスランド</subdivision>
 			<subdivision type="is8" draft="contributed">南アイスランド</subdivision>
+			<subdivision type="isakn" draft="contributed">アクラネース</subdivision>
+			<subdivision type="isaku" draft="contributed">アークレイリ</subdivision>
+			<subdivision type="isblo" draft="contributed">ブリョンドゥオゥス</subdivision>
+			<subdivision type="isbog" draft="contributed">ボルガルビッグズ</subdivision>
+			<subdivision type="isbol" draft="contributed">ボルンガルヴィーク</subdivision>
+			<subdivision type="isdav" draft="contributed">ダールヴィークルビッグズ</subdivision>
+			<subdivision type="isfjd" draft="contributed">フィヤルザビッグズ</subdivision>
+			<subdivision type="isgru" draft="contributed">グルンダルフィヨルズル</subdivision>
+			<subdivision type="issfa" draft="contributed">アゥルボルグ</subdivision>
 			<subdivision type="it21" draft="contributed">ピエモンテ州</subdivision>
 			<subdivision type="it23" draft="contributed">ヴァッレ・ダオスタ州</subdivision>
 			<subdivision type="it25" draft="contributed">ロンバルディア州</subdivision>
@@ -1905,6 +1944,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="itsp" draft="contributed">ラ・スペツィア県</subdivision>
 			<subdivision type="itsr" draft="contributed">シラクーザ県</subdivision>
 			<subdivision type="itss" draft="contributed">サッサリ県</subdivision>
+			<subdivision type="itsu" draft="contributed">南サルデーニャ県</subdivision>
 			<subdivision type="itsv" draft="contributed">サヴォーナ県</subdivision>
 			<subdivision type="itta" draft="contributed">ターラント県</subdivision>
 			<subdivision type="itte" draft="contributed">テーラモ県</subdivision>
@@ -2074,6 +2114,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kh22" draft="contributed">ウドンメンチェイ州</subdivision>
 			<subdivision type="kh23" draft="contributed">ケップ</subdivision>
 			<subdivision type="kh24" draft="contributed">パイリン</subdivision>
+			<subdivision type="kh25" draft="contributed">トボンクムン州</subdivision>
 			<subdivision type="kig" draft="contributed">ギルバート諸島</subdivision>
 			<subdivision type="kil" draft="contributed">ライン諸島</subdivision>
 			<subdivision type="kip" draft="contributed">フェニックス諸島</subdivision>
@@ -2143,6 +2184,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kzman" draft="contributed">マンギスタウ州</subdivision>
 			<subdivision type="kzpav" draft="contributed">パブロダール州</subdivision>
 			<subdivision type="kzsev" draft="contributed">北カザフスタン州</subdivision>
+			<subdivision type="kzshy" draft="contributed">シムケント</subdivision>
 			<subdivision type="kzvos" draft="contributed">東カザフスタン州</subdivision>
 			<subdivision type="kzyuz" draft="contributed">南カザフスタン州</subdivision>
 			<subdivision type="kzzap" draft="contributed">西カザフスタン州</subdivision>
@@ -2259,7 +2301,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="lt22" draft="contributed">クレチンガ</subdivision>
 			<subdivision type="lt28" draft="contributed">ネリンガ基礎自治体</subdivision>
 			<subdivision type="lt39" draft="contributed">リエタヴァス市</subdivision>
+			<subdivision type="lt41" draft="contributed">シャケイ地区自治体</subdivision>
 			<subdivision type="lt54" draft="contributed">ウテナ地方</subdivision>
+			<subdivision type="lt60" draft="contributed">ザラサイ地区自治体</subdivision>
 			<subdivision type="ltal" draft="contributed">アリートゥス県</subdivision>
 			<subdivision type="ltkl" draft="contributed">クライペダ県</subdivision>
 			<subdivision type="ltku" draft="contributed">カウナス県</subdivision>
@@ -2270,9 +2314,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ltte" draft="contributed">テルシェイ県</subdivision>
 			<subdivision type="ltut" draft="contributed">ウテナ県</subdivision>
 			<subdivision type="ltvl" draft="contributed">ヴィリニュス県</subdivision>
+			<subdivision type="luca" draft="contributed">カペレン郡</subdivision>
 			<subdivision type="lucl" draft="contributed">クレルヴォー郡</subdivision>
+			<subdivision type="ludi" draft="contributed">ディーキルヒ郡</subdivision>
 			<subdivision type="luec" draft="contributed">エヒタナハ郡</subdivision>
+			<subdivision type="lugr" draft="contributed">グレーヴェンマハ郡</subdivision>
 			<subdivision type="lulu" draft="contributed">ルクセンブルク (カントン)</subdivision>
+			<subdivision type="lume" draft="contributed">メルシュ郡</subdivision>
+			<subdivision type="lurd" draft="contributed">ルダンジュ郡</subdivision>
+			<subdivision type="lurm" draft="contributed">レーミッヒ郡</subdivision>
+			<subdivision type="luvd" draft="contributed">ヴィアンデン郡</subdivision>
+			<subdivision type="luwi" draft="contributed">ヴィルツ郡</subdivision>
 			<subdivision type="lv001" draft="contributed">アグルァナ</subdivision>
 			<subdivision type="lv002" draft="contributed">アイズクラウクレ</subdivision>
 			<subdivision type="lv003" draft="contributed">アイズプテ</subdivision>
@@ -2383,6 +2435,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="lv108" draft="contributed">ヴィリャカ</subdivision>
 			<subdivision type="lv109" draft="contributed">ヴィリャーニ</subdivision>
 			<subdivision type="lv110" draft="contributed">ジルペ</subdivision>
+			<subdivision type="lv111" draft="contributed">アウゲシュダウガヴァ市</subdivision>
+			<subdivision type="lv112" draft="contributed">南クルゼメ市</subdivision>
+			<subdivision type="lv113" draft="contributed">ヴァルミエラ市</subdivision>
 			<subdivision type="lvdgv" draft="contributed">ダウガフピルス²</subdivision>
 			<subdivision type="lvjel" draft="contributed">イェルガヴァ</subdivision>
 			<subdivision type="lvjkb" draft="contributed">イェーカブピルス</subdivision>
@@ -2427,17 +2482,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mabes" draft="contributed">ベン・スリマン州</subdivision>
 			<subdivision type="mabod" draft="contributed">ブジュール州</subdivision>
 			<subdivision type="mabom" draft="contributed">ブルマーヌ州</subdivision>
+			<subdivision type="mabrr" draft="contributed">ベレチド州</subdivision>
 			<subdivision type="macas" draft="contributed">カサブランカ</subdivision>
 			<subdivision type="mache" draft="contributed">シャウエン州</subdivision>
 			<subdivision type="machi" draft="contributed">シカウア州</subdivision>
 			<subdivision type="macht" draft="contributed">チュトウカ・アイト・バハ州</subdivision>
+			<subdivision type="madri" draft="contributed">ドリオウチュ州</subdivision>
 			<subdivision type="maerr" draft="contributed">エルラシディア州</subdivision>
 			<subdivision type="maesi" draft="contributed">エッサウィラ州</subdivision>
 			<subdivision type="maesm" draft="contributed">スマラ州</subdivision>
 			<subdivision type="mafah" draft="contributed">ファフス・アンジュラ州</subdivision>
 			<subdivision type="mafes" draft="contributed">フェズ</subdivision>
 			<subdivision type="mafig" draft="contributed">フィギグ州</subdivision>
+			<subdivision type="mafqh" draft="contributed">フキレ・ベンヌ・サラ州</subdivision>
 			<subdivision type="mague" draft="contributed">ゲルミン州</subdivision>
+			<subdivision type="maguf" draft="contributed">ゲルシフ州</subdivision>
 			<subdivision type="mahaj" draft="contributed">ハジェブ州</subdivision>
 			<subdivision type="mahao" draft="contributed">ハオウズ</subdivision>
 			<subdivision type="mahoc" draft="contributed">アル・ホセイマ州</subdivision>
@@ -2452,8 +2511,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="makho" draft="contributed">クーリブカ州</subdivision>
 			<subdivision type="malaa" draft="contributed">アイウン州</subdivision>
 			<subdivision type="malar" draft="contributed">アライシュ州</subdivision>
+			<subdivision type="mamar" draft="contributed">マラケシュ県</subdivision>
+			<subdivision type="mamdf" draft="contributed">メディック・フニデク県</subdivision>
 			<subdivision type="mamed" draft="contributed">メディウナ州</subdivision>
 			<subdivision type="mamek" draft="contributed">メクネス</subdivision>
+			<subdivision type="mamid" draft="contributed">ミデルト州</subdivision>
 			<subdivision type="mammd" draft="contributed">マラケシュ</subdivision>
 			<subdivision type="mammn" draft="contributed">マラケシュ²</subdivision>
 			<subdivision type="mamoh" draft="contributed">フェドハラ（モハメディア）</subdivision>
@@ -2462,24 +2524,33 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="manou" draft="contributed">ノウアセウル州</subdivision>
 			<subdivision type="maoua" draft="contributed">ワルザザート州</subdivision>
 			<subdivision type="maouj" draft="contributed">ウジダ</subdivision>
+			<subdivision type="maouz" draft="contributed">ウェザーン州</subdivision>
 			<subdivision type="marab" draft="contributed">ラバト</subdivision>
+			<subdivision type="mareh" draft="contributed">レハムナ州</subdivision>
 			<subdivision type="masaf" draft="contributed">サフィ州</subdivision>
 			<subdivision type="masal" draft="contributed">サレ</subdivision>
 			<subdivision type="masef" draft="contributed">セフル州</subdivision>
 			<subdivision type="maset" draft="contributed">セタト州</subdivision>
+			<subdivision type="masib" draft="contributed">シディベヌール州</subdivision>
+			<subdivision type="masif" draft="contributed">シディ・イフニー州</subdivision>
 			<subdivision type="masik" draft="contributed">シディ・カセム州</subdivision>
+			<subdivision type="masil" draft="contributed">シーディ スリマネ州</subdivision>
 			<subdivision type="maskh" draft="contributed">テマラ</subdivision>
 			<subdivision type="masyb" draft="contributed">マラケシュ³</subdivision>
+			<subdivision type="mataf" draft="contributed">タルファヤ州</subdivision>
 			<subdivision type="matai" draft="contributed">タウリル州</subdivision>
 			<subdivision type="matao" draft="contributed">タウナト州</subdivision>
 			<subdivision type="matar" draft="contributed">タルーダント州</subdivision>
 			<subdivision type="matat" draft="contributed">タタ州</subdivision>
 			<subdivision type="mataz" draft="contributed">ターザ州</subdivision>
 			<subdivision type="matet" draft="contributed">テトゥアン州</subdivision>
+			<subdivision type="matin" draft="contributed">ティンジル州</subdivision>
 			<subdivision type="matiz" draft="contributed">ティーズニート州</subdivision>
 			<subdivision type="matng" draft="contributed">タンジェ</subdivision>
 			<subdivision type="matnt" draft="contributed">タンタン州</subdivision>
+			<subdivision type="mayus" draft="contributed">ユスーフィーア州</subdivision>
 			<subdivision type="mazag" draft="contributed">ザゴラ州</subdivision>
+			<subdivision type="mccl" draft="contributed">ラ・コル</subdivision>
 			<subdivision type="mcco" draft="contributed">ラ・コンダミーヌ地区</subdivision>
 			<subdivision type="mcfo" draft="contributed">フォンヴィエイユ</subdivision>
 			<subdivision type="mcje" draft="contributed">熱帯公園</subdivision>
@@ -2573,74 +2644,75 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mhuti" draft="contributed">ウチリック環礁</subdivision>
 			<subdivision type="mhwth" draft="contributed">オトー環礁</subdivision>
 			<subdivision type="mhwtj" draft="contributed">ウォッジェ環礁</subdivision>
-			<subdivision type="mk02" draft="contributed">アラチノヴォ</subdivision>
-			<subdivision type="mk03" draft="contributed">ベロヴォ (マケドニア)</subdivision>
-			<subdivision type="mk04" draft="contributed">ビトラ</subdivision>
-			<subdivision type="mk05" draft="contributed">ボグダンツィ</subdivision>
-			<subdivision type="mk06" draft="contributed">ボゴヴィニェ</subdivision>
-			<subdivision type="mk07" draft="contributed">ボシロヴォ</subdivision>
-			<subdivision type="mk08" draft="contributed">ブルヴェニツァ</subdivision>
-			<subdivision type="mk10" draft="contributed">ヴァランドヴォ</subdivision>
-			<subdivision type="mk11" draft="contributed">ヴァシレヴォ</subdivision>
-			<subdivision type="mk12" draft="contributed">ヴェヴチャニ</subdivision>
-			<subdivision type="mk14" draft="contributed">ヴィニツァ</subdivision>
-			<subdivision type="mk16" draft="contributed">ヴラプチシュテ</subdivision>
-			<subdivision type="mk19" draft="contributed">ゴスティヴァル</subdivision>
-			<subdivision type="mk20" draft="contributed">グラドスコ</subdivision>
-			<subdivision type="mk21" draft="contributed">デバル</subdivision>
-			<subdivision type="mk22" draft="contributed">デバルツァ</subdivision>
-			<subdivision type="mk23" draft="contributed">デルチェヴォ</subdivision>
-			<subdivision type="mk24" draft="contributed">デミル・カピヤ</subdivision>
-			<subdivision type="mk25" draft="contributed">デミル・ヒサル</subdivision>
-			<subdivision type="mk26" draft="contributed">ドイラン</subdivision>
-			<subdivision type="mk27" draft="contributed">ドルネニ</subdivision>
-			<subdivision type="mk30" draft="contributed">ジェリノ</subdivision>
-			<subdivision type="mk32" draft="contributed">ゼレニコヴォ</subdivision>
-			<subdivision type="mk33" draft="contributed">ズルノヴツィ</subdivision>
-			<subdivision type="mk34" draft="contributed">イリンデン</subdivision>
-			<subdivision type="mk35" draft="contributed">イェグノヴツェ</subdivision>
-			<subdivision type="mk36" draft="contributed">カヴァダルツィ</subdivision>
-			<subdivision type="mk37" draft="contributed">カルビンツィ</subdivision>
-			<subdivision type="mk40" draft="contributed">キチェボ</subdivision>
-			<subdivision type="mk41" draft="contributed">コンチェ</subdivision>
-			<subdivision type="mk42" draft="contributed">クアツェーニ</subdivision>
-			<subdivision type="mk43" draft="contributed">クラトヴォ</subdivision>
-			<subdivision type="mk44" draft="contributed">クリヴァ・パランカ</subdivision>
-			<subdivision type="mk45" draft="contributed">クリヴォガシュタニ</subdivision>
-			<subdivision type="mk46" draft="contributed">クルシェヴォ</subdivision>
-			<subdivision type="mk47" draft="contributed">クマノヴォ</subdivision>
-			<subdivision type="mk48" draft="contributed">リプコヴォ</subdivision>
-			<subdivision type="mk49" draft="contributed">ロゾヴォ</subdivision>
-			<subdivision type="mk50" draft="contributed">マヴロヴォ・ロストゥシャ</subdivision>
-			<subdivision type="mk51" draft="contributed">マケドンスカ・カメニツァ</subdivision>
-			<subdivision type="mk52" draft="contributed">マケドンスキ・ブロド</subdivision>
-			<subdivision type="mk53" draft="contributed">モギラ</subdivision>
-			<subdivision type="mk54" draft="contributed">ネゴティノ</subdivision>
-			<subdivision type="mk55" draft="contributed">ノヴァツィ</subdivision>
-			<subdivision type="mk56" draft="contributed">ノヴォ・セロ</subdivision>
-			<subdivision type="mk58" draft="contributed">オフリド</subdivision>
-			<subdivision type="mk59" draft="contributed">ペトロヴェツ</subdivision>
-			<subdivision type="mk60" draft="contributed">ペフチェヴォ</subdivision>
-			<subdivision type="mk61" draft="contributed">プラスニツァ</subdivision>
-			<subdivision type="mk62" draft="contributed">プリレプ</subdivision>
-			<subdivision type="mk63" draft="contributed">プロビシュティプ</subdivision>
-			<subdivision type="mk64" draft="contributed">ラドヴィシュ</subdivision>
-			<subdivision type="mk65" draft="contributed">ランコヴツェ</subdivision>
-			<subdivision type="mk66" draft="contributed">レセン</subdivision>
-			<subdivision type="mk67" draft="contributed">ロソマン</subdivision>
-			<subdivision type="mk69" draft="contributed">スヴェティ・ニコレ</subdivision>
-			<subdivision type="mk70" draft="contributed">ソピシュテ</subdivision>
-			<subdivision type="mk71" draft="contributed">スタロ・ナゴリチャネ</subdivision>
-			<subdivision type="mk72" draft="contributed">ストルガ基礎自治体</subdivision>
-			<subdivision type="mk73" draft="contributed">ストルミツァ</subdivision>
-			<subdivision type="mk74" draft="contributed">ストゥデニチャニ</subdivision>
-			<subdivision type="mk75" draft="contributed">テアルツェ</subdivision>
-			<subdivision type="mk76" draft="contributed">テトヴォ</subdivision>
-			<subdivision type="mk78" draft="contributed">ツェンタル・ジュパ</subdivision>
-			<subdivision type="mk80" draft="contributed">チャシュカ</subdivision>
-			<subdivision type="mk82" draft="contributed">チュチェル・サンデヴォ</subdivision>
-			<subdivision type="mk83" draft="contributed">シュティプ</subdivision>
 			<subdivision type="mk85" draft="contributed">スコピエ</subdivision>
+			<subdivision type="mk102" draft="contributed">グラドスコ</subdivision>
+			<subdivision type="mk103" draft="contributed">デミル・カピヤ</subdivision>
+			<subdivision type="mk104" draft="contributed">カヴァダルツィ</subdivision>
+			<subdivision type="mk105" draft="contributed">ロゾヴォ</subdivision>
+			<subdivision type="mk106" draft="contributed">ネゴティノ</subdivision>
+			<subdivision type="mk107" draft="contributed">ロソマン</subdivision>
+			<subdivision type="mk108" draft="contributed">スヴェティ・ニコレ</subdivision>
+			<subdivision type="mk109" draft="contributed">チャシュカ</subdivision>
+			<subdivision type="mk201" draft="contributed">ベロヴォ (マケドニア)</subdivision>
+			<subdivision type="mk202" draft="contributed">ヴィニツァ</subdivision>
+			<subdivision type="mk203" draft="contributed">デルチェヴォ</subdivision>
+			<subdivision type="mk204" draft="contributed">ズルノヴツィ</subdivision>
+			<subdivision type="mk205" draft="contributed">カルビンツィ</subdivision>
+			<subdivision type="mk206" draft="contributed">クアツェーニ</subdivision>
+			<subdivision type="mk207" draft="contributed">マケドンスカ・カメニツァ</subdivision>
+			<subdivision type="mk208" draft="contributed">ペフチェヴォ</subdivision>
+			<subdivision type="mk209" draft="contributed">プロビシュティプ</subdivision>
+			<subdivision type="mk211" draft="contributed">シュティプ</subdivision>
+			<subdivision type="mk301" draft="contributed">ヴェヴチャニ</subdivision>
+			<subdivision type="mk303" draft="contributed">デバル</subdivision>
+			<subdivision type="mk304" draft="contributed">デバルツァ</subdivision>
+			<subdivision type="mk307" draft="contributed">キチェボ</subdivision>
+			<subdivision type="mk308" draft="contributed">マケドンスキ・ブロド</subdivision>
+			<subdivision type="mk310" draft="contributed">オフリド</subdivision>
+			<subdivision type="mk311" draft="contributed">プラスニツァ</subdivision>
+			<subdivision type="mk312" draft="contributed">ストルガ基礎自治体</subdivision>
+			<subdivision type="mk313" draft="contributed">ツェンタル・ジュパ</subdivision>
+			<subdivision type="mk401" draft="contributed">ボグダンツィ</subdivision>
+			<subdivision type="mk402" draft="contributed">ボシロヴォ</subdivision>
+			<subdivision type="mk403" draft="contributed">ヴァランドヴォ</subdivision>
+			<subdivision type="mk404" draft="contributed">ヴァシレヴォ</subdivision>
+			<subdivision type="mk406" draft="contributed">ドイラン</subdivision>
+			<subdivision type="mk407" draft="contributed">コンチェ</subdivision>
+			<subdivision type="mk408" draft="contributed">ノヴォ・セロ</subdivision>
+			<subdivision type="mk409" draft="contributed">ラドヴィシュ</subdivision>
+			<subdivision type="mk410" draft="contributed">ストルミツァ</subdivision>
+			<subdivision type="mk501" draft="contributed">ビトラ</subdivision>
+			<subdivision type="mk502" draft="contributed">デミル・ヒサル</subdivision>
+			<subdivision type="mk503" draft="contributed">ドルネニ</subdivision>
+			<subdivision type="mk504" draft="contributed">クリヴォガシュタニ</subdivision>
+			<subdivision type="mk505" draft="contributed">クルシェヴォ</subdivision>
+			<subdivision type="mk506" draft="contributed">モギラ</subdivision>
+			<subdivision type="mk507" draft="contributed">ノヴァツィ</subdivision>
+			<subdivision type="mk508" draft="contributed">プリレプ</subdivision>
+			<subdivision type="mk509" draft="contributed">レセン</subdivision>
+			<subdivision type="mk601" draft="contributed">ボゴヴィニェ</subdivision>
+			<subdivision type="mk602" draft="contributed">ブルヴェニツァ</subdivision>
+			<subdivision type="mk603" draft="contributed">ヴラプチシュテ</subdivision>
+			<subdivision type="mk604" draft="contributed">ゴスティヴァル</subdivision>
+			<subdivision type="mk605" draft="contributed">ジェリノ</subdivision>
+			<subdivision type="mk606" draft="contributed">イェグノヴツェ</subdivision>
+			<subdivision type="mk607" draft="contributed">マヴロヴォ・ロストゥシャ</subdivision>
+			<subdivision type="mk608" draft="contributed">テアルツェ</subdivision>
+			<subdivision type="mk609" draft="contributed">テトヴォ</subdivision>
+			<subdivision type="mk701" draft="contributed">クラトヴォ</subdivision>
+			<subdivision type="mk702" draft="contributed">クリヴァ・パランカ</subdivision>
+			<subdivision type="mk703" draft="contributed">クマノヴォ</subdivision>
+			<subdivision type="mk704" draft="contributed">リプコヴォ</subdivision>
+			<subdivision type="mk705" draft="contributed">ランコヴツェ</subdivision>
+			<subdivision type="mk706" draft="contributed">スタロ・ナゴリチャネ</subdivision>
+			<subdivision type="mk802" draft="contributed">アラチノヴォ</subdivision>
+			<subdivision type="mk806" draft="contributed">ゼレニコヴォ</subdivision>
+			<subdivision type="mk807" draft="contributed">イリンデン</subdivision>
+			<subdivision type="mk810" draft="contributed">ペトロヴェツ</subdivision>
+			<subdivision type="mk812" draft="contributed">ソピシュテ</subdivision>
+			<subdivision type="mk813" draft="contributed">ストゥデニチャニ</subdivision>
+			<subdivision type="mk816" draft="contributed">チュチェル・サンデヴォ</subdivision>
+			<subdivision type="mk817" draft="contributed">シュトオリザリ</subdivision>
 			<subdivision type="ml1" draft="contributed">カイ州</subdivision>
 			<subdivision type="ml2" draft="contributed">クリコロ州</subdivision>
 			<subdivision type="ml3" draft="contributed">シカソ州</subdivision>
@@ -3011,6 +3083,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="no20" draft="contributed">フィンマルク県</subdivision>
 			<subdivision type="no21" draft="contributed">スヴァールバル諸島</subdivision>
 			<subdivision type="no22" draft="contributed">ヤンマイエン島</subdivision>
+			<subdivision type="no30" draft="contributed">ヴィッケン県</subdivision>
+			<subdivision type="no34" draft="contributed">インラント県</subdivision>
+			<subdivision type="no38" draft="contributed">ヴェストフォル・オ・テレマルク県</subdivision>
+			<subdivision type="no42" draft="contributed">アグデル</subdivision>
+			<subdivision type="no46" draft="contributed">ヴェストラン県</subdivision>
+			<subdivision type="no50" draft="contributed">トロンデラーグ</subdivision>
+			<subdivision type="no54" draft="contributed">トロムス・オ・フィンマルク県</subdivision>
 			<subdivision type="np1" draft="contributed">中部開発区域</subdivision>
 			<subdivision type="np2" draft="contributed">中西部開発区域</subdivision>
 			<subdivision type="np3" draft="contributed">西部開発区域</subdivision>
@@ -3085,6 +3164,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="paem" draft="contributed">エンベラ自治区</subdivision>
 			<subdivision type="paky" draft="contributed">クナ・ヤラ自治区</subdivision>
 			<subdivision type="panb" draft="contributed">ノベ・ブグレ自治区</subdivision>
+			<subdivision type="pant" draft="contributed">ナソ・ティエル・ディ自治県</subdivision>
 			<subdivision type="peama" draft="contributed">アマソナス県</subdivision>
 			<subdivision type="peanc" draft="contributed">アンカシュ県</subdivision>
 			<subdivision type="peapu" draft="contributed">アプリマク県</subdivision>
@@ -3180,6 +3260,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="phdas" draft="contributed">南ダバオ州</subdivision>
 			<subdivision type="phdav" draft="contributed">ダバオ州</subdivision>
 			<subdivision type="phdin" draft="contributed">ディナガット・アイランズ州</subdivision>
+			<subdivision type="phdvo" draft="contributed">西ダバオ</subdivision>
 			<subdivision type="pheas" draft="contributed">東サマル州</subdivision>
 			<subdivision type="phgui" draft="contributed">ギマラス州</subdivision>
 			<subdivision type="phifu" draft="contributed">イフガオ州</subdivision>
@@ -3693,6 +3774,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="si130" draft="contributed">トレビニェ</subdivision>
 			<subdivision type="si131" draft="contributed">トルジッチ</subdivision>
 			<subdivision type="si132" draft="contributed">トゥルニシチェ</subdivision>
+			<subdivision type="si133" draft="contributed">ベレニエ</subdivision>
 			<subdivision type="si134" draft="contributed">ヴェリケ・ラシチェ</subdivision>
 			<subdivision type="si135" draft="contributed">ヴィデム</subdivision>
 			<subdivision type="si136" draft="contributed">ヴィパーヴァ</subdivision>
@@ -3771,6 +3853,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="skzi" draft="contributed">ジリナ県</subdivision>
 			<subdivision type="sle" draft="contributed">東部州</subdivision>
 			<subdivision type="sln" draft="contributed">北部州</subdivision>
+			<subdivision type="slnw" draft="contributed">北西部州</subdivision>
 			<subdivision type="sls" draft="contributed">南部州</subdivision>
 			<subdivision type="slw" draft="contributed">西部地域</subdivision>
 			<subdivision type="sm01" draft="contributed">アックアヴィーヴァ</subdivision>
@@ -3834,6 +3917,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ssnu" draft="contributed">上ナイル州</subdivision>
 			<subdivision type="ssuy" draft="contributed">ユニティ州</subdivision>
 			<subdivision type="sswr" draft="contributed">ワラブ州</subdivision>
+			<subdivision type="st01" draft="contributed">アグア・グランデ県</subdivision>
+			<subdivision type="st02" draft="contributed">カンタガロ県</subdivision>
+			<subdivision type="st03" draft="contributed">カウエ県</subdivision>
+			<subdivision type="st04" draft="contributed">レンバ県</subdivision>
+			<subdivision type="st05" draft="contributed">ロバタ県</subdivision>
 			<subdivision type="stp" draft="contributed">プリンシペ州</subdivision>
 			<subdivision type="sts" draft="contributed">サントメ州</subdivision>
 			<subdivision type="svah" draft="contributed">アワチャパン県</subdivision>
@@ -4136,6 +4224,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="twlie" draft="contributed">連江県</subdivision>
 			<subdivision type="twmia" draft="contributed">苗栗県</subdivision>
 			<subdivision type="twnan" draft="contributed">南投県</subdivision>
+			<subdivision type="twnwt" draft="contributed">新北市</subdivision>
 			<subdivision type="twpen" draft="contributed">澎湖県</subdivision>
 			<subdivision type="twpif" draft="contributed">屏東県</subdivision>
 			<subdivision type="twtao" draft="contributed">桃園市</subdivision>
@@ -4259,6 +4348,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ug232" draft="contributed">セレレ県</subdivision>
 			<subdivision type="ug233" draft="contributed">ブテボ県</subdivision>
 			<subdivision type="ug234" draft="contributed">ナミシンドワ県</subdivision>
+			<subdivision type="ug237" draft="contributed">カラキ県</subdivision>
 			<subdivision type="ug301" draft="contributed">アジュマニ県</subdivision>
 			<subdivision type="ug302" draft="contributed">アパッチ県</subdivision>
 			<subdivision type="ug303" draft="contributed">アルア県</subdivision>
@@ -4291,6 +4381,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ug330" draft="contributed">ゾンボ県</subdivision>
 			<subdivision type="ug331" draft="contributed">オモロ県</subdivision>
 			<subdivision type="ug332" draft="contributed">パクワチ県</subdivision>
+			<subdivision type="ug335" draft="contributed">カレンガ県</subdivision>
+			<subdivision type="ug337" draft="contributed">オボンギ県</subdivision>
 			<subdivision type="ug401" draft="contributed">ブンディブギョ県</subdivision>
 			<subdivision type="ug402" draft="contributed">ブシェニ県</subdivision>
 			<subdivision type="ug403" draft="contributed">ホイマ県</subdivision>
@@ -4322,6 +4414,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ug429" draft="contributed">ルバンダ県</subdivision>
 			<subdivision type="ug430" draft="contributed">ブニャンガブ県</subdivision>
 			<subdivision type="ug431" draft="contributed">ルキガ県</subdivision>
+			<subdivision type="ug433" draft="contributed">カゾ県</subdivision>
+			<subdivision type="ug434" draft="contributed">キタグウェンダ県</subdivision>
+			<subdivision type="ug435" draft="contributed">ルワンパラ県</subdivision>
 			<subdivision type="ugc" draft="contributed">中央地域</subdivision>
 			<subdivision type="uge" draft="contributed">東部地域</subdivision>
 			<subdivision type="ugn" draft="contributed">北部地域</subdivision>
@@ -4342,6 +4437,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="usca" draft="contributed">カリフォルニア州</subdivision>
 			<subdivision type="usco" draft="contributed">コロラド州</subdivision>
 			<subdivision type="usct" draft="contributed">コネチカット州</subdivision>
+			<subdivision type="usdc" draft="contributed">コロンビア特別区</subdivision>
 			<subdivision type="usde" draft="contributed">デラウェア州</subdivision>
 			<subdivision type="usfl" draft="contributed">フロリダ州</subdivision>
 			<subdivision type="usga" draft="contributed">ジョージア州</subdivision>
@@ -4553,11 +4649,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="yeta" draft="contributed">タイズ県</subdivision>
 			<subdivision type="zaec" draft="contributed">東ケープ州</subdivision>
 			<subdivision type="zafs" draft="contributed">フリーステイト州</subdivision>
-			<subdivision type="zagt" draft="contributed">ハウテン州</subdivision>
+			<subdivision type="zagp" draft="contributed">ハウテン州</subdivision>
+			<subdivision type="zakzn" draft="contributed">クワズール・ナタール州</subdivision>
 			<subdivision type="zalp" draft="contributed">リンポポ州</subdivision>
 			<subdivision type="zamp" draft="contributed">ムプマランガ州</subdivision>
 			<subdivision type="zanc" draft="contributed">北ケープ州</subdivision>
-			<subdivision type="zanl" draft="contributed">クワズール・ナタール州</subdivision>
 			<subdivision type="zanw" draft="contributed">北西州</subdivision>
 			<subdivision type="zawc" draft="contributed">西ケープ州</subdivision>
 			<subdivision type="zm01" draft="contributed">西部州 (ザンビア)</subdivision>

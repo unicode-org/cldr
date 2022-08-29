@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,6 +12,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<subdivisions>
+			<subdivision type="ad07" draft="contributed">Андорра-ла-Велья</subdivision>
 			<subdivision type="aeaj" draft="contributed">Эмирт Ажман</subdivision>
 			<subdivision type="aeaz" draft="contributed">Эмирт Абу-Даби</subdivision>
 			<subdivision type="aedu" draft="contributed">Эмирт Дубай</subdivision>
@@ -127,6 +128,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bg07" draft="contributed">Габрово аймаг</subdivision>
 			<subdivision type="bg08" draft="contributed">Добрич аймаг</subdivision>
 			<subdivision type="bg09" draft="contributed">Кыржали аймаг</subdivision>
+			<subdivision type="bg10" draft="contributed">Кюстендил аймаг</subdivision>
 			<subdivision type="bg11" draft="contributed">Ловеч аймаг</subdivision>
 			<subdivision type="bg12" draft="contributed">Монтана аймаг</subdivision>
 			<subdivision type="bg13" draft="contributed">Пазаржик аймаг</subdivision>
@@ -173,6 +175,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cngs" draft="contributed">Ганьсү</subdivision>
 			<subdivision type="cngz" draft="contributed">Гуйжоу муж</subdivision>
 			<subdivision type="cnha" draft="contributed">Хэнань</subdivision>
+			<subdivision type="cnhb" draft="contributed">Хүбэй</subdivision>
 			<subdivision type="cnhe" draft="contributed">Хэбэй</subdivision>
 			<subdivision type="cnhi" draft="contributed">Хайнань</subdivision>
 			<subdivision type="cnhk" draft="contributed">Хонг Конг</subdivision>
@@ -215,40 +218,76 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="dest" draft="contributed">Саксон-Анхальт</subdivision>
 			<subdivision type="deth" draft="contributed">Тюринг</subdivision>
 			<subdivision type="djdj" draft="contributed">Жибути</subdivision>
+			<subdivision type="dk83" draft="contributed">Өмнөд Дани</subdivision>
+			<subdivision type="dk84" draft="contributed">Ховедстаден</subdivision>
 			<subdivision type="esan" draft="contributed">Андалус орон</subdivision>
 			<subdivision type="esar" draft="contributed">Арагон орон</subdivision>
 			<subdivision type="esas" draft="contributed">Астур муж</subdivision>
+			<subdivision type="escb" draft="contributed">Кантабри</subdivision>
+			<subdivision type="esce" draft="contributed">Сеута</subdivision>
+			<subdivision type="escl" draft="contributed">Кастили ба Леон</subdivision>
+			<subdivision type="escm" draft="contributed">Кастили-Ла Манча</subdivision>
+			<subdivision type="escn" draft="contributed">Канарын Арлууд</subdivision>
 			<subdivision type="esct" draft="contributed">Каталон орон</subdivision>
+			<subdivision type="esex" draft="contributed">Эстремадура</subdivision>
+			<subdivision type="esga" draft="contributed">Галиси</subdivision>
 			<subdivision type="esib" draft="contributed">Балеарын арлууд</subdivision>
+			<subdivision type="esmc" draft="contributed">Мурси (муж)</subdivision>
+			<subdivision type="esmd" draft="contributed">Мадридын Өөртөө Засах Нийгэмлэг</subdivision>
+			<subdivision type="esml" draft="contributed">Мелилья</subdivision>
+			<subdivision type="esna" draft="contributed">Наварра</subdivision>
+			<subdivision type="esnc" draft="contributed">Наварра²</subdivision>
 			<subdivision type="espm" draft="contributed">Балеарын арлууд²</subdivision>
 			<subdivision type="espv" draft="contributed">Баск орон</subdivision>
+			<subdivision type="esri" draft="contributed">Ла Риоха (Испанийн муж)</subdivision>
+			<subdivision type="esvc" draft="contributed">Валенсийн Нийгэмлэг</subdivision>
 			<subdivision type="etaa" draft="contributed">Аддис-Абеба</subdivision>
 			<subdivision type="etdd" draft="contributed">Дыре-Дауа</subdivision>
 			<subdivision type="fr11" draft="contributed">Од аймаг</subdivision>
+			<subdivision type="fr20r" draft="contributed">Корсика</subdivision>
+			<subdivision type="fr29" draft="contributed">Финистер (департамент)</subdivision>
 			<subdivision type="fr30" draft="contributed">Гар аймаг</subdivision>
 			<subdivision type="fr34" draft="contributed">Эро аймаг</subdivision>
+			<subdivision type="fr40" draft="contributed">Ланд аймаг</subdivision>
+			<subdivision type="fr44" draft="contributed">Атлантын Луар (департамент)</subdivision>
+			<subdivision type="fr47" draft="contributed">Ло – Гаронна</subdivision>
+			<subdivision type="fr48" draft="contributed">Лозер</subdivision>
 			<subdivision type="fr66" draft="contributed">Дорно Пиреней</subdivision>
-			<subdivision type="fr75" draft="contributed">Парис</subdivision>
+			<subdivision type="fr75c" draft="contributed">Парис</subdivision>
+			<subdivision type="frara" draft="contributed">Овернь-Рона-Альп</subdivision>
 			<subdivision type="frbfc" draft="contributed">Бургунд муж</subdivision>
 			<subdivision type="frbre" draft="contributed">Бретань муж</subdivision>
+			<subdivision type="frcvl" draft="contributed">Төв-Вал де Луар</subdivision>
+			<subdivision type="frges" draft="contributed">Гранд Эст</subdivision>
+			<subdivision type="frhdf" draft="contributed">О-де-Франс</subdivision>
 			<subdivision type="fridf" draft="contributed">Иль-де-Франс</subdivision>
+			<subdivision type="frnaq" draft="contributed">Нувел-Аквитани</subdivision>
+			<subdivision type="frnor" draft="contributed">Норманди</subdivision>
+			<subdivision type="frocc" draft="contributed">Окситани (муж)</subdivision>
+			<subdivision type="frpac" draft="contributed">Прованс-Альп-Номин эрэг</subdivision>
+			<subdivision type="frpdl" draft="contributed">Пеи де ла Луар</subdivision>
 			<subdivision type="gbabe" draft="contributed">Абердин</subdivision>
 			<subdivision type="gbbir" draft="contributed">Бирмингем</subdivision>
 			<subdivision type="gbcrf" draft="contributed">Кардифф</subdivision>
 			<subdivision type="gbedh" draft="contributed">Эдинбург</subdivision>
+			<subdivision type="gbeng" draft="contributed">Англи</subdivision>
 			<subdivision type="gbgbn" draft="contributed">Их Британи</subdivision>
+			<subdivision type="gbglg" draft="contributed">Глазгоу</subdivision>
 			<subdivision type="gbliv" draft="contributed">Ливерпүүл</subdivision>
 			<subdivision type="gblnd" draft="contributed">Лондон</subdivision>
 			<subdivision type="gbman" draft="contributed">Манчестер</subdivision>
 			<subdivision type="gbnet" draft="contributed">Ньюкасл</subdivision>
 			<subdivision type="gbngm" draft="contributed">Ноттингем</subdivision>
 			<subdivision type="gbnir" draft="contributed">Умард Ирланд</subdivision>
+			<subdivision type="gbsct" draft="contributed">Шотланд</subdivision>
 			<subdivision type="gbukm" draft="contributed">Нэгдсэн Вант Улс</subdivision>
+			<subdivision type="gbwls" draft="contributed">Уэльс</subdivision>
 			<subdivision type="geab" draft="contributed">Абхаз</subdivision>
 			<subdivision type="getb" draft="contributed">Тбилис</subdivision>
 			<subdivision type="gnc" draft="contributed">Конакри</subdivision>
 			<subdivision type="gwbs" draft="contributed">Биссау</subdivision>
 			<subdivision type="hr21" draft="contributed">Загреб</subdivision>
+			<subdivision type="hubk" draft="contributed">Бач-Кишкун</subdivision>
 			<subdivision type="hubu" draft="contributed">Будапешт</subdivision>
 			<subdivision type="hude" draft="contributed">Дебрецен</subdivision>
 			<subdivision type="hufe" draft="contributed">Фейер</subdivision>
@@ -280,6 +319,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="idss" draft="contributed">Өмнө Суматра</subdivision>
 			<subdivision type="idst" draft="contributed">Төв Сулавеси</subdivision>
 			<subdivision type="idsu" draft="contributed">Умар Суматра</subdivision>
+			<subdivision type="ild" draft="contributed">Израилын өмнөд дүүрэг</subdivision>
+			<subdivision type="ilha" draft="contributed">Хайфа дүүрэг</subdivision>
+			<subdivision type="iljm" draft="contributed">Иерусалим дүүрэг</subdivision>
+			<subdivision type="ilm" draft="contributed">Израилын төв дүүрэг</subdivision>
+			<subdivision type="ilta" draft="contributed">Тел-Авив дүүрэг</subdivision>
+			<subdivision type="ilz" draft="contributed">Израилын умард дүүрэг</subdivision>
 			<subdivision type="inap" draft="contributed">Андра Прадеш</subdivision>
 			<subdivision type="inar" draft="contributed">Аруначалпрадеш</subdivision>
 			<subdivision type="inas" draft="contributed">Ассам</subdivision>
@@ -294,6 +339,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="injk" draft="contributed">Жамму-Кашмир</subdivision>
 			<subdivision type="inka" draft="contributed">Карнатака</subdivision>
 			<subdivision type="inkl" draft="contributed">Керала</subdivision>
+			<subdivision type="inla" draft="contributed">Ладакх</subdivision>
 			<subdivision type="inmh" draft="contributed">Махараштра</subdivision>
 			<subdivision type="inml" draft="contributed">Мегалая</subdivision>
 			<subdivision type="inmn" draft="contributed">Манипур</subdivision>
@@ -310,10 +356,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inup" draft="contributed">Уттар Прадеш</subdivision>
 			<subdivision type="inut" draft="contributed">Уттараканд</subdivision>
 			<subdivision type="inwb" draft="contributed">Өрнө Бенгал</subdivision>
+			<subdivision type="ir01" draft="contributed">Гилян муж²</subdivision>
 			<subdivision type="ir03" draft="contributed">Ардебиль муж</subdivision>
+			<subdivision type="ir05" draft="contributed">Керманшах муж²</subdivision>
 			<subdivision type="ir17" draft="contributed">Керманшах муж</subdivision>
 			<subdivision type="ir19" draft="contributed">Гилян муж</subdivision>
-			<subdivision type="ir32" draft="contributed">Альборз муж</subdivision>
+			<subdivision type="ir24" draft="contributed">Ардебиль муж²</subdivision>
+			<subdivision type="ir30" draft="contributed">Альборз муж</subdivision>
 			<subdivision type="it25" draft="contributed">Ломбард муж</subdivision>
 			<subdivision type="it62" draft="contributed">Лацио муж</subdivision>
 			<subdivision type="itkr" draft="contributed">Кротоне</subdivision>
@@ -338,6 +387,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="jp25" draft="contributed">Шига</subdivision>
 			<subdivision type="jp30" draft="contributed">Вакаяма</subdivision>
 			<subdivision type="jp39" draft="contributed">Кочи-кэн</subdivision>
+			<subdivision type="jp47" draft="contributed">Окинава</subdivision>
 			<subdivision type="kgb" draft="contributed">Баткен аймаг</subdivision>
 			<subdivision type="kgc" draft="contributed">Чүй муж</subdivision>
 			<subdivision type="kggb" draft="contributed">Бишкек</subdivision>
@@ -358,6 +408,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kp08" draft="contributed">Өмнө Хамгён</subdivision>
 			<subdivision type="kp09" draft="contributed">Умар Хамгён</subdivision>
 			<subdivision type="kp10" draft="contributed">Янган</subdivision>
+			<subdivision type="kp13" draft="contributed">Расон</subdivision>
 			<subdivision type="kp14" draft="contributed">Нампу</subdivision>
 			<subdivision type="kr11" draft="contributed">Сөүл</subdivision>
 			<subdivision type="kr26" draft="contributed">Пүсан</subdivision>
@@ -377,12 +428,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kr50" draft="contributed">Сэжун хот</subdivision>
 			<subdivision type="kzala" draft="contributed">Алматы</subdivision>
 			<subdivision type="kzast" draft="contributed">Астана</subdivision>
+			<subdivision type="kzshy" draft="contributed">Шымкент</subdivision>
 			<subdivision type="lach" draft="contributed">Чампасак аймаг</subdivision>
 			<subdivision type="lalp" draft="contributed">Луангпхабанг аймаг</subdivision>
 			<subdivision type="lasv" draft="contributed">Саваннакхет аймаг</subdivision>
 			<subdivision type="lavi" draft="contributed">Вьентьян аймаг</subdivision>
 			<subdivision type="lavt" draft="contributed">Вьентьян тойрог</subdivision>
 			<subdivision type="li07" draft="contributed">Шаан</subdivision>
+			<subdivision type="li09" draft="contributed">Трийзен</subdivision>
 			<subdivision type="li11" draft="contributed">Вадуц</subdivision>
 			<subdivision type="lvrix" draft="contributed">Рига</subdivision>
 			<subdivision type="macas" draft="contributed">Касабланка</subdivision>
@@ -432,6 +485,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pgncd" draft="contributed">Порт-Морсби</subdivision>
 			<subdivision type="pkba" draft="contributed">Балучистан</subdivision>
 			<subdivision type="pkpb" draft="contributed">Панжаб</subdivision>
+			<subdivision type="pl12" draft="contributed">Бага Польш муж</subdivision>
+			<subdivision type="pl16" draft="contributed">Ополе муж</subdivision>
+			<subdivision type="pl18" draft="contributed">Подкарпат муж</subdivision>
+			<subdivision type="pl20" draft="contributed">Подласки муж</subdivision>
+			<subdivision type="pl24" draft="contributed">Силези муж</subdivision>
 			<subdivision type="pl30" draft="contributed">Их Польш</subdivision>
 			<subdivision type="pl32" draft="contributed">Өрнөд Померан</subdivision>
 			<subdivision type="pt20" draft="contributed">Азорын арлууд</subdivision>
@@ -486,11 +544,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="rs04" draft="contributed">Өмнө Банат аймаг</subdivision>
 			<subdivision type="rs05" draft="contributed">Өрнө Бачка аймаг</subdivision>
 			<subdivision type="rs06" draft="contributed">Өмнө Бачка аймаг</subdivision>
+			<subdivision type="rs07" draft="contributed">Срем аймаг</subdivision>
+			<subdivision type="rs08" draft="contributed">Мачва аймаг</subdivision>
 			<subdivision type="rs09" draft="contributed">Колубар аймаг</subdivision>
 			<subdivision type="rs10" draft="contributed">Подунай аймаг</subdivision>
 			<subdivision type="rs11" draft="contributed">Браничев аймаг</subdivision>
 			<subdivision type="rs12" draft="contributed">Шумад аймаг</subdivision>
 			<subdivision type="rs13" draft="contributed">Поморав аймаг</subdivision>
+			<subdivision type="rs14" draft="contributed">Бор аймаг</subdivision>
 			<subdivision type="rs15" draft="contributed">Заечар аймаг</subdivision>
 			<subdivision type="rs16" draft="contributed">Златибор аймаг</subdivision>
 			<subdivision type="rs17" draft="contributed">Моравич аймаг</subdivision>
@@ -510,12 +571,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ruad" draft="contributed">Адыгей</subdivision>
 			<subdivision type="rual" draft="contributed">Алтайн Бүгд Найрамдах Улс</subdivision>
 			<subdivision type="rualt" draft="contributed">Алтайн хязгаар</subdivision>
+			<subdivision type="ruamu" draft="contributed">Амур муж</subdivision>
 			<subdivision type="ruark" draft="contributed">Архангельск муж</subdivision>
+			<subdivision type="ruast" draft="contributed">Астрахань муж</subdivision>
 			<subdivision type="ruba" draft="contributed">Башкортостан</subdivision>
+			<subdivision type="rubel" draft="contributed">Белгород муж</subdivision>
 			<subdivision type="rubry" draft="contributed">Брянск муж</subdivision>
 			<subdivision type="rubu" draft="contributed">Бүгд Найрамдах Буриад Улс</subdivision>
 			<subdivision type="ruce" draft="contributed">Чечень</subdivision>
 			<subdivision type="ruche" draft="contributed">Челябинск муж</subdivision>
+			<subdivision type="ruchu" draft="contributed">Чукоткийн өөртөө засах тойрог</subdivision>
 			<subdivision type="rucu" draft="contributed">Чуваш</subdivision>
 			<subdivision type="ruda" draft="contributed">Дагестан</subdivision>
 			<subdivision type="ruin" draft="contributed">Ингушет</subdivision>
@@ -529,37 +594,62 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="rukgd" draft="contributed">Калининград муж</subdivision>
 			<subdivision type="rukgn" draft="contributed">Курган муж</subdivision>
 			<subdivision type="rukha" draft="contributed">Хабаровскийн хязгаар</subdivision>
+			<subdivision type="rukhm" draft="contributed">Ханты-Мансийн өөртөө засах тойрог</subdivision>
 			<subdivision type="rukir" draft="contributed">Киров муж</subdivision>
 			<subdivision type="rukk" draft="contributed">Хакас</subdivision>
 			<subdivision type="rukl" draft="contributed">Бүгд Найрамдах Халимаг Улс</subdivision>
+			<subdivision type="ruklu" draft="contributed">Калуга муж</subdivision>
 			<subdivision type="ruko" draft="contributed">Коми</subdivision>
+			<subdivision type="rukos" draft="contributed">Кострома муж</subdivision>
 			<subdivision type="rukr" draft="contributed">Бүгд Найрамдах Карель Улс</subdivision>
+			<subdivision type="rukrs" draft="contributed">Курск муж</subdivision>
 			<subdivision type="rukya" draft="contributed">Красноярскийн хязгаар</subdivision>
 			<subdivision type="rulen" draft="contributed">Ленинград муж</subdivision>
+			<subdivision type="rulip" draft="contributed">Липецк муж</subdivision>
 			<subdivision type="rumag" draft="contributed">Магадан муж</subdivision>
 			<subdivision type="rume" draft="contributed">Мари Эл</subdivision>
 			<subdivision type="rumo" draft="contributed">Мордова</subdivision>
 			<subdivision type="rumos" draft="contributed">Москва муж</subdivision>
 			<subdivision type="rumow" draft="contributed">Москва</subdivision>
 			<subdivision type="rumur" draft="contributed">Мурманск муж</subdivision>
+			<subdivision type="runen" draft="contributed">Ненецийн өөртөө засах тойрог</subdivision>
+			<subdivision type="rungr" draft="contributed">Новгород муж</subdivision>
 			<subdivision type="runiz" draft="contributed">Нижегород муж</subdivision>
+			<subdivision type="runvs" draft="contributed">Новосибирск муж</subdivision>
+			<subdivision type="ruoms" draft="contributed">Омск муж</subdivision>
 			<subdivision type="ruore" draft="contributed">Оренбург муж</subdivision>
 			<subdivision type="ruorl" draft="contributed">Орёл муж</subdivision>
+			<subdivision type="ruper" draft="contributed">Пермийн хязгаар</subdivision>
+			<subdivision type="rupnz" draft="contributed">Пенза муж</subdivision>
+			<subdivision type="rupri" draft="contributed">Приморийн хязгаар</subdivision>
+			<subdivision type="rupsk" draft="contributed">Псков муж</subdivision>
 			<subdivision type="ruros" draft="contributed">Ростов муж</subdivision>
 			<subdivision type="rurya" draft="contributed">Рязань муж</subdivision>
 			<subdivision type="rusa" draft="contributed">Саха</subdivision>
 			<subdivision type="rusak" draft="contributed">Сахалин муж</subdivision>
+			<subdivision type="rusam" draft="contributed">Самара муж</subdivision>
+			<subdivision type="rusar" draft="contributed">Саратов муж</subdivision>
 			<subdivision type="ruse" draft="contributed">Хойд Осет-Алани</subdivision>
+			<subdivision type="rusmo" draft="contributed">Смоленск муж</subdivision>
 			<subdivision type="ruspe" draft="contributed">Санкт-Петербург</subdivision>
 			<subdivision type="rusta" draft="contributed">Ставрополийн хязгаар</subdivision>
+			<subdivision type="rusve" draft="contributed">Свердловск муж</subdivision>
 			<subdivision type="ruta" draft="contributed">Татарстан</subdivision>
+			<subdivision type="rutam" draft="contributed">Тамбов муж</subdivision>
+			<subdivision type="rutom" draft="contributed">Томск муж</subdivision>
 			<subdivision type="rutul" draft="contributed">Тула муж</subdivision>
 			<subdivision type="rutve" draft="contributed">Тверь муж</subdivision>
 			<subdivision type="ruty" draft="contributed">Бүгд Найрамдах Тува Улс</subdivision>
+			<subdivision type="rutyu" draft="contributed">Тюмень муж</subdivision>
 			<subdivision type="ruud" draft="contributed">Удмурт</subdivision>
 			<subdivision type="ruuly" draft="contributed">Ульяновск муж</subdivision>
+			<subdivision type="ruvgg" draft="contributed">Волгоград муж</subdivision>
 			<subdivision type="ruvla" draft="contributed">Владимир муж</subdivision>
+			<subdivision type="ruvlg" draft="contributed">Вологда муж</subdivision>
 			<subdivision type="ruvor" draft="contributed">Воронеж муж</subdivision>
+			<subdivision type="ruyan" draft="contributed">Ямало-Ненецийн өөртөө засах тойрог</subdivision>
+			<subdivision type="ruyar" draft="contributed">Ярославль муж</subdivision>
+			<subdivision type="ruyev" draft="contributed">Еврейн өөртөө засах муж</subdivision>
 			<subdivision type="ruzab" draft="contributed">Өвөр Байгалын хязгаар</subdivision>
 			<subdivision type="si129" draft="contributed">Трбовле</subdivision>
 			<subdivision type="skbl" draft="contributed">Братислав аймаг</subdivision>
@@ -570,6 +660,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="th10" draft="contributed">Бангкок</subdivision>
 			<subdivision type="th34" draft="contributed">Убонрачатхани аймаг</subdivision>
 			<subdivision type="tjdu" draft="contributed">Душанбе</subdivision>
+			<subdivision type="tjgb" draft="contributed">Горно-Бадахшан</subdivision>
 			<subdivision type="tma" draft="contributed">Ахал муж</subdivision>
 			<subdivision type="tmb" draft="contributed">Балкан муж</subdivision>
 			<subdivision type="tmd" draft="contributed">Дашогуз муж</subdivision>
@@ -588,6 +679,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="twkin" draft="contributed">Жиньмэнь</subdivision>
 			<subdivision type="twmia" draft="contributed">Мяоли</subdivision>
 			<subdivision type="twnan" draft="contributed">Наньтоу</subdivision>
+			<subdivision type="twnwt" draft="contributed">Шиньбэй</subdivision>
 			<subdivision type="twpen" draft="contributed">Пөнхү</subdivision>
 			<subdivision type="twpif" draft="contributed">Пиндун</subdivision>
 			<subdivision type="twtao" draft="contributed">Таоюань</subdivision>
@@ -653,6 +745,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="usnd" draft="contributed">Хойд Дакота</subdivision>
 			<subdivision type="usne" draft="contributed">Небраска</subdivision>
 			<subdivision type="usnh" draft="contributed">Нью-Хэмпшир</subdivision>
+			<subdivision type="usnj" draft="contributed">Нью-Жерси</subdivision>
 			<subdivision type="usnm" draft="contributed">Нью-Мексико</subdivision>
 			<subdivision type="usnv" draft="contributed">Невада</subdivision>
 			<subdivision type="usny" draft="contributed">Нью-Йорк Муж Улс</subdivision>

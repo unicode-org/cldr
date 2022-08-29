@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,9 +12,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<subdivisions>
+			<subdivision type="aeaz" draft="contributed">Abu Dhabi (Masarauta)</subdivision>
+			<subdivision type="aedu" draft="contributed">Dubai</subdivision>
 			<subdivision type="arc" draft="contributed">Buenos Aires</subdivision>
 			<subdivision type="at9" draft="contributed">Vienna</subdivision>
+			<subdivision type="azba" draft="contributed">Baku</subdivision>
+			<subdivision type="azxvd" draft="contributed">Dərəkənd, Khojavend</subdivision>
 			<subdivision type="bwga" draft="contributed">Gaborone</subdivision>
+			<subdivision type="byhm" draft="contributed">Miniska</subdivision>
 			<subdivision type="caqc" draft="contributed">Kebek</subdivision>
 			<subdivision type="cdkn" draft="contributed">Kinshasa</subdivision>
 			<subdivision type="cfbgf" draft="contributed">Bangui</subdivision>
@@ -27,15 +32,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cnmo" draft="contributed">Macau</subdivision>
 			<subdivision type="cnsh" draft="contributed">Shanghai</subdivision>
 			<subdivision type="cntj" draft="contributed">Tianjin</subdivision>
+			<subdivision type="codc" draft="contributed">Bogotá</subdivision>
+			<subdivision type="cvb" draft="contributed">Tsibirin Barlavento</subdivision>
 			<subdivision type="cz10" draft="contributed">Prag</subdivision>
 			<subdivision type="debe" draft="contributed">Berlin</subdivision>
 			<subdivision type="dehh" draft="contributed">Hamburg</subdivision>
 			<subdivision type="djdj" draft="contributed">Jibuti</subdivision>
+			<subdivision type="escn" draft="contributed">Canary Islands</subdivision>
 			<subdivision type="esct" draft="contributed">Katalunya</subdivision>
 			<subdivision type="etaa" draft="contributed">Addis Ababa</subdivision>
 			<subdivision type="etdd" draft="contributed">Dire Dawa</subdivision>
+			<subdivision type="fr20r" draft="contributed">Korsika</subdivision>
 			<subdivision type="fr75" draft="contributed">Pariis</subdivision>
-			<subdivision type="frcor" draft="contributed">Korsika</subdivision>
+			<subdivision type="fr75c" draft="contributed">Faris</subdivision>
+			<subdivision type="frnor" draft="contributed">Normandie</subdivision>
+			<subdivision type="frocc" draft="contributed">Occitanie</subdivision>
+			<subdivision type="frpdl" draft="contributed">Pays de la Loire</subdivision>
 			<subdivision type="gbbst" draft="contributed">Bristol</subdivision>
 			<subdivision type="gbglg" draft="contributed">Glasgow</subdivision>
 			<subdivision type="gblnd" draft="contributed">Landan</subdivision>
@@ -43,35 +55,91 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbpor" draft="contributed">Portsmouth</subdivision>
 			<subdivision type="gbsth" draft="contributed">Southampton</subdivision>
 			<subdivision type="gbukm" draft="contributed">Birtaniya</subdivision>
+			<subdivision type="geaj" draft="contributed">Adjara</subdivision>
+			<subdivision type="gegu" draft="contributed">Guria</subdivision>
+			<subdivision type="geim" draft="contributed">Imereti</subdivision>
 			<subdivision type="ghaa" draft="contributed">Yankin Greater Accra</subdivision>
 			<subdivision type="ghah" draft="contributed">Yankin Ashanti</subdivision>
 			<subdivision type="ghba" draft="contributed">Yankin Brong-Ahafo</subdivision>
+			<subdivision type="ghbo" draft="contributed">Yankin Bono</subdivision>
 			<subdivision type="ghcp" draft="contributed">Yankin Tsakiya (Ghana)</subdivision>
 			<subdivision type="ghep" draft="contributed">Yankin Gabashi (Ghana)</subdivision>
 			<subdivision type="ghnp" draft="contributed">Yankin Arewaci (Ghana)</subdivision>
+			<subdivision type="ghsv" draft="contributed">Yankin Savannah</subdivision>
 			<subdivision type="ghtv" draft="contributed">Yankin Volta</subdivision>
 			<subdivision type="ghue" draft="contributed">Yankin Upper East</subdivision>
 			<subdivision type="ghuw" draft="contributed">Yankin Upper West</subdivision>
 			<subdivision type="ghwp" draft="contributed">Yankin Yammaci, Ghana</subdivision>
 			<subdivision type="gmb" draft="contributed">Banjul</subdivision>
 			<subdivision type="gnc" draft="contributed">Conakry</subdivision>
+			<subdivision type="gwbs" draft="contributed">Bisau</subdivision>
+			<subdivision type="hr21" draft="contributed">Zagreb</subdivision>
+			<subdivision type="hubu" draft="contributed">Budapest</subdivision>
 			<subdivision type="idjk" draft="contributed">Jakarta</subdivision>
 			<subdivision type="idjw" draft="contributed">Java</subdivision>
 			<subdivision type="idsl" draft="contributed">Sulawesi</subdivision>
 			<subdivision type="idsm" draft="contributed">Sumatra</subdivision>
+			<subdivision type="inan" draft="contributed">Tsibiran Andaman da Nicobar</subdivision>
+			<subdivision type="inap" draft="contributed">Andhra Pradesh</subdivision>
+			<subdivision type="inar" draft="contributed">Arunachal Pradesh</subdivision>
+			<subdivision type="inas" draft="contributed">Assam</subdivision>
+			<subdivision type="inbr" draft="contributed">Bihar</subdivision>
+			<subdivision type="inct" draft="contributed">Chhattisgarh</subdivision>
+			<subdivision type="inga" draft="contributed">Goa</subdivision>
+			<subdivision type="ingj" draft="contributed">Gujarat</subdivision>
+			<subdivision type="inhp" draft="contributed">Himachal Pradesh</subdivision>
+			<subdivision type="inhr" draft="contributed">Haryana</subdivision>
+			<subdivision type="injh" draft="contributed">Jharkhand</subdivision>
+			<subdivision type="inka" draft="contributed">Karnataka</subdivision>
+			<subdivision type="inkl" draft="contributed">Kerala</subdivision>
+			<subdivision type="inld" draft="contributed">Lakshadweep</subdivision>
+			<subdivision type="inmh" draft="contributed">Maharashtra</subdivision>
+			<subdivision type="inml" draft="contributed">Meghalaya</subdivision>
+			<subdivision type="inmn" draft="contributed">Manipur</subdivision>
+			<subdivision type="inmp" draft="contributed">Madhya Pradesh</subdivision>
+			<subdivision type="inmz" draft="contributed">Mizoram</subdivision>
+			<subdivision type="innl" draft="contributed">Nagaland</subdivision>
+			<subdivision type="inor" draft="contributed">Odisha</subdivision>
+			<subdivision type="inpb" draft="contributed">Punjab (Indiya)</subdivision>
+			<subdivision type="inpy" draft="contributed">Puducherry (yanki)</subdivision>
+			<subdivision type="inrj" draft="contributed">Rajasthan</subdivision>
+			<subdivision type="insk" draft="contributed">Sikkim</subdivision>
+			<subdivision type="intg" draft="contributed">Telangana</subdivision>
+			<subdivision type="intn" draft="contributed">Tamil Nadu</subdivision>
+			<subdivision type="intr" draft="contributed">Tripura</subdivision>
+			<subdivision type="inup" draft="contributed">Uttar Pradesh</subdivision>
+			<subdivision type="inut" draft="contributed">Uttarakhand</subdivision>
+			<subdivision type="inwb" draft="contributed">Bengal ta Yamma</subdivision>
+			<subdivision type="iqka" draft="contributed">Karbala Governorate</subdivision>
+			<subdivision type="iqsd" draft="contributed">Saladin Governorate</subdivision>
+			<subdivision type="ir10" draft="contributed">Isfahan (Lardi)</subdivision>
+			<subdivision type="it75" draft="contributed">Apulia</subdivision>
+			<subdivision type="it78" draft="contributed">Calabria</subdivision>
 			<subdivision type="it82" draft="contributed">Sisiliya</subdivision>
 			<subdivision type="it88" draft="contributed">Sardiniya</subdivision>
 			<subdivision type="jp13" draft="contributed">Tokyo</subdivision>
+			<subdivision type="kggb" draft="contributed">Bishkek</subdivision>
+			<subdivision type="kh12" draft="contributed">Phnom Penh</subdivision>
+			<subdivision type="kmg" draft="contributed">Grande Comore</subdivision>
+			<subdivision type="kp01" draft="contributed">Pyongyang</subdivision>
 			<subdivision type="kr11" draft="contributed">Seoul</subdivision>
 			<subdivision type="kr26" draft="contributed">Busan</subdivision>
 			<subdivision type="kr27" draft="contributed">Daegu</subdivision>
 			<subdivision type="kr28" draft="contributed">Incheon</subdivision>
 			<subdivision type="kr30" draft="contributed">Daejeon</subdivision>
+			<subdivision type="kzast" draft="contributed">Nur-Sultan</subdivision>
 			<subdivision type="lvrix" draft="contributed">Riga</subdivision>
+			<subdivision type="lyba" draft="contributed">Benghazi</subdivision>
 			<subdivision type="macas" draft="contributed">Casablanca</subdivision>
+			<subdivision type="mafes" draft="contributed">Fas</subdivision>
 			<subdivision type="marab" draft="contributed">Rabat</subdivision>
+			<subdivision type="masal" draft="contributed">Salé</subdivision>
+			<subdivision type="matng" draft="contributed">Tanja</subdivision>
 			<subdivision type="mdbd" draft="contributed">Bender</subdivision>
+			<subdivision type="ml8" draft="contributed">Yankin Kidal</subdivision>
 			<subdivision type="mlbko" draft="contributed">Bamako</subdivision>
+			<subdivision type="mn1" draft="contributed">Ulan Bato</subdivision>
+			<subdivision type="mt58" draft="contributed">Taʼ Xbiex</subdivision>
 			<subdivision type="mupu" draft="contributed">Port Louis</subdivision>
 			<subdivision type="mxcmx" draft="contributed">Mexico</subdivision>
 			<subdivision type="my14" draft="contributed">Kuala Lumpur</subdivision>
@@ -98,6 +166,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="nged" draft="contributed">Edo</subdivision>
 			<subdivision type="ngek" draft="contributed">Ekiti</subdivision>
 			<subdivision type="ngen" draft="contributed">Enugu</subdivision>
+			<subdivision type="ngfc" draft="contributed">Babban Birnin Tarayya, Najeriya</subdivision>
 			<subdivision type="nggo" draft="contributed">Gombe</subdivision>
 			<subdivision type="ngim" draft="contributed">Imo</subdivision>
 			<subdivision type="ngji" draft="contributed">Jigawa</subdivision>
@@ -120,14 +189,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ngta" draft="contributed">Taraba</subdivision>
 			<subdivision type="ngyo" draft="contributed">Yobe</subdivision>
 			<subdivision type="ngza" draft="contributed">Zamfara</subdivision>
+			<subdivision type="no03" draft="contributed">Oslo</subdivision>
+			<subdivision type="no34" draft="contributed">Innlandet</subdivision>
+			<subdivision type="pgsan" draft="contributed">Sandaun Province</subdivision>
 			<subdivision type="pyasu" draft="contributed">Asunción</subdivision>
 			<subdivision type="qada" draft="contributed">Doha</subdivision>
+			<subdivision type="rob" draft="contributed">Bukarest</subdivision>
 			<subdivision type="rumow" draft="contributed">Moscow</subdivision>
 			<subdivision type="ruspe" draft="contributed">Saint-Petersburg</subdivision>
 			<subdivision type="rw01" draft="contributed">Kigali</subdivision>
+			<subdivision type="sa02" draft="contributed">yankin Makka</subdivision>
+			<subdivision type="sa05" draft="contributed">Yankin Al-Qassim</subdivision>
+			<subdivision type="sndb" draft="contributed">Yankin Diourbel</subdivision>
+			<subdivision type="tdmc" draft="contributed">Moyen-Chari (yanki)</subdivision>
 			<subdivision type="tdnd" draft="contributed">Ndjamena</subdivision>
+			<subdivision type="tdod" draft="contributed">Yankin Ouaddai</subdivision>
 			<subdivision type="th10" draft="contributed">Bangkok</subdivision>
+			<subdivision type="tr77" draft="contributed">Lardin Yalova</subdivision>
+			<subdivision type="ttpos" draft="contributed">Port of Spain</subdivision>
+			<subdivision type="tttob" draft="contributed">Tobago</subdivision>
+			<subdivision type="twkhh" draft="contributed">Kaohsiung</subdivision>
+			<subdivision type="twtao" draft="contributed">Taoyuan</subdivision>
+			<subdivision type="twtnn" draft="contributed">Tainan</subdivision>
 			<subdivision type="twtpe" draft="contributed">Taipei</subdivision>
+			<subdivision type="twtxg" draft="contributed">Taichung</subdivision>
+			<subdivision type="ua30" draft="contributed">Kiev</subdivision>
 			<subdivision type="usak" draft="contributed">Alaska</subdivision>
 			<subdivision type="usal" draft="contributed">Alabama</subdivision>
 			<subdivision type="usar" draft="contributed">Arkansas</subdivision>
@@ -137,24 +223,46 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="usct" draft="contributed">Connecticut</subdivision>
 			<subdivision type="usde" draft="contributed">Delaware</subdivision>
 			<subdivision type="usfl" draft="contributed">Florida</subdivision>
+			<subdivision type="usga" draft="contributed">Georgia (Tarayyar Amurka)</subdivision>
 			<subdivision type="ushi" draft="contributed">Hawaii</subdivision>
 			<subdivision type="usia" draft="contributed">Iowa</subdivision>
+			<subdivision type="usid" draft="contributed">Idaho</subdivision>
+			<subdivision type="usil" draft="contributed">Illinois</subdivision>
 			<subdivision type="usin" draft="contributed">Indiana</subdivision>
+			<subdivision type="usks" draft="contributed">Kansas</subdivision>
+			<subdivision type="usky" draft="contributed">Kentucky</subdivision>
+			<subdivision type="usla" draft="contributed">Louisiana</subdivision>
+			<subdivision type="usma" draft="contributed">Massachusetts</subdivision>
+			<subdivision type="usmd" draft="contributed">Maryland</subdivision>
+			<subdivision type="usme" draft="contributed">Maine (Tarayyar Amurka)</subdivision>
+			<subdivision type="usmi" draft="contributed">Michigan</subdivision>
+			<subdivision type="usmn" draft="contributed">Minnesota</subdivision>
+			<subdivision type="usmo" draft="contributed">Missouri (jiha)</subdivision>
+			<subdivision type="usms" draft="contributed">Mississippi (jiha)</subdivision>
 			<subdivision type="usmt" draft="contributed">Montana</subdivision>
+			<subdivision type="usnc" draft="contributed">North Carolina</subdivision>
 			<subdivision type="usnd" draft="contributed">North Dakota</subdivision>
 			<subdivision type="usne" draft="contributed">Nebraska</subdivision>
+			<subdivision type="usnh" draft="contributed">New Hampshire</subdivision>
+			<subdivision type="usnj" draft="contributed">New Jersey</subdivision>
 			<subdivision type="usnm" draft="contributed">New Mexico</subdivision>
 			<subdivision type="usnv" draft="contributed">Nevada</subdivision>
 			<subdivision type="usny" draft="contributed">New York (jiha)</subdivision>
 			<subdivision type="usoh" draft="contributed">Ohio</subdivision>
 			<subdivision type="usok" draft="contributed">Oklahoma</subdivision>
 			<subdivision type="usor" draft="contributed">Oregon</subdivision>
+			<subdivision type="uspa" draft="contributed">Pennsylvania</subdivision>
+			<subdivision type="usri" draft="contributed">Rhode Island</subdivision>
+			<subdivision type="ussc" draft="contributed">South Carolina</subdivision>
 			<subdivision type="ussd" draft="contributed">South Dakota</subdivision>
+			<subdivision type="ustn" draft="contributed">Tennessee</subdivision>
 			<subdivision type="ustx" draft="contributed">Texas</subdivision>
 			<subdivision type="usut" draft="contributed">Utah</subdivision>
 			<subdivision type="usva" draft="contributed">Virginia</subdivision>
 			<subdivision type="usvt" draft="contributed">Vermont</subdivision>
+			<subdivision type="uswa" draft="contributed">Washington (jiha)</subdivision>
 			<subdivision type="uswi" draft="contributed">Wisconsin</subdivision>
+			<subdivision type="uswv" draft="contributed">West Virginia</subdivision>
 			<subdivision type="uswy" draft="contributed">Wyoming</subdivision>
 			<subdivision type="uymo" draft="contributed">Montevideo</subdivision>
 			<subdivision type="vnct" draft="contributed">Can Tho</subdivision>

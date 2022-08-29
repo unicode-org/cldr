@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -17,6 +17,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ad04" draft="contributed">ಲಾ ಮಸಾನಾ</subdivision>
 			<subdivision type="ad05" draft="contributed">ಆರ್ಡಿನೋ</subdivision>
 			<subdivision type="ad06" draft="contributed">ಸ್ಯಾಂಟ್ ಜೂಲಿಯಾ ಡೆ ಲೊರಿಯಾ</subdivision>
+			<subdivision type="ad07" draft="contributed">ಅಂಡೋರಾ ಲಾ ವೆಲ್ಲಾ</subdivision>
 			<subdivision type="ad08" draft="contributed">ಎಸ್ಕಾಲ್ಡೆಸ್-ಎಂಗಾರ್ಡಿನಿ</subdivision>
 			<subdivision type="aeaj" draft="contributed">ಅಜ್ಮಾನ್ ಎಮಿರೇಟ್</subdivision>
 			<subdivision type="aeaz" draft="contributed">ಅಬುಧಾಬಿ ಎಮಿರೇಟ್</subdivision>
@@ -220,6 +221,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bb10" draft="contributed">ಸೇಂಟ್ ಫಿಲಿಪ್</subdivision>
 			<subdivision type="bb11" draft="contributed">ಸೇಂಟ್ ಥಾಮಸ್</subdivision>
 			<subdivision type="bd06" draft="contributed">ಬ್ಯಾರಿಸಲ್ ಜಿಲ್ಲೆ</subdivision>
+			<subdivision type="bd22" draft="contributed">ಜೆಸ್ಸೋರ್</subdivision>
 			<subdivision type="bd54" draft="contributed">ರಾಜ್ಶಾಹಿ ಜಿಲ್ಲೆ</subdivision>
 			<subdivision type="bd55" draft="contributed">ರಂಗ್ಪುರ್ ಜಿಲ್ಲೆ</subdivision>
 			<subdivision type="bd60" draft="contributed">ಸಿಲ್ಹೆತ್ ಜಿಲ್ಲೆ</subdivision>
@@ -870,6 +872,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="escb" draft="contributed">ಕ್ಯಾಂಥಬ್ರಿಯಾ</subdivision>
 			<subdivision type="escc" draft="contributed">ಕ್ಯಾಸೆರೆಸ್ ಪ್ರಾಂತ್ಯ</subdivision>
 			<subdivision type="esce" draft="contributed">ಸಿಯುಟಾ</subdivision>
+			<subdivision type="escn" draft="contributed">ಕೆನರಿ ದ್ವೀಪಗಳು</subdivision>
 			<subdivision type="esco" draft="contributed">ಕೊರ್ಡೊಬಾ ಪ್ರಾಂತ್ಯ</subdivision>
 			<subdivision type="escr" draft="contributed">ಸಿಯುಡಾಡ್ ರಿಯಲ್ ಪ್ರಾಂತ್ಯ</subdivision>
 			<subdivision type="escs" draft="contributed">ಕ್ಯಾಸ್ಟೆಲ್ಲನ್ ಪ್ರಾಂತ್ಯ</subdivision>
@@ -974,6 +977,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr17" draft="contributed">ಚರೆನ್ಟೆ-ಮಾರಿಟೈಮ್</subdivision>
 			<subdivision type="fr18" draft="contributed">ಚೆರ್</subdivision>
 			<subdivision type="fr19" draft="contributed">ಕಾರ್ರೀಜ್</subdivision>
+			<subdivision type="fr20r" draft="contributed">ಕಾರ್ಸಿಕ</subdivision>
 			<subdivision type="fr21" draft="contributed">ಕೋಟ್-ಡಿ‘ಒರ್</subdivision>
 			<subdivision type="fr22" draft="contributed">ಕೋಟ್ಸ್-ಡಿಆರ್ಮರ್</subdivision>
 			<subdivision type="fr23" draft="contributed">ಕ್ರೂಸ್</subdivision>
@@ -1028,7 +1032,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr72" draft="contributed">ಸಾರ್ಥೆ</subdivision>
 			<subdivision type="fr73" draft="contributed">ಸವೊಯಿ</subdivision>
 			<subdivision type="fr74" draft="contributed">ಹೌಟೆ-ಸವೊಯಿ</subdivision>
-			<subdivision type="fr75" draft="contributed">ಪ್ಯಾರಿಸ್</subdivision>
+			<subdivision type="fr75c" draft="contributed">ಪ್ಯಾರಿಸ್</subdivision>
 			<subdivision type="fr76" draft="contributed">ಸೀನ್-ಮಾರಿಟೈಮ್</subdivision>
 			<subdivision type="fr77" draft="contributed">ಸೀನ್-ಎಟ್-ಮರ್ನೆ</subdivision>
 			<subdivision type="fr78" draft="contributed">ಯವೆಲೆನ್ಸ್</subdivision>
@@ -1049,7 +1053,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr93" draft="contributed">ಸೈನ್-ಸೇಂಟ್-ಡೆನಿಸ್</subdivision>
 			<subdivision type="fr94" draft="contributed">ವ್ಯಾಲ್-ಡಿ-ಮರ್ನೆ</subdivision>
 			<subdivision type="fr95" draft="contributed">ವ್ಯಾಲ್-ಡೈಸ್</subdivision>
-			<subdivision type="frcor" draft="contributed">ಕಾರ್ಸಿಕ</subdivision>
+			<subdivision type="fr971" draft="contributed">ಗುಡೆಲೋಪ್</subdivision>
 			<subdivision type="ga1" draft="contributed">ಎಸ್ಟೂಯಿರ್ ಪ್ರಾಂತ್ಯ</subdivision>
 			<subdivision type="ga2" draft="contributed">ಹೌಟ್-ಓಗೊವೆ ಪ್ರಾಂತ್ಯ</subdivision>
 			<subdivision type="ga3" draft="contributed">ಮೊಯೆನ್-ಓಗೊವೆ ಪ್ರಾಂತ್ಯ</subdivision>
@@ -1104,6 +1108,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbedu" draft="contributed">ಈಸ್ಟ್ ಡನ್ಬಾರ್ಟನ್ಶೈರ್</subdivision>
 			<subdivision type="gbeln" draft="contributed">ಪೂರ್ವ ಲೋಥಿಯನ್</subdivision>
 			<subdivision type="gbenf" draft="contributed">ಲಂಡನ್ ಬರೋ ಆಫ್ ಎನ್ಫೀಲ್ಡ್</subdivision>
+			<subdivision type="gbeng" draft="contributed">ಇಂಗ್ಲೆಂಡ್</subdivision>
 			<subdivision type="gbery" draft="contributed">ಈಸ್ಟ್ ರೈಡಿಂಗ್ ಆಫ್ ಯಾರ್ಕ್ಷೈರ್</subdivision>
 			<subdivision type="gbess" draft="contributed">ಎಸ್ಸೆಕ್ಸ್</subdivision>
 			<subdivision type="gbesx" draft="contributed">ಪೂರ್ವ ಸಸೆಕ್ಸ್</subdivision>
@@ -1179,6 +1184,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbrut" draft="contributed">ರುಟ್ಲ್ಯಾಂಡ್</subdivision>
 			<subdivision type="gbsay" draft="contributed">ದಕ್ಷಿಣ ಐರ್ಶೈರ್</subdivision>
 			<subdivision type="gbscb" draft="contributed">ಸ್ಕಾಟಿಷ್ ಬಾರ್ಡರ್ಸ್</subdivision>
+			<subdivision type="gbsct" draft="contributed">ಸ್ಕಾಟ್ ಲ್ಯಾಂಡ್</subdivision>
 			<subdivision type="gbsfk" draft="contributed">ಸಫೊಲ್ಕ್</subdivision>
 			<subdivision type="gbsgc" draft="contributed">ಸೌತ್ ಗ್ಲೌಸೆಸ್ಟರ್ಶೈರ್</subdivision>
 			<subdivision type="gbshf" draft="contributed">ಷೆಫೀಲ್ಡ್</subdivision>
@@ -1203,8 +1209,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbwar" draft="contributed">ವಾರ್ವಿಕ್ಶೈರ್</subdivision>
 			<subdivision type="gbwbk" draft="contributed">ವೆಸ್ಟ್ ಬರ್ಕ್ಷೈರ್</subdivision>
 			<subdivision type="gbwft" draft="contributed">ಲಂಡನ್ ಬರೋ ಆಫ್ ವಾಲ್ತ್ ಫಾರೆಸ್ಟ್</subdivision>
+			<subdivision type="gbwil" draft="contributed">ವಿಲ್ಟ್ಶೈರ್</subdivision>
 			<subdivision type="gbwll" draft="contributed">ವಾಲ್ಸಾಲ್</subdivision>
 			<subdivision type="gbwln" draft="contributed">ವೆಸ್ಟ್ ಲೋಥಿಯನ್</subdivision>
+			<subdivision type="gbwls" draft="contributed">ವೇಲ್ಸ್</subdivision>
 			<subdivision type="gbwlv" draft="contributed">ವೋಲ್ವರ್ ಹಾಂಪ್ಟಾನ್</subdivision>
 			<subdivision type="gbwnm" draft="contributed">ವಿಂಡ್ಸರ್ ಮತ್ತು ಮೇಡನ್ ಹೆಡ್</subdivision>
 			<subdivision type="gbwok" draft="contributed">ವೋಕಿಂಗ್ಹ್ಯಾಮ್</subdivision>
@@ -1303,28 +1311,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="grj" draft="contributed">ಪೆಲೋಪೋನೀಸ್ ಪ್ರದೇಶ</subdivision>
 			<subdivision type="grk" draft="contributed">ಉತ್ತರ ಏಜಿಯನ್ ಪ್ರದೇಶ</subdivision>
 			<subdivision type="grl" draft="contributed">ದಕ್ಷಿಣ ಏಜಿಯನ್</subdivision>
-			<subdivision type="gtav" draft="contributed">ಅಲ್ಟಾ ವೆರಾಪಾಸ್ ಇಲಾಖೆ</subdivision>
-			<subdivision type="gtbv" draft="contributed">ಬಾಜಾ ವೆರಾಪಾಜ್ ಇಲಾಖೆ</subdivision>
-			<subdivision type="gtcm" draft="contributed">ಚಿಮಾಲ್ಟೆನಾಂಗೊ ಇಲಾಖೆ</subdivision>
-			<subdivision type="gtcq" draft="contributed">ಚಿಕ್ವಿಮುಲಾ ಇಲಾಖೆ</subdivision>
-			<subdivision type="gtes" draft="contributed">ಎಸ್ಕುಂಟಿಲಾ ಇಲಾಖೆ</subdivision>
-			<subdivision type="gtgu" draft="contributed">ಗ್ವಾಟೆಮಾಲಾ ಇಲಾಖೆ</subdivision>
-			<subdivision type="gthu" draft="contributed">ಹ್ಯುಹೆಟೆನಾಂಗೊ ಇಲಾಖೆ</subdivision>
-			<subdivision type="gtiz" draft="contributed">ಇಝಾಬಾಲ್ ಇಲಾಖೆ</subdivision>
-			<subdivision type="gtja" draft="contributed">ಜಲಪ ಇಲಾಖೆ</subdivision>
-			<subdivision type="gtju" draft="contributed">ಜುಟಿಯಾ ಇಲಾಖೆ</subdivision>
-			<subdivision type="gtpe" draft="contributed">ಪೆಟೆನ್ ಇಲಾಖೆ</subdivision>
-			<subdivision type="gtpr" draft="contributed">ಎಲ್ ಪ್ರೋಗ್ರೆಸ್ಸೋ ಇಲಾಖೆ</subdivision>
-			<subdivision type="gtqc" draft="contributed">ಕ್ವಿಚ್ ಇಲಾಖೆ</subdivision>
-			<subdivision type="gtqz" draft="contributed">ಕ್ವೆಟ್ಝಲ್ಟೆನಾಂಗೊ ಇಲಾಖೆ</subdivision>
-			<subdivision type="gtre" draft="contributed">ರೆಟಲ್ಹ್ಯೂಲು ಇಲಾಖೆ</subdivision>
-			<subdivision type="gtsa" draft="contributed">ಸಕೆಟೆಪೆಕ್ವೆಜ್ ಇಲಾಖೆ</subdivision>
-			<subdivision type="gtsm" draft="contributed">ಸ್ಯಾನ್ ಮಾರ್ಕೊಸ್ ಇಲಾಖೆ</subdivision>
-			<subdivision type="gtso" draft="contributed">ಸೊಲೊಲಾ ಇಲಾಖೆ</subdivision>
-			<subdivision type="gtsr" draft="contributed">ಸಾಂಟಾ ರೋಸಾ ಇಲಾಖೆ</subdivision>
-			<subdivision type="gtsu" draft="contributed">ಸಸಿಟೆಪೆಕ್ವೆಜ್ ಇಲಾಖೆ</subdivision>
-			<subdivision type="gtto" draft="contributed">ಟೊಟೊನಿಕಾಪಾನ್ ಇಲಾಖೆ</subdivision>
-			<subdivision type="gtza" draft="contributed">ಜಕಪಾ ಇಲಾಖೆ</subdivision>
+			<subdivision type="gt01" draft="contributed">ಗ್ವಾಟೆಮಾಲಾ ಇಲಾಖೆ</subdivision>
+			<subdivision type="gt02" draft="contributed">ಎಲ್ ಪ್ರೋಗ್ರೆಸ್ಸೋ ಇಲಾಖೆ</subdivision>
+			<subdivision type="gt03" draft="contributed">ಸಕೆಟೆಪೆಕ್ವೆಜ್ ಇಲಾಖೆ</subdivision>
+			<subdivision type="gt04" draft="contributed">ಚಿಮಾಲ್ಟೆನಾಂಗೊ ಇಲಾಖೆ</subdivision>
+			<subdivision type="gt05" draft="contributed">ಎಸ್ಕುಂಟಿಲಾ ಇಲಾಖೆ</subdivision>
+			<subdivision type="gt06" draft="contributed">ಸಾಂಟಾ ರೋಸಾ ಇಲಾಖೆ</subdivision>
+			<subdivision type="gt07" draft="contributed">ಸೊಲೊಲಾ ಇಲಾಖೆ</subdivision>
+			<subdivision type="gt08" draft="contributed">ಟೊಟೊನಿಕಾಪಾನ್ ಇಲಾಖೆ</subdivision>
+			<subdivision type="gt09" draft="contributed">ಕ್ವೆಟ್ಝಲ್ಟೆನಾಂಗೊ ಇಲಾಖೆ</subdivision>
+			<subdivision type="gt10" draft="contributed">ಸಸಿಟೆಪೆಕ್ವೆಜ್ ಇಲಾಖೆ</subdivision>
+			<subdivision type="gt11" draft="contributed">ರೆಟಲ್ಹ್ಯೂಲು ಇಲಾಖೆ</subdivision>
+			<subdivision type="gt12" draft="contributed">ಸ್ಯಾನ್ ಮಾರ್ಕೊಸ್ ಇಲಾಖೆ</subdivision>
+			<subdivision type="gt13" draft="contributed">ಹ್ಯುಹೆಟೆನಾಂಗೊ ಇಲಾಖೆ</subdivision>
+			<subdivision type="gt14" draft="contributed">ಕ್ವಿಚ್ ಇಲಾಖೆ</subdivision>
+			<subdivision type="gt15" draft="contributed">ಬಾಜಾ ವೆರಾಪಾಜ್ ಇಲಾಖೆ</subdivision>
+			<subdivision type="gt16" draft="contributed">ಅಲ್ಟಾ ವೆರಾಪಾಸ್ ಇಲಾಖೆ</subdivision>
+			<subdivision type="gt17" draft="contributed">ಪೆಟೆನ್ ಇಲಾಖೆ</subdivision>
+			<subdivision type="gt18" draft="contributed">ಇಝಾಬಾಲ್ ಇಲಾಖೆ</subdivision>
+			<subdivision type="gt19" draft="contributed">ಜಕಪಾ ಇಲಾಖೆ</subdivision>
+			<subdivision type="gt20" draft="contributed">ಚಿಕ್ವಿಮುಲಾ ಇಲಾಖೆ</subdivision>
+			<subdivision type="gt21" draft="contributed">ಜಲಪ ಇಲಾಖೆ</subdivision>
+			<subdivision type="gt22" draft="contributed">ಜುಟಿಯಾ ಇಲಾಖೆ</subdivision>
 			<subdivision type="gwba" draft="contributed">ಬಫಾಟಾ ಪ್ರದೇಶ</subdivision>
 			<subdivision type="gwbl" draft="contributed">ಬೋಲಾಮಾ ಪ್ರದೇಶ</subdivision>
 			<subdivision type="gwbm" draft="contributed">ಬಯೋಂಬೊ ಪ್ರದೇಶ</subdivision>
@@ -1496,6 +1504,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inch" draft="contributed">ಚಂಡೀಗಡ</subdivision>
 			<subdivision type="inct" draft="contributed">ಛತ್ತೀಸ್‌ಘಡ್</subdivision>
 			<subdivision type="indd" draft="contributed">ದಮನ್ ಮತ್ತು ದಿಯು</subdivision>
+			<subdivision type="indh" draft="contributed">ದಾದ್ರಾ ಮತ್ತು ನಗರ್ ಹವೇಲಿ ಮತ್ತು ದಮನ್ ಮತ್ತು ದಿಯು</subdivision>
 			<subdivision type="indl" draft="contributed">ದೆಹಲಿ</subdivision>
 			<subdivision type="indn" draft="contributed">ದಾದ್ರ ಮತ್ತು ನಗರ್ ಹವೆಲಿ</subdivision>
 			<subdivision type="inga" draft="contributed">ಗೋವಾ</subdivision>
@@ -1506,6 +1515,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="injk" draft="contributed">ಜಮ್ಮು ಮತ್ತು ಕಾಶ್ಮೀರ</subdivision>
 			<subdivision type="inka" draft="contributed">ಕರ್ನಾಟಕ</subdivision>
 			<subdivision type="inkl" draft="contributed">ಕೇರಳ</subdivision>
+			<subdivision type="inla" draft="contributed">ಲಡಾಖ್</subdivision>
 			<subdivision type="inld" draft="contributed">ಲಕ್ಷದ್ವೀಪ</subdivision>
 			<subdivision type="inmh" draft="contributed">ಮಹಾರಾಷ್ಟ್ರ</subdivision>
 			<subdivision type="inml" draft="contributed">ಮೆಘಾಲಯ</subdivision>
@@ -1541,13 +1551,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="iqsd" draft="contributed">ಸಲಾದಿನ್ ಗವರ್ನೇಟ್</subdivision>
 			<subdivision type="iqsu" draft="contributed">ಸುಲೈಮಾನಿಯಾ ಗವರ್ನೇಟ್</subdivision>
 			<subdivision type="iqwa" draft="contributed">ವಾಸಿತ್ ಗವರ್ನೇಟ್</subdivision>
+			<subdivision type="ir00" draft="contributed">ಮಾರ್ಕಝಿ ಪ್ರಾಂತ್ಯ²</subdivision>
 			<subdivision type="ir01" draft="contributed">ಪೂರ್ವ ಅಜೆರ್ಬೈಜಾನ್ ಪ್ರಾಂತ್ಯ</subdivision>
 			<subdivision type="ir02" draft="contributed">ಪಶ್ಚಿಮ ಅಜರ್ಬೈಜಾನ್ ಪ್ರಾಂತ್ಯ</subdivision>
 			<subdivision type="ir03" draft="contributed">ಆರ್ಡಬಿಲ್ ಪ್ರಾಂತ್ಯ</subdivision>
 			<subdivision type="ir04" draft="contributed">ಇಸ್ಫಾನ್ ಪ್ರಾಂತ್ಯ</subdivision>
+			<subdivision type="ir05" draft="contributed">ಕೆರ್ಮನ್ಶಾ ಪ್ರಾಂತ್ಯ²</subdivision>
+			<subdivision type="ir06" draft="contributed">ಖುಜೆಸ್ತಾನ್ ಪ್ರಾಂತ್ಯ²</subdivision>
 			<subdivision type="ir07" draft="contributed">ಟೆಹ್ರಾನ್ ಪ್ರಾಂತ್ಯ</subdivision>
 			<subdivision type="ir08" draft="contributed">ಚಹರ್ಮಹಲ್ ಮತ್ತು ಬಖ್ತರಿ ಪ್ರಾಂತ್ಯ</subdivision>
+			<subdivision type="ir09" draft="contributed">ರಝವಿ ಖೊರಾಸನ್ ಪ್ರಾಂತ್ಯ²</subdivision>
 			<subdivision type="ir10" draft="contributed">ಖುಜೆಸ್ತಾನ್ ಪ್ರಾಂತ್ಯ</subdivision>
+			<subdivision type="ir11" draft="contributed">ಸಿಸ್ತಾನ್ ಮತ್ತು ಬಾಲ್ಲುಚೆಥಾನ್²</subdivision>
+			<subdivision type="ir12" draft="contributed">ಕುರ್ದಿಸ್ತಾನ ಪ್ರಾಂತ್ಯ²</subdivision>
 			<subdivision type="ir13" draft="contributed">ಸಿಸ್ತಾನ್ ಮತ್ತು ಬಾಲ್ಲುಚೆಥಾನ್</subdivision>
 			<subdivision type="ir14" draft="contributed">ಫಾರ್ಸ್ ಪ್ರಾಂತ್ಯ</subdivision>
 			<subdivision type="ir15" draft="contributed">ಕರ್ಮನ್ ಪ್ರಾಂತ್ಯ</subdivision>
@@ -1558,7 +1574,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ir20" draft="contributed">ಲೊರೆಸ್ತಾನ್ ಪ್ರಾಂತ್ಯ</subdivision>
 			<subdivision type="ir21" draft="contributed">ಮಜಂದರನ್ ಪ್ರಾಂತ್ಯ</subdivision>
 			<subdivision type="ir22" draft="contributed">ಮಾರ್ಕಝಿ ಪ್ರಾಂತ್ಯ</subdivision>
+			<subdivision type="ir23" draft="contributed">ಟೆಹ್ರಾನ್ ಪ್ರಾಂತ್ಯ²</subdivision>
 			<subdivision type="ir24" draft="contributed">ಹಮಾದಾನ್ ಪ್ರಾಂತ್ಯ</subdivision>
+			<subdivision type="ir25" draft="contributed">ಕ್ವೋಮ್ ಪ್ರಾಂತ್ಯ²</subdivision>
 			<subdivision type="ir26" draft="contributed">ಕ್ವೋಮ್ ಪ್ರಾಂತ್ಯ</subdivision>
 			<subdivision type="ir27" draft="contributed">ಗೋಲಿಸ್ತಾನ್ ಪ್ರಾಂತ್ಯ</subdivision>
 			<subdivision type="ir28" draft="contributed">ಖಜ್ವಿನ್ ಪ್ರಾಂತ್ಯ</subdivision>
@@ -1844,6 +1862,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kzman" draft="contributed">ಮಂಗೈಸ್ಟೌ ಪ್ರದೇಶ</subdivision>
 			<subdivision type="kzpav" draft="contributed">ಪವ್ಲೋಡರ್ ಪ್ರಾಂತ್ಯ</subdivision>
 			<subdivision type="kzsev" draft="contributed">ಉತ್ತರ ಕಝಾಕಿಸ್ತಾನ್ ಪ್ರಾಂತ್ಯ</subdivision>
+			<subdivision type="kzshy" draft="contributed">ಶಿಮ್ಕೆಂಟ್</subdivision>
 			<subdivision type="kzvos" draft="contributed">ಪೂರ್ವ ಕಝಾಕಿಸ್ತಾನ್ ಪ್ರದೇಶ</subdivision>
 			<subdivision type="kzyuz" draft="contributed">ದಕ್ಷಿಣ ಕಝಾಕಿಸ್ತಾನ್ ಪ್ರದೇಶ</subdivision>
 			<subdivision type="kzzap" draft="contributed">ಪಶ್ಚಿಮ ಕಝಾಕಿಸ್ತಾನ್ ಪ್ರಾಂತ್ಯ</subdivision>
@@ -2077,6 +2096,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ma15" draft="contributed">ಲಯೌನೆ-ಬೌಜಡೋರ್-ಸಕಿಯ ಎಲ್ ಹಮ್ರಾ</subdivision>
 			<subdivision type="maagd" draft="contributed">ಅಗಡಿರ್</subdivision>
 			<subdivision type="macas" draft="contributed">ಕಾಸಾಬ್ಲಾಂಕಾ</subdivision>
+			<subdivision type="mafes" draft="contributed">ಫೆಜ್ (ಪ್ರಿಫೆಕ್ಚರ್)</subdivision>
 			<subdivision type="mague" draft="contributed">ಗುಲ್ಮಿಮ್ ಪ್ರಾಂತ್ಯ</subdivision>
 			<subdivision type="mamek" draft="contributed">ಮೆಕ್ನೆಸ್</subdivision>
 			<subdivision type="mammd" draft="contributed">ಮಾರಕೇಶ್</subdivision>
@@ -2145,64 +2165,64 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mhl" draft="contributed">ರಾಲಿಕ್ ಚೈನ್</subdivision>
 			<subdivision type="mhmaj" draft="contributed">ಮಜುರೊ</subdivision>
 			<subdivision type="mht" draft="contributed">ರಟಾಕ್ ಚೈನ್</subdivision>
-			<subdivision type="mk02" draft="contributed">ಅರಾಸಿನೊವೊ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk03" draft="contributed">ಬೆರೊವೊ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk04" draft="contributed">ಬಿಟೋಲಾ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk05" draft="contributed">ಬೊಗ್ದಾನ್ಸಿ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk06" draft="contributed">ಬೊಗೊವಿನ್ಜೆ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk07" draft="contributed">ಬೋಸಿಲೋವೊ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk08" draft="contributed">ಬ್ರೆವ್ನಿಕಾ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk11" draft="contributed">ವಾಸಿಲಿವೊ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk14" draft="contributed">ವಿನಿಕ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk19" draft="contributed">ಗೋಸ್ಟಿವಾ್ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk20" draft="contributed">ಗ್ರಾಡ್ಸ್ಕೊ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk21" draft="contributed">ಡೆಬಾರ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk22" draft="contributed">ಡೆಬಾರ್ಕಾ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk23" draft="contributed">ಡೆಲ್ಸೆವೊ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk27" draft="contributed">ಡೊಲ್ನೆನಿ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk30" draft="contributed">ಝೆಲಿನೋ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk32" draft="contributed">ಝೆಲೆನಿಕೋವೊ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk33" draft="contributed">ಜರ್ನೋವಿ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk34" draft="contributed">ಇಲಿನಂಡೆ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk35" draft="contributed">ಜೆಗುನೋವೆಸ್ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk36" draft="contributed">ಕವಡಾರ್ಸಿ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk37" draft="contributed">ಕಾರ್ಬಿನ್ಸಿ</subdivision>
-			<subdivision type="mk40" draft="contributed">ಕಿಸೆವೊ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk41" draft="contributed">ಕೊನ್ಸೆ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk42" draft="contributed">ಕೊಕ್ಕಾನಿ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk43" draft="contributed">ಕ್ರಾಟೊವೊ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk44" draft="contributed">ಕ್ರಿವಾ ಪಲಂಕಾ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk45" draft="contributed">ಕ್ರಿಯೋವಾಸ್ಟಾನಿ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk46" draft="contributed">ಕ್ರುಸೇವೊ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk47" draft="contributed">ಕುಮಾನೊವೊ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk48" draft="contributed">ಲಿಪ್ಕೋವೊ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk49" draft="contributed">ಲೊಝೊವೊ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk50" draft="contributed">ಮಾವ್ರೋವೊ ಮತ್ತು ರೊಸ್ಟುಸಾ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk51" draft="contributed">ಮ್ಯಾಕೆಡೊನ್ಸ್ಕಾ ಕಾಮೆನಿಕ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk52" draft="contributed">ಮ್ಯಾಕ್ಡೊನ್ಸ್ಕಿ ಬ್ರಾಡ್ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk54" draft="contributed">ನೆಗೊಟಿನೋ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk56" draft="contributed">ನೊವೊ ಸೇಲೋ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk58" draft="contributed">ಓಹಿರ್ದ್ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk60" draft="contributed">ಪೆಹೆಸೆವೊ ಮುನ್ಸಿಪಾಲಿಟಿ</subdivision>
-			<subdivision type="mk61" draft="contributed">ಪ್ಲಾಸ್ನಿಕ್ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk62" draft="contributed">ಪ್ರಿಲೆಪ್ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk63" draft="contributed">ಪ್ರೋಬಿಸ್ಟಿಪ್ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk64" draft="contributed">ರಾಡೋವಿಸ್ ಮುನ್ಸಿಪಾಲಿಟಿ</subdivision>
-			<subdivision type="mk65" draft="contributed">ರಾಂಕೋವ್ಸ್ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk66" draft="contributed">ರೆಸೆನ್ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk69" draft="contributed">ಸ್ವೆಟಿ ನಿಕೋಲ್ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk70" draft="contributed">ಸೋಪಿಸ್ಟೆ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk72" draft="contributed">ಸ್ಟ್ರುಗ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk73" draft="contributed">ಸ್ಟ್ರುಮಿಕ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk74" draft="contributed">ಸ್ಟಡೀನಿಕಾನಿ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk75" draft="contributed">ಟಿಯರ್ಸ್ ಮುನ್ಸಿಪಾಲಿಟಿ</subdivision>
-			<subdivision type="mk76" draft="contributed">ಟೆಟವೊ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk78" draft="contributed">ಸೆಂಟರ್ ಝುಪಾ ಮುನ್ಸಿಪಾಲಿಟಿ</subdivision>
-			<subdivision type="mk80" draft="contributed">ಸಿಸ್ಕಾ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk81" draft="contributed">ಚೆಸಿನೋವೊ-ಓಲಿಸೆವೊ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk82" draft="contributed">ಕ್ಯುಕರ್-ಸ್ಯಾಂಡೆವೊ ಪುರಸಭೆ</subdivision>
-			<subdivision type="mk83" draft="contributed">ಸ್ಟಿಪ್ ಪುರಸಭೆ</subdivision>
 			<subdivision type="mk85" draft="contributed">ಸ್ಕೋ‍ಪಿಯಾ</subdivision>
+			<subdivision type="mk102" draft="contributed">ಗ್ರಾಡ್ಸ್ಕೊ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk104" draft="contributed">ಕವಡಾರ್ಸಿ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk105" draft="contributed">ಲೊಝೊವೊ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk106" draft="contributed">ನೆಗೊಟಿನೋ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk108" draft="contributed">ಸ್ವೆಟಿ ನಿಕೋಲ್ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk109" draft="contributed">ಸಿಸ್ಕಾ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk201" draft="contributed">ಬೆರೊವೊ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk202" draft="contributed">ವಿನಿಕ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk203" draft="contributed">ಡೆಲ್ಸೆವೊ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk204" draft="contributed">ಜರ್ನೋವಿ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk205" draft="contributed">ಕಾರ್ಬಿನ್ಸಿ</subdivision>
+			<subdivision type="mk206" draft="contributed">ಕೊಕ್ಕಾನಿ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk207" draft="contributed">ಮ್ಯಾಕೆಡೊನ್ಸ್ಕಾ ಕಾಮೆನಿಕ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk208" draft="contributed">ಪೆಹೆಸೆವೊ ಮುನ್ಸಿಪಾಲಿಟಿ</subdivision>
+			<subdivision type="mk209" draft="contributed">ಪ್ರೋಬಿಸ್ಟಿಪ್ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk210" draft="contributed">ಚೆಸಿನೋವೊ-ಓಲಿಸೆವೊ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk211" draft="contributed">ಸ್ಟಿಪ್ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk303" draft="contributed">ಡೆಬಾರ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk304" draft="contributed">ಡೆಬಾರ್ಕಾ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk307" draft="contributed">ಕಿಸೆವೊ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk308" draft="contributed">ಮ್ಯಾಕ್ಡೊನ್ಸ್ಕಿ ಬ್ರಾಡ್ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk310" draft="contributed">ಓಹಿರ್ದ್ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk311" draft="contributed">ಪ್ಲಾಸ್ನಿಕ್ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk312" draft="contributed">ಸ್ಟ್ರುಗ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk313" draft="contributed">ಸೆಂಟರ್ ಝುಪಾ ಮುನ್ಸಿಪಾಲಿಟಿ</subdivision>
+			<subdivision type="mk401" draft="contributed">ಬೊಗ್ದಾನ್ಸಿ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk402" draft="contributed">ಬೋಸಿಲೋವೊ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk404" draft="contributed">ವಾಸಿಲಿವೊ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk407" draft="contributed">ಕೊನ್ಸೆ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk408" draft="contributed">ನೊವೊ ಸೇಲೋ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk409" draft="contributed">ರಾಡೋವಿಸ್ ಮುನ್ಸಿಪಾಲಿಟಿ</subdivision>
+			<subdivision type="mk410" draft="contributed">ಸ್ಟ್ರುಮಿಕ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk501" draft="contributed">ಬಿಟೋಲಾ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk503" draft="contributed">ಡೊಲ್ನೆನಿ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk504" draft="contributed">ಕ್ರಿಯೋವಾಸ್ಟಾನಿ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk505" draft="contributed">ಕ್ರುಸೇವೊ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk508" draft="contributed">ಪ್ರಿಲೆಪ್ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk509" draft="contributed">ರೆಸೆನ್ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk601" draft="contributed">ಬೊಗೊವಿನ್ಜೆ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk602" draft="contributed">ಬ್ರೆವ್ನಿಕಾ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk604" draft="contributed">ಗೋಸ್ಟಿವಾ್ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk605" draft="contributed">ಝೆಲಿನೋ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk606" draft="contributed">ಜೆಗುನೋವೆಸ್ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk607" draft="contributed">ಮಾವ್ರೋವೊ ಮತ್ತು ರೊಸ್ಟುಸಾ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk608" draft="contributed">ಟಿಯರ್ಸ್ ಮುನ್ಸಿಪಾಲಿಟಿ</subdivision>
+			<subdivision type="mk609" draft="contributed">ಟೆಟವೊ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk701" draft="contributed">ಕ್ರಾಟೊವೊ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk702" draft="contributed">ಕ್ರಿವಾ ಪಲಂಕಾ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk703" draft="contributed">ಕುಮಾನೊವೊ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk704" draft="contributed">ಲಿಪ್ಕೋವೊ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk705" draft="contributed">ರಾಂಕೋವ್ಸ್ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk802" draft="contributed">ಅರಾಸಿನೊವೊ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk806" draft="contributed">ಝೆಲೆನಿಕೋವೊ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk807" draft="contributed">ಇಲಿನಂಡೆ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk812" draft="contributed">ಸೋಪಿಸ್ಟೆ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk813" draft="contributed">ಸ್ಟಡೀನಿಕಾನಿ ಪುರಸಭೆ</subdivision>
+			<subdivision type="mk816" draft="contributed">ಕ್ಯುಕರ್-ಸ್ಯಾಂಡೆವೊ ಪುರಸಭೆ</subdivision>
 			<subdivision type="ml1" draft="contributed">ಕೇಯ್ಸ್ ಪ್ರದೇಶ</subdivision>
 			<subdivision type="ml2" draft="contributed">ಕೌಲಿಕೊರೋ ಪ್ರದೇಶ</subdivision>
 			<subdivision type="ml3" draft="contributed">ಸಿಕಸ್ಸೊ ಪ್ರದೇಶ</subdivision>
@@ -2987,6 +3007,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="sc11" draft="contributed">ಕ್ಯಾಸ್ಕೇಡ್</subdivision>
 			<subdivision type="sc12" draft="contributed">ಗ್ಲೇಸಿಸ್</subdivision>
 			<subdivision type="sc14" draft="contributed">ಗ್ರ್ಯಾಂಡ್‘ಅನ್ಸೆ ಪ್ರಸ್ಲಿನ್</subdivision>
+			<subdivision type="sc15" draft="contributed">ಲಾ ಡಿಗ್ ಮತ್ತು ಇನ್ನರ್ ಐಲ್ಯಾಂಡ್ಸ್</subdivision>
 			<subdivision type="sc16" draft="contributed">ಲಾ ರಿವಿಯರ್ ಆಂಗ್ಲೈಸ್</subdivision>
 			<subdivision type="sc17" draft="contributed">ಮಾಂಟ್ ಬಕ್ಸ್ಟನ್</subdivision>
 			<subdivision type="sc18" draft="contributed">ಮಾಂಟ್ ಫ್ಲೂರಿ</subdivision>
@@ -3549,6 +3570,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="twkin" draft="contributed">ಕಿನ್ಮೆನ್</subdivision>
 			<subdivision type="twmia" draft="contributed">ಮಿಯಾಲಿ ಕೌಂಟಿ</subdivision>
 			<subdivision type="twnan" draft="contributed">ನಾಂಟೌ ಕೌಂಟಿ</subdivision>
+			<subdivision type="twnwt" draft="contributed">ಹೊಸ ತೈಪೆ ನಗರ</subdivision>
 			<subdivision type="twpif" draft="contributed">ಪಿಂಗ್ಟಂಗ್ ಕೌಂಟಿ</subdivision>
 			<subdivision type="twtao" draft="contributed">ತಾವೋಯೂನ್</subdivision>
 			<subdivision type="twtnn" draft="contributed">ತೈನೆನ್</subdivision>
@@ -3942,11 +3964,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="yeta" draft="contributed">ತಾಯಿಜ್ ಗವರ್ನೇಟ್</subdivision>
 			<subdivision type="zaec" draft="contributed">ಪೂರ್ವ ಕೇಪ್</subdivision>
 			<subdivision type="zafs" draft="contributed">ಮುಕ್ತ ರಾಜ್ಯ</subdivision>
-			<subdivision type="zagt" draft="contributed">ಗೌಟೆಂಗ್</subdivision>
+			<subdivision type="zagp" draft="contributed">ಗೌಟೆಂಗ್</subdivision>
+			<subdivision type="zakzn" draft="contributed">ಕ್ವಾಝುಲು-ನಟಾಲ್</subdivision>
 			<subdivision type="zalp" draft="contributed">ಲಿಂಪೊಪೋ</subdivision>
 			<subdivision type="zamp" draft="contributed">ಮಪುಮಾಲಂಗಾ</subdivision>
 			<subdivision type="zanc" draft="contributed">ಉತ್ತರ ಕೇಪ್</subdivision>
-			<subdivision type="zanl" draft="contributed">ಕ್ವಾಝುಲು-ನಟಾಲ್</subdivision>
 			<subdivision type="zanw" draft="contributed">ವಾಯುವ್ಯ ದ. ಆಫ್ರಿಕಾ ಪ್ರದೇಶ</subdivision>
 			<subdivision type="zawc" draft="contributed">ವೆಸ್ಟರ್ನ್ ಕೇಪ್</subdivision>
 			<subdivision type="zm01" draft="contributed">ಪಶ್ಚಿಮ ಪ್ರಾಂತ್ಯ</subdivision>

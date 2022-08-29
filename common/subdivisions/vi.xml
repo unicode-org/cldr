@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -17,6 +17,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ad04" draft="contributed">La Massana</subdivision>
 			<subdivision type="ad05" draft="contributed">Ordino</subdivision>
 			<subdivision type="ad06" draft="contributed">Sant Julià de Lòria</subdivision>
+			<subdivision type="ad07" draft="contributed">Andorra la Vella</subdivision>
 			<subdivision type="ad08" draft="contributed">Escaldes-Engordany</subdivision>
 			<subdivision type="aeaj" draft="contributed">Ajman</subdivision>
 			<subdivision type="aeaz" draft="contributed">Abu Dhabi</subdivision>
@@ -218,6 +219,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="azxiz" draft="contributed">Khyzy</subdivision>
 			<subdivision type="azxvd" draft="contributed">Khojavend</subdivision>
 			<subdivision type="azyar" draft="contributed">Yardymly</subdivision>
+			<subdivision type="azye" draft="contributed">Yevlakh²</subdivision>
 			<subdivision type="azyev" draft="contributed">Yevlakh</subdivision>
 			<subdivision type="azzan" draft="contributed">Zangilan (quận)</subdivision>
 			<subdivision type="azzaq" draft="contributed">Zagatala (quận)</subdivision>
@@ -251,6 +253,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bd13" draft="contributed">Huyện Dhaka</subdivision>
 			<subdivision type="bd15" draft="contributed">Huyện Faridpur</subdivision>
 			<subdivision type="bd16" draft="contributed">Huyện Feni</subdivision>
+			<subdivision type="bd17" draft="contributed">Gopalganj</subdivision>
 			<subdivision type="bd18" draft="contributed">Huyện Gazipur</subdivision>
 			<subdivision type="bd19" draft="contributed">Huyện Gaibandha</subdivision>
 			<subdivision type="bd20" draft="contributed">Huyện Habiganj</subdivision>
@@ -407,6 +410,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bimw" draft="contributed">Tỉnh Mwaro</subdivision>
 			<subdivision type="bimy" draft="contributed">Tỉnh Muyinga</subdivision>
 			<subdivision type="bing" draft="contributed">Tỉnh Ngozi</subdivision>
+			<subdivision type="birm" draft="contributed">Rumonge (tỉnh)</subdivision>
 			<subdivision type="birt" draft="contributed">Tỉnh Rutana</subdivision>
 			<subdivision type="biry" draft="contributed">Tỉnh Ruyigi</subdivision>
 			<subdivision type="bjak" draft="contributed">Atakora</subdivision>
@@ -1051,6 +1055,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="esce" draft="contributed">Ceuta</subdivision>
 			<subdivision type="escl" draft="contributed">Castilla và León</subdivision>
 			<subdivision type="escm" draft="contributed">Castile-La Mancha</subdivision>
+			<subdivision type="escn" draft="contributed">Quần đảo Canaria</subdivision>
 			<subdivision type="esco" draft="contributed">Córdoba</subdivision>
 			<subdivision type="escr" draft="contributed">Ciudad Real</subdivision>
 			<subdivision type="escs" draft="contributed">Castellón</subdivision>
@@ -1169,6 +1174,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr17" draft="contributed">Charente-Maritime</subdivision>
 			<subdivision type="fr18" draft="contributed">Cher, Centre</subdivision>
 			<subdivision type="fr19" draft="contributed">Corrèze</subdivision>
+			<subdivision type="fr20r" draft="contributed">Corse</subdivision>
 			<subdivision type="fr21" draft="contributed">Côte-d’Or</subdivision>
 			<subdivision type="fr22" draft="contributed">Côtes-d’Armor</subdivision>
 			<subdivision type="fr23" draft="contributed">Creuse</subdivision>
@@ -1223,7 +1229,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr72" draft="contributed">Sarthe</subdivision>
 			<subdivision type="fr73" draft="contributed">Savoie</subdivision>
 			<subdivision type="fr74" draft="contributed">Haute-Savoie</subdivision>
-			<subdivision type="fr75" draft="contributed">Paris</subdivision>
+			<subdivision type="fr75c" draft="contributed">Paris</subdivision>
 			<subdivision type="fr76" draft="contributed">Seine-Maritime</subdivision>
 			<subdivision type="fr77" draft="contributed">Seine-et-Marne</subdivision>
 			<subdivision type="fr78" draft="contributed">Yvelines</subdivision>
@@ -1244,10 +1250,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr93" draft="contributed">Seine-Saint-Denis</subdivision>
 			<subdivision type="fr94" draft="contributed">Val-de-Marne</subdivision>
 			<subdivision type="fr95" draft="contributed">Val-d’Oise</subdivision>
+			<subdivision type="fr971" draft="contributed">Guadeloupe</subdivision>
 			<subdivision type="frara" draft="contributed">Auvergne-Rhône-Alpes</subdivision>
 			<subdivision type="frbfc" draft="contributed">Bourgogne-Franche-Comté</subdivision>
 			<subdivision type="frbre" draft="contributed">Bretagne</subdivision>
-			<subdivision type="frcor" draft="contributed">Corse</subdivision>
 			<subdivision type="frcvl" draft="contributed">Centre</subdivision>
 			<subdivision type="frges" draft="contributed">Grand Est</subdivision>
 			<subdivision type="frhdf" draft="contributed">Hauts-de-France</subdivision>
@@ -1297,6 +1303,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbeal" draft="contributed">Khu Ealing của Luân Đôn</subdivision>
 			<subdivision type="gbedh" draft="contributed">Edinburgh</subdivision>
 			<subdivision type="gbenf" draft="contributed">Khu Enfield của Luân Đôn</subdivision>
+			<subdivision type="gbeng" draft="contributed">Anh</subdivision>
 			<subdivision type="gbery" draft="contributed">East Riding of Yorkshire</subdivision>
 			<subdivision type="gbess" draft="contributed">Essex</subdivision>
 			<subdivision type="gbesx" draft="contributed">East Sussex</subdivision>
@@ -1354,7 +1361,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbpte" draft="contributed">Peterborough</subdivision>
 			<subdivision type="gbrdb" draft="contributed">Khu Redbridge của Luân Đôn</subdivision>
 			<subdivision type="gbrdg" draft="contributed">Reading</subdivision>
+			<subdivision type="gbrfw" draft="contributed">Renfrewshire</subdivision>
 			<subdivision type="gbrut" draft="contributed">Rutland</subdivision>
+			<subdivision type="gbsct" draft="contributed">Scotland</subdivision>
 			<subdivision type="gbsfk" draft="contributed">Suffolk</subdivision>
 			<subdivision type="gbshf" draft="contributed">Sheffield</subdivision>
 			<subdivision type="gbshr" draft="contributed">Shropshire</subdivision>
@@ -1370,6 +1379,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbukm" draft="contributed">Vương quốc Liên hiệp Anh và Bắc Ireland</subdivision>
 			<subdivision type="gbwar" draft="contributed">Warwickshire</subdivision>
 			<subdivision type="gbwil" draft="contributed">Wiltshire</subdivision>
+			<subdivision type="gbwls" draft="contributed">Wales</subdivision>
 			<subdivision type="gbwlv" draft="contributed">Wolverhampton</subdivision>
 			<subdivision type="gbwnd" draft="contributed">Khu Wandsworth của Luân Đôn</subdivision>
 			<subdivision type="gbwor" draft="contributed">Worcestershire</subdivision>
@@ -1406,6 +1416,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ghue" draft="contributed">Vùng Thượng Đông</subdivision>
 			<subdivision type="ghuw" draft="contributed">Khu vực Thượng Tây</subdivision>
 			<subdivision type="ghwp" draft="contributed">Khu vực Phía Tây</subdivision>
+			<subdivision type="glav" draft="contributed">Avannaata</subdivision>
 			<subdivision type="glku" draft="contributed">Kujalleq</subdivision>
 			<subdivision type="glqa" draft="contributed">Qaasuitsup</subdivision>
 			<subdivision type="glqe" draft="contributed">Qeqqata</subdivision>
@@ -1468,28 +1479,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="grj" draft="contributed">Khu vực Peloponnese</subdivision>
 			<subdivision type="grk" draft="contributed">Bắc Aegea</subdivision>
 			<subdivision type="grl" draft="contributed">Nam Aegea</subdivision>
-			<subdivision type="gtav" draft="contributed">Alta Verapaz</subdivision>
-			<subdivision type="gtbv" draft="contributed">Baja Verapaz</subdivision>
-			<subdivision type="gtcm" draft="contributed">Khu vực hành chính Chimaltenango</subdivision>
-			<subdivision type="gtcq" draft="contributed">Chiquimula</subdivision>
-			<subdivision type="gtes" draft="contributed">Escuintla</subdivision>
-			<subdivision type="gtgu" draft="contributed">Guatemala</subdivision>
-			<subdivision type="gthu" draft="contributed">Huehuetenango</subdivision>
-			<subdivision type="gtiz" draft="contributed">Izabal</subdivision>
-			<subdivision type="gtja" draft="contributed">Jalapa</subdivision>
-			<subdivision type="gtju" draft="contributed">Jutiapa</subdivision>
-			<subdivision type="gtpe" draft="contributed">Khu vực hành chính Petén</subdivision>
-			<subdivision type="gtpr" draft="contributed">El Progreso</subdivision>
-			<subdivision type="gtqc" draft="contributed">Quiché</subdivision>
-			<subdivision type="gtqz" draft="contributed">Quetzaltenango</subdivision>
-			<subdivision type="gtre" draft="contributed">Retalhuleu</subdivision>
-			<subdivision type="gtsa" draft="contributed">Sacatepéquez</subdivision>
-			<subdivision type="gtsm" draft="contributed">San Marcos</subdivision>
-			<subdivision type="gtso" draft="contributed">Sololá</subdivision>
-			<subdivision type="gtsr" draft="contributed">Santa Rosa</subdivision>
-			<subdivision type="gtsu" draft="contributed">Suchitepéquez</subdivision>
-			<subdivision type="gtto" draft="contributed">Totonicapán</subdivision>
-			<subdivision type="gtza" draft="contributed">Zacapa</subdivision>
+			<subdivision type="gt01" draft="contributed">Guatemala</subdivision>
+			<subdivision type="gt02" draft="contributed">El Progreso</subdivision>
+			<subdivision type="gt03" draft="contributed">Sacatepéquez</subdivision>
+			<subdivision type="gt04" draft="contributed">Khu vực hành chính Chimaltenango</subdivision>
+			<subdivision type="gt05" draft="contributed">Escuintla</subdivision>
+			<subdivision type="gt06" draft="contributed">Santa Rosa</subdivision>
+			<subdivision type="gt07" draft="contributed">Sololá</subdivision>
+			<subdivision type="gt08" draft="contributed">Totonicapán</subdivision>
+			<subdivision type="gt09" draft="contributed">Quetzaltenango</subdivision>
+			<subdivision type="gt10" draft="contributed">Suchitepéquez</subdivision>
+			<subdivision type="gt11" draft="contributed">Retalhuleu</subdivision>
+			<subdivision type="gt12" draft="contributed">San Marcos</subdivision>
+			<subdivision type="gt13" draft="contributed">Huehuetenango</subdivision>
+			<subdivision type="gt14" draft="contributed">Quiché</subdivision>
+			<subdivision type="gt15" draft="contributed">Baja Verapaz</subdivision>
+			<subdivision type="gt16" draft="contributed">Alta Verapaz</subdivision>
+			<subdivision type="gt17" draft="contributed">Khu vực hành chính Petén</subdivision>
+			<subdivision type="gt18" draft="contributed">Izabal</subdivision>
+			<subdivision type="gt19" draft="contributed">Zacapa</subdivision>
+			<subdivision type="gt20" draft="contributed">Chiquimula</subdivision>
+			<subdivision type="gt21" draft="contributed">Jalapa</subdivision>
+			<subdivision type="gt22" draft="contributed">Jutiapa</subdivision>
 			<subdivision type="gwba" draft="contributed">Khu vực Bafatá</subdivision>
 			<subdivision type="gwbl" draft="contributed">Khu vực Bolama</subdivision>
 			<subdivision type="gwbm" draft="contributed">Khu vực Biombo</subdivision>
@@ -1682,6 +1693,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inch" draft="contributed">Chandigarh</subdivision>
 			<subdivision type="inct" draft="contributed">Chhattisgarh</subdivision>
 			<subdivision type="indd" draft="contributed">Daman và Diu</subdivision>
+			<subdivision type="indh" draft="contributed">Dadra và Nagar Haveli và Daman và Diu</subdivision>
 			<subdivision type="indl" draft="contributed">Delhi</subdivision>
 			<subdivision type="indn" draft="contributed">Dadra và Nagar Haveli</subdivision>
 			<subdivision type="inga" draft="contributed">Goa</subdivision>
@@ -1692,6 +1704,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="injk" draft="contributed">Jammu và Kashmir</subdivision>
 			<subdivision type="inka" draft="contributed">Karnataka</subdivision>
 			<subdivision type="inkl" draft="contributed">Kerala</subdivision>
+			<subdivision type="inla" draft="contributed">Ladakh</subdivision>
 			<subdivision type="inld" draft="contributed">Lakshadweep</subdivision>
 			<subdivision type="inmh" draft="contributed">Maharashtra</subdivision>
 			<subdivision type="inml" draft="contributed">Meghalaya</subdivision>
@@ -1727,6 +1740,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="iqsd" draft="contributed">Tỉnh Saladin</subdivision>
 			<subdivision type="iqsu" draft="contributed">Tỉnh Sulaymaniyah</subdivision>
 			<subdivision type="iqwa" draft="contributed">Tỉnh Wasit</subdivision>
+			<subdivision type="ir00" draft="contributed">Markazi²</subdivision>
 			<subdivision type="ir01" draft="contributed">Đông Azarbaijan</subdivision>
 			<subdivision type="ir02" draft="contributed">Tây Azerbaijan</subdivision>
 			<subdivision type="ir03" draft="contributed">Ardabil</subdivision>
@@ -1735,8 +1749,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ir06" draft="contributed">Bushehr</subdivision>
 			<subdivision type="ir07" draft="contributed">Tehran</subdivision>
 			<subdivision type="ir08" draft="contributed">Chaharmahal và Bakhtiari</subdivision>
+			<subdivision type="ir09" draft="contributed">Razavi Khorasan²</subdivision>
 			<subdivision type="ir10" draft="contributed">Khuzestan</subdivision>
 			<subdivision type="ir11" draft="contributed">Zanjan (tỉnh)</subdivision>
+			<subdivision type="ir12" draft="contributed">Kurdistan²</subdivision>
 			<subdivision type="ir13" draft="contributed">Tỉnh Sistan và Baluchestan</subdivision>
 			<subdivision type="ir14" draft="contributed">Fars (tỉnh)</subdivision>
 			<subdivision type="ir15" draft="contributed">Kerman</subdivision>
@@ -1765,6 +1781,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="is6" draft="contributed">Khu vực Đông Bắc</subdivision>
 			<subdivision type="is7" draft="contributed">Khu vực Eastern</subdivision>
 			<subdivision type="is8" draft="contributed">Khu vực Southern</subdivision>
+			<subdivision type="isakn" draft="contributed">Akranes</subdivision>
+			<subdivision type="isaku" draft="contributed">Akureyri</subdivision>
 			<subdivision type="it21" draft="contributed">Piemonte</subdivision>
 			<subdivision type="it23" draft="contributed">Thung lũng Aosta</subdivision>
 			<subdivision type="it25" draft="contributed">Lombardia</subdivision>
@@ -1876,6 +1894,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="itsp" draft="contributed">La Spezia</subdivision>
 			<subdivision type="itsr" draft="contributed">Siracusa</subdivision>
 			<subdivision type="itss" draft="contributed">Sassari</subdivision>
+			<subdivision type="itsu" draft="contributed">Sud Sardegna</subdivision>
 			<subdivision type="itsv" draft="contributed">Savona</subdivision>
 			<subdivision type="itta" draft="contributed">Taranto</subdivision>
 			<subdivision type="itte" draft="contributed">Teramo</subdivision>
@@ -1981,6 +2000,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ke12" draft="contributed">Kericho</subdivision>
 			<subdivision type="ke13" draft="contributed">Kiambu</subdivision>
 			<subdivision type="ke14" draft="contributed">Kilifi</subdivision>
+			<subdivision type="ke15" draft="contributed">Kirinyaga</subdivision>
+			<subdivision type="ke16" draft="contributed">Kisii Central</subdivision>
 			<subdivision type="ke17" draft="contributed">Kisumu</subdivision>
 			<subdivision type="ke18" draft="contributed">Kitui</subdivision>
 			<subdivision type="ke19" draft="contributed">Kwale</subdivision>
@@ -1990,6 +2011,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ke23" draft="contributed">Makueni</subdivision>
 			<subdivision type="ke24" draft="contributed">Mandera</subdivision>
 			<subdivision type="ke25" draft="contributed">Marsabit</subdivision>
+			<subdivision type="ke26" draft="contributed">Meru (hạt)</subdivision>
 			<subdivision type="ke27" draft="contributed">Migori</subdivision>
 			<subdivision type="ke28" draft="contributed">Mombasa</subdivision>
 			<subdivision type="ke29" draft="contributed">Murang’a</subdivision>
@@ -2002,6 +2024,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ke36" draft="contributed">Nyeri</subdivision>
 			<subdivision type="ke37" draft="contributed">Samburu</subdivision>
 			<subdivision type="ke38" draft="contributed">Siaya</subdivision>
+			<subdivision type="ke39" draft="contributed">Taita Taveta</subdivision>
 			<subdivision type="ke40" draft="contributed">Tana River</subdivision>
 			<subdivision type="ke41" draft="contributed">Tharaka</subdivision>
 			<subdivision type="ke42" draft="contributed">Trans Nzoia</subdivision>
@@ -2043,6 +2066,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kh22" draft="contributed">Oddar Meancheay</subdivision>
 			<subdivision type="kh23" draft="contributed">Kep</subdivision>
 			<subdivision type="kh24" draft="contributed">Pailin</subdivision>
+			<subdivision type="kh25" draft="contributed">Tbong Khmum</subdivision>
 			<subdivision type="kig" draft="contributed">Quần đảo Gilbert</subdivision>
 			<subdivision type="kil" draft="contributed">Quần đảo Line</subdivision>
 			<subdivision type="kip" draft="contributed">Quần đảo Phoenix</subdivision>
@@ -2111,6 +2135,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kzman" draft="contributed">Mangistau</subdivision>
 			<subdivision type="kzpav" draft="contributed">Pavlodar</subdivision>
 			<subdivision type="kzsev" draft="contributed">Bắc Kazakhstan</subdivision>
+			<subdivision type="kzshy" draft="contributed">Shymkent</subdivision>
 			<subdivision type="kzvos" draft="contributed">Đông Kazakhstan</subdivision>
 			<subdivision type="kzyuz" draft="contributed">Nam Kazakhstan</subdivision>
 			<subdivision type="kzzap" draft="contributed">Tây Kazakhstan</subdivision>
@@ -2449,64 +2474,64 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mhmal" draft="contributed">Maloelap</subdivision>
 			<subdivision type="mhron" draft="contributed">Rongelap</subdivision>
 			<subdivision type="mht" draft="contributed">Chuỗi đảo Ratak</subdivision>
-			<subdivision type="mk02" draft="contributed">Đô thị tự trị Aracinovo</subdivision>
-			<subdivision type="mk03" draft="contributed">Đô thị tự trị Berovo</subdivision>
-			<subdivision type="mk04" draft="contributed">Đô thị tự trị Bitola</subdivision>
-			<subdivision type="mk05" draft="contributed">Đô thị tự trị Bogdanci</subdivision>
-			<subdivision type="mk06" draft="contributed">Đô thị tự trị Bogovinje</subdivision>
-			<subdivision type="mk07" draft="contributed">Đô thị tự trị Bosilovo</subdivision>
-			<subdivision type="mk08" draft="contributed">Đô thị tự trị Brvenica</subdivision>
-			<subdivision type="mk11" draft="contributed">Đô thị tự trị Vasilevo</subdivision>
-			<subdivision type="mk14" draft="contributed">Đô thị tự trị Vinica</subdivision>
-			<subdivision type="mk19" draft="contributed">Đô thị tự trị Gostivar</subdivision>
-			<subdivision type="mk20" draft="contributed">Đô thị tự trị Gradsko</subdivision>
-			<subdivision type="mk21" draft="contributed">Đô thị tự trị Debar</subdivision>
-			<subdivision type="mk22" draft="contributed">Đô thị tự trị Debarca</subdivision>
-			<subdivision type="mk23" draft="contributed">Đô thị tự trị Delcevo</subdivision>
-			<subdivision type="mk27" draft="contributed">Đô thị tự trị Dolneni</subdivision>
-			<subdivision type="mk30" draft="contributed">Đô thị tự trị Zelino</subdivision>
-			<subdivision type="mk32" draft="contributed">Đô thị tự trị Zelenikovo</subdivision>
-			<subdivision type="mk33" draft="contributed">Đô thị tự trị Zrnovci</subdivision>
-			<subdivision type="mk34" draft="contributed">Đô thị tự trị Ilinden</subdivision>
-			<subdivision type="mk35" draft="contributed">Đô thị tự trị Jegunovce</subdivision>
-			<subdivision type="mk36" draft="contributed">Đô thị tự trị Kavadarci</subdivision>
-			<subdivision type="mk37" draft="contributed">Karbinci</subdivision>
-			<subdivision type="mk40" draft="contributed">Đô thị tự trị Kicevo</subdivision>
-			<subdivision type="mk41" draft="contributed">Đô thị tự trị Konce</subdivision>
-			<subdivision type="mk42" draft="contributed">Đô thị tự trị Kocani</subdivision>
-			<subdivision type="mk43" draft="contributed">Đô thị tự trị Kratovo</subdivision>
-			<subdivision type="mk44" draft="contributed">Đô thị tự trị Kriva Palanka</subdivision>
-			<subdivision type="mk45" draft="contributed">Đô thị tự trị Krivogastani</subdivision>
-			<subdivision type="mk46" draft="contributed">Đô thị tự trị Krusevo</subdivision>
-			<subdivision type="mk47" draft="contributed">Đô thị tự trị Kumanovo</subdivision>
-			<subdivision type="mk48" draft="contributed">Đô thị tự trị Lipkovo</subdivision>
-			<subdivision type="mk49" draft="contributed">Đô thị tự trị Lozovo</subdivision>
-			<subdivision type="mk50" draft="contributed">Đô thị tự trị Mavrovo và Rostusa</subdivision>
-			<subdivision type="mk51" draft="contributed">Đô thị tự trị Makedonska Kamenica</subdivision>
-			<subdivision type="mk52" draft="contributed">Đô thị tự trị Makedonski Brod</subdivision>
-			<subdivision type="mk54" draft="contributed">Đô thị tự trị Negotino</subdivision>
-			<subdivision type="mk56" draft="contributed">Novo Selo</subdivision>
-			<subdivision type="mk58" draft="contributed">Đô thị tự trị Ohrid</subdivision>
-			<subdivision type="mk60" draft="contributed">Đô thị tự trị Pehcevo</subdivision>
-			<subdivision type="mk61" draft="contributed">Đô thị tự trị Plasnica</subdivision>
-			<subdivision type="mk62" draft="contributed">Đô thị tự trị Prilep</subdivision>
-			<subdivision type="mk63" draft="contributed">Probistip Đô thị tự trị</subdivision>
-			<subdivision type="mk64" draft="contributed">Đô thị tự trị Radovis</subdivision>
-			<subdivision type="mk65" draft="contributed">Đô thị tự trị Rankovce</subdivision>
-			<subdivision type="mk66" draft="contributed">Đô thị tự trị Resen</subdivision>
-			<subdivision type="mk69" draft="contributed">Đô thị tự trị Sveti Nikole</subdivision>
-			<subdivision type="mk70" draft="contributed">Đô thị tự trị Sopiste</subdivision>
-			<subdivision type="mk72" draft="contributed">Đô thị tự trị Struga</subdivision>
-			<subdivision type="mk73" draft="contributed">Đô thị tự trị Strumica</subdivision>
-			<subdivision type="mk74" draft="contributed">Đô thị tự trị Studenicani</subdivision>
-			<subdivision type="mk75" draft="contributed">Đô thị tự trị Tearce</subdivision>
-			<subdivision type="mk76" draft="contributed">Đô thị tự trị Tetovo</subdivision>
-			<subdivision type="mk78" draft="contributed">Đô thị tự trị Centar Zupa</subdivision>
-			<subdivision type="mk80" draft="contributed">Đô thị tự trị Caska</subdivision>
-			<subdivision type="mk81" draft="contributed">Đô thị tự trị Cesinovo-Oblesevo</subdivision>
-			<subdivision type="mk82" draft="contributed">Đô thị tự trị Cucer-Sandevo</subdivision>
-			<subdivision type="mk83" draft="contributed">Đô thị tự trị Stip</subdivision>
 			<subdivision type="mk85" draft="contributed">Skopje</subdivision>
+			<subdivision type="mk102" draft="contributed">Đô thị tự trị Gradsko</subdivision>
+			<subdivision type="mk104" draft="contributed">Đô thị tự trị Kavadarci</subdivision>
+			<subdivision type="mk105" draft="contributed">Đô thị tự trị Lozovo</subdivision>
+			<subdivision type="mk106" draft="contributed">Đô thị tự trị Negotino</subdivision>
+			<subdivision type="mk108" draft="contributed">Đô thị tự trị Sveti Nikole</subdivision>
+			<subdivision type="mk109" draft="contributed">Đô thị tự trị Caska</subdivision>
+			<subdivision type="mk201" draft="contributed">Đô thị tự trị Berovo</subdivision>
+			<subdivision type="mk202" draft="contributed">Đô thị tự trị Vinica</subdivision>
+			<subdivision type="mk203" draft="contributed">Đô thị tự trị Delcevo</subdivision>
+			<subdivision type="mk204" draft="contributed">Đô thị tự trị Zrnovci</subdivision>
+			<subdivision type="mk205" draft="contributed">Karbinci</subdivision>
+			<subdivision type="mk206" draft="contributed">Đô thị tự trị Kocani</subdivision>
+			<subdivision type="mk207" draft="contributed">Đô thị tự trị Makedonska Kamenica</subdivision>
+			<subdivision type="mk208" draft="contributed">Đô thị tự trị Pehcevo</subdivision>
+			<subdivision type="mk209" draft="contributed">Probistip Đô thị tự trị</subdivision>
+			<subdivision type="mk210" draft="contributed">Đô thị tự trị Cesinovo-Oblesevo</subdivision>
+			<subdivision type="mk211" draft="contributed">Đô thị tự trị Stip</subdivision>
+			<subdivision type="mk303" draft="contributed">Đô thị tự trị Debar</subdivision>
+			<subdivision type="mk304" draft="contributed">Đô thị tự trị Debarca</subdivision>
+			<subdivision type="mk307" draft="contributed">Đô thị tự trị Kicevo</subdivision>
+			<subdivision type="mk308" draft="contributed">Đô thị tự trị Makedonski Brod</subdivision>
+			<subdivision type="mk310" draft="contributed">Đô thị tự trị Ohrid</subdivision>
+			<subdivision type="mk311" draft="contributed">Đô thị tự trị Plasnica</subdivision>
+			<subdivision type="mk312" draft="contributed">Đô thị tự trị Struga</subdivision>
+			<subdivision type="mk313" draft="contributed">Đô thị tự trị Centar Zupa</subdivision>
+			<subdivision type="mk401" draft="contributed">Đô thị tự trị Bogdanci</subdivision>
+			<subdivision type="mk402" draft="contributed">Đô thị tự trị Bosilovo</subdivision>
+			<subdivision type="mk404" draft="contributed">Đô thị tự trị Vasilevo</subdivision>
+			<subdivision type="mk407" draft="contributed">Đô thị tự trị Konce</subdivision>
+			<subdivision type="mk408" draft="contributed">Novo Selo</subdivision>
+			<subdivision type="mk409" draft="contributed">Đô thị tự trị Radovis</subdivision>
+			<subdivision type="mk410" draft="contributed">Đô thị tự trị Strumica</subdivision>
+			<subdivision type="mk501" draft="contributed">Đô thị tự trị Bitola</subdivision>
+			<subdivision type="mk503" draft="contributed">Đô thị tự trị Dolneni</subdivision>
+			<subdivision type="mk504" draft="contributed">Đô thị tự trị Krivogastani</subdivision>
+			<subdivision type="mk505" draft="contributed">Đô thị tự trị Krusevo</subdivision>
+			<subdivision type="mk508" draft="contributed">Đô thị tự trị Prilep</subdivision>
+			<subdivision type="mk509" draft="contributed">Đô thị tự trị Resen</subdivision>
+			<subdivision type="mk601" draft="contributed">Đô thị tự trị Bogovinje</subdivision>
+			<subdivision type="mk602" draft="contributed">Đô thị tự trị Brvenica</subdivision>
+			<subdivision type="mk604" draft="contributed">Đô thị tự trị Gostivar</subdivision>
+			<subdivision type="mk605" draft="contributed">Đô thị tự trị Zelino</subdivision>
+			<subdivision type="mk606" draft="contributed">Đô thị tự trị Jegunovce</subdivision>
+			<subdivision type="mk607" draft="contributed">Đô thị tự trị Mavrovo và Rostusa</subdivision>
+			<subdivision type="mk608" draft="contributed">Đô thị tự trị Tearce</subdivision>
+			<subdivision type="mk609" draft="contributed">Đô thị tự trị Tetovo</subdivision>
+			<subdivision type="mk701" draft="contributed">Đô thị tự trị Kratovo</subdivision>
+			<subdivision type="mk702" draft="contributed">Đô thị tự trị Kriva Palanka</subdivision>
+			<subdivision type="mk703" draft="contributed">Đô thị tự trị Kumanovo</subdivision>
+			<subdivision type="mk704" draft="contributed">Đô thị tự trị Lipkovo</subdivision>
+			<subdivision type="mk705" draft="contributed">Đô thị tự trị Rankovce</subdivision>
+			<subdivision type="mk802" draft="contributed">Đô thị tự trị Aracinovo</subdivision>
+			<subdivision type="mk806" draft="contributed">Đô thị tự trị Zelenikovo</subdivision>
+			<subdivision type="mk807" draft="contributed">Đô thị tự trị Ilinden</subdivision>
+			<subdivision type="mk812" draft="contributed">Đô thị tự trị Sopiste</subdivision>
+			<subdivision type="mk813" draft="contributed">Đô thị tự trị Studenicani</subdivision>
+			<subdivision type="mk816" draft="contributed">Đô thị tự trị Cucer-Sandevo</subdivision>
 			<subdivision type="ml1" draft="contributed">Khu vực Kayes</subdivision>
 			<subdivision type="ml2" draft="contributed">Khu vực Koulikoro</subdivision>
 			<subdivision type="ml3" draft="contributed">Khu vực Sikasso</subdivision>
@@ -2849,6 +2874,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="no20" draft="contributed">Finnmark</subdivision>
 			<subdivision type="no21" draft="contributed">Svalbard</subdivision>
 			<subdivision type="no22" draft="contributed">Jan Mayen</subdivision>
+			<subdivision type="no34" draft="contributed">Innlandet</subdivision>
 			<subdivision type="np1" draft="contributed">Trung Nepal</subdivision>
 			<subdivision type="np2" draft="contributed">Trung Tây Nepal</subdivision>
 			<subdivision type="np3" draft="contributed">Tây Nepal</subdivision>
@@ -3343,6 +3369,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="sc11" draft="contributed">Cascade</subdivision>
 			<subdivision type="sc12" draft="contributed">Glacis</subdivision>
 			<subdivision type="sc14" draft="contributed">Grand’Anse Praslin</subdivision>
+			<subdivision type="sc15" draft="contributed">Quần đảo La Digue và Inner</subdivision>
 			<subdivision type="sc16" draft="contributed">La Rivière Anglaise</subdivision>
 			<subdivision type="sc17" draft="contributed">Mont Buxton</subdivision>
 			<subdivision type="sc18" draft="contributed">Mont Fleuri</subdivision>
@@ -3944,6 +3971,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="twkin" draft="contributed">Kim Môn</subdivision>
 			<subdivision type="twmia" draft="contributed">Miêu Lật</subdivision>
 			<subdivision type="twnan" draft="contributed">Nam Đầu</subdivision>
+			<subdivision type="twnwt" draft="contributed">Tân Bắc</subdivision>
 			<subdivision type="twpen" draft="contributed">Bành Hồ</subdivision>
 			<subdivision type="twpif" draft="contributed">Bình Đông</subdivision>
 			<subdivision type="twtao" draft="contributed">Đào Viên</subdivision>
@@ -4117,6 +4145,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ug424" draft="contributed">Quận Ntoroko</subdivision>
 			<subdivision type="ug425" draft="contributed">Quận Rubirizi</subdivision>
 			<subdivision type="ug426" draft="contributed">Quận Sheema</subdivision>
+			<subdivision type="ugc" draft="contributed">Trung Uganda</subdivision>
+			<subdivision type="uge" draft="contributed">Đông Uganda</subdivision>
+			<subdivision type="ugn" draft="contributed">Bắc Uganda</subdivision>
+			<subdivision type="ugw" draft="contributed">Tây Uganda</subdivision>
 			<subdivision type="um67" draft="contributed">Đảo Johnston</subdivision>
 			<subdivision type="um71" draft="contributed">Đảo san hô vòng Midway</subdivision>
 			<subdivision type="um76" draft="contributed">Đảo Navassa</subdivision>
@@ -4344,11 +4376,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="yeta" draft="contributed">Tỉnh Ta’izz</subdivision>
 			<subdivision type="zaec" draft="contributed">Đông Cape</subdivision>
 			<subdivision type="zafs" draft="contributed">Free State</subdivision>
-			<subdivision type="zagt" draft="contributed">Gauteng</subdivision>
+			<subdivision type="zagp" draft="contributed">Gauteng</subdivision>
+			<subdivision type="zakzn" draft="contributed">KwaZulu-Natal</subdivision>
 			<subdivision type="zalp" draft="contributed">Limpopo</subdivision>
 			<subdivision type="zamp" draft="contributed">Mpumalanga</subdivision>
 			<subdivision type="zanc" draft="contributed">Bắc Cape</subdivision>
-			<subdivision type="zanl" draft="contributed">KwaZulu-Natal</subdivision>
 			<subdivision type="zanw" draft="contributed">Tây Bắc</subdivision>
 			<subdivision type="zawc" draft="contributed">Tây Cape</subdivision>
 			<subdivision type="zm01" draft="contributed">Tỉnh Phía Tây</subdivision>

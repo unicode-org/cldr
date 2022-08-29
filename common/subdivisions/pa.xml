@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,6 +12,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<subdivisions>
+			<subdivision type="ad07" draft="contributed">ਅੰਡੋਰਾ ਲਾ ਵੇਲਾ</subdivision>
 			<subdivision type="aeaj" draft="contributed">ਅਜਮਾਨ</subdivision>
 			<subdivision type="aeaz" draft="contributed">ਅਬੂ ਧਾਬੀ</subdivision>
 			<subdivision type="aefu" draft="contributed">ਫ਼ੁਜੈਰਾ</subdivision>
@@ -24,6 +25,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="afgho" draft="contributed">ਗ਼ੋਰ ਸੂਬਾ</subdivision>
 			<subdivision type="afhel" draft="contributed">ਹੇਲਮੰਦ ਸੂਬਾ</subdivision>
 			<subdivision type="afjow" draft="contributed">ਜੋਜਾਨ</subdivision>
+			<subdivision type="afkab" draft="contributed">ਕਾਬਲ</subdivision>
 			<subdivision type="afkap" draft="contributed">ਕਾਪੀਸਾ</subdivision>
 			<subdivision type="afkho" draft="contributed">ਖੋਸਤ</subdivision>
 			<subdivision type="afknr" draft="contributed">ਕੁਨੜ ਸੂਬਾ</subdivision>
@@ -63,8 +65,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="auvic" draft="contributed">ਵਿਕਟੋਰੀਆ</subdivision>
 			<subdivision type="auwa" draft="contributed">ਪੱਛਮੀ ਆਸਟਰੇਲੀਆ</subdivision>
 			<subdivision type="azba" draft="contributed">ਬਾਕੂ</subdivision>
+			<subdivision type="bd10" draft="contributed">ਚਿਟਾਗਾਂਗ ਜ਼ਿਲ੍ਹਾ</subdivision>
 			<subdivision type="bd30" draft="contributed">ਕੂਸ਼ਟੀਆ ਜ਼ਿਲ੍ਹਾ</subdivision>
+			<subdivision type="bd34" draft="contributed">ਮੈਮਨਸਿੰਘ ਜ਼ਿਲ੍ਹਾ</subdivision>
 			<subdivision type="bd38" draft="contributed">ਮੌਲਵੀ ਬਾਜ਼ਾਰ ਜ਼ਿਲਾ</subdivision>
+			<subdivision type="bd45" draft="contributed">ਨਵਾਬਗੰਜ ਜ਼ਿਲ੍ਹਾ</subdivision>
+			<subdivision type="bd47" draft="contributed">ਨੌਖਾਲੀ</subdivision>
+			<subdivision type="bdb" draft="contributed">ਚਿਟਾਗਾਂਗ ਡਿਵੀਜਨ</subdivision>
 			<subdivision type="bebru" draft="contributed">ਬਰੂਸਲ</subdivision>
 			<subdivision type="bg23" draft="contributed">ਸੋਫ਼ੀਆ</subdivision>
 			<subdivision type="bqbo" draft="contributed">ਬੋਨੇਅਰ</subdivision>
@@ -103,6 +110,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cnhi" draft="contributed">ਹਾਈਨਾਨ</subdivision>
 			<subdivision type="cnhk" draft="contributed">ਹਾਂਗ ਕਾਂਗ</subdivision>
 			<subdivision type="cnjl" draft="contributed">ਜੀਲਿਨ</subdivision>
+			<subdivision type="cnjx" draft="contributed">ਜਿਆਂਗਸੀ</subdivision>
 			<subdivision type="cnln" draft="contributed">ਲੀਆਓਨਿੰਗ</subdivision>
 			<subdivision type="cnmo" draft="contributed">ਮਕਾਉ</subdivision>
 			<subdivision type="cnnm" draft="contributed">ਅੰਦਰੂਨੀ ਮੰਗੋਲੀਆ</subdivision>
@@ -128,8 +136,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="djdj" draft="contributed">ਜਿਬੂਤੀ</subdivision>
 			<subdivision type="esct" draft="contributed">ਕਾਤਾਲੋਨੀਆ</subdivision>
 			<subdivision type="etaa" draft="contributed">ਆਦਿਸ ਆਬਬਾ</subdivision>
-			<subdivision type="fr75" draft="contributed">ਪੈਰਿਸ</subdivision>
-			<subdivision type="frcor" draft="contributed">ਕਾਰਸਿਕਾ</subdivision>
+			<subdivision type="fr20r" draft="contributed">ਕਾਰਸਿਕਾ</subdivision>
+			<subdivision type="fr75c" draft="contributed">ਪੈਰਿਸ</subdivision>
+			<subdivision type="fr971" draft="contributed">ਗੁਆਡਲੂਪ</subdivision>
 			<subdivision type="frcvl" draft="contributed">ਸੌਂਤਰ</subdivision>
 			<subdivision type="fridf" draft="contributed">ਫ਼ਰਾਂਸ ਦਾ ਟਾਪੂ</subdivision>
 			<subdivision type="frpac" draft="contributed">ਪ੍ਰੋਵਾਂਸ-ਆਲਪ-ਅਸਮਾਨੀ ਤਟ</subdivision>
@@ -138,14 +147,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbcrf" draft="contributed">ਕਾਰਡਿਫ਼</subdivision>
 			<subdivision type="gbder" draft="contributed">ਡਰਬੀ</subdivision>
 			<subdivision type="gbedh" draft="contributed">ਐਡਿਨਬਰਾ</subdivision>
+			<subdivision type="gbeng" draft="contributed">ਇੰਗਲੈਂਡ</subdivision>
 			<subdivision type="gbglg" draft="contributed">ਗਲਾਸਗੋ</subdivision>
 			<subdivision type="gbiow" draft="contributed">ਆੲੀਲ ਆਫ਼ ਵਾੲੀਟ</subdivision>
 			<subdivision type="gblnd" draft="contributed">ਲੰਡਨ</subdivision>
 			<subdivision type="gbnir" draft="contributed">ਉੱਤਰੀ ਆਇਰਲੈਂਡ</subdivision>
 			<subdivision type="gbntt" draft="contributed">ਨੌਟਿੰਘਮਸ਼ਰ</subdivision>
 			<subdivision type="gboxf" draft="contributed">ਆਕਸਫ਼ੋਰਡ</subdivision>
+			<subdivision type="gbsct" draft="contributed">ਸਕਾਟਲੈਂਡ</subdivision>
+			<subdivision type="gbsom" draft="contributed">ਸਮਰਸੈੱਟ</subdivision>
 			<subdivision type="gbsth" draft="contributed">ਸਾਊਥਹੈਂਪਟਨ</subdivision>
 			<subdivision type="gbukm" draft="contributed">ਯੂਨਾਈਟਡ ਕਿੰਗਡਮ</subdivision>
+			<subdivision type="gbwls" draft="contributed">ਵੇਲਜ਼</subdivision>
 			<subdivision type="getb" draft="contributed">ਤਬੀਲਿਸੀ</subdivision>
 			<subdivision type="gmb" draft="contributed">ਬੰਜੁਲ</subdivision>
 			<subdivision type="gnc" draft="contributed">ਕੋਨਾਕਰੀ</subdivision>
@@ -173,6 +186,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="injk" draft="contributed">ਜੰਮੂ ਅਤੇ ਕਸ਼ਮੀਰ</subdivision>
 			<subdivision type="inka" draft="contributed">ਕਰਨਾਟਕ</subdivision>
 			<subdivision type="inkl" draft="contributed">ਕੇਰਲਾ</subdivision>
+			<subdivision type="inla" draft="contributed">ਲਦਾਖ਼</subdivision>
 			<subdivision type="inld" draft="contributed">ਲਕਸ਼ਦੀਪ</subdivision>
 			<subdivision type="inmh" draft="contributed">ਮਹਾਰਾਸ਼ਟਰ</subdivision>
 			<subdivision type="inml" draft="contributed">ਮੇਘਾਲਿਆ</subdivision>
@@ -192,16 +206,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inut" draft="contributed">ਉੱਤਰਖੰਡ</subdivision>
 			<subdivision type="inwb" draft="contributed">ਪੱਛਮੀ ਬੰਗਾਲ</subdivision>
 			<subdivision type="iqbg" draft="contributed">ਬਗ਼ਦਾਦ ਪ੍ਰਾਂਤ</subdivision>
+			<subdivision type="ir00" draft="contributed">ਮਰਕਜ਼ੀ ਸੂਬਾ²</subdivision>
 			<subdivision type="ir01" draft="contributed">ਪੂਰਬੀ ਅਜ਼ਰਬਾਈਜਾਨ ਸੂਬਾ</subdivision>
+			<subdivision type="ir03" draft="contributed">ਪੂਰਬੀ ਅਜ਼ਰਬਾਈਜਾਨ ਸੂਬਾ²</subdivision>
 			<subdivision type="ir06" draft="contributed">ਬੁਸ਼ਹਿਰ ਸੂਬਾ</subdivision>
+			<subdivision type="ir07" draft="contributed">ਫ਼ਾਰਸ ਸੂਬਾ²</subdivision>
 			<subdivision type="ir10" draft="contributed">ਖੁਜਿਸਤਾਨ ਰਿਆਸਤ</subdivision>
 			<subdivision type="ir11" draft="contributed">ਜ਼ਨਜਾਨ ਸੂਬਾ</subdivision>
+			<subdivision type="ir12" draft="contributed">ਕੁਰਦਿਸਤਾਨ ਸੂਬਾ²</subdivision>
 			<subdivision type="ir14" draft="contributed">ਫ਼ਾਰਸ ਸੂਬਾ</subdivision>
 			<subdivision type="ir16" draft="contributed">ਕੁਰਦਿਸਤਾਨ ਸੂਬਾ</subdivision>
+			<subdivision type="ir18" draft="contributed">ਬੁਸ਼ਹਿਰ ਸੂਬਾ²</subdivision>
+			<subdivision type="ir19" draft="contributed">ਜ਼ਨਜਾਨ ਸੂਬਾ²</subdivision>
+			<subdivision type="ir21" draft="contributed">ਯਜ਼ਦ ਸੂਬਾ²</subdivision>
 			<subdivision type="ir22" draft="contributed">ਮਰਕਜ਼ੀ ਸੂਬਾ</subdivision>
 			<subdivision type="ir25" draft="contributed">ਯਜ਼ਦ ਸੂਬਾ</subdivision>
-			<subdivision type="ir31" draft="contributed">ਉੱਤਰੀ ਖ਼ੁਰਾਸਾਨ ਸੂਬਾ</subdivision>
-			<subdivision type="ir32" draft="contributed">ਅਲਬੁਰਜ਼ ਸੂਬਾ</subdivision>
+			<subdivision type="ir28" draft="contributed">ਉੱਤਰੀ ਖ਼ੁਰਾਸਾਨ ਸੂਬਾ</subdivision>
+			<subdivision type="ir30" draft="contributed">ਅਲਬੁਰਜ਼ ਸੂਬਾ</subdivision>
 			<subdivision type="it21" draft="contributed">ਪੀਏਮੋਂਤੇ</subdivision>
 			<subdivision type="it23" draft="contributed">ਆਓਸਤਾ ਘਾਟੀ</subdivision>
 			<subdivision type="it25" draft="contributed">ਲੋਂਬਾਰਦੀਆ</subdivision>
@@ -259,6 +280,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mm12" draft="contributed">ਕਾਇਆਹ ਰਾਜ</subdivision>
 			<subdivision type="mm13" draft="contributed">ਕਾਇਨ</subdivision>
 			<subdivision type="mm15" draft="contributed">ਮੋਨ ਸਟੇਟ</subdivision>
+			<subdivision type="mm17" draft="contributed">ਸ਼ਾਨ ਰਾਜ</subdivision>
 			<subdivision type="mn1" draft="contributed">ਉਲਾਨ ਬਤੋਰ</subdivision>
 			<subdivision type="mt60" draft="contributed">ਵਲੈਟਾ</subdivision>
 			<subdivision type="mupu" draft="contributed">ਪੋਰਟ ਲੂਈ</subdivision>
@@ -317,6 +339,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="sa12" draft="contributed">ਜੌਫ਼ ਸੂਬਾ</subdivision>
 			<subdivision type="sa14" draft="contributed">ਅਸੀਰ ਰਿਆਸਤ</subdivision>
 			<subdivision type="sbct" draft="contributed">ਹੋਨੀਆਰਾ</subdivision>
+			<subdivision type="shac" draft="contributed">ਅਸੈਂਸ਼ਨ</subdivision>
 			<subdivision type="shhl" draft="contributed">ਸੇਂਟ ਹੇਲੇਨਾ</subdivision>
 			<subdivision type="tdnd" draft="contributed">ਨਿਜਾਮੀਨਾ</subdivision>
 			<subdivision type="th10" draft="contributed">ਬੈਂਕਾਕ</subdivision>
@@ -357,6 +380,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ttpos" draft="contributed">ਪੋਰਟ ਆਫ਼ ਸਪੇਨ</subdivision>
 			<subdivision type="tvfun" draft="contributed">ਫ਼ੁਨਾਫ਼ੁਤੀ</subdivision>
 			<subdivision type="twkhh" draft="contributed">ਕਾਓਸੀਅੰਗ</subdivision>
+			<subdivision type="twnwt" draft="contributed">ਨਵਾਂ ਤਾਈਪਈ ਸ਼ਹਿਰ</subdivision>
 			<subdivision type="twtpe" draft="contributed">ਤਾਈਪਈ</subdivision>
 			<subdivision type="ua30" draft="contributed">ਕੀਵ</subdivision>
 			<subdivision type="ua40" draft="contributed">ਸੇਵਾਸਤੋਪੋਲ</subdivision>
@@ -429,6 +453,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="uzxo" draft="contributed">ਖੋਰੇਜਮ ਸੂਬਾ</subdivision>
 			<subdivision type="vn24" draft="contributed">ਕੂਏਂਗ ਬਿਨਾਹ ਸੂਬਾ</subdivision>
 			<subdivision type="vnhn" draft="contributed">ਹਨੋਈ</subdivision>
+			<subdivision type="vnsg" draft="contributed">ਹੋ ਚੀ ਮਿਨ ਸ਼ਹਿਰ</subdivision>
 			<subdivision type="yesa" draft="contributed">ਸਨਾ</subdivision>
 		</subdivisions>
 	</localeDisplayNames>

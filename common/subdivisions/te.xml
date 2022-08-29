@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -17,6 +17,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ad04" draft="contributed">లా మసానా</subdivision>
 			<subdivision type="ad05" draft="contributed">ఆర్డినో</subdivision>
 			<subdivision type="ad06" draft="contributed">సంత్ జూలియా డి లోరియా</subdivision>
+			<subdivision type="ad07" draft="contributed">అండోరా లా వెలా</subdivision>
 			<subdivision type="ad08" draft="contributed">ఎస్కాల్డెస్-ఎంగోర్డానీ</subdivision>
 			<subdivision type="aeaj" draft="contributed">అజ్మన్ ఎమిరేట్</subdivision>
 			<subdivision type="aeaz" draft="contributed">అబు ధాబి ఎమిరేట్</subdivision>
@@ -929,6 +930,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="escb" draft="contributed">కాంటాబ్రియా</subdivision>
 			<subdivision type="escc" draft="contributed">కాకరస్ ప్రావిన్స్</subdivision>
 			<subdivision type="esce" draft="contributed">సియూటా</subdivision>
+			<subdivision type="escn" draft="contributed">కానరీ ద్వీపములు</subdivision>
 			<subdivision type="esco" draft="contributed">కొరోడోబా ప్రావిన్స్</subdivision>
 			<subdivision type="escr" draft="contributed">సియుడాడ్ రియల్ ప్రావిన్స్</subdivision>
 			<subdivision type="escs" draft="contributed">కాస్టెలాన్ ప్రావిన్స్</subdivision>
@@ -1076,7 +1078,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr72" draft="contributed">సార్థె</subdivision>
 			<subdivision type="fr73" draft="contributed">సవోయీ</subdivision>
 			<subdivision type="fr74" draft="contributed">హాట్-సావోయ్</subdivision>
-			<subdivision type="fr75" draft="contributed">పారిస్</subdivision>
+			<subdivision type="fr75c" draft="contributed">పారిస్</subdivision>
 			<subdivision type="fr76" draft="contributed">సెయిని-మారిటైమ్</subdivision>
 			<subdivision type="fr77" draft="contributed">సియేన్-ఎట్-మార్నె</subdivision>
 			<subdivision type="fr78" draft="contributed">యెవెలైన్స్</subdivision>
@@ -1097,6 +1099,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr93" draft="contributed">సీన్-సెయింట్-డెనిస్</subdivision>
 			<subdivision type="fr94" draft="contributed">వాల్క్-డి-మార్నె</subdivision>
 			<subdivision type="fr95" draft="contributed">వాల్-దిఓయిస్</subdivision>
+			<subdivision type="fr971" draft="contributed">గ్వాడెలోప్</subdivision>
 			<subdivision type="ga1" draft="contributed">ఎస్టుయేర్ ప్రావిన్స్</subdivision>
 			<subdivision type="ga2" draft="contributed">హాట్-ఓగూ ప్రావిన్స్</subdivision>
 			<subdivision type="ga3" draft="contributed">మోయెన్-ఓగూ ప్రావిన్స్</subdivision>
@@ -1151,6 +1154,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbedu" draft="contributed">తూర్పు డన్బర్టన్ షైర్</subdivision>
 			<subdivision type="gbeln" draft="contributed">పశ్చిమ లోథియన్</subdivision>
 			<subdivision type="gbenf" draft="contributed">లండన్ బోరో ఆఫ్ ఎన్ఫీల్డ్</subdivision>
+			<subdivision type="gbeng" draft="contributed">ఇంగ్లాండ్</subdivision>
 			<subdivision type="gbery" draft="contributed">తూర్పు రైడింగ్ అఫ్ యార్క్ షైర్</subdivision>
 			<subdivision type="gbess" draft="contributed">యెస్సెక్ష్</subdivision>
 			<subdivision type="gbesx" draft="contributed">తూర్పు ససెక్స్</subdivision>
@@ -1225,6 +1229,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbrut" draft="contributed">రూట్ల్యాండ్</subdivision>
 			<subdivision type="gbsay" draft="contributed">దక్షణ అయిర్షైర్</subdivision>
 			<subdivision type="gbscb" draft="contributed">స్కాటిష్ బార్దర్స్</subdivision>
+			<subdivision type="gbsct" draft="contributed">స్కాట్లాండ్</subdivision>
 			<subdivision type="gbsfk" draft="contributed">సఫోల్క్</subdivision>
 			<subdivision type="gbsgc" draft="contributed">దక్షిణ గ్లౌసెస్టర్షైర్</subdivision>
 			<subdivision type="gbshf" draft="contributed">షెఫీల్డ్</subdivision>
@@ -1249,8 +1254,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbwar" draft="contributed">వార్ విక్ షైర్</subdivision>
 			<subdivision type="gbwbk" draft="contributed">, పశ్చిమ బెర్క్ షైర్</subdivision>
 			<subdivision type="gbwft" draft="contributed">లండన్ బోరోగ్ అఫ్ వాల్తం ఫారెస్ట్</subdivision>
+			<subdivision type="gbwil" draft="contributed">విల్ట్షైర్</subdivision>
 			<subdivision type="gbwll" draft="contributed">వాల్సాల్</subdivision>
 			<subdivision type="gbwln" draft="contributed">పశ్చిమ లోథియన్²</subdivision>
+			<subdivision type="gbwls" draft="contributed">వేల్స్</subdivision>
 			<subdivision type="gbwlv" draft="contributed">వోల్వెర్హాంప్టన్</subdivision>
 			<subdivision type="gbwnm" draft="contributed">విండ్సర్ మరియు మైడెన్హెడ్</subdivision>
 			<subdivision type="gbwok" draft="contributed">వకింగ్ హమ్</subdivision>
@@ -1349,28 +1356,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="grj" draft="contributed">పెలెపోనెసీ ప్రాంతం</subdivision>
 			<subdivision type="grk" draft="contributed">ఉత్తర ఏజియన్ ప్రాంతం</subdivision>
 			<subdivision type="grl" draft="contributed">దక్షిణ ఆగియాన్</subdivision>
-			<subdivision type="gtav" draft="contributed">ఆల్టా వెరాపాజ్ డిపార్ట్మెంట్</subdivision>
-			<subdivision type="gtbv" draft="contributed">బాజావరపాజ్ డిపార్ట్మెంట్</subdivision>
-			<subdivision type="gtcm" draft="contributed">చిమాల్టెనాంగో డిపార్ట్మెంట్</subdivision>
-			<subdivision type="gtcq" draft="contributed">చికిములా డిపార్ట్మెంట్</subdivision>
-			<subdivision type="gtes" draft="contributed">ఎస్క్వింట్లా</subdivision>
-			<subdivision type="gtgu" draft="contributed">గ్వాటెమాలా డిపార్ట్మెంట్</subdivision>
-			<subdivision type="gthu" draft="contributed">హుయెహుయెటెనాంగో డిపార్ట్మెంట్</subdivision>
-			<subdivision type="gtiz" draft="contributed">ఇజాబల్ డిపార్ట్మెంట్</subdivision>
-			<subdivision type="gtja" draft="contributed">జలాపా డిపార్ట్మెంట్</subdivision>
-			<subdivision type="gtju" draft="contributed">జుటియాపా డిపార్ట్మెంట్</subdivision>
-			<subdivision type="gtpe" draft="contributed">పెటెన్ డిపార్ట్మెంట్</subdivision>
-			<subdivision type="gtpr" draft="contributed">ఎల్ ప్రోగ్రెసో డిపార్ట్మెంట్</subdivision>
-			<subdivision type="gtqc" draft="contributed">క్విచె డిపార్ట్మెంట్</subdivision>
-			<subdivision type="gtqz" draft="contributed">క్వెట్జాల్టెనాంగో డిపార్ట్మెంట్</subdivision>
-			<subdivision type="gtre" draft="contributed">రిటాల్హులేవు డిపార్ట్మెంట్</subdivision>
-			<subdivision type="gtsa" draft="contributed">సాకోజెపకీస్</subdivision>
-			<subdivision type="gtsm" draft="contributed">సాన్ మార్కోస్ డిపార్ట్మెంట్</subdivision>
-			<subdivision type="gtso" draft="contributed">సోలోలా డిపార్ట్మెంట్</subdivision>
-			<subdivision type="gtsr" draft="contributed">సాంటా రోసా డిపార్ట్మెంట్</subdivision>
-			<subdivision type="gtsu" draft="contributed">సుషిటెపెక్వెజ్ డిపార్ట్మెంట్</subdivision>
-			<subdivision type="gtto" draft="contributed">టోటోనికాపన్ డిపార్ట్మెంట్</subdivision>
-			<subdivision type="gtza" draft="contributed">జకాాపా డిపార్ట్మెంట్</subdivision>
+			<subdivision type="gt01" draft="contributed">గ్వాటెమాలా డిపార్ట్మెంట్</subdivision>
+			<subdivision type="gt02" draft="contributed">ఎల్ ప్రోగ్రెసో డిపార్ట్మెంట్</subdivision>
+			<subdivision type="gt03" draft="contributed">సాకోజెపకీస్</subdivision>
+			<subdivision type="gt04" draft="contributed">చిమాల్టెనాంగో డిపార్ట్మెంట్</subdivision>
+			<subdivision type="gt05" draft="contributed">ఎస్క్వింట్లా</subdivision>
+			<subdivision type="gt06" draft="contributed">సాంటా రోసా డిపార్ట్మెంట్</subdivision>
+			<subdivision type="gt07" draft="contributed">సోలోలా డిపార్ట్మెంట్</subdivision>
+			<subdivision type="gt08" draft="contributed">టోటోనికాపన్ డిపార్ట్మెంట్</subdivision>
+			<subdivision type="gt09" draft="contributed">క్వెట్జాల్టెనాంగో డిపార్ట్మెంట్</subdivision>
+			<subdivision type="gt10" draft="contributed">సుషిటెపెక్వెజ్ డిపార్ట్మెంట్</subdivision>
+			<subdivision type="gt11" draft="contributed">రిటాల్హులేవు డిపార్ట్మెంట్</subdivision>
+			<subdivision type="gt12" draft="contributed">సాన్ మార్కోస్ డిపార్ట్మెంట్</subdivision>
+			<subdivision type="gt13" draft="contributed">హుయెహుయెటెనాంగో డిపార్ట్మెంట్</subdivision>
+			<subdivision type="gt14" draft="contributed">క్విచె డిపార్ట్మెంట్</subdivision>
+			<subdivision type="gt15" draft="contributed">బాజావరపాజ్ డిపార్ట్మెంట్</subdivision>
+			<subdivision type="gt16" draft="contributed">ఆల్టా వెరాపాజ్ డిపార్ట్మెంట్</subdivision>
+			<subdivision type="gt17" draft="contributed">పెటెన్ డిపార్ట్మెంట్</subdivision>
+			<subdivision type="gt18" draft="contributed">ఇజాబల్ డిపార్ట్మెంట్</subdivision>
+			<subdivision type="gt19" draft="contributed">జకాాపా డిపార్ట్మెంట్</subdivision>
+			<subdivision type="gt20" draft="contributed">చికిములా డిపార్ట్మెంట్</subdivision>
+			<subdivision type="gt21" draft="contributed">జలాపా డిపార్ట్మెంట్</subdivision>
+			<subdivision type="gt22" draft="contributed">జుటియాపా డిపార్ట్మెంట్</subdivision>
 			<subdivision type="gwba" draft="contributed">బఫాటా ప్రాంతం</subdivision>
 			<subdivision type="gwbl" draft="contributed">బొలామా ప్రాంతం</subdivision>
 			<subdivision type="gwbm" draft="contributed">బయాంబో ప్రాంతం</subdivision>
@@ -1542,6 +1549,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inch" draft="contributed">చండీగఢ్</subdivision>
 			<subdivision type="inct" draft="contributed">ఛత్తీస్‌గఢ్</subdivision>
 			<subdivision type="indd" draft="contributed">దమన్ దియు</subdivision>
+			<subdivision type="indh" draft="contributed">దాద్రా నగర్ హవేలీ, డామన్ డయ్యూ</subdivision>
 			<subdivision type="indl" draft="contributed">ఢిల్లీ</subdivision>
 			<subdivision type="indn" draft="contributed">దాద్రా నగరు హవేలీ</subdivision>
 			<subdivision type="inga" draft="contributed">గోవా</subdivision>
@@ -1552,6 +1560,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="injk" draft="contributed">జమ్మూ కాశ్మీరు</subdivision>
 			<subdivision type="inka" draft="contributed">కర్ణాటక</subdivision>
 			<subdivision type="inkl" draft="contributed">కేరళ</subdivision>
+			<subdivision type="inla" draft="contributed">లడఖ్</subdivision>
 			<subdivision type="inld" draft="contributed">లక్షద్వీపములు</subdivision>
 			<subdivision type="inmh" draft="contributed">మహారాష్ట్ర</subdivision>
 			<subdivision type="inml" draft="contributed">మేఘాలయ</subdivision>
@@ -1587,13 +1596,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="iqsd" draft="contributed">సలాదిన్ గవర్నరేట్</subdivision>
 			<subdivision type="iqsu" draft="contributed">సులాయ్మానియా గవర్నరేట్</subdivision>
 			<subdivision type="iqwa" draft="contributed">వాసిట్ గవర్నరేట్</subdivision>
+			<subdivision type="ir00" draft="contributed">మార్కాజీ ప్రావిన్స్²</subdivision>
 			<subdivision type="ir01" draft="contributed">తూర్పు అజర్ బైజాన్ ప్రావిన్స్</subdivision>
 			<subdivision type="ir02" draft="contributed">పశ్చిమ అజర్‌బైజాన్ ప్రావిన్స్</subdivision>
 			<subdivision type="ir03" draft="contributed">అర్డాబిల్ ప్రావిన్స్</subdivision>
 			<subdivision type="ir04" draft="contributed">ఇస్ఫహాన్ ప్రావిన్స్</subdivision>
+			<subdivision type="ir05" draft="contributed">లాయల్టీ దీవుల ప్రావిన్స్²</subdivision>
+			<subdivision type="ir06" draft="contributed">ఖుజెస్తాన్ ప్రావిన్స్²</subdivision>
 			<subdivision type="ir07" draft="contributed">టెహ్రాన్ ప్రావిన్స్</subdivision>
 			<subdivision type="ir08" draft="contributed">చాహర్మహల్ మరియు బఖ్తియారి ప్రావిన్స్</subdivision>
+			<subdivision type="ir09" draft="contributed">రాజావి కోరోసన్ ప్రావిన్స్²</subdivision>
 			<subdivision type="ir10" draft="contributed">ఖుజెస్తాన్ ప్రావిన్స్</subdivision>
+			<subdivision type="ir11" draft="contributed">సిస్టాన్ మరియు బలూచిస్తాన్²</subdivision>
+			<subdivision type="ir12" draft="contributed">కుర్దిస్తాన్ ప్రావిన్స్²</subdivision>
 			<subdivision type="ir13" draft="contributed">సిస్టాన్ మరియు బలూచిస్తాన్</subdivision>
 			<subdivision type="ir14" draft="contributed">ఫార్స్ ప్రావిన్స్</subdivision>
 			<subdivision type="ir15" draft="contributed">కెర్మన్ ప్రావిన్స్</subdivision>
@@ -1604,7 +1619,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ir20" draft="contributed">లోరెస్టాన్ ప్రావిన్స్</subdivision>
 			<subdivision type="ir21" draft="contributed">మజందరన్ ప్రావిన్స్</subdivision>
 			<subdivision type="ir22" draft="contributed">మార్కాజీ ప్రావిన్స్</subdivision>
+			<subdivision type="ir23" draft="contributed">టెహ్రాన్ ప్రావిన్స్²</subdivision>
 			<subdivision type="ir24" draft="contributed">హమదన్ ప్రావిన్స్</subdivision>
+			<subdivision type="ir25" draft="contributed">ఖోమ్ ప్రావిన్స్²</subdivision>
 			<subdivision type="ir26" draft="contributed">ఖోమ్ ప్రావిన్స్</subdivision>
 			<subdivision type="ir27" draft="contributed">గోలిస్తాన్ ప్రావిన్స్</subdivision>
 			<subdivision type="ir28" draft="contributed">ఖాజ్విన్ ప్రావిన్స్</subdivision>
@@ -1892,6 +1909,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kzman" draft="contributed">మేంజిస్టావ్ ప్రాంతం</subdivision>
 			<subdivision type="kzpav" draft="contributed">పావ్లోడర్</subdivision>
 			<subdivision type="kzsev" draft="contributed">ఉత్తర కజకిస్తాన్ ప్రావిన్స్</subdivision>
+			<subdivision type="kzshy" draft="contributed">షేమకెంట్</subdivision>
 			<subdivision type="kzvos" draft="contributed">తూర్పు కజకిస్తాన్ ప్రాంతం</subdivision>
 			<subdivision type="kzyuz" draft="contributed">దక్షిణ కజకిస్తాన్ ప్రాంతం</subdivision>
 			<subdivision type="kzzap" draft="contributed">పశ్చిమ కజకిస్తానా ప్రావిన్స్</subdivision>
@@ -2125,6 +2143,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ma15" draft="contributed">లాయోన్-బోజ్‌డోర్-సాకియా ఎల్ హమ్రా</subdivision>
 			<subdivision type="maagd" draft="contributed">అగాడిర్</subdivision>
 			<subdivision type="macas" draft="contributed">కాసాబ్లాంకా</subdivision>
+			<subdivision type="mafes" draft="contributed">ఫెజ్</subdivision>
 			<subdivision type="mague" draft="contributed">గ్యుల్మిమ్ రాష్ట్రభాగం</subdivision>
 			<subdivision type="mamek" draft="contributed">మెక్నెస్</subdivision>
 			<subdivision type="mammd" draft="contributed">మరాకేశ్</subdivision>
@@ -2194,64 +2213,64 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mhl" draft="contributed">రాలిక్ చైన్</subdivision>
 			<subdivision type="mhmaj" draft="contributed">మాజురో</subdivision>
 			<subdivision type="mht" draft="contributed">రాటక్ చైన్</subdivision>
-			<subdivision type="mk02" draft="contributed">అరాసినోవో మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk03" draft="contributed">బెరోవో మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk04" draft="contributed">బిటోలా మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk05" draft="contributed">బాగ్డాన్సి మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk06" draft="contributed">బోగోవింజె మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk07" draft="contributed">బోసిలోవో మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk08" draft="contributed">బ్రెవెనికా మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk11" draft="contributed">వాసిలెవో మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk14" draft="contributed">వినికా మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk19" draft="contributed">గోస్టివార్ మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk20" draft="contributed">గ్రాడ్స్కో మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk21" draft="contributed">డెబార్ మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk22" draft="contributed">డెబార్కా మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk23" draft="contributed">డెల్సేవో మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk27" draft="contributed">డోల్నేని మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk30" draft="contributed">జెలినో మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk32" draft="contributed">జెలెనికోవో మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk33" draft="contributed">జర్నోవ్చీ మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk34" draft="contributed">ఇలిండెన్ మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk35" draft="contributed">జెగనోవ్స్ మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk36" draft="contributed">కావోడార్సి మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk37" draft="contributed">కార్బిన్చి</subdivision>
-			<subdivision type="mk40" draft="contributed">కిసెవో మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk41" draft="contributed">కోన్సె మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk42" draft="contributed">కోకాని మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk43" draft="contributed">క్రాటావో మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk44" draft="contributed">క్రివా పాలంకా మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk45" draft="contributed">క్రివోగాస్తాని మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk46" draft="contributed">క్రుసేవో మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk47" draft="contributed">కుమనోవో మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk48" draft="contributed">లిప్కోవో మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk49" draft="contributed">లోజోవో మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk50" draft="contributed">మావ్రోవో మరియు రోస్టూసా మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk51" draft="contributed">మాకెడోన్స్కా కామెనికా మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk52" draft="contributed">మాకెడోన్స్కీ బ్రోడ్ మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk54" draft="contributed">నెగోటిని మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk56" draft="contributed">నావో సెలో మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk58" draft="contributed">ఓహ్రిడ్ మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk60" draft="contributed">పెహ్సేవో మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk61" draft="contributed">ప్లాస్నికా మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk62" draft="contributed">ప్రిలెప్ మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk63" draft="contributed">ప్రోబిస్టిప్ మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk64" draft="contributed">రాడోవిస్ మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk65" draft="contributed">రాంకోవసె మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk66" draft="contributed">రెసెన్ మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk69" draft="contributed">స్వెెటి నికోల్ మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk70" draft="contributed">సోపిస్టే మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk72" draft="contributed">స్ట్రూగా మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk73" draft="contributed">స్ట్రూమికా మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk74" draft="contributed">స్టూడెనికని మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk75" draft="contributed">టియర్స్ మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk76" draft="contributed">టెటోవో మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk78" draft="contributed">సెంటార్ జూపా మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk80" draft="contributed">కాస్కా మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk81" draft="contributed">సెసిినోవో-ఓబ్లెసేవో మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk82" draft="contributed">క్యూసర్-సాండేవో మున్సిపాలిటీ</subdivision>
-			<subdivision type="mk83" draft="contributed">స్టిప్ మున్సిపాలిటీ</subdivision>
 			<subdivision type="mk85" draft="contributed">స్కాపియో</subdivision>
+			<subdivision type="mk102" draft="contributed">గ్రాడ్స్కో మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk104" draft="contributed">కావోడార్సి మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk105" draft="contributed">లోజోవో మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk106" draft="contributed">నెగోటిని మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk108" draft="contributed">స్వెెటి నికోల్ మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk109" draft="contributed">కాస్కా మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk201" draft="contributed">బెరోవో మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk202" draft="contributed">వినికా మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk203" draft="contributed">డెల్సేవో మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk204" draft="contributed">జర్నోవ్చీ మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk205" draft="contributed">కార్బిన్చి</subdivision>
+			<subdivision type="mk206" draft="contributed">కోకాని మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk207" draft="contributed">మాకెడోన్స్కా కామెనికా మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk208" draft="contributed">పెహ్సేవో మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk209" draft="contributed">ప్రోబిస్టిప్ మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk210" draft="contributed">సెసిినోవో-ఓబ్లెసేవో మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk211" draft="contributed">స్టిప్ మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk303" draft="contributed">డెబార్ మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk304" draft="contributed">డెబార్కా మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk307" draft="contributed">కిసెవో మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk308" draft="contributed">మాకెడోన్స్కీ బ్రోడ్ మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk310" draft="contributed">ఓహ్రిడ్ మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk311" draft="contributed">ప్లాస్నికా మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk312" draft="contributed">స్ట్రూగా మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk313" draft="contributed">సెంటార్ జూపా మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk401" draft="contributed">బాగ్డాన్సి మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk402" draft="contributed">బోసిలోవో మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk404" draft="contributed">వాసిలెవో మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk407" draft="contributed">కోన్సె మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk408" draft="contributed">నావో సెలో మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk409" draft="contributed">రాడోవిస్ మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk410" draft="contributed">స్ట్రూమికా మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk501" draft="contributed">బిటోలా మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk503" draft="contributed">డోల్నేని మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk504" draft="contributed">క్రివోగాస్తాని మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk505" draft="contributed">క్రుసేవో మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk508" draft="contributed">ప్రిలెప్ మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk509" draft="contributed">రెసెన్ మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk601" draft="contributed">బోగోవింజె మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk602" draft="contributed">బ్రెవెనికా మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk604" draft="contributed">గోస్టివార్ మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk605" draft="contributed">జెలినో మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk606" draft="contributed">జెగనోవ్స్ మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk607" draft="contributed">మావ్రోవో మరియు రోస్టూసా మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk608" draft="contributed">టియర్స్ మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk609" draft="contributed">టెటోవో మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk701" draft="contributed">క్రాటావో మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk702" draft="contributed">క్రివా పాలంకా మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk703" draft="contributed">కుమనోవో మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk704" draft="contributed">లిప్కోవో మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk705" draft="contributed">రాంకోవసె మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk802" draft="contributed">అరాసినోవో మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk806" draft="contributed">జెలెనికోవో మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk807" draft="contributed">ఇలిండెన్ మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk812" draft="contributed">సోపిస్టే మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk813" draft="contributed">స్టూడెనికని మున్సిపాలిటీ</subdivision>
+			<subdivision type="mk816" draft="contributed">క్యూసర్-సాండేవో మున్సిపాలిటీ</subdivision>
 			<subdivision type="ml1" draft="contributed">కేయెస్ ప్రాంతం</subdivision>
 			<subdivision type="ml2" draft="contributed">కోలికోరో ప్రాంతం</subdivision>
 			<subdivision type="ml3" draft="contributed">సికాసో ప్రాంతం</subdivision>
@@ -3034,6 +3053,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="sc11" draft="contributed">కాస్కేడ్</subdivision>
 			<subdivision type="sc12" draft="contributed">గ్లేసిస్</subdivision>
 			<subdivision type="sc14" draft="contributed">గ్రాండ్ఆన్స్ ప్రాస్లిన్</subdivision>
+			<subdivision type="sc15" draft="contributed">లా డిగా మరియు ఇన్నర్ దీవులు</subdivision>
 			<subdivision type="sc16" draft="contributed">లా రివియర్ అంగ్లెయిస్</subdivision>
 			<subdivision type="sc17" draft="contributed">మాంట్ బుక్స్టన్</subdivision>
 			<subdivision type="sc18" draft="contributed">మాంట్ ఫ్ల్యూరి</subdivision>
@@ -3597,6 +3617,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="twkin" draft="contributed">కిన్మెన్</subdivision>
 			<subdivision type="twmia" draft="contributed">మియావోలి కౌంటీ</subdivision>
 			<subdivision type="twnan" draft="contributed">నాంటో కౌంటీ</subdivision>
+			<subdivision type="twnwt" draft="contributed">న్యూ టాయిపెయ్ సిటీ</subdivision>
 			<subdivision type="twpif" draft="contributed">పింగ్‌టుంగ్ కౌంటీ</subdivision>
 			<subdivision type="twtao" draft="contributed">టైయోవాన్ నగరం</subdivision>
 			<subdivision type="twtnn" draft="contributed">టాయినాన్</subdivision>
@@ -3990,11 +4011,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="yeta" draft="contributed">టాయిజ్</subdivision>
 			<subdivision type="zaec" draft="contributed">తూర్పు కేప్</subdivision>
 			<subdivision type="zafs" draft="contributed">ఫ్రీ స్టేట్</subdivision>
-			<subdivision type="zagt" draft="contributed">గౌటెంగ్</subdivision>
+			<subdivision type="zagp" draft="contributed">గౌటెంగ్</subdivision>
+			<subdivision type="zakzn" draft="contributed">క్వాజులు-నేటల్</subdivision>
 			<subdivision type="zalp" draft="contributed">లింపోపో</subdivision>
 			<subdivision type="zamp" draft="contributed">ఎంపుమలాంగా</subdivision>
 			<subdivision type="zanc" draft="contributed">ఉత్తర కేప్</subdivision>
-			<subdivision type="zanl" draft="contributed">క్వాజులు-నేటల్</subdivision>
 			<subdivision type="zanw" draft="contributed">నార్త్ వెస్ట్</subdivision>
 			<subdivision type="zawc" draft="contributed">వెస్టర్న్ కేప్</subdivision>
 			<subdivision type="zm01" draft="contributed">వెస్ట్రన్ ప్రావిన్స్</subdivision>

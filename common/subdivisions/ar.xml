@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -17,6 +17,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ad04" draft="contributed">لامسانا</subdivision>
 			<subdivision type="ad05" draft="contributed">أوردينو</subdivision>
 			<subdivision type="ad06" draft="contributed">سانت جوليا دي لوريا</subdivision>
+			<subdivision type="ad07" draft="contributed">أندورا لا فيلا</subdivision>
 			<subdivision type="ad08" draft="contributed">إسكالديس أنجوردني</subdivision>
 			<subdivision type="aeaj" draft="contributed">عجمان</subdivision>
 			<subdivision type="aeaz" draft="contributed">إمارة أبوظبي</subdivision>
@@ -170,6 +171,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="azgad" draft="contributed">مقاطعة غدابيغ</subdivision>
 			<subdivision type="azgor" draft="contributed">مقاطعة غورانبوي</subdivision>
 			<subdivision type="azgoy" draft="contributed">مقاطعة غويتشاي</subdivision>
+			<subdivision type="azgyg" draft="contributed">مقاطعة كويكول</subdivision>
 			<subdivision type="azhac" draft="contributed">مقاطعة هايغابول</subdivision>
 			<subdivision type="azimi" draft="contributed">مقاطعة إيميشلي</subdivision>
 			<subdivision type="azism" draft="contributed">مقاطعة إسمايلي</subdivision>
@@ -200,6 +202,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="azsah" draft="contributed">مقاطعة شهبوز</subdivision>
 			<subdivision type="azsak" draft="contributed">مقاطعة شاكي</subdivision>
 			<subdivision type="azsal" draft="contributed">مقاطعة ساليان</subdivision>
+			<subdivision type="azsar" draft="contributed">مقاطعة شرور</subdivision>
 			<subdivision type="azsat" draft="contributed">مقاطعة ساتلي</subdivision>
 			<subdivision type="azsbn" draft="contributed">مقاطعة شابران</subdivision>
 			<subdivision type="azsiy" draft="contributed">مقاطعة سيازن</subdivision>
@@ -215,7 +218,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="azxa" draft="contributed">سيتباناكيرت</subdivision>
 			<subdivision type="azxac" draft="contributed">مقاطعة خاتشماز</subdivision>
 			<subdivision type="azxci" draft="contributed">مقاطعة خوجالي</subdivision>
+			<subdivision type="azxiz" draft="contributed">مقاطعة خيزي</subdivision>
+			<subdivision type="azxvd" draft="contributed">مقاطعة خوجاوند</subdivision>
 			<subdivision type="azyar" draft="contributed">مقاطعة يارديملي</subdivision>
+			<subdivision type="azye" draft="contributed">يفلاكس</subdivision>
 			<subdivision type="azyev" draft="contributed">مقاطعة يفلاخ</subdivision>
 			<subdivision type="azzan" draft="contributed">مقاطعة زنغلان</subdivision>
 			<subdivision type="azzaq" draft="contributed">مقاطعة زقاتالا</subdivision>
@@ -236,14 +242,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bb11" draft="contributed">سانت توماس، بربادوس</subdivision>
 			<subdivision type="bd04" draft="contributed">مديرية برهمن‌ بريه</subdivision>
 			<subdivision type="bd06" draft="contributed">مقاطعة باريسال</subdivision>
+			<subdivision type="bd08" draft="contributed">ناحية كوميلا</subdivision>
+			<subdivision type="bd09" draft="contributed">ناحية جانديفور</subdivision>
+			<subdivision type="bd10" draft="contributed">مديرية شيتاغونغ</subdivision>
+			<subdivision type="bd11" draft="contributed">ناحية كوكس بازار</subdivision>
+			<subdivision type="bd13" draft="contributed">ناحية دكا</subdivision>
+			<subdivision type="bd15" draft="contributed">ناحية فريدبور</subdivision>
+			<subdivision type="bd35" draft="contributed">مونشيجاني</subdivision>
+			<subdivision type="bd36" draft="contributed">ناحية مداربور</subdivision>
+			<subdivision type="bd39" draft="contributed">مهربور</subdivision>
+			<subdivision type="bd49" draft="contributed">مقاطعة بابنا</subdivision>
 			<subdivision type="bd54" draft="contributed">مقاطعة رايشاهي</subdivision>
 			<subdivision type="bd55" draft="contributed">مقاطعة رانجبور</subdivision>
+			<subdivision type="bd58" draft="contributed">شات خيرا</subdivision>
 			<subdivision type="bd60" draft="contributed">مقاطعة سيلهيت</subdivision>
 			<subdivision type="bd63" draft="contributed">منطقة تانغيل</subdivision>
 			<subdivision type="bda" draft="contributed">محافظة باريسال</subdivision>
 			<subdivision type="bdb" draft="contributed">محافظة تشيتاغونغ</subdivision>
 			<subdivision type="bdc" draft="contributed">محافظة داكا</subdivision>
 			<subdivision type="bdd" draft="contributed">قسم خولنا</subdivision>
+			<subdivision type="bde" draft="contributed">إقليم راجشاهي</subdivision>
+			<subdivision type="bdf" draft="contributed">إقليم رنكبور</subdivision>
+			<subdivision type="bdg" draft="contributed">إقليم سيلهيت</subdivision>
+			<subdivision type="bdh" draft="contributed">إقليم ميمينسينغ</subdivision>
 			<subdivision type="bebru" draft="contributed">إقليم بروكسل العاصمة</subdivision>
 			<subdivision type="bevan" draft="contributed">أنتفيرب</subdivision>
 			<subdivision type="bevbr" draft="contributed">برابانت فلاماند</subdivision>
@@ -259,13 +280,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bewna" draft="contributed">نامور</subdivision>
 			<subdivision type="bf01" draft="contributed">بوكل دو موهون</subdivision>
 			<subdivision type="bf02" draft="contributed">الشالالات</subdivision>
+			<subdivision type="bf03" draft="contributed">الأوسط</subdivision>
+			<subdivision type="bf04" draft="contributed">الوسط شرقي</subdivision>
 			<subdivision type="bf05" draft="contributed">الوسط شمالي</subdivision>
 			<subdivision type="bf06" draft="contributed">وسط كويست</subdivision>
 			<subdivision type="bf07" draft="contributed">الوسط الجنوبي</subdivision>
 			<subdivision type="bf08" draft="contributed">الشرقي</subdivision>
+			<subdivision type="bf09" draft="contributed">إقليم هوتس-باسنز</subdivision>
 			<subdivision type="bf10" draft="contributed">الشمالي</subdivision>
 			<subdivision type="bf11" draft="contributed">الهضبة الوسطى</subdivision>
 			<subdivision type="bf12" draft="contributed">الساحل</subdivision>
+			<subdivision type="bf13" draft="contributed">جنوب كويست</subdivision>
 			<subdivision type="bfbal" draft="contributed">مقاطعة بالي</subdivision>
 			<subdivision type="bfbam" draft="contributed">محافظة بام</subdivision>
 			<subdivision type="bfban" draft="contributed">مقاطعة بانوا</subdivision>
@@ -357,6 +382,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bimw" draft="contributed">محافظة موارو</subdivision>
 			<subdivision type="bimy" draft="contributed">محافظة موينغا</subdivision>
 			<subdivision type="bing" draft="contributed">مقاطعة نغوزي</subdivision>
+			<subdivision type="birm" draft="contributed">إقليم رومنغي</subdivision>
 			<subdivision type="birt" draft="contributed">مقاطعة روتانا</subdivision>
 			<subdivision type="biry" draft="contributed">محافظة روييغي</subdivision>
 			<subdivision type="bjak" draft="contributed">إدارة أتاكورا</subdivision>
@@ -484,6 +510,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="byma" draft="contributed">موغيليوف أوبلاست</subdivision>
 			<subdivision type="bymi" draft="contributed">إقليم مينسك</subdivision>
 			<subdivision type="byvi" draft="contributed">فيتسبك أوبلاست</subdivision>
+			<subdivision type="bzbz" draft="contributed">مقاطعة بليز</subdivision>
 			<subdivision type="bzcy" draft="contributed">مقاطعة كايو</subdivision>
 			<subdivision type="bzczl" draft="contributed">مقاطعة كوروزال</subdivision>
 			<subdivision type="bzow" draft="contributed">مقاطعة اورانج ووك</subdivision>
@@ -504,6 +531,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cayt" draft="contributed">يوكون</subdivision>
 			<subdivision type="cdbc" draft="contributed">الكونغو الوسطى</subdivision>
 			<subdivision type="cdeq" draft="contributed">إكواتور</subdivision>
+			<subdivision type="cdhl" draft="contributed">أوت لومامي</subdivision>
 			<subdivision type="cdke" draft="contributed">كاساي الشرقية</subdivision>
 			<subdivision type="cdkn" draft="contributed">كينشاسا</subdivision>
 			<subdivision type="cdma" draft="contributed">مانيما</subdivision>
@@ -566,6 +594,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ciab" draft="contributed">أبيدجان</subdivision>
 			<subdivision type="cibs" draft="contributed">مقاطعة باس-ساساندرا</subdivision>
 			<subdivision type="cidn" draft="contributed">مقاطعة دينغويلي</subdivision>
+			<subdivision type="cigd" draft="contributed">مقاطعة غوه-جيبوا</subdivision>
+			<subdivision type="cimg" draft="contributed">مقاطعة الجبال</subdivision>
 			<subdivision type="cisv" draft="contributed">مقاطعة سافانس</subdivision>
 			<subdivision type="civb" draft="contributed">مقاطعة فالي دو باندما</subdivision>
 			<subdivision type="ciym" draft="contributed">ياموسوكرو</subdivision>
@@ -690,6 +720,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cvca" draft="contributed">سانتا كاتارينا</subdivision>
 			<subdivision type="cvcf" draft="contributed">سانتا كاتارينا دو فوجو</subdivision>
 			<subdivision type="cvcr" draft="contributed">سانتا كروز</subdivision>
+			<subdivision type="cvma" draft="contributed">مايو</subdivision>
 			<subdivision type="cvmo" draft="contributed">موستيروس، الرأس الأخضر</subdivision>
 			<subdivision type="cvpa" draft="contributed">بول</subdivision>
 			<subdivision type="cvpn" draft="contributed">بورتو نوفو</subdivision>
@@ -951,6 +982,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ee65" draft="contributed">مقاطعة بولفا</subdivision>
 			<subdivision type="ee67" draft="contributed">مقاطعة بارنو</subdivision>
 			<subdivision type="ee70" draft="contributed">مقاطعة رابلا</subdivision>
+			<subdivision type="ee74" draft="contributed">مقاطعة سار</subdivision>
 			<subdivision type="ee78" draft="contributed">مقاطعة تارتو</subdivision>
 			<subdivision type="ee82" draft="contributed">مقاطعة فالغا</subdivision>
 			<subdivision type="ee84" draft="contributed">مقاطعة فيلياندي</subdivision>
@@ -1006,6 +1038,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="esce" draft="contributed">سبتة</subdivision>
 			<subdivision type="escl" draft="contributed">منطقة قـشتالة وليون</subdivision>
 			<subdivision type="escm" draft="contributed">منطقة كاستيا لا مانتشا</subdivision>
+			<subdivision type="escn" draft="contributed">جزر الكناري</subdivision>
 			<subdivision type="esco" draft="contributed">مقاطعة قرطبة</subdivision>
 			<subdivision type="escr" draft="contributed">ثيوداد ريال</subdivision>
 			<subdivision type="escs" draft="contributed">كاستيون</subdivision>
@@ -1029,6 +1062,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="esmc" draft="contributed">منطقة مرسية</subdivision>
 			<subdivision type="esmd" draft="contributed">منطقة مدريد</subdivision>
 			<subdivision type="esml" draft="contributed">مليلية</subdivision>
+			<subdivision type="esmu" draft="contributed">منطقة مرسية²</subdivision>
 			<subdivision type="esna" draft="contributed">منطقة نافارا²</subdivision>
 			<subdivision type="esnc" draft="contributed">منطقة نافارا</subdivision>
 			<subdivision type="esor" draft="contributed">أورينسي</subdivision>
@@ -1114,6 +1148,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr17" draft="contributed">شارنت البحرية</subdivision>
 			<subdivision type="fr18" draft="contributed">شير</subdivision>
 			<subdivision type="fr19" draft="contributed">كوريز</subdivision>
+			<subdivision type="fr20r" draft="contributed">قرسقة</subdivision>
 			<subdivision type="fr21" draft="contributed">كوت دور</subdivision>
 			<subdivision type="fr22" draft="contributed">كوت درمور</subdivision>
 			<subdivision type="fr23" draft="contributed">كروز</subdivision>
@@ -1168,7 +1203,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr72" draft="contributed">سارت</subdivision>
 			<subdivision type="fr73" draft="contributed">سافوا</subdivision>
 			<subdivision type="fr74" draft="contributed">سافوا العليا</subdivision>
-			<subdivision type="fr75" draft="contributed">باريس</subdivision>
+			<subdivision type="fr75c" draft="contributed">باريس</subdivision>
 			<subdivision type="fr76" draft="contributed">السان البحرية</subdivision>
 			<subdivision type="fr77" draft="contributed">السان ومارن</subdivision>
 			<subdivision type="fr78" draft="contributed">الإيفلين</subdivision>
@@ -1189,12 +1224,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr93" draft="contributed">سين سان دوني</subdivision>
 			<subdivision type="fr94" draft="contributed">فال دو مارن</subdivision>
 			<subdivision type="fr95" draft="contributed">فال دواز</subdivision>
+			<subdivision type="fr971" draft="contributed">غوادلوب</subdivision>
 			<subdivision type="frara" draft="contributed">أوفرن-رون ألب</subdivision>
 			<subdivision type="frbfc" draft="contributed">تصنيف:بورغوني- فرانش كومتيه</subdivision>
 			<subdivision type="frbre" draft="contributed">بريتاني</subdivision>
 			<subdivision type="frcor" draft="contributed">كورسيكا</subdivision>
 			<subdivision type="frcvl" draft="contributed">سانتر-فال دو لوار</subdivision>
 			<subdivision type="frges" draft="contributed">غراند إيست</subdivision>
+			<subdivision type="frhdf" draft="contributed">أوت دو فرانس</subdivision>
 			<subdivision type="fridf" draft="contributed">إيل دو فرانس</subdivision>
 			<subdivision type="frnaq" draft="contributed">آكيتن جديد</subdivision>
 			<subdivision type="frnor" draft="contributed">نورماندي</subdivision>
@@ -1212,6 +1249,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ga9" draft="contributed">مقاطعة وليو-نتم</subdivision>
 			<subdivision type="gbabd" draft="contributed">أبردينشاير</subdivision>
 			<subdivision type="gbabe" draft="contributed">أبردين</subdivision>
+			<subdivision type="gbagb" draft="contributed">أرغيل وبوت</subdivision>
 			<subdivision type="gbagy" draft="contributed">أنغلسي</subdivision>
 			<subdivision type="gbans" draft="contributed">أنغوس</subdivision>
 			<subdivision type="gbbgw" draft="contributed">بليناو غونت</subdivision>
@@ -1223,12 +1261,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbbry" draft="contributed">منطقة بروملي</subdivision>
 			<subdivision type="gbbst" draft="contributed">برستل</subdivision>
 			<subdivision type="gbcam" draft="contributed">كامبريدجشير</subdivision>
+			<subdivision type="gbche" draft="contributed">تشيشير إيست</subdivision>
 			<subdivision type="gbclk" draft="contributed">كلاكمانشاير</subdivision>
 			<subdivision type="gbcma" draft="contributed">كامبريا</subdivision>
 			<subdivision type="gbcon" draft="contributed">كورنوال</subdivision>
 			<subdivision type="gbcov" draft="contributed">كوفنتري</subdivision>
 			<subdivision type="gbcrf" draft="contributed">كارديف</subdivision>
 			<subdivision type="gbdby" draft="contributed">داربيشير</subdivision>
+			<subdivision type="gbden" draft="contributed">دنبيشير</subdivision>
 			<subdivision type="gbder" draft="contributed">ديربي</subdivision>
 			<subdivision type="gbdev" draft="contributed">ديفون</subdivision>
 			<subdivision type="gbdgy" draft="contributed">دومفريز وغالاوي</subdivision>
@@ -1242,12 +1282,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbeln" draft="contributed">لوثيان الشرقية</subdivision>
 			<subdivision type="gbels" draft="contributed">هبرديس الخارجي</subdivision>
 			<subdivision type="gbenf" draft="contributed">منطقة أنفيلد</subdivision>
+			<subdivision type="gbeng" draft="contributed">إنجلترا</subdivision>
 			<subdivision type="gbery" draft="contributed">إيست رايدينج أوف يوركشير</subdivision>
 			<subdivision type="gbess" draft="contributed">إسكس</subdivision>
 			<subdivision type="gbesx" draft="contributed">شرق ساسكس</subdivision>
+			<subdivision type="gbfal" draft="contributed">فالكيرك</subdivision>
+			<subdivision type="gbfif" draft="contributed">فايف</subdivision>
 			<subdivision type="gbgbn" draft="contributed">بريطانيا العظمى</subdivision>
 			<subdivision type="gbglg" draft="contributed">غلاسكو</subdivision>
 			<subdivision type="gbgls" draft="contributed">غلوسترشير</subdivision>
+			<subdivision type="gbgwn" draft="contributed">جوينيد</subdivision>
 			<subdivision type="gbham" draft="contributed">هامبشاير</subdivision>
 			<subdivision type="gbhck" draft="contributed">حي هكني في لندن</subdivision>
 			<subdivision type="gbhef" draft="contributed">هيرفوردشير</subdivision>
@@ -1266,6 +1310,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gblan" draft="contributed">لانكشر</subdivision>
 			<subdivision type="gblbh" draft="contributed">لامبيث</subdivision>
 			<subdivision type="gblce" draft="contributed">لستر</subdivision>
+			<subdivision type="gblds" draft="contributed">ليدز</subdivision>
 			<subdivision type="gblec" draft="contributed">ليسترشير</subdivision>
 			<subdivision type="gblew" draft="contributed">لويشام</subdivision>
 			<subdivision type="gblin" draft="contributed">لينكونشير</subdivision>
@@ -1282,6 +1327,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbngm" draft="contributed">نوتنغهام</subdivision>
 			<subdivision type="gbnir" draft="contributed">أيرلندا الشمالية</subdivision>
 			<subdivision type="gbnth" draft="contributed">نورثهامبتونشاير</subdivision>
+			<subdivision type="gbntl" draft="contributed">مقاطعة ناحية نيث بورت طالبوت</subdivision>
 			<subdivision type="gbntt" draft="contributed">نوتنغهامشير</subdivision>
 			<subdivision type="gbnwm" draft="contributed">نيوهام</subdivision>
 			<subdivision type="gbnyk" draft="contributed">شمال يوركشير</subdivision>
@@ -1298,11 +1344,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbric" draft="contributed">ريتشموند، لندن</subdivision>
 			<subdivision type="gbrut" draft="contributed">روتلاند</subdivision>
 			<subdivision type="gbsaw" draft="contributed">ساندويل</subdivision>
+			<subdivision type="gbsct" draft="contributed">اسكتلندا</subdivision>
 			<subdivision type="gbsfk" draft="contributed">سوفولك</subdivision>
 			<subdivision type="gbshf" draft="contributed">شفيلد</subdivision>
 			<subdivision type="gbshr" draft="contributed">شروبشاير</subdivision>
 			<subdivision type="gbslf" draft="contributed">سالفورد</subdivision>
 			<subdivision type="gbslg" draft="contributed">سلاو</subdivision>
+			<subdivision type="gbslk" draft="contributed">ساوث لانركشاير</subdivision>
 			<subdivision type="gbsom" draft="contributed">مقاطعة سومرست</subdivision>
 			<subdivision type="gbsry" draft="contributed">سري</subdivision>
 			<subdivision type="gbste" draft="contributed">ستوك أون ترينت</subdivision>
@@ -1310,6 +1358,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbstn" draft="contributed">منطقة ساتون</subdivision>
 			<subdivision type="gbsts" draft="contributed">ستافوردشاير</subdivision>
 			<subdivision type="gbswa" draft="contributed">سوانزي</subdivision>
+			<subdivision type="gbtfw" draft="contributed">تلفورد وريكين</subdivision>
 			<subdivision type="gbthr" draft="contributed">ثوروك</subdivision>
 			<subdivision type="gbtof" draft="contributed">تورفين</subdivision>
 			<subdivision type="gbtrf" draft="contributed">ترافورد</subdivision>
@@ -1317,12 +1366,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbukm" draft="contributed">المملكة المتحدة</subdivision>
 			<subdivision type="gbwar" draft="contributed">ووريكشير</subdivision>
 			<subdivision type="gbwdu" draft="contributed">دونبارتونشير الغربية</subdivision>
+			<subdivision type="gbwft" draft="contributed">ناحية غابة والثام في لندن</subdivision>
 			<subdivision type="gbwil" draft="contributed">ويلتشير</subdivision>
+			<subdivision type="gbwkf" draft="contributed">ويكفيلد</subdivision>
 			<subdivision type="gbwln" draft="contributed">غرب لوثيان</subdivision>
+			<subdivision type="gbwls" draft="contributed">ويلز</subdivision>
 			<subdivision type="gbwlv" draft="contributed">ولفرهامبتن</subdivision>
 			<subdivision type="gbwnd" draft="contributed">واندزورث</subdivision>
 			<subdivision type="gbwnm" draft="contributed">وندسور و ميدينهيد</subdivision>
 			<subdivision type="gbwor" draft="contributed">وسترشير</subdivision>
+			<subdivision type="gbwrl" draft="contributed">ويرال</subdivision>
 			<subdivision type="gbwsm" draft="contributed">مدينة وستمنستر</subdivision>
 			<subdivision type="gbwsx" draft="contributed">غرب ساسكس</subdivision>
 			<subdivision type="gbyor" draft="contributed">يورك</subdivision>
@@ -1349,16 +1402,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ghaa" draft="contributed">إقليم أكرا الكبرى</subdivision>
 			<subdivision type="ghah" draft="contributed">منطقة أشانتي</subdivision>
 			<subdivision type="ghba" draft="contributed">إقليم برونغ - أهافو</subdivision>
+			<subdivision type="ghbe" draft="contributed">إقليم شرق بونو</subdivision>
+			<subdivision type="ghbo" draft="contributed">إقليم بونو</subdivision>
 			<subdivision type="ghcp" draft="contributed">الإقليم الأوسط</subdivision>
 			<subdivision type="ghep" draft="contributed">الإقليم الشرقي</subdivision>
 			<subdivision type="ghnp" draft="contributed">الإقليم الشمالي</subdivision>
+			<subdivision type="ghsv" draft="contributed">منطقة السفانا</subdivision>
 			<subdivision type="ghtv" draft="contributed">إقليم فولتا</subdivision>
 			<subdivision type="ghue" draft="contributed">مقاطعة الشرق األوسط</subdivision>
 			<subdivision type="ghuw" draft="contributed">الإقليم الغربي الأعلى</subdivision>
 			<subdivision type="ghwp" draft="contributed">الإقليم الغربي</subdivision>
+			<subdivision type="glav" draft="contributed">أفناتا</subdivision>
 			<subdivision type="glku" draft="contributed">كوياليك</subdivision>
 			<subdivision type="glqa" draft="contributed">كاسويتسوب</subdivision>
 			<subdivision type="glqe" draft="contributed">كيكاتا</subdivision>
+			<subdivision type="glqt" draft="contributed">ككرتليك</subdivision>
 			<subdivision type="glsm" draft="contributed">سيرمرسوك</subdivision>
 			<subdivision type="gmb" draft="contributed">بانجول</subdivision>
 			<subdivision type="gml" draft="contributed">شعبة النهر السفلى</subdivision>
@@ -1377,15 +1435,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gndi" draft="contributed">محافظة دينغويراي</subdivision>
 			<subdivision type="gndl" draft="contributed">محافظة دالابا</subdivision>
 			<subdivision type="gndu" draft="contributed">محافظة دوبريكا</subdivision>
+			<subdivision type="gnfo" draft="contributed">محافظة فوريكاريا</subdivision>
 			<subdivision type="gnfr" draft="contributed">محافظة فريا</subdivision>
 			<subdivision type="gnga" draft="contributed">محافظة غاوال</subdivision>
 			<subdivision type="gngu" draft="contributed">محافظة غوكيدو</subdivision>
 			<subdivision type="gnk" draft="contributed">إقليم كانكان</subdivision>
+			<subdivision type="gnka" draft="contributed">محافظة كانكان</subdivision>
 			<subdivision type="gnkb" draft="contributed">محافظة كوبيا</subdivision>
+			<subdivision type="gnkd" draft="contributed">محافظة كنديا</subdivision>
 			<subdivision type="gnke" draft="contributed">مقاطعة كيرونيه</subdivision>
 			<subdivision type="gnkn" draft="contributed">محافظة كاوندارا</subdivision>
 			<subdivision type="gnko" draft="contributed">مقاطعة كوروسا</subdivision>
 			<subdivision type="gnks" draft="contributed">محافظة كيسيدوغو</subdivision>
+			<subdivision type="gnl" draft="contributed">إقليم لابي</subdivision>
 			<subdivision type="gnla" draft="contributed">محافظة لابي</subdivision>
 			<subdivision type="gnle" draft="contributed">محافظة ليلوما</subdivision>
 			<subdivision type="gnlo" draft="contributed">ولاية لولا</subdivision>
@@ -1393,7 +1455,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gnmc" draft="contributed">ولاية ماسينتا</subdivision>
 			<subdivision type="gnmd" draft="contributed">محافظة مانديانا</subdivision>
 			<subdivision type="gnml" draft="contributed">ولاية مالي</subdivision>
+			<subdivision type="gnmm" draft="contributed">محافظة مامو</subdivision>
 			<subdivision type="gnn" draft="contributed">إقليم نزيريكوري</subdivision>
+			<subdivision type="gnnz" draft="contributed">محافظة نزريكوري</subdivision>
 			<subdivision type="gnpi" draft="contributed">محافظة بيتا</subdivision>
 			<subdivision type="gnsi" draft="contributed">محافظة سيغيري</subdivision>
 			<subdivision type="gnte" draft="contributed">محافظة تيليميلي</subdivision>
@@ -1419,28 +1483,33 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="grj" draft="contributed">بيلوبونيز</subdivision>
 			<subdivision type="grk" draft="contributed">شمال إيجة</subdivision>
 			<subdivision type="grl" draft="contributed">جنوب إيجة</subdivision>
-			<subdivision type="gtav" draft="contributed">إدارة ألتا فيراباز</subdivision>
-			<subdivision type="gtbv" draft="contributed">إدارة بايا فيراباز</subdivision>
-			<subdivision type="gtcm" draft="contributed">إدارة تشيمالتينانغو</subdivision>
-			<subdivision type="gtcq" draft="contributed">إدارة تشيكيمولا</subdivision>
+			<subdivision type="grm" draft="contributed">منطقة إقريطش</subdivision>
+			<subdivision type="gt01" draft="contributed">إدارة غواتيمالا</subdivision>
+			<subdivision type="gt02" draft="contributed">إدارة البروغريسو</subdivision>
+			<subdivision type="gt03" draft="contributed">إدارة ساكاتيبيكيز</subdivision>
+			<subdivision type="gt04" draft="contributed">إدارة تشيمالتينانغو</subdivision>
+			<subdivision type="gt05" draft="contributed">إدارة إسكوينتلا</subdivision>
+			<subdivision type="gt06" draft="contributed">إدارة سانتا روزا</subdivision>
+			<subdivision type="gt07" draft="contributed">إدارة سولولا</subdivision>
+			<subdivision type="gt08" draft="contributed">إدارة توتونيكابان</subdivision>
+			<subdivision type="gt09" draft="contributed">إدارة كويتزالتينانغو</subdivision>
+			<subdivision type="gt10" draft="contributed">إدارة سوشيتبيكيز</subdivision>
+			<subdivision type="gt11" draft="contributed">إدارة ريتاليوليو</subdivision>
+			<subdivision type="gt12" draft="contributed">إدارة سان ماركوس</subdivision>
+			<subdivision type="gt13" draft="contributed">إدارة هيويتينانغو</subdivision>
+			<subdivision type="gt14" draft="contributed">إدارة كويتشي</subdivision>
+			<subdivision type="gt15" draft="contributed">إدارة بايا فيراباز</subdivision>
+			<subdivision type="gt16" draft="contributed">إدارة ألتا فيراباز</subdivision>
+			<subdivision type="gt17" draft="contributed">إدارة بيتين</subdivision>
+			<subdivision type="gt18" draft="contributed">إدارة إيزابال</subdivision>
+			<subdivision type="gt19" draft="contributed">إدارة زاكابا</subdivision>
+			<subdivision type="gt20" draft="contributed">إدارة تشيكيمولا</subdivision>
+			<subdivision type="gt21" draft="contributed">إدارة جالابا</subdivision>
+			<subdivision type="gt22" draft="contributed">إدارة خوتيابا</subdivision>
 			<subdivision type="gtes" draft="contributed">إسكوينتلا</subdivision>
-			<subdivision type="gtgu" draft="contributed">إدارة غواتيمالا</subdivision>
-			<subdivision type="gthu" draft="contributed">إدارة هيويتينانغو</subdivision>
-			<subdivision type="gtiz" draft="contributed">إدارة إيزابال</subdivision>
-			<subdivision type="gtja" draft="contributed">إدارة جالابا</subdivision>
-			<subdivision type="gtju" draft="contributed">إدارة خوتيابا</subdivision>
-			<subdivision type="gtpe" draft="contributed">إدارة بيتين</subdivision>
-			<subdivision type="gtpr" draft="contributed">إدارة البروغريسو</subdivision>
-			<subdivision type="gtqc" draft="contributed">إدارة كويتشي</subdivision>
 			<subdivision type="gtqz" draft="contributed">قسم كويتزالتينانغو</subdivision>
-			<subdivision type="gtre" draft="contributed">إدارة ريتاليوليو</subdivision>
 			<subdivision type="gtsa" draft="contributed">ساكاتيبيكيز</subdivision>
 			<subdivision type="gtsm" draft="contributed">إقليم سان ماركوس</subdivision>
-			<subdivision type="gtso" draft="contributed">إدارة سولولا</subdivision>
-			<subdivision type="gtsr" draft="contributed">إدارة سانتا روزا</subdivision>
-			<subdivision type="gtsu" draft="contributed">إدارة سوشيتبيكيز</subdivision>
-			<subdivision type="gtto" draft="contributed">إدارة توتونيكابان</subdivision>
-			<subdivision type="gtza" draft="contributed">إدارة زاكابا</subdivision>
 			<subdivision type="gwba" draft="contributed">محافظة بافاتا</subdivision>
 			<subdivision type="gwbl" draft="contributed">إقليم بولاما</subdivision>
 			<subdivision type="gwbm" draft="contributed">إقليم بيومبو</subdivision>
@@ -1462,6 +1531,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="hnat" draft="contributed">أتلانتيدا</subdivision>
 			<subdivision type="hnch" draft="contributed">إدارة تشولوتيكا</subdivision>
 			<subdivision type="hncl" draft="contributed">إدارة كولون</subdivision>
+			<subdivision type="hncm" draft="contributed">إدارة كوماياغوا</subdivision>
 			<subdivision type="hncp" draft="contributed">إدارة كوبان</subdivision>
 			<subdivision type="hncr" draft="contributed">إدارة كورتيس</subdivision>
 			<subdivision type="hnep" draft="contributed">إدارة بارايسو</subdivision>
@@ -1515,11 +1585,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="hubz" draft="contributed">مقاطعة بورسود-آبائوي-زمبلن</subdivision>
 			<subdivision type="hucs" draft="contributed">مقاطعة تشونغراد</subdivision>
 			<subdivision type="hude" draft="contributed">دبرتسن</subdivision>
+			<subdivision type="hudu" draft="contributed">دوناوجفاروس</subdivision>
+			<subdivision type="hueg" draft="contributed">ايغر</subdivision>
+			<subdivision type="huer" draft="contributed">إيرد</subdivision>
 			<subdivision type="hufe" draft="contributed">مقاطعة فيير</subdivision>
 			<subdivision type="hugs" draft="contributed">مقاطعة ديور-موشون-سوبرون</subdivision>
 			<subdivision type="hugy" draft="contributed">جيور</subdivision>
 			<subdivision type="huhb" draft="contributed">مقاطعة هايدو-بيهار</subdivision>
 			<subdivision type="huhe" draft="contributed">مقاطعة هفش</subdivision>
+			<subdivision type="huhv" draft="contributed">هدمزوفازارهلي</subdivision>
 			<subdivision type="hujn" draft="contributed">مقاطعة ياس-نادكون-سولنك</subdivision>
 			<subdivision type="huke" draft="contributed">مقاطعة كوماروم-إستركوم</subdivision>
 			<subdivision type="hukm" draft="contributed">كيكسكيميت</subdivision>
@@ -1547,6 +1621,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="huza" draft="contributed">مقاطعة زالا</subdivision>
 			<subdivision type="huze" draft="contributed">زالاجيرسيج</subdivision>
 			<subdivision type="idac" draft="contributed">آتشيه</subdivision>
+			<subdivision type="idba" draft="contributed">بالي</subdivision>
 			<subdivision type="idbb" draft="contributed">بانغكا - بليتونغ</subdivision>
 			<subdivision type="idbe" draft="contributed">بنغكولو</subdivision>
 			<subdivision type="idbt" draft="contributed">بنتن</subdivision>
@@ -1630,6 +1705,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inch" draft="contributed">شانديغار</subdivision>
 			<subdivision type="inct" draft="contributed">تشاتيسغار</subdivision>
 			<subdivision type="indd" draft="contributed">دمن وديو</subdivision>
+			<subdivision type="indh" draft="contributed">دادرا وناغار هافيلي ودامان وديو</subdivision>
 			<subdivision type="indl" draft="contributed">دلهي</subdivision>
 			<subdivision type="indn" draft="contributed">دادرا وناجار هافلي</subdivision>
 			<subdivision type="inga" draft="contributed">غوا</subdivision>
@@ -1640,6 +1716,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="injk" draft="contributed">جامو وكشمير</subdivision>
 			<subdivision type="inka" draft="contributed">كارناتاكا</subdivision>
 			<subdivision type="inkl" draft="contributed">كيرلا</subdivision>
+			<subdivision type="inla" draft="contributed">لداخ</subdivision>
 			<subdivision type="inld" draft="contributed">لكشديب</subdivision>
 			<subdivision type="inmh" draft="contributed">ماهاراشترا</subdivision>
 			<subdivision type="inml" draft="contributed">ميغالايا</subdivision>
@@ -1676,6 +1753,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="iqsd" draft="contributed">صلاح الدين</subdivision>
 			<subdivision type="iqsu" draft="contributed">السليمانية</subdivision>
 			<subdivision type="iqwa" draft="contributed">واسط</subdivision>
+			<subdivision type="ir00" draft="contributed">مركزي²</subdivision>
 			<subdivision type="ir01" draft="contributed">محافظة أذربيجان الشرقية</subdivision>
 			<subdivision type="ir02" draft="contributed">محافظة أذربيجان الغربية</subdivision>
 			<subdivision type="ir03" draft="contributed">محافظة أردبيل</subdivision>
@@ -1684,6 +1762,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ir06" draft="contributed">بوشهر</subdivision>
 			<subdivision type="ir07" draft="contributed">طهران</subdivision>
 			<subdivision type="ir08" draft="contributed">تشهارمحال وبختياري</subdivision>
+			<subdivision type="ir09" draft="contributed">خراسان رضوي²</subdivision>
 			<subdivision type="ir10" draft="contributed">خوزستان</subdivision>
 			<subdivision type="ir11" draft="contributed">زنجان</subdivision>
 			<subdivision type="ir12" draft="contributed">سمنان</subdivision>
@@ -1715,6 +1794,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="is6" draft="contributed">الإقليم الشمالي الشرقي</subdivision>
 			<subdivision type="is7" draft="contributed">الإقليم الشرقي</subdivision>
 			<subdivision type="is8" draft="contributed">الإقليم الجنوبي</subdivision>
+			<subdivision type="isakn" draft="contributed">أكرانيس</subdivision>
+			<subdivision type="isaku" draft="contributed">أكوريري</subdivision>
+			<subdivision type="isfjd" draft="contributed">فياردابيغد</subdivision>
+			<subdivision type="issfa" draft="contributed">أربورغ</subdivision>
 			<subdivision type="it21" draft="contributed">بييمونتي</subdivision>
 			<subdivision type="it23" draft="contributed">وادي أوستا</subdivision>
 			<subdivision type="it25" draft="contributed">لومبارديا</subdivision>
@@ -1826,6 +1909,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="itsp" draft="contributed">مقاطعة لا سبيتسيا</subdivision>
 			<subdivision type="itsr" draft="contributed">مقاطعة سرقوسة</subdivision>
 			<subdivision type="itss" draft="contributed">مقاطعة ساساري</subdivision>
+			<subdivision type="itsu" draft="contributed">مقاطعة جنوب سردينيا</subdivision>
 			<subdivision type="itsv" draft="contributed">مقاطعة سافونا</subdivision>
 			<subdivision type="itta" draft="contributed">مقاطعة تارانتو</subdivision>
 			<subdivision type="itte" draft="contributed">مقاطعة تيرامو</subdivision>
@@ -1920,6 +2004,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="jp47" draft="contributed">أوكيناوا</subdivision>
 			<subdivision type="ke17" draft="contributed">منطقة كيزيمو</subdivision>
 			<subdivision type="ke30" draft="contributed">مقاطعة نايروبي</subdivision>
+			<subdivision type="ke43" draft="contributed">توركانا</subdivision>
 			<subdivision type="kgb" draft="contributed">باتكين أوبلاستي</subdivision>
 			<subdivision type="kgc" draft="contributed">تشوي أوبلاستي</subdivision>
 			<subdivision type="kggb" draft="contributed">بيشكك</subdivision>
@@ -2022,6 +2107,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kzman" draft="contributed">أوبليس مانكيستاو</subdivision>
 			<subdivision type="kzpav" draft="contributed">أوبليس بافلودار</subdivision>
 			<subdivision type="kzsev" draft="contributed">أوبليس كازاخستان الشمالي</subdivision>
+			<subdivision type="kzshy" draft="contributed">شيمكنت</subdivision>
 			<subdivision type="kzvos" draft="contributed">أوبليس كازاخستان الشرقي</subdivision>
 			<subdivision type="kzyuz" draft="contributed">أوبليس كازاخستان الجنوبي</subdivision>
 			<subdivision type="kzzap" draft="contributed">كازاخستان الغربية</subdivision>
@@ -2059,8 +2145,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="lc11" draft="contributed">فيو فورت</subdivision>
 			<subdivision type="lc12" draft="contributed">جزر الكناري</subdivision>
 			<subdivision type="li01" draft="contributed">بالزرس</subdivision>
+			<subdivision type="li02" draft="contributed">إشن</subdivision>
+			<subdivision type="li03" draft="contributed">جامبرين</subdivision>
+			<subdivision type="li04" draft="contributed">بلدية مورين</subdivision>
+			<subdivision type="li05" draft="contributed">بلانكين</subdivision>
 			<subdivision type="li06" draft="contributed">روغل</subdivision>
 			<subdivision type="li07" draft="contributed">شان ، ليختنشتاين</subdivision>
+			<subdivision type="li08" draft="contributed">شلينبرج</subdivision>
+			<subdivision type="li09" draft="contributed">تريسين</subdivision>
+			<subdivision type="li10" draft="contributed">تريسنبيرج</subdivision>
 			<subdivision type="li11" draft="contributed">فادوتس</subdivision>
 			<subdivision type="lk1" draft="contributed">المقاطعة الغربية (سريلانكا)</subdivision>
 			<subdivision type="lk2" draft="contributed">المقاطعة الوسطى (سريلانكا)</subdivision>
@@ -2298,17 +2391,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mabes" draft="contributed">إقليم بنسليمان</subdivision>
 			<subdivision type="mabod" draft="contributed">إقليم بوجدور</subdivision>
 			<subdivision type="mabom" draft="contributed">إقليم بولمان</subdivision>
+			<subdivision type="mabrr" draft="contributed">إقليم برشيد</subdivision>
 			<subdivision type="macas" draft="contributed">الدار البيضاء</subdivision>
 			<subdivision type="mache" draft="contributed">إقليم شفشاون</subdivision>
 			<subdivision type="machi" draft="contributed">إقليم شيشاوة</subdivision>
 			<subdivision type="macht" draft="contributed">إقليم شتوكة آيت باها</subdivision>
+			<subdivision type="madri" draft="contributed">إقليم الدريوش</subdivision>
 			<subdivision type="maerr" draft="contributed">إقليم الرشيدية</subdivision>
 			<subdivision type="maesi" draft="contributed">إقليم الصويرة</subdivision>
 			<subdivision type="maesm" draft="contributed">إقليم السمارة</subdivision>
 			<subdivision type="mafah" draft="contributed">إقليم فحص أنجرة</subdivision>
 			<subdivision type="mafes" draft="contributed">فاس</subdivision>
 			<subdivision type="mafig" draft="contributed">إقليم فكيك</subdivision>
+			<subdivision type="mafqh" draft="contributed">إقليم الفقيه بن صالح</subdivision>
 			<subdivision type="mague" draft="contributed">إقليم كلميم</subdivision>
+			<subdivision type="maguf" draft="contributed">إقليم جرسيف</subdivision>
 			<subdivision type="mahaj" draft="contributed">إقليم الحاجب</subdivision>
 			<subdivision type="mahao" draft="contributed">إقليم الحوز</subdivision>
 			<subdivision type="mahoc" draft="contributed">إقليم الحسيمة</subdivision>
@@ -2323,8 +2420,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="makho" draft="contributed">إقليم خريبكة</subdivision>
 			<subdivision type="malaa" draft="contributed">إقليم العيون</subdivision>
 			<subdivision type="malar" draft="contributed">إقليم العرائش</subdivision>
+			<subdivision type="mamar" draft="contributed">عمالة مراكش</subdivision>
+			<subdivision type="mamdf" draft="contributed">عمالة المضيق الفنيدق</subdivision>
 			<subdivision type="mamed" draft="contributed">إقليم مديونة</subdivision>
 			<subdivision type="mamek" draft="contributed">مكناس</subdivision>
+			<subdivision type="mamid" draft="contributed">إقليم ميدلت</subdivision>
 			<subdivision type="mammd" draft="contributed">مراكش</subdivision>
 			<subdivision type="mammn" draft="contributed">مراكش²</subdivision>
 			<subdivision type="mamoh" draft="contributed">المحمدية</subdivision>
@@ -2334,23 +2434,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="maoua" draft="contributed">إقليم ورززات</subdivision>
 			<subdivision type="maoud" draft="contributed">إقليم وادي الذهب</subdivision>
 			<subdivision type="maouj" draft="contributed">وجدة</subdivision>
+			<subdivision type="maouz" draft="contributed">إقليم وزان</subdivision>
 			<subdivision type="marab" draft="contributed">الرباط</subdivision>
+			<subdivision type="mareh" draft="contributed">إقليم الرحامنة</subdivision>
 			<subdivision type="masaf" draft="contributed">إقليم آسفي</subdivision>
 			<subdivision type="masal" draft="contributed">سلا</subdivision>
 			<subdivision type="masef" draft="contributed">إقليم صفرو</subdivision>
 			<subdivision type="maset" draft="contributed">إقليم سطات</subdivision>
+			<subdivision type="masib" draft="contributed">إقليم سيدي بنور</subdivision>
+			<subdivision type="masif" draft="contributed">إقليم سيدي إفني</subdivision>
 			<subdivision type="masik" draft="contributed">إقليم سيدي قاسم</subdivision>
+			<subdivision type="masil" draft="contributed">إقليم سيدي سليمان</subdivision>
 			<subdivision type="maskh" draft="contributed">تمارة</subdivision>
 			<subdivision type="masyb" draft="contributed">عمالة سيدي يوسف بن علي</subdivision>
+			<subdivision type="mataf" draft="contributed">إقليم طرفاية</subdivision>
 			<subdivision type="matai" draft="contributed">إقليم تاوريرت</subdivision>
 			<subdivision type="matao" draft="contributed">إقليم تاونات</subdivision>
 			<subdivision type="matar" draft="contributed">إقليم تارودانت</subdivision>
 			<subdivision type="matat" draft="contributed">إقليم طاطا</subdivision>
 			<subdivision type="mataz" draft="contributed">إقليم تازة</subdivision>
 			<subdivision type="matet" draft="contributed">إقليم تطوان</subdivision>
+			<subdivision type="matin" draft="contributed">إقليم تنغير</subdivision>
 			<subdivision type="matiz" draft="contributed">إقليم تيزنيت</subdivision>
 			<subdivision type="matng" draft="contributed">طنجة</subdivision>
 			<subdivision type="matnt" draft="contributed">إقليم طانطان</subdivision>
+			<subdivision type="mayus" draft="contributed">إقليم اليوسفية</subdivision>
 			<subdivision type="mazag" draft="contributed">إقليم زاكورة</subdivision>
 			<subdivision type="mcmc" draft="contributed">مونت كارلو</subdivision>
 			<subdivision type="mcmo" draft="contributed">موناكو فيل</subdivision>
@@ -2384,6 +2492,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mdri" draft="contributed">مقاطعة روشكاني</subdivision>
 			<subdivision type="mdsd" draft="contributed">مقاطعة شولدانيشتي</subdivision>
 			<subdivision type="mdsi" draft="contributed">مقاطعة سونجري</subdivision>
+			<subdivision type="mdsn" draft="contributed">ترانسنيستريا</subdivision>
 			<subdivision type="mdso" draft="contributed">مقاطعة سوروكا</subdivision>
 			<subdivision type="mdst" draft="contributed">مقاطعة ستراسيني</subdivision>
 			<subdivision type="mdsv" draft="contributed">مقاطعة ستيفان فودا</subdivision>
@@ -2413,68 +2522,72 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mgm" draft="contributed">مقاطعة ماهاجانجا</subdivision>
 			<subdivision type="mgt" draft="contributed">مقاطعة فيانارانتسوا²</subdivision>
 			<subdivision type="mgu" draft="contributed">مقاطعة توليارا</subdivision>
+			<subdivision type="mheni" draft="contributed">آتول إنيويتوك</subdivision>
 			<subdivision type="mhjal" draft="contributed">جالويت</subdivision>
+			<subdivision type="mhkwa" draft="contributed">جزيرة كواجالين</subdivision>
 			<subdivision type="mhl" draft="contributed">راليك تشين</subdivision>
+			<subdivision type="mhlik" draft="contributed">ليكييب</subdivision>
 			<subdivision type="mhmaj" draft="contributed">ماجورو</subdivision>
+			<subdivision type="mhnmk" draft="contributed">حلقة نامدريك</subdivision>
 			<subdivision type="mht" draft="contributed">سلسلة راتاك</subdivision>
-			<subdivision type="mk02" draft="contributed">بلدية أراتسينوفو</subdivision>
-			<subdivision type="mk03" draft="contributed">بلدية بيروفو</subdivision>
-			<subdivision type="mk04" draft="contributed">بلدية بيتولا</subdivision>
-			<subdivision type="mk05" draft="contributed">بلدية بوجدانسى</subdivision>
-			<subdivision type="mk06" draft="contributed">بلدية بوغوفينج</subdivision>
-			<subdivision type="mk07" draft="contributed">بلدية بوسيلوفو</subdivision>
-			<subdivision type="mk08" draft="contributed">بلدية برفينيتسا</subdivision>
-			<subdivision type="mk11" draft="contributed">فاسيليفو</subdivision>
-			<subdivision type="mk14" draft="contributed">بلدية فينيتسا</subdivision>
-			<subdivision type="mk19" draft="contributed">بلدية غوستيفار</subdivision>
-			<subdivision type="mk20" draft="contributed">بلدية غرادسكو</subdivision>
-			<subdivision type="mk21" draft="contributed">بلدية ديبار</subdivision>
-			<subdivision type="mk22" draft="contributed">بلدية ديباركا</subdivision>
-			<subdivision type="mk23" draft="contributed">بلدية ديلتشيفو</subdivision>
-			<subdivision type="mk27" draft="contributed">بلدية دولنيني</subdivision>
-			<subdivision type="mk30" draft="contributed">بلدية تزيلينو</subdivision>
-			<subdivision type="mk32" draft="contributed">بلدية زيلينيكوفو</subdivision>
-			<subdivision type="mk33" draft="contributed">بلدية زرنوفتشي</subdivision>
-			<subdivision type="mk34" draft="contributed">بلدية إليندن</subdivision>
-			<subdivision type="mk35" draft="contributed">بلدية جيغونوفس</subdivision>
-			<subdivision type="mk36" draft="contributed">بلدية كافادارتسي</subdivision>
-			<subdivision type="mk37" draft="contributed">كاربينتسي</subdivision>
-			<subdivision type="mk40" draft="contributed">بلدية كيتشيفو</subdivision>
-			<subdivision type="mk41" draft="contributed">بلدية كونتشه</subdivision>
-			<subdivision type="mk42" draft="contributed">بلدية كوتشاني</subdivision>
-			<subdivision type="mk43" draft="contributed">بلدية كراتوفو</subdivision>
-			<subdivision type="mk44" draft="contributed">بلدية كريفا بالانكا</subdivision>
-			<subdivision type="mk45" draft="contributed">بلدية كريفوغاشتاني</subdivision>
-			<subdivision type="mk46" draft="contributed">بلدية كروشيفو</subdivision>
-			<subdivision type="mk47" draft="contributed">بلدية كومانوفو</subdivision>
-			<subdivision type="mk48" draft="contributed">بلدية ليبكوفو</subdivision>
-			<subdivision type="mk49" draft="contributed">بلدية لوزوفو</subdivision>
-			<subdivision type="mk50" draft="contributed">بلدية مارفوفو و روستيشا</subdivision>
-			<subdivision type="mk51" draft="contributed">بلدية ماكيدونسكا كامينيكا</subdivision>
-			<subdivision type="mk52" draft="contributed">بلدية ماكيدونسكي برود</subdivision>
-			<subdivision type="mk54" draft="contributed">بلدية نيغوتينو</subdivision>
-			<subdivision type="mk56" draft="contributed">بلدية نوفو سيلو</subdivision>
-			<subdivision type="mk58" draft="contributed">بلدية أوهريد</subdivision>
-			<subdivision type="mk60" draft="contributed">بلدية بيتسيفو</subdivision>
-			<subdivision type="mk61" draft="contributed">بلدية بلاسنيكا</subdivision>
-			<subdivision type="mk62" draft="contributed">بلدية بريليب</subdivision>
-			<subdivision type="mk63" draft="contributed">بلدية بروتشتيب</subdivision>
-			<subdivision type="mk64" draft="contributed">بلدية رادوفيتش</subdivision>
-			<subdivision type="mk65" draft="contributed">بلدية رانكوفيتسه</subdivision>
-			<subdivision type="mk66" draft="contributed">بلدية ريسن</subdivision>
-			<subdivision type="mk69" draft="contributed">بلدية سفيتي نيكولا</subdivision>
-			<subdivision type="mk70" draft="contributed">بلدية سوبيتشه</subdivision>
-			<subdivision type="mk72" draft="contributed">محافظة ستروغا</subdivision>
-			<subdivision type="mk73" draft="contributed">بلدية ستروميتسا</subdivision>
-			<subdivision type="mk74" draft="contributed">بلدية ستودنيتشاني</subdivision>
-			<subdivision type="mk75" draft="contributed">بلدية تيارس</subdivision>
-			<subdivision type="mk76" draft="contributed">بلدية تيتوفو</subdivision>
-			<subdivision type="mk78" draft="contributed">بلدية سنتار جوبا</subdivision>
-			<subdivision type="mk80" draft="contributed">بلدية تشاشكا</subdivision>
-			<subdivision type="mk81" draft="contributed">بلدية تشيشينوفو- أبليشيفو</subdivision>
-			<subdivision type="mk82" draft="contributed">بلدية تشوتشر سانديفو</subdivision>
-			<subdivision type="mk83" draft="contributed">بلدية شتيب</subdivision>
 			<subdivision type="mk85" draft="contributed">سكوبيه</subdivision>
+			<subdivision type="mk102" draft="contributed">بلدية غرادسكو</subdivision>
+			<subdivision type="mk104" draft="contributed">بلدية كافادارتسي</subdivision>
+			<subdivision type="mk105" draft="contributed">بلدية لوزوفو</subdivision>
+			<subdivision type="mk106" draft="contributed">بلدية نيغوتينو</subdivision>
+			<subdivision type="mk108" draft="contributed">بلدية سفيتي نيكولا</subdivision>
+			<subdivision type="mk109" draft="contributed">بلدية تشاشكا</subdivision>
+			<subdivision type="mk201" draft="contributed">بلدية بيروفو</subdivision>
+			<subdivision type="mk202" draft="contributed">بلدية فينيتسا</subdivision>
+			<subdivision type="mk203" draft="contributed">بلدية ديلتشيفو</subdivision>
+			<subdivision type="mk204" draft="contributed">بلدية زرنوفتشي</subdivision>
+			<subdivision type="mk205" draft="contributed">كاربينتسي</subdivision>
+			<subdivision type="mk206" draft="contributed">بلدية كوتشاني</subdivision>
+			<subdivision type="mk207" draft="contributed">بلدية ماكيدونسكا كامينيكا</subdivision>
+			<subdivision type="mk208" draft="contributed">بلدية بيتسيفو</subdivision>
+			<subdivision type="mk209" draft="contributed">بلدية بروتشتيب</subdivision>
+			<subdivision type="mk210" draft="contributed">بلدية تشيشينوفو- أبليشيفو</subdivision>
+			<subdivision type="mk211" draft="contributed">بلدية شتيب</subdivision>
+			<subdivision type="mk303" draft="contributed">بلدية ديبار</subdivision>
+			<subdivision type="mk304" draft="contributed">بلدية ديباركا</subdivision>
+			<subdivision type="mk307" draft="contributed">بلدية كيتشيفو</subdivision>
+			<subdivision type="mk308" draft="contributed">بلدية ماكيدونسكي برود</subdivision>
+			<subdivision type="mk310" draft="contributed">بلدية أوهريد</subdivision>
+			<subdivision type="mk311" draft="contributed">بلدية بلاسنيكا</subdivision>
+			<subdivision type="mk312" draft="contributed">محافظة ستروغا</subdivision>
+			<subdivision type="mk313" draft="contributed">بلدية سنتار جوبا</subdivision>
+			<subdivision type="mk401" draft="contributed">بلدية بوجدانسى</subdivision>
+			<subdivision type="mk402" draft="contributed">بلدية بوسيلوفو</subdivision>
+			<subdivision type="mk404" draft="contributed">فاسيليفو</subdivision>
+			<subdivision type="mk407" draft="contributed">بلدية كونتشه</subdivision>
+			<subdivision type="mk408" draft="contributed">بلدية نوفو سيلو</subdivision>
+			<subdivision type="mk409" draft="contributed">بلدية رادوفيتش</subdivision>
+			<subdivision type="mk410" draft="contributed">بلدية ستروميتسا</subdivision>
+			<subdivision type="mk501" draft="contributed">بلدية بيتولا</subdivision>
+			<subdivision type="mk503" draft="contributed">بلدية دولنيني</subdivision>
+			<subdivision type="mk504" draft="contributed">بلدية كريفوغاشتاني</subdivision>
+			<subdivision type="mk505" draft="contributed">بلدية كروشيفو</subdivision>
+			<subdivision type="mk508" draft="contributed">بلدية بريليب</subdivision>
+			<subdivision type="mk509" draft="contributed">بلدية ريسن</subdivision>
+			<subdivision type="mk601" draft="contributed">بلدية بوغوفينج</subdivision>
+			<subdivision type="mk602" draft="contributed">بلدية برفينيتسا</subdivision>
+			<subdivision type="mk604" draft="contributed">بلدية غوستيفار</subdivision>
+			<subdivision type="mk605" draft="contributed">بلدية تزيلينو</subdivision>
+			<subdivision type="mk606" draft="contributed">بلدية جيغونوفس</subdivision>
+			<subdivision type="mk607" draft="contributed">بلدية مارفوفو و روستيشا</subdivision>
+			<subdivision type="mk608" draft="contributed">بلدية تيارس</subdivision>
+			<subdivision type="mk609" draft="contributed">بلدية تيتوفو</subdivision>
+			<subdivision type="mk701" draft="contributed">بلدية كراتوفو</subdivision>
+			<subdivision type="mk702" draft="contributed">بلدية كريفا بالانكا</subdivision>
+			<subdivision type="mk703" draft="contributed">بلدية كومانوفو</subdivision>
+			<subdivision type="mk704" draft="contributed">بلدية ليبكوفو</subdivision>
+			<subdivision type="mk705" draft="contributed">بلدية رانكوفيتسه</subdivision>
+			<subdivision type="mk802" draft="contributed">بلدية أراتسينوفو</subdivision>
+			<subdivision type="mk806" draft="contributed">بلدية زيلينيكوفو</subdivision>
+			<subdivision type="mk807" draft="contributed">بلدية إليندن</subdivision>
+			<subdivision type="mk812" draft="contributed">بلدية سوبيتشه</subdivision>
+			<subdivision type="mk813" draft="contributed">بلدية ستودنيتشاني</subdivision>
+			<subdivision type="mk816" draft="contributed">بلدية تشوتشر سانديفو</subdivision>
 			<subdivision type="ml1" draft="contributed">منطقة كايس</subdivision>
 			<subdivision type="ml2" draft="contributed">منطقة كوليكورو</subdivision>
 			<subdivision type="ml3" draft="contributed">منطقة سيكاسو</subdivision>
@@ -2483,6 +2596,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ml6" draft="contributed">منطقة تمبكتو</subdivision>
 			<subdivision type="ml7" draft="contributed">منطقة غاو</subdivision>
 			<subdivision type="ml8" draft="contributed">منطقة كيدال</subdivision>
+			<subdivision type="ml10" draft="contributed">منطقة تودني</subdivision>
 			<subdivision type="mlbko" draft="contributed">باماكو</subdivision>
 			<subdivision type="mm01" draft="contributed">إقليم ساجينغ</subdivision>
 			<subdivision type="mm02" draft="contributed">باغو</subdivision>
@@ -2503,6 +2617,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mn037" draft="contributed">مقاطعة درخان-وول</subdivision>
 			<subdivision type="mn039" draft="contributed">محافظة خنتي</subdivision>
 			<subdivision type="mn041" draft="contributed">مقاطعة خوفسغول</subdivision>
+			<subdivision type="mn043" draft="contributed">محافظة خوفد</subdivision>
 			<subdivision type="mn046" draft="contributed">مقاطعة أوفس</subdivision>
 			<subdivision type="mn047" draft="contributed">مقاطعة توف</subdivision>
 			<subdivision type="mn049" draft="contributed">محافظة سيلنج</subdivision>
@@ -2531,6 +2646,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mr10" draft="contributed">ولاية غيديماغا</subdivision>
 			<subdivision type="mr11" draft="contributed">ولاية تيرس زمور</subdivision>
 			<subdivision type="mr12" draft="contributed">ولاية إينشيري</subdivision>
+			<subdivision type="mr13" draft="contributed">ولاية نواكشوط الغربية</subdivision>
 			<subdivision type="mr14" draft="contributed">نواكشوط الشمالية</subdivision>
 			<subdivision type="mr15" draft="contributed">نواكشوط الجنوبية</subdivision>
 			<subdivision type="mt01" draft="contributed">عطار</subdivision>
@@ -2558,6 +2674,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mt23" draft="contributed">كيركوب</subdivision>
 			<subdivision type="mt24" draft="contributed">ليا</subdivision>
 			<subdivision type="mt25" draft="contributed">لوقا</subdivision>
+			<subdivision type="mt26" draft="contributed">المرسى</subdivision>
 			<subdivision type="mt27" draft="contributed">مارساسكالا</subdivision>
 			<subdivision type="mt28" draft="contributed">مارساكسلوخك</subdivision>
 			<subdivision type="mt29" draft="contributed">مدينة</subdivision>
@@ -2633,6 +2750,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mvmle" draft="contributed">ماليه</subdivision>
 			<subdivision type="mwba" draft="contributed">مقاطعة بالاكا</subdivision>
 			<subdivision type="mwbl" draft="contributed">مقاطعة بلانتير</subdivision>
+			<subdivision type="mwc" draft="contributed">المنطقة الوسطى</subdivision>
 			<subdivision type="mwck" draft="contributed">مقاطعة تشيكواوا</subdivision>
 			<subdivision type="mwcr" draft="contributed">إقليم تشيرازولو</subdivision>
 			<subdivision type="mwct" draft="contributed">مقاطعة تشيتيبا</subdivision>
@@ -2778,7 +2896,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="nici" draft="contributed">إدارة تشينانديجا</subdivision>
 			<subdivision type="nico" draft="contributed">إدارة تشونتاليس</subdivision>
 			<subdivision type="nies" draft="contributed">إدارة إستيلي</subdivision>
+			<subdivision type="nigr" draft="contributed">إدارة غرناطة</subdivision>
 			<subdivision type="niji" draft="contributed">جينوتيغا</subdivision>
+			<subdivision type="nile" draft="contributed">إدارة ليون</subdivision>
 			<subdivision type="nimd" draft="contributed">إدارة مدريز</subdivision>
 			<subdivision type="nimn" draft="contributed">إدارة ماناغوا</subdivision>
 			<subdivision type="nims" draft="contributed">إدارة مسايا</subdivision>
@@ -2822,6 +2942,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="no20" draft="contributed">فينمارك</subdivision>
 			<subdivision type="no21" draft="contributed">سفالبارد</subdivision>
 			<subdivision type="no22" draft="contributed">جان ماين</subdivision>
+			<subdivision type="no30" draft="contributed">فيكن</subdivision>
+			<subdivision type="no34" draft="contributed">إينلاندت</subdivision>
+			<subdivision type="no46" draft="contributed">فيستلاند (مقاطعة)</subdivision>
+			<subdivision type="no50" draft="contributed">تروندلاغ</subdivision>
+			<subdivision type="no54" draft="contributed">ترومس أوغ فينمارك</subdivision>
 			<subdivision type="np1" draft="contributed">المنطقة التنموية الوسطى</subdivision>
 			<subdivision type="np2" draft="contributed">المنطقة التنموية الغربية الوسطى</subdivision>
 			<subdivision type="np3" draft="contributed">المنطقة التنموية الغربية</subdivision>
@@ -2889,7 +3014,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pa5" draft="contributed">محافظة داريان</subdivision>
 			<subdivision type="pa6" draft="contributed">محافظة هيريرا</subdivision>
 			<subdivision type="pa7" draft="contributed">محافظة لوس سانتوس</subdivision>
+			<subdivision type="pa8" draft="contributed">محافظة بنما</subdivision>
 			<subdivision type="pa9" draft="contributed">محافظة فيراغواس</subdivision>
+			<subdivision type="pa10" draft="contributed">محافظة بنما الغربية</subdivision>
 			<subdivision type="paem" draft="contributed">كوماركا امبيرا-وونان</subdivision>
 			<subdivision type="paky" draft="contributed">غونا يالا</subdivision>
 			<subdivision type="panb" draft="contributed">نجوب-بولجي كوماركا</subdivision>
@@ -2938,10 +3065,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pgshm" draft="contributed">محافظة هايلاند الجنوبية</subdivision>
 			<subdivision type="pgwbk" draft="contributed">مقاطعة غرب بريطانيا الجديدة</subdivision>
 			<subdivision type="pgwhm" draft="contributed">مقاطعة الهضاب الغربية</subdivision>
+			<subdivision type="ph00" draft="contributed">حاضرة مانيلا</subdivision>
 			<subdivision type="ph02" draft="contributed">وادي كاغيان</subdivision>
 			<subdivision type="ph06" draft="contributed">بيسايا الغربية</subdivision>
 			<subdivision type="ph07" draft="contributed">بيسايا الوسطى</subdivision>
 			<subdivision type="ph09" draft="contributed">شبه جزيرة زامبوانجا</subdivision>
+			<subdivision type="ph10" draft="contributed">مينداناو الشمالية</subdivision>
+			<subdivision type="ph14" draft="contributed">الحكم الذاتي الاقليمي لمسلمي مندناو</subdivision>
 			<subdivision type="ph41" draft="contributed">ميماروبا</subdivision>
 			<subdivision type="phabr" draft="contributed">أبرا</subdivision>
 			<subdivision type="phagn" draft="contributed">أغوسان ديل نورت</subdivision>
@@ -3150,6 +3280,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="roil" draft="contributed">مقاطعة إيالوميتا</subdivision>
 			<subdivision type="rois" draft="contributed">إقليم ياش</subdivision>
 			<subdivision type="romh" draft="contributed">مقاطعة ميهيدينتي</subdivision>
+			<subdivision type="romm" draft="contributed">مقاطعة مارامورس</subdivision>
 			<subdivision type="roms" draft="contributed">مقاطعة موريس</subdivision>
 			<subdivision type="ront" draft="contributed">مقاطعة نيامتس</subdivision>
 			<subdivision type="root" draft="contributed">مقاطعة أولت</subdivision>
@@ -3189,6 +3320,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="rs22" draft="contributed">مقاطعة بيروت</subdivision>
 			<subdivision type="rs23" draft="contributed">محافظة يابلانيكا</subdivision>
 			<subdivision type="rs24" draft="contributed">مقاطعة باتشبنيا</subdivision>
+			<subdivision type="rs25" draft="contributed">مديرية كوسوفو</subdivision>
 			<subdivision type="rskm" draft="contributed">مقاطعة كوسوفو وميتوهيا المتمتعة بالحكم الذاتي</subdivision>
 			<subdivision type="rsvo" draft="contributed">فويفودينا</subdivision>
 			<subdivision type="ruad" draft="contributed">أديغيا</subdivision>
@@ -3614,6 +3746,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ssnu" draft="contributed">أعالي النيل</subdivision>
 			<subdivision type="ssuy" draft="contributed">الوحدة</subdivision>
 			<subdivision type="sswr" draft="contributed">واراب</subdivision>
+			<subdivision type="st01" draft="contributed">مقاطعة أجوا غراندي</subdivision>
+			<subdivision type="st02" draft="contributed">مقاطعة كانتاغالو</subdivision>
+			<subdivision type="st03" draft="contributed">مقاطعة كاوي</subdivision>
+			<subdivision type="st04" draft="contributed">مقاطعة ليمبا</subdivision>
+			<subdivision type="st05" draft="contributed">مقاطعة لوبانا</subdivision>
+			<subdivision type="st06" draft="contributed">مقاطعة مي زوتشي</subdivision>
 			<subdivision type="sts" draft="contributed">محافظة ساو تومي</subdivision>
 			<subdivision type="svah" draft="contributed">إدارة أهواشابان</subdivision>
 			<subdivision type="svca" draft="contributed">إدارة كاباناس</subdivision>
@@ -3772,6 +3910,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tma" draft="contributed">اقليم أهال</subdivision>
 			<subdivision type="tmb" draft="contributed">ولاية بلقان</subdivision>
 			<subdivision type="tmd" draft="contributed">ولاية داشوغوز</subdivision>
+			<subdivision type="tml" draft="contributed">ولاية لباب</subdivision>
 			<subdivision type="tmm" draft="contributed">محافظة ماري</subdivision>
 			<subdivision type="tms" draft="contributed">عشق آباد</subdivision>
 			<subdivision type="tn11" draft="contributed">ولاية تونس</subdivision>
@@ -3911,6 +4050,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="twkin" draft="contributed">كنمن</subdivision>
 			<subdivision type="twmia" draft="contributed">مقاطعة مياولي</subdivision>
 			<subdivision type="twnan" draft="contributed">مقاطعة نانتو</subdivision>
+			<subdivision type="twnwt" draft="contributed">تايبيه الجديدة</subdivision>
 			<subdivision type="twpen" draft="contributed">بسكادورز</subdivision>
 			<subdivision type="twpif" draft="contributed">مقاطعة بينغتونغ</subdivision>
 			<subdivision type="twtao" draft="contributed">مدينة تاويون</subdivision>
@@ -4082,6 +4222,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ug424" draft="contributed">مقاطعة نتوروكو</subdivision>
 			<subdivision type="ug425" draft="contributed">مقاطعة روبيريزي</subdivision>
 			<subdivision type="ug426" draft="contributed">مقاطعة شيما</subdivision>
+			<subdivision type="uge" draft="contributed">المنطقة الشرقية (أوغندا)</subdivision>
 			<subdivision type="um67" draft="contributed">جزيرة جونستون المرجانية</subdivision>
 			<subdivision type="um71" draft="contributed">جزر الميدواي</subdivision>
 			<subdivision type="um76" draft="contributed">جزيرة نافاسا</subdivision>
@@ -4312,11 +4453,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="yeta" draft="contributed">محافظة تعز</subdivision>
 			<subdivision type="zaec" draft="contributed">كيب الشرقية</subdivision>
 			<subdivision type="zafs" draft="contributed">فري ستيت</subdivision>
+			<subdivision type="zagp" draft="contributed">خاوتينغ</subdivision>
 			<subdivision type="zagt" draft="contributed">غاوتينج</subdivision>
+			<subdivision type="zakzn" draft="contributed">كوازولو ناتال</subdivision>
 			<subdivision type="zalp" draft="contributed">ليمبوبو</subdivision>
 			<subdivision type="zamp" draft="contributed">مبومالانجا</subdivision>
 			<subdivision type="zanc" draft="contributed">كيب الشمالية</subdivision>
-			<subdivision type="zanl" draft="contributed">كوازولو ناتال</subdivision>
 			<subdivision type="zanw" draft="contributed">الشمالية الغربية</subdivision>
 			<subdivision type="zawc" draft="contributed">كيب الغربية</subdivision>
 			<subdivision type="zm01" draft="contributed">المحافظة الغربية، زامبيا</subdivision>

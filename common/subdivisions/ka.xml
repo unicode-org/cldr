@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -17,10 +17,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ad04" draft="contributed">ლა-მასანა</subdivision>
 			<subdivision type="ad05" draft="contributed">ორდინო</subdivision>
 			<subdivision type="ad06" draft="contributed">სანტ-ჟულია-დე-ლორია</subdivision>
+			<subdivision type="ad07" draft="contributed">ანდორა-ლა-ველა</subdivision>
 			<subdivision type="ad08" draft="contributed">ესკალდეს-ენგორდანი</subdivision>
 			<subdivision type="aeaj" draft="contributed">აჯმანის საამირო</subdivision>
 			<subdivision type="aeaz" draft="contributed">აბუ-დაბის საამირო</subdivision>
 			<subdivision type="aedu" draft="contributed">დუბაის საამირო</subdivision>
+			<subdivision type="aefu" draft="contributed">ალ-ფუჯაირას საამირო</subdivision>
 			<subdivision type="aesh" draft="contributed">შარჯის საამირო</subdivision>
 			<subdivision type="aeuq" draft="contributed">უმ-ელ-კაივაინის საამირო</subdivision>
 			<subdivision type="afbal" draft="contributed">ბალხის პროვინცია</subdivision>
@@ -60,6 +62,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="al01" draft="contributed">ბერატის ოლქი</subdivision>
 			<subdivision type="al05" draft="contributed">გიროკასტრის ოლქი</subdivision>
 			<subdivision type="al09" draft="contributed">დიბრის ოლქი</subdivision>
+			<subdivision type="al11" draft="contributed">ტირანის ოლქი</subdivision>
 			<subdivision type="al12" draft="contributed">ვლორის ოლქი</subdivision>
 			<subdivision type="amag" draft="contributed">არაგაწოტნის პროვინცია</subdivision>
 			<subdivision type="amar" draft="contributed">არარატის პროვინცია</subdivision>
@@ -131,34 +134,82 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="autas" draft="contributed">ტასმანია</subdivision>
 			<subdivision type="auvic" draft="contributed">ვიქტორია</subdivision>
 			<subdivision type="auwa" draft="contributed">დასავლეთი ავსტრალია</subdivision>
+			<subdivision type="azabs" draft="contributed">აფშერონის რაიონი</subdivision>
+			<subdivision type="azaga" draft="contributed">აღსთაფის რაიონი</subdivision>
+			<subdivision type="azagc" draft="contributed">აღჯაბადის რაიონი</subdivision>
 			<subdivision type="azagm" draft="contributed">აღდამის რაიონი</subdivision>
+			<subdivision type="azags" draft="contributed">აღდაშის რაიონი</subdivision>
 			<subdivision type="azagu" draft="contributed">აღსუს რაიონი</subdivision>
+			<subdivision type="azast" draft="contributed">ასტარის რაიონი</subdivision>
 			<subdivision type="azba" draft="contributed">ბაქო</subdivision>
+			<subdivision type="azbab" draft="contributed">ბაბექის რაიონი</subdivision>
 			<subdivision type="azbal" draft="contributed">ბელაქანის რაიონი</subdivision>
 			<subdivision type="azbar" draft="contributed">ბარდის რაიონი</subdivision>
+			<subdivision type="azbey" draft="contributed">ბეილაგანის რაიონი</subdivision>
+			<subdivision type="azbil" draft="contributed">ბილიასუვარის რაიონი</subdivision>
+			<subdivision type="azcab" draft="contributed">ჯაბრაილის რაიონი</subdivision>
+			<subdivision type="azcal" draft="contributed">ჯალილაბადის რაიონი</subdivision>
 			<subdivision type="azcul" draft="contributed">ჯულფის რაიონი</subdivision>
+			<subdivision type="azdas" draft="contributed">დაშქესანის რაიონი</subdivision>
+			<subdivision type="azfuz" draft="contributed">ფუზულის რაიონი</subdivision>
 			<subdivision type="azga" draft="contributed">განჯა</subdivision>
 			<subdivision type="azgad" draft="contributed">გადაბეის რაიონი</subdivision>
 			<subdivision type="azgor" draft="contributed">გორანბოის რაიონი</subdivision>
+			<subdivision type="azgoy" draft="contributed">გოქჩაის რაიონი</subdivision>
+			<subdivision type="azgyg" draft="contributed">გოიგოლის რაიონი</subdivision>
+			<subdivision type="azhac" draft="contributed">ჰაჯიყაბულის რაიონი</subdivision>
+			<subdivision type="azimi" draft="contributed">იმიშლის რაიონი</subdivision>
+			<subdivision type="azism" draft="contributed">ისმაილის რაიონი</subdivision>
+			<subdivision type="azkal" draft="contributed">ქალბაჯარის რაიონი</subdivision>
+			<subdivision type="azkan" draft="contributed">კანგარლის რაიონი</subdivision>
+			<subdivision type="azkur" draft="contributed">ქურდამირის რაიონი</subdivision>
+			<subdivision type="azla" draft="contributed">ლენქორანის რაიონი</subdivision>
+			<subdivision type="azlac" draft="contributed">ლაჩინის რაიონი</subdivision>
 			<subdivision type="azlan" draft="contributed">ლენქორანი</subdivision>
+			<subdivision type="azler" draft="contributed">ლერიქის რაიონი</subdivision>
+			<subdivision type="azmas" draft="contributed">მასალის რაიონი</subdivision>
 			<subdivision type="azmi" draft="contributed">მინგეჩაური</subdivision>
+			<subdivision type="aznef" draft="contributed">ნეფთჩალის რაიონი</subdivision>
 			<subdivision type="aznv" draft="contributed">ნახიჩევანი</subdivision>
 			<subdivision type="aznx" draft="contributed">ნახიჩევანის ავტონომიური რესპუბლიკა</subdivision>
+			<subdivision type="azogu" draft="contributed">ოღუზის რაიონი</subdivision>
 			<subdivision type="azord" draft="contributed">ორდუბადის რაიონი</subdivision>
+			<subdivision type="azqab" draft="contributed">გაბალის რაიონი</subdivision>
 			<subdivision type="azqax" draft="contributed">კახის რაიონი</subdivision>
+			<subdivision type="azqaz" draft="contributed">ყაზახის რაიონი</subdivision>
 			<subdivision type="azqba" draft="contributed">ყუბის რაიონი</subdivision>
 			<subdivision type="azqbi" draft="contributed">გუბადლის რაიონი</subdivision>
 			<subdivision type="azqob" draft="contributed">გობუსტანის რაიონი</subdivision>
+			<subdivision type="azqus" draft="contributed">გუსარის რაიონი</subdivision>
 			<subdivision type="azsa" draft="contributed">შაქი</subdivision>
+			<subdivision type="azsab" draft="contributed">საბირაბადი</subdivision>
+			<subdivision type="azsad" draft="contributed">სადარაქის რაიონი</subdivision>
+			<subdivision type="azsak" draft="contributed">შაქის რაიონი</subdivision>
+			<subdivision type="azsal" draft="contributed">სალიანის რაიონი</subdivision>
 			<subdivision type="azsar" draft="contributed">შარურის რაიონი</subdivision>
+			<subdivision type="azsat" draft="contributed">საათლის რაიონი</subdivision>
+			<subdivision type="azsbn" draft="contributed">შაბრანის რაიონი</subdivision>
+			<subdivision type="azsiy" draft="contributed">სიაზანის რაიონი</subdivision>
 			<subdivision type="azskr" draft="contributed">შამქირის რაიონი</subdivision>
 			<subdivision type="azsm" draft="contributed">სუმგაითი</subdivision>
 			<subdivision type="azsmi" draft="contributed">შემახის რაიონი</subdivision>
+			<subdivision type="azsmx" draft="contributed">სამუხის რაიონი</subdivision>
 			<subdivision type="azsr" draft="contributed">შირვანი</subdivision>
+			<subdivision type="azsus" draft="contributed">შუშის რაიონი</subdivision>
+			<subdivision type="aztar" draft="contributed">ტერტერის რაიონი</subdivision>
+			<subdivision type="aztov" draft="contributed">თოუზი</subdivision>
+			<subdivision type="azuca" draft="contributed">უჯარის რაიონი</subdivision>
 			<subdivision type="azxa" draft="contributed">ხანქენდი</subdivision>
 			<subdivision type="azxac" draft="contributed">ხაჩმაზის რაიონი</subdivision>
 			<subdivision type="azxci" draft="contributed">ხოჯალის რაიონი</subdivision>
+			<subdivision type="azxiz" draft="contributed">ხიზის რაიონი</subdivision>
+			<subdivision type="azxvd" draft="contributed">ხოჯავენდის რაიონი</subdivision>
+			<subdivision type="azyar" draft="contributed">იარდიმლის რაიონი</subdivision>
+			<subdivision type="azye" draft="contributed">ევლახ</subdivision>
+			<subdivision type="azyev" draft="contributed">ევლახის რაიონი</subdivision>
+			<subdivision type="azzan" draft="contributed">ზანგილანის რაიონი</subdivision>
 			<subdivision type="azzaq" draft="contributed">ზაქათალის რაიონი</subdivision>
+			<subdivision type="azzar" draft="contributed">ზარდაბის რაიონი</subdivision>
 			<subdivision type="babih" draft="contributed">ბოსნია და ჰერცეგოვინის ფედერაცია</subdivision>
 			<subdivision type="babrc" draft="contributed">ბრჩკოს ოლქი</subdivision>
 			<subdivision type="basrp" draft="contributed">ბოსნიელთა რესპუბლიკა</subdivision>
@@ -326,6 +377,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cdhu" draft="contributed">ზემო უელეს პროვინცია</subdivision>
 			<subdivision type="cdkc" draft="contributed">ლულუის პროვინცია</subdivision>
 			<subdivision type="cdke" draft="contributed">აღმოსავლეთ კასაის პროვინცია</subdivision>
+			<subdivision type="cdkg" draft="contributed">კუანგოს პროვინცია</subdivision>
 			<subdivision type="cdkl" draft="contributed">კვილუს პროვინცია</subdivision>
 			<subdivision type="cdkn" draft="contributed">კინშასა</subdivision>
 			<subdivision type="cdlo" draft="contributed">ლომამის პროვინცია</subdivision>
@@ -778,6 +830,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="esce" draft="contributed">სეუტა</subdivision>
 			<subdivision type="escl" draft="contributed">კასტილია და ლეონი</subdivision>
 			<subdivision type="escm" draft="contributed">კასტილია-ლა მანჩა</subdivision>
+			<subdivision type="escn" draft="contributed">კანარის კუნძულები</subdivision>
 			<subdivision type="esco" draft="contributed">კორდობის პროვინცია</subdivision>
 			<subdivision type="escr" draft="contributed">სიუდად-რეალის პროვინცია</subdivision>
 			<subdivision type="escs" draft="contributed">კასტელონის პროვინცია</subdivision>
@@ -888,6 +941,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr17" draft="contributed">ზღვისპირა შარანტა</subdivision>
 			<subdivision type="fr18" draft="contributed">შერი</subdivision>
 			<subdivision type="fr19" draft="contributed">კორეზი</subdivision>
+			<subdivision type="fr20r" draft="contributed">კორსიკა</subdivision>
 			<subdivision type="fr23" draft="contributed">კრეზი</subdivision>
 			<subdivision type="fr24" draft="contributed">დორდონი</subdivision>
 			<subdivision type="fr25" draft="contributed">დუ</subdivision>
@@ -940,7 +994,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr72" draft="contributed">სარტა</subdivision>
 			<subdivision type="fr73" draft="contributed">სავოია</subdivision>
 			<subdivision type="fr74" draft="contributed">ზემო სავოია</subdivision>
-			<subdivision type="fr75" draft="contributed">პარიზი</subdivision>
+			<subdivision type="fr75c" draft="contributed">პარიზი</subdivision>
 			<subdivision type="fr76" draft="contributed">ზღვისპირა სენა</subdivision>
 			<subdivision type="fr77" draft="contributed">სენა და მარნა</subdivision>
 			<subdivision type="fr78" draft="contributed">იველინი</subdivision>
@@ -960,8 +1014,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr92" draft="contributed">ო-დე-სენა</subdivision>
 			<subdivision type="fr93" draft="contributed">სენა-სენ-დენი</subdivision>
 			<subdivision type="fr94" draft="contributed">ვალ-დე-მარნი</subdivision>
+			<subdivision type="fr971" draft="contributed">გვადელუპა</subdivision>
 			<subdivision type="frbre" draft="contributed">ბრეტანი</subdivision>
-			<subdivision type="frcor" draft="contributed">კორსიკა</subdivision>
 			<subdivision type="frcvl" draft="contributed">ცენტრი</subdivision>
 			<subdivision type="fridf" draft="contributed">ილ-დე-ფრანსი</subdivision>
 			<subdivision type="frnor" draft="contributed">ნორმანდია</subdivision>
@@ -994,6 +1048,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbdor" draft="contributed">დორსეტი</subdivision>
 			<subdivision type="gbedh" draft="contributed">ედინბურგი</subdivision>
 			<subdivision type="gbenf" draft="contributed">ენფილდი</subdivision>
+			<subdivision type="gbeng" draft="contributed">ინგლისი</subdivision>
 			<subdivision type="gbesx" draft="contributed">აღმოსავლეთი სასექსი</subdivision>
 			<subdivision type="gbgbn" draft="contributed">დიდი ბრიტანეთი</subdivision>
 			<subdivision type="gbglg" draft="contributed">გლაზგო</subdivision>
@@ -1007,6 +1062,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbkhl" draft="contributed">ჰალი</subdivision>
 			<subdivision type="gbktt" draft="contributed">კინგსტონ-აპონ-თემზი</subdivision>
 			<subdivision type="gblan" draft="contributed">ლანკაშირი</subdivision>
+			<subdivision type="gblbh" draft="contributed">ლამბეთი</subdivision>
 			<subdivision type="gblce" draft="contributed">ლესტერი</subdivision>
 			<subdivision type="gblec" draft="contributed">ლესტერშირი</subdivision>
 			<subdivision type="gblew" draft="contributed">ლუიშემი</subdivision>
@@ -1022,6 +1078,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbntt" draft="contributed">ნოტინგემშირი</subdivision>
 			<subdivision type="gboxf" draft="contributed">ოქსფორდშირი</subdivision>
 			<subdivision type="gbpor" draft="contributed">პორტსმუთი</subdivision>
+			<subdivision type="gbscb" draft="contributed">სკოტიშ-ბორდერსი</subdivision>
+			<subdivision type="gbsct" draft="contributed">შოტლანდია</subdivision>
 			<subdivision type="gbsfk" draft="contributed">საფოლკი</subdivision>
 			<subdivision type="gbshf" draft="contributed">შეფილდი</subdivision>
 			<subdivision type="gbslg" draft="contributed">სლაუ</subdivision>
@@ -1034,7 +1092,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbukm" draft="contributed">გაერთიანებული სამეფო</subdivision>
 			<subdivision type="gbwar" draft="contributed">უორუიკშირი</subdivision>
 			<subdivision type="gbwil" draft="contributed">უილტშირი</subdivision>
+			<subdivision type="gbwls" draft="contributed">უელსი</subdivision>
 			<subdivision type="gbwlv" draft="contributed">ვულვერჰემპტონი</subdivision>
+			<subdivision type="gbwsm" draft="contributed">უესტმინსტერი (ლონდონის ბორო)</subdivision>
 			<subdivision type="gbwsx" draft="contributed">დასავლეთი სასექსი</subdivision>
 			<subdivision type="gbyor" draft="contributed">იორკი</subdivision>
 			<subdivision type="geab" draft="contributed">აფხაზეთი</subdivision>
@@ -1069,32 +1129,33 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="grd" draft="contributed">ეპირი</subdivision>
 			<subdivision type="gre" draft="contributed">თესალია</subdivision>
 			<subdivision type="grg" draft="contributed">დასავლეთი საბერძნეთი</subdivision>
+			<subdivision type="grh" draft="contributed">ცენტრალური საბერძნეთი</subdivision>
 			<subdivision type="gri" draft="contributed">ატიკა</subdivision>
 			<subdivision type="grj" draft="contributed">პელოპონესის პერიფერია</subdivision>
 			<subdivision type="grk" draft="contributed">ჩრდილოეთ ეგეოსის კუნძულები</subdivision>
 			<subdivision type="grl" draft="contributed">სამხრეთ ეგეოსის კუნძულები</subdivision>
-			<subdivision type="gtav" draft="contributed">ალტა-ვერაპასის დეპარტამენტი</subdivision>
-			<subdivision type="gtbv" draft="contributed">ბახა-ვერაპასის დეპარტამენტი</subdivision>
-			<subdivision type="gtcm" draft="contributed">ჩიმალტენანგოს დეპარტამენტი</subdivision>
-			<subdivision type="gtcq" draft="contributed">ჩიკიმულის დეპარტამენტი</subdivision>
-			<subdivision type="gtes" draft="contributed">ესკუინტლას დეპარტამენტი</subdivision>
-			<subdivision type="gtgu" draft="contributed">გვატემალის დეპარტამენტი</subdivision>
-			<subdivision type="gthu" draft="contributed">უეუეტენანგოს დეპარტამენტი</subdivision>
-			<subdivision type="gtiz" draft="contributed">ისაბალის დეპარტამენტი</subdivision>
-			<subdivision type="gtja" draft="contributed">ხალაპის დეპარტამენტი</subdivision>
-			<subdivision type="gtju" draft="contributed">ხუტიაპის დეპარტამენტი</subdivision>
-			<subdivision type="gtpe" draft="contributed">პეტენის დეპარტამენტი</subdivision>
-			<subdivision type="gtpr" draft="contributed">ელ-პროგერსოს დეპარტამენტი</subdivision>
-			<subdivision type="gtqc" draft="contributed">კიჩეს დეპარტამენტი</subdivision>
-			<subdivision type="gtqz" draft="contributed">კეცალტენანგოს დეპარტამენტი</subdivision>
-			<subdivision type="gtre" draft="contributed">რეტალულეუს დეპარტამენტი</subdivision>
-			<subdivision type="gtsa" draft="contributed">საკატეპეკესის დეპარტამენტი</subdivision>
-			<subdivision type="gtsm" draft="contributed">სან-მარკოსის დეპარტამენტი</subdivision>
-			<subdivision type="gtso" draft="contributed">სოლოლის დეპარტამენტი</subdivision>
-			<subdivision type="gtsr" draft="contributed">სანტა-როსას დეპარტამენტი</subdivision>
-			<subdivision type="gtsu" draft="contributed">სუჩიტეპეკესის დეპარტამენტი</subdivision>
-			<subdivision type="gtto" draft="contributed">ტოტონიკაპანის დეპარტამენტი</subdivision>
-			<subdivision type="gtza" draft="contributed">საკაპის დეპარტამენტი</subdivision>
+			<subdivision type="gt01" draft="contributed">გვატემალის დეპარტამენტი</subdivision>
+			<subdivision type="gt02" draft="contributed">ელ-პროგერსოს დეპარტამენტი</subdivision>
+			<subdivision type="gt03" draft="contributed">საკატეპეკესის დეპარტამენტი</subdivision>
+			<subdivision type="gt04" draft="contributed">ჩიმალტენანგოს დეპარტამენტი</subdivision>
+			<subdivision type="gt05" draft="contributed">ესკუინტლას დეპარტამენტი</subdivision>
+			<subdivision type="gt06" draft="contributed">სანტა-როსას დეპარტამენტი</subdivision>
+			<subdivision type="gt07" draft="contributed">სოლოლის დეპარტამენტი</subdivision>
+			<subdivision type="gt08" draft="contributed">ტოტონიკაპანის დეპარტამენტი</subdivision>
+			<subdivision type="gt09" draft="contributed">კეცალტენანგოს დეპარტამენტი</subdivision>
+			<subdivision type="gt10" draft="contributed">სუჩიტეპეკესის დეპარტამენტი</subdivision>
+			<subdivision type="gt11" draft="contributed">რეტალულეუს დეპარტამენტი</subdivision>
+			<subdivision type="gt12" draft="contributed">სან-მარკოსის დეპარტამენტი</subdivision>
+			<subdivision type="gt13" draft="contributed">უეუეტენანგოს დეპარტამენტი</subdivision>
+			<subdivision type="gt14" draft="contributed">კიჩეს დეპარტამენტი</subdivision>
+			<subdivision type="gt15" draft="contributed">ბახა-ვერაპასის დეპარტამენტი</subdivision>
+			<subdivision type="gt16" draft="contributed">ალტა-ვერაპასის დეპარტამენტი</subdivision>
+			<subdivision type="gt17" draft="contributed">პეტენის დეპარტამენტი</subdivision>
+			<subdivision type="gt18" draft="contributed">ისაბალის დეპარტამენტი</subdivision>
+			<subdivision type="gt19" draft="contributed">საკაპის დეპარტამენტი</subdivision>
+			<subdivision type="gt20" draft="contributed">ჩიკიმულის დეპარტამენტი</subdivision>
+			<subdivision type="gt21" draft="contributed">ხალაპის დეპარტამენტი</subdivision>
+			<subdivision type="gt22" draft="contributed">ხუტიაპის დეპარტამენტი</subdivision>
 			<subdivision type="gwbs" draft="contributed">ბისაუ</subdivision>
 			<subdivision type="hnat" draft="contributed">ატლანტიდის დეპარტამენტი</subdivision>
 			<subdivision type="hnch" draft="contributed">ჩოლუტეკის დეპარტამენტი</subdivision>
@@ -1254,6 +1315,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="injk" draft="contributed">ჯამუ და ქაშმირი</subdivision>
 			<subdivision type="inka" draft="contributed">კარნატაკა</subdivision>
 			<subdivision type="inkl" draft="contributed">კერალა</subdivision>
+			<subdivision type="inla" draft="contributed">ლადაქი</subdivision>
 			<subdivision type="inld" draft="contributed">ლაქშადვიპი</subdivision>
 			<subdivision type="inmh" draft="contributed">მაჰარაშტრა</subdivision>
 			<subdivision type="inml" draft="contributed">მეგჰალაია</subdivision>
@@ -1290,6 +1352,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="iqsd" draft="contributed">სალაჰ-ედ-დინის მუჰაფაზა</subdivision>
 			<subdivision type="iqsu" draft="contributed">სულეიმანიის მუჰაფაზა</subdivision>
 			<subdivision type="iqwa" draft="contributed">ვასიტის მუჰაფაზა</subdivision>
+			<subdivision type="ir00" draft="contributed">მარკაზი²</subdivision>
 			<subdivision type="ir01" draft="contributed">აღმოსავლეთი აზერბაიჯანი</subdivision>
 			<subdivision type="ir02" draft="contributed">დასავლეთი აზერბაიჯანი</subdivision>
 			<subdivision type="ir03" draft="contributed">არდაბილი</subdivision>
@@ -1298,6 +1361,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ir06" draft="contributed">ბუშირი</subdivision>
 			<subdivision type="ir07" draft="contributed">თეირანი</subdivision>
 			<subdivision type="ir08" draft="contributed">ჩახარ-მახალი და ბახთიარია</subdivision>
+			<subdivision type="ir09" draft="contributed">ხორასან-რეზავის ოსტანი²</subdivision>
 			<subdivision type="ir10" draft="contributed">ხუზისტანი</subdivision>
 			<subdivision type="ir11" draft="contributed">ზენჯანი (ოსტანი)</subdivision>
 			<subdivision type="ir12" draft="contributed">სემნანის ოსტანი</subdivision>
@@ -1329,6 +1393,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="is6" draft="contributed">ნორდურლანდ-ისტრა</subdivision>
 			<subdivision type="is7" draft="contributed">აუსტურლანდი</subdivision>
 			<subdivision type="is8" draft="contributed">სუდურლანდი</subdivision>
+			<subdivision type="isakn" draft="contributed">აკრანესი</subdivision>
+			<subdivision type="isaku" draft="contributed">აკურეირი</subdivision>
+			<subdivision type="isblo" draft="contributed">ბლენდუოუსი</subdivision>
+			<subdivision type="isbol" draft="contributed">ბოლუნგავიკი</subdivision>
+			<subdivision type="isfjl" draft="contributed">ფიალაბიგდი</subdivision>
 			<subdivision type="it21" draft="contributed">პიემონტი</subdivision>
 			<subdivision type="it25" draft="contributed">ლომბარდია</subdivision>
 			<subdivision type="it32" draft="contributed">ტრენტინო-ალტო-ადიჯე</subdivision>
@@ -1456,6 +1525,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="itvs" draft="contributed">მედიო-კამპიდანოს პროვინცია</subdivision>
 			<subdivision type="itvt" draft="contributed">ვიტერბოს პროვინცია</subdivision>
 			<subdivision type="itvv" draft="contributed">ვიბო-ვალენტიის პროვინცია</subdivision>
+			<subdivision type="jm02" draft="contributed">სენტ-ენდრიუ</subdivision>
 			<subdivision type="jp01" draft="contributed">ჰოკაიდო</subdivision>
 			<subdivision type="jp02" draft="contributed">აომორის პრეფექტურა</subdivision>
 			<subdivision type="jp03" draft="contributed">ივატეს პრეფექტურა</subdivision>
@@ -1464,18 +1534,39 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="jp06" draft="contributed">იამაგატის პრეფექტურა</subdivision>
 			<subdivision type="jp07" draft="contributed">ფუკუსიმის პრეფექტურა</subdivision>
 			<subdivision type="jp08" draft="contributed">იბარაკის პრეფექტურა</subdivision>
+			<subdivision type="jp09" draft="contributed">ტოტიგის პრეფექტურა</subdivision>
+			<subdivision type="jp11" draft="contributed">საიტამის პრეფექტურა</subdivision>
 			<subdivision type="jp12" draft="contributed">ტიბის პრეფექტურა</subdivision>
 			<subdivision type="jp13" draft="contributed">ტოკიო</subdivision>
 			<subdivision type="jp14" draft="contributed">კანაგავის პრეფექტურა</subdivision>
+			<subdivision type="jp15" draft="contributed">ნიიგატის პრეფექტურა</subdivision>
 			<subdivision type="jp17" draft="contributed">ისიკავის პრეფექტურა</subdivision>
+			<subdivision type="jp18" draft="contributed">ფუკუის პრეფექტურა</subdivision>
 			<subdivision type="jp19" draft="contributed">იამანასის პრეფექტურა</subdivision>
 			<subdivision type="jp20" draft="contributed">ნაგანო</subdivision>
+			<subdivision type="jp21" draft="contributed">გიფუს პრეფექტურა</subdivision>
+			<subdivision type="jp22" draft="contributed">სიძუოკის პრეფექტურა</subdivision>
 			<subdivision type="jp23" draft="contributed">აიტის პრეფექტურა</subdivision>
+			<subdivision type="jp24" draft="contributed">მიეს პრეფექტურა</subdivision>
+			<subdivision type="jp25" draft="contributed">სიგის პრეფექტურა</subdivision>
+			<subdivision type="jp26" draft="contributed">კიოტოს პრეფექტურა</subdivision>
+			<subdivision type="jp27" draft="contributed">ოსაკის პრეფექტურა</subdivision>
+			<subdivision type="jp28" draft="contributed">ჰიოგოს პრეფექტურა</subdivision>
 			<subdivision type="jp29" draft="contributed">ნარის პრეფექტურა</subdivision>
+			<subdivision type="jp30" draft="contributed">ვაკაიამის პრეფექტურა</subdivision>
+			<subdivision type="jp31" draft="contributed">ტოტორის პრეფექტურა</subdivision>
+			<subdivision type="jp32" draft="contributed">სიმანეს პრეფექტურა</subdivision>
+			<subdivision type="jp33" draft="contributed">ოკაიამის პრეფექტურა</subdivision>
 			<subdivision type="jp34" draft="contributed">ჰიროსიმის პრეფექტურა</subdivision>
 			<subdivision type="jp35" draft="contributed">იამაგუტის პრეფექტურა</subdivision>
 			<subdivision type="jp37" draft="contributed">კაგავის პრეფექტურა</subdivision>
 			<subdivision type="jp38" draft="contributed">ეჰიმეს პრეფექტურა</subdivision>
+			<subdivision type="jp41" draft="contributed">საგის პრეფექტურა</subdivision>
+			<subdivision type="jp42" draft="contributed">ნაგასაკის პრეფექტურა</subdivision>
+			<subdivision type="jp43" draft="contributed">კუმამოტოს პრეფექტურა</subdivision>
+			<subdivision type="jp44" draft="contributed">ოიტის პრეფექტურა</subdivision>
+			<subdivision type="jp45" draft="contributed">მიაძაკის პრეფექტურა</subdivision>
+			<subdivision type="jp46" draft="contributed">კაგოსიმის პრეფექტურა</subdivision>
 			<subdivision type="kgb" draft="contributed">ბატკენის ოლქი</subdivision>
 			<subdivision type="kgc" draft="contributed">ჩუის ოლქი</subdivision>
 			<subdivision type="kggb" draft="contributed">ბიშკეკი</subdivision>
@@ -1498,6 +1589,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kr27" draft="contributed">ტეგუ</subdivision>
 			<subdivision type="kr28" draft="contributed">ინჩხონი</subdivision>
 			<subdivision type="kr41" draft="contributed">კიონგიდო</subdivision>
+			<subdivision type="kr49" draft="contributed">ჩეჯუს პროვინცია</subdivision>
 			<subdivision type="kzakm" draft="contributed">აკმოლის ოლქი</subdivision>
 			<subdivision type="kzakt" draft="contributed">აქტობეს ოლქი</subdivision>
 			<subdivision type="kzala" draft="contributed">ალმათი</subdivision>
@@ -1511,10 +1603,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kzman" draft="contributed">მანგისთაუს ოლქი</subdivision>
 			<subdivision type="kzpav" draft="contributed">პავლოდარის ოლქი</subdivision>
 			<subdivision type="kzsev" draft="contributed">ჩრდილოეთ ყაზახეთის ოლქი</subdivision>
+			<subdivision type="kzshy" draft="contributed">შიმქენთი</subdivision>
 			<subdivision type="kzvos" draft="contributed">აღმოსავლეთ ყაზახეთის ოლქი</subdivision>
 			<subdivision type="kzyuz" draft="contributed">სამხრეთ ყაზახეთის ოლქი</subdivision>
 			<subdivision type="kzzap" draft="contributed">დასავლეთ ყაზახეთის ოლქი</subdivision>
 			<subdivision type="kzzha" draft="contributed">ჟამბილის ოლქი</subdivision>
+			<subdivision type="laat" draft="contributed">ატაპეუს პროვინცია</subdivision>
+			<subdivision type="labk" draft="contributed">ბოკეოს პროვინცია</subdivision>
 			<subdivision type="lbak" draft="contributed">აკარის მუჰაფაზა</subdivision>
 			<subdivision type="lbas" draft="contributed">ჩრდილოეთის მუჰაფაზა</subdivision>
 			<subdivision type="lbba" draft="contributed">ბეირუთის მუჰაფაზა</subdivision>
@@ -1588,6 +1683,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="lt24" draft="contributed">ლაზდიიაის რაიონი</subdivision>
 			<subdivision type="lt26" draft="contributed">მაჟეიკიაის რაიონი</subdivision>
 			<subdivision type="lt27" draft="contributed">მოლეტაის რაიონი</subdivision>
+			<subdivision type="lt28" draft="contributed">ნერინგის მუნიციპალიტეტი</subdivision>
 			<subdivision type="lt30" draft="contributed">პაკრუოის რაიონი</subdivision>
 			<subdivision type="lt33" draft="contributed">პანევეჟისის რაიონი</subdivision>
 			<subdivision type="lt34" draft="contributed">პასვალისის რაიონი</subdivision>
@@ -1843,77 +1939,87 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mhl" draft="contributed">რალიკის ჯაჭვი</subdivision>
 			<subdivision type="mhmaj" draft="contributed">მაჯურო</subdivision>
 			<subdivision type="mht" draft="contributed">რატაკის ჯაჭვი</subdivision>
-			<subdivision type="mk02" draft="contributed">არაჩინოვოს თემი</subdivision>
-			<subdivision type="mk03" draft="contributed">ბეროვოს თემი</subdivision>
-			<subdivision type="mk04" draft="contributed">ბიტოლის თემი</subdivision>
-			<subdivision type="mk05" draft="contributed">ბოგდანცის თემი</subdivision>
-			<subdivision type="mk06" draft="contributed">ბოგოვინიეს თემი</subdivision>
-			<subdivision type="mk07" draft="contributed">ბოსილოვოს თემი</subdivision>
-			<subdivision type="mk08" draft="contributed">ბრვენიცის თემი</subdivision>
-			<subdivision type="mk10" draft="contributed">ვალანდოვოს თემი</subdivision>
-			<subdivision type="mk11" draft="contributed">ვასილევოს თემი</subdivision>
-			<subdivision type="mk12" draft="contributed">ვევჩანის თემი</subdivision>
-			<subdivision type="mk13" draft="contributed">ველესის თემი</subdivision>
-			<subdivision type="mk14" draft="contributed">ვინიცის თემი</subdivision>
-			<subdivision type="mk16" draft="contributed">ვრაპჩიშტეს თემი</subdivision>
-			<subdivision type="mk18" draft="contributed">გევგელიის თემი</subdivision>
-			<subdivision type="mk19" draft="contributed">გოსტივარის თემი</subdivision>
-			<subdivision type="mk20" draft="contributed">გრადსკოს თემი</subdivision>
-			<subdivision type="mk21" draft="contributed">დებარის თემი</subdivision>
-			<subdivision type="mk22" draft="contributed">დებარცის თემი</subdivision>
-			<subdivision type="mk23" draft="contributed">დელჩევოს თემი</subdivision>
-			<subdivision type="mk24" draft="contributed">დემირ-კაპიის თემი</subdivision>
-			<subdivision type="mk25" draft="contributed">დემირ-ჰისარის თემი</subdivision>
-			<subdivision type="mk26" draft="contributed">დოირანის თემი</subdivision>
-			<subdivision type="mk27" draft="contributed">დოლნენის თემი</subdivision>
-			<subdivision type="mk30" draft="contributed">ჟელინოს თემი</subdivision>
-			<subdivision type="mk32" draft="contributed">ზელენიკოვოს თემი</subdivision>
-			<subdivision type="mk33" draft="contributed">ზრნოვცის თემი</subdivision>
-			<subdivision type="mk34" draft="contributed">ილინდენის თემი</subdivision>
-			<subdivision type="mk35" draft="contributed">იეგუნოვცეს თემი</subdivision>
-			<subdivision type="mk36" draft="contributed">კავადარცის თემი</subdivision>
-			<subdivision type="mk37" draft="contributed">კარბინცის თემი</subdivision>
-			<subdivision type="mk40" draft="contributed">კიჩევოს თემი</subdivision>
-			<subdivision type="mk41" draft="contributed">კონჩეს თემი</subdivision>
-			<subdivision type="mk42" draft="contributed">კოჩანის თემი</subdivision>
-			<subdivision type="mk43" draft="contributed">კრატოვოს თემი</subdivision>
-			<subdivision type="mk44" draft="contributed">კრივა-პალანკის თემი</subdivision>
-			<subdivision type="mk45" draft="contributed">კრივოგაშტანის თემი</subdivision>
-			<subdivision type="mk46" draft="contributed">კრუშევოს თემი</subdivision>
-			<subdivision type="mk47" draft="contributed">კუმანოვოს თემი</subdivision>
-			<subdivision type="mk48" draft="contributed">ლიპკოვოს თემი</subdivision>
-			<subdivision type="mk49" draft="contributed">ლოზოვოს თემი</subdivision>
-			<subdivision type="mk50" draft="contributed">მავროვო და როსტუშის თემი</subdivision>
-			<subdivision type="mk51" draft="contributed">მაკედონსკა-კამენიცის თემი</subdivision>
-			<subdivision type="mk52" draft="contributed">მაკედონსკი-ბროდის თემი</subdivision>
-			<subdivision type="mk53" draft="contributed">მოგილის თემი</subdivision>
-			<subdivision type="mk54" draft="contributed">ნეგოტინოს თემი</subdivision>
-			<subdivision type="mk55" draft="contributed">ნოვაცის თემი</subdivision>
-			<subdivision type="mk56" draft="contributed">ნოვო-სელოს თემი</subdivision>
-			<subdivision type="mk58" draft="contributed">ოჰრიდის თემი</subdivision>
-			<subdivision type="mk59" draft="contributed">პეტროვეცის თემი</subdivision>
-			<subdivision type="mk60" draft="contributed">პეხჩევოს თემი</subdivision>
-			<subdivision type="mk61" draft="contributed">პლასნიცის თემი</subdivision>
-			<subdivision type="mk62" draft="contributed">პრილეპის თემი</subdivision>
-			<subdivision type="mk63" draft="contributed">პრობიშტიპის თემი</subdivision>
-			<subdivision type="mk64" draft="contributed">რადოვიშის თემი</subdivision>
-			<subdivision type="mk65" draft="contributed">რანკოვცეს თემი</subdivision>
-			<subdivision type="mk66" draft="contributed">რესენის თემი</subdivision>
-			<subdivision type="mk67" draft="contributed">როსომანის თემი</subdivision>
-			<subdivision type="mk69" draft="contributed">სვეტი-ნიკოლეს თემი</subdivision>
-			<subdivision type="mk70" draft="contributed">სოპიშტეს თემი</subdivision>
-			<subdivision type="mk71" draft="contributed">სტარო-ნაგორიჩანეს თემი</subdivision>
-			<subdivision type="mk72" draft="contributed">სტრუგის თემი</subdivision>
-			<subdivision type="mk73" draft="contributed">სტრუმიცის თემი</subdivision>
-			<subdivision type="mk74" draft="contributed">სტუდენიჩანის თემი</subdivision>
-			<subdivision type="mk75" draft="contributed">ტეარცეს თემი</subdivision>
-			<subdivision type="mk76" draft="contributed">ტეტოვოს თემი</subdivision>
-			<subdivision type="mk78" draft="contributed">ცენტარ-ჟუპის თემი</subdivision>
-			<subdivision type="mk80" draft="contributed">ჩაშკის თემი</subdivision>
-			<subdivision type="mk81" draft="contributed">ჩეშინოვო-ობლეშევოს თემი</subdivision>
-			<subdivision type="mk82" draft="contributed">ჩუჩერ-სანდევოს თემი</subdivision>
-			<subdivision type="mk83" draft="contributed">შტიპის თემი</subdivision>
 			<subdivision type="mk85" draft="contributed">სკოპიე</subdivision>
+			<subdivision type="mk101" draft="contributed">ველესის თემი</subdivision>
+			<subdivision type="mk102" draft="contributed">გრადსკოს თემი</subdivision>
+			<subdivision type="mk103" draft="contributed">დემირ-კაპიის თემი</subdivision>
+			<subdivision type="mk104" draft="contributed">კავადარცის თემი</subdivision>
+			<subdivision type="mk105" draft="contributed">ლოზოვოს თემი</subdivision>
+			<subdivision type="mk106" draft="contributed">ნეგოტინოს თემი</subdivision>
+			<subdivision type="mk107" draft="contributed">როსომანის თემი</subdivision>
+			<subdivision type="mk108" draft="contributed">სვეტი-ნიკოლეს თემი</subdivision>
+			<subdivision type="mk109" draft="contributed">ჩაშკის თემი</subdivision>
+			<subdivision type="mk201" draft="contributed">ბეროვოს თემი</subdivision>
+			<subdivision type="mk202" draft="contributed">ვინიცის თემი</subdivision>
+			<subdivision type="mk203" draft="contributed">დელჩევოს თემი</subdivision>
+			<subdivision type="mk204" draft="contributed">ზრნოვცის თემი</subdivision>
+			<subdivision type="mk205" draft="contributed">კარბინცის თემი</subdivision>
+			<subdivision type="mk206" draft="contributed">კოჩანის თემი</subdivision>
+			<subdivision type="mk207" draft="contributed">მაკედონსკა-კამენიცის თემი</subdivision>
+			<subdivision type="mk208" draft="contributed">პეხჩევოს თემი</subdivision>
+			<subdivision type="mk209" draft="contributed">პრობიშტიპის თემი</subdivision>
+			<subdivision type="mk210" draft="contributed">ჩეშინოვო-ობლეშევოს თემი</subdivision>
+			<subdivision type="mk211" draft="contributed">შტიპის თემი</subdivision>
+			<subdivision type="mk301" draft="contributed">ვევჩანის თემი</subdivision>
+			<subdivision type="mk303" draft="contributed">დებარის თემი</subdivision>
+			<subdivision type="mk304" draft="contributed">დებარცის თემი</subdivision>
+			<subdivision type="mk307" draft="contributed">კიჩევოს თემი</subdivision>
+			<subdivision type="mk308" draft="contributed">მაკედონსკი-ბროდის თემი</subdivision>
+			<subdivision type="mk310" draft="contributed">ოჰრიდის თემი</subdivision>
+			<subdivision type="mk311" draft="contributed">პლასნიცის თემი</subdivision>
+			<subdivision type="mk312" draft="contributed">სტრუგის თემი</subdivision>
+			<subdivision type="mk313" draft="contributed">ცენტარ-ჟუპის თემი</subdivision>
+			<subdivision type="mk401" draft="contributed">ბოგდანცის თემი</subdivision>
+			<subdivision type="mk402" draft="contributed">ბოსილოვოს თემი</subdivision>
+			<subdivision type="mk403" draft="contributed">ვალანდოვოს თემი</subdivision>
+			<subdivision type="mk404" draft="contributed">ვასილევოს თემი</subdivision>
+			<subdivision type="mk405" draft="contributed">გევგელიის თემი</subdivision>
+			<subdivision type="mk406" draft="contributed">დოირანის თემი</subdivision>
+			<subdivision type="mk407" draft="contributed">კონჩეს თემი</subdivision>
+			<subdivision type="mk408" draft="contributed">ნოვო-სელოს თემი</subdivision>
+			<subdivision type="mk409" draft="contributed">რადოვიშის თემი</subdivision>
+			<subdivision type="mk410" draft="contributed">სტრუმიცის თემი</subdivision>
+			<subdivision type="mk501" draft="contributed">ბიტოლის თემი</subdivision>
+			<subdivision type="mk502" draft="contributed">დემირ-ჰისარის თემი</subdivision>
+			<subdivision type="mk503" draft="contributed">დოლნენის თემი</subdivision>
+			<subdivision type="mk504" draft="contributed">კრივოგაშტანის თემი</subdivision>
+			<subdivision type="mk505" draft="contributed">კრუშევოს თემი</subdivision>
+			<subdivision type="mk506" draft="contributed">მოგილის თემი</subdivision>
+			<subdivision type="mk507" draft="contributed">ნოვაცის თემი</subdivision>
+			<subdivision type="mk508" draft="contributed">პრილეპის თემი</subdivision>
+			<subdivision type="mk509" draft="contributed">რესენის თემი</subdivision>
+			<subdivision type="mk601" draft="contributed">ბოგოვინიეს თემი</subdivision>
+			<subdivision type="mk602" draft="contributed">ბრვენიცის თემი</subdivision>
+			<subdivision type="mk603" draft="contributed">ვრაპჩიშტეს თემი</subdivision>
+			<subdivision type="mk604" draft="contributed">გოსტივარის თემი</subdivision>
+			<subdivision type="mk605" draft="contributed">ჟელინოს თემი</subdivision>
+			<subdivision type="mk606" draft="contributed">იეგუნოვცეს თემი</subdivision>
+			<subdivision type="mk607" draft="contributed">მავროვო და როსტუშის თემი</subdivision>
+			<subdivision type="mk608" draft="contributed">ტეარცეს თემი</subdivision>
+			<subdivision type="mk609" draft="contributed">ტეტოვოს თემი</subdivision>
+			<subdivision type="mk701" draft="contributed">კრატოვოს თემი</subdivision>
+			<subdivision type="mk702" draft="contributed">კრივა-პალანკის თემი</subdivision>
+			<subdivision type="mk703" draft="contributed">კუმანოვოს თემი</subdivision>
+			<subdivision type="mk704" draft="contributed">ლიპკოვოს თემი</subdivision>
+			<subdivision type="mk705" draft="contributed">რანკოვცეს თემი</subdivision>
+			<subdivision type="mk706" draft="contributed">სტარო-ნაგორიჩანეს თემი</subdivision>
+			<subdivision type="mk801" draft="contributed">აეროდრომის თემი</subdivision>
+			<subdivision type="mk802" draft="contributed">არაჩინოვოს თემი</subdivision>
+			<subdivision type="mk803" draft="contributed">ბუტელის თემი</subdivision>
+			<subdivision type="mk804" draft="contributed">გაზი-ბაბის თემი</subdivision>
+			<subdivision type="mk805" draft="contributed">გიორჩე-პეტროვის თემი</subdivision>
+			<subdivision type="mk806" draft="contributed">ზელენიკოვოს თემი</subdivision>
+			<subdivision type="mk807" draft="contributed">ილინდენის თემი</subdivision>
+			<subdivision type="mk808" draft="contributed">კარპოშის თემი</subdivision>
+			<subdivision type="mk809" draft="contributed">კისელა-ვოდის თემი</subdivision>
+			<subdivision type="mk810" draft="contributed">პეტროვეცის თემი</subdivision>
+			<subdivision type="mk811" draft="contributed">სარაის თემი</subdivision>
+			<subdivision type="mk812" draft="contributed">სოპიშტეს თემი</subdivision>
+			<subdivision type="mk813" draft="contributed">სტუდენიჩანის თემი</subdivision>
+			<subdivision type="mk814" draft="contributed">ცენტარის თემი</subdivision>
+			<subdivision type="mk815" draft="contributed">ჩაირის თემი</subdivision>
+			<subdivision type="mk816" draft="contributed">ჩუჩერ-სანდევოს თემი</subdivision>
+			<subdivision type="mk817" draft="contributed">შუტო-ორიზარის თემი</subdivision>
 			<subdivision type="ml1" draft="contributed">კაესის რეგიონი</subdivision>
 			<subdivision type="ml2" draft="contributed">კულიკოროს რეგიონი</subdivision>
 			<subdivision type="ml3" draft="contributed">სიკასოს რეგიონი</subdivision>
@@ -1923,6 +2029,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ml7" draft="contributed">გაოს რეგიონი</subdivision>
 			<subdivision type="ml8" draft="contributed">კიდალის რეგიონი</subdivision>
 			<subdivision type="mlbko" draft="contributed">ბამაკო</subdivision>
+			<subdivision type="mm01" draft="contributed">საგაინგის რეგიონი</subdivision>
+			<subdivision type="mm02" draft="contributed">ბაგოს რეგიონი</subdivision>
+			<subdivision type="mm03" draft="contributed">მაგვაის რეგიონი</subdivision>
+			<subdivision type="mm04" draft="contributed">მანდალაის რეგიონი</subdivision>
+			<subdivision type="mm06" draft="contributed">იანგონის რეგიონი</subdivision>
+			<subdivision type="mm07" draft="contributed">აიეიარვადის რეგიონი</subdivision>
+			<subdivision type="mm11" draft="contributed">კაჩინის შტატი</subdivision>
+			<subdivision type="mm12" draft="contributed">კაიაჰის შტატი</subdivision>
+			<subdivision type="mm13" draft="contributed">კაინის შტატი</subdivision>
+			<subdivision type="mm15" draft="contributed">მონის შტატი</subdivision>
+			<subdivision type="mm17" draft="contributed">შანის შტატი</subdivision>
 			<subdivision type="mn1" draft="contributed">ულან-ბატორი</subdivision>
 			<subdivision type="mn035" draft="contributed">ორხონის აიმაკი</subdivision>
 			<subdivision type="mn037" draft="contributed">დარხან-უული</subdivision>
@@ -1945,6 +2062,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mn069" draft="contributed">ბაიანხონგორის აიმაკი</subdivision>
 			<subdivision type="mn071" draft="contributed">ბაიან-ულგიი</subdivision>
 			<subdivision type="mn073" draft="contributed">არახანგაის აიმაკი</subdivision>
+			<subdivision type="mt56" draft="contributed">სლიმა</subdivision>
 			<subdivision type="mt60" draft="contributed">ვალეტა</subdivision>
 			<subdivision type="muag" draft="contributed">აგალეგა</subdivision>
 			<subdivision type="mubl" draft="contributed">რივერ-ნუარი</subdivision>
@@ -2153,6 +2271,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="no20" draft="contributed">ფინმარკი</subdivision>
 			<subdivision type="no21" draft="contributed">შპიცბერგენი</subdivision>
 			<subdivision type="no22" draft="contributed">იან-მაიენი</subdivision>
+			<subdivision type="no50" draft="contributed">ტრიონდელაგი</subdivision>
 			<subdivision type="nr01" draft="contributed">აივო</subdivision>
 			<subdivision type="nr02" draft="contributed">ანაბარი</subdivision>
 			<subdivision type="nr03" draft="contributed">ანეტანი</subdivision>
@@ -2243,7 +2362,95 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pgwbk" draft="contributed">დასავლეთი ახალი ბრიტანეთი</subdivision>
 			<subdivision type="pgwhm" draft="contributed">უესტერნ ჰაილენდსი</subdivision>
 			<subdivision type="pgwpd" draft="contributed">დასავლეთი პროვინცია</subdivision>
+			<subdivision type="ph00" draft="contributed">ეროვნული დედაქალაქის რეგიონი</subdivision>
+			<subdivision type="ph01" draft="contributed">ილოკოსის რეგიონი</subdivision>
+			<subdivision type="ph02" draft="contributed">კაგაიანის ხეობა</subdivision>
+			<subdivision type="ph03" draft="contributed">ცენტრალური ლუსონი</subdivision>
+			<subdivision type="ph05" draft="contributed">ბიკოლის რეგიონი</subdivision>
+			<subdivision type="ph06" draft="contributed">დასავლეთი ვისაიასი</subdivision>
+			<subdivision type="ph08" draft="contributed">აღმოსავლეთი ვისაიასი</subdivision>
+			<subdivision type="ph09" draft="contributed">ზამბოანგის ნახევარკუნძული</subdivision>
+			<subdivision type="ph11" draft="contributed">დავაოს რეგიონი</subdivision>
+			<subdivision type="ph13" draft="contributed">კარაგა</subdivision>
+			<subdivision type="ph14" draft="contributed">ავტონომიური რეგიონი მუსლიმურ მინდანაოში</subdivision>
+			<subdivision type="ph15" draft="contributed">კორდილიერის ადმინისტრაციული რეგიონი</subdivision>
+			<subdivision type="ph40" draft="contributed">კალაბარსონი</subdivision>
+			<subdivision type="ph41" draft="contributed">მიმაროპა</subdivision>
+			<subdivision type="phabr" draft="contributed">აბრა (პროვინცია)</subdivision>
+			<subdivision type="phagn" draft="contributed">ჩრდილოეთი აგუსანი</subdivision>
+			<subdivision type="phags" draft="contributed">სამხრეთი აგუსანი</subdivision>
+			<subdivision type="phakl" draft="contributed">აკლანი</subdivision>
+			<subdivision type="phalb" draft="contributed">ალბაი (ფილიპინები)</subdivision>
+			<subdivision type="phant" draft="contributed">ანტიკე</subdivision>
+			<subdivision type="phapa" draft="contributed">აპაიაო</subdivision>
+			<subdivision type="phaur" draft="contributed">აურორა (პროვინცია)</subdivision>
+			<subdivision type="phban" draft="contributed">ბატაანი</subdivision>
+			<subdivision type="phbas" draft="contributed">ბასილანი</subdivision>
+			<subdivision type="phben" draft="contributed">ბენგეტი</subdivision>
+			<subdivision type="phbil" draft="contributed">ბილირანი</subdivision>
+			<subdivision type="phboh" draft="contributed">ბოჰოლი (პროვინცია)</subdivision>
+			<subdivision type="phbtg" draft="contributed">ბატანგასი (პროვინცია)</subdivision>
+			<subdivision type="phbtn" draft="contributed">ბატანესი</subdivision>
+			<subdivision type="phbuk" draft="contributed">ბუკიდნონი (პროვინცია)</subdivision>
+			<subdivision type="phbul" draft="contributed">ბულაკანი</subdivision>
+			<subdivision type="phcag" draft="contributed">კაგაიანი</subdivision>
+			<subdivision type="phcam" draft="contributed">კამიგინი</subdivision>
+			<subdivision type="phcan" draft="contributed">ჩრდილოეთი კამარინესი</subdivision>
+			<subdivision type="phcap" draft="contributed">კაპისი (პროვინცია)</subdivision>
+			<subdivision type="phcas" draft="contributed">სამხრეთი კამარინესი</subdivision>
+			<subdivision type="phcat" draft="contributed">კატანდუანესი</subdivision>
+			<subdivision type="phcav" draft="contributed">კავიტე</subdivision>
+			<subdivision type="phceb" draft="contributed">სებუ (პროვინცია)</subdivision>
+			<subdivision type="phcom" draft="contributed">დავაო-დე-ორო</subdivision>
+			<subdivision type="phdao" draft="contributed">აღმოსავლეთი დავაო</subdivision>
+			<subdivision type="phdas" draft="contributed">სამხრეთი დავაო</subdivision>
+			<subdivision type="phdav" draft="contributed">ჩრდილოეთი დავაო</subdivision>
+			<subdivision type="phdin" draft="contributed">დინაგატის კუნძულები</subdivision>
+			<subdivision type="phdvo" draft="contributed">დასავლეთი დავაო</subdivision>
+			<subdivision type="phgui" draft="contributed">გიმარასი</subdivision>
+			<subdivision type="phifu" draft="contributed">იფუგაო</subdivision>
+			<subdivision type="phili" draft="contributed">ილოილო (პროვინცია)</subdivision>
+			<subdivision type="philn" draft="contributed">ჩრდილოეთი ილოკოსი</subdivision>
+			<subdivision type="phils" draft="contributed">სამხრეთი ილოკოსი</subdivision>
+			<subdivision type="phisa" draft="contributed">ისაბელა (პროვინცია)</subdivision>
+			<subdivision type="phkal" draft="contributed">კალინგა (პროვინცია)</subdivision>
 			<subdivision type="phlag" draft="contributed">ლაგუნა</subdivision>
+			<subdivision type="phlan" draft="contributed">ჩრდილოეთი ლანაო</subdivision>
+			<subdivision type="phlas" draft="contributed">სამხრეთი ლანაო</subdivision>
+			<subdivision type="phley" draft="contributed">ლეიტე (პროვინცია)</subdivision>
+			<subdivision type="phlun" draft="contributed">ლა-უნიონი (ფილიპინები)</subdivision>
+			<subdivision type="phmad" draft="contributed">მარინდუკე</subdivision>
+			<subdivision type="phmag" draft="contributed">მაგინდანაო</subdivision>
+			<subdivision type="phmas" draft="contributed">მასბატეს პროვინცია</subdivision>
+			<subdivision type="phmdc" draft="contributed">დასავლეთი მინდორო</subdivision>
+			<subdivision type="phmdr" draft="contributed">აღმოსავლეთი მინდორო</subdivision>
+			<subdivision type="phmsr" draft="contributed">აღმოსავლეთი მისამისი</subdivision>
+			<subdivision type="phnco" draft="contributed">კოტაბატო (პროვინცია)</subdivision>
+			<subdivision type="phnec" draft="contributed">დასავლეთი ნეგროსი</subdivision>
+			<subdivision type="phner" draft="contributed">აღმოსავლეთი ნეგროსი</subdivision>
+			<subdivision type="phnsa" draft="contributed">ჩრდილოეთი სამარი</subdivision>
+			<subdivision type="phnue" draft="contributed">ნუევა-ესიხა</subdivision>
+			<subdivision type="phnuv" draft="contributed">ნუევა-ვისკაია</subdivision>
+			<subdivision type="phpam" draft="contributed">პამპანგა</subdivision>
+			<subdivision type="phpan" draft="contributed">პანგასინანი</subdivision>
+			<subdivision type="phplw" draft="contributed">პალავანი (პროვინცია)</subdivision>
+			<subdivision type="phque" draft="contributed">კესონი (პროვინცია)</subdivision>
+			<subdivision type="phqui" draft="contributed">კირინო</subdivision>
+			<subdivision type="phriz" draft="contributed">რისალი</subdivision>
+			<subdivision type="phrom" draft="contributed">რომბლონი</subdivision>
+			<subdivision type="phsco" draft="contributed">სამხრეთი კოტაბატო</subdivision>
+			<subdivision type="phsle" draft="contributed">სამხრეთი ლეიტე</subdivision>
+			<subdivision type="phslu" draft="contributed">სულუ (პროვინცია)</subdivision>
+			<subdivision type="phsor" draft="contributed">სორსოგონი (პროვინცია)</subdivision>
+			<subdivision type="phsun" draft="contributed">ჩრდილოეთი სურიგაო</subdivision>
+			<subdivision type="phsur" draft="contributed">სამხრეთი სურიგაო</subdivision>
+			<subdivision type="phtar" draft="contributed">ტარლაკი (პროვინცია)</subdivision>
+			<subdivision type="phtaw" draft="contributed">ტავი-ტავი</subdivision>
+			<subdivision type="phwsa" draft="contributed">სამარი (პროვინცია)</subdivision>
+			<subdivision type="phzan" draft="contributed">ჩრდილოეთი ზამბოანგა</subdivision>
+			<subdivision type="phzas" draft="contributed">სამხრეთი ზამბოანგა</subdivision>
+			<subdivision type="phzmb" draft="contributed">სამბალესი</subdivision>
+			<subdivision type="phzsi" draft="contributed">ზამბოანგა-სიბუგაი</subdivision>
 			<subdivision type="pkba" draft="contributed">ბელუჯისტანი</subdivision>
 			<subdivision type="pkgb" draft="contributed">გილგის-ბალტისტანი</subdivision>
 			<subdivision type="pkis" draft="contributed">ისლამაბადის ფედერალური ტერიტორია</subdivision>
@@ -2369,6 +2576,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="rs26" draft="contributed">პეჩის რაიონი</subdivision>
 			<subdivision type="rs27" draft="contributed">პრიზრენის რაიონი</subdivision>
 			<subdivision type="rs29" draft="contributed">კოსოვო-პომორავის რაიონი</subdivision>
+			<subdivision type="rskm" draft="contributed">კოსოვოსა და მეტოხიის ავტონომიური მხარე</subdivision>
 			<subdivision type="rsvo" draft="contributed">ვოევოდინა</subdivision>
 			<subdivision type="ruad" draft="contributed">ადიღე</subdivision>
 			<subdivision type="rual" draft="contributed">ალთაის რესპუბლიკა</subdivision>
@@ -2459,6 +2667,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="rw04" draft="contributed">დასავლეთი პროვინცია</subdivision>
 			<subdivision type="rw05" draft="contributed">სამხრეთი პროვინცია</subdivision>
 			<subdivision type="sa04" draft="contributed">ეშ-შარკია</subdivision>
+			<subdivision type="sa05" draft="contributed">ელ-ქაზიმი</subdivision>
 			<subdivision type="sa06" draft="contributed">ჰაილის პროვინცია</subdivision>
 			<subdivision type="sa14" draft="contributed">ასირი</subdivision>
 			<subdivision type="sbce" draft="contributed">ცენტრალური პროვინცია</subdivision>
@@ -2561,6 +2770,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ssnu" draft="contributed">ზემო ნილოსი</subdivision>
 			<subdivision type="ssuy" draft="contributed">ერთობა (შტატი)</subdivision>
 			<subdivision type="sswr" draft="contributed">ვარაბი</subdivision>
+			<subdivision type="st01" draft="contributed">აგუა-გრანდე</subdivision>
+			<subdivision type="st02" draft="contributed">კანტაგალუ</subdivision>
+			<subdivision type="st03" draft="contributed">კაუი</subdivision>
+			<subdivision type="st04" draft="contributed">ლემბა</subdivision>
+			<subdivision type="st05" draft="contributed">ლობატა</subdivision>
+			<subdivision type="st06" draft="contributed">მი-სოჩი</subdivision>
 			<subdivision type="stp" draft="contributed">პრინსიპის პროვინცია</subdivision>
 			<subdivision type="sts" draft="contributed">სან-ტომეს პროვინცია</subdivision>
 			<subdivision type="svah" draft="contributed">აუაჩაპანის დეპარტამენტი</subdivision>
@@ -2619,6 +2834,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tdti" draft="contributed">ტიბესტის რეგიონი</subdivision>
 			<subdivision type="tdwf" draft="contributed">უადი-ფირის რეგიონი</subdivision>
 			<subdivision type="th10" draft="contributed">ბანგკოკი</subdivision>
+			<subdivision type="th11" draft="contributed">სამუტპრაკანის პროვინცია</subdivision>
+			<subdivision type="th12" draft="contributed">ნონთაბურის პროვინცია</subdivision>
+			<subdivision type="th14" draft="contributed">აიუთაიის პროვინცია</subdivision>
+			<subdivision type="th16" draft="contributed">ლოპბურის პროვინცია</subdivision>
+			<subdivision type="th17" draft="contributed">სინგბურის პროვინცია</subdivision>
+			<subdivision type="th18" draft="contributed">ჩაინატის პროვინცია</subdivision>
+			<subdivision type="th19" draft="contributed">სარაბურის პროვინცია</subdivision>
 			<subdivision type="th20" draft="contributed">ჩონბურის პროვინცია</subdivision>
 			<subdivision type="th21" draft="contributed">რაიონგის პროვინცია</subdivision>
 			<subdivision type="th22" draft="contributed">ჩანთაბურის პროვინცია</subdivision>
@@ -2626,6 +2848,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="th24" draft="contributed">ჩაჩენგსაოს პროვინცია</subdivision>
 			<subdivision type="th25" draft="contributed">პრაჩინბურის პროვინცია</subdivision>
 			<subdivision type="th27" draft="contributed">საკეოს პროვინცია</subdivision>
+			<subdivision type="th31" draft="contributed">ბურირამის პროვინცია</subdivision>
+			<subdivision type="th33" draft="contributed">სისაკეტის პროვინცია</subdivision>
+			<subdivision type="th36" draft="contributed">ჩაიიაფუმის პროვინცია</subdivision>
+			<subdivision type="th38" draft="contributed">ბენგკანის პროვინცია</subdivision>
+			<subdivision type="th41" draft="contributed">უდონთანის პროვინცია</subdivision>
+			<subdivision type="th42" draft="contributed">ლეის პროვინცია</subdivision>
+			<subdivision type="th43" draft="contributed">ნონგქაის პროვინცია</subdivision>
+			<subdivision type="th46" draft="contributed">კალასინის პროვინცია</subdivision>
+			<subdivision type="th47" draft="contributed">საკონ-ნაქონის პროვინცია</subdivision>
+			<subdivision type="th49" draft="contributed">მუკდაჰანის პროვინცია</subdivision>
 			<subdivision type="th50" draft="contributed">ჩიანგმაის პროვინცია</subdivision>
 			<subdivision type="th51" draft="contributed">ლამფუნის პროვინცია</subdivision>
 			<subdivision type="th52" draft="contributed">ლამპანგის პროვინცია</subdivision>
@@ -2635,14 +2867,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="th56" draft="contributed">ფაიაუს პროვინცია</subdivision>
 			<subdivision type="th57" draft="contributed">ჩიანგრაის პროვინცია</subdivision>
 			<subdivision type="th58" draft="contributed">მეჰონგსონის პროვინცია</subdivision>
+			<subdivision type="th60" draft="contributed">ნაქონსავანის პროვინცია</subdivision>
 			<subdivision type="th63" draft="contributed">ტაკის პროვინცია</subdivision>
+			<subdivision type="th64" draft="contributed">სუქოტაის პროვინცია</subdivision>
 			<subdivision type="th65" draft="contributed">ფიტსანულოკის პროვინცია</subdivision>
+			<subdivision type="th67" draft="contributed">ფეტჩაბუნის პროვინცია</subdivision>
 			<subdivision type="th70" draft="contributed">რატჩაბურის პროვინცია</subdivision>
 			<subdivision type="th71" draft="contributed">კანჩანაბურის პროვინცია</subdivision>
+			<subdivision type="th73" draft="contributed">ნაქონპათომის პროვინცია</subdivision>
+			<subdivision type="th74" draft="contributed">სამუტსაქონის პროვინცია</subdivision>
 			<subdivision type="th76" draft="contributed">ფეტჩაბურის პროვინცია</subdivision>
 			<subdivision type="th77" draft="contributed">პრაჩუაპქირიქანის პროვინცია</subdivision>
+			<subdivision type="th81" draft="contributed">კრაბის პროვინცია</subdivision>
 			<subdivision type="th83" draft="contributed">ფხუკეტის პროვინცია</subdivision>
+			<subdivision type="th84" draft="contributed">სურატ-თანის პროვინცია</subdivision>
 			<subdivision type="th85" draft="contributed">რანონგის პროვინცია</subdivision>
+			<subdivision type="th86" draft="contributed">ჩუმფონის პროვინცია</subdivision>
+			<subdivision type="th90" draft="contributed">სონგქალის პროვინცია</subdivision>
+			<subdivision type="th91" draft="contributed">სატუნის პრვინცია</subdivision>
+			<subdivision type="th92" draft="contributed">ტრანგის პროვინცია</subdivision>
+			<subdivision type="th96" draft="contributed">ნარათივატის პროვინცია</subdivision>
 			<subdivision type="tjdu" draft="contributed">დუშანბე</subdivision>
 			<subdivision type="tjgb" draft="contributed">მთიანი ბადახშანის ავტონომიური ოლქი</subdivision>
 			<subdivision type="tjkt" draft="contributed">ხატლონის ოლქი</subdivision>
@@ -2913,10 +3157,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="uyso" draft="contributed">სორიანოს დეპარტამენტი</subdivision>
 			<subdivision type="uyta" draft="contributed">ტაკუარემბოს დეპარტამენტი</subdivision>
 			<subdivision type="uytt" draft="contributed">ტრეინტა-ი-ტრესის დეპარტამენტი</subdivision>
+			<subdivision type="uzan" draft="contributed">ანდიჯანის ოლქი</subdivision>
+			<subdivision type="uzbu" draft="contributed">ბუხარის ოლქი</subdivision>
 			<subdivision type="uzfa" draft="contributed">ფერღანის ოლქი</subdivision>
+			<subdivision type="uzji" draft="contributed">ჯიზახის ოლქი</subdivision>
+			<subdivision type="uzng" draft="contributed">ნამანგანის ოლქი</subdivision>
+			<subdivision type="uznw" draft="contributed">ნავოის ოლქი</subdivision>
+			<subdivision type="uzqa" draft="contributed">კაშკადარიის ოლქი</subdivision>
 			<subdivision type="uzqr" draft="contributed">ყარაყალპაკეთის რესპუბლიკა</subdivision>
+			<subdivision type="uzsa" draft="contributed">სამარყანდის ოლქი</subdivision>
+			<subdivision type="uzsi" draft="contributed">სირდარიის ოლქი</subdivision>
 			<subdivision type="uzsu" draft="contributed">სურხანდარიის ოლქი</subdivision>
 			<subdivision type="uztk" draft="contributed">ტაშკენტი</subdivision>
+			<subdivision type="uzto" draft="contributed">ტაშკენტის ოლქი</subdivision>
+			<subdivision type="uzxo" draft="contributed">ხორეზმის ოლქი</subdivision>
 			<subdivision type="vea" draft="contributed">ვენესუელის ფედერალური ოლქი</subdivision>
 			<subdivision type="veb" draft="contributed">ანსოატეგი</subdivision>
 			<subdivision type="vec" draft="contributed">აპურეს შტატი</subdivision>
@@ -2986,11 +3240,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="yeta" draft="contributed">ტაიზის მუჰაფაზა</subdivision>
 			<subdivision type="zaec" draft="contributed">აღმოსავლეთი კაპლანდი</subdivision>
 			<subdivision type="zafs" draft="contributed">ფრი-სტეიტი</subdivision>
-			<subdivision type="zagt" draft="contributed">გაუტენგი</subdivision>
+			<subdivision type="zagp" draft="contributed">გაუტენგი</subdivision>
+			<subdivision type="zakzn" draft="contributed">კვაზულუ-ნატალი</subdivision>
 			<subdivision type="zalp" draft="contributed">ლიმპოპო</subdivision>
 			<subdivision type="zamp" draft="contributed">მპუმალანგა</subdivision>
 			<subdivision type="zanc" draft="contributed">ჩრდილოეთი კაპლანდი</subdivision>
-			<subdivision type="zanl" draft="contributed">კვაზულუ-ნატალი</subdivision>
 			<subdivision type="zanw" draft="contributed">ჩრდილო-დასავლეთი</subdivision>
 			<subdivision type="zawc" draft="contributed">დასავლეთი კაპლანდი</subdivision>
 			<subdivision type="zm01" draft="contributed">დასავლეთის პროვინცია</subdivision>

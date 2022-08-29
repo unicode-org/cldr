@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -17,6 +17,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ad04" draft="contributed">라마사나</subdivision>
 			<subdivision type="ad05" draft="contributed">오르디노</subdivision>
 			<subdivision type="ad06" draft="contributed">산줄리아데로리아</subdivision>
+			<subdivision type="ad07" draft="contributed">안도라라벨랴</subdivision>
 			<subdivision type="ad08" draft="contributed">에스칼데스엥고르다뉴</subdivision>
 			<subdivision type="aeaj" draft="contributed">아지만 토후국</subdivision>
 			<subdivision type="aeaz" draft="contributed">아부다비</subdivision>
@@ -240,11 +241,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bb09" draft="contributed">세인트피터 교구</subdivision>
 			<subdivision type="bb10" draft="contributed">세인트필립 교구</subdivision>
 			<subdivision type="bb11" draft="contributed">세인트토머스 교구</subdivision>
+			<subdivision type="bd02" draft="contributed">바르구나구</subdivision>
+			<subdivision type="bd05" draft="contributed">바게르하트구</subdivision>
 			<subdivision type="bd06" draft="contributed">바리살 지구</subdivision>
+			<subdivision type="bd10" draft="contributed">치타공구</subdivision>
+			<subdivision type="bd13" draft="contributed">다카구</subdivision>
+			<subdivision type="bd20" draft="contributed">하비간지구</subdivision>
+			<subdivision type="bd27" draft="contributed">쿨나구</subdivision>
+			<subdivision type="bd30" draft="contributed">쿠슈티아구</subdivision>
 			<subdivision type="bd33" draft="contributed">마니가니 지구</subdivision>
+			<subdivision type="bd34" draft="contributed">마이멘싱구</subdivision>
 			<subdivision type="bd54" draft="contributed">라지샤히 지구</subdivision>
 			<subdivision type="bd55" draft="contributed">랑푸르 디스트릭트</subdivision>
+			<subdivision type="bd59" draft="contributed">시라지간지구</subdivision>
 			<subdivision type="bd60" draft="contributed">실렛 지구</subdivision>
+			<subdivision type="bd64" draft="contributed">타쿠르가온구</subdivision>
 			<subdivision type="bda" draft="contributed">바리살 구</subdivision>
 			<subdivision type="bdb" draft="contributed">치타공 구</subdivision>
 			<subdivision type="bdc" draft="contributed">다카 구</subdivision>
@@ -529,6 +540,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cdhu" draft="contributed">오트우엘레 주</subdivision>
 			<subdivision type="cdkc" draft="contributed">룰루아 주</subdivision>
 			<subdivision type="cdke" draft="contributed">카사이오리앙탈 주</subdivision>
+			<subdivision type="cdkg" draft="contributed">쾅고주</subdivision>
 			<subdivision type="cdkl" draft="contributed">퀼루 주</subdivision>
 			<subdivision type="cdkn" draft="contributed">킨샤사</subdivision>
 			<subdivision type="cdlo" draft="contributed">로마미 주</subdivision>
@@ -751,6 +763,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cy06" draft="contributed">키레니아 구</subdivision>
 			<subdivision type="cz10" draft="contributed">프라하</subdivision>
 			<subdivision type="cz20" draft="contributed">중앙보헤미아 주</subdivision>
+			<subdivision type="cz20a" draft="contributed">서프라하구</subdivision>
+			<subdivision type="cz20b" draft="contributed">프르지브람구</subdivision>
+			<subdivision type="cz20c" draft="contributed">라코브니크구</subdivision>
 			<subdivision type="cz31" draft="contributed">남보헤미아 주</subdivision>
 			<subdivision type="cz32" draft="contributed">플젠 주</subdivision>
 			<subdivision type="cz41" draft="contributed">카를로비바리 주</subdivision>
@@ -763,6 +778,79 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cz71" draft="contributed">올로모우츠 주</subdivision>
 			<subdivision type="cz72" draft="contributed">즐린 주</subdivision>
 			<subdivision type="cz80" draft="contributed">모라바슬레스코 주</subdivision>
+			<subdivision type="cz201" draft="contributed">베네쇼프구</subdivision>
+			<subdivision type="cz202" draft="contributed">베로운구</subdivision>
+			<subdivision type="cz203" draft="contributed">클라드노구</subdivision>
+			<subdivision type="cz204" draft="contributed">콜린구</subdivision>
+			<subdivision type="cz205" draft="contributed">쿠트나호라구</subdivision>
+			<subdivision type="cz206" draft="contributed">멜니크구</subdivision>
+			<subdivision type="cz207" draft="contributed">믈라다볼레슬라프구</subdivision>
+			<subdivision type="cz208" draft="contributed">님부르크구</subdivision>
+			<subdivision type="cz209" draft="contributed">동프라하구</subdivision>
+			<subdivision type="cz311" draft="contributed">체스케부데요비체구</subdivision>
+			<subdivision type="cz312" draft="contributed">체스키크룸로프구</subdivision>
+			<subdivision type="cz313" draft="contributed">인드르지후프흐라데츠구</subdivision>
+			<subdivision type="cz314" draft="contributed">피세크구</subdivision>
+			<subdivision type="cz315" draft="contributed">프라하티체구</subdivision>
+			<subdivision type="cz316" draft="contributed">스트라코니체구</subdivision>
+			<subdivision type="cz317" draft="contributed">타보르구</subdivision>
+			<subdivision type="cz321" draft="contributed">도마줄리체구</subdivision>
+			<subdivision type="cz322" draft="contributed">클라토비구</subdivision>
+			<subdivision type="cz323" draft="contributed">플젠 도시구</subdivision>
+			<subdivision type="cz324" draft="contributed">남플젠구</subdivision>
+			<subdivision type="cz325" draft="contributed">북플젠구</subdivision>
+			<subdivision type="cz326" draft="contributed">로키차니구</subdivision>
+			<subdivision type="cz327" draft="contributed">타호프구</subdivision>
+			<subdivision type="cz411" draft="contributed">헤프구</subdivision>
+			<subdivision type="cz412" draft="contributed">카를로비바리구</subdivision>
+			<subdivision type="cz413" draft="contributed">소콜로프구</subdivision>
+			<subdivision type="cz421" draft="contributed">데친구</subdivision>
+			<subdivision type="cz422" draft="contributed">호무토프구</subdivision>
+			<subdivision type="cz423" draft="contributed">리토메르지체구</subdivision>
+			<subdivision type="cz424" draft="contributed">로우니구</subdivision>
+			<subdivision type="cz425" draft="contributed">모스트구</subdivision>
+			<subdivision type="cz426" draft="contributed">테플리체구</subdivision>
+			<subdivision type="cz427" draft="contributed">우스티나트라벰구</subdivision>
+			<subdivision type="cz511" draft="contributed">체스카리파구</subdivision>
+			<subdivision type="cz512" draft="contributed">야블로네츠나트니소우구</subdivision>
+			<subdivision type="cz513" draft="contributed">리베레츠구</subdivision>
+			<subdivision type="cz514" draft="contributed">세밀리구</subdivision>
+			<subdivision type="cz521" draft="contributed">흐라데츠크랄로베구</subdivision>
+			<subdivision type="cz522" draft="contributed">이친구</subdivision>
+			<subdivision type="cz523" draft="contributed">나호트구</subdivision>
+			<subdivision type="cz524" draft="contributed">리흐노프나트크네주노우구</subdivision>
+			<subdivision type="cz525" draft="contributed">트루트노프구</subdivision>
+			<subdivision type="cz531" draft="contributed">흐루딤구</subdivision>
+			<subdivision type="cz532" draft="contributed">파르두비체구</subdivision>
+			<subdivision type="cz533" draft="contributed">스비타비구</subdivision>
+			<subdivision type="cz534" draft="contributed">우스티나트오를리치구</subdivision>
+			<subdivision type="cz631" draft="contributed">하블리치쿠프브로트구</subdivision>
+			<subdivision type="cz632" draft="contributed">이흘라바구</subdivision>
+			<subdivision type="cz633" draft="contributed">펠흐르지모프구</subdivision>
+			<subdivision type="cz634" draft="contributed">트르제비치구</subdivision>
+			<subdivision type="cz635" draft="contributed">주댜르나트사자보우구</subdivision>
+			<subdivision type="cz641" draft="contributed">블란스코구</subdivision>
+			<subdivision type="cz642" draft="contributed">브르노 도시구</subdivision>
+			<subdivision type="cz643" draft="contributed">브르노 교외구</subdivision>
+			<subdivision type="cz644" draft="contributed">브르제츨라프구</subdivision>
+			<subdivision type="cz645" draft="contributed">호도닌구</subdivision>
+			<subdivision type="cz646" draft="contributed">비슈코프구</subdivision>
+			<subdivision type="cz647" draft="contributed">즈노이모구</subdivision>
+			<subdivision type="cz711" draft="contributed">예세니크구</subdivision>
+			<subdivision type="cz712" draft="contributed">올로모우츠구</subdivision>
+			<subdivision type="cz713" draft="contributed">프로스테요프구</subdivision>
+			<subdivision type="cz714" draft="contributed">프르제로프구</subdivision>
+			<subdivision type="cz715" draft="contributed">슘페르크구</subdivision>
+			<subdivision type="cz721" draft="contributed">크로메르지시구</subdivision>
+			<subdivision type="cz722" draft="contributed">우헤르스케흐라디슈테구</subdivision>
+			<subdivision type="cz723" draft="contributed">브세틴구</subdivision>
+			<subdivision type="cz724" draft="contributed">즐린구</subdivision>
+			<subdivision type="cz801" draft="contributed">브룬탈구</subdivision>
+			<subdivision type="cz802" draft="contributed">프리데크미스테크구</subdivision>
+			<subdivision type="cz803" draft="contributed">카르비나구</subdivision>
+			<subdivision type="cz804" draft="contributed">노비이친구</subdivision>
+			<subdivision type="cz805" draft="contributed">오파바구</subdivision>
+			<subdivision type="cz806" draft="contributed">오스트라바 도시구</subdivision>
 			<subdivision type="debb" draft="contributed">브란덴부르크 주</subdivision>
 			<subdivision type="debe" draft="contributed">베를린</subdivision>
 			<subdivision type="debw" draft="contributed">바덴뷔르템베르크 주</subdivision>
@@ -969,6 +1057,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="esce" draft="contributed">세우타</subdivision>
 			<subdivision type="escl" draft="contributed">카스티야이레온 지방</subdivision>
 			<subdivision type="escm" draft="contributed">카스티야라만차 지방</subdivision>
+			<subdivision type="escn" draft="contributed">카나리아 제도</subdivision>
 			<subdivision type="esco" draft="contributed">코르도바 주</subdivision>
 			<subdivision type="escr" draft="contributed">시우다드레알 주</subdivision>
 			<subdivision type="escs" draft="contributed">카스테욘 주</subdivision>
@@ -1089,6 +1178,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr17" draft="contributed">샤랑트마리팀 주</subdivision>
 			<subdivision type="fr18" draft="contributed">셰르 주</subdivision>
 			<subdivision type="fr19" draft="contributed">코레즈 주</subdivision>
+			<subdivision type="fr20r" draft="contributed">코르시카</subdivision>
 			<subdivision type="fr21" draft="contributed">코트도르 주</subdivision>
 			<subdivision type="fr22" draft="contributed">코트다르모르 주</subdivision>
 			<subdivision type="fr23" draft="contributed">크뢰즈 주</subdivision>
@@ -1143,7 +1233,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr72" draft="contributed">사르트 주</subdivision>
 			<subdivision type="fr73" draft="contributed">사부아 주</subdivision>
 			<subdivision type="fr74" draft="contributed">오트사부아 주</subdivision>
-			<subdivision type="fr75" draft="contributed">파리</subdivision>
+			<subdivision type="fr75c" draft="contributed">파리</subdivision>
 			<subdivision type="fr76" draft="contributed">센마리팀 주</subdivision>
 			<subdivision type="fr77" draft="contributed">센에마른 주</subdivision>
 			<subdivision type="fr78" draft="contributed">이블린 주</subdivision>
@@ -1164,10 +1254,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr93" draft="contributed">센생드니 주</subdivision>
 			<subdivision type="fr94" draft="contributed">발드마른 주</subdivision>
 			<subdivision type="fr95" draft="contributed">발두아즈 주</subdivision>
+			<subdivision type="fr971" draft="contributed">과들루프</subdivision>
 			<subdivision type="frara" draft="contributed">오베르뉴론알프</subdivision>
 			<subdivision type="frbfc" draft="contributed">부르고뉴프랑슈콩테</subdivision>
 			<subdivision type="frbre" draft="contributed">브르타뉴</subdivision>
-			<subdivision type="frcor" draft="contributed">코르시카</subdivision>
 			<subdivision type="frcvl" draft="contributed">상트르</subdivision>
 			<subdivision type="frges" draft="contributed">그랑테스트</subdivision>
 			<subdivision type="frhdf" draft="contributed">오드프랑스</subdivision>
@@ -1251,6 +1341,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbeln" draft="contributed">이스트로디언</subdivision>
 			<subdivision type="gbels" draft="contributed">아우터헤브리디스</subdivision>
 			<subdivision type="gbenf" draft="contributed">엔필드 구</subdivision>
+			<subdivision type="gbeng" draft="contributed">잉글랜드</subdivision>
 			<subdivision type="gberw" draft="contributed">이스트렌프루셔</subdivision>
 			<subdivision type="gbery" draft="contributed">이스트라이딩오브요크셔 주</subdivision>
 			<subdivision type="gbess" draft="contributed">에식스 주</subdivision>
@@ -1347,6 +1438,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbsaw" draft="contributed">샌드웰</subdivision>
 			<subdivision type="gbsay" draft="contributed">사우스에어셔</subdivision>
 			<subdivision type="gbscb" draft="contributed">스코티시보더스</subdivision>
+			<subdivision type="gbsct" draft="contributed">스코틀랜드</subdivision>
 			<subdivision type="gbsfk" draft="contributed">서퍽 주</subdivision>
 			<subdivision type="gbsft" draft="contributed">세프턴 도시 자치구</subdivision>
 			<subdivision type="gbsgc" draft="contributed">사우스글로스터셔</subdivision>
@@ -1390,6 +1482,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbwkf" draft="contributed">시티오브웨이크필드</subdivision>
 			<subdivision type="gbwll" draft="contributed">월솔 도시 자치구</subdivision>
 			<subdivision type="gbwln" draft="contributed">웨스트로디언</subdivision>
+			<subdivision type="gbwls" draft="contributed">웨일스</subdivision>
 			<subdivision type="gbwlv" draft="contributed">울버햄프턴</subdivision>
 			<subdivision type="gbwnd" draft="contributed">완즈워스 구</subdivision>
 			<subdivision type="gbwnm" draft="contributed">윈저 메이든헤드 왕립구</subdivision>
@@ -1431,9 +1524,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ghue" draft="contributed">어퍼이스트 주</subdivision>
 			<subdivision type="ghuw" draft="contributed">어퍼웨스트 주</subdivision>
 			<subdivision type="ghwp" draft="contributed">서부 주</subdivision>
+			<subdivision type="glav" draft="contributed">아반나타</subdivision>
 			<subdivision type="glku" draft="contributed">쿠얄레크</subdivision>
 			<subdivision type="glqa" draft="contributed">카수이추프</subdivision>
 			<subdivision type="glqe" draft="contributed">케카타</subdivision>
+			<subdivision type="glqt" draft="contributed">케케르탈리크</subdivision>
 			<subdivision type="glsm" draft="contributed">세르메르소크</subdivision>
 			<subdivision type="gmb" draft="contributed">반줄</subdivision>
 			<subdivision type="gml" draft="contributed">로어리버 구</subdivision>
@@ -1480,6 +1575,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gqbs" draft="contributed">남비오코 주</subdivision>
 			<subdivision type="gqc" draft="contributed">리오무니</subdivision>
 			<subdivision type="gqcs" draft="contributed">중남부 주</subdivision>
+			<subdivision type="gqdj" draft="contributed">지블로호</subdivision>
 			<subdivision type="gqi" draft="contributed">적도 기니 도서 지방</subdivision>
 			<subdivision type="gqkn" draft="contributed">키에은템 주</subdivision>
 			<subdivision type="gqli" draft="contributed">리토랄 주</subdivision>
@@ -1498,6 +1594,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="grk" draft="contributed">북에게 주</subdivision>
 			<subdivision type="grl" draft="contributed">남에게 주</subdivision>
 			<subdivision type="grm" draft="contributed">크레타주</subdivision>
+			<subdivision type="gt01" draft="contributed">과테말라주</subdivision>
+			<subdivision type="gt02" draft="contributed">엘프로그레소주</subdivision>
+			<subdivision type="gt03" draft="contributed">사카테페케스주</subdivision>
+			<subdivision type="gt04" draft="contributed">치말테낭고주</subdivision>
+			<subdivision type="gt05" draft="contributed">에스쿠인틀라주</subdivision>
+			<subdivision type="gt06" draft="contributed">산타로사주</subdivision>
+			<subdivision type="gt07" draft="contributed">솔롤라주</subdivision>
+			<subdivision type="gt08" draft="contributed">토토니카판주</subdivision>
+			<subdivision type="gt09" draft="contributed">케트살테낭고주</subdivision>
+			<subdivision type="gt10" draft="contributed">수치테페케스주</subdivision>
+			<subdivision type="gt11" draft="contributed">레탈룰레우주</subdivision>
+			<subdivision type="gt12" draft="contributed">산마르코스주</subdivision>
+			<subdivision type="gt13" draft="contributed">우에우에테낭고주</subdivision>
+			<subdivision type="gt14" draft="contributed">키체주</subdivision>
+			<subdivision type="gt15" draft="contributed">바하베라파스주</subdivision>
+			<subdivision type="gt16" draft="contributed">알타베라파스주</subdivision>
+			<subdivision type="gt17" draft="contributed">페텐주</subdivision>
+			<subdivision type="gt18" draft="contributed">이사발주</subdivision>
+			<subdivision type="gt19" draft="contributed">사카파주</subdivision>
+			<subdivision type="gt20" draft="contributed">치키물라주</subdivision>
+			<subdivision type="gt21" draft="contributed">할라파주</subdivision>
+			<subdivision type="gt22" draft="contributed">후티아파주</subdivision>
 			<subdivision type="gtav" draft="contributed">알타베라파스 주</subdivision>
 			<subdivision type="gtbv" draft="contributed">바하베라파스 주</subdivision>
 			<subdivision type="gtcm" draft="contributed">치말테낭고 주</subdivision>
@@ -1715,6 +1833,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inch" draft="contributed">찬디가르</subdivision>
 			<subdivision type="inct" draft="contributed">차티스가르 주</subdivision>
 			<subdivision type="indd" draft="contributed">다만 디우</subdivision>
+			<subdivision type="indh" draft="contributed">다드라 나가르하벨리 다만 디우</subdivision>
 			<subdivision type="indl" draft="contributed">델리</subdivision>
 			<subdivision type="indn" draft="contributed">다드라 나가르하벨리</subdivision>
 			<subdivision type="inga" draft="contributed">고아 주</subdivision>
@@ -1725,6 +1844,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="injk" draft="contributed">잠무 카슈미르 주</subdivision>
 			<subdivision type="inka" draft="contributed">카르나타카 주</subdivision>
 			<subdivision type="inkl" draft="contributed">케랄라 주</subdivision>
+			<subdivision type="inla" draft="contributed">라다크</subdivision>
 			<subdivision type="inld" draft="contributed">락샤드위프 제도</subdivision>
 			<subdivision type="inmh" draft="contributed">마하라슈트라 주</subdivision>
 			<subdivision type="inml" draft="contributed">메갈라야 주</subdivision>
@@ -1761,6 +1881,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="iqsd" draft="contributed">살라딘 주</subdivision>
 			<subdivision type="iqsu" draft="contributed">술라이마니야 주</subdivision>
 			<subdivision type="iqwa" draft="contributed">와시트 주</subdivision>
+			<subdivision type="ir00" draft="contributed">마르카지주</subdivision>
 			<subdivision type="ir01" draft="contributed">아자르바이잔에샤르키 주</subdivision>
 			<subdivision type="ir02" draft="contributed">아자르바이잔에가르비 주</subdivision>
 			<subdivision type="ir03" draft="contributed">아르다빌 주</subdivision>
@@ -1769,6 +1890,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ir06" draft="contributed">부셰르 주</subdivision>
 			<subdivision type="ir07" draft="contributed">테헤란 주</subdivision>
 			<subdivision type="ir08" draft="contributed">차하르마할에바흐티아리 주</subdivision>
+			<subdivision type="ir09" draft="contributed">호라산에라자비주</subdivision>
 			<subdivision type="ir10" draft="contributed">후제스탄 주</subdivision>
 			<subdivision type="ir11" draft="contributed">잔잔 주</subdivision>
 			<subdivision type="ir12" draft="contributed">셈난 주</subdivision>
@@ -1800,6 +1922,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="is6" draft="contributed">노르뒤를란드 에이스트라</subdivision>
 			<subdivision type="is7" draft="contributed">외이스튀를란드</subdivision>
 			<subdivision type="is8" draft="contributed">쉬뒤를란드</subdivision>
+			<subdivision type="isakn" draft="contributed">아크라네스</subdivision>
+			<subdivision type="isaku" draft="contributed">아쿠레이리</subdivision>
+			<subdivision type="isblo" draft="contributed">블뢴뒤오스</subdivision>
+			<subdivision type="isbol" draft="contributed">볼룽가르비크</subdivision>
 			<subdivision type="it21" draft="contributed">피에몬테 주</subdivision>
 			<subdivision type="it23" draft="contributed">발레다오스타 주</subdivision>
 			<subdivision type="it25" draft="contributed">롬바르디아 주</subdivision>
@@ -1911,6 +2037,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="itsp" draft="contributed">라스페치아 현</subdivision>
 			<subdivision type="itsr" draft="contributed">시라쿠사 현</subdivision>
 			<subdivision type="itss" draft="contributed">사사리 현</subdivision>
+			<subdivision type="itsu" draft="contributed">남사르데냐도</subdivision>
 			<subdivision type="itsv" draft="contributed">사보나 현</subdivision>
 			<subdivision type="itta" draft="contributed">타란토 현</subdivision>
 			<subdivision type="itte" draft="contributed">테라모 현</subdivision>
@@ -2083,6 +2210,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kh22" draft="contributed">오다르메안체이 주</subdivision>
 			<subdivision type="kh23" draft="contributed">케프</subdivision>
 			<subdivision type="kh24" draft="contributed">파일린</subdivision>
+			<subdivision type="kh25" draft="contributed">트봉크뭄주</subdivision>
 			<subdivision type="kig" draft="contributed">길버트 제도</subdivision>
 			<subdivision type="kil" draft="contributed">라인 제도</subdivision>
 			<subdivision type="kip" draft="contributed">피닉스 제도</subdivision>
@@ -2153,6 +2281,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kzman" draft="contributed">망기스타우 주</subdivision>
 			<subdivision type="kzpav" draft="contributed">파블로다르 주</subdivision>
 			<subdivision type="kzsev" draft="contributed">솔튀스틱카작스탄 주</subdivision>
+			<subdivision type="kzshy" draft="contributed">쉼켄트</subdivision>
 			<subdivision type="kzvos" draft="contributed">시기스카작스탄 주</subdivision>
 			<subdivision type="kzyuz" draft="contributed">옹튀스틱카작스탄 주</subdivision>
 			<subdivision type="kzzap" draft="contributed">바티스카작스탄 주</subdivision>
@@ -2263,6 +2392,60 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="lsh" draft="contributed">카차스네크 구</subdivision>
 			<subdivision type="lsj" draft="contributed">모코틀롱 구</subdivision>
 			<subdivision type="lsk" draft="contributed">타바체카 구</subdivision>
+			<subdivision type="lt01" draft="contributed">아크메네구</subdivision>
+			<subdivision type="lt03" draft="contributed">알리투스구</subdivision>
+			<subdivision type="lt04" draft="contributed">아닉슈차이구</subdivision>
+			<subdivision type="lt05" draft="contributed">비르슈토나스시</subdivision>
+			<subdivision type="lt06" draft="contributed">비르자이구</subdivision>
+			<subdivision type="lt07" draft="contributed">드루스키닝카이시</subdivision>
+			<subdivision type="lt08" draft="contributed">엘렉트레나이시</subdivision>
+			<subdivision type="lt09" draft="contributed">이그날리나구</subdivision>
+			<subdivision type="lt10" draft="contributed">요나바구</subdivision>
+			<subdivision type="lt11" draft="contributed">요니슈키스구</subdivision>
+			<subdivision type="lt12" draft="contributed">유르바르카스구</subdivision>
+			<subdivision type="lt13" draft="contributed">카이샤도리스구</subdivision>
+			<subdivision type="lt14" draft="contributed">칼바리야시</subdivision>
+			<subdivision type="lt16" draft="contributed">카우나스구</subdivision>
+			<subdivision type="lt17" draft="contributed">카즐루루다시</subdivision>
+			<subdivision type="lt18" draft="contributed">케다이냐이구</subdivision>
+			<subdivision type="lt19" draft="contributed">켈메구</subdivision>
+			<subdivision type="lt21" draft="contributed">클라이페다구</subdivision>
+			<subdivision type="lt22" draft="contributed">크레팅가구</subdivision>
+			<subdivision type="lt23" draft="contributed">쿠피슈키스구</subdivision>
+			<subdivision type="lt24" draft="contributed">라즈디야이구</subdivision>
+			<subdivision type="lt25" draft="contributed">마리얌폴레시</subdivision>
+			<subdivision type="lt26" draft="contributed">마제이캬이구</subdivision>
+			<subdivision type="lt27" draft="contributed">몰레타이구</subdivision>
+			<subdivision type="lt28" draft="contributed">네링가시</subdivision>
+			<subdivision type="lt29" draft="contributed">파게갸이시</subdivision>
+			<subdivision type="lt30" draft="contributed">파크루오이스구</subdivision>
+			<subdivision type="lt31" draft="contributed">팔랑가시</subdivision>
+			<subdivision type="lt33" draft="contributed">파네베지스구</subdivision>
+			<subdivision type="lt34" draft="contributed">파스발리스구</subdivision>
+			<subdivision type="lt35" draft="contributed">플룽게구</subdivision>
+			<subdivision type="lt36" draft="contributed">프리에나이구</subdivision>
+			<subdivision type="lt37" draft="contributed">라드빌리슈키스구</subdivision>
+			<subdivision type="lt38" draft="contributed">라세이냐이구</subdivision>
+			<subdivision type="lt39" draft="contributed">리에타바스시</subdivision>
+			<subdivision type="lt40" draft="contributed">로키슈키스구</subdivision>
+			<subdivision type="lt41" draft="contributed">샤캬이구</subdivision>
+			<subdivision type="lt42" draft="contributed">샬치닝카이구</subdivision>
+			<subdivision type="lt44" draft="contributed">샤울랴이구</subdivision>
+			<subdivision type="lt45" draft="contributed">실랄레구</subdivision>
+			<subdivision type="lt46" draft="contributed">실루테구</subdivision>
+			<subdivision type="lt47" draft="contributed">시르빈토스구</subdivision>
+			<subdivision type="lt48" draft="contributed">스쿠오다스구</subdivision>
+			<subdivision type="lt49" draft="contributed">슈벤초니스구</subdivision>
+			<subdivision type="lt50" draft="contributed">타우라게구</subdivision>
+			<subdivision type="lt51" draft="contributed">텔샤이구</subdivision>
+			<subdivision type="lt52" draft="contributed">트라카이구</subdivision>
+			<subdivision type="lt53" draft="contributed">우크메르게구</subdivision>
+			<subdivision type="lt54" draft="contributed">우테나구</subdivision>
+			<subdivision type="lt55" draft="contributed">바레나구</subdivision>
+			<subdivision type="lt56" draft="contributed">빌카비슈키스구</subdivision>
+			<subdivision type="lt58" draft="contributed">빌뉴스구</subdivision>
+			<subdivision type="lt59" draft="contributed">비사기나스시</subdivision>
+			<subdivision type="lt60" draft="contributed">자라사이구</subdivision>
 			<subdivision type="ltal" draft="contributed">알리투스 주</subdivision>
 			<subdivision type="ltkl" draft="contributed">클라이페다 주</subdivision>
 			<subdivision type="ltku" draft="contributed">카우나스 주</subdivision>
@@ -2449,6 +2632,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mammd" draft="contributed">마라케시</subdivision>
 			<subdivision type="mammn" draft="contributed">마라케시²</subdivision>
 			<subdivision type="mamoh" draft="contributed">모하메디아</subdivision>
+			<subdivision type="manad" draft="contributed">나도르주</subdivision>
 			<subdivision type="maoud" draft="contributed">우에드 에드 다합 주</subdivision>
 			<subdivision type="maouj" draft="contributed">우지다</subdivision>
 			<subdivision type="marab" draft="contributed">라바트</subdivision>
@@ -2621,6 +2805,86 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mk82" draft="contributed">추체르산데보 시</subdivision>
 			<subdivision type="mk83" draft="contributed">슈티프 시</subdivision>
 			<subdivision type="mk85" draft="contributed">스코페</subdivision>
+			<subdivision type="mk101" draft="contributed">벨레스시</subdivision>
+			<subdivision type="mk102" draft="contributed">그라드스코시</subdivision>
+			<subdivision type="mk103" draft="contributed">데미르카피야시</subdivision>
+			<subdivision type="mk104" draft="contributed">카바다르치시</subdivision>
+			<subdivision type="mk105" draft="contributed">로조보시</subdivision>
+			<subdivision type="mk106" draft="contributed">네고티노시</subdivision>
+			<subdivision type="mk107" draft="contributed">로소만시</subdivision>
+			<subdivision type="mk108" draft="contributed">스베티니콜레시</subdivision>
+			<subdivision type="mk109" draft="contributed">차슈카시</subdivision>
+			<subdivision type="mk201" draft="contributed">베로보시</subdivision>
+			<subdivision type="mk202" draft="contributed">비니차시</subdivision>
+			<subdivision type="mk203" draft="contributed">델체보시</subdivision>
+			<subdivision type="mk204" draft="contributed">즈르노프치시</subdivision>
+			<subdivision type="mk205" draft="contributed">카르빈치시</subdivision>
+			<subdivision type="mk206" draft="contributed">코차니시</subdivision>
+			<subdivision type="mk207" draft="contributed">마케돈스카카메니차시</subdivision>
+			<subdivision type="mk208" draft="contributed">페흐체보시</subdivision>
+			<subdivision type="mk209" draft="contributed">프로비슈티프시</subdivision>
+			<subdivision type="mk210" draft="contributed">체시노보오블레셰보시</subdivision>
+			<subdivision type="mk211" draft="contributed">슈티프시</subdivision>
+			<subdivision type="mk301" draft="contributed">베브차니시</subdivision>
+			<subdivision type="mk303" draft="contributed">데바르시</subdivision>
+			<subdivision type="mk304" draft="contributed">데바르차시</subdivision>
+			<subdivision type="mk307" draft="contributed">키체보시</subdivision>
+			<subdivision type="mk308" draft="contributed">마케돈스키브로드시</subdivision>
+			<subdivision type="mk310" draft="contributed">오흐리드시</subdivision>
+			<subdivision type="mk311" draft="contributed">플라스니차시</subdivision>
+			<subdivision type="mk312" draft="contributed">스트루가시</subdivision>
+			<subdivision type="mk313" draft="contributed">첸타르주파시</subdivision>
+			<subdivision type="mk401" draft="contributed">보그단치시</subdivision>
+			<subdivision type="mk402" draft="contributed">보실로보시</subdivision>
+			<subdivision type="mk403" draft="contributed">발란도보시</subdivision>
+			<subdivision type="mk404" draft="contributed">바실레보시</subdivision>
+			<subdivision type="mk405" draft="contributed">게브겔리야시</subdivision>
+			<subdivision type="mk406" draft="contributed">도이란시</subdivision>
+			<subdivision type="mk407" draft="contributed">콘체시</subdivision>
+			<subdivision type="mk408" draft="contributed">노보셀로시</subdivision>
+			<subdivision type="mk409" draft="contributed">라도비시시</subdivision>
+			<subdivision type="mk410" draft="contributed">스트루미차시</subdivision>
+			<subdivision type="mk501" draft="contributed">비톨라시</subdivision>
+			<subdivision type="mk502" draft="contributed">데미르히사르시</subdivision>
+			<subdivision type="mk503" draft="contributed">돌네니시</subdivision>
+			<subdivision type="mk504" draft="contributed">크리보가슈타니시</subdivision>
+			<subdivision type="mk505" draft="contributed">크루셰보시</subdivision>
+			<subdivision type="mk506" draft="contributed">모길라시</subdivision>
+			<subdivision type="mk507" draft="contributed">노바치시</subdivision>
+			<subdivision type="mk508" draft="contributed">프릴레프시</subdivision>
+			<subdivision type="mk509" draft="contributed">레센시</subdivision>
+			<subdivision type="mk601" draft="contributed">보고비네시</subdivision>
+			<subdivision type="mk602" draft="contributed">브르베니차시</subdivision>
+			<subdivision type="mk603" draft="contributed">브랍치슈테시</subdivision>
+			<subdivision type="mk604" draft="contributed">고스티바르시</subdivision>
+			<subdivision type="mk605" draft="contributed">젤리노시</subdivision>
+			<subdivision type="mk606" draft="contributed">예구노프체시</subdivision>
+			<subdivision type="mk607" draft="contributed">마브로보로스투샤시</subdivision>
+			<subdivision type="mk608" draft="contributed">테아르체시</subdivision>
+			<subdivision type="mk609" draft="contributed">테토보시</subdivision>
+			<subdivision type="mk701" draft="contributed">크라토보시</subdivision>
+			<subdivision type="mk702" draft="contributed">크리바팔란카시</subdivision>
+			<subdivision type="mk703" draft="contributed">쿠마노보시</subdivision>
+			<subdivision type="mk704" draft="contributed">립코보시</subdivision>
+			<subdivision type="mk705" draft="contributed">란코프체시</subdivision>
+			<subdivision type="mk706" draft="contributed">스타로나고리차네시</subdivision>
+			<subdivision type="mk801" draft="contributed">아에로드롬시</subdivision>
+			<subdivision type="mk802" draft="contributed">아라치노보시</subdivision>
+			<subdivision type="mk803" draft="contributed">부텔시</subdivision>
+			<subdivision type="mk804" draft="contributed">가지바바시</subdivision>
+			<subdivision type="mk805" draft="contributed">조르체페트로프시</subdivision>
+			<subdivision type="mk806" draft="contributed">젤레니코보시</subdivision>
+			<subdivision type="mk807" draft="contributed">일린덴시</subdivision>
+			<subdivision type="mk808" draft="contributed">카르포시시</subdivision>
+			<subdivision type="mk809" draft="contributed">키셀라보다시</subdivision>
+			<subdivision type="mk810" draft="contributed">페트로베츠시</subdivision>
+			<subdivision type="mk811" draft="contributed">사라이시</subdivision>
+			<subdivision type="mk812" draft="contributed">소피슈테시</subdivision>
+			<subdivision type="mk813" draft="contributed">스투데니차니시</subdivision>
+			<subdivision type="mk814" draft="contributed">첸타르시</subdivision>
+			<subdivision type="mk815" draft="contributed">차이르시</subdivision>
+			<subdivision type="mk816" draft="contributed">추체르산데보시</subdivision>
+			<subdivision type="mk817" draft="contributed">슈토오리자리시</subdivision>
 			<subdivision type="ml1" draft="contributed">케이스 주</subdivision>
 			<subdivision type="ml2" draft="contributed">쿨리코로 주</subdivision>
 			<subdivision type="ml3" draft="contributed">시카소 주</subdivision>
@@ -2990,6 +3254,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="no20" draft="contributed">핀마르크 주</subdivision>
 			<subdivision type="no21" draft="contributed">스발바르 제도</subdivision>
 			<subdivision type="no22" draft="contributed">얀마옌 섬</subdivision>
+			<subdivision type="no30" draft="contributed">비켄주</subdivision>
+			<subdivision type="no34" draft="contributed">인란데주</subdivision>
+			<subdivision type="no38" draft="contributed">베스트폴오그텔레마르크주</subdivision>
+			<subdivision type="no42" draft="contributed">아그데르주</subdivision>
+			<subdivision type="no46" draft="contributed">베스트란주</subdivision>
+			<subdivision type="no50" draft="contributed">트뢰넬라그</subdivision>
+			<subdivision type="no54" draft="contributed">트롬스오그핀마르크주</subdivision>
 			<subdivision type="np1" draft="contributed">중부 개발 지구</subdivision>
 			<subdivision type="np2" draft="contributed">중서부 개발 지구</subdivision>
 			<subdivision type="np3" draft="contributed">서부 개발 지구</subdivision>
@@ -3671,6 +3942,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="si111" draft="contributed">세자나 지방 자치제</subdivision>
 			<subdivision type="si112" draft="contributed">슬로벤그라데츠 도시 지방 자치제</subdivision>
 			<subdivision type="si113" draft="contributed">슬로벤스카비스트리차</subdivision>
+			<subdivision type="si114" draft="contributed">슬로벤스케코니체</subdivision>
 			<subdivision type="si115" draft="contributed">스타르셰</subdivision>
 			<subdivision type="si116" draft="contributed">스베티유리오브슈차브니치</subdivision>
 			<subdivision type="si117" draft="contributed">셴추르</subdivision>
@@ -3732,6 +4004,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="si177" draft="contributed">리브니차나포호류</subdivision>
 			<subdivision type="si178" draft="contributed">셀니차오브드라비</subdivision>
 			<subdivision type="si179" draft="contributed">소드라지차</subdivision>
+			<subdivision type="si181" draft="contributed">스베타아나</subdivision>
+			<subdivision type="si182" draft="contributed">스베티안드라시우슬로벤스키흐고리차흐</subdivision>
 			<subdivision type="si183" draft="contributed">솀페테르브르토이바</subdivision>
 			<subdivision type="si184" draft="contributed">타보르</subdivision>
 			<subdivision type="si185" draft="contributed">트르노브스카바스</subdivision>
@@ -3751,6 +4025,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="si202" draft="contributed">스레디슈체오브드라비</subdivision>
 			<subdivision type="si203" draft="contributed">스트라자</subdivision>
 			<subdivision type="si204" draft="contributed">스베타트로이차브슬로벤스키흐고리차흐</subdivision>
+			<subdivision type="si205" draft="contributed">스베티토마시</subdivision>
 			<subdivision type="si207" draft="contributed">고레</subdivision>
 			<subdivision type="si208" draft="contributed">로그드라고메르</subdivision>
 			<subdivision type="si209" draft="contributed">레치차오브사비니</subdivision>
@@ -3831,6 +4106,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ssnu" draft="contributed">상나일 주</subdivision>
 			<subdivision type="ssuy" draft="contributed">유니티 주</subdivision>
 			<subdivision type="sswr" draft="contributed">와랍 주</subdivision>
+			<subdivision type="st01" draft="contributed">아구아그란드현</subdivision>
+			<subdivision type="st02" draft="contributed">칸타갈루현</subdivision>
+			<subdivision type="st03" draft="contributed">카우에현</subdivision>
+			<subdivision type="st04" draft="contributed">렘바현</subdivision>
+			<subdivision type="st05" draft="contributed">로바타현</subdivision>
+			<subdivision type="st06" draft="contributed">메조시현</subdivision>
 			<subdivision type="svah" draft="contributed">아우아차판 주</subdivision>
 			<subdivision type="svca" draft="contributed">카바냐스 주</subdivision>
 			<subdivision type="svch" draft="contributed">찰라테낭고 주</subdivision>
@@ -4137,6 +4418,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="twlie" draft="contributed">롄장 현</subdivision>
 			<subdivision type="twmia" draft="contributed">먀오리 현</subdivision>
 			<subdivision type="twnan" draft="contributed">난터우 현</subdivision>
+			<subdivision type="twnwt" draft="contributed">신베이시</subdivision>
 			<subdivision type="twpen" draft="contributed">펑후 현</subdivision>
 			<subdivision type="twpif" draft="contributed">핑둥 현</subdivision>
 			<subdivision type="twtao" draft="contributed">타오위안 시</subdivision>
@@ -4548,7 +4830,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="yeta" draft="contributed">타이즈 주</subdivision>
 			<subdivision type="zaec" draft="contributed">이스턴케이프 주</subdivision>
 			<subdivision type="zafs" draft="contributed">프리스테이트 주</subdivision>
+			<subdivision type="zagp" draft="contributed">하우텡주</subdivision>
 			<subdivision type="zagt" draft="contributed">하우텡 주</subdivision>
+			<subdivision type="zakzn" draft="contributed">콰줄루나탈주</subdivision>
 			<subdivision type="zalp" draft="contributed">림포포 주</subdivision>
 			<subdivision type="zamp" draft="contributed">음푸말랑가 주</subdivision>
 			<subdivision type="zanc" draft="contributed">노던케이프 주</subdivision>

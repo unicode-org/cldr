@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -17,6 +17,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ad04" draft="contributed">લા માસાના</subdivision>
 			<subdivision type="ad05" draft="contributed">ઓર્ડિનો</subdivision>
 			<subdivision type="ad06" draft="contributed">સેંત જુલિયા દે લોરીયા</subdivision>
+			<subdivision type="ad07" draft="contributed">એન્ડોરા લા વેલ્લા</subdivision>
 			<subdivision type="ad08" draft="contributed">એસ્કાલ્ડેસ-એન્ગ્રોર્ડની</subdivision>
 			<subdivision type="aeaj" draft="contributed">અજમાન અમીરાત</subdivision>
 			<subdivision type="aeaz" draft="contributed">અબુ ધાબી અમીરાત</subdivision>
@@ -244,6 +245,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bfbgr" draft="contributed">બોગોરિબા પ્રાંત</subdivision>
 			<subdivision type="bfblg" draft="contributed">બૌલ્ગૌ</subdivision>
 			<subdivision type="bfblk" draft="contributed">બોલ્કીમેડે પ્રાંત</subdivision>
+			<subdivision type="bfcom" draft="contributed">કોમોઇ પ્રાંત</subdivision>
 			<subdivision type="bfgan" draft="contributed">ગાન્ઝોર્ગોઉ પ્રાંત</subdivision>
 			<subdivision type="bfgna" draft="contributed">ગ્નાગ્ના પ્રાંત</subdivision>
 			<subdivision type="bfgou" draft="contributed">ગૌરમા પ્રાંત</subdivision>
@@ -869,6 +871,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="escb" draft="contributed">કાન્તાબ્રિયા</subdivision>
 			<subdivision type="escc" draft="contributed">કેસેરેસ પ્રાંત</subdivision>
 			<subdivision type="esce" draft="contributed">સ્યુટા</subdivision>
+			<subdivision type="escn" draft="contributed">કેનેરી આઈલેન્ડ</subdivision>
 			<subdivision type="esco" draft="contributed">કોર્ડોબા પ્રાંત</subdivision>
 			<subdivision type="escr" draft="contributed">સિયુદાદ રિયલ પ્રાંત</subdivision>
 			<subdivision type="escs" draft="contributed">કેસ્ટેલોન પ્રાંત</subdivision>
@@ -1016,7 +1019,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr72" draft="contributed">સર્થે</subdivision>
 			<subdivision type="fr73" draft="contributed">સાવોઈ</subdivision>
 			<subdivision type="fr74" draft="contributed">હૌટ-સેવોઇ</subdivision>
-			<subdivision type="fr75" draft="contributed">પૅરિસ</subdivision>
+			<subdivision type="fr75c" draft="contributed">પૅરિસ</subdivision>
 			<subdivision type="fr76" draft="contributed">સેઇન-મેરીટાઇમ</subdivision>
 			<subdivision type="fr77" draft="contributed">સેઇન-એટ-માર્ને</subdivision>
 			<subdivision type="fr78" draft="contributed">યવેલાઈન્સ</subdivision>
@@ -1037,6 +1040,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr93" draft="contributed">સેઇન-સેન્ટ-ડેનિસ</subdivision>
 			<subdivision type="fr94" draft="contributed">વાલ-દે-માર્ને</subdivision>
 			<subdivision type="fr95" draft="contributed">વેલ-ડી‘ઓઇસ</subdivision>
+			<subdivision type="fr971" draft="contributed">ગ્વાડેલોપ</subdivision>
 			<subdivision type="ga1" draft="contributed">એસ્ટુઆઈર પ્રાંત</subdivision>
 			<subdivision type="ga2" draft="contributed">હૌટ-ઓગોઉઇ પ્રાંત</subdivision>
 			<subdivision type="ga3" draft="contributed">મોયેન-ઓગોઉયે પ્રાંત</subdivision>
@@ -1091,6 +1095,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbedu" draft="contributed">પૂર્વ ડનબર્ટનશાયર</subdivision>
 			<subdivision type="gbeln" draft="contributed">પૂર્વ લોથીયાન</subdivision>
 			<subdivision type="gbenf" draft="contributed">લંડન બોરો ઓફ એનફિલ્ડ</subdivision>
+			<subdivision type="gbeng" draft="contributed">ઈંગ્લેન્ડ</subdivision>
 			<subdivision type="gbery" draft="contributed">ઇસ્ટ રાઇડિંગ ઓફ યોર્કશાયર</subdivision>
 			<subdivision type="gbess" draft="contributed">એસેક્સ</subdivision>
 			<subdivision type="gbesx" draft="contributed">પૂર્વ સુસેક્સ</subdivision>
@@ -1166,6 +1171,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbrut" draft="contributed">રુટલેન્ડ</subdivision>
 			<subdivision type="gbsay" draft="contributed">દક્ષિણ આયરશાયર</subdivision>
 			<subdivision type="gbscb" draft="contributed">સ્કોટિશ બોર્ડર્સ</subdivision>
+			<subdivision type="gbsct" draft="contributed">સ્કોટલેન્ડ</subdivision>
 			<subdivision type="gbsfk" draft="contributed">સફોલ્ક</subdivision>
 			<subdivision type="gbsgc" draft="contributed">સાઉથ ગ્લોસેસ્ટરશાયર</subdivision>
 			<subdivision type="gbshf" draft="contributed">શેફિલ્ડ</subdivision>
@@ -1190,8 +1196,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbwar" draft="contributed">વોરવિકશાયર</subdivision>
 			<subdivision type="gbwbk" draft="contributed">પશ્ચિમ બર્કશાયર</subdivision>
 			<subdivision type="gbwft" draft="contributed">લંડન બોરો ઓફ વોલ્થમ ફોરેસ્ટ</subdivision>
+			<subdivision type="gbwil" draft="contributed">વિલ્ટશાયર</subdivision>
 			<subdivision type="gbwll" draft="contributed">વોલસોલ</subdivision>
 			<subdivision type="gbwln" draft="contributed">પશ્ચિમ લોથીયાન</subdivision>
+			<subdivision type="gbwls" draft="contributed">વેલ્સ</subdivision>
 			<subdivision type="gbwlv" draft="contributed">વોલ્વરહેમ્પ્ટન</subdivision>
 			<subdivision type="gbwnm" draft="contributed">વિન્ડસર અને મૈડનહેડ</subdivision>
 			<subdivision type="gbwok" draft="contributed">વોકિંગહામ</subdivision>
@@ -1290,28 +1298,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="grj" draft="contributed">પેલોપોનિસિ પ્રદેશ</subdivision>
 			<subdivision type="grk" draft="contributed">ઉત્તર એજીયન પ્રદેશ</subdivision>
 			<subdivision type="grl" draft="contributed">સાઉથ એજીયન</subdivision>
-			<subdivision type="gtav" draft="contributed">અલ્ટા વેરાપાઝ વિભાગ</subdivision>
-			<subdivision type="gtbv" draft="contributed">બાજા વેરાપાઝ વિભાગ</subdivision>
-			<subdivision type="gtcm" draft="contributed">ચિમલાટાલેન્ગો વિભાગ</subdivision>
-			<subdivision type="gtcq" draft="contributed">ચિક્યુમુલા વિભાગ</subdivision>
-			<subdivision type="gtes" draft="contributed">એસકુઇન્ત્લા વિભાગ</subdivision>
-			<subdivision type="gtgu" draft="contributed">ગ્વાટેમાલા વિભાગ</subdivision>
-			<subdivision type="gthu" draft="contributed">હુએહુએટેનાંગો વિભાગ</subdivision>
-			<subdivision type="gtiz" draft="contributed">ઇઝાબેલ વિભાગ</subdivision>
-			<subdivision type="gtja" draft="contributed">જલાપા વિભાગ</subdivision>
-			<subdivision type="gtju" draft="contributed">જુટાયપા વિભાગ</subdivision>
-			<subdivision type="gtpe" draft="contributed">પેટેન વિભાગ</subdivision>
-			<subdivision type="gtpr" draft="contributed">અલ પ્રોગ્રેસો વિભાગ</subdivision>
-			<subdivision type="gtqc" draft="contributed">કુચે વિભાગ</subdivision>
-			<subdivision type="gtqz" draft="contributed">ક્વેટઝાલ્તેનાંગો વિભાગ</subdivision>
-			<subdivision type="gtre" draft="contributed">રેટાલહુલેઉ વિભાગ</subdivision>
-			<subdivision type="gtsa" draft="contributed">સાકાટેપેક્વિઝ વિભાગ</subdivision>
-			<subdivision type="gtsm" draft="contributed">સેન માર્કોસ વિભાગ</subdivision>
-			<subdivision type="gtso" draft="contributed">સોલોલા વિભાગ</subdivision>
-			<subdivision type="gtsr" draft="contributed">સાન્તા રોઝા વિભાગ</subdivision>
-			<subdivision type="gtsu" draft="contributed">સુચિટેપેક્વિઝ વિભાગ</subdivision>
-			<subdivision type="gtto" draft="contributed">ટોટનિકેકન વિભાગ</subdivision>
-			<subdivision type="gtza" draft="contributed">ઝાકાપા વિભાગ</subdivision>
+			<subdivision type="gt01" draft="contributed">ગ્વાટેમાલા વિભાગ</subdivision>
+			<subdivision type="gt02" draft="contributed">અલ પ્રોગ્રેસો વિભાગ</subdivision>
+			<subdivision type="gt03" draft="contributed">સાકાટેપેક્વિઝ વિભાગ</subdivision>
+			<subdivision type="gt04" draft="contributed">ચિમલાટાલેન્ગો વિભાગ</subdivision>
+			<subdivision type="gt05" draft="contributed">એસકુઇન્ત્લા વિભાગ</subdivision>
+			<subdivision type="gt06" draft="contributed">સાન્તા રોઝા વિભાગ</subdivision>
+			<subdivision type="gt07" draft="contributed">સોલોલા વિભાગ</subdivision>
+			<subdivision type="gt08" draft="contributed">ટોટનિકેકન વિભાગ</subdivision>
+			<subdivision type="gt09" draft="contributed">ક્વેટઝાલ્તેનાંગો વિભાગ</subdivision>
+			<subdivision type="gt10" draft="contributed">સુચિટેપેક્વિઝ વિભાગ</subdivision>
+			<subdivision type="gt11" draft="contributed">રેટાલહુલેઉ વિભાગ</subdivision>
+			<subdivision type="gt12" draft="contributed">સેન માર્કોસ વિભાગ</subdivision>
+			<subdivision type="gt13" draft="contributed">હુએહુએટેનાંગો વિભાગ</subdivision>
+			<subdivision type="gt14" draft="contributed">કુચે વિભાગ</subdivision>
+			<subdivision type="gt15" draft="contributed">બાજા વેરાપાઝ વિભાગ</subdivision>
+			<subdivision type="gt16" draft="contributed">અલ્ટા વેરાપાઝ વિભાગ</subdivision>
+			<subdivision type="gt17" draft="contributed">પેટેન વિભાગ</subdivision>
+			<subdivision type="gt18" draft="contributed">ઇઝાબેલ વિભાગ</subdivision>
+			<subdivision type="gt19" draft="contributed">ઝાકાપા વિભાગ</subdivision>
+			<subdivision type="gt20" draft="contributed">ચિક્યુમુલા વિભાગ</subdivision>
+			<subdivision type="gt21" draft="contributed">જલાપા વિભાગ</subdivision>
+			<subdivision type="gt22" draft="contributed">જુટાયપા વિભાગ</subdivision>
 			<subdivision type="gwba" draft="contributed">બફતા પ્રદેશ</subdivision>
 			<subdivision type="gwbl" draft="contributed">બોલમા પ્રદેશ</subdivision>
 			<subdivision type="gwbm" draft="contributed">બિમ્બો પ્રદેશ</subdivision>
@@ -1483,6 +1491,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inch" draft="contributed">ચંડીગઢ</subdivision>
 			<subdivision type="inct" draft="contributed">છત્તીસગઢ</subdivision>
 			<subdivision type="indd" draft="contributed">દમણ અને દીવ</subdivision>
+			<subdivision type="indh" draft="contributed">દાદરા અને નગર હવેલી અને દમણ અને દીવ</subdivision>
 			<subdivision type="indl" draft="contributed">દિલ્હી</subdivision>
 			<subdivision type="indn" draft="contributed">દાદરા અને નગરહવેલી</subdivision>
 			<subdivision type="inga" draft="contributed">ગોઆ</subdivision>
@@ -1493,6 +1502,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="injk" draft="contributed">જમ્મુ અને કાશ્મીર</subdivision>
 			<subdivision type="inka" draft="contributed">કર્ણાટક</subdivision>
 			<subdivision type="inkl" draft="contributed">કેરળ</subdivision>
+			<subdivision type="inla" draft="contributed">લડાખ</subdivision>
 			<subdivision type="inld" draft="contributed">લક્ષદ્વીપ</subdivision>
 			<subdivision type="inmh" draft="contributed">મહારાષ્ટ્ર</subdivision>
 			<subdivision type="inml" draft="contributed">મેઘાલય</subdivision>
@@ -1528,13 +1538,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="iqsd" draft="contributed">સલાડિન ગવર્નોરેટ</subdivision>
 			<subdivision type="iqsu" draft="contributed">સુલેમાનીયાહ ગવર્નોરેટ</subdivision>
 			<subdivision type="iqwa" draft="contributed">વશિત ગવર્નોરેટ</subdivision>
+			<subdivision type="ir00" draft="contributed">માકાઝી પ્રાંત²</subdivision>
 			<subdivision type="ir01" draft="contributed">પૂર્વ અઝરબૈજાન પ્રાંત</subdivision>
 			<subdivision type="ir02" draft="contributed">પશ્ચિમ અઝારબાઈજાન પ્રાંત</subdivision>
 			<subdivision type="ir03" draft="contributed">અર્ડાબિલ પ્રાંત</subdivision>
 			<subdivision type="ir04" draft="contributed">ઇસ્ફહન પ્રાંત</subdivision>
+			<subdivision type="ir05" draft="contributed">કર્માનશાહ પ્રાંત²</subdivision>
+			<subdivision type="ir06" draft="contributed">ખુઝેસ્તાન પ્રાંત²</subdivision>
 			<subdivision type="ir07" draft="contributed">તેહરાન પ્રાંત</subdivision>
 			<subdivision type="ir08" draft="contributed">ચાહરમહલ એન્ડ બખ્તિઆરી પ્રાંત</subdivision>
+			<subdivision type="ir09" draft="contributed">રઝાવી ખોરાસન પ્રાંત²</subdivision>
 			<subdivision type="ir10" draft="contributed">ખુઝેસ્તાન પ્રાંત</subdivision>
+			<subdivision type="ir11" draft="contributed">સિસ્તાન એન્ડ બલુચિસ્તાન²</subdivision>
+			<subdivision type="ir12" draft="contributed">કુર્દિસ્તાન પ્રાંત²</subdivision>
 			<subdivision type="ir13" draft="contributed">સિસ્તાન એન્ડ બલુચિસ્તાન</subdivision>
 			<subdivision type="ir14" draft="contributed">ફાર્સ પ્રાંત</subdivision>
 			<subdivision type="ir15" draft="contributed">કર્મન પ્રાંત</subdivision>
@@ -1545,7 +1561,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ir20" draft="contributed">લોરેસ્તાન પ્રાંત</subdivision>
 			<subdivision type="ir21" draft="contributed">મઝાન્ડરન પ્રાંત</subdivision>
 			<subdivision type="ir22" draft="contributed">માકાઝી પ્રાંત</subdivision>
+			<subdivision type="ir23" draft="contributed">તેહરાન પ્રાંત²</subdivision>
 			<subdivision type="ir24" draft="contributed">હમાદાન પ્રાંત</subdivision>
+			<subdivision type="ir25" draft="contributed">કોમ પ્રાંત²</subdivision>
 			<subdivision type="ir26" draft="contributed">કોમ પ્રાંત</subdivision>
 			<subdivision type="ir27" draft="contributed">ગુલેસ્ટેન પ્રાંત</subdivision>
 			<subdivision type="ir28" draft="contributed">કાઝવિન પ્રાંત</subdivision>
@@ -1711,6 +1729,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="jp21" draft="contributed">ગીફુ પ્રીફેકચર</subdivision>
 			<subdivision type="jp22" draft="contributed">શિઝુઓકા પ્રીફેકચર</subdivision>
 			<subdivision type="jp23" draft="contributed">એચી પ્રીફેકચર</subdivision>
+			<subdivision type="jp24" draft="contributed">મિએ પ્રીફેકચર</subdivision>
 			<subdivision type="jp25" draft="contributed">શિગા પ્રીફેકચર</subdivision>
 			<subdivision type="jp26" draft="contributed">ક્યોટો પ્રિફેક્ચર</subdivision>
 			<subdivision type="jp27" draft="contributed">ઓસાકા પ્રીફેકચર</subdivision>
@@ -1829,6 +1848,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kzman" draft="contributed">માંગિસ્તૌ પ્રદેશ</subdivision>
 			<subdivision type="kzpav" draft="contributed">પાવ્લોડોર પ્રાંત</subdivision>
 			<subdivision type="kzsev" draft="contributed">ઉત્તર કઝાકસ્તાન પ્રાંત</subdivision>
+			<subdivision type="kzshy" draft="contributed">શિમકેંટ</subdivision>
 			<subdivision type="kzvos" draft="contributed">પૂર્વ કઝાખસ્તાન પ્રદેશ</subdivision>
 			<subdivision type="kzyuz" draft="contributed">દક્ષિણ કઝાકિસ્તાન પ્રદેશ</subdivision>
 			<subdivision type="kzzap" draft="contributed">પશ્ચિમ કઝાખસ્તાન પ્રાંત</subdivision>
@@ -2062,6 +2082,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ma15" draft="contributed">લાયૌને-બૌજડોર-, સકિઆ અલ હામ્રા</subdivision>
 			<subdivision type="maagd" draft="contributed">અગાદિર</subdivision>
 			<subdivision type="macas" draft="contributed">કૈસાબ્લાન્કા</subdivision>
+			<subdivision type="mafes" draft="contributed">ફેજ (પ્રીફેક્ચર)</subdivision>
 			<subdivision type="mague" draft="contributed">ગેલમીમ પ્રાંત</subdivision>
 			<subdivision type="mamek" draft="contributed">મેકનેસ</subdivision>
 			<subdivision type="mammd" draft="contributed">મારાકેશ</subdivision>
@@ -2130,63 +2151,64 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mhl" draft="contributed">રાલિક ચેઇન</subdivision>
 			<subdivision type="mhmaj" draft="contributed">માજુરો</subdivision>
 			<subdivision type="mht" draft="contributed">રાતક ચેઇન</subdivision>
-			<subdivision type="mk02" draft="contributed">અરાકિનોવો મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk03" draft="contributed">બેરોવો મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk04" draft="contributed">બિટોલા મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk05" draft="contributed">બોગડાંસી મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk06" draft="contributed">બોગોવિન્જે મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk07" draft="contributed">બોસિલોવો મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk08" draft="contributed">બ્રવેનિકા મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk11" draft="contributed">વાસિલેવો મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk14" draft="contributed">વિનીકા મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk19" draft="contributed">ગોસ્તિવર મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk20" draft="contributed">ગ્રેડ્સ્કો મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk21" draft="contributed">ડેબર મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk22" draft="contributed">ડેબાર્કા મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk23" draft="contributed">ડેલકેવો મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk27" draft="contributed">ડોલનેની મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk30" draft="contributed">ઝેલિનો મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk32" draft="contributed">ઝેલેનિકોવો મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk33" draft="contributed">ઝ્રનૉવકી મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk34" draft="contributed">ઇલિન્ડેન મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk35" draft="contributed">જેગ્યુનોવેસ મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk36" draft="contributed">કવાડર્સી મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk37" draft="contributed">કર્બીંન્સી</subdivision>
-			<subdivision type="mk40" draft="contributed">કિસેવો મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk41" draft="contributed">કોન્સ મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk42" draft="contributed">કોકની મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk43" draft="contributed">ક્રેટોવો મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk44" draft="contributed">ક્રિવા પલાંકા મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk45" draft="contributed">ક્રીવોગાસ્તાની મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk46" draft="contributed">ક્રુસેવો મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk47" draft="contributed">કુમનોવો મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk48" draft="contributed">લિપકાવો મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk49" draft="contributed">લોઝોવો મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk50" draft="contributed">માવરોવો એન્ડ રોસ્તુસા મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk51" draft="contributed">મેકેડોનસ્કા કેમેનિકા મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk52" draft="contributed">મેકેડોન્સ્કી બ્રોડ મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk54" draft="contributed">નેગોટીનો મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk56" draft="contributed">નોવો સેલો મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk58" draft="contributed">ઓહ્રીદ મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk60" draft="contributed">પેશેવો મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk61" draft="contributed">પ્લાસ્નિકા મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk62" draft="contributed">પ્રિલેપ મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk63" draft="contributed">પ્રોબિસ્ટિપ મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk64" draft="contributed">રાડોવીસ મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk65" draft="contributed">રેન્કોવ્સે મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk66" draft="contributed">રેસન મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk69" draft="contributed">સ્વેતી નિકોલ મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk70" draft="contributed">સોપિસ્તે મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk72" draft="contributed">સ્ટ્રગા મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk73" draft="contributed">સ્ટ્રુમિકા મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk74" draft="contributed">સ્ટુડેનીકાની મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk75" draft="contributed">ટીઅર્સ મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk76" draft="contributed">ટિટોવો મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk78" draft="contributed">સેન્ટર ઝુપા મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk80" draft="contributed">કસ્કા મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk82" draft="contributed">કુસેર-સેનડેવો મ્યુનિસિપાલિટી</subdivision>
-			<subdivision type="mk83" draft="contributed">સ્ટિપ મ્યુનિસિપાલિટી</subdivision>
 			<subdivision type="mk85" draft="contributed">સ્કોપ્જે</subdivision>
+			<subdivision type="mk102" draft="contributed">ગ્રેડ્સ્કો મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk104" draft="contributed">કવાડર્સી મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk105" draft="contributed">લોઝોવો મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk106" draft="contributed">નેગોટીનો મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk108" draft="contributed">સ્વેતી નિકોલ મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk109" draft="contributed">કસ્કા મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk201" draft="contributed">બેરોવો મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk202" draft="contributed">વિનીકા મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk203" draft="contributed">ડેલકેવો મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk204" draft="contributed">ઝ્રનૉવકી મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk205" draft="contributed">કર્બીંન્સી</subdivision>
+			<subdivision type="mk206" draft="contributed">કોકની મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk207" draft="contributed">મેકેડોનસ્કા કેમેનિકા મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk208" draft="contributed">પેશેવો મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk209" draft="contributed">પ્રોબિસ્ટિપ મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk210" draft="contributed">કેસિનોવો-ઓબ્લેસેવો મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk211" draft="contributed">સ્ટિપ મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk303" draft="contributed">ડેબર મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk304" draft="contributed">ડેબાર્કા મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk307" draft="contributed">કિસેવો મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk308" draft="contributed">મેકેડોન્સ્કી બ્રોડ મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk310" draft="contributed">ઓહ્રીદ મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk311" draft="contributed">પ્લાસ્નિકા મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk312" draft="contributed">સ્ટ્રગા મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk313" draft="contributed">સેન્ટર ઝુપા મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk401" draft="contributed">બોગડાંસી મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk402" draft="contributed">બોસિલોવો મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk404" draft="contributed">વાસિલેવો મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk407" draft="contributed">કોન્સ મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk408" draft="contributed">નોવો સેલો મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk409" draft="contributed">રાડોવીસ મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk410" draft="contributed">સ્ટ્રુમિકા મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk501" draft="contributed">બિટોલા મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk503" draft="contributed">ડોલનેની મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk504" draft="contributed">ક્રીવોગાસ્તાની મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk505" draft="contributed">ક્રુસેવો મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk508" draft="contributed">પ્રિલેપ મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk509" draft="contributed">રેસન મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk601" draft="contributed">બોગોવિન્જે મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk602" draft="contributed">બ્રવેનિકા મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk604" draft="contributed">ગોસ્તિવર મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk605" draft="contributed">ઝેલિનો મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk606" draft="contributed">જેગ્યુનોવેસ મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk607" draft="contributed">માવરોવો એન્ડ રોસ્તુસા મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk608" draft="contributed">ટીઅર્સ મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk609" draft="contributed">ટિટોવો મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk701" draft="contributed">ક્રેટોવો મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk702" draft="contributed">ક્રિવા પલાંકા મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk703" draft="contributed">કુમનોવો મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk704" draft="contributed">લિપકાવો મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk705" draft="contributed">રેન્કોવ્સે મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk802" draft="contributed">અરાકિનોવો મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk806" draft="contributed">ઝેલેનિકોવો મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk807" draft="contributed">ઇલિન્ડેન મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk812" draft="contributed">સોપિસ્તે મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk813" draft="contributed">સ્ટુડેનીકાની મ્યુનિસિપાલિટી</subdivision>
+			<subdivision type="mk816" draft="contributed">કુસેર-સેનડેવો મ્યુનિસિપાલિટી</subdivision>
 			<subdivision type="ml1" draft="contributed">કાયેસ પ્રદેશ</subdivision>
 			<subdivision type="ml2" draft="contributed">કૌલીકોરો પ્રદેશ</subdivision>
 			<subdivision type="ml3" draft="contributed">સિકાસો પ્રદેશ</subdivision>
@@ -2916,6 +2938,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ruse" draft="contributed">રીપબ્લિક ઓફ નોર્થ ઓસેટીયા-એલાનિયા</subdivision>
 			<subdivision type="rusmo" draft="contributed">સ્મોલેન્સ્ક ઓબ્લાસ્ટ</subdivision>
 			<subdivision type="ruspe" draft="contributed">સેન્ટ પીટર્સબર્ગ</subdivision>
+			<subdivision type="rusta" draft="contributed">સ્ટાવ્રોપોલ ક્રાઇ</subdivision>
 			<subdivision type="rusve" draft="contributed">સ્વેર્ડલોવ્સ્ક ઓબ્લાસ્ટ</subdivision>
 			<subdivision type="ruta" draft="contributed">રિપબ્લિક ઓફ તાતરસ્તાન</subdivision>
 			<subdivision type="rutam" draft="contributed">તેમ્બો ઓબ્લાસ્ટ</subdivision>
@@ -2971,6 +2994,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="sc11" draft="contributed">કાસાકેડ</subdivision>
 			<subdivision type="sc12" draft="contributed">ગ્લેસિસ</subdivision>
 			<subdivision type="sc14" draft="contributed">ગ્રાન્ડ’એન્સ પ્રેસ્લિન</subdivision>
+			<subdivision type="sc15" draft="contributed">લા ડિગ એન્ડ ઈનર આઇલેન્ડ્સ</subdivision>
 			<subdivision type="sc16" draft="contributed">લા રિવિએરે ઍંગ્લેઈસ</subdivision>
 			<subdivision type="sc17" draft="contributed">મોન્ટ બક્સટન</subdivision>
 			<subdivision type="sc18" draft="contributed">મોન્ટ ફ્લેઉરી</subdivision>
@@ -3534,6 +3558,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="twkin" draft="contributed">કિનમેન</subdivision>
 			<subdivision type="twmia" draft="contributed">મિયાઓલી કાઉન્ટી</subdivision>
 			<subdivision type="twnan" draft="contributed">નાન્તોઉ કાઉન્ટી</subdivision>
+			<subdivision type="twnwt" draft="contributed">ન્યુ તાઇપે શહેર</subdivision>
 			<subdivision type="twpif" draft="contributed">પિંગટંગ કાઉન્ટી</subdivision>
 			<subdivision type="twtao" draft="contributed">તાઓયુઆન શહેર</subdivision>
 			<subdivision type="twtnn" draft="contributed">તૈનન</subdivision>
@@ -3927,11 +3952,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="yeta" draft="contributed">તા‘ઝ ગવર્નોરેટ</subdivision>
 			<subdivision type="zaec" draft="contributed">ઇસ્ટર્ન કેપ</subdivision>
 			<subdivision type="zafs" draft="contributed">ફ્રી સ્ટેટ</subdivision>
-			<subdivision type="zagt" draft="contributed">ગ્વાટેંગ</subdivision>
+			<subdivision type="zagp" draft="contributed">ગ્વાટેંગ</subdivision>
+			<subdivision type="zakzn" draft="contributed">ક્વાઝુલુ-નાતાલ</subdivision>
 			<subdivision type="zalp" draft="contributed">લિમ્પોપો</subdivision>
 			<subdivision type="zamp" draft="contributed">એમપુમલંગા</subdivision>
 			<subdivision type="zanc" draft="contributed">નોર્ધન કેપ</subdivision>
-			<subdivision type="zanl" draft="contributed">ક્વાઝુલુ-નાતાલ</subdivision>
 			<subdivision type="zanw" draft="contributed">નોર્થ વેસ્ટ</subdivision>
 			<subdivision type="zawc" draft="contributed">વેસ્ટર્ન કેપ</subdivision>
 			<subdivision type="zm01" draft="contributed">પશ્ચિમી પ્રાંત</subdivision>

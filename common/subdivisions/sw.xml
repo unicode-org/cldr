@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,12 +12,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<subdivisions>
+			<subdivision type="ad07" draft="contributed">Andorra la Vella</subdivision>
 			<subdivision type="aeaj" draft="contributed">Ajmān</subdivision>
 			<subdivision type="aedu" draft="contributed">Dubai</subdivision>
 			<subdivision type="aefu" draft="contributed">Fujairah</subdivision>
 			<subdivision type="aerk" draft="contributed">Ras al-Khaimah</subdivision>
 			<subdivision type="aesh" draft="contributed">Sharjah</subdivision>
 			<subdivision type="aeuq" draft="contributed">Umm al-Quwain</subdivision>
+			<subdivision type="afpan" draft="contributed">Panjshir</subdivision>
 			<subdivision type="amer" draft="contributed">Yerevan</subdivision>
 			<subdivision type="aobgo" draft="contributed">Bengo</subdivision>
 			<subdivision type="aobgu" draft="contributed">Benguela</subdivision>
@@ -61,6 +63,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="arx" draft="contributed">Mkoa wa Córdoba</subdivision>
 			<subdivision type="ary" draft="contributed">Mkoa wa Jujuy</subdivision>
 			<subdivision type="arz" draft="contributed">Mkoa wa Santa Cruz, Argentina</subdivision>
+			<subdivision type="at1" draft="contributed">Burgenland</subdivision>
 			<subdivision type="at2" draft="contributed">Karinthia</subdivision>
 			<subdivision type="at3" draft="contributed">Austria Chini</subdivision>
 			<subdivision type="at4" draft="contributed">Austria Juu</subdivision>
@@ -79,6 +82,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bebru" draft="contributed">Brussels</subdivision>
 			<subdivision type="bevlg" draft="contributed">Flandria</subdivision>
 			<subdivision type="bewal" draft="contributed">Wallonia</subdivision>
+			<subdivision type="bftap" draft="contributed">Tapoa</subdivision>
 			<subdivision type="bg23" draft="contributed">Sofia</subdivision>
 			<subdivision type="bibb" draft="contributed">Mkoa wa Bubanza</subdivision>
 			<subdivision type="bibl" draft="contributed">Bujumbura Vijijini</subdivision>
@@ -95,8 +99,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bimw" draft="contributed">Mkoa wa Mwaro</subdivision>
 			<subdivision type="bimy" draft="contributed">Mkoa wa Muyinga</subdivision>
 			<subdivision type="bing" draft="contributed">Mkoa wa Ngozi</subdivision>
+			<subdivision type="birm" draft="contributed">Mkoa wa Rumonge</subdivision>
 			<subdivision type="birt" draft="contributed">Mkoa wa Rutana</subdivision>
 			<subdivision type="biry" draft="contributed">Mkoa wa Ruyigi</subdivision>
+			<subdivision type="bjak" draft="contributed">Atakora</subdivision>
+			<subdivision type="bjal" draft="contributed">Alibori</subdivision>
+			<subdivision type="bjaq" draft="contributed">Atlantique (Benin)</subdivision>
+			<subdivision type="bjbo" draft="contributed">Borgou</subdivision>
+			<subdivision type="bjco" draft="contributed">Collines (Benin)</subdivision>
+			<subdivision type="bjdo" draft="contributed">Donga</subdivision>
+			<subdivision type="bjko" draft="contributed">Couffo</subdivision>
+			<subdivision type="bjli" draft="contributed">Mkoa wa Pwani (Benin)</subdivision>
+			<subdivision type="bjmo" draft="contributed">Mono (Benin)</subdivision>
+			<subdivision type="bjou" draft="contributed">Ouémé</subdivision>
+			<subdivision type="bjpl" draft="contributed">Plateau (Benin)</subdivision>
+			<subdivision type="bjzo" draft="contributed">Zou</subdivision>
 			<subdivision type="bob" draft="contributed">Mkoa wa Beni</subdivision>
 			<subdivision type="boc" draft="contributed">Mkoa wa Cochabamba</subdivision>
 			<subdivision type="boh" draft="contributed">Mkoa wa Chuquisaca</subdivision>
@@ -115,6 +132,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="brap" draft="contributed">Amapá</subdivision>
 			<subdivision type="brba" draft="contributed">Bahia</subdivision>
 			<subdivision type="brce" draft="contributed">Ceará</subdivision>
+			<subdivision type="brdf" draft="contributed">Distrito Federal (Brazil)</subdivision>
 			<subdivision type="bres" draft="contributed">Espírito Santo</subdivision>
 			<subdivision type="brgo" draft="contributed">Goiás</subdivision>
 			<subdivision type="brma" draft="contributed">Maranhão</subdivision>
@@ -135,6 +153,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="brse" draft="contributed">Sergipe</subdivision>
 			<subdivision type="brsp" draft="contributed">São Paulo</subdivision>
 			<subdivision type="brto" draft="contributed">Tocantins</subdivision>
+			<subdivision type="bwce" draft="contributed">Wilaya ya Central (Botswana)</subdivision>
 			<subdivision type="bwga" draft="contributed">Gaborone</subdivision>
 			<subdivision type="byhm" draft="contributed">Minsk</subdivision>
 			<subdivision type="caab" draft="contributed">Alberta</subdivision>
@@ -150,6 +169,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="caqc" draft="contributed">Quebec</subdivision>
 			<subdivision type="cask" draft="contributed">Saskatchewan</subdivision>
 			<subdivision type="cayt" draft="contributed">Yukon</subdivision>
+			<subdivision type="cdbc" draft="contributed">Mkoa wa Kongo Kati</subdivision>
 			<subdivision type="cdbu" draft="contributed">Mkoa wa Wele Chini</subdivision>
 			<subdivision type="cdeq" draft="contributed">Mkoa wa Équateur</subdivision>
 			<subdivision type="cdhk" draft="contributed">Mkoa wa Katanga Juu</subdivision>
@@ -157,6 +177,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cdhu" draft="contributed">Mkoa wa Wele Juu</subdivision>
 			<subdivision type="cdkc" draft="contributed">Mkoa wa Lulua</subdivision>
 			<subdivision type="cdke" draft="contributed">Mkoa wa Kasai Mashariki</subdivision>
+			<subdivision type="cdkg" draft="contributed">Mkoa wa Kwango</subdivision>
 			<subdivision type="cdkn" draft="contributed">Kinshasa</subdivision>
 			<subdivision type="cdlu" draft="contributed">Mkoa wa Lualaba</subdivision>
 			<subdivision type="cdma" draft="contributed">Mkoa wa Maniema</subdivision>
@@ -168,6 +189,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cdto" draft="contributed">Mkoa wa Tshopo</subdivision>
 			<subdivision type="cdtu" draft="contributed">Mkoa wa Tshuapa</subdivision>
 			<subdivision type="cfbgf" draft="contributed">Bangui</subdivision>
+			<subdivision type="cg9" draft="contributed">Mkoa wa Niari</subdivision>
 			<subdivision type="cgbzv" draft="contributed">Brazzaville</subdivision>
 			<subdivision type="chag" draft="contributed">Aargau</subdivision>
 			<subdivision type="chai" draft="contributed">Appenzell Innerrhoden</subdivision>
@@ -196,6 +218,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="chzg" draft="contributed">Jimbo la Zug</subdivision>
 			<subdivision type="chzh" draft="contributed">Jimbo la Zürich</subdivision>
 			<subdivision type="ciab" draft="contributed">Abidjan</subdivision>
+			<subdivision type="cibs" draft="contributed">Jimbo la Bas-Sassandra</subdivision>
+			<subdivision type="cicm" draft="contributed">Wilaya ya Comoé</subdivision>
+			<subdivision type="cidn" draft="contributed">Wilaya ya Denguélé</subdivision>
+			<subdivision type="cigd" draft="contributed">Wilaya ya Gôh-Djiboua</subdivision>
+			<subdivision type="cilc" draft="contributed">Wilaya ya Lacs</subdivision>
+			<subdivision type="cilg" draft="contributed">Wilaya ya Lagunes</subdivision>
+			<subdivision type="cimg" draft="contributed">Wilaya ya Montagnes</subdivision>
+			<subdivision type="cism" draft="contributed">Jimbo la Sassandra-Marahoué</subdivision>
+			<subdivision type="cisv" draft="contributed">Jimbo la Savanes</subdivision>
+			<subdivision type="civb" draft="contributed">Jimbo la Vallée du Bandama</subdivision>
+			<subdivision type="ciwr" draft="contributed">Jimbo la Woroba</subdivision>
 			<subdivision type="ciym" draft="contributed">Yamoussoukro</subdivision>
 			<subdivision type="cizz" draft="contributed">Mkoa wa Zanzan</subdivision>
 			<subdivision type="clap" draft="contributed">Mkoa wa Arica na Parinacota</subdivision>
@@ -207,8 +240,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="clma" draft="contributed">Mkoa wa Magallanes na Antaktiki ya Chile</subdivision>
 			<subdivision type="clml" draft="contributed">Mkoa wa Maule</subdivision>
 			<subdivision type="clta" draft="contributed">Mkoa wa Tarapacá</subdivision>
+			<subdivision type="cmad" draft="contributed">Mkoa wa Adamawa</subdivision>
+			<subdivision type="cmce" draft="contributed">Mkoa wa Kati, Kamerun</subdivision>
+			<subdivision type="cmen" draft="contributed">Mkoa wa Kaskazini ya Mbali, Kamerun</subdivision>
+			<subdivision type="cmes" draft="contributed">Mkoa wa Mashariki, Kamerun</subdivision>
+			<subdivision type="cmlt" draft="contributed">Mkoa wa Pwani, Kamerun</subdivision>
+			<subdivision type="cmno" draft="contributed">Mkoa wa Kaskazini, Kamerun</subdivision>
+			<subdivision type="cmnw" draft="contributed">Mkoa wa Kaskazini-Magharibi, Kamerun</subdivision>
+			<subdivision type="cmou" draft="contributed">Mkoa wa Magharibi, Kamerun</subdivision>
+			<subdivision type="cmsu" draft="contributed">Mkoa wa Kusini, Kamerun</subdivision>
+			<subdivision type="cmsw" draft="contributed">Mkoa wa Kusini-Magharibi, Kamerun</subdivision>
 			<subdivision type="cnah" draft="contributed">Anhui</subdivision>
 			<subdivision type="cnbj" draft="contributed">Beijing</subdivision>
+			<subdivision type="cncq" draft="contributed">Chongqing</subdivision>
 			<subdivision type="cnfj" draft="contributed">Fujian</subdivision>
 			<subdivision type="cngd" draft="contributed">Guangdong</subdivision>
 			<subdivision type="cngs" draft="contributed">Gansu</subdivision>
@@ -234,16 +278,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cnsh" draft="contributed">Shanghai</subdivision>
 			<subdivision type="cnsn" draft="contributed">Shaanxi</subdivision>
 			<subdivision type="cnsx" draft="contributed">Shanxi</subdivision>
+			<subdivision type="cntj" draft="contributed">Tianjin</subdivision>
 			<subdivision type="cnyn" draft="contributed">Yunnan</subdivision>
 			<subdivision type="cnzj" draft="contributed">Zhejiang</subdivision>
 			<subdivision type="codc" draft="contributed">Bogota</subdivision>
 			<subdivision type="cosap" draft="contributed">San Andrés</subdivision>
 			<subdivision type="cu99" draft="contributed">Isla de la Juventud</subdivision>
+			<subdivision type="cvpa" draft="contributed">Paul, Cape Verde</subdivision>
 			<subdivision type="cz10" draft="contributed">Praha</subdivision>
 			<subdivision type="debb" draft="contributed">Brandenburg</subdivision>
 			<subdivision type="debe" draft="contributed">Berlin</subdivision>
 			<subdivision type="debw" draft="contributed">Baden-Württemberg</subdivision>
 			<subdivision type="deby" draft="contributed">Bavaria</subdivision>
+			<subdivision type="dehb" draft="contributed">Jimbo la Bremen</subdivision>
 			<subdivision type="dehe" draft="contributed">Hesse</subdivision>
 			<subdivision type="dehh" draft="contributed">Hamburg</subdivision>
 			<subdivision type="demv" draft="contributed">Mecklenburg-Pomerini Magharibi</subdivision>
@@ -268,6 +315,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="dz10" draft="contributed">Jimbo ya Bouira</subdivision>
 			<subdivision type="dz11" draft="contributed">Jimbo ya Tamanghasset</subdivision>
 			<subdivision type="dz12" draft="contributed">Wilaya ya Tébessa</subdivision>
+			<subdivision type="dz13" draft="contributed">Wilaya ya Tlemcen</subdivision>
 			<subdivision type="dz14" draft="contributed">Jimbo ya Tiaret</subdivision>
 			<subdivision type="dz15" draft="contributed">Jimbo ya Tizi Ouzou</subdivision>
 			<subdivision type="dz16" draft="contributed">Jimbo ya Algiers</subdivision>
@@ -334,8 +382,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="erma" draft="contributed">Eneo ya Kati</subdivision>
 			<subdivision type="ersk" draft="contributed">Kaskazini Eneo la Ziwa Nyekundu</subdivision>
 			<subdivision type="esa" draft="contributed">Mkoa wa Alicante</subdivision>
+			<subdivision type="esab" draft="contributed">Mkoa wa Albacete</subdivision>
 			<subdivision type="esal" draft="contributed">Mkoa wa Almería</subdivision>
 			<subdivision type="esan" draft="contributed">Andalusia</subdivision>
+			<subdivision type="esar" draft="contributed">Aragon</subdivision>
+			<subdivision type="esas" draft="contributed">Asturias</subdivision>
 			<subdivision type="esav" draft="contributed">Mkoa wa Ávila</subdivision>
 			<subdivision type="esb" draft="contributed">Mkoa wa Barcelona</subdivision>
 			<subdivision type="esba" draft="contributed">Mkoa wa Badajoz</subdivision>
@@ -343,12 +394,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="esbu" draft="contributed">Mkoa wa Burgos</subdivision>
 			<subdivision type="esc" draft="contributed">Mkoa wa La Coruña</subdivision>
 			<subdivision type="esca" draft="contributed">Mkoa wa Cádiz</subdivision>
+			<subdivision type="escb" draft="contributed">Cantabria</subdivision>
 			<subdivision type="esce" draft="contributed">Ceuta</subdivision>
+			<subdivision type="escl" draft="contributed">Castilia na León</subdivision>
+			<subdivision type="escn" draft="contributed">Visiwa vya Kanari</subdivision>
 			<subdivision type="esco" draft="contributed">Mkoa wa Córdoba</subdivision>
 			<subdivision type="escr" draft="contributed">Mkoa wa Ciudad Real</subdivision>
 			<subdivision type="escs" draft="contributed">Mkoa wa Castellón</subdivision>
 			<subdivision type="esct" draft="contributed">Catalonia</subdivision>
 			<subdivision type="escu" draft="contributed">Mkoa wa Cuenca</subdivision>
+			<subdivision type="esex" draft="contributed">Extremadura</subdivision>
+			<subdivision type="esga" draft="contributed">Galicia (Spain)</subdivision>
 			<subdivision type="esgc" draft="contributed">Mkoa wa Las Palmas</subdivision>
 			<subdivision type="esgi" draft="contributed">Mkoa wa Gerona</subdivision>
 			<subdivision type="esgr" draft="contributed">Mkoa wa Granada</subdivision>
@@ -361,8 +417,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="esle" draft="contributed">Mkoa wa León</subdivision>
 			<subdivision type="eslo" draft="contributed">La Rioja</subdivision>
 			<subdivision type="eslu" draft="contributed">Mkoa wa Lugo</subdivision>
+			<subdivision type="esm" draft="contributed">Mkoa wa Madrid</subdivision>
 			<subdivision type="esma" draft="contributed">Mkoa wa Málaga</subdivision>
+			<subdivision type="esmc" draft="contributed">Jimbo la Murcia</subdivision>
+			<subdivision type="esmd" draft="contributed">Jimbo la Madrid</subdivision>
 			<subdivision type="esml" draft="contributed">Melilla</subdivision>
+			<subdivision type="esna" draft="contributed">Navarra</subdivision>
+			<subdivision type="esnc" draft="contributed">Navarra²</subdivision>
 			<subdivision type="esor" draft="contributed">Mkoa wa Orense</subdivision>
 			<subdivision type="esp" draft="contributed">Mkoa wa Palencia</subdivision>
 			<subdivision type="espm" draft="contributed">Visiwa vya Baleari²</subdivision>
@@ -372,12 +433,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="esse" draft="contributed">Mkoa wa Sevilla</subdivision>
 			<subdivision type="essg" draft="contributed">Mkoa wa Segovia</subdivision>
 			<subdivision type="esso" draft="contributed">Mkoa wa Soria</subdivision>
+			<subdivision type="esss" draft="contributed">Guipúzcoa</subdivision>
 			<subdivision type="est" draft="contributed">Mkoa wa Tarragona</subdivision>
 			<subdivision type="este" draft="contributed">Mkoa wa Teruel</subdivision>
 			<subdivision type="estf" draft="contributed">Mkoa wa Santa Cruz de Tenerife</subdivision>
 			<subdivision type="esto" draft="contributed">Mkoa wa Toledo</subdivision>
 			<subdivision type="esv" draft="contributed">Mkoa wa Valencia</subdivision>
 			<subdivision type="esva" draft="contributed">Mkoa wa Valladolid</subdivision>
+			<subdivision type="esvc" draft="contributed">Jimbo la Valencia</subdivision>
 			<subdivision type="esvi" draft="contributed">Álava</subdivision>
 			<subdivision type="esz" draft="contributed">Mkoa wa Zaragoza</subdivision>
 			<subdivision type="esza" draft="contributed">Mkoa wa Zamora</subdivision>
@@ -413,6 +476,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr17" draft="contributed">Charente-Maritime</subdivision>
 			<subdivision type="fr18" draft="contributed">Cher</subdivision>
 			<subdivision type="fr19" draft="contributed">Corrèze</subdivision>
+			<subdivision type="fr20r" draft="contributed">Korsika</subdivision>
 			<subdivision type="fr21" draft="contributed">Côte-d’Or</subdivision>
 			<subdivision type="fr22" draft="contributed">Côtes-d’Armor</subdivision>
 			<subdivision type="fr23" draft="contributed">Creuse</subdivision>
@@ -467,7 +531,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr72" draft="contributed">Sarthe</subdivision>
 			<subdivision type="fr73" draft="contributed">Savoie</subdivision>
 			<subdivision type="fr74" draft="contributed">Haute-Savoie</subdivision>
-			<subdivision type="fr75" draft="contributed">Paris</subdivision>
+			<subdivision type="fr75c" draft="contributed">Paris</subdivision>
 			<subdivision type="fr76" draft="contributed">Seine-Maritime</subdivision>
 			<subdivision type="fr77" draft="contributed">Seine-et-Marne</subdivision>
 			<subdivision type="fr78" draft="contributed">Yvelines</subdivision>
@@ -488,9 +552,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr93" draft="contributed">Seine-Saint-Denis</subdivision>
 			<subdivision type="fr94" draft="contributed">Val-de-Marne</subdivision>
 			<subdivision type="fr95" draft="contributed">Val-d’Oise</subdivision>
+			<subdivision type="fr971" draft="contributed">Guadeloupe</subdivision>
 			<subdivision type="frara" draft="contributed">Auvergne-Rhône-Alpes</subdivision>
 			<subdivision type="frbre" draft="contributed">Bretagne</subdivision>
-			<subdivision type="frcor" draft="contributed">Korsika</subdivision>
 			<subdivision type="frcvl" draft="contributed">Mkoa wa Centre</subdivision>
 			<subdivision type="fridf" draft="contributed">Île-de-France</subdivision>
 			<subdivision type="frpac" draft="contributed">Provence-Alpes-Côte d’Azur</subdivision>
@@ -513,6 +577,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbcrf" draft="contributed">Cardiff</subdivision>
 			<subdivision type="gbder" draft="contributed">Derby</subdivision>
 			<subdivision type="gbedh" draft="contributed">Edinburgh</subdivision>
+			<subdivision type="gbeng" draft="contributed">Uingereza</subdivision>
 			<subdivision type="gbgbn" draft="contributed">Britania</subdivision>
 			<subdivision type="gbglg" draft="contributed">Glasgow</subdivision>
 			<subdivision type="gbiow" draft="contributed">Kisiwa cha Wight</subdivision>
@@ -523,6 +588,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gblut" draft="contributed">Luton</subdivision>
 			<subdivision type="gbman" draft="contributed">Manchester</subdivision>
 			<subdivision type="gbmdb" draft="contributed">Middlesbrough</subdivision>
+			<subdivision type="gbnbl" draft="contributed">Northumberland</subdivision>
 			<subdivision type="gbnet" draft="contributed">Newcastle upon Tyne</subdivision>
 			<subdivision type="gbnfk" draft="contributed">Norfolk</subdivision>
 			<subdivision type="gbngm" draft="contributed">Nottingham</subdivision>
@@ -534,13 +600,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbpor" draft="contributed">Portsmouth</subdivision>
 			<subdivision type="gbpte" draft="contributed">Peterborough</subdivision>
 			<subdivision type="gbrdg" draft="contributed">Reading</subdivision>
+			<subdivision type="gbsct" draft="contributed">Uskoti</subdivision>
 			<subdivision type="gbshf" draft="contributed">Sheffield</subdivision>
 			<subdivision type="gbsth" draft="contributed">Southampton</subdivision>
 			<subdivision type="gbukm" draft="contributed">Ufalme wa Muungano</subdivision>
+			<subdivision type="gbwls" draft="contributed">Welisi</subdivision>
 			<subdivision type="gbyor" draft="contributed">York</subdivision>
 			<subdivision type="gbzet" draft="contributed">Visiwa vya Shetland</subdivision>
 			<subdivision type="geab" draft="contributed">Abkhazia</subdivision>
 			<subdivision type="getb" draft="contributed">Tbilisi</subdivision>
+			<subdivision type="ghaa" draft="contributed">Mkoa wa Greater Accra</subdivision>
+			<subdivision type="ghaf" draft="contributed">Mkoa wa Ahafo</subdivision>
+			<subdivision type="ghah" draft="contributed">Mkoa wa Ashanti</subdivision>
+			<subdivision type="ghbe" draft="contributed">Mkoa wa Bono Mashariki</subdivision>
+			<subdivision type="ghbo" draft="contributed">Mkoa wa Bono</subdivision>
+			<subdivision type="ghcp" draft="contributed">Mkoa wa Kati, Ghana</subdivision>
+			<subdivision type="ghep" draft="contributed">Mkoa wa Mashariki, Ghana</subdivision>
+			<subdivision type="ghnp" draft="contributed">Mkoa wa Kaskazini, Ghana</subdivision>
+			<subdivision type="ghot" draft="contributed">Mkoa wa Oti</subdivision>
+			<subdivision type="ghsv" draft="contributed">Mkoa wa Savannah</subdivision>
+			<subdivision type="ghtv" draft="contributed">Mkoa wa Volta</subdivision>
+			<subdivision type="ghue" draft="contributed">Mkoa wa Mashariki ya Juu</subdivision>
+			<subdivision type="ghuw" draft="contributed">Mkoa wa Magharibi ya Juu</subdivision>
+			<subdivision type="ghwn" draft="contributed">Mkoa wa Kaskazini Magharibi</subdivision>
+			<subdivision type="ghwp" draft="contributed">Mkoa wa Magharibi, Ghana</subdivision>
 			<subdivision type="gmb" draft="contributed">Banjul</subdivision>
 			<subdivision type="gnc" draft="contributed">Conakry</subdivision>
 			<subdivision type="gwbs" draft="contributed">Bisau</subdivision>
@@ -589,6 +672,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="idjt" draft="contributed">Jawa Tengah</subdivision>
 			<subdivision type="idjw" draft="contributed">Java</subdivision>
 			<subdivision type="idka" draft="contributed">Kalimantan</subdivision>
+			<subdivision type="idml" draft="contributed">Visiwa vya Maluku</subdivision>
+			<subdivision type="idpp" draft="contributed">Guinea Mpya ya Kiholanzi</subdivision>
 			<subdivision type="idsl" draft="contributed">Sulawesi</subdivision>
 			<subdivision type="idsm" draft="contributed">Sumatra</subdivision>
 			<subdivision type="idyo" draft="contributed">Yogyakarta</subdivision>
@@ -596,6 +681,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="iecn" draft="contributed">Wilaya ya Cavan</subdivision>
 			<subdivision type="ieco" draft="contributed">Wilaya ya Cork</subdivision>
 			<subdivision type="iecw" draft="contributed">Wilaya ya Carlow</subdivision>
+			<subdivision type="ied" draft="contributed">Wilaya ya Dublin</subdivision>
 			<subdivision type="iedl" draft="contributed">Wilaya ya Donegal</subdivision>
 			<subdivision type="ieg" draft="contributed">Wilaya ya Galway</subdivision>
 			<subdivision type="ieke" draft="contributed">Wilaya ya Kildare</subdivision>
@@ -652,8 +738,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inup" draft="contributed">Uttar Pradesh</subdivision>
 			<subdivision type="inut" draft="contributed">Uttarakhand</subdivision>
 			<subdivision type="inwb" draft="contributed">West Bengal</subdivision>
+			<subdivision type="ir11" draft="contributed">Mkoa wa Sistan na Baluchistan²</subdivision>
 			<subdivision type="ir13" draft="contributed">Mkoa wa Sistan na Baluchistan</subdivision>
+			<subdivision type="ir22" draft="contributed">Mkoa wa Hormozgan²</subdivision>
 			<subdivision type="ir23" draft="contributed">Mkoa wa Hormozgan</subdivision>
+			<subdivision type="isaku" draft="contributed">Akureyri</subdivision>
 			<subdivision type="it21" draft="contributed">Piemonte</subdivision>
 			<subdivision type="it23" draft="contributed">Valle d’Aosta</subdivision>
 			<subdivision type="it25" draft="contributed">Lombardia</subdivision>
@@ -726,6 +815,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ke02" draft="contributed">Wilaya ya Bomet</subdivision>
 			<subdivision type="ke03" draft="contributed">Wilaya ya Bungoma</subdivision>
 			<subdivision type="ke04" draft="contributed">Wilaya ya Busia, Kenya</subdivision>
+			<subdivision type="ke05" draft="contributed">Kaunti ya Elgeyo-Marakwet</subdivision>
 			<subdivision type="ke06" draft="contributed">Wilaya ya Embu</subdivision>
 			<subdivision type="ke07" draft="contributed">Wilaya ya Garissa</subdivision>
 			<subdivision type="ke08" draft="contributed">Wilaya ya Homa Bay</subdivision>
@@ -750,6 +840,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ke27" draft="contributed">Wilaya ya Migori</subdivision>
 			<subdivision type="ke28" draft="contributed">Wilaya ya Mombasa</subdivision>
 			<subdivision type="ke29" draft="contributed">Wilaya ya Murang’a</subdivision>
+			<subdivision type="ke30" draft="contributed">Kaunti ya Nairobi</subdivision>
 			<subdivision type="ke31" draft="contributed">Wilaya ya Nakuru</subdivision>
 			<subdivision type="ke32" draft="contributed">Wilaya ya Nandi</subdivision>
 			<subdivision type="ke33" draft="contributed">Wilaya ya Narok</subdivision>
@@ -804,15 +895,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ltut" draft="contributed">Wilaya ya Utena</subdivision>
 			<subdivision type="ltvl" draft="contributed">Wilaya ya Vilnius</subdivision>
 			<subdivision type="lvrix" draft="contributed">Riga</subdivision>
+			<subdivision type="lyba" draft="contributed">Benghazi</subdivision>
 			<subdivision type="macas" draft="contributed">Casablanca</subdivision>
 			<subdivision type="mafes" draft="contributed">Fes</subdivision>
+			<subdivision type="mamoh" draft="contributed">Mohammedia</subdivision>
+			<subdivision type="maouj" draft="contributed">Oujda</subdivision>
 			<subdivision type="marab" draft="contributed">Rabat</subdivision>
 			<subdivision type="masal" draft="contributed">Sale</subdivision>
+			<subdivision type="matng" draft="contributed">Tanger</subdivision>
 			<subdivision type="mdba" draft="contributed">Bălţi</subdivision>
 			<subdivision type="mdbd" draft="contributed">Bender</subdivision>
 			<subdivision type="mdcu" draft="contributed">Kishineu</subdivision>
 			<subdivision type="mhmaj" draft="contributed">Majuro</subdivision>
 			<subdivision type="mk85" draft="contributed">Skopje</subdivision>
+			<subdivision type="ml1" draft="contributed">Mkoa wa Kayes</subdivision>
+			<subdivision type="ml2" draft="contributed">Mkoa wa Koulikoro</subdivision>
+			<subdivision type="ml3" draft="contributed">Mkoa wa Sikasso</subdivision>
+			<subdivision type="ml4" draft="contributed">Mkoa wa Segou</subdivision>
+			<subdivision type="ml5" draft="contributed">Mkoa wa Mopti</subdivision>
+			<subdivision type="ml6" draft="contributed">Mkoa wa Timbuktu</subdivision>
+			<subdivision type="ml7" draft="contributed">Mkoa wa Gao</subdivision>
+			<subdivision type="ml8" draft="contributed">Mkoa wa Kidal</subdivision>
+			<subdivision type="ml9" draft="contributed">Mkoa wa Menaka</subdivision>
+			<subdivision type="ml10" draft="contributed">Mkoa wa Taoudenit</subdivision>
 			<subdivision type="mlbko" draft="contributed">Bamako</subdivision>
 			<subdivision type="mm16" draft="contributed">Dola la Rakhaing</subdivision>
 			<subdivision type="mn1" draft="contributed">Ulaanbaatar</subdivision>
@@ -823,6 +928,37 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mupu" draft="contributed">Port Louis</subdivision>
 			<subdivision type="muro" draft="contributed">Rodrigues</subdivision>
 			<subdivision type="mvmle" draft="contributed">Malé</subdivision>
+			<subdivision type="mwba" draft="contributed">Wilaya ya Balaka</subdivision>
+			<subdivision type="mwbl" draft="contributed">Wilaya ya Blantyre</subdivision>
+			<subdivision type="mwc" draft="contributed">Kanda ya Kati, Malawi</subdivision>
+			<subdivision type="mwck" draft="contributed">Wilaya ya Chikwawa</subdivision>
+			<subdivision type="mwcr" draft="contributed">Wilaya ya Chiradzulu</subdivision>
+			<subdivision type="mwct" draft="contributed">Wilaya ya Chitipa</subdivision>
+			<subdivision type="mwde" draft="contributed">Wilaya ya Dedza</subdivision>
+			<subdivision type="mwdo" draft="contributed">Wilaya ya Dowa</subdivision>
+			<subdivision type="mwkr" draft="contributed">Wilaya ya Karonga</subdivision>
+			<subdivision type="mwks" draft="contributed">Wilaya ya Kasungu</subdivision>
+			<subdivision type="mwli" draft="contributed">Wilaya ya Lilongwe</subdivision>
+			<subdivision type="mwlk" draft="contributed">Wilaya ya Likoma</subdivision>
+			<subdivision type="mwmc" draft="contributed">Wilaya ya Mchinji</subdivision>
+			<subdivision type="mwmg" draft="contributed">Wilaya ya Mangochi</subdivision>
+			<subdivision type="mwmh" draft="contributed">Wilaya ya Machinga</subdivision>
+			<subdivision type="mwmu" draft="contributed">Wilaya ya Mulanje</subdivision>
+			<subdivision type="mwmw" draft="contributed">Wilaya ya Mwanza, Malawi</subdivision>
+			<subdivision type="mwmz" draft="contributed">Wilaya ya Mzimba</subdivision>
+			<subdivision type="mwn" draft="contributed">Kanda ya Kaskazini, Malawi</subdivision>
+			<subdivision type="mwnb" draft="contributed">Wilaya ya Nkhata Bay</subdivision>
+			<subdivision type="mwne" draft="contributed">Wilaya ya Neno</subdivision>
+			<subdivision type="mwni" draft="contributed">Wilaya ya Ntchisi</subdivision>
+			<subdivision type="mwnk" draft="contributed">Wilaya ya Nkhotakota</subdivision>
+			<subdivision type="mwns" draft="contributed">Wilaya ya Nsanje</subdivision>
+			<subdivision type="mwnu" draft="contributed">Wilaya ya Ntcheu</subdivision>
+			<subdivision type="mwph" draft="contributed">Wilaya ya Phalombe</subdivision>
+			<subdivision type="mwru" draft="contributed">Wilaya ya Rumphi</subdivision>
+			<subdivision type="mws" draft="contributed">Kanda ya Kusini, Malawi</subdivision>
+			<subdivision type="mwsa" draft="contributed">Wilaya ya Salima</subdivision>
+			<subdivision type="mwth" draft="contributed">Wilaya ya Thyolo</subdivision>
+			<subdivision type="mwzo" draft="contributed">Wilaya ya Zomba</subdivision>
 			<subdivision type="mxagu" draft="contributed">Aguascalientes</subdivision>
 			<subdivision type="mxbcn" draft="contributed">Baja California</subdivision>
 			<subdivision type="mxbcs" draft="contributed">Baja California Sur</subdivision>
@@ -953,6 +1089,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="no20" draft="contributed">Finnmark</subdivision>
 			<subdivision type="no21" draft="contributed">Svalbard</subdivision>
 			<subdivision type="no22" draft="contributed">Jan Mayen</subdivision>
+			<subdivision type="no34" draft="contributed">Innlandet</subdivision>
 			<subdivision type="nr14" draft="contributed">Yaren</subdivision>
 			<subdivision type="ombu" draft="contributed">Al Buraimi</subdivision>
 			<subdivision type="omda" draft="contributed">Ad Dakhiliyah</subdivision>
@@ -1072,6 +1209,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="sdnr" draft="contributed">Mto Nile</subdivision>
 			<subdivision type="sdnw" draft="contributed">Nile nyeupe</subdivision>
 			<subdivision type="sdrs" draft="contributed">Bahari ya Shamu</subdivision>
+			<subdivision type="sdsi" draft="contributed">Sennar (Jimbo)</subdivision>
 			<subdivision type="seab" draft="contributed">Stockholms län</subdivision>
 			<subdivision type="seac" draft="contributed">Västerbottens län</subdivision>
 			<subdivision type="sebd" draft="contributed">Norrbottens län</subdivision>
@@ -1093,8 +1231,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="sex" draft="contributed">Gävleborgs län</subdivision>
 			<subdivision type="sey" draft="contributed">Västernorrlands län</subdivision>
 			<subdivision type="sez" draft="contributed">Jämtlands län</subdivision>
+			<subdivision type="shac" draft="contributed">Ascension</subdivision>
 			<subdivision type="shhl" draft="contributed">Saint Helena</subdivision>
 			<subdivision type="si213" draft="contributed">Ankaran</subdivision>
+			<subdivision type="sndb" draft="contributed">Mkoa wa Diourbel</subdivision>
+			<subdivision type="sndk" draft="contributed">Mkoa wa Dakar</subdivision>
+			<subdivision type="snfk" draft="contributed">Mkoa wa Fatick</subdivision>
+			<subdivision type="snka" draft="contributed">Mkoa wa Kaffrine</subdivision>
+			<subdivision type="snkd" draft="contributed">Mkoa wa Kolda</subdivision>
+			<subdivision type="snke" draft="contributed">Mkoa wa Kedougou</subdivision>
+			<subdivision type="snkl" draft="contributed">Mkoa wa Kaolack</subdivision>
+			<subdivision type="snlg" draft="contributed">Mkoa wa Louga</subdivision>
+			<subdivision type="snmt" draft="contributed">Mkoa wa Matam</subdivision>
+			<subdivision type="snse" draft="contributed">Mkoa wa Sedhiou</subdivision>
+			<subdivision type="snsl" draft="contributed">Mkoa wa Saint-Louis</subdivision>
+			<subdivision type="sntc" draft="contributed">Mkoa wa Tambacounda</subdivision>
+			<subdivision type="snth" draft="contributed">Mkoa wa Thies</subdivision>
+			<subdivision type="snzg" draft="contributed">Mkoa wa Ziguinchor</subdivision>
+			<subdivision type="sobn" draft="contributed">Banaadir</subdivision>
+			<subdivision type="soby" draft="contributed">Mkoa wa Bay</subdivision>
+			<subdivision type="soga" draft="contributed">Mkoa wa Galguduud</subdivision>
+			<subdivision type="somu" draft="contributed">Mkoa wa Mudug</subdivision>
+			<subdivision type="sonu" draft="contributed">Mkoa wa Nugal</subdivision>
+			<subdivision type="sosa" draft="contributed">Mkoa wa Sanaag</subdivision>
+			<subdivision type="soto" draft="contributed">Togdheer</subdivision>
 			<subdivision type="ssbn" draft="contributed">Kaskazini Bahr al Ghazal</subdivision>
 			<subdivision type="ssbw" draft="contributed">Bahr al Ghazal ya Kimagharibi</subdivision>
 			<subdivision type="ssec" draft="contributed">Mashariki Equatoria</subdivision>
@@ -1105,6 +1265,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ssuy" draft="contributed">Umoja</subdivision>
 			<subdivision type="sswr" draft="contributed">Warab</subdivision>
 			<subdivision type="tdnd" draft="contributed">N’Djamena</subdivision>
+			<subdivision type="tgc" draft="contributed">Mkoa wa Kati, Togo</subdivision>
+			<subdivision type="tgk" draft="contributed">Mkoa wa Kara, Togo</subdivision>
+			<subdivision type="tgm" draft="contributed">Mkoa wa Maritime, Togo</subdivision>
+			<subdivision type="tgp" draft="contributed">Mkoa wa Plateaux, Togo</subdivision>
+			<subdivision type="tgs" draft="contributed">Mkoa wa Savanes, Togo</subdivision>
 			<subdivision type="th10" draft="contributed">Bangkok</subdivision>
 			<subdivision type="th21" draft="contributed">Rayong</subdivision>
 			<subdivision type="tjdu" draft="contributed">Dushanbe</subdivision>
@@ -1190,6 +1355,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tr79" draft="contributed">Mkoa wa Kilis</subdivision>
 			<subdivision type="tr80" draft="contributed">Mkoa wa Osmaniye</subdivision>
 			<subdivision type="tr81" draft="contributed">Mkoa wa Düzce</subdivision>
+			<subdivision type="ttpos" draft="contributed">Port of Spain</subdivision>
+			<subdivision type="tttob" draft="contributed">Tobago</subdivision>
+			<subdivision type="tvfun" draft="contributed">Funafuti</subdivision>
 			<subdivision type="twkhh" draft="contributed">Kaohsiung</subdivision>
 			<subdivision type="twtpe" draft="contributed">Taipei</subdivision>
 			<subdivision type="tz01" draft="contributed">Mkoa wa Arusha</subdivision>
@@ -1240,6 +1408,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ug114" draft="contributed">Wilaya ya Lyantonde</subdivision>
 			<subdivision type="ug115" draft="contributed">Wilaya ya Mityana</subdivision>
 			<subdivision type="ug116" draft="contributed">Wilaya ya Lyantonde²</subdivision>
+			<subdivision type="ug117" draft="contributed">Wilaya ya Buikwe</subdivision>
+			<subdivision type="ug118" draft="contributed">Wilaya ya Bukomansimbi</subdivision>
+			<subdivision type="ug119" draft="contributed">Wilaya ya Butambala</subdivision>
+			<subdivision type="ug120" draft="contributed">Wilaya ya Buvuma</subdivision>
+			<subdivision type="ug121" draft="contributed">Wilaya ya Gomba</subdivision>
+			<subdivision type="ug122" draft="contributed">Wilaya ya Kalungu</subdivision>
+			<subdivision type="ug123" draft="contributed">Wilaya ya Kyankwanzi</subdivision>
+			<subdivision type="ug124" draft="contributed">Wilaya ya Lwengo</subdivision>
+			<subdivision type="ug125" draft="contributed">Wilaya ya Kyotera</subdivision>
 			<subdivision type="ug201" draft="contributed">Wilaya ya Bugiri</subdivision>
 			<subdivision type="ug202" draft="contributed">Wilaya ya Busia</subdivision>
 			<subdivision type="ug203" draft="contributed">Wilaya ya Iganga</subdivision>
@@ -1264,6 +1441,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ug222" draft="contributed">Wilaya ya Kaliro²</subdivision>
 			<subdivision type="ug223" draft="contributed">Wilaya ya Manafwa²</subdivision>
 			<subdivision type="ug224" draft="contributed">Wilaya ya Bukedea</subdivision>
+			<subdivision type="ug225" draft="contributed">Wilaya ya Bulambuli</subdivision>
+			<subdivision type="ug226" draft="contributed">Wilaya ya Buyende</subdivision>
+			<subdivision type="ug227" draft="contributed">Wilaya ya Kibuku</subdivision>
+			<subdivision type="ug228" draft="contributed">Wilaya ya Kween</subdivision>
+			<subdivision type="ug229" draft="contributed">Wilaya ya Luuka</subdivision>
+			<subdivision type="ug230" draft="contributed">Wilaya ya Namayingo</subdivision>
+			<subdivision type="ug231" draft="contributed">Wilaya ya Ngora</subdivision>
+			<subdivision type="ug232" draft="contributed">Wilaya ya Serere</subdivision>
+			<subdivision type="ug233" draft="contributed">Wilaya ya Butebo</subdivision>
+			<subdivision type="ug234" draft="contributed">Wilaya ya Namisindwa</subdivision>
 			<subdivision type="ug301" draft="contributed">Wilaya ya Adjumani</subdivision>
 			<subdivision type="ug302" draft="contributed">Wilaya ya Apac</subdivision>
 			<subdivision type="ug303" draft="contributed">Wilaya ya Arua</subdivision>
@@ -1284,6 +1471,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ug318" draft="contributed">Wilaya ya Kaabong²</subdivision>
 			<subdivision type="ug319" draft="contributed">Wilaya ya Amuru²</subdivision>
 			<subdivision type="ug321" draft="contributed">Wilaya ya Oyam</subdivision>
+			<subdivision type="ug322" draft="contributed">Wilaya ya Agago</subdivision>
+			<subdivision type="ug323" draft="contributed">Wilaya ya Alebtong</subdivision>
+			<subdivision type="ug324" draft="contributed">Wilaya ya Amudat</subdivision>
+			<subdivision type="ug325" draft="contributed">Wilaya ya Kole</subdivision>
+			<subdivision type="ug326" draft="contributed">Wilaya ya Lamwo</subdivision>
+			<subdivision type="ug327" draft="contributed">Wilaya ya Napak</subdivision>
+			<subdivision type="ug328" draft="contributed">Wilaya ya Nwoya</subdivision>
+			<subdivision type="ug329" draft="contributed">Wilaya ya Otuke</subdivision>
+			<subdivision type="ug330" draft="contributed">Wilaya ya Zombo</subdivision>
+			<subdivision type="ug331" draft="contributed">Wilaya ya Omoro</subdivision>
+			<subdivision type="ug332" draft="contributed">Wilaya ya Pakwach</subdivision>
+			<subdivision type="ug335" draft="contributed">Wilaya ya Karenga</subdivision>
+			<subdivision type="ug336" draft="contributed">Wilaya ya Madi-Okollo</subdivision>
+			<subdivision type="ug337" draft="contributed">Wilaya ya Obongi</subdivision>
 			<subdivision type="ug401" draft="contributed">Wilaya ya Bundibugyo</subdivision>
 			<subdivision type="ug402" draft="contributed">Wilaya ya Bushenyi</subdivision>
 			<subdivision type="ug403" draft="contributed">Wilaya ya Hoima</subdivision>
@@ -1303,11 +1504,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ug417" draft="contributed">Wilaya ya Isingiro</subdivision>
 			<subdivision type="ug418" draft="contributed">Wilaya ya Isingiro²</subdivision>
 			<subdivision type="ug419" draft="contributed">Wilaya ya Kiruhura</subdivision>
+			<subdivision type="ug420" draft="contributed">Wilaya ya Buhweju</subdivision>
+			<subdivision type="ug422" draft="contributed">Wilaya ya Kyegegwa</subdivision>
+			<subdivision type="ug423" draft="contributed">Wilaya ya Mitooma</subdivision>
+			<subdivision type="ug424" draft="contributed">Wilaya ya Ntoroko</subdivision>
+			<subdivision type="ug425" draft="contributed">Wilaya ya Rubirizi</subdivision>
+			<subdivision type="ug426" draft="contributed">Wilaya ya Sheema</subdivision>
+			<subdivision type="ug427" draft="contributed">Wilaya ya Kagadi</subdivision>
+			<subdivision type="ug428" draft="contributed">Wilaya ya Kakumiro</subdivision>
+			<subdivision type="ug429" draft="contributed">Wilaya ya Rubanda</subdivision>
+			<subdivision type="ug430" draft="contributed">Wilaya ya Bunyangabu</subdivision>
+			<subdivision type="ug431" draft="contributed">Wilaya ya Rukiga</subdivision>
+			<subdivision type="ug433" draft="contributed">Wilaya ya Kazo</subdivision>
+			<subdivision type="ug434" draft="contributed">Wilaya ya Kitagwenda</subdivision>
+			<subdivision type="ug435" draft="contributed">Wilaya ya Rwampara</subdivision>
 			<subdivision type="ugc" draft="contributed">Mkoa wa Kati</subdivision>
 			<subdivision type="uge" draft="contributed">Mkoa wa Mashariki</subdivision>
 			<subdivision type="ugn" draft="contributed">Mkoa wa Kaskazini</subdivision>
 			<subdivision type="ugw" draft="contributed">Mkoa wa Magharibi</subdivision>
 			<subdivision type="um76" draft="contributed">Navassa</subdivision>
+			<subdivision type="um79" draft="contributed">Kisiwa cha Wake</subdivision>
 			<subdivision type="usak" draft="contributed">Alaska</subdivision>
 			<subdivision type="usal" draft="contributed">Alabama</subdivision>
 			<subdivision type="usar" draft="contributed">Arkansas</subdivision>
@@ -1452,11 +1668,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="yeta" draft="contributed">Wilaya ya Taizz</subdivision>
 			<subdivision type="zaec" draft="contributed">Rasi ya Mashariki</subdivision>
 			<subdivision type="zafs" draft="contributed">Dola Huru</subdivision>
-			<subdivision type="zagt" draft="contributed">Gauteng</subdivision>
+			<subdivision type="zagp" draft="contributed">Gauteng</subdivision>
+			<subdivision type="zakzn" draft="contributed">KwaZulu-Natal</subdivision>
 			<subdivision type="zalp" draft="contributed">Limpopo</subdivision>
 			<subdivision type="zamp" draft="contributed">Mpumalanga</subdivision>
 			<subdivision type="zanc" draft="contributed">Rasi ya Kaskazini</subdivision>
-			<subdivision type="zanl" draft="contributed">KwaZulu-Natal</subdivision>
 			<subdivision type="zanw" draft="contributed">Kaskazini-Magharibi</subdivision>
 			<subdivision type="zawc" draft="contributed">Rasi ya Magharibi</subdivision>
 			<subdivision type="zm01" draft="contributed">Mkoa wa Magharibi</subdivision>

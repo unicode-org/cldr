@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -14,7 +14,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<subdivisions>
 			<subdivision type="ad02" draft="contributed">קאנילו</subdivision>
 			<subdivision type="ad03" draft="contributed">אנקאם</subdivision>
+			<subdivision type="ad05" draft="contributed">אורדינו</subdivision>
 			<subdivision type="ad06" draft="contributed">סן ג׳וליה דה לוריה</subdivision>
+			<subdivision type="ad07" draft="contributed">אנדורה לה ולה</subdivision>
 			<subdivision type="aeaj" draft="contributed">עג׳מאן</subdivision>
 			<subdivision type="aeaz" draft="contributed">אבו דאבי</subdivision>
 			<subdivision type="aedu" draft="contributed">דובאי</subdivision>
@@ -22,15 +24,49 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="aerk" draft="contributed">ראס אל-ח׳ימה</subdivision>
 			<subdivision type="aesh" draft="contributed">שארג׳ה</subdivision>
 			<subdivision type="aeuq" draft="contributed">אום אל-קיוין</subdivision>
+			<subdivision type="afbal" draft="contributed">בלח׳</subdivision>
+			<subdivision type="afbam" draft="contributed">באמיאן</subdivision>
+			<subdivision type="afbdg" draft="contributed">באדגיס</subdivision>
+			<subdivision type="afbds" draft="contributed">בדח׳שאן</subdivision>
+			<subdivision type="afbgl" draft="contributed">בגלאן</subdivision>
+			<subdivision type="afday" draft="contributed">דאיכונדי</subdivision>
+			<subdivision type="affra" draft="contributed">פראה</subdivision>
+			<subdivision type="affyb" draft="contributed">פאריאב</subdivision>
+			<subdivision type="afgha" draft="contributed">ע׳זנה</subdivision>
+			<subdivision type="afgho" draft="contributed">גור</subdivision>
 			<subdivision type="afhel" draft="contributed">מחוז הלמן</subdivision>
+			<subdivision type="afher" draft="contributed">הראת</subdivision>
+			<subdivision type="afjow" draft="contributed">ג׳וזג׳אן</subdivision>
+			<subdivision type="afkab" draft="contributed">קאבול</subdivision>
 			<subdivision type="afkan" draft="contributed">מחוז קנדהאר</subdivision>
+			<subdivision type="afkap" draft="contributed">כאפיסא</subdivision>
 			<subdivision type="afkdz" draft="contributed">קונדוז</subdivision>
+			<subdivision type="afkho" draft="contributed">ח׳וסת</subdivision>
+			<subdivision type="afknr" draft="contributed">כונר</subdivision>
+			<subdivision type="aflag" draft="contributed">לגמאן</subdivision>
 			<subdivision type="aflog" draft="contributed">לוגר</subdivision>
+			<subdivision type="afnan" draft="contributed">ננגרהאר</subdivision>
+			<subdivision type="afnim" draft="contributed">נימרוז</subdivision>
+			<subdivision type="afnur" draft="contributed">נורסתאן</subdivision>
+			<subdivision type="afpan" draft="contributed">פנג׳שיר</subdivision>
+			<subdivision type="afpar" draft="contributed">פרוואן</subdivision>
+			<subdivision type="afpia" draft="contributed">פכתיא</subdivision>
+			<subdivision type="afpka" draft="contributed">פכתיכא</subdivision>
+			<subdivision type="afsam" draft="contributed">סמנגאן</subdivision>
+			<subdivision type="afsar" draft="contributed">סר-י פול</subdivision>
+			<subdivision type="aftak" draft="contributed">תח׳אר</subdivision>
+			<subdivision type="afuru" draft="contributed">אורוזגאן</subdivision>
+			<subdivision type="afwar" draft="contributed">מיידאן ורדכ</subdivision>
+			<subdivision type="afzab" draft="contributed">זאבול</subdivision>
 			<subdivision type="ag05" draft="contributed">קהילת סנט מרי</subdivision>
 			<subdivision type="ag10" draft="contributed">ברבודה</subdivision>
 			<subdivision type="ag11" draft="contributed">רדונדה</subdivision>
 			<subdivision type="al05" draft="contributed">ג׳ירוקסטרה</subdivision>
+			<subdivision type="al07" draft="contributed">מחוז קוקס</subdivision>
+			<subdivision type="al12" draft="contributed">ולורה</subdivision>
 			<subdivision type="amer" draft="contributed">ירוואן</subdivision>
+			<subdivision type="amgr" draft="contributed">מחוז גגהרקוניק</subdivision>
+			<subdivision type="amkt" draft="contributed">מחוז קוטאיק</subdivision>
 			<subdivision type="aocab" draft="contributed">קבינדה</subdivision>
 			<subdivision type="ara" draft="contributed">סלטה</subdivision>
 			<subdivision type="arb" draft="contributed">בואנוס איירס</subdivision>
@@ -73,11 +109,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="autas" draft="contributed">טסמניה</subdivision>
 			<subdivision type="auvic" draft="contributed">ויקטוריה</subdivision>
 			<subdivision type="auwa" draft="contributed">אוסטרליה המערבית</subdivision>
+			<subdivision type="azabs" draft="contributed">אזור אבשרון</subdivision>
 			<subdivision type="azba" draft="contributed">באקו</subdivision>
 			<subdivision type="azbey" draft="contributed">ביילגאן</subdivision>
+			<subdivision type="azfuz" draft="contributed">מחוז פיזולי</subdivision>
 			<subdivision type="azga" draft="contributed">גנג׳ה</subdivision>
 			<subdivision type="azgor" draft="contributed">גורנבוי</subdivision>
 			<subdivision type="azlan" draft="contributed">לנקראן</subdivision>
+			<subdivision type="azler" draft="contributed">מחוז לריק</subdivision>
 			<subdivision type="azmi" draft="contributed">מיגאצ׳ביר</subdivision>
 			<subdivision type="aznv" draft="contributed">נחיצ׳יבאן</subdivision>
 			<subdivision type="aznx" draft="contributed">נחצ׳יבאן</subdivision>
@@ -96,7 +135,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bb02" draft="contributed">סנט אנדרו</subdivision>
 			<subdivision type="bb04" draft="contributed">סנט ג׳יימס, ברבדוס</subdivision>
 			<subdivision type="bb08" draft="contributed">סיינט מייקל</subdivision>
+			<subdivision type="bd15" draft="contributed">מחוז פרידפור</subdivision>
+			<subdivision type="bda" draft="contributed">בורישל</subdivision>
 			<subdivision type="bebru" draft="contributed">בריסל</subdivision>
+			<subdivision type="bevan" draft="contributed">פרובינציית אנטוורפן</subdivision>
 			<subdivision type="bevbr" draft="contributed">ברבנט הפלמית</subdivision>
 			<subdivision type="bevlg" draft="contributed">פלנדריה</subdivision>
 			<subdivision type="bevli" draft="contributed">לימבורג (בלגיה)</subdivision>
@@ -105,10 +147,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bewal" draft="contributed">ולוניה</subdivision>
 			<subdivision type="bewbr" draft="contributed">ברבנט הוולונית</subdivision>
 			<subdivision type="bewht" draft="contributed">אנו</subdivision>
+			<subdivision type="bewlg" draft="contributed">לייז׳</subdivision>
 			<subdivision type="bewlx" draft="contributed">לוקסמבורג</subdivision>
 			<subdivision type="bf01" draft="contributed">מחוז בוקל דו מואון</subdivision>
 			<subdivision type="bf05" draft="contributed">מחוז מרכז-צפון (בורקינה פאסו)</subdivision>
+			<subdivision type="bf08" draft="contributed">מחוז המזרח של בורקינה פאסו</subdivision>
 			<subdivision type="bf09" draft="contributed">מחוז אוט בסינס</subdivision>
+			<subdivision type="bftap" draft="contributed">נפת טפואה</subdivision>
 			<subdivision type="bg01" draft="contributed">מחוז בלגואבגרד</subdivision>
 			<subdivision type="bg02" draft="contributed">מחוז בורגס</subdivision>
 			<subdivision type="bg03" draft="contributed">מחוז וארנה</subdivision>
@@ -136,11 +181,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bg26" draft="contributed">מחוז חאסקובו</subdivision>
 			<subdivision type="bg27" draft="contributed">מחוז שומן</subdivision>
 			<subdivision type="bg28" draft="contributed">מחוז ימבול</subdivision>
+			<subdivision type="bh13" draft="contributed">מחוז הבירה</subdivision>
+			<subdivision type="bh14" draft="contributed">מחוז הדרום</subdivision>
+			<subdivision type="bh17" draft="contributed">מחוז הצפון</subdivision>
+			<subdivision type="bjak" draft="contributed">אטאקורה</subdivision>
+			<subdivision type="bjal" draft="contributed">אליבורי</subdivision>
+			<subdivision type="bjmo" draft="contributed">מחוז מונו</subdivision>
 			<subdivision type="bjzo" draft="contributed">מחוז זאו</subdivision>
 			<subdivision type="bnbe" draft="contributed">בלייט</subdivision>
 			<subdivision type="bnbm" draft="contributed">ברוניי ומוארה</subdivision>
 			<subdivision type="bnte" draft="contributed">טמבורונג</subdivision>
 			<subdivision type="bntu" draft="contributed">טוטונג</subdivision>
+			<subdivision type="bob" draft="contributed">מחוז בני</subdivision>
+			<subdivision type="boc" draft="contributed">מחוז קוצ׳במבה</subdivision>
+			<subdivision type="boh" draft="contributed">מחוז צ׳וקיסאקה</subdivision>
+			<subdivision type="bol" draft="contributed">מחוז לה פאס</subdivision>
+			<subdivision type="bon" draft="contributed">מחוז פנדו</subdivision>
+			<subdivision type="boo" draft="contributed">מחוז אורורו</subdivision>
+			<subdivision type="bop" draft="contributed">מחוז פוטוסי</subdivision>
+			<subdivision type="bos" draft="contributed">מחלקת סנטה קרוז</subdivision>
+			<subdivision type="bot" draft="contributed">מחוז טאריחה</subdivision>
 			<subdivision type="bqbo" draft="contributed">בונייר</subdivision>
 			<subdivision type="bqsa" draft="contributed">סאבא</subdivision>
 			<subdivision type="bqse" draft="contributed">סנט אוסטטיוס</subdivision>
@@ -172,12 +232,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="brsp" draft="contributed">סאו פאולו</subdivision>
 			<subdivision type="brto" draft="contributed">טוקנטינס</subdivision>
 			<subdivision type="bsbi" draft="contributed">בימיני</subdivision>
+			<subdivision type="bsco" draft="contributed">מרכז אבאקו</subdivision>
 			<subdivision type="bsfp" draft="contributed">פריפורט</subdivision>
 			<subdivision type="bsin" draft="contributed">אינגואה</subdivision>
 			<subdivision type="bsli" draft="contributed">לונג איילנד (בהאמה)</subdivision>
 			<subdivision type="bsmc" draft="contributed">קי מנגרוב</subdivision>
 			<subdivision type="bsns" draft="contributed">צפון אנדרוס</subdivision>
 			<subdivision type="bssa" draft="contributed">דרום אנדרוס</subdivision>
+			<subdivision type="bt12" draft="contributed">צ׳וקה</subdivision>
+			<subdivision type="bt21" draft="contributed">מחוז טסירנג</subdivision>
+			<subdivision type="bt23" draft="contributed">פונקה</subdivision>
+			<subdivision type="bt32" draft="contributed">טונגסה</subdivision>
+			<subdivision type="bt41" draft="contributed">טשיגנג</subdivision>
 			<subdivision type="bwfr" draft="contributed">פרנסיסטאון</subdivision>
 			<subdivision type="bwga" draft="contributed">גאבורון</subdivision>
 			<subdivision type="bybr" draft="contributed">ברסט</subdivision>
@@ -202,10 +268,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cayt" draft="contributed">יוקון</subdivision>
 			<subdivision type="cdbc" draft="contributed">קונגו סנטרל</subdivision>
 			<subdivision type="cdbu" draft="contributed">מחוז אואלה תחתית</subdivision>
+			<subdivision type="cdeq" draft="contributed">מחוז אקווטור</subdivision>
 			<subdivision type="cdke" draft="contributed">קסאי-אוריינטל</subdivision>
+			<subdivision type="cdkl" draft="contributed">מחוז קווילו</subdivision>
 			<subdivision type="cdkn" draft="contributed">קינשאסה</subdivision>
 			<subdivision type="cdma" draft="contributed">מניימה</subdivision>
+			<subdivision type="cdnk" draft="contributed">קיוו צפון</subdivision>
+			<subdivision type="cfbb" draft="contributed">מחוז במינגי-במגוראן</subdivision>
 			<subdivision type="cfbgf" draft="contributed">בנגי</subdivision>
+			<subdivision type="cfuk" draft="contributed">מחוז אואקה</subdivision>
+			<subdivision type="cfvk" draft="contributed">מחוז ווקגה</subdivision>
 			<subdivision type="cg15" draft="contributed">קובט מערב</subdivision>
 			<subdivision type="cgbzv" draft="contributed">ברזוויל</subdivision>
 			<subdivision type="chag" draft="contributed">ארגאו</subdivision>
@@ -235,15 +307,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="chzg" draft="contributed">צוג</subdivision>
 			<subdivision type="chzh" draft="contributed">ציריך</subdivision>
 			<subdivision type="ciab" draft="contributed">אביג׳אן</subdivision>
+			<subdivision type="cisv" draft="contributed">מחוז סוואננס</subdivision>
+			<subdivision type="civb" draft="contributed">מחוז ואלי דו בנדמה</subdivision>
 			<subdivision type="ciym" draft="contributed">יאמוסוקרו</subdivision>
 			<subdivision type="clai" draft="contributed">אייסן</subdivision>
 			<subdivision type="clan" draft="contributed">אנטופגסטה</subdivision>
+			<subdivision type="clap" draft="contributed">אריקה ופרינאקוטה</subdivision>
 			<subdivision type="clar" draft="contributed">אראוקניה</subdivision>
+			<subdivision type="clat" draft="contributed">מחוז אטקמה</subdivision>
 			<subdivision type="clbi" draft="contributed">ביוביו</subdivision>
+			<subdivision type="clco" draft="contributed">קוקימבו</subdivision>
+			<subdivision type="clli" draft="contributed">או׳היגינס</subdivision>
 			<subdivision type="clll" draft="contributed">לוס לאגוס</subdivision>
 			<subdivision type="cllr" draft="contributed">לוס ריוס</subdivision>
 			<subdivision type="clma" draft="contributed">מגאיאנס ואנטארקטיקה צ׳ילנה</subdivision>
 			<subdivision type="clml" draft="contributed">מאולה</subdivision>
+			<subdivision type="clnb" draft="contributed">ניובלה</subdivision>
 			<subdivision type="clrm" draft="contributed">מטרופולין סנטיאגו</subdivision>
 			<subdivision type="clta" draft="contributed">טרפקה</subdivision>
 			<subdivision type="clvs" draft="contributed">ולפראיסו (מחוז)</subdivision>
@@ -332,6 +411,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="crsj" draft="contributed">סן חוסה</subdivision>
 			<subdivision type="cu04" draft="contributed">מטנזס</subdivision>
 			<subdivision type="cu05" draft="contributed">ויה קלרה</subdivision>
+			<subdivision type="cu13" draft="contributed">סנטיאגו דה קובה</subdivision>
 			<subdivision type="cu99" draft="contributed">איסלה דה לה חובנטוד</subdivision>
 			<subdivision type="cvb" draft="contributed">בארלאוונטו</subdivision>
 			<subdivision type="cvca" draft="contributed">סנטה קטרינה</subdivision>
@@ -440,20 +520,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="desn" draft="contributed">סקסוניה</subdivision>
 			<subdivision type="dest" draft="contributed">סקסוניה-אנהלט</subdivision>
 			<subdivision type="deth" draft="contributed">תורינגיה</subdivision>
+			<subdivision type="djas" draft="contributed">עלי סביח</subdivision>
 			<subdivision type="djdj" draft="contributed">ג׳יבוטי</subdivision>
+			<subdivision type="djob" draft="contributed">מחוז אובוק</subdivision>
+			<subdivision type="djta" draft="contributed">טאג׳ורה</subdivision>
 			<subdivision type="dk85" draft="contributed">קטגוריה:שלן</subdivision>
+			<subdivision type="do01" draft="contributed">דיסטריטו נסיונאל</subdivision>
 			<subdivision type="do25" draft="contributed">סנטיאגו</subdivision>
 			<subdivision type="dz01" draft="contributed">מחוז אדראר</subdivision>
 			<subdivision type="dz02" draft="contributed">מחוז א-שלף</subdivision>
+			<subdivision type="dz28" draft="contributed">מחוז מסילה</subdivision>
 			<subdivision type="dz37" draft="contributed">מחוז טינדוף</subdivision>
 			<subdivision type="dz43" draft="contributed">מילה, אלג׳יריה</subdivision>
 			<subdivision type="eca" draft="contributed">אסואי</subdivision>
 			<subdivision type="ecc" draft="contributed">מחוז קארצ׳י</subdivision>
 			<subdivision type="ece" draft="contributed">מחוז אסמרלדס</subdivision>
+			<subdivision type="ecg" draft="contributed">מחוז גואייס</subdivision>
+			<subdivision type="ech" draft="contributed">מחוז צ׳ימבורסו</subdivision>
 			<subdivision type="eci" draft="contributed">מחוז אימבאבורה</subdivision>
+			<subdivision type="ecl" draft="contributed">מחוז לוחה</subdivision>
 			<subdivision type="ecm" draft="contributed">מחוז מנבי</subdivision>
 			<subdivision type="ecn" draft="contributed">מחוז נפו</subdivision>
+			<subdivision type="eco" draft="contributed">מחוז אל אורו</subdivision>
+			<subdivision type="ecs" draft="contributed">מחוז מורונה-סנטיאגו</subdivision>
+			<subdivision type="ect" draft="contributed">מחוז טונגוראווה</subdivision>
 			<subdivision type="ecu" draft="contributed">מחוז סוקומביוס</subdivision>
+			<subdivision type="ecw" draft="contributed">מחוז גלאפגוס</subdivision>
 			<subdivision type="ee37" draft="contributed">האריו</subdivision>
 			<subdivision type="ee39" draft="contributed">היו</subdivision>
 			<subdivision type="ee44" draft="contributed">אידה-וירו</subdivision>
@@ -476,6 +568,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="egbns" draft="contributed">מחוז בני סויף</subdivision>
 			<subdivision type="egc" draft="contributed">מחוז קהיר</subdivision>
 			<subdivision type="egdk" draft="contributed">א-דקהלייה</subdivision>
+			<subdivision type="egdt" draft="contributed">דמיאט</subdivision>
 			<subdivision type="egfym" draft="contributed">אל-פיום</subdivision>
 			<subdivision type="eggh" draft="contributed">מחוז אל-ע׳רביה</subdivision>
 			<subdivision type="eggz" draft="contributed">אל-גיזה</subdivision>
@@ -494,6 +587,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="egsin" draft="contributed">צפון סיני</subdivision>
 			<subdivision type="egsuz" draft="contributed">סואץ</subdivision>
 			<subdivision type="egwad" draft="contributed">מחוז אל-ואדי אל-ג׳דיד</subdivision>
+			<subdivision type="erdu" draft="contributed">מחוז הדרום</subdivision>
 			<subdivision type="esab" draft="contributed">מחוז אלבסטה</subdivision>
 			<subdivision type="esan" draft="contributed">אנדלוסיה</subdivision>
 			<subdivision type="esar" draft="contributed">אראגון</subdivision>
@@ -505,27 +599,40 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="esce" draft="contributed">סאוטה</subdivision>
 			<subdivision type="escl" draft="contributed">קסטיליה ולאון</subdivision>
 			<subdivision type="escm" draft="contributed">קסטיליה-לה מנצ׳ה</subdivision>
+			<subdivision type="escn" draft="contributed">האיים הקנריים</subdivision>
 			<subdivision type="escs" draft="contributed">מחוז קאסטיון</subdivision>
 			<subdivision type="esct" draft="contributed">קטלוניה</subdivision>
 			<subdivision type="esex" draft="contributed">אקסטרמדורה</subdivision>
 			<subdivision type="esga" draft="contributed">גליסיה</subdivision>
+			<subdivision type="esgc" draft="contributed">מחוז לאס פאלמס</subdivision>
 			<subdivision type="esgi" draft="contributed">מחוז ז׳ירונה</subdivision>
+			<subdivision type="esgr" draft="contributed">פרובינציית גרנדה</subdivision>
 			<subdivision type="esib" draft="contributed">האיים הבלאריים</subdivision>
+			<subdivision type="esj" draft="contributed">מחוז חאאן</subdivision>
 			<subdivision type="esle" draft="contributed">תבנית:הקהילות האוטונומיות של ספרד</subdivision>
 			<subdivision type="eslo" draft="contributed">לה ריוחה</subdivision>
+			<subdivision type="eslu" draft="contributed">מחוז לוגו</subdivision>
+			<subdivision type="esm" draft="contributed">מחוז מדריד</subdivision>
+			<subdivision type="esma" draft="contributed">מחוז מאלגה</subdivision>
 			<subdivision type="esmc" draft="contributed">מורסיה</subdivision>
 			<subdivision type="esmd" draft="contributed">מדריד</subdivision>
 			<subdivision type="esml" draft="contributed">מלייה</subdivision>
 			<subdivision type="esna" draft="contributed">נווארה²</subdivision>
 			<subdivision type="esnc" draft="contributed">נווארה</subdivision>
+			<subdivision type="esp" draft="contributed">פלנסיה</subdivision>
 			<subdivision type="espm" draft="contributed">האיים הבלאריים²</subdivision>
 			<subdivision type="espv" draft="contributed">חבל הבסקים</subdivision>
 			<subdivision type="esri" draft="contributed">לה ריוחה²</subdivision>
 			<subdivision type="ess" draft="contributed">קנטבריה²</subdivision>
+			<subdivision type="essa" draft="contributed">מחוז סלמנקה</subdivision>
+			<subdivision type="esss" draft="contributed">גיפוסקואה</subdivision>
 			<subdivision type="est" draft="contributed">מחוז טרגונה</subdivision>
+			<subdivision type="este" draft="contributed">מחוז טרואל</subdivision>
+			<subdivision type="estf" draft="contributed">פרובינציית סנטה קרוס דה טנריפה</subdivision>
 			<subdivision type="esto" draft="contributed">פרובינציית טולדו</subdivision>
 			<subdivision type="esvc" draft="contributed">ולנסיה</subdivision>
 			<subdivision type="esz" draft="contributed">מחוז סרגוסה</subdivision>
+			<subdivision type="esza" draft="contributed">מחוז זמורה</subdivision>
 			<subdivision type="etaa" draft="contributed">אדיס אבבה</subdivision>
 			<subdivision type="etaf" draft="contributed">עפר</subdivision>
 			<subdivision type="etam" draft="contributed">אמהרה</subdivision>
@@ -538,14 +645,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="etso" draft="contributed">סומלי</subdivision>
 			<subdivision type="etti" draft="contributed">תיגראי</subdivision>
 			<subdivision type="fi02" draft="contributed">דרום קרליה</subdivision>
+			<subdivision type="fi03" draft="contributed">אוסטרובוטניה הדרומית</subdivision>
+			<subdivision type="fi04" draft="contributed">סאבו הדרומית</subdivision>
 			<subdivision type="fi05" draft="contributed">קינואו</subdivision>
+			<subdivision type="fi06" draft="contributed">קאנטה-המה</subdivision>
 			<subdivision type="fi07" draft="contributed">אוסטרובוטניה המרכזית</subdivision>
+			<subdivision type="fi08" draft="contributed">מרכז-פינלנד</subdivision>
+			<subdivision type="fi09" draft="contributed">קימנלאקסו</subdivision>
+			<subdivision type="fi10" draft="contributed">לפלנד</subdivision>
+			<subdivision type="fi11" draft="contributed">פירקאנמה</subdivision>
 			<subdivision type="fi12" draft="contributed">אוסטרובוטניה</subdivision>
 			<subdivision type="fi13" draft="contributed">צפון קרליה</subdivision>
 			<subdivision type="fi14" draft="contributed">אוסטרובוטניה הצפונית</subdivision>
 			<subdivision type="fi15" draft="contributed">סאבו הצפונית</subdivision>
+			<subdivision type="fi17" draft="contributed">סאטקונטה</subdivision>
 			<subdivision type="fi18" draft="contributed">אוסימה</subdivision>
+			<subdivision type="fi19" draft="contributed">דרום-מערב פינלנד</subdivision>
+			<subdivision type="fj03" draft="contributed">קקאודרווה</subdivision>
 			<subdivision type="fjr" draft="contributed">רוטומה</subdivision>
+			<subdivision type="fmtrk" draft="contributed">צ׳ואוק</subdivision>
 			<subdivision type="fr01" draft="contributed">אן</subdivision>
 			<subdivision type="fr02" draft="contributed">אן²</subdivision>
 			<subdivision type="fr2a" draft="contributed">קורסיקה הדרומית</subdivision>
@@ -565,7 +683,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr15" draft="contributed">קנטל</subdivision>
 			<subdivision type="fr16" draft="contributed">שראנט</subdivision>
 			<subdivision type="fr17" draft="contributed">השראנט הימי</subdivision>
+			<subdivision type="fr18" draft="contributed">שר (מחוז)</subdivision>
 			<subdivision type="fr19" draft="contributed">קורז</subdivision>
+			<subdivision type="fr20r" draft="contributed">קורסיקה</subdivision>
 			<subdivision type="fr21" draft="contributed">קוט ד׳ור</subdivision>
 			<subdivision type="fr22" draft="contributed">קוט-ד׳ארמור</subdivision>
 			<subdivision type="fr23" draft="contributed">קרז</subdivision>
@@ -620,7 +740,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr72" draft="contributed">סארת</subdivision>
 			<subdivision type="fr73" draft="contributed">סבואה</subdivision>
 			<subdivision type="fr74" draft="contributed">סבואה עילית</subdivision>
-			<subdivision type="fr75" draft="contributed">פריז</subdivision>
+			<subdivision type="fr75c" draft="contributed">פריז</subdivision>
 			<subdivision type="fr76" draft="contributed">סן-מריטים</subdivision>
 			<subdivision type="fr77" draft="contributed">סן ומארן</subdivision>
 			<subdivision type="fr78" draft="contributed">איוולין</subdivision>
@@ -628,6 +748,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr80" draft="contributed">סום</subdivision>
 			<subdivision type="fr81" draft="contributed">טארן</subdivision>
 			<subdivision type="fr82" draft="contributed">טארן וגארון</subdivision>
+			<subdivision type="fr83" draft="contributed">ואר (מחוז)</subdivision>
 			<subdivision type="fr84" draft="contributed">ווקלוז</subdivision>
 			<subdivision type="fr85" draft="contributed">ונדה</subdivision>
 			<subdivision type="fr86" draft="contributed">ויין</subdivision>
@@ -640,10 +761,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr93" draft="contributed">סן-סן-דני</subdivision>
 			<subdivision type="fr94" draft="contributed">עמק המארן</subdivision>
 			<subdivision type="fr95" draft="contributed">עמק האואז</subdivision>
+			<subdivision type="fr971" draft="contributed">גוואדלופ</subdivision>
 			<subdivision type="frara" draft="contributed">אוברן-רון-אלפ</subdivision>
 			<subdivision type="frbfc" draft="contributed">בורגון-פראנש-קונטה</subdivision>
 			<subdivision type="frbre" draft="contributed">ברטאן</subdivision>
-			<subdivision type="frcor" draft="contributed">קורסיקה</subdivision>
 			<subdivision type="frcvl" draft="contributed">סאנטר-עמק הלואר</subdivision>
 			<subdivision type="frges" draft="contributed">גראנד אסט</subdivision>
 			<subdivision type="frhdf" draft="contributed">או-דה-פראנס</subdivision>
@@ -654,10 +775,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="frpac" draft="contributed">פרובאנס-אלפ-קוט ד׳אזור</subdivision>
 			<subdivision type="frpdl" draft="contributed">פיי דה לה לואר</subdivision>
 			<subdivision type="ga1" draft="contributed">אסטואר</subdivision>
+			<subdivision type="ga2" draft="contributed">אוט-אוגואה</subdivision>
+			<subdivision type="ga4" draft="contributed">מחוז נגוני</subdivision>
+			<subdivision type="ga5" draft="contributed">מחוז ניאנגה</subdivision>
+			<subdivision type="ga6" draft="contributed">אוגואה-איווינדו</subdivision>
+			<subdivision type="ga7" draft="contributed">אוגואה-לולו</subdivision>
+			<subdivision type="ga9" draft="contributed">וולו-נטם</subdivision>
+			<subdivision type="gbabd" draft="contributed">אברדינשייר</subdivision>
 			<subdivision type="gbabe" draft="contributed">אברדין</subdivision>
 			<subdivision type="gbagb" draft="contributed">ארגייל וביוט</subdivision>
 			<subdivision type="gbagy" draft="contributed">אנגלסי</subdivision>
 			<subdivision type="gbans" draft="contributed">אנגוס</subdivision>
+			<subdivision type="gbbas" draft="contributed">באת׳ וצפון מזרח סומרסט</subdivision>
 			<subdivision type="gbbdg" draft="contributed">בארקינג ודאגנהאם</subdivision>
 			<subdivision type="gbben" draft="contributed">ברנט</subdivision>
 			<subdivision type="gbbex" draft="contributed">בקסלי</subdivision>
@@ -665,6 +794,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbbkm" draft="contributed">בקינגהאמשייר</subdivision>
 			<subdivision type="gbbmh" draft="contributed">בורנמות׳</subdivision>
 			<subdivision type="gbbne" draft="contributed">בארנט</subdivision>
+			<subdivision type="gbbnh" draft="contributed">ברייטון והוב</subdivision>
 			<subdivision type="gbbol" draft="contributed">בולטון</subdivision>
 			<subdivision type="gbbpl" draft="contributed">בלקפול</subdivision>
 			<subdivision type="gbbry" draft="contributed">ברומלי</subdivision>
@@ -689,12 +819,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbeal" draft="contributed">אילינג</subdivision>
 			<subdivision type="gbeaw" draft="contributed">אנגליה וויילס</subdivision>
 			<subdivision type="gbedh" draft="contributed">אדינבורו</subdivision>
+			<subdivision type="gbels" draft="contributed">ההיברידים החיצוניים</subdivision>
 			<subdivision type="gbenf" draft="contributed">אנפילד</subdivision>
+			<subdivision type="gbeng" draft="contributed">אנגליה</subdivision>
 			<subdivision type="gbery" draft="contributed">מזרח יורקשייר</subdivision>
 			<subdivision type="gbess" draft="contributed">אסקס</subdivision>
 			<subdivision type="gbesx" draft="contributed">מזרח סאסקס</subdivision>
+			<subdivision type="gbfal" draft="contributed">פולקרק</subdivision>
 			<subdivision type="gbfif" draft="contributed">פיף</subdivision>
 			<subdivision type="gbfln" draft="contributed">פלינטשייר</subdivision>
+			<subdivision type="gbgat" draft="contributed">גייטסהד</subdivision>
 			<subdivision type="gbgbn" draft="contributed">בריטניה הגדולה</subdivision>
 			<subdivision type="gbglg" draft="contributed">גלאזגו</subdivision>
 			<subdivision type="gbgls" draft="contributed">גלוסטרשייר</subdivision>
@@ -705,6 +839,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbhck" draft="contributed">האקני</subdivision>
 			<subdivision type="gbhef" draft="contributed">הרפורדשייר</subdivision>
 			<subdivision type="gbhil" draft="contributed">הילינגדון</subdivision>
+			<subdivision type="gbhld" draft="contributed">היילנד</subdivision>
 			<subdivision type="gbhmf" draft="contributed">האמרסמית׳ ופולהאם</subdivision>
 			<subdivision type="gbhns" draft="contributed">האונסלו</subdivision>
 			<subdivision type="gbhrt" draft="contributed">הרטפורדשייר</subdivision>
@@ -728,6 +863,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gblut" draft="contributed">לוטון</subdivision>
 			<subdivision type="gbman" draft="contributed">מנצ׳סטר</subdivision>
 			<subdivision type="gbmdb" draft="contributed">מידלסברו</subdivision>
+			<subdivision type="gbmln" draft="contributed">מידלוטיאן</subdivision>
 			<subdivision type="gbmon" draft="contributed">מונמאות׳שייר</subdivision>
 			<subdivision type="gbmrt" draft="contributed">מרטון</subdivision>
 			<subdivision type="gbmry" draft="contributed">מוריי, סקוטלנד</subdivision>
@@ -741,6 +877,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbnth" draft="contributed">נורת׳האמפטונשייר</subdivision>
 			<subdivision type="gbntl" draft="contributed">ניית׳ פורט טלבוט</subdivision>
 			<subdivision type="gbntt" draft="contributed">נוטינגהאמשייר</subdivision>
+			<subdivision type="gbnty" draft="contributed">צפון טיינסייד</subdivision>
 			<subdivision type="gbnwm" draft="contributed">ניוהאם</subdivision>
 			<subdivision type="gbnyk" draft="contributed">צפון יורקשייר</subdivision>
 			<subdivision type="gbork" draft="contributed">אורקני</subdivision>
@@ -754,15 +891,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbpte" draft="contributed">פטרבורו</subdivision>
 			<subdivision type="gbrdb" draft="contributed">רדברידג׳</subdivision>
 			<subdivision type="gbrdg" draft="contributed">רדינג</subdivision>
+			<subdivision type="gbrfw" draft="contributed">רנפרושייר</subdivision>
 			<subdivision type="gbric" draft="contributed">ריצ׳מונד שעל התמזה</subdivision>
 			<subdivision type="gbrut" draft="contributed">ראטלנד</subdivision>
+			<subdivision type="gbsay" draft="contributed">סאות׳ איירשייר</subdivision>
 			<subdivision type="gbscb" draft="contributed">דרום-מזרח סקוטלנד</subdivision>
+			<subdivision type="gbsct" draft="contributed">סקוטלנד</subdivision>
 			<subdivision type="gbsfk" draft="contributed">סאפוק</subdivision>
 			<subdivision type="gbsft" draft="contributed">ספטון</subdivision>
 			<subdivision type="gbshf" draft="contributed">שפילד</subdivision>
 			<subdivision type="gbshr" draft="contributed">שרופשייר</subdivision>
 			<subdivision type="gbslf" draft="contributed">סלפורד</subdivision>
 			<subdivision type="gbslg" draft="contributed">סלאו</subdivision>
+			<subdivision type="gbslk" draft="contributed">דרום לאנארקשייר</subdivision>
+			<subdivision type="gbsnd" draft="contributed">הסיטי של סנדרלנד</subdivision>
 			<subdivision type="gbsom" draft="contributed">סאמרסט</subdivision>
 			<subdivision type="gbsos" draft="contributed">סאות׳אנד-און-סי</subdivision>
 			<subdivision type="gbsry" draft="contributed">סארי</subdivision>
@@ -773,6 +915,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbsts" draft="contributed">סטפורדשייר</subdivision>
 			<subdivision type="gbswa" draft="contributed">סוונסי</subdivision>
 			<subdivision type="gbswk" draft="contributed">סאת׳ק</subdivision>
+			<subdivision type="gbtob" draft="contributed">טורביי</subdivision>
+			<subdivision type="gbtrf" draft="contributed">טראפורד</subdivision>
 			<subdivision type="gbtwh" draft="contributed">טאוור האמלטס</subdivision>
 			<subdivision type="gbukm" draft="contributed">הממלכה המאוחדת</subdivision>
 			<subdivision type="gbwar" draft="contributed">ווריקשייר</subdivision>
@@ -781,6 +925,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbwil" draft="contributed">וילטשייר</subdivision>
 			<subdivision type="gbwkf" draft="contributed">וייקפילד</subdivision>
 			<subdivision type="gbwln" draft="contributed">ווסט לות׳יאן</subdivision>
+			<subdivision type="gbwls" draft="contributed">ויילס</subdivision>
 			<subdivision type="gbwlv" draft="contributed">וולברהמפטון</subdivision>
 			<subdivision type="gbwnd" draft="contributed">וונדסוורת׳</subdivision>
 			<subdivision type="gbwor" draft="contributed">ווסטרשייר</subdivision>
@@ -803,10 +948,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gesk" draft="contributed">כארתלי הפנימית</subdivision>
 			<subdivision type="gesz" draft="contributed">סמגרלו וסוואנתי עילית</subdivision>
 			<subdivision type="getb" draft="contributed">טביליסי</subdivision>
+			<subdivision type="ghaa" draft="contributed">אזור אקרה רבתי</subdivision>
+			<subdivision type="ghah" draft="contributed">חבל אשנטי</subdivision>
+			<subdivision type="ghcp" draft="contributed">מחוז המרכז</subdivision>
+			<subdivision type="ghwp" draft="contributed">מחוז המערב</subdivision>
+			<subdivision type="glav" draft="contributed">אוואנאאטה</subdivision>
+			<subdivision type="glku" draft="contributed">מחוז כויאשק</subdivision>
+			<subdivision type="glqe" draft="contributed">מחוז קקאטה</subdivision>
+			<subdivision type="glsm" draft="contributed">מחוז סרמרסוק</subdivision>
 			<subdivision type="gmb" draft="contributed">בנג׳ול</subdivision>
 			<subdivision type="gnc" draft="contributed">קונאקרי</subdivision>
+			<subdivision type="gnd" draft="contributed">קינדייה</subdivision>
+			<subdivision type="gnk" draft="contributed">קאנקאן (מחוז)</subdivision>
+			<subdivision type="gnka" draft="contributed">קאנקאן (נפה)</subdivision>
+			<subdivision type="gnl" draft="contributed">לאבה</subdivision>
 			<subdivision type="gqan" draft="contributed">אנובון</subdivision>
 			<subdivision type="gqc" draft="contributed">ריו מוני</subdivision>
+			<subdivision type="gqdj" draft="contributed">ג׳יבלו</subdivision>
 			<subdivision type="gr69" draft="contributed">הר אתוס</subdivision>
 			<subdivision type="gra" draft="contributed">מזרח מקדוניה ותראקיה</subdivision>
 			<subdivision type="grb" draft="contributed">מרכז מקדוניה</subdivision>
@@ -816,21 +974,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="grf" draft="contributed">האיים היוניים</subdivision>
 			<subdivision type="grg" draft="contributed">מערב יוון</subdivision>
 			<subdivision type="grh" draft="contributed">מרכז יוון</subdivision>
+			<subdivision type="gri" draft="contributed">מחוז אטיקה</subdivision>
 			<subdivision type="grj" draft="contributed">פלופונסוס</subdivision>
 			<subdivision type="grk" draft="contributed">צפון הים האגאי</subdivision>
 			<subdivision type="grl" draft="contributed">דרום הים האגאי</subdivision>
-			<subdivision type="gtpe" draft="contributed">מחוז פטן</subdivision>
+			<subdivision type="gt17" draft="contributed">מחוז פטן</subdivision>
 			<subdivision type="gwbs" draft="contributed">ביסאו</subdivision>
 			<subdivision type="hnat" draft="contributed">אטלנטידה</subdivision>
 			<subdivision type="hnep" draft="contributed">אל פאראיסו</subdivision>
 			<subdivision type="hnib" draft="contributed">איי באייה</subdivision>
 			<subdivision type="hnlp" draft="contributed">לה פאס</subdivision>
 			<subdivision type="hr03" draft="contributed">מחוז סיסאק-מוסלאבינה</subdivision>
+			<subdivision type="hr04" draft="contributed">מחוז קרלובץ</subdivision>
 			<subdivision type="hr08" draft="contributed">פרימוריה-גורה</subdivision>
 			<subdivision type="hr09" draft="contributed">מחוז ליקה-סני</subdivision>
+			<subdivision type="hr12" draft="contributed">ברוד-פוזבינה</subdivision>
 			<subdivision type="hr13" draft="contributed">מחוז זאדר</subdivision>
+			<subdivision type="hr15" draft="contributed">מחוז שיבניק-קנין</subdivision>
 			<subdivision type="hr19" draft="contributed">מחוז דוברובניק-נרטבה</subdivision>
 			<subdivision type="hr21" draft="contributed">זאגרב</subdivision>
+			<subdivision type="htni" draft="contributed">ניפס</subdivision>
 			<subdivision type="huba" draft="contributed">באראניה</subdivision>
 			<subdivision type="hubc" draft="contributed">בקשצ׳אבה</subdivision>
 			<subdivision type="hube" draft="contributed">בקש</subdivision>
@@ -875,6 +1038,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="huza" draft="contributed">זאלה</subdivision>
 			<subdivision type="huze" draft="contributed">זאלאגרסג</subdivision>
 			<subdivision type="idac" draft="contributed">אצ׳ה</subdivision>
+			<subdivision type="idba" draft="contributed">באלי</subdivision>
 			<subdivision type="idbb" draft="contributed">באנגקה-בליטונג</subdivision>
 			<subdivision type="idbt" draft="contributed">באנטן</subdivision>
 			<subdivision type="idjb" draft="contributed">מערב ג׳אווה</subdivision>
@@ -884,19 +1048,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="idjw" draft="contributed">ג׳אווה</subdivision>
 			<subdivision type="idka" draft="contributed">קלימנטן</subdivision>
 			<subdivision type="idkb" draft="contributed">מערב קלימנטן</subdivision>
+			<subdivision type="idki" draft="contributed">מזרח קלימנטאן</subdivision>
 			<subdivision type="idkr" draft="contributed">איי ריאו</subdivision>
+			<subdivision type="idks" draft="contributed">דרום קלימנטאן</subdivision>
+			<subdivision type="idkt" draft="contributed">מרכז קלימנטאן</subdivision>
+			<subdivision type="idku" draft="contributed">צפון קלימנטאן</subdivision>
 			<subdivision type="idma" draft="contributed">מאלוקו</subdivision>
 			<subdivision type="idml" draft="contributed">איי מאלוקו</subdivision>
 			<subdivision type="idmu" draft="contributed">צפון מאלוקו</subdivision>
+			<subdivision type="idnb" draft="contributed">מערב נוסה טנגרה</subdivision>
 			<subdivision type="idnt" draft="contributed">מזרח נוסה טנגרה</subdivision>
 			<subdivision type="idnu" draft="contributed">איי סונדה הקטנים</subdivision>
 			<subdivision type="idpb" draft="contributed">פפואה המערבית</subdivision>
 			<subdivision type="idpp" draft="contributed">מערב גינאה החדשה</subdivision>
 			<subdivision type="idsb" draft="contributed">מערב סומטרה</subdivision>
+			<subdivision type="idsg" draft="contributed">דרום-מזרח סולאווסי</subdivision>
 			<subdivision type="idsl" draft="contributed">סולאווסי</subdivision>
 			<subdivision type="idsm" draft="contributed">סומטרה</subdivision>
+			<subdivision type="idsr" draft="contributed">מערב סולאווסי</subdivision>
 			<subdivision type="idss" draft="contributed">דרום סומטרה</subdivision>
 			<subdivision type="idsu" draft="contributed">צפון סומטרה</subdivision>
+			<subdivision type="idyo" draft="contributed">מחוז מיוחד יוגיאקרטה</subdivision>
 			<subdivision type="iec" draft="contributed">קונכט</subdivision>
 			<subdivision type="iece" draft="contributed">מחוז קלייר</subdivision>
 			<subdivision type="iecn" draft="contributed">מחוז קאוואן</subdivision>
@@ -941,6 +1113,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inch" draft="contributed">צ׳אנדיגאר</subdivision>
 			<subdivision type="inct" draft="contributed">צ׳האטיסגאר</subdivision>
 			<subdivision type="indd" draft="contributed">דאמאן ודיו</subdivision>
+			<subdivision type="indh" draft="contributed">דאדרה ונאגר הבלי ודאמאן ודיו</subdivision>
 			<subdivision type="indl" draft="contributed">דלהי</subdivision>
 			<subdivision type="indn" draft="contributed">דאדרה ונאגר הבלי</subdivision>
 			<subdivision type="inga" draft="contributed">גואה</subdivision>
@@ -951,6 +1124,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="injk" draft="contributed">ג׳אמו וקשמיר</subdivision>
 			<subdivision type="inka" draft="contributed">קרנאטקה</subdivision>
 			<subdivision type="inkl" draft="contributed">קרלה</subdivision>
+			<subdivision type="inla" draft="contributed">לדאק</subdivision>
 			<subdivision type="inld" draft="contributed">לקשאדוויפ</subdivision>
 			<subdivision type="inmh" draft="contributed">מהאראשטרה</subdivision>
 			<subdivision type="inml" draft="contributed">מגהלאיה</subdivision>
@@ -987,6 +1161,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="iqsd" draft="contributed">מחוז סלאח א-דין</subdivision>
 			<subdivision type="iqsu" draft="contributed">מחוז א-סולימאניה</subdivision>
 			<subdivision type="iqwa" draft="contributed">ואסט</subdivision>
+			<subdivision type="ir00" draft="contributed">מרכזי²</subdivision>
 			<subdivision type="ir01" draft="contributed">מזרח אזרבייג׳ן</subdivision>
 			<subdivision type="ir02" draft="contributed">מערב אזרבייג׳ן</subdivision>
 			<subdivision type="ir03" draft="contributed">מחוז ארדביל</subdivision>
@@ -995,6 +1170,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ir06" draft="contributed">בושהר</subdivision>
 			<subdivision type="ir07" draft="contributed">מחוז טהראן</subdivision>
 			<subdivision type="ir08" draft="contributed">צ׳הארמחאל ובח׳תיארי</subdivision>
+			<subdivision type="ir09" draft="contributed">ח׳וראסאן רזאווי²</subdivision>
 			<subdivision type="ir10" draft="contributed">ח׳וזסתאן</subdivision>
 			<subdivision type="ir11" draft="contributed">זנג׳אן</subdivision>
 			<subdivision type="ir12" draft="contributed">מחוז סמנאן</subdivision>
@@ -1018,11 +1194,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ir30" draft="contributed">ח׳וראסאן רזאווי</subdivision>
 			<subdivision type="ir31" draft="contributed">צפון ח׳וראסאן</subdivision>
 			<subdivision type="ir32" draft="contributed">מחוז אלבורז</subdivision>
+			<subdivision type="is1" draft="contributed">רייקיאוויק</subdivision>
+			<subdivision type="is2" draft="contributed">סוד׳ורנס</subdivision>
 			<subdivision type="is3" draft="contributed">מערב איסלנד</subdivision>
 			<subdivision type="is4" draft="contributed">הפיורדים המערביים של איסלנד</subdivision>
+			<subdivision type="is5" draft="contributed">נורד׳ורלנד וסטרה</subdivision>
 			<subdivision type="is6" draft="contributed">צפון איסלנד</subdivision>
 			<subdivision type="is7" draft="contributed">מזרח איסלנד</subdivision>
 			<subdivision type="is8" draft="contributed">דרום איסלנד</subdivision>
+			<subdivision type="isakn" draft="contributed">אקרנס</subdivision>
+			<subdivision type="isaku" draft="contributed">אקוריירי</subdivision>
+			<subdivision type="isgru" draft="contributed">גרונדרפיורדור</subdivision>
 			<subdivision type="it21" draft="contributed">פיימונטה</subdivision>
 			<subdivision type="it23" draft="contributed">ואל ד׳אוסטה</subdivision>
 			<subdivision type="it25" draft="contributed">לומברדיה</subdivision>
@@ -1118,9 +1300,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="itpz" draft="contributed">פוטנצה</subdivision>
 			<subdivision type="itra" draft="contributed">נפת רוונה</subdivision>
 			<subdivision type="itrc" draft="contributed">רג׳ו די קלבריה</subdivision>
+			<subdivision type="itre" draft="contributed">רג׳ו-אמיליה</subdivision>
 			<subdivision type="itrg" draft="contributed">רגוזה</subdivision>
 			<subdivision type="itri" draft="contributed">ריאטי</subdivision>
 			<subdivision type="itrm" draft="contributed">רומא</subdivision>
+			<subdivision type="itrn" draft="contributed">רימיני</subdivision>
 			<subdivision type="itro" draft="contributed">רוביגו</subdivision>
 			<subdivision type="itsa" draft="contributed">סלרנו</subdivision>
 			<subdivision type="itsi" draft="contributed">סיינה</subdivision>
@@ -1139,6 +1323,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ittv" draft="contributed">טרוויזו</subdivision>
 			<subdivision type="itud" draft="contributed">אודינה</subdivision>
 			<subdivision type="itva" draft="contributed">וארזה</subdivision>
+			<subdivision type="itvb" draft="contributed">ורבנו-קוזיו-אוסולה</subdivision>
 			<subdivision type="itve" draft="contributed">ונציה</subdivision>
 			<subdivision type="itvi" draft="contributed">ויצ׳נצה</subdivision>
 			<subdivision type="itvr" draft="contributed">ורונה</subdivision>
@@ -1152,6 +1337,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="jm09" draft="contributed">הנובר</subdivision>
 			<subdivision type="jm11" draft="contributed">מחוז סנט אליזבת</subdivision>
 			<subdivision type="jm12" draft="contributed">מחוז מנצ׳סטר</subdivision>
+			<subdivision type="jm13" draft="contributed">מחוז קלרנדון</subdivision>
 			<subdivision type="jm14" draft="contributed">סנט קתרין</subdivision>
 			<subdivision type="joaj" draft="contributed">עג׳לון</subdivision>
 			<subdivision type="joam" draft="contributed">מחוז עמאן</subdivision>
@@ -1212,11 +1398,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="jp45" draft="contributed">מיאזקי</subdivision>
 			<subdivision type="jp46" draft="contributed">קגושימה</subdivision>
 			<subdivision type="jp47" draft="contributed">אוקינאווה</subdivision>
+			<subdivision type="ke01" draft="contributed">מחוז בארינגו</subdivision>
+			<subdivision type="ke10" draft="contributed">מחוז קאג׳יאדו</subdivision>
 			<subdivision type="ke15" draft="contributed">קריניאגה</subdivision>
+			<subdivision type="ke17" draft="contributed">קיסומו</subdivision>
+			<subdivision type="ke28" draft="contributed">מומבסה</subdivision>
 			<subdivision type="ke32" draft="contributed">מחוז ננדי</subdivision>
+			<subdivision type="ke43" draft="contributed">טורקנה</subdivision>
+			<subdivision type="ke44" draft="contributed">מישור גואס נגישו</subdivision>
+			<subdivision type="ke46" draft="contributed">ואג׳יר</subdivision>
 			<subdivision type="kggb" draft="contributed">בישקק</subdivision>
 			<subdivision type="kggo" draft="contributed">אוש</subdivision>
+			<subdivision type="kgo" draft="contributed">אוש²</subdivision>
+			<subdivision type="kh1" draft="contributed">באנטי מינצ׳י</subdivision>
+			<subdivision type="kh2" draft="contributed">באטאמבאנג</subdivision>
+			<subdivision type="kh3" draft="contributed">קמפונג צ׳אם</subdivision>
+			<subdivision type="kh8" draft="contributed">קנדאל</subdivision>
 			<subdivision type="kh12" draft="contributed">פנום פן</subdivision>
+			<subdivision type="kh13" draft="contributed">מחוז פראה ויהאר</subdivision>
+			<subdivision type="kh16" draft="contributed">רטנאקירי</subdivision>
 			<subdivision type="kh23" draft="contributed">קפ</subdivision>
 			<subdivision type="kig" draft="contributed">איי גילברט</subdivision>
 			<subdivision type="kil" draft="contributed">איי ליין</subdivision>
@@ -1227,6 +1427,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="knk" draft="contributed">סנט קיטס</subdivision>
 			<subdivision type="knn" draft="contributed">נוויס</subdivision>
 			<subdivision type="kp01" draft="contributed">פיונגיאנג</subdivision>
+			<subdivision type="kp02" draft="contributed">דרום פויאנג</subdivision>
+			<subdivision type="kp03" draft="contributed">צפון פויאנג</subdivision>
+			<subdivision type="kp05" draft="contributed">דרום חוואנגחאייה</subdivision>
 			<subdivision type="kp09" draft="contributed">צפון האמגיונג</subdivision>
 			<subdivision type="kp14" draft="contributed">נאמפו</subdivision>
 			<subdivision type="kr11" draft="contributed">סיאול</subdivision>
@@ -1245,6 +1448,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kr47" draft="contributed">צפון גיאונגסאנג</subdivision>
 			<subdivision type="kr48" draft="contributed">דרום גיאונגסאנג</subdivision>
 			<subdivision type="kr49" draft="contributed">ג׳ג׳ו</subdivision>
+			<subdivision type="kwah" draft="contributed">אל-אחמדי</subdivision>
 			<subdivision type="kzakm" draft="contributed">אקמולה (מחוז)</subdivision>
 			<subdivision type="kzakt" draft="contributed">אקטובה (מחוז)</subdivision>
 			<subdivision type="kzala" draft="contributed">אלמטי</subdivision>
@@ -1258,10 +1462,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kzman" draft="contributed">מנגוסטאו (מחוז)</subdivision>
 			<subdivision type="kzpav" draft="contributed">פבלודר (מחוז)</subdivision>
 			<subdivision type="kzsev" draft="contributed">מחוז הצפון (קזחסטן)</subdivision>
+			<subdivision type="kzshy" draft="contributed">שימקנט</subdivision>
 			<subdivision type="kzvos" draft="contributed">מחוז המזרח (קזחסטן)</subdivision>
 			<subdivision type="kzyuz" draft="contributed">מחוז הדרום (קזחסטן)</subdivision>
 			<subdivision type="kzzap" draft="contributed">מחוז המערב (קזחסטן)</subdivision>
 			<subdivision type="kzzha" draft="contributed">דז׳אמבול (מחוז)</subdivision>
+			<subdivision type="laat" draft="contributed">מחוז אטופו</subdivision>
+			<subdivision type="labl" draft="contributed">מחוז בוליקמסאי</subdivision>
+			<subdivision type="lach" draft="contributed">מחוז צ׳אמפסאק</subdivision>
+			<subdivision type="laho" draft="contributed">מחוז חואופן</subdivision>
+			<subdivision type="laou" draft="contributed">מחוז אודומשי</subdivision>
+			<subdivision type="lasl" draft="contributed">מחוז סלבן</subdivision>
+			<subdivision type="laxa" draft="contributed">מחוז סאינבולי</subdivision>
+			<subdivision type="laxe" draft="contributed">מחוזסקונג</subdivision>
+			<subdivision type="laxi" draft="contributed">סיינקהואנג</subdivision>
 			<subdivision type="lbak" draft="contributed">מחוז עכאר</subdivision>
 			<subdivision type="lbas" draft="contributed">צפון לבנון</subdivision>
 			<subdivision type="lbba" draft="contributed">מחוז ביירות</subdivision>
@@ -1283,6 +1497,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="li09" draft="contributed">טריזן</subdivision>
 			<subdivision type="li10" draft="contributed">טריזנברג</subdivision>
 			<subdivision type="li11" draft="contributed">ואדוץ</subdivision>
+			<subdivision type="lk4" draft="contributed">מחוז הצפון</subdivision>
+			<subdivision type="lk5" draft="contributed">מחוז המזרח</subdivision>
+			<subdivision type="lk8" draft="contributed">מחוז אובה</subdivision>
+			<subdivision type="lk9" draft="contributed">מחוז סבראגמובה</subdivision>
+			<subdivision type="lk72" draft="contributed">נפת פולונארווה</subdivision>
+			<subdivision type="lsd" draft="contributed">בראה</subdivision>
+			<subdivision type="lse" draft="contributed">מפטנג</subdivision>
+			<subdivision type="lsh" draft="contributed">קאצ׳ה׳ס נק</subdivision>
 			<subdivision type="lt01" draft="contributed">אקמני (מחוז משנה)</subdivision>
 			<subdivision type="lt03" draft="contributed">אליטא (מחוז משנה)</subdivision>
 			<subdivision type="lt04" draft="contributed">אניקצ׳ה</subdivision>
@@ -1346,6 +1568,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ltte" draft="contributed">מחוז טלז</subdivision>
 			<subdivision type="ltut" draft="contributed">מחוז אוטנה</subdivision>
 			<subdivision type="ltvl" draft="contributed">מחוז וילנה</subdivision>
+			<subdivision type="lurm" draft="contributed">רמיש</subdivision>
 			<subdivision type="lv099" draft="contributed">טוקומס</subdivision>
 			<subdivision type="lvdgv" draft="contributed">דאוגבפילס</subdivision>
 			<subdivision type="lvjel" draft="contributed">ילגבה</subdivision>
@@ -1357,7 +1580,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="lvven" draft="contributed">ונטספילס</subdivision>
 			<subdivision type="lvvmr" draft="contributed">ולמירה</subdivision>
 			<subdivision type="lyba" draft="contributed">בנגאזי</subdivision>
+			<subdivision type="lykf" draft="contributed">מחוז כופרה</subdivision>
+			<subdivision type="lywa" draft="contributed">מחוז אל-ואחאת</subdivision>
 			<subdivision type="ma02" draft="contributed">אוריינטל</subdivision>
+			<subdivision type="ma08" draft="contributed">גראנד קזבלנקה</subdivision>
+			<subdivision type="ma10" draft="contributed">גואלמים-אוהד נון</subdivision>
 			<subdivision type="maagd" draft="contributed">אגאדיר</subdivision>
 			<subdivision type="macas" draft="contributed">קזבלנקה</subdivision>
 			<subdivision type="mafes" draft="contributed">פס</subdivision>
@@ -1370,15 +1597,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="masal" draft="contributed">סלא</subdivision>
 			<subdivision type="masyb" draft="contributed">מרקש³</subdivision>
 			<subdivision type="matng" draft="contributed">טנג׳יר</subdivision>
+			<subdivision type="mcco" draft="contributed">לה קונדמין</subdivision>
 			<subdivision type="mcfo" draft="contributed">פונטוייל</subdivision>
 			<subdivision type="mcmc" draft="contributed">מונטה קרלו</subdivision>
 			<subdivision type="mcmo" draft="contributed">מונקו-ויל</subdivision>
 			<subdivision type="mdba" draft="contributed">בלץ</subdivision>
 			<subdivision type="mdbd" draft="contributed">טיגינה</subdivision>
+			<subdivision type="mdcl" draft="contributed">קלראש (נפה)</subdivision>
 			<subdivision type="mdcu" draft="contributed">קישינב</subdivision>
 			<subdivision type="mdga" draft="contributed">גגאוזיה</subdivision>
 			<subdivision type="me08" draft="contributed">הרצג נובי</subdivision>
+			<subdivision type="me10" draft="contributed">מחוז קוטור</subdivision>
 			<subdivision type="me16" draft="contributed">מחוז פודגוריצה</subdivision>
+			<subdivision type="mga" draft="contributed">מחוז טומאסינה</subdivision>
+			<subdivision type="mgd" draft="contributed">מחוז אנצינאנאנה</subdivision>
 			<subdivision type="mgf" draft="contributed">מחוז פיאנארנצוה</subdivision>
 			<subdivision type="mgm" draft="contributed">מחוז מאהאז׳אנגה</subdivision>
 			<subdivision type="mgu" draft="contributed">טוליארה</subdivision>
@@ -1390,10 +1622,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mhl" draft="contributed">שרשרת רליק</subdivision>
 			<subdivision type="mhmaj" draft="contributed">מג׳ורו</subdivision>
 			<subdivision type="mhmil" draft="contributed">מילי</subdivision>
+			<subdivision type="mhron" draft="contributed">אטול רונגלפ</subdivision>
 			<subdivision type="mht" draft="contributed">שרשרת רטק</subdivision>
 			<subdivision type="mk85" draft="contributed">סקופיה</subdivision>
+			<subdivision type="mk211" draft="contributed">עיריית שטיפ</subdivision>
+			<subdivision type="mk308" draft="contributed">עיריית מקדונסקי ברוד</subdivision>
+			<subdivision type="mk507" draft="contributed">עיריית נובאצי</subdivision>
+			<subdivision type="mk508" draft="contributed">עיריית פרילפ</subdivision>
+			<subdivision type="mk804" draft="contributed">עיריית גאזי באבא</subdivision>
+			<subdivision type="mk808" draft="contributed">קרפוס</subdivision>
 			<subdivision type="ml6" draft="contributed">מחוז טימבוקטו</subdivision>
 			<subdivision type="mlbko" draft="contributed">במקו</subdivision>
+			<subdivision type="mm06" draft="contributed">מחוז יאנגון</subdivision>
+			<subdivision type="mm07" draft="contributed">מחוז אייברטי</subdivision>
 			<subdivision type="mm16" draft="contributed">ראקין</subdivision>
 			<subdivision type="mn1" draft="contributed">אולן בטור</subdivision>
 			<subdivision type="mn035" draft="contributed">אורחון</subdivision>
@@ -1417,16 +1658,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mn069" draft="contributed">באיינחונגור</subdivision>
 			<subdivision type="mn071" draft="contributed">באיין-אולגי</subdivision>
 			<subdivision type="mn073" draft="contributed">ארחאנגאי</subdivision>
+			<subdivision type="mr08" draft="contributed">דחלט נואדיבו</subdivision>
 			<subdivision type="mt01" draft="contributed">אטארד</subdivision>
+			<subdivision type="mt02" draft="contributed">פרס בלצן</subdivision>
 			<subdivision type="mt03" draft="contributed">בירגו</subdivision>
 			<subdivision type="mt04" draft="contributed">בירקירקארה</subdivision>
 			<subdivision type="mt05" draft="contributed">בירזבוג׳ה</subdivision>
+			<subdivision type="mt06" draft="contributed">קוספיקאה</subdivision>
 			<subdivision type="mt07" draft="contributed">דינגלי</subdivision>
 			<subdivision type="mt09" draft="contributed">פלוריאנה</subdivision>
 			<subdivision type="mt20" draft="contributed">סנגלאה</subdivision>
 			<subdivision type="mt25" draft="contributed">לואה</subdivision>
+			<subdivision type="mt26" draft="contributed">מרסה (מלטה)</subdivision>
 			<subdivision type="mt28" draft="contributed">מרסשלוק</subdivision>
 			<subdivision type="mt29" draft="contributed">מדינה</subdivision>
+			<subdivision type="mt32" draft="contributed">מוסטה</subdivision>
 			<subdivision type="mt34" draft="contributed">מסידה</subdivision>
 			<subdivision type="mt39" draft="contributed">פאולה</subdivision>
 			<subdivision type="mt41" draft="contributed">פיאטה</subdivision>
@@ -1436,11 +1682,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mt48" draft="contributed">סנט ג׳וליאן</subdivision>
 			<subdivision type="mt56" draft="contributed">סלימה</subdivision>
 			<subdivision type="mt58" draft="contributed">טא׳ שביאש</subdivision>
+			<subdivision type="mt59" draft="contributed">טרשין</subdivision>
 			<subdivision type="mt60" draft="contributed">ולטה</subdivision>
+			<subdivision type="mt67" draft="contributed">איז-זיתון</subdivision>
 			<subdivision type="mubr" draft="contributed">בו בסין-רוז איל</subdivision>
 			<subdivision type="mufl" draft="contributed">מחוז פלאק</subdivision>
 			<subdivision type="mupu" draft="contributed">פור לואי</subdivision>
+			<subdivision type="mupw" draft="contributed">מחוז פליינס וילהלמס</subdivision>
 			<subdivision type="muro" draft="contributed">רודריגז</subdivision>
+			<subdivision type="murr" draft="contributed">מחוז ריבייר דו רמפאר</subdivision>
+			<subdivision type="mv02" draft="contributed">אטול אליף אליף</subdivision>
 			<subdivision type="mv03" draft="contributed">אטול לביאני</subdivision>
 			<subdivision type="mv07" draft="contributed">אטול הא אליף</subdivision>
 			<subdivision type="mv13" draft="contributed">אטול ראה</subdivision>
@@ -1450,6 +1701,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mv25" draft="contributed">אטול נונו</subdivision>
 			<subdivision type="mv26" draft="contributed">אטול קאפו</subdivision>
 			<subdivision type="mvmle" draft="contributed">מאלה</subdivision>
+			<subdivision type="mwkr" draft="contributed">מחוז קרונגה</subdivision>
+			<subdivision type="mwli" draft="contributed">מחוז לילונגווה</subdivision>
+			<subdivision type="mwmz" draft="contributed">מזמבה</subdivision>
+			<subdivision type="mwn" draft="contributed">אזור הצפון</subdivision>
 			<subdivision type="mxagu" draft="contributed">אגואסקליינטס</subdivision>
 			<subdivision type="mxbcn" draft="contributed">באחה קליפורניה</subdivision>
 			<subdivision type="mxbcs" draft="contributed">באחה קליפורניה הדרומית</subdivision>
@@ -1498,24 +1753,43 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="my14" draft="contributed">קואלה לומפור</subdivision>
 			<subdivision type="my15" draft="contributed">לבואן</subdivision>
 			<subdivision type="my16" draft="contributed">פוטרג׳איה</subdivision>
+			<subdivision type="mzb" draft="contributed">מניקה</subdivision>
 			<subdivision type="mzg" draft="contributed">מחוז גזה, מוזמביק</subdivision>
 			<subdivision type="mzmpm" draft="contributed">מפוטו</subdivision>
+			<subdivision type="mzn" draft="contributed">מחוז נמפולה</subdivision>
 			<subdivision type="mzp" draft="contributed">מחוז קאבו דלגאדו</subdivision>
+			<subdivision type="mzs" draft="contributed">מחוז סופאלה</subdivision>
 			<subdivision type="mzt" draft="contributed">טטה</subdivision>
 			<subdivision type="naer" draft="contributed">ארונגו</subdivision>
 			<subdivision type="naku" draft="contributed">קוננה</subdivision>
+			<subdivision type="naon" draft="contributed">אושנה</subdivision>
 			<subdivision type="ne8" draft="contributed">ניאמיי</subdivision>
+			<subdivision type="ngad" draft="contributed">אדמאווה</subdivision>
+			<subdivision type="ngak" draft="contributed">אקווה איבום סטייט</subdivision>
+			<subdivision type="ngan" draft="contributed">אנמברה</subdivision>
+			<subdivision type="ngba" draft="contributed">באוצ׳י</subdivision>
+			<subdivision type="ngbe" draft="contributed">בנו</subdivision>
 			<subdivision type="ngbo" draft="contributed">בורנו</subdivision>
+			<subdivision type="ngby" draft="contributed">ביילסה</subdivision>
 			<subdivision type="ngde" draft="contributed">מדינת דלתא</subdivision>
+			<subdivision type="ngeb" draft="contributed">אבוני</subdivision>
+			<subdivision type="nged" draft="contributed">מדינת אדו</subdivision>
+			<subdivision type="ngek" draft="contributed">אקיטי</subdivision>
+			<subdivision type="ngen" draft="contributed">אנוגו</subdivision>
+			<subdivision type="ngfc" draft="contributed">שטח בירה הפדרלית</subdivision>
 			<subdivision type="ngim" draft="contributed">אימו</subdivision>
+			<subdivision type="ngji" draft="contributed">ג׳יגבה</subdivision>
 			<subdivision type="ngkd" draft="contributed">קדונה (מדינה)</subdivision>
 			<subdivision type="ngkn" draft="contributed">קנו (מדינה)</subdivision>
+			<subdivision type="ngko" draft="contributed">מדינת קוגי</subdivision>
 			<subdivision type="ngkw" draft="contributed">מדינת קווארה</subdivision>
 			<subdivision type="ngla" draft="contributed">לאגוס (מדינה)</subdivision>
 			<subdivision type="ngog" draft="contributed">אוגון</subdivision>
 			<subdivision type="ngon" draft="contributed">אונדו</subdivision>
 			<subdivision type="ngos" draft="contributed">מדינת אוסון</subdivision>
 			<subdivision type="ngoy" draft="contributed">אויו</subdivision>
+			<subdivision type="ngza" draft="contributed">זמפרה</subdivision>
+			<subdivision type="nisj" draft="contributed">ריו סן חואן</subdivision>
 			<subdivision type="nlbq1" draft="contributed">בונייר</subdivision>
 			<subdivision type="nlbq2" draft="contributed">סאבא</subdivision>
 			<subdivision type="nlbq3" draft="contributed">סנט אוסטטיוס</subdivision>
@@ -1549,6 +1823,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="no20" draft="contributed">פינמרק</subdivision>
 			<subdivision type="no21" draft="contributed">סבאלברד</subdivision>
 			<subdivision type="no22" draft="contributed">יאן מאיין</subdivision>
+			<subdivision type="no30" draft="contributed">ויקן</subdivision>
+			<subdivision type="no34" draft="contributed">ינלנה</subdivision>
+			<subdivision type="no38" draft="contributed">וסטפול וטלמרק</subdivision>
+			<subdivision type="no42" draft="contributed">אגדר</subdivision>
+			<subdivision type="no46" draft="contributed">וסטלן</subdivision>
+			<subdivision type="no50" draft="contributed">נורבגיה התיכונה</subdivision>
+			<subdivision type="no54" draft="contributed">טרומס ופינמרק</subdivision>
 			<subdivision type="nr01" draft="contributed">אייוו</subdivision>
 			<subdivision type="nr06" draft="contributed">מחוז בוה</subdivision>
 			<subdivision type="nr08" draft="contributed">דניגומודו</subdivision>
@@ -1563,36 +1844,73 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="nzntl" draft="contributed">נורת׳לנד</subdivision>
 			<subdivision type="nzota" draft="contributed">אוטגו</subdivision>
 			<subdivision type="nzstl" draft="contributed">סאות׳לנד</subdivision>
+			<subdivision type="nztas" draft="contributed">מחוז טזמן</subdivision>
 			<subdivision type="nztki" draft="contributed">טראנאקי</subdivision>
 			<subdivision type="nzwgn" draft="contributed">ולינגטון</subdivision>
 			<subdivision type="nzwko" draft="contributed">ואיקטו</subdivision>
 			<subdivision type="nzwtc" draft="contributed">החוף המערבי</subdivision>
+			<subdivision type="ombs" draft="contributed">אל-באטנה צפון</subdivision>
 			<subdivision type="ombu" draft="contributed">אל בוראימי</subdivision>
+			<subdivision type="ommu" draft="contributed">מוסנדם</subdivision>
 			<subdivision type="pa3" draft="contributed">קולון</subdivision>
 			<subdivision type="peanc" draft="contributed">מחוז אנקש</subdivision>
+			<subdivision type="peare" draft="contributed">ארקיפה</subdivision>
 			<subdivision type="peaya" draft="contributed">מחוז אייקוצ׳ו</subdivision>
+			<subdivision type="pecaj" draft="contributed">קחמארקה</subdivision>
+			<subdivision type="pecus" draft="contributed">מחוז קוסקו</subdivision>
+			<subdivision type="pehuc" draft="contributed">וואנוקו</subdivision>
+			<subdivision type="pelim" draft="contributed">מחלקת לימה</subdivision>
 			<subdivision type="pemdd" draft="contributed">מדרה דה דיוס</subdivision>
+			<subdivision type="pemoq" draft="contributed">מחוז מוקגואה</subdivision>
 			<subdivision type="pepun" draft="contributed">פונו</subdivision>
 			<subdivision type="pesam" draft="contributed">סן מרטין</subdivision>
 			<subdivision type="pgncd" draft="contributed">פורט מורסבי</subdivision>
+			<subdivision type="pgnpp" draft="contributed">פרובינציית אורו</subdivision>
 			<subdivision type="ph00" draft="contributed">אזור מנילה רבתי</subdivision>
+			<subdivision type="ph01" draft="contributed">מחוז אילוקוס</subdivision>
+			<subdivision type="ph02" draft="contributed">עמק קגאיאן</subdivision>
+			<subdivision type="ph03" draft="contributed">מרכז לוזון</subdivision>
+			<subdivision type="ph05" draft="contributed">מחוז ביכול</subdivision>
 			<subdivision type="ph06" draft="contributed">מערב ויסאיאס</subdivision>
 			<subdivision type="ph08" draft="contributed">מזרח ויסאיאס</subdivision>
+			<subdivision type="ph40" draft="contributed">קלבארזון</subdivision>
+			<subdivision type="ph41" draft="contributed">מימרופה</subdivision>
+			<subdivision type="phalb" draft="contributed">פרובינציית אלבאי</subdivision>
+			<subdivision type="phban" draft="contributed">בטאן</subdivision>
+			<subdivision type="phben" draft="contributed">מחוז בנגוט</subdivision>
 			<subdivision type="phbil" draft="contributed">ביליראן</subdivision>
+			<subdivision type="phboh" draft="contributed">בוהול</subdivision>
 			<subdivision type="phbtg" draft="contributed">באטאנגס</subdivision>
 			<subdivision type="phbtn" draft="contributed">בטאנס</subdivision>
 			<subdivision type="phbuk" draft="contributed">בוקידנון</subdivision>
 			<subdivision type="phcam" draft="contributed">קמיגין</subdivision>
 			<subdivision type="phcas" draft="contributed">איי קמרינס</subdivision>
 			<subdivision type="phceb" draft="contributed">סבו</subdivision>
+			<subdivision type="phifu" draft="contributed">נפת איפוגאו</subdivision>
+			<subdivision type="phils" draft="contributed">אילוקוס סור</subdivision>
+			<subdivision type="phisa" draft="contributed">נפת איסבלה</subdivision>
+			<subdivision type="phlun" draft="contributed">לה יוניון</subdivision>
+			<subdivision type="phmas" draft="contributed">מסבאטה</subdivision>
+			<subdivision type="phmou" draft="contributed">נפת ההר</subdivision>
 			<subdivision type="phner" draft="contributed">נגרוס אוריינטל</subdivision>
+			<subdivision type="phpam" draft="contributed">פמפנגה</subdivision>
+			<subdivision type="phpan" draft="contributed">פנגסינאן</subdivision>
 			<subdivision type="phplw" draft="contributed">פלאוואן</subdivision>
+			<subdivision type="phque" draft="contributed">קזון</subdivision>
+			<subdivision type="phriz" draft="contributed">ריזל</subdivision>
+			<subdivision type="phrom" draft="contributed">רומבלון</subdivision>
 			<subdivision type="phsar" draft="contributed">סרנגני</subdivision>
+			<subdivision type="phsig" draft="contributed">סיקיהור</subdivision>
+			<subdivision type="phslu" draft="contributed">סולו</subdivision>
+			<subdivision type="phzan" draft="contributed">זמבואנגה דל נורטה</subdivision>
 			<subdivision type="phzmb" draft="contributed">סאמבאלס</subdivision>
+			<subdivision type="phzsi" draft="contributed">זאמבואנגה סיבוגאי</subdivision>
 			<subdivision type="pkba" draft="contributed">בלוצ׳יסטן</subdivision>
 			<subdivision type="pkgb" draft="contributed">גילגיט-בלטיסטן</subdivision>
+			<subdivision type="pkis" draft="contributed">טריטוריית הבירה הפדרלית</subdivision>
 			<subdivision type="pkjk" draft="contributed">אזאד קשמיר</subdivision>
 			<subdivision type="pkkp" draft="contributed">ח׳ייבר פח׳טונח׳ווה</subdivision>
+			<subdivision type="pkpb" draft="contributed">פנג׳אב</subdivision>
 			<subdivision type="pksd" draft="contributed">סינד</subdivision>
 			<subdivision type="pkta" draft="contributed">השבטים המנוהלים באופן פדרלי</subdivision>
 			<subdivision type="pl02" draft="contributed">שלזיה תחתית</subdivision>
@@ -1628,11 +1946,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pstbs" draft="contributed">טובאס</subdivision>
 			<subdivision type="pstkm" draft="contributed">טולכרם</subdivision>
 			<subdivision type="pt02" draft="contributed">בז׳ה</subdivision>
+			<subdivision type="pt08" draft="contributed">פארו (מחוז)</subdivision>
+			<subdivision type="pt09" draft="contributed">מחוז גווארדה</subdivision>
+			<subdivision type="pt14" draft="contributed">סנטרם</subdivision>
 			<subdivision type="pt20" draft="contributed">האיים האזוריים</subdivision>
 			<subdivision type="pt30" draft="contributed">מדיירה</subdivision>
 			<subdivision type="pw010" draft="contributed">אנגאור</subdivision>
 			<subdivision type="pw150" draft="contributed">קורור</subdivision>
+			<subdivision type="pw224" draft="contributed">נגטפנג</subdivision>
 			<subdivision type="py5" draft="contributed">קאאגואסו</subdivision>
+			<subdivision type="py6" draft="contributed">מחוז קאאספה</subdivision>
 			<subdivision type="pyasu" draft="contributed">אסונסיון</subdivision>
 			<subdivision type="qada" draft="contributed">דוחה</subdivision>
 			<subdivision type="qakh" draft="contributed">אל-ח׳ור</subdivision>
@@ -1648,11 +1971,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="robh" draft="contributed">מחוז ביחור</subdivision>
 			<subdivision type="robn" draft="contributed">ביסטריצה-נסאוד</subdivision>
 			<subdivision type="robt" draft="contributed">בוטושני</subdivision>
+			<subdivision type="robv" draft="contributed">בראשוב</subdivision>
 			<subdivision type="rocj" draft="contributed">מחוז קלוז׳</subdivision>
+			<subdivision type="roct" draft="contributed">מחוז קונסטנצה</subdivision>
+			<subdivision type="rocv" draft="contributed">קובאסנה (מחוז)</subdivision>
 			<subdivision type="rodb" draft="contributed">מחוז דמבוביצה</subdivision>
 			<subdivision type="rodj" draft="contributed">דולז׳</subdivision>
 			<subdivision type="rogj" draft="contributed">גורז׳</subdivision>
 			<subdivision type="rogl" draft="contributed">מחוז גאלאץ</subdivision>
+			<subdivision type="roif" draft="contributed">מחוז אילפוב</subdivision>
 			<subdivision type="rois" draft="contributed">מחוז יאשי</subdivision>
 			<subdivision type="romm" draft="contributed">מחוז מרמורש</subdivision>
 			<subdivision type="ront" draft="contributed">ניאמץ</subdivision>
@@ -1664,6 +1991,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="rotm" draft="contributed">טימיש (מחוז)</subdivision>
 			<subdivision type="rotr" draft="contributed">טלאורמן (מחוז)</subdivision>
 			<subdivision type="rovl" draft="contributed">מחוז ולצ׳ה</subdivision>
+			<subdivision type="rovn" draft="contributed">מחוז ורנצ׳אה</subdivision>
 			<subdivision type="rovs" draft="contributed">מחוז וסלוי</subdivision>
 			<subdivision type="rs00" draft="contributed">בלגרד</subdivision>
 			<subdivision type="rs01" draft="contributed">מחוז באצ׳קה הצפוני</subdivision>
@@ -1775,17 +2103,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ruyev" draft="contributed">המחוז היהודי האוטונומי</subdivision>
 			<subdivision type="ruzab" draft="contributed">מחוז עבר הבאיקל</subdivision>
 			<subdivision type="rw01" draft="contributed">קיגאלי</subdivision>
+			<subdivision type="rw05" draft="contributed">מחוז הדרום</subdivision>
 			<subdivision type="sa01" draft="contributed">מחוז ריאד</subdivision>
 			<subdivision type="sa02" draft="contributed">מחוז מכה</subdivision>
 			<subdivision type="sa03" draft="contributed">מחוז אל-מדינה</subdivision>
 			<subdivision type="sa04" draft="contributed">מחוז א-שרקייה</subdivision>
 			<subdivision type="sa05" draft="contributed">אזור אלקסים</subdivision>
+			<subdivision type="sa08" draft="contributed">מחוז אל-חודוד א-שמאליה</subdivision>
+			<subdivision type="sa09" draft="contributed">מחוז ג׳אזאן</subdivision>
+			<subdivision type="sa10" draft="contributed">מחוז נג׳ראן</subdivision>
+			<subdivision type="sa11" draft="contributed">מחוז אל-באחה</subdivision>
+			<subdivision type="sa12" draft="contributed">מחוז אל-ג׳וף</subdivision>
 			<subdivision type="sa14" draft="contributed">אזור עסיר</subdivision>
 			<subdivision type="sbct" draft="contributed">הוניארה</subdivision>
+			<subdivision type="sbte" draft="contributed">מחוז טמוטו</subdivision>
 			<subdivision type="sc15" draft="contributed">לה דיג</subdivision>
+			<subdivision type="sc24" draft="contributed">לה ממל</subdivision>
 			<subdivision type="sddn" draft="contributed">צפון דארפור</subdivision>
+			<subdivision type="sddw" draft="contributed">מערב סודאן</subdivision>
 			<subdivision type="sdgz" draft="contributed">אל-ג׳זירה</subdivision>
 			<subdivision type="sdkh" draft="contributed">ח׳רטום (מדינה)</subdivision>
+			<subdivision type="sdno" draft="contributed">א-שימאליה</subdivision>
 			<subdivision type="sdrs" draft="contributed">אל-בחר אל-אחמר</subdivision>
 			<subdivision type="seab" draft="contributed">מחוז סטוקהולם</subdivision>
 			<subdivision type="seac" draft="contributed">וסטרבוטן</subdivision>
@@ -1806,10 +2144,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="sez" draft="contributed">ימטלנד</subdivision>
 			<subdivision type="shac" draft="contributed">אסנשן</subdivision>
 			<subdivision type="shhl" draft="contributed">סנט הלנה</subdivision>
+			<subdivision type="si019" draft="contributed">דיוואצ׳ה</subdivision>
 			<subdivision type="si040" draft="contributed">איזולה</subdivision>
 			<subdivision type="si052" draft="contributed">קראן</subdivision>
 			<subdivision type="si057" draft="contributed">לאשקו</subdivision>
 			<subdivision type="si059" draft="contributed">לנדאווה</subdivision>
+			<subdivision type="si070" draft="contributed">עיריית מריבור</subdivision>
 			<subdivision type="si073" draft="contributed">מטליקה</subdivision>
 			<subdivision type="si080" draft="contributed">מורסקה סובוטה</subdivision>
 			<subdivision type="si084" draft="contributed">נובה גוריצה</subdivision>
@@ -1818,6 +2158,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="si129" draft="contributed">טרבוולז׳</subdivision>
 			<subdivision type="si208" draft="contributed">לוג דרגומר</subdivision>
 			<subdivision type="skbc" draft="contributed">באנסקה ביסטריצה</subdivision>
+			<subdivision type="skbl" draft="contributed">ברטיסלאבה (מחוז)</subdivision>
+			<subdivision type="skki" draft="contributed">קושיצה</subdivision>
+			<subdivision type="skni" draft="contributed">ניטרה</subdivision>
 			<subdivision type="skpv" draft="contributed">מחוז פרשוב</subdivision>
 			<subdivision type="skta" draft="contributed">מחוז טרנבה</subdivision>
 			<subdivision type="sktc" draft="contributed">מחוז טרנצ׳ין</subdivision>
@@ -1831,8 +2174,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="sm07" draft="contributed">סן מרינו</subdivision>
 			<subdivision type="sm08" draft="contributed">מונטג׳ארדינו</subdivision>
 			<subdivision type="sm09" draft="contributed">סראוואלה</subdivision>
+			<subdivision type="snkd" draft="contributed">קולדה (מחוז בסנגל)</subdivision>
+			<subdivision type="snsl" draft="contributed">סן-לואי</subdivision>
+			<subdivision type="sobn" draft="contributed">בנאדיר</subdivision>
 			<subdivision type="sojd" draft="contributed">ג׳ובה המרכזית</subdivision>
 			<subdivision type="sojh" draft="contributed">ג׳ובה תחתית</subdivision>
+			<subdivision type="sowo" draft="contributed">מרודי ג׳יח</subdivision>
 			<subdivision type="srwa" draft="contributed">וניקה</subdivision>
 			<subdivision type="ssbn" draft="contributed">צפון בחר אל-ע׳זאל</subdivision>
 			<subdivision type="ssbw" draft="contributed">מערב בחר אל-ע׳זאל</subdivision>
@@ -1845,7 +2192,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ssuy" draft="contributed">מדינת האיחוד</subdivision>
 			<subdivision type="sswr" draft="contributed">ואראפ</subdivision>
 			<subdivision type="svli" draft="contributed">לה ליברטד</subdivision>
+			<subdivision type="svmo" draft="contributed">מחוז מורסאן</subdivision>
 			<subdivision type="svpa" draft="contributed">לה פאס</subdivision>
+			<subdivision type="sydi" draft="contributed">דמשק (מחוז)</subdivision>
 			<subdivision type="sydr" draft="contributed">מחוז דרעא</subdivision>
 			<subdivision type="sydy" draft="contributed">מחוז דיר א-זור</subdivision>
 			<subdivision type="syha" draft="contributed">מחוז אל-חסכה</subdivision>
@@ -1863,13 +2212,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="szlu" draft="contributed">מחוז לובומבו</subdivision>
 			<subdivision type="szma" draft="contributed">מחוז מנזיני</subdivision>
 			<subdivision type="szsh" draft="contributed">מחוז שיסלוואני</subdivision>
+			<subdivision type="tdbo" draft="contributed">בורקו</subdivision>
 			<subdivision type="tdcb" draft="contributed">צ׳ארי-בגוירמי</subdivision>
+			<subdivision type="tdee" draft="contributed">אנדי-מזרח</subdivision>
+			<subdivision type="tdeo" draft="contributed">אנדי-מערב</subdivision>
+			<subdivision type="tdlo" draft="contributed">לוגון מערב</subdivision>
 			<subdivision type="tdnd" draft="contributed">נג׳מנה</subdivision>
+			<subdivision type="tdsi" draft="contributed">סילה</subdivision>
+			<subdivision type="tgc" draft="contributed">אזור המרכז</subdivision>
+			<subdivision type="tgk" draft="contributed">קארה (מחוז)</subdivision>
+			<subdivision type="tgm" draft="contributed">מאריטים</subdivision>
+			<subdivision type="tgp" draft="contributed">פלאטו (מחוז)</subdivision>
+			<subdivision type="tgs" draft="contributed">סאבאנס</subdivision>
 			<subdivision type="th10" draft="contributed">בנגקוק</subdivision>
 			<subdivision type="th11" draft="contributed">סמוט פרקן</subdivision>
 			<subdivision type="th12" draft="contributed">נונתאבורי</subdivision>
+			<subdivision type="th14" draft="contributed">איוטהאיה</subdivision>
+			<subdivision type="th20" draft="contributed">מחוז צ׳ונבורי</subdivision>
+			<subdivision type="th31" draft="contributed">בוריראם</subdivision>
 			<subdivision type="th50" draft="contributed">מחוז צ׳יאנג מאי</subdivision>
 			<subdivision type="th57" draft="contributed">מחוז צ׳יאנג ראי</subdivision>
+			<subdivision type="th63" draft="contributed">טאק</subdivision>
+			<subdivision type="th65" draft="contributed">פיטסנולוק</subdivision>
+			<subdivision type="th72" draft="contributed">סופאן בורי</subdivision>
 			<subdivision type="th81" draft="contributed">מחוז קראבי</subdivision>
 			<subdivision type="th83" draft="contributed">פוקט</subdivision>
 			<subdivision type="ths" draft="contributed">פאטאיה</subdivision>
@@ -1891,10 +2256,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tlmt" draft="contributed">מנטוטו</subdivision>
 			<subdivision type="tloe" draft="contributed">אוקוסי-אומנו</subdivision>
 			<subdivision type="tlvi" draft="contributed">ויקקה</subdivision>
+			<subdivision type="tma" draft="contributed">מחוז אהאל</subdivision>
+			<subdivision type="tmb" draft="contributed">מחוז בלקן</subdivision>
+			<subdivision type="tmd" draft="contributed">מחוז דשחובוז</subdivision>
+			<subdivision type="tml" draft="contributed">מחוז לבפ</subdivision>
+			<subdivision type="tmm" draft="contributed">מחוז מרי</subdivision>
 			<subdivision type="tms" draft="contributed">אשגבאט</subdivision>
+			<subdivision type="tn12" draft="contributed">אריאנה</subdivision>
+			<subdivision type="tn13" draft="contributed">בן ערוס</subdivision>
+			<subdivision type="tn23" draft="contributed">בנזרט (מחוז)</subdivision>
+			<subdivision type="tn31" draft="contributed">בז׳ה (מחוז, תוניסיה)</subdivision>
+			<subdivision type="tn32" draft="contributed">מחוז ג׳נדובה</subdivision>
+			<subdivision type="tn33" draft="contributed">מחוז כף</subdivision>
 			<subdivision type="tn41" draft="contributed">קירואן</subdivision>
+			<subdivision type="tn42" draft="contributed">קסרין</subdivision>
+			<subdivision type="tn43" draft="contributed">מחוז סידי בוזיד</subdivision>
 			<subdivision type="tn51" draft="contributed">סוס</subdivision>
+			<subdivision type="tn53" draft="contributed">מהדיה</subdivision>
 			<subdivision type="tn61" draft="contributed">ספקס</subdivision>
+			<subdivision type="tn71" draft="contributed">גפסה</subdivision>
+			<subdivision type="tn72" draft="contributed">טוזור</subdivision>
+			<subdivision type="tn73" draft="contributed">קבילי</subdivision>
+			<subdivision type="tn81" draft="contributed">גאבס</subdivision>
+			<subdivision type="tn82" draft="contributed">מחוז מדנין</subdivision>
 			<subdivision type="to04" draft="contributed">נוקואלופה</subdivision>
 			<subdivision type="tr01" draft="contributed">אדנה</subdivision>
 			<subdivision type="tr02" draft="contributed">אדיאמן</subdivision>
@@ -1902,20 +2286,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tr08" draft="contributed">ארטווין</subdivision>
 			<subdivision type="tr11" draft="contributed">בילג׳יק</subdivision>
 			<subdivision type="tr13" draft="contributed">ביטליס</subdivision>
+			<subdivision type="tr16" draft="contributed">מחוז בורסה</subdivision>
 			<subdivision type="tr21" draft="contributed">נפת דיארבקיר</subdivision>
 			<subdivision type="tr23" draft="contributed">נפת אלזי</subdivision>
 			<subdivision type="tr25" draft="contributed">ארזורום</subdivision>
+			<subdivision type="tr27" draft="contributed">גזיאנטפ</subdivision>
 			<subdivision type="tr30" draft="contributed">האקארי</subdivision>
 			<subdivision type="tr31" draft="contributed">נפת האטיי</subdivision>
+			<subdivision type="tr33" draft="contributed">מחוז מרסין</subdivision>
 			<subdivision type="tr34" draft="contributed">איסטנבול</subdivision>
+			<subdivision type="tr35" draft="contributed">מחוז איזמיר</subdivision>
 			<subdivision type="tr36" draft="contributed">קארס</subdivision>
+			<subdivision type="tr41" draft="contributed">קוג׳לי</subdivision>
+			<subdivision type="tr47" draft="contributed">נפת מרדין</subdivision>
 			<subdivision type="tr49" draft="contributed">מוש (נפה)</subdivision>
 			<subdivision type="tr60" draft="contributed">טוקט</subdivision>
 			<subdivision type="tr61" draft="contributed">מחוז טרבזון</subdivision>
+			<subdivision type="tr62" draft="contributed">טונצלי</subdivision>
+			<subdivision type="tr63" draft="contributed">נפת שנלאורפה</subdivision>
 			<subdivision type="tr65" draft="contributed">ואן</subdivision>
 			<subdivision type="tr70" draft="contributed">קאראמאן</subdivision>
 			<subdivision type="tr71" draft="contributed">נפת קרקקלה</subdivision>
 			<subdivision type="tr75" draft="contributed">ארדהאן</subdivision>
+			<subdivision type="tr79" draft="contributed">קיליס</subdivision>
+			<subdivision type="ttcha" draft="contributed">צ׳אגואנאס</subdivision>
 			<subdivision type="ttpos" draft="contributed">פורט אוף ספיין</subdivision>
 			<subdivision type="ttptf" draft="contributed">פוינט פורטין</subdivision>
 			<subdivision type="ttsfo" draft="contributed">סן פרננדו (טרינידד)</subdivision>
@@ -1924,16 +2318,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tvnkf" draft="contributed">נוקופטאו</subdivision>
 			<subdivision type="tvnkl" draft="contributed">נוקולאלאה</subdivision>
 			<subdivision type="tvnma" draft="contributed">ננומאה</subdivision>
+			<subdivision type="twcyi" draft="contributed">ג׳יאיי²</subdivision>
 			<subdivision type="twcyq" draft="contributed">ג׳יאיי</subdivision>
 			<subdivision type="twhsz" draft="contributed">שינג׳ו</subdivision>
 			<subdivision type="twkee" draft="contributed">ג׳ילונג</subdivision>
 			<subdivision type="twkhh" draft="contributed">גאושיונג</subdivision>
 			<subdivision type="twkin" draft="contributed">קואמוי</subdivision>
+			<subdivision type="twnan" draft="contributed">מחוז נאנטו</subdivision>
+			<subdivision type="twnwt" draft="contributed">ניו טאיפיי</subdivision>
+			<subdivision type="twpen" draft="contributed">פנגחו</subdivision>
+			<subdivision type="twpif" draft="contributed">מחוז פינגטונג</subdivision>
 			<subdivision type="twtnn" draft="contributed">טאינאן</subdivision>
 			<subdivision type="twtpe" draft="contributed">טאיפיי</subdivision>
+			<subdivision type="twttt" draft="contributed">מחוז טייטונג</subdivision>
 			<subdivision type="twtxg" draft="contributed">טאיג׳ונג</subdivision>
 			<subdivision type="tz08" draft="contributed">קיגומה</subdivision>
 			<subdivision type="tz12" draft="contributed">לינדי</subdivision>
+			<subdivision type="tz13" draft="contributed">מחוז מארה</subdivision>
+			<subdivision type="tz14" draft="contributed">מביה</subdivision>
+			<subdivision type="tz18" draft="contributed">מוואנזה</subdivision>
+			<subdivision type="tz25" draft="contributed">מחוז טנגה</subdivision>
+			<subdivision type="tz26" draft="contributed">מניארה</subdivision>
+			<subdivision type="tz27" draft="contributed">גייטה</subdivision>
+			<subdivision type="tz30" draft="contributed">סימיו (מחוז)</subdivision>
 			<subdivision type="ua05" draft="contributed">מחוז ויניצה</subdivision>
 			<subdivision type="ua07" draft="contributed">מחוז ווהלין</subdivision>
 			<subdivision type="ua09" draft="contributed">מחוז לוהנסק</subdivision>
@@ -1962,10 +2369,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ua74" draft="contributed">מחוז צ׳רניהיב</subdivision>
 			<subdivision type="ua77" draft="contributed">מחוז צ׳רנוביץ</subdivision>
 			<subdivision type="ug101" draft="contributed">קלנגלה</subdivision>
+			<subdivision type="ug103" draft="contributed">קיבוגה</subdivision>
+			<subdivision type="ug104" draft="contributed">לוורו</subdivision>
+			<subdivision type="ug105" draft="contributed">מאסאקה</subdivision>
+			<subdivision type="ug106" draft="contributed">מפיגי</subdivision>
+			<subdivision type="ug107" draft="contributed">מובנדה</subdivision>
 			<subdivision type="ug108" draft="contributed">מחוז מוקונו</subdivision>
 			<subdivision type="ug112" draft="contributed">קאיונגה</subdivision>
+			<subdivision type="ug113" draft="contributed">מחוז ואקיסו</subdivision>
+			<subdivision type="ug114" draft="contributed">ליאנטונדה</subdivision>
+			<subdivision type="ug115" draft="contributed">מיטיאנה</subdivision>
+			<subdivision type="ug117" draft="contributed">בוויקווה</subdivision>
+			<subdivision type="ug118" draft="contributed">בוקומנסימבי</subdivision>
+			<subdivision type="ug119" draft="contributed">בוטמבלה</subdivision>
+			<subdivision type="ug120" draft="contributed">בובומה</subdivision>
+			<subdivision type="ug121" draft="contributed">גומבה</subdivision>
+			<subdivision type="ug122" draft="contributed">קלונגו</subdivision>
+			<subdivision type="ug123" draft="contributed">קיאנקוונצי</subdivision>
+			<subdivision type="ug124" draft="contributed">לוואנגו</subdivision>
+			<subdivision type="ug125" draft="contributed">קיוטרה</subdivision>
 			<subdivision type="ug204" draft="contributed">ג׳ינג׳ה</subdivision>
+			<subdivision type="ug206" draft="contributed">קפצ׳ורווה</subdivision>
 			<subdivision type="ug212" draft="contributed">טורורו</subdivision>
+			<subdivision type="ug228" draft="contributed">קווין</subdivision>
 			<subdivision type="ug308" draft="contributed">מחוז מורוטו</subdivision>
 			<subdivision type="ug311" draft="contributed">נאקאפיריפירית</subdivision>
 			<subdivision type="ug314" draft="contributed">אבים</subdivision>
@@ -1974,6 +2400,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ug409" draft="contributed">מאסינדי</subdivision>
 			<subdivision type="ug416" draft="contributed">בוליסה</subdivision>
 			<subdivision type="ug419" draft="contributed">בוליסה²</subdivision>
+			<subdivision type="ugn" draft="contributed">אזור צפון</subdivision>
 			<subdivision type="um67" draft="contributed">אטול ג׳ונסטון</subdivision>
 			<subdivision type="um71" draft="contributed">אטול מידוויי</subdivision>
 			<subdivision type="um76" draft="contributed">נבאסה</subdivision>
@@ -2035,8 +2462,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="uswv" draft="contributed">וירג׳יניה המערבית</subdivision>
 			<subdivision type="uswy" draft="contributed">ויומינג</subdivision>
 			<subdivision type="uyar" draft="contributed">ארטיגס</subdivision>
+			<subdivision type="uyco" draft="contributed">קולוניה (מחוז)</subdivision>
 			<subdivision type="uydu" draft="contributed">דורסנו</subdivision>
 			<subdivision type="uymo" draft="contributed">מונטווידאו</subdivision>
+			<subdivision type="uyrn" draft="contributed">ריו נגרו</subdivision>
+			<subdivision type="uyrv" draft="contributed">ריברה</subdivision>
+			<subdivision type="uysa" draft="contributed">סלטו</subdivision>
 			<subdivision type="uysj" draft="contributed">סן חוסה (מחוז באורוגוואי)</subdivision>
 			<subdivision type="uytt" draft="contributed">טריינטה אי טרס</subdivision>
 			<subdivision type="uzan" draft="contributed">מחוז אנדיז׳ן</subdivision>
@@ -2044,6 +2475,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="uzqr" draft="contributed">קרקלפקסטן</subdivision>
 			<subdivision type="uzsu" draft="contributed">מחוז סורח׳אן-דריא</subdivision>
 			<subdivision type="uztk" draft="contributed">טשקנט</subdivision>
+			<subdivision type="uzto" draft="contributed">מחוז טשקנט</subdivision>
 			<subdivision type="vea" draft="contributed">מחוז הבירה של ונצואלה</subdivision>
 			<subdivision type="veb" draft="contributed">אנסואטגי</subdivision>
 			<subdivision type="vec" draft="contributed">אפורה</subdivision>
@@ -2069,14 +2501,64 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="vex" draft="contributed">ורגאס</subdivision>
 			<subdivision type="vey" draft="contributed">דלטה אמקורו</subdivision>
 			<subdivision type="vez" draft="contributed">אמסונאס</subdivision>
+			<subdivision type="vn01" draft="contributed">לאי צ׳או</subdivision>
+			<subdivision type="vn02" draft="contributed">לאו קאי</subdivision>
+			<subdivision type="vn03" draft="contributed">הא זאנג</subdivision>
+			<subdivision type="vn04" draft="contributed">קאו באנג</subdivision>
+			<subdivision type="vn05" draft="contributed">סן לה</subdivision>
+			<subdivision type="vn06" draft="contributed">יין באי</subdivision>
+			<subdivision type="vn09" draft="contributed">לאנג סן</subdivision>
+			<subdivision type="vn13" draft="contributed">קואנג נינג</subdivision>
+			<subdivision type="vn14" draft="contributed">קואנג בין</subdivision>
+			<subdivision type="vn20" draft="contributed">טאי בינה</subdivision>
+			<subdivision type="vn21" draft="contributed">טהאינג הואה</subdivision>
+			<subdivision type="vn22" draft="contributed">נגה אן</subdivision>
+			<subdivision type="vn23" draft="contributed">הא טינג</subdivision>
 			<subdivision type="vn24" draft="contributed">קוואנג בין</subdivision>
+			<subdivision type="vn25" draft="contributed">קואנג צ׳י</subdivision>
+			<subdivision type="vn26" draft="contributed">טהיאה טהיין-הואה</subdivision>
+			<subdivision type="vn28" draft="contributed">קון טום</subdivision>
+			<subdivision type="vn29" draft="contributed">קואנג נגאי</subdivision>
+			<subdivision type="vn30" draft="contributed">יה לאי</subdivision>
+			<subdivision type="vn31" draft="contributed">בין דינג</subdivision>
+			<subdivision type="vn32" draft="contributed">פו יין</subdivision>
+			<subdivision type="vn33" draft="contributed">דאקלאק</subdivision>
+			<subdivision type="vn34" draft="contributed">חאן הואה</subdivision>
+			<subdivision type="vn35" draft="contributed">לם דאונגם</subdivision>
+			<subdivision type="vn37" draft="contributed">טאי נין</subdivision>
+			<subdivision type="vn39" draft="contributed">דג׳ונג נאי</subdivision>
+			<subdivision type="vn41" draft="contributed">לאונגם אנג</subdivision>
+			<subdivision type="vn44" draft="contributed">אנג יאנג</subdivision>
+			<subdivision type="vn45" draft="contributed">דאונגם טהאפ</subdivision>
+			<subdivision type="vn46" draft="contributed">טיין יאנג</subdivision>
+			<subdivision type="vn47" draft="contributed">קיינג יאנג</subdivision>
+			<subdivision type="vn50" draft="contributed">בן צ׳ה</subdivision>
+			<subdivision type="vn51" draft="contributed">טרווינה</subdivision>
+			<subdivision type="vn52" draft="contributed">שאוקפ צ׳אנג</subdivision>
+			<subdivision type="vn53" draft="contributed">באק קאן</subdivision>
+			<subdivision type="vn54" draft="contributed">באק זאנג</subdivision>
+			<subdivision type="vn55" draft="contributed">בק ליאו</subdivision>
+			<subdivision type="vn56" draft="contributed">באק נינג</subdivision>
+			<subdivision type="vn57" draft="contributed">בין ייאנג</subdivision>
+			<subdivision type="vn58" draft="contributed">בין פייק</subdivision>
+			<subdivision type="vn59" draft="contributed">קה מאו</subdivision>
+			<subdivision type="vn61" draft="contributed">האי זיינג</subdivision>
 			<subdivision type="vn63" draft="contributed">אה נם</subdivision>
+			<subdivision type="vn66" draft="contributed">הונגם יין</subdivision>
+			<subdivision type="vn68" draft="contributed">פו טהו</subdivision>
+			<subdivision type="vn69" draft="contributed">טהאי נגויאן</subdivision>
+			<subdivision type="vn70" draft="contributed">מחוז וין פוק</subdivision>
+			<subdivision type="vn72" draft="contributed">דאק נאונגם</subdivision>
+			<subdivision type="vn73" draft="contributed">הא זאנג²</subdivision>
 			<subdivision type="vnct" draft="contributed">קאנטחו</subdivision>
 			<subdivision type="vndn" draft="contributed">דננג</subdivision>
 			<subdivision type="vnhn" draft="contributed">האנוי</subdivision>
 			<subdivision type="vnhp" draft="contributed">היפונג</subdivision>
 			<subdivision type="vnsg" draft="contributed">הו צ׳י מין סיטי</subdivision>
+			<subdivision type="vumap" draft="contributed">מחוז מאלאמפה</subdivision>
 			<subdivision type="wfal" draft="contributed">אלו</subdivision>
+			<subdivision type="wsge" draft="contributed">גגאמאוגה</subdivision>
+			<subdivision type="wsgi" draft="contributed">גגאיפומאוגה</subdivision>
 			<subdivision type="yeab" draft="contributed">אבין</subdivision>
 			<subdivision type="yead" draft="contributed">עדן</subdivision>
 			<subdivision type="yeam" draft="contributed">עמראן</subdivision>
@@ -2100,14 +2582,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="yeta" draft="contributed">תעז</subdivision>
 			<subdivision type="zaec" draft="contributed">הכף המזרחי</subdivision>
 			<subdivision type="zafs" draft="contributed">המדינה החופשית</subdivision>
-			<subdivision type="zagt" draft="contributed">חאוטנג</subdivision>
+			<subdivision type="zagp" draft="contributed">חאוטנג</subdivision>
+			<subdivision type="zakzn" draft="contributed">קוואזולו-נטאל</subdivision>
 			<subdivision type="zalp" draft="contributed">לימפופו</subdivision>
 			<subdivision type="zamp" draft="contributed">מפומלנגה</subdivision>
 			<subdivision type="zanc" draft="contributed">הכף הצפוני</subdivision>
-			<subdivision type="zanl" draft="contributed">קוואזולו-נטאל</subdivision>
 			<subdivision type="zanw" draft="contributed">הפרובינציה הצפון-מערבית</subdivision>
 			<subdivision type="zawc" draft="contributed">הכף המערבי</subdivision>
+			<subdivision type="zm01" draft="contributed">מחוז המערב</subdivision>
+			<subdivision type="zm03" draft="contributed">האזור המזרחי</subdivision>
+			<subdivision type="zm05" draft="contributed">אזור הצפון</subdivision>
+			<subdivision type="zm08" draft="contributed">מחוז קופרבלט</subdivision>
 			<subdivision type="zwme" draft="contributed">משונאלנד מזרח פרובינציה</subdivision>
+			<subdivision type="zwmw" draft="contributed">משונלנד-מערב</subdivision>
 		</subdivisions>
 	</localeDisplayNames>
 </ldml>

@@ -263,13 +263,6 @@ Characters of general category of Combining Mark (M), Control characters (Cc), F
 
 * The filename of a keyboard .xml file does not have to match the BCP47 primary locale ID, but it is recommended to do so. The CLDR repository may enforce filename consistency.
 
-<!-- Each platform has its own directory, where a "platform" is a designation for a set of keyboards available from a particular source, such as Windows or Chrome OS. This directory name is the platform name (see Table 2 located further in the document). Within this directory there are two types of files:
-
-1. A single platform file (see XML structure for Platform file), this file includes a mapping of hardware key codes to the ISO layout positions. This file is also open to expansion for any configuration elements that are valid across the whole platform and that are not layout specific. This file is simply called `_platform.xml`.
-2. Multiple layout files named by their locale identifiers (e.g. `lt-t-k0-chromeos.xml` or `ne-t-k0-windows.xml`).
-
-Keyboard data that is not supported on a given platform, but intended for use with that platform, may be added to the directory `/und/`. For example, there could be a file `/und/lt-t-k0-chromeos.xml`, where the data is intended for use with Chrome OS, but does not reflect data that is distributed as part of a standard Chrome OS release. -->
-
 ### <a name="Extensibility" href="#Extensibility">Extensibility</a>
 
 For extensibility, the `<special>` element will be allowed at every nearly every level.
@@ -322,13 +315,13 @@ This mandatory attribute represents the primary locale of the keyboard using Uni
 **Example** (for illustrative purposes only, not indicative of the real data)
 
 ```xml
-<keyboard locale="ka-t-k0-qwerty-windows">
+<keyboard locale="ka">
   …
 </keyboard>
 ```
 
 ```xml
-<keyboard locale="fr-CH-t-k0-android">
+<keyboard locale="fr-CH-t-k0-azerty">
   …
 </keyboard>
 ```
@@ -432,7 +425,7 @@ _Attribute:_ `cldrVersion` (fixed by DTD)
 **Example**
 
 ```xml
-<keyboard locale="..-osx">
+<keyboard locale="tok">
     …
     <version number="1"/>
     …
@@ -603,7 +596,7 @@ If this attribute is present, it must have a value of hide.
 **Example**
 
 ```xml
-<keyboard locale="bg-t-k0-windows-phonetic-trad">
+<keyboard locale="bg">
     …
     <settings fallback="omit" transformPartial="hide" />
     …
@@ -705,7 +698,7 @@ _Attribute:_ `longPress="a b c"` (optional) (discouraged, see [Accessibility](#A
 
 _Attribute:_ `longPressDefault` (optional)
 
-> Indicates which of the `longPress` target characters is the default long presstarget, which could be different than the first element. Ignored if not in the `longPress` list. Characters in this attribute can be escaped using the `\u{...}` notation.
+> Indicates which of the `longPress` target characters is the default long-press target, which could be different than the first element. Ignored if not in the `longPress` list. Characters in this attribute can be escaped using the `\u{...}` notation.
 > For example, if the `longPressDefault` is a key whose [display](#Element_displayMap) appears as `{` an implementation might render the key as follows:
 >
 > ![keycap hint](images/keycapHint.png)
@@ -1398,7 +1391,7 @@ Control characters, whitespace (other than the regular space character) and comb
 Examples
 
 ```xml
-<keyboard locale="fr-CA-t-k0-CSA-osx">
+<keyboard locale="fr-CA-t-k0-CSA">
     <transforms type="simple">
         <transform from="´a" to="á" />
         <transform from="´A" to="Á" />
@@ -1416,7 +1409,7 @@ Examples
 ```
 
 ```xml
-<keyboard locale="nl-BE-t-k0-chromeos">
+<keyboard locale="nl-BE">
     <transforms type="simple">
         <transform from="\u{30c}a" to="ǎ" /> <!-- ̌a → ǎ -->
         <transform from="\u{30c}A" to="Ǎ" /> <!-- ̌A → Ǎ -->
@@ -1920,10 +1913,10 @@ The following are the design principles for the IDs.
 
 1. BCP47 compliant.
    1. Eg, `en`, `sr-Cyrl`, or `en-t-k0-extended`.
-2. Use the minimal language id based on `likelySubtag`s.
-   1. Eg, instead of `en-US`, use `en`, and instead of `fr-Latn-FR` use `fr`. Because there is `<likelySubtag from="en" to="en_Latn_US"/>`, en-US → en.
+2. Use the minimal language id based on `likelySubtags` (see [Part 1: Likely Subtags](tr35.md#Likely_Subtags))
+   1. Eg, instead of `fa-Arab`, use `fa`.
    2. The data is in <https://github.com/unicode-org/cldr/tree/main/common/supplemental/likelySubtags.xml>
-3. Keyboard files should be platform-independent, however, a platform id is the first subtag after `-t-k0-` if present. If a keyboard on the platform changes over time, both are dated, eg `bg-t-k0-chromeos-2011`. When selecting, if there is no date, it means the latest one.
+3. Keyboard files should be platform-independent, however, if included, a platform id is the first subtag after `-t-k0-`. If a keyboard on the platform changes over time, both are dated, eg `bg-t-k0-chromeos-2011`. When selecting, if there is no date, it means the latest one.
 4. Keyboards are only tagged that differ from the "standard for each language". That is, for each language on a platform, there will be a keyboard with no subtags. Subtags with common semantics across languages and platforms are used, such as `-extended`, `-phonetic`, `-qwerty`, `-qwertz`, `-azerty`, …
 5. In order to get to 8 letters, abbreviations are reused that are already in [bcp47](https://github.com/unicode-org/cldr/tree/main/common/bcp47/) -u/-t extensions and in [language-subtag-registry](https://www.iana.org/assignments/language-subtag-registry) variants, eg for Traditional use `-trad` or `-traditio` (both exist in [bcp47](https://github.com/unicode-org/cldr/tree/main/common/bcp47/)).
 6. Multiple languages cannot be indicated in the locale id, so the predominant target is used.

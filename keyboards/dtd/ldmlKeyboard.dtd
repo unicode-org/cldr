@@ -13,7 +13,7 @@ This DTD is a work in progress.
 
 Please see CLDR-15034 for the latest information. -->
 
-<!ELEMENT keyboard ( import*, locales?, version?, info?, names, settings?, vkeyMaps*, displayMap*, keys, layerMaps*, transforms*, reorders?, backspaces?, special* ) >
+<!ELEMENT keyboard ( import*, locales?, version?, info?, names, settings?, vkeyMaps*, displayMap*, keys?, layerMaps*, transforms*, reorders?, backspaces?, special* ) >
 <!ATTLIST keyboard locale CDATA #REQUIRED >
     <!--@MATCH:validity/bcp47-->
 <!ATTLIST keyboard conformsTo (techpreview) #REQUIRED >

@@ -636,7 +636,7 @@ There is only a single `<keys>` element in each layout.
 >
 > Parents: [keyboard](#Element_keyboard)
 > Children: [key](#Element_key), [flicks](#Element_flicks)
-> Occurrence: required, single
+> Occurrence: optional, single
 >
 > </small>
 
@@ -1326,7 +1326,6 @@ This element must have the `transforms` element as its parent. This element repr
 ```xml
 <transform from="{combination of characters}" to="{output}"
    [before="{look-behind required match}"]
-   [after="{look-ahead required match}"]
    [error="fail"] />
 ```
 
@@ -1424,13 +1423,12 @@ _Attribute:_ `before` (optional)
 
 > This attribute consists of a sequence of elements (codepoint or UnicodeSet) to match the text up to the current position in the text (this is similar to a regex "look behind" assertion: `(?<=a)b` matches a "b" that is preceded by an "a"). The attribute must match for the transform to apply. If missing, no before constraint is applied. The attribute value must not be empty.
 
-_Attribute:_ `after` (optional)
-
-> This attribute consists of a sequence of elements (codepoint or UnicodeSet) and matches as a zero-width assertion after the `@from` sequence. The attribute must match for the transform to apply. If missing, no after constraint is applied. The attribute value must not be empty. When the transform is applied, the string matched by the `@from` attribute is replaced by the string in the `@to` attribute, with the text matched by the `@after` attribute left unchanged. After the change, the current position is reset to just after the text output from the `@to` attribute and just before the text matched by the `@after` attribute. Warning: some legacy implementations may not be able to make such an adjustment and will place the current position after the `@after` matched string.
-
 _Attribute:_ `error="fail"` (optional)
 
 > If set this attribute indicates that the keyboarding application may indicate an error to the user in some way. Processing may stop and rewind to any state before the key was pressed. If processing does stop, no further transforms on the same input are applied. The `@error` attribute takes the value `"fail"`, or must be absent. If processing continues, the `@to` is used for output as normal. It thus should contain a reasonable value.
+
+
+When the transform is applied, the string matched by the `@from` attribute is replaced by the string in the `@to` attribute. After the change, the current position is reset to just after the text output from the `@to` attribute.
 
 For example:
 
@@ -1443,7 +1441,7 @@ This indicates that it is an error to type two iota subscripts immediately after
 In terms of how these different attributes work in processing a sequence of transforms, consider the transform:
 
 ```xml
-<transform before="X" from="Y" after="Z" to="B" />
+<transform before="X" from="Y" to="B" />
 ```
 
 This would transform the string:

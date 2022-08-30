@@ -236,7 +236,7 @@ public class TestPaths extends TestFmwkPlus {
 
     private Collection<String> getLocalesToTest() {
         return params.inclusion <= 5 ? Arrays.asList("root", "en", "ja", "ar", "de", "ru")
-            : params.inclusion < 10 ? testInfo.getCldrFactory().getAvailableLanguages() 
+            : params.inclusion < 10 ? testInfo.getCldrFactory().getAvailableLanguages()
                 : testInfo.getCldrFactory().getAvailable();
     }
 
@@ -314,7 +314,7 @@ public class TestPaths extends TestFmwkPlus {
         public void show(int inclusion) {
             for (DtdType dtdType : DtdType.values()) {
                 if (dtdType == DtdType.ldmlICU ||
-                    (inclusion <= 5 && dtdType == DtdType.platform)) { // keyboards/*/_platform.xml won't be in the list for non-exhaustive runs
+                    (inclusion <= 5 && false)) { // keyboards/*/_platform.xml won't be in the list for non-exhaustive runs
                     continue;
                 }
                 M4<String, String, String, Boolean> infoEAV = data.get(dtdType);

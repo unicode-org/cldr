@@ -165,7 +165,6 @@ public class ChartDtdDelta extends Chart {
     static {
         FIRST_VERSION.put(DtdType.ldmlBCP47, "1.7.2");
         FIRST_VERSION.put(DtdType.keyboard, "22.1");
-        FIRST_VERSION.put(DtdType.platform, "22.1");
     }
 
     private void diff(String prefix, DtdData dtdLast, DtdData dtdCurrent) {

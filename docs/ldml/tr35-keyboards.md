@@ -1,21 +1,21 @@
-## Unicode Technical Standard #35
+## Unicode Technical Standard #35 Tech Preview
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 7: Keyboards
 
 <!-- HTML: no th -->
 <table><tbody>
-<tr><td>Version</td><td><b>42 (draft)</b></td></tr>
-<tr><td>Editors</td><td>Steven Loomis (<a href="mailto:srl@icu-project.org">srl@icu-project.org</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td></tr>
+<tr><td>Version</td><td>Technical Preview (3.0)</td></tr>
+<tr><td>Editors</td><td>Steven R. Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) (for this draft), the <a href="https://cldr.unicode.org/index/keyboard-workgroup">CLDR Keyboard-SC</a>, and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td></tr>
 </tbody></table>
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
 #### _Important Note_
 
-> The CLDR [Keyboard Workgroup](https://cldr.unicode.org/index/keyboard-workgroup) is currently
-> developing major changes to the CLDR keyboard specification. These changes are targeted for
-> CLDR version 41. Please see [CLDR-15034](https://unicode-org.atlassian.net/browse/CLDR-15034) for
-> the latest information.
+> This is a technical preview of a future version of the LDML Part 7. See [_Status_](#status), below.
+>
+> There are breaking changes, see [Compatibility Notice](#Compatibility_Notice)
+
 ### _Summary_
 
 This document describes parts of an XML format (_vocabulary_) for the exchange of structured locale data. This format is used in the [Unicode Common Locale Data Repository](https://unicode.org/cldr/).
@@ -29,11 +29,16 @@ See <https://cldr.unicode.org> for up-to-date CLDR release data.
 
 ### _Status_
 
-_This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium. This is a stable document and may be used as reference material or cited as a normative reference by other specifications._
+This document is a draft of a _technical preview_ of the Keyboard standard.
+This document has _not_ been approved for publication by the Unicode Consortium,
+and may be substantially altered before any publication. For the latest published version of UTS#35, see <https://www.unicode.org/reports/tr35/>
 
-> _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
+In particular, Element and attribute names are expected to change pending further review.
 
-_Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](tr35.md#Bugs)]. Related information that is useful in understanding this document is found in the [References](tr35.md#References). For the latest version of the Unicode Standard see [[Unicode](tr35.md#Unicode)]. For a list of current Unicode Technical Reports see [[Reports](tr35.md#Reports)]. For more information about versions of the Unicode Standard, see [[Versions](tr35.md#Versions)]._
+The CLDR [Keyboard Workgroup](https://cldr.unicode.org/index/keyboard-workgroup) is currently
+developing major changes to the CLDR keyboard specification.
+For this draft, please see [CLDR-15034](https://unicode-org.atlassian.net/browse/CLDR-15034) for
+status, the latest information, or to provide feedback.
 
 ## <a name="Parts" href="#Parts">Parts</a>
 
@@ -54,155 +59,138 @@ The LDML specification is divided into the following parts:
   * [_Status_](#status)
 * [Parts](#Parts)
 * [Contents of Part 7, Keyboards](#Contents)
-* 1 [Keyboards](#Introduction)
-* 2 [Goals and Non-goals](#Goals_and_Nongoals)
-* 3 [Definitions](#Definitions)
-  * 3.1 [Escaping](#Escaping)
-* 4 [File and Directory Structure](#File_and_Dir_Structure)
-* 5 [Element Hierarchy - Layout File](#Element_Heirarchy_Layout_File)
-  * 5.1 [Element: keyboard](#Element_Keyboard)
-  * 5.2 [Element: version](#Element_version)
-  * 5.3 ~~[Element: generation](#Element_generation)~~
-  * 5.4 [Element: info](#Element_info)
-  * 5.5 [Element: names](#Element_names)
-  * 5.6 [Element: name](#Element_name)
-  * 5.7 [Element: settings](#Element_settings)
-  * 5.8 [Element: keyMap](#Element_keyMap)
-    * Table: [Possible Modifier Keys](#Possible_Modifier_Keys)
-  * 5.9 [Element: map](#Element_map)
-    * 5.9.1 [Elements: flicks, flick](#Element_flicks)
-  * 5.10 [Element: import](#Element_import)
-  * 5.11 [Element: displayMap](#Element_displayMap)
-  * 5.12 [Element: display](#Element_display)
-  * 5.13 [Element: layer](#Element_layer)
-  * 5.14 [Element: row](#Element_row)
-  * 5.15 [Element: switch](#Element_switch)
-  * 5.16 [Element: vkeys](#Element_vkeys)
-  * 5.17 [Element: vkey](#Element_vkey)
-  * 5.18 [Element: transforms](#Element_transforms)
-  * 5.19 [Element: transform](#Element_transform)
-  * 5.20 [Element: reorders, reorder](#Element_reorder)
-  * 5.21 [Element: transform final](#Element_final)
-  * 5.22 [Element: backspaces](#Element_backspaces)
-  * 5.23 [Element: backspace](#Element_backspace)
-* 6 [Element Hierarchy - Platform File](#Element_Heirarchy_Platform_File)
-  * 6.1 [Element: platform](#Element_platform)
-  * 6.2 [Element: hardwareMap](#Element_hardwareMap)
-  * 6.3 [Element: map](#Element_hardwareMap_map)
-* 7 [Invariants](#Invariants)
-* 8 [Data Sources](#Data_Sources)
-  * Table: [Key Map Data Sources](#Key_Map_Data_Sources)
-* 9 [Keyboard IDs](#Keyboard_IDs)
-  * 9.1 [Principles for Keyboard Ids](#Principles_for_Keyboard_Ids)
-* 10 [Platform Behaviors in Edge Cases](#Platform_Behaviors_in_Edge_Cases)
+* [Keyboards](#Introduction)
+* [Goals and Non-goals](#Goals_and_Nongoals)
+  * [Compatibility Notice](#Compatibility_Notice)
+  * [Accessibility](#Accessibility)
+* [Definitions](#Definitions)
+  * [Escaping](#Escaping)
+* [File and Directory Structure](#File_and_Dir_Structure)
+  * [Extensibility](#Extensibility)
+* [Element Hierarchy](#element-hierarchy)
+  * [Element: keyboard](#Element_Keyboard)
+  * [Element: locales](#Element_locales)
+  * [Element: locale](#Element_locale)
+  * [Element: version](#Element_version)
+  * [Element: info](#Element_info)
+  * [Element: names](#Element_names)
+  * [Element: name](#Element_name)
+  * [Element: settings](#Element_settings)
+  * [Element: keys](#Element_keys)
+  * [Element: key](#Element_key)
+    * [Implied Keys](#implied-keys)
+    * [Elements: flicks, flick](#Element_flicks)
+  * [Element: import](#Element_import)
+  * [Element: displayMap](#Element_displayMap)
+  * [Element: display](#Element_display)
+  * [Element: displayOptions](#Element_displayOptions)
+  * [Element: layerMaps](#Element_layerMaps)
+  * [Element: layerMap](#Element_layerMap)
+  * [Element: row](#Element_row)
+  * [Element: vkeyMaps](#Element_vkeyMaps)
+  * [Element: vkeyMap](#Element_vkeyMap)
+  * [Element: transforms](#Element_transforms)
+  * [Element: transform](#Element_transform)
+  * [Element: reorders](#Element_reorders)
+  * [Element: reorder](#Element_reorder)
+  * [Element: transform final](#Element_final)
+  * [Element: backspaces](#Element_backspaces)
+  * [Element: backspace](#Element_backspace)
+* [Invariants](#Invariants)
+* [Keyboard IDs](#Keyboard_IDs)
+  * [Principles for Keyboard IDs](#Principles_for_Keyboard_IDs)
+* [Platform Behaviors in Edge Cases](#Platform_Behaviors_in_Edge_Cases)
+* [CLDR VKey Enum](#CLDR_VKey_Enum)
 
-## 1 <a name="Introduction" href="#Introduction">Keyboards</a>
+## <a name="Introduction" href="#Introduction">Keyboards</a>
 
-The CLDR keyboard format provides for the communication of keyboard mapping data between different modules, and the comparison of data across different vendors and platforms. The standardized identifier for keyboards can be used to communicate, internally or externally, a request for a particular keyboard mapping that is to be used to transform either text or keystrokes. The corresponding data can then be used to perform the requested actions.
+The Unicode Standard and related technologies such as CLDR have dramatically improved the path to language support. However, keyboard support remains platform and vendor specific, causing inconsistencies in implementation as well as timeline.
 
-For example, a web-based virtual keyboard may transform text in the following way. Suppose the user types a key that produces a "W" on a qwerty keyboard. A web-based tool using an azerty virtual keyboard can map that text ("W") to the text that would have resulted from typing a key on an azerty keyboard, by transforming "W" to "Z". Such transforms are in fact performed in existing web applications.
+> “More and more language communities are determining that digitization is vital to their approach to language preservation and that engagement with Unicode is essential to becoming fully digitized. For many of these communities, however, getting new characters or a new script added to The Unicode Standard is not the end of their journey. The next, often more challenging stage is to get device makers, operating systems, apps and services to implement the script requirements that Unicode has just added to support their language. …
+>
+> “However, commensurate improvements to streamline new language support on the input side have been lacking. CLDR’s new Keyboard Subcommittee has been established to address this very gap.”
+> _(Cornelius et. al, “Standardizing Keyboards with CLDR,” presented at the 45th Internationalization and Unicode Conference, Santa Clara, California, USA, October 2021)_
+
+The CLDR keyboard format seeks to address these challenges, by providing an interchange format for the communication of keyboard mapping data independent of vendors and platforms. Keyboard authors can then create a single mapping file for their language, which implementations can use to provide that language’s keyboard mapping on their own platform.
+
+Additionally, the standardized identifier for keyboards can be used to communicate, internally or externally, a request for a particular keyboard mapping that is to be used to transform either text or keystrokes. The corresponding data can then be used to perform the requested actions.  For example, a remote screen-access application (such as used for customer service or server management) would be able to communicate and choose the same keyboard layout on the remote device as is used in front of the user, even if the two systems used different platforms.
 
 The data can also be used in analysis of the capabilities of different keyboards. It also allows better interoperability by making it easier for keyboard designers to see which characters are generally supported on keyboards for given languages.
 
-To illustrate this specification, here is an abridged layout representing the English US 101 keyboard on the Mac OSX operating system (with an inserted long-press example). For more complete examples, and information collected about keyboards, see keyboard data in XML.
+<!-- To illustrate this specification, here is an abridged layout representing the English US 101 keyboard on the macOS operating system (with an inserted long-press example). -->
 
-```xml
-<keyboard locale="en-t-k0-osx">
-    <version platform="10.4" number="$Revision: 8294 $" />
-    <names>
-        <name value="U.S." />
-    </names>
-    <keyMap>
-        <map iso="E00" to="`" />
-        <map iso="E01" to="1" />
-        <map iso="D01" to="q" />
-        <map iso="D02" to="w" />
-        <map iso="D03" to="e" longPress="é è ê ë" />
-        …
-    </keyMap>
-    <keyMap modifiers="caps">
-        <map iso="E00" to="`" />
-        <map iso="E01" to="1" />
-        <map iso="D01" to="Q" />
-        <map iso="D02" to="W" />
-        …
-    </keyMap>
-    <keyMap modifiers="opt">
-        <map iso="E00" to="`" />
-        <map iso="E01" to="¡" /> <!-- key=1 -->
-        <map iso="D01" to="œ" /> <!-- key=Q -->
-        <map iso="D02" to="∑" /> <!-- key=W -->
-        …
-    </keyMap>
-    <transforms type="simple">
-        <transform from="` " to="`" />
-        <transform from="`a" to="à" />
-        <transform from="`A" to="À" />
-        <transform from="´ " to="´" />
-        <transform from="´a" to="á" />
-        <transform from="´A" to="Á" />
-        <transform from="˜ " to="˜" />
-        <transform from="˜a" to="ã" />
-        <transform from="˜A" to="Ã" />
-        …
-    </transforms>
-</keyboard>
-```
-
-And its associated platform file (which includes the hardware mapping):
-
-```xml
-<platform id="osx">
-    <hardwareMap>
-        <map keycode="0" iso="C01" />
-        <map keycode="1" iso="C02" />
-        <map keycode="6" iso="B01" />
-        <map keycode="7" iso="B02" />
-        <map keycode="12" iso="D01" />
-        <map keycode="13" iso="D02" />
-        <map keycode="18" iso="E01" />
-        <map keycode="50" iso="E00" />
-    </hardwareMap>
-</platform>
-```
+For complete examples, see the XML files in the CLDR source repository.
 
 * * *
 
-## 2 <a name="Goals_and_Nongoals" href="#Goals_and_Nongoals">Goals and Non-goals</a>
+## <a name="Goals_and_Nongoals" href="#Goals_and_Nongoals">Goals and Non-goals</a>
 
 Some goals of this format are:
 
+1. Physical and virtual keyboard layouts defined in a single file.
+2. Provide definitive platform-independent definitions for new keyboard layouts.
+    * For example, a new French standard keyboard layout would have a single definition which would be usable across all implementations.
+3. Allow platforms to be able to use CLDR keyboard data for the character-emitting keys (non-frame) aspects of keyboard layouts.
+    * For example, platform-specific keys such as Fn, Numpad, IME swap keys, and cursor keys are out of scope.
+    * This also means that modifier (frame) keys cannot generate output, such as capslock -> backslash.
+4. Deprecate & archive existing LDML platform-specific layouts so they are not part of future releases.
+
+<!--
 1. Make the XML as readable as possible.
 2. Represent faithfully keyboard data from major platforms: it should be possible to create a functionally-equivalent data file (such that given any input, it can produce the same output).
-3. Make as much commonality in the data across platforms as possible to make comparison easy.
+3. Make as much commonality in the data across platforms as possible to make comparison easy. -->
 
 Some non-goals (outside the scope of the format) currently are:
 
-1. Display names or symbols for keycaps (eg, the German name for "Return"). If that were added to LDML, it would be in a different structure, outside the scope of this section.
-2. Advanced IME features, handwriting recognition, etc.
-3. Roundtrip mappings—the ability to recover precisely the same format as an original platform's representation. In particular, the internal structure may have no relation to the internal structure of external keyboard source data, the only goal is functional equivalence.
+1. Adaptation for screen scaling resolution. Instead, keyboards should define layouts based on physical size. Platforms may interpret physical size definitions and adapt for different physical screen sizes with different resolutions.
+2. Unification of platform-specific vkey and scan code mapping tables.
+3. Unification of pre-existing platform layouts themselves (e.g. existing fr-azerty on platform a, b, c).
+4. Support for prior (pre 3.0) CLDR keyboard files. See [Compatibility Notice](#Compatibility_Notice).
+5. Run-time efficiency. [LDML is explicitly an interchange format](./tr35.md#Introduction), and so it is expected that data will be transformed to a more compact format for use by a keystroke processing engine.
 
-Note: During development of this section, it was considered whether the modifier RAlt (=AltGr) should be merged with Option. In the end, they were kept separate, but for comparison across platforms implementers may choose to unify them.
+<!-- 1. Display names or symbols for keycaps (eg, the German name for "Return"). If that were added to LDML, it would be in a different structure, outside the scope of this section.
+2. Advanced IME features, handwriting recognition, etc.
+3. Roundtrip mappings—the ability to recover precisely the same format as an original platform's representation. In particular, the internal structure may have no relation to the internal structure of external keyboard source data, the only goal is functional equivalence. -->
+
+<!-- Note: During development of this section, it was considered whether the modifier RAlt (= AltGr) should be merged with Option. In the end, they were kept separate, but for comparison across platforms implementers may choose to unify them. -->
 
 Note that in parts of this document, the format `@x` is used to indicate the _attribute_ **x**.
 
-* * *
+### <a name="Compatibility_Notice" href="#Compatibility_Notice">Compatibility Notice</a>
 
-## 3 <a name="Definitions" href="#Definitions">Definitions</a>
+> 👉 Note: CLDR-TC has agreed that the changes required were too extensive to maintain compatibility. For this reason, the DTD used here is _not_ compatible with DTDs from prior versions of CLDR such as v41 and prior.
+>
+> To process earlier XML files, use the prior DTD and specification, such as v41 found at <https://www.unicode.org/reports/tr35/tr35-66/tr35.html>
+>
+
+### <a name="Accessibility" href="#Accessibility">Accessibility</a>
+
+Keyboard use can be challenging for individuals with various types of disabilities. For this revision, the committee is not evaluating features or architectural designs for the purpose of improving accessibility. Such consideration could be fruitful for future revisions. However, some points on this topic should be made:
+
+1. Having an industry-wide standard format for keyboards will enable accessibility software to make use of keyboard data with a reduced dependence on platform-specific knowledge.
+2. Some features, such as multitap and flicks, have the potential to reduce accessibility and thus should be discouraged. For example, multitap requires pressing keys at a certain speed, and flicks require a more complex movement (press-and-flick) beyond a simple tap.
+3. Public feedback is welcome on any aspects of this document which might hinder accessibility.
+
+## <a name="Definitions" href="#Definitions">Definitions</a>
 
 **Arrangement** is the term used to describe the relative position of the rectangles that represent keys, either physically or virtually. A physical keyboard has a static arrangement while a virtual keyboard may have a dynamic arrangement that changes per language and/or layer. While the arrangement of keys on a keyboard may be fixed, the mapping of those keys may vary.
 
 **Base character:** The character emitted by a particular key when no modifiers are active. In ISO terms, this is group 1, level 1.
 
-**Base map:** A mapping from the ISO positions to the base characters. There is only one base map per layout. The characters on this map can be output by not using any modifier keys.
+**Base map:** A mapping from the positions to the base characters. There is only one base map per layout. The characters on this map can be output without the use of any modifier keys.
 
-**Core keyboard layout:** also known as “alpha” block. The primary set of key values on a keyboard that are used for typing the target language of the keyboard. For example, the three rows of letters on a standard US QWERTY keyboard (QWERTYUIOP, ASDFGHJKL, ZXCVBNM) together with the most significant punctuation keys. Usually this equates to the minimal keyset for a language as seen on mobile phone keyboards.
+**Core keys:** also known as “alpha” block. The primary set of key values on a keyboard that are used for typing the target language of the keyboard. For example, the three rows of letters on a standard US QWERTY keyboard (QWERTYUIOP, ASDFGHJKL, ZXCVBNM) together with the most significant punctuation keys. Usually this equates to the minimal keyset for a language as seen on mobile phone keyboards.
+Distinguished from the **frame keys**.
 
-**Hardware map:** A mapping between key codes and ISO layout positions.
+**Frame keys:** These are keys which do not emit characters and are outside of the area of the **core keys**. These keys include both **modifier** keys, such as Shift or Ctrl, but also include platform specific keys: Fn, IME and layout-switching keys, cursor keys, emoji keys.
+
+**Hardware keyboard:** an input device which has individual keys that are pressed. Each key has a unique identifier and the arrangement doesn't change, even if the mapping of those keys does. Also known as a physical keyboard.
+
+<!-- **Hardware map:** A mapping between  and layout positions. -->
 
 **Input Method Editor (IME):** a component or program that supports input of large character sets. Typically, IMEs employ contextual logic and candidate UI to identify the Unicode characters intended by the user.
 
-**ISO position:** The corresponding position of a key using the ISO layout convention where rows are identified by letters and columns are identified by numbers. For example, "D01" corresponds to the "Q" key on a US keyboard. For the purposes of this document, an ISO layout position is depicted by a one-letter row identifier followed by a two digit column number (like "B03", "E12" or "C00"). The following diagram depicts a typical US keyboard layout superimposed with the ISO layout indicators (it is important to note that the number of keys and their physical placement relative to each-other in this diagram is irrelevant, rather what is important is their logical placement using the ISO convention):
+<!-- **ISO position:** The corresponding position of a key using the ISO layout convention where rows are identified by letters and columns are identified by numbers. For example, "D01" corresponds to the "Q" key on a US keyboard. For the purposes of this document, an ISO layout position is depicted by a one-letter row identifier followed by a two digit column number (like "B03", "E12" or "C00"). The following diagram depicts a typical US keyboard layout superimposed with the ISO layout indicators (it is important to note that the number of keys and their physical placement relative to each-other in this diagram is irrelevant, rather what is important is their logical placement using the ISO convention):
 
 ![keyboard layout example showing ISO key numbering](images/keyPositions.png)
 
@@ -210,41 +198,45 @@ One may also extend the notion of the ISO layout to support keys that don't map 
 
 ![keyboard layout example showing extension of ISO key numbering](images/androidKeyboard.png)
 
-If it becomes necessary in the future, the format could extend the ISO layout to support keys that are located to the left of the "00" column by using negative column numbers "-01", "-02" and so on, or 100's complement "99", "98",...
+If it becomes necessary in the future, the format could extend the ISO layout to support keys that are located to the left of the "00" column by using negative column numbers "-01", "-02" and so on, or 100's complement "99", "98",... -->
 
-**Key:** A key on a physical keyboard.
+**Key:** A key on a physical keyboard, or a virtual key on an on-screen layout.
 
 **Key code:** The integer code sent to the application on pressing a key.
 
-**Key map:** The basic mapping between ISO positions and the output characters for each set of modifier combinations associated with a particular layout. There may be multiple key maps for each layout.
+**Key map:** The basic mapping between hardware or on-screen positions and the output characters for each set of modifier combinations associated with a particular layout. There may be multiple key maps for each layout.
 
-**Keyboard:** The physical keyboard.
+**Keyboard:** A particular arrangement of keys for the inputting of text, such as either a physical or virtual keyboard.
+
+**Keyboard author:** The person or group of people designing and producing a particular keyboard layout designed to support one or more languages. In the context of this specification, that author may be editing the LDML XML file directly or by means of software tools.
 
 **Keyboard layout:** A layout is the overall keyboard configuration for a particular locale. Within a keyboard layout, there is a single base map, one or more key maps and zero or more transforms.
 
-**Layer** is an arrangement of keys on a virtual keyboard. Since it is often not intended to use two hands on a visual keyboard to allow the pressing of modifier keys. Modifier keys are made sticky in that one presses one, the visual representation, and even arrangement, of the keys change, and you press the key. This visual representation is a layer. Thus a virtual keyboard is made up of a set of layers.
+**Layer** is an arrangement of keys on a virtual keyboard. A virtual keyboard is made up of a set of layers. Each layer may have a different key layout, unlike with a physical keyboard, and may not correspond directly to a physical keyboard's modifier keys. A layer is accessed via a switch key. See also virtual keyboard, modifier, switch.
 
 **Long-press key:** also known as a “child key”. A secondary key that is invoked from a top level key on a software keyboard. Secondary keys typically provide access to variants of the top level key, such as accented variants (a => á, à, ä, ã)
 
-**Modifier:** A key that is held to change the behavior of a keyboard. For example, the "Shift" key allows access to upper-case characters on a US keyboard. Other modifier keys include but is not limited to: Ctrl, Alt, Option, Command and Caps Lock.
+**Modifier:** A key that is held to change the behavior of a hardware keyboard. For example, the "Shift" key allows access to upper-case characters on a US keyboard. Other modifier keys include but are not limited to: Ctrl, Alt, Option, Command and Caps Lock. On a touch layout, keys that appear to be modifier keys should be considered to be layer-switching keys.
 
-**Physical keyboard** is a keyboard that has individual keys that are pressed. Each key has a unique identifier and the arrangement doesn't change, even if the mapping of those keys does.
+**Physical keyboard:** see **Hardware keyboard**
+
+**Touch keyboard** is a keyboard that is rendered on a, typically, touch surface. It has a dynamic arrangement and contrasts with a hardware keyboard. This term has many synonyms: software keyboard, SIP (Software Input Panel), virtual keyboard. This contrasts with other uses of the term virtual keyboard as an on-screen keyboard for reference or accessibility data entry.
 
 **Transform:** A transform is an element that specifies a set of conversions from sequences of code points into one (or more) other code points. For example, in most latin keyboards hitting the "^" dead-key followed by the "e" key produces "ê".
 
-**Virtual keyboard** is a keyboard that is rendered on a, typically, touch surface. It has a dynamic arrangement and contrasts with a physical keyboard. This term has many synonyms: touch keyboard, software keyboard, SIP (Software Input Panel). This contrasts with other uses of the term virtual keyboard as an on-screen keyboard for reference or accessibility data entry.
+**Virtual keyboard:** see **Touch keyboard**
 
-### 3.1 <a name="Escaping" href="#Escaping">Escaping</a>
+### <a name="Escaping" href="#Escaping">Escaping</a>
 
 When explicitly specified, attributes can contain escaped characters. This specification uses two methods of escaping, the _UnicodeSet_ notation and the `\u{...}` notation.
 
-The _UnicodeSet_ notation is described in [UTS#35 section 5.3.3](tr35.md#Unicode_Sets) and allows for comprehensive character matching, including by character range, properties, names, or codepoints. Currently, the following attributes allow _UnicodeSet_ notation:
+The _UnicodeSet_ notation is described in [UTS #35 section 5.3.3](tr35.md#Unicode_Sets) and allows for comprehensive character matching, including by character range, properties, names, or codepoints. Currently, the following attributes allow _UnicodeSet_ notation:
 
 * `from`, `before`, `after` on the `<transform>` element
 * `from`, `before`, `after` on the `<reorder>` element
 * `from`, `before`, `after` on the `<backspace>` element
 
-The `\u{...}` notation, a subset of hex notation, is described in [UTS#18 section 1.1](https://www.unicode.org/reports/tr18/#Hex_notation). It can refer to one or multiple individual codepoints. Currently, the following attributes allow the `\u{...}` notation:
+The `\u{...}` notation, a subset of hex notation, is described in [UTS #18 section 1.1](https://www.unicode.org/reports/tr18/#Hex_notation). It can refer to one or multiple individual codepoints. Currently, the following attributes allow the `\u{...}` notation:
 
 * `to`, `longPress`, `multitap`, `hint` on the `<map>` element
 * `to` on the `<transform>` element
@@ -254,20 +246,36 @@ Characters of general category of Combining Mark (M), Control characters (Cc), F
 
 * * *
 
-## 4 <a name="File_and_Dir_Structure" href="#File_and_Dir_Structure">File and Directory Structure</a>
+## <a name="File_and_Dir_Structure" href="#File_and_Dir_Structure">File and Directory Structure</a>
 
-Each platform has its own directory, where a "platform" is a designation for a set of keyboards available from a particular source, such as Windows or ChromeOS. This directory name is the platform name (see Table 2 located further in the document). Within this directory there are two types of files:
+* New collection of layouts that are prescriptive, and define the common core for a keyboard that can be consumed as data for implementation on different platforms. This collection will be in a different location than the existing CLDR keyboard files under main/keyboards. We should remove the existing data files, but keep the old DTD in the same place for compatibility, and also so that conversion tools can use it to read older files.
+* New layouts will have version metadata to indicate their spec compliance versi​​on number.  For this tech preview, the value used must be `techpreview`.
 
-1. A single platform file (see XML structure for Platform file), this file includes a mapping of hardware key codes to the ISO layout positions. This file is also open to expansion for any configuration elements that are valid across the whole platform and that are not layout specific. This file is simply called `_platform.xml`.
-2. Multiple layout files named by their locale identifiers. (eg. `lt-t-k0-chromeos.xml` or `ne-t-k0-windows.xml`).
+```xml
+<keyboard conformsTo="techpreview"/>
+```
 
-Keyboard data that is not supported on a given platform, but intended for use with that platform, may be added to the directory `/und/`. For example, there could be a file `/und/lt-t-k0-chromeos.xml`, where the data is intended for use with ChromeOS, but does not reflect data that is distributed as part of a standard ChromeOS release.
+> _Note_: Unlike other LDML files, layouts are designed to be used outside of the CLDR source tree.  A new mechanism for referencing the DTD path should ideally be used, such as a URN or FPI. See <https://unicode-org.atlassian.net/browse/CLDR-15505> for discussion. For this tech preview, a relative path to the dtd will continue to be used as below.  Future versions may give other recommendations.
+
+```xml
+<!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
+```
+
+* The filename of a keyboard .xml file does not have to match the BCP47 primary locale ID, but it is recommended to do so. The CLDR repository may enforce filename consistency.
+
+### <a name="Extensibility" href="#Extensibility">Extensibility</a>
+
+For extensibility, the `<special>` element will be allowed at every nearly every level.
+
+See [Element special](tr35.md#special) in Part 1.
 
 * * *
 
-## 5 <a name="Element_Heirarchy_Layout_File" href="#Element_Heirarchy_Layout_File">Element Hierarchy - Layout File</a>
+## Element Hierarchy
 
-### 5.1 <a name="Element_Keyboard" href="#Element_Keyboard">Element: keyboard</a>
+This section describes the XML elements in a keyboard layout file, beginning with the top level element `<keyboard>`.
+
+### <a name="Element_Keyboard" href="#Element_Keyboard">Element: keyboard</a>
 
 This is the top level element. All other elements defined below are under this element.
 
@@ -282,55 +290,133 @@ This is the top level element. All other elements defined below are under this e
 > <small>
 >
 > Parents: _none_
-> Children: [version](#Element_version), [~~generation~~](#Element_generation), [info](#Element_info), [names](#Element_names), [settings](#Element_settings), [import](#Element_import), [keyMap](#Element_KeyMap), [displayMap](#Element_DisplayMap), [layer](#Element_layer), [vkeys](#Element_vkeys), [transforms](#Element_transforms), [reorders](#Element_reorder), [backspaces](#Element_backspaces)
-> Occurence: required, single
+>
+> Children: [backspaces](#Element_backspaces), [displayMap](#Element_displayMap), [import](#Element_import), [info](#Element_info), [keys](#Element_keys), [layerMaps](#Element_layerMaps), [locales](#Element_locales), [names](#Element_names), [reorders](#Element_reorders), [settings](#Element_settings), [_special_](tr35.md#special), [transforms](#Element_transforms), [version](#Element_version), [vkeyMaps](#Element_vkeyMaps)
+>
+> Occurrence: required, single
 >
 > </small>
 
+_Attribute:_ `conformsTo` (required)
+
+This attribute distinguishes the keyboard from prior versions,
+and it also specifies the minimum CLDR version required.
+
+For purposes of this current draft spec, the value should always be `techpreview`
+
+```xml
+<keyboard … conformsTo="techpreview"/>
+```
+
 _Attribute:_ `locale` (required)
 
-This mandatory attribute represents the locale of the keyboard using Unicode locale identifiers (see [LDML](tr35.md)) - for example `"el"` for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: `"und-Deva"`. For details, see [Keyboard IDs](#Keyboard_IDs) .
+This mandatory attribute represents the primary locale of the keyboard using Unicode locale identifiers (see [LDML](tr35.md)) - for example `"el"` for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: `"mul-Deva"`. For further details, see [Keyboard IDs](#Keyboard_IDs).
 
 **Example** (for illustrative purposes only, not indicative of the real data)
 
 ```xml
-<keyboard locale="ka-t-k0-qwerty-windows">
+<keyboard locale="ka">
   …
 </keyboard>
 ```
+
 ```xml
-<keyboard locale="fr-CH-t-k0-android">
+<keyboard locale="fr-CH-t-k0-azerty">
   …
 </keyboard>
 ```
 
 * * *
 
-### 5.2 <a name="Element_version" href="#Element_version">Element: version</a>
+### <a name="Element_locales" href="#Element_locales">Element: locales</a>
+
+The optional `<locales>` element allows specifying additional or alternate locales. Denotes intentional support for an extra language, not just that a keyboard incidentally supports a language’s orthography.
+
+**Syntax**
+
+```xml
+<locales>
+    <locale id="…"/>
+    <locale id="…"/>
+</locales>
+```
+
+> <small>
+>
+> Parents: [keyboard](#Element_keyboard)
+>
+> Children: [locale](#Element_locale)
+>
+> Occurrence: optional, single
+>
+> </small>
+
+### <a name="Element_locale" href="#Element_locale">Element: locale</a>
+
+The optional `<locales>` element allows specifying additional or alternate locales. Denotes intentional support for an extra language, not just that a keyboard incidentally supports a language’s orthography.
+
+**Syntax**
+
+```xml
+<locale id="{id}"/>
+```
+
+> <small>
+>
+> Parents: [locales](#Element_locales)
+>
+> Children: _none_
+>
+> Occurrence: optional, multiple
+>
+> </small>
+
+_Attribute:_ `id` (required)
+
+> The BCP47 locale ID of an additional language supported by this keyboard.
+> Do _not_ include the `-k0-` subtag for this additional language.
+
+**Example**
+
+See [Principles for Keyboard IDs](#Principles_for_Keyboard_IDs) for discussion and further examples.
+
+```xml
+<!-- Pan Nigerian Keyboard-->
+<keyboard locale="mul-Latn-NG-t-k0-panng">
+    <locales>
+    <locale id="ha"/>
+    <locale id="ig"/>
+    <!-- others … -->
+    </locales>
+</keyboard>
+```
+
+* * *
+
+### <a name="Element_version" href="#Element_version">Element: version</a>
 
 Element used to keep track of the source data version.
 
 **Syntax**
 
 ```xml
-<version platform=".." number="..">
+<version number="..">
 ```
 
 > <small>
 >
 > Parents: [keyboard](#Element_keyboard)
+>
 > Children: _none_
-> Occurence: required, single
+>
+> Occurrence: optional, single
 >
 > </small>
 
-_Attribute:_ `platform` (required)
-
-> The platform source version. Specifies what version of the platform the data is from. For example, data from Mac OSX 10.4 would be specified as `platform="10.4"`. For platforms that have unstable version numbers which change frequently (like Linux), this field is set to an integer representing the iteration of the data starting with `"1"`. This number would only increase if there were any significant changes in the keyboard data.
-
 _Attribute:_ `number` (required)
 
-> The data revision version. The attribute value must start with `$Revision` and end with `$`.
+> Must be a [semver-compatible](https://semver.org) version number.
+<!-- TODO make the above into a reverence to SEMVER -->
 
 _Attribute:_ `cldrVersion` (fixed by DTD)
 
@@ -339,22 +425,16 @@ _Attribute:_ `cldrVersion` (fixed by DTD)
 **Example**
 
 ```xml
-<keyboard locale="..-osx">
+<keyboard locale="tok">
     …
-    <version platform="10.4" number="1"/>
+    <version number="1"/>
     …
 </keyboard>
 ```
 
 * * *
 
-### 5.3 ~~<a name="Element_generation" href="#Element_generation">Element: generation</a>~~
-
-The `generation` element is now deprecated. It was used to keep track of the generation date of the data.
-
-* * *
-
-### 5.4 <a name="Element_info" href="#Element_info">Element: info</a>
+### <a name="Element_info" href="#Element_info">Element: info</a>
 
 Element containing informative properties about the layout, for displaying in user interfaces etc.
 
@@ -370,34 +450,38 @@ Element containing informative properties about the layout, for displaying in us
 > <small>
 >
 > Parents: [keyboard](#Element_keyboard)
+>
 > Children: _none_
-> Occurence: optional, single
+>
+> Occurrence: optional, single
 >
 > </small>
 
-_Attribute:_ `author` (optional)
+_Attribute:_ `author`
 
 > The `author` attribute contains the name of the author of the layout file.
 
-_Attribute:_ `normalization` (optional)
+_Attribute:_ `normalization`
 
 > The `normalization` attribute describes the intended normalization form of the keyboard layout output. The valid values are `NFC`, `NFD` or `other`.
-> An example use case is aiding user to choose among the two same layouts with one outputting characters in the normalization form C and one in the normalization form D.
+> An example use case is aiding a user to choose among the two same layouts with one outputting characters in the normalization form C and one in the normalization form D.
 
-_Attribute:_ `layout` (optional)
+_Attribute:_ `layout`
 
-> The `layout` attribtue describes the layout pattern, such as QWERTY, DVORAK, INSCRIPT, etc. typically used to distinguish various layouts for the same language.
+> The `layout` attribute describes the layout pattern, such as QWERTY, DVORAK, INSCRIPT, etc. typically used to distinguish various layouts for the same language.
 
-_Attribute:_ `indicator` (optional)
+_Attribute:_ `indicator`
 
 > The `indicator` attribute describes a short string to be used in currently selected layout indicator, such as US, SI9 etc.
 > Typically, this is shown on a UI element that allows switching keyboard layouts and/or input languages.
 
 * * *
 
-### 5.5 <a name="Element_names" href="#Element_names">Element: names</a>
+### <a name="Element_names" href="#Element_names">Element: names</a>
 
-Element used to store any names given to the layout by the platform.
+Element used to store any names given to the layout.
+
+These names are not currently localized.
 
 **Syntax**
 
@@ -410,14 +494,16 @@ Element used to store any names given to the layout by the platform.
 > <small>
 >
 > Parents: [keyboard](#Element_keyboard)
-> Children: [name](#Element_name)
-> Occurence: required, single
+>
+> Children: [name](#Element_name), [_special_](tr35.md#special)
+>
+> Occurrence: required, single
 >
 > </small>
 
-### 5.6 <a name="Element_name" href="#Element_name">Element: name</a>
+### <a name="Element_name" href="#Element_name">Element: name</a>
 
-A single name given to the layout by the platform.
+A single name given to the layout.
 
 **Syntax**
 
@@ -428,8 +514,11 @@ A single name given to the layout by the platform.
 > <small>
 >
 > Parents: [names](#Element_names)
+>
 > Children: _none_
-> Occurence: required, multiple
+>
+> Occurrence: required, multiple
+>
 > </small>
 
 _Attribute:_ `value` (required)
@@ -439,7 +528,7 @@ _Attribute:_ `value` (required)
 **Example**
 
 ```xml
-<keyboard locale="bg-t-k0-windows-phonetic-trad">
+<keyboard locale="bg-t-k0-phonetic-trad">
     …
     <names>
         <name value="Bulgarian (Phonetic Traditional)" />
@@ -450,9 +539,9 @@ _Attribute:_ `value` (required)
 
 * * *
 
-### 5.7 <a name="Element_settings" href="#Element_settings">Element: settings</a>
+### <a name="Element_settings" href="#Element_settings">Element: settings</a>
 
-An element used to keep track of layout specific settings. This element may or may not show up on a layout. These settings reflect the normal practice on the platform. However, an implementation using the data may customize the behavior. For example, for `transformFailure` the implementation could ignore the setting, or modify the text buffer in some other way (such as by emitting backspaces).
+An element used to keep track of layout specific settings. This element may or may not show up on a layout. These settings reflect the normal practice by the implementation. However, an implementation using the data may customize the behavior. For example, for `transformFailure` the implementation could ignore the setting, or modify the text buffer in some other way (such as by emitting backspaces).
 
 **Syntax**
 
@@ -463,18 +552,20 @@ An element used to keep track of layout specific settings. This element may or m
 > <small>
 >
 > Parents: [keyboard](#Element_keyboard)
+>
 > Children: _none_
-> Occurence: optional, single
+>
+> Occurrence: optional, single
 >
 > </small>
 
-_Attribute:_ `fallback="omit"` (optional)
+_Attribute:_ `fallback="omit"`
 
-> The presence of this attribute means that when a modifier key combination goes unmatched, no output is produced. The default behavior (when this attribute is not present) is to fallback to the base map when the modifier key combination goes unmatched.
+> The presence of this attribute means that when a modifier key combination goes unmatched, no output is produced. The default behavior (when this attribute is not present) is to fall back to the base map when the modifier key combination goes unmatched.
 
 If this attribute is present, it must have a value of omit.
 
-_Attribute:_ `transformFailure="omit"` (optional)
+_Attribute:_ `transformFailure="omit"`
 
 > This attribute describes the behavior of a transform when it is escaped (see the `transform` element in the Layout file for more information). A transform is escaped when it can no longer continue due to the entry of an invalid key. For example, suppose the following set of transforms are valid:
 >
@@ -494,18 +585,18 @@ The default behavior (when this attribute is not present) is to emit the content
 
 If this attribute is present, it must have a value of omit.
 
-_Attribute:_ `transformPartial="hide"` (optional)
+_Attribute:_ `transformPartial="hide"`
 
-> This attribute describes the behavior the system while in a transform. When this attribute is present then don't show the values of the buffer as the user is typing a transform (this behavior can be seen on Windows or Linux platforms).
+> This attribute describes the behavior of the system while in a transform. When this attribute is present then don't show the values of the buffer as the user is typing a transform (this behavior can be seen on Windows or Linux platforms).
 
-By default (when this attribute is not present), show the values of the buffer as the user is typing a transform (this behavior can be seen on the Mac OSX platform).
+By default (when this attribute is not present), show the values of the buffer as the user is typing a transform (this behavior can be seen on the macOS platform).
 
 If this attribute is present, it must have a value of hide.
 
 **Example**
 
 ```xml
-<keyboard locale="bg-t-k0-windows-phonetic-trad">
+<keyboard locale="bg">
     …
     <settings fallback="omit" transformPartial="hide" />
     …
@@ -520,234 +611,211 @@ Indicates that:
 
 * * *
 
-### 5.8 <a name="Element_keyMap" href="#Element_keyMap">Element: keyMap</a>
+### <a name="Element_keys" href="#Element_keys">Element: keys</a>
 
-This element defines the group of mappings for all the keys that use the same set of modifier keys. It contains one or more map elements.
+This element defines the properties of all possible keys via [`<key>` elements](#Element_key) used in all layouts.
+It is a “bag of keys” without specifying any ordering or relation between the keys.
+There is only a single `<keys>` element in each layout.
 
 **Syntax**
 
 ```xml
-<keyMap [modifiers="{Set of Modifier Combinations}"]>
-    {a set of map elements}
-</keyMap>
+<keys>
+    <key … />
+    <key … />
+    <key … />
+    <flicks … />
+    <key … />
+    <flicks … />
+</keys>
 ```
+
+`key` and `flicks` elements may be interleaved in any order.
 
 > <small>
 >
 > Parents: [keyboard](#Element_keyboard)
-> Children: [map](#Element_map), [flicks](#Element_flicks)
-> Occurence: required, multiple
+> Children: [key](#Element_key), [flicks](#Element_flicks)
+> Occurrence: optional, single
 >
 > </small>
 
-_Attribute:_ `modifiers` (optional)
 
-> A set of modifier combinations that cause this key map to be "active". Each combination is separated by a space. The interpretation is that there is a match if any of the combinations match, that is, they are ORed. Therefore, the order of the combinations within this attribute does not matter.
-
-> A combination is simply a concatenation of words to represent the simultaneous activation of one or more modifier keys. The order of the modifier keys within a combination does not matter, although don't care cases are generally added to the end of the string for readability (see next paragraph). For example: `"cmd+caps"` represents the Caps Lock and Command modifier key combination. Some keys have right or left variant keys, specified by a 'R' or 'L' suffix. For example: `"ctrlR+caps"` would represent the Right-Control and Caps Lock combination. For simplicity, the presence of a modifier without a 'R' or 'L' suffix means that either its left or right variants are valid. So `"ctrl+caps"` represents the same as `"ctrlL+ctrlR?+caps ctrlL?+ctrlR+caps"`.
-
-A modifier key may be further specified to be in a "don't care" state using the '?' suffix. The "don't care" state simply means that the preceding modifier key may be either ON or OFF. For example `"ctrl+shift?"` could be expanded into `"ctrl ctrl+shift"`.
-
-Within a combination, the presence of a modifier WITHOUT the '?' suffix indicates this key MUST be on. The converse is also true, the absence of a modifier key means it MUST be off for the combination to be active.
-
-Here is an exhaustive list of all possible modifier keys:
-
-###### Table: <a name="Possible_Modifier_Keys" href="#Possible_Modifier_Keys">Possible Modifier Keys</a>
-
-| Modifier Keys |          | Comments                        |
-|---------------|----------|---------------------------------|
-| `altL`        | `altR`   | xAlty → xAltR+AltL? xAltR?AltLy |
-| `ctrlL`       | `ctrlR`  | ditto for Ctrl                  |
-| `shiftL`      | `shiftR` | ditto for Shift                 |
-| `optL`        | `optR`   | ditto for Opt                   |
-| `caps`        |          | Caps Lock                       |
-| `cmd`         |          | Command on the Mac              |
-
-All sets of modifier combinations within a layout are disjoint with no-overlap existing between the key maps. That is, for every possible modifier combination, there is at most a single match within the layout file. There are thus never multiple matches. If no exact match is available, the match falls back to the base map unless the `fallback="omit"` attribute in the `settings` element is set, in which case there would be no output at all.
-
-**Example**
-
-To illustrate, the following example produces an invalid layout because pressing the "Ctrl" modifier key produces an indeterminate result:
-
-```xml
-<keyMap modifiers="ctrl+shift?">
-    …
-</keyMap>
-```
-
-```xml
-<keyMap modifiers="ctrl">
-    …
-</keyMap>
-```
-
-Modifier Examples:
-
-```xml
-<keyMap modifiers="cmd?+opt+caps?+shift" />
-```
-
-Caps-Lock may be ON or OFF, Option must be ON, Shift must be ON and Command may be ON or OFF.
-
-```xml
-<keyMap modifiers="shift caps" />
-```
-
-Caps-Lock must be ON OR Shift must be ON.
-
-If the `modifiers` attribute is not present on a `keyMap` then that particular key map is the base map.
 
 * * *
 
-### 5.9 <a name="Element_map" href="#Element_map">Element: map</a>
+### <a name="Element_key" href="#Element_key">Element: key</a>
 
-This element defines a mapping between the base character and the output for a particular set of active modifier keys. This element must have the `keyMap` element as its parent.
-
-If a `map` element for a particular ISO layout position has not been defined then if this key is pressed, no output is produced.
+This element defines a mapping between an abstract key and its output. This element must have the `keys` element as its parent. The `key` element is referened by the `keys=` attribute of the [`row` element](#Element_row).
 
 **Syntax**
 
 ```xml
-<map
- iso="{the iso position}"
- to="{the output}"
+<key
+ id="{key id}"
+ [flicks="{flicks identifier}"]
+ [gap="true"]
  [longPress="{long press keys}"]
- [transform="no"]
+ [longPressDefault="{default longpress target}"]
  [multitap="{the output on subsequent taps}"]
- [longPress-status="optional"]
- [optional="{optional mappings}"]
- [hint="{hint to long press content}"]
+ [switch="{layer id}"]
+ [to="{the output}"]
+ [transform="no"]
+ [width="{key width}"]
  /><!-- {Comment to improve readability (if needed)} -->
 ```
 
 > <small>
 >
-> Parents: [keyMap](#Element_keyMap)
-> Children: _none_
-> Occurence: optional, multiple
+> Parents: [keys](#Element_keys)
 >
+> Children: _none_
+>
+> Occurrence: optional, multiple
 > </small>
 
-_Attribute:_ `iso` (exactly one of base and iso is required)
+**Note**: The `id` attribute is required, as is _at least one of_ `switch`, `gap`, or `to`.
 
-> The `iso` attribute represents the ISO layout position of the key (see the definition at the beginning of the document for more information).
+_Attribute:_ `id`
 
-_Attribute:_ `to` (required)
+> The `id` attribute uniquely identifies the key. NMTOKEN, restricted to "[a-zA-Z0-9_.-]". It can (but needn't be) the Latin key name for a Latn script keyboard (a, b, c, A, B, C, …), or any other valid token (e-acute, alef, alif, alpha, …)
 
-> The `to` attribute contains the output sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the `\u{...}` notation.
+_Attribute:_ `flicks="flick-id"` (optional)
 
-_Attribute:_ `longPress="optional"` (optional)
+> The `flicks` attribute indicates that this key makes use of a [`flicks`](#Element_flicks) set with the specified id.
+
+_Attribute:_ `gap="true"` (optional)
+
+> The `gap` attribute indicates that this key does not have any appearance, but represents a "gap" of the specified number of key widths. Can be used with `width` to set a width.
+
+```xml
+<key id="mediumgap" gap="true" width="1.5"/>
+```
+
+_Attribute:_ `longPress="a b c"` (optional) (discouraged, see [Accessibility])
 
 > The `longPress` attribute contains any characters that can be emitted by "long-pressing" a key, this feature is prominent in mobile devices. The possible sequences of characters that can be emitted are whitespace delimited. Control characters, combining marks and whitespace (which is intended to be a long-press option) in this attribute are escaped using the `\u{...}` notation.
 
-_Attribute:_ `transform="no"` (optional)
+_Attribute:_ `longPressDefault` (optional)
 
-> The `transform` attribute is used to define a key that never participates in a transform but its output shows up as part of a transform. This attribute is necessary because two different keys could output the same characters (with different keys or modifier combinations) but only one of them is intended to be a dead-key and participate in a transform. This attribute value must be no if it is present.
+> Indicates which of the `longPress` target characters is the default long-press target, which could be different than the first element. Ignored if not in the `longPress` list. Characters in this attribute can be escaped using the `\u{...}` notation.
+> For example, if the `longPressDefault` is a key whose [display](#Element_displayMap) appears as `{` an implementation might render the key as follows:
+>
+> ![keycap hint](images/keycapHint.png)
 
-_Attribute:_ `multitap` (optional)
+_Attribute:_ `multitap` (optional) (discouraged, see [Accessibility])
 
 > A space-delimited list of strings, where each successive element of the list is produced by the corresponding number of quick taps. For example, three taps on the key C01 will produce a “c” in the following example (first tap produces “a”, two taps produce “bb” etc.).
 >
 > _Example:_
 >
 > ```xml
-> <map iso="C01" to="a" multitap="bb c d">
+> <key id="a" to="a" multitap="bb c d">
 > ```
+>
 > Control characters, combining marks and whitespace (which is intended to be a multitap option) in this attribute are escaped using the `\u{...}` notation.
 
-_Attribute:_ `longPress-status` (optional)
+**Note**: Behavior past the end of the multitap list is implementation specific.
 
-> Indicates optional `longPress` values. Must only occur with a `longPress` value. May be suppressed or shown, depending on user settings. There can be two `map` elements that differ only by `longPress-status`, allowing two different sets of `longPress` values.
+_Attribute:_ `switch="shift"` (optional)
+
+> The `switch` attribute indicates that this key switches to another `layerMap` with the specified id (such as `<layerMap id="shift"/>` in this example).
+> Note that a key may have both a `switch=` and a `to=` attribute, indicating that the key outputs prior to switching layers.
+> Also note that `switch=` is ignored for hardware layouts: their shifting is controlled via
+> the modifier keys.
+
+_Attribute:_ `to` (required)
+
+> The `to` attribute contains the output sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the `\u{...}` notation. More than one key may output the same output.
+
+_Attribute:_ `transform="no"` (optional)
+
+> The `transform` attribute is used to define a key that never participates in a transform but its output shows up as part of a transform. This attribute is necessary because two different keys could output the same characters (with different keys or modifier combinations) but only one of them is intended to be a dead-key and participate in a transform. This attribute value must be no if it is present.
 >
-> _Example:_
->
-> ```xml
-> <map iso="D01" to="a" longPress="à â % æ á ä ã å ā ª" />
-> <map iso="D01" to="a" longPress="à â á ä ã å ā" longPress-status="optional" />
-> ```
-
-_Attribute:_ `optional` (optional)
-
-> Indicates optional mappings. May be suppressed or shown, depending on user settings.
-
-_Attribute:_ `hint` (optional)
-
-> Indicates a hint as to long-press contents, such as the first character of the `longPress` value, that can be displayed on the key. May be suppressed or shown, depending on user Settings. Characters in this attribute can be escaped using the `\u{...}` notation.
->
-> _Example:_ where the hint is "{":
->
-> ![keycap hint](images/keycapHint.png)
-
-For example, suppose there are the following keys, their output and one transform:
-
-```
-E00 outputs `
-Option+E00 outputs ` (the dead-version which participates in transforms).
-`e → è
-```
-
-Then the first key must be tagged with `transform="no"` to indicate that it should never participate in a transform.
-
-Comment: US key equivalent, base key, escaped output and escaped longpress
-
-In the generated files, a comment is included to help the readability of the document. This comment simply shows the English key equivalent (with prefix `key=`), the base character (`base=`), the escaped output (`to=`) and escaped long-press keys (`long=`). These comments have been inserted strategically in places to improve readability. Not all comments include all components since some of them may be obvious.
-
-**Example**
+> For example, suppose there are the following keys, their output and one transform:
 
 ```xml
-<keyboard locale="fr-BE-t-k0-windows">
-    …
-    <keyMap modifiers="shift">
-        <map iso="D01" to="A" /> <!-- key=Q -->
-        <map iso="D02" to="Z" /> <!-- key=W -->
-        <map iso="D03" to="E" />
-        <map iso="D04" to="R" />
-        <map iso="D05" to="T" />
-        <map iso="D06" to="Y" />
-        …
-    </keyMap>
-     …
-</keyboard>
+<keys>
+    <key id="X" to="^" transform="no"/>
+    <key id="OptX" to="^"/>
+</keys>
+…
+<transforms …>
+    <transform from="^e" to="ê"/>
+</transforms>
 ```
 
+* **X** outputs `^` (caret)
+* Option-**X** outputs `^` but is intended to be the first part of a transform.
+* Option-**X** + `e` → `ê`
+
+> Without the `transform="no"` on the base key **X**, it would not be possible to
+> type the sequence `^e` (caret+e) as it would turn into `ê` per the transform.
+> However, since there is `transform="no`" on **X**, if the user types **X** + `e` the sequence remains `^e`.
+
+* **X** + `e` → `^e`
+
+_Attribute:_ `width="1.2"` (optional, default "1.0")
+
+> The `width` attribute indicates that this key has a different width than other keys, by the specified number of key widths.
+
 ```xml
-<keyboard locale="ps-t-k0-windows">
-    …
-    <keyMap modifiers='altR+caps? ctrl+alt+caps?'>
-        <map iso="D04" to="\u{200e}" /> <!-- key=R base=ق -->
-        <map iso="D05" to="\u{200f}" /> <!-- key=T base=ف -->
-        <map iso="D08" to="\u{670}" /> <!-- key=I base=ه to= ٰ -->
-        …
-    </keyMap>
-    …
-</keyboard>
+<key id="wide-a" to="a" width="1.2"/>
+<key id="wide-gap" gap="true" width="2.5"/>
+```
+
+##### Implied Keys
+
+Not all keys need to be listed explicitly.  The following keys can be assumed to already exist:
+
+```xml
+<!--  all 26 upper and lower case English letters -->
+<key id="a" to="a"/>
+<key id="b" to="b"/>
+<key id="c" to="c"/>
+…
+<key id="A" to="A"/>
+<key id="B" to="B"/>
+<key id="C" to="C"/>
+…
+
+<key id="space" to=" "/>  <!-- Note: 'space' is always considered 'stretchable'-->
+
+<!-- modifiers-->
+<key id="shift" shift="shift"/>
+… 
 ```
 
 * * *
 
-#### 5.9.1 <a name="Element_flicks" href="#Element_flicks">Elements: flicks, flick</a>
+#### <a name="Element_flicks" href="#Element_flicks">Elements: flicks, flick</a>
 
 The `flicks` element is used to generate results from a "flick" of the finger on a mobile device.
 
 **Syntax**
 
 ```xml
-<flicks iso="{the iso position}">
+<key id="a" flicks="a-flicks" to="a" />
+<flicks id="a-flicks">
     {a set of flick elements}
 </flicks>
 ```
 
 > <small>
 >
-> Parents: [keyMap](#Element_keyMap)
-> Children: [flick](#Element_flicks)
-> Occurence: optional, multiple
+> Parents: [keys](#Element_keys)
+>
+> Children: [flick](#Element_flick), [_special_](tr35.md#special)
+>
+> Occurrence: optional, multiple
 >
 > </small>
 
-_Attribute:_ `iso` (required)
+_Attribute:_ `id` (required)
 
-> The `iso` attribute represents the ISO layout position of the key (see the definition at the beginning of the document for more information).
+> The `id` attribute identifies the flicks. It can be any NMTOKEN.
+> The `flicks` do not share a namespace with the `key`s, so it would also be allowed
+> to have `<key id="a" flicks="a"/><flicks id="a"/>`
 
 **Syntax**
 
@@ -758,8 +826,10 @@ _Attribute:_ `iso` (required)
 > <small>
 >
 > Parents: [flicks](#Element_flicks)
+>
 > Children: _none_
-> Occurence: required, multiple
+>
+> Occurrence: required, multiple
 >
 > </small>
 
@@ -775,36 +845,100 @@ _Attribute:_ `to` (required)
 where a flick to the Northeast then South produces two code points.
 
 ```xml
-<flicks iso="C01">
+<flicks id="a">
     <flick directions="ne s" to="\uABCD\uDCBA" />
 </flicks>
 ```
 
 * * *
 
-### 5.10 <a name="Element_import" href="#Element_import">Element: import</a>
+### <a name="Element_import" href="#Element_import">Element: import</a>
 
-The `import` element references another file of the same type and includes all the subelements of the top level element as though the `import` element were being replaced by those elements, in the appropriate section of the XML file. For example:
+The `import` element is used to reference another xml file so that elements are imported from
+another file.
+
+_Attribute:_ `base`
+
+> The base may be omitted (indicating a local import) or have the value `"cldr"` (specifying CLDR standard files).
+
+_Attribute:_ `path` (required)
+
+The use case is to be able to import a standard set of vkeyMaps, transforms, and similar
+from the CLDR repository.  `<import>` is not recommended as a way for keyboard authors to
+split up their keyboard into multiple files, as the intent is for each single XML file to contain all that is needed for a keyboard layout.
+
+`<import>` can be used as a child of a number of elements. Multiple `<import>` elements may be used, however, `<import>` elements must come before any other sibling elements.
+
+<!-- TODO: which ones?-->
 
 **Syntax**
 
 ```xml
-<import path="standard_transforms.xml">
+<!-- in a keyboard xml file-->
+…
+<transforms type="simple">
+    <import path="cldr/standard_transforms.xml"/>
+    <transform from="` " to="`" />
+    <transform from="^ " to="^" />
+</transforms>
+…
+
+
+<!-- contents of cldr/standard_transforms.xml -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE transforms SYSTEM "../dtd/ldmlKeyboard.dtd">
+<transforms>
+    <!-- begin imported part-->
+    <transform from="`a" to="à" />
+    <transform from="`e" to="è" />
+    <transform from="`i" to="ì" />
+    <transform from="`o" to="ò" />
+    <transform from="`u" to="ù" />
+    <!-- end imported part -->
+</transforms>
+```
+
+Note that the DOCTYPE and root element, here `transforms`, is the same as
+the _parent_ of the `<import/>` element. It is an error to import an XML file
+whois root element is different than the parent element of the `<import/>` element.
+
+After loading, the above example will be the equivalent of the following.
+
+```xml
+<transforms type="simple">
+    <!-- begin imported part-->
+    <transform from="`a" to="à" />
+    <transform from="`e" to="è" />
+    <transform from="`i" to="ì" />
+    <transform from="`o" to="ò" />
+    <transform from="`u" to="ù" />
+    <!-- end imported part -->
+
+    <!-- this line is after the import -->
+    <transform from="^ " to="^" />
+    <transform from="` " to="`" />
+</transforms>
 ```
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [backspaces](#Element_backspaces), [displayMap](#Element_displayMap), [keyboard](#Element_keyboard), [keys](#Element_keys), [layerMaps](#Element_layerMaps), [names](#Element_names), [reorders](#Element_reorders), [transforms](#Element_transforms), [vkeyMaps](#Element_vkeyMaps)
+>
 > Children: _none_
-> Occurence: optional, multiple
+>
+> Occurrence: optional, multiple
 >
 > </small>
 
 _Attribute:_ `path` (required)
 
-> The value is contains a relative path to the included ldml file. There is a standard set of directories to be searched that an application may provide. This set is always prepended with the directory in which the current file being read, is stored.
+> The value is contains a relative path to the included XML file. There is a standard set of directories to be searched that an application may provide. This set is always prepended with the directory in which the current file being read is stored.
 
-If two identical elements, as described below, are defined, the later element will take precedence. Thus if a `hardwareMap/map` for the same keycode on the same page is defined twice (for example once in an included file), the later one will be the resulting mapping.
+If two identical elements <!-- , as described below, --> are defined, the later element will take precedence.
+
+<!-- TODO: Rework the below discussion. -->
+
+<!-- Thus if a `hardwareMap/map` for the same keycode on the same page is defined twice (for example once in an included file), the later one will be the resulting mapping.
 
 Elements are considered to have three attributes that make them unique: the tag of the element, the parent and the identifying attribute. The parent in its turn is a unique element and so on up the chain. If the distinguishing attribute is optional, its non-existence is represented with an empty value. Here is a list of elements and their defining attributes. If an element is not listed then if it is a leaf element, only one occurs and it is merely replaced. If it has children, then the subelements are considered, in effect merging the element in question.
 
@@ -834,13 +968,31 @@ The following elements are not imported from the source file:
 * `names`
 * `settings`
 
+-->
+
 * * *
 
-### 5.11 <a name="Element_displayMap" href="#Element_displayMap">Element: displayMap</a>
+### <a name="Element_displayMap" href="#Element_displayMap">Element: displayMap</a>
 
-The displayMap can be used to describe what is to be displayed on the keytops for various keys. For the most part, such explicit information is unnecessary since the `@to` element from the `keyMap/map` element can be used. But there are some characters, such as diacritics, that do not display well on their own and so explicit overrides for such characters can help. The `displayMap` consists of a list of display subelements.
+The displayMap can be used to describe what is to be displayed on the keytops for various keys. For the most part, such explicit information is unnecessary since the `@to` element from the `keys/key` element can be used. But there are some characters, such as diacritics, that do not display well on their own and so explicit overrides for such characters can help.
+Another useful scenario is where there are doubled diacritics, or multiple characters with spacing issues.
 
-DisplayMaps are designed to be shared across many different keyboard layout descriptions, and included in where needed.
+The `displayMap` consists of a list of display subelements.
+
+displayMaps are designed to be shared across many different keyboard layout descriptions, and imported with `<import>` in where needed.
+
+For combining characters, U+25CC `◌` is used as a base. It is an error to use a combining character without a base in the `display` attribute.
+
+For example, a key which outputs a combining tilde (U+0303) can be represented as follows:
+
+```xml
+    <display to="\u0303" display="◌̃" />  <!-- \u25CC \u0303-->
+```
+
+This way, a key which outputs a combining tilde (U+0303) will be represented as `◌̃` (a tilde on a dotted circle).
+
+Some scripts/languages may prefer a different base than U+25CC.
+See  [`<displayOptions baseCharacter=…/>`](#Element_displayOptions).
 
 **Syntax**
 
@@ -850,19 +1002,23 @@ DisplayMaps are designed to be shared across many different keyboard layout desc
 </displayMap>
 ```
 
+**Note**: There is currently no way to indicate a custom display for a key without output (i.e. without a `to=` attribute), nor is there a way to indicate that such a key has a standardized identity (e.g. that a key should be identified as a “Shift”). These may be addressed in future versions of this standard.
+
 > <small>
 >
 > Parents: [keyboard](#Element_keyboard)
-> Children: [display](#Element_display)
-> Occurence: optional, single
+>
+> Children: [display](#Element_display), [displayOptions](#Element_displayOptions), [_special_](tr35.md#special)
+>
+> Occurrence: optional, single
 >
 > </small>
 
 * * *
 
-### 5.12 <a name="Element_display" href="#Element_display">Element: display</a>
+### <a name="Element_display" href="#Element_display">Element: display</a>
 
-The `display` element describes how a character, that has come from a `keyMap/map` element, should be displayed on a keyboard layout where such display is possible.
+The `display` element describes how a character, that has come from a `keys/key` element, should be displayed on a keyboard layout where such display is possible.
 
 **Syntax**
 
@@ -873,338 +1029,261 @@ The `display` element describes how a character, that has come from a `keyMap/ma
 > <small>
 >
 > Parents: [displayMap](#Element_displayMap)
+>
 > Children: _none_
-> Occurence: required, multiple
+>
+> Occurrence: required, multiple
 >
 > </small>
 
-_Attribute:_ `to` (required)
+_Attribute:_ `to` (optional- `to` or `id` is required, or both)
 
-> Specifies the character or character sequence from the `keyMap/map` element that is to have a special display.
+> Specifies the character or character sequence from the `keys/key` element that is to have a special display.
+
+_Attribute:_ `id` (optional- `to` or `id` is required, or both)
+
+> Specifies the `key` id. This is useful for keys which do not produce any output (no `to=` value), such as a shift key.
 
 _Attribute:_ `display` (required)
 
-> Required and specifies the character sequence that should be displayed on the keytop for any key that generates the `@to` sequence. (It is an error if the value of the `display` attribute is the same as the value of the `to` attribute.)
+> Required and specifies the character sequence that should be displayed on the keytop for any key that generates the `@to` sequence or has the `@id`. (It is an error if the value of the `display` attribute is the same as the value of the `to` attribute, this would be an extraneous entry.)
 
 **Example**
 
 ```xml
 <keyboard>
-    <keyMap>
-        <map iso="C01" to="a" longpress="\u0301 \u0300" />
-    </keyMap>
+    <keys>
+        <key id="a" to="a" longpress="\u0301 \u0300" />
+        <key id="shift" switch="shift" />
+    </keys>
     <displayMap>
-        <display to="\u0300" display="\u02CB" />
-        <display to="\u0301" display="\u02CA" />
+        <display to="\u0300" display="ˋ" /> <!-- \u02CB -->
+        <display to="\u0301" display="ˊ" /> <!-- \u02CA -->
+        <display id="shift"  display="⇪" /> <!-- U+21EA -->
     </displayMap>
 </keyboard>
 ```
 
-To allow `displayMap`s to be shared across descriptions, there is no requirement that `@to` in a `display` element matches any `@to` in any `keyMap/map` element in the keyboard description.
+To allow `displayMap`s to be shared across keyboards, there is no requirement that `@to` in a `display` element matches any `@to`/`@id` in any `keys/key` element in the keyboard description.
 
 * * *
 
-### 5.13 <a name="Element_layer" href="#Element_layer">Element: layer</a>
+### <a name="Element_displayOptions" href="#Element_displayOptions">Element: displayOptions</a>
 
-A `layer` element describes the configuration of keys on a particular layer of a keyboard. It contains one or more `row` elements to describe which keys exist in each `row` and optionally one or more `switch` elements that describe how keys in the layer switch the layer to another. In addition, for platforms that require a mapping from a key to a virtual key (for example Windows or Mac) there is also an optional `vkeys` element to describe the mapping.
+The `displayOptions` is an optional singleton element providing additional settings on this `displayMap`.  It is structured so as to provide for future flexibility in such options.
 
 **Syntax**
 
 ```xml
-<layer modifier="{Set of Modifier Combinations}">
+<displayMap>
+    <display …/>
+    <displayOptions baseCharacter="x"/>
+</displayMap>
+```
+
+> <small>
+>
+> Parents: [displayMap](#Element_displayMap)
+>
+> Children: _none_
+>
+> Occurrence: optional, single
+>
+> </small>
+
+_Attribute:_ `baseCharacter` (optional)
+
+**Note:** At present, this is the only option settable in the `displayOptions`.
+
+> Some scripts/languages may prefer a different base than U+25CC.
+> For Lao for example, `x` is often used as a base instead of `◌`.
+> Setting `baseCharacter="x"` (for example) is a _hint_ to the implementation which
+> requests U+25CC to be substituted with `x` on display.
+> As a hint, the implementation may ignore this option.
+>
+> **Note** that not all base characters will be suitable as bases for combining marks.
+
+* * *
+
+### <a name="Element_layerMaps" href="#Element_layerMaps">Element: layerMaps</a>
+
+This element represents a set of `layerMap` elements with a specific physical form factor, whether
+hardware or touch layout.
+
+> <small>
+>
+> Parents: [keyboard](#Element_keyboard)
+>
+> Children: [import](#Element_import), [layerMap](#Element_layerMap), [_special_](tr35.md#special)
+>
+> Occurrence: required, multiple
+>
+> </small>
+
+_Attribute:_ `form` (required)
+
+> `form` may be either `hardware` or `touch`.
+>
+> There may only be a single `layerMap` with `form="hardware"`.
+>
+> It is recommended to always have one
+> `<layerMaps form="hardware">` element.
+> If there is no `hardware` form, the implementation may need
+> to choose a different keyboard file, or use some other fallback behavior when using a
+> hardware keyboard.
+>
+> When using an on-screen keyboard, if there is not a `<layerMaps form="touch">`
+> element, the `<layerMaps form="hardware">` element can be used for on-screen use.
+
+### <a name="Element_layerMap" href="#Element_layerMap">Element: layerMap</a>
+
+A `layerMap` element describes the configuration of keys on a particular layer of a keyboard. It contains one or more `row` elements to describe which keys exist in each row.
+
+**Syntax**
+
+```xml
+<layerMap id="layerId" modifier="{Set of Modifier Combinations}">
     ...
-</layer>
+</layerMap>
 ```
 
 > <small>
 >
 > Parents: [keyboard](#Element_keyboard)
-> Children: [row](#Element_row), [switch](#Element_switch), [vkeys](#Element_vkeys)
-> Occurence: optional, multiple
+>
+> Children: [row](#Element_row), [_special_](tr35.md#special)
+>
+> Occurrence: optional, multiple
 >
 > </small>
 
-_Attribute:_ `modifier` (required)
+_Attribute_ `id` (required for `touch`)
 
-> This has two roles. It acts as an identifier for the `layer` element and also provides the linkage into a keyMap. A modifier is a single modifier combination such that it is matched by one of the modifier combinations in one of the `keyMap/@modifiers` attribute. To indicate that no modifiers apply the reserved name of "none" is used. For the purposes of fallback vkey mapping, the following modifier components are reserved: "shift", "ctrl", "alt", "caps", "cmd", "opt" along with the "L" and "R" optional single suffixes for the first 3 in that list. There must be a `keyMap` whose `@modifiers` attribute matches the `@modifier` attribute of the `layer` element. It is an error if there is no such `keyMap`.
+> The `id` attribute identifies the layer for touch layouts.  This identifier specifies the layout as the target for layer switching, as specified by the `switch=` attribute on the [`<key>`](#Element_key) element.
+> Touch layouts must have one `layerMap` with `id="base"` to serve as the base layer.
 
-The `keymap/@modifier` often includes multiple combinations that match. It is not necessary (or prefered) to include all of these. Instead a minimal matching element should be used, such that exactly one keymap is matched.
+_Attribute:_ `modifier` (required for `hardware`)
 
-The following are examples of situations where the `@modifiers` and `@modifier` do not match, with a different keymap definition than above.
+> This has two roles. It acts as an identifier for the `layer` element for hardware keyboards (in the absence of the id= element) and also provides the linkage from the hardware modifiers into the correct `layer`. To indicate that no modifiers apply, the reserved name of "none" can be used. For the purposes of fallback vkey mapping, the following modifier components are reserved: "shift", "ctrl", "alt", "caps", "cmd", "opt" along with the "L" and "R" optional single suffixes for the first 3 in that list.
 
-| `keyMap/@modifiers` | `layer/@modifier`   |
-|---------------------|---------------------|
-| `shiftL`            | `shift` (ambiguous) |
-| `altR`              | `alt`               |
-| `shiftL?+shiftR`    | `shift`             |
-
-And these do match:
-
-| `keyMap/@modifiers` | `layer/@modifier` |
-|---------------------|-------------------|
-| `shiftL shiftR`     | `shift`           |
-
-The use of `@modifier` as an identifier for a layer, is sufficient since it is always unique among the set of `layer` elements in a keyboard.
+For hardware layouts, the use of `@modifier` as an identifier for a layer is sufficient since it is always unique among the set of `layerMap` elements in a keyboard.
 
 * * *
 
-### 5.14 <a name="Element_row" href="#Element_row">Element: row</a>
+### <a name="Element_row" href="#Element_row">Element: row</a>
 
-A `row` element describes the keys that are present in the row of a keyboard. `row` elements are ordered within a `layout` element with the top visual row being stored first.
+A `row` element describes the keys that are present in the row of a keyboard.
 
-The row element introduces the `keyId` which may be an `ISOKey` or a `specialKey`. More formally:
 
-```
-keyId = ISOKey | specialKey
-ISOKey = [A-Z][0-9][0-9]
-specialKey = [a-z][a-zA-Z0-9]{2,7}
-```
-
-ISOKey denotes a key having an [ISO Position](#Definitions). SpecialKey is used to identify functional keys occurring on a virtual keyboard layout.
 
 **Syntax**
 
 ```xml
-<row keys="{keyId}" />
+<row keys="{keyId} {keyId} …" />
 ```
 
 > <small>
 >
-> Parents: [layer](#Element_layer)
+> Parents: [layerMap](#Element_layerMap)
+>
 > Children: _none_
-> Occurence: required, multiple
+>
+> Occurrence: required, multiple
 >
 > </small>
 
 _Attribute:_ `keys` (required)
 
-> This is a string that lists the `keyId` for each of the keys in a row. Key ranges may be contracted to firstkey-lastkey but only for `ISOKey` type `keyId`s. The interpolation between the first and last keys names is entirely numeric. Thus `D00-D03` is equivalent to `D00 D01 D02 D03`. It is an error if the first and last keys do not have the same alphabetic prefix or the last key numeric component is less than or equal to the first key numeric component.
-
-`specialKey` type `keyId`s may take any value within their syntactic constraint. But the following `specialKey`s are reserved to allow applications to identify them and give them special handling:
-
-* `"bksp"`, `"enter"`, `"space"`, `"tab"`, "`esc"`, `"sym"`, `"num"`
-* all the reserved modifier names
-* specialKeys starting with the letter "x" for future reserved names.
+> This is a string that lists the id of [`key` elements](#Element_key) for each of the keys in a row, whether those are explicitly listed in the file or are implied.  See the `key` documentation for more detail.
 
 **Example**
 
 Here is an example of a `row` element:
 
 ```xml
-<layer modifier="none">
-    <row keys="D01-D10" />
-    <row keys="C01-C09" />
-    <row keys="shift B01-B07 bksp" />
-    <row keys="sym A01 smilies A02-A03 enter" />
-</layer>
+<row keys="a z e r t y u i o p caret dollar" />
 ```
 
 * * *
 
-### 5.15 <a name="Element_switch" href="#Element_switch">Element: switch</a>
+### <a name="Element_vkeyMaps" href="#Element_vkeyMaps">Element: vkeyMaps</a>
 
-The `switch` element describes a function key that has been included in the layout. It specifies which layer pressing the key switches you to and also what the key looks like.
-
-**Syntax**
-
-```xml
-<switch iso="{specialKey}"
-        layer="{Set of Modifier Combinations}"
-        display="{show as}" />
-```
-
-> <small>
->
-> Parents: [layer](#Element_layer)
-> Children: _none_
-> Occurence: optional, multiple
->
-> </small>
-
-_Attribute:_ `iso` (required)
-
-> The `keyId` as specified in one of the `row` elements. This must be a `specialKey` and not an `ISOKey`.
-
-_Attribute:_ `layer` (required)
-
-> The modifier attribute of the resulting `layer` element that describes the layer the user gets switched to.
-
-_Attribute:_ `display` (required)
-
-> A string to be displayed on the key.
-
-**Example**
-
-Here is an example of a `switch` element for a shift key:
-
-```xml
-<layer modifier="none">
-    <row keys="D01-D10" />
-    <row keys="C01-C09" />
-    <row keys="shift B01-B07 bksp" />
-    <row keys="sym A01 smilies A02-A03 enter" />
-    <switch iso="shift" layer="shift" display="&#x21EA;" />
-</layer>
-<layer modifier="shift">
-    <row keys="D01-D10" />
-    <row keys="C01-C09" />
-    <row keys="shift B01-B07 bksp" />
-    <row keys="sym A01 smilies A02-A03 enter" />
-    <switch iso="shift" layer="none" display="&#x21EA;" />
-</layer>
-```
-
-* * *
-
-### 5.16 <a name="Element_vkeys" href="#Element_vkeys">Element: vkeys</a>
-
-On some architectures, applications may directly interact with keys before they are converted to characters. The keys are identified using a virtual key identifier or vkey. The mapping between a physical keyboard key and a vkey is keyboard-layout dependent. For example, a French keyboard would identify the D01 key as being an 'a' with a vkey of 'a' as opposed to 'q' on a US English keyboard. While vkeys are layout dependent, they are not modifier dependent. A shifted key always has the same vkey as its unshifted counterpart. In effect, a key is identified by its vkey and the modifiers active at the time the key was pressed.
+On some architectures, applications may directly interact with keys before they are converted to characters. The keys are identified using a virtual key identifier or vkey. The mapping between a physical keyboard key and a vkey is keyboard-layout dependent. For example, a French keyboard would identify the top-left key (ISO D01) as being an `A` with a vkey of `A` as opposed to `Q` on a US English keyboard. While vkeys are layout dependent, they are not modifier dependent. A shifted key always has the same vkey as its unshifted counterpart. In effect, a key may be identified by its vkey and the modifiers active at the time the key was pressed.
 
 **Syntax**
 
 ```xml
-<vkeys>
+<vkeyMaps>
     {a set of vkey elements}
-</vkeys>
+</vkeyMaps>
 ```
 
 > <small>
 >
-> Parents: [layer](#Element_layer), [keyboard](#Element_keyboard)
-> Children: [vkey](#Element_vkey)
-> Occurence: optional, multiple
+> Parents: [keyboard](#Element_keyboard)
+>
+> Children: [import](#Element_import), [_special_](tr35.md#special), [vkeyMap](#Element_vkeyMap)
+>
+> Occurrence: optional, single
 >
 > </small>
 
-_Attribute:_ `type`
+There is at most a single vkeyMaps element per keyboard.
 
-> Current values: android, chromeos, osx, und, windows.
-
-For a physical keyboard there is a layout specific default mapping of keys to vkeys. These are listed in a `vkeys` element which takes a list of `vkey` element mappings and is identified by a type. There are different vkey mappings required for different platforms. While `type="windows"` vkeys are very similar to `type="osx"` vkeys, they are not identical and require their own mapping.
-
-The most common model for specifying vkeys is to import a standard mapping, say to the US layout, and then to add a `vkeys` element to change the mapping appropriately for the specific layout.
-
-In addition to describing physical keyboards, vkeys also get used in virtual keyboards. Here the vkey mapping is local to a layer and therefore a `vkeys` element may occur within a `layout` element. In the case where a `layout` element has no `vkeys` element then the resulting mapping may either be empty (none of the keys represent keys that have vkey identifiers) or may fallback to the layout wide vkeys mapping. Fallback only occurs if the layout's `modifier` attribute consists only of standard modifiers as listed as being reserved in the description of the `layout/@modifier` attribute, and if the modifiers are standard for the platform involved. So for Windows, `"cmd"` is a reserved modifier but it is not standard for Windows. Therefore on Windows the vkey mapping for a layout with `@modifier="cmd" `would be empty.
-
-A `vkeys` element consists of a list of `vkey` elements.
+A `vkeyMaps` element consists of a list of `vkeyMap` elements.
 
 * * *
 
-### 5.17 <a name="Element_vkey" href="#Element_vkey">Element: vkey</a>
+### <a name="Element_vkeyMap" href="#Element_vkeyMap">Element: vkeyMap</a>
 
-A `vkey` element describes a mapping between a key and a vkey for a particular platform.
+A `vkeyMap` element describes a mapping between a key and a vkey.
 
 **Syntax**
 
 ```xml
-<vkey iso="{iso position}" vkey="{identifier}"
-      [modifier="{Set of Modifier Combinations}"] />
+<vkeyMap from="{from}" to="{to}" />
 ```
 
 > <small>
 >
-> Parents: [vkeys](#Element_vkeys)
+> Parents: [vkeyMaps](#Element_vkeyMaps)
+>
 > Children: _none_
-> Occurence: required, multiple
+>
+> Occurrence: required, multiple
 >
 > </small>
 
-_Attribute:_ `iso` (required)
+_Attribute:_ `from` (required)
 
-> The ISOkey being mapped.
+> The vkey being mapped from. See [CLDR VKey Enum](#CLDR_VKey_Enum) for a reference table.
 
-_Attribute:_ `vkey` (required)
+_Attribute:_ `to` (required)
 
-> The resultant vkey identifier (the value is platform specific).
-
-_Attribute:_ `modifier`
-
-> This attribute may only be used if the parent `vkeys` element is a child of a `layout` element. If present it allows an unmodified key from a layer to represent a modified virtual key.
+> The resultant vkey identifier. See [CLDR VKey Enum](#CLDR_VKey_Enum) for a reference table.
 
 **Example**
 
 This example shows some of the mappings for a French keyboard layout:
 
- _shared/win-vkey.xml_
 ```xml
 <keyboard>
-    <vkeys type="windows">
-        <vkey iso="D01" vkey="VK_Q" />
-        <vkey iso="D02" vkey="VK_W" />
-        <vkey iso="C01" vkey="VK_A" />
-        <vkey iso="B01" vkey="VK_Z" />
-    </vkeys>
-</keyboard>
-```
-
-_shared/win-fr.xml_
-
-```xml
-<keyboard>
-    <import path="shared/win-vkey.xml">
-    <keyMap>
-        <map iso="D01" to="a" />
-        <map iso="D02" to="z" />
-        <map iso="C01" to="q" />
-        <map iso="B01" to="w" />
-    </keyMap>
-    <keyMap modifiers="shift">
-        <map iso="D01" to="A" />
-        <map iso="D02" to="Z" />
-        <map iso="C01" to="Q" />
-        <map iso="B01" to="W" />
-    </keyMap>
-    <vkeys type="windows">
-        <vkey iso="D01" vkey="VK_A" />
-        <vkey iso="D02" vkey="VK_Z" />
-        <vkey iso="C01" vkey="VK_Q" />
-        <vkey iso="B01" vkey="VK_W" />
-    </vkeys>
-</keyboard>
-```
-
-In the context of a virtual keyboard there might be a symbol layer with the following layout:
-
-```xml
-<keyboard>
-    <keyMap>
-        <map iso="D01" to="1" />
-        <map iso="D02" to="2" />
-        ...
-        <map iso="D09" to="9" />
-        <map iso="D10" to="0" />
-        <map iso="C01" to="!" />
-        <map iso="C02" to="@" />
-        ...
-        <map iso="C09" to="(" />
-        <map iso="C10" to=")" />
-    </keyMap>
-    <layer modifier="sym">
-        <row keys="D01-D10" />
-        <row keys="C01-C09" />
-        <row keys="shift B01-B07 bksp" />
-        <row keys="sym A00-A03 enter" />
-        <switch iso="sym" layer="none" display="ABC" />
-        <switch iso="shift" layer="sym+shift" display="&amp;=/<" />
-        <vkeys type="windows">
-            <vkey iso="D01" vkey="VK_1" />
-            ...
-            <vkey iso="D10" vkey="VK_0" />
-            <vkey iso="C01" vkey="VK_1" modifier="shift" />
-            ...
-            <vkey iso="C10" vkey="VK_0" modifier="shift" />
-        </vkeys>
-    </layer>
+    <vkeyMaps>
+		<vkeyMap from="Q" to="A" />
+		<vkeyMap from="W" to="Z" />
+		<vkeyMap from="A" to="Q" />
+		<vkeyMap from="Z" to="W" />
+    </vkeyMaps>
 </keyboard>
 ```
 
 * * *
 
-### 5.18 <a name="Element_transforms" href="#Element_transforms">Element: transforms</a>
+### <a name="Element_transforms" href="#Element_transforms">Element: transforms</a>
 
 This element defines a group of one or more `transform` elements associated with this keyboard layout. This is used to support features such as dead-keys, character reordering, etc. using a straightforward structure that works for all the keyboards tested, and that results in readable source data.
 
-There can be multiple `<transforms>` elements
+There can be multiple `<transforms>` elements.
 
 Syntax
 
@@ -1217,15 +1296,16 @@ Syntax
 > <small>
 >
 > Parents: [keyboard](#Element_keyboard)
-> Children: [transform](#Element_transform)
-> Occurence: optional, multiple
+>
+> Children: [import](#Element_import), [_special_](tr35.md#special), [transform](#Element_transform)
+>
+> Occurrence: optional, multiple
 >
 > </small>
 
 _Attribute:_ `type` (required)
 
 > Current values: `simple`, `final`.
-
 
 There are other keying behaviors that are needed particularly in handing complex orthographies from various parts of the world. The behaviors intended to be covered by the transforms are:
 
@@ -1237,16 +1317,15 @@ We consider each transform type in turn and consider attributes to the `<transfo
 
 * * *
 
-### 5.19 <a name="Element_transform" href="#Element_transform">Element: transform</a>
+### <a name="Element_transform" href="#Element_transform">Element: transform</a>
 
-This element must have the `transforms` element as its parent. This element represents a single transform that may be performed using the keyboard layout. A transform is an element that specifies a set of conversions from sequences of code points into one (or more) other code points.. For example, in most French keyboards hitting the "^" dead-key followed by the "e" key produces "ê".
+This element must have the `transforms` element as its parent. This element represents a single transform that may be performed using the keyboard layout. A transform is an element that specifies a set of conversions from sequences of code points into (one or more) other code points. For example, in most French keyboards hitting the "^" dead-key followed by the "e" key produces "ê".
 
 **Syntax**
 
 ```xml
 <transform from="{combination of characters}" to="{output}"
    [before="{look-behind required match}"]
-   [after="{look-ahead required match}"]
    [error="fail"] />
 ```
 
@@ -1254,17 +1333,17 @@ This element must have the `transforms` element as its parent. This element repr
 >
 > Parents: [transforms](#Element_transforms)
 > Children: _none_
-> Occurence: required, multiple
+> Occurrence: required, multiple
 >
 > </small>
 
 _Attribute:_ `from` (required)
 
-> The `from` attribute consists of a sequence of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in [UTS#35 section 5.3.3](https://www.unicode.org/reports/tr35/#Unicode_Sets)).
+> The `from` attribute consists of a sequence of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in [UTS #35 section 5.3.3](https://www.unicode.org/reports/tr35/#Unicode_Sets)).
 
 For example, suppose there are the following transforms:
 
-```
+```default
 ^e → ê
 ^a → â
 ^o → ô
@@ -1282,7 +1361,7 @@ Most transforms in practice have only a couple of characters. But for completene
 
 Suppose that there are the following transforms:
 
-```
+```default
 ab → x
 abc → y
 abef → z
@@ -1304,14 +1383,14 @@ Control characters, combining marks and whitespace in this attribute are escaped
 
 _Attribute:_ `to` (required)
 
-> This attribute represents the characters that are output from the transform. The output can contain more than one character, so you could have `<transform from="´A" to="Fred"/>`
+> This attribute represents the characters that are output from the transform. The output can contain more than one character, so you could have `<transform from="´A" to="Fred"/>`.
 
 Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the `\u{...}` notation.
 
 Examples
 
 ```xml
-<keyboard locale="fr-CA-t-k0-CSA-osx">
+<keyboard locale="fr-CA-t-k0-CSA">
     <transforms type="simple">
         <transform from="´a" to="á" />
         <transform from="´A" to="Á" />
@@ -1329,7 +1408,7 @@ Examples
 ```
 
 ```xml
-<keyboard locale="nl-BE-t-k0-chromeos">
+<keyboard locale="nl-BE">
     <transforms type="simple">
         <transform from="\u{30c}a" to="ǎ" /> <!-- ̌a → ǎ -->
         <transform from="\u{30c}A" to="Ǎ" /> <!-- ̌A → Ǎ -->
@@ -1344,13 +1423,12 @@ _Attribute:_ `before` (optional)
 
 > This attribute consists of a sequence of elements (codepoint or UnicodeSet) to match the text up to the current position in the text (this is similar to a regex "look behind" assertion: `(?<=a)b` matches a "b" that is preceded by an "a"). The attribute must match for the transform to apply. If missing, no before constraint is applied. The attribute value must not be empty.
 
-_Attribute:_ `after` (optional)
-
-> This attribute consists of a sequence of elements (codepoint or UnicodeSet) and matches as a zero-width assertion after the `@from` sequence. The attribute must match for the transform to apply. If missing, no after constraint is applied. The attribute value must not be empty. When the transform is applied, the string matched by the `@from` attribute is replaced by the string in the `@to` attribute, with the text matched by the `@after` attribute left unchanged. After the change, the current position is reset to just after the text output from the `@to` attribute and just before the text matched by the `@after` attribute. Warning: some legacy implementations may not be able to make such an adjustment and will place the current position after the `@after` matched string.
-
 _Attribute:_ `error="fail"` (optional)
 
 > If set this attribute indicates that the keyboarding application may indicate an error to the user in some way. Processing may stop and rewind to any state before the key was pressed. If processing does stop, no further transforms on the same input are applied. The `@error` attribute takes the value `"fail"`, or must be absent. If processing continues, the `@to` is used for output as normal. It thus should contain a reasonable value.
+
+
+When the transform is applied, the string matched by the `@from` attribute is replaced by the string in the `@to` attribute. After the change, the current position is reset to just after the text output from the `@to` attribute.
 
 For example:
 
@@ -1360,21 +1438,21 @@ For example:
 
 This indicates that it is an error to type two iota subscripts immediately after each other.
 
-In terms of how these different attributes work in processing a sequences of transforms, consider the transform:
+In terms of how these different attributes work in processing a sequence of transforms, consider the transform:
 
 ```xml
-<transform before="X" from="Y" after="Z" to="B" />
+<transform before="X" from="Y" to="B" />
 ```
 
 This would transform the string:
 
-```
+```default
 XYZ → XBZ
 ```
 
 If we mark where the current match position is before and after the transform we see:
 
-```
+```default
 X | Y Z → X B | Z
 ```
 
@@ -1382,15 +1460,30 @@ And a subsequent transform could transform the Z string, looking back (using @be
 
 * * *
 
-### 5.20 <a name="Element_reorder" href="#Element_reorder">Element: reorders, reorder</a>
+### <a name="Element_reorders" href="#Element_reorders">Element: reorders</a>
 
-The reorder transform is applied after all transform except for those with `type="final"`.
+This element defines a group of one or more `reorder` elements associated with this keyboard layout.
+
+> <small>
+>
+> Parents: [keyboard](#Element_keyboard)
+>
+> Children: [import](#Element_import), [reorder](#Element_reorder), [_special_](tr35.md#special)
+>
+> Occurrence: Optional, multiple
+> </small>
+
+* * *
+
+### <a name="Element_reorder" href="#Element_reorder">Element: reorder</a>
+
+The reorder transform is applied after all transforms except for those with `type="final"`.
 
 This transform has the job of reordering sequences of characters that have been typed, from their typed order to the desired output order. The primary concern in this transform is to sort combining marks into their correct relative order after a base, as described in this section. The reorder transforms can be quite complex, keyboard layouts will almost always import them.
 
 The reordering algorithm consists of four parts:
 
-1. Create a sort key for each character in the input string. A sort key has 4 parts: (primary, index, tertiary).
+1. Create a sort key for each character in the input string. A sort key has 4 parts (primary, index, tertiary, quaternary):
    * The **primary weight** is the primary order value.
    * The **secondary weight** is the index, a position in the input string, usually of the character itself, but it may be of a character earlier in the string.
    * The **tertiary weight** is a tertiary order value (defaulting to 0).
@@ -1402,9 +1495,9 @@ The reordering algorithm consists of four parts:
 
 The primary order of a character with the Unicode property Combining_Character_Class (ccc) of 0 may well not be 0. In addition, a character may receive a different primary order dependent on context. For example, in the Devanagari sequence ka halant ka, the first ka would have a primary order 0 while the halant ka sequence would give both halant and the second ka a primary order > 0, for example 2. Note that “base” character in this discussion is not a Unicode base character. It is instead a character with primary=0.
 
-In order to get the characters into the correct relative order, it is necessary not only to order combining marks relative to the base character, but also to order some combining marks in a subsequence following another combining mark. For example in Devanagari, a nukta may follow consonant character, but it may also follow a conjunct consisting of consonant, halant, consonant. Notice that the second consonant is not, in this model, the start of a new run because some characters may need to be reordered to before the first base, for example repha. The repha would get primary < 0, and be sorted before the character with order = 0, which is, in the case of Devanagari, the initial consonant of the orthographic syllable.
+In order to get the characters into the correct relative order, it is necessary not only to order combining marks relative to the base character, but also to order some combining marks in a subsequence following another combining mark. For example in Devanagari, a nukta may follow a consonant character, but it may also follow a conjunct consisting of consonant, halant, consonant. Notice that the second consonant is not, in this model, the start of a new run because some characters may need to be reordered to before the first base, for example repha. The repha would get primary < 0, and be sorted before the character with order = 0, which is, in the case of Devanagari, the initial consonant of the orthographic syllable.
 
-The reorder transform consists of a single element type: `<reorder>` encapsulated in a `<reorders>` element. Each is a rule that matches against a string of characters with the action of setting the various ordering attributes (`primary`, `tertiary`, `tertiary_base`, `prebase`) for the matched characters in the string.
+The reorder transform consists of `<reorder>` elements encapsulated in a `<reorders>` element. Each is a rule that matches against a string of characters with the action of setting the various ordering attributes (`primary`, `tertiary`, `tertiary_base`, `prebase`) for the matched characters in the string.
 
 **Syntax**
 
@@ -1422,13 +1515,13 @@ The reorder transform consists of a single element type: `<reorder>` encapsulate
 >
 > Parents: [reorders](#Element_reorder)
 > Children: _none_
-> Occurence: required, multiple
+> Occurrence: required, multiple
 >
 > </small>
 
 _Attribute:_ `from` (required)
 
-> This attribute follows the `transform/@from` attribute and contains a string of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in UTS#35 section 5.3.3).
+> This attribute follows the `transform/@from` attribute and contains a string of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in UTS #35 section 5.3.3).
 
 _Attribute:_ `before`
 
@@ -1463,7 +1556,7 @@ _Attribute:_ `tertiary`
 >
 > A tertiary character receives its primary order and index from a previous character, which it is intended to sort closely after. The sort key for a tertiary character consists of:
 >
-> * Primary weight is the primary weight of the primary character
+> * Primary weight is the primary weight of the primary character..
 > * Secondary weight is the index of the primary character, not the tertiary character
 > * Tertiary weight is the tertiary value for the character.
 > * Quaternary weight is the index of the tertiary character.
@@ -1478,11 +1571,11 @@ _Attribute:_ `prebase`
 >
 > If a primary character has a true prebase value then the character is marked as being typed before the base character of a run, even though it is intended to be stored after it. The primary order gives the intended position in the order after the base character, that the prebase character will end up. Thus `@order` shall not be 0. These characters are part of the run prefix. If such characters are typed then, in order to give the run a base character after which characters can be sorted, an appropriate base character, such as a dotted circle, is inserted into the output run, until a real base character has been typed. A value of `"false"` indicates that the character is not a prebase.
 
-There is no `@error` attribute.
+_Note:_ Unlike on the similar `transform` and `backspace` elements, there is no `@error` attribute.
 
 For `@from` attributes with a match string length greater than 1, the sort key information (`@order`, `@tertiary`, `@tertiary_base`, `@prebase`) may consist of a space separated list of values, one for each element matched. The last value is repeated to fill out any missing values. Such a list may not contain more values than there are elements in the `@from` attribute:
 
-```
+```java
 if len(@from) < len(@list) then error
 else
     while len(@from) > len(@list)
@@ -1493,7 +1586,7 @@ endif
 
 **Example**
 
-For example, consider the word Northern Thai (nod-Lana) word: ᨡ᩠ᩅᩫ᩶ 'roasted'. This is ideally encoded as the following:
+For example, consider the Northern Thai (nod-Lana) word: ᨡ᩠ᩅᩫ᩶ 'roasted'. This is ideally encoded as the following:
 
 | name | _kha_ | _sakot_ | _wa_ | _o_  | _t2_ |
 |------|-------|---------|------|------|------|
@@ -1600,11 +1693,11 @@ A particular Myanmar keyboard layout can have this `reorders` element:
 </reorders>
 ```
 
-The effect of this that the _e-vowel_ will be identified as a prebase and will have an order of 30. Likewise a _medial-r_ will be identified as a prebase and will have an order of 20. Notice that a _shan-e-vowel_ will not be identified as a prebase (even if it should be!). The _kinzi_ is described in the layout since it moves something across a run boundary. By separating such movements (prebase or moving to in front of a base) from the shared ordering rules, the shared ordering rules become a self-contained combining order description that can be used in other keyboards or even in other contexts than keyboarding.
+The effect of this is that the _e-vowel_ will be identified as a prebase and will have an order of 30. Likewise a _medial-r_ will be identified as a prebase and will have an order of 20. Notice that a _shan-e-vowel_ will not be identified as a prebase (even if it should be!). The _kinzi_ is described in the layout since it moves something across a run boundary. By separating such movements (prebase or moving to in front of a base) from the shared ordering rules, the shared ordering rules become a self-contained combining order description that can be used in other keyboards or even in other contexts than keyboarding.
 
 * * *
 
-### 5.21 <a name="Element_final" href="#Element_final">Element: transform final</a>
+### <a name="Element_final" href="#Element_final">Element: transform final</a>
 
 The final transform is applied after the reorder transform. It executes in a similar way to the simple transform with the settings ignored, as if there were no settings in the `<settings>` element.
 
@@ -1627,11 +1720,11 @@ Another example allows a keyboard implementation to alert or stop people typing 
 
 * * *
 
-### 5.22 <a name="Element_backspaces" href="#Element_backspaces">Element: backspaces</a>
+### <a name="Element_backspaces" href="#Element_backspaces">Element: backspaces</a>
 
 The backspace transform is an optional transform that is not applied on input of normal characters, but is only used to perform extra backspace modifications to previously committed text.
 
-Keyboarding applications typically, but are not required, to work in one of two modes:
+Keyboarding applications typically work, but are not required to, in one of two modes:
 
 **_text entry_**
 
@@ -1656,14 +1749,16 @@ In text editing mode, different keyboard layouts may behave differently in the s
 > <small>
 >
 > Parents: [keyboard](#Element_keyboard)
-> Children: [backspace](#Element_backspace)
-> Occurence: optional, single
+>
+> Children: [backspace](#Element_backspace), [import](#Element_import), [_special_](tr35.md#special)
+>
+> Occurrence: optional, single
 >
 > </small>
 
 * * *
 
-### 5.23 <a name="Element_backspace" href="#Element_backspace">Element: backspace</a>
+### <a name="Element_backspace" href="#Element_backspace">Element: backspace</a>
 
 **Syntax**
 
@@ -1677,8 +1772,10 @@ In text editing mode, different keyboard layouts may behave differently in the s
 > <small>
 >
 > Parents: [backspaces](#Element_backspaces)
+>
 > Children: _none_
-> Occurence: required, multiple
+>
+> Occurrence: required, multiple
 >
 > </small>
 
@@ -1747,13 +1844,13 @@ The backspace transform is much like other transforms except in its processing m
 
 This would transform the string:
 
-```
+```default
 XYZ → XBZ
 ```
 
 If we mark where the current match position is before and after the transform we see:
 
-```
+```default
 X Y | Z → X B | Z
 ```
 
@@ -1761,102 +1858,15 @@ Whereas a simple or final transform would then run other transforms in the trans
 
 * * *
 
-## 6 <a name="Element_Heirarchy_Platform_File" href="#Element_Heirarchy_Platform_File">Element Hierarchy - Platform File</a>
-
-There is a separate XML structure for platform-specific configuration elements. The most notable component is a mapping between the hardware key codes to the ISO layout positions for that platform.
-
-### 6.1 <a name="Element_platform" href="#Element_platform">Element: platform</a>
-
-This is the top level element. This element contains a set of elements defined below. A document shall only contain a single instance of this element.
-
-**Syntax**
-
-```xml
-<platform>
-    {platform-specific elements}
-</platform>
-```
-
-> <small>
->
-> Parents: _none_
-> Children: [hardwareMap](#Element_hardwareMap)
-> Occurence: required, single
->
-> </small>
-
-
-### 6.2 <a name="Element_hardwareMap" href="#Element_hardwareMap">Element: hardwareMap</a>
-
-This element must have a `platform` element as its parent. This element contains a set of map elements defined below. A document shall only contain a single instance of this element.
-
-**Syntax**
-
-```xml
-<platform>
-    <hardwareMap>
-        {a set of map elements}
-    </hardwareMap>
-</platform>
-```
-
-> <small>
->
-> Parents: [platform](#Element_platform)
-> Children: [map](#Element_hardwareMap_map)
-> Occurence: optional, single
->
-> </small>
-
-### 6.3 <a name="Element_hardwareMap_map" href="#Element_hardwareMap_map">Element: map</a>
-
-This element must have a `hardwareMap` element as its parent. This element maps between a hardware keycode and the corresponding ISO layout position of the key.
-
-**Syntax**
-
-```xml
-<map keycode="{hardware keycode}" iso="{ISO layout position}" />
-```
-
-> <small>
->
-> Parents: [hardwareMap](#Element_hardwareMap)
-> Children: _none_
-> Occurence: required, multiple
-> </small>
-
-_Attribute:_ `keycode` (required)
-
-> The hardware key code value of the key. This value is an integer which is provided by the keyboard driver.
-
-_Attribute:_ `iso` (required)
-
-> The corresponding position of a key using the ISO layout convention where rows are identified by letters and columns are identified by numbers. For example, "D01" corresponds to the "Q" key on a US keyboard. (See the definition at the beginning of the document for a diagram).
-
-**Example**
-
-```xml
-<platform>
-    <hardwareMap>
-        <map keycode="2" iso="E01" />
-        <map keycode="3" iso="E02" />
-        <map keycode="4" iso="E03" />
-        <map keycode="5" iso="E04" />
-        <map keycode="6" iso="E05" />
-        <map keycode="7" iso="E06" />
-        <map keycode="41" iso="E00" />
-    </hardwareMap>
-</platform>
-```
-
-* * *
-
-## 7 <a name="Invariants" href="#Invariants">Invariants</a>
+## <a name="Invariants" href="#Invariants">Invariants</a>
 
 Beyond what the DTD imposes, certain other restrictions on the data are imposed on the data.
+Please note the constraints given under each element section above.
+DTD validation alone is not sufficient to verify a keyboard file.
 
-1.  For a given platform, every `map[@iso]` value must be in the hardwareMap if there is one (`_keycodes.xml`)
-2.  Every `map[@base]` value must also be in `base[@base]` value
+<!--
+TODO: Rewrite this? Probably push out to each element's section?
+
 3.  No `keyMap[@modifiers]` value can overlap with another `keyMap[@modifiers]` value.
     * eg you can't have `"RAlt Ctrl"` in one `keyMap`, and `"Alt Shift"` in another (because Alt = RAltLAlt).
 4.  Every sequence of characters in a `transform[@from]` value must be a concatenation of two or more `map[@to]` values.
@@ -1870,10 +1880,9 @@ Beyond what the DTD imposes, certain other restrictions on the data are imposed 
 
 | Notation                                 | Notes |
 |------------------------------------------|-------|
-| Lower case character (eg. _x_ )          | Interpreted as any combination of modifiers. <br/> (eg. _x_ = CtrlShiftOption) |
-| Upper-case character (eg. _Y_ )          | Interpreted as a single modifier key (which may or may not have a L and R variant) <br/> (eg. _Y_ = Ctrl, _RY_ = RCtrl, etc..) |
-| Y? ⇔ Y ∨ ∅ <br/> Y ⇔ LY ∨ RY ∨ LYRY | Eg. Opt? ⇔ ROpt ∨ LOpt ∨ ROptLOpt ∨ ∅ <br/> Eg. Opt ⇔ ROpt ∨ LOpt ∨ ROptLOpt |
-
+| Lower case character (e.g. _x_ )          | Interpreted as any combination of modifiers. <br/> (e.g. _x_ = CtrlShiftOption) |
+| Upper-case character (e.g. _Y_ )          | Interpreted as a single modifier key (which may or may not have an L and R variant) <br/> (e.g. _Y_ = Ctrl, _RY_ = RCtrl, etc.) |
+| Y? ⇔ Y ∨ ∅ <br/> Y ⇔ LY ∨ RY ∨ LYRY | E.g. Opt? ⇔ ROpt ∨ LOpt ∨ ROptLOpt ∨ ∅ <br/> E.g. Opt ⇔ ROpt ∨ LOpt ∨ ROptLOpt |
 
 | Axiom                                       | Example                                      |
 |---------------------------------------------|----------------------------------------------|
@@ -1888,54 +1897,136 @@ Beyond what the DTD imposes, certain other restrictions on the data are imposed 
 | xY? ⋁ x ⇒ xY?                              |                                              |
 | xLY? ⋁ x ⇒ xLY?                            |                                              |
 | xLY ⋁ x ⇒ xLY?                             |                                              |
+-->
 
 * * *
 
-## 8 <a name="Data_Sources" href="#Data_Sources">Data Sources</a>
-
-Here is a list of the data sources used to generate the initial key map layouts:
-
-###### Table: <a name="Key_Map_Data_Sources" href="#Key_Map_Data_Sources">Key Map Data Sources</a>
-
-| Platform | Source | Notes |
-|----------|--------|-------|
-| Android  | Android 4.0 - Ice Cream Sandwich ([https://source.android.com/source/downloading.html](https://source.android.com/source/downloading.html)) | Parsed layout files located in packages/inputmethods/LatinIME/java/res |
-| ChromeOS | XKB ([https://www.x.org/wiki/XKB](https://www.x.org/wiki/XKB)) | The ChromeOS represents a very small subset of the keyboards available from XKB.
-| Mac OSX  | Ukelele bundled System Keyboards ([https://software.sil.org/ukelele/](https://software.sil.org/ukelele/)) | These layouts date from Mac OSX 10.4 and are therefore a bit outdated |
-| Windows  | Generated .klc files from the Microsoft Keyboard Layout Creator ([https://support.microsoft.com/en-us/topic/906c31e4-d5ea-7988-cb39-7b688880d7cb](https://support.microsoft.com/en-us/topic/906c31e4-d5ea-7988-cb39-7b688880d7cb)) |
-
-* * *
-
-## 9 <a name="Keyboard_IDs" href="#Keyboard_IDs">Keyboard IDs</a>
+## <a name="Keyboard_IDs" href="#Keyboard_IDs">Keyboard IDs</a>
 
 There is a set of subtags that help identify the keyboards. Each of these are used after the `"t-k0"` subtags to help identify the keyboards. The first tag appended is a mandatory platform tag followed by zero or more tags that help differentiate the keyboard from others with the same locale code.
 
-### 9.1 <a name="Principles_for_Keyboard_Ids" href="#Principles_for_Keyboard_Ids">Principles for Keyboard Ids</a>
+### <a name="Principles_for_Keyboard_IDs" href="#Principles_for_Keyboard_IDs">Principles for Keyboard IDs</a>
 
-The following are the design principles for the ids.
+The following are the design principles for the IDs.
 
 1. BCP47 compliant.
-   1. Eg, `en-t-k0-extended`.
-2. Use the minimal language id based on `likelySubtag`s.
-   1. Eg, instead of `en-US-t-k0-xxx`, use `en-t-k0-xxx`. Because there is `<likelySubtag from="en" to="en_Latn_US"/>`, en-US → en.
+   1. Eg, `en`, `sr-Cyrl`, or `en-t-k0-extended`.
+2. Use the minimal language id based on `likelySubtags` (see [Part 1: Likely Subtags](tr35.md#Likely_Subtags))
+   1. Eg, instead of `fa-Arab`, use `fa`.
    2. The data is in <https://github.com/unicode-org/cldr/tree/main/common/supplemental/likelySubtags.xml>
-3. The platform goes first, if it exists. If a keyboard on the platform changes over time, both are dated, eg `bg-t-k0-chromeos-2011`. When selecting, if there is no date, it means the latest one.
-4. Keyboards are only tagged that differ from the "standard for each platform". That is, for each language on a platform, there will be a keyboard with no subtags other than the platform. Subtags with a common semantics across platforms are used, such as `-extended`, `-phonetic`, `-qwerty`, `-qwertz`, `-azerty`, …
+3. Keyboard files should be platform-independent, however, if included, a platform id is the first subtag after `-t-k0-`. If a keyboard on the platform changes over time, both are dated, eg `bg-t-k0-chromeos-2011`. When selecting, if there is no date, it means the latest one.
+4. Keyboards are only tagged that differ from the "standard for each language". That is, for each language on a platform, there will be a keyboard with no subtags. Subtags with common semantics across languages and platforms are used, such as `-extended`, `-phonetic`, `-qwerty`, `-qwertz`, `-azerty`, …
 5. In order to get to 8 letters, abbreviations are reused that are already in [bcp47](https://github.com/unicode-org/cldr/tree/main/common/bcp47/) -u/-t extensions and in [language-subtag-registry](https://www.iana.org/assignments/language-subtag-registry) variants, eg for Traditional use `-trad` or `-traditio` (both exist in [bcp47](https://github.com/unicode-org/cldr/tree/main/common/bcp47/)).
-6. Multiple languages cannot be indicated, so the predominant target is used.
+6. Multiple languages cannot be indicated in the locale id, so the predominant target is used.
    1. For Finnish + Sami, use `fi-t-k0-smi` or `extended-smi`
+   2. The [`<locales>`](#Element_locales) element may be used to identify additional languages.
 7. In some cases, there are multiple subtags, like `en-US-t-k0-chromeos-intl-altgr.xml`
 8. Otherwise, platform names are used as a guide.
 
+**Examples**
+
+```xml
+<!-- Serbian Latin -->
+<keyboard locale="sr-Latn"/>
+```
+
+```xml
+<!-- Serbian Cyrillic -->
+<keyboard locale="sr-Cyrl"/>
+```
+
+```xml
+<!-- Pan Nigerian Keyboard-->
+<keyboard locale="mul-Latn-NG-t-k0-panng">
+    <locales>
+    <locale id="ha"/>
+    <locale id="ig"/>
+    <!-- others … -->
+    </locales>
+</keyboard>
+```
+
+```xml
+<!-- Finnish Keyboard including Skolt Sami -->
+<keyboard locale="fi-t-k0-smi">
+    <locales>
+    <locale id="sms"/>
+    </locales>
+</keyboard>
+```
+
 * * *
 
-## 10 <a name="Platform_Behaviors_in_Edge_Cases" href="#Platform_Behaviors_in_Edge_Cases">Platform Behaviors in Edge Cases</a>
+## <a name="Platform_Behaviors_in_Edge_Cases" href="#Platform_Behaviors_in_Edge_Cases">Platform Behaviors in Edge Cases</a>
 
-| Platform | No modifier combination match is available | No map match is available for key position | Transform fails (ie. if \^d is pressed when that transform does not exist) |
+| Platform | No modifier combination match is available | No map match is available for key position | Transform fails (i.e. if \^d is pressed when that transform does not exist) |
 |----------|--------------------------------------------|--------------------------------------------|---------------------------------------------------------------------------|
-| ChromeOS | Fall back to base | Fall back to character in a keyMap with same "level" of modifier combination. If this character does not exist, fall back to (n-1) level. (This is handled data-generation side). <br/> In the spec: No output | No output at all |
-| Mac OSX  | Fall back to base (unless combination is some sort of keyboard shortcut, eg. cmd-c) | No output | Both keys are output separately |
+| Chrome OS | Fall back to base | Fall back to character in a keyMap with same "level" of modifier combination. If this character does not exist, fall back to (n-1) level. (This is handled data-generation-side.) <br/> In the spec: No output | No output at all |
+| Mac OS X  | Fall back to base (unless combination is some sort of keyboard shortcut, e.g. cmd-c) | No output | Both keys are output separately |
 | Windows  | No output | No output | Both keys are output separately |
+
+* * *
+
+## <a name="CLDR_VKey_Enum" href="#CLDR_VKey_Enum">CLDR VKey Enum</a></a>
+
+In the following chart, “CLDR Name” indicates the value used with the `from` and `to` attributes of the [vkeyMap](#Element_vkeyMap) element.
+
+| CLDR Name | US English ISO | Hex<sup>1</sup> | Notes       |
+|-----------|----------------|-----------------|-------------|
+| SPACE     | A03            | 0x20            |
+| 0         | E10            | 0x30            |
+| 1         | E01            | 0x31            |
+| 2         | E02            | 0x32            |
+| 3         | E03            | 0x33            |
+| 4         | E04            | 0x34            |
+| 5         | E05            | 0x35            |
+| 6         | E06            | 0x36            |
+| 7         | E07            | 0x37            |
+| 8         | E08            | 0x38            |
+| 9         | E09            | 0x39            |
+| A         | C01            | 0x41            |
+| B         | B05            | 0x42            |
+| C         | B03            | 0x43            |
+| D         | C03            | 0x44            |
+| E         | D03            | 0x45            |
+| F         | C04            | 0x46            |
+| G         | C05            | 0x47            |
+| H         | C06            | 0x48            |
+| I         | D08            | 0x49            |
+| J         | C07            | 0x4A            |
+| K         | C08            | 0x4B            |
+| L         | C09            | 0x4C            |
+| M         | B07            | 0x4D            |
+| N         | B06            | 0x4E            |
+| O         | D09            | 0x4F            |
+| P         | D10            | 0x50            |
+| Q         | D01            | 0x51            |
+| R         | D04            | 0x52            |
+| S         | C02            | 0x53            |
+| T         | D05            | 0x54            |
+| U         | D07            | 0x55            |
+| V         | B05            | 0x56            |
+| W         | D02            | 0x57            |
+| X         | B02            | 0x58            |
+| Y         | D06            | 0x59            |
+| Z         | B01            | 0x5A            |
+| SEMICOLON | C10            | 0xBA            |
+| EQUAL     | E12            | 0xBB            |
+| COMMA     | B08            | 0xBC            |
+| HYPHEN    | E11            | 0xBD            |
+| PERIOD    | B09            | 0xBE            |
+| SLASH     | B10            | 0xBF            |
+| GRAVE     | E00            | 0xC0            |
+| LBRACKET  | D11            | 0xDB            |
+| BACKSLASH | D13            | 0xDC            |
+| RBRACKET  | D12            | 0xDD            |
+| QUOTE     | C11            | 0xDE            |
+| LESS-THAN | B00            | 0xE2            | 102nd key on European layouts, right of left shift. |
+| ABNT2     | B11            | -               | Extra key, left of right-shift |
+
+Footnotes:
+
+* <sup>1</sup> Hex value from Windows, web standards, Keyman, etc.
 
 * * *
 

@@ -1734,9 +1734,8 @@ public class Ldml2JsonConverter {
     private static final Pattern escapePattern = PatternCache.get("\\\\(?!u)");
 
     /**
-     * Escape \ and " in value string.
+     * Escape \ in value string.
      * \ should be replaced by \\, except in case of \u1234
-     * " should be replaced by \"
      * In following code, \\\\ represent one \, because java compiler and
      * regular expression compiler each do one round of escape.
      *
@@ -1747,7 +1746,7 @@ public class Ldml2JsonConverter {
     private String escapeValue(String value) {
         Matcher match = escapePattern.matcher(value);
         String ret = match.replaceAll("\\\\\\\\");
-        return ret.replace("\"", "\\\"").replace("\n", " ").replace("\t", " ");
+        return ret.replace("\n", " ").replace("\t", " ");
     }
 
     /**

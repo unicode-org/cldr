@@ -82,7 +82,12 @@ class LdmlConvertRules {
         "pluralRules:pluralRule:count",
         "languageMatches:languageMatch:desired",
         "styleNames:styleName:subtype",
-        "styleNames:styleName:alt");
+        "styleNames:styleName:alt",
+        // person names - TEMPORARY - TODO CLDR-15414
+        "personNames:personName:length",
+        "personNames:personName:formality",
+        "personNames:personName:order"
+        );
 
     /**
      * The set of attributes that should become part of the name in form of

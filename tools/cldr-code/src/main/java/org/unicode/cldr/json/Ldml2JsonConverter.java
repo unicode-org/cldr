@@ -1,5 +1,6 @@
 package org.unicode.cldr.json;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -50,6 +51,7 @@ import org.unicode.cldr.util.Timer;
 import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -1108,6 +1110,37 @@ public class Ldml2JsonConverter {
         outf.close();
     }
 
+    public void writeCoverageLevels(String outputDir) throws IOException {
+        final Splitter SEMICOLON = Splitter.on(';').trimResults();
+        try (BufferedReader r = FileUtilities.openUTF8Reader(CLDRPaths.COMMON_DIRECTORY + "properties/", "coverageLevels.txt");
+            PrintWriter outf = FileUtilities.openUTF8Writer(outputDir + "/cldr-core", "coverageLevels.json");) {
+                final Map<String, String> covlocs = new TreeMap<>();
+                System.out.println("Creating packaging file => " + outputDir + "/cldr-core" + File.separator + "coverageLevels.json from coverageLevels.txt");
+                String line;
+                int no = 0;
+                while ((line = r.readLine()) != null) {
+                    no++;
+                    line = line.trim();
+                    if(line.startsWith("#") || line.isBlank()) {
+                        continue;
+                    }
+                    final List<String> l = SEMICOLON.splitToList(line);
+                    if (l.size() != 2) {
+                        throw new IllegalArgumentException("coverageLevels.txt:"+no+": expected 2 fields, got " + l.size());
+                    }
+                    final String uloc = l.get(0);
+                    final String level = l.get(1);
+                    final String bcp47loc = unicodeLocaleToString(uloc);
+                    if (covlocs.put(bcp47loc, level) != null) {
+                        throw new IllegalArgumentException("coverageLevels.txt:"+no+": duplicate locale " + bcp47loc);
+                    }
+                }
+                JsonObject obj = new JsonObject();
+                obj.add("coverageLevels", gson.toJsonTree(covlocs));
+                outf.println(gson.toJson(obj));
+        }
+    }
+
     public void writeAvailableLocales(String outputDir) throws IOException {
         PrintWriter outf = FileUtilities.openUTF8Writer(outputDir + "/cldr-core", "availableLocales.json");
         System.out.println("Creating packaging file => " + outputDir + "/cldr-core" + File.separator + "availableLocales.json");
@@ -1718,6 +1751,7 @@ public class Ldml2JsonConverter {
             if (type == RunType.main) {
                 writeDefaultContent(outputDir);
                 writeAvailableLocales(outputDir);
+                writeCoverageLevels(outputDir);
             } else if (type == RunType.supplemental) {
                 writeScriptMetadata(outputDir);
                 if (Boolean.parseBoolean(options.get("packagelist").getValue())) {

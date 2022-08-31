@@ -2773,14 +2773,19 @@ public class SupplementalDataInfo {
 
     private Set<String> getTargetTerritories(String language) {
         Set<String> targetTerritories = new HashSet<>();
+        Set<String> secondaryTerritories = new HashSet<>();
         try {
             Set<BasicLanguageData> langData = getBasicLanguageData(language);
             Iterator<BasicLanguageData> ldi = langData.iterator();
             while (ldi.hasNext()) {
                 BasicLanguageData bl = ldi.next();
                 Set<String> addTerritories = bl.territories;
-                if (addTerritories != null && bl.getType() != BasicLanguageData.Type.secondary) {
-                    targetTerritories.addAll(addTerritories);
+                if (addTerritories != null) {
+                    if (bl.getType() == BasicLanguageData.Type.secondary) {
+                        secondaryTerritories.addAll(addTerritories);
+                    } else {
+                        targetTerritories.addAll(addTerritories);
+                    }
                 }
             }
             Map<String, BasicLanguageData> languageToScriptsAndRegions = getLanguageToScriptsAndRegions();
@@ -2794,7 +2799,11 @@ public class SupplementalDataInfo {
             // fall through
         }
         if (targetTerritories.size() == 0) {
-            targetTerritories.add("ZZ");
+            if (secondaryTerritories.size() > 0) {
+                targetTerritories.addAll(secondaryTerritories);
+            } else {
+                targetTerritories.add("ZZ");
+            }
         }
         return targetTerritories;
     }

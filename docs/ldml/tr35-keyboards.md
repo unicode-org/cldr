@@ -1124,7 +1124,7 @@ _Attribute:_ `form` (required)
 
 > `form` may be either `hardware` or `touch`.
 >
-> There may only be a single `layerMap` with `form="hardware"`.
+> There may only be a single `layerMaps` with `form="hardware"`.
 >
 > It is recommended to always have one
 > `<layerMaps form="hardware">` element.

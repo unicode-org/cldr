@@ -231,15 +231,13 @@ When explicitly specified, attributes can contain escaped characters. This speci
 
 The _UnicodeSet_ notation is described in [UTS #35 section 5.3.3](tr35.md#Unicode_Sets) and allows for comprehensive character matching, including by character range, properties, names, or codepoints. Currently, the following attributes allow _UnicodeSet_ notation:
 
-* `from`, `before`, `after` on the `<transform>` element
-* `from`, `before`, `after` on the `<reorder>` element
-* `from`, `before`, `after` on the `<backspace>` element
+* `from`, `before` on the `<transform>` element
+* `from`, `before` on the `<reorder>` element
 
 The `\u{...}` notation, a subset of hex notation, is described in [UTS #18 section 1.1](https://www.unicode.org/reports/tr18/#Hex_notation). It can refer to one or multiple individual codepoints. Currently, the following attributes allow the `\u{...}` notation:
 
 * `to`, `longPress`, `multiTap`, `hint` on the `<map>` element
 * `to` on the `<transform>` element
-* `to` on the `<backspace>` element
 
 Characters of general category of Combining Mark (M), Control characters (Cc), Format characters (Cf), and whitespace other than space should be encoded using one of the notation above as appropriate.
 
@@ -954,9 +952,9 @@ Elements are considered to have three attributes that make them unique: the tag 
 | `switch`     | `layer`      | `@iso`                       |
 | `vkeys`      | `layer`      | `@iso`                       |
 | `transforms` | `keyboard`   | `@type`                      |
-| `transform`  | `keyboard`   | `@before`, `@from`, `@after` |
-| `reorder`    | `reorders`   | `@before`, `@from`, `@after` |
-| `backspace`  | `backspaces` | `@before`, `@from`, `@after` |
+| `transform`  | `keyboard`   | `@before`, `@from`           |
+| `reorder`    | `reorders`   | `@before`, `@from`           |
+| `backspace`  | `backspaces` | `@before`, `@from`           |
 
 In order to help identify mistakes, it is an error if a file contains two elements that override each other. All element overrides must come as a result of an `<include>` element either for the element overridden or the element overriding.
 
@@ -1513,7 +1511,6 @@ The reorder transform consists of `<reorder>` elements encapsulated in a `<reord
 ```xml
 <reorder from="{combination of characters}"
    [before="{look-behind required match}"]
-   [after="{look-ahead required match}"]
    [order="{list of weights}"]
    [tertiary="{list of weights}"]
    [tertiaryBase="{list of true/false}"]
@@ -1636,7 +1633,7 @@ We want all of these sequences to end up ordered as the first. To do this, we us
 
 The first reorder is the default ordering for the _sakot_ which allows for it to be placed anywhere in a sequence, but moves any non-consonants that may immediately follow it, back before it in the sequence. The next two rules give the orders for the top vowel component and tone marks respectively. The next three rules give the _sakot_ and _wa_ characters a primary order that places them before the _o_. Notice particularly the final reorder rule where the _sakot_+_wa_ is split by the tone mark. This rule is necessary in case someone types into the middle of previously normalized text.
 
-`<reorder>` elements are priority ordered based first on the length of string their `@from` attribute matches and then the sum of the lengths of the strings their `@before` and `@after` attributes match.
+`<reorder>` elements are priority ordered based first on the length of string their `@from` attribute matches and then the lengths of the string their `@before` attribute matches.
 
 If a layout has two `<reorders>` elements, e.g. from importing one and specifying the second, then `<reorder>` elements are merged. The @from string in a `<reorder>` element describes a set of strings that it matches. This also holds for the `@before` attribute. The intersection of two `<reorder>` elements consists of the intersections of their `@from` and `@before` string sets. It is illegal for the intersection between any two `<reorder>` elements in the same `<reorders>` element to be non empty, although implementors are encouraged to have pity on layout authors when reporting such errors, since they can be hard to track down.
 
@@ -1819,7 +1816,7 @@ XY → XB
 If we mark where the current match position is before and after the transform we see:
 
 ```default
-X Y | Z → X | Z
+X Y | → X B |
 ```
 
 Whereas a simple or final transform would then run other transforms in the transform list, advancing the processing position until it gets to the end of the string, the backspace transform only matches a single backspace rule and then finishes.

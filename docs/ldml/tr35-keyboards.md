@@ -2021,8 +2021,8 @@ In the following chart, “CLDR Name” indicates the value used with the `from`
 | BACKSLASH | D13            | 0xDC            |
 | RBRACKET  | D12            | 0xDD            |
 | QUOTE     | C11            | 0xDE            |
-| LESS-THAN | B00            | 0xE2            | 102nd key on European layouts, right of left shift. |
-| ABNT2     | B11            | -               | Extra key, left of right-shift |
+| LESS-THAN | B00            | 0xE2            | 102nd key on European layouts, right of left shift.                  |
+| ABNT2     | B11            | 0xC1            | Extra key, left of right-shift, Brazilian Portuguese ABNT2 keyboards |
 
 Footnotes:
 

@@ -311,7 +311,6 @@ public class DisplayAndInputProcessor {
      *
      * @param path
      * @param value
-     * @param fullPath
      * @return
      */
     public synchronized String processForDisplay(String path, String value) {
@@ -377,8 +376,6 @@ public class DisplayAndInputProcessor {
      * @param path
      * @param value
      * @param internalException
-     *            TODO
-     * @param fullPath
      * @return
      */
     public synchronized String processInput(String path, String value, Exception[] internalException) {
@@ -541,7 +538,7 @@ public class DisplayAndInputProcessor {
                     value = annotationsForDisplay(value);
                 }
             }
-
+            value = normalizeZeroWidthSpace(value);
             return value;
         } catch (RuntimeException e) {
             if (internalException != null) {
@@ -1217,5 +1214,32 @@ public class DisplayAndInputProcessor {
             }
             return false;
         }
+    }
+
+    private static final Pattern ZERO_WIDTH_SPACES = PatternCache.get("\\u200B+");
+    private static final Set<String> LOCALES_NOT_ALLOWING_ZWS = new HashSet<>(Arrays.asList("da", "fr"));
+
+    /**
+     * Remove occurrences of U+200B ZERO_WIDTH_SPACE under certain conditions
+     *
+     * @param value the value to be normalized
+     * @return the normalized value
+     *
+     * TODO: extend this method to address more concerns, after clarifying the conditions
+     *   - enlarge the set LOCALES_NOT_ALLOWING_ZWS?
+     *   - strip initial and final ZWS in all locales?
+     *   - reduce two or more adjacent ZWS to one ZWS?
+     *   - allow or prohibit ZWS by itself as currency symbol, as currently in locales kea, pt_CV, pt_PT
+     *   - allow or prohibit ZWS preceding URL as in "as per [U+200B]http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-general.html#Annotations"
+     * Reference: https://unicode-org.atlassian.net/browse/CLDR-15976
+     */
+    private String normalizeZeroWidthSpace(String value) {
+        if (ZERO_WIDTH_SPACES.matcher(value).find()) {
+            final String localeId = locale.getBaseName();
+            if (LOCALES_NOT_ALLOWING_ZWS.contains(localeId)) {
+                value = ZERO_WIDTH_SPACES.matcher(value).replaceAll("");
+            }
+        }
+        return value;
     }
 }

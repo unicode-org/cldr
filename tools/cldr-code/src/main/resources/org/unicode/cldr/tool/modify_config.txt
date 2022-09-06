@@ -1,56 +1,94 @@
 # constructed line for modify_config.txt file
-locale=km ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="surnameFirst"]; new_value=km ko vi yue zh
-locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="monogram"][@formality="informal"]/namePattern; new_value={given-informal-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}.
-locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="medium"][@usage="monogram"][@formality="informal"]/namePattern; new_value={given-informal-monogram-allCaps}{surname-monogram-allCaps}.
-locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="short"][@usage="referring"][@formality="informal"]/namePattern; new_value={given-informal}
-locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="monogram"][@formality="formal"]/namePattern; new_value={given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}
-locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="referring"][@formality="formal"]/namePattern; new_value={given} {given2} {surname} {surname2} {suffix}
-locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="addressing"][@formality="formal"]/namePattern; new_value={prefix} {given} {surname}
-locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="medium"][@usage="addressing"][@formality="formal"]/namePattern; new_value={prefix} {given-initial} {surname}
-locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="medium"][@usage="monogram"][@formality="formal"]/namePattern; new_value={given-monogram-allCaps}{surname-monogram-allCaps}
-locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="sorting"][@length="short"][@usage="referring"][@formality="formal"]/namePattern; new_value={given} {given2-initial}, {surname-initial}
-locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="sorting"][@length="medium"][@usage="referring"][@formality="formal"]/namePattern; new_value={given} {given2}, {surname-initial}
-locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="sorting"][@length="long"][@usage="referring"][@formality="formal"]/namePattern; new_value={given} {given2}, {surname}
-locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="sorting"][@length="long"][@usage="referring"][@formality="informal"]/namePattern; new_value={given-informal} {given2}, {surname
-locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="sorting"][@length="medium"][@usage="referring"][@formality="informal"]/namePattern; new_value={given-informal} {given2}, {surname-initial
-locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="sorting"][@length="short"][@usage="referring"][@formality="informal"]/namePattern; new_value={given-informal} {given2-initial}, {surname-initial
-locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="addressing"][@formality="formal"]/namePattern; new_value={prefix} {surname-initial} {given}
-locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="addressing"][@formality="formal"]/namePattern; new_value={prefix} {surname-initial} {given}
-locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="addressing"][@formality="formal"]/namePattern; new_value={prefix} {given}
-locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="monogram"][@formality="formal"]/namePattern; new_value={surname-monogram-allCaps}{given-monogram-allCaps}
-locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="monogram"][@formality="formal"]/namePattern; new_value={given-monogram-allCaps}
-locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="referring"][@formality="informal"]/namePattern; new_value={surname-initial} {given-informal}
-locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="referring"][@formality="formal"]/namePattern; new_value={surname-initial} {given}
-locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="referring"][@formality="informal"]/namePattern; new_value={given-informal}
-locale=si ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="referring"][@formality="formal"]/namePattern; new_value={surname-initial} {given} {given2} {suffix}
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="short"][@usage="referring"][@formality="informal"]/namePattern; new_value={given-informal}
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="monogram"][@formality="formal"]/namePattern; new_value={given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="monogram"][@formality="informal"]/namePattern; new_value={given-informal-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}.
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="medium"][@usage="monogram"][@formality="formal"]/namePattern; new_value={given-monogram-allCaps}.{surname-monogram-allCaps}.
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="medium"][@usage="monogram"][@formality="informal"]/namePattern; new_value={given-informal-monogram-allCaps}{surname-monogram-allCaps}.
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="short"][@usage="monogram"][@formality="formal"]/namePattern; new_value={surname-monogram-allCaps}
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="short"][@usage="monogram"][@formality="informal"]/namePattern; new_value={given-informal-monogram-allCaps}
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="referring"][@formality="informal"]/namePattern; new_value={given-informal} {surname}
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="medium"][@usage="referring"][@formality="informal"]/namePattern; new_value={given-informal} {surname}
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="addressing"][@formality="formal"]/namePattern; new_value={prefix} {given} {surname}
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="referring"][@formality="formal"]/namePattern; new_value={given} {given2} {surname} {surname2} {suffix}
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="medium"][@usage="referring"][@formality="formal"]/namePattern; new_value={given} {given2-initial} {surname} {suffix}
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="givenFirst"][@length="medium"][@usage="addressing"][@formality="formal"]/namePattern; new_value={prefix} {given-initial} {surname}
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="sorting"][@length="short"][@usage="referring"][@formality="formal"]/namePattern; new_value={given} {given2-initial}, {surname-initial}
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="sorting"][@length="long"][@usage="referring"][@formality="formal"]/namePattern; new_value={given} {given2}, {surname}
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="sorting"][@length="medium"][@usage="referring"][@formality="formal"]/namePattern; new_value={given} {given2}, {surname-initial}
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="sorting"][@length="long"][@usage="referring"][@formality="informal"]/namePattern; new_value={given-informal} {given2}, {surname
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="sorting"][@length="medium"][@usage="referring"][@formality="informal"]/namePattern; new_value={given-informal} {given2}, {surname-initial
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="sorting"][@length="short"][@usage="referring"][@formality="informal"]/namePattern; new_value={given-informal} {given2-initial}, {surname-initial
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="long"][@usage="addressing"][@formality="formal"]/namePattern; new_value={prefix} {surname-initial} {given}
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="addressing"][@formality="formal"]/namePattern; new_value={prefix} {surname-initial} {given}
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="addressing"][@formality="formal"]/namePattern; new_value={prefix} {given}
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="monogram"][@formality="formal"]/namePattern; new_value={surname-monogram-allCaps}{given-monogram-allCaps}
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="monogram"][@formality="formal"]/namePattern; new_value={given-monogram-allCaps}
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="referring"][@formality="informal"]/namePattern; new_value={surname-initial} {given-informal}
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="medium"][@usage="referring"][@formality="formal"]/namePattern; new_value={surname-initial} {given} {given2} {suffix}
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="referring"][@formality="formal"]/namePattern; new_value={surname-initial} {given}
-locale=ta ; action=add ; new_path=//ldml/personNames/personName[@order="surnameFirst"][@length="short"][@usage="referring"][@formality="informal"]/namePattern; new_value={given-informal}
-locale=si ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="givenFirst"]; new_value=und
-locale=ta ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="givenFirst"]; new_value=und
-locale=he ; action=add ; new_path=//ldml/personNames/nameOrderLocales[@order="givenFirst"]; new_value=und he
+locale=az ; action=add ; new_path=//ldml/personNames/sampleName[@item="givenSurnameOnly"]/nameField[@type="given"][@draft="contributed"] ; new_value=İren																									
+locale=az ; action=add ; new_path=//ldml/personNames/sampleName[@item="given12Surname"]/nameField[@type="given"][@draft="contributed"] ; new_value=Con																									
+locale=az ; action=add ; new_path=//ldml/personNames/sampleName[@item="given12Surname"]/nameField[@type="given2"][@draft="contributed"] ; new_value=Hamiş																									
+locale=az ; action=add ; new_path=//ldml/personNames/sampleName[@item="given12Surname"]/nameField[@type="surname"][@draft="contributed"] ; new_value=Vatson																									
+locale=az ; action=add ; new_path=//ldml/personNames/sampleName[@item="full"]/nameField[@type="prefix"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=az ; action=add ; new_path=//ldml/personNames/sampleName[@item="full"]/nameField[@type="given"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=az ; action=add ; new_path=//ldml/personNames/sampleName[@item="full"]/nameField[@type="given-informal"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=az ; action=add ; new_path=//ldml/personNames/sampleName[@item="full"]/nameField[@type="given2"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=az ; action=add ; new_path=//ldml/personNames/sampleName[@item="full"]/nameField[@type="surname-core"][@draft="contributed"] ; new_value=Volf																									
+locale=az ; action=add ; new_path=//ldml/personNames/sampleName[@item="full"]/nameField[@type="surname2"][@draft="contributed"] ; new_value=Becker Schmidt																									
+																									
+locale=bg ; action=add ; new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="angle-arc-second"]/displayName[@draft="contributed"] ; new_value=дъг. сек.																									
+																									
+locale=hy ; action=add ; new_path=//ldml/personNames/sampleName[@item="full"]/nameField[@type="prefix"][@draft="contributed"] ; new_value=դ-ր																									
+locale=hy ; action=add ; new_path=//ldml/personNames/sampleName[@item="full"]/nameField[@type="given2"][@draft="contributed"] ; new_value=Եվա Սոֆիա																									
+																									
+locale=ka ; action=add ; new_path=//ldml/localeDisplayNames/languages/language[@type="wuu"][@draft="contributed"] ; new_value=ვუ																									
+locale=ka ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/dateTimeFormatLength[@type="full"]/dateTimeFormat[@type="atTime"]/pattern[@type="standard"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=ka ; action=add ; new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-decade"]/displayName[@draft="contributed"] ; new_value=↑↑↑																									
+																									
+locale=kk ; action=add ; new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="volume-cubic-mile"]/displayName[@draft="contributed"] ; new_value=↑↑↑																									
+																									
+locale=kok ; action=add ; new_path=//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMd"][@draft="contributed"] ; new_value=↑↑↑																									
+																									
+locale=mn ; action=add ; new_path=//ldml/units/unitLength[@type="short"]/unit[@type="light-lumen"]/displayName[@draft="contributed"] ; new_value=↑↑↑																									
+locale=mn ; action=add ; new_path=//ldml/units/unitLength[@type="short"]/unit[@type="light-lumen"]/unitPattern[@count="one"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=mn ; action=add ; new_path=//ldml/units/unitLength[@type="short"]/unit[@type="light-lumen"]/unitPattern[@count="other"][@draft="contributed"] ; new_value=↑↑↑																									
+																									
+locale=sq ; action=add ; new_path=//ldml/localeDisplayNames/languages/language[@type="cay"][@draft="contributed"] ; new_value=kajugaisht																									
+locale=sq ; action=add ; new_path=//ldml/localeDisplayNames/territories/territory[@type="NZ"][@alt="variant"][@draft="contributed"] ; new_value=Zelanda e Re-Aotearoa																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-furlong"]/displayName[@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-furlong"]/unitPattern[@count="one"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-furlong"]/unitPattern[@count="other"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-fathom"]/displayName[@draft="contributed"] ; new_value=fth																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-fathom"]/unitPattern[@count="one"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-fathom"]/unitPattern[@count="other"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-bushel"]/displayName[@draft="contributed"] ; new_value=bushelë																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-bushel"]/displayName[@draft="contributed"] ; new_value=bushelë																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-bushel"]/unitPattern[@count="one"][@draft="contributed"] ; new_value={0} bushel																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-bushel"]/unitPattern[@count="other"][@draft="contributed"] ; new_value={0} bushelë																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-bushel"]/unitPattern[@count="one"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-bushel"]/unitPattern[@count="other"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-dessert-spoon"]/displayName[@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-dessert-spoon"]/unitPattern[@count="one"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-dessert-spoon"]/unitPattern[@count="other"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-dessert-spoon-imperial"]/displayName[@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-dessert-spoon-imperial"]/unitPattern[@count="one"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-dessert-spoon-imperial"]/unitPattern[@count="other"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-drop"]/displayName[@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-drop"]/displayName[@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-drop"]/unitPattern[@count="one"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-drop"]/unitPattern[@count="other"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-drop"]/unitPattern[@count="one"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-drop"]/unitPattern[@count="other"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-dram"]/displayName[@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-dram"]/unitPattern[@count="one"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-dram"]/unitPattern[@count="other"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-jigger"]/displayName[@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-jigger"]/displayName[@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-jigger"]/unitPattern[@count="one"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-jigger"]/unitPattern[@count="other"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-jigger"]/unitPattern[@count="one"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-jigger"]/unitPattern[@count="other"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-pinch"]/displayName[@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-pinch"]/displayName[@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-pinch"]/unitPattern[@count="one"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-pinch"]/unitPattern[@count="other"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-pinch"]/unitPattern[@count="one"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-pinch"]/unitPattern[@count="other"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-quart-imperial"]/displayName[@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-quart-imperial"]/unitPattern[@count="one"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-quart-imperial"]/unitPattern[@count="other"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="mass-stone"]/displayName[@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="mass-stone"]/unitPattern[@count="one"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="mass-stone"]/unitPattern[@count="other"][@draft="contributed"] ; new_value=↑↑↑																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="mass-grain"]/displayName[@draft="contributed"] ; new_value=gran																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="short"]/unit[@type="mass-grain"]/displayName[@draft="contributed"] ; new_value=gran																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="mass-grain"]/unitPattern[@count="one"][@draft="contributed"] ; new_value={0} gran																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="long"]/unit[@type="mass-grain"]/unitPattern[@count="other"][@draft="contributed"] ; new_value={0} granë																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="short"]/unit[@type="mass-grain"]/unitPattern[@count="one"][@draft="contributed"] ; new_value={0} gran																									
+locale=sq ; action=add ; new_path=//ldml/units/unitLength[@type="short"]/unit[@type="mass-grain"]/unitPattern[@count="other"][@draft="contributed"] ; new_value={0} granë																									
+locale=sq ; action=add ; new_path=//ldml/personNames/sampleName[@item="full"]/nameField[@type="prefix"][@draft="contributed"] ; new_value=prof. dr.																									
+																									
+locale=uk ; action=add ; new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-furlong"]/unitPattern[@count="one"][@draft="contributed"] ; new_value={0} fur																									
+locale=uk ; action=add ; new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-furlong"]/unitPattern[@count="few"][@draft="contributed"] ; new_value={0} fur																									
+locale=uk ; action=add ; new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-furlong"]/unitPattern[@count="many"][@draft="contributed"] ; new_value={0} fur																									
+locale=uk ; action=add ; new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-furlong"]/unitPattern[@count="other"][@draft="contributed"] ; new_value={0} fur																									
+																									
+locale=uz ; action=add ; new_path=//ldml/localeDisplayNames/languages/language[@type="crj"][@draft="contributed"] ; new_value=janubi-sharqiy kri																									
+																									
+locale=xh ; action=add ; new_path=//ldml/localeDisplayNames/languages/language[@type="af"][@draft="contributed"] ; new_value=isiBhulu																									
+locale=xh ; action=add ; new_path=//ldml/localeDisplayNames/languages/language[@type="zu"][@draft="contributed"] ; new_value=isiZulu																									
+																									

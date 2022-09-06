@@ -11,12 +11,15 @@ GitHub:
 ### What is CLDR?
 The Unicode CLDR provides key building blocks for software to support the world's languages, with the largest and most extensive standard repository of locale data available. This data is used by a wide spectrum of companies for their software internationalization and localization, adapting software to the conventions of different languages for such common software tasks.
 
-See For further information:
+See for further information:
 
-- Information about [CLDR releases and downloads](https://cldr.unicode.org/index/downloads "CLDR Download Page"),
-including the data files and LDML specification associated with each release.
+- [CLDR releases and downloads](https://cldr.unicode.org/index/downloads "CLDR Download Page"),
+including the data files and LDML specification associated with each release
 
-- Information about [Building and running CLDR Tools](https://cldr.unicode.org/development/cldr-tools "CLDR Tools Page")
+- [Repository organization](https://cldr.unicode.org/index/downloads#Repository_Organization "CLDR Download Page, Repository Organization"),
+describing the organization of files within this repository
+
+- [Building and running CLDR Tools](https://cldr.unicode.org/development/cldr-tools "CLDR Tools Page")
 
 ### Contributing
 

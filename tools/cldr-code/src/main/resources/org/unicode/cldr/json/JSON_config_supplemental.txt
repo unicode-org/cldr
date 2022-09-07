@@ -33,6 +33,7 @@ section=windowsZones ; path=//cldr/supplemental/windowsZones/.* ; package=core
 section=aliases ; path=//cldr/supplemental/metadata/alias/(language|script|subdivision|territory|variant|zone)Alias.* ; package=core
 section=units ; path=//cldr/supplemental/(unitConstants|unitQuantities|convertUnits).* ; package=core
 section=unitsMetadata ; path=//cldr/supplemental/metadata/.*/(unitAlias|usageAlias).* ; package=core
+section=unitIdComponents ; path=//cldr/supplemental/unitIdComponents/.* ; package=core
 
 # ignored items
 section=IGNORE ; path=//cldr/supplemental/metadata/serialElements.* ; package=IGNORE
@@ -40,3 +41,4 @@ section=IGNORE ; path=//cldr/supplemental/metadata/suppress.* ; package=IGNORE
 # defaultContent is not really ignored, but is handled by special code in Ldml2JsonConverter
 section=IGNORE ; path=//cldr/supplemental/metadata/defaultContent.* ; package=IGNORE
 #
+section=personNamesDefaults ; path=//cldr/supplemental/personNamesDefaults/.* ; package=core

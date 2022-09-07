@@ -92,15 +92,14 @@ public class VoteResolver<T> {
      * Red/orange/black X: The item does not have enough votes to be used in CLDR, by most implementations (or is completely missing).
      * Reference: http://cldr.unicode.org/translation/getting-started/guide
      *
-     * New January, 2019: When the item is inherited, i.e., winningValue is INHERITANCE_MARKER (↑↑↑),
+     * When the item is inherited, i.e., winningValue is INHERITANCE_MARKER (↑↑↑),
      * then orange/red X are replaced by orange/red up-arrow. That change is made only on the client.
-     * Reference: https://unicode.org/cldr/trac/ticket/11103
      *
-     * Status.approved:    approved.png    = green check
-     * Status.contributed: contributed.png = orange check
-     * Status.provisional: provisional.png = orange X (or inherited_provisional.png orange up-arrow if inherited)
-     * Status.unconfirmed: unconfirmed.png = red X (or inherited_unconfirmed.png red up-arrow if inherited
-     * Status.missing:     missing.png     = black X
+     * Status.approved:    green check
+     * Status.contributed: orange check
+     * Status.provisional: orange X (or orange up-arrow if inherited)
+     * Status.unconfirmed: red X (or red up-arrow if inherited
+     * Status.missing:     black X
      */
     public enum Status {
         missing, unconfirmed, provisional, contributed, approved;

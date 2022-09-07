@@ -681,8 +681,8 @@ function checkRowConsistency(theRow) {
  */
 function updateRowStatusCell(tr, theRow, cell) {
   const statusClass = getRowApprovalStatusClass(theRow);
-  cell.className = "d-dr-" + statusClass + " d-dr-status statuscell";
-
+  cell.className = "d-dr-" + statusClass + " statuscell";
+  cell.innerHTML = getStatusIcon(statusClass);
   if (!cell.isSetup) {
     cldrInfo.listen("", tr, cell, null);
     cell.isSetup = true;
@@ -690,6 +690,29 @@ function updateRowStatusCell(tr, theRow, cell) {
 
   const statusTitle = cldrText.get(statusClass);
   cell.title = cldrText.sub("draftStatus", [statusTitle]);
+}
+
+/**
+ * Get the Unicode character corresponding to the given status class
+ *
+ * @param statusClass "approved", "missing", etc.
+ * @return the character such as "✓", "✘", "↑", etc.
+ */
+function getStatusIcon(statusClass) {
+  switch (statusClass) {
+    case "approved":
+    case "contributed":
+      return "✓"; // U+2713
+    case "missing":
+    case "provisional":
+    case "unconfirmed":
+      return "✘"; // U+2718
+    case "inherited-provisional":
+    case "inherited-unconfirmed":
+      return "↑"; // U+2191
+    default:
+      return "?"; // U+003F
+  }
 }
 
 /**
@@ -1340,6 +1363,7 @@ export {
   TABLE_USES_NEW_API,
   appendExample,
   getRowApprovalStatusClass,
+  getStatusIcon,
   goToHeaderId,
   insertRows,
   isHeaderId,

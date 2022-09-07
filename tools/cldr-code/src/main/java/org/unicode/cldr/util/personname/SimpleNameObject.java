@@ -183,15 +183,33 @@ public class SimpleNameObject implements NameObject {
         return "{locale=" + nameLocale + " " + "patternData=" + show(patternData) + "}";
     }
 
-    private String show(Map<Field, Map<Set<Modifier>, String>> patternData2) {
+    public enum ShowStyle {
+        toString("{", ", ", "}"),
+        semicolon("", "; ", "");
+        private final String start;
+        private final String middle;
+        private final String end;
+
+        private ShowStyle(String start, String middle, String end) {
+            this.start = start;
+            this.middle = middle;
+            this.end = end;
+        }
+    }
+
+    public static String show(Map<Field, Map<Set<Modifier>, String>> patternData2) {
+        return show(patternData2, ShowStyle.toString);
+    }
+
+    public static String show(Map<Field, Map<Set<Modifier>, String>> patternData2, ShowStyle showStyle) {
         // make a bit more concise
-        StringBuilder sb = new StringBuilder("{");
+        StringBuilder sb = new StringBuilder(showStyle.start);
         boolean first = true;
         for (Entry<Field, Map<Set<Modifier>, String>> entry : patternData2.entrySet()) {
             if (first) {
                 first = false;
             } else {
-                sb.append(", ");
+                sb.append(showStyle.middle);
             }
             sb.append(entry.getKey()).append('=');
             Map<Set<Modifier>, String> map = entry.getValue();
@@ -201,7 +219,7 @@ public class SimpleNameObject implements NameObject {
                 sb.append(map);
             }
         }
-        return sb.append("}").toString();
+        return sb.append(showStyle.end).toString();
     }
 
     public Map<Field, Map<Set<Modifier>, String>> getPatternData() {

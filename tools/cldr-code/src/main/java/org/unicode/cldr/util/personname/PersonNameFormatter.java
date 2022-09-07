@@ -406,6 +406,11 @@ public class PersonNameFormatter {
         final private MessageFormat initialFormatter;
         final private MessageFormat initialSequenceFormatter;
         final private String foreignSpaceReplacement;
+
+        public String getForeignSpaceReplacement() {
+            return foreignSpaceReplacement;
+        }
+
         final private boolean uppercaseSurnameIfSurnameFirst;
 
         public FallbackFormatter(ULocale uLocale,

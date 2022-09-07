@@ -10,6 +10,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
+import org.unicode.cldr.util.personname.PersonNameFormatter.FallbackFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Formality;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Length;
@@ -31,7 +32,7 @@ public class GeneratePersonNameTest {
 
     public static void main(String[] args) {
         Set<String> seenAlready = new HashSet<>();
-        for (String locale : ImmutableList.of("ja", "zh", "zh_Hant", "zh_Hant_HK", "yue", "th", "lo", "km")) { // "my",
+        for (String locale : ImmutableList.of("ja", "zh", "zh_Hant", "yue", "th", "lo")) { // "my",
             CLDRFile cldrFile = FACTORY.make(locale, true);
             PersonNameFormatter pnf = new PersonNameFormatter(cldrFile);
             Map<SampleType, SimpleNameObject> sampleNames = PersonNameFormatter.loadSampleNames(cldrFile);
@@ -52,6 +53,8 @@ public class GeneratePersonNameTest {
 
             System.out.println(locale + ";\t" + "givenFirst; " + PersonNameFormatter.JOIN_SPACE.join(orderToLocales.get(Order.givenFirst)));
             System.out.println(locale + ";\t" + "surnameFirst; " + PersonNameFormatter.JOIN_SPACE.join(orderToLocales.get(Order.surnameFirst)));
+            FallbackFormatter f = pnf.getFallbackInfo();
+            String fsr = f.getForeignSpaceReplacement();
 
             for (SampleType sampleType : Arrays.asList(SampleType.given12Surname, SampleType.givenSurnameOnly)) {
                 SimpleNameObject sampleName = sampleNames.get(sampleType);
@@ -67,6 +70,7 @@ public class GeneratePersonNameTest {
                                 for (Formality formality : Formality.ALL) {
                                     FormatParameters parameters = new FormatParameters(order, length, usage, formality);
                                     String result = pnf.format(sampleName, parameters);
+                                    result = result.replace(" ", fsr);
                                     if (!seenAlready.contains(result)) {
                                         if (result.contains(" ") != hasSpace) {
                                             continue;

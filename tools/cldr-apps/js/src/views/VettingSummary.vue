@@ -84,14 +84,13 @@
               >
             </td>
             <td v-for="type of reports.types" :key="type">
-              <div
-                class="d-dr-status statuscell"
+              <span
+                class="statuscell"
                 :class="
                   'd-dr-' + reports.byLocale[locale].byReport[type].status
                 "
               >
-                &nbsp;
-              </div>
+              </span>
               {{ reports.byLocale[locale].byReport[type].status
               }}<span
                 v-if="reports.byLocale[locale].byReport[type].acceptability"

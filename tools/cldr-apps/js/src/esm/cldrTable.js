@@ -681,7 +681,7 @@ function checkRowConsistency(theRow) {
  */
 function updateRowStatusCell(tr, theRow, cell) {
   const statusClass = getRowApprovalStatusClass(theRow);
-  cell.className = "d-dr-" + statusClass + " d-dr-status statuscell";
+  cell.className = "d-dr-" + statusClass + " statuscell";
 
   if (!cell.isSetup) {
     cldrInfo.listen("", tr, cell, null);

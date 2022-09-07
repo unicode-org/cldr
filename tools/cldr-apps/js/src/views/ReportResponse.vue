@@ -6,7 +6,7 @@
         <template #title>
           {{ reportStatus.status }}: {{ reportStatus.acceptability }}
         </template>
-        <div class="d-dr-status statuscell" :class="statusClass">&nbsp;</div>
+        <span class="statuscell" :class="statusClass"></span>
         {{ humanizeAcceptability }}
       </a-tooltip>
       <a-spin size="small" v-if="!loaded" />

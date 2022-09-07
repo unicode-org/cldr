@@ -40,26 +40,6 @@ function reportName(report) {
   return cldrText.get(`special_r_${report}`);
 }
 
-function reportClass(completed, acceptable) {
-  if (completed && acceptable) {
-    return "d-dr-approved";
-  } else if (completed && !acceptable) {
-    return "d-dr-contributed";
-  } else {
-    return "d-dr-missing";
-  }
-}
-
-async function internalFetchAllReports(user) {
-  const client = await cldrClient.getClient();
-  const raw = (
-    await client.apis.voting.getAllReports({
-      user: user || "-",
-    })
-  ).body;
-  return raw;
-}
-
 async function internalFetchAllReportStatus() {
   const client = await cldrClient.getClient();
   const raw = (
@@ -205,7 +185,6 @@ export {
   fetchAllReports,
   getOneLocaleStatus,
   getOneReportLocaleStatus,
-  reportClass,
   reportLoadHandler,
   reportName,
   reportTypes,

@@ -6,7 +6,7 @@
         <template #title>
           {{ reportStatus.status }}: {{ reportStatus.acceptability }}
         </template>
-        <div class="d-dr-status statuscell" :class="statusClass">&nbsp;</div>
+        <span class="statuscell" :class="statusClass">{{ statusIcon }}</span>
         {{ humanizeAcceptability }}
       </a-tooltip>
       <a-spin size="small" v-if="!loaded" />
@@ -42,12 +42,14 @@
 import * as cldrClient from "../esm/cldrClient.js";
 import * as cldrReport from "../esm/cldrReport.js";
 import * as cldrStatus from "../esm/cldrStatus.js";
+import * as cldrTable from "../esm/cldrTable.js";
 import * as cldrText from "../esm/cldrText.js";
+
 export default {
   props: [
     "report", // e.g. 'numbers'
   ],
-  data: function () {
+  data() {
     return {
       completed: false,
       acceptable: false,
@@ -58,7 +60,7 @@ export default {
       radioStyle: { display: "block" },
     };
   },
-  created: async function () {
+  async created() {
     this.client = await cldrClient.getClient();
     await this.reload();
   },
@@ -66,12 +68,19 @@ export default {
     loggedIn() {
       return !!cldrStatus.getSurveyUser();
     },
+
     reportName() {
       return cldrReport.reportName(this.report);
     },
+
     statusClass() {
       return `d-dr-${this.reportStatus.status}`;
     },
+
+    statusIcon() {
+      return cldrTable.getStatusIcon(this.reportStatus.status);
+    },
+
     humanizeAcceptability() {
       if (!this.reportStatus) {
         return "loading";
@@ -102,6 +111,7 @@ export default {
           break;
       }
     },
+
     /**
      * map 2 fields to a string
      */
@@ -115,6 +125,7 @@ export default {
         return "incomplete";
       }
     },
+
     async changed() {
       this.loaded = false;
       const user = cldrStatus.getSurveyUser();
@@ -145,6 +156,7 @@ export default {
         this.loaded = true;
       }
     },
+
     async reload() {
       this.loaded = false;
       const user = cldrStatus.getSurveyUser();

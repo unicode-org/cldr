@@ -226,6 +226,7 @@ public class VerifyCompactNumbers {
                         .finishRow();
                 }
             } catch (Exception e) {
+                System.err.println("Exception while processing " + cldrFile.getLocaleID());
                 e.printStackTrace();
             }
             out.append("<p>To correct problems in compact numbers below, please go to "
@@ -249,6 +250,7 @@ public class VerifyCompactNumbers {
             showErrors(errors, out);
             showErrors(debugCreationErrors, out);
         } catch (IOException e) {
+            System.err.println("Exception while processing " + cldrFile.getLocaleID());
             throw new ICUUncheckedIOException(e);
         }
     }

@@ -78,7 +78,7 @@ public class SearchCLDR {
     // + "-s\t show English value"
     // ;
 
-    enum PathStyle {none, path, fullPath, pathHeader}
+    enum PathStyle {none, path, fullPath, pathHeader, modify_config}
 
     final static Options myOptions = new Options()
         .add("source", ".*", CLDRPaths.MAIN_DIRECTORY, "source directory")
@@ -326,8 +326,12 @@ public class SearchCLDR {
                     continue;
                 }
                 if (!headerShown) {
-                    showLine(showPathHeader, showParent, showEnglish, resolved, locale, "Path", "Full-Path", "Value",
-                        "Parent-Value", "English-Value", "Source-Locale\tSource-Path", "Org-Level");
+                    if (showPathHeader == PathStyle.modify_config) {
+                        System.out.println();
+                    } else {
+                        showLine(showPathHeader, showParent, showEnglish, resolved, locale, "Path", "Full-Path", "Value",
+                            "Parent-Value", "English-Value", "Source-Locale\tSource-Path", "Org-Level");
+                    }
                     headerShown = true;
                 }
                 //                if (showParent && parent == null) {
@@ -359,7 +363,7 @@ public class SearchCLDR {
                     System.out.print("\t" + levelCounter.get(cLevel));
                 }
             }
-            if (localeCount != 0) {
+            if (localeCount != 0 && showPathHeader != PathStyle.modify_config) {
                 System.out.println("# " + locale
                     + " Total " + localeCount + " found");
             }
@@ -393,6 +397,17 @@ public class SearchCLDR {
         boolean resolved, String locale, String path, String fullPath, String value,
         String parentValue, String englishValue, String resolvedSource, String organizationLevel) {
         String pathHeaderInfo = "";
+
+        if (showPath == PathStyle.modify_config) {
+            // locale=en ; action=add ; new_path=//ldml/localeDisplayNames/territories/territory[@type="PS"][@alt="short"] ; new_value=Palestine
+
+            System.out.println("locale=" + locale
+                + " ; action=add"
+                + " ; new_path=" + fullPath
+                + " ; new_value=" + value
+                );
+            return;
+        }
         PathHeader pathHeader = pathHeaderFactory.fromPath(path);
 
         if (showSurveyToolUrl) {
@@ -406,7 +421,7 @@ public class SearchCLDR {
             + (showPath == PathStyle.path ? "\t" + path
                 : showPath == PathStyle.fullPath ? "\t" + fullPath
                     : showPath == PathStyle.pathHeader ? "\t" + pathHeader
-                : "")
+                        : "")
             + (resolved ? "\t" + resolvedSource : "")
             + (organizationLevel != null ? "\t" + organizationLevel : "")
             + pathHeaderInfo);

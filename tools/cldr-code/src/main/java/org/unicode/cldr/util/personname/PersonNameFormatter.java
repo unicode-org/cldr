@@ -406,6 +406,11 @@ public class PersonNameFormatter {
         final private MessageFormat initialFormatter;
         final private MessageFormat initialSequenceFormatter;
         final private String foreignSpaceReplacement;
+
+        public String getForeignSpaceReplacement() {
+            return foreignSpaceReplacement;
+        }
+
         final private boolean uppercaseSurnameIfSurnameFirst;
 
         public FallbackFormatter(ULocale uLocale,
@@ -951,6 +956,24 @@ public class PersonNameFormatter {
             }
             return JOIN_DASH.join(items);
         }
+
+        public String dashed() {
+            List<String> items = new ArrayList<>();
+            if (order != null) {
+                items.add(order.toString());
+            }
+            if (length != null) {
+                items.add(length.toString());
+            }
+            if (usage != null) {
+                items.add(usage.toString());
+            }
+            if (formality != null) {
+                items.add(formality.toString());
+            }
+            return JOIN_DASH.join(items);
+        }
+
         public static FormatParameters from(String string) {
             Order order = null;
             Length length = null;

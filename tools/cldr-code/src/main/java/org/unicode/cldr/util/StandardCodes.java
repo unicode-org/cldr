@@ -392,6 +392,25 @@ public class StandardCodes {
         return getLocaleTypes().get(org);
     }
 
+    /**
+     * returns the highest level in the hierarchy, not including root.
+     */
+    public Level getHighestLocaleCoverageLevel(String organization, String locale) {
+        // first get parent
+        final String parentId = LocaleIDParser.getParent(locale);
+        Level parentLevel = Level.UNDETERMINED;
+        if (parentId != null && !parentId.equals("root")) {
+            parentLevel = getHighestLocaleCoverageLevel(organization, parentId); // recurse
+        }
+        final Level ourLevel = getLocaleCoverageLevel(organization, locale);
+        if (parentLevel.getLevel() > ourLevel.getLevel()) {
+            // if parentLevel is higher
+            return parentLevel;
+        } else {
+            return ourLevel;
+        }
+    }
+
     public Level getLocaleCoverageLevel(String organization, String desiredLocale) {
         return getLocaleCoverageLevel(Organization.fromString(organization), desiredLocale);
     }

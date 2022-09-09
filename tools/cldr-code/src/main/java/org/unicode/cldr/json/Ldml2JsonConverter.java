@@ -761,8 +761,8 @@ public class Ldml2JsonConverter {
     private boolean localeIsModernTier(String filename) {
         boolean isModernTier;
         {
-            final Level localeCoverageLevel = sc.getLocaleCoverageLevel("Cldr", filename);
-            isModernTier = localeCoverageLevel == Level.MODERN || filename.equals("root") || filename.equals("und");
+            final Level localeCoverageLevel = sc.getHighestLocaleCoverageLevel("Cldr", filename);
+            isModernTier = (localeCoverageLevel.getLevel() >= Level.MODERN.getLevel()) || filename.equals("root") || filename.equals("und");
         }
         return isModernTier;
     }

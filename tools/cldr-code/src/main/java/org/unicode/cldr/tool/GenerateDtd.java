@@ -16,6 +16,7 @@ import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdData.Mode;
+import org.xml.sax.SAXException;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.TempPrintWriter;
 
@@ -23,6 +24,17 @@ import com.ibm.icu.text.CaseMap;
 import com.ibm.icu.text.ListFormatter;
 import com.ibm.icu.text.ListFormatter.Type;
 import com.ibm.icu.text.ListFormatter.Width;
+import com.thaiopensource.relaxng.edit.SchemaCollection;
+import com.thaiopensource.relaxng.input.InputFailedException;
+import com.thaiopensource.relaxng.input.InputFormat;
+import com.thaiopensource.relaxng.input.dtd.DtdInputFormat;
+import com.thaiopensource.relaxng.output.LocalOutputDirectory;
+import com.thaiopensource.relaxng.output.OutputFailedException;
+import com.thaiopensource.relaxng.output.OutputFormat;
+import com.thaiopensource.relaxng.output.xsd.XsdOutputFormat;
+import com.thaiopensource.relaxng.translate.Driver;
+import com.thaiopensource.relaxng.translate.util.InvalidParamsException;
+import com.thaiopensource.xml.sax.ErrorHandlerImpl;
 
 @CLDRTool(alias = "generate-dtd", description = "BRS: Reformat all DTDs")
 public class GenerateDtd {
@@ -46,13 +58,19 @@ public class GenerateDtd {
                     name = name.substring(0, name.length() - 4);
                 }
             }
-            try (TempPrintWriter out = TempPrintWriter.openUTF8Writer(CLDRPaths.BASE_DIRECTORY + type.dtdPath)) {
+            String dtdPath = CLDRPaths.BASE_DIRECTORY + type.dtdPath;
+            try (TempPrintWriter out = TempPrintWriter.openUTF8Writer(dtdPath)) {
                 out.println(data);
-                System.err.println("Wrote: " + CLDRPaths.BASE_DIRECTORY + type.dtdPath);
+                System.err.println("Wrote: " + dtdPath);
             }
             // create markdown
             final File mdFile = dtd2md.resolve("./elements_" + name + ".md").toFile();
             writeMarkdown(mdFile, data, type);
+
+            // create XSD
+            final String xsdPath = CLDRPaths.BASE_DIRECTORY + type.getXsdPath();
+            writeXsd(type, data, dtdPath, xsdPath);
+            System.err.println("Wrote: " + xsdPath);
         }
     }
 
@@ -153,5 +171,21 @@ public class GenerateDtd {
             return "[_special_](tr35.md#special)";
         }
         return "[" + t + "](#Element_" + t + ")";
+    }
+
+    private static void writeXsd(DtdType type, DtdData data, final String dtdPath, final String xsdPath) {
+        // Step 1: trang
+        InputFormat inFormat = new DtdInputFormat();
+        OutputFormat outputFormat = new XsdOutputFormat();
+        ErrorHandlerImpl eh = new ErrorHandlerImpl();
+        final String inputUri = new File(dtdPath).toURI().toString();
+        String params[] = {};
+        try {
+            SchemaCollection sc = inFormat.load(inputUri, params, "xsd", eh, null);
+            outputFormat.output(sc, new LocalOutputDirectory(inputUri, new File(xsdPath), ".xsd", "UTF-8", 72, 2), params, "dtd", eh);
+        } catch (InputFailedException | InvalidParamsException | IOException | SAXException | OutputFailedException e) {
+            e.printStackTrace();
+            System.err.println("Error generating XSD from " + inputUri);
+        }
     }
 }

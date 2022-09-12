@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright © 1991-2022 Unicode, Inc.
+  For terms of use, see http://www.unicode.org/copyright.html
+  SPDX-License-Identifier: Unicode-DFS-2016
+  CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<!--
+  Important Note:
+
+  The CLDR Keyboard Workgroup is currently developing major changes to the
+  CLDR keyboard specification.
+
+  This DTD is a work in progress.
+
+  Please see CLDR-15034 for the latest information.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="keyboard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="import"/>
+        <xs:element minOccurs="0" ref="locales"/>
+        <xs:element minOccurs="0" ref="version"/>
+        <xs:element minOccurs="0" ref="info"/>
+        <xs:element ref="names"/>
+        <xs:element minOccurs="0" ref="settings"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="vkeyMaps"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="displayMap"/>
+        <xs:element minOccurs="0" ref="keys"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="layerMaps"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="transforms"/>
+        <xs:element minOccurs="0" ref="reorders"/>
+        <xs:element minOccurs="0" ref="backspaces"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
+      </xs:sequence>
+      <xs:attribute name="locale" use="required"/>
+      <xs:attribute name="conformsTo" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="techpreview"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <!-- @MATCH:validity/bcp47 -->
+  <!-- @MATCH:any -->
+  <!-- @METADATA -->
+  <xs:element name="import">
+    <xs:complexType>
+      <xs:attribute name="path" use="required"/>
+      <xs:attribute name="base">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="cldr"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <!-- @MATCH:any -->
+  <!-- @VALUE -->
+  <!-- @VALUE -->
+  <xs:element name="locales">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="locale"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="locale">
+    <xs:complexType>
+      <xs:attribute name="id" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- @MATCH:validity/bcp47 -->
+  <!-- @VALUE -->
+  <xs:element name="version">
+    <xs:complexType>
+      <xs:attribute name="number"/>
+      <xs:attribute name="cldrVersion" default="techpreview">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="techpreview"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <!-- @VALUE -->
+  <!-- @MATCH:version -->
+  <!-- @METADATA -->
+  <xs:element name="info">
+    <xs:complexType>
+      <xs:attribute name="author"/>
+      <xs:attribute name="normalization"/>
+      <xs:attribute name="layout"/>
+      <xs:attribute name="indicator"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- @MATCH:any -->
+  <!-- @VALUE -->
+  <!-- @MATCH:literal/NFC, NFD, other -->
+  <!-- @VALUE -->
+  <!-- @MATCH:any -->
+  <!-- @VALUE -->
+  <!-- @MATCH:any -->
+  <!-- @VALUE -->
+  <xs:element name="names">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="import"/>
+        <xs:element maxOccurs="unbounded" ref="name"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="name">
+    <xs:complexType>
+      <xs:attribute name="value" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- @MATCH:any -->
+  <!-- @VALUE -->
+  <xs:element name="special" type="any"/>
+  <xs:element name="settings">
+    <xs:complexType>
+      <xs:attribute name="fallback">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="omit"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="transformFailure">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="omit"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="transformPartial">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="hide"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <!-- @ORDERED -->
+  <!-- @VALUE -->
+  <!-- @VALUE -->
+  <!-- @VALUE -->
+  <xs:element name="vkeyMaps">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="import"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="vkeyMap"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="vkeyMap">
+    <xs:complexType>
+      <xs:attribute name="from" use="required"/>
+      <xs:attribute name="to" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- @MATCH:any -->
+  <!-- @MATCH:any -->
+  <!-- @VALUE -->
+  <xs:element name="displayMap">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="import"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="display"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="displayOptions"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="display">
+    <xs:complexType>
+      <xs:attribute name="to" use="required"/>
+      <xs:attribute name="display" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- @MATCH:any -->
+  <!-- @MATCH:any -->
+  <!-- @VALUE -->
+  <xs:element name="displayOptions">
+    <xs:complexType>
+      <xs:attribute name="baseCharacter"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- @MATCH:any -->
+  <!-- @VALUE -->
+  <xs:element name="keys">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="import"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="key"/>
+          <xs:element ref="flicks"/>
+        </xs:choice>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="key">
+    <xs:complexType>
+      <xs:attribute name="id" use="required"/>
+      <xs:attribute name="flicks" type="xs:NMTOKEN"/>
+      <xs:attribute name="gap">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="true"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="to"/>
+      <xs:attribute name="longPress"/>
+      <xs:attribute name="longPressDefault"/>
+      <xs:attribute name="multitap"/>
+      <xs:attribute name="switch" type="xs:NMTOKEN"/>
+      <xs:attribute name="transform">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="width"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- @MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]* -->
+  <!-- @MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]* -->
+  <!-- @VALUE -->
+  <!-- @MATCH:any -->
+  <!-- @VALUE -->
+  <!-- @MATCH:any -->
+  <!-- @VALUE -->
+  <!-- @MATCH:any -->
+  <!-- @VALUE -->
+  <!-- @VALUE -->
+  <!-- @MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]* -->
+  <!-- @VALUE -->
+  <!-- @VALUE -->
+  <!-- @MATCH:range/0.01~100.0 -->
+  <!-- @VALUE -->
+  <xs:element name="flicks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="flick"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- @MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]* -->
+  <xs:element name="flick">
+    <xs:complexType>
+      <xs:attribute name="directions" use="required" type="xs:NMTOKENS"/>
+      <xs:attribute name="to" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- @MATCH:any -->
+  <!-- @MATCH:any -->
+  <!-- @VALUE -->
+  <xs:element name="layerMaps">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="import"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="layerMap"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
+      </xs:sequence>
+      <xs:attribute name="form" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="hardware"/>
+            <xs:enumeration value="touch"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="minDeviceWidthMM"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- @MATCH:range/1~999 -->
+  <xs:element name="layerMap">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="row"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:NMTOKEN"/>
+      <xs:attribute name="modifier" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- @MATCH:any -->
+  <!-- @MATCH:any -->
+  <xs:element name="row">
+    <xs:complexType>
+      <xs:attribute name="keys" use="required" type="xs:NMTOKENS"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- @ORDERED -->
+  <!-- @MATCH:any -->
+  <!-- @VALUE -->
+  <xs:element name="transforms">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="import"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="transform"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
+      </xs:sequence>
+      <xs:attribute name="type" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- @MATCH:literal/simple, final -->
+  <xs:element name="transform">
+    <xs:complexType>
+      <xs:attribute name="before"/>
+      <xs:attribute name="from" use="required"/>
+      <xs:attribute name="to" use="required"/>
+      <xs:attribute name="error">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="fail"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <!-- @MATCH:any -->
+  <!-- @MATCH:any -->
+  <!-- @VALUE -->
+  <!-- @VALUE -->
+  <xs:element name="reorders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="import"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="reorder"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="reorder">
+    <xs:complexType>
+      <xs:attribute name="before"/>
+      <xs:attribute name="from" use="required"/>
+      <xs:attribute name="order"/>
+      <xs:attribute name="tertiary"/>
+      <xs:attribute name="tertiary_base"/>
+      <xs:attribute name="prebase"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- @VALUE -->
+  <!-- @VALUE -->
+  <!-- @VALUE -->
+  <!-- @VALUE -->
+  <xs:element name="backspaces">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="import"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="backspace"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="backspace">
+    <xs:complexType>
+      <xs:attribute name="before"/>
+      <xs:attribute name="from" use="required"/>
+      <xs:attribute name="to"/>
+      <xs:attribute name="error">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="fail"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="any" mixed="true">
+    <xs:sequence>
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="strict"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+<!-- @VALUE -->
+<!-- @VALUE -->

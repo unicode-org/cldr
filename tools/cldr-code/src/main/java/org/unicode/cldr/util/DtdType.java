@@ -88,4 +88,8 @@ public enum DtdType {
         + " -->\n"
         + "<" + this + ">\n";
     }
+
+    public String getXsdPath() {
+        return dtdPath.replaceAll("\\.dtd$", ".xsd");
+    }
 }

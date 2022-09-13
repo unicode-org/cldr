@@ -450,8 +450,12 @@ public class Ldml2JsonConverter {
                 continue;
             }
 
-            String transformedPath = transformPath(path, pathPrefix);
-            String transformedFullPath = transformPath(fullPath, pathPrefix);
+            // discard draft before transforming
+            final String pathNoDraft = CLDRFile.DRAFT_PATTERN.matcher(path).replaceAll("");
+            final String fullPathNoDraft = CLDRFile.DRAFT_PATTERN.matcher(fullPath).replaceAll("");            
+
+            final String transformedPath = transformPath(pathNoDraft, pathPrefix);
+            final String transformedFullPath = transformPath(fullPathNoDraft, pathPrefix);
 
             if (transformedPath.isEmpty()) {
                 continue; // skip this path

@@ -157,3 +157,12 @@
 # BCP47 (Some other extension)
 < (.*)/(keyword)/(key)\[@extension="([^"]*)"\]\[@name="([^"]*)"\](.*)$
 > $1/$2/$4/$5$6
+
+# PersonNames - name patterns
+< (.*/personName)\[@order="([^"]*)"\]\[@length="([^"]*)"\]\[@usage="([^"]*)"\]\[@formality="([^"]*)"\](.*)/namePattern(.*)$
+> $1/$2/$3/$4/$5$6$7
+
+# PersonNames - sample names
+< (.*/personNames)/(sampleName)\[@item="([^"]*)"\]/nameField\[@type="([^"]*)"\]$
+> $1/$2/$3/$4
+

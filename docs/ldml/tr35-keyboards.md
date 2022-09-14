@@ -101,6 +101,18 @@ The LDML specification is divided into the following parts:
   * [Principles for Keyboard IDs](#Principles_for_Keyboard_IDs)
 * [Platform Behaviors in Edge Cases](#Platform_Behaviors_in_Edge_Cases)
 * [CLDR VKey Enum](#CLDR_VKey_Enum)
+* [Keyboard Test Data](#keyboard-test-data)
+  * [Test Doctype](#test-doctype)
+  * [Test Element: keyboardTest](#test-element-keyboardtest)
+  * [Test Element: info](#test-element-info)
+  * [Test Element: repertoire](#test-element-repertoire)
+  * [Test Element: tests](#test-element-tests)
+  * [Test Element: test](#test-element-test)
+  * [Test Element: startContext](#test-element-startcontext)
+  * [Test Element: event](#test-element-event)
+  * [Test Element: emit](#test-element-emit)
+  * [Test Element: check](#test-element-check)
+  * [Test Examples](#test-examples)
 
 ## <a name="Introduction" href="#Introduction">Keyboards</a>
 
@@ -235,6 +247,7 @@ The _UnicodeSet_ notation is described in [UTS #35 section 5.3.3](tr35.md#Unicod
 * `from`, `before`, `after` on the `<transform>` element
 * `from`, `before`, `after` on the `<reorder>` element
 * `from`, `before`, `after` on the `<backspace>` element
+* `chars` on the [`<repertoire>`](#test-element-repertoire) test element.
 
 The `\u{...}` notation, a subset of hex notation, is described in [UTS #18 section 1.1](https://www.unicode.org/reports/tr18/#Hex_notation). It can refer to one or multiple individual codepoints. Currently, the following attributes allow the `\u{...}` notation:
 
@@ -1339,7 +1352,7 @@ This element must have the `transforms` element as its parent. This element repr
 
 _Attribute:_ `from` (required)
 
-> The `from` attribute consists of a sequence of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in [UTS #35 section 5.3.3](https://www.unicode.org/reports/tr35/#Unicode_Sets)).
+> The `from` attribute consists of a sequence of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in [UTS #35 Part One](tr35.md#Unicode_Sets)).
 
 For example, suppose there are the following transforms:
 
@@ -1521,7 +1534,7 @@ The reorder transform consists of `<reorder>` elements encapsulated in a `<reord
 
 _Attribute:_ `from` (required)
 
-> This attribute follows the `transform/@from` attribute and contains a string of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in UTS #35 section 5.3.3).
+> This attribute follows the `transform/@from` attribute and contains a string of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in [UTS #35 Part One](tr35.md#Unicode_Sets)).
 
 _Attribute:_ `before`
 
@@ -2027,6 +2040,316 @@ In the following chart, “CLDR Name” indicates the value used with the `from`
 Footnotes:
 
 * <sup>1</sup> Hex value from Windows, web standards, Keyman, etc.
+
+* * *
+
+## Keyboard Test Data
+
+Keyboard Test Data allows the keyboard author to provide regression test data to validate the repertoire and behavior of a keyboard. Tooling can run these regression tests against an implementation, and can also be used as part of the development cycle to validate that keyboard changes do not deviate from expected behavior.
+
+Test data files have a separate DTD, named `ldmlKeyboardTest.dtd`.  Sample test data files are located in the `keyboards/test` subdirectory.
+
+The following describes the structure of a keyboard test file.
+
+### Test Doctype
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE keyboardTest SYSTEM "../dtd/ldmlKeyboardTest.dtd">
+```
+
+The top level element is named `keyboardTest`.
+
+### Test Element: keyboardTest
+
+> <small>
+>
+> Children: [info](#test-element-info), [repertoire](#test-element-repertoire), [_special_](tr35.md#special), [tests](#test-element-tests)
+> </small>
+
+This is the top level element.
+
+_Attribute:_ `conformsTo` (required)
+
+The `conformsTo` attribute here is the same as on the [`<keyboard>`](#Element_Keyboard) element.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE keyboardTest SYSTEM "../dtd/ldmlKeyboardTest.dtd">
+<keyboardTest conformsTo="techpreview">
+    …
+</keyboardTest>
+```
+
+### Test Element: info
+
+> <small>
+>
+> Parents: [keyboardTest](#test-element-keyboardtest)
+>>
+> Occurrence: Required, Single
+> </small>
+
+_Attribute:_ `author`
+
+This freeform attribute allows for description of the author or authors of this test file.
+
+_Attribute:_ `keyboard` (required)
+
+This attribute specifies the keyboard’s file name, such as `fr-t-k0-azerty.xml`.
+
+_Attribute:_ `name`
+
+This attribute specifies a name for this overall test file. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.
+
+**Example**
+
+```xml
+<info keyboard="fr-t-k0-azerty.xml" author="Team Keyboard" name="fr-test" />
+```
+
+### Test Element: repertoire
+
+> <small>
+>
+> Parents: [keyboardTest](#test-element-keyboardtest)
+>
+> Children: _none_
+>
+> Occurrence: Optional, Multiple
+> </small>
+
+This element represents a repertoire test, to validate the available characters and their reachability. This test ensures that each of the specified characters is somehow typeable on the keyboard.
+
+_Attribute:_ `name`
+
+This attribute specifies a unique name for this repertoire test. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.
+
+_Attribute:_ `type`
+
+This attribute is either `simple` (the default) or `gesture`. A value of `simple` indicates that each of the characters in `chars` are typeable by simple single keystrokes without needing any gestures such as flicks, long presses, or multiple taps. A value of `gesture` indicates that the characters are typeable by either simple keystrokes or by use of gestures such as flicks, long presses, or multiple taps.
+
+_Attribute:_ `chars` (required)
+
+This attribute specifies a list of characters in UnicodeSet format, which is specified in [UTS #35 Part One](tr35.md#Unicode_Sets).
+
+**Example**
+
+```xml
+<repertoire chars="[a b c d e \u{22}]" type="simple" />
+
+<!-- taken from CLDR's common/main/fr.xml main exemplars - indicates that all of these characters should be reachable without requiring a gesture.
+Note that the 'name' is arbitrary. -->
+<repertoire name="cldr-fr-main" chars="[a à â æ b c ç d e é è ê ë f g h i î ï j k l m n o ô œ p q r s t u ù û ü v w x y ÿ z]" type="simple" />
+
+<!-- taken from CLDR's common/main/fr.xml auxiliary exemplars - indicates that all of these characters should be reachable even if a gesture is required.-->
+<repertoire name="cldr-fr-auxiliary" chars="[á å ä ã ā ć ē í ì ī ĳ ñ ó ò ö õ ø ř š ſ ß ú ǔ]" type="gesture" />
+
+```
+
+Note: CLDR’s extensive [exemplar set](tr35-general.md#Character_Elements) data may be useful in validating a language’s repertoire against a keyboard. Tooling may wish to make use of this data in order to suggest recommended repertoire values for a language.
+
+### Test Element: tests
+
+> <small>
+>
+> Parents: [keyboardTest](#test-element-keyboardtest)
+>
+> Children: [_special_](tr35.md#special), [test](#test-element-test)
+>
+> Occurrence: Optional, Multiple
+> </small>
+
+This element specifies a particular suite of `<test>` elements.
+
+_Attribute:_ `name`
+
+This attribute specifies a unique name for this suite of tests. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.
+
+**Example**
+
+```xml
+<tests name="key-tests">
+    <test name="key-test">
+        …
+    </test>
+    <test name="gestures-test">
+        …
+    </test>
+</tests>
+<tests name="transform tests">
+    <test name="transform test">
+        …
+    </test>
+</tests>
+```
+
+### Test Element: test
+
+> <small>
+>
+> Parents: [tests](#test-element-tests)
+>
+> Children: [startContext](#test-element-startContext), [emit](#test-element-emit), [keystroke](#test-element-keystroke), [check](#test-element-check), [_special_](tr35.md#special)
+>
+> Occurrence: Required, Multiple
+> </small>
+
+This attribute specifies a specific isolated regression test. Multiple test elements do not interact with each other.
+
+The order of child elements is significant, with cumulative effects: they must be processed from first to last.
+
+_Attribute:_ `name`
+
+This attribute specifies a unique name for this particular test. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.
+
+**Example**
+
+```xml
+<info keyboard="fr-t-k0-azerty.xml" author="Team Keyboard" name="fr-test" />
+```
+
+### Test Element: startContext
+
+This element specifies pre-existing text in a document, as if prior to the user’s insertion point. This is useful for testing transforms and reordering. If not specified, the startContext can be considered to be the empty string ("").
+
+> <small>
+>
+> Parents: [test](#Element_test)
+>
+> Children: _none_
+>
+> Occurrence: Optional, Single
+> </small>
+
+_Attribute:_ `to` (required)
+
+Specifies the starting context. This text may be escaped with `\u` notation, see [Escaping](#Escaping).
+
+**Example**
+
+```xml
+<startContext to="abc\u0022"/>
+```
+
+
+### Test Element: event
+
+> <small>
+>
+> Parents: [test](#test-element-test)
+>
+> Children: _none_
+>
+> Occurrence: Optional, Multiple
+> </small>
+
+This element represents a single keystroke or other gesture event.
+
+Optionally, one of the gesture attributes, either `flick`, `longPress`, or `tapCount` may be specified. If none of the gesture attributes are specified, then a regular keypress is effected on the key.  It is an error to specify more than one gesture attribute.
+
+If a key is not found, or a particular gesture has no definition, the output should be behave as if the user attempted to perform such an action.  For example, an unspecified flick would result in no output.
+
+_Attribute:_ `key` (required)
+
+This attribute specifies a key by means of the key’s `id` attribute.
+
+_Attribute:_ `flick`
+
+This attribute specifies a flick gesture to be performed on the specified key instead of a keypress, such as `e` or `nw se`. This value corresponds to the `directions` attribute of the [`<flick>`](#Element_flicks) element.
+
+_Attribute:_ `longPress`
+
+This attribute specifies that a long press gesture should be performed on the specified key instead of a keypress. For example, `longPress="2"` indicates that the second character in a longpress series should be chosen. `longPress="0"` indicates that the `longPressDefault` value, if any, should be chosen. This corresponds to `longPress` and `longPressDefault` on [`<key>`](#Element_key).
+
+_Attribute:_ `tapCount`
+
+This attribute specifies that a multi-tap gesture should be performed on the specified key instead of a keypress. For example, `tapCount="3"` indicates that the key should be tapped three times in rapid succession. This corresponds to `multiTap` on [`<key>`](#Element_key).
+
+Note that `tapCount="1"` is valid, but represents an ordinary keypress.
+
+**Example**
+
+```xml
+<keystroke key="q"/>
+<keystroke key="doublequote"/>
+<keystroke key="s" flick="nw se"/>
+<keystroke key="e" longPress="1"/>
+<keystroke key="E" tapCount="2"/>
+```
+
+### Test Element: emit
+
+> <small>
+>
+> Parents: [test](#test-element-emit)
+>
+> Children: _none_
+>
+> Occurrence: Optional, Multiple
+> </small>
+
+This element represents a text output event.
+
+_Attribute:_ `to` (required)
+
+This attribute specifies a a string of output text, which is intended to match a key’s `to` attribute.
+
+Tooling should give a warning if this attribute matches more than one key, or does not match any keys.
+
+**Example**
+
+```xml
+<emit to="s"/>
+```
+
+### Test Element: check
+
+> <small>
+>
+> Parents: [check](#test-element-check)
+>
+> Children: _none_
+>
+> Occurrence: Optional, Multiple
+> </small>
+
+This element represents a check on the current output buffer.
+
+_Attribute:_ `result` (required)
+
+This attribute specifies the expected resultant text in a document after processing this event and all prior events, and including any `preContext` text.  This text may be escaped with `\u` notation, see [Escaping](#Escaping).
+
+**Example**
+
+```xml
+<check result="abc\u0022s\u0022•éÈ"/>
+```
+
+
+### Test Examples
+
+```xml
+
+<test name="spec-sample">
+    <startContext to="abc\u0022"/>
+    <!-- simple, key specified by to -->
+    <emit to="s"/>
+    <check result="abc\u0022s"/>
+    <!-- simple, key specified by id -->
+    <keystroke key="doublequote"/>
+    <check result="abc\u0022s\u0022"/>
+    <!-- flick -->
+    <keystroke key="s" flick="nw se"/>
+    <check result="abc\u0022s\u0022•"/>
+    <!-- longPress -->
+    <keystroke key="e" longPress="1"/>
+    <check result="abc\u0022s\u0022•é"/>
+    <!-- multiTap -->
+    <keystroke key="E" tapCount="2"/>
+    <check result="abc\u0022s\u0022•éÈ"/>
+</test>
+```
 
 * * *
 

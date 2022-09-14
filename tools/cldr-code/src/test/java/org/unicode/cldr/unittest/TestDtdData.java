@@ -432,8 +432,17 @@ public class TestDtdData extends TestFmwk {
             "row" // keyboard
             )));
 
+    static final Set<String> orderedKeyboardTestElements = Collections.unmodifiableSet(new HashSet<>(Arrays
+            .asList(    "repertoire", "event" )));
+
     public static boolean isOrderedOld(String element, DtdType type) {
-        return orderedElements.contains(element);
+        switch (type) {
+            case keyboardTest:
+                return orderedKeyboardTestElements.contains(element);
+            default:
+                // all others, above
+                return orderedElements.contains(element);
+        }
     }
 
     public boolean isDistinguishingOld(DtdType dtdType, String elementName, String attribute) {
@@ -639,10 +648,16 @@ public class TestDtdData extends TestFmwk {
                 || elementName.equals("display") && attribute.equals("to")
                 || elementName.equals("flicks") && attribute.equals("id");
 
+        case keyboardTest:
+            return elementName.equals("tests") && attribute.equals("name")
+                || elementName.equals("test") && attribute.equals("name")
+                || elementName.equals("repertoire") && attribute.equals("name")
+                || elementName.equals("info") && attribute.equals("name");
+
         case ldmlICU:
             return false;
         default:
-            throw new IllegalArgumentException("Type is wrong: " + dtdType);
+            throw new IllegalArgumentException("type missing from isDistinguishingOld(): " + dtdType);
         }
         // if (result != matches(distinguishingAttributeMap, new String[]{elementName, attribute}, true)) {
         // matches(distinguishingAttributeMap, new String[]{elementName, attribute}, true);

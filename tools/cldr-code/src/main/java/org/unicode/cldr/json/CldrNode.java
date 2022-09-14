@@ -35,15 +35,15 @@ public class CldrNode {
         String[] suppressList = LdmlConvertRules.ATTR_SUPPRESS_LIST;
 
         // let's check if there is anything that can be suppressed
+        // TODO: should hash the parent and pathSegment values so we don't have to linear
+        // search.
         for (int i = 0; i < suppressList.length; i += 3) {
             if (node.name.equals(suppressList[i])) {
                 String key = suppressList[i + 2];
                 String value = node.distinguishingAttributes.get(key);
                 if (value != null && value.equals(suppressList[i + 1])) {
                     node.distinguishingAttributes.remove(key);
-
                 }
-
             }
         }
         return node;
@@ -160,9 +160,11 @@ public class CldrNode {
         Map<String, String> attributesAsValues = new HashMap<>();
         for (String key : distinguishingAttributes.keySet()) {
             String keyStr = LdmlConvertRules.getKeyStr(getParent(), name, key);
+            String keyStrMidStar = LdmlConvertRules.getKeyStr(getParent(), "*", key);
             String keyStr2 = LdmlConvertRules.getKeyStr(name, key);
             if (LdmlConvertRules.ATTR_AS_VALUE_SET.contains(keyStr) || LdmlConvertRules.ATTR_AS_VALUE_SET.contains(keyStr2)) {
-                if (LdmlConvertRules.COMPACTABLE_ATTR_AS_VALUE_SET.contains(keyStr)) {
+                if (LdmlConvertRules.COMPACTABLE_ATTR_AS_VALUE_SET.contains(keyStr)
+                     || LdmlConvertRules.COMPACTABLE_ATTR_AS_VALUE_SET.contains(keyStrMidStar)) {
                     attributesAsValues.put(LdmlConvertRules.ANONYMOUS_KEY,
                         distinguishingAttributes.get(key));
                 } else {
@@ -176,7 +178,9 @@ public class CldrNode {
                 continue;
             }
             String keyStr = LdmlConvertRules.getKeyStr(getParent(), name, key);
-            if (LdmlConvertRules.COMPACTABLE_ATTR_AS_VALUE_SET.contains(keyStr)) {
+            String keyStrMidStar = LdmlConvertRules.getKeyStr(getParent(), "*", key);
+            if (LdmlConvertRules.COMPACTABLE_ATTR_AS_VALUE_SET.contains(keyStr) ||
+                LdmlConvertRules.COMPACTABLE_ATTR_AS_VALUE_SET.contains(keyStrMidStar)) {
                 attributesAsValues.put(LdmlConvertRules.ANONYMOUS_KEY,
                     nondistinguishingAttributes.get(key));
             } else {

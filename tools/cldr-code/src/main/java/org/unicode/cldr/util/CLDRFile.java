@@ -113,6 +113,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
 
     public static final Pattern ALT_PROPOSED_PATTERN = PatternCache.get(".*\\[@alt=\"[^\"]*proposed[^\"]*\"].*");
     public static final Pattern DRAFT_PATTERN = PatternCache.get("\\[@draft=\"([^\"]*)\"\\]");
+    public static final Pattern XML_SPACE_PATTERN = PatternCache.get("\\[@xml:space=\"([^\"]*)\"\\]");
 
     private static boolean LOG_PROGRESS = false;
 

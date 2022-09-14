@@ -1,12 +1,22 @@
+# Processed by LdmlConfigFileReader
+
+# These are earlier in the file to keep the packageDesc in one place.
 package=localenames ; packageDesc=Translated versions of locale display name elements: languages, scripts, territories, and variants.
+package=person-names ; packageDesc=Personal Name Formatting (tech preview)
+package=numbers ; packageDesc=Data for number formatting.
+package=dates ; packageDesc=Data for date/time formatting, including data for Gregorian calendar.
+package=misc ; packageDesc=Other CLDR data not defined elsewhere
+package=units ; packageDesc=Data for units formatting.
+
+# mapping paths to sections
 section=languages ; path=//cldr/main/[^/]++/localeDisplayNames/languages/.* ; package=localenames
 section=scripts ; path=//cldr/main/[^/]++/localeDisplayNames/scripts/.* ; package=localenames
 section=territories ; path=//cldr/main/[^/]++/localeDisplayNames/territories/.* ; package=localenames
 section=variants ; path=//cldr/main/[^/]++/localeDisplayNames/variants/.* ; package=localenames
 section=transformNames ; path=//cldr/main/[^/]++/localeDisplayNames/transformNames/.* ; package=localenames
-section=measurementSystemNames ; path=//cldr/main/[^/]++/localeDisplayNames/measurementSystemNames/.* ; package=units ; packageDesc=Data for units formatting.
+section=measurementSystemNames ; path=//cldr/main/[^/]++/localeDisplayNames/measurementSystemNames/.* ; package=units
 section=localeDisplayNames ; path=//cldr/main/[^/]++/localeDisplayNames/.* ; package=localenames
-section=contextTransforms ; path=//cldr/main/[^/]++/contextTransforms/.* ; package=misc ; packageDesc=Other CLDR data not defined elsewhere
+section=contextTransforms ; path=//cldr/main/[^/]++/contextTransforms/.* ; package=misc
 section=layout ; path=//cldr/main/[^/]++/layout/.* ; package=misc
 section=characters ; path=//cldr/main/[^/]++/characters/.* ; package=misc
 section=typographic ; path=//cldr/main/[^/]++/typographicNames/.* ; package=misc
@@ -18,7 +28,6 @@ section=ca-coptic ; path=//cldr/main/[^/]++/dates/calendars/coptic/.* ; package=
 section=ca-dangi ; path=//cldr/main/[^/]++/dates/calendars/dangi/.* ; package=cal-dangi ; packageDesc=CLDR data for Dangi calendars.
 section=ca-ethiopic ; path=//cldr/main/[^/]++/dates/calendars/ethiopic/.* ; package=cal-ethiopic ; packageDesc=CLDR data for Ethiopic calendars.
 section=ca-ethiopic-amete-alem ; path=//cldr/main/[^/]++/dates/calendars/ethiopic-amete-alem/.* ; package=cal-ethiopic
-package=dates ; packageDesc=Data for date/time formatting, including data for Gregorian calendar.
 section=ca-generic ; path=//cldr/main/[^/]++/dates/calendars/generic/.* ; package=dates
 section=ca-gregorian ; path=//cldr/main/[^/]++/dates/calendars/gregorian/.* ; package=dates
 section=ca-hebrew ; path=//cldr/main/[^/]++/dates/calendars/hebrew/.* ; package=cal-hebrew ; packageDesc=CLDR data for Hebrew calendars.
@@ -33,17 +42,19 @@ section=ca-persian ; path=//cldr/main/[^/]++/dates/calendars/persian/.* ; packag
 section=ca-roc ; path=//cldr/main/[^/]++/dates/calendars/roc/.* ; package=cal-roc ; packageDesc=CLDR data for ROC calendars.
 section=dateFields ; path=//cldr/main/[^/]++/dates/fields/.* ; package=dates
 section=timeZoneNames ; path=//cldr/main/[^/]++/dates/timeZoneNames/.* ; package=dates
-package=numbers ; packageDesc = Data for number formatting.
 section=currencies ; path=//cldr/main/[^/]++/numbers/currencies/.* ; package=numbers
 section=numbers ; path=//cldr/main/[^/]++/numbers/.* ; package=numbers
 section=units ; path=//cldr/main/[^/]++/units/.* ; package=units
 section=listPatterns ; path=//cldr/main/[^/]++/listPatterns/.* ; package=misc
 section=posix ; path=//cldr/main/[^/]++/posix/.* ; package=misc
+section=personNames ; path=//cldr/main/[^/]++/personNames/.* ; package=person-names
+
+# Depedencies
 dependency=core ; package=dates
 dependency=core ; package=localenames
 dependency=core ; package=numbers
 dependency=core ; package=misc
 dependency=core ; package=units
+dependency=core ; package=person-names
 dependency=numbers ; package=dates
 dependency=dates ; package=cal
-section=personNames ; path=//cldr/main/[^/]++/personNames/.* ; package=person-names ; packageDesc = Personal Name Formatting (tech preview)

@@ -454,8 +454,11 @@ public class Ldml2JsonConverter {
             final String pathNoDraft = CLDRFile.DRAFT_PATTERN.matcher(path).replaceAll("");
             final String fullPathNoDraft = CLDRFile.DRAFT_PATTERN.matcher(fullPath).replaceAll("");            
 
-            final String transformedPath = transformPath(pathNoDraft, pathPrefix);
-            final String transformedFullPath = transformPath(fullPathNoDraft, pathPrefix);
+            final String pathNoXmlSpace = CLDRFile.XML_SPACE_PATTERN.matcher(pathNoDraft).replaceAll("");
+            final String fullPathNoXmlSpace = CLDRFile.XML_SPACE_PATTERN.matcher(fullPathNoDraft).replaceAll("");
+
+            final String transformedPath = transformPath(pathNoXmlSpace, pathPrefix);
+            final String transformedFullPath = transformPath(fullPathNoXmlSpace, pathPrefix);
 
             if (transformedPath.isEmpty()) {
                 continue; // skip this path
@@ -955,6 +958,25 @@ public class Ldml2JsonConverter {
         writeReadme(outputDir, packageName);
     }
 
+    /**
+     * Write the ## License section
+     */
+    public void writeCopyrightSection(PrintWriter out) {
+        out.println(CldrUtility.getCopyrightMarkdown() + "\n" +
+        "A copy of the license is included as [LICENSE](./LICENSE).");
+    }
+
+    /**
+     * Write the readme fragment from cldr-json-readme.md plus the copyright
+     * @param outf
+     * @throws IOException
+     */
+    private void writeReadmeSection(PrintWriter outf) throws IOException {
+        FileCopier.copy(CldrUtility.getUTF8Data("cldr-json-readme.md"), outf);
+        outf.println();
+        writeCopyrightSection(outf);
+    }
+
     public void writeReadme(String outputDir, String packageName) throws IOException {
         final String basePackageName = getBasePackageName(packageName);
         try (PrintWriter outf = FileUtilities.openUTF8Writer(outputDir + "/" + packageName, "README.md");) {
@@ -974,12 +996,13 @@ public class Ldml2JsonConverter {
             outf.println();
             outf.println(getNpmBadge(packageName));
             outf.println();
-            FileCopier.copy(CldrUtility.getUTF8Data("cldr-json-readme.md"), outf);
+            writeReadmeSection(outf);
         }
         try (PrintWriter outf = FileUtilities.openUTF8Writer(outputDir + "/" + packageName, "LICENSE");) {
             FileCopier.copy(CldrUtility.getUTF8Data("unicode-license.txt"), outf);
         }
     }
+
 
     String getBasePackageName(final String packageName) {
         String basePackageName = packageName;
@@ -1243,7 +1266,7 @@ public class Ldml2JsonConverter {
         pkgs.println("Package metadata is available at [`cldr-core`/cldr-packages.json](./cldr-json/cldr-core/cldr-packages.json)");
         pkgs.println();
 
-        FileCopier.copy(CldrUtility.getUTF8Data("cldr-json-readme.md"), pkgs);
+        writeReadmeSection(outf);
         pkgs.close();
     }
 

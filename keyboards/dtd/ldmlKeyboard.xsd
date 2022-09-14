@@ -222,7 +222,7 @@
       <xs:attribute name="to"/>
       <xs:attribute name="longPress"/>
       <xs:attribute name="longPressDefault"/>
-      <xs:attribute name="multitap"/>
+      <xs:attribute name="multiTap"/>
       <xs:attribute name="switch" type="xs:NMTOKEN"/>
       <xs:attribute name="transform">
         <xs:simpleType>
@@ -360,8 +360,8 @@
       <xs:attribute name="from" use="required"/>
       <xs:attribute name="order"/>
       <xs:attribute name="tertiary"/>
-      <xs:attribute name="tertiary_base"/>
-      <xs:attribute name="prebase"/>
+      <xs:attribute name="tertiaryBase"/>
+      <xs:attribute name="preBase"/>
     </xs:complexType>
   </xs:element>
   <xs:complexType name="any" mixed="true">

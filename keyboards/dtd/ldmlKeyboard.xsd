@@ -288,6 +288,7 @@
     </xs:complexType>
   </xs:element>
   <!-- @MATCH:range/1~999 -->
+  <!-- @MATCH:literal/us, iso, jis, abnt2 -->
   <xs:element name="layer">
     <xs:complexType>
       <xs:sequence>

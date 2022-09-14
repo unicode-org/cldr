@@ -141,6 +141,7 @@ Please see CLDR-15034 for the latest information. -->
 <!ATTLIST layers minDeviceWidth CDATA #IMPLIED >
     <!--@MATCH:range/1~999-->
 <!ATTLIST layers hardware NMTOKEN #IMPLIED >
+    <!--@MATCH:literal/us, iso, jis, abnt2-->
 
 <!ELEMENT layer ( row+, special* ) >
 <!ATTLIST layer id NMTOKEN #IMPLIED >

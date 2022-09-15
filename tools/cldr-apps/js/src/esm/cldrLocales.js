@@ -2,12 +2,10 @@
  * cldrLocales: encapsulate functions concerning locales for Survey Tool
  */
 import * as cldrEvent from "./cldrEvent.js";
-import * as cldrInfo from "./cldrInfo.js";
 import * as cldrLoad from "./cldrLoad.js";
 import * as cldrMenu from "./cldrMenu.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
-import * as cldrText from "./cldrText.js";
 
 // called as special.load
 function load() {
@@ -28,10 +26,13 @@ function load() {
   cldrEvent.filterAllLocale(); // filter for init data
   cldrEvent.forceSidebar();
   cldrStatus.setCurrentLocale(null);
-  cldrStatus.setCurrentSpecial("locales"); // TODO: always redundant? it's already "locales"
-  const message = cldrText.get("localesInitialGuidance");
-  cldrInfo.showMessage(message);
-  $("#itemInfo").html("");
+
+  // When clicking on the locale name in the header of the main Page view,
+  // the OtherSection div may be non-empty and needs to be hidden here
+  const otherSection = document.getElementById("OtherSection");
+  if (otherSection) {
+    otherSection.style.display = "none";
+  }
 }
 
 // called as special.parseHash

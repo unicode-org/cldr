@@ -4,6 +4,7 @@
 import * as cldrDrag from "./cldrDrag.js";
 import * as cldrEvent from "./cldrEvent.js";
 import * as cldrForum from "./cldrForum.js";
+import * as cldrInfo from "./cldrInfo.js";
 import * as cldrLoad from "./cldrLoad.js";
 import * as cldrMenu from "./cldrMenu.js";
 import * as cldrProgress from "./cldrProgress.js";
@@ -24,7 +25,6 @@ const runGuiId = "st-run-gui";
 let mainHeaderWrapper = null;
 let dashboardWidgetWrapper = null;
 
-let rightPanelVisible = true;
 let dashboardVisible = false;
 
 /**
@@ -56,6 +56,7 @@ function run() {
     setOnClicks();
     window.addEventListener("resize", handleResize);
     cldrProgress.insertWidget("CompletionSpan");
+    cldrInfo.initialize("ItemInfoContainer", "MainContentPane", "open-right");
   } catch (e) {
     return Promise.reject(e);
   }
@@ -174,10 +175,6 @@ function setOnClicks() {
   for (let i = 0; i < els.length; i++) {
     els[i].onclick = () => insertDashboard();
   }
-  els = document.getElementsByClassName("toggle-right");
-  for (let i = 0; i < els.length; i++) {
-    els[i].onclick = () => toggleRightPanel();
-  }
 }
 
 const leftSidebar =
@@ -270,7 +267,7 @@ const topTitle =
       <span id="CompletionSpan"></span>
       <span>
         <button class="cldr-nav-btn btn-primary open-dash" type="button">Open Dashboard</button>
-        <button class="cldr-nav-btn btn-primary toggle-right" type="button">Toggle Info Panel</button>
+        <button class="cldr-nav-btn btn-primary open-right" type="button">Open Info Panel</button>
       </span>
     </nav>
   </header>
@@ -290,7 +287,6 @@ const sideBySide = `
       <section id="DashboardSection"></section>
     </div>
     <div id="ItemInfoContainer" class="sidebyside-column sidebyside-narrow">
-      <section id="itemInfo" class="sidebyside-scrollable"></section>
     </div>
   </main>
 `;
@@ -415,50 +411,6 @@ function updateWithStatus() {
 }
 
 /**
- * Show or hide the right panel
- */
-function toggleRightPanel() {
-  rightPanelVisible ? hideRightPanel() : showRightPanel();
-}
-
-/**
- * Show the right panel
- */
-function showRightPanel() {
-  if (rightPanelVisible) {
-    return;
-  }
-  const main = document.getElementById("MainContentPane");
-  const info = document.getElementById("ItemInfoContainer");
-  if (main && info) {
-    main.style.width = "75%";
-    info.style.width = "25%";
-    info.style.display = "flex";
-    rightPanelVisible = true;
-  }
-}
-
-/**
- * Hide the right panel
- *
- * Called by toggleRightPanel, and also for Reports.
- * Otherwise, for the Date/Time, Zones, Numbers reports (especially Zones), the panel may invisibly prevent
- * clicking on the "view" buttons.
- */
-function hideRightPanel() {
-  if (!rightPanelVisible) {
-    return;
-  }
-  const main = document.getElementById("MainContentPane");
-  const info = document.getElementById("ItemInfoContainer");
-  if (main && info) {
-    main.style.width = "100%";
-    info.style.display = "none";
-    rightPanelVisible = false;
-  }
-}
-
-/**
  * The user's coverage level has changed. Inform all widgets we know about that need
  * updating to reflect the change.
  *
@@ -573,13 +525,11 @@ function refreshCounterVetting() {
 export {
   dashboardIsVisible,
   hideDashboard,
-  hideRightPanel,
   insertDashboard,
   refreshCounterVetting,
   run,
   setToptitleVisibility,
   showDashboard,
-  showRightPanel,
   updateDashboardRow,
   updateWidgetsWithCoverage,
   updateWithStatus,

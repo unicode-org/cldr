@@ -3,7 +3,6 @@
  */
 import * as cldrEvent from "./cldrEvent.js";
 import * as cldrGenericVue from "./cldrGenericVue.js";
-import * as cldrInfo from "./cldrInfo.js";
 import * as cldrLoad from "./cldrLoad.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
@@ -50,7 +49,6 @@ function handleDisconnect(why, json, word, what) {
 
 // called as special.load
 function load() {
-  cldrInfo.showNothing();
   cldrEvent.hideOverlayAndSidebar();
   if (!errInfo.location) {
     window.location.href = "/cldr-apps/v";

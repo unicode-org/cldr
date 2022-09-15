@@ -63,13 +63,6 @@ let flipper = null;
  */
 function showV() {
   flipper = new Flipper([pages.loading, pages.data, pages.other]);
-
-  const pucontent = document.getElementById("itemInfo");
-  const theDiv = flipper.get(pages.data);
-  theDiv.pucontent = pucontent;
-  pucontent.appendChild(
-    cldrDom.createChunk(cldrText.get("itemInfoBlank"), "i")
-  );
   cldrDom.updateIf(
     "title-dcontent-link",
     cldrText.get("defaultContent_titleLink")
@@ -600,24 +593,20 @@ function shower(itemLoadInfo) {
   cldrSurvey.showLoader(cldrText.get("loading"));
   const curSpecial = cldrStatus.getCurrentSpecial();
   cldrGui.setToptitleVisibility(curSpecial !== "menu");
-  if (curSpecial === "none") {
-    // TODO: clarify when and why this would happen
-    cldrSurvey.hideLoader();
-    isLoading = false;
-    window.location = cldrStatus.getSurvUrl(); // redirect home
-  } else {
-    specialLoad(itemLoadInfo, curSpecial, theDiv);
-  }
+  specialLoad(itemLoadInfo, curSpecial, theDiv);
 }
 
 function specialLoad(itemLoadInfo, curSpecial, theDiv) {
-  const special = getSpecial(curSpecial);
+  const special = getSpecial(curSpecial); // special is an object; curSpecial is a string
   if (special && special.load) {
     cldrEvent.hideOverlayAndSidebar();
     if (curSpecial !== "general") {
       cldrGui.hideDashboard();
     }
-    special.load(curSpecial); // pass the special name to the loader
+    cldrInfo.closePanel();
+    // Most special.load() functions do not use a parameter; an exception is
+    // cldrGenericVue.load() which expects the special name as a parameter
+    special.load(curSpecial);
   } else if (curSpecial !== "general") {
     // Avoid recursion.
     unspecialLoad(itemLoadInfo, theDiv);
@@ -634,7 +623,8 @@ function unspecialLoad(itemLoadInfo, theDiv) {
     const curPage = cldrStatus.getCurrentPage();
     const curId = cldrStatus.getCurrentId();
     if (!curPage && !curId) {
-      specialLoad(itemLoadInfo, "general", theDiv); //formerly: loadGeneral(itemLoadInfo);
+      cldrStatus.setCurrentSpecial("general");
+      specialLoad(itemLoadInfo, "general", theDiv);
     } else if (curId === "!") {
       // TODO: clarify when and why this would happen
       loadExclamationPoint();
@@ -845,16 +835,7 @@ function loadAllRowsFromJson(json, theDiv) {
     cldrStatus.setCurrentSection("");
     cldrStatus.setCurrentPage(json.pageId);
     updateHashAndMenus(); // now that we have a pageid
-    if (!cldrStatus.getSurveyUser()) {
-      const message = cldrText.get("loginGuidance");
-      cldrInfo.showMessage(message);
-    } else if (!json.canModify) {
-      const message = cldrText.get("readonlyGuidance");
-      cldrInfo.showMessage(message);
-    } else {
-      const message = cldrText.get("dataPageInitialGuidance");
-      cldrInfo.showMessage(message);
-    }
+    cldrInfo.showMessage(getGuidanceMessage(json.canModify));
     if (!cldrSurvey.isInputBusy()) {
       cldrSurvey.showLoader(cldrText.get("loading3"));
       cldrTable.insertRows(
@@ -869,6 +850,16 @@ function loadAllRowsFromJson(json, theDiv) {
       cldrGui.refreshCounterVetting();
       $("#nav-page-footer").show(); // make bottom "Prev/Next" buttons visible after building table
     }
+  }
+}
+
+function getGuidanceMessage(canModify) {
+  if (!cldrStatus.getSurveyUser()) {
+    return cldrText.get("loginGuidance");
+  } else if (!canModify) {
+    return cldrText.get("readonlyGuidance");
+  } else {
+    return cldrText.get("dataPageInitialGuidance");
   }
 }
 

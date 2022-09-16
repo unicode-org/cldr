@@ -7,12 +7,12 @@
 -->
 <!--
   Important Note:
-
+  
   The CLDR Keyboard Workgroup is currently developing major changes to the
   CLDR keyboard specification.
-
+  
   This DTD is a work in progress.
-
+  
   Please see CLDR-15034 for the latest information.
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
@@ -25,13 +25,12 @@
         <xs:element minOccurs="0" ref="info"/>
         <xs:element ref="names"/>
         <xs:element minOccurs="0" ref="settings"/>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="vkeyMaps"/>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="displayMap"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="vkeys"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="displays"/>
         <xs:element minOccurs="0" ref="keys"/>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="layerMaps"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="layers"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="transforms"/>
         <xs:element minOccurs="0" ref="reorders"/>
-        <xs:element minOccurs="0" ref="backspaces"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
       </xs:sequence>
       <xs:attribute name="locale" use="required"/>
@@ -153,16 +152,16 @@
   <!-- @VALUE -->
   <!-- @VALUE -->
   <!-- @VALUE -->
-  <xs:element name="vkeyMaps">
+  <xs:element name="vkeys">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="import"/>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="vkeyMap"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="vkey"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="vkeyMap">
+  <xs:element name="vkey">
     <xs:complexType>
       <xs:attribute name="from" use="required"/>
       <xs:attribute name="to" use="required"/>
@@ -171,7 +170,7 @@
   <!-- @MATCH:any -->
   <!-- @MATCH:any -->
   <!-- @VALUE -->
-  <xs:element name="displayMap">
+  <xs:element name="displays">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="import"/>
@@ -223,7 +222,7 @@
       <xs:attribute name="to"/>
       <xs:attribute name="longPress"/>
       <xs:attribute name="longPressDefault"/>
-      <xs:attribute name="multitap"/>
+      <xs:attribute name="multiTap"/>
       <xs:attribute name="switch" type="xs:NMTOKEN"/>
       <xs:attribute name="transform">
         <xs:simpleType>
@@ -269,11 +268,11 @@
   <!-- @MATCH:any -->
   <!-- @MATCH:any -->
   <!-- @VALUE -->
-  <xs:element name="layerMaps">
+  <xs:element name="layers">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="import"/>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="layerMap"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="layer"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
       </xs:sequence>
       <xs:attribute name="form" use="required">
@@ -284,11 +283,13 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
-      <xs:attribute name="minDeviceWidthMM"/>
+      <xs:attribute name="minDeviceWidth"/>
+      <xs:attribute name="hardware" type="xs:NMTOKEN"/>
     </xs:complexType>
   </xs:element>
   <!-- @MATCH:range/1~999 -->
-  <xs:element name="layerMap">
+  <!-- @MATCH:literal/us, iso, jis, abnt2 -->
+  <xs:element name="layer">
     <xs:complexType>
       <xs:sequence>
         <xs:element maxOccurs="unbounded" ref="row"/>
@@ -315,15 +316,23 @@
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="transform"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
       </xs:sequence>
-      <xs:attribute name="type" use="required"/>
+      <xs:attribute name="type" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="simple"/>
+            <xs:enumeration value="final"/>
+            <xs:enumeration value="backspace"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
-  <!-- @MATCH:literal/simple, final -->
+  <!-- @MATCH:literal/simple, final, backspace -->
   <xs:element name="transform">
     <xs:complexType>
       <xs:attribute name="before"/>
       <xs:attribute name="from" use="required"/>
-      <xs:attribute name="to" use="required"/>
+      <xs:attribute name="to"/>
       <xs:attribute name="error">
         <xs:simpleType>
           <xs:restriction base="xs:token">
@@ -352,35 +361,8 @@
       <xs:attribute name="from" use="required"/>
       <xs:attribute name="order"/>
       <xs:attribute name="tertiary"/>
-      <xs:attribute name="tertiary_base"/>
-      <xs:attribute name="prebase"/>
-    </xs:complexType>
-  </xs:element>
-  <!-- @VALUE -->
-  <!-- @VALUE -->
-  <!-- @VALUE -->
-  <!-- @VALUE -->
-  <xs:element name="backspaces">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="import"/>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="backspace"/>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="backspace">
-    <xs:complexType>
-      <xs:attribute name="before"/>
-      <xs:attribute name="from" use="required"/>
-      <xs:attribute name="to"/>
-      <xs:attribute name="error">
-        <xs:simpleType>
-          <xs:restriction base="xs:token">
-            <xs:enumeration value="fail"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:attribute>
+      <xs:attribute name="tertiaryBase"/>
+      <xs:attribute name="preBase"/>
     </xs:complexType>
   </xs:element>
   <xs:complexType name="any" mixed="true">
@@ -389,5 +371,7 @@
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
+<!-- @VALUE -->
+<!-- @VALUE -->
 <!-- @VALUE -->
 <!-- @VALUE -->

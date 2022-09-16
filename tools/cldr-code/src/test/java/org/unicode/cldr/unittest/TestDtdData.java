@@ -604,14 +604,16 @@ public class TestDtdData extends TestFmwk {
 
         case keyboard:
             if   ( elementName.equals("keyboard3") && attribute.equals("locale")
-                || elementName.equals("vkeyMap") && attribute.equals("from")
-                || elementName.equals("layerMaps") && attribute.equals("form")
-                || elementName.equals("layerMaps") && attribute.equals("minDeviceWidthMM")
-
+                || elementName.equals("vkeys") && attribute.equals("from")
+                || elementName.equals("layers") && attribute.equals("form")
+                || elementName.equals("layers") && attribute.equals("minDeviceWidth")
+                || elementName.equals("vkey") && attribute.equals("from")
+                || elementName.equals("layer") && attribute.equals("modifier")
+                || elementName.equals("layers") && attribute.equals("hardware")
                 || elementName.equals("map") && attribute.equals("id")
                 || elementName.equals("key") && attribute.equals("id")
                 || elementName.equals("key") && attribute.equals("stretch")
-                || elementName.equals("layerMap") && attribute.equals("id")) {
+                || elementName.equals("layer") && attribute.equals("id")) {
                 return true;
             }
             // fall through to old keyboard

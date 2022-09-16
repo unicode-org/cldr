@@ -49,8 +49,7 @@ export default {
       this.betaNote = null;
     }
 
-    // setup specialGeneral
-    this.specialGeneral = cldrText.get("special_general");
+    this.specialGeneral = cldrText.get("generalSpecialGuidance");
   },
   methods: {
     insertDashboard() {

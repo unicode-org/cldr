@@ -416,6 +416,8 @@ function unpackMenuSideBar(json) {
     toggleOverlay();
     const url = $(this).data("url");
     if (url === "dashboard") {
+      // Note: setCurrentSpecial("general") is dubious here; it doesn't cause
+      // the "general" page to be loaded; it doesn't hide whatever else was displayed.
       cldrStatus.setCurrentSpecial("general");
       cldrGui.insertDashboard();
     } else {
@@ -557,84 +559,6 @@ function interceptPulldownLink(event) {
 
   event.preventDefault();
   event.stopPropagation();
-}
-
-/**
- * Add some label with a tooltip to every icon
- *
- * Called only from review.js -- not yet used for !USE_DOJO
- */
-function labelizeIcon() {
-  var icons = [
-    {
-      selector: ".d-dr-approved",
-      type: "success",
-      text: "Approved",
-      title: 'The "Proposed" (winning) value will be in the release.',
-    },
-    {
-      selector: ".d-dr-contributed",
-      type: "success",
-      text: "Contributed",
-      title:
-        'The "Proposed" (winning) value will be in the release (with a slightly lower status).',
-    },
-    {
-      selector: ".d-dr-provisional",
-      type: "warning",
-      text: "Provisional",
-      title:
-        'There is a "Proposed" (winning) value, but it doesn\'t have enough votes.',
-    },
-    {
-      selector: ".d-dr-unconfirmed",
-      type: "warning",
-      text: "Unconfirmed",
-      title:
-        'There is a "Proposed" (winning) value, but it doesn\'t have enough votes.',
-    },
-    {
-      selector: ".d-dr-inherited-provisional",
-      type: "inherited-provisional",
-      text: "Inherited and Provisional",
-      title: 'The "Proposed" (winning) value is inherited and provisional.',
-    },
-    {
-      selector: ".d-dr-inherited-unconfirmed",
-      type: "inherited-unconfirmed",
-      text: "Inherited and Unconfirmed",
-      title: 'The "Proposed" (winning) value is inherited and unconfirmed.',
-    },
-    {
-      selector: ".d-dr-missing",
-      type: "warning",
-      text: "Missing",
-      title: "There is no winning value. The inherited value will be used.",
-    },
-    {
-      selector: ".i-star",
-      type: "primary",
-      text: "Baseline",
-      title:
-        "The baseline value, which was approved in the last release, plus latest XML fixes by the Technical Committee, if any.",
-    },
-  ];
-
-  $.each(icons, function (index, element) {
-    $(element.selector).each(function () {
-      if ($(this).next(".label").length !== 0) {
-        $(this).next().remove();
-      }
-      $(this).after(
-        '<div class="label label-' +
-          element.type +
-          ' label-icon">' +
-          element.text +
-          "</div>"
-      );
-      $(this).next().tooltip({ title: element.title });
-    });
-  });
 }
 
 /**

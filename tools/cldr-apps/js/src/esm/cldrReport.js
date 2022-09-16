@@ -3,7 +3,6 @@
  */
 import * as cldrClient from "./cldrClient.js";
 import * as cldrDom from "./cldrDom.js";
-import * as cldrGui from "./cldrGui.js";
 import * as cldrLoad from "./cldrLoad.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
@@ -33,7 +32,6 @@ function reportLoadHandler(html, report) {
     lastrr.unmount();
   }
   lastrr = rr;
-  cldrGui.hideRightPanel();
 }
 
 function reportName(report) {

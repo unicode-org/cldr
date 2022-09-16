@@ -455,7 +455,7 @@ function updateTitleAndSection(menuMap) {
   const curSpecial = cldrStatus.getCurrentSpecial();
   const titlePageContainer = document.getElementById("title-page-container");
 
-  if (curSpecial != null && curSpecial != "") {
+  if (curSpecial) {
     const specialId = "special_" + curSpecial;
     $("#section-current").html(cldrText.get(specialId));
     cldrDom.setDisplayed(titlePageContainer, false);
@@ -473,9 +473,6 @@ function updateTitleAndSection(menuMap) {
       cldrStatus.setCurrentSection(mySection.id);
       $("#section-current").html(mySection.name);
       cldrDom.setDisplayed(titlePageContainer, false); // will fix title later
-    } else {
-      $("#section-current").html(cldrText.get("section_general"));
-      cldrDom.setDisplayed(titlePageContainer, false);
     }
   }
 }

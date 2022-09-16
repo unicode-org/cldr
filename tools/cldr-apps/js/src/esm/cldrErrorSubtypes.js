@@ -2,7 +2,6 @@
  * cldrErrorSubtypes: encapsulate functions for the "Error Subtypes" page of Survey Tool
  */
 import * as cldrAjax from "./cldrAjax.js";
-import * as cldrInfo from "./cldrInfo.js";
 import * as cldrLoad from "./cldrLoad.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
@@ -24,7 +23,6 @@ const mainId = "errorSubtypes";
 
 // called as special.load
 function load() {
-  cldrInfo.showNothing();
   const xhrArgs = {
     url: getUrl(),
     handleAs: "json",

@@ -4,7 +4,6 @@
 import * as cldrAjax from "./cldrAjax.js";
 import * as cldrDom from "./cldrDom.js";
 import * as cldrGui from "./cldrGui.js";
-import * as cldrInfo from "./cldrInfo.js";
 import * as cldrLoad from "./cldrLoad.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
@@ -195,8 +194,6 @@ function listSingleUser(email) {
 }
 
 function reallyLoad() {
-  cldrGui.hideRightPanel();
-  cldrInfo.showNothing();
   const xhrArgs = {
     url: getUrl(),
     handleAs: "json",

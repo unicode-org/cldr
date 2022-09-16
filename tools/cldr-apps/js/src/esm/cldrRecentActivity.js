@@ -11,13 +11,12 @@
  */
 import * as cldrAjax from "./cldrAjax.js";
 import * as cldrDom from "./cldrDom.js";
-import * as cldrGui from "./cldrGui.js";
 import * as cldrLoad from "./cldrLoad.js";
 import * as cldrRetry from "./cldrRetry.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
-import * as cldrUserListExport from "../esm/cldrUserListExport";
+import * as cldrUserListExport from "./cldrUserListExport.js";
 
 /**
  * The id of the user in question; not necessarily the current user
@@ -48,7 +47,6 @@ function pleaseLogIn() {
 function loadWithJson(json) {
   cldrSurvey.hideLoader();
   cldrLoad.setLoading(false);
-  cldrGui.hideRightPanel();
   const frag = cldrDom.construct(getHtml(json));
 
   // Add a button for recent activity download

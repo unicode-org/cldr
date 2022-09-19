@@ -675,8 +675,8 @@ public class SupplementalDataInfo {
 
         /**
          * @param metazone
-         * @param from
-         * @param to
+         * @param fromString
+         * @param toString
          */
         public MetaZoneRange(String metazone, String fromString, String toString) {
             super();
@@ -2194,7 +2194,6 @@ public class SupplementalDataInfo {
      * Get the population data for a language. Warning: if the language has script variants, cycle on those variants.
      *
      * @param language
-     * @param output
      * @return
      */
     public PopulationData getLanguagePopulationData(String language) {
@@ -2399,7 +2398,7 @@ public class SupplementalDataInfo {
      * Given a default locale (such as 'wo_Arab_SN') return the base locale (such as 'wo'), or null if the input wasn't
      * a default conetnt locale.
      *
-     * @param baseLocale
+     * @param dcLocale
      * @return
      */
     public CLDRLocale getBaseFromDefaultContent(CLDRLocale dcLocale) {
@@ -2773,14 +2772,19 @@ public class SupplementalDataInfo {
 
     private Set<String> getTargetTerritories(String language) {
         Set<String> targetTerritories = new HashSet<>();
+        Set<String> secondaryTerritories = new HashSet<>();
         try {
             Set<BasicLanguageData> langData = getBasicLanguageData(language);
             Iterator<BasicLanguageData> ldi = langData.iterator();
             while (ldi.hasNext()) {
                 BasicLanguageData bl = ldi.next();
                 Set<String> addTerritories = bl.territories;
-                if (addTerritories != null && bl.getType() != BasicLanguageData.Type.secondary) {
-                    targetTerritories.addAll(addTerritories);
+                if (addTerritories != null) {
+                    if (bl.getType() == BasicLanguageData.Type.secondary) {
+                        secondaryTerritories.addAll(addTerritories);
+                    } else {
+                        targetTerritories.addAll(addTerritories);
+                    }
                 }
             }
             Map<String, BasicLanguageData> languageToScriptsAndRegions = getLanguageToScriptsAndRegions();
@@ -2794,9 +2798,25 @@ public class SupplementalDataInfo {
             // fall through
         }
         if (targetTerritories.size() == 0) {
-            targetTerritories.add("ZZ");
+            getFallbackTargetTerritories(language, targetTerritories, secondaryTerritories);
         }
         return targetTerritories;
+    }
+
+    private void getFallbackTargetTerritories(String language, Set<String> targetTerritories, Set<String> secondaryTerritories) {
+        String region = null;
+        String maximized = new LikelySubtags().maximize(language);
+        if (maximized != null) {
+            CLDRLocale cldrLocale = CLDRLocale.getInstance(maximized);
+            region = cldrLocale.getCountry();
+        }
+        if (region != null) {
+            targetTerritories.add(region);
+        } else if (secondaryTerritories.size() > 0) {
+            targetTerritories.addAll(secondaryTerritories);
+        } else {
+            targetTerritories.add("ZZ");
+        }
     }
 
     private Set<String> getCalendars(Set<String> territories) {
@@ -3033,7 +3053,7 @@ public class SupplementalDataInfo {
      * is only a rough proxy for weight of each language in the economy of the
      * territory.
      *
-     * @param languageId
+     * @param targetLanguage
      * @return
      */
     public double getApproximateEconomicWeight(String targetLanguage) {
@@ -4074,7 +4094,6 @@ public class SupplementalDataInfo {
     /**
      * Returns ordered set of currency data information
      *
-     * @param territory
      * @return
      */
     public Set<String> getCurrencyTerritories() {
@@ -4118,7 +4137,7 @@ public class SupplementalDataInfo {
      * CLDRLocale. The default currency is the first one listed which is legal
      * tender at the present moment.
      *
-     * @param territory
+     * @param loc
      * @return
      */
     public String getDefaultCurrency(CLDRLocale loc) {
@@ -4679,7 +4698,7 @@ public class SupplementalDataInfo {
 
     /**
      * Grammar info for locales, with inheritance
-     * @param seedOnly
+     * @param locale
      * @return
      */
     public GrammarInfo getGrammarInfo(String locale) {

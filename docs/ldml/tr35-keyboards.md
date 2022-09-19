@@ -109,7 +109,7 @@ The LDML specification is divided into the following parts:
   * [Test Element: tests](#test-element-tests)
   * [Test Element: test](#test-element-test)
   * [Test Element: startContext](#test-element-startcontext)
-  * [Test Element: event](#test-element-event)
+  * [Test Element: keystroke](#test-element-keystroke)
   * [Test Element: emit](#test-element-emit)
   * [Test Element: check](#test-element-check)
   * [Test Examples](#test-examples)
@@ -2119,7 +2119,7 @@ This attribute specifies a name for this overall test file. These names could be
 > Occurrence: Optional, Multiple
 > </small>
 
-This element represents a repertoire test, to validate the available characters and their reachability. This test ensures that each of the specified characters is somehow typeable on the keyboard.
+This element represents a repertoire test, to validate the available characters and their reachability. This test ensures that each of the specified characters is somehow typeable on the keyboard, after transforms have been applied. The characters in the repertoire will be matched against the complete set of possible generated outputs, post-transform, of all keys on the keyboard.
 
 _Attribute:_ `name`
 
@@ -2233,7 +2233,7 @@ Specifies the starting context. This text may be escaped with `\u` notation, see
 ```
 
 
-### Test Element: event
+### Test Element: keystroke
 
 > <small>
 >

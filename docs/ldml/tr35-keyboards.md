@@ -167,7 +167,7 @@ Note that in parts of this document, the format `@x` is used to indicate the _at
 Keyboard use can be challenging for individuals with various types of disabilities. For this revision, the committee is not evaluating features or architectural designs for the purpose of improving accessibility. Such consideration could be fruitful for future revisions. However, some points on this topic should be made:
 
 1. Having an industry-wide standard format for keyboards will enable accessibility software to make use of keyboard data with a reduced dependence on platform-specific knowledge.
-2. Some features, such as multiTap and flicks, have the potential to reduce accessibility and thus should be discouraged. For example, multiTap requires pressing keys at a certain speed, and flicks require a more complex movement (press-and-flick) beyond a simple tap.
+2. Some features, such as multiTap and flicks, have the potential to reduce accessibility and thus should be discouraged. For example, multiTap requires pressing keys at a certain speed, and flicks require a more complex movement (press-and-flick) beyond a simple tap. Alternatively, inclusion of accessible methods of generating the same outputs (for example, simple keys on an additional layer), should be considered.
 3. Public feedback is welcome on any aspects of this document which might hinder accessibility.
 
 ## <a name="Definitions" href="#Definitions">Definitions</a>
@@ -978,7 +978,7 @@ Another useful scenario is where there are doubled diacritics, or multiple chara
 
 The `displays` consists of a list of display subelements.
 
-displayss are designed to be shared across many different keyboard layout descriptions, and imported with `<import>` in where needed.
+`displays` elements are designed to be shared across many different keyboard layout descriptions, and imported with `<import>` in where needed.
 
 For combining characters, U+25CC `◌` is used as a base. It is an error to use a combining character without a base in the `display` attribute.
 
@@ -1063,7 +1063,7 @@ _Attribute:_ `display` (required)
 </keyboard>
 ```
 
-To allow `displays`s to be shared across keyboards, there is no requirement that `@to` in a `display` element matches any `@to`/`@id` in any `keys/key` element in the keyboard description.
+To allow `displays` elements to be shared across keyboards, there is no requirement that `@to` in a `display` element matches any `@to`/`@id` in any `keys/key` element in the keyboard description.
 
 * * *
 
@@ -1277,10 +1277,10 @@ This example shows some of the mappings for a French keyboard layout:
 ```xml
 <keyboard>
     <vkeys>
-		<vkey from="Q" to="A" />
-		<vkey from="W" to="Z" />
-		<vkey from="A" to="Q" />
-		<vkey from="Z" to="W" />
+		  <vkey from="Q" to="A" />
+		  <vkey from="W" to="Z" />
+		  <vkey from="A" to="Q" />
+		  <vkey from="Z" to="W" />
     </vkeys>
 </keyboard>
 ```
@@ -1499,7 +1499,7 @@ The reordering algorithm consists of four parts:
    * The **quaternary weight** is the index of the character in the string. This is solely to ensure a stable sort for sequences of characters with the same tertiary weight.
 2. Mark each character as to whether it is a prebase character, one that is typed before the base and logically stored after. Thus it will have a primary order > 0.
 3. Use the sort key and the prebase mark to identify runs. A run starts with a prefix that contains any prebase characters and a single base character whose primary and tertiary key is 0. The run extends until, but not including, the start of the prefix of the next run or end of the string.
-   * `run := preBase* (primary=0 && tertiary=0) ((primary≠0 || tertiary≠0) && !prebase)*`
+   * `run := preBase* (primary=0 && tertiary=0) ((primary≠0 || tertiary≠0) && !preBase)*`
 4. Sort the character order of each character in the run based on its sort key.
 
 The primary order of a character with the Unicode property Combining_Character_Class (ccc) of 0 may well not be 0. In addition, a character may receive a different primary order dependent on context. For example, in the Devanagari sequence ka halant ka, the first ka would have a primary order 0 while the halant ka sequence would give both halant and the second ka a primary order > 0, for example 2. Note that “base” character in this discussion is not a Unicode base character. It is instead a character with primary=0.

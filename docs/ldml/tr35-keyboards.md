@@ -2293,7 +2293,7 @@ This element represents a text output event.
 
 _Attribute:_ `to` (required)
 
-This attribute specifies a a string of output text, which is intended to match a key’s `to` attribute.
+This attribute specifies a string of output text, which is intended to match a key’s `to` attribute.
 
 Tooling should give a warning if this attribute matches more than one key, or does not match any keys.
 

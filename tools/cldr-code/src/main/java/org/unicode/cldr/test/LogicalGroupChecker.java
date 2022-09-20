@@ -3,10 +3,7 @@ package org.unicode.cldr.test;
 import com.google.common.collect.Multiset;
 import com.google.common.collect.TreeMultiset;
 import com.ibm.icu.util.Output;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.stream.Collectors;
 import org.unicode.cldr.util.*;
 
@@ -15,7 +12,13 @@ public class LogicalGroupChecker {
     private static final int LIMIT_DISTANCE = 5;
 
     private final CheckLogicalGroupings checkLogicalGroupings;
-    private final String path;
+
+    /**
+     * The path to check. Any error/warning will be attached to this path.
+     * This path is not optional, since CheckLogicalGroupings.handleCheck skips optional paths.
+     */
+    private final String pathToCheck;
+
     private final String value;
     private final Output<LogicalGrouping.PathType> pathType;
     private final CLDRFile cldrFile;
@@ -25,9 +28,24 @@ public class LogicalGroupChecker {
     private final boolean phaseCausesError;
     private final CoverageLevel2 coverageLevel;
 
-    private boolean havePath = false;
-    private String firstPath = null;
-    private Set<String> missingPaths = null;
+    /**
+     * Have we found at least one non-missing non-optional path in the group?
+     */
+    private boolean groupHasOneOrMorePresentRequiredPaths = false;
+
+    /**
+     * The first (in sorted order) required path determined to be missing
+     *
+     * If multiple required paths are missing, only the first one gets a notification attached to it,
+     * and that notification includes a list of all the missing required items; for example,
+     * "Incomplete logical group - missing values for: [1, 0]"
+     */
+    private String firstMissingRequiredPath = null;
+
+    private Set<String> presentPaths = null;
+    private Set<String> optionalPaths = null;
+    private Set<String> missingRequiredPaths = null;
+
     private CLDRFile.DraftStatus myStatus;
 
     public LogicalGroupChecker(
@@ -37,7 +55,7 @@ public class LogicalGroupChecker {
         List<CheckCLDR.CheckStatus> result
     ) {
         this.checkLogicalGroupings = checkLogicalGroupings;
-        this.path = path;
+        this.pathToCheck = path;
         this.value = value;
         this.result = result;
         pathType = new Output<>();
@@ -48,26 +66,18 @@ public class LogicalGroupChecker {
     }
 
     public void run() {
-        if (isTrivial()) {
+        if (paths == null || paths.size() < 2) {
             return; // skip if not part of a logical grouping
         }
         checkEditDistances();
-        removeOptionalPaths();
-        if (isTrivial()) {
-            return; // skip if not part of a logical grouping
-        }
-        if (findMissingPaths()) {
+        if (checkMissingRequiredPaths()) {
             return; // skip other errors once we find missing paths
         }
-        if (avoidWork()) {
+        if (avoidDraftStatusWork()) {
             return; // bail if we are ok
         }
-        loop();
-    }
-
-    private boolean isTrivial() {
-        // skip if not part of a logical grouping
-        return (paths == null || paths.size() < 2);
+        paths.removeAll(optionalPaths);
+        checkHigherDraftStatus();
     }
 
     private void checkEditDistances() {
@@ -77,7 +87,7 @@ public class LogicalGroupChecker {
             case COUNT_CASE_GENDER:
                 // only check the first path
                 TreeSet<String> sorted = new TreeSet<>(paths);
-                if (path.equals(sorted.iterator().next())) {
+                if (pathToCheck.equals(sorted.iterator().next())) {
                     reallyCheckEditDistances(sorted);
                 }
                 break;
@@ -111,7 +121,7 @@ public class LogicalGroupChecker {
         Set<CheckLogicalGroupings.Fingerprint> fingerprints = new HashSet<>();
         for (String path1 : paths) {
             final String pathValue = CheckLogicalGroupings.cleanSpaces(
-                path.contentEquals(path1) ? value : cldrFile.getWinningValue(path1)
+                pathToCheck.contentEquals(path1) ? value : cldrFile.getWinningValue(path1)
             );
             values.add(pathValue);
             fingerprints.add(CheckLogicalGroupings.Fingerprint.make(pathValue));
@@ -119,27 +129,86 @@ public class LogicalGroupChecker {
         return CheckLogicalGroupings.Fingerprint.maxDistanceBetween(fingerprints);
     }
 
-    private void removeOptionalPaths() {
-        LogicalGrouping.removeOptionalPaths(paths, cldrFile);
-    }
-
-    private boolean findMissingPaths() {
-        missingPaths = getMissingPaths();
-        if (havePath && !missingPaths.isEmpty()) {
-            if (path.equals(firstPath)) {
-                handleMissingPaths();
-                return true;
-            }
+    private boolean checkMissingRequiredPaths() {
+        getPresentAndOptionalPaths();
+        getMissingRequiredPaths();
+        if (groupIsIncomplete()) {
+            handleMissingRequiredPaths();
+            return true;
         }
         return false;
     }
 
-    private void handleMissingPaths() {
-        Set<String> missingCodes = missingPaths
+    private void getPresentAndOptionalPaths() {
+        presentPaths = new HashSet<>();
+        optionalPaths = new HashSet<>();
+        for (String apath : paths) {
+            if (isHereOrNonRoot(apath)) {
+                presentPaths.add(apath);
+            }
+            if (LogicalGrouping.isOptional(cldrFile, apath)) {
+                optionalPaths.add(apath);
+            }
+        }
+    }
+
+    private void getMissingRequiredPaths() {
+        missingRequiredPaths = new HashSet<>();
+        for (String apath : paths) {
+            if (optionalPaths.contains(apath)) {
+                continue;
+            }
+            if (presentPaths.contains(apath)) {
+                groupHasOneOrMorePresentRequiredPaths = true;
+            } else {
+                if (missingRequiredPaths.isEmpty()) {
+                    firstMissingRequiredPath = apath; // pick the first one in sorted order (LogicalGrouping.getPaths is sorted)
+                }
+                missingRequiredPaths.add(apath);
+            }
+        }
+    }
+
+    /**
+     * Is the group incomplete, such that it should cause an "incomplete logical group" notification
+     * for the path to be checked?
+     *
+     * @return true if the group is incomplete
+     *
+     * If pathToCheck.equals(firstMissingRequiredPath), then there is a missing required path.
+     * That doesn't necessarily imply we have an "incomplete logical group" as defined by this code, for the
+     * purpose of making a notification.
+     * For example, if all paths in a group are missing, it's not "incomplete" (all missing paths within the
+     * coverage level are notified as missing, but there is no "incomplete logical group" notification).
+     * For another example, if a group has only one required path, and that path is missing, the group is
+     * incomplete if and only if it also has a present optional path.
+     */
+    private boolean groupIsIncomplete() {
+        return (
+            pathToCheck.equals(firstMissingRequiredPath) &&
+            (
+                (groupHasOneOrMorePresentRequiredPaths && groupHasTwoOrMoreRequiredPaths()) ||
+                groupHasOneOrMorePresentOptionalPaths()
+            )
+        );
+    }
+
+    private boolean groupHasTwoOrMoreRequiredPaths() {
+        return paths.size() >= optionalPaths.size() + 2;
+    }
+
+    private boolean groupHasOneOrMorePresentOptionalPaths() {
+        Set<String> intersect = new HashSet<>(presentPaths);
+        intersect.retainAll(optionalPaths);
+        return intersect.size() >= 1;
+    }
+
+    private void handleMissingRequiredPaths() {
+        Set<String> missingCodes = missingRequiredPaths
             .stream()
             .map(x -> checkLogicalGroupings.getPathReferenceForMessage(x, true))
             .collect(Collectors.toSet());
-        Level cLevel = coverageLevel.getLevel(path);
+        Level cLevel = coverageLevel.getLevel(pathToCheck);
 
         CheckCLDR.CheckStatus.Type showError = phaseCausesError
             ? CheckCLDR.CheckStatus.errorType
@@ -155,21 +224,6 @@ public class LogicalGroupChecker {
                     cLevel
                 )
         );
-    }
-
-    private Set<String> getMissingPaths() {
-        Set<String> missingPaths = new HashSet<>();
-        for (String apath : paths) {
-            if (isHereOrNonRoot(apath)) { // ok
-                havePath = true;
-            } else {
-                if (missingPaths.isEmpty()) {
-                    firstPath = apath; // pick the first one in sorted order (LogicalGrouping.getPaths is sorted)
-                }
-                missingPaths.add(apath);
-            }
-        }
-        return missingPaths;
     }
 
     /**
@@ -200,23 +254,23 @@ public class LogicalGroupChecker {
      *
      * @return true or false
      */
-    private boolean avoidWork() {
+    private boolean avoidDraftStatusWork() {
         // only check for draft status if this path fails;
         // avoids work for ones we are not going to alert on anyway.
 
         // If the draft status of something in the set is lower, then an implementation that filters out that draft status
         // will get the wrong value.
-        final String fPath = cldrFile.getFullXPath(path);
+        final String fPath = cldrFile.getFullXPath(pathToCheck);
         final XPathParts parts = XPathParts.getFrozenInstance(fPath);
         myStatus = CLDRFile.DraftStatus.forString(parts.findFirstAttributeValue("draft"));
         return myStatus.compareTo(CheckLogicalGroupings.MIMIMUM_DRAFT_STATUS) >= 0;
     }
 
-    private void loop() {
+    private void checkHigherDraftStatus() {
         // If some other path in the LG has a higher draft status, then cause error on this path.
         // NOTE: changed to show in Vetting, not just Resolution
         for (String apath : paths) {
-            if (apath.equals(path) || missingPaths.contains(apath)) { // skip this path, skip others unless present
+            if (apath.equals(pathToCheck) || missingRequiredPaths.contains(apath)) { // skip this path, skip others unless present
                 continue;
             }
             final String fPath = cldrFile.getFullXPath(apath);

@@ -405,19 +405,27 @@ The short format is designed for UI environments where space is at a premium, an
 
 #### 2.4.2 <a name="Currency_Formats" href="#Currency_Formats">Currency Formats</a>
 
-Pattern for use with currency formatting. This format contains a few additional structural options that allow proper placement of the currency symbol relative to the numeric quantity. Refer to _[Section 4 - Currencies](#Currencies)_ for additional information on the use of these options.
+Patterns for use with currency formatting:
 
 ```xml
-<!ELEMENT currencyFormats (alias | (default*, currencySpacing*, currencyFormatLength*, unitPattern*, special*)) >
+<!ELEMENT currencyFormats (alias | (default*, currencySpacing*, currencyFormatLength*, currencyPatternAppendISO*, unitPattern*, special*)) >
+<!ELEMENT currencyFormatLength (alias | (default*, currencyFormat*, special*)) >
+<!ATTLIST currencyFormatLength type ( full | long | medium | short ) #IMPLIED >
+<!ELEMENT currencyFormat (alias | (pattern*, special*)) >
+<!ATTLIST currencyFormat type NMTOKEN "standard" >
+    <!--@MATCH:literal/accounting, standard-->
+<!ELEMENT currencyPatternAppendISO ( #PCDATA ) >
+```
+
+The following additional elements were intended to allow proper placement of the currency symbol relative to the numeric quantity. These are specified in the root locale and typically not overridden in any other locale. However, as of CLDR 42, the preferred approach to controlling placement of the currency symbol is use of the `alt="alphaNextToNumber"` variant for `currencyFormat` `pattern`s. See below and _[Section 4 - Currencies](#Currencies)_ for additional information on the use of these options.
+
+```xml
 <!ELEMENT currencySpacing (alias | (beforeCurrency*, afterCurrency*, special*)) >
 <!ELEMENT beforeCurrency (alias | (currencyMatch*, surroundingMatch*, insertBetween*)) >
 <!ELEMENT afterCurrency (alias | (currencyMatch*, surroundingMatch*, insertBetween*)) >
 <!ELEMENT currencyMatch ( #PCDATA ) >
 <!ELEMENT surroundingMatch ( #PCDATA )) >
 <!ELEMENT insertBetween ( #PCDATA ) >
-<!ELEMENT currencyFormatLength (alias | (default*, currencyFormat*, special*)) >
-<!ATTLIST currencyFormatLength type ( full | long | medium | short ) #IMPLIED >
-<!ELEMENT currencyFormat (alias | (pattern*, special*)) >
 ```
 
 In addition to a standard currency format, in which negative currency amounts might typically be displayed as something like “-$3.27”, locales may provide an "accounting" form, in which for "en_US" the same example would appear as “($3.27)”.
@@ -427,13 +435,41 @@ In addition to a standard currency format, in which negative currency amounts mi
     <currencyFormatLength>
         <currencyFormat type="standard">
             <pattern>¤#,##0.00</pattern>
+            <pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+            <pattern alt="noCurrency">#,##0.00</pattern>
         </currencyFormat>
         <currencyFormat type="accounting">
             <pattern>¤#,##0.00;(¤#,##0.00)</pattern>
+            <pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
+            <pattern alt="noCurrency">#,##0.00;(#,##0.00)</pattern>
+        </currencyFormat>
+    </currencyFormatLength>
+    <currencyFormatLength type="short">
+        <currencyFormat type="standard">
+            <pattern type="1000" count="one">¤0K</pattern>
+            <pattern type="1000" count="one" alt="alphaNextToNumber">¤ 0K</pattern>
+            <pattern type="1000" count="other">¤0K</pattern>
+            <pattern type="1000" count="other" alt="alphaNextToNumber">¤ 0K</pattern>
+            ...
+            <pattern type="100000000000000" count="other">¤000T</pattern>
+            <pattern type="100000000000000" count="other" alt="alphaNextToNumber">¤ 000T</pattern>
         </currencyFormat>
     </currencyFormatLength>
 </currencyFormats>
 ```
+
+The `alt="alphaNextToNumber"` pattern, if available, should be used instead of the standard pattern when the currency symbol character closest to the numeric value has Unicode General Category L (letter). The `alt="alphaNextToNumber"` pattern is typically provided when the standard currency pattern does not have a space between currency symbol and numeric value; the alphaNextToNumber variant adds a non-breaking space if appropriate for the locale.
+
+The `alt="noCurrency"` pattern can be used when a currency-style format is desired but without the currency symbol. This sort of display may be used when formatting a large column of values all in the same currency, for example. For compact currency formats (`<currencyFormatLength type="short">`), the compact decimal format (`<decimalFormatLength type="short">`) should be used if no `alt="noCurrency"` pattern is present (so the `alt="noCurrency"` pattern is typically not needed for compact currency formats).
+
+```xml
+<currencyPatternAppendISO>{0} ¤¤</currencyPatternAppendISO>
+```
+
+The `currencyPatternAppendISO` element provides a pattern that can be used to combine currency format that uses a currency symbol (¤ or ¤¤¤¤¤) with the ISO 4217 3-letter code for the same currency (¤¤), to produce a result such as “$1,432.00 USD”. Using such a format is only recommended to resolve ambiguity when:
+* The currency symbol being used is the narrow symbol (¤¤¤¤¤) or has the same value as the narrow symbol, and
+* The currency symbol does not have the same value as the ISO 4217 3-letter code.
+Most locales will not need to override the pattern provided in root, shown in the xml sample above. 
 
 ### 2.5 <a name="Miscellaneous_Patterns" href="#Miscellaneous_Patterns">Miscellaneous Patterns</a>
 
@@ -810,7 +846,9 @@ While for English this may seem overly complex, for some other languages differe
 
 For example, if the currency is ZWD and the number is 1234, then the latter maps to `count="other"` for English. The unit pattern for that is "{0} {1}", and the display name is "Zimbabwe dollars". The final formatted number is then "1,234 Zimbabwe dollars".
 
-When the currency symbol is substituted into a pattern, there may be some further modifications, according to the following.
+---
+
+When a currency symbol is substitited into a pattern, some spacing adjustments or other adjustments may be necessary depending on the nature of the symbol. In CLDR 42 and later, the preferred way to handle this is via the `alt="alphaNextToNumber"` variant of the `currencyFormat` `pattern`, as described in _[Section 2.4.2: Currency Formats](#Currency_Formats)_. In earlier versions of CLDR this was handled via the `currencySpacing` element as described below. This element is still present in CLDR 42 and its use is described below for implementations that may not yet support the `alt="alphaNextToNumber"` variant of the `currencyFormat` `pattern`.
 
 ```xml
 <currencySpacing>
@@ -832,6 +870,8 @@ This element controls whether additional characters are inserted on the boundary
 Conversely, look at the pattern "¤#,##0.00" with the symbol "US$". In this case, there is no insertion; the result is simply "US$#,##0.00". The `afterCurrency` element governs this case, since we are looking _after_ the "¤" symbol. The `surroundingMatch` is positive, since the character just after the "¤" will be a digit. However, the `currencyMatch` is **not** positive, since the "\$" in "US\$" is at the end of the currency symbol being substituted. So the insertion is not made.
 
 For more information on the matching used in the `currencyMatch` and `surroundingMatch` elements, see the main document _[Appendix E: Unicode Sets](tr35.md#Unicode_Sets)_.
+
+---
 
 Currencies can also contain optional grouping, decimal data, and pattern elements. This data is inherited from the `<symbols>` in the same locale data (if not present in the chain up to root), so only the _differing_ data will be present. See the main document _Section 4.1 [Multiple Inheritance](tr35.md#Multiple_Inheritance)_.
 

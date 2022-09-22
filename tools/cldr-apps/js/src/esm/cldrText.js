@@ -527,7 +527,7 @@ const strings = {
   summary_coverage_org_specific:
     "The coverage level for each locale is specific to your organization.",
   summary_coverage_neutral:
-    "The coverage level for each locale is organization-neutral.",
+    "This chart is an overall summary, and does not reflect organization-specific data. The overall progress is based on the Error+Missing+Provisional value to zero; once that is done the progress will read at 100%.",
   summary_access_denied:
     "To see the summary, you must be logged in as a manager, TC, or admin.",
   summary_snapshot_hover:

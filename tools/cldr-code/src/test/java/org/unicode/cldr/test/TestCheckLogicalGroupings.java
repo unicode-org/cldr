@@ -125,4 +125,52 @@ public class TestCheckLogicalGroupings {
         }
         return desc;
     }
+
+    /**
+     * Present optional path plus missing required path in same group should cause error
+     */
+    @Test
+    void testPresentOptionalPlusMissingRequired() {
+        final String localeID = "am";
+        final String value = "x";
+        final CLDRConfig config = CLDRConfig.getInstance();
+        final Factory cldrFactory = config.getCldrFactory();
+        final CheckLogicalGroupings clg = new CheckLogicalGroupings(cldrFactory);
+        final String requiredPath1 = "//ldml/dates/fields/field[@type=\"day\"]/relative[@type=\"-1\"]";
+        final String requiredPath2 = "//ldml/dates/fields/field[@type=\"day\"]/relative[@type=\"0\"]";
+        final String requiredPath3 = "//ldml/dates/fields/field[@type=\"day\"]/relative[@type=\"1\"]";
+        final String optionalPath = "//ldml/dates/fields/field[@type=\"day\"]/relative[@type=\"-2\"]";
+        final SimpleXMLSource xs = new SimpleXMLSource(localeID);
+        // all paths missing: no error
+        assertCheckStatus2(localeID, clg, requiredPath1, xs, false);
+        xs.add(optionalPath, value);
+        // present optional but missing required: error
+        assertCheckStatus2(localeID, clg, requiredPath1, xs, true);
+        // error is only on the first required path, no error on 2nd required path or on optional path:
+        assertCheckStatus2(localeID, clg, requiredPath2, xs, false);
+        assertCheckStatus2(localeID, clg, optionalPath, xs, false);
+        xs.add(requiredPath1, value);
+        xs.add(requiredPath2, value);
+        xs.add(requiredPath3, value);
+        // all required paths present: no error
+        assertCheckStatus2(localeID, clg, requiredPath1, xs, false);
+    }
+
+    private void assertCheckStatus2(String localeID, CheckLogicalGroupings clg, String xpath, SimpleXMLSource xs, boolean expectError) {
+        final CLDRFile f = new CLDRFile(xs);
+        final Options o = new Options(CLDRLocale.getInstance(localeID), Phase.VETTING, Level.MODERN.getAltName(), "organization");
+        final List<CheckStatus> possibleErrors = new LinkedList<>();
+        clg.setCldrFileToCheck(f, o, possibleErrors);
+        assertEquals(0, possibleErrors.size(),
+                () -> "For setCldrFileToCheck, expected 0 errors but got " + possibleErrors.get(0).toString() + " for " + xpath);
+        final List<CheckStatus> possibleErrors2 = new LinkedList<>();
+        clg.check(xpath, xpath, null, o, possibleErrors2);
+        if (expectError) {
+            assertNotEquals(0, possibleErrors2.size(),
+                    "expected errors on " + xpath);
+        } else {
+            assertEquals(0, possibleErrors2.size(),
+                    () -> "Expected 0 errors but got " + possibleErrors2.get(0).toString() + " for " + xpath);
+        }
+    }
 }

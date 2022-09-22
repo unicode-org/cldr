@@ -978,7 +978,7 @@ Another useful scenario is where there are doubled diacritics, or multiple chara
 
 The `displays` consists of a list of display subelements.
 
-`displays` elements are designed to be shared across many different keyboard layout descriptions, and imported with `<import>` in where needed.
+`displays` elements are designed to be shared across many different keyboard layout descriptions, and imported with `<import>` where needed.
 
 For combining characters, U+25CC `◌` is used as a base. It is an error to use a combining character without a base in the `display` attribute.
 

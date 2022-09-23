@@ -136,7 +136,7 @@ public class SurveyAjax extends HttpServlet {
     String settablePrefsList[] = { SurveyMain.PREF_CODES_PER_PAGE, SurveyMain.PREF_COVLEV,
         "dummy" }; // list of prefs OK to get/set
 
-    private Set<String> prefsList = new HashSet<>();
+    private final Set<String> prefsList = new HashSet<>();
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -177,14 +177,13 @@ public class SurveyAjax extends HttpServlet {
         processRequest(request, response, WebContext.decodeFieldString(request.getParameter(SurveyMain.QUERY_VALUE_SUFFIX)));
     }
 
-    private void setup(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void setup(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
     }
 
-    private void processRequest(HttpServletRequest request, HttpServletResponse response, String val) throws ServletException,
-        IOException {
+    private void processRequest(HttpServletRequest request, HttpServletResponse response, String val) throws IOException {
         if (!"UTF-8".equals(request.getCharacterEncoding())) {
             throw new InternalError("Request is not UTF-8 but: " + request.getCharacterEncoding());
         }
@@ -844,10 +843,9 @@ public class SurveyAjax extends HttpServlet {
      *
      * @throws SurveyException
      * @throws JSONException
-     * @throws IOException
      */
     private void postToForum(HttpServletRequest request, HttpServletResponse response, PrintWriter out,
-            String xpath, CLDRLocale l, CookieSession mySession, SurveyMain sm) throws SurveyException, JSONException, IOException {
+            String xpath, CLDRLocale l, CookieSession mySession, SurveyMain sm) throws SurveyException, JSONException {
 
         SurveyJSONWrapper r = newJSONStatusQuick(sm);
         r.put("what", WHAT_FORUM_POST);
@@ -1331,7 +1329,7 @@ public class SurveyAjax extends HttpServlet {
         return r;
     }
 
-    private static void sendNoSurveyMain(PrintWriter out) throws IOException {
+    private static void sendNoSurveyMain(PrintWriter out) {
         SurveyJSONWrapper r = newJSON();
         r.put("SurveyOK", "0");
         r.put("err", "The SurveyTool has not yet started.");
@@ -1339,7 +1337,7 @@ public class SurveyAjax extends HttpServlet {
         send(r, out);
     }
 
-    private void sendError(PrintWriter out, String message, ErrorCode errCode) throws IOException {
+    private void sendError(PrintWriter out, String message, ErrorCode errCode) {
         SurveyJSONWrapper r = newJSON();
         r.put("SurveyOK", "0");
         r.put("err", message);
@@ -1347,7 +1345,7 @@ public class SurveyAjax extends HttpServlet {
         send(r, out);
     }
 
-    private void sendError(PrintWriter out, SurveyException e) throws IOException {
+    private void sendError(PrintWriter out, SurveyException e) {
         SurveyJSONWrapper r = newJSON();
         r.put("SurveyOK", "0");
         r.put("err", e.getMessage());
@@ -1361,7 +1359,7 @@ public class SurveyAjax extends HttpServlet {
         send(r, out);
     }
 
-    private void sendError(PrintWriter out, Throwable e) throws IOException {
+    private void sendError(PrintWriter out, Throwable e) {
         if (e instanceof SurveyException) {
             sendError(out, (SurveyException) e);
         } else {
@@ -1373,7 +1371,7 @@ public class SurveyAjax extends HttpServlet {
         }
     }
 
-    private static void send(SurveyJSONWrapper r, PrintWriter out) throws IOException {
+    private static void send(SurveyJSONWrapper r, PrintWriter out) {
         out.print(r.toString());
     }
 
@@ -1566,7 +1564,7 @@ public class SurveyAjax extends HttpServlet {
      */
     private long viewOldVotes(User user, SurveyMain sm, String loc, CLDRLocale locale,
                final String newVotesTable, JSONObject oldvotes, STFactory fac)
-               throws ServletException, IOException, JSONException, SQLException {
+               throws IOException, JSONException, SQLException {
 
         Map<String, Object> rows[] = getOldVotesRows(newVotesTable, locale, user.id);
 
@@ -1667,7 +1665,6 @@ public class SurveyAjax extends HttpServlet {
                  * they can't happen here.
                  */
                 SurveyLog.logException(logger, e, "Viewing old votes");
-                continue;
             }
         }
         if (oldvotes != null) {
@@ -1691,7 +1688,6 @@ public class SurveyAjax extends HttpServlet {
      * @param newVotesTable the String for the table name like "cldr_vote_value_34"
      * @param oldvotes the JSONObject to be added to
      * @param fac the STFactory to be used for ballotBoxForLocale
-     * @throws ServletException
      * @throws IOException
      * @throws JSONException
      * @throws SQLException
@@ -1700,7 +1696,7 @@ public class SurveyAjax extends HttpServlet {
      */
     private void submitOldVotes(User user, SurveyMain sm, CLDRLocale locale, String confirmList,
                final String newVotesTable, JSONObject oldvotes, STFactory fac)
-               throws ServletException, IOException, JSONException, SQLException {
+               throws IOException, JSONException, SQLException {
 
         if (SurveyMain.isUnofficial()) {
             System.out.println("User " + user.toString() + "  is migrating old votes in " + locale.getDisplayName());
@@ -1802,10 +1798,8 @@ public class SurveyAjax extends HttpServlet {
      * @param xpathString the path
      * @param reg the UserRegistry
      * @return the anonymous user, or null if there are none who haven't voted
-     * @throws InvalidXPathException
      */
-    private User getFreshAnonymousUser(BallotBox<User> box, String xpathString, UserRegistry reg)
-            throws InvalidXPathException {
+    private User getFreshAnonymousUser(BallotBox<User> box, String xpathString, UserRegistry reg) {
 
         for (User user: reg.getAnonymousUsers()) {
             if (box.userDidVote(user, xpathString) == false) {
@@ -1829,11 +1823,10 @@ public class SurveyAjax extends HttpServlet {
      * @param locale the locale
      * @param xpathId the xpath id
      * @param unprocessedValue the value
-     * @throws InvalidXPathException
      * @throws SQLException
      */
     private void addRowToImportTable(CLDRLocale locale, int xpathId, String unprocessedValue)
-            throws InvalidXPathException, SQLException {
+            throws SQLException {
 
         int newVer = Integer.parseInt(SurveyMain.getNewVersion());
         String importTable = DBUtils.Table.IMPORT.forVersion(Integer.valueOf(newVer).toString(), false).toString();
@@ -1934,13 +1927,12 @@ public class SurveyAjax extends HttpServlet {
      * @param user the User
      * @param sm the SurveyMain instance
      * @return how many votes imported
-     * @throws ServletException
      * @throws IOException
      * @throws JSONException
      * @throws SQLException
      */
     private int doAutoImportOldWinningVotes(SurveyJSONWrapper r, User user, SurveyMain sm)
-               throws ServletException, IOException, JSONException, SQLException {
+               throws IOException, JSONException, SQLException {
 
         if (alreadyAutoImportedVotes(user.id, "ask")) {
             return 0;
@@ -2037,7 +2029,7 @@ public class SurveyAjax extends HttpServlet {
      * Called locally by doAutoImportOldWinningVotes.
      */
     private int importAllOldWinningVotes(User user, SurveyMain sm, final String oldVotesTable, final String newVotesTable)
-               throws ServletException, IOException, JSONException, SQLException {
+               throws IOException, SQLException {
         STFactory fac = sm.getSTFactory();
 
         /*
@@ -2160,12 +2152,10 @@ public class SurveyAjax extends HttpServlet {
      * @param user the current User, who needs admin rights
      * @param r the SurveyJSONWrapper to be written to
      * @throws SurveyException
-     * @throws SQLException
      * @throws JSONException
-     * @throws IOException
      */
     private void transferOldVotes(SurveyJSONWrapper r, HttpServletRequest request, SurveyMain sm, UserRegistry.User user)
-        throws SurveyException, SQLException, JSONException, IOException {
+        throws SurveyException, JSONException {
         Integer from_user_id = getIntParameter(request, "from_user_id");
         Integer to_user_id = getIntParameter(request, "to_user_id");
         String from_locale = request.getParameter("from_locale");
@@ -2197,11 +2187,10 @@ public class SurveyAjax extends HttpServlet {
      * @param to_user_id the id of the user to which to transfer
      * @param from_locale the locale from which to transfer
      * @param to_locale the locale to which to transfer
-     * @throws SQLException
      * @throws JSONException
      */
     private void transferOldVotesGivenUsersAndLocales(SurveyJSONWrapper r, Integer from_user_id, Integer to_user_id, String from_locale, String to_locale)
-        throws SQLException, JSONException {
+        throws JSONException {
         int totalVotesTransferred = 0;
         String oldVotesTableList = "";
         int ver = Integer.parseInt(SurveyMain.getNewVersion());
@@ -2465,7 +2454,7 @@ public class SurveyAjax extends HttpServlet {
      * https://unicode-org.atlassian.net/browse/CLDR-15368
      * https://unicode-org.atlassian.net/browse/CLDR-15403
      */
-    public static void getRow(HttpServletRequest request, HttpServletResponse response, Writer out,
+    private static void getRow(HttpServletRequest request, HttpServletResponse response, Writer out,
             SurveyMain sm, String sess, CLDRLocale locale, String xpath)
             throws IOException, JSONException {
         if (locale == null) {
@@ -2483,12 +2472,12 @@ public class SurveyAjax extends HttpServlet {
             strid = null;
         }
         /*
-         * When the "x" parameter is used to specify a sectionName, we're getting all the rows for one page (or section).
+         * When the "x" parameter is used to specify a pageName, we're getting all the rows for one page.
          * Otherwise there is an "xpath" parameter and we're only getting one row.
          */
-        String sectionName = WebContext.decodeFieldString(request.getParameter("x"));
-        if (sectionName != null && sectionName.isEmpty()) {
-            sectionName = null;
+        String pageName = WebContext.decodeFieldString(request.getParameter("x"));
+        if (pageName != null && pageName.isEmpty()) {
+            pageName = null;
         }
         CookieSession mySession = CookieSession.retrieve(sess);
 
@@ -2515,8 +2504,8 @@ public class SurveyAjax extends HttpServlet {
             String xp = xpath;
             XPathMatcher matcher = null;
             String pageIdStr = xp;
-            if (xp == null && sectionName != null) {
-                pageIdStr = sectionName;
+            if (xp == null && pageName != null) {
+                pageIdStr = pageName;
             }
 
             PathHeader.PageId pageId = WebContext.getPageId(pageIdStr);
@@ -2605,15 +2594,10 @@ public class SurveyAjax extends HttpServlet {
 
                 JSONObject dsets = new JSONObject();
                 if (pageId == null) { // requested an xp, not a pageid?
-                    for (String n : SortMode.getSortModesFor(xp)) {
-                        dsets.put(n, section.createDisplaySet(SortMode.getInstance(n), matcher));
-                    }
-                    dsets.put("default", SortMode.getSortMode(ctx, section));
                     pageId = section.getPageId();
                 } else {
-                    dsets.put("default", PathHeaderSort.name); // typically PathHeaderSort.name = "ph"
-                    // the section creates the sort
-                    dsets.put(PathHeaderSort.name, section.createDisplaySet(SortMode.getInstance(PathHeaderSort.name), null));
+                    dsets.put("default", PathHeaderSort.name);
+                    dsets.put(PathHeaderSort.name, section.createDisplaySet(new PathHeaderSort(), null));
                 }
 
                 if (pageId != null) {
@@ -3061,9 +3045,8 @@ public class SurveyAjax extends HttpServlet {
      * @param out the Writer
      * @param sm the SurveyMain
      * @param l the CLDRLocale
-     * @throws IOException
      */
-    private static void generateNumbersReport(Writer out, SurveyMain sm, CLDRLocale l) throws IOException {
+    private static void generateNumbersReport(Writer out, SurveyMain sm, CLDRLocale l) {
         STFactory fac = sm.getSTFactory();
         CLDRFile nativeFile = fac.make(l, true);
 

@@ -770,30 +770,11 @@ function loadAllRows(itemLoadInfo, theDiv) {
       locmap.getLocaleName(curLocale) + "/" + curPage + "/" + curId
     )
   );
-  const url = getPageUrl(curLocale, curPage, curId);
+  const url = cldrTable.getPageUrl(curLocale, curPage, curId);
   $("#nav-page").show(); // make top "Prev/Next" buttons visible while loading, cf. '#nav-page-footer' below
   myLoad(url, "section", function (json) {
     loadAllRowsFromJson(json, theDiv);
   });
-}
-
-function getPageUrl(curLocale, curPage, curId) {
-  if (cldrTable.TABLE_USES_NEW_API) {
-    const api = "voting/" + curLocale + "/page/" + curPage;
-    return cldrAjax.makeApiUrl(api, null);
-  }
-  return (
-    cldrStatus.getContextPath() +
-    "/SurveyAjax?what=getrow&_=" +
-    curLocale +
-    "&x=" +
-    curPage +
-    "&strid=" +
-    curId +
-    "&s=" +
-    cldrStatus.getSessionId() +
-    cldrSurvey.cacheKill()
-  );
 }
 
 function loadAllRowsFromJson(json, theDiv) {

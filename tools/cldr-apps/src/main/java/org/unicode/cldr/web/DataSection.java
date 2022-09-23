@@ -51,7 +51,6 @@ import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
 import org.unicode.cldr.web.UserRegistry.User;
-import org.unicode.cldr.web.api.VoteAPIHelper;
 
 import com.google.common.collect.ImmutableList;
 import com.ibm.icu.text.SimpleDateFormat;
@@ -75,13 +74,7 @@ public class DataSection implements JSONString {
      * a "history" to be constructed and passed to the client for each CandidateItem,
      * indicating how/when/why it was added. This should be false for production.
      */
-    private static boolean USE_CANDIDATE_HISTORY = false;
-
-    /*
-     * TODO: order classes consistently; inner classes should all be at top or all be at bottom.
-     * Default for Eclipse "Sort Members" is to put Types, including inner classes, before all
-     * other members; however, it also alphabetizes methods, which may not be helpful.
-     */
+    private final static boolean USE_CANDIDATE_HISTORY = false;
 
     /**
      * The translation-hints CLDRFile for this DataSection
@@ -127,7 +120,7 @@ public class DataSection implements JSONString {
              * to emphasize distinction from getProcessedValue(), and to reduce confusion with other
              * occurrences of the word "value".
              */
-            final private String rawValue;
+            private final String rawValue;
 
             /**
              * isBaselineValue means the value of this CandidateItem is equal to baselineValue, which is a member of DataRow.
@@ -526,10 +519,8 @@ public class DataSection implements JSONString {
          */
         public int coverageValue;
 
-        /*
-         * TODO: document displayName and other members of DataRow
-         */
         private String displayName = null;
+
         // these apply to the 'winning' item, if applicable
         boolean hasErrors = false;
 
@@ -581,62 +572,43 @@ public class DataSection implements JSONString {
         /**
          * The pretty path for this DataRow, set by the constructor.
          *
-         *  Accessed by NameSort.java, SortMode.java
+         *  Accessed by SortMode.java
          */
         public String prettyPath = null;
-
-        /*
-         * Ordering for use in collator
-         *
-         * Referenced by SortMode.java
-         */
-        public int reservedForSort[] = SortMode.reserveForSort();
 
         /**
          * The winning value for this DataRow
          *
          * It gets set by resolver.getWinningValue() by the DataRow constructor.
          */
-        private String winningValue;
-
-        /**
-         * the xpath id of the winner. If no winner or n/a, -1.
-         *
-         * @deprecated - winner is a value
-         *
-         * Although deprecated, still referenced in InterestSort.java
-         */
-        @Deprecated
-        int winningXpathId = -1;
+        private final String winningValue;
 
         /**
          * The xpath for this DataRow, assigned in the constructor.
          */
-        private String xpath;
+        private final String xpath;
 
         /**
          * The xpathId for this DataRow, assigned in the constructor based on xpath.
-         *
-         * Accessed by SortMode.java
          */
-        int xpathId = -1;
+        private final int xpathId;
 
         /**
          * The baseline value for this DataRow, that is the previous release version plus latest XML fixes by members
          * of the technical committee (TC). In other words, the current "trunk" value, where "trunk"
          * refers to XML files in version control (on trunk, as opposed to any branch).
          */
-        private String baselineValue;
+        private final String baselineValue;
 
         /**
          * The baseline status for this DataRow (corresponding to baselineValue)
          */
-        private Status baselineStatus;
+        private final Status baselineStatus;
 
         /**
          * The PathHeader for this DataRow, assigned in the constructor based on xpath.
          */
-        private PathHeader pathHeader;
+        private final PathHeader pathHeader;
 
         /**
          * Create a new DataRow for the given xpath.
@@ -756,10 +728,6 @@ public class DataSection implements JSONString {
 
         public String getDisplayName() {
             return displayName;
-        }
-
-        public String getIntgroup() {
-            return intgroup;
         }
 
         /**
@@ -989,7 +957,7 @@ public class DataSection implements JSONString {
          * would be specifically for the data representing what becomes "theRow" on the client,
          * AFTER that data has all been prepared/derived. See checkDataRowConsistency for work
          * in progress.
-         * @deprecated see {@link VoteAPIHelper#calculateRow}
+         * @deprecated
          */
         @Override
         @Deprecated
@@ -1381,9 +1349,6 @@ public class DataSection implements JSONString {
      * A DisplaySet represents a list of rows, in sorted and divided order.
      */
     public static class DisplaySet implements JSONString {
-        public boolean canName = true; // can use the 'name' view?
-        public boolean isCalendar = false;
-        public boolean isMetazones = false;
 
         /**
          * Partitions divide up the rows into sets, such as 'proposed',
@@ -1397,15 +1362,13 @@ public class DataSection implements JSONString {
         public Partition partitions[];
 
         DataRow rows[]; // list of rows in sorted order
-        SortMode sortMode = null;
+        SortMode sortMode;
 
         /**
          * Create a DisplaySet object
          *
          * @param myRows
          *            the original rows
-         * @param myDisplayRows
-         *            the rows in display order (?)
          * @param sortMode
          *            the sort mode to use
          */
@@ -1440,8 +1403,7 @@ public class DataSection implements JSONString {
                 p.put(new JSONObject().put("name", partition.name).put("start", partition.start).put("limit", partition.limit)
                     .put("helptext", partition.helptext));
             }
-            return new JSONObject().put("canName", canName).put("displayName", sortMode.getDisplayName())
-                .put("isCalendar", isCalendar).put("isMetazones", isMetazones).put("sortMode", sortMode.getName())
+            return new JSONObject().put("displayName", sortMode.getDisplayName())
                 .put("rows", r).put("partitions", p).toString();
         }
 
@@ -1509,7 +1471,7 @@ public class DataSection implements JSONString {
          */
         // "/date/availablesItem.*@_q=\"[0-9]*\"\\]","/availableDateFormats"
     };
-    private static Pattern fromto_p[] = new Pattern[fromto.length / 2];
+    private final static Pattern fromto_p[] = new Pattern[fromto.length / 2];
 
     /*
      * Has this DataSection been initialized?
@@ -1659,7 +1621,7 @@ public class DataSection implements JSONString {
              * when the user opens a page, pageId is not null.
              */
             if (pageId == null) {
-                section.ensureComplete(ourSrc, checkCldr);
+                section.ensureComplete(checkCldr);
             }
         }
         return section;
@@ -1692,31 +1654,20 @@ public class DataSection implements JSONString {
         return options;
     }
 
-    private BallotBox<User> ballotBox;
-
-    // UI strings
-    boolean canName = true; // can the Display Name be used for sorting?
-
-    /*
-     * Interest group
-     */
-    public String intgroup;
-
-    boolean isCalendar = false; // Is this a calendar section?
-    boolean isMetazones = false; // Is this a metazones section?
+    private final BallotBox<User> ballotBox;
 
     /*
      * hashtable of type->Row
      */
     Hashtable<String, DataRow> rowsHash = new Hashtable<>();
 
-    private SurveyMain sm;
-    public String xpathPrefix = null;
+    private final SurveyMain sm;
+    private String xpathPrefix;
 
-    private CLDRLocale locale;
+    private final CLDRLocale locale;
     private ExampleGenerator nativeExampleGenerator;
-    private XPathMatcher matcher;
-    private PageId pageId;
+    private final XPathMatcher matcher;
+    private final PageId pageId;
     private CLDRFile diskFile;
 
     private static final boolean DEBUG_DATA_SECTION = false;
@@ -1738,7 +1689,6 @@ public class DataSection implements JSONString {
         this.sm = sm;
         this.matcher = matcher;
         xpathPrefix = prefix;
-        intgroup = loc.getLanguage(); // calculate interest group
         ballotBox = sm.getSTFactory().ballotBoxForLocale(locale);
         this.pageId = pageId;
 
@@ -1780,11 +1730,7 @@ public class DataSection implements JSONString {
      * Called by getRow
      */
     public DisplaySet createDisplaySet(SortMode sortMode, XPathMatcher matcher) {
-        DisplaySet aDisplaySet = sortMode.createDisplaySet(matcher, rowsHash.values());
-        aDisplaySet.canName = canName;
-        aDisplaySet.isCalendar = isCalendar;
-        aDisplaySet.isMetazones = isMetazones;
-        return aDisplaySet;
+        return sortMode.createDisplaySet(matcher, rowsHash.values());
     }
 
     /**
@@ -1795,7 +1741,7 @@ public class DataSection implements JSONString {
      * TODO: explain this mechanism and why it's limited to DataSection, not shared with Dashboard,
      * CLDRFile, or any other module. Is it in any way related to CLDRFile.getRawExtraPathsPrivate?
      */
-    private void ensureComplete(CLDRFile ourSrc, TestResultBundle checkCldr) {
+    private void ensureComplete(TestResultBundle checkCldr) {
         if (!xpathPrefix.startsWith("//ldml/dates/timeZoneNames")) {
             return;
         }
@@ -1973,9 +1919,7 @@ public class DataSection implements JSONString {
             extraXpaths = new HashSet<>();
 
             /* Determine which xpaths to show */
-            if (xpathPrefix.startsWith("//ldml/units") || xpathPrefix.startsWith("//ldml/numbers")) {
-                canName = false;
-            } else if (xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone")) {
+            if (xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone")) {
                 String continent = null;
                 int continentStart = xpathPrefix.indexOf(DataSection.CONTINENT_DIVIDER);
                 if (continentStart > 0) {
@@ -1988,12 +1932,7 @@ public class DataSection implements JSONString {
                     // if it's not a zoom-in..
                     workPrefix = "//ldml/dates/timeZoneNames/metazone";
                 }
-            } else if (xpathPrefix.equals("//ldml/references")) {
-                canName = false; // disable 'view by name' for references
             }
-
-            isCalendar = xpathPrefix.startsWith("//ldml/dates/calendars");
-            isMetazones = xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone");
 
             /* Build the set of xpaths */
             // iterate over everything in this prefix ..
@@ -2191,9 +2130,6 @@ public class DataSection implements JSONString {
              */
             row.setShimTests(base_xpath, this.sm.xpt.getById(base_xpath), checkCldr);
         }
-        if (row.getDisplayName() == null) {
-            canName = false; // disable 'view by name' if not all have names.
-        }
 
         // If it is draft and not proposed.. make it proposed-draft
         if (((eDraft != null) && (!eDraft.equals("false"))) && (altProp == null)) {
@@ -2220,7 +2156,7 @@ public class DataSection implements JSONString {
             checkCldr.getExamples(xpath, isExtraPath ? null : ourValue, examplesResult);
         }
         if (ourValue != null && ourValue.length() > 0) {
-            addOurValue(ourValue, row, checkCldrResult, sourceLocaleStatus, xpath, setInheritFrom, examplesResult);
+            addOurValue(ourValue, row, checkCldrResult, sourceLocaleStatus, xpath, setInheritFrom);
         }
     }
 
@@ -2267,13 +2203,11 @@ public class DataSection implements JSONString {
      * @param sourceLocaleStatus
      * @param xpath
      * @param setInheritFrom
-     * @param examplesResult
      *
      * TODO: addOurValue could be a method of DataRow instead of DataSection, then wouldn't need row, xpath as params
      */
     private void addOurValue(String ourValue, DataRow row, List<CheckStatus> checkCldrResult,
-            org.unicode.cldr.util.CLDRFile.Status sourceLocaleStatus, String xpath, CLDRLocale setInheritFrom,
-            List<CheckStatus> examplesResult) {
+            org.unicode.cldr.util.CLDRFile.Status sourceLocaleStatus, String xpath, CLDRLocale setInheritFrom) {
 
         /*
          * Do not add ourValue if it matches inheritedValue. Otherwise we tend to get both "hard" and "soft"

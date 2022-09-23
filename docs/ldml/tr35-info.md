@@ -256,7 +256,7 @@ The mu, ms, and rg keys also interact with the base locale and the unit preferen
 
 #### 2.4.1 <a name="Preferred_Units_For_Usage" href="#Preferred_Units_For_Usage">Preferred Units for Specific Usages</a>
 
-The determination of preferred units depends on the locale identifer: the keys ms, mu, rg, the base locale (language, script, region) and the user preferences.
+The determination of preferred units depends on the locale identifer: the keys mu, ms, rg, the base locale (language, script, region) and the user preferences.
 _For information about preferred units and unit conversion, see Section 13 [Unit Conversion](#Unit_Conversion) and Section 14 [Unit Preferences](#Unit_Preferences)._
 
 ### 2.5 <a name="rgScope" href="#rgScope">`<rgScope>`: Scope of the “rg” Locale Key</a>
@@ -1065,7 +1065,7 @@ Different locales have different preferences for which unit or combination of un
 
 ### 14.2 <a name="Unit_Preferences_Data" href="#Unit_Preferences_Data">Unit Preferences Overrides</a>
 
-The determination of preferred units depends on the locale identifer: the keys ms, mu, rg, their values, the base locale (language, script, region) and the user preferences data.
+The determination of preferred units depends on the locale identifer: the keys mu, ms, rg, their values, the base locale (language, script, region) and the user preferences data.
 
 The strongest is the mu key, then the ms key, then the rg key. Beyond that the region of the locale identifer is used, and if not present, the likely-subtag region. For example:
 
@@ -1073,7 +1073,7 @@ The strongest is the mu key, then the ms key, then the rg key. Beyond that the r
 |---|---------------------------------------|------------|--------------------------------------------------------------------|
 | 1 | en-u-rg-uszzzz-ms-ussystem-mu-celsius | Celsius    | despite the rg and ms settings for US, and the likely region of US |
 | 2 | en-u-rg-uszzzz-ms-metric              | Celsius    | despite the rg setting for US, and the likely region of US         |
-| 3 | en-u-rg-dezzzz will use celsius       | Celsius    | despite the likely region of US                                    |
+| 3 | en-u-rg-dezzzz.                      | Celsius    | despite the likely region of US                                    |
 | 4 | en                                    | Fahrenheit | because the likely region for en with no region is US              |
 
 The ms value maps to a region according to the following table. That is then the input for the Unit Preferences Data below.

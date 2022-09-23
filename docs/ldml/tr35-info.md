@@ -252,7 +252,7 @@ The default preference for several locale items is based solely on a [unicode_re
 * Default measurement system and paper size (see [Measurement System Data](tr35-general.md#Measurement_System_Data))
 * Default units for specific usage (see [Preferred Units for Specific Usages](#Preferred_Units_For_Usage), below)
 
-The mu, ms, and rg keys also interact with the base locale and the unit preferences. For more information, see [Preferred Units fo](#Preferred_Units_For_Usage)  keys also > rg > baseLocale
+The mu, ms, and rg keys also interact with the base locale and the unit preferences. For more information, see _Section 14 [Unit Preferences](#Unit_Preferences)._
 
 #### 2.4.1 <a name="Preferred_Units_For_Usage" href="#Preferred_Units_For_Usage">Preferred Units for Specific Usages</a>
 

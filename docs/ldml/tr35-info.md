@@ -252,8 +252,11 @@ The default preference for several locale items is based solely on a [unicode_re
 * Default measurement system and paper size (see [Measurement System Data](tr35-general.md#Measurement_System_Data))
 * Default units for specific usage (see [Preferred Units for Specific Usages](#Preferred_Units_For_Usage), below)
 
+The mu, ms, and rg keys also interact with the base locale and the unit preferences. For more information, see _Section 14 [Unit Preferences](#Unit_Preferences)._
+
 #### 2.4.1 <a name="Preferred_Units_For_Usage" href="#Preferred_Units_For_Usage">Preferred Units for Specific Usages</a>
 
+The determination of preferred units depends on the locale identifer: the keys mu, ms, rg, the base locale (language, script, region) and the user preferences.
 _For information about preferred units and unit conversion, see Section 13 [Unit Conversion](#Unit_Conversion) and Section 14 [Unit Preferences](#Unit_Preferences)._
 
 ### 2.5 <a name="rgScope" href="#rgScope">`<rgScope>`: Scope of the “rg” Locale Key</a>
@@ -1059,6 +1062,46 @@ The [unitsTest.txt](https://github.com/unicode-org/cldr/blob/main/common/testDat
 ## 14 <a name="Unit_Preferences" href="#Unit_Preferences">Unit Preferences</a>
 
 Different locales have different preferences for which unit or combination of units is used for a particular usage, such as measuring a person’s height. This is more fine-grained than merely a preference for metric versus US or UK measurement systems. For example, one locale may use meters alone, while another may use centimeters alone or a combination of meters and centimeters; a third may use inches alone, or (informally) a combination of feet and inches.
+
+### 14.2 <a name="Unit_Preferences_Data" href="#Unit_Preferences_Data">Unit Preferences Overrides</a>
+
+The determination of preferred units depends on the locale identifer: the keys mu, ms, rg, their values, the base locale (language, script, region) and the user preferences data.
+
+The strongest is the mu key, then the ms key, then the rg key. Beyond that the region of the locale identifer is used, and if not present, the likely-subtag region. For example:
+
+|   | Locale                                | Result     | Comment                                                            |
+|---|---------------------------------------|------------|--------------------------------------------------------------------|
+| 1 | en-u-rg-uszzzz-ms-ussystem-mu-celsius | Celsius    | despite the rg and ms settings for US, and the likely region of US |
+| 2 | en-u-rg-uszzzz-ms-metric              | Celsius    | despite the rg setting for US, and the likely region of US         |
+| 3 | en-u-rg-dezzzz.                      | Celsius    | despite the likely region of US                                    |
+| 4 | en                                    | Fahrenheit | because the likely region for en with no region is US              |
+
+The ms value maps to a region according to the following table. That is then the input for the Unit Preferences Data below.
+
+| Key-Value   | Region for Unit Preferences |
+|-------------|-----------------------------|
+| ms-metric   | 001                         |
+| ms-ussystem | US                          |
+| ms-uksystem | UK                          |
+
+Thus _for the purposes of unit preferences_ the following behave identically:
+
+| Locale            | Equivalents |
+|-------------------|------------|
+| en-GB-ms-ussystem | en-US, en |
+| en-US-ms-uksystem | en-GB      |
+| en-ms-uksystem    | en-GB      |
+
+APIs should clearly allow for both the use of unit preferences with the above process, and for the _invariant use_ of a unit measure.
+That is, while an application will usually want to obey the preferences for the locale or in the locale ID, there will definitely be instances where it will want to not use them. 
+For example, in showing the weather, an application may want to show:
+
+High today: 68°F (20°C)
+
+To do that, the application needs to show the first value with the locale information, and then (a) query what the alternative is, and show the temperature in that.
+As an example, ICU only uses the unit preferences (with rg, ms, and/or mu and the likely region) in formatting units when a usage parameter is set.
+
+### 14.2 <a name="Unit_Preferences_Data" href="#Unit_Preferences_Data">Unit Preferences Data</a>
 
 The CLDR data is intended to map from a particular usage — e.g. measuring the height of a person or the fuel consumption of an automobile — to the unit or combination of units typically used for that usage in a given region. Considerations for such a mapping include:
 

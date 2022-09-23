@@ -22,6 +22,7 @@ public class VettingViewerQueue {
     private static final Logger logger = SurveyLog.forClass(VettingViewerQueue.class);
 
     private static final boolean DEBUG = false || CldrUtility.getProperty("TEST", false);
+    private static final String WAITING_IN_LINE_MESSAGE = "Waiting in line";
 
     private static final class VettingViewerQueueHelper {
         static VettingViewerQueue instance = new VettingViewerQueue();
@@ -197,7 +198,7 @@ public class VettingViewerQueue {
         private long start = -1;
         private long last;
         private final Organization usersOrg;
-        private String status = "(Waiting my spot in line)";
+        private String status = WAITING_IN_LINE_MESSAGE;
         private Status statusCode = Status.WAITING; // Need to start out as waiting.
 
         private void setStatus(String status) {
@@ -357,7 +358,7 @@ public class VettingViewerQueue {
     /*
      * Messages returned by getPriorityItemsSummaryOutput
      */
-    private final static String SUM_MESSAGE_COMPLETE = "Stopped on completion";
+    private final static String SUM_MESSAGE_COMPLETE = "Completed successfully";
     private final static String SUM_MESSAGE_STOPPED_ON_REQUEST = "Stopped on request";
     private final static String SUM_MESSAGE_PROGRESS = "In Progress";
     private final static String SUM_MESSAGE_STOPPED_STUCK = "Stopped (refresh if stuck)";
@@ -446,7 +447,12 @@ public class VettingViewerQueue {
             putTaskStatus(debugStatus, t);
         }
         setPercent(0);
-        return SUM_MESSAGE_STARTED + ": " + waitingString() + t.status;
+        final String waitStr = waitingString();
+        if (WAITING_IN_LINE_MESSAGE.equals(t.status) && waitStr.isEmpty()) {
+            // Simplify “Started new task: Waiting in line” to "Waiting in line"
+            return WAITING_IN_LINE_MESSAGE;
+        }
+        return SUM_MESSAGE_STARTED + ": " + waitStr + t.status;
     }
 
     /**

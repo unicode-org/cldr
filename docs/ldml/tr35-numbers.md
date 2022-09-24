@@ -1145,7 +1145,8 @@ range           = value'..'value
 value           = digit+
 sampleList      = sampleRange (',' sampleRange)* (',' ('…'|'...'))?
 sampleRange     = sampleValue ('~' sampleValue)?
-sampleValue     = value ('.' digit+)? ([ce] digitPos digit+)?
+sampleValue     = sign? value ('.' digit+)? ([ce] digitPos digit+)?
+sign            = '+' | '-'
 digit           = [0-9]
 digitPos        = [1-9]
 ```

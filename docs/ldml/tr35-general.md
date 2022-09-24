@@ -749,6 +749,8 @@ The `measurement` element is deprecated in the main LDML files, because the data
 ```xml
 <!ELEMENT units (alias | (unit*, unitLength*, durationUnit*, special*) ) >
 
+<!ELEMENT unitIdComponents ( unitIdComponent* ) >
+
 <!ELEMENT unitLength (alias | (compoundUnit*, unit*, coordinateUnit*, special*) ) >
 <!ATTLIST unitLength type (long | short | narrow) #REQUIRED >
 
@@ -895,7 +897,8 @@ As with other identifiers in CLDR, the American English spelling is used for uni
 
 #### Syntax
 
-The formal syntax for identifiers is provided below.
+The formal syntax for identifiers is provided below. 
+Some of the constraints reference data from the unitIdComponents in [Unit_Conversion](tr35-info.md#Unit_Conversion).
 
 <!-- HTML: no header -->
 
@@ -913,6 +916,7 @@ The formal syntax for identifiers is provided below.
                 <li>per-second</li>
             </ul></li>
             <li><em>Note:</em> The normalized form will have only one "per"</li>
+	  <li><em>Note:</em>The token 'per' is the single value in &lt;unitIdComponent type=”per”&gt;</li>
         </ul></td></tr>
 
 <tr><td>product_unit</td><td>:=</td>
@@ -923,7 +927,7 @@ The formal syntax for identifiers is provided below.
             </ul></td></tr>
 
 <tr><td>single_unit</td><td>:=</td>
-    <td>number_prefix? dimensionality_prefix? prefixed_unit
+    <td>number_prefix? dimensionality_prefix? simple_unit
         <ul><li><em>Examples: </em>square-meter, or 100-square-meter</li></ul></td></tr>
 
 <tr><td>pu_single_unit</td><td>:=</td>
@@ -945,10 +949,23 @@ The formal syntax for identifiers is provided below.
 
 <tr><td>dimensionality_prefix</td><td>:=</td>
     <td>"square-"<p>| "cubic-"<p>| "pow" ([2-9]|1[0-5]) "-"
-        <ul><li><em>Note:</em> "pow2-" and "pow3-" canonicalize to "square-" and "cubic-"</li></ul></td></tr>
+        <ul>
+			<li><em>Note:</em> "pow2-" and "pow3-" canonicalize to "square-" and "cubic-"</li>
+			<li><em>Note:</em>These are values in &lt;unitIdComponent type=”power”&gt;</li>
+		</ul></td></tr>
 
+<tr><td>simple_unit</td><td>:=</td>
+    <td>(prefix_component "-")* (prefixed_unit | base_component) ("-" suffix_component)*<br/>
+		|  currency_unit<br/>
+		| “em” | “g” | “us” | “hg” | "of"
+        <ul>
+		<li><em>Examples:</em> kilometer, meter, cup-metric, fluid-ounce, curr-chf, em</li>
+		<li><em>Note:</em> Three simple units are currently allowed as legacy usage, for tokens that wouldn’t otherwise be a base_component due to length (eg, “<strong>g</strong>-force”). 
+			We will likely deprecate those and add conformant aliases in the future: the “hg” and “of” are already only in deprecated simple_units.</li>
+        </ul></td></tr>
+		
 <tr><td>prefixed_unit</td><td></td>
-    <td>(prefix)? simple_unit<ul><li><em>Example: </em>kilometer</li></ul></td></tr>
+    <td>prefix base_component<ul><li><em>Example: </em>kilometer</li></ul></td></tr>
 
 <tr><td>prefix</td><td></td>
     <td>si_prefix | binary_prefix</td></tr>
@@ -961,35 +978,37 @@ The formal syntax for identifiers is provided below.
     <td>"kibi", "mebi", …
         <ul><li><em>Note: </em>See full list at <a href="https://physics.nist.gov/cuu/Units/binary.html">Prefixes for binary multiples</a></li></ul></td></tr>
 
-<tr><td>simple_unit</td><td>:=</td>
-    <td>unit_component ("-" unit_component)*<br/>
-        | “em” | “g” | “us” | “hg” | “of”
-        <ul><li><em>Example:</em> gallon-imperial</li>
-            <li><em>Constraint:</em> At least one unit_component must not itself be a simple_unit</li>
-            <li><em>Note:</em> 3 simple units are currently allowed as legacy usage, where a component wouldn’t be a unit_component (eg for “<strong>g</strong>-force”)
-                <ul><li>We will likely deprecate those and add conformant aliases in the future.</li>
-                    <li>“hg” and “of” are already only in deprecated simple_units.</li>
-                </ul></li>
-        </ul></td></tr>
+<tr><td>prefix_component</td><td>:=</td>
+    <td>[a-z]{3,∞}
+        <ul><li><em>Constraint:</em> must be value in: &lt;unitIdComponent type=”prefix_component”&gt;.</li></ul></td></tr>
 
-<tr><td>unit_component</td><td>:=</td>
-    <td>[a-z]{3,∞} | “1” “0”{2,3}
-        <ul><li><em>Constraints:</em>
-            <ul><li>Cannot be "per", "and", "square", "cubic", "xxx", or "x"; or start with an SI prefix.</li>
-                <li>While the syntax allows any number of letters greater than 3, the unit_components need to be distinct if truncated to 8 letters. This allows for possible future support of units in Unicode Locale Identifiers.</li>
-            </ul></li>
-            <li><em>Example:</em> foot</li>
-        </ul></td></tr>
+<tr><td>base_component</td><td>:=</td>
+    <td>[a-z]{3,∞}
+        <ul><li><em>Constraint:</em> must not be a value in any of the following:<br>
+			&lt;unitIdComponent type=”prefix_component”&gt;<br> 
+			or &lt;unitIdComponent type=”suffix_component”&gt; <br>
+			or &lt;unitIdComponent type=”power”&gt;<br>
+			or &lt;unitIdComponent type=”and”&gt;<br>
+			or &lt;unitIdComponent type=”per”&gt;.
+		</li></ul>
+        <ul><li><em>Constraint:</em> must not have a prefix as an initial segment.</li></ul>
+	</td></tr>
+
+<tr><td>suffix_component</td><td>:=</td>
+    <td>[a-z]{3,∞}
+        <ul><li><em>Constraint:</em> must be value in: &lt;unitIdComponent type=”suffix_component”&gt;</li></ul></td></tr>
 
 <tr><td>mixed_unit_identifier</td><td>:=</td>
     <td>(single_unit | pu_single_unit) ("-and-" (single_unit | pu_single_unit ))*
-        <ul><li><em>Example: foot-and-inch</em></li></ul></td></tr>
+        <ul><li><em>Example: foot-and-inch</em></li>
+	       <li><em>Note:</em>The token 'and' is the single value in &lt;unitIdComponent type=”and”&gt;</li>
+		</ul></td></tr>
 
 <tr><td>long_unit_identifier</td><td>:=</td>
     <td>grouping "-" core_unit_identifier</td></tr>
 
 <tr><td>grouping</td><td>:=</td>
-    <td>unit_component</td></tr>
+    <td>[a-z]{3,∞}</td></tr>
 
 <tr><td>currency_unit</td><td>:=</td>
     <td>"curr-" [a-z]{3}
@@ -1002,6 +1021,17 @@ The formal syntax for identifiers is provided below.
 </tbody></table>
 
 Note that while the syntax allows for number_prefixes in multiple places, the typical use case is only one instances, and after a "-per-".
+
+The simple_unit structure does not allow for any two simple_units to overlap. 
+That is, there are no cases where simple_unit1 consists of X-Y and simple_unit2 consists of Y-Z. 
+This was not true in previous versions of LDML: cup-metric overlapped with metric-ton. 
+That meant that the unit identifiers for the product_unit of cup and metric-ton and the product_unit of cup-metric and ton were ambiguous. 
+
+The constraint that the identifiers can't overlap also means that parsing of multiple-subtag simple units is simpler. 
+For example:
+* When a prefix_component is encountered, one can collect any other prefix-components, then one base_component, then any suffix components, and stop.
+* Similarly, when a base_component is encountered, one can collect any suffix components, and stop.
+* Encountering a suffix_component in any other circumstance is an error.
 
 ### 6.3 <a name="Example_Units" href="#Example_Units">Example Units</a>
 

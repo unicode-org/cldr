@@ -788,27 +788,40 @@ The parentLocales data is supplemental data, but is described in detail in the [
 
 The unit conversion data ([units.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/units.xml)) provides the data for converting all of the cldr unit identifiers to base units, and back. That allows conversion between any two convertible units, such as two units of length. For any two convertible units (such as acre and dunum) the first can be converted to the base unit (square-meter), then that base unit can be converted to the second unit.
 
-Many of the elements allow for a common @description attribute, to disambiguate the main attribute value or to explain the choice of other values. For example:
-```xml
-<unitConstant constant="glucose_molar_mass" value="180.1557"
-  description="derivation from the mean atomic weights according to STANDARD ATOMIC WEIGHTS 2019 on https://ciaaw.org/atomic-weights.htm"/>
+### Unit Parsing Data
+
+<!ELEMENT unitIdComponents ( unitIdComponent* ) >
+
+<!ELEMENT unitIdComponent EMPTY >
+<!ATTLIST unitIdComponent type NMTOKEN #REQUIRED >
+<!ATTLIST unitIdComponent values NMTOKENS #REQUIRED >
+
+These elements provide support for parsing unit identifiers, as described in [Unit Elements](tr35-general.md#Unit_Elements). 
+Each of the values has tokens with specific functions, identified by the type. 
+For example the following values can be suffixes in a simple_unit identifier such as `quart-imperial`.
+
 ```
+<unitIdComponent type="suffix" values="force imperial luminosity mass metric person radius scandinavian troy unit us"/>
+````
+
+### Constants
+
 
 ```xml
 <!ELEMENT unitConstants ( unitConstant* ) >
 
 <!ELEMENT unitConstant EMPTY >
-
 <!ATTLIST unitConstant constant NMTOKEN #REQUIRED >
-
 <!ATTLIST unitConstant value CDATA #REQUIRED >
-
 <!ATTLIST unitConstant status NMTOKEN #IMPLIED >
-
 <!ATTLIST unitConstant description CDATA #IMPLIED >
 ```
 
-### Constants
+Many of the elements allow for a common @description attribute, to disambiguate the main attribute value or to explain the choice of other values. For example:
+```xml
+<unitConstant constant="glucose_molar_mass" value="180.1557"
+  description="derivation from the mean atomic weights according to STANDARD ATOMIC WEIGHTS 2019 on https://ciaaw.org/atomic-weights.htm"/>
+```
 
 The data uses a small set of constants for readability, such as:
 

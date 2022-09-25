@@ -2681,7 +2681,13 @@ The @scope attributes are targeted at messages created by computers, thus a feat
 
 ### 15.1 <a name="Gender" href="#Gender">Gender</a>
 
-Feature that classifies nouns in classes. This is grammatical gender, which may be assigned on the basis of sex in some languages, but may be completely separate in others. Also used to tag elements in CLDR that should agree with a particular gender of an associated noun. (adapted from: [linguistics-ontology.org/gold/2010/GenderProperty](http://linguistics-ontology.org/gold/2010/GenderProperty))
+Feature that classifies nouns in classes. 
+This is grammatical gender, which may be assigned on the basis of sex in some languages, but may be completely separate in others. 
+Also used to tag elements in CLDR that should agree with a particular gender of an associated noun. 
+(adapted from: [linguistics-ontology.org/gold/2010/GenderProperty](http://linguistics-ontology.org/gold/2010/GenderProperty))
+
+The term "gender" is somewhat of a misnomer, because CLDR treats "gender" as a broad term, equivalent to "noun class". 
+Thus it bundles noun class categories such as gender and animacy into a single identifier, such as "feminine-animate".
 
 #### Example
 
@@ -2701,6 +2707,26 @@ Feature that classifies nouns in classes. This is grammatical gender, which may 
 | feminine  | In a masculine/feminine or in a masculine/feminine/neuter gender system, gender that denotes specifically female persons (or animals) or that is assigned arbitrarily to object. | adapted from: http://wikipedia.org/wiki/Grammatical_gender, [linguistics-ontology.org/gold/2010/FeminineGender](http://linguistics-ontology.org/gold/2010/FeminineGender) |
 | masculine | In a masculine/feminine or in a masculine/feminine/neuter gender system, gender that denotes specifically male persons (or animals) or that is assigned arbitrarily to object. | adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender), [linguistics-ontology.org/gold/2010/MasculineGender](http://linguistics-ontology.org/gold/2010/MasculineGender) |
 | neuter    | In a masculine/feminine/neuter or common/neuter gender system, gender that generally denotes an object. | adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender), [linguistics-ontology.org/gold/2010/NeuterGender](http://linguistics-ontology.org/gold/2010/NeuterGender) |
+
+There are further simplifications in the identifiers. 
+For example, consider a language that has 3 genders, and two levels of animacy, but only for masculine.
+The set of combinations would be:
+
+* masculine-animate
+* masculine-inanimate
+* feminine-unspecified
+* neuter-unspecified
+
+In such a case as this, CLDR abbreviates these as the following identifiers:
+
+* masculine
+* inanimate
+* feminine
+* neuter
+
+That is: 
+* unspecified and animate are dropped.
+* if there is only a single gender with inanimate, then the gender is dropped.
 
 ### 15.2 <a name="Case" href="#Case">Case</a>
 

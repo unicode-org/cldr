@@ -1431,7 +1431,7 @@ To perform the collapse:
 1. Remove the token that is closest to the range separator.
 That is, for a prefix element, remove from the end value, and for a suffix element remove it from the start value:
     * USD 2 – USD 5 ⇒ USD 2 – 5
-    * 2M EUR– 5M EUR ⇒  2 M – 5M EUR
+    * 2M EUR – 5M EUR ⇒  2 M – 5M EUR
     * 2 km – 5 km ⇒ 2 – 5 km
     * 2M ft – 5M ft ⇒ 2M – 5M ft
 2. In bidi contexts, rule #1 is applied **visually**. For example, if a range from 2 km to 5 km would be presented visually as "_mk 5 – mk 2_", the collapsed form would be "_mk 5 – 2_". (The _mk_ is a stand-in for the native representation.)

@@ -924,7 +924,10 @@ public class VettingViewer<T> {
             fileInfo.setFiles(sourceFile, baselineFile);
             fileInfo.getFileInfo();
 
-            context.localeNameToFileInfo.put(name, fileInfo);
+            if (context.localeNameToFileInfo != null) {
+                context.localeNameToFileInfo.put(name, fileInfo);
+            }
+
             context.totals.addAll(fileInfo.vc);
             if (DEBUG_THREADS) {
                 System.out.println("writeAction.compute(" + n + ") - got fileinfo " + name + ": " + localeID);
@@ -961,7 +964,9 @@ public class VettingViewer<T> {
         }
         output.append("<h2>Level: ").append(desiredLevel.toString()).append("</h2>");
         output.append("<table class='tvs-table'>\n");
-        Map<String, FileInfo> localeNameToFileInfo = new TreeMap<>();
+
+        // Caution: localeNameToFileInfo, if not null, may lead to running out of memory
+        Map<String, FileInfo> localeNameToFileInfo = SHOW_SUBTYPES ? new TreeMap<>() : null;
 
         VettingCounters totals = new VettingCounters();
 

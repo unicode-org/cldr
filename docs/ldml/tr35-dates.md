@@ -1097,19 +1097,12 @@ Each `weekOfPreference` element provides, for its specified locales, an ordered 
 
 ###### Table: <a name="Week_Designation_Types" href="#Week_Designation_Types">Week Designation Types</a>
 
-<!-- HTML: row spans -->
-<table><tbody>
-<tr><th>Type</th><th>Examples</th><th>Date Pattern</th><th>Comments</th></tr>
-<tr><td>weekOfYear</td><td>week 15 of 2016</td>
-    <td>&lt;dateFormatItem id='yw' count='one'&gt;'week' w 'of' Y&lt;…</td>
-    <td rowspan="2">The <i>week of</i> construction takes a <b>count</b> attribute, just in case the pattern changes depending on the numeric value. (In the future, we're likely to add an ordinal value, for constructions like “3rd week of March”.)<br/>In languages where the month name needs grammatical changes (aside from just the simple addition of a prefix or suffix), localizers will typically use a work-around construction.</td></tr>
-<tr><td>weekOfMonth</td><td>week 2 of April<br>2nd week of April</td><td>&lt;dateFormatItem id='MMMMW'' count='one'&gt;'week' W 'of' MMM&lt;…</td></tr>
-
-<tr><td>weekOfDate</td><td>the week of April 11, 2016</td>
-    <td rowspan="2">&lt;field type="week"&gt;&lt;relativePeriod&gt;the week of {0}&lt;…</td>
-    <td rowspan="2">The date pattern that replaces {0} is determined separately and may use the first day or workday of the week, the range of the full week or work week, etc.</td></tr>
-<tr><td>weekOfInterval</td><td>the week of April 11–15</td></tr>
-</tbody></table>
+| Type           | Examples                          | Date Pattern                                                | Comments    |
+|----------------|-----------------------------------|-------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| weekOfYear     | week 15 of 2016                   | <dateFormatItem id='yw' count='one'>'week' w 'of' Y<…       | The **week of** construction takes a count attribute, just in case the pattern changes depending on the numeric value of the **w** value. (In the future, we're likely to add an ordinal value, for constructions like “3rd week of March”.) In languages where the month name needs grammatical changes (aside from just the simple addition of a prefix or suffix), localizers will typically use a work-around construction. |
+| weekOfMonth    | week 2 of April 2nd week of April | <dateFormatItem id='MMMMW'' count='one'>'week' W 'of' MMM<… |   (same comment as above) |
+| weekOfDate     | the week of April 11, 2016        | <field type="week"><relativePeriod>the week of {0}<…        | The date pattern that replaces {0} is determined separately and may use the first day or workday of the week, the range of the full week or work week, etc.   |
+| weekOfInterval | the week of April 11–15           | <field type="week"><relativePeriod>the week of {0}<…  |  (same comment as above) |
 
 ### 4.4 <a name="Time_Data" href="#Time_Data">Time Data</a>
 

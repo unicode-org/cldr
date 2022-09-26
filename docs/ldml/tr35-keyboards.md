@@ -4,7 +4,7 @@
 
 <!-- HTML: no th -->
 <table><tbody>
-<tr><td>Version</td><td>41</td></tr>
+<tr><td>Version</td><td><b>42 (draft)</b></td></tr>
 <tr><td>Editors</td><td>Steven Loomis (<a href="mailto:srl@icu-project.org">srl@icu-project.org</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td></tr>
 </tbody></table>
 
@@ -46,6 +46,7 @@ The LDML specification is divided into the following parts:
 *   Part 5: [Collation](tr35-collation.md#Contents) (sorting, searching, grouping)
 *   Part 6: [Supplemental](tr35-info.md#Contents) (supplemental data)
 *   Part 7: [Keyboards](tr35-keyboards.md#Contents) (keyboard mappings)
+*   Part 8: [Person Names](tr35-personNames.md#Contents) (person names)
 
 ## <a name="Contents" href="#Contents">Contents of Part 7, Keyboards</a>
 
@@ -244,7 +245,7 @@ The _UnicodeSet_ notation is described in [UTS#35 section 5.3.3](tr35.md#Unicode
 * `from`, `before`, `after` on the `<reorder>` element
 * `from`, `before`, `after` on the `<backspace>` element
 
-The `\u{...}` notation, a subset of hex notation, is described in [UTS#18 section 1.1](http://www.unicode.org/reports/tr18/#Hex_notation). It can refer to one or multiple individual codepoints. Currently, the following attributes allow the `\u{...}` notation:
+The `\u{...}` notation, a subset of hex notation, is described in [UTS#18 section 1.1](https://www.unicode.org/reports/tr18/#Hex_notation). It can refer to one or multiple individual codepoints. Currently, the following attributes allow the `\u{...}` notation:
 
 * `to`, `longPress`, `multitap`, `hint` on the `<map>` element
 * `to` on the `<transform>` element

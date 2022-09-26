@@ -4,7 +4,7 @@
 
 <!-- HTML: no header -->
 <table><tbody>
-<tr><td>Version</td><td>41</td></tr>
+<tr><td>Version</td><td><b>42 (draft)</b></td></tr>
 <tr><td>Editors</td><td>Steven Loomis (<a href="mailto:srl@icu-project.org">srl@icu-project.org</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td></tr>
 </tbody></table>
 
@@ -40,6 +40,7 @@ The LDML specification is divided into the following parts:
 *   Part 5: [Collation](tr35-collation.md#Contents) (sorting, searching, grouping)
 *   Part 6: [Supplemental](tr35-info.md#Contents) (supplemental data)
 *   Part 7: [Keyboards](tr35-keyboards.md#Contents) (keyboard mappings)
+*   Part 8: [Person Names](tr35-personNames.md#Contents) (person names)
 
 ## <a name="Contents" href="#Contents">Contents of Part 6, Supplemental</a>
 
@@ -121,7 +122,7 @@ The following data provides information that shows groupings of countries (regio
 
 Excluding groupings, in this tree:
 
-*   All non-overlapping regions form a strict tree rooted at World
+*   All non-overlapping regions form a strict tree rooted at World.
 *   All leaf-nodes (country) are always at depth 4. Some of these “country” regions are actually parts of other countries, such as Hong Kong (part of China). Such relationships are not part of the containment data.
 
 For a chart showing the relationships (plus the included timezones), see the [Territory Containment Chart](https://unicode-org.github.io/cldr-staging/charts/38/supplemental/territory_containment_un_m_49.html). The XML structure has the following form.
@@ -234,7 +235,7 @@ The following describes the meaning of some of these terms—as used in CLDR—i
 
 For a language such as Swiss German, which is typically not written, even though nearly the whole native Germanophone population _could_ write in Swiss German, the [literacy percent for language population](#literacy_percent_for_langPop) is high, but the [writing percent](#writing_percent) is low.
 
-<a name="official_language" href="#official_language">official language</a> — as used in CLDR, a language that can generally be used in all communications with a central government. That is, people can expect that essentially all communication from the government is available in that language (ballots, information pamphlets, legal documents, …) and that they can use that language in any communication to the central government (petitions, forms, filing lawsuits,…).
+<a name="official_language" href="#official_language">official language</a> — as used in CLDR, a language that can generally be used in all communications with a central government. That is, people can expect that essentially all communication from the government is available in that language (ballots, information pamphlets, legal documents, …) and that they can use that language in any communication to the central government (petitions, forms, filing lawsuits, …).
 
 Official languages for a country in this sense are not necessarily the same as those with official legal status in the country. For example, Irish is declared to be an official language in Ireland, but English has no such formal status in the United States. Languages such as the latter are called _de facto_ official languages. As another example, German has legal status in Italy, but cannot be used in all communications with the central government, and is thus not an official language _of Italy_ for CLDR purposes. It is, however, an _official regional language_. Other languages are declared to be official, but can’t actually be used for all communication with any major governmental entity in the country. There is no intention to mark such nominally official languages as “official” in the CLDR data.
 
@@ -251,8 +252,11 @@ The default preference for several locale items is based solely on a [unicode_re
 * Default measurement system and paper size (see [Measurement System Data](tr35-general.md#Measurement_System_Data))
 * Default units for specific usage (see [Preferred Units for Specific Usages](#Preferred_Units_For_Usage), below)
 
+The mu, ms, and rg keys also interact with the base locale and the unit preferences. For more information, see _Section 14 [Unit Preferences](#Unit_Preferences)._
+
 #### 2.4.1 <a name="Preferred_Units_For_Usage" href="#Preferred_Units_For_Usage">Preferred Units for Specific Usages</a>
 
+The determination of preferred units depends on the locale identifer: the keys mu, ms, rg, the base locale (language, script, region) and the user preferences.
 _For information about preferred units and unit conversion, see Section 13 [Unit Conversion](#Unit_Conversion) and Section 14 [Unit Preferences](#Unit_Preferences)._
 
 ### 2.5 <a name="rgScope" href="#rgScope">`<rgScope>`: Scope of the “rg” Locale Key</a>
@@ -330,7 +334,7 @@ The language groups supply language containment. For example, the following indi
 <languageGroup parent="fiu">chm et fi fit fkv hu izh kca koi krl kv liv mdf mns mrj myv smi udm vep vot vro</languageGroup>
 ```
 
-The vast majority of the languageGroup data is extracted from wikidata, but may be overridden in some cases. The wikidata information is more fine-grained, but makes use of language groups that don't have ISO or Unicode language codes. Those language groups are omitted from the data. For example, wikidata has the following child-parent chain: only the first and last elements are present in the language groups.
+The vast majority of the languageGroup data is extracted from Wikidata, but may be overridden in some cases. The Wikidata information is more fine-grained, but makes use of language groups that don't have ISO or Unicode language codes. Those language groups are omitted from the data. For example, Wikidata has the following child-parent chain: only the first and last elements are present in the language groups.
 
 | Name                      | Wikidata Code                                    | Language Code |
 | ------------------------- | ------------------------------------------------ | ------------- |
@@ -381,7 +385,7 @@ The alphabetic codes are only provided where different from the type. For exampl
 
 Where there is no corresponding code, sometimes private use codes are used, such as the numeric code for XK.
 
-The currencyCodes are mappings from three letter currency codes to numeric values (ISO 4217 [Current currency & funds code list](https://www.currency-iso.org/en/home/tables/table-a1.html).) The mapping currently covers only current codes and does not include historic currencies. For example:
+The currencyCodes are mappings from three letter currency codes to numeric values (ISO 4217 [Current currency & funds code list](https://www.currency-iso.org/en/home/tables/table-a1.html)). The mapping currently covers only current codes and does not include historic currencies. For example:
 
 ```xml
 <currencyCodes type="AED" numeric="784" />
@@ -551,7 +555,7 @@ The `match` attribute value logically has `//ldml/` prefixed before it is applie
 <!ATTLIST coverageVariable value CDATA #REQUIRED >
 ```
 
-The `coverageVariable` element allows us to create variables for certain regular expressions that are used frequently in the coverageLevel definitions above. Each coverage varible must contain a `key` / `value` pair of attributes, which can then be used to be substituted into a coverageLevel definition above.
+The `coverageVariable` element allows us to create variables for certain regular expressions that are used frequently in the coverageLevel definitions above. Each coverage variable must contain a `key` / `value` pair of attributes, which can then be used to be substituted into a coverageLevel definition above.
 
 For example, here is an example coverageLevel line using coverageVariable substitution.
 
@@ -571,24 +575,27 @@ In this example, the coverge variables %dayTypes and %wideAbbr are used to subst
 <!ATTLIST approvalRequirement paths CDATA #REQUIRED >
 ```
 
-The approvalRequirements allows to specify the number of survey tool votes required for approval, either based on locale, or path, or both. Certain locales require a higher voting threshhold (usually 8 votes instead of 4), in order to promote greater stability in the data. Furthermore, certain fields that are very high visibility fields, such as number formats, require a CLDR TC committee member's vote for approval.
+The approvalRequirements allows to specify the number of survey tool votes required for approval, either based on locale, or path, or both. Certain locales require a higher voting threshold (usually 8 votes instead of 4), in order to promote greater stability in the data. Furthermore, certain fields that are very high visibility fields, such as number formats, require a CLDR TC committee member's vote for approval.
+
+`votes=` can be a numeric value, or it can be of the form `=vetter` where `vetter` is one of the `VoteResolver.Level` enumerated values.
+It can also be `=LOWER_BAR` (8) or `=HIGH_BAR` (same as `=tc`)  referring to the `VoteResolver` constants of the same names.
 
 Here is an example of the approvalRequirements section.
 
 ```xml
 <approvalRequirements>
     <!--  "high bar" items -->
-    <approvalRequirement votes="20" locales="*" paths="//ldml/numbers/symbols[^/]++/(decimal|group)"/>
+    <approvalRequirement votes="=HIGH_BAR" locales="*" paths="//ldml/numbers/symbols[^/]++/(decimal|group)"/>
     <!--  established locales - https://cldr.unicode.org/index/process#h.rm00w9v03ia8 -->
-    <approvalRequirement votes="8" locales="ar ca cs da de el es fi fr he hi hr hu it ja ko nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant" paths=""/>
+    <approvalRequirement votes="=LOWER_BAR" locales="ar ca cs da de el es fi fr he hi hr hu it ja ko nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant" paths=""/>
     <!--  all other items -->
-    <approvalRequirement votes="4" locales="*" paths=""/>
+    <approvalRequirement votes="=vetter" locales="*" paths=""/>
 </approvalRequirements>
 ```
 
 This section specifies that a TC vote (20 votes) is required for decimal and grouping separators. Furthermore it specifies that any field in the established locales list (i.e. ar, ca, cs, etc.) requires 8 votes, and that all other locales require 4 votes only.
 
-For more information on the CLDR Voting process, See [http://cldr.unicode.org/index/process](http://cldr.unicode.org/index/process)
+For more information on the CLDR Voting process, see [http://cldr.unicode.org/index/process](http://cldr.unicode.org/index/process)
 
 ### 8.1 <a name="Coverage_Level_Definitions" href="#Coverage_Level_Definitions">Definitions</a>
 This is a snapshot of the contents of certain variables. The actual definitions in the coverageLevels.xml file may vary from these descriptions.
@@ -598,7 +605,7 @@ This is a snapshot of the contents of certain variables. The actual definitions 
 * _Language-List_ is _Target-Language_, plus
   * **moderate:** Chinese, English, French, German, Italian, Japanese, Portuguese, Russian, Spanish, Unknown; Arabic, Hindi, Korean, Indonesian, Dutch, Bengali, Turkish, Thai, Polish (de, en, es, fr, it, ja, pt, ru, zh, und, ar, hi, ko, in, nl, bn, tr, th, pl). If an EU language, add the remaining official EU languages.
   * **modern:** all languages that are official or major commercial languages of modern territories
-* _Target-Scripts_ is the list of scripts in which _Target-Language_ can be customarily written (found by looking up _Target-Language_ in the `<languageData>` elements in [Supplemental Language Data](tr35-info.md#Supplemental_Language_Data).)_,_ plus Unknown (Zzzz)_._
+* _Target-Scripts_ is the list of scripts in which _Target-Language_ can be customarily written (found by looking up _Target-Language_ in the `<languageData>` elements in [Supplemental Language Data](tr35-info.md#Supplemental_Language_Data))_,_ plus Unknown (Zzzz)_._
 * _Script-List_ is the _Target-Scripts_ plus the major scripts used for multiple languages
   * Latin, Simplified Chinese, Traditional Chinese, Cyrillic, Arabic (Latn, Hans, Hant, Cyrl, Arab)
 * _Territory-List_ is the list of territories formed by taking the _Target-Territories_ and adding:
@@ -646,7 +653,7 @@ Items should _only_ be included if they are not the same as the default, which i
   * languages: en, ja, ru, ...
   * territories: GB, JP, FR, ...
   * scripts: Latn, Thai, ...
-  * variants: PHONEBOOK,...
+  * variants: PHONEBOOK, ...
 
 ## 9 <a name="Appendix_Supplemental_Metadata" href="#Appendix_Supplemental_Metadata">Supplemental Metadata</a>
 
@@ -704,7 +711,7 @@ Attribute values for the \*Alias values include the following:
 | reason      | deprecated    | The code in type is deprecated, such as 'iw' by 'he', or 'CS' by 'RS ME'. |
 |             | overlong      | The code in type is too long, such as 'eng' by 'en' or 'USA' or '840' by 'US' |
 |             | macrolanguage | The code in type is an encompassed language that is replaced by a macrolanguage, such as '[arb'](https://iso639-3.sil.org/code/arb) by 'ar'. |
-|             | legacy        | The code in type is a legacy code that is replaced by another code for compatiblity with established legacy usage, such as 'sh' by 'sr_Latn' |
+|             | legacy        | The code in type is a legacy code that is replaced by another code for compatibility with established legacy usage, such as 'sh' by 'sr_Latn' |
 |             | bibliographic | The code in type is a [bibliographic code](https://www.loc.gov/standards/iso639-2/langhome.html), which is replaced by a terminology code, such as 'alb' by 'sq'. |
 
 ### 9.2 ~~<a name="Supplemental_Deprecated_Information" href="#Supplemental_Deprecated_Information">Supplemental Deprecated Information (Deprecated)</a>~~
@@ -769,9 +776,9 @@ The `<casingItem>` data is generated by a tool based on the data available in CL
 <!ATTLIST version unicodeVersion CDATA #FIXED "7.0.0" >
 ```
 
-The `cldrVersion` attribute defines the CLDR version for this data, as published on [CLDR Releases/Downloads](http://cldr.unicode.org/index/downloads)
+The `cldrVersion` attribute defines the CLDR version for this data, as published on [CLDR Releases/Downloads](http://cldr.unicode.org/index/downloads).
 
-The `unicodeVersion` attribute defines the version of the Unicode standard that is used to interpret data. Specifically, some data elements such as exemplar characters are expressed in terms of UnicodeSets. Since UnicodeSets can be expressed in terms of Unicode properties, their meaning depend on the Unicode version from which property values are derived.
+The `unicodeVersion` attribute defines the version of the Unicode standard that is used to interpret data. Specifically, some data elements such as exemplar characters are expressed in terms of UnicodeSets. Since UnicodeSets can be expressed in terms of Unicode properties, their meaning depends on the Unicode version from which property values are derived.
 
 ## 12 <a name="Parent_Locales" href="#Parent_Locales">Parent Locales</a>
 
@@ -811,7 +818,7 @@ The data uses a small set of constants for readability, such as:
 ```
 The order of the elements in the file is significant.
 
-Each constant can have a value based on simple expressions using numbers, previous constants, plus the operators * and /. Parentheses are not allowed. The operator * binds more tightly than /, which may be unexpected. Thus a * b / c * d is interpreted as (a * b) / (c * d). A consequent of that is that a * b / c * d = a * b / c / d. In the value, the numbers represent rational values. So 0.3048 is interpreted as exactly 3048 / 10000.
+Each constant can have a value based on simple expressions using numbers, previous constants, plus the operators * and /. Parentheses are not allowed. The operator * binds more tightly than /, which may be unexpected. Thus a * b / c * d is interpreted as (a * b) / (c * d). A consequence of that is that a * b / c * d = a * b / c / d. In the value, the numbers represent rational values. So 0.3048 is interpreted as exactly 3048 / 10000.
 
 In the above case, ft2-to-m2 is a conversion constant for going from square feet to square meters. The expression evaluates to 0.09290304. Where the constants cannot be expressed as rationals, or where their interpretation is fluid, that is marked with a status value:
 
@@ -861,7 +868,7 @@ Examples:
 
 For example, to convert from 3 carats to kilograms, the factor 0.0002 is used, resulting in 0.0006. To convert between carats and ounces, first the carets are converted to kilograms, then the kilograms to ounces (by reversing the mapping).
 
-The factor and offset use the same structure as in the value in unitConstant ; in particular, * binds more tightly than /.
+The factor and offset use the same structure as in the value in unitConstant; in particular, * binds more tightly than /.
 
 The conversion may also require an offset, such as the following:
 
@@ -962,7 +969,7 @@ These use the standard alias elements in XML, and are also included in the [unit
 
 ##### “Duplicate” Units
 
-Some CLDR units are provided simply because they have different names in some languages. For example, year and year-person, or foodcalorie and kilocalorie. One CLDR unit is not convertible (temperature-generic) it is only used for the translation (where the exact unit would be understood by context).
+Some CLDR units are provided simply because they have different names in some languages. For example, year and year-person, or foodcalorie and kilocalorie. One CLDR unit is not convertible (temperature-generic), it is only used for the translation (where the exact unit would be understood by context).
 
 ##### Discarding Offsets
 
@@ -1003,7 +1010,7 @@ The order of the elements in the file is significant, since it is used in [Unit_
 
 The quantity values themselves are informative. Therer mayreflecting that _force per area_ can be referenced as either _pressure_ or _stress_, for example). The quantity for a complex unit that has a reciprocal is formed by prepending “inverse-” to the quantity, such as _inverse-consumption._
 
-The base units for the quantities and the quantities themselves are based on [NIST special publication 811](https://www.nist.gov/pml/special-publication-811) and the earlier [NIST Special Publication 1038](https://www.govinfo.gov/content/pkg/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4/pdf/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4.pdf). In some cases, a different unit is chosen for the base. For example, a _revolution_ (360°) is chosen for the base unit for angles instead of the SI _radian_, and _item_ instead of the SI _mole_. Additional base units are added where necessary, such as _bit_ and _pixel_.
+The base units for the quantities and the quantities themselves are based on [NIST Special Publication 811](https://www.nist.gov/pml/special-publication-811) and the earlier [NIST Special Publication 1038](https://www.govinfo.gov/content/pkg/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4/pdf/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4.pdf). In some cases, a different unit is chosen for the base. For example, a _revolution_ (360°) is chosen for the base unit for angles instead of the SI _radian_, and _item_ instead of the SI _mole_. Additional base units are added where necessary, such as _bit_ and _pixel_.
 
 This data is not necessary for conversion, but is needed for [Unit_Identifier_Normalization](#Unit_Identifier_Normalization). Some of the `unitQuantity` elements are not needed to convert CLDR units, but are included for completeness. Example:
 
@@ -1028,7 +1035,7 @@ There are many possible ways to construct complex units. For comparison of unit 
 4. For each single unit, disregarding prefixes and powers, get the order of the _simple_ unit among the `unitQuantity` elements in the [units.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/units.xml). Sort the single units by that order, using a stable sort. If there are private-use single units, sort them after all the non-private use single units.
    * meter-square-kilogram => square-kilogram-meter
    * meter-square-gram ⇒ square-gram-meter
-5. As an edge case, there could be two adjacent single units with the same _simple_ unit but different prefixes, such as _meter-kilometer_. In that case, sort the larger prefixes first, such as _kilometer-meter_ or _kibibyte-kilobyte_
+5. As an edge case, there could be two adjacent single units with the same _simple_ unit but different prefixes, such as _meter-kilometer_. In that case, sort the larger prefixes first, such as _kilometer-meter_ or _kibibyte-kilobyte_.
 6. Within private-use single units, sort by the simple unit alphabetically.
 
 The examples in #4 are due to the following ordering of the `unitQuantity` elements:
@@ -1055,6 +1062,46 @@ The [unitsTest.txt](https://github.com/unicode-org/cldr/blob/main/common/testDat
 ## 14 <a name="Unit_Preferences" href="#Unit_Preferences">Unit Preferences</a>
 
 Different locales have different preferences for which unit or combination of units is used for a particular usage, such as measuring a person’s height. This is more fine-grained than merely a preference for metric versus US or UK measurement systems. For example, one locale may use meters alone, while another may use centimeters alone or a combination of meters and centimeters; a third may use inches alone, or (informally) a combination of feet and inches.
+
+### 14.2 <a name="Unit_Preferences_Data" href="#Unit_Preferences_Data">Unit Preferences Overrides</a>
+
+The determination of preferred units depends on the locale identifer: the keys mu, ms, rg, their values, the base locale (language, script, region) and the user preferences data.
+
+The strongest is the mu key, then the ms key, then the rg key. Beyond that the region of the locale identifer is used, and if not present, the likely-subtag region. For example:
+
+|   | Locale                                | Result     | Comment                                                            |
+|---|---------------------------------------|------------|--------------------------------------------------------------------|
+| 1 | en-u-rg-uszzzz-ms-ussystem-mu-celsius | Celsius    | despite the rg and ms settings for US, and the likely region of US |
+| 2 | en-u-rg-uszzzz-ms-metric              | Celsius    | despite the rg setting for US, and the likely region of US         |
+| 3 | en-u-rg-dezzzz.                      | Celsius    | despite the likely region of US                                    |
+| 4 | en                                    | Fahrenheit | because the likely region for en with no region is US              |
+
+The ms value maps to a region according to the following table. That is then the input for the Unit Preferences Data below.
+
+| Key-Value   | Region for Unit Preferences |
+|-------------|-----------------------------|
+| ms-metric   | 001                         |
+| ms-ussystem | US                          |
+| ms-uksystem | UK                          |
+
+Thus _for the purposes of unit preferences_ the following behave identically:
+
+| Locale            | Equivalents |
+|-------------------|------------|
+| en-GB-ms-ussystem | en-US, en |
+| en-US-ms-uksystem | en-GB      |
+| en-ms-uksystem    | en-GB      |
+
+APIs should clearly allow for both the use of unit preferences with the above process, and for the _invariant use_ of a unit measure.
+That is, while an application will usually want to obey the preferences for the locale or in the locale ID, there will definitely be instances where it will want to not use them. 
+For example, in showing the weather, an application may want to show:
+
+High today: 68°F (20°C)
+
+To do that, the application needs to show the first value with the locale information, and then (a) query what the alternative is, and show the temperature in that.
+As an example, ICU only uses the unit preferences (with rg, ms, and/or mu and the likely region) in formatting units when a usage parameter is set.
+
+### 14.2 <a name="Unit_Preferences_Data" href="#Unit_Preferences_Data">Unit Preferences Data</a>
 
 The CLDR data is intended to map from a particular usage — e.g. measuring the height of a person or the fuel consumption of an automobile — to the unit or combination of units typically used for that usage in a given region. Considerations for such a mapping include:
 
@@ -1131,8 +1178,8 @@ The intended usage is to take the measure to be formatted, and the desired categ
 
 * If there is no match for the category, then the data is not available.
 * Otherwise, given the category:
-  * If there is an exact match for the usage, but not for the region, try region=”001”.
-* The specification allows for [containment regions](https://unicode-org.github.io/cldr-staging/charts/38/supplemental/territory_containment_un_m_49.html) , [region subdivisions](https://unicode-org.github.io/cldr-staging/charts/38/supplemental/territory_subdivisions.html).
+  * If there is an exact match for the usage, but not for the region, try region="001".
+* The specification allows for [containment regions](https://unicode-org.github.io/cldr-staging/charts/38/supplemental/territory_containment_un_m_49.html), [region subdivisions](https://unicode-org.github.io/cldr-staging/charts/38/supplemental/territory_subdivisions.html).
 * While in version 37 only 001 is used, in the future the data may contain others.
 * The fallback is: subdivision2 ⇒ subdivision1 ⇒ region/country ⇒ subcontinent ⇒ continent ⇒ world
 * Example:
@@ -1149,8 +1196,8 @@ The intended usage is to take the measure to be formatted, and the desired categ
 * If there is an exact match for the region, but not for the usage,
   * If the usage has multiple parts (eg land-agriculture-grain) drop the last part (eg land-agriculture)
   * Repeat dropping the last part and trying the result (eg land)
-  * If you eliminate all of them, try usage=”default”.
-  * If there is no exact match for either one, try usage=”default”, region=”001”. That will always match.
+  * If you eliminate all of them, try usage="default".
+  * If there is no exact match for either one, try usage="default", region="001". That will always match.
 
 Once you have a list of `unitPreference` elements, find the applicable unitPreference. For a given category, usage, and set of regions (eg “US GB”), the units are ordered from largest to smallest.
 

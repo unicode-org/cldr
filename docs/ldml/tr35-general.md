@@ -4,7 +4,7 @@
 
 <!-- HTML: no header -->
 <table><tbody>
-<tr><td>Version</td><td>41</td></tr>
+<tr><td>Version</td><td><b>42 (draft)</b></td></tr>
 <tr><td>Editors</td><td>Yoshito Umaoka (<a href="mailto:yoshito_umaoka@us.ibm.com">yoshito_umaoka@us.ibm.com</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td></tr>
 </tbody></table>
 
@@ -40,6 +40,7 @@ The LDML specification is divided into the following parts:
 *   Part 5: [Collation](tr35-collation.md#Contents) (sorting, searching, grouping)
 *   Part 6: [Supplemental](tr35-info.md#Contents) (supplemental data)
 *   Part 7: [Keyboards](tr35-keyboards.md#Contents) (keyboard mappings)
+*   Part 8: [Person Names](tr35-personNames.md#Contents) (person names)
 
 ## <a name="Contents" href="#Contents">Contents of Part 2, General</a>
 
@@ -128,11 +129,11 @@ The LDML specification is divided into the following parts:
 <!ELEMENT localeDisplayNames ( alias | ( localeDisplayPattern?, languages?, scripts?, territories?, subdivisions?, variants?, keys?, types?, transformNames?, measurementSystemNames?, codePatterns?, special* ) )>
 ```
 
-Display names for scripts, languages, countries, currencies, and variants in this locale are supplied by this element. They supply localized names for these items for use in user-interfaces for various purposes such as displaying menu lists, displaying a language name in a dialog, and so on. Capitalization should follow the conventions used in the middle of running text; the `<contextTransforms>` element may be used to specify the appropriate capitalization for other contexts (see _Section 12 [ContextTransform Elements](#Context_Transform_Elements)_ ). Examples are given below.
+Display names for scripts, languages, countries, currencies, and variants in this locale are supplied by this element. They supply localized names for these items for use in user-interfaces for various purposes such as displaying menu lists, displaying a language name in a dialog, and so on. Capitalization should follow the conventions used in the middle of running text; the `<contextTransforms>` element may be used to specify the appropriate capitalization for other contexts (see _Section 12 [ContextTransform Elements](#Context_Transform_Elements)_). Examples are given below.
 
 > **Note:** The "en" locale may contain translated names for deprecated codes for debugging purposes. Translation of deprecated codes into other languages is discouraged.
 
-Where present, the display names must be unique; that is, two distinct code would not get the same display name. (There is one exception to this: in time zones, where parsing results would give the same GMT offset, the standard and daylight display names can be the same across different time zone IDs.)
+Where present, the display names must be unique; that is, two distinct codes would not get the same display name. (There is one exception to this: in time zones, where parsing results would give the same GMT offset, the standard and daylight display names can be the same across different time zone IDs.)
 
 Any translations should follow customary practice for the locale in question. For more information, see [[Data Formats](tr35.md#DataFormats)].
 
@@ -159,11 +160,11 @@ For example, for the locale identifier zh_Hant_CN_co_pinyin_cu_USD, the display 
 
 ### 1.1 <a name="locale_display_name_algorithm" href="#locale_display_name_algorithm">Locale Display Name Algorithm</a>
 
-A locale display name LDN is generated for a locale identifer L in the following way. First, convert the locale identifier to *canonical syntax* per **[Part 1, Section 3.2.1 Canonical Unicode Locale Identifiers](tr35.md#Canonical_Unicode_Locale_Identifiers)**. That will put the subtags in a defined order, and replace aliases by their canonical counterparts. (That defined order is followed in the processing below.)
+A locale display name LDN is generated for a locale identifier L in the following way. First, convert the locale identifier to *canonical syntax* per **[Part 1, Section 3.2.1 Canonical Unicode Locale Identifiers](tr35.md#Canonical_Unicode_Locale_Identifiers)**. That will put the subtags in a defined order, and replace aliases by their canonical counterparts. (That defined order is followed in the processing below.)
 
 Then follow each of the following steps for the subtags in L, building a base name LDN and a list of qualifying strings LQS.
 
-Where there is a match for a subtag, disregard that subtag from L and add the element value to LDN or LQS as described bbelow. If there is no match for a subtag, use the fallback pattern with the subtag subtag instead.
+Where there is a match for a subtag, disregard that subtag from L and add the element value to LDN or LQS as described below. If there is no match for a subtag, use the fallback pattern with the subtag instead.
 
 Once LDN and LQS are built, return the following based on the length of LQS.
 
@@ -180,7 +181,7 @@ The processing can be controlled via the following parameters.
     *   Example: the `CombineLanguage = true`, picking the bold value below.
     *   `<language type="nl">Dutch</language>`
     *   **`<language type="nl_BE">Flemish</language>`**
-*   `PreferAlt`: map from element to preferrred alt value, picking the bold value below.
+*   `PreferAlt`: map from element to preferred alt value, picking the bold value below.
     *   Example: the `PreferAlt` contains `{"language"="short"}`:
     *   `<language type="az">Azerbaijani</language>`
     *   **`<language type="az" alt="short">Azeri</language>`**
@@ -191,14 +192,14 @@ In addition, the input locale display name could be minimized (see [Part 1: Sect
 
 **Processing types of locale identifier subtags**
 
-When the display name contains "(" or ")" characters (or full-width equivalents), replace them "\[", "\]" (or full-width equivalents) before adding.
+When the display name contains "(" or ")" characters (or full-width equivalents), replace them by "\[", "\]" (or full-width equivalents) before adding.
 
 1.  **Language.** Match the L subtags against the type values in the `<language>` elements. Pick the element with the most subtags matching. If there is more than one such element, pick the one that has subtypes matching earlier. If there are two such elements, pick the one that is alphabetically less. If there is no match, then further convert L to *canonical form* per **[Part 1, Section 3.2.1 Canonical Unicode Locale Identifiers](tr35.md#Canonical_Unicode_Locale_Identifiers)** and try the preceding steps again. Set LBN to the selected value. Disregard any of the matching subtags in the following processing.
     *   If CombineLanguage is false, only choose matches with the language subtag matching.
 2.  **Script, Region, Variants.** Where any of these subtags are in L, append the matching element value to LQS.
 3.  **T extensions.** Get the value of the `key="h0" type="hybrid"` element, if there is one; otherwise the value of the `<key type="t">` element. Next get the locale display name of the tlang. Join the pair using `<localePattern>` and append to the LQS. Then format and add display names to LQS for any of the remaining tkey-tvalue pairs as described below.
 4.  **U extensions.** If there is an attribute value A, process the key-value pair <"u", A> as below and append to LQS. Then format and add display names for each of the remaining key-type pairs as described below.
-5.  **Other extensions.** There are currently no such extensions defined. Until such time as there are formats defined for them, append each of the extensions’s subtags to LQS.
+5.  **Other extensions.** There are currently no such extensions defined. Until such time as there are formats defined for them, append each of the extensions’ subtags to LQS.
 6.  **Private Use extensions.** Get the value
 
 **Formatting T/U Key-Value pairs as display names**
@@ -273,7 +274,7 @@ Alternate short forms may be provided for some languages (and for territories an
 <scripts>
 ```
 
-This element can contain an number of `script` elements. Each `script` element provides the localized name for a script code, as described in _[Section 3, Unicode Language and Locale Identifiers](tr35.md#Unicode_Language_and_Locale_Identifiers)_ (see also _UAX #24: Script Names_ [[UAX24](https://www.unicode.org/reports/tr41/#UAX24)]). For example, in the language of this locale, the name for the Latin script might be "Romana", and for the Cyrillic script is "Kyrillica". That would be expressed with the following.
+This element can contain a number of `script` elements. Each `script` element provides the localized name for a script code, as described in _[Section 3, Unicode Language and Locale Identifiers](tr35.md#Unicode_Language_and_Locale_Identifiers)_ (see also _UAX #24: Script Names_ [[UAX24](https://www.unicode.org/reports/tr41/#UAX24)]). For example, in the language of this locale, the name for the Latin script might be "Romana", and for the Cyrillic script is "Kyrillica". That would be expressed with the following.
 
 ```xml
 <script type="Latn">Romana</script>
@@ -326,7 +327,7 @@ Notes:
 <variants>
 ```
 
-This contains a list of elements that provide the user-translated names for the _variant_code_ values described in _[Section 3, Unicode Language and Locale Identifiers](tr35.md#Unicode_Language_and_Locale_Identifiers)_ .
+This contains a list of elements that provide the user-translated names for the _variant_code_ values described in _[Section 3, Unicode Language and Locale Identifiers](tr35.md#Unicode_Language_and_Locale_Identifiers)_.
 
 ```xml
 <variant type="nynorsk">Nynorsk</variant>
@@ -356,7 +357,7 @@ Note that the `type` values may use aliases. Thus if the locale u-extension key 
 <types>
 ```
 
-This contains a list of elements that provide the user-translated names for the _type_ values described in _[Section 3, Unicode Language and Locale Identifiers](tr35.md#Unicode_Language_and_Locale_Identifiers)_ . Since the translation of an option name may depend on the _key_ it is used with, the latter is optionally supplied.
+This contains a list of elements that provide the user-translated names for the _type_ values described in _[Section 3, Unicode Language and Locale Identifiers](tr35.md#Unicode_Language_and_Locale_Identifiers)_. Since the translation of an option name may depend on the _key_ it is used with, the latter is optionally supplied.
 
 ```xml
 <type type="phonebook" key="collation">Telefonbuch</type>
@@ -411,7 +412,7 @@ This contains a list of elements that provide the user-translated names for syst
 <!ELEMENT subdivision ( #PCDATA )>
 ```
 
-Note that the subdivision names are in separate files, in the subdivisions/ directory. The type values are the fully qualified subdivsion names. For example:
+Note that the subdivision names are in separate files, in the subdivisions/ directory. The type values are the fully qualified subdivision names. For example:
 
 ```xml
 <subdivision type="AL-04">Fier County</subdivision>
@@ -535,7 +536,7 @@ The _punctuation_ set consists of common punctuation characters that are used wi
 > © ® ™ @ & ° ‧ ·/ # % ¶ § * † ‡
 > + − ± × ÷ < ≤ = ≅ ≥ > √
 
-The numbers exemplars does not currently include lesser-used characters: exponential notation (3.1 × 10²³, ∞, NAN). Nor does it contain the units or currency symbols such as $, ¥, ₹,… It does contain %, because that occurs in the percent format. It may contain some special formatting characters like the RLM. A full list of the currency symbols used with that locale are in the `<currencies>` element, while the units can be gotten from the `<units>` element (both using inheritance, of course).The digits used in each numbering system are accessed in numberingSystems.xml. For more information, see _**Part 3: [Numbers](tr35-numbers.md#Contents)** , Section 2 [Number Elements](tr35-numbers.md#Number_Elements)_.
+The numbers exemplars do not currently include lesser-used characters: exponential notation (3.1 × 10²³, ∞, NaN). Nor does it contain the units or currency symbols such as $, ¥, ₹, … It does contain %, because that occurs in the percent format. It may contain some special formatting characters like the RLM. A full list of the currency symbols used with that locale are in the `<currencies>` element, while the units can be gotten from the `<units>` element (both using inheritance, of course).The digits used in each numbering system are accessed in numberingSystems.xml. For more information, see _**Part 3: [Numbers](tr35-numbers.md#Contents)**, Section 2 [Number Elements](tr35-numbers.md#Number_Elements)_.
 
 _Examples for zh.xml:_
 
@@ -578,7 +579,7 @@ The ordering of the characters in the set is irrelevant, but for readability in 
 
 1.  The main, auxiliary and index sets are normally restricted to those letters with a specific [Script](https://unicode.org/Public/UNIDATA/Scripts.txt) character property (that is, not the values Common or Inherited) or required [Default_Ignorable_Code_Point](https://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt) characters (such as a non-joiner), or combining marks, or the [Word_Break](https://www.unicode.org/Public/UNIDATA/auxiliary/WordBreakProperty.txt) properties [Katakana](https://www.unicode.org/reports/tr29/#Katakana), [ALetter](https://www.unicode.org/reports/tr29/#ALetter), or [MidLetter](https://www.unicode.org/reports/tr29/#MidLetter).
 2.  The auxiliary set should not overlap with the main set. There is one exception to this: Hangul Syllables and CJK Ideographs can overlap between the sets.
-3.  Any [Default_Ignorable_Code_Point](https://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt)s should be in the auxiliary set , or, if they are only needed for currency formatting, in the currency set. These can include characters such as U+200E LEFT-TO-RIGHT MARK and U+200F RIGHT-TO-LEFT MARK which may be needed in bidirectional text in order for date, currency or other formats to display correctly.
+3.  Any [Default_Ignorable_Code_Point](https://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt)s should be in the auxiliary set, or, if they are only needed for currency formatting, in the currency set. These can include characters such as U+200E LEFT-TO-RIGHT MARK and U+200F RIGHT-TO-LEFT MARK which may be needed in bidirectional text in order for date, currency or other formats to display correctly.
 4.  For exemplar characters the [Unicode Set](tr35.md#Unicode_Sets) format is restricted so as to not use properties or boolean combinations.
 
 ### 3.2 ~~<a name="Character_Mapping" href="#Character_Mapping">Mapping</a>~~
@@ -608,7 +609,7 @@ The `ellipsis` element provides patterns for use when truncating strings. There 
 <ellipsis type="final">{0}…</ellipsis>
 ```
 
-There are alternatives for cases where the breaks are on a word boundary, where some languages include a space. For example, such as case would be:
+There are alternatives for cases where the breaks are on a word boundary, where some languages include a space. For example, such a case would be:
 
 ```xml
 <ellipsis type="word-initial">… {0}</ellipsis>
@@ -993,7 +994,7 @@ The formal syntax for identifiers is provided below.
 <tr><td>currency_unit</td><td>:=</td>
     <td>"curr-" [a-z]{3}
         <ul><li><em>Constraints:</em>
-            <ul><li>The first part of the currency_unit is a standard prefix; the second part of the currency unit must be a valid [Unicode currency identifier](tr35.md#UnicodeCurrencyIdentifier). Note: CLDR does not provide conversions for currencies; this is only intended for formatting.</li>
+            <ul><li>The first part of the currency_unit is a standard prefix; the second part of the currency unit must be a valid <a href="tr35.md#UnicodeCurrencyIdentifier">Unicode currency identifier</a>. Note: CLDR does not provide conversions for currencies; this is only intended for formatting.</li>
             </ul></li>
             <li><em>Examples:</em> curr-eur-per-square-meter, or pound-per-curr-usd</li>
         </ul></td></tr>
@@ -1130,7 +1131,7 @@ There are three widths: **long**, **short**, and **narrow**. As usual, the narro
 
 Where the unit of measurement is one of the [International System of Units (SI)](https://physics.nist.gov/cuu/Units/units.html), the short and narrow forms will typically use the international symbols, such as “mm” for millimeter. They may, however, be different if that is customary for the language or locale. For example, in Russian it may be more typical to see the Cyrillic characters “мм”.
 
-Units are included for translation even where they are not typically used in a particular locale, such as kilometers in the US, or inches in Germany. This is to account for use by travelers and specialized domains, such as the German “̌Fernseher von 32 bis 55 Zoll (80 bis 140 cm)” for TV screen size in inches and centimeters.
+Units are included for translation even where they are not typically used in a particular locale, such as kilometers in the US, or inches in Germany. This is to account for use by travelers and specialized domains, such as the German “Fernseher von 32 bis 55 Zoll (80 bis 140 cm)” for TV screen size in inches and centimeters.
 
 For temperature, there is a special unit `<unit type="temperature-generic">`, which is used when it is clear from context whether Celcius or Fahrenheit is implied.
 
@@ -1171,7 +1172,7 @@ There are different types of structure used to build the localized name of compo
 
 There can be at most one "per" pattern used in producing a compound unit, while the "times" pattern can be used multiple times.
 
-`compoundUnitPattern1`s are used for expressing powers, such as square meter or cubic foot. These are the most complicated, since they can vary by plural category (count), by case, and by gender. However, these extra attributes are only used if the are present in the `grammaticalFeatures` element for the language in question. See [Section 15, Grammatical Features](#Grammatical_Features). Note that the additional grammar elements are only present in the `<unitLength type='long'>` form.
+`compoundUnitPattern1`s are used for expressing powers, such as square meter or cubic foot. These are the most complicated, since they can vary by plural category (count), by case, and by gender. However, these extra attributes are only used if they are present in the `grammaticalFeatures` element for the language in question. See [Section 15, Grammatical Features](#Grammatical_Features). Note that the additional grammar elements are only present in the `<unitLength type='long'>` form.
 
 ```xml
 <compoundUnit type="power2">
@@ -1323,7 +1324,7 @@ The durationUnit is a special type of unit used for composed time unit durations
 </durationUnit>
 ```
 
-The type contains a skeleton, where 'h' stands for hours, 'm' for minutes, and 's' for sections. These are the same symbols used in availableFormats, except that there is no need to distinguish different forms of the hour.
+The type contains a skeleton, where 'h' stands for hours, 'm' for minutes, and 's' for seconds. These are the same symbols used in availableFormats, except that there is no need to distinguish different forms of the hour.
 
 ### 6.7 <a name="coordinateUnit" href="#coordinateUnit">coordinateUnit</a>
 
@@ -1341,7 +1342,7 @@ The **coordinateUnitPattern** is a special type of pattern used for composing de
 
 Different locales have different preferences for which unit or combination of units is used for a particular usage, such as measuring a person’s height. This is more fine-grained than merely a preference for metric versus US or UK measurement systems. For example, one locale may use meters alone, while another may use centimeters alone or a combination of meters and centimeters; a third may use inches alone, or (informally) a combination of feet and inches.
 
-The `<unitPreferenceData>` element, described in [Preferred Units for Specific Usages](tr35-info.md#Preferred_Units_For_Usage), provides information on which unit or combination of units is used for various purposes in different locales, with options for the level of formality and the scale of the measurement (e.g measuring the height of an adult versus that of an infant).
+The `<unitPreferenceData>` element, described in [Preferred Units for Specific Usages](tr35-info.md#Preferred_Units_For_Usage), provides information on which unit or combination of units is used for various purposes in different locales, with options for the level of formality and the scale of the measurement (e.g. measuring the height of an adult versus that of an infant).
 
 ### 6.9 <a name="Private_Use_Units" href="#Private_Use_Units">Private-Use Units</a>
 
@@ -1370,7 +1371,7 @@ The following are included for compatibility with POSIX.
         <posix:yesstr>ja</posix:yesstr>
         <posix:nostr>nein</posix:nostr>
     </posix:messages>
-<posix>
+</posix>
 ```
 
 1. The values for yesstr and nostr contain a colon-separated list of strings that would normally be recognized as "yes" and "no" responses. For cased languages, this shall include only the lower case version. POSIX locale generation tools must generate the upper case equivalents, and the abbreviated versions, and add the English words wherever they do not conflict. Examples:
@@ -1411,7 +1412,7 @@ This would match n,N,no,nO,No,NO.
 <!ATTLIST reference uri CDATA #IMPLIED >
 ```
 
-The references section supplies a central location for specifying references and standards. The uri should be supplied if at all possible. If not online, then a ISBN number should be supplied, such as in the following example:
+The references section supplies a central location for specifying references and standards. The uri should be supplied if at all possible. If not online, then an ISBN number should be supplied, such as in the following example:
 
 ```xml
 <reference type="R2" uri="https://www.ur.se/nyhetsjournalistik/3lan.html">Landskoder på Internet</reference>
@@ -1480,7 +1481,7 @@ Here is an example:
 
 **Variables:** All variable ids must start with a $, and otherwise be valid identifiers according to the Unicode definitions in [[UAX31](https://www.unicode.org/reports/tr41/#UAX31)]. The contents of a variable is a regular expression using variables and [UnicodeSet](tr35.md#Unicode_Sets)s. The ordering of variables is important; they are evaluated in order from first to last (see _[Section 9.1 Segmentation Inheritance](#Segmentation_Inheritance)_). It is an error to use a variable before it is defined.
 
-**Rules:** The contents of a rule uses the syntax of [[UAX29](https://www.unicode.org/reports/tr41/#UAX29)]. The rules are evaluated in numeric id order (which may not be the order in which the appear in the file). The first rule that matches determines the status of a boundary position, that is, whether it breaks or not. Thus ÷ means a break is allowed; × means a break is forbidden. It is an error if the rule does not contain exactly one of these characters (except where a rule has no contents at all, or if the rule uses a variable that has not been defined.
+**Rules:** The contents of a rule uses the syntax of [[UAX29](https://www.unicode.org/reports/tr41/#UAX29)]. The rules are evaluated in numeric id order (which may not be the order in which they appear in the file). The first rule that matches determines the status of a boundary position, that is, whether it breaks or not. Thus ÷ means a break is allowed; × means a break is forbidden. It is an error if the rule does not contain exactly one of these characters (except where a rule has no contents at all, or if the rule uses a variable that has not been defined.
 
 There are some implicit rules:
 
@@ -1922,7 +1923,7 @@ $space {$space} → ; # collapse multiple spaces
 
 There is an online demo where the rules can be tested, at:
 
-[http://unicode.org/cldr/utility/transform.jsp](https://util.unicode.org/UnicodeJsps/transform.jsp)
+<https://util.unicode.org/UnicodeJsps/transform.jsp>
 
 #### 10.3.5 <a name="Rule_Syntax" href="#Rule_Syntax">Rule Syntax</a>
 
@@ -2099,7 +2100,7 @@ sch → sh ;
 ss → z ;
 ```
 
-Apply this rule to “bassch” results in “bazch” because “ss” matches earlier in the string than “sch”. If you really wanted “bassh”—that is, if you wanted the first rule to win even when the second rule matches earlier in the string, you'd either have to add another rule for this special case...
+Applying this rule to “bassch” results in “bazch” because “ss” matches earlier in the string than “sch”. If you really wanted “bassh”—that is, if you wanted the first rule to win even when the second rule matches earlier in the string, you'd either have to add another rule for this special case...
 
 ```
 sch → sh ;
@@ -2232,13 +2233,13 @@ More sophisticated implementations can customize the process to improve the resu
             </li>
             <li>The value substituted for {1} starts with ‘hi’, but not with ‘hie’ or ‘hia’
                 <ol><li><i>tos <b>e</b> hipo,</i> not <i>tos <b>y</b> hipo</i></li>
-                    <li><i>gua <b>y</b> hielo,</i> not <i>agua <b>e</b> hielo</i></li></ol>
+                    <li><i>agua <b>y</b> hielo,</i> not <i>agua <b>e</b> hielo</i></li></ol>
             </li></ol></td></tr>
 
 <tr><td>OR</td>
     <td>Use ‘u’ instead of ‘o’ in the listPatternPart for "end" and "2" in any of the following cases:
         <ol><li>The value substituted for {1} starts with ‘o’ or ‘ho’
-                <ol><li><i>delfines <b>u</b> orcas,</i> not <i>deflines <b>o</b> orcas</i></li>
+                <ol><li><i>delfines <b>u</b> orcas,</i> not <i>delfines <b>o</b> orcas</i></li>
                     <li><i>mañana <b>u</b> hoy,</i> not <i>mañana <b>o</b> hoy</i></li></ol>
             </li>
             <li>The value substituted for {1} starts with ‘8’
@@ -2256,7 +2257,7 @@ More sophisticated implementations can customize the process to improve the resu
     <td>Use ‘-ו’ instead of ‘ו’ in the listPatternPart for "end" and "2" in the following case:
         <ol><li>if the value substituted for {1} starts with something other than a Hebrew letter, such as a digit (0-9) or a Latin-script letter
             <ol><li><i>one hour and two minutes =‎ ‏"שעה ושתי דקות"‏</i></li>
-                <li><i>one hour and 9 minutes =‎ ‏"שעה ו-9 דקות”‏</i></li></ol>
+                <li><i>one hour and 9 minutes =‎ ‏"שעה ו-9 דקות"‏</i></li></ol>
             </li></ol></td></tr>
 
 <tr><td colspan="2">See <a href="https://hebrew-academy.org.il/topic/hahlatot/punctuation/#target-3475">https://hebrew-academy.org.il/topic/hahlatot/punctuation/#target-3475</a></td></tr>
@@ -2453,7 +2454,7 @@ The `cp` attribute value has two formats: either a single string, or if containe
 <annotation cp='[☝✊-✍👆-👐👫-👭💁🖐🖕🖖🙅🙆🙋🙌🙏🤘]'>hand</annotation>
 ```
 
-Both for short names and keywords, values do not have to match between different languages. They should be the most common values that people using _that_ language would associated with those characters. For example, a "black heart" might have the association of "wicked" in English, but not in some other languages.
+Both for short names and keywords, values do not have to match between different languages. They should be the most common values that people using _that_ language would associate with those characters. For example, a "black heart" might have the association of "wicked" in English, but not in some other languages.
 
 The cp value may contain sequences, but does not contain any Emoji or Text Variant (VS15 & VS16) characters. All such characters should be removed before looking up any short names and keywords.
 
@@ -2540,7 +2541,7 @@ The following are special patterns used in composing labels.
 
 ###### Table: characterLabelPattern
 
-| Type          | English             | Description of the group specified. |
+| Type          | English             | Description of the group specified |
 | ------------- | ------------------- | ----------------------------------- |
 | all           | {0} — all           | Used where the title {0} is just a subset. For example, {0} might be "Latin", and contain the most common Latin characters. Then "Latin — all" would be all of them. |
 | category-list | {0}: {1}            | Use for a name, where {0} is the main item like "Family", and {1} is a list of one or more components or subcategories. The list is formatted using a list pattern. |
@@ -2559,12 +2560,12 @@ The following are character labels. Where the meaning of the label is fairly cle
 
 ###### Table: characterLabel
 
-| Type                        | English                 | Description of the group specified. |
+| Type                        | English                 | Description of the group specified |
 | --------------------------- | ----------------------- | ----------------------------------- |
 | activities                  | activity                | Human activities, such as running. |
 | african_scripts             | African script          | Scripts associated with the continent of Africa. |
 | american_scripts            | American script         | Scripts associated with the continents of North and South America. |
-| animals_nature              | animal or nature        | A broad category uses for |
+| animals_nature              | animal or nature        | A broad category. |
 | arrows                      | arrow                   | Arrow symbols |
 | body                        | body                    | Symbols for body parts, such as an arm. |
 | box_drawing                 | box drawing             | Unicode box-drawing characters (geometric shapes) |
@@ -2614,7 +2615,7 @@ The following are character labels. Where the meaning of the label is fairly cle
 
 The typographic names provide for names of font features for use in a UI. This is useful for apps that show the name of font styles and design axes according to the user’s languages. It would also be useful for system-level libraries.
 
-The identifers (types) use the tags from the OpenType Feature Tag Registry. Given their large number, only the names of frequently-used OpenType feature names are available CLDR. (Many features are not user-visible settings, but instead serve as a data channel for sofware to pass information to the font). The example below shows an approach for using the CLDR data. Of course, applications are free to implement their own algorithms depending on their specific needs.
+The identifiers (types) use the tags from the OpenType Feature Tag Registry. Given their large number, only the names of frequently-used OpenType feature names are available in CLDR. (Many features are not user-visible settings, but instead serve as a data channel for software to pass information to the font.) The example below shows an approach for using the CLDR data. Of course, applications are free to implement their own algorithms depending on their specific needs.
 
 To find a localized subfamily name such as “Extraleicht Schmal” for a font called “Extralight Condensed”, a system or application library might do the following:
 
@@ -2626,13 +2627,13 @@ To find a localized subfamily name such as “Extraleicht Schmal” for a font c
 
 4. If the font’s ‘name’ table contains a font subfamilyname (‘name’ID2) in this language and all font variation axes are set to their defaults, return this name.
 
-5. If the font has a style attributes (STAT) table, lookup the design axis tags and their ordering. If the font has no STAT table, assume \[Width, Weight, Slant\] as axis ordering, and infer the font’s style atributes from other available data in the font (eg. the OS/2 table).
+5. If the font has a style attributes (STAT) table, look up the design axis tags and their ordering. If the font has no STAT table, assume \[Width, Weight, Slant\] as axis ordering, and infer the font’s style attributes from other available data in the font (eg. the OS/2 table).
 
 6. For each design axis, find a localized style name for its value.
-   1. If the font’s style attributes point to a ‘name’ table entry that is available the result language, use this name.
+   1. If the font’s style attributes point to a ‘name’ table entry that is available in the result language, use this name.
    2. Otherwise, generate a fallback name from CLDR style Name data.
-      1. The type key is the OpenType axis tag ( ‘wght’). The subtype and alt keys are taken from the entry in English CLDR where the string is equal to the English name in the font. For example, when the font uses a weight whose English style name is “Extralight”, this will lead to subtype = “200” and alt = “variant”. If there is no match, take the axis value (“200”) for subtype and the empty string for alt.
-      2. Look up (type, subtype) in a data table derived from CLDR’s style names. If CLDR supplies multiple alternate names for this (type, subtype), use the one whose “alt” key is matching; otherwise, use the default alternate (which has no “alt” atribute in CLDR).
+      1. The type key is the OpenType axis tag (‘wght’). The subtype and alt keys are taken from the entry in English CLDR where the string is equal to the English name in the font. For example, when the font uses a weight whose English style name is “Extralight”, this will lead to subtype = “200” and alt = “variant”. If there is no match, take the axis value (“200”) for subtype and the empty string for alt.
+      2. Look up (type, subtype) in a data table derived from CLDR’s style names. If CLDR supplies multiple alternate names for this (type, subtype), use the one whose “alt” key is matching; otherwise, use the default alternate (which has no “alt” attribute in CLDR).
 7. Concatenate the strings, with a separator between them.
 
 ## 15 <a name="Grammatical_Features" href="#Grammatical_Features">Grammatical Features</a>
@@ -2718,21 +2719,21 @@ Feature that encodes the syntactic (and sometimes semantic) relationship of a no
 
 | Value              | Definition | References |
 | ------------------ | ---------- | ---------- |
-| abessive          | The abessive case expresses the absence of the referent it marks. It has the meaning of 'without'. | [purl.org/olia/olia.owl#AbessiveCase](http://acoli.cs.uni-frankfurt.de/resources/olia/olia.owl#AbessiveCase) [linguistics-ontology.org/gold/2010/AbessiveCase](http://linguistics-ontology.org/gold/2010/AbessiveCase)|
+| abessive          | The abessive case expresses the absence of the referent it marks. It has the meaning of 'without'. | [purl.org/olia/olia.owl#AbessiveCase](https://purl.org/olia/olia.owl#AbessiveCase) [linguistics-ontology.org/gold/2010/AbessiveCase](http://linguistics-ontology.org/gold/2010/AbessiveCase)|
 | ablative           | The ablative case expresses that the referent of the noun it marks is the location from which another referent is moving. It has the meaning 'from'. | [purl.org/olia/olia.owl#AblativeCase](https://purl.org/olia/olia.owl#AblativeCase), [linguistics-ontology.org/gold/2010/AblativeCase](http://linguistics-ontology.org/gold/2010/AblativeCase) |
 | accusative         | Accusative case marks certain syntactic functions, usually direct objects. | [purl.org/olia/olia.owl#Accusative](https://purl.org/olia/olia.owl#Accusative), [linguistics-ontology.org/gold/2010/AccusativeCase](http://linguistics-ontology.org/gold/2010/AccusativeCase) |
-| adessive  | The adessive case expresses that the referent of the noun it marks is the location near/at which another referent exists. It has the meaning of 'at' or 'near'. | [purl.org/olia/olia.owl#AdessiveCase](http://acoli.cs.uni-frankfurt.de/resources/olia/olia.owl#AdessiveCase), [linguistics-ontology.org/gold/2010/AdessiveCase](http://linguistics-ontology.org/gold/2010/AdessiveCase) |
-| allative | The allative case expresses motion to or toward the referent of the noun it marks. | [purl.org/olia/olia.owl#AllativeCase](http://acoli.cs.uni-frankfurt.de/resources/olia/olia.owl#AllativeCase), [linguistics-ontology.org/gold/2010/AllativeCase](http://linguistics-ontology.org/gold/2010/AllativeCase) |
+| adessive  | The adessive case expresses that the referent of the noun it marks is the location near/at which another referent exists. It has the meaning of 'at' or 'near'. | [purl.org/olia/olia.owl#AdessiveCase](https://purl.org/olia/olia.owl#AdessiveCase), [linguistics-ontology.org/gold/2010/AdessiveCase](http://linguistics-ontology.org/gold/2010/AdessiveCase) |
+| allative | The allative case expresses motion to or toward the referent of the noun it marks. | [purl.org/olia/olia.owl#AllativeCase](https://purl.org/olia/olia.owl#AllativeCase), [linguistics-ontology.org/gold/2010/AllativeCase](http://linguistics-ontology.org/gold/2010/AllativeCase) |
 | causal | The causal (causal-final, not causative) case expresses that the marked noun is the objective or reason for something. It carries the meaning of 'for the purpose of'. | http://en.wikipedia.org/wiki/Causative#Causal-final_case, http://www.hungarianreference.com/Nouns/%C3%A9rt-causal-final.aspx |
 | comitative         | Comitative Case expresses accompaniment. It carries the meaning 'with' or 'accompanied by' . | [purl.org/olia/olia.owl#ComitativeCase](https://purl.org/olia/olia.owl#ComitativeCase), [linguistics-ontology.org/gold/2010/ComitativeCase](http://linguistics-ontology.org/gold/2010/ComitativeCase) |
 | dative             | Dative case marks indirect objects (for languages in which they are held to exist), or nouns having the role of a recipient (as of things given), a beneficiary of an action, or a possessor of an item. | [purl.org/olia/olia.owl#DativeCase](https://purl.org/olia/olia.owl#DativeCase), [linguistics-ontology.org/gold/2010/DativeCase](http://linguistics-ontology.org/gold/2010/DativeCase) |
-| delative | The delative case expresses motion downward from the referent of the noun it marks. | [purl.org/olia/olia.owl#DelativeCase](http://acoli.cs.uni-frankfurt.de/resources/olia/olia.owl#DelativeCase), [linguistics-ontology.org/gold/2010/DelativeCase](http://linguistics-ontology.org/gold/2010/DelativeCase) |
-| elative | The elative case expresses that the referent of the noun it marks is the location out of which another referent is moving. It has the meaning 'out of'. | [purl.org/olia/olia.owl#ElativeCase](http://acoli.cs.uni-frankfurt.de/resources/olia/olia.owl#ElativeCase), [linguistics-ontology.org/gold/2010/ElativeCase](http://linguistics-ontology.org/gold/2010/ElativeCase) |
+| delative | The delative case expresses motion downward from the referent of the noun it marks. | [purl.org/olia/olia.owl#DelativeCase](https://purl.org/olia/olia.owl#DelativeCase), [linguistics-ontology.org/gold/2010/DelativeCase](http://linguistics-ontology.org/gold/2010/DelativeCase) |
+| elative | The elative case expresses that the referent of the noun it marks is the location out of which another referent is moving. It has the meaning 'out of'. | [purl.org/olia/olia.owl#ElativeCase](https://purl.org/olia/olia.owl#ElativeCase), [linguistics-ontology.org/gold/2010/ElativeCase](http://linguistics-ontology.org/gold/2010/ElativeCase) |
 | ergative           | In ergative-absolutive languages, the ergative case identifies the subject of a transitive verb. | [purl.org/olia/olia.owl#ErgativeCase](https://purl.org/olia/olia.owl#ErgativeCase), [linguistics-ontology.org/gold/2010/ErgativeCase](http://linguistics-ontology.org/gold/2010/ErgativeCase) |
-| essive | The essive case expresses that the referent of the noun it marks is the location at which another referent exists. | [purl.org/olia/olia.owl#EssiveCase](http://acoli.cs.uni-frankfurt.de/resources/olia/olia.owl#EssiveCase), [linguistics-ontology.org/gold/2010/EssiveCase](http://linguistics-ontology.org/gold/2010/EssiveCase) |
+| essive | The essive case expresses that the referent of the noun it marks is the location at which another referent exists. | [purl.org/olia/olia.owl#EssiveCase](https://purl.org/olia/olia.owl#EssiveCase), [linguistics-ontology.org/gold/2010/EssiveCase](http://linguistics-ontology.org/gold/2010/EssiveCase) |
 | genitive           | Genitive case signals that the referent of the marked noun is the possessor of the referent of another noun, e.g. "the man's foot". In some languages, genitive case may express an associative relation between the marked noun and another noun. | [purl.org/olia/olia.owl#GenitiveCase](https://purl.org/olia/olia.owl#GenitiveCase), [linguistics-ontology.org/gold/2010/GenitiveCase](http://linguistics-ontology.org/gold/2010/GenitiveCase) |
-| illative | The illative case expresses that the referent of the noun it marks is the location into which another referent is moving. It has the meaning 'into'. | [purl.org/olia/olia.owl#IllativeCase](http://acoli.cs.uni-frankfurt.de/resources/olia/olia.owl#IllativeCase), [linguistics-ontology.org/gold/2010/IllativeCase](http://linguistics-ontology.org/gold/2010/IllativeCase) |
-| inessive  | The inessive case expresses that the referent of the noun it marks is the location within which another referent exists. It has the meaning of 'within' or 'inside'.  | [purl.org/olia/olia.owl#InessiveCase](http://acoli.cs.uni-frankfurt.de/resources/olia/olia.owl#InessiveCase), [linguistics-ontology.org/gold/2010/InessiveCase](http://linguistics-ontology.org/gold/2010/InessiveCase) |
+| illative | The illative case expresses that the referent of the noun it marks is the location into which another referent is moving. It has the meaning 'into'. | [purl.org/olia/olia.owl#IllativeCase](https://purl.org/olia/olia.owl#IllativeCase), [linguistics-ontology.org/gold/2010/IllativeCase](http://linguistics-ontology.org/gold/2010/IllativeCase) |
+| inessive  | The inessive case expresses that the referent of the noun it marks is the location within which another referent exists. It has the meaning of 'within' or 'inside'.  | [purl.org/olia/olia.owl#InessiveCase](https://purl.org/olia/olia.owl#InessiveCase), [linguistics-ontology.org/gold/2010/InessiveCase](http://linguistics-ontology.org/gold/2010/InessiveCase) |
 | instrumental       | The instrumental case indicates that the referent of the noun it marks is the means of the accomplishment of the action expressed by the clause. | [purl.org/olia/olia.owl#InstrumentalCase](https://purl.org/olia/olia.owl#InstrumentalCase), [linguistics-ontology.org/gold/2010/InstrumentalCase](http://linguistics-ontology.org/gold/2010/InstrumentalCase) |
 | locative           | Case that indicates a final location of action or a time of the action. | [purl.org/olia/olia.owl#LocativeCase](https://purl.org/olia/olia.owl#LocativeCase), [linguistics-ontology.org/gold/2010/LocativeCase](http://linguistics-ontology.org/gold/2010/LocativeCase) |
 | locativecopulative | Copulative Case marker that indicates a location. | TBD Add reference, example |
@@ -2741,15 +2742,15 @@ Feature that encodes the syntactic (and sometimes semantic) relationship of a no
 | partitive          | The partitive case is a grammatical case which denotes 'partialness', 'without result', or 'without specific identity'. | [purl.org/olia/olia.owl#PartitiveCase](https://purl.org/olia/olia.owl#PartitiveCase), [linguistics-ontology.org/gold/2010/PartitiveCase](http://linguistics-ontology.org/gold/2010/PartitiveCase) |
 | prepositional      | Prepositional case refers to case marking that only occurs in combination with prepositions. | [purl.org/olia/olia.owl#PrepositionalCase](https://purl.org/olia/olia.owl#PrepositionalCase) |
 | sociative          | Case related to the person in whose company the action is carried out, or to any belongings of people which take part in the action. | [purl.org/olia/olia.owl#SociativeCase](https://purl.org/olia/olia.owl#SociativeCase) |
-| sublative  | The sublative case expresses that the referent of the noun it marks is the location under which another referent is moving toward. It has the meaning 'towards the underneath of'. | [purl.org/olia/olia.owl#SublativeCase](http://acoli.cs.uni-frankfurt.de/resources/olia/olia.owl#SublativeCase), [linguistics-ontology.org/gold/2010/SublativeCase](http://linguistics-ontology.org/gold/2010/SublativeCase) |
-| superessive  | The superessive case expresses that the referent of the noun it marks is the location on which another referent exists. It has the meaning of 'on' or 'upon'. | [purl.org/olia/olia.owl#SuperessiveCase](http://acoli.cs.uni-frankfurt.de/resources/olia/olia.owl#SuperessiveCase), [linguistics-ontology.org/gold/2010/SuperessiveCase](http://linguistics-ontology.org/gold/2010/SuperessiveCase) |
-| terminative  | The terminative case expresses the motion of something into but not further than (ie, not through) the referent of the noun it marks. It has the meaning 'into but not through'.  | [purl.org/olia/olia.owl#TerminativeCase](http://acoli.cs.uni-frankfurt.de/resources/olia/olia.owl#TerminativeCase), [linguistics-ontology.org/gold/2010/TerminativeCase](http://linguistics-ontology.org/gold/2010/TerminativeCase) |
-| translative  | The translative case expresses that the referent of the noun that it marks is the result of a process of change. It has the meaning of 'becoming' or 'changing into'.  | [purl.org/olia/olia.owl#TranslativeCase](http://acoli.cs.uni-frankfurt.de/resources/olia/olia.owl#TranslativeCase), [linguistics-ontology.org/gold/2010/TranslativeCase](http://linguistics-ontology.org/gold/2010/TranslativeCase) |
+| sublative  | The sublative case expresses that the referent of the noun it marks is the location under which another referent is moving toward. It has the meaning 'towards the underneath of'. | [purl.org/olia/olia.owl#SublativeCase](https://purl.org/olia/olia.owl#SublativeCase), [linguistics-ontology.org/gold/2010/SublativeCase](http://linguistics-ontology.org/gold/2010/SublativeCase) |
+| superessive  | The superessive case expresses that the referent of the noun it marks is the location on which another referent exists. It has the meaning of 'on' or 'upon'. | [purl.org/olia/olia.owl#SuperessiveCase](https://purl.org/olia/olia.owl#SuperessiveCase), [linguistics-ontology.org/gold/2010/SuperessiveCase](http://linguistics-ontology.org/gold/2010/SuperessiveCase) |
+| terminative  | The terminative case expresses the motion of something into but not further than (ie, not through) the referent of the noun it marks. It has the meaning 'into but not through'.  | [purl.org/olia/olia.owl#TerminativeCase](https://purl.org/olia/olia.owl#TerminativeCase), [linguistics-ontology.org/gold/2010/TerminativeCase](http://linguistics-ontology.org/gold/2010/TerminativeCase) |
+| translative  | The translative case expresses that the referent of the noun that it marks is the result of a process of change. It has the meaning of 'becoming' or 'changing into'.  | [purl.org/olia/olia.owl#TranslativeCase](https://purl.org/olia/olia.owl#TranslativeCase), [linguistics-ontology.org/gold/2010/TranslativeCase](http://linguistics-ontology.org/gold/2010/TranslativeCase) |
 | vocative           | Vocative case marks a noun whose referent is being addressed. | [purl.org/olia/olia.owl#VocativeCase](https://purl.org/olia/olia.owl#VocativeCase), [linguistics-ontology.org/gold/2010/VocativeCase](http://linguistics-ontology.org/gold/2010/VocativeCase) |
 
 ### Definiteness
 
-Feature that encodes the fact that a noun has been already mentioned, or is familiar in the discourse. (adapted from [https://glossary.sil.org/term/definiteness](https://glossary.sil.org/term/definiteness) )
+Feature that encodes the fact that a noun has been already mentioned, or is familiar in the discourse. (adapted from [https://glossary.sil.org/term/definiteness](https://glossary.sil.org/term/definiteness))
 
 #### Table: Values
 
@@ -2789,7 +2790,7 @@ A compound unit can use 4 mechanisms, illustrated here in formatted strings:
 * **Power**: 3 **square** kilometers
 * **Per**: 3 kilograms **per** meter
   * An edge case is where there is no numerator, such as “1 per-second”
-* **Times**: 3 kilowatt**-**hours
+* **Times**: 3 kilowatt<strong>-</strong>hours
 
 For the purposes of grammatical derivation (and name construction), a compound unit ID can be represented as a tree structure where the leaves are the atomic units, and the higher level node are one of the above. Here is an extreme example of that: _kilogram-square-kilometer-ampere-candela-per-square-second-mole_
 
@@ -2868,7 +2869,7 @@ Example:
 
 For example, for gram-per-meter, the first line above means:
 
-* When the accusative form of gram-per-meter is needed, then the gram part of the translation has take the accusative case (eg, “gramu”, in a language that marks the accusative case with 'u'), while the meter part of the translation has a nominative form like “metre”. This would be composed with the pattern for "per" (say "{0} pro {1}") to get "gramu pro metre".
+* When the accusative form of gram-per-meter is needed, then the gram part of the translation has the accusative case (eg, “gramu”, in a language that marks the accusative case with 'u'), while the meter part of the translation has a nominative form like “metre”. This would be composed with the pattern for "per" (say "{0} pro {1}") to get "gramu pro metre".
 
 * * *
 

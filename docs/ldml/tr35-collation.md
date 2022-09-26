@@ -4,7 +4,7 @@
 
 <!-- HTML: no header -->
 <table><tbody>
-<tr><td>Version</td><td>41</td></tr>
+ <tr><td>Version</td><td><b>42 (draft)</b></td></tr>
 <tr><td>Editors</td><td>Markus Scherer (<a href="mailto:markus.icu@gmail.com">markus.icu@gmail.com</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td></tr>
 </tbody></table>
 
@@ -40,6 +40,7 @@ The LDML specification is divided into the following parts:
 *   Part 5: [Collation](tr35-collation.md#Contents) (sorting, searching, grouping)
 *   Part 6: [Supplemental](tr35-info.md#Contents) (supplemental data)
 *   Part 7: [Keyboards](tr35-keyboards.md#Contents) (keyboard mappings)
+*   Part 8: [Person Names](tr35-personNames.md#Contents) (person names)
 
 ## <a name="Contents" href="#Contents">Contents of Part 5, Collation</a>
 
@@ -117,7 +118,7 @@ For example, when sorting names in a database, a sortable string can be formed w
 
 For backwards secondary level sorting, text _segments_ separated by U+FFFE are processed in forward segment order, and _within_ each segment the secondary weights are compared backwards. This is so that such combined strings are processed consistently with merging their sort keys (for example, by concatenating them level by level with a low separator).
 
-> :point_right: **Note**: With unique, low weights on _all_ levels it is possible to achieve `sortkey(str1 + "\uFFFE" + str2) == mergeSortkeys(sortkey(str1), sortkey(str2))` . When that is not necessary, then code can be a little simpler (no special handling for U+FFFE except for backwards-secondary), sort keys can be a little shorter (when using compressible common non-primary weights for U+FFFE), and another low weight can be used in tailorings.
+> 👉 **Note**: With unique, low weights on _all_ levels it is possible to achieve `sortkey(str1 + "\uFFFE" + str2) == mergeSortkeys(sortkey(str1), sortkey(str2))` . When that is not necessary, then code can be a little simpler (no special handling for U+FFFE except for backwards-secondary), sort keys can be a little shorter (when using compressible common non-primary weights for U+FFFE), and another low weight can be used in tailorings.
 
 #### 1.1.2 <a name="Context_Sensitive_Mappings" href="#Context_Sensitive_Mappings">Context-Sensitive Mappings</a>
 
@@ -132,7 +133,7 @@ A prefix mapping for p|x behaves mostly like the contraction px, except when the
 *   With mappings for "op" and "px", only the first contraction matches in text "opx". (It consumes the "op" characters, and there is no context-sensitive mapping for x.)
 *   With mappings for "op" and "p|x", both the contraction and the prefix rule match in text "opx". (The prefix always matches already-consumed characters, regardless of whether they mapped as part of contractions.)
 
-> :point_right: **Note**: Matching of discontiguous contractions should be implemented without rewriting the text (unlike in the [[UCA](https://www.unicode.org/reports/tr41/#UTS10)] algorithm specification), so that prefix matching is predictable. (It should also help with contraction matching performance.) An implementation that does rewrite the text, as in the UCA, will get different results for some (unusual) combinations of contractions, prefix rules, and input text.
+> 👉 **Note**: Matching of discontiguous contractions should be implemented without rewriting the text (unlike in the [[UCA](https://www.unicode.org/reports/tr41/#UTS10)] algorithm specification), so that prefix matching is predictable. (It should also help with contraction matching performance.) An implementation that does rewrite the text, as in the UCA, will get different results for some (unusual) combinations of contractions, prefix rules, and input text.
 
 Prefix matching uses a simple longest-match algorithm (op|c wins over p|c). It is recommended that prefix rules be limited to mappings where both the prefix string and the mapped string begin with an NFC boundary (that is, with a normalization starter that does not combine backwards). (In op|ch both o and c should be starters (ccc=0) and NFC_QC=Yes.) Otherwise, prefix matching would be affected by canonical reordering and discontiguous matching, like contractions. Prefix matching is thus always contiguous.
 
@@ -282,7 +283,7 @@ In CLDR, so as to maintain the special collation elements, **U+FFFD..U+FFFF** ar
 &x <\uFFFF
 ```
 
-> :point_right: **Note**: Java uses an early version of this collation syntax, but has not been updated recently. It does not support any of the syntax marked with [...], and its default table is not the DUCET nor the CLDR root collation.
+> 👉 **Note**: Java uses an early version of this collation syntax, but has not been updated recently. It does not support any of the syntax marked with [...], and its default table is not the DUCET nor the CLDR root collation.
 
 ### 2.5 <a name="Root_Data_Files" href="#Root_Data_Files">Root Collation Data Files</a>
 
@@ -514,7 +515,7 @@ This table is informational, providing the top bytes, scripts, and primaries ass
 
 The final table gives certain hard-coded byte values. The "trail" area is provided for implementation of the "trailing weights" as described in the UCA.
 
-> :point_right: **Note**: The particular primary lead bytes for Hani vs. IMPLICIT vs. TRAILING are only an example. An implementation is free to move them if it also moves the explicit TRAILING weights. This affects only a small number of explicit mappings in FractionalUCA.txt, such as for U+FFFD, U+FFFF, and the “unassigned first primary”. It is possible to use no SPECIAL bytes at all, and to use only the one primary lead byte FF for TRAILING weights.
+> 👉 **Note**: The particular primary lead bytes for Hani vs. IMPLICIT vs. TRAILING are only an example. An implementation is free to move them if it also moves the explicit TRAILING weights. This affects only a small number of explicit mappings in FractionalUCA.txt, such as for U+FFFD, U+FFFF, and the “unassigned first primary”. It is possible to use no SPECIAL bytes at all, and to use only the one primary lead byte FF for TRAILING weights.
 
 #### 2.6.3 <a name="File_Format_UCA_Rules_txt" href="#File_Format_UCA_Rules_txt">UCA_Rules.txt</a>
 
@@ -530,7 +531,7 @@ The format for this file uses the CLDR collation syntax, see _Section 3, [Collat
 
 This element of the LDML format contains one or more `collation` elements, distinguished by type. Each `collation` contains elements with parametric settings, or rules that specify a certain sort order, as a tailoring of the root order, or both.
 
-> :point_right: **Note**: CLDR collation tailoring data should follow the [CLDR Collation Guidelines](http://cldr.unicode.org/index/cldr-spec/collation-guidelines).
+> 👉 **Note**: CLDR collation tailoring data should follow the [CLDR Collation Guidelines](http://cldr.unicode.org/index/cldr-spec/collation-guidelines).
 
 ### 3.1 <a name="Collation_Types" href="#Collation_Types">Collation Types</a>
 
@@ -544,8 +545,9 @@ To allow implementations in reduced memory environments to use CJK sorting, ther
 
 A collation type name that starts with "private-", for example, "private-kana", indicates an incomplete tailoring that is only intended for import into one or more other tailorings (usually for sharing common rules). It does not establish a complete sort order. An implementation should not build data tables for a private collation type, and should not include a private collation type in a list of available types.
 
-> :point_right: **Note**: There is an on-line demonstration of collation at [[LocaleExplorer](tr35.md#LocaleExplorer)] that uses the same rule syntax. (Pick the locale and scroll to "Collation Rules", near the end.)
-> :point_right: **Note**: In CLDR 23 and before, LDML collation files used an XML format. Starting with CLDR 24, the XML collation syntax is deprecated and no longer used. See the _[CLDR 23 version of this document](https://www.unicode.org/reports/tr35/tr35-31/tr35-collation.html#Collation_Tailorings)_ for details about the XML collation syntax.
+> 👉 **Note**: There is an on-line demonstration of collation at [[LocaleExplorer](tr35.md#LocaleExplorer)] that uses the same rule syntax. (Pick the locale and scroll to "Collation Rules", near the end.)
+
+> 👉 **Note**: In CLDR 23 and before, LDML collation files used an XML format. Starting with CLDR 24, the XML collation syntax is deprecated and no longer used. See the _[CLDR 23 version of this document](https://www.unicode.org/reports/tr35/tr35-31/tr35-collation.html#Collation_Tailorings)_ for details about the XML collation syntax.
 
 #### 3.1.1 <a name="Collation_Type_Fallback" href="#Collation_Type_Fallback">Collation Type Fallback</a>
 
@@ -559,7 +561,7 @@ When loading a requested tailoring from its data file and the parent file chain,
 6. If it does not exist, and the type is not "standard", then set the type to "standard" and use that `<collation>` element.
 7. If it does not exist, then use the CLDR root collation.
 
-> :point_right: **Note**: that the CLDR collation/root.xml contains `<defaultCollation>standard</defaultCollation>`, `<collation type="standard">` (with an empty tailoring, so this is the same as the CLDR root collation), and `<collation type="search">`.
+> 👉 **Note**: that the CLDR collation/root.xml contains `<defaultCollation>standard</defaultCollation>`, `<collation type="standard">` (with an empty tailoring, so this is the same as the CLDR root collation), and `<collation type="search">`.
 
 For example, assume that we have collation data for the following tailorings. ("da/search" is shorthand for "da-u-co-search".)
 
@@ -595,7 +597,7 @@ For example, assume that we have collation data for the following tailorings. ("
 
 The `version` attribute is used in case a specific version of the UCA is to be specified. It is optional, and is specified if the results are to be identical on different systems. If it is not supplied, then the version is assumed to be the same as the Unicode version for the system as a whole.
 
-> :point_right: **Note**: For version 3.1.1 of the UCA, the version of Unicode must also be specified with any versioning information; an example would be "3.1.1/3.2" for version 3.1.1 of the UCA, for version 3.2 of Unicode. This was changed by decision of the UTC, so that dual versions were no longer necessary. So for UCA 4.0 and beyond, the version just has a single number.
+> 👉 **Note**: For version 3.1.1 of the UCA, the version of Unicode must also be specified with any versioning information; an example would be "3.1.1/3.2" for version 3.1.1 of the UCA, for version 3.2 of Unicode. This was changed by decision of the UTC, so that dual versions were no longer necessary. So for UCA 4.0 and beyond, the version just has a single number.
 
 ### 3.3 <a name="Collation_Element" href="#Collation_Element">Collation Element</a>
 
@@ -865,7 +867,7 @@ The CLDR table (based on UCA) has the following overall structure for weights, g
 
 Each of the above Names can be used with a reset to position characters relative to that logical position. That allows characters to be ordered before or after a _logical_ position rather than a specific character.
 
-> :point_right: **Note**: The reason for this is so that tailorings can be more stable. A future version of the UCA might add characters at any point in the above list. Suppose that you set character X to be after Y. It could be that you want X to come after Y, no matter what future characters are added; or it could be that you just want Y to come after a given logical position, for example, after the last primary ignorable.
+> 👉 **Note**: The reason for this is so that tailorings can be more stable. A future version of the UCA might add characters at any point in the above list. Suppose that you set character X to be after Y. It could be that you want X to come after Y, no matter what future characters are added; or it could be that you just want Y to come after a given logical position, for example, after the last primary ignorable.
 
 Each of these special reset positions always maps to a single collation element.
 
@@ -1090,7 +1092,7 @@ Characters and strings that are tailored have case values computed from their ro
 6. Tertiary CEs 0.0.t must get uppercase bits.
 7. Tertiary-ignorable CEs 0.0.0 must get ignorable-case=lowercase bits.
 
-> :point_right: **Note**: Almost all Cased characters have primary (non-ignorable) root collation CEs, except for U+0345 Combining Ypogegrammeni which is Lowercase. All Uppercase characters have primary root collation CEs.
+> 👉 **Note**: Almost all Cased characters have primary (non-ignorable) root collation CEs, except for U+0345 Combining Ypogegrammeni which is Lowercase. All Uppercase characters have primary root collation CEs.
 
 ### 3.15 <a name="Visibility" href="#Visibility">Visibility</a>
 

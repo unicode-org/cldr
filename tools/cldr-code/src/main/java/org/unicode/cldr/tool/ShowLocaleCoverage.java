@@ -326,7 +326,19 @@ public class ShowLocaleCoverage {
             int year = versionNormalizedVersionAndYear.year;
             String dir = ToolConstants.getBaseDirectory(version.getVersionString(2, 3));
             Map<String, FoundAndTotal> currentData = addGrowth(factory, dir, matcher, false);
-            System.out.println("year: " + year + "; version: " + version + "; size: " + currentData);
+            long found = 0;
+            long total = 0;
+            for (Entry<String, FoundAndTotal> entry : currentData.entrySet()) {
+                found += entry.getValue().found;
+                total += entry.getValue().total;
+            }
+            System.out.println("year\t" + year
+                + "\tversion\t" + version
+                + "\tlocales\t" + currentData.size()
+                + "\tfound\t" + found
+                + "\ttotal\t" + total
+                + "\tdetails\t" + currentData
+                );
             out.flush();
             if (latestData == null) {
                 latestData = currentData;
@@ -361,6 +373,7 @@ public class ShowLocaleCoverage {
     static final List<ReleaseInfo> versionToYear;
     static {
         Object[][] mapping = {
+            { VersionInfo.getInstance(42), 2022 },
             { VersionInfo.getInstance(40), 2021 },
             { VersionInfo.getInstance(38), 2020 },
             { VersionInfo.getInstance(36), 2019 },
@@ -492,6 +505,7 @@ public class ShowLocaleCoverage {
             }
             if (SUPPLEMENTAL_DATA_INFO.getDefaultContentLocales().contains(locale)
                 || locale.equals("root")
+                || locale.equals("und")
                 || locale.equals("supplementalData")) {
                 continue;
             }
@@ -507,7 +521,7 @@ public class ShowLocaleCoverage {
             try {
                 latestFile = latestFactory.make(locale, true);
             } catch (Exception e2) {
-                System.out.println("Can't make latest CLDRFile for: " + locale + "\tlatest: " + Arrays.asList(latestFactory.getSourceDirectories()));
+                System.out.println("Can't make latest CLDRFile for: " + locale + "\tpast: " + mainDir + "\tlatest: " + Arrays.asList(latestFactory.getSourceDirectories()));
                 continue;
             }
             CLDRFile file = null;
@@ -818,6 +832,7 @@ public class ShowLocaleCoverage {
                     VettingViewer.getStatus(pathSource, file,
                         pathHeaderFactory, foundCounter, unconfirmedCounter,
                         missingCounter, missingPaths, unconfirmed);
+
                     {
                         long found = 0;
                         long unconfirmedc = 0;
@@ -1099,8 +1114,16 @@ public class ShowLocaleCoverage {
                 + "<td style='text-align:right'>" + totalCount + "</td>"
                 + "<td style='text-align:right'>" + totalLocaleCount + "</td>"
                 + "</tr>\n"
+                );
+
+            pw.println("<tr>"
+                + "<th style='text-align:left'>" + "in dev." + "</th>"
+                + "<td style='text-align:right'>" + computedLevels.get(Level.UNDETERMINED) + "</td>"
+                + "<td style='text-align:right'>" + computedSublocaleLevels.get(Level.UNDETERMINED) + "</td>"
+                + "</tr>\n"
                 + "</table>"
                 );
+
 
             Multimap<Level, String> levelToLocales = TreeMultimap.create();
 
@@ -1153,57 +1176,67 @@ public class ShowLocaleCoverage {
          */
 
         static final Set<String> SUPPRESS_PATHS_AFTER_SUBMISSION = ImmutableSet.of(
-            "//ldml/localeDisplayNames/languages/language[@type=\"ccp\"]",
-            "//ldml/localeDisplayNames/territories/territory[@type=\"XA\"]",
-            "//ldml/localeDisplayNames/territories/territory[@type=\"XB\"]",
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"Gy\"]/greatestDifference[@id=\"G\"]",
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"Gy\"]/greatestDifference[@id=\"y\"]",
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyM\"]/greatestDifference[@id=\"G\"]",
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyM\"]/greatestDifference[@id=\"M\"]",
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyM\"]/greatestDifference[@id=\"y\"]",
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMd\"]/greatestDifference[@id=\"d\"]",
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMd\"]/greatestDifference[@id=\"G\"]",
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMd\"]/greatestDifference[@id=\"M\"]",
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMd\"]/greatestDifference[@id=\"y\"]",
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMEd\"]/greatestDifference[@id=\"d\"]",
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMEd\"]/greatestDifference[@id=\"G\"]",
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMEd\"]/greatestDifference[@id=\"M\"]",
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMEd\"]/greatestDifference[@id=\"y\"]",
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMMM\"]/greatestDifference[@id=\"G\"]",
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMMM\"]/greatestDifference[@id=\"M\"]",
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMMM\"]/greatestDifference[@id=\"y\"]",
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMMMd\"]/greatestDifference[@id=\"d\"]",
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMMMd\"]/greatestDifference[@id=\"G\"]",
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMMMd\"]/greatestDifference[@id=\"M\"]",
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMMMd\"]/greatestDifference[@id=\"y\"]",
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMMMEd\"]/greatestDifference[@id=\"d\"]",
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMMMEd\"]/greatestDifference[@id=\"G\"]",
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMMMEd\"]/greatestDifference[@id=\"M\"]",
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMMMEd\"]/greatestDifference[@id=\"y\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"Gy\"]/greatestDifference[@id=\"G\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"Gy\"]/greatestDifference[@id=\"y\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyM\"]/greatestDifference[@id=\"G\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyM\"]/greatestDifference[@id=\"M\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyM\"]/greatestDifference[@id=\"y\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMd\"]/greatestDifference[@id=\"d\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMd\"]/greatestDifference[@id=\"G\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMd\"]/greatestDifference[@id=\"M\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMd\"]/greatestDifference[@id=\"y\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMEd\"]/greatestDifference[@id=\"d\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMEd\"]/greatestDifference[@id=\"G\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMEd\"]/greatestDifference[@id=\"M\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMEd\"]/greatestDifference[@id=\"y\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMMM\"]/greatestDifference[@id=\"G\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMMM\"]/greatestDifference[@id=\"M\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMMM\"]/greatestDifference[@id=\"y\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMMMd\"]/greatestDifference[@id=\"d\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMMMd\"]/greatestDifference[@id=\"G\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMMMd\"]/greatestDifference[@id=\"M\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMMMd\"]/greatestDifference[@id=\"y\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMMMEd\"]/greatestDifference[@id=\"d\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMMMEd\"]/greatestDifference[@id=\"G\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMMMEd\"]/greatestDifference[@id=\"M\"]",
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"GyMMMEd\"]/greatestDifference[@id=\"y\"]"
+            "//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]",
+            "//ldml/personNames/nameOrderLocales[@order=\"surnameFirst\"]",
+            "//ldml/personNames/foreignSpaceReplacement[@xml:space=\"preserve\"]",
+            "//ldml/personNames/initialPattern[@type=\"initial\"]",
+            "//ldml/personNames/initialPattern[@type=\"initialSequence\"]",
+            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
+            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"addressing\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"addressing\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"monogram\"][@formality=\"formal\"]/namePattern",
+            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"monogram\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='monogram'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"medium\"][@usage=\"referring\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"medium\"][@usage=\"referring\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"medium\"][@usage=\"addressing\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"medium\"][@usage=\"addressing\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"medium\"][@usage=\"monogram\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='monogram'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"medium\"][@usage=\"monogram\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='monogram'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"short\"][@usage=\"referring\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"short\"][@usage=\"referring\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"short\"][@usage=\"addressing\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"short\"][@usage=\"addressing\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"short\"][@usage=\"monogram\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='monogram'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"short\"][@usage=\"monogram\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='givenFirst'][@length='long'][@usage='monogram'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
+            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"long\"][@usage=\"addressing\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"long\"][@usage=\"addressing\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"long\"][@usage=\"monogram\"][@formality=\"formal\"]/namePattern",
+            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"long\"][@usage=\"monogram\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='monogram'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"medium\"][@usage=\"referring\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"medium\"][@usage=\"referring\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"medium\"][@usage=\"addressing\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"medium\"][@usage=\"addressing\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"medium\"][@usage=\"monogram\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='monogram'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"medium\"][@usage=\"monogram\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='monogram'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"short\"][@usage=\"referring\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"short\"][@usage=\"referring\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"short\"][@usage=\"addressing\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"short\"][@usage=\"addressing\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"short\"][@usage=\"monogram\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='monogram'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"short\"][@usage=\"monogram\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='surnameFirst'][@length='long'][@usage='monogram'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"sorting\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
+            "//ldml/personNames/personName[@order=\"sorting\"][@length=\"long\"][@usage=\"referring\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='sorting'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"sorting\"][@length=\"medium\"][@usage=\"referring\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='sorting'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"sorting\"][@length=\"medium\"][@usage=\"referring\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='sorting'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"sorting\"][@length=\"short\"][@usage=\"referring\"][@formality=\"formal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='sorting'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/personName[@order=\"sorting\"][@length=\"short\"][@usage=\"referring\"][@formality=\"informal\"]/alias[@source=\"locale\"][@path=\"../personName[@order='sorting'][@length='long'][@usage='referring'][@formality='formal']\"]",
+            "//ldml/personNames/sampleName[@item=\"givenOnly\"]/nameField[@type=\"given\"]",
+            "//ldml/personNames/sampleName[@item=\"givenSurnameOnly\"]/nameField[@type=\"given\"]",
+            "//ldml/personNames/sampleName[@item=\"givenSurnameOnly\"]/nameField[@type=\"surname\"]",
+            "//ldml/personNames/sampleName[@item=\"given12Surname\"]/nameField[@type=\"given\"]",
+            "//ldml/personNames/sampleName[@item=\"given12Surname\"]/nameField[@type=\"given2\"]",
+            "//ldml/personNames/sampleName[@item=\"given12Surname\"]/nameField[@type=\"surname\"]",
+            "//ldml/personNames/sampleName[@item=\"full\"]/nameField[@type=\"prefix\"]",
+            "//ldml/personNames/sampleName[@item=\"full\"]/nameField[@type=\"given\"]",
+            "//ldml/personNames/sampleName[@item=\"full\"]/nameField[@type=\"given-informal\"]",
+            "//ldml/personNames/sampleName[@item=\"full\"]/nameField[@type=\"given2\"]",
+            "//ldml/personNames/sampleName[@item=\"full\"]/nameField[@type=\"surname-prefix\"]",
+            "//ldml/personNames/sampleName[@item=\"full\"]/nameField[@type=\"surname-core\"]",
+            "//ldml/personNames/sampleName[@item=\"full\"]/nameField[@type=\"surname2\"]",
+            "//ldml/personNames/sampleName[@item=\"full\"]/nameField[@type=\"suffix\"]"
             );
         @Override
         public Iterator<String> iterator() {

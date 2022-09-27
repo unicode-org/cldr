@@ -1266,7 +1266,7 @@ public class Ldml2JsonConverter {
         pkgs.println("Package metadata is available at [`cldr-core`/cldr-packages.json](./cldr-json/cldr-core/cldr-packages.json)");
         pkgs.println();
 
-        writeReadmeSection(outf);
+        writeReadmeSection(pkgs);
         pkgs.close();
     }
 

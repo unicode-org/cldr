@@ -1429,16 +1429,18 @@ The currently recommended heuristic is:
 1. Never collapse scientific or compact notation. This is to avoid producing ambiguous strings such as "3–5M" (could represent 3–5,000,000 or 3,000,000–5,000,000).
 2. Only collapse if the tokens are more than one code point in length. This is to increase clarity of strings such as "$3–$5".
 3. To perform the collapse, remove the token that is closest to the range separator.
-That is, for a prefix element, remove from the end value, and for a suffix element remove it from the start value:
+That is, for a prefix element, remove from the end value of the range, and for a suffix element remove it from the start value of the range:
     * USD 2 – USD 5 ⇒ USD 2 – 5
     * 2M EUR – 5M EUR ⇒  2M – 5M EUR
     * 2 km – 5 km ⇒ 2 – 5 km
     * 2M ft – 5M ft ⇒ 2M – 5M ft
-    * In bidi contexts, the data is built so that this works **visually**. 
-        For example, if a range from 2 km to 5 km would be presented visually as "_mk 5 – mk 2_", the collapsed form would be "_mk 5 – 2_". 
-        (The _mk_ is a stand-in for the native representation.) This requires consistent ordering among the elements. 
-        Thus a prefix value will be reordered to be visually a suffix value, and the order of the range will be reversed.
-4. When the tokens can have distinct plural forms, modify the remaining token so that it has the correct plural form, . That is, use [Plural Ranges](#Plural_Ranges) to calculate the correct plural category for the range, and pick the variant of that the remaining token corresponding to that plural form.
+4. When the tokens can have distinct plural forms, modify the remaining token so that it has the correct plural form. That is, use [Plural Ranges](#Plural_Ranges) to calculate the correct plural category for the range, and pick the variant of that the remaining token corresponding to that plural form.
+
+In bidi contexts, the data is built so that rule #3 works **visually**. 
+For example, if a range from 2 km to 5 km would be presented visually as "_mk 5 – mk 2_", the collapsed form would be "_mk 5 – 2_". 
+(The _mk_ is a stand-in for the native representation.) 
+This requires consistent visualy reordering among the elements: the range, the prefixes and the suffixes.
+Thus a prefix value will be reordered to be visually a suffix value, and the order of the range will be visually reversed.
 
 ### 8.3 <a name="Range_Pattern_Processing" href="#Range_Pattern_Processing">Range Pattern Processing</a>
 

@@ -1513,17 +1513,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     private Map<CLDRLocale, MutableStamp> localeStamps = new ConcurrentHashMap<>(SurveyMain.getLocales().length);
 
     /**
-     * Peek at the stamp (changetime) for a locale. May be null, meaning we don't know what the stamp is.
-     * If the locale has gone out of scope (GC) it will return the old stamp, rather than
-     * @param loc
-     * @return
-     */
-    public Stamp peekLocaleStamp(CLDRLocale loc) {
-        MutableStamp ms = localeStamps.get(loc);
-        return ms;
-    }
-
-    /**
      * Return changetime.
      * @param locale
      * @return

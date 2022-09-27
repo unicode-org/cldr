@@ -12,7 +12,7 @@ import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrTable from "./cldrTable.js";
 import * as cldrText from "./cldrText.js";
 
-const CLDR_VOTE_DEBUG = true;
+const CLDR_VOTE_DEBUG = false;
 
 /**
  * The special "vote level" selected by the user, or zero for default.
@@ -121,9 +121,11 @@ function handleWiredClick(tr, theRow, vHash, newValue, button) {
   cldrInfo.reset();
   theRow.proposedResults = null;
 
-  console.log(
-    "Vote for " + tr.rowHash + " v='" + vHash + "', value='" + value + "'"
-  );
+  if (CLDR_VOTE_DEBUG) {
+    console.log(
+      "Vote for " + tr.rowHash + " v='" + vHash + "', value='" + value + "'"
+    );
+  }
   var ourContent = {
     what: "submit" /* cf. WHAT_SUBMIT in SurveyAjax.java */,
     xpath: tr.xpathId,

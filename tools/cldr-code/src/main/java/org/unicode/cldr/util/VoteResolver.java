@@ -1058,11 +1058,6 @@ public class VoteResolver<T> {
          * If there are no (unconflicted) votes, return baseline (trunk) if not null,
          * else INHERITANCE_MARKER if baileySet, else NO_WINNING_VALUE.
          * Avoid setting winningValue to null. VoteResolver should be fully in charge of vote resolution.
-         * Note: formerly if baselineValue was null here, winningValue was set to null, such
-         * as for http://localhost:8080/cldr-apps/v#/aa/Numbering_Systems/7b8ee7884f773afa
-         * -- in spite of which the Survey Tool client displayed "latn" (bailey) in the Winning
-         * column. The behavior was originally implemented on the client (JavaScript) and later
-         * (temporarily) as fixWinningValue in DataSection.java.
          */
         if (sortedValues.size() == 0) {
             if (baselineValue != null) {

@@ -12,32 +12,6 @@ package org.unicode.cldr.web;
  *         .com/questions/529085/java-how-to-generic-array-creation
  */
 public class Partition {
-    public static abstract class Membership {
-        public String name;
-        public String helptext;
-
-        public String name() {
-            return name;
-        }
-
-        public String helptext() {
-            return helptext;
-        }
-
-        protected Membership(String name) {
-            this.name = name;
-            this.helptext = "";
-        }
-
-        protected Membership(String name, String helptext) {
-            this.name = name;
-            this.helptext = helptext;
-        }
-
-        public abstract boolean isMember(DataSection.DataRow p);
-    }
-
-    public Membership pm;
 
     public String name; // name of this partition
     public String helptext; // help text for this partition
@@ -48,14 +22,6 @@ public class Partition {
         name = n;
         start = s;
         limit = l;
-    }
-
-    public Partition(Membership pm) {
-        this.pm = pm;
-        name = pm.name();
-        helptext = pm.helptext();
-        start = -1;
-        limit = -1;
     }
 
     @Override

@@ -772,7 +772,7 @@ function loadAllRows(itemLoadInfo, theDiv) {
   );
   const url = cldrTable.getPageUrl(curLocale, curPage, curId);
   $("#nav-page").show(); // make top "Prev/Next" buttons visible while loading, cf. '#nav-page-footer' below
-  myLoad(url, "section", function (json) {
+  myLoad(url, "page", function (json) {
     loadAllRowsFromJson(json, theDiv);
   });
 }
@@ -789,9 +789,9 @@ function loadAllRowsFromJson(json, theDiv) {
       pages.other,
       cldrDom.createChunk("SurveyTool could not load", "i", "loadingMsg")
     );
-  } else if (!verifyJson(json, "section")) {
+  } else if (!verifyJson(json, "page")) {
     return;
-  } else if (json.section.nocontent) {
+  } else if (json.page.nocontent) {
     cldrStatus.setCurrentSection("");
     if (json.pageId) {
       cldrStatus.setCurrentPage(json.pageId);
@@ -800,8 +800,8 @@ function loadAllRowsFromJson(json, theDiv) {
     }
     cldrSurvey.showLoader(null);
     updateHashAndMenus(); // find out why there's no content. (locmap)
-  } else if (!json.section.rows) {
-    console.log("!json.section.rows");
+  } else if (!json.page.rows) {
+    console.log("!json.page.rows");
     cldrSurvey.showLoader(
       "Error while loading: <br><div style='border: 1px solid red;'>" +
         "no rows" +

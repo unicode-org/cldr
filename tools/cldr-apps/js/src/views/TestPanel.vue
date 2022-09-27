@@ -2,11 +2,11 @@
   <div>
     <p>This is only a test. But by the way, hello {{ $specialPage }}</p>
 
-    <!-- <CldrRows locale="br" xpath="132345490064d839"> </CldrRows> -->
-    <CldrRows locale="br" page="Languages_K_N"> </CldrRows>
+    <CldrRows locale="br" xpstrid="132345490064d839"> </CldrRows>
+    <!-- <CldrRows locale="br" page="Languages_K_N"> </CldrRows> -->
     <hr />
 
-    <!-- <CldrRows locale="sr_Latn" xpath="132345490064d839">
+    <!-- <CldrRows locale="sr_Latn" xpstrid="132345490064d839">
 
   </CldrRows> -->
   </div>

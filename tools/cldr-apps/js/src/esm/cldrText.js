@@ -142,7 +142,7 @@ const strings = {
   admin_users_action_kick: "Kick",
   admin_users_action_kick_desc: "Logout this user",
 
-  // pClass ( see DataSection.java)
+  // pClass ( see DataPage.java)
   pClass_winner: "This item is currently winning.",
   pClass_alias: "This item is aliased from another location.",
   pClass_fallback_code: "This item is an untranslated code.",

@@ -63,7 +63,7 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.BallotBox.InvalidXPathException;
 import org.unicode.cldr.web.BallotBox.VoteNotAcceptedException;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
-import org.unicode.cldr.web.DataSection.DataRow;
+import org.unicode.cldr.web.DataPage.DataRow;
 import org.unicode.cldr.web.SurveyException.ErrorCode;
 import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
 import org.unicode.cldr.web.UserRegistry.User;
@@ -410,7 +410,7 @@ public class SurveyAjax extends HttpServlet {
                         mySession.userDidAction();
 
                         CLDRLocale locale = CLDRLocale.getInstance(loc);
-                        CheckCLDR.Options options = DataSection.getOptions(null, mySession, locale); // TODO: why null for WebContext here?
+                        CheckCLDR.Options options = DataPage.getOptions(null, mySession, locale); // TODO: why null for WebContext here?
                         STFactory stf = sm.getSTFactory();
                         TestResultBundle cc = stf.getTestResult(locale, options);
                         int id = Integer.parseInt(xpath);
@@ -429,7 +429,7 @@ public class SurveyAjax extends HttpServlet {
                                     if (vhash.equals("null")) {
                                         val = null;
                                     } else {
-                                        val = DataSection.fromValueHash(vhash);
+                                        val = DataPage.fromValueHash(vhash);
                                     }
                                 }
 
@@ -505,7 +505,7 @@ public class SurveyAjax extends HttpServlet {
                                 r.put("testResults", SurveyJSONWrapper.wrap(result));
                                 r.put("testsRun", cc.toString());
                                 r.put("testsV", val);
-                                r.put("testsHash", DataSection.getValueHash(val));
+                                r.put("testsHash", DataPage.getValueHash(val));
                                 r.put("testsLoc", loc);
                                 r.put("xpathTested", xp);
                                 r.put("dataEmpty", Boolean.toString(dataEmpty));
@@ -2323,7 +2323,7 @@ public class SurveyAjax extends HttpServlet {
      * @throws VoteNotAcceptedException
      * @throws InvalidXPathException
      *
-     * Note: the function CandidateItem.getItem in DataSection.java
+     * Note: the function CandidateItem.getItem in DataPage.java
      * called from here as ci = pvi.getItem(candVal)
      * has been revised for https://unicode.org/cldr/trac/ticket/11299
      * -- when val = candVal = INHERITANCE_MARKER, it now returns inheritedItem
@@ -2344,7 +2344,7 @@ public class SurveyAjax extends HttpServlet {
 
         final String candVal = val;
 
-        DataSection section = DataSection.make(null /* pageId */, null /* ctx */, mySession,
+        DataPage section = DataPage.make(null /* pageId */, null /* ctx */, mySession,
             locale, xp, null /* matcher */);
         section.setUserForVotelist(mySession.user);
 
@@ -2552,33 +2552,22 @@ public class SurveyAjax extends HttpServlet {
             }
 
             synchronized (mySession) {
-                DataSection section = null;
+                DataPage page = null;
                 String baseXp = null;
                 try {
                     if (pageId != null) {
                         /*
-                         * We arrive here normally when loading a page, invoked by request from CldrSurveyVettingLoader.js
-                         * var url = contextPath + "/SurveyAjax?what="+WHAT_GETROW+"&_="+surveyCurrentLocale+"&s="+surveySessionId+"&x="+surveyCurrentPage+"&strid="+surveyCurrentId+cacheKill();
-                         *
-                         * This is for getting all the rows for one page (or section).
-                         * There is an "x" parameter for the section/pageId, and also a "strid" parameter.
-                         * There is no "xpath" parameter.
+                         * This is for getting all the rows for one page.
                          */
-                        section = ctx.getDataSection(null /* prefix */, null /* matcher */, pageId);
-                        section.setUserForVotelist(mySession.user);
+                        page = ctx.getDataPage(null /* prefix */, null /* matcher */, pageId);
+                        page.setUserForVotelist(mySession.user);
                     } else if (xp != null) {
                         /*
-                         * We arrive here when a user votes for an item, invoked by request from survey.js
-                         * var ourUrl = contextPath + "/SurveyAjax?what="+WHAT_GETROW+"&_="+surveyCurrentLocale+"&xpath="+theRow.xpathId +"&fhash="+tr.rowHash+"&s="+tr.theTable.session +"&automatic=t";
-                         *
-                         * We also arrive here when a user selects a "Fix" button in the Dashboard, invoked by request from review.js
-                         * var url = contextPath + "/SurveyAjax?what="+WHAT_GETROW+"&_="+surveyCurrentLocale+"&s="+surveySessionId+"&xpath="+tr.data('path')+"&strid="+surveyCurrentId+cacheKill()+"&dashboard=true";
-                         *
                          * This is for getting a single row only.
-                         * There is an "xpath" parameter, and also a "strid" parameter.
+                         * We arrive here when a user votes for an item.                         *
                          */
                         baseXp = XPathTable.xpathToBaseXpath(xp);
-                        section = ctx.getDataSection(baseXp /* prefix */, matcher, null /* pageId */);
+                        page = ctx.getDataPage(baseXp /* prefix */, matcher, null /* pageId */);
                     } else {
                         new JSONWriter(out).object().key("err")
                             .value("Could not understand that section, xpath, or ID. Bad URL?")
@@ -2593,11 +2582,12 @@ public class SurveyAjax extends HttpServlet {
                 }
 
                 JSONObject dsets = new JSONObject();
-                if (pageId == null) { // requested an xp, not a pageid?
-                    pageId = section.getPageId();
+                if (pageId == null) {
+                    // Requested a single path, not a page. Don't need path header.
+                    pageId = page.getPageId();
                 } else {
                     dsets.put("default", PathHeaderSort.name);
-                    dsets.put(PathHeaderSort.name, section.createDisplaySet(new PathHeaderSort(), null));
+                    dsets.put(PathHeaderSort.name, page.createDisplaySet(new PathHeaderSort(), null));
                 }
 
                 if (pageId != null) {
@@ -2611,10 +2601,8 @@ public class SurveyAjax extends HttpServlet {
 
                 try {
                     JSONWriter r = new JSONWriter(out).object()
-                        .key("stro").value(STFactory.isReadOnlyLocale(locale))
-                        .key("baseXpath").value(baseXp)
                         .key("pageId").value((pageId != null) ? pageId.name() : null)
-                        .key("section").value(section)
+                        .key("page").value(page)
                         .key("localeDisplayName").value(locale.getDisplayName())
                         .key("displaySets").value(dsets)
                         .key("dir").value(ctx.getDirectionForLocale())
@@ -2797,7 +2785,7 @@ public class SurveyAjax extends HttpServlet {
 
         int r = 0;
         final List<CheckCLDR.CheckStatus> checkResult = new ArrayList<>();
-        TestCache.TestResultBundle cc = stf.getTestResult(loc, DataSection.getOptions(null, cs, loc));
+        TestCache.TestResultBundle cc = stf.getTestResult(loc, DataPage.getOptions(null, cs, loc));
         UserRegistry.User u = theirU;
         CheckCLDR.Phase cPhase = CLDRConfig.getInstance().getPhase();
         Set<String> allValidPaths = stf.getPathsForFile(loc);
@@ -2847,10 +2835,10 @@ public class SurveyAjax extends HttpServlet {
                     checkResult.clear();
                     cc.check(base, checkResult, val0);
 
-                    DataSection section = DataSection.make(null, null, cs, loc, base, null);
+                    DataPage section = DataPage.make(null, null, cs, loc, base, null);
                     section.setUserForVotelist(cs.user);
 
-                    DataSection.DataRow pvi = section.getDataRow(base);
+                    DataPage.DataRow pvi = section.getDataRow(base);
                     CheckCLDR.StatusAction showRowAction = pvi.getStatusAction(CheckCLDR.InputMethod.BULK);
 
                     if (CheckForCopy.sameAsCode(val0, x, cldrUnresolved, baseFile)) {

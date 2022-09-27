@@ -43,10 +43,10 @@ const NO_WINNING_VALUE = "no-winning-value";
  * @param session the session id; e.g., "DEF67BCAAFED4332EBE742C05A8D1161"
  * @param json the json received from the server; including (among much else):
  * 			json.locale, e.g., "aa"
- *  		json.section.rows, with info for each row
+ *  		json.page.rows, with info for each row
  */
 function insertRows(theDiv, xpath, session, json) {
-  cldrProgress.updatePageCompletion(json.canModify ? json.section.rows : null);
+  cldrProgress.updatePageCompletion(json.canModify ? json.page.rows : null);
   $(".warnText").remove(); // remove any pre-existing "special notes", before insertLocaleSpecialNote
   cldrLoad.insertLocaleSpecialNote(theDiv);
 
@@ -132,13 +132,12 @@ function insertRows(theDiv, xpath, session, json) {
  */
 function tablesAreCompatible(json1, json2) {
   if (
-    json1.section &&
-    json2.section &&
+    json1.page &&
+    json2.page &&
     json1.pageId === json2.pageId &&
     json1.locale === json2.locale &&
     json1.canModify === json2.canModify &&
-    Object.keys(json1.section.rows).length ===
-      Object.keys(json2.section.rows).length
+    Object.keys(json1.page.rows).length === Object.keys(json2.page.rows).length
   ) {
     return true;
   }
@@ -156,7 +155,7 @@ function tablesAreCompatible(json1, json2) {
  */
 function insertRowsIntoTbody(theTable, reuseTable) {
   const tbody = theTable.getElementsByTagName("tbody")[0];
-  const theRows = theTable.json.section.rows;
+  const theRows = theTable.json.page.rows;
   const toAdd = theTable.toAdd;
   const parRow = document.getElementById("proto-parrow");
   const sortMode = theTable.json.displaySets.default; // always "ph" (path header)
@@ -183,7 +182,7 @@ function insertRowsIntoTbody(theTable, reuseTable) {
 
       if (newPartition != curPartition) {
         if (newPartition.name != "") {
-          addSectionHeader(newPartition, tbody, parRow);
+          addPartitionHeader(newPartition, tbody, parRow);
         }
         curPartition = newPartition;
       }
@@ -265,14 +264,14 @@ function findPartition(partitions, partitionList, curPartition, i) {
 }
 
 /**
- * Add a section (partition) header, such as for a section "Western Asia" in the
+ * Add a partition header, such as for a partition "Western Asia" in the
  * page for "Locale Display Names - Territories (Asia)"
  *
  * @param {Element} newPartition the element that was found by findPartition
  * @param {Element} tbody the element to which the header should be appended
  * @param {Element} parRow the element to be cloned to make the new header
  */
-function addSectionHeader(newPartition, tbody, parRow) {
+function addPartitionHeader(newPartition, tbody, parRow) {
   const newPar = cldrSurvey.cloneAnon(parRow);
   const newTd = cldrSurvey.getTagChildren(newPar);
   const newHeading = cldrSurvey.getTagChildren(newTd[0]);
@@ -316,9 +315,9 @@ function refreshSingleRow(tr, theRow, onSuccess, onFailure) {
 
 function singleRowLoadHandler(json, tr, theRow, onSuccess, onFailure) {
   try {
-    if (json.section.rows[tr.rowHash]) {
-      theRow = json.section.rows[tr.rowHash];
-      tr.theTable.json.section.rows[tr.rowHash] = theRow;
+    if (json.page.rows[tr.rowHash]) {
+      theRow = json.page.rows[tr.rowHash];
+      tr.theTable.json.page.rows[tr.rowHash] = theRow;
       updateRow(tr, theRow);
       cldrSurvey.hideLoader();
       onSuccess(theRow);
@@ -591,7 +590,7 @@ function reallyUpdateRow(tr, theRow) {
  *
  * Called by updateRow.
  *
- * Inconsistencies should primarily be detected/reported/fixed on server (DataSection.java)
+ * Inconsistencies should primarily be detected/reported/fixed on server (DataPage.java)
  * rather than here on the client, but better late than never, and these checks may be useful
  * for automated testing with WebDriver.
  */
@@ -1085,7 +1084,7 @@ function addVitem(td, tr, theRow, item, newButton) {
 
   /*
    * Note: history is maybe only defined for debugging; won't normally display it in production.
-   * See DataSection.USE_CANDIDATE_HISTORY which currently should be false for production, so
+   * See DataPage.USE_CANDIDATE_HISTORY which currently should be false for production, so
    * that item.history will be undefined.
    */
   if (item.history) {

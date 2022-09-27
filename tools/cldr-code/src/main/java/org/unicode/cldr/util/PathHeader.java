@@ -421,18 +421,6 @@ public class PathHeader implements Comparable<PathHeader> {
         }
     }
 
-    /**
-     * @param section
-     * @param sectionOrder
-     * @param page
-     * @param pageOrder
-     * @param header
-     * @param headerOrder
-     * @param code
-     * @param codeOrder
-     * @param suborder
-     * @param status
-     */
     private PathHeader(SectionId sectionId, PageId pageId, String header,
         int headerOrder, String code, long codeOrder, SubstringOrder suborder, SurveyToolStatus status,
         String originalPath) {

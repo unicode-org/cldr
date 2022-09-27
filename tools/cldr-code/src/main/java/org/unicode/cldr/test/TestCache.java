@@ -259,7 +259,7 @@ public class TestCache implements XMLSource.Listener {
      * @param englishPath (a.k.a. supplementalDataDirectory)
      * @return the ExampleGenerator
      *
-     * Called by DataSection.make for use in SurveyTool.
+     * Called by DataPage.make for use in SurveyTool.
      *
      * Note: other objects also have functions named "getExampleGenerator":
      * org.unicode.cldr.unittest.TestExampleGenerator.getExampleGenerator(String)

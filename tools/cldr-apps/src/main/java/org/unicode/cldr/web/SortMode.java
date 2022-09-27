@@ -9,7 +9,7 @@ import java.util.TreeSet;
 import java.util.Vector;
 import java.util.logging.Logger;
 
-import org.unicode.cldr.web.DataSection.DataRow;
+import org.unicode.cldr.web.DataPage.DataRow;
 
 /**
  * This class represents a mode of sorting: i.e., by code, etc.
@@ -49,9 +49,9 @@ public abstract class SortMode {
         return v.toArray(new Partition[0]); // fold it up
     }
 
-    public DataSection.DisplaySet createDisplaySet(XPathMatcher matcher, Collection<DataRow> values) {
+    public DataPage.DisplaySet createDisplaySet(XPathMatcher matcher, Collection<DataRow> values) {
         DataRow[] rows = createSortedList(getComparator(), matcher, values);
-        return new DataSection.DisplaySet(rows, this, createPartitions(rows));
+        return new DataPage.DisplaySet(rows, this, createPartitions(rows));
     }
 
     protected DataRow[] createSortedList(Comparator<DataRow> comparator, XPathMatcher matcher, Collection<DataRow> rows) {

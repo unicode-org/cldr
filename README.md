@@ -24,13 +24,13 @@ describing the organization of files within this repository
 ### Contributing
 
 Most data submissions are done via the [CLDR Survey Tool](https://st.unicode.org/cldr-apps/), which is open and available on predetermined cycles.
-Click [HERE](http://unicode.org/cldr/survey_tool.html) for information on how to obtain a survey tool account.
+Click [HERE](https://www.unicode.org/cldr/survey_tool.html) for information on how to obtain a survey tool account.
 
 For details about code and other contributions, see [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 ### Licenses
 
-- Usage of CLDR data and software is governed by the [Unicode Terms of Use](http://www.unicode.org/copyright.html)
+- Usage of CLDR data and software is governed by the [Unicode Terms of Use](https://www.unicode.org/copyright.html)
 a copy of which is included as [unicode-license.txt](./unicode-license.txt).
 
 - Some CLDR tools depend on library dependencies managed via Maven,
@@ -42,4 +42,4 @@ SPDX-License-Identifier: Unicode-DFS-2016
 
 Copyright &copy; 1991-2022 Unicode, Inc.
 All rights reserved.
-[Terms of use](http://www.unicode.org/copyright.html)
+[Terms of use](https://www.unicode.org/copyright.html)

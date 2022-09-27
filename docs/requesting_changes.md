@@ -8,7 +8,7 @@ There are two ways to request changes (for bug fixes or new features). Filing a 
 * Defects in the survey tool
 * Adding or changing non-language data (such as currency usage)
 * Additions or changes to data that is not yet handled by the survey tool (collation, segmentation, and transliteration)
-* Feature requests in CLDR or [UTS #35: Locale Data Markup Language (LDML)](http://www.unicode.org/reports/tr35/).
+* Feature requests in CLDR or [UTS #35: Locale Data Markup Language (LDML)](https://www.unicode.org/reports/tr35/).
 
 In CLDR Bug Reports, please try to give as much information as possible to help address the issue, and please group related bugs
 (such as a list of problems with the LDML specification) into a single bug report.

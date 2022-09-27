@@ -4,7 +4,7 @@
 
 # CLDR Docs
 
-CLDR main page: [https://unicode.org/cldr](https://unicode.org/cldr)
+CLDR main page: [https://www.unicode.org/cldr](https://www.unicode.org/cldr)
 
 ## TR35
 
@@ -20,4 +20,4 @@ CLDR main page: [https://unicode.org/cldr](https://unicode.org/cldr)
 
 Copyright &copy; 1991-2019 Unicode, Inc.
 All rights reserved.
-[Terms of use](http://www.unicode.org/copyright.html)
+[Terms of use](https://www.unicode.org/copyright.html)

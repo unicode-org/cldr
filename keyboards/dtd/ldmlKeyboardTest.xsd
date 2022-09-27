@@ -47,11 +47,16 @@
   <xs:element name="repertoire">
     <xs:complexType>
       <xs:attribute name="chars" use="required"/>
-      <xs:attribute name="type">
+      <xs:attribute name="type" use="required">
         <xs:simpleType>
           <xs:restriction base="xs:token">
+            <xs:enumeration value="default"/>
             <xs:enumeration value="simple"/>
             <xs:enumeration value="gesture"/>
+            <xs:enumeration value="flick"/>
+            <xs:enumeration value="longPress"/>
+            <xs:enumeration value="multiTap"/>
+            <xs:enumeration value="hardware"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -94,7 +99,7 @@
   <!-- @VALUE -->
   <xs:element name="emit">
     <xs:complexType>
-      <xs:attribute name="to"/>
+      <xs:attribute name="to" use="required"/>
     </xs:complexType>
   </xs:element>
   <!-- @ORDERED -->
@@ -102,7 +107,7 @@
   <!-- @VALUE -->
   <xs:element name="keystroke">
     <xs:complexType>
-      <xs:attribute name="key" type="xs:NMTOKEN"/>
+      <xs:attribute name="key" use="required" type="xs:NMTOKEN"/>
       <xs:attribute name="flick" type="xs:NMTOKENS"/>
       <xs:attribute name="longPress"/>
       <xs:attribute name="tapCount"/>

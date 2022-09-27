@@ -2047,7 +2047,9 @@ Footnotes:
 
 Keyboard Test Data allows the keyboard author to provide regression test data to validate the repertoire and behavior of a keyboard. Tooling can run these regression tests against an implementation, and can also be used as part of the development cycle to validate that keyboard changes do not deviate from expected behavior.
 
-Test data files have a separate DTD, named `ldmlKeyboardTest.dtd`.  Sample test data files are located in the `keyboards/test` subdirectory.
+Test data files have a separate DTD, named `ldmlKeyboardTest.dtd`.  Note that multiple test data files can refer to the same keyboard. Test files should be named similarly to the keyboards which they test, such as `fr_test.xml` to test `fr.xml`.
+
+Sample test data files are located in the `keyboards/test` subdirectory.
 
 The following describes the structure of a keyboard test file.
 
@@ -2127,7 +2129,19 @@ This attribute specifies a unique name for this repertoire test. These names cou
 
 _Attribute:_ `type`
 
-This attribute is either `simple` (the default) or `gesture`. A value of `simple` indicates that each of the characters in `chars` are typeable by simple single keystrokes without needing any gestures such as flicks, long presses, or multiple taps. A value of `gesture` indicates that the characters are typeable by either simple keystrokes or by use of gestures such as flicks, long presses, or multiple taps.
+This attribute is one of the following:
+
+|  type     | Meaning                                                                                                  |
+|-----------|----------------------------------------------------------------------------------------------------------|
+| default   | This is the default, indicates that _any_ flick or keystroke may be used to generate each character      |
+| simple    | Each of the characters must be typeable by simple single keystrokes without needing any gestures.        |
+| gesture   | The characters are typeable by use of any gestures such as flicks, long presses, or multiple taps.       |
+| flick     | The characters are typeable by use of any `flick` element.                                               |
+| longPress | The characters are typeable by use of any `longPress` value.                                             |
+| multiTap  | The characters are typeable by use of any `multiTap` value.                                              |
+| hardware  | The characters are typeable by use of any simple keystrokes on any hardware layout.                      |
+
+either `simple` (the default) or `gesture`. A value of `simple` indicates that each of the characters in `chars` are typeable by simple single keystrokes without needing any gestures such as flicks, long presses, or multiple taps. A value of `gesture` indicates that the characters are typeable by either simple keystrokes or by use of gestures such as flicks, long presses, or multiple taps.
 
 _Attribute:_ `chars` (required)
 
@@ -2136,7 +2150,7 @@ This attribute specifies a list of characters in UnicodeSet format, which is spe
 **Example**
 
 ```xml
-<repertoire chars="[a b c d e \u{22}]" type="simple" />
+<repertoire chars="[a b c d e \u{22}]" type="default" />
 
 <!-- taken from CLDR's common/main/fr.xml main exemplars - indicates that all of these characters should be reachable without requiring a gesture.
 Note that the 'name' is arbitrary. -->
@@ -2244,11 +2258,13 @@ Specifies the starting context. This text may be escaped with `\u` notation, see
 > Occurrence: Optional, Multiple
 > </small>
 
-This element represents a single keystroke or other gesture event.
+This element represents a single keystroke or other gesture event, identified by a particular key element.
 
 Optionally, one of the gesture attributes, either `flick`, `longPress`, or `tapCount` may be specified. If none of the gesture attributes are specified, then a regular keypress is effected on the key.  It is an error to specify more than one gesture attribute.
 
-If a key is not found, or a particular gesture has no definition, the output should be behave as if the user attempted to perform such an action.  For example, an unspecified flick would result in no output.
+If a key is not found, or a particular gesture has no definition, the output should be behave as if the user attempted to perform such an action.  For example, an unspecified `flick` would result in no output.
+
+When a key is found, processing continues with the transform and other elements before updating the test output buffer.
 
 _Attribute:_ `key` (required)
 
@@ -2289,13 +2305,14 @@ Note that `tapCount="1"` is valid, but represents an ordinary keypress.
 > Occurrence: Optional, Multiple
 > </small>
 
-This element represents a text output event.
+This element also represents a keystroke event, except that the keystroke is specified in terms of textual value rather than key or gesture identity. This element is particularly useful for testing transforms.
+
+Processing of the specified text continues with the transform and other elements before updating the test output buffer.
 
 _Attribute:_ `to` (required)
 
-This attribute specifies a string of output text, which is intended to match a key’s `to` attribute.
-
-Tooling should give a warning if this attribute matches more than one key, or does not match any keys.
+This attribute specifies a string of output text representing a single keystroke or gesture. This string is intended to match the output of a `key`, `flick`, `longPress` or `multiTap` element or attribute.
+Tooling should give a warning if this attribute does not match at least one keystroke or gesture. Note that the specified text is not injected directly into the output buffer.
 
 **Example**
 

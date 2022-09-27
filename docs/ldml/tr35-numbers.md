@@ -1421,14 +1421,26 @@ Two tokens are *semantically equivalent* if they have the same *semantic annotat
 
 The above description describes the expected output. Internally, the implementation may determine the equivalent units of measurement by passing the codes back from the number formatters, allowing for a precise determination of "semantically equivalent".
 
-Two semantically equivalent tokens can be *collapsed* if they appear at the start of both values or the end of both values. However, the implementation may choose different levels of aggressiveness with regard to collapsing tokens. The currently recommended heuristic is:
+Two semantically equivalent tokens can be *collapsed* if they appear at the start of both values or the end of both values. 
+However, the implementation may choose different levels of aggressiveness with regard to collapsing tokens. 
+An API for displaying ranges should permit control over whether the tokens are collapsed or not, and the levels of aggressiveness.
+The currently recommended heuristic is:
 
-1. Only collapse semantically equivalent *unit of measurement* tokens. This is to avoid ambiguous strings such as "3–5K" (could represent 3–5000 or 3000–5000).
-1. Only collapse if the tokens are more than one code point in length. This is to increase clarity of strings such as "$3–$5".
+1. Never collapse scientific or compact notation. This is to avoid producing ambiguous strings such as "3–5M" (could represent 3–5,000,000 or 3,000,000–5,000,000).
+2. Only collapse if the tokens are more than one code point in length. This is to increase clarity of strings such as "$3–$5".
+3. To perform the collapse, remove the token that is closest to the range separator.
+That is, for a prefix element, remove from the end value of the range, and for a suffix element remove it from the start value of the range:
+    * USD 2 – USD 5 ⇒ USD 2 – 5
+    * 2M EUR – 5M EUR ⇒  2M – 5M EUR
+    * 2 km – 5 km ⇒ 2 – 5 km
+    * 2M ft – 5M ft ⇒ 2M – 5M ft
+4. When the tokens can have distinct plural forms, modify the remaining token so that it has the correct plural form. That is, use [Plural Ranges](#Plural_Ranges) to calculate the correct plural category for the range, and pick the variant of that the remaining token corresponding to that plural form.
 
-These heuristics may be refined in the future.
-
-**To collapse tokens:** Remove the token from both values, and then re-compute the token based on the number range. If the token depends on the plural form, follow [Plural Ranges](#Plural_Ranges) to calculate the correct form. If the tokens originated at the beginning of the string, prepend the new token to the beginning of the *lower* string; otherwise, append the new token to the end of the *upper* string.
+In bidi contexts, the data is built so that rule #3 works **visually**. 
+For example, if a range from 2 km to 5 km would be presented visually as "_mk 5 – mk 2_", the collapsed form would be "_mk 5 – 2_". 
+(The _mk_ is a stand-in for the native representation.) 
+This requires consistent visualy reordering among the elements: the range, the prefixes and the suffixes.
+Thus a prefix value will be reordered to be visually a suffix value, and the order of the range will be visually reversed.
 
 ### 8.3 <a name="Range_Pattern_Processing" href="#Range_Pattern_Processing">Range Pattern Processing</a>
 

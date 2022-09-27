@@ -37,7 +37,7 @@ Please see CLDR-15034 for the latest information. -->
 <!ELEMENT tests ( test+, special* ) >
 <!ATTLIST tests name NMTOKEN #IMPLIED >
 
-<!ELEMENT test ( startContext?, ( emit | keystroke | check )*, special* ) >
+<!ELEMENT test ( startContext?, ( emit | keystroke | check | backspace )*, special* ) >
 <!ATTLIST test name NMTOKEN #IMPLIED >
 
 <!ELEMENT startContext EMPTY >
@@ -67,8 +67,13 @@ Please see CLDR-15034 for the latest information. -->
     <!--@VALUE-->
 
 <!ELEMENT check EMPTY >
+    <!--@ORDERED-->
 <!ATTLIST check result CDATA #REQUIRED >
     <!--@MATCH:any-->
     <!--@VALUE-->
+
+<!ELEMENT backspace EMPTY >
+    <!--@ORDERED-->
+
 
 <!ELEMENT special ANY >

@@ -5,7 +5,7 @@
 <!-- HTML: no header -->
 <table><tbody>
 <tr><td>Version</td><td><b>42 (draft)</b></td></tr>
-<tr><td>Editors</td><td>Peter Edberg and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td></tr>
+<tr><td>Editors</td><td>Peter Edberg and <a href="tr35.md#Acknowledgments">other CLDR committee members</a></td></tr>
 </tbody></table>
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
@@ -2145,7 +2145,7 @@ Notes for the table below:
                         In CLDR 26 the time separator pattern character was specified to be COLON.
                         This was withdrawn in CLDR 28 due to backward compatibility issues, and no time separator pattern character is currently defined.</span><br/><br/>
                         Like the use of "," in number formats, this character in a date pattern is replaced with the corresponding number symbol which may depend on the numbering system.
-                        For more information, see <em><strong>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a></strong>, Section 2.3 <a href="tr35-numbers.html#Number_Symbols">Number Symbols</a></em>.</td></tr>
+                        For more information, see <em><strong>Part 3: <a href="tr35-numbers.md#Contents">Numbers</a></strong>, Section 2.3 <a href="tr35-numbers.md#Number_Symbols">Number Symbols</a></em>.</td></tr>
 
 <!-- == == == ZONE == == == -->
 <tr><th rowspan="23"><a name="dfst-zone" id="dfst-zone" href="#dfst-zone">zone</a></th><td rowspan="2">z</td><td>z..zzz</td><td>PDT</td>

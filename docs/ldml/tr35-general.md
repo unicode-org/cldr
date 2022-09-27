@@ -1555,7 +1555,7 @@ Variables and rules both inherit from the parent.
 
 ### 9.2 <a name="Segmentation_Exceptions" href="#Segmentation_Exceptions">Segmentation Suppressions</a>
 
-**Note:** As of CLDR 26, the `<suppressions>` data is to be considered a technology preview. Data currently in CLDR was extracted from the Unicode Localization Interoperability project, or ULI. See [http://uli.unicode.org](http://uli.unicode.org) for more information on the ULI project.
+**Note:** As of CLDR 26, the `<suppressions>` data is to be considered a technology preview. Data currently in CLDR was extracted from the Unicode Localization Interoperability project, or ULI. The ULI committee has been disbanded, but historical information can be found at <https://unicode.org/uli/>.
 
 The segmentation **suppressions** list provides a set of cases which, though otherwise identified as a segment by rules, should be skipped (suppressed) during segmentation.
 

@@ -63,7 +63,6 @@
       <xs:attribute name="name" type="xs:NMTOKEN"/>
     </xs:complexType>
   </xs:element>
-  <!-- @ORDERED -->
   <!-- @MATCH:any -->
   <!-- @VALUE -->
   <!-- @VALUE -->
@@ -84,6 +83,7 @@
           <xs:element ref="emit"/>
           <xs:element ref="keystroke"/>
           <xs:element ref="check"/>
+          <xs:element ref="backspace"/>
         </xs:choice>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
       </xs:sequence>
@@ -127,8 +127,13 @@
       <xs:attribute name="result" use="required"/>
     </xs:complexType>
   </xs:element>
+  <!-- @ORDERED -->
   <!-- @MATCH:any -->
   <!-- @VALUE -->
+  <xs:element name="backspace">
+    <xs:complexType/>
+  </xs:element>
+  <!-- @ORDERED -->
   <xs:element name="special" type="any"/>
   <xs:complexType name="any" mixed="true">
     <xs:sequence>

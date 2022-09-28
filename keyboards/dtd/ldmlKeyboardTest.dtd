@@ -26,7 +26,6 @@ Please see CLDR-15034 for the latest information. -->
 <!ATTLIST info name NMTOKEN #IMPLIED >
 
 <!ELEMENT repertoire EMPTY >
-    <!--@ORDERED-->
 <!ATTLIST repertoire chars CDATA #REQUIRED >
     <!--@MATCH:any-->
     <!--@VALUE-->

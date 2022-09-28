@@ -444,7 +444,7 @@ public class TestDtdData extends TestFmwk {
             )));
 
     static final Set<String> orderedKeyboardTestElements = Collections.unmodifiableSet(new HashSet<>(Arrays
-            .asList(    "repertoire", "event", "emit", "keystroke", "check", "backspace" )));
+        .asList( "emit", "keystroke", "check", "backspace" )));
 
     public static boolean isOrderedOld(String element, DtdType type) {
         switch (type) {

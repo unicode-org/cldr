@@ -36,7 +36,7 @@ Please see CLDR-15034 for the latest information. -->
 <!ELEMENT tests ( test+, special* ) >
 <!ATTLIST tests name NMTOKEN #REQUIRED >
 
-<!ELEMENT test ( startContext?, ( emit | keystroke | check | backspace )*, special* ) >
+<!ELEMENT test ( startContext?, ( keystroke | emit | backspace | check )*, special* ) >
 <!ATTLIST test name NMTOKEN #REQUIRED >
 
 <!ELEMENT startContext EMPTY >

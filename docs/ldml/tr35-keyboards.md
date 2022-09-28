@@ -2134,7 +2134,7 @@ This attribute is one of the following:
 
 |  type     | Meaning                                                                                                  |
 |-----------|----------------------------------------------------------------------------------------------------------|
-| default   | This is the default, indicates that _any_ flick or keystroke may be used to generate each character      |
+| default   | This is the default, indicates that _any_ gesture or keystroke may be used to generate each character    |
 | simple    | Each of the characters must be typeable by simple single keystrokes without needing any gestures.        |
 | gesture   | The characters are typeable by use of any gestures such as flicks, long presses, or multiple taps.       |
 | flick     | The characters are typeable by use of any `flick` element.                                               |
@@ -2142,7 +2142,6 @@ This attribute is one of the following:
 | multiTap  | The characters are typeable by use of any `multiTap` value.                                              |
 | hardware  | The characters are typeable by use of any simple keystrokes on any hardware layout.                      |
 
-either `simple` (the default) or `gesture`. A value of `simple` indicates that each of the characters in `chars` are typeable by simple single keystrokes without needing any gestures such as flicks, long presses, or multiple taps. A value of `gesture` indicates that the characters are typeable by either simple keystrokes or by use of gestures such as flicks, long presses, or multiple taps.
 
 _Attribute:_ `chars` (required)
 
@@ -2304,14 +2303,14 @@ This attribute specifies that a multi-tap gesture should be performed on the spe
 > Occurrence: Optional, Multiple
 > </small>
 
-This element also represents a keystroke event, except that the keystroke is specified in terms of textual value rather than key or gesture identity. This element is particularly useful for testing transforms.
+This element also represents an input event, except that the input is specified in terms of textual value rather than key or gesture identity. This element is particularly useful for testing transforms.
 
 Processing of the specified text continues with the transform and other elements before updating the test output buffer.
 
 _Attribute:_ `to` (required)
 
 This attribute specifies a string of output text representing a single keystroke or gesture. This string is intended to match the output of a `key`, `flick`, `longPress` or `multiTap` element or attribute.
-Tooling should give a warning if this attribute does not match at least one keystroke or gesture. Note that the specified text is not injected directly into the output buffer.
+Tooling should give a hint if this attribute does not match at least one keystroke or gesture. Note that the specified text is not injected directly into the output buffer.
 
 **Example**
 
@@ -2354,7 +2353,7 @@ This element represents a check on the current output buffer.
 
 _Attribute:_ `result` (required)
 
-This attribute specifies the expected resultant text in a document after processing this event and all prior events, and including any `preContext` text.  This text may be escaped with `\u` notation, see [Escaping](#Escaping).
+This attribute specifies the expected resultant text in a document after processing this event and all prior events, and including any `startContext` text.  This text may be escaped with `\u` notation, see [Escaping](#Escaping).
 
 **Example**
 

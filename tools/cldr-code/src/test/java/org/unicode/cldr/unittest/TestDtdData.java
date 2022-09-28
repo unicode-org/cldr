@@ -212,6 +212,7 @@ public class TestDtdData extends TestFmwk {
 
         HashSet<Attribute> valueAttributes = new LinkedHashSet<>();
         HashSet<Attribute> distAttributes = new LinkedHashSet<>();
+        HashSet<Attribute> metadataAttributes = new LinkedHashSet<>();  // TODO: not used currently, ignored
         for (Attribute attribute : element.getAttributes().keySet()) {
             if (attribute.isDeprecated()) continue;
             switch (attribute.getStatus()) {
@@ -221,6 +222,9 @@ public class TestDtdData extends TestFmwk {
                 break;
             case distinguished:
                 distAttributes.add(attribute);
+                break;
+            case metadata:
+                metadataAttributes.add(attribute);
                 break;
             }
         }
@@ -269,7 +273,7 @@ public class TestDtdData extends TestFmwk {
                     logKnownIssue("cldrbug:9982", "Lower priority fixes to bad xml");
                     break;
                 default:
-                    m.put("error", "\t||" + showPath(parents) + "||path has both children AND value attributes"
+                    m.put("error", "\t||" + showPath(parents) + "||DTD has both children AND value attributes: tr35.md#XML_Format"
                         + "||" + valueAttributes
                         + "||" + children + "||");
                     break;

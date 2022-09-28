@@ -12,7 +12,7 @@ For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
 ### _Summary_
 
-This document describes parts of an XML format (_vocabulary_) for the exchange of structured locale data. This format is used in the [Unicode Common Locale Data Repository](https://unicode.org/cldr/).
+This document describes parts of an XML format (_vocabulary_) for the exchange of structured locale data. This format is used in the [Unicode Common Locale Data Repository](https://www.unicode.org/cldr/).
 
 This is a partial document, describing only those parts of the LDML that are relevant for number and currency formatting. For the other parts of the LDML see the [main LDML document](tr35.md) and the links above.
 
@@ -554,7 +554,7 @@ Examples
 ```
 
 
-For more information, see [Plural Rules](http://cldr.unicode.org/index/cldr-spec/plural-rules) and [Grammatical Inflection](http://cldr.unicode.org/translation/grammatical-inflection).
+For more information, see [Plural Rules](https://cldr.unicode.org/index/cldr-spec/plural-rules) and [Grammatical Inflection](https://cldr.unicode.org/translation/grammatical-inflection).
 
 ## 3 <a name="Number_Format_Patterns" href="#Number_Format_Patterns">Number Format Patterns</a>
 
@@ -1026,7 +1026,7 @@ This happens even if nouns are invariant; even if all English nouns were invaria
 1. 1 sheep **is** here. Do you want to buy **it**?
 2. 2 sheep **are** here. Do you want to buy **them**?
 
-For more information, see [Determining-Plural-Categories](http://cldr.unicode.org/index/cldr-spec/plural-rules#h.44ozdx564iez).
+For more information, see [Determining-Plural-Categories](https://cldr.unicode.org/index/cldr-spec/plural-rules#h.44ozdx564iez).
 
 English does not have a separate plural category for “zero”, because it does not require a different message for “0”. For example, the same message can be used below, with just the numeric placeholder changing.
 
@@ -1460,6 +1460,6 @@ To add spacing, insert a non-breaking space (U+00A0) at the positions in item 2 
 
 * * *
 
-Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode [Terms of Use](https://unicode.org/copyright.html) apply.
+Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode [Terms of Use](https://www.unicode.org/copyright.html) apply.
 
 Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.

@@ -503,8 +503,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙉" type="tts">se wušy zaźaržujuca nałpa</annotation>
 		<annotation cp="🙊">nałpa | nic njegroniś | se gubu zaźaržujuca nałpa | zakazane</annotation>
 		<annotation cp="🙊" type="tts">se gubu zaźaržujuca nałpa</annotation>
-		<annotation cp="💋">gubje | póšk | wótśišć gubowu | wótśišć póška</annotation>
-		<annotation cp="💋" type="tts">wótśišć póška</annotation>
 		<annotation cp="💌">list | lubosć | lubosćinski list | wutšobka</annotation>
 		<annotation cp="💌" type="tts">lubosćinski list</annotation>
 		<annotation cp="💘">lubosć | šypa | wutšoba | wutšobka | wutšobka ze šypu</annotation>
@@ -533,6 +531,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❤‍🩹" type="tts">wutšobu gójś</annotation>
 		<annotation cp="❤">cerwjena | wutšoba | wutšobka</annotation>
 		<annotation cp="❤" type="tts">cerwjena wutšobka</annotation>
+		<annotation cp="🩷">lubosć | rady měś | rožojta | šykowna | wutšoba</annotation>
+		<annotation cp="🩷" type="tts">rožojta wutšoba</annotation>
 		<annotation cp="🧡">oranžojta wutšoba | oranžojta wutšobka | oranžojty | wutšoba | wutšobka</annotation>
 		<annotation cp="🧡" type="tts">oranžojta wutšoba</annotation>
 		<annotation cp="💛">wutšoba | wutšobka | žołta wutšobka | žołty</annotation>
@@ -541,20 +541,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💚" type="tts">zelena wutšobka</annotation>
 		<annotation cp="💙">módra wutšobka | módry | wutšoba | wutšobka</annotation>
 		<annotation cp="💙" type="tts">módra wutšobka</annotation>
-		<annotation cp="💜">lylowa wutšobka | lylowy | wutšoba | wutšobka</annotation>
-		<annotation cp="💜" type="tts">lylowa wutšobka</annotation>
 		<annotation cp="🩵">cyan | módrozelena | swětłomódra | wutšoba</annotation>
 		<annotation cp="🩵" type="tts">swětłomódra wutšoba</annotation>
-		<annotation cp="🩶">šćipjeł | šera | slobro | wutšoba</annotation>
-		<annotation cp="🩶" type="tts">šera wutšoba</annotation>
-		<annotation cp="🩷">lubosć | rady měś | rožojta | šykowna | wutšoba</annotation>
-		<annotation cp="🩷" type="tts">rožojta wutšoba</annotation>
+		<annotation cp="💜">lylowa wutšobka | lylowy | wutšoba | wutšobka</annotation>
+		<annotation cp="💜" type="tts">lylowa wutšobka</annotation>
 		<annotation cp="🤎">bruna wutšobka | bruny | wutšoba | wutšobka</annotation>
 		<annotation cp="🤎" type="tts">bruna wutšobka</annotation>
 		<annotation cp="🖤">carna wutšobka | carny | wutšoba | zły</annotation>
 		<annotation cp="🖤" type="tts">carna wutšobka</annotation>
+		<annotation cp="🩶">šćipjeł | šera | slobro | wutšoba</annotation>
+		<annotation cp="🩶" type="tts">šera wutšoba</annotation>
 		<annotation cp="🤍">běła wutšobka | běły | wutšoba | wutšobka</annotation>
 		<annotation cp="🤍" type="tts">běła wutšobka</annotation>
+		<annotation cp="💋">gubje | póšk | wótśišć gubowu | wótśišć póška</annotation>
+		<annotation cp="💋" type="tts">wótśišć póška</annotation>
 		<annotation cp="💯">100 | 100 dypkow | połna licba dypkow | staw dypkow</annotation>
 		<annotation cp="💯" type="tts">100 dypkow</annotation>
 		<annotation cp="💢">comic | górjenje | symbol | złosć</annotation>
@@ -569,8 +569,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💨" type="tts">prochowa mrokawa</annotation>
 		<annotation cp="🕳">carny | źěra</annotation>
 		<annotation cp="🕳" type="tts">źěra</annotation>
-		<annotation cp="💣">bomba | comic</annotation>
-		<annotation cp="💣" type="tts">bomba</annotation>
 		<annotation cp="💬">dialog | powědański puchor | powědański puchor z tśimi dykami | powědański puchor z tśimi dypkami | rozdrosćenje | rozgrono</annotation>
 		<annotation cp="💬" type="tts">powědański puchor z tśimi dykami</annotation>
 		<annotation cp="👁‍🗨">dialog | powědaś | wócko | wócko w powědańskem puchorje</annotation>
@@ -601,6 +599,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫳" type="tts">dłoń pokazujo dołoj</annotation>
 		<annotation cp="🫴">dłoń pokazujo górjej | kiwaś | póbitowaś | pópadnuś | pśiś</annotation>
 		<annotation cp="🫴" type="tts">dłoń pokazujo górjej</annotation>
+		<annotation cp="🫷">cakaś | high five | nalěwo | ruka, ak tłocy nalěwo | slědk hyś | tłocyś | wótpokazaś | zaźaržaś</annotation>
+		<annotation cp="🫷" type="tts">ruka, ak tłocy nalěwo</annotation>
+		<annotation cp="🫸">cakaś | high five | napšawo | ruka, ak tłocy napšawo | slědk hyś | tłocyś | wótpokazaś | zaźaržaś</annotation>
+		<annotation cp="🫸" type="tts">ruka, ak tłocy napšawo</annotation>
 		<annotation cp="👌">ekscelentny | ok | ok-gesta | okay | okay-gesta | perfektny | ruka | w rěchu</annotation>
 		<annotation cp="👌" type="tts">ok-gesta</annotation>
 		<annotation cp="🤌">gesta z ruku | gromadu stłocone palce | gromadu stłocony | palce | sarkastiski</annotation>
@@ -659,10 +661,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤝" type="tts">pódaśe ruki</annotation>
 		<annotation cp="🙏">bjatowaś | bjatujuce ruki | bjatujucej ruce pšosym | módlitwa</annotation>
 		<annotation cp="🙏" type="tts">bjatujuce ruki</annotation>
-		<annotation cp="🫷">cakaś | high five | nalěwo | ruka, ak tłocy nalěwo | slědk hyś | tłocyś | wótpokazaś | zaźaržaś</annotation>
-		<annotation cp="🫷" type="tts">ruka, ak tłocy nalěwo</annotation>
-		<annotation cp="🫸">cakaś | high five | napšawo | ruka, ak tłocy napšawo | slědk hyś | tłocyś | wótpokazaś | zaźaržaś</annotation>
-		<annotation cp="🫸" type="tts">ruka, ak tłocy napšawo</annotation>
 		<annotation cp="✍">pisanje | pisaś | pišuca ruka | ruka</annotation>
 		<annotation cp="✍" type="tts">pišuca ruka</annotation>
 		<annotation cp="💅">kosmetika | manikěra | nokś | nokśowy lak | wótwardowanje nokśow</annotation>
@@ -1531,6 +1529,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪹" type="tts">prozne gnězdo</annotation>
 		<annotation cp="🪺">gnězdo z jajkoma | měwanje</annotation>
 		<annotation cp="🪺" type="tts">gnězdo z jajkoma</annotation>
+		<annotation cp="🍄">grib | muchoradło</annotation>
+		<annotation cp="🍄" type="tts">muchoradło</annotation>
 		<annotation cp="🍇">płod | sad | wino | winowa granka</annotation>
 		<annotation cp="🍇" type="tts">winowa granka</annotation>
 		<annotation cp="🍈">melona | mjodowa melona | płod | sad</annotation>
@@ -1593,8 +1593,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧄" type="tts">kobołk</annotation>
 		<annotation cp="🧅">cybula | słod | zelenina</annotation>
 		<annotation cp="🧅" type="tts">cybula</annotation>
-		<annotation cp="🍄">grib | muchoradło</annotation>
-		<annotation cp="🍄" type="tts">muchoradło</annotation>
 		<annotation cp="🥜">jěza | zemske wórjechy | zemski wórjech</annotation>
 		<annotation cp="🥜" type="tts">zemski wórjech</annotation>
 		<annotation cp="🫘">boby | nerka | tšokowy płod | žywidło</annotation>
@@ -2349,16 +2347,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪀" type="tts">jojo</annotation>
 		<annotation cp="🪁">plon | plon za pušćanje | plona pušćaś | se pózwigowaś</annotation>
 		<annotation cp="🪁" type="tts">plon za pušćanje</annotation>
+		<annotation cp="🔫">broń | pistola | rewolwer</annotation>
+		<annotation cp="🔫" type="tts">pistola</annotation>
 		<annotation cp="🎱">billard | billardowa kula | graśe | wósym</annotation>
 		<annotation cp="🎱" type="tts">billardowa kula</annotation>
 		<annotation cp="🔮">gajka | kristal | kristalowa kula | wěšćaŕ</annotation>
 		<annotation cp="🔮" type="tts">kristalowa kula</annotation>
 		<annotation cp="🪄">chodota | guslowanje | guslowaŕ | guslowaŕka | guslowaŕski kij</annotation>
 		<annotation cp="🪄" type="tts">guslowaŕski kij</annotation>
-		<annotation cp="🧿">maskotka | nazar | nazar-amulet | talisman</annotation>
-		<annotation cp="🧿" type="tts">nazar-amulet</annotation>
-		<annotation cp="🪬">amulet | fatima | hamsa | Marja | Miriam | ruka | šćit</annotation>
-		<annotation cp="🪬" type="tts">hamsa</annotation>
 		<annotation cp="🎮">gamepad | gaming | widograśe</annotation>
 		<annotation cp="🎮" type="tts">gamepad</annotation>
 		<annotation cp="🕹">graśe | joystick | wideograśe</annotation>
@@ -2449,8 +2445,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👚" type="tts">bluza</annotation>
 		<annotation cp="🪭">chłoźecy | górucy | machajucy | machawka za pśewětšenje | rejujucy | sromotny | tšuchły | zejgrawaś</annotation>
 		<annotation cp="🪭" type="tts">machawka za pśewětšenje</annotation>
-		<annotation cp="🪮">Afro | cesak | spinka | spinka za włose | włose</annotation>
-		<annotation cp="🪮" type="tts">spinka za włose</annotation>
 		<annotation cp="👛">móšynka | pjenjeze</annotation>
 		<annotation cp="👛" type="tts">móšynka</annotation>
 		<annotation cp="👜">rucna tobołka | taška | tobołka</annotation>
@@ -2479,6 +2473,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🩰" type="tts">baletowe crjeje</annotation>
 		<annotation cp="👢">crjej | škórnja | žeńske | žeńskece škórnje</annotation>
 		<annotation cp="👢" type="tts">žeńskece škórnje</annotation>
+		<annotation cp="🪮">Afro | cesak | spinka | spinka za włose | włose</annotation>
+		<annotation cp="🪮" type="tts">spinka za włose</annotation>
 		<annotation cp="👑">kral | kralowka | krona</annotation>
 		<annotation cp="👑" type="tts">krona</annotation>
 		<annotation cp="👒">kłobyk | pókšyśe na głowu | žeńska | žeńskecy kłobyk | žeńskecy kłobyk ze šlejfu</annotation>
@@ -2797,8 +2793,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🗡" type="tts">kałak</annotation>
 		<annotation cp="⚔">broń | mjac | mjaca | pśekśicnjonej mjaca | pśekśicnjony</annotation>
 		<annotation cp="⚔" type="tts">pśekśicnjonej mjaca</annotation>
-		<annotation cp="🔫">broń | pistola | rewolwer</annotation>
-		<annotation cp="🔫" type="tts">pistola</annotation>
+		<annotation cp="💣">bomba | comic</annotation>
+		<annotation cp="💣" type="tts">bomba</annotation>
 		<annotation cp="🪃">Awstralija | bumerang</annotation>
 		<annotation cp="🪃" type="tts">bumerang</annotation>
 		<annotation cp="🏹">pšužyna | šypa | šypa a pšužyna</annotation>
@@ -2919,6 +2915,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪦" type="tts">narowny kamjeń</annotation>
 		<annotation cp="⚱">njabogi | popjelnica | smjerś | zakopowanje | zemrěś</annotation>
 		<annotation cp="⚱" type="tts">popjelnica</annotation>
+		<annotation cp="🧿">maskotka | nazar | nazar-amulet | talisman</annotation>
+		<annotation cp="🧿" type="tts">nazar-amulet</annotation>
+		<annotation cp="🪬">amulet | fatima | hamsa | Marja | Miriam | ruka | šćit</annotation>
+		<annotation cp="🪬" type="tts">hamsa</annotation>
 		<annotation cp="🗿">maska | statuwa | woblico</annotation>
 		<annotation cp="🗿" type="tts">statuwa</annotation>
 		<annotation cp="🪧">demonstracija | plakat | protest | toflicka | transparent</annotation>
@@ -3115,12 +3115,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔆" type="tts">tasta &quot;swětlej&quot;</annotation>
 		<annotation cp="📶">mobilne škrickowanje | mócnosć signala | signal | słupiki | zwisk z mobilnym škrickowanim</annotation>
 		<annotation cp="📶" type="tts">mócnosć signala</annotation>
+		<annotation cp="🛜">bźez kabla | internet | kompjuter | WLAN</annotation>
+		<annotation cp="🛜" type="tts">bźez kabla</annotation>
 		<annotation cp="📳">handy | mobilny telefon | tasta &quot;wibraciski modus&quot; | wibracija | wibraciski modus</annotation>
 		<annotation cp="📳" type="tts">tasta &quot;wibraciski modus&quot;</annotation>
 		<annotation cp="📴">handy wušaltowaś | mobilny telefon | tasta &quot;wušaltuj handy&quot; | wušaltowaś | wušaltuj</annotation>
 		<annotation cp="📴" type="tts">tasta &quot;wušaltuj handy&quot;</annotation>
-		<annotation cp="🛜">bźez kabla | internet | kompjuter | WLAN</annotation>
-		<annotation cp="🛜" type="tts">bźez kabla</annotation>
 		<annotation cp="♀">symbol | symbol za žeńskecy rod | žeńska | žeńskecy rod</annotation>
 		<annotation cp="♀" type="tts">symbol za žeńskecy rod</annotation>
 		<annotation cp="♂">muske | muskecy rod | muski | symbol za muskecy rod</annotation>

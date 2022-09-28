@@ -2046,7 +2046,7 @@ Footnotes:
 
 ## Keyboard Test Data
 
-Keyboard Test Data allows the keyboard author to provide regression test data to validate the repertoire and behavior of a keyboard. Tooling can run these regression tests against an implementation, and can also be used as part of the development cycle to validate that keyboard changes do not deviate from expected behavior.
+Keyboard Test Data allows the keyboard author to provide regression test data to validate the repertoire and behavior of a keyboard. Tooling can run these regression tests against an implementation, and can also be used as part of the development cycle to validate that keyboard changes do not deviate from expected behavior.  In the interest of complete coverage, tooling could also indicate whether all keys and gestures in a layout are exercised by the test data.
 
 Test data files have a separate DTD, named `ldmlKeyboardTest.dtd`.  Note that multiple test data files can refer to the same keyboard. Test files should be named similarly to the keyboards which they test, such as `fr_test.xml` to test `fr.xml`.
 
@@ -2141,7 +2141,6 @@ This attribute is one of the following:
 | longPress | The characters are typeable by use of any `longPress` value.                                             |
 | multiTap  | The characters are typeable by use of any `multiTap` value.                                              |
 | hardware  | The characters are typeable by use of any simple keystrokes on any hardware layout.                      |
-
 
 _Attribute:_ `chars` (required)
 

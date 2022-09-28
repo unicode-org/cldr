@@ -2204,7 +2204,7 @@ This attribute specifies a unique name for this suite of tests. These names coul
 >
 > Parents: [tests](#test-element-tests)
 >
-> Children: [startContext](#test-element-startContext), [emit](#test-element-emit), [keystroke](#test-element-keystroke), [check](#test-element-check), [_special_](tr35.md#special)
+> Children: [startContext](#test-element-startContext), [emit](#test-element-emit), [keystroke](#test-element-keystroke), [backspace](#test-element-backspace), [check](#test-element-check), [_special_](tr35.md#special)
 >
 > Occurrence: Required, Multiple
 > </small>
@@ -2320,11 +2320,31 @@ Tooling should give a warning if this attribute does not match at least one keys
 <emit to="s"/>
 ```
 
+
+### Test Element: backspace
+
+> <small>
+>
+> Parents: [test](#test-element-test)
+>
+> Children: _none_
+>
+> Occurrence: Optional, Multiple
+> </small>
+
+This element represents a backspace action, as if the user typed the backspace key
+
+**Example**
+
+```xml
+<backspace/>
+```
+
 ### Test Element: check
 
 > <small>
 >
-> Parents: [check](#test-element-check)
+> Parents: [test](#test-element-test)
 >
 > Children: _none_
 >

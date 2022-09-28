@@ -231,7 +231,9 @@ public class TestDtdData extends TestFmwk {
                 if (!distAttributes.isEmpty()) {
                     m.put("warn", type + "\t||" + showPath(parents) + "||path has neither value NOR value attributes NOR dist. attrs.||");
                 } else {
-                    m.put("error", "\t||" + showPath(parents) + "||path has neither value NOR value attributes||");
+                    if (!ALLOWED_EMPTY_NO_VALUE_PATHS.contains(showPath(parents))) {
+                        m.put("error", "\t||" + showPath(parents) + "||path has neither value NOR value attributes||");
+                    }
                 }
             }
             break;
@@ -254,7 +256,9 @@ public class TestDtdData extends TestFmwk {
             // if no children left, treat like EMPTY
             if (children.isEmpty()) {
                 if (valueAttributes.isEmpty()) {
-                    errln(type + "\t|| " + showPath(parents) + "||path has neither value NOR value attributes||");
+                    if (!ALLOWED_EMPTY_NO_VALUE_PATHS.contains(showPath(parents))) {
+                        errln(type + "\t|| " + showPath(parents) + "||DTD has neither value NOR value attributes (only special or deprecated children)||");
+                    }
                 }
                 break;
             }
@@ -348,6 +352,13 @@ public class TestDtdData extends TestFmwk {
 //        }
 //
 //    }
+
+    /**
+     * paths that can be empty erlements. Each item starts with '!' because of showPath.
+     */
+    static final Set<String> ALLOWED_EMPTY_NO_VALUE_PATHS = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
+        "!//keyboardTest/tests/test/backspace"
+    )));
 
     // TESTING CODE
     static final Set<String> orderedElements = Collections.unmodifiableSet(new HashSet<>(Arrays

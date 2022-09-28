@@ -111,6 +111,7 @@ The LDML specification is divided into the following parts:
   * [Test Element: startContext](#test-element-startcontext)
   * [Test Element: keystroke](#test-element-keystroke)
   * [Test Element: emit](#test-element-emit)
+  * [Test Element: backspace](#test-element-backspace)
   * [Test Element: check](#test-element-check)
   * [Test Examples](#test-examples)
 
@@ -2100,7 +2101,7 @@ _Attribute:_ `keyboard` (required)
 
 This attribute specifies the keyboard’s file name, such as `fr-t-k0-azerty.xml`.
 
-_Attribute:_ `name`
+_Attribute:_ `name` (required)
 
 This attribute specifies a name for this overall test file. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.
 
@@ -2123,7 +2124,7 @@ This attribute specifies a name for this overall test file. These names could be
 
 This element represents a repertoire test, to validate the available characters and their reachability. This test ensures that each of the specified characters is somehow typeable on the keyboard, after transforms have been applied. The characters in the repertoire will be matched against the complete set of possible generated outputs, post-transform, of all keys on the keyboard.
 
-_Attribute:_ `name`
+_Attribute:_ `name` (required)
 
 This attribute specifies a unique name for this repertoire test. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.
 
@@ -2176,7 +2177,7 @@ Note: CLDR’s extensive [exemplar set](tr35-general.md#Character_Elements) data
 
 This element specifies a particular suite of `<test>` elements.
 
-_Attribute:_ `name`
+_Attribute:_ `name` (required)
 
 This attribute specifies a unique name for this suite of tests. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.
 
@@ -2213,7 +2214,7 @@ This attribute specifies a specific isolated regression test. Multiple test elem
 
 The order of child elements is significant, with cumulative effects: they must be processed from first to last.
 
-_Attribute:_ `name`
+_Attribute:_ `name` (required)
 
 This attribute specifies a unique name for this particular test. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.
 

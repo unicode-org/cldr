@@ -23,7 +23,7 @@ Please see CLDR-15034 for the latest information. -->
     <!--@VALUE-->
 <!ATTLIST info author CDATA #IMPLIED >
     <!--@METADATA-->
-<!ATTLIST info name NMTOKEN #IMPLIED >
+<!ATTLIST info name NMTOKEN #REQUIRED >
 
 <!ELEMENT repertoire EMPTY >
 <!ATTLIST repertoire chars CDATA #REQUIRED >
@@ -31,13 +31,13 @@ Please see CLDR-15034 for the latest information. -->
     <!--@VALUE-->
 <!ATTLIST repertoire type (default | simple | gesture | flick | longPress | multiTap | hardware) #REQUIRED >
     <!--@VALUE-->
-<!ATTLIST repertoire name NMTOKEN #IMPLIED >
+<!ATTLIST repertoire name NMTOKEN #REQUIRED >
 
 <!ELEMENT tests ( test+, special* ) >
-<!ATTLIST tests name NMTOKEN #IMPLIED >
+<!ATTLIST tests name NMTOKEN #REQUIRED >
 
 <!ELEMENT test ( startContext?, ( emit | keystroke | check | backspace )*, special* ) >
-<!ATTLIST test name NMTOKEN #IMPLIED >
+<!ATTLIST test name NMTOKEN #REQUIRED >
 
 <!ELEMENT startContext EMPTY >
 <!ATTLIST startContext to CDATA #REQUIRED >

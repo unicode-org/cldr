@@ -39,7 +39,7 @@
     <xs:complexType>
       <xs:attribute name="keyboard" use="required"/>
       <xs:attribute name="author"/>
-      <xs:attribute name="name" type="xs:NMTOKEN"/>
+      <xs:attribute name="name" use="required" type="xs:NMTOKEN"/>
     </xs:complexType>
   </xs:element>
   <!-- @VALUE -->
@@ -60,7 +60,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
-      <xs:attribute name="name" type="xs:NMTOKEN"/>
+      <xs:attribute name="name" use="required" type="xs:NMTOKEN"/>
     </xs:complexType>
   </xs:element>
   <!-- @MATCH:any -->
@@ -72,7 +72,7 @@
         <xs:element maxOccurs="unbounded" ref="test"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
       </xs:sequence>
-      <xs:attribute name="name" type="xs:NMTOKEN"/>
+      <xs:attribute name="name" use="required" type="xs:NMTOKEN"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="test">
@@ -87,7 +87,7 @@
         </xs:choice>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
       </xs:sequence>
-      <xs:attribute name="name" type="xs:NMTOKEN"/>
+      <xs:attribute name="name" use="required" type="xs:NMTOKEN"/>
     </xs:complexType>
   </xs:element>
   <xs:element name="startContext">

@@ -354,7 +354,7 @@ public class TestDtdData extends TestFmwk {
 //    }
 
     /**
-     * paths that can be empty erlements. Each item starts with '!' because of showPath.
+     * paths that can be empty elements. Each item starts with '!' because of showPath.
      */
     static final Set<String> ALLOWED_EMPTY_NO_VALUE_PATHS = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
         "!//keyboardTest/tests/test/backspace"

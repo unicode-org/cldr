@@ -29,7 +29,7 @@ Please see CLDR-15034 for the latest information. -->
 <!ATTLIST repertoire chars CDATA #REQUIRED >
     <!--@MATCH:any-->
     <!--@VALUE-->
-<!ATTLIST repertoire type (default | simple | gesture | flick | longPress | multiTap | hardware) #REQUIRED >
+<!ATTLIST repertoire type (default | simple | gesture | flick | longPress | multiTap | hardware) #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST repertoire name NMTOKEN #REQUIRED >
 
@@ -62,7 +62,7 @@ Please see CLDR-15034 for the latest information. -->
     <!--@MATCH:range/1~999-->
     <!--@VALUE-->
 <!ATTLIST keystroke tapCount CDATA #IMPLIED >
-    <!--@MATCH:range/1~999-->
+    <!--@MATCH:range/2~999-->
     <!--@VALUE-->
 
 <!ELEMENT check EMPTY >

@@ -2281,9 +2281,7 @@ This attribute specifies that a long press gesture should be performed on the sp
 
 _Attribute:_ `tapCount`
 
-This attribute specifies that a multi-tap gesture should be performed on the specified key instead of a keypress. For example, `tapCount="3"` indicates that the key should be tapped three times in rapid succession. This corresponds to `multiTap` on [`<key>`](#Element_key).
-
-Note that `tapCount="1"` is valid, but represents an ordinary keypress.
+This attribute specifies that a multi-tap gesture should be performed on the specified key instead of a keypress. For example, `tapCount="3"` indicates that the key should be tapped three times in rapid succession. This corresponds to `multiTap` on [`<key>`](#Element_key). The minimum tapCount is 2.
 
 **Example**
 

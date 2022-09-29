@@ -494,14 +494,14 @@ Create a **full name locale** as follows.
 1. First, let the **full formatting locale** be the fully-fleshed-out formatting locale using likely subtags.
 2. If there is a name locale available via the PersonName data interface, obtain the full name locale from the name locale using likely subtags. Thus de ⇒ de_Latn_de.
 3. Otherwise the full name locale is created based on the characters in the name and the full formatting locale, as follows:
-    A. Find the predominant script for the name in the following way.
-        a. For each character in the given and surname, find the script(s) of the character using the Script_Extensions property.
-        b. For each of those scripts, increment a counter for that script, and record the position of the first character encountered in that script.
-    B. The predominant script is the script with the highest counter value.
-        a. In the rare case that there are multiple counters with the highest counter value, take the one with the lowest first position.
-        b. In the even rarer case that there is still more than one, use the script whose script code is alphabetically lowest. (These two steps are simply to guarantee a determinant result.)
-    C. If the predominant script is the same as the script of the full formatting locale, then let the full name locale be the full formatting locale.
-    D. Otherwise, find the likely locale for the predominant script, as specified by the likely subtags. (This will add a language and region.) Let the full name locale be that likely locale.
+    1. Find the predominant script for the name in the following way.
+        1. For each character in the given and surname, find the script(s) of the character using the Script_Extensions property.
+        2. For each of those scripts, increment a counter for that script, and record the position of the first character encountered in that script.
+    2. The predominant script is the script with the highest counter value.
+        1. In the rare case that there are multiple counters with the highest counter value, take the one with the lowest first position.
+        2. In the even rarer case that there is still more than one, use the script whose script code is alphabetically lowest. (These two steps are simply to guarantee a determinant result.)
+    3. If the predominant script is the same as the script of the full formatting locale, then let the full name locale be the full formatting locale.
+    4. Otherwise, find the likely locale for the predominant script, as specified by the likely subtags. (This will add a language and region.) Let the full name locale be that likely locale.
 
 In all subsequent steps, the "name locale" is the full name locale.
 
@@ -517,7 +517,7 @@ A PersonName object’s fields are used to derive an order, as follows:
 
 1. If the PersonName object to be formatted has a `preferredOrder` field, then return that field’s value
 2. Otherwise use the nameOrderLocales elements to find the most best match for the full name locale, as follows.
-    A. For each locale L1 in the parent locale lookup chain* for the full name locale, do the following
+    1. For each locale L1 in the parent locale lookup chain* for the full name locale, do the following
         1. Create a locale L2 by replacing the language subtag by 'und'. (Eg, 'de_DE' ⇒ 'und_DE')
         2. For each locale L in {L1, L2}, do the following
              a. If there is a precise match among the givenFirst nameOrderLocales for L, then let the nameOrder be givenFirst, and stop.

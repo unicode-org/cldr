@@ -680,6 +680,14 @@ public class ZoneParser {
         FIX_UNSTABLE_TZIDS = CldrUtility.asMap(FIX_UNSTABLE_TZID_DATA);
     }
 
+    // CLDR canonical zone IDs removed from zone.tab are defined here.
+    // When these zones are deprecated in CLDR, remove them from this array.
+    // See CLDR-16049
+    static final String[][] SUPPLEMENTAL_ZONE_ID_DATA = {
+        {"Europe/Uzhgorod", "UA", "+4837+02218"},
+        {"Europe/Zaporozhye", "UA", "+4750+03510"}
+    };
+
     /**
      *
      */
@@ -758,6 +766,18 @@ public class ZoneParser {
             pieces.add(StandardCodes.NO_COUNTRY); // country
             zoneData.put("Etc/Unknown", pieces);
             zoneData.put("Etc/UTC", pieces);
+
+            // add extra zones
+            for (String[] zoneEntry : SUPPLEMENTAL_ZONE_ID_DATA) {
+                List<String> zarray = new ArrayList<>();
+                if (!m.reset(zoneEntry[2]).matches()) {
+                    throw new IllegalArgumentException("Bad zone.tab, lat/long format: " + zoneEntry[2]);
+                }
+                zarray.add(getDegrees(m, true).toString());
+                zarray.add(getDegrees(m, false).toString());
+                zarray.add(zoneEntry[1]);
+                zoneData.put(zoneEntry[0], zarray);
+            }
 
             zoneData = CldrUtility.protectCollection(zoneData); // protect for later
 

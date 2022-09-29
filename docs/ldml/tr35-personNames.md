@@ -503,15 +503,15 @@ Create a **full name locale** as follows.
     3. If the predominant script is the same as the script of the full formatting locale, then let the full name locale be the full formatting locale.
     4. Otherwise, find the likely locale for the predominant script, as specified by the likely subtags. (This will add a language and region.) Let the full name locale be that likely locale.
 
-In all subsequent steps, the "name locale" is the full name locale.
+In all steps below, the "name locale" is the full name locale.
 
 ### 6.2 <a name="6-2-derive-the-formatting-locale" href="#6-2-derive-the-formatting-locale">Derive the formatting locale</a>
 
-If the name locale is different from the formatting locale, and the script of the name is different from the script of the formatting locale, then change the formatting locale to the name locale.
+If the full name locale is different from the full formatting locale, and the predominant script of the name is different from the script of the formatting locale, then let the full formatting locale be the full name locale.
+
+In all steps below, the "formatting locale" is the full formatting locale.
 
 ### 6.3 <a name="6-3-derive-the-name-order" href="#6-3-derive-the-name-order">Derive the name order</a>
-
-The name order data provides a mapping from the name locale to an order parameter.
 
 A PersonName object’s fields are used to derive an order, as follows:
 
@@ -520,8 +520,8 @@ A PersonName object’s fields are used to derive an order, as follows:
     1. For each locale L1 in the parent locale lookup chain* for the full name locale, do the following
         1. Create a locale L2 by replacing the language subtag by 'und'. (Eg, 'de_DE' ⇒ 'und_DE')
         2. For each locale L in {L1, L2}, do the following
-             a. If there is a precise match among the givenFirst nameOrderLocales for L, then let the nameOrder be givenFirst, and stop.
-             b. Otherwise if there is a precise match among the surnameFirst nameOrderLocales for L, then let the nameOrder be surnameFirst, and stop.
+             1. If there is a precise match among the givenFirst nameOrderLocales for L, then let the nameOrder be givenFirst, and stop.
+             2. Otherwise if there is a precise match among the surnameFirst nameOrderLocales for L, then let the nameOrder be surnameFirst, and stop.
 
 For example, here is a parent locale lookup chain: 
 
@@ -585,7 +585,7 @@ A set of input parameters { order=O length=L usage=U formality=F } matches a per
 
 Example for input parameters 
 
-    order=**givenFirst** length=**long** usage=**referring** formality=**formal**
+    order = **givenFirst**, length =**long**, usage= **referring**, formality = **formal**
 
 To match a personName, all four attributes in the personName must match (a missing attribute matches any value for that attribute):
 
@@ -599,7 +599,14 @@ To find the matching personName element, traverse all the personNames in order u
 
 ### 6.5 <a name="6-5-choose-a-namepattern" href="#6-5-choose-a-namepattern">Choose a namePattern</a>
 
-To format a name, the fields in a namePattern are replaced with the actual PersonName object to be formatted values from the input record. The personName element can contain multiple namePattern elements. We choose one based on the fields in the input PersonName object that are populated: The namePattern that has the most populated fields wins; if more than one have the same number of populated fields, the one with the least unpopulated fields wins. For example:
+To format a name, the fields in a namePattern are replaced with fields fetched from the PersonName Data Interface. The personName element can contain multiple namePattern elements. Choose one based on the fields in the input PersonName object that are populated: 
+1. Find the set of patterns with the most populated fields.
+2. If there is just one element in that set, use it.
+2. Otherwise, among that set, find the set of patterns with the fewest unpopulated fields.
+3. If there is just one element in that set, use it.
+4. Otherwise, take the pattern that is alphabetically least. (This step should rarely happen, and is only for producing a determinant result.)
+
+For example:
 
 1. Pattern A has 12 fields total, pattern B has 10 fields total, and pattern C has 8 fields total.
 2. Both patterns A and B can be populated with 7 fields from the input PersonName object, pattern C can be populated with only 3 fields from the input PersonName object.
@@ -608,8 +615,8 @@ To format a name, the fields in a namePattern are replaced with the actual Perso
 
 If the “winning” namePattern still has fields that are unpopulated in the PersonName object, we alter the pattern algorithmically as follows:
 
-1. For each empty field from the start of the pattern, that field and all whitespace and literal text between it and the previous field and it and the next field is deleted. (This process stops with the first non-empty field.)
-2. For each empty field from the end of the pattern, that field and all whitespace and literal text between it and the next field and it and the previous field is deleted. (This process stops with the first non-empty field.)
+1. If one or more fields at the start of the pattern are empty, all fields, whitespace, and literal text before the **first** populated field are deleted.
+2. If one or more fields at the end of the pattern are empty, all fields, whitespace, and literal text after the **last** populated field are deleted.
 3. For each empty field in the middle of the pattern (going from left to right), that field and all literal text between it and the nearest whitespace or field on both sides is deleted. If this results in two whitespace characters next to each other, they are coalesced into one.
 
 ### 6.6 <a name="6-6-examples-of-choosing-a-namepattern" href="#6-6-examples-of-choosing-a-namepattern">Examples of choosing a namePattern</a>
@@ -751,7 +758,7 @@ The following process is used to produce initials when they are not supplied by 
 | Action              | Result |
 | ------------------- | ------ |
 | 1. Split into words | “Mary” and “Beth” |
-| 2. Each converted to initials | “M” and “B” |
+| 2. Fetch the first grapheme cluster of each word | “M” and “B” |
 | 3. The ***initial*** pattern is applied to each<br>`  <initialPattern type="initial">{0}.</initialPattern>` | “M.” and “B.” |
 | 4. Finally recombined with ***initialSequence***<br>`  <initialPattern type="initialSequence">{0} {1}</initialPattern>` | “M. B.” |
 
@@ -780,7 +787,8 @@ Some writing systems require spaces (or some other non-letters) to separate word
 
 In both cases, the ordering may be changed according to the **Name Order for Locales** settings that each locale provides. If the PersonName object does not supply a locale for a name, then a default locale will be derived based on other information (such as the script of the characters in the name fields).
 
-**Known Issue:** The first version of the data doesn’t handle cases with `foreignSpaceReplacement `where the formatting locale doesn’t need spaces between words, but the name locale has the same ordering as the formatting locale. For example, consider where the formatting locale is Thai, and the name is in English, but transliterated into Thai.
+> **Note** In the tech preview, the structure isn't yet powerful enough to handle cases with `foreignSpaceReplacement` where the formatting locale doesn’t need spaces between words, but the name locale has the same ordering as the formatting locale. 
+> For example, consider where the formatting locale is Thai, and the name is in English, but transliterated into Thai.
 
 To illustrate how foreign space replacement works, consider the following name data. For illustration, the name locale is given in the maximized form: in practice, `ja` would be used instead of `ja_Jpan_JP`, and so on.: For more information, see Likely Subtags [TBD add link].
 
@@ -793,9 +801,8 @@ To illustrate how foreign space replacement works, consider the following name d
 
 Suppose the PersonNames formatting patterns for `ja_JP` and `de_CH` contained the following:
 
-| `ja_JP` formatting patterns |
-| --------------------------- |
-| `<personNames>`<br>
+**`ja_JP` formatting patterns**
+`<personNames>`<br>
 `	<nameOrderLocales order="givenFirst">und</nameOrderLocales>`<br>
 `	<**nameOrderLocales** order="**surnameFirst**">hu **ja** ko vi yue zh **und_JP**</nameOrderLocales>`<br>
 `	<**foreignSpaceReplacement** xml:space="preserve">**・**</foreignSpaceReplacement>`<br>
@@ -808,13 +815,12 @@ Suppose the PersonNames formatting patterns for `ja_JP` and `de_CH` contained th
 `		<namePattern>{surname}{given2}{given}{suffix}</namePattern>`<br>
 `	</personName>`<br>
 `	. . .`<br>
-`</personNames>` | 
+`</personNames>`
 
 Note in the `de_CH` locale, _ja_ is not listed in nameOrderLocales, and would therefore fall under _und_, and be formatted using the givenFirst order patterns if the name data is in the same script as the formatting locale.
 
-| `de_CH` formatting patterns |
-| --------------------------- |
-| `<personNames>`<br>
+**`de_CH` formatting patterns**
+`<personNames>`<br>
 `	<nameOrderLocales order="**givenFirst**">und **de**</nameOrderLocales>`<br>
 `	<nameOrderLocales order="surnameFirst">ko vi yue zh</nameOrderLocales>`<br>
 `	<foreignSpaceReplacemen xml:space="preserve"> </foreignSpaceReplacement>`<br>
@@ -827,7 +833,7 @@ Note in the `de_CH` locale, _ja_ is not listed in nameOrderLocales, and would th
 `		<namePattern>{surname}, {given} {given2-initial}, {suffix}</namePattern>`<br>
 `	</personName>`<br>
 `	. . . `<br>
-`</personNames>` | 
+`</personNames>`
 
 The name data would resolve as follows:
 

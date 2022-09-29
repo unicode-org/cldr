@@ -429,7 +429,8 @@ public class TestDtdData extends TestFmwk {
             "coverageVariable", // needed for supplemental/coverageLevel.xml
             "substitute", // needed for characters.xml
             "unitPreference",
-            "row" // keyboard
+            "row", // keyboard
+            "name" // keyboard
             )));
 
     public static boolean isOrderedOld(String element, DtdType type) {

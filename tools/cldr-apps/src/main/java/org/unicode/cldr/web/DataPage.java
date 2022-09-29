@@ -1,16 +1,12 @@
 //
-//  DataSection.java
+//  DataPage.java
 //
 //  Created by Steven R. Loomis on 18/11/2005.
 //  Copyright 2005-2014 IBM. All rights reserved.
 
-// "Section" is now a misnomer, since this class now handles one "page" at a time, not one "section".
+// Formerly named "DataSection"; renamed, since this class now handles one "page" at a time, not one "section".
 // A section is like "Locale Display Names"; a page is like "Languages (A-D)". Generally one section
 // contains multiple pages.
-
-//  TODO: this class now has lots of knowledge about specific data types.. so does SurveyMain
-//  Probably, it should be concentrated in one side or another- perhaps SurveyMain should call this
-//  class to get a list of displayable items?  A: no, use PathHeader.
 
 package org.unicode.cldr.web;
 
@@ -49,7 +45,7 @@ import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.VoteResolver.Status;
-import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
+import org.unicode.cldr.web.DataPage.DataRow.CandidateItem;
 import org.unicode.cldr.web.UserRegistry.User;
 
 import com.google.common.collect.ImmutableList;
@@ -58,16 +54,14 @@ import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.Output;
 
 /**
- * A DataSection represents a group of related data that will be displayed to
+ * A DataPage represents a group of related data that will be displayed to
  * users in a list such as,
  * "all of the language display names contained in the en_US locale". It is
  * sortable, as well, and has some level of persistence.
- *
- * This class was formerly named DataPod
  */
-public class DataSection implements JSONString {
+public class DataPage implements JSONString {
 
-    private final static Logger logger = SurveyLog.forClass(DataSection.class);
+    private final static Logger logger = SurveyLog.forClass(DataPage.class);
 
     /*
      * For debugging only (so far), setting USE_CANDIDATE_HISTORY to true causes
@@ -77,7 +71,7 @@ public class DataSection implements JSONString {
     private final static boolean USE_CANDIDATE_HISTORY = false;
 
     /**
-     * The translation-hints CLDRFile for this DataSection
+     * The translation-hints CLDRFile for this DataPage
      * This is English if TRANS_HINT_ID = "en_ZZ"; see SurveyMain.getTranslationHintsFile
      */
     private CLDRFile translationHintsFile;
@@ -88,7 +82,7 @@ public class DataSection implements JSONString {
     private CLDRFile rootFile = null;
 
     /**
-     * The DisplayAndInputProcessor for this DataSection
+     * The DisplayAndInputProcessor for this DataPage
      */
     private DisplayAndInputProcessor processor = null;
 
@@ -212,7 +206,7 @@ public class DataSection implements JSONString {
              */
             private String getValueHash() {
                 if (valueHash == null) {
-                    valueHash = DataSection.getValueHash(rawValue);
+                    valueHash = DataPage.getValueHash(rawValue);
                 }
                 return valueHash;
             }
@@ -368,23 +362,12 @@ public class DataSection implements JSONString {
              *
              * Typical sequence of events in making the json object normally sent to the client:
              *
-             * DataSection.toJSONString calls DataSection.DataRow.toJSONString repeatedly for each DataRow.
-             * DataSection.DataRow.toJSONString calls DataSection.DataRow.CandidateItem.toJSONString
+             * DataPage.toJSONString calls DataPage.DataRow.toJSONString repeatedly for each DataRow.
+             * DataPage.DataRow.toJSONString calls DataPage.DataRow.CandidateItem.toJSONString
              * repeatedly for each CandidateItem.
              *
              * This function CandidateItem.toJSONString actually gets called indirectly from this line in
-             * DataSection.DataRow.toJSONString: jo.put("items", itemsJson) (NOT from the earlier loop on items.values).
-             * Stack trace:
-             * DataSection$DataRow$CandidateItem.toJSONString()
-             * JSONObject.valueToString(Object)
-             * JSONObject.toString()
-             * JSONObject.valueToString(Object)
-             * JSONObject.toString()
-             * DataSection$DataRow.toJSONString() -- line with jo.put("items", itemsJson)
-             * DataSection.toJSONString()
-             * JSONObject.valueToString(Object)
-             * JSONWriter.value(Object)
-             * getRow -- line with .key("section").value(section)
+             * DataPage.DataRow.toJSONString: jo.put("items", itemsJson) (NOT from the earlier loop on items.values).
              *
              * @return the JSON string. For example: {"isBailey":false,"tests":[],"rawValue":"↑↑↑","valueHash":"4oaR4oaR4oaR","pClass":"loser",
              *      "isFallback":false,"value":"↑↑↑","isBaselineValue":false,"example":"<div class='cldr_example'>2345<\/div>"}
@@ -459,7 +442,7 @@ public class DataSection implements JSONString {
              *
              * @return the example HTML, as a string
              *
-             * Called only by DataSection.DataRow.CandidateItem.toJSONString()
+             * Called only by DataPage.DataRow.CandidateItem.toJSONString()
              */
             public String getExample() {
                 return nativeExampleGenerator.getExampleHtml(xpath, rawValue);
@@ -719,7 +702,7 @@ public class DataSection implements JSONString {
          *
          * @return winningItem
          *
-         * "The type DataSection.DataRow must implement the inherited abstract method CLDRInfo.PathValueInfo.getCurrentItem()
+         * "The type DataPage.DataRow must implement the inherited abstract method CLDRInfo.PathValueInfo.getCurrentItem()
          */
         @Override
         public CandidateItem getCurrentItem() {
@@ -835,7 +818,7 @@ public class DataSection implements JSONString {
          * @param ourSrc the CLDRFile
          * @param checkCldr the tests to use
          *
-         * Called only by populateFromThisXpath, which is a method of DataSection.
+         * Called only by populateFromThisXpath, which is a method of DataPage.
          *
          * Reference: Distinguish two kinds of votes for inherited value in Survey Tool
          *     https://unicode.org/cldr/trac/ticket/11299
@@ -941,12 +924,12 @@ public class DataSection implements JSONString {
         /**
          * Convert this DataRow to a JSON string.
          *
-         * This function DataSection.DataRow.toJSONString plays a key role in preparing data for the client (survey.js).
+         * This function DataPage.DataRow.toJSONString plays a key role in preparing data for the client (survey.js).
          *
          * Typical sequence of events:
          *
-         * DataSection.toJSONString calls DataSection.DataRow.toJSONString repeatedly for each DataRow.
-         * DataSection.DataRow.toJSONString calls DataSection.DataRow.CandidateItem.toJSONString
+         * DataPage.toJSONString calls DataPage.DataRow.toJSONString repeatedly for each DataRow.
+         * DataPage.DataRow.toJSONString calls DataPage.DataRow.CandidateItem.toJSONString
          * repeatedly for each CandidateItem.
          *
          * TODO: It would be cleaner, and might be more testable and less bug-prone, to separate
@@ -1036,7 +1019,7 @@ public class DataSection implements JSONString {
         }
 
         private String getWinningVHash() {
-            return DataSection.getValueHash(winningValue);
+            return DataPage.getValueHash(winningValue);
         }
 
         private JSONObject getItemsJSON() throws JSONException {
@@ -1312,19 +1295,19 @@ public class DataSection implements JSONString {
     }
 
     /*
-     * The user somehow related to this DataSection?
+     * The user somehow related to this DataPage?
      * TODO: clarify what userForVotelist means
      */
     private User userForVotelist = null;
 
     /**
-     * Set the user for this DataSection
+     * Set the user for this DataPage
      *
      * Somehow related to vote list?
      *
      * @param u the User
      *
-     * TODO: Determine whether we need DataSection to be user-specific, as userForVotelist implies
+     * TODO: Determine whether we need DataPage to be user-specific, as userForVotelist implies
      *
      * Called by getRow, make, submitVoteOrAbstention, and handleBulkSubmit
      */
@@ -1336,7 +1319,7 @@ public class DataSection implements JSONString {
      * Get the CLDRFile for the root locale
      *
      * Keep a reference since sm.getSTFactory().make() may be expensive.
-     * Use lazy initialization since it may not be needed by every DataSection.
+     * Use lazy initialization since it may not be needed by every DataPage.
      */
     private CLDRFile getRootFile() {
         if (rootFile == null) {
@@ -1415,23 +1398,23 @@ public class DataSection implements JSONString {
      */
     public class ExampleEntry {
 
-        public DataSection.DataRow dataRow;
+        public DataPage.DataRow dataRow;
 
         public String hash = null;
         public DataRow.CandidateItem item;
-        public DataSection section;
+        public DataPage page;
         public CheckCLDR.CheckStatus status;
 
         /**
          * Create a new ExampleEntry
          *
-         * @param section the DataSection
+         * @param page the DataPage
          * @param row the DataRow
          * @param item the CandidateItem
          * @param status the CheckStatus
          */
-        public ExampleEntry(DataSection section, DataRow row, DataRow.CandidateItem item, CheckCLDR.CheckStatus status) {
-            this.section = section;
+        public ExampleEntry(DataPage page, DataRow row, DataRow.CandidateItem item, CheckCLDR.CheckStatus status) {
+            this.page = page;
             this.dataRow = row;
             this.item = item;
             this.status = status;
@@ -1441,7 +1424,7 @@ public class DataSection implements JSONString {
              *
              * fieldHash ensures that we don't get the wrong field.
              */
-            hash = CookieSession.cheapEncode(DataSection.getN()) + row.fieldHash();
+            hash = CookieSession.cheapEncode(DataPage.getN()) + row.fieldHash();
         }
     }
 
@@ -1474,7 +1457,7 @@ public class DataSection implements JSONString {
     private final static Pattern fromto_p[] = new Pattern[fromto.length / 2];
 
     /*
-     * Has this DataSection been initialized?
+     * Has this DataPage been initialized?
      * Used only in the function init()
      */
     private static boolean isInitted = false;
@@ -1504,7 +1487,7 @@ public class DataSection implements JSONString {
      */
     static {
         if (TRACE_TIME == true) {
-            System.err.println("DataSection: Note, TRACE_TIME is TRUE");
+            System.err.println("DataPage: Note, TRACE_TIME is TRUE");
         }
     }
 
@@ -1525,7 +1508,7 @@ public class DataSection implements JSONString {
     }
 
     /**
-     * Initialize this DataSection if it hasn't already been initialized
+     * Initialize this DataPage if it hasn't already been initialized
      */
     private static synchronized void init() {
         if (!isInitted) {
@@ -1561,34 +1544,33 @@ public class DataSection implements JSONString {
     }
 
     /**
-     * Create, populate, and complete a DataSection given the specified locale and prefix
+     * Create, populate, and complete a DataPage given the specified locale and prefix
      *
      * @param pageId the PageId, with a name such as "Generic" or "T_NAmerica",
-     *                           and a SectionId with a name such as "DateTime" or "Locale_Display_Names"; or null
+     *                           and an id with a name such as "DateTime" or "Locale_Display_Names"; or null
      * @param ctx the WebContext to use (contains CLDRDBSource, etc.); or null; used for ctx.session.user, passed to getOptions, ...
      * @param session
      * @param locale
      * @param prefix the XPATH prefix, such as ...; or null
      * @param matcher
-     * @return the DataSection
+     * @return the DataPage
      *
-     * Called by WebContext.getDataSection (ctx != null)
+     * Called by WebContext.getDataPage (ctx != null)
      *    and by SurveyAjax.submitVoteOrAbstention (ctx == null)
      *    and by SurveyAjax.handleBulkSubmit(ctx == null)
-     *     [formerly by submit.jsp but Eclipse wouldn't show that due to jsp]
      * WebContext.getDataSection calls like this:
-     *    DataSection.make(pageId, this [ctx], this.session, locale, prefix, matcher)
+     *    DataPage.make(pageId, this [ctx], this.session, locale, prefix, matcher)
      * submitVoteOrAbstention calls like this:
-     *    DataSection.make(null [pageId], null [ctx], mySession, locale, xp, null [matcher])
+     *    DataPage.make(null [pageId], null [ctx], mySession, locale, xp, null [matcher])
      * handleBulkSubmit calls like this:
-     *    DataSection.make(null [pageId], null [ctx], cs, loc, base, null [matcher])
+     *    DataPage.make(null [pageId], null [ctx], cs, loc, base, null [matcher])
      */
-    public static DataSection make(PageId pageId, WebContext ctx, CookieSession session, CLDRLocale locale, String prefix,
-        XPathMatcher matcher) {
+    public static DataPage make(PageId pageId, WebContext ctx, CookieSession session, CLDRLocale locale, String prefix,
+                                XPathMatcher matcher) {
 
         SurveyMain sm = CookieSession.sm; // TODO: non-deprecated way of getting sm -- could be ctx.sm unless ctx is null
 
-        DataSection section = new DataSection(pageId, sm, locale, prefix, matcher);
+        DataPage page = new DataPage(pageId, sm, locale, prefix, matcher);
 
         CLDRFile ourSrc = sm.getSTFactory().make(locale.getBaseName());
 
@@ -1598,7 +1580,7 @@ public class DataSection implements JSONString {
             throw new InternalError("session == null");
         }
         if (session.user != null) {
-            section.setUserForVotelist(session.user);
+            page.setUserForVotelist(session.user);
         }
 
         if (ourSrc.getSupplementalDirectory() == null) {
@@ -1609,11 +1591,11 @@ public class DataSection implements JSONString {
             if (checkCldr == null) {
                 throw new InternalError("checkCldr == null");
             }
-            section.translationHintsFile = sm.getTranslationHintsFile();
-            String englishPath = section.translationHintsFile.getSupplementalDirectory().getPath();
-            section.nativeExampleGenerator = TestCache.getExampleGenerator(locale, ourSrc, section.translationHintsFile, englishPath);
+            page.translationHintsFile = sm.getTranslationHintsFile();
+            String englishPath = page.translationHintsFile.getSupplementalDirectory().getPath();
+            page.nativeExampleGenerator = TestCache.getExampleGenerator(locale, ourSrc, page.translationHintsFile, englishPath);
 
-            section.populateFrom(ourSrc, checkCldr);
+            page.populateFrom(ourSrc, checkCldr);
             /*
              * Call ensureComplete if and only if pageId is null. TODO: Explain, why?
              * pageId is null when called from submitVoteOrAbstention, and also
@@ -1621,10 +1603,10 @@ public class DataSection implements JSONString {
              * when the user opens a page, pageId is not null.
              */
             if (pageId == null) {
-                section.ensureComplete(checkCldr);
+                page.ensureComplete(checkCldr);
             }
         }
-        return section;
+        return page;
     }
 
     /**
@@ -1636,7 +1618,7 @@ public class DataSection implements JSONString {
      * @param locale
      * @return the CheckCLDR.Options object
      *
-     * Called by DataSection.make (ctx maybe null) and by SurveyAjax.processRequest (ctx null)
+     * Called by DataPage.make (ctx maybe null) and by SurveyAjax.processRequest (ctx null)
      */
     public static CheckCLDR.Options getOptions(WebContext ctx, CookieSession session, CLDRLocale locale) {
         CheckCLDR.Options options;
@@ -1670,11 +1652,11 @@ public class DataSection implements JSONString {
     private final PageId pageId;
     private CLDRFile diskFile;
 
-    private static final boolean DEBUG_DATA_SECTION = false;
-    private String creationTime = null; // only used if DEBUG_DATA_SECTION
+    private static final boolean DEBUG_DATA_PAGE = false;
+    private String creationTime = null; // only used if DEBUG_DATA_PAGE
 
     /**
-     * Create a DataSection
+     * Create a DataPage
      *
      * @param pageId
      * @param sm
@@ -1682,9 +1664,9 @@ public class DataSection implements JSONString {
      * @param prefix
      * @param matcher
      *
-     * Called only by DataSection.make
+     * Called only by DataPage.make
      */
-    DataSection(PageId pageId, SurveyMain sm, CLDRLocale loc, String prefix, XPathMatcher matcher) {
+    DataPage(PageId pageId, SurveyMain sm, CLDRLocale loc, String prefix, XPathMatcher matcher) {
         this.locale = loc;
         this.sm = sm;
         this.matcher = matcher;
@@ -1692,14 +1674,14 @@ public class DataSection implements JSONString {
         ballotBox = sm.getSTFactory().ballotBoxForLocale(locale);
         this.pageId = pageId;
 
-        if (DEBUG_DATA_SECTION) {
+        if (DEBUG_DATA_PAGE) {
             creationTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime());
-            System.out.println("🌴 Created new DataSection for loc " + loc + " at " + creationTime);
+            System.out.println("🌴 Created new DataPage for loc " + loc + " at " + creationTime);
         }
     }
 
     /**
-     * Add the given DataRow to this DataSection
+     * Add the given DataRow to this DataPage
      *
      * @param row the DataRow
      *
@@ -1721,7 +1703,7 @@ public class DataSection implements JSONString {
     }
 
     /**
-     * Create a DisplaySet for this DataSection
+     * Create a DisplaySet for this DataPage
      *
      * @param sortMode
      * @param matcher
@@ -1734,11 +1716,11 @@ public class DataSection implements JSONString {
     }
 
     /**
-     * Makes sure this DataSection contains the rows we'd like to see related to timeZoneNames
+     * Makes sure this DataPage contains the rows we'd like to see related to timeZoneNames
      *
-     * Called only by DataSection.make, only when pageId == null
+     * Called only by DataPage.make, only when pageId == null
      *
-     * TODO: explain this mechanism and why it's limited to DataSection, not shared with Dashboard,
+     * TODO: explain this mechanism and why it's limited to DataPage, not shared with Dashboard,
      * CLDRFile, or any other module. Is it in any way related to CLDRFile.getRawExtraPathsPrivate?
      */
     private void ensureComplete(TestResultBundle checkCldr) {
@@ -1749,7 +1731,7 @@ public class DataSection implements JSONString {
         // work on zones
         boolean isMetazones = xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone");
         boolean isSingleXPath = false;
-        // Make sure the DataSection contains the rows we'd like to see.
+        // Make sure the DataPage contains the rows we'd like to see.
         // regular zone
 
         Set<String> zoneIterator;
@@ -1836,7 +1818,7 @@ public class DataSection implements JSONString {
                 // Filter out data that is higher than the desired coverage level
                 int coverageValue = getCoverageInfo().getCoverageValue(base_xpath_string, locale.getBaseName());
 
-                DataSection.DataRow myp = getDataRow(base_xpath_string); /* rowXPath */
+                DataPage.DataRow myp = getDataRow(base_xpath_string); /* rowXPath */
 
                 myp.coverageValue = coverageValue;
 
@@ -1850,7 +1832,7 @@ public class DataSection implements JSONString {
     }
 
     /**
-     * Get the CoverageInfo object from CLDR for this DataSection
+     * Get the CoverageInfo object from CLDR for this DataPage
      *
      * @return the CoverageInfo
      */
@@ -1864,7 +1846,7 @@ public class DataSection implements JSONString {
     }
 
     /**
-     * Get all rows for this DataSection, unsorted
+     * Get all rows for this DataPage, unsorted
      *
      * @return the Collection of DataRow
      */
@@ -1873,7 +1855,7 @@ public class DataSection implements JSONString {
     }
 
     /**
-     * Get the row for the given xpath in this DataSection
+     * Get the row for the given xpath in this DataPage
      *
      * Linear search for matching item.
      *
@@ -1896,7 +1878,7 @@ public class DataSection implements JSONString {
     }
 
     /**
-     * Populate this DataSection
+     * Populate this DataPage
      *
      * @param ourSrc the CLDRFile
      * @param checkCldr the TestResultBundle
@@ -1921,9 +1903,9 @@ public class DataSection implements JSONString {
             /* Determine which xpaths to show */
             if (xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone")) {
                 String continent = null;
-                int continentStart = xpathPrefix.indexOf(DataSection.CONTINENT_DIVIDER);
+                int continentStart = xpathPrefix.indexOf(DataPage.CONTINENT_DIVIDER);
                 if (continentStart > 0) {
-                    continent = xpathPrefix.substring(xpathPrefix.indexOf(DataSection.CONTINENT_DIVIDER) + 1);
+                    continent = xpathPrefix.substring(xpathPrefix.indexOf(DataPage.CONTINENT_DIVIDER) + 1);
                 }
                 if (DEBUG) {
                     System.err.println(xpathPrefix + ": -> continent " + continent);
@@ -1955,7 +1937,7 @@ public class DataSection implements JSONString {
     }
 
     /**
-     * Populate this DataSection with a row for each of the given xpaths
+     * Populate this DataPage with a row for each of the given xpaths
      *
      * @param allXpaths the set of xpaths
      * @param workPrefix
@@ -2005,7 +1987,7 @@ public class DataSection implements JSONString {
     }
 
     /**
-     * Add data to this DataSection including a possibly new DataRow for the given xpath
+     * Add data to this DataPage including a possibly new DataRow for the given xpath
      *
      * @param xpath
      * @param extraXpaths
@@ -2172,7 +2154,7 @@ public class DataSection implements JSONString {
      * @param row the DataRow
      * @param checkCldr the TestResultBundle, or null
      *
-     * TODO: populateFromThisXpathAddItemsForVotes could be a method of DataRow instead of DataSection, then wouldn't need row, xpath as params
+     * TODO: populateFromThisXpathAddItemsForVotes could be a method of DataRow instead of DataPage, then wouldn't need row, xpath as params
      */
     private void populateFromThisXpathAddItemsForVotes(Set<String> v, String xpath, DataRow row, TestResultBundle checkCldr) {
         for (String avalue : v) {
@@ -2204,7 +2186,7 @@ public class DataSection implements JSONString {
      * @param xpath
      * @param setInheritFrom
      *
-     * TODO: addOurValue could be a method of DataRow instead of DataSection, then wouldn't need row, xpath as params
+     * TODO: addOurValue could be a method of DataRow instead of DataPage, then wouldn't need row, xpath as params
      */
     private void addOurValue(String ourValue, DataRow row, List<CheckStatus> checkCldrResult,
             org.unicode.cldr.util.CLDRFile.Status sourceLocaleStatus, String xpath, CLDRLocale setInheritFrom) {
@@ -2248,7 +2230,7 @@ public class DataSection implements JSONString {
     }
 
     /**
-     * Convert this DataSection to a string.
+     * Convert this DataPage to a string.
      */
     @Override
     public String toString() {
@@ -2265,7 +2247,7 @@ public class DataSection implements JSONString {
     }
 
     /**
-     * Convert this DataSection to a JSON string.
+     * Convert this DataPage to a JSON string.
      */
     @Override
     public String toJSONString() throws JSONException {
@@ -2295,7 +2277,7 @@ public class DataSection implements JSONString {
     }
 
     /**
-     * Get the DisplayAndInputProcessor for this DataSection; if there isn't one yet, create it
+     * Get the DisplayAndInputProcessor for this DataPage; if there isn't one yet, create it
      *
      * @return the processor
      *

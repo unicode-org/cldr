@@ -1,4 +1,4 @@
-<%@page import="org.unicode.cldr.web.DataSection.DataRow.CandidateItem"%>
+<%@page import="org.unicode.cldr.web.DataPage.DataRow.CandidateItem"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	import='java.sql.*,org.unicode.cldr.util.*,java.util.*'
     pageEncoding="UTF-8"%><%@ include file="/WEB-INF/jspf/session.jspf" %>

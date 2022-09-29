@@ -30,9 +30,9 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.web.BallotBox;
 import org.unicode.cldr.web.BallotBox.VoteNotAcceptedException;
 import org.unicode.cldr.web.CookieSession;
-import org.unicode.cldr.web.DataSection;
-import org.unicode.cldr.web.DataSection.DataRow;
-import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
+import org.unicode.cldr.web.DataPage;
+import org.unicode.cldr.web.DataPage.DataRow;
+import org.unicode.cldr.web.DataPage.DataRow.CandidateItem;
 import org.unicode.cldr.web.STFactory;
 import org.unicode.cldr.web.SurveyException.ErrorCode;
 import org.unicode.cldr.web.SurveyLog;
@@ -44,8 +44,6 @@ import org.unicode.cldr.web.XPathTable;
 import org.unicode.cldr.web.api.VoteAPI.RowResponse;
 import org.unicode.cldr.web.api.VoteAPI.RowResponse.Row.Candidate;
 import org.unicode.cldr.web.api.VoteAPI.VoteResponse;
-
-import com.ibm.icu.util.Output;
 
 /**
  * Note: The functions in this class needed to be separated from VoteAPI because of static init problems.
@@ -61,7 +59,7 @@ public class VoteAPIHelper {
     public static final class VoteEntry {
         public Object userid;
         public int votes;
-        public Integer override = null;
+        public Integer override;
 
         public VoteEntry(int id, int votes, Integer override) {
             this.userid = id;
@@ -70,14 +68,13 @@ public class VoteAPIHelper {
         }
     }
 
-    static final boolean DEBUG = false;
     static final Logger logger = SurveyLog.forClass(VoteAPIHelper.class);
 
     private static class ArgsForGet {
         String localeId;
         String sessionId;
         String page = null;
-        String xpath = null;
+        String xpstrid = null;
         Boolean getDashboard = false;
 
         public ArgsForGet(String loc, String session) {
@@ -86,9 +83,9 @@ public class VoteAPIHelper {
         }
     }
 
-    static Response handleGetOneRow(String loc, String session, String xpath, Boolean getDashboard) {
+    static Response handleGetOneRow(String loc, String session, String xpstrid, Boolean getDashboard) {
         ArgsForGet args = new ArgsForGet(loc, session);
-        args.xpath = xpath;
+        args.xpstrid = xpstrid;
         args.getDashboard = getDashboard;
         return handleGetRows(args);
     }
@@ -112,27 +109,27 @@ public class VoteAPIHelper {
             PageId pageId = null;
             String xp = null;
 
-            if (args.xpath == null && args.page != null) {
+            if (args.xpstrid == null && args.page != null) {
                 try {
                     pageId = PageId.valueOf(args.page);
                 } catch (IllegalArgumentException iae) {
                     return Response.status(404).entity(new STError(ErrorCode.E_BAD_SECTION)).build();
                 }
-                if (pageId != null && pageId.getSectionId() == org.unicode.cldr.util.PathHeader.SectionId.Special) {
+                if (pageId.getSectionId() == org.unicode.cldr.util.PathHeader.SectionId.Special) {
                     return new STError(ErrorCode.E_SPECIAL_SECTION, "Items not visible - page " + pageId + " section " + pageId.getSectionId()).build();
                 }
                 r.pageId = pageId.name();
-            } else if (args.xpath != null && args.page == null) {
-                xp = sm.xpt.getByStringID(args.xpath);
+            } else if (args.xpstrid != null && args.page == null) {
+                xp = sm.xpt.getByStringID(args.xpstrid);
                 if (xp == null) {
                     return Response.status(404).entity(new STError(ErrorCode.E_BAD_XPATH)).build();
                 }
                 matcher = XPathMatcher.getMatcherForString(xp); // single string
             } else {
                 // Should not get here.
-                return new STError(ErrorCode.E_INTERNAL, "handleGetRows: need xpath or page, but not both").build();
+                return new STError(ErrorCode.E_INTERNAL, "handleGetRows: need xpstrid or page, but not both").build();
             }
-            final DataSection pageData = DataSection.make(pageId, null, mySession, locale, xp, matcher);
+            final DataPage pageData = DataPage.make(pageId, null, mySession, locale, xp, matcher);
             pageData.setUserForVotelist(mySession.user);
 
             // don't return default content
@@ -154,7 +151,8 @@ public class VoteAPIHelper {
             }
             return Response.ok(r).build();
         } catch (Throwable t) {
-            SurveyLog.logException(logger, t, "Trying to load " + args.localeId + " / " + args.xpath);
+            t.printStackTrace();
+            SurveyLog.logException(logger, t, "Trying to load " + args.localeId + " / " + args.xpstrid);
             return new STError(t).build(); // 500
         }
     }
@@ -164,16 +162,16 @@ public class VoteAPIHelper {
         for (final DataRow r : all) {
             list.add(calculateRow(r));
         }
-        return list.toArray(new RowResponse.Row[list.size()]);
+        return list.toArray(new RowResponse.Row[0]);
     }
 
     private static RowResponse.Row calculateRow(final DataRow r) {
         RowResponse.Row row = new RowResponse.Row();
-        // from DataSection.DataRow.toJSONString()
+        // from DataPage.DataRow.toJSONString()
 
         // TODO: ourVote
         final String xpath = r.getXpath();
-        row.xpath = XPathTable.getStringIDString(xpath);
+        row.xpstrid = XPathTable.getStringIDString(xpath);
 
         row.code = r.getCode();
         row.resolver = r.getResolver();
@@ -191,25 +189,25 @@ public class VoteAPIHelper {
         row.helpHtml = r.getHelpHTML();
         row.rdf = r.getRDFURI();
 
-        row.items = calculateItems(r, row);
+        row.items = calculateItems(r);
         PatternPlaceholders placeholders = PatternPlaceholders.getInstance();
         row.placeholderStatus = placeholders.getStatus(xpath);
         row.placeholderInfo = placeholders.get(xpath);
         return row;
     }
 
-    private static Candidate[] calculateItems(final DataRow r, RowResponse.Row row) {
+    private static Candidate[] calculateItems(final DataRow r) {
         // Add candidate items
         List<RowResponse.Row.Candidate> items = new LinkedList<>();
         for (final CandidateItem i : r.items.values()) {
             RowResponse.Row.Candidate c = calculateItem(i);
             items.add(c);
         }
-        return items.toArray(new RowResponse.Row.Candidate[items.size()]);
+        return items.toArray(new Candidate[0]);
     }
 
     private static RowResponse.Row.Candidate calculateItem(final CandidateItem i) {
-        // from DataSection.DataRow.CandidateItem.toJSONString()
+        // from DataPage.DataRow.CandidateItem.toJSONString()
         // Ideally this would go into RowResponse.Row.Candidate but can't due to
         // static initialization problems.
         RowResponse.Row.Candidate c = new RowResponse.Row.Candidate();
@@ -237,10 +235,10 @@ public class VoteAPIHelper {
             }
             entries.add(new VoteEntry(u.id, u.getVoteCount(), override));
         }
-        return entries.toArray(new VoteEntry[entries.size()]);
+        return entries.toArray(new VoteEntry[0]);
     }
 
-    static Response handleVote(String loc, String xpath, VoteRequest request, final CookieSession mySession) {
+    static Response handleVote(String loc, String xpstrid, VoteRequest request, final CookieSession mySession) {
         VoteResponse r = new VoteResponse();
 
         mySession.userDidAction();
@@ -250,11 +248,11 @@ public class VoteAPIHelper {
             return Response.status(Status.FORBIDDEN).build();
         }
         final SurveyMain sm = CookieSession.sm;
-        final String xp = sm.xpt.getByStringID(xpath);
+        final String xp = sm.xpt.getByStringID(xpstrid);
         if (xp == null) {
             return Response.status(Status.NOT_FOUND).build(); // no XPath found
         }
-        CheckCLDR.Options options = DataSection.getOptions(null, mySession, locale); // TODO: why null for WebContext here?
+        CheckCLDR.Options options = DataPage.getOptions(null, mySession, locale); // TODO: why null for WebContext here?
         final STFactory stf = sm.getSTFactory();
         synchronized (mySession) {
             try {
@@ -267,8 +265,8 @@ public class VoteAPIHelper {
                 addDaipException(loc, xp, result, exceptionList, val, origValue);
                 r.setResults(result);
                 r.testsRun = cc.toString();
-                // Create a DataSection for this single XPath.
-                DataSection section = DataSection.make(null, null, mySession, locale, xp, null);
+                // Create a DataPage for this single XPath.
+                DataPage section = DataPage.make(null, null, mySession, locale, xp, null);
                 section.setUserForVotelist(mySession.user);
                 DataRow pvi = section.getDataRow(xp);
                 // First, calculate the status for showing
@@ -310,7 +308,7 @@ public class VoteAPIHelper {
     private static void runTests(final CookieSession mySession, VoteResponse r, CLDRLocale locale, final SurveyMain sm, TestResultBundle cc, String xp,
         String val, final List<CheckStatus> result) {
         if (val != null) {
-            try (SurveyMain.UserLocaleStuff uf = sm.getUserFile(mySession, locale);) {
+            try (SurveyMain.UserLocaleStuff uf = sm.getUserFile(mySession, locale)) {
                 final CLDRFile file = uf.cldrfile;
                 cc.check(xp, result, val);
                 r.dataEmpty = file.isEmpty();

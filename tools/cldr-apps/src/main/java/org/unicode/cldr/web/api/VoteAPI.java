@@ -4,14 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.json.bind.annotation.JsonbProperty;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.HeaderParam;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -47,10 +40,9 @@ import org.unicode.cldr.web.api.VoteAPIHelper.VoteEntry;
 @Path("/voting")
 @Tag(name = "voting", description = "APIs for voting and retrieving vote and row data")
 public class VoteAPI {
-    final boolean DEBUG = false;
 
     @GET
-    @Path("/{locale}/row/{xpath}")
+    @Path("/{locale}/row/{xpstrid}")
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(
         summary = "Get row info",
@@ -82,12 +74,13 @@ public class VoteAPI {
             schema = @Schema(type = SchemaType.STRING)) @PathParam("locale") String loc,
 
         @Parameter(example = "132345490064d839",
-            schema = @Schema(type = SchemaType.STRING)) @PathParam("xpath") String xpath,
+            schema = @Schema(type = SchemaType.STRING)) @PathParam("xpstrid") String xpstrid,
 
-        @QueryParam("dashboard") @Schema(required = false, description = "Whether to get dashboard info") Boolean getDashboard,
+        @QueryParam("dashboard") @Schema(description = "Whether to get dashboard info")
+            @DefaultValue("false") Boolean getDashboard,
 
         @HeaderParam(Auth.SESSION_HEADER) String session) {
-        return VoteAPIHelper.handleGetOneRow(loc, session, xpath, getDashboard);
+        return VoteAPIHelper.handleGetOneRow(loc, session, xpstrid, getDashboard);
     }
 
     @GET
@@ -143,7 +136,7 @@ public class VoteAPI {
             }
 
             public Candidate[] items;
-            public String xpath;
+            public String xpstrid;
             public String code;
             public VoteResolver<String> resolver;
             public String dir;
@@ -175,7 +168,7 @@ public class VoteAPI {
     }
 
     @POST
-    @Path("/{locale}/row/{xpath}")
+    @Path("/{locale}/row/{xpstrid}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(
@@ -205,7 +198,7 @@ public class VoteAPI {
             schema = @Schema(type = SchemaType.STRING)) @PathParam("locale") String loc,
 
         @Parameter(required = true, example = "132345490064d839",
-            schema = @Schema(type = SchemaType.STRING)) @PathParam("xpath") String xpath,
+            schema = @Schema(type = SchemaType.STRING)) @PathParam("xpstrid") String xpstrid,
 
         @HeaderParam(Auth.SESSION_HEADER) String session,
 
@@ -216,7 +209,7 @@ public class VoteAPI {
             return Auth.noSessionResponse();
         }
 
-        return VoteAPIHelper.handleVote(loc, xpath, request, mySession);
+        return VoteAPIHelper.handleVote(loc, xpstrid, request, mySession);
     }
 
     final static public class VoteResponse {

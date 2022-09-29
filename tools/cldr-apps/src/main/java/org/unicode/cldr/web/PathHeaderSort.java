@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.unicode.cldr.util.PathHeader;
-import org.unicode.cldr.web.DataSection.DataRow;
+import org.unicode.cldr.web.DataPage.DataRow;
 
 public class PathHeaderSort extends SortMode {
 
@@ -28,7 +28,7 @@ public class PathHeaderSort extends SortMode {
     }
 
     @Override
-    public DataSection.DisplaySet createDisplaySet(XPathMatcher matcher, Collection<DataRow> values) {
+    public DataPage.DisplaySet createDisplaySet(XPathMatcher matcher, Collection<DataRow> values) {
         DataRow[] rows = createSortedList(new Comparator<>() {
 
             @Override
@@ -55,7 +55,7 @@ public class PathHeaderSort extends SortMode {
             }
         }
 
-        return new DataSection.DisplaySet(rows, this, thePartitions.toArray(new Partition[0]));
+        return new DataPage.DisplaySet(rows, this, thePartitions.toArray(new Partition[0]));
     }
 
 }

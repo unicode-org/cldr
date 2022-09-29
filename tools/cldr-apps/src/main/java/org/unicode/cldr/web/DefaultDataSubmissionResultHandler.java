@@ -4,8 +4,8 @@
 package org.unicode.cldr.web;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
-import org.unicode.cldr.web.DataSection.DataRow;
-import org.unicode.cldr.web.DataSection.DataRow.CandidateItem;
+import org.unicode.cldr.web.DataPage.DataRow;
+import org.unicode.cldr.web.DataPage.DataRow.CandidateItem;
 
 /**
  * @author srl
@@ -22,7 +22,7 @@ public class DefaultDataSubmissionResultHandler implements DataSubmissionResultH
 
     }
 
-    // These are the default behaviors when a DataSection is processed.
+    // These are the default behaviors when a DataPage is processed.
 
     @Override
     public void handleResultCount(int j) {

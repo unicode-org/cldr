@@ -10,7 +10,7 @@ function addDeferredHelpTo(fragment, helpHtml, resource) {
   const theHelp = $("<div/>", {
     class: "alert alert-info fix-popover-help vote-help",
   });
-  // helpHtml is loaded immediately in the DataSection, no separate query needed
+  // helpHtml is loaded immediately in the DataPage, no separate query needed
   if (helpHtml) {
     theHelp.append(
       $("<span/>", {

@@ -348,16 +348,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static final String QUERY_DO = "do";
 
     static final String SURVEYTOOL_COOKIE_SESSION = CookieSession.class.getPackage().getName() + ".id";
-    static final String SURVEYTOOL_COOKIE_NONE = "0";
-    static final String PREF_SORTMODE = "p_sort";
     static final String PREF_NOPOPUPS = "p_nopopups";
     static final String PREF_CODES_PER_PAGE = "p_pager";
-    static final String PREF_SORTMODE_CODE = "code";
-    static final String PREF_SORTMODE_CODE_CALENDAR = "codecal";
-    static final String PREF_SORTMODE_METAZONE = "metazon";
-    static final String PREF_SORTMODE_WARNING = "interest";
-    static final String PREF_SORTMODE_NAME = "name";
-    static final String PREF_SORTMODE_DEFAULT = PREF_SORTMODE_CODE;
+
     public static final String PREF_NOJAVASCRIPT = "p_nojavascript";
     public static final String PREF_DEBUGJSP = "p_debugjsp"; // debug JSPs?
     public static final String PREF_COVLEV = "p_covlev"; // covlev
@@ -2335,7 +2328,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      *
      * @return
      *
-     * Called by DataSection.DataRow.toJSONString, and from helpHtml.jsp, and locally by doStartup
+     * Called by DataPage.DataRow.toJSONString, and from helpHtml.jsp, and locally by doStartup
      */
     public synchronized ExampleGenerator getTranslationHintsExample() {
         if (gTranslationHintsExample == null) {

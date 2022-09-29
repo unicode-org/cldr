@@ -72,7 +72,7 @@ function wireUpButton(button, tr, theRow, vHash) {
  *
  * @param {Element} tr the table row
  * @param {Object} theRow object describing the table row
- * @param {String} vHash hash of the value of the candidate item (cf. DataSection.getValueHash on back end),
+ * @param {String} vHash hash of the value of the candidate item (cf. DataPage.getValueHash on back end),
  *                       or empty string for newly submitted value
  * @param {Object} newValue the newly submitted value, or undefined if it's a vote for an already existing value (button.value)
  * @param {Element} button the GUI button

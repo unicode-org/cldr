@@ -21,7 +21,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.Vector;
-import java.util.concurrent.ConcurrentHashMap;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -1110,66 +1109,46 @@ public class WebContext implements Cloneable, Appendable {
         dontShowLoading, showLoading
     }
 
-    private static final boolean CACHE_DATA_SECTION = false; // TESTING, not ready for use
-
-    private static final Map<String, DataSection> dataSectionCache = CACHE_DATA_SECTION ? new ConcurrentHashMap<>() : null;
-
     /**
-     * Get a DataSection
+     * Get a DataPage
      *
      * @param prefix a string such as "//ldml"; or null
      * @param matcher the XPathMatcher (which is ... ?); or null
-     * @param pageId the PageId, with a name such as "Generic" and a SectionId with a name such as "DateTime"; or null
-     * @return the DataSection
+     * @param pageId the PageId, with a name such as "Generic" and an id with a name such as "DateTime"; or null
+     * @return the DataPage
      *
      * Called only by SurveyAjax.getRow, twice:
-     *    ctx.getDataSection(null [prefix], null [matcher], pageId);
-     *    ctx.getDataSection(baseXp [prefix], matcher, null [pageId]);
-     *
-     * TODO: as part of DataSection performance improvement, consider moving this code to a different
-     * module, maybe DataSection itself, especially if we can make DataSection not be user-specific.
-     * WebContext is user-specific, and even request-specific.
-     *
-     * Renamed 2019-05-15 from getSection (5 args) to getDataSection
-     *
-     * Reference: https://unicode-org.atlassian.net/browse/CLDR-12020
+     *    ctx.getDataPage(null [prefix], null [matcher], pageId);
+     *    ctx.getDataPage(baseXp [prefix], matcher, null [pageId]);
      */
-    public DataSection getDataSection(String prefix, XPathMatcher matcher, PageId pageId) {
+    public DataPage getDataPage(String prefix, XPathMatcher matcher, PageId pageId) {
 
-        DataSection section = null;
+        DataPage page = null;
         synchronized (this) {
-            String cacheKey = null;
-            if (CACHE_DATA_SECTION) {
-                cacheKey = locale.toString(); // not enough!
-                section = dataSectionCache.get(cacheKey);
-            }
-            if (section == null) {
+            if (page == null) {
                 CLDRProgressTask progress = sm.openProgress("Loading");
                 try {
                     progress.update("<span title='" + sm.xpt.getPrettyPath(prefix) + "'>" + locale + "</span>");
                     flush();
                     synchronized (session) {
-                        section = DataSection.make(pageId, this /* ctx */, this.session, locale, prefix, matcher);
+                        page = DataPage.make(pageId, this /* ctx */, this.session, locale, prefix, matcher);
                     }
                 } finally {
                     progress.close(); // TODO: this can trigger "State Error: Closing an already-closed CLDRProgressIndicator"
                 }
-                if (section == null) {
+                if (page == null) {
                     throw new InternalError("No section.");
-                }
-                if (CACHE_DATA_SECTION) {
-                    dataSectionCache.put(cacheKey, section);
                 }
             }
         }
-        return section;
+        return page;
     }
 
     // Internal Utils
 
     static final HelpMessages surveyToolHelpMessages = new HelpMessages("test_help_messages.html");
     public static final String CAN_MODIFY = "canModify";
-    public static final String DATA_SECTION = "DataSection";
+    public static final String DATA_PAGE = "DataPage";
     public static final String ZOOMED_IN = "zoomedIn";
     public static final String DATA_ROW = "DataRow";
     public static final String BASE_EXAMPLE = "baseExample";
@@ -1362,7 +1341,6 @@ public class WebContext implements Cloneable, Appendable {
      * A direction, suitable for html 'dir=...'
      *
      * @author srl
-     * @see getDirectionForLocale
      */
     public enum HTMLDirection {
         LEFT_TO_RIGHT("ltr"), RIGHT_TO_LEFT("rtl");

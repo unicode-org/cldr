@@ -752,7 +752,7 @@ function showItemInfoFn(theRow, item) {
       /*
        * Strings produced here, used as keys for cldrText.sub(), may include:
        *  "pClass_winner", "pClass_alias", "pClass_fallback", "pClass_fallback_code", "pClass_fallback_root", "pClass_loser".
-       *  See getPClass in DataSection.java.
+       *  See getPClass in DataPage.java.
        *
        *  TODO: why not show stars, etc., here?
        */

@@ -62,6 +62,13 @@ jobs:
           -Dexec.cleanupDaemonThreads=false
           -Dexec.args="--schema=keyboards/dtd/ldmlKeyboard.xsd keyboards/3.0"
           && echo 'No XML BOM detected'
+      - name: Keyboard Test 3.0 Check
+        run: >
+          mvn -s .github/workflows/mvn-settings.xml --file tools/pom.xml -pl cldr-code
+          exec:java -Dexec.mainClass=org.unicode.cldr.util.XMLValidator
+          -Dexec.cleanupDaemonThreads=false
+          -Dexec.args="--schema=keyboards/dtd/ldmlKeyboardTest.xsd keyboards/test"
+          && echo 'No XML BOM detected'
       - name: Upload cldr-code.jar
         uses: actions/upload-artifact@v2
         with:

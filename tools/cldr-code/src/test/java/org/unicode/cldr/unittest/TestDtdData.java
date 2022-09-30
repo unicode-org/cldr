@@ -231,7 +231,9 @@ public class TestDtdData extends TestFmwk {
                 if (!distAttributes.isEmpty()) {
                     m.put("warn", type + "\t||" + showPath(parents) + "||path has neither value NOR value attributes NOR dist. attrs.||");
                 } else {
-                    m.put("error", "\t||" + showPath(parents) + "||path has neither value NOR value attributes||");
+                    if (!ALLOWED_EMPTY_NO_VALUE_PATHS.contains(showPath(parents))) {
+                        m.put("error", "\t||" + showPath(parents) + "||path has neither value NOR value attributes||");
+                    }
                 }
             }
             break;
@@ -254,7 +256,9 @@ public class TestDtdData extends TestFmwk {
             // if no children left, treat like EMPTY
             if (children.isEmpty()) {
                 if (valueAttributes.isEmpty()) {
-                    errln(type + "\t|| " + showPath(parents) + "||path has neither value NOR value attributes||");
+                    if (!ALLOWED_EMPTY_NO_VALUE_PATHS.contains(showPath(parents))) {
+                        errln(type + "\t|| " + showPath(parents) + "||DTD has neither value NOR value attributes (only special or deprecated children)||");
+                    }
                 }
                 break;
             }
@@ -349,6 +353,13 @@ public class TestDtdData extends TestFmwk {
 //
 //    }
 
+    /**
+     * paths that can be empty elements. Each item starts with '!' because of showPath.
+     */
+    static final Set<String> ALLOWED_EMPTY_NO_VALUE_PATHS = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
+        "!//keyboardTest/tests/test/backspace"
+    )));
+
     // TESTING CODE
     static final Set<String> orderedElements = Collections.unmodifiableSet(new HashSet<>(Arrays
         .asList(
@@ -432,8 +443,17 @@ public class TestDtdData extends TestFmwk {
             "row" // keyboard
             )));
 
+    static final Set<String> orderedKeyboardTestElements = Collections.unmodifiableSet(new HashSet<>(Arrays
+        .asList( "emit", "keystroke", "check", "backspace" )));
+
     public static boolean isOrderedOld(String element, DtdType type) {
-        return orderedElements.contains(element);
+        switch (type) {
+            case keyboardTest:
+                return orderedKeyboardTestElements.contains(element);
+            default:
+                // all others, above
+                return orderedElements.contains(element);
+        }
     }
 
     public boolean isDistinguishingOld(DtdType dtdType, String elementName, String attribute) {
@@ -639,10 +659,16 @@ public class TestDtdData extends TestFmwk {
                 || elementName.equals("display") && attribute.equals("to")
                 || elementName.equals("flicks") && attribute.equals("id");
 
+        case keyboardTest:
+            return elementName.equals("tests") && attribute.equals("name")
+                || elementName.equals("test") && attribute.equals("name")
+                || elementName.equals("repertoire") && attribute.equals("name")
+                || elementName.equals("info") && attribute.equals("name");
+
         case ldmlICU:
             return false;
         default:
-            throw new IllegalArgumentException("Type is wrong: " + dtdType);
+            throw new IllegalArgumentException("type missing from isDistinguishingOld(): " + dtdType);
         }
         // if (result != matches(distinguishingAttributeMap, new String[]{elementName, attribute}, true)) {
         // matches(distinguishingAttributeMap, new String[]{elementName, attribute}, true);

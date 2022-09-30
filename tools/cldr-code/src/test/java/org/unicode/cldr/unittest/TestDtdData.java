@@ -440,7 +440,8 @@ public class TestDtdData extends TestFmwk {
             "coverageVariable", // needed for supplemental/coverageLevel.xml
             "substitute", // needed for characters.xml
             "unitPreference",
-            "row" // keyboard
+            "row", // keyboard
+            "name" // keyboard
             )));
 
     static final Set<String> orderedKeyboardTestElements = Collections.unmodifiableSet(new HashSet<>(Arrays

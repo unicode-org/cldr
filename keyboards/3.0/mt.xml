@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
+<keyboard locale="mt" conformsTo="techpreview">
+    <locales>
+        <!-- English is also an official language in Malta.-->
+        <locale id="en" />
+    </locales>
+    <info author="Steven R. Loomis" normalization="NFC" layout="QWERTY" indicator="MT" />
+
+    <names>
+        <name value="Maltese (48-key)" />
+        <!-- <name value="MSA 100:2002" /> -->
+    </names>
+
+    <keys>
+        <key id="a-grave" to="à" />
+        <key id="A-grave" to="À" />
+        <key id="amp" to="\u{0026}" />
+        <key id="apos" to="'" />
+        <key id="bang" to="!" />
+        <key id="c-cedilla" to="ç" />
+        <key id="close-paren" to=")" />
+        <key id="double-quote" to="\u{0022}" />
+        <key id="e-grave" to="è" />
+        <key id="E-grave" to="È" />
+        <key id="equal" to="=" />
+        <key id="hash" to="#" />
+        <key id="hyphen" to="-" />
+        <key id="i-grave" to="ì" />
+        <key id="I-grave" to="Ì" />
+        <key id="o-grave" to="ò" />
+        <key id="O-grave" to="Ò" />
+        <key id="open-paren" to="(" />
+        <key id="u-grave" to="ù" />
+        <key id="U-grave" to="Ù" />
+        <key id="umlaut" to="¨" />
+        <key id="underscore" to="_" />
+        <key id="at" to="@" />
+        <key id="backslash" to="\u{005C}" />
+        <key id="c-tikka" to="ċ" />
+        <key id="C-tikka" to="Ċ" />
+        <key id="caret" to="^" />
+        <key id="close-angle" to=">" />
+        <key id="close-curly" to="}" />
+        <key id="close-square" to="]" />
+        <key id="colon" to=":" />
+        <key id="euro" to="€" />
+        <key id="g-tikka" to="ġ" />
+        <key id="G-tikka" to="Ġ" />
+        <key id="gap" gap="true" width="1" />
+        <key id="grave" to="`" />
+        <key id="h-maqtua" to="ħ" />
+        <key id="H-maqtua" to="Ħ" />
+        <key id="not" to="¬" />
+        <key id="open-angle" to="\u{003C}" />
+        <key id="open-curly" to="{" />
+        <key id="open-square" to="[" />
+        <key id="pipe" to="|" />
+        <key id="plus" to="+" />
+        <key id="pound" to="£" />
+        <key id="question" to="?" />
+        <key id="semi-colon" to=";" />
+        <key id="tilde" to="~" />
+        <key id="z-tikka" to="ż" />
+        <key id="Z-tikka" to="Ż" />
+    </keys>
+
+    <layers form="hardware" hardware="iso">
+        <layer modifier="none">
+            <row keys="c-tikka 1 2 3 4 5 6 7 8 9 0 minus equals" />
+            <row keys="q w e r t y u i o p g-tikka h-maqtua" />
+            <row keys="a s d f g h j k l semi-colon hash" />
+            <row keys="z-tikka z x c v b n m comma period slash" />
+            <row keys="space" />
+        </layer>
+
+        <layer modifier="shift">
+            <row keys="C-tikka bang double-quote euro dollar percent caret amp open-paren close-paren underscore plus" />
+            <row keys="Q W E R T Y U I O P G-tikka H-maqtua" />
+            <row keys="A S D F G H J K L colon at tilde" />
+            <row keys="Z-tikka Z X C V B N M open-angle close-angle question" />
+            <row keys="space" />
+        </layer>
+
+        <layer modifier="altR">
+            <row keys="grave gap gap pound gap gap gap gap gap gap gap gap gap" />
+            <row keys="gap gap e-grave gap gap gap u-grave i-grave o-grave gap open-square close-square" />
+            <row keys="a-grave gap gap gap gap gap gap gap gap gap gap gap" />
+            <row keys="backslash gap gap gap gap gap gap gap gap gap gap" />
+            <row keys="space" />
+        </layer>
+
+        <layer modifier="altR-shift">
+            <row keys="not gap gap gap gap gap gap gap gap gap gap gap gap" />
+            <row keys="gap gap E-grave gap gap gap U-grave I-grave O-grave gap open-curly close-curly" />
+            <row keys="A-grave gap gap gap gap gap gap gap gap gap gap gap" />
+            <row keys="pipe gap gap gap gap gap gap gap gap gap gap" />
+            <row keys="space" />
+        </layer>
+    </layers>
+</keyboard>

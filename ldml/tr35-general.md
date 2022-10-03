@@ -5,14 +5,14 @@
 <!-- HTML: no header -->
 <table><tbody>
 <tr><td>Version</td><td><b>42 (draft)</b></td></tr>
-<tr><td>Editors</td><td>Yoshito Umaoka (<a href="mailto:yoshito_umaoka@us.ibm.com">yoshito_umaoka@us.ibm.com</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td></tr>
+<tr><td>Editors</td><td>Yoshito Umaoka (<a href="mailto:yoshito_umaoka@us.ibm.com">yoshito_umaoka@us.ibm.com</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members</a></td></tr>
 </tbody></table>
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
 ### _Summary_
 
-This document describes parts of an XML format (_vocabulary_) for the exchange of structured locale data. This format is used in the [Unicode Common Locale Data Repository](https://unicode.org/cldr/).
+This document describes parts of an XML format (_vocabulary_) for the exchange of structured locale data. This format is used in the [Unicode Common Locale Data Repository](https://www.unicode.org/cldr/).
 
 This is a partial document, describing general parts of the LDML: display names & transforms, etc. For the other parts of the LDML see the [main LDML document](tr35.md) and the links above.
 
@@ -40,6 +40,7 @@ The LDML specification is divided into the following parts:
 *   Part 5: [Collation](tr35-collation.md#Contents) (sorting, searching, grouping)
 *   Part 6: [Supplemental](tr35-info.md#Contents) (supplemental data)
 *   Part 7: [Keyboards](tr35-keyboards.md#Contents) (keyboard mappings)
+*   Part 8: [Person Names](tr35-personNames.md#Contents) (person names)
 
 ## <a name="Contents" href="#Contents">Contents of Part 2, General</a>
 
@@ -510,7 +511,7 @@ Exemplars are characters used by a language, separated into different categories
 | punctuation     | Common punctuation | - ‐ – — , ; \\: ! ? . … “ ” ‘ ’ ( ) [ ] § @ * / & # † ‡ ′ ″ |
 | numbers         | The characters needed to display the common number formats: decimal, percent, and currency. | \[\\u061C\\u200E \\- , ٫ ٬ . % ٪ ‰ ؉ + 0٠ 1١ 2٢ 3٣ 4٤ 5٥ 6٦ 7٧ 8٨ 9٩\] |
 
-The basic exemplar character sets (main and auxiliary) contain the commonly used letters for a given modern form of a language, which can be for testing and for determining the appropriate repertoire of letters for charset conversion or collation. ("Letter" is interpreted broadly, as anything having the property Alphabetic in the [[UAX44](https://unicode.org/reports/tr41/#UAX44)], which also includes syllabaries and ideographs.) It is not a complete set of letters used for a language, nor should it be considered to apply to multiple languages in a particular country. Punctuation and other symbols should not be included in the main and auxiliary sets. In particular, format characters like CGJ are not included.
+The basic exemplar character sets (main and auxiliary) contain the commonly used letters for a given modern form of a language, which can be for testing and for determining the appropriate repertoire of letters for charset conversion or collation. ("Letter" is interpreted broadly, as anything having the property Alphabetic in the [[UAX44](https://www.unicode.org/reports/tr41/#UAX44)], which also includes syllabaries and ideographs.) It is not a complete set of letters used for a language, nor should it be considered to apply to multiple languages in a particular country. Punctuation and other symbols should not be included in the main and auxiliary sets. In particular, format characters like CGJ are not included.
 
 There are five sets altogether: main, auxiliary, punctuation, numbers, and index. The _main_ set should contain the minimal set required for users of the language, while the _auxiliary_ exemplar set is designed to encompass additional characters: those non-native or historical characters that would customarily occur in common publications, dictionaries, and so on. Major style guidelines are good references for the auxiliary set. So, for example, if Irish newspapers and magazines would commonly have Danish names using å, for example, then it would be appropriate to include å in the auxiliary exemplar characters; just not in the main exemplar set. Thus English has the following:
 
@@ -562,7 +563,7 @@ The display of the index characters can be modified with the `indexLabel`s eleme
 
 In all of the exemplar characters, the list of characters is in the [Unicode Set](tr35.md#Unicode_Sets) format, which normally allows boolean combinations of sets of letters and Unicode properties.
 
-Sequences of characters that act like a single letter in the language — especially in collation — are included within braces, such as `[a-z á é í ó ú ö ü ő ű {cs} {dz} {dzs} {gy} ...]`. The characters should be in normalized form (NFC). Where combining marks are used generatively, and apply to a large number of base characters (such as in Indic scripts), the individual combining marks should be included. Where they are used with only a few base characters, the specific combinations should be included. Wherever there is not a precomposed character (for example, single codepoint) for a given combination, that must be included within braces. For example, to include sequences from the [Where is my Character?](https://unicode.org/standard/where/) page on the Unicode site, one would write: `[{ch} {tʰ} {x̣} {ƛ̓} {ą́} {i̇́} {ト゚}]`, but for French one would just write `[a-z é è ù ...]`. When in doubt use braces, since it does no harm to include them around single code points: for example, `[a-z {é} {è} {ù} ...]`.
+Sequences of characters that act like a single letter in the language — especially in collation — are included within braces, such as `[a-z á é í ó ú ö ü ő ű {cs} {dz} {dzs} {gy} ...]`. The characters should be in normalized form (NFC). Where combining marks are used generatively, and apply to a large number of base characters (such as in Indic scripts), the individual combining marks should be included. Where they are used with only a few base characters, the specific combinations should be included. Wherever there is not a precomposed character (for example, single codepoint) for a given combination, that must be included within braces. For example, to include sequences from the [Where is my Character?](https://www.unicode.org/standard/where/) page on the Unicode site, one would write: `[{ch} {tʰ} {x̣} {ƛ̓} {ą́} {i̇́} {ト゚}]`, but for French one would just write `[a-z é è ù ...]`. When in doubt use braces, since it does no harm to include them around single code points: for example, `[a-z {é} {è} {ù} ...]`.
 
 If the letter 'z' were only ever used in the combination 'tz', then we might have `[a-y {tz}]` in the main set. (The language would probably have plain 'z' in the auxiliary set, for use in foreign words.) If combining characters can be used productively in combination with a large number of others (such as say Indic matras), then they are not listed in all the possible combinations, but separately, such as:
 
@@ -576,9 +577,9 @@ The ordering of the characters in the set is irrelevant, but for readability in 
 
 #### 3.1.2 <a name="Restrictions" href="#Restrictions">Restrictions</a>
 
-1.  The main, auxiliary and index sets are normally restricted to those letters with a specific [Script](https://unicode.org/Public/UNIDATA/Scripts.txt) character property (that is, not the values Common or Inherited) or required [Default_Ignorable_Code_Point](https://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt) characters (such as a non-joiner), or combining marks, or the [Word_Break](https://www.unicode.org/Public/UNIDATA/auxiliary/WordBreakProperty.txt) properties [Katakana](https://www.unicode.org/reports/tr29/#Katakana), [ALetter](https://www.unicode.org/reports/tr29/#ALetter), or [MidLetter](https://www.unicode.org/reports/tr29/#MidLetter).
+1.  The main, auxiliary and index sets are normally restricted to those letters with a specific [Script](https://www.unicode.org/Public/UNIDATA/Scripts.txt) character property (that is, not the values Common or Inherited) or required [Default_Ignorable_Code_Point](https://www.unicode.org/Public/UNIDATA/DerivedCoreProperties.txt) characters (such as a non-joiner), or combining marks, or the [Word_Break](https://www.unicode.org/Public/UNIDATA/auxiliary/WordBreakProperty.txt) properties [Katakana](https://www.unicode.org/reports/tr29/#Katakana), [ALetter](https://www.unicode.org/reports/tr29/#ALetter), or [MidLetter](https://www.unicode.org/reports/tr29/#MidLetter).
 2.  The auxiliary set should not overlap with the main set. There is one exception to this: Hangul Syllables and CJK Ideographs can overlap between the sets.
-3.  Any [Default_Ignorable_Code_Point](https://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt)s should be in the auxiliary set, or, if they are only needed for currency formatting, in the currency set. These can include characters such as U+200E LEFT-TO-RIGHT MARK and U+200F RIGHT-TO-LEFT MARK which may be needed in bidirectional text in order for date, currency or other formats to display correctly.
+3.  Any [Default_Ignorable_Code_Point](https://www.unicode.org/Public/UNIDATA/DerivedCoreProperties.txt)s should be in the auxiliary set, or, if they are only needed for currency formatting, in the currency set. These can include characters such as U+200E LEFT-TO-RIGHT MARK and U+200F RIGHT-TO-LEFT MARK which may be needed in bidirectional text in order for date, currency or other formats to display correctly.
 4.  For exemplar characters the [Unicode Set](tr35.md#Unicode_Sets) format is restricted so as to not use properties or boolean combinations.
 
 ### 3.2 ~~<a name="Character_Mapping" href="#Character_Mapping">Mapping</a>~~
@@ -748,6 +749,8 @@ The `measurement` element is deprecated in the main LDML files, because the data
 ```xml
 <!ELEMENT units (alias | (unit*, unitLength*, durationUnit*, special*) ) >
 
+<!ELEMENT unitIdComponents ( unitIdComponent* ) >
+
 <!ELEMENT unitLength (alias | (compoundUnit*, unit*, coordinateUnit*, special*) ) >
 <!ATTLIST unitLength type (long | short | narrow) #REQUIRED >
 
@@ -894,7 +897,8 @@ As with other identifiers in CLDR, the American English spelling is used for uni
 
 #### Syntax
 
-The formal syntax for identifiers is provided below.
+The formal syntax for identifiers is provided below. 
+Some of the constraints reference data from the unitIdComponents in [Unit_Conversion](tr35-info.md#Unit_Conversion).
 
 <!-- HTML: no header -->
 
@@ -912,6 +916,7 @@ The formal syntax for identifiers is provided below.
                 <li>per-second</li>
             </ul></li>
             <li><em>Note:</em> The normalized form will have only one "per"</li>
+	  <li><em>Note:</em>The token 'per' is the single value in &lt;unitIdComponent type=”per”&gt;</li>
         </ul></td></tr>
 
 <tr><td>product_unit</td><td>:=</td>
@@ -922,7 +927,7 @@ The formal syntax for identifiers is provided below.
             </ul></td></tr>
 
 <tr><td>single_unit</td><td>:=</td>
-    <td>number_prefix? dimensionality_prefix? prefixed_unit
+    <td>number_prefix? dimensionality_prefix? simple_unit
         <ul><li><em>Examples: </em>square-meter, or 100-square-meter</li></ul></td></tr>
 
 <tr><td>pu_single_unit</td><td>:=</td>
@@ -944,10 +949,23 @@ The formal syntax for identifiers is provided below.
 
 <tr><td>dimensionality_prefix</td><td>:=</td>
     <td>"square-"<p>| "cubic-"<p>| "pow" ([2-9]|1[0-5]) "-"
-        <ul><li><em>Note:</em> "pow2-" and "pow3-" canonicalize to "square-" and "cubic-"</li></ul></td></tr>
+        <ul>
+			<li><em>Note:</em> "pow2-" and "pow3-" canonicalize to "square-" and "cubic-"</li>
+			<li><em>Note:</em>These are values in &lt;unitIdComponent type=”power”&gt;</li>
+		</ul></td></tr>
 
+<tr><td>simple_unit</td><td>:=</td>
+    <td>(prefix_component "-")* (prefixed_unit | base_component) ("-" suffix_component)*<br/>
+		|  currency_unit<br/>
+		| “em” | “g” | “us” | “hg” | "of"
+        <ul>
+		<li><em>Examples:</em> kilometer, meter, cup-metric, fluid-ounce, curr-chf, em</li>
+		<li><em>Note:</em> Three simple units are currently allowed as legacy usage, for tokens that wouldn’t otherwise be a base_component due to length (eg, “<strong>g</strong>-force”). 
+			We will likely deprecate those and add conformant aliases in the future: the “hg” and “of” are already only in deprecated simple_units.</li>
+        </ul></td></tr>
+		
 <tr><td>prefixed_unit</td><td></td>
-    <td>(prefix)? simple_unit<ul><li><em>Example: </em>kilometer</li></ul></td></tr>
+    <td>prefix base_component<ul><li><em>Example: </em>kilometer</li></ul></td></tr>
 
 <tr><td>prefix</td><td></td>
     <td>si_prefix | binary_prefix</td></tr>
@@ -960,35 +978,37 @@ The formal syntax for identifiers is provided below.
     <td>"kibi", "mebi", …
         <ul><li><em>Note: </em>See full list at <a href="https://physics.nist.gov/cuu/Units/binary.html">Prefixes for binary multiples</a></li></ul></td></tr>
 
-<tr><td>simple_unit</td><td>:=</td>
-    <td>unit_component ("-" unit_component)*<br/>
-        | “em” | “g” | “us” | “hg” | “of”
-        <ul><li><em>Example:</em> gallon-imperial</li>
-            <li><em>Constraint:</em> At least one unit_component must not itself be a simple_unit</li>
-            <li><em>Note:</em> 3 simple units are currently allowed as legacy usage, where a component wouldn’t be a unit_component (eg for “<strong>g</strong>-force”)
-                <ul><li>We will likely deprecate those and add conformant aliases in the future.</li>
-                    <li>“hg” and “of” are already only in deprecated simple_units.</li>
-                </ul></li>
-        </ul></td></tr>
+<tr><td>prefix_component</td><td>:=</td>
+    <td>[a-z]{3,∞}
+        <ul><li><em>Constraint:</em> must be value in: &lt;unitIdComponent type=”prefix_component”&gt;.</li></ul></td></tr>
 
-<tr><td>unit_component</td><td>:=</td>
-    <td>[a-z]{3,∞} | “1” “0”{2,3}
-        <ul><li><em>Constraints:</em>
-            <ul><li>Cannot be "per", "and", "square", "cubic", "xxx", or "x"; or start with an SI prefix.</li>
-                <li>While the syntax allows any number of letters greater than 3, the unit_components need to be distinct if truncated to 8 letters. This allows for possible future support of units in Unicode Locale Identifiers.</li>
-            </ul></li>
-            <li><em>Example:</em> foot</li>
-        </ul></td></tr>
+<tr><td>base_component</td><td>:=</td>
+    <td>[a-z]{3,∞}
+        <ul><li><em>Constraint:</em> must not be a value in any of the following:<br>
+			&lt;unitIdComponent type=”prefix_component”&gt;<br> 
+			or &lt;unitIdComponent type=”suffix_component”&gt; <br>
+			or &lt;unitIdComponent type=”power”&gt;<br>
+			or &lt;unitIdComponent type=”and”&gt;<br>
+			or &lt;unitIdComponent type=”per”&gt;.
+		</li></ul>
+        <ul><li><em>Constraint:</em> must not have a prefix as an initial segment.</li></ul>
+	</td></tr>
+
+<tr><td>suffix_component</td><td>:=</td>
+    <td>[a-z]{3,∞}
+        <ul><li><em>Constraint:</em> must be value in: &lt;unitIdComponent type=”suffix_component”&gt;</li></ul></td></tr>
 
 <tr><td>mixed_unit_identifier</td><td>:=</td>
     <td>(single_unit | pu_single_unit) ("-and-" (single_unit | pu_single_unit ))*
-        <ul><li><em>Example: foot-and-inch</em></li></ul></td></tr>
+        <ul><li><em>Example: foot-and-inch</em></li>
+	       <li><em>Note:</em>The token 'and' is the single value in &lt;unitIdComponent type=”and”&gt;</li>
+		</ul></td></tr>
 
 <tr><td>long_unit_identifier</td><td>:=</td>
     <td>grouping "-" core_unit_identifier</td></tr>
 
 <tr><td>grouping</td><td>:=</td>
-    <td>unit_component</td></tr>
+    <td>[a-z]{3,∞}</td></tr>
 
 <tr><td>currency_unit</td><td>:=</td>
     <td>"curr-" [a-z]{3}
@@ -1001,6 +1021,17 @@ The formal syntax for identifiers is provided below.
 </tbody></table>
 
 Note that while the syntax allows for number_prefixes in multiple places, the typical use case is only one instances, and after a "-per-".
+
+The simple_unit structure does not allow for any two simple_units to overlap. 
+That is, there are no cases where simple_unit1 consists of X-Y and simple_unit2 consists of Y-Z. 
+This was not true in previous versions of LDML: cup-metric overlapped with metric-ton. 
+That meant that the unit identifiers for the product_unit of cup and metric-ton and the product_unit of cup-metric and ton were ambiguous. 
+
+The constraint that the identifiers can't overlap also means that parsing of multiple-subtag simple units is simpler. 
+For example:
+* When a prefix_component is encountered, one can collect any other prefix-components, then one base_component, then any suffix components, and stop.
+* Similarly, when a base_component is encountered, one can collect any suffix components, and stop.
+* Encountering a suffix_component in any other circumstance is an error.
 
 ### 6.3 <a name="Example_Units" href="#Example_Units">Example Units</a>
 
@@ -1524,7 +1555,7 @@ Variables and rules both inherit from the parent.
 
 ### 9.2 <a name="Segmentation_Exceptions" href="#Segmentation_Exceptions">Segmentation Suppressions</a>
 
-**Note:** As of CLDR 26, the `<suppressions>` data is to be considered a technology preview. Data currently in CLDR was extracted from the Unicode Localization Interoperability project, or ULI. See [http://uli.unicode.org](http://uli.unicode.org) for more information on the ULI project.
+**Note:** As of CLDR 26, the `<suppressions>` data is to be considered a technology preview. Data currently in CLDR was extracted from the Unicode Localization Interoperability project, or ULI. The ULI committee has been disbanded, but historical information can be found at <https://www.unicode.org/uli/>.
 
 The segmentation **suppressions** list provides a set of cases which, though otherwise identified as a segment by rules, should be skipped (suppressed) during segmentation.
 
@@ -1726,7 +1757,7 @@ Additional transliterations may also be defined, such as customized language-spe
 * UKPCGN - Permanent Committee on Geographical Names for British Official Use
 * RUGOST - Russian Main Administration of Geodesy and Cartography
 
-The rules for transforms are described in Section 10.3 [Transform Rules Syntax](#Transform_Rules_Syntax). For more information on Transliteration, see [Transliteration Guidelines](http://cldr.unicode.org/index/cldr-spec/transliteration-guidelines).
+The rules for transforms are described in Section 10.3 [Transform Rules Syntax](#Transform_Rules_Syntax). For more information on Transliteration, see [Transliteration Guidelines](https://cldr.unicode.org/index/cldr-spec/transliteration-guidelines).
 
 ### 10.3 <a name="Transform_Rules_Syntax" href="#Transform_Rules_Syntax">Transform Rules Syntax</a>
 
@@ -2422,7 +2453,7 @@ Quoting is done using ' characters, as in date or number formats.
 
 Annotations provide information about characters, typically used in input. For example, on a mobile keyboard they can be used to do completion. They are typically used for symbols, especially emoji characters.
 
-For more information, see version 5.0 or [UTR #51, Unicode Emoji](https://unicode.org/reports/tr51/). (Note that during the period between the publication of CLDR v31 and that of Emoji 5.0, the “Latest Proposed Update” link should be used to get to the draft specification for Emoji 5.0.)
+For more information, see version 5.0 or [UTR #51, Unicode Emoji](https://www.unicode.org/reports/tr51/). (Note that during the period between the publication of CLDR v31 and that of Emoji 5.0, the “Latest Proposed Update” link should be used to get to the draft specification for Emoji 5.0.)
 
 ```xml
 <!ELEMENT annotations ( annotation* ) >
@@ -2516,7 +2547,7 @@ Some examples for English data (v30) are given in the following table.
 | 🚴‍♀️       | woman biking | cyclist, woman, bicycle, biking |
 | 🚴🏿‍♀️       | woman biking: dark skin tone | cyclist, woman, bicycle, biking, dark skin tone |
 
-For more information, see [Unicode Emoji](https://unicode.org/reports/tr51).
+For more information, see [Unicode Emoji](https://www.unicode.org/reports/tr51).
 
 ### 14.2 <a name="Character_Labels" href="#Character_Labels">Annotations Character Labels</a>
 
@@ -2614,7 +2645,7 @@ The following are character labels. Where the meaning of the label is fairly cle
 
 The typographic names provide for names of font features for use in a UI. This is useful for apps that show the name of font styles and design axes according to the user’s languages. It would also be useful for system-level libraries.
 
-The identifiers (types) use the tags from the OpenType Feature Tag Registry. Given their large number, only the names of frequently-used OpenType feature names are available in CLDR. (Many features are not user-visible settings, but instead serve as a data channel for software to pass information to the font.) The example below shows an approach for using the CLDR data. Of course, applications are free to implement their own algorithms depending on their specific needs.
+The identifiers (types) use the tags from the [OpenType Feature Tag Registry](https://learn.microsoft.com/en-us/typography/opentype/spec/featuretags). Given their large number, only the names of frequently-used OpenType feature names are available in CLDR. (Many features are not user-visible settings, but instead serve as a data channel for software to pass information to the font.) The example below shows an approach for using the CLDR data. Of course, applications are free to implement their own algorithms depending on their specific needs.
 
 To find a localized subfamily name such as “Extraleicht Schmal” for a font called “Extralight Condensed”, a system or application library might do the following:
 
@@ -2680,7 +2711,13 @@ The @scope attributes are targeted at messages created by computers, thus a feat
 
 ### 15.1 <a name="Gender" href="#Gender">Gender</a>
 
-Feature that classifies nouns in classes. This is grammatical gender, which may be assigned on the basis of sex in some languages, but may be completely separate in others. Also used to tag elements in CLDR that should agree with a particular gender of an associated noun. (adapted from: [linguistics-ontology.org/gold/2010/GenderProperty](http://linguistics-ontology.org/gold/2010/GenderProperty))
+Feature that classifies nouns in classes. 
+This is grammatical gender, which may be assigned on the basis of sex in some languages, but may be completely separate in others. 
+Also used to tag elements in CLDR that should agree with a particular gender of an associated noun. 
+(adapted from: [linguistics-ontology.org/gold/2010/GenderProperty](http://linguistics-ontology.org/gold/2010/GenderProperty))
+
+The term "gender" is somewhat of a misnomer, because CLDR treats "gender" as a broad term, equivalent to "noun class". 
+Thus it bundles noun class categories such as gender and animacy into a single identifier, such as "feminine-animate".
 
 #### Example
 
@@ -2697,9 +2734,29 @@ Feature that classifies nouns in classes. This is grammatical gender, which may 
 | inanimate | In an animate/inanimate gender system, gender that denotes object or inanimate entities .| adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender), [linguistics-ontology.org/gold/2010/InanimateGender](http://linguistics-ontology.org/gold/2010/InanimateGender) |
 | personal  | In an animate/inanimate gender system in some languages, gender that specifies the masculine gender of animate entities. | adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender), [linguistics-ontology.org/gold/2010/HumanGender](http://linguistics-ontology.org/gold/2010/HumanGender) |
 | common    | In a common/neuter gender system, gender that denotes human entities. | adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender) |
-| feminine  | In a masculine/feminine or in a masculine/feminine/neuter gender system, gender that denotes specifically female persons (or animals) or that is assigned arbitrarily to object. | adapted from: http://wikipedia.org/wiki/Grammatical_gender, [linguistics-ontology.org/gold/2010/FeminineGender](http://linguistics-ontology.org/gold/2010/FeminineGender) |
+| feminine  | In a masculine/feminine or in a masculine/feminine/neuter gender system, gender that denotes specifically female persons (or animals) or that is assigned arbitrarily to object. | adapted from: https://wikipedia.org/wiki/Grammatical_gender, [linguistics-ontology.org/gold/2010/FeminineGender](http://linguistics-ontology.org/gold/2010/FeminineGender) |
 | masculine | In a masculine/feminine or in a masculine/feminine/neuter gender system, gender that denotes specifically male persons (or animals) or that is assigned arbitrarily to object. | adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender), [linguistics-ontology.org/gold/2010/MasculineGender](http://linguistics-ontology.org/gold/2010/MasculineGender) |
 | neuter    | In a masculine/feminine/neuter or common/neuter gender system, gender that generally denotes an object. | adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender), [linguistics-ontology.org/gold/2010/NeuterGender](http://linguistics-ontology.org/gold/2010/NeuterGender) |
+
+There are further simplifications in the identifiers. 
+For example, consider a language that has 3 genders, and two levels of animacy, but only for masculine.
+The set of combinations would be:
+
+* masculine-animate
+* masculine-inanimate
+* feminine-unspecified
+* neuter-unspecified
+
+In such a case as this, CLDR abbreviates these as the following identifiers:
+
+* masculine
+* inanimate
+* feminine
+* neuter
+
+That is: 
+* unspecified and animate are dropped.
+* if there is only a single gender with inanimate, then the gender is dropped.
 
 ### 15.2 <a name="Case" href="#Case">Case</a>
 
@@ -2723,7 +2780,7 @@ Feature that encodes the syntactic (and sometimes semantic) relationship of a no
 | accusative         | Accusative case marks certain syntactic functions, usually direct objects. | [purl.org/olia/olia.owl#Accusative](https://purl.org/olia/olia.owl#Accusative), [linguistics-ontology.org/gold/2010/AccusativeCase](http://linguistics-ontology.org/gold/2010/AccusativeCase) |
 | adessive  | The adessive case expresses that the referent of the noun it marks is the location near/at which another referent exists. It has the meaning of 'at' or 'near'. | [purl.org/olia/olia.owl#AdessiveCase](https://purl.org/olia/olia.owl#AdessiveCase), [linguistics-ontology.org/gold/2010/AdessiveCase](http://linguistics-ontology.org/gold/2010/AdessiveCase) |
 | allative | The allative case expresses motion to or toward the referent of the noun it marks. | [purl.org/olia/olia.owl#AllativeCase](https://purl.org/olia/olia.owl#AllativeCase), [linguistics-ontology.org/gold/2010/AllativeCase](http://linguistics-ontology.org/gold/2010/AllativeCase) |
-| causal | The causal (causal-final, not causative) case expresses that the marked noun is the objective or reason for something. It carries the meaning of 'for the purpose of'. | http://en.wikipedia.org/wiki/Causative#Causal-final_case, http://www.hungarianreference.com/Nouns/%C3%A9rt-causal-final.aspx |
+| causal | The causal (causal-final, not causative) case expresses that the marked noun is the objective or reason for something. It carries the meaning of 'for the purpose of'. | https://en.wikipedia.org/wiki/Causative#Causal-final_case, http://www.hungarianreference.com/Nouns/%C3%A9rt-causal-final.aspx |
 | comitative         | Comitative Case expresses accompaniment. It carries the meaning 'with' or 'accompanied by' . | [purl.org/olia/olia.owl#ComitativeCase](https://purl.org/olia/olia.owl#ComitativeCase), [linguistics-ontology.org/gold/2010/ComitativeCase](http://linguistics-ontology.org/gold/2010/ComitativeCase) |
 | dative             | Dative case marks indirect objects (for languages in which they are held to exist), or nouns having the role of a recipient (as of things given), a beneficiary of an action, or a possessor of an item. | [purl.org/olia/olia.owl#DativeCase](https://purl.org/olia/olia.owl#DativeCase), [linguistics-ontology.org/gold/2010/DativeCase](http://linguistics-ontology.org/gold/2010/DativeCase) |
 | delative | The delative case expresses motion downward from the referent of the noun it marks. | [purl.org/olia/olia.owl#DelativeCase](https://purl.org/olia/olia.owl#DelativeCase), [linguistics-ontology.org/gold/2010/DelativeCase](http://linguistics-ontology.org/gold/2010/DelativeCase) |
@@ -2872,6 +2929,6 @@ For example, for gram-per-meter, the first line above means:
 
 * * *
 
-Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode [Terms of Use](https://unicode.org/copyright.html) apply.
+Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode [Terms of Use](https://www.unicode.org/copyright.html) apply.
 
 Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.

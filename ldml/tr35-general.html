@@ -662,6 +662,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -675,7 +685,7 @@
 </table></div><div class="body"><h2 id="unicode-technical-standard-35">Unicode Technical Standard #35</h2><h1 id="unicode-locale-data-markup-language-ldmlpart-2-general">Unicode Locale Data Markup Language (LDML)<br>Part 2: General</h1><!-- HTML: no header --><table class="simple" width="90%"><tbody>
 <tr><td>Version</td><td><b>42 (draft)</b></td></tr>
 <tr><td>Editors</td><td>Yoshito Umaoka (<a href="mailto:yoshito_umaoka@us.ibm.com">yoshito_umaoka@us.ibm.com</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td></tr>
-</tbody></table><p>For the full header, summary, and status, see <a href="tr35.html">Part 1: Core</a>.</p><h3 id="summary"><em>Summary</em></h3><p>This document describes parts of an XML format (<em>vocabulary</em>) for the exchange of structured locale data. This format is used in the <a href="https://unicode.org/cldr/">Unicode Common Locale Data Repository</a>.</p><p>This is a partial document, describing general parts of the LDML: display names &amp; transforms, etc. For the other parts of the LDML see the <a href="tr35.html">main LDML document</a> and the links above.</p><p><em>Note:</em>
+</tbody></table><p>For the full header, summary, and status, see <a href="tr35.html">Part 1: Core</a>.</p><h3 id="summary"><em>Summary</em></h3><p>This document describes parts of an XML format (<em>vocabulary</em>) for the exchange of structured locale data. This format is used in the <a href="https://www.unicode.org/cldr/">Unicode Common Locale Data Repository</a>.</p><p>This is a partial document, describing general parts of the LDML: display names &amp; transforms, etc. For the other parts of the LDML see the <a href="tr35.html">main LDML document</a> and the links above.</p><p><em>Note:</em>
 Some links may lead to in-development or older
 versions of the data files.
 See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-date CLDR release data.</p><h3 id="status"><em>Status</em></h3><p><em>This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium. This is a stable document and may be used as reference material or cited as a normative reference by other specifications.</em></p><blockquote>
@@ -688,6 +698,7 @@ See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-da
 <li>  Part 5: <a href="tr35-collation.html#Contents">Collation</a> (sorting, searching, grouping)</li>
 <li>  Part 6: <a href="tr35-info.html#Contents">Supplemental</a> (supplemental data)</li>
 <li>  Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard mappings)</li>
+<li>  Part 8: <a href="tr35-personNames.html#Contents">Person Names</a> (person names)</li>
 </ul><h2 id="contents-of-part-2-general"><a name="Contents" href="#Contents">Contents of Part 2, General</a></h2><ul>
 <li>1 <a href="#Display_Name_Elements">Display Name Elements</a><ul>
 <li>1.1 <a href="#locale_display_name_algorithm">Locale Display Name Algorithm</a></li>
@@ -1042,7 +1053,7 @@ See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-da
 <td>The characters needed to display the common number formats: decimal, percent, and currency.</td>
 <td>[\u061C\u200E \- , ٫ ٬ . % ٪ ‰ ؉ + 0٠ 1١ 2٢ 3٣ 4٤ 5٥ 6٦ 7٧ 8٨ 9٩]</td>
 </tr>
-</tbody></table><p>The basic exemplar character sets (main and auxiliary) contain the commonly used letters for a given modern form of a language, which can be for testing and for determining the appropriate repertoire of letters for charset conversion or collation. ("Letter" is interpreted broadly, as anything having the property Alphabetic in the [<a href="https://unicode.org/reports/tr41/#UAX44">UAX44</a>], which also includes syllabaries and ideographs.) It is not a complete set of letters used for a language, nor should it be considered to apply to multiple languages in a particular country. Punctuation and other symbols should not be included in the main and auxiliary sets. In particular, format characters like CGJ are not included.</p><p>There are five sets altogether: main, auxiliary, punctuation, numbers, and index. The <em>main</em> set should contain the minimal set required for users of the language, while the <em>auxiliary</em> exemplar set is designed to encompass additional characters: those non-native or historical characters that would customarily occur in common publications, dictionaries, and so on. Major style guidelines are good references for the auxiliary set. So, for example, if Irish newspapers and magazines would commonly have Danish names using å, for example, then it would be appropriate to include å in the auxiliary exemplar characters; just not in the main exemplar set. Thus English has the following:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">exemplarCharacters</span>&gt;</span>[a b c d e f g h i j k l m n o p q r s t u v w x y z]<span class="hljs-tag">&lt;/<span class="hljs-name">exemplarCharacters</span>&gt;</span>
+</tbody></table><p>The basic exemplar character sets (main and auxiliary) contain the commonly used letters for a given modern form of a language, which can be for testing and for determining the appropriate repertoire of letters for charset conversion or collation. ("Letter" is interpreted broadly, as anything having the property Alphabetic in the [<a href="https://www.unicode.org/reports/tr41/#UAX44">UAX44</a>], which also includes syllabaries and ideographs.) It is not a complete set of letters used for a language, nor should it be considered to apply to multiple languages in a particular country. Punctuation and other symbols should not be included in the main and auxiliary sets. In particular, format characters like CGJ are not included.</p><p>There are five sets altogether: main, auxiliary, punctuation, numbers, and index. The <em>main</em> set should contain the minimal set required for users of the language, while the <em>auxiliary</em> exemplar set is designed to encompass additional characters: those non-native or historical characters that would customarily occur in common publications, dictionaries, and so on. Major style guidelines are good references for the auxiliary set. So, for example, if Irish newspapers and magazines would commonly have Danish names using å, for example, then it would be appropriate to include å in the auxiliary exemplar characters; just not in the main exemplar set. Thus English has the following:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">exemplarCharacters</span>&gt;</span>[a b c d e f g h i j k l m n o p q r s t u v w x y z]<span class="hljs-tag">&lt;/<span class="hljs-name">exemplarCharacters</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">exemplarCharacters</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"auxiliary"</span>&gt;</span>[á à ă â å ä ã ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó ò ŏ ô ö ø ō œ ú ù ŭ û ü ū ÿ]<span class="hljs-tag">&lt;/<span class="hljs-name">exemplarCharacters</span>&gt;</span>
 </code></pre><p>For a given language, there are a few factors that help for determining whether a character belongs in the auxiliary set, instead of the main set:</p><ul>
 <li>  The character is not available on all normal keyboards.</li>
@@ -1082,11 +1093,11 @@ See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-da
 <td>hansfin</td>
 </tr>
 </tbody></table><p>When determining the character repertoire needed to support a language, a reasonable initial set would include at least the characters in the main and punctuation exemplar sets, along with the digits and common symbols associated with the numberSystems supported for the locale (see <em><a href="tr35-numbers.html#Numbering_Systems">Numbering Systems</a></em>).</p><p>The <em>index</em> characters are a set of characters for use as a UI "index", that is, a list of clickable characters (or character sequences) that allow the user to see a segment of a larger "target" list. For details see the <a href="tr35-collation.html#Collation_Indexes">Unicode LDML: Collation</a> document. The index set may only contain characters whose lowercase versions are in the main and auxiliary exemplar sets, though for cased languages the index exemplars are typically in uppercase. Characters from the auxiliary exemplar set may be necessary in the index set if it needs to properly handle items such as names which may require characters not included in the main exemplar set.</p><p>Here is a sample of the XML structure:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">exemplarCharacters</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"index"</span>&gt;</span>[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]<span class="hljs-tag">&lt;/<span class="hljs-name">exemplarCharacters</span>&gt;</span>
-</code></pre><p>The display of the index characters can be modified with the <code>indexLabel</code>s elements, discussed in Section 3.3.</p><h4 id="311-exemplar-syntax">3.1.1 <a name="ExemplarSyntax" href="#ExemplarSyntax">Exemplar Syntax</a></h4><p>In all of the exemplar characters, the list of characters is in the <a href="tr35.html#Unicode_Sets">Unicode Set</a> format, which normally allows boolean combinations of sets of letters and Unicode properties.</p><p>Sequences of characters that act like a single letter in the language — especially in collation — are included within braces, such as <code>[a-z á é í ó ú ö ü ő ű {cs} {dz} {dzs} {gy} ...]</code>. The characters should be in normalized form (NFC). Where combining marks are used generatively, and apply to a large number of base characters (such as in Indic scripts), the individual combining marks should be included. Where they are used with only a few base characters, the specific combinations should be included. Wherever there is not a precomposed character (for example, single codepoint) for a given combination, that must be included within braces. For example, to include sequences from the <a href="https://unicode.org/standard/where/">Where is my Character?</a> page on the Unicode site, one would write: <code>[{ch} {tʰ} {x̣} {ƛ̓} {ą́} {i̇́} {ト゚}]</code>, but for French one would just write <code>[a-z é è ù ...]</code>. When in doubt use braces, since it does no harm to include them around single code points: for example, <code>[a-z {é} {è} {ù} ...]</code>.</p><p>If the letter 'z' were only ever used in the combination 'tz', then we might have <code>[a-y {tz}]</code> in the main set. (The language would probably have plain 'z' in the auxiliary set, for use in foreign words.) If combining characters can be used productively in combination with a large number of others (such as say Indic matras), then they are not listed in all the possible combinations, but separately, such as:</p><pre><code>[ॐ ऄ-ऋ ॠ ऌ ॡ ऍ-क क़ ख ख़ ग ग़ घ-ज ज़ झ-ड ड़ ढ ढ़ ण-फ फ़ ब-य य़ र-ह ़ ँ-ः ॑-॔ ऽ ् ॽ ा-ॄ ॢ ॣ ॅ-ौ]
+</code></pre><p>The display of the index characters can be modified with the <code>indexLabel</code>s elements, discussed in Section 3.3.</p><h4 id="311-exemplar-syntax">3.1.1 <a name="ExemplarSyntax" href="#ExemplarSyntax">Exemplar Syntax</a></h4><p>In all of the exemplar characters, the list of characters is in the <a href="tr35.html#Unicode_Sets">Unicode Set</a> format, which normally allows boolean combinations of sets of letters and Unicode properties.</p><p>Sequences of characters that act like a single letter in the language — especially in collation — are included within braces, such as <code>[a-z á é í ó ú ö ü ő ű {cs} {dz} {dzs} {gy} ...]</code>. The characters should be in normalized form (NFC). Where combining marks are used generatively, and apply to a large number of base characters (such as in Indic scripts), the individual combining marks should be included. Where they are used with only a few base characters, the specific combinations should be included. Wherever there is not a precomposed character (for example, single codepoint) for a given combination, that must be included within braces. For example, to include sequences from the <a href="https://www.unicode.org/standard/where/">Where is my Character?</a> page on the Unicode site, one would write: <code>[{ch} {tʰ} {x̣} {ƛ̓} {ą́} {i̇́} {ト゚}]</code>, but for French one would just write <code>[a-z é è ù ...]</code>. When in doubt use braces, since it does no harm to include them around single code points: for example, <code>[a-z {é} {è} {ù} ...]</code>.</p><p>If the letter 'z' were only ever used in the combination 'tz', then we might have <code>[a-y {tz}]</code> in the main set. (The language would probably have plain 'z' in the auxiliary set, for use in foreign words.) If combining characters can be used productively in combination with a large number of others (such as say Indic matras), then they are not listed in all the possible combinations, but separately, such as:</p><pre><code>[ॐ ऄ-ऋ ॠ ऌ ॡ ऍ-क क़ ख ख़ ग ग़ घ-ज ज़ झ-ड ड़ ढ ढ़ ण-फ फ़ ब-य य़ र-ह ़ ँ-ः ॑-॔ ऽ ् ॽ ा-ॄ ॢ ॣ ॅ-ौ]
 </code></pre><p>The exemplar character set for Han characters is composed somewhat differently. It is even harder to draw a clear line for Han characters, since usage is more like a frequency curve that slowly trails off to the right in terms of decreasing frequency. So for this case, the exemplar characters simply contain a set of reasonably frequent characters for the language.</p><p>The ordering of the characters in the set is irrelevant, but for readability in the XML file the characters should be in sorted order according to the locale's conventions. The main and auxiliary sets should only contain lower case characters (except for the special case of Turkish and similar languages, where the dotted capital I should be included); the upper case letters are to be mechanically added when the set is used. For more information on casing, see the discussion of Special Casing in the Unicode Character Database.</p><h4 id="312-restrictions">3.1.2 <a name="Restrictions" href="#Restrictions">Restrictions</a></h4><ol>
-<li> The main, auxiliary and index sets are normally restricted to those letters with a specific <a href="https://unicode.org/Public/UNIDATA/Scripts.txt">Script</a> character property (that is, not the values Common or Inherited) or required <a href="https://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt">Default_Ignorable_Code_Point</a> characters (such as a non-joiner), or combining marks, or the <a href="https://www.unicode.org/Public/UNIDATA/auxiliary/WordBreakProperty.txt">Word_Break</a> properties <a href="https://www.unicode.org/reports/tr29/#Katakana">Katakana</a>, <a href="https://www.unicode.org/reports/tr29/#ALetter">ALetter</a>, or <a href="https://www.unicode.org/reports/tr29/#MidLetter">MidLetter</a>.</li>
+<li> The main, auxiliary and index sets are normally restricted to those letters with a specific <a href="https://www.unicode.org/Public/UNIDATA/Scripts.txt">Script</a> character property (that is, not the values Common or Inherited) or required <a href="https://www.unicode.org/Public/UNIDATA/DerivedCoreProperties.txt">Default_Ignorable_Code_Point</a> characters (such as a non-joiner), or combining marks, or the <a href="https://www.unicode.org/Public/UNIDATA/auxiliary/WordBreakProperty.txt">Word_Break</a> properties <a href="https://www.unicode.org/reports/tr29/#Katakana">Katakana</a>, <a href="https://www.unicode.org/reports/tr29/#ALetter">ALetter</a>, or <a href="https://www.unicode.org/reports/tr29/#MidLetter">MidLetter</a>.</li>
 <li> The auxiliary set should not overlap with the main set. There is one exception to this: Hangul Syllables and CJK Ideographs can overlap between the sets.</li>
-<li> Any <a href="https://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt">Default_Ignorable_Code_Point</a>s should be in the auxiliary set, or, if they are only needed for currency formatting, in the currency set. These can include characters such as U+200E LEFT-TO-RIGHT MARK and U+200F RIGHT-TO-LEFT MARK which may be needed in bidirectional text in order for date, currency or other formats to display correctly.</li>
+<li> Any <a href="https://www.unicode.org/Public/UNIDATA/DerivedCoreProperties.txt">Default_Ignorable_Code_Point</a>s should be in the auxiliary set, or, if they are only needed for currency formatting, in the currency set. These can include characters such as U+200E LEFT-TO-RIGHT MARK and U+200F RIGHT-TO-LEFT MARK which may be needed in bidirectional text in order for date, currency or other formats to display correctly.</li>
 <li> For exemplar characters the <a href="tr35.html#Unicode_Sets">Unicode Set</a> format is restricted so as to not use properties or boolean combinations.</li>
 </ol><h3 id="32-mapping">3.2 <del><a name="Character_Mapping" href="#Character_Mapping">Mapping</a></del></h3><p><strong>This element has been deprecated.</strong> For information on its structure and how it was intended to specify locale-specific preferred encodings for various purposes (e-mail, web), see the <a href="https://www.unicode.org/reports/tr35/tr35-39/tr35-general.html#Character_Mapping">Mapping</a> section from the CLDR 27 version of the LDML Specification.</p><h3 id="33-index-labels">3.3 <del><a name="IndexLabels" href="#IndexLabels">Index Labels</a></del></h3><p><strong>This element and its subelements have been deprecated.</strong> For information on its structure and how it was intended to provide data for a compressed display of index exemplar characters where space is limited, see the <a href="https://www.unicode.org/reports/tr35/tr35-39/tr35-general.html#IndexLabels">Index Labels</a> section from the CLDR 27 version of the LDML Specification.</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">indexLabels</span> (<span class="hljs-keyword">indexSeparator</span>*, <span class="hljs-keyword">compressedIndexSeparator</span>*, <span class="hljs-keyword">indexRangePattern</span>*, <span class="hljs-keyword">indexLabelBefore</span>*, <span class="hljs-keyword">indexLabelAfter</span>*, <span class="hljs-keyword">indexLabel</span>*) &gt;</span>
 </code></pre><h3 id="34-ellipsis">3.4 <a name="Ellipsis" href="#Ellipsis">Ellipsis</a></h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">ellipsis</span> ( <span class="hljs-keyword">#PCDATA</span> ) &gt;</span>
@@ -1154,6 +1165,8 @@ Similarly for <code>&lt;alternateQuotationStart&gt;</code> and <code>&lt;alterna
 </ul><p>In some cases, it may be common to use different measurement systems for different categories of measurements. For example, the following indicates that for the category of temperature, in the regions LR and MM, it is more common to use metric units than US units.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">measurementSystem</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"metric"</span> <span class="hljs-attr">category</span>=<span class="hljs-string">"temperature"</span> <span class="hljs-attr">territories</span>=<span class="hljs-string">"LR MM"</span>/&gt;</span>
 </code></pre><p>The <code>paperSize</code> attribute gives the height and width of paper used for normal business letters. The values are "A4" and "US-Letter".</p><p>For both <code>measurementSystem</code> entries and <code>paperSize</code> entries, later entries for specific territories such as "US" will override the value assigned to that territory by earlier entries for more inclusive territories such as "001".</p><p>The measurement information was formerly in the main LDML file, and had a somewhat different format.</p><p>Again, for finer-grained detail about specific units for various usages, see <strong>Part 6: Supplemental:</strong> <em>Section 2.4.1 <a href="tr35-info.html#Preferred_Units_For_Usage">Preferred Units for Specific Usages</a></em>.</p><h3 id="51-measurement-elements-deprecated">5.1 <a name="Measurement_Elements" href="#Measurement_Elements">Measurement Elements (deprecated)</a></h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">measurement</span> (<span class="hljs-keyword">alias</span> | (<span class="hljs-keyword">measurementSystem</span>?, <span class="hljs-keyword">paperSize</span>?, <span class="hljs-keyword">special</span>*)) &gt;</span>
 </code></pre><p>The <code>measurement</code> element is deprecated in the main LDML files, because the data is more appropriately organized as connected to territories, not to linguistic data. Instead, the <code>measurementData</code> element in the supplemental data file should be used.</p><h2 id="6-unit-elements">6 <a name="Unit_Elements" href="#Unit_Elements">Unit Elements</a></h2><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">units</span> (<span class="hljs-keyword">alias</span> | (<span class="hljs-keyword">unit</span>*, <span class="hljs-keyword">unitLength</span>*, <span class="hljs-keyword">durationUnit</span>*, <span class="hljs-keyword">special</span>*) ) &gt;</span>
+
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">unitIdComponents</span> ( <span class="hljs-keyword">unitIdComponent</span>* ) &gt;</span>
 
 <span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">unitLength</span> (<span class="hljs-keyword">alias</span> | (<span class="hljs-keyword">compoundUnit</span>*, <span class="hljs-keyword">unit</span>*, <span class="hljs-keyword">coordinateUnit</span>*, <span class="hljs-keyword">special</span>*) ) &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">unitLength</span> <span class="hljs-keyword">type</span> (<span class="hljs-keyword">long</span> | <span class="hljs-keyword">short</span> | <span class="hljs-keyword">narrow</span>) <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
@@ -1275,7 +1288,8 @@ Thus the most commonly-used complex units have explicit translations in CLDR.</p
 </li>
 </ul><h4 id="nomenclature">Nomenclature</h4><p>As with other identifiers in CLDR, the American English spelling is used for unit identifiers. For the US spelling, see the <a href="https://www.nist.gov/pml/special-publication-811">Preface of the Guide for the Use of the International System of Units (SI), NIST special publication 811</a>, which is explicit about the discrepancy with the English-language BIPM spellings:</p><blockquote>
 <p>In keeping with U.S. and International practice (see Sec. C.2), this Guide uses the dot on the line as the decimal marker. In addition this Guide utilizes the American spellings “meter,” “liter,” and “deka” rather than “metre,” “litre,” and “deca,” and the name “metric ton” rather than “tonne.”</p>
-</blockquote><h4 id="syntax">Syntax</h4><p>The formal syntax for identifiers is provided below.</p><!-- HTML: no header --><table><tbody>
+</blockquote><h4 id="syntax">Syntax</h4><p>The formal syntax for identifiers is provided below. 
+Some of the constraints reference data from the unitIdComponents in <a href="tr35-info.html#Unit_Conversion">Unit_Conversion</a>.</p><!-- HTML: no header --><table><tbody>
 <tr><td>unit_identifier</td><td>:=</td>
     <td>core_unit_identifier<br>
         | mixed_unit_identifier<br>
@@ -1289,6 +1303,7 @@ Thus the most commonly-used complex units have explicit translations in CLDR.</p
                 <li>per-second</li>
             </ul></li>
             <li><em>Note:</em> The normalized form will have only one "per"</li>
+      <li><em>Note:</em>The token 'per' is the single value in &lt;unitIdComponent type=”per”&gt;</li>
         </ul></td></tr>
 
 <tr><td>product_unit</td><td>:=</td>
@@ -1299,7 +1314,7 @@ Thus the most commonly-used complex units have explicit translations in CLDR.</p
             </ul></td></tr>
 
 <tr><td>single_unit</td><td>:=</td>
-    <td>number_prefix? dimensionality_prefix? prefixed_unit
+    <td>number_prefix? dimensionality_prefix? simple_unit
         <ul><li><em>Examples: </em>square-meter, or 100-square-meter</li></ul></td></tr>
 
 <tr><td>pu_single_unit</td><td>:=</td>
@@ -1321,10 +1336,23 @@ Thus the most commonly-used complex units have explicit translations in CLDR.</p
 
 <tr><td>dimensionality_prefix</td><td>:=</td>
     <td>"square-"<p>| "cubic-"</p><p>| "pow" ([2-9]|1[0-5]) "-"
-        </p><ul><li><em>Note:</em> "pow2-" and "pow3-" canonicalize to "square-" and "cubic-"</li></ul></td></tr>
+        </p><ul>
+            <li><em>Note:</em> "pow2-" and "pow3-" canonicalize to "square-" and "cubic-"</li>
+            <li><em>Note:</em>These are values in &lt;unitIdComponent type=”power”&gt;</li>
+        </ul></td></tr>
 
+<tr><td>simple_unit</td><td>:=</td>
+    <td>(prefix_component "-")* (prefixed_unit | base_component) ("-" suffix_component)*<br>
+        |  currency_unit<br>
+        | “em” | “g” | “us” | “hg” | "of"
+        <ul>
+        <li><em>Examples:</em> kilometer, meter, cup-metric, fluid-ounce, curr-chf, em</li>
+        <li><em>Note:</em> Three simple units are currently allowed as legacy usage, for tokens that wouldn’t otherwise be a base_component due to length (eg, “<strong>g</strong>-force”). 
+            We will likely deprecate those and add conformant aliases in the future: the “hg” and “of” are already only in deprecated simple_units.</li>
+        </ul></td></tr>
+        
 <tr><td>prefixed_unit</td><td></td>
-    <td>(prefix)? simple_unit<ul><li><em>Example: </em>kilometer</li></ul></td></tr>
+    <td>prefix base_component<ul><li><em>Example: </em>kilometer</li></ul></td></tr>
 
 <tr><td>prefix</td><td></td>
     <td>si_prefix | binary_prefix</td></tr>
@@ -1337,35 +1365,37 @@ Thus the most commonly-used complex units have explicit translations in CLDR.</p
     <td>"kibi", "mebi", …
         <ul><li><em>Note: </em>See full list at <a href="https://physics.nist.gov/cuu/Units/binary.html">Prefixes for binary multiples</a></li></ul></td></tr>
 
-<tr><td>simple_unit</td><td>:=</td>
-    <td>unit_component ("-" unit_component)*<br>
-        | “em” | “g” | “us” | “hg” | “of”
-        <ul><li><em>Example:</em> gallon-imperial</li>
-            <li><em>Constraint:</em> At least one unit_component must not itself be a simple_unit</li>
-            <li><em>Note:</em> 3 simple units are currently allowed as legacy usage, where a component wouldn’t be a unit_component (eg for “<strong>g</strong>-force”)
-                <ul><li>We will likely deprecate those and add conformant aliases in the future.</li>
-                    <li>“hg” and “of” are already only in deprecated simple_units.</li>
-                </ul></li>
-        </ul></td></tr>
+<tr><td>prefix_component</td><td>:=</td>
+    <td>[a-z]{3,∞}
+        <ul><li><em>Constraint:</em> must be value in: &lt;unitIdComponent type=”prefix_component”&gt;.</li></ul></td></tr>
 
-<tr><td>unit_component</td><td>:=</td>
-    <td>[a-z]{3,∞} | “1” “0”{2,3}
-        <ul><li><em>Constraints:</em>
-            <ul><li>Cannot be "per", "and", "square", "cubic", "xxx", or "x"; or start with an SI prefix.</li>
-                <li>While the syntax allows any number of letters greater than 3, the unit_components need to be distinct if truncated to 8 letters. This allows for possible future support of units in Unicode Locale Identifiers.</li>
-            </ul></li>
-            <li><em>Example:</em> foot</li>
-        </ul></td></tr>
+<tr><td>base_component</td><td>:=</td>
+    <td>[a-z]{3,∞}
+        <ul><li><em>Constraint:</em> must not be a value in any of the following:<br>
+            &lt;unitIdComponent type=”prefix_component”&gt;<br> 
+            or &lt;unitIdComponent type=”suffix_component”&gt; <br>
+            or &lt;unitIdComponent type=”power”&gt;<br>
+            or &lt;unitIdComponent type=”and”&gt;<br>
+            or &lt;unitIdComponent type=”per”&gt;.
+        </li></ul>
+        <ul><li><em>Constraint:</em> must not have a prefix as an initial segment.</li></ul>
+    </td></tr>
+
+<tr><td>suffix_component</td><td>:=</td>
+    <td>[a-z]{3,∞}
+        <ul><li><em>Constraint:</em> must be value in: &lt;unitIdComponent type=”suffix_component”&gt;</li></ul></td></tr>
 
 <tr><td>mixed_unit_identifier</td><td>:=</td>
     <td>(single_unit | pu_single_unit) ("-and-" (single_unit | pu_single_unit ))*
-        <ul><li><em>Example: foot-and-inch</em></li></ul></td></tr>
+        <ul><li><em>Example: foot-and-inch</em></li>
+           <li><em>Note:</em>The token 'and' is the single value in &lt;unitIdComponent type=”and”&gt;</li>
+        </ul></td></tr>
 
 <tr><td>long_unit_identifier</td><td>:=</td>
     <td>grouping "-" core_unit_identifier</td></tr>
 
 <tr><td>grouping</td><td>:=</td>
-    <td>unit_component</td></tr>
+    <td>[a-z]{3,∞}</td></tr>
 
 <tr><td>currency_unit</td><td>:=</td>
     <td>"curr-" [a-z]{3}
@@ -1375,7 +1405,15 @@ Thus the most commonly-used complex units have explicit translations in CLDR.</p
             <li><em>Examples:</em> curr-eur-per-square-meter, or pound-per-curr-usd</li>
         </ul></td></tr>
 
-</tbody></table><p>Note that while the syntax allows for number_prefixes in multiple places, the typical use case is only one instances, and after a "-per-".</p><h3 id="63-example-units">6.3 <a name="Example_Units" href="#Example_Units">Example Units</a></h3><p>The following table contains examples of groupings and units currently defined by CLDR.
+</tbody></table><p>Note that while the syntax allows for number_prefixes in multiple places, the typical use case is only one instances, and after a "-per-".</p><p>The simple_unit structure does not allow for any two simple_units to overlap. 
+That is, there are no cases where simple_unit1 consists of X-Y and simple_unit2 consists of Y-Z. 
+This was not true in previous versions of LDML: cup-metric overlapped with metric-ton. 
+That meant that the unit identifiers for the product_unit of cup and metric-ton and the product_unit of cup-metric and ton were ambiguous. </p><p>The constraint that the identifiers can't overlap also means that parsing of multiple-subtag simple units is simpler. 
+For example:</p><ul>
+<li>When a prefix_component is encountered, one can collect any other prefix-components, then one base_component, then any suffix components, and stop.</li>
+<li>Similarly, when a base_component is encountered, one can collect any suffix components, and stop.</li>
+<li>Encountering a suffix_component in any other circumstance is an error.</li>
+</ul><h3 id="63-example-units">6.3 <a name="Example_Units" href="#Example_Units">Example Units</a></h3><p>The following table contains examples of groupings and units currently defined by CLDR.
 The units in CLDR are not comprehensive; it is anticipated that more will be added over time.
 The complete list of supported units is in the validity data: see <em>Section <a href="tr35.html#Validity_Data">3.11 Validity Data</a></em>.</p><table>
 <thead>
@@ -2310,7 +2348,7 @@ nostr "no:n"
 <span class="hljs-tag">&lt;<span class="hljs-name">variable</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"$AL"</span>&gt;</span>[$AL &amp;&amp; [^a-z]]<span class="hljs-tag">&lt;/<span class="hljs-name">variable</span>&gt;</span> // changes $AL, does not affect $YY
 <span class="hljs-tag">&lt;<span class="hljs-name">variable</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"$ABC"</span>&gt;</span>[abc]<span class="hljs-tag">&lt;/<span class="hljs-name">variable</span>&gt;</span> // adds new rule
 </code></pre><p><strong>Rules:</strong> The rules are also logically appended to the parent's. Because rules are evaluated in numeric id order, to insert a rule in between others just requires using an intermediate number. For example, to insert a rule after id="10.1" and before id="10.2", just use id="10.15". To delete a rule, use empty contents, such as:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">rule</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"3"</span> /&gt;</span> // deletes rule 3
-</code></pre><h3 id="92-segmentation-suppressions">9.2 <a name="Segmentation_Exceptions" href="#Segmentation_Exceptions">Segmentation Suppressions</a></h3><p><strong>Note:</strong> As of CLDR 26, the <code>&lt;suppressions&gt;</code> data is to be considered a technology preview. Data currently in CLDR was extracted from the Unicode Localization Interoperability project, or ULI. See <a href="http://uli.unicode.org">http://uli.unicode.org</a> for more information on the ULI project.</p><p>The segmentation <strong>suppressions</strong> list provides a set of cases which, though otherwise identified as a segment by rules, should be skipped (suppressed) during segmentation.</p><p>For example, in the English phrase "Mr. Smith", CLDR segmentation rules would normally find a Sentence Break between "Mr" and "Smith". However, typically, "Mr." is just an abbreviation for "Mister", and not actually the end of a sentence.</p><p>Each suppression has a separate <code>&lt;suppression&gt;</code> element, whose contents are the break to be skipped.</p><p>Example:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">segmentation</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"SentenceBreak"</span>&gt;</span>
+</code></pre><h3 id="92-segmentation-suppressions">9.2 <a name="Segmentation_Exceptions" href="#Segmentation_Exceptions">Segmentation Suppressions</a></h3><p><strong>Note:</strong> As of CLDR 26, the <code>&lt;suppressions&gt;</code> data is to be considered a technology preview. Data currently in CLDR was extracted from the Unicode Localization Interoperability project, or ULI. The ULI committee has been disbanded, but historical information can be found at <a href="https://www.unicode.org/uli/">https://www.unicode.org/uli/</a>.</p><p>The segmentation <strong>suppressions</strong> list provides a set of cases which, though otherwise identified as a segment by rules, should be skipped (suppressed) during segmentation.</p><p>For example, in the English phrase "Mr. Smith", CLDR segmentation rules would normally find a Sentence Break between "Mr" and "Smith". However, typically, "Mr." is just an abbreviation for "Mister", and not actually the end of a sentence.</p><p>Each suppression has a separate <code>&lt;suppression&gt;</code> element, whose contents are the break to be skipped.</p><p>Example:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">segmentation</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"SentenceBreak"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">suppressions</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"standard"</span> <span class="hljs-attr">draft</span>=<span class="hljs-string">"provisional"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">suppression</span>&gt;</span>Maj.<span class="hljs-tag">&lt;/<span class="hljs-name">suppression</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">suppression</span>&gt;</span>Mr.<span class="hljs-tag">&lt;/<span class="hljs-name">suppression</span>&gt;</span>
@@ -2575,7 +2613,7 @@ nostr "no:n"
 <li>USLC - US Library of Congress</li>
 <li>UKPCGN - Permanent Committee on Geographical Names for British Official Use</li>
 <li>RUGOST - Russian Main Administration of Geodesy and Cartography</li>
-</ul><p>The rules for transforms are described in Section 10.3 <a href="#Transform_Rules_Syntax">Transform Rules Syntax</a>. For more information on Transliteration, see <a href="http://cldr.unicode.org/index/cldr-spec/transliteration-guidelines">Transliteration Guidelines</a>.</p><h3 id="103-transform-rules-syntax">10.3 <a name="Transform_Rules_Syntax" href="#Transform_Rules_Syntax">Transform Rules Syntax</a></h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">transforms</span> ( <span class="hljs-keyword">transform</span>*) &gt;</span>
+</ul><p>The rules for transforms are described in Section 10.3 <a href="#Transform_Rules_Syntax">Transform Rules Syntax</a>. For more information on Transliteration, see <a href="https://cldr.unicode.org/index/cldr-spec/transliteration-guidelines">Transliteration Guidelines</a>.</p><h3 id="103-transform-rules-syntax">10.3 <a name="Transform_Rules_Syntax" href="#Transform_Rules_Syntax">Transform Rules Syntax</a></h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">transforms</span> ( <span class="hljs-keyword">transform</span>*) &gt;</span>
 <span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">transform</span> ((<span class="hljs-keyword">comment</span> | <span class="hljs-keyword">tRule</span>)*) &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">transform</span> <span class="hljs-keyword">source</span> <span class="hljs-keyword">CDATA</span> <span class="hljs-keyword">#IMPLIED</span> &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">transform</span> <span class="hljs-keyword">target</span> <span class="hljs-keyword">CDATA</span> <span class="hljs-keyword">#IMPLIED</span> &gt;</span>
@@ -3069,7 +3107,7 @@ so this algorithm can be used to write into append-only sinks. Both the back-to-
 <tr><td>0, 0.01, 0.9999</td><td>Rf</td></tr>
 <tr><td>1</td><td>Ru</td></tr>
 <tr><td>1.00001, 5, 99, ∞</td><td>Re</td></tr>
-</tbody></table><p>Quoting is done using ' characters, as in date or number formats.</p><h2 id="14-annotations-and-labels">14 <a name="Annotations" href="#Annotations">Annotations and Labels</a></h2><p>Annotations provide information about characters, typically used in input. For example, on a mobile keyboard they can be used to do completion. They are typically used for symbols, especially emoji characters.</p><p>For more information, see version 5.0 or <a href="https://unicode.org/reports/tr51/">UTR #51, Unicode Emoji</a>. (Note that during the period between the publication of CLDR v31 and that of Emoji 5.0, the “Latest Proposed Update” link should be used to get to the draft specification for Emoji 5.0.)</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">annotations</span> ( <span class="hljs-keyword">annotation</span>* ) &gt;</span>
+</tbody></table><p>Quoting is done using ' characters, as in date or number formats.</p><h2 id="14-annotations-and-labels">14 <a name="Annotations" href="#Annotations">Annotations and Labels</a></h2><p>Annotations provide information about characters, typically used in input. For example, on a mobile keyboard they can be used to do completion. They are typically used for symbols, especially emoji characters.</p><p>For more information, see version 5.0 or <a href="https://www.unicode.org/reports/tr51/">UTR #51, Unicode Emoji</a>. (Note that during the period between the publication of CLDR v31 and that of Emoji 5.0, the “Latest Proposed Update” link should be used to get to the draft specification for Emoji 5.0.)</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">annotations</span> ( <span class="hljs-keyword">annotation</span>* ) &gt;</span>
 
 <span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">annotation</span> ( <span class="hljs-keyword">#PCDATA</span> ) &gt;</span>
 
@@ -3243,7 +3281,7 @@ so this algorithm can be used to write into append-only sinks. Both the back-to-
 <td>woman biking: dark skin tone</td>
 <td>cyclist, woman, bicycle, biking, dark skin tone</td>
 </tr>
-</tbody></table><p>For more information, see <a href="https://unicode.org/reports/tr51">Unicode Emoji</a>.</p><h3 id="142-annotations-character-labels">14.2 <a name="Character_Labels" href="#Character_Labels">Annotations Character Labels</a></h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">characterLabels</span> ( <span class="hljs-keyword">alias</span> | ( <span class="hljs-keyword">characterLabelPattern</span>*, <span class="hljs-keyword">characterLabel</span>*, <span class="hljs-keyword">special</span>* ) ) &gt;</span>
+</tbody></table><p>For more information, see <a href="https://www.unicode.org/reports/tr51">Unicode Emoji</a>.</p><h3 id="142-annotations-character-labels">14.2 <a name="Character_Labels" href="#Character_Labels">Annotations Character Labels</a></h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">characterLabels</span> ( <span class="hljs-keyword">alias</span> | ( <span class="hljs-keyword">characterLabelPattern</span>*, <span class="hljs-keyword">characterLabel</span>*, <span class="hljs-keyword">special</span>* ) ) &gt;</span>
 
 <span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">characterLabelPattern</span> ( <span class="hljs-keyword">#PCDATA</span> ) &gt;</span>
 
@@ -3499,7 +3537,7 @@ so this algorithm can be used to write into append-only sinks. Both the back-to-
 <span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">featureName</span> ( <span class="hljs-keyword">#PCDATA</span> ) &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">featureName</span> <span class="hljs-keyword">type</span> (<span class="hljs-keyword">afrc</span> | <span class="hljs-keyword">cpsp</span> | <span class="hljs-keyword">dlig</span> | <span class="hljs-keyword">frac</span> | <span class="hljs-keyword">lnum</span> | <span class="hljs-keyword">onum</span> | <span class="hljs-keyword">ordn</span> | <span class="hljs-keyword">pnum</span> | <span class="hljs-keyword">smcp</span> | <span class="hljs-keyword">tnum</span> | <span class="hljs-keyword">zero</span>) <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">featureName</span> <span class="hljs-keyword">alt</span> <span class="hljs-keyword">NMTOKENS</span> <span class="hljs-keyword">#IMPLIED</span> &gt;</span>
-</code></pre><p>The typographic names provide for names of font features for use in a UI. This is useful for apps that show the name of font styles and design axes according to the user’s languages. It would also be useful for system-level libraries.</p><p>The identifiers (types) use the tags from the OpenType Feature Tag Registry. Given their large number, only the names of frequently-used OpenType feature names are available in CLDR. (Many features are not user-visible settings, but instead serve as a data channel for software to pass information to the font.) The example below shows an approach for using the CLDR data. Of course, applications are free to implement their own algorithms depending on their specific needs.</p><p>To find a localized subfamily name such as “Extraleicht Schmal” for a font called “Extralight Condensed”, a system or application library might do the following:</p><ol>
+</code></pre><p>The typographic names provide for names of font features for use in a UI. This is useful for apps that show the name of font styles and design axes according to the user’s languages. It would also be useful for system-level libraries.</p><p>The identifiers (types) use the tags from the <a href="https://learn.microsoft.com/en-us/typography/opentype/spec/featuretags">OpenType Feature Tag Registry</a>. Given their large number, only the names of frequently-used OpenType feature names are available in CLDR. (Many features are not user-visible settings, but instead serve as a data channel for software to pass information to the font.) The example below shows an approach for using the CLDR data. Of course, applications are free to implement their own algorithms depending on their specific needs.</p><p>To find a localized subfamily name such as “Extraleicht Schmal” for a font called “Extralight Condensed”, a system or application library might do the following:</p><ol>
 <li><p>Determine the set of languages in which the subfamily name can potentially be returned. This is the union of the languages for which the font contains ‘name’ table entries with ID 2 or 17, plus the languages for which CLDR supplies typographic names.</p>
 </li>
 <li><p>Use a language matching algorithm such as in ICU to find the best available language given the user preferences. The resulting subfamily name will be localized to this language.</p>
@@ -3544,7 +3582,11 @@ so this algorithm can be used to write into append-only sinks. Both the back-to-
 </code></pre><p>The @targets attribute contains the specific grammatical entities to which the features apply, such as <code>nominal</code> when they apply to nouns only. The @locales attribute contains the specific locales to which the features apply, such as <code>de fr</code> for German and French.</p><p>The @scope attribute, if present, indicates that the values are limited to a specific subset for certain kinds of entities. For example, a particular language might have an animate gender for nouns, but no units of measurement ever have that case; in another language, the language might have a rich set of grammatical cases, but units are invariant. If the @scope attribute is not present, then that has the meaning of "everything else".</p><p>The @scope attributes are targeted at messages created by computers, thus a feature may have a narrower scope if for all practical purposes the feature value is not used in messages created by computers. For example, it may be possible in theory for a kilogram to be in the vocative case (English poetry might have “O Captain! my Captain!/ our fearful trip is done”, but on computers you have little call to need the message “O kilogram! my kilogram! …”).</p><p><strong>Constraints:</strong></p><ul>
 <li>a scope attribute is only used when there is a corresponding “general” element, one for the same language and target without a scope attribute.</li>
 <li>the scope attribute values must be narrower (a proper subset, possibly empty) of those in the corresponding general element.</li>
-</ul><h3 id="151-gender">15.1 <a name="Gender" href="#Gender">Gender</a></h3><p>Feature that classifies nouns in classes. This is grammatical gender, which may be assigned on the basis of sex in some languages, but may be completely separate in others. Also used to tag elements in CLDR that should agree with a particular gender of an associated noun. (adapted from: <a href="http://linguistics-ontology.org/gold/2010/GenderProperty">linguistics-ontology.org/gold/2010/GenderProperty</a>)</p><h4 id="example">Example</h4><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">grammaticalFeatures</span> <span class="hljs-attr">targets</span>=<span class="hljs-string">"nominal"</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">"es fr it pt"</span>&gt;</span>
+</ul><h3 id="151-gender">15.1 <a name="Gender" href="#Gender">Gender</a></h3><p>Feature that classifies nouns in classes. 
+This is grammatical gender, which may be assigned on the basis of sex in some languages, but may be completely separate in others. 
+Also used to tag elements in CLDR that should agree with a particular gender of an associated noun. 
+(adapted from: <a href="http://linguistics-ontology.org/gold/2010/GenderProperty">linguistics-ontology.org/gold/2010/GenderProperty</a>)</p><p>The term "gender" is somewhat of a misnomer, because CLDR treats "gender" as a broad term, equivalent to "noun class". 
+Thus it bundles noun class categories such as gender and animacy into a single identifier, such as "feminine-animate".</p><h4 id="example">Example</h4><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">grammaticalFeatures</span> <span class="hljs-attr">targets</span>=<span class="hljs-string">"nominal"</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">"es fr it pt"</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">grammaticalGender</span> <span class="hljs-attr">values</span>=<span class="hljs-string">"masculine feminine"</span>/&gt;</span>
 </code></pre><h4 id="table-values">Table: Values</h4><table>
 <thead>
@@ -3577,7 +3619,7 @@ so this algorithm can be used to write into append-only sinks. Both the back-to-
 <tr>
 <td>feminine</td>
 <td>In a masculine/feminine or in a masculine/feminine/neuter gender system, gender that denotes specifically female persons (or animals) or that is assigned arbitrarily to object.</td>
-<td>adapted from: <a href="http://wikipedia.org/wiki/Grammatical_gender">http://wikipedia.org/wiki/Grammatical_gender</a>, <a href="http://linguistics-ontology.org/gold/2010/FeminineGender">linguistics-ontology.org/gold/2010/FeminineGender</a></td>
+<td>adapted from: <a href="https://wikipedia.org/wiki/Grammatical_gender">https://wikipedia.org/wiki/Grammatical_gender</a>, <a href="http://linguistics-ontology.org/gold/2010/FeminineGender">linguistics-ontology.org/gold/2010/FeminineGender</a></td>
 </tr>
 <tr>
 <td>masculine</td>
@@ -3589,7 +3631,22 @@ so this algorithm can be used to write into append-only sinks. Both the back-to-
 <td>In a masculine/feminine/neuter or common/neuter gender system, gender that generally denotes an object.</td>
 <td>adapted from: <a href="https://en.wikipedia.org/wiki/Grammatical_gender">wikipedia.org/wiki/Grammatical_gender</a>, <a href="http://linguistics-ontology.org/gold/2010/NeuterGender">linguistics-ontology.org/gold/2010/NeuterGender</a></td>
 </tr>
-</tbody></table><h3 id="152-case">15.2 <a name="Case" href="#Case">Case</a></h3><h4 id="table-case">Table: Case</h4><p>Feature that encodes the syntactic (and sometimes semantic) relationship of a noun with the other constituents of the sentence. (adapted from <a href="http://linguistics-ontology.org/gold/2010/CaseProperty">linguistics-ontology.org/gold/2010/CaseProperty</a>)</p><h5 id="example-1">Example</h5><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">grammaticalFeatures</span> <span class="hljs-attr">targets</span>=<span class="hljs-string">"nominal"</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">"de"</span>&gt;</span>
+</tbody></table><p>There are further simplifications in the identifiers. 
+For example, consider a language that has 3 genders, and two levels of animacy, but only for masculine.
+The set of combinations would be:</p><ul>
+<li>masculine-animate</li>
+<li>masculine-inanimate</li>
+<li>feminine-unspecified</li>
+<li>neuter-unspecified</li>
+</ul><p>In such a case as this, CLDR abbreviates these as the following identifiers:</p><ul>
+<li>masculine</li>
+<li>inanimate</li>
+<li>feminine</li>
+<li>neuter</li>
+</ul><p>That is: </p><ul>
+<li>unspecified and animate are dropped.</li>
+<li>if there is only a single gender with inanimate, then the gender is dropped.</li>
+</ul><h3 id="152-case">15.2 <a name="Case" href="#Case">Case</a></h3><h4 id="table-case">Table: Case</h4><p>Feature that encodes the syntactic (and sometimes semantic) relationship of a noun with the other constituents of the sentence. (adapted from <a href="http://linguistics-ontology.org/gold/2010/CaseProperty">linguistics-ontology.org/gold/2010/CaseProperty</a>)</p><h5 id="example-1">Example</h5><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">grammaticalFeatures</span> <span class="hljs-attr">targets</span>=<span class="hljs-string">"nominal"</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">"de"</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">grammaticalCase</span> <span class="hljs-attr">values</span>=<span class="hljs-string">"nominative accusative genitive dative"</span>/&gt;</span>
 </code></pre><table><caption id="table-values-1">Table: Values</caption>
 <thead>
@@ -3627,7 +3684,7 @@ so this algorithm can be used to write into append-only sinks. Both the back-to-
 <tr>
 <td>causal</td>
 <td>The causal (causal-final, not causative) case expresses that the marked noun is the objective or reason for something. It carries the meaning of 'for the purpose of'.</td>
-<td><a href="http://en.wikipedia.org/wiki/Causative#Causal-final_case">http://en.wikipedia.org/wiki/Causative#Causal-final_case</a>, <a href="http://www.hungarianreference.com/Nouns/%C3%A9rt-causal-final.aspx">http://www.hungarianreference.com/Nouns/%C3%A9rt-causal-final.aspx</a></td>
+<td><a href="https://en.wikipedia.org/wiki/Causative#Causal-final_case">https://en.wikipedia.org/wiki/Causative#Causal-final_case</a>, <a href="http://www.hungarianreference.com/Nouns/%C3%A9rt-causal-final.aspx">http://www.hungarianreference.com/Nouns/%C3%A9rt-causal-final.aspx</a></td>
 </tr>
 <tr>
 <td>comitative</td>
@@ -3812,4 +3869,4 @@ so this algorithm can be used to write into append-only sinks. Both the back-to-
 <span class="hljs-tag">&lt;<span class="hljs-name">deriveComponent</span> <span class="hljs-attr">feature</span>=<span class="hljs-string">"case"</span> <span class="hljs-attr">structure</span>=<span class="hljs-string">"prefix"</span> <span class="hljs-attr">value0</span>=<span class="hljs-string">"nominative"</span>  <span class="hljs-attr">value1</span>=<span class="hljs-string">"compound"</span> /&gt;</span><span class="hljs-comment">&lt;!--compound(kilometer) ⇒  nominative(kilo) compound(meter) --&gt;</span>
 </code></pre><p>For example, for gram-per-meter, the first line above means:</p><ul>
 <li>When the accusative form of gram-per-meter is needed, then the gram part of the translation has the accusative case (eg, “gramu”, in a language that marks the accusative case with 'u'), while the meter part of the translation has a nominative form like “metre”. This would be composed with the pattern for "per" (say "{0} pro {1}") to get "gramu pro metre".</li>
-</ul><hr><p>Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode <a href="https://unicode.org/copyright.html">Terms of Use</a> apply.</p><p>Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.</p></div><script>anchors.add('h1, h2, h3, h4, h5, h6, caption');</script></body></html>
+</ul><hr><p>Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode <a href="https://www.unicode.org/copyright.html">Terms of Use</a> apply.</p><p>Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.</p></div><script>anchors.add('h1, h2, h3, h4, h5, h6, caption');</script></body></html>

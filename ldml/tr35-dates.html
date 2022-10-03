@@ -356,6 +356,17 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
  
 
 
@@ -403,7 +414,7 @@
 </table></div><div class="body"><h2 id="unicode-technical-standard-35">Unicode Technical Standard #35</h2><h1 id="unicode-locale-data-markup-language-ldmlpart-4-dates">Unicode Locale Data Markup Language (LDML)<br>Part 4: Dates</h1><!-- HTML: no header --><table class="simple" width="90%"><tbody>
 <tr><td>Version</td><td><b>42 (draft)</b></td></tr>
 <tr><td>Editors</td><td>Peter Edberg and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td></tr>
-</tbody></table><p>For the full header, summary, and status, see <a href="tr35.html">Part 1: Core</a>.</p><h3 id="summary"><em>Summary</em></h3><p>This document describes parts of an XML format (<em>vocabulary</em>) for the exchange of structured locale data. This format is used in the <a href="https://unicode.org/cldr/">Unicode Common Locale Data Repository</a>.</p><p>This is a partial document, describing only those parts of the LDML that are relevant for date, time, and time zone formatting. For the other parts of the LDML see the <a href="tr35.html">main LDML document</a> and the links above.</p><h3 id="status"><em>Status</em></h3><p><em>This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium. This is a stable document and may be used as reference material or cited as a normative reference by other specifications.</em></p><blockquote>
+</tbody></table><p>For the full header, summary, and status, see <a href="tr35.html">Part 1: Core</a>.</p><h3 id="summary"><em>Summary</em></h3><p>This document describes parts of an XML format (<em>vocabulary</em>) for the exchange of structured locale data. This format is used in the <a href="https://www.unicode.org/cldr/">Unicode Common Locale Data Repository</a>.</p><p>This is a partial document, describing only those parts of the LDML that are relevant for date, time, and time zone formatting. For the other parts of the LDML see the <a href="tr35.html">main LDML document</a> and the links above.</p><h3 id="status"><em>Status</em></h3><p><em>This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium. This is a stable document and may be used as reference material or cited as a normative reference by other specifications.</em></p><blockquote>
 <p><em><strong>A Unicode Technical Standard (UTS)</strong> is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS.</em></p>
 </blockquote><p><em>Please submit corrigenda and other comments with the CLDR bug reporting form [<a href="tr35.html#Bugs">Bugs</a>]. Related information that is useful in understanding this document is found in the <a href="tr35.html#References">References</a>. For the latest version of the Unicode Standard see [<a href="tr35.html#Unicode">Unicode</a>]. For a list of current Unicode Technical Reports see [<a href="tr35.html#Reports">Reports</a>]. For more information about versions of the Unicode Standard, see [<a href="tr35.html#Versions">Versions</a>].</em></p><h2 id="parts"><a name="Parts" href="#Parts">Parts</a></h2><p>The LDML specification is divided into the following parts:</p><ul>
 <li>  Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</li>
@@ -413,6 +424,7 @@
 <li>  Part 5: <a href="tr35-collation.html#Contents">Collation</a> (sorting, searching, grouping)</li>
 <li>  Part 6: <a href="tr35-info.html#Contents">Supplemental</a> (supplemental data)</li>
 <li>  Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard mappings)</li>
+<li>  Part 8: <a href="tr35-personNames.html#Contents">Person Names</a> (person names)</li>
 </ul><h2 id="contents-of-part-4-dates"><a name="Contents" href="#Contents">Contents of Part 4, Dates</a></h2><ul>
 <li>1 <a href="#Overview_Dates_Element_Supplemental">Overview: Dates Element, Supplemental Date and Calendar Information</a></li>
 <li>2 <a href="#Calendar_Elements">Calendar Elements</a><ul>
@@ -833,12 +845,28 @@
     <span class="hljs-tag">&lt;/<span class="hljs-name">timeFormats</span>&gt;</span>
 </code></pre><p>The preference of 12 hour versus 24 hour for the locale can be derived from the <a href="#Time_Data">Time Data</a>. If the preferred hour symbol is 'h' or 'K' then the format is 12 hour; otherwise it is 24 hour. Formats with 'h' or 'K' must also include a field with one of the day period pattern characters: 'a', 'b', or 'B'.</p><p>To account for customary usage in some countries, APIs should allow for formatting times that go beyond 23:59:59. For example, in some countries it would be customary to indicate that opening hours extending from <em>Friday at 7pm</em> to <em>Saturday at 2am</em> in a format like the following:</p><p>Friday: 19:00 – 26:00</p><p>Time formats use the specific non-location format (z or zzzz) for the time zone name. This is the format that should be used when formatting a specific time for presentation. When formatting a time referring to a recurring time (such as a meeting in a calendar), applications should substitute the generic non-location format (v or vvvv) for the time zone in the time format pattern. See <em><a href="#Using_Time_Zone_Names">Using Time Zone Names</a></em> for a complete description of available time zone formats and their uses.</p><h3 id="26-element-datetimeformats">2.6 <a name="dateTimeFormats" href="#dateTimeFormats">Element dateTimeFormats</a></h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">dateTimeFormats</span> (<span class="hljs-keyword">alias</span> | (<span class="hljs-keyword">default</span>*, <span class="hljs-keyword">dateTimeFormatLength</span>*, <span class="hljs-keyword">availableFormats</span>*, <span class="hljs-keyword">appendItems</span>*, <span class="hljs-keyword">intervalFormats</span>*, <span class="hljs-keyword">special</span>*)) &gt;</span>
 </code></pre><p>Date/Time formats have the following form:</p><pre><code class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">dateTimeFormats</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">dateTimeFormatLength</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"full"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">dateTimeFormat</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>{1}, {0}<span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">dateTimeFormat</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">dateTimeFormat</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"atTime"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>{1} 'at' {0}<span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">dateTimeFormat</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dateTimeFormatLength</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">dateTimeFormatLength</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"long"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">dateTimeFormat</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>{1}, {0}<span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">dateTimeFormat</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">dateTimeFormat</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"atTime"</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>{1} 'at' {0}<span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">dateTimeFormat</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">dateTimeFormatLength</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">dateTimeFormatLength</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"medium"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">dateTimeFormat</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>{1}, {0}<span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">dateTimeFormat</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dateTimeFormatLength</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">dateTimeFormatLength</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"short"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">dateTimeFormat</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>{1}, {0}<span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">dateTimeFormat</span>&gt;</span>
@@ -888,7 +916,9 @@
 </code></pre><p>These formats allow for date and time formats to be composed in various ways.</p><h4 id="261-element-datetimeformat">2.6.1 <a name="dateTimeFormat" href="#dateTimeFormat">Element dateTimeFormat</a></h4><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">dateTimeFormatLength</span> (<span class="hljs-keyword">alias</span> | (<span class="hljs-keyword">default</span>*, <span class="hljs-keyword">dateTimeFormat</span>*, <span class="hljs-keyword">special</span>*))&gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">dateTimeFormatLength</span> <span class="hljs-keyword">type</span> ( <span class="hljs-keyword">full</span> | <span class="hljs-keyword">long</span> | <span class="hljs-keyword">medium</span> | <span class="hljs-keyword">short</span> ) <span class="hljs-keyword">#IMPLIED</span> &gt;</span>
 <span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">dateTimeFormat</span> (<span class="hljs-keyword">alias</span> | (<span class="hljs-keyword">pattern</span>*, <span class="hljs-keyword">displayName</span>*, <span class="hljs-keyword">special</span>*))&gt;</span>
-</code></pre><p>The <code>dateTimeFormat</code> element works like the dateFormats and timeFormats, except that the pattern is of the form "{1} {0}", where {0} is replaced by the time format, and {1} is replaced by the date format, with results such as "8/27/06 7:31 AM". Except for the substitution markers {0} and {1}, text in the dateTimeFormat is interpreted as part of a date/time pattern, and is subject to the same rules described in <a href="#Date_Format_Patterns">Date Format Patterns</a>. This includes the need to enclose ASCII letters in single quotes if they are intended to represent literal text.</p><p>When combining a standard date pattern with a standard time pattern, the type of dateTimeFormat used to combine them is determined by the type of the date pattern. For example:</p><table><caption id="table-date-time-combination-examples">Table: <a name="Date_Time_Combination_Examples" href="#Date_Time_Combination_Examples">Date-Time Combination Examples</a></caption>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">dateTimeFormat</span> <span class="hljs-keyword">type</span> <span class="hljs-keyword">NMTOKEN</span> <span class="hljs-string">"standard"</span> &gt;</span>
+    <span class="hljs-comment">&lt;!--@MATCH:literal/standard, atTime--&gt;</span>
+</code></pre><p>The <code>dateTimeFormat</code> element works like the dateFormats and timeFormats, except that the pattern is of the form "{1} {0}", where {0} is replaced by the time format, and {1} is replaced by the date format, with results such as "8/27/06 7:31 AM". Except for the substitution markers {0} and {1}, text in the dateTimeFormat is interpreted as part of a date/time pattern, and is subject to the same rules described in <a href="#Date_Format_Patterns">Date Format Patterns</a>. This includes the need to enclose ASCII letters in single quotes if they are intended to represent literal text.</p><p>When combining a standard date pattern with a standard time pattern, start with the <code>dateTimeFormatLength</code> whose <code>type</code> matches the type of the <em>date</em> pattern, and then use one of the <code>dateTimeFormat</code>s for that <code>dateTimeFormatLength</code> (as described after the following table). For example:</p><table><caption id="table-date-time-combination-examples">Table: <a name="Date_Time_Combination_Examples" href="#Date_Time_Combination_Examples">Date-Time Combination Examples</a></caption>
 <thead>
 <tr>
 <th>Date-Time Combination</th>
@@ -906,7 +936,11 @@
 <td>medium, e.g. "{1}, {0}"</td>
 <td>Sep 18, 2013, 4:30:00 PM PDT</td>
 </tr>
-</tbody></table><h4 id="262-elements-availableformats-appenditems">2.6.2 <a name="availableFormats_appendItems" href="#availableFormats_appendItems">Elements availableFormats, appendItems</a></h4><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">availableFormats</span> (<span class="hljs-keyword">alias</span> | (<span class="hljs-keyword">dateFormatItem</span>*, <span class="hljs-keyword">special</span>*))&gt;</span>
+</tbody></table><p>For each <code>dateTimeFormatLength</code>, there is a standard <code>dateTimeFormat</code>. In addition to the placeholders {0} and {1}, this should not have characters other than space and punctuation; it should impose no grammatical context that might require specific grammatical forms for the date and/or time. For English, this might be “{1}, {0}”.</p><p>In addition, especially for the full and long <code>dateTimeFormatLength</code>s, there may be a <code>dateTimeFormat</code> with <code>type="atTime"</code>. This is used to indicate an event at a specific time, and may impose specific grammatical requirements on the formats for date and/or time. For English, this might be “{1} 'at' {0}”.</p><p>The default guidelines for choosing which <code>dateTimeFormat</code> to use for a given <code>dateTimeFormatLength</code> are as follows:</p><ul>
+<li>If an interval is being formatted, use the standard combining pattern to produce e.g. “March 15, 3:00 – 5:00 PM” or “March 15, 9:00 AM – March 16, 5:00 PM”.</li>
+<li>If a single date or relative date is being combined with a single time, by default use the atTime pattern (if available) to produce an event time: “March 15 at 3:00 PM” or “tomorrow at 3:00 PM”.  However, at least in the case of combining a single date and time, APIs should also offer a “current time” option of using the standard combining pattern to produce a format more suitable for indicating  the current time: “March 15, 3:00 PM”.</li>
+<li>For all other uses of these patterns, use the standard pattern.</li>
+</ul><h4 id="262-elements-availableformats-appenditems">2.6.2 <a name="availableFormats_appendItems" href="#availableFormats_appendItems">Elements availableFormats, appendItems</a></h4><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">availableFormats</span> (<span class="hljs-keyword">alias</span> | (<span class="hljs-keyword">dateFormatItem</span>*, <span class="hljs-keyword">special</span>*))&gt;</span>
 <span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">dateFormatItem</span> ( <span class="hljs-keyword">#PCDATA</span> ) &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">dateFormatItem</span> <span class="hljs-keyword">id</span> <span class="hljs-keyword">CDATA</span> <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
 </code></pre><p>The <code>availableFormats</code> element and its subelements provide a more flexible formatting mechanism than the predefined list of patterns represented by dateFormatLength, timeFormatLength, and dateTimeFormatLength. Instead, there is an open-ended list of patterns (represented by <code>dateFormatItem</code> elements as well as the predefined patterns mentioned above) that can be matched against a requested set of calendar fields and field lengths. Software can look through the list and find the pattern that best matches the original request, based on the desired calendar fields and lengths. For example, the full month and year may be needed for a calendar application; the request is MMMMyyyy, but the best match may be "y MMMM" or even "G yy MMMM", depending on the locale and calendar.</p><p>For some calendars, such as Japanese, a displayed year must have an associated era, so for these calendars dateFormatItem patterns with a year field should also include an era field. When matching availableFormats patterns: If a client requests a format string containing a year, and all the availableFormats patterns with a year also contain an era, then include the era as part of the result.</p><p>The <code>id</code> attribute is a so-called "skeleton", containing only field information, and in a canonical order. Examples are "yMMMM" for year + full month, or "MMMd" for abbreviated month + day. In particular:</p><ul>
@@ -930,11 +964,13 @@
 <tr><td>"h" (or "ah")</td><td>"h a"</td><td>"h a"</td></tr><tr><td>"bh"</td><td>"h b"</td><td>"h b"</td></tr>
 <tr><td>"Bh"</td><td>"h B"</td><td>"B h"</td></tr><tr><td>"H" (or "aH", "bH", "BH")</td><td>"H"</td><td>"H"</td></tr>
 </tbody></table><p>The hour input skeleton symbols 'j', 'J', and 'C' can be used to select the best hour format (h, H, …) before processing, and the appropriate dayperiod format (a, b, B) after a successful match that contains an 'a' symbol.</p><p>The dateFormatItems inherit from their parent locale, so the inherited items need to be considered when processing.</p><h5 id="2621-matching-skeletons">2.6.2.1 <a name="Matching_Skeletons" href="#Matching_Skeletons">Matching Skeletons</a></h5><p>It is not necessary to supply <code>dateFormatItem</code>s with skeletons for every field length; fields in the skeleton and pattern are expected to be adjusted in parallel to handle a request.</p><p>Typically a “best match” from requested skeleton to the <code>id</code> portion of a <code>dateFormatItem</code> is found using a closest distance match, such as:</p><ol>
-<li>Skeleton symbols requesting a best choice for the locale are replaced.<ul>
+<li><p>Skeleton symbols requesting a best choice for the locale are replaced.</p>
+<ul>
 <li>j → one of {H, k, h, K}; C → one of {a, b, B}</li>
 </ul>
 </li>
-<li>For skeleton and <code>id</code> fields with symbols representing the same type (year, month, day, etc):<ol>
+<li><p>For skeleton and <code>id</code> fields with symbols representing the same type (year, month, day, etc):</p>
+<ol>
 <li>Most symbols have a small distance from each other.<ul>
 <li>M ≅ L; E ≅ c; a ≅ b ≅ B; H ≅ k ≅ h ≅ K; ...</li>
 </ul>
@@ -954,12 +990,22 @@
 </li>
 </ol>
 </li>
-<li>A requested skeleton that includes both seconds and fractional seconds (e.g. “mmssSSS”) is allowed to match a dateFormatItem skeleton that includes seconds but not fractional seconds (e.g. “ms”). In this case the requested sequence of ‘S’ characters (or its length) should be retained separately and used when adjusting the pattern, as described below.</li>
-<li>Otherwise, missing or extra fields between requested skeleton and <code>id</code> cause a match to fail. (But see <strong><a href="#Missing_Skeleton_Fields">Missing Skeleton Fields</a></strong> below.)</li>
-</ol><p>Once a best match is found between requested skeleton and <code>dateFormatItem</code> <code>id</code>, the corresponding <code>dateFormatItem</code> pattern is used, but with adjustments primarily to make the pattern field lengths match the skeleton field lengths. Consider the following <code>dateFormatItem</code>:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dateFormatItem</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"yMMMd"</span>&gt;</span>d MMM y<span class="hljs-tag">&lt;/<span class="hljs-name">dateFormatItem</span>&gt;</span>
+<li><p>A requested skeleton that includes both seconds and fractional seconds (e.g. “mmssSSS”) is allowed to match a dateFormatItem skeleton that includes seconds but not fractional seconds (e.g. “ms”). In this case the requested sequence of ‘S’ characters (or its length) should be retained separately and used when adjusting the pattern, as described below.</p>
+</li>
+<li><p>Otherwise, missing or extra fields between requested skeleton and <code>id</code> cause a match to fail. (But see <strong><a href="#Missing_Skeleton_Fields">Missing Skeleton Fields</a></strong> below.)</p>
+</li>
+</ol><p>Once a best match is found between requested skeleton and <code>dateFormatItem</code> <code>id</code>, the corresponding <code>dateFormatItem</code> pattern is used, but with adjustments primarily to make the pattern field lengths match the skeleton field lengths. However, the pattern field lengths should not be matched in some cases:</p><ol>
+<li><p>When the best-match <code>dateFormatItem</code> has an alphabetic field (such as MMM or MMMM) that corresponds to a numeric field in the pattern (such as M or MM), that numeric field in the pattern should <em>not</em> be adjusted to match the skeleton length, and vice versa; i.e. adjustments should <em>never</em> convert a numeric element in the pattern to an alphabetic element, or the opposite. See the second set of examples below.</p>
+</li>
+<li><p>When the pattern field corresponds to an availableFormats skeleton with a field length that matches the field length in the requested skeleton, the pattern field length should <em>not</em> be adjusted. This permits locale data to override a requested field length; see the third example below.</p>
+</li>
+<li><p>Pattern field lengths for hour, minute, and second should by default not be adjusted to match the requested field length (i.e. locale data takes priority). However APIs that map skeletons to patterns should provide the option to override this behavior for cases when a client really does want to force a specific pattern field length.</p>
+</li>
+</ol><hr><p>For an example of general behavior, consider the following <code>dateFormatItem</code>:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dateFormatItem</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"yMMMd"</span>&gt;</span>d MMM y<span class="hljs-tag">&lt;/<span class="hljs-name">dateFormatItem</span>&gt;</span>
 </code></pre><p>If this is the best match for yMMMMd, the pattern is automatically expanded to produce a pattern "d MMMM y" in response to the request. Of course, if the desired behavior is that a request for yMMMMd should produce something <em>other</em> than "d MMMM y", a separate <code>dateFormatItem</code> must be present, for example:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dateFormatItem</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"yMMMMd"</span>&gt;</span>d 'de' MMMM 'de' y<span class="hljs-tag">&lt;/<span class="hljs-name">dateFormatItem</span>&gt;</span>
-</code></pre><p>However, when the best-match <code>dateFormatItem</code> has an alphabetic field (such as MMM or MMMM) that corresponds to a numeric field in the pattern (such as M or MM), that numeric field in the pattern should <em>not</em> be adjusted to match the skeleton length, and vice versa; i.e. adjustments should <em>never</em> convert a numeric element in the pattern to an alphabetic element, or the opposite. Consider the following dateFormatItem:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dateFormatItem</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"yMMM"</span>&gt;</span>y年M月<span class="hljs-tag">&lt;/<span class="hljs-name">dateFormatItem</span>&gt;</span>
-</code></pre><p>If this is the best match for a requested skeleton yMMMM, automatic expansion should not produce a corresponding pattern “y年MMMM月”; rather, since “y年M月” specifies a numeric month M, automatic expansion should not modify the pattern, and should produce “y年M月” as the match for requested skeleton yMMMM.</p><p>If the requested skeleton included both seconds and fractional seconds and the dateFormatItem skeleton included seconds but not fractional seconds, then the seconds field of the corresponding pattern should be adjusted by appending the locale’s decimal separator, followed by the sequence of ‘S’ characters from the requested skeleton.</p><h5 id="2622-missing-skeleton-fields">2.6.2.2 <a name="Missing_Skeleton_Fields" href="#Missing_Skeleton_Fields">Missing Skeleton Fields</a></h5><p>If a client-requested set of fields includes both date and time fields, and if the <code>availableFormats</code> data does not include a <code>dateFormatItem</code> whose skeleton matches the same set of fields, then the request should be handled as follows:</p><ol>
+</code></pre><hr><p>For an example of not converting a pattern fields between numeric and alphabetic (point 1 above), consider the following <code>dateFormatItem</code>:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dateFormatItem</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"yMMM"</span>&gt;</span>y年M月<span class="hljs-tag">&lt;/<span class="hljs-name">dateFormatItem</span>&gt;</span>
+</code></pre><p>If this is the best match for a requested skeleton yMMMM, automatic expansion should not produce a corresponding pattern “y年MMMM月”; rather, since “y年M月” specifies a numeric month M, automatic expansion should not modify the pattern, and should produce “y年M月” as the match for requested skeleton yMMMM. </p><hr><p>For an example of not converting a pattern field length if the corresponding skeleton field matches the requested field length (point 2 above), consider the following <code>dateFormatItem</code>:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dateFormatItem</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"MMMEd"</span>&gt;</span>E, d בMMMM<span class="hljs-tag">&lt;/<span class="hljs-name">dateFormatItem</span>&gt;</span>
+</code></pre><p>For Hebrew calendar date formats in the Hebrew locale, only the full month names should be used, even if abbreviated months are requested. Hence the <code>dateFormatItem</code> maps a request for abbreviated months to a pattern with full months. The same <code>dateFormatItem</code> can be expanded to expanded to match a request for “MMMMEd” to the same pattern.</p><hr><p>Finally: If the requested skeleton included both seconds and fractional seconds and the dateFormatItem skeleton included seconds but not fractional seconds, then the seconds field of the corresponding pattern should be adjusted by appending the locale’s decimal separator, followed by the sequence of ‘S’ characters from the requested skeleton.</p><h5 id="2622-missing-skeleton-fields">2.6.2.2 <a name="Missing_Skeleton_Fields" href="#Missing_Skeleton_Fields">Missing Skeleton Fields</a></h5><p>If a client-requested set of fields includes both date and time fields, and if the <code>availableFormats</code> data does not include a <code>dateFormatItem</code> whose skeleton matches the same set of fields, then the request should be handled as follows:</p><ol>
 <li>Divide the request into a date fields part and a time fields part.</li>
 <li>For each part, find the matching <code>dateFormatItem</code>, and expand the pattern as above.</li>
 <li>Combine the patterns for the two <code>dateFormatItem</code>s using the appropriate dateTimeFormat pattern, determined as follows from the requested date fields:<ul>
@@ -1174,17 +1220,39 @@ MMMdHm/H → "MMM d 'at' H:mm – H:mm" → "Jan 3 at 9:00 – 11:00"</li>
     <span class="hljs-tag">&lt;<span class="hljs-name">weekOfPreference</span> <span class="hljs-attr">ordering</span>=<span class="hljs-string">"weekOfYear weekOfMonth weekOfInterval"</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">"is mn no sv vi"</span> /&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">weekOfPreference</span> <span class="hljs-attr">ordering</span>=<span class="hljs-string">"weekOfYear weekOfDate weekOfMonth"</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">"fi zh-TW"</span> /&gt;</span>
     …
-</code></pre><p>In order for a week to count as the first week of a new year for week-of-year calculations, it must include at least the number of days in the new year specified by the minDays value; otherwise the week will count as the last week of the previous year (and for week-of-month calculations, <code>minDays</code> also specifies the minimum number of days in the new month for a week to count as part of that month).</p><p>The day indicated by <code>firstDay</code> is the one that should be shown as the first day of the week in a calendar view. This is not necessarily the same as the first day after the weekend (or the first work day of the week), which should be determined from the weekend information. Currently, day-of-week numbering is based on <code>firstDay</code> (that is, day 1 is the day specified by <code>firstDay</code>), but in the future we may add a way to specify this separately.</p><p>What is meant by the weekend varies from country to country. It is typically when most non-retail businesses are closed. The time should not be specified unless it is a well-recognized part of the day. The <code>weekendStart</code> day defaults to "sat", and <code>weekendEnd</code> day defaults to "sun". For more information, see <em><a href="tr35.html#Date_Ranges">Dates and Date Ranges</a></em>.</p><p>Each <code>weekOfPreference</code> element provides, for its specified locales, an ordered list of the preferred types of week designations for that set of locales. There are four types of week designations, each of which makes use of date patterns available in the locale, as follows:</p><!-- HTML: row spans --><table><caption id="table-week-designation-types">Table: <a name="Week_Designation_Types" href="#Week_Designation_Types">Week Designation Types</a></caption><tbody>
-<tr><th>Type</th><th>Examples</th><th>Date Pattern</th><th>Comments</th></tr>
-<tr><td>weekOfYear</td><td>week 15 of 2016</td>
-    <td>&lt;dateFormatItem id='yw' count='one'&gt;'week' w 'of' Y&lt;…</td>
-    <td rowspan="2">The <i>week of</i> construction takes a <b>count</b> attribute, just in case the pattern changes depending on the numeric value. (In the future, we're likely to add an ordinal value, for constructions like “3rd week of March”.)<br>In languages where the month name needs grammatical changes (aside from just the simple addition of a prefix or suffix), localizers will typically use a work-around construction.</td></tr>
-<tr><td>weekOfMonth</td><td>week 2 of April<br>2nd week of April</td><td>&lt;dateFormatItem id='MMMMW'' count='one'&gt;'week' W 'of' MMM&lt;…</td></tr>
-
-<tr><td>weekOfDate</td><td>the week of April 11, 2016</td>
-    <td rowspan="2">&lt;field type="week"&gt;&lt;relativePeriod&gt;the week of {0}&lt;…</td>
-    <td rowspan="2">The date pattern that replaces {0} is determined separately and may use the first day or workday of the week, the range of the full week or work week, etc.</td></tr>
-<tr><td>weekOfInterval</td><td>the week of April 11–15</td></tr>
+</code></pre><p>In order for a week to count as the first week of a new year for week-of-year calculations, it must include at least the number of days in the new year specified by the minDays value; otherwise the week will count as the last week of the previous year (and for week-of-month calculations, <code>minDays</code> also specifies the minimum number of days in the new month for a week to count as part of that month).</p><p>The day indicated by <code>firstDay</code> is the one that should be shown as the first day of the week in a calendar view. This is not necessarily the same as the first day after the weekend (or the first work day of the week), which should be determined from the weekend information. Currently, day-of-week numbering is based on <code>firstDay</code> (that is, day 1 is the day specified by <code>firstDay</code>), but in the future we may add a way to specify this separately.</p><p>What is meant by the weekend varies from country to country. It is typically when most non-retail businesses are closed. The time should not be specified unless it is a well-recognized part of the day. The <code>weekendStart</code> day defaults to "sat", and <code>weekendEnd</code> day defaults to "sun". For more information, see <em><a href="tr35.html#Date_Ranges">Dates and Date Ranges</a></em>.</p><p>Each <code>weekOfPreference</code> element provides, for its specified locales, an ordered list of the preferred types of week designations for that set of locales. There are four types of week designations, each of which makes use of date patterns available in the locale, as follows:</p><table><caption id="table-week-designation-types">Table: <a name="Week_Designation_Types" href="#Week_Designation_Types">Week Designation Types</a></caption>
+<thead>
+<tr>
+<th>Type</th>
+<th>Examples</th>
+<th>Date Pattern</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>weekOfYear</td>
+<td>week 15 of 2016</td>
+<td>&lt;dateFormatItem id='yw' count='one'&gt;'week' w 'of' Y&lt;…</td>
+<td>The <strong>week of</strong> construction takes a count attribute, just in case the pattern changes depending on the numeric value of the <strong>w</strong> value. (In the future, we're likely to add an ordinal value, for constructions like “3rd week of March”.) In languages where the month name needs grammatical changes (aside from just the simple addition of a prefix or suffix), localizers will typically use a work-around construction.</td>
+</tr>
+<tr>
+<td>weekOfMonth</td>
+<td>week 2 of April 2nd week of April</td>
+<td>&lt;dateFormatItem id='MMMMW'' count='one'&gt;'week' W 'of' MMM&lt;…</td>
+<td>(same comment as above)</td>
+</tr>
+<tr>
+<td>weekOfDate</td>
+<td>the week of April 11, 2016</td>
+<td>&lt;field type="week"&gt;&lt;relativePeriod&gt;the week of {0}&lt;…</td>
+<td>The date pattern that replaces {0} is determined separately and may use the first day or workday of the week, the range of the full week or work week, etc.</td>
+</tr>
+<tr>
+<td>weekOfInterval</td>
+<td>the week of April 11–15</td>
+<td>&lt;field type="week"&gt;&lt;relativePeriod&gt;the week of {0}&lt;…</td>
+<td>(same comment as above)</td>
+</tr>
 </tbody></table><h3 id="44-time-data">4.4 <a name="Time_Data" href="#Time_Data">Time Data</a></h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">timeData</span> ( <span class="hljs-keyword">hours</span>* ) &gt;</span>
 <span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">hours</span> <span class="hljs-keyword">EMPTY</span> &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">hours</span> <span class="hljs-keyword">preferred</span> <span class="hljs-keyword">NMTOKEN</span> <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
@@ -2126,4 +2194,4 @@ If N matches the region format, then M = {0} from that format, otherwise M = N.<
 <li>If that fails, use other format strings from the locale (including those in <code>&lt;availableFormats&gt;</code>) to try to match the previous or next symbol or literal (again, using a loose match).</li>
 </ul>
 </li>
-</ul><hr><p>Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode <a href="https://unicode.org/copyright.html">Terms of Use</a> apply.</p><p>Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.</p></div><script>anchors.add('h1, h2, h3, h4, h5, h6, caption');</script></body></html>
+</ul><hr><p>Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode <a href="https://www.unicode.org/copyright.html">Terms of Use</a> apply.</p><p>Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.</p></div><script>anchors.add('h1, h2, h3, h4, h5, h6, caption');</script></body></html>

@@ -5,14 +5,14 @@
 <!-- HTML: no th -->
 <table><tbody>
 <tr><td>Version</td><td><b>42 (draft)</b></td></tr>
-<tr><td>Editors</td><td>Shane F. Carr (<a href="mailto:shane@unicode.org">shane@unicode.org</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td></tr>
+<tr><td>Editors</td><td>Shane F. Carr (<a href="mailto:shane@unicode.org">shane@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members</a></td></tr>
 </tbody></table>
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
 ### _Summary_
 
-This document describes parts of an XML format (_vocabulary_) for the exchange of structured locale data. This format is used in the [Unicode Common Locale Data Repository](https://unicode.org/cldr/).
+This document describes parts of an XML format (_vocabulary_) for the exchange of structured locale data. This format is used in the [Unicode Common Locale Data Repository](https://www.unicode.org/cldr/).
 
 This is a partial document, describing only those parts of the LDML that are relevant for number and currency formatting. For the other parts of the LDML see the [main LDML document](tr35.md) and the links above.
 
@@ -35,6 +35,7 @@ The LDML specification is divided into the following parts:
 *   Part 5: [Collation](tr35-collation.md#Contents) (sorting, searching, grouping)
 *   Part 6: [Supplemental](tr35-info.md#Contents) (supplemental data)
 *   Part 7: [Keyboards](tr35-keyboards.md#Contents) (keyboard mappings)
+*   Part 8: [Person Names](tr35-personNames.md#Contents) (person names)
 
 ## <a name="Contents" href="#Contents">Contents of Part 3, Numbers</a>
 
@@ -404,19 +405,27 @@ The short format is designed for UI environments where space is at a premium, an
 
 #### 2.4.2 <a name="Currency_Formats" href="#Currency_Formats">Currency Formats</a>
 
-Pattern for use with currency formatting. This format contains a few additional structural options that allow proper placement of the currency symbol relative to the numeric quantity. Refer to _[Section 4 - Currencies](#Currencies)_ for additional information on the use of these options.
+Patterns for use with currency formatting:
 
 ```xml
-<!ELEMENT currencyFormats (alias | (default*, currencySpacing*, currencyFormatLength*, unitPattern*, special*)) >
+<!ELEMENT currencyFormats (alias | (default*, currencySpacing*, currencyFormatLength*, currencyPatternAppendISO*, unitPattern*, special*)) >
+<!ELEMENT currencyFormatLength (alias | (default*, currencyFormat*, special*)) >
+<!ATTLIST currencyFormatLength type ( full | long | medium | short ) #IMPLIED >
+<!ELEMENT currencyFormat (alias | (pattern*, special*)) >
+<!ATTLIST currencyFormat type NMTOKEN "standard" >
+    <!--@MATCH:literal/accounting, standard-->
+<!ELEMENT currencyPatternAppendISO ( #PCDATA ) >
+```
+
+The following additional elements were intended to allow proper placement of the currency symbol relative to the numeric quantity. These are specified in the root locale and typically not overridden in any other locale. However, as of CLDR 42, the preferred approach to controlling placement of the currency symbol is use of the `alt="alphaNextToNumber"` variant for `currencyFormat` `pattern`s. See below and _[Section 4 - Currencies](#Currencies)_ for additional information on the use of these options.
+
+```xml
 <!ELEMENT currencySpacing (alias | (beforeCurrency*, afterCurrency*, special*)) >
 <!ELEMENT beforeCurrency (alias | (currencyMatch*, surroundingMatch*, insertBetween*)) >
 <!ELEMENT afterCurrency (alias | (currencyMatch*, surroundingMatch*, insertBetween*)) >
 <!ELEMENT currencyMatch ( #PCDATA ) >
 <!ELEMENT surroundingMatch ( #PCDATA )) >
 <!ELEMENT insertBetween ( #PCDATA ) >
-<!ELEMENT currencyFormatLength (alias | (default*, currencyFormat*, special*)) >
-<!ATTLIST currencyFormatLength type ( full | long | medium | short ) #IMPLIED >
-<!ELEMENT currencyFormat (alias | (pattern*, special*)) >
 ```
 
 In addition to a standard currency format, in which negative currency amounts might typically be displayed as something like “-$3.27”, locales may provide an "accounting" form, in which for "en_US" the same example would appear as “($3.27)”.
@@ -426,13 +435,41 @@ In addition to a standard currency format, in which negative currency amounts mi
     <currencyFormatLength>
         <currencyFormat type="standard">
             <pattern>¤#,##0.00</pattern>
+            <pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+            <pattern alt="noCurrency">#,##0.00</pattern>
         </currencyFormat>
         <currencyFormat type="accounting">
             <pattern>¤#,##0.00;(¤#,##0.00)</pattern>
+            <pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
+            <pattern alt="noCurrency">#,##0.00;(#,##0.00)</pattern>
+        </currencyFormat>
+    </currencyFormatLength>
+    <currencyFormatLength type="short">
+        <currencyFormat type="standard">
+            <pattern type="1000" count="one">¤0K</pattern>
+            <pattern type="1000" count="one" alt="alphaNextToNumber">¤ 0K</pattern>
+            <pattern type="1000" count="other">¤0K</pattern>
+            <pattern type="1000" count="other" alt="alphaNextToNumber">¤ 0K</pattern>
+            ...
+            <pattern type="100000000000000" count="other">¤000T</pattern>
+            <pattern type="100000000000000" count="other" alt="alphaNextToNumber">¤ 000T</pattern>
         </currencyFormat>
     </currencyFormatLength>
 </currencyFormats>
 ```
+
+The `alt="alphaNextToNumber"` pattern, if available, should be used instead of the standard pattern when the currency symbol character closest to the numeric value has Unicode General Category L (letter). The `alt="alphaNextToNumber"` pattern is typically provided when the standard currency pattern does not have a space between currency symbol and numeric value; the alphaNextToNumber variant adds a non-breaking space if appropriate for the locale.
+
+The `alt="noCurrency"` pattern can be used when a currency-style format is desired but without the currency symbol. This sort of display may be used when formatting a large column of values all in the same currency, for example. For compact currency formats (`<currencyFormatLength type="short">`), the compact decimal format (`<decimalFormatLength type="short">`) should be used if no `alt="noCurrency"` pattern is present (so the `alt="noCurrency"` pattern is typically not needed for compact currency formats).
+
+```xml
+<currencyPatternAppendISO>{0} ¤¤</currencyPatternAppendISO>
+```
+
+The `currencyPatternAppendISO` element provides a pattern that can be used to combine currency format that uses a currency symbol (¤ or ¤¤¤¤¤) with the ISO 4217 3-letter code for the same currency (¤¤), to produce a result such as “$1,432.00 USD”. Using such a format is only recommended to resolve ambiguity when:
+* The currency symbol being used is the narrow symbol (¤¤¤¤¤) or has the same value as the narrow symbol, and
+* The currency symbol does not have the same value as the ISO 4217 3-letter code.
+Most locales will not need to override the pattern provided in root, shown in the xml sample above. 
 
 ### 2.5 <a name="Miscellaneous_Patterns" href="#Miscellaneous_Patterns">Miscellaneous Patterns</a>
 
@@ -517,7 +554,7 @@ Examples
 ```
 
 
-For more information, see [Plural Rules](http://cldr.unicode.org/index/cldr-spec/plural-rules) and [Grammatical Inflection](http://cldr.unicode.org/translation/grammatical-inflection).
+For more information, see [Plural Rules](https://cldr.unicode.org/index/cldr-spec/plural-rules) and [Grammatical Inflection](https://cldr.unicode.org/translation/grammatical-inflection).
 
 ## 3 <a name="Number_Format_Patterns" href="#Number_Format_Patterns">Number Format Patterns</a>
 
@@ -809,7 +846,9 @@ While for English this may seem overly complex, for some other languages differe
 
 For example, if the currency is ZWD and the number is 1234, then the latter maps to `count="other"` for English. The unit pattern for that is "{0} {1}", and the display name is "Zimbabwe dollars". The final formatted number is then "1,234 Zimbabwe dollars".
 
-When the currency symbol is substituted into a pattern, there may be some further modifications, according to the following.
+---
+
+When a currency symbol is substitited into a pattern, some spacing adjustments or other adjustments may be necessary depending on the nature of the symbol. In CLDR 42 and later, the preferred way to handle this is via the `alt="alphaNextToNumber"` variant of the `currencyFormat` `pattern`, as described in _[Section 2.4.2: Currency Formats](#Currency_Formats)_. In earlier versions of CLDR this was handled via the `currencySpacing` element as described below. This element is still present in CLDR 42 and its use is described below for implementations that may not yet support the `alt="alphaNextToNumber"` variant of the `currencyFormat` `pattern`.
 
 ```xml
 <currencySpacing>
@@ -831,6 +870,8 @@ This element controls whether additional characters are inserted on the boundary
 Conversely, look at the pattern "¤#,##0.00" with the symbol "US$". In this case, there is no insertion; the result is simply "US$#,##0.00". The `afterCurrency` element governs this case, since we are looking _after_ the "¤" symbol. The `surroundingMatch` is positive, since the character just after the "¤" will be a digit. However, the `currencyMatch` is **not** positive, since the "\$" in "US\$" is at the end of the currency symbol being substituted. So the insertion is not made.
 
 For more information on the matching used in the `currencyMatch` and `surroundingMatch` elements, see the main document _[Appendix E: Unicode Sets](tr35.md#Unicode_Sets)_.
+
+---
 
 Currencies can also contain optional grouping, decimal data, and pattern elements. This data is inherited from the `<symbols>` in the same locale data (if not present in the chain up to root), so only the _differing_ data will be present. See the main document _Section 4.1 [Multiple Inheritance](tr35.md#Multiple_Inheritance)_.
 
@@ -985,7 +1026,7 @@ This happens even if nouns are invariant; even if all English nouns were invaria
 1. 1 sheep **is** here. Do you want to buy **it**?
 2. 2 sheep **are** here. Do you want to buy **them**?
 
-For more information, see [Determining-Plural-Categories](http://cldr.unicode.org/index/cldr-spec/plural-rules#h.44ozdx564iez).
+For more information, see [Determining-Plural-Categories](https://cldr.unicode.org/index/cldr-spec/plural-rules#h.44ozdx564iez).
 
 English does not have a separate plural category for “zero”, because it does not require a different message for “0”. For example, the same message can be used below, with just the numeric placeholder changing.
 
@@ -1104,7 +1145,8 @@ range           = value'..'value
 value           = digit+
 sampleList      = sampleRange (',' sampleRange)* (',' ('…'|'...'))?
 sampleRange     = sampleValue ('~' sampleValue)?
-sampleValue     = value ('.' digit+)? ([ce] digitPos digit+)?
+sampleValue     = sign? value ('.' digit+)? ([ce] digitPos digit+)?
+sign            = '+' | '-'
 digit           = [0-9]
 digitPos        = [1-9]
 ```
@@ -1379,14 +1421,26 @@ Two tokens are *semantically equivalent* if they have the same *semantic annotat
 
 The above description describes the expected output. Internally, the implementation may determine the equivalent units of measurement by passing the codes back from the number formatters, allowing for a precise determination of "semantically equivalent".
 
-Two semantically equivalent tokens can be *collapsed* if they appear at the start of both values or the end of both values. However, the implementation may choose different levels of aggressiveness with regard to collapsing tokens. The currently recommended heuristic is:
+Two semantically equivalent tokens can be *collapsed* if they appear at the start of both values or the end of both values. 
+However, the implementation may choose different levels of aggressiveness with regard to collapsing tokens. 
+An API for displaying ranges should permit control over whether the tokens are collapsed or not, and the levels of aggressiveness.
+The currently recommended heuristic is:
 
-1. Only collapse semantically equivalent *unit of measurement* tokens. This is to avoid ambiguous strings such as "3–5K" (could represent 3–5000 or 3000–5000).
-1. Only collapse if the tokens are more than one code point in length. This is to increase clarity of strings such as "$3–$5".
+1. Never collapse scientific or compact notation. This is to avoid producing ambiguous strings such as "3–5M" (could represent 3–5,000,000 or 3,000,000–5,000,000).
+2. Only collapse if the tokens are more than one code point in length. This is to increase clarity of strings such as "$3–$5".
+3. To perform the collapse, remove the token that is closest to the range separator.
+That is, for a prefix element, remove from the end value of the range, and for a suffix element remove it from the start value of the range:
+    * USD 2 – USD 5 ⇒ USD 2 – 5
+    * 2M EUR – 5M EUR ⇒  2M – 5M EUR
+    * 2 km – 5 km ⇒ 2 – 5 km
+    * 2M ft – 5M ft ⇒ 2M – 5M ft
+4. When the tokens can have distinct plural forms, modify the remaining token so that it has the correct plural form. That is, use [Plural Ranges](#Plural_Ranges) to calculate the correct plural category for the range, and pick the variant of that the remaining token corresponding to that plural form.
 
-These heuristics may be refined in the future.
-
-**To collapse tokens:** Remove the token from both values, and then re-compute the token based on the number range. If the token depends on the plural form, follow [Plural Ranges](#Plural_Ranges) to calculate the correct form. If the tokens originated at the beginning of the string, prepend the new token to the beginning of the *lower* string; otherwise, append the new token to the end of the *upper* string.
+In bidi contexts, the data is built so that rule #3 works **visually**. 
+For example, if a range from 2 km to 5 km would be presented visually as "_mk 5 – mk 2_", the collapsed form would be "_mk 5 – 2_". 
+(The _mk_ is a stand-in for the native representation.) 
+This requires consistent visualy reordering among the elements: the range, the prefixes and the suffixes.
+Thus a prefix value will be reordered to be visually a suffix value, and the order of the range will be visually reversed.
 
 ### 8.3 <a name="Range_Pattern_Processing" href="#Range_Pattern_Processing">Range Pattern Processing</a>
 
@@ -1406,6 +1460,6 @@ To add spacing, insert a non-breaking space (U+00A0) at the positions in item 2 
 
 * * *
 
-Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode [Terms of Use](https://unicode.org/copyright.html) apply.
+Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode [Terms of Use](https://www.unicode.org/copyright.html) apply.
 
 Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.

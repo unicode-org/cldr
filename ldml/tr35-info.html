@@ -294,6 +294,28 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -306,8 +328,8 @@
     </tbody>
 </table></div><div class="body"><h2 id="unicode-technical-standard-35">Unicode Technical Standard #35</h2><h1 id="unicode-locale-data-markup-language-ldmlpart-6-supplemental">Unicode Locale Data Markup Language (LDML)<br>Part 6: Supplemental</h1><!-- HTML: no header --><table class="simple" width="90%"><tbody>
 <tr><td>Version</td><td><b>42 (draft)</b></td></tr>
-<tr><td>Editors</td><td>Steven Loomis (<a href="mailto:srl@icu-project.org">srl@icu-project.org</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td></tr>
-</tbody></table><p>For the full header, summary, and status, see <a href="tr35.html">Part 1: Core</a>.</p><h3 id="summary"><em>Summary</em></h3><p>This document describes parts of an XML format (<em>vocabulary</em>) for the exchange of structured locale data. This format is used in the <a href="https://unicode.org/cldr/">Unicode Common Locale Data Repository</a>.</p><p>This is a partial document, describing only those parts of the LDML that are relevant for supplemental data. For the other parts of the LDML see the <a href="tr35.html">main LDML document</a> and the links above.</p><p><em>Note:</em>
+<tr><td>Editors</td><td>Steven Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td></tr>
+</tbody></table><p>For the full header, summary, and status, see <a href="tr35.html">Part 1: Core</a>.</p><h3 id="summary"><em>Summary</em></h3><p>This document describes parts of an XML format (<em>vocabulary</em>) for the exchange of structured locale data. This format is used in the <a href="https://www.unicode.org/cldr/">Unicode Common Locale Data Repository</a>.</p><p>This is a partial document, describing only those parts of the LDML that are relevant for supplemental data. For the other parts of the LDML see the <a href="tr35.html">main LDML document</a> and the links above.</p><p><em>Note:</em>
 Some links may lead to in-development or older
 versions of the data files.
 See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-date CLDR release data.</p><h3 id="status"><em>Status</em></h3><p><em>This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium. This is a stable document and may be used as reference material or cited as a normative reference by other specifications.</em></p><blockquote>
@@ -320,6 +342,7 @@ See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-da
 <li>  Part 5: <a href="tr35-collation.html#Contents">Collation</a> (sorting, searching, grouping)</li>
 <li>  Part 6: <a href="tr35-info.html#Contents">Supplemental</a> (supplemental data)</li>
 <li>  Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard mappings)</li>
+<li>  Part 8: <a href="tr35-personNames.html#Contents">Person Names</a> (person names)</li>
 </ul><h2 id="contents-of-part-6-supplemental"><a name="Contents" href="#Contents">Contents of Part 6, Supplemental</a></h2><ul>
 <li>1 Introduction <a href="#Supplemental_Data">Supplemental Data</a></li>
 <li>2 <a href="#Territory_Data">Territory Data</a><ul>
@@ -358,6 +381,7 @@ See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-da
 <li>11 <a href="#Version_Information">Version Information</a></li>
 <li>12 <a href="#Parent_Locales">Parent Locales</a></li>
 <li>13 <a href="#Unit_Conversion">Unit Conversion</a><ul>
+<li><a href="#unit-parsing-data">Unit Parsing Data</a></li>
 <li><a href="#constants">Constants</a></li>
 <li><a href="#conversion-data">Conversion Data</a><ul>
 <li><a href="#exceptional-cases">Exceptional Cases</a><ul>
@@ -380,6 +404,8 @@ See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-da
 <li><a href="#mixed-units">Mixed Units</a></li>
 <li><a href="#testing">Testing</a></li>
 <li>14 <a href="#Unit_Preferences">Unit Preferences</a><ul>
+<li>14.2 <a href="#Unit_Preferences_Data">Unit Preferences Overrides</a></li>
+<li>14.2 <a href="#Unit_Preferences_Data">Unit Preferences Data</a></li>
 <li><a href="#constraints">Constraints</a></li>
 <li><a href="#caveats">Caveats</a></li>
 </ul>
@@ -454,7 +480,8 @@ See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-da
 <li>Default currency (see <a href="tr35-numbers.html#Supplemental_Currency_Data">Supplemental Currency Data</a>)</li>
 <li>Default measurement system and paper size (see <a href="tr35-general.html#Measurement_System_Data">Measurement System Data</a>)</li>
 <li>Default units for specific usage (see <a href="#Preferred_Units_For_Usage">Preferred Units for Specific Usages</a>, below)</li>
-</ul><h4 id="241-preferred-units-for-specific-usages">2.4.1 <a name="Preferred_Units_For_Usage" href="#Preferred_Units_For_Usage">Preferred Units for Specific Usages</a></h4><p><em>For information about preferred units and unit conversion, see Section 13 <a href="#Unit_Conversion">Unit Conversion</a> and Section 14 <a href="#Unit_Preferences">Unit Preferences</a>.</em></p><h3 id="25-rgscope-scope-of-the-rg-locale-key">2.5 <a name="rgScope" href="#rgScope"><code>&lt;rgScope&gt;</code>: Scope of the “rg” Locale Key</a></h3><p>The supplemental <code>&lt;rgScope&gt;</code> element specifies the data paths for which the region used for data lookup is determined by the value of any “rg” key present in the locale identifier (see <a href="tr35.html#RegionOverride">Region Override</a>). If no “rg” key is present, the region used for lookup is determined as usual: from the unicode_region_subtag if present, else inferred from the unicode_language_subtag. The DTD structure is as follows:</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">rgScope</span> ( <span class="hljs-keyword">rgPath</span>* ) &gt;</span>
+</ul><p>The mu, ms, and rg keys also interact with the base locale and the unit preferences. For more information, see <em>Section 14 <a href="#Unit_Preferences">Unit Preferences</a>.</em></p><h4 id="241-preferred-units-for-specific-usages">2.4.1 <a name="Preferred_Units_For_Usage" href="#Preferred_Units_For_Usage">Preferred Units for Specific Usages</a></h4><p>The determination of preferred units depends on the locale identifer: the keys mu, ms, rg, the base locale (language, script, region) and the user preferences.
+<em>For information about preferred units and unit conversion, see Section 13 <a href="#Unit_Conversion">Unit Conversion</a> and Section 14 <a href="#Unit_Preferences">Unit Preferences</a>.</em></p><h3 id="25-rgscope-scope-of-the-rg-locale-key">2.5 <a name="rgScope" href="#rgScope"><code>&lt;rgScope&gt;</code>: Scope of the “rg” Locale Key</a></h3><p>The supplemental <code>&lt;rgScope&gt;</code> element specifies the data paths for which the region used for data lookup is determined by the value of any “rg” key present in the locale identifier (see <a href="tr35.html#RegionOverride">Region Override</a>). If no “rg” key is present, the region used for lookup is determined as usual: from the unicode_region_subtag if present, else inferred from the unicode_language_subtag. The DTD structure is as follows:</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">rgScope</span> ( <span class="hljs-keyword">rgPath</span>* ) &gt;</span>
 
 <span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">rgPath</span> <span class="hljs-keyword">EMPTY</span> &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">rgPath</span> <span class="hljs-keyword">path</span> <span class="hljs-keyword">CDATA</span> <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
@@ -694,7 +721,7 @@ It can also be <code>=LOWER_BAR</code> (8) or <code>=HIGH_BAR</code> (same as <c
     <span class="hljs-comment">&lt;!--  all other items --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">approvalRequirement</span> <span class="hljs-attr">votes</span>=<span class="hljs-string">"=vetter"</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">"*"</span> <span class="hljs-attr">paths</span>=<span class="hljs-string">""</span>/&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">approvalRequirements</span>&gt;</span>
-</code></pre><p>This section specifies that a TC vote (20 votes) is required for decimal and grouping separators. Furthermore it specifies that any field in the established locales list (i.e. ar, ca, cs, etc.) requires 8 votes, and that all other locales require 4 votes only.</p><p>For more information on the CLDR Voting process, see <a href="http://cldr.unicode.org/index/process">http://cldr.unicode.org/index/process</a></p><h3 id="81-definitions">8.1 <a name="Coverage_Level_Definitions" href="#Coverage_Level_Definitions">Definitions</a></h3><p>This is a snapshot of the contents of certain variables. The actual definitions in the coverageLevels.xml file may vary from these descriptions.</p><ul>
+</code></pre><p>This section specifies that a TC vote (20 votes) is required for decimal and grouping separators. Furthermore it specifies that any field in the established locales list (i.e. ar, ca, cs, etc.) requires 8 votes, and that all other locales require 4 votes only.</p><p>For more information on the CLDR Voting process, see <a href="https://cldr.unicode.org/index/process">https://cldr.unicode.org/index/process</a></p><h3 id="81-definitions">8.1 <a name="Coverage_Level_Definitions" href="#Coverage_Level_Definitions">Definitions</a></h3><p>This is a snapshot of the contents of certain variables. The actual definitions in the coverageLevels.xml file may vary from these descriptions.</p><ul>
 <li><em>Target-Language</em> is the language under consideration.</li>
 <li><em>Target-Territories</em> is the list of territories found by looking up <em>Target-Language</em> in the <code>&lt;languageData&gt;</code> elements in <a href="tr35-info.html#Supplemental_Language_Data">Supplemental Language Data</a>.</li>
 <li><em>Language-List</em> is <em>Target-Language</em>, plus<ul>
@@ -846,20 +873,19 @@ It can also be <code>=LOWER_BAR</code> (8) or <code>=HIGH_BAR</code> (same as <c
 </ul><p>The <code>&lt;casingItem&gt;</code> data is generated by a tool based on the data available in CLDR. In cases where the generated casing information is incorrect and needs to be manually edited, the <code>override</code> attribute is set to <code>true</code> so that the tool will not override the manual edits. When the casing information is known to be both correct and something that should apply to all elements of the specified type in a given locale, the <code>forceErr</code> attribute may be set to <code>true</code> to force an error instead of a warning for items that do not match the casing information.</p><h2 id="11-version-information">11 <a name="Version_Information" href="#Version_Information">Version Information</a></h2><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">version</span> <span class="hljs-keyword">EMPTY</span> &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">version</span> <span class="hljs-keyword">cldrVersion</span> <span class="hljs-keyword">CDATA</span> <span class="hljs-keyword">#FIXED</span> <span class="hljs-string">"27"</span> &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">version</span> <span class="hljs-keyword">unicodeVersion</span> <span class="hljs-keyword">CDATA</span> <span class="hljs-keyword">#FIXED</span> <span class="hljs-string">"7.0.0"</span> &gt;</span>
-</code></pre><p>The <code>cldrVersion</code> attribute defines the CLDR version for this data, as published on <a href="http://cldr.unicode.org/index/downloads">CLDR Releases/Downloads</a>.</p><p>The <code>unicodeVersion</code> attribute defines the version of the Unicode standard that is used to interpret data. Specifically, some data elements such as exemplar characters are expressed in terms of UnicodeSets. Since UnicodeSets can be expressed in terms of Unicode properties, their meaning depends on the Unicode version from which property values are derived.</p><h2 id="12-parent-locales">12 <a name="Parent_Locales" href="#Parent_Locales">Parent Locales</a></h2><p>The parentLocales data is supplemental data, but is described in detail in the <a href="tr35.html#Parent_Locales">core specification section 4.1.3.</a></p><h2 id="13-unit-conversion">13 <a name="Unit_Conversion" href="#Unit_Conversion">Unit Conversion</a></h2><p>The unit conversion data (<a href="https://github.com/unicode-org/cldr/blob/main/common/supplemental/units.xml">units.xml</a>) provides the data for converting all of the cldr unit identifiers to base units, and back. That allows conversion between any two convertible units, such as two units of length. For any two convertible units (such as acre and dunum) the first can be converted to the base unit (square-meter), then that base unit can be converted to the second unit.</p><p>Many of the elements allow for a common @description attribute, to disambiguate the main attribute value or to explain the choice of other values. For example:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">unitConstant</span> <span class="hljs-attr">constant</span>=<span class="hljs-string">"glucose_molar_mass"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"180.1557"</span>
-  <span class="hljs-attr">description</span>=<span class="hljs-string">"derivation from the mean atomic weights according to STANDARD ATOMIC WEIGHTS 2019 on https://ciaaw.org/atomic-weights.htm"</span>/&gt;</span>
-</code></pre><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">unitConstants</span> ( <span class="hljs-keyword">unitConstant</span>* ) &gt;</span>
+</code></pre><p>The <code>cldrVersion</code> attribute defines the CLDR version for this data, as published on <a href="https://cldr.unicode.org/index/downloads">CLDR Releases/Downloads</a>.</p><p>The <code>unicodeVersion</code> attribute defines the version of the Unicode standard that is used to interpret data. Specifically, some data elements such as exemplar characters are expressed in terms of UnicodeSets. Since UnicodeSets can be expressed in terms of Unicode properties, their meaning depends on the Unicode version from which property values are derived.</p><h2 id="12-parent-locales">12 <a name="Parent_Locales" href="#Parent_Locales">Parent Locales</a></h2><p>The parentLocales data is supplemental data, but is described in detail in the <a href="tr35.html#Parent_Locales">core specification section 4.1.3.</a></p><h2 id="13-unit-conversion">13 <a name="Unit_Conversion" href="#Unit_Conversion">Unit Conversion</a></h2><p>The unit conversion data (<a href="https://github.com/unicode-org/cldr/blob/main/common/supplemental/units.xml">units.xml</a>) provides the data for converting all of the cldr unit identifiers to base units, and back. That allows conversion between any two convertible units, such as two units of length. For any two convertible units (such as acre and dunum) the first can be converted to the base unit (square-meter), then that base unit can be converted to the second unit.</p><h3 id="unit-parsing-data">Unit Parsing Data</h3><!--ELEMENT unitIdComponents ( unitIdComponent* ) --><!--ELEMENT unitIdComponent EMPTY --><!--ATTLIST unitIdComponent type NMTOKEN #REQUIRED --><!--ATTLIST unitIdComponent values NMTOKENS #REQUIRED --><p>These elements provide support for parsing unit identifiers, as described in <a href="tr35-general.html#Unit_Elements">Unit Elements</a>. 
+Each of the values has tokens with specific functions, identified by the type. 
+For example the following values can be suffixes in a simple_unit identifier such as <code>quart-imperial</code>.</p><pre><code>&lt;unitIdComponent type="suffix" values="force imperial luminosity mass metric person radius scandinavian troy unit us"/&gt;
+</code></pre><h3 id="constants">Constants</h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">unitConstants</span> ( <span class="hljs-keyword">unitConstant</span>* ) &gt;</span>
 
 <span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">unitConstant</span> <span class="hljs-keyword">EMPTY</span> &gt;</span>
-
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">unitConstant</span> <span class="hljs-keyword">constant</span> <span class="hljs-keyword">NMTOKEN</span> <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
-
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">unitConstant</span> <span class="hljs-keyword">value</span> <span class="hljs-keyword">CDATA</span> <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
-
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">unitConstant</span> <span class="hljs-keyword">status</span> <span class="hljs-keyword">NMTOKEN</span> <span class="hljs-keyword">#IMPLIED</span> &gt;</span>
-
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">unitConstant</span> <span class="hljs-keyword">description</span> <span class="hljs-keyword">CDATA</span> <span class="hljs-keyword">#IMPLIED</span> &gt;</span>
-</code></pre><h3 id="constants">Constants</h3><p>The data uses a small set of constants for readability, such as:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">unitConstant</span> <span class="hljs-attr">constant</span>=<span class="hljs-string">"ft_to_m"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"0.3048"</span> /&gt;</span>
+</code></pre><p>Many of the elements allow for a common @description attribute, to disambiguate the main attribute value or to explain the choice of other values. For example:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">unitConstant</span> <span class="hljs-attr">constant</span>=<span class="hljs-string">"glucose_molar_mass"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"180.1557"</span>
+  <span class="hljs-attr">description</span>=<span class="hljs-string">"derivation from the mean atomic weights according to STANDARD ATOMIC WEIGHTS 2019 on https://ciaaw.org/atomic-weights.htm"</span>/&gt;</span>
+</code></pre><p>The data uses a small set of constants for readability, such as:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">unitConstant</span> <span class="hljs-attr">constant</span>=<span class="hljs-string">"ft_to_m"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"0.3048"</span> /&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">unitConstant</span> <span class="hljs-attr">constant</span>=<span class="hljs-string">"ft2_to_m2"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"ft_to_m*ft_to_m"</span> /&gt;</span>
 </code></pre><p>The order of the elements in the file is significant.</p><p>Each constant can have a value based on simple expressions using numbers, previous constants, plus the operators * and /. Parentheses are not allowed. The operator * binds more tightly than /, which may be unexpected. Thus a * b / c * d is interpreted as (a * b) / (c * d). A consequence of that is that a * b / c * d = a * b / c / d. In the value, the numbers represent rational values. So 0.3048 is interpreted as exactly 3048 / 10000.</p><p>In the above case, ft2-to-m2 is a conversion constant for going from square feet to square meters. The expression evaluates to 0.09290304. Where the constants cannot be expressed as rationals, or where their interpretation is fluid, that is marked with a status value:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">unitConstant</span> <span class="hljs-attr">constant</span>=<span class="hljs-string">"PI"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"411557987 / 131002976"</span> <span class="hljs-attr">status</span>=<span class="hljs-string">'approximate'</span> /&gt;</span>
 </code></pre><p>In such cases, software may decide to use different values for accuracy.</p><p>An implementation need not use rationals directly for conversion; it could use doubles, for example, if only double accuracy is needed.</p><h3 id="conversion-data">Conversion Data</h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">convertUnits</span> ( <span class="hljs-keyword">convertUnit</span>* ) &gt;</span>
@@ -993,7 +1019,81 @@ It can also be <code>=LOWER_BAR</code> (8) or <code>=HIGH_BAR</code> (same as <c
 2.  <span class="hljs-tag">&lt;<span class="hljs-name">unitQuantity</span> <span class="hljs-attr">baseUnit</span>=<span class="hljs-string">'kilogram'</span> <span class="hljs-attr">quantity</span>=<span class="hljs-string">'mass'</span> <span class="hljs-attr">status</span>=<span class="hljs-string">'simple'</span>/&gt;</span>
 3.  <span class="hljs-tag">&lt;<span class="hljs-name">unitQuantity</span> <span class="hljs-attr">baseUnit</span>=<span class="hljs-string">'meter'</span> <span class="hljs-attr">quantity</span>=<span class="hljs-string">'length'</span> <span class="hljs-attr">status</span>=<span class="hljs-string">'simple'</span>/&gt;</span>
 4.  …
-</code></pre><h2 id="mixed-units">Mixed Units</h2><p>Mixed units, or unit sequences, are units with the same base unit which are listed in sequence. Common examples are feet and inches, meters and centimeters, and hours, minutes, and seconds. Mixed unit identifiers are expressed using the "-and-" infix, as in "foot-and-inch", "meter-and-centimeter", and "hour-and-minute-and-second".</p><p>Scalar values for mixed units are expressed in the largest unit, according to the sort order discussed above in "Normalization". For example, numbers for "foot-and-inch" are expressed in feet.</p><p>Mixed units are expected to be rendered in the order of the tokens in the identifier. For example, the value 1.25 with the identifier "foot-and-inch" should be rendered as "1 foot and 3 inches" and 1.25 inch-and-foot should be rendered as “3 inches and 1 foot". <strong>NOTE:</strong> the correct application of this may require adding locales to the regions attribute set.</p><h2 id="testing">Testing</h2><p>The <a href="https://github.com/unicode-org/cldr/blob/main/common/testData/units/unitsTest.txt">unitsTest.txt</a> file supplies a list of all the CLDR units with conversions, for testing implementations. Instructions for use are supplied in the header of the file.</p><h2 id="14-unit-preferences">14 <a name="Unit_Preferences" href="#Unit_Preferences">Unit Preferences</a></h2><p>Different locales have different preferences for which unit or combination of units is used for a particular usage, such as measuring a person’s height. This is more fine-grained than merely a preference for metric versus US or UK measurement systems. For example, one locale may use meters alone, while another may use centimeters alone or a combination of meters and centimeters; a third may use inches alone, or (informally) a combination of feet and inches.</p><p>The CLDR data is intended to map from a particular usage — e.g. measuring the height of a person or the fuel consumption of an automobile — to the unit or combination of units typically used for that usage in a given region. Considerations for such a mapping include:</p><ul>
+</code></pre><h2 id="mixed-units">Mixed Units</h2><p>Mixed units, or unit sequences, are units with the same base unit which are listed in sequence. Common examples are feet and inches, meters and centimeters, and hours, minutes, and seconds. Mixed unit identifiers are expressed using the "-and-" infix, as in "foot-and-inch", "meter-and-centimeter", and "hour-and-minute-and-second".</p><p>Scalar values for mixed units are expressed in the largest unit, according to the sort order discussed above in "Normalization". For example, numbers for "foot-and-inch" are expressed in feet.</p><p>Mixed units are expected to be rendered in the order of the tokens in the identifier. For example, the value 1.25 with the identifier "foot-and-inch" should be rendered as "1 foot and 3 inches" and 1.25 inch-and-foot should be rendered as “3 inches and 1 foot". <strong>NOTE:</strong> the correct application of this may require adding locales to the regions attribute set.</p><h2 id="testing">Testing</h2><p>The <a href="https://github.com/unicode-org/cldr/blob/main/common/testData/units/unitsTest.txt">unitsTest.txt</a> file supplies a list of all the CLDR units with conversions, for testing implementations. Instructions for use are supplied in the header of the file.</p><h2 id="14-unit-preferences">14 <a name="Unit_Preferences" href="#Unit_Preferences">Unit Preferences</a></h2><p>Different locales have different preferences for which unit or combination of units is used for a particular usage, such as measuring a person’s height. This is more fine-grained than merely a preference for metric versus US or UK measurement systems. For example, one locale may use meters alone, while another may use centimeters alone or a combination of meters and centimeters; a third may use inches alone, or (informally) a combination of feet and inches.</p><h3 id="142-unit-preferences-overrides">14.2 <a name="Unit_Preferences_Data" href="#Unit_Preferences_Data">Unit Preferences Overrides</a></h3><p>The determination of preferred units depends on the locale identifer: the keys mu, ms, rg, their values, the base locale (language, script, region) and the user preferences data.</p><p>The strongest is the mu key, then the ms key, then the rg key. Beyond that the region of the locale identifer is used, and if not present, the likely-subtag region. For example:</p><table>
+<thead>
+<tr>
+<th></th>
+<th>Locale</th>
+<th>Result</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>en-u-rg-uszzzz-ms-ussystem-mu-celsius</td>
+<td>Celsius</td>
+<td>despite the rg and ms settings for US, and the likely region of US</td>
+</tr>
+<tr>
+<td>2</td>
+<td>en-u-rg-uszzzz-ms-metric</td>
+<td>Celsius</td>
+<td>despite the rg setting for US, and the likely region of US</td>
+</tr>
+<tr>
+<td>3</td>
+<td>en-u-rg-dezzzz.</td>
+<td>Celsius</td>
+<td>despite the likely region of US</td>
+</tr>
+<tr>
+<td>4</td>
+<td>en</td>
+<td>Fahrenheit</td>
+<td>because the likely region for en with no region is US</td>
+</tr>
+</tbody></table><p>The ms value maps to a region according to the following table. That is then the input for the Unit Preferences Data below.</p><table>
+<thead>
+<tr>
+<th>Key-Value</th>
+<th>Region for Unit Preferences</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ms-metric</td>
+<td>001</td>
+</tr>
+<tr>
+<td>ms-ussystem</td>
+<td>US</td>
+</tr>
+<tr>
+<td>ms-uksystem</td>
+<td>UK</td>
+</tr>
+</tbody></table><p>Thus <em>for the purposes of unit preferences</em> the following behave identically:</p><table>
+<thead>
+<tr>
+<th>Locale</th>
+<th>Equivalents</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>en-GB-ms-ussystem</td>
+<td>en-US, en</td>
+</tr>
+<tr>
+<td>en-US-ms-uksystem</td>
+<td>en-GB</td>
+</tr>
+<tr>
+<td>en-ms-uksystem</td>
+<td>en-GB</td>
+</tr>
+</tbody></table><p>APIs should clearly allow for both the use of unit preferences with the above process, and for the <em>invariant use</em> of a unit measure.
+That is, while an application will usually want to obey the preferences for the locale or in the locale ID, there will definitely be instances where it will want to not use them. 
+For example, in showing the weather, an application may want to show:</p><p>High today: 68°F (20°C)</p><p>To do that, the application needs to show the first value with the locale information, and then (a) query what the alternative is, and show the temperature in that.
+As an example, ICU only uses the unit preferences (with rg, ms, and/or mu and the likely region) in formatting units when a usage parameter is set.</p><h3 id="142-unit-preferences-data">14.2 <a name="Unit_Preferences_Data" href="#Unit_Preferences_Data">Unit Preferences Data</a></h3><p>The CLDR data is intended to map from a particular usage — e.g. measuring the height of a person or the fuel consumption of an automobile — to the unit or combination of units typically used for that usage in a given region. Considerations for such a mapping include:</p><ul>
 <li>The list of possible usages large and open-ended. The intent here is to start with a small set for which there is an urgent need, and expand as necessary.</li>
 <li>Even for a given usage such a measuring a road distance, there are multiple ranges in use. For example, one set of units may be used for indicating the distance to the next city (kilometers or miles), while another may be used for indicating the distance to the next exit (meters, yards, or feet).</li>
 <li>There are also differences between more formal usage (official signage, medical records) and more informal usage (conversation, texting).</li>
@@ -1133,4 +1233,4 @@ It can also be <code>=LOWER_BAR</code> (8) or <code>=HIGH_BAR</code> (same as <c
 <li>The unitPreferences are in descending order.</li>
 </ul>
 </li>
-</ul><h3 id="caveats">Caveats</h3><p>The extended unit support is still being developed further. See the Known Issues on the release page for futher information.</p><hr><p>Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode <a href="https://unicode.org/copyright.html">Terms of Use</a> apply.</p><p>Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.</p></div><script>anchors.add('h1, h2, h3, h4, h5, h6, caption');</script></body></html>
+</ul><h3 id="caveats">Caveats</h3><p>The extended unit support is still being developed further. See the Known Issues on the release page for futher information.</p><hr><p>Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode <a href="https://www.unicode.org/copyright.html">Terms of Use</a> apply.</p><p>Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.</p></div><script>anchors.add('h1, h2, h3, h4, h5, h6, caption');</script></body></html>

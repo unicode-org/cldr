@@ -5,14 +5,14 @@
 <!-- HTML: no header -->
 <table><tbody>
 <tr><td>Version</td><td><b>42 (draft)</b></td></tr>
-<tr><td>Editors</td><td>Peter Edberg and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td></tr>
+<tr><td>Editors</td><td>Peter Edberg and <a href="tr35.md#Acknowledgments">other CLDR committee members</a></td></tr>
 </tbody></table>
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
 ### _Summary_
 
-This document describes parts of an XML format (_vocabulary_) for the exchange of structured locale data. This format is used in the [Unicode Common Locale Data Repository](https://unicode.org/cldr/).
+This document describes parts of an XML format (_vocabulary_) for the exchange of structured locale data. This format is used in the [Unicode Common Locale Data Repository](https://www.unicode.org/cldr/).
 
 This is a partial document, describing only those parts of the LDML that are relevant for date, time, and time zone formatting. For the other parts of the LDML see the [main LDML document](tr35.md) and the links above.
 
@@ -35,6 +35,7 @@ The LDML specification is divided into the following parts:
 *   Part 5: [Collation](tr35-collation.md#Contents) (sorting, searching, grouping)
 *   Part 6: [Supplemental](tr35-info.md#Contents) (supplemental data)
 *   Part 7: [Keyboards](tr35-keyboards.md#Contents) (keyboard mappings)
+*   Part 8: [Person Names](tr35-personNames.md#Contents) (person names)
 
 ## <a name="Contents" href="#Contents">Contents of Part 4, Dates</a>
 
@@ -561,12 +562,28 @@ Time formats use the specific non-location format (z or zzzz) for the time zone 
 Date/Time formats have the following form:
 ```xml
     <dateTimeFormats>
+        <dateTimeFormatLength type="full">
+            <dateTimeFormat>
+                <pattern>{1}, {0}</pattern>
+            </dateTimeFormat>
+            <dateTimeFormat type="atTime">
+                <pattern>{1} 'at' {0}</pattern>
+            </dateTimeFormat>
+        </dateTimeFormatLength>
         <dateTimeFormatLength type="long">
             <dateTimeFormat>
+                <pattern>{1}, {0}</pattern>
+            </dateTimeFormat>
+            <dateTimeFormat type="atTime">
                 <pattern>{1} 'at' {0}</pattern>
             </dateTimeFormat>
         </dateTimeFormatLength>
         <dateTimeFormatLength type="medium">
+            <dateTimeFormat>
+                <pattern>{1}, {0}</pattern>
+            </dateTimeFormat>
+        </dateTimeFormatLength>
+        <dateTimeFormatLength type="short">
             <dateTimeFormat>
                 <pattern>{1}, {0}</pattern>
             </dateTimeFormat>
@@ -623,11 +640,13 @@ These formats allow for date and time formats to be composed in various ways.
 <!ELEMENT dateTimeFormatLength (alias | (default*, dateTimeFormat*, special*))>
 <!ATTLIST dateTimeFormatLength type ( full | long | medium | short ) #IMPLIED >
 <!ELEMENT dateTimeFormat (alias | (pattern*, displayName*, special*))>
+<!ATTLIST dateTimeFormat type NMTOKEN "standard" >
+    <!--@MATCH:literal/standard, atTime-->
 ```
 
 The `dateTimeFormat` element works like the dateFormats and timeFormats, except that the pattern is of the form "{1} {0}", where {0} is replaced by the time format, and {1} is replaced by the date format, with results such as "8/27/06 7:31 AM". Except for the substitution markers {0} and {1}, text in the dateTimeFormat is interpreted as part of a date/time pattern, and is subject to the same rules described in [Date Format Patterns](#Date_Format_Patterns). This includes the need to enclose ASCII letters in single quotes if they are intended to represent literal text.
 
-When combining a standard date pattern with a standard time pattern, the type of dateTimeFormat used to combine them is determined by the type of the date pattern. For example:
+When combining a standard date pattern with a standard time pattern, start with the `dateTimeFormatLength` whose `type` matches the type of the *date* pattern, and then use one of the `dateTimeFormat`s for that `dateTimeFormatLength` (as described after the following table). For example:
 
 ###### Table: <a name="Date_Time_Combination_Examples" href="#Date_Time_Combination_Examples">Date-Time Combination Examples</a>
 
@@ -635,6 +654,15 @@ When combining a standard date pattern with a standard time pattern, the type of
 | ----------------------- | ------------------------- | ------- |
 | full date + short time  | full, e.g. "{1} 'at' {0}" | Wednesday, September 18, 2013 at 4:30 PM |
 | medium date + long time | medium, e.g. "{1}, {0}"   | Sep 18, 2013, 4:30:00 PM PDT |
+
+For each `dateTimeFormatLength`, there is a standard `dateTimeFormat`. In addition to the placeholders {0} and {1}, this should not have characters other than space and punctuation; it should impose no grammatical context that might require specific grammatical forms for the date and/or time. For English, this might be “{1}, {0}”.
+
+In addition, especially for the full and long `dateTimeFormatLength`s, there may be a `dateTimeFormat` with `type="atTime"`. This is used to indicate an event at a specific time, and may impose specific grammatical requirements on the formats for date and/or time. For English, this might be “{1} 'at' {0}”.
+
+The default guidelines for choosing which `dateTimeFormat` to use for a given `dateTimeFormatLength` are as follows:
+* If an interval is being formatted, use the standard combining pattern to produce e.g. “March 15, 3:00 – 5:00 PM” or “March 15, 9:00 AM – March 16, 5:00 PM”.
+* If a single date or relative date is being combined with a single time, by default use the atTime pattern (if available) to produce an event time: “March 15 at 3:00 PM” or “tomorrow at 3:00 PM”.  However, at least in the case of combining a single date and time, APIs should also offer a “current time” option of using the standard combining pattern to produce a format more suitable for indicating  the current time: “March 15, 3:00 PM”.
+* For all other uses of these patterns, use the standard pattern.
 
 #### 2.6.2 <a name="availableFormats_appendItems" href="#availableFormats_appendItems">Elements availableFormats, appendItems</a>
 
@@ -701,6 +729,7 @@ Typically a “best match” from requested skeleton to the `id` portion of a `d
 
 1. Skeleton symbols requesting a best choice for the locale are replaced.
    * j → one of {H, k, h, K}; C → one of {a, b, B}
+
 2. For skeleton and `id` fields with symbols representing the same type (year, month, day, etc):
    1. Most symbols have a small distance from each other.
       * M ≅ L; E ≅ c; a ≅ b ≅ B; H ≅ k ≅ h ≅ K; ...
@@ -711,10 +740,22 @@ Typically a “best match” from requested skeleton to the `id` portion of a `d
       * MMM ≈ MM
    4. Symbols representing substantial differences (week of year vs week of month) are given a much larger distance from each other.
       * d ≋ D; ...
+
 3. A requested skeleton that includes both seconds and fractional seconds (e.g. “mmssSSS”) is allowed to match a dateFormatItem skeleton that includes seconds but not fractional seconds (e.g. “ms”). In this case the requested sequence of ‘S’ characters (or its length) should be retained separately and used when adjusting the pattern, as described below.
+
 4. Otherwise, missing or extra fields between requested skeleton and `id` cause a match to fail. (But see **[Missing Skeleton Fields](#Missing_Skeleton_Fields)** below.)
 
-Once a best match is found between requested skeleton and `dateFormatItem` `id`, the corresponding `dateFormatItem` pattern is used, but with adjustments primarily to make the pattern field lengths match the skeleton field lengths. Consider the following `dateFormatItem`:
+Once a best match is found between requested skeleton and `dateFormatItem` `id`, the corresponding `dateFormatItem` pattern is used, but with adjustments primarily to make the pattern field lengths match the skeleton field lengths. However, the pattern field lengths should not be matched in some cases:
+
+1. When the best-match `dateFormatItem` has an alphabetic field (such as MMM or MMMM) that corresponds to a numeric field in the pattern (such as M or MM), that numeric field in the pattern should _not_ be adjusted to match the skeleton length, and vice versa; i.e. adjustments should _never_ convert a numeric element in the pattern to an alphabetic element, or the opposite. See the second set of examples below.
+
+2. When the pattern field corresponds to an availableFormats skeleton with a field length that matches the field length in the requested skeleton, the pattern field length should _not_ be adjusted. This permits locale data to override a requested field length; see the third example below.
+
+3. Pattern field lengths for hour, minute, and second should by default not be adjusted to match the requested field length (i.e. locale data takes priority). However APIs that map skeletons to patterns should provide the option to override this behavior for cases when a client really does want to force a specific pattern field length.
+
+---
+
+For an example of general behavior, consider the following `dateFormatItem`:
 
 ```xml
 <dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
@@ -726,15 +767,29 @@ If this is the best match for yMMMMd, the pattern is automatically expanded to p
 <dateFormatItem id="yMMMMd">d 'de' MMMM 'de' y</dateFormatItem>
 ```
 
-However, when the best-match `dateFormatItem` has an alphabetic field (such as MMM or MMMM) that corresponds to a numeric field in the pattern (such as M or MM), that numeric field in the pattern should _not_ be adjusted to match the skeleton length, and vice versa; i.e. adjustments should _never_ convert a numeric element in the pattern to an alphabetic element, or the opposite. Consider the following dateFormatItem:
+---
+
+For an example of not converting a pattern fields between numeric and alphabetic (point 1 above), consider the following `dateFormatItem`:
 
 ```xml
 <dateFormatItem id="yMMM">y年M月</dateFormatItem>
 ```
 
-If this is the best match for a requested skeleton yMMMM, automatic expansion should not produce a corresponding pattern “y年MMMM月”; rather, since “y年M月” specifies a numeric month M, automatic expansion should not modify the pattern, and should produce “y年M月” as the match for requested skeleton yMMMM.
+If this is the best match for a requested skeleton yMMMM, automatic expansion should not produce a corresponding pattern “y年MMMM月”; rather, since “y年M月” specifies a numeric month M, automatic expansion should not modify the pattern, and should produce “y年M月” as the match for requested skeleton yMMMM. 
 
-If the requested skeleton included both seconds and fractional seconds and the dateFormatItem skeleton included seconds but not fractional seconds, then the seconds field of the corresponding pattern should be adjusted by appending the locale’s decimal separator, followed by the sequence of ‘S’ characters from the requested skeleton.
+---
+
+For an example of not converting a pattern field length if the corresponding skeleton field matches the requested field length (point 2 above), consider the following `dateFormatItem`:
+
+```xml
+<dateFormatItem id="MMMEd">E, d בMMMM</dateFormatItem>
+```
+
+For Hebrew calendar date formats in the Hebrew locale, only the full month names should be used, even if abbreviated months are requested. Hence the `dateFormatItem` maps a request for abbreviated months to a pattern with full months. The same `dateFormatItem` can be expanded to expanded to match a request for “MMMMEd” to the same pattern.
+
+---
+
+Finally: If the requested skeleton included both seconds and fractional seconds and the dateFormatItem skeleton included seconds but not fractional seconds, then the seconds field of the corresponding pattern should be adjusted by appending the locale’s decimal separator, followed by the sequence of ‘S’ characters from the requested skeleton.
 
 ##### 2.6.2.2 <a name="Missing_Skeleton_Fields" href="#Missing_Skeleton_Fields">Missing Skeleton Fields</a>
 
@@ -1069,19 +1124,12 @@ Each `weekOfPreference` element provides, for its specified locales, an ordered 
 
 ###### Table: <a name="Week_Designation_Types" href="#Week_Designation_Types">Week Designation Types</a>
 
-<!-- HTML: row spans -->
-<table><tbody>
-<tr><th>Type</th><th>Examples</th><th>Date Pattern</th><th>Comments</th></tr>
-<tr><td>weekOfYear</td><td>week 15 of 2016</td>
-    <td>&lt;dateFormatItem id='yw' count='one'&gt;'week' w 'of' Y&lt;…</td>
-    <td rowspan="2">The <i>week of</i> construction takes a <b>count</b> attribute, just in case the pattern changes depending on the numeric value. (In the future, we're likely to add an ordinal value, for constructions like “3rd week of March”.)<br/>In languages where the month name needs grammatical changes (aside from just the simple addition of a prefix or suffix), localizers will typically use a work-around construction.</td></tr>
-<tr><td>weekOfMonth</td><td>week 2 of April<br>2nd week of April</td><td>&lt;dateFormatItem id='MMMMW'' count='one'&gt;'week' W 'of' MMM&lt;…</td></tr>
-
-<tr><td>weekOfDate</td><td>the week of April 11, 2016</td>
-    <td rowspan="2">&lt;field type="week"&gt;&lt;relativePeriod&gt;the week of {0}&lt;…</td>
-    <td rowspan="2">The date pattern that replaces {0} is determined separately and may use the first day or workday of the week, the range of the full week or work week, etc.</td></tr>
-<tr><td>weekOfInterval</td><td>the week of April 11–15</td></tr>
-</tbody></table>
+| Type           | Examples                          | Date Pattern                                                | Comments    |
+|----------------|-----------------------------------|-------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| weekOfYear     | week 15 of 2016                   | \<dateFormatItem id='yw' count='one'\>'week' w 'of' Y\<…       | The **week of** construction takes a count attribute, just in case the pattern changes depending on the numeric value of the **w** value. (In the future, we're likely to add an ordinal value, for constructions like “3rd week of March”.) In languages where the month name needs grammatical changes (aside from just the simple addition of a prefix or suffix), localizers will typically use a work-around construction. |
+| weekOfMonth    | week 2 of April 2nd week of April | \<dateFormatItem id='MMMMW'' count='one'\>'week' W 'of' MMM\<… |   (same comment as above) |
+| weekOfDate     | the week of April 11, 2016        | \<field type="week"\>\<relativePeriod>the week of {0}\<…        | The date pattern that replaces {0} is determined separately and may use the first day or workday of the week, the range of the full week or work week, etc.   |
+| weekOfInterval | the week of April 11–15           | \<field type="week"\>\<relativePeriod>the week of {0}\<…    |  (same comment as above) |
 
 ### 4.4 <a name="Time_Data" href="#Time_Data">Time Data</a>
 
@@ -2124,7 +2172,7 @@ Notes for the table below:
                         In CLDR 26 the time separator pattern character was specified to be COLON.
                         This was withdrawn in CLDR 28 due to backward compatibility issues, and no time separator pattern character is currently defined.</span><br/><br/>
                         Like the use of "," in number formats, this character in a date pattern is replaced with the corresponding number symbol which may depend on the numbering system.
-                        For more information, see <em><strong>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a></strong>, Section 2.3 <a href="tr35-numbers.html#Number_Symbols">Number Symbols</a></em>.</td></tr>
+                        For more information, see <em><strong>Part 3: <a href="tr35-numbers.md#Contents">Numbers</a></strong>, Section 2.3 <a href="tr35-numbers.md#Number_Symbols">Number Symbols</a></em>.</td></tr>
 
 <!-- == == == ZONE == == == -->
 <tr><th rowspan="23"><a name="dfst-zone" id="dfst-zone" href="#dfst-zone">zone</a></th><td rowspan="2">z</td><td>z..zzz</td><td>PDT</td>
@@ -2257,6 +2305,6 @@ The meaning of symbol fields should be easy to determine; the problem is determi
 
 * * *
 
-Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode [Terms of Use](https://unicode.org/copyright.html) apply.
+Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode [Terms of Use](https://www.unicode.org/copyright.html) apply.
 
 Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.

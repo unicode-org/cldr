@@ -965,8 +965,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙉" type="tts">sich die Ohren zuhaltendes Affengesicht</annotation>
 		<annotation cp="🙊">Affe | nichts sagen | sich den Mund zuhaltendes Affengesicht | verboten</annotation>
 		<annotation cp="🙊" type="tts">sich den Mund zuhaltendes Affengesicht</annotation>
-		<annotation cp="💋">Kuss | Kussabdruck | Lippen</annotation>
-		<annotation cp="💋" type="tts">Kussabdruck</annotation>
 		<annotation cp="💌">Brief | Herz | Liebe | Liebesbrief</annotation>
 		<annotation cp="💌" type="tts">Liebesbrief</annotation>
 		<annotation cp="💘">Herz | Herz mit Pfeil | Liebe | Pfeil</annotation>
@@ -995,6 +993,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❤‍🩹" type="tts" draft="contributed">Herz mit Verband</annotation>
 		<annotation cp="❤">Herz | rotes Herz</annotation>
 		<annotation cp="❤" type="tts">rotes Herz</annotation>
+		<annotation cp="🩷">flirten | Herz | pink | pinkes Herz | süß | verliebt</annotation>
+		<annotation cp="🩷" type="tts">pinkes Herz</annotation>
 		<annotation cp="🧡">orange | oranges Herz</annotation>
 		<annotation cp="🧡" type="tts">oranges Herz</annotation>
 		<annotation cp="💛">gelb | gelbes Herz | Herz</annotation>
@@ -1003,20 +1003,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💚" type="tts">grünes Herz</annotation>
 		<annotation cp="💙">blau | blaues Herz | Herz</annotation>
 		<annotation cp="💙" type="tts">blaues Herz</annotation>
-		<annotation cp="💜">Herz | lila</annotation>
-		<annotation cp="💜" type="tts">lila Herz</annotation>
 		<annotation cp="🩵">aquamarin | hellblau | hellblaues Herz | Herz | türkis</annotation>
 		<annotation cp="🩵" type="tts">hellblaues Herz</annotation>
-		<annotation cp="🩶">grau | graues Herz | Herz | schieferfarben | silberfarben</annotation>
-		<annotation cp="🩶" type="tts">graues Herz</annotation>
-		<annotation cp="🩷">flirten | Herz | pink | pinkes Herz | süß | verliebt</annotation>
-		<annotation cp="🩷" type="tts">pinkes Herz</annotation>
+		<annotation cp="💜">Herz | lila</annotation>
+		<annotation cp="💜" type="tts">lila Herz</annotation>
 		<annotation cp="🤎">braun | braunes Herz | Herz</annotation>
 		<annotation cp="🤎" type="tts">braunes Herz</annotation>
 		<annotation cp="🖤">böse | Herz | schwarz | schwarzes Herz</annotation>
 		<annotation cp="🖤" type="tts">schwarzes Herz</annotation>
+		<annotation cp="🩶">grau | graues Herz | Herz | schieferfarben | silberfarben</annotation>
+		<annotation cp="🩶" type="tts">graues Herz</annotation>
 		<annotation cp="🤍">Herz | weiß | weißes Herz</annotation>
 		<annotation cp="🤍" type="tts">weißes Herz</annotation>
+		<annotation cp="💋">Kuss | Kussabdruck | Lippen</annotation>
+		<annotation cp="💋" type="tts">Kussabdruck</annotation>
 		<annotation cp="💯">100 | 100 Punkte | Punktestand | volle Punktzahl</annotation>
 		<annotation cp="💯" type="tts">100 Punkte</annotation>
 		<annotation cp="💢">Ärger | Comic | Wut</annotation>
@@ -1031,8 +1031,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💨" type="tts">Staubwolke</annotation>
 		<annotation cp="🕳">Loch | schwarz</annotation>
 		<annotation cp="🕳" type="tts">Loch</annotation>
-		<annotation cp="💣">Bombe | Comic</annotation>
-		<annotation cp="💣" type="tts">Bombe</annotation>
 		<annotation cp="💬">Dialog | Gespräch | Sprechblase | Sprechblase mit drei Punkten | Unterhaltung</annotation>
 		<annotation cp="💬" type="tts">Sprechblase mit drei Punkten</annotation>
 		<annotation cp="👁‍🗨">Auge | Auge in Sprechblase | Dialog | reden | sprechen</annotation>
@@ -1063,6 +1061,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫳" type="tts">Hand mit Handfläche nach unten</annotation>
 		<annotation cp="🫴">anbieten | darbieten | einladen | Hand mit Handfläche nach oben | Handgeste | kommen | locken</annotation>
 		<annotation cp="🫴" type="tts">Hand mit Handfläche nach oben</annotation>
+		<annotation cp="🫷">High five | nach links | nach links schiebende Hand | schieben | stopp | warte mal</annotation>
+		<annotation cp="🫷" type="tts">nach links schiebende Hand</annotation>
+		<annotation cp="🫸">High 5 | High five | nach rechts | nach rechts schiebende Hand | schieben | stopp | warte mal</annotation>
+		<annotation cp="🫸" type="tts">nach rechts schiebende Hand</annotation>
 		<annotation cp="👌">exzellent | Hand | in Ordnung | OK | OK-Zeichen | perfekt</annotation>
 		<annotation cp="👌" type="tts">OK-Zeichen</annotation>
 		<annotation cp="🤌">Bündelhand | geht’s noch? | Handgeste | was soll das? | was willst du? | zusammengedrückte Finger | zusammengelegte Fingerspitzen</annotation>
@@ -1121,10 +1123,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤝" type="tts">Handschlag</annotation>
 		<annotation cp="🙏">beten | betende Hände | bitten | danken | Gebet | grüßen | zusammengelegte Handflächen</annotation>
 		<annotation cp="🙏" type="tts">zusammengelegte Handflächen</annotation>
-		<annotation cp="🫷">High five | nach links | nach links schiebende Hand | schieben | stopp | warte mal</annotation>
-		<annotation cp="🫷" type="tts">nach links schiebende Hand</annotation>
-		<annotation cp="🫸">High 5 | High five | nach rechts | nach rechts schiebende Hand | schieben | stopp | warte mal</annotation>
-		<annotation cp="🫸" type="tts">nach rechts schiebende Hand</annotation>
 		<annotation cp="✍">Hand | schreiben | Schreiben | schreibende Hand</annotation>
 		<annotation cp="✍" type="tts">schreibende Hand</annotation>
 		<annotation cp="💅">Kosmetik | Maniküre | Nagel | Nagellack | Nagelpflege</annotation>
@@ -1819,7 +1817,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦦" type="tts">Otter</annotation>
 		<annotation cp="🦨">Skunk | stinken | Stinktier</annotation>
 		<annotation cp="🦨" type="tts">Stinktier</annotation>
-		<annotation cp="🦘">Australien | Hüpfen | Känguru</annotation>
+		<annotation cp="🦘">Hüpfen | Känguru</annotation>
 		<annotation cp="🦘" type="tts">Känguru</annotation>
 		<annotation cp="🦡">Dachs | Dachse</annotation>
 		<annotation cp="🦡" type="tts">Dachs</annotation>
@@ -1945,7 +1943,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌸" type="tts">Kirschblüte</annotation>
 		<annotation cp="💮">Blume | Blumenstempel</annotation>
 		<annotation cp="💮" type="tts">Blumenstempel</annotation>
-		<annotation cp="🪷">Blume | Buddhismus | Hinduismus | Indien | Lotusblüte | Reinheit | Vietnam</annotation>
+		<annotation cp="🪷">Blume | Buddhismus | Hinduismus | Lotusblüte | Reinheit</annotation>
 		<annotation cp="🪷" type="tts">Lotusblüte</annotation>
 		<annotation cp="🏵">Pflanze | Rosette</annotation>
 		<annotation cp="🏵" type="tts">Rosette</annotation>
@@ -1993,6 +1991,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪹" type="tts">leeres Nest</annotation>
 		<annotation cp="🪺">Nest | Nest mit Eiern | Nestbau | nisten | Vogelnest</annotation>
 		<annotation cp="🪺" type="tts">Nest mit Eiern</annotation>
+		<annotation cp="🍄">Fliegenpilz | Pilz</annotation>
+		<annotation cp="🍄" type="tts">Fliegenpilz</annotation>
 		<annotation cp="🍇">Frucht | Obst | Traube | Trauben</annotation>
 		<annotation cp="🍇" type="tts">Trauben</annotation>
 		<annotation cp="🍈">Frucht | Honigmelone | Obst</annotation>
@@ -2055,8 +2055,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧄" type="tts">Knoblauch</annotation>
 		<annotation cp="🧅">Geschmack | Zwiebel</annotation>
 		<annotation cp="🧅" type="tts">Zwiebel</annotation>
-		<annotation cp="🍄">Fliegenpilz | Pilz</annotation>
-		<annotation cp="🍄" type="tts">Fliegenpilz</annotation>
 		<annotation cp="🥜">Erdnuss | Essen</annotation>
 		<annotation cp="🥜" type="tts">Erdnuss</annotation>
 		<annotation cp="🫘">Bohne | Bohnen | Essen | Hülsenfrucht | Kidney-Bohne | Lebensmittel</annotation>
@@ -2811,16 +2809,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪀" type="tts">Jo-Jo</annotation>
 		<annotation cp="🪁">Drachen | fliegen | steigen</annotation>
 		<annotation cp="🪁" type="tts">Drachen</annotation>
+		<annotation cp="🔫">Pistole | Revolver | Waffe | Wasserpistole</annotation>
+		<annotation cp="🔫" type="tts">Wasserpistole</annotation>
 		<annotation cp="🎱">8-Ball | Billardkugel | Kugel | Spiel</annotation>
 		<annotation cp="🎱" type="tts">Billardkugel</annotation>
 		<annotation cp="🔮">Kristallkugel | Wahrsager</annotation>
 		<annotation cp="🔮" type="tts">Kristallkugel</annotation>
 		<annotation cp="🪄">Hexe | Hexer | Zauberei | Zauberer | Zauberin | Zauberstab</annotation>
 		<annotation cp="🪄" type="tts">Zauberstab</annotation>
-		<annotation cp="🧿">Glücksbringer | Nazar | Nazar-Amulett | Talisman</annotation>
-		<annotation cp="🧿" type="tts">Nazar-Amulett</annotation>
-		<annotation cp="🪬">Amulett | Fatima | Glückssymbol | Hamsa | Maria | Miriam | Schutz</annotation>
-		<annotation cp="🪬" type="tts">Hamsa</annotation>
 		<annotation cp="🎮">Gamepad | Gaming | Videospiel</annotation>
 		<annotation cp="🎮" type="tts">Gamepad</annotation>
 		<annotation cp="🕹">Gaming | Joystick | Videospiel</annotation>
@@ -2911,8 +2907,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👚" type="tts">Bluse</annotation>
 		<annotation cp="🪭" draft="contributed">Faltfächer</annotation>
 		<annotation cp="🪭" type="tts" draft="contributed">Faltfächer</annotation>
-		<annotation cp="🪮" draft="contributed">Haarkamm</annotation>
-		<annotation cp="🪮" type="tts" draft="contributed">Haarkamm</annotation>
 		<annotation cp="👛">Accessoire | Brieftasche | Geldbörse | Portemonnaie</annotation>
 		<annotation cp="👛" type="tts">Geldbörse</annotation>
 		<annotation cp="👜">Accessoire | Handtasche | Tasche</annotation>
@@ -2941,6 +2935,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🩰" type="tts">Ballettschuhe</annotation>
 		<annotation cp="👢">Damen | Damenstiefel | Schuh | Stiefel</annotation>
 		<annotation cp="👢" type="tts">Damenstiefel</annotation>
+		<annotation cp="🪮" draft="contributed">Haarkamm</annotation>
+		<annotation cp="🪮" type="tts" draft="contributed">Haarkamm</annotation>
 		<annotation cp="👑">König | Königin | Krone</annotation>
 		<annotation cp="👑" type="tts">Krone</annotation>
 		<annotation cp="👒">Damenhut | Damenhut mit Schleife | Hut | Kopfbedeckung | Schleife</annotation>
@@ -3259,9 +3255,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗡" type="tts">Dolch</annotation>
 		<annotation cp="⚔">gekreuzt | gekreuzte Schwerter | Schwerter</annotation>
 		<annotation cp="⚔" type="tts">gekreuzte Schwerter</annotation>
-		<annotation cp="🔫">Pistole | Revolver | Waffe | Wasserpistole</annotation>
-		<annotation cp="🔫" type="tts">Wasserpistole</annotation>
-		<annotation cp="🪃">Australien | Boomerang | Bumerang</annotation>
+		<annotation cp="💣">Bombe | Comic</annotation>
+		<annotation cp="💣" type="tts">Bombe</annotation>
+		<annotation cp="🪃">Boomerang | Bumerang</annotation>
 		<annotation cp="🪃" type="tts">Bumerang</annotation>
 		<annotation cp="🏹">Bogen | Pfeil | Pfeil und Bogen</annotation>
 		<annotation cp="🏹" type="tts">Pfeil und Bogen</annotation>
@@ -3381,6 +3377,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪦" type="tts">Grabstein</annotation>
 		<annotation cp="⚱">Beerdigung | Tod | tot | Urne</annotation>
 		<annotation cp="⚱" type="tts">Urne</annotation>
+		<annotation cp="🧿">Glücksbringer | Nazar | Nazar-Amulett | Talisman</annotation>
+		<annotation cp="🧿" type="tts">Nazar-Amulett</annotation>
+		<annotation cp="🪬">Amulett | Fatima | Glückssymbol | Hamsa | Maria | Miriam | Schutz</annotation>
+		<annotation cp="🪬" type="tts">Hamsa</annotation>
 		<annotation cp="🗿">Gesicht | Maske | Osterinsel | Statue</annotation>
 		<annotation cp="🗿" type="tts">Statue</annotation>
 		<annotation cp="🪧">Demonstration | Mahnwache | Plakat | Protest | Protestschild | Schild</annotation>
@@ -3579,12 +3579,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔆" type="tts">Heller-Taste</annotation>
 		<annotation cp="📶">balkenförmige Signalstärkenanzeige | Empfang | Mobilfunksignal | Mobiltelefon | Signalstärke</annotation>
 		<annotation cp="📶" type="tts">balkenförmige Signalstärkenanzeige</annotation>
+		<annotation cp="🛜">Computer | drahtlos | Internet | kabellos | Netzwerk | WLAN</annotation>
+		<annotation cp="🛜" type="tts">WLAN</annotation>
 		<annotation cp="📳">Mobiltelefon | Vibration | Vibrationsmodus</annotation>
 		<annotation cp="📳" type="tts">Vibrationsmodus</annotation>
 		<annotation cp="📴">ausschalten | Handy aus | Mobiltelefon | Mobiltelefon aus</annotation>
 		<annotation cp="📴" type="tts">Mobiltelefon aus</annotation>
-		<annotation cp="🛜">Computer | drahtlos | Internet | kabellos | Netzwerk | WLAN</annotation>
-		<annotation cp="🛜" type="tts">WLAN</annotation>
 		<annotation cp="♀">Frau | Frauensymbol | weiblich | Zeichen</annotation>
 		<annotation cp="♀" type="tts">Frauensymbol</annotation>
 		<annotation cp="♂">Mann | Männersymbol | Symbol | Zeichen</annotation>

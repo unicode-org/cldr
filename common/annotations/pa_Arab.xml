@@ -236,8 +236,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙉" type="tts">سنو-کوئی-شیطان باندر نہیں</annotation>
 		<annotation cp="🙊">اشارہ | باندر | بھیڑ | بولنا | بولو-کوئی-شیطان-باندر نہیں | حرام | دی شکل | ممنوع کیتا | نہیں</annotation>
 		<annotation cp="🙊" type="tts">بولو-کوئی-شیطان-باندر نہیں</annotation>
-		<annotation cp="💋">بُل | چومنا | چومی دا نشان</annotation>
-		<annotation cp="💋" type="tts">چومی دا نشان</annotation>
 		<annotation cp="💌">پریم | پیار دا پتر | خط | دل | میل</annotation>
 		<annotation cp="💌" type="tts">پیار دا پتر</annotation>
 		<annotation cp="💘">تیر | تیر نال دل | کیوپڈ</annotation>
@@ -274,6 +272,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💜" type="tts">جامنی دل</annotation>
 		<annotation cp="🖤">بھیڑ | شرارتی | کالا | کالا دل</annotation>
 		<annotation cp="🖤" type="tts">کالا دل</annotation>
+		<annotation cp="💋">بُل | چومنا | چومی دا نشان</annotation>
+		<annotation cp="💋" type="tts">چومی دا نشان</annotation>
 		<annotation cp="💯">100 | پورا | سکور | سو | سو نکات</annotation>
 		<annotation cp="💯" type="tts">سو نکات</annotation>
 		<annotation cp="💢">پاگل | رُسنا | غصے دی علامت | مُضحِکہ خیز</annotation>
@@ -288,8 +288,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💨" type="tts">خوش باش وکھرے ہو رہے</annotation>
 		<annotation cp="🕳">موری</annotation>
 		<annotation cp="🕳" type="tts">موری</annotation>
-		<annotation cp="💣">بمب | مُضحِکہ خیز</annotation>
-		<annotation cp="💣" type="tts">بمب</annotation>
 		<annotation cp="💬">پکانہ | تقریر | تقریری بھکانہ | حباب | مُضحِکہ خیز | مکالمہ</annotation>
 		<annotation cp="💬" type="tts">تقریری بھکانہ</annotation>
 		<annotation cp="👁‍🗨">اکھ | تقریر دا حباب | تقریری حباب وچ اکھ | گواہ</annotation>
@@ -1006,6 +1004,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍂" type="tts">ڈگدا پتّا</annotation>
 		<annotation cp="🍃">اڈا لے جانا | بتّا | پَراں نوں پھڑپھڑانا | ہوا | ہوا وچ پھڑپھڑاندا پتّا</annotation>
 		<annotation cp="🍃" type="tts">ہوا وچ پھڑپھڑاندا پتّا</annotation>
+		<annotation cp="🍄">فطری نبات | کھمبی</annotation>
+		<annotation cp="🍄" type="tts">کھمبی</annotation>
 		<annotation cp="🍇">انگور | پَھل</annotation>
 		<annotation cp="🍇" type="tts">انگور</annotation>
 		<annotation cp="🍈">پَھل | خربوزہ</annotation>
@@ -1054,8 +1054,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥒" type="tts">کھیرا</annotation>
 		<annotation cp="🥦">جنگلی گوبھی | شاخ گوبھی</annotation>
 		<annotation cp="🥦" type="tts">شاخ گوبھی</annotation>
-		<annotation cp="🍄">فطری نبات | کھمبی</annotation>
-		<annotation cp="🍄" type="tts">کھمبی</annotation>
 		<annotation cp="🥜">خشک میوہ جات | خوراک | سبزیاں | مونگ پھلی</annotation>
 		<annotation cp="🥜" type="tts">مونگ پھلی</annotation>
 		<annotation cp="🌰">بوٹا | شاہ بلوط</annotation>
@@ -1714,6 +1712,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥌" type="tts">وڈھا بیضوی شکل دا پتھر</annotation>
 		<annotation cp="🎯">اکھ | براہ راست ضرب لونا | تیر | ٹگا | کھیڈ | مارنا | نشانہ | نقطہ الحدف</annotation>
 		<annotation cp="🎯" type="tts">براہ راست ضرب لونا</annotation>
+		<annotation cp="🔫">اوزار | بندوق | پستول | ریوالور | ہتھ نال چلن آلا پستول | ہتھیار</annotation>
+		<annotation cp="🔫" type="tts">پستول</annotation>
 		<annotation cp="🎱">8 | 8 بال | آٹھ | بیلیرڈ | پول 8 بال | کھیڈ | گیند</annotation>
 		<annotation cp="🎱" type="tts">پول 8 بال</annotation>
 		<annotation cp="🔮">اوزار | پریاں دی کہانی | تصور | قسمت | قَلم | قلمی گیند | گیند</annotation>
@@ -2086,8 +2086,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🗡" type="tts">خنجر</annotation>
 		<annotation cp="⚔">پار کیتا | تلواراں | ٹکراندیاں تلواراں | ہتھیار</annotation>
 		<annotation cp="⚔" type="tts">ٹکراندیاں تلواراں</annotation>
-		<annotation cp="🔫">اوزار | بندوق | پستول | ریوالور | ہتھ نال چلن آلا پستول | ہتھیار</annotation>
-		<annotation cp="🔫" type="tts">پستول</annotation>
+		<annotation cp="💣">بمب | مُضحِکہ خیز</annotation>
+		<annotation cp="💣" type="tts">بمب</annotation>
 		<annotation cp="🏹">اوزار | بُرج | بُرج قَوس | تیر | تیر اتے کمان | تیر انداز | جُھکنا | فنِ تیر اندازی | ہتھیار</annotation>
 		<annotation cp="🏹" type="tts">تیر اتے کمان</annotation>
 		<annotation cp="🛡">ڈھال | ہتھیار</annotation>

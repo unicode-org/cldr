@@ -66,13 +66,17 @@
 < (.*)/(characterLabels)/(characterLabelPattern)(.*)$
 > $1/characterLabelPatterns/$3$4
 
+# add currency with alt
+< (.*/numbers/currencyFormats\[@numberSystem="([^"]*)"\])/currencyFormatLength/currencyFormat\[@type="(accounting|standard)"]/pattern\[@type="standard"\]\[@alt="([^"]*)"\]$
+> $1/$3-$4
+
+# add currency without alt
+< (.*/numbers/currencyFormats\[@numberSystem="([^"]*)"\])/currencyFormatLength/currencyFormat\[@type="(accounting|standard)"]/pattern\[@type="standard"\]$
+> $1/$3
+
 # add type=standard
 < (.*/numbers/(decimal|scientific|percent|currency)Formats\[@numberSystem="([^"]*)"\])/(decimal|scientific|percent|currency)FormatLength/(decimal|scientific|percent|currency)Format\[@type="standard"]/pattern.*$
 > $1/standard
-
-#
-< (.*/numbers/currencyFormats\[@numberSystem="([^"]*)"\])/currencyFormatLength/currencyFormat\[@type="accounting"]/pattern.*$
-> $1/accounting
 
 # Add "type" attribute with value "standard" if there is no "type" in "decimalFormatLength".
 < (.*/numbers/(decimal|scientific|percent)Formats\[@numberSystem="([^"]*)"\]/(decimal|scientific|percent)FormatLength)/(.*)$
@@ -153,3 +157,12 @@
 # BCP47 (Some other extension)
 < (.*)/(keyword)/(key)\[@extension="([^"]*)"\]\[@name="([^"]*)"\](.*)$
 > $1/$2/$4/$5$6
+
+# PersonNames - name patterns
+< (.*/personName)\[@order="([^"]*)"\]\[@length="([^"]*)"\]\[@usage="([^"]*)"\]\[@formality="([^"]*)"\](.*)/namePattern(.*)$
+> $1/$2/$3/$4/$5$6$7
+
+# PersonNames - sample names
+< (.*/personNames)/(sampleName)\[@item="([^"]*)"\]/nameField\[@type="([^"]*)"\]$
+> $1/$2/$3/$4
+

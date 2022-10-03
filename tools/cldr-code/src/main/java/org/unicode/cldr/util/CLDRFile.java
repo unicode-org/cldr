@@ -112,6 +112,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     private static final boolean DEBUG = false;
 
     public static final Pattern ALT_PROPOSED_PATTERN = PatternCache.get(".*\\[@alt=\"[^\"]*proposed[^\"]*\"].*");
+    public static final Pattern DRAFT_PATTERN = PatternCache.get("\\[@draft=\"([^\"]*)\"\\]");
+    public static final Pattern XML_SPACE_PATTERN = PatternCache.get("\\[@xml:space=\"([^\"]*)\"\\]");
 
     private static boolean LOG_PROGRESS = false;
 
@@ -1496,8 +1498,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             "abbreviationFallback",
             "default", "mapping", "measurementSystem", "preferenceOrdering" }));
 
-        static final Pattern draftPattern = PatternCache.get("\\[@draft=\"([^\"]*)\"\\]");
-        Matcher draftMatcher = draftPattern.matcher("");
+        Matcher draftMatcher = DRAFT_PATTERN.matcher("");
 
         /**
          * Adds a parsed XPath to the CLDRFile.

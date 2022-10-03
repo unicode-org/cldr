@@ -1,0 +1,83 @@
+name: Publish to gh-pages
+
+on:
+  push:
+    branches:
+      - main
+      - "maint/maint-*"
+    tags:
+      - "release-*"
+    # Only run if docs change.
+    ## TODO CLDR-15464 reenable this!!
+    # paths:
+    #   - "tools/scripts/tr-archive/**"
+    #   - "docs/**"
+    #   - '.github/workflows/gh-pages.yml'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          lfs: false
+      - name: Cache local npm repository
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-nodetr-${{ hashFiles('tools/scripts/tr-archive/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nodetr-
+            nodetr-
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Run TR archiver
+        # Note: will update ToC if out of date
+        run: 'cd tools/scripts/tr-archive/ && npm ci && npm run build'
+      - name: Lint Markdown
+        # Warn, don't fail yet
+        run: npx markdownlint-cli *.md {specs,docs}/*.md $(find .github -name '*.md') || (echo Warning, please fix these ; true)
+      - name: Note any changes
+        run: git status ; git diff
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+          bundler-cache: true
+      - name: Build Jekyll part of the site
+        run: |
+          gem install bundler github-pages kramdown-parser-gfm  # should pull in jekyll, etc.
+          jekyll build -s docs -d _site
+      - name: Rearrange stuff
+        run: 'cp -vr tools/scripts/tr-archive/dist/* ./_site/ldml/ && cp tools/scripts/tr-archive/reports-v2.css ./_site/'
+      - name: Deploy to GitHub Pages (main)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: Cecilapp/GitHub-Pages-deploy@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          # email: username@domain.tld
+          build_dir: _site               # optional
+          branch: gh-pages                # optional
+          # cname: domain.tld              # optional
+          # jekyll: no                     # optional
+          commit_message: CLDR-00000 Automated Build of Pages # optional
+      - name: Deploy to Smoketest
+        shell: bash
+        env:
+          RSA_KEY_CCC: ${{ secrets.RSA_KEY_CCC }}
+          # the SSH port
+          CCC_USER: ${{ secrets.CCC_USER }}
+          CCC_PORT: 22
+          # the SSH host
+          CCC_HOST: cldr-smoke.unicode.org
+          # the ~/.ssh/known_hosts line mentioning SMOKETEST_HOST
+          CCC_KNOWNHOSTS: ${{ secrets.CCC_KNOWNHOSTS }}
+        run: |
+          echo "::group::Publish HTML"
+          echo "${RSA_KEY_CCC}" > ${HOME}/.key && chmod go= ${HOME}/.key
+          echo "${CCC_KNOWNHOSTS}" > ${HOME}/.knownhosts && chmod go= ${HOME}/.knownhosts
+          rsync -cav --delete-after -e "ssh -o UserKnownHostsFile=${HOME}/.knownhosts -i ${HOME}/.key -p ${CCC_PORT}" ./_site/ ${CCC_USER}@${CCC_HOST}:spec/$(basename ${GITHUB_REF_NAME})/
+          echo "::endgroup::"
+          echo "Now go to https://cldr-smoke.unicode.org/spec/"$(basename ${GITHUB_REF_NAME})
+
+# zero change

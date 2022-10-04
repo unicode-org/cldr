@@ -440,6 +440,8 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
                     "\u00A0  FOO \u00A0\u00A0 BAR \u00A0", "FOO BAR", PathSpaceType.allowSp),
                 new PathSpaceData("//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Bh\"]",
                     "\u00A0  DUCK \u00A0  GOOSE \u00A0", "DUCK GOOSE", PathSpaceType.allowSp),
+                new PathSpaceData("//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Bh\"]",
+                    "\u202F  BOOK \u202F  HORSE \u202F", "BOOK HORSE", PathSpaceType.allowSp),
 
                 new PathSpaceData("//ldml/numbers/currencies/currency/group",
                     " \u00A0  ፊደል \u00A0 ", "ፊደል", PathSpaceType.allowNbsp),
@@ -447,6 +449,8 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
                     "\u00A0  ding \u00A0\u00A0 dong \u00A0", "ding\u00A0dong", PathSpaceType.allowNbsp),
                 new PathSpaceData("//ldml/numbers/symbols/nan",
                     "\u00A0  HA   HU \u00A0", "HA\u00A0HU", PathSpaceType.allowNbsp),
+                new PathSpaceData("//ldml/numbers/symbols/nan",
+                    "\u202F  BA \u202F  BU \u202F", "BA\u00A0BU", PathSpaceType.allowNbsp),
 
                 new PathSpaceData("//ldml/numbers/symbols[@numberSystem=\"telu\"]/approximatelySign",
                     " \u00A0  试 \u00A0 ", "试", PathSpaceType.allowSpOrNbsp),
@@ -459,6 +463,9 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
                 new PathSpaceData(
                     "//ldml/dates/calendars/calendar[@type=\"islamic-civil\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"MEd\"]/greatestDifference[@id=\"M\"]",
                     "〖\u00A0\u00A0〗", "〖\u00A0〗", PathSpaceType.allowSpOrNbsp),
+                new PathSpaceData(
+                    "//ldml/dates/calendars/calendar[@type=\"islamic-civil\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"MEd\"]/greatestDifference[@id=\"M\"]",
+                    "*〖\u202F\u00A0〗*", "*〖\u00A0〗*", PathSpaceType.allowSpOrNbsp),
                 /*
                  * The following path is an exception in which regular space is changed to NBSP
                  * in spite of the path being allowSpOrNbsp; see comment "fix grouping separator if space"
@@ -472,6 +479,12 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
                 new PathSpaceData("//ldml/annotations/annotation[@cp=\"🍊\"]",
                     "\u00A0  fruit   |   orange   | \u00A0  tangerine \u00A0", "fruit | orange | tangerine",
                     PathSpaceType.allowSpOrNbsp),
+                /*
+                 * The following path expects NNBSP (U+202F)
+                 */
+                new PathSpaceData("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"narrow\"]/dayPeriod[@type=\"am\"]",
+                    " pizza \u00A0\u202F cardboard ", "pizza\u202Fcardboard",
+                    PathSpaceType.allowNNbsp),
             };
             return a;
         }

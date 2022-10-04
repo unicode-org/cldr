@@ -136,6 +136,10 @@ public class DataPage implements JSONString {
              */
             private List<CheckStatus> tests = null;
 
+            public List<CheckStatus> getTests() {
+                return tests;
+            }
+
             /**
              * Set of Users who voted on this item
              */
@@ -149,9 +153,13 @@ public class DataPage implements JSONString {
             /**
              * A history of events in the creation of this CandidateItem,
              * for debugging and possibly for inspection by users;
-             * unused if USE_CANDIDATE_HISTORY is false.
+             * unused (stays null) if USE_CANDIDATE_HISTORY is false.
              */
             private String history = null;
+
+            public String getHistory() {
+                return history;
+            }
 
             /**
              * Create a new CandidateItem with the given value
@@ -204,7 +212,7 @@ public class DataPage implements JSONString {
              *
              * @return the hash of the raw value
              */
-            private String getValueHash() {
+            public String getValueHash() {
                 if (valueHash == null) {
                     valueHash = DataPage.getValueHash(rawValue);
                 }
@@ -495,12 +503,20 @@ public class DataPage implements JSONString {
          * the client, which displays a corresponding status icon in the "A"
          * ("Approval status") column. See VoteResolver.Status and VoteResolver.getWinningStatus.
          */
-        Status confirmStatus;
+        private final Status confirmStatus;
+
+        public Status getConfirmStatus() {
+            return confirmStatus;
+        }
 
         /**
          * Calculated coverage level for this DataRow.
          */
-        public int coverageValue;
+        private int coverageValue;
+
+        public int getCoverageValue() {
+            return coverageValue;
+        }
 
         private String displayName = null;
 
@@ -530,6 +546,10 @@ public class DataPage implements JSONString {
          * it inherits from another row or from another locale.
          */
         private String inheritedValue = null;
+
+        public String getInheritedValue() {
+            return inheritedValue;
+        }
 
         /**
          * The winning item for this DataRow.
@@ -975,21 +995,21 @@ public class DataPage implements JSONString {
                 jo.put("displayName", displayName);
                 jo.put("extraAttributes", getNonDistinguishingAttributes());
                 jo.put("hasVoted", userHasVoted());
+                jo.put("helpHtml", getHelpHTML());
                 jo.put("inheritedLocale", getInheritedLocale());
                 jo.put("inheritedValue", inheritedValue);
                 jo.put("inheritedXpid", getInheritedXPath());
                 jo.put("items", getItemsJSON());
+                jo.put("rdf", getRDFURI());
                 jo.put("rowFlagged", isFlagged());
                 jo.put("statusAction", getStatusAction());
-                jo.put("voteResolver", SurveyJSONWrapper.wrap(resolver));
                 jo.put("voteVhash", getVoteVHash());
+                jo.put("votingResults", SurveyJSONWrapper.wrap(resolver));
                 jo.put("winningValue", winningValue);
                 jo.put("winningVhash", getWinningVHash());
                 jo.put("xpath", xpath);
                 jo.put("xpathId", xpathId);
                 jo.put("xpstrid", XPathTable.getStringIDString(xpath));
-                jo.put("helpHtml", getHelpHTML());
-                jo.put("rdf", getRDFURI());
 
                 final PatternPlaceholders placeholders = PatternPlaceholders.getInstance();
                 jo.put("placeholderStatus", placeholders.getStatus(xpath).name());
@@ -1018,7 +1038,7 @@ public class DataPage implements JSONString {
             return null;
         }
 
-        private String getWinningVHash() {
+        public String getWinningVHash() {
             return DataPage.getValueHash(winningValue);
         }
 
@@ -1034,7 +1054,7 @@ public class DataPage implements JSONString {
             return itemsJson;
         }
 
-        private String getVoteVHash() {
+        public String getVoteVHash() {
             String voteVhash = "";
             if (userForVotelist != null) {
                 String ourVote = ballotBox.getVoteValue(userForVotelist, xpath);
@@ -1341,11 +1361,25 @@ public class DataPage implements JSONString {
          *
          * Display group partitions. Might only contain one entry: {null, 0, <end>}.
          * Otherwise, contains a list of entries to be named separately
+         *
+         * public for VoteAPI usage, json serialization
          */
         public Partition partitions[];
 
-        DataRow rows[]; // list of rows in sorted order
-        SortMode sortMode;
+        private DataRow rows[]; // list of rows in sorted order
+
+        // public for VoteAPI usage, serialization for json
+        // only the hashKey for each row
+        public String[] getRows() {
+            String hashKeys[] = new String[rows.length];
+            for (int i = 0; i < rows.length; i++) {
+                hashKeys[i] = rows[i].fieldHash();
+            }
+            return hashKeys;
+        }
+
+        // public for VoteAPI usage, json serialization
+        public SortMode sortMode;
 
         /**
          * Create a DisplaySet object
@@ -1359,17 +1393,6 @@ public class DataPage implements JSONString {
             this.sortMode = sortMode;
             this.partitions = partitions;
             rows = myRows;
-        }
-
-        /**
-         * Get the size of this DisplaySet
-         *
-         * @return the number of rows
-         *
-         * TODO: this function is unused, per Eclipse; but might be used in a jsp file? If not, remove.
-         */
-        public int size() {
-            return rows.length;
         }
 
         /**
@@ -1706,13 +1729,12 @@ public class DataPage implements JSONString {
      * Create a DisplaySet for this DataPage
      *
      * @param sortMode
-     * @param matcher
      * @return the DisplaySet
      *
      * Called by getRow
      */
-    public DisplaySet createDisplaySet(SortMode sortMode, XPathMatcher matcher) {
-        return sortMode.createDisplaySet(matcher, rowsHash.values());
+    public DisplaySet createDisplaySet(SortMode sortMode) {
+        return sortMode.createDisplaySet(null /* matcher */, rowsHash.values());
     }
 
     /**

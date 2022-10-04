@@ -3,7 +3,6 @@ package org.unicode.cldr.web.api;
 import java.util.List;
 import java.util.Map;
 
-import javax.json.bind.annotation.JsonbProperty;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -27,15 +26,10 @@ import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
 import org.unicode.cldr.web.CookieSession;
-// import org.unicode.cldr.web.DataSection;
+import org.unicode.cldr.web.Dashboard;
+import org.unicode.cldr.web.DataPage;
 import org.unicode.cldr.web.SubtypeToURLMap;
 import org.unicode.cldr.web.api.VoteAPIHelper.VoteEntry;
-
-/*
- * TODO: use this instead of the deprecated SurveyAjax.getRow. First we must implement a replacement
- * here for the "dashboard=true" query parameter getRow uses for calling VettingViewerQueue.getErrorOnPath.
- * Reference: https://unicode-org.atlassian.net/browse/CLDR-14745
- */
 
 @Path("/voting")
 @Tag(name = "voting", description = "APIs for voting and retrieving vote and row data")
@@ -127,44 +121,87 @@ public class VoteAPI {
         public static final class Row {
 
             public static final class Candidate {
-                public String value;
                 public String displayValue;
-                public String pClass;
                 public String example;
+                public String history;
                 public boolean isBaselineValue;
-                public VoteEntry[] votes;
+                public String pClass;
+                public String rawValue;
+                public List<CheckStatusSummary> tests;
+                public String value;
+                public String valueHash;
+                public Map<String,VoteEntry> votes;
             }
 
-            public Candidate[] items;
-            public String xpstrid;
+            public static final class OrgValueVotes {
+                public boolean conflicted;
+                public String orgVote; // value like "↑↑↑"
+                public String status; // like "ok"
+                public Map<String,Long> votes; // key is value like "↑↑↑"
+            }
+
+            public static final class VotingResults {
+                public Map<String, Long> nameTime;
+                public Map<String,OrgValueVotes> orgs; // key is organization name like "apple", "google"
+                public int requiredVotes;
+                public String[] value_vote;
+                public boolean valueIsLocked;
+            }
+
+            public boolean canFlagOnLosing;
             public String code;
-            public VoteResolver<String> resolver;
+            public VoteResolver.Status confirmStatus;
+            public int coverageValue;
             public String dir;
-            public StatusAction statusAction;
-            public String displayName;
             public String displayExample;
+            public String displayName;
             public Map<String, String> extraAttributes;
-            public boolean hasVoted;
             public boolean flagged;
-            public VoteResolver<String> voteResolver;
+            public boolean hasVoted;
             public String helpHtml;
-            public String rdf;
             public String inheritedLocale;
-            public String winningValue;
-            public String inheritedXpath;
-            @Schema(description = "status of placeholder value", example = "REQUIRED")
-            public PlaceholderStatus placeholderStatus;
+            public String inheritedValue;
+            public String inheritedXpid;
+            public Map<String, Candidate> items;
+
             @Schema(description = "map of placeholder string to example value")
             public Map<String, PlaceholderInfo> placeholderInfo;
+
+            @Schema(description = "status of placeholder value", example = "REQUIRED")
+            public PlaceholderStatus placeholderStatus;
+
+            public String rdf;
+            public boolean rowFlagged;
+            public StatusAction statusAction;
+            public String voteVhash;
+            public VotingResults votingResults;
+            public String winningValue;
+            public String winningVhash;
+            public String xpath;
+            public int xpathId;
+            public String xpstrid;
         }
 
-        public String localeDisplayName;
-        public String pageId;
-        public boolean isReadOnly;
+        public static final class Page {
+            public boolean nocontent; // true if dcParent is set
+            public Map<String, RowResponse.Row> rows;
+        }
+
+        public static final class DisplaySets {
+            public DataPage.DisplaySet ph; // path header; cf. PathHeaderSort.name
+        }
+
+        public Object canModify;
+
         @Schema(description = "If set, row is not available because there is a Default Content parent. See the specified locale instead.")
         public String dcParent;
-        public Row[] rows;
+
+        public DisplaySets displaySets;
         public JSONArray issues;
+        public String localeDisplayName;
+        public Dashboard.ReviewNotification[] notifications;
+        public Page page;
+        public String pageId;
     }
 
     @POST
@@ -242,18 +279,15 @@ public class VoteAPI {
         public Subtype subtype;
         public String subtypeUrl;
         public Phase phase;
-
-        @JsonbProperty("class")
-        private String clazz;
+        public String cause;
 
         public CheckStatusSummary(CheckStatus checkStatus) {
             this.message = checkStatus.getMessage();
             this.type = checkStatus.getType();
-            // cause
-            CheckCLDR cause = checkStatus.getCause();
-            if (cause != null) {
-                this.clazz = cause.getClass().getSimpleName();
-                this.phase = cause.getPhase();
+            CheckCLDR cccause = checkStatus.getCause();
+            if (cccause != null) {
+                this.cause = cccause.getClass().getSimpleName();
+                this.phase = cccause.getPhase(); // unused on front end
             }
             // subtype
             this.subtype = checkStatus.getSubtype();

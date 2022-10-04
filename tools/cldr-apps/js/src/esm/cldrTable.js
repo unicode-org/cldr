@@ -158,8 +158,7 @@ function insertRowsIntoTbody(theTable, reuseTable) {
   const theRows = theTable.json.page.rows;
   const toAdd = theTable.toAdd;
   const parRow = document.getElementById("proto-parrow");
-  const sortMode = theTable.json.displaySets.default; // always "ph" (path header)
-  const theSort = theTable.json.displaySets[sortMode];
+  const theSort = theTable.json.displaySets.ph; // path header
   const partitions = theSort.partitions;
   const rowList = theSort.rows;
   const partitionList = Object.keys(partitions);
@@ -353,8 +352,7 @@ function singleRowErrHandler(err, tr, onFailure) {
 function getSingleRowUrl(tr, theRow) {
   if (TABLE_USES_NEW_API) {
     const loc = cldrStatus.getCurrentLocale();
-    const xpath = theRow.xpathId;
-    const api = "voting/" + loc + "/row/" + xpath;
+    const api = "voting/" + loc + "/row/" + theRow.xpstrid;
     let p = null;
     if (cldrGui.dashboardIsVisible()) {
       p = new URLSearchParams();
@@ -454,7 +452,7 @@ function reallyUpdateRow(tr, theRow) {
   /*
    * Update the vote info.
    */
-  if (theRow.voteResolver) {
+  if (theRow.votingResults) {
     cldrInfo.updateRowVoteInfo(tr, theRow);
   } else {
     tr.voteDiv = null;

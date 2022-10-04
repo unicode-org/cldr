@@ -376,15 +376,6 @@ public class PathHeader implements Comparable<PathHeader> {
         "\\[@alt=\"([^\"]*+)\"]")
         .matcher("");
 
-    static final Collator alphabetic = CLDRConfig.getInstance().getCollatorRoot();
-
-//    static final RuleBasedCollator alphabetic = (RuleBasedCollator) Collator
-//            .getInstance(ULocale.ENGLISH);
-//    static {
-//        alphabetic.setNumericCollation(true);
-//        alphabetic.freeze();
-//    }
-
     static final SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
     static final Map<String, String> metazoneToContinent = supplementalDataInfo
         .getMetazoneToContinentMap();
@@ -2116,9 +2107,22 @@ public class PathHeader implements Comparable<PathHeader> {
 
     private static final List<String> COUNTS = Arrays.asList("displayName", "zero", "one", "two", "few", "many", "other", "per");
 
+    private static Collator alphabetic;
+
     private static int alphabeticCompare(String aa, String bb) {
-        // A frozen Collator is thread-safe.
+        if (alphabetic == null) {
+            initializeAlphabetic();
+         }
         return alphabetic.compare(aa, bb);
+    }
+
+    private static synchronized void initializeAlphabetic() {
+        // Lazy initialization: don't call CLDRConfig.getInstance() too early or we'll get
+        // "CLDRConfig.getInstance() was called prior to SurveyTool setup" when called from
+        // com.ibm.ws.microprofile.openapi.impl.core.jackson.ModelResolver._addEnumProps
+        if (alphabetic == null) {
+            alphabetic = CLDRConfig.getInstance().getCollatorRoot();
+        }
     }
 
     public enum BaseUrl {

@@ -2344,11 +2344,11 @@ public class SurveyAjax extends HttpServlet {
 
         final String candVal = val;
 
-        DataPage section = DataPage.make(null /* pageId */, null /* ctx */, mySession,
+        DataPage page = DataPage.make(null /* pageId */, null /* ctx */, mySession,
             locale, xp, null /* matcher */);
-        section.setUserForVotelist(mySession.user);
+        page.setUserForVotelist(mySession.user);
 
-        DataRow pvi = section.getDataRow(xp);
+        DataRow pvi = page.getDataRow(xp);
         CheckCLDR.StatusAction showRowAction = pvi.getStatusAction();
         if (CldrUtility.INHERITANCE_MARKER.equals(val)) {
             if (pvi.wouldInheritNull()) {
@@ -2546,7 +2546,7 @@ public class SurveyAjax extends HttpServlet {
             SupplementalDataInfo sdi = ctx.sm.getSupplementalDataInfo();
             CLDRLocale dcParent = sdi.getBaseFromDefaultContent(locale);
             if (dcParent != null) {
-                new JSONWriter(out).object().key("section")
+                new JSONWriter(out).object().key("page")
                     .value(new JSONObject().put("nocontent", "Default Content, see " + dcParent.getBaseName())).endObject();
                 return; // short circuit.
             }
@@ -2586,8 +2586,7 @@ public class SurveyAjax extends HttpServlet {
                     // Requested a single path, not a page. Don't need path header.
                     pageId = page.getPageId();
                 } else {
-                    dsets.put("default", PathHeaderSort.name);
-                    dsets.put(PathHeaderSort.name, page.createDisplaySet(new PathHeaderSort(), null));
+                    dsets.put(PathHeaderSort.name, page.createDisplaySet(new PathHeaderSort()));
                 }
 
                 if (pageId != null) {
@@ -2835,10 +2834,10 @@ public class SurveyAjax extends HttpServlet {
                     checkResult.clear();
                     cc.check(base, checkResult, val0);
 
-                    DataPage section = DataPage.make(null, null, cs, loc, base, null);
-                    section.setUserForVotelist(cs.user);
+                    DataPage page = DataPage.make(null, null, cs, loc, base, null);
+                    page.setUserForVotelist(cs.user);
 
-                    DataPage.DataRow pvi = section.getDataRow(base);
+                    DataPage.DataRow pvi = page.getDataRow(base);
                     CheckCLDR.StatusAction showRowAction = pvi.getStatusAction(CheckCLDR.InputMethod.BULK);
 
                     if (CheckForCopy.sameAsCode(val0, x, cldrUnresolved, baseFile)) {

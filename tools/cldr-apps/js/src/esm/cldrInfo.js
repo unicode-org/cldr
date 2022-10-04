@@ -370,12 +370,12 @@ function updateRowVoteInfo(tr, theRow) {
     console.error("theRow is null or undefined in updateRowVoteInfo");
     return;
   }
-  var vr = theRow.voteResolver;
+  const vr = theRow.votingResults;
   tr.voteDiv = document.createElement("div");
   tr.voteDiv.className = "voteDiv";
   const surveyUser = cldrStatus.getSurveyUser();
   if (theRow.voteVhash && theRow.voteVhash !== "" && surveyUser) {
-    var voteForItem = theRow.items[theRow.voteVhash];
+    const voteForItem = theRow.items[theRow.voteVhash];
     if (
       voteForItem &&
       voteForItem.votes &&
@@ -421,14 +421,11 @@ function updateRowVoteInfo(tr, theRow) {
    * The value_vote array has an even number of elements,
    * like [value0, vote0, value1, vote1, value2, vote2, ...].
    */
-  var n = 0;
+  let n = 0;
   while (n < vr.value_vote.length) {
-    var value = vr.value_vote[n++];
-    var vote = vr.value_vote[n++];
-    if (
-      value == null /* TODO: impossible? */ ||
-      value === cldrTable.NO_WINNING_VALUE
-    ) {
+    const value = vr.value_vote[n++];
+    const vote = parseInt(vr.value_vote[n++]);
+    if (value === cldrTable.NO_WINNING_VALUE) {
       continue;
     }
     var item = tr.rawValueToItem[value]; // backlink to specific item in hash

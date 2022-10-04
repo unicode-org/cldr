@@ -734,7 +734,7 @@ function testsToHtml(tests) {
       "' title='" +
       testItem.type +
       ": " +
-      (testItem.cause || { class: "Unknown" }).class +
+      (testItem.cause || "Unknown") +
       "." +
       testItem.subtype +
       "'>";

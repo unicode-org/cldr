@@ -939,14 +939,14 @@ See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-da
 </blockquote><p><em>Please submit corrigenda and other comments with the CLDR bug reporting form [<a href="https://cldr.unicode.org/index/bug-reports">Bugs</a>]. Related information that is useful in understanding this document is found in the <a href="#References">References</a>. For the latest version of the Unicode Standard see [<a href="https://www.unicode.org/versions/latest/">Unicode</a>]. For a list of current Unicode Technical Reports see [<a href="https://www.unicode.org/reports/">Reports</a>]. For more information about versions of the Unicode Standard, see [<a href="https://www.unicode.org/versions/">Versions</a>].</em></p><blockquote>
 <p><strong><em>NOTE: The source for the LDML specification has been converted to GitHub Markdown (GFM) instead of HTML. The formatting is now simpler, but some features — such as formatting for table captions — may not be complete by the release date. Improvements in the formatting for the v39 specification are planned for after the release, but no substantive changes would be made to the content.</em></strong></p>
 </blockquote><h2 id="parts"><a name="Parts" href="#Parts">Parts</a></h2><p>The LDML specification is divided into the following parts:</p><ul>
-<li>  Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</li>
-<li>  Part 2: <a href="tr35-general.html#Contents">General</a> (display names &amp; transforms, etc.)</li>
-<li>  Part 3: <a href="tr35-numbers.html#Contents">Numbers</a> (number &amp; currency formatting)</li>
-<li>  Part 4: <a href="tr35-dates.html#Contents">Dates</a> (date, time, time zone formatting)</li>
-<li>  Part 5: <a href="tr35-collation.html#Contents">Collation</a> (sorting, searching, grouping)</li>
-<li>  Part 6: <a href="tr35-info.html#Contents">Supplemental</a> (supplemental data)</li>
-<li>  Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard mappings)</li>
-<li>  Part 8: <a href="tr35-personNames.html#Contents">Person Names</a> (person names)</li>
+<li>Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</li>
+<li>Part 2: <a href="tr35-general.html#Contents">General</a> (display names &amp; transforms, etc.)</li>
+<li>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a> (number &amp; currency formatting)</li>
+<li>Part 4: <a href="tr35-dates.html#Contents">Dates</a> (date, time, time zone formatting)</li>
+<li>Part 5: <a href="tr35-collation.html#Contents">Collation</a> (sorting, searching, grouping)</li>
+<li>Part 6: <a href="tr35-info.html#Contents">Supplemental</a> (supplemental data)</li>
+<li>Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard mappings)</li>
+<li>Part 8: <a href="tr35-personNames.html#Contents">Person Names</a> (person names)</li>
 </ul><h2 id="contents-of-part-1-core"><a name="Contents" href="#Contents">Contents of Part 1, Core</a></h2><ul>
 <li>1 <a href="#Introduction">Introduction</a><ul>
 <li>1.1 <a href="#Conformance">Conformance</a></li>
@@ -1441,9 +1441,9 @@ See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-da
 <td>prefix with "und-", so that there is always a base language subtag</td>
 </tr>
 </tbody></table><h5 id="unicode-locale-identifier-cldr-to-bcp-47"><a name="Unicode_Locale_Identifier_CLDR_to_BCP_47" href="#Unicode_Locale_Identifier_CLDR_to_BCP_47">Unicode Locale Identifier: CLDR to BCP 47</a></h5><p>A Unicode CLDR locale identifier can be converted to a valid [<a href="#BCP47">BCP47</a>] language tag (which is also a Unicode BCP 47 locale identifier) by performing the following transformation.</p><ol>
-<li> Replace the "_" separators with "-"</li>
-<li> Replace the special language identifier "root" with the BCP 47 primary language tag "und"</li>
-<li> Add an initial "und" primary language subtag if the first subtag is a script.</li>
+<li>Replace the "_" separators with "-"</li>
+<li>Replace the special language identifier "root" with the BCP 47 primary language tag "und"</li>
+<li>Add an initial "und" primary language subtag if the first subtag is a script.</li>
 </ol><p><em>Examples:</em></p><table>
 <thead>
 <tr>
@@ -1478,8 +1478,8 @@ See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-da
 <td>add "und"</td>
 </tr>
 </tbody></table><h5 id="unicode-locale-identifier-bcp-47-to-cldr"><a name="Unicode_Locale_Identifier_BCP_47_to_CLDR" href="#Unicode_Locale_Identifier_BCP_47_to_CLDR">Unicode Locale Identifier: BCP 47 to CLDR</a></h5><p>A Unicode BCP 47 locale identifier can be transformed into a Unicode CLDR locale identifier by performing the following transformation.</p><ol>
-<li> the separator is changed to "_"</li>
-<li> the primary language subtag "und" is replaced with "root" if no script, region, or variant subtags are present.</li>
+<li>the separator is changed to "_"</li>
+<li>the primary language subtag "und" is replaced with "root" if no script, region, or variant subtags are present.</li>
 </ol><p><em>Examples:</em></p><table>
 <thead>
 <tr>
@@ -1789,9 +1789,9 @@ zh-Hant-HK
 <td><code>900..949</code></td>
 </tr>
 </tbody></table><h4 id="353-private-use-codes">3.5.3 <a name="Private_Use_Codes" href="#Private_Use_Codes">Private Use Codes</a></h4><p>Private use codes fall into three groups.</p><ul>
-<li>  <strong>defined:</strong> those that are given particular semantics currently in CLDR</li>
-<li>  <strong>reserved:</strong> those that may be given particular semantics in future versions of CLDR</li>
-<li>  <strong>excluded:</strong> those that will never be given particular CLDR semantics in the future, and thus can normally be used by applications without worrying about collisions. However, CLDR may follow widespread industry practice in the use of some of these codes, such as for XA, XB, and XK.</li>
+<li><strong>defined:</strong> those that are given particular semantics currently in CLDR</li>
+<li><strong>reserved:</strong> those that may be given particular semantics in future versions of CLDR</li>
+<li><strong>excluded:</strong> those that will never be given particular CLDR semantics in the future, and thus can normally be used by applications without worrying about collisions. However, CLDR may follow widespread industry practice in the use of some of these codes, such as for XA, XB, and XK.</li>
 </ul><table><caption id="table-private-use-codes-in-cldr">Table: <a name="Private_Use_CLDR" href="#Private_Use_CLDR">Private Use Codes in CLDR</a></caption>
 <thead>
 <tr>
@@ -2058,10 +2058,10 @@ The determination of preferred units depends on the locale identifer: the keys m
     <td>POSIX style locale variant. About handling of the "POSIX" variant see <i>Section 3.8.2, <a href="#Legacy_Variants">Legacy Variants</a></i>.</td></tr>
 
 </tbody></table><p>For more information on the allowed keys and types, see the specific elements below, and <a href="#Unicode_Locale_Extension_Data_Files">Section 3.6.4 U Extension Data Files</a>.</p><p>Additional keys or types might be added in future versions. Implementations of LDML should be robust to handle any syntactically valid key or type values.</p><h4 id="362-numbering-system-data">3.6.2 <a name="Numbering%20System%20Data" href="#Numbering%20System%20Data">Numbering System Data</a></h4><p>LDML supports multiple numbering systems. The identifiers for those numbering systems are defined in the file <strong>bcp47/number.xml</strong>. For example, for the latest version of the data see <a href="https://github.com/unicode-org/cldr/tree/main/common/bcp47/number.xml">bcp47/number.xml</a>.</p><p>Details about those numbering systems are defined in <strong>supplemental/numberingSystems.xml</strong>. For example, for the latest version of the data see <a href="https://github.com/unicode-org/cldr/tree/main/common/supplemental/numberingSystems.xml">supplemental/numberingSystems.xml</a>.</p><p>LDML makes certain stability guarantees on this data:</p><ol>
-<li> Like other BCP 47 identifiers, once a numeric identifier is added to <strong>bcp47/number.xml</strong> or <strong>numberingSystems.xml</strong>, it will never be removed from either of those files.</li>
+<li>Like other BCP 47 identifiers, once a numeric identifier is added to <strong>bcp47/number.xml</strong> or <strong>numberingSystems.xml</strong>, it will never be removed from either of those files.</li>
 <li>If an identifier has type="numeric" in numberingSystems.xml, then<ol>
-<li> It is a decimal, positional numbering system with an attribute <code>digits=X</code>, where <code>X</code> is a string with the 10 digits in order used by the numbering system.</li>
-<li> The values of the type and digits will never change.</li>
+<li>It is a decimal, positional numbering system with an attribute <code>digits=X</code>, where <code>X</code> is a string with the 10 digits in order used by the numbering system.</li>
+<li>The values of the type and digits will never change.</li>
 </ol>
 </li>
 </ol><h4 id="363-time-zone-identifiers">3.6.3 <a name="Time_Zone_Identifiers" href="#Time_Zone_Identifiers">Time Zone Identifiers</a></h4><p>LDML inherits time zone IDs from the tz database [<a href="#Olson">Olson</a>]. Because these IDs from the tz database do not satisfy the BCP 47 language subtag syntax requirements, CLDR defines short identifiers for the use in the Unicode locale extension. The short identifiers are defined in the file <strong>common/bcp47/timezone.xml</strong>.</p><p>The short identifiers use UN/LOCODE [<a href="#LOCODE">LOCODE</a>] (excluding a space character) codes where possible. For example, the short identifier for "America/Los_Angeles" is "uslax" (the LOCODE for Los Angeles, US is "US LAX"). Identifiers of length not equal to 5 are used where there is no corresponding UN/LOCODE, such as "usnavajo" for "America/Shiprock", or "utcw01" for "Etc/GMT+1", so that they do not overlap with future UN/LOCODE.</p><p>Although the first two letters of a short identifier may match an ISO 3166 two-letter country code, a user should not assume that the time zone belongs to the country. The first two letters in an identifier of length not equal to 5 have no meaning. Also, the identifiers are stabilized, meaning that they will not change no matter what changes happen in the base standard. So if Hawaii leaves the US and joins Canada as a new province, the short time zone identifier "ushnl" would not change in CLDR even if the UN/LOCODE changes to "cahnl" or something else.</p><p>There is a special code "unk" for an Unknown or Invalid time zone. This can be expressed in the tz database style ID "Etc/Unknown", although it is not defined in the tz database.</p><p><strong>Stability of Time Zone Identifiers</strong></p><p>Although the short time zone identifiers are guaranteed to be stable, the preferred IDs in the tz database (as those found in <strong>zone.tab</strong> file) might be changed time to time. For example, "Asia/Culcutta" was replaced with "Asia/Kolkata" and moved to <strong>backward</strong> file in the tz database. CLDR contains locale data using a time zone ID from the tz database as the key, stability of the IDs is critical.</p><p>To maintain the stability of "long" IDs (for those inherited from the tz database), a special rule applied to the <code>alias</code> attribute in the <code>&lt;type&gt;</code> element for "tz" - the first "long" ID is the CLDR canonical "long" time zone ID.</p><p>For example:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">type</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"inccu"</span> <span class="hljs-attr">alias</span>=<span class="hljs-string">"Asia/Calcutta Asia/Kolkata"</span> <span class="hljs-attr">description</span>=<span class="hljs-string">"Kolkata, India"</span>/&gt;</span>
@@ -2560,11 +2560,11 @@ lang_region (aliases to lang_script_region)
     </td>
 </tr>
 </tbody></table><p><em>Both the resource bundle inheritance and the inherited item inheritance use the parentLocale data, where available, instead of simple truncation.</em></p><p>The fallback is a bit different for these two cases; internal aliases and keys are not involved in the bundle lookup, and the default locale is not involved in the item lookup. If the default-locale were used in the resource-item lookup, then strange results will occur. For example, suppose that the default locale is Swedish, and there is a Nama locale but no specific inherited item for collation. If the default-locale were used in resource-item lookup, it would produce odd and unexpected results for Nama sorting.</p><p>The default locale is not even always used in resource bundle inheritance. For the following services, the fallback is always directly to the root locale rather than through default locale.</p><ul>
-<li>  collation</li>
-<li>  break iteration</li>
-<li>  case mapping</li>
+<li>collation</li>
+<li>break iteration</li>
+<li>case mapping</li>
 <li>transliteration<ul>
-<li>  The lookup for transliteration is yet more complicated because of the interplay of source and target locales: see <em>Part 2 General, Section 10.1 <a href="tr35-general.html#Inheritance">Inheritance.</a></em></li>
+<li>The lookup for transliteration is yet more complicated because of the interplay of source and target locales: see <em>Part 2 General, Section 10.1 <a href="tr35-general.html#Inheritance">Inheritance.</a></em></li>
 </ul>
 </li>
 </ul><p>Thus if there is no Akan locale, for example, asking for a collation for Akan should produce the root collation, <em>not the Swedish collation.</em></p><p>The inherited item lookup must remain stable, because the resources are built with a certain fallback in mind; changing the core fallback order can render the bundle structure incoherent.</p><p>Resource bundle lookup, on the other hand, is more flexible; changes in the view of the "best" match between the input request and the output bundle are more tolerant, when represent overall improvements for users. For more information, see <em><a href="#Fallback_Elements">A.1 Element fallback</a></em>.</p><p>Where the LDML inheritance relationship does not match a target system, such as POSIX, the data logically should be fully resolved in converting to a format for use by that system, by adding <em>all</em> inherited data to each locale data set.</p><p>For a more complete description of how inheritance applies to data, and the use of keywords, see <em><a href="#Inheritance_and_Validity">Section 4.2 Inheritance</a></em> .</p><p>The locale data does not contain general character properties that are derived from the <em>Unicode Character Database</em> [<a href="https://www.unicode.org/reports/tr41/#UAX44">UAX44</a>]. That data being common across locales, it is not duplicated in the bundles. Constructing a POSIX locale from the CLDR data requires use of UCD data. In addition, POSIX locales may also specify the character encoding, which requires the data to be transformed into that target encoding.</p><p><strong>Warning:</strong> If a locale has a different script than its parent (for example, sr_Latn), then special attention must be paid to make sure that all inheritance is covered. For example, auxiliary exemplar characters may need to be empty ("[]") to block inheritance.</p><p><strong>Empty Override:</strong> There is one special value reserved in LDML to indicate that a child locale is to have no value for a path, even if the parent locale has a value for that path. That value is "∅∅∅". For example, if there is no phrase for "two days ago" in a language, that can be indicated with:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"day"</span>&gt;</span>
@@ -2748,13 +2748,13 @@ lang_region (aliases to lang_script_region)
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">parentLocale</span> <span class="hljs-keyword">parent</span> <span class="hljs-keyword">NMTOKEN</span> <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">parentLocale</span> <span class="hljs-keyword">locales</span> <span class="hljs-keyword">NMTOKENS</span> <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
 </code></pre><p>In some cases, the normal truncation inheritance does not function well. This happens when:</p><ol>
-<li> The child locale is of a different script. In this case, mixing elements from the parent into the child data results in a mishmash.</li>
-<li> A large number of child locales behave similarly, and differently from the truncation parent.</li>
+<li>The child locale is of a different script. In this case, mixing elements from the parent into the child data results in a mishmash.</li>
+<li>A large number of child locales behave similarly, and differently from the truncation parent.</li>
 </ol><p>The <code>parentLocale</code> element is used to override the normal inheritance when accessing CLDR data.</p><p>For case 1, the children are script locales, and the parent is "root". For example:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">parentLocale</span> <span class="hljs-attr">parent</span>=<span class="hljs-string">"root"</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">"az_Cyrl ha_Arab … zh_Hant"</span>/&gt;</span>
 </code></pre><p>For case 2, the children and parent share the same primary language, but the region is changed. For example:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">parentLocale</span> <span class="hljs-attr">parent</span>=<span class="hljs-string">"es_419"</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">"es_AR es_BO … es_UY es_VE"</span>/&gt;</span>
 </code></pre><p>Collation data, however, is an exception. Since collation rules do not truly inherit data from the parent, the <code>parentLocale</code> element is not necessary and not used for collation. Thus, for a locale like zh_Hant in the example above, the <code>parentLocale</code> element would dictate the parent as "root" when referring to main locale data, but for collation data, the parent locale would still be "zh", even though the <code>parentLocale</code> element is present for that locale.</p><p>Since parentLocale information is not localizable on a per locale basis, the parentLocale information is contained in CLDR’s <a href="tr35-info.html">supplemental data.</a></p><p>When a <code>parentLocale</code> element is used to override normal inheritance, the following guidelines apply in most cases:</p><ol>
-<li> If X is the parentLocale of Y, then either X is the root locale, or X has the same base language code as Y. For example, the parent of <code>en</code> cannot be <code>fr</code>, and the parent of <code>en_YY</code> cannot be <code>fr</code> or <code>fr_XX</code>.</li>
-<li> If X is the parentLocale of Y, Y must not be a base language locale. For example, the parent of <code>en</code> cannot be <code>en_XX</code>.</li>
+<li>If X is the parentLocale of Y, then either X is the root locale, or X has the same base language code as Y. For example, the parent of <code>en</code> cannot be <code>fr</code>, and the parent of <code>en_YY</code> cannot be <code>fr</code> or <code>fr_XX</code>.</li>
+<li>If X is the parentLocale of Y, Y must not be a base language locale. For example, the parent of <code>en</code> cannot be <code>en_XX</code>.</li>
 </ol><p>There may be specific exceptions to these for certain closely-related languages or language-script combinations, for example:</p><ul>
 <li><code>no</code> may be the parent of <code>nb</code> and <code>nn</code>.</li>
 <li><code>en_IN</code> may be the parent of <code>hi_Latn</code> (the parent is one of the languages for a child that is effectively a hybrid of two languages in <code>Latn</code> script)</li>
@@ -2867,7 +2867,7 @@ lang_region (aliases to lang_script_region)
 </ol>
 </li>
 <li><strong>Otherwise</strong><ol>
-<li> Return <em>true</em></li>
+<li>Return <em>true</em></li>
 </ol>
 </li>
 </ol><p>The <code>validSubLocales</code> in the most specific (farthest from root file) locale file "wins" through the full resolution step (data from more specific files replacing data from less specific ones).</p><h4 id="425-keyword-and-default-resolution">4.2.5 <a name="Keyword_and_Default_Resolution" href="#Keyword_and_Default_Resolution">Keyword and Default Resolution</a></h4><p>When accessing data based on keywords, the following process is used. Consider the following example:</p><ul>
@@ -2989,8 +2989,8 @@ always be a value that exists in root. So you can not have the following in root
 </li>
 <li><strong>Return</strong><ol>
 <li>If there is no match, either return<ol>
-<li> an error value, or</li>
-<li> the match for "und" (in APIs where a valid language tag is required).</li>
+<li>an error value, or</li>
+<li>the match for "und" (in APIs where a valid language tag is required).</li>
 </ol>
 </li>
 <li>Otherwise there is a match = <em>languagem_scriptm_regionm</em></li>
@@ -3157,9 +3157,9 @@ value = lookup(P, en-NO); <span class="hljs-keyword">return</span> value;
 <span class="hljs-keyword">delimiters</span>?,<span class="hljs-keyword">measurement</span>?,<span class="hljs-keyword">dates</span>?,<span class="hljs-keyword">numbers</span>?,<span class="hljs-keyword">units</span>?,<span class="hljs-keyword">listPatterns</span>?,<span class="hljs-keyword">collations</span>?,<span class="hljs-keyword">posix</span>?,
 <span class="hljs-keyword">segmentations</span>?,<span class="hljs-keyword">rbnf</span>?,<span class="hljs-keyword">annotations</span>?,<span class="hljs-keyword">metadata</span>?,<span class="hljs-keyword">references</span>?,<span class="hljs-keyword">special</span>*)))&gt;</span>
 </code></pre><p>The XML structure is stable over releases. Elements and attributes may be deprecated: they are retained in the DTD but their usage is strongly discouraged. In most cases, an alternate structure is provided for expressing the information. There is only one exception: newer DTDs cannot be used with version 1.1 files, without some modification.</p><p>In general, all translatable text in this format is in element contents, while attributes are reserved for types and non-translated information (such as numbers or dates). The reason that attributes are not used for translatable text is that spaces are not preserved, and we cannot predict where spaces may be significant in translated material.</p><p>There are two kinds of elements in LDML: <em>rule</em> elements and <em>structure</em> elements.</p><p>For structure elements, there are restrictions to allow for effective inheritance and processing:</p><ol>
-<li> There is no <a href="https://www.w3.org/TR/xml/#sec-mixed-content">"mixed" content</a>: if an element has textual content, then it cannot contain any elements.</li>
-<li> The [<a href="#XPath">XPath</a>] leading to the content is unique; no two different pieces of textual content have the same [<a href="#XPath">XPath</a>].</li>
-<li> An element that has <a href="#Definitions">value attributes</a> MUST NOT also have have child elements.</li>
+<li>There is no <a href="https://www.w3.org/TR/xml/#sec-mixed-content">"mixed" content</a>: if an element has textual content, then it cannot contain any elements.</li>
+<li>The [<a href="#XPath">XPath</a>] leading to the content is unique; no two different pieces of textual content have the same [<a href="#XPath">XPath</a>].</li>
+<li>An element that has <a href="#Definitions">value attributes</a> MUST NOT also have have child elements.</li>
 </ol><p>To illustrate these restrictions, consider the below chunk of XML:</p><pre><code class="language-xml"><span class="hljs-comment">&lt;!-- Not correct LDML --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">unit</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"duration-day"</span>
       <span class="hljs-attr">displayName</span>=<span class="hljs-string">"days"</span>&gt;</span> <span class="hljs-comment">&lt;!-- #3: @VALUE attribute AND children --&gt;</span>
@@ -3672,13 +3672,13 @@ Outside of single quotes, certain backslashed code point sequences can be used t
 <span class="hljs-tag">&lt;/<span class="hljs-name">bar</span>&gt;</span>
 </code></pre><p>Note that there was one case that had to be corrected in order to make this true. For that reason, pattern occurs twice under currency:</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">currency</span> (<span class="hljs-keyword">alias</span> | (<span class="hljs-keyword">pattern</span>*, <span class="hljs-keyword">displayName</span>?, <span class="hljs-keyword">symbol</span>?, <span class="hljs-keyword">pattern</span>*, <span class="hljs-keyword">decimal</span>?, <span class="hljs-keyword">group</span>?, <span class="hljs-keyword">special</span>*)) &gt;</span>
 </code></pre><p><a href="https://www.w3.org/TR/REC-xml/">XML</a> files can have a wide variation in textual form, while representing precisely the same data. By putting the LDML files in the repository into a canonical form, this allows us to use the simple diff tools used widely (and in CVS) to detect differences when vetting changes, without those tools being confused. This is not a requirement on other uses of LDML; just simply a way to manage repository data more easily.</p><h4 id="561-content">5.6.1 <a name="Content" href="#Content">Content</a></h4><ol>
-<li><p> All start elements are on their own line, indented by <em>depth</em> tabs.</p>
+<li><p>All start elements are on their own line, indented by <em>depth</em> tabs.</p>
 </li>
-<li><p> All end elements (except for leaf nodes) are on their own line, indented by <em>depth</em> tabs.</p>
+<li><p>All end elements (except for leaf nodes) are on their own line, indented by <em>depth</em> tabs.</p>
 </li>
-<li><p> Any leaf node with empty content is in the form <code>&lt;foo/&gt;</code>.</p>
+<li><p>Any leaf node with empty content is in the form <code>&lt;foo/&gt;</code>.</p>
 </li>
-<li><p> There are no blank lines except within comments or content.</p>
+<li><p>There are no blank lines except within comments or content.</p>
 </li>
 <li><p>Spaces are used within a start element. There are no extra spaces within elements.</p>
 <ul>
@@ -3686,7 +3686,7 @@ Outside of single quotes, certain backslashed code point sequences can be used t
 <li><code>&lt;/identity&gt;</code>, not <code>&lt;/identity &gt;</code></li>
 </ul>
 </li>
-<li><p> All attribute values use double quote ("), not single (').</p>
+<li><p>All attribute values use double quote ("), not single (').</p>
 </li>
 <li><p>There are no CDATA sections, and no escapes except those absolutely required.</p>
 <ul>
@@ -3694,9 +3694,9 @@ Outside of single quotes, certain backslashed code point sequences can be used t
 <li>no <code>'&amp;#x61;'</code>, it would be just <code>'a'</code></li>
 </ul>
 </li>
-<li><p> All attributes with defaulted values are suppressed.</p>
+<li><p>All attributes with defaulted values are suppressed.</p>
 </li>
-<li><p> The draft and <code>alt="proposed.*"</code> attributes are only on leaf elements.</p>
+<li><p>The draft and <code>alt="proposed.*"</code> attributes are only on leaf elements.</p>
 </li>
 <li><p>The tzid are canonicalized in the following way:</p>
 <ul>

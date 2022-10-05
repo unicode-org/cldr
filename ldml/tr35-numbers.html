@@ -405,14 +405,14 @@
 </tbody></table><p>For the full header, summary, and status, see <a href="tr35.html">Part 1: Core</a>.</p><h3 id="summary"><em>Summary</em></h3><p>This document describes parts of an XML format (<em>vocabulary</em>) for the exchange of structured locale data. This format is used in the <a href="https://www.unicode.org/cldr/">Unicode Common Locale Data Repository</a>.</p><p>This is a partial document, describing only those parts of the LDML that are relevant for number and currency formatting. For the other parts of the LDML see the <a href="tr35.html">main LDML document</a> and the links above.</p><h3 id="status"><em>Status</em></h3><p><em>This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium. This is a stable document and may be used as reference material or cited as a normative reference by other specifications.</em></p><blockquote>
 <p><em><strong>A Unicode Technical Standard (UTS)</strong> is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS.</em></p>
 </blockquote><p><em>Please submit corrigenda and other comments with the CLDR bug reporting form [<a href="tr35.html#Bugs">Bugs</a>]. Related information that is useful in understanding this document is found in the <a href="tr35.html#References">References</a>. For the latest version of the Unicode Standard see [<a href="tr35.html#Unicode">Unicode</a>]. For a list of current Unicode Technical Reports see [<a href="tr35.html#Reports">Reports</a>]. For more information about versions of the Unicode Standard, see [<a href="tr35.html#Versions">Versions</a>].</em></p><h2 id="parts"><a name="Parts" href="#Parts">Parts</a></h2><p>The LDML specification is divided into the following parts:</p><ul>
-<li>  Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</li>
-<li>  Part 2: <a href="tr35-general.html#Contents">General</a> (display names &amp; transforms, etc.)</li>
-<li>  Part 3: <a href="tr35-numbers.html#Contents">Numbers</a> (number &amp; currency formatting)</li>
-<li>  Part 4: <a href="tr35-dates.html#Contents">Dates</a> (date, time, time zone formatting)</li>
-<li>  Part 5: <a href="tr35-collation.html#Contents">Collation</a> (sorting, searching, grouping)</li>
-<li>  Part 6: <a href="tr35-info.html#Contents">Supplemental</a> (supplemental data)</li>
-<li>  Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard mappings)</li>
-<li>  Part 8: <a href="tr35-personNames.html#Contents">Person Names</a> (person names)</li>
+<li>Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</li>
+<li>Part 2: <a href="tr35-general.html#Contents">General</a> (display names &amp; transforms, etc.)</li>
+<li>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a> (number &amp; currency formatting)</li>
+<li>Part 4: <a href="tr35-dates.html#Contents">Dates</a> (date, time, time zone formatting)</li>
+<li>Part 5: <a href="tr35-collation.html#Contents">Collation</a> (sorting, searching, grouping)</li>
+<li>Part 6: <a href="tr35-info.html#Contents">Supplemental</a> (supplemental data)</li>
+<li>Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard mappings)</li>
+<li>Part 8: <a href="tr35-personNames.html#Contents">Person Names</a> (person names)</li>
 </ul><h2 id="contents-of-part-3-numbers"><a name="Contents" href="#Contents">Contents of Part 3, Numbers</a></h2><ul>
 <li>1 <a href="#Numbering_Systems">Numbering Systems</a></li>
 <li>2 <a href="#Number_Elements">Number Elements</a><ul>
@@ -518,10 +518,10 @@
 </blockquote><p><strong>finance</strong></p><blockquote>
 <p>Defines the numbering system used for financial quantities. This numbering system may be numeric or algorithmic. This is often used for ideographic languages such as Chinese, where it would be easy to alter an amount represented in the default numbering system simply by adding additional strokes. If the financial numbering system is not specified, applications should use the default numbering system as a fallback.</p>
 </blockquote><p>The categories defined for other numbering systems can be used in a Unicode locale identifier to select the proper numbering system without having to know the specific numbering system by name. For example:</p><ul>
-<li>  To select Hindi language using the native digits for numeric formatting, use locale ID: "hi-IN-u-nu-native".</li>
-<li>  To select Chinese language using the appropriate financial numerals, use locale ID: "zh-u-nu-finance".</li>
-<li>  To select Tamil language using the traditional Tamil numerals, use locale ID: "ta-u-nu-traditio".</li>
-<li>  To select Arabic language using western digits 0-9, use locale ID: "ar-u-nu-latn".</li>
+<li>To select Hindi language using the native digits for numeric formatting, use locale ID: "hi-IN-u-nu-native".</li>
+<li>To select Chinese language using the appropriate financial numerals, use locale ID: "zh-u-nu-finance".</li>
+<li>To select Tamil language using the traditional Tamil numerals, use locale ID: "ta-u-nu-traditio".</li>
+<li>To select Arabic language using western digits 0-9, use locale ID: "ar-u-nu-latn".</li>
 </ul><p>For more information on numbering systems and their definitions, see <em><a href="#Numbering_Systems">Section 1: Numbering Systems</a></em>.</p><h3 id="23-number-symbols">2.3 <a name="Number_Symbols" href="#Number_Symbols">Number Symbols</a></h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">symbols</span> (<span class="hljs-keyword">alias</span> | (<span class="hljs-keyword">decimal</span>*, <span class="hljs-keyword">group</span>*, <span class="hljs-keyword">list</span>*, <span class="hljs-keyword">percentSign</span>*, <span class="hljs-keyword">nativeZeroDigit</span>*, <span class="hljs-keyword">patternDigit</span>*, <span class="hljs-keyword">plusSign</span>*, <span class="hljs-keyword">minusSign</span>*, <span class="hljs-keyword">approximatelySign</span>*, <span class="hljs-keyword">exponential</span>*, <span class="hljs-keyword">superscriptingExponent</span>*, <span class="hljs-keyword">perMille</span>*, <span class="hljs-keyword">infinity</span>*, <span class="hljs-keyword">nan</span>*, <span class="hljs-keyword">currencyDecimal</span>*, <span class="hljs-keyword">currencyGroup</span>*, <span class="hljs-keyword">timeSeparator</span>*, <span class="hljs-keyword">special</span>*)) &gt;</span>
 </code></pre><p>Number symbols define the localized symbols that are commonly used when formatting numbers in a given locale. These symbols can be referenced using a number formatting pattern as defined in <em><a href="#Number_Format_Patterns">Section 3: Number Format Patterns</a></em>.</p><p>The available number symbols are as follows:</p><p><strong>decimal</strong></p><blockquote>
 <p>separates the integer and fractional part of the number.</p>
@@ -695,7 +695,7 @@ For more information on numbering systems and their definitions, see <em><a href
 </code></pre><p>The <code>currencyPatternAppendISO</code> element provides a pattern that can be used to combine currency format that uses a currency symbol (¤ or ¤¤¤¤¤) with the ISO 4217 3-letter code for the same currency (¤¤), to produce a result such as “$1,432.00 USD”. Using such a format is only recommended to resolve ambiguity when:</p><ul>
 <li>The currency symbol being used is the narrow symbol (¤¤¤¤¤) or has the same value as the narrow symbol, and</li>
 <li>The currency symbol does not have the same value as the ISO 4217 3-letter code.
-Most locales will not need to override the pattern provided in root, shown in the xml sample above. </li>
+Most locales will not need to override the pattern provided in root, shown in the xml sample above.</li>
 </ul><h3 id="25-miscellaneous-patterns">2.5 <a name="Miscellaneous_Patterns" href="#Miscellaneous_Patterns">Miscellaneous Patterns</a></h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">miscPatterns</span> (<span class="hljs-keyword">alias</span> | (<span class="hljs-keyword">default</span>*, <span class="hljs-keyword">pattern</span>*, <span class="hljs-keyword">special</span>*)) &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">miscPatterns</span> <span class="hljs-keyword">numberSystem</span> <span class="hljs-keyword">CDATA</span> <span class="hljs-keyword">#IMPLIED</span> &gt;</span>
 </code></pre><p>The miscPatterns supply additional patterns for special purposes. The currently defined values are:</p><p><strong>approximately</strong></p><blockquote>
@@ -907,23 +907,16 @@ Most locales will not need to override the pattern provided in root, shown in th
 <tr><th>number:</th><td>3.1415</td><td>-3.1415</td><td>3.1415</td><td>-3.1415</td><td>3.1415</td><td>-3.1415</td></tr>
 <tr><th>formatted:</th><td>3,14</td><td>∸3,14</td><td>3,14</td><td>3,14∸</td><td>3,14∔</td><td>3,14∸</td></tr>
 </tbody></table><p><em>In the above table, ∸ = U+2238 DOT MINUS and ∔ = U+2214 DOT PLUS are used for illustration.</em></p><p>The prefixes, suffixes, and various symbols used for infinity, digits, thousands separators, decimal separators, and so on may be set to arbitrary values, and they will appear properly during formatting. <em>However, care must be taken that the symbols and strings do not conflict, or parsing will be unreliable.</em> For example, either the positive and negative prefixes or the suffixes must be distinct for any parser using this data to be able to distinguish positive from negative values. Another example is that the decimal separator and thousands separator should be distinct characters, or parsing will be impossible.</p><p>The <em>grouping separator</em> is a character that separates clusters of integer digits to make large numbers more legible. It is commonly used for thousands, but in some locales it separates ten-thousands. The <em>grouping size</em> is the number of digits between the grouping separators, such as 3 for "100,000,000" or 4 for "1 0000 0000". There are actually two different grouping sizes: One used for the least significant integer digits, the <em>primary grouping size</em>, and one used for all others, the <em>secondary grouping size</em>. In most locales these are the same, but sometimes they are different. For example, if the primary grouping interval is 3, and the secondary is 2, then this corresponds to the pattern "#,##,##0", and the number 123456789 is formatted as "12,34,56,789". If a pattern contains multiple grouping separators, the interval between the last one and the end of the integer defines the primary grouping size, and the interval between the last two defines the secondary grouping size. All others are ignored, so "#,##,###,####" == "###,###,####" == "##,#,###,####".</p><p>The grouping separator may also occur in the fractional part, such as in “#,##0.###,#”. This is most commonly done where the grouping separator character is a thin, non-breaking space (U+202F), such as “1.618 033 988 75”. See <a href="https://physics.nist.gov/cuu/Units/checklist.html">physics.nist.gov/cuu/Units/checklist.html</a>.</p><p>For consistency in the CLDR data, the following conventions are observed:</p><ul>
-<li><p>All number patterns should be minimal: there should be no leading # marks except to specify the position of the grouping separators (for example, avoid  ##,##0.###).</p>
-</li>
-<li><p>All formats should have one 0 before the decimal point (for example, avoid #,###.##)</p>
-</li>
-<li><p>Decimal formats should have three hash marks in the fractional position (for example, #,##0.###).</p>
-</li>
-<li><p>Currency formats should have two zeros in the fractional position (for example, ¤ #,##0.00).</p>
-<ul>
+<li>All number patterns should be minimal: there should be no leading # marks except to specify the position of the grouping separators (for example, avoid  ##,##0.###).</li>
+<li>All formats should have one 0 before the decimal point (for example, avoid #,###.##)</li>
+<li>Decimal formats should have three hash marks in the fractional position (for example, #,##0.###).</li>
+<li>Currency formats should have two zeros in the fractional position (for example, ¤ #,##0.00).<ul>
 <li>The exact number of decimals is overridden with the decimal count in supplementary data or by API settings.</li>
 </ul>
 </li>
-<li><p>The only time two thousands separators need to be used is when the number of digits varies, such as for Hindi: #,##,##0.</p>
-</li>
-<li><p>The <strong>minimumGroupingDigits</strong> can be used to suppress groupings below a certain value. This is used for languages such as Polish, where one would only write the grouping separator for values above 9999. The minimumGroupingDigits contains the default for the locale.</p>
-<ul>
-<li><p>The attribute value is used by adding it to the grouping separator value. If the input number has fewer integer digits, the grouping separator is suppressed.</p>
-</li>
+<li>The only time two thousands separators need to be used is when the number of digits varies, such as for Hindi: #,##,##0.</li>
+<li>The <strong>minimumGroupingDigits</strong> can be used to suppress groupings below a certain value. This is used for languages such as Polish, where one would only write the grouping separator for values above 9999. The minimumGroupingDigits contains the default for the locale.<ul>
+<li>The attribute value is used by adding it to the grouping separator value. If the input number has fewer integer digits, the grouping separator is suppressed.</li>
 <li><h5 id="examples-of-minimumgroupingdigits"><a name="Examples_of_minimumGroupingDigits" href="#Examples_of_minimumGroupingDigits">Examples of minimumGroupingDigits</a></h5>
 <table>
 <thead>
@@ -995,22 +988,22 @@ Most locales will not need to override the pattern provided in root, shown in th
 <ol>
 <li>If the mantissa pattern contains a period:<ol>
 <li>If the mantissa pattern contains at least one 0:<ul>
-<li>  Return the number of 0s before the period added to the number of #s or 0s after the period</li>
+<li>Return the number of 0s before the period added to the number of #s or 0s after the period</li>
 </ul>
 </li>
 <li>Else:<ul>
-<li>  Return 1 plus the number of #s after the period</li>
+<li>Return 1 plus the number of #s after the period</li>
 </ul>
 </li>
 </ol>
 </li>
 <li>Else:<ol>
 <li>If the mantissa pattern contains at least one 0:<ul>
-<li>  Return the number of 0s.</li>
+<li>Return the number of 0s.</li>
 </ul>
 </li>
 <li>Else:<ul>
-<li>  Return positive infinity.</li>
+<li>Return positive infinity.</li>
 </ul>
 </li>
 </ol>
@@ -1018,15 +1011,15 @@ Most locales will not need to override the pattern provided in root, shown in th
 </ol>
 <p>  Examples:</p>
 <ul>
-<li>  0.##E0 means a max of 3 significant digits.</li>
-<li>  #.##E0 also means a max of 3 significant digits.</li>
-<li>  #.0#E0 means a max of 2 significant digits.</li>
-<li>  0E0 means a max of 1 significant digit.</li>
-<li>  #E0 means infinite precision.</li>
-<li>  ###E0 means engineering notation with infinite precision.</li>
+<li>0.##E0 means a max of 3 significant digits.</li>
+<li>#.##E0 also means a max of 3 significant digits.</li>
+<li>#.0#E0 means a max of 2 significant digits.</li>
+<li>0E0 means a max of 1 significant digit.</li>
+<li>#E0 means infinite precision.</li>
+<li>###E0 means engineering notation with infinite precision.</li>
 </ul>
 </li>
-<li><p>  Exponential patterns may not contain grouping separators.</p>
+<li><p>Exponential patterns may not contain grouping separators.</p>
 </li>
 </ul><h3 id="35-significant-digits">3.5 <a name="sigdig" href="#sigdig">Significant Digits</a></h3><p>There are two ways of controlling how many digits are shown: (a) significant digits counts, or (b) integer and fraction digit counts. Integer and fraction digit counts are described above. When a formatter is using significant digits counts, it uses however many integer and fraction digits are required to display the specified number of significant digits. It may ignore min/max integer/fraction digits, or it may use them to the extent possible.</p><table><caption id="table-significant-digits-examples">Table: <a name="Significant_Digits_Examples" href="#Significant_Digits_Examples">Significant Digits Examples</a></caption>
 <thead>

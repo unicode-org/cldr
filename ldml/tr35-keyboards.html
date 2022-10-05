@@ -565,14 +565,14 @@ versions of the data files.
 See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-date CLDR release data.</p><h3 id="status"><em>Status</em></h3><p><em>This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium. This is a stable document and may be used as reference material or cited as a normative reference by other specifications.</em></p><blockquote>
 <p><em><strong>A Unicode Technical Standard (UTS)</strong> is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS.</em></p>
 </blockquote><p><em>Please submit corrigenda and other comments with the CLDR bug reporting form [<a href="tr35.html#Bugs">Bugs</a>]. Related information that is useful in understanding this document is found in the <a href="tr35.html#References">References</a>. For the latest version of the Unicode Standard see [<a href="tr35.html#Unicode">Unicode</a>]. For a list of current Unicode Technical Reports see [<a href="tr35.html#Reports">Reports</a>]. For more information about versions of the Unicode Standard, see [<a href="tr35.html#Versions">Versions</a>].</em></p><h2 id="parts"><a name="Parts" href="#Parts">Parts</a></h2><p>The LDML specification is divided into the following parts:</p><ul>
-<li>  Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</li>
-<li>  Part 2: <a href="tr35-general.html#Contents">General</a> (display names &amp; transforms, etc.)</li>
-<li>  Part 3: <a href="tr35-numbers.html#Contents">Numbers</a> (number &amp; currency formatting)</li>
-<li>  Part 4: <a href="tr35-dates.html#Contents">Dates</a> (date, time, time zone formatting)</li>
-<li>  Part 5: <a href="tr35-collation.html#Contents">Collation</a> (sorting, searching, grouping)</li>
-<li>  Part 6: <a href="tr35-info.html#Contents">Supplemental</a> (supplemental data)</li>
-<li>  Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard mappings)</li>
-<li>  Part 8: <a href="tr35-personNames.html#Contents">Person Names</a> (person names)</li>
+<li>Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</li>
+<li>Part 2: <a href="tr35-general.html#Contents">General</a> (display names &amp; transforms, etc.)</li>
+<li>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a> (number &amp; currency formatting)</li>
+<li>Part 4: <a href="tr35-dates.html#Contents">Dates</a> (date, time, time zone formatting)</li>
+<li>Part 5: <a href="tr35-collation.html#Contents">Collation</a> (sorting, searching, grouping)</li>
+<li>Part 6: <a href="tr35-info.html#Contents">Supplemental</a> (supplemental data)</li>
+<li>Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard mappings)</li>
+<li>Part 8: <a href="tr35-personNames.html#Contents">Person Names</a> (person names)</li>
 </ul><h2 id="contents-of-part-7-keyboards"><a name="Contents" href="#Contents">Contents of Part 7, Keyboards</a></h2><ul>
 <li><a href="#important-note"><em>Important Note</em></a></li>
 <li><a href="#summary"><em>Summary</em></a></li>
@@ -815,9 +815,9 @@ Occurence: optional, single</p>
     …
 <span class="hljs-tag">&lt;/<span class="hljs-name">keyboard</span>&gt;</span>
 </code></pre><p>Indicates that:</p><ol>
-<li> When a modifier combination goes unmatched, do not output anything when a key is pressed.</li>
-<li> If a transform is escaped, output the contents of the buffer.</li>
-<li> During a transform, hide the contents of the buffer as the user is typing.</li>
+<li>When a modifier combination goes unmatched, do not output anything when a key is pressed.</li>
+<li>If a transform is escaped, output the contents of the buffer.</li>
+<li>During a transform, hide the contents of the buffer as the user is typing.</li>
 </ol><hr><h3 id="58-element-keymap">5.8 <a name="Element_keyMap" href="#Element_keyMap">Element: keyMap</a></h3><p>This element defines the group of mappings for all the keys that use the same set of modifier keys. It contains one or more map elements.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyMap</span> [<span class="hljs-attr">modifiers</span>=<span class="hljs-string">"{Set of Modifier Combinations}"</span>]&gt;</span>
     {a set of map elements}
 <span class="hljs-tag">&lt;/<span class="hljs-name">keyMap</span>&gt;</span>
@@ -1723,8 +1723,8 @@ Occurence: required, multiple
     <span class="hljs-tag">&lt;/<span class="hljs-name">hardwareMap</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">platform</span>&gt;</span>
 </code></pre><hr><h2 id="7-invariants">7 <a name="Invariants" href="#Invariants">Invariants</a></h2><p>Beyond what the DTD imposes, certain other restrictions on the data are imposed on the data.</p><ol>
-<li> For a given platform, every <code>map[@iso]</code> value must be in the hardwareMap if there is one (<code>_keycodes.xml</code>)</li>
-<li> Every <code>map[@base]</code> value must also be in <code>base[@base]</code> value</li>
+<li>For a given platform, every <code>map[@iso]</code> value must be in the hardwareMap if there is one (<code>_keycodes.xml</code>)</li>
+<li>Every <code>map[@base]</code> value must also be in <code>base[@base]</code> value</li>
 <li>No <code>keyMap[@modifiers]</code> value can overlap with another <code>keyMap[@modifiers]</code> value.<ul>
 <li>eg you can't have <code>"RAlt Ctrl"</code> in one <code>keyMap</code>, and <code>"Alt Shift"</code> in another (because Alt = RAltLAlt).</li>
 </ul>
@@ -1733,13 +1733,13 @@ Occurence: required, multiple
 <li>eg with <code>&lt;transform from="xyz" to="q"&gt;</code> there must be some map values to get there, such as <code>&lt;map... to="xy"&gt;</code> &amp; <code>&lt;map... to="z"&gt;</code></li>
 </ul>
 </li>
-<li> If the base and chars values for <code>modifiers=""</code> are all identical, and there are no longpresses, that <code>keyMap</code> must not appear (??)</li>
-<li> There will never be overlaps among modifier values.</li>
+<li>If the base and chars values for <code>modifiers=""</code> are all identical, and there are no longpresses, that <code>keyMap</code> must not appear (??)</li>
+<li>There will never be overlaps among modifier values.</li>
 <li>A modifier set will never have ? (optional) on all values<ul>
 <li>eg, you'll never have <code>RCtrl?Caps?LShift?</code></li>
 </ul>
 </li>
-<li> Every <code>base[@base</code>] value must be unique.</li>
+<li>Every <code>base[@base</code>] value must be unique.</li>
 <li>A <code>modifier</code> attribute value will aways be minimal, observing the following simplification rules.</li>
 </ol><table>
 <thead>

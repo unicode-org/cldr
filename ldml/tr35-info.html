@@ -335,14 +335,14 @@ versions of the data files.
 See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-date CLDR release data.</p><h3 id="status"><em>Status</em></h3><p><em>This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium. This is a stable document and may be used as reference material or cited as a normative reference by other specifications.</em></p><blockquote>
 <p><em><strong>A Unicode Technical Standard (UTS)</strong> is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS.</em></p>
 </blockquote><p><em>Please submit corrigenda and other comments with the CLDR bug reporting form [<a href="tr35.html#Bugs">Bugs</a>]. Related information that is useful in understanding this document is found in the <a href="tr35.html#References">References</a>. For the latest version of the Unicode Standard see [<a href="tr35.html#Unicode">Unicode</a>]. For a list of current Unicode Technical Reports see [<a href="tr35.html#Reports">Reports</a>]. For more information about versions of the Unicode Standard, see [<a href="tr35.html#Versions">Versions</a>].</em></p><h2 id="parts"><a name="Parts" href="#Parts">Parts</a></h2><p>The LDML specification is divided into the following parts:</p><ul>
-<li>  Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</li>
-<li>  Part 2: <a href="tr35-general.html#Contents">General</a> (display names &amp; transforms, etc.)</li>
-<li>  Part 3: <a href="tr35-numbers.html#Contents">Numbers</a> (number &amp; currency formatting)</li>
-<li>  Part 4: <a href="tr35-dates.html#Contents">Dates</a> (date, time, time zone formatting)</li>
-<li>  Part 5: <a href="tr35-collation.html#Contents">Collation</a> (sorting, searching, grouping)</li>
-<li>  Part 6: <a href="tr35-info.html#Contents">Supplemental</a> (supplemental data)</li>
-<li>  Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard mappings)</li>
-<li>  Part 8: <a href="tr35-personNames.html#Contents">Person Names</a> (person names)</li>
+<li>Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</li>
+<li>Part 2: <a href="tr35-general.html#Contents">General</a> (display names &amp; transforms, etc.)</li>
+<li>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a> (number &amp; currency formatting)</li>
+<li>Part 4: <a href="tr35-dates.html#Contents">Dates</a> (date, time, time zone formatting)</li>
+<li>Part 5: <a href="tr35-collation.html#Contents">Collation</a> (sorting, searching, grouping)</li>
+<li>Part 6: <a href="tr35-info.html#Contents">Supplemental</a> (supplemental data)</li>
+<li>Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard mappings)</li>
+<li>Part 8: <a href="tr35-personNames.html#Contents">Person Names</a> (person names)</li>
 </ul><h2 id="contents-of-part-6-supplemental"><a name="Contents" href="#Contents">Contents of Part 6, Supplemental</a></h2><ul>
 <li>1 Introduction <a href="#Supplemental_Data">Supplemental Data</a></li>
 <li>2 <a href="#Territory_Data">Territory Data</a><ul>
@@ -429,8 +429,8 @@ See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-da
 </ul>
 </li>
 </ul><p>Excluding groupings, in this tree:</p><ul>
-<li>  All non-overlapping regions form a strict tree rooted at World.</li>
-<li>  All leaf-nodes (country) are always at depth 4. Some of these “country” regions are actually parts of other countries, such as Hong Kong (part of China). Such relationships are not part of the containment data.</li>
+<li>All non-overlapping regions form a strict tree rooted at World.</li>
+<li>All leaf-nodes (country) are always at depth 4. Some of these “country” regions are actually parts of other countries, such as Hong Kong (part of China). Such relationships are not part of the containment data.</li>
 </ul><p>For a chart showing the relationships (plus the included timezones), see the <a href="https://unicode-org.github.io/cldr-staging/charts/38/supplemental/territory_containment_un_m_49.html">Territory Containment Chart</a>. The XML structure has the following form.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">territoryContainment</span>&gt;</span>
 
     <span class="hljs-tag">&lt;<span class="hljs-name">group</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"001"</span> <span class="hljs-attr">contains</span>=<span class="hljs-string">"002 009 019 142 150"</span>/&gt;</span> <span class="hljs-comment">&lt;!--World --&gt;</span>
@@ -497,8 +497,8 @@ See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-da
     <span class="hljs-tag">&lt;<span class="hljs-name">rgPath</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"//supplementalData/unitPreferenceData/unitPreferences[@category='*'][@usage='*']/unitPreference[@regions='#']"</span> <span class="hljs-attr">draft</span>=<span class="hljs-string">"provisional"</span> /&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">rgScope</span>&gt;</span>
 </code></pre><p>The exact format of the path is provisional in CLDR 29, but as currently shown:</p><ul>
-<li>  An attribute value of <code>'*'</code> indicates that the path applies regardless of the value of the attribute.</li>
-<li>  Each path must have exactly one attribute whose value is marked here as <code>'#'</code>; in actual data items with this path, the corresponding value is a list of region codes. It is the region codes in this list that are compared with the region specified by the “rg” key to determine which data item to use for this path.</li>
+<li>An attribute value of <code>'*'</code> indicates that the path applies regardless of the value of the attribute.</li>
+<li>Each path must have exactly one attribute whose value is marked here as <code>'#'</code>; in actual data items with this path, the corresponding value is a list of region codes. It is the region codes in this list that are compared with the region specified by the “rg” key to determine which data item to use for this path.</li>
 </ul><h2 id="3-supplemental-language-data">3 <a name="Supplemental_Language_Data" href="#Supplemental_Language_Data">Supplemental Language Data</a></h2><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">languageData</span> ( <span class="hljs-keyword">language</span>* ) &gt;</span>
 <span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">language</span> <span class="hljs-keyword">EMPTY</span> &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">language</span> <span class="hljs-keyword">type</span> <span class="hljs-keyword">NMTOKEN</span> <span class="hljs-keyword">#REQUIRED</span> &gt;</span>

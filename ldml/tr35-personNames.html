@@ -310,14 +310,14 @@
 </tbody></table><p>For the full header, summary, and status, see <a href="tr35.html">Part 1: Core</a>.</p><h3 id="summary"><em>Summary</em></h3><p>This document describes parts of an XML format (<em>vocabulary</em>) for the exchange of structured locale data. This format is used in the <a href="https://www.unicode.org/cldr/">Unicode Common Locale Data Repository</a>.</p><p>This is a partial document, describing only those parts of the LDML that are relevant for person names (name structure, formats, sorting). For the other parts of the LDML see the <a href="tr35.html">main LDML document</a> and the links above.</p><h3 id="status"><em>Status</em></h3><p><em>This is a draft document which may be updated, replaced, or superseded by other documents at any time. Publication does not imply endorsement by the Unicode Consortium. This is not a stable document; it is inappropriate to cite this document as other than a work in progress.</em></p><blockquote>
 <p><em><strong>A Unicode Technical Standard (UTS)</strong> is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS.</em></p>
 </blockquote><p><em>Please submit corrigenda and other comments with the CLDR bug reporting form [<a href="tr35.html#Bugs">Bugs</a>]. Related information that is useful in understanding this document is found in the <a href="tr35.html#References">References</a>. For the latest version of the Unicode Standard see [<a href="tr35.html#Unicode">Unicode</a>]. For a list of current Unicode Technical Reports see [<a href="tr35.html#Reports">Reports</a>]. For more information about versions of the Unicode Standard, see [<a href="tr35.html#Versions">Versions</a>].</em></p><h2 id="parts"><a name="Parts" href="#Parts">Parts</a></h2><p>The LDML specification is divided into the following parts:</p><ul>
-<li>  Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</li>
-<li>  Part 2: <a href="tr35-general.html#Contents">General</a> (display names &amp; transforms, etc.)</li>
-<li>  Part 3: <a href="tr35-numbers.html#Contents">Numbers</a> (number &amp; currency formatting)</li>
-<li>  Part 4: <a href="tr35-dates.html#Contents">Dates</a> (date, time, time zone formatting)</li>
-<li>  Part 5: <a href="tr35-collation.html#Contents">Collation</a> (sorting, searching, grouping)</li>
-<li>  Part 6: <a href="tr35-info.html#Contents">Supplemental</a> (supplemental data)</li>
-<li>  Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard mappings)</li>
-<li>  Part 8: <a href="tr35-personNames.html#Contents">Person Names</a> (person names)</li>
+<li>Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</li>
+<li>Part 2: <a href="tr35-general.html#Contents">General</a> (display names &amp; transforms, etc.)</li>
+<li>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a> (number &amp; currency formatting)</li>
+<li>Part 4: <a href="tr35-dates.html#Contents">Dates</a> (date, time, time zone formatting)</li>
+<li>Part 5: <a href="tr35-collation.html#Contents">Collation</a> (sorting, searching, grouping)</li>
+<li>Part 6: <a href="tr35-info.html#Contents">Supplemental</a> (supplemental data)</li>
+<li>Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard mappings)</li>
+<li>Part 8: <a href="tr35-personNames.html#Contents">Person Names</a> (person names)</li>
 </ul><h2 id="contents-of-part-8-person-names"><a name="Contents" href="#Contents">Contents of Part 8, Person Names</a></h2><ul>
 <li>1 <a href="#CLDRPersonNames">CLDR Person Names</a><ul>
 <li>1.1 <a href="#Introduction">Introduction</a><ul>
@@ -440,7 +440,7 @@
 </tr>
 </tbody></table>
 <ul>
-<li>Parsing out the other components of a name in a string, such as surname prefixes (<a href="https://en.wikipedia.org/wiki/Tussenvoegsel">Tussenvoegsel</a> in Dutch). </li>
+<li>Parsing out the other components of a name in a string, such as surname prefixes (<a href="https://en.wikipedia.org/wiki/Tussenvoegsel">Tussenvoegsel</a> in Dutch).</li>
 </ul>
 </li>
 </ul><h3 id="12-api-implementation">1.2 <a name="APIImplementation" href="#APIImplementation">API Implementation</a></h3><p>A Tech Preview API for formatting personal names is included in ICU. The implementation can be found at  <a href="https://github.com/unicode-org/icu/blob/main/icu4j/main/classes/core/src/com/ibm/icu/text/PersonNameFormatter.java">PersonNameFormatter.java</a>.</p><h3 id="13-person-name-formatting-overview">1.3 <a name="PersonNameFormattingOverview" href="#PersonNameFormattingOverview">Person Name Formatting Overview</a></h3><p>Logically, the model used for applying the CLDR data is the following:</p><p><img src="images/personNamesFormattingModel.png" alt="diagram showing relationship of components involved in person name formatting"></p><p>Conceptually, CLDR person name formatting depends on data supplied by a PersonName Data Interface. That could be a very thin interface that simply accesses a database record, or it could be a more sophisticated interface that can modify the raw data before presenting it to be formatted. For example, based on the formatting locale a PersonName data interface could transliterate names that are in another script, or supply equivalent titles in different languages.</p><p>The specification below will talk about a “PersonName object” as an entity that is logically accessed via such an interface. If multiple formatted names are needed, such as in different scripts or with alternate names, or pronunciations (eg kana), the presumption is that those are logically separate PersonName objects. See [<a href="#3-person-name-object">Person Name Object</a>]. </p><p>The following summarizes the name data supplied via the PersonName Data Interface:</p><ul>
@@ -746,7 +746,7 @@
 </tbody></table><p>Some other examples:</p><ul>
 <li>British name: <em>John Ronald Reuel Tolkien</em>: <code>given</code> name is "John", <code>given2</code> name would be  "Ronald Reuel", and the <code>surame</code> is "Tolkien".</li>
 <li>Dutch name: <em>Anneliese Louise van der Pol</em>: <code>given</code> name: "Anneliese", <code>given2</code> name: "Louise", <code>surname</code>: "van der Pol"<ul>
-<li>Also surname-prefix: “van der”, surname-core: “Pol” — see below.    </li>
+<li>Also surname-prefix: “van der”, surname-core: “Pol” — see below.</li>
 </ul>
 </li>
 <li>French name: “Jean-Louis Trintignant” would <em>not</em> be Jean (<code>given</code>) Louis (<code>given2</code>) Trintignant (<code>surname</code>), since “Louis” wouldn’t be discarded when formatting. Instead it would be Jean-Louis (<code>given</code>) Trintignant (<code>surname</code>)</li>
@@ -1060,17 +1060,17 @@
 <li>If a locale requires spaces between words, the normal patterns for the formatting locale are used. On Wikipedia, for example, note the space within the Japanese name on pages from English and Korean (an ideographic space is used here for emphasis).</li>
 </ol><ul>
 <li>“​​<a href="https://en.wikipedia.org/wiki/Hayao_Miyazaki">Hayao Miyazaki (宮崎　駿, Miyazaki Hayao</a>…” or </li>
-<li>“<a href="https://ko.wikipedia.org/wiki/%EB%AF%B8%EC%95%BC%EC%9E%90%ED%82%A4_%ED%95%98%EC%95%BC%EC%98%A4">미야자키　하야오(일본어: 宮﨑　駿 Miyazaki Hayao</a>…”. </li>
+<li>“<a href="https://ko.wikipedia.org/wiki/%EB%AF%B8%EC%95%BC%EC%9E%90%ED%82%A4_%ED%95%98%EC%95%BC%EC%98%A4">미야자키　하야오(일본어: 宮﨑　駿 Miyazaki Hayao</a>…”.</li>
 </ul><ol start="2">
 <li><p>If a locale <strong>doesn’t</strong> require spaces between words, there are two cases, based on whether the foreign name is written in the locale’s script, or the foreign name is left in its native script. In both cases, patterns from the <strong>locale of the name</strong> are used. For example, the formatting locale might be Japanese, and the locale of the PersonName object might be de_CH, German (Switzerland), such as Albert Einstein.</p>
 <ol>
 <li><strong>The foreign name is written in the formatting locale’s script.</strong> In that case, the <strong>foreignSpaceReplacement</strong> is substituted for each space in the patterns from the <em>locale of the name</em>. Here are examples for Albert Einstein in Japanese and Chinese:<ul>
 <li><a href="https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%83%99%E3%83%AB%E3%83%88%E3%83%BB%E3%82%A2%E3%82%A4%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3">アルベルト・アインシュタイン</a> </li>
-<li><a href="https://zh.wikipedia.org/wiki/%E9%98%BF%E5%B0%94%E4%BC%AF%E7%89%B9%C2%B7%E7%88%B1%E5%9B%A0%E6%96%AF%E5%9D%A6">阿尔伯特·爱因斯坦</a> </li>
+<li><a href="https://zh.wikipedia.org/wiki/%E9%98%BF%E5%B0%94%E4%BC%AF%E7%89%B9%C2%B7%E7%88%B1%E5%9B%A0%E6%96%AF%E5%9D%A6">阿尔伯特·爱因斯坦</a></li>
 </ul>
 </li>
 <li><strong>The foreign name is written in a different script.</strong> In that case, the patterns from the <strong>locale of the name</strong> are used as is.<ul>
-<li><a href="https://de.wikipedia.org/wiki/Albert_Einstein">Albert Einstein</a> </li>
+<li><a href="https://de.wikipedia.org/wiki/Albert_Einstein">Albert Einstein</a></li>
 </ul>
 </li>
 </ol>
@@ -1251,5 +1251,5 @@ For example, consider where the formatting locale is Thai, and the name is in En
 <li>Erik Martin van der Poel: {given2-initial} producing “V” by default, but might produce “vdP” or P in other languages.</li>
 <li>A field containing multiple words might not actually initialize all of them, such as in “Mohammed bin Ali bin Osman” (“MAO”).</li>
 <li>John Ronald Reuel Tolkien as “J.R.R. Tolkien” from { given: “John”, given2: “Ronald Reuel”, surname: “Tolkien” }</li>
-<li>The short version of "Son Heung-min" is "H. Son" and not "H. M. Son" or the like. Korean given-names have hyphens and the part after the hyphen is lower-case. </li>
+<li>The short version of "Son Heung-min" is "H. Son" and not "H. M. Son" or the like. Korean given-names have hyphens and the part after the hyphen is lower-case.</li>
 </ul><hr><p>Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode <a href="https://www.unicode.org/copyright.html">Terms of Use</a> apply.</p><p>Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.</p></div><script>anchors.add('h1, h2, h3, h4, h5, h6, caption');</script></body></html>

@@ -388,7 +388,7 @@ The alphabetic codes are only provided where different from the type. For exampl
 
 Where there is no corresponding code, sometimes private use codes are used, such as the numeric code for XK.
 
-The currencyCodes are mappings from three letter currency codes to numeric values (ISO 4217 [Current currency & funds code list](https://www.currency-iso.org/en/home/tables/table-a1.html)). The mapping currently covers only current codes and does not include historic currencies. For example:
+The currencyCodes are mappings from three letter currency codes to numeric values (ISO 4217, see [Current currency & funds code list](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=maintenance-agency)). The mapping currently covers only current codes and does not include historic currencies. For example:
 
 ```xml
 <currencyCodes type="AED" numeric="784" />

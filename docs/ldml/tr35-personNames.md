@@ -134,7 +134,7 @@ A Tech Preview API for formatting personal names is included in ICU. The impleme
 
 Logically, the model used for applying the CLDR data is the following:
 
-![diagram showing relationship of components involved in person name formatting](images/personNamesFormattingModel.png)
+![diagram showing relationship of components involved in person name formatting](images/personNamesFormatModel.png)
 
 Conceptually, CLDR person name formatting depends on data supplied by a PersonName Data Interface. That could be a very thin interface that simply accesses a database record, or it could be a more sophisticated interface that can modify the raw data before presenting it to be formatted. For example, based on the formatting locale a PersonName data interface could transliterate names that are in another script, or supply equivalent titles in different languages.
 

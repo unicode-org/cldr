@@ -67,7 +67,7 @@ The LDML specification is divided into the following parts:
       * 4.5.1.2 [Variable periods](#Variable_periods)
       * 4.5.1.3 [Parsing Day Periods](#Parsing_Day_Periods)
 * 5 [Time Zone Names](#Time_Zone_Names)
-  * Table: [<timeZoneNames> Elements Used for Fallback](#timeZoneNames_Elements_Used_for_Fallback)
+  * Table: [timeZoneNames Elements Used for Fallback](#timeZoneNames_Elements_Used_for_Fallback)
   * 5.1 [Metazone Names](#Metazone_Names)
 * 6 [Supplemental Time Zone Data](#Supplemental_Time_Zone_Data)
   * 6.1 [Metazones](#Metazones)
@@ -1378,7 +1378,7 @@ For more information, see [[Data Formats](tr35.md#DataFormats)].
 
 The following subelements of `<timeZoneNames>` are used to control the fallback process described in [Using Time Zone Names](#Using_Time_Zone_Names).
 
-###### Table: <a name="timeZoneNames_Elements_Used_for_Fallback" href="#timeZoneNames_Elements_Used_for_Fallback">&lt;timeZoneNames&gt; Elements Used for Fallback</a>
+###### Table: <a name="timeZoneNames_Elements_Used_for_Fallback" href="#timeZoneNames_Elements_Used_for_Fallback">timeZoneNames Elements Used for Fallback</a>
 
 <table><tbody>
 <tr><th>Element Name</th><th>Data Examples</th><th>Results/Comment</th></tr>

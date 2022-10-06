@@ -623,7 +623,7 @@ public class DisplayAndInputProcessor {
         sorted.removeAll(toRemove);
     }
 
-    private String displayUnicodeSet(String value) {
+    public static String displayUnicodeSet(String value) {
         if (value.startsWith("[") && value.endsWith("]")) {
             value = value.substring(1, value.length() - 1);
         }
@@ -860,7 +860,7 @@ public class DisplayAndInputProcessor {
         return builder.toString();
     }
 
-    private String replace(Pattern pattern, String value, String replacement) {
+    public static String replace(Pattern pattern, String value, String replacement) {
         String value2 = pattern.matcher(value).replaceAll(replacement);
         if (DEBUG_DAIP && !value.equals(value2)) {
             System.out.println("\n" + value + " => " + value2);

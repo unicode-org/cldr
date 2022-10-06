@@ -83,8 +83,8 @@ import com.ibm.icu.text.PluralRules.SampleType;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.SimpleFormatter;
 import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.TimeZone;
@@ -430,7 +430,14 @@ public class ExampleGenerator {
          * expect to call functions like parts.addRelative which throw exceptions if parts is frozen.
          */
         XPathParts parts = XPathParts.getFrozenInstance(xpath).cloneAsThawed();
-        if (parts.contains("dateRangePattern")) { // {0} - {1}
+        // TODO replace the parts.contains()
+        String element1 = parts.getElement(1);
+        String element2 = parts.getElement(2);
+
+        if (element2.equals("exemplarCharacters") || element2.equals("parseLenients")) {
+            //ldml/characters/exemplarCharacters...
+            result = handleExemplarCharacters(getCldrFile(), xpath, value);
+        } else if (parts.contains("dateRangePattern")) { // {0} - {1}
             result = handleDateRangePattern(value);
         } else if (parts.contains("timeZoneNames")) {
             result = handleTimeZoneName(parts, value);
@@ -499,6 +506,33 @@ public class ExampleGenerator {
             result = finalizeBackground(result);
         }
         return result;
+    }
+
+    private static String handleExemplarCharacters(CLDRFile cldrFile, String xpath, String value) {
+        String winningValue = cldrFile.getWinningPath(xpath);
+        if (value.equals(winningValue)) {
+            return null;
+        }
+        return handleExemplarCharacters(value, winningValue);
+    }
+
+    public static String handleExemplarCharacters(String currentValue, String winningValue) {
+        UnicodeSet winningSet = new UnicodeSet(winningValue);
+        UnicodeSet currentSet = new UnicodeSet(currentValue);
+        UnicodeSet currentMinusWinning = new UnicodeSet(currentSet).removeAll(winningSet);
+        UnicodeSet winningMinusCurrent = new UnicodeSet(winningSet).removeAll(currentSet);
+        List<String> examples = new ArrayList<>();
+        if (!currentMinusWinning.isEmpty()) {
+            examples.add(exampleStart + "➕ "
+                + DisplayAndInputProcessor.displayUnicodeSet(currentMinusWinning.toPattern(false))
+                + exampleEnd);
+        }
+        if (!winningMinusCurrent.isEmpty()) {
+            examples.add(exampleStart + "➖ "
+                + DisplayAndInputProcessor.displayUnicodeSet(winningMinusCurrent.toPattern(false))
+                + exampleEnd);
+        }
+        return formatExampleList(examples);
     }
 
     /**
@@ -1597,11 +1631,11 @@ public class ExampleGenerator {
         return resultItem;
     }
 
-    private String addExampleResult(String resultItem, String resultToAddTo) {
+    private static String addExampleResult(String resultItem, String resultToAddTo) {
         return addExampleResult(resultItem, resultToAddTo, false);
     }
 
-    private String addExampleResult(String resultItem, String resultToAddTo, boolean showContexts) {
+    private static String addExampleResult(String resultItem, String resultToAddTo, boolean showContexts) {
         if (!showContexts) {
             if (resultToAddTo.length() != 0) {
                 resultToAddTo += exampleSeparatorSymbol;
@@ -1898,7 +1932,7 @@ public class ExampleGenerator {
         double sampleAmount = 1295.00;
         example = addExampleResult(formatNumber(df, sampleAmount), example, showContexts);
         example = addExampleResult(formatNumber(df, -sampleAmount), example, showContexts);
-        
+
         if (showContexts && !altAlpha && countValue == null) {
             // If this example is not for alt="alphaNextToNumber", then if the currency symbol
             // above has letters (strong dir) add another example with non-letter symbol
@@ -2209,7 +2243,7 @@ public class ExampleGenerator {
      * @param examples
      * @return
      */
-    private String formatExampleList(Collection<String> examples) {
+    private static String formatExampleList(Collection<String> examples) {
         if (examples == null || examples.isEmpty()) {
             return null;
         }
@@ -2327,29 +2361,29 @@ public class ExampleGenerator {
             return input;
         }
         String coreString =
-                TransliteratorUtilities.toHTML.transliterate(input)
-                .replace(backgroundStartSymbol + backgroundEndSymbol, "")
-                // remove null runs
-                .replace(backgroundEndSymbol + backgroundStartSymbol, "")
-                // remove null runs
-                .replace(backgroundStartSymbol, backgroundStart)
-                .replace(backgroundEndSymbol, backgroundEnd)
-                .replace(backgroundAutoStartSymbol, backgroundAutoStart)
-                .replace(backgroundAutoEndSymbol, backgroundAutoEnd)
-                .replace(exampleSeparatorSymbol, exampleEnd + exampleStart)
-                .replace(exampleStartAutoSymbol, exampleStartAuto)
-                .replace(exampleStartRTLSymbol, exampleStartRTL)
-                .replace(exampleStartHeaderSymbol, exampleStartHeader)
-                .replace(exampleEndSymbol, exampleEnd)
-                .replace(startItalicSymbol, startItalic)
-                .replace(endItalicSymbol, endItalic)
-                .replace(startSupSymbol, startSup)
-                .replace(endSupSymbol, endSup)
-                ;
+            TransliteratorUtilities.toHTML.transliterate(input)
+            .replace(backgroundStartSymbol + backgroundEndSymbol, "")
+            // remove null runs
+            .replace(backgroundEndSymbol + backgroundStartSymbol, "")
+            // remove null runs
+            .replace(backgroundStartSymbol, backgroundStart)
+            .replace(backgroundEndSymbol, backgroundEnd)
+            .replace(backgroundAutoStartSymbol, backgroundAutoStart)
+            .replace(backgroundAutoEndSymbol, backgroundAutoEnd)
+            .replace(exampleSeparatorSymbol, exampleEnd + exampleStart)
+            .replace(exampleStartAutoSymbol, exampleStartAuto)
+            .replace(exampleStartRTLSymbol, exampleStartRTL)
+            .replace(exampleStartHeaderSymbol, exampleStartHeader)
+            .replace(exampleEndSymbol, exampleEnd)
+            .replace(startItalicSymbol, startItalic)
+            .replace(endItalicSymbol, endItalic)
+            .replace(startSupSymbol, startSup)
+            .replace(endSupSymbol, endSup)
+            ;
         // If we are not showing context, we use exampleSeparatorSymbol between examples,
         // and then need to add the initial exampleStart and final exampleEnd.
         return (input.indexOf(exampleStartAutoSymbol) >= 0)? coreString:
-                exampleStart + coreString + exampleEnd;
+            exampleStart + coreString + exampleEnd;
     }
 
     private String invertBackground(String input) {
@@ -2499,10 +2533,10 @@ public class ExampleGenerator {
         }
         if (internal) {
             return "〖"
-                    + exampleHtml
-                        .replace(backgroundStartSymbol, "❬")
-                        .replace(backgroundEndSymbol, "❭")
-                    + "〗";
+                + exampleHtml
+                .replace(backgroundStartSymbol, "❬")
+                .replace(backgroundEndSymbol, "❭")
+                + "〗";
         }
         int startIndex = exampleHtml.indexOf(exampleStartHeader);
         if (startIndex >= 0) {
@@ -2516,11 +2550,11 @@ public class ExampleGenerator {
             }
         }
         return exampleHtml
-                .replace("<div class='cldr_example'>", "〖")
-                .replace("<div class='cldr_example_auto' dir='auto'>", "【")
-                .replace("<div class='cldr_example_rtl' dir='rtl'>", "【⃪")
-                .replace("</div>", "〗")
-                .replace("<span class='cldr_substituted'>", "❬")
-                .replace("</span>", "❭");
+            .replace("<div class='cldr_example'>", "〖")
+            .replace("<div class='cldr_example_auto' dir='auto'>", "【")
+            .replace("<div class='cldr_example_rtl' dir='rtl'>", "【⃪")
+            .replace("</div>", "〗")
+            .replace("<span class='cldr_substituted'>", "❬")
+            .replace("</span>", "❭");
     }
 }

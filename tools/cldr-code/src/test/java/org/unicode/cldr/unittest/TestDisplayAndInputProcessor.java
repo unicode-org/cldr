@@ -2,13 +2,19 @@ package org.unicode.cldr.unittest;
 
 import java.util.Set;
 
+import org.unicode.cldr.test.CheckExemplars;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.DisplayAndInputProcessor.PathSpaceType;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.UnicodeSetUtils.FlatUnicodeFormatter;
 
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.UnicodeSet;
@@ -231,7 +237,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         while (usi.next()) {
             if (usi.codepoint == MODIFIER_LETTER_APOSTROPHE
                 || (usi.codepoint == UnicodeSetIterator.IS_STRING && usi
-                    .getString().indexOf(MODIFIER_LETTER_APOSTROPHE) >= 0)) {
+                .getString().indexOf(MODIFIER_LETTER_APOSTROPHE) >= 0)) {
                 return true;
             }
         }
@@ -294,9 +300,9 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             "𞤑𞤭𞤶𞤮𞥅𞤪𞤫 𞤖𞤢𞤱𞤪𞤭𞤼𞤵𞤲"+DisplayAndInputProcessor.ADLAM_NASALIZATION+"𞤣𞤫 𞤖𞤭𞥅𞤪𞤲𞤢𞥄𞤲"
                 +DisplayAndInputProcessor.ADLAM_NASALIZATION+"𞤺𞤫 𞤘𞤪𞤭𞤲𞤤𞤢𞤲𞤣",
 
-            xpath_a, // no change
-            "'Something' ‘Else’",
-            "‘Something’ ‘Else’" // smart quotes
+                xpath_a, // no change
+                "'Something' ‘Else’",
+                "‘Something’ ‘Else’" // smart quotes
         };
         for (int i=0; i<TEST_DATA.length; i+= 3) {
             final String xpath = TEST_DATA[i+0];
@@ -410,14 +416,14 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
 +     * 20 20
      */
     public void TestWhitespaceNormalization() {
-       DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish(), false);
-       PathSpaceData[] a = PathSpaceData.getArray();
-       for (int i = 0; i < a.length; i++) {
-           PathSpaceType pst = PathSpaceType.get(a[i].xpath);
-           assertEquals("Path has expected type for i = " + i, a[i].pst, pst);
-           String val = daip.processInput(a[i].xpath, a[i].rawValue, null);
-           assertEquals("Whitespace is normalized for i = " + i, a[i].normValue, val);
-       }
+        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish(), false);
+        PathSpaceData[] a = PathSpaceData.getArray();
+        for (int i = 0; i < a.length; i++) {
+            PathSpaceType pst = PathSpaceType.get(a[i].xpath);
+            assertEquals("Path has expected type for i = " + i, a[i].pst, pst);
+            String val = daip.processInput(a[i].xpath, a[i].rawValue, null);
+            assertEquals("Whitespace is normalized for i = " + i, a[i].normValue, val);
+        }
     }
 
     private static class PathSpaceData {
@@ -510,51 +516,51 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
 
         PathSpaceAdjustData[] testItems = {
             new PathSpaceAdjustData("en",
-                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
-                    "h:mm a", "h:mm\u202Fa"),
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                "h:mm a", "h:mm\u202Fa"),
             new PathSpaceAdjustData("en",
-                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
-                    "h:mm aaaa", "h:mm aaaa"), // no adjustment for aaaa
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                "h:mm aaaa", "h:mm aaaa"), // no adjustment for aaaa
             new PathSpaceAdjustData("ja",
-                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"hm\"]",
-                    "a K:mm", "a K:mm"),
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"hm\"]",
+                "a K:mm", "a K:mm"),
             new PathSpaceAdjustData("en",
-                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"hm\"]/greatestDifference[@id=\"a\"]",
-                    "h:mm - h:mm a", "h:mm\u2009–\u2009h:mm\u202Fa"),
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"hm\"]/greatestDifference[@id=\"a\"]",
+                "h:mm - h:mm a", "h:mm\u2009–\u2009h:mm\u202Fa"),
             new PathSpaceAdjustData("en",
-                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatFallback",
-                    "{0} – {1}", "{0}\u2009–\u2009{1}"),
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatFallback",
+                "{0} – {1}", "{0}\u2009–\u2009{1}"),
             new PathSpaceAdjustData("uk",
-                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
-                    "d MMM y 'р'.", "d MMM y\u202F'р'."),
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                "d MMM y 'р'.", "d MMM y\u202F'р'."),
             new PathSpaceAdjustData("uk",
-                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yMMMd\"]",
-                    "d MMM y 'р'.", "d MMM y\u202F'р'."),
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yMMMd\"]",
+                "d MMM y 'р'.", "d MMM y\u202F'р'."),
             new PathSpaceAdjustData("uk",
-                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"yMMMd\"]/greatestDifference[@id=\"M\"]",
-                    "d MMM - d MMM y 'р'.", "d MMM – d MMM y\u202F'р'."),
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"yMMMd\"]/greatestDifference[@id=\"M\"]",
+                "d MMM - d MMM y 'р'.", "d MMM – d MMM y\u202F'р'."),
             new PathSpaceAdjustData("es",
-                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"narrow\"]/dayPeriod[@type=\"am\"]",
-                    "a. m.", "a.\u202Fm."),
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"narrow\"]/dayPeriod[@type=\"am\"]",
+                "a. m.", "a.\u202Fm."),
             new PathSpaceAdjustData("en",
-                    "//ldml/units/unitLength[@type=\"narrow\"]unit[@type=\"mass-gram\"]/unitPattern[@count=\"other\"]",
-                    "{0} g", "{0}\u202Fg"),
+                "//ldml/units/unitLength[@type=\"narrow\"]unit[@type=\"mass-gram\"]/unitPattern[@count=\"other\"]",
+                "{0} g", "{0}\u202Fg"),
             new PathSpaceAdjustData("en",
-                    "//ldml/units/unitLength[@type=\"narrow\"]unit[@type=\"mass-gram\"]/unitPattern[@count=\"other\"]",
-                    "g {0}", "g\u202F{0}"),
+                "//ldml/units/unitLength[@type=\"narrow\"]unit[@type=\"mass-gram\"]/unitPattern[@count=\"other\"]",
+                "g {0}", "g\u202F{0}"),
             new PathSpaceAdjustData("en",
-                    "//ldml/units/unitLength[@type=\"short\"]unit[@type=\"mass-gram\"]/unitPattern[@count=\"other\"]",
-                    "{0} g", "{0}\u00A0g"),
+                "//ldml/units/unitLength[@type=\"short\"]unit[@type=\"mass-gram\"]/unitPattern[@count=\"other\"]",
+                "{0} g", "{0}\u00A0g"),
             new PathSpaceAdjustData("en",
-                    "//ldml/units/unitLength[@type=\"short\"]unit[@type=\"mass-gram\"]/unitPattern[@count=\"other\"]",
-                    "g {0}", "g\u00A0{0}"),
+                "//ldml/units/unitLength[@type=\"short\"]unit[@type=\"mass-gram\"]/unitPattern[@count=\"other\"]",
+                "g {0}", "g\u00A0{0}"),
         };
 
-       for (PathSpaceAdjustData testItem: testItems) {
-           DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getCLDRFile(testItem.locale, true), false);
-           String normValue = daip.processInput(testItem.xpath, testItem.rawValue, null);
-           assertEquals("Whitespace adjustment for " + testItem.xpath, testItem.normValue, normValue);
-       }
+        for (PathSpaceAdjustData testItem: testItems) {
+            DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getCLDRFile(testItem.locale, true), false);
+            String normValue = daip.processInput(testItem.xpath, testItem.rawValue, null);
+            assertEquals("Whitespace adjustment for " + testItem.xpath, testItem.normValue, normValue);
+        }
     }
 
     /**
@@ -575,5 +581,114 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         assertEquals("U+0964 DEVANAGARI DANDA without spaces becomes pipe", normVal, val);
         val = daip.processInput(xpath, "a  ।  b", null);
         assertEquals("U+0964 DEVANAGARI DANDA with spaces becomes pipe", normVal, val);
+    }
+
+    public void TestFlatFormatExemplars() {
+        FlatUnicodeFormatter fuf = new FlatUnicodeFormatter().setLocale("no");
+        String[][] tests = {
+            // Unicode Set, expected format
+            {"[ĂÅ z]", "Ă z Å"}, // Ensure that order is according to the locale
+            {"[ÅÅ]", "Å Å"}, // Ensure it doesn't merge two different characters with same NFC, even though a collator is used
+            {"[\\u001E-!]", "❰1E❱ ❰1F❱ ❰SP❱ !"},
+            {"[a\\u0020]", "❰SP❱ a"},
+            {"[abcq]", "a b c q"},
+            {"[ab{cq}]", "a b cq"},
+            {"[{2️⃣} 🪷-🪺 🫃{🫃🏻}{🇿🇼} {🏴\\U000E0067\\U000E0062\\U000E0065\\U000E006E\\U000E0067\\U000E007F}]", "🇿🇼 🏴󠁧󠁢󠁥󠁮󠁧󠁿 🪷 🪸 🪹 🪺 🫃 🫃🏻 2️⃣"},
+        };
+        for (String[] row : tests) {
+            UnicodeSet test = new UnicodeSet(row[0]);
+            String expected = row[1];
+            check("basic", test, fuf, expected, null, null);
+        }
+
+        String[][] inverse = {
+            // formatted, expected Unicode Set
+            {"❰61❱➖❰65❱", "[a-e]"},
+        };
+        for (String[] row : inverse) {
+            UnicodeSet actual = FlatUnicodeFormatter.parse(row[0]);
+            UnicodeSet expected = new UnicodeSet(row[1]);
+            assertEquals("Format to UnicodeSet" + row[0], expected, actual);
+        }
+
+
+        // Expected syntax errors
+        String[][] errors = {
+            {"ab➖c", "Must have exactly one character before '➖': «ab➖❌c»"},
+            {"❰SP", "'❰' without closing '❱': «❰❌SP»"},
+            {"SP❱", "'❱' not after '❰': «SP❱❌»"},
+            {"❰SPP❱", "'❰name❱' name not recognized: «❰❌SPP❱»"},
+            {"❰110000❱", "Illegal codepoint number: «❰❌110000❱»"},
+            {"❰a$c❱", "'❰…❱' contains invalid name or hex number: «❰❌a$c❱»"},
+        };
+        for (String[] row : errors) {
+            String toParse = row[0];
+            String expected = row[1];
+            String actual = null;
+            try {
+                FlatUnicodeFormatter.parse(toParse);
+            } catch (Exception e) {
+                actual = e.getMessage();
+            }
+            assertEquals("Expected error in “" + toParse + "”", expected, actual);
+        }
+    }
+
+    public void TestFlatFormatLocaleExemplars() {
+        FlatUnicodeFormatter fuf = new FlatUnicodeFormatter();
+        final Set<String> locales;
+        switch (getInclusion()) {
+        case 0:
+            locales = ImmutableSet.of("en", "sv", "ar", "hu");
+            break;
+        case 1: case 2: case 3: case 4: case 5:
+            locales = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr, ImmutableSet.of(Level.MODERN));
+            break;
+        default:
+            locales = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr);
+            break;
+        }
+
+        for (String locale : locales) {
+            CLDRConfig CONFIG = CLDRConfig.getInstance();
+            Factory factory = CONFIG.getFullCldrFactory();
+            CLDRFile cldrFile = factory.make(locale, true);
+            fuf.setLocale(locale);
+            DisplayAndInputProcessor daip = new DisplayAndInputProcessor(cldrFile);
+            for (ExemplarType type : ExemplarType.values()) {
+                UnicodeSet exemplars = cldrFile.getRawExemplarSet(type, null);
+                if (exemplars != null) {
+                    check(locale + "\t" + type, exemplars, fuf, null, daip, type);
+                }
+            }
+        }
+    }
+
+    private String check(String message, UnicodeSet original, FlatUnicodeFormatter fuf, String expected, DisplayAndInputProcessor daip, ExemplarType type) {
+        String formatted = fuf.apply(original);
+        if (expected != null) {
+            assertEquals(message, expected, formatted);
+        }
+        // try reversal
+        UnicodeSet roundTrip;
+        try {
+            roundTrip = FlatUnicodeFormatter.parse(formatted);
+        } catch (Exception e) {
+            errln(e.getMessage());
+            e.printStackTrace();
+            return "ERROR";
+        }
+        if (!assertEquals(message, original.toPattern(false), roundTrip.toPattern(false))) {
+            warnln("in original, not round-trip" + new UnicodeSet(original).removeAll(roundTrip).toPattern(false));
+            warnln("in round-trip, not original" + new UnicodeSet(roundTrip).removeAll(original).toPattern(false));
+        }
+        if (isVerbose() && daip != null) {
+            String oldFormatted =
+                DisplayAndInputProcessor.getCleanedUnicodeSet(
+                    original, daip.getPrettyPrinter(), CheckExemplars.ExemplarType.from(type));
+            logln("  FORMATTED︰OLD︰" + DisplayAndInputProcessor.displayUnicodeSet(oldFormatted));
+            logln("  FORMATTED︰NEW︰" + formatted);
+        }
+        return formatted;
     }
 }

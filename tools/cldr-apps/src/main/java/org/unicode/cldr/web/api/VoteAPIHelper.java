@@ -319,7 +319,7 @@ public class VoteAPIHelper {
             try {
                 final String origValue = request.value;
                 final Exception[] exceptionList = new Exception[1];
-                final String val = processValue(locale, xp, exceptionList, origValue);
+                final String val = processValue(locale, xp, exceptionList, origValue, stf);
                 final List<CheckStatus> result = new ArrayList<>();
                 final TestResultBundle cc = stf.getTestResult(locale, options);
                 runTests(mySession, r, locale, sm, cc, xp, val, result);
@@ -379,10 +379,11 @@ public class VoteAPIHelper {
         }
     }
 
-    private static String processValue(CLDRLocale locale, String xp, Exception[] exceptionList, final String origValue) {
+    private static String processValue(CLDRLocale locale, String xp, Exception[] exceptionList, final String origValue, STFactory stf) {
         String val;
         if (origValue != null) {
             final DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale, true);
+            daip.enableInheritanceReplacement(stf.make(locale.getBaseName(), true, true));
             val = daip.processInput(xp, origValue, exceptionList);
         } else {
             val = null;

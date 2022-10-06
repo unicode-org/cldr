@@ -5,17 +5,11 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.GrammarInfo;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
-import org.unicode.cldr.util.PatternCache;
-import org.unicode.cldr.util.UnitConverter;
 import org.unicode.cldr.util.UnitConverter.UnitId;
-import org.unicode.cldr.util.UnitPathType;
-import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.text.SimpleFormatter;
 import com.ibm.icu.text.UnicodeSet;
@@ -126,9 +120,11 @@ public class CheckUnits extends CheckCLDR {
                         String composedPattern = unitId.toString(cldrFile, width, count, caseVariant, null, false);
                         if (composedPattern != null && !explicitPattern.equals(composedPattern)) {
                             unitId.toString(cldrFile, width, count, caseVariant, null, false); // for debugging
+                            final String MESSAGE = "Mismatched component: «{0}» produces «{1}», but the explicit translation is «{2}»." +
+                                " See " + CLDRURLS.COMPOUND_UNITS_HELP;
                             result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
                                 .setSubtype(Subtype.mismatchedUnitComponent)
-                                .setMessage("Mismatched component: «{0}» produces «{1}», but the explicit translation is «{2}». See http://cldr.unicode.org/translation/units-1/units#TOC-Compound-Units", value, composedPattern, explicitPattern));
+                                .setMessage(MESSAGE, value, composedPattern, explicitPattern));
                         }
                     }
                 }

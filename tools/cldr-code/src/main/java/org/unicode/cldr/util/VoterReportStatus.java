@@ -87,7 +87,6 @@ public abstract class VoterReportStatus<T> {
      * @param l locale
      * @param r which report
      * @param userList set of users
-     * @param status the source
      * @param res which
      * @return vote statistics for each acceptability level
      */

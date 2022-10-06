@@ -24,6 +24,9 @@ import java.util.TreeSet;
 
 import javax.json.bind.annotation.JsonbProperty;
 
+import com.ibm.icu.dev.util.ElapsedTimer;
+import com.ibm.icu.lang.UCharacter;
+
 import org.apache.commons.codec.digest.DigestUtils;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.json.JSONException;
@@ -42,9 +45,7 @@ import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoterInfoList;
 import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
-
-import com.ibm.icu.dev.util.ElapsedTimer;
-import com.ibm.icu.lang.UCharacter;
+import org.unicode.cldr.web.api.UserItem;
 
 /**
  * This class represents the list of all registered users. It contains an inner
@@ -597,6 +598,22 @@ public class UserRegistry {
             }
             return null;
         }
+
+        public UserItem toUserItem() {
+            UserItem u = new UserItem();
+            u.id = this.id;
+            u.level = getLevel().name();
+            u.name = this.name;
+            u.org = this.org;
+            u.email = this.email;
+            u.assignedLocales = this.getAuthorizedLocaleSet().toStringArray();
+            if (this.last_connect != null) {
+                u.lastLogin = this.last_connect.toInstant();
+            } else {
+                u.lastLogin = null;
+            }
+            return u;
+        }
     }
 
     public static void printPasswordLink(WebContext ctx, String email, String password) {
@@ -1008,6 +1025,40 @@ public class UserRegistry {
      * Public for tests
      */
     public UserRegistry() {
+    }
+
+    /**
+     * Get a list of user ids for a particular org, or all.
+     * Anonymous users are always skipped.
+     * @param org org to filter on, or null for all
+     * @param includeLocked if true, include LOCKED users, otherwise they are omitted
+     * @return
+     * @throws SQLException
+     */
+    public List<Integer> getUserIdList(String org, boolean includeLocked) throws SQLException {
+        // lifted from UserList.java
+        Connection conn = null;
+        PreparedStatement ps = null;
+        java.sql.ResultSet rs = null;
+        // List<UserList> users = new LinkedList<>();
+        // collect list of ids
+        List<Integer> ids = new LinkedList<>();
+        conn = DBUtils.getInstance().getAConnection();
+        ps = CookieSession.sm.reg.list(org, conn); // org = null to list all
+        rs = ps.executeQuery();
+        while (rs.next()) {
+            int level = rs.getInt(2);
+            if (level == UserRegistry.ANONYMOUS) {
+                continue;
+            }
+            if (!includeLocked
+                && level >= UserRegistry.LOCKED) {
+                continue;
+            }
+            int id = rs.getInt(1);
+            ids.add(id);
+        }
+        return ids;
     }
 
     // ------- special things for "list" mode:

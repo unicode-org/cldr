@@ -8,6 +8,7 @@ import MainMenu from "./views/MainMenu.vue";
 import TestPanel from "./views/TestPanel.vue";
 import TransferVotes from "./views/TransferVotes.vue";
 import UnknownPanel from "./views/UnknownPanel.vue";
+import UserList from "./views/UserList.vue";
 import VettingParticipation2 from "./views/VettingParticipation2.vue";
 import VettingSummary from "./views/VettingSummary.vue";
 import WaitingPanel from "./views/WaitingPanel.vue";
@@ -27,6 +28,7 @@ const specialToComponentMap = {
   retry_inplace: WaitingPanel, // Like retry, but do NOT redirect after resume.
   test_panel: TestPanel, // for testing
   transfervotes: TransferVotes,
+  users: UserList,
   vetting_participation2: VettingParticipation2,
   vsummary: VettingSummary,
   // If no match, end up here

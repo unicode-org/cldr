@@ -267,9 +267,9 @@ function getHtml(json) {
     html += getBulkActionMenu(json);
     html += getListHiderControls(json);
   }
+  html += getDownloadCsvForm(json);
   html += getTable(json);
   html += getInterestLocalesHtml(json);
-  html += getDownloadCsvForm(json);
   if (json.exception) {
     html += "<p><i>Failure: " + json.exception + "</i></p>\n";
   }
@@ -1252,17 +1252,6 @@ function getDownloadCsvForm(json) {
   if (isJustMe || !json.userPerms || !json.userPerms.canModifyUsers) {
     return "";
   }
-  // TODO: not jsp; see https://unicode-org.atlassian.net/browse/CLDR-14475
-  return (
-    "<hr />\n" +
-    "<form method='POST' action='DataExport.jsp'>\n" +
-    "  <input type='hidden' name='s' value='" +
-    cldrStatus.getSessionId() +
-    "' />\n" +
-    "  <input type='hidden' name='do' value='list' />\n" +
-    "  <input type='submit' class='csvDownload' value='Download .csv (including LOCKED)' />\n" +
-    "</form>\n"
-  );
 }
 
 function setOnClicks() {

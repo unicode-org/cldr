@@ -27,7 +27,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="en_AU" draft="unconfirmed">Austrālijas ēngliskan</language>
 			<language type="en_CA" draft="unconfirmed">Kanādas ēngliskan</language>
 			<language type="en_GB" draft="unconfirmed">brītiskan ēngliskan</language>
-			<language type="en_GB" alt="short" draft="unconfirmed">brītiskan ēngliskan</language>
+			<language type="en_GB" alt="short" draft="unconfirmed">↑↑↑</language>
 			<language type="en_US" draft="unconfirmed">amērikaniskan ēngliskan</language>
 			<language type="en_US" alt="short" draft="unconfirmed">APW ēngliskan</language>
 			<language type="es" draft="unconfirmed">špāniskan</language>
@@ -881,8 +881,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<pattern draft="unconfirmed">#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="zero" draft="unconfirmed">{0} {1}</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">{0} {1}</unitPattern>
+			<unitPattern count="zero" draft="unconfirmed">↑↑↑</unitPattern>
+			<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 			<unitPattern count="other" draft="unconfirmed">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
@@ -900,9 +900,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="EUR">
 				<displayName draft="unconfirmed">eurō</displayName>
-				<displayName count="zero" draft="unconfirmed">eurō</displayName>
-				<displayName count="one" draft="unconfirmed">eurō</displayName>
-				<displayName count="other" draft="unconfirmed">eurō</displayName>
+				<displayName count="zero" draft="unconfirmed">↑↑↑</displayName>
+				<displayName count="one" draft="unconfirmed">↑↑↑</displayName>
+				<displayName count="other" draft="unconfirmed">↑↑↑</displayName>
 			</currency>
 			<currency type="GBP">
 				<displayName draft="unconfirmed">punds sterlings</displayName>
@@ -936,7 +936,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="XXX">
 				<displayName draft="unconfirmed">niwaistā walūta</displayName>
-				<displayName count="zero" draft="unconfirmed">(niwaistā walūta)</displayName>
+				<displayName count="zero" draft="unconfirmed">↑↑↑</displayName>
 				<displayName count="one" draft="unconfirmed">(niwaistā walūtas aīnibi)</displayName>
 				<displayName count="other" draft="unconfirmed">(niwaistā walūta)</displayName>
 			</currency>

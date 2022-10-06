@@ -363,7 +363,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="rwk">↑↑↑</language>
 			<language type="sa">↑↑↑</language>
 			<language type="sad">↑↑↑</language>
-			<language type="sah">Yakut</language>
+			<language type="sah">↑↑↑</language>
 			<language type="saq">↑↑↑</language>
 			<language type="sat">↑↑↑</language>
 			<language type="sba">↑↑↑</language>
@@ -1725,7 +1725,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="midnight">mid</dayPeriod>
-							<dayPeriod type="am">a.m.</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
 							<dayPeriod type="noon">↑↑↑</dayPeriod>
 							<dayPeriod type="pm">pm</dayPeriod>
 							<dayPeriod type="morning1">mor</dayPeriod>
@@ -2369,7 +2369,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<availableFormats>
 						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
-						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="Ed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
@@ -2437,9 +2437,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="year-narrow">
 				<displayName>↑↑↑</displayName>
-				<relative type="-1">last yr</relative>
-				<relative type="0">this yr</relative>
-				<relative type="1">next yr</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} yr</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} yrs</relativeTimePattern>
@@ -2475,7 +2475,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="quarter-narrow">
-				<displayName>qtr</displayName>
+				<displayName>↑↑↑</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} qtr</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} qtrs</relativeTimePattern>
@@ -2514,10 +2514,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="month-narrow">
-				<displayName>mo</displayName>
-				<relative type="-1">last mo</relative>
-				<relative type="0">this mo</relative>
-				<relative type="1">next mo</relative>
+				<displayName>↑↑↑</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} mo</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} mos</relativeTimePattern>
@@ -2558,10 +2558,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relativePeriod>↑↑↑</relativePeriod>
 			</field>
 			<field type="week-narrow">
-				<displayName>wk</displayName>
-				<relative type="-1">last wk</relative>
-				<relative type="0">this wk</relative>
-				<relative type="1">next wk</relative>
+				<displayName>↑↑↑</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} wk</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} wks</relativeTimePattern>
@@ -2579,7 +2579,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>wk of mo</displayName>
 			</field>
 			<field type="weekOfMonth-narrow">
-				<displayName>wk of mo</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="day">
 				<displayName>↑↑↑</displayName>
@@ -2630,7 +2630,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>day of yr</displayName>
 			</field>
 			<field type="dayOfYear-narrow">
-				<displayName>day of yr</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="weekday">
 				<displayName>↑↑↑</displayName>
@@ -2639,7 +2639,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>day of wk</displayName>
 			</field>
 			<field type="weekday-narrow">
-				<displayName>day of wk</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="weekdayOfMonth">
 				<displayName>↑↑↑</displayName>
@@ -2648,7 +2648,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>wkday of mo</displayName>
 			</field>
 			<field type="weekdayOfMonth-narrow">
-				<displayName>wkday of mo</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="sun">
 				<relative type="-1">↑↑↑</relative>
@@ -2930,7 +2930,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>a.m./p.m.</displayName>
 			</field>
 			<field type="dayperiod-narrow">
-				<displayName>a.m./p.m.</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="hour">
 				<displayName>↑↑↑</displayName>
@@ -2990,7 +2990,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="minute-narrow">
-				<displayName>min</displayName>
+				<displayName>↑↑↑</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} min</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} mins</relativeTimePattern>
@@ -8656,17 +8656,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="volume-dessert-spoon">
 				<displayName>US dssp</displayName>
-				<unitPattern count="one">{0} US dssp</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} US dssp</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
 				<displayName>dssp</displayName>
-				<unitPattern count="one">{0} dssp</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} dssp</unitPattern>
 			</unit>
 			<unit type="volume-drop">
 				<displayName>drops</displayName>
-				<unitPattern count="one">{0} drops</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} drops</unitPattern>
 			</unit>
 			<unit type="volume-dram">
@@ -8686,7 +8686,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="volume-quart-imperial">
 				<displayName>qt</displayName>
-				<unitPattern count="one">{0} qt</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} qt</unitPattern>
 			</unit>
 			<coordinateUnit>
@@ -9772,13 +9772,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<listPattern type="or-narrow">
 			<listPatternPart type="start">↑↑↑</listPatternPart>
 			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">{0} or {1}</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
 			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="or-short">
 			<listPatternPart type="start">↑↑↑</listPatternPart>
 			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">{0} or {1}</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
 			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-narrow">
@@ -9936,7 +9936,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<styleName type="wdth" subtype="62.5" alt="compressed">extracompressed</styleName>
 		<styleName type="wdth" subtype="62.5" alt="narrow">extranarrow</styleName>
 		<styleName type="wdth" subtype="75">↑↑↑</styleName>
-		<styleName type="wdth" subtype="75" alt="compressed">compressed</styleName>
+		<styleName type="wdth" subtype="75" alt="compressed">↑↑↑</styleName>
 		<styleName type="wdth" subtype="75" alt="narrow">↑↑↑</styleName>
 		<styleName type="wdth" subtype="87.5">↑↑↑</styleName>
 		<styleName type="wdth" subtype="87.5" alt="compressed">↑↑↑</styleName>
@@ -9946,8 +9946,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<styleName type="wdth" subtype="112.5" alt="extended">↑↑↑</styleName>
 		<styleName type="wdth" subtype="112.5" alt="wide">↑↑↑</styleName>
 		<styleName type="wdth" subtype="125">↑↑↑</styleName>
-		<styleName type="wdth" subtype="125" alt="extended">extended</styleName>
-		<styleName type="wdth" subtype="125" alt="wide">wide</styleName>
+		<styleName type="wdth" subtype="125" alt="extended">↑↑↑</styleName>
+		<styleName type="wdth" subtype="125" alt="wide">↑↑↑</styleName>
 		<styleName type="wdth" subtype="150">extraexpanded</styleName>
 		<styleName type="wdth" subtype="150" alt="extended">extraextended</styleName>
 		<styleName type="wdth" subtype="150" alt="wide">extrawide</styleName>
@@ -9967,10 +9967,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<styleName type="wght" subtype="700">↑↑↑</styleName>
 		<styleName type="wght" subtype="800">extrabold</styleName>
 		<styleName type="wght" subtype="900">↑↑↑</styleName>
-		<styleName type="wght" subtype="900" alt="heavy">heavy</styleName>
+		<styleName type="wght" subtype="900" alt="heavy">↑↑↑</styleName>
 		<styleName type="wght" subtype="950">extrablack</styleName>
-		<styleName type="wght" subtype="950" alt="ultrablack">ultrablack</styleName>
-		<styleName type="wght" subtype="950" alt="ultraheavy">ultraheavy</styleName>
+		<styleName type="wght" subtype="950" alt="ultrablack">↑↑↑</styleName>
+		<styleName type="wght" subtype="950" alt="ultraheavy">↑↑↑</styleName>
 		<featureName type="afrc">↑↑↑</featureName>
 		<featureName type="cpsp">↑↑↑</featureName>
 		<featureName type="dlig">↑↑↑</featureName>
@@ -9985,7 +9985,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</typographicNames>
 	<personNames>
 		<nameOrderLocales order="givenFirst">↑↑↑</nameOrderLocales>
-		<nameOrderLocales order="surnameFirst">ja ko vi yue zh</nameOrderLocales>
+		<nameOrderLocales order="surnameFirst">↑↑↑</nameOrderLocales>
 		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>

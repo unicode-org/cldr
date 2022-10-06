@@ -995,7 +995,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMMd" draft="unconfirmed">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd" draft="unconfirmed">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd" draft="unconfirmed">d MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="one" draft="unconfirmed">'semana' W 'de' MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="one" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other" draft="unconfirmed">'semana' W 'de' MMMM</dateFormatItem>
 						<dateFormatItem id="ms" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y" draft="unconfirmed">y</dateFormatItem>
@@ -1008,7 +1008,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMM" draft="unconfirmed">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ" draft="unconfirmed">QQQ 'de' y</dateFormatItem>
 						<dateFormatItem id="yQQQQ" draft="unconfirmed">QQQQ y</dateFormatItem>
-						<dateFormatItem id="yw" count="one" draft="unconfirmed">'semana' w 'de' Y</dateFormatItem>
+						<dateFormatItem id="yw" count="one" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yw" count="other" draft="unconfirmed">'semana' w 'de' Y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
@@ -1405,7 +1405,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<pattern draft="unconfirmed">¤#,##0.00;(¤#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="unconfirmed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 			<unitPattern count="other" draft="unconfirmed">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
@@ -1414,7 +1414,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one" draft="unconfirmed">real brasilenyo</displayName>
 				<displayName count="other" draft="unconfirmed">reals brasilenyos</displayName>
 				<symbol draft="unconfirmed">R$</symbol>
-				<symbol alt="narrow" draft="unconfirmed">R$</symbol>
+				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName draft="unconfirmed">yuan chino</displayName>
@@ -1435,21 +1435,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one" draft="unconfirmed">libra britanica</displayName>
 				<displayName count="other" draft="unconfirmed">libras britanicas</displayName>
 				<symbol draft="unconfirmed">£</symbol>
-				<symbol alt="narrow" draft="unconfirmed">£</symbol>
+				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName draft="unconfirmed">rupia india</displayName>
 				<displayName count="one" draft="unconfirmed">rupia india</displayName>
 				<displayName count="other" draft="unconfirmed">rupias indias</displayName>
 				<symbol draft="unconfirmed">₹</symbol>
-				<symbol alt="narrow" draft="unconfirmed">₹</symbol>
+				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName draft="unconfirmed">yen chaponés</displayName>
 				<displayName count="one" draft="unconfirmed">yen chaponés</displayName>
 				<displayName count="other" draft="unconfirmed">yens chaponeses</displayName>
 				<symbol draft="unconfirmed">¥</symbol>
-				<symbol alt="narrow" draft="unconfirmed">¥</symbol>
+				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName draft="unconfirmed">ringgit de Malasia</displayName>
@@ -1475,7 +1475,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="THB">
 				<displayName draft="unconfirmed">baht tailandés</displayName>
-				<displayName count="one" draft="unconfirmed">baht tailandés</displayName>
+				<displayName count="one" draft="unconfirmed">↑↑↑</displayName>
 				<displayName count="other" draft="unconfirmed">↑↑↑</displayName>
 			</currency>
 			<currency type="USD">
@@ -1487,7 +1487,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="XXX">
 				<displayName draft="unconfirmed">moneda desconoixida</displayName>
-				<displayName count="one" draft="unconfirmed">(moneda desconoixida)</displayName>
+				<displayName count="one" draft="unconfirmed">↑↑↑</displayName>
 				<displayName count="other" draft="unconfirmed">(moneda desconoixida)</displayName>
 			</currency>
 		</currencies>
@@ -1528,7 +1528,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="angle-arc-minute">
 				<displayName draft="unconfirmed">minutos d’arco</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} minutos d’arco</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} minutos d’arco</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
@@ -1543,17 +1543,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="concentr-percent">
 				<displayName draft="unconfirmed">per cient</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} per cient</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} per cient</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
 				<displayName draft="unconfirmed">per mil</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} per mil</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} per mil</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
 				<displayName draft="unconfirmed">per miriada</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} per miriada</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} per miriada</unitPattern>
 			</unit>
 			<unit type="energy-joule">
@@ -1656,12 +1656,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="angle-arc-minute">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} arcmin</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} arcmin</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} arcsec</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} arcsec</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
@@ -1691,13 +1691,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="length-centimeter">
 				<displayName draft="unconfirmed">cm</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} cm</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} cm</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0}/cm</perUnitPattern>
 			</unit>
 			<unit type="mass-tonne">
 				<displayName draft="unconfirmed">tm</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} tm</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} tm</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
@@ -1764,7 +1764,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="length-centimeter">
 				<displayName draft="unconfirmed">cm</displayName>
-				<unitPattern count="one" draft="unconfirmed">{0} cm</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} cm</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">

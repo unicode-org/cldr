@@ -66,23 +66,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="year">
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} سال میں</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">{0} سالوں میں</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="year-short">
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} سال میں</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">{0} سالوں میں</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} سال پہلے</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">{0} سالوں پہلے</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="month">
-				<relative type="-1">گزشتہ ماہ</relative>
-				<relative type="0">اس ماہ</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
 				<relative type="1">اگلے ماہ</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} ماہ میں</relativeTimePattern>
@@ -105,10 +105,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="week">
 				<relative type="-1">گزشتہ ہفتہ</relative>
-				<relative type="0">اس ہفتہ</relative>
+				<relative type="0">↑↑↑</relative>
 				<relative type="1">اگلے ہفتہ</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} ہفتہ میں</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">{0} ہفتوں میں</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
@@ -131,7 +131,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="day-short">
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} دنوں میں</relativeTimePattern>
-					<relativeTimePattern count="other">{0} دنوں میں</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="day-narrow">
@@ -147,23 +147,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="tue">
 				<relative type="-1">پچھلے منگل</relative>
-				<relative type="0">اس منگل</relative>
-				<relative type="1">اگلے منگل</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 			</field>
 			<field type="wed">
 				<relative type="-1">پچھلے بدھ</relative>
-				<relative type="0">اس بدھ</relative>
-				<relative type="1">اگلے بدھ</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 			</field>
 			<field type="thu">
 				<relative type="-1">پچھلے جمعرات</relative>
-				<relative type="0">اس جمعرات</relative>
-				<relative type="1">اگلے جمعرات</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 			</field>
 			<field type="fri">
 				<relative type="-1">پچھلے جمعہ</relative>
-				<relative type="0">اس جمعہ</relative>
-				<relative type="1">اگلے جمعہ</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 			</field>
 			<field type="hour-short">
 				<relativeTime type="past">
@@ -217,7 +217,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<gmtFormat>GMT{0}</gmtFormat>
 			<regionFormat type="daylight">{0} دن کا وقت</regionFormat>
-			<regionFormat type="standard">{0} معیاری وقت</regionFormat>
+			<regionFormat type="standard">↑↑↑</regionFormat>
 			<zone type="America/Cambridge_Bay">
 				<exemplarCity>کیمبرج بے</exemplarCity>
 			</zone>
@@ -258,7 +258,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<generic>عرب ٹائم</generic>
 					<standard>عرب سٹینڈرڈ ٹائم</standard>
-					<daylight>عرب ڈے لائٹ ٹائم</daylight>
+					<daylight>↑↑↑</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
@@ -301,9 +301,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
-					<generic>برازیلیا ٹائم</generic>
+					<generic>↑↑↑</generic>
 					<standard>برازیلیا سٹینڈرڈ ٹائم</standard>
-					<daylight>برازیلیا سمر ٹائم</daylight>
+					<daylight>↑↑↑</daylight>
 				</long>
 			</metazone>
 			<metazone type="Chile">
@@ -315,7 +315,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Colombia">
 				<long>
-					<generic>کولمبیا ٹائم</generic>
+					<generic>↑↑↑</generic>
 					<standard>کولمبیا سٹینڈرڈ ٹائم</standard>
 					<daylight>کولمبیا سمر ٹائم</daylight>
 				</long>
@@ -335,8 +335,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Europe_Central">
 				<long>
 					<generic>وسطی یورپ کا وقت</generic>
-					<standard>وسطی یورپ کا معیاری وقت</standard>
-					<daylight>وسطی یورپ کا موسم گرما کا وقت</daylight>
+					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
 				</long>
 			</metazone>
 			<metazone type="Falkland">
@@ -387,14 +387,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<generic>ایران ٹائم</generic>
 					<standard>ایران سٹینڈرڈ ٹائم</standard>
-					<daylight>ایران ڈے لائٹ ٹائم</daylight>
+					<daylight>↑↑↑</daylight>
 				</long>
 			</metazone>
 			<metazone type="Israel">
 				<long>
 					<generic>اسرائیل ٹائم</generic>
 					<standard>اسرائیل سٹینڈرڈ ٹائم</standard>
-					<daylight>اسرائیل ڈے لائٹ ٹائم</daylight>
+					<daylight>↑↑↑</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
@@ -431,14 +431,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<generic>نیوزی لینڈ ٹائم</generic>
 					<standard>نیوزی لینڈ سٹینڈرڈ ٹائم</standard>
-					<daylight>نیوزی لینڈ ڈے لائٹ ٹائم</daylight>
+					<daylight>↑↑↑</daylight>
 				</long>
 			</metazone>
 			<metazone type="Noronha">
 				<long>
 					<generic>فرنانڈو ڈی نورنہا ٹائم</generic>
 					<standard>فرنانڈو ڈی نورنہا سٹینڈرڈ ٹائم</standard>
-					<daylight>فرنانڈو ڈی نورونہا سمر ٹائم</daylight>
+					<daylight>↑↑↑</daylight>
 				</long>
 			</metazone>
 			<metazone type="Pakistan">
@@ -542,9 +542,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">کیپ ورڈی اسکیوڈو</displayName>
 			</currency>
 			<currency type="ERN">
-				<displayName>اریٹیریائی ناکفا</displayName>
-				<displayName count="one">اریٹیریائی ناکفا</displayName>
-				<displayName count="other">اریٹیریائی ناکفا</displayName>
+				<displayName>↑↑↑</displayName>
+				<displayName count="one">↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
 			</currency>
 			<currency type="GBP">
 				<displayName>برطانوی پاونڈ سٹرلنگ</displayName>
@@ -557,7 +557,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">گھانی سیڈی</displayName>
 			</currency>
 			<currency type="PKR">
-				<displayName count="one">پاکستانی روپیہ</displayName>
+				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">پاکستانی روپے</displayName>
 				<symbol>PKR</symbol>
 			</currency>

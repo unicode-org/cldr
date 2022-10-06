@@ -71,7 +71,6 @@ import org.unicode.cldr.web.WebContext.HTMLDirection;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.Output;
 
 /**
  * Servlet implementation class SurveyAjax
@@ -406,7 +405,7 @@ public class SurveyAjax extends HttpServlet {
                             sendError(out, "Only Admin can access Admin Panel", ErrorCode.E_NO_PERMISSION);
                         }
                     } else if (what.equals(WHAT_SUBMIT)) {
-                        // TODO: obviated by VoteAPI
+                        // Note: a modernized replacement for this code exists in VoteAPI.java, waiting to be finished and used
                         mySession.userDidAction();
 
                         CLDRLocale locale = CLDRLocale.getInstance(loc);
@@ -437,6 +436,7 @@ public class SurveyAjax extends HttpServlet {
                                     if (DEBUG)
                                         System.err.println("val WAS " + escapeString(val));
                                     DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale, true);
+                                    daip.enableInheritanceReplacement(stf.make(loc, true, true));
                                     val = daip.processInput(xp, val, exceptionList);
                                     if (DEBUG)
                                         System.err.println("val IS " + escapeString(val));
@@ -446,18 +446,7 @@ public class SurveyAjax extends HttpServlet {
 
                                     uf = sm.getUserFile(mySession, locale);
                                     CLDRFile file = uf.cldrfile;
-                                    String checkval = val;
-                                    if (CldrUtility.INHERITANCE_MARKER.equals(val)) {
-                                        Output<String> localeWhereFound = new Output<>();
-                                        /*
-                                         * TODO: this looks dubious, see https://unicode.org/cldr/trac/ticket/11299
-                                         * temporarily for debugging, don't change checkval, but do call
-                                         * getBaileyValue in order to get localeWhereFound
-                                         */
-                                        // checkval = file.getBaileyValue(xp, null, localeWhereFound);
-                                        file.getBaileyValue(xp, null, localeWhereFound);
-                                    }
-                                    cc.check(xp, result, checkval);
+                                    cc.check(xp, result, val);
                                     dataEmpty = file.isEmpty();
                                 }
 
@@ -471,7 +460,6 @@ public class SurveyAjax extends HttpServlet {
                                             @Override
                                             public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
                                                 List<CheckStatus> result) {
-                                                // TODO Auto-generated method stub
                                                 return null;
                                             }
                                         })

@@ -21,9 +21,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="en_AU">ᠠᠥ᠋ᠰᠲ᠋ᠠᠷᠠᠯᠢᠢ᠎ᠠ ᠠᠨᠭᠭᠯᠢ</language>
 			<language type="en_CA">ᠻᠠᠨᠠᠳᠠ ᠠᠨᠭᠭᠯᠢ</language>
 			<language type="en_GB">ᠪᠷᠢᠲ᠋ᠠᠨᠢ ᠠᠨᠭᠭᠯᠢ</language>
-			<language type="en_GB" alt="short">ᠪᠷᠢᠲ᠋ᠠᠨᠢ ᠠᠨᠭᠭᠯᠢ</language>
+			<language type="en_GB" alt="short">↑↑↑</language>
 			<language type="en_US">ᠠᠮᠧᠷᠢᠺᠠ ᠠᠨᠭᠭᠯᠢ</language>
-			<language type="en_US" alt="short">ᠠᠮᠧᠷᠢᠺᠠ ᠠᠨᠭᠭᠯᠢ</language>
+			<language type="en_US" alt="short">↑↑↑</language>
 			<language type="es">ᠢᠰᠫᠠᠨᠢ</language>
 			<language type="es_419">ᠢᠰᠫᠠᠨᠢ (ᠯᠠᠠᠲ᠋ᠢᠨ ᠡᠠᠮᠸᠷᠢᠺᠠ)</language>
 			<language type="es_ES">ᠢᠰᠫᠠᠨᠢ (ᠢᠰᠫᠠᠨᠢ)</language>
@@ -69,7 +69,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ZZ">ᠳᠣᠳᠣᠷᠬᠠᠢ ᠥᠭᠡᠢ ᠪᠥᠰᠠ</territory>
 		</territories>
 		<types>
-			<type key="calendar" type="gregorian">ᠭᠸᠷᠸᠭᠣᠷᠢ   ᠢᠨ ᠬᠣᠸᠠᠩᠯᠢ</type>
+			<type key="calendar" type="gregorian">ᠭᠸᠷᠸᠭᠣᠷᠢ ᠢᠨ ᠬᠣᠸᠠᠩᠯᠢ</type>
 			<type key="collation" type="standard">ᠰᠲ᠋ᠠᠨ᠋ᠳᠠᠷᠳ᠋ ᠡᠷᠡᠮᠪᠡᠯᠡᠬᠥ ᠳᠠᠷᠠᠭᠠᠯᠠᠯ</type>
 			<type key="numbers" type="latn">ᠠᠷᠠᠪ ᠲᠣᠭ᠎ᠠ</type>
 			<type key="numbers" type="mong">ᠮᠣᠩᠭᠣᠯ ᠲᠣᠭ᠎ᠠ</type>
@@ -91,7 +91,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>y ᠤᠨ ᠣ MM ᠰᠠᠷ ᠠ ᠢᠢᠨ dd</pattern>
+							<pattern>y ᠤᠨ ᠣ MM ᠰᠠᠷ ᠠ ᠢᠢᠨ dd</pattern>
 							<datetimeSkeleton>yMMdd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
@@ -327,7 +327,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>y ᠋ᠣᠨ  ᠤMMMM᠎᠎  ᠤᠩ d</pattern>
+							<pattern>y ᠋ᠣᠨ ᠤMMMM᠎᠎ ᠤᠩ d</pattern>
 							<datetimeSkeleton>yMMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
@@ -389,7 +389,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>ᠰᠠᠷ ᠠ</displayName>
 			</field>
 			<field type="month-narrow">
-				<displayName>ᠰᠡᠷ  ᠠ</displayName>
+				<displayName>ᠰᠡᠷ ᠠ</displayName>
 			</field>
 			<field type="week">
 				<displayName>ᠳᠣᠯᠣᠭ᠎ᠠ ᠬᠣᠨᠣᠭ</displayName>
@@ -508,28 +508,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
-					<generic>ᠲᠥᠪ ᠡᠸᠣᠢᠷᠤᠫᠠ ᠢᠢᠨ ᠴᠠᠭ</generic>
-					<standard>ᠲᠥᠪ ᠡᠸᠣᠢᠷᠤᠫᠠ ᠢᠢᠨ ᠰᠲ᠋ᠠᠨ᠋ᠳᠠᠷᠳ᠋ ᠴᠠᠭ</standard>
-					<daylight>ᠲᠥᠪ ᠡᠸᠣᠢᠷᠤᠫᠠ  ᠢᠢᠨ  ᠵᠣᠨ ᠎᠎ᠤ ᠴᠠᠭ</daylight>
+					<generic>ᠲᠥᠪ ᠡᠸᠣᠢᠷᠤᠫᠠ ᠢᠢᠨ ᠴᠠᠭ</generic>
+					<standard>ᠲᠥᠪ ᠡᠸᠣᠢᠷᠤᠫᠠ ᠢᠢᠨ ᠰᠲ᠋ᠠᠨ᠋ᠳᠠᠷᠳ᠋ ᠴᠠᠭ</standard>
+					<daylight>ᠲᠥᠪ ᠡᠸᠣᠢᠷᠤᠫᠠ ᠢᠢᠨ ᠵᠣᠨ ᠎᠎ᠤ ᠴᠠᠭ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
-					<generic>ᠵᠡᠭᠦᠨ ᠡᠸᠣᠢᠷᠤᠫᠠ ᠢᠢᠨ ᠴᠠᠭ</generic>
-					<standard>ᠵᠡᠭᠦᠨ ᠡᠸᠣᠢᠷᠤᠫᠠ ᠢᠢᠨ ᠰᠲ᠋ᠠᠨ᠋ᠳᠠᠷᠳ᠋ ᠴᠠᠭ</standard>
-					<daylight>ᠵᠡᠭᠦᠨ ᠡᠸᠣᠢᠷᠤᠫᠠ  ᠢᠢᠨ  ᠵᠣᠨ ᠎᠎ᠤ ᠴᠠᠭ</daylight>
+					<generic>ᠵᠡᠭᠦᠨ ᠡᠸᠣᠢᠷᠤᠫᠠ ᠢᠢᠨ ᠴᠠᠭ</generic>
+					<standard>ᠵᠡᠭᠦᠨ ᠡᠸᠣᠢᠷᠤᠫᠠ ᠢᠢᠨ ᠰᠲ᠋ᠠᠨ᠋ᠳᠠᠷᠳ᠋ ᠴᠠᠭ</standard>
+					<daylight>ᠵᠡᠭᠦᠨ ᠡᠸᠣᠢᠷᠤᠫᠠ ᠢᠢᠨ ᠵᠣᠨ ᠎᠎ᠤ ᠴᠠᠭ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
-					<generic>ᠪᠠᠷᠠᠭᠣᠨ ᠡᠸᠣᠢᠷᠤᠫᠠ ᠢᠢᠨ ᠴᠠᠭ</generic>
-					<standard>ᠪᠠᠷᠠᠭᠣᠨ ᠡᠸᠣᠢᠷᠤᠫᠠ ᠢᠢᠨ ᠰᠲ᠋ᠠᠨ᠋ᠳᠠᠷᠳ᠋ ᠴᠠᠭ</standard>
-					<daylight>ᠪᠠᠷᠠᠭᠣᠨ ᠡᠸᠣᠢᠷᠤᠫᠠ  ᠢᠢᠨ  ᠵᠣᠨ ᠎᠎ᠤ ᠴᠠᠭ</daylight>
+					<generic>ᠪᠠᠷᠠᠭᠣᠨ ᠡᠸᠣᠢᠷᠤᠫᠠ ᠢᠢᠨ ᠴᠠᠭ</generic>
+					<standard>ᠪᠠᠷᠠᠭᠣᠨ ᠡᠸᠣᠢᠷᠤᠫᠠ ᠢᠢᠨ ᠰᠲ᠋ᠠᠨ᠋ᠳᠠᠷᠳ᠋ ᠴᠠᠭ</standard>
+					<daylight>ᠪᠠᠷᠠᠭᠣᠨ ᠡᠸᠣᠢᠷᠤᠫᠠ ᠢᠢᠨ ᠵᠣᠨ ᠎᠎ᠤ ᠴᠠᠭ</daylight>
 				</long>
 			</metazone>
 			<metazone type="GMT">
 				<long>
-					<standard>ᠭᠷᠢᠨ᠋ᠸᠢᠴᠢ ᠢᠢᠨ ᠴᠠᠭ</standard>
+					<standard>ᠭᠷᠢᠨ᠋ᠸᠢᠴᠢ ᠢᠢᠨ ᠴᠠᠭ</standard>
 				</long>
 			</metazone>
 		</timeZoneNames>
@@ -547,9 +547,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</currencyFormats>
 		<currencies>
 			<currency type="BRL">
-				<displayName>ᠪᠷᠠᠽᠢᠯ ᠤᠨ ᠷᠧᠠᠯ</displayName>
-				<displayName count="one">ᠪᠷᠠᠽᠢᠯ ᠤᠨ ᠷᠧᠠᠯ</displayName>
-				<displayName count="other">ᠪᠷᠠᠽᠢᠯ ᠤᠨ ᠷᠧᠠᠯ</displayName>
+				<displayName>ᠪᠷᠠᠽᠢᠯ ᠤᠨ ᠷᠧᠠᠯ</displayName>
+				<displayName count="one">ᠪᠷᠠᠽᠢᠯ ᠤᠨ ᠷᠧᠠᠯ</displayName>
+				<displayName count="other">ᠪᠷᠠᠽᠢᠯ ᠤᠨ ᠷᠧᠠᠯ</displayName>
 			</currency>
 			<currency type="CNY">
 				<displayName>ᠬᠢᠲᠠᠳ ᠶᠤᠸᠠᠨ</displayName>
@@ -562,9 +562,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">ᠶᠧᠸᠷᠣ</displayName>
 			</currency>
 			<currency type="GBP">
-				<displayName>ᠪᠷᠢᠲ᠋ᠠᠨᠢ ᠢᠢᠨ ᠫᠤᠢᠨᠳ᠋</displayName>
-				<displayName count="one">ᠪᠷᠢᠲ᠋ᠠᠨᠢ ᠢᠢᠨ ᠫᠤᠢᠨᠳ᠋</displayName>
-				<displayName count="other">ᠪᠷᠢᠲ᠋ᠠᠨᠢ ᠢᠢᠨ ᠫᠤᠢᠨᠳ᠋</displayName>
+				<displayName>ᠪᠷᠢᠲ᠋ᠠᠨᠢ ᠢᠢᠨ ᠫᠤᠢᠨᠳ᠋</displayName>
+				<displayName count="one">ᠪᠷᠢᠲ᠋ᠠᠨᠢ ᠢᠢᠨ ᠫᠤᠢᠨᠳ᠋</displayName>
+				<displayName count="other">ᠪᠷᠢᠲ᠋ᠠᠨᠢ ᠢᠢᠨ ᠫᠤᠢᠨᠳ᠋</displayName>
 			</currency>
 			<currency type="INR">
 				<displayName>ᠡᠨᠡᠳᠬᠡᠭ᠌ ᠷᠦᠫᠢ</displayName>
@@ -590,11 +590,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="USD">
 				<displayName>ᠠᠮᠸᠷᠢᠻᠠ ᠳ᠋ᠣᠯᠯᠠᠷ</displayName>
 				<displayName count="one">ᠠᠮᠸᠷᠢᠻᠠ ᠳ᠋ᠣᠯᠯᠠᠷ</displayName>
-				<displayName count="other">ᠠᠮᠸᠷᠢᠻᠠ ᠳ᠋ᠣᠯᠯᠠᠷ</displayName>
+				<displayName count="other">↑↑↑</displayName>
 			</currency>
 			<currency type="XXX">
 				<displayName>ᠲᠣᠳᠣᠷᠬᠠᠢ ᠥᠭᠡᠢ ᠮᠥᠩᠭᠥᠨ ᠲᠡᠮᠳᠡᠭᠳᠥ</displayName>
-				<displayName count="one">ᠲᠣᠳᠣᠷᠬᠠᠢ ᠥᠭᠡᠢ ᠮᠥᠩᠭᠥᠨ ᠲᠡᠮᠳᠡᠭᠳᠥ ᠢᠢᠨ ᠨᠢᠭᠡᠴᠡ</displayName>
+				<displayName count="one">ᠲᠣᠳᠣᠷᠬᠠᠢ ᠥᠭᠡᠢ ᠮᠥᠩᠭᠥᠨ ᠲᠡᠮᠳᠡᠭᠳᠥ ᠢᠢᠨ ᠨᠢᠭᠡᠴᠡ</displayName>
 				<displayName count="other">(ᠲᠣᠳᠣᠷᠬᠠᠢ ᠥᠭᠡᠢ ᠮᠥᠩᠭᠥᠨ ᠲᠡᠮᠳᠡᠭᠳᠥ)</displayName>
 			</currency>
 		</currencies>

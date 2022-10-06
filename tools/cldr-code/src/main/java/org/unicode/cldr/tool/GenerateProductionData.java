@@ -381,6 +381,7 @@ public class GenerateProductionData {
                     if (path_values != null) {
                         for (Pair<String, String>path_value : path_values) {
                             outCldrFile.add(path_value.getFirst(), path_value.getSecond());
+                            gotOne = true;
                         }
                         localeToSubdivisionsToMigrate.removeAll(localeId);
                     }

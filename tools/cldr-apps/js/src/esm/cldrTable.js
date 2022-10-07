@@ -27,7 +27,7 @@ const ROW_ID_PREFIX = "row_"; // formerly "r@"
 
 const CLDR_TABLE_DEBUG = false;
 
-const TABLE_USES_NEW_API = false;
+const TABLE_USES_NEW_API = true;
 
 /*
  * NO_WINNING_VALUE indicates the server delivered path data without a valid winning value.
@@ -376,8 +376,14 @@ function getSingleRowUrl(tr, theRow) {
 
 function getPageUrl(curLocale, curPage, curId) {
   if (TABLE_USES_NEW_API) {
+    let p = null;
+    if (curId && !curPage) {
+      p = new URLSearchParams();
+      p.append("xpstrid", curId);
+      curPage = "auto";
+    }
     const api = "voting/" + curLocale + "/page/" + curPage;
-    return cldrAjax.makeApiUrl(api, null);
+    return cldrAjax.makeApiUrl(api, p);
   }
   return (
     cldrStatus.getContextPath() +

@@ -1260,7 +1260,7 @@ public class TestUtilities extends TestFmwkPlus {
         PathHeader path = null;
 
         /*
-         * Simple case, all = bailey
+         * Simple case, all = bailey -- should get INHERITANCE_MARKER now that we have "dropped hard inheritance"
          */
         resolver.setLocale(locale, path);
         resolver.setBaileyValue("bailey");
@@ -1269,7 +1269,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.add("bailey", TestUser.appleV.voterId);
         resolver.add("bailey", TestUser.microsoftV.voterId);
         resolver.add("bailey", TestUser.googleV.voterId);
-        assertEquals("Simple case, all = bailey", "bailey", resolver.getWinningValue());
+        assertEquals("Simple case, all = bailey", CldrUtility.INHERITANCE_MARKER, resolver.getWinningValue());
 
         /*
          * Another simple case, all = INHERITANCE_MARKER
@@ -1328,11 +1328,8 @@ public class TestUtilities extends TestFmwkPlus {
         assertEquals("Split vote, no action", "foo", resolver.getWinningValue());
 
         /*
-         * Bailey should win if it has MORE votes than INHERITANCE_MARKER, helped
-         * by the presence of INHERITANCE_MARKER to win over other-vote.
-         * Changed per https://unicode.org/cldr/trac/ticket/11299
-         * Previously, "the only case where CldrUtility.INHERITANCE_MARKER wins is where they all are";
-         * now we already have several tests above where INHERITANCE_MARKER wins.
+         * Bailey should lose even if it has MORE votes than INHERITANCE_MARKER, now that we
+         * have "dropped hard inheritance"
          */
         resolver.clear();
         resolver.setLocale(locale, path);
@@ -1344,7 +1341,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.microsoftV.voterId);
         resolver.add("other-vote", TestUser.adobeV.voterId);
         resolver.add("other-vote", TestUser.gnomeV.voterId);
-        assertEquals("Bailey wins with help of INHERITANCE_MARKER", "bailey", resolver.getWinningValue());
+        assertEquals("Bailey never beats INHERITANCE_MARKER", CldrUtility.INHERITANCE_MARKER, resolver.getWinningValue());
     }
 
     /**

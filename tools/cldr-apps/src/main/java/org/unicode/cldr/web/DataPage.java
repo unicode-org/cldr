@@ -678,13 +678,13 @@ public class DataPage implements JSONString {
          *         CandidateItem myItem = row.addItem(ourValue, "our");
          */
         private CandidateItem addItem(String value, String candidateHistory) {
-            /*
-             * TODO: Clarify the purpose of changing null to empty string here, rather than
-             * simply doing nothing, or reporting an error. There appears to be no reason to
-             * add an item with null or empty value.
-             */
-            final String kValue = (value == null) ? "" : value;
-            CandidateItem item = items.get(kValue);
+            if (value == null) {
+                return null;
+            }
+            if (value.equals(inheritedValue)) {
+                value = CldrUtility.INHERITANCE_MARKER;
+            }
+            CandidateItem item = items.get(value);
             if (item != null) {
                 if (USE_CANDIDATE_HISTORY) {
                     item.history += "+" + candidateHistory;
@@ -695,7 +695,7 @@ public class DataPage implements JSONString {
             if (USE_CANDIDATE_HISTORY) {
                 item.history = candidateHistory;
             }
-            items.put(kValue, item);
+            items.put(value, item);
             if (winningValue != null && winningValue.equals(value)) {
                 winningItem = item;
             }

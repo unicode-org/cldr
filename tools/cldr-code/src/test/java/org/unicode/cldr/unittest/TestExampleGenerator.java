@@ -913,12 +913,18 @@ public class TestExampleGenerator extends TestFmwk {
      * This was fixed by doing clone() before returning a DecimalFormat in ICUServiceBuilder.
      * Reference: https://unicode-org.atlassian.net/browse/CLDR-13375.
      *
+     * Subsequently, DAIP changed to normalize NNBSP to NBSP for some paths, so this test was revised not to depend
+     * on that distinction, only to expect an example containing "456,79" as a substring (DAIP has its own unit tests).
+     * Ideally this test might be improved so as not to depend on actual values at all, but would call getExampleHtml
+     * repeatedly for the same set of paths but in different orders and confirm the example is the same regardless
+     * of the order; that would require disabling the cache.
+     *
      * @throws IOException
      */
     public void TestExampleGeneratorConsistency() throws IOException {
         final String EVIL_PATH = "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"10000\"][@count=\"one\"]";
         final String SPECIAL_PATH = "//ldml/numbers/currencies/currency[@type=\"EUR\"]/symbol";
-        final String EXPECTED = "123 456,79";
+        final String EXPECTED_TO_CONTAIN = "456,79";
 
         final CLDRFile cldrFile = info.getCLDRFile("fr", true);
         final ExampleGenerator eg = new ExampleGenerator(cldrFile, info.getEnglish(), CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
@@ -928,9 +934,8 @@ public class TestExampleGenerator extends TestFmwk {
 
         eg.getExampleHtml(EVIL_PATH, evilValue);
         final String specialExample = eg.getExampleHtml(SPECIAL_PATH, specialValue);
-
-        if (!specialExample.contains(EXPECTED)) {
-            errln("Expected example to contain " + EXPECTED + "; got " + specialExample);
+        if (!specialExample.contains(EXPECTED_TO_CONTAIN)) {
+            errln("Expected example to contain " + EXPECTED_TO_CONTAIN + "; got " + specialExample);
         }
     }
 

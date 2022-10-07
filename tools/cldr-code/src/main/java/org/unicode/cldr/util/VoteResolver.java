@@ -172,7 +172,7 @@ public class VoteResolver<T> {
 
         /**
          * Get the votes for each level and organization
-         * @param org the given organization
+         * @param o the given organization
          */
         public int getVotes(Organization o) {
             if (this == vetter && o.isTCOrg()) {
@@ -348,7 +348,7 @@ public class VoteResolver<T> {
          * Is this user an administrator 'over' this user? Always true if admin,
          * or if TC in same org.
          *
-         * @param org
+         * @param myOrg
          */
         public boolean isAdminForOrg(Organization myOrg, Organization target) {
             boolean adminOrRelevantTc = isAdmin() ||
@@ -598,13 +598,11 @@ public class VoteResolver<T> {
          * @param value
          * @param info
          * @param votes
-         * @param date
+         * @param time
          * @see #add(Object, int, Integer)
          */
         private void addInternal(T value, final VoterInfo info, final int votes, Date time) {
-            if (baileySet == false) {
-                throw new IllegalArgumentException("setBaileyValue must be called before add");
-            }
+            value = changeBaileyToInheritance(value);
             totalVotes.add(value, votes, time.getTime());
             nameTime.put(info.getName(), time.getTime());
             if (DEBUG) {
@@ -936,9 +934,10 @@ public class VoteResolver<T> {
      * @param withVotes override to lower the user's voting permission. May be null for default.
      * @param date
      *
-     * Called by getResolverInternal
+     * Called by getResolverInternal in STFactory, and elsewhere
      */
     public void add(T value, int voter, Integer withVotes, Date date) {
+        value = changeBaileyToInheritance(value);
         if (resolved) {
             throw new IllegalArgumentException("Must be called after clear, and before any getters.");
         }
@@ -959,12 +958,20 @@ public class VoteResolver<T> {
      * Called only for TestUtilities, not used in Survey Tool.
      */
     public void add(T value, int voter, Integer withVotes) {
+        value = changeBaileyToInheritance(value);
         if (resolved) {
             throw new IllegalArgumentException("Must be called after clear, and before any getters.");
         }
         Date date = new Date();
         organizationToValueAndVote.add(value, voter, withVotes, date);
         values.add(value);
+    }
+
+    private <T> T changeBaileyToInheritance(T value) {
+        if (value != null && value.equals(getBaileyValue())) {
+            return (T) CldrUtility.INHERITANCE_MARKER;
+        }
+        return value;
     }
 
     /**
@@ -989,7 +996,6 @@ public class VoteResolver<T> {
      * Call if a value has no voters. It is safe to also call this if there is a voter, just unnecessary.
      *
      * @param value
-     * @param voter
      *
      * Called by getResolverInternal for the baseline (trunk) value; also called for ConsoleCheckCLDR.
      */
@@ -1032,11 +1038,6 @@ public class VoteResolver<T> {
             return englishCollator.compare(String.valueOf(o1), String.valueOf(o2));
         }
     };
-
-    /**
-     * This will be changed to true if both kinds of vote are present
-     */
-    private boolean bothInheritanceAndBaileyHadVotes = false;
 
     /**
      * Resolve the votes. Resolution entails counting votes and setting
@@ -1094,13 +1095,6 @@ public class VoteResolver<T> {
         HashMap<T, Long> voteCount = makeVoteCountMap(sortedValues);
 
         /*
-         * Adjust sortedValues and voteCount as needed to combine "soft" votes for inheritance
-         * with "hard" votes for the Bailey value. Note that sortedValues and voteCount are
-         * both local variables.
-         */
-        bothInheritanceAndBaileyHadVotes = combineInheritanceWithBaileyForVoting(sortedValues, voteCount);
-
-        /*
          * Adjust sortedValues and voteCount as needed for annotation keywords.
          */
         if (isUsingKeywordAnnotationVoting()) {
@@ -1141,88 +1135,6 @@ public class VoteResolver<T> {
             map.put(value, totals.getCount(value));
         }
         return map;
-    }
-
-    /**
-     * Adjust the given sortedValues and voteCount, if necessary, to combine "hard" and "soft" votes.
-     * Do nothing unless both hard and soft votes are present.
-     *
-     * For voting resolution in which inheritance plays a role, "soft" votes for inheritance
-     * are distinct from "hard" (explicit) votes for the Bailey value. For resolution, these two kinds
-     * of votes are treated in combination. If that combination is winning, then the final winner will
-     * be the hard item or the soft item, whichever has more votes, the soft item winning if they're tied.
-     * Except for the soft item being favored as a tie-breaker, this function should be symmetrical in its
-     * handling of hard and soft votes.
-     *
-     * Note: now that "↑↑↑" is permitted to participate directly in voting resolution, it becomes significant
-     * that with Collator.getInstance(ULocale.ENGLISH), "↑↑↑" sorts before "AAA" just as "AAA" sorts before "BBB".
-     *
-     * @param sortedValues the set of sorted values, possibly to be modified
-     * @param voteCount the hash giving the vote count for each value, possibly to be modified
-     *
-     * @return true if both "hard" and "soft" votes existed and were combined, else false
-     */
-    private boolean combineInheritanceWithBaileyForVoting(Set<T> sortedValues, HashMap<T, Long> voteCount) {
-        if (organizationToValueAndVote == null
-                || organizationToValueAndVote.baileySet == false
-                || organizationToValueAndVote.baileyValue == null) {
-            return false;
-        }
-        T hardValue = organizationToValueAndVote.baileyValue;
-        T softValue = (T) CldrUtility.INHERITANCE_MARKER;
-        /*
-         * Check containsKey before get, to avoid NullPointerException.
-         */
-        if (!voteCount.containsKey(hardValue) || !voteCount.containsKey(softValue)) {
-            return false;
-        }
-        long hardCount = voteCount.get(hardValue);
-        long softCount = voteCount.get(softValue);
-        if (hardCount == 0 || softCount == 0) {
-            return false;
-        }
-        reallyCombineInheritanceWithBailey(sortedValues, voteCount, hardValue, softValue, hardCount, softCount);
-        return true;
-    }
-
-    /**
-     * Given that both "hard" and "soft" votes exist, combine them
-     *
-     * @param sortedValues the set of sorted values, to be modified
-     * @param voteCount the hash giving the vote count for each value, to be modified
-     * @param hardValue the bailey value
-     * @param softValue the inheritance marker
-     * @param hardCount the number of votes for hardValue
-     * @param softCount the number of votes for softValue
-     */
-    private void reallyCombineInheritanceWithBailey(Set<T> sortedValues, HashMap<T, Long> voteCount,
-            T hardValue, T softValue, long hardCount, long softCount) {
-        final T combValue = (hardCount > softCount) ? hardValue : softValue;
-        final T skipValue = (hardCount > softCount) ? softValue : hardValue;
-        final long combinedCount = hardCount + softCount;
-        voteCount.put(combValue, combinedCount);
-        voteCount.put(skipValue, 0L);
-        /*
-         * Sort again
-         */
-        List<T> list = new ArrayList<>(sortedValues);
-        Collections.sort(list, (v1, v2) -> {
-            long c1 = voteCount.get(v1);
-            long c2 = voteCount.get(v2);
-            if (c1 != c2) {
-                return (c1 < c2) ? 1 : -1; // decreasing numeric order (most votes wins)
-            }
-            return englishCollator.compare(String.valueOf(v1), String.valueOf(v2));
-        });
-        /*
-         * Omit skipValue
-         */
-        sortedValues.clear();
-        for (T value : list) {
-            if (!value.equals(skipValue)) {
-                sortedValues.add(value);
-            }
-        }
     }
 
     /**
@@ -1838,7 +1750,7 @@ public class VoteResolver<T> {
             // We voted and lost
             return VoteStatus.losing;
         }
-        final int itemsWithVotes = countDistinctValuesWithVotes();
+        final int itemsWithVotes = organizationToValueAndVote.totalVotes.size();
         if (itemsWithVotes > 1) {
             // If there are votes for two "distinct" items, we should look at them.
             return VoteStatus.disputed;
@@ -1874,26 +1786,6 @@ public class VoteResolver<T> {
                 && orgVote.equals(organizationToValueAndVote.baileyValue))
             || (CldrUtility.INHERITANCE_MARKER.equals(orgVote)
                 && value.equals(organizationToValueAndVote.baileyValue));
-    }
-
-    /**
-     * Count the distinct values that have votes.
-     *
-     * For this purpose, if there are both votes for inheritance and
-     * votes for the specific value matching the inherited (bailey) value,
-     * they are not "distinct": count them as a single value.
-     *
-     * @return the number of distinct values
-     */
-    private int countDistinctValuesWithVotes() {
-        if (!resolved) { // must be resolved for bothInheritanceAndBaileyHadVotes
-            throw new RuntimeException("countDistinctValuesWithVotes !resolved");
-        }
-        int count = organizationToValueAndVote.totalVotes.size();
-        if (count > 1 && bothInheritanceAndBaileyHadVotes) {
-            return count - 1; // prevent showing as "disputed" in dashboard
-        }
-        return count;
     }
 
     /**

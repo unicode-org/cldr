@@ -114,6 +114,9 @@ public class ICUServiceBuilder {
             result = new ICUServiceBuilder();
 
             if (locale != null) {
+                // CAUTION: this fails for files in seed, when called for DAIP, for CLDRModify, since
+                // CLDRPaths.MAIN_DIRECTORY is "common/main" NOT "seed/main"
+                // Fortunately it will be fixed soon (Oct 2022) for https://unicode-org.atlassian.net/browse/CLDR-6396
                 result.cldrFile = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*").make(locale.getBaseName(), true);
                 result.collationFile = Factory.make(CLDRPaths.COLLATION_DIRECTORY, ".*").makeWithFallback(locale.getBaseName());
             }

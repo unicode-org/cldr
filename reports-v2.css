@@ -11,7 +11,7 @@
 
 
 /* conditional display */
-body		{ margin: 0; font-family:  Arial, 'Lucida Sans Unicode', 'Arial Unicode MS', sans-serif;
+body		{ margin: 0; font-family:  Arial, Geneva, sans-serif;
 				color: black; background-color: white; background-repeat:repeat; 
 				background-attachment: scroll; background-position: 0%; }
 div.body	{ margin: 3em; } 	/* margin for body only */
@@ -65,18 +65,18 @@ table		{ border-spacing: 0; border-collapse: collapse;
 			border-style: solid; border-color: black; border-width: 1px; }
 th, td		{ border-spacing: 0; border-collapse: collapse;
 			border-style: solid; border-color: black; border-width: 1px;
-			font-family: 'Lucida Sans Unicode', 'Arial Unicode MS', Arial, sans-serif;
+			font-family: Arial, Georgia, sans-serif;
 			color: black; vertical-align: top; text-align: left; }
 table.body	{ border-style: none; width: 100%; }
 td.body		{ border-style: none; padding: 20px; }
 caption		{ font-size: 120%; font-weight: bold; padding-bottom: 0.75em; }
 td.icon 	{ border-style: none; border-width: 0; padding: 2px; margin: 0;
-			background-color: #990000; color: #fffffe;
+			background-color: #5555FF; color: white;
 			font-size: 100%; text-align: left;
 			font-weight: bold; font-family: Arial, Geneva, sans-serif; }
 				
 td.gray 	{ border-style: none; border-width: 0; padding: 0px; margin: 0;
-			background-color: #999999; color: #FFFFFE;
+			background-color: #EAEAFE; color: white;
 			font-size: 6pt; }
 
 /* various overrides for table styles */
@@ -94,9 +94,9 @@ table.border th, table.border td	{ border-style: solid !important; border-width:
 
 
 /* Tables should inherit from body, but do not seem to in NN */
-a:link		{ color: #CC0000; text-decoration:none; }
-a:active	{ color: green; }
-a:visited	{ color: #880000; text-decoration:none; }
+a:link		{ color: #5555FF; text-decoration:none; }
+a:active	{ color: #5555FF; }
+a:visited	{ color: #1A1A99; text-decoration:none; }
 a:hover 	{ text-decoration:underline; }
 
 /* HEADERS and RELATED STYLES */
@@ -110,14 +110,14 @@ h4			{ font-size: medium; font-style: italic; }
 h5			{ font-size: small; }
 h6			{ font-size: small; font-style: italic; }
 
-/* don't red-color links on headers and captions, unless hovering */
+/* don't color links on headers and captions, unless hovering */
 h2 a:link, h3 a:link, h4 a:link, h5 a:link, p.caption a:link, caption a:link,
 h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, p.caption a:visited, caption a:visited {
     color:black; 
     text-decoration:none;
     }
 h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, p.caption a:hover, caption a:hover {
-    color: red; 
+    color: #5555FF; 
     text-decoration:underline;
     }
 
@@ -126,13 +126,13 @@ span.run_in	{ font-style:italic; font-weight: bold; }
 span.note	{ font-style: italic; }
 
 
-p.bar		{ background-color: #990000; color: #fffffe; font-size: 100%; font-weight: bold;
+p.bar		{ background-color: #5555FF; color: white; font-size: 100%; font-weight: bold;
 			font-family: Arial, Geneva, sans-serif; text-align: right; padding: 4px; }
 
-a.bar:link	 { color: #fffffe; }
-a.bar:visited { color: #fffffe; }
-a.bar:active { color: #fffffe; }
-a.bar:hover { color: #ff3333; }
+a.bar:link	 { color: white; }
+a.bar:visited { color: white; }
+a.bar:active { color: white; }
+a.bar:hover { color: #B0B0B0; }
 
 /* some UAXs use h3 some h4 */
 h4.summary { margin-top: 1em; }
@@ -218,10 +218,10 @@ td.nb-lb p		{ margin-left:0em; }
 
 /* use some font styles conditionally */
 span.mathsym1	{ }
-span.mathsym2   { font-family: 'Lucida Sans Unicode', 'Arial Unicode MS', Arial, sans-serif; }
-span.mathsym3   { font-family:  'Arial Unicode MS', Arial, 'Lucida Sans Unicode', sans-serif; }
+span.mathsym2   { font-family: Arial, Geneva, sans-serif; }
+span.mathsym3   { font-family:  Arial, Geneva, sans-serif; }
 span.specials { font-size: smaller; }
-span.symbol { font-size: 90%; font-family: 'Arial Unicode MS'; } /* same as .symbol */
+span.symbol { font-size: 90%; font-family: Arial, Geneva, sans-serif } /* same as .symbol */
 
 /* additional table styles from standard_styles.css */
 

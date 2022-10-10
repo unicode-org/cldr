@@ -112,8 +112,20 @@ public class VoteAPI {
         @Parameter(example = "Languages_K_N",
             schema = @Schema(type = SchemaType.STRING)) @PathParam("page") String page,
 
+        @QueryParam("xpstrid") @Schema(description = "Xpath string ID if page is auto")
+            @DefaultValue("") String xpstrid,
+
         @HeaderParam(Auth.SESSION_HEADER) String session) {
-        return VoteAPIHelper.handleGetOnePage(loc, session, page);
+
+        /*
+         * The optional xpstrid query parameter enables requests like
+         *    /cldr-apps/api/voting/fr/page/auto?xpstrid=2703e9d07ab2ef3a
+         * so that a URL like
+         *    https://cldr-smoke.unicode.org/cldr-apps/v#/zh_Hant//2703e9d07ab2ef3a
+         * can be used instead of
+         *    https://cldr-smoke.unicode.org/cldr-apps/v#/zh_Hant/Alphabetic_Information/2703e9d07ab2ef3a
+         */
+        return VoteAPIHelper.handleGetOnePage(loc, session, page, xpstrid);
     }
 
     public static final class RowResponse {

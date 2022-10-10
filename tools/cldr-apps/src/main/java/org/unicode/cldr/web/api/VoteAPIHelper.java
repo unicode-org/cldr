@@ -76,10 +76,29 @@ public class VoteAPIHelper {
         return handleGetRows(args);
     }
 
-    static Response handleGetOnePage(String loc, String session, String page) {
+    static Response handleGetOnePage(String loc, String session, String page, String xpstrid) {
         ArgsForGet args = new ArgsForGet(loc, session);
-        args.page = page;
+        if ("auto".equals(page) && xpstrid != null && !xpstrid.isEmpty()) {
+            args.page = getPageFromXpathStringId(xpstrid);
+        } else {
+            args.page = page;
+        }
         return handleGetRows(args);
+    }
+
+    private static String getPageFromXpathStringId(String xpstrid) {
+        try {
+            String xpath = CookieSession.sm.xpt.getByStringID(xpstrid);
+            if (xpath != null) {
+                PathHeader ph = CookieSession.sm.getSTFactory().getPathHeader(xpath);
+                if (ph != null) {
+                    return ph.getPageId().name();
+                }
+            }
+        } catch (Throwable t) {
+            return null;
+        }
+        return null;
     }
 
     private static Response handleGetRows(ArgsForGet args) {

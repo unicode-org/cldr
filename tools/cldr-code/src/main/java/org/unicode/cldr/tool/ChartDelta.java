@@ -1085,6 +1085,9 @@ public class ChartDelta extends Chart {
             if (pathForValues != null) {
                 for (String pathForValue : pathForValues) {
                     PathHeader pathHeader = phf.fromPath(pathForValue);
+                    if (pathHeader.getPageId() == PageId.Suppress) {
+                        continue;
+                    }
                     Splitter splitter = DtdData.getValueSplitter(pathPlain);
                     for (String line : splitter.split(value)) {
                         // special case # in transforms
@@ -1098,6 +1101,9 @@ public class ChartDelta extends Chart {
             for (Entry<String, Collection<String>> entry : extras.asMap().entrySet()) {
                 final String extraPath = entry.getKey();
                 final PathHeader pathHeaderExtra = phf.fromPath(extraPath);
+                if (pathHeaderExtra.getPageId() == PageId.Suppress) {
+                    continue;
+                }
                 final Collection<String> extraValue = entry.getValue();
                 if (isExtraSplit(extraPath)) {
                     for (String items : extraValue) {

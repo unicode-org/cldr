@@ -38,9 +38,13 @@
 < (.*/calendars)/calendar\[@type="([^"]*)"\](.*)Length\[@type="([^"]*)"\]/(date|time|dateTime)Format\[@type="([^"]*)"\]/(datetimeSkeleton)(.*)
 > $1/$2/$5Skeletons/$4$8
 
+# Remove unnecessary dateFormat/pattern standard-standard
+< (.*/calendars)/calendar\[@type="([^"]*)"\](.*)Length\[@type="([^"]*)"\]/(date|time|dateTime)Format\[@type="(standard)"\]/pattern\[@type="(standard)"\](.*)
+> $1/$2/$5Formats/$4$8
+
 # Remove unnecessary dateFormat/pattern
 < (.*/calendars)/calendar\[@type="([^"]*)"\](.*)Length\[@type="([^"]*)"\]/(date|time|dateTime)Format\[@type="([^"]*)"\]/pattern\[@type="([^"]*)"\](.*)
-> $1/$2/$5Formats/$4$8
+> $1/$2/$5Formats-$6/$7/$4$8
 
 # Separate calendar type
 < (.*/calendars)/calendar\[@type="([^"]*)"\](.*)$

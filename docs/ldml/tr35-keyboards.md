@@ -954,7 +954,6 @@ Elements are considered to have three attributes that make them unique: the tag 
 | `transforms` | `keyboard`   | `@type`                      |
 | `transform`  | `keyboard`   | `@before`, `@from`           |
 | `reorder`    | `reorders`   | `@before`, `@from`           |
-| `backspace`  | `backspaces` | `@before`, `@from`           |
 
 In order to help identify mistakes, it is an error if a file contains two elements that override each other. All element overrides must come as a result of an `<include>` element either for the element overridden or the element overriding.
 

@@ -2413,7 +2413,7 @@ public class SurveyAjax extends HttpServlet {
                     if (DEBUG) {
                         System.err.println("Voting result ::  " + subRes);
                     }
-                    r.put("submitResultRaw", subRes);
+                    r.put("submitResult", subRes);
                 }
             }
         } else {

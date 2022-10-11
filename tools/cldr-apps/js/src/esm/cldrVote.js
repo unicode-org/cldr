@@ -14,6 +14,8 @@ import * as cldrText from "./cldrText.js";
 
 const CLDR_VOTE_DEBUG = false;
 
+const VOTE_USES_NEW_API = true;
+
 /**
  * The special "vote level" selected by the user, or zero for default.
  * For example, admin has vote level 100 by default, and can instead choose vote level 4.
@@ -126,18 +128,26 @@ function handleWiredClick(tr, theRow, vHash, newValue, button) {
       "Vote for " + tr.rowHash + " v='" + vHash + "', value='" + value + "'"
     );
   }
-  var ourContent = {
-    what: "submit" /* cf. WHAT_SUBMIT in SurveyAjax.java */,
-    xpath: tr.xpathId,
-    _: cldrStatus.getCurrentLocale(),
-    fhash: tr.rowHash,
-    vhash: vHash,
-    s: tr.theTable.session,
-  };
+  let ourContent;
+  if (VOTE_USES_NEW_API) {
+    ourContent = {
+      value: valToShow,
+      voteLevelChanged: voteLevelChanged,
+    };
+  } else {
+    ourContent = {
+      what: "submit" /* cf. WHAT_SUBMIT in SurveyAjax.java */,
+      xpath: tr.xpathId,
+      _: cldrStatus.getCurrentLocale(),
+      fhash: tr.rowHash,
+      vhash: vHash,
+      s: tr.theTable.session,
+    };
+  }
 
-  let ourUrl = cldrStatus.getContextPath() + "/SurveyAjax";
+  const ourUrl = getSubmitUrl(theRow.xpstrid);
 
-  if (voteLevelChanged) {
+  if (voteLevelChanged && !VOTE_USES_NEW_API) {
     ourContent.voteLevelChanged = voteLevelChanged;
   }
 
@@ -164,7 +174,7 @@ function handleWiredClick(tr, theRow, vHash, newValue, button) {
         myUnDefer();
         cldrRetry.handleDisconnect("Error submitting a vote", json);
       } else {
-        if (json.submitResultRaw) {
+        if (json.submitResult) {
           // if submitted..
           tr.className = "tr_checking2";
           cldrTable.refreshSingleRow(
@@ -241,7 +251,7 @@ function handleWiredClick(tr, theRow, vHash, newValue, button) {
       "</div>";
     myUnDefer();
   };
-  if (newValue) {
+  if (newValue && !VOTE_USES_NEW_API) {
     ourContent.value = value;
   }
   const xhrArgs = {
@@ -254,6 +264,16 @@ function handleWiredClick(tr, theRow, vHash, newValue, button) {
   };
   oneMorePendingVote();
   cldrAjax.sendXhr(xhrArgs);
+}
+
+function getSubmitUrl(xpstrid) {
+  if (VOTE_USES_NEW_API) {
+    const loc = cldrStatus.getCurrentLocale();
+    const api = "voting/" + loc + "/row/" + xpstrid;
+    return cldrAjax.makeApiUrl(api, null);
+  } else {
+    return cldrStatus.getContextPath() + "/SurveyAjax";
+  }
 }
 
 /**

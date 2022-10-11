@@ -488,11 +488,10 @@ public class VettingViewer<T> {
             if (skipForLimitedSubmission(path, errorStatus, oldValue)) {
                 return;
             }
-            if (!onlyRecordErrors && choices.contains(NotificationCategory.changedOldValue)) {
-                if (oldValue != null && !oldValue.equals(value)) {
-                    problems.add(NotificationCategory.changedOldValue);
-                    vc.problemCounter.increment(NotificationCategory.changedOldValue);
-                }
+            if (!onlyRecordErrors && choices.contains(NotificationCategory.changedOldValue) &&
+                    changedFromBaseline(path, value, oldValue, sourceFile)) {
+                problems.add(NotificationCategory.changedOldValue);
+                vc.problemCounter.increment(NotificationCategory.changedOldValue);
             }
             VoteStatus voteStatus = userVoteStatus.getStatusForUsersOrganization(sourceFile, path, organization);
             boolean itemsOkIfVoted = (voteStatus == VoteStatus.ok);
@@ -511,6 +510,19 @@ public class VettingViewer<T> {
                 R2<SectionId, PageId> group = Row.of(ph.getSectionId(), ph.getPageId());
                 sorted.put(group, new WritingInfo(ph, problems, htmlMessage, firstSubtype()));
             }
+        }
+
+        private boolean changedFromBaseline(String path, String value, String oldValue, CLDRFile sourceFile) {
+            if (oldValue != null && !oldValue.equals(value)) {
+                if (CldrUtility.INHERITANCE_MARKER.equals(oldValue)) {
+                    String baileyValue = sourceFile.getBaileyValue(path, null, null);
+                    if (baileyValue != null && baileyValue.equals(value)) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return false;
         }
 
         private Subtype firstSubtype() {

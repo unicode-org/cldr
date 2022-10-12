@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright © 1991-2022 Unicode, Inc.
+  For terms of use, see http://www.unicode.org/copyright.html
+  SPDX-License-Identifier: Unicode-DFS-2016
+  CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<!--
+  Important Note:
+  
+  The CLDR Keyboard Workgroup is currently developing major changes to the
+  CLDR keyboard specification.
+  
+  This DTD is a work in progress.
+  
+  Please see CLDR-15034 for the latest information.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="keyboardTest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="info"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="repertoire"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="tests"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
+      </xs:sequence>
+      <xs:attribute name="conformsTo" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="techpreview"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <!-- @MATCH:any -->
+  <!-- @METADATA -->
+  <xs:element name="info">
+    <xs:complexType>
+      <xs:attribute name="keyboard" use="required"/>
+      <xs:attribute name="author"/>
+      <xs:attribute name="name" use="required" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- @VALUE -->
+  <!-- @METADATA -->
+  <xs:element name="repertoire">
+    <xs:complexType>
+      <xs:attribute name="chars" use="required"/>
+      <xs:attribute name="type" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="default"/>
+            <xs:enumeration value="simple"/>
+            <xs:enumeration value="gesture"/>
+            <xs:enumeration value="flick"/>
+            <xs:enumeration value="longPress"/>
+            <xs:enumeration value="multiTap"/>
+            <xs:enumeration value="hardware"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="name" use="required" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- @MATCH:any -->
+  <!-- @VALUE -->
+  <!-- @VALUE -->
+  <xs:element name="tests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="test"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
+      </xs:sequence>
+      <xs:attribute name="name" use="required" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="test">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="startContext"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="emit"/>
+          <xs:element ref="keystroke"/>
+          <xs:element ref="check"/>
+          <xs:element ref="backspace"/>
+        </xs:choice>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
+      </xs:sequence>
+      <xs:attribute name="name" use="required" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="startContext">
+    <xs:complexType>
+      <xs:attribute name="to" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- @MATCH:any -->
+  <!-- @VALUE -->
+  <xs:element name="emit">
+    <xs:complexType>
+      <xs:attribute name="to" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- @ORDERED -->
+  <!-- @MATCH:any -->
+  <!-- @VALUE -->
+  <xs:element name="keystroke">
+    <xs:complexType>
+      <xs:attribute name="key" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="flick" type="xs:NMTOKENS"/>
+      <xs:attribute name="longPress"/>
+      <xs:attribute name="tapCount"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- @ORDERED -->
+  <!-- @MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]* -->
+  <!-- @VALUE -->
+  <!-- @MATCH:any -->
+  <!-- @VALUE -->
+  <!-- @MATCH:range/1~999 -->
+  <!-- @VALUE -->
+  <!-- @MATCH:range/1~999 -->
+  <!-- @VALUE -->
+  <xs:element name="check">
+    <xs:complexType>
+      <xs:attribute name="result" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- @ORDERED -->
+  <!-- @MATCH:any -->
+  <!-- @VALUE -->
+  <xs:element name="backspace">
+    <xs:complexType/>
+  </xs:element>
+  <!-- @ORDERED -->
+  <xs:element name="special" type="any"/>
+  <xs:complexType name="any" mixed="true">
+    <xs:sequence>
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="strict"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

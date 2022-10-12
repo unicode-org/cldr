@@ -58,6 +58,7 @@ Please see CLDR-15034 for the latest information. -->
 <!ELEMENT names ( import*, name+, special* ) >
 
 <!ELEMENT name EMPTY >
+    <!--@ORDERED-->
 <!ATTLIST name value CDATA #REQUIRED >
     <!--@MATCH:any-->
     <!--@VALUE-->

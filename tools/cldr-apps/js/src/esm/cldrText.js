@@ -501,6 +501,8 @@ const strings = {
     "Check if any changes are needed in your language.",
   notification_category_error:
     "The Survey Tool detected an error in the winning value.",
+  notification_category_inherited_changed:
+    "The winning inherited value was altered from its baseline value. (Informational)",
   notification_category_losing:
     "The value that your organization chose (overall) is either not the winning value, or doesn’t have enough votes to be approved. " +
     "This might be due to a dispute between members of your organization.",

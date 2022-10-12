@@ -61,6 +61,14 @@ public enum NotificationCategory {
             "Changed",
             "The winning value was altered from the baseline value. (Informational)"),
 
+
+    /**
+     * The inherited (bailey) value changed from the baseline, given that the winning value is inherited
+     */
+    inheritedChanged('I',
+        "Inherited Changed",
+        "The winning inherited value was altered from its baseline value. (Informational)"),
+
     /**
      * You have abstained, or not yet voted for any value
      */

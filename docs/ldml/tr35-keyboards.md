@@ -245,7 +245,7 @@ When explicitly specified, attributes can contain escaped characters. This speci
 The _UnicodeSet_ notation is described in [UTS #35 section 5.3.3](tr35.md#Unicode_Sets) and allows for comprehensive character matching, including by character range, properties, names, or codepoints. Currently, the following attributes allow _UnicodeSet_ notation:
 
 * `from` or `before` on the `<transform>` element
-* `from` or `before`on the `<reorder>` element
+* `from` or `before` on the `<reorder>` element
 * `chars` on the [`<repertoire>`](#test-element-repertoire) test element.
 
 The `\u{...}` notation, a subset of hex notation, is described in [UTS #18 section 1.1](https://www.unicode.org/reports/tr18/#Hex_notation). It can refer to one or multiple individual codepoints. Currently, the following attributes allow the `\u{...}` notation:
@@ -1829,7 +1829,7 @@ XY → XB
 If we mark where the current match position is before and after the transform we see:
 
 ```default
-X Y | Z → X | Z
+X Y | → X B |
 ```
 
 Whereas a simple or final transform would then run other transforms in the transform list, advancing the processing position until it gets to the end of the string, the backspace transform only matches a single backspace rule and then finishes.

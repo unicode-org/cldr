@@ -386,16 +386,17 @@ public class VerifyZones {
     private static void addZones(ZoneFormats englishZoneFormats, CLDRFile cldrFile, Matcher timezoneFilter,
         TablePrinter output) throws IOException {
         CLDRFile englishCldrFile = englishZoneFormats.cldrFile;
-        //ZoneFormats nativeZoneFormats = new ZoneFormats().set(cldrFile);
         TimezoneFormatter tzformatter = new TimezoneFormatter(cldrFile);
 
         for (MetazoneRow row : rows) {
-            String grouping = row.getContainer();
             String metazone = row.getMetazone();
             String tzid = row.getZone();
+            if (metazoneIsOutdated(metazone, tzid)) {
+                continue;
+            }
+            String grouping = row.getContainer();
             TimeZone currentZone = TimeZone.getTimeZone(tzid);
             TimeZone tz = currentZone;
-
             String englishGrouping = englishCldrFile.getName(CLDRFile.TERRITORY_NAME, grouping);
 
             String metazoneInfo = englishGrouping
@@ -427,16 +428,43 @@ public class VerifyZones {
                     date2 = date2 == date ? date6 : date; // reverse for final 2 items
                 }
             }
-            String view = PathHeader.getLinkedView(surveyUrl, cldrFile, METAZONE_PREFIX + metazone + METAZONE_SUFFIX);
+            String path = METAZONE_PREFIX + metazone + METAZONE_SUFFIX;
+            String view = PathHeader.getLinkedView(surveyUrl, cldrFile, path);
             if (view == null) {
-                view = PathHeader.getLinkedView(surveyUrl, cldrFile, METAZONE_PREFIX + metazone + METAZONE_SUFFIX2);
+                path = METAZONE_PREFIX + metazone + METAZONE_SUFFIX2;
+                view = PathHeader.getLinkedView(surveyUrl, cldrFile, path);
             }
-
             output.addCell(view == null
                 ? ""
                 : view);
             output.finishRow();
         }
+    }
+
+    /**
+     * Is the given metazone outdated?
+     *
+     * @param metazone the metazone such as "Liberia"
+     * @param tzid the timezone id such as "Africa/Monrovia"
+     * @return true if the metazone is outdated
+     */
+    private static boolean metazoneIsOutdated(String metazone, String tzid) {
+        final MetaZoneRange range = sdi.getMetaZoneRange(tzid, date);
+        // For example, for metazone = "Liberia", if range.metazone = "GMT",
+        // that implies "GMT" is current and "Liberia" is outdated
+        if (range == null) {
+            if (DEBUG) {
+                System.out.println("metazoneIsOutdated: " + metazone + "; tzid = " + tzid + "; range is null");
+            }
+            return true;
+        }
+        if (!metazone.equals(range.metazone)) {
+            if (DEBUG) {
+                System.out.println("metazoneIsOutdated: " + metazone + "; tzid = " + tzid + "; range.metazone = " + range.metazone);
+            }
+            return true;
+        }
+        return false;
     }
 
     private static String surveyUrl = CLDR_CONFIG.getProperty("CLDR_SURVEY_URL",

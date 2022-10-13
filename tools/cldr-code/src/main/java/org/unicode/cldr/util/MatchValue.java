@@ -80,6 +80,9 @@ public abstract class MatchValue implements Predicate<String> {
             case "regex":
                 result =  RegexMatchValue.of(subargument);
                 break;
+            case "semver":
+                result =  RegexMatchValue.of(RegexMatchValue.SEMVER_REGEX);
+                break;
             case "metazone":
                 result =  MetazoneMatchValue.of(subargument);
                 break;
@@ -554,6 +557,13 @@ public abstract class MatchValue implements Predicate<String> {
     }
 
     static public class RegexMatchValue extends MatchValue {
+        /**
+         * Regex from: Semantic Versioning 2.0 originally by Tom Preston-Werner
+         * https://semver.org/#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string
+         * Licensed under CC-BY-3.0
+         */
+        public static final String SEMVER_REGEX = "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$";
+
         private final Pattern pattern;
 
         @Override

@@ -94,6 +94,7 @@ public class DataPage implements JSONString {
      * @author srl
      */
     public class DataRow implements JSONString, PathValueInfo {
+
         /**
          * A CandidateItem represents a particular alternative item which could be chosen or voted for.
          *
@@ -285,31 +286,12 @@ public class DataPage implements JSONString {
             public String getPClass() {
                 if (rawValue.equals(CldrUtility.INHERITANCE_MARKER)) {
                     if (pathWhereFound != null) {
-                        /*
-                         * surveytool.css has:
-                         *  .alias {background-color: #ddf;}
-                         *
-                         *  This can happen when called from CandidateItem.toJSONString (for item.pClass).
-                         *  Try http://localhost:8080/cldr-apps/v#/aa/Fields/
-                         */
                         return "alias";
                     }
-                    /*
-                     * surveytool.css has:
-                     *  .fallback {background-color:#5bc0de;padding: .1em .4em .2em;}
-                     *  .fallback_root, .fallback_code {border: 1px dotted #f00 !important;background-color: #FFDDDD;}
-                     */
                     if (getInheritedLocale() != null && XMLSource.CODE_FALLBACK_ID.equals(getInheritedLocale().getBaseName())) {
                         return "fallback_code";
                     }
-                    /*
-                     * Formerly the following test was "if (inheritedLocale == CLDRLocale.ROOT)", but that was
-                     * unreliable due to more than one CLDRLocale object having the name "root".
-                     * Reference: https://unicode-org.atlassian.net/browse/CLDR-13134
-                     * Also: https://unicode-org.atlassian.net/browse/CLDR-13132
-                     * If and when CLDR-13132 is fixed, the former test with "==" might be OK here.
-                     */
-                    if (getInheritedLocale() != null && "root".equals(getInheritedLocale().getBaseName())) {
+                    if (getInheritedLocale() != null && XMLSource.ROOT_ID.equals(getInheritedLocale().getBaseName())) {
                         return "fallback_root";
                     }
                     return "fallback";
@@ -319,10 +301,6 @@ public class DataPage implements JSONString {
                      * An item can be both winning and inherited (alias/fallback). If an item is both
                      * winning and inherited, then its class/style/color is determined by inheritance,
                      * not by whether it's winning.
-                     *
-                     * redesign.css has:
-                     * .winner, .value {font-weight:bold;}
-                     * .value-div .winner, .value-div .value {font-size:16px;}
                      */
                     return "winner";
                 }
@@ -669,11 +647,7 @@ public class DataPage implements JSONString {
          *     in populateFromThisXpath:
          *         row.addItem(row.baselineValue, "baseline");
          *
-         * (5) For INHERITANCE_MARKER (if not in votes and locale.getCountry isn't empty):
-         *     in populateFromThisXpath:
-         *         row.addItem(CldrUtility.INHERITANCE_MARKER, "country");
-         *
-         * (6) For ourValue:
+         * (5) For ourValue:
          *     in addOurValue (called by populateFromThisXpath):
          *         CandidateItem myItem = row.addItem(ourValue, "our");
          */
@@ -681,7 +655,7 @@ public class DataPage implements JSONString {
             if (value == null) {
                 return null;
             }
-            if (value.equals(inheritedValue)) {
+            if (value.equals(inheritedValue) && !inheritsFromRootOrFallback()) {
                 value = CldrUtility.INHERITANCE_MARKER;
             }
             CandidateItem item = items.get(value);
@@ -703,6 +677,11 @@ public class DataPage implements JSONString {
                 item.isBaselineValue = true;
             }
             return item;
+        }
+
+        private boolean inheritsFromRootOrFallback() {
+            String loc = inheritedLocale.getBaseName();
+            return XMLSource.ROOT_ID.equals(loc) || XMLSource.CODE_FALLBACK_ID.equals(loc);
         }
 
         /**
@@ -2021,6 +2000,7 @@ public class DataPage implements JSONString {
      */
     private void populateFromThisXpath(String xpath, Set<String> extraXpaths, CLDRFile ourSrc, String fullPath,
         TestResultBundle checkCldr, int coverageValue, int base_xpath) {
+
         /*
          * 'extra' paths get shim treatment
          *
@@ -2112,17 +2092,6 @@ public class DataPage implements JSONString {
         }
 
         row.coverageValue = coverageValue;
-
-        if (locale.getCountry() != null && locale.getCountry().length() > 0) {
-            /*
-             * If "vote for inherited" isn't already represented as an item, add it (child locales only).
-             *
-             * TODO: Note that updateInheritedValue is called above, unless isExtraPath; normally
-             * it's the job of updateInheritedValue to do addItem(CldrUtility.INHERITANCE_MARKER); is there
-             * any need to call it here as well? setShimTests below may also do addItem(CldrUtility.INHERITANCE_MARKER).
-             */
-            row.addItem(CldrUtility.INHERITANCE_MARKER, "country");
-        }
 
         if (row.inheritedItem == null && isExtraPath) {
             /*
@@ -2218,19 +2187,23 @@ public class DataPage implements JSONString {
          * inheritance items even when there are no votes yet in the current cycle. This is related
          * to the open question of how ourValue is related to winningValue (often but not always the same),
          * and why there is any need at all for ourValue in addition to winningValue.
-         * Reference: https://unicode.org/cldr/trac/ticket/11611
          *
          * However, if ourValue, matching inheritedValue, has already been added (e.g., as winningValue,
          * baselineValue, or because it has votes), then "add" it again here so that we have myItem and
          * will call setTests.
-         * Reference: https://unicode-org.atlassian.net/browse/CLDR-13551
+         *
+         * Also, if inherited value is from root or code-fallback, then we still need a candidate item that's
+         * non-inherited to avoid errors about inheriting from root/fallback, and to match the winning value
+         * which might be not be INHERITANCE_MARKER even though it matches the bailey value.
          *
          * TODO: It would be better to consolidate where setTests is called for all items, to ensure
          * it's called once and only once for each item that needs it.
          */
         CandidateItem myItem = null;
         if (ourValue != null) {
-            if (!ourValue.equals(row.inheritedValue) || row.items.get(ourValue) != null) {
+            if (!ourValue.equals(row.inheritedValue) ||
+                row.items.get(ourValue) != null ||
+                row.inheritsFromRootOrFallback()) {
                 myItem = row.addItem(ourValue, "our");
                 if (DEBUG) {
                     System.err.println("Added item " + ourValue + " - now items=" + row.items.size());

@@ -132,7 +132,7 @@ Please see CLDR-15034 for the latest information. -->
 
 <!ELEMENT flick EMPTY >
 <!ATTLIST flick directions NMTOKENS #REQUIRED >
-    <!--@MATCH:regex/(n|e|s|w|ne|nw|se|sw|[ ]+)+-->
+    <!--@MATCH:regex/(n|e|s|w|ne|nw|se|sw)([ ]+(n|e|s|w|ne|nw|se|sw))*-->
 <!ATTLIST flick to CDATA #REQUIRED >
     <!--@MATCH:any-->
     <!--@VALUE-->

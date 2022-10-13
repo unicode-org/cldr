@@ -426,8 +426,7 @@ Element used to keep track of the source data version.
 
 _Attribute:_ `number` (required)
 
-> Must be a [semver-compatible](https://semver.org) version number.
-<!-- TODO make the above into a reverence to SEMVER -->
+> Must be a [[SEMVER](https://semver.org)] compatible version number, such as `1.0.0`
 
 _Attribute:_ `cldrVersion` (fixed by DTD)
 

@@ -608,8 +608,7 @@ public class Annotations {
             throw new IllegalArgumentException("Cannot find source annotation directory for locale " + locale);
         } else if (dirs.size() != 1) {
             throw new IllegalArgumentException(
-                "Did not find exactly one source directory for locale " + locale + " - " +
-                 String.join(" ", dirs.toArray(new String[0])));
+                "Did not find exactly one source directory for locale " + locale + " - " + Arrays.toString(dirs));
         }
         final File theDir = dirs.get(0);
         return theDir;

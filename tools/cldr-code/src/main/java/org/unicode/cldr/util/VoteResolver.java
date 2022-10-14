@@ -78,6 +78,37 @@ public class VoteResolver<T> {
     private static final boolean DEBUG = false;
 
     /**
+     * This enables a prose discussion of the voting process.
+     */
+    private StringBuilder transcript = null;
+
+    void enableTranscript() {
+        if (transcript == null) {
+            transcript = new StringBuilder();
+        }
+    }
+
+    String getTranscript() {
+        if (transcript == null) {
+            return null;
+        } else {
+            return transcript.toString();
+        }
+    }
+
+    /**
+     * Add an annotation
+     * @param fmt
+     * @param args
+     */
+    private final void annotateTranscript(String fmt, Object... args) {
+        if (transcript == null) {
+            return;
+        }
+        transcript.append(String.format(fmt, args)).append("\n");
+    }
+
+    /**
      * A placeholder for winningValue when it would otherwise be null.
      * It must match NO_WINNING_VALUE in the client JavaScript code.
      */
@@ -557,6 +588,9 @@ public class VoteResolver<T> {
             totalVotes.clear();
             baileyValue = null;
             baileySet = false;
+            if (transcript != null) {
+                transcript = new StringBuilder();
+            }
         }
 
         /**
@@ -642,6 +676,7 @@ public class VoteResolver<T> {
             }
             totals.clear();
 
+            annotateTranscript("- Getting all totals by organization:");
             for (Map.Entry<Organization, MaxCounter<T>> entry : orgToVotes.entrySet()) {
                 Counter<T> items = entry.getValue();
                 if (items.size() == 0) {
@@ -653,11 +688,11 @@ public class VoteResolver<T> {
                 if (weight == 0) {
                     continue;
                 }
+                annotateTranscript("-- Considering %s which has %d item(s)", entry.getKey().getDisplayName(), items.size());
                 Organization org = entry.getKey();
                 if (DEBUG) {
                     System.out.println("sortedKeys?? " + value + " " + org.getDisplayName());
                 }
-
                 // if there is more than one item, check that it is less
                 if (iterator.hasNext()) {
                     T value2 = iterator.next();
@@ -665,6 +700,7 @@ public class VoteResolver<T> {
                     // if the votes for #1 are not better than #2, we have a dispute
                     if (weight == weight2) {
                         if (conflictedOrganizations != null) {
+                            annotateTranscript("--- There are conflicts due to different values by users of this same organization");
                             conflictedOrganizations.add(org);
                         }
                     }
@@ -691,6 +727,10 @@ public class VoteResolver<T> {
                     if (count > maxCount) {
                         maxCount = count;
                         maxtime = time;
+                        // tell the 'losing' item
+                        if (considerItem != null) {
+                            annotateTranscript("---- Org is not voting for '%s': there is a higher ranked vote", considerItem);
+                        }
                         considerItem = item;
                         if (DEBUG) {
                             System.out.println("count>maxCount: " + considerItem.toString() + ":" + new Timestamp(considerTime).toString() + " COUNT: "
@@ -698,10 +738,13 @@ public class VoteResolver<T> {
                         }
                         considerCount = items.getCount(considerItem);
                         considerTime = items.getTime(considerItem);
-
                     } else if ((time > maxtime) && (count == maxCount)) {
                         maxCount = count;
                         maxtime = time;
+                        // tell the 'losing' item
+                        if (considerItem != null) {
+                            annotateTranscript("---- Org is not voting for '%s': there is a later vote", considerItem);
+                        }
                         considerItem = item;
                         considerCount = items.getCount(considerItem);
                         considerTime = items.getTime(considerItem);
@@ -710,6 +753,7 @@ public class VoteResolver<T> {
                         }
                     }
                 }
+                annotateTranscript("--- %s vote is for '%s' with strength %d", org.getDisplayName(),  considerItem, considerCount);
                 orgToAdd.put(org, considerItem);
                 totals.add(considerItem, considerCount, considerTime);
 
@@ -1017,6 +1061,7 @@ public class VoteResolver<T> {
          * then (c) the alphabetical order (as a last resort).
          *
          * Return negative to favor o1, positive to favor o2.
+         * @see VoteResolver#setBestNextAndSameVoteValues(Set, HashMap)
          */
         @Override
         public int compare(T o1, T o2) {
@@ -1045,6 +1090,7 @@ public class VoteResolver<T> {
      * and many others.
      */
     private void resolveVotes() {
+        annotateTranscript("Begin resolution");
         resolved = true;
         // get the votes for each organization
         valuesWithSameVotes.clear();
@@ -1054,6 +1100,7 @@ public class VoteResolver<T> {
         if (DEBUG) {
             System.out.println("sortedValues :" + sortedValues.toString());
         }
+        // annotateTranscript("all votes by org: %s", sortedValues);
 
         /*
          * If there are no (unconflicted) votes, return baseline (trunk) if not null,
@@ -1064,9 +1111,11 @@ public class VoteResolver<T> {
             if (baselineValue != null) {
                 winningValue = baselineValue;
                 winningStatus = baselineStatus;
+                annotateTranscript("Winning Value: '%s' with status '%s' because there were no unconflicted votes.", winningValue, winningStatus);
             } else if (organizationToValueAndVote.baileySet) {
                 winningValue = (T) CldrUtility.INHERITANCE_MARKER;
                 winningStatus = Status.missing;
+                annotateTranscript("Winning Value: '%s' with status '%s' because there were no unconflicted votes, and there was a Bailey value set.", winningValue, winningStatus);
             } else {
                 /*
                  * TODO: When can this still happen? See https://unicode.org/cldr/trac/ticket/11299 "Example C".
@@ -1077,9 +1126,10 @@ public class VoteResolver<T> {
                  */
                 winningValue = (T) NO_WINNING_VALUE;
                 winningStatus = Status.missing;
+                annotateTranscript("No winning value! status '%s' because there were no unconflicted votes", winningStatus);
             }
             valuesWithSameVotes.add(winningValue);
-            return;
+            return;  // sortedValues.size() == 0, no candidates
         }
         if (values.size() == 0) {
             throw new IllegalArgumentException("No values added to resolver");
@@ -1098,11 +1148,14 @@ public class VoteResolver<T> {
          * Adjust sortedValues and voteCount as needed for annotation keywords.
          */
         if (isUsingKeywordAnnotationVoting()) {
+            annotateTranscript("TODO: Annotation stuff is happening, but we can’t explain it right now.");
             adjustAnnotationVoteCounts(sortedValues, voteCount);
         }
 
         /*
          * Perform the actual resolution.
+         * This sets winningValue to the top element of
+         * sortedValues.
          */
         long weights[] = setBestNextAndSameVoteValues(sortedValues, voteCount);
 
@@ -1111,7 +1164,9 @@ public class VoteResolver<T> {
         winningStatus = computeStatus(weights[0], weights[1]);
 
         // if we are not as good as the baseline (trunk), use the baseline
+        // TODO: how could baselineStatus be null here??
         if (baselineStatus != null && winningStatus.compareTo(baselineStatus) < 0) {
+            annotateTranscript("The new winning status would not be as good as the baseline status %s.  Therefore, the baseline value '%s' will become the winning value.", baselineStatus, baselineValue);
             winningStatus = baselineStatus;
             winningValue = baselineValue;
             valuesWithSameVotes.clear();
@@ -1379,12 +1434,28 @@ public class VoteResolver<T> {
                 winningValue = value;
                 weightArray[0] = valueWeight;
                 valuesWithSameVotes.add(value);
+                annotateTranscript("The winning value (O) is '%s', with a weight of %d", winningValue, valueWeight);
+                if (sortedValues.size() == 1) {
+                    annotateTranscript("- No other values received votes."); // uncontested
+                }
             } else {
                 if (i == 1) {
                     // get the next item if there is one
                     if (iterator.hasNext()) {
                         nValue = value;
                         weightArray[1] = valueWeight;
+                        // sortedValues.size() >= 2 - explain why O won and N lost.
+                        // We have to perform the function of the votesThenUcaCollator one more time
+                        if (weightArray[0] > weightArray[1]) {
+                            annotateTranscript("- This is the winning value because it has the highest weight (voting score).");
+                        } else if(winningValue.equals(baselineValue)) {
+                            annotateTranscript("- This is the winning value because it is the same as the baseline value, though the weight was otherwise equal to the next-best."); // aka blue star
+                        } else if(winningValue.equals(CldrUtility.INHERITANCE_MARKER)) {
+                            annotateTranscript("- This is the winning value because it is the inheritance marker, though the weight was otherwise equal to the next-best."); // triple up arrow
+                        } else {
+                            annotateTranscript("- This is the winning value because it comes earlier than '%s' when the text was sorted, though the weight was otherwise equal to the next-best.", nValue);
+                        }
+                        annotateTranscript("The Next-best (N) value is '%s', with weight %d", nValue, valueWeight);
                     }
                 }
                 if (valueWeight == weightArray[0]) {
@@ -1399,24 +1470,46 @@ public class VoteResolver<T> {
 
     /**
      * Compute the status for the winning value.
+     * See: https://cldr.unicode.org/index/process
      *
-     * @param weight1 the weight (vote count) for the best value
-     * @param weight2 the weight (vote count) for the next-best value
+     * @param O the weight (vote count) for the best value
+     * @param N the weight (vote count) for the next-best value
      * @return the Status
      */
-    private Status computeStatus(long weight1, long weight2) {
-        if (weight1 > weight2 && weight1 >= getRequiredVotes()) {
-            return Status.approved;
+    private Status computeStatus(long O, long N) {
+        if (O > N) {
+            final int requiredVotes = getRequiredVotes();
+            if (O >= requiredVotes) {
+                final Status computedStatus = Status.approved;
+                annotateTranscript("O>N, and O>%d: %s", requiredVotes, computedStatus);
+                return computedStatus;
+            }
+            if (O >= 4 && Status.contributed.compareTo(baselineStatus) > 0) {
+                final Status computedStatus = Status.contributed;
+                annotateTranscript("O>=4, and oldstatus (%s)<contributed: %s", baselineStatus, computedStatus);
+                return computedStatus;
+            }
+            if (O >= 2) {
+                final int G = organizationToValueAndVote.getOrgCount(winningValue);
+                if (G >= 2) {
+                    final Status computedStatus = Status.contributed;
+                    annotateTranscript("O>=2, and G (%d)>=2: %s", G, computedStatus);
+                    return computedStatus;
+                }
+            }
         }
-        if (weight1 > weight2 &&
-            (weight1 >= 4 && Status.contributed.compareTo(baselineStatus) > 0
-                || weight1 >= 2 && organizationToValueAndVote.getOrgCount(winningValue) >= 2) ) {
-            return Status.contributed;
+        if (O >= N) {
+            if (O >= 2) {
+                final Status computedStatus = Status.provisional;
+                annotateTranscript("O>=N and O>=2: %s", computedStatus);
+                return computedStatus;
+            }
         }
-        if (weight1 >= weight2 && weight1 >= 2) {
-            return Status.provisional;
-        }
-        return Status.unconfirmed;
+
+        // otherwise: unconfirmed
+        final Status computedStatus = Status.unconfirmed;
+        annotateTranscript("O was not high enough: %s", computedStatus);
+        return computedStatus;
     }
 
     private Status getPossibleWinningStatus() {

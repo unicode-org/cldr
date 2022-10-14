@@ -337,7 +337,7 @@ public class TestUtilities extends TestFmwkPlus {
     }
 
     /** Test user data. Restructured to be easier to read, more typesafe */
-    enum TestUser {
+    public enum TestUser {
         unaffiliatedS(801, Organization.unaffiliated, Level.guest),
         gnomeS(701, Organization.gnome, Level.guest),
         gnomeV(702, Organization.gnome, Level.vetter),
@@ -377,7 +377,10 @@ public class TestUtilities extends TestFmwkPlus {
         return TestUser.valueOf(s).voterId;
     }
 
-    private VoterInfoList getTestVoterInfoList() {
+    /**
+     * Public to use from other tests
+     */
+    public static VoterInfoList getTestVoterInfoList() {
         return new VoterInfoList().setVoterToInfo(testdata);
     }
 

@@ -1,9 +1,6 @@
 package org.unicode.cldr.web.api;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -45,13 +42,13 @@ public class UserLevels {
                             + "}"))),
         })
     public Response getLevels(
-        @QueryParam("s") @Schema(required = true, description = "Session String") String sessionString) {
+        @HeaderParam(Auth.SESSION_HEADER) String sessionString) {
         CookieSession session = Auth.getSession(sessionString);
         if (session == null) {
             return Auth.noSessionResponse();
         }
-        if (!UserRegistry.userCanCreateUsers(session.user)) {
-            return Response.status(403, "Forbidden").build();
+        if (session.user == null) {
+            return Response.status(Response.Status.FORBIDDEN).build();
         }
         session.userDidAction();
         try {

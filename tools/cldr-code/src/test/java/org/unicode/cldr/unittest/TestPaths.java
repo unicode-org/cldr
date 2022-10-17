@@ -381,6 +381,7 @@ public class TestPaths extends TestFmwkPlus {
             for (String fileName : new File(dirPath).list()) {
                 File dir2 = new File(dirPath + fileName);
                 if (!dir2.isDirectory()
+                    || (dir2.getName().equals("import") && directory.equals("keyboards/")) // has a different root element
                     || fileName.equals("properties") // TODO as flat files
 //                    || fileName.equals(".DS_Store")
 //                    || ChartDelta.LDML_DIRECTORIES.contains(dir)

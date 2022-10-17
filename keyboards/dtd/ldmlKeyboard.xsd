@@ -87,8 +87,10 @@
       </xs:attribute>
     </xs:complexType>
   </xs:element>
+  <!-- Note: post techpreview, change cldrVersion to MATCH:version -->
+  <!-- @MATCH:semver -->
   <!-- @VALUE -->
-  <!-- @MATCH:version -->
+  <!-- @MATCH:any -->
   <!-- @METADATA -->
   <xs:element name="info">
     <xs:complexType>
@@ -120,6 +122,7 @@
       <xs:attribute name="value" use="required"/>
     </xs:complexType>
   </xs:element>
+  <!-- @ORDERED -->
   <!-- @MATCH:any -->
   <!-- @VALUE -->
   <xs:element name="special" type="any"/>

@@ -36,10 +36,11 @@ Please see CLDR-15034 for the latest information. -->
 
 <!ELEMENT version EMPTY >
 <!ATTLIST version number CDATA #IMPLIED >
-    <!--@VALUE-->
+    <!-- Note: post techpreview, change cldrVersion to MATCH:version -->
     <!--@MATCH:semver-->
+    <!--@VALUE-->
 <!ATTLIST version cldrVersion CDATA #FIXED "techpreview" >
-    <!--@MATCH:version-->
+    <!--@MATCH:any-->
     <!--@METADATA-->
 
 <!ELEMENT info EMPTY >

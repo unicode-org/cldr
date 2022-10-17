@@ -4,30 +4,8 @@ import static org.unicode.cldr.util.PathUtilities.getNormalizedPathString;
 
 import java.io.File;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.Deque;
-import java.util.EnumMap;
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Objects;
-import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeMap;
-import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -3131,6 +3109,33 @@ public class SupplementalDataInfo {
 
     public Set<String> getAllMetazones() {
         return allMetazones;
+    }
+
+    /**
+     * Is the given metazone outdated?
+     *
+     * @param metazone the metazone such as "Liberia"
+     * @param tzid the timezone id such as "Africa/Monrovia"
+     * @param timeInMillis the time in milliseconds since 1970
+     * @return true if the metazone is outdated
+     */
+    public boolean metazoneIsOutdated(String metazone, String tzid, long timeInMillis) {
+        final MetaZoneRange range = getMetaZoneRange(tzid, timeInMillis);
+        // For example, for metazone = "Liberia", if range.metazone = "GMT",
+        // that implies "GMT" is current and "Liberia" is outdated
+        if (range == null) {
+            if (DEBUG) {
+                System.out.println("metazoneIsOutdated: " + metazone + "; tzid = " + tzid + "; range is null");
+            }
+            return true;
+        }
+        if (!metazone.equals(range.metazone)) {
+            if (DEBUG) {
+                System.out.println("metazoneIsOutdated: " + metazone + "; tzid = " + tzid + "; range.metazone = " + range.metazone);
+            }
+            return true;
+        }
+        return false;
     }
 
     public Map<String, String> getLikelySubtags() {

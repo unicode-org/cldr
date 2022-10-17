@@ -3,17 +3,8 @@ package org.unicode.cldr.util;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
 import java.util.regex.Matcher;
 
 import org.unicode.cldr.draft.FileUtilities;
@@ -387,11 +378,11 @@ public class VerifyZones {
         TablePrinter output) throws IOException {
         CLDRFile englishCldrFile = englishZoneFormats.cldrFile;
         TimezoneFormatter tzformatter = new TimezoneFormatter(cldrFile);
-
+        final long timeInMillis = Calendar.getInstance().getTimeInMillis();
         for (MetazoneRow row : rows) {
             String metazone = row.getMetazone();
             String tzid = row.getZone();
-            if (metazoneIsOutdated(metazone, tzid)) {
+            if (sdi.metazoneIsOutdated(metazone, tzid, timeInMillis)) {
                 continue;
             }
             String grouping = row.getContainer();
@@ -439,32 +430,6 @@ public class VerifyZones {
                 : view);
             output.finishRow();
         }
-    }
-
-    /**
-     * Is the given metazone outdated?
-     *
-     * @param metazone the metazone such as "Liberia"
-     * @param tzid the timezone id such as "Africa/Monrovia"
-     * @return true if the metazone is outdated
-     */
-    private static boolean metazoneIsOutdated(String metazone, String tzid) {
-        final MetaZoneRange range = sdi.getMetaZoneRange(tzid, date);
-        // For example, for metazone = "Liberia", if range.metazone = "GMT",
-        // that implies "GMT" is current and "Liberia" is outdated
-        if (range == null) {
-            if (DEBUG) {
-                System.out.println("metazoneIsOutdated: " + metazone + "; tzid = " + tzid + "; range is null");
-            }
-            return true;
-        }
-        if (!metazone.equals(range.metazone)) {
-            if (DEBUG) {
-                System.out.println("metazoneIsOutdated: " + metazone + "; tzid = " + tzid + "; range.metazone = " + range.metazone);
-            }
-            return true;
-        }
-        return false;
     }
 
     private static String surveyUrl = CLDR_CONFIG.getProperty("CLDR_SURVEY_URL",

@@ -2,11 +2,9 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 7: Keyboards
 
-<!-- HTML: no th -->
-<table><tbody>
-<tr><td>Version</td><td><b>42 (draft)</b></td></tr>
-<tr><td>Editors</td><td>Steven Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members</a></td></tr>
-</tbody></table>
+|Version|42           |
+|-------|-------------|
+|Editors|Steven Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members</a>|
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
@@ -14,8 +12,10 @@ For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
 > The CLDR [Keyboard Workgroup](https://cldr.unicode.org/index/keyboard-workgroup) is currently
 > developing major changes to the CLDR keyboard specification. These changes are targeted for
-> CLDR version 41. Please see [CLDR-15034](https://unicode-org.atlassian.net/browse/CLDR-15034) for
+> CLDR version 43. Please see [CLDR-15034](https://unicode-org.atlassian.net/browse/CLDR-15034) for
 > the latest information.
+
+
 ### _Summary_
 
 This document describes parts of an XML format (_vocabulary_) for the exchange of structured locale data. This format is used in the [Unicode Common Locale Data Repository](https://www.unicode.org/cldr/).

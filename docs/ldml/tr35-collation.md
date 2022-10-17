@@ -2,11 +2,9 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 5: Collation
 
-<!-- HTML: no header -->
-<table><tbody>
- <tr><td>Version</td><td><b>42 (draft)</b></td></tr>
-<tr><td>Editors</td><td>Markus Scherer (<a href="mailto:markus.icu@gmail.com">markus.icu@gmail.com</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members</a></td></tr>
-</tbody></table>
+|Version|42              |
+|-------|----------------|
+|Editors|Markus Scherer (<a href="mailto:markus.icu@gmail.com">markus.icu@gmail.com</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members</a>|
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
 

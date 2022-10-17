@@ -269,7 +269,11 @@ public class UserRegistry {
 
         private UserSettings settings;
 
+        /**
+         * The locales for which this user is authorized
+         */
         private LocaleSet authorizedLocaleSet = null;
+
         private LocaleSet interestLocalesSet = null;
 
         /**
@@ -382,12 +386,29 @@ public class UserRegistry {
             return v;
         }
 
+        /**
+         * Get the set of locales for which this user is authorized
+         *
+         * Generally this is the intersection of the user's set and the organization's set,
+         * except for users who can vote in non-org locales, for whom it is simply the user's set
+         */
         private LocaleSet getAuthorizedLocaleSet() {
             if (authorizedLocaleSet == null) {
-                LocaleSet orgLocales = getOrganization().getCoveredLocales();
+                LocaleSet orgLocales = canVoteInNonOrgLocales() ? null : getOrganization().getCoveredLocales();
                 authorizedLocaleSet = LocaleNormalizer.setFromStringQuietly(locales, orgLocales);
             }
             return authorizedLocaleSet;
+        }
+
+        /**
+         * Can this user vote in locales that are not in their organization's locales per Locales.txt?
+         *
+         * @return true if the user has that authority
+         *
+         * A STREET user has this advantage over a VETTER or MANAGER, though with less votes
+         */
+        public boolean canVoteInNonOrgLocales() {
+            return userlevel == ADMIN || userlevel == TC || userlevel == STREET;
         }
 
         @Override
@@ -395,8 +416,10 @@ public class UserRegistry {
             return getVoterToInfo(id);
         }
 
-        @Schema( name = "userLevelName", description = "VoteREsolver.Level user level" )
+        @Schema( name = "userLevelName", description = "VoteResolver.Level user level" )
         public synchronized VoteResolver.Level getLevel() {
+            // CAUTION: this name, like "VETTER", is uppercase when serialized for json response, while
+            // in some other http responses, lowercase levels like "vetter" are used -- we should be consistent
             return VoteResolver.Level.fromSTLevel(this.userlevel);
         }
 
@@ -561,8 +584,6 @@ public class UserRegistry {
          *
          * @param locale the CLDRLocale
          * @return true or false
-         *
-         * Code related to userIsExpert, UserRegistry.EXPERT removed 2021-05-18 per CLDR-14597
          */
         private boolean hasLocalePermission(CLDRLocale locale) {
             /*
@@ -1195,7 +1216,8 @@ public class UserRegistry {
         String msg = "";
         if (!intLocs) {
             final LocaleNormalizer locNorm = new LocaleNormalizer();
-            newLocales = locNorm.normalizeForSubset(newLocales, user.getOrganization().getCoveredLocales());
+            LocaleSet orgLocaleSet = user.canVoteInNonOrgLocales() ? null : user.getOrganization().getCoveredLocales();
+            newLocales = locNorm.normalizeForSubset(newLocales, orgLocaleSet);
             if (locNorm.hasMessage()) {
                 msg = locNorm.getMessageHtml() + "<br />";
             }

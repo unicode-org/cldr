@@ -9,6 +9,7 @@ import * as cldrLoad from "./cldrLoad.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
+import * as cldrUserLevels from "./cldrUserLevels.js";
 
 let panelLast = null;
 let panels = {};
@@ -21,7 +22,9 @@ let exceptionNames = {};
 function load() {
   const ourDiv = document.createElement("div");
   const surveyUser = cldrStatus.getSurveyUser();
-  const hasPermission = surveyUser && surveyUser.userlevelName === "ADMIN";
+  const hasPermission =
+    surveyUser &&
+    cldrUserLevels.match(surveyUser.userlevelName, cldrUserLevels.ADMIN);
   if (!hasPermission) {
     ourDiv.innerHTML = cldrText.get("E_NO_PERMISSION");
   } else {

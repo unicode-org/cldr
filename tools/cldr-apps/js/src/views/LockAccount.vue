@@ -38,6 +38,7 @@
 import * as cldrAjax from "../esm/cldrAjax.js";
 import * as cldrStatus from "../esm/cldrStatus.js";
 import * as cldrText from "../esm/cldrText.js";
+import * as cldrUserLevels from "../esm/cldrUserLevels.js";
 
 export default {
   data() {
@@ -65,7 +66,7 @@ export default {
     const user = cldrStatus.getSurveyUser();
     if (!user) {
       this.helpMessage = cldrText.get("lock_account_login");
-    } else if (user.userlevelName === "ADMIN") {
+    } else if (cldrUserLevels.match(user.userlevelName, cldrUserLevels.ADMIN)) {
       this.helpMessage = cldrText.get("lock_account_admin");
     } else {
       this.email = user.email;

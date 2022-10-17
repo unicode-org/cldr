@@ -72,7 +72,6 @@ const strings = {
 
   userlevel_admin: "Admin",
   userlevel_tc: "TC",
-  userlevel_expert: "Expert",
   userlevel_vetter: "Vetter",
   userlevel_street: "Guest",
   userlevel_locked: "Locked",
@@ -80,7 +79,6 @@ const strings = {
 
   userlevel_admin_desc: "Administrator",
   userlevel_tc_desc: "CLDR-Technical Committee member",
-  userlevel_expert_desc: "Language Expert",
   userlevel_vetter_desc: "Regular Vetter",
   userlevel_street_desc: "Guest User",
   userlevel_manager_desc: "Project Manager",

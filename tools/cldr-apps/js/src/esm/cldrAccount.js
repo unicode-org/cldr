@@ -3,11 +3,11 @@
  */
 import * as cldrAjax from "./cldrAjax.js";
 import * as cldrDom from "./cldrDom.js";
-import * as cldrGui from "./cldrGui.js";
 import * as cldrLoad from "./cldrLoad.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
+import * as cldrUserLevels from "./cldrUserLevels.js";
 
 const CLDR_ACCOUNT_DEBUG = false;
 const SHOW_GRAVATAR = !CLDR_ACCOUNT_DEBUG;
@@ -278,6 +278,7 @@ function getHtml(json) {
 
 function getTable(json) {
   shownUsers = json.shownUsers;
+  levelList = json.userPerms.levels;
   byEmail = {};
   let html = getTableStart();
   let oldOrg = "";
@@ -464,11 +465,12 @@ function getChangeLevelOptions(u, theirLevel) {
     const me = cldrStatus.getSurveyUser();
     if (!(me && me.email && u.data.email === me.email)) {
       for (let number in levelList) {
-        if (levelList[number].name === "anonymous") {
+        const name = levelList[number].name;
+        if (cldrUserLevels.match(name, cldrUserLevels.ANONYMOUS)) {
           continue;
         }
         // only allow mass LOCK
-        if (justUser || levelList[number].name === "locked") {
+        if (justUser || cldrUserLevels.match(name, cldrUserLevels.LOCKED)) {
           html += doChangeUserOption(number, theirLevel);
         }
       }
@@ -579,10 +581,13 @@ function getDeleteUserOptions(u, json) {
 }
 
 function getUserLocales(u) {
-  const UserRegistry_MANAGER = 2; // TODO -- get from levelList? See UserRegistry.MANAGER in java
+  const MANAGER_LEVEL = cldrUserLevels.getUserLevel(
+    cldrUserLevels.MANAGER,
+    levelList
+  );
   const theirLevel = u.data.userlevel;
   if (
-    theirLevel <= UserRegistry_MANAGER ||
+    theirLevel <= MANAGER_LEVEL ||
     u.data.locales === "*" ||
     u.data.locales === "all" ||
     u.data.locales === "all locales"
@@ -984,7 +989,7 @@ function getBulkActionMenuLevels() {
   html += "<option>" + LIST_ACTION_NONE + "</option>";
   // Example: <option class='user999' value='999'>999: (LOCKED)</option>
   for (let n in levelList) {
-    if (levelList[n].name !== "anonymous") {
+    if (!cldrUserLevels.match(levelList[n].name, cldrUserLevels.ANONYMOUS)) {
       html +=
         "<option class='user" +
         n +

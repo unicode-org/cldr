@@ -36,12 +36,6 @@ const json = {
         name: "manager",
         canCreateOrSetLevelTo: true,
       },
-      3: {
-        string: "3: (EXPERT)",
-        isManagerFor: true,
-        name: "expert",
-        canCreateOrSetLevelTo: true,
-      },
       5: {
         string: "5: (VETTER)",
         isManagerFor: true,

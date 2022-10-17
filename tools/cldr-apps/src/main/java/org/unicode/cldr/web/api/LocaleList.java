@@ -54,7 +54,7 @@ public class LocaleList {
                     schema = @Schema(implementation = LocaleNormalizerResponse.class))),
         })
     public Response normalize(
-        @Parameter(description = "Space-sepsrated list of locales", required = true, example = "jgo vec kjj", schema = @Schema(type = SchemaType.STRING)) @QueryParam("locs") String locs,
+        @Parameter(description = "Space-separated list of locales", required = true, example = "jgo vec kjj", schema = @Schema(type = SchemaType.STRING)) @QueryParam("locs") String locs,
         @Parameter(description = "Optional Organization, as a coverage limit", required = false, example = "adlam", schema = @Schema(type = SchemaType.STRING)) @QueryParam("org") String org) {
 
         LocaleNormalizer ln = new LocaleNormalizer();

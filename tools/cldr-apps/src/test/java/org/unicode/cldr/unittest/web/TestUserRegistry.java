@@ -1,5 +1,6 @@
 package org.unicode.cldr.unittest.web;
 
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.UserRegistry;
@@ -140,6 +141,65 @@ public class TestUserRegistry extends TestFmwk {
             } catch (IllegalArgumentException e) {
                 errln("Organization.fromString threw exception for " + name);
             }
+        }
+    }
+
+    /**
+     * Test the ability of a user to vote in a locale
+     */
+    public void TestUserLocaleAuthorization() {
+        if (TestAll.skipIfDerby(this)) {
+            return;
+        }
+        UserRegistry reg = CookieSession.sm.reg;
+        int id = 3579;
+        CLDRLocale locA = CLDRLocale.getInstance("aa");
+        CLDRLocale locZ = CLDRLocale.getInstance("zh");
+
+        User admin = reg.new User(id++);
+        admin.userlevel = UserRegistry.ADMIN;
+        admin.locales = "zh";
+        admin.org = "SurveyTool";
+        if (UserRegistry.countUserVoteForLocaleWhy(admin, locA) != null) {
+            errln("Admin can vote in any locale");
+        }
+
+        User locked = reg.new User(id++);
+        locked.userlevel = UserRegistry.LOCKED;
+        locked.locales = "*";
+        locked.org = "Apple";
+        if (UserRegistry.countUserVoteForLocaleWhy(locked, locZ) != UserRegistry.ModifyDenial.DENY_NO_RIGHTS) {
+            errln("Locked cannot vote in any locale");
+        }
+
+        User vetter1 = reg.new User(id++);
+        vetter1.userlevel = UserRegistry.VETTER;
+        vetter1.locales = "aa";
+        vetter1.org = "Google"; // assume Google has "aa" and/or "*" in Locales.txt
+        if (UserRegistry.countUserVoteForLocaleWhy(vetter1, locA) != null) {
+            errln("Vetter can vote in their locale if it is also their org locale");
+        }
+        if (UserRegistry.countUserVoteForLocaleWhy(vetter1, locZ) != UserRegistry.ModifyDenial.DENY_LOCALE_LIST) {
+            errln("Vetter can only vote in their locale");
+        }
+
+        User vetter2 = reg.new User(id++);
+        vetter2.userlevel = UserRegistry.VETTER;
+        vetter2.locales = "aa zh";
+        vetter2.org = "Adobe"; // assume Adobe has "zh" but not "aa" or "*" in Locales.txt
+        if (UserRegistry.countUserVoteForLocaleWhy(vetter2, locA) != UserRegistry.ModifyDenial.DENY_LOCALE_LIST) {
+            errln("Vetter cannot vote in their locale unless it is also their org locale");
+        }
+        if (UserRegistry.countUserVoteForLocaleWhy(vetter2, locZ) != null) {
+            errln("Vetter can vote in one of their locales if it is also their org locale");
+        }
+
+        User street = reg.new User(id++);
+        street.userlevel = UserRegistry.STREET;
+        street.locales = "aa zh";
+        street.org = "Adobe"; // assume Adobe has "zh" but not "aa" or "*" in Locales.txt
+        if (UserRegistry.countUserVoteForLocaleWhy(street, locA) != null) {
+            errln("Street can vote in one of their locales regardless of whether it is their org locale");
         }
     }
 }

@@ -80,7 +80,7 @@
               >
               <ul>
                 <li v-bind:key="loc" v-for="loc in Object.keys(locWarnings)">
-                  <tt>{{ loc }}</tt>
+                  <code>{{ loc }}</code>
                   {{ getParenthesizedName(loc) }}
                   — {{ explainWarning(locWarnings[loc]) }}
                 </li>
@@ -122,9 +122,10 @@
 <script>
 import * as cldrAccount from "../esm/cldrAccount.js";
 import * as cldrAjax from "../esm/cldrAjax.js";
-import * as cldrStatus from "../esm/cldrStatus.js";
 import * as cldrLoad from "../esm/cldrLoad.js";
+import * as cldrStatus from "../esm/cldrStatus.js";
 import * as cldrText from "../esm/cldrText.js";
+import * as cldrUserLevels from "../esm/cldrUserLevels.js";
 
 export default {
   data() {
@@ -172,12 +173,21 @@ export default {
     },
 
     async validateLocales() {
+      if (!this.levelList) {
+        this.errors.push("Waiting for server...");
+        return;
+      }
+      const skipOrg = cldrUserLevels.canVoteInNonOrgLocales(
+        this.newUser.level,
+        this.levelList
+      );
+      const orgForValidation = skipOrg ? "" : this.newUser.org;
       await cldrAjax
         .doFetch(
           "./api/locales/normalize?" +
             new URLSearchParams({
               locs: this.newUser.locales,
-              org: this.newUser.org,
+              org: orgForValidation,
             })
         )
         .then(cldrAjax.handleFetchErrors)

@@ -117,7 +117,7 @@ public class AddUser {
         u.org = new_org;
         u.userlevel = request.level;
         u.locales = new_locales;
-        u.setPassword(UserRegistry.makePassword(u.email + u.org + session.user.email));
+        u.setPassword(UserRegistry.makePassword());
         if (request.level < 0 || !reg.canSetUserLevel(session.user, u, request.level)) {
             return new AddUserResponse(AddUserError.BAD_LEVEL);
         }

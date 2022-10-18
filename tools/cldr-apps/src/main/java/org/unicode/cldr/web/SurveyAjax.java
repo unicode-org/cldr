@@ -65,7 +65,6 @@ import org.unicode.cldr.web.BallotBox.VoteNotAcceptedException;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.DataPage.DataRow;
 import org.unicode.cldr.web.SurveyException.ErrorCode;
-import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
 import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.web.WebContext.HTMLDirection;
 
@@ -132,7 +131,7 @@ public class SurveyAjax extends HttpServlet {
 
     public static final int oldestVersionForImportingVotes = 25; // Oldest table is cldr_vote_value_25, as of 2018-05-23.
 
-    String settablePrefsList[] = { SurveyMain.PREF_CODES_PER_PAGE, SurveyMain.PREF_COVLEV,
+    String[] settablePrefsList = { SurveyMain.PREF_CODES_PER_PAGE, SurveyMain.PREF_COVLEV,
         "dummy" }; // list of prefs OK to get/set
 
     private final Set<String> prefsList = new HashSet<>();
@@ -143,9 +142,7 @@ public class SurveyAjax extends HttpServlet {
     public SurveyAjax() {
         super();
 
-        for (String p : settablePrefsList) {
-            prefsList.add(p);
-        }
+        Collections.addAll(prefsList, settablePrefsList);
     }
 
     /**
@@ -187,7 +184,7 @@ public class SurveyAjax extends HttpServlet {
             throw new InternalError("Request is not UTF-8 but: " + request.getCharacterEncoding());
         }
         CLDRConfigImpl.setUrls(request);
-        final SurveyMain sm = SurveyMain.getInstance(request);
+        final SurveyMain sm = SurveyMain.getInstance();
         PrintWriter out = response.getWriter();
         String what = request.getParameter(REQ_WHAT);
         String sess = request.getParameter(SurveyMain.QUERY_SESSION);
@@ -195,7 +192,7 @@ public class SurveyAjax extends HttpServlet {
         String xpath = request.getParameter(SurveyForum.F_XPATH);
         String vhash = request.getParameter("vhash");
         String fieldHash = request.getParameter(SurveyMain.QUERY_FIELDHASH);
-        CookieSession mySession = null;
+        CookieSession mySession;
 
         CLDRLocale l = validateLocale(out, rawloc, sess); // will send error
         if (l == null && (rawloc != null && !rawloc.isEmpty())) {
@@ -221,7 +218,7 @@ public class SurveyAjax extends HttpServlet {
                 ErrorSubtypes.getJson(r, request);
                 send(r, out);
             } else if (what.equals(WHAT_STATS_BYLOC)) {
-                SurveyJSONWrapper r = newJSONStatusQuick(sm);
+                SurveyJSONWrapper r = newJSONStatusQuick();
                 JSONObject query = DBUtils.queryToCachedJSON(what, 5 * 60 * 1000, StatisticsUtils.QUERY_ALL_VOTES);
                 r.put(what, query);
                 JSONObject query2 = DBUtils.queryToCachedJSON(what+"_new", 5 * 60 * 1000, StatisticsUtils.QUERY_NEW_VOTES);
@@ -268,9 +265,9 @@ public class SurveyAjax extends HttpServlet {
             } else if (what.equals(WHAT_GETXPATH)) {
                 SurveyJSONWrapper r = newJSONStatus(request, sm);
                 try {
-                    int xpid = XPathTable.NO_XPATH;
-                    String xpath_path = null;
-                    String xpstrid = null;
+                    int xpid;
+                    String xpath_path;
+                    String xpstrid;
                     if (xpath.startsWith("/")) {
                         xpid = sm.xpt.getByXpath(xpath);
                         xpath_path = xpath;
@@ -320,7 +317,7 @@ public class SurveyAjax extends HttpServlet {
                 send(r, out);
             } else if (what.equals(WHAT_RECENT_ITEMS)) {
                 SurveyJSONWrapper r = newJSONStatus(request, sm);
-                int limit = 15;
+                int limit;
                 try {
                     limit = Integer.parseInt(request.getParameter("limit"));
                 } catch (Throwable t) {
@@ -343,9 +340,9 @@ public class SurveyAjax extends HttpServlet {
                 JSONObject query;
                 if (l == null && u == null) {
                     query = DBUtils.queryToJSONLimit(limit, q1 + q2);
-                } else if (u == null && l != null) {
+                } else if (u == null) {
                     query = DBUtils.queryToJSONLimit(limit, q1 + " " + DBUtils.Table.VOTE_VALUE + ".locale=? AND " + q2, l);
-                } else if (u != null && l == null) {
+                } else if (l == null) {
                     query = DBUtils.queryToJSONLimit(limit, q1 + " " + DBUtils.Table.VOTE_VALUE + ".submitter=? AND " + q2, u.id);
                 } else {
                     query = DBUtils.queryToJSONLimit(limit, q1 + " " + DBUtils.Table.VOTE_VALUE + ".locale=? AND " + DBUtils.Table.VOTE_VALUE + ".submitter=? "
@@ -359,10 +356,6 @@ public class SurveyAjax extends HttpServlet {
 
                 if (sess != null && !sess.isEmpty()) {
                     CookieSession.checkForExpiredSessions();
-                    mySession = CookieSession.retrieve(sess);
-                }
-
-                if (sess != null && !sess.isEmpty()) {
                     mySession = CookieSession.retrieve(sess); // or peek?
                     if (mySession != null) {
                         r2.put("millisTillKick", mySession.millisTillKick());
@@ -444,7 +437,7 @@ public class SurveyAjax extends HttpServlet {
                                         otherErr = ("DAIP returned a 0 length string");
                                     }
 
-                                    uf = sm.getUserFile(mySession, locale);
+                                    uf = sm.getUserFile(locale);
                                     CLDRFile file = uf.cldrfile;
                                     cc.check(xp, result, val);
                                     dataEmpty = file.isEmpty();
@@ -470,7 +463,7 @@ public class SurveyAjax extends HttpServlet {
                                 }
 
                                 if (otherErr != null) {
-                                    String list[] = { otherErr };
+                                    String[] list = { otherErr };
                                     result.add(new CheckStatus().setMainType(CheckStatus.errorType)
                                         .setSubtype(Subtype.internalError)
                                         .setCause(new CheckCLDR() {
@@ -589,7 +582,7 @@ public class SurveyAjax extends HttpServlet {
                         send(r, out);
                     } else if (what.equals(WHAT_FORUM_POST)) {
                         mySession.userDidAction();
-                        postToForum(request, response, out, xpath, l, mySession, sm);
+                        postToForum(request, out, xpath, l, mySession, sm);
                     } else if (what.equals("mail")) {
                         mySession.userDidAction();
                         SurveyJSONWrapper r = newJSONStatus(request, sm);
@@ -689,22 +682,9 @@ public class SurveyAjax extends HttpServlet {
                             send(r, out);
                             return;
                         }
-
-                        final String userCov = request.getParameter("userCov");
-                        String eff = userCov;
-                        if (eff.equals("auto")) {
-                            eff = mySession.getEffectiveCoverageLevel(loc);
-                        }
-
-                        UserLocaleStuff uf = sm.getUserFile(mySession, locale);
-                        @SuppressWarnings("unchecked")
-                        List<CheckStatus> checkCldrResult = (List<CheckStatus>) uf.hash.get(SurveyMain.CHECKCLDR_RES + eff);
-
-                        if (checkCldrResult == null) {
-                            r.put("possibleProblems", new JSONArray());
-                        } else {
-                            r.put("possibleProblems", SurveyJSONWrapper.wrap(checkCldrResult));
-                        }
+                        // Note: possibleProblems is always empty, as became clear after removal of dead code;
+                        // this code is only called by possibleProblems.jsp, if ever
+                        r.put("possibleProblems", new JSONArray());
                         send(r, out);
                     } else if (what.equals(WHAT_OLDVOTES)) {
                         mySession.userDidAction();
@@ -715,18 +695,17 @@ public class SurveyAjax extends HttpServlet {
                         send(r, out);
                     } else if (what.equals(WHAT_GETSIDEWAYS) && l != null) {
                         mySession.userDidAction();
-                        final SurveyJSONWrapper r = newJSONStatusQuick(sm);
+                        final SurveyJSONWrapper r = newJSONStatusQuick();
                         getSidewaysLocales(r, sm, l, xpath);
                         send(r, out);
                     } else if (what.equals(WHAT_SEARCH)) {
                         mySession.userDidAction();
-                        final SurveyJSONWrapper r = newJSONStatusQuick(sm);
-                        final String q = val;
+                        final SurveyJSONWrapper r = newJSONStatusQuick();
                         r.put("what", what);
                         r.put("loc", loc);
-                        r.put("q", q);
+                        r.put("q", val);
 
-                        JSONArray results = searchResults(q, l, mySession);
+                        JSONArray results = searchResults(val, l);
 
                         r.put("results", results);
 
@@ -734,7 +713,7 @@ public class SurveyAjax extends HttpServlet {
                     } else if (what.equals(WHAT_PARTICIPATING_USERS)) {
                         assertHasUser(mySession);
                         assertIsTC(mySession);
-                        SurveyJSONWrapper r = newJSONStatusQuick(sm);
+                        SurveyJSONWrapper r = newJSONStatusQuick();
                         final String sql = "select cldr_users.id as id, cldr_users.email as email, cldr_users.org as org from cldr_users, "
                             + DBUtils.Table.VOTE_VALUE + " where "
                             + DBUtils.Table.VOTE_VALUE + ".submitter = cldr_users.id and " + DBUtils.Table.VOTE_VALUE
@@ -749,9 +728,9 @@ public class SurveyAjax extends HttpServlet {
                         case WHAT_USER_INFO: {
                             String u = request.getParameter("u");
                             if (u == null) throw new SurveyException(ErrorCode.E_INTERNAL, "Missing parameter 'u'");
-                            Integer userid = Integer.parseInt(u);
+                            int userid = Integer.parseInt(u);
 
-                            final SurveyJSONWrapper r = newJSONStatusQuick(sm);
+                            final SurveyJSONWrapper r = newJSONStatusQuick();
                             r.put("what", what);
                             r.put("id", userid);
 
@@ -769,21 +748,21 @@ public class SurveyAjax extends HttpServlet {
                         }
                             break;
                         case WHAT_USER_LIST: {
-                            final SurveyJSONWrapper r = newJSONStatusQuick(sm);
+                            final SurveyJSONWrapper r = newJSONStatusQuick();
                             new UserList(request, response, mySession, sm).getJson(r);
                             send(r, out);
                         }
                             break;
                         case WHAT_USER_OLDVOTES:
                             {
-                                final SurveyJSONWrapper r = newJSONStatusQuick(sm);
+                                final SurveyJSONWrapper r = newJSONStatusQuick();
                                 viewOldVoteStats(r, request, sm, mySession.user);
                                 send(r, out);
                             }
                             break;
                         case WHAT_USER_XFEROLDVOTES:
                             {
-                                final SurveyJSONWrapper r = newJSONStatusQuick(sm);
+                                final SurveyJSONWrapper r = newJSONStatusQuick();
                                 transferOldVotes(r, request, sm, mySession.user);
                                 send(r, out);
                             }
@@ -796,7 +775,7 @@ public class SurveyAjax extends HttpServlet {
                     }
                 }
             } else if (what.equals("locmap")) {
-                final SurveyJSONWrapper r = newJSONStatusQuick(sm);
+                final SurveyJSONWrapper r = newJSONStatusQuick();
                 r.put("locmap", getJSONLocMap(sm));
                 send(r, out);
             } else {
@@ -822,7 +801,6 @@ public class SurveyAjax extends HttpServlet {
      * and send the client a json version of the post
      *
      * @param request the HttpServletRequest
-     * @param response the HttpServletResponse
      * @param out the PrintWriter
      * @param xpath the path, or null
      * @param l the CLDRLocale
@@ -832,10 +810,10 @@ public class SurveyAjax extends HttpServlet {
      * @throws SurveyException
      * @throws JSONException
      */
-    private void postToForum(HttpServletRequest request, HttpServletResponse response, PrintWriter out,
-            String xpath, CLDRLocale l, CookieSession mySession, SurveyMain sm) throws SurveyException, JSONException {
+    private void postToForum(HttpServletRequest request, PrintWriter out,
+                             String xpath, CLDRLocale l, CookieSession mySession, SurveyMain sm) throws SurveyException, JSONException {
 
-        SurveyJSONWrapper r = newJSONStatusQuick(sm);
+        SurveyJSONWrapper r = newJSONStatusQuick();
         r.put("what", WHAT_FORUM_POST);
 
         final String subj = SurveyForum.HTMLSafe(request.getParameter("subj"));
@@ -935,19 +913,19 @@ public class SurveyAjax extends HttpServlet {
         r.put("time_now", System.currentTimeMillis());
     }
 
-    private JSONArray searchResults(String q, CLDRLocale l, CookieSession mySession) {
+    private JSONArray searchResults(String q, CLDRLocale l) {
         JSONArray results = new JSONArray();
 
         if (q != null) {
             if (l == null) {
-                searchLocales(results, q, mySession);
+                searchLocales(results, q);
             } else {
                 //ElapsedTimer et = new ElapsedTimer("search for " + q);
                 // try as xpath
-                searchXPath(results, l, q, mySession);
+                searchXPath(results, q);
 
                 // try PH substring
-                searchPathheader(results, l, q, mySession);
+                searchPathheader(results, l, q);
                 //System.err.println("Done searching for " + et);
             }
         }
@@ -955,7 +933,7 @@ public class SurveyAjax extends HttpServlet {
         return results;
     }
 
-    private void searchLocales(JSONArray results, String q, CookieSession mySession) {
+    private void searchLocales(JSONArray results, String q) {
         for (CLDRLocale l : SurveyMain.getLocales()) {
             if (l.getBaseName().equalsIgnoreCase(q) ||
                 l.getDisplayName().toLowerCase().contains(q.toLowerCase()) ||
@@ -969,24 +947,20 @@ public class SurveyAjax extends HttpServlet {
         }
     }
 
-    private void searchPathheader(JSONArray results, CLDRLocale l, String q, CookieSession mySession) {
+    private void searchPathheader(JSONArray results, CLDRLocale l, String q) {
         if (l == null) {
             return; // don't search with no locale
         }
         try {
             PathHeader.PageId page = PathHeader.PageId.valueOf(q);
-            if (page != null) {
-                results.put(new JSONObject().put("page", page.name())
-                    .put("section", page.getSectionId().name()));
-            }
+            results.put(new JSONObject().put("page", page.name())
+                .put("section", page.getSectionId().name()));
         } catch (Throwable t) {
             //
         }
         try {
             PathHeader.SectionId section = PathHeader.SectionId.valueOf(q);
-            if (section != null) {
-                results.put(new JSONObject().put("section", section.name()));
-            }
+            results.put(new JSONObject().put("section", section.name()));
         } catch (Throwable t) {
             //
         }
@@ -1000,9 +974,7 @@ public class SurveyAjax extends HttpServlet {
             SurveyMain sm = CookieSession.sm;
             sm.getTranslationHintsFile().getPathsWithValue(q, "", null, retrievedPaths);
             final STFactory stFactory = sm.getSTFactory();
-            if (l != null) {
-                stFactory.make(l, true).getPathsWithValue(q, "", null, retrievedPaths);
-            }
+            stFactory.make(l, true).getPathsWithValue(q, "", null, retrievedPaths);
             for (String xp : retrievedPaths) {
                 PathHeader ph = stFactory.getPathHeader(xp);
                 if (ph != null) {
@@ -1028,11 +1000,11 @@ public class SurveyAjax extends HttpServlet {
         }
     }
 
-    private void searchXPath(JSONArray results, CLDRLocale l2, String q, CookieSession mySession) {
+    private void searchXPath(JSONArray results, String q) {
         // is it a stringid?
         try {
-            Long l = Long.parseLong(q, 16);
-            if (l != null && Long.toHexString(l).equalsIgnoreCase(q)) {
+            long l = Long.parseLong(q, 16);
+            if (Long.toHexString(l).equalsIgnoreCase(q)) {
                 SurveyMain sm = CookieSession.sm;
                 String x = sm.xpt.getByStringID(q);
                 if (x != null) {
@@ -1078,14 +1050,14 @@ public class SurveyAjax extends HttpServlet {
             return null;
         }
         CLDRLocale ret = null;
-        if (CookieSession.sm == null || SurveyMain.isSetup == false) {
+        if (CookieSession.sm == null || !SurveyMain.isSetup) {
             sendNoSurveyMain(out);
             return null;
         }
         /*
          * loc can have either - or _; normalize to _
          */
-        loc = (loc == null) ? null : loc.replace('-', '_');
+        loc = loc.replace('-', '_');
         /*
          * Support "USER" as a "wildcard" for locale name, replacing it with a locale suitable for the
          * current user, or "fr" (French) as a fallback.
@@ -1148,7 +1120,7 @@ public class SurveyAjax extends HttpServlet {
             locale.put("bcp47", loc.toLanguageTag());
 
             HTMLDirection dir = sm.getHTMLDirectionFor(loc);
-            if (!dir.equals("ltr")) {
+            if (!dir.toString().equals("ltr")) {
                 locale.put("dir", dir);
             }
 
@@ -1210,7 +1182,7 @@ public class SurveyAjax extends HttpServlet {
         if (gLocMap == null) {
             ElapsedTimer et = new ElapsedTimer("SurveyAjax.getJSONLocMap: created JSON locale map ");
             gLocMap = createJSONLocMap(sm);
-            logger.info(et.toString() + " - serializes to: " + gLocMap.toString().length() + "chars.");
+            logger.info(et + " - serializes to: " + gLocMap.toString().length() + "chars.");
         }
         return gLocMap;
     }
@@ -1292,10 +1264,9 @@ public class SurveyAjax extends HttpServlet {
     /**
      * This is used to initialize JSON responses. It gives a very brief
      * (succinct and speedy) SurveyTool status.
-     * @param sm
      * @return
      */
-    private SurveyJSONWrapper newJSONStatusQuick(SurveyMain sm) {
+    private SurveyJSONWrapper newJSONStatusQuick() {
         SurveyJSONWrapper r = newJSON();
         if (SurveyMain.isSetup && !SurveyMain.isBusted()) {
             r.put("SurveyOK", "1");
@@ -1341,8 +1312,8 @@ public class SurveyAjax extends HttpServlet {
         try {
             e.addDataTo(r);
         } catch (JSONException e1) {
-            SurveyLog.logException(logger, e1, "While processing " + e.toString());
-            r.put("err", e.getMessage() + " - and JSON error " + e1.toString());
+            SurveyLog.logException(logger, e1, "While processing " + e);
+            r.put("err", e.getMessage() + " - and JSON error " + e1);
         }
         send(r, out);
     }
@@ -1465,7 +1436,7 @@ public class SurveyAjax extends HttpServlet {
                  * We're no longer using queryToJSON here, due to the use of multiple tables.
                  * Assemble that same structure using multiple queries and queryToArrayAssoc.
                  */
-                Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sql, user.id);
+                Map<String, Object>[] rows = DBUtils.queryToArrayAssoc(sql, user.id);
                 for (Map<String, Object> m : rows) {
                     String loc = m.get("locale").toString(); // like "pt" or "pt_PT"
                     Long count = (Long) m.get("count"); // like 1616
@@ -1554,7 +1525,7 @@ public class SurveyAjax extends HttpServlet {
                final String newVotesTable, JSONObject oldvotes, STFactory fac)
                throws IOException, JSONException, SQLException {
 
-        Map<String, Object> rows[] = getOldVotesRows(newVotesTable, locale, user.id);
+        Map<String, Object>[] rows = getOldVotesRows(newVotesTable, locale, user.id);
 
         // extract the pathheaders
         for (Map<String, Object> m : rows) {
@@ -1564,12 +1535,7 @@ public class SurveyAjax extends HttpServlet {
         }
 
         // sort by pathheader
-        Arrays.sort(rows, new Comparator<Map<String, Object>>() {
-            @Override
-            public int compare(Map<String, Object> o1, Map<String, Object> o2) {
-                return ((PathHeader) o1.get("pathHeader")).compareTo((PathHeader) o2.get("pathHeader"));
-            }
-        });
+        Arrays.sort(rows, Comparator.comparing(o -> ((PathHeader) o.get("pathHeader"))));
 
         boolean useWinningVotes = UserRegistry.userIsTC(user);
 
@@ -1698,7 +1664,7 @@ public class SurveyAjax extends HttpServlet {
             }
         }
 
-        Map<String, Object> rows[] = getOldVotesRows(newVotesTable, locale, user.id);
+        Map<String, Object>[] rows = getOldVotesRows(newVotesTable, locale, user.id);
 
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale, false);
         Exception[] exceptionList = new Exception[1];
@@ -1716,9 +1682,8 @@ public class SurveyAjax extends HttpServlet {
             try {
                 String strid = sm.xpt.getStringIDString(xp);
                 if (confirmSet.contains(strid)) {
-                    String unprocessedValue = value;
                     String processedValue = daip.processInput(xpathString, value, exceptionList);
-                    importAnonymousOldLosingVote(box, locale, xpathString, xp, unprocessedValue, processedValue, sm.reg);
+                    importAnonymousOldLosingVote(box, locale, xpathString, xp, value, processedValue, sm.reg);
                 }
             } catch (InvalidXPathException ix) {
                 SurveyLog.logException(logger, ix, "Bad XPath: Trying to import for " + xpathString);
@@ -1790,7 +1755,7 @@ public class SurveyAjax extends HttpServlet {
     private User getFreshAnonymousUser(BallotBox<User> box, String xpathString, UserRegistry reg) {
 
         for (User user: reg.getAnonymousUsers()) {
-            if (box.userDidVote(user, xpathString) == false) {
+            if (!box.userDidVote(user, xpathString)) {
                 return user;
             }
         }
@@ -1886,13 +1851,12 @@ public class SurveyAjax extends HttpServlet {
                 ++tableCount;
             }
         }
-        Object args[] = new Object[2 * tableCount];
+        Object[] args = new Object[2 * tableCount];
         for (int i = 0; i < 2 * tableCount; i += 2) {
             args[i] = locale; // one for each locale=? in the query
             args[i + 1] = id; // one for each submitter=? in the query
         }
-        Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sql, args);
-        return rows;
+        return DBUtils.queryToArrayAssoc(sql, args);
     }
 
     /**
@@ -1914,16 +1878,15 @@ public class SurveyAjax extends HttpServlet {
      * @param r the SurveyJSONWrapper in which to write
      * @param user the User
      * @param sm the SurveyMain instance
-     * @return how many votes imported
      * @throws IOException
      * @throws JSONException
      * @throws SQLException
      */
-    private int doAutoImportOldWinningVotes(SurveyJSONWrapper r, User user, SurveyMain sm)
+    private void doAutoImportOldWinningVotes(SurveyJSONWrapper r, User user, SurveyMain sm)
                throws IOException, JSONException, SQLException {
 
         if (alreadyAutoImportedVotes(user.id, "ask")) {
-            return 0;
+            return;
         }
         alreadyAutoImportedVotes(user.id, "set");
 
@@ -1959,7 +1922,6 @@ public class SurveyAjax extends HttpServlet {
         if (confirmations > 0) {
             r.put("autoImportedOldWinningVotes", confirmations);
         }
-        return confirmations;
     }
 
     /**
@@ -2029,7 +1991,7 @@ public class SurveyAjax extends HttpServlet {
             " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable
             + ".locale  and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath "
             + "and " + oldVotesTable + ".submitter=" + newVotesTable + ".submitter)";
-        Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, user.id);
+        Map<String, Object>[] rows = DBUtils.queryToArrayAssoc(sqlStr, user.id);
 
         int confirmations = 0;
         for (Map<String, Object> m : rows) {
@@ -2252,7 +2214,7 @@ public class SurveyAjax extends HttpServlet {
         if (u == null) {
             throw new SurveyException(ErrorCode.E_INTERNAL, "Missing parameter 'old_user_id'");
         }
-        Integer old_user_id = Integer.parseInt(u);
+        int old_user_id = Integer.parseInt(u);
         if (user.isAdminForOrg(user.org) && user.isAdminFor(sm.reg.getInfo(old_user_id))) {
             viewOldVoteStatsForOldUserId(r, old_user_id);
         } else {
@@ -2276,7 +2238,7 @@ public class SurveyAjax extends HttpServlet {
         JSONObject tables = new JSONObject();
         int ver = Integer.parseInt(SurveyMain.getNewVersion());
         while (--ver >= oldestVersionForImportingVotes) {
-            String oldVotesTable = DBUtils.Table.VOTE_VALUE.forVersion(new Integer(ver).toString(), false).toString();
+            String oldVotesTable = DBUtils.Table.VOTE_VALUE.forVersion(Integer.toString(ver), false).toString();
             if (DBUtils.hasTable(oldVotesTable)) {
                 JSONObject o = DBUtils.queryToJSON("select COUNT(xpath), locale from " + oldVotesTable
                     + " where submitter=? group by locale order by locale", old_user_id);
@@ -2394,7 +2356,6 @@ public class SurveyAjax extends HttpServlet {
                         withVote = Integer.parseInt(voteLevelParam);
                     }
                 } catch (NumberFormatException e) {
-                    withVote = null;
                 }
                 boolean badNoForum = false;
                 try {
@@ -2540,7 +2501,7 @@ public class SurveyAjax extends HttpServlet {
             }
 
             synchronized (mySession) {
-                DataPage page = null;
+                DataPage page;
                 String baseXp = null;
                 try {
                     if (pageId != null) {
@@ -2564,7 +2525,7 @@ public class SurveyAjax extends HttpServlet {
                     }
                 } catch (Throwable t) {
                     SurveyLog.logException(logger, t, "on loading " + locale + ":" + baseXp);
-                    new JSONWriter(out).object().key("err").value("Exception on getSection:" + t.toString())
+                    new JSONWriter(out).object().key("err").value("Exception on getSection:" + t)
                         .key("err_code").value("E_BAD_SECTION").endObject();
                     return;
                 }
@@ -2602,7 +2563,7 @@ public class SurveyAjax extends HttpServlet {
                     r.endObject();
                 } catch (Throwable t) {
                     SurveyLog.logException(logger, t, "RefreshRow write");
-                    new JSONWriter(out).object().key("err").value("Exception on writeSection:" + t.toString()).endObject();
+                    new JSONWriter(out).object().key("err").value("Exception on writeSection:" + t).endObject();
                 }
             }
         } finally {
@@ -2646,6 +2607,8 @@ public class SurveyAjax extends HttpServlet {
      * TODO: separate web-specific code (that uses HttpServletRequest, HttpServletResponse, SurveyMain, ...)
      * (to keep here in cldr-apps) from html-producing code (to move into util/XMLUploader.java),
      * for encapsulation and to enable unit testing for html-producing code.
+     *
+     * CAUTION: this may be called by jsp
      */
     static public void handleBulkSubmit(HttpServletRequest request, HttpServletResponse response, Writer out)
             throws IOException, JSONException, InvalidXPathException, VoteNotAcceptedException {
@@ -2783,7 +2746,7 @@ public class SurveyAjax extends HttpServlet {
                 String full = cf.getFullXPath(x);
                 XPathParts xppMine = XPathParts.getFrozenInstance(full).cloneAsThawed(); // not frozen, for xPathPartsToBase
                 String valOrig = cf.getStringValue(x);
-                Exception exc[] = new Exception[1];
+                Exception[] exc = new Exception[1];
                 final String val0 = processor.processInput(x, valOrig, exc);
                 XPathTable.xPathPartsToBase(xppMine);
                 xppMine.removeAttribute(-1, LDMLConstants.DRAFT);
@@ -2792,10 +2755,8 @@ public class SurveyAjax extends HttpServlet {
 
                 String valb = baseFile.getWinningValue(base);
 
-                String style = "";
-                String valm = val0;
+                String style;
                 if (valb == null) {
-                    valb = "(<i>none</i>)";
                     style = "background-color: #bfb;";
                 } else if (!val0.equals(valb)) {
                     style = "font-weight: bold; background-color: #bfb;";
@@ -2806,7 +2767,7 @@ public class SurveyAjax extends HttpServlet {
                 XPathParts xpp = XPathParts.getFrozenInstance(base).cloneAsThawed(); // not frozen, for removeAttribute
                 xpp.removeAttribute(-1, LDMLConstants.ALT);
 
-                String result = "";
+                String result;
                 String resultStyle = "";
                 String resultIcon = "okay";
 
@@ -2893,8 +2854,8 @@ public class SurveyAjax extends HttpServlet {
                 out.write("<br>");
                 out.write("<tt>" +  base + "</tt></th>\n");
 
-                out.write("<td style='" + style + "'>" + valm + "\n");
-                if (!valm.equals(valOrig)) {
+                out.write("<td style='" + style + "'>" + val0 + "\n");
+                if (!val0.equals(valOrig)) {
                     out.write("<div class='graybox' title='original text'>" + valOrig + "</div>\n");
                 }
                 out.write("</td>\n");
@@ -3057,7 +3018,7 @@ public class SurveyAjax extends HttpServlet {
                 XMLSource src = sm.getSTFactory().makeSource(baseName, true /* resolved */);
                 String ov = src.getValueAtDPath(xpathString);
                 if (ov != null) {
-                    JSONArray other = null;
+                    JSONArray other;
                     if (others.has(ov)) {
                         other = others.getJSONArray(ov);
                     } else {

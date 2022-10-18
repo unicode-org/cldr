@@ -99,7 +99,7 @@ public class PermanentVote {
             ps = DBUtils.prepareForwardReadOnly(conn, sql);
             ps.setString(1, localeName);
             ps.setInt(2, xpathId);
-            count = DBUtils.sqlCount(conn, ps);
+            count = DBUtils.sqlCount(ps);
         } catch (SQLException e) {
             SurveyLog.logException(e);
         } finally {
@@ -132,7 +132,7 @@ public class PermanentVote {
             ps.setString(1, localeName);
             ps.setInt(2, xpathId);
             DBUtils.setStringUTF8(ps, 3, value);
-            count = DBUtils.sqlCount(conn, ps);
+            count = DBUtils.sqlCount(ps);
         } catch (SQLException e) {
             SurveyLog.logException(e);
         } finally {
@@ -173,7 +173,7 @@ public class PermanentVote {
             if (value != null) {
                 DBUtils.setStringUTF8(ps, 3, value);
             }
-            count = DBUtils.sqlCount(null, conn, ps);
+            count = DBUtils.sqlCount(ps);
         } catch (SQLException e) {
             SurveyLog.logException(e);
         } finally {

@@ -43,18 +43,18 @@ public class UserList {
 
     private static final String GET_ORGS = "get_orgs";
 
-    private boolean isValid;
-    private HttpServletRequest request;
-    private User me;
-    private SurveyMain sm;
-    private UserRegistry reg;
-    private WebContext ctx;
+    private final boolean isValid;
+    private final HttpServletRequest request;
+    private final User me;
+    private final SurveyMain sm;
+    private final UserRegistry reg;
+    private final WebContext ctx;
 
     /**
      * Is the info only about me (the current user)?
      * true for My Account; false for List Users or zoomed on other user
      */
-    private boolean isJustMe;
+    private final boolean isJustMe;
 
     /**
      * email address of the single user (me or zoomed); null for list of users
@@ -64,8 +64,8 @@ public class UserList {
     private String justOrg;
     private String org;
 
-    private boolean canShowLocked;
-    private boolean showLocked;
+    private final boolean canShowLocked;
+    private final boolean showLocked;
 
     private EmailInfo emailInfo = null;
 
@@ -88,7 +88,7 @@ public class UserList {
         if (just != null && just.isEmpty()) {
             just = null;
         }
-        isJustMe = just != null && me.email.equals(just);
+        isJustMe = me.email.equals(just);
         org = me.org;
         if (UserRegistry.userIsAdmin(me)) {
             if (justOrg != null && !justOrg.equals("all")) {
@@ -98,8 +98,8 @@ public class UserList {
             }
         }
         canShowLocked = UserRegistry.userIsExactlyManager(me) || UserRegistry.userIsTC(me);
-        showLocked = canShowLocked && getPrefBool(PREF_SHOWLOCKED);
-        isValid = (me != null && (isJustMe || UserRegistry.userCanDoList(me)));
+        showLocked = canShowLocked && ctx.prefBool(PREF_SHOWLOCKED);
+        isValid = isJustMe || UserRegistry.userCanDoList(me);
     }
 
     public void getJson(SurveyJSONWrapper r) throws JSONException, SurveyException, IOException {
@@ -226,8 +226,7 @@ public class UserList {
             setLocales(ctx.session, u);
         } else if (action == null || action.length() == 0 || action.equals(LIST_ACTION_NONE)) {
             return;
-        }
-        else if (action.startsWith(LIST_ACTION_SETLEVEL)) {
+        } else if (action.startsWith(LIST_ACTION_SETLEVEL)) {
             setLevel(action, u, just);
         } else if (action.equals(LIST_ACTION_SHOW_PASSWORD)) {
             showPassword(u);
@@ -392,7 +391,7 @@ public class UserList {
             s += "<label><b>New " + what + ":</b><input type='password' name='string1" + what
                 + "'> (confirm)</label>";
             s += "<br /><br />";
-            s += "Suggested random password: <tt>" + UserRegistry.makePassword(u.user.email)
+            s += "Suggested random password: <tt>" + UserRegistry.makePassword()
                 + "</tt> )";
             u.ua.put(action, s);
         }
@@ -453,14 +452,14 @@ public class UserList {
         CookieSession session;
         UserActions ua = new UserActions();
 
-        public UserSettings(int id) throws SQLException {
+        public UserSettings(int id) {
             user = reg.getInfo(id);
             tag = id + "_" + user.email;
             session = CookieSession.retrieveUserWithoutTouch(user.email);
         }
     }
 
-    private class UserActions implements JSONString {
+    private static class UserActions implements JSONString {
         HashMap<String, String> map = null;
 
         @Override
@@ -521,16 +520,6 @@ public class UserList {
     }
 
     /**
-     * Get a preference's value as a boolean; defaults to false.
-     *
-     * @param name the preference name
-     * @return preference value (or false)
-     */
-    private boolean getPrefBool(String name) {
-        return ctx.prefBool(name);
-    }
-
-    /**
      * Information about the operation of composing and sending an email message
      * to one or more users in the list
      *
@@ -538,7 +527,7 @@ public class UserList {
      */
     private class EmailInfo {
         SurveyJSONWrapper r;
-        String sendWhat = null;
+        String sendWhat;
         boolean areSendingMail = false;
         boolean didConfirmMail = false;
         // sending a dispute note?

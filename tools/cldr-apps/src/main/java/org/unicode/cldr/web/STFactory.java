@@ -1718,7 +1718,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         String sql = "(none)"; // this points to
         Statement s = null;
         try (Connection conn = DBUtils.getInstance().getDBConnection();) {
-            if (!DBUtils.hasTable(conn, DBUtils.Table.VOTE_VALUE.toString())) {
+            if (!DBUtils.hasTable(DBUtils.Table.VOTE_VALUE.toString())) {
                 /*
                  * CREATE TABLE cldr_votevalue ( locale VARCHAR(20), xpath INT
                  * NOT NULL, submitter INT NOT NULL, value BLOB );
@@ -1747,7 +1747,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 conn.commit();
                 System.err.println("Created table " + DBUtils.Table.VOTE_VALUE);
             }
-            if (!DBUtils.hasTable(conn, DBUtils.Table.VOTE_VALUE_ALT.toString())) {
+            if (!DBUtils.hasTable(DBUtils.Table.VOTE_VALUE_ALT.toString())) {
                 s = conn.createStatement();
                 String valueLen = DBUtils.db_Mysql ? "(750)" : "";
                 sql = "create table " + DBUtils.Table.VOTE_VALUE_ALT + "( " + "locale VARCHAR(20), " + "xpath  INT NOT NULL, " + "value "
@@ -1767,7 +1767,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 conn.commit();
                 System.err.println("Created table " + DBUtils.Table.VOTE_VALUE_ALT);
             }
-            if (!DBUtils.hasTable(conn, DBUtils.Table.VOTE_FLAGGED.toString())) {
+            if (!DBUtils.hasTable(DBUtils.Table.VOTE_FLAGGED.toString())) {
                 s = conn.createStatement();
 
                 sql = "create table " + DBUtils.Table.VOTE_FLAGGED + "( " + "locale VARCHAR(20), " + "xpath  INT NOT NULL, "
@@ -1784,7 +1784,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 conn.commit();
                 System.err.println("Created table " + DBUtils.Table.VOTE_FLAGGED);
             }
-            if (!DBUtils.hasTable(conn, DBUtils.Table.IMPORT.toString())) {
+            if (!DBUtils.hasTable(DBUtils.Table.IMPORT.toString())) {
                 /*
                  * Create the IMPORT table, for keeping track of imported old losing votes.
                  * Use DB_SQL_BINCOLLATE for compatibility with existing vote tables, which
@@ -1805,7 +1805,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 conn.commit();
                 System.err.println("Created table " + DBUtils.Table.IMPORT);
             }
-            if (!DBUtils.hasTable(conn, DBUtils.Table.IMPORT_AUTO.toString())) {
+            if (!DBUtils.hasTable(DBUtils.Table.IMPORT_AUTO.toString())) {
                 /*
                  * Create the IMPORT_AUTO table, for keeping track of which users have auto-imported old winning votes.
                  * Use DB_SQL_BINCOLLATE for compatibility with existing vote tables, which
@@ -1824,7 +1824,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 System.err.println("Created table " + DBUtils.Table.IMPORT_AUTO);
             }
             String tableName = DBUtils.Table.LOCKED_XPATHS.toString();
-            if (!DBUtils.hasTable(conn, tableName)) {
+            if (!DBUtils.hasTable(tableName)) {
                 /*
                  * Create the LOCKED_XPATHS table, for keeping track of paths that have been "locked" for specific locales.
                  * Reference: https://unicode-org.atlassian.net/browse/CLDR-11677

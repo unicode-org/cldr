@@ -66,7 +66,7 @@ public class XPathTable {
      */
     public static XPathTable createTable(Connection ourConn) throws SQLException {
         try {
-            boolean isNew = !DBUtils.hasTable(ourConn, CLDR_XPATHS);
+            boolean isNew = !DBUtils.hasTable(CLDR_XPATHS);
             XPathTable reg = new XPathTable();
             if (isNew) {
                 reg.setupDB(ourConn);

@@ -382,7 +382,7 @@ public class SurveyForum {
         String sql = "";
         synchronized (conn) {
             Statement s = conn.createStatement();
-            if (!DBUtils.hasTable(conn, DB_LOC2FORUM)) { // user attribute
+            if (!DBUtils.hasTable(DB_LOC2FORUM)) { // user attribute
                 sql = "CREATE TABLE " + DB_LOC2FORUM + " ( " + " locale VARCHAR(255) NOT NULL, "
                     + " forum VARCHAR(255) NOT NULL" + " )";
                 s.execute(sql);
@@ -440,7 +440,7 @@ public class SurveyForum {
             locindex = "loc(122)";
         }
 
-        if (!DBUtils.hasTable(conn, DB_FORA)) { // user attribute
+        if (!DBUtils.hasTable(DB_FORA)) { // user attribute
             Statement s = conn.createStatement();
             sql = "CREATE TABLE " + DB_FORA + " ( " + " id INT NOT NULL " + DBUtils.DB_SQL_IDENTITY
                 + ", "
@@ -454,7 +454,7 @@ public class SurveyForum {
             s.close();
             conn.commit();
         }
-        if (!DBUtils.hasTable(conn, DBUtils.Table.FORUM_POSTS.toString())) {
+        if (!DBUtils.hasTable(DBUtils.Table.FORUM_POSTS.toString())) {
             Statement s = conn.createStatement();
             sql = "CREATE TABLE " + DBUtils.Table.FORUM_POSTS + " ( " + " id INT NOT NULL "
                 + DBUtils.DB_SQL_IDENTITY + ", "
@@ -576,7 +576,7 @@ public class SurveyForum {
             ps.setString(1, locale.getBaseName());
             ps.setInt(2, xpathId);
 
-            return DBUtils.sqlCount(null, conn, ps);
+            return DBUtils.sqlCount(ps);
         } catch (SQLException e) {
             SurveyLog.logException(logger, e, "postCountFor for " + tableName + " " + locale + ":" + xpathId);
             return 0;

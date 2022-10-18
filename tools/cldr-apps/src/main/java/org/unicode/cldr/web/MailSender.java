@@ -154,7 +154,7 @@ public class MailSender implements Runnable {
         try {
             conn = db.getDBConnection();
             conn.setAutoCommit(false);
-            if (!DBUtils.hasTable(conn, CLDR_MAIL)) {
+            if (!DBUtils.hasTable(CLDR_MAIL)) {
                 logger.info("Creating " + CLDR_MAIL);
                 s = DBUtils.prepareStatementWithArgs(conn, "CREATE TABLE " + CLDR_MAIL
                     + " (id INT NOT NULL " + DBUtils.DB_SQL_IDENTITY + ", " // PK:  id

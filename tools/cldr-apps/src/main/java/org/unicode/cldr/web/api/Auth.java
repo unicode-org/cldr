@@ -122,7 +122,7 @@ public class Auth {
                     }
 
                     // All clear. Make an anonymous session.
-                    session = CookieSession.newSession(true, userIP);
+                    session = CookieSession.newSession(userIP);
                 }
             }
             LoginResponse resp = createLoginResponse(session);

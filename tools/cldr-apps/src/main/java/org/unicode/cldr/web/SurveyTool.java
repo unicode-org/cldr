@@ -52,7 +52,7 @@ public class SurveyTool extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        SurveyMain sm = SurveyMain.getInstance(request);
+        SurveyMain sm = SurveyMain.getInstance();
         PrintWriter out = response.getWriter();
         out.write("<!DOCTYPE html>\n");
         if (SurveyMain.isBusted != null || request.getParameter("_BUSTED") != null) {

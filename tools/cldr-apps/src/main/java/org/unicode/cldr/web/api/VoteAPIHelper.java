@@ -343,7 +343,7 @@ public class VoteAPIHelper {
                 final String val = processValue(locale, xp, exceptionList, origValue, cldrFile);
                 final List<CheckStatus> result = new ArrayList<>();
                 final TestResultBundle cc = stf.getTestResult(locale, options);
-                runTests(mySession, r, locale, sm, cc, xp, val, result);
+                runTests(r, locale, sm, cc, xp, val, result);
                 addDaipException(loc, xp, result, exceptionList, val, origValue);
                 r.setResults(result);
                 r.testsRun = cc.toString();
@@ -387,10 +387,10 @@ public class VoteAPIHelper {
         return Response.ok(r).build();
     }
 
-    private static void runTests(final CookieSession mySession, VoteResponse r, CLDRLocale locale, final SurveyMain sm, TestResultBundle cc, String xp,
-        String val, final List<CheckStatus> result) {
+    private static void runTests(VoteResponse r, CLDRLocale locale, final SurveyMain sm, TestResultBundle cc, String xp,
+                                 String val, final List<CheckStatus> result) {
         if (val != null) {
-            try (SurveyMain.UserLocaleStuff uf = sm.getUserFile(mySession, locale)) {
+            try (SurveyMain.UserLocaleStuff uf = sm.getUserFile(locale)) {
                 final CLDRFile file = uf.cldrfile;
                 cc.check(xp, result, val);
                 r.dataEmpty = file.isEmpty();

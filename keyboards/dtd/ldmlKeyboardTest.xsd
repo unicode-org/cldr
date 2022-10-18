@@ -47,7 +47,7 @@
   <xs:element name="repertoire">
     <xs:complexType>
       <xs:attribute name="chars" use="required"/>
-      <xs:attribute name="type" use="required">
+      <xs:attribute name="type">
         <xs:simpleType>
           <xs:restriction base="xs:token">
             <xs:enumeration value="default"/>
@@ -80,10 +80,10 @@
       <xs:sequence>
         <xs:element minOccurs="0" ref="startContext"/>
         <xs:choice minOccurs="0" maxOccurs="unbounded">
-          <xs:element ref="emit"/>
           <xs:element ref="keystroke"/>
-          <xs:element ref="check"/>
+          <xs:element ref="emit"/>
           <xs:element ref="backspace"/>
+          <xs:element ref="check"/>
         </xs:choice>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
       </xs:sequence>
@@ -95,14 +95,6 @@
       <xs:attribute name="to" use="required"/>
     </xs:complexType>
   </xs:element>
-  <!-- @MATCH:any -->
-  <!-- @VALUE -->
-  <xs:element name="emit">
-    <xs:complexType>
-      <xs:attribute name="to" use="required"/>
-    </xs:complexType>
-  </xs:element>
-  <!-- @ORDERED -->
   <!-- @MATCH:any -->
   <!-- @VALUE -->
   <xs:element name="keystroke">
@@ -120,11 +112,11 @@
   <!-- @VALUE -->
   <!-- @MATCH:range/1~999 -->
   <!-- @VALUE -->
-  <!-- @MATCH:range/1~999 -->
+  <!-- @MATCH:range/2~999 -->
   <!-- @VALUE -->
-  <xs:element name="check">
+  <xs:element name="emit">
     <xs:complexType>
-      <xs:attribute name="result" use="required"/>
+      <xs:attribute name="to" use="required"/>
     </xs:complexType>
   </xs:element>
   <!-- @ORDERED -->
@@ -134,6 +126,14 @@
     <xs:complexType/>
   </xs:element>
   <!-- @ORDERED -->
+  <xs:element name="check">
+    <xs:complexType>
+      <xs:attribute name="result" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- @ORDERED -->
+  <!-- @MATCH:any -->
+  <!-- @VALUE -->
   <xs:element name="special" type="any"/>
   <xs:complexType name="any" mixed="true">
     <xs:sequence>

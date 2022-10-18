@@ -5,6 +5,7 @@
  * Encapsulate those assumption by defining constants for the names here, and checking
  * for mismatches between the front and back ends.
  */
+import * as cldrAjax from "./cldrAjax.js";
 
 // the following are all assumed to be lowercase in check()
 const ADMIN = "admin";
@@ -30,9 +31,6 @@ let checked = false;
  *
  * The list may also have other properties like "string"; for example, list[999].string = "999: (LOCKED)"
  * -- but those aren't used here
- *
- * A future improvement would be to encapsulate retrieval of the list from the back end in this module;
- * currently cldrAccount.js and AddUser.vue have their own entangled ways of getting the list
  */
 function getUserLevel(name, list) {
   if (!checked) {
@@ -79,6 +77,26 @@ function match(a, b) {
   return a.toLowerCase() === b.toLowerCase();
 }
 
+async function getLevelList() {
+  const url = cldrAjax.makeApiUrl("userlevels", null);
+  const list = await cldrAjax
+    .doFetch(url)
+    .then(cldrAjax.handleFetchErrors)
+    .then((r) => r.json())
+    .then(loadLevelList)
+    .catch((e) => console.error(`Error: ${e} ...`));
+  return list;
+}
+
+function loadLevelList(json) {
+  if (!json.levels) {
+    console.error("Level list not received from server");
+    return null;
+  } else {
+    return json.levels;
+  }
+}
+
 export {
   ADMIN,
   ANONYMOUS,
@@ -88,6 +106,7 @@ export {
   TC,
   VETTER,
   canVoteInNonOrgLocales,
+  getLevelList,
   getUserLevel,
   match,
 };

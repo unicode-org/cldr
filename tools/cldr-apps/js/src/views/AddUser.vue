@@ -203,26 +203,16 @@ export default {
     },
 
     getLevelList() {
-      this.levelList = cldrAccount.getLevelList();
-      if (this.levelList) {
-        return;
-      }
       this.loading = true;
-      const xhrArgs = {
-        url: this.getLevelsUrl(),
-        handleAs: "json",
-        load: (json) => this.loadLevelList(json),
-        error: (err) => this.errors.push(err),
-      };
-      cldrAjax.sendXhr(xhrArgs);
+      this.levelList = cldrUserLevels.getLevelList().then(this.loadLevelList);
     },
 
-    loadLevelList(json) {
-      if (!json.levels) {
+    loadLevelList(list) {
+      if (!list) {
         this.errors.push("Level list not received from server");
         this.loading = false;
       } else {
-        this.levelList = json.levels;
+        this.levelList = list;
         if (this.orgList || this.newUser.org) {
           this.loading = false;
         }
@@ -377,12 +367,6 @@ export default {
       const p = new URLSearchParams();
       p.append("s", cldrStatus.getSessionId());
       return cldrAjax.makeApiUrl("adduser", p);
-    },
-
-    getLevelsUrl() {
-      const p = new URLSearchParams();
-      p.append("s", cldrStatus.getSessionId());
-      return cldrAjax.makeApiUrl("userlevels", p);
     },
   },
 };

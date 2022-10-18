@@ -220,6 +220,8 @@ function loadHandler(json) {
       justUser = shownUsers[0].email;
     }
     if (json.userPerms.levels) {
+      // Note for future improvement: levelList could be derived instead from cldrUserLevels.getLevelList,
+      // then the back end would no longer need to include it in UserList
       levelList = json.userPerms.levels;
     }
     ourDiv.innerHTML = getHtml(json);
@@ -278,6 +280,8 @@ function getHtml(json) {
 
 function getTable(json) {
   shownUsers = json.shownUsers;
+  // Note: this assignment to levelList is redundant except for the unit test;
+  // a future revision of the unit test could supply a mock levelList separately
   levelList = json.userPerms.levels;
   byEmail = {};
   let html = getTableStart();
@@ -1352,14 +1356,9 @@ function getOrgList() {
   return orgList;
 }
 
-function getLevelList() {
-  return levelList;
-}
-
 export {
   createUser,
   filterOrg,
-  getLevelList,
   getOrgList,
   load,
   loadListUsers,

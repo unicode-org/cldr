@@ -14,8 +14,6 @@ import * as cldrText from "./cldrText.js";
 
 const CLDR_VOTE_DEBUG = false;
 
-const VOTE_USES_NEW_API = true;
-
 /**
  * The special "vote level" selected by the user, or zero for default.
  * For example, admin has vote level 100 by default, and can instead choose vote level 4.
@@ -128,28 +126,11 @@ function handleWiredClick(tr, theRow, vHash, newValue, button) {
       "Vote for " + tr.rowHash + " v='" + vHash + "', value='" + value + "'"
     );
   }
-  let ourContent;
-  if (VOTE_USES_NEW_API) {
-    ourContent = {
-      value: valToShow,
-      voteLevelChanged: voteLevelChanged,
-    };
-  } else {
-    ourContent = {
-      what: "submit" /* cf. WHAT_SUBMIT in SurveyAjax.java */,
-      xpath: tr.xpathId,
-      _: cldrStatus.getCurrentLocale(),
-      fhash: tr.rowHash,
-      vhash: vHash,
-      s: tr.theTable.session,
-    };
-  }
-
+  const ourContent = {
+    value: valToShow,
+    voteLevelChanged: voteLevelChanged,
+  };
   const ourUrl = getSubmitUrl(theRow.xpstrid);
-
-  if (voteLevelChanged && !VOTE_USES_NEW_API) {
-    ourContent.voteLevelChanged = voteLevelChanged;
-  }
 
   var originalTrClassName = tr.className;
   tr.className = "tr_checking1";
@@ -164,7 +145,6 @@ function handleWiredClick(tr, theRow, vHash, newValue, button) {
     try {
       if (json.err && json.err.length > 0) {
         tr.className = "tr_err";
-        cldrRetry.handleDisconnect("Error submitting a vote", json);
         tr.innerHTML =
           "<td colspan='4'>" +
           cldrStatus.stopIcon() +
@@ -174,7 +154,7 @@ function handleWiredClick(tr, theRow, vHash, newValue, button) {
         myUnDefer();
         cldrRetry.handleDisconnect("Error submitting a vote", json);
       } else {
-        if (json.submitResult) {
+        if (json.didVote) {
           // if submitted..
           tr.className = "tr_checking2";
           cldrTable.refreshSingleRow(
@@ -251,9 +231,6 @@ function handleWiredClick(tr, theRow, vHash, newValue, button) {
       "</div>";
     myUnDefer();
   };
-  if (newValue && !VOTE_USES_NEW_API) {
-    ourContent.value = value;
-  }
   const xhrArgs = {
     url: ourUrl,
     handleAs: "json",
@@ -267,13 +244,9 @@ function handleWiredClick(tr, theRow, vHash, newValue, button) {
 }
 
 function getSubmitUrl(xpstrid) {
-  if (VOTE_USES_NEW_API) {
-    const loc = cldrStatus.getCurrentLocale();
-    const api = "voting/" + loc + "/row/" + xpstrid;
-    return cldrAjax.makeApiUrl(api, null);
-  } else {
-    return cldrStatus.getContextPath() + "/SurveyAjax";
-  }
+  const loc = cldrStatus.getCurrentLocale();
+  const api = "voting/" + loc + "/row/" + xpstrid;
+  return cldrAjax.makeApiUrl(api, null);
 }
 
 /**
@@ -318,7 +291,7 @@ function showProposedItem(inTd, tr, theRow, value, tests, json) {
       ourDiv.appendChild(wrap);
     }
     var h3 = document.createElement("span");
-    var span = appendItem(h3, value, "value");
+    appendItem(h3, value, "value");
     ourDiv.appendChild(h3);
     if (otherCell) {
       otherCell.appendChild(tr.myProposal);
@@ -381,7 +354,7 @@ function showProposedItem(inTd, tr, theRow, value, tests, json) {
     return;
   } else if (json && json.didNotSubmit) {
     ourDiv.className = "d-item-err";
-    const message = "(ERROR: Unknown error - did not submit this value.)";
+    const message = "Did not submit this value: " + json.didNotSubmit;
     cldrInfo.showWithRow(message, tr);
     return;
   } else {

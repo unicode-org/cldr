@@ -27,8 +27,6 @@ const ROW_ID_PREFIX = "row_"; // formerly "r@"
 
 const CLDR_TABLE_DEBUG = false;
 
-const TABLE_USES_NEW_API = true;
-
 /*
  * NO_WINNING_VALUE indicates the server delivered path data without a valid winning value.
  * It must match NO_WINNING_VALUE in the server Java code.
@@ -350,53 +348,25 @@ function singleRowErrHandler(err, tr, onFailure) {
 }
 
 function getSingleRowUrl(tr, theRow) {
-  if (TABLE_USES_NEW_API) {
-    const loc = cldrStatus.getCurrentLocale();
-    const api = "voting/" + loc + "/row/" + theRow.xpstrid;
-    let p = null;
-    if (cldrGui.dashboardIsVisible()) {
-      p = new URLSearchParams();
-      p.append("dashboard", "true");
-    }
-    return cldrAjax.makeApiUrl(api, p);
-  }
-  const p = new URLSearchParams();
-  p.append("what", "getrow"); // cf. WHAT_GETROW in SurveyAjax.java
-  p.append("_", cldrStatus.getCurrentLocale());
-  p.append("xpath", theRow.xpathId);
-  p.append("fhash", tr.rowHash);
-  p.append("automatic", "t");
+  const loc = cldrStatus.getCurrentLocale();
+  const api = "voting/" + loc + "/row/" + theRow.xpstrid;
+  let p = null;
   if (cldrGui.dashboardIsVisible()) {
+    p = new URLSearchParams();
     p.append("dashboard", "true");
   }
-  p.append("s", cldrStatus.getSessionId());
-  p.append("cacheKill", cldrSurvey.cacheBuster());
-  return cldrAjax.makeUrl(p);
+  return cldrAjax.makeApiUrl(api, p);
 }
 
 function getPageUrl(curLocale, curPage, curId) {
-  if (TABLE_USES_NEW_API) {
-    let p = null;
-    if (curId && !curPage) {
-      p = new URLSearchParams();
-      p.append("xpstrid", curId);
-      curPage = "auto";
-    }
-    const api = "voting/" + curLocale + "/page/" + curPage;
-    return cldrAjax.makeApiUrl(api, p);
+  let p = null;
+  if (curId && !curPage) {
+    p = new URLSearchParams();
+    p.append("xpstrid", curId);
+    curPage = "auto";
   }
-  return (
-    cldrStatus.getContextPath() +
-    "/SurveyAjax?what=getrow&_=" +
-    curLocale +
-    "&x=" +
-    curPage +
-    "&strid=" +
-    curId +
-    "&s=" +
-    cldrStatus.getSessionId() +
-    cldrSurvey.cacheKill()
-  );
+  const api = "voting/" + curLocale + "/page/" + curPage;
+  return cldrAjax.makeApiUrl(api, p);
 }
 
 /**

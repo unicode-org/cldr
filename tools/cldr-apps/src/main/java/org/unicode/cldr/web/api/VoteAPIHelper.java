@@ -320,9 +320,7 @@ public class VoteAPIHelper {
 
     static Response handleVote(String loc, String xpstrid, VoteRequest request, final CookieSession mySession) {
         VoteResponse r = new VoteResponse();
-
         mySession.userDidAction();
-
         CLDRLocale locale = CLDRLocale.getInstance(loc);
         if (!UserRegistry.userCanModifyLocale(mySession.user, locale)) {
             return Response.status(Status.FORBIDDEN).build();
@@ -342,21 +340,24 @@ public class VoteAPIHelper {
                 final CLDRFile cldrFile = stf.make(loc, true, true);
                 final String val = processValue(locale, xp, exceptionList, origValue, cldrFile);
                 final List<CheckStatus> result = new ArrayList<>();
+                if (val == null && origValue != null && !origValue.isEmpty()) {
+                    normalizedToZeroLengthError(r, result);
+                }
                 final TestResultBundle cc = stf.getTestResult(locale, options);
-                runTests(r, locale, sm, cc, xp, val, result);
+                runTests(cc, xp, val, result);
                 addDaipException(loc, xp, result, exceptionList, val, origValue);
-                r.setResults(result);
-                r.testsRun = cc.toString();
+                r.setTestResults(result);
                 // Create a DataPage for this single XPath.
                 DataPage page = DataPage.make(null, null, mySession, locale, xp, null);
                 page.setUserForVotelist(mySession.user);
                 DataRow dataRow = page.getDataRow(xp);
-                // First, calculate the status for showing
-                r.statusAction = calculateShowRowAction(cldrFile, xp, val, dataRow);
-
+                // First, calculate the status for showing (unless already set by normalizedToZeroLengthError)
+                if (r.statusAction == null) {
+                    r.statusAction = calculateShowRowAction(cldrFile, xp, val, dataRow);
+                }
                 if (!r.statusAction.isForbidden()) {
                     CandidateInfo ci = calculateCandidateItem(result, val, dataRow);
-                    // Now, recalculate the statusACtion for accepting the new item
+                    // Now, recalculate the statusAction for accepting the new item
                     r.statusAction = CLDRConfig.getInstance().getPhase()
                         .getAcceptNewItemAction(ci, dataRow, CheckCLDR.InputMethod.DIRECT,
                             stf.getPathHeader(xp), mySession.user);
@@ -367,7 +368,6 @@ public class VoteAPIHelper {
                                 request.voteLevelChanged = null;
                             }
                             ballotBox.voteForValue(mySession.user, xp, val, request.voteLevelChanged);
-                            r.submitResult = ballotBox.getResolver(xp);
                             r.didVote = true;
                         } catch (VoteNotAcceptedException e) {
                             if (e.getErrCode() == ErrorCode.E_PERMANENT_VOTE_NO_FORUM) {
@@ -383,29 +383,42 @@ public class VoteAPIHelper {
                 return (new STError(t).build());
             }
         }
-
         return Response.ok(r).build();
     }
 
-    private static void runTests(VoteResponse r, CLDRLocale locale, final SurveyMain sm, TestResultBundle cc, String xp,
+    private static void normalizedToZeroLengthError(VoteResponse r, List<CheckStatus> result) {
+        final String message = "DAIP returned a 0 length string";
+        r.didNotSubmit = message;
+        r.statusAction = CheckCLDR.StatusAction.FORBID_ERRORS;
+        String[] list = { message };
+        result.add(new CheckStatus().setMainType(CheckStatus.errorType)
+            .setSubtype(Subtype.internalError)
+            .setCause(new CheckCLDR() {
+                @Override
+                public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
+                                             List<CheckStatus> result) {
+                    return null;
+                }
+            })
+            .setMessage("Input Processor Error: {0}")
+            .setParameters(list));
+    }
+
+    private static void runTests(TestResultBundle cc, String xp,
                                  String val, final List<CheckStatus> result) {
         if (val != null) {
-            try (SurveyMain.UserLocaleStuff uf = sm.getUserFile(locale)) {
-                final CLDRFile file = uf.cldrfile;
-                cc.check(xp, result, val);
-                r.dataEmpty = file.isEmpty();
-            }
+            cc.check(xp, result, val);
         }
     }
 
     private static String processValue(CLDRLocale locale, String xp, Exception[] exceptionList, final String origValue, CLDRFile cldrFile) {
         String val;
-        if (origValue != null) {
+        if (origValue != null && !origValue.isEmpty()) {
             final DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale, true);
             daip.enableInheritanceReplacement(cldrFile);
             val = daip.processInput(xp, origValue, exceptionList);
             if (val.isEmpty()) {
-                val = null;
+                val = null; // the caller will recognize this as exceptional, not Abstain
             }
         } else {
             val = null;

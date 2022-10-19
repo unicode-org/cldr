@@ -262,26 +262,35 @@ public class VoteAPI {
     }
 
     final static public class VoteResponse {
-        @Schema(description = "true if voting succeeded.")
+        @Schema(description = "True if voting succeeded.")
         public boolean didVote;
         @Schema(description = "If set, some other reason why the submission failed.")
         public String didNotSubmit;
-        @Schema(description = "VoteResolver info about the voting results")
-        public VoteResolver<String> submitResult;
         @Schema(description = "If not ALLOW_*, gives reason why the voting was not allowed.")
         public StatusAction statusAction = null;
-        @Schema()
-        public boolean dataEmpty;
-        @Schema(description = "Tests which were run.")
-        public String testsRun;
         @Schema(description = "Results of status checks.")
-        public CheckStatusSummary[] results;
+        public CheckStatusSummary[] testResults;
+        @Schema(description = "True if testResults include warnings.")
+        public boolean testWarnings;
+        @Schema(description = "True if testResults include errors.")
+        public boolean testErrors;
 
-        void setResults(List<CheckStatus> results) {
-            this.results = new CheckStatusSummary[results.size()];
-            for (int i = 0; i < results.size(); i++) {
-                this.results[i] = new CheckStatusSummary(results.get(i));
+        void setTestResults(List<CheckStatus> testResults) {
+            this.testResults = new CheckStatusSummary[testResults.size()];
+            this.testWarnings = has(testResults, CheckStatus.warningType);
+            this.testErrors = has(testResults, CheckStatus.errorType);
+            for (int i = 0; i < testResults.size(); i++) {
+                this.testResults[i] = new CheckStatusSummary(testResults.get(i));
             }
+        }
+
+        private static boolean has(List<CheckStatus> result, CheckStatus.Type type) {
+            for (CheckStatus s : result) {
+                if (s.getType().equals(type)) {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 

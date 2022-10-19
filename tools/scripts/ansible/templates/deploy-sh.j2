@@ -1,6 +1,15 @@
 #!/bin/bash
 # Note: this is managed by Ansible, as deploy-sh.j2
 # Don't modify this file unless its name is deploy-sh.j2
+if [[ ${1} = "--repo" ]];
+then
+    shift
+    GIT_PREFETCH=https://github.com/$(echo -n "${1}" | tr -c 'A-Za-z0-9_.-/' '-').git
+    shift
+else
+    GIT_PREFETCH=origin
+fi
+
 GITHUB_SHA=$1
 UNLOCK=$2
 WORKDIR=${TMPDIR-/tmp} # keep all random files here
@@ -8,13 +17,19 @@ SERVICE="{{ cldr_openliberty_service }}"
 
 # TODO: "dogit" could be split out as a separate script
 dogit() {
+    git config --global advice.detachedHead false
     rm -f ${WORKDIR}/git-list.txt
     if [[ ${GITHUB_SHA} = "main" ]];
     then
         echo "changing ${GITHUB_SHA} to 'origin/main' to get the latest"
         GITHUB_SHA=origin/main
     fi
-    git fetch -p || exit 1
+    # There's some risk that if we fetch something that has been rebased,
+    # we might get stuck here
+    # TODO: add a reset mechanism, if fetch fails we should reset the repo and check out again.
+
+    echo "Git fetch: ${GIT_PREFETCH} @ ${GITHUB_SHA}"
+    git fetch -p "${GIT_PREFETCH}" "${GITHUB_SHA}" || exit 1
     git clean -f -d || echo 'warning: err on cleanup'
     # what are we deploying?
 

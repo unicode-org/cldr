@@ -118,7 +118,7 @@ function scheduleLoadingWithSessionId() {
   cldrStatus.on("sessionId", () => {
     setTimeout(function () {
       cldrLoad.parseHashAndUpdate(cldrLoad.getHash());
-      cldrMenu.getInitialMenusEtc(cldrStatus.getSessionId());
+      cldrMenu.getInitialMenusEtc();
     }, 100 /* one tenth of a second */);
   });
 }
@@ -236,7 +236,7 @@ const topTitle =
   `
     </div>
     <div id="title-locale-container" class="menu-container">
-      <h1><a href="#locales///" id="title-locale"></a></h1>
+      <h1><a href="#/aa///" id="title-locale"></a></h1>
       <span id="title-dcontent-container"
         ><a
           href="http://cldr.unicode.org/translation/default-content"

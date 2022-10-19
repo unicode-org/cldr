@@ -25,8 +25,8 @@
         <xs:element minOccurs="0" ref="info"/>
         <xs:element ref="names"/>
         <xs:element minOccurs="0" ref="settings"/>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="vkeys"/>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="displays"/>
+        <xs:element minOccurs="0" ref="vkeys"/>
+        <xs:element minOccurs="0" ref="displays"/>
         <xs:element minOccurs="0" ref="keys"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="layers"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="transforms"/>
@@ -268,7 +268,7 @@
       <xs:attribute name="to" use="required"/>
     </xs:complexType>
   </xs:element>
-  <!-- @MATCH:any -->
+  <!-- @MATCH:regex/(n|e|s|w|ne|nw|se|sw)([ ]+(n|e|s|w|ne|nw|se|sw))* -->
   <!-- @MATCH:any -->
   <!-- @VALUE -->
   <xs:element name="layers">

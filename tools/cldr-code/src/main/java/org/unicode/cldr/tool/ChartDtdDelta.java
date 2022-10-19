@@ -2,6 +2,7 @@ package org.unicode.cldr.tool;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.EnumMap;
@@ -13,8 +14,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.ToolConstants.ChartStatus;
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
@@ -84,6 +87,8 @@ public class ChartDtdDelta extends Chart {
             + "<li>Changes in status or constraints are shown with ➠, with identical sections shown with ….</li>\n"
             + "<li>Newly ordered elements are indicated with " + ORDERED_SIGN + "; newly unordered with " + UNORDERED_SIGN + ".</li>\n"
             + "<li>Newly tech-preview items are marked with " + TECHPREVIEW_SIGN + "; newly graduated from tech preview with " + UNTECHPREVIEW_SIGN + ".</li>\n"
+            + "<li>The following elements are skipped: " + SKIP_ELEMENTS + " and " + SKIP_TYPE_ELEMENTS + "</li>\n"
+            + "<li>The following attributes are skipped: " + SKIP_ATTRIBUTES + " and " + SKIP_ATTRIBUTE_MATCHES + "</li>\n"
             + "</ul></li></ul>\n"
             + "<p>For more information, see the LDML spec.</p>";
     }
@@ -156,6 +161,9 @@ public class ChartDtdDelta extends Chart {
         }
         pw.write(tablePrinter.toTable());
         pw.write(Utility.repeat("<br>", 50));
+        try (PrintWriter tsvFile = FileUtilities.openUTF8Writer(CLDRPaths.CHART_DIRECTORY + "/tsv/", "dtd_deltas.tsv")) {
+            tablePrinter.toTsv(tsvFile);
+        }
     }
 
     static final String NONE = " ";
@@ -325,7 +333,14 @@ public class ChartDtdDelta extends Chart {
 
     static final Multimap<DtdType, String> SKIP_TYPE_ELEMENTS = ImmutableMultimap.of(DtdType.ldml, "alias");
 
-    static final Set<String> SKIP_ATTRIBUTES = ImmutableSet.of("references", "standard", "draft", "alt");
+    static final Set<String> SKIP_ATTRIBUTES = ImmutableSet.of(
+        "references",
+        "standard",
+        "draft"
+        );
+
+    static final Multimap<String, String> SKIP_ATTRIBUTE_MATCHES = ImmutableMultimap.of(
+        "alt", "", "alt", "⟪literal/variant⟫");
 
     private static Set<String> getAttributeNames(DtdData dtdCurrent, DtdData dtdLast, String elementName,
         Map<Attribute, Integer> attributesOld,
@@ -352,6 +367,9 @@ public class ChartDtdDelta extends Chart {
                 String pre, post;
                 Attribute attributeOld = attribute.getMatchingName(attributesOld);
                 if (attributeOld == null) {
+                    if (SKIP_ATTRIBUTE_MATCHES.containsEntry(name, match)) {
+                        continue main;
+                    }
                     display = NEW_PREFIX + name +  " " + AttributeStatus.getShortName(status) + " " + match;
                 } else if (attribute.isDeprecated() && !attributeOld.isDeprecated()) {
                     display = DEPRECATED_PREFIX + name;
@@ -368,6 +386,10 @@ public class ChartDtdDelta extends Chart {
                             post += " " + match;
                         }
                     } else if (!matchEquals) {
+                        if (oldMatch.isEmpty()
+                            && SKIP_ATTRIBUTE_MATCHES.containsEntry(name, match)) {
+                            continue main;
+                        }
                         pre = oldMatch;
                         post = match;
                     } else {

@@ -34,16 +34,8 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.VettingViewer;
-import org.unicode.cldr.web.CookieSession;
-import org.unicode.cldr.web.Dashboard;
+import org.unicode.cldr.web.*;
 import org.unicode.cldr.web.Dashboard.ReviewOutput;
-import org.unicode.cldr.web.QueueMemberId;
-import org.unicode.cldr.web.SurveyLog;
-import org.unicode.cldr.web.SurveySnapshot;
-import org.unicode.cldr.web.SurveySnapshotDb;
-import org.unicode.cldr.web.SurveyThreadManager;
-import org.unicode.cldr.web.UserRegistry;
-import org.unicode.cldr.web.VettingViewerQueue;
 import org.unicode.cldr.web.VettingViewerQueue.LoadingPolicy;
 
 import com.ibm.icu.util.Calendar;
@@ -151,6 +143,7 @@ public class Summary {
         }
         Organization usersOrg = cs.user.vrOrg();
         VettingViewerQueue vvq = VettingViewerQueue.getInstance();
+        vvq.setSummarizeAllLocales(request.summarizeAllLocales);
         QueueMemberId qmi = new QueueMemberId(cs);
         SummaryResponse sr = getSummaryResponse(vvq, qmi, usersOrg, request.loadingPolicy);
         if (SurveySnapshot.SNAP_CREATE.equals(request.snapshotPolicy)
@@ -335,8 +328,16 @@ public class Summary {
         }
     }
 
+    private static final boolean ENABLE_ALL_LOCALE_SUMMARY = false;
+
     private void makeAutoPriorityItemsSnapshot() throws IOException, JSONException {
+        boolean summarizeAllLocales = false;
+        if (ENABLE_ALL_LOCALE_SUMMARY) {
+            final SurveyMain.Phase phase = SurveyMain.phase();
+            summarizeAllLocales = (phase == SurveyMain.Phase.VETTING || phase == SurveyMain.Phase.VETTING_CLOSED);
+        }
         final VettingViewerQueue vvq = VettingViewerQueue.getInstance();
+        vvq.setSummarizeAllLocales(summarizeAllLocales);
         final QueueMemberId qmi = new QueueMemberId();
         final Organization usersOrg = VettingViewer.getNeutralOrgForSummary();
         LoadingPolicy loadingPolicy = LoadingPolicy.START;

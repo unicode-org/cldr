@@ -239,8 +239,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="↶" type="tts" draft="unconfirmed">ngahau vilovilo vaeuahake toʻohema</annotation>
 		<annotation cp="↷" draft="unconfirmed">ngahau vilovilo vaeuahake toʻomataʻu</annotation>
 		<annotation cp="↷" type="tts" draft="unconfirmed">ngahau vilovilo vaeuahake toʻomataʻu</annotation>
-		<annotation cp="↸" draft="unconfirmed">ngahau tokelau-hihifo moe pā lōloa</annotation>
-		<annotation cp="↸" type="tts" draft="unconfirmed">ngahau tokelau-hihifo moe pā lōloa</annotation>
+		<annotation cp="↸" draft="unconfirmed">ngahau tokelauhihifo moe pā lōloa</annotation>
+		<annotation cp="↸" type="tts" draft="unconfirmed">ngahau tokelauhihifo moe pā lōloa</annotation>
 		<annotation cp="↹" draft="unconfirmed">ngahau ki toʻohema ʻi olunga ʻoe toʻomataʻu moe pā</annotation>
 		<annotation cp="↹" type="tts" draft="unconfirmed">ngahau ki toʻohema ʻi olunga ʻoe toʻomataʻu moe pā</annotation>
 		<annotation cp="↺" draft="unconfirmed">ngahau ava vilovilo toʻohema</annotation>
@@ -427,10 +427,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="∩" type="tts">fehauaki</annotation>
 		<annotation cp="∪">fakaʻilonga | fekauʻaki</annotation>
 		<annotation cp="∪" type="tts">fekauʻaki</annotation>
+		<annotation cp="∫" draft="unconfirmed">ʻinitakolo</annotation>
+		<annotation cp="∫" type="tts" draft="unconfirmed">ʻinitakolo</annotation>
+		<annotation cp="∬" draft="unconfirmed">ʻinitakolo tuʻoua</annotation>
+		<annotation cp="∬" type="tts" draft="unconfirmed">ʻinitakolo tuʻoua</annotation>
+		<annotation cp="∮" draft="unconfirmed">ʻinitakolo laine</annotation>
+		<annotation cp="∮" type="tts" draft="unconfirmed">ʻinitakolo laine</annotation>
 		<annotation cp="∴" draft="unconfirmed">ko ia ai</annotation>
 		<annotation cp="∴" type="tts" draft="unconfirmed">ko ia ai</annotation>
 		<annotation cp="∵" draft="unconfirmed">koeʻuhi</annotation>
 		<annotation cp="∵" type="tts" draft="unconfirmed">koeʻuhi</annotation>
+		<annotation cp="∶" draft="unconfirmed">lesiolo</annotation>
+		<annotation cp="∶" type="tts" draft="unconfirmed">lesiolo</annotation>
 		<annotation cp="∷" draft="unconfirmed">hoatatau</annotation>
 		<annotation cp="∷" type="tts" draft="unconfirmed">hoatatau</annotation>
 		<annotation cp="∼" draft="unconfirmed">fakafuofua fafasi</annotation>
@@ -447,8 +455,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="≈" type="tts">meimeitatau</annotation>
 		<annotation cp="≌" draft="unconfirmed">tatau kātoa</annotation>
 		<annotation cp="≌" type="tts" draft="unconfirmed">tatau kātoa</annotation>
-		<annotation cp="≒" draft="unconfirmed">meimei tatau fakaʻēsia</annotation>
-		<annotation cp="≒" type="tts" draft="unconfirmed">meimei tatau fakaʻēsia</annotation>
+		<annotation cp="≒" draft="unconfirmed">meimei tatau fakaʻesia</annotation>
+		<annotation cp="≒" type="tts" draft="unconfirmed">meimei tatau fakaʻesia</annotation>
 		<annotation cp="≖" draft="unconfirmed">mama ʻi loto tatau</annotation>
 		<annotation cp="≖" type="tts" draft="unconfirmed">mama ʻi loto tatau</annotation>
 		<annotation cp="≡">fakaʻilonga | tatau | tuʻupau</annotation>
@@ -701,58 +709,348 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♭" type="tts">falati</annotation>
 		<annotation cp="♯">saapa | tuʻungafasi</annotation>
 		<annotation cp="♯" type="tts">saapa</annotation>
-		<annotation cp="🥹">lotomamahi | mata | mata loʻimata maʻu | tuʻuaki</annotation>
-		<annotation cp="🥹" type="tts">mata loʻimata maʻu</annotation>
-		<annotation cp="🧌">fakaʻulia | fakatele</annotation>
-		<annotation cp="🧌" type="tts">fakatele</annotation>
-		<annotation cp="🩻" draft="unconfirmed">huelo fakaʻēkesi</annotation>
-		<annotation cp="🩻" type="tts" draft="unconfirmed">huelo fakaʻēkesi</annotation>
-		<annotation cp="🩼" draft="unconfirmed">kalatisi</annotation>
-		<annotation cp="🩼" type="tts" draft="unconfirmed">kalatisi</annotation>
-		<annotation cp="🪩" draft="unconfirmed">pula-hulohula</annotation>
-		<annotation cp="🪩" type="tts" draft="unconfirmed">pula-hulohula</annotation>
-		<annotation cp="🪪" draft="unconfirmed">kaati id</annotation>
-		<annotation cp="🪪" type="tts" draft="unconfirmed">kaati id</annotation>
-		<annotation cp="🪫" draft="unconfirmed">maka meimei mate</annotation>
-		<annotation cp="🪫" type="tts" draft="unconfirmed">maka meimei mate</annotation>
-		<annotation cp="🪬" draft="unconfirmed">mataʻinima</annotation>
-		<annotation cp="🪬" type="tts" draft="unconfirmed">mataʻinima</annotation>
-		<annotation cp="🪷" draft="unconfirmed">hainitevai</annotation>
-		<annotation cp="🪷" type="tts" draft="unconfirmed">hainitevai</annotation>
-		<annotation cp="🪸" draft="unconfirmed">feo</annotation>
-		<annotation cp="🪸" type="tts" draft="unconfirmed">feo</annotation>
-		<annotation cp="🪹" draft="unconfirmed">ngeʻesi pununga</annotation>
-		<annotation cp="🪹" type="tts" draft="unconfirmed">ngeʻesi pununga</annotation>
-		<annotation cp="🪺" draft="unconfirmed">pununga moe foʻimanu</annotation>
-		<annotation cp="🪺" type="tts" draft="unconfirmed">pununga moe foʻimanu</annotation>
-		<annotation cp="🫃">feitama | kete lahi | puputa | tangata feitama</annotation>
-		<annotation cp="🫃" type="tts">tangata feitama</annotation>
-		<annotation cp="🫄">feitama | kete lahi | puputa | tokotaha feitama</annotation>
-		<annotation cp="🫄" type="tts">tokotaha feitama</annotation>
-		<annotation cp="🫅">kalauni | tokotaha ʻai kalauni | tuʻi</annotation>
-		<annotation cp="🫅" type="tts">tokotaha ʻai kalauni</annotation>
-		<annotation cp="🫗" draft="unconfirmed">lilingi vai</annotation>
-		<annotation cp="🫗" type="tts" draft="unconfirmed">lilingi vai</annotation>
-		<annotation cp="🫘" draft="unconfirmed">piini</annotation>
-		<annotation cp="🫘" type="tts" draft="unconfirmed">piini</annotation>
-		<annotation cp="🫙" draft="unconfirmed">siā</annotation>
-		<annotation cp="🫙" type="tts" draft="unconfirmed">siā</annotation>
+		<annotation cp="😀">fiefia | mata | ngutu</annotation>
+		<annotation cp="😀" type="tts">mata fiefia</annotation>
+		<annotation cp="😃">fiefia | kanoʻimata | mata | mata fiefia moe kanoʻimata lalahi | ngutu</annotation>
+		<annotation cp="😃" type="tts">mata fiefia moe kanoʻimata lalahi</annotation>
+		<annotation cp="😄">fiefia | kanoʻimata | mata | mata fiefia moe kanoʻimata malimali | ngutu</annotation>
+		<annotation cp="😄" type="tts">mata fiefia moe kanoʻimata malimali</annotation>
+		<annotation cp="😁">ina | kanoʻimata | mata | mata ina moe kanoʻimata malimali | ngutua</annotation>
+		<annotation cp="😁" type="tts">mata ina moe kanoʻimata malimali</annotation>
+		<annotation cp="😆">fiefia | mata | mata fiefia moe tetepa | ngutu | tetepa</annotation>
+		<annotation cp="😆" type="tts">mata fiefia moe tetepa</annotation>
+		<annotation cp="😅">fiefia | mata | mata fiefia moe tautaʻa | ngutu | tautaʻa</annotation>
+		<annotation cp="😅" type="tts">mata fiefia moe tautaʻa</annotation>
+		<annotation cp="🤣">kata | mata | mata kata moe teka faliki | ngutu | teka</annotation>
+		<annotation cp="🤣" type="tts">mata kata moe teka faliki</annotation>
+		<annotation cp="😂">fiefia | loʻimata | mata | mata moe loʻimata fiefia | ngutu</annotation>
+		<annotation cp="😂" type="tts">mata moe loʻimata fiefia</annotation>
+		<annotation cp="🙂">malimali | mata | mata kiʻi malimali</annotation>
+		<annotation cp="🙂" type="tts">mata kiʻi malimali</annotation>
+		<annotation cp="🙃">fulihi | malimali | mata</annotation>
+		<annotation cp="🙃" type="tts">mata fulihi</annotation>
 		<annotation cp="🫠">mata | puli | vaia</annotation>
 		<annotation cp="🫠" type="tts">mata vaia</annotation>
-		<annotation cp="🫡">fetapa | mata | salute</annotation>
-		<annotation cp="🫡" type="tts">mata fetapa</annotation>
+		<annotation cp="😉">fakakuitaha | malimali | mata</annotation>
+		<annotation cp="😉" type="tts">mata fakakuitaha</annotation>
+		<annotation cp="😊">kanoʻimata | malimali | mata | mata malimali moe kanoʻimata malimali</annotation>
+		<annotation cp="😊" type="tts">mata malimali moe kanoʻimata malimali</annotation>
+		<annotation cp="😇">malimali | mata | mata malimali moe takaniko | takaniko</annotation>
+		<annotation cp="😇" type="tts">mata malimali moe takaniko</annotation>
+		<annotation cp="🥰">mafu | malimali | mata | mata malimali moe mafu ʻe 3</annotation>
+		<annotation cp="🥰" type="tts">mata malimali moe mafu ʻe 3</annotation>
+		<annotation cp="😍">kanoʻimata | mafu | malimali | mata | mata malimali moe kanoʻimata mafu</annotation>
+		<annotation cp="😍" type="tts">mata malimali moe kanoʻimata mafu</annotation>
+		<annotation cp="🤩">fetuʻu | kanoʻimata | mata</annotation>
+		<annotation cp="🤩" type="tts">mata fetuʻu</annotation>
+		<annotation cp="😘">ʻuma | mafu | mata | mata ʻoku puhi ʻae ʻuma | puhi</annotation>
+		<annotation cp="😘" type="tts">mata ʻoku puhi ʻae ʻuma</annotation>
+		<annotation cp="😗">ʻuma | mata</annotation>
+		<annotation cp="😗" type="tts">mata ʻuma</annotation>
+		<annotation cp="☺">malimali | mata</annotation>
+		<annotation cp="☺" type="tts">mata malimali</annotation>
+		<annotation cp="😚">ʻuma | kanoʻimata | kuikui | mata | mata ʻuma moe kanoʻimata kuikui</annotation>
+		<annotation cp="😚" type="tts">mata ʻuma moe kanoʻimata kuikui</annotation>
+		<annotation cp="😙">ʻuma | kanoʻimata | malimali | mata | mata ʻuma moe kanoʻimata malimali</annotation>
+		<annotation cp="😙" type="tts">mata ʻuma moe kanoʻimata malimali</annotation>
+		<annotation cp="🥲">loʻimata | malimali | mata | mata malimali moe loʻimata</annotation>
+		<annotation cp="🥲" type="tts">mata malimali moe loʻimata</annotation>
+		<annotation cp="😋">ʻelelo | ʻuakai | mata | mataʻi ʻuakai</annotation>
+		<annotation cp="😋" type="tts">mataʻi ʻuakai</annotation>
+		<annotation cp="😛">ʻelelo | mata | mata moe ʻelelo</annotation>
+		<annotation cp="😛" type="tts">mata moe ʻelelo</annotation>
+		<annotation cp="😜">ʻelelo | kuitaha | mata | mata kuitaha moe ʻelelo</annotation>
+		<annotation cp="😜" type="tts">mata kuitaha moe ʻelelo</annotation>
+		<annotation cp="🤪">masoli | mata</annotation>
+		<annotation cp="🤪" type="tts">mata masoli</annotation>
+		<annotation cp="😝">ʻelelo | mata | mata tetepa moe ʻelelo | tetepa</annotation>
+		<annotation cp="😝" type="tts">mata tetepa moe ʻelelo</annotation>
+		<annotation cp="🤑">ʻelelo | mata | mata ngutu-paʻanga | ngutu | paʻanga</annotation>
+		<annotation cp="🤑" type="tts">mata ngutu-paʻanga</annotation>
+		<annotation cp="🤗">fāʻufua | kula | mata</annotation>
+		<annotation cp="🤗" type="tts">mata fāʻufua</annotation>
+		<annotation cp="🤭">ʻufiʻufi | kula | mata | mata moe nima ʻi muʻa ʻoe ngutu | ngutu | nima</annotation>
+		<annotation cp="🤭" type="tts">mata moe nima ʻi muʻa ʻoe ngutu</annotation>
 		<annotation cp="🫢">ʻohovale | mata | mata matalahi moe nima ʻi muʻa ʻoe ngutu | teteki</annotation>
 		<annotation cp="🫢" type="tts">mata matalahi moe nima ʻi muʻa ʻoe ngutu</annotation>
 		<annotation cp="🫣">ilifia | mata | mata moe foʻimata tauasi | tauasi</annotation>
 		<annotation cp="🫣" type="tts">mata moe foʻimata tauasi</annotation>
-		<annotation cp="🫤">fakahihifi | mata | mata ngutu fakahihifi | taʻepau</annotation>
-		<annotation cp="🫤" type="tts">mata ngutu fakahihifi</annotation>
+		<annotation cp="🤫">fakalongolongo | mata | mata fiemaʻu fakalongolongo</annotation>
+		<annotation cp="🤫" type="tts">mata fiemaʻu fakalongolongo</annotation>
+		<annotation cp="🤔">fakakaukau | mata | mataʻi fakakaukau</annotation>
+		<annotation cp="🤔" type="tts">mataʻi fakakaukau</annotation>
+		<annotation cp="🫡">fetapa | mata | salute</annotation>
+		<annotation cp="🫡" type="tts">mata fetapa</annotation>
+		<annotation cp="🤐">mata | mata moe ngutu meʻa-fakamaʻu-fusi | meʻa-fakamaʻu-fusi | ngutu</annotation>
+		<annotation cp="🤐" type="tts">mata moe ngutu meʻa-fakamaʻu-fusi</annotation>
+		<annotation cp="🤨">kemo | mahiki | mata | mata moe kemo mahiki</annotation>
+		<annotation cp="🤨" type="tts">mata moe kemo mahiki</annotation>
+		<annotation cp="😐">ʻatā | mata | mata noa pē | noa</annotation>
+		<annotation cp="😐" type="tts">mata noa pē</annotation>
+		<annotation cp="😑">mata | matanoa</annotation>
+		<annotation cp="😑" type="tts">mata matanoa</annotation>
+		<annotation cp="😶">ʻikai | mata | mata taʻengutu | ngutu</annotation>
+		<annotation cp="😶" type="tts">mata taʻengutu</annotation>
 		<annotation cp="🫥">mata | mata fakalaine toti | puli | taʻehāmai</annotation>
 		<annotation cp="🫥" type="tts">mata fakalaine toti</annotation>
-		<annotation cp="🫦">hohaʻa | lotomoʻua | ngutu | uʻu loungutu</annotation>
-		<annotation cp="🫦" type="tts">uʻu loungutu</annotation>
-		<annotation cp="🫰">fisipā | louhiʻinima moe motuʻatuhu fehauaki | mamafa | paʻanga</annotation>
-		<annotation cp="🫰" type="tts">louhiʻinima moe motuʻatuhu fehauaki</annotation>
+		<annotation cp="😶‍🌫" draft="unconfirmed">mata ʻihe ʻao</annotation>
+		<annotation cp="😶‍🌫" type="tts" draft="unconfirmed">mata ʻihe ʻao</annotation>
+		<annotation cp="😏">katakata | manuki | mata</annotation>
+		<annotation cp="😏" type="tts">mata katakata manuki</annotation>
+		<annotation cp="😒">mata | taʻefiefia</annotation>
+		<annotation cp="😒" type="tts">mata taʻefiefia</annotation>
+		<annotation cp="🙄">kilokilo | mata</annotation>
+		<annotation cp="🙄" type="tts">mata kilokilo</annotation>
+		<annotation cp="😬">ina | mata | mata mioʻi | mio</annotation>
+		<annotation cp="😬" type="tts">mata mioʻi</annotation>
+		<annotation cp="😮‍💨" draft="unconfirmed">mata hō</annotation>
+		<annotation cp="😮‍💨" type="tts" draft="unconfirmed">mata hō</annotation>
+		<annotation cp="🤥">ihu | lōloa | mata | mata moe ihu lōloa</annotation>
+		<annotation cp="🤥" type="tts">mata moe ihu lōloa</annotation>
+		<annotation cp="🫨">lulu | mafuike | mata tete | ngalulu | tete</annotation>
+		<annotation cp="🫨" type="tts">mata tete</annotation>
+		<annotation cp="😌">fakanongononga | mata</annotation>
+		<annotation cp="😌" type="tts">mata fakanongononga</annotation>
+		<annotation cp="😔">fakalaulauloto | mata</annotation>
+		<annotation cp="😔" type="tts">mata fakalaulauloto</annotation>
+		<annotation cp="😪">fiemohea | hafu | mata</annotation>
+		<annotation cp="😪" type="tts">mata fiemohea</annotation>
+		<annotation cp="🤤">fāvai | hafu | mata | ngutu</annotation>
+		<annotation cp="🤤" type="tts">mata ngutu hafu fāvai</annotation>
+		<annotation cp="😴">mata | mohe</annotation>
+		<annotation cp="😴" type="tts">mata mohe</annotation>
+		<annotation cp="😷">fakafaitoʻo | mata | mata moe pūloa fakafaitoʻo | puke | pūloa</annotation>
+		<annotation cp="😷" type="tts">mata moe pūloa fakafaitoʻo</annotation>
+		<annotation cp="🤒">mata | mata moe meʻafuamafana | meʻafuamafana | puke</annotation>
+		<annotation cp="🤒" type="tts">mata moe meʻafuamafana</annotation>
+		<annotation cp="🤕">haʻi lavea | mata | mata moe haʻi lavea | puke</annotation>
+		<annotation cp="🤕" type="tts">mata moe haʻi lavea</annotation>
+		<annotation cp="🤢">kavahia | mata | puke</annotation>
+		<annotation cp="🤢" type="tts">mata kavahia</annotation>
+		<annotation cp="🤮">lua | mata | puke</annotation>
+		<annotation cp="🤮" type="tts">mata lua</annotation>
+		<annotation cp="🤧">fulu | mafatua | mata</annotation>
+		<annotation cp="🤧" type="tts">mata mafatua</annotation>
+		<annotation cp="🥵">kulokula | mata | vevela</annotation>
+		<annotation cp="🥵" type="tts">mata vevela</annotation>
+		<annotation cp="🥶">mata | momoko | pulū</annotation>
+		<annotation cp="🥶" type="tts">mata momoko</annotation>
+		<annotation cp="🥴">konā | mata</annotation>
+		<annotation cp="🥴" type="tts">mata konā</annotation>
+		<annotation cp="😵">mata | mate | ninimo</annotation>
+		<annotation cp="😵" type="tts">mata ninimo</annotation>
+		<annotation cp="😵‍💫" draft="unconfirmed">mata takatakai</annotation>
+		<annotation cp="😵‍💫" type="tts" draft="unconfirmed">mata takatakai</annotation>
+		<annotation cp="🤯">mata | pahū</annotation>
+		<annotation cp="🤯" type="tts">mata pahū</annotation>
+		<annotation cp="🤠">kaupoe | mata | mata moe tatā fakakaupoe | tatā</annotation>
+		<annotation cp="🤠" type="tts">mata moe tatā fakakaupoe</annotation>
+		<annotation cp="🥳">mata | paati</annotation>
+		<annotation cp="🥳" type="tts">mata paati</annotation>
+		<annotation cp="🥸">fakapuli | mata | matasioʻata</annotation>
+		<annotation cp="🥸" type="tts">mata fakapuli</annotation>
+		<annotation cp="😎">malimali | mata | mata malimali moe matasioʻatalaʻā | matasioʻatalaʻā</annotation>
+		<annotation cp="😎" type="tts">mata malimali moe matasioʻatalaʻā</annotation>
+		<annotation cp="🤓">mata | mata moe matasioʻata lahi | matasioʻata | ngutu</annotation>
+		<annotation cp="🤓" type="tts">mata moe matasioʻata lahi</annotation>
+		<annotation cp="🧐">mata | mata moe matasioʻata tafaʻaki taha | matasioʻata | taha</annotation>
+		<annotation cp="🧐" type="tts">mata moe matasioʻata tafaʻaki taha</annotation>
+		<annotation cp="😕">mata | puputuʻu</annotation>
+		<annotation cp="😕" type="tts">mata puputuʻu</annotation>
+		<annotation cp="🫤">fakahihifi | mata | mata ngutu fakahihifi | taʻepau</annotation>
+		<annotation cp="🫤" type="tts">mata ngutu fakahihifi</annotation>
+		<annotation cp="😟">lotohohaʻa | mata</annotation>
+		<annotation cp="😟" type="tts">mata lotohohaʻa</annotation>
+		<annotation cp="🙁">fingo | mata | mata kiʻi fingo</annotation>
+		<annotation cp="🙁" type="tts">mata kiʻi fingo</annotation>
+		<annotation cp="☹">fingo | mata</annotation>
+		<annotation cp="☹" type="tts">mata fingo</annotation>
+		<annotation cp="😮">fakamanga | mata | mata moe ngutu fakamanga | ngutu</annotation>
+		<annotation cp="😮" type="tts">mata moe ngutu fakamanga</annotation>
+		<annotation cp="😯">longo | mata</annotation>
+		<annotation cp="😯" type="tts">mata longo</annotation>
+		<annotation cp="😲">ʻohovale | mata</annotation>
+		<annotation cp="😲" type="tts">mata ʻohovale</annotation>
+		<annotation cp="😳">mata | pahapaha</annotation>
+		<annotation cp="😳" type="tts">mata pahapaha</annotation>
+		<annotation cp="🥺">kole | mata</annotation>
+		<annotation cp="🥺" type="tts">mata kole</annotation>
+		<annotation cp="🥹">lotomamahi | mata | mata loʻimata maʻu | tuʻuaki</annotation>
+		<annotation cp="🥹" type="tts">mata loʻimata maʻu</annotation>
+		<annotation cp="😦">fakamanga | fingo | mata | mata fingo moe ngutu fakamanga | ngutu</annotation>
+		<annotation cp="😦" type="tts">mata fingo moe ngutu fakamanga</annotation>
+		<annotation cp="😧">lotomamahi | mata</annotation>
+		<annotation cp="😧" type="tts">mata lotomamahi</annotation>
+		<annotation cp="😨">fakamanavahē | mata</annotation>
+		<annotation cp="😨" type="tts">mata fakamanavahē</annotation>
+		<annotation cp="😰">lotomoʻua | mata | mata lotomoʻua moe tautaʻa | pulū | tautaʻa</annotation>
+		<annotation cp="😰" type="tts">mata lotomoʻua moe tautaʻa</annotation>
+		<annotation cp="😥">fakanongononga | lotomamahi | mata | mata lotomamahi kā fakanongononga</annotation>
+		<annotation cp="😥" type="tts">mata lotomamahi kā fakanongononga</annotation>
+		<annotation cp="😢">loʻimata | mata | tangi</annotation>
+		<annotation cp="😢" type="tts">mata loʻimata</annotation>
+		<annotation cp="😭">loʻimata | mata | mata loʻimata lahi | tangi</annotation>
+		<annotation cp="😭" type="tts">mata loʻimata lahi</annotation>
+		<annotation cp="😱">kekekeke | manavahē | mata | mata ʻoku kekekeke he manavahē</annotation>
+		<annotation cp="😱" type="tts">mata ʻoku kekekeke he manavahē</annotation>
+		<annotation cp="😖">mata | mata fakapuputuʻu | puputuʻu</annotation>
+		<annotation cp="😖" type="tts">mata fakapuputuʻu</annotation>
+		<annotation cp="😣">lotokītaki | mata</annotation>
+		<annotation cp="😣" type="tts">mata lotokītaki</annotation>
+		<annotation cp="😞">lotomamahi | mata | mata fakalotomamahi</annotation>
+		<annotation cp="😞" type="tts">mata fakalotomamahi</annotation>
+		<annotation cp="😓">lototaʻotaʻomia | mata | mata lototaʻotaʻomia moe tautaʻa | tautaʻa</annotation>
+		<annotation cp="😓" type="tts">mata lototaʻotaʻomia moe tautaʻa</annotation>
+		<annotation cp="😩">helaʻia | mata | ongosia</annotation>
+		<annotation cp="😩" type="tts">mata ongosia</annotation>
+		<annotation cp="😫">helaʻia | mata</annotation>
+		<annotation cp="😫" type="tts">mata helaʻia</annotation>
+		<annotation cp="🥱">fakahela | mamao | mata</annotation>
+		<annotation cp="🥱" type="tts">mata mamao</annotation>
+		<annotation cp="😤">ihu | mao | mata | mata moe mao meihe ihu</annotation>
+		<annotation cp="😤" type="tts">mata moe mao meihe ihu</annotation>
+		<annotation cp="😡">ʻita | kuolokula | mata | mata ʻita lahi</annotation>
+		<annotation cp="😡" type="tts">mata ʻita lahi</annotation>
+		<annotation cp="😠">ʻita | mata</annotation>
+		<annotation cp="😠" type="tts">mata ʻita</annotation>
+		<annotation cp="🤬">kapekape | kulokula | mata</annotation>
+		<annotation cp="🤬" type="tts">mata kapekape</annotation>
+		<annotation cp="😈">lanufesiʻifekika | malimali | mata | mata malimali moe meʻatui | meʻatui</annotation>
+		<annotation cp="😈" type="tts">mata malimali moe meʻatui</annotation>
+		<annotation cp="👿">ʻita | lanufesiʻifekika | mata | mata ʻita moe meʻatui | meʻatui</annotation>
+		<annotation cp="👿" type="tts">mata ʻita moe meʻatui</annotation>
+		<annotation cp="💀">ʻulupoko</annotation>
+		<annotation cp="💀" type="tts">ʻulupoko</annotation>
+		<annotation cp="☠">fehauaki | hui | ʻulupoko | ʻulupoko moe ongo hui fehauaki | kaihaʻa ʻi tahi</annotation>
+		<annotation cp="☠" type="tts">ʻulupoko moe ongo hui fehauaki</annotation>
+		<annotation cp="💩">meʻakovi | taʻe | tuʻunga meʻakovi</annotation>
+		<annotation cp="💩" type="tts">tuʻunga meʻakovi</annotation>
+		<annotation cp="🤡">fieoli | mata | mata tokotaha-fieoli</annotation>
+		<annotation cp="🤡" type="tts">mata tokotaha-fieoli</annotation>
+		<annotation cp="👹">faʻahikehe | nifoloa</annotation>
+		<annotation cp="👹" type="tts">nifoloa</annotation>
+		<annotation cp="👺">faʻahikehe | pīnōnō</annotation>
+		<annotation cp="👺" type="tts">pīnōnō</annotation>
+		<annotation cp="👻">faʻahikehe | fakapūloa</annotation>
+		<annotation cp="👻" type="tts">fakapūloa</annotation>
+		<annotation cp="👽">faʻahikehe | meʻamoʻuikehe</annotation>
+		<annotation cp="👽" type="tts">meʻamoʻuikehe</annotation>
+		<annotation cp="👾">faʻahikehe | fakamanavahē | komipiuta | meʻamoʻuikehe</annotation>
+		<annotation cp="👾" type="tts">meʻamoʻuikehe fakamanavahē</annotation>
+		<annotation cp="🤖">mata tangata-ukamea</annotation>
+		<annotation cp="🤖" type="tts">mata tangata-ukamea</annotation>
+		<annotation cp="😺">fiefia | mata | mataʻipusi fiefia | pusi</annotation>
+		<annotation cp="😺" type="tts">mataʻipusi fiefia</annotation>
+		<annotation cp="😸">fiefia | kanoʻimata | malimali | mata | mataʻipusi fiefia moe kanoʻimata malimali | pusi</annotation>
+		<annotation cp="😸" type="tts">mataʻipusi fiefia moe kanoʻimata malimali</annotation>
+		<annotation cp="😹">fiefia | loʻimata | mata | mataʻipusi moe loʻimata fiefia | pusi</annotation>
+		<annotation cp="😹" type="tts">mataʻipusi moe loʻimata fiefia</annotation>
+		<annotation cp="😻">kanoʻimata | mafu | malimali | mata | mataʻipusi malimali moe kanoʻimata mafu | pusi</annotation>
+		<annotation cp="😻" type="tts">mataʻipusi malimali moe kanoʻimata mafu</annotation>
+		<annotation cp="😼">malimali feʻu | mata | mataʻipusi moe malimali feʻu | pusi</annotation>
+		<annotation cp="😼" type="tts">mataʻipusi moe malimali feʻu</annotation>
+		<annotation cp="😽">ʻuma | mata | mataʻipusi ʻuma | pusi</annotation>
+		<annotation cp="😽" type="tts">mataʻipusi ʻuma</annotation>
+		<annotation cp="🙀">mata | mataʻipusi ongosia | ongosia | pusi</annotation>
+		<annotation cp="🙀" type="tts">mataʻipusi ongosia</annotation>
+		<annotation cp="😿">loʻimata | mata | mataʻipusi loʻimata | pusi</annotation>
+		<annotation cp="😿" type="tts">mataʻipusi loʻimata</annotation>
+		<annotation cp="😾">mata | mataʻipusi taʻefiemālie | pusi | taʻefiemālie</annotation>
+		<annotation cp="😾" type="tts">mataʻipusi taʻefiemālie</annotation>
+		<annotation cp="🙈">ʻikai | kovi | ngeli | sio</annotation>
+		<annotation cp="🙈" type="tts">ngeli ʻikai sio kovi</annotation>
+		<annotation cp="🙉">fanongo | ʻikai | kovi | ngeli</annotation>
+		<annotation cp="🙉" type="tts">ngeli ʻikai fanongo kovi</annotation>
+		<annotation cp="🙊">ʻikai | kovi | lea | ngeli</annotation>
+		<annotation cp="🙊" type="tts">ngeli ʻikai lea kovi</annotation>
+		<annotation cp="💌">ʻofa | mafu | tohi</annotation>
+		<annotation cp="💌" type="tts">tohi ʻofa</annotation>
+		<annotation cp="💘">ʻofa | mafu | mafu moe ngahau | ngahau</annotation>
+		<annotation cp="💘" type="tts">mafu moe ngahau</annotation>
+		<annotation cp="💝">lipine | mafu | mafu moe lipine | ofo</annotation>
+		<annotation cp="💝" type="tts">mafu moe lipine</annotation>
+		<annotation cp="💖">mafu | ngingila</annotation>
+		<annotation cp="💖" type="tts">mafu ngingila</annotation>
+		<annotation cp="💗">mafu | tupu</annotation>
+		<annotation cp="💗" type="tts">mafu tupu</annotation>
+		<annotation cp="💓">mafu | mafu ʻoku tā | tā</annotation>
+		<annotation cp="💓" type="tts">mafu ʻoku tā</annotation>
+		<annotation cp="💞">mafu | ongo | takai</annotation>
+		<annotation cp="💞" type="tts">ongo mafu takai</annotation>
+		<annotation cp="💕">mafu | ongo</annotation>
+		<annotation cp="💕" type="tts">ongo mafu</annotation>
+		<annotation cp="💟">lanufesiʻifekika | mafu | teuteuʻi</annotation>
+		<annotation cp="💟" type="tts">mafu teuteuʻi</annotation>
+		<annotation cp="❣">ʻilonga | kalanga | mafu | mafu fakaʻilonga kalanga</annotation>
+		<annotation cp="❣" type="tts">mafu fakaʻilonga kalanga</annotation>
+		<annotation cp="💔">lavea | loto | mafu</annotation>
+		<annotation cp="💔" type="tts">loto lavea</annotation>
+		<annotation cp="❤‍🔥" draft="unconfirmed">mafu afi</annotation>
+		<annotation cp="❤‍🔥" type="tts" draft="unconfirmed">mafu afi</annotation>
+		<annotation cp="❤‍🩹" draft="unconfirmed">mafu monomono</annotation>
+		<annotation cp="❤‍🩹" type="tts" draft="unconfirmed">mafu monomono</annotation>
+		<annotation cp="❤">kulokula | mafu</annotation>
+		<annotation cp="❤" type="tts">mafu kulokula</annotation>
+		<annotation cp="🩷">kulokula | lanupingikī | maama | mafu</annotation>
+		<annotation cp="🩷" type="tts">mafu lanupingikī</annotation>
+		<annotation cp="🧡">lanumoli | mafu</annotation>
+		<annotation cp="🧡" type="tts">mafu lanumoli</annotation>
+		<annotation cp="💛">engeenga | mafu</annotation>
+		<annotation cp="💛" type="tts">mafu engeenga</annotation>
+		<annotation cp="💚">lanumata | mafu</annotation>
+		<annotation cp="💚" type="tts">mafu lanumata</annotation>
+		<annotation cp="💙">lanupulū | mafu</annotation>
+		<annotation cp="💙" type="tts">mafu lanupulū</annotation>
+		<annotation cp="🩵">lanupulū | maama | mafu</annotation>
+		<annotation cp="🩵" type="tts">mafu lanupulū maama</annotation>
+		<annotation cp="💜">lanufesiʻifekika | mafu</annotation>
+		<annotation cp="💜" type="tts">mafu lanufesiʻifekika</annotation>
+		<annotation cp="🤎">mafu | melomelo</annotation>
+		<annotation cp="🤎" type="tts">mafu melomelo</annotation>
+		<annotation cp="🖤">ʻuliʻuli | mafu</annotation>
+		<annotation cp="🖤" type="tts">mafu ʻuliʻuli</annotation>
+		<annotation cp="🩶">fulutui | lanulavilavi | mafu | tukumisi</annotation>
+		<annotation cp="🩶" type="tts">mafu lanulavilavi</annotation>
+		<annotation cp="🤍">hinehina | mafu | tea</annotation>
+		<annotation cp="🤍" type="tts">mafu hinehina</annotation>
+		<annotation cp="💋">ʻilonga | ʻuma | loungutu</annotation>
+		<annotation cp="💋" type="tts">ʻilonga loungutu</annotation>
+		<annotation cp="💯">ʻilonga | poini | poini ʻe teau | teau</annotation>
+		<annotation cp="💯" type="tts">poini ʻe teau</annotation>
+		<annotation cp="💢">fakaʻilonga ʻita | ʻilonga | ʻita</annotation>
+		<annotation cp="💢" type="tts">fakaʻilonga ʻita</annotation>
+		<annotation cp="💥">fepaki | ʻilonga</annotation>
+		<annotation cp="💥" type="tts">fepaki</annotation>
+		<annotation cp="💫">ʻilonga | ninimo</annotation>
+		<annotation cp="💫" type="tts">ninimo</annotation>
+		<annotation cp="💦">tautaʻa | tulutā</annotation>
+		<annotation cp="💦" type="tts">tautaʻa tulutā</annotation>
+		<annotation cp="💨">atu | ʻoho</annotation>
+		<annotation cp="💨" type="tts">ʻoho atu</annotation>
+		<annotation cp="🕳">ava</annotation>
+		<annotation cp="🕳" type="tts">ava</annotation>
+		<annotation cp="💬">pulalea</annotation>
+		<annotation cp="💬" type="tts">pulalea</annotation>
+		<annotation cp="👁‍🗨">kanoʻimata ʻi ha pulalea</annotation>
+		<annotation cp="👁‍🗨" type="tts">kanoʻimata ʻi ha pulalea</annotation>
+		<annotation cp="🗨">hema | pulalea | pulalea ʻi hema</annotation>
+		<annotation cp="🗨" type="tts">pulalea ʻi hema</annotation>
+		<annotation cp="🗯">ʻita | pulalea</annotation>
+		<annotation cp="🗯" type="tts">pulalea ʻita</annotation>
+		<annotation cp="💭">fakakaukau | ʻao | pulalea</annotation>
+		<annotation cp="💭" type="tts">pulalea fakakaukau</annotation>
+		<annotation cp="💤">ʻilonga | mohe</annotation>
+		<annotation cp="💤" type="tts">mohe</annotation>
+		<annotation cp="👋">nima | taʻataʻalo</annotation>
+		<annotation cp="👋" type="tts">nima taʻataʻalo</annotation>
+		<annotation cp="🤚">ʻolunga | nima | tuʻanima | tuʻanima hiki ki ʻolunga</annotation>
+		<annotation cp="🤚" type="tts">tuʻanima hiki ki ʻolunga</annotation>
+		<annotation cp="🖐">fālalahi | nima</annotation>
+		<annotation cp="🖐" type="tts">nima fālalahi</annotation>
+		<annotation cp="✋">ʻolunga | nima | nima hiki ki ʻolunga</annotation>
+		<annotation cp="✋" type="tts">nima hiki ki ʻolunga</annotation>
+		<annotation cp="🖖">mavaeua | nima</annotation>
+		<annotation cp="🖖" type="tts">nima mavaeua</annotation>
 		<annotation cp="🫱">mataʻu | nima | nima ki mataʻu | toʻomataʻu</annotation>
 		<annotation cp="🫱" type="tts">nima ki mataʻu</annotation>
 		<annotation cp="🫲">hema | nima | ninma ki hema | toʻohema</annotation>
@@ -761,403 +1059,79 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫳" type="tts">nima ʻohifo</annotation>
 		<annotation cp="🫴">hake | nima | nima ʻohake | toʻohake</annotation>
 		<annotation cp="🫴" type="tts">nima ʻohake</annotation>
+		<annotation cp="🫷">ʻoua muʻa | nima | nima teke ki hema | teke | toʻohema | tuʻu</annotation>
+		<annotation cp="🫷" type="tts">nima teke ki hema</annotation>
+		<annotation cp="🫸">ʻoua muʻa | nima | nima teke ki mataʻu | teke | toʻomataʻu | tuʻu</annotation>
+		<annotation cp="🫸" type="tts">nima teke ki mataʻu</annotation>
+		<annotation cp="👌">nima | nima fakaʻilonga sai | sai</annotation>
+		<annotation cp="👌" type="tts">nima fakaʻilonga sai</annotation>
+		<annotation cp="🤌">fakamaʻopoʻopo | louhiʻinima | nima | taʻemāhino</annotation>
+		<annotation cp="🤌" type="tts">louhiʻinima fakamaʻopoʻopo</annotation>
+		<annotation cp="🤏">fakamaʻopoʻopo | nima | siʻisiʻi</annotation>
+		<annotation cp="🤏" type="tts">nima fakamaʻopoʻopo</annotation>
+		<annotation cp="✌">ikuna | nima</annotation>
+		<annotation cp="✌" type="tts">nima ikuna</annotation>
+		<annotation cp="🤞">fehauaki | louhiʻinima fehauaki | nima</annotation>
+		<annotation cp="🤞" type="tts">louhiʻinima fehauaki</annotation>
+		<annotation cp="🫰">fisipā | louhiʻinima moe motuʻatuhu fehauaki | mamafa | paʻanga</annotation>
+		<annotation cp="🫰" type="tts">louhiʻinima moe motuʻatuhu fehauaki</annotation>
+		<annotation cp="🤟">mafu | nima | nima fakaʻilonga mafu</annotation>
+		<annotation cp="🤟" type="tts">nima fakaʻilonga mafu</annotation>
+		<annotation cp="🤘">nima | nima fakaʻilonga fakatēvolo | tēvolo</annotation>
+		<annotation cp="🤘" type="tts">nima fakaʻilonga fakatēvolo</annotation>
+		<annotation cp="🤙">nima | nima fakaʻilonga tā mai | telefoni</annotation>
+		<annotation cp="🤙" type="tts">nima fakaʻilonga tā mai</annotation>
+		<annotation cp="👈">hema | nima | tuhu | tuhu tuʻanima tonu ki hema</annotation>
+		<annotation cp="👈" type="tts">tuhu tuʻanima tonu ki hema</annotation>
+		<annotation cp="👉">mataʻu | nima | tuhu | tuhu tuʻanima tonu ki mataʻu</annotation>
+		<annotation cp="👉" type="tts">tuhu tuʻanima tonu ki mataʻu</annotation>
+		<annotation cp="👆">ʻolunga | nima | tuhu | tuhu tuʻanima tonu ki ʻolunga</annotation>
+		<annotation cp="👆" type="tts">tuhu tuʻanima tonu ki ʻolunga</annotation>
+		<annotation cp="🖕">loto | nima | tuhu | tuhu ʻi loto</annotation>
+		<annotation cp="🖕" type="tts">tuhu ʻi loto</annotation>
+		<annotation cp="👇">lalo | nima | tuhu | tuhu tuʻanima tonu ki lalo</annotation>
+		<annotation cp="👇" type="tts">tuhu tuʻanima tonu ki lalo</annotation>
+		<annotation cp="☝">ʻolunga | nima | tuhu | tuhu tonu ki ʻolunga</annotation>
+		<annotation cp="☝" type="tts">tuhu tonu ki ʻolunga</annotation>
 		<annotation cp="🫵">ko koe | tuhu | tuhu tonu ki muʻa</annotation>
 		<annotation cp="🫵" type="tts">tuhu tonu ki muʻa</annotation>
+		<annotation cp="👍">ʻolunga | motuʻatuhu | motuʻatuhu ki ʻolunga | nima</annotation>
+		<annotation cp="👍" type="tts">motuʻatuhu ki ʻolunga</annotation>
+		<annotation cp="👎">lalo | motuʻatuhu | motuʻatuhu ki lalo | nima</annotation>
+		<annotation cp="👎" type="tts">motuʻatuhu ki lalo</annotation>
+		<annotation cp="✊">ʻolunga | nima | tuke | tuke hiki ki ʻolunga</annotation>
+		<annotation cp="✊" type="tts">tuke hiki ki ʻolunga</annotation>
+		<annotation cp="👊">muʻa | nima | tuke | tuke ki muʻa</annotation>
+		<annotation cp="👊" type="tts">tuke ki muʻa</annotation>
+		<annotation cp="🤛">hema | nima | tuke | tuke ki hema</annotation>
+		<annotation cp="🤛" type="tts">tuke ki hema</annotation>
+		<annotation cp="🤜">mataʻu | nima | tuke | tuke ki mataʻu</annotation>
+		<annotation cp="🤜" type="tts">tuke ki mataʻu</annotation>
+		<annotation cp="👏">nima | pasipasi</annotation>
+		<annotation cp="👏" type="tts">nima pasipasi</annotation>
+		<annotation cp="🙌">ʻolunga | nima | ongo | ongo nima hiki ki ʻolunga</annotation>
+		<annotation cp="🙌" type="tts">ongo nima hiki ki ʻolunga</annotation>
 		<annotation cp="🫶">ʻofa | ongo nima fakamafu</annotation>
 		<annotation cp="🫶" type="tts">ongo nima fakamafu</annotation>
-		<annotation cp="🛝" draft="unconfirmed">malaʻe vaʻinga</annotation>
-		<annotation cp="🛝" type="tts" draft="unconfirmed">malaʻe vaʻinga</annotation>
-		<annotation cp="🛞" draft="unconfirmed">veʻelapa</annotation>
-		<annotation cp="🛞" type="tts" draft="unconfirmed">veʻelapa</annotation>
-		<annotation cp="🛟" draft="unconfirmed">poe</annotation>
-		<annotation cp="🛟" type="tts" draft="unconfirmed">poe</annotation>
-		<annotation cp="🟰" draft="unconfirmed">tatau mamafa</annotation>
-		<annotation cp="🟰" type="tts" draft="unconfirmed">tatau mamafa</annotation>
-		<annotation cp="😀">mata fiefia</annotation>
-		<annotation cp="😀" type="tts">mata fiefia</annotation>
-		<annotation cp="😃">mata fiefia moe kanoʻimata lalahi</annotation>
-		<annotation cp="😃" type="tts">mata fiefia moe kanoʻimata lalahi</annotation>
-		<annotation cp="😄">mata fiefia moe kanoʻimata malimali</annotation>
-		<annotation cp="😄" type="tts">mata fiefia moe kanoʻimata malimali</annotation>
-		<annotation cp="😁">mata ina moe kanoʻimata malimali</annotation>
-		<annotation cp="😁" type="tts">mata ina moe kanoʻimata malimali</annotation>
-		<annotation cp="😆">mata fiefia moe tetepa</annotation>
-		<annotation cp="😆" type="tts">mata fiefia moe tetepa</annotation>
-		<annotation cp="😅">mata fiefia moe tautaʻa</annotation>
-		<annotation cp="😅" type="tts">mata fiefia moe tautaʻa</annotation>
-		<annotation cp="🤣">mata kata moe teka faliki</annotation>
-		<annotation cp="🤣" type="tts">mata kata moe teka faliki</annotation>
-		<annotation cp="😂">mata moe loʻimata fiefia</annotation>
-		<annotation cp="😂" type="tts">mata moe loʻimata fiefia</annotation>
-		<annotation cp="🙂">mata kiʻi malimali</annotation>
-		<annotation cp="🙂" type="tts">mata kiʻi malimali</annotation>
-		<annotation cp="🙃">mata fulihi</annotation>
-		<annotation cp="🙃" type="tts">mata fulihi</annotation>
-		<annotation cp="😉">mata fakakuitaha</annotation>
-		<annotation cp="😉" type="tts">mata fakakuitaha</annotation>
-		<annotation cp="😊">mata malimali moe kanoʻimata malimali</annotation>
-		<annotation cp="😊" type="tts">mata malimali moe kanoʻimata malimali</annotation>
-		<annotation cp="😇">mata malimali moe takaniko</annotation>
-		<annotation cp="😇" type="tts">mata malimali moe takaniko</annotation>
-		<annotation cp="🥰">mata malimali moe mafu ʻe 3</annotation>
-		<annotation cp="🥰" type="tts">mata malimali moe mafu ʻe 3</annotation>
-		<annotation cp="😍">mata malimali moe kanoʻimata mafu</annotation>
-		<annotation cp="😍" type="tts">mata malimali moe kanoʻimata mafu</annotation>
-		<annotation cp="🤩">mata fetuʻu</annotation>
-		<annotation cp="🤩" type="tts">mata fetuʻu</annotation>
-		<annotation cp="😘">mata ʻoku puhi ʻae ʻuma</annotation>
-		<annotation cp="😘" type="tts">mata ʻoku puhi ʻae ʻuma</annotation>
-		<annotation cp="😗">mata ʻuma</annotation>
-		<annotation cp="😗" type="tts">mata ʻuma</annotation>
-		<annotation cp="☺">mata malimali</annotation>
-		<annotation cp="☺" type="tts">mata malimali</annotation>
-		<annotation cp="😚">mata ʻuma moe kanoʻimata kuikui</annotation>
-		<annotation cp="😚" type="tts">mata ʻuma moe kanoʻimata kuikui</annotation>
-		<annotation cp="😙">mata ʻuma moe kanoʻimata malimali</annotation>
-		<annotation cp="😙" type="tts">mata ʻuma moe kanoʻimata malimali</annotation>
-		<annotation cp="🥲">mata malimali moe loʻimata</annotation>
-		<annotation cp="🥲" type="tts">mata malimali moe loʻimata</annotation>
-		<annotation cp="😋">mataʻi ʻuakai</annotation>
-		<annotation cp="😋" type="tts">mataʻi ʻuakai</annotation>
-		<annotation cp="😛">mata moe ʻelelo</annotation>
-		<annotation cp="😛" type="tts">mata moe ʻelelo</annotation>
-		<annotation cp="😜">mata kuitaha moe ʻelelo</annotation>
-		<annotation cp="😜" type="tts">mata kuitaha moe ʻelelo</annotation>
-		<annotation cp="🤪">mata masoli</annotation>
-		<annotation cp="🤪" type="tts">mata masoli</annotation>
-		<annotation cp="😝">mata tetepa moe ʻelelo</annotation>
-		<annotation cp="😝" type="tts">mata tetepa moe ʻelelo</annotation>
-		<annotation cp="🤑">mata ngutu-paʻanga</annotation>
-		<annotation cp="🤑" type="tts">mata ngutu-paʻanga</annotation>
-		<annotation cp="🤗">mata fāʻufua</annotation>
-		<annotation cp="🤗" type="tts">mata fāʻufua</annotation>
-		<annotation cp="🤭">mata moe nima ʻi muʻa ʻoe ngutu</annotation>
-		<annotation cp="🤭" type="tts">mata moe nima ʻi muʻa ʻoe ngutu</annotation>
-		<annotation cp="🤫">mata fiemaʻu fakalongolongo</annotation>
-		<annotation cp="🤫" type="tts">mata fiemaʻu fakalongolongo</annotation>
-		<annotation cp="🤔">mataʻi fakakaukau</annotation>
-		<annotation cp="🤔" type="tts">mataʻi fakakaukau</annotation>
-		<annotation cp="🤐">mata moe ngutu meʻa-fakamaʻu-fusi</annotation>
-		<annotation cp="🤐" type="tts">mata moe ngutu meʻa-fakamaʻu-fusi</annotation>
-		<annotation cp="🤨">mata moe kemo mahiki</annotation>
-		<annotation cp="🤨" type="tts">mata moe kemo mahiki</annotation>
-		<annotation cp="😐">mata noa pē</annotation>
-		<annotation cp="😐" type="tts">mata noa pē</annotation>
-		<annotation cp="😑">mata matanoa</annotation>
-		<annotation cp="😑" type="tts">mata matanoa</annotation>
-		<annotation cp="😶">ʻikai | mata | mata taʻengutu | ngutu</annotation>
-		<annotation cp="😶" type="tts">mata taʻengutu</annotation>
-		<annotation cp="😶‍🌫" draft="unconfirmed">mata ʻihe ʻao</annotation>
-		<annotation cp="😶‍🌫" type="tts" draft="unconfirmed">mata ʻihe ʻao</annotation>
-		<annotation cp="😏">mata katakata manuki</annotation>
-		<annotation cp="😏" type="tts">mata katakata manuki</annotation>
-		<annotation cp="😒">mata taʻefiefia</annotation>
-		<annotation cp="😒" type="tts">mata taʻefiefia</annotation>
-		<annotation cp="🙄">mata kilokilo</annotation>
-		<annotation cp="🙄" type="tts">mata kilokilo</annotation>
-		<annotation cp="😬">mata mioʻi</annotation>
-		<annotation cp="😬" type="tts">mata mioʻi</annotation>
-		<annotation cp="😮‍💨" draft="unconfirmed">mata hō</annotation>
-		<annotation cp="😮‍💨" type="tts" draft="unconfirmed">mata hō</annotation>
-		<annotation cp="🤥">mata moe ihu lōloa</annotation>
-		<annotation cp="🤥" type="tts">mata moe ihu lōloa</annotation>
-		<annotation cp="😌">mata fakanongononga</annotation>
-		<annotation cp="😌" type="tts">mata fakanongononga</annotation>
-		<annotation cp="😔">mata fakalaulauloto</annotation>
-		<annotation cp="😔" type="tts">mata fakalaulauloto</annotation>
-		<annotation cp="😪">mata fiemohea</annotation>
-		<annotation cp="😪" type="tts">mata fiemohea</annotation>
-		<annotation cp="🤤">mata ngutu hafu fāvai</annotation>
-		<annotation cp="🤤" type="tts">mata ngutu hafu fāvai</annotation>
-		<annotation cp="😴">mata mohe</annotation>
-		<annotation cp="😴" type="tts">mata mohe</annotation>
-		<annotation cp="😷">mata moe pūloa fakafaitoʻo</annotation>
-		<annotation cp="😷" type="tts">mata moe pūloa fakafaitoʻo</annotation>
-		<annotation cp="🤒">mata moe meʻafuamafana</annotation>
-		<annotation cp="🤒" type="tts">mata moe meʻafuamafana</annotation>
-		<annotation cp="🤕">mata moe haʻi lavea</annotation>
-		<annotation cp="🤕" type="tts">mata moe haʻi lavea</annotation>
-		<annotation cp="🤢">mata kavahia</annotation>
-		<annotation cp="🤢" type="tts">mata kavahia</annotation>
-		<annotation cp="🤮">mata lua</annotation>
-		<annotation cp="🤮" type="tts">mata lua</annotation>
-		<annotation cp="🤧">mata mafatua</annotation>
-		<annotation cp="🤧" type="tts">mata mafatua</annotation>
-		<annotation cp="🥵">mata vevela</annotation>
-		<annotation cp="🥵" type="tts">mata vevela</annotation>
-		<annotation cp="🥶">mata momoko</annotation>
-		<annotation cp="🥶" type="tts">mata momoko</annotation>
-		<annotation cp="🥴">mata konā</annotation>
-		<annotation cp="🥴" type="tts">mata konā</annotation>
-		<annotation cp="😵">mata ninimo</annotation>
-		<annotation cp="😵" type="tts">mata ninimo</annotation>
-		<annotation cp="😵‍💫" draft="unconfirmed">mata takatakai</annotation>
-		<annotation cp="😵‍💫" type="tts" draft="unconfirmed">mata takatakai</annotation>
-		<annotation cp="🤯">mata pahū</annotation>
-		<annotation cp="🤯" type="tts">mata pahū</annotation>
-		<annotation cp="🤠">mata moe tatā fakakaupoe</annotation>
-		<annotation cp="🤠" type="tts">mata moe tatā fakakaupoe</annotation>
-		<annotation cp="🥳">mata paati</annotation>
-		<annotation cp="🥳" type="tts">mata paati</annotation>
-		<annotation cp="🥸">mata fakapuli</annotation>
-		<annotation cp="🥸" type="tts">mata fakapuli</annotation>
-		<annotation cp="😎">mata malimali moe matasioʻatalaʻā</annotation>
-		<annotation cp="😎" type="tts">mata malimali moe matasioʻatalaʻā</annotation>
-		<annotation cp="🤓">mata moe matasioʻata lahi</annotation>
-		<annotation cp="🤓" type="tts">mata moe matasioʻata lahi</annotation>
-		<annotation cp="🧐">mata moe matasioʻata tafaʻaki taha</annotation>
-		<annotation cp="🧐" type="tts">mata moe matasioʻata tafaʻaki taha</annotation>
-		<annotation cp="😕">mata puputuʻu</annotation>
-		<annotation cp="😕" type="tts">mata puputuʻu</annotation>
-		<annotation cp="😟">mata lotohohaʻa</annotation>
-		<annotation cp="😟" type="tts">mata lotohohaʻa</annotation>
-		<annotation cp="🙁">mata kiʻi fingo</annotation>
-		<annotation cp="🙁" type="tts">mata kiʻi fingo</annotation>
-		<annotation cp="☹">mata fingo</annotation>
-		<annotation cp="☹" type="tts">mata fingo</annotation>
-		<annotation cp="😮">mata moe ngutu fakamanga</annotation>
-		<annotation cp="😮" type="tts">mata moe ngutu fakamanga</annotation>
-		<annotation cp="😯">mata longo</annotation>
-		<annotation cp="😯" type="tts">mata longo</annotation>
-		<annotation cp="😲">mata ʻohovale</annotation>
-		<annotation cp="😲" type="tts">mata ʻohovale</annotation>
-		<annotation cp="😳">mata pahapaha</annotation>
-		<annotation cp="😳" type="tts">mata pahapaha</annotation>
-		<annotation cp="🥺">mata kole</annotation>
-		<annotation cp="🥺" type="tts">mata kole</annotation>
-		<annotation cp="😦">mata fingo moe ngutu fakamanga</annotation>
-		<annotation cp="😦" type="tts">mata fingo moe ngutu fakamanga</annotation>
-		<annotation cp="😧">mata lotomamahi</annotation>
-		<annotation cp="😧" type="tts">mata lotomamahi</annotation>
-		<annotation cp="😨">mata fakamanavahē</annotation>
-		<annotation cp="😨" type="tts">mata fakamanavahē</annotation>
-		<annotation cp="😰">mata lotomoʻua moe tautaʻa</annotation>
-		<annotation cp="😰" type="tts">mata lotomoʻua moe tautaʻa</annotation>
-		<annotation cp="😥">mata lotomamahi kā fakanongononga</annotation>
-		<annotation cp="😥" type="tts">mata lotomamahi kā fakanongononga</annotation>
-		<annotation cp="😢">mata loʻimata</annotation>
-		<annotation cp="😢" type="tts">mata loʻimata</annotation>
-		<annotation cp="😭">mata loʻimata lahi</annotation>
-		<annotation cp="😭" type="tts">mata loʻimata lahi</annotation>
-		<annotation cp="😱">mata ʻoku kekekeke he manavahē</annotation>
-		<annotation cp="😱" type="tts">mata ʻoku kekekeke he manavahē</annotation>
-		<annotation cp="😖">mata fakapuputuʻu</annotation>
-		<annotation cp="😖" type="tts">mata fakapuputuʻu</annotation>
-		<annotation cp="😣">mata lotokītaki</annotation>
-		<annotation cp="😣" type="tts">mata lotokītaki</annotation>
-		<annotation cp="😞">mata fakalotomamahi</annotation>
-		<annotation cp="😞" type="tts">mata fakalotomamahi</annotation>
-		<annotation cp="😓">mata lototaʻotaʻomia moe tautaʻa</annotation>
-		<annotation cp="😓" type="tts">mata lototaʻotaʻomia moe tautaʻa</annotation>
-		<annotation cp="😩">mata ongosia</annotation>
-		<annotation cp="😩" type="tts">mata ongosia</annotation>
-		<annotation cp="😫">mata helaʻia</annotation>
-		<annotation cp="😫" type="tts">mata helaʻia</annotation>
-		<annotation cp="🥱">mata mamao</annotation>
-		<annotation cp="🥱" type="tts">mata mamao</annotation>
-		<annotation cp="😤">mata moe mao meihe ihu</annotation>
-		<annotation cp="😤" type="tts">mata moe mao meihe ihu</annotation>
-		<annotation cp="😡">mata ʻita lahi</annotation>
-		<annotation cp="😡" type="tts">mata ʻita lahi</annotation>
-		<annotation cp="😠">mata ʻita</annotation>
-		<annotation cp="😠" type="tts">mata ʻita</annotation>
-		<annotation cp="🤬">mata kapekape</annotation>
-		<annotation cp="🤬" type="tts">mata kapekape</annotation>
-		<annotation cp="😈">mata malimali moe meʻatui</annotation>
-		<annotation cp="😈" type="tts">mata malimali moe meʻatui</annotation>
-		<annotation cp="👿">mata ʻita moe meʻatui</annotation>
-		<annotation cp="👿" type="tts">mata ʻita moe meʻatui</annotation>
-		<annotation cp="💀">ʻulupoko</annotation>
-		<annotation cp="💀" type="tts">ʻulupoko</annotation>
-		<annotation cp="☠">ʻulupoko moe ongo hui fehauaki</annotation>
-		<annotation cp="☠" type="tts">ʻulupoko moe ongo hui fehauaki</annotation>
-		<annotation cp="💩">tuʻunga meʻakovi</annotation>
-		<annotation cp="💩" type="tts">tuʻunga meʻakovi</annotation>
-		<annotation cp="🤡">mata tokotaha-fieoli</annotation>
-		<annotation cp="🤡" type="tts">mata tokotaha-fieoli</annotation>
-		<annotation cp="👹">nifoloa</annotation>
-		<annotation cp="👹" type="tts">nifoloa</annotation>
-		<annotation cp="👺">pīnōnō</annotation>
-		<annotation cp="👺" type="tts">pīnōnō</annotation>
-		<annotation cp="👻">fakapūloa</annotation>
-		<annotation cp="👻" type="tts">fakapūloa</annotation>
-		<annotation cp="👽">meʻamoʻuikehe</annotation>
-		<annotation cp="👽" type="tts">meʻamoʻuikehe</annotation>
-		<annotation cp="👾">meʻamoʻuikehe fakamanavahē</annotation>
-		<annotation cp="👾" type="tts">meʻamoʻuikehe fakamanavahē</annotation>
-		<annotation cp="🤖">mata tangata-ukamea</annotation>
-		<annotation cp="🤖" type="tts">mata tangata-ukamea</annotation>
-		<annotation cp="😺">mataʻipusi fiefia</annotation>
-		<annotation cp="😺" type="tts">mataʻipusi fiefia</annotation>
-		<annotation cp="😸">mataʻipusi fiefia moe kanoʻimata malimali</annotation>
-		<annotation cp="😸" type="tts">mataʻipusi fiefia moe kanoʻimata malimali</annotation>
-		<annotation cp="😹">mataʻipusi moe loʻimata fiefia</annotation>
-		<annotation cp="😹" type="tts">mataʻipusi moe loʻimata fiefia</annotation>
-		<annotation cp="😻">mataʻipusi malimali moe kanoʻimata mafu</annotation>
-		<annotation cp="😻" type="tts">mataʻipusi malimali moe kanoʻimata mafu</annotation>
-		<annotation cp="😼">mataʻipusi moe malimali feʻu</annotation>
-		<annotation cp="😼" type="tts">mataʻipusi moe malimali feʻu</annotation>
-		<annotation cp="😽">mataʻipusi ʻuma</annotation>
-		<annotation cp="😽" type="tts">mataʻipusi ʻuma</annotation>
-		<annotation cp="🙀">mataʻipusi ongosia</annotation>
-		<annotation cp="🙀" type="tts">mataʻipusi ongosia</annotation>
-		<annotation cp="😿">mataʻipusi loʻimata</annotation>
-		<annotation cp="😿" type="tts">mataʻipusi loʻimata</annotation>
-		<annotation cp="😾">mataʻipusi taʻefiemālie</annotation>
-		<annotation cp="😾" type="tts">mataʻipusi taʻefiemālie</annotation>
-		<annotation cp="🙈">ngeli ʻikai sio kovi</annotation>
-		<annotation cp="🙈" type="tts">ngeli ʻikai sio kovi</annotation>
-		<annotation cp="🙉">ngeli ʻikai fanongo kovi</annotation>
-		<annotation cp="🙉" type="tts">ngeli ʻikai fanongo kovi</annotation>
-		<annotation cp="🙊">ngeli ʻikai lea kovi</annotation>
-		<annotation cp="🙊" type="tts">ngeli ʻikai lea kovi</annotation>
-		<annotation cp="💋">ʻilonga loungutu</annotation>
-		<annotation cp="💋" type="tts">ʻilonga loungutu</annotation>
-		<annotation cp="💌">tohi ʻofa</annotation>
-		<annotation cp="💌" type="tts">tohi ʻofa</annotation>
-		<annotation cp="💘">mafu moe ngahau</annotation>
-		<annotation cp="💘" type="tts">mafu moe ngahau</annotation>
-		<annotation cp="💝">mafu moe lipine</annotation>
-		<annotation cp="💝" type="tts">mafu moe lipine</annotation>
-		<annotation cp="💖">mafu ngingila</annotation>
-		<annotation cp="💖" type="tts">mafu ngingila</annotation>
-		<annotation cp="💗">mafu tupu</annotation>
-		<annotation cp="💗" type="tts">mafu tupu</annotation>
-		<annotation cp="💓">mafu ʻoku tā</annotation>
-		<annotation cp="💓" type="tts">mafu ʻoku tā</annotation>
-		<annotation cp="💞">ongo mafu takai</annotation>
-		<annotation cp="💞" type="tts">ongo mafu takai</annotation>
-		<annotation cp="💕">ongo mafu</annotation>
-		<annotation cp="💕" type="tts">ongo mafu</annotation>
-		<annotation cp="💟">mafu teuteuʻi</annotation>
-		<annotation cp="💟" type="tts">mafu teuteuʻi</annotation>
-		<annotation cp="❣">mafu fakaʻilonga kalanga</annotation>
-		<annotation cp="❣" type="tts">mafu fakaʻilonga kalanga</annotation>
-		<annotation cp="💔">loto lavea</annotation>
-		<annotation cp="💔" type="tts">loto lavea</annotation>
-		<annotation cp="❤‍🔥" draft="unconfirmed">mafu afi</annotation>
-		<annotation cp="❤‍🔥" type="tts" draft="unconfirmed">mafu afi</annotation>
-		<annotation cp="❤‍🩹" draft="unconfirmed">mafu monomono</annotation>
-		<annotation cp="❤‍🩹" type="tts" draft="unconfirmed">mafu monomono</annotation>
-		<annotation cp="❤">mafu kulokula</annotation>
-		<annotation cp="❤" type="tts">mafu kulokula</annotation>
-		<annotation cp="🧡">mafu lanumoli</annotation>
-		<annotation cp="🧡" type="tts">mafu lanumoli</annotation>
-		<annotation cp="💛">mafu engeenga</annotation>
-		<annotation cp="💛" type="tts">mafu engeenga</annotation>
-		<annotation cp="💚">mafu lanumata</annotation>
-		<annotation cp="💚" type="tts">mafu lanumata</annotation>
-		<annotation cp="💙">mafu lanupulū</annotation>
-		<annotation cp="💙" type="tts">mafu lanupulū</annotation>
-		<annotation cp="💜">mafu lanufesiʻifekika</annotation>
-		<annotation cp="💜" type="tts">mafu lanufesiʻifekika</annotation>
-		<annotation cp="🤎">mafu melomelo</annotation>
-		<annotation cp="🤎" type="tts">mafu melomelo</annotation>
-		<annotation cp="🖤">mafu ʻuliʻuli</annotation>
-		<annotation cp="🖤" type="tts">mafu ʻuliʻuli</annotation>
-		<annotation cp="🤍">mafu hinehina</annotation>
-		<annotation cp="🤍" type="tts">mafu hinehina</annotation>
-		<annotation cp="💯">poini ʻe teau</annotation>
-		<annotation cp="💯" type="tts">poini ʻe teau</annotation>
-		<annotation cp="💢">fakaʻilonga ʻita</annotation>
-		<annotation cp="💢" type="tts">fakaʻilonga ʻita</annotation>
-		<annotation cp="💥">fepaki</annotation>
-		<annotation cp="💥" type="tts">fepaki</annotation>
-		<annotation cp="💫">ninimo</annotation>
-		<annotation cp="💫" type="tts">ninimo</annotation>
-		<annotation cp="💦">tautaʻa tulutā</annotation>
-		<annotation cp="💦" type="tts">tautaʻa tulutā</annotation>
-		<annotation cp="💨">ʻoho atu</annotation>
-		<annotation cp="💨" type="tts">ʻoho atu</annotation>
-		<annotation cp="🕳">ava</annotation>
-		<annotation cp="🕳" type="tts">ava</annotation>
-		<annotation cp="💣">pulukōkō</annotation>
-		<annotation cp="💣" type="tts">pulukōkō</annotation>
-		<annotation cp="💬">pulalea</annotation>
-		<annotation cp="💬" type="tts">pulalea</annotation>
-		<annotation cp="👁‍🗨">kanoʻimata ʻi ha pulalea</annotation>
-		<annotation cp="👁‍🗨" type="tts">kanoʻimata ʻi ha pulalea</annotation>
-		<annotation cp="🗨">pulalea ʻi hema</annotation>
-		<annotation cp="🗨" type="tts">pulalea ʻi hema</annotation>
-		<annotation cp="🗯">pulalea ʻita</annotation>
-		<annotation cp="🗯" type="tts">pulalea ʻita</annotation>
-		<annotation cp="💭">pulalea fakakaukau</annotation>
-		<annotation cp="💭" type="tts">pulalea fakakaukau</annotation>
-		<annotation cp="💤">mohe</annotation>
-		<annotation cp="💤" type="tts">mohe</annotation>
-		<annotation cp="👋">nima taʻataʻalo</annotation>
-		<annotation cp="👋" type="tts">nima taʻataʻalo</annotation>
-		<annotation cp="🤚">tuʻanima hiki ki ʻolunga</annotation>
-		<annotation cp="🤚" type="tts">tuʻanima hiki ki ʻolunga</annotation>
-		<annotation cp="🖐">nima fālalahi</annotation>
-		<annotation cp="🖐" type="tts">nima fālalahi</annotation>
-		<annotation cp="✋">nima hiki ki ʻolunga</annotation>
-		<annotation cp="✋" type="tts">nima hiki ki ʻolunga</annotation>
-		<annotation cp="🖖">nima mavaeua</annotation>
-		<annotation cp="🖖" type="tts">nima mavaeua</annotation>
-		<annotation cp="👌">nima fakaʻilonga sai</annotation>
-		<annotation cp="👌" type="tts">nima fakaʻilonga sai</annotation>
-		<annotation cp="🤌">louhiʻinima fakamaʻopoʻopo</annotation>
-		<annotation cp="🤌" type="tts">louhiʻinima fakamaʻopoʻopo</annotation>
-		<annotation cp="🤏">nima fakamaʻopoʻopo</annotation>
-		<annotation cp="🤏" type="tts">nima fakamaʻopoʻopo</annotation>
-		<annotation cp="✌">nima ikuna</annotation>
-		<annotation cp="✌" type="tts">nima ikuna</annotation>
-		<annotation cp="🤞">louhiʻinima fehauaki</annotation>
-		<annotation cp="🤞" type="tts">louhiʻinima fehauaki</annotation>
-		<annotation cp="🤟">nima fakaʻilonga mafu</annotation>
-		<annotation cp="🤟" type="tts">nima fakaʻilonga mafu</annotation>
-		<annotation cp="🤘">nima fakaʻilonga fakatēvolo</annotation>
-		<annotation cp="🤘" type="tts">nima fakaʻilonga fakatēvolo</annotation>
-		<annotation cp="🤙">nima fakaʻilonga tā mai</annotation>
-		<annotation cp="🤙" type="tts">nima fakaʻilonga tā mai</annotation>
-		<annotation cp="👈">tuhu tuʻanima tonu ki hema</annotation>
-		<annotation cp="👈" type="tts">tuhu tuʻanima tonu ki hema</annotation>
-		<annotation cp="👉">tuhu tuʻanima tonu ki mataʻu</annotation>
-		<annotation cp="👉" type="tts">tuhu tuʻanima tonu ki mataʻu</annotation>
-		<annotation cp="👆">tuhu tuʻanima tonu ki ʻolunga</annotation>
-		<annotation cp="👆" type="tts">tuhu tuʻanima tonu ki ʻolunga</annotation>
-		<annotation cp="🖕">tuhu ʻi loto</annotation>
-		<annotation cp="🖕" type="tts">tuhu ʻi loto</annotation>
-		<annotation cp="👇">tuhu tuʻanima tonu ki lalo</annotation>
-		<annotation cp="👇" type="tts">tuhu tuʻanima tonu ki lalo</annotation>
-		<annotation cp="☝">tuhu tonu ki ʻolunga</annotation>
-		<annotation cp="☝" type="tts">tuhu tonu ki ʻolunga</annotation>
-		<annotation cp="👍">motuʻatuhu ki ʻolunga</annotation>
-		<annotation cp="👍" type="tts">motuʻatuhu ki ʻolunga</annotation>
-		<annotation cp="👎">motuʻatuhu ki lalo</annotation>
-		<annotation cp="👎" type="tts">motuʻatuhu ki lalo</annotation>
-		<annotation cp="✊">tuke hiki ki ʻolunga</annotation>
-		<annotation cp="✊" type="tts">tuke hiki ki ʻolunga</annotation>
-		<annotation cp="👊">tuke ki muʻa</annotation>
-		<annotation cp="👊" type="tts">tuke ki muʻa</annotation>
-		<annotation cp="🤛">tuke ki hema</annotation>
-		<annotation cp="🤛" type="tts">tuke ki hema</annotation>
-		<annotation cp="🤜">tuke ki mataʻu</annotation>
-		<annotation cp="🤜" type="tts">tuke ki mataʻu</annotation>
-		<annotation cp="👏">nima pasipasi</annotation>
-		<annotation cp="👏" type="tts">nima pasipasi</annotation>
-		<annotation cp="🙌">ongo nima hiki ki ʻolunga</annotation>
-		<annotation cp="🙌" type="tts">ongo nima hiki ki ʻolunga</annotation>
-		<annotation cp="👐">nima homo</annotation>
+		<annotation cp="👐">homo | nima | ongo</annotation>
 		<annotation cp="👐" type="tts">nima homo</annotation>
-		<annotation cp="🤲">ongo aofinima hiki ki ʻolunga</annotation>
+		<annotation cp="🤲">aofinima | ʻolunga | nima | ongo | ongo aofinima hiki ki ʻolunga</annotation>
 		<annotation cp="🤲" type="tts">ongo aofinima hiki ki ʻolunga</annotation>
-		<annotation cp="🤝">lulululu</annotation>
+		<annotation cp="🤝">lulululu | nima</annotation>
 		<annotation cp="🤝" type="tts">lulululu</annotation>
-		<annotation cp="🙏">ongo nima tataʻo</annotation>
+		<annotation cp="🙏">lotu | nima | ongo | tataʻo</annotation>
 		<annotation cp="🙏" type="tts">ongo nima tataʻo</annotation>
-		<annotation cp="✍">nima ʻoku tohi</annotation>
+		<annotation cp="✍">nima | nima ʻoku tohi | peni | tohi</annotation>
 		<annotation cp="✍" type="tts">nima ʻoku tohi</annotation>
-		<annotation cp="💅">valivali ngeʻesinima</annotation>
+		<annotation cp="💅">ngeʻesinima | valivali</annotation>
 		<annotation cp="💅" type="tts">valivali ngeʻesinima</annotation>
-		<annotation cp="🤳">faitaaʻi pē kita</annotation>
+		<annotation cp="🤳">faitā | faitaaʻi pē kita | foni | kita</annotation>
 		<annotation cp="🤳" type="tts">faitaaʻi pē kita</annotation>
-		<annotation cp="💪">pāpela ʻoku pelu</annotation>
+		<annotation cp="💪">pāpela | pāpela ʻoku pelu | pelu | uoua</annotation>
 		<annotation cp="💪" type="tts">pāpela ʻoku pelu</annotation>
-		<annotation cp="🦾">nima ukamea</annotation>
+		<annotation cp="🦾">nima | ukamea</annotation>
 		<annotation cp="🦾" type="tts">nima ukamea</annotation>
-		<annotation cp="🦿">vaʻe ukamea</annotation>
+		<annotation cp="🦿">ukamea | vaʻe</annotation>
 		<annotation cp="🦿" type="tts">vaʻe ukamea</annotation>
 		<annotation cp="🦵">vaʻe</annotation>
 		<annotation cp="🦵" type="tts">vaʻe</annotation>
@@ -1179,7 +1153,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦷" type="tts">nifo</annotation>
 		<annotation cp="🦴">hui</annotation>
 		<annotation cp="🦴" type="tts">hui</annotation>
-		<annotation cp="👀">ongo kanoʻimata</annotation>
+		<annotation cp="👀">kanoʻimata | ongo</annotation>
 		<annotation cp="👀" type="tts">ongo kanoʻimata</annotation>
 		<annotation cp="👁">kanoʻimata</annotation>
 		<annotation cp="👁" type="tts">kanoʻimata</annotation>
@@ -1187,6 +1161,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👅" type="tts">ʻelelo</annotation>
 		<annotation cp="👄">ngutu</annotation>
 		<annotation cp="👄" type="tts">ngutu</annotation>
+		<annotation cp="🫦">hohaʻa | lotomoʻua | ngutu | uʻu loungutu</annotation>
+		<annotation cp="🫦" type="tts">uʻu loungutu</annotation>
 		<annotation cp="👶">valevale</annotation>
 		<annotation cp="👶" type="tts">valevale</annotation>
 		<annotation cp="🧒">fānau</annotation>
@@ -1197,7 +1173,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👧" type="tts">taʻahine</annotation>
 		<annotation cp="🧑">kakai lalahi</annotation>
 		<annotation cp="🧑" type="tts">kakai lalahi</annotation>
-		<annotation cp="👱">tokotaha ʻulu kelo</annotation>
+		<annotation cp="👱">ʻulu | kelo | tokotaha</annotation>
 		<annotation cp="👱" type="tts">tokotaha ʻulu kelo</annotation>
 		<annotation cp="👨">tangata</annotation>
 		<annotation cp="👨" type="tts">tangata</annotation>
@@ -1213,67 +1189,67 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧔‍♀" type="tts" draft="unconfirmed">fefine kava</annotation>
 		<annotation cp="👱‍♀">fefine ʻulu kelo</annotation>
 		<annotation cp="👱‍♀" type="tts">fefine ʻulu kelo</annotation>
-		<annotation cp="🧓">tokotaha motuʻa</annotation>
+		<annotation cp="🧓">motuʻa | tokotaha motuʻa</annotation>
 		<annotation cp="🧓" type="tts">tokotaha motuʻa</annotation>
-		<annotation cp="👴">motuʻa</annotation>
+		<annotation cp="👴">motuʻa | tangata</annotation>
 		<annotation cp="👴" type="tts">motuʻa</annotation>
-		<annotation cp="👵">finemotuʻa</annotation>
+		<annotation cp="👵">fefine | finemotuʻa | motuʻa</annotation>
 		<annotation cp="👵" type="tts">finemotuʻa</annotation>
-		<annotation cp="🙍">tokotaha matamamahi</annotation>
+		<annotation cp="🙍">matamamahi | tokotaha matamamahi</annotation>
 		<annotation cp="🙍" type="tts">tokotaha matamamahi</annotation>
 		<annotation cp="🙍‍♂">tangata matamamahi</annotation>
 		<annotation cp="🙍‍♂" type="tts">tangata matamamahi</annotation>
 		<annotation cp="🙍‍♀">fefine matamamahi</annotation>
 		<annotation cp="🙍‍♀" type="tts">fefine matamamahi</annotation>
-		<annotation cp="🙎">tokotaha mataʻita</annotation>
+		<annotation cp="🙎">mataʻita | tokotaha mataʻita</annotation>
 		<annotation cp="🙎" type="tts">tokotaha mataʻita</annotation>
 		<annotation cp="🙎‍♂">tangata mataʻita</annotation>
 		<annotation cp="🙎‍♂" type="tts">tangata mataʻita</annotation>
 		<annotation cp="🙎‍♀">fefine mataʻita</annotation>
 		<annotation cp="🙎‍♀" type="tts">fefine mataʻita</annotation>
-		<annotation cp="🙅">tokotaha kaunima fetuiaki</annotation>
+		<annotation cp="🙅">kaunima fetuiaki | tokotaha kaunima fetuiaki</annotation>
 		<annotation cp="🙅" type="tts">tokotaha kaunima fetuiaki</annotation>
 		<annotation cp="🙅‍♂">tangata kaunima fetuiaki</annotation>
 		<annotation cp="🙅‍♂" type="tts">tangata kaunima fetuiaki</annotation>
 		<annotation cp="🙅‍♀">fefine kaunima fetuiaki</annotation>
 		<annotation cp="🙅‍♀" type="tts">fefine kaunima fetuiaki</annotation>
-		<annotation cp="🙆">tokotaha kaunima fetuiaki ʻolunga</annotation>
+		<annotation cp="🙆">ʻolunga | kaunima fetuiaki | tokotaha kaunima fetuiaki ʻolunga</annotation>
 		<annotation cp="🙆" type="tts">tokotaha kaunima fetuiaki ʻolunga</annotation>
 		<annotation cp="🙆‍♂">tangata kaunima fetuiaki ʻolunga</annotation>
 		<annotation cp="🙆‍♂" type="tts">tangata kaunima fetuiaki ʻolunga</annotation>
 		<annotation cp="🙆‍♀">fefine kaunima fetuiaki ʻolunga</annotation>
 		<annotation cp="🙆‍♀" type="tts">fefine kaunima fetuiaki ʻolunga</annotation>
-		<annotation cp="💁">tokotaha nima mafola</annotation>
+		<annotation cp="💁">mafola | nima | tokotaha nima mafola</annotation>
 		<annotation cp="💁" type="tts">tokotaha nima mafola</annotation>
 		<annotation cp="💁‍♂">tangata nima mafola</annotation>
 		<annotation cp="💁‍♂" type="tts">tangata nima mafola</annotation>
 		<annotation cp="💁‍♀">fefine nima mafola</annotation>
 		<annotation cp="💁‍♀" type="tts">fefine nima mafola</annotation>
-		<annotation cp="🙋">tokotaha nima ʻi ʻolunga</annotation>
+		<annotation cp="🙋">ʻolunga | nima | tokotaha nima ʻi ʻolunga</annotation>
 		<annotation cp="🙋" type="tts">tokotaha nima ʻi ʻolunga</annotation>
 		<annotation cp="🙋‍♂">tangata nima ʻi ʻolunga</annotation>
 		<annotation cp="🙋‍♂" type="tts">tangata nima ʻi ʻolunga</annotation>
 		<annotation cp="🙋‍♀">fefine nima ʻi ʻolunga</annotation>
 		<annotation cp="🙋‍♀" type="tts">fefine nima ʻi ʻolunga</annotation>
-		<annotation cp="🧏">tokotaha tuli</annotation>
+		<annotation cp="🧏">tokotaha tuli | tuli</annotation>
 		<annotation cp="🧏" type="tts">tokotaha tuli</annotation>
 		<annotation cp="🧏‍♂">tangata tuli</annotation>
 		<annotation cp="🧏‍♂" type="tts">tangata tuli</annotation>
 		<annotation cp="🧏‍♀">fefine tuli</annotation>
 		<annotation cp="🧏‍♀" type="tts">fefine tuli</annotation>
-		<annotation cp="🙇">tokotaha punou</annotation>
+		<annotation cp="🙇">punou | tokotaha punou</annotation>
 		<annotation cp="🙇" type="tts">tokotaha punou</annotation>
 		<annotation cp="🙇‍♂">tangata punou</annotation>
 		<annotation cp="🙇‍♂" type="tts">tangata punou</annotation>
 		<annotation cp="🙇‍♀">fefine punou</annotation>
 		<annotation cp="🙇‍♀" type="tts">fefine punou</annotation>
-		<annotation cp="🤦">tokotaha nima ʻihe mata</annotation>
+		<annotation cp="🤦">mata | nima | tokotaha nima ʻihe mata</annotation>
 		<annotation cp="🤦" type="tts">tokotaha nima ʻihe mata</annotation>
 		<annotation cp="🤦‍♂">tangata nima ʻihe mata</annotation>
 		<annotation cp="🤦‍♂" type="tts">tangata nima ʻihe mata</annotation>
 		<annotation cp="🤦‍♀">fefine nima ʻihe mata</annotation>
 		<annotation cp="🤦‍♀" type="tts">fefine nima ʻihe mata</annotation>
-		<annotation cp="🤷">tokotaha fakamahiki</annotation>
+		<annotation cp="🤷">fakamahiki | tokotaha fakamahiki</annotation>
 		<annotation cp="🤷" type="tts">tokotaha fakamahiki</annotation>
 		<annotation cp="🤷‍♂">tangata fakamahiki</annotation>
 		<annotation cp="🤷‍♂" type="tts">tangata fakamahiki</annotation>
@@ -1375,13 +1351,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨‍🚒" type="tts">tangata tāmate-afi</annotation>
 		<annotation cp="👩‍🚒">fefine tāmate-afi</annotation>
 		<annotation cp="👩‍🚒" type="tts">fefine tāmate-afi</annotation>
-		<annotation cp="👮">ʻofisa polisi</annotation>
+		<annotation cp="👮">ʻofisa | polisi</annotation>
 		<annotation cp="👮" type="tts">ʻofisa polisi</annotation>
 		<annotation cp="👮‍♂">ʻofisa polisi tangata</annotation>
 		<annotation cp="👮‍♂" type="tts">ʻofisa polisi tangata</annotation>
 		<annotation cp="👮‍♀">ʻofisa polisi fefine</annotation>
 		<annotation cp="👮‍♀" type="tts">ʻofisa polisi fefine</annotation>
-		<annotation cp="🕵">tokotaha fakatotolo</annotation>
+		<annotation cp="🕵">fakatotolo | ʻinisipēkita | tokotaha fakatotolo</annotation>
 		<annotation cp="🕵" type="tts">tokotaha fakatotolo</annotation>
 		<annotation cp="🕵‍♂">tangata fakatotolo</annotation>
 		<annotation cp="🕵‍♂" type="tts">tangata fakatotolo</annotation>
@@ -1395,25 +1371,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💂‍♀" type="tts">leʻo fefine</annotation>
 		<annotation cp="🥷">mata ninisā</annotation>
 		<annotation cp="🥷" type="tts">mata ninisā</annotation>
-		<annotation cp="👷">tokotaha ngāue langa</annotation>
+		<annotation cp="👷">langa | ngāue | tokotaha ngāue langa</annotation>
 		<annotation cp="👷" type="tts">tokotaha ngāue langa</annotation>
 		<annotation cp="👷‍♂">tangata ngāue langa</annotation>
 		<annotation cp="👷‍♂" type="tts">tangata ngāue langa</annotation>
 		<annotation cp="👷‍♀">fefine ngāue langa</annotation>
 		<annotation cp="👷‍♀" type="tts">fefine ngāue langa</annotation>
-		<annotation cp="🤴">ʻalo tangata</annotation>
+		<annotation cp="🫅">kalauni | tokotaha ʻai kalauni | tuʻi</annotation>
+		<annotation cp="🫅" type="tts">tokotaha ʻai kalauni</annotation>
+		<annotation cp="🤴">ʻalo | pilinisi | tangata</annotation>
 		<annotation cp="🤴" type="tts">ʻalo tangata</annotation>
-		<annotation cp="👸">ʻalo fefine</annotation>
+		<annotation cp="👸">fefine | ʻalo | pilinisesi</annotation>
 		<annotation cp="👸" type="tts">ʻalo fefine</annotation>
-		<annotation cp="👳">tokotaha tui faʻu</annotation>
+		<annotation cp="👳">ao | faʻu | tokotaha tui faʻu | tui</annotation>
 		<annotation cp="👳" type="tts">tokotaha tui faʻu</annotation>
 		<annotation cp="👳‍♂">tangata tui faʻu</annotation>
 		<annotation cp="👳‍♂" type="tts">tangata tui faʻu</annotation>
 		<annotation cp="👳‍♀">fefine tui faʻu</annotation>
 		<annotation cp="👳‍♀" type="tts">fefine tui faʻu</annotation>
-		<annotation cp="👲">tangata tui tatā fakasiaina</annotation>
+		<annotation cp="👲">siaina | tangata | tangata tui tatā fakasiaina | tatā | tui</annotation>
 		<annotation cp="👲" type="tts">tangata tui tatā fakasiaina</annotation>
-		<annotation cp="🧕">fefine tui sikaafi</annotation>
+		<annotation cp="🧕">fefine | sikaafi | tui</annotation>
 		<annotation cp="🧕" type="tts">fefine tui sikaafi</annotation>
 		<annotation cp="🤵">kakato | tangata | tokotaha vala kakato | vala</annotation>
 		<annotation cp="🤵" type="tts">tokotaha vala kakato</annotation>
@@ -1429,6 +1407,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👰‍♀" type="tts">fefine tui veili</annotation>
 		<annotation cp="🤰">fefine feitama | feitama</annotation>
 		<annotation cp="🤰" type="tts">fefine feitama</annotation>
+		<annotation cp="🫃">feitama | kete lahi | puputa | tangata feitama</annotation>
+		<annotation cp="🫃" type="tts">tangata feitama</annotation>
+		<annotation cp="🫄">feitama | kete lahi | puputa | tokotaha feitama</annotation>
+		<annotation cp="🫄" type="tts">tokotaha feitama</annotation>
 		<annotation cp="🤱">fakahuhu</annotation>
 		<annotation cp="🤱" type="tts">fakahuhu</annotation>
 		<annotation cp="👩‍🍼" draft="unconfirmed">fefine fakahuhu</annotation>
@@ -1437,7 +1419,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨‍🍼" type="tts" draft="unconfirmed">tangata fakahuhu</annotation>
 		<annotation cp="🧑‍🍼" draft="unconfirmed">tokotaha fakahuhu</annotation>
 		<annotation cp="🧑‍🍼" type="tts" draft="unconfirmed">tokotaha fakahuhu</annotation>
-		<annotation cp="👼">ʻangelo valevale</annotation>
+		<annotation cp="👼">ʻangelo | valevale</annotation>
 		<annotation cp="👼" type="tts">ʻangelo valevale</annotation>
 		<annotation cp="🎅">Sānita Kalausi | tangata</annotation>
 		<annotation cp="🎅" type="tts">Sānita Kalausi</annotation>
@@ -1445,19 +1427,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤶" type="tts">Sānita Kalausi fefine</annotation>
 		<annotation cp="🧑‍🎄" draft="unconfirmed">Sānita Kalausi tokotaha</annotation>
 		<annotation cp="🧑‍🎄" type="tts" draft="unconfirmed">Sānita Kalausi tokotaha</annotation>
-		<annotation cp="🦸">tokotaha ivimālohi</annotation>
+		<annotation cp="🦸">ivimālohi | tokotaha ivimālohi</annotation>
 		<annotation cp="🦸" type="tts">tokotaha ivimālohi</annotation>
 		<annotation cp="🦸‍♂">tangata ivimālohi</annotation>
 		<annotation cp="🦸‍♂" type="tts">tangata ivimālohi</annotation>
 		<annotation cp="🦸‍♀">fefine ivimālohi</annotation>
 		<annotation cp="🦸‍♀" type="tts">fefine ivimālohi</annotation>
-		<annotation cp="🦹">tokotaha kākā</annotation>
+		<annotation cp="🦹">kākā | tokotaha kākā</annotation>
 		<annotation cp="🦹" type="tts">tokotaha kākā</annotation>
 		<annotation cp="🦹‍♂">tangata kākā</annotation>
 		<annotation cp="🦹‍♂" type="tts">tangata kākā</annotation>
 		<annotation cp="🦹‍♀">fefine kākā</annotation>
 		<annotation cp="🦹‍♀" type="tts">fefine kākā</annotation>
-		<annotation cp="🧙">tokotaha taula-faʻahikehe</annotation>
+		<annotation cp="🧙">faʻahikehe | taula | tokotaha taula-faʻahikehe</annotation>
 		<annotation cp="🧙" type="tts">tokotaha taula-faʻahikehe</annotation>
 		<annotation cp="🧙‍♂">tangata taula-faʻahikehe</annotation>
 		<annotation cp="🧙‍♂" type="tts">tangata taula-faʻahikehe</annotation>
@@ -1469,19 +1451,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧚‍♂" type="tts">feeli tangata</annotation>
 		<annotation cp="🧚‍♀">feeli fefine</annotation>
 		<annotation cp="🧚‍♀" type="tts">feeli fefine</annotation>
-		<annotation cp="🧛">tokotaha misi toto</annotation>
+		<annotation cp="🧛">misi | tokotaha misi toto | toto</annotation>
 		<annotation cp="🧛" type="tts">tokotaha misi toto</annotation>
 		<annotation cp="🧛‍♂">tangata misi toto</annotation>
 		<annotation cp="🧛‍♂" type="tts">tangata misi toto</annotation>
 		<annotation cp="🧛‍♀">fefine misi toto</annotation>
 		<annotation cp="🧛‍♀" type="tts">fefine misi toto</annotation>
-		<annotation cp="🧜">tokotaha meimeite</annotation>
+		<annotation cp="🧜">ika | meimeite | tokotaha meimeite</annotation>
 		<annotation cp="🧜" type="tts">tokotaha meimeite</annotation>
 		<annotation cp="🧜‍♂">tangata meimeite</annotation>
 		<annotation cp="🧜‍♂" type="tts">tangata meimeite</annotation>
 		<annotation cp="🧜‍♀">fefine meimeite</annotation>
 		<annotation cp="🧜‍♀" type="tts">fefine meimeite</annotation>
-		<annotation cp="🧝">kiʻi feeli</annotation>
+		<annotation cp="🧝">feeli | kiʻi feeli</annotation>
 		<annotation cp="🧝" type="tts">kiʻi feeli</annotation>
 		<annotation cp="🧝‍♂">kiʻi feeli tangata</annotation>
 		<annotation cp="🧝‍♂" type="tts">kiʻi feeli tangata</annotation>
@@ -1493,37 +1475,39 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧞‍♂" type="tts">faʻahikehe tangata</annotation>
 		<annotation cp="🧞‍♀">faʻahikehe fefine</annotation>
 		<annotation cp="🧞‍♀" type="tts">faʻahikehe fefine</annotation>
-		<annotation cp="🧟">tēvolo</annotation>
+		<annotation cp="🧟">mate | tēvolo</annotation>
 		<annotation cp="🧟" type="tts">tēvolo</annotation>
 		<annotation cp="🧟‍♂">tēvolo tangata</annotation>
 		<annotation cp="🧟‍♂" type="tts">tēvolo tangata</annotation>
 		<annotation cp="🧟‍♀">tēvolo fefine</annotation>
 		<annotation cp="🧟‍♀" type="tts">tēvolo fefine</annotation>
-		<annotation cp="💆">tokotaha fotofotaʻi</annotation>
+		<annotation cp="🧌">fakaʻulia | fakatele</annotation>
+		<annotation cp="🧌" type="tts">fakatele</annotation>
+		<annotation cp="💆">fotofota | tokotaha fotofotaʻi</annotation>
 		<annotation cp="💆" type="tts">tokotaha fotofotaʻi</annotation>
 		<annotation cp="💆‍♂">tangata fotofotaʻi</annotation>
 		<annotation cp="💆‍♂" type="tts">tangata fotofotaʻi</annotation>
 		<annotation cp="💆‍♀">fefine fotofotaʻi</annotation>
 		<annotation cp="💆‍♀" type="tts">fefine fotofotaʻi</annotation>
-		<annotation cp="💇">tokotaha ʻulu kosi</annotation>
+		<annotation cp="💇">ʻulu | kosi | tokotaha ʻulu kosi</annotation>
 		<annotation cp="💇" type="tts">tokotaha ʻulu kosi</annotation>
 		<annotation cp="💇‍♂">tangata ʻulu kosi</annotation>
 		<annotation cp="💇‍♂" type="tts">tangata ʻulu kosi</annotation>
 		<annotation cp="💇‍♀">fefine ʻulu kosi</annotation>
 		<annotation cp="💇‍♀" type="tts">fefine ʻulu kosi</annotation>
-		<annotation cp="🚶">tokotaha lue</annotation>
+		<annotation cp="🚶">laka | lue | tokotaha lue</annotation>
 		<annotation cp="🚶" type="tts">tokotaha lue</annotation>
 		<annotation cp="🚶‍♂">tangata lue</annotation>
 		<annotation cp="🚶‍♂" type="tts">tangata lue</annotation>
 		<annotation cp="🚶‍♀">fefine lue</annotation>
 		<annotation cp="🚶‍♀" type="tts">fefine lue</annotation>
-		<annotation cp="🧍">tokotaha tuʻu</annotation>
+		<annotation cp="🧍">tokotaha tuʻu | tuʻu</annotation>
 		<annotation cp="🧍" type="tts">tokotaha tuʻu</annotation>
 		<annotation cp="🧍‍♂">tangata tuʻu</annotation>
 		<annotation cp="🧍‍♂" type="tts">tangata tuʻu</annotation>
 		<annotation cp="🧍‍♀">fefine tuʻu</annotation>
 		<annotation cp="🧍‍♀" type="tts">fefine tuʻu</annotation>
-		<annotation cp="🧎">tokotaha tūʻulutui</annotation>
+		<annotation cp="🧎">tokotaha tūʻulutui | tūʻulutui | tui</annotation>
 		<annotation cp="🧎" type="tts">tokotaha tūʻulutui</annotation>
 		<annotation cp="🧎‍♂">tangata tūʻulutui</annotation>
 		<annotation cp="🧎‍♂" type="tts">tangata tūʻulutui</annotation>
@@ -1547,153 +1531,153 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨‍🦽" type="tts">tangata ʻihe sāliote falemahaki</annotation>
 		<annotation cp="👩‍🦽">falemahaki | fefine | fefine ʻihe sāliote falemahaki | sāliote</annotation>
 		<annotation cp="👩‍🦽" type="tts">fefine ʻihe sāliote falemahaki</annotation>
-		<annotation cp="🏃">tokotaha lele</annotation>
+		<annotation cp="🏃">lele | tokotaha lele</annotation>
 		<annotation cp="🏃" type="tts">tokotaha lele</annotation>
 		<annotation cp="🏃‍♂">tangata lele</annotation>
 		<annotation cp="🏃‍♂" type="tts">tangata lele</annotation>
 		<annotation cp="🏃‍♀">fefine lele</annotation>
 		<annotation cp="🏃‍♀" type="tts">fefine lele</annotation>
-		<annotation cp="💃">fefine meʻe</annotation>
+		<annotation cp="💃">fefine | meʻe</annotation>
 		<annotation cp="💃" type="tts">fefine meʻe</annotation>
-		<annotation cp="🕺">tangata meʻe</annotation>
+		<annotation cp="🕺">meʻe | tangata</annotation>
 		<annotation cp="🕺" type="tts">tangata meʻe</annotation>
-		<annotation cp="🕴">tangata ʻi vala tangata kakato ʻoku maʻanu</annotation>
+		<annotation cp="🕴">maʻanu | tangata | tangata ʻi vala tangata kakato ʻoku maʻanu | vala tangata kakato</annotation>
 		<annotation cp="🕴" type="tts">tangata ʻi vala tangata kakato ʻoku maʻanu</annotation>
-		<annotation cp="👯">tokoua telinga-lāpisi</annotation>
+		<annotation cp="👯">lāpisi | ongo | telinga | tokoua telinga-lāpisi</annotation>
 		<annotation cp="👯" type="tts">tokoua telinga-lāpisi</annotation>
 		<annotation cp="👯‍♂">ongo tangata telinga-lāpisi</annotation>
 		<annotation cp="👯‍♂" type="tts">ongo tangata telinga-lāpisi</annotation>
 		<annotation cp="👯‍♀">fafine telinga-lāpisi</annotation>
 		<annotation cp="👯‍♀" type="tts">fafine telinga-lāpisi</annotation>
-		<annotation cp="🧖">tokotaha ʻi loki mao</annotation>
+		<annotation cp="🧖">mao | tokotaha ʻi loki mao</annotation>
 		<annotation cp="🧖" type="tts">tokotaha ʻi loki mao</annotation>
 		<annotation cp="🧖‍♂">tangata ʻi loki mao</annotation>
 		<annotation cp="🧖‍♂" type="tts">tangata ʻi loki mao</annotation>
 		<annotation cp="🧖‍♀">fefine ʻi loki mao</annotation>
 		<annotation cp="🧖‍♀" type="tts">fefine ʻi loki mao</annotation>
-		<annotation cp="🧗">tokotaha kaka</annotation>
+		<annotation cp="🧗">kaka | teleʻa | tokotaha kaka | vanu</annotation>
 		<annotation cp="🧗" type="tts">tokotaha kaka</annotation>
 		<annotation cp="🧗‍♂">tangata kaka</annotation>
 		<annotation cp="🧗‍♂" type="tts">tangata kaka</annotation>
 		<annotation cp="🧗‍♀">fefine kaka</annotation>
 		<annotation cp="🧗‍♀" type="tts">fefine kaka</annotation>
-		<annotation cp="🤺">tokotaha tau heletā</annotation>
+		<annotation cp="🤺">heletā | tokotaha tau heletā</annotation>
 		<annotation cp="🤺" type="tts">tokotaha tau heletā</annotation>
-		<annotation cp="🏇">lova hoosi</annotation>
+		<annotation cp="🏇">hoosi | lova</annotation>
 		<annotation cp="🏇" type="tts">lova hoosi</annotation>
-		<annotation cp="⛷">tokotaha heke sinou</annotation>
+		<annotation cp="⛷">heke | sinou | tokotaha heke sinou</annotation>
 		<annotation cp="⛷" type="tts">tokotaha heke sinou</annotation>
-		<annotation cp="🏂">tokotaha heke laupapa sinou</annotation>
+		<annotation cp="🏂">heke | laupapa | sinou | tokotaha heke laupapa sinou</annotation>
 		<annotation cp="🏂" type="tts">tokotaha heke laupapa sinou</annotation>
-		<annotation cp="🏌">tokotaha tāpulu</annotation>
+		<annotation cp="🏌">tāpulu | tokotaha tāpulu</annotation>
 		<annotation cp="🏌" type="tts">tokotaha tāpulu</annotation>
 		<annotation cp="🏌‍♂">tangata tāpulu</annotation>
 		<annotation cp="🏌‍♂" type="tts">tangata tāpulu</annotation>
 		<annotation cp="🏌‍♀">fefine tāpulu</annotation>
 		<annotation cp="🏌‍♀" type="tts">fefine tāpulu</annotation>
-		<annotation cp="🏄">tokotaha fānifo</annotation>
+		<annotation cp="🏄">fānifo | tokotaha fānifo</annotation>
 		<annotation cp="🏄" type="tts">tokotaha fānifo</annotation>
 		<annotation cp="🏄‍♂">tangata fānifo</annotation>
 		<annotation cp="🏄‍♂" type="tts">tangata fānifo</annotation>
 		<annotation cp="🏄‍♀">fefine fānifo</annotation>
 		<annotation cp="🏄‍♀" type="tts">fefine fānifo</annotation>
-		<annotation cp="🚣">tokotaha ʻaʻalo</annotation>
+		<annotation cp="🚣">ʻaʻalo | tokotaha ʻaʻalo</annotation>
 		<annotation cp="🚣" type="tts">tokotaha ʻaʻalo</annotation>
 		<annotation cp="🚣‍♂">tangata ʻaʻalo</annotation>
 		<annotation cp="🚣‍♂" type="tts">tangata ʻaʻalo</annotation>
 		<annotation cp="🚣‍♀">fefine ʻaʻalo</annotation>
 		<annotation cp="🚣‍♀" type="tts">fefine ʻaʻalo</annotation>
-		<annotation cp="🏊">tokotaha kakau</annotation>
+		<annotation cp="🏊">kakau | tokotaha kakau</annotation>
 		<annotation cp="🏊" type="tts">tokotaha kakau</annotation>
 		<annotation cp="🏊‍♂">tangata kakau</annotation>
 		<annotation cp="🏊‍♂" type="tts">tangata kakau</annotation>
 		<annotation cp="🏊‍♀">fefine kakau</annotation>
 		<annotation cp="🏊‍♀" type="tts">fefine kakau</annotation>
-		<annotation cp="⛹">tokotaha tōpuna pulu</annotation>
+		<annotation cp="⛹">pulu | tokotaha tōpuna pulu | tōpuna</annotation>
 		<annotation cp="⛹" type="tts">tokotaha tōpuna pulu</annotation>
 		<annotation cp="⛹‍♂">tangata tōpuna pulu</annotation>
 		<annotation cp="⛹‍♂" type="tts">tangata tōpuna pulu</annotation>
 		<annotation cp="⛹‍♀">fefine tōpuna pulu</annotation>
 		<annotation cp="⛹‍♀" type="tts">fefine tōpuna pulu</annotation>
-		<annotation cp="🏋">tokotaha hiki meʻamamafa</annotation>
+		<annotation cp="🏋">hiki | meʻamamafa | tokotaha hiki meʻamamafa</annotation>
 		<annotation cp="🏋" type="tts">tokotaha hiki meʻamamafa</annotation>
 		<annotation cp="🏋‍♂">tangata hiki meʻamamafa</annotation>
 		<annotation cp="🏋‍♂" type="tts">tangata hiki meʻamamafa</annotation>
 		<annotation cp="🏋‍♀">fefine hiki meʻamamafa</annotation>
 		<annotation cp="🏋‍♀" type="tts">fefine hiki meʻamamafa</annotation>
-		<annotation cp="🚴">tokotaha heka pasikala</annotation>
+		<annotation cp="🚴">pasikala | tokotaha heka pasikala</annotation>
 		<annotation cp="🚴" type="tts">tokotaha heka pasikala</annotation>
 		<annotation cp="🚴‍♂">tangata heka pasikala</annotation>
 		<annotation cp="🚴‍♂" type="tts">tangata heka pasikala</annotation>
 		<annotation cp="🚴‍♀">fefine heka pasikala</annotation>
 		<annotation cp="🚴‍♀" type="tts">fefine heka pasikala</annotation>
-		<annotation cp="🚵">tokotaha heka pasikala moʻunga</annotation>
+		<annotation cp="🚵">moʻunga | pasikala | tokotaha heka pasikala moʻunga</annotation>
 		<annotation cp="🚵" type="tts">tokotaha heka pasikala moʻunga</annotation>
 		<annotation cp="🚵‍♂">tangata heka pasikala moʻunga</annotation>
 		<annotation cp="🚵‍♂" type="tts">tangata heka pasikala moʻunga</annotation>
 		<annotation cp="🚵‍♀">fefine heka pasikala moʻunga</annotation>
 		<annotation cp="🚵‍♀" type="tts">fefine heka pasikala moʻunga</annotation>
-		<annotation cp="🤸">tokotaha tākisi</annotation>
+		<annotation cp="🤸">tākisi | tokotaha tākisi</annotation>
 		<annotation cp="🤸" type="tts">tokotaha tākisi</annotation>
 		<annotation cp="🤸‍♂">tangata tākisi</annotation>
 		<annotation cp="🤸‍♂" type="tts">tangata tākisi</annotation>
 		<annotation cp="🤸‍♀">fefine tākisi</annotation>
 		<annotation cp="🤸‍♀" type="tts">fefine tākisi</annotation>
-		<annotation cp="🤼">kakai fangatua</annotation>
+		<annotation cp="🤼">fangatua | kakai fangatua</annotation>
 		<annotation cp="🤼" type="tts">kakai fangatua</annotation>
 		<annotation cp="🤼‍♂">ongo tangata fangatua</annotation>
 		<annotation cp="🤼‍♂" type="tts">ongo tangata fangatua</annotation>
 		<annotation cp="🤼‍♀">fafine fangatua</annotation>
 		<annotation cp="🤼‍♀" type="tts">fafine fangatua</annotation>
-		<annotation cp="🤽">tokotaha polovai</annotation>
+		<annotation cp="🤽">polo | tokotaha polovai | vai</annotation>
 		<annotation cp="🤽" type="tts">tokotaha polovai</annotation>
 		<annotation cp="🤽‍♂">tangata polovai</annotation>
 		<annotation cp="🤽‍♂" type="tts">tangata polovai</annotation>
 		<annotation cp="🤽‍♀">fefine polovai</annotation>
 		<annotation cp="🤽‍♀" type="tts">fefine polovai</annotation>
-		<annotation cp="🤾">tokotaha netipolo</annotation>
+		<annotation cp="🤾">netipolo | tokotaha netipolo</annotation>
 		<annotation cp="🤾" type="tts">tokotaha netipolo</annotation>
 		<annotation cp="🤾‍♂">tangata netipolo</annotation>
 		<annotation cp="🤾‍♂" type="tts">tangata netipolo</annotation>
 		<annotation cp="🤾‍♀">fefine netipolo</annotation>
 		<annotation cp="🤾‍♀" type="tts">fefine netipolo</annotation>
-		<annotation cp="🤹">tokotaha hiko</annotation>
+		<annotation cp="🤹">hiko | tokotaha hiko</annotation>
 		<annotation cp="🤹" type="tts">tokotaha hiko</annotation>
 		<annotation cp="🤹‍♂">tangata hiko</annotation>
 		<annotation cp="🤹‍♂" type="tts">tangata hiko</annotation>
 		<annotation cp="🤹‍♀">fefine hiko</annotation>
 		<annotation cp="🤹‍♀" type="tts">fefine hiko</annotation>
-		<annotation cp="🧘">tokotaha tangutu fehauaki</annotation>
+		<annotation cp="🧘">fehauaki | tangutu | tokotaha tangutu fehauaki</annotation>
 		<annotation cp="🧘" type="tts">tokotaha tangutu fehauaki</annotation>
 		<annotation cp="🧘‍♂">tangata tangutu fehauaki</annotation>
 		<annotation cp="🧘‍♂" type="tts">tangata tangutu fehauaki</annotation>
 		<annotation cp="🧘‍♀">fefine tangutu fehauaki</annotation>
 		<annotation cp="🧘‍♀" type="tts">fefine tangutu fehauaki</annotation>
-		<annotation cp="🛀">tokotaha kaukau</annotation>
+		<annotation cp="🛀">kaukau | tokotaha kaukau</annotation>
 		<annotation cp="🛀" type="tts">tokotaha kaukau</annotation>
-		<annotation cp="🛌">tokotaha ʻi mohenga</annotation>
+		<annotation cp="🛌">mohe | mohenga | tokotaha ʻi mohenga</annotation>
 		<annotation cp="🛌" type="tts">tokotaha ʻi mohenga</annotation>
 		<annotation cp="🧑‍🤝‍🧑">kakai fetakinima</annotation>
 		<annotation cp="🧑‍🤝‍🧑" type="tts">kakai fetakinima</annotation>
-		<annotation cp="👭">ongo fafine fetakinima</annotation>
-		<annotation cp="👭" type="tts">ongo fafine fetakinima</annotation>
-		<annotation cp="👫">tangata mo fefine fetakinima</annotation>
+		<annotation cp="👭">fafine fetakinima | fefine | fetakinima | ongo</annotation>
+		<annotation cp="👭" type="tts">fafine fetakinima</annotation>
+		<annotation cp="👫">fefine | fetakinima | tangata | tangata mo fefine fetakinima</annotation>
 		<annotation cp="👫" type="tts">tangata mo fefine fetakinima</annotation>
-		<annotation cp="👬">ongo tangata fetakinima</annotation>
+		<annotation cp="👬">fetakinima | ongo | tangata</annotation>
 		<annotation cp="👬" type="tts">ongo tangata fetakinima</annotation>
 		<annotation cp="💏">ʻuma</annotation>
 		<annotation cp="💏" type="tts">ʻuma</annotation>
-		<annotation cp="💑">ongo tokoua moe mafu</annotation>
+		<annotation cp="💑">ʻuma | mafu | ongo tokoua moe mafu</annotation>
 		<annotation cp="💑" type="tts">ongo tokoua moe mafu</annotation>
 		<annotation cp="👪">fāmili</annotation>
 		<annotation cp="👪" type="tts">fāmili</annotation>
-		<annotation cp="🗣">mata talanoa</annotation>
+		<annotation cp="🗣">mata | talanoa</annotation>
 		<annotation cp="🗣" type="tts">mata talanoa</annotation>
-		<annotation cp="👤">ʻata ʻoe sino</annotation>
+		<annotation cp="👤">ʻata | ʻata ʻoe sino | sino</annotation>
 		<annotation cp="👤" type="tts">ʻata ʻoe sino</annotation>
-		<annotation cp="👥">ongo ʻata ʻoe sino</annotation>
+		<annotation cp="👥">ʻata | ongo | ongo ʻata ʻoe sino | sino</annotation>
 		<annotation cp="👥" type="tts">ongo ʻata ʻoe sino</annotation>
-		<annotation cp="🫂">kakai fāʻufua</annotation>
+		<annotation cp="🫂">fāʻufua | kakai fāʻufua</annotation>
 		<annotation cp="🫂" type="tts">kakai fāʻufua</annotation>
 		<annotation cp="👣">topuvaʻe</annotation>
 		<annotation cp="👣" type="tts">topuvaʻe</annotation>
@@ -1705,7 +1689,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦳" type="tts">ʻulu hinā</annotation>
 		<annotation cp="🦲">ʻulu | ʻulupoko | kosi | tula</annotation>
 		<annotation cp="🦲" type="tts">ʻulu tula</annotation>
-		<annotation cp="🐵">mataʻi-ngeli</annotation>
+		<annotation cp="🐵">mata | mataʻi-ngeli | ngeli</annotation>
 		<annotation cp="🐵" type="tts">mataʻi-ngeli</annotation>
 		<annotation cp="🐒">ngeli</annotation>
 		<annotation cp="🐒" type="tts">ngeli</annotation>
@@ -1713,7 +1697,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦍" type="tts">kolila</annotation>
 		<annotation cp="🦧">ngeli | ngeli-nofoʻuta</annotation>
 		<annotation cp="🦧" type="tts">ngeli-nofoʻuta</annotation>
-		<annotation cp="🐶">mataʻi-kulī</annotation>
+		<annotation cp="🐶">kulī | mata | mataʻi-kulī</annotation>
 		<annotation cp="🐶" type="tts">mataʻi-kulī</annotation>
 		<annotation cp="🐕">kulī</annotation>
 		<annotation cp="🐕" type="tts">kulī</annotation>
@@ -1721,65 +1705,69 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦮" type="tts">kulī tokonikui</annotation>
 		<annotation cp="🐕‍🦺">kulī tokoni</annotation>
 		<annotation cp="🐕‍🦺" type="tts">kulī tokoni</annotation>
-		<annotation cp="🐩">kulī pūteli</annotation>
+		<annotation cp="🐩">kulī | pūteli</annotation>
 		<annotation cp="🐩" type="tts">kulī pūteli</annotation>
-		<annotation cp="🐺">mataʻi-ulofi</annotation>
+		<annotation cp="🐺">mata | mataʻi-ulofi | ulofi</annotation>
 		<annotation cp="🐺" type="tts">mataʻi-ulofi</annotation>
-		<annotation cp="🦊">mataʻi-fokisi</annotation>
+		<annotation cp="🦊">fokisi | mata | mataʻi-fokisi</annotation>
 		<annotation cp="🦊" type="tts">mataʻi-fokisi</annotation>
 		<annotation cp="🦝">lakūni</annotation>
 		<annotation cp="🦝" type="tts">lakūni</annotation>
-		<annotation cp="🐱">mataʻi-pusi</annotation>
+		<annotation cp="🐱">mata | mataʻi-pusi | pusi</annotation>
 		<annotation cp="🐱" type="tts">mataʻi-pusi</annotation>
 		<annotation cp="🐈">pusi</annotation>
 		<annotation cp="🐈" type="tts">pusi</annotation>
 		<annotation cp="🐈‍⬛" draft="unconfirmed">pusi ʻuliʻuli</annotation>
 		<annotation cp="🐈‍⬛" type="tts" draft="unconfirmed">pusi ʻuliʻuli</annotation>
-		<annotation cp="🦁">mataʻi-laione</annotation>
+		<annotation cp="🦁">laione | mata | mataʻi-laione</annotation>
 		<annotation cp="🦁" type="tts">mataʻi-laione</annotation>
-		<annotation cp="🐯">mataʻi-taika</annotation>
+		<annotation cp="🐯">mata | mataʻi-taika | taika</annotation>
 		<annotation cp="🐯" type="tts">mataʻi-taika</annotation>
 		<annotation cp="🐅">taika</annotation>
 		<annotation cp="🐅" type="tts">taika</annotation>
 		<annotation cp="🐆">lēpati</annotation>
 		<annotation cp="🐆" type="tts">lēpati</annotation>
-		<annotation cp="🐴">mataʻi-hoosi</annotation>
+		<annotation cp="🐴">hoosi | mata | mataʻi-hoosi</annotation>
 		<annotation cp="🐴" type="tts">mataʻi-hoosi</annotation>
-		<annotation cp="🐎">hoosi</annotation>
+		<annotation cp="🫎">manu | tialahi</annotation>
+		<annotation cp="🫎" type="tts">tialahi</annotation>
+		<annotation cp="🫏">angamaka | ʻasi | manu</annotation>
+		<annotation cp="🫏" type="tts">ʻasi</annotation>
+		<annotation cp="🐎">hoosi | lova</annotation>
 		<annotation cp="🐎" type="tts">hoosi</annotation>
-		<annotation cp="🦄">mataʻi-meʻatuitaha</annotation>
+		<annotation cp="🦄">mata | mataʻi-meʻatuitaha | meʻatuitaha</annotation>
 		<annotation cp="🦄" type="tts">mataʻi-meʻatuitaha</annotation>
-		<annotation cp="🦓">sepelā</annotation>
+		<annotation cp="🦓">kohi | sepelā</annotation>
 		<annotation cp="🦓" type="tts">sepelā</annotation>
 		<annotation cp="🦌">tia</annotation>
 		<annotation cp="🦌" type="tts">tia</annotation>
 		<annotation cp="🦬">pisoni</annotation>
 		<annotation cp="🦬" type="tts">pisoni</annotation>
-		<annotation cp="🐮">mataʻi-pulu</annotation>
+		<annotation cp="🐮">mata | mataʻi-pulu | pulu</annotation>
 		<annotation cp="🐮" type="tts">mataʻi-pulu</annotation>
-		<annotation cp="🐂">pulu pokaʻi</annotation>
+		<annotation cp="🐂">pokaʻi | pulu</annotation>
 		<annotation cp="🐂" type="tts">pulu pokaʻi</annotation>
 		<annotation cp="🐃">pafalō</annotation>
 		<annotation cp="🐃" type="tts">pafalō</annotation>
 		<annotation cp="🐄">pulu</annotation>
 		<annotation cp="🐄" type="tts">pulu</annotation>
-		<annotation cp="🐷">mataʻi-puaka</annotation>
+		<annotation cp="🐷">mata | mataʻi-puaka | puaka</annotation>
 		<annotation cp="🐷" type="tts">mataʻi-puaka</annotation>
 		<annotation cp="🐖">puaka</annotation>
 		<annotation cp="🐖" type="tts">puaka</annotation>
-		<annotation cp="🐗">puaka fekai</annotation>
+		<annotation cp="🐗">fekai | mata | puaka</annotation>
 		<annotation cp="🐗" type="tts">puaka fekai</annotation>
-		<annotation cp="🐽">ihuʻi-puaka</annotation>
+		<annotation cp="🐽">ihu | ihuʻi-puaka | puaka</annotation>
 		<annotation cp="🐽" type="tts">ihuʻi-puaka</annotation>
-		<annotation cp="🐏">sipi tau</annotation>
+		<annotation cp="🐏">sipi | tau</annotation>
 		<annotation cp="🐏" type="tts">sipi tau</annotation>
-		<annotation cp="🐑">sipi fefine</annotation>
+		<annotation cp="🐑">fefine | sipi</annotation>
 		<annotation cp="🐑" type="tts">sipi fefine</annotation>
 		<annotation cp="🐐">kosi</annotation>
 		<annotation cp="🐐" type="tts">kosi</annotation>
-		<annotation cp="🐪">kāmeli tuʻahulataha</annotation>
+		<annotation cp="🐪">kāmeli | kāmeli tuʻahulataha | taha | tuʻahula</annotation>
 		<annotation cp="🐪" type="tts">kāmeli tuʻahulataha</annotation>
-		<annotation cp="🐫">kāmeli tuʻahulaua</annotation>
+		<annotation cp="🐫">kāmeli | kāmeli tuʻahulaua | tuʻahula | ua</annotation>
 		<annotation cp="🐫" type="tts">kāmeli tuʻahulaua</annotation>
 		<annotation cp="🦙">lama</annotation>
 		<annotation cp="🦙" type="tts">lama</annotation>
@@ -1793,15 +1781,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦏" type="tts">lainosolosi</annotation>
 		<annotation cp="🦛">hipopotama</annotation>
 		<annotation cp="🦛" type="tts">hipopotama</annotation>
-		<annotation cp="🐭">mataʻi-kumāsiʻi</annotation>
+		<annotation cp="🐭">kumā | mata | mataʻi-kumāsiʻi</annotation>
 		<annotation cp="🐭" type="tts">mataʻi-kumāsiʻi</annotation>
-		<annotation cp="🐁">kumāsiʻi</annotation>
+		<annotation cp="🐁">kumā | kumāsiʻi</annotation>
 		<annotation cp="🐁" type="tts">kumāsiʻi</annotation>
 		<annotation cp="🐀">kumā</annotation>
 		<annotation cp="🐀" type="tts">kumā</annotation>
-		<annotation cp="🐹">kumā-feti</annotation>
+		<annotation cp="🐹">feti | kumā | kumā-feti</annotation>
 		<annotation cp="🐹" type="tts">kumā-feti</annotation>
-		<annotation cp="🐰">mataʻi-lāpisi</annotation>
+		<annotation cp="🐰">lāpisi | mata | mataʻi-lāpisi</annotation>
 		<annotation cp="🐰" type="tts">mataʻi-lāpisi</annotation>
 		<annotation cp="🐇">lāpisi</annotation>
 		<annotation cp="🐇" type="tts">lāpisi</annotation>
@@ -1813,13 +1801,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦔" type="tts">puakatalatala</annotation>
 		<annotation cp="🦇">peka</annotation>
 		<annotation cp="🦇" type="tts">peka</annotation>
-		<annotation cp="🐻">mataʻi-pea</annotation>
+		<annotation cp="🐻">mata | mataʻi-pea | pea</annotation>
 		<annotation cp="🐻" type="tts">mataʻi-pea</annotation>
 		<annotation cp="🐻‍❄" draft="unconfirmed">pea hinehina</annotation>
 		<annotation cp="🐻‍❄" type="tts" draft="unconfirmed">pea hinehina</annotation>
-		<annotation cp="🐨">pea-ʻuliʻuli-moe-hinehina</annotation>
-		<annotation cp="🐨" type="tts">pea-ʻuliʻuli-moe-hinehina</annotation>
-		<annotation cp="🐼">mataʻi-pea-ʻuliʻuli-moe-hinehina</annotation>
+		<annotation cp="🐨">ʻAositelēlia | koala | mata | pea</annotation>
+		<annotation cp="🐨" type="tts">koala</annotation>
+		<annotation cp="🐼">hinehina | ʻuliʻuli | mata | mataʻi-pea-ʻuliʻuli-moe-hinehina | pea</annotation>
 		<annotation cp="🐼" type="tts">mataʻi-pea-ʻuliʻuli-moe-hinehina</annotation>
 		<annotation cp="🦥">fakapikopiko | pea-fakapikopiko</annotation>
 		<annotation cp="🦥" type="tts">pea-fakapikopiko</annotation>
@@ -1831,19 +1819,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦘" type="tts">kangikalū</annotation>
 		<annotation cp="🦡">patisē</annotation>
 		<annotation cp="🦡" type="tts">patisē</annotation>
-		<annotation cp="🐾">topuvaʻe manu</annotation>
+		<annotation cp="🐾">manu | topuvaʻe</annotation>
 		<annotation cp="🐾" type="tts">topuvaʻe manu</annotation>
 		<annotation cp="🦃">pīpī</annotation>
 		<annotation cp="🦃" type="tts">pīpī</annotation>
 		<annotation cp="🐔">moa</annotation>
 		<annotation cp="🐔" type="tts">moa</annotation>
-		<annotation cp="🐓">moataʻane</annotation>
+		<annotation cp="🐓">moa | moataʻane | tangata</annotation>
 		<annotation cp="🐓" type="tts">moataʻane</annotation>
-		<annotation cp="🐣">fōfoaʻimoa</annotation>
+		<annotation cp="🐣">fōfoaʻimoa | moa</annotation>
 		<annotation cp="🐣" type="tts">fōfoaʻimoa</annotation>
-		<annotation cp="🐤">ʻuhikiʻimoa</annotation>
+		<annotation cp="🐤">ʻuhikiʻimoa | moa</annotation>
 		<annotation cp="🐤" type="tts">ʻuhikiʻimoa</annotation>
-		<annotation cp="🐥">ʻuhikiʻimoa hanga mai</annotation>
+		<annotation cp="🐥">ʻuhikiʻimoa | ʻuhikiʻimoa hanga mai | moa</annotation>
 		<annotation cp="🐥" type="tts">ʻuhikiʻimoa hanga mai</annotation>
 		<annotation cp="🐦">manupuna</annotation>
 		<annotation cp="🐦" type="tts">manupuna</annotation>
@@ -1869,7 +1857,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦚" type="tts">pīkoka</annotation>
 		<annotation cp="🦜">kakā</annotation>
 		<annotation cp="🦜" type="tts">kakā</annotation>
-		<annotation cp="🐸">mataʻi-poto</annotation>
+		<annotation cp="🪽">ʻangelo | kapakau | talatupuʻa</annotation>
+		<annotation cp="🪽" type="tts">kapakau</annotation>
+		<annotation cp="🐦‍⬛" draft="unconfirmed">manupuna lanuʻuliʻuli</annotation>
+		<annotation cp="🐦‍⬛" type="tts" draft="unconfirmed">manupuna lanuʻuliʻuli</annotation>
+		<annotation cp="🪿">kuusi | manupuna</annotation>
+		<annotation cp="🪿" type="tts">kuusi</annotation>
+		<annotation cp="🐸">mata | mataʻi-poto | poto</annotation>
 		<annotation cp="🐸" type="tts">mataʻi-poto</annotation>
 		<annotation cp="🐊">kalokataile</annotation>
 		<annotation cp="🐊" type="tts">kalokataile</annotation>
@@ -1879,15 +1873,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦎" type="tts">moko</annotation>
 		<annotation cp="🐍">ngata</annotation>
 		<annotation cp="🐍" type="tts">ngata</annotation>
-		<annotation cp="🐲">mataʻi-talākoni</annotation>
+		<annotation cp="🐲">mata | mataʻi-talākoni | talākoni</annotation>
 		<annotation cp="🐲" type="tts">mataʻi-talākoni</annotation>
 		<annotation cp="🐉">talākoni</annotation>
 		<annotation cp="🐉" type="tts">talākoni</annotation>
 		<annotation cp="🦕">saulopoti</annotation>
 		<annotation cp="🦕" type="tts">saulopoti</annotation>
-		<annotation cp="🦖">tainosauli nifo māsila</annotation>
+		<annotation cp="🦖">māsila | nifo | tainosauli</annotation>
 		<annotation cp="🦖" type="tts">tainosauli nifo māsila</annotation>
-		<annotation cp="🐳">tofuaʻa puhi</annotation>
+		<annotation cp="🐳">puhi | tofuaʻa</annotation>
 		<annotation cp="🐳" type="tts">tofuaʻa puhi</annotation>
 		<annotation cp="🐋">tofuaʻa</annotation>
 		<annotation cp="🐋" type="tts">tofuaʻa</annotation>
@@ -1897,7 +1891,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦭" type="tts">kulītahi</annotation>
 		<annotation cp="🐟">ika</annotation>
 		<annotation cp="🐟" type="tts">ika</annotation>
-		<annotation cp="🐠">ika he hakau</annotation>
+		<annotation cp="🐠">hakau | ika | ika he hakau</annotation>
 		<annotation cp="🐠" type="tts">ika he hakau</annotation>
 		<annotation cp="🐡">sokisoki</annotation>
 		<annotation cp="🐡" type="tts">sokisoki</annotation>
@@ -1907,6 +1901,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐙" type="tts">feke</annotation>
 		<annotation cp="🐚">keleʻa</annotation>
 		<annotation cp="🐚" type="tts">keleʻa</annotation>
+		<annotation cp="🪸">feo | hakau | moana</annotation>
+		<annotation cp="🪸" type="tts">feo</annotation>
+		<annotation cp="🪼">kalakala | kolakalu | kolokalu | tahi</annotation>
+		<annotation cp="🪼" type="tts">kolokalu</annotation>
 		<annotation cp="🐌">ʻelili</annotation>
 		<annotation cp="🐌" type="tts">ʻelili</annotation>
 		<annotation cp="🦋">pepe</annotation>
@@ -1927,7 +1925,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪳" type="tts">mongomonga</annotation>
 		<annotation cp="🕷">hina</annotation>
 		<annotation cp="🕷" type="tts">hina</annotation>
-		<annotation cp="🕸">matamatakupenga</annotation>
+		<annotation cp="🕸">hina | matamatakupenga</annotation>
 		<annotation cp="🕸" type="tts">matamatakupenga</annotation>
 		<annotation cp="🦂">sikipio</annotation>
 		<annotation cp="🦂" type="tts">sikipio</annotation>
@@ -1939,13 +1937,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪱" type="tts">kelemutu</annotation>
 		<annotation cp="🦠">siemu</annotation>
 		<annotation cp="🦠" type="tts">siemu</annotation>
-		<annotation cp="💐">haʻinga matalaʻiʻakau</annotation>
+		<annotation cp="💐">haʻinga | matalaʻiʻakau</annotation>
 		<annotation cp="💐" type="tts">haʻinga matalaʻiʻakau</annotation>
-		<annotation cp="🌸">matalaʻi-seli</annotation>
+		<annotation cp="🌸">matalaʻi-seli | matalaʻiakau | seli</annotation>
 		<annotation cp="🌸" type="tts">matalaʻi-seli</annotation>
-		<annotation cp="💮">matalaʻiʻakau hinehina</annotation>
+		<annotation cp="💮">hinehina | matalaʻiʻakau</annotation>
 		<annotation cp="💮" type="tts">matalaʻiʻakau hinehina</annotation>
-		<annotation cp="🏵">potupotutatau</annotation>
+		<annotation cp="🪷">hainitevai | hinitū | ʻInitia | Puta</annotation>
+		<annotation cp="🪷" type="tts">hainitevai</annotation>
+		<annotation cp="🏵">matalaʻiʻakau | potupotutatau</annotation>
 		<annotation cp="🏵" type="tts">potupotutatau</annotation>
 		<annotation cp="🌹">lose</annotation>
 		<annotation cp="🌹" type="tts">lose</annotation>
@@ -1959,35 +1959,43 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌼" type="tts">matalaʻiʻakau</annotation>
 		<annotation cp="🌷">tiulipe</annotation>
 		<annotation cp="🌷" type="tts">tiulipe</annotation>
+		<annotation cp="🪻">hainite | matalaʻiʻakau</annotation>
+		<annotation cp="🪻" type="tts">hainite</annotation>
 		<annotation cp="🌱">pulopula</annotation>
 		<annotation cp="🌱" type="tts">pulopula</annotation>
-		<annotation cp="🪴">ʻakau ʻihe kulo</annotation>
+		<annotation cp="🪴">ʻakau | ʻakau ʻihe kulo | kulo</annotation>
 		<annotation cp="🪴" type="tts">ʻakau ʻihe kulo</annotation>
-		<annotation cp="🌲">ʻakau lanumata maʻu pē</annotation>
+		<annotation cp="🌲">ʻakau | ʻakau lanumata maʻu pē | lanumata</annotation>
 		<annotation cp="🌲" type="tts">ʻakau lanumata maʻu pē</annotation>
-		<annotation cp="🌳">ʻakau fakatōlau</annotation>
+		<annotation cp="🌳">ʻakau | ʻakau fakatōlau | lanumata</annotation>
 		<annotation cp="🌳" type="tts">ʻakau fakatōlau</annotation>
-		<annotation cp="🌴">fuʻu niu</annotation>
+		<annotation cp="🌴">fuʻu | niu</annotation>
 		<annotation cp="🌴" type="tts">fuʻu niu</annotation>
 		<annotation cp="🌵">kakatisi</annotation>
 		<annotation cp="🌵" type="tts">kakatisi</annotation>
-		<annotation cp="🌾">haʻinga laise</annotation>
+		<annotation cp="🌾">haʻinga | laise</annotation>
 		<annotation cp="🌾" type="tts">haʻinga laise</annotation>
-		<annotation cp="🌿">ʻakau faitoʻo</annotation>
+		<annotation cp="🌿">faitoʻo | ʻakau</annotation>
 		<annotation cp="🌿" type="tts">ʻakau faitoʻo</annotation>
-		<annotation cp="☘">sameloki</annotation>
+		<annotation cp="☘">kihikihipālangi | sameloki</annotation>
 		<annotation cp="☘" type="tts">sameloki</annotation>
-		<annotation cp="🍀">kihikihipālangi lau ʻe fā</annotation>
+		<annotation cp="🍀">fā | kihikihipālangi | kihikihipālangi lau ʻe fā</annotation>
 		<annotation cp="🍀" type="tts">kihikihipālangi lau ʻe fā</annotation>
-		<annotation cp="🍁">lauʻi-mapele</annotation>
+		<annotation cp="🍁">lau | lauʻi-mapele | mapele</annotation>
 		<annotation cp="🍁" type="tts">lauʻi-mapele</annotation>
-		<annotation cp="🍂">lau kuo tō</annotation>
+		<annotation cp="🍂">lau | lau kuo tō | tō</annotation>
 		<annotation cp="🍂" type="tts">lau kuo tō</annotation>
-		<annotation cp="🍃">lau ngaungaue matangi</annotation>
+		<annotation cp="🍃">lau | lau ngaungaue matangi | matangi</annotation>
 		<annotation cp="🍃" type="tts">lau ngaungaue matangi</annotation>
+		<annotation cp="🪹">ngeʻesi | pununga</annotation>
+		<annotation cp="🪹" type="tts">ngeʻesi pununga</annotation>
+		<annotation cp="🪺">foʻimanu | pununga | pununga moe foʻimanu</annotation>
+		<annotation cp="🪺" type="tts">pununga moe foʻimanu</annotation>
+		<annotation cp="🍄">fakamalu-ʻa-tēvolo</annotation>
+		<annotation cp="🍄" type="tts">fakamalu-ʻa-tēvolo</annotation>
 		<annotation cp="🍇">kālepi</annotation>
 		<annotation cp="🍇" type="tts">kālepi</annotation>
-		<annotation cp="🍈">meleni-pālangi</annotation>
+		<annotation cp="🍈">meleni | meleni-pālangi</annotation>
 		<annotation cp="🍈" type="tts">meleni-pālangi</annotation>
 		<annotation cp="🍉">meleni</annotation>
 		<annotation cp="🍉" type="tts">meleni</annotation>
@@ -2001,9 +2009,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍍" type="tts">fainā</annotation>
 		<annotation cp="🥭">mango</annotation>
 		<annotation cp="🥭" type="tts">mango</annotation>
-		<annotation cp="🍎">ʻāpele kula</annotation>
+		<annotation cp="🍎">ʻāpele | kula</annotation>
 		<annotation cp="🍎" type="tts">ʻāpele kula</annotation>
-		<annotation cp="🍏">ʻāpele mata</annotation>
+		<annotation cp="🍏">ʻāpele | mata</annotation>
 		<annotation cp="🍏" type="tts">ʻāpele mata</annotation>
 		<annotation cp="🍐">pea</annotation>
 		<annotation cp="🍐" type="tts">pea</annotation>
@@ -2031,9 +2039,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥔" type="tts">pateta</annotation>
 		<annotation cp="🥕">kāloti</annotation>
 		<annotation cp="🥕" type="tts">kāloti</annotation>
-		<annotation cp="🌽">foʻi koane</annotation>
+		<annotation cp="🌽">foʻi koane | koane</annotation>
 		<annotation cp="🌽" type="tts">foʻi koane</annotation>
-		<annotation cp="🌶">polo fifisi</annotation>
+		<annotation cp="🌶">fifisi | polo</annotation>
 		<annotation cp="🌶" type="tts">polo fifisi</annotation>
 		<annotation cp="🫑">polo</annotation>
 		<annotation cp="🫑" type="tts">polo</annotation>
@@ -2047,55 +2055,59 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧄" type="tts">kaliki</annotation>
 		<annotation cp="🧅">ʻonioni</annotation>
 		<annotation cp="🧅" type="tts">ʻonioni</annotation>
-		<annotation cp="🍄">fakamalu-ʻa-tēvolo</annotation>
-		<annotation cp="🍄" type="tts">fakamalu-ʻa-tēvolo</annotation>
 		<annotation cp="🥜">pīnati</annotation>
 		<annotation cp="🥜" type="tts">pīnati</annotation>
+		<annotation cp="🫘">meʻakai | piini</annotation>
+		<annotation cp="🫘" type="tts">piini</annotation>
 		<annotation cp="🌰">ifi</annotation>
 		<annotation cp="🌰" type="tts">ifi</annotation>
+		<annotation cp="🫚">aka | pia | sinisā</annotation>
+		<annotation cp="🫚" type="tts">sinisā</annotation>
+		<annotation cp="🫛">ngeʻesi | piini</annotation>
+		<annotation cp="🫛" type="tts">ngeʻesi piini</annotation>
 		<annotation cp="🍞">mā</annotation>
 		<annotation cp="🍞" type="tts">mā</annotation>
-		<annotation cp="🥐">mā kalipa</annotation>
+		<annotation cp="🥐">Falanisē | kalipa | mā</annotation>
 		<annotation cp="🥐" type="tts">mā kalipa</annotation>
-		<annotation cp="🥖">mā lōloa</annotation>
+		<annotation cp="🥖">Falanisē | lōloa | mā</annotation>
 		<annotation cp="🥖" type="tts">mā lōloa</annotation>
-		<annotation cp="🫓">mā lafalafa</annotation>
+		<annotation cp="🫓">lafalafa | mā</annotation>
 		<annotation cp="🫓" type="tts">mā lafalafa</annotation>
-		<annotation cp="🥨">pani mamio</annotation>
+		<annotation cp="🥨">mā | mamio | pani</annotation>
 		<annotation cp="🥨" type="tts">pani mamio</annotation>
-		<annotation cp="🥯">pani mama</annotation>
+		<annotation cp="🥯">mā | mama | pani</annotation>
 		<annotation cp="🥯" type="tts">pani mama</annotation>
-		<annotation cp="🥞">pani</annotation>
+		<annotation cp="🥞">mā | pani</annotation>
 		<annotation cp="🥞" type="tts">pani</annotation>
-		<annotation cp="🧇">pani manifi</annotation>
+		<annotation cp="🧇">mā | manifi | pani</annotation>
 		<annotation cp="🧇" type="tts">pani manifi</annotation>
 		<annotation cp="🧀">siisi</annotation>
 		<annotation cp="🧀" type="tts">siisi</annotation>
-		<annotation cp="🍖">kanomate moe hui</annotation>
+		<annotation cp="🍖">hui | kanomate | kanomate moe hui</annotation>
 		<annotation cp="🍖" type="tts">kanomate moe hui</annotation>
-		<annotation cp="🍗">vaʻeʻi-moa</annotation>
+		<annotation cp="🍗">moa | vaʻe | vaʻeʻi-moa</annotation>
 		<annotation cp="🍗" type="tts">vaʻeʻi-moa</annotation>
-		<annotation cp="🥩">kanomate fahi</annotation>
+		<annotation cp="🥩">kanomate | kanomate fahi</annotation>
 		<annotation cp="🥩" type="tts">kanomate fahi</annotation>
 		<annotation cp="🥓">pēkani</annotation>
 		<annotation cp="🥓" type="tts">pēkani</annotation>
 		<annotation cp="🍔">hamipaka</annotation>
 		<annotation cp="🍔" type="tts">hamipaka</annotation>
-		<annotation cp="🍟">pateta fakapaku</annotation>
+		<annotation cp="🍟">paku | pateta | pateta fakapaku</annotation>
 		<annotation cp="🍟" type="tts">pateta fakapaku</annotation>
 		<annotation cp="🍕">pisa</annotation>
 		<annotation cp="🍕" type="tts">pisa</annotation>
-		<annotation cp="🌭">sōsisi kulī vela</annotation>
+		<annotation cp="🌭">kulī | sōsisi | vela</annotation>
 		<annotation cp="🌭" type="tts">sōsisi kulī vela</annotation>
-		<annotation cp="🥪">sanuisi</annotation>
+		<annotation cp="🥪">mā | sanuisi</annotation>
 		<annotation cp="🥪" type="tts">sanuisi</annotation>
-		<annotation cp="🌮">mā pelupelu</annotation>
+		<annotation cp="🌮">mā | pelupelu</annotation>
 		<annotation cp="🌮" type="tts">mā pelupelu</annotation>
 		<annotation cp="🌯">polito</annotation>
 		<annotation cp="🌯" type="tts">polito</annotation>
-		<annotation cp="🫔">mā pulupulu</annotation>
+		<annotation cp="🫔">mā | pulupulu</annotation>
 		<annotation cp="🫔" type="tts">mā pulupulu</annotation>
-		<annotation cp="🥙">mā falati</annotation>
+		<annotation cp="🥙">falati | mā</annotation>
 		<annotation cp="🥙" type="tts">mā falati</annotation>
 		<annotation cp="🧆">falafeli</annotation>
 		<annotation cp="🧆" type="tts">falafeli</annotation>
@@ -2103,79 +2115,79 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥚" type="tts">fuaʻimoa</annotation>
 		<annotation cp="🍳">fakapaku</annotation>
 		<annotation cp="🍳" type="tts">fakapaku</annotation>
-		<annotation cp="🥘">fakapaku meʻakai</annotation>
+		<annotation cp="🥘">fakapaku | meʻakai</annotation>
 		<annotation cp="🥘" type="tts">fakapaku meʻakai</annotation>
-		<annotation cp="🍲">kulo meʻakai</annotation>
+		<annotation cp="🍲">kulo | meʻakai</annotation>
 		<annotation cp="🍲" type="tts">kulo meʻakai</annotation>
-		<annotation cp="🫕">siisi māfana</annotation>
+		<annotation cp="🫕">kulo | siisi | siisi māfana</annotation>
 		<annotation cp="🫕" type="tts">siisi māfana</annotation>
-		<annotation cp="🥣">poulu moe sepuni</annotation>
+		<annotation cp="🥣">poulu | poulu moe sepuni | sepuni</annotation>
 		<annotation cp="🥣" type="tts">poulu moe sepuni</annotation>
 		<annotation cp="🥗">salati</annotation>
 		<annotation cp="🥗" type="tts">salati</annotation>
-		<annotation cp="🍿">koane fakapaku</annotation>
+		<annotation cp="🍿">fakapaku | koane</annotation>
 		<annotation cp="🍿" type="tts">koane fakapaku</annotation>
 		<annotation cp="🧈">pata</annotation>
 		<annotation cp="🧈" type="tts">pata</annotation>
 		<annotation cp="🧂">masima</annotation>
 		<annotation cp="🧂" type="tts">masima</annotation>
-		<annotation cp="🥫">meʻakai kapa</annotation>
+		<annotation cp="🥫">kapa | meʻakai</annotation>
 		<annotation cp="🥫" type="tts">meʻakai kapa</annotation>
-		<annotation cp="🍱">puha meʻakai fakasiapani</annotation>
+		<annotation cp="🍱">meʻakai | puha | puha meʻakai fakasiapani | Siapani</annotation>
 		<annotation cp="🍱" type="tts">puha meʻakai fakasiapani</annotation>
-		<annotation cp="🍘">pisikete laise</annotation>
+		<annotation cp="🍘">laise | pisikete</annotation>
 		<annotation cp="🍘" type="tts">pisikete laise</annotation>
-		<annotation cp="🍙">puluʻi laise</annotation>
+		<annotation cp="🍙">laise | pulu | puluʻi laise | Siapani</annotation>
 		<annotation cp="🍙" type="tts">puluʻi laise</annotation>
-		<annotation cp="🍚">laise moho</annotation>
+		<annotation cp="🍚">laise | moho</annotation>
 		<annotation cp="🍚" type="tts">laise moho</annotation>
-		<annotation cp="🍛">laise kale</annotation>
+		<annotation cp="🍛">kale | laise</annotation>
 		<annotation cp="🍛" type="tts">laise kale</annotation>
-		<annotation cp="🍜">kulo mao</annotation>
+		<annotation cp="🍜">kulo | mao | nutolo</annotation>
 		<annotation cp="🍜" type="tts">kulo mao</annotation>
 		<annotation cp="🍝">sipeketi</annotation>
 		<annotation cp="🍝" type="tts">sipeketi</annotation>
-		<annotation cp="🍠">kumala tunu</annotation>
+		<annotation cp="🍠">kumala | kumala tunu</annotation>
 		<annotation cp="🍠" type="tts">kumala tunu</annotation>
 		<annotation cp="🍢">ʻoteni</annotation>
 		<annotation cp="🍢" type="tts">ʻoteni</annotation>
 		<annotation cp="🍣">susi</annotation>
 		<annotation cp="🍣" type="tts">susi</annotation>
-		<annotation cp="🍤">ʻuosiʻisiʻi fakapaku</annotation>
+		<annotation cp="🍤">ʻuo | ʻuosiʻisiʻi fakapaku | paku</annotation>
 		<annotation cp="🍤" type="tts">ʻuosiʻisiʻi fakapaku</annotation>
-		<annotation cp="🍥">keke ika</annotation>
+		<annotation cp="🍥">ika | keke</annotation>
 		<annotation cp="🍥" type="tts">keke ika</annotation>
-		<annotation cp="🥮">keke māhina</annotation>
+		<annotation cp="🥮">keke | māhina</annotation>
 		<annotation cp="🥮" type="tts">keke māhina</annotation>
-		<annotation cp="🍡">faikakai fakasiapani</annotation>
+		<annotation cp="🍡">faikakai | faikakai fakasiapani | Siapani</annotation>
 		<annotation cp="🍡" type="tts">faikakai fakasiapani</annotation>
 		<annotation cp="🥟">tōpai</annotation>
 		<annotation cp="🥟" type="tts">tōpai</annotation>
-		<annotation cp="🥠">pisikete talamonū</annotation>
+		<annotation cp="🥠">pisikete | talamonū</annotation>
 		<annotation cp="🥠" type="tts">pisikete talamonū</annotation>
-		<annotation cp="🥡">kato meʻakai</annotation>
+		<annotation cp="🥡">kato | meʻakai</annotation>
 		<annotation cp="🥡" type="tts">kato meʻakai</annotation>
 		<annotation cp="🦀">paka</annotation>
 		<annotation cp="🦀" type="tts">paka</annotation>
 		<annotation cp="🦞">ʻuo</annotation>
 		<annotation cp="🦞" type="tts">ʻuo</annotation>
-		<annotation cp="🦐">ʻuosiʻisiʻi</annotation>
+		<annotation cp="🦐">ʻuo | ʻuosiʻisiʻi</annotation>
 		<annotation cp="🦐" type="tts">ʻuosiʻisiʻi</annotation>
 		<annotation cp="🦑">ngūfeke</annotation>
 		<annotation cp="🦑" type="tts">ngūfeke</annotation>
 		<annotation cp="🦪">mataʻitofe | tofe</annotation>
 		<annotation cp="🦪" type="tts">tofe</annotation>
-		<annotation cp="🍦">ʻaisikilimi molū</annotation>
+		<annotation cp="🍦">ʻaisikilimi | ʻaisikilimi molū</annotation>
 		<annotation cp="🍦" type="tts">ʻaisikilimi molū</annotation>
 		<annotation cp="🍧">ʻaisitele</annotation>
 		<annotation cp="🍧" type="tts">ʻaisitele</annotation>
 		<annotation cp="🍨">ʻaisikilimi</annotation>
 		<annotation cp="🍨" type="tts">ʻaisikilimi</annotation>
-		<annotation cp="🍩">keke fakapaku</annotation>
+		<annotation cp="🍩">keke | keke fakapaku | paku</annotation>
 		<annotation cp="🍩" type="tts">keke fakapaku</annotation>
 		<annotation cp="🍪">pisikete</annotation>
 		<annotation cp="🍪" type="tts">pisikete</annotation>
-		<annotation cp="🎂">keke ʻaho fāʻeleʻi</annotation>
+		<annotation cp="🎂">keke | keke ʻaho fāʻeleʻi | teʻelango</annotation>
 		<annotation cp="🎂" type="tts">keke ʻaho fāʻeleʻi</annotation>
 		<annotation cp="🍰">keke</annotation>
 		<annotation cp="🍰" type="tts">keke</annotation>
@@ -2183,661 +2195,673 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧁" type="tts">ipukeke</annotation>
 		<annotation cp="🥧">pai</annotation>
 		<annotation cp="🥧" type="tts">pai</annotation>
-		<annotation cp="🍫">lole sokaleti</annotation>
+		<annotation cp="🍫">lole | sokaleti</annotation>
 		<annotation cp="🍫" type="tts">lole sokaleti</annotation>
 		<annotation cp="🍬">lole</annotation>
 		<annotation cp="🍬" type="tts">lole</annotation>
-		<annotation cp="🍭">lolepopi</annotation>
+		<annotation cp="🍭">lole | lolepopi | popi</annotation>
 		<annotation cp="🍭" type="tts">lolepopi</annotation>
 		<annotation cp="🍮">kasitati</annotation>
 		<annotation cp="🍮" type="tts">kasitati</annotation>
-		<annotation cp="🍯">kulo hone</annotation>
+		<annotation cp="🍯">hone | kulo</annotation>
 		<annotation cp="🍯" type="tts">kulo hone</annotation>
 		<annotation cp="🍼">hinahuhu</annotation>
 		<annotation cp="🍼" type="tts">hinahuhu</annotation>
-		<annotation cp="🥛">ipu huʻakau</annotation>
+		<annotation cp="🥛">huʻakau | ipu</annotation>
 		<annotation cp="🥛" type="tts">ipu huʻakau</annotation>
-		<annotation cp="☕">inu māfana</annotation>
+		<annotation cp="☕">inu | ipu | kofi | māfana</annotation>
 		<annotation cp="☕" type="tts">inu māfana</annotation>
 		<annotation cp="🫖">tīpota</annotation>
 		<annotation cp="🫖" type="tts">tīpota</annotation>
-		<annotation cp="🍵">ipu tī</annotation>
+		<annotation cp="🍵">inu | ipu | māfana | tī</annotation>
 		<annotation cp="🍵" type="tts">ipu tī</annotation>
-		<annotation cp="🍶">uaine-laise</annotation>
+		<annotation cp="🍶">laise | uaine | uaine-laise</annotation>
 		<annotation cp="🍶" type="tts">uaine-laise</annotation>
-		<annotation cp="🍾">hina moe ʻumosi</annotation>
+		<annotation cp="🍾">hina | hina moe ʻumosi | ʻumosi</annotation>
 		<annotation cp="🍾" type="tts">hina moe ʻumosi</annotation>
-		<annotation cp="🍷">ipu sioʻata uaine</annotation>
+		<annotation cp="🍷">ipu | sioʻata | uaine</annotation>
 		<annotation cp="🍷" type="tts">ipu sioʻata uaine</annotation>
-		<annotation cp="🍸">ipu sioʻata paati</annotation>
+		<annotation cp="🍸">ipu | ipu sioʻata paati | sioʻata</annotation>
 		<annotation cp="🍸" type="tts">ipu sioʻata paati</annotation>
 		<annotation cp="🍹">ʻotai</annotation>
 		<annotation cp="🍹" type="tts">ʻotai</annotation>
-		<annotation cp="🍺">moki pia</annotation>
+		<annotation cp="🍺">ipu | moki | pia | sioʻata</annotation>
 		<annotation cp="🍺" type="tts">moki pia</annotation>
-		<annotation cp="🍻">moki fakapaaki</annotation>
+		<annotation cp="🍻">fakapaaki | ipu | moki | ongo | pia | sioʻata</annotation>
 		<annotation cp="🍻" type="tts">moki fakapaaki</annotation>
-		<annotation cp="🥂">ipu sioʻata fakapaaki</annotation>
+		<annotation cp="🥂">fakapaaki | ipu | ongo | sioʻata</annotation>
 		<annotation cp="🥂" type="tts">ipu sioʻata fakapaaki</annotation>
-		<annotation cp="🥃">ipu sioʻata</annotation>
+		<annotation cp="🥃">ipu | sioʻata | uasike</annotation>
 		<annotation cp="🥃" type="tts">ipu sioʻata</annotation>
-		<annotation cp="🥤">ipu moe vaʻakauinu</annotation>
+		<annotation cp="🫗">ipu | lilingi | mahua | vai</annotation>
+		<annotation cp="🫗" type="tts">lilingi vai</annotation>
+		<annotation cp="🥤">ipu | ipu moe vaʻakauinu | vaʻakauinu</annotation>
 		<annotation cp="🥤" type="tts">ipu moe vaʻakauinu</annotation>
-		<annotation cp="🧋">tī maʻupu</annotation>
+		<annotation cp="🧋">maʻupu | tī</annotation>
 		<annotation cp="🧋" type="tts">tī maʻupu</annotation>
-		<annotation cp="🧃">puha inu</annotation>
+		<annotation cp="🧃">inu | puha</annotation>
 		<annotation cp="🧃" type="tts">puha inu</annotation>
-		<annotation cp="🧉">kofi fakaʻamelika-tonga</annotation>
+		<annotation cp="🧉">ʻAmelika-tonga | kofi | kofi fakaʻamelika-tonga</annotation>
 		<annotation cp="🧉" type="tts">kofi fakaʻamelika-tonga</annotation>
-		<annotation cp="🧊">puloka ʻaisi</annotation>
+		<annotation cp="🧊">ʻaisi | puloka</annotation>
 		<annotation cp="🧊" type="tts">puloka ʻaisi</annotation>
-		<annotation cp="🥢">vaʻakau kai</annotation>
+		<annotation cp="🥢">kai | vaʻakau</annotation>
 		<annotation cp="🥢" type="tts">vaʻakau kai</annotation>
-		<annotation cp="🍽">huhukai moe helekai moe peleti</annotation>
+		<annotation cp="🍽">helekai | huhukai | huhukai moe helekai moe peleti | peleti</annotation>
 		<annotation cp="🍽" type="tts">huhukai moe helekai moe peleti</annotation>
-		<annotation cp="🍴">huhukai moe helekai</annotation>
+		<annotation cp="🍴">helekai | huhukai | huhukai moe helekai</annotation>
 		<annotation cp="🍴" type="tts">huhukai moe helekai</annotation>
 		<annotation cp="🥄">sēpuni</annotation>
 		<annotation cp="🥄" type="tts">sēpuni</annotation>
-		<annotation cp="🔪">hele paipa</annotation>
+		<annotation cp="🔪">hele | hele paipa</annotation>
 		<annotation cp="🔪" type="tts">hele paipa</annotation>
-		<annotation cp="🏺">tukuʻanga uaine</annotation>
+		<annotation cp="🫙">ʻaiʻanga | maha | siā</annotation>
+		<annotation cp="🫙" type="tts">siā</annotation>
+		<annotation cp="🏺">tukuʻanga | uaine</annotation>
 		<annotation cp="🏺" type="tts">tukuʻanga uaine</annotation>
-		<annotation cp="🌍">kolope ʻasi mai ʻEulope-ʻAfilika</annotation>
+		<annotation cp="🌍">ʻAfilika | ʻEulope | kolope | kolope ʻasi mai ʻEulope-ʻAfilika | māmani</annotation>
 		<annotation cp="🌍" type="tts">kolope ʻasi mai ʻEulope-ʻAfilika</annotation>
-		<annotation cp="🌎">kolope ʻasi mai ongo ʻAmelika</annotation>
+		<annotation cp="🌎">ʻAmelika | kolope | kolope ʻasi mai ongo ʻAmelika | māmani</annotation>
 		<annotation cp="🌎" type="tts">kolope ʻasi mai ongo ʻAmelika</annotation>
-		<annotation cp="🌏">kolope ʻasi mai ʻĒsia-ʻAositelēlia</annotation>
+		<annotation cp="🌏">ʻAositelēlia | ʻĒsia | kolope | kolope ʻasi mai ʻĒsia-ʻAositelēlia | māmani</annotation>
 		<annotation cp="🌏" type="tts">kolope ʻasi mai ʻĒsia-ʻAositelēlia</annotation>
-		<annotation cp="🌐">kolope moe ngaahi melitiane</annotation>
+		<annotation cp="🌐">kolope | kolope moe ngaahi melitiane | māmani | melitiane</annotation>
 		<annotation cp="🌐" type="tts">kolope moe ngaahi melitiane</annotation>
-		<annotation cp="🗺">mape ʻo māmani</annotation>
+		<annotation cp="🗺">kolope | māmani | mape | mape ʻo māmani</annotation>
 		<annotation cp="🗺" type="tts">mape ʻo māmani</annotation>
-		<annotation cp="🗾">mape ʻoe Siapani</annotation>
+		<annotation cp="🗾">mape | mape ʻoe Siapani | Siapani</annotation>
 		<annotation cp="🗾" type="tts">mape ʻoe Siapani</annotation>
 		<annotation cp="🧭">kāpasa</annotation>
 		<annotation cp="🧭" type="tts">kāpasa</annotation>
-		<annotation cp="🏔">moʻunga ʻufiʻufiʻaki he sinou</annotation>
+		<annotation cp="🏔">moʻunga | moʻunga ʻufiʻufiʻaki he sinou | momoko | sinou</annotation>
 		<annotation cp="🏔" type="tts">moʻunga ʻufiʻufiʻaki he sinou</annotation>
 		<annotation cp="⛰">moʻunga</annotation>
 		<annotation cp="⛰" type="tts">moʻunga</annotation>
-		<annotation cp="🌋">moʻungaafi</annotation>
+		<annotation cp="🌋">laku | moʻungaafi | puna</annotation>
 		<annotation cp="🌋" type="tts">moʻungaafi</annotation>
-		<annotation cp="🗻">moʻunga ko Fusi</annotation>
+		<annotation cp="🗻">Fusi | moʻunga | moʻunga ko Fusi | Siapani</annotation>
 		<annotation cp="🗻" type="tts">moʻunga ko Fusi</annotation>
-		<annotation cp="🏕">fakateniti</annotation>
+		<annotation cp="🏕">fakateniti | teniti</annotation>
 		<annotation cp="🏕" type="tts">fakateniti</annotation>
-		<annotation cp="🏖">matātahi moe fakamalu</annotation>
+		<annotation cp="🏖">fakamalu | matātahi | matātahi moe fakamalu</annotation>
 		<annotation cp="🏖" type="tts">matātahi moe fakamalu</annotation>
-		<annotation cp="🏜">toafa</annotation>
+		<annotation cp="🏜">ʻoneʻone | kakatisi | toafa</annotation>
 		<annotation cp="🏜" type="tts">toafa</annotation>
-		<annotation cp="🏝">motu liʻekina</annotation>
+		<annotation cp="🏝">liʻekina | motu | niu</annotation>
 		<annotation cp="🏝" type="tts">motu liʻekina</annotation>
-		<annotation cp="🏞">paʻake fakafonua</annotation>
+		<annotation cp="🏞">fakafonua | paʻake</annotation>
 		<annotation cp="🏞" type="tts">paʻake fakafonua</annotation>
-		<annotation cp="🏟">fale sipoti</annotation>
+		<annotation cp="🏟">fale | sipoti</annotation>
 		<annotation cp="🏟" type="tts">fale sipoti</annotation>
-		<annotation cp="🏛">fale fakakalisi/loma</annotation>
+		<annotation cp="🏛">fale | fale fakakalisi/loma | Kalisi | Loma</annotation>
 		<annotation cp="🏛" type="tts">fale fakakalisi/loma</annotation>
-		<annotation cp="🏗">langa fale</annotation>
+		<annotation cp="🏗">fale | langa</annotation>
 		<annotation cp="🏗" type="tts">langa fale</annotation>
-		<annotation cp="🧱">piliki</annotation>
+		<annotation cp="🧱">holisi | piliki</annotation>
 		<annotation cp="🧱" type="tts">piliki</annotation>
 		<annotation cp="🪨">maka</annotation>
 		<annotation cp="🪨" type="tts">maka</annotation>
 		<annotation cp="🪵">ʻakau</annotation>
 		<annotation cp="🪵" type="tts">ʻakau</annotation>
-		<annotation cp="🛖">fale ʻuta</annotation>
+		<annotation cp="🛖">fale | ʻuta</annotation>
 		<annotation cp="🛖" type="tts">fale ʻuta</annotation>
-		<annotation cp="🏘">ngaahi fale</annotation>
+		<annotation cp="🏘">fale | ngaahi fale</annotation>
 		<annotation cp="🏘" type="tts">ngaahi fale</annotation>
-		<annotation cp="🏚">lusaʻanga</annotation>
+		<annotation cp="🏚">fale | lusaʻanga</annotation>
 		<annotation cp="🏚" type="tts">lusaʻanga</annotation>
 		<annotation cp="🏠">fale</annotation>
 		<annotation cp="🏠" type="tts">fale</annotation>
-		<annotation cp="🏡">fale moe ngoue</annotation>
+		<annotation cp="🏡">fale | fale moe ngoue | ngoue</annotation>
 		<annotation cp="🏡" type="tts">fale moe ngoue</annotation>
-		<annotation cp="🏢">fale ʻōfisi</annotation>
+		<annotation cp="🏢">fale | ʻōfisi</annotation>
 		<annotation cp="🏢" type="tts">fale ʻōfisi</annotation>
-		<annotation cp="🏣">ʻōfisi lītohi fakasiapani</annotation>
+		<annotation cp="🏣">ʻōfisi | ʻōfisi lītohi fakasiapani | lītohi | Siapani</annotation>
 		<annotation cp="🏣" type="tts">ʻōfisi lītohi fakasiapani</annotation>
-		<annotation cp="🏤">ʻōfisi lītohi</annotation>
+		<annotation cp="🏤">ʻōfisi | lītohi</annotation>
 		<annotation cp="🏤" type="tts">ʻōfisi lītohi</annotation>
-		<annotation cp="🏥">falemahaki</annotation>
+		<annotation cp="🏥">fale | falemahaki | mahaki</annotation>
 		<annotation cp="🏥" type="tts">falemahaki</annotation>
 		<annotation cp="🏦">pangikē</annotation>
 		<annotation cp="🏦" type="tts">pangikē</annotation>
-		<annotation cp="🏨">fale tali-fononga</annotation>
+		<annotation cp="🏨">fale | tali-fononga</annotation>
 		<annotation cp="🏨" type="tts">fale tali-fononga</annotation>
-		<annotation cp="🏩">fale paʻumutu</annotation>
+		<annotation cp="🏩">fale | paʻumutu</annotation>
 		<annotation cp="🏩" type="tts">fale paʻumutu</annotation>
 		<annotation cp="🏪">falekoloa</annotation>
 		<annotation cp="🏪" type="tts">falekoloa</annotation>
 		<annotation cp="🏫">faleako</annotation>
 		<annotation cp="🏫" type="tts">faleako</annotation>
-		<annotation cp="🏬">falekoloa lahi</annotation>
+		<annotation cp="🏬">falekoloa | falekoloa lahi</annotation>
 		<annotation cp="🏬" type="tts">falekoloa lahi</annotation>
-		<annotation cp="🏭">fale ngāueʻanga</annotation>
+		<annotation cp="🏭">fale | ngāueʻanga</annotation>
 		<annotation cp="🏭" type="tts">fale ngāueʻanga</annotation>
-		<annotation cp="🏯">pālasi fakasiapani</annotation>
+		<annotation cp="🏯">pālasi | pālasi fakasiapani | Siapani</annotation>
 		<annotation cp="🏯" type="tts">pālasi fakasiapani</annotation>
 		<annotation cp="🏰">pālasi</annotation>
 		<annotation cp="🏰" type="tts">pālasi</annotation>
-		<annotation cp="💒">mali</annotation>
+		<annotation cp="💒">falelotu | mali</annotation>
 		<annotation cp="💒" type="tts">mali</annotation>
-		<annotation cp="🗼">taua Tokiō</annotation>
+		<annotation cp="🗼">taua | Tokiō</annotation>
 		<annotation cp="🗼" type="tts">taua Tokiō</annotation>
-		<annotation cp="🗽">maka fakamanatu tauʻatāina</annotation>
+		<annotation cp="🗽">maka | maka fakamanatu tauʻatāina | tauʻatāina</annotation>
 		<annotation cp="🗽" type="tts">maka fakamanatu tauʻatāina</annotation>
 		<annotation cp="⛪">falelotu</annotation>
 		<annotation cp="⛪" type="tts">falelotu</annotation>
-		<annotation cp="🕌">falelotu fakaʻisilami</annotation>
+		<annotation cp="🕌">falelotu | falelotu fakaʻisilami | ʻisilami</annotation>
 		<annotation cp="🕌" type="tts">falelotu fakaʻisilami</annotation>
-		<annotation cp="🛕">falelotu fakahinitū</annotation>
+		<annotation cp="🛕">falelotu | falelotu fakahinitū | hinitū</annotation>
 		<annotation cp="🛕" type="tts">falelotu fakahinitū</annotation>
-		<annotation cp="🕍">falelotu fakasiu</annotation>
+		<annotation cp="🕍">falelotu | falelotu fakasiu | siu</annotation>
 		<annotation cp="🕍" type="tts">falelotu fakasiu</annotation>
-		<annotation cp="⛩">falelotu fakasiapani</annotation>
+		<annotation cp="⛩">falelotu | falelotu fakasiapani | Siapani</annotation>
 		<annotation cp="⛩" type="tts">falelotu fakasiapani</annotation>
-		<annotation cp="🕋">fale māʻoniʻoni fakaʻisilami</annotation>
+		<annotation cp="🕋">fale | fale māʻoniʻoni fakaʻisilami | ʻisilami | māʻoniʻoni</annotation>
 		<annotation cp="🕋" type="tts">fale māʻoniʻoni fakaʻisilami</annotation>
-		<annotation cp="⛲">fauniteni</annotation>
+		<annotation cp="⛲">fauniteni | punavai</annotation>
 		<annotation cp="⛲" type="tts">fauniteni</annotation>
 		<annotation cp="⛺">teniti</annotation>
 		<annotation cp="⛺" type="tts">teniti</annotation>
-		<annotation cp="🌁">fuʻukakapu</annotation>
+		<annotation cp="🌁">fale | fuʻukakapu | kakapu | kolo</annotation>
 		<annotation cp="🌁" type="tts">fuʻukakapu</annotation>
-		<annotation cp="🌃">pō fetuʻuʻia</annotation>
+		<annotation cp="🌃">fale | fetuʻu | kolo | pō | pō fetuʻuʻia</annotation>
 		<annotation cp="🌃" type="tts">pō fetuʻuʻia</annotation>
-		<annotation cp="🏙">fale lalahi lotokolo</annotation>
+		<annotation cp="🏙">fale | fale lalahi lotokolo | kolo</annotation>
 		<annotation cp="🏙" type="tts">fale lalahi lotokolo</annotation>
-		<annotation cp="🌄">hopo ʻae laʻā he funga moʻunga</annotation>
+		<annotation cp="🌄">hopo | hopo ʻae laʻā he funga moʻunga | laʻā | moʻunga | tō</annotation>
 		<annotation cp="🌄" type="tts">hopo ʻae laʻā he funga moʻunga</annotation>
-		<annotation cp="🌅">hopo ʻae laʻā</annotation>
+		<annotation cp="🌅">hopo | hopo ʻae laʻā | laʻā | tahi | tō</annotation>
 		<annotation cp="🌅" type="tts">hopo ʻae laʻā</annotation>
-		<annotation cp="🌆">fale lalahi lotokolo mamalu efiafi</annotation>
+		<annotation cp="🌆">fale | fale lalahi lotokolo mamalu efiafi | kolo | mamalu</annotation>
 		<annotation cp="🌆" type="tts">fale lalahi lotokolo mamalu efiafi</annotation>
-		<annotation cp="🌇">tō ʻae laʻā</annotation>
+		<annotation cp="🌇">fale | hopo | kolo | laʻā | tō | tō ʻae laʻā</annotation>
 		<annotation cp="🌇" type="tts">tō ʻae laʻā</annotation>
-		<annotation cp="🌉">hala kavakava poʻuli</annotation>
+		<annotation cp="🌉">fetuʻu | hala kavakava | hala kavakava poʻuli | pō</annotation>
 		<annotation cp="🌉" type="tts">hala kavakava poʻuli</annotation>
-		<annotation cp="♨">vaipuna mao</annotation>
+		<annotation cp="♨">mao | vaipuna</annotation>
 		<annotation cp="♨" type="tts">vaipuna mao</annotation>
-		<annotation cp="🎠">hoosi vaʻinga</annotation>
+		<annotation cp="🎠">hoosi | tākai | vaʻinga</annotation>
 		<annotation cp="🎠" type="tts">hoosi vaʻinga</annotation>
-		<annotation cp="🎡">veʻeteka vaʻinga</annotation>
+		<annotation cp="🛝">malaʻe | vaʻinga</annotation>
+		<annotation cp="🛝" type="tts">malaʻe vaʻinga</annotation>
+		<annotation cp="🎡">vaʻinga | veʻeteka</annotation>
 		<annotation cp="🎡" type="tts">veʻeteka vaʻinga</annotation>
-		<annotation cp="🎢">lola vaʻinga</annotation>
+		<annotation cp="🎢">lola | vaʻinga</annotation>
 		<annotation cp="🎢" type="tts">lola vaʻinga</annotation>
-		<annotation cp="💈">pou kosiʻulu</annotation>
+		<annotation cp="💈">kosiʻulu | pou</annotation>
 		<annotation cp="💈" type="tts">pou kosiʻulu</annotation>
-		<annotation cp="🎪">teniti sākisi</annotation>
+		<annotation cp="🎪">sākisi | teniti</annotation>
 		<annotation cp="🎪" type="tts">teniti sākisi</annotation>
-		<annotation cp="🚂">mīsini lēlue</annotation>
+		<annotation cp="🚂">lēlue | mīsini</annotation>
 		<annotation cp="🚂" type="tts">mīsini lēlue</annotation>
-		<annotation cp="🚃">sāliote lēlue</annotation>
+		<annotation cp="🚃">lēlue | sāliote</annotation>
 		<annotation cp="🚃" type="tts">sāliote lēlue</annotation>
-		<annotation cp="🚄">lēlue oma</annotation>
+		<annotation cp="🚄">lēlue | oma</annotation>
 		<annotation cp="🚄" type="tts">lēlue oma</annotation>
-		<annotation cp="🚅">lēlue oma fakasiapani</annotation>
+		<annotation cp="🚅">lēlue | lēlue oma fakasiapani | oma | Siapani</annotation>
 		<annotation cp="🚅" type="tts">lēlue oma fakasiapani</annotation>
 		<annotation cp="🚆">lēlue</annotation>
 		<annotation cp="🚆" type="tts">lēlue</annotation>
-		<annotation cp="🚇">lēlue lalofonua</annotation>
+		<annotation cp="🚇">lalofonua | lēlue</annotation>
 		<annotation cp="🚇" type="tts">lēlue lalofonua</annotation>
-		<annotation cp="🚈">kiʻi lēlue</annotation>
+		<annotation cp="🚈">kiʻi lēlue | lēlue</annotation>
 		<annotation cp="🚈" type="tts">kiʻi lēlue</annotation>
-		<annotation cp="🚉">tauʻanga lēlue</annotation>
+		<annotation cp="🚉">lēlue | tauʻanga</annotation>
 		<annotation cp="🚉" type="tts">tauʻanga lēlue</annotation>
 		<annotation cp="🚊">talamu</annotation>
 		<annotation cp="🚊" type="tts">talamu</annotation>
-		<annotation cp="🚝">lēlue poutaha</annotation>
+		<annotation cp="🚝">lēlue | poutaha</annotation>
 		<annotation cp="🚝" type="tts">lēlue poutaha</annotation>
-		<annotation cp="🚞">hala lēlue moʻunga</annotation>
+		<annotation cp="🚞">hala | lēlue | moʻunga</annotation>
 		<annotation cp="🚞" type="tts">hala lēlue moʻunga</annotation>
-		<annotation cp="🚋">sāliote talamu</annotation>
+		<annotation cp="🚋">sāliote | talamu</annotation>
 		<annotation cp="🚋" type="tts">sāliote talamu</annotation>
 		<annotation cp="🚌">pasi</annotation>
 		<annotation cp="🚌" type="tts">pasi</annotation>
-		<annotation cp="🚍">pasi lele mai</annotation>
+		<annotation cp="🚍">pasi | pasi lele mai</annotation>
 		<annotation cp="🚍" type="tts">pasi lele mai</annotation>
-		<annotation cp="🚎">pasi ʻuhila</annotation>
+		<annotation cp="🚎">ʻuhila | pasi</annotation>
 		<annotation cp="🚎" type="tts">pasi ʻuhila</annotation>
-		<annotation cp="🚐">pasi iiki</annotation>
+		<annotation cp="🚐">pasi | pasi iiki</annotation>
 		<annotation cp="🚐" type="tts">pasi iiki</annotation>
-		<annotation cp="🚑">meʻalele falemahaki</annotation>
+		<annotation cp="🚑">falemahaki | meʻalele</annotation>
 		<annotation cp="🚑" type="tts">meʻalele falemahaki</annotation>
 		<annotation cp="🚒">meʻalele tāmateafi</annotation>
 		<annotation cp="🚒" type="tts">meʻalele tāmateafi</annotation>
-		<annotation cp="🚓">meʻalele polisi</annotation>
+		<annotation cp="🚓">meʻalele | polisi</annotation>
 		<annotation cp="🚓" type="tts">meʻalele polisi</annotation>
-		<annotation cp="🚔">meʻalele polisi lele mai</annotation>
+		<annotation cp="🚔">meʻalele | meʻalele polisi lele mai | polisi</annotation>
 		<annotation cp="🚔" type="tts">meʻalele polisi lele mai</annotation>
-		<annotation cp="🚕">meʻalele utakakai</annotation>
+		<annotation cp="🚕">meʻalele | utakakai</annotation>
 		<annotation cp="🚕" type="tts">meʻalele utakakai</annotation>
-		<annotation cp="🚖">meʻalele utakakai lele mai</annotation>
+		<annotation cp="🚖">meʻalele | meʻalele utakakai lele mai | utakakai</annotation>
 		<annotation cp="🚖" type="tts">meʻalele utakakai lele mai</annotation>
 		<annotation cp="🚗">meʻalele</annotation>
 		<annotation cp="🚗" type="tts">meʻalele</annotation>
-		<annotation cp="🚘">meʻalele lele mai</annotation>
+		<annotation cp="🚘">meʻalele | meʻalele lele mai</annotation>
 		<annotation cp="🚘" type="tts">meʻalele lele mai</annotation>
-		<annotation cp="🚙">meʻalele sipoti</annotation>
+		<annotation cp="🚙">meʻalele | sipoti</annotation>
 		<annotation cp="🚙" type="tts">meʻalele sipoti</annotation>
-		<annotation cp="🛻">lolo tapolokepi</annotation>
+		<annotation cp="🛻">lolo | tapolokepi</annotation>
 		<annotation cp="🛻" type="tts">lolo tapolokepi</annotation>
-		<annotation cp="🚚">loli tiliva</annotation>
+		<annotation cp="🚚">loli | tiliva</annotation>
 		<annotation cp="🚚" type="tts">loli tiliva</annotation>
-		<annotation cp="🚛">loli uta lalahi</annotation>
+		<annotation cp="🚛">loli | loli uta lalahi | uta</annotation>
 		<annotation cp="🚛" type="tts">loli uta lalahi</annotation>
-		<annotation cp="🚜">mīsini taulani</annotation>
+		<annotation cp="🚜">mīsini | taulani</annotation>
 		<annotation cp="🚜" type="tts">mīsini taulani</annotation>
-		<annotation cp="🏎">meʻalele lova</annotation>
+		<annotation cp="🏎">lova | meʻalele</annotation>
 		<annotation cp="🏎" type="tts">meʻalele lova</annotation>
 		<annotation cp="🏍">motopaiki</annotation>
 		<annotation cp="🏍" type="tts">motopaiki</annotation>
-		<annotation cp="🛵">paiki sikuta</annotation>
+		<annotation cp="🛵">paiki | sikuta</annotation>
 		<annotation cp="🛵" type="tts">paiki sikuta</annotation>
-		<annotation cp="🦽">sāliote falemahaki</annotation>
+		<annotation cp="🦽">falemahaki | sāliote</annotation>
 		<annotation cp="🦽" type="tts">sāliote falemahaki</annotation>
-		<annotation cp="🦼">sāliote falemahaki mīsini</annotation>
+		<annotation cp="🦼">falemahaki | sāliote | sāliote falemahaki mīsini</annotation>
 		<annotation cp="🦼" type="tts">sāliote falemahaki mīsini</annotation>
-		<annotation cp="🛺">loli siʻisiʻi</annotation>
+		<annotation cp="🛺">loli | loli siʻisiʻi | tukituki</annotation>
 		<annotation cp="🛺" type="tts">loli siʻisiʻi</annotation>
 		<annotation cp="🚲">pasikala</annotation>
 		<annotation cp="🚲" type="tts">pasikala</annotation>
-		<annotation cp="🛴">sikuta kauleka</annotation>
+		<annotation cp="🛴">leka | sikuta | sikuta kauleka</annotation>
 		<annotation cp="🛴" type="tts">sikuta kauleka</annotation>
 		<annotation cp="🛹">papasikeiti</annotation>
 		<annotation cp="🛹" type="tts">papasikeiti</annotation>
-		<annotation cp="🛼">sū sikeiti</annotation>
+		<annotation cp="🛼">sikeiti | sū</annotation>
 		<annotation cp="🛼" type="tts">sū sikeiti</annotation>
-		<annotation cp="🚏">tauʻanga pasi</annotation>
+		<annotation cp="🚏">pasi | tauʻanga</annotation>
 		<annotation cp="🚏" type="tts">tauʻanga pasi</annotation>
-		<annotation cp="🛣">hala lahi</annotation>
+		<annotation cp="🛣">hala | hala lahi</annotation>
 		<annotation cp="🛣" type="tts">hala lahi</annotation>
-		<annotation cp="🛤">hala lēlue</annotation>
+		<annotation cp="🛤">hala | lēlue</annotation>
 		<annotation cp="🛤" type="tts">hala lēlue</annotation>
-		<annotation cp="🛢">talamulolo</annotation>
+		<annotation cp="🛢">lolo | talamu | talamulolo</annotation>
 		<annotation cp="🛢" type="tts">talamulolo</annotation>
 		<annotation cp="⛽">pausa</annotation>
 		<annotation cp="⛽" type="tts">pausa</annotation>
-		<annotation cp="🚨">maama meʻalele polisi</annotation>
+		<annotation cp="🛞">afe | seakale | veʻelapa</annotation>
+		<annotation cp="🛞" type="tts">veʻelapa</annotation>
+		<annotation cp="🚨">maama | meʻalele | polisi</annotation>
 		<annotation cp="🚨" type="tts">maama meʻalele polisi</annotation>
-		<annotation cp="🚥">maama hala fakalava</annotation>
+		<annotation cp="🚥">hala | maama | maama hala fakalava | tolu</annotation>
 		<annotation cp="🚥" type="tts">maama hala fakalava</annotation>
-		<annotation cp="🚦">maama hala tuʻutonu</annotation>
+		<annotation cp="🚦">hala | maama | maama hala tuʻutonu | tolu</annotation>
 		<annotation cp="🚦" type="tts">maama hala tuʻutonu</annotation>
-		<annotation cp="🛑">fakaʻilonga tuʻu</annotation>
+		<annotation cp="🛑">fakaʻilonga | kulokula | tuʻu</annotation>
 		<annotation cp="🛑" type="tts">fakaʻilonga tuʻu</annotation>
-		<annotation cp="🚧">fakaʻilonga ngāue langa</annotation>
+		<annotation cp="🚧">fakaʻilonga | fakaʻilonga ngāue langa | ngāue</annotation>
 		<annotation cp="🚧" type="tts">fakaʻilonga ngāue langa</annotation>
 		<annotation cp="⚓">taula</annotation>
 		<annotation cp="⚓" type="tts">taula</annotation>
+		<annotation cp="🛟">fakahaofi | moʻui | poe | vaka</annotation>
+		<annotation cp="🛟" type="tts">poe</annotation>
 		<annotation cp="⛵">vakalā</annotation>
 		<annotation cp="⛵" type="tts">vakalā</annotation>
 		<annotation cp="🛶">pōpao</annotation>
 		<annotation cp="🛶" type="tts">pōpao</annotation>
-		<annotation cp="🚤">vaka oma</annotation>
+		<annotation cp="🚤">oma | vaka</annotation>
 		<annotation cp="🚤" type="tts">vaka oma</annotation>
 		<annotation cp="🛳">vaka meili</annotation>
 		<annotation cp="🛳" type="tts">vaka meili</annotation>
-		<annotation cp="⛴">vaka uta pāsese</annotation>
+		<annotation cp="⛴">pāsese | vaka | vaka uta pāsese</annotation>
 		<annotation cp="⛴" type="tts">vaka uta pāsese</annotation>
-		<annotation cp="🛥">vaka mīsini</annotation>
+		<annotation cp="🛥">mīsini | vaka</annotation>
 		<annotation cp="🛥" type="tts">vaka mīsini</annotation>
-		<annotation cp="🚢">vakalahi</annotation>
+		<annotation cp="🚢">vaka | vakalahi</annotation>
 		<annotation cp="🚢" type="tts">vakalahi</annotation>
 		<annotation cp="✈">vakapuna</annotation>
 		<annotation cp="✈" type="tts">vakapuna</annotation>
-		<annotation cp="🛩">vakapuna iiki</annotation>
+		<annotation cp="🛩">vakapuna | vakapuna iiki</annotation>
 		<annotation cp="🛩" type="tts">vakapuna iiki</annotation>
-		<annotation cp="🛫">vakapuna puna hake</annotation>
+		<annotation cp="🛫">hake | puna | vakapuna</annotation>
 		<annotation cp="🛫" type="tts">vakapuna puna hake</annotation>
-		<annotation cp="🛬">vakapuna puna hifo</annotation>
+		<annotation cp="🛬">hifo | puna | vakapuna</annotation>
 		<annotation cp="🛬" type="tts">vakapuna puna hifo</annotation>
 		<annotation cp="🪂">fakamalu | fakatō</annotation>
 		<annotation cp="🪂" type="tts">fakamalu fakatō</annotation>
-		<annotation cp="💺">sea vakapuna</annotation>
+		<annotation cp="💺">sea | vakapuna</annotation>
 		<annotation cp="💺" type="tts">sea vakapuna</annotation>
 		<annotation cp="🚁">helikopeta</annotation>
 		<annotation cp="🚁" type="tts">helikopeta</annotation>
-		<annotation cp="🚟">lēlue tāupe lahi</annotation>
+		<annotation cp="🚟">lēlue | lēlue tāupe lahi | tāupe</annotation>
 		<annotation cp="🚟" type="tts">lēlue tāupe lahi</annotation>
-		<annotation cp="🚠">lēlue tāupe moʻunga</annotation>
+		<annotation cp="🚠">lēlue | moʻunga | tāupe</annotation>
 		<annotation cp="🚠" type="tts">lēlue tāupe moʻunga</annotation>
-		<annotation cp="🚡">lēlue tāupe iiki</annotation>
+		<annotation cp="🚡">lēlue | lēlue tāupe iiki | tāupe</annotation>
 		<annotation cp="🚡" type="tts">lēlue tāupe iiki</annotation>
 		<annotation cp="🛰">satelaite</annotation>
 		<annotation cp="🛰" type="tts">satelaite</annotation>
 		<annotation cp="🚀">loketi</annotation>
 		<annotation cp="🚀" type="tts">loketi</annotation>
-		<annotation cp="🛸">peleti puna</annotation>
+		<annotation cp="🛸">peleti | puna</annotation>
 		<annotation cp="🛸" type="tts">peleti puna</annotation>
-		<annotation cp="🛎">fafangu hotele</annotation>
+		<annotation cp="🛎">fafangu | hotele</annotation>
 		<annotation cp="🛎" type="tts">fafangu hotele</annotation>
 		<annotation cp="🧳">katoleta</annotation>
 		<annotation cp="🧳" type="tts">katoleta</annotation>
-		<annotation cp="⌛">sioʻata fuataimi ʻosi</annotation>
+		<annotation cp="⌛">fuataimi | ʻosi | sioʻata</annotation>
 		<annotation cp="⌛" type="tts">sioʻata fuataimi ʻosi</annotation>
-		<annotation cp="⏳">sioʻata fuataimi teʻeki ʻosi</annotation>
+		<annotation cp="⏳">fuataimi | lolotonga | sioʻata | sioʻata fuataimi teʻeki ʻosi</annotation>
 		<annotation cp="⏳" type="tts">sioʻata fuataimi teʻeki ʻosi</annotation>
 		<annotation cp="⌚">uasi</annotation>
 		<annotation cp="⌚" type="tts">uasi</annotation>
-		<annotation cp="⏰">uasi fafangu</annotation>
+		<annotation cp="⏰">fafangu | uasi</annotation>
 		<annotation cp="⏰" type="tts">uasi fafangu</annotation>
-		<annotation cp="⏱">uasi sipoti</annotation>
+		<annotation cp="⏱">sipoti | uasi</annotation>
 		<annotation cp="⏱" type="tts">uasi sipoti</annotation>
-		<annotation cp="⏲">uasi talataimi</annotation>
+		<annotation cp="⏲">talataimi | uasi</annotation>
 		<annotation cp="⏲" type="tts">uasi talataimi</annotation>
-		<annotation cp="🕰">uasi tuʻulotofale</annotation>
+		<annotation cp="🕰">lotofale | uasi | uasi tuʻulotofale</annotation>
 		<annotation cp="🕰" type="tts">uasi tuʻulotofale</annotation>
-		<annotation cp="🕛">hoko ʻae tahaua</annotation>
+		<annotation cp="🕛">12 | 12:00 | hoko ʻae tahaua | uasi</annotation>
 		<annotation cp="🕛" type="tts">hoko ʻae tahaua</annotation>
-		<annotation cp="🕧">haafe taha</annotation>
+		<annotation cp="🕧">12:30 | haafe | haafe taha | uasi</annotation>
 		<annotation cp="🕧" type="tts">haafe taha</annotation>
-		<annotation cp="🕐">hoko ʻae taha</annotation>
+		<annotation cp="🕐">1 | 1:00 | hoko ʻae taha | uasi</annotation>
 		<annotation cp="🕐" type="tts">hoko ʻae taha</annotation>
-		<annotation cp="🕜">haafe ua</annotation>
+		<annotation cp="🕜">1:30 | haafe | haafe ua | uasi</annotation>
 		<annotation cp="🕜" type="tts">haafe ua</annotation>
-		<annotation cp="🕑">hoko ʻae ua</annotation>
+		<annotation cp="🕑">2 | 2:00 | hoko ʻae ua | uasi</annotation>
 		<annotation cp="🕑" type="tts">hoko ʻae ua</annotation>
-		<annotation cp="🕝">haafe tolu</annotation>
+		<annotation cp="🕝">2:30 | haafe | haafe tolu | uasi</annotation>
 		<annotation cp="🕝" type="tts">haafe tolu</annotation>
-		<annotation cp="🕒">hoko ʻae tolu</annotation>
+		<annotation cp="🕒">3 | 3:00 | hoko ʻae tolu | uasi</annotation>
 		<annotation cp="🕒" type="tts">hoko ʻae tolu</annotation>
-		<annotation cp="🕞">haafe fā</annotation>
+		<annotation cp="🕞">3:30 | haafe | haafe fā | uasi</annotation>
 		<annotation cp="🕞" type="tts">haafe fā</annotation>
-		<annotation cp="🕓">hoko ʻae fā</annotation>
+		<annotation cp="🕓">4 | 4:00 | hoko ʻae fā | uasi</annotation>
 		<annotation cp="🕓" type="tts">hoko ʻae fā</annotation>
-		<annotation cp="🕟">haafe nima</annotation>
+		<annotation cp="🕟">4:30 | haafe | haafe nima | uasi</annotation>
 		<annotation cp="🕟" type="tts">haafe nima</annotation>
-		<annotation cp="🕔">hoko ʻae nima</annotation>
+		<annotation cp="🕔">5 | 5:00 | hoko ʻae nima | uasi</annotation>
 		<annotation cp="🕔" type="tts">hoko ʻae nima</annotation>
-		<annotation cp="🕠">haafe ono</annotation>
+		<annotation cp="🕠">5:30 | haafe | haafe ono | uasi</annotation>
 		<annotation cp="🕠" type="tts">haafe ono</annotation>
-		<annotation cp="🕕">hoko ʻae ono</annotation>
+		<annotation cp="🕕">6 | 6:00 | hoko ʻae ono | uasi</annotation>
 		<annotation cp="🕕" type="tts">hoko ʻae ono</annotation>
-		<annotation cp="🕡">haafe fitu</annotation>
+		<annotation cp="🕡">6:30 | haafe | haafe fitu | uasi</annotation>
 		<annotation cp="🕡" type="tts">haafe fitu</annotation>
-		<annotation cp="🕖">hoko ʻae fitu</annotation>
+		<annotation cp="🕖">7 | 7:00 | hoko ʻae fitu | uasi</annotation>
 		<annotation cp="🕖" type="tts">hoko ʻae fitu</annotation>
-		<annotation cp="🕢">haafe valu</annotation>
+		<annotation cp="🕢">7:30 | haafe | haafe valu | uasi</annotation>
 		<annotation cp="🕢" type="tts">haafe valu</annotation>
-		<annotation cp="🕗">hoko ʻae valu</annotation>
+		<annotation cp="🕗">8 | 8:00 | hoko ʻae valu | uasi</annotation>
 		<annotation cp="🕗" type="tts">hoko ʻae valu</annotation>
-		<annotation cp="🕣">haafe hiva</annotation>
+		<annotation cp="🕣">8:30 | haafe | haafe hiva | uasi</annotation>
 		<annotation cp="🕣" type="tts">haafe hiva</annotation>
-		<annotation cp="🕘">hoko ʻae hiva</annotation>
+		<annotation cp="🕘">9 | 9:00 | hoko ʻae hiva | uasi</annotation>
 		<annotation cp="🕘" type="tts">hoko ʻae hiva</annotation>
-		<annotation cp="🕤">haafe hongofulu</annotation>
+		<annotation cp="🕤">9:30 | haafe | haafe hongofulu | uasi</annotation>
 		<annotation cp="🕤" type="tts">haafe hongofulu</annotation>
-		<annotation cp="🕙">hoko ʻae hongofulu</annotation>
+		<annotation cp="🕙">10 | 10:00 | hoko ʻae hongofulu | uasi</annotation>
 		<annotation cp="🕙" type="tts">hoko ʻae hongofulu</annotation>
-		<annotation cp="🕥">haafe tahataha</annotation>
+		<annotation cp="🕥">10:30 | haafe | haafe tahataha | uasi</annotation>
 		<annotation cp="🕥" type="tts">haafe tahataha</annotation>
-		<annotation cp="🕚">hoko ʻae tahataha</annotation>
+		<annotation cp="🕚">11 | 11:00 | hoko ʻae tahataha | uasi</annotation>
 		<annotation cp="🕚" type="tts">hoko ʻae tahataha</annotation>
-		<annotation cp="🕦">haafe tahaua</annotation>
+		<annotation cp="🕦">11:30 | haafe | haafe tahaua | uasi</annotation>
 		<annotation cp="🕦" type="tts">haafe tahaua</annotation>
-		<annotation cp="🌑">mate ʻae māhina</annotation>
+		<annotation cp="🌑">māhina | mate | mate ʻae māhina</annotation>
 		<annotation cp="🌑" type="tts">mate ʻae māhina</annotation>
-		<annotation cp="🌒">māhina ʻilo ʻehe maama</annotation>
+		<annotation cp="🌒">kalipa | māhina | māhina ʻilo ʻehe maama</annotation>
 		<annotation cp="🌒" type="tts">māhina ʻilo ʻehe maama</annotation>
-		<annotation cp="🌓">māhina tuʻu efiafi</annotation>
+		<annotation cp="🌓">māhina | māhina tuʻu efiafi | vaeua</annotation>
 		<annotation cp="🌓" type="tts">māhina tuʻu efiafi</annotation>
-		<annotation cp="🌔">māhina matofi</annotation>
+		<annotation cp="🌔">māhina | māhina matofi</annotation>
 		<annotation cp="🌔" type="tts">māhina matofi</annotation>
-		<annotation cp="🌕">māhina kātoa</annotation>
+		<annotation cp="🌕">kātoa | māhina</annotation>
 		<annotation cp="🌕" type="tts">māhina kātoa</annotation>
-		<annotation cp="🌖">māhina lekeleka</annotation>
+		<annotation cp="🌖">māhina | māhina lekeleka</annotation>
 		<annotation cp="🌖" type="tts">māhina lekeleka</annotation>
-		<annotation cp="🌗">māhina tuʻu hengihengi</annotation>
+		<annotation cp="🌗">māhina | māhina tuʻu hengihengi | vaeua</annotation>
 		<annotation cp="🌗" type="tts">māhina tuʻu hengihengi</annotation>
-		<annotation cp="🌘">māhina silipō</annotation>
+		<annotation cp="🌘">kalipa | māhina | māhina silipō</annotation>
 		<annotation cp="🌘" type="tts">māhina silipō</annotation>
-		<annotation cp="🌙">māhina kalipa</annotation>
+		<annotation cp="🌙">kalipa | māhina</annotation>
 		<annotation cp="🌙" type="tts">māhina kalipa</annotation>
-		<annotation cp="🌚">mata mate ʻae māhina</annotation>
+		<annotation cp="🌚">māhina | mata | mata mate ʻae māhina | mate</annotation>
 		<annotation cp="🌚" type="tts">mata mate ʻae māhina</annotation>
-		<annotation cp="🌛">mata māhina tuʻu efiafi</annotation>
+		<annotation cp="🌛">kalipa | māhina | mata | mata māhina tuʻu efiafi</annotation>
 		<annotation cp="🌛" type="tts">mata māhina tuʻu efiafi</annotation>
-		<annotation cp="🌜">mata māhina tuʻu hengihengi</annotation>
+		<annotation cp="🌜">kalipa | māhina | mata | mata māhina tuʻu hengihengi</annotation>
 		<annotation cp="🌜" type="tts">mata māhina tuʻu hengihengi</annotation>
 		<annotation cp="🌡">fuamāfana</annotation>
 		<annotation cp="🌡" type="tts">fuamāfana</annotation>
 		<annotation cp="☀">laʻā</annotation>
 		<annotation cp="☀" type="tts">laʻā</annotation>
-		<annotation cp="🌝">mata māhina kātoa</annotation>
+		<annotation cp="🌝">kātoa | māhina | mata</annotation>
 		<annotation cp="🌝" type="tts">mata māhina kātoa</annotation>
-		<annotation cp="🌞">mata e laʻā</annotation>
+		<annotation cp="🌞">laʻā | mata | mata e laʻā</annotation>
 		<annotation cp="🌞" type="tts">mata e laʻā</annotation>
 		<annotation cp="🪐">palanite mama | Sātuna</annotation>
 		<annotation cp="🪐" type="tts">palanite mama</annotation>
 		<annotation cp="⭐">fetuʻu</annotation>
 		<annotation cp="⭐" type="tts">fetuʻu</annotation>
-		<annotation cp="🌟">fetuʻu ngingila</annotation>
+		<annotation cp="🌟">fetuʻu | ngingila</annotation>
 		<annotation cp="🌟" type="tts">fetuʻu ngingila</annotation>
-		<annotation cp="🌠">fetuʻu ʻesiafi</annotation>
+		<annotation cp="🌠">fetuʻu | ʻesiafi</annotation>
 		<annotation cp="🌠" type="tts">fetuʻu ʻesiafi</annotation>
 		<annotation cp="🌌">kaniva</annotation>
 		<annotation cp="🌌" type="tts">kaniva</annotation>
 		<annotation cp="☁">ʻao</annotation>
 		<annotation cp="☁" type="tts">ʻao</annotation>
-		<annotation cp="⛅">laʻā ʻaoʻaofia</annotation>
+		<annotation cp="⛅">ʻao | laʻā | laʻā ʻaoʻaofia</annotation>
 		<annotation cp="⛅" type="tts">laʻā ʻaoʻaofia</annotation>
-		<annotation cp="⛈">ʻao moe ʻuha moe ʻuhila</annotation>
+		<annotation cp="⛈">ʻao | ʻao moe ʻuha moe ʻuhila | ʻuha | ʻuhila</annotation>
 		<annotation cp="⛈" type="tts">ʻao moe ʻuha moe ʻuhila</annotation>
-		<annotation cp="🌤">ʻaoʻaofia siʻi</annotation>
+		<annotation cp="🌤">ʻao | ʻaoʻaofia siʻi | laʻā</annotation>
 		<annotation cp="🌤" type="tts">ʻaoʻaofia siʻi</annotation>
-		<annotation cp="🌥">ʻaoʻaofia lahi</annotation>
+		<annotation cp="🌥">ʻao | ʻaoʻaofia lahi | laʻā</annotation>
 		<annotation cp="🌥" type="tts">ʻaoʻaofia lahi</annotation>
-		<annotation cp="🌦">ʻaoʻaofia ʻuha</annotation>
+		<annotation cp="🌦">ʻao | ʻaoʻaofia ʻuha | ʻuha | laʻā</annotation>
 		<annotation cp="🌦" type="tts">ʻaoʻaofia ʻuha</annotation>
-		<annotation cp="🌧">ʻuha ʻaoʻaofia</annotation>
+		<annotation cp="🌧">ʻao | ʻuha | ʻuha ʻaoʻaofia</annotation>
 		<annotation cp="🌧" type="tts">ʻuha ʻaoʻaofia</annotation>
-		<annotation cp="🌨">sinou ʻaoʻaofia</annotation>
+		<annotation cp="🌨">ʻao | sinou | sinou ʻaoʻaofia</annotation>
 		<annotation cp="🌨" type="tts">sinou ʻaoʻaofia</annotation>
-		<annotation cp="🌩">ʻuhila ʻaoʻaofia</annotation>
+		<annotation cp="🌩">ʻao | ʻuhila | ʻuhila ʻaoʻaofia</annotation>
 		<annotation cp="🌩" type="tts">ʻuhila ʻaoʻaofia</annotation>
 		<annotation cp="🌪">ʻahiohio</annotation>
 		<annotation cp="🌪" type="tts">ʻahiohio</annotation>
 		<annotation cp="🌫">kakapu</annotation>
 		<annotation cp="🌫" type="tts">kakapu</annotation>
-		<annotation cp="🌬">mataʻi matangi</annotation>
+		<annotation cp="🌬">mata | mataʻi matangi | matangi</annotation>
 		<annotation cp="🌬" type="tts">mataʻi matangi</annotation>
 		<annotation cp="🌀">saikolone</annotation>
 		<annotation cp="🌀" type="tts">saikolone</annotation>
 		<annotation cp="🌈">ʻūmata</annotation>
 		<annotation cp="🌈" type="tts">ʻūmata</annotation>
-		<annotation cp="🌂">tukuhifo fakamalu</annotation>
+		<annotation cp="🌂">fakamalu | tukuhifo fakamalu</annotation>
 		<annotation cp="🌂" type="tts">tukuhifo fakamalu</annotation>
-		<annotation cp="☂">teke fakamalu</annotation>
+		<annotation cp="☂">fakamalu | teke fakamalu</annotation>
 		<annotation cp="☂" type="tts">teke fakamalu</annotation>
-		<annotation cp="☔">fakamalu ʻihe ʻuha</annotation>
+		<annotation cp="☔">fakamalu | fakamalu ʻihe ʻuha | ʻuha</annotation>
 		<annotation cp="☔" type="tts">fakamalu ʻihe ʻuha</annotation>
-		<annotation cp="⛱">fakamalu tuʻu</annotation>
+		<annotation cp="⛱">fakamalu | fakamalu tuʻu | laʻā</annotation>
 		<annotation cp="⛱" type="tts">fakamalu tuʻu</annotation>
-		<annotation cp="⚡">volita māʻolunga</annotation>
+		<annotation cp="⚡">māʻolunga | volita</annotation>
 		<annotation cp="⚡" type="tts">volita māʻolunga</annotation>
-		<annotation cp="❄">foʻi sinou</annotation>
+		<annotation cp="❄">foʻi sinou | sinou | tapaono</annotation>
 		<annotation cp="❄" type="tts">foʻi sinou</annotation>
-		<annotation cp="☃">tangata sinou ʻihe ʻea sinou</annotation>
+		<annotation cp="☃">sinou | tangata | tangata sinou ʻihe ʻea sinou</annotation>
 		<annotation cp="☃" type="tts">tangata sinou ʻihe ʻea sinou</annotation>
-		<annotation cp="⛄">tangata sinou</annotation>
+		<annotation cp="⛄">sinou | tangata</annotation>
 		<annotation cp="⛄" type="tts">tangata sinou</annotation>
-		<annotation cp="☄">fetuʻu fuka</annotation>
+		<annotation cp="☄">fetuʻu | fuka</annotation>
 		<annotation cp="☄" type="tts">fetuʻu fuka</annotation>
 		<annotation cp="🔥">afi</annotation>
 		<annotation cp="🔥" type="tts">afi</annotation>
-		<annotation cp="💧">tulutā vai</annotation>
+		<annotation cp="💧">tulutā | vai</annotation>
 		<annotation cp="💧" type="tts">tulutā vai</annotation>
-		<annotation cp="🌊">peau</annotation>
+		<annotation cp="🌊">moana | peau | tahi</annotation>
 		<annotation cp="🌊" type="tts">peau</annotation>
-		<annotation cp="🎃">matahina</annotation>
+		<annotation cp="🎃">hina | mata | matahina</annotation>
 		<annotation cp="🎃" type="tts">matahina</annotation>
-		<annotation cp="🎄">ʻakau kilisimasi</annotation>
+		<annotation cp="🎄">ʻakau | kilisimasi</annotation>
 		<annotation cp="🎄" type="tts">ʻakau kilisimasi</annotation>
 		<annotation cp="🎆">fanaʻone</annotation>
 		<annotation cp="🎆" type="tts">fanaʻone</annotation>
-		<annotation cp="🎇">fanaʻone fetapatapaki</annotation>
+		<annotation cp="🎇">fanaʻone | fanaʻone fetapatapaki</annotation>
 		<annotation cp="🎇" type="tts">fanaʻone fetapatapaki</annotation>
-		<annotation cp="🧨">ʻone</annotation>
+		<annotation cp="🧨">fepaki | ʻone</annotation>
 		<annotation cp="🧨" type="tts">ʻone</annotation>
-		<annotation cp="✨">fetapatapaki</annotation>
+		<annotation cp="✨">fetapatapaki | fetuʻu</annotation>
 		<annotation cp="✨" type="tts">fetapatapaki</annotation>
-		<annotation cp="🎈">foʻi pula</annotation>
+		<annotation cp="🎈">foʻi pula | kātoanga | pula</annotation>
 		<annotation cp="🎈" type="tts">foʻi pula</annotation>
-		<annotation cp="🎉">paatipuna</annotation>
+		<annotation cp="🎉">kātoanga | konifeti | paatipuna</annotation>
 		<annotation cp="🎉" type="tts">paatipuna</annotation>
-		<annotation cp="🎊">pulu konifeti</annotation>
+		<annotation cp="🎊">kātoanga | konifeti | pulu konifeti</annotation>
 		<annotation cp="🎊" type="tts">pulu konifeti</annotation>
-		<annotation cp="🎋">ʻakau kātoanga-fetuʻu</annotation>
-		<annotation cp="🎋" type="tts">ʻakau kātoanga-fetuʻu</annotation>
-		<annotation cp="🎍">ongo matapā-paini</annotation>
+		<annotation cp="🎋">ʻakau | ʻakau kātoanga fakasiapani | kātoanga | Siapani</annotation>
+		<annotation cp="🎋" type="tts">ʻakau kātoanga fakasiapani</annotation>
+		<annotation cp="🎍">matapā | ongo matapā-paini | paini | Siapani</annotation>
 		<annotation cp="🎍" type="tts">ongo matapā-paini</annotation>
-		<annotation cp="🎎">tamapua fakasiapani</annotation>
+		<annotation cp="🎎">Siapani | tamapua | tamapua fakasiapani</annotation>
 		<annotation cp="🎎" type="tts">tamapua fakasiapani</annotation>
-		<annotation cp="🎏">ika fakamanumanu</annotation>
+		<annotation cp="🎏">fakamanumanu | ika</annotation>
 		<annotation cp="🎏" type="tts">ika fakamanumanu</annotation>
-		<annotation cp="🎐">fafangu-matangi</annotation>
+		<annotation cp="🎐">fafangu | fafangu-matangi | matangi</annotation>
 		<annotation cp="🎐" type="tts">fafangu-matangi</annotation>
-		<annotation cp="🎑">vakai-māhina</annotation>
+		<annotation cp="🎑">māhina | vakai | vakai-māhina</annotation>
 		<annotation cp="🎑" type="tts">vakai-māhina</annotation>
-		<annotation cp="🧧">sila kulokula</annotation>
+		<annotation cp="🧧">kulokula | sila</annotation>
 		<annotation cp="🧧" type="tts">sila kulokula</annotation>
-		<annotation cp="🎀">lipine</annotation>
+		<annotation cp="🎀">fakapona | lipine</annotation>
 		<annotation cp="🎀" type="tts">lipine</annotation>
-		<annotation cp="🎁">lipine puha</annotation>
+		<annotation cp="🎁">kātoanga | lipine | puha</annotation>
 		<annotation cp="🎁" type="tts">lipine puha</annotation>
-		<annotation cp="🎗">lipine fakamanatu</annotation>
+		<annotation cp="🎗">fakamanatu | kātoanga | lipine</annotation>
 		<annotation cp="🎗" type="tts">lipine fakamanatu</annotation>
-		<annotation cp="🎟">tikite fakahū</annotation>
+		<annotation cp="🎟">fakahū | tikite</annotation>
 		<annotation cp="🎟" type="tts">tikite fakahū</annotation>
 		<annotation cp="🎫">tikite</annotation>
 		<annotation cp="🎫" type="tts">tikite</annotation>
-		<annotation cp="🎖">mētali fakakautau</annotation>
+		<annotation cp="🎖">kautau | mētali | mētali fakakautau</annotation>
 		<annotation cp="🎖" type="tts">mētali fakakautau</annotation>
 		<annotation cp="🏆">fakapale</annotation>
 		<annotation cp="🏆" type="tts">fakapale</annotation>
-		<annotation cp="🏅">mētali fakasipoti</annotation>
+		<annotation cp="🏅">mētali | mētali fakasipoti | sipoti</annotation>
 		<annotation cp="🏅" type="tts">mētali fakasipoti</annotation>
-		<annotation cp="🥇">mētali fika ʻuluaki</annotation>
+		<annotation cp="🥇">ʻuluaki | mētali | mētali fika ʻuluaki | taha</annotation>
 		<annotation cp="🥇" type="tts">mētali fika ʻuluaki</annotation>
-		<annotation cp="🥈">mētali fika ua</annotation>
+		<annotation cp="🥈">mētali | mētali fika ua | ua</annotation>
 		<annotation cp="🥈" type="tts">mētali fika ua</annotation>
-		<annotation cp="🥉">mētali fika tolu</annotation>
+		<annotation cp="🥉">mētali | mētali fika tolu | tolu</annotation>
 		<annotation cp="🥉" type="tts">mētali fika tolu</annotation>
-		<annotation cp="⚽">soka</annotation>
+		<annotation cp="⚽">polo | soka</annotation>
 		<annotation cp="⚽" type="tts">soka</annotation>
-		<annotation cp="⚾">peisipolo</annotation>
+		<annotation cp="⚾">peisipolo | polo</annotation>
 		<annotation cp="⚾" type="tts">peisipolo</annotation>
-		<annotation cp="🥎">pulutenisi</annotation>
+		<annotation cp="🥎">pulu | pulutenisi | tenisi</annotation>
 		<annotation cp="🥎" type="tts">pulutenisi</annotation>
-		<annotation cp="🏀">pasiketipolo</annotation>
+		<annotation cp="🏀">pasiketipolo | polo</annotation>
 		<annotation cp="🏀" type="tts">pasiketipolo</annotation>
-		<annotation cp="🏐">volipolo</annotation>
+		<annotation cp="🏐">polo | volipolo</annotation>
 		<annotation cp="🏐" type="tts">volipolo</annotation>
-		<annotation cp="🏈">ʻakapulu fakaʻamelika</annotation>
+		<annotation cp="🏈">ʻakapulu | ʻakapulu fakaʻamelika | polo</annotation>
 		<annotation cp="🏈" type="tts">ʻakapulu fakaʻamelika</annotation>
-		<annotation cp="🏉">ʻakapulu</annotation>
+		<annotation cp="🏉">ʻakapulu | polo</annotation>
 		<annotation cp="🏉" type="tts">ʻakapulu</annotation>
-		<annotation cp="🎾">tenisi</annotation>
+		<annotation cp="🎾">pulu | tenisi</annotation>
 		<annotation cp="🎾" type="tts">tenisi</annotation>
-		<annotation cp="🥏">tisi puna</annotation>
+		<annotation cp="🥏">puna | tisi</annotation>
 		<annotation cp="🥏" type="tts">tisi puna</annotation>
-		<annotation cp="🎳">tekapulu</annotation>
+		<annotation cp="🎳">pulu | tekapulu</annotation>
 		<annotation cp="🎳" type="tts">tekapulu</annotation>
-		<annotation cp="🏏">kilikiti</annotation>
+		<annotation cp="🏏">kilikiti | pulu</annotation>
 		<annotation cp="🏏" type="tts">kilikiti</annotation>
-		<annotation cp="🏑">hoki</annotation>
+		<annotation cp="🏑">hoki | pulu</annotation>
 		<annotation cp="🏑" type="tts">hoki</annotation>
-		<annotation cp="🏒">hokiʻaisi</annotation>
+		<annotation cp="🏒">hoki | hokiʻaisi | ʻaisi | pulu</annotation>
 		<annotation cp="🏒" type="tts">hokiʻaisi</annotation>
-		<annotation cp="🥍">hokiʻinitiakula</annotation>
+		<annotation cp="🥍">hoki | hokiʻinitiakula | ʻinitiakula | pulu</annotation>
 		<annotation cp="🥍" type="tts">hokiʻinitiakula</annotation>
-		<annotation cp="🏓">pingipongo</annotation>
+		<annotation cp="🏓">pingipongo | pulu</annotation>
 		<annotation cp="🏓" type="tts">pingipongo</annotation>
 		<annotation cp="🏸">patiminitoni</annotation>
 		<annotation cp="🏸" type="tts">patiminitoni</annotation>
-		<annotation cp="🥊">letafuhu</annotation>
+		<annotation cp="🥊">fuhu | leta | letafuhu</annotation>
 		<annotation cp="🥊" type="tts">letafuhu</annotation>
-		<annotation cp="🥋">teuteu fangatua</annotation>
+		<annotation cp="🥋">fangatua | teuteu</annotation>
 		<annotation cp="🥋" type="tts">teuteu fangatua</annotation>
-		<annotation cp="🥅">kupenga kolo</annotation>
+		<annotation cp="🥅">kolo | kupenga</annotation>
 		<annotation cp="🥅" type="tts">kupenga kolo</annotation>
-		<annotation cp="⛳">fuka ʻihe luo</annotation>
+		<annotation cp="⛳">fuka | fuka ʻihe luo | luo | tāpulu</annotation>
 		<annotation cp="⛳" type="tts">fuka ʻihe luo</annotation>
 		<annotation cp="⛸">ʻaisi | sū sikeiti | sū sikeiti ʻaisi</annotation>
 		<annotation cp="⛸" type="tts">sū sikeiti ʻaisi</annotation>
-		<annotation cp="🎣">ʻakau-taumātaʻu</annotation>
+		<annotation cp="🎣">ʻakau | ʻakau-taumātaʻu | ika | taumātaʻu</annotation>
 		<annotation cp="🎣" type="tts">ʻakau-taumātaʻu</annotation>
-		<annotation cp="🤿">sioʻata uku</annotation>
+		<annotation cp="🤿">sioʻata | uku</annotation>
 		<annotation cp="🤿" type="tts">sioʻata uku</annotation>
-		<annotation cp="🎽">falani sipoti</annotation>
+		<annotation cp="🎽">falani | sipoti</annotation>
 		<annotation cp="🎽" type="tts">falani sipoti</annotation>
-		<annotation cp="🎿">heke sinou</annotation>
+		<annotation cp="🎿">heke | sinou</annotation>
 		<annotation cp="🎿" type="tts">heke sinou</annotation>
-		<annotation cp="🛷">hekeʻanga</annotation>
+		<annotation cp="🛷">heke | hekeʻanga | sinou</annotation>
 		<annotation cp="🛷" type="tts">hekeʻanga</annotation>
-		<annotation cp="🥌">maka tolo</annotation>
+		<annotation cp="🥌">maka | tolo</annotation>
 		<annotation cp="🥌" type="tts">maka tolo</annotation>
-		<annotation cp="🎯">lotomālie ʻoe tāketi</annotation>
+		<annotation cp="🎯">lotomālie | lotomālie ʻoe tāketi | tāketi</annotation>
 		<annotation cp="🎯" type="tts">lotomālie ʻoe tāketi</annotation>
 		<annotation cp="🪀">ioio</annotation>
 		<annotation cp="🪀" type="tts">ioio</annotation>
 		<annotation cp="🪁">lofa</annotation>
 		<annotation cp="🪁" type="tts">lofa</annotation>
-		<annotation cp="🎱">pulu fika 8</annotation>
+		<annotation cp="🔫">pekenene | pekenene vai</annotation>
+		<annotation cp="🔫" type="tts">pekenene vai</annotation>
+		<annotation cp="🎱">8 | pulu | pulu fika 8</annotation>
 		<annotation cp="🎱" type="tts">pulu fika 8</annotation>
-		<annotation cp="🔮">pulu kalisitala</annotation>
+		<annotation cp="🔮">kalisitala | pulu</annotation>
 		<annotation cp="🔮" type="tts">pulu kalisitala</annotation>
-		<annotation cp="🪄">vaʻakau fakamēsiki</annotation>
+		<annotation cp="🪄">faʻahikehe | mēsiki | vaʻakau | vaʻakau fakamēsiki</annotation>
 		<annotation cp="🪄" type="tts">vaʻakau fakamēsiki</annotation>
-		<annotation cp="🧿">mana nasā</annotation>
-		<annotation cp="🧿" type="tts">mana nasā</annotation>
-		<annotation cp="🎮">vaʻinga vitiō</annotation>
+		<annotation cp="🎮">vaʻinga | vitiō</annotation>
 		<annotation cp="🎮" type="tts">vaʻinga vitiō</annotation>
-		<annotation cp="🕹">ʻakau vaʻinga</annotation>
+		<annotation cp="🕹">ʻakau | vaʻinga | vitiō</annotation>
 		<annotation cp="🕹" type="tts">ʻakau vaʻinga</annotation>
-		<annotation cp="🎰">mīsini tā paʻanga</annotation>
+		<annotation cp="🎰">7 | mīsini | mīsini tā paʻanga | paʻanga</annotation>
 		<annotation cp="🎰" type="tts">mīsini tā paʻanga</annotation>
 		<annotation cp="🎲">taisi</annotation>
 		<annotation cp="🎲" type="tts">taisi</annotation>
-		<annotation cp="🧩">laʻilekileki</annotation>
+		<annotation cp="🧩">laʻi | laʻilekileki | lekileki</annotation>
 		<annotation cp="🧩" type="tts">laʻilekileki</annotation>
-		<annotation cp="🧸">pea tamapua</annotation>
+		<annotation cp="🧸">pea | tamapua</annotation>
 		<annotation cp="🧸" type="tts">pea tamapua</annotation>
-		<annotation cp="🪅">tamapua lole</annotation>
+		<annotation cp="🪅">lole | tamapua</annotation>
 		<annotation cp="🪅" type="tts">tamapua lole</annotation>
+		<annotation cp="🪩">faiva | hulohula | ngingila | pula | pula-hulohula</annotation>
+		<annotation cp="🪩" type="tts">pula-hulohula</annotation>
 		<annotation cp="🪆">tamapua fakaʻotu</annotation>
 		<annotation cp="🪆" type="tts">tamapua fakaʻotu</annotation>
-		<annotation cp="♠">sipeiti</annotation>
+		<annotation cp="♠">pele | sipeiti</annotation>
 		<annotation cp="♠" type="tts">sipeiti</annotation>
-		<annotation cp="♥">haati</annotation>
+		<annotation cp="♥">haati | pele</annotation>
 		<annotation cp="♥" type="tts">haati</annotation>
-		<annotation cp="♦">taimani</annotation>
+		<annotation cp="♦">pele | taimani</annotation>
 		<annotation cp="♦" type="tts">taimani</annotation>
-		<annotation cp="♣">kalapa</annotation>
+		<annotation cp="♣">kalapa | pele</annotation>
 		<annotation cp="♣" type="tts">kalapa</annotation>
-		<annotation cp="♟">pate veimau</annotation>
+		<annotation cp="♟">pate | veimau</annotation>
 		<annotation cp="♟" type="tts">pate veimau</annotation>
-		<annotation cp="🃏">sioka</annotation>
+		<annotation cp="🃏">pele | sioka</annotation>
 		<annotation cp="🃏" type="tts">sioka</annotation>
-		<annotation cp="🀄">talakoni kulokula</annotation>
+		<annotation cp="🀄">kulokula | pele | talakoni</annotation>
 		<annotation cp="🀄" type="tts">talakoni kulokula</annotation>
-		<annotation cp="🎴">sioka matalaʻiʻakau</annotation>
+		<annotation cp="🎴">matalaʻiʻakau | pele | Siapani | sioka</annotation>
 		<annotation cp="🎴" type="tts">sioka matalaʻiʻakau</annotation>
-		<annotation cp="🎭">faiva aati</annotation>
+		<annotation cp="🎭">aati | faiva | mata | pūloa</annotation>
 		<annotation cp="🎭" type="tts">faiva aati</annotation>
-		<annotation cp="🖼">ʻesiaʻi tā</annotation>
+		<annotation cp="🖼">ʻesia | ʻesiaʻi tā | tā</annotation>
 		<annotation cp="🖼" type="tts">ʻesiaʻi tā</annotation>
-		<annotation cp="🎨">tāvalivali</annotation>
+		<annotation cp="🎨">tā | tāvalivali | valivali</annotation>
 		<annotation cp="🎨" type="tts">tāvalivali</annotation>
 		<annotation cp="🧵">filo</annotation>
 		<annotation cp="🧵" type="tts">filo</annotation>
-		<annotation cp="🪡">huituitui</annotation>
+		<annotation cp="🪡">filo | hui | huituitui | tuitui</annotation>
 		<annotation cp="🪡" type="tts">huituitui</annotation>
-		<annotation cp="🧶">filo lalanga</annotation>
+		<annotation cp="🧶">filo | lalanga | tuitui</annotation>
 		<annotation cp="🧶" type="tts">filo lalanga</annotation>
 		<annotation cp="🪢">fakapona</annotation>
 		<annotation cp="🪢" type="tts">fakapona</annotation>
@@ -2881,6 +2905,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👙" type="tts">vala matātahi kongaua</annotation>
 		<annotation cp="👚">vala fefine</annotation>
 		<annotation cp="👚" type="tts">vala fefine</annotation>
+		<annotation cp="🪭">ī | ī-pelupelu | mā | pelupelu | vevela</annotation>
+		<annotation cp="🪭" type="tts">ī-pelupelu</annotation>
 		<annotation cp="👛">kato paʻanga</annotation>
 		<annotation cp="👛" type="tts">kato paʻanga</annotation>
 		<annotation cp="👜">kato</annotation>
@@ -2909,6 +2935,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🩰" type="tts">sū faiva pālangi</annotation>
 		<annotation cp="👢">sū puti fakafefine</annotation>
 		<annotation cp="👢" type="tts">sū puti fakafefine</annotation>
+		<annotation cp="🪮">faka-Fisi | helu</annotation>
+		<annotation cp="🪮" type="tts">helu</annotation>
 		<annotation cp="👑">kalauni</annotation>
 		<annotation cp="👑" type="tts">kalauni</annotation>
 		<annotation cp="👒">tatā fakafefine</annotation>
@@ -2985,6 +3013,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥁" type="tts">nafa talamu</annotation>
 		<annotation cp="🪘">nafa</annotation>
 		<annotation cp="🪘" type="tts">nafa</annotation>
+		<annotation cp="🪇">lali | lulululu | malaka | meʻalea | Mekesikō</annotation>
+		<annotation cp="🪇" type="tts">malaka</annotation>
+		<annotation cp="🪈">fangufangu | fuluta</annotation>
+		<annotation cp="🪈" type="tts">fuluta</annotation>
 		<annotation cp="📱">foni toʻotoʻo</annotation>
 		<annotation cp="📱" type="tts">foni toʻotoʻo</annotation>
 		<annotation cp="📲">foni toʻotoʻo moe ngahau</annotation>
@@ -2999,6 +3031,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📠" type="tts">foni tohi</annotation>
 		<annotation cp="🔋">ʻuhila | maka | maka fakaʻuhila</annotation>
 		<annotation cp="🔋" type="tts">maka fakaʻuhila</annotation>
+		<annotation cp="🪫">maka | meimei mate | vaivai</annotation>
+		<annotation cp="🪫" type="tts">maka vaivai</annotation>
 		<annotation cp="🔌">ʻumosi ʻuhila</annotation>
 		<annotation cp="🔌" type="tts">ʻumosi ʻuhila</annotation>
 		<annotation cp="💻">komipiuta fungasino</annotation>
@@ -3055,7 +3089,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏮" type="tts">maama matangi kulokula</annotation>
 		<annotation cp="🪔">maama tia</annotation>
 		<annotation cp="🪔" type="tts">maama tia</annotation>
-		<annotation cp="📔">pepa tohi teuʻi</annotation>
+		<annotation cp="📔">pepa | pepa tohi teuʻi | teu | tohi</annotation>
 		<annotation cp="📔" type="tts">pepa tohi teuʻi</annotation>
 		<annotation cp="📕">tohi mapuni</annotation>
 		<annotation cp="📕" type="tts">tohi mapuni</annotation>
@@ -3221,8 +3255,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🗡" type="tts">heletā</annotation>
 		<annotation cp="⚔">heletā fehauaki</annotation>
 		<annotation cp="⚔" type="tts">heletā fehauaki</annotation>
-		<annotation cp="🔫">pekenene | pekenene vai</annotation>
-		<annotation cp="🔫" type="tts">pekenene vai</annotation>
+		<annotation cp="💣">pulukōkō</annotation>
+		<annotation cp="💣" type="tts">pulukōkō</annotation>
 		<annotation cp="🪃">pūmalengi</annotation>
 		<annotation cp="🪃" type="tts">pūmalengi</annotation>
 		<annotation cp="🏹">kaufana moe ngahau</annotation>
@@ -3279,8 +3313,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💊" type="tts">foʻiʻakau</annotation>
 		<annotation cp="🩹">haʻihaʻi fakapipiki</annotation>
 		<annotation cp="🩹" type="tts">haʻihaʻi fakapipiki</annotation>
+		<annotation cp="🩼">kalatisi | lavea | vaʻakau</annotation>
+		<annotation cp="🩼" type="tts">kalatisi</annotation>
 		<annotation cp="🩺">meʻa fakaongo</annotation>
 		<annotation cp="🩺" type="tts">meʻa fakaongo</annotation>
+		<annotation cp="🩻">fakaʻēkesi | huelo | hui | tōketā</annotation>
+		<annotation cp="🩻" type="tts">huelo fakaʻēkesi</annotation>
 		<annotation cp="🚪">matapā</annotation>
 		<annotation cp="🚪" type="tts">matapā</annotation>
 		<annotation cp="🛗">lifi</annotation>
@@ -3321,6 +3359,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪣" type="tts">kane</annotation>
 		<annotation cp="🧼">koa</annotation>
 		<annotation cp="🧼" type="tts">koa</annotation>
+		<annotation cp="🫧">lililili | maʻupu | ngalomekina | pula</annotation>
+		<annotation cp="🫧" type="tts">maʻupu</annotation>
 		<annotation cp="🪥">fulufulunifo</annotation>
 		<annotation cp="🪥" type="tts">fulufulunifo</annotation>
 		<annotation cp="🧽">oma</annotation>
@@ -3337,10 +3377,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪦" type="tts">maka fakamanatu</annotation>
 		<annotation cp="⚱">hina fakamomofi</annotation>
 		<annotation cp="⚱" type="tts">hina fakamomofi</annotation>
+		<annotation cp="🧿">mana | mana nasā</annotation>
+		<annotation cp="🧿" type="tts">mana nasā</annotation>
+		<annotation cp="🪬">maluʻi | mataʻinima | meʻamonū | nima</annotation>
+		<annotation cp="🪬" type="tts">mataʻinima</annotation>
 		<annotation cp="🗿">Lapanui | moai</annotation>
 		<annotation cp="🗿" type="tts">moai</annotation>
 		<annotation cp="🪧">fakaʻilonga sikinali</annotation>
 		<annotation cp="🪧" type="tts">fakaʻilonga sikinali</annotation>
+		<annotation cp="🪪">fakapapauʻi | id | kaati</annotation>
+		<annotation cp="🪪" type="tts">kaati id</annotation>
 		<annotation cp="🏧">mīsini | mīsini toho paʻanga | pangikē | toho paʻanga</annotation>
 		<annotation cp="🏧" type="tts">mīsini toho paʻanga</annotation>
 		<annotation cp="🚮">ʻilonga | ʻilonga kapa veve | kapa veve | veve</annotation>
@@ -3461,7 +3507,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕎" type="tts">menola</annotation>
 		<annotation cp="🔯">fetuʻu | fetuʻu tapaono moe ʻila | ʻila | tapaono</annotation>
 		<annotation cp="🔯" type="tts">fetuʻu tapaono moe ʻila</annotation>
-		<annotation cp="♈">Sipi tangata (pupunga)</annotation>
+		<annotation cp="🪯">fakasiki | ʻilonga</annotation>
+		<annotation cp="🪯" type="tts">ʻilonga fakasiki</annotation>
+		<annotation cp="♈">pupunga | sipi | Sipi tangata (pupunga) | tangata</annotation>
 		<annotation cp="♈" type="tts">Sipi tangata (pupunga)</annotation>
 		<annotation cp="♉">pulu | Pulu tau (pupunga) | pupunga | tau</annotation>
 		<annotation cp="♉" type="tts">Pulu tau (pupunga)</annotation>
@@ -3531,6 +3579,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔆" type="tts">meʻalolomi fakamaama</annotation>
 		<annotation cp="📶">pā | pā lave</annotation>
 		<annotation cp="📶" type="tts">pā lave</annotation>
+		<annotation cp="🛜">fakakomipiuta | mākoni | paenga vaheope</annotation>
+		<annotation cp="🛜" type="tts">mākoni</annotation>
 		<annotation cp="📳">foni | tetetete</annotation>
 		<annotation cp="📳" type="tts">foni tetetete</annotation>
 		<annotation cp="📴">foni | tāmateʻi | toʻotoʻo</annotation>
@@ -3549,6 +3599,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="➖" type="tts">kole mamafa</annotation>
 		<annotation cp="➗">fakaʻilonga | vahevahe | vahevahe mamafa</annotation>
 		<annotation cp="➗" type="tts">vahevahe mamafa</annotation>
+		<annotation cp="🟰">fakaʻilonga | mamafa | tatau</annotation>
+		<annotation cp="🟰" type="tts">tatau mamafa</annotation>
 		<annotation cp="♾">fakaʻilonga | taʻengata | taʻengata mamafa</annotation>
 		<annotation cp="♾" type="tts">taʻengata mamafa</annotation>
 		<annotation cp="‼">fakaʻilonga | kalanga | lōua</annotation>

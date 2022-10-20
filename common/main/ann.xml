@@ -11,6 +11,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="ann"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern>↑↑↑</localePattern>
+			<localeSeparator>↑↑↑</localeSeparator>
+		</localeDisplayPattern>
 		<languages>
 			<language type="ann">Obolo</language>
 		</languages>
@@ -19,9 +23,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters>[a à â b {ch} d e è ê f g i ì î j k l m {m\u0300} n ǹ {n\u0304} o ò ô ọ {ọ\u0300} ộ p r s {sh} t u ù û v w y z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á ǎ c é ě h í ǐ ḿ ń ó ǒ {ọ\u0301} {ọ\u030C} q ṣ ú ǔ x]</exemplarCharacters>
 		<exemplarCharacters type="index">[a b {ch} d e f g i j k l m n {n\u0304} o ọ p r s t u v w y z]</exemplarCharacters>
+		<exemplarCharacters type="numbers">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[, ; ! ? .]</exemplarCharacters>
 	</characters>
 	<numbers>
+		<defaultNumberingSystem draft="contributed">↑↑↑</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native draft="contributed">↑↑↑</native>
+		</otherNumberingSystems>
 		<currencies>
 			<currency type="NGN">
 				<symbol>₦</symbol>

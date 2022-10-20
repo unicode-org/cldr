@@ -15,9 +15,12 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.impl.number.DecimalFormatProperties;
+import com.ibm.icu.impl.number.PatternStringParser;
 import com.ibm.icu.text.CompactDecimalFormat;
 import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
+import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.DecimalFormat.PropertySetter;
+import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.util.Currency;
 import com.ibm.icu.util.ULocale;
 
@@ -27,6 +30,7 @@ public class BuildIcuCompactDecimalFormat {
     static final int MINIMUM_ARRAY_LENGTH = 15;
     static final Pattern PATTERN = PatternCache.get("([^0,]*)([0]+)([.]0+)?([^0]*)");
     static final Pattern TYPE = PatternCache.get("1([0]*)");
+    private static final boolean DEBUG = false;
 
     public enum CurrencyStyle {
         PLAIN, CURRENCY, LONG_CURRENCY, ISO_CURRENCY, UNIT
@@ -38,21 +42,50 @@ public class BuildIcuCompactDecimalFormat {
      * @param currencyStyle
      * @param currencyCode
      */
-    public static final CompactDecimalFormat build(CLDRFile resolvedCldrFile,
+    public static final CompactDecimalFormat build(
+        CLDRFile resolvedCldrFile,
         Set<String> debugCreationErrors, String[] debugOriginals,
         CompactStyle style, ULocale locale, CurrencyStyle currencyStyle, String currencyCodeOrUnit) {
 
+        // get the custom data from CLDR for use with the special setCompactCustomData
+
         final Map<String, Map<String, String>> customData = buildCustomData(resolvedCldrFile, style, currencyStyle);
-        CompactDecimalFormat cdf = CompactDecimalFormat.getInstance(locale, style);
+        if (DEBUG) {
+            System.out.println("\nCustom Data:");
+            customData.forEach((k, v) -> System.out.println("\t" + k + "\t" + v));
+        }
+
+        // get the common CLDR data used for number/date/time formats
+
         ICUServiceBuilder builder = new ICUServiceBuilder().setCldrFile(resolvedCldrFile);
 
+        DecimalFormat decimalFormat = currencyStyle == CurrencyStyle.PLAIN
+            ?  builder.getNumberFormat(1)
+                : builder.getCurrencyFormat(currencyCodeOrUnit);
+        final String pattern = decimalFormat.toPattern();
+        if (DEBUG) {
+            System.out.println("Pattern:\t" + pattern);
+        }
+
+        final PluralRules rules = SupplementalDataInfo.getInstance().getPlurals(locale.toString()).getPluralRules();
+
+        // create a compact decimal format, and reset its data
+
+        CompactDecimalFormat cdf = CompactDecimalFormat.getInstance(locale, style);
         cdf.setDecimalFormatSymbols(builder.getDecimalFormatSymbols("latn"));
+
         cdf.setProperties(new PropertySetter() {
             @Override
             public void set(DecimalFormatProperties props) {
                 props.setCompactCustomData(customData);
+                PatternStringParser.parseToExistingProperties(pattern, props, PatternStringParser.IGNORE_ROUNDING_ALWAYS);
+                props.setPluralRules(rules);
             }
         });
+
+        if (DEBUG) {
+            System.out.println("CompactDecimalFormat:\t" + cdf.toString().replace("}, ", "},\n\t"));
+        }
         return cdf;
     }
 
@@ -60,7 +93,8 @@ public class BuildIcuCompactDecimalFormat {
 
         final Map<String, Map<String, String>> customData = new TreeMap<>();
 
-        String prefix = currencyStyle == CurrencyStyle.PLAIN ? "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength"
+        String prefix = currencyStyle == CurrencyStyle.PLAIN
+            ? "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength"
             : "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength";
 
         Iterator<String> it = resolvedCldrFile.iterator(prefix);

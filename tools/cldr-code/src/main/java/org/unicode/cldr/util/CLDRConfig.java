@@ -201,11 +201,26 @@ public class CLDRConfig extends Properties {
     }
 
     private static final class CollationFactoryHelper {
-        static final Factory SINGLETON = Factory.make(CLDRPaths.COLLATION_DIRECTORY, ".*");
+        static final Factory SINGLETON = Factory.make(CLDRPaths.COLLATION_DIRECTORY, ".*")
+            .setIgnoreExplicitParentLocale(true);
+        static final File[] COLLATION_PATHS = {
+            new File(CLDRPaths.COLLATION_DIRECTORY),
+            SKIP_SEED ? null : new File(CLDRPaths.SEED_COLLATION_DIRECTORY)
+        };
+        static final Factory ALL_SINGLETON = SimpleFactory.make(COLLATION_PATHS, ".*")
+            .setIgnoreExplicitParentLocale(true);
     }
 
     public final Factory getCollationFactory() {
         return CollationFactoryHelper.SINGLETON;
+    }
+
+    /**
+     * Factory for all collation files, not just common
+     */
+    public final Factory getAllCollationFactory() {
+        CollationFactoryHelper.ALL_SINGLETON.setIgnoreExplicitParentLocale(true);
+        return CollationFactoryHelper.ALL_SINGLETON;
     }
 
     private static final class RBNFFactoryHelper {
@@ -217,7 +232,11 @@ public class CLDRConfig extends Properties {
     }
 
     private static final class AnnotationsFactoryHelper {
-        static final Factory SINGLETON = Factory.make(CLDRPaths.ANNOTATIONS_DIRECTORY, ".*");
+        private static final File[] paths = {
+            new File(CLDRPaths.ANNOTATIONS_DIRECTORY),
+                SKIP_SEED ? null : new File(CLDRPaths.SEED_ANNOTATIONS_DIRECTORY)
+        };
+        static final Factory SINGLETON = SimpleFactory.make(paths, ".*");
     }
 
     public Factory getAnnotationsFactory() {

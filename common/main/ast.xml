@@ -1458,7 +1458,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyQQQQ">QQQQ 'de' y G</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d – d</greatestDifference>
 						</intervalFormatItem>
@@ -2191,7 +2191,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d – d</greatestDifference>
 						</intervalFormatItem>
@@ -2670,7 +2670,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<appendItem request="Timezone">{0} {1}</appendItem>
 					</appendItems>
 					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d – d</greatestDifference>
 						</intervalFormatItem>
@@ -2997,7 +2997,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d – d</greatestDifference>
 						</intervalFormatItem>
@@ -3284,7 +3284,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d – d</greatestDifference>
 						</intervalFormatItem>
@@ -4083,7 +4083,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d – d</greatestDifference>
 						</intervalFormatItem>
@@ -9618,7 +9618,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} lux</unitPattern>
 				<unitPattern count="other">{0} lux</unitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
+			<unit type="mass-tonne">
 				<displayName>tonelaes métriques</displayName>
 				<unitPattern count="one">{0} tonelada métrica</unitPattern>
 				<unitPattern count="other">{0} tonelaes métriques</unitPattern>
@@ -10330,7 +10330,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} lx</unitPattern>
 				<unitPattern count="other">{0} lx</unitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
+			<unit type="mass-tonne">
 				<displayName>t</displayName>
 				<unitPattern count="one">{0} t</unitPattern>
 				<unitPattern count="other">{0} t</unitPattern>
@@ -11037,7 +11037,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0}lx</unitPattern>
 				<unitPattern count="other">{0}lx</unitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
+			<unit type="mass-tonne">
 				<displayName>t</displayName>
 				<unitPattern count="one">{0}t</unitPattern>
 				<unitPattern count="other">{0}t</unitPattern>
@@ -11481,4 +11481,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<characterLabel type="western_asian_scripts">escritures del occidente d’Asia</characterLabel>
 		<characterLabel type="whitespace">espaciáu</characterLabel>
 	</characterLabels>
+	<personNames>
+		<nameOrderLocales order="givenFirst">und ast</nameOrderLocales>
+		<nameOrderLocales order="surnameFirst">ko vi yue zh</nameOrderLocales>
+	</personNames>
 </ldml>

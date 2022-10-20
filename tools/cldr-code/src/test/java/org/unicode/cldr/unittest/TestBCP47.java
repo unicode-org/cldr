@@ -2,18 +2,21 @@ package org.unicode.cldr.unittest;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.UnitConverter;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
 
@@ -258,5 +261,22 @@ public class TestBCP47 extends TestFmwk {
         } else if (!missingAliases.isEmpty()) {
             warnln("ICU has unused (but deprecated-in-CLDR) TZIDs ids: " + missingAliases);
         }
+    }
+
+    public void TestMu() {
+        UnitConverter converter = SUPPLEMENTAL_DATA_INFO.getUnitConverter();
+        Set<String> allowedUnits = converter.getSimpleUnits("temperature");
+        Set<String> allowedBcp47Units = allowedUnits.stream()
+            .map(x -> x.length() <= 8 ? x : x.substring(0,8))
+            .collect(Collectors.toUnmodifiableSet());
+
+        Set<String> typesFound = new HashSet<>();
+        for (String bcp47Type : bcp47key_types.get("mu")) {
+            R2<String, String> row = Row.of("mu", bcp47Type);
+            String type = row.get1();
+            typesFound.add(type);
+        }
+
+        assertEquals("mu values are only temperature units for now", allowedBcp47Units, typesFound);
     }
 }

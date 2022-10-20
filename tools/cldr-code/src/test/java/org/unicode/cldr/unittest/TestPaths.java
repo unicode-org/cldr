@@ -45,9 +45,9 @@ public class TestPaths extends TestFmwkPlus {
     }
 
     public void VerifyEnglishVsRoot() {
-        HashSet<String> rootPaths = new HashSet<String>();
+        HashSet<String> rootPaths = new HashSet<>();
         testInfo.getRoot().forEach(rootPaths::add);
-        HashSet<String> englishPaths = new HashSet<String>();
+        HashSet<String> englishPaths = new HashSet<>();
         testInfo.getEnglish().forEach(englishPaths::add);
         englishPaths.removeAll(rootPaths);
         if (englishPaths.size() == 0) {
@@ -55,8 +55,8 @@ public class TestPaths extends TestFmwkPlus {
         }
         Factory phf = PathHeader.getFactory(testInfo.getEnglish());
         Status status = new Status();
-        Set<PathHeader> suspiciousPaths = new TreeSet<PathHeader>();
-        Set<PathHeader> errorPaths = new TreeSet<PathHeader>();
+        Set<PathHeader> suspiciousPaths = new TreeSet<>();
+        Set<PathHeader> errorPaths = new TreeSet<>();
         ImmutableSet<String> SKIP_VARIANT = ImmutableSet.of(
             "ps-variant", "ug-variant", "ky-variant", "az-short",
             "Arab-variant", "am-variant", "pm-variant");
@@ -109,22 +109,26 @@ public class TestPaths extends TestFmwkPlus {
          * locale-dependent, run it only once for each path, for the first
          * locale in which the path occurs.
          */
-        Set<String> pathsSeen = new HashSet<String>();
+        Set<String> pathsSeen = new HashSet<>();
         CLDRFile englishFile = testInfo.getCldrFactory().make("en", true);
         PathHeader.Factory phf = PathHeader.getFactory(englishFile);
         Status status = new Status();
         for (String locale : getLocalesToTest()) {
             CLDRFile file = testInfo.getCLDRFile(locale, true);
             logln("Testing path headers and values for locale => " + locale);
+            final Collection<String> extraPaths = file.getExtraPaths();
             for (Iterator<String> it = file.iterator(); it.hasNext();) {
                 String path = it.next();
+                if (extraPaths.contains(path)) {
+                    continue;
+                }
                 checkFullpathValue(path, file, locale, status, false /* not extra path */);
                 if (!pathsSeen.contains(path)) {
                     pathsSeen.add(path);
                     checkPrettyPaths(path, phf);
                 }
             }
-            for (String path : file.getExtraPaths()) {
+            for (String path : extraPaths) {
                 checkFullpathValue(path, file, locale, status, true /* extra path */);
                 if (!pathsSeen.contains(path)) {
                     pathsSeen.add(path);
@@ -159,19 +163,33 @@ public class TestPaths extends TestFmwkPlus {
         }
 
         if (value == null) {
-            if (isExtraPath && extraPathAllowsNullValue(path)) {
+            if (allowsExtraPath(path, isExtraPath)) {
                 return;
             }
-            errln("Locale: " + locale + ",\t Null Value: " + path);
+            errln("Locale: " + locale + ",\t Value=null, \tPath: " + path + ",\t IsExtraPath: " + isExtraPath);
         }
 
         if (source == null) {
-            errln("Locale: " + locale + ",\t Null Source: " + path);
+            errln("Locale: " + locale + ",\t Source=null, \tPath: " + path);
         }
 
         if (status.pathWhereFound == null) {
-            errln("Locale: " + locale + ",\t Null Found Path: " + path);
+            errln("Locale: " + locale + ",\t Path=null, \tPath: " + path);
         }
+    }
+
+    final ImmutableSet<String> ALLOWED_NULL = ImmutableSet.of(
+        "//ldml/dates/timeZoneNames/zone[@type=\"Australia/Currie\"]/exemplarCity",
+        "//ldml/dates/timeZoneNames/zone[@type=\"Pacific/Enderbury\"]/exemplarCity"
+        );
+
+    /**
+     * Is the path allowed to have a null value?
+     */
+    public boolean allowsExtraPath(String path, boolean isExtraPath) {
+        return (isExtraPath
+            && extraPathAllowsNullValue(path))
+            || ALLOWED_NULL.contains(path);
     }
 
     /**
@@ -206,6 +224,9 @@ public class TestPaths extends TestFmwkPlus {
             || path.contains("/gender")
             || path.contains("/caseMinimalPairs")
             || path.contains("/genderMinimalPairs")
+//            || path.equals("//ldml/dates/timeZoneNames/zone[@type=\"Australia/Currie\"]/exemplarCity")
+//            || path.equals("//ldml/dates/timeZoneNames/zone[@type=\"Pacific/Enderbury\"]/exemplarCity")
+            //+
             ) {
             return true;
         }
@@ -434,8 +455,9 @@ public class TestPaths extends TestFmwkPlus {
                                     logKnownIssue("cldrbug:9784", "fix TODO's in Attribute validity tests");
                                 }
                             }
-                            if ((elementType == ElementType.PCDATA) == (value.isEmpty())) {
-                                errln("Inconsistency:"
+                            if ((elementType == ElementType.PCDATA) == (value.isEmpty())
+                                && !finalElement.name.equals("nameOrderLocales")) {
+                                errln("PCDATA ≠ emptyValue inconsistency:"
                                     + "\tfile=" + fileName + "/" + file
                                     + "\telementType=" + elementType
                                     + "\tvalue=«" + value + "»"

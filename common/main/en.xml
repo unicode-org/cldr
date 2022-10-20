@@ -84,6 +84,7 @@ annotations.
 			<language type="bfd">Bafut</language>
 			<language type="bfq">Badaga</language>
 			<language type="bg">Bulgarian</language>
+			<language type="bgc">Haryanvi</language>
 			<language type="bgn">Western Balochi</language>
 			<language type="bho">Bhojpuri</language>
 			<language type="bi">Bislama</language>
@@ -204,7 +205,7 @@ annotations.
 			<language type="fa_AF">Dari</language>
 			<language type="fan">Fang</language>
 			<language type="fat">Fanti</language>
-			<language type="ff">Fulah</language>
+			<language type="ff">Fula</language>
 			<language type="fi">Finnish</language>
 			<language type="fil">Filipino</language>
 			<language type="fit">Tornedalen Finnish</language>
@@ -258,6 +259,8 @@ annotations.
 			<language type="hdn">Northern Haida</language>
 			<language type="he">Hebrew</language>
 			<language type="hi">Hindi</language>
+			<language type="hi_Latn">Hindi (Latin)</language>
+			<language type="hi_Latn" alt="variant">Hinglish</language>
 			<language type="hif">Fiji Hindi</language>
 			<language type="hil">Hiligaynon</language>
 			<language type="hit">Hittite</language>
@@ -355,7 +358,7 @@ annotations.
 			<language type="la">Latin</language>
 			<language type="lad">Ladino</language>
 			<language type="lag">Langi</language>
-			<language type="lah">Lahnda</language>
+			<language type="lah">Western Panjabi</language>
 			<language type="lam">Lamba</language>
 			<language type="lb">Luxembourgish</language>
 			<language type="lez">Lezghian</language>
@@ -528,7 +531,7 @@ annotations.
 			<language type="rwk">Rwa</language>
 			<language type="sa">Sanskrit</language>
 			<language type="sad">Sandawe</language>
-			<language type="sah">Sakha</language>
+			<language type="sah">Yakut</language>
 			<language type="sam">Samaritan Aramaic</language>
 			<language type="saq">Samburu</language>
 			<language type="sas">Sasak</language>
@@ -1132,6 +1135,7 @@ annotations.
 			<territory type="NR">Nauru</territory>
 			<territory type="NU">Niue</territory>
 			<territory type="NZ">New Zealand</territory>
+			<territory type="NZ" alt="variant">Aotearoa New Zealand</territory>
 			<territory type="OM">Oman</territory>
 			<territory type="PA">Panama</territory>
 			<territory type="PE">Peru</territory>
@@ -1191,6 +1195,7 @@ annotations.
 			<territory type="TN">Tunisia</territory>
 			<territory type="TO">Tonga</territory>
 			<territory type="TR">Turkey</territory>
+			<territory type="TR" alt="variant">Türkiye</territory>
 			<territory type="TT">Trinidad &amp; Tobago</territory>
 			<territory type="TV">Tuvalu</territory>
 			<territory type="TW">Taiwan</territory>
@@ -1311,6 +1316,7 @@ annotations.
 			<key type="lw">Line Breaks In Words Setting</key>
 			<key type="m0">Transform Rules</key>
 			<key type="ms">Measurement System</key>
+			<key type="mu">Measurement Unit</key>
 			<key type="numbers">Numbers</key>
 			<key type="rg">Region For Supplemental Data</key>
 			<key type="s0">Transform Source</key>
@@ -1502,6 +1508,9 @@ annotations.
 			<type key="ms" type="metric">Metric System</type>
 			<type key="ms" type="uksystem">Imperial Measurement System</type>
 			<type key="ms" type="ussystem">US Measurement System</type>
+			<type key="mu" type="celsius">Celsius</type>
+			<type key="mu" type="fahrenhe">Fahrenheit</type>
+			<type key="mu" type="kelvin">Kelvin</type>
 			<type key="numbers" type="adlm">Adlam Digits</type>
 			<type key="numbers" type="ahom">Ahom Digits</type>
 			<type key="numbers" type="arab">Arabic-Indic Digits</type>
@@ -1820,7 +1829,7 @@ annotations.
 						<dateFormatItem id="yyyyQQQQ">QQQQ r(U)</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">h B – h B</greatestDifference>
 							<greatestDifference id="h">h – h B</greatestDifference>
@@ -2037,7 +2046,7 @@ annotations.
 						<appendItem request="Year">{0} {1}</appendItem>
 					</appendItems>
 					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">h B – h B</greatestDifference>
 							<greatestDifference id="h">h – h B</greatestDifference>
@@ -2517,7 +2526,7 @@ annotations.
 						<appendItem request="Year">{0} {1}</appendItem>
 					</appendItems>
 					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">h B – h B</greatestDifference>
 							<greatestDifference id="h">h – h B</greatestDifference>
@@ -5790,14 +5799,14 @@ annotations.
 				<displayName count="other">Slovak korunas</displayName>
 			</currency>
 			<currency type="SLE">
-				<displayName>Sierra Leonean New Leone</displayName>
-				<displayName count="one">Sierra Leonean new leone</displayName>
-				<displayName count="other">Sierra Leonean new leones</displayName>
-			</currency>
-			<currency type="SLL">
 				<displayName>Sierra Leonean Leone</displayName>
 				<displayName count="one">Sierra Leonean leone</displayName>
 				<displayName count="other">Sierra Leonean leones</displayName>
+			</currency>
+			<currency type="SLL">
+				<displayName>Sierra Leonean Leone (1964—2022)</displayName>
+				<displayName count="one">Sierra Leonean leone (1964—2022)</displayName>
+				<displayName count="other">Sierra Leonean leones (1964—2022)</displayName>
 			</currency>
 			<currency type="SOS">
 				<displayName>Somali Shilling</displayName>
@@ -6867,7 +6876,7 @@ annotations.
 				<unitPattern count="one">{0} solar luminosity</unitPattern>
 				<unitPattern count="other">{0} solar luminosities</unitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
+			<unit type="mass-tonne">
 				<displayName>metric tons</displayName>
 				<unitPattern count="one">{0} metric ton</unitPattern>
 				<unitPattern count="other">{0} metric tons</unitPattern>
@@ -7800,7 +7809,7 @@ annotations.
 				<unitPattern count="one">{0} L☉</unitPattern>
 				<unitPattern count="other">{0} L☉</unitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
+			<unit type="mass-tonne">
 				<displayName>t</displayName>
 				<unitPattern count="one">{0} t</unitPattern>
 				<unitPattern count="other">{0} t</unitPattern>
@@ -8687,7 +8696,7 @@ annotations.
 				<unitPattern count="one">{0}L☉</unitPattern>
 				<unitPattern count="other">{0}L☉</unitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
+			<unit type="mass-tonne">
 				<displayName>t</displayName>
 				<unitPattern count="one">{0}t</unitPattern>
 				<unitPattern count="other">{0}t</unitPattern>
@@ -9291,7 +9300,8 @@ annotations.
 	</typographicNames>
 	<personNames>
 		<nameOrderLocales order="givenFirst">und en</nameOrderLocales>
-		<nameOrderLocales order="surnameFirst">ja ko zh</nameOrderLocales>
+		<nameOrderLocales order="surnameFirst">ja ko vi yue zh</nameOrderLocales>
+		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
 		<initialPattern type="initial">{0}.</initialPattern>
 		<initialPattern type="initialSequence">{0} {1}</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
@@ -9403,19 +9413,19 @@ annotations.
 			<namePattern>{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="formal">
-			<namePattern>{surname}, {given} {given2} {suffix}</namePattern>
+			<namePattern>{surname-core}, {given} {given2} {surname-prefix}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="informal">
 			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="formal">
-			<namePattern>{surname}, {given} {given2-initial} {suffix}</namePattern>
+			<namePattern>{surname-core}, {given} {given2-initial} {surname-prefix}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="informal">
 			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="formal">
-			<namePattern>{surname}, {given-initial} {given2-initial}</namePattern>
+			<namePattern>{surname-core}, {given-initial} {given2-initial} {surname-prefix}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="informal">
 			<namePattern>{surname}, {given-informal}</namePattern>

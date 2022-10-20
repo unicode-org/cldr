@@ -170,6 +170,10 @@ public class TestBasic extends TestFmwkPlus {
         Relation<R2<DtdType, String>, String> foundAttributes,
         List<TimingInfo> data) throws IOException {
         boolean deepCheck = getInclusion() >= 10;
+        if (directoryFile.getName().equals("import") &&
+            directoryFile.getParentFile().getName().equals("keyboards")) {
+            return; // skip imports
+        }
         File[] listFiles = directoryFile.listFiles();
         String normalizedPath = PathUtilities.getNormalizedPathString(directoryFile);
         String indent = Utility.repeat("\t", level);
@@ -1427,6 +1431,10 @@ public class TestBasic extends TestFmwkPlus {
             return;
         }
         for (File file : CLDRConfig.getInstance().getAllCLDRFilesEndingWith(".xml")) {
+            if (file.getParentFile().getName().equals("import") &&
+                file.getParentFile().getParentFile().getName().equals("keyboards")) {
+                return; // skip imports
+            }
             checkDtdComparatorFor(file, null);
         }
     }

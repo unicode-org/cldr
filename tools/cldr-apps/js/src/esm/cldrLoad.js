@@ -141,7 +141,7 @@ function doHashChange(event) {
  */
 function parseHashAndUpdate(hash) {
   if (hash) {
-    const pieces = hash.substr(0).split("/");
+    const pieces = hash.split("/");
     // pieces[1] is ALWAYS assumed to be locale or empty
     if (pieces.length > 1) {
       cldrStatus.setCurrentLocale(pieces[1]); // could be null
@@ -224,21 +224,16 @@ function updateCurrentId(id) {
   if (cldrStatus.getCurrentId() != id) {
     // don't set if already set.
     cldrStatus.setCurrentId(id);
-    replaceHash(false); // usually don't want to save
+    replaceHash();
   }
 }
 
 /**
  * Update hash (and title)
  *
- * @param doPush {Boolean} if true, do a push (instead of replace)
- *
- * Called by cldrForum.parseContent (doPush false), as well as locally.
+ * Called by cldrForum.parseContent, as well as locally.
  */
-function replaceHash(doPush) {
-  if (!doPush) {
-    doPush = false; // by default -replace.
-  }
+function replaceHash() {
   let theId = cldrStatus.getCurrentId();
   if (theId == null) {
     theId = "";
@@ -257,7 +252,7 @@ function replaceHash(doPush) {
   }
   let newHash = theSpecial + "/" + theLocale + "/" + thePage + "/" + theId;
   if (newHash != getHash()) {
-    setHash(newHash, !doPush);
+    setHash(newHash);
   }
 }
 
@@ -336,52 +331,48 @@ function showCurrentId() {
 }
 
 function unspecialHandleIdChanged() {
-  const reportProblems = false;
   const curId = cldrStatus.getCurrentId();
   if (curId) {
-    var xtr = document.getElementById("r@" + curId);
-    if (!xtr) {
-      if (reportProblems) {
-        console.log("Warning could not load id " + curId + " does not exist");
-        notification.warning({
-          message: "Could not load XPath",
-          description: `The XPath ID ${curId} does not exist.`,
-          duration: 8,
-        });
-      }
-      updateCurrentId(null);
+    if (cldrTable.isHeaderId(curId)) {
+      cldrTable.goToHeaderId(curId);
     } else {
-      if (reportProblems && (!xtr.proposedcell || xtr.proposedcell.showFn)) {
-        // warn, but show it anyway
-        console.log(
-          "Warning: now proposed cell && showFn " +
-            curId +
-            " - not setup - " +
-            xtr.toString() +
-            " pc=" +
-            xtr.proposedcell +
-            " sf = " +
-            xtr.proposedcell.showFn
-        );
-      }
-      cldrInfo.showRowObjFunc(xtr, xtr.proposedcell, xtr.proposedcell.showFn);
-      console.log("Changed to " + cldrStatus.getCurrentId());
-      scrollToItem();
+      goToRowId(curId);
     }
   }
 }
 
-/**
- * Show the surveyCurrentId row
- */
-function scrollToItem() {
-  const curId = cldrStatus.getCurrentId();
-  if (curId) {
-    const xtr = document.getElementById("r@" + curId);
-    if (xtr) {
-      console.log("Scrolling to " + curId);
-      xtr.scrollIntoView({ block: "nearest" });
+function goToRowId(curId) {
+  const rowId = cldrTable.makeRowId(curId);
+  const xtr = document.getElementById(rowId);
+  if (!xtr) {
+    if (CLDR_LOAD_DEBUG) {
+      console.log("Warning could not load id " + rowId + " does not exist");
+      notification.warning({
+        message: "Could not load XPath",
+        description: `The XPath ID ${curId} does not exist.`,
+        duration: 8,
+      });
     }
+    updateCurrentId(null);
+  } else {
+    if (CLDR_LOAD_DEBUG && (!xtr.proposedcell || xtr.proposedcell.showFn)) {
+      // warn, but show it anyway
+      console.log(
+        "Warning: now proposed cell && showFn " +
+          curId +
+          " - not setup - " +
+          xtr.toString() +
+          " pc=" +
+          xtr.proposedcell +
+          " sf = " +
+          xtr.proposedcell.showFn
+      );
+    }
+    cldrInfo.showRowObjFunc(xtr, xtr.proposedcell, xtr.proposedcell.showFn);
+    if (CLDR_LOAD_DEBUG) {
+      console.log("Changed to " + cldrStatus.getCurrentId());
+    }
+    xtr.scrollIntoView({ block: "nearest" });
   }
 }
 
@@ -500,7 +491,7 @@ function reloadV() {
   cldrSurvey.setShower(id, ignoreReloadRequest);
 
   // assume parseHash was already called, if we are taking input from the hash
-  updateHashAndMenus(true);
+  updateHashAndMenus();
 
   const curLocale = cldrStatus.getCurrentLocale();
   if (curLocale != null && curLocale != "" && curLocale != "-") {
@@ -837,7 +828,7 @@ function loadAllRowsFromJson(json, theDiv) {
       cldrStatus.setCurrentPage("");
     }
     cldrSurvey.showLoader(null);
-    updateHashAndMenus(false); // find out why there's no content. (locmap)
+    updateHashAndMenus(); // find out why there's no content. (locmap)
   } else if (!json.section.rows) {
     console.log("!json.section.rows");
     cldrSurvey.showLoader(
@@ -853,7 +844,7 @@ function loadAllRowsFromJson(json, theDiv) {
     }
     cldrStatus.setCurrentSection("");
     cldrStatus.setCurrentPage(json.pageId);
-    updateHashAndMenus(false); // now that we have a pageid
+    updateHashAndMenus(); // now that we have a pageid
     if (!cldrStatus.getSurveyUser()) {
       const message = cldrText.get("loginGuidance");
       cldrInfo.showMessage(message);
@@ -883,14 +874,9 @@ function loadAllRowsFromJson(json, theDiv) {
 
 /**
  * Update the #hash and menus to the current settings.
- *
- * @param doPush {Boolean} if false, do not add to history
  */
-function updateHashAndMenus(doPush) {
-  if (!doPush) {
-    doPush = false;
-  }
-  replaceHash(doPush); // update the hash
+function updateHashAndMenus() {
+  replaceHash();
   cldrMenu.update();
 }
 
@@ -1031,10 +1017,6 @@ function getLocaleName(loc) {
   return locmap.getLocaleName(loc);
 }
 
-// getHash and setHash are replacements for dojo/hash
-// https://dojotoolkit.org/reference-guide/1.10/dojo/hash.html
-// return "locales///";
-
 /**
  * Get the window location hash
  *
@@ -1055,31 +1037,14 @@ function getHash() {
 
 /**
  * Set the window location hash
- *
- * TODO: implement setHash with "replace"
- *
- * This is a replacement for dojo/hash
- *
- * "To manipulate the value of the hash, simply call dojo/hash with the new value.
- * It will be added to the browser history stack and it will publish a /dojo/hashchange topic,
- * triggering anything subscribed ...
- * In order to not to add to the history stack, pass true as the second parameter (replace).
- * This will update the current browser URL and replace the current history state"
  */
-function setHash(newHash, replace) {
+function setHash(newHash) {
   newHash = sliceHash(newHash);
   if (newHash !== sliceHash(window.location.hash)) {
     const oldUrl = window.location.href;
     const newUrl = oldUrl.split("#")[0] + "#" + newHash;
     if (CLDR_LOAD_DEBUG) {
-      console.log(
-        "setHash going to " +
-          newUrl +
-          " - Called with: " +
-          newHash +
-          " - " +
-          replace
-      );
+      console.log("setHash going to " + newUrl + " - Called with: " + newHash);
     }
     window.location.href = newUrl;
   }

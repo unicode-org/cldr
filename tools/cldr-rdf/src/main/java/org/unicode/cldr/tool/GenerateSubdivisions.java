@@ -90,7 +90,9 @@ public class GenerateSubdivisions {
                 "2020-03-05_iso_country_code_ALL_xml",
                 "2020-09-09_iso_country_code_ALL_xml",
                 "2021-09-14_iso_country_code_ALL_xml",
-                "2022-02-22_iso_country_code_ALL_xml"
+                "2022-02-22_iso_country_code_ALL_xml",
+                "2022-03-18_iso_country_code_ALL_xml",
+                "2022-08-26_iso_country_code_ALL_xml"
                 )) {
                 SubdivisionSet sdset1 = new SubdivisionSet(CLDRPaths.CLDR_PRIVATE_DIRECTORY + source + "/iso_country_codes.xml");
                 try (PrintWriter pw = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "subdivision/" + source + ".txt")) {

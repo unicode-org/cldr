@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 import org.unicode.cldr.test.OutdatedPaths;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
-import org.unicode.cldr.util.VettingViewer.Choice;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
 
 import com.ibm.icu.impl.Relation;
@@ -27,6 +26,7 @@ class TestVettingViewer {
         final String loc = "de";
         final CLDRLocale locale = CLDRLocale.getInstance(loc);
         final PathHeader.Factory phf = PathHeader.getFactory();
+        final VoterInfoList vil = new VoterInfoList();
         VettingViewer<Organization> vv = new VettingViewer<>(SupplementalDataInfo.getInstance(), CLDRConfig.getInstance().getCldrFactory(), new VettingViewer.UsersChoice<Organization>(){
 
             @Override
@@ -45,8 +45,8 @@ class TestVettingViewer {
             }
 
             @Override
-            public VoteResolver<String> getVoteResolver(final CLDRLocale loc, final String path) {
-                VoteResolver<String> r = new VoteResolver<>();
+            public VoteResolver<String> getVoteResolver(CLDRFile cldrFile, final CLDRLocale loc, final String path) {
+                VoteResolver<String> r = new VoteResolver<>(vil);
                 r.setLocale(locale, getPathHeader(path));
                 return r;
             }
@@ -60,17 +60,17 @@ class TestVettingViewer {
         final Factory baselineFactory = CLDRConfig.getInstance().getCldrFactory();
         final Factory sourceFactory = baselineFactory;
 
-        EnumSet<VettingViewer.Choice> choiceSet = EnumSet.of(VettingViewer.Choice.englishChanged);
+        EnumSet<NotificationCategory> choiceSet = EnumSet.of(NotificationCategory.englishChanged);
         CLDRFile sourceFile = sourceFactory.make(loc, true);
         CLDRFile baselineFile = baselineFactory.make(loc, true);
         Relation<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> sorted;
-        VettingViewer.DashboardArgs args = new VettingViewer.DashboardArgs(choiceSet, locale, Level.MODERN);
+        VettingParameters args = new VettingParameters(choiceSet, locale, Level.MODERN);
         args.setUserAndOrganization(0 /* userId */, Organization.surveytool);
         args.setFiles(sourceFile, baselineFile);
         VettingViewer<Organization>.DashboardData dd = vv.generateDashboard(args);
         boolean foundAny = false;
         for (Entry<R2<SectionId, PageId>, VettingViewer<Organization>.WritingInfo> e : dd.sorted.entrySet()) {
-            for(Choice problem : e.getValue().problems) {
+            for(NotificationCategory problem : e.getValue().problems) {
                 if (problem.name().equals("englishChanged")) {
                     foundAny = true;
                     final String path = e.getValue().codeOutput.getOriginalPath();

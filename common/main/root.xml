@@ -481,7 +481,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<appendItem request="Year">{1} {0}</appendItem>
 					</appendItems>
 					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">h B – h B</greatestDifference>
 							<greatestDifference id="h">h–h B</greatestDifference>
@@ -997,7 +997,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<appendItem request="Year">{1} {0}</appendItem>
 					</appendItems>
 					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">h B – h B</greatestDifference>
 							<greatestDifference id="h">h–h B</greatestDifference>
@@ -1444,7 +1444,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<appendItem request="Year">{1} {0}</appendItem>
 					</appendItems>
 					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">h B – h B</greatestDifference>
 							<greatestDifference id="h">h–h B</greatestDifference>
@@ -4870,7 +4870,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>L☉</displayName>
 				<unitPattern count="other">{0} L☉</unitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
+			<unit type="mass-tonne">
 				<displayName>t</displayName>
 				<unitPattern count="other">{0} t</unitPattern>
 			</unit>
@@ -5413,7 +5413,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	</typographicNames>
 	<personNames>
 		<nameOrderLocales order="givenFirst">und</nameOrderLocales>
-		<nameOrderLocales order="surnameFirst">hu ja ko vi yue zh</nameOrderLocales>
+		<nameOrderLocales order="surnameFirst">ja ko vi yue zh</nameOrderLocales>
 		<foreignSpaceReplacement xml:space="preserve"> </foreignSpaceReplacement>
 		<initialPattern type="initial">{0}.</initialPattern>
 		<initialPattern type="initialSequence">{0} {1}</initialPattern>

@@ -27,6 +27,9 @@ import java.sql.SQLException;
 import java.sql.SQLFeatureNotSupportedException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -1753,5 +1756,21 @@ public class DBUtils {
             asString = asString.replace(subs[i+0], subs[i+1]);
         }
         return new StringReader(asString);
+    }
+
+    public static String toISOString(Date lastMod) {
+        if (lastMod == null) {
+            return null;
+        }
+        return ZonedDateTime.ofInstant(lastMod.toInstant(), ZoneOffset.UTC)
+        .format(DateTimeFormatter.ISO_DATE_TIME);
+    }
+
+    public static String toISOString(java.sql.Timestamp lastMod) {
+        if (lastMod == null) {
+            return null;
+        }
+        return ZonedDateTime.ofInstant(lastMod.toInstant(), ZoneOffset.UTC)
+        .format(DateTimeFormatter.ISO_DATE_TIME);
     }
 }

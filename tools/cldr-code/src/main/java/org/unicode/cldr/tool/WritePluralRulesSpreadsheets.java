@@ -24,10 +24,11 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import com.ibm.icu.impl.number.DecimalQuantity;
+import com.ibm.icu.impl.number.DecimalQuantity_DualStorageBCD;
 import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.PluralRules.FixedDecimal;
-import com.ibm.icu.text.PluralRules.FixedDecimalRange;
-import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
+import com.ibm.icu.text.PluralRules.DecimalQuantitySamples;
+import com.ibm.icu.text.PluralRules.DecimalQuantitySamplesRange;
 import com.ibm.icu.text.PluralRules.PluralType;
 import com.ibm.icu.text.PluralRules.SampleType;
 
@@ -57,7 +58,7 @@ public class WritePluralRulesSpreadsheets {
         Set<String> cldrLocales = // new TreeSet<>(Arrays.asList(tests));
             new TreeSet<>(STD.getLocaleCoverageLocales(Organization.cldr));
         cldrLocales.addAll(STD.getLocaleCoverageLocales(Organization.google));
-
+        cldrLocales.remove(StandardCodes.ALL_LOCALES); // '*' is not a real locale id.
         writeRanges("Core", cldrLocales, missingMinimalPairs);
 
         for (Entry<Set<String>, String> missing : missingMinimalPairs.entries()) {
@@ -112,7 +113,7 @@ public class WritePluralRulesSpreadsheets {
             if (samplePatterns.isEmpty(PluralType.CARDINAL)) {
                 continue;
             }
-            Set<FixedDecimal> samples = new TreeSet<>();
+            Set<DecimalQuantity> samples = new TreeSet<>();
 
             Set<String> keywords = rules.getKeywords();
             // header
@@ -133,17 +134,17 @@ public class WritePluralRulesSpreadsheets {
                     items.add(i + 110d);
                 }
                 for (Double sample : items) {
-                    FixedDecimal fd = new FixedDecimal(sample);
+                    DecimalQuantity fd = new DecimalQuantity_DualStorageBCD(sample);
                     samples.add(fd);
                 }
                 for (String sample : sampleStrings) {
-                    FixedDecimal fd = new FixedDecimal(sample);
-                    samples.add(fd);
+                    DecimalQuantity dq = DecimalQuantity_DualStorageBCD.fromExponentString(sample);
+                    samples.add(dq);
                 }
             }
             System.out.println();
 
-            for (FixedDecimal number : samples) {
+            for (DecimalQuantity number : samples) {
                 String cat = rules.select(number);
                 String sample = samplePatterns.get(PluralType.CARDINAL, Count.valueOf(cat));
                 System.out.print(
@@ -183,20 +184,20 @@ public class WritePluralRulesSpreadsheets {
             Set<String> keywords = rules.getKeywords();
             PluralRanges pluralRanges = supplemental.getPluralRanges(locale);
             for (String start : keywords) {
-                FixedDecimal small = getSample(rules, start, null); // smallest
+                DecimalQuantity small = getSample(rules, start, null); // smallest
                 String startPattern = getSamplePattern(samplePatterns, start);
                 if (startPattern == null) {
-                    throw new NullPointerException("no startPattern: getSamplePattern(["+locale+"],"+start+") returned null"+
+                    throw new NullPointerException("no startPattern: get[Cardinal]SamplePattern(["+locale+"],"+start+") returned null"+
                         "- samplePatterns: " + samplePatterns.toString());
                 }
                 for (String end : keywords) {
-                    FixedDecimal large = getSample(rules, end, small); // smallest
+                    DecimalQuantity large = getSample(rules, end, small); // smallest
                     if (large == null) {
                         continue;
                     }
                     String endPattern = getSamplePattern(samplePatterns, end);
                     if (endPattern == null) {
-                        throw new NullPointerException("no endPattern: getSamplePattern(["+locale+"],"+end+") returned null"+
+                        throw new NullPointerException("no endPattern: get[Cardinal]SamplePattern(["+locale+"],"+end+") returned null"+
                             "- samplePatterns: " + samplePatterns.toString());
                     }
                     String range = MessageFormat.format(rangePattern, small.toString(), large.toString());
@@ -223,30 +224,30 @@ public class WritePluralRulesSpreadsheets {
         return samplePatterns.get(PluralType.CARDINAL, Count.valueOf(start));
     }
 
-    private static FixedDecimal getSample(PluralRules rules, String start, FixedDecimal minimum) {
-        FixedDecimal result = getSample(rules, start, SampleType.INTEGER, minimum);
-        FixedDecimal result2 = getSample(rules, start, SampleType.DECIMAL, minimum);
+    private static DecimalQuantity getSample(PluralRules rules, String start, DecimalQuantity minimum) {
+        DecimalQuantity result = getSample(rules, start, SampleType.INTEGER, minimum);
+        DecimalQuantity result2 = getSample(rules, start, SampleType.DECIMAL, minimum);
         if (result == null) {
             return result2;
         }
         return result;
     }
 
-    private static FixedDecimal getSample(PluralRules rules, String start, SampleType sampleType, FixedDecimal minimum) {
-        FixedDecimalSamples samples = rules.getDecimalSamples(start, sampleType);
+    private static DecimalQuantity getSample(PluralRules rules, String start, SampleType sampleType, DecimalQuantity minimum) {
+        DecimalQuantitySamples samples = rules.getDecimalSamples(start, sampleType);
         if (samples == null) {
             return null;
         }
-        Set<FixedDecimalRange> samples2 = samples.getSamples();
+        Set<DecimalQuantitySamplesRange> samples2 = samples.getSamples();
         if (samples2 == null) {
             return null;
         }
-        for (FixedDecimalRange sample : samples2) {
+        for (DecimalQuantitySamplesRange sample : samples2) {
             if (minimum == null) {
                 return sample.start;
-            } else if (minimum.getSource() < sample.start.getSource()) {
+            } else if (minimum.toDouble() < sample.start.toDouble()) {
                 return sample.start;
-            } else if (minimum.getSource() < sample.end.getSource()) {
+            } else if (minimum.toDouble() < sample.end.toDouble()) {
                 return sample.end;
             }
         }

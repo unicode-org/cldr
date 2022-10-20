@@ -364,10 +364,6 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         if (path.contains("/foreignSpaceReplacement")) {
             return null; // CLDR-15384 typically inherited; no DAIP processing desired
         }
-        if (logKnownIssue("CLDR-15635", "Skip TestAll() for /intervalFormatItem until we update xml data") &&
-            (path.contains("/timeFormat") || path.contains("/dateFormatItem") || path.contains("/intervalFormatItem"))) {
-            return null; // CLDR-14032 changing normalization for intervalFormats but xml data not yet updated
-        }
         if (path.contains("/exemplarCharacters") || path.contains("/parseLenient")) {
             try {
                 UnicodeSet s1 = new UnicodeSet(value);
@@ -502,34 +498,43 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         PathSpaceAdjustData[] testItems = {
             new PathSpaceAdjustData("en",
                     "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
-                    "h:mm a", "h:mm a"), // \u202F
+                    "h:mm a", "h:mm\u202Fa"),
+            new PathSpaceAdjustData("en",
+                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                    "h:mm aaaa", "h:mm aaaa"), // no adjustment for aaaa
             new PathSpaceAdjustData("ja",
                     "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"hm\"]",
                     "a K:mm", "a K:mm"),
             new PathSpaceAdjustData("en",
                     "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"hm\"]/greatestDifference[@id=\"a\"]",
-                    "h:mm - h:m a", "h:mm – h:m a"), // \u2009\u2013\u2009, \u202F
+                    "h:mm - h:mm a", "h:mm\u2009–\u2009h:mm\u202Fa"),
+            new PathSpaceAdjustData("en",
+                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatFallback",
+                    "{0} – {1}", "{0}\u2009–\u2009{1}"),
             new PathSpaceAdjustData("uk",
                     "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
-                    "d MMM y 'р'.", "d MMM y 'р'."), // \u202F after y
+                    "d MMM y 'р'.", "d MMM y\u202F'р'."),
             new PathSpaceAdjustData("uk",
                     "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yMMMd\"]",
-                    "d MMM y 'р'.", "d MMM y 'р'."), // \u202F after y
+                    "d MMM y 'р'.", "d MMM y\u202F'р'."),
             new PathSpaceAdjustData("uk",
                     "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"yMMMd\"]/greatestDifference[@id=\"M\"]",
-                    "d MMM - d MMM y 'р'.", "d MMM – d MMM y 'р'."), // \u2013, \u202F after y
+                    "d MMM - d MMM y 'р'.", "d MMM – d MMM y\u202F'р'."),
+            new PathSpaceAdjustData("es",
+                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"narrow\"]/dayPeriod[@type=\"am\"]",
+                    "a. m.", "a.\u202Fm."),
             new PathSpaceAdjustData("en",
                     "//ldml/units/unitLength[@type=\"narrow\"]unit[@type=\"mass-gram\"]/unitPattern[@count=\"other\"]",
-                    "{0} g", "{0} g"), //  \u202F
+                    "{0} g", "{0}\u202Fg"),
             new PathSpaceAdjustData("en",
                     "//ldml/units/unitLength[@type=\"narrow\"]unit[@type=\"mass-gram\"]/unitPattern[@count=\"other\"]",
-                    "g {0}", "g {0}"), //  \u202F
+                    "g {0}", "g\u202F{0}"),
             new PathSpaceAdjustData("en",
                     "//ldml/units/unitLength[@type=\"short\"]unit[@type=\"mass-gram\"]/unitPattern[@count=\"other\"]",
-                    "{0} g", "{0} g"), // \u00A0
+                    "{0} g", "{0}\u00A0g"),
             new PathSpaceAdjustData("en",
                     "//ldml/units/unitLength[@type=\"short\"]unit[@type=\"mass-gram\"]/unitPattern[@count=\"other\"]",
-                    "g {0}", "g {0}"), // \u00A0
+                    "g {0}", "g\u00A0{0}"),
         };
 
        for (PathSpaceAdjustData testItem: testItems) {

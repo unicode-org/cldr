@@ -18,7 +18,7 @@ For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
 ### _Summary_
 
-This document describes parts of an XML format (_vocabulary_) for the exchange of structured locale data. This format is used in the [Unicode Common Locale Data Repository](https://unicode.org/cldr/).
+This document describes parts of an XML format (_vocabulary_) for the exchange of structured locale data. This format is used in the [Unicode Common Locale Data Repository](https://www.unicode.org/cldr/).
 
 This is a partial document, describing keyboard mappings. For the other parts of the LDML see the [main LDML document](tr35.md) and the links above.
 
@@ -51,6 +51,7 @@ The LDML specification is divided into the following parts:
 *   Part 5: [Collation](tr35-collation.md#Contents) (sorting, searching, grouping)
 *   Part 6: [Supplemental](tr35-info.md#Contents) (supplemental data)
 *   Part 7: [Keyboards](tr35-keyboards.md#Contents) (keyboard mappings)
+*   Part 8: [Person Names](tr35-personNames.md#Contents) (person names)
 
 ## <a name="Contents" href="#Contents">Contents of Part 7, Keyboards</a>
 
@@ -1890,10 +1891,10 @@ The following are the design principles for the IDs.
    1. Eg, `en`, `sr-Cyrl`, or `en-t-k0-extended`.
 2. Use the minimal language id based on `likelySubtags` (see [Part 1: Likely Subtags](tr35.md#Likely_Subtags))
    1. Eg, instead of `fa-Arab`, use `fa`.
-   2. The data is in <https://github.com/unicode-org/cldr/tree/main/common/supplemental/likelySubtags.xml>
+   2. The data is in <https://github.com/unicode-org/cldr/blob/main/common/supplemental/likelySubtags.xml>
 3. Keyboard files should be platform-independent, however, if included, a platform id is the first subtag after `-t-k0-`. If a keyboard on the platform changes over time, both are dated, eg `bg-t-k0-chromeos-2011`. When selecting, if there is no date, it means the latest one.
 4. Keyboards are only tagged that differ from the "standard for each language". That is, for each language on a platform, there will be a keyboard with no subtags. Subtags with common semantics across languages and platforms are used, such as `-extended`, `-phonetic`, `-qwerty`, `-qwertz`, `-azerty`, …
-5. In order to get to 8 letters, abbreviations are reused that are already in [bcp47](https://github.com/unicode-org/cldr/tree/main/common/bcp47/) -u/-t extensions and in [language-subtag-registry](https://www.iana.org/assignments/language-subtag-registry) variants, eg for Traditional use `-trad` or `-traditio` (both exist in [bcp47](https://github.com/unicode-org/cldr/tree/main/common/bcp47/)).
+5. In order to get to 8 letters, abbreviations are reused that are already in [bcp47](https://github.com/unicode-org/cldr/blob/main/common/bcp47/) -u/-t extensions and in [language-subtag-registry](https://www.iana.org/assignments/language-subtag-registry) variants, eg for Traditional use `-trad` or `-traditio` (both exist in [bcp47](https://github.com/unicode-org/cldr/blob/main/common/bcp47/)).
 6. Multiple languages cannot be indicated in the locale id, so the predominant target is used.
    1. For Finnish + Sami, use `fi-t-k0-smi` or `extended-smi`
    2. The [`<locales>`](#Element_locales) element may be used to identify additional languages.
@@ -2350,6 +2351,6 @@ This attribute specifies the expected resultant text in a document after process
 
 * * *
 
-Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode [Terms of Use](https://unicode.org/copyright.html) apply.
+Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode [Terms of Use](https://www.unicode.org/copyright.html) apply.
 
 Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.

@@ -604,8 +604,24 @@ public class TestExampleGenerator extends TestFmwk {
 
     public void TestPluralSamples() {
         ExampleGenerator exampleGenerator = getExampleGenerator("sv");
-        String path = "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"length-centimeter\"]/unitPattern[@count=\"one\"]";
-        checkValue("Number should be one", "〖❬1❭ cm〗〖❬Jag tror att 1❭ cm❬ är tillräckligt.❭〗", exampleGenerator, path);
+        String[][] tests = {
+            {"//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"length-centimeter\"]/unitPattern[@count=\"one\"]",
+                "Number should be one",
+            "〖❬1❭ cm〗〖❬Jag tror att 1❭ cm❬ är tillräckligt.❭〗"},
+            {"//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"one\"]",
+                "Ordinal one",
+            "〖Ta ❬1❭:a svängen till höger〗〖❌  Ta ❬3❭:a svängen till höger〗"},
+            {"//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"other\"]",
+                "Ordinal other",
+            "〖Ta ❬3❭:e svängen till höger〗〖❌  Ta ❬1❭:e svängen till höger〗"},
+        };
+        for (String[] row : tests) {
+            String path = row[0];
+            String message = row[1];
+            String expected = row[2];
+            checkValue(message, expected, exampleGenerator, path);
+        }
+
     }
 
     public void TestLocaleDisplayPatterns() {
@@ -638,6 +654,26 @@ public class TestExampleGenerator extends TestFmwk {
                 "¤ #0.00"));
         assertEquals("Currency format example faulty",
             "〖€ ❬1295,00❭〗〖-€ ❬1295,00❭〗", actual);
+    }
+
+    public void TestCurrencyFormatsWithContext() {
+        ExampleGenerator exampleGenerator = getExampleGenerator("he");
+        String actual = simplify(exampleGenerator
+            .getExampleHtml(
+                "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                "‏#,##0.00 ¤;‏-#,##0.00 ¤"));
+        assertEquals("Currency format example faulty",
+            "【‏❬1,295❭.❬00❭ ₪〗【⃪‏❬1,295❭.❬00❭ ₪〗【‏‎-❬1,295❭.❬00❭ ₪〗【⃪‏‎-❬1,295❭.❬00❭ ₪〗【‏❬1,295❭.❬00❭ ILS〗【⃪‏❬1,295❭.❬00❭ ILS〗【‏‎-❬1,295❭.❬00❭ ILS〗【⃪‏‎-❬1,295❭.❬00❭ ILS〗", actual);
+    }
+
+    public void TestDateFormatsWithContext() {
+        ExampleGenerator exampleGenerator = getExampleGenerator("ar");
+        String actual = simplify(exampleGenerator
+            .getExampleHtml(
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"short\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                "d‏/M‏/y"));
+        assertEquals("Currency format example faulty",
+            "【٥‏/٩‏/١٩٩٩〗【⃪٥‏/٩‏/١٩٩٩〗", actual);
     }
 
     public void TestSymbols() {

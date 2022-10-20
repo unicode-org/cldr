@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,526 +12,660 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<subdivisions>
-			<subdivision type="aeaz" draft="contributed">Abu Dhabi</subdivision>
-			<subdivision type="amer" draft="contributed">Yerevan</subdivision>
-			<subdivision type="arc" draft="contributed">Buenos Aires</subdivision>
-			<subdivision type="ard" draft="contributed">Provinsi San Luis</subdivision>
-			<subdivision type="arm" draft="contributed">Provinsi Mendoza</subdivision>
-			<subdivision type="at9" draft="contributed">Wina</subdivision>
-			<subdivision type="aunsw" draft="contributed">New South Wales</subdivision>
-			<subdivision type="auqld" draft="contributed">Queensland</subdivision>
-			<subdivision type="auvic" draft="contributed">Victoria</subdivision>
-			<subdivision type="azba" draft="contributed">Baku</subdivision>
-			<subdivision type="babih" draft="contributed">Federasi Bosnia Herzegovina</subdivision>
-			<subdivision type="babrc" draft="contributed">Distrik Brčko</subdivision>
-			<subdivision type="basrp" draft="contributed">Republika Srpska</subdivision>
-			<subdivision type="bevli" draft="contributed">Limburg</subdivision>
-			<subdivision type="bg23" draft="contributed">Sofia</subdivision>
-			<subdivision type="brrs" draft="contributed">BR-RS</subdivision>
-			<subdivision type="bwga" draft="contributed">Gaborone</subdivision>
-			<subdivision type="byhm" draft="contributed">Minsk</subdivision>
-			<subdivision type="bzcy" draft="contributed">Distrik Cayo</subdivision>
-			<subdivision type="caab" draft="contributed">Alberta</subdivision>
-			<subdivision type="cabc" draft="contributed">British Columbia</subdivision>
-			<subdivision type="caqc" draft="contributed">Quebec</subdivision>
-			<subdivision type="cdkn" draft="contributed">Kinshasa</subdivision>
-			<subdivision type="cfbgf" draft="contributed">Bangui</subdivision>
-			<subdivision type="cgbzv" draft="contributed">Brazzaville</subdivision>
-			<subdivision type="chag" draft="contributed">Kanton Aargau</subdivision>
-			<subdivision type="chai" draft="contributed">Kanton Appenzell Innerrhoden</subdivision>
-			<subdivision type="char" draft="contributed">Kanton Appenzell Ausserrhoden</subdivision>
-			<subdivision type="chbe" draft="contributed">Kanton Bern</subdivision>
-			<subdivision type="chbl" draft="contributed">Basel-Landschaft</subdivision>
-			<subdivision type="chbs" draft="contributed">Basel-Stadt</subdivision>
-			<subdivision type="chfr" draft="contributed">Kanton Fribourg</subdivision>
-			<subdivision type="chge" draft="contributed">Kanton Jenéwa</subdivision>
-			<subdivision type="chgl" draft="contributed">Canton Glarus</subdivision>
-			<subdivision type="chgr" draft="contributed">Graubünden</subdivision>
-			<subdivision type="chju" draft="contributed">Kanton Jura</subdivision>
-			<subdivision type="chne" draft="contributed">Canton Neuchâtel</subdivision>
-			<subdivision type="chsg" draft="contributed">Kanton St. Gallen</subdivision>
-			<subdivision type="chsz" draft="contributed">Kanton Schwyz</subdivision>
-			<subdivision type="chti" draft="contributed">Kanton Ticino</subdivision>
-			<subdivision type="chvd" draft="contributed">Kanton Vaud</subdivision>
-			<subdivision type="chvs" draft="contributed">Valais</subdivision>
-			<subdivision type="chzg" draft="contributed">Kanton Zug</subdivision>
-			<subdivision type="chzh" draft="contributed">Kanton Zurich</subdivision>
-			<subdivision type="ciab" draft="contributed">Abidjan</subdivision>
-			<subdivision type="ciym" draft="contributed">Yamoussoukro</subdivision>
-			<subdivision type="cnbj" draft="contributed">Beijing</subdivision>
-			<subdivision type="cnfj" draft="contributed">Fujian</subdivision>
-			<subdivision type="cnhk" draft="contributed">Hong Kong</subdivision>
-			<subdivision type="cnjl" draft="contributed">Jilin</subdivision>
-			<subdivision type="cnmo" draft="contributed">Makau</subdivision>
-			<subdivision type="cnnx" draft="contributed">Ningxia</subdivision>
-			<subdivision type="cnsh" draft="contributed">Shanghai</subdivision>
-			<subdivision type="cnxj" draft="contributed">Xinjiang</subdivision>
-			<subdivision type="codc" draft="contributed">Bogotá</subdivision>
-			<subdivision type="cz10" draft="contributed">Praha</subdivision>
-			<subdivision type="debb" draft="contributed">Brandenburg</subdivision>
-			<subdivision type="debe" draft="contributed">Berlin</subdivision>
-			<subdivision type="debw" draft="contributed">Baden-Württemberg</subdivision>
-			<subdivision type="deby" draft="contributed">Bayern</subdivision>
-			<subdivision type="dehb" draft="contributed">Bremen</subdivision>
-			<subdivision type="dehe" draft="contributed">Hessen</subdivision>
-			<subdivision type="dehh" draft="contributed">Hamburg</subdivision>
-			<subdivision type="demv" draft="contributed">Mecklenburg-Vorpommern</subdivision>
-			<subdivision type="deni" draft="contributed">Niedersachsen</subdivision>
-			<subdivision type="denw" draft="contributed">Nordrhein-Westfalen</subdivision>
-			<subdivision type="derp" draft="contributed">Rheinland-Pfalz</subdivision>
-			<subdivision type="desh" draft="contributed">Schleswig-Holstein</subdivision>
-			<subdivision type="desl" draft="contributed">Saarland</subdivision>
-			<subdivision type="desn" draft="contributed">Sachsen</subdivision>
-			<subdivision type="dest" draft="contributed">Sachsen-Anhalt</subdivision>
-			<subdivision type="deth" draft="contributed">Thüringen</subdivision>
-			<subdivision type="djdj" draft="contributed">Djibouti</subdivision>
-			<subdivision type="esan" draft="contributed">Andalusia</subdivision>
-			<subdivision type="esar" draft="contributed">Aragon</subdivision>
-			<subdivision type="esas" draft="contributed">Asturias</subdivision>
-			<subdivision type="esce" draft="contributed">Ceuta</subdivision>
-			<subdivision type="escl" draft="contributed">Castile-Leon</subdivision>
-			<subdivision type="escm" draft="contributed">Castile-La Mancha</subdivision>
-			<subdivision type="esct" draft="contributed">Catalunya</subdivision>
-			<subdivision type="esga" draft="contributed">Galicia</subdivision>
-			<subdivision type="esib" draft="contributed">Kapuloan Baleares</subdivision>
-			<subdivision type="eslo" draft="contributed">La Rioja</subdivision>
-			<subdivision type="esmc" draft="contributed">Murcia</subdivision>
-			<subdivision type="esml" draft="contributed">Melilla</subdivision>
-			<subdivision type="espm" draft="contributed">Kapuloan Baleares²</subdivision>
-			<subdivision type="espv" draft="contributed">País Vasco</subdivision>
-			<subdivision type="esri" draft="contributed">La Rioja²</subdivision>
-			<subdivision type="etaa" draft="contributed">Addis Ababa</subdivision>
-			<subdivision type="etor" draft="contributed">Region Oromia</subdivision>
-			<subdivision type="fr01" draft="contributed">Ain</subdivision>
-			<subdivision type="fr02" draft="contributed">Aisne</subdivision>
-			<subdivision type="fr03" draft="contributed">Allier</subdivision>
-			<subdivision type="fr14" draft="contributed">Calvados</subdivision>
-			<subdivision type="fr21" draft="contributed">Côte-d’Or</subdivision>
-			<subdivision type="fr33" draft="contributed">Dhépartemèn Gironde</subdivision>
-			<subdivision type="fr75" draft="contributed">Paris</subdivision>
-			<subdivision type="fr86" draft="contributed">Vienne</subdivision>
-			<subdivision type="fr92" draft="contributed">Hauts-de-Seine</subdivision>
-			<subdivision type="frbre" draft="contributed">Bretagne</subdivision>
-			<subdivision type="frcor" draft="contributed">Korsika</subdivision>
-			<subdivision type="frcvl" draft="contributed">Centre</subdivision>
-			<subdivision type="fridf" draft="contributed">Île-de-France</subdivision>
-			<subdivision type="frpac" draft="contributed">Provence-Alpes-Côte d’Azur</subdivision>
-			<subdivision type="frpdl" draft="contributed">Pays de la Loire</subdivision>
-			<subdivision type="gbcrf" draft="contributed">Cardiff</subdivision>
-			<subdivision type="gbder" draft="contributed">Derby</subdivision>
-			<subdivision type="gbglg" draft="contributed">Glasgow</subdivision>
-			<subdivision type="gbham" draft="contributed">Hampshire</subdivision>
-			<subdivision type="gblec" draft="contributed">Leicestershire</subdivision>
-			<subdivision type="gblnd" draft="contributed">London</subdivision>
-			<subdivision type="gbnir" draft="contributed">Irlandia Lor</subdivision>
-			<subdivision type="gboxf" draft="contributed">Oxford</subdivision>
-			<subdivision type="gbpor" draft="contributed">Portsmouth</subdivision>
-			<subdivision type="gbukm" draft="contributed">Britania Raya</subdivision>
-			<subdivision type="geaj" draft="contributed">Ajaria</subdivision>
-			<subdivision type="getb" draft="contributed">Tbilisi</subdivision>
-			<subdivision type="gmb" draft="contributed">Banjul</subdivision>
-			<subdivision type="gnc" draft="contributed">Conakry</subdivision>
-			<subdivision type="gr69" draft="contributed">Mount Athos</subdivision>
-			<subdivision type="gra" draft="contributed">Makedonia Wétan lan Trasia</subdivision>
-			<subdivision type="grb" draft="contributed">Makedonia Tengah</subdivision>
-			<subdivision type="grc" draft="contributed">Makedonia Kulon</subdivision>
-			<subdivision type="grd" draft="contributed">Epirus (periphery)</subdivision>
-			<subdivision type="gre" draft="contributed">Tesalonika</subdivision>
-			<subdivision type="grg" draft="contributed">Yunani Kulon</subdivision>
-			<subdivision type="grh" draft="contributed">Yunani Tengah</subdivision>
-			<subdivision type="grj" draft="contributed">Peloponnesa</subdivision>
-			<subdivision type="grk" draft="contributed">Aegea Lor</subdivision>
-			<subdivision type="grl" draft="contributed">Aegea Kidul</subdivision>
-			<subdivision type="gwbs" draft="contributed">Bissau</subdivision>
-			<subdivision type="hr21" draft="contributed">Zagreb</subdivision>
-			<subdivision type="hubu" draft="contributed">Budapest</subdivision>
-			<subdivision type="hugy" draft="contributed">Győr</subdivision>
-			<subdivision type="hukm" draft="contributed">Kecskemét</subdivision>
-			<subdivision type="hunk" draft="contributed">Nagykanizsa</subdivision>
-			<subdivision type="husd" draft="contributed">Szeged</subdivision>
-			<subdivision type="idac" draft="contributed">Acèh</subdivision>
-			<subdivision type="idba" draft="contributed">Provinsi Bali</subdivision>
-			<subdivision type="idbb" draft="contributed">Kapuloan Bangka-Belitung</subdivision>
-			<subdivision type="idbe" draft="contributed">Bengkulu</subdivision>
-			<subdivision type="idbt" draft="contributed">Banten</subdivision>
-			<subdivision type="idgo" draft="contributed">Gorontalo</subdivision>
-			<subdivision type="idja" draft="contributed">Jambi</subdivision>
-			<subdivision type="idjb" draft="contributed">Jawa Wetan</subdivision>
-			<subdivision type="idji" draft="contributed">Jawa Wétan</subdivision>
-			<subdivision type="idjk" draft="contributed">Jakarta</subdivision>
-			<subdivision type="idjt" draft="contributed">Jawa Tengah</subdivision>
-			<subdivision type="idjw" draft="contributed">Jawa</subdivision>
-			<subdivision type="idkb" draft="contributed">Kalimantan Kulon</subdivision>
-			<subdivision type="idki" draft="contributed">Kalimantan Wétan</subdivision>
-			<subdivision type="idkr" draft="contributed">Kapuloan Riau</subdivision>
-			<subdivision type="idks" draft="contributed">Kalimantan Kidul</subdivision>
-			<subdivision type="idkt" draft="contributed">Kalimantan Tengah</subdivision>
-			<subdivision type="idku" draft="contributed">Kalimantan Lor</subdivision>
-			<subdivision type="idla" draft="contributed">Lampung</subdivision>
-			<subdivision type="idma" draft="contributed">Maluku</subdivision>
-			<subdivision type="idml" draft="contributed">Kapuloan Maluku</subdivision>
-			<subdivision type="idmu" draft="contributed">Maluku Lor</subdivision>
-			<subdivision type="idnb" draft="contributed">Nusa Tenggara Kulon</subdivision>
-			<subdivision type="idnt" draft="contributed">Nusa Tenggara Wétan</subdivision>
-			<subdivision type="idnu" draft="contributed">Kapuloan Nusa Tenggara</subdivision>
-			<subdivision type="idpa" draft="contributed">Papua</subdivision>
-			<subdivision type="idpb" draft="contributed">Papua Kulon</subdivision>
-			<subdivision type="idri" draft="contributed">Riau</subdivision>
-			<subdivision type="idsa" draft="contributed">Sulawesi Lor</subdivision>
-			<subdivision type="idsb" draft="contributed">Sumatra Kulon</subdivision>
-			<subdivision type="idsg" draft="contributed">Sulawesi Kidul-wétan</subdivision>
-			<subdivision type="idsl" draft="contributed">Sulawesi</subdivision>
-			<subdivision type="idsm" draft="contributed">Sumatra</subdivision>
-			<subdivision type="idsn" draft="contributed">Sulawesi Kidul</subdivision>
-			<subdivision type="idsr" draft="contributed">Sulawesi Kulon</subdivision>
-			<subdivision type="idss" draft="contributed">Sumatra Kidul</subdivision>
-			<subdivision type="idst" draft="contributed">Sulawesi Tengah</subdivision>
-			<subdivision type="idsu" draft="contributed">Sumatra Lor</subdivision>
-			<subdivision type="idyo" draft="contributed">Dhaérah Istiméwa Yogyakarta</subdivision>
-			<subdivision type="inan" draft="contributed">Kapuloan Andaman lan Nikobar</subdivision>
-			<subdivision type="inas" draft="contributed">Assam</subdivision>
-			<subdivision type="inor" draft="contributed">Odisha</subdivision>
-			<subdivision type="iqda" draft="contributed">Kagubernuran Dohuk</subdivision>
-			<subdivision type="it21" draft="contributed">Piemonte</subdivision>
-			<subdivision type="it23" draft="contributed">Lembah Aosta</subdivision>
-			<subdivision type="it25" draft="contributed">Lombardia</subdivision>
-			<subdivision type="it32" draft="contributed">Trentino-Alto Adige</subdivision>
-			<subdivision type="it34" draft="contributed">Veneto</subdivision>
-			<subdivision type="it36" draft="contributed">Friuli-Venezia Giulia</subdivision>
-			<subdivision type="it42" draft="contributed">Liguria</subdivision>
-			<subdivision type="it45" draft="contributed">Emilia-Romagna</subdivision>
-			<subdivision type="it52" draft="contributed">Toscana</subdivision>
-			<subdivision type="it55" draft="contributed">Umbria</subdivision>
-			<subdivision type="it57" draft="contributed">Marche</subdivision>
-			<subdivision type="it62" draft="contributed">Latium</subdivision>
-			<subdivision type="it65" draft="contributed">Abruzzo</subdivision>
-			<subdivision type="it67" draft="contributed">Molise</subdivision>
-			<subdivision type="it72" draft="contributed">Campania</subdivision>
-			<subdivision type="it75" draft="contributed">Puglia</subdivision>
-			<subdivision type="it77" draft="contributed">Basilicata</subdivision>
-			<subdivision type="it78" draft="contributed">Calabria</subdivision>
-			<subdivision type="it82" draft="contributed">Sisilia</subdivision>
-			<subdivision type="it88" draft="contributed">Sardinia</subdivision>
-			<subdivision type="itag" draft="contributed">Provinsi Agrigento</subdivision>
-			<subdivision type="ital" draft="contributed">Provinsi Alessandria</subdivision>
-			<subdivision type="itan" draft="contributed">Provinsi Ancona</subdivision>
-			<subdivision type="itap" draft="contributed">Provinsi Ascoli Piceno</subdivision>
-			<subdivision type="itaq" draft="contributed">Provinsi L’Aquila</subdivision>
-			<subdivision type="itar" draft="contributed">Provinsi Arezzo</subdivision>
-			<subdivision type="itat" draft="contributed">Provinsi Asti</subdivision>
-			<subdivision type="itav" draft="contributed">Provinsi Avellino</subdivision>
-			<subdivision type="itbg" draft="contributed">Provinsi Bergamo</subdivision>
-			<subdivision type="itbi" draft="contributed">Provinsi Biella</subdivision>
-			<subdivision type="itbl" draft="contributed">Provinsi Belluno</subdivision>
-			<subdivision type="itbn" draft="contributed">Provinsi Benevento</subdivision>
-			<subdivision type="itbo" draft="contributed">Provinsi Bologna</subdivision>
-			<subdivision type="itbr" draft="contributed">Provinsi Brindisi</subdivision>
-			<subdivision type="itbs" draft="contributed">Provinsi Brescia</subdivision>
-			<subdivision type="itbt" draft="contributed">Provinsi Barletta-Andria-Trani</subdivision>
-			<subdivision type="itbz" draft="contributed">Provinsi otonom Bolzano</subdivision>
-			<subdivision type="itca" draft="contributed">Provinsi Cagliari</subdivision>
-			<subdivision type="itce" draft="contributed">Provinsi Caserta</subdivision>
-			<subdivision type="itch" draft="contributed">Provinsi Chieti</subdivision>
-			<subdivision type="itci" draft="contributed">Provinsi Carbonia-Iglesias</subdivision>
-			<subdivision type="itcl" draft="contributed">Provinsi Caltanissetta</subdivision>
-			<subdivision type="itcn" draft="contributed">Provinsi Cuneo</subdivision>
-			<subdivision type="itco" draft="contributed">Provinsi Como</subdivision>
-			<subdivision type="itcr" draft="contributed">Provinsi Cremona</subdivision>
-			<subdivision type="itcs" draft="contributed">Provinsi Cosenza</subdivision>
-			<subdivision type="itct" draft="contributed">Provinsi Catania</subdivision>
-			<subdivision type="itcz" draft="contributed">Provinsi Catanzaro</subdivision>
-			<subdivision type="iten" draft="contributed">Provinsi Enna</subdivision>
-			<subdivision type="itfc" draft="contributed">Provinsi Forlì-Cesena</subdivision>
-			<subdivision type="itfe" draft="contributed">Provinsi Ferrara</subdivision>
-			<subdivision type="itfg" draft="contributed">Provinsi Foggia</subdivision>
-			<subdivision type="itfi" draft="contributed">Provinsi Firenze</subdivision>
-			<subdivision type="itfm" draft="contributed">Provinsi Fermo</subdivision>
-			<subdivision type="itfr" draft="contributed">Provinsi Frosinone</subdivision>
-			<subdivision type="itgo" draft="contributed">Provinsi Gorizia</subdivision>
-			<subdivision type="itgr" draft="contributed">Provinsi Grosseto</subdivision>
-			<subdivision type="itim" draft="contributed">Provinsi Imperia</subdivision>
-			<subdivision type="itkr" draft="contributed">Provinsi Crotone</subdivision>
-			<subdivision type="itlc" draft="contributed">Provinsi Lecco</subdivision>
-			<subdivision type="itle" draft="contributed">Provinsi Lecce</subdivision>
-			<subdivision type="itli" draft="contributed">Provinsi Livorno</subdivision>
-			<subdivision type="itlo" draft="contributed">Provinsi Lodi</subdivision>
-			<subdivision type="itlt" draft="contributed">Provinsi Latina</subdivision>
-			<subdivision type="itlu" draft="contributed">Provinsi Lucca</subdivision>
-			<subdivision type="itmc" draft="contributed">Provinsi Macerata</subdivision>
-			<subdivision type="itme" draft="contributed">Provinsi Messina</subdivision>
-			<subdivision type="itmi" draft="contributed">Provinsi Milan</subdivision>
-			<subdivision type="itmn" draft="contributed">Provinsi Mantova</subdivision>
-			<subdivision type="itmo" draft="contributed">Provinsi Modena</subdivision>
-			<subdivision type="itms" draft="contributed">Provinsi Massa-Carrara</subdivision>
-			<subdivision type="itmt" draft="contributed">Provinsi Matera</subdivision>
-			<subdivision type="itna" draft="contributed">Provinsi Napoli</subdivision>
-			<subdivision type="itno" draft="contributed">Provinsi Novara</subdivision>
-			<subdivision type="itnu" draft="contributed">Provinsi Nuoro</subdivision>
-			<subdivision type="itog" draft="contributed">Provinsi Ogliastra</subdivision>
-			<subdivision type="itor" draft="contributed">Provinsi Oristano</subdivision>
-			<subdivision type="itot" draft="contributed">Provinsi Olbia-Tempio</subdivision>
-			<subdivision type="itpa" draft="contributed">Provinsi Palermo</subdivision>
-			<subdivision type="itpc" draft="contributed">Provinsi Piacenza</subdivision>
-			<subdivision type="itpd" draft="contributed">Provinsi Padova</subdivision>
-			<subdivision type="itpe" draft="contributed">Provinsi Pescara</subdivision>
-			<subdivision type="itpg" draft="contributed">Provinsi Perugia</subdivision>
-			<subdivision type="itpi" draft="contributed">Provinsi Pisa</subdivision>
-			<subdivision type="itpn" draft="contributed">Provinsi Pordenone</subdivision>
-			<subdivision type="itpo" draft="contributed">Provinsi Prato</subdivision>
-			<subdivision type="itpr" draft="contributed">Provinsi Parma</subdivision>
-			<subdivision type="itpt" draft="contributed">Provinsi Pistoia</subdivision>
-			<subdivision type="itpu" draft="contributed">Provinsi Pesaro lan Urbino</subdivision>
-			<subdivision type="itpv" draft="contributed">Provinsi Pavia</subdivision>
-			<subdivision type="itpz" draft="contributed">Provinsi Potenza</subdivision>
-			<subdivision type="itra" draft="contributed">Provinsi Ravenna</subdivision>
-			<subdivision type="itrc" draft="contributed">Provinsi Reggio Calabria</subdivision>
-			<subdivision type="itre" draft="contributed">Provinsi Reggio Emilia</subdivision>
-			<subdivision type="itrg" draft="contributed">Provinsi Ragusa</subdivision>
-			<subdivision type="itri" draft="contributed">Provinsi Rieti</subdivision>
-			<subdivision type="itrm" draft="contributed">Provinsi Roma</subdivision>
-			<subdivision type="itrn" draft="contributed">Provinsi Rimini</subdivision>
-			<subdivision type="itro" draft="contributed">Provinsi Rovigo</subdivision>
-			<subdivision type="itsa" draft="contributed">Provinsi Salerno</subdivision>
-			<subdivision type="itsi" draft="contributed">Provinsi Siena</subdivision>
-			<subdivision type="itso" draft="contributed">Provinsi Sondrio</subdivision>
-			<subdivision type="itsp" draft="contributed">Provinsi La Spezia</subdivision>
-			<subdivision type="itsr" draft="contributed">Provinsi Siracusa</subdivision>
-			<subdivision type="itss" draft="contributed">Provinsi Sassari</subdivision>
-			<subdivision type="itsv" draft="contributed">Provinsi Savona</subdivision>
-			<subdivision type="itta" draft="contributed">Provinsi Taranto</subdivision>
-			<subdivision type="itte" draft="contributed">Provinsi Teramo</subdivision>
-			<subdivision type="ittn" draft="contributed">Provinsi otonom Trento</subdivision>
-			<subdivision type="itto" draft="contributed">Provinsi Torino</subdivision>
-			<subdivision type="ittp" draft="contributed">Provinsi Trapani</subdivision>
-			<subdivision type="ittr" draft="contributed">Provinsi Terni</subdivision>
-			<subdivision type="itts" draft="contributed">Provinsi Trieste</subdivision>
-			<subdivision type="ittv" draft="contributed">Provinsi Treviso</subdivision>
-			<subdivision type="itud" draft="contributed">Provinsi Udine</subdivision>
-			<subdivision type="itva" draft="contributed">Provinsi Varese</subdivision>
-			<subdivision type="itvb" draft="contributed">Provinsi Verbano-Cusio-Ossola</subdivision>
-			<subdivision type="itvc" draft="contributed">Provinsi Vercelli</subdivision>
-			<subdivision type="itve" draft="contributed">Provinsi Venezia</subdivision>
-			<subdivision type="itvi" draft="contributed">Provinsi Vicenza</subdivision>
-			<subdivision type="itvr" draft="contributed">Provinsi Verona</subdivision>
-			<subdivision type="itvs" draft="contributed">Provinsi Medio Campidano</subdivision>
-			<subdivision type="itvt" draft="contributed">Provinsi Viterbo</subdivision>
-			<subdivision type="itvv" draft="contributed">Provinsi Vibo Valentia</subdivision>
-			<subdivision type="jp01" draft="contributed">Hokkaido</subdivision>
-			<subdivision type="jp02" draft="contributed">Prefektur Aomori</subdivision>
-			<subdivision type="jp03" draft="contributed">Prefektur Iwate</subdivision>
-			<subdivision type="jp05" draft="contributed">Prefektur Akita</subdivision>
-			<subdivision type="jp07" draft="contributed">Prefektur Fukushima</subdivision>
-			<subdivision type="jp08" draft="contributed">Prefektur Ibaraki</subdivision>
-			<subdivision type="jp10" draft="contributed">Prefektur Gunma</subdivision>
-			<subdivision type="jp12" draft="contributed">Prefektur Chiba</subdivision>
-			<subdivision type="jp13" draft="contributed">Tokyo</subdivision>
-			<subdivision type="jp15" draft="contributed">Prefektur Niigata</subdivision>
-			<subdivision type="jp18" draft="contributed">Prefektur Fukui</subdivision>
-			<subdivision type="jp21" draft="contributed">Prefektur Gifu</subdivision>
-			<subdivision type="jp22" draft="contributed">Prefektur Shizuoka</subdivision>
-			<subdivision type="jp23" draft="contributed">Prefektur Aichi</subdivision>
-			<subdivision type="jp25" draft="contributed">Prefektur Shiga</subdivision>
-			<subdivision type="jp27" draft="contributed">Prefektur Osaka</subdivision>
-			<subdivision type="jp28" draft="contributed">Prefektur Hyogo</subdivision>
-			<subdivision type="jp29" draft="contributed">Prefektur Nara</subdivision>
-			<subdivision type="jp30" draft="contributed">Prefektur Wakayama</subdivision>
-			<subdivision type="jp31" draft="contributed">Prefektur Tottori</subdivision>
-			<subdivision type="jp33" draft="contributed">Prefektur Okayama</subdivision>
-			<subdivision type="jp36" draft="contributed">Prefektur Tokushima</subdivision>
-			<subdivision type="jp38" draft="contributed">Prefektur Ehime</subdivision>
-			<subdivision type="jp40" draft="contributed">Prefektur Fukuoka</subdivision>
-			<subdivision type="jp46" draft="contributed">Prefektur Kagoshima</subdivision>
-			<subdivision type="jp47" draft="contributed">Prefektur Okinawa</subdivision>
-			<subdivision type="kggb" draft="contributed">Bishkek</subdivision>
-			<subdivision type="kp01" draft="contributed">Pyongyang</subdivision>
-			<subdivision type="kr11" draft="contributed">Seoul</subdivision>
-			<subdivision type="kr26" draft="contributed">Busan</subdivision>
-			<subdivision type="kr28" draft="contributed">Incheon</subdivision>
-			<subdivision type="kr29" draft="contributed">Gwangju</subdivision>
-			<subdivision type="kr30" draft="contributed">Daejeon</subdivision>
-			<subdivision type="kr43" draft="contributed">Chungcheong Utara</subdivision>
-			<subdivision type="kr45" draft="contributed">Jeollabuk-do</subdivision>
-			<subdivision type="kr49" draft="contributed">Jejudo</subdivision>
-			<subdivision type="kzast" draft="contributed">Astana, Kazakhstan</subdivision>
-			<subdivision type="lvrix" draft="contributed">Riga</subdivision>
-			<subdivision type="ma02" draft="contributed">Gharb-Chrarda-Béni Hssen</subdivision>
-			<subdivision type="ma03" draft="contributed">Taza-Al Hoceima-Taounate</subdivision>
-			<subdivision type="ma04" draft="contributed">Oriental Region</subdivision>
-			<subdivision type="ma05" draft="contributed">Fès-Boulemane</subdivision>
-			<subdivision type="ma06" draft="contributed">Meknès-Tafilalet</subdivision>
-			<subdivision type="ma07" draft="contributed">Rabat-Salé-Zemmour-Zaer</subdivision>
-			<subdivision type="ma08" draft="contributed">Grand Casablanca</subdivision>
-			<subdivision type="ma09" draft="contributed">Chaouia-Ouardigha</subdivision>
-			<subdivision type="ma10" draft="contributed">Doukkala-Abda</subdivision>
-			<subdivision type="ma11" draft="contributed">Marrakech-Tensift-El Haouz</subdivision>
-			<subdivision type="ma12" draft="contributed">Tadla-Azilal</subdivision>
-			<subdivision type="marab" draft="contributed">Rabat</subdivision>
-			<subdivision type="mdbd" draft="contributed">Bender</subdivision>
-			<subdivision type="mdcu" draft="contributed">Chişinău</subdivision>
-			<subdivision type="mk85" draft="contributed">Skopje</subdivision>
-			<subdivision type="mlbko" draft="contributed">Bamako</subdivision>
-			<subdivision type="mm16" draft="contributed">Rakhine</subdivision>
-			<subdivision type="mn1" draft="contributed">Ulaanbaatar</subdivision>
-			<subdivision type="mubl" draft="contributed">Black River</subdivision>
-			<subdivision type="mupu" draft="contributed">Port Louis</subdivision>
-			<subdivision type="mxcmx" draft="contributed">Mexico City</subdivision>
-			<subdivision type="mxsin" draft="contributed">Sinaloa</subdivision>
-			<subdivision type="my01" draft="contributed">Johor</subdivision>
-			<subdivision type="my03" draft="contributed">Kelantan</subdivision>
-			<subdivision type="my04" draft="contributed">Melaka</subdivision>
-			<subdivision type="my05" draft="contributed">Negeri Sembilan</subdivision>
-			<subdivision type="my07" draft="contributed">Pulo Pinang</subdivision>
-			<subdivision type="my11" draft="contributed">Terengganu</subdivision>
-			<subdivision type="my12" draft="contributed">Sabah</subdivision>
-			<subdivision type="my13" draft="contributed">Sarawak</subdivision>
-			<subdivision type="my14" draft="contributed">Kuala Lumpur</subdivision>
-			<subdivision type="my16" draft="contributed">Putrajaya</subdivision>
-			<subdivision type="mzmpm" draft="contributed">Maputo</subdivision>
-			<subdivision type="nldr" draft="contributed">Drenthe</subdivision>
-			<subdivision type="nlfl" draft="contributed">Flevoland</subdivision>
-			<subdivision type="nlfr" draft="contributed">Friesland</subdivision>
-			<subdivision type="nlge" draft="contributed">Gelderland</subdivision>
-			<subdivision type="nlgr" draft="contributed">Provinsi Groningen</subdivision>
-			<subdivision type="nlli" draft="contributed">Limburg</subdivision>
-			<subdivision type="nlnb" draft="contributed">Brabant Lor</subdivision>
-			<subdivision type="nlnh" draft="contributed">Holland Lor</subdivision>
-			<subdivision type="nlov" draft="contributed">Overijssel</subdivision>
-			<subdivision type="nlut" draft="contributed">Provinsi Utrecht</subdivision>
-			<subdivision type="nlzh" draft="contributed">Holland Kidul</subdivision>
-			<subdivision type="no03" draft="contributed">Oslo</subdivision>
-			<subdivision type="no21" draft="contributed">Svalbard</subdivision>
-			<subdivision type="no22" draft="contributed">Jan Mayen</subdivision>
-			<subdivision type="nr01" draft="contributed">Aiwo</subdivision>
-			<subdivision type="nr02" draft="contributed">Anabar</subdivision>
-			<subdivision type="nr03" draft="contributed">Anetan</subdivision>
-			<subdivision type="nr04" draft="contributed">Anibare</subdivision>
-			<subdivision type="nr05" draft="contributed">Baiti</subdivision>
-			<subdivision type="nr06" draft="contributed">Boe</subdivision>
-			<subdivision type="nr07" draft="contributed">Buada</subdivision>
-			<subdivision type="nr08" draft="contributed">Denigomodu</subdivision>
-			<subdivision type="nr09" draft="contributed">Ewa</subdivision>
-			<subdivision type="nr10" draft="contributed">Ijuw</subdivision>
-			<subdivision type="nr11" draft="contributed">Meneng</subdivision>
-			<subdivision type="nr12" draft="contributed">Nibok</subdivision>
-			<subdivision type="nr13" draft="contributed">Uaboe</subdivision>
-			<subdivision type="nr14" draft="contributed">Yaren</subdivision>
-			<subdivision type="pgmrl" draft="contributed">Provinsi Manus</subdivision>
-			<subdivision type="pgncd" draft="contributed">Port Moresby</subdivision>
-			<subdivision type="phboh" draft="contributed">Bohol</subdivision>
-			<subdivision type="phpan" draft="contributed">Pangasinan</subdivision>
-			<subdivision type="pt20" draft="contributed">Azores</subdivision>
-			<subdivision type="pt30" draft="contributed">Madeira</subdivision>
-			<subdivision type="pyasu" draft="contributed">Asunción</subdivision>
-			<subdivision type="qada" draft="contributed">Doha</subdivision>
-			<subdivision type="rob" draft="contributed">Bukarès</subdivision>
-			<subdivision type="rs00" draft="contributed">Beograd</subdivision>
-			<subdivision type="rs01" draft="contributed">Bačka Lor</subdivision>
-			<subdivision type="rsvo" draft="contributed">Vojvodina</subdivision>
-			<subdivision type="ruce" draft="contributed">Chechnya</subdivision>
-			<subdivision type="ruda" draft="contributed">Dagestan</subdivision>
-			<subdivision type="ruin" draft="contributed">Ingushetia</subdivision>
-			<subdivision type="rumow" draft="contributed">Moskwa</subdivision>
-			<subdivision type="ruspe" draft="contributed">St. Petersburg</subdivision>
-			<subdivision type="rw01" draft="contributed">Kigali</subdivision>
-			<subdivision type="sa02" draft="contributed">Provinsi Mekkah</subdivision>
-			<subdivision type="sc01" draft="contributed">Anse aux Pins</subdivision>
-			<subdivision type="sc02" draft="contributed">Anse Boileau</subdivision>
-			<subdivision type="sc03" draft="contributed">Anse Etoile</subdivision>
-			<subdivision type="sc09" draft="contributed">Bel Air, Syechelles</subdivision>
-			<subdivision type="sc10" draft="contributed">Bel Ombre</subdivision>
-			<subdivision type="sc22" draft="contributed">Saint Louis, Seychelles</subdivision>
-			<subdivision type="shac" draft="contributed">Pulo Ascension</subdivision>
-			<subdivision type="shhl" draft="contributed">Saint Helena</subdivision>
-			<subdivision type="sm07" draft="contributed">San Marino</subdivision>
-			<subdivision type="soaw" draft="contributed">Awdal</subdivision>
-			<subdivision type="sobk" draft="contributed">Bakool</subdivision>
-			<subdivision type="sobn" draft="contributed">Banaadir</subdivision>
-			<subdivision type="sobr" draft="contributed">Bari, Somalia</subdivision>
-			<subdivision type="soby" draft="contributed">Bay, Somalia</subdivision>
-			<subdivision type="soga" draft="contributed">Galguduud</subdivision>
-			<subdivision type="soge" draft="contributed">Gedo</subdivision>
-			<subdivision type="sohi" draft="contributed">Hiiraan</subdivision>
-			<subdivision type="sojd" draft="contributed">Jubbada Dhexe</subdivision>
-			<subdivision type="somu" draft="contributed">Mudug</subdivision>
-			<subdivision type="sosd" draft="contributed">Shabeellaha Dhexe</subdivision>
-			<subdivision type="sosh" draft="contributed">Shabeellaha Hoose</subdivision>
-			<subdivision type="soso" draft="contributed">Sool</subdivision>
-			<subdivision type="tdnd" draft="contributed">N’Djamena</subdivision>
-			<subdivision type="th10" draft="contributed">Bangkok</subdivision>
-			<subdivision type="th21" draft="contributed">Rayong</subdivision>
-			<subdivision type="ths" draft="contributed">Pattaya</subdivision>
-			<subdivision type="tjdu" draft="contributed">Dushanbe</subdivision>
-			<subdivision type="tr01" draft="contributed">Provinsi Adana</subdivision>
-			<subdivision type="tr17" draft="contributed">Provinsi Çanakkale</subdivision>
-			<subdivision type="tr34" draft="contributed">Provinsi İstanbul</subdivision>
-			<subdivision type="twtpe" draft="contributed">Taipei</subdivision>
-			<subdivision type="ua30" draft="contributed">Kiev</subdivision>
-			<subdivision type="ua43" draft="contributed">Republik Otonom Krimea</subdivision>
-			<subdivision type="um67" draft="contributed">Atol Johnston</subdivision>
-			<subdivision type="um71" draft="contributed">Atol Midway</subdivision>
-			<subdivision type="um76" draft="contributed">Pulo Navassa</subdivision>
-			<subdivision type="um79" draft="contributed">Pulo Wake</subdivision>
-			<subdivision type="um81" draft="contributed">Pulo Baker</subdivision>
-			<subdivision type="um84" draft="contributed">Pulo Howland</subdivision>
-			<subdivision type="um86" draft="contributed">Pulo Jarvis</subdivision>
-			<subdivision type="um89" draft="contributed">Karang Kingman</subdivision>
-			<subdivision type="um95" draft="contributed">Atol Palmyra</subdivision>
-			<subdivision type="usak" draft="contributed">Alaska</subdivision>
-			<subdivision type="usal" draft="contributed">Alabama</subdivision>
-			<subdivision type="usar" draft="contributed">Arkansas</subdivision>
-			<subdivision type="usaz" draft="contributed">Arizona</subdivision>
-			<subdivision type="usca" draft="contributed">California</subdivision>
-			<subdivision type="usco" draft="contributed">Colorado</subdivision>
-			<subdivision type="usct" draft="contributed">Connecticut</subdivision>
-			<subdivision type="usde" draft="contributed">Delaware</subdivision>
-			<subdivision type="usfl" draft="contributed">Florida</subdivision>
-			<subdivision type="usga" draft="contributed">Georgia</subdivision>
-			<subdivision type="ushi" draft="contributed">Hawaii</subdivision>
-			<subdivision type="usia" draft="contributed">Iowa</subdivision>
-			<subdivision type="usid" draft="contributed">Idaho</subdivision>
-			<subdivision type="usil" draft="contributed">Illinois</subdivision>
-			<subdivision type="usin" draft="contributed">Indiana</subdivision>
-			<subdivision type="usks" draft="contributed">Kansas</subdivision>
-			<subdivision type="usky" draft="contributed">Kentucky</subdivision>
-			<subdivision type="usla" draft="contributed">Louisiana</subdivision>
-			<subdivision type="usma" draft="contributed">Massachusetts</subdivision>
-			<subdivision type="usmd" draft="contributed">Maryland</subdivision>
-			<subdivision type="usme" draft="contributed">Maine</subdivision>
-			<subdivision type="usmi" draft="contributed">Michigan</subdivision>
-			<subdivision type="usmn" draft="contributed">Minnesota</subdivision>
-			<subdivision type="usmo" draft="contributed">Missouri</subdivision>
-			<subdivision type="usms" draft="contributed">Mississippi</subdivision>
-			<subdivision type="usmt" draft="contributed">Montana</subdivision>
-			<subdivision type="usnc" draft="contributed">North Carolina</subdivision>
-			<subdivision type="usnd" draft="contributed">North Dakota</subdivision>
-			<subdivision type="usne" draft="contributed">Nebraska</subdivision>
-			<subdivision type="usnh" draft="contributed">New Hampshire</subdivision>
-			<subdivision type="usnj" draft="contributed">New Jersey</subdivision>
-			<subdivision type="usnm" draft="contributed">New Mexico</subdivision>
-			<subdivision type="usnv" draft="contributed">Nevada</subdivision>
-			<subdivision type="usny" draft="contributed">New York</subdivision>
-			<subdivision type="usoh" draft="contributed">Ohio</subdivision>
-			<subdivision type="usok" draft="contributed">Oklahoma</subdivision>
-			<subdivision type="usor" draft="contributed">Oregon</subdivision>
-			<subdivision type="uspa" draft="contributed">Pennsylvania</subdivision>
-			<subdivision type="usri" draft="contributed">Rhode Island</subdivision>
-			<subdivision type="ussc" draft="contributed">South Carolina</subdivision>
-			<subdivision type="ussd" draft="contributed">South Dakota</subdivision>
-			<subdivision type="ustn" draft="contributed">Tennessee</subdivision>
-			<subdivision type="ustx" draft="contributed">Texas</subdivision>
-			<subdivision type="usut" draft="contributed">Utah</subdivision>
-			<subdivision type="usva" draft="contributed">Virginia</subdivision>
-			<subdivision type="usvt" draft="contributed">Vermont</subdivision>
-			<subdivision type="uswa" draft="contributed">Washington</subdivision>
-			<subdivision type="uswi" draft="contributed">Wisconsin</subdivision>
-			<subdivision type="uswv" draft="contributed">West Virginia</subdivision>
-			<subdivision type="uswy" draft="contributed">Wyoming</subdivision>
-			<subdivision type="uzan" draft="contributed">Andijon</subdivision>
-			<subdivision type="uzbu" draft="contributed">Buxoro</subdivision>
-			<subdivision type="vn24" draft="contributed">Provinsi Quang Binh</subdivision>
-			<subdivision type="vndn" draft="contributed">Da Nang</subdivision>
-			<subdivision type="vnhn" draft="contributed">Hanoi</subdivision>
-			<subdivision type="vnsg" draft="contributed">Kutha Ho Chi Minh</subdivision>
+			<subdivision type="ad07" draft="provisional">Andorra la Vella</subdivision>
+			<subdivision type="aeaz" draft="provisional">Abu Dhabi</subdivision>
+			<subdivision type="afnur" draft="provisional">Nuristan</subdivision>
+			<subdivision type="amer" draft="provisional">Yerevan</subdivision>
+			<subdivision type="arc" draft="provisional">Buenos Aires</subdivision>
+			<subdivision type="ard" draft="provisional">Provinsi San Luis</subdivision>
+			<subdivision type="arm" draft="provisional">Provinsi Mendoza</subdivision>
+			<subdivision type="at9" draft="provisional">Wina</subdivision>
+			<subdivision type="aunsw" draft="provisional">New South Wales</subdivision>
+			<subdivision type="auqld" draft="provisional">Queensland</subdivision>
+			<subdivision type="auvic" draft="provisional">Victoria</subdivision>
+			<subdivision type="azba" draft="provisional">Baku</subdivision>
+			<subdivision type="babih" draft="provisional">Federasi Bosnia Herzegovina</subdivision>
+			<subdivision type="babrc" draft="provisional">Distrik Brčko</subdivision>
+			<subdivision type="basrp" draft="provisional">Republika Srpska</subdivision>
+			<subdivision type="bevli" draft="provisional">Limburg</subdivision>
+			<subdivision type="bg23" draft="provisional">Sofia</subdivision>
+			<subdivision type="brrs" draft="provisional">BR-RS</subdivision>
+			<subdivision type="bwga" draft="provisional">Gaborone</subdivision>
+			<subdivision type="byhm" draft="provisional">Minsk</subdivision>
+			<subdivision type="bzcy" draft="provisional">Distrik Cayo</subdivision>
+			<subdivision type="caab" draft="provisional">Alberta</subdivision>
+			<subdivision type="cabc" draft="provisional">British Columbia</subdivision>
+			<subdivision type="caqc" draft="provisional">Quebec</subdivision>
+			<subdivision type="cdkn" draft="provisional">Kinshasa</subdivision>
+			<subdivision type="cfbgf" draft="provisional">Bangui</subdivision>
+			<subdivision type="cgbzv" draft="provisional">Brazzaville</subdivision>
+			<subdivision type="chag" draft="provisional">Kanton Aargau</subdivision>
+			<subdivision type="chai" draft="provisional">Kanton Appenzell Innerrhoden</subdivision>
+			<subdivision type="char" draft="provisional">Kanton Appenzell Ausserrhoden</subdivision>
+			<subdivision type="chbe" draft="provisional">Kanton Bern</subdivision>
+			<subdivision type="chbl" draft="provisional">Basel-Landschaft</subdivision>
+			<subdivision type="chbs" draft="provisional">Basel-Stadt</subdivision>
+			<subdivision type="chfr" draft="provisional">Kanton Fribourg</subdivision>
+			<subdivision type="chge" draft="provisional">Kanton Jenéwa</subdivision>
+			<subdivision type="chgl" draft="provisional">Canton Glarus</subdivision>
+			<subdivision type="chgr" draft="provisional">Graubünden</subdivision>
+			<subdivision type="chju" draft="provisional">Kanton Jura</subdivision>
+			<subdivision type="chne" draft="provisional">Canton Neuchâtel</subdivision>
+			<subdivision type="chsg" draft="provisional">Kanton St. Gallen</subdivision>
+			<subdivision type="chsz" draft="provisional">Kanton Schwyz</subdivision>
+			<subdivision type="chti" draft="provisional">Kanton Ticino</subdivision>
+			<subdivision type="chvd" draft="provisional">Kanton Vaud</subdivision>
+			<subdivision type="chvs" draft="provisional">Valais</subdivision>
+			<subdivision type="chzg" draft="provisional">Kanton Zug</subdivision>
+			<subdivision type="chzh" draft="provisional">Kanton Zurich</subdivision>
+			<subdivision type="ciab" draft="provisional">Abidjan</subdivision>
+			<subdivision type="ciym" draft="provisional">Yamoussoukro</subdivision>
+			<subdivision type="cnbj" draft="provisional">Beijing</subdivision>
+			<subdivision type="cnfj" draft="provisional">Fujian</subdivision>
+			<subdivision type="cnhk" draft="provisional">Hong Kong</subdivision>
+			<subdivision type="cnjl" draft="provisional">Jilin</subdivision>
+			<subdivision type="cnmo" draft="provisional">Makau</subdivision>
+			<subdivision type="cnnx" draft="provisional">Ningxia</subdivision>
+			<subdivision type="cnsh" draft="provisional">Shanghai</subdivision>
+			<subdivision type="cnxj" draft="provisional">Xinjiang</subdivision>
+			<subdivision type="codc" draft="provisional">Bogotá</subdivision>
+			<subdivision type="cz10" draft="provisional">Praha</subdivision>
+			<subdivision type="debb" draft="provisional">Brandenburg</subdivision>
+			<subdivision type="debe" draft="provisional">Berlin</subdivision>
+			<subdivision type="debw" draft="provisional">Baden-Württemberg</subdivision>
+			<subdivision type="deby" draft="provisional">Bayern</subdivision>
+			<subdivision type="dehb" draft="provisional">Bremen</subdivision>
+			<subdivision type="dehe" draft="provisional">Hessen</subdivision>
+			<subdivision type="dehh" draft="provisional">Hamburg</subdivision>
+			<subdivision type="demv" draft="provisional">Mecklenburg-Vorpommern</subdivision>
+			<subdivision type="deni" draft="provisional">Niedersachsen</subdivision>
+			<subdivision type="denw" draft="provisional">Nordrhein-Westfalen</subdivision>
+			<subdivision type="derp" draft="provisional">Rheinland-Pfalz</subdivision>
+			<subdivision type="desh" draft="provisional">Schleswig-Holstein</subdivision>
+			<subdivision type="desl" draft="provisional">Saarland</subdivision>
+			<subdivision type="desn" draft="provisional">Sachsen</subdivision>
+			<subdivision type="dest" draft="provisional">Sachsen-Anhalt</subdivision>
+			<subdivision type="deth" draft="provisional">Thüringen</subdivision>
+			<subdivision type="djdj" draft="provisional">Djibouti</subdivision>
+			<subdivision type="ect" draft="provisional">Tungurahua</subdivision>
+			<subdivision type="esan" draft="provisional">Andalusia</subdivision>
+			<subdivision type="esar" draft="provisional">Aragon</subdivision>
+			<subdivision type="esas" draft="provisional">Asturias</subdivision>
+			<subdivision type="esce" draft="provisional">Ceuta</subdivision>
+			<subdivision type="escl" draft="provisional">Castile-Leon</subdivision>
+			<subdivision type="escm" draft="provisional">Castile-La Mancha</subdivision>
+			<subdivision type="escn" draft="provisional">Kapuloan Canary</subdivision>
+			<subdivision type="esct" draft="provisional">Catalunya</subdivision>
+			<subdivision type="esga" draft="provisional">Galicia</subdivision>
+			<subdivision type="esib" draft="provisional">Kapuloan Baleares</subdivision>
+			<subdivision type="eslo" draft="provisional">La Rioja</subdivision>
+			<subdivision type="esmc" draft="provisional">Murcia</subdivision>
+			<subdivision type="esml" draft="provisional">Melilla</subdivision>
+			<subdivision type="espm" draft="provisional">Kapuloan Baleares²</subdivision>
+			<subdivision type="espv" draft="provisional">País Vasco</subdivision>
+			<subdivision type="esri" draft="provisional">La Rioja²</subdivision>
+			<subdivision type="etaa" draft="provisional">Addis Ababa</subdivision>
+			<subdivision type="etor" draft="provisional">Region Oromia</subdivision>
+			<subdivision type="fr01" draft="provisional">Ain</subdivision>
+			<subdivision type="fr02" draft="provisional">Aisne</subdivision>
+			<subdivision type="fr03" draft="provisional">Allier</subdivision>
+			<subdivision type="fr14" draft="provisional">Calvados</subdivision>
+			<subdivision type="fr20r" draft="provisional">Korsika</subdivision>
+			<subdivision type="fr21" draft="provisional">Côte-d’Or</subdivision>
+			<subdivision type="fr33" draft="provisional">Dhépartemèn Gironde</subdivision>
+			<subdivision type="fr75c" draft="provisional">Paris</subdivision>
+			<subdivision type="fr86" draft="provisional">Vienne</subdivision>
+			<subdivision type="fr92" draft="provisional">Hauts-de-Seine</subdivision>
+			<subdivision type="fr971" draft="provisional">Guadeloupe</subdivision>
+			<subdivision type="frbre" draft="provisional">Bretagne</subdivision>
+			<subdivision type="frcvl" draft="provisional">Centre</subdivision>
+			<subdivision type="fridf" draft="provisional">Île-de-France</subdivision>
+			<subdivision type="frpac" draft="provisional">Provence-Alpes-Côte d’Azur</subdivision>
+			<subdivision type="frpdl" draft="provisional">Pays de la Loire</subdivision>
+			<subdivision type="gbcrf" draft="provisional">Cardiff</subdivision>
+			<subdivision type="gbder" draft="provisional">Derby</subdivision>
+			<subdivision type="gbedh" draft="provisional">Edinburgh</subdivision>
+			<subdivision type="gbeng" draft="provisional">Inggris</subdivision>
+			<subdivision type="gbglg" draft="provisional">Glasgow</subdivision>
+			<subdivision type="gbham" draft="provisional">Hampshire</subdivision>
+			<subdivision type="gblec" draft="provisional">Leicestershire</subdivision>
+			<subdivision type="gblnd" draft="provisional">London</subdivision>
+			<subdivision type="gbnir" draft="provisional">Irlandia Lor</subdivision>
+			<subdivision type="gboxf" draft="provisional">Oxford</subdivision>
+			<subdivision type="gbpor" draft="provisional">Portsmouth</subdivision>
+			<subdivision type="gbsct" draft="provisional">Skotlandia</subdivision>
+			<subdivision type="gbukm" draft="provisional">Britania Raya</subdivision>
+			<subdivision type="gbwls" draft="provisional">Wales</subdivision>
+			<subdivision type="geaj" draft="provisional">Ajaria</subdivision>
+			<subdivision type="getb" draft="provisional">Tbilisi</subdivision>
+			<subdivision type="gmb" draft="provisional">Banjul</subdivision>
+			<subdivision type="gnc" draft="provisional">Conakry</subdivision>
+			<subdivision type="gr69" draft="provisional">Mount Athos</subdivision>
+			<subdivision type="gra" draft="provisional">Makedonia Wétan lan Trasia</subdivision>
+			<subdivision type="grb" draft="provisional">Makedonia Tengah</subdivision>
+			<subdivision type="grc" draft="provisional">Makedonia Kulon</subdivision>
+			<subdivision type="grd" draft="provisional">Epirus (periphery)</subdivision>
+			<subdivision type="gre" draft="provisional">Tesalonika</subdivision>
+			<subdivision type="grg" draft="provisional">Yunani Kulon</subdivision>
+			<subdivision type="grh" draft="provisional">Yunani Tengah</subdivision>
+			<subdivision type="grj" draft="provisional">Peloponnesa</subdivision>
+			<subdivision type="grk" draft="provisional">Aegea Lor</subdivision>
+			<subdivision type="grl" draft="provisional">Aegea Kidul</subdivision>
+			<subdivision type="gwbs" draft="provisional">Bissau</subdivision>
+			<subdivision type="hr21" draft="provisional">Zagreb</subdivision>
+			<subdivision type="hubu" draft="provisional">Budapest</subdivision>
+			<subdivision type="hugy" draft="provisional">Győr</subdivision>
+			<subdivision type="hukm" draft="provisional">Kecskemét</subdivision>
+			<subdivision type="hunk" draft="provisional">Nagykanizsa</subdivision>
+			<subdivision type="husd" draft="provisional">Szeged</subdivision>
+			<subdivision type="idac" draft="provisional">Acèh</subdivision>
+			<subdivision type="idba" draft="provisional">Provinsi Bali</subdivision>
+			<subdivision type="idbb" draft="provisional">Kapuloan Bangka-Belitung</subdivision>
+			<subdivision type="idbe" draft="provisional">Bengkulu</subdivision>
+			<subdivision type="idbt" draft="provisional">Banten</subdivision>
+			<subdivision type="idgo" draft="provisional">Gorontalo</subdivision>
+			<subdivision type="idja" draft="provisional">Jambi</subdivision>
+			<subdivision type="idjb" draft="provisional">Jawa Wetan</subdivision>
+			<subdivision type="idji" draft="provisional">Jawa Wétan</subdivision>
+			<subdivision type="idjk" draft="provisional">Jakarta</subdivision>
+			<subdivision type="idjt" draft="provisional">Jawa Tengah</subdivision>
+			<subdivision type="idjw" draft="provisional">Jawa</subdivision>
+			<subdivision type="idkb" draft="provisional">Kalimantan Kulon</subdivision>
+			<subdivision type="idki" draft="provisional">Kalimantan Wétan</subdivision>
+			<subdivision type="idkr" draft="provisional">Kapuloan Riau</subdivision>
+			<subdivision type="idks" draft="provisional">Kalimantan Kidul</subdivision>
+			<subdivision type="idkt" draft="provisional">Kalimantan Tengah</subdivision>
+			<subdivision type="idku" draft="provisional">Kalimantan Lor</subdivision>
+			<subdivision type="idla" draft="provisional">Lampung</subdivision>
+			<subdivision type="idma" draft="provisional">Maluku</subdivision>
+			<subdivision type="idml" draft="provisional">Kapuloan Maluku</subdivision>
+			<subdivision type="idmu" draft="provisional">Maluku Lor</subdivision>
+			<subdivision type="idnb" draft="provisional">Nusa Tenggara Kulon</subdivision>
+			<subdivision type="idnt" draft="provisional">Nusa Tenggara Wétan</subdivision>
+			<subdivision type="idnu" draft="provisional">Kapuloan Nusa Tenggara</subdivision>
+			<subdivision type="idpa" draft="provisional">Papua</subdivision>
+			<subdivision type="idpb" draft="provisional">Papua Kulon</subdivision>
+			<subdivision type="idri" draft="provisional">Riau</subdivision>
+			<subdivision type="idsa" draft="provisional">Sulawesi Lor</subdivision>
+			<subdivision type="idsb" draft="provisional">Sumatra Kulon</subdivision>
+			<subdivision type="idsg" draft="provisional">Sulawesi Kidul-wétan</subdivision>
+			<subdivision type="idsl" draft="provisional">Sulawesi</subdivision>
+			<subdivision type="idsm" draft="provisional">Sumatra</subdivision>
+			<subdivision type="idsn" draft="provisional">Sulawesi Kidul</subdivision>
+			<subdivision type="idsr" draft="provisional">Sulawesi Kulon</subdivision>
+			<subdivision type="idss" draft="provisional">Sumatra Kidul</subdivision>
+			<subdivision type="idst" draft="provisional">Sulawesi Tengah</subdivision>
+			<subdivision type="idsu" draft="provisional">Sumatra Lor</subdivision>
+			<subdivision type="idyo" draft="provisional">Dhaérah Istiméwa Yogyakarta</subdivision>
+			<subdivision type="inan" draft="provisional">Kapuloan Andaman lan Nikobar</subdivision>
+			<subdivision type="inar" draft="provisional">Arunachal Pradesh</subdivision>
+			<subdivision type="inas" draft="provisional">Assam</subdivision>
+			<subdivision type="inor" draft="provisional">Odisha</subdivision>
+			<subdivision type="inrj" draft="provisional">Rajasthan</subdivision>
+			<subdivision type="intn" draft="provisional">Tamil Nadu</subdivision>
+			<subdivision type="inup" draft="provisional">Uttar Pradesh</subdivision>
+			<subdivision type="iqda" draft="provisional">Kagubernuran Dohuk</subdivision>
+			<subdivision type="it21" draft="provisional">Piemonte</subdivision>
+			<subdivision type="it23" draft="provisional">Lembah Aosta</subdivision>
+			<subdivision type="it25" draft="provisional">Lombardia</subdivision>
+			<subdivision type="it32" draft="provisional">Trentino-Alto Adige</subdivision>
+			<subdivision type="it34" draft="provisional">Veneto</subdivision>
+			<subdivision type="it36" draft="provisional">Friuli-Venezia Giulia</subdivision>
+			<subdivision type="it42" draft="provisional">Liguria</subdivision>
+			<subdivision type="it45" draft="provisional">Emilia-Romagna</subdivision>
+			<subdivision type="it52" draft="provisional">Toscana</subdivision>
+			<subdivision type="it55" draft="provisional">Umbria</subdivision>
+			<subdivision type="it57" draft="provisional">Marche</subdivision>
+			<subdivision type="it62" draft="provisional">Latium</subdivision>
+			<subdivision type="it65" draft="provisional">Abruzzo</subdivision>
+			<subdivision type="it67" draft="provisional">Molise</subdivision>
+			<subdivision type="it72" draft="provisional">Campania</subdivision>
+			<subdivision type="it75" draft="provisional">Puglia</subdivision>
+			<subdivision type="it77" draft="provisional">Basilicata</subdivision>
+			<subdivision type="it78" draft="provisional">Calabria</subdivision>
+			<subdivision type="it82" draft="provisional">Sisilia</subdivision>
+			<subdivision type="it88" draft="provisional">Sardinia</subdivision>
+			<subdivision type="itag" draft="provisional">Provinsi Agrigento</subdivision>
+			<subdivision type="ital" draft="provisional">Provinsi Alessandria</subdivision>
+			<subdivision type="itan" draft="provisional">Provinsi Ancona</subdivision>
+			<subdivision type="itap" draft="provisional">Provinsi Ascoli Piceno</subdivision>
+			<subdivision type="itaq" draft="provisional">Provinsi L’Aquila</subdivision>
+			<subdivision type="itar" draft="provisional">Provinsi Arezzo</subdivision>
+			<subdivision type="itat" draft="provisional">Provinsi Asti</subdivision>
+			<subdivision type="itav" draft="provisional">Provinsi Avellino</subdivision>
+			<subdivision type="itbg" draft="provisional">Provinsi Bergamo</subdivision>
+			<subdivision type="itbi" draft="provisional">Provinsi Biella</subdivision>
+			<subdivision type="itbl" draft="provisional">Provinsi Belluno</subdivision>
+			<subdivision type="itbn" draft="provisional">Provinsi Benevento</subdivision>
+			<subdivision type="itbo" draft="provisional">Provinsi Bologna</subdivision>
+			<subdivision type="itbr" draft="provisional">Provinsi Brindisi</subdivision>
+			<subdivision type="itbs" draft="provisional">Provinsi Brescia</subdivision>
+			<subdivision type="itbt" draft="provisional">Provinsi Barletta-Andria-Trani</subdivision>
+			<subdivision type="itbz" draft="provisional">Provinsi otonom Bolzano</subdivision>
+			<subdivision type="itca" draft="provisional">Provinsi Cagliari</subdivision>
+			<subdivision type="itce" draft="provisional">Provinsi Caserta</subdivision>
+			<subdivision type="itch" draft="provisional">Provinsi Chieti</subdivision>
+			<subdivision type="itci" draft="provisional">Provinsi Carbonia-Iglesias</subdivision>
+			<subdivision type="itcl" draft="provisional">Provinsi Caltanissetta</subdivision>
+			<subdivision type="itcn" draft="provisional">Provinsi Cuneo</subdivision>
+			<subdivision type="itco" draft="provisional">Provinsi Como</subdivision>
+			<subdivision type="itcr" draft="provisional">Provinsi Cremona</subdivision>
+			<subdivision type="itcs" draft="provisional">Provinsi Cosenza</subdivision>
+			<subdivision type="itct" draft="provisional">Provinsi Catania</subdivision>
+			<subdivision type="itcz" draft="provisional">Provinsi Catanzaro</subdivision>
+			<subdivision type="iten" draft="provisional">Provinsi Enna</subdivision>
+			<subdivision type="itfc" draft="provisional">Provinsi Forlì-Cesena</subdivision>
+			<subdivision type="itfe" draft="provisional">Provinsi Ferrara</subdivision>
+			<subdivision type="itfg" draft="provisional">Provinsi Foggia</subdivision>
+			<subdivision type="itfi" draft="provisional">Provinsi Firenze</subdivision>
+			<subdivision type="itfm" draft="provisional">Provinsi Fermo</subdivision>
+			<subdivision type="itfr" draft="provisional">Provinsi Frosinone</subdivision>
+			<subdivision type="itgo" draft="provisional">Provinsi Gorizia</subdivision>
+			<subdivision type="itgr" draft="provisional">Provinsi Grosseto</subdivision>
+			<subdivision type="itim" draft="provisional">Provinsi Imperia</subdivision>
+			<subdivision type="itkr" draft="provisional">Provinsi Crotone</subdivision>
+			<subdivision type="itlc" draft="provisional">Provinsi Lecco</subdivision>
+			<subdivision type="itle" draft="provisional">Provinsi Lecce</subdivision>
+			<subdivision type="itli" draft="provisional">Provinsi Livorno</subdivision>
+			<subdivision type="itlo" draft="provisional">Provinsi Lodi</subdivision>
+			<subdivision type="itlt" draft="provisional">Provinsi Latina</subdivision>
+			<subdivision type="itlu" draft="provisional">Provinsi Lucca</subdivision>
+			<subdivision type="itmc" draft="provisional">Provinsi Macerata</subdivision>
+			<subdivision type="itme" draft="provisional">Provinsi Messina</subdivision>
+			<subdivision type="itmi" draft="provisional">Provinsi Milan</subdivision>
+			<subdivision type="itmn" draft="provisional">Provinsi Mantova</subdivision>
+			<subdivision type="itmo" draft="provisional">Provinsi Modena</subdivision>
+			<subdivision type="itms" draft="provisional">Provinsi Massa-Carrara</subdivision>
+			<subdivision type="itmt" draft="provisional">Provinsi Matera</subdivision>
+			<subdivision type="itna" draft="provisional">Provinsi Napoli</subdivision>
+			<subdivision type="itno" draft="provisional">Provinsi Novara</subdivision>
+			<subdivision type="itnu" draft="provisional">Provinsi Nuoro</subdivision>
+			<subdivision type="itog" draft="provisional">Provinsi Ogliastra</subdivision>
+			<subdivision type="itor" draft="provisional">Provinsi Oristano</subdivision>
+			<subdivision type="itot" draft="provisional">Provinsi Olbia-Tempio</subdivision>
+			<subdivision type="itpa" draft="provisional">Provinsi Palermo</subdivision>
+			<subdivision type="itpc" draft="provisional">Provinsi Piacenza</subdivision>
+			<subdivision type="itpd" draft="provisional">Provinsi Padova</subdivision>
+			<subdivision type="itpe" draft="provisional">Provinsi Pescara</subdivision>
+			<subdivision type="itpg" draft="provisional">Provinsi Perugia</subdivision>
+			<subdivision type="itpi" draft="provisional">Provinsi Pisa</subdivision>
+			<subdivision type="itpn" draft="provisional">Provinsi Pordenone</subdivision>
+			<subdivision type="itpo" draft="provisional">Provinsi Prato</subdivision>
+			<subdivision type="itpr" draft="provisional">Provinsi Parma</subdivision>
+			<subdivision type="itpt" draft="provisional">Provinsi Pistoia</subdivision>
+			<subdivision type="itpu" draft="provisional">Provinsi Pesaro lan Urbino</subdivision>
+			<subdivision type="itpv" draft="provisional">Provinsi Pavia</subdivision>
+			<subdivision type="itpz" draft="provisional">Provinsi Potenza</subdivision>
+			<subdivision type="itra" draft="provisional">Provinsi Ravenna</subdivision>
+			<subdivision type="itrc" draft="provisional">Provinsi Reggio Calabria</subdivision>
+			<subdivision type="itre" draft="provisional">Provinsi Reggio Emilia</subdivision>
+			<subdivision type="itrg" draft="provisional">Provinsi Ragusa</subdivision>
+			<subdivision type="itri" draft="provisional">Provinsi Rieti</subdivision>
+			<subdivision type="itrm" draft="provisional">Provinsi Roma</subdivision>
+			<subdivision type="itrn" draft="provisional">Provinsi Rimini</subdivision>
+			<subdivision type="itro" draft="provisional">Provinsi Rovigo</subdivision>
+			<subdivision type="itsa" draft="provisional">Provinsi Salerno</subdivision>
+			<subdivision type="itsi" draft="provisional">Provinsi Siena</subdivision>
+			<subdivision type="itso" draft="provisional">Provinsi Sondrio</subdivision>
+			<subdivision type="itsp" draft="provisional">Provinsi La Spezia</subdivision>
+			<subdivision type="itsr" draft="provisional">Provinsi Siracusa</subdivision>
+			<subdivision type="itss" draft="provisional">Provinsi Sassari</subdivision>
+			<subdivision type="itsv" draft="provisional">Provinsi Savona</subdivision>
+			<subdivision type="itta" draft="provisional">Provinsi Taranto</subdivision>
+			<subdivision type="itte" draft="provisional">Provinsi Teramo</subdivision>
+			<subdivision type="ittn" draft="provisional">Provinsi otonom Trento</subdivision>
+			<subdivision type="itto" draft="provisional">Provinsi Torino</subdivision>
+			<subdivision type="ittp" draft="provisional">Provinsi Trapani</subdivision>
+			<subdivision type="ittr" draft="provisional">Provinsi Terni</subdivision>
+			<subdivision type="itts" draft="provisional">Provinsi Trieste</subdivision>
+			<subdivision type="ittv" draft="provisional">Provinsi Treviso</subdivision>
+			<subdivision type="itud" draft="provisional">Provinsi Udine</subdivision>
+			<subdivision type="itva" draft="provisional">Provinsi Varese</subdivision>
+			<subdivision type="itvb" draft="provisional">Provinsi Verbano-Cusio-Ossola</subdivision>
+			<subdivision type="itvc" draft="provisional">Provinsi Vercelli</subdivision>
+			<subdivision type="itve" draft="provisional">Provinsi Venezia</subdivision>
+			<subdivision type="itvi" draft="provisional">Provinsi Vicenza</subdivision>
+			<subdivision type="itvr" draft="provisional">Provinsi Verona</subdivision>
+			<subdivision type="itvs" draft="provisional">Provinsi Medio Campidano</subdivision>
+			<subdivision type="itvt" draft="provisional">Provinsi Viterbo</subdivision>
+			<subdivision type="itvv" draft="provisional">Provinsi Vibo Valentia</subdivision>
+			<subdivision type="jp01" draft="provisional">Hokkaido</subdivision>
+			<subdivision type="jp02" draft="provisional">Prefektur Aomori</subdivision>
+			<subdivision type="jp03" draft="provisional">Prefektur Iwate</subdivision>
+			<subdivision type="jp05" draft="provisional">Prefektur Akita</subdivision>
+			<subdivision type="jp07" draft="provisional">Prefektur Fukushima</subdivision>
+			<subdivision type="jp08" draft="provisional">Prefektur Ibaraki</subdivision>
+			<subdivision type="jp10" draft="provisional">Prefektur Gunma</subdivision>
+			<subdivision type="jp12" draft="provisional">Prefektur Chiba</subdivision>
+			<subdivision type="jp13" draft="provisional">Tokyo</subdivision>
+			<subdivision type="jp15" draft="provisional">Prefektur Niigata</subdivision>
+			<subdivision type="jp18" draft="provisional">Prefektur Fukui</subdivision>
+			<subdivision type="jp21" draft="provisional">Prefektur Gifu</subdivision>
+			<subdivision type="jp22" draft="provisional">Prefektur Shizuoka</subdivision>
+			<subdivision type="jp23" draft="provisional">Prefektur Aichi</subdivision>
+			<subdivision type="jp25" draft="provisional">Prefektur Shiga</subdivision>
+			<subdivision type="jp27" draft="provisional">Prefektur Osaka</subdivision>
+			<subdivision type="jp28" draft="provisional">Prefektur Hyogo</subdivision>
+			<subdivision type="jp29" draft="provisional">Prefektur Nara</subdivision>
+			<subdivision type="jp30" draft="provisional">Prefektur Wakayama</subdivision>
+			<subdivision type="jp31" draft="provisional">Prefektur Tottori</subdivision>
+			<subdivision type="jp33" draft="provisional">Prefektur Okayama</subdivision>
+			<subdivision type="jp36" draft="provisional">Prefektur Tokushima</subdivision>
+			<subdivision type="jp38" draft="provisional">Prefektur Ehime</subdivision>
+			<subdivision type="jp40" draft="provisional">Prefektur Fukuoka</subdivision>
+			<subdivision type="jp46" draft="provisional">Prefektur Kagoshima</subdivision>
+			<subdivision type="jp47" draft="provisional">Prefektur Okinawa</subdivision>
+			<subdivision type="kggb" draft="provisional">Bishkek</subdivision>
+			<subdivision type="kp01" draft="provisional">Pyongyang</subdivision>
+			<subdivision type="kr11" draft="provisional">Seoul</subdivision>
+			<subdivision type="kr26" draft="provisional">Busan</subdivision>
+			<subdivision type="kr28" draft="provisional">Incheon</subdivision>
+			<subdivision type="kr29" draft="provisional">Gwangju</subdivision>
+			<subdivision type="kr30" draft="provisional">Daejeon</subdivision>
+			<subdivision type="kr43" draft="provisional">Chungcheong Utara</subdivision>
+			<subdivision type="kr45" draft="provisional">Jeollabuk-do</subdivision>
+			<subdivision type="kr49" draft="provisional">Jejudo</subdivision>
+			<subdivision type="kzast" draft="provisional">Astana, Kazakhstan</subdivision>
+			<subdivision type="lvrix" draft="provisional">Riga</subdivision>
+			<subdivision type="ma02" draft="provisional">Gharb-Chrarda-Béni Hssen</subdivision>
+			<subdivision type="ma03" draft="provisional">Taza-Al Hoceima-Taounate</subdivision>
+			<subdivision type="ma04" draft="provisional">Oriental Region</subdivision>
+			<subdivision type="ma05" draft="provisional">Fès-Boulemane</subdivision>
+			<subdivision type="ma06" draft="provisional">Meknès-Tafilalet</subdivision>
+			<subdivision type="ma07" draft="provisional">Rabat-Salé-Zemmour-Zaer</subdivision>
+			<subdivision type="ma08" draft="provisional">Grand Casablanca</subdivision>
+			<subdivision type="ma09" draft="provisional">Chaouia-Ouardigha</subdivision>
+			<subdivision type="ma10" draft="provisional">Doukkala-Abda</subdivision>
+			<subdivision type="ma11" draft="provisional">Marrakech-Tensift-El Haouz</subdivision>
+			<subdivision type="ma12" draft="provisional">Tadla-Azilal</subdivision>
+			<subdivision type="marab" draft="provisional">Rabat</subdivision>
+			<subdivision type="mdbd" draft="provisional">Bender</subdivision>
+			<subdivision type="mdcu" draft="provisional">Chişinău</subdivision>
+			<subdivision type="mk85" draft="provisional">Skopje</subdivision>
+			<subdivision type="mlbko" draft="provisional">Bamako</subdivision>
+			<subdivision type="mm16" draft="provisional">Rakhine</subdivision>
+			<subdivision type="mn1" draft="provisional">Ulaanbaatar</subdivision>
+			<subdivision type="mubl" draft="provisional">Black River</subdivision>
+			<subdivision type="mupu" draft="provisional">Port Louis</subdivision>
+			<subdivision type="mxcmx" draft="provisional">Mexico City</subdivision>
+			<subdivision type="mxsin" draft="provisional">Sinaloa</subdivision>
+			<subdivision type="my01" draft="provisional">Johor</subdivision>
+			<subdivision type="my03" draft="provisional">Kelantan</subdivision>
+			<subdivision type="my04" draft="provisional">Melaka</subdivision>
+			<subdivision type="my05" draft="provisional">Negeri Sembilan</subdivision>
+			<subdivision type="my07" draft="provisional">Pulo Pinang</subdivision>
+			<subdivision type="my10" draft="provisional">Selangor</subdivision>
+			<subdivision type="my11" draft="provisional">Terengganu</subdivision>
+			<subdivision type="my12" draft="provisional">Sabah</subdivision>
+			<subdivision type="my13" draft="provisional">Sarawak</subdivision>
+			<subdivision type="my14" draft="provisional">Kuala Lumpur</subdivision>
+			<subdivision type="my16" draft="provisional">Putrajaya</subdivision>
+			<subdivision type="mzmpm" draft="provisional">Maputo</subdivision>
+			<subdivision type="nldr" draft="provisional">Drenthe</subdivision>
+			<subdivision type="nlfl" draft="provisional">Flevoland</subdivision>
+			<subdivision type="nlfr" draft="provisional">Friesland</subdivision>
+			<subdivision type="nlge" draft="provisional">Gelderland</subdivision>
+			<subdivision type="nlgr" draft="provisional">Provinsi Groningen</subdivision>
+			<subdivision type="nlli" draft="provisional">Limburg</subdivision>
+			<subdivision type="nlnb" draft="provisional">Brabant Lor</subdivision>
+			<subdivision type="nlnh" draft="provisional">Holland Lor</subdivision>
+			<subdivision type="nlov" draft="provisional">Overijssel</subdivision>
+			<subdivision type="nlut" draft="provisional">Provinsi Utrecht</subdivision>
+			<subdivision type="nlzh" draft="provisional">Holland Kidul</subdivision>
+			<subdivision type="no03" draft="provisional">Oslo</subdivision>
+			<subdivision type="no21" draft="provisional">Svalbard</subdivision>
+			<subdivision type="no22" draft="provisional">Jan Mayen</subdivision>
+			<subdivision type="no34" draft="provisional">Innlandet</subdivision>
+			<subdivision type="nr01" draft="provisional">Aiwo</subdivision>
+			<subdivision type="nr02" draft="provisional">Anabar</subdivision>
+			<subdivision type="nr03" draft="provisional">Anetan</subdivision>
+			<subdivision type="nr04" draft="provisional">Anibare</subdivision>
+			<subdivision type="nr05" draft="provisional">Baiti</subdivision>
+			<subdivision type="nr06" draft="provisional">Boe</subdivision>
+			<subdivision type="nr07" draft="provisional">Buada</subdivision>
+			<subdivision type="nr08" draft="provisional">Denigomodu</subdivision>
+			<subdivision type="nr09" draft="provisional">Ewa</subdivision>
+			<subdivision type="nr10" draft="provisional">Ijuw</subdivision>
+			<subdivision type="nr11" draft="provisional">Meneng</subdivision>
+			<subdivision type="nr12" draft="provisional">Nibok</subdivision>
+			<subdivision type="nr13" draft="provisional">Uaboe</subdivision>
+			<subdivision type="nr14" draft="provisional">Yaren</subdivision>
+			<subdivision type="pelma" draft="provisional">Propinsi Lima</subdivision>
+			<subdivision type="pgmrl" draft="provisional">Provinsi Manus</subdivision>
+			<subdivision type="pgncd" draft="provisional">Port Moresby</subdivision>
+			<subdivision type="ph00" draft="provisional">Metro Manila</subdivision>
+			<subdivision type="ph01" draft="provisional">Ilocos</subdivision>
+			<subdivision type="ph02" draft="provisional">Cagayan Valley</subdivision>
+			<subdivision type="ph03" draft="provisional">Central Luzon</subdivision>
+			<subdivision type="ph05" draft="provisional">Bicol</subdivision>
+			<subdivision type="ph06" draft="provisional">Western Visayas</subdivision>
+			<subdivision type="ph07" draft="provisional">Central Visayas</subdivision>
+			<subdivision type="ph08" draft="provisional">Eastern Visayas</subdivision>
+			<subdivision type="ph09" draft="provisional">Zamboanga Peninsula</subdivision>
+			<subdivision type="ph10" draft="provisional">Northern Mindanao</subdivision>
+			<subdivision type="ph11" draft="provisional">Davao Region</subdivision>
+			<subdivision type="ph12" draft="provisional">Soccsksargen</subdivision>
+			<subdivision type="ph13" draft="provisional">Caraga</subdivision>
+			<subdivision type="ph15" draft="provisional">Cordillera Administrative Region</subdivision>
+			<subdivision type="ph40" draft="provisional">Calabarzon</subdivision>
+			<subdivision type="ph41" draft="provisional">Mimaropa</subdivision>
+			<subdivision type="phabr" draft="provisional">Abra</subdivision>
+			<subdivision type="phagn" draft="provisional">Agusan del Norte</subdivision>
+			<subdivision type="phags" draft="provisional">Agusan del Sur</subdivision>
+			<subdivision type="phakl" draft="provisional">Aklan</subdivision>
+			<subdivision type="phalb" draft="provisional">Albay</subdivision>
+			<subdivision type="phant" draft="provisional">Antique</subdivision>
+			<subdivision type="phapa" draft="provisional">Apayao</subdivision>
+			<subdivision type="phaur" draft="provisional">Aurora</subdivision>
+			<subdivision type="phban" draft="provisional">Bataan</subdivision>
+			<subdivision type="phbas" draft="provisional">Basilan</subdivision>
+			<subdivision type="phben" draft="provisional">Benguet</subdivision>
+			<subdivision type="phbil" draft="provisional">Biliran</subdivision>
+			<subdivision type="phboh" draft="provisional">Bohol</subdivision>
+			<subdivision type="phbtg" draft="provisional">Batangas</subdivision>
+			<subdivision type="phbtn" draft="provisional">Batanes</subdivision>
+			<subdivision type="phbuk" draft="provisional">Bukidnon</subdivision>
+			<subdivision type="phbul" draft="provisional">Bulacan</subdivision>
+			<subdivision type="phcag" draft="provisional">Cagayan</subdivision>
+			<subdivision type="phcam" draft="provisional">Camiguin</subdivision>
+			<subdivision type="phcan" draft="provisional">Camarines Norte</subdivision>
+			<subdivision type="phcap" draft="provisional">Capiz</subdivision>
+			<subdivision type="phcas" draft="provisional">Camarines Sur</subdivision>
+			<subdivision type="phcat" draft="provisional">Catanduanes</subdivision>
+			<subdivision type="phcav" draft="provisional">Cavite</subdivision>
+			<subdivision type="phceb" draft="provisional">Cebu</subdivision>
+			<subdivision type="phcom" draft="provisional">Davao de Oro</subdivision>
+			<subdivision type="phdao" draft="provisional">Davao Oriental</subdivision>
+			<subdivision type="phdas" draft="provisional">Davao del Sur</subdivision>
+			<subdivision type="phdav" draft="provisional">Davao del Norte</subdivision>
+			<subdivision type="phdin" draft="provisional">Dinagat Islands</subdivision>
+			<subdivision type="phdvo" draft="provisional">Davao Occidental</subdivision>
+			<subdivision type="pheas" draft="provisional">Eastern Samar</subdivision>
+			<subdivision type="phgui" draft="provisional">Guimaras</subdivision>
+			<subdivision type="phifu" draft="provisional">Ifugao</subdivision>
+			<subdivision type="phili" draft="provisional">Iloilo</subdivision>
+			<subdivision type="philn" draft="provisional">Ilocos Norte</subdivision>
+			<subdivision type="phils" draft="provisional">Ilocos Sur</subdivision>
+			<subdivision type="phisa" draft="provisional">Isabela</subdivision>
+			<subdivision type="phkal" draft="provisional">Kalinga</subdivision>
+			<subdivision type="phlag" draft="provisional">Laguna</subdivision>
+			<subdivision type="phlan" draft="provisional">Lanao del Norte</subdivision>
+			<subdivision type="phlas" draft="provisional">Lanao del Sur</subdivision>
+			<subdivision type="phley" draft="provisional">Leyte</subdivision>
+			<subdivision type="phlun" draft="provisional">La Union</subdivision>
+			<subdivision type="phmad" draft="provisional">Marinduque</subdivision>
+			<subdivision type="phmag" draft="provisional">Maguindanao</subdivision>
+			<subdivision type="phmas" draft="provisional">Masbate</subdivision>
+			<subdivision type="phmdc" draft="provisional">Occidental Mindoro</subdivision>
+			<subdivision type="phmdr" draft="provisional">Oriental Mindoro</subdivision>
+			<subdivision type="phmou" draft="provisional">Mountain Province</subdivision>
+			<subdivision type="phmsc" draft="provisional">Misamis Occidental</subdivision>
+			<subdivision type="phmsr" draft="provisional">Misamis Oriental</subdivision>
+			<subdivision type="phnco" draft="provisional">Cotabato</subdivision>
+			<subdivision type="phnec" draft="provisional">Negros Occidental</subdivision>
+			<subdivision type="phner" draft="provisional">Negros Oriental</subdivision>
+			<subdivision type="phnsa" draft="provisional">Northern Samar</subdivision>
+			<subdivision type="phnue" draft="provisional">Nueva Ecija</subdivision>
+			<subdivision type="phnuv" draft="provisional">Nueva Vizcaya</subdivision>
+			<subdivision type="phpam" draft="provisional">Pampanga</subdivision>
+			<subdivision type="phpan" draft="provisional">Pangasinan</subdivision>
+			<subdivision type="phplw" draft="provisional">Palawan</subdivision>
+			<subdivision type="phque" draft="provisional">Quezon</subdivision>
+			<subdivision type="phqui" draft="provisional">Quirino</subdivision>
+			<subdivision type="phriz" draft="provisional">Rizal</subdivision>
+			<subdivision type="phrom" draft="provisional">Romblon</subdivision>
+			<subdivision type="phsar" draft="provisional">Sarangani</subdivision>
+			<subdivision type="phsco" draft="provisional">South Cotabato</subdivision>
+			<subdivision type="phsig" draft="provisional">Siquijor</subdivision>
+			<subdivision type="phsle" draft="provisional">Southern Leyte</subdivision>
+			<subdivision type="phslu" draft="provisional">Sulu</subdivision>
+			<subdivision type="phsor" draft="provisional">Sorsogon</subdivision>
+			<subdivision type="phsuk" draft="provisional">Sultan Kudarat</subdivision>
+			<subdivision type="phsun" draft="provisional">Surigao del Norte</subdivision>
+			<subdivision type="phsur" draft="provisional">Surigao del Sur</subdivision>
+			<subdivision type="phtar" draft="provisional">Tarlac</subdivision>
+			<subdivision type="phtaw" draft="provisional">Tawi-Tawi</subdivision>
+			<subdivision type="phwsa" draft="provisional">Samar</subdivision>
+			<subdivision type="phzan" draft="provisional">Zamboanga del Norte</subdivision>
+			<subdivision type="phzas" draft="provisional">Zamboanga del Sur</subdivision>
+			<subdivision type="phzmb" draft="provisional">Zambales</subdivision>
+			<subdivision type="phzsi" draft="provisional">Zamboanga Sibugay</subdivision>
+			<subdivision type="pl02" draft="provisional">Provinsi Silesia Hilir</subdivision>
+			<subdivision type="pl04" draft="provisional">Provinsi Kuyawia-Pomerania</subdivision>
+			<subdivision type="pl06" draft="provisional">Provinsi Lublin</subdivision>
+			<subdivision type="pl08" draft="provisional">Provinsi Lubusz</subdivision>
+			<subdivision type="pl10" draft="provisional">Provinsi Lodz</subdivision>
+			<subdivision type="pl12" draft="provisional">Provinsi Malopolskie</subdivision>
+			<subdivision type="pl14" draft="provisional">Provinsi Mazowia</subdivision>
+			<subdivision type="pl16" draft="provisional">Provinsi Opole</subdivision>
+			<subdivision type="pl18" draft="provisional">Provinsi Subkarpathia</subdivision>
+			<subdivision type="pl20" draft="provisional">Provinsi Podlachia</subdivision>
+			<subdivision type="pl22" draft="provisional">Provinsi Pomerania</subdivision>
+			<subdivision type="pl24" draft="provisional">Provinsi Silesia</subdivision>
+			<subdivision type="pl26" draft="provisional">Provinsi Święty Krzyż</subdivision>
+			<subdivision type="pl28" draft="provisional">Provinsi Warmia-Mazuria</subdivision>
+			<subdivision type="pl30" draft="provisional">Provinsi Wielkopolskie</subdivision>
+			<subdivision type="pl32" draft="provisional">Provinsi Pomerania Kulon</subdivision>
+			<subdivision type="pt20" draft="provisional">Azores</subdivision>
+			<subdivision type="pt30" draft="provisional">Madeira</subdivision>
+			<subdivision type="pyasu" draft="provisional">Asunción</subdivision>
+			<subdivision type="qada" draft="provisional">Doha</subdivision>
+			<subdivision type="rob" draft="provisional">Bukarès</subdivision>
+			<subdivision type="rs00" draft="provisional">Beograd</subdivision>
+			<subdivision type="rs01" draft="provisional">Bačka Lor</subdivision>
+			<subdivision type="rsvo" draft="provisional">Vojvodina</subdivision>
+			<subdivision type="ruce" draft="provisional">Chechnya</subdivision>
+			<subdivision type="ruda" draft="provisional">Dagestan</subdivision>
+			<subdivision type="ruin" draft="provisional">Ingushetia</subdivision>
+			<subdivision type="rumow" draft="provisional">Moskwa</subdivision>
+			<subdivision type="rusak" draft="provisional">Oblast Sakhalin</subdivision>
+			<subdivision type="ruspe" draft="provisional">St. Petersburg</subdivision>
+			<subdivision type="rw01" draft="provisional">Kigali</subdivision>
+			<subdivision type="sa02" draft="provisional">Provinsi Mekkah</subdivision>
+			<subdivision type="sc01" draft="provisional">Anse aux Pins</subdivision>
+			<subdivision type="sc02" draft="provisional">Anse Boileau</subdivision>
+			<subdivision type="sc03" draft="provisional">Anse Etoile</subdivision>
+			<subdivision type="sc09" draft="provisional">Bel Air, Syechelles</subdivision>
+			<subdivision type="sc10" draft="provisional">Bel Ombre</subdivision>
+			<subdivision type="sc22" draft="provisional">Saint Louis, Seychelles</subdivision>
+			<subdivision type="shac" draft="provisional">Pulo Ascension</subdivision>
+			<subdivision type="shhl" draft="provisional">Saint Helena</subdivision>
+			<subdivision type="sm07" draft="provisional">San Marino</subdivision>
+			<subdivision type="soaw" draft="provisional">Awdal</subdivision>
+			<subdivision type="sobk" draft="provisional">Bakool</subdivision>
+			<subdivision type="sobn" draft="provisional">Banaadir</subdivision>
+			<subdivision type="sobr" draft="provisional">Bari, Somalia</subdivision>
+			<subdivision type="soby" draft="provisional">Bay, Somalia</subdivision>
+			<subdivision type="soga" draft="provisional">Galguduud</subdivision>
+			<subdivision type="soge" draft="provisional">Gedo</subdivision>
+			<subdivision type="sohi" draft="provisional">Hiiraan</subdivision>
+			<subdivision type="sojd" draft="provisional">Jubbada Dhexe</subdivision>
+			<subdivision type="somu" draft="provisional">Mudug</subdivision>
+			<subdivision type="sosd" draft="provisional">Shabeellaha Dhexe</subdivision>
+			<subdivision type="sosh" draft="provisional">Shabeellaha Hoose</subdivision>
+			<subdivision type="soso" draft="provisional">Sool</subdivision>
+			<subdivision type="srbr" draft="provisional">Dhistrik Brokopondo</subdivision>
+			<subdivision type="srpm" draft="provisional">Dhistrik Paramaribo</subdivision>
+			<subdivision type="srpr" draft="provisional">Dhistrik Para</subdivision>
+			<subdivision type="srsa" draft="provisional">Dhistrik Saramacca</subdivision>
+			<subdivision type="srsi" draft="provisional">Dhistrik Sipaliwini</subdivision>
+			<subdivision type="syhl" draft="provisional">Kagubernuran Aleppo</subdivision>
+			<subdivision type="tdnd" draft="provisional">N’Djamena</subdivision>
+			<subdivision type="th10" draft="provisional">Bangkok</subdivision>
+			<subdivision type="th21" draft="provisional">Rayong</subdivision>
+			<subdivision type="ths" draft="provisional">Pattaya</subdivision>
+			<subdivision type="tjdu" draft="provisional">Dushanbe</subdivision>
+			<subdivision type="tr01" draft="provisional">Provinsi Adana</subdivision>
+			<subdivision type="tr17" draft="provisional">Provinsi Çanakkale</subdivision>
+			<subdivision type="tr34" draft="provisional">Provinsi İstanbul</subdivision>
+			<subdivision type="twtpe" draft="provisional">Taipei</subdivision>
+			<subdivision type="ua30" draft="provisional">Kiev</subdivision>
+			<subdivision type="ua43" draft="provisional">Republik Otonom Krimea</subdivision>
+			<subdivision type="um67" draft="provisional">Atol Johnston</subdivision>
+			<subdivision type="um71" draft="provisional">Atol Midway</subdivision>
+			<subdivision type="um76" draft="provisional">Pulo Navassa</subdivision>
+			<subdivision type="um79" draft="provisional">Pulo Wake</subdivision>
+			<subdivision type="um81" draft="provisional">Pulo Baker</subdivision>
+			<subdivision type="um84" draft="provisional">Pulo Howland</subdivision>
+			<subdivision type="um86" draft="provisional">Pulo Jarvis</subdivision>
+			<subdivision type="um89" draft="provisional">Karang Kingman</subdivision>
+			<subdivision type="um95" draft="provisional">Atol Palmyra</subdivision>
+			<subdivision type="usak" draft="provisional">Alaska</subdivision>
+			<subdivision type="usal" draft="provisional">Alabama</subdivision>
+			<subdivision type="usar" draft="provisional">Arkansas</subdivision>
+			<subdivision type="usaz" draft="provisional">Arizona</subdivision>
+			<subdivision type="usca" draft="provisional">California</subdivision>
+			<subdivision type="usco" draft="provisional">Colorado</subdivision>
+			<subdivision type="usct" draft="provisional">Connecticut</subdivision>
+			<subdivision type="usde" draft="provisional">Delaware</subdivision>
+			<subdivision type="usfl" draft="provisional">Florida</subdivision>
+			<subdivision type="usga" draft="provisional">Georgia</subdivision>
+			<subdivision type="ushi" draft="provisional">Hawaii</subdivision>
+			<subdivision type="usia" draft="provisional">Iowa</subdivision>
+			<subdivision type="usid" draft="provisional">Idaho</subdivision>
+			<subdivision type="usil" draft="provisional">Illinois</subdivision>
+			<subdivision type="usin" draft="provisional">Indiana</subdivision>
+			<subdivision type="usks" draft="provisional">Kansas</subdivision>
+			<subdivision type="usky" draft="provisional">Kentucky</subdivision>
+			<subdivision type="usla" draft="provisional">Louisiana</subdivision>
+			<subdivision type="usma" draft="provisional">Massachusetts</subdivision>
+			<subdivision type="usmd" draft="provisional">Maryland</subdivision>
+			<subdivision type="usme" draft="provisional">Maine</subdivision>
+			<subdivision type="usmi" draft="provisional">Michigan</subdivision>
+			<subdivision type="usmn" draft="provisional">Minnesota</subdivision>
+			<subdivision type="usmo" draft="provisional">Missouri</subdivision>
+			<subdivision type="usms" draft="provisional">Mississippi</subdivision>
+			<subdivision type="usmt" draft="provisional">Montana</subdivision>
+			<subdivision type="usnc" draft="provisional">North Carolina</subdivision>
+			<subdivision type="usnd" draft="provisional">North Dakota</subdivision>
+			<subdivision type="usne" draft="provisional">Nebraska</subdivision>
+			<subdivision type="usnh" draft="provisional">New Hampshire</subdivision>
+			<subdivision type="usnj" draft="provisional">New Jersey</subdivision>
+			<subdivision type="usnm" draft="provisional">New Mexico</subdivision>
+			<subdivision type="usnv" draft="provisional">Nevada</subdivision>
+			<subdivision type="usny" draft="provisional">New York</subdivision>
+			<subdivision type="usoh" draft="provisional">Ohio</subdivision>
+			<subdivision type="usok" draft="provisional">Oklahoma</subdivision>
+			<subdivision type="usor" draft="provisional">Oregon</subdivision>
+			<subdivision type="uspa" draft="provisional">Pennsylvania</subdivision>
+			<subdivision type="usri" draft="provisional">Rhode Island</subdivision>
+			<subdivision type="ussc" draft="provisional">South Carolina</subdivision>
+			<subdivision type="ussd" draft="provisional">South Dakota</subdivision>
+			<subdivision type="ustn" draft="provisional">Tennessee</subdivision>
+			<subdivision type="ustx" draft="provisional">Texas</subdivision>
+			<subdivision type="usut" draft="provisional">Utah</subdivision>
+			<subdivision type="usva" draft="provisional">Virginia</subdivision>
+			<subdivision type="usvt" draft="provisional">Vermont</subdivision>
+			<subdivision type="uswa" draft="provisional">Washington</subdivision>
+			<subdivision type="uswi" draft="provisional">Wisconsin</subdivision>
+			<subdivision type="uswv" draft="provisional">West Virginia</subdivision>
+			<subdivision type="uswy" draft="provisional">Wyoming</subdivision>
+			<subdivision type="uzan" draft="provisional">Andijon</subdivision>
+			<subdivision type="uzbu" draft="provisional">Buxoro</subdivision>
+			<subdivision type="vn24" draft="provisional">Provinsi Quang Binh</subdivision>
+			<subdivision type="vndn" draft="provisional">Da Nang</subdivision>
+			<subdivision type="vnhn" draft="provisional">Hanoi</subdivision>
+			<subdivision type="vnsg" draft="provisional">Kutha Ho Chi Minh</subdivision>
 		</subdivisions>
 	</localeDisplayNames>
 </ldml>

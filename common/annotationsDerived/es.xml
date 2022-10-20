@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,46 +12,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="es"/>
 	</identity>
 	<annotations>
-		<annotation cp="🫃🏻">barriga | embarazado | hinchado | hinchazón | hombre embarazado | inflado | lleno | tono de piel claro</annotation>
-		<annotation cp="🫃🏻" type="tts">hombre embarazado: tono de piel claro</annotation>
-		<annotation cp="🫃🏼">barriga | embarazado | hinchado | hinchazón | hombre embarazado | inflado | lleno | tono de piel claro medio</annotation>
-		<annotation cp="🫃🏼" type="tts">hombre embarazado: tono de piel claro medio</annotation>
-		<annotation cp="🫃🏽">barriga | embarazado | hinchado | hinchazón | hombre embarazado | inflado | lleno | tono de piel medio</annotation>
-		<annotation cp="🫃🏽" type="tts">hombre embarazado: tono de piel medio</annotation>
-		<annotation cp="🫃🏾">barriga | embarazado | hinchado | hinchazón | hombre embarazado | inflado | lleno | tono de piel oscuro medio</annotation>
-		<annotation cp="🫃🏾" type="tts">hombre embarazado: tono de piel oscuro medio</annotation>
-		<annotation cp="🫃🏿">barriga | embarazado | hinchado | hinchazón | hombre embarazado | inflado | lleno | tono de piel oscuro</annotation>
-		<annotation cp="🫃🏿" type="tts">hombre embarazado: tono de piel oscuro</annotation>
-		<annotation cp="🫄🏻">barriga | embarazo | gestación | hinchazón | persona embarazada | tono de piel claro</annotation>
-		<annotation cp="🫄🏻" type="tts">persona embarazada: tono de piel claro</annotation>
-		<annotation cp="🫄🏼">barriga | embarazo | gestación | hinchazón | persona embarazada | tono de piel claro medio</annotation>
-		<annotation cp="🫄🏼" type="tts">persona embarazada: tono de piel claro medio</annotation>
-		<annotation cp="🫄🏽">barriga | embarazo | gestación | hinchazón | persona embarazada | tono de piel medio</annotation>
-		<annotation cp="🫄🏽" type="tts">persona embarazada: tono de piel medio</annotation>
-		<annotation cp="🫄🏾">barriga | embarazo | gestación | hinchazón | persona embarazada | tono de piel oscuro medio</annotation>
-		<annotation cp="🫄🏾" type="tts">persona embarazada: tono de piel oscuro medio</annotation>
-		<annotation cp="🫄🏿">barriga | embarazo | gestación | hinchazón | persona embarazada | tono de piel oscuro</annotation>
-		<annotation cp="🫄🏿" type="tts">persona embarazada: tono de piel oscuro</annotation>
-		<annotation cp="🫅🏻">monarca | monarquía | noble | persona con corona | real | realeza | tono de piel claro</annotation>
-		<annotation cp="🫅🏻" type="tts">persona con corona: tono de piel claro</annotation>
-		<annotation cp="🫅🏼">monarca | monarquía | noble | persona con corona | real | realeza | tono de piel claro medio</annotation>
-		<annotation cp="🫅🏼" type="tts">persona con corona: tono de piel claro medio</annotation>
-		<annotation cp="🫅🏽">monarca | monarquía | noble | persona con corona | real | realeza | tono de piel medio</annotation>
-		<annotation cp="🫅🏽" type="tts">persona con corona: tono de piel medio</annotation>
-		<annotation cp="🫅🏾">monarca | monarquía | noble | persona con corona | real | realeza | tono de piel oscuro medio</annotation>
-		<annotation cp="🫅🏾" type="tts">persona con corona: tono de piel oscuro medio</annotation>
-		<annotation cp="🫅🏿">monarca | monarquía | noble | persona con corona | real | realeza | tono de piel oscuro</annotation>
-		<annotation cp="🫅🏿" type="tts">persona con corona: tono de piel oscuro</annotation>
-		<annotation cp="🫰🏻">amor | caro | chasquido | corazón | dinero | mano con dedo índice y pulgar cruzados | tono de piel claro</annotation>
-		<annotation cp="🫰🏻" type="tts">mano con dedo índice y pulgar cruzados: tono de piel claro</annotation>
-		<annotation cp="🫰🏼">amor | caro | chasquido | corazón | dinero | mano con dedo índice y pulgar cruzados | tono de piel claro medio</annotation>
-		<annotation cp="🫰🏼" type="tts">mano con dedo índice y pulgar cruzados: tono de piel claro medio</annotation>
-		<annotation cp="🫰🏽">amor | caro | chasquido | corazón | dinero | mano con dedo índice y pulgar cruzados | tono de piel medio</annotation>
-		<annotation cp="🫰🏽" type="tts">mano con dedo índice y pulgar cruzados: tono de piel medio</annotation>
-		<annotation cp="🫰🏾">amor | caro | chasquido | corazón | dinero | mano con dedo índice y pulgar cruzados | tono de piel oscuro medio</annotation>
-		<annotation cp="🫰🏾" type="tts">mano con dedo índice y pulgar cruzados: tono de piel oscuro medio</annotation>
-		<annotation cp="🫰🏿">amor | caro | chasquido | corazón | dinero | mano con dedo índice y pulgar cruzados | tono de piel oscuro</annotation>
-		<annotation cp="🫰🏿" type="tts">mano con dedo índice y pulgar cruzados: tono de piel oscuro</annotation>
+		<annotation cp="👋🏻">agitar | mano | mano saludando | saludar | saludo | tono de piel claro</annotation>
+		<annotation cp="👋🏻" type="tts">mano saludando: tono de piel claro</annotation>
+		<annotation cp="👋🏼">agitar | mano | mano saludando | saludar | saludo | tono de piel claro medio</annotation>
+		<annotation cp="👋🏼" type="tts">mano saludando: tono de piel claro medio</annotation>
+		<annotation cp="👋🏽">agitar | mano | mano saludando | saludar | saludo | tono de piel medio</annotation>
+		<annotation cp="👋🏽" type="tts">mano saludando: tono de piel medio</annotation>
+		<annotation cp="👋🏾">agitar | mano | mano saludando | saludar | saludo | tono de piel oscuro medio</annotation>
+		<annotation cp="👋🏾" type="tts">mano saludando: tono de piel oscuro medio</annotation>
+		<annotation cp="👋🏿">agitar | mano | mano saludando | saludar | saludo | tono de piel oscuro</annotation>
+		<annotation cp="👋🏿" type="tts">mano saludando: tono de piel oscuro</annotation>
+		<annotation cp="🤚🏻">dorso | dorso de la mano | levantado | mano | tono de piel claro</annotation>
+		<annotation cp="🤚🏻" type="tts">dorso de la mano: tono de piel claro</annotation>
+		<annotation cp="🤚🏼">dorso | dorso de la mano | levantado | mano | tono de piel claro medio</annotation>
+		<annotation cp="🤚🏼" type="tts">dorso de la mano: tono de piel claro medio</annotation>
+		<annotation cp="🤚🏽">dorso | dorso de la mano | levantado | mano | tono de piel medio</annotation>
+		<annotation cp="🤚🏽" type="tts">dorso de la mano: tono de piel medio</annotation>
+		<annotation cp="🤚🏾">dorso | dorso de la mano | levantado | mano | tono de piel oscuro medio</annotation>
+		<annotation cp="🤚🏾" type="tts">dorso de la mano: tono de piel oscuro medio</annotation>
+		<annotation cp="🤚🏿">dorso | dorso de la mano | levantado | mano | tono de piel oscuro</annotation>
+		<annotation cp="🤚🏿" type="tts">dorso de la mano: tono de piel oscuro</annotation>
+		<annotation cp="🖐🏻">abierta | dedo | mano | tono de piel claro</annotation>
+		<annotation cp="🖐🏻" type="tts">mano abierta: tono de piel claro</annotation>
+		<annotation cp="🖐🏼">abierta | dedo | mano | tono de piel claro medio</annotation>
+		<annotation cp="🖐🏼" type="tts">mano abierta: tono de piel claro medio</annotation>
+		<annotation cp="🖐🏽">abierta | dedo | mano | tono de piel medio</annotation>
+		<annotation cp="🖐🏽" type="tts">mano abierta: tono de piel medio</annotation>
+		<annotation cp="🖐🏾">abierta | dedo | mano | tono de piel oscuro medio</annotation>
+		<annotation cp="🖐🏾" type="tts">mano abierta: tono de piel oscuro medio</annotation>
+		<annotation cp="🖐🏿">abierta | dedo | mano | tono de piel oscuro</annotation>
+		<annotation cp="🖐🏿" type="tts">mano abierta: tono de piel oscuro</annotation>
+		<annotation cp="✋🏻">choca esos cinco | levantada | mano | tono de piel claro</annotation>
+		<annotation cp="✋🏻" type="tts">mano levantada: tono de piel claro</annotation>
+		<annotation cp="✋🏼">choca esos cinco | levantada | mano | tono de piel claro medio</annotation>
+		<annotation cp="✋🏼" type="tts">mano levantada: tono de piel claro medio</annotation>
+		<annotation cp="✋🏽">choca esos cinco | levantada | mano | tono de piel medio</annotation>
+		<annotation cp="✋🏽" type="tts">mano levantada: tono de piel medio</annotation>
+		<annotation cp="✋🏾">choca esos cinco | levantada | mano | tono de piel oscuro medio</annotation>
+		<annotation cp="✋🏾" type="tts">mano levantada: tono de piel oscuro medio</annotation>
+		<annotation cp="✋🏿">choca esos cinco | levantada | mano | tono de piel oscuro</annotation>
+		<annotation cp="✋🏿" type="tts">mano levantada: tono de piel oscuro</annotation>
+		<annotation cp="🖖🏻">mano | saludo | spock | tono de piel claro | vulcano</annotation>
+		<annotation cp="🖖🏻" type="tts">saludo vulcano: tono de piel claro</annotation>
+		<annotation cp="🖖🏼">mano | saludo | spock | tono de piel claro medio | vulcano</annotation>
+		<annotation cp="🖖🏼" type="tts">saludo vulcano: tono de piel claro medio</annotation>
+		<annotation cp="🖖🏽">mano | saludo | spock | tono de piel medio | vulcano</annotation>
+		<annotation cp="🖖🏽" type="tts">saludo vulcano: tono de piel medio</annotation>
+		<annotation cp="🖖🏾">mano | saludo | spock | tono de piel oscuro medio | vulcano</annotation>
+		<annotation cp="🖖🏾" type="tts">saludo vulcano: tono de piel oscuro medio</annotation>
+		<annotation cp="🖖🏿">mano | saludo | spock | tono de piel oscuro | vulcano</annotation>
+		<annotation cp="🖖🏿" type="tts">saludo vulcano: tono de piel oscuro</annotation>
 		<annotation cp="🫱🏻">a la derecha | derecha | mano | mano hacia la derecha | tono de piel claro</annotation>
 		<annotation cp="🫱🏻" type="tts">mano hacia la derecha: tono de piel claro</annotation>
 		<annotation cp="🫱🏼">a la derecha | derecha | mano | mano hacia la derecha | tono de piel claro medio</annotation>
@@ -132,76 +142,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫴🏾" type="tts">mano con la palma hacia arriba: tono de piel oscuro medio</annotation>
 		<annotation cp="🫴🏿">acércate | dame | mano con la palma hacia arriba | ofrecer | tono de piel oscuro | trae | ven</annotation>
 		<annotation cp="🫴🏿" type="tts">mano con la palma hacia arriba: tono de piel oscuro</annotation>
-		<annotation cp="🫵🏻">apuntar | dedo índice apuntándote a ti | ti | tono de piel claro | tú</annotation>
-		<annotation cp="🫵🏻" type="tts">dedo índice apuntándote a ti: tono de piel claro</annotation>
-		<annotation cp="🫵🏼">apuntar | dedo índice apuntándote a ti | ti | tono de piel claro medio | tú</annotation>
-		<annotation cp="🫵🏼" type="tts">dedo índice apuntándote a ti: tono de piel claro medio</annotation>
-		<annotation cp="🫵🏽">apuntar | dedo índice apuntándote a ti | ti | tono de piel medio | tú</annotation>
-		<annotation cp="🫵🏽" type="tts">dedo índice apuntándote a ti: tono de piel medio</annotation>
-		<annotation cp="🫵🏾">apuntar | dedo índice apuntándote a ti | ti | tono de piel oscuro medio | tú</annotation>
-		<annotation cp="🫵🏾" type="tts">dedo índice apuntándote a ti: tono de piel oscuro medio</annotation>
-		<annotation cp="🫵🏿">apuntar | dedo índice apuntándote a ti | ti | tono de piel oscuro | tú</annotation>
-		<annotation cp="🫵🏿" type="tts">dedo índice apuntándote a ti: tono de piel oscuro</annotation>
-		<annotation cp="🫶🏻">amor | manos formando un corazón | tono de piel claro</annotation>
-		<annotation cp="🫶🏻" type="tts">manos formando un corazón: tono de piel claro</annotation>
-		<annotation cp="🫶🏼">amor | manos formando un corazón | tono de piel claro medio</annotation>
-		<annotation cp="🫶🏼" type="tts">manos formando un corazón: tono de piel claro medio</annotation>
-		<annotation cp="🫶🏽">amor | manos formando un corazón | tono de piel medio</annotation>
-		<annotation cp="🫶🏽" type="tts">manos formando un corazón: tono de piel medio</annotation>
-		<annotation cp="🫶🏾">amor | manos formando un corazón | tono de piel oscuro medio</annotation>
-		<annotation cp="🫶🏾" type="tts">manos formando un corazón: tono de piel oscuro medio</annotation>
-		<annotation cp="🫶🏿">amor | manos formando un corazón | tono de piel oscuro</annotation>
-		<annotation cp="🫶🏿" type="tts">manos formando un corazón: tono de piel oscuro</annotation>
-		<annotation cp="👋🏻">agitar | mano | mano saludando | saludar | saludo | tono de piel claro</annotation>
-		<annotation cp="👋🏻" type="tts">mano saludando: tono de piel claro</annotation>
-		<annotation cp="👋🏼">agitar | mano | mano saludando | saludar | saludo | tono de piel claro medio</annotation>
-		<annotation cp="👋🏼" type="tts">mano saludando: tono de piel claro medio</annotation>
-		<annotation cp="👋🏽">agitar | mano | mano saludando | saludar | saludo | tono de piel medio</annotation>
-		<annotation cp="👋🏽" type="tts">mano saludando: tono de piel medio</annotation>
-		<annotation cp="👋🏾">agitar | mano | mano saludando | saludar | saludo | tono de piel oscuro medio</annotation>
-		<annotation cp="👋🏾" type="tts">mano saludando: tono de piel oscuro medio</annotation>
-		<annotation cp="👋🏿">agitar | mano | mano saludando | saludar | saludo | tono de piel oscuro</annotation>
-		<annotation cp="👋🏿" type="tts">mano saludando: tono de piel oscuro</annotation>
-		<annotation cp="🤚🏻">dorso | dorso de la mano | levantado | mano | tono de piel claro</annotation>
-		<annotation cp="🤚🏻" type="tts">dorso de la mano: tono de piel claro</annotation>
-		<annotation cp="🤚🏼">dorso | dorso de la mano | levantado | mano | tono de piel claro medio</annotation>
-		<annotation cp="🤚🏼" type="tts">dorso de la mano: tono de piel claro medio</annotation>
-		<annotation cp="🤚🏽">dorso | dorso de la mano | levantado | mano | tono de piel medio</annotation>
-		<annotation cp="🤚🏽" type="tts">dorso de la mano: tono de piel medio</annotation>
-		<annotation cp="🤚🏾">dorso | dorso de la mano | levantado | mano | tono de piel oscuro medio</annotation>
-		<annotation cp="🤚🏾" type="tts">dorso de la mano: tono de piel oscuro medio</annotation>
-		<annotation cp="🤚🏿">dorso | dorso de la mano | levantado | mano | tono de piel oscuro</annotation>
-		<annotation cp="🤚🏿" type="tts">dorso de la mano: tono de piel oscuro</annotation>
-		<annotation cp="🖐🏻">abierta | dedo | mano | tono de piel claro</annotation>
-		<annotation cp="🖐🏻" type="tts">mano abierta: tono de piel claro</annotation>
-		<annotation cp="🖐🏼">abierta | dedo | mano | tono de piel claro medio</annotation>
-		<annotation cp="🖐🏼" type="tts">mano abierta: tono de piel claro medio</annotation>
-		<annotation cp="🖐🏽">abierta | dedo | mano | tono de piel medio</annotation>
-		<annotation cp="🖐🏽" type="tts">mano abierta: tono de piel medio</annotation>
-		<annotation cp="🖐🏾">abierta | dedo | mano | tono de piel oscuro medio</annotation>
-		<annotation cp="🖐🏾" type="tts">mano abierta: tono de piel oscuro medio</annotation>
-		<annotation cp="🖐🏿">abierta | dedo | mano | tono de piel oscuro</annotation>
-		<annotation cp="🖐🏿" type="tts">mano abierta: tono de piel oscuro</annotation>
-		<annotation cp="✋🏻">levantada | mano | tono de piel claro</annotation>
-		<annotation cp="✋🏻" type="tts">mano levantada: tono de piel claro</annotation>
-		<annotation cp="✋🏼">levantada | mano | tono de piel claro medio</annotation>
-		<annotation cp="✋🏼" type="tts">mano levantada: tono de piel claro medio</annotation>
-		<annotation cp="✋🏽">levantada | mano | tono de piel medio</annotation>
-		<annotation cp="✋🏽" type="tts">mano levantada: tono de piel medio</annotation>
-		<annotation cp="✋🏾">levantada | mano | tono de piel oscuro medio</annotation>
-		<annotation cp="✋🏾" type="tts">mano levantada: tono de piel oscuro medio</annotation>
-		<annotation cp="✋🏿">levantada | mano | tono de piel oscuro</annotation>
-		<annotation cp="✋🏿" type="tts">mano levantada: tono de piel oscuro</annotation>
-		<annotation cp="🖖🏻">mano | saludo | spock | tono de piel claro | vulcano</annotation>
-		<annotation cp="🖖🏻" type="tts">saludo vulcano: tono de piel claro</annotation>
-		<annotation cp="🖖🏼">mano | saludo | spock | tono de piel claro medio | vulcano</annotation>
-		<annotation cp="🖖🏼" type="tts">saludo vulcano: tono de piel claro medio</annotation>
-		<annotation cp="🖖🏽">mano | saludo | spock | tono de piel medio | vulcano</annotation>
-		<annotation cp="🖖🏽" type="tts">saludo vulcano: tono de piel medio</annotation>
-		<annotation cp="🖖🏾">mano | saludo | spock | tono de piel oscuro medio | vulcano</annotation>
-		<annotation cp="🖖🏾" type="tts">saludo vulcano: tono de piel oscuro medio</annotation>
-		<annotation cp="🖖🏿">mano | saludo | spock | tono de piel oscuro | vulcano</annotation>
-		<annotation cp="🖖🏿" type="tts">saludo vulcano: tono de piel oscuro</annotation>
 		<annotation cp="👌🏻">aprobación | mano | ok | señal de aprobación con la mano | tono de piel claro</annotation>
 		<annotation cp="👌🏻" type="tts">señal de aprobación con la mano: tono de piel claro</annotation>
 		<annotation cp="👌🏼">aprobación | mano | ok | señal de aprobación con la mano | tono de piel claro medio</annotation>
@@ -252,6 +192,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤞🏾" type="tts">dedos cruzados: tono de piel oscuro medio</annotation>
 		<annotation cp="🤞🏿">cruzar | dedos | dedos cruzados | mano | suerte | tono de piel oscuro</annotation>
 		<annotation cp="🤞🏿" type="tts">dedos cruzados: tono de piel oscuro</annotation>
+		<annotation cp="🫰🏻">amor | caro | chasquido | corazón | dinero | mano con dedo índice y pulgar cruzados | tono de piel claro</annotation>
+		<annotation cp="🫰🏻" type="tts">mano con dedo índice y pulgar cruzados: tono de piel claro</annotation>
+		<annotation cp="🫰🏼">amor | caro | chasquido | corazón | dinero | mano con dedo índice y pulgar cruzados | tono de piel claro medio</annotation>
+		<annotation cp="🫰🏼" type="tts">mano con dedo índice y pulgar cruzados: tono de piel claro medio</annotation>
+		<annotation cp="🫰🏽">amor | caro | chasquido | corazón | dinero | mano con dedo índice y pulgar cruzados | tono de piel medio</annotation>
+		<annotation cp="🫰🏽" type="tts">mano con dedo índice y pulgar cruzados: tono de piel medio</annotation>
+		<annotation cp="🫰🏾">amor | caro | chasquido | corazón | dinero | mano con dedo índice y pulgar cruzados | tono de piel oscuro medio</annotation>
+		<annotation cp="🫰🏾" type="tts">mano con dedo índice y pulgar cruzados: tono de piel oscuro medio</annotation>
+		<annotation cp="🫰🏿">amor | caro | chasquido | corazón | dinero | mano con dedo índice y pulgar cruzados | tono de piel oscuro</annotation>
+		<annotation cp="🫰🏿" type="tts">mano con dedo índice y pulgar cruzados: tono de piel oscuro</annotation>
 		<annotation cp="🤟🏻">gesto de te quiero | mano | quiero | tono de piel claro</annotation>
 		<annotation cp="🤟🏻" type="tts">gesto de te quiero: tono de piel claro</annotation>
 		<annotation cp="🤟🏼">gesto de te quiero | mano | quiero | tono de piel claro medio</annotation>
@@ -342,6 +292,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☝🏾" type="tts">dedo índice hacia arriba: tono de piel oscuro medio</annotation>
 		<annotation cp="☝🏿">apuntar | arriba | dedo | dedo índice hacia arriba | mano | tono de piel oscuro</annotation>
 		<annotation cp="☝🏿" type="tts">dedo índice hacia arriba: tono de piel oscuro</annotation>
+		<annotation cp="🫵🏻">apuntar | dedo índice apuntándote a ti | ti | tono de piel claro | tú</annotation>
+		<annotation cp="🫵🏻" type="tts">dedo índice apuntándote a ti: tono de piel claro</annotation>
+		<annotation cp="🫵🏼">apuntar | dedo índice apuntándote a ti | ti | tono de piel claro medio | tú</annotation>
+		<annotation cp="🫵🏼" type="tts">dedo índice apuntándote a ti: tono de piel claro medio</annotation>
+		<annotation cp="🫵🏽">apuntar | dedo índice apuntándote a ti | ti | tono de piel medio | tú</annotation>
+		<annotation cp="🫵🏽" type="tts">dedo índice apuntándote a ti: tono de piel medio</annotation>
+		<annotation cp="🫵🏾">apuntar | dedo índice apuntándote a ti | ti | tono de piel oscuro medio | tú</annotation>
+		<annotation cp="🫵🏾" type="tts">dedo índice apuntándote a ti: tono de piel oscuro medio</annotation>
+		<annotation cp="🫵🏿">apuntar | dedo índice apuntándote a ti | ti | tono de piel oscuro | tú</annotation>
+		<annotation cp="🫵🏿" type="tts">dedo índice apuntándote a ti: tono de piel oscuro</annotation>
 		<annotation cp="👍🏻">arriba | mano | pulgar | pulgar hacia arriba | señal | tono de piel claro</annotation>
 		<annotation cp="👍🏻" type="tts">pulgar hacia arriba: tono de piel claro</annotation>
 		<annotation cp="👍🏼">arriba | mano | pulgar | pulgar hacia arriba | señal | tono de piel claro medio</annotation>
@@ -422,6 +382,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">manos levantadas celebrando: tono de piel oscuro medio</annotation>
 		<annotation cp="🙌🏿">celebración | gesto | hurra | mano | manos levantadas celebrando | tono de piel oscuro</annotation>
 		<annotation cp="🙌🏿" type="tts">manos levantadas celebrando: tono de piel oscuro</annotation>
+		<annotation cp="🫶🏻">amor | manos formando un corazón | tono de piel claro</annotation>
+		<annotation cp="🫶🏻" type="tts">manos formando un corazón: tono de piel claro</annotation>
+		<annotation cp="🫶🏼">amor | manos formando un corazón | tono de piel claro medio</annotation>
+		<annotation cp="🫶🏼" type="tts">manos formando un corazón: tono de piel claro medio</annotation>
+		<annotation cp="🫶🏽">amor | manos formando un corazón | tono de piel medio</annotation>
+		<annotation cp="🫶🏽" type="tts">manos formando un corazón: tono de piel medio</annotation>
+		<annotation cp="🫶🏾">amor | manos formando un corazón | tono de piel oscuro medio</annotation>
+		<annotation cp="🫶🏾" type="tts">manos formando un corazón: tono de piel oscuro medio</annotation>
+		<annotation cp="🫶🏿">amor | manos formando un corazón | tono de piel oscuro</annotation>
+		<annotation cp="🫶🏿" type="tts">manos formando un corazón: tono de piel oscuro</annotation>
 		<annotation cp="👐🏻">abiertas | manos | tono de piel claro</annotation>
 		<annotation cp="👐🏻" type="tts">manos abiertas: tono de piel claro</annotation>
 		<annotation cp="👐🏼">abiertas | manos | tono de piel claro medio</annotation>
@@ -452,25 +422,45 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤝🏾" type="tts">apretón de manos: tono de piel oscuro medio</annotation>
 		<annotation cp="🤝🏿">acuerdo | apretón | apretón de manos | manos | tono de piel oscuro</annotation>
 		<annotation cp="🤝🏿" type="tts">apretón de manos: tono de piel oscuro</annotation>
-		<annotation cp="🙏🏻">mano | manos en oración | oración | orar | rezar | tono de piel claro</annotation>
+		<annotation cp="🙏🏻">gracias | mano | manos en oración | oración | orar | por favor | rezar | tono de piel claro</annotation>
 		<annotation cp="🙏🏻" type="tts">manos en oración: tono de piel claro</annotation>
-		<annotation cp="🙏🏼">mano | manos en oración | oración | orar | rezar | tono de piel claro medio</annotation>
+		<annotation cp="🙏🏼">gracias | mano | manos en oración | oración | orar | por favor | rezar | tono de piel claro medio</annotation>
 		<annotation cp="🙏🏼" type="tts">manos en oración: tono de piel claro medio</annotation>
-		<annotation cp="🙏🏽">mano | manos en oración | oración | orar | rezar | tono de piel medio</annotation>
+		<annotation cp="🙏🏽">gracias | mano | manos en oración | oración | orar | por favor | rezar | tono de piel medio</annotation>
 		<annotation cp="🙏🏽" type="tts">manos en oración: tono de piel medio</annotation>
-		<annotation cp="🙏🏾">mano | manos en oración | oración | orar | rezar | tono de piel oscuro medio</annotation>
+		<annotation cp="🙏🏾">gracias | mano | manos en oración | oración | orar | por favor | rezar | tono de piel oscuro medio</annotation>
 		<annotation cp="🙏🏾" type="tts">manos en oración: tono de piel oscuro medio</annotation>
-		<annotation cp="🙏🏿">mano | manos en oración | oración | orar | rezar | tono de piel oscuro</annotation>
+		<annotation cp="🙏🏿">gracias | mano | manos en oración | oración | orar | por favor | rezar | tono de piel oscuro</annotation>
 		<annotation cp="🙏🏿" type="tts">manos en oración: tono de piel oscuro</annotation>
-		<annotation cp="✍🏻">cuerpo | escribir | lápiz | mano | mano escribiendo | tono de piel claro</annotation>
+		<annotation cp="🫷🏻">choca esos cinco | detener | empujar | hacia la izquierda | mano empujando hacia la izquierda | parar | rechazar | stop | tono de piel claro</annotation>
+		<annotation cp="🫷🏻" type="tts">mano empujando hacia la izquierda: tono de piel claro</annotation>
+		<annotation cp="🫷🏼">choca esos cinco | detener | empujar | hacia la izquierda | mano empujando hacia la izquierda | parar | rechazar | stop | tono de piel claro medio</annotation>
+		<annotation cp="🫷🏼" type="tts">mano empujando hacia la izquierda: tono de piel claro medio</annotation>
+		<annotation cp="🫷🏽">choca esos cinco | detener | empujar | hacia la izquierda | mano empujando hacia la izquierda | parar | rechazar | stop | tono de piel medio</annotation>
+		<annotation cp="🫷🏽" type="tts">mano empujando hacia la izquierda: tono de piel medio</annotation>
+		<annotation cp="🫷🏾">choca esos cinco | detener | empujar | hacia la izquierda | mano empujando hacia la izquierda | parar | rechazar | stop | tono de piel oscuro medio</annotation>
+		<annotation cp="🫷🏾" type="tts">mano empujando hacia la izquierda: tono de piel oscuro medio</annotation>
+		<annotation cp="🫷🏿">choca esos cinco | detener | empujar | hacia la izquierda | mano empujando hacia la izquierda | parar | rechazar | stop | tono de piel oscuro</annotation>
+		<annotation cp="🫷🏿" type="tts">mano empujando hacia la izquierda: tono de piel oscuro</annotation>
+		<annotation cp="🫸🏻">choca esos cinco | detener | empujar | hacia la derecha | mano empujando hacia la derecha | parar | rechazar | stop | tono de piel claro</annotation>
+		<annotation cp="🫸🏻" type="tts">mano empujando hacia la derecha: tono de piel claro</annotation>
+		<annotation cp="🫸🏼">choca esos cinco | detener | empujar | hacia la derecha | mano empujando hacia la derecha | parar | rechazar | stop | tono de piel claro medio</annotation>
+		<annotation cp="🫸🏼" type="tts">mano empujando hacia la derecha: tono de piel claro medio</annotation>
+		<annotation cp="🫸🏽">choca esos cinco | detener | empujar | hacia la derecha | mano empujando hacia la derecha | parar | rechazar | stop | tono de piel medio</annotation>
+		<annotation cp="🫸🏽" type="tts">mano empujando hacia la derecha: tono de piel medio</annotation>
+		<annotation cp="🫸🏾">choca esos cinco | detener | empujar | hacia la derecha | mano empujando hacia la derecha | parar | rechazar | stop | tono de piel oscuro medio</annotation>
+		<annotation cp="🫸🏾" type="tts">mano empujando hacia la derecha: tono de piel oscuro medio</annotation>
+		<annotation cp="🫸🏿">choca esos cinco | detener | empujar | hacia la derecha | mano empujando hacia la derecha | parar | rechazar | stop | tono de piel oscuro</annotation>
+		<annotation cp="🫸🏿" type="tts">mano empujando hacia la derecha: tono de piel oscuro</annotation>
+		<annotation cp="✍🏻">escribir | lápiz | mano | mano escribiendo | tono de piel claro</annotation>
 		<annotation cp="✍🏻" type="tts">mano escribiendo: tono de piel claro</annotation>
-		<annotation cp="✍🏼">cuerpo | escribir | lápiz | mano | mano escribiendo | tono de piel claro medio</annotation>
+		<annotation cp="✍🏼">escribir | lápiz | mano | mano escribiendo | tono de piel claro medio</annotation>
 		<annotation cp="✍🏼" type="tts">mano escribiendo: tono de piel claro medio</annotation>
-		<annotation cp="✍🏽">cuerpo | escribir | lápiz | mano | mano escribiendo | tono de piel medio</annotation>
+		<annotation cp="✍🏽">escribir | lápiz | mano | mano escribiendo | tono de piel medio</annotation>
 		<annotation cp="✍🏽" type="tts">mano escribiendo: tono de piel medio</annotation>
-		<annotation cp="✍🏾">cuerpo | escribir | lápiz | mano | mano escribiendo | tono de piel oscuro medio</annotation>
+		<annotation cp="✍🏾">escribir | lápiz | mano | mano escribiendo | tono de piel oscuro medio</annotation>
 		<annotation cp="✍🏾" type="tts">mano escribiendo: tono de piel oscuro medio</annotation>
-		<annotation cp="✍🏿">cuerpo | escribir | lápiz | mano | mano escribiendo | tono de piel oscuro</annotation>
+		<annotation cp="✍🏿">escribir | lápiz | mano | mano escribiendo | tono de piel oscuro</annotation>
 		<annotation cp="✍🏿" type="tts">mano escribiendo: tono de piel oscuro</annotation>
 		<annotation cp="💅🏻">cosmética | esmalte | manicura | pintarse las uñas | tono de piel claro | uñas</annotation>
 		<annotation cp="💅🏻" type="tts">pintarse las uñas: tono de piel claro</annotation>
@@ -652,45 +642,45 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑🏿‍❤‍💋‍🧑🏽" type="tts">beso: persona adulta, persona adulta, tono de piel oscuro, tono de piel medio</annotation>
 		<annotation cp="🧑🏿‍❤‍💋‍🧑🏾">beso | persona adulta | personas | romance | tono de piel oscuro | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏿‍❤‍💋‍🧑🏾" type="tts">beso: persona adulta, persona adulta, tono de piel oscuro, tono de piel oscuro medio</annotation>
-		<annotation cp="🧑🏻‍❤‍🧑🏼">amor | corazón | hombre y mujer enamorados | pareja | pareja enamorada | persona adulta | personas | tono de piel claro | tono de piel claro medio</annotation>
+		<annotation cp="🧑🏻‍❤‍🧑🏼">amor | pareja | pareja enamorada | persona adulta | personas enamoradas | tono de piel claro | tono de piel claro medio</annotation>
 		<annotation cp="🧑🏻‍❤‍🧑🏼" type="tts">pareja enamorada: persona adulta, persona adulta, tono de piel claro, tono de piel claro medio</annotation>
-		<annotation cp="🧑🏻‍❤‍🧑🏽">amor | corazón | hombre y mujer enamorados | pareja | pareja enamorada | persona adulta | personas | tono de piel claro | tono de piel medio</annotation>
+		<annotation cp="🧑🏻‍❤‍🧑🏽">amor | pareja | pareja enamorada | persona adulta | personas enamoradas | tono de piel claro | tono de piel medio</annotation>
 		<annotation cp="🧑🏻‍❤‍🧑🏽" type="tts">pareja enamorada: persona adulta, persona adulta, tono de piel claro, tono de piel medio</annotation>
-		<annotation cp="🧑🏻‍❤‍🧑🏾">amor | corazón | hombre y mujer enamorados | pareja | pareja enamorada | persona adulta | personas | tono de piel claro | tono de piel oscuro medio</annotation>
+		<annotation cp="🧑🏻‍❤‍🧑🏾">amor | pareja | pareja enamorada | persona adulta | personas enamoradas | tono de piel claro | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏻‍❤‍🧑🏾" type="tts">pareja enamorada: persona adulta, persona adulta, tono de piel claro, tono de piel oscuro medio</annotation>
-		<annotation cp="🧑🏻‍❤‍🧑🏿">amor | corazón | hombre y mujer enamorados | pareja | pareja enamorada | persona adulta | personas | tono de piel claro | tono de piel oscuro</annotation>
+		<annotation cp="🧑🏻‍❤‍🧑🏿">amor | pareja | pareja enamorada | persona adulta | personas enamoradas | tono de piel claro | tono de piel oscuro</annotation>
 		<annotation cp="🧑🏻‍❤‍🧑🏿" type="tts">pareja enamorada: persona adulta, persona adulta, tono de piel claro, tono de piel oscuro</annotation>
-		<annotation cp="🧑🏼‍❤‍🧑🏻">amor | corazón | hombre y mujer enamorados | pareja | pareja enamorada | persona adulta | personas | tono de piel claro | tono de piel claro medio</annotation>
+		<annotation cp="🧑🏼‍❤‍🧑🏻">amor | pareja | pareja enamorada | persona adulta | personas enamoradas | tono de piel claro | tono de piel claro medio</annotation>
 		<annotation cp="🧑🏼‍❤‍🧑🏻" type="tts">pareja enamorada: persona adulta, persona adulta, tono de piel claro medio, tono de piel claro</annotation>
-		<annotation cp="🧑🏼‍❤‍🧑🏽">amor | corazón | hombre y mujer enamorados | pareja | pareja enamorada | persona adulta | personas | tono de piel claro medio | tono de piel medio</annotation>
+		<annotation cp="🧑🏼‍❤‍🧑🏽">amor | pareja | pareja enamorada | persona adulta | personas enamoradas | tono de piel claro medio | tono de piel medio</annotation>
 		<annotation cp="🧑🏼‍❤‍🧑🏽" type="tts">pareja enamorada: persona adulta, persona adulta, tono de piel claro medio, tono de piel medio</annotation>
-		<annotation cp="🧑🏼‍❤‍🧑🏾">amor | corazón | hombre y mujer enamorados | pareja | pareja enamorada | persona adulta | personas | tono de piel claro medio | tono de piel oscuro medio</annotation>
+		<annotation cp="🧑🏼‍❤‍🧑🏾">amor | pareja | pareja enamorada | persona adulta | personas enamoradas | tono de piel claro medio | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏼‍❤‍🧑🏾" type="tts">pareja enamorada: persona adulta, persona adulta, tono de piel claro medio, tono de piel oscuro medio</annotation>
-		<annotation cp="🧑🏼‍❤‍🧑🏿">amor | corazón | hombre y mujer enamorados | pareja | pareja enamorada | persona adulta | personas | tono de piel claro medio | tono de piel oscuro</annotation>
+		<annotation cp="🧑🏼‍❤‍🧑🏿">amor | pareja | pareja enamorada | persona adulta | personas enamoradas | tono de piel claro medio | tono de piel oscuro</annotation>
 		<annotation cp="🧑🏼‍❤‍🧑🏿" type="tts">pareja enamorada: persona adulta, persona adulta, tono de piel claro medio, tono de piel oscuro</annotation>
-		<annotation cp="🧑🏽‍❤‍🧑🏻">amor | corazón | hombre y mujer enamorados | pareja | pareja enamorada | persona adulta | personas | tono de piel claro | tono de piel medio</annotation>
+		<annotation cp="🧑🏽‍❤‍🧑🏻">amor | pareja | pareja enamorada | persona adulta | personas enamoradas | tono de piel claro | tono de piel medio</annotation>
 		<annotation cp="🧑🏽‍❤‍🧑🏻" type="tts">pareja enamorada: persona adulta, persona adulta, tono de piel medio, tono de piel claro</annotation>
-		<annotation cp="🧑🏽‍❤‍🧑🏼">amor | corazón | hombre y mujer enamorados | pareja | pareja enamorada | persona adulta | personas | tono de piel claro medio | tono de piel medio</annotation>
+		<annotation cp="🧑🏽‍❤‍🧑🏼">amor | pareja | pareja enamorada | persona adulta | personas enamoradas | tono de piel claro medio | tono de piel medio</annotation>
 		<annotation cp="🧑🏽‍❤‍🧑🏼" type="tts">pareja enamorada: persona adulta, persona adulta, tono de piel medio, tono de piel claro medio</annotation>
-		<annotation cp="🧑🏽‍❤‍🧑🏾">amor | corazón | hombre y mujer enamorados | pareja | pareja enamorada | persona adulta | personas | tono de piel medio | tono de piel oscuro medio</annotation>
+		<annotation cp="🧑🏽‍❤‍🧑🏾">amor | pareja | pareja enamorada | persona adulta | personas enamoradas | tono de piel medio | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏽‍❤‍🧑🏾" type="tts">pareja enamorada: persona adulta, persona adulta, tono de piel medio, tono de piel oscuro medio</annotation>
-		<annotation cp="🧑🏽‍❤‍🧑🏿">amor | corazón | hombre y mujer enamorados | pareja | pareja enamorada | persona adulta | personas | tono de piel medio | tono de piel oscuro</annotation>
+		<annotation cp="🧑🏽‍❤‍🧑🏿">amor | pareja | pareja enamorada | persona adulta | personas enamoradas | tono de piel medio | tono de piel oscuro</annotation>
 		<annotation cp="🧑🏽‍❤‍🧑🏿" type="tts">pareja enamorada: persona adulta, persona adulta, tono de piel medio, tono de piel oscuro</annotation>
-		<annotation cp="🧑🏾‍❤‍🧑🏻">amor | corazón | hombre y mujer enamorados | pareja | pareja enamorada | persona adulta | personas | tono de piel claro | tono de piel oscuro medio</annotation>
+		<annotation cp="🧑🏾‍❤‍🧑🏻">amor | pareja | pareja enamorada | persona adulta | personas enamoradas | tono de piel claro | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏾‍❤‍🧑🏻" type="tts">pareja enamorada: persona adulta, persona adulta, tono de piel oscuro medio, tono de piel claro</annotation>
-		<annotation cp="🧑🏾‍❤‍🧑🏼">amor | corazón | hombre y mujer enamorados | pareja | pareja enamorada | persona adulta | personas | tono de piel claro medio | tono de piel oscuro medio</annotation>
+		<annotation cp="🧑🏾‍❤‍🧑🏼">amor | pareja | pareja enamorada | persona adulta | personas enamoradas | tono de piel claro medio | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏾‍❤‍🧑🏼" type="tts">pareja enamorada: persona adulta, persona adulta, tono de piel oscuro medio, tono de piel claro medio</annotation>
-		<annotation cp="🧑🏾‍❤‍🧑🏽">amor | corazón | hombre y mujer enamorados | pareja | pareja enamorada | persona adulta | personas | tono de piel medio | tono de piel oscuro medio</annotation>
+		<annotation cp="🧑🏾‍❤‍🧑🏽">amor | pareja | pareja enamorada | persona adulta | personas enamoradas | tono de piel medio | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏾‍❤‍🧑🏽" type="tts">pareja enamorada: persona adulta, persona adulta, tono de piel oscuro medio, tono de piel medio</annotation>
-		<annotation cp="🧑🏾‍❤‍🧑🏿">amor | corazón | hombre y mujer enamorados | pareja | pareja enamorada | persona adulta | personas | tono de piel oscuro | tono de piel oscuro medio</annotation>
+		<annotation cp="🧑🏾‍❤‍🧑🏿">amor | pareja | pareja enamorada | persona adulta | personas enamoradas | tono de piel oscuro | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏾‍❤‍🧑🏿" type="tts">pareja enamorada: persona adulta, persona adulta, tono de piel oscuro medio, tono de piel oscuro</annotation>
-		<annotation cp="🧑🏿‍❤‍🧑🏻">amor | corazón | hombre y mujer enamorados | pareja | pareja enamorada | persona adulta | personas | tono de piel claro | tono de piel oscuro</annotation>
+		<annotation cp="🧑🏿‍❤‍🧑🏻">amor | pareja | pareja enamorada | persona adulta | personas enamoradas | tono de piel claro | tono de piel oscuro</annotation>
 		<annotation cp="🧑🏿‍❤‍🧑🏻" type="tts">pareja enamorada: persona adulta, persona adulta, tono de piel oscuro, tono de piel claro</annotation>
-		<annotation cp="🧑🏿‍❤‍🧑🏼">amor | corazón | hombre y mujer enamorados | pareja | pareja enamorada | persona adulta | personas | tono de piel claro medio | tono de piel oscuro</annotation>
+		<annotation cp="🧑🏿‍❤‍🧑🏼">amor | pareja | pareja enamorada | persona adulta | personas enamoradas | tono de piel claro medio | tono de piel oscuro</annotation>
 		<annotation cp="🧑🏿‍❤‍🧑🏼" type="tts">pareja enamorada: persona adulta, persona adulta, tono de piel oscuro, tono de piel claro medio</annotation>
-		<annotation cp="🧑🏿‍❤‍🧑🏽">amor | corazón | hombre y mujer enamorados | pareja | pareja enamorada | persona adulta | personas | tono de piel medio | tono de piel oscuro</annotation>
+		<annotation cp="🧑🏿‍❤‍🧑🏽">amor | pareja | pareja enamorada | persona adulta | personas enamoradas | tono de piel medio | tono de piel oscuro</annotation>
 		<annotation cp="🧑🏿‍❤‍🧑🏽" type="tts">pareja enamorada: persona adulta, persona adulta, tono de piel oscuro, tono de piel medio</annotation>
-		<annotation cp="🧑🏿‍❤‍🧑🏾">amor | corazón | hombre y mujer enamorados | pareja | pareja enamorada | persona adulta | personas | tono de piel oscuro | tono de piel oscuro medio</annotation>
+		<annotation cp="🧑🏿‍❤‍🧑🏾">amor | pareja | pareja enamorada | persona adulta | personas enamoradas | tono de piel oscuro | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏿‍❤‍🧑🏾" type="tts">pareja enamorada: persona adulta, persona adulta, tono de piel oscuro, tono de piel oscuro medio</annotation>
 		<annotation cp="🧑‍🦰">género | neutro | pelo pelirrojo | persona adulta</annotation>
 		<annotation cp="🧑‍🦰" type="tts">persona adulta: pelo pelirrojo</annotation>
@@ -750,16 +740,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏾" type="tts">hombre: tono de piel oscuro medio</annotation>
 		<annotation cp="👨🏿">adulto | hombre | tono de piel oscuro</annotation>
 		<annotation cp="👨🏿" type="tts">hombre: tono de piel oscuro</annotation>
-		<annotation cp="🧔🏻">barbas | barbudo | hombre | hombre con barba | persona | tono de piel claro</annotation>
-		<annotation cp="🧔🏻" type="tts">hombre con barba: tono de piel claro</annotation>
-		<annotation cp="🧔🏼">barbas | barbudo | hombre | hombre con barba | persona | tono de piel claro medio</annotation>
-		<annotation cp="🧔🏼" type="tts">hombre con barba: tono de piel claro medio</annotation>
-		<annotation cp="🧔🏽">barbas | barbudo | hombre | hombre con barba | persona | tono de piel medio</annotation>
-		<annotation cp="🧔🏽" type="tts">hombre con barba: tono de piel medio</annotation>
-		<annotation cp="🧔🏾">barbas | barbudo | hombre | hombre con barba | persona | tono de piel oscuro medio</annotation>
-		<annotation cp="🧔🏾" type="tts">hombre con barba: tono de piel oscuro medio</annotation>
-		<annotation cp="🧔🏿">barbas | barbudo | hombre | hombre con barba | persona | tono de piel oscuro</annotation>
-		<annotation cp="🧔🏿" type="tts">hombre con barba: tono de piel oscuro</annotation>
+		<annotation cp="🧔🏻">barbas | barbudo | persona | persona con barba | tono de piel claro</annotation>
+		<annotation cp="🧔🏻" type="tts">persona con barba: tono de piel claro</annotation>
+		<annotation cp="🧔🏼">barbas | barbudo | persona | persona con barba | tono de piel claro medio</annotation>
+		<annotation cp="🧔🏼" type="tts">persona con barba: tono de piel claro medio</annotation>
+		<annotation cp="🧔🏽">barbas | barbudo | persona | persona con barba | tono de piel medio</annotation>
+		<annotation cp="🧔🏽" type="tts">persona con barba: tono de piel medio</annotation>
+		<annotation cp="🧔🏾">barbas | barbudo | persona | persona con barba | tono de piel oscuro medio</annotation>
+		<annotation cp="🧔🏾" type="tts">persona con barba: tono de piel oscuro medio</annotation>
+		<annotation cp="🧔🏿">barbas | barbudo | persona | persona con barba | tono de piel oscuro</annotation>
+		<annotation cp="🧔🏿" type="tts">persona con barba: tono de piel oscuro</annotation>
 		<annotation cp="🧔🏻‍♂">barba | hombre | hombre: barba | tono de piel claro</annotation>
 		<annotation cp="🧔🏻‍♂" type="tts">hombre: tono de piel claro y barba</annotation>
 		<annotation cp="🧔🏼‍♂">barba | hombre | hombre: barba | tono de piel claro medio</annotation>
@@ -830,55 +820,55 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨🏿‍❤‍💋‍👨🏾" type="tts">beso: hombre, hombre, tono de piel oscuro, tono de piel oscuro medio</annotation>
 		<annotation cp="👨🏿‍❤‍💋‍👨🏿">beso | hombre | personas | romance | tono de piel oscuro</annotation>
 		<annotation cp="👨🏿‍❤‍💋‍👨🏿" type="tts">beso: hombre, hombre, tono de piel oscuro</annotation>
-		<annotation cp="👨🏻‍❤‍👨🏻">amor | corazón | hombre | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel claro</annotation>
+		<annotation cp="👨🏻‍❤‍👨🏻">amor | hombre | pareja | pareja enamorada | personas enamoradas | tono de piel claro</annotation>
 		<annotation cp="👨🏻‍❤‍👨🏻" type="tts">pareja enamorada: hombre, hombre, tono de piel claro</annotation>
-		<annotation cp="👨🏻‍❤‍👨🏼">amor | corazón | hombre | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel claro | tono de piel claro medio</annotation>
+		<annotation cp="👨🏻‍❤‍👨🏼">amor | hombre | pareja | pareja enamorada | personas enamoradas | tono de piel claro | tono de piel claro medio</annotation>
 		<annotation cp="👨🏻‍❤‍👨🏼" type="tts">pareja enamorada: hombre, hombre, tono de piel claro, tono de piel claro medio</annotation>
-		<annotation cp="👨🏻‍❤‍👨🏽">amor | corazón | hombre | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel claro | tono de piel medio</annotation>
+		<annotation cp="👨🏻‍❤‍👨🏽">amor | hombre | pareja | pareja enamorada | personas enamoradas | tono de piel claro | tono de piel medio</annotation>
 		<annotation cp="👨🏻‍❤‍👨🏽" type="tts">pareja enamorada: hombre, hombre, tono de piel claro, tono de piel medio</annotation>
-		<annotation cp="👨🏻‍❤‍👨🏾">amor | corazón | hombre | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel claro | tono de piel oscuro medio</annotation>
+		<annotation cp="👨🏻‍❤‍👨🏾">amor | hombre | pareja | pareja enamorada | personas enamoradas | tono de piel claro | tono de piel oscuro medio</annotation>
 		<annotation cp="👨🏻‍❤‍👨🏾" type="tts">pareja enamorada: hombre, hombre, tono de piel claro, tono de piel oscuro medio</annotation>
-		<annotation cp="👨🏻‍❤‍👨🏿">amor | corazón | hombre | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel claro | tono de piel oscuro</annotation>
+		<annotation cp="👨🏻‍❤‍👨🏿">amor | hombre | pareja | pareja enamorada | personas enamoradas | tono de piel claro | tono de piel oscuro</annotation>
 		<annotation cp="👨🏻‍❤‍👨🏿" type="tts">pareja enamorada: hombre, hombre, tono de piel claro, tono de piel oscuro</annotation>
-		<annotation cp="👨🏼‍❤‍👨🏻">amor | corazón | hombre | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel claro | tono de piel claro medio</annotation>
+		<annotation cp="👨🏼‍❤‍👨🏻">amor | hombre | pareja | pareja enamorada | personas enamoradas | tono de piel claro | tono de piel claro medio</annotation>
 		<annotation cp="👨🏼‍❤‍👨🏻" type="tts">pareja enamorada: hombre, hombre, tono de piel claro medio, tono de piel claro</annotation>
-		<annotation cp="👨🏼‍❤‍👨🏼">amor | corazón | hombre | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel claro medio</annotation>
+		<annotation cp="👨🏼‍❤‍👨🏼">amor | hombre | pareja | pareja enamorada | personas enamoradas | tono de piel claro medio</annotation>
 		<annotation cp="👨🏼‍❤‍👨🏼" type="tts">pareja enamorada: hombre, hombre, tono de piel claro medio</annotation>
-		<annotation cp="👨🏼‍❤‍👨🏽">amor | corazón | hombre | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel claro medio | tono de piel medio</annotation>
+		<annotation cp="👨🏼‍❤‍👨🏽">amor | hombre | pareja | pareja enamorada | personas enamoradas | tono de piel claro medio | tono de piel medio</annotation>
 		<annotation cp="👨🏼‍❤‍👨🏽" type="tts">pareja enamorada: hombre, hombre, tono de piel claro medio, tono de piel medio</annotation>
-		<annotation cp="👨🏼‍❤‍👨🏾">amor | corazón | hombre | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel claro medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👨🏼‍❤‍👨🏾">amor | hombre | pareja | pareja enamorada | personas enamoradas | tono de piel claro medio | tono de piel oscuro medio</annotation>
 		<annotation cp="👨🏼‍❤‍👨🏾" type="tts">pareja enamorada: hombre, hombre, tono de piel claro medio, tono de piel oscuro medio</annotation>
-		<annotation cp="👨🏼‍❤‍👨🏿">amor | corazón | hombre | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel claro medio | tono de piel oscuro</annotation>
+		<annotation cp="👨🏼‍❤‍👨🏿">amor | hombre | pareja | pareja enamorada | personas enamoradas | tono de piel claro medio | tono de piel oscuro</annotation>
 		<annotation cp="👨🏼‍❤‍👨🏿" type="tts">pareja enamorada: hombre, hombre, tono de piel claro medio, tono de piel oscuro</annotation>
-		<annotation cp="👨🏽‍❤‍👨🏻">amor | corazón | hombre | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel claro | tono de piel medio</annotation>
+		<annotation cp="👨🏽‍❤‍👨🏻">amor | hombre | pareja | pareja enamorada | personas enamoradas | tono de piel claro | tono de piel medio</annotation>
 		<annotation cp="👨🏽‍❤‍👨🏻" type="tts">pareja enamorada: hombre, hombre, tono de piel medio, tono de piel claro</annotation>
-		<annotation cp="👨🏽‍❤‍👨🏼">amor | corazón | hombre | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel claro medio | tono de piel medio</annotation>
+		<annotation cp="👨🏽‍❤‍👨🏼">amor | hombre | pareja | pareja enamorada | personas enamoradas | tono de piel claro medio | tono de piel medio</annotation>
 		<annotation cp="👨🏽‍❤‍👨🏼" type="tts">pareja enamorada: hombre, hombre, tono de piel medio, tono de piel claro medio</annotation>
-		<annotation cp="👨🏽‍❤‍👨🏽">amor | corazón | hombre | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel medio</annotation>
+		<annotation cp="👨🏽‍❤‍👨🏽">amor | hombre | pareja | pareja enamorada | personas enamoradas | tono de piel medio</annotation>
 		<annotation cp="👨🏽‍❤‍👨🏽" type="tts">pareja enamorada: hombre, hombre, tono de piel medio</annotation>
-		<annotation cp="👨🏽‍❤‍👨🏾">amor | corazón | hombre | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👨🏽‍❤‍👨🏾">amor | hombre | pareja | pareja enamorada | personas enamoradas | tono de piel medio | tono de piel oscuro medio</annotation>
 		<annotation cp="👨🏽‍❤‍👨🏾" type="tts">pareja enamorada: hombre, hombre, tono de piel medio, tono de piel oscuro medio</annotation>
-		<annotation cp="👨🏽‍❤‍👨🏿">amor | corazón | hombre | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel medio | tono de piel oscuro</annotation>
+		<annotation cp="👨🏽‍❤‍👨🏿">amor | hombre | pareja | pareja enamorada | personas enamoradas | tono de piel medio | tono de piel oscuro</annotation>
 		<annotation cp="👨🏽‍❤‍👨🏿" type="tts">pareja enamorada: hombre, hombre, tono de piel medio, tono de piel oscuro</annotation>
-		<annotation cp="👨🏾‍❤‍👨🏻">amor | corazón | hombre | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel claro | tono de piel oscuro medio</annotation>
+		<annotation cp="👨🏾‍❤‍👨🏻">amor | hombre | pareja | pareja enamorada | personas enamoradas | tono de piel claro | tono de piel oscuro medio</annotation>
 		<annotation cp="👨🏾‍❤‍👨🏻" type="tts">pareja enamorada: hombre, hombre, tono de piel oscuro medio, tono de piel claro</annotation>
-		<annotation cp="👨🏾‍❤‍👨🏼">amor | corazón | hombre | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel claro medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👨🏾‍❤‍👨🏼">amor | hombre | pareja | pareja enamorada | personas enamoradas | tono de piel claro medio | tono de piel oscuro medio</annotation>
 		<annotation cp="👨🏾‍❤‍👨🏼" type="tts">pareja enamorada: hombre, hombre, tono de piel oscuro medio, tono de piel claro medio</annotation>
-		<annotation cp="👨🏾‍❤‍👨🏽">amor | corazón | hombre | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👨🏾‍❤‍👨🏽">amor | hombre | pareja | pareja enamorada | personas enamoradas | tono de piel medio | tono de piel oscuro medio</annotation>
 		<annotation cp="👨🏾‍❤‍👨🏽" type="tts">pareja enamorada: hombre, hombre, tono de piel oscuro medio, tono de piel medio</annotation>
-		<annotation cp="👨🏾‍❤‍👨🏾">amor | corazón | hombre | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel oscuro medio</annotation>
+		<annotation cp="👨🏾‍❤‍👨🏾">amor | hombre | pareja | pareja enamorada | personas enamoradas | tono de piel oscuro medio</annotation>
 		<annotation cp="👨🏾‍❤‍👨🏾" type="tts">pareja enamorada: hombre, hombre, tono de piel oscuro medio</annotation>
-		<annotation cp="👨🏾‍❤‍👨🏿">amor | corazón | hombre | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel oscuro | tono de piel oscuro medio</annotation>
+		<annotation cp="👨🏾‍❤‍👨🏿">amor | hombre | pareja | pareja enamorada | personas enamoradas | tono de piel oscuro | tono de piel oscuro medio</annotation>
 		<annotation cp="👨🏾‍❤‍👨🏿" type="tts">pareja enamorada: hombre, hombre, tono de piel oscuro medio, tono de piel oscuro</annotation>
-		<annotation cp="👨🏿‍❤‍👨🏻">amor | corazón | hombre | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel claro | tono de piel oscuro</annotation>
+		<annotation cp="👨🏿‍❤‍👨🏻">amor | hombre | pareja | pareja enamorada | personas enamoradas | tono de piel claro | tono de piel oscuro</annotation>
 		<annotation cp="👨🏿‍❤‍👨🏻" type="tts">pareja enamorada: hombre, hombre, tono de piel oscuro, tono de piel claro</annotation>
-		<annotation cp="👨🏿‍❤‍👨🏼">amor | corazón | hombre | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel claro medio | tono de piel oscuro</annotation>
+		<annotation cp="👨🏿‍❤‍👨🏼">amor | hombre | pareja | pareja enamorada | personas enamoradas | tono de piel claro medio | tono de piel oscuro</annotation>
 		<annotation cp="👨🏿‍❤‍👨🏼" type="tts">pareja enamorada: hombre, hombre, tono de piel oscuro, tono de piel claro medio</annotation>
-		<annotation cp="👨🏿‍❤‍👨🏽">amor | corazón | hombre | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel medio | tono de piel oscuro</annotation>
+		<annotation cp="👨🏿‍❤‍👨🏽">amor | hombre | pareja | pareja enamorada | personas enamoradas | tono de piel medio | tono de piel oscuro</annotation>
 		<annotation cp="👨🏿‍❤‍👨🏽" type="tts">pareja enamorada: hombre, hombre, tono de piel oscuro, tono de piel medio</annotation>
-		<annotation cp="👨🏿‍❤‍👨🏾">amor | corazón | hombre | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel oscuro | tono de piel oscuro medio</annotation>
+		<annotation cp="👨🏿‍❤‍👨🏾">amor | hombre | pareja | pareja enamorada | personas enamoradas | tono de piel oscuro | tono de piel oscuro medio</annotation>
 		<annotation cp="👨🏿‍❤‍👨🏾" type="tts">pareja enamorada: hombre, hombre, tono de piel oscuro, tono de piel oscuro medio</annotation>
-		<annotation cp="👨🏿‍❤‍👨🏿">amor | corazón | hombre | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel oscuro</annotation>
+		<annotation cp="👨🏿‍❤‍👨🏿">amor | hombre | pareja | pareja enamorada | personas enamoradas | tono de piel oscuro</annotation>
 		<annotation cp="👨🏿‍❤‍👨🏿" type="tts">pareja enamorada: hombre, hombre, tono de piel oscuro</annotation>
 		<annotation cp="👨‍🦰">adulto | hombre | pelo pelirrojo</annotation>
 		<annotation cp="👨‍🦰" type="tts">hombre: pelo pelirrojo</annotation>
@@ -1058,105 +1048,105 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩🏿‍❤‍💋‍👩🏾" type="tts">beso: mujer, mujer, tono de piel oscuro, tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏿‍❤‍💋‍👩🏿">beso | mujer | personas | romance | tono de piel oscuro</annotation>
 		<annotation cp="👩🏿‍❤‍💋‍👩🏿" type="tts">beso: mujer, mujer, tono de piel oscuro</annotation>
-		<annotation cp="👩🏻‍❤‍👨🏻">amor | corazón | hombre | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro</annotation>
+		<annotation cp="👩🏻‍❤‍👨🏻">amor | hombre | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro</annotation>
 		<annotation cp="👩🏻‍❤‍👨🏻" type="tts">pareja enamorada: mujer, hombre, tono de piel claro</annotation>
-		<annotation cp="👩🏻‍❤‍👨🏼">amor | corazón | hombre | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro | tono de piel claro medio</annotation>
+		<annotation cp="👩🏻‍❤‍👨🏼">amor | hombre | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro | tono de piel claro medio</annotation>
 		<annotation cp="👩🏻‍❤‍👨🏼" type="tts">pareja enamorada: mujer, hombre, tono de piel claro, tono de piel claro medio</annotation>
-		<annotation cp="👩🏻‍❤‍👨🏽">amor | corazón | hombre | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro | tono de piel medio</annotation>
+		<annotation cp="👩🏻‍❤‍👨🏽">amor | hombre | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro | tono de piel medio</annotation>
 		<annotation cp="👩🏻‍❤‍👨🏽" type="tts">pareja enamorada: mujer, hombre, tono de piel claro, tono de piel medio</annotation>
-		<annotation cp="👩🏻‍❤‍👨🏾">amor | corazón | hombre | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏻‍❤‍👨🏾">amor | hombre | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏻‍❤‍👨🏾" type="tts">pareja enamorada: mujer, hombre, tono de piel claro, tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏻‍❤‍👨🏿">amor | corazón | hombre | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro | tono de piel oscuro</annotation>
+		<annotation cp="👩🏻‍❤‍👨🏿">amor | hombre | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro | tono de piel oscuro</annotation>
 		<annotation cp="👩🏻‍❤‍👨🏿" type="tts">pareja enamorada: mujer, hombre, tono de piel claro, tono de piel oscuro</annotation>
-		<annotation cp="👩🏼‍❤‍👨🏻">amor | corazón | hombre | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro | tono de piel claro medio</annotation>
+		<annotation cp="👩🏼‍❤‍👨🏻">amor | hombre | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro | tono de piel claro medio</annotation>
 		<annotation cp="👩🏼‍❤‍👨🏻" type="tts">pareja enamorada: mujer, hombre, tono de piel claro medio, tono de piel claro</annotation>
-		<annotation cp="👩🏼‍❤‍👨🏼">amor | corazón | hombre | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro medio</annotation>
+		<annotation cp="👩🏼‍❤‍👨🏼">amor | hombre | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro medio</annotation>
 		<annotation cp="👩🏼‍❤‍👨🏼" type="tts">pareja enamorada: mujer, hombre, tono de piel claro medio</annotation>
-		<annotation cp="👩🏼‍❤‍👨🏽">amor | corazón | hombre | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro medio | tono de piel medio</annotation>
+		<annotation cp="👩🏼‍❤‍👨🏽">amor | hombre | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro medio | tono de piel medio</annotation>
 		<annotation cp="👩🏼‍❤‍👨🏽" type="tts">pareja enamorada: mujer, hombre, tono de piel claro medio, tono de piel medio</annotation>
-		<annotation cp="👩🏼‍❤‍👨🏾">amor | corazón | hombre | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏼‍❤‍👨🏾">amor | hombre | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro medio | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏼‍❤‍👨🏾" type="tts">pareja enamorada: mujer, hombre, tono de piel claro medio, tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏼‍❤‍👨🏿">amor | corazón | hombre | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro medio | tono de piel oscuro</annotation>
+		<annotation cp="👩🏼‍❤‍👨🏿">amor | hombre | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro medio | tono de piel oscuro</annotation>
 		<annotation cp="👩🏼‍❤‍👨🏿" type="tts">pareja enamorada: mujer, hombre, tono de piel claro medio, tono de piel oscuro</annotation>
-		<annotation cp="👩🏽‍❤‍👨🏻">amor | corazón | hombre | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro | tono de piel medio</annotation>
+		<annotation cp="👩🏽‍❤‍👨🏻">amor | hombre | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro | tono de piel medio</annotation>
 		<annotation cp="👩🏽‍❤‍👨🏻" type="tts">pareja enamorada: mujer, hombre, tono de piel medio, tono de piel claro</annotation>
-		<annotation cp="👩🏽‍❤‍👨🏼">amor | corazón | hombre | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro medio | tono de piel medio</annotation>
+		<annotation cp="👩🏽‍❤‍👨🏼">amor | hombre | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro medio | tono de piel medio</annotation>
 		<annotation cp="👩🏽‍❤‍👨🏼" type="tts">pareja enamorada: mujer, hombre, tono de piel medio, tono de piel claro medio</annotation>
-		<annotation cp="👩🏽‍❤‍👨🏽">amor | corazón | hombre | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel medio</annotation>
+		<annotation cp="👩🏽‍❤‍👨🏽">amor | hombre | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel medio</annotation>
 		<annotation cp="👩🏽‍❤‍👨🏽" type="tts">pareja enamorada: mujer, hombre, tono de piel medio</annotation>
-		<annotation cp="👩🏽‍❤‍👨🏾">amor | corazón | hombre | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏽‍❤‍👨🏾">amor | hombre | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel medio | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏽‍❤‍👨🏾" type="tts">pareja enamorada: mujer, hombre, tono de piel medio, tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏽‍❤‍👨🏿">amor | corazón | hombre | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel medio | tono de piel oscuro</annotation>
+		<annotation cp="👩🏽‍❤‍👨🏿">amor | hombre | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel medio | tono de piel oscuro</annotation>
 		<annotation cp="👩🏽‍❤‍👨🏿" type="tts">pareja enamorada: mujer, hombre, tono de piel medio, tono de piel oscuro</annotation>
-		<annotation cp="👩🏾‍❤‍👨🏻">amor | corazón | hombre | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏾‍❤‍👨🏻">amor | hombre | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏾‍❤‍👨🏻" type="tts">pareja enamorada: mujer, hombre, tono de piel oscuro medio, tono de piel claro</annotation>
-		<annotation cp="👩🏾‍❤‍👨🏼">amor | corazón | hombre | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏾‍❤‍👨🏼">amor | hombre | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro medio | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏾‍❤‍👨🏼" type="tts">pareja enamorada: mujer, hombre, tono de piel oscuro medio, tono de piel claro medio</annotation>
-		<annotation cp="👩🏾‍❤‍👨🏽">amor | corazón | hombre | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏾‍❤‍👨🏽">amor | hombre | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel medio | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏾‍❤‍👨🏽" type="tts">pareja enamorada: mujer, hombre, tono de piel oscuro medio, tono de piel medio</annotation>
-		<annotation cp="👩🏾‍❤‍👨🏾">amor | corazón | hombre | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏾‍❤‍👨🏾">amor | hombre | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏾‍❤‍👨🏾" type="tts">pareja enamorada: mujer, hombre, tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏾‍❤‍👨🏿">amor | corazón | hombre | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel oscuro | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏾‍❤‍👨🏿">amor | hombre | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel oscuro | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏾‍❤‍👨🏿" type="tts">pareja enamorada: mujer, hombre, tono de piel oscuro medio, tono de piel oscuro</annotation>
-		<annotation cp="👩🏿‍❤‍👨🏻">amor | corazón | hombre | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro | tono de piel oscuro</annotation>
+		<annotation cp="👩🏿‍❤‍👨🏻">amor | hombre | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro | tono de piel oscuro</annotation>
 		<annotation cp="👩🏿‍❤‍👨🏻" type="tts">pareja enamorada: mujer, hombre, tono de piel oscuro, tono de piel claro</annotation>
-		<annotation cp="👩🏿‍❤‍👨🏼">amor | corazón | hombre | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro medio | tono de piel oscuro</annotation>
+		<annotation cp="👩🏿‍❤‍👨🏼">amor | hombre | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro medio | tono de piel oscuro</annotation>
 		<annotation cp="👩🏿‍❤‍👨🏼" type="tts">pareja enamorada: mujer, hombre, tono de piel oscuro, tono de piel claro medio</annotation>
-		<annotation cp="👩🏿‍❤‍👨🏽">amor | corazón | hombre | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel medio | tono de piel oscuro</annotation>
+		<annotation cp="👩🏿‍❤‍👨🏽">amor | hombre | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel medio | tono de piel oscuro</annotation>
 		<annotation cp="👩🏿‍❤‍👨🏽" type="tts">pareja enamorada: mujer, hombre, tono de piel oscuro, tono de piel medio</annotation>
-		<annotation cp="👩🏿‍❤‍👨🏾">amor | corazón | hombre | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel oscuro | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏿‍❤‍👨🏾">amor | hombre | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel oscuro | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏿‍❤‍👨🏾" type="tts">pareja enamorada: mujer, hombre, tono de piel oscuro, tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏿‍❤‍👨🏿">amor | corazón | hombre | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel oscuro</annotation>
+		<annotation cp="👩🏿‍❤‍👨🏿">amor | hombre | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel oscuro</annotation>
 		<annotation cp="👩🏿‍❤‍👨🏿" type="tts">pareja enamorada: mujer, hombre, tono de piel oscuro</annotation>
-		<annotation cp="👩🏻‍❤‍👩🏻">amor | corazón | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro</annotation>
+		<annotation cp="👩🏻‍❤‍👩🏻">amor | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro</annotation>
 		<annotation cp="👩🏻‍❤‍👩🏻" type="tts">pareja enamorada: mujer, mujer, tono de piel claro</annotation>
-		<annotation cp="👩🏻‍❤‍👩🏼">amor | corazón | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro | tono de piel claro medio</annotation>
+		<annotation cp="👩🏻‍❤‍👩🏼">amor | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro | tono de piel claro medio</annotation>
 		<annotation cp="👩🏻‍❤‍👩🏼" type="tts">pareja enamorada: mujer, mujer, tono de piel claro, tono de piel claro medio</annotation>
-		<annotation cp="👩🏻‍❤‍👩🏽">amor | corazón | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro | tono de piel medio</annotation>
+		<annotation cp="👩🏻‍❤‍👩🏽">amor | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro | tono de piel medio</annotation>
 		<annotation cp="👩🏻‍❤‍👩🏽" type="tts">pareja enamorada: mujer, mujer, tono de piel claro, tono de piel medio</annotation>
-		<annotation cp="👩🏻‍❤‍👩🏾">amor | corazón | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏻‍❤‍👩🏾">amor | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏻‍❤‍👩🏾" type="tts">pareja enamorada: mujer, mujer, tono de piel claro, tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏻‍❤‍👩🏿">amor | corazón | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro | tono de piel oscuro</annotation>
+		<annotation cp="👩🏻‍❤‍👩🏿">amor | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro | tono de piel oscuro</annotation>
 		<annotation cp="👩🏻‍❤‍👩🏿" type="tts">pareja enamorada: mujer, mujer, tono de piel claro, tono de piel oscuro</annotation>
-		<annotation cp="👩🏼‍❤‍👩🏻">amor | corazón | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro | tono de piel claro medio</annotation>
+		<annotation cp="👩🏼‍❤‍👩🏻">amor | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro | tono de piel claro medio</annotation>
 		<annotation cp="👩🏼‍❤‍👩🏻" type="tts">pareja enamorada: mujer, mujer, tono de piel claro medio, tono de piel claro</annotation>
-		<annotation cp="👩🏼‍❤‍👩🏼">amor | corazón | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro medio</annotation>
+		<annotation cp="👩🏼‍❤‍👩🏼">amor | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro medio</annotation>
 		<annotation cp="👩🏼‍❤‍👩🏼" type="tts">pareja enamorada: mujer, mujer, tono de piel claro medio</annotation>
-		<annotation cp="👩🏼‍❤‍👩🏽">amor | corazón | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro medio | tono de piel medio</annotation>
+		<annotation cp="👩🏼‍❤‍👩🏽">amor | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro medio | tono de piel medio</annotation>
 		<annotation cp="👩🏼‍❤‍👩🏽" type="tts">pareja enamorada: mujer, mujer, tono de piel claro medio, tono de piel medio</annotation>
-		<annotation cp="👩🏼‍❤‍👩🏾">amor | corazón | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏼‍❤‍👩🏾">amor | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro medio | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏼‍❤‍👩🏾" type="tts">pareja enamorada: mujer, mujer, tono de piel claro medio, tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏼‍❤‍👩🏿">amor | corazón | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro medio | tono de piel oscuro</annotation>
+		<annotation cp="👩🏼‍❤‍👩🏿">amor | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro medio | tono de piel oscuro</annotation>
 		<annotation cp="👩🏼‍❤‍👩🏿" type="tts">pareja enamorada: mujer, mujer, tono de piel claro medio, tono de piel oscuro</annotation>
-		<annotation cp="👩🏽‍❤‍👩🏻">amor | corazón | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro | tono de piel medio</annotation>
+		<annotation cp="👩🏽‍❤‍👩🏻">amor | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro | tono de piel medio</annotation>
 		<annotation cp="👩🏽‍❤‍👩🏻" type="tts">pareja enamorada: mujer, mujer, tono de piel medio, tono de piel claro</annotation>
-		<annotation cp="👩🏽‍❤‍👩🏼">amor | corazón | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro medio | tono de piel medio</annotation>
+		<annotation cp="👩🏽‍❤‍👩🏼">amor | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro medio | tono de piel medio</annotation>
 		<annotation cp="👩🏽‍❤‍👩🏼" type="tts">pareja enamorada: mujer, mujer, tono de piel medio, tono de piel claro medio</annotation>
-		<annotation cp="👩🏽‍❤‍👩🏽">amor | corazón | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel medio</annotation>
+		<annotation cp="👩🏽‍❤‍👩🏽">amor | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel medio</annotation>
 		<annotation cp="👩🏽‍❤‍👩🏽" type="tts">pareja enamorada: mujer, mujer, tono de piel medio</annotation>
-		<annotation cp="👩🏽‍❤‍👩🏾">amor | corazón | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏽‍❤‍👩🏾">amor | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel medio | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏽‍❤‍👩🏾" type="tts">pareja enamorada: mujer, mujer, tono de piel medio, tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏽‍❤‍👩🏿">amor | corazón | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel medio | tono de piel oscuro</annotation>
+		<annotation cp="👩🏽‍❤‍👩🏿">amor | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel medio | tono de piel oscuro</annotation>
 		<annotation cp="👩🏽‍❤‍👩🏿" type="tts">pareja enamorada: mujer, mujer, tono de piel medio, tono de piel oscuro</annotation>
-		<annotation cp="👩🏾‍❤‍👩🏻">amor | corazón | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏾‍❤‍👩🏻">amor | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏾‍❤‍👩🏻" type="tts">pareja enamorada: mujer, mujer, tono de piel oscuro medio, tono de piel claro</annotation>
-		<annotation cp="👩🏾‍❤‍👩🏼">amor | corazón | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏾‍❤‍👩🏼">amor | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro medio | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏾‍❤‍👩🏼" type="tts">pareja enamorada: mujer, mujer, tono de piel oscuro medio, tono de piel claro medio</annotation>
-		<annotation cp="👩🏾‍❤‍👩🏽">amor | corazón | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel medio | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏾‍❤‍👩🏽">amor | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel medio | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏾‍❤‍👩🏽" type="tts">pareja enamorada: mujer, mujer, tono de piel oscuro medio, tono de piel medio</annotation>
-		<annotation cp="👩🏾‍❤‍👩🏾">amor | corazón | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏾‍❤‍👩🏾">amor | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏾‍❤‍👩🏾" type="tts">pareja enamorada: mujer, mujer, tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏾‍❤‍👩🏿">amor | corazón | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel oscuro | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏾‍❤‍👩🏿">amor | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel oscuro | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏾‍❤‍👩🏿" type="tts">pareja enamorada: mujer, mujer, tono de piel oscuro medio, tono de piel oscuro</annotation>
-		<annotation cp="👩🏿‍❤‍👩🏻">amor | corazón | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro | tono de piel oscuro</annotation>
+		<annotation cp="👩🏿‍❤‍👩🏻">amor | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro | tono de piel oscuro</annotation>
 		<annotation cp="👩🏿‍❤‍👩🏻" type="tts">pareja enamorada: mujer, mujer, tono de piel oscuro, tono de piel claro</annotation>
-		<annotation cp="👩🏿‍❤‍👩🏼">amor | corazón | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel claro medio | tono de piel oscuro</annotation>
+		<annotation cp="👩🏿‍❤‍👩🏼">amor | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel claro medio | tono de piel oscuro</annotation>
 		<annotation cp="👩🏿‍❤‍👩🏼" type="tts">pareja enamorada: mujer, mujer, tono de piel oscuro, tono de piel claro medio</annotation>
-		<annotation cp="👩🏿‍❤‍👩🏽">amor | corazón | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel medio | tono de piel oscuro</annotation>
+		<annotation cp="👩🏿‍❤‍👩🏽">amor | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel medio | tono de piel oscuro</annotation>
 		<annotation cp="👩🏿‍❤‍👩🏽" type="tts">pareja enamorada: mujer, mujer, tono de piel oscuro, tono de piel medio</annotation>
-		<annotation cp="👩🏿‍❤‍👩🏾">amor | corazón | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel oscuro | tono de piel oscuro medio</annotation>
+		<annotation cp="👩🏿‍❤‍👩🏾">amor | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel oscuro | tono de piel oscuro medio</annotation>
 		<annotation cp="👩🏿‍❤‍👩🏾" type="tts">pareja enamorada: mujer, mujer, tono de piel oscuro, tono de piel oscuro medio</annotation>
-		<annotation cp="👩🏿‍❤‍👩🏿">amor | corazón | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas | tono de piel oscuro</annotation>
+		<annotation cp="👩🏿‍❤‍👩🏿">amor | mujer | pareja | pareja enamorada | personas enamoradas | tono de piel oscuro</annotation>
 		<annotation cp="👩🏿‍❤‍👩🏿" type="tts">pareja enamorada: mujer, mujer, tono de piel oscuro</annotation>
 		<annotation cp="👩‍🦰">adulta | mujer | pelo pelirrojo</annotation>
 		<annotation cp="👩‍🦰" type="tts">mujer: pelo pelirrojo</annotation>
@@ -2076,15 +2066,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕵🏾‍♀" type="tts">detective mujer: tono de piel oscuro medio</annotation>
 		<annotation cp="🕵🏿‍♀">agente | detective | espía | investigadora | mujer | tono de piel oscuro</annotation>
 		<annotation cp="🕵🏿‍♀" type="tts">detective mujer: tono de piel oscuro</annotation>
-		<annotation cp="💂🏻">guardia | personas | tono de piel claro</annotation>
+		<annotation cp="💂🏻">guardia | guardia real británica | tono de piel claro</annotation>
 		<annotation cp="💂🏻" type="tts">guardia: tono de piel claro</annotation>
-		<annotation cp="💂🏼">guardia | personas | tono de piel claro medio</annotation>
+		<annotation cp="💂🏼">guardia | guardia real británica | tono de piel claro medio</annotation>
 		<annotation cp="💂🏼" type="tts">guardia: tono de piel claro medio</annotation>
-		<annotation cp="💂🏽">guardia | personas | tono de piel medio</annotation>
+		<annotation cp="💂🏽">guardia | guardia real británica | tono de piel medio</annotation>
 		<annotation cp="💂🏽" type="tts">guardia: tono de piel medio</annotation>
-		<annotation cp="💂🏾">guardia | personas | tono de piel oscuro medio</annotation>
+		<annotation cp="💂🏾">guardia | guardia real británica | tono de piel oscuro medio</annotation>
 		<annotation cp="💂🏾" type="tts">guardia: tono de piel oscuro medio</annotation>
-		<annotation cp="💂🏿">guardia | personas | tono de piel oscuro</annotation>
+		<annotation cp="💂🏿">guardia | guardia real británica | tono de piel oscuro</annotation>
 		<annotation cp="💂🏿" type="tts">guardia: tono de piel oscuro</annotation>
 		<annotation cp="💂🏻‍♂">guardia | hombre | tono de piel claro | vigilante</annotation>
 		<annotation cp="💂🏻‍♂" type="tts">guardia hombre: tono de piel claro</annotation>
@@ -2116,15 +2106,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥷🏾" type="tts">ninja: tono de piel oscuro medio</annotation>
 		<annotation cp="🥷🏿">furtivo | guerrero | luchador | ninja | oculto | sigilo | tono de piel oscuro</annotation>
 		<annotation cp="🥷🏿" type="tts">ninja: tono de piel oscuro</annotation>
-		<annotation cp="👷🏻">casco | construcción | obrero | personas | profesional de la construcción | tono de piel claro | trabajador</annotation>
+		<annotation cp="👷🏻">casco | construcción | obrero | profesional de la construcción | tono de piel claro | trabajador</annotation>
 		<annotation cp="👷🏻" type="tts">profesional de la construcción: tono de piel claro</annotation>
-		<annotation cp="👷🏼">casco | construcción | obrero | personas | profesional de la construcción | tono de piel claro medio | trabajador</annotation>
+		<annotation cp="👷🏼">casco | construcción | obrero | profesional de la construcción | tono de piel claro medio | trabajador</annotation>
 		<annotation cp="👷🏼" type="tts">profesional de la construcción: tono de piel claro medio</annotation>
-		<annotation cp="👷🏽">casco | construcción | obrero | personas | profesional de la construcción | tono de piel medio | trabajador</annotation>
+		<annotation cp="👷🏽">casco | construcción | obrero | profesional de la construcción | tono de piel medio | trabajador</annotation>
 		<annotation cp="👷🏽" type="tts">profesional de la construcción: tono de piel medio</annotation>
-		<annotation cp="👷🏾">casco | construcción | obrero | personas | profesional de la construcción | tono de piel oscuro medio | trabajador</annotation>
+		<annotation cp="👷🏾">casco | construcción | obrero | profesional de la construcción | tono de piel oscuro medio | trabajador</annotation>
 		<annotation cp="👷🏾" type="tts">profesional de la construcción: tono de piel oscuro medio</annotation>
-		<annotation cp="👷🏿">casco | construcción | obrero | personas | profesional de la construcción | tono de piel oscuro | trabajador</annotation>
+		<annotation cp="👷🏿">casco | construcción | obrero | profesional de la construcción | tono de piel oscuro | trabajador</annotation>
 		<annotation cp="👷🏿" type="tts">profesional de la construcción: tono de piel oscuro</annotation>
 		<annotation cp="👷🏻‍♂">albañil | construcción | hombre | obrero | profesional de la construcción hombre | tono de piel claro | trabajador</annotation>
 		<annotation cp="👷🏻‍♂" type="tts">profesional de la construcción hombre: tono de piel claro</annotation>
@@ -2146,6 +2136,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👷🏾‍♀" type="tts">profesional de la construcción mujer: tono de piel oscuro medio</annotation>
 		<annotation cp="👷🏿‍♀">albañila | construcción | mujer | obrera | profesional de la construcción mujer | tono de piel oscuro | trabajadora</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">profesional de la construcción mujer: tono de piel oscuro</annotation>
+		<annotation cp="🫅🏻">majestad | monarca | monarquía | noble | persona con corona | real | realeza | tono de piel claro</annotation>
+		<annotation cp="🫅🏻" type="tts">persona con corona: tono de piel claro</annotation>
+		<annotation cp="🫅🏼">majestad | monarca | monarquía | noble | persona con corona | real | realeza | tono de piel claro medio</annotation>
+		<annotation cp="🫅🏼" type="tts">persona con corona: tono de piel claro medio</annotation>
+		<annotation cp="🫅🏽">majestad | monarca | monarquía | noble | persona con corona | real | realeza | tono de piel medio</annotation>
+		<annotation cp="🫅🏽" type="tts">persona con corona: tono de piel medio</annotation>
+		<annotation cp="🫅🏾">majestad | monarca | monarquía | noble | persona con corona | real | realeza | tono de piel oscuro medio</annotation>
+		<annotation cp="🫅🏾" type="tts">persona con corona: tono de piel oscuro medio</annotation>
+		<annotation cp="🫅🏿">majestad | monarca | monarquía | noble | persona con corona | real | realeza | tono de piel oscuro</annotation>
+		<annotation cp="🫅🏿" type="tts">persona con corona: tono de piel oscuro</annotation>
 		<annotation cp="🤴🏻">corona | príncipe | tono de piel claro</annotation>
 		<annotation cp="🤴🏻" type="tts">príncipe: tono de piel claro</annotation>
 		<annotation cp="🤴🏼">corona | príncipe | tono de piel claro medio</annotation>
@@ -2166,15 +2166,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👸🏾" type="tts">princesa: tono de piel oscuro medio</annotation>
 		<annotation cp="👸🏿">cuento | fantasía | hadas | princesa | tono de piel oscuro</annotation>
 		<annotation cp="👸🏿" type="tts">princesa: tono de piel oscuro</annotation>
-		<annotation cp="👳🏻">hombre | persona con turbante | personas | tono de piel claro | turbante</annotation>
+		<annotation cp="👳🏻">persona con turbante | tono de piel claro | turbante</annotation>
 		<annotation cp="👳🏻" type="tts">persona con turbante: tono de piel claro</annotation>
-		<annotation cp="👳🏼">hombre | persona con turbante | personas | tono de piel claro medio | turbante</annotation>
+		<annotation cp="👳🏼">persona con turbante | tono de piel claro medio | turbante</annotation>
 		<annotation cp="👳🏼" type="tts">persona con turbante: tono de piel claro medio</annotation>
-		<annotation cp="👳🏽">hombre | persona con turbante | personas | tono de piel medio | turbante</annotation>
+		<annotation cp="👳🏽">persona con turbante | tono de piel medio | turbante</annotation>
 		<annotation cp="👳🏽" type="tts">persona con turbante: tono de piel medio</annotation>
-		<annotation cp="👳🏾">hombre | persona con turbante | personas | tono de piel oscuro medio | turbante</annotation>
+		<annotation cp="👳🏾">persona con turbante | tono de piel oscuro medio | turbante</annotation>
 		<annotation cp="👳🏾" type="tts">persona con turbante: tono de piel oscuro medio</annotation>
-		<annotation cp="👳🏿">hombre | persona con turbante | personas | tono de piel oscuro | turbante</annotation>
+		<annotation cp="👳🏿">persona con turbante | tono de piel oscuro | turbante</annotation>
 		<annotation cp="👳🏿" type="tts">persona con turbante: tono de piel oscuro</annotation>
 		<annotation cp="👳🏻‍♂">hombre | hombre con turbante | tono de piel claro | turbante</annotation>
 		<annotation cp="👳🏻‍♂" type="tts">hombre con turbante: tono de piel claro</annotation>
@@ -2196,16 +2196,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👳🏾‍♀" type="tts">mujer con turbante: tono de piel oscuro medio</annotation>
 		<annotation cp="👳🏿‍♀">mujer | mujer con turbante | tono de piel oscuro | turbante</annotation>
 		<annotation cp="👳🏿‍♀" type="tts">mujer con turbante: tono de piel oscuro</annotation>
-		<annotation cp="👲🏻">gorro | gua | hombre | hombre con gorro chino | mao | tono de piel claro</annotation>
-		<annotation cp="👲🏻" type="tts">hombre con gorro chino: tono de piel claro</annotation>
-		<annotation cp="👲🏼">gorro | gua | hombre | hombre con gorro chino | mao | tono de piel claro medio</annotation>
-		<annotation cp="👲🏼" type="tts">hombre con gorro chino: tono de piel claro medio</annotation>
-		<annotation cp="👲🏽">gorro | gua | hombre | hombre con gorro chino | mao | tono de piel medio</annotation>
-		<annotation cp="👲🏽" type="tts">hombre con gorro chino: tono de piel medio</annotation>
-		<annotation cp="👲🏾">gorro | gua | hombre | hombre con gorro chino | mao | tono de piel oscuro medio</annotation>
-		<annotation cp="👲🏾" type="tts">hombre con gorro chino: tono de piel oscuro medio</annotation>
-		<annotation cp="👲🏿">gorro | gua | hombre | hombre con gorro chino | mao | tono de piel oscuro</annotation>
-		<annotation cp="👲🏿" type="tts">hombre con gorro chino: tono de piel oscuro</annotation>
+		<annotation cp="👲🏻">gorro | gua | gua pi mao | mao | persona | persona con gorro chino | tono de piel claro</annotation>
+		<annotation cp="👲🏻" type="tts">persona con gorro chino: tono de piel claro</annotation>
+		<annotation cp="👲🏼">gorro | gua | gua pi mao | mao | persona | persona con gorro chino | tono de piel claro medio</annotation>
+		<annotation cp="👲🏼" type="tts">persona con gorro chino: tono de piel claro medio</annotation>
+		<annotation cp="👲🏽">gorro | gua | gua pi mao | mao | persona | persona con gorro chino | tono de piel medio</annotation>
+		<annotation cp="👲🏽" type="tts">persona con gorro chino: tono de piel medio</annotation>
+		<annotation cp="👲🏾">gorro | gua | gua pi mao | mao | persona | persona con gorro chino | tono de piel oscuro medio</annotation>
+		<annotation cp="👲🏾" type="tts">persona con gorro chino: tono de piel oscuro medio</annotation>
+		<annotation cp="👲🏿">gorro | gua | gua pi mao | mao | persona | persona con gorro chino | tono de piel oscuro</annotation>
+		<annotation cp="👲🏿" type="tts">persona con gorro chino: tono de piel oscuro</annotation>
 		<annotation cp="🧕🏻">hiyab | mujer con hiyab | pañuelo | tono de piel claro</annotation>
 		<annotation cp="🧕🏻" type="tts">mujer con hiyab: tono de piel claro</annotation>
 		<annotation cp="🧕🏼">hiyab | mujer con hiyab | pañuelo | tono de piel claro medio</annotation>
@@ -2286,6 +2286,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">mujer embarazada: tono de piel oscuro medio</annotation>
 		<annotation cp="🤰🏿">embarazada | mujer | tono de piel oscuro</annotation>
 		<annotation cp="🤰🏿" type="tts">mujer embarazada: tono de piel oscuro</annotation>
+		<annotation cp="🫃🏻">barriga | embarazado | hinchado | hinchazón | hombre embarazado | inflado | lleno | tono de piel claro</annotation>
+		<annotation cp="🫃🏻" type="tts">hombre embarazado: tono de piel claro</annotation>
+		<annotation cp="🫃🏼">barriga | embarazado | hinchado | hinchazón | hombre embarazado | inflado | lleno | tono de piel claro medio</annotation>
+		<annotation cp="🫃🏼" type="tts">hombre embarazado: tono de piel claro medio</annotation>
+		<annotation cp="🫃🏽">barriga | embarazado | hinchado | hinchazón | hombre embarazado | inflado | lleno | tono de piel medio</annotation>
+		<annotation cp="🫃🏽" type="tts">hombre embarazado: tono de piel medio</annotation>
+		<annotation cp="🫃🏾">barriga | embarazado | hinchado | hinchazón | hombre embarazado | inflado | lleno | tono de piel oscuro medio</annotation>
+		<annotation cp="🫃🏾" type="tts">hombre embarazado: tono de piel oscuro medio</annotation>
+		<annotation cp="🫃🏿">barriga | embarazado | hinchado | hinchazón | hombre embarazado | inflado | lleno | tono de piel oscuro</annotation>
+		<annotation cp="🫃🏿" type="tts">hombre embarazado: tono de piel oscuro</annotation>
+		<annotation cp="🫄🏻">barriga | embarazo | gestación | hinchazón | persona embarazada | tono de piel claro</annotation>
+		<annotation cp="🫄🏻" type="tts">persona embarazada: tono de piel claro</annotation>
+		<annotation cp="🫄🏼">barriga | embarazo | gestación | hinchazón | persona embarazada | tono de piel claro medio</annotation>
+		<annotation cp="🫄🏼" type="tts">persona embarazada: tono de piel claro medio</annotation>
+		<annotation cp="🫄🏽">barriga | embarazo | gestación | hinchazón | persona embarazada | tono de piel medio</annotation>
+		<annotation cp="🫄🏽" type="tts">persona embarazada: tono de piel medio</annotation>
+		<annotation cp="🫄🏾">barriga | embarazo | gestación | hinchazón | persona embarazada | tono de piel oscuro medio</annotation>
+		<annotation cp="🫄🏾" type="tts">persona embarazada: tono de piel oscuro medio</annotation>
+		<annotation cp="🫄🏿">barriga | embarazo | gestación | hinchazón | persona embarazada | tono de piel oscuro</annotation>
+		<annotation cp="🫄🏿" type="tts">persona embarazada: tono de piel oscuro</annotation>
 		<annotation cp="🤱🏻">amamantar | bebé | dar pecho | lactancia materna | pecho | tono de piel claro</annotation>
 		<annotation cp="🤱🏻" type="tts">lactancia materna: tono de piel claro</annotation>
 		<annotation cp="🤱🏼">amamantar | bebé | dar pecho | lactancia materna | pecho | tono de piel claro medio</annotation>
@@ -2516,15 +2536,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧛🏾‍♀" type="tts">vampiresa: tono de piel oscuro medio</annotation>
 		<annotation cp="🧛🏿‍♀">muerta viviente | no muerta | tono de piel oscuro | vampiresa</annotation>
 		<annotation cp="🧛🏿‍♀" type="tts">vampiresa: tono de piel oscuro</annotation>
-		<annotation cp="🧜🏻">persona sirena | sirena | tono de piel claro</annotation>
+		<annotation cp="🧜🏻">persona sirena | sirena | tono de piel claro | tritón</annotation>
 		<annotation cp="🧜🏻" type="tts">persona sirena: tono de piel claro</annotation>
-		<annotation cp="🧜🏼">persona sirena | sirena | tono de piel claro medio</annotation>
+		<annotation cp="🧜🏼">persona sirena | sirena | tono de piel claro medio | tritón</annotation>
 		<annotation cp="🧜🏼" type="tts">persona sirena: tono de piel claro medio</annotation>
-		<annotation cp="🧜🏽">persona sirena | sirena | tono de piel medio</annotation>
+		<annotation cp="🧜🏽">persona sirena | sirena | tono de piel medio | tritón</annotation>
 		<annotation cp="🧜🏽" type="tts">persona sirena: tono de piel medio</annotation>
-		<annotation cp="🧜🏾">persona sirena | sirena | tono de piel oscuro medio</annotation>
+		<annotation cp="🧜🏾">persona sirena | sirena | tono de piel oscuro medio | tritón</annotation>
 		<annotation cp="🧜🏾" type="tts">persona sirena: tono de piel oscuro medio</annotation>
-		<annotation cp="🧜🏿">persona sirena | sirena | tono de piel oscuro</annotation>
+		<annotation cp="🧜🏿">persona sirena | sirena | tono de piel oscuro | tritón</annotation>
 		<annotation cp="🧜🏿" type="tts">persona sirena: tono de piel oscuro</annotation>
 		<annotation cp="🧜🏻‍♂">sirena | sirena hombre | tono de piel claro | tritón</annotation>
 		<annotation cp="🧜🏻‍♂" type="tts">sirena hombre: tono de piel claro</annotation>
@@ -2866,16 +2886,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕺🏾" type="tts">hombre bailando: tono de piel oscuro medio</annotation>
 		<annotation cp="🕺🏿">bailar | hombre | hombre bailando | tono de piel oscuro</annotation>
 		<annotation cp="🕺🏿" type="tts">hombre bailando: tono de piel oscuro</annotation>
-		<annotation cp="🕴🏻">hombre | hombre trajeado levitando | levitar | negocios | tono de piel claro | traje</annotation>
-		<annotation cp="🕴🏻" type="tts">hombre trajeado levitando: tono de piel claro</annotation>
-		<annotation cp="🕴🏼">hombre | hombre trajeado levitando | levitar | negocios | tono de piel claro medio | traje</annotation>
-		<annotation cp="🕴🏼" type="tts">hombre trajeado levitando: tono de piel claro medio</annotation>
-		<annotation cp="🕴🏽">hombre | hombre trajeado levitando | levitar | negocios | tono de piel medio | traje</annotation>
-		<annotation cp="🕴🏽" type="tts">hombre trajeado levitando: tono de piel medio</annotation>
-		<annotation cp="🕴🏾">hombre | hombre trajeado levitando | levitar | negocios | tono de piel oscuro medio | traje</annotation>
-		<annotation cp="🕴🏾" type="tts">hombre trajeado levitando: tono de piel oscuro medio</annotation>
-		<annotation cp="🕴🏿">hombre | hombre trajeado levitando | levitar | negocios | tono de piel oscuro | traje</annotation>
-		<annotation cp="🕴🏿" type="tts">hombre trajeado levitando: tono de piel oscuro</annotation>
+		<annotation cp="🕴🏻">levitar | negocios | persona | persona trajeada levitando | tono de piel claro | traje</annotation>
+		<annotation cp="🕴🏻" type="tts">persona trajeada levitando: tono de piel claro</annotation>
+		<annotation cp="🕴🏼">levitar | negocios | persona | persona trajeada levitando | tono de piel claro medio | traje</annotation>
+		<annotation cp="🕴🏼" type="tts">persona trajeada levitando: tono de piel claro medio</annotation>
+		<annotation cp="🕴🏽">levitar | negocios | persona | persona trajeada levitando | tono de piel medio | traje</annotation>
+		<annotation cp="🕴🏽" type="tts">persona trajeada levitando: tono de piel medio</annotation>
+		<annotation cp="🕴🏾">levitar | negocios | persona | persona trajeada levitando | tono de piel oscuro medio | traje</annotation>
+		<annotation cp="🕴🏾" type="tts">persona trajeada levitando: tono de piel oscuro medio</annotation>
+		<annotation cp="🕴🏿">levitar | negocios | persona | persona trajeada levitando | tono de piel oscuro | traje</annotation>
+		<annotation cp="🕴🏿" type="tts">persona trajeada levitando: tono de piel oscuro</annotation>
 		<annotation cp="🧖🏻">persona en una sauna | sauna | tono de piel claro | vapor</annotation>
 		<annotation cp="🧖🏻" type="tts">persona en una sauna: tono de piel claro</annotation>
 		<annotation cp="🧖🏼">persona en una sauna | sauna | tono de piel claro medio | vapor</annotation>
@@ -2946,26 +2966,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏇🏾" type="tts">carrera de caballos: tono de piel oscuro medio</annotation>
 		<annotation cp="🏇🏿">caballo | caballo de carreras | carrera de caballos | carreras | jinete | tono de piel oscuro</annotation>
 		<annotation cp="🏇🏿" type="tts">carrera de caballos: tono de piel oscuro</annotation>
-		<annotation cp="🏂🏻">deporte | practicante de snowboard | snowboard | tono de piel claro</annotation>
+		<annotation cp="🏂🏻">nieve | practicante de snowboard | snowboard | tono de piel claro</annotation>
 		<annotation cp="🏂🏻" type="tts">practicante de snowboard: tono de piel claro</annotation>
-		<annotation cp="🏂🏼">deporte | practicante de snowboard | snowboard | tono de piel claro medio</annotation>
+		<annotation cp="🏂🏼">nieve | practicante de snowboard | snowboard | tono de piel claro medio</annotation>
 		<annotation cp="🏂🏼" type="tts">practicante de snowboard: tono de piel claro medio</annotation>
-		<annotation cp="🏂🏽">deporte | practicante de snowboard | snowboard | tono de piel medio</annotation>
+		<annotation cp="🏂🏽">nieve | practicante de snowboard | snowboard | tono de piel medio</annotation>
 		<annotation cp="🏂🏽" type="tts">practicante de snowboard: tono de piel medio</annotation>
-		<annotation cp="🏂🏾">deporte | practicante de snowboard | snowboard | tono de piel oscuro medio</annotation>
+		<annotation cp="🏂🏾">nieve | practicante de snowboard | snowboard | tono de piel oscuro medio</annotation>
 		<annotation cp="🏂🏾" type="tts">practicante de snowboard: tono de piel oscuro medio</annotation>
-		<annotation cp="🏂🏿">deporte | practicante de snowboard | snowboard | tono de piel oscuro</annotation>
+		<annotation cp="🏂🏿">nieve | practicante de snowboard | snowboard | tono de piel oscuro</annotation>
 		<annotation cp="🏂🏿" type="tts">practicante de snowboard: tono de piel oscuro</annotation>
-		<annotation cp="🏌🏻">golf | golfista | pelota | tono de piel claro</annotation>
-		<annotation cp="🏌🏻" type="tts">golfista: tono de piel claro</annotation>
-		<annotation cp="🏌🏼">golf | golfista | pelota | tono de piel claro medio</annotation>
-		<annotation cp="🏌🏼" type="tts">golfista: tono de piel claro medio</annotation>
-		<annotation cp="🏌🏽">golf | golfista | pelota | tono de piel medio</annotation>
-		<annotation cp="🏌🏽" type="tts">golfista: tono de piel medio</annotation>
-		<annotation cp="🏌🏾">golf | golfista | pelota | tono de piel oscuro medio</annotation>
-		<annotation cp="🏌🏾" type="tts">golfista: tono de piel oscuro medio</annotation>
-		<annotation cp="🏌🏿">golf | golfista | pelota | tono de piel oscuro</annotation>
-		<annotation cp="🏌🏿" type="tts">golfista: tono de piel oscuro</annotation>
+		<annotation cp="🏌🏻">golf | golfista | pelota | persona jugando al golf | tono de piel claro</annotation>
+		<annotation cp="🏌🏻" type="tts">persona jugando al golf: tono de piel claro</annotation>
+		<annotation cp="🏌🏼">golf | golfista | pelota | persona jugando al golf | tono de piel claro medio</annotation>
+		<annotation cp="🏌🏼" type="tts">persona jugando al golf: tono de piel claro medio</annotation>
+		<annotation cp="🏌🏽">golf | golfista | pelota | persona jugando al golf | tono de piel medio</annotation>
+		<annotation cp="🏌🏽" type="tts">persona jugando al golf: tono de piel medio</annotation>
+		<annotation cp="🏌🏾">golf | golfista | pelota | persona jugando al golf | tono de piel oscuro medio</annotation>
+		<annotation cp="🏌🏾" type="tts">persona jugando al golf: tono de piel oscuro medio</annotation>
+		<annotation cp="🏌🏿">golf | golfista | pelota | persona jugando al golf | tono de piel oscuro</annotation>
+		<annotation cp="🏌🏿" type="tts">persona jugando al golf: tono de piel oscuro</annotation>
 		<annotation cp="🏌🏻‍♂">golf | hombre | hombre jugando al golf | jugador | tono de piel claro</annotation>
 		<annotation cp="🏌🏻‍♂" type="tts">hombre jugando al golf: tono de piel claro</annotation>
 		<annotation cp="🏌🏼‍♂">golf | hombre | hombre jugando al golf | jugador | tono de piel claro medio</annotation>
@@ -2986,15 +3006,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏌🏾‍♀" type="tts">mujer jugando al golf: tono de piel oscuro medio</annotation>
 		<annotation cp="🏌🏿‍♀">golf | jugadora | mujer | mujer jugando al golf | tono de piel oscuro</annotation>
 		<annotation cp="🏌🏿‍♀" type="tts">mujer jugando al golf: tono de piel oscuro</annotation>
-		<annotation cp="🏄🏻">deporte | persona haciendo surf | surf | tono de piel claro</annotation>
+		<annotation cp="🏄🏻">persona haciendo surf | surf | surfear | tono de piel claro</annotation>
 		<annotation cp="🏄🏻" type="tts">persona haciendo surf: tono de piel claro</annotation>
-		<annotation cp="🏄🏼">deporte | persona haciendo surf | surf | tono de piel claro medio</annotation>
+		<annotation cp="🏄🏼">persona haciendo surf | surf | surfear | tono de piel claro medio</annotation>
 		<annotation cp="🏄🏼" type="tts">persona haciendo surf: tono de piel claro medio</annotation>
-		<annotation cp="🏄🏽">deporte | persona haciendo surf | surf | tono de piel medio</annotation>
+		<annotation cp="🏄🏽">persona haciendo surf | surf | surfear | tono de piel medio</annotation>
 		<annotation cp="🏄🏽" type="tts">persona haciendo surf: tono de piel medio</annotation>
-		<annotation cp="🏄🏾">deporte | persona haciendo surf | surf | tono de piel oscuro medio</annotation>
+		<annotation cp="🏄🏾">persona haciendo surf | surf | surfear | tono de piel oscuro medio</annotation>
 		<annotation cp="🏄🏾" type="tts">persona haciendo surf: tono de piel oscuro medio</annotation>
-		<annotation cp="🏄🏿">deporte | persona haciendo surf | surf | tono de piel oscuro</annotation>
+		<annotation cp="🏄🏿">persona haciendo surf | surf | surfear | tono de piel oscuro</annotation>
 		<annotation cp="🏄🏿" type="tts">persona haciendo surf: tono de piel oscuro</annotation>
 		<annotation cp="🏄🏻‍♂">hombre | hombre haciendo surf | surf | surfero | surfista | tono de piel claro</annotation>
 		<annotation cp="🏄🏻‍♂" type="tts">hombre haciendo surf: tono de piel claro</annotation>
@@ -3046,15 +3066,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚣🏾‍♀" type="tts">mujer remando en un bote: tono de piel oscuro medio</annotation>
 		<annotation cp="🚣🏿‍♀">barca | bote | mujer | mujer remando en un bote | remo | tono de piel oscuro</annotation>
 		<annotation cp="🚣🏿‍♀" type="tts">mujer remando en un bote: tono de piel oscuro</annotation>
-		<annotation cp="🏊🏻">deporte | nadar | natación | persona nadando | tono de piel claro</annotation>
+		<annotation cp="🏊🏻">nadar | natación | persona nadando | tono de piel claro</annotation>
 		<annotation cp="🏊🏻" type="tts">persona nadando: tono de piel claro</annotation>
-		<annotation cp="🏊🏼">deporte | nadar | natación | persona nadando | tono de piel claro medio</annotation>
+		<annotation cp="🏊🏼">nadar | natación | persona nadando | tono de piel claro medio</annotation>
 		<annotation cp="🏊🏼" type="tts">persona nadando: tono de piel claro medio</annotation>
-		<annotation cp="🏊🏽">deporte | nadar | natación | persona nadando | tono de piel medio</annotation>
+		<annotation cp="🏊🏽">nadar | natación | persona nadando | tono de piel medio</annotation>
 		<annotation cp="🏊🏽" type="tts">persona nadando: tono de piel medio</annotation>
-		<annotation cp="🏊🏾">deporte | nadar | natación | persona nadando | tono de piel oscuro medio</annotation>
+		<annotation cp="🏊🏾">nadar | natación | persona nadando | tono de piel oscuro medio</annotation>
 		<annotation cp="🏊🏾" type="tts">persona nadando: tono de piel oscuro medio</annotation>
-		<annotation cp="🏊🏿">deporte | nadar | natación | persona nadando | tono de piel oscuro</annotation>
+		<annotation cp="🏊🏿">nadar | natación | persona nadando | tono de piel oscuro</annotation>
 		<annotation cp="🏊🏿" type="tts">persona nadando: tono de piel oscuro</annotation>
 		<annotation cp="🏊🏻‍♂">hombre | hombre nadando | nadar | tono de piel claro</annotation>
 		<annotation cp="🏊🏻‍♂" type="tts">hombre nadando: tono de piel claro</annotation>
@@ -3226,15 +3246,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤸🏾‍♀" type="tts">mujer dando una voltereta lateral: tono de piel oscuro medio</annotation>
 		<annotation cp="🤸🏿‍♀">deporte | gimnasia | mujer | mujer dando una voltereta lateral | rueda | tono de piel oscuro | voltereta</annotation>
 		<annotation cp="🤸🏿‍♀" type="tts">mujer dando una voltereta lateral: tono de piel oscuro</annotation>
-		<annotation cp="🤽🏻">deporte | persona | persona jugando al waterpolo | tono de piel claro | waterpolista | waterpolo</annotation>
+		<annotation cp="🤽🏻">persona jugando al waterpolo | tono de piel claro | waterpolista | waterpolo</annotation>
 		<annotation cp="🤽🏻" type="tts">persona jugando al waterpolo: tono de piel claro</annotation>
-		<annotation cp="🤽🏼">deporte | persona | persona jugando al waterpolo | tono de piel claro medio | waterpolista | waterpolo</annotation>
+		<annotation cp="🤽🏼">persona jugando al waterpolo | tono de piel claro medio | waterpolista | waterpolo</annotation>
 		<annotation cp="🤽🏼" type="tts">persona jugando al waterpolo: tono de piel claro medio</annotation>
-		<annotation cp="🤽🏽">deporte | persona | persona jugando al waterpolo | tono de piel medio | waterpolista | waterpolo</annotation>
+		<annotation cp="🤽🏽">persona jugando al waterpolo | tono de piel medio | waterpolista | waterpolo</annotation>
 		<annotation cp="🤽🏽" type="tts">persona jugando al waterpolo: tono de piel medio</annotation>
-		<annotation cp="🤽🏾">deporte | persona | persona jugando al waterpolo | tono de piel oscuro medio | waterpolista | waterpolo</annotation>
+		<annotation cp="🤽🏾">persona jugando al waterpolo | tono de piel oscuro medio | waterpolista | waterpolo</annotation>
 		<annotation cp="🤽🏾" type="tts">persona jugando al waterpolo: tono de piel oscuro medio</annotation>
-		<annotation cp="🤽🏿">deporte | persona | persona jugando al waterpolo | tono de piel oscuro | waterpolista | waterpolo</annotation>
+		<annotation cp="🤽🏿">persona jugando al waterpolo | tono de piel oscuro | waterpolista | waterpolo</annotation>
 		<annotation cp="🤽🏿" type="tts">persona jugando al waterpolo: tono de piel oscuro</annotation>
 		<annotation cp="🤽🏻‍♂">agua | deporte | hombre jugando al waterpolo | tono de piel claro | waterpolista | waterpolo</annotation>
 		<annotation cp="🤽🏻‍♂" type="tts">hombre jugando al waterpolo: tono de piel claro</annotation>
@@ -3256,15 +3276,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤽🏾‍♀" type="tts">mujer jugando al waterpolo: tono de piel oscuro medio</annotation>
 		<annotation cp="🤽🏿‍♀">agua | deporte | mujer jugando al waterpolo | tono de piel oscuro | waterpolista | waterpolo</annotation>
 		<annotation cp="🤽🏿‍♀" type="tts">mujer jugando al waterpolo: tono de piel oscuro</annotation>
-		<annotation cp="🤾🏻">balonmanista | balonmano | deporte | persona | persona jugando al balonmano | tono de piel claro</annotation>
+		<annotation cp="🤾🏻">balonmanista | balonmano | persona jugando al balonmano | tono de piel claro</annotation>
 		<annotation cp="🤾🏻" type="tts">persona jugando al balonmano: tono de piel claro</annotation>
-		<annotation cp="🤾🏼">balonmanista | balonmano | deporte | persona | persona jugando al balonmano | tono de piel claro medio</annotation>
+		<annotation cp="🤾🏼">balonmanista | balonmano | persona jugando al balonmano | tono de piel claro medio</annotation>
 		<annotation cp="🤾🏼" type="tts">persona jugando al balonmano: tono de piel claro medio</annotation>
-		<annotation cp="🤾🏽">balonmanista | balonmano | deporte | persona | persona jugando al balonmano | tono de piel medio</annotation>
+		<annotation cp="🤾🏽">balonmanista | balonmano | persona jugando al balonmano | tono de piel medio</annotation>
 		<annotation cp="🤾🏽" type="tts">persona jugando al balonmano: tono de piel medio</annotation>
-		<annotation cp="🤾🏾">balonmanista | balonmano | deporte | persona | persona jugando al balonmano | tono de piel oscuro medio</annotation>
+		<annotation cp="🤾🏾">balonmanista | balonmano | persona jugando al balonmano | tono de piel oscuro medio</annotation>
 		<annotation cp="🤾🏾" type="tts">persona jugando al balonmano: tono de piel oscuro medio</annotation>
-		<annotation cp="🤾🏿">balonmanista | balonmano | deporte | persona | persona jugando al balonmano | tono de piel oscuro</annotation>
+		<annotation cp="🤾🏿">balonmanista | balonmano | persona jugando al balonmano | tono de piel oscuro</annotation>
 		<annotation cp="🤾🏿" type="tts">persona jugando al balonmano: tono de piel oscuro</annotation>
 		<annotation cp="🤾🏻‍♂">balonmanista | balonmano | deporte | hombre | hombre jugando al balonmano | tono de piel claro</annotation>
 		<annotation cp="🤾🏻‍♂" type="tts">hombre jugando al balonmano: tono de piel claro</annotation>
@@ -3582,71 +3602,71 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨‍❤‍💋‍👨" type="tts">beso: hombre y hombre</annotation>
 		<annotation cp="👩‍❤‍💋‍👩">beso | mujer | personas | romance</annotation>
 		<annotation cp="👩‍❤‍💋‍👩" type="tts">beso: mujer y mujer</annotation>
-		<annotation cp="💑🏻">amor | corazón | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel claro</annotation>
+		<annotation cp="💑🏻">amor | pareja | pareja enamorada | personas enamoradas | tono de piel claro</annotation>
 		<annotation cp="💑🏻" type="tts">pareja enamorada: tono de piel claro</annotation>
-		<annotation cp="💑🏼">amor | corazón | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel claro medio</annotation>
+		<annotation cp="💑🏼">amor | pareja | pareja enamorada | personas enamoradas | tono de piel claro medio</annotation>
 		<annotation cp="💑🏼" type="tts">pareja enamorada: tono de piel claro medio</annotation>
-		<annotation cp="💑🏽">amor | corazón | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel medio</annotation>
+		<annotation cp="💑🏽">amor | pareja | pareja enamorada | personas enamoradas | tono de piel medio</annotation>
 		<annotation cp="💑🏽" type="tts">pareja enamorada: tono de piel medio</annotation>
-		<annotation cp="💑🏾">amor | corazón | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel oscuro medio</annotation>
+		<annotation cp="💑🏾">amor | pareja | pareja enamorada | personas enamoradas | tono de piel oscuro medio</annotation>
 		<annotation cp="💑🏾" type="tts">pareja enamorada: tono de piel oscuro medio</annotation>
-		<annotation cp="💑🏿">amor | corazón | hombre y mujer enamorados | pareja | pareja enamorada | personas | tono de piel oscuro</annotation>
+		<annotation cp="💑🏿">amor | pareja | pareja enamorada | personas enamoradas | tono de piel oscuro</annotation>
 		<annotation cp="💑🏿" type="tts">pareja enamorada: tono de piel oscuro</annotation>
-		<annotation cp="👩‍❤‍👨">amor | corazón | hombre | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas</annotation>
+		<annotation cp="👩‍❤‍👨">amor | hombre | mujer | pareja | pareja enamorada | personas enamoradas</annotation>
 		<annotation cp="👩‍❤‍👨" type="tts">pareja enamorada: mujer y hombre</annotation>
-		<annotation cp="👨‍❤‍👨">amor | corazón | hombre | hombre y mujer enamorados | pareja | pareja enamorada | personas</annotation>
+		<annotation cp="👨‍❤‍👨">amor | hombre | pareja | pareja enamorada | personas enamoradas</annotation>
 		<annotation cp="👨‍❤‍👨" type="tts">pareja enamorada: hombre y hombre</annotation>
-		<annotation cp="👩‍❤‍👩">amor | corazón | hombre y mujer enamorados | mujer | pareja | pareja enamorada | personas</annotation>
+		<annotation cp="👩‍❤‍👩">amor | mujer | pareja | pareja enamorada | personas enamoradas</annotation>
 		<annotation cp="👩‍❤‍👩" type="tts">pareja enamorada: mujer y mujer</annotation>
-		<annotation cp="👨‍👩‍👦">familia | hombre | madre | mujer | niño | padre | personas</annotation>
+		<annotation cp="👨‍👩‍👦">familia | hombre | mujer | niño</annotation>
 		<annotation cp="👨‍👩‍👦" type="tts">familia: hombre, mujer, niño</annotation>
-		<annotation cp="👨‍👩‍👧">familia | hombre | madre | mujer | niña | niño | padre | personas</annotation>
+		<annotation cp="👨‍👩‍👧">familia | hombre | mujer | niña</annotation>
 		<annotation cp="👨‍👩‍👧" type="tts">familia: hombre, mujer, niña</annotation>
-		<annotation cp="👨‍👩‍👧‍👦">familia | hombre | madre | mujer | niña | niño | padre | personas</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">familia | hombre | mujer | niña | niño</annotation>
 		<annotation cp="👨‍👩‍👧‍👦" type="tts">familia: hombre, mujer, niña, niño</annotation>
-		<annotation cp="👨‍👩‍👦‍👦">familia | hombre | madre | mujer | niño | padre | personas</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">familia | hombre | mujer | niño</annotation>
 		<annotation cp="👨‍👩‍👦‍👦" type="tts">familia: hombre, mujer, niño, niño</annotation>
-		<annotation cp="👨‍👩‍👧‍👧">familia | hombre | madre | mujer | niña | niño | padre | personas</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">familia | hombre | mujer | niña</annotation>
 		<annotation cp="👨‍👩‍👧‍👧" type="tts">familia: hombre, mujer, niña, niña</annotation>
-		<annotation cp="👨‍👨‍👦">familia | hombre | madre | niño | padre | personas</annotation>
+		<annotation cp="👨‍👨‍👦">familia | hombre | niño</annotation>
 		<annotation cp="👨‍👨‍👦" type="tts">familia: hombre, hombre, niño</annotation>
-		<annotation cp="👨‍👨‍👧">familia | hombre | madre | niña | niño | padre | personas</annotation>
+		<annotation cp="👨‍👨‍👧">familia | hombre | niña</annotation>
 		<annotation cp="👨‍👨‍👧" type="tts">familia: hombre, hombre, niña</annotation>
-		<annotation cp="👨‍👨‍👧‍👦">familia | hombre | madre | niña | niño | padre | personas</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">familia | hombre | niña | niño</annotation>
 		<annotation cp="👨‍👨‍👧‍👦" type="tts">familia: hombre, hombre, niña, niño</annotation>
-		<annotation cp="👨‍👨‍👦‍👦">familia | hombre | madre | niño | padre | personas</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">familia | hombre | niño</annotation>
 		<annotation cp="👨‍👨‍👦‍👦" type="tts">familia: hombre, hombre, niño, niño</annotation>
-		<annotation cp="👨‍👨‍👧‍👧">familia | hombre | madre | niña | niño | padre | personas</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">familia | hombre | niña</annotation>
 		<annotation cp="👨‍👨‍👧‍👧" type="tts">familia: hombre, hombre, niña, niña</annotation>
-		<annotation cp="👩‍👩‍👦">familia | madre | mujer | niño | padre | personas</annotation>
+		<annotation cp="👩‍👩‍👦">familia | mujer | niño</annotation>
 		<annotation cp="👩‍👩‍👦" type="tts">familia: mujer, mujer, niño</annotation>
-		<annotation cp="👩‍👩‍👧">familia | madre | mujer | niña | niño | padre | personas</annotation>
+		<annotation cp="👩‍👩‍👧">familia | mujer | niña</annotation>
 		<annotation cp="👩‍👩‍👧" type="tts">familia: mujer, mujer, niña</annotation>
-		<annotation cp="👩‍👩‍👧‍👦">familia | madre | mujer | niña | niño | padre | personas</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">familia | mujer | niña | niño</annotation>
 		<annotation cp="👩‍👩‍👧‍👦" type="tts">familia: mujer, mujer, niña, niño</annotation>
-		<annotation cp="👩‍👩‍👦‍👦">familia | madre | mujer | niño | padre | personas</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">familia | mujer | niño</annotation>
 		<annotation cp="👩‍👩‍👦‍👦" type="tts">familia: mujer, mujer, niño, niño</annotation>
-		<annotation cp="👩‍👩‍👧‍👧">familia | madre | mujer | niña | niño | padre | personas</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">familia | mujer | niña</annotation>
 		<annotation cp="👩‍👩‍👧‍👧" type="tts">familia: mujer, mujer, niña, niña</annotation>
-		<annotation cp="👨‍👦">familia | hombre | madre | niño | padre | personas</annotation>
+		<annotation cp="👨‍👦">familia | hombre | niño</annotation>
 		<annotation cp="👨‍👦" type="tts">familia: hombre y niño</annotation>
-		<annotation cp="👨‍👦‍👦">familia | hombre | madre | niño | padre | personas</annotation>
+		<annotation cp="👨‍👦‍👦">familia | hombre | niño</annotation>
 		<annotation cp="👨‍👦‍👦" type="tts">familia: hombre, niño, niño</annotation>
-		<annotation cp="👨‍👧">familia | hombre | madre | niña | niño | padre | personas</annotation>
+		<annotation cp="👨‍👧">familia | hombre | niña</annotation>
 		<annotation cp="👨‍👧" type="tts">familia: hombre y niña</annotation>
-		<annotation cp="👨‍👧‍👦">familia | hombre | madre | niña | niño | padre | personas</annotation>
+		<annotation cp="👨‍👧‍👦">familia | hombre | niña | niño</annotation>
 		<annotation cp="👨‍👧‍👦" type="tts">familia: hombre, niña, niño</annotation>
-		<annotation cp="👨‍👧‍👧">familia | hombre | madre | niña | niño | padre | personas</annotation>
+		<annotation cp="👨‍👧‍👧">familia | hombre | niña</annotation>
 		<annotation cp="👨‍👧‍👧" type="tts">familia: hombre, niña, niña</annotation>
-		<annotation cp="👩‍👦">familia | madre | mujer | niño | padre | personas</annotation>
+		<annotation cp="👩‍👦">familia | mujer | niño</annotation>
 		<annotation cp="👩‍👦" type="tts">familia: mujer y niño</annotation>
-		<annotation cp="👩‍👦‍👦">familia | madre | mujer | niño | padre | personas</annotation>
+		<annotation cp="👩‍👦‍👦">familia | mujer | niño</annotation>
 		<annotation cp="👩‍👦‍👦" type="tts">familia: mujer, niño, niño</annotation>
-		<annotation cp="👩‍👧">familia | madre | mujer | niña | niño | padre | personas</annotation>
+		<annotation cp="👩‍👧">familia | mujer | niña</annotation>
 		<annotation cp="👩‍👧" type="tts">familia: mujer y niña</annotation>
-		<annotation cp="👩‍👧‍👦">familia | madre | mujer | niña | niño | padre | personas</annotation>
+		<annotation cp="👩‍👧‍👦">familia | mujer | niña | niño</annotation>
 		<annotation cp="👩‍👧‍👦" type="tts">familia: mujer, niña, niño</annotation>
-		<annotation cp="👩‍👧‍👧">familia | madre | mujer | niña | niño | padre | personas</annotation>
+		<annotation cp="👩‍👧‍👧">familia | mujer | niña</annotation>
 		<annotation cp="👩‍👧‍👧" type="tts">familia: mujer, niña, niña</annotation>
 		<annotation cp="#⃣">Teclas</annotation>
 		<annotation cp="#⃣" type="tts">Teclas: #</annotation>

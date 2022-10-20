@@ -124,7 +124,8 @@ public class TestValidity extends TestFmwkPlus {
         "no",
         "escn",
         "gbeng", "gbnir", "gbsct", "gbwls",
-        "itgo", "itpn", "itts", "itud"
+        "itgo", "itpn", "itts", "itud",
+        "SLE"
         );
     static final Set<String> ALLOWED_MISSING = ImmutableSet.of("root", "POSIX", "REVISED", "SAAHO");
     static final Set<String> ALLOWED_REGULAR_TO_SPECIAL = ImmutableSet.of("Zanb", "Zinh", "Zyyy");

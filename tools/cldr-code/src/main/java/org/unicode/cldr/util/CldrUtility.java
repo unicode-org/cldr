@@ -1397,12 +1397,36 @@ public class CldrUtility {
         return getCopyrightString("");
     }
 
+    private static final class CopyrightHelper {
+        public static final CopyrightHelper INSTANCE = new CopyrightHelper();
+        public final String COPYRIGHT_SHORT = 
+            "Copyright \u00A9 1991-" + Calendar.getInstance().get(Calendar.YEAR) + " Unicode, Inc.";
+    }
+
     public static String getCopyrightString(String linePrefix) {
         // now do the rest
-        return linePrefix + "Copyright \u00A9 1991-" + Calendar.getInstance().get(Calendar.YEAR) + " Unicode, Inc." + CldrUtility.LINE_SEPARATOR
+        return linePrefix + getCopyrightShort() + CldrUtility.LINE_SEPARATOR
             + linePrefix + "For terms of use, see http://www.unicode.org/copyright.html" + CldrUtility.LINE_SEPARATOR
             + linePrefix + CLDRURLS.UNICODE_SPDX_HEADER + CldrUtility.LINE_SEPARATOR
             + linePrefix + "CLDR data files are interpreted according to the LDML specification " + "(http://unicode.org/reports/tr35/)";
+    }
+
+    /**
+     * Returns the '## License' section in markdown.
+     */
+    public static String getCopyrightMarkdown() {
+        return "## License\n" + 
+        "\n" +
+        getCopyrightShort() + "\n" +
+        "[Terms of Use](http://www.unicode.org/copyright.html)\n\n" +
+        CLDRURLS.UNICODE_SPDX_HEADER + "\n";
+    }
+
+    /**
+     * Get the short copyright string, "Copyright © YYYY-YYYY Unicode, Inc."
+     */
+    public static String getCopyrightShort() {
+        return CopyrightHelper.INSTANCE.COPYRIGHT_SHORT;
     }
 
     // TODO Move to collection utilities

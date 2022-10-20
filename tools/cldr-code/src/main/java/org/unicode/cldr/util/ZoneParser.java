@@ -545,7 +545,7 @@ public class ZoneParser {
     private static List<String> errorData = Arrays.asList(new String[] {
         new Double(Double.MIN_VALUE).toString(), new Double(Double.MIN_VALUE).toString(), "" });
 
-    private Comparator<String> TZIDComparator = new Comparator<String>() {
+    private Comparator<String> TZIDComparator = new Comparator<>() {
         Map<String, List<String>> data = getZoneData();
 
         @Override
@@ -672,12 +672,21 @@ public class ZoneParser {
             { "Asia/Ho_Chi_Minh", "Asia/Saigon" },
             { "Asia/Yangon", "Asia/Rangoon" },
             { "Asia/Kathmandu", "Asia/Katmandu" },
+            { "Europe/Kyiv", "Europe/Kiev" },
             { "Pacific/Pohnpei", "Pacific/Ponape" },
             { "Pacific/Chuuk", "Pacific/Truk" },
             { "Pacific/Honolulu", "Pacific/Johnston" }
         };
         FIX_UNSTABLE_TZIDS = CldrUtility.asMap(FIX_UNSTABLE_TZID_DATA);
     }
+
+    // CLDR canonical zone IDs removed from zone.tab are defined here.
+    // When these zones are deprecated in CLDR, remove them from this array.
+    // See CLDR-16049
+    static final String[][] SUPPLEMENTAL_ZONE_ID_DATA = {
+        {"Europe/Uzhgorod", "UA", "+4837+02218"},
+        {"Europe/Zaporozhye", "UA", "+4750+03510"}
+    };
 
     /**
      *
@@ -757,6 +766,18 @@ public class ZoneParser {
             pieces.add(StandardCodes.NO_COUNTRY); // country
             zoneData.put("Etc/Unknown", pieces);
             zoneData.put("Etc/UTC", pieces);
+
+            // add extra zones
+            for (String[] zoneEntry : SUPPLEMENTAL_ZONE_ID_DATA) {
+                List<String> zarray = new ArrayList<>();
+                if (!m.reset(zoneEntry[2]).matches()) {
+                    throw new IllegalArgumentException("Bad zone.tab, lat/long format: " + zoneEntry[2]);
+                }
+                zarray.add(getDegrees(m, true).toString());
+                zarray.add(getDegrees(m, false).toString());
+                zarray.add(zoneEntry[1]);
+                zoneData.put(zoneEntry[0], zarray);
+            }
 
             zoneData = CldrUtility.protectCollection(zoneData); // protect for later
 

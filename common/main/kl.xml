@@ -438,7 +438,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yQQQQ" draft="unconfirmed">y QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback draft="unconfirmed">{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback draft="unconfirmed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="unconfirmed">d–d</greatestDifference>
 						</intervalFormatItem>
@@ -854,7 +854,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yQQQQ" draft="unconfirmed">y QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback draft="unconfirmed">{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback draft="unconfirmed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="unconfirmed">d–d</greatestDifference>
 						</intervalFormatItem>
@@ -1554,7 +1554,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="unconfirmed">{0} luksi</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} luksi</unitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
+			<unit type="mass-tonne">
 				<displayName draft="unconfirmed">tonni</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} tonni</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} tonni</unitPattern>
@@ -1947,7 +1947,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="unconfirmed">{0} lx</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} lx</unitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
+			<unit type="mass-tonne">
 				<displayName draft="unconfirmed">tonni</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0} t</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} t</unitPattern>
@@ -2309,7 +2309,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" draft="unconfirmed">{0} lx</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} lx</unitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
+			<unit type="mass-tonne">
 				<displayName draft="unconfirmed">tonni</displayName>
 				<unitPattern count="one" draft="unconfirmed">{0}t</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}t</unitPattern>

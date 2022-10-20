@@ -24,6 +24,14 @@
       >
         Create New Summary
       </button>
+      <span v-if="canSummarizeAllLocales">
+        <input
+          type="checkbox"
+          title="Summarize All Locales"
+          id="summarizeAllLocales"
+          v-model="summarizeAllLocales"
+        /><label for="summarizeAllLocales">All Locales</label>
+      </span>
     </p>
     <section v-if="snapshotsAreReady" class="snapSection">
       <h2 class="snapHeading">Snapshots</h2>
@@ -38,10 +46,10 @@
         <span v-if="snapshotArray">
           <span v-for="snapshotId of snapshotArray" :key="snapshotId">
             <button
-              title="Show the indicated snapshot of the Priority Items Summary"
+              :title="getSnapshotHover(snapshotId)"
               @click="showSnapshot(snapshotId)"
             >
-              {{ snapshotId }}
+              {{ humanizeSnapId(snapshotId) }}
             </button>
           </span>
         </span>
@@ -52,16 +60,17 @@
 
     <section class="snapSection">
       <h2 class="snapHeading">Report Status</h2>
+      <a-spin size="small" v-if="reportLoad && !reports" />
       <button @click="fetchReports">Load</button>
+      <button @click="downloadReports">Download</button>
       <table class="reportTable" v-if="reports">
         <thead>
           <tr>
             <th>Locale</th>
-            <th>Overall</th>
-            <!--
-              for per-report breakdown
-              <th v-for="type of reports.types" :key="type">{{ humanizeReport(type) }}</th>
-            -->
+            <th v-for="type of reports.types" :key="type">
+              {{ humanizeReport(type) }}
+            </th>
+            <th>Vetters</th>
           </tr>
         </thead>
         <tbody>
@@ -70,19 +79,40 @@
             :key="locale"
           >
             <td>
-              <tt>{{ locale }}—{{ humanizeLocale(locale) }}</tt>
+              <a class="locale" :href="linkToLocale(locale)"
+                >{{ locale }}—{{ humanizeLocale(locale) }}</a
+              >
+            </td>
+            <td v-for="type of reports.types" :key="type">
+              <span
+                class="statuscell"
+                :class="
+                  'd-dr-' + reports.byLocale[locale].byReport[type].status
+                "
+              >
+                {{ statusIcon(reports.byLocale[locale].byReport[type].status) }}
+              </span>
+              {{ reports.byLocale[locale].byReport[type].status
+              }}<span
+                v-if="reports.byLocale[locale].byReport[type].acceptability"
+                >:
+                {{
+                  reports.byLocale[locale].byReport[type].acceptability
+                }}</span
+              >
+              <p v-if="reports.byLocale[locale].byReport[type].totalVoters">
+                Acc:{{
+                  reports.byLocale[locale].byReport[type].acceptableScore || 0
+                }}
+                NotAcc:{{
+                  reports.byLocale[locale].byReport[type].notAcceptableScore ||
+                  0
+                }}
+                Voters:{{ reports.byLocale[locale].byReport[type].totalVoters }}
+              </p>
             </td>
             <td>
-              <span
-                class="reportEntry"
-                v-for="[kind, count] of Object.entries(
-                  reports.byLocale[locale]
-                )"
-                :key="kind"
-              >
-                <i v-if="count" :class="reportClass(kind)">&nbsp;</i>
-                {{ kind }}={{ count }}
-              </span>
+              {{ reports.byLocale[locale].totalVoters || 0 }}
             </td>
           </tr>
         </tbody>
@@ -94,8 +124,9 @@
 <script>
 import * as cldrLoad from "../esm/cldrLoad.js";
 import * as cldrPriorityItems from "../esm/cldrPriorityItems.js";
-import * as cldrText from "../esm/cldrText.js";
 import * as cldrReport from "../esm/cldrReport.js";
+import * as cldrTable from "../esm/cldrTable.js";
+import * as cldrText from "../esm/cldrText.js";
 
 export default {
   data() {
@@ -104,6 +135,7 @@ export default {
       canCreateSnapshots: false,
       canUseSnapshots: false,
       canUseSummary: false,
+      canSummarizeAllLocales: false,
       heading: null,
       helpMessage: null,
       message: null,
@@ -114,22 +146,23 @@ export default {
       status: null,
       whenReceived: null,
       reports: null,
+      reportLoad: false,
+      summarizeAllLocales: false,
     };
   },
-
   created() {
     cldrPriorityItems.viewCreated(this.setData, this.setSnapshots);
     this.canUseSummary = cldrPriorityItems.canUseSummary();
     this.canUseSnapshots = cldrPriorityItems.canUseSnapshots();
     this.canCreateSnapshots = cldrPriorityItems.canCreateSnapshots();
+    this.canSummarizeAllLocales = this.canCreateSnapshots;
     if (!this.canUseSummary) {
       this.accessDenied = cldrText.get("summary_access_denied");
     }
   },
-
   methods: {
     start() {
-      cldrPriorityItems.start();
+      cldrPriorityItems.start(this.summarizeAllLocales);
     },
 
     stop() {
@@ -141,7 +174,7 @@ export default {
     },
 
     createSnapshot() {
-      cldrPriorityItems.createSnapshot();
+      cldrPriorityItems.createSnapshot(this.summarizeAllLocales);
     },
 
     setData(data) {
@@ -155,9 +188,7 @@ export default {
         this.heading = this.makeHeading(data.snapshotId);
         this.helpMessage = this.makeHelp(data.snapshotId);
         this.whenReceived = this.makeWhenReceived(data.snapshotId);
-        this.snapshotsAreReady =
-          this.canUseSnapshots &&
-          cldrPriorityItems.snapshotIdIsValid(data.snapshotId);
+        this.snapshotsAreReady = this.canUseSnapshots && this.snapshotArray;
       }
     },
 
@@ -178,7 +209,7 @@ export default {
         return null;
       }
       if (cldrPriorityItems.snapshotIdIsValid(snapshotId)) {
-        return "Snapshot " + snapshotId;
+        return "Snapshot " + this.humanizeSnapId(snapshotId);
       } else if (this.canUseSnapshots) {
         return "Latest (not a snapshot)";
       } else {
@@ -218,6 +249,7 @@ export default {
     },
 
     async fetchReports() {
+      this.reportLoad = true;
       this.reports = await cldrReport.fetchAllReports();
     },
 
@@ -229,16 +261,35 @@ export default {
       return cldrLoad.getLocaleName(locale);
     },
 
-    reportClass(kind) {
-      if (kind === "unacceptable") {
-        return cldrReport.reportClass(true, false);
-      } else if (kind === "acceptable") {
-        return cldrReport.reportClass(true, true);
-      } else if (kind === "totalVoters") {
-        return "totalVoters";
-      } else {
-        return cldrReport.reportClass(false, false);
+    linkToLocale(locale) {
+      return cldrLoad.linkToLocale(locale);
+    },
+
+    /**
+     * Display a more user-friendly snapshot id
+     *
+     * @param id like “2022-05-16T08:15:25.083077935Z”
+     * @return like “2022-05-16 08:15 UTC
+     */
+    humanizeSnapId(id) {
+      if (!id.match(/^\d+\-\d+\-\d+T\d\d:\d\d:\d\d\..+Z$/)) {
+        return id;
       }
+      return id.replace("T", " ").replace(/:\d\d\..+Z/, " UTC");
+    },
+
+    getSnapshotHover(id) {
+      const humanizedId = this.humanizeSnapId(id);
+      const args = [humanizedId, id];
+      return cldrText.sub("summary_snapshot_hover", args);
+    },
+
+    downloadReports() {
+      return cldrReport.downloadAllReports();
+    },
+
+    statusIcon(status) {
+      return cldrTable.getStatusIcon(status);
     },
   },
 };
@@ -256,7 +307,11 @@ button {
 .snapSection {
   border: 2px solid gray;
   padding: 4px;
-  background-color: #ccdfff; /* light blue */
+}
+
+.snapSection,
+.reportTable thead tr th {
+  background-color: #ccdfff !important; /* light blue */
 }
 
 .summaryPercent {
@@ -269,9 +324,25 @@ button {
   border-right: 2px solid gray;
 }
 
+.reportTable thead tr th {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0px;
+  z-index: 2;
+}
+
+.reportTable tr {
+  border-bottom: 1px solid black;
+}
+
 .reportEntry {
   border-right: 1px solid gray;
   padding-right: 0.5em;
   display: table-cell;
+}
+
+.locale {
+  background-color: beige;
+  padding: 0.25em;
 }
 </style>

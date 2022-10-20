@@ -42,7 +42,7 @@ This will update the tr .md files in place.
 
 Copyright &copy; 1991-2021 Unicode, Inc.
 All rights reserved.
-[Terms of use](http://www.unicode.org/copyright.html)
+[Terms of use](https://www.unicode.org/copyright.html)
 
 See [../../../README.md](../../../README.md) for full project information.
 

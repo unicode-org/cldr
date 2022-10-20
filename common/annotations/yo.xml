@@ -11,6 +11,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="yo"/>
 	</identity>
 	<annotations>
+		<annotation cp="{">búraketi | búrákẹ́tì ìta lílọ́ | buraketi lilo | sikuwe buraketi ita</annotation>
+		<annotation cp="{" type="tts">búrákẹ́tì ìta lílọ́</annotation>
 		<annotation cp="🏻">amọ́lára | amọ́láwọ̀ | irú 1–2</annotation>
 		<annotation cp="🏻" type="tts">amọ́lára</annotation>
 		<annotation cp="🏼">amọ́lára díẹ̀ | amọ́láwọ̀ | irú 3</annotation>
@@ -23,12 +25,238 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏿" type="tts">adúláwọ̀</annotation>
 		<annotation cp="‾">apọju</annotation>
 		<annotation cp="‾" type="tts">apọju</annotation>
+		<annotation cp="_">abẹ́dáàṣì | dáàṣì | dàáṣì | ìlà | ìlà ìsàlẹ̀ | ila ìtọ́ka</annotation>
+		<annotation cp="_" type="tts">ìlà ìsàlẹ̀</annotation>
+		<annotation cp="-">daaṣì | háífìnì | háífìnì-ìyọkúrò | ìyọkúrò</annotation>
+		<annotation cp="-" type="tts">háífìnì-ìyọkúrò</annotation>
+		<annotation cp="‐">dáàsì | háífìnì</annotation>
+		<annotation cp="‐" type="tts">háífìnì</annotation>
+		<annotation cp="–">dáàṣi | dáàṣi ti | en</annotation>
+		<annotation cp="–" type="tts">dáàṣi ti</annotation>
+		<annotation cp="—">dáàṣi | em | em dáàsì</annotation>
+		<annotation cp="—" type="tts">em dáàsì</annotation>
+		<annotation cp="―">àmi ìdínà | àmi oke sí sàlẹ́ | àmì oke sí sàlẹ̀ | ìlà</annotation>
+		<annotation cp="―" type="tts">àmì oke sí sàlẹ̀</annotation>
+		<annotation cp="・">arin katakana | àwọn dọ́ọ̀tì | dọ́tì à | dọ́tì àárin | dọ́tì àárín katakana | katakana | súnmọ́</annotation>
+		<annotation cp="・" type="tts">dọ́tì àárín katakana</annotation>
+		<annotation cp=",">kọmá</annotation>
+		<annotation cp="," type="tts">kọmá</annotation>
+		<annotation cp="،">arábíìkì | kọmá</annotation>
+		<annotation cp="،" type="tts">kọmá arábíìkì</annotation>
+		<annotation cp="、">ami aworan | komá | kọmá aláwòrán</annotation>
+		<annotation cp="、" type="tts">kọmá aláwòrán</annotation>
+		<annotation cp=";">kolọ́ọ̀nù | kolọ́ọ̀nù díe | sẹ̀míkolọ́ọ̀nù</annotation>
+		<annotation cp=";" type="tts">sẹ̀míkolọ́ọ̀nù</annotation>
+		<annotation cp="؛">arabíìkì | arabíìkì kolọ́ọ̀nù díẹ̀ | kolọ́ọ̀nù díẹ̀</annotation>
+		<annotation cp="؛" type="tts">arabíìkì kolọ́ọ̀nù díẹ̀</annotation>
+		<annotation cp=":">kolọ́ọ̀nù</annotation>
+		<annotation cp=":" type="tts">kolọ́ọ̀nù</annotation>
+		<annotation cp="!">ami isele | isele</annotation>
+		<annotation cp="!" type="tts">ami isele</annotation>
+		<annotation cp="¡">ami isele inu | gbankogbì | inu | isele</annotation>
+		<annotation cp="¡" type="tts">ami isele inu</annotation>
+		<annotation cp="?">ami ibeere | ibeere</annotation>
+		<annotation cp="?" type="tts">ami ibeere</annotation>
+		<annotation cp="¿">ami ibeere | ami ibeere inu | inu</annotation>
+		<annotation cp="¿" type="tts">ami ibeere inu</annotation>
+		<annotation cp="؟">ami ibeere | ami ibeere arabíìkì | ibeere</annotation>
+		<annotation cp="؟" type="tts">ami ibeere arabíìkì</annotation>
 		<annotation cp="‽">interrobang</annotation>
 		<annotation cp="‽" type="tts">interrobang</annotation>
+		<annotation cp=".">àmì ìparí | dọ́tì | ìdádúró</annotation>
+		<annotation cp="." type="tts">àmì ìparí</annotation>
+		<annotation cp="…">alafo | àlàfo | allafo | dọ́ọ́tì</annotation>
+		<annotation cp="…" type="tts">àlàfo</annotation>
+		<annotation cp="。">àmì ìparí | àmì ìparí ìsàpejúwe | ìdádúró | ìsàpejúwe</annotation>
+		<annotation cp="。" type="tts">àmì ìparí ìsàpejúwe</annotation>
+		<annotation cp="·">dọ́ọ̀ti | dọ́ọ̀ti àárín | láàrín | súnmọ́</annotation>
+		<annotation cp="·" type="tts">dọ́ọ̀ti àárín</annotation>
+		<annotation cp="'">aposítofù | aposítofù itewé | aposítofù ìtewé | koti | koti kan</annotation>
+		<annotation cp="'" type="tts">aposítofù itewé</annotation>
+		<annotation cp="‘">àmi aposítofù | àmi ìroyin | àmi ìròyin kan | àmi ìroyìn tó já | aposítofù | aposítofù òsì</annotation>
+		<annotation cp="‘" type="tts">àmi aposítofù</annotation>
+		<annotation cp="’">ami ìròyìn | àmi ìròyin kan | àmi ìroyìn tó | aposítofù | aposítofù ọ́tun | aposítofù ọ̀tún</annotation>
+		<annotation cp="’" type="tts">aposítofù ọ̀tún</annotation>
+		<annotation cp="‚">àmi ìròyìn | àmi ìròyin kérere | aposítofù | apositofú otùn kékeré | aposítofù ọ̀tún kékeré</annotation>
+		<annotation cp="‚" type="tts">aposítofù ọ̀tún kékeré</annotation>
+		<annotation cp="“">ami koti osi | koti | koti tojafafa</annotation>
+		<annotation cp="“" type="tts">ami koti osi</annotation>
+		<annotation cp="”">ami koti otun | koti | koti meji</annotation>
+		<annotation cp="”" type="tts">ami koti otun</annotation>
+		<annotation cp="„">ami koti | ami koti osi kekere | koti | koti meji</annotation>
+		<annotation cp="„" type="tts">ami koti osi kekere</annotation>
+		<annotation cp="«">gulimetì osi | gulimetì òsì | koti | osi</annotation>
+		<annotation cp="«" type="tts">gulimetì osi</annotation>
+		<annotation cp="»">búraketi | gulimetì otun | koti | otun</annotation>
+		<annotation cp="»" type="tts">gulimetì otun</annotation>
+		<annotation cp=")">búraketi | paremtesì sunmo | pareni | parentesi sunmo</annotation>
+		<annotation cp=")" type="tts">paremtesì sunmo</annotation>
+		<annotation cp="[">búraketi | búraketi onihamerin | kurose | sikuwe buraketi</annotation>
+		<annotation cp="[" type="tts">búraketi onihamerin</annotation>
+		<annotation cp="]">búraketi | kurose | sikuwe buraketi | sikuwe buraketi inu</annotation>
+		<annotation cp="]" type="tts">sikuwe buraketi inu</annotation>
+		<annotation cp="}">búraketi | búraketi inu | kurose | sikuwe buraketi</annotation>
+		<annotation cp="}" type="tts">búraketi inu</annotation>
+		<annotation cp="〈">búraketi | búraketi dámodì | búraketi itokasi | búraketi origun | búrákẹ́tì sísí orígun | origun ita | sefuroni</annotation>
+		<annotation cp="〈" type="tts">búrákẹ́tì sísí orígun</annotation>
+		<annotation cp="〉">búraketi | búraketi dámodì | búraketi itokasi | búraketi origun | búraketi origun inu | origun ita | sefuroni</annotation>
+		<annotation cp="〉" type="tts">búraketi origun inu</annotation>
+		<annotation cp="《">búraketi | búraketi dámodì | búraketi itokasi | búraketi origun | búrákẹ́tì sísí orígun méjì | sefuroni</annotation>
+		<annotation cp="《" type="tts">búrákẹ́tì sísí orígun méjì</annotation>
+		<annotation cp="》">búraketi | búraketi dámodì | búraketi itokasi | búraketi origun | búraketi origun inu meji | origun ita | sefuroni</annotation>
+		<annotation cp="》" type="tts">búraketi origun inu meji</annotation>
+		<annotation cp="「">búraketi | búraketi dámodì | búraketi itokasi | búraketi origun | búrákẹ́tì sísí ẹlẹ́gbẹ̀ẹ́ | origun ita | sefuroni</annotation>
+		<annotation cp="「" type="tts">búrákẹ́tì sísí ẹlẹ́gbẹ̀ẹ́</annotation>
+		<annotation cp="」">búraketi | búraketi dámodì | búraketi itokasi | búraketi origun | búrákẹ́tì pípadé ẹlẹ́gbẹ̀ẹ́ | origun ita | sefuroni</annotation>
+		<annotation cp="」" type="tts">búrákẹ́tì pípadé ẹlẹ́gbẹ̀ẹ́</annotation>
+		<annotation cp="『">búraketi | búraketi dámodì | búraketi itokasi | búraketi origun | búrákẹ́tì sísí oníhò ẹlẹ́gbẹ̀ẹ́ | origun ita | sefuroni</annotation>
+		<annotation cp="『" type="tts">búrákẹ́tì sísí oníhò ẹlẹ́gbẹ̀ẹ́</annotation>
+		<annotation cp="』">búraketi | búraketi dámodì | búraketi itokasi | búraketi origun | búrákẹ́tì pípadé oníhò ẹlẹ́gbẹ̀ẹ́ | origun ita | sefuroni</annotation>
+		<annotation cp="』" type="tts">búrákẹ́tì pípadé oníhò ẹlẹ́gbẹ̀ẹ́</annotation>
+		<annotation cp="【">búraketi | búraketi dámodì | búraketi itokasi | búraketi origun | búrákẹ́tì sísí onígò dúdú | origun ita | sefuroni</annotation>
+		<annotation cp="【" type="tts">búrákẹ́tì sísí onígò dúdú</annotation>
+		<annotation cp="】">búraketi | búraketi dámodì | búraketi itokasi | búraketi origun | búrákẹ́tì pípadé onígò dúdú | origun ita | sefuroni</annotation>
+		<annotation cp="】" type="tts">búrákẹ́tì pípadé onígò dúdú</annotation>
+		<annotation cp="〔">buraketi | búraketi ijapa ita | eyin ijapa</annotation>
+		<annotation cp="〔" type="tts">búraketi ijapa ita</annotation>
+		<annotation cp="〕">búraketi eyin ijapa | búraketi eyin ijapa inu | eyin ijapa</annotation>
+		<annotation cp="〕" type="tts">búraketi eyin ijapa inu</annotation>
+		<annotation cp="〖">búraketi | búraketi dámodì | búraketi itokasi | búraketi origun | búrákẹ́tì sísí onígò ẹlẹ́gbẹ̀ẹ́ | origun ita | sefuroni</annotation>
+		<annotation cp="〖" type="tts">búrákẹ́tì sísí onígò ẹlẹ́gbẹ̀ẹ́</annotation>
+		<annotation cp="〗">búraketi | búraketi dámodì | búraketi itokasi | búraketi origun | búrákẹ́tì pípadé onígò ẹlẹ́gbẹ̀ẹ́ | origun ita | sefuroni</annotation>
+		<annotation cp="〗" type="tts">búrákẹ́tì pípadé onígò ẹlẹ́gbẹ̀ẹ́</annotation>
+		<annotation cp="§">apa | ìpín | ìsòrì | pẹ̀lú</annotation>
+		<annotation cp="§" type="tts">ìpín</annotation>
+		<annotation cp="¶">alinea | ami isori</annotation>
+		<annotation cp="¶" type="tts">ami isori</annotation>
+		<annotation cp="@">amúpẹ́sátì | àrobá | aróbasẹ̀ | ní àmì | ní ìsòwò | ní máàkì | ní-àmì | situdeli</annotation>
+		<annotation cp="@" type="tts">ní àmì</annotation>
+		<annotation cp="*">asítẹ́ríìkì | ìràwọ́ | káàdìlíle</annotation>
+		<annotation cp="*" type="tts">asítẹ́ríìkì</annotation>
+		<annotation cp="/">sílási | síláṣì | vaguri | wáàkì</annotation>
+		<annotation cp="/" type="tts">síláṣì</annotation>
+		<annotation cp="\">sílási eyin | wáàkì</annotation>
+		<annotation cp="\" type="tts">sílási eyin</annotation>
+		<annotation cp="&amp;">apesándi | apesándì | ati</annotation>
+		<annotation cp="&amp;" type="tts">apesándì</annotation>
+		<annotation cp="#">àmì háàsì | àmì háàsṣì | háàsì | háàstaàgì | lb | nọ́nbà | pọ́ùn</annotation>
+		<annotation cp="#" type="tts">àmì háàsṣì</annotation>
+		<annotation cp="%">pà sẹ́ntì | pà-sẹ́ntì | pàsẹ́ntì</annotation>
+		<annotation cp="%" type="tts">pàsẹ́ntì</annotation>
+		<annotation cp="‰">pà máìli | pà máìlì | pàmáìlì</annotation>
+		<annotation cp="‰" type="tts">pà máìlì</annotation>
+		<annotation cp="†">àmi dágà | dágà | obelisiki</annotation>
+		<annotation cp="†" type="tts">àmi dágà</annotation>
+		<annotation cp="‡">àmi dágà mẹ́jì | dágà | mẹ́jì</annotation>
+		<annotation cp="‡" type="tts">àmi dágà mẹ́jì</annotation>
+		<annotation cp="•">dọ́ọ̀tì | ọta</annotation>
+		<annotation cp="•" type="tts">ọta</annotation>
+		<annotation cp="‧">dáàsì | háífínì | ibi | ibi ilo háífínì</annotation>
+		<annotation cp="‧" type="tts">ibi ilo háífínì</annotation>
+		<annotation cp="′">púráìmù</annotation>
+		<annotation cp="′" type="tts">púráìmù</annotation>
+		<annotation cp="″">púráìmù | púráìmù méjì</annotation>
+		<annotation cp="″" type="tts">púráìmù méjì</annotation>
+		<annotation cp="‴">púráìmù | púráìmù mẹ́ta</annotation>
+		<annotation cp="‴" type="tts">púráìmù mẹ́ta</annotation>
 		<annotation cp="‸">itọju</annotation>
 		<annotation cp="‸" type="tts">itọju</annotation>
+		<annotation cp="※">ami iranti</annotation>
+		<annotation cp="※" type="tts">ami iranti</annotation>
 		<annotation cp="⁂">asterism</annotation>
 		<annotation cp="⁂" type="tts">asterism</annotation>
+		<annotation cp="`">àmì ohùn | àmì ohùn ńlá | ńlá</annotation>
+		<annotation cp="`" type="tts">àmì ohùn ńlá</annotation>
+		<annotation cp="´">àmì ohùn | àmì ohùn jíjìn | jíjìn</annotation>
+		<annotation cp="´" type="tts">àmì ohùn jíjìn</annotation>
+		<annotation cp="^">agbára | àmi ohùn | àmì ohùn olójúpúpọ̀ | àmì sọ́ọ̀ | fìlà | ìfihàn | ìsàkóso | kárẹ̀tì | olọ́jupúpọ̀ | shẹ́fúrọ́nì | wejì</annotation>
+		<annotation cp="^" type="tts">àmì ohùn olójúpúpọ̀</annotation>
+		<annotation cp="¨">dáresì | trẹ́mà | umlatì</annotation>
+		<annotation cp="¨" type="tts">dáresì</annotation>
+		<annotation cp="°">digri | dìgrí | ìdájú | wákàtí</annotation>
+		<annotation cp="°" type="tts">dìgrí</annotation>
+		<annotation cp="℗">igbohunsílẹ̀ aṣẹ</annotation>
+		<annotation cp="℗" type="tts">igbohunsílẹ̀ aṣẹ</annotation>
+		<annotation cp="←">ọ̀fà | ọ̀fà didojuko òsì | òsì</annotation>
+		<annotation cp="←" type="tts">ọ̀fà didojuko òsì</annotation>
+		<annotation cp="→">ọ̀fà | ọ̀fà didojuko otun | ọ̀tún</annotation>
+		<annotation cp="→" type="tts">ọ̀fà didojuko otun</annotation>
+		<annotation cp="↑">ọ̀fà | ọ̀fà didojuko oke | ọ̀tún</annotation>
+		<annotation cp="↑" type="tts">ọ̀fà didojuko oke</annotation>
+		<annotation cp="↓">ọ̀fà | ọ̀fà didojuko isàlẹ̀ | ọ̀fà didojuko ìsàlẹ̀ | ọ̀tún</annotation>
+		<annotation cp="↓" type="tts">ọ̀fà didojuko isàlẹ̀</annotation>
+		<annotation cp="⇅">ìsàlẹ̀ | ọ̀fà | ọ̀fà didojuko òkè àti ọ̀fà didojuko ìsàlẹ̀ | òkè</annotation>
+		<annotation cp="⇅" type="tts">ọ̀fà didojuko òkè àti ọ̀fà didojuko ìsàlẹ̀</annotation>
+		<annotation cp="⇆">ọ̀fà | ọ̀fà didojuko òsì lórí ọ̀fà didojuko ọ̀tún | òsì | ọ̀tún</annotation>
+		<annotation cp="⇆" type="tts">ọ̀fà didojuko òsì lórí ọ̀fà didojuko ọ̀tún</annotation>
+		<annotation cp="∆">ihameta | iposi</annotation>
+		<annotation cp="∆" type="tts">iposi</annotation>
+		<annotation cp="∇">ihameta | nabila | nabíla</annotation>
+		<annotation cp="∇" type="tts">nabíla</annotation>
+		<annotation cp="∈">apa | apa ti | jẹ̀ ara | ní</annotation>
+		<annotation cp="∈" type="tts">apa</annotation>
+		<annotation cp="+">àfikún | àmi àfikún | àmì àfikún | ìfisi</annotation>
+		<annotation cp="+" type="tts">àmì àfikún</annotation>
+		<annotation cp="±">àfikún-ìyọkúrò</annotation>
+		<annotation cp="±" type="tts">àfikún-ìyọkúrò</annotation>
+		<annotation cp="÷">ami ipin | àmi ìpín | ipin</annotation>
+		<annotation cp="÷" type="tts">àmi ìpín</annotation>
+		<annotation cp="×">ami ilopo | àmì ilopo | ilopo | lọ́nà</annotation>
+		<annotation cp="×" type="tts">àmì ilopo</annotation>
+		<annotation cp="&lt;">kére sí | kére-sí | táàgi sísilẹ̀</annotation>
+		<annotation cp="&lt;" type="tts">kére sí</annotation>
+		<annotation cp="=">jẹ́ | wọn jẹ́</annotation>
+		<annotation cp="=" type="tts">jẹ́</annotation>
+		<annotation cp="≠">ipa àije | láà jẹ́ | láà jẹ̀</annotation>
+		<annotation cp="≠" type="tts">láà jẹ̀</annotation>
+		<annotation cp="&gt;">táàgì | tóbi ju | tóbi-ju</annotation>
+		<annotation cp="&gt;" type="tts">tóbi ju</annotation>
+		<annotation cp="¬">ìyísodí | ìyísódì | kò</annotation>
+		<annotation cp="¬" type="tts">ìyísódì</annotation>
+		<annotation cp="|">báà | igi | ila | ìlà otún sí ósí</annotation>
+		<annotation cp="|" type="tts">ìlà otún sí ósí</annotation>
+		<annotation cp="~">táìdì</annotation>
+		<annotation cp="~" type="tts">táìdì</annotation>
+		<annotation cp="−">ami iyokuro | àmì ìyọkúrò | yokuro</annotation>
+		<annotation cp="−" type="tts">àmì ìyọkúrò</annotation>
+		<annotation cp="⁻">iwe nla | iwe nla iyokuro | iyokuro</annotation>
+		<annotation cp="⁻" type="tts">iwe nla iyokuro</annotation>
+		<annotation cp="√">ipin | ruutu | sikuwe | sikuwe rutu</annotation>
+		<annotation cp="√" type="tts">sikuwe rutu</annotation>
+		<annotation cp="∞">aipari | ami aipari</annotation>
+		<annotation cp="∞" type="tts">ami aipari</annotation>
+		<annotation cp="∩">nipa | orita,enta | oritameta</annotation>
+		<annotation cp="∩" type="tts">oritameta</annotation>
+		<annotation cp="∪">apapo | isopo | nipa } isopo</annotation>
+		<annotation cp="∪" type="tts">isopo</annotation>
+		<annotation cp="≈">dí | láti jẹ́ | láti jẹ̀ | wa di</annotation>
+		<annotation cp="≈" type="tts">láti jẹ̀</annotation>
+		<annotation cp="≡">bakan naa | bee ni | bii | lona meta</annotation>
+		<annotation cp="≡" type="tts">bakan naa</annotation>
+		<annotation cp="≤">jẹ́ | kére sí tàbí jẹ́ | kére-sí | wọn jẹ́</annotation>
+		<annotation cp="≤" type="tts">kére sí tàbí jẹ́</annotation>
+		<annotation cp="≥">àìmọra | jẹ́ | kére sí tàbí jẹ́ | tóbi ju tàbí jẹ́ | wọn jẹ́</annotation>
+		<annotation cp="≥" type="tts">tóbi ju tàbí jẹ́</annotation>
+		<annotation cp="⊂">lára | lára ni</annotation>
+		<annotation cp="⊂" type="tts">lára</annotation>
+		<annotation cp="▲">ilẹ̀ | kún | ọfà | tírángù | tírángù títọ́ka sí òké | tírángù títọ́ka sí òkè</annotation>
+		<annotation cp="▲" type="tts">tírángù títọ́ka sí òkè</annotation>
+		<annotation cp="▼">ftírángù títọ́ka sí ilẹ̀ | ilẹ̀ | kún | ọfà | tírángù | tírángù títọ́ka sí ilẹ̀</annotation>
+		<annotation cp="▼" type="tts">tírángù títọ́ka sí ilẹ̀</annotation>
+		<annotation cp="◊">díamọ́ndì | loséngé | loséngè | rombọ́sì</annotation>
+		<annotation cp="◊" type="tts">loséngè</annotation>
+		<annotation cp="○">ríngì | sákù | sákù oníhò</annotation>
+		<annotation cp="○" type="tts">sákù oníhò</annotation>
+		<annotation cp="●">sákù | sákù kíkún</annotation>
+		<annotation cp="●" type="tts">sákù kíkún</annotation>
+		<annotation cp="◯">ríngì | sákù | sákù oníhò ńlá</annotation>
+		<annotation cp="◯" type="tts">sákù oníhò ńlá</annotation>
+		<annotation cp="♪">ìwé | kẹ́jọ | orin</annotation>
+		<annotation cp="♪" type="tts">ìwé kẹ́jọ</annotation>
+		<annotation cp="♭">bímole | ìwé | orin | pẹ̀lẹbẹ</annotation>
+		<annotation cp="♭" type="tts">pẹ̀lẹbẹ</annotation>
+		<annotation cp="♯">dísì | dísísì | ìwé | mú | orin</annotation>
+		<annotation cp="♯" type="tts">mú</annotation>
 		<annotation cp="😀">fẹyín | ojú | Ojú tó rẹ́rìn</annotation>
 		<annotation cp="😀" type="tts">Ojú tó rẹ́rìn</annotation>
 		<annotation cp="😃">ẹnu | ojú | Ojú tó rẹ́rìn Pẹ̀lú Ẹnu Lílà sílẹ̀ | rẹ́rìń músẹ́ | ṣí</annotation>
@@ -49,12 +277,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙂" type="tts">Oju Ti O N Rẹrin Muṣẹn</annotation>
 		<annotation cp="🙃">dojú kodò | ojú | Oju Ti O Rọ walẹ</annotation>
 		<annotation cp="🙃" type="tts">Oju Ti O Rọ walẹ</annotation>
+		<annotation cp="🫠">Oju Ti o tẹ̀ | Oju Ti O tẹ̀ | olómi | parẹ́ | tẹ | wó</annotation>
+		<annotation cp="🫠" type="tts">Oju Ti O tẹ̀</annotation>
 		<annotation cp="😉">ojú | Ojú tó ṣẹ́jù | ṣẹ́jú</annotation>
 		<annotation cp="😉" type="tts">Ojú tó ṣẹ́jù</annotation>
 		<annotation cp="😊">ẹyinjú | ojú | Ojú tó rẹ́rìn Músẹ́ Pẹ̀lú Ẹyinjú tó rẹ́rìn Músẹ́ | rẹ́rìń ìtìjù | rẹ́rìń músẹ́</annotation>
 		<annotation cp="😊" type="tts">Ojú tó rẹ́rìn Músẹ́ Pẹ̀lú Ẹyinjú tó rẹ́rìn Músẹ́</annotation>
 		<annotation cp="😇">àlá | àla fú ọmọdé | aláìṣẹ̀ | àńgẹ́lì | báwo | ojú | Oju Ẹrin Ati Bawo | rẹ́rìn músẹ́</annotation>
 		<annotation cp="😇" type="tts">Oju Ẹrin Ati Bawo</annotation>
+		<annotation cp="🥰">ẹyinjú | kẹ́ | ní ìfẹ́ | ojú erin pelu okan | oju tí ó ń rẹ́rìn pẹ̀lú ọkàn | ọkàn</annotation>
+		<annotation cp="🥰" type="tts">ojú erin pelu okan</annotation>
 		<annotation cp="😍">ẹyinjú | ìfẹ́ | ojú | Oju Ti O N Rẹrin Pẹlu awọn oju Ọkan | rẹ́rìn músẹ́</annotation>
 		<annotation cp="😍" type="tts">Oju Ti O N Rẹrin Pẹlu awọn oju Ọkan</annotation>
 		<annotation cp="🤩">ẹyinjú | ìràwọ̀ | ojú | Pípa pè̩lú ìràwọ̀ | Rẹ́rìn-ín ìyàlé̩nu</annotation>
@@ -69,6 +301,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😚" type="tts">Oju Ti O N Fẹnuko Pẹlu Awọn Oju didi</annotation>
 		<annotation cp="😙">ẹyinjú | ìfẹnukonu | ojú | Ojú tó Fẹnuko ẹnu Pẹ̀lú Ẹyinjú tọ rẹ́rìn Músẹ́ | rẹ́rìń músẹ́</annotation>
 		<annotation cp="😙" type="tts">Ojú tó Fẹnuko ẹnu Pẹ̀lú Ẹyinjú tọ rẹ́rìn Músẹ́</annotation>
+		<annotation cp="🥲">ekún | fọwọ́kàn | gbéraga | more | ojú ẹ̀rín pẹ̀lú ẹkún | rẹ́rìń músẹ́ | rẹ́rìń músẹ́ pẹ̀lú ẹkún | simi</annotation>
+		<annotation cp="🥲" type="tts">ojú ẹ̀rín pẹ̀lú ẹkún</annotation>
 		<annotation cp="😋">aládídùn | jíjẹ aládídùn | ojú | Oju Ti O N jẹ Ounjẹ Aladidun | rẹ́rìń músẹ́ | um | yum</annotation>
 		<annotation cp="😋" type="tts">Oju Ti O N jẹ Ounjẹ Aladidun</annotation>
 		<annotation cp="😛">ahọ́n | ojú | Oju Ti Ahọn Ti O Yọ Sita</annotation>
@@ -85,10 +319,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤗" type="tts">oju Ti O fanimọra</annotation>
 		<annotation cp="🤭">Ikó̩ | Ojú tá fọwọ́ bo ẹnu</annotation>
 		<annotation cp="🤭" type="tts">Ojú tá fọwọ́ bo ẹnu</annotation>
+		<annotation cp="🫢">àìgbàgbọ́ | bẹ̀rù | ẹ̀rú | ìyalẹ́nu | òjiji | ojú sisi lẹ̀ àti owo lori enu | ojú sísí lẹ̀ àti owo lori enu | solẹ́nu</annotation>
+		<annotation cp="🫢" type="tts">ojú sísí lẹ̀ àti owo lori enu</annotation>
+		<annotation cp="🫣">gbé | ojú pẹ̀lú títọpinpin | wò | yọ́ wò</annotation>
+		<annotation cp="🫣" type="tts">ojú pẹ̀lú títọpinpin</annotation>
 		<annotation cp="🤫">dákẹ́ | Ojú tó sùpò̩ | panu mọ́</annotation>
 		<annotation cp="🤫" type="tts">Ojú tó sùpò̩</annotation>
 		<annotation cp="🤔">ńronú | ojú | Ojú tó Ronú</annotation>
 		<annotation cp="🤔" type="tts">Ojú tó Ronú</annotation>
+		<annotation cp="🫡">àwọn ológun | bẹ́ẹ̀nì | bọ̀wọ̀ | Ó dáa | ojú bíbọ̀wọ́ | ojú tó ń bọ̀wọ̀ | òrùn ríràn</annotation>
+		<annotation cp="🫡" type="tts">ojú bíbọ̀wọ́</annotation>
 		<annotation cp="🤐">ẹnu | ojú | Oju Ẹni Ti A Tipa | tìpa</annotation>
 		<annotation cp="🤐" type="tts">Oju Ẹni Ti A Tipa</annotation>
 		<annotation cp="🤨">àìgbàgbọ́ | Ìrun ojú ta gbé sókè | Oníyèméjì</annotation>
@@ -99,6 +339,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😑" type="tts">Oju Ti Ko Fanimọra</annotation>
 		<annotation cp="😶">dáké | ẹnu | ojú | Ojú tí kò ní Ẹnu</annotation>
 		<annotation cp="😶" type="tts">Ojú tí kò ní Ẹnu</annotation>
+		<annotation cp="🫥">aikinsoro | airi | banuje | ojú ìlà tótótó | poora | sapamo</annotation>
+		<annotation cp="🫥" type="tts">ojú ìlà tótótó</annotation>
 		<annotation cp="😏">ojú | Oju Ẹrin Abosi | rẹ́rín àbòsí</annotation>
 		<annotation cp="😏" type="tts">Oju Ẹrin Abosi</annotation>
 		<annotation cp="😒">àìdunú | àìfanimọ́ra | ojú | Oju Aifanimọra</annotation>
@@ -109,6 +351,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😬" type="tts">Oju Ifaro</annotation>
 		<annotation cp="🤥">irọ́ | ojú | Oju Irọ | onímú gígùn</annotation>
 		<annotation cp="🤥" type="tts">Oju Irọ</annotation>
+		<annotation cp="🫨">eru | gbigbọ̀n | gbọ̀n | iji | ojú | ojú gbígbọ̀n</annotation>
+		<annotation cp="🫨" type="tts">ojú gbígbọ̀n</annotation>
 		<annotation cp="😌">ìtura | ojú | Oju Itura</annotation>
 		<annotation cp="😌" type="tts">Oju Itura</annotation>
 		<annotation cp="😔">ìpòruru | jákulẹ̀ | ojú | Oju Ironu</annotation>
@@ -131,12 +375,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤮" type="tts">Èébì ajẹmọ́jú</annotation>
 		<annotation cp="🤧">gesundheit | ojú | Oju Sinsin | sín</annotation>
 		<annotation cp="🤧" type="tts">Oju Sinsin</annotation>
+		<annotation cp="🥵">gbona | iba | ojú gbígbóná | oju to gbona | ooru</annotation>
+		<annotation cp="🥵" type="tts">ojú gbígbóná</annotation>
+		<annotation cp="🥶">oju bulu | oju tutu | ojú tútú | otutu n mú | tutu</annotation>
+		<annotation cp="🥶" type="tts">ojú tútú</annotation>
+		<annotation cp="🥴">ojú to wópọ̀ | oorun kíkún</annotation>
+		<annotation cp="🥴" type="tts">ojú to wópọ̀</annotation>
 		<annotation cp="😵">itoogbe | ojú | Oju Itoogbe</annotation>
 		<annotation cp="😵" type="tts">Oju Itoogbe</annotation>
 		<annotation cp="🤯">Ìjayà | Orí tó bú gbàmù</annotation>
 		<annotation cp="🤯" type="tts">Orí tó bú gbàmù</annotation>
 		<annotation cp="🤠">adaran | fìlà | obìnrin ẹlẹ́ṣin | ojú | Oju Fila Adaran</annotation>
 		<annotation cp="🤠" type="tts">Oju Fila Adaran</annotation>
+		<annotation cp="🥳">àsè | ayọ̀ | fìlà | ìho | ojú àsè | ojú patí</annotation>
+		<annotation cp="🥳" type="tts">ojú patí</annotation>
+		<annotation cp="🥸">àìmọ̀ | gíláàsì | imú | ojú | ojú ìsápamọ́ | ojú tó sapamọ | sápamọ</annotation>
+		<annotation cp="🥸" type="tts">ojú ìsápamọ́</annotation>
 		<annotation cp="😎">àwọn gílásì | àwọn gílásì òrùn | ẹyinjú | ìbojú | mọ́lẹ̀ | ojú | Oju Ti O N Rẹrin Pẹlu Digi Oju | òrùn | rẹ́rìń músẹ́ | tutù</annotation>
 		<annotation cp="😎" type="tts">Oju Ti O N Rẹrin Pẹlu Digi Oju</annotation>
 		<annotation cp="🤓">ojú | Oju Ọmọwe Ti Ko Jafafa | ọ̀mọ̀wé | ọ̀mọ̀wé tí kò jáfáfá</annotation>
@@ -145,6 +399,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧐" type="tts">Ojú tó súnkì</annotation>
 		<annotation cp="😕">iporuru | ojú | Oju Iporuru</annotation>
 		<annotation cp="😕" type="tts">Oju Iporuru</annotation>
+		<annotation cp="🫤">àìmọ̀ | kojú pẹ̀lú ẹnu ẹ̀gbẹ́ | mẹ́ | nijakulẹ̀ | ojú pẹ̀lú ẹnu ẹ̀gbẹ́ | siyẹ̀méjì</annotation>
+		<annotation cp="🫤" type="tts">ojú pẹ̀lú ẹnu ẹ̀gbẹ́</annotation>
 		<annotation cp="😟">ìdàmú | ojú | Oju Idamu</annotation>
 		<annotation cp="😟" type="tts">Oju Idamu</annotation>
 		<annotation cp="🙁">fajúro | ojú | Oju Ifajuro Diẹ</annotation>
@@ -159,6 +415,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😲" type="tts">ojú ìyalẹnu</annotation>
 		<annotation cp="😳">ìdùnú | ojú | Oju Idunnu | yàlẹ́nu</annotation>
 		<annotation cp="😳" type="tts">Oju Idunnu</annotation>
+		<annotation cp="🥺">àánú | bẹ̀bẹ̀ | ojú ọmọ ajá | ojú tí ń bẹ̀bẹ̀ | ojú tónbẹ̀bẹ̀</annotation>
+		<annotation cp="🥺" type="tts">ojú tónbẹ̀bẹ̀</annotation>
+		<annotation cp="🥹">banújẹ́ | bínú | gbẹ́raga | kọ̀ | ojú tí ò fẹ́ sunkún | ojú tón mu ẹkún dúró | sunkún</annotation>
+		<annotation cp="🥹" type="tts">ojú tón mu ẹkún dúró</annotation>
 		<annotation cp="😦">ẹnu | fajúro | ojú | Oju Ti o Faro Pẹlu Ẹnu lila silẹ | ṣí</annotation>
 		<annotation cp="😦" type="tts">Oju Ti o Faro Pẹlu Ẹnu lila silẹ</annotation>
 		<annotation cp="😧">ìrora | ojú</annotation>
@@ -187,6 +447,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😩" type="tts">Oju Ti o Rẹ̀</annotation>
 		<annotation cp="😫">ojú | Oju Rirẹ | rírẹ̀</annotation>
 		<annotation cp="😫" type="tts">Oju Rirẹ</annotation>
+		<annotation cp="🥱">ojú tón yán | ojú yíyán | rẹ̀ | sú | yán</annotation>
+		<annotation cp="🥱" type="tts">ojú tón yán</annotation>
 		<annotation cp="😤">ìjagunmólú | ojú | Oju Pẹlu Ikun Nimu | yege</annotation>
 		<annotation cp="😤" type="tts">Oju Pẹlu Ikun Nimu</annotation>
 		<annotation cp="😡">bínú | ojú | Oju Iyaahan | yànhàn</annotation>
@@ -243,8 +505,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙉" type="tts">Ọbọ Magbọ Ibi</annotation>
 		<annotation cp="🙊">èṣù | èwọ̀ | ìfọwọ́júwè | ọ̀bọ | Ọbọ Masọ ibi | ojú | rárá | sọ̀rọ̀</annotation>
 		<annotation cp="🙊" type="tts">Ọbọ Masọ ibi</annotation>
-		<annotation cp="💋">Aami Ifẹnuko | ètè | fẹnukonu</annotation>
-		<annotation cp="💋" type="tts">Aami Ifẹnuko</annotation>
 		<annotation cp="💌">ìfẹ́ | lẹ́tà | Lẹta Ifẹ | méèlì | ọkàn</annotation>
 		<annotation cp="💌" type="tts">Lẹta Ifẹ</annotation>
 		<annotation cp="💘">ọfà | Ọkan Ti o Ni Ọfa | ọmọ ọlọ́fà</annotation>
@@ -269,6 +529,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💔" type="tts">Ibanujẹ Ọkan</annotation>
 		<annotation cp="❤">ọkàn | ọkàn pupa</annotation>
 		<annotation cp="❤" type="tts">ọkàn pupa</annotation>
+		<annotation cp="🩷">dára | fẹ́ràn | ìfẹ́ | ọkàn | ọkàn pinki | pínkì</annotation>
+		<annotation cp="🩷" type="tts">ọkàn pinki</annotation>
 		<annotation cp="🧡">aláwọ̀ ọsàn | ọlakàn ọsàn</annotation>
 		<annotation cp="🧡" type="tts">ọlakàn ọsàn</annotation>
 		<annotation cp="💛">Ọkan Awọ Ofeefe | yẹ́lò</annotation>
@@ -277,10 +539,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💚" type="tts">Ọkan Awọ Ewe</annotation>
 		<annotation cp="💙">búlù | Ọkan Bulu</annotation>
 		<annotation cp="💙" type="tts">Ọkan Bulu</annotation>
+		<annotation cp="🩵">búlùú díẹ̀ | ọkàn | okàn buluu díè | síyánì | tílì</annotation>
+		<annotation cp="🩵" type="tts">okàn buluu díè</annotation>
 		<annotation cp="💜">Ọkan Awọ Pọpu | pọ́pù</annotation>
 		<annotation cp="💜" type="tts">Ọkan Awọ Pọpu</annotation>
+		<annotation cp="🤎">awo igi / ọkàn | ọkàn awo igi</annotation>
+		<annotation cp="🤎" type="tts">ọkàn awo igi</annotation>
 		<annotation cp="🖤">dúdú | èṣù | ìkà | Ọkàn Dúdú</annotation>
 		<annotation cp="🖤" type="tts">Ọkàn Dúdú</annotation>
+		<annotation cp="🩶">eérú | ọkàn | ọkan eerú | sífà | síléètì</annotation>
+		<annotation cp="🩶" type="tts">ọkan eerú</annotation>
+		<annotation cp="🤍">ọkàn / funfun | ọkàn funfun</annotation>
+		<annotation cp="🤍" type="tts">ọkàn funfun</annotation>
+		<annotation cp="💋">Aami Ifẹnuko | ètè | fẹnukonu</annotation>
+		<annotation cp="💋" type="tts">Aami Ifẹnuko</annotation>
 		<annotation cp="💯">100 | ìṣirò | koko ọgọrun | kún | ọgọ́rùn</annotation>
 		<annotation cp="💯" type="tts">koko ọgọrun</annotation>
 		<annotation cp="💢">Àmì Ibinu | àwàdà | bínú</annotation>
@@ -295,8 +567,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💨" type="tts">N Salọ</annotation>
 		<annotation cp="🕳">ihò</annotation>
 		<annotation cp="🕳" type="tts">ihò</annotation>
-		<annotation cp="💣">àwàdà | Bọmbu</annotation>
-		<annotation cp="💣" type="tts">Bọmbu</annotation>
 		<annotation cp="💬">àdàlú | àwàdà | bàlú | Bàlúnù Ọ̀rọ̀ Sísọ | ìtàkùrọ̀sọ | ọ̀rọ̀</annotation>
 		<annotation cp="💬" type="tts">Bàlúnù Ọ̀rọ̀ Sísọ</annotation>
 		<annotation cp="👁‍🗨">bàlú ọ̀rọ̀ | ẹléri | eyinjú | ojú ní àlú ọ̀rọ̀</annotation>
@@ -319,12 +589,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✋" type="tts">Ọwọ Nina Soke</annotation>
 		<annotation cp="🖖">ìka | Kiki Ibẹri Funni | ọwọ́ | spock | vulcan</annotation>
 		<annotation cp="🖖" type="tts">Kiki Ibẹri Funni</annotation>
+		<annotation cp="🫱">apá ọtún | ọtún | owọ́ | ọwọ́ ọ̀tún</annotation>
+		<annotation cp="🫱" type="tts">ọwọ́ ọ̀tún</annotation>
+		<annotation cp="🫲">apa [posí | òsì | owo | ọwọ́ òsì</annotation>
+		<annotation cp="🫲" type="tts">ọwọ́ òsì</annotation>
+		<annotation cp="🫳">àtẹ́lẹ̀wọ́ ìsàlẹ̀ | jabọ̀ | lé lọ | ọwọ́ ìsàlẹ̀ | shoo</annotation>
+		<annotation cp="🫳" type="tts">àtẹ́lẹ̀wọ́ ìsàlẹ̀</annotation>
+		<annotation cp="🫴">àtẹ́lẹwọ́ òkè | fún | mú | ọwọ́ òkè | pè | wá</annotation>
+		<annotation cp="🫴" type="tts">àtẹ́lẹwọ́ òkè</annotation>
+		<annotation cp="🫷">apa osi | duro | ìka ọwọ́ márùn | kùnà | ti | títi ọwọ́ sọ́sì</annotation>
+		<annotation cp="🫷" type="tts">títi ọwọ́ sọ́sì</annotation>
+		<annotation cp="🫸">apa ọ̀tún | duro | ìka ọwọ́ márùn | kùnà | ti | títi ọwọ́ sọ́tun</annotation>
+		<annotation cp="🫸" type="tts">títi ọwọ́ sọ́tun</annotation>
 		<annotation cp="👌">ÓDÁRA | ọwọ́ | Ọwọ ODARA</annotation>
 		<annotation cp="👌" type="tts">Ọwọ ODARA</annotation>
+		<annotation cp="🤌">ẹ̀fẹ̀ | ìfiwọ́ sọ̀rọ̀ | ìka | ìka kíkákò | ìwanulẹ́nuwò | yín</annotation>
+		<annotation cp="🤌" type="tts">ìka kíkákò</annotation>
+		<annotation cp="🤏">ìka kíká | owó kẹ̀keré | ọwọ́ yínyín</annotation>
+		<annotation cp="🤏" type="tts">ìka kíká</annotation>
 		<annotation cp="✌">aṣeyọrí | ọwọ́ | v</annotation>
 		<annotation cp="✌" type="tts">aṣeyọrí ọwọ́</annotation>
 		<annotation cp="🤞">dábùú | Igbekalera | ìka | orírere | ọwọ́</annotation>
 		<annotation cp="🤞" type="tts">Igbekalera</annotation>
+		<annotation cp="🫰">heart | ìfẹ́ | owó | ọwọ́ pẹ̀lú ìka kekeré | ọwọ́ pẹ̀lú ìka kẹ́keré àti ìka ńlá ní pípapọ̀ | snap àti atanpako to wà papọ̀ | wọ́n</annotation>
+		<annotation cp="🫰" type="tts">ọwọ́ pẹ̀lú ìka kẹ́keré àti ìka ńlá ní pípapọ̀</annotation>
 		<annotation cp="🤟">ìfọwọ́júwè mo ní ìfẹ́ | ILY | Ọwọ́</annotation>
 		<annotation cp="🤟" type="tts">ìfọwọ́júwè mo ní ìfẹ́</annotation>
 		<annotation cp="🤘">19900 | Aami Awọn Iwo | ìka | ìwo | ọwọ́</annotation>
@@ -343,6 +631,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👇" type="tts">Ẹyin Ọwọ Ti O Tọka Si Isalẹ</annotation>
 		<annotation cp="☝">ìka | ìka kékeré | ìka kékeré tí ń tọ́ka sókè | ọwọ́ | sókè | tọ́ka</annotation>
 		<annotation cp="☝" type="tts">ìka kékeré tí ń tọ́ka sókè</annotation>
+		<annotation cp="🫵">idi | iwo | nina owo kekere si oluworan | títọ́ka sí olùwòran</annotation>
+		<annotation cp="🫵" type="tts">títọ́ka sí olùwòran</annotation>
 		<annotation cp="👍">+1 | àtànpàkò | Atanpako Loke | òkè | ọwọ́</annotation>
 		<annotation cp="👍" type="tts">Atanpako Loke</annotation>
 		<annotation cp="👎">-1 | àtànpàkò | Atanpako Nisalẹ | ìsàlẹ̀ | ọwọ́</annotation>
@@ -359,6 +649,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👏" type="tts">N Patẹwọ</annotation>
 		<annotation cp="🙌">ayẹyẹ | fọwọ́júwè | hooray | Ina Awọn Ọwọ | nawọ́ | ọwọ́</annotation>
 		<annotation cp="🙌" type="tts">Ina Awọn Ọwọ</annotation>
+		<annotation cp="🫶">ìfẹ́ | ọwọ́ ọkàn</annotation>
+		<annotation cp="🫶" type="tts">ọwọ́ ọkàn</annotation>
 		<annotation cp="👐">Awọn Ọwọ Ṣiṣi | ọwọ́ | ṣí</annotation>
 		<annotation cp="👐" type="tts">Awọn Ọwọ Ṣiṣi</annotation>
 		<annotation cp="🤲">àdúrà | àtẹ́lẹ́ọwọ́ papọ̀</annotation>
@@ -375,12 +667,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤳" type="tts">Yiya Ara ẹni</annotation>
 		<annotation cp="💪">àwàdà | Aya Fifẹ | egun ọwọ́ | iṣan | nà</annotation>
 		<annotation cp="💪" type="tts">Aya Fifẹ</annotation>
+		<annotation cp="🦾">apa ise | apá iṣẹ̀ | ona lati gba</annotation>
+		<annotation cp="🦾" type="tts">apá iṣẹ̀</annotation>
+		<annotation cp="🦿">ese ise | ona lati gba | pa ise</annotation>
+		<annotation cp="🦿" type="tts">ese ise</annotation>
+		<annotation cp="🦵">ese | ẹ́sẹ | gbá</annotation>
+		<annotation cp="🦵" type="tts">ese</annotation>
+		<annotation cp="🦶">ese | ẹsẹ̀ | gba | idiurop</annotation>
+		<annotation cp="🦶" type="tts">ẹsẹ̀</annotation>
 		<annotation cp="👂">Ara | Etí</annotation>
 		<annotation cp="👂" type="tts">Etí</annotation>
+		<annotation cp="🦻">etí pẹ̀lú ohun ìgbọ́ràn | gbọ̀ pẹ̀lu elo | ona igba</annotation>
+		<annotation cp="🦻" type="tts">etí pẹ̀lú ohun ìgbọ́ràn</annotation>
 		<annotation cp="👃">Ara | Imu</annotation>
 		<annotation cp="👃" type="tts">Imu</annotation>
 		<annotation cp="🧠">ọmọwé | ọpọlọ</annotation>
 		<annotation cp="🧠" type="tts">ọpọlọ</annotation>
+		<annotation cp="🫀">ọkàn | ọ̀kan alára | pa ise | pọ́ọ̀sì</annotation>
+		<annotation cp="🫀" type="tts">ọ̀kan alára</annotation>
+		<annotation cp="🫁">e sínú | eémi | ẹ̀yà èémí | igb | igbe síta</annotation>
+		<annotation cp="🫁" type="tts">ẹ̀yà èémí</annotation>
+		<annotation cp="🦷">àwọ́n eyín | eyín | yọyínyọyín</annotation>
+		<annotation cp="🦷" type="tts">eyín</annotation>
+		<annotation cp="🦴">eegun | egun | igi ara</annotation>
+		<annotation cp="🦴" type="tts">eegun</annotation>
 		<annotation cp="👀">Awọn Ojú | eyinjú | ojú</annotation>
 		<annotation cp="👀" type="tts">Awọn Ojú</annotation>
 		<annotation cp="👁">Ara | eyinjú</annotation>
@@ -389,6 +699,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👅" type="tts">Ahọn</annotation>
 		<annotation cp="👄">Ẹnu | ètè</annotation>
 		<annotation cp="👄" type="tts">Ẹnu</annotation>
+		<annotation cp="🫦">aifokanbale | ètè gígé | get ete jẹ́ | láti fẹ́ | se aniyan</annotation>
+		<annotation cp="🫦" type="tts">ètè gígé</annotation>
 		<annotation cp="👶">ìkókó | ọ̀dọ́</annotation>
 		<annotation cp="👶" type="tts">ìkókó</annotation>
 		<annotation cp="🧒">gé̩ndà-ṣekuṣẹyẹ | màjèsín | ọmọ</annotation>
@@ -453,6 +765,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙋‍♂" type="tts">ọkùnrintí ń nawọ́ sókè</annotation>
 		<annotation cp="🙋‍♀">fọwọ́júwè | nawọ́ sókè | obìnrin | obìnrin tí ń nawọ́ sókè</annotation>
 		<annotation cp="🙋‍♀" type="tts">obìnrin tí ń nawọ́ sókè</annotation>
+		<annotation cp="🧏">etí | gbọ́ | odi | odí ènìyàn</annotation>
+		<annotation cp="🧏" type="tts">odi</annotation>
 		<annotation cp="🙇">bẹ̀bẹ̀ | Ẹni N Tẹriba | fọwọ́júwè | pẹ̀lẹ́ | tẹríba</annotation>
 		<annotation cp="🙇" type="tts">Ẹni N Tẹriba</annotation>
 		<annotation cp="🙇‍♂">àànú | bẹ̀bẹ̀ | fọwọ́júwè | ọkùnrin | ọkùnrin tí ń tẹríba | pẹ̀lẹ́ | títẹríba</annotation>
@@ -553,12 +867,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💂‍♂" type="tts">ọkùnrin olùṣọ́</annotation>
 		<annotation cp="💂‍♀">obìnrin | olùṣọ́</annotation>
 		<annotation cp="💂‍♀" type="tts">obìnrin olùṣọ́</annotation>
+		<annotation cp="🥷">ajagun | ninja | nínjà | oja | sápamọ́</annotation>
+		<annotation cp="🥷" type="tts">nínjà</annotation>
 		<annotation cp="👷">fìlà | òṣìṣẹ́ | Oṣiṣẹ Ikọle | òṣiṣẹ́ ìkọle</annotation>
 		<annotation cp="👷" type="tts">Oṣiṣẹ Ikọle</annotation>
 		<annotation cp="👷‍♂">ọkùnrin | òṣìṣẹ́ | òṣiṣẹ́ ìkọle | òṣiṣẹ́ ìkọ́lé ọkùnrin</annotation>
 		<annotation cp="👷‍♂" type="tts">òṣiṣẹ́ ìkọ́lé ọkùnrin</annotation>
 		<annotation cp="👷‍♀">obìnrin | òṣìṣẹ́ | òṣiṣẹ́ ìkọle | òṣiṣẹ́ ìkọ́lé obìnrin</annotation>
 		<annotation cp="👷‍♀" type="tts">òṣiṣẹ́ ìkọ́lé obìnrin</annotation>
+		<annotation cp="🫅">ènìyàn pẹ̀lú adé | idile oba | idíle oba | ọmọ idile ọba</annotation>
+		<annotation cp="🫅" type="tts">ènìyàn pẹ̀lú adé</annotation>
 		<annotation cp="🤴">Ọmọkunrin Alade</annotation>
 		<annotation cp="🤴" type="tts">Ọmọkunrin Alade</annotation>
 		<annotation cp="👸">àlá | ìtàn ọmọdé | Ọmọbinrin Alade</annotation>
@@ -579,6 +897,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👰" type="tts">Iyawo Pẹlu Iboju</annotation>
 		<annotation cp="🤰">alaboyun | obinrin</annotation>
 		<annotation cp="🤰" type="tts">obinrin alaboyun</annotation>
+		<annotation cp="🫃">aláboyún ọkùnrin | ikù | kún | lóyún ọkùnrin | tobi</annotation>
+		<annotation cp="🫃" type="tts">aláboyún ọkùnrin</annotation>
+		<annotation cp="🫄">aláboyún | aláboyún ọkùnrin | ikù | kún | lóyún | tobi</annotation>
+		<annotation cp="🫄" type="tts">aláboyún</annotation>
 		<annotation cp="🤱">ìfọ́mọlọ́yàn | ìkókó | ìtọ́jú ọmọ | ọyọ̀n</annotation>
 		<annotation cp="🤱" type="tts">ìfọ́mọlọ́yàn</annotation>
 		<annotation cp="👼">àlá | áńgẹ́lì | ángẹli ìkókó | ìkókó | ìtàn ọmọdé | ojú</annotation>
@@ -587,6 +909,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎅" type="tts">Baba Keresi</annotation>
 		<annotation cp="🤶">[kẹrẹsí | Arabinrin Keresi | ayẹyẹ | ìyá | kérésì | omidan</annotation>
 		<annotation cp="🤶" type="tts">Arabinrin Keresi</annotation>
+		<annotation cp="🦸">akin nlá | akin obìnrin | akin ọ̀kùnrin | akọni alágbára | alágbára ńla | dára</annotation>
+		<annotation cp="🦸" type="tts">akọni alágbára</annotation>
+		<annotation cp="🦹">[búburú | alágbára nlá | alátakọ̀ | alátakọ̀ alágbára | ọ̀dàran</annotation>
+		<annotation cp="🦹" type="tts">alátakọ̀ alágbára</annotation>
 		<annotation cp="🧙">àjẹ́ | onídán | oṣó</annotation>
 		<annotation cp="🧙" type="tts">onídán</annotation>
 		<annotation cp="🧙‍♂">Ọkùnrin onídán | Oṣó</annotation>
@@ -629,6 +955,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧟‍♂" type="tts">Ẹbọra ọkùnrin</annotation>
 		<annotation cp="🧟‍♀">Àìlèkú | àkúdáàyà | Ẹbọra obìnrin</annotation>
 		<annotation cp="🧟‍♀" type="tts">Ẹbọra obìnrin</annotation>
+		<annotation cp="🧌">alo | ero okan | esu | iwin | iwin nlá</annotation>
+		<annotation cp="🧌" type="tts">iwin nlá</annotation>
 		<annotation cp="💆">ẹni N gba Iṣẹ | ìfiránṣẹ́ | ilé onídìrí | ojú</annotation>
 		<annotation cp="💆" type="tts">ẹni N gba Iṣẹ</annotation>
 		<annotation cp="💆‍♂">ìfiránṣẹ́ | ojú | ọkùnrin | ọkùnrin tí ń gba ìfiránṣẹ́</annotation>
@@ -647,6 +975,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚶‍♂" type="tts">ọkùnrin tí ń rìn</annotation>
 		<annotation cp="🚶‍♀">ìrìn | obìnrin | obìnrin tí ń rìn</annotation>
 		<annotation cp="🚶‍♀" type="tts">obìnrin tí ń rìn</annotation>
+		<annotation cp="🧍">dídúró | dúró | ènìyàn dídúró</annotation>
+		<annotation cp="🧍" type="tts">ènìyàn dídúró</annotation>
+		<annotation cp="🧎">ènìyàn kíkúnlẹ̀ | kíkúnlẹ̀ | kúnlẹ̀</annotation>
+		<annotation cp="🧎" type="tts">ènìyàn kíkúnlẹ̀</annotation>
 		<annotation cp="🏃">Ẹni N Sare | eré | sáré</annotation>
 		<annotation cp="🏃" type="tts">Ẹni N Sare</annotation>
 		<annotation cp="🏃‍♂">eré | eré ìdíjẹ | ọkùnrin | ọkùnrin tí ń sáré | sáré</annotation>
@@ -791,24 +1123,40 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👤" type="tts">Bujade Ni Biribiri</annotation>
 		<annotation cp="👥">Awọn Ibujade Ni Biribiri | bíríbírí | bújáde</annotation>
 		<annotation cp="👥" type="tts">Awọn Ibujade Ni Biribiri</annotation>
+		<annotation cp="🫂">àwọn ènìyàn tóndìmọ́ra | àwọn ènìyanń dí mọ́ra | bawo ni | di mọra | o dabo | o ṣé</annotation>
+		<annotation cp="🫂" type="tts">àwọn ènìyàn tóndìmọ́ra</annotation>
 		<annotation cp="👣">aṣọ | Ipa ẹsẹ | ipasẹ̀ | ìpasẹ̀</annotation>
 		<annotation cp="👣" type="tts">Ipa ẹsẹ</annotation>
+		<annotation cp="🦰">irun pupa | jínjà | orípupa</annotation>
+		<annotation cp="🦰" type="tts">irun pupa</annotation>
+		<annotation cp="🦱">àwọn ríngì | dúdúláwọ̀ | irun rírọ̀ | rírọ̀</annotation>
+		<annotation cp="🦱" type="tts">irun rírọ̀</annotation>
+		<annotation cp="🦳">arúgbó | funfun | gíréè | irun</annotation>
+		<annotation cp="🦳" type="tts">irun funfun</annotation>
+		<annotation cp="🦲">àìínírun | ìfárí | kimotẹ́rápì | kòsí irun | orí pípá</annotation>
+		<annotation cp="🦲" type="tts">orí pípá</annotation>
 		<annotation cp="🐵">ọ̀bọ | ojú | Oju Ọbọ</annotation>
 		<annotation cp="🐵" type="tts">Oju Ọbọ</annotation>
 		<annotation cp="🐒">Ọ̀bọ</annotation>
 		<annotation cp="🐒" type="tts">Ọ̀bọ</annotation>
 		<annotation cp="🦍">Inaki</annotation>
 		<annotation cp="🦍" type="tts">Inaki</annotation>
+		<annotation cp="🦧">aapù | oraguta | oragutan</annotation>
+		<annotation cp="🦧" type="tts">oraguta</annotation>
 		<annotation cp="🐶">ajá | ǹkan ìsìn | ojú | Ojú ajá</annotation>
 		<annotation cp="🐶" type="tts">Ojú ajá</annotation>
 		<annotation cp="🐕">Ajá | ńkan ìsìn</annotation>
 		<annotation cp="🐕" type="tts">Ajá</annotation>
+		<annotation cp="🦮">ajá ìtóni | ajá ìtọ̀ni | fọ́jú | tọ́ni</annotation>
+		<annotation cp="🦮" type="tts">ajá ìtóni</annotation>
 		<annotation cp="🐩">Ajá | Ajá kékeré</annotation>
 		<annotation cp="🐩" type="tts">Ajá kékeré</annotation>
 		<annotation cp="🐺">ìkookò | ojú | Oju Ikooko</annotation>
 		<annotation cp="🐺" type="tts">Oju Ikooko</annotation>
 		<annotation cp="🦊">kọlọkọlọ | ojú | Oju Kọlọkọlọ</annotation>
 		<annotation cp="🦊" type="tts">Oju Kọlọkọlọ</annotation>
+		<annotation cp="🦝">rakumi | rakumin | wiwa</annotation>
+		<annotation cp="🦝" type="tts">rakumi</annotation>
 		<annotation cp="🐱">ǹkan ìsìn | ojú | Ojú olóńgbò | olóńgò</annotation>
 		<annotation cp="🐱" type="tts">Ojú olóńgbò</annotation>
 		<annotation cp="🐈">ńkan ìsìn | Olóńgbò</annotation>
@@ -823,6 +1171,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐆" type="tts">Àmọ̀tẹ́kùn</annotation>
 		<annotation cp="🐴">ẹṣin | ojú | Oju Ẹṣin</annotation>
 		<annotation cp="🐴" type="tts">Oju Ẹṣin</annotation>
+		<annotation cp="🫎">ẹmọ́ | erank inuomi | eranko</annotation>
+		<annotation cp="🫎" type="tts">ẹmọ́</annotation>
+		<annotation cp="🫏">burò | eranko | ijọ̀gbọ̀n | ketekete | kẹ́tẹ́kẹ́tẹ́</annotation>
+		<annotation cp="🫏" type="tts">kẹ́tẹ́kẹ́tẹ́</annotation>
 		<annotation cp="🐎">equestrian | eṣi ìsáré | Ẹṣin | ìsáré</annotation>
 		<annotation cp="🐎" type="tts">Ẹṣin</annotation>
 		<annotation cp="🦄">eṣin oníwo | ojú | Oju Ẹṣin Oniwo</annotation>
@@ -831,6 +1183,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦓" type="tts">kẹ́tẹ́kẹ́tẹ́ abìla</annotation>
 		<annotation cp="🦌">Agbọnrin</annotation>
 		<annotation cp="🦌" type="tts">Agbọnrin</annotation>
+		<annotation cp="🦬">bison | bísonú | búfálò</annotation>
+		<annotation cp="🦬" type="tts">bison</annotation>
 		<annotation cp="🐮">maalu | oju | Oju Maalu</annotation>
 		<annotation cp="🐮" type="tts">Oju Maalu</annotation>
 		<annotation cp="🐂">àmi oṣù ìbí | Ẹgbọrọ maalu | ẹgbọrọ màlálù | Taurus</annotation>
@@ -857,12 +1211,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐪" type="tts">Kẹtẹkẹtẹ</annotation>
 		<annotation cp="🐫">iké | Kẹtẹkẹtẹ Onike-Meji | ràkúmí | ràkúmí oníké méjì</annotation>
 		<annotation cp="🐫" type="tts">Kẹtẹkẹtẹ Onike-Meji</annotation>
+		<annotation cp="🦙">alapaka | llama | owu</annotation>
+		<annotation cp="🦙" type="tts">llama</annotation>
 		<annotation cp="🦒">àgùfọn | àwọn àyè</annotation>
 		<annotation cp="🦒" type="tts">àgùfọn</annotation>
 		<annotation cp="🐘">Erin</annotation>
 		<annotation cp="🐘" type="tts">Erin</annotation>
+		<annotation cp="🦣">mamoti | mamotì | pare | tobi</annotation>
+		<annotation cp="🦣" type="tts">mamotì</annotation>
 		<annotation cp="🦏">Ẹranko Imado</annotation>
 		<annotation cp="🦏" type="tts">Ẹranko Imado</annotation>
+		<annotation cp="🦛">hipopo | hipopotámọ́ọ̀sì</annotation>
+		<annotation cp="🦛" type="tts">hipopotámọ́ọ̀sì</annotation>
 		<annotation cp="🐭">ekú | ojú | Ọju Eku</annotation>
 		<annotation cp="🐭" type="tts">Ọju Eku</annotation>
 		<annotation cp="🐁">Eku</annotation>
@@ -877,6 +1237,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐇" type="tts">Ehoro</annotation>
 		<annotation cp="🐿">eku ńlá</annotation>
 		<annotation cp="🐿" type="tts">eku ńlá</annotation>
+		<annotation cp="🦫">bifa | damú</annotation>
+		<annotation cp="🦫" type="tts">bifa</annotation>
 		<annotation cp="🦔">ẹlẹ́gùń | hedgehog</annotation>
 		<annotation cp="🦔" type="tts">hedgehog</annotation>
 		<annotation cp="🦇">Adan | àdán | amùjẹ́</annotation>
@@ -887,6 +1249,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐨" type="tts">Koala</annotation>
 		<annotation cp="🐼">ojú | Oju Panda | pándà</annotation>
 		<annotation cp="🐼" type="tts">Oju Panda</annotation>
+		<annotation cp="🦥">asẹ́wó | àsẹ́wó | dìẹ̀dìẹ̀ | ọlẹ́</annotation>
+		<annotation cp="🦥" type="tts">àsẹ́wó</annotation>
+		<annotation cp="🦦">ota | peja | sere</annotation>
+		<annotation cp="🦦" type="tts">ota</annotation>
+		<annotation cp="🦨">rùn | skọ́nk | Vote òkété igbó</annotation>
+		<annotation cp="🦨" type="tts">Vote òkété igbó</annotation>
+		<annotation cp="🦘">fo | kangaròó | kangaròó } Australia</annotation>
+		<annotation cp="🦘" type="tts">kangaròó</annotation>
+		<annotation cp="🦡">bájà | bája oloyin</annotation>
+		<annotation cp="🦡" type="tts">bájà</annotation>
 		<annotation cp="🐾">Apa Eekan | àtẹ́lẹ́ ọwa | ẹsẹ̀ | ipa</annotation>
 		<annotation cp="🐾" type="tts">Apa Eekan</annotation>
 		<annotation cp="🦃">ẹyẹ | Tólòtólò | tòlótòló</annotation>
@@ -911,8 +1283,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦅" type="tts">Àṣá</annotation>
 		<annotation cp="🦆">ẹyẹ | pẹ́pẹ́yẹ | Pẹ́pẹ́yẹ</annotation>
 		<annotation cp="🦆" type="tts">Pẹ́pẹ́yẹ</annotation>
+		<annotation cp="🦢">eye | ẹyẹ swan | pepeye | síwan</annotation>
+		<annotation cp="🦢" type="tts">ẹyẹ swan</annotation>
 		<annotation cp="🦉">ẹyẹ | ọlọ́ngbọ́n | Owiwi | òwìwí</annotation>
 		<annotation cp="🦉" type="tts">Owiwi</annotation>
+		<annotation cp="🦤">dodo | ẹyẹ dodo | pare | tobi</annotation>
+		<annotation cp="🦤" type="tts">ẹyẹ dodo</annotation>
+		<annotation cp="🪶">eye | ina | iye | ìyẹ́ | sare</annotation>
+		<annotation cp="🪶" type="tts">ìyẹ́</annotation>
+		<annotation cp="🦩">fìlàmígò | tobi | Vote ẹyẹ flamingò</annotation>
+		<annotation cp="🦩" type="tts">Vote ẹyẹ flamingò</annotation>
+		<annotation cp="🦚">eye | fihan | gberaga | okin | ọ̀kín</annotation>
+		<annotation cp="🦚" type="tts">ọ̀kín</annotation>
+		<annotation cp="🦜">aparo | àparò | eye | soro</annotation>
+		<annotation cp="🦜" type="tts">àparò</annotation>
+		<annotation cp="🪽">angeli | eye | fifo | itan | iye</annotation>
+		<annotation cp="🪽" type="tts">iye</annotation>
+		<annotation cp="🪿">adie | atioro | eye | lekeleke | tòlotòló</annotation>
+		<annotation cp="🪿" type="tts">tòlotòló</annotation>
 		<annotation cp="🐸">ojú | Oju Ọpọlọ | ọpọlọ</annotation>
 		<annotation cp="🐸" type="tts">Oju Ọpọlọ</annotation>
 		<annotation cp="🐊">Ọni</annotation>
@@ -937,6 +1325,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐋" type="tts">Ẹja Nla</annotation>
 		<annotation cp="🐬">Dọfini | Ohun lúwë</annotation>
 		<annotation cp="🐬" type="tts">Dọfini</annotation>
+		<annotation cp="🦭">alákàsà | kìnìún odò</annotation>
+		<annotation cp="🦭" type="tts">alákàsà</annotation>
 		<annotation cp="🐟">àmi oṣù ìbí | Ẹja | Pisces</annotation>
 		<annotation cp="🐟" type="tts">Ẹja</annotation>
 		<annotation cp="🐠">Ẹja | oorùn</annotation>
@@ -949,6 +1339,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐙" type="tts">Ẹja ẹlẹsẹ mẹjọ</annotation>
 		<annotation cp="🐚">àyíká | Ikarahun | Onikaraun Pinpin</annotation>
 		<annotation cp="🐚" type="tts">Onikaraun Pinpin</annotation>
+		<annotation cp="🪸">kóra | kórà | okun | rifu</annotation>
+		<annotation cp="🪸" type="tts">kórà</annotation>
+		<annotation cp="🪼">ẹ̀ja jẹ́lì | jeli | jo | omi</annotation>
+		<annotation cp="🪼" type="tts">ẹ̀ja jẹ́lì</annotation>
 		<annotation cp="🐌">Ìgbín</annotation>
 		<annotation cp="🐌" type="tts">Ìgbín</annotation>
 		<annotation cp="🦋">arẹwà | kòkòrò | Labalaba | labalábá</annotation>
@@ -959,22 +1353,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐜" type="tts">Kokoro</annotation>
 		<annotation cp="🐝">kòkòrò | kòkòrò oyin | Oyin</annotation>
 		<annotation cp="🐝" type="tts">Oyin</annotation>
+		<annotation cp="🪲">bítù | eèra | kokoro</annotation>
+		<annotation cp="🪲" type="tts">bítù</annotation>
 		<annotation cp="🐞">kòkòrò | obounboùn | obounboùn kékeré | Yigbẹ-yigbẹ</annotation>
 		<annotation cp="🐞" type="tts">Yigbẹ-yigbẹ</annotation>
 		<annotation cp="🦗">tata | tata gígùn</annotation>
 		<annotation cp="🦗" type="tts">tata gígùn</annotation>
+		<annotation cp="🪳">ayán | eera | Eṣinṣin | Irawọ</annotation>
+		<annotation cp="🪳" type="tts">ayán</annotation>
 		<annotation cp="🕷">aláõtakùn | kòkòrò</annotation>
 		<annotation cp="🕷" type="tts">aláõtakùn</annotation>
 		<annotation cp="🕸">ìtakùn | ìtakùnaláõtakùn</annotation>
 		<annotation cp="🕸" type="tts">ìtakùnaláõtakùn</annotation>
 		<annotation cp="🦂">Àkekè | àmi oṣù ìbí | scorpio | Scorpius</annotation>
 		<annotation cp="🦂" type="tts">Àkekè</annotation>
+		<annotation cp="🦟">aisan | arun | ẹfọn | ẹ̀fọ́n | farọ́ọ̀sì | iba</annotation>
+		<annotation cp="🦟" type="tts">ẹ̀fọ́n</annotation>
+		<annotation cp="🪰">arun | baje | esinsin | eṣinṣin | idun</annotation>
+		<annotation cp="🪰" type="tts">eṣinṣin</annotation>
+		<annotation cp="🪱">ekolo | ekòló | ekolo ile | kokoro</annotation>
+		<annotation cp="🪱" type="tts">ekòló</annotation>
+		<annotation cp="🦠">à[san | maikirobu | maíkírobù</annotation>
+		<annotation cp="🦠" type="tts">maikirobu</annotation>
 		<annotation cp="💐">Àsè | Odòdó</annotation>
 		<annotation cp="💐" type="tts">Àsè</annotation>
 		<annotation cp="🌸">Iruwe Ṣẹri | ìtànná | Odòdó | ṣẹẹri</annotation>
 		<annotation cp="🌸" type="tts">Iruwe Ṣẹri</annotation>
 		<annotation cp="💮">Odòdó | Ododo Funfun</annotation>
 		<annotation cp="💮" type="tts">Ododo Funfun</annotation>
+		<annotation cp="🪷">esin Hindu | India | lotosi | ododo</annotation>
+		<annotation cp="🪷" type="tts">lotosi</annotation>
 		<annotation cp="🏵">õgbìn | Ohun Odòdó ọṣọ</annotation>
 		<annotation cp="🏵" type="tts">Ohun Odòdó ọṣọ</annotation>
 		<annotation cp="🌹">Ododo | Odòdó</annotation>
@@ -989,8 +1397,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌼" type="tts">Iruwe</annotation>
 		<annotation cp="🌷">Odòdó | Tulipu</annotation>
 		<annotation cp="🌷" type="tts">Tulipu</annotation>
+		<annotation cp="🪻">hayasinti | lafendà | lupini | ododo</annotation>
+		<annotation cp="🪻" type="tts">hayasinti</annotation>
 		<annotation cp="🌱">Ihoro eso | wẹ́wẹ́</annotation>
 		<annotation cp="🌱" type="tts">Ihoro eso</annotation>
+		<annotation cp="🪴">dagba | eso pootù | ile | sá | tojú</annotation>
+		<annotation cp="🪴" type="tts">eso pootù</annotation>
 		<annotation cp="🌲">Igi | Igi Aruwe</annotation>
 		<annotation cp="🌲" type="tts">Igi Aruwe</annotation>
 		<annotation cp="🌳">igi | Igi Igbo | Igi to nta ewe lôdọ dún | ti</annotation>
@@ -1013,6 +1425,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍂" type="tts">Irawe</annotation>
 		<annotation cp="🍃">afẹfẹ | Ewé | Ewe Ti N Fanka Ninu Iji | fẹ | fo bákàn</annotation>
 		<annotation cp="🍃" type="tts">Ewe Ti N Fanka Ninu Iji</annotation>
+		<annotation cp="🪹">ibi ìyéeyin òfìfo | ibi iyeyin ofo | yiye</annotation>
+		<annotation cp="🪹" type="tts">ibi ìyéeyin òfìfo</annotation>
+		<annotation cp="🪺">ibi ìyéeyin pẹ̀lú ẹyin | yíyé</annotation>
+		<annotation cp="🪺" type="tts">ibi ìyéeyin pẹ̀lú ẹyin</annotation>
+		<annotation cp="🍄">Olu | olú pupa</annotation>
+		<annotation cp="🍄" type="tts">Olu</annotation>
 		<annotation cp="🍇">Èso | èso àjàrà | Girapu</annotation>
 		<annotation cp="🍇" type="tts">Girapu</annotation>
 		<annotation cp="🍈">Ẹ̀gúsí | Èso</annotation>
@@ -1027,6 +1445,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍌" type="tts">Ọ̀gẹ̀dẹ̀</annotation>
 		<annotation cp="🍍">Èso | Ọpẹ-oyinbo</annotation>
 		<annotation cp="🍍" type="tts">Ọpẹ-oyinbo</annotation>
+		<annotation cp="🥭">eka ojo rírọ̀ | èso | mángò</annotation>
+		<annotation cp="🥭" type="tts">mángò</annotation>
 		<annotation cp="🍎">apù | Apu Pupa | èso | pupa</annotation>
 		<annotation cp="🍎" type="tts">Apu Pupa</annotation>
 		<annotation cp="🍏">apù | Apu Alawọ Ewe | àwọ̀ ewé | èso</annotation>
@@ -1039,10 +1459,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍒" type="tts">Ṣẹẹri</annotation>
 		<annotation cp="🍓">bẹ́rì | èso | Eso dundun</annotation>
 		<annotation cp="🍓" type="tts">Eso dundun</annotation>
+		<annotation cp="🫐">àwọ́n bẹ́rì búlù | bẹ́rì | bilìbẹ́rì | búlù</annotation>
+		<annotation cp="🫐" type="tts">bẹ́rì búlù</annotation>
 		<annotation cp="🥝">èso | Eso Kiwi | kíwì | ónjẹ</annotation>
 		<annotation cp="🥝" type="tts">Eso Kiwi</annotation>
 		<annotation cp="🍅">ẹ̀fọ́ | èso | Timati</annotation>
 		<annotation cp="🍅" type="tts">Timati</annotation>
+		<annotation cp="🫒">olifi | Olifi | oúnjẹ́</annotation>
+		<annotation cp="🫒" type="tts">Olifi</annotation>
 		<annotation cp="🥥">àgbọn | ọ̀pẹ | pina colada</annotation>
 		<annotation cp="🥥" type="tts">àgbọn</annotation>
 		<annotation cp="🥑">Afokado | afokádò | èso | ónjẹ</annotation>
@@ -1057,26 +1481,44 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌽" type="tts">Agbado</annotation>
 		<annotation cp="🌶">ata | gbígbónọ̀</annotation>
 		<annotation cp="🌶" type="tts">ata gbígbónọ̀</annotation>
+		<annotation cp="🫑">ata | efo | tatase | tàtàsé</annotation>
+		<annotation cp="🫑" type="tts">tàtàsé</annotation>
 		<annotation cp="🥒">ẹ̀fọ́ | kùkúmbà | Kùkúmbà | ónjẹ | píkù</annotation>
 		<annotation cp="🥒" type="tts">Kùkúmbà</annotation>
+		<annotation cp="🥬">efo | ẹ̀fọ́ | kabẹ́ẹ̀jì | tete</annotation>
+		<annotation cp="🥬" type="tts">ẹ̀fọ́</annotation>
 		<annotation cp="🥦">ewé ẹlẹ́fọ̀ọ́ | kabeji ìbílẹ̀</annotation>
 		<annotation cp="🥦" type="tts">ewé ẹlẹ́fọ̀ọ́</annotation>
-		<annotation cp="🍄">Olu | olú pupa</annotation>
-		<annotation cp="🍄" type="tts">Olu</annotation>
+		<annotation cp="🧄">fifi awo sí | gálíìkì | galilki</annotation>
+		<annotation cp="🧄" type="tts">gálíìkì</annotation>
+		<annotation cp="🧅">alùbosà | àlùbọ́sà | fifi awo si</annotation>
+		<annotation cp="🧅" type="tts">àlùbọ́sà</annotation>
 		<annotation cp="🥜">ẹ̀fọ́ | Ẹpa | ẹ̀pà | kóró inú èso | ónjẹ</annotation>
 		<annotation cp="🥜" type="tts">Ẹpa</annotation>
+		<annotation cp="🫘">edo | efo | ewa | ẹ̀wà | ounje</annotation>
+		<annotation cp="🫘" type="tts">ẹ̀wà</annotation>
 		<annotation cp="🌰">Kóró inú èso búránù | õgbìn</annotation>
 		<annotation cp="🌰" type="tts">Kóró inú èso búránù</annotation>
+		<annotation cp="🫚">ata | jínjà | oti</annotation>
+		<annotation cp="🫚" type="tts">jínjà</annotation>
+		<annotation cp="🫛">ea | eap | efo | ewa</annotation>
+		<annotation cp="🫛" type="tts">eap</annotation>
 		<annotation cp="🍞">Búrẹ́dì | búrẹ́dì gígé</annotation>
 		<annotation cp="🍞" type="tts">Búrẹ́dì</annotation>
 		<annotation cp="🥐">búrẹ́dì | faransé | kírísẹ́ntì | kurosanti | Kurosanti | ónjẹ</annotation>
 		<annotation cp="🥐" type="tts">Kurosanti</annotation>
 		<annotation cp="🥖">búrẹ́dì | Burẹdi Baguette | búrẹ́dì gbọọrọ | faransé | ónjẹ</annotation>
 		<annotation cp="🥖" type="tts">Burẹdi Baguette</annotation>
+		<annotation cp="🫓">buredi pelebe | búrẹ́ẹ̀dì pẹlẹpẹ | pita</annotation>
+		<annotation cp="🫓" type="tts">búrẹ́ẹ̀dì pẹlẹpẹ</annotation>
 		<annotation cp="🥨">lọ́pọ̀ | pretzel</annotation>
 		<annotation cp="🥨" type="tts">pretzel</annotation>
+		<annotation cp="🥯">bageli | bágẹ́lì | ibi ipese buredi | ounje aaro</annotation>
+		<annotation cp="🥯" type="tts">bágẹ́lì</annotation>
 		<annotation cp="🥞">Atike Ikunju | búrẹ́dì pẹlẹbẹ | crepe | ónjẹ</annotation>
 		<annotation cp="🥞" type="tts">Atike Ikunju</annotation>
+		<annotation cp="🧇">aimo nnkan | ounje arro | wafu | wáfù</annotation>
+		<annotation cp="🧇" type="tts">wáfù</annotation>
 		<annotation cp="🧀">Waara Wedge | wàrà</annotation>
 		<annotation cp="🧀" type="tts">Waara Wedge</annotation>
 		<annotation cp="🍖">eegun | ẹran | Ẹran Ara Egungun</annotation>
@@ -1101,8 +1543,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌮" type="tts">Taco</annotation>
 		<annotation cp="🌯">Burito | ónjẹ mẹ́síkò | wépò</annotation>
 		<annotation cp="🌯" type="tts">Burito</annotation>
+		<annotation cp="🫔">kopọ̀ | tamalé | ti mesiko</annotation>
+		<annotation cp="🫔" type="tts">tamalé</annotation>
 		<annotation cp="🥙">Burẹdi Afunpọ Pẹlẹbẹ | búrẹdì àfúnpọ̀ pẹlẹbẹ | falafe | gyro | kebab | ónjẹ | stuufe</annotation>
 		<annotation cp="🥙" type="tts">Burẹdi Afunpọ Pẹlẹbẹ</annotation>
+		<annotation cp="🧆">ewa | faláfẹ́l]i</annotation>
+		<annotation cp="🧆" type="tts">faláfẹ́l]i</annotation>
 		<annotation cp="🥚">ẹyin | Ẹyin | ónjẹ</annotation>
 		<annotation cp="🥚" type="tts">Ẹyin</annotation>
 		<annotation cp="🍳">Dídáná | dídín | ẹyin | páànù</annotation>
@@ -1111,12 +1557,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥘" type="tts">Paanu Ijẹun kekere</annotation>
 		<annotation cp="🍲">ìkòkò | Ikoko Ounjẹ | ọbẹ̀</annotation>
 		<annotation cp="🍲" type="tts">Ikoko Ounjẹ</annotation>
+		<annotation cp="🫕">fóndù | pọ́ọ̀tù | wara</annotation>
+		<annotation cp="🫕" type="tts">fóndù</annotation>
 		<annotation cp="🥣">abọ́ pẹ̀lú ṣíbí | àgbàdo | congee | ónjẹ àrọ̀</annotation>
 		<annotation cp="🥣" type="tts">abọ́ pẹ̀lú ṣíbí</annotation>
 		<annotation cp="🥗">eléwé | ónjẹ | sàláádì | Saladi Elewe</annotation>
 		<annotation cp="🥗" type="tts">Saladi Elewe</annotation>
 		<annotation cp="🍿">Gúgúrú</annotation>
 		<annotation cp="🍿" type="tts">Gúgúrú</annotation>
+		<annotation cp="🧈">bọ́tà | mílíkì</annotation>
+		<annotation cp="🧈" type="tts">bọ́tà</annotation>
+		<annotation cp="🧂">ero ounje | iyo | iyọ̀</annotation>
+		<annotation cp="🧂" type="tts">iyọ̀</annotation>
 		<annotation cp="🥫">agolo | ónjẹ inú agolo</annotation>
 		<annotation cp="🥫" type="tts">ónjẹ inú agolo</annotation>
 		<annotation cp="🍱">Apoti | Bento</annotation>
@@ -1143,6 +1595,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍤" type="tts">Ede Dindin</annotation>
 		<annotation cp="🍥">àkàrà òyìnbó | Eja dindin Pẹlu Swirl | ónjẹ oní fíláwà | swirl</annotation>
 		<annotation cp="🍥" type="tts">Eja dindin Pẹlu Swirl</annotation>
+		<annotation cp="🥮">akara osupa | àkàrà òsùpá | ayeye | igba ogbele</annotation>
+		<annotation cp="🥮" type="tts">àkàrà òsùpá</annotation>
 		<annotation cp="🍡">àdídùn | Dango | igi | japanese | ónjé dídùn | skewer</annotation>
 		<annotation cp="🍡" type="tts">Dango</annotation>
 		<annotation cp="🥟">empanada | gyōza | ìgbẹ́ | jiaozi | pierogi | potsticker</annotation>
@@ -1153,10 +1607,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥡" type="tts">àpótí àgbéjáde</annotation>
 		<annotation cp="🦀">Alákàn | àmi oṣù ìbí | Cancer</annotation>
 		<annotation cp="🦀" type="tts">Alákàn</annotation>
+		<annotation cp="🦞">akàn | alakan | ounje omi</annotation>
+		<annotation cp="🦞" type="tts">akàn</annotation>
 		<annotation cp="🦐">Ede | edé | ẹja inú ìkarahun | kékeré | ónjẹ</annotation>
 		<annotation cp="🦐" type="tts">Ede</annotation>
 		<annotation cp="🦑">mólúsì | ónjẹ | Sikidi | síkídì</annotation>
 		<annotation cp="🦑" type="tts">Sikidi</annotation>
+		<annotation cp="🦪">alákàn ńlá | bibe somi | pálì</annotation>
+		<annotation cp="🦪" type="tts">alákàn ńlá</annotation>
 		<annotation cp="🍦">àdídùn | fẹ́lẹ́ | kírímù | ónjẹ dídùn | Wara Didi Rirọ | yìnyín | yìnyín dídùn</annotation>
 		<annotation cp="🍦" type="tts">Wara Didi Rirọ</annotation>
 		<annotation cp="🍧">àdídùn | fá | ónjẹ dídùn | yìnyín | Yinyin Gige</annotation>
@@ -1171,6 +1629,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎂" type="tts">Àkàrà òyìnbó ọjọ́ìbí</annotation>
 		<annotation cp="🍰">àdídùn | Akara kekere | àkàrà òyìnbó | gígé | ónjẹ dídùn | ónjẹ oní fíláwà</annotation>
 		<annotation cp="🍰" type="tts">Akara kekere</annotation>
+		<annotation cp="🧁">akara oyinbo | ile ipese buredi</annotation>
+		<annotation cp="🧁" type="tts">akara oyinbo</annotation>
 		<annotation cp="🥧">àkàrà | kíkún | róbótó</annotation>
 		<annotation cp="🥧" type="tts">róbótó</annotation>
 		<annotation cp="🍫">àdídùn | ilé otí | ónjẹ dídùn | ṣokolétì | Ṣokoleti Didi</annotation>
@@ -1189,6 +1649,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥛" type="tts">Ife Wara</annotation>
 		<annotation cp="☕">gbígóná | kọfí | mímu | ohun mímu oní kòkó | tíì | Tii Gbigbona | yíyọ oru</annotation>
 		<annotation cp="☕" type="tts">Tii Gbigbona</annotation>
+		<annotation cp="🫖">mu | pootu | pọ́ọ̀tù tíì | tíì</annotation>
+		<annotation cp="🫖" type="tts">pọ́ọ̀tù tíì</annotation>
 		<annotation cp="🍵">ife | Ife Tii laini Ọwọ | mímu | o ohun mímu oní kòkó | tíì</annotation>
 		<annotation cp="🍵" type="tts">Ife Tii laini Ọwọ</annotation>
 		<annotation cp="🍶">ife | ìgò | ilé ọtí | ohun mímu | ohun mímu oní kòkó | Sake</annotation>
@@ -1209,8 +1671,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥂" type="tts">Gilasi Didun</annotation>
 		<annotation cp="🥃">gílásì | Gilasi Tọnbila | ọtí | ọtí líle | ṣọ́ọ̀tí | tọ́mbílà</annotation>
 		<annotation cp="🥃" type="tts">Gilasi Tọnbila</annotation>
+		<annotation cp="🫗">dà | dída nnkan olómi | gilaasì | mu | nǹkan olómi dídà | ofo</annotation>
+		<annotation cp="🫗" type="tts">nǹkan olómi dídà</annotation>
 		<annotation cp="🥤">ẹlẹ́rìndòdò | ife pẹ̀lú sírọ̀ | sódà</annotation>
 		<annotation cp="🥤" type="tts">ife pẹ̀lú sírọ̀</annotation>
+		<annotation cp="🧋">tíì | tíì bọ́bù | wara</annotation>
+		<annotation cp="🧋" type="tts">tíì bọ́bù</annotation>
+		<annotation cp="🧃">dun | ibi | ibi oúnjẹ́ | júùsì</annotation>
+		<annotation cp="🧃" type="tts">ibi oúnjẹ́</annotation>
+		<annotation cp="🧉">egbé | ẹgbẹ́ | mu</annotation>
+		<annotation cp="🧉" type="tts">ẹgbẹ́</annotation>
+		<annotation cp="🧊">di | dídì | kúùbù dídí | tutu</annotation>
+		<annotation cp="🧊" type="tts">dídì</annotation>
 		<annotation cp="🥢">áṣì | ìlàrí</annotation>
 		<annotation cp="🥢" type="tts">ìlàrí</annotation>
 		<annotation cp="🍽">àwo | fọ́ọ̀kì | fọ́ọ̀kì àti ọ̀bẹ pẹ̀lú àwo | ọ̀bẹ | ónjẹ sísè</annotation>
@@ -1221,6 +1693,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥄" type="tts">Ṣíbí</annotation>
 		<annotation cp="🔪">àsè | hocho | irinṣẹ́ | irinṣẹ́ ìjagun | ò̩bẹ | ọbẹ iyara-idana</annotation>
 		<annotation cp="🔪" type="tts">ọbẹ iyara-idana</annotation>
+		<annotation cp="🫙">eroja ounje | ibi idáná | ife nla | sofo</annotation>
+		<annotation cp="🫙" type="tts">ife nla</annotation>
 		<annotation cp="🏺">àmi oṣù ìbí | Amphora | Aquarius | dídáná | ife omi | irinṣẹ́ | irinṣẹ́ ìjagun | ohun mímu</annotation>
 		<annotation cp="🏺" type="tts">Amphora</annotation>
 		<annotation cp="🌍">áfíríkà | àgbáyé | ayé | gílóbù | Gulobu To N Ṣafihan Uropu-Afirika | írópù</annotation>
@@ -1235,6 +1709,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🗺" type="tts">máàpù àgbáyé</annotation>
 		<annotation cp="🗾">jàpánù | máàpù | Maapu Ti Japanu</annotation>
 		<annotation cp="🗾" type="tts">Maapu Ti Japanu</annotation>
+		<annotation cp="🧭">atọ́nà | lílẹ̀mọ́ | sísọfún</annotation>
+		<annotation cp="🧭" type="tts">atọ́nà</annotation>
 		<annotation cp="🏔">òkè | òtútù | yìnyín</annotation>
 		<annotation cp="🏔" type="tts">òkè yìnyín</annotation>
 		<annotation cp="⛰">òkè</annotation>
@@ -1259,6 +1735,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏛" type="tts">ilé tó kílásíkà</annotation>
 		<annotation cp="🏗">Iṣẹ́ ọnà | iṣẹ́ ọnà ilé</annotation>
 		<annotation cp="🏗" type="tts">iṣẹ́ ọnà ilé</annotation>
+		<annotation cp="🧱">àwọn bíríkì | bíríkì | ògiri | yẹ̀pẹ̀</annotation>
+		<annotation cp="🧱" type="tts">bíríkì</annotation>
+		<annotation cp="🪨">àpáta | le | òkúta | wúwo</annotation>
+		<annotation cp="🪨" type="tts">àpáta</annotation>
+		<annotation cp="🪵">igi | lúnbà | tínbà</annotation>
+		<annotation cp="🪵" type="tts">igi</annotation>
+		<annotation cp="🛖">abà | ilé | ilé onípo</annotation>
+		<annotation cp="🛖" type="tts">abà</annotation>
 		<annotation cp="🏘">àwọn ilé</annotation>
 		<annotation cp="🏘" type="tts">àwọn ilé</annotation>
 		<annotation cp="🏚">àìdára | ilé</annotation>
@@ -1303,6 +1787,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⛪" type="tts">Ṣọọṣi</annotation>
 		<annotation cp="🕌">ẹ̀sìn | Ìmàle | Mọ́ṣáláṣí | Mùsùlùmí</annotation>
 		<annotation cp="🕌" type="tts">Mọ́ṣáláṣí</annotation>
+		<annotation cp="🛕">hindù | ibi ijọ́sìn | ilé ìjọ́sìn Hindu</annotation>
+		<annotation cp="🛕" type="tts">ilé ìjọ́sìn Hindu</annotation>
 		<annotation cp="🕍">Eẹlẹ́sìn júù | ẹ̀sìn | júù | Sínágọ́gù | tẹ́pílì</annotation>
 		<annotation cp="🕍" type="tts">Sínágọ́gù</annotation>
 		<annotation cp="⛩">ẹ̀sìn | ilé òrìṣà | ilé òrìṣà ṣíntò | ṣíntò</annotation>
@@ -1333,6 +1819,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♨" type="tts">omi àtilẹ̀wá</annotation>
 		<annotation cp="🎠">aládùn | ẹṣin | Ẹṣin Aladun</annotation>
 		<annotation cp="🎠" type="tts">Ẹṣin Aladun</annotation>
+		<annotation cp="🛝">ibi eré | páàkì eré | ṣeré</annotation>
+		<annotation cp="🛝" type="tts">ibi eré</annotation>
 		<annotation cp="🎡">ferris | Kẹ̀kẹ́ Ferris | páàkì ìgbafẹ́ | róboto</annotation>
 		<annotation cp="🎡" type="tts">Kẹ̀kẹ́ Ferris</annotation>
 		<annotation cp="🎢">Kẹkẹ Olobiri | olóbírí | páàkì ìgbafẹ́ | yíyí</annotation>
@@ -1391,6 +1879,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚘" type="tts">Ọkọ Ti Nbọ</annotation>
 		<annotation cp="🚙">ìgbafẹ́ | Ọkọ Agbafẹ Daradara | òks agbafẹ́ tó dára</annotation>
 		<annotation cp="🚙" type="tts">Ọkọ Agbafẹ Daradara</annotation>
+		<annotation cp="🛻">gbé | gbígbé nǹkan | ọkọ̀ ńlá | ọkọ̀ ńlá fún gbígbé nǹkan</annotation>
+		<annotation cp="🛻" type="tts">ọkọ̀ ńlá fún gbígbé nǹkan</annotation>
 		<annotation cp="🚚">ifijiṣẹ | Ọkọ Akẹru</annotation>
 		<annotation cp="🚚" type="tts">Ọkọ Akẹru</annotation>
 		<annotation cp="🚛">díẹ̀ | ọkọ̀ akérò ńlá | ọkọ̀ akẹ́rù | Ọkọ Nla Akẹru</annotation>
@@ -1403,10 +1893,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏍" type="tts">alùpùpù</annotation>
 		<annotation cp="🛵">alupupu | onimọto</annotation>
 		<annotation cp="🛵" type="tts">alupupu onimọto</annotation>
+		<annotation cp="🦽">aga ìgbérìn ọlọ́wọ́ | aye irin</annotation>
+		<annotation cp="🦽" type="tts">aga ìgbérìn ọlọ́wọ́</annotation>
+		<annotation cp="🦼">àga ìgbérìn oníná | ní ọ̀nà fún gbígbà</annotation>
+		<annotation cp="🦼" type="tts">àga ìgbérìn oníná</annotation>
+		<annotation cp="🛺">ẹ̀rọ ríìkì | túùkì</annotation>
+		<annotation cp="🛺" type="tts">ẹ̀rọ ríìkì</annotation>
 		<annotation cp="🚲">kẹ̀kẹ́ | Kẹ̀kẹ́</annotation>
 		<annotation cp="🚲" type="tts">Kẹ̀kẹ́</annotation>
 		<annotation cp="🛴">Alupùpù ẹlẹ́sẹ̀ méjì | alupupu kekere | gbá</annotation>
 		<annotation cp="🛴" type="tts">alupupu kekere</annotation>
+		<annotation cp="🛹">bọ́ọ̀dù | bọ́ọ̀dù ti síkéètì</annotation>
+		<annotation cp="🛹" type="tts">bọ́ọ̀dù ti síkéètì</annotation>
+		<annotation cp="🛼">are | saré | síkéètì | síkéètì ti ó s | síkéètì ti ó s;are</annotation>
+		<annotation cp="🛼" type="tts">síkéètì ti ó s;are</annotation>
 		<annotation cp="🚏">dúró | Ibudokọ | ibùdókọ̀ | ọkọ̀ akérò</annotation>
 		<annotation cp="🚏" type="tts">Ibudokọ</annotation>
 		<annotation cp="🛣">ojú ọ̀nà ọkọ̀ | ọ́nà | pópó</annotation>
@@ -1417,6 +1917,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛢" type="tts">àgbá epo</annotation>
 		<annotation cp="⛽">afa epo | epo | gáàsì | ibùdó epo | pọ̀mpù epo</annotation>
 		<annotation cp="⛽" type="tts">pọ̀mpù epo</annotation>
+		<annotation cp="🛞">keke | sakù | táyà | yí</annotation>
+		<annotation cp="🛞" type="tts">keke</annotation>
 		<annotation cp="🚨">ẹran ẹlẹ́dẹ̀ | iná | Ina Ọkọ Ọlọpa | ọkọ̀ | ọlọ́pàá | yípo</annotation>
 		<annotation cp="🚨" type="tts">Ina Ọkọ Ọlọpa</annotation>
 		<annotation cp="🚥">adarí | adaríkọ̀ | iná | Ina Adariko Onidubu</annotation>
@@ -1429,6 +1931,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚧" type="tts">Iṣẹ́ ọnà</annotation>
 		<annotation cp="⚓">Ìdákòró | irinṣẹ́ | ọkọ̀ ojú omi ńlá</annotation>
 		<annotation cp="⚓" type="tts">Ìdákòró</annotation>
+		<annotation cp="🛟">àbò | gbayọ | ríngì | wẹ̀</annotation>
+		<annotation cp="🛟" type="tts">ríngì</annotation>
 		<annotation cp="⛵">ibi ìgbafẹ́ | Ọkọ kekere | ọkọ̀ ojú omi | ọkọ̀ ojú omi ibi ìgbafẹ́ | okun</annotation>
 		<annotation cp="⛵" type="tts">Ọkọ kekere</annotation>
 		<annotation cp="🛶">obele | Òbèlé | ọkọ̀ ojú omi</annotation>
@@ -1451,6 +1955,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛫" type="tts">Ibi Idagbere Baalu</annotation>
 		<annotation cp="🛬">àwọn ìwọlé | bàlú òfurufú | bíbalẹ̀ | Ibi Ikaabọ Baalu | ìwọlé | ọkọ̀ òfurufú | wíwọlé</annotation>
 		<annotation cp="🛬" type="tts">Ibi Ikaabọ Baalu</annotation>
+		<annotation cp="🪂">fo lóké | párás | páráṣútì | utì</annotation>
+		<annotation cp="🪂" type="tts">páráṣútì</annotation>
 		<annotation cp="💺">àga | Ìjòkó</annotation>
 		<annotation cp="💺" type="tts">Ìjòkó</annotation>
 		<annotation cp="🚁">Ẹlikọputa | nṣe ọkọ́</annotation>
@@ -1469,6 +1975,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛸" type="tts">àwọ kékeré tí ń fò</annotation>
 		<annotation cp="🛎">agogo | agogo alágbágbẹ́rùn ilé ìtura | alágbágbẹ́rùn ilé ìtura | ilé ìtura</annotation>
 		<annotation cp="🛎" type="tts">agogo alágbágbẹ́rùn ilé ìtura</annotation>
+		<annotation cp="🧳">ẹrù | kíkó ẹrù | rín ìrínájò</annotation>
+		<annotation cp="🧳" type="tts">ẹrù</annotation>
 		<annotation cp="⌛">adíwọ̀n àkókò | Gilasiakoko | iyẹ̀pẹ̀</annotation>
 		<annotation cp="⌛" type="tts">Gilasiakoko</annotation>
 		<annotation cp="⏳">adíwọ̀n àkókò | gílásì àkókò | Gilasiakoko Pẹlu Iyẹpẹ Ti N fẹ | ìyẹ̀pẹ̀</annotation>
@@ -1563,6 +2071,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌝" type="tts">Ẹ̀kúnrẹ́rẹ́ Òṣùpá Pẹ̀lú Ojú</annotation>
 		<annotation cp="🌞">ìmọ́lẹ̀ | ojú | Oorun Pẹlu Oju | òrùn</annotation>
 		<annotation cp="🌞" type="tts">Oorun Pẹlu Oju</annotation>
+		<annotation cp="🪐">plánẹ́tì oiringì | sàtọ́nì</annotation>
+		<annotation cp="🪐" type="tts">plánẹ́tì oiringì</annotation>
 		<annotation cp="⭐">ìràwọ̀ | Irawọ Alaabọ Funfun</annotation>
 		<annotation cp="⭐" type="tts">Irawọ Alaabọ Funfun</annotation>
 		<annotation cp="🌟">dán | dídán | ìràwọ̀ | Irawọ Titan | tàn</annotation>
@@ -1631,6 +2141,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎆" type="tts">Iṣẹ́iná</annotation>
 		<annotation cp="🎇">ayẹyẹ | dán | iṣẹ́iná | Olutan</annotation>
 		<annotation cp="🎇" type="tts">Olutan</annotation>
+		<annotation cp="🧨">àwọn iṣẹ́ nǹkan | ohun iná | olufa iná | olùfa iná</annotation>
+		<annotation cp="🧨" type="tts">olufa iná</annotation>
 		<annotation cp="✨">Awọn Titan | dán | ìràwọ̀</annotation>
 		<annotation cp="✨" type="tts">Awọn Titan</annotation>
 		<annotation cp="🎈">ayẹyẹ | Bàlúùnù</annotation>
@@ -1651,6 +2163,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎐" type="tts">Idun Iji</annotation>
 		<annotation cp="🎑">ayẹyẹ | òṣùpá | Wiwo Ayẹyẹ Oṣupa</annotation>
 		<annotation cp="🎑" type="tts">Wiwo Ayẹyẹ Oṣupa</annotation>
+		<annotation cp="🧧">akolẹ́tàsí pupa | ẹ̀bùn | oríre | owó</annotation>
+		<annotation cp="🧧" type="tts">akolẹ́tàsí pupa</annotation>
 		<annotation cp="🎀">ayẹyẹ | Ríbìnnì</annotation>
 		<annotation cp="🎀" type="tts">Ríbìnnì</annotation>
 		<annotation cp="🎁">àpótí | ayẹyẹ | ẹ̀bùn | Ẹbun Didi | wépọ̀</annotation>
@@ -1677,6 +2191,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⚽" type="tts">Bọọlu Afẹsẹgba</annotation>
 		<annotation cp="⚾">bọ́ọ̀lù | Bọ́ọ̀lùòkè</annotation>
 		<annotation cp="⚾" type="tts">Bọ́ọ̀lùòkè</annotation>
+		<annotation cp="🥎">abẹ́ apá | bọ́ọ̀lù | bọ́ọ̀lu olowo | gílọ́ọ̀fù</annotation>
+		<annotation cp="🥎" type="tts">bọ́ọ̀lu olowo</annotation>
 		<annotation cp="🏀">bọ́ọ̀lù | Bọ́ọ̀lùalágbọ̀n | òrùka onírin ńlá roboto</annotation>
 		<annotation cp="🏀" type="tts">Bọ́ọ̀lùalágbọ̀n</annotation>
 		<annotation cp="🏐">bọ́ọ̀lù | eré | Folliboolu</annotation>
@@ -1687,6 +2203,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏉" type="tts">Bọọlu Rọgibi</annotation>
 		<annotation cp="🎾">bọ́ọ̀lù | rákẹ̀tì | Tẹnisi</annotation>
 		<annotation cp="🎾" type="tts">Tẹnisi</annotation>
+		<annotation cp="🥏">disiki fifo | nlá</annotation>
+		<annotation cp="🥏" type="tts">disiki fifo</annotation>
 		<annotation cp="🎳">Bolin | bọ́ọ̀lù | eré</annotation>
 		<annotation cp="🎳" type="tts">Bolin</annotation>
 		<annotation cp="🏏">bọ̀ọ́lù | eré | eré bọ́ọ̀lù afi pátákó gbá | pátákó ìgbá bọ́ọ̀lù</annotation>
@@ -1695,6 +2213,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏑" type="tts">Họki Papa</annotation>
 		<annotation cp="🏒">eré | họ́kì | Họki Yinyin | igi | pọ́kì | yìnyín</annotation>
 		<annotation cp="🏒" type="tts">Họki Yinyin</annotation>
+		<annotation cp="🥍">bóòlù | goolù | igi | lakurose | lákúrósè</annotation>
+		<annotation cp="🥍" type="tts">lákúrósè</annotation>
 		<annotation cp="🏓">ajé ìwakọ̀ | báàtì | bọ́ọ́lù | Bọọlu Ori Tabili</annotation>
 		<annotation cp="🏓" type="tts">Bọọlu Ori Tabili</annotation>
 		<annotation cp="🏸">Badimitin | bẹ́ẹ̀dì | eré | ihò bọ́ọ̀lù | rákẹ̀tì</annotation>
@@ -1711,6 +2231,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⛸" type="tts">yìnyín síkétì</annotation>
 		<annotation cp="🎣">ẹja | òpó | Opo Ipẹja</annotation>
 		<annotation cp="🎣" type="tts">Opo Ipẹja</annotation>
+		<annotation cp="🤿">bibe | fifo | iboju fifo | sikubá</annotation>
+		<annotation cp="🤿" type="tts">iboju fifo</annotation>
 		<annotation cp="🎽">àwọn tí ń sáré | sáàṣì | ṣẹ́ẹ̀tì | Ṣẹẹti Isare | sísáré</annotation>
 		<annotation cp="🎽" type="tts">Ṣẹẹti Isare</annotation>
 		<annotation cp="🎿">Awọn Siki | síkì | yínyìn</annotation>
@@ -1721,10 +2243,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥌" type="tts">òkúta ìwọ́</annotation>
 		<annotation cp="🎯">àfojúsùn | akọ màlú | eré | gún | Igba Taara | ọ̀gángọ́ ayò | pálí ayò</annotation>
 		<annotation cp="🎯" type="tts">Igba Taara</annotation>
+		<annotation cp="🪀">aidúró | ohun isere omode | yóyò</annotation>
+		<annotation cp="🪀" type="tts">yóyò</annotation>
+		<annotation cp="🪁">fò | káìtì</annotation>
+		<annotation cp="🪁" type="tts">káìtì</annotation>
+		<annotation cp="🔫">ìbọn | ibọn ilewọ | ìbọn ìléwó̩ | ìbọn ṣakabùlà | irinṣẹ́</annotation>
+		<annotation cp="🔫" type="tts">ibọn ilewọ</annotation>
 		<annotation cp="🎱">8 | bílíádì | bọ́ọ̀lù | Bọọlu Odo 8 | ẹ́ẹ́jọ | eré</annotation>
 		<annotation cp="🎱" type="tts">Bọọlu Odo 8</annotation>
 		<annotation cp="🔮">àìbáyému | àló̩ ajẹmó̩win | bọ́ó̩lù | bọọlu aworawọ | òkúta aworàwò̩ | ọrọ̀ | pàápàá</annotation>
 		<annotation cp="🔮" type="tts">bọọlu aworawọ</annotation>
+		<annotation cp="🪄">aje | emere | idán</annotation>
+		<annotation cp="🪄" type="tts">idán</annotation>
 		<annotation cp="🎮">eré | Ere-idaraya Fidio | olùdarí</annotation>
 		<annotation cp="🎮" type="tts">Ere-idaraya Fidio</annotation>
 		<annotation cp="🕹">Ere-idaraya | Ere-idaraya Fidio | ìdarí eré</annotation>
@@ -1733,6 +2263,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎰" type="tts">Ẹrọ Ifisi</annotation>
 		<annotation cp="🎲">ayò | eré | Ere-idaraya Ludo</annotation>
 		<annotation cp="🎲" type="tts">Ere-idaraya Ludo</annotation>
+		<annotation cp="🧩">ìsopọ̀ | itosona | ohun àdìtú</annotation>
+		<annotation cp="🧩" type="tts">ohun àdìtú</annotation>
+		<annotation cp="🧸">ẹkùn | ekùn ifi | kopo | ohun ifiṣeré</annotation>
+		<annotation cp="🧸" type="tts">ekùn ifi</annotation>
+		<annotation cp="🪅">ase | ayeye | pinátà | Vote pinátà</annotation>
+		<annotation cp="🪅" type="tts">pinátà</annotation>
+		<annotation cp="🪩">àsè | bọ́ọ̀lu onijigí | ijọ́ } tàn</annotation>
+		<annotation cp="🪩" type="tts">bọ́ọ̀lu onijigí</annotation>
+		<annotation cp="🪆">dọ́lù | dọ́lù ìsimi | rosíà</annotation>
+		<annotation cp="🪆" type="tts">dọ́lù ìsimi</annotation>
 		<annotation cp="♠">eré | ìpín káàdì sípèdì | káàdì</annotation>
 		<annotation cp="♠" type="tts">ìpín káàdì sípèdì</annotation>
 		<annotation cp="♥">eré | ìpín káàdì ọkàn | káàdì</annotation>
@@ -1741,6 +2281,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♦" type="tts">ìpín káàdì díámọ́ndì</annotation>
 		<annotation cp="♣">eré | ìpín káàdì ewé | káàdì</annotation>
 		<annotation cp="♣" type="tts">ìpín káàdì ewé</annotation>
+		<annotation cp="♟">dúpẹ́ | pọ́nì ṣẹ́ẹ̀sì | pọ́nì Ṣẹ́ẹ̀sì | ṣẹ́ẹ̀sì</annotation>
+		<annotation cp="♟" type="tts">pọ́nì Ṣẹ́ẹ̀sì</annotation>
 		<annotation cp="🃏">eré | Joka | káàdì | káàdí ọlọ́pọ̀ ìlò</annotation>
 		<annotation cp="🃏" type="tts">Joka</annotation>
 		<annotation cp="🀄">Dragoni Pupa Mahjong | eré | mahjong | pupa</annotation>
@@ -1753,10 +2295,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🖼" type="tts">àwọrán inú férémù</annotation>
 		<annotation cp="🎨">ilé ọnà | iṣẹ́ ọná | kíkùn | pálẹ́tì | Pẹpẹ Oṣere</annotation>
 		<annotation cp="🎨" type="tts">Pẹpẹ Oṣere</annotation>
+		<annotation cp="🧵">abere | owú | òwú | rírán</annotation>
+		<annotation cp="🧵" type="tts">òwú</annotation>
+		<annotation cp="🪡">abere | owú | òwú ìránṣọ | ríránso | sopo</annotation>
+		<annotation cp="🪡" type="tts">òwú ìránṣọ</annotation>
+		<annotation cp="🧶">asọ | bólì | rán | yáni</annotation>
+		<annotation cp="🧶" type="tts">asọ</annotation>
+		<annotation cp="🪢">dì | ìsopọ̀ | kó | lọ́ } yí</annotation>
+		<annotation cp="🪢" type="tts">ìsopọ̀</annotation>
 		<annotation cp="👓">aṣọ | Digi | ẹyinjú | gíláásì ojú | ìbòjú</annotation>
 		<annotation cp="👓" type="tts">Digi</annotation>
 		<annotation cp="🕶">dúdú | gíláásì | gíláásì òrùn | ìbòjú | ojú</annotation>
 		<annotation cp="🕶" type="tts">gíláásì òrùn</annotation>
+		<annotation cp="🥽">gọ́gú | ibo ojú | wíwẹ́</annotation>
+		<annotation cp="🥽" type="tts">gọ́gú</annotation>
+		<annotation cp="🥼">aso laabi | aso láabù | ise laabu | onimo sayensi | onísegub</annotation>
+		<annotation cp="🥼" type="tts">aso laabi</annotation>
+		<annotation cp="🦺">abo | aso | pàjáwìrì</annotation>
+		<annotation cp="🦺" type="tts">aso abo</annotation>
 		<annotation cp="👔">Okùnọrùn | Wíwọṣọ</annotation>
 		<annotation cp="👔" type="tts">Okùnọrùn</annotation>
 		<annotation cp="👕">aṣọ | Ṣẹẹti | ṣẹ́ẹ̀tì | tṣẹ́ẹ̀tì</annotation>
@@ -1775,10 +2331,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👗" type="tts">Aṣọ</annotation>
 		<annotation cp="👘">Kimono | Wíwọṣọ</annotation>
 		<annotation cp="👘" type="tts">Kimono</annotation>
+		<annotation cp="🥻">aso | kaba | sari</annotation>
+		<annotation cp="🥻" type="tts">sari</annotation>
+		<annotation cp="🩱">aso ìlúwẹ́ẹ̀ | aso ìwẹ̀</annotation>
+		<annotation cp="🩱" type="tts">aso ìwẹ̀</annotation>
+		<annotation cp="🩲">aso awọ́tẹ́lẹ̀ | aso ìlúwẹ́ẹ̀ | aso ìwẹ̀ | aṣọ kékeré</annotation>
+		<annotation cp="🩲" type="tts">aṣọ kékeré</annotation>
+		<annotation cp="🩳">aso ìlúwẹ́ẹ̀ | aso ìwẹ̀ | aṣọ pẹ́npé | àwọ̀ tẹ́lẹ̀ | sokoto pẹ́npé</annotation>
+		<annotation cp="🩳" type="tts">aṣọ pẹ́npé</annotation>
 		<annotation cp="👙">aṣọ | Pata obinrin | wẹdò</annotation>
 		<annotation cp="👙" type="tts">Pata obinrin</annotation>
 		<annotation cp="👚">aṣọ | Awọn Aṣọ Obinrin | obìnrin</annotation>
 		<annotation cp="👚" type="tts">Awọn Aṣọ Obinrin</annotation>
+		<annotation cp="🪭">fáànì ọlọ́wọ́ | fanu | gbona | jo | oju titi</annotation>
+		<annotation cp="🪭" type="tts">fáànì ọlọ́wọ́</annotation>
 		<annotation cp="👛">aṣọ | kóbọ̀ | Pọọsi</annotation>
 		<annotation cp="👛" type="tts">Pọọsi</annotation>
 		<annotation cp="👜">àpamọ́wọ́ | aṣọ | Ìpamọ́wọ́ | pọ́ọ̀sì</annotation>
@@ -1789,16 +2355,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛍" type="tts">àwọn àpamọ́wọ́ ọjà</annotation>
 		<annotation cp="🎒">àpamọ́wọ́ | Baagi Ile-ẹkọ Agbekẹyin | ilé ìwé | sáṣẹ̀lì</annotation>
 		<annotation cp="🎒" type="tts">Baagi Ile-ẹkọ Agbekẹyin</annotation>
+		<annotation cp="🩴">salúbàtà | salúbàtà ibi omi | salubata tongi | sorí</annotation>
+		<annotation cp="🩴" type="tts">salubata tongi</annotation>
 		<annotation cp="👞">aṣọ | bàtà | Bata Ọkunrin | ọkùnrin</annotation>
 		<annotation cp="👞" type="tts">Bata Ọkunrin</annotation>
 		<annotation cp="👟">aṣọ | bàtà | Bata Isare | ẹní sáré</annotation>
 		<annotation cp="👟" type="tts">Bata Isare</annotation>
+		<annotation cp="🥾">bóòtì ìgokè | botì | didi nnkan seyin | rinrin</annotation>
+		<annotation cp="🥾" type="tts">bóòtì ìgokè</annotation>
+		<annotation cp="🥿">bata kekere | bata pelebe | bàtà pẹlẹbẹ</annotation>
+		<annotation cp="🥿" type="tts">bàtà pẹlẹbẹ</annotation>
 		<annotation cp="👠">aṣọ | bàtà | Bata Gogoro | bàtà gogoro | obìnrin</annotation>
 		<annotation cp="👠" type="tts">Bata Gogoro</annotation>
 		<annotation cp="👡">aṣọ | bàtà | Bata Obinrin pẹlẹbẹ | bátá pẹlẹbẹ | obìnrin</annotation>
 		<annotation cp="👡" type="tts">Bata Obinrin pẹlẹbẹ</annotation>
+		<annotation cp="🩰">bata ijo | bàtà ijó | ijo | jó</annotation>
+		<annotation cp="🩰" type="tts">bàtà ijó</annotation>
 		<annotation cp="👢">aṣọ | bàtà | búùtù | Buutu Obinrin | obìnrin</annotation>
 		<annotation cp="👢" type="tts">Buutu Obinrin</annotation>
+		<annotation cp="🪮">ẹ̀sọ́ irun | irun | ìyarun | mú</annotation>
+		<annotation cp="🪮" type="tts">ẹ̀sọ́ irun</annotation>
 		<annotation cp="👑">Ade | aṣọ | ọba | olorì</annotation>
 		<annotation cp="👑" type="tts">Ade</annotation>
 		<annotation cp="👒">aṣọ | fìlà | Haati Obinrin | obìnrin</annotation>
@@ -1809,6 +2385,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎓" type="tts">Fila Aṣeyọri</annotation>
 		<annotation cp="🧢">fìla billed | fìla bọ́ọ̀lùòkè</annotation>
 		<annotation cp="🧢" type="tts">fìla billed</annotation>
+		<annotation cp="🪖">ámì | ìbòrí ológun | jagunjagun | soja</annotation>
+		<annotation cp="🪖" type="tts">ìbòrí ológun</annotation>
 		<annotation cp="⛑">ìrànwọ́ àgbélébù | koto | koto òṣìṣẹ́ ìrànwọ́ | ojú</annotation>
 		<annotation cp="⛑" type="tts">koto òṣìṣẹ́ ìrànwọ́</annotation>
 		<annotation cp="📿">àdúrà | aṣọ | ẹ̀gbà ọrùn | ẹ̀sìn | ilẹ̀kẹ̀ | Ilẹkẹ Adura</annotation>
@@ -1857,6 +2435,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📻" type="tts">rédíò</annotation>
 		<annotation cp="🎷">ipè | irinṣẹ́ | orin | sáàsì</annotation>
 		<annotation cp="🎷" type="tts">ipè</annotation>
+		<annotation cp="🪗">akodíà | fún | kosatinà</annotation>
+		<annotation cp="🪗" type="tts">akodíà</annotation>
 		<annotation cp="🎸">irinṣẹ́ | jìtá | orin</annotation>
 		<annotation cp="🎸" type="tts">jìtá</annotation>
 		<annotation cp="🎹">dùrù | duuru orin | ohun èlò | orin</annotation>
@@ -1865,8 +2445,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎺" type="tts">kakaaki</annotation>
 		<annotation cp="🎻">faolini | irinṣẹ́ | orin</annotation>
 		<annotation cp="🎻" type="tts">faolini</annotation>
+		<annotation cp="🪕">banjo | bánjò | lọ́pọ̀ | orin</annotation>
+		<annotation cp="🪕" type="tts">bánjò</annotation>
 		<annotation cp="🥁">igi ìlù | ìlù | Ìlù | orin</annotation>
 		<annotation cp="🥁" type="tts">Ìlù</annotation>
+		<annotation cp="🪘">didún | ìlù | ilu gigun | ìlù gigun | kóngà</annotation>
+		<annotation cp="🪘" type="tts">ilu gigun</annotation>
+		<annotation cp="🪇">èlò | gbọ̀n | jin | marakasi | orin</annotation>
+		<annotation cp="🪇" type="tts">marakasi</annotation>
+		<annotation cp="🪈">agbohunsile | fere | fèrè | orin</annotation>
+		<annotation cp="🪈" type="tts">fèrè</annotation>
 		<annotation cp="📱">alágbèéká | fóònù | tẹlifóònù</annotation>
 		<annotation cp="📱" type="tts">fóònù alágbèéká</annotation>
 		<annotation cp="📲">alágbèéká | fóònù | fóònù alágbèéká pẹ̀lú ofà | gbà | ìpè | ọfà | tẹlifóònù</annotation>
@@ -1881,6 +2469,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📠" type="tts">ẹ̀rọ fákìsì</annotation>
 		<annotation cp="🔋">bátìrì</annotation>
 		<annotation cp="🔋" type="tts">bátìrì</annotation>
+		<annotation cp="🪫">agbara kekere | batiri kekere | batírì kékeré | onina</annotation>
+		<annotation cp="🪫" type="tts">batírì kékeré</annotation>
 		<annotation cp="🔌">ẹ̀lé̩tíríìkì | ìná mọ̀nà-mọ́ná | pulọgi onina | púlọ́ọ̀gì</annotation>
 		<annotation cp="🔌" type="tts">pulọgi onina</annotation>
 		<annotation cp="💻">àdáni | kọ̀npútà | kọ̀ǹpútà àgbélétan | kọ̀npútà aládàni</annotation>
@@ -1903,6 +2493,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💿" type="tts">àwo aká-ọ̀rọ̀ aláfojúrí</annotation>
 		<annotation cp="📀">búlúù-réè | dísìkì | dvd | kọ̀npútà | ojú àwo</annotation>
 		<annotation cp="📀" type="tts">dvd</annotation>
+		<annotation cp="🧮">abakuọ́sì | abakusi | isirò</annotation>
+		<annotation cp="🧮" type="tts">abakuọ́sì</annotation>
 		<annotation cp="🎥">fíìmù | kámé̩rà | kamẹra fíìmù | sinimá</annotation>
 		<annotation cp="🎥" type="tts">kamẹra fíìmù</annotation>
 		<annotation cp="🎞">àwọn férémù | àwọn férémù fíìmù | fíìmù | sinemá</annotation>
@@ -1933,6 +2525,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔦" type="tts">iná fílásì</annotation>
 		<annotation cp="🏮">àtùpà | atupa iwe pupa | ìdènà | iná | pupa</annotation>
 		<annotation cp="🏮" type="tts">atupa iwe pupa</annotation>
+		<annotation cp="🪔">àtùpà | díya | epo</annotation>
+		<annotation cp="🪔" type="tts">àtùpà díya</annotation>
 		<annotation cp="📔">àfikọ̀wé pẹlu ẹyin ọlọṣọ | ẹ̀yìn ìwé | ìṣelẹ́ṣọ̀ó̩ | ìwé | ìwé àkọsílè̩</annotation>
 		<annotation cp="📔" type="tts">àfikọ̀wé pẹlu ẹyin ọlọṣọ</annotation>
 		<annotation cp="📕">ìwé | iwe ti pade | pípadé</annotation>
@@ -1969,6 +2563,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏷" type="tts">àkọ́lé</annotation>
 		<annotation cp="💰">àpò | apo owo | dó̩là | owó</annotation>
 		<annotation cp="💰" type="tts">apo owo</annotation>
+		<annotation cp="🪙">irin | isura | koínì | kóini | owo</annotation>
+		<annotation cp="🪙" type="tts">koínì</annotation>
 		<annotation cp="💴">ilé-ìfowópamó̩ | ìwó iye owó | owó | owó bánkì | owo yen | yẹn</annotation>
 		<annotation cp="💴" type="tts">owo yen</annotation>
 		<annotation cp="💵">dọ́là | ilé-ìfowópamó | ìwó iye owó | owó | owó bánkì | owo dọla</annotation>
@@ -1981,6 +2577,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💸" type="tts">owo pẹlu awọn iyẹ</annotation>
 		<annotation cp="💳">ààwìn | ilé ìfowópamó̩ | káàdì | káàdì ìsọdowó | owó</annotation>
 		<annotation cp="💳" type="tts">káàdì ìsọdowó</annotation>
+		<annotation cp="🧾">erí | ìdájú | ìwé owó</annotation>
+		<annotation cp="🧾" type="tts">ìwé owó</annotation>
 		<annotation cp="💹">àtẹ | àtẹ n pọsi pẹlu yẹn | ìdàgbàsókè | ìdìde | ìgbàlódé | ilà atọ́ka àwòrán | ilé ìfowópamọ́n | ìlọsókè | ọjà | owó | yen</annotation>
 		<annotation cp="💹" type="tts">àtẹ n pọsi pẹlu yẹn</annotation>
 		<annotation cp="✉">àpò ìwé | í-meèlì | lé̩tà</annotation>
@@ -2083,6 +2681,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🗝" type="tts">kó̩kọ́ró̩ àtijó̩</annotation>
 		<annotation cp="🔨">irinsẹ́ | oòlù</annotation>
 		<annotation cp="🔨" type="tts">oòlù</annotation>
+		<annotation cp="🪓">àáké | ake | igi | pin</annotation>
+		<annotation cp="🪓" type="tts">àáké</annotation>
 		<annotation cp="⛏">irinṣé̩ | ìwakusà | sà</annotation>
 		<annotation cp="⛏" type="tts">sà</annotation>
 		<annotation cp="⚒">òòlù | òòlù àti ìsà</annotation>
@@ -2093,14 +2693,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🗡" type="tts">dágà</annotation>
 		<annotation cp="⚔">àgbélèbú | idà | idà alágbèélèbú | irinṣẹ́ ìjagun</annotation>
 		<annotation cp="⚔" type="tts">idà alágbèélèbú</annotation>
-		<annotation cp="🔫">ìbọn | ibọn ilewọ | ìbọn ìléwó̩ | ìbọn ṣakabùlà | irinṣẹ́</annotation>
-		<annotation cp="🔫" type="tts">ibọn ilewọ</annotation>
+		<annotation cp="💣">àwàdà | Bọmbu</annotation>
+		<annotation cp="💣" type="tts">Bọmbu</annotation>
+		<annotation cp="🪃">atubotan | ipadawa | ositerila</annotation>
+		<annotation cp="🪃" type="tts">ipadawa</annotation>
 		<annotation cp="🏹">àmi oṣù ìbí | irinṣé̩ | irinṣẹ́ ìjagun | ọfà | ọfà títa | ọkọ ati ọfa | Sagittarius | tafàtafà</annotation>
 		<annotation cp="🏹" type="tts">ọkọ ati ọfa</annotation>
 		<annotation cp="🛡">irinṣẹ́ ìjagun | ohun èlò àbò</annotation>
 		<annotation cp="🛡" type="tts">ohun èlò àbò</annotation>
+		<annotation cp="🪚">sọ́ọ̀ | sọ́ọ̀ káfíntà</annotation>
+		<annotation cp="🪚" type="tts">sọ́ọ̀ káfíntà</annotation>
 		<annotation cp="🔧">irinṣẹ́ | irinṣẹ́ afagbára dè | oolu | sípánà</annotation>
 		<annotation cp="🔧" type="tts">oolu</annotation>
+		<annotation cp="🪛">elo | elo ìtú ìdè | ìdè</annotation>
+		<annotation cp="🪛" type="tts">elo ìtú ìdè</annotation>
 		<annotation cp="🔩">bóòtù | irinṣé̩ | nó̩ọ̀tì | nọti ati botu</annotation>
 		<annotation cp="🔩" type="tts">nọti ati botu</annotation>
 		<annotation cp="⚙">gíà | irinsẹ́</annotation>
@@ -2109,12 +2715,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🗜" type="tts">gbámú</annotation>
 		<annotation cp="⚖">àmi oṣù ìbí | ìdájọ́ | ìwọ̀n | ìwọ̀ntúnwọ̀nsí | líbérà | síkélì</annotation>
 		<annotation cp="⚖" type="tts">ìwọ̀ntúnwọ̀nsí síkélì</annotation>
+		<annotation cp="🦯">aye ona | egba funfun | fọ́jú</annotation>
+		<annotation cp="🦯" type="tts">egba funfun</annotation>
 		<annotation cp="🔗">ìtọ́kasí</annotation>
 		<annotation cp="🔗" type="tts">ìtọ́kasí</annotation>
 		<annotation cp="⛓">àwọn ṣe̩kẹ́ṣẹkẹ̀ | ṣe̩kẹ́ṣẹkẹ̀</annotation>
 		<annotation cp="⛓" type="tts">àwọn ṣe̩kẹ́ṣẹkẹ̀</annotation>
+		<annotation cp="🪝">ako | ibi títà | mu | yi</annotation>
+		<annotation cp="🪝" type="tts">ako</annotation>
+		<annotation cp="🧰">àya | elo | mekáníkì | nńkan èlo</annotation>
+		<annotation cp="🧰" type="tts">nńkan èlo</annotation>
+		<annotation cp="🧲">bata ẹsin | fífàmọ́ra | lílẹ̀ mọ́</annotation>
+		<annotation cp="🧲" type="tts">lílẹ̀ mọ́</annotation>
+		<annotation cp="🪜">àkàbà | gùn | igbésẹ̀</annotation>
+		<annotation cp="🪜" type="tts">àkàbà</annotation>
 		<annotation cp="⚗">àlẹ́mbìk | irinṣé̩ | kẹ́mísìrì</annotation>
 		<annotation cp="⚗" type="tts">àlẹ́mbìk</annotation>
+		<annotation cp="🧪">ayewo | kemisir]i | lábù | sayensi | tubu ayewo</annotation>
+		<annotation cp="🧪" type="tts">tubu ayewo</annotation>
+		<annotation cp="🧫">aarun | asa | bioloji | ounje</annotation>
+		<annotation cp="🧫" type="tts">ounje</annotation>
+		<annotation cp="🧬">baolojì | d | dínà | emi | inà | jíni</annotation>
+		<annotation cp="🧬" type="tts">dínà</annotation>
 		<annotation cp="🔬">irinṣẹ́ | maikirosikopu | sáyé̩nsì</annotation>
 		<annotation cp="🔬" type="tts">maikirosikopu</annotation>
 		<annotation cp="🔭">irinṣẹ́ | sáyé̩nsì | tẹlisikopu</annotation>
@@ -2123,30 +2745,86 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📡" type="tts">eria satalaiti</annotation>
 		<annotation cp="💉">abẹrẹ | àìsàn | dókítà | ikin | irinṣẹ́ | òògùn | yìn</annotation>
 		<annotation cp="💉" type="tts">abẹrẹ</annotation>
+		<annotation cp="🩸">eje | eje fifun | ita ẹ̀jẹ̀ | nnkan osù | ogun</annotation>
+		<annotation cp="🩸" type="tts">ita ẹ̀jẹ̀</annotation>
 		<annotation cp="💊">àìsàn | dókítà | òògùn | pili</annotation>
 		<annotation cp="💊" type="tts">pili</annotation>
+		<annotation cp="🩹">bándeèjì | bándéèjì | bándéèjì lílẹ̀mọ́</annotation>
+		<annotation cp="🩹" type="tts">bándeèjì</annotation>
+		<annotation cp="🩼">aro | egba | igi | igi ifirin | nnkan ifirin</annotation>
+		<annotation cp="🩼" type="tts">igi ifirin</annotation>
+		<annotation cp="🩺">o]ogùn | okan | onisegun | sitesitosikoop]u | sítẹ́sítósikóòpù</annotation>
+		<annotation cp="🩺" type="tts">sitesitosikoop]u</annotation>
+		<annotation cp="🩻">aworan ayewo | egun | onisegun</annotation>
+		<annotation cp="🩻" type="tts">aworan ayewo</annotation>
 		<annotation cp="🚪">Ìlẹ̀kùn</annotation>
 		<annotation cp="🚪" type="tts">Ìlẹ̀kùn</annotation>
+		<annotation cp="🛗">aye ririn | ìgbésókè | ohun ìgbésókè</annotation>
+		<annotation cp="🛗" type="tts">ohun ìgbésókè</annotation>
+		<annotation cp="🪞">ifinihan | jigi | jígí | ohun ifihan</annotation>
+		<annotation cp="🪞" type="tts">jígí</annotation>
+		<annotation cp="🪟">ategun tuntun | ferese | fèrèsé | sisile | wiwo</annotation>
+		<annotation cp="🪟" type="tts">fèrèsé</annotation>
 		<annotation cp="🛏">ibùsùn | ilé ìtura | sùn</annotation>
 		<annotation cp="🛏" type="tts">ibùsùn</annotation>
 		<annotation cp="🛋">àtùpà | ìjókò | ìjókò àti àtùpà | ilé ìtura</annotation>
 		<annotation cp="🛋" type="tts">ìjókò àti àtùpà</annotation>
+		<annotation cp="🪑">aga | àga | ìjọ́kọ̀ | jòkọ́</annotation>
+		<annotation cp="🪑" type="tts">àga</annotation>
 		<annotation cp="🚽">Ilé ìgbẹ́</annotation>
 		<annotation cp="🚽" type="tts">Ilé ìgbẹ́</annotation>
+		<annotation cp="🪠">ibi igbonsè | ife imu nnkan sele | ohun iti | pulumbà</annotation>
+		<annotation cp="🪠" type="tts">ohun iti</annotation>
 		<annotation cp="🚿">Ìwẹ̀ | omi</annotation>
 		<annotation cp="🚿" type="tts">Ìwẹ̀</annotation>
 		<annotation cp="🛁">Àgbá ìwẹ̀ | ìwẹ̀</annotation>
 		<annotation cp="🛁" type="tts">Àgbá ìwẹ̀</annotation>
+		<annotation cp="🪤">koto | panpe | panpe eku | pánpẹ́ ẹmọ́ | panpeeku</annotation>
+		<annotation cp="🪤" type="tts">pánpẹ́ ẹmọ́</annotation>
+		<annotation cp="🪒">gé | mú | obe | ọ̀bẹ́</annotation>
+		<annotation cp="🪒" type="tts">ọ̀bẹ́</annotation>
+		<annotation cp="🧴">ibora fun oorùn | ife | ìgò ìpára | ipara | pori</annotation>
+		<annotation cp="🧴" type="tts">ìgò ìpára</annotation>
+		<annotation cp="🧷">àbẹ́rẹ́ ààbò | àpáta lilé | dápà</annotation>
+		<annotation cp="🧷" type="tts">àbẹ́rẹ́ ààbò</annotation>
+		<annotation cp="🧹">aje | gbigbale | igbalẹ̀ | ìgbálẹ̀</annotation>
+		<annotation cp="🧹" type="tts">ìgbálẹ̀</annotation>
+		<annotation cp="🧺">àgbẹ̀ síse | apẹ̀rẹ̀ | àsè | aṣọ fífọ̀</annotation>
+		<annotation cp="🧺" type="tts">apẹ̀rẹ̀</annotation>
+		<annotation cp="🧻">beba inudi | beba inuwo | bẹ́bà kíkà</annotation>
+		<annotation cp="🧻" type="tts">bẹ́bà kíkà</annotation>
+		<annotation cp="🪣">abo | bọ́kẹ́ẹ̀tì | ibomi si | peelì</annotation>
+		<annotation cp="🪣" type="tts">bọ́kẹ́ẹ̀tì</annotation>
+		<annotation cp="🧼">fifo | ose | ọṣẹ | ose abo | we | wiwe</annotation>
+		<annotation cp="🧼" type="tts">ọṣẹ</annotation>
+		<annotation cp="🫧">àwọn bọ́bù | bọ́bù | nu | omi | ose</annotation>
+		<annotation cp="🫧" type="tts">àwọn bọ́bù</annotation>
+		<annotation cp="🪥">búrọ̀ọ́ṣì ìfọnu | buroshi | eto eyín | eyiín | ibaluwe | nu</annotation>
+		<annotation cp="🪥" type="tts">búrọ̀ọ́ṣì ìfọnu</annotation>
+		<annotation cp="🧽">faye gbomi | fífọ̀ | kàìnkaìn | kàyìnkàyìn</annotation>
+		<annotation cp="🧽" type="tts">kàyìnkàyìn</annotation>
+		<annotation cp="🧯">ina | ohun ipana | ohun ìpaná | pana</annotation>
+		<annotation cp="🧯" type="tts">ohun ìpaná</annotation>
 		<annotation cp="🛒">àtẹ | Àtẹ Iraja | Ìrajà | kẹ̀kẹ́ ìkójàsí</annotation>
 		<annotation cp="🛒" type="tts">Àtẹ Iraja</annotation>
 		<annotation cp="🚬">siga | sìgá mímu</annotation>
 		<annotation cp="🚬" type="tts">siga</annotation>
 		<annotation cp="⚰">ikú | pósí</annotation>
 		<annotation cp="⚰" type="tts">pósí</annotation>
+		<annotation cp="🪦">iboji | iboji okú | irori | okutaori</annotation>
+		<annotation cp="🪦" type="tts">okutaori</annotation>
 		<annotation cp="⚱">ahá | eérú | igbá ìsìnkú | ikú | ìsìnkú</annotation>
 		<annotation cp="⚱" type="tts">igbá ìsìnkú</annotation>
+		<annotation cp="🧿">amuleti ti nasari | eso ara | ogun | ondán</annotation>
+		<annotation cp="🧿" type="tts">amuleti ti nasari</annotation>
+		<annotation cp="🪬">amúlẹ́ẹ̀tì | Fatima | ìdáàbòbò | mámúsà | Máríà | Mííamù</annotation>
+		<annotation cp="🪬" type="tts">mámúsà</annotation>
 		<annotation cp="🗿">ère | moai | ojú</annotation>
 		<annotation cp="🗿" type="tts">moai</annotation>
+		<annotation cp="🪧">ami | duòkò | ìwòde | káàdí | ohun ìkéde</annotation>
+		<annotation cp="🪧" type="tts">ohun ìkéde</annotation>
+		<annotation cp="🪪">abo | iwe èrí | káàdì ìdánimọ̀ | káàdì ìdánimoọ̀</annotation>
+		<annotation cp="🪪" type="tts">káàdì ìdánimoọ̀</annotation>
 		<annotation cp="🏧">Aami ATM | àdásísẹ́ | ẹ̀rọ apọwó | ilé-ìfowópamó̩ | tẹ́là</annotation>
 		<annotation cp="🏧" type="tts">Aami ATM</annotation>
 		<annotation cp="🚮">dọ̀tí | idoti ninu aami idọti | ike ìdalẹ̀sí</annotation>
@@ -2265,6 +2943,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕎" type="tts">menorah</annotation>
 		<annotation cp="🔯">ìràwọ̀ | irawọ totooto oni-mẹfa | oríre</annotation>
 		<annotation cp="🔯" type="tts">irawọ totooto oni-mẹfa</annotation>
+		<annotation cp="🪯">ẹ̀sìn | kandá | síkì</annotation>
+		<annotation cp="🪯" type="tts">kandá</annotation>
 		<annotation cp="♈">àgbò | àmi oṣù ìbí | Aries</annotation>
 		<annotation cp="♈" type="tts">Aries</annotation>
 		<annotation cp="♉">àmi oṣù ìbí | ẹgbọrọ màlúù | màlúù igbò | Taurus</annotation>
@@ -2335,6 +3015,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔆" type="tts">bọtini titan</annotation>
 		<annotation cp="📶">Alátagbà | àwọn òpó antẹna | báà | è̩ro̩ alágbéèká | fóònù | fóònù alágbèéká | ìfihàn | tẹlifóònù</annotation>
 		<annotation cp="📶" type="tts">àwọn òpó antẹna</annotation>
+		<annotation cp="🛜">aini okun ina | ero ayarabiasa | intaneeti | konputa</annotation>
+		<annotation cp="🛜" type="tts">aini okun ina</annotation>
 		<annotation cp="📳">àgbéká | Ẹ̀rọ alágbéèká | fóònù | gbígbọ̀n | móòdù | moodu gbigbọn | tẹlifóònù</annotation>
 		<annotation cp="📳" type="tts">moodu gbigbọn</annotation>
 		<annotation cp="📴">alágbèéká | fóònù | pipa ẹ̀rọ ìbánisọ̀rọ̀ alágbèéká | tẹlifóònù</annotation>
@@ -2343,6 +3025,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♀" type="tts">àmí obìnrin</annotation>
 		<annotation cp="♂">àmì ọkùnrin | Ọkùnrin</annotation>
 		<annotation cp="♂" type="tts">àmì ọkùnrin</annotation>
+		<annotation cp="⚧">ami ìyíeda | ìyíeda</annotation>
+		<annotation cp="⚧" type="tts">ami ìyíeda</annotation>
 		<annotation cp="✖">fagilé | ìsọdipúpò̩ | ìsọdipúpò̩ tó nípọn x | x</annotation>
 		<annotation cp="✖" type="tts">ìsọdipúpò̩ tó nípọn x</annotation>
 		<annotation cp="➕">aami àròpọ̀ nla | àròpọ̀ | ẹ̀kó̩ ìsirò</annotation>
@@ -2351,6 +3035,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="➖" type="tts">aami ayọkuro nla</annotation>
 		<annotation cp="➗">aami gige nla | ẹ̀kọ́ ìsirò | ìpín</annotation>
 		<annotation cp="➗" type="tts">aami gige nla</annotation>
+		<annotation cp="🟰">ami jíje nlá | bákan | isiro</annotation>
+		<annotation cp="🟰" type="tts">ami jíje nlá</annotation>
+		<annotation cp="♾">ailopin | gbogboogbò | títí</annotation>
+		<annotation cp="♾" type="tts">ailopin</annotation>
 		<annotation cp="‼">àmì | àmì ìyanu | àmì ìyanu oníbejì | gbàgbà | ìfàmìsí</annotation>
 		<annotation cp="‼" type="tts">àmì ìyanu oníbejì</annotation>
 		<annotation cp="⁉">àmì | àmì ìyanu | àmì ìyanu oníbéèrè | ìfàmìsí | ìfọ̀rọ̀wánilé̩nuwò</annotation>
@@ -2451,6 +3139,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🅿" type="tts">bó̩tìnì P</annotation>
 		<annotation cp="🆘">Bọtini SOS | ìrànwọ́ | sos</annotation>
 		<annotation cp="🆘" type="tts">Bọtini SOS</annotation>
+		<annotation cp="🆙">Oke! Bọ̀tìnì | Oke! Oke! Oke! Bọ̀tìnì</annotation>
+		<annotation cp="🆙" type="tts">Oke! Bọ̀tìnì</annotation>
 		<annotation cp="🆚">Bọtini VS | figagbága pẹ̀lú | fp</annotation>
 		<annotation cp="🆚" type="tts">Bọtini VS</annotation>
 		<annotation cp="🈁">&quot;níbí&quot; | Bọtini Japanisi &quot;nibi&quot; | Japanese | katakana | ココ</annotation>
@@ -2489,12 +3179,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🈵" type="tts">Bọtini &quot;kosi aaye&quot; Japanisi</annotation>
 		<annotation cp="🔴">jiomẹ́tíríkì | pupa | Rogodo | Rogodo Aláwọ̀ pupa</annotation>
 		<annotation cp="🔴" type="tts">Rogodo Aláwọ̀ pupa</annotation>
+		<annotation cp="🟠">osan | saku</annotation>
+		<annotation cp="🟠" type="tts">osan saku</annotation>
+		<annotation cp="🟡">saku | yelo</annotation>
+		<annotation cp="🟡" type="tts">saku yelo</annotation>
+		<annotation cp="🟢">girini | saku</annotation>
+		<annotation cp="🟢" type="tts">saku girini</annotation>
 		<annotation cp="🔵">Búlù | jiomẹ́tíríkì | rogodo | Rogodo Búlúù</annotation>
 		<annotation cp="🔵" type="tts">Rogodo Búlúù</annotation>
+		<annotation cp="🟣">pọ́pù | rogodo</annotation>
+		<annotation cp="🟣" type="tts">pọ́pù rogodo</annotation>
+		<annotation cp="🟤">aláwọ igi | rogodo | rogodo aláwọ igi</annotation>
+		<annotation cp="🟤" type="tts">rogodo aláwọ igi</annotation>
 		<annotation cp="⚫">Rogodo | Rogodo Aláwọ̀ dúdú</annotation>
 		<annotation cp="⚫" type="tts">Rogodo Aláwọ̀ dúdú</annotation>
 		<annotation cp="⚪">Rogodo | Rogodo Funfun</annotation>
 		<annotation cp="⚪" type="tts">Rogodo Funfun</annotation>
+		<annotation cp="🟥">pupa | síkúwẹ́ẹ̀</annotation>
+		<annotation cp="🟥" type="tts">síkúwẹ́ẹ̀ pupa</annotation>
+		<annotation cp="🟧">orénjì | síkúwẹ́ẹ̀</annotation>
+		<annotation cp="🟧" type="tts">síkúwẹ́ẹ̀ orénjì</annotation>
+		<annotation cp="🟨">orénjì | síkúwẹ́ẹ̀ | síkúwẹ́ẹ̀ yẹ́lọ̀</annotation>
+		<annotation cp="🟨" type="tts">síkúwẹ́ẹ̀ yẹ́lọ̀</annotation>
+		<annotation cp="🟩">aláwọ̀ ewé | síkúwẹ́ẹ̀ | síkúwẹ́ẹ̀ aláwọ̀ ewé</annotation>
+		<annotation cp="🟩" type="tts">síkúwẹ́ẹ̀ aláwọ̀ ewé</annotation>
+		<annotation cp="🟦">bùlúù | síkúwẹ́ẹ̀ | síkúwẹ́ẹ̀ búlúù</annotation>
+		<annotation cp="🟦" type="tts">síkúwẹ́ẹ̀ búlúù</annotation>
+		<annotation cp="🟪">pọ́pù | síkúwẹ́ẹ̀</annotation>
+		<annotation cp="🟪" type="tts">síkúwẹ́ẹ̀ pọ́pù</annotation>
+		<annotation cp="🟫">aláwọ̀ igi | síkúwẹ́ẹ̀ | síkúwẹ́ẹ̀ aláwọ̀ igi</annotation>
+		<annotation cp="🟫" type="tts">síkúwẹ́ẹ̀ aláwọ̀ igi</annotation>
 		<annotation cp="⬛">ilà onigun mé̩rin | jiomé̩tíríkì | onigunmẹrin dudu nla</annotation>
 		<annotation cp="⬛" type="tts">onigunmẹrin dudu nla</annotation>
 		<annotation cp="⬜">ilà onigun mé̩rin | jiomé̩tíríkì | onigunmẹrin funfun nla</annotation>
@@ -2543,5 +3257,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏳" type="tts">àsíá funfun</annotation>
 		<annotation cp="🏳‍🌈">àsíá olóṣùmarè | òṣùmarè</annotation>
 		<annotation cp="🏳‍🌈" type="tts">àsíá olóṣùmarè</annotation>
+		<annotation cp="¢">sẹ́ntì</annotation>
+		<annotation cp="¢" type="tts">sẹ́ntì</annotation>
+		<annotation cp="$">dọ́là | owó | pẹ́sò | USD</annotation>
+		<annotation cp="$" type="tts">dọ́là</annotation>
+		<annotation cp="£">aami owó | EGP | pọ́ùn</annotation>
+		<annotation cp="£" type="tts">pọ́ùn</annotation>
+		<annotation cp="¥">aami owó | CNY | JPY | yẹ́n | yẹ́nì | yúan</annotation>
+		<annotation cp="¥" type="tts">yẹ́nì</annotation>
+		<annotation cp="₥">míìlì | míli</annotation>
+		<annotation cp="₥" type="tts">míìlì</annotation>
+		<annotation cp="₩">KPW | KRW | wọn</annotation>
+		<annotation cp="₩" type="tts">wọn</annotation>
+		<annotation cp="€">aami | YUR | yúrò</annotation>
+		<annotation cp="€" type="tts">yúrò</annotation>
+		<annotation cp="₱">pẹ́sò</annotation>
+		<annotation cp="₱" type="tts">pẹ́sò</annotation>
+		<annotation cp="₹">aami owó | CNY | rupì | rúpi ti ìndia | rúpì ti India</annotation>
+		<annotation cp="₹" type="tts">rúpì ti India</annotation>
+		<annotation cp="₽">aami owó | rúbù</annotation>
+		<annotation cp="₽" type="tts">rúbù</annotation>
+		<annotation cp="₿">Bítikoin | bítikọ́inì | BTC</annotation>
+		<annotation cp="₿" type="tts">bítikọ́inì</annotation>
+		<annotation cp="¹">iwe nla | iwe nla kan | kan</annotation>
+		<annotation cp="¹" type="tts">iwe nla kan</annotation>
+		<annotation cp="²">iwe nla | iwe nla méjì | mejì | sikuwe</annotation>
+		<annotation cp="²" type="tts">iwe nla méjì</annotation>
+		<annotation cp="³">ihamerin | iwe nla | mẹ́ta | síkuwe</annotation>
+		<annotation cp="³" type="tts">síkuwe</annotation>
+		<annotation cp="µ">ami die | ipin</annotation>
+		<annotation cp="µ" type="tts">ami die</annotation>
 	</annotations>
 </ldml>

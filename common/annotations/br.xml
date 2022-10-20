@@ -13,6 +13,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<annotations>
 		<annotation cp="{">briataenn digeriñ</annotation>
 		<annotation cp="{" type="tts">briataenn digeriñ</annotation>
+		<annotation cp="🏿">krocʼhen teñval</annotation>
+		<annotation cp="🏿" type="tts">krocʼhen teñval</annotation>
 		<annotation cp="–">barrennig verr</annotation>
 		<annotation cp="–" type="tts">barrennig verr</annotation>
 		<annotation cp="—">barrennig hir</annotation>
@@ -154,8 +156,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💥" type="tts">tarzhadenn</annotation>
 		<annotation cp="🕳">toull</annotation>
 		<annotation cp="🕳" type="tts">toull</annotation>
-		<annotation cp="💣">bombezenn | tresadenn</annotation>
-		<annotation cp="💣" type="tts">bombezenn</annotation>
 		<annotation cp="💤">kousket | zzz</annotation>
 		<annotation cp="💤" type="tts">zzz</annotation>
 		<annotation cp="🤳">emboltred</annotation>
@@ -610,6 +610,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍂" type="tts">delioù secʼh</annotation>
 		<annotation cp="🍃">avel | delienn | delienn en avel</annotation>
 		<annotation cp="🍃" type="tts">delienn en avel</annotation>
+		<annotation cp="🍄">kabell-touseg | tog-touseg</annotation>
+		<annotation cp="🍄" type="tts">kabell-touseg</annotation>
 		<annotation cp="🍇">frouezh | rezin</annotation>
 		<annotation cp="🍇" type="tts">rezin</annotation>
 		<annotation cp="🍈">frouezh | meloñs</annotation>
@@ -672,8 +674,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧄" type="tts">kignen</annotation>
 		<annotation cp="🧅">legumaj | ognon | temz-boued</annotation>
 		<annotation cp="🧅" type="tts">ognon</annotation>
-		<annotation cp="🍄">kabell-touseg | tog-touseg</annotation>
-		<annotation cp="🍄" type="tts">kabell-touseg</annotation>
 		<annotation cp="🥜">boued | kakaouetez</annotation>
 		<annotation cp="🥜" type="tts">kakaouetez</annotation>
 		<annotation cp="🌰">boued | kistin</annotation>
@@ -1364,14 +1364,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪀" type="tts">pun-dibun</annotation>
 		<annotation cp="🪁">nijal | sarpant-nij</annotation>
 		<annotation cp="🪁" type="tts">sarpant-nij</annotation>
+		<annotation cp="🔫">arm | pistolenn</annotation>
+		<annotation cp="🔫" type="tts">pistolenn</annotation>
 		<annotation cp="🎱">8 | bilhard | bilhard saoz | boul</annotation>
 		<annotation cp="🎱" type="tts">bilhard saoz</annotation>
 		<annotation cp="🔮">boulenn strink | strink</annotation>
 		<annotation cp="🔮" type="tts">boulenn strink</annotation>
 		<annotation cp="🪄">gwialenn-hud | hud | sorser | sorserez</annotation>
 		<annotation cp="🪄" type="tts">gwialenn-hud</annotation>
-		<annotation cp="🧿">amuzetez | drougaviz | gwall lagad | nazar | tilsam</annotation>
-		<annotation cp="🧿" type="tts">amuzetez nazar</annotation>
 		<annotation cp="🎮">cʼhoari | cʼhoari video</annotation>
 		<annotation cp="🎮" type="tts">cʼhoari video</annotation>
 		<annotation cp="🕹">cʼhoari | cʼhoari video | lanker cʼhoari</annotation>
@@ -1744,8 +1744,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🗡" type="tts">badalenn</annotation>
 		<annotation cp="⚔">arm | kleze | klezeier | klezeier kroaziet</annotation>
 		<annotation cp="⚔" type="tts">klezeier kroaziet</annotation>
-		<annotation cp="🔫">arm | pistolenn</annotation>
-		<annotation cp="🔫" type="tts">pistolenn</annotation>
+		<annotation cp="💣">bombezenn | tresadenn</annotation>
+		<annotation cp="💣" type="tts">bombezenn</annotation>
 		<annotation cp="🪃">Aostralia | boumerang</annotation>
 		<annotation cp="🪃" type="tts">boumerang</annotation>
 		<annotation cp="🏹">gwareg | gwareg ha saezh | gwareger | saezh</annotation>
@@ -1858,6 +1858,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪦" type="tts">maen-bez</annotation>
 		<annotation cp="⚱">jarl | jarl-kañv | ludu | marv</annotation>
 		<annotation cp="⚱" type="tts">jarl-kañv</annotation>
+		<annotation cp="🧿">amuzetez | drougaviz | gwall lagad | nazar | tilsam</annotation>
+		<annotation cp="🧿" type="tts">amuzetez nazar</annotation>
 		<annotation cp="🗿">delwenn | moai</annotation>
 		<annotation cp="🗿" type="tts">moai</annotation>
 		<annotation cp="🏧">arcʼhant | arlun bilhedaouer | bank | bilhedaouer</annotation>
@@ -1904,6 +1906,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚱" type="tts">dour fall da evañ</annotation>
 		<annotation cp="🚷">berzet | difennet | difennet dʼar gerzhourien | kerzhourien</annotation>
 		<annotation cp="🚷" type="tts">difennet dʼar gerzhourien</annotation>
+		<annotation cp="📵">berzet | difennet | pellgomzerioù</annotation>
+		<annotation cp="📵" type="tts">pellgomzerioù difennet</annotation>
 		<annotation cp="☢">arouez | skinoberiek</annotation>
 		<annotation cp="☢" type="tts">skinoberiek</annotation>
 		<annotation cp="☣">arouez | riskl | riskl bevoniel</annotation>
@@ -2124,6 +2128,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔹" type="tts">romb bihan glas</annotation>
 		<annotation cp="🔘">bouton radio</annotation>
 		<annotation cp="🔘" type="tts">bouton radio</annotation>
+		<annotation cp="🏁">banniel | karrezek | redadeg</annotation>
+		<annotation cp="🏁" type="tts">banniel karrezek</annotation>
 		<annotation cp="🚩">banniel | banniel tricʼhornek</annotation>
 		<annotation cp="🚩" type="tts">banniel tricʼhornek</annotation>
 		<annotation cp="🎌">banniel | bannieloù kroaziet</annotation>

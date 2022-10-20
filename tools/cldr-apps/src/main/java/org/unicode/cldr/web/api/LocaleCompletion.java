@@ -1,8 +1,10 @@
 package org.unicode.cldr.web.api;
 
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
 import java.time.Duration;
 import java.util.concurrent.ExecutionException;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -10,7 +12,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
 import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.metrics.annotation.Timed;
 import org.eclipse.microprofile.openapi.annotations.Operation;
@@ -19,19 +20,11 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.XMLSource.Listener;
-import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.STFactory;
 import org.unicode.cldr.web.SurveyMain;
-
-import com.google.common.cache.CacheBuilder;
-import com.google.common.cache.CacheLoader;
-import com.google.common.cache.LoadingCache;
 
 /**
  * "A locale has complete coverage when there are no Missing values, no Provisional values, and no Errors
@@ -87,7 +80,13 @@ public class LocaleCompletion {
         return Response.ok(getLocaleCompletion(cldrLocale)).build();
     }
 
-    static LocaleCompletionResponse getLocaleCompletion(CLDRLocale cldrLocale) throws ExecutionException {
+    /**
+     * Getter for cached Locale Completion
+     * @param cldrLocale the locale
+     * @return the response
+     * @throws ExecutionException
+     */
+    public static LocaleCompletionResponse getLocaleCompletion(CLDRLocale cldrLocale) throws ExecutionException {
         return LocaleCompletionHelper.INSTANCE.cache.get(cldrLocale);
     }
 
@@ -96,14 +95,17 @@ public class LocaleCompletion {
      * @param cldrLocale the locale
      * @return the response
      */
-    static LocaleCompletionResponse handleGetLocaleCompletion(CLDRLocale cldrLocale) {
+    static LocaleCompletionResponse handleGetLocaleCompletion(CLDRLocale cldrLocale) throws ExecutionException {
         final STFactory stFactory = CookieSession.sm.getSTFactory();
         return handleGetLocaleCompletion(cldrLocale, stFactory);
     }
 
     static final class LocaleCompletionHelper implements Listener {
+
         PathHeader.Factory phf;
         LoadingCache<CLDRLocale, LocaleCompletionResponse> cache;
+        LoadingCache<CLDRLocale, Integer> basecache;
+
         LocaleCompletionHelper() {
             phf = PathHeader.getFactory(CLDRConfig.getInstance().getEnglish());
             cache = CacheBuilder.newBuilder().maximumSize(500)
@@ -111,11 +113,21 @@ public class LocaleCompletion {
             .expireAfterWrite(Duration.ofMinutes(20)) // expire 20 min after last change
             .build(new CacheLoader<>() {
                 @Override
-                public LocaleCompletionResponse load(CLDRLocale key) {
+                public LocaleCompletionResponse load(CLDRLocale key) throws ExecutionException {
                     return handleGetLocaleCompletion(key);
                 }
             });
+            basecache = CacheBuilder.newBuilder().maximumSize(500)
+            .concurrencyLevel(5) // allow 5 threads to compute completion, uncontested
+            // no expiry
+            .build(new CacheLoader<>() {
+                @Override
+                public Integer load(CLDRLocale key) throws ExecutionException {
+                    return handleGetBaseCount(key);
+                }
+            });
         }
+
         static LocaleCompletionHelper INSTANCE = new LocaleCompletionHelper();
 
         @Override
@@ -132,31 +144,67 @@ public class LocaleCompletion {
      * @param stFactory the STFactory
      * @return the response
      */
-    static LocaleCompletionResponse handleGetLocaleCompletion(final CLDRLocale cldrLocale, final STFactory stFactory) {
+    static LocaleCompletionResponse handleGetLocaleCompletion(final CLDRLocale cldrLocale, final STFactory stFactory) throws ExecutionException {
         // we need an XML Source to receive notification.
         // This causes LocaleCompletionHelper.INSTANCE.valueChanged(...) to be called
         // whenever a vote happens.
         final XMLSource mySource = stFactory.makeSource(cldrLocale.toString(), false);
         mySource.addListener(LocaleCompletion.LocaleCompletionHelper.INSTANCE);
-
         return new LocaleCompletionCounter(cldrLocale, stFactory).getResponse();
     }
 
+    public static int getBaselineCount(CLDRLocale cldrLocale) throws ExecutionException {
+        return LocaleCompletionHelper.INSTANCE.basecache.get(cldrLocale);
+    }
+
+    static int handleGetBaseCount(final CLDRLocale cldrLocale) throws ExecutionException {
+        // no need to listen
+        final Factory baselineFactory = CookieSession.sm.getDiskFactory();
+        LocaleCompletionCounter lcc = new LocaleCompletionCounter(cldrLocale, baselineFactory, true);
+        LocaleCompletionResponse response = lcc.getResponse();
+        return response.problemCount();
+    }
+
     public static class LocaleCompletionResponse {
-        /*
-         * The front end only uses votes, total, and level
-         * The rest is for debugging, testing, or convenience on the back end
-         */
-        public int votes = 0;
-        public int total = 0;
-        final public String level;
 
-        public int error = 0;
-        public int missing = 0;
-        public int provisional = 0;
+        @Schema(description = "coverage level")
+        public final String level;
 
-        LocaleCompletionResponse(Level l) {
-            level = l.name();
+        private final LocaleCompletionData lcd;
+
+        LocaleCompletionResponse(Level l, LocaleCompletionData lcd) {
+            this.level = l.name();
+            this.lcd = lcd;
+        }
+
+        @Schema(description = "number of items with errors")
+        public int getError() {
+            return lcd.errorCount();
+        }
+
+        @Schema(description = "number of missing items")
+        public int getMissing() {
+            return lcd.missingCount();
+        }
+
+        @Schema(description = "number of provisional items")
+        public int getProvisional() {
+            return lcd.provisionalCount();
+        }
+
+        private int baselineCount = 0;
+
+        @Schema(description = "error+missing+provisional from baseline (HEAD)")
+        public int getBaselineCount() {
+            return baselineCount;
+        }
+
+        public void setBaselineCount(int count) {
+            this.baselineCount = count;
+        }
+
+        public int problemCount() {
+            return lcd.problemCount();
         }
     }
 }

@@ -18,7 +18,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -29,7 +28,6 @@ import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
-import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
@@ -54,7 +52,7 @@ import com.ibm.icu.util.VersionInfo;
  * @author srl
  *
  */
-public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.User>, UserRegistry.UserChangedListener {
+public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.User> {
     /**
      * Q: Do we want different loggers for the multiplicity of inner classes?
      */
@@ -823,58 +821,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
 
         /**
-         * Utility class for testing values
-         * @author srl
-         *
-         */
-        private class ValueChecker {
-            private final String path;
-            /*
-             * Use 8 for initial HashSet size; 16 is probably too many values for best performance
-             */
-            HashSet<String> goodValues = new HashSet<>(8);
-            HashSet<String> badValues = new HashSet<>(8);
-
-            LinkedList<CheckCLDR.CheckStatus> result = null;
-            TestResultBundle testBundle = null;
-
-            ValueChecker(String path) {
-                this.path = path;
-            }
-
-            boolean canUseValue(String value) {
-                if (value == null || goodValues.contains(value)) {
-                    return true;
-                } else if (badValues.contains(value)) {
-                    return false;
-                } else {
-                    if (testBundle == null) {
-                        testBundle = getDiskTestBundle(locale);
-                        result = new LinkedList<>();
-                    } else {
-                        result.clear();
-                    }
-
-                    testBundle.check(path, result, value);
-                    if (false) System.out.println("Checking result of " + path + " = " + value + " := haserr " + CheckCLDR.CheckStatus.hasError(result));
-                    if (CheckCLDR.CheckStatus.hasError(result)) {
-                        badValues.add(value);
-                        return false;
-                    } else {
-                        goodValues.add(value);
-                        return true; // OK
-                    }
-                }
-            }
-
-        }
-
-        /**
-         * Disable ValueChecker
-         */
-        private static final boolean ERRORS_ALLOWED_IN_VETTING = true;
-
-        /**
          * Create or update a VoteResolver for this item
          *
          * @param perXPathData
@@ -892,34 +838,19 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 throw new IllegalArgumentException("path must not be null");
             }
             if (r == null) {
-                r = new VoteResolver<>(); // create
+                r = new VoteResolver<>(sm.reg.getVoterInfoList()); // create
             } else {
                 r.clear(); // reuse
             }
-            /* Apply special voting method adjustAnnotationVoteCounts only to certain bar-separated keyword annotations.
-             * See http://unicode.org/cldr/trac/ticket/10973
-             * The paths for keyword annotations start with "//ldml/annotations/annotation" and do NOT include Emoji.TYPE_TTS.
-             * Both name paths (cf. namePath, getNamePaths) and keyword paths (cf. keywordPath, getKeywordPaths)
-             * have "//ldml/annotations/annotation". Name paths include Emoji.TYPE_TTS, and keyword paths don't.
-             * Special voting is only for keyword paths, not for name paths.
-             * Compare path dependencies in DisplayAndInputProcessor.java. See also VoteResolver.splitAnnotationIntoComponentsList.
-             * Note: this does not affect the occurrences of "new VoteResolver" in ConsoleCheckCLDR.java or TestUtilities.java;
-             * if those tests ever involve annotation keywords, they could call setUsingKeywordAnnotationVoting as needed.
-             */
-            r.setUsingKeywordAnnotationVoting(AnnotationUtil.pathIsAnnotation(path) && !path.contains(Emoji.TYPE_TTS));
-
-            final ValueChecker vc = ERRORS_ALLOWED_IN_VETTING ? null : new ValueChecker(path);
 
             // Set established locale
             r.setLocale(locale, getPathHeader(path));
 
             // set current Trunk (baseline) value (if present)
             final String currentValue = diskData.getValueAtDPath(path);
-            final Status currentStatus = calculateStatus(diskFile, diskFile, path);
-            if (ERRORS_ALLOWED_IN_VETTING || vc.canUseValue(currentValue)) {
-                r.setBaseline(currentValue, currentStatus);
-                r.add(currentValue);
-            }
+            final Status currentStatus = VoteResolver.calculateStatus(diskFile, path);
+            r.setBaseline(currentValue, currentStatus);
+            r.add(currentValue);
 
             CLDRFile cf = make(locale, true);
             r.setBaileyValue(cf.getBaileyValue(path, null, null));
@@ -928,11 +859,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             if (perXPathData != null && !perXPathData.isEmpty()) {
                 for (Entry<User, PerLocaleData.PerXPathData.PerUserData> e : perXPathData.getVotes()) {
                     PerLocaleData.PerXPathData.PerUserData v = e.getValue();
-
-                    if (ERRORS_ALLOWED_IN_VETTING || vc.canUseValue(v.getValue())) {
-                        r.add(v.getValue(), // user's vote
+                    r.add(v.getValue(), // user's vote
                             e.getKey().id, v.getOverride(), v.getWhen()); // user's id
-                    }
                 }
             }
             return r;
@@ -942,7 +870,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             try {
                 r = getResolverInternal(perXPathData, path, r);
             } catch (VoteResolver.UnknownVoterException uve) {
-                handleUserChanged(null);
+                sm.reg.userModified();  // try reloading user table
                 try {
                     r = getResolverInternal(perXPathData, path, r);
                 } catch (VoteResolver.UnknownVoterException uve2) {
@@ -1546,9 +1474,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             gTestCache.setFactory(this, "(?!.*(CheckCoverage).*).*");
             progress.update("setup disk test cache");
             gDiskTestCache.setFactory(sm.getDiskFactory(), "(?!.*(CheckCoverage).*).*");
-            sm.reg.addListener(this);
             progress.update("reload all users");
-            handleUserChanged(null);
+            sm.reg.getVoterInfoList();
             progress.update("setup pathheader factory");
             phf = PathHeader.getFactory(sm.getEnglishFile());
         }
@@ -2061,11 +1988,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         return sm.getSTFactory();
     }
 
-    @Override
-    public synchronized void handleUserChanged(User u) {
-        VoteResolver.setVoterToInfo(sm.reg.getVoterToInfo());
-    }
-
     public final PathHeader getPathHeader(String xpath) {
         try {
             return phf.fromPath(xpath);
@@ -2192,11 +2114,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
     /**
      * Read back a dir full of pxml files
-     *
-     * @param sm
-     * @param inFile
-     *            dir containing pxmls
-     * @return
      */
     public Integer[] readPXMLFiles(final File inFileList[]) {
         int nusers = 0;
@@ -2298,38 +2215,5 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     public static final String getLastVoteTable() {
         final String dbName = DBUtils.Table.VOTE_VALUE.forVersion(SurveyMain.getLastVoteVersion(), false).toString();
         return dbName;
-    }
-
-    /**
-     * Utility function to calculate CLDRFile.Status
-     * @param cldrFile the CLDR File to use
-     * @param diskFile the 'baseline' file to use
-     * @param path xpath
-     * @param value current string value
-     * @return
-     */
-    public static final Status calculateStatus(CLDRFile cldrFile, CLDRFile diskFile, String path) {
-        String fullXPath = cldrFile.getFullXPath(path);
-        if (fullXPath == null) {
-            fullXPath = path;
-        }
-        XPathParts xpp = XPathParts.getFrozenInstance(fullXPath);
-        String draft = xpp.getAttributeValue(-1, LDMLConstants.DRAFT);
-        Status status = draft == null ? Status.approved : VoteResolver.Status.fromString(draft);
-
-        /*
-         * Reset to missing if the value is inherited from root or code-fallback, unless the XML actually
-         * contains INHERITANCE_MARKER. Pass false for skipInheritanceMarker so that status will not be
-         * missing for explicit INHERITANCE_MARKER. Reference: https://unicode.org/cldr/trac/ticket/11857
-         */
-        final String srcid = cldrFile.getSourceLocaleIdExtended(path, null, false /* skipInheritanceMarker */);
-        if (srcid.equals(XMLSource.CODE_FALLBACK_ID)) {
-            status = Status.missing;
-        } else if (srcid.equals("root")) {
-            if (!srcid.equals(diskFile.getLocaleID())) {
-                status = Status.missing;
-            }
-        }
-        return status;
     }
 }

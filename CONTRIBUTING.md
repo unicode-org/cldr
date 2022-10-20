@@ -93,8 +93,8 @@ Copyright &copy; 1991-2022 Unicode, Inc.
 All rights reserved. [Terms of use][]
 
 [Survey Tool]: https://cldr.unicode.org/index/survey-tool
-[Terms of use]: http://www.unicode.org/copyright.html
-[Jira]: https://cldr.unicode.org/index/bug-reports#h.o5tktlfjc4iw
+[Terms of use]: https://www.unicode.org/copyright.html
+[Jira]: https://github.com/unicode-org/cldr/blob/main/docs/requesting_changes.md
 [Tools source]: https://github.com/unicode-org/cldr/tree/main/tools
 [Maven setup]: https://cldr.unicode.org/development/cldr-development-site/maven-setup
 [Repository Organization]: https://cldr.unicode.org/index/downloads#h.lf1z45b9du36

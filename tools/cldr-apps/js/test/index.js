@@ -11,7 +11,9 @@ import { TestCldrForumFilter } from "./TestCldrForumFilter.js";
 import { TestCldrForumParticipation } from "./TestCldrForumParticipation.js";
 import { TestCldrGui } from "./TestCldrGui.js";
 import { TestCldrListUsers } from "./TestCldrListUsers.js";
+import { TestCldrProgress } from "./TestCldrProgress.js";
 import { TestCldrStatus } from "./TestCldrStatus.js";
+import { TestCldrTable } from "./TestCldrTable.js";
 import { TestCldrText } from "./TestCldrText.js";
 
 import * as TestCldrTest from "./TestCldrTest.js";
@@ -30,7 +32,9 @@ export default {
   TestCldrForumParticipation,
   TestCldrGui,
   TestCldrListUsers,
+  TestCldrProgress,
   TestCldrStatus,
+  TestCldrTable,
   TestCldrTest,
   TestCldrText,
 };

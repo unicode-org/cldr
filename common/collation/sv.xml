@@ -11,14 +11,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<language type="sv"/> 
 	</identity>
 	<collations>
-		<defaultCollation>reformed</defaultCollation>
+		<defaultCollation>standard</defaultCollation>
 		<collation type="search">
 			<cr><![CDATA[
 				[import und-u-co-search]
 				[import sv-u-co-standard]
 			]]></cr>
 		</collation>
-		<collation type="standard">
+		<collation type="traditional">
 			<cr><![CDATA[
 				&D<<đ<<<Đ<<ð<<<Ð
 				&t<<<þ/h
@@ -28,7 +28,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				&[before 1]ǀ<å<<<Å<ä<<<Ä<<æ<<<Æ<<ę<<<Ę<ö<<<Ö<<ø<<<Ø<<ő<<<Ő<<œ<<<Œ<<ô<<<Ô
 			]]></cr>
 		</collation>
-		<collation type="reformed">
+		<collation type="standard">
 			<cr><![CDATA[
 				&D<<đ<<<Đ<<ð<<<Ð
 				&t<<<þ/h

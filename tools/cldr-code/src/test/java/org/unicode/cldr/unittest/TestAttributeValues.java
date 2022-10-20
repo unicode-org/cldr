@@ -40,6 +40,7 @@ import org.unicode.cldr.util.DtdData.ValueStatus;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.LanguageInfo;
 import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
@@ -129,16 +130,16 @@ public class TestAttributeValues extends TestFmwk {
             return;
         }
         if (!dirFile.isDirectory()) {
-            if (getInclusion() <= 5
-                && dtdType == DtdType.ldml) {
-                if (path.contains("/annotationsDerived/")) {
-                    return;
-                }
-                String ending = path.substring(path.lastIndexOf('/')+1);
-                if (!CLDR_LOCALES.contains(ending)) {
-                    return;
-                }
-            }
+//            if (getInclusion() <= 5
+//                && dtdType == DtdType.ldml) {
+//                if (path.contains("/annotationsDerived/")) {
+//                    return;
+//                }
+//                String ending = path.substring(path.lastIndexOf('/')+1);
+//                if (!CLDR_LOCALES.contains(ending)) {
+//                    return;
+//                }
+//            }
             files.add(path);
         } else {
             for (String file : dirFile.list()) {
@@ -201,10 +202,11 @@ public class TestAttributeValues extends TestFmwk {
                 }
             } catch (Throwable e) {
                 if(r == null) throw e;
-                throw (IllegalArgumentException) new IllegalArgumentException(" at " + r.getLocation()).initCause(e);
+                throw (IllegalArgumentException) new IllegalArgumentException(" at " + r.getLocation(), e);
             }
         } catch (Exception e) {
-            errln("Exception occured in " + fullFile + " after parsing " + lastElement);
+            e.printStackTrace(this.getErrorLogPrintWriter());
+            errln("Exception occured in " + fullFile + " after parsing " + lastElement + " - " + e);
         }
         pathChecker.elementCount.addAndGet(_elementCount);
         pathChecker.attributeCount.addAndGet(_attributeCount);
@@ -431,7 +433,9 @@ public class TestAttributeValues extends TestFmwk {
     }
 
     public void oldTestCoreValidity() {
-        int maxPerDirectory = getInclusion() <= 5 ? 20 : Integer.MAX_VALUE;
+        int maxPerDirectory =
+            // getInclusion() <= 5 ? 20 :
+            Integer.MAX_VALUE;
         Matcher fileMatcher = null;
         Set<AttributeValueSpec> missing = new LinkedHashSet<>();
         Errors errors = new Errors();

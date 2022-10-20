@@ -17,4 +17,6 @@ public final class SummaryRequest {
     public String snapshotPolicy = SurveySnapshot.SNAP_NONE;
 
     public String snapshotId = SurveySnapshot.SNAPID_NOT_APPLICABLE;
+
+    public boolean summarizeAllLocales = false;
 }

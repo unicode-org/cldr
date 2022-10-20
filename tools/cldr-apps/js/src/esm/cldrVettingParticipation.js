@@ -9,6 +9,7 @@ import * as cldrRetry from "./cldrRetry.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
+import * as XLSX from "xlsx";
 
 let nf = null; // Intl.NumberFormat initialized later
 
@@ -60,6 +61,77 @@ function getAjaxUrl() {
   return cldrAjax.makeUrl(p);
 }
 
+function downloadVettingParticipation(opts) {
+  const {
+    missingLocalesForOrg,
+    // languagesNotInCLDR,
+    // hasAllLocales,
+    localeToData,
+    // totalCount,
+    uidToUser,
+  } = opts;
+
+  const wb = XLSX.utils.book_new();
+
+  var ws_name = (missingLocalesForOrg || "ALL").substring(0, 31);
+
+  var ws_data = [
+    [
+      "Org",
+      "Locale",
+      "Code",
+      "Level",
+      "Votes",
+      "CldrCovCount",
+      "Vetter#",
+      "Email",
+      "Name",
+      "LastSeen",
+    ],
+  ];
+
+  for (const [id, user] of Object.entries(uidToUser)) {
+    const row = [
+      user.org,
+      null, // localeName
+      null, // locale
+      user.userlevelName,
+      0, // votes
+      0, // CldrCovCount
+      id,
+      user.email,
+      user.name,
+      user.time,
+    ];
+    if (user.allLocales) {
+      row[1] = "ALL";
+      row[2] = "*";
+      ws_data.push(row);
+    } else if (!user.locales) {
+      // no locales?!
+      row[1] = "NONE";
+      row[2] = "-";
+      ws_data.push(row);
+    } else {
+      for (const locale of user.locales) {
+        row[1] = cldrLoad.getLocaleName(locale);
+        row[2] = locale;
+        row[4] = localeToData[locale].participation[id] || 0;
+        row[5] = localeToData[locale].cov_count || 0;
+        ws_data.push([...row]); // clone the array because ws_data will retain a reference
+      }
+    }
+  }
+
+  var ws = XLSX.utils.aoa_to_sheet(ws_data);
+
+  XLSX.utils.book_append_sheet(wb, ws, ws_name);
+  XLSX.writeFile(
+    wb,
+    `survey_participation.${missingLocalesForOrg || "ALL"}.xlsx`
+  );
+}
+
 /**
  * Populate the given div, given the json for Vetting Participation
  *
@@ -68,7 +140,7 @@ function getAjaxUrl() {
  */
 function loadVettingParticipation(json, ourDiv) {
   nf = new Intl.NumberFormat();
-  const { missingLocalesForOrg, languagesNotInCLDR } = json;
+  const { missingLocalesForOrg, languagesNotInCLDR, hasAllLocales } = json;
 
   // crunch the numbers
   const { localeToData, totalCount, uidToUser } = calculateData(json);
@@ -83,13 +155,33 @@ function loadVettingParticipation(json, ourDiv) {
       text: `Total votes: ${nf.format(totalCount || 0)}`,
     })
   );
+  const downloadButton = document.createElement("button");
+  downloadButton.appendChild(document.createTextNode("Download… (.xlsx)"));
+  downloadButton.onclick = () =>
+    downloadVettingParticipation({
+      // for now, throw in all data here.
+      missingLocalesForOrg,
+      languagesNotInCLDR,
+      hasAllLocales,
+      localeToData,
+      totalCount,
+      uidToUser,
+    });
+  div.append(downloadButton);
   if (missingLocalesForOrg) {
     div.append(
       $("<i/>", {
         text: `“No Coverage” locales indicate that there are no regular vetters assigned in the “${missingLocalesForOrg}” organization.`,
       })
     );
-    if (languagesNotInCLDR) {
+    if (hasAllLocales) {
+      div.append(
+        $("<p/>", {
+          text: " The organiation has an asterisk (*) entry, indicating that all locales are allowed. “No coverage” means there is no coverage for a locale which is explicitly listed in Locales.txt. ",
+        })
+      );
+    }
+    if (languagesNotInCLDR && languagesNotInCLDR.length > 0) {
       div.append(
         $("<h4/>", {
           text: "Locales not in CLDR",
@@ -157,15 +249,13 @@ function loadVettingParticipation(json, ourDiv) {
       );
     }
     const myUsers = getUsersFor(e, uidToUser);
-    if (!myUsers) {
-      console.log("No users");
-      return;
+    if (myUsers && myUsers.length > 0) {
+      const theUserBox = $("<span/>", { class: "participatingUsers" });
+      li.append(theUserBox);
+      myUsers.forEach(function (u) {
+        verb(u, theUserBox);
+      });
     }
-    const theUserBox = $("<span/>", { class: "participatingUsers" });
-    li.append(theUserBox);
-    myUsers.forEach(function (u) {
-      verb(u, theUserBox);
-    });
   }
 }
 
@@ -227,19 +317,17 @@ function calculateData(json) {
   // collect users w/ coverage
   users.forEach((u) => {
     const { locales, id } = u;
-    if (Number(id) === Number(1922)) {
-      console.log("calc got id = " + id);
-    }
     uidToUser[id] = u;
     (locales || []).forEach((loc) => getLocale(loc).vetters.push(id));
   });
   // collect missing
   (languagesMissing || []).forEach((loc) => (getLocale(loc).missing = true));
-  participation.forEach(({ count, locale, user }) => {
+  participation.forEach(({ count, locale, user, cov_count }) => {
     const e = getLocale(locale);
     e.count += count;
     totalCount += count;
     e.participation[user] = count;
+    e.cov_count = cov_count; // cov_count is currently per-locale data.
   });
 
   return { localeToData, totalCount, uidToUser };

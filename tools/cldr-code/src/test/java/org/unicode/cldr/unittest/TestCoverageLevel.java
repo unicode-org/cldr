@@ -32,8 +32,8 @@ import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LogicalGrouping;
-import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.LogicalGrouping.PathType;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
 import org.unicode.cldr.util.PathStarrer;
@@ -386,7 +386,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
         final Pattern language100 = PatternCache.get("("
             + "ach|aeb?|afh|ak[kz]|aln|ang|ar[coqswyz]|ase|avk|"
-            + "ba[lrx]|bb[cj]|be[jw]|bf[dq]|bgn|bik|bjn|bkm|bpy|bqi|br[ah]|bss|bu[am]|byv|"
+            + "ba[lrx]|bb[cj]|be[jw]|bf[dq]|bgc|bgn|bik|bjn|bkm|bpy|bqi|br[ah]|bss|bu[am]|byv|"
             + "ca[dry]|cch|ch[bgnp]|cic|cop|cps|crh?|csb|"
             + "de[ln]|din|doi|dtp|dum|dyu|"
             + "eg[ly]|elx|enm|esu|ext|"
@@ -429,7 +429,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
         final Pattern script100 = PatternCache.get("(Zinh)");
 
         final Pattern keys100 = PatternCache.get("(col(Alternate|Backwards|CaseFirst|CaseLevel|HiraganaQuaternary|"
-            + "Normalization|Numeric|Reorder|Strength)|kv|sd|timezone|va|variableTop|x|d0|h0|i0|k0|m0|s0)");
+            + "Normalization|Numeric|Reorder|Strength)|kv|sd|mu|timezone|va|variableTop|x|d0|h0|i0|k0|m0|s0)");
 
         final Pattern numberingSystem100 = PatternCache.get("("
             + "finance|native|traditional|adlm|ahom|bali|bhks|brah|cakm|cham|cyrl|diak|"

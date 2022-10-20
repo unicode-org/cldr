@@ -33,7 +33,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="‐" type="tts">karan-ɗori</annotation>
 		<annotation cp="–">layi | tsaka-tsaki</annotation>
 		<annotation cp="–" type="tts">layi tsaka-tsaki</annotation>
-		<annotation cp="—">dogo | dogon layi | layu</annotation>
+		<annotation cp="—">dogo | dogon layi | layi</annotation>
 		<annotation cp="—" type="tts">dogon layi</annotation>
 		<annotation cp="―">ɗigo | layi | sanda | sandar kwance</annotation>
 		<annotation cp="―" type="tts">sandar kwance</annotation>
@@ -41,7 +41,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="・" type="tts">ɗigon tsakiya na katakana</annotation>
 		<annotation cp=",">waƙafi</annotation>
 		<annotation cp="," type="tts">waƙafi</annotation>
-		<annotation cp="،">larabci | waƙafi | waƙafin larabci</annotation>
+		<annotation cp="،">Larabci | waƙafi | waƙafin larabci</annotation>
 		<annotation cp="،" type="tts">waƙafin larabci</annotation>
 		<annotation cp="、">tsaye | waƙafi | waƙafin tsaye</annotation>
 		<annotation cp="、" type="tts">waƙafin tsaye</annotation>
@@ -73,11 +73,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="·" type="tts">ɗigon tsakiya</annotation>
 		<annotation cp="'">alamar ambato | alamar ambato ta keken-rubutu | ambato | ambato ɗaya</annotation>
 		<annotation cp="'" type="tts">alamar ambato ta keken-rubutu</annotation>
-		<annotation cp="‘">alamar ambato | alamar ambato ɗaya | alamar ambato ta hagu | alamar buɗe ambato ta hagu | ambato | ambato ɗaya</annotation>
+		<annotation cp="‘">alamar ambato | alamar ambato ta dabara | alamar ambato ta hagu | alamar buɗe ambato ta hagu | ambato | ambato ɗaya</annotation>
 		<annotation cp="‘" type="tts">alamar buɗe ambato ta hagu</annotation>
-		<annotation cp="’">alamar ambato | alamar ambato ɗaya | alamar ambato ta dama | alamar rufe ambato ta dama | ambato | ambato ɗaya</annotation>
+		<annotation cp="’">alamar ambato | alamar ambato ta dabara | alamar ambato ta dama | alamar rufe ambato ta dama | ambato | ambato ɗaya</annotation>
 		<annotation cp="’" type="tts">alamar rufe ambato ta dama</annotation>
-		<annotation cp="‚">alamar ambato | alamar ambato dama kaɗan | alamar rufe ambato kaɗan | ambato | ambato kaɗa</annotation>
+		<annotation cp="‚">alamar ambato | alamar ambato dama kaɗan | alamar rufe ambato kaɗan | ambato | ambato kaɗan</annotation>
 		<annotation cp="‚" type="tts">alamar rufe ambato kaɗan</annotation>
 		<annotation cp="“">alamar ambato guda biyu | alamar ambato ta hagu | alamar buɗe ambato hagu | ambato | ambato ɗaya</annotation>
 		<annotation cp="“" type="tts">alamar buɗe ambato hagu</annotation>
@@ -125,7 +125,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="〖" type="tts">buɗaɗɗiyar bakar ruwan tabarau ta buɗewa</annotation>
 		<annotation cp="〗">baka-biyu | buɗaɗɗiyar bakar ruwan tabarau | buɗaɗɗiyar bakar ruwan tabarau ta rufewa</annotation>
 		<annotation cp="〗" type="tts">buɗaɗɗiyar bakar ruwan tabarau ta rufewa</annotation>
-		<annotation cp="§">kashi | sakin layi | sashe | sashi | silkin</annotation>
+		<annotation cp="§">sakin layi | sashe | sashi | silkin</annotation>
 		<annotation cp="§" type="tts">sashe</annotation>
 		<annotation cp="¶">alamar sakin layi | alinea | fasali | pilcrow | sakin layi</annotation>
 		<annotation cp="¶" type="tts">alamar sakin layi</annotation>
@@ -165,13 +165,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="※" type="tts">alamar ishara</annotation>
 		<annotation cp="⁂">alada</annotation>
 		<annotation cp="⁂" type="tts">alada</annotation>
-		<annotation cp="`">alamar lafazin grave | grave | kari | lafazi</annotation>
+		<annotation cp="`">alamar lafazin grave | kari | lafazi</annotation>
 		<annotation cp="`" type="tts">alamar lafazin grave</annotation>
-		<annotation cp="´">acute | alamar lafazin acute | kari | lafazi</annotation>
+		<annotation cp="´">alamar lafazin acute | kari | lafazi</annotation>
 		<annotation cp="´" type="tts">alamar lafazin acute</annotation>
-		<annotation cp="^">alamar lafazi mai juyawa | alamar xor | dunƙule | hula | iko | kulawa | lafazi | mai juyawa | manuni | sarrafawa | shayan</annotation>
+		<annotation cp="^">alamar lafazi mai juyawa | alamar xor | chevron | dunƙule | hula | iko | kulawa | lafazi</annotation>
 		<annotation cp="^" type="tts">alamar lafazi mai juyawa</annotation>
-		<annotation cp="¨">diaeresis | ɗigon wasali | tréma | umlaut | umlautdiaeresis</annotation>
+		<annotation cp="¨">ɗigon wasali | tréma | umlaut</annotation>
 		<annotation cp="¨" type="tts">ɗigon wasali</annotation>
 		<annotation cp="°">digiri | hujja | saʼa</annotation>
 		<annotation cp="°" type="tts">digiri</annotation>
@@ -191,7 +191,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⇆" type="tts">nuna hagu a kan kibiyoyi masu nuna dama</annotation>
 		<annotation cp="∆">alwatika | ƙari</annotation>
 		<annotation cp="∆" type="tts">ƙari</annotation>
-		<annotation cp="∇">alamar nabla | alwatika | nabla</annotation>
+		<annotation cp="∇">alamar nabla | alwatika</annotation>
 		<annotation cp="∇" type="tts">alamar nabla</annotation>
 		<annotation cp="∈">kashi | kashi na | saita | ya ƙunshi | zama memban</annotation>
 		<annotation cp="∈" type="tts">kashi na</annotation>
@@ -213,7 +213,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="&gt;" type="tts">mafi girma fiye da</annotation>
 		<annotation cp="¬">ba | rashi</annotation>
 		<annotation cp="¬" type="tts">rashi</annotation>
-		<annotation cp="|">alamar sheffer stroke | bugun jini | bututu | kifin pike | layi | layin tsaye | sanda | sandar tsaye | stsy</annotation>
+		<annotation cp="|">bugun jini | bututu | layi | layin tsaye | sanda | sandar tsaye | stsy</annotation>
 		<annotation cp="|" type="tts">layin tsaye</annotation>
 		<annotation cp="~">karkatar</annotation>
 		<annotation cp="~" type="tts">karkatar</annotation>
@@ -223,7 +223,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⁻" type="tts">debewar rubutun sama</annotation>
 		<annotation cp="√">murabbaʼi | radix | saiwa | sikwayarut | surd | tsattsaura</annotation>
 		<annotation cp="√" type="tts">sikwayarut</annotation>
-		<annotation cp="∞">alamar rashin iyaka | alamar rashin iyakagn | rashin iyaka</annotation>
+		<annotation cp="∞">alamar rashin iyaka | rashin iyaka</annotation>
 		<annotation cp="∞" type="tts">alamar rashin iyaka</annotation>
 		<annotation cp="∩">alamar mahaɗa | mahaɗa | saita</annotation>
 		<annotation cp="∩" type="tts">alamar mahaɗa</annotation>
@@ -243,7 +243,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="▲" type="tts">cika alwatika mai nunawa sama</annotation>
 		<annotation cp="▼">alwatika | cika | cika alwatika mai nunawa ƙasa | kibiya | ƙasa</annotation>
 		<annotation cp="▼" type="tts">cika alwatika mai nunawa ƙasa</annotation>
-		<annotation cp="◊">alawa | alewa | daiman | rhombus</annotation>
+		<annotation cp="◊">alewa | daiman | rhombus</annotation>
 		<annotation cp="◊" type="tts">alewa</annotation>
 		<annotation cp="○">daʼira | daʼira buɗaɗɗiya | zobe</annotation>
 		<annotation cp="○" type="tts">daʼira buɗaɗɗiya</annotation>
@@ -251,97 +251,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="●" type="tts">daʼira cike</annotation>
 		<annotation cp="◯">babbar daʼira buɗaɗɗiya | daʼira | zobe</annotation>
 		<annotation cp="◯" type="tts">babbar daʼira buɗaɗɗiya</annotation>
-		<annotation cp="♪">alama | alama ta kiɗa | kiɗa | takwas</annotation>
+		<annotation cp="♪">alama ta kiɗa | kiɗa | takwas</annotation>
 		<annotation cp="♪" type="tts">alama ta kiɗa</annotation>
 		<annotation cp="♭">alama | bemolle | lebur | waƙa</annotation>
 		<annotation cp="♭" type="tts">lebur</annotation>
 		<annotation cp="♯">alamar kiɗa | bayanin kula | dièse | diesis | waƙa</annotation>
 		<annotation cp="♯" type="tts">alamar kiɗa</annotation>
-		<annotation cp="🥹">baƙin ciki | fushi | fuska ido ya ciko | kuka | mai alfahari | tsayayya</annotation>
-		<annotation cp="🥹" type="tts">fuska ido ya ciko</annotation>
-		<annotation cp="🧌">dodo | labarin aljana | mutum na zane | tatsuniya</annotation>
-		<annotation cp="🧌" type="tts">mutum na zane</annotation>
-		<annotation cp="🩻">hoton x-ray | ƙasusuwa | ƙwarangwal | likita</annotation>
-		<annotation cp="🩻" type="tts">hoton x-ray</annotation>
-		<annotation cp="🩼">kara | nakasa | sanda | sandar guragu | taimakon tafiya | zafi</annotation>
-		<annotation cp="🩼" type="tts">sandar guragu</annotation>
-		<annotation cp="🪩">disko | ƙwallon madubi | ƙyalƙyali | liyafa | rawa</annotation>
-		<annotation cp="🪩" type="tts">ƙwallon madubi</annotation>
-		<annotation cp="🪪">ID | katin shaida | lasisi | takardun shaidarka | tsaro</annotation>
-		<annotation cp="🪪" type="tts">katin shaida</annotation>
-		<annotation cp="🪫">batir ya yi sanyi | lantarki | wuta ƙasa</annotation>
-		<annotation cp="🪫" type="tts">batir ya yi sanyi</annotation>
-		<annotation cp="🪬">alamar hamsa | Fatima | hannu | kariya | laya | Maryam | Maryamu</annotation>
-		<annotation cp="🪬" type="tts">alamar hamsa</annotation>
-		<annotation cp="🪷">Addinin Hindu | Buddha | fure | Indiya | magarya | tsarki | Vietnam</annotation>
-		<annotation cp="🪷" type="tts">magarya</annotation>
-		<annotation cp="🪸">ciyawa | ciyawar | teku</annotation>
-		<annotation cp="🪸" type="tts">ciyawa</annotation>
-		<annotation cp="🪹">sheƙar da ba komai | yin sheƙa</annotation>
-		<annotation cp="🪹" type="tts">sheƙar da ba komai</annotation>
-		<annotation cp="🪺">sheƙa mai ƙwai | yin sheƙa</annotation>
-		<annotation cp="🪺" type="tts">sheƙa mai ƙwai</annotation>
-		<annotation cp="🫃">cika | ciki | kumbura | mai ciki | namiji mai ciki</annotation>
-		<annotation cp="🫃" type="tts">namiji mai ciki</annotation>
-		<annotation cp="🫄">cika | ciki | kumbura | mai ciki | mutum mai ciki</annotation>
-		<annotation cp="🫄" type="tts">mutum mai ciki</annotation>
-		<annotation cp="🫅">daraja | masarauta | mulki | mutum mai kambi | sarauta</annotation>
-		<annotation cp="🫅" type="tts">mutum mai kambi</annotation>
-		<annotation cp="🫗">fanko | gilashi | sha | zuba ruwa | zubewa</annotation>
-		<annotation cp="🫗" type="tts">zuba ruwa</annotation>
-		<annotation cp="🫘">abinci | jan wake | tsaba | wake</annotation>
-		<annotation cp="🫘" type="tts">wake</annotation>
-		<annotation cp="🫙">akwati | ɗanɗano | fanko | kurtu | miya | shago</annotation>
-		<annotation cp="🫙" type="tts">kurtu</annotation>
-		<annotation cp="🫠">ɓace | fuska narke | narke | ruwa</annotation>
-		<annotation cp="🫠" type="tts">fuska narke</annotation>
-		<annotation cp="🫡">eh | fuska mai sarawa | rana | sarawa | sojoji | to</annotation>
-		<annotation cp="🫡" type="tts">fuska mai sarawa</annotation>
-		<annotation cp="🫢">fuska da buɗe idanu da miƙa baki | kunya | mamaki | rashin yarda | tsorata | tsoro</annotation>
-		<annotation cp="🫢" type="tts">fuska da buɗe idanu da miƙa baki</annotation>
-		<annotation cp="🫣">fuska tare da leƙo ido ɗaya | kame | leƙa ido ɗaya | zura ido</annotation>
-		<annotation cp="🫣" type="tts">fuska tare da leƙo ido ɗaya</annotation>
-		<annotation cp="🫤">fuska mai karkataccen baki | mai shakka | meh | rashin jin daɗi | rashin tabbas</annotation>
-		<annotation cp="🫤" type="tts">fuska mai karkataccen baki</annotation>
-		<annotation cp="🫥">baƙin ciki | ɓace | ɓoye | ganuwa | kewaye da ɗige fuska | mai gabatarwa</annotation>
-		<annotation cp="🫥" type="tts">kewaye da ɗige fuska</annotation>
-		<annotation cp="🫦">ciza leɓe | damu | damuwa | juyayi | kwarkwasa | mara daɗi | tsoro</annotation>
-		<annotation cp="🫦" type="tts">ciza leɓe</annotation>
-		<annotation cp="🫧">bugu | kumfa | ƙarƙashin ruwa | sabulu | tsafta</annotation>
-		<annotation cp="🫧" type="tts">kumfa</annotation>
-		<annotation cp="🫰">hannu da yatsa da babban yatsa a kewaye | karye | kuɗi | soyayya | tsada | zuciya</annotation>
-		<annotation cp="🫰" type="tts">hannu da yatsa da babban yatsa a kewaye</annotation>
-		<annotation cp="🫱">dama | dama gaba | hannu | hannun dama gaba</annotation>
-		<annotation cp="🫱" type="tts">hannun dama gaba</annotation>
-		<annotation cp="🫲">hagu | hagu gaba | hannu | hannun hagu gaba</annotation>
-		<annotation cp="🫲" type="tts">hannun hagu gaba</annotation>
-		<annotation cp="🫳">ihu | sallama | sauke | tafin hannu ƙasa</annotation>
-		<annotation cp="🫳" type="tts">tafin hannu ƙasa</annotation>
-		<annotation cp="🫴">kama | kwalliya | tafin hannu sama | tayi | zo</annotation>
-		<annotation cp="🫴" type="tts">tafin hannu sama</annotation>
-		<annotation cp="🫵">ka | nuna | yatsa yana nuna mai kallo</annotation>
-		<annotation cp="🫵" type="tts">yatsa yana nuna mai kallo</annotation>
-		<annotation cp="🫶">hannayen zuciya | soyayya</annotation>
-		<annotation cp="🫶" type="tts">hannayen zuciya</annotation>
-		<annotation cp="🛝">filin wasan motsa jiki | wasa | wurin nishaɗi</annotation>
-		<annotation cp="🛝" type="tts">filin wasan motsa jiki</annotation>
-		<annotation cp="🛞">daʼira | juyawa | taya</annotation>
-		<annotation cp="🛞" type="tts">taya</annotation>
-		<annotation cp="🛟">aminci | balan-balan ceto na ruwa | ceto | mai ceton rai | mai ceton rayuwa | shawagi</annotation>
-		<annotation cp="🛟" type="tts">balan-balan ceto na ruwa</annotation>
-		<annotation cp="🟰">alamar daidai mai nauyi | daidaito | lissafi</annotation>
-		<annotation cp="🟰" type="tts">alamar daidai mai nauyi</annotation>
-		<annotation cp="😀">fuska | fuska mai murmushin baki har kunne | mai murmushi baki har kunne</annotation>
+		<annotation cp="😀">fuska mai murmushin baki har kunne | murmushi | uska</annotation>
 		<annotation cp="😀" type="tts">fuska mai murmushin baki har kunne</annotation>
 		<annotation cp="😃">a buɗe | baki | fuska | fuska mai murmushi tare da baki a buɗe | fuska mai murmushi tare da manyan idanu | murmushi</annotation>
 		<annotation cp="😃" type="tts">fuska mai murmushi tare da manyan idanu</annotation>
-		<annotation cp="😄">a buɗe | baki | fuska | fuska mai murmushi tare da baki a buɗe &amp; idanu masu murmushi | fuska mai murmushi tare da idanu | ido | murmushi</annotation>
+		<annotation cp="😄">a buɗe | baki | fuska | fuska mai murmushi tare da idanu | ido | murmushi</annotation>
 		<annotation cp="😄" type="tts">fuska mai murmushi tare da idanu</annotation>
-		<annotation cp="😁">fuska | fuska mai murmushi tare da idanuu | fuska mai murmushin baki har kunne tare da idanu masu murmushi | ido | murmushi | murmushi na baki har kunne</annotation>
+		<annotation cp="😁">fuska | fuska mai murmushi tare da idanu | fuska mai murmushi tare da idanuu | ido | murmushi | murmushi na baki har kunne</annotation>
 		<annotation cp="😁" type="tts">fuska mai murmushi tare da idanuu</annotation>
-		<annotation cp="😆">a buɗe | baki | dariya | fuska | fuska mai murmushi tare da baki a buɗe &amp; idanu a rufe | gamsu | murmushi | murmushin yaƙe tare da lumshe ido</annotation>
+		<annotation cp="😆">baki | dariya | fuska | gamsu | murmushi | murmushin yaƙe tare da lumshe ido</annotation>
 		<annotation cp="😆" type="tts">murmushin yaƙe tare da lumshe ido</annotation>
-		<annotation cp="😅">a buɗe | fuska | fuska mai murmushi tare da baki a buɗe &amp; gumi mai sanyi | fuska mai murmushi tare da gumi mai sanyi | gumi | murmushi | sanyi</annotation>
+		<annotation cp="😅">a buɗe | fuska mai murmushi tare da gumi mai sanyi | gumi | murmushi | sanyi</annotation>
 		<annotation cp="😅" type="tts">fuska mai murmushi tare da gumi mai sanyi</annotation>
 		<annotation cp="🤣">daɓe | dariya | fuska | mirgina | mirgina a daɓe da dariya</annotation>
 		<annotation cp="🤣" type="tts">mirgina a daɓe da dariya</annotation>
@@ -351,17 +277,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙂" type="tts">fuska mai murmushi kaɗan</annotation>
 		<annotation cp="🙃">a birkice | fuska | fuska a birkice</annotation>
 		<annotation cp="🙃" type="tts">fuska a birkice</annotation>
+		<annotation cp="🫠">ɓace | fuska narke | narke | ruwa</annotation>
+		<annotation cp="🫠" type="tts">fuska narke</annotation>
 		<annotation cp="😉">fuska | fuska mai yin ƙifta | yi ƙifta</annotation>
 		<annotation cp="😉" type="tts">fuska mai yin ƙifta</annotation>
-		<annotation cp="😊">fuska | fuska mai murmushi haɗe da idanu | fuska mai murmushi tare da idanu mai murmushi | ido | ji kunya | murmushi</annotation>
+		<annotation cp="😊">fuska | fuska mai murmushi haɗe da idanu | ido | ji kunya | murmushi</annotation>
 		<annotation cp="😊" type="tts">fuska mai murmushi haɗe da idanu</annotation>
 		<annotation cp="😇">fuska | fuska mai murmushi tare da da’irar haske | labarin aljana | malaika | maras laifi | murmushi | tatsuniya</annotation>
 		<annotation cp="😇" type="tts">fuska mai murmushi tare da da’irar haske</annotation>
-		<annotation cp="🥰">cikin soyayya | fuska mai dariya da zukata | ƙauna | murƙushe | murmushi murmushi tare da zukata | zukata</annotation>
+		<annotation cp="🥰">cikin soyayya | fuska mai dariya da zukata | ƙauna | zukata</annotation>
 		<annotation cp="🥰" type="tts">fuska mai dariya da zukata</annotation>
 		<annotation cp="😍">fuska | fuska mai murmushi tare da idanun zuciya | ido | ƙauna | murmushi</annotation>
 		<annotation cp="😍" type="tts">fuska mai murmushi tare da idanun zuciya</annotation>
-		<annotation cp="🤩">buga-tauraro | cikin soyayya | fuska | idanu | tauraro | yin dariya har kunne</annotation>
+		<annotation cp="🤩">buga-tauraro | fuska | idanu | tauraro | yin dariya har kunne</annotation>
 		<annotation cp="🤩" type="tts">buga-tauraro</annotation>
 		<annotation cp="😘">fuska | fuska mai ba da wani sumba | sumba</annotation>
 		<annotation cp="😘" type="tts">fuska mai ba da wani sumba</annotation>
@@ -383,7 +311,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😜" type="tts">fuska tare da harshe a waje da ido mai ƙifta</annotation>
 		<annotation cp="🤪">babba | fuska mai masifar so | ido | ƙarami</annotation>
 		<annotation cp="🤪" type="tts">fuska mai masifar so</annotation>
-		<annotation cp="😝">ɗanɗano | fuska | fuska da harshe waje da rufaffun idanu | fuska tare da harshe a waje da rufaffun idanu | harshe | ido | maƙetaci</annotation>
+		<annotation cp="😝">ɗanɗano | fuska | fuska da harshe waje da rufaffun idanu | harshe | ido | maƙetaci</annotation>
 		<annotation cp="😝" type="tts">fuska da harshe waje da rufaffun idanu</annotation>
 		<annotation cp="🤑">baki | fuska | fuska mai bakin-kuɗi | kuɗi</annotation>
 		<annotation cp="🤑" type="tts">fuska mai bakin-kuɗi</annotation>
@@ -391,10 +319,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤗" type="tts">fuska mai runguma</annotation>
 		<annotation cp="🤭">fuska tare da hannu bisa baki | nunin baƙin ciki</annotation>
 		<annotation cp="🤭" type="tts">fuska tare da hannu bisa baki</annotation>
+		<annotation cp="🫢">fuska da buɗe idanu da miƙa baki | kunya | mamaki | rashin yarda | tsorata | tsoro</annotation>
+		<annotation cp="🫢" type="tts">fuska da buɗe idanu da miƙa baki</annotation>
+		<annotation cp="🫣">fuska tare da leƙo ido ɗaya | kame | leƙa ido ɗaya | leƙe | zura ido</annotation>
+		<annotation cp="🫣" type="tts">fuska tare da leƙo ido ɗaya</annotation>
 		<annotation cp="🤫">fuska mai shiru | mai shiru | shiru</annotation>
 		<annotation cp="🤫" type="tts">fuska mai shiru</annotation>
 		<annotation cp="🤔">fuska | fuska mai tunani | tunani</annotation>
 		<annotation cp="🤔" type="tts">fuska mai tunani</annotation>
+		<annotation cp="🫡">eh | fuska mai sarawa | rana | sarawa | sojoji | to</annotation>
+		<annotation cp="🫡" type="tts">fuska mai sarawa</annotation>
 		<annotation cp="🤐">baki | fuska | fuskar baki mai zif | zif</annotation>
 		<annotation cp="🤐" type="tts">fuskar baki mai zif</annotation>
 		<annotation cp="🤨">fuska tare da ɗagaggiyar gira | mai shakka | maras aminci</annotation>
@@ -405,6 +339,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😑" type="tts">fuska mara shige</annotation>
 		<annotation cp="😶">baki | fuska | fuska ban da baki | mai shiru | shiru</annotation>
 		<annotation cp="😶" type="tts">fuska ban da baki</annotation>
+		<annotation cp="🫥">baƙin ciki | ɓace | ɓoye | ganuwa | kewaye da ɗige fuska | mai gabatarwa</annotation>
+		<annotation cp="🫥" type="tts">kewaye da ɗige fuska</annotation>
 		<annotation cp="😏">fuska | fuska mai murmushin wauta | murmushin wauta</annotation>
 		<annotation cp="😏" type="tts">fuska mai murmushin wauta</annotation>
 		<annotation cp="😒">baƙin ciki | fuska | fuska mara sha’awa | mara sha’awa</annotation>
@@ -415,6 +351,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😬" type="tts">fuska na ɗauren fuska</annotation>
 		<annotation cp="🤥">fuska | fuska mai yin ƙarya | ƙarya | pinocchio</annotation>
 		<annotation cp="🤥" type="tts">fuska mai yin ƙarya</annotation>
+		<annotation cp="🫨">fuska | gigice | girgiza | girgizar ƙasa</annotation>
+		<annotation cp="🫨" type="tts">girgiza fuska</annotation>
 		<annotation cp="😌">fuska | fuska mai kwancin hankali | kwancin hankali</annotation>
 		<annotation cp="😌" type="tts">fuska mai kwancin hankali</annotation>
 		<annotation cp="😔">fuska | fuska mai yin tunani | mai sanyin jiki | mai yin tunani</annotation>
@@ -461,6 +399,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧐" type="tts">fuska tare da tabarau mai ido ɗaya</annotation>
 		<annotation cp="😕">fuska | rikitacce | rikitacciyar fuska</annotation>
 		<annotation cp="😕" type="tts">rikitacciyar fuska</annotation>
+		<annotation cp="🫤">fuska mai karkataccen baki | mai shakka | meh | rashin jin daɗi | rashin tabbas</annotation>
+		<annotation cp="🫤" type="tts">fuska mai karkataccen baki</annotation>
 		<annotation cp="😟">fuska | fuska mai damuwa | mai damuwa</annotation>
 		<annotation cp="😟" type="tts">fuska mai damuwa</annotation>
 		<annotation cp="🙁">fuska | fuska mai gama gira kaɗan | gama gira</annotation>
@@ -477,6 +417,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😳" type="tts">fuska mai murna</annotation>
 		<annotation cp="🥺">bara | fuska mai roƙo | idanun kwikuyo | neman fuska | rahama</annotation>
 		<annotation cp="🥺" type="tts">fuska mai roƙo</annotation>
+		<annotation cp="🥹">baƙin ciki | fushi | fuska ido ya ciko | kuka | mai alfahari | tsayayya</annotation>
+		<annotation cp="🥹" type="tts">fuska ido ya ciko</annotation>
 		<annotation cp="😦">a buɗe | baki | fuska | fuska mai gama gira tare da baki a buɗe | gama gira</annotation>
 		<annotation cp="😦" type="tts">fuska mai gama gira tare da baki a buɗe</annotation>
 		<annotation cp="😧">fuska | fuska mai tagayyara | mai tagayyara</annotation>
@@ -485,7 +427,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😨" type="tts">fuska mai jin tsoro</annotation>
 		<annotation cp="😰">fuska | fuska tare da baki a buɗe &amp; gumi mai sanyi | fuska tare da baki a buɗe da gumi mai sanyi | gaggauta | gumi | sanyi | shuɗi</annotation>
 		<annotation cp="😰" type="tts">fuska tare da baki a buɗe &amp; gumi mai sanyi</annotation>
-		<annotation cp="😥">ɓata wa rai | fuska | fuska ɓata wa rai amma mai kwancin hankali | fuska mai ɓata rai mai kwanciyar hankali | kwancin hankali | whew</annotation>
+		<annotation cp="😥">ɓata wa rai | fuska | fuska mai ɓata rai mai kwanciyar hankali | kwancin hankali | whew</annotation>
 		<annotation cp="😥" type="tts">fuska mai ɓata rai mai kwanciyar hankali</annotation>
 		<annotation cp="😢">baƙin ciki | fuska | fuska mai kuka | hawaye | kuka</annotation>
 		<annotation cp="😢" type="tts">fuska mai kuka</annotation>
@@ -539,17 +481,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👾" type="tts">dodon baƙon sararin sama</annotation>
 		<annotation cp="🤖">dodo | fuska | fuskar Robot | robot</annotation>
 		<annotation cp="🤖" type="tts">fuskar Robot</annotation>
-		<annotation cp="😺">a buɗe | baki | fuska | fuskar kyanwa mai murmushi tare da baki a buɗe | kyanwa | kyanwa mai murmushi baki a buɗe | murmushi</annotation>
+		<annotation cp="😺">a buɗe | baki | fuska | kyanwa | kyanwa mai murmushi baki a buɗe | murmushi</annotation>
 		<annotation cp="😺" type="tts">kyanwa mai murmushi baki a buɗe</annotation>
-		<annotation cp="😸">fuska | fuskar kyanwa mai murmushi baki har kunne tare da idanu masu murmushi | ido | kyanwa | kyanwa baki buɗe idanu masu murmushi | murmushi | murmushi baki har kunne</annotation>
+		<annotation cp="😸">fuska | ido | kyanwa | kyanwa baki buɗe idanu masu murmushi | murmushi | murmushi baki har kunne</annotation>
 		<annotation cp="😸" type="tts">kyanwa baki buɗe idanu masu murmushi</annotation>
 		<annotation cp="😹">fuska | fuskar kyanwa tare da hawayen murna | hawaye | kyanwa | murna</annotation>
 		<annotation cp="😹" type="tts">fuskar kyanwa tare da hawayen murna</annotation>
-		<annotation cp="😻">fuska | fuskar kyanwa mai murmushi tare da idanun-zuciya | ido | kyanwa | kyanwa mai murmushi da idanun-zuciya | ƙauna | murmushi</annotation>
+		<annotation cp="😻">fuska | ido | kyanwa | kyanwa mai murmushi da idanun-zuciya | ƙauna | murmushi | zuciya</annotation>
 		<annotation cp="😻" type="tts">kyanwa mai murmushi da idanun-zuciya</annotation>
 		<annotation cp="😼">ɓacin rai | fuska | fuskar kyanwa tare da murmushin ɓacin rai | hutsu | kyanwa | murmushi</annotation>
 		<annotation cp="😼" type="tts">fuskar kyanwa tare da murmushin ɓacin rai</annotation>
-		<annotation cp="😽">fuska | fuskar kyanwa mai sumbata tare da rufaffun idanu | ido | kyanwa | kyanwa mai sumba da rufaffun idanu | sumba</annotation>
+		<annotation cp="😽">fuska | ido | kyanwa | kyanwa mai sumba | kyanwa mai sumba da rufaffun idanu | sumba</annotation>
 		<annotation cp="😽" type="tts">kyanwa mai sumba da rufaffun idanu</annotation>
 		<annotation cp="🙀">fuska | fuskar kyanwa mai gajiya | gajiya | jin mamaki | kyanwa | oho</annotation>
 		<annotation cp="🙀" type="tts">fuskar kyanwa mai gajiya</annotation>
@@ -563,8 +505,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙉" type="tts">biri na kada a ji sharri</annotation>
 		<annotation cp="🙊">an hana | biri | biri na kada a faɗi sharri | faɗa | fuska | iri na kada a faɗi sharri | sharri</annotation>
 		<annotation cp="🙊" type="tts">iri na kada a faɗi sharri</annotation>
-		<annotation cp="💋">alamar sumba | leɓuna | sumba</annotation>
-		<annotation cp="💋" type="tts">alamar sumba</annotation>
 		<annotation cp="💌">mel | soyayya | wasiƙa | wasiƙar soyayya | zuciya</annotation>
 		<annotation cp="💌" type="tts">wasiƙar soyayya</annotation>
 		<annotation cp="💘">cupid | kibiya | zuciya tare da kibiya</annotation>
@@ -589,6 +529,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💔" type="tts">karyayyiyar zuciya</annotation>
 		<annotation cp="❤">jar zuciya | zuciya</annotation>
 		<annotation cp="❤" type="tts">jar zuciya</annotation>
+		<annotation cp="🩷">kamar | kyau | ruwan hoda | soyayya | zuciya | zuciya ruwan hoda</annotation>
+		<annotation cp="🩷" type="tts">zuciya ruwan hoda</annotation>
 		<annotation cp="🧡">ruwan goro | zuciyar na ruwan goro</annotation>
 		<annotation cp="🧡" type="tts">zuciyar na ruwan goro</annotation>
 		<annotation cp="💛">rawaya | rawayan zuciya</annotation>
@@ -597,14 +539,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💚" type="tts">koren zuciya</annotation>
 		<annotation cp="💙">shuɗi | shuɗin zuciya</annotation>
 		<annotation cp="💙" type="tts">shuɗin zuciya</annotation>
+		<annotation cp="🩵">shayi | shuɗi mai haske | shuɗi-shuɗi | zuciya | zuciya shuɗiya mai haske</annotation>
+		<annotation cp="🩵" type="tts">zuciya shuɗiya mai haske</annotation>
 		<annotation cp="💜">algashi | algashin zuciya | zuciya algashi</annotation>
 		<annotation cp="💜" type="tts">zuciya algashi</annotation>
 		<annotation cp="🤎">ƙasa-ƙasa | zuciya</annotation>
 		<annotation cp="🤎" type="tts">zuciya ƙasa-ƙasa</annotation>
 		<annotation cp="🖤">baƙar zuciya | baƙi | mugu | sharri</annotation>
 		<annotation cp="🖤" type="tts">baƙar zuciya</annotation>
+		<annotation cp="🩶">allo | azurfa | ruwan toka | zuciya | zuciya ruwan toka</annotation>
+		<annotation cp="🩶" type="tts">zuciya ruwan toka</annotation>
 		<annotation cp="🤍">farar | zuciya</annotation>
 		<annotation cp="🤍" type="tts">farar zuciya</annotation>
+		<annotation cp="💋">alamar sumba | leɓuna | sumba</annotation>
+		<annotation cp="💋" type="tts">alamar sumba</annotation>
 		<annotation cp="💯">100 | cikakke | ɗari | maki | makunan ɗari</annotation>
 		<annotation cp="💯" type="tts">makunan ɗari</annotation>
 		<annotation cp="💢">alamar fushi | fushi | haushi | mai ban dariya</annotation>
@@ -619,11 +567,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💨" type="tts">gudu mai sauri</annotation>
 		<annotation cp="🕳">rami</annotation>
 		<annotation cp="🕳" type="tts">rami</annotation>
-		<annotation cp="💣">bam | mai ban dariya</annotation>
-		<annotation cp="💣" type="tts">bam</annotation>
 		<annotation cp="💬">balan-balan | kumfa | magana | mai ban dariya | zance</annotation>
 		<annotation cp="💬" type="tts">balan-balan magana</annotation>
-		<annotation cp="👁‍🗨">ido | ido a cikin kumfan magana | kumfan magana | mai shaida</annotation>
+		<annotation cp="👁‍🗨">ido | ido a cikin kumfan magana | kumfa | kumfan magana | mai shaida</annotation>
 		<annotation cp="👁‍🗨" type="tts">ido a cikin kumfan magana</annotation>
 		<annotation cp="🗨">kumfan magana na hagu | magana | zance</annotation>
 		<annotation cp="🗨" type="tts">kumfan magana na hagu</annotation>
@@ -643,6 +589,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✋" type="tts">ɗagaggen hannu</annotation>
 		<annotation cp="🖖">gaisuwar vulcan | hannu | spock | vulcan | yatsa</annotation>
 		<annotation cp="🖖" type="tts">gaisuwar vulcan</annotation>
+		<annotation cp="🫱">dama | dama gaba | hannu | hannun dama gaba</annotation>
+		<annotation cp="🫱" type="tts">hannun dama gaba</annotation>
+		<annotation cp="🫲">hagu | hagu gaba | hannu | hannun hagu gaba</annotation>
+		<annotation cp="🫲" type="tts">hannun hagu gaba</annotation>
+		<annotation cp="🫳">ihu | sallama | sauke | tafin hannu ƙasa</annotation>
+		<annotation cp="🫳" type="tts">tafin hannu ƙasa</annotation>
+		<annotation cp="🫴">kama | kwalliya | tafin hannu sama | tayi | zo</annotation>
+		<annotation cp="🫴" type="tts">tafin hannu sama</annotation>
+		<annotation cp="🫷">hagu | hannun yana turawa hagu | jira | kin | tafawa | tsaya | tura</annotation>
+		<annotation cp="🫷" type="tts">hannun yana turawa hagu</annotation>
+		<annotation cp="🫸">hannu yana turawa dama | jira | ƙi | tafawa | tsaya | tura | zuwa</annotation>
+		<annotation cp="🫸" type="tts">hannu yana turawa dama</annotation>
 		<annotation cp="👌">hannu | hannun TO | TO</annotation>
 		<annotation cp="👌" type="tts">hannun TO</annotation>
 		<annotation cp="🤌">an finciko | baʼa | motsin hannu | tambaya | tsuke yatsu | yatsu</annotation>
@@ -653,6 +611,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✌" type="tts">hannun nasara</annotation>
 		<annotation cp="🤞">haɗa | haɗaɗɗun yatsu | hannu | sa’a | yatsa</annotation>
 		<annotation cp="🤞" type="tts">haɗaɗɗun yatsu</annotation>
+		<annotation cp="🫰">hannu da yatsa da babban yatsa a kewaye | karye | kuɗi | soyayya | tsada | zuciya</annotation>
+		<annotation cp="🫰" type="tts">hannu da yatsa da babban yatsa a kewaye</annotation>
 		<annotation cp="🤟">hannu | ILY | nunin soyayya</annotation>
 		<annotation cp="🤟" type="tts">nunin soyayya</annotation>
 		<annotation cp="🤘">alamar ƙaho | hannu | ƙaho | moriya | yatsa</annotation>
@@ -671,6 +631,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👇" type="tts">ɗan ali na baya mai nunawa ƙasa</annotation>
 		<annotation cp="☝">ɗan ali | ɗan ali mai nunawa sama | hannu | nuna | sama | yatsa</annotation>
 		<annotation cp="☝" type="tts">ɗan ali mai nunawa sama</annotation>
+		<annotation cp="🫵">ka | nuna | yatsa yana nuna mai kallo</annotation>
+		<annotation cp="🫵" type="tts">yatsa yana nuna mai kallo</annotation>
 		<annotation cp="👍">+1 | babban yatsa | da kyau | hannu | sama</annotation>
 		<annotation cp="👍" type="tts">da kyau</annotation>
 		<annotation cp="👎">-1 | babban yatsa | babu kyau | hannu | ƙasa</annotation>
@@ -687,6 +649,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👏" type="tts">hannuwa mai tafawa</annotation>
 		<annotation cp="🙌">ɗagagge | ɗagaggun hannuwa | hannu | karimcin | murna | shagali</annotation>
 		<annotation cp="🙌" type="tts">ɗagaggun hannuwa</annotation>
+		<annotation cp="🫶">hannayen zuciya | soyayya</annotation>
+		<annotation cp="🫶" type="tts">hannayen zuciya</annotation>
 		<annotation cp="👐">a buɗe | buɗaɗɗun hannuwa | hannu</annotation>
 		<annotation cp="👐" type="tts">buɗaɗɗun hannuwa</annotation>
 		<annotation cp="🤲">addu’a | tafunan hannu a sama tare</annotation>
@@ -703,13 +667,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤳" type="tts">hoton kanka</annotation>
 		<annotation cp="💪">ƙwanji | mai ban dariya | tanƙwara | tanƙwararrun ƙwanji | tsoka</annotation>
 		<annotation cp="💪" type="tts">tanƙwararrun ƙwanji</annotation>
-		<annotation cp="🦾">hannu na inji | hannun inji | roba | samun dama</annotation>
+		<annotation cp="🦾">hannu na inji | hannun inji | samun dama</annotation>
 		<annotation cp="🦾" type="tts">hannu na inji</annotation>
 		<annotation cp="🦿">ƙafar inji | roba | samun dama</annotation>
 		<annotation cp="🦿" type="tts">ƙafar inji</annotation>
 		<annotation cp="🦵">harbi | ƙafa | ƙashin ƙafa</annotation>
 		<annotation cp="🦵" type="tts">ƙafa</annotation>
-		<annotation cp="🦶">harbi | ƙafa | tafin ƙafa | tattaka</annotation>
+		<annotation cp="🦶">harbi | tafin ƙafa | tattaka</annotation>
 		<annotation cp="🦶" type="tts">tafin ƙafa</annotation>
 		<annotation cp="👂">jiki | kunne</annotation>
 		<annotation cp="👂" type="tts">kunne</annotation>
@@ -735,6 +699,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👅" type="tts">harshe</annotation>
 		<annotation cp="👄">baki | leɓuna</annotation>
 		<annotation cp="👄" type="tts">baki</annotation>
+		<annotation cp="🫦">ciza leɓe | damu | damuwa | juyayi | kwarkwasa | mara daɗi | tsoro</annotation>
+		<annotation cp="🫦" type="tts">ciza leɓe</annotation>
 		<annotation cp="👶">jariri | ƙarami</annotation>
 		<annotation cp="👶" type="tts">jariri</annotation>
 		<annotation cp="🧒">ɗa | ƙarami | mara danganta ga jinsi</annotation>
@@ -757,11 +723,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩" type="tts">mace</annotation>
 		<annotation cp="👱‍♀">mace | mace mai farin gashi | mai farin gashi</annotation>
 		<annotation cp="👱‍♀" type="tts">mace mai farin gashi</annotation>
-		<annotation cp="🧓">babba mafi tsoho | babba mafi tsufa | mara danganta ga jinsi | tsoho</annotation>
+		<annotation cp="🧓">babba | babba mafi tsufa | jinsi da ba a fayyace ba | mara danganta ga jinsi | tsoho</annotation>
 		<annotation cp="🧓" type="tts">babba mafi tsufa</annotation>
 		<annotation cp="👴">dattijo | mutum | tsoho</annotation>
 		<annotation cp="👴" type="tts">dattijo</annotation>
-		<annotation cp="👵">baliga | dattijuwa | mace | tsohuwa</annotation>
+		<annotation cp="👵">baliga | dattijuwa | mace</annotation>
 		<annotation cp="👵" type="tts">dattijuwa</annotation>
 		<annotation cp="🙍">ɓacin rai | karimcin | mutum mai ɓacin rai</annotation>
 		<annotation cp="🙍" type="tts">mutum mai ɓacin rai</annotation>
@@ -909,6 +875,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👷‍♂" type="tts">mutum ma’aikacin gini</annotation>
 		<annotation cp="👷‍♀">gini | ma’aikaci | mace | mace ma’aikacin gini</annotation>
 		<annotation cp="👷‍♀" type="tts">mace ma’aikacin gini</annotation>
+		<annotation cp="🫅">daraja | masarauta | mulki | mutum mai kambi | sarauta</annotation>
+		<annotation cp="🫅" type="tts">mutum mai kambi</annotation>
 		<annotation cp="🤴">ɗan sarki</annotation>
 		<annotation cp="🤴" type="tts">ɗan sarki</annotation>
 		<annotation cp="👸">gimbiya | labarin aljana | tatsuniya</annotation>
@@ -929,6 +897,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👰" type="tts">amarya da mayafi</annotation>
 		<annotation cp="🤰">ciki | mace | mace mai ciki</annotation>
 		<annotation cp="🤰" type="tts">mace mai ciki</annotation>
+		<annotation cp="🫃">cika | ciki | kumbura | mai ciki | namiji mai ciki</annotation>
+		<annotation cp="🫃" type="tts">namiji mai ciki</annotation>
+		<annotation cp="🫄">cika | ciki | kumbura | mai ciki | mutum mai ciki</annotation>
+		<annotation cp="🫄" type="tts">mutum mai ciki</annotation>
 		<annotation cp="🤱">jariri | jego | nono | shayarwa</annotation>
 		<annotation cp="🤱" type="tts">shayarwa</annotation>
 		<annotation cp="👼">fuska | jariri | jaririn malaika | labarin aljana | malaika | tatsuniya</annotation>
@@ -983,6 +955,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧟‍♂" type="tts">gaya mai rai namiji</annotation>
 		<annotation cp="🧟‍♀">gaya mai motsi | gaya mai rai na mace | mara mutuwa</annotation>
 		<annotation cp="🧟‍♀" type="tts">gaya mai rai na mace</annotation>
+		<annotation cp="🧌">dodo | labarin aljana | mutum na zane | tatsuniya</annotation>
+		<annotation cp="🧌" type="tts">mutum na zane</annotation>
 		<annotation cp="💆">fuska | mutum mai samun tausa | shagon gyara gashi | tausa</annotation>
 		<annotation cp="💆" type="tts">mutum mai samun tausa</annotation>
 		<annotation cp="💆‍♂">fuska | mutum | namiji mai samun tausa | tausa</annotation>
@@ -1041,7 +1015,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏇" type="tts">sukuwa</annotation>
 		<annotation cp="⛷">ɗan wasan ski | ƙanƙara | wasan ski</annotation>
 		<annotation cp="⛷" type="tts">ɗan wasan ski</annotation>
-		<annotation cp="🏂">allon wasan ƙanƙara | ƙanƙara | mai tsere kan ƙanƙara | ski | snowboarder</annotation>
+		<annotation cp="🏂">allon wasan ƙanƙara | ƙanƙara | mai tsere kan ƙanƙara | ski</annotation>
 		<annotation cp="🏂" type="tts">mai tsere kan ƙanƙara</annotation>
 		<annotation cp="🏌">ƙwallo | mutum mai buga wasan golf | wasan golf</annotation>
 		<annotation cp="🏌" type="tts">mutum mai buga wasan golf</annotation>
@@ -1131,11 +1105,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛀" type="tts">mutum mai yin wanka</annotation>
 		<annotation cp="🛌">barci | hotal | mutum a kan gado</annotation>
 		<annotation cp="🛌" type="tts">mutum a kan gado</annotation>
-		<annotation cp="👭">hannu | mace | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe</annotation>
+		<annotation cp="👭">hannu | mata | mata biyu suna riƙe da hannuwa | miji da mata | namiji da mata suna riƙew da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👭" type="tts">namiji da mata suna riƙew da hannuwa</annotation>
-		<annotation cp="👫">hannu | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | namiji da mata suna riƙe da hannuwa | riƙe</annotation>
+		<annotation cp="👫">hannu | mace | miji da mata | mutum | namiji da mace riƙe da hannuwa | riƙe hannuwa</annotation>
 		<annotation cp="👫" type="tts">namiji da mace riƙe da hannuwa</annotation>
-		<annotation cp="👬">falaki | mata da miji | maza | maza biyu riƙe da hannuwa | maza biyu suna riƙe da hannu | namiji | riƙe hannu | tagwai | Tagwaye</annotation>
+		<annotation cp="👬">falaki | mata da miji | maza | maza biyu riƙe da hannuwa | namiji | riƙe hannu | Tagwaye</annotation>
 		<annotation cp="👬" type="tts">maza biyu riƙe da hannuwa</annotation>
 		<annotation cp="💏">miji da mata | sumba</annotation>
 		<annotation cp="💏" type="tts">sumba</annotation>
@@ -1189,7 +1163,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐈" type="tts">kyanwa</annotation>
 		<annotation cp="🦁">falaki | fuskar zaki | Vote fuska | zaki | Zaki</annotation>
 		<annotation cp="🦁" type="tts">zaki</annotation>
-		<annotation cp="🐯">damisa mai ratsi-ratsi | fuska | fuskar damisa mai ratsi-ratsi</annotation>
+		<annotation cp="🐯">damisa | fuska | fuskar damisa mai ratsi-ratsi</annotation>
 		<annotation cp="🐯" type="tts">fuskar damisa mai ratsi-ratsi</annotation>
 		<annotation cp="🐅">damisa mai ratsi-ratsi</annotation>
 		<annotation cp="🐅" type="tts">damisa mai ratsi-ratsi</annotation>
@@ -1197,6 +1171,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐆" type="tts">damisa</annotation>
 		<annotation cp="🐴">doki | fuska | fuskar doki</annotation>
 		<annotation cp="🐴" type="tts">fuskar doki</annotation>
+		<annotation cp="🫎">dabba | dabbobi masu shayarwa | karakanda | karkand | tururuwa</annotation>
+		<annotation cp="🫎" type="tts">karakanda</annotation>
+		<annotation cp="🫏">alfadara | buro | dabba | dabbobi masu shayarwa | jaki | kasa | mai taurin kai</annotation>
+		<annotation cp="🫏" type="tts">jaki</annotation>
 		<annotation cp="🐎">dawaki | doki | sukuwa | tsere</annotation>
 		<annotation cp="🐎" type="tts">doki</annotation>
 		<annotation cp="🦄">dabbar unicorn | fuska | fuskar dabbar unicorn</annotation>
@@ -1233,7 +1211,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐪" type="tts">raƙumi</annotation>
 		<annotation cp="🐫">bactrian | raƙumi | raƙumi mai tozon biyu | tozo</annotation>
 		<annotation cp="🐫" type="tts">raƙumi mai tozon biyu</annotation>
-		<annotation cp="🦙">alpaca | guanaco | raƙumin dajin llama | ulu | vicuña</annotation>
+		<annotation cp="🦙">alpaca | guanaco | raƙumin dajin llama | ulu | vicuna</annotation>
 		<annotation cp="🦙" type="tts">raƙumin dajin llama</annotation>
 		<annotation cp="🦒">ɗige-ɗige | raƙumin dawa</annotation>
 		<annotation cp="🦒" type="tts">raƙumin dawa</annotation>
@@ -1267,11 +1245,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦇" type="tts">jemage</annotation>
 		<annotation cp="🐻">dabbar bear | fuska | fuskar dabbar bear</annotation>
 		<annotation cp="🐻" type="tts">fuskar dabbar bear</annotation>
-		<annotation cp="🐨">dabbar bear | dabbar koala | koala</annotation>
+		<annotation cp="🐨">dabbar koala | fuska | marsupial</annotation>
 		<annotation cp="🐨" type="tts">dabbar koala</annotation>
 		<annotation cp="🐼">dabbar panda | fuska | fuskar dabbar panda</annotation>
 		<annotation cp="🐼" type="tts">fuskar dabbar panda</annotation>
-		<annotation cp="🦥">a hankali | dabba mai kasala | kasala | malalaci</annotation>
+		<annotation cp="🦥">a hankali | dabba mai kasala | kasala</annotation>
 		<annotation cp="🦥" type="tts">dabba mai kasala</annotation>
 		<annotation cp="🦦">kamun kifi | mai wasa | otta</annotation>
 		<annotation cp="🦦" type="tts">otta</annotation>
@@ -1309,7 +1287,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦢" type="tts">agwagwar ruwa</annotation>
 		<annotation cp="🦉">mai hikima | mujiya | tsuntsu</annotation>
 		<annotation cp="🦉" type="tts">mujiya</annotation>
-		<annotation cp="🦤">agwagwar dodo | babba | dodo | ƙarewa | Mauritius</annotation>
+		<annotation cp="🦤">agwagwar dodo | babba | ƙarewa | Mauritius</annotation>
 		<annotation cp="🦤" type="tts">agwagwar dodo</annotation>
 		<annotation cp="🪶">gashin tsuntsu | haske | jirgin sama | tsuntsu</annotation>
 		<annotation cp="🪶" type="tts">gashin tsuntsu</annotation>
@@ -1319,6 +1297,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦚" type="tts">ɗawisu</annotation>
 		<annotation cp="🦜">aku | ɗan fashin teku | magana | tsuntsu</annotation>
 		<annotation cp="🦜" type="tts">aku</annotation>
+		<annotation cp="🪽">fuffuke | hikayar mafari | jirgin sama | na malaʼika | tsuntsu | yawo</annotation>
+		<annotation cp="🪽" type="tts">fuffuke</annotation>
+		<annotation cp="🪿">gis | kowa | tsuntsu | wauta</annotation>
+		<annotation cp="🪿" type="tts">gis</annotation>
 		<annotation cp="🐸">fuska | kwaɗo</annotation>
 		<annotation cp="🐸" type="tts">kwaɗo</annotation>
 		<annotation cp="🐊">kada</annotation>
@@ -1357,6 +1339,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐙" type="tts">dabbar octopus</annotation>
 		<annotation cp="🐚">ƙumba | lanƙwasasshe | lanƙwasasshen ƙumba</annotation>
 		<annotation cp="🐚" type="tts">lanƙwasasshen ƙumba</annotation>
+		<annotation cp="🪸">ciyawa | ciyawar | teku</annotation>
+		<annotation cp="🪸" type="tts">ciyawa</annotation>
+		<annotation cp="🪼">dabba marar ƙashi | jeli | jelisih | ƙone | mai harbi | teku | uwa</annotation>
+		<annotation cp="🪼" type="tts">jelisih</annotation>
 		<annotation cp="🐌">dodon koɗi</annotation>
 		<annotation cp="🐌" type="tts">dodon koɗi</annotation>
 		<annotation cp="🦋">kyakkyawa | ƙwaro | malam-buɗe-mana-littafi</annotation>
@@ -1395,8 +1381,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌸" type="tts">hudar cherry</annotation>
 		<annotation cp="💮">farin fure | fure</annotation>
 		<annotation cp="💮" type="tts">farin fure</annotation>
-		<annotation cp="🏵">lambar girmamawa | rosette | shuke</annotation>
-		<annotation cp="🏵" type="tts">lambar girmamawa</annotation>
+		<annotation cp="🪷">Addinin Hindu | Buddha | fure | Indiya | magarya | tsarki | Vietnam</annotation>
+		<annotation cp="🪷" type="tts">magarya</annotation>
+		<annotation cp="🏵">rosette | shuke</annotation>
+		<annotation cp="🏵" type="tts">rosette</annotation>
 		<annotation cp="🌹">fure | furen wardi</annotation>
 		<annotation cp="🌹" type="tts">furen wardi</annotation>
 		<annotation cp="🥀">fure | lanƙwasasshe | lanƙwasasshen fure</annotation>
@@ -1409,9 +1397,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌼" type="tts">huda</annotation>
 		<annotation cp="🌷">fure</annotation>
 		<annotation cp="🌷" type="tts">fure</annotation>
+		<annotation cp="🪻">bluebonnet | fure | hayasin | labenda | lufin | sinafdiragon</annotation>
+		<annotation cp="🪻" type="tts">hayasin</annotation>
 		<annotation cp="🌱">dashe | ƙarami</annotation>
 		<annotation cp="🌱" type="tts">dashe</annotation>
-		<annotation cp="🪴">ciyarwa | gida | girma | gundura | mara amfani | shuka | tsire-tsire na tukunya | tsire-tsiren tukunya</annotation>
+		<annotation cp="🪴">ciyarwa | gida | girma | gundura | mara amfani | shuka | tsire-tsire na tukunya</annotation>
 		<annotation cp="🪴" type="tts">tsire-tsire na tukunya</annotation>
 		<annotation cp="🌲">bishiya | bishiya mai tsanwa</annotation>
 		<annotation cp="🌲" type="tts">bishiya mai tsanwa</annotation>
@@ -1425,7 +1415,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌾" type="tts">damin shinkafa</annotation>
 		<annotation cp="🌿">ganye</annotation>
 		<annotation cp="🌿" type="tts">ganye</annotation>
-		<annotation cp="☘">koren ganye | shamrock | shuka</annotation>
+		<annotation cp="☘">koren ganye | shuka</annotation>
 		<annotation cp="☘" type="tts">koren ganye</annotation>
 		<annotation cp="🍀">clover | clover mai ganye huɗu | ganye | huɗu | Vote 4</annotation>
 		<annotation cp="🍀" type="tts">clover mai ganye huɗu</annotation>
@@ -1435,6 +1425,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍂" type="tts">ganyen da ya faɗi</annotation>
 		<annotation cp="🍃">ganye | ganye mai yin filfilwa a iska | iska | kaɗa | yi filfilwa</annotation>
 		<annotation cp="🍃" type="tts">ganye mai yin filfilwa a iska</annotation>
+		<annotation cp="🪹">sheƙar da ba komai | yin sheƙa</annotation>
+		<annotation cp="🪹" type="tts">sheƙar da ba komai</annotation>
+		<annotation cp="🪺">sheƙa mai ƙwai | yin sheƙa</annotation>
+		<annotation cp="🪺" type="tts">sheƙa mai ƙwai</annotation>
+		<annotation cp="🍄">inuwar-kwaɗi | lemar-kwaɗi | shuken toadstool</annotation>
+		<annotation cp="🍄" type="tts">inuwar-kwaɗi</annotation>
 		<annotation cp="🍇">ɗan itace | inabi</annotation>
 		<annotation cp="🍇" type="tts">inabi</annotation>
 		<annotation cp="🍈">ɗan itace | malo</annotation>
@@ -1471,9 +1467,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍅" type="tts">tumatir</annotation>
 		<annotation cp="🫒">abinci | zaitun</annotation>
 		<annotation cp="🫒" type="tts">zaitun</annotation>
-		<annotation cp="🥥">dabino | kwakwa | piña colada</annotation>
+		<annotation cp="🥥">dabino | kwakwa | pina colada</annotation>
 		<annotation cp="🥥" type="tts">kwakwa</annotation>
-		<annotation cp="🥑">abinci | abocado | abokado | ɗan itace</annotation>
+		<annotation cp="🥑">abinci | abokado | ɗan itace</annotation>
 		<annotation cp="🥑" type="tts">abokado</annotation>
 		<annotation cp="🍆">abincin ganye | aubergine | gauta</annotation>
 		<annotation cp="🍆" type="tts">gauta</annotation>
@@ -1491,18 +1487,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥒" type="tts">kokwamba</annotation>
 		<annotation cp="🥬">ganyen bok choy | kabeji | kale | koren ganyayyaki | latas</annotation>
 		<annotation cp="🥬" type="tts">koren ganyayyaki</annotation>
-		<annotation cp="🥦">broccoli | burokoli | kabeji na daji</annotation>
+		<annotation cp="🥦">burokoli | kabeji na daji</annotation>
 		<annotation cp="🥦" type="tts">burokoli</annotation>
 		<annotation cp="🧄">ɗanɗano | tafarnuwa</annotation>
 		<annotation cp="🧄" type="tts">tafarnuwa</annotation>
 		<annotation cp="🧅">albasa | ɗanɗano</annotation>
 		<annotation cp="🧅" type="tts">albasa</annotation>
-		<annotation cp="🍄">inuwar-kwaɗi | lemar-kwaɗi | shuken toadstool</annotation>
-		<annotation cp="🍄" type="tts">inuwar-kwaɗi</annotation>
 		<annotation cp="🥜">ganye | gyaɗa | kayan lambu | Vote abinci</annotation>
 		<annotation cp="🥜" type="tts">gyaɗa</annotation>
-		<annotation cp="🌰">chestnut | gyaɗar chestnut | shuke</annotation>
+		<annotation cp="🫘">abinci | jan wake | ƙoda | wake</annotation>
+		<annotation cp="🫘" type="tts">wake</annotation>
+		<annotation cp="🌰">chestnut | gyaɗar chestnut | shuka</annotation>
 		<annotation cp="🌰" type="tts">gyaɗar chestnut</annotation>
+		<annotation cp="🫚">giya | kayan ƙanshi | saiwa | saiwar citta</annotation>
+		<annotation cp="🫚" type="tts">saiwar citta</annotation>
+		<annotation cp="🫛">karen | kayan lambu | koren wake | koren wake na fis | legume | wake | wake na fis</annotation>
+		<annotation cp="🫛" type="tts">koren wake na fis</annotation>
 		<annotation cp="🍞">burodi | burodi mai yanke-yanke</annotation>
 		<annotation cp="🍞" type="tts">burodi</annotation>
 		<annotation cp="🥐">abinci | abincin burodin croissant | burodi | burodin croissant | na faransa</annotation>
@@ -1511,9 +1511,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥖" type="tts">burodin baguette</annotation>
 		<annotation cp="🫓">arepa | kewayayyen burodi | lavash | naan | pita</annotation>
 		<annotation cp="🫓" type="tts">kewayayyen burodi</annotation>
-		<annotation cp="🥨">biskit na pretzel | murɗaɗɗe | pretzel</annotation>
+		<annotation cp="🥨">biskit na pretzel | murɗaɗɗe</annotation>
 		<annotation cp="🥨" type="tts">biskit na pretzel</annotation>
-		<annotation cp="🥯">burodin bagel | burodin begel | cin abincin safe | gidan burodi | yanka</annotation>
+		<annotation cp="🥯">burodin bagel | burodin begel | cin abincin safe | gidan burodi</annotation>
 		<annotation cp="🥯" type="tts">burodin bagel</annotation>
 		<annotation cp="🥞">abinci | abincin safe | crêpe | fanke | kek mai zafi | kek mai zafi fanke</annotation>
 		<annotation cp="🥞" type="tts">fanke</annotation>
@@ -1529,25 +1529,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥩" type="tts">yankan nama</annotation>
 		<annotation cp="🥓">abinci | abincin safe | nama | naman alade</annotation>
 		<annotation cp="🥓" type="tts">naman alade</annotation>
-		<annotation cp="🍔">biredin burger | biredin hamburger | hamburger</annotation>
+		<annotation cp="🍔">biredin burger | biredin hamburger</annotation>
 		<annotation cp="🍔" type="tts">biredin hamburger</annotation>
 		<annotation cp="🍟">dankali | soyayye | soyayyen dankali</annotation>
 		<annotation cp="🍟" type="tts">soyayyen dankali</annotation>
-		<annotation cp="🍕">cuku | fanken pizza | pizza | yanki</annotation>
+		<annotation cp="🍕">cuku | fanken pizza | yanki</annotation>
 		<annotation cp="🍕" type="tts">fanken pizza</annotation>
 		<annotation cp="🌭">biredin hot dog | frankfurter | hot dog | sausage</annotation>
 		<annotation cp="🌭" type="tts">biredin hot dog</annotation>
 		<annotation cp="🥪">abincin sandwich | burodi</annotation>
 		<annotation cp="🥪" type="tts">abincin sandwich</annotation>
-		<annotation cp="🌮">fanken taco | na mexico | taco</annotation>
+		<annotation cp="🌮">fanken taco | na mexico</annotation>
 		<annotation cp="🌮" type="tts">fanken taco</annotation>
-		<annotation cp="🌯">burrito | fanken burrito | na mexico | naɗi</annotation>
+		<annotation cp="🌯">fanken burrito | na mexico | naɗi</annotation>
 		<annotation cp="🌯" type="tts">fanken burrito</annotation>
-		<annotation cp="🫔">biredin tamale | na mexico | nannaɗaɗɗe | tamale</annotation>
+		<annotation cp="🫔">biredin tamale | na mexico | nannaɗaɗɗe</annotation>
 		<annotation cp="🫔" type="tts">biredin tamale</annotation>
 		<annotation cp="🥙">abinci | burodi mai lebur | cikakke | cikakken burodi | falafel | kebab | wuta</annotation>
 		<annotation cp="🥙" type="tts">cikakken burodi</annotation>
-		<annotation cp="🧆">dunƙulen falafel | falafel | kaji | nama</annotation>
+		<annotation cp="🧆">dunƙulen falafel | kaji | nama</annotation>
 		<annotation cp="🧆" type="tts">dunƙulen falafel</annotation>
 		<annotation cp="🥚">abinci | abincin safe | ƙwai</annotation>
 		<annotation cp="🥚" type="tts">ƙwai</annotation>
@@ -1595,11 +1595,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍤" type="tts">soyayyen jatan lande</annotation>
 		<annotation cp="🍥">kayan kek | kek | kek na kifi mai juyawa | kifi | mai juyawa</annotation>
 		<annotation cp="🍥" type="tts">kek na kifi mai juyawa</annotation>
-		<annotation cp="🥮">biki | kaka | kek ɗin wata | yuèbǐng</annotation>
+		<annotation cp="🥮">biki | kaka | kek ɗin wata | yuebing</annotation>
 		<annotation cp="🥮" type="tts">kek ɗin wata</annotation>
-		<annotation cp="🍡">alawar dango | dango | kayan zaƙi | Na japan | sanda | tsinke | zaƙi</annotation>
+		<annotation cp="🍡">alawar dango | kayan zaƙi | Na japan | sanda | tsinke | zaƙi</annotation>
 		<annotation cp="🍡" type="tts">alawar dango</annotation>
-		<annotation cp="🥟">empanada | gyōza | jiaozi | ƙaramar kwaɓaɓɓiyar fulawa | pierogi | potsticker</annotation>
+		<annotation cp="🥟">empanada | gyoza | jiaozi | ƙaramar kwaɓaɓɓiyar fulawa | pierogi | potsticker</annotation>
 		<annotation cp="🥟" type="tts">ƙaramar kwaɓaɓɓiyar fulawa</annotation>
 		<annotation cp="🥠">biskit na dukiya | duba</annotation>
 		<annotation cp="🥠" type="tts">biskit na dukiya</annotation>
@@ -1607,7 +1607,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥡" type="tts">akwatin abinci na fita waje</annotation>
 		<annotation cp="🦀">falaki | ƙaguwa | Ƙaguwa</annotation>
 		<annotation cp="🦀" type="tts">ƙaguwa</annotation>
-		<annotation cp="🦞">abincin teku | bisque | fika | ƙaguwar lobster | lobster</annotation>
+		<annotation cp="🦞">abincin teku | bisque | fika | ƙaguwar lobster</annotation>
 		<annotation cp="🦞" type="tts">ƙaguwar lobster</annotation>
 		<annotation cp="🦐">abinci | jatanlande | kifi mai katantanwa | ƙarami</annotation>
 		<annotation cp="🦐" type="tts">jatanlande</annotation>
@@ -1653,7 +1653,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫖" type="tts">butar shayi</annotation>
 		<annotation cp="🍵">kofi | kofin shayi | kofin shayi mara mariƙi | sha | shayi</annotation>
 		<annotation cp="🍵" type="tts">kofin shayi mara mariƙi</annotation>
-		<annotation cp="🍶">giyar sake | kofi | kwalba | mashaya | sake | sha | shayi</annotation>
+		<annotation cp="🍶">giyar sake | kofi | kwalba | mashaya | sake | sha</annotation>
 		<annotation cp="🍶" type="tts">giyar sake</annotation>
 		<annotation cp="🍾">fashewa | kwalba | kwalba mai murfi mai fashewa | mashaya | murfi | sha</annotation>
 		<annotation cp="🍾" type="tts">kwalba mai murfi mai fashewa</annotation>
@@ -1669,8 +1669,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍻" type="tts">kofofin giya masu yin amo</annotation>
 		<annotation cp="🥂">gilasai masu yin amo | gilasan giya masu yin amo | gilashi | sha | yi shagali | yin amo</annotation>
 		<annotation cp="🥂" type="tts">gilasan giya masu yin amo</annotation>
-		<annotation cp="🥃">gilashi | gilashin tambular | giya | giyan wiski | tambular</annotation>
+		<annotation cp="🥃">gilashi | gilashin tambular | giya | giyar wiski | tambular</annotation>
 		<annotation cp="🥃" type="tts">gilashin tambular</annotation>
+		<annotation cp="🫗">fanko | gilashi | sha | zuba ruwa | zubewa</annotation>
+		<annotation cp="🫗" type="tts">zuba ruwa</annotation>
 		<annotation cp="🥤">kofi tare da tsinke | ruwan zaƙi | soda</annotation>
 		<annotation cp="🥤" type="tts">kofi tare da tsinke</annotation>
 		<annotation cp="🧋">kumfa | luʼu-luʼu | madara | shayi | shayi mai kumfa</annotation>
@@ -1679,7 +1681,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧃" type="tts">lemon kwali</annotation>
 		<annotation cp="🧉">kofi | kofin sha | sha</annotation>
 		<annotation cp="🧉" type="tts">kofin sha</annotation>
-		<annotation cp="🧊">kwalin ƙanƙara | ƙankara | ƙanƙara | sanyi | tsibirin ƙanƙara</annotation>
+		<annotation cp="🧊">ƙankara | ƙanƙara | sanyi | tsibirin ƙanƙara</annotation>
 		<annotation cp="🧊" type="tts">ƙankara</annotation>
 		<annotation cp="🥢">hashi | sandunan cin abinci</annotation>
 		<annotation cp="🥢" type="tts">sandunan cin abinci</annotation>
@@ -1691,6 +1693,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥄" type="tts">cokali</annotation>
 		<annotation cp="🔪">girkawa | hocho | kayan aiki | makami | wuƙa | wuƙar kicin</annotation>
 		<annotation cp="🔪" type="tts">wuƙar kicin</annotation>
+		<annotation cp="🫙">akwati | ɗanɗano | fanko | kurtu | miya | shago</annotation>
+		<annotation cp="🫙" type="tts">kurtu</annotation>
 		<annotation cp="🏺">butar amphora | falaki | girkawa | Guga | sha | tukunya</annotation>
 		<annotation cp="🏺" type="tts">butar amphora</annotation>
 		<annotation cp="🌍">Afirka | duniya | gulab na duniya | taswirar duniya mai nuna Turai-Afirka | Turai</annotation>
@@ -1789,7 +1793,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕍" type="tts">wurin ibada na yahudawa</annotation>
 		<annotation cp="⛩">addini | shinto | wurin addu’a | wurin addu’a na shinto</annotation>
 		<annotation cp="⛩" type="tts">wurin addu’a na shinto</annotation>
-		<annotation cp="🕋">addini | ɗakin kaaba | islam | kaaba | Musulmi</annotation>
+		<annotation cp="🕋">addini | ɗakin kaaba | Musulmi | Musulunci</annotation>
 		<annotation cp="🕋" type="tts">ɗakin kaaba</annotation>
 		<annotation cp="⛲">marmaro</annotation>
 		<annotation cp="⛲" type="tts">marmaro</annotation>
@@ -1815,6 +1819,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♨" type="tts">maɓuɓɓuga mai zafi</annotation>
 		<annotation cp="🎠">doki | dokin lilon mai juyawa | lilon mai juyawa</annotation>
 		<annotation cp="🎠" type="tts">dokin lilon mai juyawa</annotation>
+		<annotation cp="🛝">filin wasan motsa jiki | wasa | wurin nishaɗi</annotation>
+		<annotation cp="🛝" type="tts">filin wasan motsa jiki</annotation>
 		<annotation cp="🎡">babban | lilo | wurin shaƙatawa</annotation>
 		<annotation cp="🎡" type="tts">babban lilo</annotation>
 		<annotation cp="🎢">masu juyawa | motocin masa masu juyawa | motocin wasa | wurin shaƙatawa</annotation>
@@ -1829,17 +1835,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚃" type="tts">ƙaramar motar reluwe</annotation>
 		<annotation cp="🚄">jirgin ƙasa | jirgin ƙasa mai matuƙar sauri | reluwe | sauri | shinkansen</annotation>
 		<annotation cp="🚄" type="tts">jirgin ƙasa mai matuƙar sauri</annotation>
-		<annotation cp="🚅">harsashi | jirgin ƙasa | jirgin ƙasa mai gudun tsiya | jirgin ƙasa mai matuƙar sauri mai hancin harsashi | reluwe | sauri | shinkansen</annotation>
+		<annotation cp="🚅">harsashi | jirgin ƙasa | jirgin ƙasa mai gudun tsiya | reluwe | sauri | shinkansen</annotation>
 		<annotation cp="🚅" type="tts">jirgin ƙasa mai gudun tsiya</annotation>
 		<annotation cp="🚆">jirgin ƙasa | reluwe</annotation>
 		<annotation cp="🚆" type="tts">jirgin ƙasa</annotation>
-		<annotation cp="🚇">hanyar jirgin ƙasa na rami | jirgin ƙarƙashin ƙasa | metro</annotation>
+		<annotation cp="🚇">hanyar jirgin ƙasa na rami | jirgin ƙarƙashin ƙasa</annotation>
 		<annotation cp="🚇" type="tts">jirgin ƙarƙashin ƙasa</annotation>
 		<annotation cp="🚈">reluwe | reluwe na cunkoso mara yawa</annotation>
 		<annotation cp="🚈" type="tts">reluwe na cunkoso mara yawa</annotation>
 		<annotation cp="🚉">jirgin ƙasa | reluwe | tasha</annotation>
 		<annotation cp="🚉" type="tts">tasha</annotation>
-		<annotation cp="🚊">bas mai aiki da lantarki | jirgin tram | tram</annotation>
+		<annotation cp="🚊">bas mai aiki da lantarki | jirgin tram</annotation>
 		<annotation cp="🚊" type="tts">jirgin tram</annotation>
 		<annotation cp="🚝">mota | reluwe guda</annotation>
 		<annotation cp="🚝" type="tts">reluwe guda</annotation>
@@ -1911,6 +1917,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛢" type="tts">gangar mai</annotation>
 		<annotation cp="⛽">famfo | famfon mai | gas | mai | tasha</annotation>
 		<annotation cp="⛽" type="tts">famfon mai</annotation>
+		<annotation cp="🛞">daʼira | juyawa | taya</annotation>
+		<annotation cp="🛞" type="tts">taya</annotation>
 		<annotation cp="🚨">‘yan sanda | bikon | ƙaramar mota | mai juyawa | wuta | wutar motar ’yan sanda</annotation>
 		<annotation cp="🚨" type="tts">wutar motar ’yan sanda</annotation>
 		<annotation cp="🚥">sigina | tarafik | wuta | wutar tarafik mai kwance</annotation>
@@ -1923,6 +1931,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚧" type="tts">aikin gini</annotation>
 		<annotation cp="⚓">babban karfi | jirgin ruwa | kayan aiki</annotation>
 		<annotation cp="⚓" type="tts">babban karfi</annotation>
+		<annotation cp="🛟">aminci | balan-balan ceto na ruwa | ceto | mai ceton rai | shawagi</annotation>
+		<annotation cp="🛟" type="tts">balan-balan ceto na ruwa</annotation>
 		<annotation cp="⛵">jirgin ruwa mai filafilai | jirgin ruwa mai filafilai ɗaya | jirgin ruwa na sauri | shaƙatawa | teku</annotation>
 		<annotation cp="⛵" type="tts">jirgin ruwa mai filafilai</annotation>
 		<annotation cp="🛶">jirgin ruwa mai sauri | ƙaramin jirgin ruwa</annotation>
@@ -2123,7 +2133,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💧" type="tts">ɗan ɗigo</annotation>
 		<annotation cp="🌊">igiya | igiyar ruwa | ruwa | teku</annotation>
 		<annotation cp="🌊" type="tts">igiyar ruwa</annotation>
-		<annotation cp="🎃">bikin halloween | fitilar-jack-o | fitilar-jack-o- | jack | shagali</annotation>
+		<annotation cp="🎃">bikin halloween | fitilar-jack-o | jack | shagali</annotation>
 		<annotation cp="🎃" type="tts">fitilar-jack-o</annotation>
 		<annotation cp="🎄">bishiya | bishiyar kirsimati | Kirsmati | shagali</annotation>
 		<annotation cp="🎄" type="tts">bishiyar kirsimati</annotation>
@@ -2153,7 +2163,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎐" type="tts">ƙararrawar ƙarfe ta iska</annotation>
 		<annotation cp="🎑">biki | bikin kallon wata | shagali | wata</annotation>
 		<annotation cp="🎑" type="tts">bikin kallon wata</annotation>
-		<annotation cp="🧧">fatan alheri | ganin lai | hóngbāo | jar ambulan | kuɗi | kyauta</annotation>
+		<annotation cp="🧧">fatan alheri | ganin lai | hongbao | jar ambulan | kuɗi | kyauta</annotation>
 		<annotation cp="🧧" type="tts">jar ambulan</annotation>
 		<annotation cp="🎀">ribon | shagali</annotation>
 		<annotation cp="🎀" type="tts">ribon</annotation>
@@ -2189,7 +2199,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏐" type="tts">wasan ƙwallon raga</annotation>
 		<annotation cp="🏈">ƙwallo | ƙwallon ƙafa | ƙwallon ƙafa na amurka | na amurka</annotation>
 		<annotation cp="🏈" type="tts">ƙwallon ƙafa na amurka</annotation>
-		<annotation cp="🏉">ƙwallo | ƙwallon ƙafa | ƙwallon ƙafa na rugby | rugby</annotation>
+		<annotation cp="🏉">ƙwallo | ƙwallon ƙafa | ƙwallon ƙafa na rugby</annotation>
 		<annotation cp="🏉" type="tts">ƙwallon ƙafa na rugby</annotation>
 		<annotation cp="🎾">ƙwallo | raket | wasan tanis</annotation>
 		<annotation cp="🎾" type="tts">wasan tanis</annotation>
@@ -2233,18 +2243,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥌" type="tts">dutsen wasan curling</annotation>
 		<annotation cp="🎯">abin bara | buga | bugawa ta kai tsaye | ido | kai tsaye | wasa</annotation>
 		<annotation cp="🎯" type="tts">bugawa ta kai tsaye</annotation>
-		<annotation cp="🪀">canzawa | yo-yo | zaren yo-yo | ʼyartsana</annotation>
+		<annotation cp="🪀">canzawa | zaren yo-yo | ʼyartsana</annotation>
 		<annotation cp="🪀" type="tts">zaren yo-yo</annotation>
-		<annotation cp="🪁">fiffiluwa | fifiluwa | kaya | tashi sosai</annotation>
+		<annotation cp="🪁">fiffiluwa | fifiluwa | kaya</annotation>
 		<annotation cp="🪁" type="tts">fiffiluwa</annotation>
+		<annotation cp="🔫">bindiga | bindigar hannu | kayan aiki | ƙaramar bindiga | makami</annotation>
+		<annotation cp="🔫" type="tts">ƙaramar bindiga</annotation>
 		<annotation cp="🎱">8 | ƙwallo | ƙwallon pool 8 | takwas | wasa | wasan billard</annotation>
 		<annotation cp="🎱" type="tts">ƙwallon pool 8</annotation>
 		<annotation cp="🔮">bal | balon kallo | dukiya | kayan aiki | krisal | labarin aljana</annotation>
 		<annotation cp="🔮" type="tts">balon kallo</annotation>
 		<annotation cp="🪄">matsafi | mayya | sandan sihiri | sihiri</annotation>
 		<annotation cp="🪄" type="tts">sandan sihiri</annotation>
-		<annotation cp="🧿">dutsen ado | ido mara kyau | laya | layar nazar | magani | nazar</annotation>
-		<annotation cp="🧿" type="tts">layar nazar</annotation>
 		<annotation cp="🎮">masarrafa | wasa | wasan bidiyo</annotation>
 		<annotation cp="🎮" type="tts">wasan bidiyo</annotation>
 		<annotation cp="🕹">abin buga wasa | wasan | wasan bidiyo</annotation>
@@ -2257,8 +2267,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧩" type="tts">wasa mai wuyar warwara</annotation>
 		<annotation cp="🧸">buga wasa | cushe | ƙari | tunkun wasa | ʼyartsana</annotation>
 		<annotation cp="🧸" type="tts">tunkun wasa</annotation>
-		<annotation cp="🪅">biki | liyafa | piñata</annotation>
-		<annotation cp="🪅" type="tts">piñata</annotation>
+		<annotation cp="🪅">biki | liyafa | pinata</annotation>
+		<annotation cp="🪅" type="tts">pinata</annotation>
+		<annotation cp="🪩">disko | ƙwallon madubi | ƙyalƙyali | liyafa</annotation>
+		<annotation cp="🪩" type="tts">ƙwallon madubi</annotation>
 		<annotation cp="🪆">rasha | sheƙa | ʼyartsana | ʼyartsana mai sheƙa</annotation>
 		<annotation cp="🪆" type="tts">ʼyartsana mai sheƙa</annotation>
 		<annotation cp="♠">kati | wasa | zubin suffa</annotation>
@@ -2319,7 +2331,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👗" type="tts">riga</annotation>
 		<annotation cp="👘">kimono | rigar kimono | sutura</annotation>
 		<annotation cp="👘" type="tts">rigar kimono</annotation>
-		<annotation cp="🥻">naɗin sari | sari | sutura | tufafi</annotation>
+		<annotation cp="🥻">naɗin sari | sutura | tufafi</annotation>
 		<annotation cp="🥻" type="tts">naɗin sari</annotation>
 		<annotation cp="🩱">rigar ninƙaya-guda | rigar wanka</annotation>
 		<annotation cp="🩱" type="tts">rigar ninƙaya-guda</annotation>
@@ -2331,6 +2343,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👙" type="tts">kayan bikini</annotation>
 		<annotation cp="👚">mace | sutura | suturar mace</annotation>
 		<annotation cp="👚" type="tts">suturar mace</annotation>
+		<annotation cp="🪭">fanka | jin kunya | mafici mai naɗewa | maficin rawa | sanyaya | zafi | zagi</annotation>
+		<annotation cp="🪭" type="tts">mafici mai naɗewa</annotation>
 		<annotation cp="👛">ƙaramar jakar hannu | sutura | tsaba</annotation>
 		<annotation cp="👛" type="tts">ƙaramar jakar hannu</annotation>
 		<annotation cp="👜">jaka | jakar mata | ƙaramar jakar hannu | sutura</annotation>
@@ -2341,7 +2355,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛍" type="tts">jakukkuna sayayya</annotation>
 		<annotation cp="🎒">gafaka | jaka | jakar baya ta makaranta | makaranta</annotation>
 		<annotation cp="🎒" type="tts">jakar baya ta makaranta</annotation>
-		<annotation cp="🩴">sandal | sandal mai maɗauri | sandal na bakin teku | sandaloli | sandaloli masu maɗauri | zōri</annotation>
+		<annotation cp="🩴">sandal | sandal mai maɗauri | sandal na bakin teku | sandaloli | sandaloli masu maɗauri | zori</annotation>
 		<annotation cp="🩴" type="tts">sandal mai maɗauri</annotation>
 		<annotation cp="👞">mutum | sutura | takalmi | takalmin maza</annotation>
 		<annotation cp="👞" type="tts">takalmin maza</annotation>
@@ -2359,6 +2373,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🩰" type="tts">takalam rawar ballet</annotation>
 		<annotation cp="👢">but | but na mace | mace | sutura | takalmi</annotation>
 		<annotation cp="👢" type="tts">but na mace</annotation>
+		<annotation cp="🪮">gashi | kum | mataji | matajin gashi | Tara gashhi</annotation>
+		<annotation cp="🪮" type="tts">matajin gashi</annotation>
 		<annotation cp="👑">kambi | sarauniya | sarki | sutura</annotation>
 		<annotation cp="👑" type="tts">kambi</annotation>
 		<annotation cp="👒">hula | hular mace | mace | sutura</annotation>
@@ -2399,7 +2415,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔔" type="tts">ƙararrawa</annotation>
 		<annotation cp="🔕">an hana | ƙararrawa | ƙararrawa mai maƙalatu | mai shiru | shiru | yi shiru</annotation>
 		<annotation cp="🔕" type="tts">ƙararrawa mai maƙalatu</annotation>
-		<annotation cp="🎼">alama | alamar kiɗa | alamar raujin kiɗa | kiɗa</annotation>
+		<annotation cp="🎼">alamar kiɗa | alamar raujin kiɗa | kiɗa</annotation>
 		<annotation cp="🎼" type="tts">alamar raujin kiɗa</annotation>
 		<annotation cp="🎵">kiɗa | rubutu | rubutun kiɗa</annotation>
 		<annotation cp="🎵" type="tts">rubutun kiɗa</annotation>
@@ -2429,12 +2445,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎺" type="tts">kakaki</annotation>
 		<annotation cp="🎻">goge | kayan kiɗa | kiɗa</annotation>
 		<annotation cp="🎻" type="tts">goge</annotation>
-		<annotation cp="🪕">banjo | gurmi | gurmin banjo | kiɗa</annotation>
+		<annotation cp="🪕">gurmi | gurmin banjo | kiɗa</annotation>
 		<annotation cp="🪕" type="tts">gurmin banjo</annotation>
 		<annotation cp="🥁">ganga | kiɗa | sandunan ganga</annotation>
 		<annotation cp="🥁" type="tts">ganga</annotation>
 		<annotation cp="🪘">conga | doguwar ganga | ganga | kaɗa | rauji</annotation>
 		<annotation cp="🪘" type="tts">doguwar ganga</annotation>
+		<annotation cp="🪇">buga | girgiza | kacau-kacau | kayan aiki | waƙa</annotation>
+		<annotation cp="🪇" type="tts">kacau-kacau</annotation>
+		<annotation cp="🪈">bututu | mabushi | rikoda | sarewa | waƙa</annotation>
+		<annotation cp="🪈" type="tts">sarewa</annotation>
 		<annotation cp="📱">na hannu | sel | tarho | waya | wayar hannu</annotation>
 		<annotation cp="📱" type="tts">wayar hannu</annotation>
 		<annotation cp="📲">karɓa | kibiya | na hannu | sel | tarho | waya | wayar hannu tare da kibiya</annotation>
@@ -2449,6 +2469,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📠" type="tts">injin faks</annotation>
 		<annotation cp="🔋">batir</annotation>
 		<annotation cp="🔋" type="tts">batir</annotation>
+		<annotation cp="🪫">batir ya yi sanyi | lantarki | wuta ƙasa</annotation>
+		<annotation cp="🪫" type="tts">batir ya yi sanyi</annotation>
 		<annotation cp="🔌">fulogi | fulogin lantarki | na lantarki | wutar lantarki</annotation>
 		<annotation cp="🔌" type="tts">fulogin lantarki</annotation>
 		<annotation cp="💻">kwamfuta | kwamfutar tafi-da-gidanka | na keɓe | pc</annotation>
@@ -2469,7 +2491,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💾" type="tts">diski na floppy</annotation>
 		<annotation cp="💿">cd | diski | diski na da’ira | kwamfuta | na da’ira</annotation>
 		<annotation cp="💿" type="tts">diski na da’ira</annotation>
-		<annotation cp="📀">blu-ray | diski | dvd | faifan dvd | kwamfuta | na da’ira</annotation>
+		<annotation cp="📀">Blu-ray | diski | DVD | faifan dvd | kwamfuta | na da’ira</annotation>
 		<annotation cp="📀" type="tts">faifan dvd</annotation>
 		<annotation cp="🧮">abakus | lissafi</annotation>
 		<annotation cp="🧮" type="tts">abakus</annotation>
@@ -2503,7 +2525,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔦" type="tts">tocila</annotation>
 		<annotation cp="🏮">fitila | ja | jan fitilan takarda | sanda | wuta</annotation>
 		<annotation cp="🏮" type="tts">jan fitilan takarda</annotation>
-		<annotation cp="🪔">diya | firila | fitilar diya | mai</annotation>
+		<annotation cp="🪔">diya | fitila | fitilar diya | mai</annotation>
 		<annotation cp="🪔" type="tts">fitilar diya</annotation>
 		<annotation cp="📔">littafi | littafin rubutu | littafin rubutu mai sama na ado | mai ado | sama</annotation>
 		<annotation cp="📔" type="tts">littafin rubutu mai sama na ado</annotation>
@@ -2537,7 +2559,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📑" type="tts">maɓallan ma’ajiyar rubutu</annotation>
 		<annotation cp="🔖">ma’ajiyar rubutu | maki</annotation>
 		<annotation cp="🔖" type="tts">ma’ajiyar rubutu</annotation>
-		<annotation cp="🏷">alama | alamar liƙawa</annotation>
+		<annotation cp="🏷">alamar liƙawa</annotation>
 		<annotation cp="🏷" type="tts">alamar liƙawa</annotation>
 		<annotation cp="💰">dala | jaka | jakar kuɗi | kuɗi</annotation>
 		<annotation cp="💰" type="tts">jakar kuɗi</annotation>
@@ -2573,11 +2595,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📥" type="tts">tire na akwatin saƙo</annotation>
 		<annotation cp="📦">akwati | fakit | fakiti</annotation>
 		<annotation cp="📦" type="tts">fakiti</annotation>
-		<annotation cp="📫">akwatin saƙo | akwatin wasiƙa | mel | rufaffe | rufaffen akwatin saƙo da ɗagaggiyar tuta | rufaffen akwatin saƙo tare da ɗagaggiyar tuta</annotation>
+		<annotation cp="📫">akwatin saƙo | akwatin wasiƙa | mel | rufaffe | rufaffen akwatin saƙo da ɗagaggiyar tuta</annotation>
 		<annotation cp="📫" type="tts">rufaffen akwatin saƙo da ɗagaggiyar tuta</annotation>
 		<annotation cp="📪">akwatin saƙo | akwatin wasiƙa | ƙasa-ƙasa | mel | rufaffe | rufaffen akwatin saƙo tare tuta ƙasa-ƙasa</annotation>
 		<annotation cp="📪" type="tts">rufaffen akwatin saƙo tare tuta ƙasa-ƙasa</annotation>
-		<annotation cp="📬">akwatin saƙo | akwatin wasiƙa | buɗaɗɗe | buɗaɗɗen akwatin saƙo da ɗagaggiyar tuta | buɗaɗɗen akwatin saƙo tare da ɗagaggiyar tuta | mel</annotation>
+		<annotation cp="📬">akwatin saƙo | akwatin wasiƙa | buɗaɗɗe | buɗaɗɗen akwatin saƙo da ɗagaggiyar tuta | mel</annotation>
 		<annotation cp="📬" type="tts">buɗaɗɗen akwatin saƙo da ɗagaggiyar tuta</annotation>
 		<annotation cp="📭">akwatin saƙo | akwatin wasiƙa | buɗaɗɗe | buɗaɗɗen akwatin saƙo tare tuta ƙasa-ƙasa | ƙasa-ƙasa | mel</annotation>
 		<annotation cp="📭" type="tts">buɗaɗɗen akwatin saƙo tare tuta ƙasa-ƙasa</annotation>
@@ -2671,8 +2693,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🗡" type="tts">wuƙar ƙugu</annotation>
 		<annotation cp="⚔">haɗaɗɗe | haɗaɗɗun takuba | makami | takuba</annotation>
 		<annotation cp="⚔" type="tts">haɗaɗɗun takuba</annotation>
-		<annotation cp="🔫">bindiga | bindigar hannu | kayan aiki | ƙaramar bindiga | makami</annotation>
-		<annotation cp="🔫" type="tts">ƙaramar bindiga</annotation>
+		<annotation cp="💣">bam | mai ban dariya</annotation>
+		<annotation cp="💣" type="tts">bam</annotation>
 		<annotation cp="🪃">komabaya | majefi | Ostiraliya | sake dawowa</annotation>
 		<annotation cp="🪃" type="tts">majefi</annotation>
 		<annotation cp="🏹">baka | baka da kibiya | falaki | kibiya | Mai baka | makami | wasan baka</annotation>
@@ -2691,7 +2713,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⚙" type="tts">giya</annotation>
 		<annotation cp="🗜">datsa | kayan aiki | kayan ɗaurewa | sakata</annotation>
 		<annotation cp="🗜" type="tts">kayan ɗaurewa</annotation>
-		<annotation cp="⚖">adalci | daidaito | falaki | Maʼauni | sikeli | sikeloli</annotation>
+		<annotation cp="⚖">adalci | daidaito | falaki | Maʼauni | sikeli</annotation>
 		<annotation cp="⚖" type="tts">sikeli</annotation>
 		<annotation cp="🦯">farar sanda | makaho | samun dama</annotation>
 		<annotation cp="🦯" type="tts">farar sanda</annotation>
@@ -2707,11 +2729,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧲" type="tts">maganaɗisu</annotation>
 		<annotation cp="🪜">hau | mataki | tsani</annotation>
 		<annotation cp="🪜" type="tts">tsani</annotation>
-		<annotation cp="⚗">alembic | kayan aiki | kimiyya | tukunyar alembic</annotation>
+		<annotation cp="⚗">kayan aiki | kyamestare | tukunyar alembic</annotation>
 		<annotation cp="⚗" type="tts">tukunyar alembic</annotation>
 		<annotation cp="🧪">bututun gwaji | gwaji | ilmin sunadarai | kimiyya | mai ilmin haɗa magani | wurin gwaji</annotation>
 		<annotation cp="🧪" type="tts">bututun gwaji</annotation>
-		<annotation cp="🧫">alʼada | ilmin halitta | ƙwayoyin cuta | masanin ilmin halitta | tasar petri | tasar petri tasa | wurin gwaji</annotation>
+		<annotation cp="🧫">alʼada | ilmin halitta | ƙwayoyin cuta | masanin ilmin halitta | tasar petri | wurin gwaji</annotation>
 		<annotation cp="🧫" type="tts">tasar petri</annotation>
 		<annotation cp="🧬">dna | juyin halitta | ƙwayar halitta | ƙwayoyin | masanin ilmin halitta | rayuwa</annotation>
 		<annotation cp="🧬" type="tts">dna</annotation>
@@ -2729,8 +2751,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💊" type="tts">ƙwaya</annotation>
 		<annotation cp="🩹">bandeji | bandeji na liƙawa</annotation>
 		<annotation cp="🩹" type="tts">bandeji na liƙawa</annotation>
+		<annotation cp="🩼">kara | nakasa | sanda | sandar guragu | zafi</annotation>
+		<annotation cp="🩼" type="tts">sandar guragu</annotation>
 		<annotation cp="🩺">likita | magani | maʼaunin lilkita | maʼunin likita | zuciya</annotation>
 		<annotation cp="🩺" type="tts">maʼunin likita</annotation>
+		<annotation cp="🩻">hoton x-ray | ƙasusuwa | ƙwarangwal | likita</annotation>
+		<annotation cp="🩻" type="tts">hoton x-ray</annotation>
 		<annotation cp="🚪">ƙofa</annotation>
 		<annotation cp="🚪" type="tts">ƙofa</annotation>
 		<annotation cp="🛗">ɗagawa | hau | lif | samun dama</annotation>
@@ -2771,11 +2797,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪣" type="tts">bokiti</annotation>
 		<annotation cp="🧼">leda | mazubin sabulu | sabulu | sanda | tsabtacewa | wanka</annotation>
 		<annotation cp="🧼" type="tts">sabulu</annotation>
-		<annotation cp="🪥">buroshin haƙori | burushi | burushin haƙori | gidan wanka | haƙora | haƙori | tsafta</annotation>
+		<annotation cp="🫧">bugu | kumfa | ƙarƙashin ruwa | sabulu | tsafta</annotation>
+		<annotation cp="🫧" type="tts">kumfa</annotation>
+		<annotation cp="🪥">burushi | burushin haƙori | gidan wanka | goge | haƙora | haƙori | tsafta</annotation>
 		<annotation cp="🪥" type="tts">burushin haƙori</annotation>
 		<annotation cp="🧽">mamaye | soso | soso mai kaushi | tsabtacewa</annotation>
 		<annotation cp="🧽" type="tts">soso</annotation>
-		<annotation cp="🧯">bugu | kashewa | naʼurar kashe gobara | tokar kashe gobara | wuta</annotation>
+		<annotation cp="🧯">bugu | kashewa | tokar kashe gobara | wuta</annotation>
 		<annotation cp="🧯" type="tts">tokar kashe gobara</annotation>
 		<annotation cp="🛒">amalanke | kura | sayayya</annotation>
 		<annotation cp="🛒" type="tts">amalanke</annotation>
@@ -2787,10 +2815,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪦" type="tts">dutsen rubutun kan kabari</annotation>
 		<annotation cp="⚱">jana’iza | mutuwa | toka | tukunyar jana’iza | tukunyar toka</annotation>
 		<annotation cp="⚱" type="tts">tukunyar jana’iza</annotation>
-		<annotation cp="🗿">fuska | moai | moyai | mutum-mutumi | sassaƙar moai</annotation>
+		<annotation cp="🧿">dutsen ado | ido mara kyau | laya | layar nazar | magani | nazar</annotation>
+		<annotation cp="🧿" type="tts">layar nazar</annotation>
+		<annotation cp="🪬">alamar hamsa | Fatima | hannu | kariya | laya | Maryam | Maryamu</annotation>
+		<annotation cp="🪬" type="tts">alamar hamsa</annotation>
+		<annotation cp="🗿">fuska | moyai | mutum-mutumi | sassaƙar moai</annotation>
 		<annotation cp="🗿" type="tts">sassaƙar moai</annotation>
 		<annotation cp="🪧">alama | alamar maƙalawa | katako | zanga-zanga</annotation>
 		<annotation cp="🪧" type="tts">alamar maƙalawa</annotation>
+		<annotation cp="🪪">ID | katin shaida | lasisi | takardun shaidarka | tsaro</annotation>
+		<annotation cp="🪪" type="tts">katin shaida</annotation>
 		<annotation cp="🏧">alamar ATM | atm | banki | mai sarrafa kansa | tela</annotation>
 		<annotation cp="🏧" type="tts">alamar ATM</annotation>
 		<annotation cp="🚮">alamar shara a cikin bola | kwandon shara | shara</annotation>
@@ -2889,7 +2923,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛐" type="tts">wurin Ibada</annotation>
 		<annotation cp="⚛">alamar ƙwayar zarra | kafiri | ƙwayar zarra</annotation>
 		<annotation cp="⚛" type="tts">alamar ƙwayar zarra</annotation>
-		<annotation cp="🕉">addini | alamar om | Hindu | om</annotation>
+		<annotation cp="🕉">addini | alamar om | Hindu</annotation>
 		<annotation cp="🕉" type="tts">alamar om</annotation>
 		<annotation cp="✡">addini | Dauda | Na yahudu | tauraro | tauraron Dauda | Yahudu</annotation>
 		<annotation cp="✡" type="tts">tauraron Dauda</annotation>
@@ -2909,6 +2943,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕎" type="tts">menora</annotation>
 		<annotation cp="🔯">dukiya | tauraro | tauraro mai tsini-shida mai ɗigo</annotation>
 		<annotation cp="🔯" type="tts">tauraro mai tsini-shida mai ɗigo</annotation>
+		<annotation cp="🪯">addini | khanda | Sikh</annotation>
+		<annotation cp="🪯" type="tts">khanda</annotation>
 		<annotation cp="♈">falaki | Kan rago | rago</annotation>
 		<annotation cp="♈" type="tts">Kan rago</annotation>
 		<annotation cp="♉">Bijimi | falaki | sa | takarkari</annotation>
@@ -2979,6 +3015,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔆" type="tts">maɓallin haske</annotation>
 		<annotation cp="📶">eriya | na hannu | sanda | sandunan eriya | sel | tarho | waya</annotation>
 		<annotation cp="📶" type="tts">sandunan eriya</annotation>
+		<annotation cp="🛜">hanyar iska | hanyar sadarwa | intanet | kwamfuta</annotation>
+		<annotation cp="🛜" type="tts">hanyar iska</annotation>
 		<annotation cp="📳">jijjiga | na hannu | sel | tarho | waya | yanayi | yanayin jijjiga</annotation>
 		<annotation cp="📳" type="tts">yanayin jijjiga</annotation>
 		<annotation cp="📴">a kashe | na hannu | sel | tarho | waya | wayar hannu a kashe</annotation>
@@ -2993,10 +3031,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✖" type="tts">riɓanya</annotation>
 		<annotation cp="➕">+ | alama | lissafi alamar | tarawa</annotation>
 		<annotation cp="➕" type="tts">tarawa</annotation>
-		<annotation cp="➖">- | − | alama | deɓewa | ɗebewa | lissafi</annotation>
+		<annotation cp="➖">- | − | alama | deɓewa | lissafi</annotation>
 		<annotation cp="➖" type="tts">deɓewa</annotation>
 		<annotation cp="➗">÷ | alama | lissafi | rabawa | rarrabawa</annotation>
 		<annotation cp="➗" type="tts">rabawa</annotation>
+		<annotation cp="🟰">alamar daidai mai nauyi | daidaito | lissafi</annotation>
+		<annotation cp="🟰" type="tts">alamar daidai mai nauyi</annotation>
 		<annotation cp="♾">duniya | har abada | mara iyaka | rashin iyaka</annotation>
 		<annotation cp="♾" type="tts">rashin iyaka</annotation>
 		<annotation cp="‼">! | !! | alama | alamar motsin rai | alamar motsin rai biyu | alamomin rubutu | bangbang</annotation>
@@ -3021,7 +3061,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⚕" type="tts">alamar kula da lafiya</annotation>
 		<annotation cp="♻">alamar maimaita | maimaita</annotation>
 		<annotation cp="♻" type="tts">alamar maimaita</annotation>
-		<annotation cp="⚜">alama ta fleur-de-lis | alamar fleur-de-lis</annotation>
+		<annotation cp="⚜">alamar fleur-de-lis</annotation>
 		<annotation cp="⚜" type="tts">alamar fleur-de-lis</annotation>
 		<annotation cp="🔱">alama | alamar mashi mai ƙarshe uku | jirgin ruwa | kayan aiki | ƙugiya | mashi mai ƙarshe uku</annotation>
 		<annotation cp="🔱" type="tts">alamar mashi mai ƙarshe uku</annotation>
@@ -3103,41 +3143,41 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🆙" type="tts">maɓalli na SAMA!</annotation>
 		<annotation cp="🆚">maɓallin VS | tare da | vs</annotation>
 		<annotation cp="🆚" type="tts">maɓallin VS</annotation>
-		<annotation cp="🈁">&quot;a nan&quot; | katakana | maɓallin &quot;a nan&quot; Na Japan | Na Japan | ココ</annotation>
+		<annotation cp="🈁">&quot;a nan&quot; | katakana | maɓallin &quot;a nan&quot; Na Japan | Na Japan</annotation>
 		<annotation cp="🈁" type="tts">maɓallin &quot;a nan&quot; Na Japan</annotation>
-		<annotation cp="🈂">&quot;cajin aiki&quot; | katakana | maɓallin &quot;cajin aiki&quot; Na Japan | Na Japan | サ</annotation>
+		<annotation cp="🈂">&quot;cajin aiki&quot; | katakana | maɓallin &quot;cajin aiki&quot; Na Japan | Na Japan</annotation>
 		<annotation cp="🈂" type="tts">maɓallin &quot;cajin aiki&quot; Na Japan</annotation>
-		<annotation cp="🈷">&quot;kuɗin wata-wata&quot; | maɓallin &quot;kuɗin wata-wata&quot; Na Japan | Na Japan | zanen harshe | 月</annotation>
+		<annotation cp="🈷">&quot;kuɗin wata-wata&quot; | maɓallin &quot;kuɗin wata-wata&quot; Na Japan | Na Japan | zanen harshe</annotation>
 		<annotation cp="🈷" type="tts">maɓallin &quot;kuɗin wata-wata&quot; Na Japan</annotation>
-		<annotation cp="🈶">&quot;ba kyauta ba&quot; | maɓallin &quot;ba kyauta ba&quot; Na Japan | Na Japan | zanen harshe | 有</annotation>
+		<annotation cp="🈶">&quot;ba kyauta ba&quot; | maɓallin &quot;ba kyauta ba&quot; Na Japan | Na Japan | zanen harshe</annotation>
 		<annotation cp="🈶" type="tts">maɓallin &quot;ba kyauta ba&quot; Na Japan</annotation>
-		<annotation cp="🈯">&quot;ƙayyadadde&quot; | maɓallin &quot;ƙayyadadde&quot; Na Japan | Na Japan | zanen harshe | 指</annotation>
+		<annotation cp="🈯">&quot;ƙayyadadde&quot; | maɓallin &quot;ƙayyadadde&quot; Na Japan | Na Japan | zanen harshe</annotation>
 		<annotation cp="🈯" type="tts">maɓallin &quot;ƙayyadadde&quot; Na Japan</annotation>
-		<annotation cp="🉐">&quot;ciniki&quot; | ideograph | maɓallin &quot;ciniki&quot; Na Japan | Na Japan | 得</annotation>
+		<annotation cp="🉐">&quot;ciniki&quot; | ideograph | maɓallin &quot;ciniki&quot; Na Japan | Na Japan</annotation>
 		<annotation cp="🉐" type="tts">maɓallin &quot;ciniki&quot; Na Japan</annotation>
-		<annotation cp="🈹">&quot;rangwame&quot; | maɓallin &quot;rangwame&quot; Na Japan | Na Japan | zanen harshe | 割</annotation>
+		<annotation cp="🈹">&quot;rangwame&quot; | maɓallin &quot;rangwame&quot; Na Japan | Na Japan | zanen harshe</annotation>
 		<annotation cp="🈹" type="tts">maɓallin &quot;rangwame&quot; Na Japan</annotation>
-		<annotation cp="🈚">&quot;kyauta&quot; | maɓallin &quot;kyauta&quot; Na Japan | Na Japan | zanen harshe | 無</annotation>
+		<annotation cp="🈚">&quot;kyauta&quot; | maɓallin &quot;kyauta&quot; Na Japan | Na Japan | zanen harshe</annotation>
 		<annotation cp="🈚" type="tts">maɓallin &quot;kyauta&quot; Na Japan</annotation>
-		<annotation cp="🈲">&quot;an hana&quot; | maɓallin &quot;an hana&quot; Na Japan | Na Japan | zanen harshe | 禁</annotation>
+		<annotation cp="🈲">&quot;an hana&quot; | maɓallin &quot;an hana&quot; Na Japan | Na Japan | zanen harshe</annotation>
 		<annotation cp="🈲" type="tts">maɓallin &quot;an hana&quot; Na Japan</annotation>
-		<annotation cp="🉑">&quot;wanda ake yarda da&quot; | maɓallin &quot;wanda ake yarda da&quot; Na Japan | Na Japan | zanen harshe | 可</annotation>
+		<annotation cp="🉑">&quot;wanda ake yarda da&quot; | maɓallin &quot;wanda ake yarda da&quot; Na Japan | Na Japan | zanen harshe</annotation>
 		<annotation cp="🉑" type="tts">maɓallin &quot;wanda ake yarda da&quot; Na Japan</annotation>
-		<annotation cp="🈸">&quot;buƙata&quot; | maɓallin &quot;buƙata&quot; Na Japan | Na Japan | zanen harshe | 申</annotation>
+		<annotation cp="🈸">&quot;buƙata&quot; | maɓallin &quot;buƙata&quot; Na Japan | Na Japan | zanen harshe</annotation>
 		<annotation cp="🈸" type="tts">maɓallin &quot;buƙata&quot; Na Japan</annotation>
-		<annotation cp="🈴">&quot;yarjejeniya&quot; | maɓallin &quot;yarjejeniya&quot; Na Japan | Na Japan | zanen harshe | 合</annotation>
+		<annotation cp="🈴">&quot;yarjejeniya&quot; | maɓallin &quot;yarjejeniya&quot; Na Japan | Na Japan | zanen harshe</annotation>
 		<annotation cp="🈴" type="tts">maɓallin &quot;yarjejeniya&quot; Na Japan</annotation>
-		<annotation cp="🈳">&quot;mara komai&quot; | maɓallin &quot;mara komai&quot; Na Japan | Na Japan | zanen harshe | 空</annotation>
+		<annotation cp="🈳">&quot;mara komai&quot; | maɓallin &quot;mara komai&quot; Na Japan | Na Japan | zanen harshe</annotation>
 		<annotation cp="🈳" type="tts">maɓallin &quot;mara komai&quot; Na Japan</annotation>
-		<annotation cp="㊗">&quot;murna&quot; | maɓallin &quot;murna&quot; Na Japan | Na Japan | zanen harshe | 祝</annotation>
+		<annotation cp="㊗">&quot;murna&quot; | maɓallin &quot;murna&quot; Na Japan | Na Japan | zanen harshe</annotation>
 		<annotation cp="㊗" type="tts">maɓallin &quot;murna&quot; Na Japan</annotation>
-		<annotation cp="㊙">&quot;asiri&quot; | maɓallin &quot;asiri&quot; Na Japan | Na Japan | zanen harshe | 秘</annotation>
+		<annotation cp="㊙">&quot;asiri&quot; | maɓallin &quot;asiri&quot; Na Japan | Na Japan | zanen harshe</annotation>
 		<annotation cp="㊙" type="tts">maɓallin &quot;asiri&quot; Na Japan</annotation>
-		<annotation cp="🈺">&quot;a buɗe don kasuwanci&quot; | maɓallin &quot;a buɗe don kasuwanci&quot; Na Japan | Na Japan | zanen harshe | 営</annotation>
+		<annotation cp="🈺">&quot;a buɗe don kasuwanci&quot; | maɓallin &quot;a buɗe don kasuwanci&quot; Na Japan | Na Japan | zanen harshe</annotation>
 		<annotation cp="🈺" type="tts">maɓallin &quot;a buɗe don kasuwanci&quot; Na Japan</annotation>
-		<annotation cp="🈵">&quot;a cike&quot; | maɓallin &quot;a cike&quot; Na Japan | Na Japan | zanen harshe | 満</annotation>
+		<annotation cp="🈵">&quot;a cike&quot; | maɓallin &quot;a cike&quot; Na Japan | Na Japan | zanen harshe</annotation>
 		<annotation cp="🈵" type="tts">maɓallin &quot;a cike&quot; Na Japan</annotation>
-		<annotation cp="🔴">da’ira | ilimin halayen sura | ja | jan da’ira | jar da’ira</annotation>
+		<annotation cp="🔴">da’ira | ilimin halayen sura | ja | jar da’ira</annotation>
 		<annotation cp="🔴" type="tts">jar da’ira</annotation>
 		<annotation cp="🟠">daʼira | daʼira ruwan lemo | ruwan lemo</annotation>
 		<annotation cp="🟠" type="tts">daʼira ruwan lemo</annotation>
@@ -3231,7 +3271,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="₩" type="tts">alamar won</annotation>
 		<annotation cp="€">kuɗin ƙasa | YUR | yuro</annotation>
 		<annotation cp="€" type="tts">yuro</annotation>
-		<annotation cp="₱">alama ta peso | alamar peso</annotation>
+		<annotation cp="₱">alamar peso</annotation>
 		<annotation cp="₱" type="tts">alamar peso</annotation>
 		<annotation cp="₹">kuɗin ƙasa | rupee | rupee na indiya</annotation>
 		<annotation cp="₹" type="tts">rupee na indiya</annotation>

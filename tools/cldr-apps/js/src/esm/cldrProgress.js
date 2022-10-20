@@ -6,7 +6,6 @@
 import * as cldrAjax from "./cldrAjax.js";
 import * as cldrCoverage from "./cldrCoverage.js";
 import * as cldrGui from "./cldrGui.js";
-import * as cldrLoad from "./cldrLoad.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
@@ -25,7 +24,8 @@ let localeProgressStats = null;
 
 let pageProgressRows = null;
 
-let timeLastFetchedLocaleData = 0;
+let timeLastRequestedLocaleData = 0;
+let timeLastReceivedLocaleData = 0;
 
 const LOCALE_METER_REFRESH_MS = 60 * 1000;
 
@@ -34,14 +34,15 @@ class MeterData {
    * Construct a new MeterData object
    *
    * @param {String} description description of this meter
-   * @param {Number} votes number of votes for this meter
-   * @param {Number} total number of total votes for this meter
+   * @param {Number} done the number of tasks completed for this meter; maybe negative for locale meter
+   *                      if new tasks (error/missing/provisional items) have been introduced
+   * @param {Number} total the total number of tasks for this meter
    * @param {String} level coverage level
-   * @returns
+   * @returns the new MeterData object
    */
-  constructor(description, votes, total, level) {
+  constructor(description, done, total, level) {
     this.description = description;
-    this.votes = votes || 0;
+    this.done = done || 0;
     this.total = total || 0;
     this.level = level || cldrText.get("coverage_unknown");
     this.exceptional = false;
@@ -50,12 +51,18 @@ class MeterData {
       this.title = "No data";
       return;
     }
-    this.percent = friendlyPercent(votes, total);
-    const locale = cldrStatus.getCurrentLocale();
-    const localeName = cldrLoad.getLocaleName(locale);
-    this.title =
-      `${this.description}: ${this.votes} / ${this.total} ≈ ${this.percent}%` +
+    this.percent = friendlyPercent(done, total);
+    this.title = this.makeTitle();
+  }
+
+  makeTitle() {
+    let newTitle =
+      `${this.description}: ${this.done} / ${this.total} ≈ ${this.percent}%` +
       `\n•Coverage: ${this.level}`;
+    if (this.done < 0) {
+      newTitle += "\n•Note: " + cldrText.get("progress_negative");
+    }
+    return newTitle;
   }
 
   /**
@@ -132,7 +139,7 @@ function updateWidgetsWithCoverage() {
   if (progressWrapper) {
     if (pageProgressRows) {
       // For page meter, we have saved a pointer to the rows; we need to recalculate
-      // the votes and total based on the coverage level of each row
+      // votes and total based on the coverage level of each row
       pageProgressStats = getPageCompletionFromRows(pageProgressRows);
     }
     // For voter meter, the back end delivers data along with dashboard, and dashboard
@@ -157,7 +164,7 @@ function refreshPageMeter() {
   if (pageProgressStats) {
     const md = new MeterData(
       cldrText.get("progress_page"),
-      pageProgressStats.votes,
+      pageProgressStats.votes /* done */,
       pageProgressStats.total,
       pageProgressStats.level
     );
@@ -174,7 +181,7 @@ function refreshVoterMeter() {
       progressWrapper?.updateVoterMeter(
         new MeterData(
           cldrText.get("progress_voter"),
-          voterProgressStats.votes,
+          voterProgressStats.votes /* done */,
           voterProgressStats.total,
           voterProgressStats.level
         )
@@ -190,12 +197,19 @@ function refreshVoterMeter() {
 }
 
 function refreshLocaleMeter() {
-  if (localeProgressStats) {
-    progressWrapper?.updateLocaleMeter(
+  if (localeProgressStats && progressWrapper) {
+    const baselineProblems = localeProgressStats.baselineCount;
+    const currentProblems =
+      localeProgressStats.error +
+      localeProgressStats.missing +
+      localeProgressStats.provisional;
+    const solvedProblems = baselineProblems - currentProblems; // can be negative!
+
+    progressWrapper.updateLocaleMeter(
       new MeterData(
         cldrText.get("progress_all_vetters"),
-        localeProgressStats.votes,
-        localeProgressStats.total,
+        solvedProblems /* done */,
+        baselineProblems /* total */,
         localeProgressStats.level
       )
     );
@@ -343,9 +357,9 @@ function updateVoterStats(votes, total) {
 }
 
 /**
+ * Fetch locale data from the back end
  *
- * @param {Boolean} unlessLoaded if true, skip if already present
- * @returns
+ * @param {Boolean} unlessLoaded if true, skip if data is already present
  */
 function fetchLocaleData(unlessLoaded) {
   if (!progressWrapper || !cldrStatus.getSurveyUser()) {
@@ -361,8 +375,12 @@ function fetchLocaleData(unlessLoaded) {
     localeProgressStats.locale === locale
   ) {
     // LocaleMeter is already set
-    // Still refresh if it's been too long
-    if (Date.now() < timeLastFetchedLocaleData + LOCALE_METER_REFRESH_MS) {
+    // Still refresh if it's been long enough since last request and last response
+    const now = Date.now();
+    if (
+      now < timeLastReceivedLocaleData + LOCALE_METER_REFRESH_MS &&
+      now < timeLastRequestedLocaleData + LOCALE_METER_REFRESH_MS
+    ) {
       return;
     }
   }
@@ -371,6 +389,7 @@ function fetchLocaleData(unlessLoaded) {
 }
 
 function reallyFetchLocaleData(locale) {
+  timeLastRequestedLocaleData = Date.now();
   const url = `api/completion/locale/${locale}`;
   cldrAjax
     .doFetch(url)
@@ -384,13 +403,8 @@ function reallyFetchLocaleData(locale) {
     .then((data) => data.json())
     .then((json) => {
       progressWrapper.setHidden(false);
-      localeProgressStats = {
-        votes: json.votes,
-        total: json.total,
-        level: json.level,
-        locale,
-      };
-      timeLastFetchedLocaleData = Date.now();
+      setLocaleProgressStatsFromJson(json, locale);
+      timeLastReceivedLocaleData = Date.now();
       refreshLocaleMeter();
     })
     .catch((err) => {
@@ -399,17 +413,54 @@ function reallyFetchLocaleData(locale) {
     });
 }
 
-function friendlyPercent(votes, total) {
+function setLocaleProgressStatsFromJson(json, locale) {
+  localeProgressStats = {
+    baselineCount: json.baselineCount,
+    error: json.error,
+    missing: json.missing,
+    provisional: json.provisional,
+    level: json.level,
+    /*
+     * Here locale is NOT from json
+     */
+    locale: locale,
+    // Note: json.votes and json.total are currently unused
+  };
+}
+
+/**
+ * Calculate a user-friendly percentage
+ *
+ * @param {Number} done the number of tasks completed for this meter
+ *        - For the page meter and voter meter, this is the number of items the user has voted on within the set
+ *          of items that the user was expected to vote on
+ *        - For the locale meter, this normally includes the number of problem (error/missing/provisional) items
+ *          that were in baseline and have now been fixed
+ *          CAUTION: it may be negative if there are now more problems than there were in baseline
+ *          (for example, there were zero baseline errors and now there is one error)
+ * @param {Number} total the total number of tasks for this meter
+ *        - For the page meter and voter meter, this is the number of items the user was expected to vote on
+ *        - For the locale meter, this normally includes the number of problem (error/missing/provisional) items
+ *          that were in baseline
+ * @returns a whole number between 0 and 100 inclusive
+ */
+function friendlyPercent(done, total) {
+  if (done < 0) {
+    return 0; // even if !total
+  }
   if (!total) {
     // The task is finished since nothing needed to be done
     // Do not divide by zero (0 / 0 = NaN%)
     return 100;
   }
-  if (!votes) {
+  if (!done) {
     return 0;
   }
+  if (done >= total) {
+    return 100;
+  }
   // Do not round 99.9 up to 100
-  const floor = Math.floor((100 * votes) / total);
+  const floor = Math.floor((100 * done) / total);
   if (!floor) {
     // Do not round 0.001 down to zero
     // Instead, provide indication of slight progress
@@ -427,4 +478,8 @@ export {
   updatePageCompletion,
   updateVoterCompletion,
   updateWidgetsWithCoverage,
+  /*
+   * The following are meant to be accessible for unit testing only:
+   */
+  friendlyPercent,
 };

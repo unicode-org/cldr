@@ -44,7 +44,7 @@ function loadWithJson(json) {
 
 function loadNoLocale(json, theDiv) {
   cldrStatus.setCurrentLocale("");
-  cldrLoad.updateHashAndMenus(false);
+  cldrLoad.updateHashAndMenus();
 
   const ul = document.createElement("div");
   ul.className = "oldvotes_list";
@@ -91,7 +91,7 @@ function loadNoLocale(json, theDiv) {
 
 function loadWithLocale(json, theDiv) {
   cldrStatus.setCurrentLocale(json.oldvotes.locale);
-  cldrLoad.updateHashAndMenus(false);
+  cldrLoad.updateHashAndMenus();
   const loclink = cldrDom.createChunk(
     cldrText.get("v_oldvotes_return_to_locale_list"),
     "a",

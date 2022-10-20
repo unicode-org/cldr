@@ -1,7 +1,4 @@
-package org.unicode.cldr.web;
-
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.VoterReportStatus;
+package org.unicode.cldr.util;
 
 /**
  * Interface for an object that can update report status

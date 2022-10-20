@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,471 +12,621 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<subdivisions>
-			<subdivision type="aeaj" draft="contributed">അജ്‌മാൻ</subdivision>
-			<subdivision type="aeaz" draft="contributed">അബുദാബി</subdivision>
-			<subdivision type="aefu" draft="contributed">ഫുജൈറ</subdivision>
-			<subdivision type="aerk" draft="contributed">റാസ് അൽ ഖൈമ</subdivision>
-			<subdivision type="aesh" draft="contributed">ഷാർജ</subdivision>
-			<subdivision type="aeuq" draft="contributed">ഉം അൽ കുവൈൻ</subdivision>
-			<subdivision type="afbam" draft="contributed">ബാമിയാൻ പ്രവിശ്യ</subdivision>
-			<subdivision type="afbdg" draft="contributed">ബാദ്ഘീസ് പ്രവിശ്യ</subdivision>
-			<subdivision type="afbds" draft="contributed">ബദഖ്ശാൻ പ്രവിശ്യ</subdivision>
-			<subdivision type="afnur" draft="contributed">നൂറിസ്ഥാൻ</subdivision>
-			<subdivision type="afuru" draft="contributed">ഉറോസ്ഗാൻ പ്രവിശ്യ</subdivision>
-			<subdivision type="ag10" draft="contributed">ബാർബുഡ</subdivision>
-			<subdivision type="amer" draft="contributed">യെറിവാൻ</subdivision>
-			<subdivision type="arc" draft="contributed">ബ്യൂണസ് അയേഴ്സ്</subdivision>
-			<subdivision type="at9" draft="contributed">വിയന്ന</subdivision>
-			<subdivision type="aunsw" draft="contributed">ന്യൂ സൗത്ത് വെയ്ൽസ്</subdivision>
-			<subdivision type="auqld" draft="contributed">ക്വീൻസ്‌ലാൻഡ്</subdivision>
-			<subdivision type="autas" draft="contributed">ടാസ്മേനിയ</subdivision>
-			<subdivision type="azba" draft="contributed">ബക്കു</subdivision>
-			<subdivision type="azlan" draft="contributed">ലങ്കരാൻ</subdivision>
-			<subdivision type="aznv" draft="contributed">നാഖ്ചിവൻ സിറ്റി</subdivision>
-			<subdivision type="aznx" draft="contributed">നാഖ്ചിവൻ സ്വയംഭരണ റിപ്പബ്ലിക്</subdivision>
-			<subdivision type="azsab" draft="contributed">സാബിറാബാദ് ജില്ല</subdivision>
-			<subdivision type="bd01" draft="contributed">ബന്ദർബൻ</subdivision>
-			<subdivision type="bd02" draft="contributed">ബർഗുണ ജില്ല</subdivision>
-			<subdivision type="bd03" draft="contributed">ബോഗ്ര ജില്ല</subdivision>
-			<subdivision type="bd04" draft="contributed">ബ്രഹ്മാൻബറിയ ജില്ല</subdivision>
-			<subdivision type="bd05" draft="contributed">ബഗെർഹറ്റ് ജില്ല</subdivision>
-			<subdivision type="bd06" draft="contributed">ബാരിസൽ ജില്ല</subdivision>
-			<subdivision type="bd07" draft="contributed">ബോള ജില്ല</subdivision>
-			<subdivision type="bd08" draft="contributed">കോമില ജില്ല</subdivision>
-			<subdivision type="bd09" draft="contributed">ചാന്ദ്പുർ ജില്ല</subdivision>
-			<subdivision type="bd10" draft="contributed">ചിറ്റഗോങ് ജില്ല</subdivision>
-			<subdivision type="bd11" draft="contributed">കോസ്സ് ബസാർ ജില്ല</subdivision>
-			<subdivision type="bd12" draft="contributed">ചുണ്ടങ്ങ ജില്ല</subdivision>
-			<subdivision type="bd13" draft="contributed">ധാക്ക ജില്ല</subdivision>
-			<subdivision type="bd14" draft="contributed">ദിനാജ്പുർ ജില്ല</subdivision>
-			<subdivision type="bd15" draft="contributed">ഫരീദ്പൂർ ജില്ല</subdivision>
-			<subdivision type="bd16" draft="contributed">ഫെനി ജില്ല</subdivision>
-			<subdivision type="bd17" draft="contributed">ഗോപാൽഗഞ്ച് ജില്ല</subdivision>
-			<subdivision type="bd18" draft="contributed">ഗസിപ്പൂർ ജില്ല</subdivision>
-			<subdivision type="bd19" draft="contributed">ഗൈബന്ധ ജില്ല</subdivision>
-			<subdivision type="bd20" draft="contributed">ഹബീബ്ഗഞ്ച് ജില്ല</subdivision>
-			<subdivision type="bd21" draft="contributed">ജമൽപുർ ജില്ല</subdivision>
-			<subdivision type="bd22" draft="contributed">ജെസ്സോർ ജില്ല</subdivision>
-			<subdivision type="bd23" draft="contributed">ജെനൈദഹ് ജില്ല</subdivision>
-			<subdivision type="bd24" draft="contributed">ജയ്യ്പർഹത് ജില്ല</subdivision>
-			<subdivision type="bd25" draft="contributed">ജലലോക്കതി ജില്ല</subdivision>
-			<subdivision type="bd26" draft="contributed">കിഷോർഗഞ്ച് ജില്ല</subdivision>
-			<subdivision type="bd27" draft="contributed">ഖുൽന ജില്ല</subdivision>
-			<subdivision type="bd28" draft="contributed">കുറിഗ്രം ജില്ല</subdivision>
-			<subdivision type="bd29" draft="contributed">ഖഘ്രചാരി ജില്ല</subdivision>
-			<subdivision type="bd30" draft="contributed">കുഷ്തിയ ജില്ല</subdivision>
-			<subdivision type="bd31" draft="contributed">ലക്ഷ്മിപൂർ ജില്ല</subdivision>
-			<subdivision type="bd32" draft="contributed">ലാൽമൊനിർഹറ്റ് ജില്ല</subdivision>
-			<subdivision type="bd33" draft="contributed">ബഹദിയ ജില്ല</subdivision>
-			<subdivision type="bd34" draft="contributed">മൈസെന്സിങ് ജില്ല</subdivision>
-			<subdivision type="bd35" draft="contributed">മുന്ഷിഗഞ്ച് ജില്ല</subdivision>
-			<subdivision type="bd36" draft="contributed">മദാരിപൂർ ജില്ല</subdivision>
-			<subdivision type="bd37" draft="contributed">മഗുര ജില്ല</subdivision>
-			<subdivision type="bd38" draft="contributed">മൗൽവിബാസർ ജില്ല</subdivision>
-			<subdivision type="bd39" draft="contributed">മേഹർപൂർ ജില്ല</subdivision>
-			<subdivision type="bd40" draft="contributed">നാരായൺഗഞ്ച് ജില്ല</subdivision>
-			<subdivision type="bd41" draft="contributed">നെറ്റ്രൊകൊന ജില്ല</subdivision>
-			<subdivision type="bd42" draft="contributed">നരസിംഗഡി ജില്ല</subdivision>
-			<subdivision type="bd43" draft="contributed">നാറെയിൽ ജില്ല</subdivision>
-			<subdivision type="bd44" draft="contributed">നാറ്റോർ ജില്ല</subdivision>
-			<subdivision type="bd45" draft="contributed">ചാപായ് നവാബ്ഗഞ്ച് ജില്ല</subdivision>
-			<subdivision type="bd46" draft="contributed">നിൽഫമാറി ജില്ല</subdivision>
-			<subdivision type="bd47" draft="contributed">നവഖാലി</subdivision>
-			<subdivision type="bd48" draft="contributed">നഒഗോൺ ജില്ല</subdivision>
-			<subdivision type="bd49" draft="contributed">പബ്നാ ജില്ല</subdivision>
-			<subdivision type="bd50" draft="contributed">പിരോജ്പൂർ ജില്ല</subdivision>
-			<subdivision type="bd51" draft="contributed">പറ്റുഖലി ജില്ല</subdivision>
-			<subdivision type="bd52" draft="contributed">പഞ്ചഗർഹ് ജില്ല</subdivision>
-			<subdivision type="bd53" draft="contributed">രാജ്ബാഡി ജില്ല</subdivision>
-			<subdivision type="bd54" draft="contributed">രാജ്ഷാഹി ജില്ല</subdivision>
-			<subdivision type="bd55" draft="contributed">രംഗ്പൂർ ജില്ല</subdivision>
-			<subdivision type="bd56" draft="contributed">രംഗമതി ഹിൽ ജില്ല</subdivision>
-			<subdivision type="bd57" draft="contributed">ഷേർപ്പൂർ ജില്ല</subdivision>
-			<subdivision type="bd58" draft="contributed">സത്ഖിറ ജില്ല</subdivision>
-			<subdivision type="bd59" draft="contributed">സിറാജ്ഗഞ്ച് ജില്ല</subdivision>
-			<subdivision type="bd60" draft="contributed">സിൽഹെഡ് ജില്ല</subdivision>
-			<subdivision type="bd61" draft="contributed">സുനാമ്ഗഞ്ച് ജില്ല</subdivision>
-			<subdivision type="bd62" draft="contributed">ശരിയത്പൂർ ജില്ല</subdivision>
-			<subdivision type="bd63" draft="contributed">ടംഗൈൽ ജില്ല</subdivision>
-			<subdivision type="bd64" draft="contributed">തകുർഗോൺ ജില്ല</subdivision>
-			<subdivision type="bebru" draft="contributed">ബ്രസൽസ്</subdivision>
-			<subdivision type="bg23" draft="contributed">സോഫിയ</subdivision>
-			<subdivision type="brac" draft="contributed">അക്രേ</subdivision>
-			<subdivision type="brrr" draft="contributed">റൊറൈമ പർവ്വതം</subdivision>
-			<subdivision type="bt11" draft="contributed">പാറോ ജില്ല</subdivision>
-			<subdivision type="bwga" draft="contributed">ഗാബറോൺ</subdivision>
-			<subdivision type="byhm" draft="contributed">മിൻസ്ക്</subdivision>
-			<subdivision type="caab" draft="contributed">ആൽബർട്ട</subdivision>
-			<subdivision type="cabc" draft="contributed">ബ്രിട്ടീഷ് കൊളമ്പിയ</subdivision>
-			<subdivision type="camb" draft="contributed">മനിറ്റോബ</subdivision>
-			<subdivision type="cans" draft="contributed">നോവ സ്കോട്ടിയ</subdivision>
-			<subdivision type="canu" draft="contributed">നുനാവട്</subdivision>
-			<subdivision type="caon" draft="contributed">ഒണ്ടാറിയോ</subdivision>
-			<subdivision type="caqc" draft="contributed">ക്യൂബെക്</subdivision>
-			<subdivision type="cdkn" draft="contributed">കിൻഷസ</subdivision>
-			<subdivision type="cfbgf" draft="contributed">ബാൻഗുയി</subdivision>
-			<subdivision type="cgbzv" draft="contributed">ബ്രാസവില്ലെ</subdivision>
-			<subdivision type="chti" draft="contributed">ടിച്ചീനോ</subdivision>
-			<subdivision type="ciab" draft="contributed">അബിജാൻ</subdivision>
-			<subdivision type="ciym" draft="contributed">യമൂസ്സൂക്രോ</subdivision>
-			<subdivision type="clma" draft="contributed">റെജിയോൺ ഡെ മഗല്യാൻസ് ഡെല യെ അന്റാർട്ടിക്ക ചിലെന</subdivision>
-			<subdivision type="cmad" draft="contributed">അഡമാവാ</subdivision>
-			<subdivision type="cnah" draft="contributed">ആൻഹുയി</subdivision>
-			<subdivision type="cnbj" draft="contributed">ബെയ്‌ജിങ്ങ്‌</subdivision>
-			<subdivision type="cncq" draft="contributed">ചോങ്ചിങ്</subdivision>
-			<subdivision type="cngd" draft="contributed">ഗ്വാങ്‌ഡോങ്</subdivision>
-			<subdivision type="cngx" draft="contributed">ഗുവാങ്ക്സി</subdivision>
-			<subdivision type="cnha" draft="contributed">ഹെനാൻ</subdivision>
-			<subdivision type="cnhe" draft="contributed">ഹെബെയ്</subdivision>
-			<subdivision type="cnhk" draft="contributed">ഹോങ്കോങ്</subdivision>
-			<subdivision type="cnhn" draft="contributed">ഹുനാൻ</subdivision>
-			<subdivision type="cnjs" draft="contributed">ജാങ്സൂ</subdivision>
-			<subdivision type="cnmo" draft="contributed">മകൗ</subdivision>
-			<subdivision type="cnnm" draft="contributed">ഇന്നർ മംഗോളിയ</subdivision>
-			<subdivision type="cnnx" draft="contributed">നിൻഗ്സിയ</subdivision>
-			<subdivision type="cnsc" draft="contributed">സിഷ്വാൻ</subdivision>
-			<subdivision type="cnsd" draft="contributed">ശാൻഡോങ്</subdivision>
-			<subdivision type="cnsh" draft="contributed">ഷാങ്ഹായ്</subdivision>
-			<subdivision type="cnsn" draft="contributed">ഷാങ്സി</subdivision>
-			<subdivision type="cntj" draft="contributed">ടിയാൻജിൻ</subdivision>
-			<subdivision type="cnxj" draft="contributed">സിൻജിയാങ്</subdivision>
-			<subdivision type="cnxz" draft="contributed">തിബെത്ത് സ്വയംഭരണപ്രദേശം</subdivision>
-			<subdivision type="cnyn" draft="contributed">യുന്നാൻ</subdivision>
-			<subdivision type="codc" draft="contributed">ബൊഗോട്ട</subdivision>
-			<subdivision type="cz10" draft="contributed">പ്രാഗ്</subdivision>
-			<subdivision type="debe" draft="contributed">ബെർലിൻ</subdivision>
-			<subdivision type="deby" draft="contributed">ബവേറിയ</subdivision>
-			<subdivision type="dehh" draft="contributed">ഹാംബർഗ്</subdivision>
-			<subdivision type="egbns" draft="contributed">ബനീ സുവൈഫ്</subdivision>
-			<subdivision type="egmt" draft="contributed">മത്രോഹ് ഗവർണ്ണറേറ്റ്</subdivision>
-			<subdivision type="esan" draft="contributed">ആൻഡലൂഷ്യ</subdivision>
-			<subdivision type="esct" draft="contributed">കാറ്റലോണിയ</subdivision>
-			<subdivision type="etaa" draft="contributed">അഡിസ് അബെബ</subdivision>
-			<subdivision type="fr75" draft="contributed">പാരിസ്</subdivision>
-			<subdivision type="gbabe" draft="contributed">അബർഡീൻ</subdivision>
-			<subdivision type="gbbir" draft="contributed">ബിർമിങ്ഹാം</subdivision>
-			<subdivision type="gbbkm" draft="contributed">ബക്കിങ്ങാംഷയർ</subdivision>
-			<subdivision type="gbbst" draft="contributed">ബ്രിസ്റ്റൽ</subdivision>
-			<subdivision type="gbcrf" draft="contributed">കാർഡിഫ്</subdivision>
-			<subdivision type="gbdev" draft="contributed">ഡെവൺ</subdivision>
-			<subdivision type="gbdor" draft="contributed">ഡോർസെറ്റ്</subdivision>
-			<subdivision type="gbedh" draft="contributed">എഡിൻബറോ</subdivision>
-			<subdivision type="gbgbn" draft="contributed">ഗ്രേറ്റ് ബ്രിട്ടൺ</subdivision>
-			<subdivision type="gbglg" draft="contributed">ഗ്ലാസ്ഗോ</subdivision>
-			<subdivision type="gbliv" draft="contributed">ലിവർപൂൾ</subdivision>
-			<subdivision type="gblnd" draft="contributed">ലണ്ടൻ</subdivision>
-			<subdivision type="gbman" draft="contributed">മാഞ്ചസ്റ്റർ</subdivision>
-			<subdivision type="gbngm" draft="contributed">നോട്ടിങ്ഹാം</subdivision>
-			<subdivision type="gbnir" draft="contributed">വടക്കൻ അയർലണ്ട്</subdivision>
-			<subdivision type="gbnth" draft="contributed">നോർത്താംപ്റ്റൺഷയർ</subdivision>
-			<subdivision type="gbrdg" draft="contributed">റീഡിംഗ്</subdivision>
-			<subdivision type="gbukm" draft="contributed">യുണൈറ്റഡ് കിങ്ഡം</subdivision>
-			<subdivision type="geab" draft="contributed">അബ്ഖാസിയ</subdivision>
-			<subdivision type="geaj" draft="contributed">അജാറ</subdivision>
-			<subdivision type="gegu" draft="contributed">ഗുരിയ</subdivision>
-			<subdivision type="geim" draft="contributed">ഇമെറെതി</subdivision>
-			<subdivision type="geka" draft="contributed">കാഖേറ്റി</subdivision>
-			<subdivision type="gemm" draft="contributed">മ്റ്റിസ്ഖേറ്റ-മ്റ്റിയാനേറ്റി</subdivision>
-			<subdivision type="gesj" draft="contributed">സാംറ്റ്സ്കെ ജവാഖേറ്റി</subdivision>
-			<subdivision type="gesk" draft="contributed">ഷിദ കാർട്‌ലി</subdivision>
-			<subdivision type="gesz" draft="contributed">സാമെഗ്രെലോ-സെമോ സ്വാനെറ്റി</subdivision>
-			<subdivision type="getb" draft="contributed">റ്റ്ബിലിസി</subdivision>
-			<subdivision type="ghah" draft="contributed">അഷാന്തി</subdivision>
-			<subdivision type="gmb" draft="contributed">ബഞ്ജുൾ</subdivision>
-			<subdivision type="gnc" draft="contributed">കൊണാക്രി</subdivision>
-			<subdivision type="gqan" draft="contributed">അന്നോബോൺ</subdivision>
-			<subdivision type="gr69" draft="contributed">മൗണ്ട് ആഥോസ്</subdivision>
-			<subdivision type="hr21" draft="contributed">സാഗ്രെബ്</subdivision>
-			<subdivision type="hubu" draft="contributed">ബുഡാപെസ്റ്റ്</subdivision>
-			<subdivision type="idac" draft="contributed">അക്കെ</subdivision>
-			<subdivision type="idbb" draft="contributed">ബങ്ക ബലിറ്റങ് ദ്വീപുകൾ</subdivision>
-			<subdivision type="idbe" draft="contributed">ബെങ്കുളു</subdivision>
-			<subdivision type="idbt" draft="contributed">ബാൻറൻ</subdivision>
-			<subdivision type="idgo" draft="contributed">ഗൊറാന്റാലോ</subdivision>
-			<subdivision type="idja" draft="contributed">ജംബി പട്ടണം</subdivision>
-			<subdivision type="idjb" draft="contributed">പടിഞ്ഞാറൻ ജാവ</subdivision>
-			<subdivision type="idji" draft="contributed">കിഴക്കൻ ജാവ</subdivision>
-			<subdivision type="idjk" draft="contributed">ജക്കാർത്ത</subdivision>
-			<subdivision type="idjt" draft="contributed">മദ്ധ്യ ജാവ</subdivision>
-			<subdivision type="idjw" draft="contributed">ജാവ (ദ്വീപ്)</subdivision>
-			<subdivision type="idka" draft="contributed">കലിമന്താൻ‌</subdivision>
-			<subdivision type="idkb" draft="contributed">പശ്ചിമ കലിമന്താൻ</subdivision>
-			<subdivision type="idki" draft="contributed">കിഴക്കൻ കലിമന്താൻ</subdivision>
-			<subdivision type="idkr" draft="contributed">റിയാവു ദ്വീപുകൾ</subdivision>
-			<subdivision type="idks" draft="contributed">ദക്ഷിണ കലിമന്താൻ</subdivision>
-			<subdivision type="idkt" draft="contributed">മദ്ധ്യ കലിമന്താൻ</subdivision>
-			<subdivision type="idml" draft="contributed">മലുകു ദ്വീപുകൾ</subdivision>
-			<subdivision type="idmu" draft="contributed">വടക്കൻ മലുകു</subdivision>
-			<subdivision type="idnb" draft="contributed">പടിഞ്ഞാറൻ നുസ ടെങ്കാര</subdivision>
-			<subdivision type="idnt" draft="contributed">കിഴക്കൻ നുസ ടെങ്കാര</subdivision>
-			<subdivision type="idnu" draft="contributed">ലെസ്സർ സന്റ ദ്വീപ് സമൂഹം</subdivision>
-			<subdivision type="idpa" draft="contributed">പപുവ</subdivision>
-			<subdivision type="idpb" draft="contributed">വെസ്റ്റ് പപുവ</subdivision>
-			<subdivision type="idpp" draft="contributed">വെസ്റ്റേൺ ന്യൂ ഗിനിയ</subdivision>
-			<subdivision type="idri" draft="contributed">റിയാവു</subdivision>
-			<subdivision type="idsa" draft="contributed">വടക്കൻ സുലവേസി</subdivision>
-			<subdivision type="idsb" draft="contributed">പടിഞ്ഞാറൻ സുമാത്ര</subdivision>
-			<subdivision type="idsl" draft="contributed">സുലവേസി</subdivision>
-			<subdivision type="idsm" draft="contributed">സുമാത്ര</subdivision>
-			<subdivision type="idsn" draft="contributed">തെക്കൻ സുലവേസി</subdivision>
-			<subdivision type="idss" draft="contributed">തെക്കൻ സുമാത്ര</subdivision>
-			<subdivision type="idst" draft="contributed">മദ്ധ്യ സുലവേസി</subdivision>
-			<subdivision type="idsu" draft="contributed">വടക്കൻ സുമാത്ര</subdivision>
-			<subdivision type="idyo" draft="contributed">സ്പെഷ്യൽ റീജിയൻ ഓഫ് യോഗ്യാകർത്ത</subdivision>
-			<subdivision type="inan" draft="contributed">ആന്തമാൻ നിക്കോബാർ ദ്വീപുകൾ</subdivision>
-			<subdivision type="inap" draft="contributed">ആന്ധ്രാപ്രദേശ്‌</subdivision>
-			<subdivision type="inar" draft="contributed">അരുണാചൽ പ്രദേശ്</subdivision>
-			<subdivision type="inas" draft="contributed">ആസാം</subdivision>
-			<subdivision type="inbr" draft="contributed">ബിഹാർ</subdivision>
-			<subdivision type="inch" draft="contributed">ചണ്ഡീഗഢ്</subdivision>
-			<subdivision type="inct" draft="contributed">ഛത്തീസ്‌ഗഢ്</subdivision>
-			<subdivision type="indd" draft="contributed">ദമൻ, ദിയു</subdivision>
-			<subdivision type="indl" draft="contributed">ഡെൽഹി</subdivision>
-			<subdivision type="indn" draft="contributed">ദാദ്ര, നഗർ ഹവേലി</subdivision>
-			<subdivision type="inga" draft="contributed">ഗോവ</subdivision>
-			<subdivision type="ingj" draft="contributed">ഗുജറാത്ത്‌</subdivision>
-			<subdivision type="inhp" draft="contributed">ഹിമാചൽ പ്രദേശ്‌</subdivision>
-			<subdivision type="inhr" draft="contributed">ഹരിയാണ</subdivision>
-			<subdivision type="injh" draft="contributed">ഝാർഖണ്ഡ്‌</subdivision>
-			<subdivision type="injk" draft="contributed">ജമ്മു-കശ്മീർ</subdivision>
-			<subdivision type="inka" draft="contributed">കർണാടക</subdivision>
-			<subdivision type="inkl" draft="contributed">കേരളം</subdivision>
-			<subdivision type="inld" draft="contributed">ലക്ഷദ്വീപ്</subdivision>
-			<subdivision type="inmh" draft="contributed">മഹാരാഷ്ട്ര</subdivision>
-			<subdivision type="inml" draft="contributed">മേഘാലയ</subdivision>
-			<subdivision type="inmn" draft="contributed">മണിപ്പൂർ</subdivision>
-			<subdivision type="inmp" draft="contributed">മധ്യപ്രദേശ്‌</subdivision>
-			<subdivision type="inmz" draft="contributed">മിസോറം</subdivision>
-			<subdivision type="innl" draft="contributed">നാഗാലാ‌ൻഡ്</subdivision>
-			<subdivision type="inor" draft="contributed">ഒഡീഷ</subdivision>
-			<subdivision type="inpb" draft="contributed">പഞ്ചാബ്</subdivision>
-			<subdivision type="inpy" draft="contributed">പുതുച്ചേരി</subdivision>
-			<subdivision type="inrj" draft="contributed">രാജസ്ഥാൻ</subdivision>
-			<subdivision type="insk" draft="contributed">സിക്കിം</subdivision>
-			<subdivision type="intg" draft="contributed">തെലങ്കാന</subdivision>
-			<subdivision type="intn" draft="contributed">തമിഴ്‌നാട്</subdivision>
-			<subdivision type="intr" draft="contributed">ത്രിപുര</subdivision>
-			<subdivision type="inup" draft="contributed">ഉത്തർ‌പ്രദേശ്</subdivision>
-			<subdivision type="inut" draft="contributed">ഉത്തരാഖണ്ഡ്</subdivision>
-			<subdivision type="inwb" draft="contributed">പശ്ചിമ ബംഗാൾ</subdivision>
-			<subdivision type="iqan" draft="contributed">അൻബാർ പ്രവിശ്യ</subdivision>
-			<subdivision type="iqsd" draft="contributed">സലാ അ ദിൻ</subdivision>
-			<subdivision type="it23" draft="contributed">അയോസ്റ്റ വാലി</subdivision>
-			<subdivision type="it32" draft="contributed">ട്രെന്റിനോ ആൾട്ടോ അഡിജേ</subdivision>
-			<subdivision type="it36" draft="contributed">ഫ്രിയൂളി-വെനേസിയ ജിയൂളിയ</subdivision>
-			<subdivision type="it52" draft="contributed">ടസ്കനി</subdivision>
-			<subdivision type="it82" draft="contributed">സിസിലി</subdivision>
-			<subdivision type="it88" draft="contributed">സാർഡീനിയ</subdivision>
-			<subdivision type="jp01" draft="contributed">ഹൊക്കൈഡൊ</subdivision>
-			<subdivision type="jp13" draft="contributed">ടോക്കിയോ</subdivision>
-			<subdivision type="kggb" draft="contributed">ബിഷ്കെക്ക്</subdivision>
-			<subdivision type="kggo" draft="contributed">ഓഷ്</subdivision>
-			<subdivision type="kh12" draft="contributed">നോം പെൻ</subdivision>
-			<subdivision type="kil" draft="contributed">ലൈൻ ദ്വീപുകൾ</subdivision>
-			<subdivision type="kp01" draft="contributed">പ്യോംങ്യാംഗ്</subdivision>
-			<subdivision type="kr11" draft="contributed">സോൾ</subdivision>
-			<subdivision type="kr26" draft="contributed">ബുസാൻ</subdivision>
-			<subdivision type="kr27" draft="contributed">ദേഗു</subdivision>
-			<subdivision type="kzala" draft="contributed">അൽമാട്ടി</subdivision>
-			<subdivision type="kzast" draft="contributed">അസ്താന</subdivision>
-			<subdivision type="lasv" draft="contributed">സവണ്ണഖേത്</subdivision>
-			<subdivision type="laxa" draft="contributed">സൈന്യാബുലി പ്രവിശ്യ</subdivision>
-			<subdivision type="li11" draft="contributed">വാടുസ്</subdivision>
-			<subdivision type="lk3" draft="contributed">തെക്കൻ പ്രവിശ്യ</subdivision>
-			<subdivision type="lk4" draft="contributed">വടക്കൻ പ്രവിശ്യ, ശ്രീലങ്ക</subdivision>
-			<subdivision type="lk51" draft="contributed">മട്ടക്കളപ്പ് ജില്ല</subdivision>
-			<subdivision type="lk71" draft="contributed">അനുരാധപുരം</subdivision>
-			<subdivision type="lvrix" draft="contributed">റിഗ</subdivision>
-			<subdivision type="macas" draft="contributed">കാസബ്ലങ്ക</subdivision>
-			<subdivision type="mafes" draft="contributed">ഫെസ്, മൊറോക്കോ</subdivision>
-			<subdivision type="mammd" draft="contributed">മരാക്കേഷ്</subdivision>
-			<subdivision type="mammn" draft="contributed">മരാക്കേഷ്²</subdivision>
-			<subdivision type="marab" draft="contributed">റാബത്ത്</subdivision>
-			<subdivision type="masyb" draft="contributed">മരാക്കേഷ്³</subdivision>
-			<subdivision type="matng" draft="contributed">ടാൻജീർ</subdivision>
-			<subdivision type="mk85" draft="contributed">സ്കോപിയെ</subdivision>
-			<subdivision type="mlbko" draft="contributed">ബാമാകോ</subdivision>
-			<subdivision type="mm14" draft="contributed">ചിൻ സംസ്ഥാനം</subdivision>
-			<subdivision type="mm17" draft="contributed">ഷാൻ സംസ്ഥാനം</subdivision>
-			<subdivision type="mn1" draft="contributed">ഉലാൻബാതാർ</subdivision>
-			<subdivision type="mt60" draft="contributed">വലേറ്റ</subdivision>
-			<subdivision type="mugp" draft="contributed">ഗ്രാൻഡ് പോർട്ട് ജില്ല</subdivision>
-			<subdivision type="mupu" draft="contributed">പോർട്ട് ലൂയിസ്</subdivision>
-			<subdivision type="mvmle" draft="contributed">മാലി</subdivision>
-			<subdivision type="mxbcn" draft="contributed">ബാഹാ കാലിഫോർണിയ</subdivision>
-			<subdivision type="mxcmx" draft="contributed">മെക്സിക്കോ സിറ്റി</subdivision>
-			<subdivision type="mxoax" draft="contributed">വഹാക്ക</subdivision>
-			<subdivision type="mxtab" draft="contributed">ടബാസ്കോ</subdivision>
-			<subdivision type="my04" draft="contributed">മലാക്കാ</subdivision>
-			<subdivision type="my06" draft="contributed">പഹാങ്ങ്</subdivision>
-			<subdivision type="my07" draft="contributed">പെനാംഗ്</subdivision>
-			<subdivision type="my12" draft="contributed">ഷബഹ്</subdivision>
-			<subdivision type="my13" draft="contributed">സാരവാക്ക്</subdivision>
-			<subdivision type="my14" draft="contributed">കോലാലമ്പൂർ</subdivision>
-			<subdivision type="my16" draft="contributed">പുത്രജയ</subdivision>
-			<subdivision type="mzg" draft="contributed">ഗാസ പ്രവിശ്യ</subdivision>
-			<subdivision type="mzmpm" draft="contributed">മപൂട്ടോ</subdivision>
-			<subdivision type="no03" draft="contributed">ഓസ്ലൊ</subdivision>
-			<subdivision type="no21" draft="contributed">സ്വാൽബാർഡ്</subdivision>
-			<subdivision type="ommu" draft="contributed">മുസന്ധം</subdivision>
-			<subdivision type="peare" draft="contributed">അരെക്വിപ്പ</subdivision>
-			<subdivision type="pgncd" draft="contributed">പോർട്ട് മോറെസ്ബി</subdivision>
-			<subdivision type="ph00" draft="contributed">മെട്രോ മനില</subdivision>
-			<subdivision type="ph08" draft="contributed">കിഴക്കൻ വിസായസ്</subdivision>
-			<subdivision type="phboh" draft="contributed">ബൊഹോൾ</subdivision>
-			<subdivision type="phcat" draft="contributed">കടാൻദുവാനിസ്</subdivision>
-			<subdivision type="phceb" draft="contributed">സെബൂ</subdivision>
-			<subdivision type="phmad" draft="contributed">മാറിൻദ്യൂഖ്</subdivision>
-			<subdivision type="phplw" draft="contributed">പലാവൻ</subdivision>
-			<subdivision type="pkba" draft="contributed">ബലൂചിസ്ഥാൻ</subdivision>
-			<subdivision type="pkgb" draft="contributed">ഗിൽഗിറ്റ്-ബാൾട്ടിസ്ഥാൻ</subdivision>
-			<subdivision type="pkis" draft="contributed">ഇസ്ലാമബാദ് തലസ്ഥാന പ്രദേശം</subdivision>
-			<subdivision type="pkjk" draft="contributed">ആസാദ് കശ്മീർ</subdivision>
-			<subdivision type="pkkp" draft="contributed">ഖൈബർ പഖ്തുൻഖ്വ</subdivision>
-			<subdivision type="pkpb" draft="contributed">പഞ്ചാബ്</subdivision>
-			<subdivision type="pksd" draft="contributed">സിന്ധ്</subdivision>
-			<subdivision type="pkta" draft="contributed">ഫെഡറൽ ഭരണത്തിലുള്ള ട്രൈബൽ പ്രദേശം</subdivision>
-			<subdivision type="pyasu" draft="contributed">അസുൻസിയോൺ</subdivision>
-			<subdivision type="qada" draft="contributed">ദോഹ</subdivision>
-			<subdivision type="rob" draft="contributed">ബുക്കാറെസ്റ്റ്</subdivision>
-			<subdivision type="rs00" draft="contributed">ബെൽഗ്രേഡ്</subdivision>
-			<subdivision type="ruba" draft="contributed">ബാഷ്കോർടോസ്ഥാൻ</subdivision>
-			<subdivision type="ruce" draft="contributed">ചെച്‌നിയ</subdivision>
-			<subdivision type="ruda" draft="contributed">ദാഗസ്താൻ</subdivision>
-			<subdivision type="rukgd" draft="contributed">കലീന്യിൻഗ്രാഡ് ഒബ്ലാസ്റ്റ്</subdivision>
-			<subdivision type="rumow" draft="contributed">മോസ്കോ</subdivision>
-			<subdivision type="ruspe" draft="contributed">സെന്റ് പീറ്റേഴ്സ്ബർഗ്</subdivision>
-			<subdivision type="ruta" draft="contributed">ടാട്ടർസ്താൻ</subdivision>
-			<subdivision type="rw01" draft="contributed">കിഗാലി</subdivision>
-			<subdivision type="sa01" draft="contributed">റിയാദ് പ്രവിശ്യ</subdivision>
-			<subdivision type="sa02" draft="contributed">മക്ക പ്രവിശ്യ</subdivision>
-			<subdivision type="sa03" draft="contributed">മദീന പ്രവിശ്യ</subdivision>
-			<subdivision type="sa04" draft="contributed">കിഴക്കൻ പ്രവിശ്യ</subdivision>
-			<subdivision type="sa05" draft="contributed">അൽ ഖസീം</subdivision>
-			<subdivision type="sa06" draft="contributed">ഹായിൽ പ്രവിശ്യ</subdivision>
-			<subdivision type="sa07" draft="contributed">തബൂക്ക് പ്രവിശ്യ</subdivision>
-			<subdivision type="sa08" draft="contributed">വടക്കൻ അതിർത്തി പ്രവിശ്യ</subdivision>
-			<subdivision type="sa09" draft="contributed">ജിസാൻ പ്രവിശ്യ</subdivision>
-			<subdivision type="sa10" draft="contributed">നജ്റാൻ പ്രവിശ്യ</subdivision>
-			<subdivision type="sa11" draft="contributed">അൽ ബഹ പ്രവിശ്യ</subdivision>
-			<subdivision type="sa12" draft="contributed">അൽ ജൗഫ് പ്രവിശ്യ</subdivision>
-			<subdivision type="sa14" draft="contributed">അസീർ പ്രവിശ്യ</subdivision>
-			<subdivision type="sc22" draft="contributed">സെന്റ് ലൂയിസ് ജില്ല</subdivision>
-			<subdivision type="sec" draft="contributed">അപ്പ്സല കൗണ്ടി</subdivision>
-			<subdivision type="seg" draft="contributed">ക്രോണോബെർഗ് കൗണ്ടി</subdivision>
-			<subdivision type="shac" draft="contributed">അസെൻഷൻ ദ്വീപ്</subdivision>
-			<subdivision type="shhl" draft="contributed">സൈന്റ് ഹെലേന</subdivision>
-			<subdivision type="srwa" draft="contributed">വാനിക്ക ജില്ല</subdivision>
-			<subdivision type="tdnd" draft="contributed">ൻഡ്ജാമെന</subdivision>
-			<subdivision type="th10" draft="contributed">ബാങ്കോക്ക്</subdivision>
-			<subdivision type="th14" draft="contributed">ഫ്രാ നഘോൺ സി അയുത്ഥയ പ്രവിശ്യ</subdivision>
-			<subdivision type="th16" draft="contributed">ലോപ്ബുരി പ്രവിശ്യ</subdivision>
-			<subdivision type="th19" draft="contributed">സരാബുരി പ്രവിശ്യ</subdivision>
-			<subdivision type="th41" draft="contributed">ഉഡോൺ താനി പ്രവിശ്യ</subdivision>
-			<subdivision type="th50" draft="contributed">ചിയാങ് മായി പ്രവിശ്യ</subdivision>
-			<subdivision type="th52" draft="contributed">ലമ്പാങ് പ്രവിശ്യ</subdivision>
-			<subdivision type="th55" draft="contributed">നാൻ പ്രവിശ്യ</subdivision>
-			<subdivision type="th63" draft="contributed">തക് പ്രവിശ്യ</subdivision>
-			<subdivision type="th65" draft="contributed">ഫിറ്റ്സാനുലോക്ക് പ്രവിശ്യ</subdivision>
-			<subdivision type="th71" draft="contributed">കാഞ്ചനബുരി പ്രവിശ്യ</subdivision>
-			<subdivision type="th77" draft="contributed">പ്രച്വാപ് ഖിരി ഖാൻ പ്രവിശ്യ</subdivision>
-			<subdivision type="th84" draft="contributed">സൂറത്ത് താനി പ്രവിശ്യ</subdivision>
-			<subdivision type="th90" draft="contributed">സോങ്ഖ്ല പ്രവിശ്യ</subdivision>
-			<subdivision type="th96" draft="contributed">നാരതിവാട്ട് പ്രവിശ്യ</subdivision>
-			<subdivision type="ths" draft="contributed">പട്ടായ</subdivision>
-			<subdivision type="tjdu" draft="contributed">ദുഷാൻബെ</subdivision>
-			<subdivision type="tms" draft="contributed">അഷ്ഗാബാദ്</subdivision>
-			<subdivision type="ttpos" draft="contributed">പോർട്ട് ഓഫ് സ്പെയിൻ</subdivision>
-			<subdivision type="twhsq" draft="contributed">ഹ്സിഞ്ചു കൗണ്ടി</subdivision>
-			<subdivision type="twkin" draft="contributed">കിന്മെൻ</subdivision>
-			<subdivision type="twmia" draft="contributed">മിയോലി കൗണ്ടി</subdivision>
-			<subdivision type="twpen" draft="contributed">പെൻഘു</subdivision>
-			<subdivision type="twpif" draft="contributed">പിങ്ടങ് കൗണ്ടി</subdivision>
-			<subdivision type="twtpe" draft="contributed">തായ്‌പെയ്</subdivision>
-			<subdivision type="ua30" draft="contributed">കീവ്</subdivision>
-			<subdivision type="ua43" draft="contributed">ഓട്ടോണോമസ് റിപ്പബ്ലിക് ഓഫ് ക്രിമിയ</subdivision>
-			<subdivision type="ug121" draft="contributed">ഗൊംബ ജില്ല</subdivision>
-			<subdivision type="ug216" draft="contributed">അമുറിയ ജില്ല</subdivision>
-			<subdivision type="ug218" draft="contributed">ബുഡുഡ ജില്ല</subdivision>
-			<subdivision type="ug219" draft="contributed">ബുകെഡിയ</subdivision>
-			<subdivision type="ug307" draft="contributed">ലിറ ജില്ല</subdivision>
-			<subdivision type="ug314" draft="contributed">അബിം ജില്ല</subdivision>
-			<subdivision type="um67" draft="contributed">ജോൺസ്റ്റൺ അറ്റോൾ</subdivision>
-			<subdivision type="um71" draft="contributed">മിഡ്‌വേ പവിഴദ്വീപുകൾ</subdivision>
-			<subdivision type="um76" draft="contributed">നവാസ്സ ദ്വീപ്</subdivision>
-			<subdivision type="um79" draft="contributed">വേക് ദ്വീപ്</subdivision>
-			<subdivision type="um81" draft="contributed">ബേക്കർ ദ്വീപ്</subdivision>
-			<subdivision type="um84" draft="contributed">ഹൗലാന്റ് ദ്വീപ്</subdivision>
-			<subdivision type="um86" draft="contributed">ജാർവിസ് ദ്വീപ്</subdivision>
-			<subdivision type="um89" draft="contributed">കിങ്ങ്മാൻ റീഫ്</subdivision>
-			<subdivision type="usak" draft="contributed">അലാസ്ക</subdivision>
-			<subdivision type="usal" draft="contributed">അലബാമ</subdivision>
-			<subdivision type="usar" draft="contributed">അർക്കൻസാസ്</subdivision>
-			<subdivision type="usaz" draft="contributed">അരിസോണ</subdivision>
-			<subdivision type="usca" draft="contributed">കാലിഫോർണിയ</subdivision>
-			<subdivision type="usco" draft="contributed">കൊളറാഡോ</subdivision>
-			<subdivision type="usct" draft="contributed">കണെക്റ്റിക്കട്ട്</subdivision>
-			<subdivision type="usdc" draft="contributed">വാഷിങ്ടൺ</subdivision>
-			<subdivision type="usde" draft="contributed">ഡെലവെയർ</subdivision>
-			<subdivision type="usfl" draft="contributed">ഫ്ലോറിഡ</subdivision>
-			<subdivision type="usga" draft="contributed">ജോർജിയ</subdivision>
-			<subdivision type="ushi" draft="contributed">ഹവായി</subdivision>
-			<subdivision type="usia" draft="contributed">ഐയവ</subdivision>
-			<subdivision type="usid" draft="contributed">ഐഡഹോ</subdivision>
-			<subdivision type="usil" draft="contributed">ഇല്ലിനോയി</subdivision>
-			<subdivision type="usin" draft="contributed">ഇന്ത്യാന</subdivision>
-			<subdivision type="usks" draft="contributed">കാൻസസ്</subdivision>
-			<subdivision type="usky" draft="contributed">കെന്റക്കി</subdivision>
-			<subdivision type="usla" draft="contributed">ലുയീസിയാന</subdivision>
-			<subdivision type="usma" draft="contributed">മസാച്യുസെറ്റ്സ്</subdivision>
-			<subdivision type="usmd" draft="contributed">മെരിലാൻ‌ഡ്</subdivision>
-			<subdivision type="usme" draft="contributed">മെയ്ൻ</subdivision>
-			<subdivision type="usmi" draft="contributed">മിഷിഗൺ</subdivision>
-			<subdivision type="usmn" draft="contributed">മിനസോട്ട</subdivision>
-			<subdivision type="usmo" draft="contributed">മിസോറി</subdivision>
-			<subdivision type="usms" draft="contributed">മിസിസിപ്പി</subdivision>
-			<subdivision type="usmt" draft="contributed">മൊണ്ടാന</subdivision>
-			<subdivision type="usnc" draft="contributed">വടക്കൻ കരൊലൈന</subdivision>
-			<subdivision type="usnd" draft="contributed">വടക്കൻ ഡക്കോട്ട</subdivision>
-			<subdivision type="usne" draft="contributed">നെബ്രാസ്ക</subdivision>
-			<subdivision type="usnh" draft="contributed">ന്യൂ ഹാംഷെയർ</subdivision>
-			<subdivision type="usnj" draft="contributed">ന്യൂ ജെഴ്സി</subdivision>
-			<subdivision type="usnm" draft="contributed">ന്യൂ മെക്സിക്കോ</subdivision>
-			<subdivision type="usnv" draft="contributed">നെവാഡ</subdivision>
-			<subdivision type="usny" draft="contributed">ന്യൂയോർക്ക്</subdivision>
-			<subdivision type="usoh" draft="contributed">ഒഹായോ</subdivision>
-			<subdivision type="usok" draft="contributed">ഒക്‌ലഹോമ</subdivision>
-			<subdivision type="usor" draft="contributed">ഒറിഗൺ</subdivision>
-			<subdivision type="uspa" draft="contributed">പെൻ‌സിൽ‌വാനിയ</subdivision>
-			<subdivision type="usri" draft="contributed">റോഡ് ഐലൻഡ്</subdivision>
-			<subdivision type="ussc" draft="contributed">തെക്കൻ കരൊലൈന</subdivision>
-			<subdivision type="ussd" draft="contributed">തെക്കൻ ഡക്കോട്ട</subdivision>
-			<subdivision type="ustn" draft="contributed">ടെന്നസി</subdivision>
-			<subdivision type="ustx" draft="contributed">ടെക്സസ്</subdivision>
-			<subdivision type="usut" draft="contributed">യൂറ്റാ</subdivision>
-			<subdivision type="usva" draft="contributed">വിർജീനിയ</subdivision>
-			<subdivision type="usvt" draft="contributed">വെർമോണ്ട്</subdivision>
-			<subdivision type="uswa" draft="contributed">വാഷിങ്ടൺ²</subdivision>
-			<subdivision type="uswi" draft="contributed">വിസ്കോൺസിൻ</subdivision>
-			<subdivision type="uswv" draft="contributed">പടിഞ്ഞാറൻ വിർജീന്യ</subdivision>
-			<subdivision type="uswy" draft="contributed">വയോമിങ്</subdivision>
-			<subdivision type="uymo" draft="contributed">മൊണ്ടേവീഡിയോ</subdivision>
-			<subdivision type="uzqr" draft="contributed">കരാകല്പക്സ്ഥാൻ</subdivision>
-			<subdivision type="uztk" draft="contributed">താഷ്കന്റ്</subdivision>
-			<subdivision type="vee" draft="contributed">ബരീനാസ്</subdivision>
-			<subdivision type="vn30" draft="contributed">ഗിയ ലായ് പ്രൊവിൻസ്</subdivision>
-			<subdivision type="vn53" draft="contributed">ബാക് കാൻ പ്രവിശ്യ</subdivision>
-			<subdivision type="vnhn" draft="contributed">ഹാനോയ്</subdivision>
-			<subdivision type="vnhp" draft="contributed">ഹൈ ഫോങ്</subdivision>
-			<subdivision type="vnsg" draft="contributed">ഹോ ചി മിൻ നഗരം</subdivision>
-			<subdivision type="yesa" draft="contributed">സന</subdivision>
-			<subdivision type="zaec" draft="contributed">കിഴക്കൻ കേപ്</subdivision>
-			<subdivision type="zafs" draft="contributed">ഫ്രീ സ്റ്റേറ്റ്</subdivision>
-			<subdivision type="zagt" draft="contributed">ഗൗറ്റെങ്</subdivision>
-			<subdivision type="zalp" draft="contributed">ലിംപോപോ</subdivision>
-			<subdivision type="zamp" draft="contributed">പുമാലൻഗ</subdivision>
-			<subdivision type="zanl" draft="contributed">ക്വാസുളു-നറ്റാൽ</subdivision>
-			<subdivision type="zawc" draft="contributed">പടിഞ്ഞാറൻ കേപ്</subdivision>
+			<subdivision type="ad07" draft="provisional">അൻഡോറ ല വെല്ല</subdivision>
+			<subdivision type="aeaj" draft="provisional">അജ്‌മാൻ</subdivision>
+			<subdivision type="aeaz" draft="provisional">അബുദാബി</subdivision>
+			<subdivision type="aefu" draft="provisional">ഫുജൈറ</subdivision>
+			<subdivision type="aerk" draft="provisional">റാസ് അൽ ഖൈമ</subdivision>
+			<subdivision type="aesh" draft="provisional">ഷാർജ</subdivision>
+			<subdivision type="aeuq" draft="provisional">ഉം അൽ കുവൈൻ</subdivision>
+			<subdivision type="afbam" draft="provisional">ബാമിയാൻ പ്രവിശ്യ</subdivision>
+			<subdivision type="afbdg" draft="provisional">ബാദ്ഘീസ് പ്രവിശ്യ</subdivision>
+			<subdivision type="afbds" draft="provisional">ബദഖ്ശാൻ പ്രവിശ്യ</subdivision>
+			<subdivision type="afhel" draft="provisional">ഹെൽമണ്ട് പ്രവിശ്യ</subdivision>
+			<subdivision type="afkdz" draft="provisional">കുന്ദൂസ് പ്രവിശ്യ</subdivision>
+			<subdivision type="aflog" draft="provisional">ലോഗർ പ്രവിശ്യ</subdivision>
+			<subdivision type="afnur" draft="provisional">നൂറിസ്ഥാൻ</subdivision>
+			<subdivision type="afpan" draft="provisional">പഞ്ച്ഷിർ പ്രവിശ്യ</subdivision>
+			<subdivision type="afpar" draft="provisional">പർവാൻ പ്രവിശ്യ</subdivision>
+			<subdivision type="afpia" draft="provisional">പാക്തിയ പ്രവിശ്യ</subdivision>
+			<subdivision type="afuru" draft="provisional">ഉറോസ്ഗാൻ പ്രവിശ്യ</subdivision>
+			<subdivision type="ag10" draft="provisional">ബാർബുഡ</subdivision>
+			<subdivision type="amag" draft="provisional">അരഗത്സോട്ൻ പ്രവിശ്യ</subdivision>
+			<subdivision type="amar" draft="provisional">അരാരത്ത് പ്രവിശ്യ</subdivision>
+			<subdivision type="amav" draft="provisional">അർമാവിർ പ്രവിശ്യ</subdivision>
+			<subdivision type="amer" draft="provisional">യെറിവാൻ</subdivision>
+			<subdivision type="amgr" draft="provisional">ഗെഘാർകുനിക്</subdivision>
+			<subdivision type="amkt" draft="provisional">കോട്ടയ്ക് പ്രവിശ്യ</subdivision>
+			<subdivision type="amlo" draft="provisional">ലോറി പ്രവിശ്യ</subdivision>
+			<subdivision type="amsh" draft="provisional">ഷിറാക്ക് പ്രവിശ്യ</subdivision>
+			<subdivision type="amsu" draft="provisional">സ്യൂനിക് പ്രവിശ്യ</subdivision>
+			<subdivision type="amtv" draft="provisional">താവുഷ് പ്രവിശ്യ</subdivision>
+			<subdivision type="amvd" draft="provisional">വയോത്സ് ഡ്സോർ പ്രവിശ്യ</subdivision>
+			<subdivision type="aolua" draft="provisional">ലുവാണ്ട പ്രവശ്യ</subdivision>
+			<subdivision type="arc" draft="provisional">ബ്യൂണസ് അയേഴ്സ്</subdivision>
+			<subdivision type="at9" draft="provisional">വിയന്ന</subdivision>
+			<subdivision type="aunsw" draft="provisional">ന്യൂ സൗത്ത് വെയ്ൽസ്</subdivision>
+			<subdivision type="aunt" draft="provisional">നോർത്തേൺ ടെറിട്ടറി</subdivision>
+			<subdivision type="auqld" draft="provisional">ക്വീൻസ്‌ലാൻഡ്</subdivision>
+			<subdivision type="ausa" draft="provisional">സൗത്ത് ഓസ്ട്രേലിയ</subdivision>
+			<subdivision type="autas" draft="provisional">ടാസ്മേനിയ</subdivision>
+			<subdivision type="auvic" draft="provisional">വിക്ടോറിയ (ഓസ്ട്രേലിയ)</subdivision>
+			<subdivision type="auwa" draft="provisional">വെസ്റ്റേൺ ഓസ്ട്രേലിയ</subdivision>
+			<subdivision type="azba" draft="provisional">ബക്കു</subdivision>
+			<subdivision type="azlan" draft="provisional">ലങ്കരാൻ</subdivision>
+			<subdivision type="aznv" draft="provisional">നാഖ്ചിവൻ സിറ്റി</subdivision>
+			<subdivision type="aznx" draft="provisional">നാഖ്ചിവൻ സ്വയംഭരണ റിപ്പബ്ലിക്</subdivision>
+			<subdivision type="azsa" draft="provisional">ശാകി, അസർബയ്ജാൻ</subdivision>
+			<subdivision type="azsab" draft="provisional">സാബിറാബാദ് ജില്ല</subdivision>
+			<subdivision type="azsm" draft="provisional">സംഗയ്റ്റ്</subdivision>
+			<subdivision type="azxa" draft="provisional">സ്റ്റെപാനകെർട്ട്</subdivision>
+			<subdivision type="bd01" draft="provisional">ബന്ദർബൻ</subdivision>
+			<subdivision type="bd02" draft="provisional">ബർഗുണ ജില്ല</subdivision>
+			<subdivision type="bd03" draft="provisional">ബോഗ്ര ജില്ല</subdivision>
+			<subdivision type="bd04" draft="provisional">ബ്രഹ്മാൻബറിയ ജില്ല</subdivision>
+			<subdivision type="bd05" draft="provisional">ബഗെർഹറ്റ് ജില്ല</subdivision>
+			<subdivision type="bd06" draft="provisional">ബാരിസൽ ജില്ല</subdivision>
+			<subdivision type="bd07" draft="provisional">ബോള ജില്ല</subdivision>
+			<subdivision type="bd08" draft="provisional">കോമില ജില്ല</subdivision>
+			<subdivision type="bd09" draft="provisional">ചാന്ദ്പുർ ജില്ല</subdivision>
+			<subdivision type="bd10" draft="provisional">ചിറ്റഗോങ് ജില്ല</subdivision>
+			<subdivision type="bd11" draft="provisional">കോസ്സ് ബസാർ ജില്ല</subdivision>
+			<subdivision type="bd12" draft="provisional">ചുണ്ടങ്ങ ജില്ല</subdivision>
+			<subdivision type="bd13" draft="provisional">ധാക്ക ജില്ല</subdivision>
+			<subdivision type="bd14" draft="provisional">ദിനാജ്പുർ ജില്ല</subdivision>
+			<subdivision type="bd15" draft="provisional">ഫരീദ്പൂർ ജില്ല</subdivision>
+			<subdivision type="bd16" draft="provisional">ഫെനി ജില്ല</subdivision>
+			<subdivision type="bd17" draft="provisional">ഗോപാൽഗഞ്ച് ജില്ല</subdivision>
+			<subdivision type="bd18" draft="provisional">ഗസിപ്പൂർ ജില്ല</subdivision>
+			<subdivision type="bd19" draft="provisional">ഗൈബന്ധ ജില്ല</subdivision>
+			<subdivision type="bd20" draft="provisional">ഹബീബ്ഗഞ്ച് ജില്ല</subdivision>
+			<subdivision type="bd21" draft="provisional">ജമൽപുർ ജില്ല</subdivision>
+			<subdivision type="bd22" draft="provisional">ജെസ്സോർ ജില്ല</subdivision>
+			<subdivision type="bd23" draft="provisional">ജെനൈദഹ് ജില്ല</subdivision>
+			<subdivision type="bd24" draft="provisional">ജയ്യ്പർഹത് ജില്ല</subdivision>
+			<subdivision type="bd25" draft="provisional">ജലലോക്കതി ജില്ല</subdivision>
+			<subdivision type="bd26" draft="provisional">കിഷോർഗഞ്ച് ജില്ല</subdivision>
+			<subdivision type="bd27" draft="provisional">ഖുൽന ജില്ല</subdivision>
+			<subdivision type="bd28" draft="provisional">കുറിഗ്രം ജില്ല</subdivision>
+			<subdivision type="bd29" draft="provisional">ഖഘ്രചാരി ജില്ല</subdivision>
+			<subdivision type="bd30" draft="provisional">കുഷ്തിയ ജില്ല</subdivision>
+			<subdivision type="bd31" draft="provisional">ലക്ഷ്മിപൂർ ജില്ല</subdivision>
+			<subdivision type="bd32" draft="provisional">ലാൽമൊനിർഹറ്റ് ജില്ല</subdivision>
+			<subdivision type="bd33" draft="provisional">ബഹദിയ ജില്ല</subdivision>
+			<subdivision type="bd34" draft="provisional">മൈസെന്സിങ് ജില്ല</subdivision>
+			<subdivision type="bd35" draft="provisional">മുന്ഷിഗഞ്ച് ജില്ല</subdivision>
+			<subdivision type="bd36" draft="provisional">മദാരിപൂർ ജില്ല</subdivision>
+			<subdivision type="bd37" draft="provisional">മഗുര ജില്ല</subdivision>
+			<subdivision type="bd38" draft="provisional">മൗൽവിബാസർ ജില്ല</subdivision>
+			<subdivision type="bd39" draft="provisional">മേഹർപൂർ ജില്ല</subdivision>
+			<subdivision type="bd40" draft="provisional">നാരായൺഗഞ്ച് ജില്ല</subdivision>
+			<subdivision type="bd41" draft="provisional">നെറ്റ്രൊകൊന ജില്ല</subdivision>
+			<subdivision type="bd42" draft="provisional">നരസിംഗഡി ജില്ല</subdivision>
+			<subdivision type="bd43" draft="provisional">നാറെയിൽ ജില്ല</subdivision>
+			<subdivision type="bd44" draft="provisional">നാറ്റോർ ജില്ല</subdivision>
+			<subdivision type="bd45" draft="provisional">ചാപായ് നവാബ്ഗഞ്ച് ജില്ല</subdivision>
+			<subdivision type="bd46" draft="provisional">നിൽഫമാറി ജില്ല</subdivision>
+			<subdivision type="bd47" draft="provisional">നവഖാലി</subdivision>
+			<subdivision type="bd48" draft="provisional">നഒഗോൺ ജില്ല</subdivision>
+			<subdivision type="bd49" draft="provisional">പബ്നാ ജില്ല</subdivision>
+			<subdivision type="bd50" draft="provisional">പിരോജ്പൂർ ജില്ല</subdivision>
+			<subdivision type="bd51" draft="provisional">പറ്റുഖലി ജില്ല</subdivision>
+			<subdivision type="bd52" draft="provisional">പഞ്ചഗർഹ് ജില്ല</subdivision>
+			<subdivision type="bd53" draft="provisional">രാജ്ബാഡി ജില്ല</subdivision>
+			<subdivision type="bd54" draft="provisional">രാജ്ഷാഹി ജില്ല</subdivision>
+			<subdivision type="bd55" draft="provisional">രംഗ്പൂർ ജില്ല</subdivision>
+			<subdivision type="bd56" draft="provisional">രംഗമതി ഹിൽ ജില്ല</subdivision>
+			<subdivision type="bd57" draft="provisional">ഷേർപ്പൂർ ജില്ല</subdivision>
+			<subdivision type="bd58" draft="provisional">സത്ഖിറ ജില്ല</subdivision>
+			<subdivision type="bd59" draft="provisional">സിറാജ്ഗഞ്ച് ജില്ല</subdivision>
+			<subdivision type="bd60" draft="provisional">സിൽഹെഡ് ജില്ല</subdivision>
+			<subdivision type="bd61" draft="provisional">സുനാമ്ഗഞ്ച് ജില്ല</subdivision>
+			<subdivision type="bd62" draft="provisional">ശരിയത്പൂർ ജില്ല</subdivision>
+			<subdivision type="bd63" draft="provisional">ടംഗൈൽ ജില്ല</subdivision>
+			<subdivision type="bd64" draft="provisional">തകുർഗോൺ ജില്ല</subdivision>
+			<subdivision type="bdc" draft="provisional">ധാക്ക ഡിവിഷൻ</subdivision>
+			<subdivision type="bebru" draft="provisional">ബ്രസൽസ്</subdivision>
+			<subdivision type="bg23" draft="provisional">സോഫിയ</subdivision>
+			<subdivision type="brac" draft="provisional">അക്രേ</subdivision>
+			<subdivision type="brap" draft="provisional">അമാപാ</subdivision>
+			<subdivision type="brba" draft="provisional">ബാഹിയ</subdivision>
+			<subdivision type="brpa" draft="provisional">പാര (ബ്രസീൽ)</subdivision>
+			<subdivision type="brpr" draft="provisional">പരാന</subdivision>
+			<subdivision type="brrr" draft="provisional">റൊറൈമ പർവ്വതം</subdivision>
+			<subdivision type="bt11" draft="provisional">പാറോ ജില്ല</subdivision>
+			<subdivision type="bt31" draft="provisional">സർപംഗ് ജില്ല</subdivision>
+			<subdivision type="bt34" draft="provisional">ഴെംഗാങ്</subdivision>
+			<subdivision type="bt43" draft="provisional">പെമാഗാറ്റ്ഷെൽ</subdivision>
+			<subdivision type="bwga" draft="provisional">ഗാബറോൺ</subdivision>
+			<subdivision type="byhm" draft="provisional">മിൻസ്ക്</subdivision>
+			<subdivision type="caab" draft="provisional">ആൽബർട്ട</subdivision>
+			<subdivision type="cabc" draft="provisional">ബ്രിട്ടീഷ് കൊളമ്പിയ</subdivision>
+			<subdivision type="camb" draft="provisional">മനിറ്റോബ</subdivision>
+			<subdivision type="canb" draft="provisional">ന്യൂ ബ്രൺസ്വിക്ക്</subdivision>
+			<subdivision type="canl" draft="provisional">ന്യൂഫൗണ്ടൻലാൻഡ് ആന്റ് ലാബ്രഡോർ</subdivision>
+			<subdivision type="cans" draft="provisional">നോവ സ്കോട്ടിയ</subdivision>
+			<subdivision type="cant" draft="provisional">നോർത്ത്വെസ്റ്റ് ടെറിറ്ററീസ്</subdivision>
+			<subdivision type="canu" draft="provisional">നുനാവട്</subdivision>
+			<subdivision type="caon" draft="provisional">ഒണ്ടാറിയോ</subdivision>
+			<subdivision type="cape" draft="provisional">പ്രിൻസ് എഡ്വേർഡ് ദ്വീപ്</subdivision>
+			<subdivision type="caqc" draft="provisional">ക്യൂബെക്</subdivision>
+			<subdivision type="cask" draft="provisional">സസ്ക്കാറ്റ്ച്ചെവാൻ</subdivision>
+			<subdivision type="cayt" draft="provisional">യൂക്കോൺ</subdivision>
+			<subdivision type="cdkn" draft="provisional">കിൻഷസ</subdivision>
+			<subdivision type="cfbgf" draft="provisional">ബാൻഗുയി</subdivision>
+			<subdivision type="cgbzv" draft="provisional">ബ്രാസവില്ലെ</subdivision>
+			<subdivision type="chti" draft="provisional">ടിച്ചീനോ</subdivision>
+			<subdivision type="ciab" draft="provisional">അബിജാൻ</subdivision>
+			<subdivision type="ciym" draft="provisional">യമൂസ്സൂക്രോ</subdivision>
+			<subdivision type="clma" draft="provisional">റെജിയോൺ ഡെ മഗല്യാൻസ് ഡെല യെ അന്റാർട്ടിക്ക ചിലെന</subdivision>
+			<subdivision type="cmad" draft="provisional">അഡമാവാ</subdivision>
+			<subdivision type="cnah" draft="provisional">ആൻഹുയി</subdivision>
+			<subdivision type="cnbj" draft="provisional">ബെയ്‌ജിങ്ങ്‌</subdivision>
+			<subdivision type="cncq" draft="provisional">ചോങ്ചിങ്</subdivision>
+			<subdivision type="cngd" draft="provisional">ഗ്വാങ്‌ഡോങ്</subdivision>
+			<subdivision type="cngx" draft="provisional">ഗുവാങ്ക്സി</subdivision>
+			<subdivision type="cnha" draft="provisional">ഹെനാൻ</subdivision>
+			<subdivision type="cnhe" draft="provisional">ഹെബെയ്</subdivision>
+			<subdivision type="cnhk" draft="provisional">ഹോങ്കോങ്</subdivision>
+			<subdivision type="cnhn" draft="provisional">ഹുനാൻ</subdivision>
+			<subdivision type="cnjs" draft="provisional">ജാങ്സൂ</subdivision>
+			<subdivision type="cnmo" draft="provisional">മകൗ</subdivision>
+			<subdivision type="cnnm" draft="provisional">ഇന്നർ മംഗോളിയ</subdivision>
+			<subdivision type="cnnx" draft="provisional">നിൻഗ്സിയ</subdivision>
+			<subdivision type="cnsc" draft="provisional">സിഷ്വാൻ</subdivision>
+			<subdivision type="cnsd" draft="provisional">ശാൻഡോങ്</subdivision>
+			<subdivision type="cnsh" draft="provisional">ഷാങ്ഹായ്</subdivision>
+			<subdivision type="cnsn" draft="provisional">ഷാങ്സി</subdivision>
+			<subdivision type="cntj" draft="provisional">ടിയാൻജിൻ</subdivision>
+			<subdivision type="cnxj" draft="provisional">സിൻജിയാങ്</subdivision>
+			<subdivision type="cnxz" draft="provisional">തിബെത്ത് സ്വയംഭരണപ്രദേശം</subdivision>
+			<subdivision type="cnyn" draft="provisional">യുന്നാൻ</subdivision>
+			<subdivision type="codc" draft="provisional">ബൊഗോട്ട</subdivision>
+			<subdivision type="crp" draft="provisional">പുണ്ടാരെനാസ് പ്രവിശ്യ</subdivision>
+			<subdivision type="cvpa" draft="provisional">പോൾ</subdivision>
+			<subdivision type="cz10" draft="provisional">പ്രാഗ്</subdivision>
+			<subdivision type="debb" draft="provisional">ബ്രാൻഡൻബർഗ്</subdivision>
+			<subdivision type="debe" draft="provisional">ബെർലിൻ</subdivision>
+			<subdivision type="debw" draft="provisional">ബാഡൻ-വ്യൂർട്ടംബർഗ്</subdivision>
+			<subdivision type="deby" draft="provisional">ബവേറിയ</subdivision>
+			<subdivision type="dehh" draft="provisional">ഹാംബർഗ്</subdivision>
+			<subdivision type="demv" draft="provisional">മെക്ക്ലെൻബുർഗ്-ഫൊർപ്പോമേൻ</subdivision>
+			<subdivision type="deni" draft="provisional">ലോവർ സാക്സണി</subdivision>
+			<subdivision type="denw" draft="provisional">നോർത്ത് റൈൻ-വെസ്റ്റ്ഫാലിയ</subdivision>
+			<subdivision type="derp" draft="provisional">റൈൻലാൻഡ്-പലാറ്റിനേറ്റ്</subdivision>
+			<subdivision type="desh" draft="provisional">ഷ്ലെസ്വിഗ്-ഹോൾസ്റ്റൈൻ</subdivision>
+			<subdivision type="desl" draft="provisional">സാർലാൻഡ്</subdivision>
+			<subdivision type="desn" draft="provisional">സാക്സണി</subdivision>
+			<subdivision type="dest" draft="provisional">സാക്സണി-അൻഹാൾട്ട്</subdivision>
+			<subdivision type="deth" draft="provisional">തുറിഞ്ചിയ</subdivision>
+			<subdivision type="egbns" draft="provisional">ബനീ സുവൈഫ്</subdivision>
+			<subdivision type="egmt" draft="provisional">മത്രോഹ് ഗവർണ്ണറേറ്റ്</subdivision>
+			<subdivision type="esan" draft="provisional">ആൻഡലൂഷ്യ</subdivision>
+			<subdivision type="escn" draft="provisional">കനേറി ദ്വീപുകൾ</subdivision>
+			<subdivision type="esct" draft="provisional">കാറ്റലോണിയ</subdivision>
+			<subdivision type="etaa" draft="provisional">അഡിസ് അബെബ</subdivision>
+			<subdivision type="fr02" draft="provisional">അൽസ്നെ</subdivision>
+			<subdivision type="fr14" draft="provisional">കാൽവഡോസ്</subdivision>
+			<subdivision type="fr24" draft="provisional">ഡോർഡോഗ്നെ</subdivision>
+			<subdivision type="fr61" draft="provisional">ഓർനെ</subdivision>
+			<subdivision type="fr67" draft="provisional">ബാസ്-റിൻ</subdivision>
+			<subdivision type="fr75c" draft="provisional">പാരിസ്</subdivision>
+			<subdivision type="fr88" draft="provisional">വോസ്ഗെസ്</subdivision>
+			<subdivision type="fr89" draft="provisional">യോന്നെ</subdivision>
+			<subdivision type="fr971" draft="provisional">ഗ്വാദെലൂപ്</subdivision>
+			<subdivision type="gbabe" draft="provisional">അബർഡീൻ</subdivision>
+			<subdivision type="gbbir" draft="provisional">ബിർമിങ്ഹാം</subdivision>
+			<subdivision type="gbbkm" draft="provisional">ബക്കിങ്ങാംഷയർ</subdivision>
+			<subdivision type="gbbst" draft="provisional">ബ്രിസ്റ്റൽ</subdivision>
+			<subdivision type="gbcrf" draft="provisional">കാർഡിഫ്</subdivision>
+			<subdivision type="gbdev" draft="provisional">ഡെവൺ</subdivision>
+			<subdivision type="gbdor" draft="provisional">ഡോർസെറ്റ്</subdivision>
+			<subdivision type="gbedh" draft="provisional">എഡിൻബറോ</subdivision>
+			<subdivision type="gbeng" draft="provisional">ഇംഗ്ലണ്ട്</subdivision>
+			<subdivision type="gbgbn" draft="provisional">ഗ്രേറ്റ് ബ്രിട്ടൺ</subdivision>
+			<subdivision type="gbglg" draft="provisional">ഗ്ലാസ്ഗോ</subdivision>
+			<subdivision type="gbliv" draft="provisional">ലിവർപൂൾ</subdivision>
+			<subdivision type="gblnd" draft="provisional">ലണ്ടൻ</subdivision>
+			<subdivision type="gbman" draft="provisional">മാഞ്ചസ്റ്റർ</subdivision>
+			<subdivision type="gbngm" draft="provisional">നോട്ടിങ്ഹാം</subdivision>
+			<subdivision type="gbnir" draft="provisional">വടക്കൻ അയർലണ്ട്</subdivision>
+			<subdivision type="gbnth" draft="provisional">നോർത്താംപ്റ്റൺഷയർ</subdivision>
+			<subdivision type="gboxf" draft="provisional">ഓക്സ്ഫോഡ്</subdivision>
+			<subdivision type="gbrdg" draft="provisional">റീഡിംഗ്</subdivision>
+			<subdivision type="gbsct" draft="provisional">സ്കോട്ട് ലൻഡ്</subdivision>
+			<subdivision type="gbukm" draft="provisional">യുണൈറ്റഡ് കിങ്ഡം</subdivision>
+			<subdivision type="gbwls" draft="provisional">വേൽസ്</subdivision>
+			<subdivision type="gbzet" draft="provisional">ഷെറ്റ്ലാൻഡ്</subdivision>
+			<subdivision type="geab" draft="provisional">അബ്ഖാസിയ</subdivision>
+			<subdivision type="geaj" draft="provisional">അജാറ</subdivision>
+			<subdivision type="gegu" draft="provisional">ഗുരിയ</subdivision>
+			<subdivision type="geim" draft="provisional">ഇമെറെതി</subdivision>
+			<subdivision type="geka" draft="provisional">കാഖേറ്റി</subdivision>
+			<subdivision type="gekk" draft="provisional">ക്വെമോ കാർട്ട്ലി</subdivision>
+			<subdivision type="gemm" draft="provisional">മ്റ്റിസ്ഖേറ്റ-മ്റ്റിയാനേറ്റി</subdivision>
+			<subdivision type="gerl" draft="provisional">റച്ച-ലെച്ച്കുമി ആൻഡ് ക്വെമൊ സ്വനെറ്റി</subdivision>
+			<subdivision type="gesj" draft="provisional">സാംറ്റ്സ്കെ ജവാഖേറ്റി</subdivision>
+			<subdivision type="gesk" draft="provisional">ഷിദ കാർട്‌ലി</subdivision>
+			<subdivision type="gesz" draft="provisional">സാമെഗ്രെലോ-സെമോ സ്വാനെറ്റി</subdivision>
+			<subdivision type="getb" draft="provisional">റ്റ്ബിലിസി</subdivision>
+			<subdivision type="ghah" draft="provisional">അഷാന്തി</subdivision>
+			<subdivision type="gmb" draft="provisional">ബഞ്ജുൾ</subdivision>
+			<subdivision type="gnc" draft="provisional">കൊണാക്രി</subdivision>
+			<subdivision type="gqan" draft="provisional">അന്നോബോൺ</subdivision>
+			<subdivision type="gr69" draft="provisional">മൗണ്ട് ആഥോസ്</subdivision>
+			<subdivision type="hr21" draft="provisional">സാഗ്രെബ്</subdivision>
+			<subdivision type="hubu" draft="provisional">ബുഡാപെസ്റ്റ്</subdivision>
+			<subdivision type="idac" draft="provisional">അക്കെ</subdivision>
+			<subdivision type="idbb" draft="provisional">ബങ്ക ബലിറ്റങ് ദ്വീപുകൾ</subdivision>
+			<subdivision type="idbe" draft="provisional">ബെങ്കുളു</subdivision>
+			<subdivision type="idbt" draft="provisional">ബാൻറൻ</subdivision>
+			<subdivision type="idgo" draft="provisional">ഗൊറാന്റാലോ</subdivision>
+			<subdivision type="idja" draft="provisional">ജംബി പട്ടണം</subdivision>
+			<subdivision type="idjb" draft="provisional">പടിഞ്ഞാറൻ ജാവ</subdivision>
+			<subdivision type="idji" draft="provisional">കിഴക്കൻ ജാവ</subdivision>
+			<subdivision type="idjk" draft="provisional">ജക്കാർത്ത</subdivision>
+			<subdivision type="idjt" draft="provisional">മദ്ധ്യ ജാവ</subdivision>
+			<subdivision type="idjw" draft="provisional">ജാവ (ദ്വീപ്)</subdivision>
+			<subdivision type="idka" draft="provisional">കലിമന്താൻ‌</subdivision>
+			<subdivision type="idkb" draft="provisional">പശ്ചിമ കലിമന്താൻ</subdivision>
+			<subdivision type="idki" draft="provisional">കിഴക്കൻ കലിമന്താൻ</subdivision>
+			<subdivision type="idkr" draft="provisional">റിയാവു ദ്വീപുകൾ</subdivision>
+			<subdivision type="idks" draft="provisional">ദക്ഷിണ കലിമന്താൻ</subdivision>
+			<subdivision type="idkt" draft="provisional">മദ്ധ്യ കലിമന്താൻ</subdivision>
+			<subdivision type="idku" draft="provisional">വടക്കൻ കലിമന്താൻ</subdivision>
+			<subdivision type="idml" draft="provisional">മലുകു ദ്വീപുകൾ</subdivision>
+			<subdivision type="idmu" draft="provisional">വടക്കൻ മലുകു</subdivision>
+			<subdivision type="idnb" draft="provisional">പടിഞ്ഞാറൻ നുസ ടെങ്കാര</subdivision>
+			<subdivision type="idnt" draft="provisional">കിഴക്കൻ നുസ ടെങ്കാര</subdivision>
+			<subdivision type="idnu" draft="provisional">ലെസ്സർ സന്റ ദ്വീപ് സമൂഹം</subdivision>
+			<subdivision type="idpa" draft="provisional">പപുവ</subdivision>
+			<subdivision type="idpb" draft="provisional">വെസ്റ്റ് പപുവ</subdivision>
+			<subdivision type="idpp" draft="provisional">വെസ്റ്റേൺ ന്യൂ ഗിനിയ</subdivision>
+			<subdivision type="idri" draft="provisional">റിയാവു</subdivision>
+			<subdivision type="idsa" draft="provisional">വടക്കൻ സുലവേസി</subdivision>
+			<subdivision type="idsb" draft="provisional">പടിഞ്ഞാറൻ സുമാത്ര</subdivision>
+			<subdivision type="idsg" draft="provisional">തെക്കുകിഴക്കൻ സുലവേസി</subdivision>
+			<subdivision type="idsl" draft="provisional">സുലവേസി</subdivision>
+			<subdivision type="idsm" draft="provisional">സുമാത്ര</subdivision>
+			<subdivision type="idsn" draft="provisional">തെക്കൻ സുലവേസി</subdivision>
+			<subdivision type="idss" draft="provisional">തെക്കൻ സുമാത്ര</subdivision>
+			<subdivision type="idst" draft="provisional">മദ്ധ്യ സുലവേസി</subdivision>
+			<subdivision type="idsu" draft="provisional">വടക്കൻ സുമാത്ര</subdivision>
+			<subdivision type="idyo" draft="provisional">സ്പെഷ്യൽ റീജിയൻ ഓഫ് യോഗ്യാകർത്ത</subdivision>
+			<subdivision type="inan" draft="provisional">ആന്തമാൻ നിക്കോബാർ ദ്വീപുകൾ</subdivision>
+			<subdivision type="inap" draft="provisional">ആന്ധ്രാപ്രദേശ്‌</subdivision>
+			<subdivision type="inar" draft="provisional">അരുണാചൽ പ്രദേശ്</subdivision>
+			<subdivision type="inas" draft="provisional">ആസാം</subdivision>
+			<subdivision type="inbr" draft="provisional">ബിഹാർ</subdivision>
+			<subdivision type="inch" draft="provisional">ചണ്ഡീഗഢ്</subdivision>
+			<subdivision type="inct" draft="provisional">ഛത്തീസ്‌ഗഢ്</subdivision>
+			<subdivision type="indd" draft="provisional">ദമൻ, ദിയു</subdivision>
+			<subdivision type="indh" draft="provisional">ദാദ്രാ, നഗർ ഹവേലിയും ദാമൻ, ദിയുവും</subdivision>
+			<subdivision type="indl" draft="provisional">ഡെൽഹി</subdivision>
+			<subdivision type="indn" draft="provisional">ദാദ്ര, നഗർ ഹവേലി</subdivision>
+			<subdivision type="inga" draft="provisional">ഗോവ</subdivision>
+			<subdivision type="ingj" draft="provisional">ഗുജറാത്ത്‌</subdivision>
+			<subdivision type="inhp" draft="provisional">ഹിമാചൽ പ്രദേശ്‌</subdivision>
+			<subdivision type="inhr" draft="provisional">ഹരിയാണ</subdivision>
+			<subdivision type="injh" draft="provisional">ഝാർഖണ്ഡ്‌</subdivision>
+			<subdivision type="injk" draft="provisional">ജമ്മു-കശ്മീർ</subdivision>
+			<subdivision type="inka" draft="provisional">കർണാടക</subdivision>
+			<subdivision type="inkl" draft="provisional">കേരളം</subdivision>
+			<subdivision type="inla" draft="provisional">ലഡാക്</subdivision>
+			<subdivision type="inld" draft="provisional">ലക്ഷദ്വീപ്</subdivision>
+			<subdivision type="inmh" draft="provisional">മഹാരാഷ്ട്ര</subdivision>
+			<subdivision type="inml" draft="provisional">മേഘാലയ</subdivision>
+			<subdivision type="inmn" draft="provisional">മണിപ്പൂർ</subdivision>
+			<subdivision type="inmp" draft="provisional">മധ്യപ്രദേശ്‌</subdivision>
+			<subdivision type="inmz" draft="provisional">മിസോറം</subdivision>
+			<subdivision type="innl" draft="provisional">നാഗാലാ‌ൻഡ്</subdivision>
+			<subdivision type="inor" draft="provisional">ഒഡീഷ</subdivision>
+			<subdivision type="inpb" draft="provisional">പഞ്ചാബ്</subdivision>
+			<subdivision type="inpy" draft="provisional">പുതുച്ചേരി</subdivision>
+			<subdivision type="inrj" draft="provisional">രാജസ്ഥാൻ</subdivision>
+			<subdivision type="insk" draft="provisional">സിക്കിം</subdivision>
+			<subdivision type="intg" draft="provisional">തെലങ്കാന</subdivision>
+			<subdivision type="intn" draft="provisional">തമിഴ്‌നാട്</subdivision>
+			<subdivision type="intr" draft="provisional">ത്രിപുര</subdivision>
+			<subdivision type="inup" draft="provisional">ഉത്തർ‌പ്രദേശ്</subdivision>
+			<subdivision type="inut" draft="provisional">ഉത്തരാഖണ്ഡ്</subdivision>
+			<subdivision type="inwb" draft="provisional">പശ്ചിമ ബംഗാൾ</subdivision>
+			<subdivision type="iqan" draft="provisional">അൻബാർ പ്രവിശ്യ</subdivision>
+			<subdivision type="iqsd" draft="provisional">സലാ അ ദിൻ</subdivision>
+			<subdivision type="ir02" draft="provisional">മാസന്ദരാൻ പ്രവിശ്യ</subdivision>
+			<subdivision type="ir07" draft="provisional">ഫാർസ് പ്രവിശ്യ</subdivision>
+			<subdivision type="it23" draft="provisional">അയോസ്റ്റ വാലി</subdivision>
+			<subdivision type="it32" draft="provisional">ട്രെന്റിനോ ആൾട്ടോ അഡിജേ</subdivision>
+			<subdivision type="it36" draft="provisional">ഫ്രിയൂളി-വെനേസിയ ജിയൂളിയ</subdivision>
+			<subdivision type="it52" draft="provisional">ടസ്കനി</subdivision>
+			<subdivision type="it82" draft="provisional">സിസിലി</subdivision>
+			<subdivision type="it88" draft="provisional">സാർഡീനിയ</subdivision>
+			<subdivision type="jp01" draft="provisional">ഹൊക്കൈഡൊ</subdivision>
+			<subdivision type="jp13" draft="provisional">ടോക്കിയോ</subdivision>
+			<subdivision type="kggb" draft="provisional">ബിഷ്കെക്ക്</subdivision>
+			<subdivision type="kggo" draft="provisional">ഓഷ്</subdivision>
+			<subdivision type="kh12" draft="provisional">നോം പെൻ</subdivision>
+			<subdivision type="kil" draft="provisional">ലൈൻ ദ്വീപുകൾ</subdivision>
+			<subdivision type="kp01" draft="provisional">പ്യോംങ്യാംഗ്</subdivision>
+			<subdivision type="kr11" draft="provisional">സോൾ</subdivision>
+			<subdivision type="kr26" draft="provisional">ബുസാൻ</subdivision>
+			<subdivision type="kr27" draft="provisional">ദേഗു</subdivision>
+			<subdivision type="kzala" draft="provisional">അൽമാട്ടി</subdivision>
+			<subdivision type="kzast" draft="provisional">അസ്താന</subdivision>
+			<subdivision type="lasv" draft="provisional">സവണ്ണഖേത്</subdivision>
+			<subdivision type="laxa" draft="provisional">സൈന്യാബുലി പ്രവിശ്യ</subdivision>
+			<subdivision type="li11" draft="provisional">വാടുസ്</subdivision>
+			<subdivision type="lk3" draft="provisional">തെക്കൻ പ്രവിശ്യ</subdivision>
+			<subdivision type="lk4" draft="provisional">വടക്കൻ പ്രവിശ്യ, ശ്രീലങ്ക</subdivision>
+			<subdivision type="lk11" draft="provisional">കൊളംബോ ജില്ല</subdivision>
+			<subdivision type="lk12" draft="provisional">ഗമ്പഹ ജില്ല</subdivision>
+			<subdivision type="lk13" draft="provisional">കലുതാര ജില്ല</subdivision>
+			<subdivision type="lk21" draft="provisional">കൗണ്ടി ജില്ല</subdivision>
+			<subdivision type="lk22" draft="provisional">മാതലെ ജില്ല</subdivision>
+			<subdivision type="lk23" draft="provisional">നുവാര ഏലിയ ജില്ല</subdivision>
+			<subdivision type="lk31" draft="provisional">ഗാലി ജില്ല</subdivision>
+			<subdivision type="lk32" draft="provisional">മാത്താര ജില്ല</subdivision>
+			<subdivision type="lk33" draft="provisional">ഹംമ്പൻതോട്ട ജില്ല</subdivision>
+			<subdivision type="lk41" draft="provisional">ജാഫ്ന ജില്ല</subdivision>
+			<subdivision type="lk42" draft="provisional">കില്ലിനോച്ചി ജില്ല</subdivision>
+			<subdivision type="lk43" draft="provisional">മന്നാർ ജില്ല</subdivision>
+			<subdivision type="lk44" draft="provisional">വാവുനിയ ജില്ല</subdivision>
+			<subdivision type="lk45" draft="provisional">മുല്ലൈടിവ് ജില്ല</subdivision>
+			<subdivision type="lk51" draft="provisional">മട്ടക്കളപ്പ് ജില്ല</subdivision>
+			<subdivision type="lk52" draft="provisional">അമ്പാറ ജില്ല</subdivision>
+			<subdivision type="lk53" draft="provisional">ട്രിങ്കോമാലി ജില്ല</subdivision>
+			<subdivision type="lk61" draft="provisional">കുറുനേഗല ജില്ല</subdivision>
+			<subdivision type="lk62" draft="provisional">പുത്തലം ജില്ല</subdivision>
+			<subdivision type="lk71" draft="provisional">അനുരാധപുരം</subdivision>
+			<subdivision type="lk72" draft="provisional">പോളൊന്നാരുവ ജില്ല</subdivision>
+			<subdivision type="lk81" draft="provisional">ബഡുല്ല ജില്ല</subdivision>
+			<subdivision type="lk82" draft="provisional">മോണരാഗല ജില്ല</subdivision>
+			<subdivision type="lk91" draft="provisional">രത്നപുര ജില്ല</subdivision>
+			<subdivision type="lk92" draft="provisional">കെഗല്ലെ ജില്ല</subdivision>
+			<subdivision type="lsc" draft="provisional">ലെരിബെ ജില്ല</subdivision>
+			<subdivision type="lvrix" draft="provisional">റിഗ</subdivision>
+			<subdivision type="macas" draft="provisional">കാസബ്ലങ്ക</subdivision>
+			<subdivision type="mafes" draft="provisional">ഫെസ്, മൊറോക്കോ</subdivision>
+			<subdivision type="mammd" draft="provisional">മരാക്കേഷ്</subdivision>
+			<subdivision type="mammn" draft="provisional">മരാക്കേഷ്²</subdivision>
+			<subdivision type="marab" draft="provisional">റാബത്ത്</subdivision>
+			<subdivision type="masyb" draft="provisional">മരാക്കേഷ്³</subdivision>
+			<subdivision type="matng" draft="provisional">ടാൻജീർ</subdivision>
+			<subdivision type="mhmaj" draft="provisional">മാജുറോ</subdivision>
+			<subdivision type="mk85" draft="provisional">സ്കോപിയെ</subdivision>
+			<subdivision type="mlbko" draft="provisional">ബാമാകോ</subdivision>
+			<subdivision type="mm14" draft="provisional">ചിൻ സംസ്ഥാനം</subdivision>
+			<subdivision type="mm17" draft="provisional">ഷാൻ സംസ്ഥാനം</subdivision>
+			<subdivision type="mn1" draft="provisional">ഉലാൻബാതാർ</subdivision>
+			<subdivision type="mt45" draft="provisional">വിക്ടോറിയ</subdivision>
+			<subdivision type="mt60" draft="provisional">വലേറ്റ</subdivision>
+			<subdivision type="mugp" draft="provisional">ഗ്രാൻഡ് പോർട്ട് ജില്ല</subdivision>
+			<subdivision type="mupu" draft="provisional">പോർട്ട് ലൂയിസ്</subdivision>
+			<subdivision type="muro" draft="provisional">റോഡ്രിഗസ്</subdivision>
+			<subdivision type="musa" draft="provisional">സവന്നെ ജില്ല</subdivision>
+			<subdivision type="mvmle" draft="provisional">മാലി</subdivision>
+			<subdivision type="mwks" draft="provisional">കസുങു ജില്ല</subdivision>
+			<subdivision type="mwzo" draft="provisional">സൊംബ ജില്ല</subdivision>
+			<subdivision type="mxbcn" draft="provisional">ബാഹാ കാലിഫോർണിയ</subdivision>
+			<subdivision type="mxcmx" draft="provisional">മെക്സിക്കോ സിറ്റി</subdivision>
+			<subdivision type="mxoax" draft="provisional">വഹാക്ക</subdivision>
+			<subdivision type="mxtab" draft="provisional">ടബാസ്കോ</subdivision>
+			<subdivision type="my04" draft="provisional">മലാക്കാ</subdivision>
+			<subdivision type="my05" draft="provisional">നെഗേരി സെമ്പിലാൻ</subdivision>
+			<subdivision type="my06" draft="provisional">പഹാങ്ങ്</subdivision>
+			<subdivision type="my07" draft="provisional">പെനാംഗ്</subdivision>
+			<subdivision type="my12" draft="provisional">ഷബഹ്</subdivision>
+			<subdivision type="my13" draft="provisional">സാരവാക്ക്</subdivision>
+			<subdivision type="my14" draft="provisional">കോലാലമ്പൂർ</subdivision>
+			<subdivision type="my16" draft="provisional">പുത്രജയ</subdivision>
+			<subdivision type="mzg" draft="provisional">ഗാസ പ്രവിശ്യ</subdivision>
+			<subdivision type="mzmpm" draft="provisional">മപൂട്ടോ</subdivision>
+			<subdivision type="mzp" draft="provisional">ക്യാബോ ദെൽഗാഡോ പ്രവിശ്യ</subdivision>
+			<subdivision type="ne8" draft="provisional">നയാമെ</subdivision>
+			<subdivision type="no03" draft="provisional">ഓസ്ലൊ</subdivision>
+			<subdivision type="no21" draft="provisional">സ്വാൽബാർഡ്</subdivision>
+			<subdivision type="ommu" draft="provisional">മുസന്ധം</subdivision>
+			<subdivision type="peare" draft="provisional">അരെക്വിപ്പ</subdivision>
+			<subdivision type="pgncd" draft="provisional">പോർട്ട് മോറെസ്ബി</subdivision>
+			<subdivision type="ph00" draft="provisional">മെട്രോ മനില</subdivision>
+			<subdivision type="ph08" draft="provisional">കിഴക്കൻ വിസായസ്</subdivision>
+			<subdivision type="phboh" draft="provisional">ബൊഹോൾ</subdivision>
+			<subdivision type="phcat" draft="provisional">കടാൻദുവാനിസ്</subdivision>
+			<subdivision type="phceb" draft="provisional">സെബൂ</subdivision>
+			<subdivision type="phmad" draft="provisional">മാറിൻദ്യൂഖ്</subdivision>
+			<subdivision type="phplw" draft="provisional">പലാവൻ</subdivision>
+			<subdivision type="pkba" draft="provisional">ബലൂചിസ്ഥാൻ</subdivision>
+			<subdivision type="pkgb" draft="provisional">ഗിൽഗിറ്റ്-ബാൾട്ടിസ്ഥാൻ</subdivision>
+			<subdivision type="pkis" draft="provisional">ഇസ്ലാമബാദ് തലസ്ഥാന പ്രദേശം</subdivision>
+			<subdivision type="pkjk" draft="provisional">ആസാദ് കശ്മീർ</subdivision>
+			<subdivision type="pkkp" draft="provisional">ഖൈബർ പഖ്തുൻഖ്വ</subdivision>
+			<subdivision type="pkpb" draft="provisional">പഞ്ചാബ്</subdivision>
+			<subdivision type="pksd" draft="provisional">സിന്ധ്</subdivision>
+			<subdivision type="pkta" draft="provisional">ഫെഡറൽ ഭരണത്തിലുള്ള ട്രൈബൽ പ്രദേശം</subdivision>
+			<subdivision type="pyasu" draft="provisional">അസുൻസിയോൺ</subdivision>
+			<subdivision type="qada" draft="provisional">ദോഹ</subdivision>
+			<subdivision type="rob" draft="provisional">ബുക്കാറെസ്റ്റ്</subdivision>
+			<subdivision type="rs00" draft="provisional">ബെൽഗ്രേഡ്</subdivision>
+			<subdivision type="ruba" draft="provisional">ബാഷ്കോർടോസ്ഥാൻ</subdivision>
+			<subdivision type="ruce" draft="provisional">ചെച്‌നിയ</subdivision>
+			<subdivision type="ruda" draft="provisional">ദാഗസ്താൻ</subdivision>
+			<subdivision type="rukgd" draft="provisional">കലീന്യിൻഗ്രാഡ് ഒബ്ലാസ്റ്റ്</subdivision>
+			<subdivision type="rumow" draft="provisional">മോസ്കോ</subdivision>
+			<subdivision type="ruspe" draft="provisional">സെന്റ് പീറ്റേഴ്സ്ബർഗ്</subdivision>
+			<subdivision type="ruta" draft="provisional">ടാട്ടർസ്താൻ</subdivision>
+			<subdivision type="ruyev" draft="provisional">ജൂത സ്വയംഭരണ ഒബ്ലാസ്റ്റ്</subdivision>
+			<subdivision type="rw01" draft="provisional">കിഗാലി</subdivision>
+			<subdivision type="sa01" draft="provisional">റിയാദ് പ്രവിശ്യ</subdivision>
+			<subdivision type="sa02" draft="provisional">മക്ക പ്രവിശ്യ</subdivision>
+			<subdivision type="sa03" draft="provisional">മദീന പ്രവിശ്യ</subdivision>
+			<subdivision type="sa04" draft="provisional">കിഴക്കൻ പ്രവിശ്യ</subdivision>
+			<subdivision type="sa05" draft="provisional">അൽ ഖസീം</subdivision>
+			<subdivision type="sa06" draft="provisional">ഹായിൽ പ്രവിശ്യ</subdivision>
+			<subdivision type="sa07" draft="provisional">തബൂക്ക് പ്രവിശ്യ</subdivision>
+			<subdivision type="sa08" draft="provisional">വടക്കൻ അതിർത്തി പ്രവിശ്യ</subdivision>
+			<subdivision type="sa09" draft="provisional">ജിസാൻ പ്രവിശ്യ</subdivision>
+			<subdivision type="sa10" draft="provisional">നജ്റാൻ പ്രവിശ്യ</subdivision>
+			<subdivision type="sa11" draft="provisional">അൽ ബഹ പ്രവിശ്യ</subdivision>
+			<subdivision type="sa12" draft="provisional">അൽ ജൗഫ് പ്രവിശ്യ</subdivision>
+			<subdivision type="sa14" draft="provisional">അസീർ പ്രവിശ്യ</subdivision>
+			<subdivision type="sbct" draft="provisional">ഹോണിയറ</subdivision>
+			<subdivision type="sc22" draft="provisional">സെന്റ് ലൂയിസ് ജില്ല</subdivision>
+			<subdivision type="sc23" draft="provisional">ടകമക ജില്ല</subdivision>
+			<subdivision type="sec" draft="provisional">അപ്പ്സല കൗണ്ടി</subdivision>
+			<subdivision type="seg" draft="provisional">ക്രോണോബെർഗ് കൗണ്ടി</subdivision>
+			<subdivision type="shac" draft="provisional">അസെൻഷൻ ദ്വീപ്</subdivision>
+			<subdivision type="shhl" draft="provisional">സൈന്റ് ഹെലേന</subdivision>
+			<subdivision type="srwa" draft="provisional">വാനിക്ക ജില്ല</subdivision>
+			<subdivision type="st04" draft="provisional">ലെംബ ജില്ല</subdivision>
+			<subdivision type="tdnd" draft="provisional">ൻഡ്ജാമെന</subdivision>
+			<subdivision type="th10" draft="provisional">ബാങ്കോക്ക്</subdivision>
+			<subdivision type="th14" draft="provisional">ഫ്രാ നഘോൺ സി അയുത്ഥയ പ്രവിശ്യ</subdivision>
+			<subdivision type="th16" draft="provisional">ലോപ്ബുരി പ്രവിശ്യ</subdivision>
+			<subdivision type="th19" draft="provisional">സരാബുരി പ്രവിശ്യ</subdivision>
+			<subdivision type="th41" draft="provisional">ഉഡോൺ താനി പ്രവിശ്യ</subdivision>
+			<subdivision type="th50" draft="provisional">ചിയാങ് മായി പ്രവിശ്യ</subdivision>
+			<subdivision type="th52" draft="provisional">ലമ്പാങ് പ്രവിശ്യ</subdivision>
+			<subdivision type="th55" draft="provisional">നാൻ പ്രവിശ്യ</subdivision>
+			<subdivision type="th63" draft="provisional">തക് പ്രവിശ്യ</subdivision>
+			<subdivision type="th65" draft="provisional">ഫിറ്റ്സാനുലോക്ക് പ്രവിശ്യ</subdivision>
+			<subdivision type="th71" draft="provisional">കാഞ്ചനബുരി പ്രവിശ്യ</subdivision>
+			<subdivision type="th77" draft="provisional">പ്രച്വാപ് ഖിരി ഖാൻ പ്രവിശ്യ</subdivision>
+			<subdivision type="th84" draft="provisional">സൂറത്ത് താനി പ്രവിശ്യ</subdivision>
+			<subdivision type="th90" draft="provisional">സോങ്ഖ്ല പ്രവിശ്യ</subdivision>
+			<subdivision type="th96" draft="provisional">നാരതിവാട്ട് പ്രവിശ്യ</subdivision>
+			<subdivision type="ths" draft="provisional">പട്ടായ</subdivision>
+			<subdivision type="tjdu" draft="provisional">ദുഷാൻബെ</subdivision>
+			<subdivision type="tms" draft="provisional">അഷ്ഗാബാദ്</subdivision>
+			<subdivision type="tr07" draft="provisional">അന്റാലിയ പ്രവിശ്യ</subdivision>
+			<subdivision type="ttpos" draft="provisional">പോർട്ട് ഓഫ് സ്പെയിൻ</subdivision>
+			<subdivision type="tvfun" draft="provisional">ഫ്യൂനഫ്യൂടി</subdivision>
+			<subdivision type="twhsq" draft="provisional">ഹ്സിഞ്ചു കൗണ്ടി</subdivision>
+			<subdivision type="twhua" draft="provisional">ഹുവാലിയെൻ കൗണ്ടി</subdivision>
+			<subdivision type="twkhh" draft="provisional">കൗഷ്യിംഗ്</subdivision>
+			<subdivision type="twkin" draft="provisional">കിന്മെൻ</subdivision>
+			<subdivision type="twmia" draft="provisional">മിയോലി കൗണ്ടി</subdivision>
+			<subdivision type="twnan" draft="provisional">നാൻറ്റൗ കൗണ്ടി</subdivision>
+			<subdivision type="twnwt" draft="provisional">ന്യൂ തായ്പെയ് നഗരം</subdivision>
+			<subdivision type="twpen" draft="provisional">പെൻഘു</subdivision>
+			<subdivision type="twpif" draft="provisional">പിങ്ടങ് കൗണ്ടി</subdivision>
+			<subdivision type="twtpe" draft="provisional">തായ്‌പെയ്</subdivision>
+			<subdivision type="ua30" draft="provisional">കീവ്</subdivision>
+			<subdivision type="ua43" draft="provisional">ഓട്ടോണോമസ് റിപ്പബ്ലിക് ഓഫ് ക്രിമിയ</subdivision>
+			<subdivision type="ug101" draft="provisional">കലങല ജില്ല</subdivision>
+			<subdivision type="ug103" draft="provisional">കിബൊഗ ജില്ല</subdivision>
+			<subdivision type="ug104" draft="provisional">ലുവീരൊ ജില്ല</subdivision>
+			<subdivision type="ug105" draft="provisional">മസക ജില്ല</subdivision>
+			<subdivision type="ug106" draft="provisional">മ്പിഗി ജില്ല</subdivision>
+			<subdivision type="ug107" draft="provisional">മുബെൻഡെ ജില്ല</subdivision>
+			<subdivision type="ug108" draft="provisional">മുകുണൊ ജില്ല</subdivision>
+			<subdivision type="ug112" draft="provisional">കയുങ ജില്ല</subdivision>
+			<subdivision type="ug114" draft="provisional">ല്യൻടോൻഡെ ജില്ല</subdivision>
+			<subdivision type="ug115" draft="provisional">മിട്യന ജില്ല</subdivision>
+			<subdivision type="ug119" draft="provisional">ബുടംബല</subdivision>
+			<subdivision type="ug120" draft="provisional">ബുവുമ ജില്ല</subdivision>
+			<subdivision type="ug121" draft="provisional">ഗൊംബ ജില്ല</subdivision>
+			<subdivision type="ug122" draft="provisional">കലുങു ജില്ല</subdivision>
+			<subdivision type="ug123" draft="provisional">ക്യങ്ക്വൻശി ജില്ല</subdivision>
+			<subdivision type="ug124" draft="provisional">ൽവെങൊ ജില്ല</subdivision>
+			<subdivision type="ug201" draft="provisional">ബുഗിരി ജില്ല</subdivision>
+			<subdivision type="ug214" draft="provisional">മയുഗെ ജില്ല</subdivision>
+			<subdivision type="ug216" draft="provisional">അമുറിയ ജില്ല</subdivision>
+			<subdivision type="ug218" draft="provisional">ബുഡുഡ ജില്ല</subdivision>
+			<subdivision type="ug219" draft="provisional">ബുകെഡിയ</subdivision>
+			<subdivision type="ug222" draft="provisional">കലിരൊ ജില്ല</subdivision>
+			<subdivision type="ug229" draft="provisional">ലൂക ജില്ല</subdivision>
+			<subdivision type="ug307" draft="provisional">ലിറ ജില്ല</subdivision>
+			<subdivision type="ug312" draft="provisional">പടെർ ജില്ല</subdivision>
+			<subdivision type="ug314" draft="provisional">അബിം ജില്ല</subdivision>
+			<subdivision type="uge" draft="provisional">കിഴക്കൻ മേഖല, ഉഗാണ്ട</subdivision>
+			<subdivision type="um67" draft="provisional">ജോൺസ്റ്റൺ അറ്റോൾ</subdivision>
+			<subdivision type="um71" draft="provisional">മിഡ്‌വേ പവിഴദ്വീപുകൾ</subdivision>
+			<subdivision type="um76" draft="provisional">നവാസ്സ ദ്വീപ്</subdivision>
+			<subdivision type="um79" draft="provisional">വേക് ദ്വീപ്</subdivision>
+			<subdivision type="um81" draft="provisional">ബേക്കർ ദ്വീപ്</subdivision>
+			<subdivision type="um84" draft="provisional">ഹൗലാന്റ് ദ്വീപ്</subdivision>
+			<subdivision type="um86" draft="provisional">ജാർവിസ് ദ്വീപ്</subdivision>
+			<subdivision type="um89" draft="provisional">കിങ്ങ്മാൻ റീഫ്</subdivision>
+			<subdivision type="usak" draft="provisional">അലാസ്ക</subdivision>
+			<subdivision type="usal" draft="provisional">അലബാമ</subdivision>
+			<subdivision type="usar" draft="provisional">അർക്കൻസാസ്</subdivision>
+			<subdivision type="usaz" draft="provisional">അരിസോണ</subdivision>
+			<subdivision type="usca" draft="provisional">കാലിഫോർണിയ</subdivision>
+			<subdivision type="usco" draft="provisional">കൊളറാഡോ</subdivision>
+			<subdivision type="usct" draft="provisional">കണെക്റ്റിക്കട്ട്</subdivision>
+			<subdivision type="usdc" draft="provisional">വാഷിങ്ടൺ</subdivision>
+			<subdivision type="usde" draft="provisional">ഡെലവെയർ</subdivision>
+			<subdivision type="usfl" draft="provisional">ഫ്ലോറിഡ</subdivision>
+			<subdivision type="usga" draft="provisional">ജോർജിയ</subdivision>
+			<subdivision type="ushi" draft="provisional">ഹവായി</subdivision>
+			<subdivision type="usia" draft="provisional">ഐയവ</subdivision>
+			<subdivision type="usid" draft="provisional">ഐഡഹോ</subdivision>
+			<subdivision type="usil" draft="provisional">ഇല്ലിനോയി</subdivision>
+			<subdivision type="usin" draft="provisional">ഇന്ത്യാന</subdivision>
+			<subdivision type="usks" draft="provisional">കാൻസസ്</subdivision>
+			<subdivision type="usky" draft="provisional">കെന്റക്കി</subdivision>
+			<subdivision type="usla" draft="provisional">ലുയീസിയാന</subdivision>
+			<subdivision type="usma" draft="provisional">മസാച്യുസെറ്റ്സ്</subdivision>
+			<subdivision type="usmd" draft="provisional">മെരിലാൻ‌ഡ്</subdivision>
+			<subdivision type="usme" draft="provisional">മെയ്ൻ</subdivision>
+			<subdivision type="usmi" draft="provisional">മിഷിഗൺ</subdivision>
+			<subdivision type="usmn" draft="provisional">മിനസോട്ട</subdivision>
+			<subdivision type="usmo" draft="provisional">മിസോറി</subdivision>
+			<subdivision type="usms" draft="provisional">മിസിസിപ്പി</subdivision>
+			<subdivision type="usmt" draft="provisional">മൊണ്ടാന</subdivision>
+			<subdivision type="usnc" draft="provisional">വടക്കൻ കരൊലൈന</subdivision>
+			<subdivision type="usnd" draft="provisional">വടക്കൻ ഡക്കോട്ട</subdivision>
+			<subdivision type="usne" draft="provisional">നെബ്രാസ്ക</subdivision>
+			<subdivision type="usnh" draft="provisional">ന്യൂ ഹാംഷെയർ</subdivision>
+			<subdivision type="usnj" draft="provisional">ന്യൂ ജെഴ്സി</subdivision>
+			<subdivision type="usnm" draft="provisional">ന്യൂ മെക്സിക്കോ</subdivision>
+			<subdivision type="usnv" draft="provisional">നെവാഡ</subdivision>
+			<subdivision type="usny" draft="provisional">ന്യൂയോർക്ക്</subdivision>
+			<subdivision type="usoh" draft="provisional">ഒഹായോ</subdivision>
+			<subdivision type="usok" draft="provisional">ഒക്‌ലഹോമ</subdivision>
+			<subdivision type="usor" draft="provisional">ഒറിഗൺ</subdivision>
+			<subdivision type="uspa" draft="provisional">പെൻ‌സിൽ‌വാനിയ</subdivision>
+			<subdivision type="usri" draft="provisional">റോഡ് ഐലൻഡ്</subdivision>
+			<subdivision type="ussc" draft="provisional">തെക്കൻ കരൊലൈന</subdivision>
+			<subdivision type="ussd" draft="provisional">തെക്കൻ ഡക്കോട്ട</subdivision>
+			<subdivision type="ustn" draft="provisional">ടെന്നസി</subdivision>
+			<subdivision type="ustx" draft="provisional">ടെക്സസ്</subdivision>
+			<subdivision type="usut" draft="provisional">യൂറ്റാ</subdivision>
+			<subdivision type="usva" draft="provisional">വിർജീനിയ</subdivision>
+			<subdivision type="usvt" draft="provisional">വെർമോണ്ട്</subdivision>
+			<subdivision type="uswa" draft="provisional">വാഷിങ്ടൺ²</subdivision>
+			<subdivision type="uswi" draft="provisional">വിസ്കോൺസിൻ</subdivision>
+			<subdivision type="uswv" draft="provisional">പടിഞ്ഞാറൻ വിർജീന്യ</subdivision>
+			<subdivision type="uswy" draft="provisional">വയോമിങ്</subdivision>
+			<subdivision type="uymo" draft="provisional">മൊണ്ടേവീഡിയോ</subdivision>
+			<subdivision type="uzan" draft="provisional">അൻഡിജാൻ പ്രവിശ്യ</subdivision>
+			<subdivision type="uzbu" draft="provisional">ബുഖാറ പ്രവിശ്യ</subdivision>
+			<subdivision type="uzfa" draft="provisional">ഫെർഗാന പ്രവിശ്യ</subdivision>
+			<subdivision type="uzji" draft="provisional">ജിസ്സക്ത് പ്രവിശ്യ</subdivision>
+			<subdivision type="uzng" draft="provisional">നമനഗാൻ പ്രവിശ്യ</subdivision>
+			<subdivision type="uznw" draft="provisional">നവൊഇയി പ്രവിശ്യ</subdivision>
+			<subdivision type="uzqa" draft="provisional">ക്വഷക്വദര്യോ പ്രവിശ്യ</subdivision>
+			<subdivision type="uzqr" draft="provisional">കരാകല്പക്സ്ഥാൻ</subdivision>
+			<subdivision type="uzsa" draft="provisional">സമർഖണ്ട് പ്രവിശ്യ</subdivision>
+			<subdivision type="uzsi" draft="provisional">സിർദയോ പ്രവിശ്യ</subdivision>
+			<subdivision type="uztk" draft="provisional">താഷ്കന്റ്</subdivision>
+			<subdivision type="uzto" draft="provisional">താഷ്കെന്റ് പ്രവിശ്യ</subdivision>
+			<subdivision type="uzxo" draft="provisional">ക്സൊരസ്മ് പ്രവിശ്യ</subdivision>
+			<subdivision type="vee" draft="provisional">ബരീനാസ്</subdivision>
+			<subdivision type="vn30" draft="provisional">ഗിയ ലായ് പ്രൊവിൻസ്</subdivision>
+			<subdivision type="vn53" draft="provisional">ബാക് കാൻ പ്രവിശ്യ</subdivision>
+			<subdivision type="vnhn" draft="provisional">ഹാനോയ്</subdivision>
+			<subdivision type="vnhp" draft="provisional">ഹൈ ഫോങ്</subdivision>
+			<subdivision type="vnsg" draft="provisional">ഹോ ചി മിൻ നഗരം</subdivision>
+			<subdivision type="yemr" draft="provisional">അൽ മഹ്രഹ് സംസ്ഥാനം</subdivision>
+			<subdivision type="yesa" draft="provisional">സന</subdivision>
+			<subdivision type="zaec" draft="provisional">കിഴക്കൻ കേപ്</subdivision>
+			<subdivision type="zafs" draft="provisional">ഫ്രീ സ്റ്റേറ്റ്</subdivision>
+			<subdivision type="zagp" draft="provisional">ഗൗറ്റെങ്</subdivision>
+			<subdivision type="zakzn" draft="provisional">ക്വാസുളു-നറ്റാൽ</subdivision>
+			<subdivision type="zalp" draft="provisional">ലിംപോപോ</subdivision>
+			<subdivision type="zamp" draft="provisional">പുമാലൻഗ</subdivision>
+			<subdivision type="zawc" draft="provisional">പടിഞ്ഞാറൻ കേപ്</subdivision>
 		</subdivisions>
 	</localeDisplayNames>
 </ldml>

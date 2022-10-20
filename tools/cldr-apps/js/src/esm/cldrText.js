@@ -45,9 +45,6 @@ const strings = {
   flyoveradd: "Add another value",
   flyoverdraft: "Approval Status",
   flyovercode: "Code for this item",
-  extraAttribute_desc: "Additional specifiers for this item",
-  extraAttribute_heading:
-    "Note: there are additional specifiers for this item. Read the help page for further details.",
   flyovercomparison: "Comparison value",
   flyoverproposed: "Winning value",
   flyoverothers: "Other non-winning items",
@@ -440,6 +437,10 @@ const strings = {
 
   TRANS_HINT_LANGUAGE_NAME: "English", // must match SurveyMain.TRANS_HINT_LANGUAGE_NAME
 
+  report_acceptable: "Acceptable",
+  report_notAcceptable: "Not Acceptable",
+  report_missing: "Missing",
+
   special_about: "About Survey Tool",
   special_account: "Account Settings",
   special_admin: "Admin Panel",
@@ -523,6 +524,8 @@ const strings = {
   progress_voter_disabled:
     "This meter will be enabled if you open the Dashboard",
   progress_all_vetters: "Completion for all vetters in this locale",
+  progress_negative:
+    "A negative numerator indicates new problems not in baseline",
 
   summary_help: "The following summarizes the Priority Items across locales.",
   summary_coverage_org_specific:
@@ -531,6 +534,8 @@ const strings = {
     "The coverage level for each locale is organization-neutral.",
   summary_access_denied:
     "To see the summary, you must be logged in as a manager, TC, or admin.",
+  summary_snapshot_hover:
+    "Show the Priority Items Summary snapshot with id “${0}” [${1}]",
 
   // LocaleNormalizer.LocaleRejection
   locale_rejection_unknown: "Unknown or not in CLDR",

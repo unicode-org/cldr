@@ -1,6 +1,10 @@
 package org.unicode.cldr.web.api;
 
 import java.sql.SQLException;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -22,11 +26,14 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoterReportStatus;
+import org.unicode.cldr.util.VoterReportStatus.ReportAcceptability;
 import org.unicode.cldr.util.VoterReportStatus.ReportId;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.ReportsDB;
 import org.unicode.cldr.web.ReportsDB.UserReport;
+import org.unicode.cldr.web.SurveyMain;
 import org.unicode.cldr.web.UserRegistry;
 
 @Path("/voting/reports")
@@ -55,8 +62,8 @@ public class ReportAPI {
         Integer id;
         if (user.equals("-")) {
             id = null;
-            if (!UserRegistry.userIsTC(mySession.user)) {
-                // only TC can do this
+            if (!UserRegistry.userIsManagerOrStronger(mySession.user)) {
+                // only Manager+ can do this
                 return Response.status(Status.FORBIDDEN).build();
             }
         } else {
@@ -64,11 +71,11 @@ public class ReportAPI {
             UserRegistry.User u = mySession.sm.reg.getInfo(id);
             if (u == null) {
                 return Response.status(Status.NOT_FOUND).build();
-            } else if (!(mySession.user.id == id || !mySession.user.isAdminFor(u))) {
+            } else if (!(mySession.user.id == id || mySession.user.isAdminFor(u))) {
                 return Response.status(Status.FORBIDDEN).build();
             }
         }
-        return Response.ok(ReportsDB.getInstance().getAllReports(id)).build();
+        return Response.ok(ReportsDB.getInstance().getAllReports(id, null)).build();
     }
 
     @GET
@@ -106,6 +113,123 @@ public class ReportAPI {
         return Response.ok().entity(
             ReportsDB.getInstance()
                 .getReportStatus(user, CLDRLocale.getInstance(locale))).build();
+    }
+
+
+    @GET
+    @Path("/locales/{locale}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(summary="List vetting results of one or more locales")
+    @APIResponse(
+        responseCode = "200",
+        description = "list responses",
+        content = @Content(mediaType = "application/json",
+            schema = @Schema(implementation = LocaleReportVettingResults.class))
+    )
+    public Response getReportLocaleStatus(
+        @HeaderParam(Auth.SESSION_HEADER) String session,
+        @Parameter(required = true, example = "en",
+            schema = @Schema(type = SchemaType.STRING, description = "Locale ID or '-' for all")) @PathParam("locale") String locale) throws SQLException {
+        final CookieSession mySession = Auth.getSession(session);
+        if (mySession == null) {
+            return Auth.noSessionResponse();
+        }
+        Iterable<CLDRLocale> locales = null;
+        CLDRLocale onlyLoc;
+        if (locale.equals("-")) {
+            locales = SurveyMain.getLocalesSet();
+            onlyLoc = null;
+        } else {
+            onlyLoc = CLDRLocale.getInstance(locale);
+            locales = Collections.singleton(onlyLoc);
+        }
+        LocaleReportVettingResults r = new LocaleReportVettingResults();
+        // make a copy of the DB subset here, for performance.
+        VoterReportStatus<Integer> db = ReportsDB.getInstance().clone(null, onlyLoc);
+        VoteResolver<ReportAcceptability> res = new VoteResolver<>(CookieSession.sm.reg.getVoterInfoList()); // create
+
+        // set of all valid userids
+        final Set<Integer> allUsers = CookieSession.sm.reg.getVoterToInfo().keySet();
+        for (final CLDRLocale loc : locales) {
+            LocaleReportVettingResult rr = new LocaleReportVettingResult();
+            rr.locale = loc.toString();
+            for (final ReportId report : ReportId.values()) {
+                Map<ReportAcceptability, Set<Integer>> statistics = db.updateResolver(loc, report, allUsers, res);
+                rr.reports.add(new ReportVettingResult(report, res, statistics));
+                statistics.values().forEach(s -> rr.addVoters(s));
+            }
+            r.locales.add(rr);
+        }
+        return Response.ok(r).build();
+    }
+
+    public static class LocaleReportVettingResults {
+        public LocaleReportVettingResults() {
+        }
+
+        private Set<LocaleReportVettingResult> locales = new HashSet<LocaleReportVettingResult>();
+
+        public LocaleReportVettingResult[] getLocales() {
+            return locales.toArray(new LocaleReportVettingResult[0]);
+        }
+    }
+
+    public static class LocaleReportVettingResult {
+        public String locale;
+        private Set<ReportVettingResult> reports = new HashSet<ReportVettingResult>();
+
+        public ReportVettingResult[] getReports() {
+            return reports.toArray(new ReportVettingResult[0]);
+        }
+
+        private Set<Integer> allUsers = new HashSet<Integer>();
+
+        void addVoters(Set<Integer> s) {
+            allUsers.addAll(s);
+        }
+
+        @Schema(description = "Total voters for this locale. Does not count abstentions.")
+        public int getTotalVoters() {
+            return allUsers.size();
+        }
+    }
+
+    public static class ReportVettingResult {
+        public ReportVettingResult(ReportId id, VoteResolver<ReportAcceptability> res,
+            Map<ReportAcceptability, Set<Integer>> statistics) {
+            this.report = id;
+            this.status = res.getWinningStatus();
+            if (this.status != VoteResolver.Status.missing) {
+                this.acceptability = res.getWinningValue();
+            } else {
+                this.acceptability = null;
+            }
+
+            // Statistics has a map from each value to voter ids.
+            // For now we just keep the totals
+            final Set<Integer> vfa = statistics.get(ReportAcceptability.acceptable);
+            if (vfa != null) {
+                votersForAcceptable = vfa.size();
+            } else {
+                votersForAcceptable = 0;
+            }
+            final Set<Integer> vfna = statistics.get(ReportAcceptability.notAcceptable);
+            if (vfna != null) {
+                votersForNotAcceptable = vfna.size();
+            } else {
+                votersForNotAcceptable = 0;
+            }
+            Map<ReportAcceptability, Long> rvc = res.getResolvedVoteCounts();
+            acceptableScore = rvc.get(ReportAcceptability.acceptable);
+            notAcceptableScore = rvc.get(ReportAcceptability.notAcceptable);
+        }
+        public ReportId report;
+        public VoteResolver.Status status;
+        public ReportAcceptability acceptability;
+        public int votersForAcceptable;
+        public int votersForNotAcceptable;
+        public Long acceptableScore;
+        public Long notAcceptableScore;
     }
 
     @POST

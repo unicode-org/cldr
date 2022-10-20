@@ -574,7 +574,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">↑↑↑</greatestDifference>
 							<greatestDifference id="h">↑↑↑</greatestDifference>
@@ -1068,7 +1068,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<appendItem request="Timezone">{0} {1}</appendItem>
 					</appendItems>
 					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">↑↑↑</greatestDifference>
 							<greatestDifference id="h">↑↑↑</greatestDifference>
@@ -1992,4 +1992,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nostr>déedet:dé</nostr>
 		</messages>
 	</posix>
+	<personNames>
+		<nameOrderLocales order="givenFirst">und wo</nameOrderLocales>
+		<nameOrderLocales order="surnameFirst">ko vi yue zh</nameOrderLocales>
+	</personNames>
 </ldml>

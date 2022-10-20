@@ -31,7 +31,7 @@ public class STUsersChoice implements UsersChoice<Organization> {
     }
 
     @Override
-    public VoteResolver<String> getVoteResolver(CLDRLocale loc, String path) {
+    public VoteResolver<String> getVoteResolver(CLDRFile cldrFile, CLDRLocale loc, String path) {
         BallotBox<User> ballotBox = getBox(sm, loc);
         return ballotBox.getResolver(path);
     }

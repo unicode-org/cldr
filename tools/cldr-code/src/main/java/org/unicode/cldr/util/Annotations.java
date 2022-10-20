@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
@@ -15,13 +17,13 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.ChartAnnotations;
 import org.unicode.cldr.tool.SubdivisionNames;
+import org.unicode.cldr.util.Factory.SourceTreeType;
 import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.ImmutableSet.Builder;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.CharSequences;
@@ -46,33 +48,25 @@ public class Annotations {
 
     static final Map<String, Map<String, AnnotationSet>> cache = new ConcurrentHashMap<>();
     static final Set<String> LOCALES;
-    static final String DIR;
+    static final Set<String> ALL_LOCALES;
+    static final Factory ANNOTATIONS_FACTORY;
     private static final AnnotationSet ENGLISH_DATA;
 
     private final Set<String> annotations;
     private final String tts;
 
     static {
-        File directory = new File(CLDRPaths.COMMON_DIRECTORY, "annotations");
-        DIR = PathUtilities.getNormalizedPathString(directory);
-        if (DEBUG) {
-            System.out.println(DIR);
-        }
-        Builder<String> temp = ImmutableSet.builder();
-        for (File file : directory.listFiles()) {
-            if (DEBUG) {
-                System.out.println(PathUtilities.getNormalizedPathString(file));
+        ANNOTATIONS_FACTORY = CLDRConfig.getInstance().getAnnotationsFactory();
+        ALL_LOCALES = ANNOTATIONS_FACTORY.getAvailable();
+        final Set<String> commonList = new HashSet<String>();
+        // calculate those in common
+        for(final String loc : ALL_LOCALES) {
+            final File f = getDirForLocale(loc);
+            if (SimpleFactory.getSourceTreeType(f) == SourceTreeType.common) {
+                commonList.add(loc);
             }
-            String name = file.toString();
-            String shortName = file.getName();
-            if (!shortName.endsWith(".xml") || // skip non-XML
-                shortName.startsWith("#") || // skip other junk files
-                shortName.startsWith(".")
-//                || shortName.contains("001") // skip world english for now
-                ) continue; // skip dot files (backups, etc)
-            temp.add(dotSplitter.split(shortName).iterator().next());
         }
-        LOCALES = temp.build();
+        LOCALES = Collections.unmodifiableSet(commonList);
         ENGLISH_DATA = getDataSet("en");
     }
 
@@ -201,12 +195,25 @@ public class Annotations {
         return result;
     }
 
+    /**
+     * @return all common locales
+     */
     public static Set<String> getAvailable() {
         return LOCALES;
     }
 
+    /**
+     * @return all common locales
+     */
     public static Set<String> getAvailableLocales() {
         return LOCALES;
+    }
+
+    /**
+     * @return all locales, including seed
+     */
+    public static Set<String> getAllAvailable() {
+        return ALL_LOCALES;
     }
 
     public static final class AnnotationSet {
@@ -590,13 +597,24 @@ public class Annotations {
     }
 
     public static AnnotationSet getDataSet(String locale) {
-        return getDataSet(DIR, locale);
+        final File theDir = getDirForLocale(locale);
+        return getDataSet(theDir.getAbsolutePath(), locale);
+    }
+
+    private static File getDirForLocale(String locale) {
+        // use the annotations Factory to find the XML file
+        List<File> dirs = ANNOTATIONS_FACTORY.getSourceDirectoriesForLocale(locale);
+        if (dirs == null || dirs.isEmpty()) {
+            throw new IllegalArgumentException("Cannot find source annotation directory for locale " + locale);
+        } else if (dirs.size() != 1) {
+            throw new IllegalArgumentException(
+                "Did not find exactly one source directory for locale " + locale + " - " + dirs);
+        }
+        final File theDir = dirs.get(0);
+        return theDir;
     }
 
     public static AnnotationSet getDataSet(String dir, String locale) {
-        if (dir == null) {
-            dir = DIR;
-        }
         Map<String, AnnotationSet> dirCache = cache.get(dir);
         if (dirCache == null) {
             cache.put(dir, dirCache = new ConcurrentHashMap<>());
@@ -620,7 +638,8 @@ public class Annotations {
     }
 
     public static UnicodeMap<Annotations> getData(String locale) {
-        return getData(DIR, locale);
+        final File theDir = getDirForLocale(locale);
+        return getData(theDir.getAbsolutePath(), locale);
     }
 
     public static UnicodeMap<Annotations> getData(String dir, String locale) {

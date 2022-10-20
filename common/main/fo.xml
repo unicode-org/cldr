@@ -1036,7 +1036,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyQQQQ">QQQQ 'í' y G</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">h B – h B</greatestDifference>
 							<greatestDifference id="h">h–h B</greatestDifference>
@@ -1573,7 +1573,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<appendItem request="Timezone">{0} {1}</appendItem>
 					</appendItems>
 					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">h B – h B</greatestDifference>
 							<greatestDifference id="h">↑↑↑</greatestDifference>
@@ -6432,7 +6432,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} sólarljósmegi</unitPattern>
 				<unitPattern count="other">{0} sólarljósmegi</unitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
+			<unit type="mass-tonne">
 				<displayName>tons</displayName>
 				<unitPattern count="one">{0} tons</unitPattern>
 				<unitPattern count="other">{0} tons</unitPattern>
@@ -7465,7 +7465,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
+			<unit type="mass-tonne">
 				<displayName>t</displayName>
 				<unitPattern count="one">{0} t</unitPattern>
 				<unitPattern count="other">{0} t</unitPattern>
@@ -8384,4 +8384,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<featureName type="tnum">talvuskapa tøl</featureName>
 		<featureName type="zero">null við skrástriku</featureName>
 	</typographicNames>
+	<personNames>
+		<nameOrderLocales order="givenFirst">und fo</nameOrderLocales>
+		<nameOrderLocales order="surnameFirst">ko vi yue zh</nameOrderLocales>
+	</personNames>
 </ldml>

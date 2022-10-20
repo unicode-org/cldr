@@ -186,7 +186,7 @@ function setCoverageLevel(newValue) {
   }
   // still update these.
   cldrLoad.coverageUpdate();
-  cldrLoad.updateHashAndMenus(false);
+  cldrLoad.updateHashAndMenus();
   return false;
 }
 

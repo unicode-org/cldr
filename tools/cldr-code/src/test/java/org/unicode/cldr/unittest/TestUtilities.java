@@ -37,6 +37,7 @@ import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DelegatingIterator;
 import org.unicode.cldr.util.EscapingUtilities;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.NotificationCategory;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
@@ -47,13 +48,13 @@ import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.VettingViewer;
-import org.unicode.cldr.util.VettingViewer.Choice;
 import org.unicode.cldr.util.VettingViewer.MissingStatus;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
+import org.unicode.cldr.util.VoterInfoList;
 import org.unicode.cldr.util.XMLUploader;
 import org.unicode.cldr.util.props.ICUPropertyFactory;
 
@@ -221,22 +222,22 @@ public class TestUtilities extends TestFmwkPlus {
 
     public void TestUntimedCounter() {
         // simulates how Counter is used in VettingViewer
-        Counter<Choice> problemCounter = new Counter<>();
-        problemCounter.increment(Choice.error);
-        problemCounter.increment(Choice.error);
-        problemCounter.increment(Choice.warning);
+        Counter<NotificationCategory> problemCounter = new Counter<>();
+        problemCounter.increment(NotificationCategory.error);
+        problemCounter.increment(NotificationCategory.error);
+        problemCounter.increment(NotificationCategory.warning);
 
-        assertEquals("problemCounter error", 2, problemCounter.get(Choice.error));
-        assertEquals("problemCounter warning", 1, problemCounter.get(Choice.warning));
-        assertEquals("problemCounter weLost", 0, problemCounter.get(Choice.weLost));
+        assertEquals("problemCounter error", 2, problemCounter.get(NotificationCategory.error));
+        assertEquals("problemCounter warning", 1, problemCounter.get(NotificationCategory.warning));
+        assertEquals("problemCounter weLost", 0, problemCounter.get(NotificationCategory.weLost));
 
-        Counter<Choice> otherCounter = new Counter<>();
+        Counter<NotificationCategory> otherCounter = new Counter<>();
         otherCounter.addAll(problemCounter);
-        otherCounter.increment(Choice.error);
+        otherCounter.increment(NotificationCategory.error);
 
-        assertEquals("otherCounter error", 3, otherCounter.get(Choice.error));
-        assertEquals("otherCounter warning", 1, otherCounter.get(Choice.warning));
-        assertEquals("otherCounter weLost", 0, otherCounter.get(Choice.weLost));
+        assertEquals("otherCounter error", 3, otherCounter.get(NotificationCategory.error));
+        assertEquals("otherCounter warning", 1, otherCounter.get(NotificationCategory.warning));
+        assertEquals("otherCounter weLost", 0, otherCounter.get(NotificationCategory.weLost));
     }
 
     public void TestCounter() {
@@ -376,9 +377,12 @@ public class TestUtilities extends TestFmwkPlus {
         return TestUser.valueOf(s).voterId;
     }
 
+    private VoterInfoList getTestVoterInfoList() {
+        return new VoterInfoList().setVoterToInfo(testdata);
+    }
+
     public void TestTrunkStatus() {
-        VoteResolver.setVoterToInfo(testdata);
-        VoteResolver<String> resolver = new VoteResolver<>();
+        VoteResolver<String> resolver = new VoteResolver<>(getTestVoterInfoList());
         resolver.setLocale(CLDRLocale.getInstance("de"), null);
 
         resolver.setBaseline("new-item", Status.approved);
@@ -392,8 +396,7 @@ public class TestUtilities extends TestFmwkPlus {
     }
 
     public void TestVoteResolverNgombaTrunkStatus() {
-        VoteResolver.setVoterToInfo(testdata);
-        VoteResolver<String> resolver = new VoteResolver<>();
+        VoteResolver<String> resolver = new VoteResolver<>(getTestVoterInfoList());
         resolver.setLocale(CLDRLocale.getInstance("jgo"), null);
         final String jgo22trunk = "\uA78C"; // "[a á â ǎ b c d ɛ {ɛ́} {ɛ̂} {ɛ̌} {ɛ̀} {ɛ̄} f ɡ h i í î ǐ j k l m ḿ {m̀} {m̄} n ń ǹ {n̄} ŋ {ŋ́} {ŋ̀} {ŋ̄} ɔ {ɔ́} {ɔ̂} {ɔ̌} p {pf} s {sh} t {ts} u ú û ǔ ʉ {ʉ́} {ʉ̂} {ʉ̌} {ʉ̈} v w ẅ y z ꞌ]";
         resolver.setBaseline(jgo22trunk, Status.approved); // seed/jgo.xml from 22
@@ -404,8 +407,7 @@ public class TestUtilities extends TestFmwkPlus {
     }
 
     public void TestVoteStatus() {
-        VoteResolver.setVoterToInfo(testdata);
-        VoteResolver<String> resolver = new VoteResolver<>();
+        VoteResolver<String> resolver = new VoteResolver<>(getTestVoterInfoList());
 
         resolver.setLocale(CLDRLocale.getInstance("de"), null);
         resolver.setBaileyValue("bailey");
@@ -440,8 +442,7 @@ public class TestUtilities extends TestFmwkPlus {
         // missing}}
         // XPath: //ldml/localeDisplayNames/territories/territory[@type="BQ"]
         // gcvs.openoffice_org.example.com
-        VoteResolver.setVoterToInfo(testdata);
-        VoteResolver<String> resolver = new VoteResolver<>();
+        VoteResolver<String> resolver = new VoteResolver<>(getTestVoterInfoList());
 
         resolver.setLocale(CLDRLocale.getInstance("af"), null);
         resolver.setBaseline("BQ", Status.missing);
@@ -474,8 +475,7 @@ public class TestUtilities extends TestFmwkPlus {
     }
 
     public void TestTotalVotesStatus() {
-        VoteResolver.setVoterToInfo(testdata);
-        VoteResolver<String> resolver = new VoteResolver<>();
+        VoteResolver<String> resolver = new VoteResolver<>(getTestVoterInfoList());
 
         Status oldStatus = Status.unconfirmed;
 
@@ -507,8 +507,7 @@ public class TestUtilities extends TestFmwkPlus {
     }
 
     public void TestVoteDowngrade() {
-        VoteResolver.setVoterToInfo(testdata);
-        VoteResolver<String> resolver = new VoteResolver<>();
+        VoteResolver<String> resolver = new VoteResolver<>(getTestVoterInfoList());
 
         Status oldStatus = Status.unconfirmed;
 
@@ -573,8 +572,7 @@ public class TestUtilities extends TestFmwkPlus {
     }
 
     public void TestResolvedVoteCounts() {
-        VoteResolver.setVoterToInfo(testdata);
-        VoteResolver<String> resolver = new VoteResolver<>();
+        VoteResolver<String> resolver = new VoteResolver<>(getTestVoterInfoList());
 
         Status oldStatus = Status.unconfirmed;
 
@@ -623,12 +621,13 @@ public class TestUtilities extends TestFmwkPlus {
                 .fromPath(xpath);
         }
         resolver.setLocale(CLDRLocale.getInstance(locale), ph);
-        assertEquals("verifyRequiredVotes: " + ph.toString(), required, resolver.getRequiredVotes());
+        if (!assertEquals(locale + " verifyRequiredVotes: " + ph.toString(), required, resolver.getRequiredVotes())) {
+            int debug = 0;
+        }
     }
 
     public void TestRequiredVotes() {
-        VoteResolver.setVoterToInfo(testdata);
-        VoteResolver<String> resolver = new VoteResolver<>();
+        VoteResolver<String> resolver = new VoteResolver<>(getTestVoterInfoList());
         verifyRequiredVotes(resolver, "mt",
             "//ldml/localeDisplayNames/languages/language[@type=\"fr_CA\"]",
             Status.missing, ONE_VETTER_BAR);
@@ -684,11 +683,11 @@ public class TestUtilities extends TestFmwkPlus {
 
     /**
      * In sublocales, for a typical path, the required votes should be 4, except for
-     * the two locales pt_PT and zh_Hant
+     * a few specified locales.
      */
     public void TestSublocaleRequiredVotes() {
-        final Set<String> eightVoteSublocales = new HashSet<>(Arrays.asList("pt_PT", "zh_Hant"));
-        final VoteResolver<String> resolver = new VoteResolver<>();
+        final Set<String> eightVoteSublocales = new HashSet<>(Arrays.asList("pt_PT", "zh_Hant", "en_AU", "en_GB", "es_MX", "fr_CA", "es_419"));
+        final VoteResolver<String> resolver = new VoteResolver<>(getTestVoterInfoList());
         final String path = "//ldml/annotations/annotation[@cp=\"🌏\"][@type=\"tts\"]";
         for (String locale : SubmissionLocales.CLDR_OR_HIGH_LEVEL_LOCALES) {
             if (locale.contains("_")) {
@@ -702,8 +701,7 @@ public class TestUtilities extends TestFmwkPlus {
         // to make it easier to debug failures, the first digit is an org,
         // second is the individual in that org, and
         // third is the voting weight.
-        VoteResolver.setVoterToInfo(testdata);
-        VoteResolver<String> resolver = new VoteResolver<>();
+        VoteResolver<String> resolver = new VoteResolver<>(getTestVoterInfoList());
         String[] tests = {
             "bailey=BAILEY",
             "comment=regression case from John Emmons",
@@ -1109,9 +1107,7 @@ public class TestUtilities extends TestFmwkPlus {
     }
 
     public void TestStevenTest() {
-
-        VoteResolver.setVoterToInfo(testdata);
-        VoteResolver<String> resolver = new VoteResolver<>();
+        VoteResolver<String> resolver = new VoteResolver<>(getTestVoterInfoList());
 
         String tests[] = {
             "bailey=BAILEY",
@@ -1258,8 +1254,8 @@ public class TestUtilities extends TestFmwkPlus {
     }
 
     public void testBaileyVotes() {
-        VoteResolver.setVoterToInfo(TestUser.TEST_USERS);
-        VoteResolver<String> resolver = new VoteResolver<>();
+        VoterInfoList vil = new VoterInfoList().setVoterToInfo(TestUser.TEST_USERS);
+        VoteResolver<String> resolver = new VoteResolver<>(vil);
         CLDRLocale locale = CLDRLocale.getInstance("de");
         PathHeader path = null;
 

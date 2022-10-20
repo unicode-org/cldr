@@ -6,6 +6,8 @@
 import * as cldrAjax from "../esm/cldrAjax.js";
 import * as cldrStatus from "../esm/cldrStatus.js";
 
+const SUMMARY_DEBUG = true;
+
 const SECONDS_IN_MS = 1000;
 
 const NORMAL_RETRY = 10 * SECONDS_IN_MS; // "Normal" retry: starting or about to start
@@ -40,6 +42,11 @@ class SummaryArgs {
       snapshotPolicy || defaultArgs?.snapshotPolicy || SNAP_NONE;
     this.snapshotId =
       snapshotId || defaultArgs?.snapshotId || SNAPID_NOT_APPLICABLE;
+    this.summarizeAllLocales = defaultArgs?.summarizeAllLocales || false;
+  }
+
+  setSummarizeAllLocales(summarizeAllLocales) {
+    this.summarizeAllLocales = summarizeAllLocales;
   }
 }
 
@@ -80,21 +87,41 @@ function viewCreated(setData, setSnap) {
 function fetchStatus() {
   if (!canSum || "vsummary" !== cldrStatus.getCurrentSpecial()) {
     canSum = canSnap = canCreateSnap = false;
+    if (SUMMARY_DEBUG) {
+      console.log("cldrPriorityItems.fetchStatus resetting for other special");
+    }
     return;
   }
   if (canSum) {
     if (canSnap) {
       listSnapshots();
     }
+    if (SUMMARY_DEBUG) {
+      console.log(
+        "cldrPriorityItems.fetchStatus using latestArgs.summarizeAllLocales = " +
+          latestArgs.summarizeAllLocales
+      );
+    }
     requestSummary(new SummaryArgs(latestArgs, LOAD_NOSTART));
   }
 }
 
-function start() {
-  requestSummary(new SummaryArgs(null, LOAD_START));
+function start(summarizeAllLocales) {
+  const sa = new SummaryArgs(null, LOAD_START);
+  if (SUMMARY_DEBUG) {
+    console.log(
+      "cldrPriorityItems.start using summarizeAllLocales = " +
+        summarizeAllLocales
+    );
+  }
+  sa.setSummarizeAllLocales(summarizeAllLocales);
+  requestSummary(sa);
 }
 
 function stop() {
+  if (SUMMARY_DEBUG) {
+    console.log("cldrPriorityItems.stop");
+  }
   requestSummary(new SummaryArgs(latestArgs, LOAD_FORCESTOP));
 }
 
@@ -102,8 +129,10 @@ function showSnapshot(snapshotId) {
   requestSummary(new SummaryArgs(null, LOAD_START, SNAP_SHOW, snapshotId));
 }
 
-function createSnapshot() {
-  requestSummary(new SummaryArgs(null, LOAD_START, SNAP_CREATE));
+function createSnapshot(summarizeAllLocales) {
+  const sa = new SummaryArgs(null, LOAD_START, SNAP_CREATE);
+  sa.setSummarizeAllLocales(summarizeAllLocales);
+  requestSummary(sa);
 }
 
 function requestSummary(summaryArgs) {
@@ -123,6 +152,9 @@ function requestSummary(summaryArgs) {
 }
 
 function setSummaryData(data) {
+  if (SUMMARY_DEBUG) {
+    console.log("cldrPriorityItems.setSummaryData");
+  }
   if (!callbackToSetData) {
     return;
   }
@@ -133,7 +165,7 @@ function setSummaryData(data) {
     }
     latestArgs.snapshotPolicy = SNAP_NONE;
   }
-  if (latestArgs.loadingPolicy === LOAD_NOSTART) {
+  if (latestArgs.loadingPolicy !== LOAD_FORCESTOP) {
     window.setTimeout(fetchStatus.bind(this), NORMAL_RETRY);
   }
 }

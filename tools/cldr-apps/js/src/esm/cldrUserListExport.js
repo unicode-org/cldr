@@ -1,5 +1,7 @@
-import XLSX from "xlsx";
+import * as XLSX from "xlsx";
 import * as cldrAjax from "./cldrAjax.js";
+import * as cldrXlsx from "./cldrXlsx.js";
+
 // shim global fetch
 const fetch = cldrAjax.doFetch;
 
@@ -44,16 +46,11 @@ async function downloadUserActivity(userId /*, session*/) {
   }
   var ws = XLSX.utils.aoa_to_sheet(ws_data);
 
-  function pushComment(where, t) {
-    ws[where].c = ws[where].c || [];
-    ws[where].c.hidden = true;
-    ws[where].c.push({ a: "SurveyTool", t });
-  }
-  pushComment("A1", "Locale Name in English");
-  pushComment("B1", "XPath String ID");
-  pushComment("C1", "XPath Code");
+  cldrXlsx.pushComment(ws, "A1", "Locale Name in English");
+  cldrXlsx.pushComment(ws, "B1", "XPath String ID");
+  cldrXlsx.pushComment(ws, "C1", "XPath Code");
   // D1 = Value
-  pushComment("E1", "Date of last vote");
+  cldrXlsx.pushComment(ws, "E1", "Date of last vote");
 
   XLSX.utils.book_append_sheet(wb, ws, ws_name);
   XLSX.writeFile(wb, `survey_recent_activity${userId}.xlsx`);

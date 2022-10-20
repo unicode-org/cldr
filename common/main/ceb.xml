@@ -23,17 +23,17 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<language type="ar">Arabic</language>
 			<language type="ar_001">Modernong Tamdanang Arabic</language>
 			<language type="bn">Bangla</language>
-			<language type="ceb">Binisaya</language>
-			<language type="de">Aleman</language>
-			<language type="de_AT">Austriano nga Aleman</language>
-			<language type="de_CH">Taas nga Aleman sa Switzerland</language>
-			<language type="en">Ingles</language>
-			<language type="en_AU">Ingles sa Australia</language>
-			<language type="en_CA">Ingles sa Canada</language>
-			<language type="en_GB">Britanikong Ingles</language>
-			<language type="en_GB" alt="short">Ingles sa UK</language>
-			<language type="en_US">Ingles sa Amerika</language>
-			<language type="en_US" alt="short">Ingles sa US</language>
+			<language type="ceb">Cebuano</language>
+			<language type="de">German</language>
+			<language type="de_AT">Austrian German</language>
+			<language type="de_CH">Swiss High German</language>
+			<language type="en">English</language>
+			<language type="en_AU">English sa Australia</language>
+			<language type="en_CA">English sa Canada</language>
+			<language type="en_GB">Britanikong English</language>
+			<language type="en_GB" alt="short">English sa UK</language>
+			<language type="en_US">English sa America</language>
+			<language type="en_US" alt="short">English sa US</language>
 			<language type="es">Espanyol</language>
 			<language type="es_419">Espanyol sa Latin Amerika</language>
 			<language type="es_ES">Espanyol sa Europe</language>
@@ -42,6 +42,8 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<language type="fr_CA">Pranses sa Canada</language>
 			<language type="fr_CH">Pranses sa Switzerland</language>
 			<language type="hi">Hindi</language>
+			<language type="hi_Latn">↑↑↑</language>
+			<language type="hi_Latn" alt="variant">Hinglish</language>
 			<language type="id">Indonesian</language>
 			<language type="it">Italiano</language>
 			<language type="ja">Hinapon</language>
@@ -52,16 +54,16 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<language type="pt">Portuguese</language>
 			<language type="pt_BR">Brazilyanong Portuguese</language>
 			<language type="pt_PT">Portuguese sa Europe</language>
-			<language type="ru">Ruso</language>
+			<language type="ru">Russian</language>
 			<language type="th">Thai</language>
 			<language type="tr">Turkish</language>
 			<language type="und">Wala Mailhing Lengguwahe</language>
 			<language type="zh">Inintsik</language>
-			<language type="zh" alt="menu">Inintsik, Mandarin</language>
-			<language type="zh_Hans">Pinasimpleng Inintsik</language>
-			<language type="zh_Hans" alt="long">Pinasimpleng Mandarin nga Inintsik</language>
-			<language type="zh_Hant">Tradisyonal nga Ininstsik</language>
-			<language type="zh_Hant" alt="long">Tradisyonal nga Mandarin nga Inintsik</language>
+			<language type="zh" alt="menu">Chinese, Mandarin</language>
+			<language type="zh_Hans">Simplified Chinese</language>
+			<language type="zh_Hans" alt="long">Pinasimpleng Mandarin Chinese</language>
+			<language type="zh_Hant">Traditional nga Chinese</language>
+			<language type="zh_Hant" alt="long">Tradisyonal nga Mandarin Chinese</language>
 		</languages>
 		<scripts>
 			<script type="Arab">Arabo</script>
@@ -70,7 +72,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<script type="Hans" alt="stand-alone">Pinasimpleng Han</script>
 			<script type="Hant">Tradisyonal</script>
 			<script type="Hant" alt="stand-alone">Tradisyonal nga Han</script>
-			<script type="Jpan">Hinapon</script>
+			<script type="Jpan">Japanese</script>
 			<script type="Kore">Korean</script>
 			<script type="Latn">Latin</script>
 			<script type="Zxxx">Dili Sinulat</script>
@@ -79,7 +81,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 		<territories>
 			<territory type="001">kalibutan</territory>
 			<territory type="002">Africa</territory>
-			<territory type="003">Amihanang Amerika</territory>
+			<territory type="003">North America</territory>
 			<territory type="005">South America</territory>
 			<territory type="009">Oceania</territory>
 			<territory type="011">Western Africa</territory>
@@ -88,7 +90,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<territory type="015">Northern Africa</territory>
 			<territory type="017">Middle Africa</territory>
 			<territory type="018">Southern Africa</territory>
-			<territory type="019">Mga Amerika</territory>
+			<territory type="019">Americas</territory>
 			<territory type="021">Northern America</territory>
 			<territory type="029">Caribbean</territory>
 			<territory type="030">Eastern Asia</territory>
@@ -99,7 +101,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<territory type="054">Melanesia</territory>
 			<territory type="057">Micronesian Region</territory>
 			<territory type="061">Polynesia</territory>
-			<territory type="142">Asya</territory>
+			<territory type="142">Asia</territory>
 			<territory type="143">Central Asia</territory>
 			<territory type="145">Western Asia</territory>
 			<territory type="150">Europe</territory>
@@ -159,7 +161,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<territory type="CK">Cook Islands</territory>
 			<territory type="CL">Chile</territory>
 			<territory type="CM">Cameroon</territory>
-			<territory type="CN">Tsina</territory>
+			<territory type="CN">China</territory>
 			<territory type="CO">Colombia</territory>
 			<territory type="CP">Clipperton Island</territory>
 			<territory type="CR">Costa Rica</territory>
@@ -170,7 +172,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<territory type="CY">Cyprus</territory>
 			<territory type="CZ">Czechia</territory>
 			<territory type="CZ" alt="variant">Czech Republic</territory>
-			<territory type="DE">Alemanya</territory>
+			<territory type="DE">Germany</territory>
 			<territory type="DG">Diego Garcia</territory>
 			<territory type="DJ">Djibouti</territory>
 			<territory type="DK">Denmark</territory>
@@ -193,7 +195,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<territory type="FK" alt="variant">Falkland Islands (Islas Malvinas)</territory>
 			<territory type="FM">Micronesia</territory>
 			<territory type="FO">Faroe Islands</territory>
-			<territory type="FR">Pransya</territory>
+			<territory type="FR">France</territory>
 			<territory type="GA">Gabon</territory>
 			<territory type="GB">United Kingdom</territory>
 			<territory type="GB" alt="short">UK</territory>
@@ -294,6 +296,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<territory type="NR">Nauru</territory>
 			<territory type="NU">Niue</territory>
 			<territory type="NZ">New Zealand</territory>
+			<territory type="NZ" alt="variant">Aotearoa New Zealand</territory>
 			<territory type="OM">Oman</territory>
 			<territory type="PA">Panama</territory>
 			<territory type="PE">Peru</territory>
@@ -353,6 +356,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<territory type="TN">Tunisia</territory>
 			<territory type="TO">Tonga</territory>
 			<territory type="TR">Turkey</territory>
+			<territory type="TR" alt="variant">↑↑↑</territory>
 			<territory type="TT">Trinidad &amp; Tobago</territory>
 			<territory type="TV">Tuvalu</territory>
 			<territory type="TW">Taiwan</territory>
@@ -506,10 +510,16 @@ the LDML specification (http://unicode.org/reports/tr35/)
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -552,7 +562,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d – d</greatestDifference>
 						</intervalFormatItem>
@@ -586,7 +596,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 							<greatestDifference id="d">MMM d – d, y G</greatestDifference>
 							<greatestDifference id="G">MMM d, y G – MMM d, y G</greatestDifference>
 							<greatestDifference id="M">MMM d – MMM d, y G</greatestDifference>
-							<greatestDifference id="y">MMM d, y – MMM d, y G</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMEd">
 							<greatestDifference id="d">E, MMM d – E, MMM d, y G</greatestDifference>
@@ -982,10 +992,16 @@ the LDML specification (http://unicode.org/reports/tr35/)
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -1043,7 +1059,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 						<appendItem request="Timezone">↑↑↑</appendItem>
 					</appendItems>
 					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d – d</greatestDifference>
 						</intervalFormatItem>
@@ -1307,9 +1323,9 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT {0}</gmtFormat>
 			<gmtZeroFormat>GMT</gmtZeroFormat>
-			<regionFormat>{0} Oras</regionFormat>
-			<regionFormat type="daylight">{0} Oras sa Tag-init</regionFormat>
-			<regionFormat type="standard">{0} Tamdanang Oras</regionFormat>
+			<regionFormat>Oras sa {0}</regionFormat>
+			<regionFormat type="daylight">Daylight Time sa {0}</regionFormat>
+			<regionFormat type="standard">Tamdanang Oras sa {0}</regionFormat>
 			<fallbackFormat>{1} {0}</fallbackFormat>
 			<zone type="Etc/UTC">
 				<long>
@@ -1944,6 +1960,9 @@ the LDML specification (http://unicode.org/reports/tr35/)
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kanton">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -2631,7 +2650,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 				<long>
 					<generic>Oras sa Alaska</generic>
 					<standard>Tamdanang Oras sa Alaska</standard>
-					<daylight>Oras sa Tag-init sa Alaska</daylight>
+					<daylight>Daylight Time sa Alaska</daylight>
 				</long>
 			</metazone>
 			<metazone type="Amazon">
@@ -2643,37 +2662,37 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			</metazone>
 			<metazone type="America_Central">
 				<long>
-					<generic>Sentrong Oras</generic>
-					<standard>Sentong Tamdanan nga Oras</standard>
-					<daylight>Sentrong Oras sa Tag-init</daylight>
+					<generic>Central Time</generic>
+					<standard>Central Standard Time</standard>
+					<daylight>Central Daylight Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
-					<generic>Oras sa Sidlakan</generic>
-					<standard>Tamdanan nga Oras sa Sidlakan</standard>
-					<daylight>Oras sa Tag-init sa Sidlakan</daylight>
+					<generic>Eastern Time</generic>
+					<standard>Eastern Standard Time</standard>
+					<daylight>Eastern Daylight Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
-					<generic>Oras sa Kabukiran</generic>
-					<standard>Tamdanang Oras sa Kabukiran</standard>
-					<daylight>Oras sa Tag-init sa Kabukiran</daylight>
+					<generic>Mountain Time</generic>
+					<standard>Mountain Standard Time</standard>
+					<daylight>Mountain Daylight Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
-					<generic>Oras sa Pasipiko</generic>
-					<standard>Tamdanang Oras sa Pasipiko</standard>
-					<daylight>Oras sa Tag-init sa Pasipiko</daylight>
+					<generic>Pacific Time</generic>
+					<standard>Pacific Standard Time</standard>
+					<daylight>Pacific Daylight Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Apia">
 				<long>
 					<generic>Oras sa Apia</generic>
 					<standard>Tamdanang Oras sa Apia</standard>
-					<daylight>Oras sa Tag-init sa Apia</daylight>
+					<daylight>Daylight Time sa Apia</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -2706,9 +2725,9 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			</metazone>
 			<metazone type="Atlantic">
 				<long>
-					<generic>Oras sa Atlantiko</generic>
-					<standard>Tamdanang Oras sa Atlantiko</standard>
-					<daylight>Oras sa Tag-init sa Atlantiko</daylight>
+					<generic>Atlantic Time</generic>
+					<standard>Atlantic Standard Time</standard>
+					<daylight>Atlantic Daylight Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Central">
@@ -3333,7 +3352,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 				<long>
 					<generic>Oras sa Samoa</generic>
 					<standard>Tamdanang Oras sa Samoa</standard>
-					<daylight>Oras sa Tag-init sa Samoa</daylight>
+					<daylight>Daylight Time sa Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -3537,8 +3556,8 @@ the LDML specification (http://unicode.org/reports/tr35/)
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
-					<pattern alt="alphaNextToNumber" draft="provisional">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency" draft="provisional">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency">#,##0.00;(#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="one">{1} {0}</unitPattern>
@@ -3548,13 +3567,13 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="AED">
 				<displayName>United Arab Emirates Dirham</displayName>
 				<displayName count="one">UAE dirham</displayName>
-				<displayName count="other">Mga UAE dirham</displayName>
+				<displayName count="other">UAE dirhams</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>Afghan Afghani</displayName>
 				<displayName count="one">Afghan Afghani</displayName>
-				<displayName count="other">Mga Afghan Afghani</displayName>
+				<displayName count="other">Afghan Afghanis</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -3567,7 +3586,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="AMD">
 				<displayName>Armenian Dram</displayName>
 				<displayName count="one">Armenian dram</displayName>
-				<displayName count="other">Mga Armenian dram</displayName>
+				<displayName count="other">Armenian drams</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -3580,21 +3599,21 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="AOA">
 				<displayName>Angolan Kwanza</displayName>
 				<displayName count="one">Angolan kwanza</displayName>
-				<displayName count="other">Mga Angolan kwanza</displayName>
+				<displayName count="other">Angolan kwanzas</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName>Argentine Peso</displayName>
 				<displayName count="one">Argentine peso</displayName>
-				<displayName count="other">Mga Argentine peso</displayName>
+				<displayName count="other">Argentine pesos</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName>Australian Dollar</displayName>
 				<displayName count="one">Australian dollar</displayName>
-				<displayName count="other">Mga Australian dollar</displayName>
+				<displayName count="other">Australian dollars</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -3607,14 +3626,14 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="AZN">
 				<displayName>Azerbaijani Manat</displayName>
 				<displayName count="one">Azerbaijani manat</displayName>
-				<displayName count="other">Mga Azerbaijani manat</displayName>
+				<displayName count="other">Azerbaijani manats</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>Bosnia-Herzegovina Convertible Mark</displayName>
 				<displayName count="one">Bosnia-Herzegovina convertible mark</displayName>
-				<displayName count="other">Mga Bosnia-Herzegovina convertible mark</displayName>
+				<displayName count="other">Bosnia-Herzegovina convertible marks</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -3628,7 +3647,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="BDT">
 				<displayName>Bangladeshi Taka</displayName>
 				<displayName count="one">Bangladeshi taka</displayName>
-				<displayName count="other">Mga Bangladeshi taka</displayName>
+				<displayName count="other">Bangladeshi takas</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -3641,13 +3660,13 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="BHD">
 				<displayName>Bahraini Dinar</displayName>
 				<displayName count="one">Bahraini dinar</displayName>
-				<displayName count="other">Mga Bahraini dinar</displayName>
+				<displayName count="other">Bahraini dinars</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>Burundian Franc</displayName>
 				<displayName count="one">Burundian franc</displayName>
-				<displayName count="other">Mga Burundian franc</displayName>
+				<displayName count="other">Burundian francs</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BMD">
@@ -3660,21 +3679,21 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="BND">
 				<displayName>Brunei Dollar</displayName>
 				<displayName count="one">Brunei dollar</displayName>
-				<displayName count="other">Mga Brunei dollar</displayName>
+				<displayName count="other">Brunei dollars</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>Bolivian Boliviano</displayName>
 				<displayName count="one">Bolivian boliviano</displayName>
-				<displayName count="other">Mga Bolivian boliviano</displayName>
+				<displayName count="other">Bolivian bolivianos</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName>Brazilian Real</displayName>
 				<displayName count="one">Brazilian real</displayName>
-				<displayName count="other">Mga Brazilian real</displayName>
+				<displayName count="other">Brazilian reals</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -3688,20 +3707,20 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="BTN">
 				<displayName>Bhutanese Ngultrum</displayName>
 				<displayName count="one">Bhutanese ngultrum</displayName>
-				<displayName count="other">Mga Bhutanese ngultrum</displayName>
+				<displayName count="other">Bhutanese ngultrums</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>Botswanan Pula</displayName>
 				<displayName count="one">Botswanan pula</displayName>
-				<displayName count="other">Mga Botswanan pula</displayName>
+				<displayName count="other">Botswanan pulas</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BYN">
 				<displayName>Belarusian Ruble</displayName>
 				<displayName count="one">Belarusian ruble</displayName>
-				<displayName count="other">Mga Belarusian ruble</displayName>
+				<displayName count="other">Belarusian rubles</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -3722,26 +3741,26 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="CDF">
 				<displayName>Congolese Franc</displayName>
 				<displayName count="one">Congolese franc</displayName>
-				<displayName count="other">Mga Congolese franc</displayName>
+				<displayName count="other">Congolese francs</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>Swiss Franc</displayName>
 				<displayName count="one">Swiss franc</displayName>
-				<displayName count="other">Mga Swiss franc</displayName>
+				<displayName count="other">Swiss francs</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>Chilean Peso</displayName>
 				<displayName count="one">Chilean peso</displayName>
-				<displayName count="other">Mga Chilean peso</displayName>
+				<displayName count="other">Chilean pesos</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="CNH">
-				<displayName>Chinese Yuan (layo sa baybayon)</displayName>
-				<displayName count="one">Chinese yuan (layo sa baybayon)</displayName>
-				<displayName count="other">Chinese yuan (layo sa baybayon)</displayName>
+				<displayName>Chinese Yuan (offshore)</displayName>
+				<displayName count="one">Chinese yuan (offshore)</displayName>
+				<displayName count="other">Chinese yuan (offshore)</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="CNY">
@@ -3754,7 +3773,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="COP">
 				<displayName>Colombian Peso</displayName>
 				<displayName count="one">Colombian peso</displayName>
-				<displayName count="other">Mga Colombian peso</displayName>
+				<displayName count="other">Colombian pesos</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -3782,20 +3801,20 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="CVE">
 				<displayName>Cape Verdean Escudo</displayName>
 				<displayName count="one">Cape Verdean escudo</displayName>
-				<displayName count="other">Mga Cape Verdean escudo</displayName>
+				<displayName count="other">Cape Verdean escudos</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="CZK">
 				<displayName>Czech Koruna</displayName>
 				<displayName count="one">Czech koruna</displayName>
-				<displayName count="other">Mga Czech koruna</displayName>
+				<displayName count="other">Czech korunas</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>Djiboutian Franc</displayName>
 				<displayName count="one">Djiboutian franc</displayName>
-				<displayName count="other">Mga Djiboutian franc</displayName>
+				<displayName count="other">Djiboutian francs</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="DKK">
@@ -3815,87 +3834,87 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="DZD">
 				<displayName>Algerian Dinar</displayName>
 				<displayName count="one">Algerian dinar</displayName>
-				<displayName count="other">Mga Algerian dinar</displayName>
+				<displayName count="other">Algerian dinars</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>Egyptian Pound</displayName>
 				<displayName count="one">Egyptian pound</displayName>
-				<displayName count="other">Mga Egyptian pound</displayName>
+				<displayName count="other">Egyptian pounds</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>Eritrean Nakfa</displayName>
 				<displayName count="one">Eritrean nakfa</displayName>
-				<displayName count="other">Mga Eritrean nakfa</displayName>
+				<displayName count="other">Eritrean nakfas</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ETB">
 				<displayName>Ethiopian Birr</displayName>
 				<displayName count="one">Ethiopian birr</displayName>
-				<displayName count="other">Mga Ethiopian birr</displayName>
+				<displayName count="other">Ethiopian birrs</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>Euro</displayName>
 				<displayName count="one">euro</displayName>
-				<displayName count="other">mga euro</displayName>
+				<displayName count="other">euros</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName>Fijian Dollar</displayName>
 				<displayName count="one">Fijian dollar</displayName>
-				<displayName count="other">Mga Fijian dollar</displayName>
+				<displayName count="other">Fijian dollars</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>Falkland Islands Pound</displayName>
 				<displayName count="one">Falkland Islands pound</displayName>
-				<displayName count="other">Mga Falkland Islands pound</displayName>
+				<displayName count="other">Falkland Islands pounds</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>British Pound</displayName>
 				<displayName count="one">British pound</displayName>
-				<displayName count="other">Mga British pound</displayName>
+				<displayName count="other">British pounds</displayName>
 				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName>Georgian Lari</displayName>
 				<displayName count="one">Georgian lari</displayName>
-				<displayName count="other">Mga Georgian lari</displayName>
+				<displayName count="other">Georgian laris</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="GHS">
 				<displayName>Ghanaian Cedi</displayName>
 				<displayName count="one">Ghanaian cedi</displayName>
-				<displayName count="other">Mga Ghanaian cedi</displayName>
+				<displayName count="other">Ghanaian cedis</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>Gibraltar Pound</displayName>
 				<displayName count="one">Gibraltar pound</displayName>
-				<displayName count="other">Mga Gibraltar pound</displayName>
+				<displayName count="other">Gibraltar pounds</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>Gambian Dalasi</displayName>
 				<displayName count="one">Gambian dalasi</displayName>
-				<displayName count="other">Mga Gambian dalasi</displayName>
+				<displayName count="other">Gambian dalasis</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>Guinean Franc</displayName>
 				<displayName count="one">Guinean franc</displayName>
-				<displayName count="other">Mga Guinean franc</displayName>
+				<displayName count="other">Guinean francs</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -3909,14 +3928,14 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="GYD">
 				<displayName>Guyanaese Dollar</displayName>
 				<displayName count="one">Guyanaese dollar</displayName>
-				<displayName count="other">Mga Guyanaese dollar</displayName>
+				<displayName count="other">Guyanaese dollars</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>Hong Kong Dollar</displayName>
 				<displayName count="one">Hong Kong dollar</displayName>
-				<displayName count="other">Mga Hong Kong dollar</displayName>
+				<displayName count="other">Hong Kong dollars</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -3930,7 +3949,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="HRK">
 				<displayName>Croatian Kuna</displayName>
 				<displayName count="one">Croatian kuna</displayName>
-				<displayName count="other">Mga Croatian kuna</displayName>
+				<displayName count="other">Croatian kunas</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -3943,41 +3962,41 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="HUF">
 				<displayName>Hungarian Forint</displayName>
 				<displayName count="one">Hungarian forint</displayName>
-				<displayName count="other">Mga Hungarian forint</displayName>
+				<displayName count="other">Hungarian forints</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>Indonesian Rupiah</displayName>
 				<displayName count="one">Indonesian rupiah</displayName>
-				<displayName count="other">Mga Indonesian rupiah</displayName>
+				<displayName count="other">Indonesian rupiahs</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName>Israeli New Shekel</displayName>
 				<displayName count="one">Israeli new shekel</displayName>
-				<displayName count="other">Mga Israeli new shekel</displayName>
+				<displayName count="other">Israeli new shekels</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>Indian Rupee</displayName>
 				<displayName count="one">Indian rupee</displayName>
-				<displayName count="other">Mga Indian rupee</displayName>
+				<displayName count="other">Indian rupees</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>Iraqi Dinar</displayName>
 				<displayName count="one">Iraqi dinar</displayName>
-				<displayName count="other">Mga Iraqi dinar</displayName>
+				<displayName count="other">Iraqi dinars</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>Iranian Rial</displayName>
 				<displayName count="one">Iranian rial</displayName>
-				<displayName count="other">Mga Iranian rial</displayName>
+				<displayName count="other">Iranian rials</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ISK">
@@ -3997,7 +4016,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="JOD">
 				<displayName>Jordanian Dinar</displayName>
 				<displayName count="one">Jordanian dinar</displayName>
-				<displayName count="other">Mga Jordanian dinar</displayName>
+				<displayName count="other">Jordanian dinars</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="JPY">
@@ -4010,26 +4029,26 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="KES">
 				<displayName>Kenyan Shilling</displayName>
 				<displayName count="one">Kenyan shilling</displayName>
-				<displayName count="other">Mga Kenyan shilling</displayName>
+				<displayName count="other">Kenyan shillings</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>Kyrgystani Som</displayName>
 				<displayName count="one">Kyrgystani som</displayName>
-				<displayName count="other">Mga Kyrgystani som</displayName>
+				<displayName count="other">Kyrgystani soms</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>Cambodian Riel</displayName>
 				<displayName count="one">Cambodian riel</displayName>
-				<displayName count="other">Mga Cambodian riel</displayName>
+				<displayName count="other">Cambodian riels</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>Comorian Franc</displayName>
 				<displayName count="one">Comorian franc</displayName>
-				<displayName count="other">Mga Comorian franc</displayName>
+				<displayName count="other">Comorian francs</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -4050,7 +4069,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="KWD">
 				<displayName>Kuwaiti Dinar</displayName>
 				<displayName count="one">Kuwaiti dinar</displayName>
-				<displayName count="other">Mga Kuwaiti dinar</displayName>
+				<displayName count="other">Kuwaiti dinars</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="KYD">
@@ -4063,54 +4082,54 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="KZT">
 				<displayName>Kazakhstani Tenge</displayName>
 				<displayName count="one">Kazakhstani tenge</displayName>
-				<displayName count="other">Mga Kazakhstani tenge</displayName>
+				<displayName count="other">Kazakhstani tenges</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>Laotian Kip</displayName>
 				<displayName count="one">Laotian kip</displayName>
-				<displayName count="other">Mga Laotian kip</displayName>
+				<displayName count="other">Laotian kips</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>Lebanese Pound</displayName>
 				<displayName count="one">Lebanese pound</displayName>
-				<displayName count="other">Mga Lebanese pound</displayName>
+				<displayName count="other">Lebanese pounds</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>Sri Lankan Rupee</displayName>
 				<displayName count="one">Sri Lankan rupee</displayName>
-				<displayName count="other">Mga Sri Lankan rupee</displayName>
+				<displayName count="other">Sri Lankan rupees</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>Liberian Dollar</displayName>
 				<displayName count="one">Liberian dollar</displayName>
-				<displayName count="other">Mga Liberian dollar</displayName>
+				<displayName count="other">Liberian dollars</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>Lesotho Loti</displayName>
 				<displayName count="one">Lesotho loti</displayName>
-				<displayName count="other">Mga Lesotho loti</displayName>
+				<displayName count="other">Lesotho lotis</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>Libyan Dinar</displayName>
 				<displayName count="one">Libyan dinar</displayName>
-				<displayName count="other">Mga Libyan dinar</displayName>
+				<displayName count="other">Libyan dinars</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>Moroccan Dirham</displayName>
 				<displayName count="one">Moroccan dirham</displayName>
-				<displayName count="other">Mga Moroccan dirham</displayName>
+				<displayName count="other">Moroccan dirhams</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="MDL">
@@ -4122,7 +4141,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="MGA">
 				<displayName>Malagasy Ariary</displayName>
 				<displayName count="one">Malagasy ariary</displayName>
-				<displayName count="other">Mga Malagasy ariary</displayName>
+				<displayName count="other">Malagasy ariaries</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -4135,46 +4154,46 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="MMK">
 				<displayName>Myanmar Kyat</displayName>
 				<displayName count="one">Myanmar kyat</displayName>
-				<displayName count="other">Mga Myanmar kyat</displayName>
+				<displayName count="other">Myanmar kyats</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>Mongolian Tugrik</displayName>
 				<displayName count="one">Mongolian tugrik</displayName>
-				<displayName count="other">Mga Mongolian tugrik</displayName>
+				<displayName count="other">Mongolian tugriks</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>Macanese Pataca</displayName>
 				<displayName count="one">Macanese pataca</displayName>
-				<displayName count="other">Mga Macanese pataca</displayName>
+				<displayName count="other">Macanese patacas</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="MRU">
 				<displayName>Mauritanian Ouguiya</displayName>
 				<displayName count="one">Mauritanian ouguiya</displayName>
-				<displayName count="other">Mga Mauritanian ouguiya</displayName>
+				<displayName count="other">Mauritanian ouguiyas</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>Mauritian Rupee</displayName>
 				<displayName count="one">Mauritian rupee</displayName>
-				<displayName count="other">Mga Mauritian rupee</displayName>
+				<displayName count="other">Mauritian rupees</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>Maldivian Rufiyaa</displayName>
 				<displayName count="one">Maldivian rufiyaa</displayName>
-				<displayName count="other">Mga Maldivian rufiyaa</displayName>
+				<displayName count="other">Maldivian rufiyaas</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>Malawian Kwacha</displayName>
 				<displayName count="one">Malawian kwacha</displayName>
-				<displayName count="other">Mga Malawian kwacha</displayName>
+				<displayName count="other">Malawian kwachas</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="MXN">
@@ -4186,28 +4205,28 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			</currency>
 			<currency type="MYR">
 				<displayName>Malaysian Ringgit</displayName>
-				<displayName count="one">Mga Malaysian ringgit</displayName>
-				<displayName count="other">Mga Malaysian ringgit</displayName>
+				<displayName count="one">Malaysian ringgit</displayName>
+				<displayName count="other">Malaysian ringgits</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>Mozambican Metical</displayName>
 				<displayName count="one">Mozambican metical</displayName>
-				<displayName count="other">Mga Mozambican metical</displayName>
+				<displayName count="other">Mozambican meticals</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>Namibian Dollar</displayName>
 				<displayName count="one">Namibian dollar</displayName>
-				<displayName count="other">Mga Namibian dollar</displayName>
+				<displayName count="other">Namibian dollars</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>Nigerian Naira</displayName>
 				<displayName count="one">Nigerian naira</displayName>
-				<displayName count="other">Mga Nigerian naira</displayName>
+				<displayName count="other">Nigerian nairas</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -4228,21 +4247,21 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="NPR">
 				<displayName>Nepalese Rupee</displayName>
 				<displayName count="one">Nepalese rupee</displayName>
-				<displayName count="other">Mga Nepalese rupee</displayName>
+				<displayName count="other">Nepalese rupees</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>New Zealand Dollar</displayName>
 				<displayName count="one">New Zealand dollar</displayName>
-				<displayName count="other">Mga New Zealand dollar</displayName>
+				<displayName count="other">New Zealand dollars</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>Omani Rial</displayName>
 				<displayName count="one">Omani rial</displayName>
-				<displayName count="other">Mga Omani rial</displayName>
+				<displayName count="other">Omani rials</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="PAB">
@@ -4254,7 +4273,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="PEN">
 				<displayName>Peruvian Sol</displayName>
 				<displayName count="one">Peruvian sol</displayName>
-				<displayName count="other">Mga Peruvian sole</displayName>
+				<displayName count="other">Peruvian soles</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="PGK">
@@ -4264,37 +4283,37 @@ the LDML specification (http://unicode.org/reports/tr35/)
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="PHP">
-				<displayName>Philippine Piso</displayName>
-				<displayName count="one">Philippine piso</displayName>
-				<displayName count="other">Mga Philippine piso</displayName>
+				<displayName>Philippine Peso</displayName>
+				<displayName count="one">Philippine peso</displayName>
+				<displayName count="other">Philippine pesos</displayName>
 				<symbol draft="contributed">₱</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>Pakistani Rupee</displayName>
 				<displayName count="one">Pakistani rupee</displayName>
-				<displayName count="other">Mga Pakistani rupee</displayName>
+				<displayName count="other">Pakistani rupees</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>Polish Zloty</displayName>
 				<displayName count="one">Polish zloty</displayName>
-				<displayName count="other">Mga Polish zloty</displayName>
+				<displayName count="other">Polish zlotys</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="PYG">
 				<displayName>Paraguayan Guarani</displayName>
 				<displayName count="one">Paraguayan guarani</displayName>
-				<displayName count="other">Mga Paraguayan guarani</displayName>
+				<displayName count="other">Paraguayan guaranis</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>Qatari Rial</displayName>
 				<displayName count="one">Qatari rial</displayName>
-				<displayName count="other">Mga Qatari rial</displayName>
+				<displayName count="other">Qatari riyals</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="RON">
@@ -4307,46 +4326,46 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="RSD">
 				<displayName>Serbian Dinar</displayName>
 				<displayName count="one">Serbian dinar</displayName>
-				<displayName count="other">Mga Serbian dinar</displayName>
+				<displayName count="other">Serbian dinars</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>Russian Ruble</displayName>
 				<displayName count="one">Russian ruble</displayName>
-				<displayName count="other">Mga Russian ruble</displayName>
+				<displayName count="other">Russian rubles</displayName>
 				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>Rwandan Franc</displayName>
 				<displayName count="one">Rwandan franc</displayName>
-				<displayName count="other">Mga Rwandan franc</displayName>
+				<displayName count="other">Rwandan francs</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>Saudi Riyal</displayName>
 				<displayName count="one">Saudi riyal</displayName>
-				<displayName count="other">Mga Saudi riyal</displayName>
+				<displayName count="other">Saudi riyals</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>Solomon Islands Dollar</displayName>
 				<displayName count="one">Solomon Islands dollar</displayName>
-				<displayName count="other">Mga Solomon Islands dollar</displayName>
+				<displayName count="other">Solomon Islands dollars</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>Seychellois Rupee</displayName>
 				<displayName count="one">Seychellois rupee</displayName>
-				<displayName count="other">Mga Seychellois rupee</displayName>
+				<displayName count="other">Seychellois rupees</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName>Sudanese Pound</displayName>
 				<displayName count="one">Sudanese pound</displayName>
-				<displayName count="other">Mga Sudanese pound</displayName>
+				<displayName count="other">Sudanese pounds</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="SEK">
@@ -4359,54 +4378,54 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="SGD">
 				<displayName>Singapore Dollar</displayName>
 				<displayName count="one">Singapore dollar</displayName>
-				<displayName count="other">Mga Singapore dollar</displayName>
+				<displayName count="other">Singapore dollars</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>St. Helena Pound</displayName>
 				<displayName count="one">St. Helena pound</displayName>
-				<displayName count="other">Mga St. Helena pound</displayName>
+				<displayName count="other">St. Helena pounds</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>Sierra Leonean Leone</displayName>
 				<displayName count="one">Sierra Leonean leone</displayName>
-				<displayName count="other">Mga Sierra Leonean leone</displayName>
+				<displayName count="other">Sierra Leonean leones</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>Somali Shilling</displayName>
 				<displayName count="one">Somali shilling</displayName>
-				<displayName count="other">Mga Somali shilling</displayName>
+				<displayName count="other">Somali shillings</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>Surinamese Dollar</displayName>
 				<displayName count="one">Surinamese dollar</displayName>
-				<displayName count="other">Mga Surinamese dollar</displayName>
+				<displayName count="other">Surinamese dollars</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="SSP">
 				<displayName>South Sudanese Pound</displayName>
 				<displayName count="one">South Sudanese pound</displayName>
-				<displayName count="other">Mga South Sudanese pound</displayName>
+				<displayName count="other">South Sudanese pounds</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="STN">
 				<displayName>Sao Tome &amp; Principe Dobra</displayName>
 				<displayName count="one">Sao Tome &amp; Principe dobra</displayName>
-				<displayName count="other">Mga Sao Tome &amp; Principe dobra</displayName>
+				<displayName count="other">São Tomé &amp; Príncipe dobras</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>Syrian Pound</displayName>
 				<displayName count="one">Syrian pound</displayName>
-				<displayName count="other">Mga Syrian pound</displayName>
+				<displayName count="other">Syrian pounds</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -4426,7 +4445,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="TJS">
 				<displayName>Tajikistani Somoni</displayName>
 				<displayName count="one">Tajikistani somoni</displayName>
-				<displayName count="other">Mga Tajikistani somoni</displayName>
+				<displayName count="other">Tajikistani somonis</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="TMT">
@@ -4438,7 +4457,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="TND">
 				<displayName>Tunisian Dinar</displayName>
 				<displayName count="one">Tunisian dinar</displayName>
-				<displayName count="other">Mga Tunisian dinar</displayName>
+				<displayName count="other">Tunisian dinars</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="TOP">
@@ -4466,27 +4485,27 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="TWD">
 				<displayName>New Taiwan Dollar</displayName>
 				<displayName count="one">New Taiwan dollar</displayName>
-				<displayName count="other">Mga New Taiwan dollar</displayName>
+				<displayName count="other">New Taiwan dollars</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>Tanzanian Shilling</displayName>
 				<displayName count="one">Tanzanian shilling</displayName>
-				<displayName count="other">Mga Tanzanian shilling</displayName>
+				<displayName count="other">Tanzanian shillings</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>Ukrainian Hryvnia</displayName>
 				<displayName count="one">Ukrainian hryvnia</displayName>
-				<displayName count="other">Mga Ukrainian hryvnia</displayName>
+				<displayName count="other">Ukrainian hryvnias</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName>Ugandan Shilling</displayName>
 				<displayName count="one">Ugandan shilling</displayName>
-				<displayName count="other">Mga Ugandan shilling</displayName>
+				<displayName count="other">Ugandan shillings</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="USD">
@@ -4499,7 +4518,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="UYU">
 				<displayName>Uruguayan Peso</displayName>
 				<displayName count="one">Uruguayan peso</displayName>
-				<displayName count="other">Mga Uruguayan peso</displayName>
+				<displayName count="other">Uruguayan pesos</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -4512,7 +4531,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="VES">
 				<displayName>Venezuelan Bolivar</displayName>
 				<displayName count="one">Venezuelan bolivar</displayName>
-				<displayName count="other">Mga Venezuelan bolivar</displayName>
+				<displayName count="other">Venezuelan bolívars</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="VND">
@@ -4525,7 +4544,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="VUV">
 				<displayName>Vanuatu Vatu</displayName>
 				<displayName count="one">Vanuatu vatu</displayName>
-				<displayName count="other">Mga Vanuatu vatu</displayName>
+				<displayName count="other">Vanuatu vatus</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="WST">
@@ -4537,7 +4556,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="XAF">
 				<displayName>Central African CFA Franc</displayName>
 				<displayName count="one">Central African CFA franc</displayName>
-				<displayName count="other">Mga Central African CFA franc</displayName>
+				<displayName count="other">Central African CFA francs</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="XCD">
@@ -4550,13 +4569,13 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="XOF">
 				<displayName>West African CFA Franc</displayName>
 				<displayName count="one">West African CFA franc</displayName>
-				<displayName count="other">Mga West African CFA franc</displayName>
+				<displayName count="other">West African CFA francs</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP Franc</displayName>
 				<displayName count="one">CFP franc</displayName>
-				<displayName count="other">Mga CFP franc</displayName>
+				<displayName count="other">CFP francs</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="XXX">
@@ -4567,7 +4586,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="YER">
 				<displayName>Yemeni Rial</displayName>
 				<displayName count="one">Yemeni rial</displayName>
-				<displayName count="other">Mga Yemeni rial</displayName>
+				<displayName count="other">Yemeni rials</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ZAR">
@@ -4580,7 +4599,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<currency type="ZMW">
 				<displayName>Zambian Kwacha</displayName>
 				<displayName count="one">Zambian kwacha</displayName>
-				<displayName count="other">Mga Zambian kwacha</displayName>
+				<displayName count="other">Zambian kwachas</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -5231,7 +5250,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 				<unitPattern count="one">{0} ka solar luminosity</unitPattern>
 				<unitPattern count="other">{0}ka mga solar luminosity</unitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
+			<unit type="mass-tonne">
 				<displayName>mga metrikong tonelada</displayName>
 				<unitPattern count="one">{0} ka metrikong tonelada</unitPattern>
 				<unitPattern count="other">{0} ka mga metrikong tonelada</unitPattern>
@@ -6246,7 +6265,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
+			<unit type="mass-tonne">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -6904,4 +6923,8 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<nostr>dili:d</nostr>
 		</messages>
 	</posix>
+	<personNames>
+		<nameOrderLocales order="givenFirst">und ceb</nameOrderLocales>
+		<nameOrderLocales order="surnameFirst">ko vi yue zh</nameOrderLocales>
+	</personNames>
 </ldml>

@@ -30,11 +30,12 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.locale.XCldrStub.ImmutableMap;
+import com.ibm.icu.impl.number.DecimalQuantity;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.PluralRules.FixedDecimal;
-import com.ibm.icu.text.PluralRules.FixedDecimalRange;
-import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
+import com.ibm.icu.text.PluralRules.DecimalQuantitySamples;
+import com.ibm.icu.text.PluralRules.DecimalQuantitySamplesRange;
+import com.ibm.icu.text.PluralRules.Operand;
 import com.ibm.icu.text.PluralRules.SampleType;
 import com.ibm.icu.util.Output;
 
@@ -332,7 +333,7 @@ public class BestMinimalPairSamples {
 
     public String getPluralOrOrdinalSample(PluralType pluralType, String code) {
         PluralRules rules = pluralType == PluralType.cardinal ? pluralInfo : ordinalInfo;
-        FixedDecimalSamples samples = rules.getDecimalSamples(code, SampleType.INTEGER);
+        DecimalQuantitySamples samples = rules.getDecimalSamples(code, SampleType.INTEGER);
         if (samples == null) {
             samples = rules.getDecimalSamples(code, SampleType.DECIMAL);
         }
@@ -341,16 +342,16 @@ public class BestMinimalPairSamples {
         }
 
         // get good sample. Avoid zero if possible
-        FixedDecimal sample = null;
-        for (FixedDecimalRange sampleRange : samples.getSamples()) {
+        DecimalQuantity sample = null;
+        for (DecimalQuantitySamplesRange sampleRange : samples.getSamples()) {
             sample = sampleRange.start;
-            if (sample.doubleValue() != 0d) {
+            if (sample.toDouble() != 0d) {
                 break;
             }
         }
 
         if (icuServiceBuilder != null) {
-            int visibleDigits = sample.getVisibleDecimalDigitCount();
+            int visibleDigits = (int) sample.getPluralOperand(Operand.v);
             DecimalFormat nf;
             if (visibleDigits == 0) {
                 nf = icuServiceBuilder.getNumberFormat(0); // 0 is integer, 1 is decimal
@@ -364,7 +365,7 @@ public class BestMinimalPairSamples {
                     nf.setMinimumFractionDigits(visibleDigits);
                 }
             }
-            return nf.format(sample);
+            return nf.format(sample.toBigDecimal());
         }
         return sample.toString();
     }

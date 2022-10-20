@@ -5,9 +5,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.ZoneOffset;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,9 +13,11 @@ import java.util.logging.Logger;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.MemVoterReportStatus;
+import org.unicode.cldr.util.ReportStatusUpdater;
 import org.unicode.cldr.util.VoterReportStatus;
 
-public class ReportsDB implements VoterReportStatus<Integer>, ReportStatusUpdater<Integer> {
+public class ReportsDB extends VoterReportStatus<Integer> implements ReportStatusUpdater<Integer>{
     public static ReportsDB getInstance() {
         return ReportsDBHelper.INSTANCE;
     }
@@ -56,8 +55,8 @@ public class ReportsDB implements VoterReportStatus<Integer>, ReportStatusUpdate
         try (
             Connection conn = DBUtils.getInstance().getDBConnection();
             PreparedStatement ps = DBUtils.prepareStatementWithArgsUpdateable(conn,
-                String.format("INSERT INTO %s (submitter, locale, report, completed, acceptable) " +
-                    "VALUES(?,?,?,?,?) ON DUPLICATE KEY UPDATE completed=?,acceptable=?", table),
+                String.format("INSERT INTO %s (submitter, locale, report, completed, acceptable, last_mod) " +
+                    "VALUES(?,?,?,?,?, CURRENT_TIMESTAMP) ON DUPLICATE KEY UPDATE completed=?,acceptable=?,last_mod=CURRENT_TIMESTAMP", table),
                 user, locale.getBaseName(), r.name(), completed ? 1 : 0, acceptable ? 1 : 0,
                 completed ? 1 : 0, acceptable ? 1 : 0);) {
             ps.execute();
@@ -73,7 +72,7 @@ public class ReportsDB implements VoterReportStatus<Integer>, ReportStatusUpdate
         try (
             Connection conn = DBUtils.getInstance().getAConnection();
             PreparedStatement ps = DBUtils.prepareStatementWithArgsFRO(conn,
-                String.format("SELECT report, completed, acceptable FROM %s WHERE submitter=? AND locale=?", table),
+                String.format("SELECT report, completed, acceptable FROM %s WHERE submitter=? AND locale=? order by last_mod asc", table),
                 user, locale.getBaseName());
             ResultSet rs = ps.executeQuery();) {
             while (rs.next()) {
@@ -89,14 +88,15 @@ public class ReportsDB implements VoterReportStatus<Integer>, ReportStatusUpdate
     }
 
     /**
-     * @param id optional user id to restrict the report to
+     * @param onlyId optional user id to restrict the report to
+     * @param onlyLoc optional locale to restrict the report to
      */
-    public UserReport[] getAllReports(Integer id) throws SQLException {
+    public UserReport[] getAllReports(Integer onlyId, CLDRLocale onlyLoc) throws SQLException {
         Map<Integer, UserReport> l = new HashMap<>();
 
         try (
             Connection conn = DBUtils.getInstance().getAConnection();
-            PreparedStatement ps = getAllReportsStatement(conn, id);
+            PreparedStatement ps = getAllReportsStatement(conn, onlyId, onlyLoc);
             ResultSet rs = ps.executeQuery();) {
             while (rs.next()) {
                 final int user = rs.getInt("submitter");
@@ -114,14 +114,52 @@ public class ReportsDB implements VoterReportStatus<Integer>, ReportStatusUpdate
         return l.values().toArray(new UserReport[l.size()]);
     }
 
-    private PreparedStatement getAllReportsStatement(Connection conn, Integer id) throws SQLException {
-        if (id != null) {
+    /**
+     * Take a snapshot of the reports DB.
+     * This reduces the number of SQL calls to be made against that snapshot.
+     * @param onlyId Restrict to one id
+     * @param onlyLoc Restrict to one locale
+     * @return
+     * @throws SQLException
+     */
+    public VoterReportStatus<Integer> clone(Integer onlyId, CLDRLocale onlyLoc) throws SQLException {
+        MemVoterReportStatus<Integer> copy = new MemVoterReportStatus<Integer>();
+        try (
+            Connection conn = DBUtils.getInstance().getAConnection();
+            PreparedStatement ps = getAllReportsStatement(conn, onlyId, onlyLoc);
+            ResultSet rs = ps.executeQuery();) {
+            while (rs.next()) {
+                final int user = rs.getInt("submitter");
+                final String report = rs.getString("report");
+                final String locale = rs.getString("locale");
+                final Boolean completed = rs.getBoolean("completed");
+                final Boolean acceptable = rs.getBoolean("acceptable");
+                final java.sql.Timestamp last_mod = rs.getTimestamp("last_mod");
+
+                // now update it
+                copy.markReportComplete(user, CLDRLocale.getInstance(locale),
+                    ReportId.valueOf(report), completed, acceptable, new Date(last_mod.getTime()));
+            }
+        }
+        return copy;
+    }
+
+    private PreparedStatement getAllReportsStatement(Connection conn, Integer onlyId, CLDRLocale onlyLoc) throws SQLException {
+        if (onlyId != null && onlyLoc != null) {
             return DBUtils.prepareStatementWithArgsFRO(conn,
-                String.format("SELECT * FROM %s WHERE submitter=?", table),
-                id);
+                String.format("SELECT * FROM %s WHERE submitter=? and locale=? order by last_mod a", table),
+                onlyId, onlyLoc);
+        } else if (onlyId != null) {
+            return DBUtils.prepareStatementWithArgsFRO(conn,
+                String.format("SELECT * FROM %s WHERE submitter=? order by last_mod asc", table),
+                onlyId);
+        } else if (onlyLoc != null) {
+            return DBUtils.prepareStatementWithArgsFRO(conn,
+                String.format("SELECT * FROM %s WHERE locale=? order by last_mod asc", table),
+                onlyLoc);
         } else {
             return DBUtils.prepareStatementWithArgsFRO(conn,
-                String.format("SELECT * FROM %s", table));
+                String.format("SELECT * FROM %s order by last_mod asc", table));
         }
     }
 
@@ -134,11 +172,7 @@ public class ReportsDB implements VoterReportStatus<Integer>, ReportStatusUpdate
 
         @Schema(description = "the latest date that something was changed, or null")
         public String getLastMod() {
-            if (lastMod == null) {
-                return null;
-            }
-            return ZonedDateTime.ofInstant(lastMod.toInstant(), ZoneOffset.UTC)
-                .format(DateTimeFormatter.ISO_DATE_TIME);
+            return DBUtils.toISOString(lastMod);
         }
 
         @Schema(description = "User ID")

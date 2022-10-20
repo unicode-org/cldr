@@ -66,6 +66,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="DE">Jérman</territory>
 			<territory type="FR">Prancis</territory>
 			<territory type="GB">Britania Raya</territory>
+			<territory type="ID">Indonesia</territory>
 			<territory type="IN">India</territory>
 			<territory type="IT">Italia</territory>
 			<territory type="JP">Jepang</territory>
@@ -190,7 +191,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -530,7 +531,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -886,4 +887,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nostr>teu:t</nostr>
 		</messages>
 	</posix>
+	<personNames>
+		<nameOrderLocales order="givenFirst">und su</nameOrderLocales>
+		<nameOrderLocales order="surnameFirst">ko vi yue zh</nameOrderLocales>
+	</personNames>
 </ldml>

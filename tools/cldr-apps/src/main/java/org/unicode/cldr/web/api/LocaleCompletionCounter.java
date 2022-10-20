@@ -2,6 +2,7 @@ package org.unicode.cldr.web.api;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
 import java.util.EnumSet;
+import java.util.concurrent.ExecutionException;
 import java.util.logging.Logger;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.web.*;
@@ -10,40 +11,51 @@ public class LocaleCompletionCounter {
 
     private static final Logger logger = SurveyLog.forClass(LocaleCompletionCounter.class);
 
-    private static final EnumSet<VettingViewer.Choice> choiceSet = EnumSet.of(
-        VettingViewer.Choice.error,
-        VettingViewer.Choice.hasDispute,
-        VettingViewer.Choice.notApproved,
-        VettingViewer.Choice.missingCoverage
-    );
-
+    private final CLDRLocale cldrLocale;
     private final String localeId;
     private final Level level;
-    private final LocaleCompletion.LocaleCompletionResponse lcr;
     private final VettingViewer<Organization> vv;
-    private final VettingViewer.DashboardArgs args;
+    private final VettingParameters args;
+    private final boolean isBaseline;
 
-    public LocaleCompletionCounter(CLDRLocale cldrLocale, STFactory stFactory) {
-        localeId = cldrLocale.toString();
-        level = StandardCodes.make().getTargetCoverageLevel(localeId);
-        lcr = new LocaleCompletion.LocaleCompletionResponse(level);
-        final SurveyMain sm = CookieSession.sm;
-        vv = new VettingViewer<>(sm.getSupplementalDataInfo(), stFactory, new STUsersChoice(sm));
-        args = new VettingViewer.DashboardArgs(choiceSet, cldrLocale, level);
-        args.setUserAndOrganization(0, VettingViewer.getNeutralOrgForSummary());
-        Dashboard.setFiles(args, cldrLocale, stFactory);
+    public LocaleCompletionCounter(CLDRLocale cldrLocale, Factory factory) {
+        this(cldrLocale, factory, false);
     }
 
-    public LocaleCompletion.LocaleCompletionResponse getResponse() {
-        logger.info("Starting LocaleCompletion for " + localeId + "/" + level);
-        final ElapsedTimer et = new ElapsedTimer("Finishing LocaleCompletion: " + localeId + "/" + level);
-        VettingViewer<Organization>.LocaleCompletionData lcd = vv.generateLocaleCompletion(args);
-        lcr.votes = lcd.localeProgress.getVotedPathCount();
-        lcr.total = lcd.localeProgress.getVotablePathCount();
-        lcr.error = lcd.errorDebug;
-        lcr.missing = lcd.missingDebug;
-        lcr.provisional = lcd.provisionalDebug;
+    public LocaleCompletionCounter(CLDRLocale cldrLocale, Factory factory, boolean isBaseline) {
+        this.isBaseline = isBaseline;
+        this.cldrLocale = cldrLocale;
+        localeId = cldrLocale.toString();
+        level = StandardCodes.make().getTargetCoverageLevel(localeId);
+        final SurveyMain sm = CookieSession.sm;
+        final VettingViewer.UsersChoice<Organization> userVoteStatus = isBaseline
+            ? new VotelessUsersChoice()
+            : new STUsersChoice(sm);
+        vv = new VettingViewer<>(sm.getSupplementalDataInfo(), factory, userVoteStatus);
+        final EnumSet<NotificationCategory> set = VettingViewer.getLocaleCompletionCategories();
+        args = new VettingParameters(set, cldrLocale, level);
+        args.setUserAndOrganization(0, VettingViewer.getNeutralOrgForSummary());
+        if (isBaseline) {
+            args.setFilesForBaseline(cldrLocale, factory);
+        } else {
+            args.setFiles(cldrLocale, factory, sm.getDiskFactory());
+        }
+    }
+
+    public LocaleCompletion.LocaleCompletionResponse getResponse() throws ExecutionException {
+        final String desc = description();
+        logger.info("Starting " + desc);
+        final ElapsedTimer et = new ElapsedTimer("Finishing " + desc);
+        final LocaleCompletionData lcd = vv.generateLocaleCompletion(args);
+        final LocaleCompletion.LocaleCompletionResponse lcr = new LocaleCompletion.LocaleCompletionResponse(level, lcd);
+        if (!isBaseline) {
+            lcr.setBaselineCount(LocaleCompletion.getBaselineCount(cldrLocale));
+        }
         logger.info(et.toString());
         return lcr;
+    }
+
+    private String description() {
+        return String.format("LocaleCompletion for %s/%s %s", localeId, level, isBaseline ? "(Baseline)" : "");
     }
 }

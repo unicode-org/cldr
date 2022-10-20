@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2022 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,46 +12,56 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="az"/>
 	</identity>
 	<annotations>
-		<annotation cp="🫃🏻">açıq dəri tonu | hamilə | hamilə kişi | qarın | şişkin | tam</annotation>
-		<annotation cp="🫃🏻" type="tts">hamilə kişi: açıq dəri tonu</annotation>
-		<annotation cp="🫃🏼">hamilə | hamilə kişi | orta-açıq dəri tonu | qarın | şişkin | tam</annotation>
-		<annotation cp="🫃🏼" type="tts">hamilə kişi: orta-açıq dəri tonu</annotation>
-		<annotation cp="🫃🏽">hamilə | hamilə kişi | orta dəri tonu | qarın | şişkin | tam</annotation>
-		<annotation cp="🫃🏽" type="tts">hamilə kişi: orta dəri tonu</annotation>
-		<annotation cp="🫃🏾">hamilə | hamilə kişi | orta-tünd dəri tonu | qarın | şişkin | tam</annotation>
-		<annotation cp="🫃🏾" type="tts">hamilə kişi: orta-tünd dəri tonu</annotation>
-		<annotation cp="🫃🏿">hamilə | hamilə kişi | qarın | şişkin | tam | tünd dəri tonu</annotation>
-		<annotation cp="🫃🏿" type="tts">hamilə kişi: tünd dəri tonu</annotation>
-		<annotation cp="🫄🏻">açıq dəri tonu | hamilə | hamilə adam | qarın | şişkin | tam</annotation>
-		<annotation cp="🫄🏻" type="tts">hamilə adam: açıq dəri tonu</annotation>
-		<annotation cp="🫄🏼">hamilə | hamilə adam | orta-açıq dəri tonu | qarın | şişkin | tam</annotation>
-		<annotation cp="🫄🏼" type="tts">hamilə adam: orta-açıq dəri tonu</annotation>
-		<annotation cp="🫄🏽">hamilə | hamilə adam | orta dəri tonu | qarın | şişkin | tam</annotation>
-		<annotation cp="🫄🏽" type="tts">hamilə adam: orta dəri tonu</annotation>
-		<annotation cp="🫄🏾">hamilə | hamilə adam | orta-tünd dəri tonu | qarın | şişkin | tam</annotation>
-		<annotation cp="🫄🏾" type="tts">hamilə adam: orta-tünd dəri tonu</annotation>
-		<annotation cp="🫄🏿">hamilə | hamilə adam | qarın | şişkin | tam | tünd dəri tonu</annotation>
-		<annotation cp="🫄🏿" type="tts">hamilə adam: tünd dəri tonu</annotation>
-		<annotation cp="🫅🏻">açıq dəri tonu | krallıq | monarx | nəcib | səltənət | taclı adam</annotation>
-		<annotation cp="🫅🏻" type="tts">taclı adam: açıq dəri tonu</annotation>
-		<annotation cp="🫅🏼">krallıq | monarx | nəcib | orta-açıq dəri tonu | səltənət | taclı adam</annotation>
-		<annotation cp="🫅🏼" type="tts">taclı adam: orta-açıq dəri tonu</annotation>
-		<annotation cp="🫅🏽">krallıq | monarx | nəcib | orta dəri tonu | səltənət | taclı adam</annotation>
-		<annotation cp="🫅🏽" type="tts">taclı adam: orta dəri tonu</annotation>
-		<annotation cp="🫅🏾">krallıq | monarx | nəcib | orta-tünd dəri tonu | səltənət | taclı adam</annotation>
-		<annotation cp="🫅🏾" type="tts">taclı adam: orta-tünd dəri tonu</annotation>
-		<annotation cp="🫅🏿">krallıq | monarx | nəcib | səltənət | taclı adam | tünd dəri tonu</annotation>
-		<annotation cp="🫅🏿" type="tts">taclı adam: tünd dəri tonu</annotation>
-		<annotation cp="🫰🏻">açıq dəri tonu | bahalı | əl barmağı və baş barmağı çarpazlanmış vəziyyətdə | pul | sevgi | snap | ürək</annotation>
-		<annotation cp="🫰🏻" type="tts">əl barmağı və baş barmağı çarpazlanmış vəziyyətdə: açıq dəri tonu</annotation>
-		<annotation cp="🫰🏼">bahalı | əl barmağı və baş barmağı çarpazlanmış vəziyyətdə | orta-açıq dəri tonu | pul | sevgi | snap | ürək</annotation>
-		<annotation cp="🫰🏼" type="tts">əl barmağı və baş barmağı çarpazlanmış vəziyyətdə: orta-açıq dəri tonu</annotation>
-		<annotation cp="🫰🏽">bahalı | əl barmağı və baş barmağı çarpazlanmış vəziyyətdə | orta dəri tonu | pul | sevgi | snap | ürək</annotation>
-		<annotation cp="🫰🏽" type="tts">əl barmağı və baş barmağı çarpazlanmış vəziyyətdə: orta dəri tonu</annotation>
-		<annotation cp="🫰🏾">bahalı | əl barmağı və baş barmağı çarpazlanmış vəziyyətdə | orta-tünd dəri tonu | pul | sevgi | snap | ürək</annotation>
-		<annotation cp="🫰🏾" type="tts">əl barmağı və baş barmağı çarpazlanmış vəziyyətdə: orta-tünd dəri tonu</annotation>
-		<annotation cp="🫰🏿">bahalı | əl barmağı və baş barmağı çarpazlanmış vəziyyətdə | pul | sevgi | snap | tünd dəri tonu | ürək</annotation>
-		<annotation cp="🫰🏿" type="tts">əl barmağı və baş barmağı çarpazlanmış vəziyyətdə: tünd dəri tonu</annotation>
+		<annotation cp="👋🏻">açıq dəri tonu | əl | əl sallayan əllər | orqan | yelləmə | yelləmək</annotation>
+		<annotation cp="👋🏻" type="tts">əl sallayan əllər: açıq dəri tonu</annotation>
+		<annotation cp="👋🏼">əl | əl sallayan əllər | orqan | orta-açıq dəri tonu | yelləmə | yelləmək</annotation>
+		<annotation cp="👋🏼" type="tts">əl sallayan əllər: orta-açıq dəri tonu</annotation>
+		<annotation cp="👋🏽">əl | əl sallayan əllər | orqan | orta dəri tonu | yelləmə | yelləmək</annotation>
+		<annotation cp="👋🏽" type="tts">əl sallayan əllər: orta dəri tonu</annotation>
+		<annotation cp="👋🏾">əl | əl sallayan əllər | orqan | orta-tünd dəri tonu | yelləmə | yelləmək</annotation>
+		<annotation cp="👋🏾" type="tts">əl sallayan əllər: orta-tünd dəri tonu</annotation>
+		<annotation cp="👋🏿">əl | əl sallayan əllər | orqan | tünd dəri tonu | yelləmə | yelləmək</annotation>
+		<annotation cp="👋🏿" type="tts">əl sallayan əllər: tünd dəri tonu</annotation>
+		<annotation cp="🤚🏻">açıq dəri tonu | arxa | əl | qaldırmaq | yuxarı | yuxarı qalxan əl arxası</annotation>
+		<annotation cp="🤚🏻" type="tts">yuxarı qalxan əl arxası: açıq dəri tonu</annotation>
+		<annotation cp="🤚🏼">arxa | əl | orta-açıq dəri tonu | qaldırmaq | yuxarı | yuxarı qalxan əl arxası</annotation>
+		<annotation cp="🤚🏼" type="tts">yuxarı qalxan əl arxası: orta-açıq dəri tonu</annotation>
+		<annotation cp="🤚🏽">arxa | əl | orta dəri tonu | qaldırmaq | yuxarı | yuxarı qalxan əl arxası</annotation>
+		<annotation cp="🤚🏽" type="tts">yuxarı qalxan əl arxası: orta dəri tonu</annotation>
+		<annotation cp="🤚🏾">arxa | əl | orta-tünd dəri tonu | qaldırmaq | yuxarı | yuxarı qalxan əl arxası</annotation>
+		<annotation cp="🤚🏾" type="tts">yuxarı qalxan əl arxası: orta-tünd dəri tonu</annotation>
+		<annotation cp="🤚🏿">arxa | əl | qaldırmaq | tünd dəri tonu | yuxarı | yuxarı qalxan əl arxası</annotation>
+		<annotation cp="🤚🏿" type="tts">yuxarı qalxan əl arxası: tünd dəri tonu</annotation>
+		<annotation cp="🖐🏻">açıq dəri tonu | aralı | barmaq | barmaqları aralı şəkildə qaldırılmış əl | əl | orqan</annotation>
+		<annotation cp="🖐🏻" type="tts">barmaqları aralı şəkildə qaldırılmış əl: açıq dəri tonu</annotation>
+		<annotation cp="🖐🏼">aralı | barmaq | barmaqları aralı şəkildə qaldırılmış əl | əl | orqan | orta-açıq dəri tonu</annotation>
+		<annotation cp="🖐🏼" type="tts">barmaqları aralı şəkildə qaldırılmış əl: orta-açıq dəri tonu</annotation>
+		<annotation cp="🖐🏽">aralı | barmaq | barmaqları aralı şəkildə qaldırılmış əl | əl | orqan | orta dəri tonu</annotation>
+		<annotation cp="🖐🏽" type="tts">barmaqları aralı şəkildə qaldırılmış əl: orta dəri tonu</annotation>
+		<annotation cp="🖐🏾">aralı | barmaq | barmaqları aralı şəkildə qaldırılmış əl | əl | orqan | orta-tünd dəri tonu</annotation>
+		<annotation cp="🖐🏾" type="tts">barmaqları aralı şəkildə qaldırılmış əl: orta-tünd dəri tonu</annotation>
+		<annotation cp="🖐🏿">aralı | barmaq | barmaqları aralı şəkildə qaldırılmış əl | əl | orqan | tünd dəri tonu</annotation>
+		<annotation cp="🖐🏿" type="tts">barmaqları aralı şəkildə qaldırılmış əl: tünd dəri tonu</annotation>
+		<annotation cp="✋🏻">açıq dəri tonu | əl | orqan | qaldırımış əl</annotation>
+		<annotation cp="✋🏻" type="tts">qaldırımış əl: açıq dəri tonu</annotation>
+		<annotation cp="✋🏼">əl | orqan | orta-açıq dəri tonu | qaldırımış əl</annotation>
+		<annotation cp="✋🏼" type="tts">qaldırımış əl: orta-açıq dəri tonu</annotation>
+		<annotation cp="✋🏽">əl | orqan | orta dəri tonu | qaldırımış əl</annotation>
+		<annotation cp="✋🏽" type="tts">qaldırımış əl: orta dəri tonu</annotation>
+		<annotation cp="✋🏾">əl | orqan | orta-tünd dəri tonu | qaldırımış əl</annotation>
+		<annotation cp="✋🏾" type="tts">qaldırımış əl: orta-tünd dəri tonu</annotation>
+		<annotation cp="✋🏿">əl | orqan | qaldırımış əl | tünd dəri tonu</annotation>
+		<annotation cp="✋🏿" type="tts">qaldırımış əl: tünd dəri tonu</annotation>
+		<annotation cp="🖖🏻">açıq dəri tonu | barmaq | əl | orqan | spok | vulkan | vulkan salamı</annotation>
+		<annotation cp="🖖🏻" type="tts">vulkan salamı: açıq dəri tonu</annotation>
+		<annotation cp="🖖🏼">barmaq | əl | orqan | orta-açıq dəri tonu | spok | vulkan | vulkan salamı</annotation>
+		<annotation cp="🖖🏼" type="tts">vulkan salamı: orta-açıq dəri tonu</annotation>
+		<annotation cp="🖖🏽">barmaq | əl | orqan | orta dəri tonu | spok | vulkan | vulkan salamı</annotation>
+		<annotation cp="🖖🏽" type="tts">vulkan salamı: orta dəri tonu</annotation>
+		<annotation cp="🖖🏾">barmaq | əl | orqan | orta-tünd dəri tonu | spok | vulkan | vulkan salamı</annotation>
+		<annotation cp="🖖🏾" type="tts">vulkan salamı: orta-tünd dəri tonu</annotation>
+		<annotation cp="🖖🏿">barmaq | əl | orqan | spok | tünd dəri tonu | vulkan | vulkan salamı</annotation>
+		<annotation cp="🖖🏿" type="tts">vulkan salamı: tünd dəri tonu</annotation>
 		<annotation cp="🫱🏻">açıq dəri tonu | əl | sağ | sağa</annotation>
 		<annotation cp="🫱🏻" type="tts">sağ əl: açıq dəri tonu</annotation>
 		<annotation cp="🫱🏼">əl | orta-açıq dəri tonu | sağ | sağa</annotation>
@@ -132,76 +142,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫴🏾" type="tts">yuxarı əl: orta-tünd dəri tonu</annotation>
 		<annotation cp="🫴🏿">gəl | işarə | təklif | tünd dəri tonu | tutmaq | yuxarı əl</annotation>
 		<annotation cp="🫴🏿" type="tts">yuxarı əl: tünd dəri tonu</annotation>
-		<annotation cp="🫵🏻">açıq dəri tonu | işarə | sən | tamaşaçıya işarə edən barmaq</annotation>
-		<annotation cp="🫵🏻" type="tts">tamaşaçıya işarə edən barmaq: açıq dəri tonu</annotation>
-		<annotation cp="🫵🏼">işarə | orta-açıq dəri tonu | sən | tamaşaçıya işarə edən barmaq</annotation>
-		<annotation cp="🫵🏼" type="tts">tamaşaçıya işarə edən barmaq: orta-açıq dəri tonu</annotation>
-		<annotation cp="🫵🏽">işarə | orta dəri tonu | sən | tamaşaçıya işarə edən barmaq</annotation>
-		<annotation cp="🫵🏽" type="tts">tamaşaçıya işarə edən barmaq: orta dəri tonu</annotation>
-		<annotation cp="🫵🏾">işarə | orta-tünd dəri tonu | sən | tamaşaçıya işarə edən barmaq</annotation>
-		<annotation cp="🫵🏾" type="tts">tamaşaçıya işarə edən barmaq: orta-tünd dəri tonu</annotation>
-		<annotation cp="🫵🏿">işarə | sən | tamaşaçıya işarə edən barmaq | tünd dəri tonu</annotation>
-		<annotation cp="🫵🏿" type="tts">tamaşaçıya işarə edən barmaq: tünd dəri tonu</annotation>
-		<annotation cp="🫶🏻">açıq dəri tonu | əldən ürək | sevgi</annotation>
-		<annotation cp="🫶🏻" type="tts">əldən ürək: açıq dəri tonu</annotation>
-		<annotation cp="🫶🏼">əldən ürək | orta-açıq dəri tonu | sevgi</annotation>
-		<annotation cp="🫶🏼" type="tts">əldən ürək: orta-açıq dəri tonu</annotation>
-		<annotation cp="🫶🏽">əldən ürək | orta dəri tonu | sevgi</annotation>
-		<annotation cp="🫶🏽" type="tts">əldən ürək: orta dəri tonu</annotation>
-		<annotation cp="🫶🏾">əldən ürək | orta-tünd dəri tonu | sevgi</annotation>
-		<annotation cp="🫶🏾" type="tts">əldən ürək: orta-tünd dəri tonu</annotation>
-		<annotation cp="🫶🏿">əldən ürək | sevgi | tünd dəri tonu</annotation>
-		<annotation cp="🫶🏿" type="tts">əldən ürək: tünd dəri tonu</annotation>
-		<annotation cp="👋🏻">açıq dəri tonu | əl | əl sallayan əllər | orqan | yelləmə | yelləmək</annotation>
-		<annotation cp="👋🏻" type="tts">əl sallayan əllər: açıq dəri tonu</annotation>
-		<annotation cp="👋🏼">əl | əl sallayan əllər | orqan | orta-açıq dəri tonu | yelləmə | yelləmək</annotation>
-		<annotation cp="👋🏼" type="tts">əl sallayan əllər: orta-açıq dəri tonu</annotation>
-		<annotation cp="👋🏽">əl | əl sallayan əllər | orqan | orta dəri tonu | yelləmə | yelləmək</annotation>
-		<annotation cp="👋🏽" type="tts">əl sallayan əllər: orta dəri tonu</annotation>
-		<annotation cp="👋🏾">əl | əl sallayan əllər | orqan | orta-tünd dəri tonu | yelləmə | yelləmək</annotation>
-		<annotation cp="👋🏾" type="tts">əl sallayan əllər: orta-tünd dəri tonu</annotation>
-		<annotation cp="👋🏿">əl | əl sallayan əllər | orqan | tünd dəri tonu | yelləmə | yelləmək</annotation>
-		<annotation cp="👋🏿" type="tts">əl sallayan əllər: tünd dəri tonu</annotation>
-		<annotation cp="🤚🏻">açıq dəri tonu | arxa | əl | qaldırmaq | yuxarı | yuxarı qalxan əl arxası</annotation>
-		<annotation cp="🤚🏻" type="tts">yuxarı qalxan əl arxası: açıq dəri tonu</annotation>
-		<annotation cp="🤚🏼">arxa | əl | orta-açıq dəri tonu | qaldırmaq | yuxarı | yuxarı qalxan əl arxası</annotation>
-		<annotation cp="🤚🏼" type="tts">yuxarı qalxan əl arxası: orta-açıq dəri tonu</annotation>
-		<annotation cp="🤚🏽">arxa | əl | orta dəri tonu | qaldırmaq | yuxarı | yuxarı qalxan əl arxası</annotation>
-		<annotation cp="🤚🏽" type="tts">yuxarı qalxan əl arxası: orta dəri tonu</annotation>
-		<annotation cp="🤚🏾">arxa | əl | orta-tünd dəri tonu | qaldırmaq | yuxarı | yuxarı qalxan əl arxası</annotation>
-		<annotation cp="🤚🏾" type="tts">yuxarı qalxan əl arxası: orta-tünd dəri tonu</annotation>
-		<annotation cp="🤚🏿">arxa | əl | qaldırmaq | tünd dəri tonu | yuxarı | yuxarı qalxan əl arxası</annotation>
-		<annotation cp="🤚🏿" type="tts">yuxarı qalxan əl arxası: tünd dəri tonu</annotation>
-		<annotation cp="🖐🏻">açıq dəri tonu | aralı | barmaq | barmaqları aralı şəkildə qaldırılmış əl | əl | orqan</annotation>
-		<annotation cp="🖐🏻" type="tts">barmaqları aralı şəkildə qaldırılmış əl: açıq dəri tonu</annotation>
-		<annotation cp="🖐🏼">aralı | barmaq | barmaqları aralı şəkildə qaldırılmış əl | əl | orqan | orta-açıq dəri tonu</annotation>
-		<annotation cp="🖐🏼" type="tts">barmaqları aralı şəkildə qaldırılmış əl: orta-açıq dəri tonu</annotation>
-		<annotation cp="🖐🏽">aralı | barmaq | barmaqları aralı şəkildə qaldırılmış əl | əl | orqan | orta dəri tonu</annotation>
-		<annotation cp="🖐🏽" type="tts">barmaqları aralı şəkildə qaldırılmış əl: orta dəri tonu</annotation>
-		<annotation cp="🖐🏾">aralı | barmaq | barmaqları aralı şəkildə qaldırılmış əl | əl | orqan | orta-tünd dəri tonu</annotation>
-		<annotation cp="🖐🏾" type="tts">barmaqları aralı şəkildə qaldırılmış əl: orta-tünd dəri tonu</annotation>
-		<annotation cp="🖐🏿">aralı | barmaq | barmaqları aralı şəkildə qaldırılmış əl | əl | orqan | tünd dəri tonu</annotation>
-		<annotation cp="🖐🏿" type="tts">barmaqları aralı şəkildə qaldırılmış əl: tünd dəri tonu</annotation>
-		<annotation cp="✋🏻">açıq dəri tonu | əl | orqan | qaldırımış əl</annotation>
-		<annotation cp="✋🏻" type="tts">qaldırımış əl: açıq dəri tonu</annotation>
-		<annotation cp="✋🏼">əl | orqan | orta-açıq dəri tonu | qaldırımış əl</annotation>
-		<annotation cp="✋🏼" type="tts">qaldırımış əl: orta-açıq dəri tonu</annotation>
-		<annotation cp="✋🏽">əl | orqan | orta dəri tonu | qaldırımış əl</annotation>
-		<annotation cp="✋🏽" type="tts">qaldırımış əl: orta dəri tonu</annotation>
-		<annotation cp="✋🏾">əl | orqan | orta-tünd dəri tonu | qaldırımış əl</annotation>
-		<annotation cp="✋🏾" type="tts">qaldırımış əl: orta-tünd dəri tonu</annotation>
-		<annotation cp="✋🏿">əl | orqan | qaldırımış əl | tünd dəri tonu</annotation>
-		<annotation cp="✋🏿" type="tts">qaldırımış əl: tünd dəri tonu</annotation>
-		<annotation cp="🖖🏻">açıq dəri tonu | barmaq | əl | orqan | spok | vulkan | vulkan salamı</annotation>
-		<annotation cp="🖖🏻" type="tts">vulkan salamı: açıq dəri tonu</annotation>
-		<annotation cp="🖖🏼">barmaq | əl | orqan | orta-açıq dəri tonu | spok | vulkan | vulkan salamı</annotation>
-		<annotation cp="🖖🏼" type="tts">vulkan salamı: orta-açıq dəri tonu</annotation>
-		<annotation cp="🖖🏽">barmaq | əl | orqan | orta dəri tonu | spok | vulkan | vulkan salamı</annotation>
-		<annotation cp="🖖🏽" type="tts">vulkan salamı: orta dəri tonu</annotation>
-		<annotation cp="🖖🏾">barmaq | əl | orqan | orta-tünd dəri tonu | spok | vulkan | vulkan salamı</annotation>
-		<annotation cp="🖖🏾" type="tts">vulkan salamı: orta-tünd dəri tonu</annotation>
-		<annotation cp="🖖🏿">barmaq | əl | orqan | spok | tünd dəri tonu | vulkan | vulkan salamı</annotation>
-		<annotation cp="🖖🏿" type="tts">vulkan salamı: tünd dəri tonu</annotation>
 		<annotation cp="👌🏻">açıq dəri tonu | əl | ok | ok işarəsi | orqan</annotation>
 		<annotation cp="👌🏻" type="tts">ok işarəsi: açıq dəri tonu</annotation>
 		<annotation cp="👌🏼">əl | ok | ok işarəsi | orqan | orta-açıq dəri tonu</annotation>
@@ -252,6 +192,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤞🏾" type="tts">ümid edirəm: orta-tünd dəri tonu</annotation>
 		<annotation cp="🤞🏿">inam | tünd dəri tonu | ümid | ümid edirəm</annotation>
 		<annotation cp="🤞🏿" type="tts">ümid edirəm: tünd dəri tonu</annotation>
+		<annotation cp="🫰🏻">açıq dəri tonu | bahalı | əl barmağı və baş barmağı çarpazlanmış vəziyyətdə | pul | sevgi | snap | ürək</annotation>
+		<annotation cp="🫰🏻" type="tts">əl barmağı və baş barmağı çarpazlanmış vəziyyətdə: açıq dəri tonu</annotation>
+		<annotation cp="🫰🏼">bahalı | əl barmağı və baş barmağı çarpazlanmış vəziyyətdə | orta-açıq dəri tonu | pul | sevgi | snap | ürək</annotation>
+		<annotation cp="🫰🏼" type="tts">əl barmağı və baş barmağı çarpazlanmış vəziyyətdə: orta-açıq dəri tonu</annotation>
+		<annotation cp="🫰🏽">bahalı | əl barmağı və baş barmağı çarpazlanmış vəziyyətdə | orta dəri tonu | pul | sevgi | snap | ürək</annotation>
+		<annotation cp="🫰🏽" type="tts">əl barmağı və baş barmağı çarpazlanmış vəziyyətdə: orta dəri tonu</annotation>
+		<annotation cp="🫰🏾">bahalı | əl barmağı və baş barmağı çarpazlanmış vəziyyətdə | orta-tünd dəri tonu | pul | sevgi | snap | ürək</annotation>
+		<annotation cp="🫰🏾" type="tts">əl barmağı və baş barmağı çarpazlanmış vəziyyətdə: orta-tünd dəri tonu</annotation>
+		<annotation cp="🫰🏿">bahalı | əl barmağı və baş barmağı çarpazlanmış vəziyyətdə | pul | sevgi | snap | tünd dəri tonu | ürək</annotation>
+		<annotation cp="🫰🏿" type="tts">əl barmağı və baş barmağı çarpazlanmış vəziyyətdə: tünd dəri tonu</annotation>
 		<annotation cp="🤟🏻">açıq dəri tonu | sevgi əli | sevgi jesti</annotation>
 		<annotation cp="🤟🏻" type="tts">sevgi jesti: açıq dəri tonu</annotation>
 		<annotation cp="🤟🏼">orta-açıq dəri tonu | sevgi əli | sevgi jesti</annotation>
@@ -342,6 +292,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="☝🏾" type="tts">işarə barmağı: orta-tünd dəri tonu</annotation>
 		<annotation cp="☝🏿">barmaq | əl | göstərmək | işarə | işarə barmağı | tünd dəri tonu | yuxarı</annotation>
 		<annotation cp="☝🏿" type="tts">işarə barmağı: tünd dəri tonu</annotation>
+		<annotation cp="🫵🏻">açıq dəri tonu | işarə | sən | tamaşaçıya işarə edən barmaq</annotation>
+		<annotation cp="🫵🏻" type="tts">tamaşaçıya işarə edən barmaq: açıq dəri tonu</annotation>
+		<annotation cp="🫵🏼">işarə | orta-açıq dəri tonu | sən | tamaşaçıya işarə edən barmaq</annotation>
+		<annotation cp="🫵🏼" type="tts">tamaşaçıya işarə edən barmaq: orta-açıq dəri tonu</annotation>
+		<annotation cp="🫵🏽">işarə | orta dəri tonu | sən | tamaşaçıya işarə edən barmaq</annotation>
+		<annotation cp="🫵🏽" type="tts">tamaşaçıya işarə edən barmaq: orta dəri tonu</annotation>
+		<annotation cp="🫵🏾">işarə | orta-tünd dəri tonu | sən | tamaşaçıya işarə edən barmaq</annotation>
+		<annotation cp="🫵🏾" type="tts">tamaşaçıya işarə edən barmaq: orta-tünd dəri tonu</annotation>
+		<annotation cp="🫵🏿">işarə | sən | tamaşaçıya işarə edən barmaq | tünd dəri tonu</annotation>
+		<annotation cp="🫵🏿" type="tts">tamaşaçıya işarə edən barmaq: tünd dəri tonu</annotation>
 		<annotation cp="👍🏻">açıq dəri tonu | baş barmaq | baş barmaq yuxarı | əl | orqan | yuxarı</annotation>
 		<annotation cp="👍🏻" type="tts">baş barmaq yuxarı: açıq dəri tonu</annotation>
 		<annotation cp="👍🏼">baş barmaq | baş barmaq yuxarı | əl | orqan | orta-açıq dəri tonu | yuxarı</annotation>
@@ -422,6 +382,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙌🏾" type="tts">əllərini qaldıran adam: orta-tünd dəri tonu</annotation>
 		<annotation cp="🙌🏿">bayram | əl | əllərini qaldıran adam | jest | orqan | qaldırılmış | tünd dəri tonu | ura</annotation>
 		<annotation cp="🙌🏿" type="tts">əllərini qaldıran adam: tünd dəri tonu</annotation>
+		<annotation cp="🫶🏻">açıq dəri tonu | əldən ürək | sevgi</annotation>
+		<annotation cp="🫶🏻" type="tts">əldən ürək: açıq dəri tonu</annotation>
+		<annotation cp="🫶🏼">əldən ürək | orta-açıq dəri tonu | sevgi</annotation>
+		<annotation cp="🫶🏼" type="tts">əldən ürək: orta-açıq dəri tonu</annotation>
+		<annotation cp="🫶🏽">əldən ürək | orta dəri tonu | sevgi</annotation>
+		<annotation cp="🫶🏽" type="tts">əldən ürək: orta dəri tonu</annotation>
+		<annotation cp="🫶🏾">əldən ürək | orta-tünd dəri tonu | sevgi</annotation>
+		<annotation cp="🫶🏾" type="tts">əldən ürək: orta-tünd dəri tonu</annotation>
+		<annotation cp="🫶🏿">əldən ürək | sevgi | tünd dəri tonu</annotation>
+		<annotation cp="🫶🏿" type="tts">əldən ürək: tünd dəri tonu</annotation>
 		<annotation cp="👐🏻">açıq | açıq dəri tonu | açıq əllər | əl | orqan</annotation>
 		<annotation cp="👐🏻" type="tts">açıq əllər: açıq dəri tonu</annotation>
 		<annotation cp="👐🏼">açıq | açıq əllər | əl | orqan | orta-açıq dəri tonu</annotation>
@@ -462,6 +432,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙏🏾" type="tts">qatlanmış əllər: orta-tünd dəri tonu</annotation>
 		<annotation cp="🙏🏿">dua etmək | əl | jest | orqan | qatlanmış | qatlanmış əllər | tünd dəri tonu</annotation>
 		<annotation cp="🙏🏿" type="tts">qatlanmış əllər: tünd dəri tonu</annotation>
+		<annotation cp="🫷🏻">açıq dəri tonu | beş vurmaq | dayan | gözləmək | imtina | itələmək | sola | sola itələyən əl</annotation>
+		<annotation cp="🫷🏻" type="tts">sola itələyən əl: açıq dəri tonu</annotation>
+		<annotation cp="🫷🏼">beş vurmaq | dayan | gözləmək | imtina | itələmək | orta-açıq dəri tonu | sola | sola itələyən əl</annotation>
+		<annotation cp="🫷🏼" type="tts">sola itələyən əl: orta-açıq dəri tonu</annotation>
+		<annotation cp="🫷🏽">beş vurmaq | dayan | gözləmək | imtina | itələmək | orta dəri tonu | sola | sola itələyən əl</annotation>
+		<annotation cp="🫷🏽" type="tts">sola itələyən əl: orta dəri tonu</annotation>
+		<annotation cp="🫷🏾">beş vurmaq | dayan | gözləmək | imtina | itələmək | orta-tünd dəri tonu | sola | sola itələyən əl</annotation>
+		<annotation cp="🫷🏾" type="tts">sola itələyən əl: orta-tünd dəri tonu</annotation>
+		<annotation cp="🫷🏿">beş vurmaq | dayan | gözləmək | imtina | itələmək | sola | sola itələyən əl | tünd dəri tonu</annotation>
+		<annotation cp="🫷🏿" type="tts">sola itələyən əl: tünd dəri tonu</annotation>
+		<annotation cp="🫸🏻">açıq dəri tonu | beş vurmaq | dayan | gözləmək | imtina | itələmək | sağa | sağa basan əl</annotation>
+		<annotation cp="🫸🏻" type="tts">sağa basan əl: açıq dəri tonu</annotation>
+		<annotation cp="🫸🏼">beş vurmaq | dayan | gözləmək | imtina | itələmək | orta-açıq dəri tonu | sağa | sağa basan əl</annotation>
+		<annotation cp="🫸🏼" type="tts">sağa basan əl: orta-açıq dəri tonu</annotation>
+		<annotation cp="🫸🏽">beş vurmaq | dayan | gözləmək | imtina | itələmək | orta dəri tonu | sağa | sağa basan əl</annotation>
+		<annotation cp="🫸🏽" type="tts">sağa basan əl: orta dəri tonu</annotation>
+		<annotation cp="🫸🏾">beş vurmaq | dayan | gözləmək | imtina | itələmək | orta-tünd dəri tonu | sağa | sağa basan əl</annotation>
+		<annotation cp="🫸🏾" type="tts">sağa basan əl: orta-tünd dəri tonu</annotation>
+		<annotation cp="🫸🏿">beş vurmaq | dayan | gözləmək | imtina | itələmək | sağa | sağa basan əl | tünd dəri tonu</annotation>
+		<annotation cp="🫸🏿" type="tts">sağa basan əl: tünd dəri tonu</annotation>
 		<annotation cp="✍🏻">açıq dəri tonu | əl | orqan | yazı əli | yazmaq</annotation>
 		<annotation cp="✍🏻" type="tts">yazı əli: açıq dəri tonu</annotation>
 		<annotation cp="✍🏼">əl | orqan | orta-açıq dəri tonu | yazı əli | yazmaq</annotation>
@@ -2146,6 +2136,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👷🏾‍♀" type="tts">qadın bənna: orta-tünd dəri tonu</annotation>
 		<annotation cp="👷🏿‍♀">fəhlə | qadın | qadın bənna | tikinti | tünd dəri tonu</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">qadın bənna: tünd dəri tonu</annotation>
+		<annotation cp="🫅🏻">açıq dəri tonu | krallıq | monarx | nəcib | səltənət | taclı adam</annotation>
+		<annotation cp="🫅🏻" type="tts">taclı adam: açıq dəri tonu</annotation>
+		<annotation cp="🫅🏼">krallıq | monarx | nəcib | orta-açıq dəri tonu | səltənət | taclı adam</annotation>
+		<annotation cp="🫅🏼" type="tts">taclı adam: orta-açıq dəri tonu</annotation>
+		<annotation cp="🫅🏽">krallıq | monarx | nəcib | orta dəri tonu | səltənət | taclı adam</annotation>
+		<annotation cp="🫅🏽" type="tts">taclı adam: orta dəri tonu</annotation>
+		<annotation cp="🫅🏾">krallıq | monarx | nəcib | orta-tünd dəri tonu | səltənət | taclı adam</annotation>
+		<annotation cp="🫅🏾" type="tts">taclı adam: orta-tünd dəri tonu</annotation>
+		<annotation cp="🫅🏿">krallıq | monarx | nəcib | səltənət | taclı adam | tünd dəri tonu</annotation>
+		<annotation cp="🫅🏿" type="tts">taclı adam: tünd dəri tonu</annotation>
 		<annotation cp="🤴🏻">açıq dəri tonu | oğlan şahzadə | şah | şahzadə</annotation>
 		<annotation cp="🤴🏻" type="tts">oğlan şahzadə: açıq dəri tonu</annotation>
 		<annotation cp="🤴🏼">oğlan şahzadə | orta-açıq dəri tonu | şah | şahzadə</annotation>
@@ -2286,6 +2286,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤰🏾" type="tts">hamilə qadın: orta-tünd dəri tonu</annotation>
 		<annotation cp="🤰🏿">hamilə | qadın | tünd dəri tonu | uşaq</annotation>
 		<annotation cp="🤰🏿" type="tts">hamilə qadın: tünd dəri tonu</annotation>
+		<annotation cp="🫃🏻">açıq dəri tonu | hamilə | hamilə kişi | qarın | şişkin | tam</annotation>
+		<annotation cp="🫃🏻" type="tts">hamilə kişi: açıq dəri tonu</annotation>
+		<annotation cp="🫃🏼">hamilə | hamilə kişi | orta-açıq dəri tonu | qarın | şişkin | tam</annotation>
+		<annotation cp="🫃🏼" type="tts">hamilə kişi: orta-açıq dəri tonu</annotation>
+		<annotation cp="🫃🏽">hamilə | hamilə kişi | orta dəri tonu | qarın | şişkin | tam</annotation>
+		<annotation cp="🫃🏽" type="tts">hamilə kişi: orta dəri tonu</annotation>
+		<annotation cp="🫃🏾">hamilə | hamilə kişi | orta-tünd dəri tonu | qarın | şişkin | tam</annotation>
+		<annotation cp="🫃🏾" type="tts">hamilə kişi: orta-tünd dəri tonu</annotation>
+		<annotation cp="🫃🏿">hamilə | hamilə kişi | qarın | şişkin | tam | tünd dəri tonu</annotation>
+		<annotation cp="🫃🏿" type="tts">hamilə kişi: tünd dəri tonu</annotation>
+		<annotation cp="🫄🏻">açıq dəri tonu | hamilə | hamilə adam | qarın | şişkin | tam</annotation>
+		<annotation cp="🫄🏻" type="tts">hamilə adam: açıq dəri tonu</annotation>
+		<annotation cp="🫄🏼">hamilə | hamilə adam | orta-açıq dəri tonu | qarın | şişkin | tam</annotation>
+		<annotation cp="🫄🏼" type="tts">hamilə adam: orta-açıq dəri tonu</annotation>
+		<annotation cp="🫄🏽">hamilə | hamilə adam | orta dəri tonu | qarın | şişkin | tam</annotation>
+		<annotation cp="🫄🏽" type="tts">hamilə adam: orta dəri tonu</annotation>
+		<annotation cp="🫄🏾">hamilə | hamilə adam | orta-tünd dəri tonu | qarın | şişkin | tam</annotation>
+		<annotation cp="🫄🏾" type="tts">hamilə adam: orta-tünd dəri tonu</annotation>
+		<annotation cp="🫄🏿">hamilə | hamilə adam | qarın | şişkin | tam | tünd dəri tonu</annotation>
+		<annotation cp="🫄🏿" type="tts">hamilə adam: tünd dəri tonu</annotation>
 		<annotation cp="🤱🏻">açıq dəri tonu | döş | körpə | uşaq əmizdirmə | yedirtmə</annotation>
 		<annotation cp="🤱🏻" type="tts">uşaq əmizdirmə: açıq dəri tonu</annotation>
 		<annotation cp="🤱🏼">döş | körpə | orta-açıq dəri tonu | uşaq əmizdirmə | yedirtmə</annotation>

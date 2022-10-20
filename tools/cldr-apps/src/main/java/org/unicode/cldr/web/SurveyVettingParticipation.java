@@ -10,12 +10,15 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.ExecutionException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleSet;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.web.UserRegistry.User;
@@ -33,7 +36,7 @@ public class SurveyVettingParticipation {
         this.missingLocalesForOrg = org;
     }
 
-    public void getJson(SurveyJSONWrapper r) throws SQLException, JSONException {
+    public void getJson(SurveyJSONWrapper r) throws SQLException, JSONException, ExecutionException {
         final StandardCodes sc = StandardCodes.make();
         Set<CLDRLocale> allVettedLocales = new HashSet<>();
         Connection conn = null;
@@ -43,12 +46,14 @@ public class SurveyVettingParticipation {
         Map<CLDRLocale, User> localeToUser = new TreeMap<>();
         JSONArray userObj = new JSONArray();
         JSONArray participationObj = new JSONArray();
+        OrgCoverageLevelCounter covcounter = OrgCoverageLevelCounter.getInstance();
         try {
             conn = DBUtils.getInstance().getAConnection();
             psUsers = sm.reg.list(org, conn);
             if (org == null) {
                 r.put("org", "*");
-                psParticipation = conn.prepareStatement("SELECT v.submitter, count(v.submitter) as count, v.locale \n"
+                psParticipation = conn.prepareStatement("SELECT v.submitter, count(v.submitter) as count, v.locale, \n"
+                    + "     max(v.last_mod) as last_mod "
                     + "    FROM " + DBUtils.Table.VOTE_VALUE + " as v\n"
                     + " group by v.locale, v.submitter;",
                     ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
@@ -56,8 +61,9 @@ public class SurveyVettingParticipation {
             } else {
                 r.put("org", org);
                 // same, but restrict by org
-                psParticipation = conn.prepareStatement("SELECT v.submitter, count(v.submitter) as count, v.locale \n"
-                    + "    FROM " + DBUtils.Table.VOTE_VALUE + " as v, cldr_users as u\n"
+                psParticipation = conn.prepareStatement("SELECT v.submitter, count(v.submitter) as count, v.locale, \n"
+                + "     max(v.last_mod) as last_mod "
+                + "    FROM " + DBUtils.Table.VOTE_VALUE + " as v, cldr_users as u\n"
                     + "    WHERE v.submitter = u.id\n"
                     + "     AND org = ?\n"
                     + " group by v.locale, v.submitter;",
@@ -99,11 +105,14 @@ public class SurveyVettingParticipation {
                 int theirId = rs.getInt("v.submitter");
                 int count = rs.getInt("count");
                 String locale = rs.getString("v.locale");
-
+                String last_mod = DBUtils.toISOString(rs.getTimestamp("last_mod"));
+                final int cov_count = covcounter.countPathsInCoverage(Organization.cldr, CLDRLocale.getInstance(locale));
                 participationObj.put(new JSONObject()
                     .put("user", theirId)
                     .put("count", count)
-                    .put("locale", locale));
+                    .put("locale", locale)
+                    .put("last_mod", last_mod)
+                    .put("cov_count", cov_count));
             }
             rs.close();
         } finally {
@@ -120,12 +129,20 @@ public class SurveyVettingParticipation {
         }
 
         if (missingLocalesForOrg != null) {
+            final Organization o = Organization.fromString(missingLocalesForOrg);
+            final boolean hasAllLocales = sc.getDefaultLocaleCoverageLevel(o) != Level.UNDETERMINED;
+            r.put("hasAllLocales", hasAllLocales);
+            final Set<String> localeCoverageLocales = sc.getLocaleCoverageLocales(o);
             // calculate coverage of requested locales for this organization
             Set<CLDRLocale> languagesNotInCLDR = new TreeSet<>();
             Set<CLDRLocale> languagesMissing = new HashSet<>();
             r.put("missingLocalesForOrg", missingLocalesForOrg);
             for (Iterator<CLDRLocale> li = allLanguages.iterator(); li.hasNext();) {
                 CLDRLocale lang = (li.next());
+                if (!localeCoverageLocales.contains(lang.getBaseName())) {
+                    // outside of explicit coverage locales, skip
+                    continue;
+                }
                 String group = sc.getGroup(lang.getBaseName(), missingLocalesForOrg);
                 if ((group != null) &&
                     (null == sm.getSupplementalDataInfo().getBaseFromDefaultContent(CLDRLocale.getInstance(group)))) {

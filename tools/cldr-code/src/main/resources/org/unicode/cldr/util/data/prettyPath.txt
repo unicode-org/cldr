@@ -127,6 +127,7 @@ $element=[a-zA-Z0-9]+;
 '$%%/months/default' > '|default|monthFormat';
 '$%%/days/default' > '|default|dayFormat';
 '$%%/dateTimeFormats/dateTimeFormatLength/dateTimeFormat[@type="standard"]/pattern[@type="standard"]' > '|pattern|date+time';
+'$%%/dateTimeFormats/dateTimeFormatLength/dateTimeFormat[@type="atTime"]/pattern[@type="standard"]' > '|pattern|date+atTime';
 '$%%/dateTimeFormats/alias' > '|date+time|alias';
 '$%%/dateFormats/alias' > '|date|alias';
 '$%%/timeFormats/alias' > '|time|alias';
@@ -192,6 +193,14 @@ $element=[a-zA-Z0-9]+;
 '/layout/inText[@type="' ($avalue) '"]' > '1-misc|casing|' $1;
 
 '/numbers/scientificFormats/default' > '3-deprecated|default|scientificFormats';
+
+# personName formats
+'/personNames/nameOrderLocales[@order="' ($avalue) '"]' > 'personNames|nameOrder-' $1;
+'/personNames/foreignSpaceReplacement[@xml:space="' ($avalue) '"]' > 'personNames|auxItems|foreignSpaceReplacement';
+'/personNames/foreignSpaceReplacement' > 'personNames|auxItems|foreignSpaceReplacement';
+'/personNames/initialPattern[@type="' ($avalue) '"]' > 'personNames|auxItems|initialPattern-' $1;
+'/personNames/personName[@order="' ($avalue) '"][@length="' ($avalue) '"][@usage="' ($avalue) '"][@formality="' ($avalue) '"]/namePattern' > 'personNames|personNam-' $1 '-' $2 '-' $3 '-' $4;
+'/personNames/sampleName[@item="' ($avalue) '"]/nameField[@type="' ($avalue) '"]' > 'personNames|sampleName-' $1 '|nameField-' $2;
 
 # This is used to mark any transformation that fails at some point
 (.*) > '?%%' $1;

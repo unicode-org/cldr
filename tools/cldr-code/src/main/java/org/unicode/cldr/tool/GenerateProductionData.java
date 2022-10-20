@@ -139,8 +139,8 @@ public class GenerateProductionData {
         // get directories
 
         Arrays.asList(DtdType.values())
-            //.parallelStream()
-            //.unordered()
+            .parallelStream()
+            .unordered()
             .forEach(type -> {
             boolean isLdmlDtdType = type == DtdType.ldml;
 
@@ -154,6 +154,7 @@ public class GenerateProductionData {
                 copyFilesAndReturnIsEmpty(sourceDir, destinationDir, null, isLdmlDtdType, stats);
             }
         });
+        // should be called from the main thread. Synchronizing to document.
         if (!localeToSubdivisionsToMigrate.isEmpty()) {
             System.err.println("WARNING: Subdivision files not written, " + localeToSubdivisionsToMigrate.size() + " entries\n" +
                     "For locales: " + localeToSubdivisionsToMigrate.keySet());
@@ -229,7 +230,7 @@ public class GenerateProductionData {
             final Factory theFactory = factory;
             final boolean isLdmlDtdType2 = isLdmlDtdType;
             sorted
-                //.parallelStream()
+                .parallelStream()
                 .forEach(file -> {
                     File sourceFile2 = new File(sourceFile, file);
                     File destinationFile2 = new File(destinationFile, file);
@@ -333,7 +334,9 @@ public class GenerateProductionData {
 
                 // Move subdivisions elsewhere
                 if (!isSubdivisionDirectory && xpath.startsWith("//ldml/localeDisplayNames/subdivisions/subdivision")) {
-                    localeToSubdivisionsToMigrate.put(localeId, Pair.of(xpath, value));
+                    synchronized(localeToSubdivisionsToMigrate) {
+                        localeToSubdivisionsToMigrate.put(localeId, Pair.of(xpath, value));
+                    }
                     toRemove.add(xpath);
                     continue;
                 }
@@ -377,12 +380,14 @@ public class GenerateProductionData {
             try (PrintWriter pw = new PrintWriter(destinationFile)) {
                 CLDRFile outCldrFile = cldrFileUnresolved.cloneAsThawed();
                 if (isSubdivisionDirectory) {
-                    Collection<Pair<String, String>> path_values = localeToSubdivisionsToMigrate.get(localeId);
-                    if (path_values != null) {
-                        for (Pair<String, String>path_value : path_values) {
-                            outCldrFile.add(path_value.getFirst(), path_value.getSecond());
+                    synchronized (localeToSubdivisionsToMigrate) {
+                        Collection<Pair<String, String>> path_values = localeToSubdivisionsToMigrate.get(localeId);
+                        if (path_values != null) {
+                            for (Pair<String, String>path_value : path_values) {
+                                outCldrFile.add(path_value.getFirst(), path_value.getSecond());
+                            }
+                            localeToSubdivisionsToMigrate.removeAll(localeId);
                         }
-                        localeToSubdivisionsToMigrate.removeAll(localeId);
                     }
                 }
 

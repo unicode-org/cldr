@@ -2,16 +2,21 @@ package org.unicode.cldr.tool;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.UncheckedIOException;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.unicode.cldr.test.BuildIcuCompactDecimalFormat;
+import org.unicode.cldr.test.BuildIcuCompactDecimalFormat.CurrencyStyle;
 import org.unicode.cldr.tool.GeneratePluralRanges.RangeSample;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.PluralSnapshot;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -22,6 +27,8 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.impl.number.DecimalQuantity;
+import com.ibm.icu.text.CompactDecimalFormat;
+import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.DecimalQuantitySamples;
@@ -35,6 +42,19 @@ public class ShowPlurals {
     private static final String NOT_AVAILABLE = "<i>Not available.<br>Please <a target='_blank' href='" + CLDRURLS.CLDR_NEWTICKET_URL
         + "'>file a ticket</a> to supply.</i>";
     final SupplementalDataInfo supplementalDataInfo;
+
+    public static void main(String[] args) {
+        Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();//.make(CLDRPaths.MAIN_DIRECTORY, ".*");
+        CLDRFile english = CLDRConfig.getInstance().getEnglish();
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+
+        try {
+            new ShowPlurals().printPlurals(english, null, pw, cldrFactory);
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
+    }
 
     public ShowPlurals() {
         supplementalDataInfo = CLDRConfig.getInstance().getSupplementalDataInfo();
@@ -106,6 +126,7 @@ public class ShowPlurals {
         all.addAll(ordinalLocales);
 
         LanguageTagCanonicalizer canonicalizer = new LanguageTagCanonicalizer();
+        SampleMaker sampleMaker = new SampleMaker();
 
         for (String locale : supplementalDataInfo.getPluralLocales()) {
             if (localeFilter != null && !localeFilter.equals(locale) || locale.equals("root")) {
@@ -116,16 +137,24 @@ public class ShowPlurals {
             if (!locale.equals(canonicalLocale)) {
                 String redirect = "<i>=<a href='#" + canonicalLocale + "'>" + canonicalLocale + "</a></i>";
                 tablePrinter.addRow()
-                    .addCell(name)
-                    .addCell(locale)
-                    .addCell(redirect)
-                    .addCell(redirect)
-                    .addCell(redirect)
-                    .addCell(redirect)
-                    .addCell(redirect)
-                    .finishRow();
+                .addCell(name)
+                .addCell(locale)
+                .addCell(redirect)
+                .addCell(redirect)
+                .addCell(redirect)
+                .addCell(redirect)
+                .addCell(redirect)
+                .finishRow();
                 continue;
             }
+
+            CLDRFile cldrFile2;
+            try {
+                cldrFile2 = factory.make(locale, true);
+            } catch (Exception e1) {
+                continue;
+            }
+            sampleMaker.setCldrFile(cldrFile2);
 
             for (PluralType pluralType : PluralType.values()) {
                 if (pluralType == PluralType.ordinal && !ordinalLocales.contains(locale)
@@ -137,7 +166,6 @@ public class ShowPlurals {
                 final PluralMinimalPairs samplePatterns = PluralMinimalPairs.getInstance(locale2.toString());
                 //                    pluralType == PluralType.ordinal ? null
                 //                    : CldrUtility.get(samples, locale2);
-                NumberFormat nf = NumberFormat.getInstance(locale2);
 
                 String rules = plurals.getRules();
                 rules += rules.length() == 0 ? "other:<i>everything</i>" : ";other:<i>everything else</i>";
@@ -170,52 +198,52 @@ public class ShowPlurals {
                         String samplePattern = samplePatterns.get(pluralType.standardType, Count.valueOf(keyword)); // CldrUtility.get(samplePatterns.keywordToPattern, Count.valueOf(keyword));
                         if (samplePattern != null) {
                             DecimalQuantity sampleDecimal = PluralInfo.getNonZeroSampleIfPossible(exampleList);
-                            sample = getSample(sampleDecimal, samplePattern, nf);
+                            sample = sampleMaker.getSample(sampleDecimal, samplePattern);
                             if (exampleList2 != null) {
                                 sampleDecimal = PluralInfo.getNonZeroSampleIfPossible(exampleList2);
-                                sample += "<br>" + getSample(sampleDecimal, samplePattern, nf);
+                                sample += "<br>" + sampleMaker.getSample(sampleDecimal, samplePattern);
                             }
                         }
                     }
                     tablePrinter.addRow()
-                        .addCell(name)
-                        .addCell(locale)
-                        .addCell(pluralType.toString())
-                        .addCell(count.toString())
-                        .addCell(examples.toString())
-                        .addCell(sample)
-                        .addCell(rule)
-                        .finishRow();
+                    .addCell(name)
+                    .addCell(locale)
+                    .addCell(pluralType.toString())
+                    .addCell(count.toString())
+                    .addCell(examples.toString())
+                    .addCell(sample)
+                    .addCell(rule)
+                    .finishRow();
                 }
             }
             List<RangeSample> rangeInfoList = null;
             try {
-                rangeInfoList = new GeneratePluralRanges(supplementalDataInfo).getRangeInfo(factory.make(locale, true));
+                rangeInfoList = new GeneratePluralRanges(supplementalDataInfo).getRangeInfo(cldrFile2);
             } catch (Exception e) {
             }
             if (rangeInfoList != null) {
                 for (RangeSample item : rangeInfoList) {
                     tablePrinter.addRow()
-                        .addCell(name)
-                        .addCell(locale)
-                        .addCell("range")
-                        .addCell(item.start + "+" + item.end)
-                        .addCell(item.min + "–" + item.max)
-                        .addCell(item.resultExample.replace(". ", ".<br>"))
-                        .addCell(item.start + " + " + item.end + " → " + item.result)
-                        .finishRow();
+                    .addCell(name)
+                    .addCell(locale)
+                    .addCell("range")
+                    .addCell(item.start + "+" + item.end)
+                    .addCell(item.min + "–" + item.max)
+                    .addCell(item.resultExample.replace(". ", ".<br>"))
+                    .addCell(item.start + " + " + item.end + " → " + item.result)
+                    .finishRow();
                 }
             } else {
                 String message = supplementalDataInfo.getPlurals(PluralType.cardinal, locale).getCounts().size() == 1 ? NO_PLURAL_DIFFERENCES : NOT_AVAILABLE;
                 tablePrinter.addRow()
-                    .addCell(name)
-                    .addCell(locale)
-                    .addCell("range")
-                    .addCell("<i>n/a</i>")
-                    .addCell("<i>n/a</i>")
-                    .addCell(message)
-                    .addCell("<i>n/a</i>")
-                    .finishRow();
+                .addCell(name)
+                .addCell(locale)
+                .addCell("range")
+                .addCell("<i>n/a</i>")
+                .addCell("<i>n/a</i>")
+                .addCell(message)
+                .addCell("<i>n/a</i>")
+                .finishRow();
             }
         }
         appendable.append(tablePrinter.toTable()).append(System.lineSeparator());
@@ -225,15 +253,38 @@ public class ShowPlurals {
         return Joiner.on(", ").join(exampleList.getSamples()) + (exampleList.bounded ? "" : ", …");
     }
 
-    private String getSample(DecimalQuantity numb, String samplePattern, NumberFormat nf) {
+    static final class SampleMaker {
+        ICUServiceBuilder icusb = new ICUServiceBuilder();
+        CLDRFile cldrFile;
+
+        void setCldrFile(CLDRFile cldrFile) {
+           this.cldrFile = cldrFile;
+           icusb.setCldrFile(cldrFile);
+        }
+
+    private String getSample(DecimalQuantity numb, String samplePattern) {
         String sample;
-        nf.setMaximumFractionDigits((int) numb.getPluralOperand(Operand.v));
-        nf.setMinimumFractionDigits((int) numb.getPluralOperand(Operand.v));
+        String value;
+        if (numb.getExponent() > 0) {
+            Set<String> debugCreationErrors = new LinkedHashSet<>();
+            String[] debugOriginals = null;
+            CompactDecimalFormat cdfCurr = BuildIcuCompactDecimalFormat.build(
+                cldrFile, debugCreationErrors,
+                debugOriginals, CompactStyle.SHORT,
+                ULocale.forLanguageTag(cldrFile.getLocaleID()),
+                CurrencyStyle.PLAIN, null);
+            value = cdfCurr.format(numb.toDouble());
+        } else {
+            NumberFormat nf = icusb.getGenericNumberFormat("latn");
+            nf.setMaximumFractionDigits((int) numb.getPluralOperand(Operand.v));
+            nf.setMinimumFractionDigits((int) numb.getPluralOperand(Operand.v));
+            value = nf.format(numb.toDouble());
+        }
         sample = samplePattern
             .replace('\u00A0', '\u0020')
-            .replace("{0}", nf.format(numb.toDouble()))
+            .replace("{0}", value)
             .replace(". ", ".<br>");
         return sample;
     }
-
+    }
 }

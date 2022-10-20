@@ -369,8 +369,8 @@ function updateStatusBox(json) {
 
     var ugtext = "~";
     ugtext = ugtext + json.status.users + " users, ";
-    if (json.status.guests > 0) {
-      ugtext = ugtext + json.status.guests + " guests, ";
+    if (json.status.observers > 0) {
+      ugtext = ugtext + json.status.observers + " observers, ";
     }
     ugtext = ugtext + json.status.pages + "pg/" + json.status.uptime;
     cldrDom.removeAllChildNodes(updateParts.ug);

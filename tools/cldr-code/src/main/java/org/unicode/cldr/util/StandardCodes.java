@@ -516,7 +516,7 @@ public class StandardCodes {
         // Next, Find maximum coverage level
         for (final Organization o : Organization.values()) {
             if (o == Organization.cldr ||  // Already handled, above
-                o == Organization.guest ||
+                o == Organization.unaffiliated ||
                 o == Organization.surveytool) {
                 continue; // Skip some 'special' orgs
             }

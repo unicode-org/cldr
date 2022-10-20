@@ -60,7 +60,7 @@ public class TestUserLevel {
         "adlam, null, userIsVetter, false, wod_nko, vetter",
         "adlam, null, userIsAdmin, false, wod_nko, vetter",
         "adlam, null, userIsTC, false, wod_nko, vetter",
-        "adlam, null, userIsStreet, false, wod_nko, vetter",
+        "adlam, null, userIsGuest, false, wod_nko, vetter",
         "adlam, null, userIsLocked, false, wod_nko, vetter",
         "adlam, null, userIsExactlyAnonymous, false, wod_nko, vetter",
         "adlam, null, userCanUseVettingSummary, false, wod_nko, vetter",
@@ -141,8 +141,8 @@ public class TestUserLevel {
         case "userIsTC":
             assertEquals(expected, UserRegistry.userIsTC(u), onFail);
             break;
-        case "userIsStreet":
-            assertEquals(expected, UserRegistry.userIsStreet(u), onFail);
+        case "userIsGuest":
+            assertEquals(expected, UserRegistry.userIsGuest(u), onFail);
             break;
         case "userIsLocked":
             assertEquals(expected, UserRegistry.userIsLocked(u), onFail);
@@ -259,8 +259,8 @@ public class TestUserLevel {
         case "userIsTC":
             assertEquals(expected, l.isTC(), onFail);
             break;
-        case "userIsStreet":
-            assertEquals(expected, l.isStreet(), onFail);
+        case "userIsGuest":
+            assertEquals(expected, l.isGuest(), onFail);
             break;
         case "userIsLocked":
             assertEquals(expected, l.isLocked(), onFail);
@@ -310,10 +310,10 @@ public class TestUserLevel {
     public void testVoteMenu() {
         assertAll("VoteResolver.Level tests",
             () -> assertEquals(ImmutableSet.of(1, 4, 6, 50, 1000), VoteResolver.Level.tc.getVoteCountMenu(Organization.apple)),
-            () -> assertEquals(ImmutableSet.of(1, 4, 6, 50, 1000), VoteResolver.Level.tc.getVoteCountMenu(Organization.guest)),
+            () -> assertEquals(ImmutableSet.of(1, 4, 6, 50, 1000), VoteResolver.Level.tc.getVoteCountMenu(Organization.unaffiliated)),
             () -> assertEquals(ImmutableSet.of(1, 4, 6, 50, 100, 1000), VoteResolver.Level.admin.getVoteCountMenu(Organization.surveytool)),
             () -> assertNull(VoteResolver.Level.vetter.getVoteCountMenu(Organization.apple)),
-            () -> assertNull(VoteResolver.Level.vetter.getVoteCountMenu(Organization.guest)),
-            () -> assertNull(VoteResolver.Level.street.getVoteCountMenu(Organization.guest)));
+            () -> assertNull(VoteResolver.Level.vetter.getVoteCountMenu(Organization.unaffiliated)),
+            () -> assertNull(VoteResolver.Level.guest.getVoteCountMenu(Organization.unaffiliated)));
     }
 }

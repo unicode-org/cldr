@@ -1595,10 +1595,10 @@ public class WebContext implements Cloneable, Appendable {
                 return;
             }
         } else if (session == null || (session.user == null)) { // guest user
-            if (CookieSession.tooManyGuests()) {
+            if (CookieSession.tooManyObservers()) {
                 if (session != null) {
-                    System.err.println("Logged-out guest  " + session.id + " from " + userIP() + " - too many users ( " + CookieSession.getUserCount() + ")");
-                    session.remove(); // remove guests at this point
+                    System.err.println("Logged-out observer  " + session.id + " from " + userIP() + " - too many users ( " + CookieSession.getUserCount() + ")");
+                    session.remove(); // remove observers at this point
                     session = null;
                 }
                 logout(); // clear session cookie

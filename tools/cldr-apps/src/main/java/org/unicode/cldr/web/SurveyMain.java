@@ -645,7 +645,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     newRealName.append(myRealName.charAt(j));
                 }
             }
-            u.org = ctx.field("new_org").trim();
+            u.org = Organization.fromString(ctx.field("new_org").trim()).name();
             String randomEmail = UserRegistry.makePassword() + "@" +
                 UserRegistry.makePassword().substring(0, 4).replace('.', '0')
                 + "." + u.org.replaceAll("_", "-").replaceAll(" ", "-") + ".example.com";
@@ -871,7 +871,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 // page once ST is up.
                 response.sendRedirect("v#retry");
             }
-            out.println("<br><i id='uptime'> " + getGuestsAndUsers() + "</i><br>");
+            out.println("<br><i id='uptime'> " + getObserversAndUsers() + "</i><br>");
             // TODO: on up, goto <base>
 
             out.println("<script>loadOnOk = '" + loadOnOk + "';</script>");
@@ -1463,20 +1463,20 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      *
      * Called from jsp files as well as locally
      */
-    public static String getGuestsAndUsers() {
+    public static String getObserversAndUsers() {
         StringBuilder out = new StringBuilder();
-        int guests = CookieSession.getGuestCount();
+        int observers = CookieSession.getObserverCount();
         int users = CookieSession.getUserCount();
-        if ((guests + users) > 0) { // ??
+        if ((observers + users) > 0) { // ??
             out.append("~");
             if (users > 0) {
                 out.append(users + " users");
             }
-            if (guests > 0) {
+            if (observers > 0) {
                 if (users > 0) {
                     out.append(", ");
                 }
-                out.append(" " + guests + " guests");
+                out.append(" " + observers + " observers");
             }
         }
         out.append(", " + pages + "pg/" + uptime);
@@ -3226,7 +3226,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         }
         logger.warning("SurveyTool " + SurveyMain.getCurrev(false) + " busted: " + what + " ( after " + pages + "html+" + xpages
             + "xml pages served,  "
-            + getGuestsAndUsers() + ")");
+            + getObserversAndUsers() + ")");
         System.err.println("Busted at stack: \n" + StackTracker.currentStack());
         markBusted(what, t, stack);
         logger.severe(what);
@@ -3565,7 +3565,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         private String contextPath;
         private int dbopen = DBUtils.db_number_open;
         private int dbused = DBUtils.db_number_used;
-        private int guests = CookieSession.getGuestCount();
+        private int observers = CookieSession.getObserverCount();
         private String isBusted = SurveyMain.isBusted;
         private boolean isPhaseBeta = isPhaseBeta();
         private boolean isSetup = SurveyMain.isSetup;
@@ -3598,7 +3598,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 .put("contextPath", contextPath)
                 .put("dbopen", dbopen)
                 .put("dbused", dbused)
-                .put("guests", guests)
+                .put("observers", observers)
                 .put("isBusted", isBusted)
                 .put("isPhaseBeta", isPhaseBeta)
                 .put("isSetup", isSetup)

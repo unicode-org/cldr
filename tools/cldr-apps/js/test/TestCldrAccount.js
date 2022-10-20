@@ -55,9 +55,9 @@ const json = {
         canCreateOrSetLevelTo: true,
       },
       10: {
-        string: "10: (STREET)",
+        string: "10: (GUEST)",
         isManagerFor: true,
-        name: "street",
+        name: "guest",
         canCreateOrSetLevelTo: true,
       },
     },

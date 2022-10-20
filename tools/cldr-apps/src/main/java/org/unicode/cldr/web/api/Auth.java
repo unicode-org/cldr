@@ -112,12 +112,12 @@ public class Auth {
                             .entity(new STError(tooManyMessage)).build();
                     }
 
-                    // Also check for too many guests.
-                    if (CookieSession.tooManyGuests()) {
+                    // Also check for too many observers.
+                    if (CookieSession.tooManyObservers()) {
                         final String tooManyMessage = "We have too many people ("+
                             CookieSession.getUserCount() +
                             ") browsing the CLDR Data on the Survey Tool. Please try again later when the load has gone down.";
-                            return Response.status(429, "Too many guests")
+                            return Response.status(429, "Too many observers")
                             .entity(new STError(tooManyMessage)).build();
                     }
 

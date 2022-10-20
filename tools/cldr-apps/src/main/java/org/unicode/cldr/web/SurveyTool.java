@@ -149,7 +149,7 @@ public class SurveyTool extends HttpServlet {
         out.write("<p><img src='stop.png' width='16'>" + sessionMessage + "</p>\n");
         out.write("</div>\n");
         out.write("<hr>\n");
-        out.write("<p><" + SurveyMain.getGuestsAndUsers() + "</p>\n");
+        out.write("<p><" + SurveyMain.getObserversAndUsers() + "</p>\n");
         out.write("</body>\n</html>\n");
     }
 

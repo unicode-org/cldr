@@ -124,7 +124,7 @@ public class VoteResolver<T> {
      */
     public enum Level {
         locked(   0 /* votes */, 999 /* stlevel */),
-        street(   1 /* votes */, 10  /* stlevel */),
+        guest(   1 /* votes */, 10  /* stlevel */),
         anonymous(0 /* votes */, 8   /* stlevel */),
         vetter(   4 /* votes */, 5   /* stlevel */, /* tcorgvotes */ 6), // org dependent- see getVotes()
         // Manager and below can manage users
@@ -303,10 +303,10 @@ public class VoteResolver<T> {
          */
         static {
             admin.voteCountMenu = ImmutableSet.of(
-                street.votes, vetter.votes, vetter.tcorgvotes, tc.votes, admin.votes, PERMANENT_VOTES);
+                guest.votes, vetter.votes, vetter.tcorgvotes, tc.votes, admin.votes, PERMANENT_VOTES);
             /* Not LOCKING_VOTES; see canVoteWithCount */
             tc.voteCountMenu = ImmutableSet.of(
-                street.votes, vetter.votes, vetter.tcorgvotes, tc.votes, PERMANENT_VOTES);
+                guest.votes, vetter.votes, vetter.tcorgvotes, tc.votes, PERMANENT_VOTES);
         }
 
         // The following methods were moved here from UserRegistry
@@ -332,8 +332,8 @@ public class VoteResolver<T> {
             return stlevel <= vetter.stlevel;
         }
 
-        public boolean isStreet() {
-            return stlevel <= street.stlevel;
+        public boolean isGuest() {
+            return stlevel <= guest.stlevel;
         }
 
         public boolean isLocked() {
@@ -391,7 +391,7 @@ public class VoteResolver<T> {
                 // TODO: Note, this will mean not just READONLY, but VETTING_CLOSED will return false here.
                 // This is probably desired!
             }
-            return isStreet();
+            return isGuest();
         }
 
         public boolean canCreateSummarySnapshot() {
@@ -614,12 +614,12 @@ public class VoteResolver<T> {
             Organization organization = info.getOrganization();
             orgToVotes.get(organization).add(value, votes, time.getTime());
             if (DEBUG) {
-                System.out.println("Adding now Info: " + organization.displayName + info.getName() + " is adding: " + votes + value
+                System.out.println("Adding now Info: " + organization.getDisplayName() + info.getName() + " is adding: " + votes + value
                     + new Timestamp(time.getTime()).toString());
             }
 
             if (DEBUG) {
-                System.out.println("addInternal: " + organization.displayName + " : " + orgToVotes.get(organization).toString());
+                System.out.println("addInternal: " + organization.getDisplayName() + " : " + orgToVotes.get(organization).toString());
             }
 
             // add the new votes to orgToMax, if they are greater that what was there
@@ -655,7 +655,7 @@ public class VoteResolver<T> {
                 }
                 Organization org = entry.getKey();
                 if (DEBUG) {
-                    System.out.println("sortedKeys?? " + value + " " + org.displayName);
+                    System.out.println("sortedKeys?? " + value + " " + org.getDisplayName());
                 }
 
                 // if there is more than one item, check that it is less

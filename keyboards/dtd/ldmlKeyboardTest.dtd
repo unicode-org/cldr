@@ -44,12 +44,6 @@ Please see CLDR-15034 for the latest information. -->
     <!--@MATCH:any-->
     <!--@VALUE-->
 
-<!ELEMENT emit EMPTY >
-    <!--@ORDERED-->
-<!ATTLIST emit to CDATA #REQUIRED >
-    <!--@MATCH:any-->
-    <!--@VALUE-->
-
 <!ELEMENT keystroke EMPTY >
     <!--@ORDERED-->
 <!ATTLIST keystroke key NMTOKEN #REQUIRED >
@@ -65,13 +59,19 @@ Please see CLDR-15034 for the latest information. -->
     <!--@MATCH:range/2~999-->
     <!--@VALUE-->
 
-<!ELEMENT check EMPTY >
+<!ELEMENT emit EMPTY >
     <!--@ORDERED-->
-<!ATTLIST check result CDATA #REQUIRED >
+<!ATTLIST emit to CDATA #REQUIRED >
     <!--@MATCH:any-->
     <!--@VALUE-->
 
 <!ELEMENT backspace EMPTY >
     <!--@ORDERED-->
+
+<!ELEMENT check EMPTY >
+    <!--@ORDERED-->
+<!ATTLIST check result CDATA #REQUIRED >
+    <!--@MATCH:any-->
+    <!--@VALUE-->
 
 <!ELEMENT special ANY >

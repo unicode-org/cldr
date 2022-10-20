@@ -13,7 +13,7 @@ This DTD is a work in progress.
 
 Please see CLDR-15034 for the latest information. -->
 
-<!ELEMENT keyboard ( import*, locales?, version?, info?, names, settings?, vkeys*, displays*, keys?, layers*, transforms*, reorders?, special* ) >
+<!ELEMENT keyboard ( import*, locales?, version?, info?, names, settings?, vkeys?, displays?, keys?, layers*, transforms*, reorders?, special* ) >
 <!ATTLIST keyboard locale CDATA #REQUIRED >
     <!--@MATCH:validity/bcp47-->
 <!ATTLIST keyboard conformsTo (techpreview) #REQUIRED >
@@ -36,9 +36,11 @@ Please see CLDR-15034 for the latest information. -->
 
 <!ELEMENT version EMPTY >
 <!ATTLIST version number CDATA #IMPLIED >
+    <!-- Note: post techpreview, change cldrVersion to MATCH:version -->
+    <!--@MATCH:semver-->
     <!--@VALUE-->
 <!ATTLIST version cldrVersion CDATA #FIXED "techpreview" >
-    <!--@MATCH:version-->
+    <!--@MATCH:any-->
     <!--@METADATA-->
 
 <!ELEMENT info EMPTY >
@@ -132,7 +134,7 @@ Please see CLDR-15034 for the latest information. -->
 
 <!ELEMENT flick EMPTY >
 <!ATTLIST flick directions NMTOKENS #REQUIRED >
-    <!--@MATCH:any-->
+    <!--@MATCH:regex/(n|e|s|w|ne|nw|se|sw)([ ]+(n|e|s|w|ne|nw|se|sw))*-->
 <!ATTLIST flick to CDATA #REQUIRED >
     <!--@MATCH:any-->
     <!--@VALUE-->

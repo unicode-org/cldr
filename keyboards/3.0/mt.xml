@@ -13,56 +13,36 @@
     </names>
 
     <keys>
+        <!-- imports -->
+        <import base="cldr" path="techpreview/key-Zyyy-punctuation.xml"/>
+
+        <!-- accent grave -->
         <key id="a-grave" to="à" />
         <key id="A-grave" to="À" />
-        <key id="amp" to="\u{0026}" />
-        <key id="apos" to="'" />
-        <key id="bang" to="!" />
-        <key id="c-cedilla" to="ç" />
-        <key id="close-paren" to=")" />
-        <key id="double-quote" to="\u{0022}" />
         <key id="e-grave" to="è" />
         <key id="E-grave" to="È" />
-        <key id="equal" to="=" />
-        <key id="hash" to="#" />
-        <key id="hyphen" to="-" />
         <key id="i-grave" to="ì" />
         <key id="I-grave" to="Ì" />
         <key id="o-grave" to="ò" />
         <key id="O-grave" to="Ò" />
-        <key id="open-paren" to="(" />
         <key id="u-grave" to="ù" />
         <key id="U-grave" to="Ù" />
-        <key id="umlaut" to="¨" />
-        <key id="underscore" to="_" />
-        <key id="at" to="@" />
-        <key id="backslash" to="\u{005C}" />
+
+        <!-- tikka and maqtua -->
         <key id="c-tikka" to="ċ" />
         <key id="C-tikka" to="Ċ" />
-        <key id="caret" to="^" />
-        <key id="close-angle" to=">" />
-        <key id="close-curly" to="}" />
-        <key id="close-square" to="]" />
-        <key id="colon" to=":" />
-        <key id="euro" to="€" />
         <key id="g-tikka" to="ġ" />
         <key id="G-tikka" to="Ġ" />
-        <key id="gap" gap="true" width="1" />
-        <key id="grave" to="`" />
         <key id="h-maqtua" to="ħ" />
         <key id="H-maqtua" to="Ħ" />
-        <key id="not" to="¬" />
-        <key id="open-angle" to="\u{003C}" />
-        <key id="open-curly" to="{" />
-        <key id="open-square" to="[" />
-        <key id="pipe" to="|" />
-        <key id="plus" to="+" />
-        <key id="pound" to="£" />
-        <key id="question" to="?" />
-        <key id="semi-colon" to=";" />
-        <key id="tilde" to="~" />
         <key id="z-tikka" to="ż" />
         <key id="Z-tikka" to="Ż" />
+
+        <!-- Cedilla -->
+        <key id="c-cedilla" to="ç" />
+
+        <!-- gaps -->
+        <key id="gap" gap="true" width="1" />
     </keys>
 
     <layers form="hardware" hardware="iso">

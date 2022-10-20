@@ -10,13 +10,13 @@ import * as cldrAjax from "./cldrAjax.js";
 // the following are all assumed to be lowercase in check()
 const ADMIN = "admin";
 const ANONYMOUS = "anonymous";
+const GUEST = "guest";
 const LOCKED = "locked";
 const MANAGER = "manager";
-const STREET = "street"; // confusingly also known as "guest", see CLDR-10384
 const TC = "tc";
 const VETTER = "vetter";
 
-const ALL_NAMES = [ADMIN, ANONYMOUS, LOCKED, MANAGER, STREET, TC, VETTER];
+const ALL_NAMES = [ADMIN, ANONYMOUS, GUEST, LOCKED, MANAGER, TC, VETTER];
 
 let checked = false;
 
@@ -70,7 +70,7 @@ function check(list) {
 
 function canVoteInNonOrgLocales(number, list) {
   const name = list[number].name;
-  return match(name, ADMIN) || match(name, TC) || match(name, STREET);
+  return match(name, ADMIN) || match(name, TC) || match(name, GUEST);
 }
 
 function match(a, b) {
@@ -100,9 +100,9 @@ function loadLevelList(json) {
 export {
   ADMIN,
   ANONYMOUS,
+  GUEST,
   LOCKED,
   MANAGER,
-  STREET,
   TC,
   VETTER,
   canVoteInNonOrgLocales,

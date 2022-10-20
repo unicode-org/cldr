@@ -78,7 +78,7 @@ public class TestUtilities extends TestFmwkPlus {
         .getSupplementalDataInfo();
     private static final int STRING_ID_TEST_COUNT = 1024 * 16;
 
-    final int ONE_VETTER_BAR = Level.vetter.getVotes(Organization.guest);
+    final int ONE_VETTER_BAR = Level.vetter.getVotes(Organization.unaffiliated);
     final int TWO_VETTER_BAR = 2 * ONE_VETTER_BAR;
 
     public static void main(String[] args) {
@@ -338,20 +338,20 @@ public class TestUtilities extends TestFmwkPlus {
 
     /** Test user data. Restructured to be easier to read, more typesafe */
     enum TestUser {
-        guestS(801, Organization.guest, Level.street),
-        gnomeS(701, Organization.gnome, Level.street),
+        unaffiliatedS(801, Organization.unaffiliated, Level.guest),
+        gnomeS(701, Organization.gnome, Level.guest),
         gnomeV(702, Organization.gnome, Level.vetter),
         googleV(404, Organization.google, Level.vetter),
-        googleS(411, Organization.google, Level.street),
+        googleS(411, Organization.google, Level.guest),
         googleV2(424, Organization.google, Level.vetter),
         appleV(304, Organization.apple, Level.vetter),
         adobeE(204, Organization.adobe, Level.manager),
         adobeV(209, Organization.adobe, Level.vetter),
-        ibmS(101, Organization.ibm, Level.street),
+        ibmS(101, Organization.ibm, Level.guest),
         microsoftV(134, Organization.microsoft, Level.vetter),
         ibmE(114, Organization.ibm, Level.manager),
         ibmT(129, Organization.ibm, Level.tc),
-        guestS2(802, Organization.guest, Level.street);
+        unaffiliatedS2(802, Organization.unaffiliated, Level.guest);
 
         public static final Map<Integer, VoterInfo> TEST_USERS;
         public final Integer voterId;
@@ -718,7 +718,7 @@ public class TestUtilities extends TestFmwkPlus {
             // first test
             "oldValue=old-value",
             "oldStatus=provisional",
-            "comment=Check that identical values get the top overall vote, and that org is maxed (eg vetter + street = vetter)",
+            "comment=Check that identical values get the top overall vote, and that org is maxed (eg vetter + guest = vetter)",
             "404=next",
             "411=next",
             "304=best",
@@ -775,7 +775,7 @@ public class TestUtilities extends TestFmwkPlus {
             "status=approved",
             "check",
 
-            "comment=now not so clear, throw in a street value. So it is 8 to 5. (used to be provisional)",
+            "comment=now not so clear, throw in a guest value. So it is 8 to 5. (used to be provisional)",
             "404=next",
             // "424=best",
             "411=best",
@@ -1152,7 +1152,7 @@ public class TestUtilities extends TestFmwkPlus {
             "check",
 
             //test 3
-            "comment=timestamp guest case",
+            "comment=timestamp unaffiliated case",
             "locale=de",
             "oldValue=_",
             "oldStatus=unconfirmed",
@@ -1165,7 +1165,7 @@ public class TestUtilities extends TestFmwkPlus {
             "value=Bar",
             "status=contributed",
             "sameVotes=Bar",
-            "conflicts=[google, guest]",
+            "conflicts=[google, unaffiliated]",
             "check",
         };
 
@@ -1464,9 +1464,9 @@ public class TestUtilities extends TestFmwkPlus {
      * Compare org.unicode.cldr.unittest.web.TestUserRegistry.TestCanSetUserLevel()
      */
     public void TestCanCreateOrSetLevelTo() {
-        if (Level.vetter.canCreateOrSetLevelTo(Level.street)
-            || Level.anonymous.canCreateOrSetLevelTo(Level.street)
-            || Level.street.canCreateOrSetLevelTo(Level.locked)
+        if (Level.vetter.canCreateOrSetLevelTo(Level.guest)
+            || Level.anonymous.canCreateOrSetLevelTo(Level.guest)
+            || Level.guest.canCreateOrSetLevelTo(Level.locked)
             || Level.locked.canCreateOrSetLevelTo(Level.locked)
             ) {
             errln("Only managers and above can change levels at all");

@@ -26,7 +26,7 @@ public class TestSupplementalDataInfo {
         {
             ApprovalRequirementMatcher arm = new ApprovalRequirementMatcher("//supplementalData/coverageLevels/approvalRequirements/approvalRequirement[@votes=\"=tc\"][@locales=\"ssy hy\"][@paths=\"//ldml/identity\"]");
             assertNotNull(arm);
-            assertEquals(VoteResolver.Level.tc.getVotes(Organization.guest), arm.getRequiredVotes());
+            assertEquals(VoteResolver.Level.tc.getVotes(Organization.unaffiliated), arm.getRequiredVotes());
         }
         {
             ApprovalRequirementMatcher arm = new ApprovalRequirementMatcher("//supplementalData/coverageLevels/approvalRequirements/approvalRequirement[@votes=\"3\"][@locales=\"ssy hy\"][@paths=\"//ldml/identity\"]");

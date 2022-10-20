@@ -73,14 +73,14 @@ const strings = {
   userlevel_admin: "Admin",
   userlevel_tc: "TC",
   userlevel_vetter: "Vetter",
-  userlevel_street: "Guest",
+  userlevel_guest: "Guest",
   userlevel_locked: "Locked",
   userlevel_manager: "Manager",
 
   userlevel_admin_desc: "Administrator",
   userlevel_tc_desc: "CLDR-Technical Committee member",
   userlevel_vetter_desc: "Regular Vetter",
-  userlevel_street_desc: "Guest User",
+  userlevel_guest_desc: "Guest User",
   userlevel_manager_desc: "Project Manager",
   userlevel_locked_desc: "Locked User, no login",
 
@@ -397,7 +397,7 @@ const strings = {
     "This is the Forum Bulk Close Posts page. The results may take several minutes to load.",
 
   jsonStatus_msg:
-    "You should see your content shortly, thank you for waiting. By the way, there are ${users} logged-in users and ${guests} visitors to the Survey Tool. The server's workload is about ${sysloadpct} of normal capacity. You have been waiting about ${waitTime} seconds.",
+    "You should see your content shortly, thank you for waiting. By the way, there are ${users} logged-in users and ${observers} visitors to the Survey Tool. The server's workload is about ${sysloadpct} of normal capacity. You have been waiting about ${waitTime} seconds.",
   err_what_section: "load part of this locale",
   err_what_locmap: "load the list of locales",
   err_what_menus: "load the Survey Tool menus",

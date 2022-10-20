@@ -35,7 +35,6 @@ import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
-import com.ibm.icu.lang.UCharacter;
 
 /**
  * This class represents the list of all registered users. It contains an inner
@@ -102,9 +101,9 @@ public class UserRegistry {
     public static final int VETTER = VoteResolver.Level.vetter.getSTLevel();
 
     /**
-     * "Street" = Guest Vetter
+     * Guest user
      */
-    public static final int STREET = VoteResolver.Level.street.getSTLevel();
+    public static final int GUEST = VoteResolver.Level.guest.getSTLevel();
 
     /**
      * Locked user - can't login
@@ -342,10 +341,10 @@ public class UserRegistry {
          *
          * @return true if the user has that authority
          *
-         * A STREET user has this advantage over a VETTER or MANAGER, though with less votes
+         * A GUEST user has this advantage over a VETTER or MANAGER, though with less votes
          */
         public boolean canVoteInNonOrgLocales() {
-            return userlevel == ADMIN || userlevel == TC || userlevel == STREET;
+            return userlevel == ADMIN || userlevel == TC || userlevel == GUEST;
         }
 
         @Override
@@ -449,7 +448,7 @@ public class UserRegistry {
                 .put("voteCountMenu", getLevel().getVoteCountMenu(getOrganization()))
                 .put("userlevelName", UserRegistry.levelAsStr(userlevel))
                 .put("org", vrOrg().name())
-                .put("orgName", vrOrg().displayName)
+                .put("orgName", vrOrg().getDisplayName())
                 .put("id", id)
                 .toString();
         }
@@ -573,7 +572,7 @@ public class UserRegistry {
         if (o == null) {
             try {
                 /*
-                 * TODO: "utilika" always logs WARNING: ** Unknown organization (treating as Guest): Utilika Foundation"
+                 * TODO: "utilika" always logs WARNING: ** Unknown organization ...: Utilika Foundation"
                  * Map to "The Long Now Foundation" instead? Cf. https://unicode.org/cldr/trac/ticket/6320
                  * Organization.java has: longnow("The Long Now Foundation", "Long Now", "PanLex")
                  */
@@ -582,8 +581,8 @@ public class UserRegistry {
                     .replaceAll("ICT Agency of Sri Lanka", "srilanka").toLowerCase().replaceAll("[.-]", "_");
                 o = Organization.valueOf(arg);
             } catch (IllegalArgumentException iae) {
-                o = Organization.guest;
-                SurveyLog.warnOnce(logger, "** Unknown organization (treating as Guest): " + org);
+                o = Organization.unaffiliated;
+                SurveyLog.warnOnce(logger, "** Unknown organization (treating as Unaffiliated): " + org);
             }
             orgToVrOrg.put(org, o);
         }
@@ -597,6 +596,9 @@ public class UserRegistry {
         sm = theSm;
         UserRegistry reg = new UserRegistry();
         reg.setupDB();
+        if (NORMALIZE_USER_TABLE_ORGS) {
+            reg.normalizeUserTableOrgs();
+        }
         return reg;
     }
 
@@ -766,7 +768,7 @@ public class UserRegistry {
                     User u = new UserRegistry.User(id);
                     // from params:
                     u.name = DBUtils.getStringUTF8(rs, 1);
-                    u.org = rs.getString(2);
+                    u.org = Organization.fromString(rs.getString(2)).name();
                     u.getOrganization(); // verify
 
                     u.email = rs.getString(3);
@@ -1511,7 +1513,6 @@ public class UserRegistry {
                 User newu = get(u.getPassword(), u.email, FOR_ADDING); // throw away
                 // old user
                 updateIntLocs(newu.id, conn);
-                resetOrgList(); // update with new org spelling.
                 notify(newu);
                 return newu;
             } else {
@@ -1558,8 +1559,8 @@ public class UserRegistry {
         return (u != null) && u.getLevel().isVetter();
     }
 
-    public static boolean userIsStreet(User u) {
-        return (u != null) && u.getLevel().isStreet();
+    public static boolean userIsGuest(User u) {
+        return (u != null) && u.getLevel().isGuest();
     }
 
     public static boolean userIsLocked(User u) {
@@ -1721,8 +1722,8 @@ public class UserRegistry {
     private static Object userCanAccessForumWhy(User u, CLDRLocale locale) {
         if (u == null)
             return ModifyDenial.DENY_NULL_USER; // no user, no dice
-        if (!userIsStreet(u))
-            return ModifyDenial.DENY_NO_RIGHTS; // at least street level
+        if (!userIsGuest(u))
+            return ModifyDenial.DENY_NO_RIGHTS; // at least guest level
         if (userIsAdmin(u))
             return null; // Admin can modify all
         if (userIsTC(u))
@@ -1768,9 +1769,9 @@ public class UserRegistry {
         if (STFactory.isReadOnlyLocale(locale))
             return ModifyDenial.DENY_LOCALE_READONLY;
 
-        // user must have street level perms
-        if (!userIsStreet(u))
-            return ModifyDenial.DENY_NO_RIGHTS; // at least street level
+        // user must have guest level perms
+        if (!userIsGuest(u))
+            return ModifyDenial.DENY_NO_RIGHTS; // at least guest level
 
         // locales that are aliases can't be modified.
         if (sm.isLocaleAliased(locale) != null) {
@@ -1899,7 +1900,7 @@ public class UserRegistry {
     /**
      * The list of organizations
      *
-     * It is necessary to call resetOrgList to initialize this list
+     * It is necessary to call getOrgList to initialize this list
      */
     private static String[] orgList = new String[0];
 
@@ -1910,57 +1911,14 @@ public class UserRegistry {
      */
     public static String[] getOrgList() {
         if (orgList.length == 0) {
-            resetOrgList();
+            // Get the preferred "display" names according to Organization.java
+            Set<String> names = new TreeSet<>();
+            for (Organization o: Organization.values()) {
+                names.add(o.name());
+            }
+            orgList = names.toArray(orgList);
         }
         return orgList;
-    }
-
-    private static void resetOrgList() {
-        // get all orgs in use...
-        Set<String> orgs = new TreeSet<>();
-        Connection conn = null;
-        Statement s = null;
-        try {
-            conn = DBUtils.getInstance().getAConnection();
-            s = conn.createStatement();
-            ResultSet rs = s.executeQuery("SELECT distinct org FROM " + CLDR_USERS + " order by org");
-            while (rs.next()) {
-                String org = rs.getString(1);
-                orgs.add(org);
-            }
-        } catch (SQLException se) {
-            System.err.println("UserRegistry: SQL error trying to get orgs resultset for: VI " + " - "
-                + DBUtils.unchainSqlException(se)/* ,se */);
-        } finally {
-            // close out the RS
-            try {
-                if (s != null) {
-                    s.close();
-                }
-                if (conn != null) {
-                    DBUtils.closeDBConnection(conn);
-                }
-            } catch (SQLException se) {
-                System.err.println("UserRegistry: SQL error trying to close out: "
-                    + DBUtils.unchainSqlException(se));
-            }
-        } // end try
-
-        // get all possible VR orgs..
-        Set<Organization> allvr = new HashSet<>();
-        Collections.addAll(allvr, Organization.values());
-        // Subtract out ones already in use
-        for (String org : orgs) {
-            allvr.remove(UserRegistry.computeVROrganization(org));
-        }
-        // Add back any ones not yet in use
-        for (Organization org : allvr) {
-            String orgName = org.name();
-            orgName = UCharacter.toTitleCase(orgName, null);
-            orgs.add(orgName);
-        }
-
-        orgList = orgs.toArray(orgList);
     }
 
     /**
@@ -2097,7 +2055,7 @@ public class UserRegistry {
         UserRegistry.User proto = getEmptyUser();
         proto.email = email;
         proto.name = name;
-        proto.org = org;
+        proto.org = organization.name();
         proto.setPassword(UserRegistry.makePassword());
         proto.userlevel = level.getSTLevel();
         proto.locales = normLocales;
@@ -2122,5 +2080,52 @@ public class UserRegistry {
             levels.put(String.valueOf(number), jo);
         }
         return levels;
+    }
+
+    private static final boolean NORMALIZE_USER_TABLE_ORGS = true;
+
+    /**
+     * Make sure each Organization in the user table has the normalized form of its name.
+     * The normalized form is the one that matches the enum name.
+     * For example, Organization.oracle has names "oracle", "Oracle", "sun", and "Sun Micro",
+     * according to Organization.java; its normalized name is "oracle".
+     * Organization.longnow has names "The Long Now Foundation", "Long Now", "PanLex", and
+     * "Utilka Foundation"; its normalized name is "longnow".
+     */
+    private void normalizeUserTableOrgs() {
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        Connection conn = null;
+        try {
+            conn = DBUtils.getInstance().getAConnection();
+            if (conn != null) {
+                HashMap<Integer, String> changes = new HashMap<>();
+                ps = list(null, conn);
+                rs = ps.executeQuery();
+                while (rs.next()) {
+                    int userId = rs.getInt(1);
+                    String dbOrgName = rs.getString(5);
+                    String normOrgName = Organization.fromString(dbOrgName).name();
+                    if (!normOrgName.equals(dbOrgName)) {
+                        changes.put(userId, normOrgName);
+                    }
+                }
+                for (int userId : changes.keySet()) {
+                    String org = changes.get(userId);
+                    String sql = "UPDATE " + CLDR_USERS + " SET org=? WHERE id=" + userId;
+                    ps = conn.prepareStatement(sql);
+                    ps.setString(1, org);
+                    ps.executeUpdate();
+                }
+            }
+        } catch (SQLException se) {
+            logger.log(java.util.logging.Level.SEVERE,
+                "UserRegistry: SQL error trying to normalize orgs in user table - " + DBUtils.unchainSqlException(se), se);
+        } catch (Throwable t) {
+            logger.log(java.util.logging.Level.SEVERE,
+                "UserRegistry: error trying to normalize orgs in user table - " + t, t);
+        } finally {
+            DBUtils.close(rs, ps, conn);
+        }
     }
 }

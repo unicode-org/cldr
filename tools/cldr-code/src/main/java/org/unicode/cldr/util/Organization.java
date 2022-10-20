@@ -29,7 +29,6 @@ public enum Organization {
     georgia_isi("Georgia ISI"),
     gnome("Gnome Foundation"),
     google("Google"),
-    guest("Guest (Unicode)"),
     ibm("IBM"),
     india("India MIT"),
     iran_hci("Iran HCI"),
@@ -56,6 +55,7 @@ public enum Organization {
     special("High Coverage and Generated"),
     srilanka("Sri Lanka ICTA", "Sri Lanka"),
     surveytool("Survey Tool"),
+    unaffiliated("Unaffiliated", "Guest"),
     venetian("VeC - Lengua Veneta"),
     welsh_lc("Welsh LC"),
     wikimedia("Wikimedia Foundation"),
@@ -81,7 +81,7 @@ public enum Organization {
         return getTCOrgs().contains(this);
     }
 
-    public final String displayName;
+    private final String displayName;
     private final String[] names;
 
     public static Organization fromString(String name) {
@@ -102,8 +102,7 @@ public enum Organization {
             return Organization.longnow;
         }
         name = name.toLowerCase().replace('-', '_').replace('.', '_');
-        Organization org = OrganizationNameMap.get(name);
-        return org;
+        return OrganizationNameMap.get(name);
     }
 
     public String getDisplayName() {

@@ -2928,7 +2928,7 @@ public class SupplementalDataInfo {
                     return VoteResolver.LOWER_BAR;
                 }
                 final VoteResolver.Level l = VoteResolver.Level.valueOf(votesStr);
-                return l.getVotes(Organization.guest); // use non-TC vote count
+                return l.getVotes(Organization.unaffiliated); // use non-TC vote count
             } else {
                 return Integer.parseInt(votesStr);
             }

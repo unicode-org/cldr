@@ -112,15 +112,15 @@ public class CookieSession {
             return 1000000; // anything more than one minute, to prevent browser console countdown
         }
         final long nowMillisSinceEpoch = System.currentTimeMillis();
-        final boolean guest = (user == null);
+        final boolean observer = (user == null);
         long myTimeoutSecs; // timeout in seconds.
 
-        if (guest) {
-            myTimeoutSecs = Params.CLDR_GUEST_TIMEOUT_SECS.value();
+        if (observer) {
+            myTimeoutSecs = Params.CLDR_OBSERVER_TIMEOUT_SECS.value();
             /*
-             * Allow twice as much time, if there aren't too many guests.
+             * Allow twice as much time, if there aren't too many observers.
              */
-            if (!tooManyGuests()) {
+            if (!tooManyObservers()) {
                 myTimeoutSecs *= 2;
             }
         } else {
@@ -585,14 +585,14 @@ public class CookieSession {
         CLDR_MAX_USERS(30),
 
         /**
-         * max guests allowed before guests start getting shut out (should be < CLDR_MAX_USERS)
+         * max observers allowed before observers start getting shut out (should be < CLDR_MAX_USERS)
          */
-        CLDR_MAX_GUESTS(0), // zero means tooManyGuests == tooManyUsers
+        CLDR_MAX_OBSERVERS(0), // zero means tooManyObservers == tooManyUsers
 
         /**
-         * how many seconds guest can be absent/inactive before getting kicked
+         * how many seconds observer can be absent/inactive before getting kicked
          */
-        CLDR_GUEST_TIMEOUT_SECS(5 * 60), // 5 minutes
+        CLDR_OBSERVER_TIMEOUT_SECS(5 * 60), // 5 minutes
 
         /**
          * how many seconds logged-in user can be absent/inactive before getting kicked
@@ -648,24 +648,24 @@ public class CookieSession {
     }
 
     /**
-     * Return true if too many guests are logged in.
+     * Return true if too many observers are logged in.
      * @return
      */
-    public static boolean tooManyGuests() {
-        int limit = Params.CLDR_MAX_GUESTS.value();
+    public static boolean tooManyObservers() {
+        int limit = Params.CLDR_MAX_OBSERVERS.value();
         if (tooManyUsers()) {
-            return true; // implies too many guests..
+            return true; // implies too many observers..
         } else if (limit == 0) {
             return false;
         } else {
-            int count = CookieSession.getGuestCount();
+            int count = CookieSession.getObserverCount();
             if (count >= limit) {
                 if (SurveyMain.isUnofficial())
-                    System.out.println("TOO MANY GUESTS. limit=" + limit + ", count=" + count);
+                    System.out.println("TOO MANY OBSERVERS. limit=" + limit + ", count=" + count);
                 return true;
             } else {
                 if (false && DEBUG_INOUT && SurveyMain.isUnofficial())
-                    System.out.println("Guest count OK. . limit=" + limit + ", count=" + count);
+                    System.out.println("Oberver count OK. . limit=" + limit + ", count=" + count);
                 return false;
             }
         }
@@ -679,18 +679,18 @@ public class CookieSession {
     static long lastReapMillisSinceEpoch = 0;
 
     /**
-     * Number of guests
+     * Number of observers (users who are not logged in)
      */
-    private static int nGuests = 0;
+    private static int nObservers = 0;
 
     /**
      * Number of users
      */
     private static int nUsers = 0;
 
-    public static int getGuestCount() {
+    public static int getObserverCount() {
         getUserCount();
-        return nGuests;
+        return nObservers;
     }
 
     /**
@@ -713,29 +713,29 @@ public class CookieSession {
             long elapsedMillis = (nowMillisSinceEpoch - lastReapMillisSinceEpoch);
 
             final boolean tooManyUsers = tooManyUsers();
-            final boolean tooManyGuests = tooManyGuests();
+            final boolean tooManyObservers = tooManyObservers();
 
             final long CHECK_SECS = 5; // check every 5 seconds or if count grows
-            if (elapsedMillis < (1000 * CHECK_SECS) && allCount <= lastCount && !tooManyGuests) {
+            if (elapsedMillis < (1000 * CHECK_SECS) && allCount <= lastCount && !tooManyObservers) {
                 return nUsers;
             }
 
             lastCount = allCount;
 
-            int guests = 0;
+            int observers = 0;
             int users = 0;
             lastReapMillisSinceEpoch = nowMillisSinceEpoch;
 
             // remove any sessions we need to get rid of, count the rest.
             List<CookieSession> toRemove = new LinkedList<>();
             for (CookieSession cs : gHash.values()) {
-                if (cs.user == null) { // guest
+                if (cs.user == null) { // observer
                     if (tooManyUsers
-                            || (KICK_IF_ABSENT && cs.millisSinceLastBrowserCall() > Params.CLDR_GUEST_TIMEOUT_SECS.value() * 1000L)
+                            || (KICK_IF_ABSENT && cs.millisSinceLastBrowserCall() > Params.CLDR_OBSERVER_TIMEOUT_SECS.value() * 1000L)
                             || (KICK_IF_INACTIVE && cs.millisTillKick() <= 0)) {
                         toRemove.add(cs);
                     } else {
-                        guests++;
+                        observers++;
                     }
                 } else {
                     if ((KICK_IF_ABSENT && cs.millisSinceLastBrowserCall() > Params.CLDR_USER_TIMEOUT_SECS.value() * 1000)
@@ -752,7 +752,7 @@ public class CookieSession {
                 }
                 cs.remove();
             }
-            nGuests = guests;
+            nObservers = observers;
             return (nUsers = users);
         }
     }
@@ -785,14 +785,13 @@ public class CookieSession {
 
     private UserSettings settings;
 
-    static CookieSession specialGuest = null;
+    static CookieSession specialObserver = null;
 
-    private static synchronized CookieSession getSpecialGuest() {
-        if (specialGuest == null) {
-            specialGuest = new CookieSession("[throttled]", null);
-            // gHash.put("throttled", specialGuest);
+    private static synchronized CookieSession getSpecialObserver() {
+        if (specialObserver == null) {
+            specialObserver = new CookieSession("[throttled]", null);
         }
-        return specialGuest;
+        return specialObserver;
     }
 
     private static class BadUserRecord {
@@ -825,7 +824,7 @@ public class CookieSession {
         if (BAD_IPS.containsKey(userIP)) {
             BadUserRecord bur = (BadUserRecord) BAD_IPS.get(userIP);
             bur.hit(userAgent);
-            return getSpecialGuest();
+            return getSpecialObserver();
         }
 
         if (SurveyMain.isUnofficial()) {
@@ -856,7 +855,7 @@ public class CookieSession {
             bur.hit(userAgent);
 
             BAD_IPS.put(userIP, bur);
-            return getSpecialGuest();
+            return getSpecialObserver();
         } else {
             return null; // OK.
         }

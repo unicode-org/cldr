@@ -86,8 +86,8 @@ public class TestReportStatus {
             "1-meta-vetter",
             new LocaleSet(true)));
         m.put(GUEST2, new VoterInfo(
-            Organization.guest,
-            VoteResolver.Level.street,
+            Organization.unaffiliated,
+            VoteResolver.Level.guest,
             "2-guest-guest",
             new LocaleSet(true)));
         m.put(TC3, new VoterInfo(

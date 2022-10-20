@@ -30,19 +30,19 @@ public class TestUserRegistry extends TestFmwk {
 
         User a = reg.new User(id++);
         a.userlevel = UserRegistry.ADMIN;
-        a.org = "SurveyTool";
+        a.org = Organization.surveytool.name();
 
         User b = reg.new User(id++);
         b.userlevel = UserRegistry.TC;
-        b.org = "Bangladesh";
+        b.org = Organization.bangladesh.name();
 
         User c = reg.new User(id++);
         c.userlevel = UserRegistry.MANAGER;
-        c.org = "Mozilla";
+        c.org = Organization.mozilla.name();
 
         User d = reg.new User(id++);
         d.userlevel = UserRegistry.VETTER;
-        d.org = "Bangladesh";
+        d.org = Organization.bangladesh.name();
 
         if (reg.canSetUserLevel(a, a, UserRegistry.ADMIN)) {
             errln("Can't change your own level");
@@ -62,78 +62,11 @@ public class TestUserRegistry extends TestFmwk {
     }
 
     /**
-     * A copy of what UserRegistry.getOrgList returned on 2020-03-22
-     * using the production database
-     */
-    final String[] orgListCopy = {
-        "Adlam",
-        "Adobe",
-        "Afghan_csa",
-        "Afghan_mcit",
-        "Afrigen",
-        "Apple",
-        "Bangladesh",
-        "Bangladesh Computer Council",
-        "Bangor_univ",
-        "Bhutan",
-        "Breton",
-        "Cherokee",
-        "cldr",
-        "Gaeilge",
-        "Georgia_isi",
-        "Gnome",
-        "Google",
-        "Government of Pakistan - National Language Authority",
-        "Guest",
-        "IBM",
-        "India",
-        "Iran-HCI",
-        "Kendra",
-        "Kotoistus",
-        "Lakota_lc",
-        "Lao_dpt",
-        "Long Now",
-        "Meta",
-        "Microsoft",
-        "Mozilla",
-        "Netflix",
-        "OpenInstitute",
-        "openoffice.org",
-        "Oracle",
-        "Rumantscha",
-        "SIL",
-        "srilanka",
-        "SurveyTool",
-        "Utilika",
-        "Utilika Foundation",
-        "Welsh LC",
-        "Wikimedia",
-        "Yahoo",
-    };
-
-    /**
-     * Test whether all organizations in the users db table are recognized
+     * Test whether all organizations in UserRegistry.getOrgList are recognized
      * by Organization.fromString
-     *
-     * On 2020-03-22 this test reported three errors:
-     *
-     * Organization.fromString returned null for Government of Pakistan - National Language Authority
-     * Organization.fromString returned null for Utilika
-     * Organization.fromString returned null for Utilika Foundation
-     *
-     * Those have been fixed by revising UserRegistry.getOrgList.
-     *
-     * This test highlights the strangeness of UserRegistry.getOrgList. It might make
-     * more sense if UserRegistry.getOrgList simply used the list in Organization.java,
-     * and if the database were constrained to use only those values.
      */
     public void TestOrgList() {
-        /*
-         * It won't work to call UserRegistry.getOrgList() here since the tests don't
-         * use the real database. Instead, use a copy of what UserRegistry.getOrgList
-         * returned at one point in time, based on the production database.
-         */
-        for (String name : orgListCopy) {
+        for (String name: UserRegistry.getOrgList()) {
             try {
                 if (Organization.fromString(name) == null) {
                     errln("Organization.fromString returned null for " + name);
@@ -194,12 +127,12 @@ public class TestUserRegistry extends TestFmwk {
             errln("Vetter can vote in one of their locales if it is also their org locale");
         }
 
-        User street = reg.new User(id++);
-        street.userlevel = UserRegistry.STREET;
-        street.locales = "aa zh";
-        street.org = "Adobe"; // assume Adobe has "zh" but not "aa" or "*" in Locales.txt
-        if (UserRegistry.countUserVoteForLocaleWhy(street, locA) != null) {
-            errln("Street can vote in one of their locales regardless of whether it is their org locale");
+        User guest = reg.new User(id++);
+        guest.userlevel = UserRegistry.GUEST;
+        guest.locales = "aa zh";
+        guest.org = "Adobe"; // assume Adobe has "zh" but not "aa" or "*" in Locales.txt
+        if (UserRegistry.countUserVoteForLocaleWhy(guest, locA) != null) {
+            errln("Guest can vote in one of their locales regardless of whether it is their org locale");
         }
     }
 }

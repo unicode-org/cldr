@@ -108,7 +108,7 @@ public class ChartDtdDelta extends Chart {
 
         String last = null;
 
-        for (String current : ToolConstants.CHART_STATUS == ChartStatus.beta ? ToolConstants.CLDR_RELEASE_AND_DEV_VERSION_SET : ToolConstants.CLDR_RELEASE_VERSION_SET) {
+        for (String current : ToolConstants.CHART_STATUS != ChartStatus.release ? ToolConstants.CLDR_RELEASE_AND_DEV_VERSION_SET : ToolConstants.CLDR_RELEASE_VERSION_SET) {
             System.out.println("DTD delta: " + current);
             final boolean finalVersion = current.equals(ToolConstants.DEV_VERSION);
             String currentName = finalVersion ? ToolConstants.CHART_DISPLAY_VERSION : current;

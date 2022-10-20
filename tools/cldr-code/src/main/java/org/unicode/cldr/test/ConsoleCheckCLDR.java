@@ -1557,7 +1557,7 @@ public class ConsoleCheckCLDR {
         String localizedName = CheckCLDR.getDisplayInformation().getName(locale);
         if (localizedName == null || localizedName.equals(locale)) return locale;
         if (linkToXml) {
-            locale = "<a href='http://unicode.org/cldr/data/common/main/" + locale + ".xml'>" + locale + "</a>";
+            locale = "<a href='https://github.com/unicode-org/cldr/tree/main/common/main/" + locale + ".xml'>" + locale + "</a>";
         }
         return localizedName + " [" + locale + "]";
     }

@@ -906,9 +906,6 @@
 
 
 
-
-
-
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -919,25 +916,60 @@
             <td class="gray">&nbsp;</td>
         </tr>
     </tbody>
-</table></div><div class="body"><h2 id="proposed-update-unicode-technical-standard-35">Proposed Update Unicode Technical Standard #35</h2><h1 id="unicode-locale-data-markup-language-ldml">Unicode Locale Data Markup Language (LDML)</h1><!-- HTML: no header --><table class="simple" width="90%"><tbody>
-<tr><td>Version</td><td><b>42 (draft)</b></td></tr>
-<tr><td>Editors</td><td>Mark Davis (<a href="mailto:markdavis@google.com">markdavis@google.com</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td></tr>
-<tr><td>Date</td><td>2022-09-27</td></tr>
-<tr><td>This Version</td><td><a href="https://www.unicode.org/reports/tr35/tr35-67/tr35.html">https://www.unicode.org/reports/tr35/tr35-67/tr35.html</a></td></tr>
-<tr><td>Previous Version</td><td><a href="https://www.unicode.org/reports/tr35/tr35-66/tr35.html">https://www.unicode.org/reports/tr35/tr35-66/tr35.html</a></td></tr>
-<tr><td>Latest Version</td><td><a href="https://www.unicode.org/reports/tr35/">https://www.unicode.org/reports/tr35/</a></td></tr>
-<tr><td>Corrigenda</td><td><a href="https://cldr.unicode.org/index/corrigenda">https://cldr.unicode.org/index/corrigenda</a></td></tr>
-<tr><td>Latest Proposed Update</td><td><a href="https://www.unicode.org/reports/tr35/proposed.html">https://www.unicode.org/reports/tr35/proposed.html</a></td></tr>
-<tr><td>Namespace</td><td><a href="https://www.unicode.org/cldr/">https://www.unicode.org/cldr/</a></td></tr>
-<tr><td>DTDs</td><td><a href="https://www.unicode.org/cldr/dtd/42/">https://www.unicode.org/cldr/dtd/42/</a></td></tr>
-<tr><td>Revision</td><td><a href="#Modifications">67</a></td></tr>
+</table></div><div class="body"><h2 id="unicode-technical-standard-35">Unicode Technical Standard #35</h2><h1 id="unicode-locale-data-markup-language-ldml">Unicode Locale Data Markup Language (LDML)</h1><table class="simple" width="90%">
+<thead>
+<tr>
+<th>Version</th>
+<th>42</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Editors</td>
+<td>Mark Davis (<a href="mailto:markdavis@google.com">markdavis@google.com</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td>
+</tr>
+<tr>
+<td>Date</td>
+<td>2022-10-17</td>
+</tr>
+<tr>
+<td>This Version</td>
+<td><a href="https://www.unicode.org/reports/tr35/tr35-67/tr35.html">https://www.unicode.org/reports/tr35/tr35-67/tr35.html</a></td>
+</tr>
+<tr>
+<td>Previous Version</td>
+<td><a href="https://www.unicode.org/reports/tr35/tr35-66/tr35.html">https://www.unicode.org/reports/tr35/tr35-66/tr35.html</a></td>
+</tr>
+<tr>
+<td>Latest Version</td>
+<td><a href="https://www.unicode.org/reports/tr35/">https://www.unicode.org/reports/tr35/</a></td>
+</tr>
+<tr>
+<td>Corrigenda</td>
+<td><a href="https://cldr.unicode.org/index/corrigenda">https://cldr.unicode.org/index/corrigenda</a></td>
+</tr>
+<tr>
+<td>Latest Proposed Update</td>
+<td><a href="https://www.unicode.org/reports/tr35/proposed.html">https://www.unicode.org/reports/tr35/proposed.html</a></td></tr>
+
+<tr>
+<td>Namespace</td>
+<td><a href="https://www.unicode.org/cldr/">https://www.unicode.org/cldr/</a></td>
+</tr>
+<tr>
+<td>DTDs</td>
+<td><a href="https://www.unicode.org/cldr/dtd/42/">https://www.unicode.org/cldr/dtd/42/</a></td>
+</tr>
+<tr>
+<td>Revision</td>
+<td><a href="#Modifications">67</a></td>
+</tr>
 </tbody></table><h3 id="summary"><em>Summary</em></h3><p>This document describes an XML format (<em>vocabulary</em>) for the exchange of structured locale data. This format is used in the <a href="https://www.unicode.org/cldr/">Unicode Common Locale Data Repository</a>.</p><p><em>Note:</em>
 Some links may lead to in-development or older
 versions of the data files.
-See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-date CLDR release data.</p><h3 id="status"><em>Status</em></h3><p><em>This is a draft document which may be updated, replaced, or superseded by other documents at any time. Publication does not imply endorsement by the Unicode Consortium. This is not a stable document; it is inappropriate to cite this document as other than a work in progress.</em></p><blockquote>
+See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-date CLDR release data.</p><h3 id="status"><em>Status</em></h3><p><em>This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium. This is a stable document and may be used as reference material or cited as a normative reference by other specifications.</em></p><blockquote>
 <p><em><strong>A Unicode Technical Standard (UTS)</strong> is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS.</em></p>
 </blockquote><p><em>Please submit corrigenda and other comments with the CLDR bug reporting form [<a href="https://cldr.unicode.org/index/bug-reports">Bugs</a>]. Related information that is useful in understanding this document is found in the <a href="#References">References</a>. For the latest version of the Unicode Standard see [<a href="https://www.unicode.org/versions/latest/">Unicode</a>]. For a list of current Unicode Technical Reports see [<a href="https://www.unicode.org/reports/">Reports</a>]. For more information about versions of the Unicode Standard, see [<a href="https://www.unicode.org/versions/">Versions</a>].</em></p><blockquote>
-<p><strong><em>NOTE: The source for the LDML specification has been converted to GitHub Markdown (GFM) instead of HTML. The formatting is now simpler, but some features — such as formatting for table captions — may not be complete by the release date. Improvements in the formatting for the v39 specification are planned for after the release, but no substantive changes would be made to the content.</em></strong></p>
+<p><strong><em>NOTE: The source for the LDML specification has been converted to GitHub Markdown (GFM) instead of HTML. The formatting is now simpler, but some features — such as formatting for table captions — may not be complete by the release date. Improvements in the formatting for the specification may be done after the release, but no substantive changes will be made to the content.</em></strong></p>
 </blockquote><h2 id="parts"><a name="Parts" href="#Parts">Parts</a></h2><p>The LDML specification is divided into the following parts:</p><ul>
 <li>Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</li>
 <li>Part 2: <a href="tr35-general.html#Contents">General</a> (display names &amp; transforms, etc.)</li>
@@ -1168,10 +1200,10 @@ See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-da
 </li>
 <li><a href="#preprocessing">Preprocessing</a></li>
 <li><a href="#processing-languageids">Processing LanguageIds</a></li>
-</ul>
-</li>
 <li><a href="#processing-localeids">Processing LocaleIds</a></li>
 <li><a href="#optimizations">Optimizations</a></li>
+</ul>
+</li>
 <li><a href="#References">References</a></li>
 <li><a href="#Acknowledgments">Acknowledgments</a></li>
 <li><a href="#Modifications">Modifications</a></li>
@@ -1345,9 +1377,9 @@ See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-da
 <li>Any type or tfield value "true" is removed.</li>
 </ul>
 </li>
-</ul><p>For example, the canonical form of "en-u-foo-bar-nu-thai-ca-buddhist-kk-true" is "en-u-bar-foo-ca-buddhist-kk-nu-thai". The attributes <code>"foo"</code> and <code>"bar"</code> in this example are provided only for illustration; no attribute subtags are defined by the current CLDR specification.</p><p>NOTE: Some people may wonder why CLDR uses alphabetical order for variants, rather than the ordering in <a href="https://tools.ietf.org/search/bcp47#section-4.1">Section 4.1</a> of BCP 47. Here are the considerations that lead to that decision:</p><ul>
+</ul><p>For example, the canonical form of "en-u-foo-bar-nu-thai-ca-buddhist-kk-true" is "en-u-bar-foo-ca-buddhist-kk-nu-thai". The attributes <code>"foo"</code> and <code>"bar"</code> in this example are provided only for illustration; no attribute subtags are defined by the current CLDR specification.</p><p>NOTE: Some people may wonder why CLDR uses alphabetical order for variants, rather than the ordering in <a href="https://www.rfc-editor.org/rfc/rfc5646.html#section-4.1">Section 4.1</a> of BCP 47. Here are the considerations that lead to that decision:</p><ul>
 <li>The ordering in Section 4.1 is recommended, but not required for conformance. In particular, use of and ordering by Prefix is recommended but not required.</li>
-<li>Moreover, <a href="https://tools.ietf.org/search/bcp47#section-4.5">Section 4.5</a> states that “If more than one variant appears within a tag, processors MAY reorder the variants to obtain better matching behavior or more consistent presentation.”</li>
+<li>Moreover, <a href="https://www.rfc-editor.org/rfc/rfc5646.html#section-4.5">Section 4.5</a> states that “If more than one variant appears within a tag, processors MAY reorder the variants to obtain better matching behavior or more consistent presentation.”</li>
 <li>The best practices for internationalization have moved well beyond some of the guidelines and recommendations in BCP 47, especially for language matching and language fallback.</li>
 <li>Robust implementations will accept the variants in any order, just as they accept extensions in any order.</li>
 <li>A canonical order allows for determination of identity of identifiers via string comparison.</li>
@@ -1363,14 +1395,14 @@ See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-da
 <p><em>Example:</em> "IW-HEBR-u-ms-imperial" ~ "he-u-ms-uksystem"</p>
 </blockquote><p>The equivalence relationship may change over time, such as when subtags are deprecated or likely subtag mappings change. For example, if two countries were to merge, then various subtags would become deprecated. These kinds of changes are generally very infrequent.</p><h3 id="33-bcp-47-conformance">3.3 <a name="BCP_47_Conformance" href="#BCP_47_Conformance">BCP 47 Conformance</a></h3><p>Unicode language and locale identifiers inherit the design and the repertoire of subtags from [<a href="#BCP47">BCP47</a>] Language Tags. There are some extensions and restrictions made for the use of the Unicode locale identifier in CLDR:</p><ul>
 <li>It does not allow for the full syntax of [<a href="#BCP47">BCP47</a>]:<ul>
-<li>No extlang subtags are allowed (as in the BCP 47 canonical form, see BCP 47 <a href="https://tools.ietf.org/search/bcp47#section-4.5">Section 4.5</a> and <a href="https://tools.ietf.org/search/bcp47#section-3.1.7">Section 3.1.7</a>)</li>
+<li>No extlang subtags are allowed (as in the BCP 47 canonical form, see BCP 47 <a href="https://www.rfc-editor.org/rfc/rfc5646.html#section-4.5">Section 4.5</a> and <a href="https://www.rfc-editor.org/rfc/rfc5646.html#section-3.1.7">Section 3.1.7</a>)</li>
 <li>No irregular BCP 47 legacy language tags (marked as “Type: grandfathered” in BCP 47) are allowed (these are all deprecated in BCP 47)</li>
 <li>A tag must not start with the subtag "x": thus a <em>privateuse</em> (eg x-abc) can only be after a language subtag, like "und"</li>
 </ul>
 </li>
 <li>It allows for certain semantic additions and constraints:<ul>
 <li>Certain codes that are private-use in BCP 47 and ISO are given semantics by LDML</li>
-<li>Each macrolanguage has an identified primary encompassed language, which is treated as an alias for the macrolanguage, and thus is replaced when canonicalizing (as allowed by BCP 47, see <a href="https://tools.ietf.org/search/bcp47#section-4.1.2">Section 4.1.2</a>)</li>
+<li>Each macrolanguage has an identified primary encompassed language, which is treated as an alias for the macrolanguage, and thus is replaced when canonicalizing (as allowed by BCP 47, see <a href="https://www.rfc-editor.org/rfc/rfc5646.html#section-4.1.2">Section 4.1.2</a>)</li>
 </ul>
 </li>
 <li>It allows certain syntax for backwards compatibility (not BCP 47-compatible):<ul>
@@ -1508,7 +1540,7 @@ See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-da
 <td><code>root_u_cu_usd</code></td>
 <td>changes to "root", because no script, region, or variant tag is present</td>
 </tr>
-</tbody></table><h5 id="truncation">Truncation</h5><p>BCP 47 requires that implementations allow for language tags of at least 35 characters, in <a href="https://tools.ietf.org/search/bcp47#section-4.4.1">Section 4.1.1</a>.
+</tbody></table><h5 id="truncation">Truncation</h5><p>BCP 47 requires that implementations allow for language tags of at least 35 characters, in <a href="https://www.rfc-editor.org/rfc/rfc5646.html#section-4.4.1">Section 4.1.1</a>.
 To allow for use of extensions, CLDR extends that minimum to 255 for Unicode locale identifiers.
 Theoretically, a language tag could be far longer, due to the possibility of a large number of variants and extensions.
 In practice, the typical size of a locale or language identifier will be much smaller, so implementations can optimize for smaller sizes, as long as there is an escape mechanism allowing for up to 255.</p><h3 id="34-language-identifier-field-definitions">3.4 <a name="Field_Definitions" href="#Field_Definitions">Language Identifier Field Definitions</a></h3><p>Unicode language and locale identifier field values are provided in the following table. Note that some private-use BCP 47 field values are given specific meanings in CLDR. While field values are based on [<a href="#BCP47">BCP47</a>] subtag values, their validity status in CLDR is specified by means of machine-readable files in the <a href="https://github.com/unicode-org/cldr-staging/tree/main/production/common/validity">common/validity/</a> subdirectory, such as language.xml. For the format of those files and more information, see <em><a href="#Validity_Data">Section 3.11 Validity Data</a></em>.</p><h4 id="unicode_language_subtag-also-known-as-a-unicode-base-language-code"><a name="unicode_language_subtag_validity" href="#unicode_language_subtag_validity"><code>unicode_language_subtag</code></a> (also known as a <em>Unicode base language code</em>)</h4><p>Subtags in the language.xml file (see <em>Section 3.11 <a href="#Validity_Data">Validity Data</a></em> ). These are based on [<a href="#BCP47">BCP47</a>] subtag values marked as <strong>Type: language</strong></p><p>ISO 639-3 introduces the notion of "macrolanguages", where certain ISO 639-1 or ISO 639-2 codes are given broad semantics, and additional codes are given for the narrower semantics. For backwards compatibility, Unicode language identifiers retain use of the narrower semantics for these codes. For example:</p><table>
@@ -1866,7 +1898,7 @@ zh-Hant-HK
 </ol><p>The BCP 47 form for keys and types is the canonical form, and recommended. Other aliases are included for backwards compatibility.</p><!-- HTML: rowspan, colspan --><table><caption id="table-keytype-definitions">Table: <a name="Key_Type_Definitions" href="#Key_Type_Definitions">Key/Type Definitions</a></caption><tbody>
 <tr><th>key<br>(old key name)</th><th>key description</th><th>example type<br>(old type name)</th><th>type description</th></tr>
 
-<tr><td colspan="4"><b>A <a name="UnicodeCalendarIdentifier" id="UnicodeCalendarIdentifier" href="#UnicodeCalendarIdentifier">Unicode Calendar Identifier</a> defines a type of calendar. The valid values are those <i>name</i> attribute values in the <i>type</i> elements of key name="ca" in bcp47/<a href="https://github.com/unicode-org/cldr/tree/main/common/bcp47/calendar.xml" target="_blank">calendar.xml</a></b>.</td></tr>
+<tr><td colspan="4"><b>A <a name="UnicodeCalendarIdentifier" id="UnicodeCalendarIdentifier" href="#UnicodeCalendarIdentifier">Unicode Calendar Identifier</a> defines a type of calendar. The valid values are those <i>name</i> attribute values in the <i>type</i> elements of key name="ca" in bcp47/<a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/calendar.xml" target="_blank">calendar.xml</a></b>.</td></tr>
 <tr><td rowspan="10">"ca"<br>(calendar)</td>
     <td rowspan="10">Calendar algorithm<br><br><i>(For information on the calendar algorithms associated with the data used with these, see [<a href="#Calendars">Calendars</a>].)</i></td>
             <td>"buddhist"</td>
@@ -1886,13 +1918,13 @@ zh-Hant-HK
         <tr><td colspan="2">…</td></tr>
         <tr><td colspan="2"><b>Note:</b> <i>Some calendar types are represented by two subtags. In such cases, the first subtag specifies a generic calendar type and the second subtag specifies a calendar algorithm variant. The CLDR uses generic calendar types (single subtag types) for tagging data when calendar algorithm variations within a generic calendar type are irrelevant. For example, type "islamic" is used for specifying Islamic calendar formatting data for all Islamic calendar types, including "islamic-civil" and "islamic-umalqura".</i></td></tr>
 
-<tr><td colspan="4"><b>A <a name="UnicodeCurrencyFormatIdentifier" id="UnicodeCurrencyFormatIdentifier" href="#UnicodeCurrencyFormatIdentifier">Unicode Currency Format Identifier</a> defines a style for currency formatting. The valid values are those <i>name</i> attribute values in the <i>type</i> elements of key name="cf" in bcp47/<a href="https://github.com/unicode-org/cldr/tree/main/common/bcp47/currency.xml" target="_blank">currency.xml</a></b>.</td></tr>
+<tr><td colspan="4"><b>A <a name="UnicodeCurrencyFormatIdentifier" id="UnicodeCurrencyFormatIdentifier" href="#UnicodeCurrencyFormatIdentifier">Unicode Currency Format Identifier</a> defines a style for currency formatting. The valid values are those <i>name</i> attribute values in the <i>type</i> elements of key name="cf" in bcp47/<a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/currency.xml" target="_blank">currency.xml</a></b>.</td></tr>
 <tr><td rowspan="2">"cf"</td>
     <td rowspan="2">Currency Format style</td>
         <td>"standard"</td><td>Negative numbers use the minusSign symbol (the default).</td></tr>
         <tr><td>"account"</td><td>Negative numbers use parentheses or equivalent.</td></tr>
 
-<tr><td colspan="4"><b>A <a name="UnicodeCollationIdentifier" id="UnicodeCollationIdentifier" href="#UnicodeCollationIdentifier">Unicode Collation Identifier</a> defines a type of collation (sort order). The valid values are those <i>name</i> attribute values in the <i>type</i> elements of bcp47/<a href="https://github.com/unicode-org/cldr/tree/main/common/bcp47/collation.xml" target="_blank">collation.xml</a></b>.</td></tr>
+<tr><td colspan="4"><b>A <a name="UnicodeCollationIdentifier" id="UnicodeCollationIdentifier" href="#UnicodeCollationIdentifier">Unicode Collation Identifier</a> defines a type of collation (sort order). The valid values are those <i>name</i> attribute values in the <i>type</i> elements of bcp47/<a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/collation.xml" target="_blank">collation.xml</a></b>.</td></tr>
 <tr><td colspan="4"><i>For information on each collation setting parameter, from <b>ka</b> to <b>vt</b>, see <a href="tr35-collation.html#Setting_Options">Setting Options</a></i></td></tr>
 <tr><td rowspan="9">"co"<br>(collation)</td>
     <td rowspan="9">Collation type</td>
@@ -1911,20 +1943,20 @@ zh-Hant-HK
             <td>Special collation type for a modified string search in which a pattern consisting of a sequence of Hangul initial consonants (jamo lead consonants) will match a sequence of Hangul syllable characters whose initial consonants match the pattern. The jamo lead consonants can be represented using conjoining or compatibility jamo. This search collator is best used at SECONDARY strength with an "asymmetric" search as described in the [<a href="https://www.unicode.org/reports/tr41/#UTS10">UCA</a>] section Asymmetric Search and obtained, for example, using ICU4C's usearch facility with attribute USEARCH_ELEMENT_COMPARISON set to value USEARCH_PATTERN_BASE_WEIGHT_IS_WILDCARD; this ensures that a full Hangul syllable in the search pattern will only match the same syllable in the searched text (instead of matching any syllable with the same initial consonant), while a Hangul initial consonant in the search pattern will match any Hangul syllable in the searched text with the same initial consonant.</td></tr>
         <tr><td colspan="2">…</td></tr>
 
-<tr><td colspan="4"><b>A <a name="UnicodeCurrencyIdentifier" id="UnicodeCurrencyIdentifier" href="#UnicodeCurrencyIdentifier">Unicode Currency Identifier</a> defines a type of currency. The valid values are those <i>name</i> attribute values in the <i>type</i> elements of key name="cu" in bcp47/<a href="https://github.com/unicode-org/cldr/tree/main/common/bcp47/currency.xml" target="_blank">currency.xml</a>.</b></td></tr>
+<tr><td colspan="4"><b>A <a name="UnicodeCurrencyIdentifier" id="UnicodeCurrencyIdentifier" href="#UnicodeCurrencyIdentifier">Unicode Currency Identifier</a> defines a type of currency. The valid values are those <i>name</i> attribute values in the <i>type</i> elements of key name="cu" in bcp47/<a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/currency.xml" target="_blank">currency.xml</a>.</b></td></tr>
 <tr><td>"cu"<br>(currency)</td>
     <td>Currency type</td>
     <td><i>ISO 4217 code,</i><p><i>plus others in common use</i></p></td>
     <td><p>Codes consisting of 3 ASCII letters that are or have been valid in ISO 4217, plus certain additional codes that are or have been in common use. The list of countries and time periods associated with each currency value is available in <a href="tr35-numbers.html#Supplemental_Currency_Data">Supplemental Currency Data</a>, plus the default number of decimals.</p><p>The XXX code is given a broader interpretation as <i>Unknown or Invalid Currency</i>.</p></td></tr>
 
-<tr><td colspan="4"><b>A <a name="UnicodeDictionaryBreakExclusionIdentifier" id="UnicodeDictionaryBreakExclusionIdentifier" href="#UnicodeDictionaryBreakExclusionIdentifier">Unicode Dictionary Break Exclusion Identifier</a> specifies scripts to be excluded from dictionary-based text break (for words and lines). The valid values are of one or more items of type SCRIPT_CODE as specified in the <i>name</i> attribute value in the <i>type</i> element of key name="dx" in bcp47/<a href="https://github.com/unicode-org/cldr/tree/main/common/bcp47/segmentation.xml" target="_blank">segmentation.xml</a>.</b></td></tr>
+<tr><td colspan="4"><b>A <a name="UnicodeDictionaryBreakExclusionIdentifier" id="UnicodeDictionaryBreakExclusionIdentifier" href="#UnicodeDictionaryBreakExclusionIdentifier">Unicode Dictionary Break Exclusion Identifier</a> specifies scripts to be excluded from dictionary-based text break (for words and lines). The valid values are of one or more items of type SCRIPT_CODE as specified in the <i>name</i> attribute value in the <i>type</i> element of key name="dx" in bcp47/<a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/segmentation.xml" target="_blank">segmentation.xml</a>.</b></td></tr>
 <tr><td>"dx"</td>
     <td>Dictionary break script exclusions</td>
     <td><i><code><a href="#unicode_script_subtag">unicode_script_subtag</a></code> values</i></td>
     <td><p>One or more items of type SCRIPT_CODE, which are valid <code><a href="#unicode_script_subtag">unicode_script_subtag</a></code> values.</p>
         <p>The code Zyyy (Common) can be specified to exclude all scripts, in which case it should be the only SCRIPT_CODE value specified.</p></td></tr>
 
-<tr><td colspan="4"><b>A <a name="UnicodeEmojiPresentationStyleIdentifier" id="UnicodeEmojiPresentationStyleIdentifier" href="#UnicodeEmojiPresentationStyleIdentifier">Unicode Emoji Presentation Style Identifier</a> specifies a request for the preferred emoji presentation style. This can be used as part of the value for an HTML lang attribute, for example <code>&lt;html lang="sr-Latn-u-em-emoji"&gt;</code>. The valid values are those <i>name</i> attribute values in the <i>type</i> elements of key name="em" in bcp47/<a href="https://github.com/unicode-org/cldr/tree/main/common/bcp47/variant.xml" target="_blank">variant.xml</a></b>.</td></tr>
+<tr><td colspan="4"><b>A <a name="UnicodeEmojiPresentationStyleIdentifier" id="UnicodeEmojiPresentationStyleIdentifier" href="#UnicodeEmojiPresentationStyleIdentifier">Unicode Emoji Presentation Style Identifier</a> specifies a request for the preferred emoji presentation style. This can be used as part of the value for an HTML lang attribute, for example <code>&lt;html lang="sr-Latn-u-em-emoji"&gt;</code>. The valid values are those <i>name</i> attribute values in the <i>type</i> elements of key name="em" in bcp47/<a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/variant.xml" target="_blank">variant.xml</a></b>.</td></tr>
 <tr><td rowspan="3">"em"</td>
     <td rowspan="3">Emoji presentation style</td>
             <td>"emoji"</td>
@@ -1933,7 +1965,7 @@ zh-Hant-HK
             <td>Use a text presentation for emoji characters if possible.</td></tr>
         <tr><td>"default"</td><td>Use the default presentation for emoji characters as specified in UTR #51 Section 4, <a href="https://www.unicode.org/reports/tr51/#Presentation_Style">Presentation Style</a>.</td></tr>
 
-<tr><td colspan="4"><b>A <a name="UnicodeFirstDayIdentifier" id="UnicodeFirstDayIdentifier" href="#UnicodeFirstDayIdentifier">Unicode First Day Identifier</a> defines the preferred first day of the week for calendar display. Specifying "fw" in a locale identifier overrides the default value specified by supplemental week data (see Part 4 Dates, section 4.3 <a href="tr35-dates.html#Week_Data">Week Data</a>). The valid values are those <i>name</i> attribute values in the <i>type</i> elements of key name="fw" in bcp47/<a href="https://github.com/unicode-org/cldr/tree/main/common/bcp47/calendar.xml" target="_blank">calendar.xml</a></b>.</td></tr>
+<tr><td colspan="4"><b>A <a name="UnicodeFirstDayIdentifier" id="UnicodeFirstDayIdentifier" href="#UnicodeFirstDayIdentifier">Unicode First Day Identifier</a> defines the preferred first day of the week for calendar display. Specifying "fw" in a locale identifier overrides the default value specified by supplemental week data (see Part 4 Dates, section 4.3 <a href="tr35-dates.html#Week_Data">Week Data</a>). The valid values are those <i>name</i> attribute values in the <i>type</i> elements of key name="fw" in bcp47/<a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/calendar.xml" target="_blank">calendar.xml</a></b>.</td></tr>
 <tr><td rowspan="4">"fw"</td>
     <td rowspan="4">First day of week</td>
             <td>"sun"</td>
@@ -1944,7 +1976,7 @@ zh-Hant-HK
         <tr><td>"sat"</td>
             <td>Saturday</td></tr>
 
-<tr><td colspan="4"><b>A <a name="UnicodeHourCycleIdentifier" id="UnicodeHourCycleIdentifier" href="#UnicodeHourCycleIdentifier">Unicode Hour Cycle Identifier</a> defines the preferred time cycle. Specifying "hc" in a locale identifier overrides the default value specified by supplemental time data (see Part 4 Dates, section 4.4 <a href="tr35-dates.html#Time_Data">Time Data</a>). The valid values are those <i>name</i> attribute values in the <i>type</i> elements of key name="hc" in bcp47/<a href="https://github.com/unicode-org/cldr/tree/main/common/bcp47/calendar.xml" target="_blank">calendar.xml</a></b>.</td></tr>
+<tr><td colspan="4"><b>A <a name="UnicodeHourCycleIdentifier" id="UnicodeHourCycleIdentifier" href="#UnicodeHourCycleIdentifier">Unicode Hour Cycle Identifier</a> defines the preferred time cycle. Specifying "hc" in a locale identifier overrides the default value specified by supplemental time data (see Part 4 Dates, section 4.4 <a href="tr35-dates.html#Time_Data">Time Data</a>). The valid values are those <i>name</i> attribute values in the <i>type</i> elements of key name="hc" in bcp47/<a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/calendar.xml" target="_blank">calendar.xml</a></b>.</td></tr>
 <tr><td rowspan="4">"hc"</td>
     <td rowspan="4">Hour cycle</td>
             <td>"h12"</td>
@@ -1956,7 +1988,7 @@ zh-Hant-HK
         <tr><td>"h24"</td>
             <td>Hour system using 1–24; corresponds to 'k' in pattern</td></tr>
 
-<tr><td colspan="4"><b>A <a name="UnicodeLineBreakStyleIdentifier" id="UnicodeLineBreakStyleIdentifier" href="#UnicodeLineBreakStyleIdentifier">Unicode Line Break Style Identifier</a> defines a preferred line break style corresponding to the CSS level 3 <a href="https://drafts.csswg.org/css-text/#line-break-property">line-break option</a>. Specifying "lb" in a locale identifier overrides the locale’s default style (which may correspond to "normal" or "strict"). The valid values are those <i>name</i> attribute values in the <i>type</i> elements of key name="lb" in bcp47/<a href="https://github.com/unicode-org/cldr/tree/main/common/bcp47/segmentation.xml" target="_blank">segmentation.xml</a></b>.</td></tr>
+<tr><td colspan="4"><b>A <a name="UnicodeLineBreakStyleIdentifier" id="UnicodeLineBreakStyleIdentifier" href="#UnicodeLineBreakStyleIdentifier">Unicode Line Break Style Identifier</a> defines a preferred line break style corresponding to the CSS level 3 <a href="https://drafts.csswg.org/css-text/#line-break-property">line-break option</a>. Specifying "lb" in a locale identifier overrides the locale’s default style (which may correspond to "normal" or "strict"). The valid values are those <i>name</i> attribute values in the <i>type</i> elements of key name="lb" in bcp47/<a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/segmentation.xml" target="_blank">segmentation.xml</a></b>.</td></tr>
 <tr><td rowspan="3">"lb"</td>
     <td rowspan="3">Line break style</td>
             <td>"strict"</td>
@@ -1966,7 +1998,7 @@ zh-Hant-HK
         <tr><td>"loose"</td>
             <td>CSS lev 3 line-break=loose</td></tr>
 
-<tr><td colspan="4"><b>A <a name="UnicodeLineBreakWordIdentifier" id="UnicodeLineBreakWordIdentifier" href="#UnicodeLineBreakWordIdentifier">Unicode Line Break Word Identifier</a> defines preferred line break word handling behavior corresponding to the CSS level 3 <a href="https://drafts.csswg.org/css-text/#word-break-property">word-break option</a>. The valid values are those <i>name</i> attribute values in the <i>type</i> elements of key name="lw" in bcp47/<a href="https://github.com/unicode-org/cldr/tree/main/common/bcp47/segmentation.xml" target="_blank">segmentation.xml</a></b>.</td></tr>
+<tr><td colspan="4"><b>A <a name="UnicodeLineBreakWordIdentifier" id="UnicodeLineBreakWordIdentifier" href="#UnicodeLineBreakWordIdentifier">Unicode Line Break Word Identifier</a> defines preferred line break word handling behavior corresponding to the CSS level 3 <a href="https://drafts.csswg.org/css-text/#word-break-property">word-break option</a>. The valid values are those <i>name</i> attribute values in the <i>type</i> elements of key name="lw" in bcp47/<a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/segmentation.xml" target="_blank">segmentation.xml</a></b>.</td></tr>
 <tr><td rowspan="4">"lw"</td>
     <td rowspan="4">Line break word handling</td>
             <td>"normal"</td>
@@ -1978,7 +2010,7 @@ zh-Hant-HK
     <tr><td>"phrase"</td>
         <td>Prioritize keeping natural phrases (of multiple words) together when breaking, used in short text like title and headline</td></tr>
 
-<tr><td colspan="4"><b>A <a name="UnicodeMeasurementSystemIdentifier" id="UnicodeMeasurementSystemIdentifier" href="#UnicodeMeasurementSystemIdentifier">Unicode Measurement System Identifier</a> defines a preferred measurement system. Specifying "ms" in a locale identifier overrides the default value specified by supplemental measurement system data (see Part 2 General, section 5 <a href="tr35-general.html#Measurement_System_Data">Measurement System Data</a>). The valid values are those <i>name</i> attribute values in the <i>type</i> elements of key name="ms" in bcp47/<a href="https://github.com/unicode-org/cldr/tree/main/common/bcp47/measure.xml" target="_blank">measure.xml</a></b>. 
+<tr><td colspan="4"><b>A <a name="UnicodeMeasurementSystemIdentifier" id="UnicodeMeasurementSystemIdentifier" href="#UnicodeMeasurementSystemIdentifier">Unicode Measurement System Identifier</a> defines a preferred measurement system. Specifying "ms" in a locale identifier overrides the default value specified by supplemental measurement system data (see Part 2 General, section 5 <a href="tr35-general.html#Measurement_System_Data">Measurement System Data</a>). The valid values are those <i>name</i> attribute values in the <i>type</i> elements of key name="ms" in bcp47/<a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/measure.xml" target="_blank">measure.xml</a></b>. 
 The determination of preferred units depends on the locale identifer: the keys ms, mu, rg, the base locale (language, script, region) and the user preferences.
 <i>For information about preferred units and unit conversion, see <a href="tr35-info.html#Unit_Conversion">Unit Conversion</a> and <a href="tr35-info.html#Unit_Preferences">Unit Preferences</a>.</i>
 </td></tr>
@@ -1991,7 +2023,7 @@ The determination of preferred units depends on the locale identifer: the keys m
         <tr><td>"uksystem"</td>
             <td>UK System of measurement: feet, pints, etc.; pints are 20oz</td></tr>
 
-<tr><td colspan="4"><b>A <a name="MeasurementUnitPreferenceOverride" id="MeasurementUnitPreferenceOverride" href="#MeasurementUnitPreferenceOverride">Measurement Unit Preference Override</a> defines an override for measurement unit preference. The valid values are those <i>name</i> attribute values in the <i>type</i> elements of key name="mu" in bcp47/<a href="https://github.com/unicode-org/cldr/tree/main/common/bcp47/measure.xml" target="_blank">measure.xml</a></b>.
+<tr><td colspan="4"><b>A <a name="MeasurementUnitPreferenceOverride" id="MeasurementUnitPreferenceOverride" href="#MeasurementUnitPreferenceOverride">Measurement Unit Preference Override</a> defines an override for measurement unit preference. The valid values are those <i>name</i> attribute values in the <i>type</i> elements of key name="mu" in bcp47/<a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/measure.xml" target="_blank">measure.xml</a></b>.
 <i>For information about preferred units and unit conversion, see <a href="tr35-info.html#Unit_Conversion">Unit Conversion</a> and <a href="tr35-info.html#Unit_Preferences">Unit Preferences</a>.</i>
 </td></tr><tr><td rowspan="3">"mu"</td>
     <td rowspan="3">Measurement unit override</td>
@@ -2002,7 +2034,7 @@ The determination of preferred units depends on the locale identifer: the keys m
         <tr><td>"fahrenhe"</td>
             <td>Fahrenheit as temperature unit</td></tr>
 
-<tr><td colspan="4"><b>A <a name="UnicodeNumberSystemIdentifier" id="UnicodeNumberSystemIdentifier" href="#UnicodeNumberSystemIdentifier">Unicode Number System Identifier</a> defines a type of number system. The valid values are those <i>name</i> attribute values in the <i>type</i> elements of bcp47/<a href="https://github.com/unicode-org/cldr/tree/main/common/bcp47/number.xml" target="_blank">number.xml</a>.</b></td></tr>
+<tr><td colspan="4"><b>A <a name="UnicodeNumberSystemIdentifier" id="UnicodeNumberSystemIdentifier" href="#UnicodeNumberSystemIdentifier">Unicode Number System Identifier</a> defines a type of number system. The valid values are those <i>name</i> attribute values in the <i>type</i> elements of bcp47/<a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/number.xml" target="_blank">number.xml</a>.</b></td></tr>
 <tr><td rowspan="7">"nu"<br>(numbers)</td>
     <td rowspan="7">Numbering system</td>
             <td><i>Unicode script subtag</i></td>
@@ -2035,7 +2067,7 @@ The determination of preferred units depends on the locale identifer: the keys m
             <td rowspan="2">A <a href="#unicode_subdivision_id">unicode_subdivision_id</a>, which is a <a href="#unicode_region_subtag">unicode_region_subtag</a> concatenated with a unicode_subdivision_suffix.<br>For example, <i>gbsct</i> is “gb”+“sct” (where sct represents the subdivision code for Scotland). Thus “en-GB-u-sd-gbsct” represents the language variant “English as used in Scotland”. And both “en-u-sd-usca” and “en-US-u-sd-usca” represent “English as used in California”. See <b><i><a href="#Unicode_Subdivision_Codes">3.6.5 Subdivision Codes</a></i></b>.</td></tr>
         <tr><td>…</td></tr>
 
-<tr><td colspan="4"><b>A <a name="UnicodeSentenceBreakSuppressionsIdentifier" id="UnicodeSentenceBreakSuppressionsIdentifier" href="#UnicodeSentenceBreakSuppressionsIdentifier">Unicode Sentence Break Suppressions Identifier</a> defines a set of data to be used for suppressing certain sentence breaks that would otherwise be found by UAX #14 rules. The valid values are those <i>name</i> attribute values in the <i>type</i> elements of key name="ss" in bcp47/<a href="https://github.com/unicode-org/cldr/tree/main/common/bcp47/segmentation.xml" target="_blank">segmentation.xml</a></b>.</td></tr>
+<tr><td colspan="4"><b>A <a name="UnicodeSentenceBreakSuppressionsIdentifier" id="UnicodeSentenceBreakSuppressionsIdentifier" href="#UnicodeSentenceBreakSuppressionsIdentifier">Unicode Sentence Break Suppressions Identifier</a> defines a set of data to be used for suppressing certain sentence breaks that would otherwise be found by UAX #14 rules. The valid values are those <i>name</i> attribute values in the <i>type</i> elements of key name="ss" in bcp47/<a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/segmentation.xml" target="_blank">segmentation.xml</a></b>.</td></tr>
 <tr><td rowspan="2">"ss"</td>
     <td rowspan="2">Sentence break suppressions</td>
             <td>"none"</td>
@@ -2043,7 +2075,7 @@ The determination of preferred units depends on the locale identifer: the keys m
         <tr><td>"standard"</td>
             <td>Use sentence break suppressions data of type "standard"</td></tr>
 
-<tr><td colspan="4"><b>A <a name="UnicodeTimezoneIdentifier" id="UnicodeTimezoneIdentifier" href="#UnicodeTimezoneIdentifier">Unicode Timezone Identifier</a> defines a timezone. The valid values are those name attribute values in the <i>type</i> elements of bcp47/<a href="https://github.com/unicode-org/cldr/tree/main/common/bcp47/timezone.xml" target="_blank">timezone.xml</a>.</b></td></tr>
+<tr><td colspan="4"><b>A <a name="UnicodeTimezoneIdentifier" id="UnicodeTimezoneIdentifier" href="#UnicodeTimezoneIdentifier">Unicode Timezone Identifier</a> defines a timezone. The valid values are those name attribute values in the <i>type</i> elements of bcp47/<a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/timezone.xml" target="_blank">timezone.xml</a>.</b></td></tr>
 <tr><td>"tz"<br>(timezone)</td>
     <td>Time zone</td>
     <td><i>Unicode short time zone IDs</i></td>
@@ -2051,13 +2083,13 @@ The determination of preferred units depends on the locale identifer: the keys m
         <p>For more information, see <a href="#Time_Zone_Identifiers">Section 3.6.3 Time Zone Identifiers</a>.</p>
         <p>CLDR provides data for normalizing timezone codes.</p></td></tr>
 
-<tr><td colspan="4"><b>A <a name="UnicodeVariantIdentifier" id="UnicodeVariantIdentifier" href="#UnicodeVariantIdentifier">Unicode Variant Identifier</a> defines a special variant used for locales. The valid values are those name attribute values in the <i>type</i> elements of bcp47/<a href="https://github.com/unicode-org/cldr/tree/main/common/bcp47/variant.xml" target="_blank">variant.xml</a>.</b></td></tr>
+<tr><td colspan="4"><b>A <a name="UnicodeVariantIdentifier" id="UnicodeVariantIdentifier" href="#UnicodeVariantIdentifier">Unicode Variant Identifier</a> defines a special variant used for locales. The valid values are those name attribute values in the <i>type</i> elements of bcp47/<a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/variant.xml" target="_blank">variant.xml</a>.</b></td></tr>
 <tr><td>"va"</td>
     <td>Common variant type</td>
     <td>"posix"</td>
     <td>POSIX style locale variant. About handling of the "POSIX" variant see <i>Section 3.8.2, <a href="#Legacy_Variants">Legacy Variants</a></i>.</td></tr>
 
-</tbody></table><p>For more information on the allowed keys and types, see the specific elements below, and <a href="#Unicode_Locale_Extension_Data_Files">Section 3.6.4 U Extension Data Files</a>.</p><p>Additional keys or types might be added in future versions. Implementations of LDML should be robust to handle any syntactically valid key or type values.</p><h4 id="362-numbering-system-data">3.6.2 <a name="Numbering%20System%20Data" href="#Numbering%20System%20Data">Numbering System Data</a></h4><p>LDML supports multiple numbering systems. The identifiers for those numbering systems are defined in the file <strong>bcp47/number.xml</strong>. For example, for the latest version of the data see <a href="https://github.com/unicode-org/cldr/tree/main/common/bcp47/number.xml">bcp47/number.xml</a>.</p><p>Details about those numbering systems are defined in <strong>supplemental/numberingSystems.xml</strong>. For example, for the latest version of the data see <a href="https://github.com/unicode-org/cldr/tree/main/common/supplemental/numberingSystems.xml">supplemental/numberingSystems.xml</a>.</p><p>LDML makes certain stability guarantees on this data:</p><ol>
+</tbody></table><p>For more information on the allowed keys and types, see the specific elements below, and <a href="#Unicode_Locale_Extension_Data_Files">Section 3.6.4 U Extension Data Files</a>.</p><p>Additional keys or types might be added in future versions. Implementations of LDML should be robust to handle any syntactically valid key or type values.</p><h4 id="362-numbering-system-data">3.6.2 <a name="Numbering%20System%20Data" href="#Numbering%20System%20Data">Numbering System Data</a></h4><p>LDML supports multiple numbering systems. The identifiers for those numbering systems are defined in the file <strong>bcp47/number.xml</strong>. For example, for the latest version of the data see <a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/number.xml">bcp47/number.xml</a>.</p><p>Details about those numbering systems are defined in <strong>supplemental/numberingSystems.xml</strong>. For example, for the latest version of the data see <a href="https://github.com/unicode-org/cldr/blob/main/common/supplemental/numberingSystems.xml">supplemental/numberingSystems.xml</a>.</p><p>LDML makes certain stability guarantees on this data:</p><ol>
 <li>Like other BCP 47 identifiers, once a numeric identifier is added to <strong>bcp47/number.xml</strong> or <strong>numberingSystems.xml</strong>, it will never be removed from either of those files.</li>
 <li>If an identifier has type="numeric" in numberingSystems.xml, then<ol>
 <li>It is a decimal, positional numbering system with an attribute <code>digits=X</code>, where <code>X</code> is a string with the 10 digits in order used by the numbering system.</li>
@@ -2366,12 +2398,12 @@ The Croat is not forced to pick "Serbia time" (Europe/Belgrade) nor the Serb for
 </ul>
 </li>
 <li>Localize that data as "<em>close</em>" to the end-user as possible.</li>
-</ol><p>There are a number of advantages to this strategy. The longer the data is kept in a neutral format, the more flexible the entire system is. On a practical level, if transmitted data is neutral-format, then it is much easier to manipulate the data, debug the processing of the data, and maintain the software connections between components.</p><p>Once data has been localized into a given language, it can be quite difficult to programmatically convert that data into another format, if required. This is especially true if the data contains a mixture of translated text and formatted variables. Once information has been localized into, say, Romanian, it is much more difficult to localize that data into, say, French. Parsing is more difficult than formatting, and may run up against different ambiguities in interpreting text that has been localized, even if the original translated message text is available (which it may not be).</p><p>Moreover, the closer we are to end-user, the more we know about that user's preferred formats. If we format dates, for example, at the user's machine, then it can easily take into account any customizations that the user has specified. If the formatting is done elsewhere, either we have to transmit whatever user customizations are in play, or we only transmit the user's locale code, which may only approximate the desired format. Thus the closer the localization is to the end user, the less we need to ship all of the user's preferences around to all the places that localization could possibly need to be done.</p><p>Even though localization should be done as close to the end-user as possible, there will be cases where different components need to be aware of whatever settings are appropriate for doing the localization. Thus information such as a locale code or time zone needs to be communicated between different components.</p><h4 id="391-message-formatting-and-exceptions">3.9.1 <a name="Message_Formatting_and_Exceptions" href="#Message_Formatting_and_Exceptions">Message Formatting and Exceptions</a></h4><p>Windows (<a href="https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-formatmessage">FormatMessage</a>, <a href="https://docs.microsoft.com/en-us/dotnet/api/system.string.format">String.Format</a>), Java (<a href="https://docs.oracle.com/javase/7/docs/api/java/text/MessageFormat.html">MessageFormat</a>) and ICU (<a href="https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/classMessageFormat.html">MessageFormat</a>, <a href="https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/umsg_8h.html">umsg</a>) all provide methods of formatting variables (dates, times, etc) and inserting them at arbitrary positions in a string. This avoids the manual string concatenation that causes severe problems for localization. The question is, where to do this? It is especially important since the original code site that originates a particular message may be far down in the bowels of a component, and passed up to the top of the component with an exception. So we will take that case as representative of this class of issues.</p><p>There are circumstances where the message can be communicated with a language-neutral code, such as a numeric error code or mnemonic string key, that is understood outside of the component. If there are arguments that need to accompany that message, such as a number of files or a datetime, those need to accompany the numeric code so that when the localization is finally at some point, the full information can be presented to the end-user. This is the best case for localization.</p><p>More often, the exact messages that could originate from within the component are not known outside of the component itself; or at least they may not be known by the component that is finally displaying text to the user. In such a case, the information as to the user's locale needs to be communicated in some way to the component that is doing the localization. That locale information does not necessarily need to be communicated deep within the component; ideally, any exceptions should bundle up some language-neutral message ID, plus the arguments needed to format the message (for example, datetime), but not do the localization at the throw site. This approach has the advantages noted above for JIT localization.</p><p>In addition, exceptions are often caught at a higher level; they do not end up being displayed to any end-user at all. By avoiding the localization at the throw site, it the cost of doing formatting, when that formatting is not really necessary. In fact, in many running programs most of the exceptions that are thrown at a low level never end up being presented to an end-user, so this can have considerable performance benefits.</p><h3 id="310-unicode-language-and-locale-ids">3.10 <a name="Language_and_Locale_IDs" href="#Language_and_Locale_IDs">Unicode Language and Locale IDs</a></h3><p>People have very slippery notions of what distinguishes a language code versus a locale code. The problem is that both are somewhat nebulous concepts.</p><p>In practice, many people use [<a href="#BCP47">BCP47</a>] codes to mean locale codes instead of strictly language codes. It is easy to see why this came about; because [<a href="#BCP47">BCP47</a>] includes an explicit region (territory) code, for most people it was sufficient for use as a locale code as well. For example, when typical web software receives a [<a href="#BCP47">BCP47</a>] code, it will use it as a locale code. Other typical software will do the same: in practice, language codes and locale codes are treated interchangeably. Some people recommend distinguishing on the basis of "-" versus "_" (for example, <em>zh-TW</em> for language code, <em>zh_TW</em> for locale code), but in practice that does not work because of the free variation out in the world in the use of these separators. Notice that Windows, for example, uses "-" as a separator in its locale codes. So pragmatically one is forced to treat "-" and "_" as equivalent when interpreting either one on input.</p><p>Another reason for the conflation of these codes is that <em>very</em> little data in most systems is distinguished by region alone; currency codes and measurement systems being some of the few. Sometimes date or number formats are mentioned as regional, but that really does not make much sense. If people see the sentence "You will have to adjust the value to १,२३४.५६७ from ૭૧,૨૩૪.૫૬" (using Indic digits), they would say that sentence is simply not English. Number format is far more closely associated with language than it is with region. The same is true for date formats: people would never expect to see intermixed a date in the format "2003年4月1日" (using Kanji) in text purporting to be purely English. There are regional differences in date and number format — differences which can be important — but those are different in kind than other language differences between regions.</p><p>As far as we are concerned — <em>as a completely practical matter</em> — two languages are different if they require substantially different localized resources. Distinctions according to spoken form are important in some contexts, but the written form is by far and away the most important issue for data interchange. Unfortunately, this is not the principle used in [<a href="#ISO639">ISO639</a>], which has the fairly unproductive notion (for data interchange) that only spoken language matters (it is also not completely consistent about this, however).</p><p>[<a href="#BCP47">BCP47</a>] <em><strong>can</strong></em> express a difference if the use of written languages happens to correspond to region boundaries expressed as [<a href="#ISO3166">ISO3166</a>] region codes, and has recently added codes that allow it to express some important cases that are not distinguished by [<a href="#ISO3166">ISO3166</a>] codes. These written languages include simplified and traditional Chinese (both used in Hong Kong S.A.R.); Serbian in Latin script; Azerbaijani in Arab script, and so on.</p><p>Notice also that <em>currency codes</em> are different than <em>currency localizations</em>. The currency localizations should largely be in the language-based resource bundles, not in the territory-based resource bundles. Thus, the resource bundle <em>en</em> contains the localized mappings in English for a range of different currency codes: USD → US$, RUR → Rub, AUD → $A and so on. Of course, some currency symbols are used for more than one currency, and in such cases specializations appear in the territory-based bundles. Continuing the example, <em>en_US</em> would have USD → $, while <em>en_AU</em> would have AUD → $. (In protocols, the currency codes should always accompany any currency amounts; otherwise the data is ambiguous, and software is forced to use the user's territory to guess at the currency. For some informal discussion of this, see <a href="https://unicode-org.github.io/icu-docs/design/jit_localization.html">JIT Localization</a>.)</p><h4 id="3101-written-language">3.10.1 <a name="Written_Language" href="#Written_Language">Written Language</a></h4><p>Criteria for what makes a written language should be purely pragmatic; <em>what would copy-editors say?</em> If one gave them text like the following, they would respond that is far from acceptable English for publication, and ask for it to be redone:</p><ol>
+</ol><p>There are a number of advantages to this strategy. The longer the data is kept in a neutral format, the more flexible the entire system is. On a practical level, if transmitted data is neutral-format, then it is much easier to manipulate the data, debug the processing of the data, and maintain the software connections between components.</p><p>Once data has been localized into a given language, it can be quite difficult to programmatically convert that data into another format, if required. This is especially true if the data contains a mixture of translated text and formatted variables. Once information has been localized into, say, Romanian, it is much more difficult to localize that data into, say, French. Parsing is more difficult than formatting, and may run up against different ambiguities in interpreting text that has been localized, even if the original translated message text is available (which it may not be).</p><p>Moreover, the closer we are to end-user, the more we know about that user's preferred formats. If we format dates, for example, at the user's machine, then it can easily take into account any customizations that the user has specified. If the formatting is done elsewhere, either we have to transmit whatever user customizations are in play, or we only transmit the user's locale code, which may only approximate the desired format. Thus the closer the localization is to the end user, the less we need to ship all of the user's preferences around to all the places that localization could possibly need to be done.</p><p>Even though localization should be done as close to the end-user as possible, there will be cases where different components need to be aware of whatever settings are appropriate for doing the localization. Thus information such as a locale code or time zone needs to be communicated between different components.</p><h4 id="391-message-formatting-and-exceptions">3.9.1 <a name="Message_Formatting_and_Exceptions" href="#Message_Formatting_and_Exceptions">Message Formatting and Exceptions</a></h4><p>Windows (<a href="https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-formatmessage">FormatMessage</a>, <a href="https://learn.microsoft.com/en-us/dotnet/api/system.string.format?view=net-6.0">String.Format</a>), Java (<a href="https://docs.oracle.com/javase/7/docs/api/java/text/MessageFormat.html">MessageFormat</a>) and ICU (<a href="https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/classMessageFormat.html">MessageFormat</a>, <a href="https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/umsg_8h.html">umsg</a>) all provide methods of formatting variables (dates, times, etc) and inserting them at arbitrary positions in a string. This avoids the manual string concatenation that causes severe problems for localization. The question is, where to do this? It is especially important since the original code site that originates a particular message may be far down in the bowels of a component, and passed up to the top of the component with an exception. So we will take that case as representative of this class of issues.</p><p>There are circumstances where the message can be communicated with a language-neutral code, such as a numeric error code or mnemonic string key, that is understood outside of the component. If there are arguments that need to accompany that message, such as a number of files or a datetime, those need to accompany the numeric code so that when the localization is finally at some point, the full information can be presented to the end-user. This is the best case for localization.</p><p>More often, the exact messages that could originate from within the component are not known outside of the component itself; or at least they may not be known by the component that is finally displaying text to the user. In such a case, the information as to the user's locale needs to be communicated in some way to the component that is doing the localization. That locale information does not necessarily need to be communicated deep within the component; ideally, any exceptions should bundle up some language-neutral message ID, plus the arguments needed to format the message (for example, datetime), but not do the localization at the throw site. This approach has the advantages noted above for JIT localization.</p><p>In addition, exceptions are often caught at a higher level; they do not end up being displayed to any end-user at all. By avoiding the localization at the throw site, it the cost of doing formatting, when that formatting is not really necessary. In fact, in many running programs most of the exceptions that are thrown at a low level never end up being presented to an end-user, so this can have considerable performance benefits.</p><h3 id="310-unicode-language-and-locale-ids">3.10 <a name="Language_and_Locale_IDs" href="#Language_and_Locale_IDs">Unicode Language and Locale IDs</a></h3><p>People have very slippery notions of what distinguishes a language code versus a locale code. The problem is that both are somewhat nebulous concepts.</p><p>In practice, many people use [<a href="#BCP47">BCP47</a>] codes to mean locale codes instead of strictly language codes. It is easy to see why this came about; because [<a href="#BCP47">BCP47</a>] includes an explicit region (territory) code, for most people it was sufficient for use as a locale code as well. For example, when typical web software receives a [<a href="#BCP47">BCP47</a>] code, it will use it as a locale code. Other typical software will do the same: in practice, language codes and locale codes are treated interchangeably. Some people recommend distinguishing on the basis of "-" versus "_" (for example, <em>zh-TW</em> for language code, <em>zh_TW</em> for locale code), but in practice that does not work because of the free variation out in the world in the use of these separators. Notice that Windows, for example, uses "-" as a separator in its locale codes. So pragmatically one is forced to treat "-" and "_" as equivalent when interpreting either one on input.</p><p>Another reason for the conflation of these codes is that <em>very</em> little data in most systems is distinguished by region alone; currency codes and measurement systems being some of the few. Sometimes date or number formats are mentioned as regional, but that really does not make much sense. If people see the sentence "You will have to adjust the value to १,२३४.५६७ from ૭૧,૨૩૪.૫૬" (using Indic digits), they would say that sentence is simply not English. Number format is far more closely associated with language than it is with region. The same is true for date formats: people would never expect to see intermixed a date in the format "2003年4月1日" (using Kanji) in text purporting to be purely English. There are regional differences in date and number format — differences which can be important — but those are different in kind than other language differences between regions.</p><p>As far as we are concerned — <em>as a completely practical matter</em> — two languages are different if they require substantially different localized resources. Distinctions according to spoken form are important in some contexts, but the written form is by far and away the most important issue for data interchange. Unfortunately, this is not the principle used in [<a href="#ISO639">ISO639</a>], which has the fairly unproductive notion (for data interchange) that only spoken language matters (it is also not completely consistent about this, however).</p><p>[<a href="#BCP47">BCP47</a>] <em><strong>can</strong></em> express a difference if the use of written languages happens to correspond to region boundaries expressed as [<a href="#ISO3166">ISO3166</a>] region codes, and has recently added codes that allow it to express some important cases that are not distinguished by [<a href="#ISO3166">ISO3166</a>] codes. These written languages include simplified and traditional Chinese (both used in Hong Kong S.A.R.); Serbian in Latin script; Azerbaijani in Arab script, and so on.</p><p>Notice also that <em>currency codes</em> are different than <em>currency localizations</em>. The currency localizations should largely be in the language-based resource bundles, not in the territory-based resource bundles. Thus, the resource bundle <em>en</em> contains the localized mappings in English for a range of different currency codes: USD → US$, RUR → Rub, AUD → $A and so on. Of course, some currency symbols are used for more than one currency, and in such cases specializations appear in the territory-based bundles. Continuing the example, <em>en_US</em> would have USD → $, while <em>en_AU</em> would have AUD → $. (In protocols, the currency codes should always accompany any currency amounts; otherwise the data is ambiguous, and software is forced to use the user's territory to guess at the currency. For some informal discussion of this, see <a href="https://unicode-org.github.io/icu-docs/design/jit_localization.html">JIT Localization</a>.)</p><h4 id="3101-written-language">3.10.1 <a name="Written_Language" href="#Written_Language">Written Language</a></h4><p>Criteria for what makes a written language should be purely pragmatic; <em>what would copy-editors say?</em> If one gave them text like the following, they would respond that is far from acceptable English for publication, and ask for it to be redone:</p><ol>
 <li>"Theatre Center News: The date of the last version of this document was 2003年3月20日. A copy can be obtained for $50,0 or 1.234,57 грн. We would like to acknowledge contributions by the following authors (in alphabetical order): Alaa Ghoneim, Behdad Esfahbod, Ahmed Talaat, Eric Mader, Asmus Freytag, Avery Bishop, and Doug Felt."</li>
 </ol><p>So one would change it to either B or C below, depending on which orthographic variant of English was the target for the publication:</p><ol start="2">
 <li>"Theater Center News: The date of the last version of this document was 3/20/2003. A copy can be obtained for $50.00 or 1,234.57 Ukrainian hryvni. We would like to acknowledge contributions by the following authors (in alphabetical order): Alaa Ghoneim, Ahmed Talaat, Asmus Freytag, Avery Bishop, Behdad Esfahbod, Doug Felt, Eric Mader."</li>
 <li>"Theatre Centre News: The date of the last version of this document was 20/3/2003. A copy can be obtained for $50.00 or 1,234.57 Ukrainian hryvni. We would like to acknowledge contributions by the following authors (in alphabetical order): Alaa Ghoneim, Ahmed Talaat, Asmus Freytag, Avery Bishop, Behdad Esfahbod, Doug Felt, Eric Mader."</li>
-</ol><p>Clearly there are many acceptable variations on this text. For example, copy editors might still quibble with the use of first versus last name sorting in the list, but clearly the first list was <em>not</em> acceptable English alphabetical order. And in quoting a name, like "Theatre Centre News", one may leave it in the source orthography even if it differs from the publication target orthography. And so on. However, just as clearly, there are limits on what is acceptable English, and "2003年3月20日", for example, is <em>not</em>.</p><p>Note that the language of locale data may differ from the language of localized software or web sites, when those latter are not localized into the user's preferred language. In such cases, the kind of incongruous juxtapositions described above may well appear, but this situation is usually preferable to forcing unfamiliar date or number formats on the user as well.</p><h4 id="3102-hybrid-locale-identifiers">3.10.2 <a name="Hybrid_Locale" href="#Hybrid_Locale">Hybrid Locale Identifiers</a></h4><p>Hybrid locales have intermixed content from 2 (or more) languages, often with one language's grammatical structure applied to words in another. These are commonly referred to with portmanteau words such as <em>Franglais, <a href="https://en.oxforddictionaries.com/definition/spanglish">​Spanglish</a></em> or <em>Denglish</em>. Hybrid locales do not <em>not</em> reference text simply containing two languages: a book of parallel text containing English and French, such as the following, is not Franglais:</p><!-- HTML: no header --><table><tbody><tr>
+</ol><p>Clearly there are many acceptable variations on this text. For example, copy editors might still quibble with the use of first versus last name sorting in the list, but clearly the first list was <em>not</em> acceptable English alphabetical order. And in quoting a name, like "Theatre Centre News", one may leave it in the source orthography even if it differs from the publication target orthography. And so on. However, just as clearly, there are limits on what is acceptable English, and "2003年3月20日", for example, is <em>not</em>.</p><p>Note that the language of locale data may differ from the language of localized software or web sites, when those latter are not localized into the user's preferred language. In such cases, the kind of incongruous juxtapositions described above may well appear, but this situation is usually preferable to forcing unfamiliar date or number formats on the user as well.</p><h4 id="3102-hybrid-locale-identifiers">3.10.2 <a name="Hybrid_Locale" href="#Hybrid_Locale">Hybrid Locale Identifiers</a></h4><p>Hybrid locales have intermixed content from 2 (or more) languages, often with one language's grammatical structure applied to words in another. These are commonly referred to with portmanteau words such as <em>Franglais, <a href="https://en.wikipedia.org/wiki/Spanglish">​Spanglish</a></em> or <em>Denglish</em>. Hybrid locales do not <em>not</em> reference text simply containing two languages: a book of parallel text containing English and French, such as the following, is not Franglais:</p><!-- HTML: no header --><table><tbody><tr>
     <td>On the 24th of May, 1863, my uncle, Professor Liedenbrock, rushed into his little house, No. 19 Königstrasse, one of the oldest streets in the oldest portion of the city of Hamburg…</td>
     <td>Le 24 mai 1863, un dimanche, mon oncle, le professeur Lidenbrock, revint précipitamment vers sa petite maison située au numéro 19 de Königstrasse, l’une des plus anciennes rues du vieux quartier de Hambourg…</td>
 </tr></tbody></table><p>While text in a document can be tagged as partly in one language and partly in another, that is not the same having a hybrid locale. There is a difference between having a Spanglish document, and a Spanish document that has some passages quoted in English. Fine-grained tagging doesn't handle grammatical combinations like Tanglish “Enna matteru?” (<em>What’s the matter?</em>), which is neither standard Tamil nor standard English. More importantly, it doesn’t work for the very common use case for a <a href="#unicode_locale_id">unicode_locale_id</a>: <em>locale selection</em>.</p><p>To communicate requests for localized content and internationalization services, locales are used. When people pick a language from a menu, internally they are picking a locale (en-GB, es-419, etc.). To allow an application to support Spanglish or Hinglish locale selection, <a href="#unicode_locale_id">unicode_locale_id</a>s can represent hybrid locales using the T Extension key-value 'h0-hybrid'. (For more information on the T extension, see <em>Section 3.7 <a href="#t_Extension">Unicode BCP 47 T Extension</a>.</em>)</p><p><em>However, if users typically expect a their language in non-default script to contain a significant amount of text due to lexical borrowing, then the -t- and hybrid subtags may be omitted. An example of this is when Hindi is written in Latin script since Romanized Hindi typically contains a significant amount of English text, ‘hi-Latn’ can be used instead of ‘hi-Latn-t-en-h0-hybrid’.</em>
@@ -2479,7 +2511,7 @@ This tends to work better in implementations that don't yet handle the -t- exten
 <span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">id</span> ( <span class="hljs-keyword">#PCDATA</span> ) &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">id</span> <span class="hljs-keyword">type</span> <span class="hljs-keyword">NMTOKEN</span> <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">id</span> <span class="hljs-keyword">idStatus</span> <span class="hljs-keyword">NMTOKEN</span> <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
-</code></pre><p>The directory <a href="https://github.com/unicode-org/cldr/tree/main/common/validity/">common/validity</a> contains machine-readable data for validating the language, region, script, and variant subtags, as well as currency, subdivisions and measure units. Each file contains a number of subtags with the following <strong>idStatus</strong> values:</p><ul>
+</code></pre><p>The directory <a href="https://github.com/unicode-org/cldr/blob/main/common/validity/">common/validity</a> contains machine-readable data for validating the language, region, script, and variant subtags, as well as currency, subdivisions and measure units. Each file contains a number of subtags with the following <strong>idStatus</strong> values:</p><ul>
 <li><strong>regular</strong> — the standard codes used for the specific type of subtag</li>
 <li><strong>special</strong> — certain exceptional language codes like 'mul' <em>(languages only)</em></li>
 <li><strong>unknown</strong> — the code used to indicate the "unknown", "undetermined" or "invalid" values. For more information, see <em>Section 3.5.1 <a href="#Unknown_or_Invalid_Identifiers">Unknown or Invalid Identifiers</a></em>.</li>
@@ -4384,7 +4416,7 @@ input data. If input data is a CLDR or ICU locale ID such
 as <code>en_US_POSIX</code>, a conversion step must be done prior to
 canonicalization.
 See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
-</blockquote><h3 id="localeid-definitions"><a name="LocaleId_Definitions">LocaleId Definitions</a></h3><h4 id="1-multimap-interpretation">1. Multimap interpretation</h4><p>Interpret each languageId as a multimap from a <em>fieldId</em> (language, script, region, variants) to a <strong>sorted set</strong> of field values.</p><p><em>Examples:</em></p><table>
+</blockquote><h3 id="localeid-definitions"><a name="LocaleId_Definitions">LocaleId Definitions</a></h3><h4 id="1-multimap-interpretation"><a name="1.-multimap-interpretation" href="#1.-multimap-interpretation">1. Multimap interpretation</a></h4><p>Interpret each languageId as a multimap from a <em>fieldId</em> (language, script, region, variants) to a <strong>sorted set</strong> of field values.</p><p><em>Examples:</em></p><table>
 <thead>
 <tr>
 <th>Source</th>
@@ -4419,15 +4451,15 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 <li>This can be represented as an abbreviated format: {L={ja}, S={Latn}, R={YU}, V={hepburn, heploc}}, skipping empty sets.</li>
 <li>“und” is a special language code that is treated as an empty set.</li>
 <li>Of course, only the Variants can contain more than one item: the others are either empty or contain exactly 1 item.</li>
-</ul><h4 id="2-alias-elements">2. Alias elements</h4><p>For the <code>languageAlias</code> elements, the <em>type</em> and <em>replacements</em> are languageIds.</p><p>For the script-, territory- (aka region), and variant- Alias elements, the type and replacements are interpreted as a languageId, <em>after</em> prefixing with “und-”. Thus</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">territoryAlias</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"AN"</span> <span class="hljs-attr">replacement</span>=<span class="hljs-string">"CW SX BQ"</span> <span class="hljs-attr">reason</span>=<span class="hljs-string">"deprecated"</span> /&gt;</span>
+</ul><h4 id="2-alias-elements"><a name="2.-alias-elements" href="#2.-alias-elements">2. Alias elements</a></h4><p>For the <code>languageAlias</code> elements, the <em>type</em> and <em>replacements</em> are languageIds.</p><p>For the script-, territory- (aka region), and variant- Alias elements, the type and replacements are interpreted as a languageId, <em>after</em> prefixing with “und-”. Thus</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">territoryAlias</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"AN"</span> <span class="hljs-attr">replacement</span>=<span class="hljs-string">"CW SX BQ"</span> <span class="hljs-attr">reason</span>=<span class="hljs-string">"deprecated"</span> /&gt;</span>
 </code></pre><p>is interpreted as:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">territoryAlias</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"und-AN"</span> <span class="hljs-attr">replacement</span>=<span class="hljs-string">"und-CW und-SX und-BQ"</span> <span class="hljs-attr">reason</span>=<span class="hljs-string">"deprecated"</span> /&gt;</span>
-</code></pre><p>Note that for the case of territoryAlias, there may be multiple replacement values separated by spaces in the text (such as replacement="und-CW und-SX und-BQ"); other rules only ever have a single replacement value.</p><h4 id="3-matches">3. Matches</h4><p>A rule matches a source if and only for all fields, each <em>source</em> field ⊇ <em>type</em> field.</p><p><em>Examples:</em></p><p><code>source="ja-heploc-hepburn"</code> and <code>type="und-hepburn"</code></p><table class="simple"><tbody>
+</code></pre><p>Note that for the case of territoryAlias, there may be multiple replacement values separated by spaces in the text (such as replacement="und-CW und-SX und-BQ"); other rules only ever have a single replacement value.</p><h4 id="3-matches"><a name="3.-matches" href="#3.-matches">3. Matches</a></h4><p>A rule matches a source if and only for all fields, each <em>source</em> field ⊇ <em>type</em> field.</p><p><em>Examples:</em></p><p><code>source="ja-heploc-hepburn"</code> and <code>type="und-hepburn"</code></p><table class="simple"><tbody>
 <tr><td>{ja} ⊇ {}</td><td>success, und = {}</td></tr>
 <tr><td>{hepburn, heploc} ⊇ {hepburn}</td><td><b>success</b></td></tr>
 </tbody></table><p>so the rule matches the source. (Note that order of variants is immaterial to matching)</p><p><code>source="ja-hepburn"</code> and <code>type="und-hepburn-heploc"</code></p><table class="simple"><tbody>
 <tr><td>{ja} ⊇ {}</td><td>success, und = {}</td></tr>
 <tr><td>{hepburn} ⊉ {hepburn, heploc}</td><td><b>failure</b></td></tr>
-</tbody></table><p>so the rule does not match the source.</p><h4 id="4-replacement">4. Replacement</h4><p>A matching rule can be used to transform the source fields as follows</p><ul>
+</tbody></table><p>so the rule does not match the source.</p><h4 id="4-replacement"><a name="4.-replacement" href="#4.-replacement">4. Replacement</a></h4><p>A matching rule can be used to transform the source fields as follows</p><ul>
 <li>if type.field ≠ {}<ul>
 <li>source.field = (source.field - type.field) ∪ replacement.field</li>
 </ul>
@@ -4441,7 +4473,7 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 <p>rule  ="&lt;languageAlias type="und-hepburn-heploc"</p>
 <p>replacement="und-alalc97"&gt;"</p>
 <p>result="ja-Latn-alalc97-fonipa" // note that CLDR canonical order of variants is alphabetical</p>
-</blockquote><h5 id="territory-exception">Territory Exception</h5><p>If the field = territory, and the replacement.field has more than one value, then look up the most likely territory for the base language code (and script, if there is one). If that likely territory is in the list of replacements, use it. Otherwise, use the first territory in the list.</p><h4 id="5-canonicalizing-syntax">5. Canonicalizing Syntax</h4><p>To canonicalize the syntax of <em>source</em>:</p><ul>
+</blockquote><h5 id="territory-exception"><a name="territory-exception" href="#territory-exception">Territory Exception</a></h5><p>If the field = territory, and the replacement.field has more than one value, then look up the most likely territory for the base language code (and script, if there is one). If that likely territory is in the list of replacements, use it. Otherwise, use the first territory in the list.</p><h4 id="5-canonicalizing-syntax"><a name="5.-canonicalizing-syntax" href="#5.-canonicalizing-syntax">5. Canonicalizing Syntax</a></h4><p>To canonicalize the syntax of <em>source</em>:</p><ul>
 <li>Initial Script Subtag<ul>
 <li>If the first subtag has 4 letters, prepend the source with "und-"</li>
 <li>Note: These are only for specialized use.</li>
@@ -4465,7 +4497,7 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 <li>Replace '_' by '-'</li>
 </ul>
 </li>
-</ul><h3 id="preprocessing">Preprocessing</h3><p>The data from supplementalMetadata is (logically) preprocessed as follows.</p><ol>
+</ul><h3 id="preprocessing"><a name="preprocessing" href="#preprocessing">Preprocessing</a></h3><p>The data from supplementalMetadata is (logically) preprocessed as follows.</p><ol>
 <li>Load the rules from supplementalMetadata.xml, replacing '_' by '-', and adding “und-” as described in <em>Definition 2. Alias Elements</em>.</li>
 <li>Capture all languageAlias rules where the <em>type</em> is an invalid languageId into a set of <strong>BCP47 LegacyRules</strong>. Example:<ol>
 <li><code>&lt;languageAlias type="i-mingo" replacement="see-x-i-mingo" reason="legacy" /&gt;</code></li>
@@ -4544,11 +4576,11 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 <td>n/a</td>
 <td></td>
 </tr>
-</tbody></table><h3 id="processing-languageids">Processing LanguageIds</h3><p>To canonicalize a given <em>source</em>:</p><ol>
+</tbody></table><h3 id="processing-languageids"><a name="processing-languageids" href="#processing-languageids">Processing LanguageIds</a></h3><p>To canonicalize a given <em>source</em>:</p><ol>
 <li>Canonicalize the syntax of <em>source</em> as per <em>Definition 5. Canonicalizing Syntax</em>.</li>
 <li>Where the <em>source</em> could be an arbitrary BCP 47 language tag, first process as follows:<ol>
 <li>If the source is identical to one of the types in the BCP47 LegacyRules, replace the entire source by the replacement value.</li>
-<li>Else if there is an extlang subtag, then apply Step 3 of BCP 47 <a href="https://tools.ietf.org/search/bcp47#section-4.5">Section 4.5</a> to remove the extlang subtag (possibly adjusting the language subtag).<ol>
+<li>Else if there is an extlang subtag, then apply Step 3 of BCP 47 <a href="https://www.rfc-editor.org/rfc/rfc5646.html#section-4.5">Section 4.5</a> to remove the extlang subtag (possibly adjusting the language subtag).<ol>
 <li>Don’t apply any of the other canonicalization steps in that section, however.</li>
 </ol>
 </li>
@@ -4562,7 +4594,7 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 </li>
 <li>Transform <em>source</em> according to that rule</li>
 <li>loop (goto #3)</li>
-</ol><h2 id="processing-localeids">Processing LocaleIds</h2><p>The canonicalization of localeIds is done by first canonicalizing the languageId portion, then handling extensions in the following way:</p><ol>
+</ol><h3 id="processing-localeids"><a name="processing-localeids" href="#processing-localeids">Processing LocaleIds</a></h3><p>The canonicalization of localeIds is done by first canonicalizing the languageId portion, then handling extensions in the following way:</p><ol>
 <li>Replace any <em>tlang</em> languageId value by its canonicalization.</li>
 <li>Use the bcp47 data to replace keys, types, tfields, and tvalues by their canonical forms. See <strong>Section 3.6.4 U Extension Data Files</strong> and <strong>Section 3.7.1 T Extension Data Files</strong>. The matches are in the <code>alias</code> attribute value, while the canonical replacement is in the <code>name</code> attribute value. For example:<ol>
 <li>Because of the following bcp47 data:
@@ -4578,7 +4610,7 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 <code>en-u-rg-fi01 ⇒ en-u-rg-axzzzz</code></li>
 </ol>
 </li>
-</ol><h2 id="optimizations">Optimizations</h2><p>The above algorithm is a logical statement of the process, but would obviously not be directly suited to production code. Production-level code can use many optimizations for efficiency while achieving the same result. For example, the Alias Rules can be further preprocessed to avoid indefinite looping, instead doing a rule lookup once per subtag. As another example, the small number of <strong>Territory Exceptions</strong> can be preprocessed to avoid the likely subtags processing.</p><hr><h2 id="references"><a name="References" href="#References">References</a></h2><table>
+</ol><h3 id="optimizations"><a name="optimizations" href="#optimizations">Optimizations</a></h3><p>The above algorithm is a logical statement of the process, but would obviously not be directly suited to production code. Production-level code can use many optimizations for efficiency while achieving the same result. For example, the Alias Rules can be further preprocessed to avoid indefinite looping, instead doing a rule lookup once per subtag. As another example, the small number of <strong>Territory Exceptions</strong> can be preprocessed to avoid the likely subtags processing.</p><hr><h2 id="references"><a name="References" href="#References">References</a></h2><table>
 <thead>
 <tr>
 <th>Ancillary Information</th>
@@ -4651,15 +4683,15 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 </tr>
 <tr>
 <td>[<a name="ISO3166" href="#ISO3166">ISO3166</a>]</td>
-<td>ISO Region Codes<br><a href="https://www.iso.org/iso/country_codes">https://www.iso.org/iso/country_codes</a><br>Actual List<br><a href="https://www.iso.org/obp/ui/#search">https://www.iso.org/obp/ui/#search</a></td>
+<td>ISO Region Codes<br><a href="https://www.iso.org/iso-3166-country-codes.html">https://www.iso.org/iso-3166-country-codes.html</a><br>Actual List<br><a href="https://www.iso.org/obp/ui/#search">https://www.iso.org/obp/ui/#search</a></td>
 </tr>
 <tr>
 <td>[<a name="ISO4217" href="#ISO4217">ISO4217</a>]</td>
-<td>ISO Currency Codes<br><a href="https://www.iso.org/iso/home/standards/currency_codes.htm">https://www.iso.org/iso/home/standards/currency_codes.htm</a><br><em>(Note that as of this point, there are significant problems with this list. The supplemental data file contains the best compendium of currency information available.)</em></td>
+<td>ISO Currency Codes<br><a href="https://www.iso.org/iso-4217-currency-codes.html">https://www.iso.org/iso-4217-currency-codes.html</a><br><em>(Note that as of this point, there are significant problems with this list. The supplemental data file contains the best compendium of currency information available.)</em></td>
 </tr>
 <tr>
 <td>[<a name="ISO8601" href="#ISO8601">ISO8601</a>]</td>
-<td>ISO Date and Time Format<br><a href="https://www.iso.org/iso/iso8601">https://www.iso.org/iso/iso8601</a></td>
+<td>ISO Date and Time Format<br><a href="https://www.iso.org/iso-8601-date-and-time-format.html">https://www.iso.org/iso-8601-date-and-time-format.html</a></td>
 </tr>
 <tr>
 <td>[<a name="ISO15924" href="#ISO15924">ISO15924</a>]</td>
@@ -4747,7 +4779,7 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 </tr>
 <tr>
 <td>[<a name="RBBI" href="#RBBI">RBBI</a>]</td>
-<td>Rule-Based Break Iterator<br><a href="https://unicode-org.github.io/icu/userguide/boundaryanalysis">https://unicode-org.github.io/icu/userguide/boundaryanalysis</a></td>
+<td>Rule-Based Break Iterator<br><a href="https://unicode-org.github.io/icu/userguide/boundaryanalysis/">https://unicode-org.github.io/icu/userguide/boundaryanalysis/</a></td>
 </tr>
 <tr>
 <td>[<a name="UCAChart" href="#UCAChart">UCAChart</a>]</td>
@@ -4755,11 +4787,11 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 </tr>
 <tr>
 <td>[<a name="UTCInfo" href="#UTCInfo">UTCInfo</a>]</td>
-<td>NIST Time and Frequency Division Home Page<br><a href="https://tf.nist.gov/">https://tf.nist.gov/<br></a>U.S. Naval Observatory: What is Universal Time?<br><a href="https://www.cnmoc.usff.navy.mil/Our-Commands/United-States-Naval-Observatory/Precise-Time-Department/The-USNO-Master-Clock/Definitions-of-Systems-of-Time/">https://www.cnmoc.usff.navy.mil/Our-Commands/United-States-Naval-Observatory/Precise-Time-Department/The-USNO-Master-Clock/Definitions-of-Systems-of-Time/</a></td>
+<td>NIST Time and Frequency Division Home Page<br><a href="https://www.nist.gov/pml/time-and-frequency-division">https://www.nist.gov/pml/time-and-frequency-division<br></a>U.S. Naval Observatory: What is Universal Time?<br><a href="https://www.cnmoc.usff.navy.mil/Our-Commands/United-States-Naval-Observatory/Precise-Time-Department/The-USNO-Master-Clock/Definitions-of-Systems-of-Time/">https://www.cnmoc.usff.navy.mil/Our-Commands/United-States-Naval-Observatory/Precise-Time-Department/The-USNO-Master-Clock/Definitions-of-Systems-of-Time/</a></td>
 </tr>
 <tr>
 <td>[<a name="WindowsCulture" href="#WindowsCulture">WindowsCulture</a>]</td>
-<td>Windows Culture Info (with mappings from [<a href="#BCP47">BCP47</a>]-style codes to LCIDs)<br><a href="https://docs.microsoft.com/en-us/dotnet/api/system.globalization.cultureinfo">https://docs.microsoft.com/en-us/dotnet/api/system.globalization.cultureinfo</a></td>
+<td>Windows Culture Info (with mappings from [<a href="#BCP47">BCP47</a>]-style codes to LCIDs)<br><a href="https://learn.microsoft.com/en-us/dotnet/api/system.globalization.cultureinfo?view=net-6.0">https://learn.microsoft.com/en-us/dotnet/api/system.globalization.cultureinfo?view=net-6.0</a></td>
 </tr>
 </tbody></table><h2 id="acknowledgments"><a name="Acknowledgments" href="#Acknowledgments">Acknowledgments</a></h2><p>Special thanks to the following people for their continuing overall contributions to the CLDR project, and for their specific contributions in the following areas. These descriptions only touch on the many contributions that they have made.</p><ul>
 <li>Mark Davis for creating the initial version of LDML, and adding to and maintaining this specification, and for his work on the LDML code and tests, much of the supplemental data and overall structure, and transforms and keyboards.</li>
@@ -4787,9 +4819,13 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 <li>Rich Gillam for work on Person Names.</li>
 <li>Alex Kolisnychenko for work on Person Names.</li>
 <li>Mike McKenna for work on Person Names.</li>
-</ul><p>Other contributors to CLDR are listed on the <a href="https://www.unicode.org/cldr/">CLDR Project Page</a>.</p><h2 id="modifications"><a name="Modifications" href="#Modifications">Modifications</a></h2><p><strong>Revision 67</strong></p><p>Proposed Update for CLDR Version 42.</p><ul>
+</ul><p>Other contributors to CLDR are listed on the <a href="https://www.unicode.org/cldr/">CLDR Project Page</a>.</p><h2 id="modifications"><a name="Modifications" href="#Modifications">Modifications</a></h2><p><strong>Revision 67</strong></p><ul>
 <li><a href="#Parent_Locales">Parent Locales</a><ul>
 <li>Updated the description of guidelines and invariants for <code>parentLocale</code> data.</li>
+</ul>
+</li>
+<li><a href="#Hybrid_Locale">Hybrid Locale Identifiers</a><ul>
+<li>Expanded the discussion of combinations such as Hinglish.</li>
 </ul>
 </li>
 <li><a href="tr35-numbers.html#Currency_Formats">Currency Formats</a> and <a href="tr35-numbers.html#Currencies">Currencies</a><ul>
@@ -4811,16 +4847,17 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 </ul>
 </li>
 <li>Plurals<ul>
-<li>In <a href="tr35-numbers.html#Plural_rules_syntax">Plural rules syntax</a>, allow sample values to have positive and negative signs.
-`* Units of measurement</li>
+<li>In <a href="tr35-numbers.html#Plural_rules_syntax">Plural rules syntax</a>, allow sample values to have positive and negative signs.</li>
+</ul>
+</li>
+<li>Units of measurement<ul>
 <li><a href="tr35-info.html#Unit_Preferences">Unit Preferences</a><ul>
-<li>Added a new subsection to  specify the interaction of the unit Preferences data with the locale keys mu, ms, and rg, and the base locale.</li>
+<li>Added a new subsection to specify the interaction of the unit Preferences data with the locale keys mu, ms, and rg, and the base locale.</li>
 </ul>
 </li>
 <li><a href="tr35-general.html#Unit_Elements">Unit Elements</a>, <a href="tr35-info.html#Unit_Conversion">Unit_Conversion</a><ul>
 <li>For simpler and cleaner parsing, add a new element (unitIdComponent) and restructured the EBNF for parsing unit identifiers.</li>
-<li>As part of this work, the identifier metric-ton was deprecated in favor of tonne. As usual, the older identifier remains for compatibility, and is aliased to the new one. 
-`</li>
+<li>As part of this work, the identifier metric-ton was deprecated in favor of tonne. As usual, the older identifier remains for compatibility, and is aliased to the new one.</li>
 </ul>
 </li>
 </ul>

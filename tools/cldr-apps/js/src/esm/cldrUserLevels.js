@@ -69,12 +69,12 @@ function check(list) {
 }
 
 function canVoteInNonOrgLocales(number, list) {
-  const name = list[number].name;
+  const name = list[number]?.name;
   return match(name, ADMIN) || match(name, TC) || match(name, GUEST);
 }
 
 function match(a, b) {
-  return a.toLowerCase() === b.toLowerCase();
+  return a && b && a.toLowerCase() === b.toLowerCase();
 }
 
 async function getLevelList() {

@@ -41,8 +41,6 @@ public class UserList {
     private static final String PREF_SHOWLOCKED = "p_showlocked";
     private static final String PREF_JUSTORG = "p_justorg";
 
-    private static final String GET_ORGS = "get_orgs";
-
     private final boolean isValid;
     private final HttpServletRequest request;
     private final User me;
@@ -114,9 +112,6 @@ public class UserList {
         r.put("org", forOrg);
         r.put("userPerms", userPerms);
         r.put("canShowLocked", canShowLocked);
-        if ("true".equals(request.getParameter(GET_ORGS))) {
-            r.put("orgList", UserRegistry.getOrgList());
-        }
         listUsers(r);
     }
 

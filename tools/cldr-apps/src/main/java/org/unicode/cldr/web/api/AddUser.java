@@ -1,10 +1,6 @@
 package org.unicode.cldr.web.api;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -46,8 +42,8 @@ public class AddUser {
                 description = "Forbidden"),
         })
     public Response addUser(
-        @QueryParam("s") @Schema(required = true, description = "Session String") String sessionString,
-        AddUserRequest request) {
+        AddUserRequest request,
+        @HeaderParam(Auth.SESSION_HEADER) String sessionString) {
         try {
             CookieSession session = Auth.getSession(sessionString);
             if (session == null) {

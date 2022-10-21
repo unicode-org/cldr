@@ -906,6 +906,8 @@
 
 
 
+
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -916,11 +918,11 @@
             <td class="gray">&nbsp;</td>
         </tr>
     </tbody>
-</table></div><div class="body"><h2 id="unicode-technical-standard-35">Unicode Technical Standard #35</h2><h1 id="unicode-locale-data-markup-language-ldml">Unicode Locale Data Markup Language (LDML)</h1><table class="simple" width="90%">
+</table></div><div class="body"><h2 id="proposed-update-unicode-technical-standard-35">Proposed Update Unicode Technical Standard #35</h2><h1 id="unicode-locale-data-markup-language-ldml">Unicode Locale Data Markup Language (LDML)</h1><table class="simple" width="90%">
 <thead>
 <tr>
 <th>Version</th>
-<th>42</th>
+<th>43 (draft)</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -929,15 +931,15 @@
 </tr>
 <tr>
 <td>Date</td>
-<td>2022-10-17</td>
+<td>2022-10-20</td>
 </tr>
 <tr>
 <td>This Version</td>
-<td><a href="https://www.unicode.org/reports/tr35/tr35-67/tr35.html">https://www.unicode.org/reports/tr35/tr35-67/tr35.html</a></td>
+<td><a href="https://www.unicode.org/reports/tr35/tr35-68/tr35.html">https://www.unicode.org/reports/tr35/tr35-68/tr35.html</a></td>
 </tr>
 <tr>
 <td>Previous Version</td>
-<td><a href="https://www.unicode.org/reports/tr35/tr35-66/tr35.html">https://www.unicode.org/reports/tr35/tr35-66/tr35.html</a></td>
+<td><a href="https://www.unicode.org/reports/tr35/tr35-67/tr35.html">https://www.unicode.org/reports/tr35/tr35-67/tr35.html</a></td>
 </tr>
 <tr>
 <td>Latest Version</td>
@@ -957,16 +959,19 @@
 </tr>
 <tr>
 <td>DTDs</td>
-<td><a href="https://www.unicode.org/cldr/dtd/42/">https://www.unicode.org/cldr/dtd/42/</a></td>
+<td><a href="https://www.unicode.org/cldr/dtd/43/">https://www.unicode.org/cldr/dtd/43/</a></td>
 </tr>
 <tr>
 <td>Revision</td>
-<td><a href="#Modifications">67</a></td>
+<td><a href="#Modifications">68</a></td>
 </tr>
 </tbody></table><h3 id="summary"><em>Summary</em></h3><p>This document describes an XML format (<em>vocabulary</em>) for the exchange of structured locale data. This format is used in the <a href="https://www.unicode.org/cldr/">Unicode Common Locale Data Repository</a>.</p><p><em>Note:</em>
 Some links may lead to in-development or older
 versions of the data files.
-See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-date CLDR release data.</p><h3 id="status"><em>Status</em></h3><p><em>This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium. This is a stable document and may be used as reference material or cited as a normative reference by other specifications.</em></p><blockquote>
+See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-date CLDR release data.</p><h3 id="status"><em>Status</em></h3><p><em>This is a draft document which may be updated, replaced, or superseded by other documents at any time.
+Publication does not imply endorsement by the Unicode Consortium.
+This is not a stable document; it is inappropriate to cite this document as other than a work in progress.</em></p><!-- _This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
+This is a stable document and may be used as reference material or cited as a normative reference by other specifications._ --><blockquote>
 <p><em><strong>A Unicode Technical Standard (UTS)</strong> is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS.</em></p>
 </blockquote><p><em>Please submit corrigenda and other comments with the CLDR bug reporting form [<a href="https://cldr.unicode.org/index/bug-reports">Bugs</a>]. Related information that is useful in understanding this document is found in the <a href="#References">References</a>. For the latest version of the Unicode Standard see [<a href="https://www.unicode.org/versions/latest/">Unicode</a>]. For a list of current Unicode Technical Reports see [<a href="https://www.unicode.org/reports/">Reports</a>]. For more information about versions of the Unicode Standard, see [<a href="https://www.unicode.org/versions/">Versions</a>].</em></p><blockquote>
 <p><strong><em>NOTE: The source for the LDML specification has been converted to GitHub Markdown (GFM) instead of HTML. The formatting is now simpler, but some features — such as formatting for table captions — may not be complete by the release date. Improvements in the formatting for the specification may be done after the release, but no substantive changes will be made to the content.</em></strong></p>
@@ -4819,51 +4824,6 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 <li>Rich Gillam for work on Person Names.</li>
 <li>Alex Kolisnychenko for work on Person Names.</li>
 <li>Mike McKenna for work on Person Names.</li>
-</ul><p>Other contributors to CLDR are listed on the <a href="https://www.unicode.org/cldr/">CLDR Project Page</a>.</p><h2 id="modifications"><a name="Modifications" href="#Modifications">Modifications</a></h2><p><strong>Revision 67</strong></p><ul>
-<li><a href="#Parent_Locales">Parent Locales</a><ul>
-<li>Updated the description of guidelines and invariants for <code>parentLocale</code> data.</li>
-</ul>
-</li>
-<li><a href="#Hybrid_Locale">Hybrid Locale Identifiers</a><ul>
-<li>Expanded the discussion of combinations such as Hinglish.</li>
-</ul>
-</li>
-<li><a href="tr35-numbers.html#Currency_Formats">Currency Formats</a> and <a href="tr35-numbers.html#Currencies">Currencies</a><ul>
-<li>Described the new <code>alt="alphaNextToNumber"</code> and <code>alt="noCurrency"</code> variants for <code>pattern</code>s used with <code>currencyFormat</code> elements</li>
-<li>Described the new <code>currencyPatternAppendISO</code> element under <code>currencyFormats</code></li>
-<li>Discouraged the use of the old <code>currencySpacing</code> element (and its subelements) in favor of the <code>alt="alphaNextToNumber"</code> variant</li>
-</ul>
-</li>
-<li><a href="tr35-dates.html#dateTimeFormat">Element dateTimeFormat</a><ul>
-<li>Described the new <code>dateTimeFormat type="atTime"</code> pattern and when to use it versus the standard <code>dateTimeFormat</code> pattern.</li>
-</ul>
-</li>
-<li><a href="tr35-dates.html#Matching_Skeletons">Matching Skeletons</a><ul>
-<li>Provided more detailed recommendations on matching pattern field length to field length in the requested skeleton.</li>
-</ul>
-</li>
-<li><a href="tr35-info.html#Unit_Preferences">Unit Preferences</a><ul>
-<li>Added a new subsection to  specify the interaction of the unit Preferences data with the locale keys mu, ms, and rg, and the base locale.</li>
-</ul>
-</li>
-<li>Plurals<ul>
-<li>In <a href="tr35-numbers.html#Plural_rules_syntax">Plural rules syntax</a>, allow sample values to have positive and negative signs.</li>
-</ul>
-</li>
-<li>Units of measurement<ul>
-<li><a href="tr35-info.html#Unit_Preferences">Unit Preferences</a><ul>
-<li>Added a new subsection to specify the interaction of the unit Preferences data with the locale keys mu, ms, and rg, and the base locale.</li>
-</ul>
-</li>
-<li><a href="tr35-general.html#Unit_Elements">Unit Elements</a>, <a href="tr35-info.html#Unit_Conversion">Unit_Conversion</a><ul>
-<li>For simpler and cleaner parsing, add a new element (unitIdComponent) and restructured the EBNF for parsing unit identifiers.</li>
-<li>As part of this work, the identifier metric-ton was deprecated in favor of tonne. As usual, the older identifier remains for compatibility, and is aliased to the new one.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="tr35-personNames.html#Contents">Person Names</a><ul>
-<li>Added a new Part 8, Person Names.</li>
-</ul>
-</li>
+</ul><p>Other contributors to CLDR are listed on the <a href="https://www.unicode.org/cldr/">CLDR Project Page</a>.</p><h2 id="modifications"><a name="Modifications" href="#Modifications">Modifications</a></h2><p><strong>Revision 68</strong></p><ul>
+<li>Proposed Update for CLDR Version 43.</li>
 </ul><p>Note that small changes such as typos and link fixes are not listed above. Modifications in previous versions are listed in those respective versions. Click on <strong>Previous Version</strong> in the header until you get to the desired version.</p><hr><p>Copyright © 2001–2022 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode <a href="https://www.unicode.org/copyright.html">Terms of Use</a> apply.</p><p>Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.</p></div><script>anchors.add('h1, h2, h3, h4, h5, h6, caption');</script></body></html>

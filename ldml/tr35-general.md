@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 2: General
 
-|Version|42                   |
+|Version|43 (draft)           |
 |-------|---------------------|
 |Editors|Yoshito Umaoka (<a href="mailto:yoshito_umaoka@us.ibm.com">yoshito_umaoka@us.ibm.com</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members|
 
@@ -21,7 +21,12 @@ See <https://cldr.unicode.org> for up-to-date CLDR release data.
 
 ### _Status_
 
-_This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium. This is a stable document and may be used as reference material or cited as a normative reference by other specifications._
+_This is a draft document which may be updated, replaced, or superseded by other documents at any time.
+Publication does not imply endorsement by the Unicode Consortium.
+This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
+
+<!-- _This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
+This is a stable document and may be used as reference material or cited as a normative reference by other specifications._ -->
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 

@@ -900,7 +900,7 @@ public class CookieSession {
      * @return
      */
     public String getEffectiveCoverageLevel(String locale) {
-        String level = sm.getListSetting(settings, SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST, false);
+        String level = sm.getListSetting(settings, SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST);
         if (level == null || level.equals(WebContext.COVLEV_RECOMMENDED)) {
             // fetch from org
             level = getOrgCoverageLevel(locale);

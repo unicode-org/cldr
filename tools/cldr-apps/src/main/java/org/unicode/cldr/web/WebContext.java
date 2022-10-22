@@ -35,7 +35,6 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.SurveyMain.Phase;
 import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
 import org.unicode.cldr.web.UserRegistry.LogoutException;
@@ -582,10 +581,6 @@ public class WebContext implements Cloneable, Appendable {
         println("<script>window.location=' " + vurl + "/'+window.location.hash.substring(1);</script>");
     }
 
-    public void setServletPath(String path) {
-        theServletPath = path;
-    }
-
     private String theServletPath = null;
 
     /**
@@ -982,37 +977,7 @@ public class WebContext implements Cloneable, Appendable {
     }
 
     public String getRequiredCoverageLevel() {
-        return sm.getListSetting(this, SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST, false);
-    }
-
-    /**
-     * Get a DataPage
-     *
-     * @param prefix a string such as "//ldml"; or null
-     * @param matcher the XPathMatcher (which is ... ?); or null
-     * @param pageId the PageId, with a name such as "Generic" and an id with a name such as "DateTime"; or null
-     * @return the DataPage
-     *
-     * Called only by SurveyAjax.getRow, twice:
-     *    ctx.getDataPage(null [prefix], null [matcher], pageId);
-     *    ctx.getDataPage(baseXp [prefix], matcher, null [pageId]);
-     */
-    public DataPage getDataPage(String prefix, XPathMatcher matcher, PageId pageId) {
-
-        DataPage page;
-        synchronized (this) {
-            CLDRProgressTask progress = sm.openProgress("Loading");
-            try {
-                progress.update("<span title='" + sm.xpt.getPrettyPath(prefix) + "'>" + locale + "</span>");
-                flush();
-                synchronized (session) {
-                    page = DataPage.make(pageId, this /* ctx */, this.session, locale, prefix, matcher);
-                }
-            } finally {
-                progress.close(); // TODO: this can trigger "State Error: Closing an already-closed CLDRProgressIndicator"
-            }
-        }
-        return page;
+        return sm.getListSetting(this, SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST);
     }
 
     // Internal Utils
@@ -1285,15 +1250,6 @@ public class WebContext implements Cloneable, Appendable {
 
     public CLDRFile getCLDRFile() {
         return getUserFile().cldrfile;
-    }
-
-    /**
-     * Get the user settings.
-     *
-     * @return
-     */
-    UserSettings settings() {
-        return session.settings();
     }
 
     public void no_js_warning() {

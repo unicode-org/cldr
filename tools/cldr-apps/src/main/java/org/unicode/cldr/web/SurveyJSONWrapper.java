@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.EnumSet;
 import java.util.List;
 import java.util.Map;
 
@@ -34,7 +33,7 @@ public final class SurveyJSONWrapper {
     public SurveyJSONWrapper() {
     }
 
-    public final void put(String k, Object v) {
+    public void put(String k, Object v) {
         try {
             j.put(k, v);
         } catch (JSONException e) {
@@ -43,7 +42,7 @@ public final class SurveyJSONWrapper {
     }
 
     @Override
-    public final String toString() {
+    public String toString() {
         return j.toString();
     }
 
@@ -119,8 +118,6 @@ public final class SurveyJSONWrapper {
             .put("raw", r.toString()) /* "raw" is only used for debugging (stdebug_enabled) */
             .put("requiredVotes", r.getRequiredVotes());
 
-        EnumSet<Organization> conflictedOrgs = r.getConflictedOrganizations();
-
         Map<String, Long> valueToVote = r.getResolvedVoteCounts();
 
         JSONObject orgs = new JSONObject();
@@ -134,9 +131,6 @@ public final class SurveyJSONWrapper {
             org.put("status", r.getStatusForOrganization(o));
             org.put("orgVote", orgVote);
             org.put("votes", votes);
-            if (conflictedOrgs.contains(org)) {
-                org.put("conflicted", true);
-            }
             orgs.put(o.name(), org);
         }
         ret.put("orgs", orgs);

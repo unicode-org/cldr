@@ -134,7 +134,7 @@ public class VoteAPIHelper {
                 // Should not get here.
                 return new STError(ErrorCode.E_INTERNAL, "handleGetRows: need xpstrid or page, but not both").build();
             }
-            final DataPage pageData = DataPage.make(pageId, null, mySession, locale, xp, matcher);
+            final DataPage pageData = DataPage.make(pageId, mySession, locale, xp, matcher);
             pageData.setUserForVotelist(mySession.user);
             r.page = new RowResponse.Page();
 
@@ -331,7 +331,7 @@ public class VoteAPIHelper {
         if (xp == null) {
             return Response.status(Status.NOT_FOUND).build(); // no XPath found
         }
-        CheckCLDR.Options options = DataPage.getOptions(null, mySession, locale);
+        CheckCLDR.Options options = DataPage.getOptions(mySession, locale);
         final STFactory stf = sm.getSTFactory();
         synchronized (mySession) {
             try {
@@ -348,7 +348,7 @@ public class VoteAPIHelper {
                 addDaipException(loc, xp, result, exceptionList, val, origValue);
                 r.setTestResults(result);
                 // Create a DataPage for this single XPath.
-                DataPage page = DataPage.make(null, null, mySession, locale, xp, null);
+                DataPage page = DataPage.make(null, mySession, locale, xp, null);
                 page.setUserForVotelist(mySession.user);
                 DataRow dataRow = page.getDataRow(xp);
                 // First, calculate the status for showing (unless already set by normalizedToZeroLengthError)

@@ -67,7 +67,7 @@ public enum Organization {
 
     /**
      * Get a list of the TC Organizations
-     * @return
+     * @return the set
      */
     public static Set<Organization> getTCOrgs() {
         return TC_ORGS;
@@ -75,7 +75,7 @@ public enum Organization {
 
     /**
      * Is this organization a TC Org?
-     * @return
+     * @return true if it is TC
      */
     public boolean isTCOrg() {
         return getTCOrgs().contains(this);
@@ -109,7 +109,7 @@ public enum Organization {
         return displayName;
     }
 
-    static Map<String, Organization> OrganizationNameMap;
+    static final Map<String, Organization> OrganizationNameMap;
     static {
         OrganizationNameMap = new HashMap<>();
         for (Organization x : values()) {
@@ -125,7 +125,7 @@ public enum Organization {
      * @param displayName Preferred display name for the organization
      * @param names Alternate aliases for this organization
      */
-    private Organization(String displayName, String... names) {
+    Organization(String displayName, String... names) {
         this.displayName = displayName;
         this.names = names;
     }
@@ -142,5 +142,9 @@ public enum Organization {
             }
         }
         return localeSet;
+    }
+
+    public boolean visibleOnFrontEnd() {
+        return this != Organization.special;
     }
 }

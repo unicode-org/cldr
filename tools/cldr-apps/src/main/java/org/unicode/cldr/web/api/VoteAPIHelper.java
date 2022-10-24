@@ -222,6 +222,7 @@ public class VoteAPIHelper {
         row.votingResults = getVotingResults(resolver);
         row.winningValue = r.getWinningValue();
         row.winningVhash = r.getWinningVHash();
+        row.voteTranscript = r.getVoteTranscript();  
         row.xpath = xpath;
         row.xpathId = CookieSession.sm.xpt.getByXpath(xpath);
         row.xpstrid = XPathTable.getStringIDString(xpath);

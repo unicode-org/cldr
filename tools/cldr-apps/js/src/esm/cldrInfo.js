@@ -575,6 +575,26 @@ function updateRowVoteInfo(tr, theRow) {
       cldrDom.createChunk(msg, "p", "alert alert-warning fix-popover-help")
     );
   }
+  if (theRow.voteTranscript) {
+    const transcriptBox = cldrDom.createChunk(
+      "",
+      "div",
+      "transcript-container"
+    );
+    const transcriptText = cldrDom.createChunk(
+      theRow.voteTranscript,
+      "pre",
+      "transcript-text"
+    );
+    transcriptBox.appendChild(transcriptText);
+    const transcriptNote = cldrDom.createChunk(
+      cldrText.get("transcript_note"),
+      "p",
+      "alert alert-warning"
+    );
+    transcriptBox.appendChild(transcriptNote);
+    tr.voteDiv.appendChild(transcriptBox);
+  }
 }
 
 /**

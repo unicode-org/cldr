@@ -843,6 +843,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 r.clear(); // reuse
             }
 
+            r.enableTranscript();
+
             // Set established locale
             r.setLocale(locale, getPathHeader(path));
 

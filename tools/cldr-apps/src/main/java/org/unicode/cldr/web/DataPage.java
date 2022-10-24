@@ -10,17 +10,7 @@
 
 package org.unicode.cldr.web;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
@@ -59,7 +49,7 @@ import com.ibm.icu.util.Output;
  * "all of the language display names contained in the en_US locale". It is
  * sortable, as well, and has some level of persistence.
  */
-public class DataPage implements JSONString {
+public class DataPage {
 
     private final static Logger logger = SurveyLog.forClass(DataPage.class);
 
@@ -93,14 +83,14 @@ public class DataPage implements JSONString {
      *
      * @author srl
      */
-    public class DataRow implements JSONString, PathValueInfo {
+    public class DataRow implements PathValueInfo {
 
         /**
          * A CandidateItem represents a particular alternative item which could be chosen or voted for.
          *
          * Each DataRow has, in general, any number of these items in DataRow.items.
          */
-        public class CandidateItem implements Comparable<CandidateItem>, JSONString, CandidateInfo {
+        public class CandidateItem implements Comparable<CandidateItem>, CandidateInfo {
 
             /**
              * rawValue is the actual value of this CandidateItem, that is, the string for which
@@ -190,8 +180,6 @@ public class DataPage implements JSONString {
              *
              * @return the processed value
              *
-             * Called only by {@link #toJSONString()}
-             *
              * This is what the client receives by the name "value".
              * Compare what is called "rawValue" on both server and client.
              */
@@ -246,9 +234,8 @@ public class DataPage implements JSONString {
                 if (uvotes == null) {
                     return Collections.emptySet();
                 }
-                TreeSet<UserInfo> ts = new TreeSet<>(uvotes);
                 // TODO: change return type for perf?
-                return ts;
+                return new TreeSet<>(uvotes);
             }
 
             /**
@@ -318,8 +305,7 @@ public class DataPage implements JSONString {
                 boolean weHaveTests = false;
                 int errorCount = 0;
                 int warningCount = 0;
-                for (Iterator<CheckStatus> it3 = tests.iterator(); it3.hasNext();) {
-                    CheckCLDR.CheckStatus status = it3.next();
+                for (CheckStatus status : tests) {
                     if (!status.getType().equals(CheckStatus.exampleType)) {
                         // skip codefallback exemplar complaints (i.e. 'JPY'
                         // isn't in exemplars).. they'll show up in missing
@@ -343,70 +329,8 @@ public class DataPage implements JSONString {
                 return weHaveTests;
             }
 
-            /**
-             * Convert this CandidateItem to a JSON string
-             *
-             * Typical sequence of events in making the json object normally sent to the client:
-             *
-             * DataPage.toJSONString calls DataPage.DataRow.toJSONString repeatedly for each DataRow.
-             * DataPage.DataRow.toJSONString calls DataPage.DataRow.CandidateItem.toJSONString
-             * repeatedly for each CandidateItem.
-             *
-             * This function CandidateItem.toJSONString actually gets called indirectly from this line in
-             * DataPage.DataRow.toJSONString: jo.put("items", itemsJson) (NOT from the earlier loop on items.values).
-             *
-             * @return the JSON string. For example: {"isBailey":false,"tests":[],"rawValue":"↑↑↑","valueHash":"4oaR4oaR4oaR","pClass":"loser",
-             *      "isFallback":false,"value":"↑↑↑","isBaselineValue":false,"example":"<div class='cldr_example'>2345<\/div>"}
-             * @deprecated {@see VoteAPIHelper#calculateItem}
-             */
-            @Override
-            @Deprecated
-            public String toJSONString() throws JSONException {
-                JSONObject j = new JSONObject()
-                    .put("valueHash", getValueHash())
-                    .put("rawValue", rawValue)
-                    .put("value", getProcessedValue())
-                    .put("example", getExample())
-                    .put("isBaselineValue", isBaselineValue())
-                    .put("pClass", getPClass())
-                    .put("tests", SurveyJSONWrapper.wrap(this.tests));
-                if (USE_CANDIDATE_HISTORY) {
-                    j.put("history", history);
-                }
-                Set<User> theVotes = getVotes();
-                if (theVotes != null && !theVotes.isEmpty()) {
-                    JSONObject voteList = new JSONObject();
-                    for (UserRegistry.User u : theVotes) {
-                        if (u.getLevel() == VoteResolver.Level.locked) {
-                            continue; // don't care
-                        }
-                        JSONObject uu = new JSONObject();
-                        uu.put("org", u.getOrganization());
-                        uu.put("level", u.getLevel());
-                        Integer voteCount = null;
-                        Map<User, Integer> overrides = getOverrides();
-                        if (overrides != null) {
-                            voteCount = overrides.get(u);
-                        }
-                        uu.put("overridedVotes", voteCount);
-                        if (voteCount == null) {
-                            voteCount = u.getLevel().getVotes(u.getOrganization());
-                        }
-                        uu.put("votes", voteCount);
-                        if (userForVotelist != null) {
-                            uu.put("name", u.name);
-                            uu.put("email", u.email.replace("@", " (at) "));
-                        }
-                        voteList.put(Integer.toString(u.id), uu);
-                    }
-                    j.put("votes", voteList);
-                }
-                return j.toString();
-            }
-
             public Map<User, Integer> getOverrides() {
-                Map<User, Integer> overrides = ballotBox.getOverridesPerUser(xpath);
-                return overrides;
+                return ballotBox.getOverridesPerUser(xpath);
             }
 
             /**
@@ -496,7 +420,7 @@ public class DataPage implements JSONString {
             return coverageValue;
         }
 
-        private String displayName = null;
+        private final String displayName;
 
         // these apply to the 'winning' item, if applicable
         boolean hasErrors = false;
@@ -555,7 +479,7 @@ public class DataPage implements JSONString {
          *
          *  Accessed by SortMode.java
          */
-        public String prettyPath = null;
+        public String prettyPath;
 
         /**
          * The winning value for this DataRow
@@ -780,13 +704,12 @@ public class DataPage implements JSONString {
          * A Shim is a candidate item which does not correspond to actual XML
          * data, but is synthesized.
          *
-         * @param base_xpath
          * @param base_xpath_string
          * @param checkCldr
          *
          * Called by populateFromThisXpath (if isExtraPath), and by ensureComplete (for timezones)
          */
-        private void setShimTests(int base_xpath, String base_xpath_string, TestResultBundle checkCldr) {
+        private void setShimTests(String base_xpath_string, TestResultBundle checkCldr) {
             if (inheritedItem == null) {
                 CandidateItem shimItem = new CandidateItem(null);
                 List<CheckStatus> iTests = new ArrayList<>();
@@ -920,96 +843,6 @@ public class DataPage implements JSONString {
             return ballotBox.userDidVote(sm.reg.getInfo(userId), getXpath());
         }
 
-        /**
-         * Convert this DataRow to a JSON string.
-         *
-         * This function DataPage.DataRow.toJSONString plays a key role in preparing data for the client (survey.js).
-         *
-         * Typical sequence of events:
-         *
-         * DataPage.toJSONString calls DataPage.DataRow.toJSONString repeatedly for each DataRow.
-         * DataPage.DataRow.toJSONString calls DataPage.DataRow.CandidateItem.toJSONString
-         * repeatedly for each CandidateItem.
-         *
-         * TODO: It would be cleaner, and might be more testable and less bug-prone, to separate
-         * the construction of the JSON from the completion and validation of the DataRow.
-         * It might be best to make all the values needed by client into fields of the DataRow,
-         * if they aren't already; or make them fields of a new object, and then we could do
-         * consistency checking on that object. The DataRow object itself is complex; the test
-         * would be specifically for the data representing what becomes "theRow" on the client,
-         * AFTER that data has all been prepared/derived. See checkDataRowConsistency for work
-         * in progress.
-         * @deprecated
-         */
-        @Override
-        @Deprecated
-        public String toJSONString() throws JSONException {
-
-            try {
-                if (DEBUG) {
-                    checkDataRowConsistency();
-                }
-
-                /*
-                 * When the second argument to JSONObject.put is null, then the key is removed if present.
-                 * Here that means that the client will not receive anything for that key!
-                 */
-                JSONObject jo = new JSONObject();
-                /*
-                 * At last count (2018-09-10) there are 22 key/value pairs here, of which 8 are fields
-                 * of DataRow, and 14 are local variables in this function. Some of the local variables
-                 * like voteResolver and itemsJson are specially "wrapped up" for json; maybe with those
-                 * as exceptions, the rest should become fields of DataRow to facilitate consistency
-                 * checking without sending them all as parameters to checkDataRowConsistency.
-                 * Anyway, try to keep the names same on server and client, and avoid using function calls
-                 * or compound expressions for the arguments passed to jo.put here.
-                 */
-                final VoteResolver<String> resolver = getResolver();
-                jo.put("canFlagOnLosing", resolver.canFlagOnLosing());
-                jo.put("code", getCode());
-                jo.put("confirmStatus", confirmStatus);
-                jo.put("coverageValue", coverageValue);
-                jo.put("dir", getDirectionality());
-                jo.put("displayExample", getDisplayExample());
-                jo.put("displayName", displayName);
-                jo.put("extraAttributes", getNonDistinguishingAttributes());
-                jo.put("hasVoted", userHasVoted());
-                jo.put("helpHtml", getHelpHTML());
-                jo.put("inheritedLocale", getInheritedLocale());
-                jo.put("inheritedValue", inheritedValue);
-                jo.put("inheritedXpid", getInheritedXPath());
-                jo.put("items", getItemsJSON());
-                jo.put("rdf", getRDFURI());
-                jo.put("rowFlagged", isFlagged());
-                jo.put("statusAction", getStatusAction());
-                jo.put("voteVhash", getVoteVHash());
-                jo.put("votingResults", SurveyJSONWrapper.wrap(resolver));
-                jo.put("winningValue", winningValue);
-                jo.put("winningVhash", getWinningVHash());
-                jo.put("xpath", xpath);
-                jo.put("xpathId", xpathId);
-                jo.put("xpstrid", XPathTable.getStringIDString(xpath));
-
-                final PatternPlaceholders placeholders = PatternPlaceholders.getInstance();
-                jo.put("placeholderStatus", placeholders.getStatus(xpath).name());
-                Map<String, PatternPlaceholders.PlaceholderInfo> placeholderInfoMap = placeholders.get(xpath);
-                if (placeholderInfoMap != null && !placeholderInfoMap.isEmpty()) {
-                    JSONObject placeholderInfo = new JSONObject();
-                    for (final Map.Entry<String, PatternPlaceholders.PlaceholderInfo> e : placeholderInfoMap.entrySet()) {
-                        JSONObject subInfo = new JSONObject();
-                        subInfo.put("name", e.getValue().name);
-                        subInfo.put("example", e.getValue().example);
-                        placeholderInfo.put(e.getKey(), subInfo);
-                    }
-                    jo.put("placeholderInfo", placeholderInfo);
-                }
-                return jo.toString();
-            } catch (Throwable t) {
-                SurveyLog.logException(t, "Exception in DataRow.toJSONString of " + this);
-                throw new JSONException(t);
-            }
-        }
-
         public String getInheritedXPath() {
             if (pathWhereFound != null && !pathWhereFound.equals(GlossonymConstructor.PSEUDO_PATH)) {
                 return XPathTable.getStringIDString(pathWhereFound);
@@ -1019,18 +852,6 @@ public class DataPage implements JSONString {
 
         public String getWinningVHash() {
             return DataPage.getValueHash(winningValue);
-        }
-
-        private JSONObject getItemsJSON() throws JSONException {
-            JSONObject itemsJson = new JSONObject();
-            for (CandidateItem i : items.values()) {
-                String key = i.getValueHash();
-                if (itemsJson.has(key)) {
-                    System.out.println("Error: value hash key " + key + " is duplicate");
-                }
-                itemsJson.put(key, i);
-            }
-            return itemsJson;
         }
 
         public String getVoteVHash() {
@@ -1064,7 +885,7 @@ public class DataPage implements JSONString {
         }
 
         public boolean userHasVoted() {
-            return (userForVotelist != null) ? userHasVoted(userForVotelist.id) : false;
+            return userForVotelist != null && userHasVoted(userForVotelist.id);
         }
 
         public boolean isFlagged() {
@@ -1091,59 +912,6 @@ public class DataPage implements JSONString {
         }
 
         /**
-         * Check whether the data for this row is consistent.
-         *
-         * This function may serve as a basis for more automated testing, and a place
-         * to put some debugging code while work is on progress.
-         *
-         * TODO: clarify what needs to be checked here for completeness+consistency.
-         * References: https://unicode.org/cldr/trac/ticket/11299
-         * and https://unicode.org/cldr/trac/ticket/11238
-         *
-         * JSON sent from server to client must be COMPLETE and CONSISTENT
-         * Establish and test rules like:
-         *   winningVhash cannot be empty;
-         *   There must be an item that corresponds to the winningValue;
-         *   There must be an item with INHERITANCE_MARKER;
-         *   ...
-         *
-         * We may get winningValue and inheritedValue both null,
-         * such as for "http://localhost:8080/cldr-apps/v#/fr_CA/CAsia/"
-         * xpath = //ldml/dates/timeZoneNames/metazone[@type="Kyrgystan"]/long/generic
-         * xpath = //ldml/dates/timeZoneNames/metazone[@type="Qyzylorda"]/long/generic
-         * These are "extra" paths.
-         *
-         * A bug may occur on the client if there is no item for winningVhash.
-         *
-         * See updateRowProposedWinningCell in CldrSurveyVettingTable.js:
-         * addVitem(children[config.proposedcell], tr, theRow, theRow.items[theRow.winningVhash], cloneAnon(protoButton));
-         *
-         * We get an error "item is undefined" in addVitem if theRow.items[theRow.winningVhash] isn't defined.
-         *
-         * Get that, for example, at http://localhost:8080/cldr-apps/v#/fr_CA/CAsia/
-         */
-        private void checkDataRowConsistency() {
-            if (winningValue == null) {
-                System.out.println("Error in checkDataRowConsistency: winningValue is null; xpath = " + xpath +
-                    "; inheritedValue = " + inheritedValue);
-            }
-            if (getItem(winningValue) == null) {
-                System.out.println("Error in checkDataRowConsistency: getItem(winningValue) is null; xpath = " + xpath +
-                    "; inheritedValue = " + inheritedValue);
-            }
-            /*
-             * It is probably a bug if we have an item with INHERITANCE_MARKER
-             * but inheritedLocale and pathWhereFound (basis of inheritedXpid) are both null.
-             * This happens with "example C" in https://unicode.org/cldr/trac/ticket/11299#comment:15 .
-             * See showItemInfoFn in survey.js
-             */
-            if (inheritedItem != null && getInheritedLocale() == null && pathWhereFound == null) {
-                System.out.println("Error in checkDataRowConsistency: inheritedItem without inheritedLocale or pathWhereFound" +
-                    "; xpath = " + xpath + "; inheritedValue = " + inheritedValue);
-            }
-        }
-
-        /**
          * A Map used only in getNonDistinguishingAttributes
          */
         private Map<String, String> nonDistinguishingAttributes = null;
@@ -1166,7 +934,7 @@ public class DataPage implements JSONString {
          * Called only by DataRow.toJSONString
          */
         public Map<String, String> getNonDistinguishingAttributes() {
-            if (checkedNDA == false) {
+            if (!checkedNDA) {
                 String fullDiskXPath = diskFile.getFullXPath(xpath);
                 nonDistinguishingAttributes = sm.xpt.getUndistinguishingElementsFor(fullDiskXPath);
                 checkedNDA = true;
@@ -1230,11 +998,6 @@ public class DataPage implements JSONString {
          */
         @Override
         public boolean hadVotesSometimeThisRelease() {
-            // for (CandidateInfo candidateInfo : getValues()) {
-            // if (candidateInfo.getUsersVotingOn().size() != 0) {
-            // return true;
-            // }
-            // }
             return ballotBox.hadVotesSometimeThisRelease(xpathId);
         }
 
@@ -1343,14 +1106,14 @@ public class DataPage implements JSONString {
          *
          * public for VoteAPI usage, json serialization
          */
-        public Partition partitions[];
+        public Partition[] partitions;
 
-        private DataRow rows[]; // list of rows in sorted order
+        private final DataRow[] rows; // list of rows in sorted order
 
         // public for VoteAPI usage, serialization for json
         // only the hashKey for each row
         public String[] getRows() {
-            String hashKeys[] = new String[rows.length];
+            String[] hashKeys = new String[rows.length];
             for (int i = 0; i < rows.length; i++) {
                 hashKeys[i] = rows[i].fieldHash();
             }
@@ -1368,7 +1131,7 @@ public class DataPage implements JSONString {
          * @param sortMode
          *            the sort mode to use
          */
-        public DisplaySet(DataRow[] myRows, SortMode sortMode, Partition partitions[]) {
+        public DisplaySet(DataRow[] myRows, SortMode sortMode, Partition[] partitions) {
             this.sortMode = sortMode;
             this.partitions = partitions;
             rows = myRows;
@@ -1402,7 +1165,7 @@ public class DataPage implements JSONString {
 
         public DataPage.DataRow dataRow;
 
-        public String hash = null;
+        public String hash;
         public DataRow.CandidateItem item;
         public DataPage page;
         public CheckCLDR.CheckStatus status;
@@ -1435,28 +1198,12 @@ public class DataPage implements JSONString {
      */
     public static final String CONTINENT_DIVIDER = "~";
 
-    private static final boolean DEBUG = false || CldrUtility.getProperty("TEST", false);
+    private static final boolean DEBUG = CldrUtility.getProperty("TEST", false);
 
     /*
      * A Pattern matching paths that are always excluded
      */
     private static Pattern excludeAlways;
-
-    private static final String fromto[] = { "^days/(.*)/(sun)$", "days/1-$2/$1", "^days/(.*)/(mon)$", "days/2-$2/$1",
-        "^days/(.*)/(tue)$", "days/3-$2/$1", "^days/(.*)/(wed)$", "days/4-$2/$1", "^days/(.*)/(thu)$", "days/5-$2/$1",
-        "^days/(.*)/(fri)$", "days/6-$2/$1", "^days/(.*)/(sat)$", "days/7-$2/$1", "^months/(.*)/month/([0-9]*)$",
-        "months/$2/$1", "^([^/]*)/months/(.*)/month/([0-9]*)$", "$1/months/$3/$2", "^eras/(.*)/era/([0-9]*)$", "eras/$2/$1",
-        "^([^/]*)/eras/(.*)/era/([0-9]*)$", "$1/eras/$3/$2", "^([ap]m)$", "ampm/$1", "^quarter/(.*)/quarter/([0-9]*)$",
-        "quarter/$2/$1", "^([^/]*)/([^/]*)/time$", "$1/time/$2", "^([^/]*)/([^/]*)/date", "$1/date/$2", "/alias$", "",
-        "/displayName\\[@count=\"([^\"]*)\"\\]$", "/count=$1", "\\[@count=\"([^\"]*)\"\\]$", "/count=$1",
-        "^unit/([^/]*)/unit([^/]*)/", "$1/$2/", "dateTimes/date/availablesItem", "available date formats:",
-        /*
-         * "/date/availablesItem.*@_q=\"[0-9]*\"\\]\\[@id=\"([0-9]*)\"\\]",
-         * "/availableDateFormats/$1"
-         */
-        // "/date/availablesItem.*@_q=\"[0-9]*\"\\]","/availableDateFormats"
-    };
-    private final static Pattern fromto_p[] = new Pattern[fromto.length / 2];
 
     /*
      * Has this DataPage been initialized?
@@ -1484,11 +1231,11 @@ public class DataPage implements JSONString {
      */
     private static final Object GET_COVERAGEINFO_SYNC = new Object();
 
-    /**
+    /*
      * Warn user why these messages are showing up.
      */
     static {
-        if (TRACE_TIME == true) {
+        if (TRACE_TIME) {
             System.err.println("DataPage: Note, TRACE_TIME is TRUE");
         }
     }
@@ -1536,11 +1283,6 @@ public class DataPage implements JSONString {
                 + ".*week/firstDay.*|" + ".*/usesMetazone.*|" + ".*week/weekendEnd.*|" + ".*week/weekendStart.*|" +
                 "^//ldml/posix/messages/.*expr$|" + "^//ldml/dates/timeZoneNames/.*/GMT.*exemplarCity$|"
                 + "^//ldml/dates/.*default"); // no defaults
-
-            int pn;
-            for (pn = 0; pn < fromto.length / 2; pn++) {
-                fromto_p[pn] = PatternCache.get(fromto[pn * 2]);
-            }
             isInitted = true;
         }
     }
@@ -1550,24 +1292,15 @@ public class DataPage implements JSONString {
      *
      * @param pageId the PageId, with a name such as "Generic" or "T_NAmerica",
      *                           and an id with a name such as "DateTime" or "Locale_Display_Names"; or null
-     * @param ctx the WebContext to use (contains CLDRDBSource, etc.); or null; used for ctx.session.user, passed to getOptions, ...
      * @param session
      * @param locale
      * @param prefix the XPATH prefix, such as ...; or null
      * @param matcher
      * @return the DataPage
      *
-     * Called by WebContext.getDataPage (ctx != null)
-     *    and by SurveyAjax.submitVoteOrAbstention (ctx == null)
-     *    and by SurveyAjax.handleBulkSubmit(ctx == null)
-     * WebContext.getDataSection calls like this:
-     *    DataPage.make(pageId, this [ctx], this.session, locale, prefix, matcher)
-     * submitVoteOrAbstention calls like this:
-     *    DataPage.make(null [pageId], null [ctx], mySession, locale, xp, null [matcher])
-     * handleBulkSubmit calls like this:
-     *    DataPage.make(null [pageId], null [ctx], cs, loc, base, null [matcher])
+     * Called by SurveyAjax.handleBulkSubmit and VoteApiHelper
      */
-    public static DataPage make(PageId pageId, WebContext ctx, CookieSession session, CLDRLocale locale, String prefix,
+    public static DataPage make(PageId pageId, CookieSession session, CLDRLocale locale, String prefix,
                                 XPathMatcher matcher) {
 
         SurveyMain sm = CookieSession.sm; // TODO: non-deprecated way of getting sm -- could be ctx.sm unless ctx is null
@@ -1589,7 +1322,7 @@ public class DataPage implements JSONString {
             throw new InternalError("?!! ourSrc hsa no supplemental dir!");
         }
         synchronized (session) {
-            TestResultBundle checkCldr = sm.getSTFactory().getTestResult(locale, getOptions(ctx, session, locale));
+            TestResultBundle checkCldr = sm.getSTFactory().getTestResult(locale, getOptions(session, locale));
             if (checkCldr == null) {
                 throw new InternalError("checkCldr == null");
             }
@@ -1615,26 +1348,19 @@ public class DataPage implements JSONString {
      * Get the options for the given WebContext, or, if the context is null, get the
      * options for the given CookieSession and CLDRLocale
      *
-     * @param ctx the WebContext, or null
      * @param session
      * @param locale
      * @return the CheckCLDR.Options object
-     *
-     * Called by DataPage.make (ctx maybe null) and by SurveyAjax.processRequest (ctx null)
      */
-    public static CheckCLDR.Options getOptions(WebContext ctx, CookieSession session, CLDRLocale locale) {
+    public static CheckCLDR.Options getOptions(CookieSession session, CLDRLocale locale) {
         CheckCLDR.Options options;
-        if (ctx != null) {
-            options = ctx.getOptionsMap();
-        } else {
-            final String def = CookieSession.sm
-                .getListSetting(session.settings(), SurveyMain.PREF_COVLEV,
-                    WebContext.PREF_COVLEV_LIST, false);
+        final String def = CookieSession.sm
+            .getListSetting(session.settings(), SurveyMain.PREF_COVLEV,
+                WebContext.PREF_COVLEV_LIST);
 
-            final String org = session.getEffectiveCoverageLevel(locale.toString());
+        final String org = session.getEffectiveCoverageLevel(locale.toString());
 
-            options = new Options(locale, SurveyMain.getTestPhase(), def, org);
-        }
+        options = new Options(locale, SurveyMain.getTestPhase(), def, org);
         return options;
     }
 
@@ -1736,7 +1462,7 @@ public class DataPage implements JSONString {
         // regular zone
 
         Set<String> zoneIterator;
-        String podBase = xpathPrefix;
+        String podBase;
 
         if (isMetazones) {
             if (xpathPrefix.indexOf(CONTINENT_DIVIDER) > 0) {
@@ -1767,12 +1493,12 @@ public class DataPage implements JSONString {
             isSingleXPath = true;
         }
 
-        final String tzsuffs[] = {
+        final String[] tzsuffs = {
             "/exemplarCity" };
-        final String mzsuffs[] = { "/long/generic", "/long/daylight", "/long/standard", "/short/generic", "/short/daylight",
+        final String[] mzsuffs = { "/long/generic", "/long/daylight", "/long/standard", "/short/generic", "/short/daylight",
             "/short/standard" };
 
-        String suffs[];
+        String[] suffs;
         if (isMetazones) {
             suffs = mzsuffs;
         } else {
@@ -1784,12 +1510,10 @@ public class DataPage implements JSONString {
                 throw new NullPointerException("zoneIterator.next() returned null! zoneIterator.size: " + zoneIterator.size()
                     + ", isEmpty: " + zoneIterator.isEmpty());
             }
-            /** some compatibility **/
+            /* some compatibility */
             String ourSuffix = "[@type=\"" + zone + "\"]";
 
-            for (int i = 0; i < suffs.length; i++) {
-                String suff = suffs[i];
-
+            for (String suff : suffs) {
                 if (isSingleXPath && !xpathPrefix.contains(suff)) {
                     continue; // Try not to add paths that won't be shown.
                 }
@@ -1810,7 +1534,7 @@ public class DataPage implements JSONString {
                 }
 
                 // Only display metazone data for which an English value exists
-                if (isMetazones && suff != "/commonlyUsed") {
+                if (isMetazones && !Objects.equals(suff, "/commonlyUsed")) {
                     String engValue = translationHintsFile.getStringValue(base_xpath_string);
                     if (engValue == null || engValue.length() == 0) {
                         continue;
@@ -1819,15 +1543,12 @@ public class DataPage implements JSONString {
                 // Filter out data that is higher than the desired coverage level
                 int coverageValue = getCoverageInfo().getCoverageValue(base_xpath_string, locale.getBaseName());
 
-                DataPage.DataRow myp = getDataRow(base_xpath_string); /* rowXPath */
+                DataRow myp = getDataRow(base_xpath_string); /* rowXPath */
 
                 myp.coverageValue = coverageValue;
 
-                // set it up..
-                int base_xpath = sm.xpt.getByXpath(base_xpath_string);
-
                 // set up tests
-                myp.setShimTests(base_xpath, base_xpath_string, checkCldr);
+                myp.setShimTests(base_xpath_string, checkCldr);
             } // end inner for loop
         } // end outer for loop
     }
@@ -1898,7 +1619,6 @@ public class DataPage implements JSONString {
             allXpaths.retainAll(stf.getPathsForFile(locale));
         } else {
             init(); // pay for the patterns
-            allXpaths = new HashSet<>();
             extraXpaths = new HashSet<>();
 
             /* Determine which xpaths to show */
@@ -1921,7 +1641,7 @@ public class DataPage implements JSONString {
             // iterate over everything in this prefix ..
             Set<String> baseXpaths = stf.getPathsForFile(locale, xpathPrefix);
 
-            allXpaths.addAll(baseXpaths);
+            allXpaths = new HashSet<>(baseXpaths);
             if (ourSrc.getSupplementalDirectory() == null) {
                 throw new InternalError("?!! ourSrc hsa no supplemental dir!");
             }
@@ -2039,13 +1759,13 @@ public class DataPage implements JSONString {
         xpp.findAttributeValue(lelement, LDMLConstants.ALT);
         String eDraft = xpp.findAttributeValue(lelement, LDMLConstants.DRAFT);
 
-        String typeAndProposed[] = LDMLUtilities.parseAlt(alt);
+        String[] typeAndProposed = LDMLUtilities.parseAlt(alt);
         String altProp = typeAndProposed[1];
 
         CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
         String sourceLocale = ourSrc.getSourceLocaleID(xpath, sourceLocaleStatus);
 
-        /**
+        /*
          * Dubious! The value could be inherited from another path in the same locale.
          * "ourValueIsInherited" doesn't appear to mean what the name seems to imply.
          */
@@ -2101,7 +1821,7 @@ public class DataPage implements JSONString {
              * and the URL ends with "v#/aa/NAmerica/".
              * Set up 'shim' tests, to display coverage.
              */
-            row.setShimTests(base_xpath, this.sm.xpt.getById(base_xpath), checkCldr);
+            row.setShimTests(this.sm.xpt.getById(base_xpath), checkCldr);
         }
 
         // If it is draft and not proposed.. make it proposed-draft
@@ -2118,10 +1838,9 @@ public class DataPage implements JSONString {
         if (ourValueIsInherited && !isExtraPath) {
              return;
         }
-        if (altProp != null && !ourValueIsInherited && altProp != SurveyMain.PROPOSED_DRAFT) { // 'draft=true'
+        if (altProp != null && !ourValueIsInherited && !altProp.equals(SurveyMain.PROPOSED_DRAFT)) { // 'draft=true'
             row.hasMultipleProposals = true;
         }
-        CLDRLocale setInheritFrom = ourValueIsInherited ? CLDRLocale.getInstance(sourceLocale) : null;
         List<CheckStatus> checkCldrResult = new ArrayList<>();
         List<CheckStatus> examplesResult = new ArrayList<>();
         if (checkCldr != null) {
@@ -2129,7 +1848,7 @@ public class DataPage implements JSONString {
             checkCldr.getExamples(xpath, isExtraPath ? null : ourValue, examplesResult);
         }
         if (ourValue != null && ourValue.length() > 0) {
-            addOurValue(ourValue, row, checkCldrResult, sourceLocaleStatus, xpath, setInheritFrom);
+            addOurValue(ourValue, row, checkCldrResult, sourceLocaleStatus, xpath);
         }
     }
 
@@ -2169,18 +1888,14 @@ public class DataPage implements JSONString {
      *
      * TODO: rename this function and/or move parts elsewhere? The setting of various fields may be
      * more necessary than adding an item for ourValue. This function lacks a coherent purpose.
-     *
-     * @param ourValue
+     *  @param ourValue
      * @param row
      * @param checkCldrResult
      * @param sourceLocaleStatus
      * @param xpath
-     * @param setInheritFrom
-     *
-     * TODO: addOurValue could be a method of DataRow instead of DataPage, then wouldn't need row, xpath as params
      */
     private void addOurValue(String ourValue, DataRow row, List<CheckStatus> checkCldrResult,
-            org.unicode.cldr.util.CLDRFile.Status sourceLocaleStatus, String xpath, CLDRLocale setInheritFrom) {
+                             CLDRFile.Status sourceLocaleStatus, String xpath) {
 
         /*
          * Do not add ourValue if it matches inheritedValue. Otherwise we tend to get both "hard" and "soft"
@@ -2219,9 +1934,6 @@ public class DataPage implements JSONString {
                 && !sourceLocaleStatus.pathWhereFound.equals(xpath)) {
             row.pathWhereFound = sourceLocaleStatus.pathWhereFound;
         }
-        if (setInheritFrom != null) {
-            row.inheritedLocale = setInheritFrom;
-        }
     }
 
     /**
@@ -2235,40 +1947,6 @@ public class DataPage implements JSONString {
 
     public static String getValueHash(String str) {
         return (str == null) ? "null" : CookieSession.cheapEncodeString(str);
-    }
-
-    public static String fromValueHash(String s) {
-        return (s == null || s.equals("null")) ? null : CookieSession.cheapDecodeString(s);
-    }
-
-    /**
-     * Convert this DataPage to a JSON string.
-     */
-    @Override
-    public String toJSONString() throws JSONException {
-        JSONObject itemList = new JSONObject();
-        JSONObject result = new JSONObject();
-        try {
-            for (DataRow d : rowsHash.values()) {
-                try {
-                    String str = d.toJSONString();
-                    JSONObject obj = new JSONObject(str);
-                    itemList.put(d.fieldHash(), obj);
-                } catch (JSONException ex) {
-                    String msg = "JSON serialization error for row: "
-                        + d.xpath + " : Full row is: " + d.toString();
-                    logger.log(java.util.logging.Level.WARNING, msg, ex);
-                    throw new JSONException(ex);
-                }
-            }
-            result.put("rows", itemList);
-            result.put("xpathPrefix", xpathPrefix);
-            return result.toString();
-        } catch (Throwable t) {
-            String msg = "Trying to load rows for " + this.toString();
-            logger.log(java.util.logging.Level.WARNING, msg, t);
-            throw new JSONException(t);
-        }
     }
 
     /**

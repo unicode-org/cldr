@@ -1620,13 +1620,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return val;
     }
 
-    String getListSetting(WebContext ctx, String pref, String[] list, boolean doDef) {
-        String settingsSet = doDef ? "default" : list[0]; // do NOT persist!>>
-        return ctx.pref(pref, settingsSet);
+    String getListSetting(WebContext ctx, String pref, String[] list) {
+        return ctx.pref(pref, list[0]);
     }
 
-    String getListSetting(UserSettings settings, String pref, String[] list, boolean doDef) {
-        return settings.get(pref, doDef ? "default" : list[0]);
+    String getListSetting(UserSettings settings, String pref, String[] list) {
+        return settings.get(pref, list[0]);
     }
 
     private void doOptions(WebContext ctx) {
@@ -2079,7 +2078,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     public static final String CHECKCLDR = "CheckCLDR_"; // key for CheckCLDR objects by locale
-    public static final String CHECKCLDR_RES = "CheckCLDR_RES_"; // key for CheckCLDR objects by locale
 
     /**
      *
@@ -3264,8 +3262,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private static final int MAX_CHARS = 100;
     private static final String SHORT_A = "(Click to show entire message.)";
     private static final String SHORT_B = "(hide.)";
-
-    public static final String QUERY_FIELDHASH = "fhash";
 
     private static String getShortened(String str) {
         if (str.length() < (SurveyMain.MAX_CHARS + 1 + SHORT_A.length())) {

@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: ${{ github.event.inputs.git-ref }}
-          repo: ${{ github.event.inputs.repo }}
+          repository: ${{ github.event.inputs.repo }}
           lfs: false
       - name: Calculate Tag Name
         id: tagname

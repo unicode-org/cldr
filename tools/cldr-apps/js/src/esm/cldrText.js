@@ -534,6 +534,9 @@ const strings = {
   // LocaleNormalizer.LocaleRejection
   locale_rejection_unknown: "Unknown or not in CLDR",
   locale_rejection_outside_org_coverage: "Outside of org’s coverage",
+
+  transcript_note:
+    "PREVIEW FEATURE: The above is an attempt to explain votes. Feedback to https://unicode-org.atlassian.net/browse/CLDR-14943",
 };
 
 /**

@@ -81,13 +81,13 @@ public class VoteResolver<T> {
      */
     private StringBuilder transcript = null;
 
-    void enableTranscript() {
+    public void enableTranscript() {
         if (transcript == null) {
             transcript = new StringBuilder();
         }
     }
 
-    String getTranscript() {
+    public String getTranscript() {
         if (transcript == null) {
             return null;
         } else {
@@ -929,6 +929,10 @@ public class VoteResolver<T> {
         oValue = null;
         winningValue = null;
         nValue = null;
+
+        if (transcript != null) {
+            transcript.setLength(0);
+        }
     }
 
     /**
@@ -1051,6 +1055,7 @@ public class VoteResolver<T> {
          *
          * Return negative to favor o1, positive to favor o2.
          * @see VoteResolver#setBestNextAndSameVoteValues(Set, HashMap)
+         * @see VoteResolver#annotateNextBestValue(long, long, String, String)
          */
         @Override
         public int compare(T o1, T o2) {
@@ -1072,6 +1077,29 @@ public class VoteResolver<T> {
             return englishCollator.compare(String.valueOf(o1), String.valueOf(o2));
         }
     };
+
+   /**
+     * Annotate why the O (winning) value is winning vs the N (next) value.
+     * Assumes that the prior annotation mentioned the O value.
+     * @param O optimal value
+     * @param N next-best value
+     */
+    private void annotateNextBestValue(long O, long N, final T oValue, final T nValue) {
+        // See the Comparator<> defined immediately above.
+
+        // sortedValues.size() >= 2 - explain why O won and N lost.
+        // We have to perform the function of the votesThenUcaCollator one more time
+        if (O > N) {
+            annotateTranscript("- This is the winning value because it has the highest weight (voting score).");
+        } else if(winningValue.equals(baselineValue)) {
+            annotateTranscript("- This is the winning value because it is the same as the baseline value, though the weight was otherwise equal to the next-best."); // aka blue star
+        } else if(winningValue.equals(CldrUtility.INHERITANCE_MARKER)) {
+            annotateTranscript("- This is the winning value because it is the inheritance marker, though the weight was otherwise equal to the next-best."); // triple up arrow
+        } else {
+            annotateTranscript("- This is the winning value because it comes earlier than '%s' when the text was sorted, though the weight was otherwise equal to the next-best.", nValue);
+        }
+        annotateTranscript("The Next-best (N) value is '%s', with weight %d", nValue, N);
+    }
 
     /**
      * Resolve the votes. Resolution entails counting votes and setting
@@ -1429,18 +1457,7 @@ public class VoteResolver<T> {
                     if (iterator.hasNext()) {
                         nValue = value;
                         weightArray[1] = valueWeight;
-                        // sortedValues.size() >= 2 - explain why O won and N lost.
-                        // We have to perform the function of the votesThenUcaCollator one more time
-                        if (weightArray[0] > weightArray[1]) {
-                            annotateTranscript("- This is the winning value because it has the highest weight (voting score).");
-                        } else if(winningValue.equals(baselineValue)) {
-                            annotateTranscript("- This is the winning value because it is the same as the baseline value, though the weight was otherwise equal to the next-best."); // aka blue star
-                        } else if(winningValue.equals(CldrUtility.INHERITANCE_MARKER)) {
-                            annotateTranscript("- This is the winning value because it is the inheritance marker, though the weight was otherwise equal to the next-best."); // triple up arrow
-                        } else {
-                            annotateTranscript("- This is the winning value because it comes earlier than '%s' when the text was sorted, though the weight was otherwise equal to the next-best.", nValue);
-                        }
-                        annotateTranscript("The Next-best (N) value is '%s', with weight %d", nValue, valueWeight);
+                        annotateNextBestValue(weightArray[0], weightArray[1], winningValue, nValue);
                     }
                 }
                 if (valueWeight == weightArray[0]) {

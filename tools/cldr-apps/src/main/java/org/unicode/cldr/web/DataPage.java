@@ -509,6 +509,15 @@ public class DataPage {
         private final PathHeader pathHeader;
 
         /**
+         * The voting transcript, set by the DataRow constructor
+         */
+        private final String voteTranscript;
+
+        public String getVoteTranscript() {
+            return voteTranscript;
+        }
+
+        /**
          * Create a new DataRow for the given xpath.
          *
          * @param xpath
@@ -526,6 +535,7 @@ public class DataPage {
 
             winningValue = resolver.getWinningValue();
             confirmStatus = resolver.getWinningStatus();
+            voteTranscript = resolver.getTranscript();
 
             baselineValue = resolver.getBaselineValue();
             baselineStatus = resolver.getBaselineStatus();

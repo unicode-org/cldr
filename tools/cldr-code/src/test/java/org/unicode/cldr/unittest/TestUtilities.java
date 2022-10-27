@@ -904,7 +904,6 @@ public class TestUtilities extends TestFmwkPlus {
         assertSpecialLocale("sr_Latn_BA", SpecialLocales.Type.readonly);
         assertSpecialLocale("yue_Hans", null); // not readonly, because it is not policy DISCARD
         assertSpecialLocale("en", SpecialLocales.Type.readonly);
-        assertSpecialLocale("en_ZZ", SpecialLocales.Type.readonly);
         assertSpecialLocale("en_ZZ_PROGRAMMERESE", null); // not defined
         assertSpecialLocale("und", null);
         assertSpecialLocale("mul", SpecialLocales.Type.scratch);

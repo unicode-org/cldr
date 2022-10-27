@@ -221,9 +221,15 @@ function show(str, tr, hideIfLast, fn) {
 
   if (tr && tr.theRow) {
     const { theRow } = tr;
-    const { helpHtml, rdf, placeholderStatus, placeholderInfo } = theRow;
-    if (helpHtml || rdf) {
-      cldrDeferHelp.addDeferredHelpTo(fragment, helpHtml, rdf);
+    const {
+      helpHtml,
+      rdf,
+      placeholderStatus,
+      placeholderInfo,
+      translationHint,
+    } = theRow;
+    if (helpHtml || rdf || translationHint) {
+      cldrDeferHelp.addDeferredHelpTo(fragment, helpHtml, rdf, translationHint);
     }
     if (placeholderStatus !== "DISALLOWED") {
       // Hide the placeholder status if DISALLOWED

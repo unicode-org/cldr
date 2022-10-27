@@ -39,9 +39,8 @@ public class TestExampleGenerator {
         sourceList.add(root);
         final ResolvingSource rs = new ResolvingSource(sourceList);
         final CLDRFile afile = new CLDRFile(rs);
-        ExampleGenerator eg = new ExampleGenerator(afile, english, english.getSupplementalDirectory().getAbsolutePath());
+        ExampleGenerator eg = new ExampleGenerator(afile, english);
         assertNotNull(eg);
-
 
         final String html1 = eg.getExampleHtml(X_PATTERN, source.getValueAtDPath(X_PATTERN));
         // html chunk…

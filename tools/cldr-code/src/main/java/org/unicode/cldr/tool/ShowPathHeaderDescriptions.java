@@ -93,7 +93,7 @@ public class ShowPathHeaderDescriptions {
 
         for (String path : english) {
             PathHeader pathHeader = phf.fromPath(path);
-            String pdx = pathDescriptionFactory.getRawDescription(path, "VALUE", null);
+            String pdx = pathDescriptionFactory.getRawDescription(path, null);
             String url;
             if (pdx == null) {
                 url = "NONE";

@@ -444,7 +444,7 @@ public class ChartGrammaticalForms extends Chart {
                 ;
 
             int counter = 0;
-            ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, CONFIG.getEnglish(), null);
+            ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, CONFIG.getEnglish());
             for (Entry<PathHeader, String> entry : minimalInfo.entrySet()) {
                 PathHeader pathHeader = entry.getKey();
                 String value = entry.getValue();

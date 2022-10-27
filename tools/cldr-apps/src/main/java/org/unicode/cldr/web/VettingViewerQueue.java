@@ -289,7 +289,7 @@ public class VettingViewerQueue {
                 new STUsersChoice(sm));
             vv.setSummarizeAllLocales(summarizeAllLocales);
             int localeCount = vv.getLocaleCount(usersOrg);
-            int pathCount = getMax(sm.getTranslationHintsFile());
+            int pathCount = getMax(sm.getEnglishFile());
             maxn = localeCount * pathCount;
             progress.update("Got VettingViewer");
             statusCode = Status.PROCESSING;

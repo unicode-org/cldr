@@ -100,7 +100,7 @@ public class ListGrammarData {
 
             ExampleGenerator exampleGenerator = null;
             if (exampleHtml) {
-                exampleGenerator = new ExampleGenerator(cldrFile, CONFIG.getEnglish(), locale);
+                exampleGenerator = new ExampleGenerator(cldrFile, CONFIG.getEnglish());
             }
             BestMinimalPairSamples bestMinimalPairSamples = new BestMinimalPairSamples(cldrFile, null, true);
             Map<PathHeader, String> pathHeaderToValue = new TreeMap<>();

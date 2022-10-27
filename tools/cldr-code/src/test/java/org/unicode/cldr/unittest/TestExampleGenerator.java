@@ -18,7 +18,6 @@ import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.UnitLength;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.GrammarInfo;
@@ -537,10 +536,8 @@ public class TestExampleGenerator extends TestFmwk {
     private ExampleGenerator getExampleGenerator(String locale) {
         ExampleGenerator result = ExampleGeneratorCache.get(locale);
         if (result == null) {
-            final CLDRFile nativeCldrFile = info.getCLDRFile(locale,
-                true);
-            result = new ExampleGenerator(nativeCldrFile, info.getEnglish(),
-                CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+            final CLDRFile nativeCldrFile = info.getCLDRFile(locale,true);
+            result = new ExampleGenerator(nativeCldrFile, info.getEnglish());
             ExampleGeneratorCache.put(locale, result);
         }
         return result;
@@ -678,8 +675,7 @@ public class TestExampleGenerator extends TestFmwk {
 
     public void TestSymbols() {
         CLDRFile english = info.getEnglish();
-        ExampleGenerator exampleGenerator = new ExampleGenerator(english,
-            english, CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        ExampleGenerator exampleGenerator = new ExampleGenerator(english, english);
         String actual = exampleGenerator
             .getExampleHtml(
                 "//ldml/numbers/symbols[@numberSystem=\"latn\"]/superscriptingExponent",
@@ -693,8 +689,8 @@ public class TestExampleGenerator extends TestFmwk {
 
     public void TestFallbackFormat() {
         ExampleGenerator exampleGenerator = new ExampleGenerator(
-            info.getEnglish(), info.getEnglish(),
-            CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+            info.getEnglish(), info.getEnglish()
+        );
         String actual = exampleGenerator.getExampleHtml(
             "//ldml/dates/timeZoneNames/fallbackFormat", "{1} [{0}]");
         assertEquals("fallbackFormat faulty", "〖❬Central Time❭ [❬Cancun❭]〗",
@@ -754,8 +750,8 @@ public class TestExampleGenerator extends TestFmwk {
                     + "<div class='cldr_example'>-<span class='cldr_substituted'>12,345</span>,<span class='cldr_substituted'>679</span>%</div>" } };
         final CLDRFile nativeCldrFile = info.getEnglish();
         ExampleGenerator exampleGenerator = new ExampleGenerator(
-            info.getEnglish(), info.getEnglish(),
-            CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+            info.getEnglish(), info.getEnglish()
+        );
         for (String[] testPair : testPairs) {
             String xpath = testPair[0];
             String expected = testPair[1];
@@ -766,8 +762,7 @@ public class TestExampleGenerator extends TestFmwk {
     }
 
     private void showCldrFile(final CLDRFile cldrFile) {
-        ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile,
-            info.getEnglish(), CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, info.getEnglish());
         checkPathValue(
             exampleGenerator,
             "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"full\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@draft=\"unconfirmed\"]",
@@ -779,11 +774,6 @@ public class TestExampleGenerator extends TestFmwk {
             }
             String value = cldrFile.getStringValue(xpath);
             checkPathValue(exampleGenerator, xpath, value, null);
-            // remove this, no longer used
-//            if (xpath.contains("count=\"one\"")) {
-//                String xpath2 = xpath.replace("count=\"one\"", "count=\"1\"");
-//                checkPathValue(exampleGenerator, xpath2, value, null);
-//            }
         }
     }
 
@@ -851,7 +841,7 @@ public class TestExampleGenerator extends TestFmwk {
         String expected, String longVsShort, String decimalVsCurrency, String zeros) {
         CLDRFile cldrFile = info.getCLDRFile(localeID, true);
         ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile,
-            info.getEnglish(), CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+            info.getEnglish());
         String path = "//ldml/numbers/"
             + decimalVsCurrency + "Formats[@numberSystem=\"latn\"]"
             + "/" + decimalVsCurrency + "FormatLength[@type=\"" + longVsShort + "\"]"
@@ -885,7 +875,7 @@ public class TestExampleGenerator extends TestFmwk {
 
     private void checkDayPeriod(String localeId, String type, String dayPeriodCode, String expected) {
         CLDRFile cldrFile = info.getCLDRFile(localeId, true);
-        ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, info.getEnglish(), CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, info.getEnglish());
         String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"";
         String suffix = "\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\""
             + dayPeriodCode
@@ -927,7 +917,7 @@ public class TestExampleGenerator extends TestFmwk {
         final String EXPECTED_TO_CONTAIN = "456,79";
 
         final CLDRFile cldrFile = info.getCLDRFile("fr", true);
-        final ExampleGenerator eg = new ExampleGenerator(cldrFile, info.getEnglish(), CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        final ExampleGenerator eg = new ExampleGenerator(cldrFile, info.getEnglish());
 
         final String evilValue = cldrFile.getStringValue(EVIL_PATH);
         final String specialValue = cldrFile.getStringValue(SPECIAL_PATH);

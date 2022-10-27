@@ -185,6 +185,7 @@ public class VoteAPI {
             public String rdf;
             public boolean rowFlagged;
             public StatusAction statusAction;
+            public String translationHint;
             public String voteVhash;
             public VotingResults votingResults;
             public String winningValue;

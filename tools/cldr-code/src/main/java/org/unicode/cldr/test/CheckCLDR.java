@@ -627,9 +627,6 @@ abstract public class CheckCLDR implements CheckAccessor {
 
     /**
      * These determine what language is used to display information. Must be set before use.
-     *
-     * @param locale
-     * @return
      */
     public static synchronized CLDRFile getDisplayInformation() {
         return displayInformation;
@@ -640,25 +637,7 @@ abstract public class CheckCLDR implements CheckAccessor {
     }
 
     /**
-     * [Warnings - please zoom in] dates/timeZoneNames/singleCountries
-     * (empty)
-     * [refs][hide] Ref: [Zoom...]
-     * [Warnings - please zoom in] dates/timeZoneNames/hours {0}/{1} {0}/{1}
-     * [refs][hide] Ref: [Zoom...]
-     * [Warnings - please zoom in] dates/timeZoneNames/hour +HH:mm;-HH:mm
-     * +HH:mm;-HH:mm
-     * [refs][hide] Ref: [Zoom...]
-     * [ok] layout/orientation (empty)
-     * [refs][hide] Ref: [Zoom...]
-     * [ok] dates/localizedPatternChars GyMdkHmsSEDFwWahKzYeugAZvcL
-     * GaMjkHmsSEDFwWxhKzAeugXZvcL
-     * [refs][hide] Ref: [Zoom...]
-     */
-
-    /**
      * Get the CLDRFile.
-     *
-     * @param cldrFileToCheck
      */
     public final CLDRFile getCldrFileToCheck() {
         return cldrFileToCheck;

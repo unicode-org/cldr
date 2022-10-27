@@ -70,9 +70,9 @@ function startup() {
   // example on hover
   $("body").on(
     "mouseenter",
-    ".vetting-page .infos-code, .vetting-page .subSpan",
+    ".vetting-page .d-example-img, .vetting-page .subSpan",
     function () {
-      var example = $(this)
+      const example = $(this)
         .closest(".d-disp,.d-item,.d-item-err,.d-item-warn")
         .find(".d-example");
       if (example) {
@@ -86,10 +86,36 @@ function startup() {
       }
     }
   );
-
   $("body").on(
     "mouseleave",
-    ".vetting-page .infos-code, .vetting-page .subSpan",
+    ".vetting-page .d-example-img, .vetting-page .subSpan",
+    function () {
+      $(this).popover("hide");
+    }
+  );
+
+  // translation hint on hover
+  $("body").on(
+    "mouseenter",
+    ".vetting-page .d-trans-hint-img, .vetting-page .subSpan",
+    function () {
+      const hint = $(this)
+        .closest(".d-disp,.d-item,.d-item-err,.d-item-warn")
+        .find(".d-trans-hint");
+      if (hint) {
+        $(this)
+          .popover({
+            html: true,
+            placement: "top",
+            content: hint.text(),
+          })
+          .popover("show");
+      }
+    }
+  );
+  $("body").on(
+    "mouseleave",
+    ".vetting-page .d-trans-hint-img, .vetting-page .subSpan",
     function () {
       $(this).popover("hide");
     }

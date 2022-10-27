@@ -256,7 +256,6 @@ public class TestCache implements XMLSource.Listener {
      * @param locale the CLDRLocale
      * @param ourSrc the CLDRFile for the locale
      * @param translationHintsFile the CLDRFile for translation hints (English)
-     * @param englishPath (a.k.a. supplementalDataDirectory)
      * @return the ExampleGenerator
      *
      * Called by DataPage.make for use in SurveyTool.
@@ -265,10 +264,10 @@ public class TestCache implements XMLSource.Listener {
      * org.unicode.cldr.unittest.TestExampleGenerator.getExampleGenerator(String)
      * org.unicode.cldr.test.ConsoleCheckCLDR.getExampleGenerator()
      */
-    public static ExampleGenerator getExampleGenerator(CLDRLocale locale, CLDRFile ourSrc, CLDRFile translationHintsFile, String englishPath) {
+    public static ExampleGenerator getExampleGenerator(CLDRLocale locale, CLDRFile ourSrc, CLDRFile translationHintsFile) {
         boolean egCacheIsEnabled = true;
         if (!egCacheIsEnabled) {
-            return new ExampleGenerator(ourSrc, translationHintsFile, englishPath);
+            return new ExampleGenerator(ourSrc, translationHintsFile);
         }
         /*
          * TODO: consider get(locString, Callable) instead of getIfPresent and put.
@@ -279,7 +278,7 @@ public class TestCache implements XMLSource.Listener {
             synchronized(exampleGeneratorCache) {
                 eg = exampleGeneratorCache.getIfPresent(locString);
                 if (eg == null) {
-                    eg = new ExampleGenerator(ourSrc, translationHintsFile, englishPath);
+                    eg = new ExampleGenerator(ourSrc, translationHintsFile);
                     exampleGeneratorCache.put(locString, eg);
                 }
             }

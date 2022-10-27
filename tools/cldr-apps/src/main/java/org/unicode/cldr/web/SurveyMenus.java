@@ -21,7 +21,6 @@ import org.unicode.cldr.util.PathHeader.Factory;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
-import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.web.SurveyMenus.Section.Page;
 
 import com.ibm.icu.impl.Relation;
@@ -30,13 +29,12 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
     PathHeader.Factory phf;
     STFactory fac;
     List<Section> sections = new ArrayList<>();
-    SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
 
     public SurveyMenus(STFactory stFactory, PathHeader.Factory phf) {
         fac = stFactory;
         this.phf = phf;
 
-        CLDRFile b = stFactory.sm.getTranslationHintsFile();
+        CLDRFile b = stFactory.sm.getEnglishFile();
         phf = PathHeader.getFactory(b);
         for (String xp : b) {
             phf.fromPath(xp);
@@ -68,8 +66,8 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
     }
 
     public class Section implements Iterable<Section.Page> {
-        private SectionId sectionKey;
-        private List<Page> subitems = new ArrayList<>();
+        private final SectionId sectionKey;
+        private final List<Page> subitems = new ArrayList<>();
         SurveyToolStatus status = SurveyToolStatus.HIDE;
 
         public SurveyToolStatus getStatus() {
@@ -101,7 +99,7 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
         }
 
         public class Page {
-            private PageId pageKey;
+            private final PageId pageKey;
             private SurveyToolStatus pageStatus = SurveyToolStatus.READ_WRITE;
 
             public SurveyToolStatus getPageStatus() {
@@ -111,7 +109,7 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
             private Page(final PageId p) {
                 pageKey = p;
 
-                PathHeader ph = null;
+                PathHeader ph;
                 // check visibility
                 Iterable<String> iter = getPagePaths();
                 if (iter != null)
@@ -137,8 +135,6 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
             public synchronized int getCoverageLevel(CLDRLocale loc) {
                 Integer ret = levs.get(loc);
                 if (ret == null) {
-                    // ElapsedTimer et = new ElapsedTimer("Cov for " + loc +
-                    // " "+displayName + ":"+pageDisplayName);
                     int min = Level.OPTIONAL.getLevel();
                     Iterable<String> iter = getPagePaths();
                     if (iter != null) {
@@ -152,7 +148,6 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
                     }
                     ret = min;
                     levs.put(loc, ret);
-                    // System.err.println("Calc " + et);
                 }
                 return ret;
             }

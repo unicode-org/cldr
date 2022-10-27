@@ -1,0 +1,264 @@
+HINT: "day" here means a time duration of 24 hours, not a calendar day
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="duration-day"]/displayName
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="duration-day"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="duration-day"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="duration-day"]/displayName
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="duration-day"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="duration-day"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="duration-day"]/displayName
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="duration-day"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="duration-day"]/unitPattern[@count="other"]
+
+HINT: a form of the name that will sort next to Kurdish, if the standard name does not already do that
+PATH: //ldml/localeDisplayNames/languages/language[@type="ckb"][@alt="menu"]
+
+HINT: also called "Republic of China Calendar", "Republican Calendar"
+PATH: //ldml/localeDisplayNames/types/type[@key="calendar"][@type="roc"]
+
+HINT: an alternate form using Sorani or Central, whichever is not used by the standard name
+PATH: //ldml/localeDisplayNames/languages/language[@type="ckb"][@alt="variant"]
+
+HINT: calories as used in chemistry, not the same as food calorie
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="energy-calorie"]/displayName
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="energy-calorie"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="energy-calorie"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="energy-calorie"]/displayName
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="energy-calorie"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="energy-calorie"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="energy-calorie"]/displayName
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="energy-calorie"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="energy-calorie"]/unitPattern[@count="other"]
+
+HINT: if in your locale "m" is always understood as meters, use something else here - e.g. "min", "mn."
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="duration-minute"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="duration-minute"]/unitPattern[@count="other"]
+
+HINT: kilocalories for food energy, may have same translation as energy-kilocalorie; displayed as Cal in the US/UK
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="energy-foodcalorie"]/displayName
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="energy-foodcalorie"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="energy-foodcalorie"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="energy-foodcalorie"]/displayName
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="energy-foodcalorie"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="energy-foodcalorie"]/unitPattern[@count="other"]
+
+HINT: kilocalories for food energy, may have same translation as energy-kilocalorie; displayed as Calories in the US/UK
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="energy-foodcalorie"]/displayName
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="energy-foodcalorie"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="energy-foodcalorie"]/unitPattern[@count="other"]
+
+HINT: kilocalories for uses not specific to food energy, such as chemistry
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="energy-kilocalorie"]/displayName
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="energy-kilocalorie"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="energy-kilocalorie"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="energy-kilocalorie"]/displayName
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="energy-kilocalorie"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="energy-kilocalorie"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="energy-kilocalorie"]/displayName
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="energy-kilocalorie"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="energy-kilocalorie"]/unitPattern[@count="other"]
+
+HINT: refers specifically to an English acre
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="area-acre"]/displayName
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="area-acre"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="area-acre"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="area-acre"]/displayName
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="area-acre"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="area-acre"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="area-acre"]/displayName
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="area-acre"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="area-acre"]/unitPattern[@count="other"]
+
+HINT: refers to U.S. short ton, not U.K. long ton or metric ton
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="mass-ton"]/displayName
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="mass-ton"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="mass-ton"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="mass-ton"]/displayName
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="mass-ton"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="mass-ton"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="mass-ton"]/displayName
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="mass-ton"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="mass-ton"]/unitPattern[@count="other"]
+
+HINT: special code identifies a style variant of Arabic script
+PATH: //ldml/localeDisplayNames/scripts/script[@type="Aran"]
+
+HINT: special code identifies non-standard Myanmar encoding for use with Zawgyi font
+PATH: //ldml/localeDisplayNames/scripts/script[@type="Qaag"]
+
+HINT: specifically, Mandarin Chinese
+PATH: //ldml/localeDisplayNames/languages/language[@type="zh"]
+
+HINT: this version of the script name is used in combination with the language name for Chinese
+PATH: //ldml/localeDisplayNames/scripts/script[@type="Hans"]
+PATH: //ldml/localeDisplayNames/scripts/script[@type="Hant"]
+
+HINT: this version of the script name is used in isolation, not combined with the language name for Chinese
+PATH: //ldml/localeDisplayNames/scripts/script[@type="Hans"][@alt="stand-alone"]
+PATH: //ldml/localeDisplayNames/scripts/script[@type="Hant"][@alt="stand-alone"]
+
+HINT: translate as "North American Central Daylight Time"
+PATH: //ldml/dates/timeZoneNames/metazone[@type="America_Central"]/long/daylight
+
+HINT: translate as "North American Central Standard Time"
+PATH: //ldml/dates/timeZoneNames/metazone[@type="America_Central"]/long/standard
+
+HINT: translate as "North American Central Time"
+PATH: //ldml/dates/timeZoneNames/metazone[@type="America_Central"]/long/generic
+
+HINT: translate as "North American Eastern Daylight Time"
+PATH: //ldml/dates/timeZoneNames/metazone[@type="America_Eastern"]/long/daylight
+
+HINT: translate as "North American Eastern Standard Time"
+PATH: //ldml/dates/timeZoneNames/metazone[@type="America_Eastern"]/long/standard
+
+HINT: translate as "North American Eastern Time"
+PATH: //ldml/dates/timeZoneNames/metazone[@type="America_Eastern"]/long/generic
+
+HINT: translate as "North American Mountain Daylight Time"
+PATH: //ldml/dates/timeZoneNames/metazone[@type="America_Mountain"]/long/daylight
+
+HINT: translate as "North American Mountain Standard Time"
+PATH: //ldml/dates/timeZoneNames/metazone[@type="America_Mountain"]/long/standard
+
+HINT: translate as "North American Mountain Time"
+PATH: //ldml/dates/timeZoneNames/metazone[@type="America_Mountain"]/long/generic
+
+HINT: translate as "North American Pacific Daylight Time"
+PATH: //ldml/dates/timeZoneNames/metazone[@type="America_Pacific"]/long/daylight
+
+HINT: translate as "North American Pacific Standard Time"
+PATH: //ldml/dates/timeZoneNames/metazone[@type="America_Pacific"]/long/standard
+
+HINT: translate as "North American Pacific Time"
+PATH: //ldml/dates/timeZoneNames/metazone[@type="America_Pacific"]/long/generic
+
+HINT: translate as just "Chamorro Time"
+PATH: //ldml/dates/timeZoneNames/metazone[@type="Chamorro"]/long/standard
+
+HINT: translate as just "Guam Time"
+PATH: //ldml/dates/timeZoneNames/metazone[@type="Guam"]/long/standard
+
+HINT: translate as just "Gulf Time"
+PATH: //ldml/dates/timeZoneNames/metazone[@type="Gulf"]/long/standard
+
+HINT: translate as just "India Time"
+PATH: //ldml/dates/timeZoneNames/metazone[@type="India"]/long/standard
+
+HINT: translate as just "Singapore Time"
+PATH: //ldml/dates/timeZoneNames/metazone[@type="Singapore"]/long/standard
+
+HINT: translate as just "South Africa Time"
+PATH: //ldml/dates/timeZoneNames/metazone[@type="Africa_Southern"]/long/standard
+
+HINT: typically used for display resolution
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="graphics-pixel-per-centimeter"]/displayName
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="graphics-pixel-per-centimeter"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="graphics-pixel-per-centimeter"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="graphics-pixel-per-inch"]/displayName
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="graphics-pixel-per-inch"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="graphics-pixel-per-inch"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="graphics-pixel-per-centimeter"]/displayName
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="graphics-pixel-per-centimeter"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="graphics-pixel-per-centimeter"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="graphics-pixel-per-inch"]/displayName
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="graphics-pixel-per-inch"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="graphics-pixel-per-inch"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="graphics-pixel-per-centimeter"]/displayName
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="graphics-pixel-per-centimeter"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="graphics-pixel-per-centimeter"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="graphics-pixel-per-inch"]/displayName
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="graphics-pixel-per-inch"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="graphics-pixel-per-inch"]/unitPattern[@count="other"]
+
+HINT: typically used for printer resolution
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="graphics-dot-per-centimeter"]/displayName
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="graphics-dot-per-centimeter"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="graphics-dot-per-centimeter"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="graphics-dot-per-inch"]/displayName
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="graphics-dot-per-inch"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="graphics-dot-per-inch"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="graphics-dot-per-centimeter"]/displayName
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="graphics-dot-per-centimeter"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="graphics-dot-per-centimeter"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="graphics-dot-per-inch"]/displayName
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="graphics-dot-per-inch"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="graphics-dot-per-inch"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="graphics-dot-per-centimeter"]/displayName
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="graphics-dot-per-centimeter"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="graphics-dot-per-centimeter"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="graphics-dot-per-inch"]/displayName
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="graphics-dot-per-inch"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="graphics-dot-per-inch"]/unitPattern[@count="other"]
+
+HINT: typographic length equal to a font’s point size
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="graphics-em"]/displayName
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="graphics-em"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="graphics-em"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="graphics-em"]/displayName
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="graphics-em"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="graphics-em"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="graphics-em"]/displayName
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="graphics-em"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="graphics-em"]/unitPattern[@count="other"]
+
+HINT: used for counting the individual elements in bitmap image
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="graphics-megapixel"]/displayName
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="graphics-megapixel"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="graphics-megapixel"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="graphics-megapixel"]/displayName
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="graphics-megapixel"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="graphics-megapixel"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="graphics-megapixel"]/displayName
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="graphics-megapixel"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="graphics-megapixel"]/unitPattern[@count="other"]
+
+HINT: used for counting the individual elements in bitmap image; in some contexts means 1⁄96 inch
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="graphics-pixel"]/displayName
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="graphics-pixel"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="graphics-pixel"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="graphics-pixel"]/displayName
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="graphics-pixel"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="graphics-pixel"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="graphics-pixel"]/displayName
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="graphics-pixel"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="graphics-pixel"]/unitPattern[@count="other"]
+
+HINT: used in UK/Ireland for body weight, equal to 14 pounds
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="mass-stone"]/displayName
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="mass-stone"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="long"]/unit[@type="mass-stone"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="mass-stone"]/displayName
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="mass-stone"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="narrow"]/unit[@type="mass-stone"]/unitPattern[@count="other"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="mass-stone"]/displayName
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="mass-stone"]/unitPattern[@count="one"]
+PATH: //ldml/units/unitLength[@type="short"]/unit[@type="mass-stone"]/unitPattern[@count="other"]
+
+HINT: warning, see info panel on right
+PATH: //ldml/localeDisplayNames/territories/territory[@type="003"]
+PATH: //ldml/localeDisplayNames/territories/territory[@type="018"]
+PATH: //ldml/localeDisplayNames/territories/territory[@type="021"]
+PATH: //ldml/localeDisplayNames/territories/territory[@type="057"]
+PATH: //ldml/localeDisplayNames/territories/territory[@type="CD"]
+PATH: //ldml/localeDisplayNames/territories/territory[@type="CD"][@alt="variant"]
+PATH: //ldml/localeDisplayNames/territories/territory[@type="CG"]
+PATH: //ldml/localeDisplayNames/territories/territory[@type="CG"][@alt="variant"]
+PATH: //ldml/localeDisplayNames/territories/territory[@type="CI"]
+PATH: //ldml/localeDisplayNames/territories/territory[@type="CI"][@alt="variant"]
+PATH: //ldml/localeDisplayNames/territories/territory[@type="FK"]
+PATH: //ldml/localeDisplayNames/territories/territory[@type="FK"][@alt="variant"]
+PATH: //ldml/localeDisplayNames/territories/territory[@type="FM"]
+PATH: //ldml/localeDisplayNames/territories/territory[@type="HK"]
+PATH: //ldml/localeDisplayNames/territories/territory[@type="HK"][@alt="short"]
+PATH: //ldml/localeDisplayNames/territories/territory[@type="MK"]
+PATH: //ldml/localeDisplayNames/territories/territory[@type="MM"]
+PATH: //ldml/localeDisplayNames/territories/territory[@type="MM"][@alt="short"]
+PATH: //ldml/localeDisplayNames/territories/territory[@type="MO"]
+PATH: //ldml/localeDisplayNames/territories/territory[@type="MO"][@alt="short"]
+PATH: //ldml/localeDisplayNames/territories/territory[@type="PS"]
+PATH: //ldml/localeDisplayNames/territories/territory[@type="PS"][@alt="short"]
+PATH: //ldml/localeDisplayNames/territories/territory[@type="SZ"]
+PATH: //ldml/localeDisplayNames/territories/territory[@type="SZ"][@alt="variant"]
+PATH: //ldml/localeDisplayNames/territories/territory[@type="TL"]
+PATH: //ldml/localeDisplayNames/territories/territory[@type="TL"][@alt="variant"]
+PATH: //ldml/localeDisplayNames/territories/territory[@type="ZA"]

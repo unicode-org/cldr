@@ -217,6 +217,7 @@ public class VoteAPIHelper {
         row.rdf = r.getRDFURI();
         row.rowFlagged = r.isFlagged();
         row.statusAction = r.getStatusAction();
+        row.translationHint = r.getTranslationHint();
         row.voteVhash = r.getVoteVHash();
         row.votingResults = getVotingResults(resolver);
         row.winningValue = r.getWinningValue();

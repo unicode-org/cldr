@@ -352,7 +352,7 @@ public class TestPersonNameFormatter extends TestFmwk{
 
         for (String localeId : Arrays.asList("en")) {
             final CLDRFile cldrFile = factory.make(localeId, true);
-            ExampleGenerator exampleGenerator2 = new ExampleGenerator(cldrFile, ENGLISH, "");
+            ExampleGenerator exampleGenerator2 = new ExampleGenerator(cldrFile, ENGLISH);
             for (String path : cldrFile) {
                 if (path.startsWith("//ldml/personNames") && !path.endsWith("/alias")) {
                     XPathParts parts = XPathParts.getFrozenInstance(path);
@@ -377,7 +377,7 @@ public class TestPersonNameFormatter extends TestFmwk{
     }
 
     private ExampleGenerator checkExamples(CLDRFile cldrFile, String[][] tests) {
-        ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, ENGLISH, "");
+        ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, ENGLISH);
         for (String[] test : tests) {
             String path = test[0];
             String value = cldrFile.getStringValue(path);
@@ -427,7 +427,7 @@ public class TestPersonNameFormatter extends TestFmwk{
 
         // First test the example for the regular value
 
-        ExampleGenerator exampleGenerator = new ExampleGenerator(resolved, ENGLISH, "");
+        ExampleGenerator exampleGenerator = new ExampleGenerator(resolved, ENGLISH);
         String path = checkPath("//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern");
         String value2 = enWritable.getStringValue(path); // check that English is as expected
         assertEquals(path, "{given} {given2} {surname} {suffix}", value2);

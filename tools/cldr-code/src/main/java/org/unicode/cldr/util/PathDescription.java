@@ -729,16 +729,16 @@ public class PathDescription {
         Arrays
             .asList(
                 "ach|af|ak|ak|am|ar|az|be|bem|bg|bh|bn|br|bs|ca|chr|ckb|co|crs|cs|cy|da|de|de_AT|de_CH|ee|el|en|en_AU|en_CA|en_GB|en_US|eo|es|es_419|es_ES|et|eu|fa|fi|fil|fo|fr|fr_CA|fr_CH|fy|ga|gaa|gd|gl|gn|gsw|gu|ha|haw|he|hi|hr|ht|hu|hy|ia|id|ig|io|is|it|ja|jv|ka|kg|kk|km|kn|ko|kri|ku|ky|la|lg|ln|lo|loz|lt|lua|lv|mfe|mg|mi|mk|ml|mn|mr|ms|mt|my|nb|ne|nl|nl_BE|nn|no|nso|ny|nyn|oc|om|or|pa|pcm|pl|ps|pt|pt_BR|pt_PT|qu|rm|rn|ro|ro|ro_MD|ru|rw|sd|si|sk|sl|sn|so|sq|sr|sr_Latn|sr_ME|st|su|sv|sw|ta|te|tg|th|ti|tk|tlh|tn|to|tr|tt|tum|ug|uk|und|ur|uz|vi|wo|xh|yi|yo|zh|zh_Hans|zh_Hant|zh_HK|zu|zxx"
-                    .split("|")));
+                    .split("\\|")));
 
     private static final Pattern METAZONE_PATTERN = Pattern
         .compile("//ldml/dates/timeZoneNames/metazone\\[@type=\"([^\"]*)\"]/(.*)/(.*)");
     private static final Pattern STAR_ATTRIBUTE_PATTERN = PatternCache.get("=\"([^\"]*)\"");
 
     private static final StandardCodes STANDARD_CODES = StandardCodes.make();
-    private static Map<String, String> ZONE2COUNTRY = STANDARD_CODES.zoneParser.getZoneToCounty();
+    private static final Map<String, String> ZONE2COUNTRY = STANDARD_CODES.zoneParser.getZoneToCounty();
 
-    private static RegexLookup<String> pathHandling = new RegexLookup<String>().loadFromString(pathDescriptionString);
+    private static final RegexLookup<String> pathHandling = new RegexLookup<String>().loadFromString(pathDescriptionString);
 
     // set in construction
 
@@ -750,10 +750,10 @@ public class PathDescription {
 
     // used on instance
 
-    private Matcher metazoneMatcher = METAZONE_PATTERN.matcher("");
+    private final Matcher metazoneMatcher = METAZONE_PATTERN.matcher("");
     private String starredPathOutput;
-    private Output<String[]> pathArguments = new Output<>();
-    private EnumSet<Status> status = EnumSet.noneOf(Status.class);
+    private final Output<String[]> pathArguments = new Output<>();
+    private final EnumSet<Status> status = EnumSet.noneOf(Status.class);
 
     public static final String MISSING_DESCRIPTION = "Before translating, please see " + CLDRURLS.GENERAL_HELP_URL + ".";
 
@@ -781,12 +781,12 @@ public class PathDescription {
         SKIP, NULL_VALUE, EMPTY_CONTENT, NOT_REQUIRED
     }
 
-    public String getRawDescription(String path, String value, Object context) {
+    public String getRawDescription(String path, Object context) {
         status.clear();
         return pathHandling.get(path, context, pathArguments);
     }
 
-    public String getDescription(String path, String value, Level level, Object context) {
+    public String getDescription(String path, String value, Object context) {
         status.clear();
 
         String description = pathHandling.get(path, context, pathArguments);
@@ -874,13 +874,13 @@ public class PathDescription {
                     logger.warning("Missing country for timezone " + code);
                 }
             }
-            description = MessageFormat.format(MessageFormat.autoQuoteApostrophe(description), new Object[] { code });
+            description = MessageFormat.format(MessageFormat.autoQuoteApostrophe(description), code);
         } else if (path.contains("exemplarCity")) {
             String regionCode = ZONE2COUNTRY.get(attributes.get(0));
             String englishRegionName = english.getName(CLDRFile.TERRITORY_NAME, regionCode);
             description = MessageFormat.format(MessageFormat.autoQuoteApostrophe(description),
-                new Object[] { englishRegionName });
-        } else if (description != MISSING_DESCRIPTION) {
+                englishRegionName);
+        } else if (!MISSING_DESCRIPTION.equals(description)) {
             description = MessageFormat.format(MessageFormat.autoQuoteApostrophe(description),
                 (Object[]) pathArguments.value);
         }
@@ -898,7 +898,7 @@ public class PathDescription {
     public String getPlaceholderDescription(String path) {
         Map<String, PlaceholderInfo> placeholders = PatternPlaceholders.getInstance().get(path);
         if (placeholders != null && placeholders.size() > 0) {
-            StringBuffer buffer = new StringBuffer();
+            StringBuilder buffer = new StringBuilder();
             buffer.append("<table>");
             buffer.append("<tr><th>Placeholder</th><th>Meaning</th><th>Example</th></tr>");
             for (Entry<String, PlaceholderInfo> entry : placeholders.entrySet()) {
@@ -936,7 +936,7 @@ public class PathDescription {
         while (starAttributeMatcher.find()) {
             int start = starAttributeMatcher.start(1);
             int end = starAttributeMatcher.end(1);
-            starredPath.append(path.substring(lastEnd, start));
+            starredPath.append(path, lastEnd, start);
             starredPath.append(".*");
 
             attributes.add(path.substring(start, end));
@@ -946,10 +946,7 @@ public class PathDescription {
         String starredPathString = starredPath.toString().intern();
         starredPathOutput = starredPathString;
 
-        List<Set<String>> attributeList = starredPaths.get(starredPathString);
-        if (attributeList == null) {
-            starredPaths.put(starredPathString, attributeList = new ArrayList<>());
-        }
+        List<Set<String>> attributeList = starredPaths.computeIfAbsent(starredPathString, k -> new ArrayList<>());
         int i = 0;
         for (String attribute : attributes) {
             if (attributeList.size() <= i) {

@@ -21,6 +21,7 @@ public class TranslationHints {
         xpathToHint = new HashMap<>();
         String hint = null;
         for (String line : FileUtilities.in(TranslationHints.class, HINTS_FILE)) {
+            line = line.trim();
             if (line.startsWith("HINT:")) {
                 hint = line.substring(5).trim();
             } else if (line.startsWith("PATH:")) {
@@ -29,6 +30,8 @@ public class TranslationHints {
                     throw new RuntimeException("Bad file, must set HINT before PATH: " + HINTS_FILE);
                 }
                 xpathToHint.put(xpath, hint);
+            } else if (!line.isEmpty() && !line.startsWith("#")) {
+                throw new RuntimeException("Unrecognized line in " + HINTS_FILE + ": " + line);
             }
         }
     }

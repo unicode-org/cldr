@@ -114,30 +114,32 @@
     <verify status="approved" locale="zh_Hant" xpath="//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator">{1} na {0}</verify>
  -->
 
-  	<!--  testing vote for inherited ↑↑↑ (CldrUtility.INHERITANCE_MARKER) -->
-    <!--  first switch und to AAA -->
+    <!-- Testing vote for inherited ↑↑↑ (CldrUtility.INHERITANCE_MARKER) -->
+    <!-- First make AAA the winning value in the parent locale, so it will be the bailey value in the sublocale. -->
     <vote name="A" locale="mul" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">AAA</vote>
     <vote name="B" locale="mul" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">AAA</vote>
     <vote name="C" locale="mul" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">AAA</vote>
 	<verify status="approved" locale="mul" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >AAA</verify>
 	<!--  <verify status="missing" locale="mul_AQ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >AAA</verify> -->
-	<!--  Now, sublocale vetting. -->
+
+	<!-- Now, in the sublocale, one vote for ↑↑↑, one vote for AAA (bailey) which immediately gets normalized to ↑↑↑ (even
+	     before it gets to the vote resolver), and one vote for CCC (a dissenter). The winning value will be ↑↑↑ (with twice
+	     as many votes as CCC), and then CLDRFile.getStringValue resolves ↑↑↑ to bailey (AAA) -->
 	<vote name="A" locale="mul_AQ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">↑↑↑</vote> <!--  inherited -->
     <vote name="B" locale="mul_AQ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">AAA</vote> <!--  explicit agree -->
     <vote name="C" locale="mul_AQ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">CCC</vote> <!--  (dissenter) -->
-	<verify status="approved" locale="mul_AQ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >AAA</verify> <!-- ↑↑↑ and AAA should be the same, not split.  -->
+	<verify status="approved" locale="mul_AQ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >AAA</verify>
 
-    <!--  now switch und to BBB -->
+    <!-- Now switch to BBB as the winning value in the parent locale, and the bailey value in the sublocale -->
     <vote name="A" locale="mul" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">BBB</vote>
     <vote name="B" locale="mul" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">BBB</vote>
     <vote name="C" locale="mul" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">BBB</vote>
 	<verify status="approved" locale="mul" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >BBB</verify>
 
-	<!-- The following test assumes: that ↑↑↑ (CldrUtility.INHERITANCE_MARKER) participates as such in voting resolution;
-		that ↑↑↑ beats AAA in the tie-breaker based on collation order; and that ↑↑↑ resolves to the Bailey value BBB.
-		Before 2018-8-17, the expected winner was AAA, since AAA beat BBB in the tie-breaker after ↑↑↑ was replaced by BBB.
-		The expected status is "provisional". -->
-	<verify status="provisional" locale="mul_AQ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >BBB</verify> <!-- split vote. ↑↑↑ wins -->
+	<!-- The following test in the sublocale assumes: that BBB is now the bailey value; that bailey is treated the same as
+	     ↑↑↑ (CldrUtility.INHERITANCE_MARKER) in voting resolution; that AAA is not a candidate since it was immediately
+	     changed to ↑↑↑; that ↑↑↑ has more votes (8) than CCC (4). The expected status is "approved" (O=8, N=4; O>N, and O>4) -->
+	<verify status="approved" locale="mul_AQ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >BBB</verify>
 
     <vote name="B" locale="mul_AQ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">BBB</vote> <!--  explicit agree -->
 	<verify status="approved" locale="mul_AQ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >BBB</verify> <!-- BBB wins. -->

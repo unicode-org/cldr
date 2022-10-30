@@ -1,3 +1,10 @@
+# This file is read by TranslationHints.java.
+# Each hint is followed by one or more paths to which it corresponds.
+# Format:
+# HINT: (hint text)
+# PATH: first xpath
+# PATH: another xpath…
+
 HINT: "day" here means a time duration of 24 hours, not a calendar day
 PATH: //ldml/units/unitLength[@type="long"]/unit[@type="duration-day"]/displayName
 PATH: //ldml/units/unitLength[@type="long"]/unit[@type="duration-day"]/unitPattern[@count="one"]

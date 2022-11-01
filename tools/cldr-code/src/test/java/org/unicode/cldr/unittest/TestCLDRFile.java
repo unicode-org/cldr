@@ -707,7 +707,7 @@ public class TestCLDRFile extends TestFmwk {
             Set<String> dirFiles = new TreeSet<>(Arrays.asList(new File(CLDRPaths.BASE_DIRECTORY + "common/" + dir).list()));
             if (!mainList.containsAll(dirFiles)) {
                 dirFiles.removeAll(mainList);
-                errln(dir + " has extra files" + dirFiles);
+                errln(dir + "/ has extra files not in main/: " + dirFiles);
             }
         }
     }

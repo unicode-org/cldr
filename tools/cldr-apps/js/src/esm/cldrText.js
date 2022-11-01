@@ -537,6 +537,8 @@ const strings = {
 
   transcript_note:
     "PREVIEW FEATURE: The above is an attempt to explain votes. Feedback to https://unicode-org.atlassian.net/browse/CLDR-14943",
+
+  empty_comparison_cell_hint: "not available in English; see the Info Panel",
 };
 
 /**

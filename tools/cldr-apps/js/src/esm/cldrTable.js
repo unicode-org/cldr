@@ -753,25 +753,29 @@ function updateRowCodeCell(tr, theRow, cell) {
  * Called by updateRow.
  */
 function updateRowEnglishComparisonCell(tr, theRow, cell) {
+  let trHint = theRow.translationHint; // sometimes null
   if (theRow.displayName) {
     cell.appendChild(
       cldrDom.createChunk(theRow.displayName, "span", "subSpan")
     );
-    const TRANS_HINT_ID = "en"; // expected to match SurveyMain.TRANS_HINT_ID
-    cldrSurvey.setLang(cell, TRANS_HINT_ID);
-    if (theRow.displayExample || theRow.translationHint) {
-      const infos = document.createElement("div");
-      infos.className = "infos-code";
-      if (theRow.translationHint) {
-        appendTranslationHintIcon(infos, theRow.translationHint, TRANS_HINT_ID);
-      }
-      if (theRow.displayExample) {
-        appendExampleIcon(infos, theRow.displayExample, TRANS_HINT_ID);
-      }
-      cell.appendChild(infos);
-    }
   } else {
     cell.appendChild(document.createTextNode(""));
+    if (!trHint) {
+      trHint = cldrText.get("empty_comparison_cell_hint");
+    }
+  }
+  const TRANS_HINT_ID = "en"; // expected to match SurveyMain.TRANS_HINT_ID
+  cldrSurvey.setLang(cell, TRANS_HINT_ID);
+  if (theRow.displayExample || trHint) {
+    const infos = document.createElement("div");
+    infos.className = "infos-code";
+    if (trHint) {
+      appendTranslationHintIcon(infos, trHint, TRANS_HINT_ID);
+    }
+    if (theRow.displayExample) {
+      appendExampleIcon(infos, theRow.displayExample, TRANS_HINT_ID);
+    }
+    cell.appendChild(infos);
   }
   cldrInfo.listen(null, tr, cell, null);
   cell.isSetup = true;

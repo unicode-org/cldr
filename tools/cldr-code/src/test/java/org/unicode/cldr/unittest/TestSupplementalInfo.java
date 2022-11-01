@@ -1617,17 +1617,30 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             Map<Type, BasicLanguageData> scriptInfo = supp
                 .getBasicLanguageDataMap(baseLanguage);
             if (scriptInfo == null) {
-                errln(loc + ": has no BasicLanguageData");
+                if (StandardCodes.isLocaleAtLeastBasic(locale)) {
+                    errln(loc + ": has no BasicLanguageData");
+                } else {
+                    logln(loc + ": has no BasicLanguageData (not a basic loc)");
+                }
             } else {
                 BasicLanguageData data = scriptInfo.get(Type.primary);
                 if (data == null) {
                     data = scriptInfo.get(Type.secondary);
                 }
                 if (data == null) {
-                    errln(loc + ": has no scripts in BasicLanguageData");
+                    if (StandardCodes.isLocaleAtLeastBasic(locale)) {
+                        errln(loc + ": has no scripts in BasicLanguageData");
+                    } else {
+                        logln(loc + ": has no scripts in BasicLanguageData (not a basic loc)");
+                    }
                 } else if (!data.getScripts().contains(defaultScript)) {
-                    errln(loc + ": " + defaultScript
+                    if (StandardCodes.isLocaleAtLeastBasic(locale)) {
+                        errln(loc + ": " + defaultScript
                         + " not in BasicLanguageData - check <languages> in supplementalData.xml and language_script_raw.txt  " + data.getScripts());
+                    } else {
+                        logln(loc + ": " + defaultScript
+                        + " not in BasicLanguageData - check <languages> in supplementalData.xml and language_script_raw.txt (not a basic loc) " + data.getScripts());
+                    }
                 }
             }
 

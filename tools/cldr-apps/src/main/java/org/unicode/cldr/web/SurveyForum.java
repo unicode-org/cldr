@@ -1034,7 +1034,7 @@ public class SurveyForum {
      * Save a new post to the FORUM_POSTS table; if it's a CLOSE post,
      * also set is_open=false for all posts in this thread
      *
-     * @param PostInfo the post info
+     * @param postInfo the post info
      * @return the new post id, or <= 0 for failure
      * @throws SurveyException
      */

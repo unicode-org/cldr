@@ -382,6 +382,9 @@ public class TestBasic extends TestFmwkPlus {
         CharacterFallbacks fallbacks = CharacterFallbacks.make();
 
         for (String locale : cldrFactory.getAvailable()) {
+            if (!StandardCodes.isLocaleAtLeastBasic(locale)) {
+                continue;
+            }
             CLDRFile file = testInfo.getCLDRFile(locale, false);
             if (file.isNonInheriting())
                 continue;
@@ -1023,7 +1026,9 @@ public class TestBasic extends TestFmwkPlus {
             if (!isTopLevel(localeID)) {
                 continue;
             }
-
+            if (!StandardCodes.isLocaleAtLeastBasic(localeID)) {
+                continue;
+            }
             errors.clear();
             warnings.clear();
 

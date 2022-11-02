@@ -343,7 +343,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     static final String SURVEYTOOL_COOKIE_SESSION = CookieSession.class.getPackage().getName() + ".id";
     static final String PREF_NOPOPUPS = "p_nopopups";
-    static final String PREF_CODES_PER_PAGE = "p_pager";
 
     public static final String PREF_NOJAVASCRIPT = "p_nojavascript";
     public static final String PREF_DEBUGJSP = "p_debugjsp"; // debug JSPs?

@@ -125,6 +125,8 @@ public class Auth {
                     session = CookieSession.newSession(userIP);
                 }
             }
+            // Always reset coverage level preference when log in
+            session.settings().set(SurveyMain.PREF_COVLEV, null);
             LoginResponse resp = createLoginResponse(session);
             WebContext.setSessionCookie(hresp, resp.sessionId);
             return Response.ok().entity(resp)

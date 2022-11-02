@@ -122,7 +122,7 @@ public class SurveyAjax extends HttpServlet {
 
     public static final int oldestVersionForImportingVotes = 25; // Oldest table is cldr_vote_value_25, as of 2018-05-23.
 
-    String[] settablePrefsList = { SurveyMain.PREF_CODES_PER_PAGE, SurveyMain.PREF_COVLEV,
+    String[] settablePrefsList = { SurveyMain.PREF_COVLEV,
         "dummy" }; // list of prefs OK to get/set
 
     private final Set<String> prefsList = new HashSet<>();

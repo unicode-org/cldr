@@ -97,7 +97,11 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         LanguageTagParser ltp = new LanguageTagParser();
         for (String locale : factory.getAvailableLanguages()) {
             String language = ltp.set(locale).getLanguage();
-            if (language.equals("root")) language = "und";
+            if (language.equals("root")) {
+                language = "und";
+            } else if(!StandardCodes.isLocaleAtLeastBasic(language)) {
+                continue;
+            }
             mainLocales.add(language);
         }
         mainLocales = ImmutableSet.copyOf(mainLocales);

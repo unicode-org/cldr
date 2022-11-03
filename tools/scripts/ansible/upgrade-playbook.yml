@@ -1,7 +1,21 @@
 # A playbook for upgrading packages
 - hosts: all
+  vars_files:
+    - vars/main.yml
+    - vars/openliberty.yml
+    # - local-vars/local.yml
   become: yes
   tasks:
+  # TODO: should skip these
+  - name: Stop OpenLiberty
+    service:
+      name: "{{ cldr_openliberty_service }}"
+      state: stopped
   - name: Update all packages to the latest version
     apt:
       upgrade: dist
+  - name: Restart OpenLiberty
+    service:
+      name: "{{ cldr_openliberty_service }}"
+      state: restarted
+

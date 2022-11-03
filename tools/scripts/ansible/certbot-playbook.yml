@@ -10,7 +10,7 @@
           - python3-certbot-nginx
     - name: setup certbot
       command: >
-        sudo certbot --nginx --agree-tos -m {{ certbot_admin_email }}
+        sudo certbot --nginx --agree-tos -m {{ surveytooldeploy.certbot_admin_email }}
         -d {{ inventory_hostname }} --non-interactive
         --keep --redirect --uir --hsts --staple-ocsp --must-staple
       args:

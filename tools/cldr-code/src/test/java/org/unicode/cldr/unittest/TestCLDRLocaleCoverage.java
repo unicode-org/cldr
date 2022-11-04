@@ -1,14 +1,7 @@
 package org.unicode.cldr.unittest;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.EnumSet;
-import java.util.LinkedHashSet;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 import org.unicode.cldr.test.CoverageLevel2;
@@ -213,6 +206,8 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
     }
 
     private boolean assertContains(String title, Collection<String> set, Collection<String> subset) {
+        set = removeBelowBasic(set);
+        subset = removeBelowBasic(subset);
         boolean result = set.containsAll(subset);
         if (!result) {
             Set<String> temp = new LinkedHashSet<>(subset);
@@ -224,6 +219,16 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
             errln(title + ": Missing:\t" + temp.size() + "\n\t" + Joiner.on("\n\t").join(temp2));
         }
         return result;
+    }
+
+    private Collection<String> removeBelowBasic(Collection<String> set) {
+        Collection<String> set2 = new TreeSet<>();
+        for (String locale: set) {
+            if (StandardCodes.isLocaleAtLeastBasic(locale)) {
+                set2.add(locale);
+            }
+        }
+        return set2;
     }
 
     /**

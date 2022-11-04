@@ -82,6 +82,9 @@ public class TestLocale extends TestFmwkPlus {
         Set<String> defaultContents = SUPPLEMENTAL_DATA_INFO
             .getDefaultContentLocales();
         for (String locale : available) {
+            if (!StandardCodes.isLocaleAtLeastBasic(locale)) {
+                continue;
+            }
             String base = ltp.set(locale).getLanguage();
             String script = ltp.getScript();
             String region = ltp.getRegion();

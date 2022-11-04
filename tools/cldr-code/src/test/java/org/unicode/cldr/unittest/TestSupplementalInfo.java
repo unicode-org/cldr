@@ -1601,6 +1601,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             if ("root".equals(locale)) {
                 continue;
             }
+            if (!StandardCodes.isLocaleAtLeastBasic(locale)) {
+                continue;
+            }
             CLDRLocale loc = CLDRLocale.getInstance(locale);
             String baseLanguage = loc.getLanguage();
             String defaultScript = supp.getDefaultScript(baseLanguage);
@@ -1617,17 +1620,30 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             Map<Type, BasicLanguageData> scriptInfo = supp
                 .getBasicLanguageDataMap(baseLanguage);
             if (scriptInfo == null) {
-                errln(loc + ": has no BasicLanguageData");
+                if (StandardCodes.isLocaleAtLeastBasic(locale)) {
+                    errln(loc + ": has no BasicLanguageData");
+                } else {
+                    logln(loc + ": has no BasicLanguageData (not a basic loc)");
+                }
             } else {
                 BasicLanguageData data = scriptInfo.get(Type.primary);
                 if (data == null) {
                     data = scriptInfo.get(Type.secondary);
                 }
                 if (data == null) {
-                    errln(loc + ": has no scripts in BasicLanguageData");
+                    if (StandardCodes.isLocaleAtLeastBasic(locale)) {
+                        errln(loc + ": has no scripts in BasicLanguageData");
+                    } else {
+                        logln(loc + ": has no scripts in BasicLanguageData (not a basic loc)");
+                    }
                 } else if (!data.getScripts().contains(defaultScript)) {
-                    errln(loc + ": " + defaultScript
+                    if (StandardCodes.isLocaleAtLeastBasic(locale)) {
+                        errln(loc + ": " + defaultScript
                         + " not in BasicLanguageData - check <languages> in supplementalData.xml and language_script_raw.txt  " + data.getScripts());
+                    } else {
+                        logln(loc + ": " + defaultScript
+                        + " not in BasicLanguageData - check <languages> in supplementalData.xml and language_script_raw.txt (not a basic loc) " + data.getScripts());
+                    }
                 }
             }
 
@@ -1870,7 +1886,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         Set<String> mainLanguages = new TreeSet<>();
         LanguageTagParser ltp = new LanguageTagParser();
         for (String locale : testInfo.getCldrFactory().getAvailableLanguages()) {
-            mainLanguages.add(ltp.set(locale).getLanguage());
+            if (StandardCodes.isLocaleAtLeastBasic(locale)) {
+                mainLanguages.add(ltp.set(locale).getLanguage());
+            }
         }
         // add special codes we want to see anyway
         mainLanguages.add("und");

@@ -143,7 +143,10 @@ public class TestAttributeValues extends TestFmwk {
             files.add(path);
         } else {
             for (String file : dirFile.list()) {
-                addXMLFiles(dtdType, path + "/" + file, files);
+                String localeID = file.replace(".xml", "");
+                if (StandardCodes.isLocaleAtLeastBasic(localeID)) {
+                    addXMLFiles(dtdType, path + "/" + file, files);
+                }
             }
         }
     }

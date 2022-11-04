@@ -1601,6 +1601,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             if ("root".equals(locale)) {
                 continue;
             }
+            if (!StandardCodes.isLocaleAtLeastBasic(locale)) {
+                continue;
+            }
             CLDRLocale loc = CLDRLocale.getInstance(locale);
             String baseLanguage = loc.getLanguage();
             String defaultScript = supp.getDefaultScript(baseLanguage);
@@ -1883,7 +1886,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         Set<String> mainLanguages = new TreeSet<>();
         LanguageTagParser ltp = new LanguageTagParser();
         for (String locale : testInfo.getCldrFactory().getAvailableLanguages()) {
-            mainLanguages.add(ltp.set(locale).getLanguage());
+            if (StandardCodes.isLocaleAtLeastBasic(locale)) {
+                mainLanguages.add(ltp.set(locale).getLanguage());
+            }
         }
         // add special codes we want to see anyway
         mainLanguages.add("und");

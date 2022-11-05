@@ -353,18 +353,15 @@ public class CLDRTransforms {
     }
 
     public String registerTransliteratorsFromXML(String dir, String cldrFileName, List<String> cantSkip, boolean keepDashTIds) {
-        if (cldrFileName.contains("Japn")) {
-            int debug = 0;
-        }
         ParsedTransformID directionInfo = new ParsedTransformID();
         String ruleString;
         final String cldrFileName2 = cldrFileName + ".xml";
         try {
             ruleString = getIcuRulesFromXmlFile(dir, cldrFileName2, directionInfo);
         } catch (RuntimeException e) {
-//            if (!cantSkip.contains(cldrFileName2)) {
-//                return null;
-//            }
+            if (!cantSkip.contains(cldrFileName2)) {
+                return null;
+            }
             throw e;
         }
 

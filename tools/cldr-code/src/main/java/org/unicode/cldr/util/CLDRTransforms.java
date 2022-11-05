@@ -352,16 +352,19 @@ public class CLDRTransforms {
         displayNameToId.put(directionInfo.getDisplayId(), directionInfo.toString());
     }
 
-    public void registerTransliteratorsFromXML(String dir, String cldrFileName, List<String> cantSkip, boolean keepDashTIds) {
+    public String registerTransliteratorsFromXML(String dir, String cldrFileName, List<String> cantSkip, boolean keepDashTIds) {
+        if (cldrFileName.contains("Japn")) {
+            int debug = 0;
+        }
         ParsedTransformID directionInfo = new ParsedTransformID();
         String ruleString;
         final String cldrFileName2 = cldrFileName + ".xml";
         try {
             ruleString = getIcuRulesFromXmlFile(dir, cldrFileName2, directionInfo);
         } catch (RuntimeException e) {
-            if (!cantSkip.contains(cldrFileName2)) {
-                return;
-            }
+//            if (!cantSkip.contains(cldrFileName2)) {
+//                return null;
+//            }
             throw e;
         }
 
@@ -386,6 +389,7 @@ public class CLDRTransforms {
                 Transliterator.registerAlias(alias, directionInfo.getBackwardId());
             }
         }
+        return id;
     }
 
     /**

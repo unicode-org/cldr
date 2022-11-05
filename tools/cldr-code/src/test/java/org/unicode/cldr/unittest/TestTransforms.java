@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.BitSet;
 import java.util.Collection;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -12,27 +13,37 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTransforms;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathUtilities;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.UnicodeRelation;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UCharacterEnums.ECharacterCategory;
+import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Normalizer2;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
@@ -645,51 +656,309 @@ public class TestTransforms extends TestFmwkPlus {
         assertEquals("Hira-Kata", hiraKata.transform("゛゜ わ゙ ゟ"), "゛゜ ヷ ヨリ");
     }
 
-  public void TestZawgyiToUnicode10899() {
-    // Some tests for the transformation of Zawgyi font encoding to Unicode Burmese.
-    Transliterator z2u = getTransliterator("my-t-my-s0-zawgyi");
+    public void TestZawgyiToUnicode10899() {
+        // Some tests for the transformation of Zawgyi font encoding to Unicode Burmese.
+        Transliterator z2u = getTransliterator("my-t-my-s0-zawgyi");
 
-    String z1 =
-        "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u1039\u1031\u1010\u103C";
-    String expected =
-        "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u103A\u1010\u103D\u1031";
+        String z1 =
+            "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u1039\u1031\u1010\u103C";
+        String expected =
+            "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u103A\u1010\u103D\u1031";
 
-    String actual = z2u.transform(z1);
+        String actual = z2u.transform(z1);
 
-    assertEquals("z1 to u1", expected, actual);
+        assertEquals("z1 to u1", expected, actual);
 
-    String z2 = "တကယ္ဆို အျငိႈးေတြမဲ႔ေသာလမ္းေသာလမ္းမွာ တိုႈျပန္ဆံုျကတဲ႔အခါ ";
-    expected = "တကယ်ဆို အငြှိုးတွေမဲ့သောလမ်းသောလမ်းမှာ တှိုပြန်ဆုံကြတဲ့အခါ ";
-    actual = z2u.transform(z2);
-    assertEquals("z2 to u2", expected, actual);
+        String z2 = "တကယ္ဆို အျငိႈးေတြမဲ႔ေသာလမ္းေသာလမ္းမွာ တိုႈျပန္ဆံုျကတဲ႔အခါ ";
+        expected = "တကယ်ဆို အငြှိုးတွေမဲ့သောလမ်းသောလမ်းမှာ တှိုပြန်ဆုံကြတဲ့အခါ ";
+        actual = z2u.transform(z2);
+        assertEquals("z2 to u2", expected, actual);
 
-    String z3 = "ျပန္လမ္းမဲ့ကၽြန္းအပိုင္း၄";
-    expected = "ပြန်လမ်းမဲ့ကျွန်းအပိုင်း၎";
-    actual = z2u.transform(z3);
-    assertEquals("z3 to u3", expected, actual);
-  }
+        String z3 = "ျပန္လမ္းမဲ့ကၽြန္းအပိုင္း၄";
+        expected = "ပြန်လမ်းမဲ့ကျွန်းအပိုင်း၎";
+        actual = z2u.transform(z3);
+        assertEquals("z3 to u3", expected, actual);
+    }
 
-  public void TestUnicodeToZawgyi111107() {
-    // Some tests for the transformation from Unicode to Zawgyi font encoding
-    Transliterator u2z = getTransliterator("my-t-my-d0-zawgyi");
+    public void TestUnicodeToZawgyi111107() {
+        // Some tests for the transformation from Unicode to Zawgyi font encoding
+        Transliterator u2z = getTransliterator("my-t-my-d0-zawgyi");
 
-    String expected =
-        "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u1039\u1031\u1010\u103C";
-    String u1 =
-        "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u103A\u1010\u103D\u1031";
+        String expected =
+            "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u1039\u1031\u1010\u103C";
+        String u1 =
+            "\u1021\u102C\u100F\u102C\u1015\u102D\u102F\u1004\u103A\u1010\u103D\u1031";
 
-    String actual = u2z.transform(u1);
+        String actual = u2z.transform(u1);
 
-    assertEquals("u1 to z1", expected, actual);
+        assertEquals("u1 to z1", expected, actual);
 
-    expected = "တကယ္ဆို အၿငႇိဳးေတြမဲ့ေသာလမ္းေသာလမ္းမွာ တိႈျပန္ဆံုၾကတဲ့အခါ ";
-    String u2 = "တကယ်ဆို အငြှိုးတွေမဲ့သောလမ်းသောလမ်းမှာ တှိုပြန်ဆုံကြတဲ့အခါ ";
-    actual = u2z.transform(u2);
-    assertEquals("u2 to z2", expected, actual);
+        expected = "တကယ္ဆို အၿငႇိဳးေတြမဲ့ေသာလမ္းေသာလမ္းမွာ တိႈျပန္ဆံုၾကတဲ့အခါ ";
+        String u2 = "တကယ်ဆို အငြှိုးတွေမဲ့သောလမ်းသောလမ်းမှာ တှိုပြန်ဆုံကြတဲ့အခါ ";
+        actual = u2z.transform(u2);
+        assertEquals("u2 to z2", expected, actual);
 
-    expected = "ျပန္လမ္းမဲ့ကြၽန္းအပိုင္း၄";
-    String u3 = "ပြန်လမ်းမဲ့ကျွန်းအပိုင်း၎";
-    actual = u2z.transform(u3);
-    assertEquals("u3 to z3", expected, actual);
-  }
+        expected = "ျပန္လမ္းမဲ့ကြၽန္းအပိုင္း၄";
+        String u3 = "ပြန်လမ်းမဲ့ကျွန်းအပိုင်း၎";
+        actual = u2z.transform(u3);
+        assertEquals("u3 to z3", expected, actual);
+    }
+
+    public void TestLocales() {
+        Set<String> modernCldr = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr, ImmutableSet.of(Level.MODERN));
+        Set<String> special = StandardCodes.make().getLocaleCoverageLocales(Organization.special, ImmutableSet.of(Level.MODERN));
+        Set<String> missing = new TreeSet<>();
+        Factory factory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
+        SampleDataSet badPlusSample = new SampleDataSet();
+        SampleDataSet allMissing = new SampleDataSet();
+        String sinhalaTest = "මානව අයිතිවාසිකම් පිළිබඳ විශ්ව ප්‍රකාශනය\n"
+            + "1948 දෙසැම්බර් මස 10 වෙනි දින එක්සත් ජාතීන්ගේ මහා මණ්ඩලයෙන් සම්මත කරනු ලදුව ප්‍රකාශයට පත් කළ මානව අයිතිවාසිකම් පිළිබඳ විශ්ව ප්‍රකාශනය මෙහි අන්තර්ගත වේ. මෙම ඓතිහාසික සිද්ධියෙන් මෙම ප්‍රකාශනයේ අඩංගු වගන්ති ප්‍රචාරයට පත් කරන මෙන් ද “ඒ ඒ රටවල පවතින දේශපාලන තත්ත්වය පිළිබඳව වෙනසක් නොකර මෙම ප්‍රකාශනය ප්‍රධාන වශයෙන් පාසල් හා අධ්‍යාපන ආයතනයන් මඟින් පැතිර වීමට, ප්‍රදර්ශනය වීමට, පාඨනය කරවීමට හා පැහැදිලි කරවීමට සලස්වන මෙන්ද” එක්සත් ජාතීන්ගේ මහා මණ්ඩලය විසින් සියලුම සාමාජික රාජ්‍යයන් ගෙන් ඉල්ලා සිටින ලද්දේය."
+            ;
+        String khmerTest = "សេចក្ដីប្រកាសជាសកលស្ដីពីសិទ្ធិមនុស្ស\n"
+            + "អនុម័តនិងប្រកាសដោយសេចក្ដីសម្រេចចិត្ដនៃមហាសន្និបាតលេខ ២១៧ A (III) នៅថ្ងៃទី ១០ ខែធ្នូ ឆ្នាំ១៩៤៨\n"
+            + "បុព្វកថា\n"
+            + "ដោយយល់ឃើញថា ការទទួលស្គាល់សេចក្ដីថ្លៃថ្នូរជាប់ពីកំណើត និងសិទ្ធិស្មើភាពគ្នា និងសិទ្ធិមិនអាច លក់ ដូរ ផ្ទេរ ឬដកហូតបានរបស់សមាជិកទាំងអស់នៃគ្រួសារមនុស្ស គឺជាគ្រឹះនៃសេរីភាព យុត្ដិធម៌ និងសន្ដិភាពក្នុងពិភពលោក។\n"
+            ;
+        String laoTest = "ປະກາດສາກົນ ກ່ຽວກັບສິດຂອງມະນຸດ\n"
+            + "ວັນທີ 20 ທັນວາ ຄ.ສ 1958\n"
+            + "ກອງປະຊຸມໃຫຍ່ສະຫະປະຊາຊາດໄດ້ຮັບຮອງ ແລະ ປະກາດສິດຂອງມວນມະນຸດຊື່ງພວກເຮົາໄດ້ຈັດພິມຂື້ນຕະຫຼອດບົດຫຼັງການປະກາດອັນເປັນປະຫວັດການນີ້ກອງປະຊຸມໃຫຍ່ໄດ້ຊີ້ແຈງກັບສະມາຊິກທຸກໆທ່ານຂໍຈົ່ງຢ່າໄດ້ປະລະເລີຍໂອກາດ ແລະ ວິທີທາງອັນໃດຊື່ງສາມາດຈະໄດ້ຮັບໃນອານາຄົດ, ເພື່ອເຜີຍແຜ່ໃຫ້ປະຊາຊົນໄດ້ຮັບແຈກຈ່າຍອ່ານ ແລະ ວິຈານສີ່ງສຳຄັນໃນໂຮງຮຽນ ແລະ ສະຖານສຶກສາໃດໆໂດຍບໍ່ຄຳນືງເຖິງລັດທິ, ການເມືອງຂອງເຮົາ ຫຼື ປະເທດໃດເລີຍ.\n"
+            + "ສຳນັກງານຖະແຫຼງຂ່າວຂອງອົງການສະຫະປະຊາຊາດ ຄ.ສ 1958.\n"
+            ;
+
+        // missing
+        String lao_latn = registerTranslit("Lao-Latin", "ບ", "b", laoTest);
+        // String ipa_en = registerTranslit("IPA-English", "i", "ee", null);
+        String khmer_latn = registerTranslit("Khmer-Latin", "ឥ", "ĕ", khmerTest);
+        String sinhala_latn = registerTranslit("Sinhala-Latin", "ක", "ka", sinhalaTest);
+        String jpan_latn = registerTranslit("Japn-Latn", "譆", "aa", null);
+
+        for (String locale : modernCldr) {
+            if (special.contains(locale)) {
+                continue;
+            }
+            ltp.set(locale);
+            if (!ltp.getRegion().isEmpty()) {
+                continue;
+            }
+            ltp.set(locale);
+            String max = ls.maximize(locale);
+            final String script = ltp.set(max).getScript();
+
+            String id = script + "-Latn";
+
+            switch(script) {
+            case "Latn":
+                continue;
+            case "Khmr":
+                id = khmer_latn;
+                break;
+            case "Laoo":
+                id = lao_latn;
+                break;
+            case "Sinh":
+                id = sinhala_latn;
+                break;
+            case "Japn":
+                id = jpan_latn;
+                break;
+            case "Hant": case "Hans":
+                id = "Hani-Latn";
+                break;
+            }
+            Transliterator t;
+            try {
+                t = Transliterator.getInstance(id);
+            } catch (Exception e) {
+                missing.add(locale);
+                continue;
+            }
+            badPlusSample.clear();
+            CLDRFile file = factory.make(locale, false);
+            for (String path : file) {
+                if (path.contains("/exemplar") || path.contains("/parseLenients")) {
+                    continue;
+                }
+                String value = file.getStringValue(path);
+                String transformed = t.transform(value);
+                badPlusSample.addNonLatin(locale, path, value, transformed);
+            }
+            if (!badPlusSample.isEmpty()) {
+                errln(locale + " " + script + " transform doesn't handle " + badPlusSample.size()
+                + " code points:\n" + badPlusSample);
+                allMissing.addAll(badPlusSample);
+            }
+        }
+        if (!allMissing.isEmpty()) {
+            errln("Summary Any-Latn transform doesn't handle " + allMissing.size()
+            + " code points:\n" + allMissing.dataSet.keySet().toPattern(false)
+                );
+        }
+    }
+
+    static LikelySubtags ls = new LikelySubtags();
+    static LanguageTagParser ltp = new LanguageTagParser();
+
+    static String getScript(String locale) {
+        ltp.set(locale);
+        String max = ls.maximize(locale);
+        return ltp.set(max).getScript();
+    }
+    static UnicodeRelation<String> pathSegmentsOk = new UnicodeRelation<>();
+    static {
+        // need to add exceptions to CheckForExemplars
+        pathSegmentsOk.add('\u03A9', "/unit[@type=\"electric-ohm\"]");
+        pathSegmentsOk.add('\u03BC', "/unit[@type=\"length-micrometer\"]");
+        pathSegmentsOk.add('\u03BC', "/unit[@type=\"mass-microgram\"]");
+        pathSegmentsOk.add('\u03BC', "/unit[@type=\"duration-microsecond\"]");
+        pathSegmentsOk.add('\u03BC', "//ldml/annotations/annotation[@cp=\"µ\"]");
+        pathSegmentsOk.add('\u03BC', "/compoundUnit[@type=\"10p-6\"]/unitPrefixPattern");
+        pathSegmentsOk.add('\u03C0', "/unit[@type=\"angle-radian\"]");
+        pathSegmentsOk.add('\u03C9', "/compoundUnit[@type=\"10p-6\"]/unitPrefixPattern");
+        pathSegmentsOk.add('\u0440', "/currency[@type=\"BYN\"]");
+        pathSegmentsOk.add('\u0440', "/currency[@type=\"RUR\"]");
+        pathSegmentsOk.add('\u10DA', "/currency[@type=\"GEL\"]");
+        pathSegmentsOk.addAll(new UnicodeSet("[؉ ٪ ٫ ۰ ۱ ؉ا س ا س ٬ ٬ ؜ ؛  ]"), "//ldml/numbers/symbols[@numberSystem=\"arab");
+
+        // need to fix data in locale files
+        pathSegmentsOk.addAll(new UnicodeSet("[コサ割可合営得指月有満無申祝禁秘空割祝秘]"), "//ldml/annotations/annotation");
+        pathSegmentsOk.addAll(new UnicodeSet("[ا ر ل ی]"), "//ldml/annotations/annotation[@cp=\"﷼\"]");
+        pathSegmentsOk.addAll(new UnicodeSet("[Р а в д е з л о п р т у ы ь]"), "//ldml/annotations/annotation[@cp=\"🪬\"]");
+        //ω Grek    lo; Laoo;   //ldml/units/unitLength[@type="short"]/unit[@type="electric-ohm"]/unitPattern[@count="other"];
+        pathSegmentsOk.freeze();
+    }
+
+    final static UnicodeSet CHARS_OK = new UnicodeSet("[\u202F\\p{Sc}]").freeze();
+
+    static class SampleDataSet {
+        UnicodeMap<SampleData> dataSet = new UnicodeMap<>();
+
+        static class SampleData {
+            final String locale;
+            final String path;
+            final String value;
+            final String transformed;
+            public SampleData(String locale, String path, String value, String transformed) {
+                this.locale = locale;
+                this.path = path;
+                this.value = value;
+                this.transformed = transformed;
+            }
+            @Override
+            public String toString() {
+                return String.format("%s;\t%s;\t%s;\t%s;\t%s", locale, getScript(locale), path, value, transformed);
+            }
+        }
+
+        @Override
+        public String toString() {
+            StringBuilder result = new StringBuilder();
+            result
+            .append("size=\t").append(dataSet.size())
+            .append("\nkeys=\t").append(dataSet.keySet().toPattern(false))
+            .append("\ndetails=")
+            ;
+            for (Entry<String, SampleData> entry : dataSet.entrySet()) {
+                final String key = entry.getKey();
+                final int cp = key.codePointAt(0);
+                result
+                .append("\n").append(Utility.hex(cp))
+                .append("\t").append(key)
+                .append("\t").append(UScript.getShortName(UScript.getScript(cp)))
+                .append("\t").append(entry.getValue())
+                ;
+            }
+            return result.toString();
+        }
+
+        private void addNonLatin(String locale, String path, String source, String transformed) {
+            int cp = 0;
+            BitSet bs = new BitSet();
+            for (int ci = 0; ci < transformed.length(); ci += Character.charCount(cp)) {
+                cp = transformed.codePointAt(ci);
+                if (CHARS_OK.contains(cp) || checkCharWithPath(path, cp)) {
+                    continue;
+                }
+                int scriptCode = UScript.getScriptExtensions(cp, bs);
+                switch(scriptCode) {
+                case UScript.LATIN: case UScript.COMMON: case UScript.INHERITED:
+                    continue;
+                default:
+                    add(locale, path, source, transformed, cp);
+                    if (scriptCode >= 0) { // no extensions, not latin, etc.
+                        add(locale, path, source, transformed, cp);
+                    } else {
+                        bs.clear(UScript.LATIN);
+                        if (!bs.isEmpty()) {
+                            add(locale, path, source, transformed, cp);
+                        }
+                    }
+                }
+            }
+        }
+
+        public boolean checkCharWithPath(String path, int cp) {
+            Set<String> pathCheckSet = pathSegmentsOk.get(cp);
+            if (pathCheckSet == null) {
+                return false;
+            }
+            for (String pathCheck : pathCheckSet) {
+                if (path.contains(pathCheck)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public int size() {
+            return dataSet.size();
+        }
+
+        public boolean isEmpty() {
+            return dataSet.isEmpty();
+        }
+
+        public void clear() {
+            dataSet.clear();
+        }
+
+        private void add(String locale, String path, String source, String transformed, int cp) {
+            SampleData old = dataSet.get(cp);
+            if (old == null || old.transformed.length() > transformed.length()) {
+                dataSet.put(cp, new SampleData(locale, path, source, transformed));
+            }
+        }
+        private void addAll(SampleDataSet badPlusSample) {
+            for (Entry<String, SampleData> entry : badPlusSample.dataSet.entrySet()) {
+                SampleData newData = entry.getValue();
+                SampleData old = dataSet.get(entry.getKey());
+                if (old == null || old.transformed.length() > newData.transformed.length()) {
+                    dataSet.put(entry.getKey(), newData);
+                }
+            }
+        }
+    }
+
+    public static final String TRANSFORM_DIR = (CLDRPaths.COMMON_DIRECTORY + "transforms/");
+    private CLDRTransforms r = CLDRTransforms.getInstance();
+    private ImmutableList<String> noSkip = ImmutableList.of();
+
+    public String registerTranslit(String ID, String sourceTest, String targetTest, String sample) {
+        String internalId = r.registerTransliteratorsFromXML(TRANSFORM_DIR, ID, noSkip, true);
+        Transliterator t = null;
+        try {
+            t = Transliterator.getInstance(internalId);
+        } catch (Exception e) {
+            System.out.println("For " + ID);
+            e.printStackTrace();
+            return null;
+        }
+        String target = t.transform(sourceTest);
+        if (!target.equals(targetTest)) {
+            System.out.println(ID + " For " + sourceTest + ", expected " + targetTest + ", got " + target);
+        }
+        if (sample != null) {
+            System.out.println(ID + " sample:\n" + t.transform(sample));
+        }
+        return internalId;
+    }
 }

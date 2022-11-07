@@ -497,6 +497,11 @@ $doubleDanda→'.';
 \uE07F→;       # URA
 \uE080→;       # EK ONKAR
 \uE004→;       # DEVANAGARI VOWEL SIGN SHORT A
+
+$virama→; # remove remaining viramas
+$nukta→\u0323 ;  # combining dot below
+\uE084→æ;       # DEVANAGARI VOWEL SIGN SHORT A
+॰→'.' ; # Devanagari abbreviation sign
 			</tRule>
 		</transform>
 	</transforms>

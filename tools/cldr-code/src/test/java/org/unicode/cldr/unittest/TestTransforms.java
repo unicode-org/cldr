@@ -704,33 +704,52 @@ public class TestTransforms extends TestFmwkPlus {
         assertEquals("u3 to z3", expected, actual);
     }
 
+    static final boolean QUICKTEST = true; // System.getProperty("TestTransforms:QUICKTEST") != null;
+
     public void TestLocales() {
         Set<String> modernCldr = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr, ImmutableSet.of(Level.MODERN));
         Set<String> special = StandardCodes.make().getLocaleCoverageLocales(Organization.special, ImmutableSet.of(Level.MODERN));
-        Set<String> missing = new TreeSet<>();
         Factory factory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
+        Set<String> missing = new TreeSet<>();
         SampleDataSet badPlusSample = new SampleDataSet();
         SampleDataSet allMissing = new SampleDataSet();
-        String sinhalaTest = "මානව අයිතිවාසිකම් පිළිබඳ විශ්ව ප්‍රකාශනය\n"
-            + "1948 දෙසැම්බර් මස 10 වෙනි දින එක්සත් ජාතීන්ගේ මහා මණ්ඩලයෙන් සම්මත කරනු ලදුව ප්‍රකාශයට පත් කළ මානව අයිතිවාසිකම් පිළිබඳ විශ්ව ප්‍රකාශනය මෙහි අන්තර්ගත වේ. මෙම ඓතිහාසික සිද්ධියෙන් මෙම ප්‍රකාශනයේ අඩංගු වගන්ති ප්‍රචාරයට පත් කරන මෙන් ද “ඒ ඒ රටවල පවතින දේශපාලන තත්ත්වය පිළිබඳව වෙනසක් නොකර මෙම ප්‍රකාශනය ප්‍රධාන වශයෙන් පාසල් හා අධ්‍යාපන ආයතනයන් මඟින් පැතිර වීමට, ප්‍රදර්ශනය වීමට, පාඨනය කරවීමට හා පැහැදිලි කරවීමට සලස්වන මෙන්ද” එක්සත් ජාතීන්ගේ මහා මණ්ඩලය විසින් සියලුම සාමාජික රාජ්‍යයන් ගෙන් ඉල්ලා සිටින ලද්දේය."
-            ;
-        String khmerTest = "សេចក្ដីប្រកាសជាសកលស្ដីពីសិទ្ធិមនុស្ស\n"
-            + "អនុម័តនិងប្រកាសដោយសេចក្ដីសម្រេចចិត្ដនៃមហាសន្និបាតលេខ ២១៧ A (III) នៅថ្ងៃទី ១០ ខែធ្នូ ឆ្នាំ១៩៤៨\n"
-            + "បុព្វកថា\n"
-            + "ដោយយល់ឃើញថា ការទទួលស្គាល់សេចក្ដីថ្លៃថ្នូរជាប់ពីកំណើត និងសិទ្ធិស្មើភាពគ្នា និងសិទ្ធិមិនអាច លក់ ដូរ ផ្ទេរ ឬដកហូតបានរបស់សមាជិកទាំងអស់នៃគ្រួសារមនុស្ស គឺជាគ្រឹះនៃសេរីភាព យុត្ដិធម៌ និងសន្ដិភាពក្នុងពិភពលោក។\n"
-            ;
-        String laoTest = "ປະກາດສາກົນ ກ່ຽວກັບສິດຂອງມະນຸດ\n"
-            + "ວັນທີ 20 ທັນວາ ຄ.ສ 1958\n"
-            + "ກອງປະຊຸມໃຫຍ່ສະຫະປະຊາຊາດໄດ້ຮັບຮອງ ແລະ ປະກາດສິດຂອງມວນມະນຸດຊື່ງພວກເຮົາໄດ້ຈັດພິມຂື້ນຕະຫຼອດບົດຫຼັງການປະກາດອັນເປັນປະຫວັດການນີ້ກອງປະຊຸມໃຫຍ່ໄດ້ຊີ້ແຈງກັບສະມາຊິກທຸກໆທ່ານຂໍຈົ່ງຢ່າໄດ້ປະລະເລີຍໂອກາດ ແລະ ວິທີທາງອັນໃດຊື່ງສາມາດຈະໄດ້ຮັບໃນອານາຄົດ, ເພື່ອເຜີຍແຜ່ໃຫ້ປະຊາຊົນໄດ້ຮັບແຈກຈ່າຍອ່ານ ແລະ ວິຈານສີ່ງສຳຄັນໃນໂຮງຮຽນ ແລະ ສະຖານສຶກສາໃດໆໂດຍບໍ່ຄຳນືງເຖິງລັດທິ, ການເມືອງຂອງເຮົາ ຫຼື ປະເທດໃດເລີຍ.\n"
-            + "ສຳນັກງານຖະແຫຼງຂ່າວຂອງອົງການສະຫະປະຊາຊາດ ຄ.ສ 1958.\n"
-            ;
 
-        // missing
-        String lao_latn = registerTranslit("Lao-Latin", "ບ", "b", laoTest);
-        // String ipa_en = registerTranslit("IPA-English", "i", "ee", null);
-        String khmer_latn = registerTranslit("Khmer-Latin", "ឥ", "ĕ", khmerTest);
-        String sinhala_latn = registerTranslit("Sinhala-Latin", "ක", "ka", sinhalaTest);
-        String jpan_latn = registerTranslit("Japn-Latn", "譆", "aa", null);
+        // QUICKTEST is used to just register particular items, for faster development testing
+        if (QUICKTEST) {
+            warnln(" — Quicktest");
+            String sinhalaTest = "මානව අයිතිවාසිකම් පිළිබඳ විශ්ව ප්‍රකාශනය\n"
+                + "1948 දෙසැම්බර් මස 10 වෙනි දින එක්සත් ජාතීන්ගේ මහා මණ්ඩලයෙන් සම්මත කරනු ලදුව ප්‍රකාශයට පත් කළ මානව අයිතිවාසිකම් පිළිබඳ විශ්ව ප්‍රකාශනය මෙහි අන්තර්ගත වේ. මෙම ඓතිහාසික සිද්ධියෙන් මෙම ප්‍රකාශනයේ අඩංගු වගන්ති ප්‍රචාරයට පත් කරන මෙන් ද “ඒ ඒ රටවල පවතින දේශපාලන තත්ත්වය පිළිබඳව වෙනසක් නොකර මෙම ප්‍රකාශනය ප්‍රධාන වශයෙන් පාසල් හා අධ්‍යාපන ආයතනයන් මඟින් පැතිර වීමට, ප්‍රදර්ශනය වීමට, පාඨනය කරවීමට හා පැහැදිලි කරවීමට සලස්වන මෙන්ද” එක්සත් ජාතීන්ගේ මහා මණ්ඩලය විසින් සියලුම සාමාජික රාජ්‍යයන් ගෙන් ඉල්ලා සිටින ලද්දේය."
+                ;
+            String khmerTest = "សេចក្ដីប្រកាសជាសកលស្ដីពីសិទ្ធិមនុស្ស\n"
+                + "អនុម័តនិងប្រកាសដោយសេចក្ដីសម្រេចចិត្ដនៃមហាសន្និបាតលេខ ២១៧ A (III) នៅថ្ងៃទី ១០ ខែធ្នូ ឆ្នាំ១៩៤៨\n"
+                + "បុព្វកថា\n"
+                + "ដោយយល់ឃើញថា ការទទួលស្គាល់សេចក្ដីថ្លៃថ្នូរជាប់ពីកំណើត និងសិទ្ធិស្មើភាពគ្នា និងសិទ្ធិមិនអាច លក់ ដូរ ផ្ទេរ ឬដកហូតបានរបស់សមាជិកទាំងអស់នៃគ្រួសារមនុស្ស គឺជាគ្រឹះនៃសេរីភាព យុត្ដិធម៌ និងសន្ដិភាពក្នុងពិភពលោក។\n"
+                ;
+            String laoTest = "ປະກາດສາກົນ ກ່ຽວກັບສິດຂອງມະນຸດ\n"
+                + "ວັນທີ 20 ທັນວາ ຄ.ສ 1958\n"
+                + "ກອງປະຊຸມໃຫຍ່ສະຫະປະຊາຊາດໄດ້ຮັບຮອງ ແລະ ປະກາດສິດຂອງມວນມະນຸດຊື່ງພວກເຮົາໄດ້ຈັດພິມຂື້ນຕະຫຼອດບົດຫຼັງການປະກາດອັນເປັນປະຫວັດການນີ້ກອງປະຊຸມໃຫຍ່ໄດ້ຊີ້ແຈງກັບສະມາຊິກທຸກໆທ່ານຂໍຈົ່ງຢ່າໄດ້ປະລະເລີຍໂອກາດ ແລະ ວິທີທາງອັນໃດຊື່ງສາມາດຈະໄດ້ຮັບໃນອານາຄົດ, ເພື່ອເຜີຍແຜ່ໃຫ້ປະຊາຊົນໄດ້ຮັບແຈກຈ່າຍອ່ານ ແລະ ວິຈານສີ່ງສຳຄັນໃນໂຮງຮຽນ ແລະ ສະຖານສຶກສາໃດໆໂດຍບໍ່ຄຳນືງເຖິງລັດທິ, ການເມືອງຂອງເຮົາ ຫຼື ປະເທດໃດເລີຍ.\n"
+                + "ສຳນັກງານຖະແຫຼງຂ່າວຂອງອົງການສະຫະປະຊາຊາດ ຄ.ສ 1958.\n"
+                ;
+            // NEW
+            registerTranslit("Lao-Latin", "ບ", "b", laoTest);
+            registerTranslit("Khmer-Latin", "ឥ", "ĕ", khmerTest);
+            registerTranslit("Sinhala-Latin", "ක", "ka", sinhalaTest);
+            registerTranslit("Japn-Latn", "譆", "aa", null);
+            // MODIFIED
+            registerTranslit("Han-SpacedHan", "《", "«", null);
+            registerTranslit("Greek-Latin", "΄", "´", null);
+            registerTranslit("Hebrew-Latin", "־", "-", null);
+            registerTranslit("Cyrillic-Latin", "ө", "ö", null);
+            registerTranslit("Myanmar-Latin", "ဿ", "s", null);
+            registerTranslit("Latin-Armenian", "’", "՚", null);
+            registerTranslit("Malayalam-Interindic", "ൺ", "", null);
+            registerTranslit("Interindic-Latin", "॰", ".", null);
+            registerTranslit("Devanagari-Interindic", "ॲ", "\uE084", null);
+            registerTranslit("Arabic-Latin", "؉", "‰", null);
+        } else {
+            warnln(" — Registering all");
+            CLDRTransforms.registerCldrTransforms(null, ".*", null, false);
+        }
 
         for (String locale : modernCldr) {
             if (special.contains(locale)) {
@@ -750,16 +769,16 @@ public class TestTransforms extends TestFmwkPlus {
             case "Latn":
                 continue;
             case "Khmr":
-                id = khmer_latn;
+                id = "Khmr-Latn/UNGEGN";
                 break;
             case "Laoo":
-                id = lao_latn;
+                id = "Laoo-Latn/UNGEGN";
                 break;
             case "Sinh":
-                id = sinhala_latn;
+                id = "Sinh-Latn/UNGEGN";
                 break;
             case "Japn":
-                id = jpan_latn;
+                id = "Jpan-Latn";
                 break;
             case "Hant": case "Hans":
                 id = "Hani-Latn";
@@ -780,18 +799,23 @@ public class TestTransforms extends TestFmwkPlus {
                 }
                 String value = file.getStringValue(path);
                 String transformed = t.transform(value);
-                badPlusSample.addNonLatin(locale, path, value, transformed);
+                badPlusSample.addNonLatin(locale, script, path, value, transformed);
             }
             if (!badPlusSample.isEmpty()) {
-                errln(locale + " " + script + " transform doesn't handle " + badPlusSample.size()
+                logln(locale + " " + script + " transform doesn't handle " + badPlusSample.size()
                 + " code points:\n" + badPlusSample);
                 allMissing.addAll(badPlusSample);
             }
         }
         if (!allMissing.isEmpty()) {
-            errln("Summary Any-Latn transform doesn't handle " + allMissing.size()
+            warnln("Summary Any-Latn transform doesn't handle " + allMissing.size()
             + " code points:\n" + allMissing.dataSet.keySet().toPattern(false)
                 );
+            for (String value : allMissing.scriptMissing.values()) {
+                final UnicodeSet missingFoScript = allMissing.scriptMissing.getKeys(value);
+                errln("Transliterator for\t" + value + "\tmissing\t" + missingFoScript.size()
+                + ":\t" + missingFoScript.toPattern(false));
+            }
         }
     }
 
@@ -831,6 +855,7 @@ public class TestTransforms extends TestFmwkPlus {
 
     static class SampleDataSet {
         UnicodeMap<SampleData> dataSet = new UnicodeMap<>();
+        UnicodeRelation<String> scriptMissing = new UnicodeRelation<>();
 
         static class SampleData {
             final String locale;
@@ -870,7 +895,7 @@ public class TestTransforms extends TestFmwkPlus {
             return result.toString();
         }
 
-        private void addNonLatin(String locale, String path, String source, String transformed) {
+        private void addNonLatin(String locale, String script, String path, String source, String transformed) {
             int cp = 0;
             BitSet bs = new BitSet();
             for (int ci = 0; ci < transformed.length(); ci += Character.charCount(cp)) {
@@ -883,13 +908,13 @@ public class TestTransforms extends TestFmwkPlus {
                 case UScript.LATIN: case UScript.COMMON: case UScript.INHERITED:
                     continue;
                 default:
-                    add(locale, path, source, transformed, cp);
+                    // add(locale, script, path, source, transformed, cp);
                     if (scriptCode >= 0) { // no extensions, not latin, etc.
-                        add(locale, path, source, transformed, cp);
+                        add(locale, script, path, source, transformed, cp);
                     } else {
                         bs.clear(UScript.LATIN);
                         if (!bs.isEmpty()) {
-                            add(locale, path, source, transformed, cp);
+                            add(locale, script, path, source, transformed, cp);
                         }
                     }
                 }
@@ -921,13 +946,17 @@ public class TestTransforms extends TestFmwkPlus {
             dataSet.clear();
         }
 
-        private void add(String locale, String path, String source, String transformed, int cp) {
+        private void add(String locale, String script, String path, String source, String transformed, int cp) {
             SampleData old = dataSet.get(cp);
             if (old == null || old.transformed.length() > transformed.length()) {
                 dataSet.put(cp, new SampleData(locale, path, source, transformed));
+                scriptMissing.add(cp, script);
             }
         }
         private void addAll(SampleDataSet badPlusSample) {
+            for (String c : badPlusSample.scriptMissing.keySet()) {
+                scriptMissing.addAll(c, badPlusSample.scriptMissing.get(c));
+            }
             for (Entry<String, SampleData> entry : badPlusSample.dataSet.entrySet()) {
                 SampleData newData = entry.getValue();
                 SampleData old = dataSet.get(entry.getKey());
@@ -954,10 +983,10 @@ public class TestTransforms extends TestFmwkPlus {
         }
         String target = t.transform(sourceTest);
         if (!target.equals(targetTest)) {
-            System.out.println(ID + " For " + sourceTest + ", expected " + targetTest + ", got " + target);
+            errln(ID + " For " + sourceTest + ", expected " + targetTest + ", got " + target);
         }
         if (sample != null) {
-            System.out.println(ID + " sample:\n" + t.transform(sample));
+            logln(ID + " sample:\n" + t.transform(sample));
         }
         return internalId;
     }

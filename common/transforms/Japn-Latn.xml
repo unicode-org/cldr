@@ -23,6 +23,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 # • taking the first kJapaneseKun value if there is one, 
 # • and otherwise the first kJapaneseOn value.
 ########################################################################
+｡ → '.';
+。→ '.';
+、→ ',';
+､→ ',';
+《→ '«';
+》→ '»';
+〈 → '‹';
+ 〉→ '›';
+「→ '‘';
+」→ '’';
+『→ '“';
+』→ '”';
+
+・→ '⓶';
+々→ '”';
+〜→ '~';
+
 [呀妸屙氬鈳]→a;
 [唉誒譆]→aa;
 擭→aageru;

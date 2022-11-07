@@ -13,7 +13,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 # Rules are predicated on running NFD first, and NFC afterwards
 # :: [\u0000-\u007F \u0370-Ͽ [:Greek:] [:nonspacing mark:]] ;
 # MINIMAL FILTER GENERATED FOR: Greek-Latin
-:: [;µ·ÄËÏÖÜäëïöüÿ-āĒ-ēĪ-īŌ-ōŪ-ūŸǕ-ǜǞ-ǣǬ-ǭȪ-ȭȰ-ȳ̄̈̓-̔͂-ͅͺ;Ά-ΊΌΎ-ΡΣ-ώϐ-ϗϛϝϟϡϣϥϧϩϫϭϯ-ϵϷ-\u07FBЁЇёїӒ-ӓӚ-ӟӢ-ӧӪ-ӱӴ-ӵӸ-ӹḔ-ḗḠ-ḡḦ-ḧḮ-ḯḸ-ḹṎ-ṓṜ-ṝṺ-ṻẄ-ẅẌ-ẍẗἀ-ἕἘ-Ἕἠ-ὅὈ-Ὅὐ-ὗὙὛὝὟ-ώᾀ-ᾴᾶ-ᾼι῁-ῄῆ-ῌ῏-ΐῖ-Ί῟-Ῥῲ-ῴῶ-ῼΩϹ] ;
+:: [΄´;µ·ÄËÏÖÜäëïöüÿ-āĒ-ēĪ-īŌ-ōŪ-ūŸǕ-ǜǞ-ǣǬ-ǭȪ-ȭȰ-ȳ̄̈̓-̔͂-ͅͺ;Ά-ΊΌΎ-ΡΣ-ώϐ-ϗϛϝϟϡϣϥϧϩϫϭϯ-ϵϷ-\u07FBЁЇёїӒ-ӓӚ-ӟӢ-ӧӪ-ӱӴ-ӵӸ-ӹḔ-ḗḠ-ḡḦ-ḧḮ-ḯḸ-ḹṎ-ṓṜ-ṝṺ-ṻẄ-ẅẌ-ẍẗἀ-ἕἘ-Ἕἠ-ὅὈ-Ὅὐ-ὗὙὛὝὟ-ώᾀ-ᾴᾶ-ᾼι῁-ῄῆ-ῌ῏-ΐῖ-Ί῟-Ῥῲ-ῴῶ-ῼΩϹ] ;
 :: NFD (NFC) ;
 # TEST CASES
 # Ὀλίγοι ἔμφονες πολλῶν ἀφρόνων φοβερώτεροι — Πλάτωνος
@@ -56,10 +56,12 @@ $notLetter = [^[:L:][:M:]] ;
 $under = ̱;
 # Fix punctuation
 # preserve original
+
 \: ↔ \: $under ;
 \? ↔ \? $under ;
 \; ↔ \? ;
 · ↔ \: ;
+΄ ↔ ´;
 # CIRCUMFLEX: convert greek circumflex to normal one. Could use tilde or inverted breve
 ͂ ↔ ̂ ;
 # IOTA: convert iota subscript to iota
@@ -253,6 +255,7 @@ $rough ↔ h ;
 # delete any trailing ' marks used for roundtripping
 ← [Ππ] { \' } [Ss] ;
 ← [Νν] { \' } $egammaLike ;
+
 ::NFC (NFD) ;
 # ([\u0000-\u007F [:Latin:] [:Greek:] [:nonspacing mark:]]) ;
 # ([\u0000-\u007F · [:Latin:] [:nonspacing mark:]]) ;

@@ -742,9 +742,17 @@ public class TestTransforms extends TestFmwkPlus {
             registerTranslit("Cyrillic-Latin", "ө", "ö", null);
             registerTranslit("Myanmar-Latin", "ဿ", "s", null);
             registerTranslit("Latin-Armenian", "’", "՚", null);
+
+            registerTranslit("Interindic-Latin", "\uE070", ".", null);
+
             registerTranslit("Malayalam-Interindic", "ൺ", "", null);
-            registerTranslit("Interindic-Latin", "॰", ".", null);
+            registerTranslit("Interindic-Malayalam", "", "ണ്", null);
+            registerTranslit("Malayalam-Latin", "ൺ", "ṇ", null);
+
+            //registerTranslit("Interindic-Devanagari", "\uE084", "ॲ", null);
             registerTranslit("Devanagari-Interindic", "ॲ", "\uE084", null);
+            registerTranslit("Devanagari-Latin", "ॲ", "æ", null);
+
             registerTranslit("Arabic-Latin", "؉", "‰", null);
         } else {
             warnln(" — Registering all");
@@ -851,7 +859,7 @@ public class TestTransforms extends TestFmwkPlus {
         pathSegmentsOk.freeze();
     }
 
-    final static UnicodeSet CHARS_OK = new UnicodeSet("[\u202F\\p{Sc}]").freeze();
+    final static UnicodeSet CHARS_OK = new UnicodeSet("[\u061C \u202F \\p{Sc}]").freeze();
 
     static class SampleDataSet {
         UnicodeMap<SampleData> dataSet = new UnicodeMap<>();
@@ -971,15 +979,15 @@ public class TestTransforms extends TestFmwkPlus {
     private CLDRTransforms r = CLDRTransforms.getInstance();
     private ImmutableList<String> noSkip = ImmutableList.of();
 
-    public String registerTranslit(String ID, String sourceTest, String targetTest, String sample) {
+    public void registerTranslit(String ID, String sourceTest, String targetTest, String sample) {
         String internalId = r.registerTransliteratorsFromXML(TRANSFORM_DIR, ID, noSkip, true);
         Transliterator t = null;
         try {
             t = Transliterator.getInstance(internalId);
         } catch (Exception e) {
-            System.out.println("For " + ID);
+            System.out.println("For " + ID + " (" + internalId + ")");
             e.printStackTrace();
-            return null;
+            return;
         }
         String target = t.transform(sourceTest);
         if (!target.equals(targetTest)) {
@@ -988,6 +996,5 @@ public class TestTransforms extends TestFmwkPlus {
         if (sample != null) {
             logln(ID + " sample:\n" + t.transform(sample));
         }
-        return internalId;
     }
 }

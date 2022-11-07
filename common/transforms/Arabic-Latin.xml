@@ -141,6 +141,55 @@ $notAbove = [[:^ccc=0:] & [:^ccc=230:]];
 # ڢ ↔ f $disambig ; # ARABIC LETTER FEH WITH DOT MOVED BELOW
 گ ↔ g ; # ARABIC LETTER GAF
 
+# fallbacks TODO roundtrip where possible, using diacritics to distinguish
+#https://en.wikipedia.org/wiki/Sindhi_transliteration
+‎ٺ‎→ṭh;
+‎ٿ‎→th;
+‎ٽ‎→ṭ;
+‎ڙ‎→ṛ;
+‎ڦ‎→ph;
+‎ڻ‎→ṇ;
+‎ڱ‎→ṅ;
+‎ڃ‎→ñ;
+‎ڪ‎→k;
+‎ڄ‎→j̈;
+‎ۃ‎→ẖ;
+‎ڳ‎→g̤;
+‎ڍ‎→ḍh;
+‎ڌ‎→dh;
+‎ڏ‎→d̤;
+‎ڊ‎→ḍ;
+‎ڇ‎→ch;
+‎ڀ‎→bh;
+‎ٻ‎→ḇ;
+‎۽‎→'&';
+‎۾‎→'mn';
+
+#https://en.wiktionary.org/wiki/Wiktionary:Urdu_transliteration
+‎ھ‎ → ʱ ;
+‎ں‎ → ◌̃ ;
+‎ے‎ → ai ;
+‎ڈ‎ → ḍ ;
+‎ڑ‎ → ṛ ;
+‎ٹ‎ → ṭ ;
+
+#https://www.eki.ee/wgrs/rom2_ps.htm
+#https://en.wikipedia.org/wiki/Pashto_alphabet
+‎ټ‎ → ṯ ;
+‎ځ‎ → dz ;
+‎څ‎ → ts ;
+‎ډ‎ → ḏ ;
+‎ړ‎ → ṟ ;
+‎ږ‎ → z͟h ;
+‎ګ‎ → g ;
+‎ڼ‎ → ṉ ;
+‎ۍ‎ → ạy ;
+‎ې‎ → e ;
+
+#https://www.eki.ee/wgrs/rom1_ug.pdf
+‎ہ‎ → ḥ ;
+‎ە‎ → ĥ ;
+
 # fallbacks
 | s ← c } [eiy];
 | k ← c ;

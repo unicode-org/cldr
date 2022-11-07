@@ -3,10 +3,9 @@
   vars_files:
     - vars/main.yml
     - vars/openliberty.yml
-    # - local-vars/local.yml
   become: yes
   tasks:
-  # TODO: should skip these
+  # Stop server, update packages, start server (even if server wasn't running)
   - name: Stop OpenLiberty
     service:
       name: "{{ cldr_openliberty_service }}"
@@ -18,4 +17,3 @@
     service:
       name: "{{ cldr_openliberty_service }}"
       state: restarted
-

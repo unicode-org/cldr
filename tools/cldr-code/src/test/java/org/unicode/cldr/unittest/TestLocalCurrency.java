@@ -8,11 +8,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 
 import com.google.common.collect.ImmutableSet;
@@ -53,6 +49,9 @@ public class TestLocalCurrency extends TestFmwk {
         Factory factory = testInfo.getCldrFactory();
         Date now = new Date();
         for (String locale : factory.getAvailable()) {
+            if (!StandardCodes.isLocaleAtLeastBasic(locale)) {
+                continue;
+            }
             ltp.set(locale);
             String region = ltp.getRegion();
             if (region == null || region.isEmpty() || region.length() != 2) {
@@ -91,7 +90,7 @@ public class TestLocalCurrency extends TestFmwk {
 
             if (localCurrencySymbol.equals(localCurrency)
                 && !nonLocalizedOK.contains(localCurrency)) {
-                    errln("Currency symbol " + localCurrencySymbol + " for locale "
+                errln("Currency symbol " + localCurrencySymbol + " for locale "
                         + locale + " is not localized.");
             }
 

@@ -44,6 +44,15 @@ import com.ibm.icu.util.Output;
  */
 public class StandardCodes {
 
+    /**
+     * Convenient for testing whether a locale is at least at Basic level
+     * @param locale
+     * @return
+     */
+    public static boolean isLocaleAtLeastBasic(String locale) {
+        return CalculatedCoverageLevels.getInstance().isLocaleAtLeastBasic(locale);
+    }
+
     public enum CodeType {
         language, script, territory, extlang, legacy, redundant, variant, currency, tzid;
         public static CodeType from(String name) {

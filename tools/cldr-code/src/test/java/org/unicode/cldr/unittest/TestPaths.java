@@ -13,27 +13,17 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRFile.Status;
-import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.ChainedMap.M4;
 import org.unicode.cldr.util.ChainedMap.M5;
-import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdData.ElementType;
-import org.unicode.cldr.util.DtdType;
-import org.unicode.cldr.util.Pair;
-import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
-import org.unicode.cldr.util.PathStarrer;
-import org.unicode.cldr.util.XMLFileReader;
-import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.collect.ImmutableSet;
 
@@ -114,6 +104,9 @@ public class TestPaths extends TestFmwkPlus {
         PathHeader.Factory phf = PathHeader.getFactory(englishFile);
         Status status = new Status();
         for (String locale : getLocalesToTest()) {
+            if (!StandardCodes.isLocaleAtLeastBasic(locale)) {
+                continue;
+            }
             CLDRFile file = testInfo.getCLDRFile(locale, true);
             logln("Testing path headers and values for locale => " + locale);
             final Collection<String> extraPaths = file.getExtraPaths();

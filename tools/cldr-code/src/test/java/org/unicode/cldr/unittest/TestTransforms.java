@@ -25,6 +25,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTransforms;
+import org.unicode.cldr.util.ExemplarUtilities;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
@@ -37,7 +38,6 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Utility;
@@ -704,8 +704,6 @@ public class TestTransforms extends TestFmwkPlus {
         assertEquals("u3 to z3", expected, actual);
     }
 
-    static final boolean QUICKTEST = true; // System.getProperty("TestTransforms:QUICKTEST") != null;
-
     public void TestLocales() {
         Set<String> modernCldr = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr, ImmutableSet.of(Level.MODERN));
         Set<String> special = StandardCodes.make().getLocaleCoverageLocales(Organization.special, ImmutableSet.of(Level.MODERN));
@@ -714,87 +712,27 @@ public class TestTransforms extends TestFmwkPlus {
         SampleDataSet badPlusSample = new SampleDataSet();
         SampleDataSet allMissing = new SampleDataSet();
 
-        // QUICKTEST is used to just register particular items, for faster development testing
-        if (QUICKTEST) {
-            warnln(" — Quicktest");
-            String sinhalaTest = "මානව අයිතිවාසිකම් පිළිබඳ විශ්ව ප්‍රකාශනය\n"
-                + "1948 දෙසැම්බර් මස 10 වෙනි දින එක්සත් ජාතීන්ගේ මහා මණ්ඩලයෙන් සම්මත කරනු ලදුව ප්‍රකාශයට පත් කළ මානව අයිතිවාසිකම් පිළිබඳ විශ්ව ප්‍රකාශනය මෙහි අන්තර්ගත වේ. මෙම ඓතිහාසික සිද්ධියෙන් මෙම ප්‍රකාශනයේ අඩංගු වගන්ති ප්‍රචාරයට පත් කරන මෙන් ද “ඒ ඒ රටවල පවතින දේශපාලන තත්ත්වය පිළිබඳව වෙනසක් නොකර මෙම ප්‍රකාශනය ප්‍රධාන වශයෙන් පාසල් හා අධ්‍යාපන ආයතනයන් මඟින් පැතිර වීමට, ප්‍රදර්ශනය වීමට, පාඨනය කරවීමට හා පැහැදිලි කරවීමට සලස්වන මෙන්ද” එක්සත් ජාතීන්ගේ මහා මණ්ඩලය විසින් සියලුම සාමාජික රාජ්‍යයන් ගෙන් ඉල්ලා සිටින ලද්දේය."
-                ;
-            String khmerTest = "សេចក្ដីប្រកាសជាសកលស្ដីពីសិទ្ធិមនុស្ស\n"
-                + "អនុម័តនិងប្រកាសដោយសេចក្ដីសម្រេចចិត្ដនៃមហាសន្និបាតលេខ ២១៧ A (III) នៅថ្ងៃទី ១០ ខែធ្នូ ឆ្នាំ១៩៤៨\n"
-                + "បុព្វកថា\n"
-                + "ដោយយល់ឃើញថា ការទទួលស្គាល់សេចក្ដីថ្លៃថ្នូរជាប់ពីកំណើត និងសិទ្ធិស្មើភាពគ្នា និងសិទ្ធិមិនអាច លក់ ដូរ ផ្ទេរ ឬដកហូតបានរបស់សមាជិកទាំងអស់នៃគ្រួសារមនុស្ស គឺជាគ្រឹះនៃសេរីភាព យុត្ដិធម៌ និងសន្ដិភាពក្នុងពិភពលោក។\n"
-                ;
-            String laoTest = "ປະກາດສາກົນ ກ່ຽວກັບສິດຂອງມະນຸດ\n"
-                + "ວັນທີ 20 ທັນວາ ຄ.ສ 1958\n"
-                + "ກອງປະຊຸມໃຫຍ່ສະຫະປະຊາຊາດໄດ້ຮັບຮອງ ແລະ ປະກາດສິດຂອງມວນມະນຸດຊື່ງພວກເຮົາໄດ້ຈັດພິມຂື້ນຕະຫຼອດບົດຫຼັງການປະກາດອັນເປັນປະຫວັດການນີ້ກອງປະຊຸມໃຫຍ່ໄດ້ຊີ້ແຈງກັບສະມາຊິກທຸກໆທ່ານຂໍຈົ່ງຢ່າໄດ້ປະລະເລີຍໂອກາດ ແລະ ວິທີທາງອັນໃດຊື່ງສາມາດຈະໄດ້ຮັບໃນອານາຄົດ, ເພື່ອເຜີຍແຜ່ໃຫ້ປະຊາຊົນໄດ້ຮັບແຈກຈ່າຍອ່ານ ແລະ ວິຈານສີ່ງສຳຄັນໃນໂຮງຮຽນ ແລະ ສະຖານສຶກສາໃດໆໂດຍບໍ່ຄຳນືງເຖິງລັດທິ, ການເມືອງຂອງເຮົາ ຫຼື ປະເທດໃດເລີຍ.\n"
-                + "ສຳນັກງານຖະແຫຼງຂ່າວຂອງອົງການສະຫະປະຊາຊາດ ຄ.ສ 1958.\n"
-                ;
-            // NEW
-            registerTranslit("Lao-Latin", "ບ", "b", laoTest);
-            registerTranslit("Khmer-Latin", "ឥ", "ĕ", khmerTest);
-            registerTranslit("Sinhala-Latin", "ක", "ka", sinhalaTest);
-            registerTranslit("Japn-Latn", "譆", "aa", null);
-            // MODIFIED
-            registerTranslit("Han-SpacedHan", "《", "«", null);
-            registerTranslit("Greek-Latin", "΄", "´", null);
-            registerTranslit("Hebrew-Latin", "־", "-", null);
-            registerTranslit("Cyrillic-Latin", "ө", "ö", null);
-            registerTranslit("Myanmar-Latin", "ဿ", "s", null);
-            registerTranslit("Latin-Armenian", "’", "՚", null);
+        LikelySubtags ls = new LikelySubtags();
+        LanguageTagParser ltp = new LanguageTagParser();
 
-            registerTranslit("Interindic-Latin", "\uE070", ".", null);
-
-            registerTranslit("Malayalam-Interindic", "ൺ", "", null);
-            registerTranslit("Interindic-Malayalam", "", "ണ്", null);
-            registerTranslit("Malayalam-Latin", "ൺ", "ṇ", null);
-
-            //registerTranslit("Interindic-Devanagari", "\uE084", "ॲ", null);
-            registerTranslit("Devanagari-Interindic", "ॲ", "\uE084", null);
-            registerTranslit("Devanagari-Latin", "ॲ", "æ", null);
-
-            registerTranslit("Arabic-Latin", "؉", "‰", null);
-        } else {
-            warnln(" — Registering all");
-            CLDRTransforms.registerCldrTransforms(null, ".*", null, false);
-        }
+        CLDRTransforms.getInstance().registerModified();
 
         for (String locale : modernCldr) {
             if (special.contains(locale)) {
                 continue;
             }
-            ltp.set(locale);
-            if (!ltp.getRegion().isEmpty()) {
+            if (!ltp.set(locale).getRegion().isEmpty()) {
                 continue;
             }
-            ltp.set(locale);
             String max = ls.maximize(locale);
             final String script = ltp.set(max).getScript();
-
-            String id = script + "-Latn";
-
-            switch(script) {
-            case "Latn":
+            if (script.equals("Latn")) {
                 continue;
-            case "Khmr":
-                id = "Khmr-Latn/UNGEGN";
-                break;
-            case "Laoo":
-                id = "Laoo-Latn/UNGEGN";
-                break;
-            case "Sinh":
-                id = "Sinh-Latn/UNGEGN";
-                break;
-            case "Japn":
-                id = "Jpan-Latn";
-                break;
-            case "Hant": case "Hans":
-                id = "Hani-Latn";
-                break;
             }
+
             Transliterator t;
             try {
-                t = Transliterator.getInstance(id);
+                t = CLDRTransforms.getScriptTransform(script);
             } catch (Exception e) {
                 missing.add(locale);
                 continue;
@@ -827,40 +765,6 @@ public class TestTransforms extends TestFmwkPlus {
         }
     }
 
-    static LikelySubtags ls = new LikelySubtags();
-    static LanguageTagParser ltp = new LanguageTagParser();
-
-    static String getScript(String locale) {
-        ltp.set(locale);
-        String max = ls.maximize(locale);
-        return ltp.set(max).getScript();
-    }
-    static UnicodeRelation<String> pathSegmentsOk = new UnicodeRelation<>();
-    static {
-        // need to add exceptions to CheckForExemplars
-        pathSegmentsOk.add('\u03A9', "/unit[@type=\"electric-ohm\"]");
-        pathSegmentsOk.add('\u03BC', "/unit[@type=\"length-micrometer\"]");
-        pathSegmentsOk.add('\u03BC', "/unit[@type=\"mass-microgram\"]");
-        pathSegmentsOk.add('\u03BC', "/unit[@type=\"duration-microsecond\"]");
-        pathSegmentsOk.add('\u03BC', "//ldml/annotations/annotation[@cp=\"µ\"]");
-        pathSegmentsOk.add('\u03BC', "/compoundUnit[@type=\"10p-6\"]/unitPrefixPattern");
-        pathSegmentsOk.add('\u03C0', "/unit[@type=\"angle-radian\"]");
-        pathSegmentsOk.add('\u03C9', "/compoundUnit[@type=\"10p-6\"]/unitPrefixPattern");
-        pathSegmentsOk.add('\u0440', "/currency[@type=\"BYN\"]");
-        pathSegmentsOk.add('\u0440', "/currency[@type=\"RUR\"]");
-        pathSegmentsOk.add('\u10DA', "/currency[@type=\"GEL\"]");
-        pathSegmentsOk.addAll(new UnicodeSet("[؉ ٪ ٫ ۰ ۱ ؉ا س ا س ٬ ٬ ؜ ؛  ]"), "//ldml/numbers/symbols[@numberSystem=\"arab");
-
-        // need to fix data in locale files
-        pathSegmentsOk.addAll(new UnicodeSet("[コサ割可合営得指月有満無申祝禁秘空割祝秘]"), "//ldml/annotations/annotation");
-        pathSegmentsOk.addAll(new UnicodeSet("[ا ر ل ی]"), "//ldml/annotations/annotation[@cp=\"﷼\"]");
-        pathSegmentsOk.addAll(new UnicodeSet("[Р а в д е з л о п р т у ы ь]"), "//ldml/annotations/annotation[@cp=\"🪬\"]");
-        //ω Grek    lo; Laoo;   //ldml/units/unitLength[@type="short"]/unit[@type="electric-ohm"]/unitPattern[@count="other"];
-        pathSegmentsOk.freeze();
-    }
-
-    final static UnicodeSet CHARS_OK = new UnicodeSet("[\u061C \u202F \\p{Sc}]").freeze();
-
     static class SampleDataSet {
         UnicodeMap<SampleData> dataSet = new UnicodeMap<>();
         UnicodeRelation<String> scriptMissing = new UnicodeRelation<>();
@@ -878,7 +782,7 @@ public class TestTransforms extends TestFmwkPlus {
             }
             @Override
             public String toString() {
-                return String.format("%s;\t%s;\t%s;\t%s;\t%s", locale, getScript(locale), path, value, transformed);
+                return String.format("%s;\t%s;\t%s;\t%s;\t%s", locale, ExemplarUtilities.getScript(locale), path, value, transformed);
             }
         }
 
@@ -908,7 +812,7 @@ public class TestTransforms extends TestFmwkPlus {
             BitSet bs = new BitSet();
             for (int ci = 0; ci < transformed.length(); ci += Character.charCount(cp)) {
                 cp = transformed.codePointAt(ci);
-                if (CHARS_OK.contains(cp) || checkCharWithPath(path, cp)) {
+                if (ExemplarUtilities.nonNativeCharacterAllowed(path, cp)) {
                     continue;
                 }
                 int scriptCode = UScript.getScriptExtensions(cp, bs);
@@ -927,19 +831,6 @@ public class TestTransforms extends TestFmwkPlus {
                     }
                 }
             }
-        }
-
-        public boolean checkCharWithPath(String path, int cp) {
-            Set<String> pathCheckSet = pathSegmentsOk.get(cp);
-            if (pathCheckSet == null) {
-                return false;
-            }
-            for (String pathCheck : pathCheckSet) {
-                if (path.contains(pathCheck)) {
-                    return true;
-                }
-            }
-            return false;
         }
 
         public int size() {
@@ -972,29 +863,6 @@ public class TestTransforms extends TestFmwkPlus {
                     dataSet.put(entry.getKey(), newData);
                 }
             }
-        }
-    }
-
-    public static final String TRANSFORM_DIR = (CLDRPaths.COMMON_DIRECTORY + "transforms/");
-    private CLDRTransforms r = CLDRTransforms.getInstance();
-    private ImmutableList<String> noSkip = ImmutableList.of();
-
-    public void registerTranslit(String ID, String sourceTest, String targetTest, String sample) {
-        String internalId = r.registerTransliteratorsFromXML(TRANSFORM_DIR, ID, noSkip, true);
-        Transliterator t = null;
-        try {
-            t = Transliterator.getInstance(internalId);
-        } catch (Exception e) {
-            System.out.println("For " + ID + " (" + internalId + ")");
-            e.printStackTrace();
-            return;
-        }
-        String target = t.transform(sourceTest);
-        if (!target.equals(targetTest)) {
-            errln(ID + " For " + sourceTest + ", expected " + targetTest + ", got " + target);
-        }
-        if (sample != null) {
-            logln(ID + " sample:\n" + t.transform(sample));
         }
     }
 }

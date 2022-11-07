@@ -33,6 +33,7 @@ import org.unicode.cldr.tool.LikelySubtags;
 
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
+import com.google.common.collect.ImmutableList;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Transliterator;
@@ -339,7 +340,7 @@ public class CLDRTransforms {
             throw new IllegalArgumentException("**No transform for " + id);
         }
         return getInstance(matcher.group(2) + "-" + matcher.group(1)
-            + (matcher.group(4) == null ? "" : "/" + matcher.group(4)));
+        + (matcher.group(4) == null ? "" : "/" + matcher.group(4)));
     }
 
     private BiMap<String,String> displayNameToId = HashBiMap.create();
@@ -566,7 +567,7 @@ public class CLDRTransforms {
                         filename = null;
                     } catch (RuntimeException e) {
                         throw (RuntimeException) new IllegalArgumentException("Failed with " + filename + ", " + source)
-                            .initCause(e);
+                        .initCause(e);
                     }
                 } else {
                     append(dir + "root.txt unhandled line:" + line);
@@ -959,7 +960,7 @@ public class CLDRTransforms {
 
         @Override
         public void handlePathValue(String path, String value) {
-             if (first) {
+            if (first) {
                 if (path.startsWith("//supplementalData/version")) {
                     return;
                 } else if (path.startsWith("//supplementalData/generation")) {
@@ -997,5 +998,92 @@ public class CLDRTransforms {
                 throw new IllegalArgumentException("Unknown element: " + path + "\t " + value);
             }
         }
+    }
+
+    static boolean ALREADY_REGISTERED = false;
+    /**
+     * Register just those transliterators that are different than ICU.
+     * TODO: check against the file system to make sure the list is accurate.
+     */
+    public void registerModified() {
+        synchronized(CLDRTransforms.class) {
+            if (ALREADY_REGISTERED) {
+                return;
+            }
+            // NEW
+            registerTranslit("Lao-Latin", "ບ", "b");
+            registerTranslit("Khmer-Latin", "ឥ", "ĕ");
+            registerTranslit("Sinhala-Latin", "ක", "ka");
+            registerTranslit("Japn-Latn", "譆", "aa");
+
+            // MODIFIED
+            registerTranslit("Han-SpacedHan", "《", "«");
+            registerTranslit("Greek-Latin", "΄", "´");
+            registerTranslit("Hebrew-Latin", "־", "-");
+            registerTranslit("Cyrillic-Latin", "ө", "ö");
+            registerTranslit("Myanmar-Latin", "ဿ", "s");
+            registerTranslit("Latin-Armenian", "’", "՚");
+
+            registerTranslit("Interindic-Latin", "\uE070", ".");
+
+            registerTranslit("Malayalam-Interindic", "ൺ", "");
+            registerTranslit("Interindic-Malayalam", "", "ണ്");
+            registerTranslit("Malayalam-Latin", "ൺ", "ṇ");
+
+            registerTranslit("Devanagari-Interindic", "ॲ", "\uE084");
+            registerTranslit("Devanagari-Latin", "ॲ", "æ");
+
+            registerTranslit("Arabic-Latin", "؉", "‰");
+            ALREADY_REGISTERED = true;
+        }
+    }
+
+    private static final ImmutableList<String> noSkip = ImmutableList.of();
+
+    /**
+     * Register a transliterator and verify that a sample changed value is accurate
+     */
+    public void registerTranslit(String ID, String sourceTest, String targetTest) {
+        String internalId = registerTransliteratorsFromXML(TRANSFORM_DIR, ID, noSkip, true);
+        Transliterator t = null;
+        try {
+            t = Transliterator.getInstance(internalId);
+        } catch (Exception e) {
+            System.out.println("For " + ID + " (" + internalId + ")");
+            e.printStackTrace();
+            return;
+        }
+        String target = t.transform(sourceTest);
+        if (!target.equals(targetTest)) {
+            throw new IllegalArgumentException(ID + " For " + sourceTest + ", expected " + targetTest + ", got " + target);
+        }
+    }
+
+    /**
+     * Gets a transform from a script to Latin.
+     * For a locale, use ExemplarUtilities.getScript(locale) to get the script
+     */
+    public static Transliterator getScriptTransform(final String script) {
+        String id = script + "-Latn";
+        switch(script) {
+        case "Latn":
+            return null;
+        case "Khmr":
+            id = "Khmr-Latn/UNGEGN";
+            break;
+        case "Laoo":
+            id = "Laoo-Latn/UNGEGN";
+            break;
+        case "Sinh":
+            id = "Sinh-Latn/UNGEGN";
+            break;
+        case "Japn":
+            id = "Jpan-Latn";
+            break;
+        case "Hant": case "Hans":
+            id = "Hani-Latn";
+            break;
+        }
+        return Transliterator.getInstance(id);
     }
 }

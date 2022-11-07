@@ -15,13 +15,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 			::Han-Spacedhan();
 			<![CDATA[
 ########################################################################
-# Test skeleton transform for Kanji to Latin
-# This is only for testing: any production transliteration would require context,
-# and much more sophisticated processing.
+# Very basic transform for Kanji to Latin
+# This is a provisional transliteration, only for testing within CLDR
+#  — not recommended for production use!
+#
+# The focus is on names of people and places.
+# The goal is just to be at least better for Japanese than the default transliteration
+# for Han characters (Han-Latin-Names.xml), which is pinyin.
 #
 # This transform simply processes character by character, using Unihan properties
 # • taking the first kJapaneseKun value if there is one, 
 # • and otherwise the first kJapaneseOn value.
+#
+# This could be changed radically in the futue.
+# A minimal improvement would be to use the mostly likely reading used in names. 
+# It could also be augmented with sequences, as is done in Han-Latin-Names.xml
+#
 ########################################################################
 ｡ → '.';
 。→ '.';

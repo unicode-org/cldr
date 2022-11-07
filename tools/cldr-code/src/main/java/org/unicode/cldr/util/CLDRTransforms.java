@@ -1080,7 +1080,8 @@ public class CLDRTransforms {
         case "Japn":
             id = "Jpan-Latn";
             break;
-        case "Hant": case "Hans":
+        case "Hant":
+        case "Hans":
             id = "Hani-Latn";
             break;
         }

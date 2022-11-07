@@ -63,6 +63,7 @@ public enum CldrVersion {
     v39_0,
     v40_0,
     v41_0,
+    v42_0,
     baseline;
 
     private final String baseDirectory;

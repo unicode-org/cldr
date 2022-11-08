@@ -3,6 +3,7 @@ package org.unicode.cldr.unittest;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.BitSet;
@@ -437,7 +438,7 @@ public class TestTransforms extends TestFmwkPlus {
             Set<String> foundTranslitsLower = new TreeSet();
 
             for (String file : fileDirectory.list()) {
-                if (!file.endsWith(".txt") || file.startsWith("_readme")) {
+                if (!file.endsWith(".txt") || file.startsWith("_readme") || file.startsWith("_Generated_")) {
                     continue;
                 }
                 logln("Testing file: " + file);
@@ -448,6 +449,12 @@ public class TestTransforms extends TestFmwkPlus {
                     // Error: (TestTransforms.java:434) : ka-Latn-t-ka-m0-bgn 2 Transform უფლება: expected "up’leba", got "upleba"
                 }
 
+                PrintWriter output = null;
+//                When debugging, this can be used to produce a file with the generated results
+//                if (file.equals("und-Latn-t-und-mlym.txt")) {
+//                     output = FileUtilities.openUTF8Writer(fileDirectoryName, "_Generated_"+file);
+//                }
+
                 Transliterator trans = getTransliterator(transName);
                 String id = trans.getID().toLowerCase(Locale.ROOT);
                 foundTranslitsLower.add(id);
@@ -455,12 +462,15 @@ public class TestTransforms extends TestFmwkPlus {
                 BufferedReader in = FileUtilities.openUTF8Reader(fileDirectoryName, file);
                 int counter = 0;
                 while (true) {
-                    String line = in.readLine();
-                    if (line == null)
+                    final String original = in.readLine();
+                    if (original == null)
                         break;
-                    line = line.trim();
+                    String line = original.trim();
                     counter += 1;
                     if (line.startsWith("#")) {
+                        if (output != null) {
+                            output.println(original);
+                        }
                         continue;
                     }
                     String[] parts = line.split("\t");
@@ -469,6 +479,12 @@ public class TestTransforms extends TestFmwkPlus {
                     String result = trans.transform(source);
                     assertEquals(transName + " " + counter + " Transform "
                         + source, expected, result);
+                    if (output != null) {
+                        output.println(source + "\t" + result);
+                    }
+                }
+                if (output != null) {
+                    output.close();
                 }
                 in.close();
             }
@@ -715,7 +731,9 @@ public class TestTransforms extends TestFmwkPlus {
         LikelySubtags ls = new LikelySubtags();
         LanguageTagParser ltp = new LanguageTagParser();
 
-        CLDRTransforms.getInstance().registerModified();
+        if (!registered) { // register just those modified, unless already done
+            CLDRTransforms.getInstance().registerModified();
+        }
 
         for (String locale : modernCldr) {
             if (special.contains(locale)) {

@@ -13,14 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Hashtable;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -41,13 +34,15 @@ import com.ibm.icu.util.ULocale;
  */
 public class SurveyForum {
 
+    private static final boolean ENABLE_AUTO_POSTING = true;
+
     private static final String FLAGGED_FOR_REVIEW_HTML = " <p>[This item was flagged for CLDR TC review.]";
 
-    private static java.util.logging.Logger logger = SurveyLog.forClass(SurveyForum.class);
+    private static final java.util.logging.Logger logger = SurveyLog.forClass(SurveyForum.class);
 
-    private static String DB_FORA = "sf_fora"; // forum name -> id
+    private static final String DB_FORA = "sf_fora"; // forum name -> id
 
-    private static String DB_LOC2FORUM = "sf_loc2forum"; // locale -> forum.. for selects.
+    private static final String DB_LOC2FORUM = "sf_loc2forum"; // locale -> forum.. for selects.
 
     private static final String F_FORUM = "forum";
 
@@ -80,7 +75,7 @@ public class SurveyForum {
             .replaceAll("&amp;", "&");
     }
 
-    private Hashtable<String, Integer> nameToNum = new Hashtable<>();
+    private final Hashtable<String, Integer> nameToNum = new Hashtable<>();
 
     private static final int BAD_FORUM = -1;
     private static final int NO_FORUM = -2;
@@ -97,14 +92,14 @@ public class SurveyForum {
             return NO_FORUM; // all forums
         }
         // make sure it is a valid src!
-        if ((forum == null) || (forum.indexOf('_') >= 0) || !sm.isValidLocale(CLDRLocale.getInstance(forum))) {
+        if (forum.indexOf('_') >= 0 || !sm.isValidLocale(CLDRLocale.getInstance(forum))) {
             return BAD_FORUM;
         }
         Integer i = nameToNum.get(forum);
         if (i == null) {
             return createForum(forum);
         } else {
-            return i.intValue();
+            return i;
         }
     }
 
@@ -151,10 +146,12 @@ public class SurveyForum {
                 PreparedStatement fAdd = null;
                 try {
                     conn = sm.dbUtils.getDBConnection();
-                    fAdd = prepare_fAdd(conn);
-                    fAdd.setString(1, forum);
-                    fAdd.executeUpdate();
-                    conn.commit();
+                    if (conn != null) {
+                        fAdd = prepare_fAdd(conn);
+                        fAdd.setString(1, forum);
+                        fAdd.executeUpdate();
+                        conn.commit();
+                    }
                 } finally {
                     DBUtils.close(fAdd, conn);
                 }
@@ -171,13 +168,11 @@ public class SurveyForum {
             throw new RuntimeException("Couldn't query ID for forum " + forum);
         }
         // Add to list
-        Integer i = Integer.valueOf(num);
-        nameToNum.put(forum, i);
+        nameToNum.put(forum, num);
         return num;
     }
 
-    private int gatherInterestedUsers(String forum, Set<Integer> cc_emails, Set<Integer> bcc_emails) {
-        int emailCount = 0;
+    private void gatherInterestedUsers(String forum, Set<Integer> cc_emails, Set<Integer> bcc_emails) {
         try {
             Connection conn = null;
             PreparedStatement pIntUsers = null;
@@ -199,7 +194,6 @@ public class SurveyForum {
                         } else {
                             bcc_emails.add(u.id);
                         }
-                        emailCount++;
                     }
                 }
             } finally {
@@ -212,18 +206,10 @@ public class SurveyForum {
             throw new RuntimeException(complaint);
         }
 
-        return emailCount;
     }
 
     /**
      * Send email notification to a set of users
-     *
-     * @param ctx
-     * @param forum
-     * @param base_xpath
-     * @param subj
-     * @param text
-     * @param postId
      *
      * Called by doPostInternal
      */
@@ -298,22 +284,24 @@ public class SurveyForum {
         PreparedStatement pList = null;
         try {
             conn = sm.dbUtils.getAConnection();
-            pList = DBUtils.prepareStatement(conn, "pList", "SELECT parent,poster FROM " + DBUtils.Table.FORUM_POSTS.toString()
-                + " WHERE id=?");
-            for (;;) {
-                pList.setInt(1, postId);
-                ResultSet rs = pList.executeQuery();
-                int parentId = NO_PARENT;
-                while (rs.next()) {
-                    parentId = rs.getInt(1);
-                    posterId = rs.getInt(2);
+            if (conn != null) {
+                pList = DBUtils.prepareStatement(conn, "pList", "SELECT parent,poster FROM " + DBUtils.Table.FORUM_POSTS
+                    + " WHERE id=?");
+                for (;;) {
+                    pList.setInt(1, postId);
+                    ResultSet rs = pList.executeQuery();
+                    int parentId = NO_PARENT;
+                    while (rs.next()) {
+                        parentId = rs.getInt(1);
+                        posterId = rs.getInt(2);
+                    }
+                    if (parentId == NO_PARENT) {
+                        break;
+                    }
+                    postId = parentId;
                 }
-                if (parentId == NO_PARENT) {
-                    break;
-                }
-                postId = parentId;
             }
-         } catch (SQLException se) {
+        } catch (SQLException se) {
             String complaint = "SurveyForum: Couldn't get parent for post - " + DBUtils.unchainSqlException(se);
             SurveyLog.logException(logger, se, complaint);
             throw new SurveyException(ErrorCode.E_INTERNAL, complaint);
@@ -379,7 +367,7 @@ public class SurveyForum {
      * @throws SQLException
      */
     private void reloadLocales(Connection conn) throws SQLException {
-        String sql = "";
+        String sql;
         synchronized (conn) {
             Statement s = conn.createStatement();
             if (!DBUtils.hasTable(DB_LOC2FORUM)) { // user attribute
@@ -426,7 +414,7 @@ public class SurveyForum {
         try {
             oldOnOrBefore = sdf.parse(onOrBefore);
         } catch (Throwable t) {
-            System.err.println("Error in parsing CLDR_OLD_POSTS_BEFORE : " + onOrBefore + " - err " + t.toString());
+            System.err.println("Error in parsing CLDR_OLD_POSTS_BEFORE : " + onOrBefore + " - err " + t);
             t.printStackTrace();
             oldOnOrBefore = null;
         }
@@ -434,7 +422,7 @@ public class SurveyForum {
             oldOnOrBefore = new Date(0);
         }
         logger.fine("CLDR_OLD_POSTS_BEFORE: date: " + sdf.format(oldOnOrBefore) + " (format: mm/dd/yy)");
-        String sql = null;
+        String sql;
         String locindex = "loc";
         if (DBUtils.db_Mysql) {
             locindex = "loc(122)";
@@ -450,7 +438,6 @@ public class SurveyForum {
                 + DBUtils.DB_SQL_CURRENT_TIMESTAMP0 + ", " + " last_time TIMESTAMP NOT NULL " + DBUtils.DB_SQL_WITHDEFAULT
                 + " CURRENT_TIMESTAMP" + " )";
             s.execute(sql);
-            sql = "";
             s.close();
             conn.commit();
         }
@@ -484,14 +471,13 @@ public class SurveyForum {
             s.execute(sql);
             sql = "CREATE INDEX " + DBUtils.Table.FORUM_POSTS + "_x ON " + DBUtils.Table.FORUM_POSTS + " (xpath) ";
             s.execute(sql);
-            sql = "";
             s.close();
             conn.commit();
         }
         reloadLocales(conn);
     }
 
-    private SurveyMain sm = null;
+    private final SurveyMain sm;
 
     private static PreparedStatement prepare_fGetByLoc(Connection conn) throws SQLException {
         return DBUtils.prepareStatement(conn, "fGetByLoc", "SELECT id FROM " + DB_FORA + " where loc=?");
@@ -512,7 +498,7 @@ public class SurveyForum {
      */
     private static PreparedStatement prepare_pAdd(Connection conn) throws SQLException {
         return DBUtils.prepareStatement(conn, "pAdd", "INSERT INTO "
-            + DBUtils.Table.FORUM_POSTS.toString()
+            + DBUtils.Table.FORUM_POSTS
             + " (poster,subj,text,forum,parent,loc,xpath,version,root,type,is_open,value)"
             + " values (?,?,?,?,?,?,?,?,?,?,?,?)");
     }
@@ -526,7 +512,7 @@ public class SurveyForum {
      */
     private static PreparedStatement prepare_pCloseThread(Connection conn) throws SQLException {
         return DBUtils.prepareStatement(conn, "pCloseThread", "UPDATE "
-            + DBUtils.Table.FORUM_POSTS.toString()
+            + DBUtils.Table.FORUM_POSTS
             + " SET is_open=FALSE WHERE id=? OR root=?");
     }
 
@@ -571,11 +557,12 @@ public class SurveyForum {
         String tableName = DBUtils.Table.FORUM_POSTS.toString();
         try {
             conn = DBUtils.getInstance().getAConnection();
-
+            if (conn == null) {
+                return 0;
+            }
             ps = DBUtils.prepareForwardReadOnly(conn, "select count(*) from " + tableName + " where loc=? and xpath=?");
             ps.setString(1, locale.getBaseName());
             ps.setInt(2, xpathId);
-
             return DBUtils.sqlCount(ps);
         } catch (SQLException e) {
             SurveyLog.logException(logger, e, "postCountFor for " + tableName + " " + locale + ":" + xpathId);
@@ -608,7 +595,7 @@ public class SurveyForum {
             Connection conn = null;
             try {
                 conn = sm.dbUtils.getAConnection();
-                Object[][] o = null;
+                Object[][] o;
                 final String forumPosts = DBUtils.Table.FORUM_POSTS.toString();
                 if (ident == 0) {
                     if (base_xpath == 0) {
@@ -642,58 +629,56 @@ public class SurveyForum {
                             + ".last_time DESC", forumNumber, base_xpath, ident);
                     }
                 }
-                if (o != null) {
-                    for (int i = 0; i < o.length; i++) {
-                        int poster = (Integer) o[i][0];
-                        String subj2 = (String) o[i][1];
-                        String text2 = (String) o[i][2];
-                        Timestamp lastDate = (Timestamp) o[i][3];
-                        int id = (Integer) o[i][4];
-                        int parent = (Integer) o[i][5];
-                        int xpath = (Integer) o[i][6];
-                        String loc = (String) o[i][7];
-                        String version = (String) o[i][8];
-                        int root = (int) o[i][9];
-                        int typeInt = (int) o[i][10];
-                        boolean open = (boolean) o[i][11];
-                        String value = (String) o[i][12];
+                for (Object[] objects : o) {
+                    int poster = (Integer) objects[0];
+                    String subj2 = (String) objects[1];
+                    String text2 = (String) objects[2];
+                    Timestamp lastDate = (Timestamp) objects[3];
+                    int id = (Integer) objects[4];
+                    int parent = (Integer) objects[5];
+                    int xpath = (Integer) objects[6];
+                    String loc = (String) objects[7];
+                    String version = (String) objects[8];
+                    int root = (int) objects[9];
+                    int typeInt = (int) objects[10];
+                    boolean open = (boolean) objects[11];
+                    String value = (String) objects[12];
 
-                        PostType type = PostType.fromInt(typeInt, PostType.DISCUSS);
+                    PostType type = PostType.fromInt(typeInt, PostType.DISCUSS);
 
-                        if (lastDate.after(oldOnOrBefore)) {
-                            JSONObject post = new JSONObject();
-                            post.put("poster", poster)
-                                .put("subject", subj2)
-                                .put("text", text2)
-                                .put("postType", type.toName())
-                                .put("date", lastDate)
-                                .put("date_long", lastDate.getTime())
-                                .put("id", id)
-                                .put("parent", parent);
-                            if (loc != null) {
-                                post.put("locale", loc);
-                            }
-                            if (version != null) {
-                                post.put("version", version);
-                            }
-                            if (value != null) {
-                                post.put("value", value);
-                            }
-                            post.put("open", open);
-                            post.put("root", root);
-                            post.put("xpath_id", xpath);
-                            if (xpath > 0) {
-                                post.put("xpath", sm.xpt.getStringIDString(xpath));
-                            }
-                            UserRegistry.User posterUser = sm.reg.getInfo(poster);
-                            if (posterUser != null) {
-                                JSONObject posterInfoJson = SurveyJSONWrapper.wrap(posterUser);
-                                if (posterInfoJson != null) {
-                                    post.put("posterInfo", posterInfoJson);
-                                }
-                            }
-                            ret.put(post);
+                    if (lastDate.after(oldOnOrBefore)) {
+                        JSONObject post = new JSONObject();
+                        post.put("poster", poster)
+                            .put("subject", subj2)
+                            .put("text", text2)
+                            .put("postType", type.toName())
+                            .put("date", lastDate)
+                            .put("date_long", lastDate.getTime())
+                            .put("id", id)
+                            .put("parent", parent);
+                        if (loc != null) {
+                            post.put("locale", loc);
                         }
+                        if (version != null) {
+                            post.put("version", version);
+                        }
+                        if (value != null) {
+                            post.put("value", value);
+                        }
+                        post.put("open", open);
+                        post.put("root", root);
+                        post.put("xpath_id", xpath);
+                        if (xpath > 0) {
+                            post.put("xpath", sm.xpt.getStringIDString(xpath));
+                        }
+                        User posterUser = sm.reg.getInfo(poster);
+                        if (posterUser != null) {
+                            JSONObject posterInfoJson = SurveyJSONWrapper.wrap(posterUser);
+                            if (posterInfoJson != null) {
+                                post.put("posterInfo", posterInfoJson);
+                            }
+                        }
+                        ret.put(post);
                     }
                 }
                 return ret;
@@ -751,12 +736,7 @@ public class SurveyForum {
      * Respond when the user adds a new forum post.
      *
      * @param mySession the CookieSession
-     * @param xpath of the form "stringid" or "#1234"
-     * @param l the CLDRLocale
-     * @param subj the subject of the post
-     * @param text the text of the post
-     * @param postTypeStr the PostType string such as "Close", or null
-     * @param replyTo the id of the post to which this is a reply; {@link #NO_PARENT} if there is no parent
+     * @param postInfo the PostInfo
      * @return the post id
      *
      * @throws SurveyException
@@ -767,7 +747,6 @@ public class SurveyForum {
         int replyTo = postInfo.getReplyTo();
         int base_xpath;
         if (replyTo < 0) {
-            replyTo = NO_PARENT;
             base_xpath = sm.xpt.getXpathIdOrNoneFromStringID(postInfo.getPathStr());
         } else {
             base_xpath = DBUtils.sqlCount("select xpath from " + DBUtils.Table.FORUM_POSTS + " where id=?", replyTo); // default to -1
@@ -805,7 +784,6 @@ public class SurveyForum {
                     + locale + " " + distinguishingXpath);
             }
         }
-        final boolean ENABLE_AUTO_POSTING = true;
         if (ENABLE_AUTO_POSTING) {
             if (value != null) {
                 autoPostAgree(locale, user, xpathId, value);
@@ -848,9 +826,12 @@ public class SurveyForum {
         Map<Integer, String> posts = new HashMap<>();
         try {
             conn = sm.dbUtils.getAConnection();
+            if (conn == null) {
+                return;
+            }
             pList = DBUtils.prepareStatement(conn, "pList",
                 "SELECT id,subj FROM " + tableName
-                + " WHERE is_open=true AND type=? AND loc=? AND xpath=? AND value=? AND NOT poster=?");
+                    + " WHERE is_open=true AND type=? AND loc=? AND xpath=? AND value=? AND NOT poster=?");
             pList.setInt(1, PostType.REQUEST.toInt());
             pList.setString(2, locale.toString());
             pList.setInt(3, xpathId);
@@ -904,19 +885,21 @@ public class SurveyForum {
         Map<Integer, String> posts = new HashMap<>();
         try {
             conn = sm.dbUtils.getAConnection();
-            pList = DBUtils.prepareStatement(conn, "pList",
-                "SELECT root,subj FROM " + tableName
-                + " WHERE is_open=true AND type=? AND loc=? AND xpath=? AND poster=? AND NOT value=?");
-            pList.setInt(1, PostType.AGREE.toInt());
-            pList.setString(2, locale.toString());
-            pList.setInt(3, xpathId);
-            pList.setInt(4, user.id);
-            DBUtils.setStringUTF8(pList, 5, dbValue);
-            ResultSet rs = pList.executeQuery();
-            while (rs.next()) {
-                posts.put(rs.getInt(1), DBUtils.getStringUTF8(rs, 2));
+            if (conn != null) {
+                pList = DBUtils.prepareStatement(conn, "pList",
+                    "SELECT root,subj FROM " + tableName
+                    + " WHERE is_open=true AND type=? AND loc=? AND xpath=? AND poster=? AND NOT value=?");
+                pList.setInt(1, PostType.AGREE.toInt());
+                pList.setString(2, locale.toString());
+                pList.setInt(3, xpathId);
+                pList.setInt(4, user.id);
+                DBUtils.setStringUTF8(pList, 5, dbValue);
+                ResultSet rs = pList.executeQuery();
+                while (rs.next()) {
+                    posts.put(rs.getInt(1), DBUtils.getStringUTF8(rs, 2));
+                }
+                posts.forEach((root, subject) -> autoPostReplyDecline(root, subject, locale, user, xpathId, value));
             }
-            posts.forEach((root, subject) -> autoPostReplyDecline(root, subject, locale, user, xpathId, value));
          } catch (SQLException se) {
             String complaint = "SurveyForum: autoPostDecline - " + DBUtils.unchainSqlException(se);
             SurveyLog.logException(logger, se, complaint);
@@ -961,19 +944,21 @@ public class SurveyForum {
         Map<Integer, String> posts = new HashMap<>();
         try {
             conn = sm.dbUtils.getAConnection(); // readonly
-            pList = DBUtils.prepareStatement(conn, "pList",
-                "SELECT id,subj FROM " + tableName
-                + " WHERE is_open=true AND type=? AND loc=? AND xpath=? AND poster=? AND NOT value=?");
-            pList.setInt(1, PostType.REQUEST.toInt());
-            pList.setString(2, locale.toString());
-            pList.setInt(3, xpathId);
-            pList.setInt(4, user.id);
-            DBUtils.setStringUTF8(pList, 5, dbValue);
-            ResultSet rs = pList.executeQuery();
-            while (rs.next()) {
-                posts.put(rs.getInt(1), DBUtils.getStringUTF8(rs, 2));
+            if (conn != null) {
+                pList = DBUtils.prepareStatement(conn, "pList",
+                    "SELECT id,subj FROM " + tableName
+                    + " WHERE is_open=true AND type=? AND loc=? AND xpath=? AND poster=? AND NOT value=?");
+                pList.setInt(1, PostType.REQUEST.toInt());
+                pList.setString(2, locale.toString());
+                pList.setInt(3, xpathId);
+                pList.setInt(4, user.id);
+                DBUtils.setStringUTF8(pList, 5, dbValue);
+                ResultSet rs = pList.executeQuery();
+                while (rs.next()) {
+                    posts.put(rs.getInt(1), DBUtils.getStringUTF8(rs, 2));
+                }
+                posts.forEach((root, subject) -> autoPostReplyClose(root, subject, locale, user, xpathId, value));
             }
-            posts.forEach((root, subject) -> autoPostReplyClose(root, subject, locale, user, xpathId, value));
          } catch (SQLException se) {
             String complaint = "SurveyForum: autoPostClose - " + DBUtils.unchainSqlException(se);
             SurveyLog.logException(logger, se, complaint);
@@ -1039,13 +1024,13 @@ public class SurveyForum {
      * @throws SurveyException
      */
     private int savePostToDb(PostInfo postInfo) throws SurveyException {
-        int postId = 0;
+        int postId;
         final CLDRLocale locale = postInfo.getLocale();
         final String localeStr = locale.toString();
         final int forumNumber = getForumNumber(locale);
         final User user = postInfo.getUser();
         final PostType type = postInfo.getType();
-        final boolean open = (type == PostType.CLOSE) ? false : postInfo.getOpen();
+        final boolean open = type != PostType.CLOSE && postInfo.getOpen();
         final int root = postInfo.getRoot();
         final String text = postInfo.getText().replaceAll("\r", "").replaceAll("\n", "<p>");
         try {
@@ -1054,7 +1039,7 @@ public class SurveyForum {
             try {
                 conn = sm.dbUtils.getDBConnection();
                 if (type == PostType.CLOSE) {
-                    closeThreads(conn, new ArrayList<>(Arrays.asList(root)));
+                    closeThreads(conn, new ArrayList<>(List.of(root)));
                 }
                 pAdd = prepare_pAdd(conn);
                 pAdd.setInt(1, user.id);
@@ -1073,10 +1058,12 @@ public class SurveyForum {
                 int n = pAdd.executeUpdate();
                 if (postInfo.couldFlagOnLosing()) {
                     sm.getSTFactory().setFlag(conn, locale, postInfo.getPath(), user);
-                    System.out.println("NOTE: flag was set on " + localeStr + " by " + user.toString());
+                    System.out.println("NOTE: flag was set on " + localeStr + " by " + user);
                 }
 
-                conn.commit();
+                if (conn != null) {
+                    conn.commit();
+                }
                 postId = DBUtils.getLastId(pAdd);
 
                 if (n != 1) {
@@ -1132,7 +1119,7 @@ public class SurveyForum {
 
     public class PostInfo {
         private final CLDRLocale locale;
-        private PostType type;
+        private final PostType type;
         private String text;
         private int xpathId = XPathTable.NO_XPATH;
         private String pathString = null;

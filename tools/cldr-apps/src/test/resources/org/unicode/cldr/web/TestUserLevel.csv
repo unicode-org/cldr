@@ -341,3 +341,11 @@ adlam, vetter,canCreateOrSetLevelTo, false, adlam, anonymous
 adlam, guest,canCreateOrSetLevelTo, false, adlam, anonymous
 adlam, locked,canCreateOrSetLevelTo, false, adlam, anonymous
 adlam, anonymous,canCreateOrSetLevelTo, false, adlam, anonymous
+adlam, admin, canDeleteUsers, true, adlam,
+adlam, admin, canDeleteUsers, true, unaffiliated,
+adlam, tc, canDeleteUsers, false, adlam,
+adlam, manager, canDeleteUsers, false, adlam,
+adlam, vetter, canDeleteUsers, false, adlam,
+adlam, guest, canDeleteUsers, false, adlam,
+adlam, locked, canDeleteUsers, false, adlam,
+adlam, anonymous, canDeleteUsers, false, adlam,

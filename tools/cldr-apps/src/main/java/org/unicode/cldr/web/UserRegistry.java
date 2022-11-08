@@ -1623,8 +1623,10 @@ public class UserRegistry {
     }
 
     static boolean userCanDeleteUser(User managerUser, int targetId, int targetLevel) {
-        // must be at a lower level
-        return (userCanModifyUser(managerUser, targetId, targetLevel) && targetLevel > managerUser.userlevel);
+        return (managerUser != null) && 
+            managerUser.getLevel().canDeleteUsers() && 
+            userCanModifyUser(managerUser, targetId, targetLevel) && 
+            targetLevel > managerUser.userlevel;
     }
 
     static boolean userCanDoList(User managerUser) {

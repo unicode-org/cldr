@@ -673,25 +673,21 @@ function updatePostHash(posts) {
 /**
  * Add a "threadId" attribute to each post object in the given array
  *
- * For a post without a parent, the thread id is like "aa|1234", where aa is the locale and 1234 is the post id.
+ * For a post without a parent, the thread id is the post id.
  *
- * For a post without a parent, the thread id is the same as the root post id.
+ * For a post with a parent, the thread id is the root post id.
  *
- * Make sure that the thread id uses the locale of the original post in its thread, for consistency.
- * Formerly, a post could have a different locale than the original post. For example, even though
- * post 32034 is fr_CA, its child 32036 was fr. That bug is believed to have been fixed, in the
- * code and in the db.
+ * The json unfortunately has root = -1 if parent = -1; if instead it had
+ * root = id if parent = -1 then there would be no need to distinguish
+ * post.root and post.threadId, they would always be the same -- except
+ * that threadId is expected to be a string, not an integer
  *
  * @param posts the array of post objects
- *
- * TODO: simplify this and related code, given that post objects from server now have
- * post.root. Probably there is no longer any reason to include locale in thread id,
- * nor to distinguish between thread id and rootPost.id.
  */
 function addThreadIds(posts) {
   posts.forEach(function (post) {
-    const rootPost = getThreadRootPost(post);
-    post.threadId = rootPost.locale + "|" + rootPost.id;
+    const id = post.parent > 0 ? post.root : post.id;
+    post.threadId = id.toString();
   });
 }
 
@@ -797,7 +793,7 @@ function appendPostDivsToTopicDivs(posts, topicDivs, postDivs) {
   const USE_HORIZONTAL_RULE = false;
   for (let i = posts.length - 1; i >= 0; i--) {
     const post = posts[i];
-    if (post.root === -1) {
+    if (post.parent === -1) {
       // this post is the root of its thread, not a reply
       topicDivs[post.threadId].appendChild(postDivs[post.id]);
     } else {
@@ -1218,8 +1214,8 @@ function getRootPostFromThreadId(threadId) {
  * @return the original post in the thread
  */
 function getThreadRootPost(post) {
-  if (postHash[post.root]) {
-    return postHash[post.root];
+  if (postHash[post.threadId]) {
+    return postHash[post.threadId];
   }
   /*
    * The following shouldn't be necessary unless data is missing/corrupted

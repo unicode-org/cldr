@@ -17,17 +17,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.CLDRTransforms;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.Pair;
-import org.unicode.cldr.util.PathUtilities;
-import org.unicode.cldr.util.XMLFileReader;
-import org.unicode.cldr.util.XPathParts;
-
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.impl.Utility;
@@ -38,8 +27,27 @@ import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
+import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRTransforms;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PathUtilities;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.XMLFileReader;
+import org.unicode.cldr.util.XPathParts;
+
 public class TestTransforms extends TestFmwkPlus {
-    CLDRConfig testInfo = CLDRConfig.getInstance();
+    private CLDRConfig testInfo = CLDRConfig.getInstance();
+    private final SupplementalDataInfo supplementalDataInfo;
+    private Set<String> tKeys;
+
+    public TestTransforms() {
+        supplementalDataInfo = testInfo.getSupplementalDataInfo();
+        tKeys = supplementalDataInfo.getBcp47Extension2Keys().get("t");
+    }
 
     public static void main(String[] args) {
         new TestTransforms().run(args);
@@ -198,10 +206,34 @@ public class TestTransforms extends TestFmwkPlus {
 
     private void checkTransformID(String id, File file) {
         if (id.indexOf("-t-") > 0) {
-            String expected = ULocale.forLanguageTag(id).toLanguageTag();
+            final ULocale locale = ULocale.forLanguageTag(id);
+            String expected = locale.toLanguageTag();
             if (!id.equals(expected)) {
                 errln(file.getName() + ": BCP47-T identifier \"" +
                     id + "\" should be \"" + expected + "\"");
+            }
+            // Check that the -t- subkeys are present
+            final String extension = locale.getExtension('t');
+            if (extension != null && !extension.isEmpty()) {
+                final String[] splits = extension.split("-");
+                for (int i = 0; i < splits.length; i++) {
+                    final String tExt = splits[i];
+
+                    if (tKeys.contains(tExt)) {
+                        if (i + 1 >= splits.length) {
+                            errln(file.getName() + ": BCP47-T identifier " + tExt + " at end of line: " + id);
+                        } else {
+                            final String tVal = splits[++i];
+                            Set<String> possibleVals = supplementalDataInfo.getBcp47Keys().get(tExt);
+                            if (!possibleVals.contains(tVal)) {
+                                warnln(file.getName() + ": BCP47-T undeclared key -t-" + tExt + "-" + tVal + " in: " + id
+                                    + " ... check common/bcp47/transform*.xml");
+                            }
+                        }
+                    } else {
+                        // TODO: Error if contains a digit?
+                    }
+                }
             }
         }
     }

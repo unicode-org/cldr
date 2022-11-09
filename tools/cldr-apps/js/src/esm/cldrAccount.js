@@ -1238,7 +1238,7 @@ function getUserActivityUrl() {
 }
 
 function getInterestLocalesUrl() {
-  cldrAjax.makeApiUrl("intlocs", null);
+  return cldrAjax.makeApiUrl("intlocs", null);
 }
 
 function getInterestLocalesPostData(interestLocales) {

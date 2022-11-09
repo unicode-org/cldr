@@ -31,8 +31,6 @@ let sidewaysShowTimeout = -1;
  * @param {Node} tr
  *
  * TODO: shorten this function (use subroutines)
- *
- * Formerly known as cldrSurvey.showForumStuff
  */
 function loadInfo(frag, forumDivClone, tr) {
   let isOneLocale = false;
@@ -316,8 +314,6 @@ function getUsersValue(theRow) {
 /**
  * Update the forum posts in the Info Panel
  *
- * This includes the version of the Info Panel displayed in the Dashboard "Fix" window
- *
  * @param tr the table-row element with which the forum posts are associated,
  *		and whose info is shown in the Info Panel; or null, to get the
  *		tr from surveyCurrentId
@@ -335,10 +331,6 @@ function updatePosts(tr) {
     }
   }
   if (!tr || !tr.forumDiv || !tr.forumDiv.url) {
-    /*
-     * This is normal for updatePosts(null) called by success handler
-     * for submitPost, from Dashboard, since Fix window is no longer open
-     */
     return;
   }
   let ourUrl = tr.forumDiv.url + "&what=forum_fetch";
@@ -358,13 +350,13 @@ function updatePosts(tr) {
     try {
       if (json && json.ret && json.ret.length > 0) {
         const posts = json.ret;
-        const content = cldrForum.parseContent(posts, "info");
+        let content = cldrForum.parseContent(posts, "info");
         /*
          * Reality check: the json should refer to the same path as tr, which in practice
          * always matches cldrStatus.getCurrentId(). If not, log a warning and substitute "Please reload"
          * for the content.
          */
-        let xpstrid = posts[0].xpath;
+        const xpstrid = posts[0].xpath;
         if (xpstrid !== tr.xpstrid || xpstrid !== cldrStatus.getCurrentId()) {
           console.log(
             "Warning: xpath strid mismatch in updatePosts loadHandler:"
@@ -377,12 +369,6 @@ function updatePosts(tr) {
         }
         /*
          * Update the element whose class is 'forumDiv'.
-         * Note: When updatePosts is called by the mouseover event handler for
-         * the "Show n posts" button set up by havePosts, a clone of tr.forumDiv is created
-         * (for mysterious reasons) by that event handler, and we could pass forumDivClone
-         * as a parameter to updatePosts, then do forumDivClone.appendChild(content)
-         * here, which is essentially how it formerly worked. However, that wouldn't work when
-         * we're called by the success handler for submitPost. This works in all cases.
          */
         $(".forumDiv").first().html(content);
       }

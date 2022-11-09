@@ -6,7 +6,7 @@
         title="Close"
         @click="closeInfoPanel"
       >
-        X
+        ✕
       </button>
       <span class="i-am-info-panel">Info Panel</span>
     </header>

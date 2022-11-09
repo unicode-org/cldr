@@ -40,6 +40,7 @@ import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Sets;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
@@ -51,6 +52,8 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 public class TestTransforms extends TestFmwkPlus {
+    private static final String GENERATE_FILE = null; // set to a filename like "und-Latn-t-und-mlym.txt" to regenerate it
+
     CLDRConfig testInfo = CLDRConfig.getInstance();
 
     public static void main(String[] args) {
@@ -449,8 +452,10 @@ public class TestTransforms extends TestFmwkPlus {
                     // Error: (TestTransforms.java:434) : ka-Latn-t-ka-m0-bgn 2 Transform უფლება: expected "up’leba", got "upleba"
                 }
 
-                PrintWriter output = null;
-//                When debugging, this can be used to produce a file with the generated results
+//              When debugging, this can be used to produce a file with the generated results
+                PrintWriter output = file.equals(GENERATE_FILE)
+                    ? FileUtilities.openUTF8Writer(fileDirectoryName, "_Generated_"+GENERATE_FILE)
+                        : null;
 //                if (file.equals("und-Latn-t-und-mlym.txt")) {
 //                     output = FileUtilities.openUTF8Writer(fileDirectoryName, "_Generated_"+file);
 //                }
@@ -490,19 +495,15 @@ public class TestTransforms extends TestFmwkPlus {
             }
             Set<String> allTranslitsLower = oldEnumConvertLower(Transliterator.getAvailableIDs(), new TreeSet<>());
             // see which are missing tests
-            for (String s : allTranslitsLower) {
-                if (!foundTranslitsLower.contains(s)) {
-                    warnln("Translit with no test file:\t" + s);
-                }
+            Set<String> missingTranslits = Sets.difference(allTranslitsLower, foundTranslitsLower);
+            if (!missingTranslits.isEmpty()) {
+                warnln("Translit with no test file:\t" + missingTranslits);
             }
-
             // all must be superset of found tests
-            for (String s : foundTranslitsLower) {
-                if (!allTranslitsLower.contains(s)) {
-                    warnln("Test file with no translit:\t" + s);
-                }
+            Set<String> missingFiles = Sets.difference(foundTranslitsLower, allTranslitsLower);
+            if (!missingFiles.isEmpty()) {
+                warnln("Translit with no test file:\t" + missingFiles);
             }
-
         } catch (IOException e) {
             throw new IllegalArgumentException(e);
         }
@@ -657,7 +658,7 @@ public class TestTransforms extends TestFmwkPlus {
     }
 
     private void showTransliterator(Transliterator t) {
-        org.unicode.cldr.test.TestTransforms.showTransliterator("", t, 999);
+        org.unicode.cldr.util.CLDRTransforms.showTransliterator("", t, 999);
     }
 
     public void Test9925() {
@@ -772,13 +773,26 @@ public class TestTransforms extends TestFmwkPlus {
             }
         }
         if (!allMissing.isEmpty()) {
-            warnln("Summary Any-Latn transform doesn't handle " + allMissing.size()
-            + " code points:\n" + allMissing.dataSet.keySet().toPattern(false)
-                );
-            for (String value : allMissing.scriptMissing.values()) {
-                final UnicodeSet missingFoScript = allMissing.scriptMissing.getKeys(value);
-                errln("Transliterator for\t" + value + "\tmissing\t" + missingFoScript.size()
-                + ":\t" + missingFoScript.toPattern(false));
+            if (false) {
+                System.out.println();
+                Transliterator spacedHan = Transliterator.getInstance("Han-SpacedHan");
+                final String result = spacedHan.transform("《");
+                System.out.println("《 => " + result);
+                CLDRTransforms.showTransliterator("", spacedHan, 100000);
+
+                Transliterator hantLatin = CLDRTransforms.getScriptTransform("Hans");
+                System.out.println("《 => " + hantLatin.transform("《"));
+                CLDRTransforms.showTransliterator("", hantLatin, 100000);
+            }
+
+            warnln("Some X-Latn transforms don't handle " + allMissing.size()
+            + " code points:" + allMissing.dataSet.keySet().toPattern(false)
+            + "=" + allMissing.dataSet.keySet());
+            for (String script : allMissing.scriptMissing.values()) {
+                UnicodeSet missingFoScript = allMissing.scriptMissing.getKeys(script);
+                errln("Transliterator for\t" + script + "\tmissing\t" + missingFoScript.size()
+                + ":\t" + missingFoScript.toPattern(false)
+                + "=" + missingFoScript);
             }
         }
     }

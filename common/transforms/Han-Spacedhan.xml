@@ -14,7 +14,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 # Make sure Han are normalized, including characters that contain them.
 # The first set in the filter is computed with http://unicode.org/cldr/utility/list-unicodeset.jsp?a=[:tonfkd:/XXX/:]-[:ideographic:]-[:sc=han:]
 # Where XXX is the resolved [:ideographic:][:sc=han:]. It needs updating with each Unicode release!
-:: [[〜 ・ 、 。 《-』 「 」々][㆒-㆟㈠-㉇㊀-㊰㋀-㋋㍘-㍰㍻-㍿㏠-㏾ 🈐-🈒🈔-🈺🉀-🉈🉐🉑][:ideographic:][:sc=han:]] nfkc;
+:: [[、。々《-』〜・㆒-㆟㈠-㉇㊀-㊰㋀-㋋ ㍘-㍰㍻-㍿㏠-㏾🈐-🈒🈔-🈺🉀-🉈🉐🉑][:ideographic:][:sc=han:]] nfkc;
 :: fullwidth-halfwidth;
 ｡ → '.';
 。→ '.';

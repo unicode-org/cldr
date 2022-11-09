@@ -830,6 +830,7 @@ public class CLDRTransforms {
     private static final ImmutableSet<String> noSkip = ImmutableSet.of();
 
     private static final boolean SHOW = false;
+    private static final boolean SHOW_FAILED_MATCHES = false;
 
     /**
      * Register a transliterator and verify that a sample changed value is accurate
@@ -925,7 +926,7 @@ public class CLDRTransforms {
             break;
         case "Hant":
         case "Hans":
-            id = "Han-Spacedhan ; Han-Latn";
+            id = "Han-Latn";
             break;
         }
         return Transliterator.getInstance(id);
@@ -969,7 +970,7 @@ public class CLDRTransforms {
             if (SHOW) {
                 System.out.println(file + "=>" + order);
             }
-            if (order.size() > 1) {
+            if (!order.isEmpty()) {
                 fileToDependencies.putAll(file, order);
             }
             if (directionInfo.direction != Direction.backward) { // that is, forward or both
@@ -1013,7 +1014,7 @@ public class CLDRTransforms {
         Set<String> remainingFiles = new TreeSet<>(files);
         remainingFiles.removeAll(orderedDependents);
         orderedDependents.addAll(remainingFiles);
-        if (SHOW) {
+        if (SHOW_FAILED_MATCHES) {
             System.out.println(orderedDependents);
         }
         return ImmutableSet.copyOf(orderedDependents);
@@ -1026,7 +1027,7 @@ public class CLDRTransforms {
         + "(?:"
         + "\\s*\\("
         + "(?:\\[[^\\]]+\\]\\s*)?"
-        + "([A-Za-z0-9////_//-]*)"
+        + "([A-Za-z0-9////_//-]*)?"
         + "\\s*\\)"
         + ")?"
         + "\\s*;\\s*(#.*)?");
@@ -1048,7 +1049,7 @@ public class CLDRTransforms {
             }
             return first == null || first.isBlank() ? "" : first;
         } else {
-            if (SHOW) {
+            if (SHOW_FAILED_MATCHES) {
                 System.out.println("fails match: " + x);
             }
         }

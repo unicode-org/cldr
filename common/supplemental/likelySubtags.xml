@@ -2084,8 +2084,10 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<!--{ Rohingya; ?; ? } => { Rohingya; Hanifi; Myanmar (Burma) }-->
 		<likelySubtag from="ria" to="ria_Latn_IN"/>
 		<!--{ Riang (India); ?; ? } => { Riang (India); Latin; India }-->
-		<likelySubtag from="rif" to="rif_Tfng_MA"/>
-		<!--{ Riffian; ?; ? } => { Riffian; Tifinagh; Morocco }-->
+		<likelySubtag from="rif" to="rif_Latn_MA"/>
+		<!--{ Riffian; ?; ? } => { Riffian; Latn; Morocco }-->
+		<likelySubtag from="rif_Tfng" to="rif_Tfng_MA"/>
+		<!--{ Riffian; Tifinagh; ? } => { Riffian; Tifinagh; Morocco }-->
 		<likelySubtag from="rif_NL" to="rif_Latn_NL"/>
 		<!--{ Riffian; ?; Netherlands } => { Riffian; Latin; Netherlands }-->
 		<likelySubtag from="rjs" to="rjs_Deva_NP"/>

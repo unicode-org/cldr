@@ -259,6 +259,17 @@ export default {
           return response;
         })
         .then((data) => data.json())
+        // hide items that TC does not need
+        .then((data) => {
+          const { userIsTC } = cldrStatus.getPermissions();
+          if (userIsTC) {
+            data.notifications = data.notifications.filter(
+              // skip this category for TC users
+              ({ category }) => category !== "Abstained"
+            );
+          }
+          return data;
+        })
         .then((data) => {
           this.data = cldrDash.setData(data);
           this.resetScrolling();

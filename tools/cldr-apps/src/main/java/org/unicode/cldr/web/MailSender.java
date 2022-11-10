@@ -35,6 +35,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.EmailValidator;
 
 /**
  * Helper class. Sends mail with a simple interface
@@ -89,7 +90,9 @@ public class MailSender implements Runnable {
         if (u == null || UserRegistry.userIsLocked(u) || UserRegistry.userIsExactlyAnonymous(u)) {
             return null;
         }
-
+        if (!EmailValidator.passes(u.email)) {
+            return null;
+        }
         if (u.email.equals(UserRegistry.ADMIN_EMAIL)) {
             return null; // no mail to admin
         }
@@ -315,13 +318,17 @@ public class MailSender implements Runnable {
         if (cc != null && !cc.isEmpty()) {
             StringBuilder sb = null;
             for (int u : cc) {
+                String email = getEmailForUser(u);
+                if (email == null) {
+                    continue;
+                }
                 if (sb == null) {
                     sb = new StringBuilder();
                 } else {
                     sb.append(", ");
                 }
                 sb.append('<');
-                sb.append(getEmailForUser(u));
+                sb.append(email);
                 sb.append('>');
             }
             ccstr = sb.toString();

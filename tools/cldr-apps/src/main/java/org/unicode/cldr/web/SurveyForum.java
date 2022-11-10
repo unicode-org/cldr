@@ -487,7 +487,7 @@ public class SurveyForum {
             conn.commit();
         }
         reloadLocales(conn);
-        new SurveyForumCheck(conn).run();
+        SurveyThreadManager.getExecutorService().submit(() -> new SurveyForumCheck(sm).run());
     }
 
     private final SurveyMain sm;

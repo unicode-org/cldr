@@ -487,6 +487,7 @@ public class SurveyForum {
             conn.commit();
         }
         reloadLocales(conn);
+        new SurveyForumCheck(conn).run();
     }
 
     private final SurveyMain sm;

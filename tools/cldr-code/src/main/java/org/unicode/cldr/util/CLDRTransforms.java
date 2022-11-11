@@ -924,6 +924,9 @@ public class CLDRTransforms {
         case "Japn":
             id = "Jpan-Latn";
             break;
+        case "Kore":
+            id = "Hangul-Latn";
+            break;
         case "Hant":
         case "Hans":
             id = "Han-Latn";

@@ -699,4 +699,29 @@ public class TestDtdData extends TestFmwk {
             assertEquals(Arrays.asList(test).toString(), expectedValue, actual);
         }
     }
+
+    public void testGetAltMatch() {
+        DtdData dtdData = DtdData.getInstance(DtdType.ldml);
+        String[][] tests = {
+            /* Example
+            <!ELEMENT script ( #PCDATA ) >
+            <!ATTLIST script alt NMTOKENS #IMPLIED >
+                <!--@MATCH:literal/secondary, short, stand-alone, variant-->
+             */
+            {"script", "alt", "secondary", "short", "stand-alone", "variant"},
+            /* Example
+            <!ELEMENT languages ( alias | ( language | special )* ) >
+             <!ATTLIST languages draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+             */
+            {"languages", "draft", "approved", "contributed", "provisional", "unconfirmed", "true", "false"},
+        };
+        for (String[] test : tests) {
+            Element element = dtdData.getElementFromName().get(test[0]);
+            Attribute attribute = element.getAttributeNamed(test[1]);
+            Set<String> expected = new HashSet<>(Arrays.asList(test).subList(2, test.length));
+            assertEquals("Match items for «" + test[0] + "@" + test[1] + "»",
+                expected,
+                attribute.getMatchLiterals());
+        }
+    }
 }

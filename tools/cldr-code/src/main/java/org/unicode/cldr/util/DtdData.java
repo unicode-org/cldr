@@ -22,6 +22,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.MatchValue.LiteralMatchValue;
+
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
@@ -113,7 +115,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         public final Mode mode;
         public final String defaultValue;
         public final AttributeType type;
-        public final Map<String, Integer> values;
+        public final Map<String, Integer> values; // immutable
         private final Set<String> commentsPre;
         private Set<String> commentsPost;
         private boolean isDeprecatedAttribute;
@@ -322,6 +324,15 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             return type == AttributeType.ENUMERATED_TYPE ? ENUM_LEAD + JOINER_COMMA_SPACE.join(values.keySet()) + ENUM_TRAIL
                 : matchValue != null ? AUG_LEAD + matchValue.toString() + AUG_TRAIL
                     : "";
+        }
+
+        public Set<String> getMatchLiterals() {
+            if (type == AttributeType.ENUMERATED_TYPE) {
+                return values.keySet();
+            } else if (matchValue != null && matchValue instanceof LiteralMatchValue) {
+                return ((LiteralMatchValue)matchValue).getItems();
+            }
+            return null;
         }
 
         public Attribute getMatchingName(Map<Attribute, Integer> attributes) {

@@ -2,15 +2,13 @@ package org.unicode.cldr.util;
 
 import java.util.Collection;
 import java.util.Comparator;
-import java.util.Locale;
 import java.util.TreeSet;
 import java.util.function.Function;
 
-import com.google.common.collect.BiMap;
-import com.google.common.collect.ImmutableBiMap;
 import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.Normalizer2;
+import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
@@ -53,34 +51,6 @@ public class SimpleUnicodeSetFormatter {
         BASIC_COLLATOR = (Comparator<String>) (Comparator<?>) temp;
     }
 
-    public static class CodePointEscaper {
-        static final BiMap<Integer,String> codePointToName = ImmutableBiMap.<Integer,String>builder()
-            .put(0x20,"SP")
-            .put(0x061C,"ALM")
-            .put(0x200E,"LRM")
-            .put(0x200F,"RLM")
-            .put(0x200B,"ZWS")
-            .put(0x200C,"ZWNJ")
-            .put(0x200D,"ZWJ")
-            .put(0x2060,"WJ")
-            // TODO add more
-            .build();
-
-        public static int toCodePoint(CharSequence value) {
-            Integer codePoint = codePointToName.inverse().get(value.toString());
-            return codePoint == null
-                ? Integer.parseInt(value.toString(), 16)
-                    : codePoint; // todo, check codepoint bounds
-        }
-
-        public static String fromCodePoint(int cp) {
-            String result = codePointToName.get(cp);
-            return result == null
-                ? Integer.toString(cp, 16).toUpperCase(Locale.ROOT)
-                    : result;
-        }
-    }
-
     private final Comparator<String> comparator;
     private final UnicodeSet forceHex;
 
@@ -90,13 +60,14 @@ public class SimpleUnicodeSetFormatter {
      * @param forceHex
      */
     public SimpleUnicodeSetFormatter(Comparator<String> col, UnicodeSet forceHex) {
-        this.comparator = col;
+        // collate, but preserve non-equivalents
+        this.comparator = new MultiComparator(col, new UTF16.StringComparator(true, false, 0));
         this.forceHex = forceHex == null ? FORCE_HEX : forceHex;
     }
 
     public String format(UnicodeSet input) {
         StringBuilder result = new StringBuilder();
-        TreeSet<String> sorted = transformAndAddAllTo(input, x -> nfc.normalize(x), new TreeSet<>(comparator));
+        TreeSet<String> sorted = transformAndAddAllTo(input, null, new TreeSet<>(comparator)); // x -> nfc.normalize(x)
 
         int firstOfRange = -2;
         int lastOfRange = -2;
@@ -146,7 +117,7 @@ public class SimpleUnicodeSetFormatter {
         if (!forceHex.contains(cp)) {
             ap.appendCodePoint(cp);
         } else {
-            ap.append(SESC).append(CodePointEscaper.fromCodePoint(cp)).append(EESC);
+            ap.append(SESC).append(CodePointEscaper.toAbbreviationOrHex(cp)).append(EESC);
         }
         return ap;
     }
@@ -217,9 +188,9 @@ public class SimpleUnicodeSetFormatter {
                 case EESC:
                     int newCp;
                     try {
-                        newCp = CodePointEscaper.toCodePoint(toEscape);
+                        newCp = CodePointEscaper.fromAbbreviationOrHex(toEscape);
                     } catch (Exception e) {
-                        CodePointEscaper.toCodePoint(toEscape);
+                        CodePointEscaper.fromAbbreviationOrHex(toEscape); // for debugging
                         throw e;
                     }
                     if (state == State.haveHyphenHex) {
@@ -251,7 +222,7 @@ public class SimpleUnicodeSetFormatter {
 
     public static <T extends Collection<String>> T transformAndAddAllTo(UnicodeSet expected, Function<String,String> function, T target) {
         for (String s : expected) {
-            String t = function.apply(s);
+            String t = function == null ? s : function.apply(s);
             target.add(t);
         }
         return target;

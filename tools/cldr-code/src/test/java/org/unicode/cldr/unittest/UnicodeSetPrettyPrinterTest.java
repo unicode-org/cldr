@@ -8,18 +8,18 @@ package org.unicode.cldr.unittest;
 
 import java.text.Collator;
 import java.util.Locale;
-import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
+import org.unicode.cldr.util.CodePointEscaper;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SimpleUnicodeSetFormatter;
-import org.unicode.cldr.util.SimpleUnicodeSetFormatter.CodePointEscaper;
 import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 
-import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.UnicodeSet;
 
@@ -31,16 +31,18 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
     public static final UnicodeSet TO_QUOTE =
             new UnicodeSet("[[:z:][:me:][:mn:][:di:][:c:]-[\u0020]]");
 
-    public void TestBasicUnicodeSet() {
-
-        Collator spaceComp = Collator.getInstance(Locale.ENGLISH);
+    Collator spaceComp = Collator.getInstance(Locale.ENGLISH);
+    {
         spaceComp.setStrength(Collator.PRIMARY);
+    }
 
-        final UnicodeSetPrettyPrinter PRETTY_PRINTER =
-                new UnicodeSetPrettyPrinter()
-                        .setOrdering(Collator.getInstance(Locale.ENGLISH))
-                        .setSpaceComparator(spaceComp)
-                        .setToQuote(TO_QUOTE);
+    final UnicodeSetPrettyPrinter PRETTY_PRINTER = new UnicodeSetPrettyPrinter()
+        .setOrdering(Collator.getInstance(Locale.ENGLISH))
+        .setSpaceComparator(spaceComp)
+        .setToQuote(TO_QUOTE);
+
+
+    public void TestBasicUnicodeSet() {
 
         UnicodeSet expected = new UnicodeSet("[:L:]");
         String formatted = PRETTY_PRINTER.format(expected);
@@ -49,17 +51,15 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
         assertEquals("PrettyPrinter preserves meaning", expected, actual);
     }
 
-    boolean showAnyway = false;
-
     public void testCodePointEscaper() {
         String [][] tests = {
-            {" ", "SP"},
             {"\u000F", "F"},
+            {" ", "SP"},
         };
         for (String[] test : tests) {
             final int source = test[0].codePointAt(0);
-            String actual = CodePointEscaper.fromCodePoint(source);
-            int expectedRoundtrip = CodePointEscaper.toCodePoint(actual);
+            String actual = CodePointEscaper.toAbbreviationOrHex(source);
+            int expectedRoundtrip = CodePointEscaper.fromAbbreviationOrHex(actual);
             String expected = test.length<2 ? actual : test[1];
             assertEquals("", expected, actual);
             assertEquals("", expectedRoundtrip, source);
@@ -68,9 +68,9 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
 
     public void testSimpleUnicodeSetFormatter() {
         String [][] tests = {
-            {"[\\u0020]", "❰SP❱"},
             {"[\u000F]", "❰F❱"},
-       };
+            {"[\\u0020]", "❰SP❱"},
+        };
         SimpleUnicodeSetFormatter susf = new SimpleUnicodeSetFormatter(SimpleUnicodeSetFormatter.BASIC_COLLATOR, null);
 
         for (String[] test : tests) {
@@ -86,9 +86,20 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
         }
     }
 
-    Set<String> SHOW_LOCALES = ImmutableSet.of("hu", "ar");
+    final Matcher matchLocale; // fine-grained control for verbose
+    // use -DUnicodeSetPrettyPrinterTest:showAnyway=.* for all
+    {
+        String matchString = System.getProperty("UnicodeSetPrettyPrinterTest:showAnyway");
+        if (matchString == null) {
+            matchLocale = null;
+        } else {
+            matchLocale = Pattern.compile(matchString).matcher("");
+        }
+    }
 
-    public void TestSimpleUnicodeSetFormatterWithLocales() {
+
+    public void testSimpleUnicodeSetFormatterWithLocales() {
+        havePrintln = false;
         final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
         Factory cldrFactory = CLDR_CONFIG.getCldrFactory();
         SimpleUnicodeSetFormatter susf = new SimpleUnicodeSetFormatter(SimpleUnicodeSetFormatter.BASIC_COLLATOR, null);
@@ -102,13 +113,16 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
 
         for (String locale : cldrFactory.getAvailableLanguages()) {
             CLDRFile cldrFile = cldrFactory.make(locale, true);
+            boolean showAnyway = matchLocale == null ? false : matchLocale.reset(locale).matches();
             for (ExemplarType type : ExemplarType.values()) {
-                UnicodeSet expected = cldrFile.getExemplarSet(type, WinningChoice.WINNING);
-                expected = SimpleUnicodeSetFormatter.transform(expected, x -> SimpleUnicodeSetFormatter.nfc.normalize(x)); //current CLDR might not be normalized
-                check(susf, locale, type, expected, showAnyway || SHOW_LOCALES.contains(locale));
+                UnicodeSet source = cldrFile.getExemplarSet(type, WinningChoice.WINNING);
+                // source = SimpleUnicodeSetFormatter.transform(source, x -> SimpleUnicodeSetFormatter.nfc.normalize(x)); //current CLDR might not be normalized
+                check(susf, locale, type, source, showAnyway);
             }
         }
     }
+
+    boolean havePrintln = false;
 
     void check(SimpleUnicodeSetFormatter susf, String locale, ExemplarType type, UnicodeSet source, boolean showAnyway) {
         String formatted = susf.format(source);
@@ -117,7 +131,11 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
         if (showAnyway || !isOk) {
             UnicodeSet roundtrip_source = new UnicodeSet(roundtrip).removeAll(source);
             UnicodeSet source_roundtrip = new UnicodeSet(source).removeAll(roundtrip);
-            System.out.println(locale + "\t" + type + "\tsource:  \t" + showInvisible(source, SimpleUnicodeSetFormatter.FORCE_HEX));
+            if (!havePrintln) {
+                System.out.println();
+                havePrintln = true;
+            }
+            System.out.println(locale + "\t" + type + "\tsource:  \t" + PRETTY_PRINTER.format(source));
             System.out.println(locale + "\t" + type + "\tformatted:\t" + formatted);
             if (!roundtrip_source.isEmpty()) {
                 System.out.println(locale + "\t" + type + "\tFAIL, roundtrip-source:  \t" + showInvisible(roundtrip_source, SimpleUnicodeSetFormatter.FORCE_HEX));

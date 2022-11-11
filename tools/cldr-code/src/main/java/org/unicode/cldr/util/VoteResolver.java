@@ -436,6 +436,13 @@ public class VoteResolver<T> {
         public boolean canGetEmailList() {
             return isManagerOrStronger();
         }
+
+        /**
+         * If true, can delete users at their user level or lower.
+         */
+        public boolean canDeleteUsers() {
+            return isAdmin();
+        }
      }
 
     /**

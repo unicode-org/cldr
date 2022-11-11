@@ -68,7 +68,7 @@ public class TestUserLevel {
         "adlam, null, userCanCreateSummarySnapshot, false, wod_nko, vetter",
         "adlam, null, userCanMonitorForum, false, wod_nko, vetter",
         "adlam, null, userCanSetInterestLocales, false, wod_nko, vetter",
-        "adlam, null, userCanGetEmailList, false, wod_nko, vetter",
+        "adlam, null, userCanGetEmailList, false, wod_nko, vetter"
     })
     void TestNullUserCompatibility(String org, String levelStr, String operation, String expStr,
         String otherOrg, String otherLevel) throws SQLException {
@@ -182,6 +182,9 @@ public class TestUserLevel {
             break;
         case "canNOTVoteWithCount":
             assertFalse(u.getLevel().canVoteWithCount(o, Integer.parseInt(expStr)), onFail);
+            break;
+        case "canDeleteUsers":
+            assertEquals(expected, u.getLevel().canDeleteUsers(), onFail);
             break;
         default:
             assertFalse(true, "Unsupported operation in TestUserLevel.csv: " + operation);
@@ -300,6 +303,9 @@ public class TestUserLevel {
             break;
         case "canNOTVoteWithCount":
             assertFalse(l.canVoteWithCount(o, Integer.parseInt(expStr)), onFail);
+            break;
+        case "canDeleteUsers":
+            assertEquals(expected, l.canDeleteUsers(), onFail);
             break;
         default:
             assertFalse(true, "Unsupported operation in TestUserLevel.csv: " + operation);

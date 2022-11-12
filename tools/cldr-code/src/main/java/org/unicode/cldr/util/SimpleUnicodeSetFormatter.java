@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.TreeSet;
 import java.util.function.Function;
 
+import com.google.common.base.Splitter;
 import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.Normalizer2;
@@ -20,26 +21,24 @@ import com.ibm.icu.util.ULocale;
  *  ⦕   start of hex, but only if followed by [A-Fa-f0-9]+ ⦖
  *
  *  EBNF
- *  result = item + (" "? + (string | range | codepoint))*
- *  string = "{" literal+ "} // literal must contain no spaces
- *  range = codepoint "-" codepoint
- *  codepoint = "⦕" [A-F0-9]+ "⦖" // escaped
- *  codepoint = literal
- *
- *  The { is already used in UnicodeSet for strings, and familiar to vetters. ⦕ was chosen to be avoid special use of \\u or \x
- *
- *  TODO parse and format hex in strings
+ *  result = item (" " item)*
+ *  item = string | range | codePoint
+ *  string = codePoint+
+ *  range = codePoint "➖" codePoint
+ *  codepoint = literal  // excludes " ", "⦕", "⦖"
+ *  codepoint = "⦕" (namedEscape | hex) "⦖"
+ *  namedEscape = [A-Fa-f0-9]+ // as per CodePointEscape
+ *  hex = [A-Fa-f0-9]{2,6} // must be valid code point 0x0..0x10FFFF
+ *  ⦕ was chosen to be avoid special use of \\u or \x
  * @author markdavis
  */
 public class SimpleUnicodeSetFormatter {
     private static final char RANGE = '➖';
-    private static final char SESC = '❰';
-    private static final char EESC = '❱';
-    private static final char SSTR = '⦕';
-    private static final char ESTR = '⦖';
+    private static final char ESC_START = '⦕';
+    private static final char ESC_END = '⦖';
 
     public static final UnicodeSet FORCE_HEX = new UnicodeSet("[[:c:][:z:][:whitespace:]]")
-        .add(RANGE).add(SESC).add(EESC).add(SSTR).add(ESTR).freeze();
+        .add(RANGE).add(ESC_START).add(ESC_END).freeze();
 
     public static Normalizer2 nfc = Normalizer2.getNFCInstance();
 
@@ -84,7 +83,7 @@ public class SimpleUnicodeSetFormatter {
                 if (result.length() > 0) {
                     result.append(' ');
                 }
-                appendWithHex(result.append(SSTR), item, forceHex).append(ESTR);
+                appendWithHex(result, item, forceHex);
             } else if (lastOfRange == cp - 1) {
                 ++lastOfRange;
             } else {
@@ -117,96 +116,63 @@ public class SimpleUnicodeSetFormatter {
         if (!forceHex.contains(cp)) {
             ap.appendCodePoint(cp);
         } else {
-            ap.append(SESC).append(CodePointEscaper.toAbbreviationOrHex(cp)).append(EESC);
+            ap.append(ESC_START).append(CodePointEscaper.toAbbreviationOrHex(cp)).append(ESC_END);
         }
         return ap;
     }
 
-    private enum State {start, haveCp, haveHyphen, haveCurly, haveHex, haveHyphenHex}
+    static final Splitter SPACE_SPLITTER = Splitter.on(' ').omitEmptyStrings();
 
     public UnicodeSet parse(String input) {
         UnicodeSet result = new UnicodeSet();
-        StringBuilder b = new StringBuilder();
-        State state = State.start;
-        StringBuilder toEscape = new StringBuilder();
-        int last = -1; // -1 indicates can't have -x for a range after it.
-        for (int cp : With.codePointArray(input)) {
+        // Note: could be optimized but probably not worth the effort
 
-            switch (state) {
-            case start:
-                switch (cp) {
-                case ' ':
-                    break;
-                case SSTR:
-                    state=State.haveCurly; break;
-                case SESC:
-                    state=State.haveHex; break;
-                default:
-                    result.add(cp); last=cp; state=State.haveCp; break;
+        for (String word : SPACE_SPLITTER.split(input)) {
+            // parts between spaces can be single code points, or strings, or ranges of single code points
+            int rangePos = word.indexOf(RANGE);
+            if (rangePos < 0) {
+                result.add(unescape(word));
+            } else {
+                int range2Pos = word.indexOf(RANGE, rangePos+1);
+                if (range2Pos >= 0) {
+                    throw new IllegalArgumentException("Two range marks: " + word);
+                } else if (rangePos == 0 || rangePos == word.length()-1) {
+                    throw new IllegalArgumentException("A range mark must have characters on both sides: " + word);
                 }
-                break;
-            case haveCp:
-                switch (cp) {
-                case ' ':
-                    state=State.start; break;
-                case SSTR:
-                    state=State.haveCurly; break;
-                case SESC:
-                    state=State.haveHex; break;
-                case RANGE:
-                    state=State.haveHyphen; break;
-                default:
-                    result.add(cp); last=cp; state=State.haveCp; break;
+                // get the code points on either side
+                int first = CharSequences.getSingleCodePoint(unescape(word.substring(0,rangePos)));
+                int second = CharSequences.getSingleCodePoint(unescape(word.substring(rangePos+1)));
+                if (first == Integer.MAX_VALUE || second == Integer.MAX_VALUE) {
+                    throw new IllegalArgumentException("A range mark must have single code points on both sides: " + word);
                 }
-                break;
-            case haveHyphen:
-                switch (cp) {
-                case ' ':
-                    result.add(RANGE); state=State.start; break; // failure
-                case SESC:
-                    state=State.haveHyphenHex; break;
-                default:
-                    result.add(last+1, cp); last=-1; state=State.start; break;
+                result.add(first, second);
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Unescape a whole string.
+     */
+    private CharSequence unescape(String word) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < word.length(); ) {
+            int escapeStart = word.indexOf(ESC_START, i);
+            if (escapeStart < 0) {
+                if (i == 0) {
+                    return word; // common case
                 }
-                break;
-            case haveCurly:
-                switch (cp) {
-                case ESTR:
-                    result.add(b); b.setLength(0); state=State.start;
-                    break;
-                case ' ':
-                    b.insert(0, SSTR); result.add(b); state=State.start;
-                    break; // failure
-                    // TODO {a-c should be { followed by range a-b
-                default:
-                    b.appendCodePoint(cp); break;
-                }
-                break;
-            case haveHex:
-            case haveHyphenHex:
-                switch (cp) {
-                case EESC:
-                    int newCp;
-                    try {
-                        newCp = CodePointEscaper.fromAbbreviationOrHex(toEscape);
-                    } catch (Exception e) {
-                        CodePointEscaper.fromAbbreviationOrHex(toEscape); // for debugging
-                        throw e;
-                    }
-                    if (state == State.haveHyphenHex) {
-                        result.add(last+1, newCp); last=-1;  state=State.start;
-                    } else {
-                        result.add(newCp); last=newCp; state=State.haveCp;
-                    }
-                    toEscape.setLength(0);
-                    b.setLength(0);
-                    break;
-                default:
-                    toEscape.appendCodePoint(cp);
-                    break;
-                }
+                result.append(word.substring(i));
                 break;
             }
+            result.append(word.substring(i, escapeStart));
+            int interiorStart = escapeStart+1;
+            int escapeEnd = word.indexOf(ESC_END, interiorStart);
+            if (escapeEnd < 0) {
+                throw new IllegalArgumentException("Escape start " + ESC_START + " without escape end " + ESC_END + ": " + word);
+            }
+            result.appendCodePoint(CodePointEscaper.fromAbbreviationOrHex(word.substring(interiorStart, escapeEnd)));
+            i = escapeEnd + 1;
         }
         return result;
     }

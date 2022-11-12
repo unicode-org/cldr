@@ -68,8 +68,8 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
 
     public void testSimpleUnicodeSetFormatter() {
         String [][] tests = {
-            {"[\u000F]", "❰F❱"},
-            {"[\\u0020]", "❰SP❱"},
+            {"[\u000F]", "⦕F⦖"},
+            {"[\\u0020]", "⦕SP⦖"},
         };
         SimpleUnicodeSetFormatter susf = new SimpleUnicodeSetFormatter(SimpleUnicodeSetFormatter.BASIC_COLLATOR, null);
 
@@ -85,6 +85,16 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
             assertEquals(source + " roundtrip", expectedRoundtrip, source);
         }
     }
+    // TODO add test cases for bad syntax; space-delimited items like:
+    // ➖
+    // 0➖
+    // ➖9
+    // 10➖9
+    // ⦕SP
+    // SP⦖
+    // ⦕
+    // ⦖
+    // ⦕110000⦖
 
     final Matcher matchLocale; // fine-grained control for verbose
     // use -DUnicodeSetPrettyPrinterTest:showAnyway=.* for all

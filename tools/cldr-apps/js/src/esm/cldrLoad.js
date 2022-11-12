@@ -761,7 +761,6 @@ function loadExclamationPoint() {
 }
 
 function loadAllRows(itemLoadInfo, theDiv) {
-  // TODO: curId (aka strid) appears to be ignored by the server; if so, remove it from the request
   const curId = cldrStatus.getCurrentId();
   const curPage = cldrStatus.getCurrentPage();
   const curLocale = cldrStatus.getCurrentLocale();
@@ -816,7 +815,6 @@ function loadAllRowsFromJson(json, theDiv) {
     cldrStatus.setCurrentSection("");
     cldrStatus.setCurrentPage(json.pageId);
     updateHashAndMenus(); // now that we have a pageid
-    cldrInfo.showMessage(getGuidanceMessage(json.canModify));
     if (!cldrSurvey.isInputBusy()) {
       cldrSurvey.showLoader(cldrText.get("loading3"));
       cldrTable.insertRows(
@@ -830,6 +828,9 @@ function loadAllRowsFromJson(json, theDiv) {
       showCurrentId(); // already calls scroll
       cldrGui.refreshCounterVetting();
       $("#nav-page-footer").show(); // make bottom "Prev/Next" buttons visible after building table
+      if (!cldrStatus.getCurrentId()) {
+        cldrInfo.showMessage(getGuidanceMessage(json.canModify));
+      }
     }
   }
 }

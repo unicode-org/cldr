@@ -6,6 +6,7 @@ import * as cldrDom from "./cldrDom.js";
 import * as cldrEvent from "./cldrEvent.js";
 import * as cldrForumPanel from "./cldrForumPanel.js";
 import * as cldrLoad from "./cldrLoad.js";
+import * as cldrSideways from "./cldrSideways.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrTable from "./cldrTable.js";
@@ -265,6 +266,7 @@ function show(str, tr, hideIfLast, fn) {
 
   // forum stuff
   if (tr && tr.forumDiv) {
+    cldrSideways.loadMenu(fragment, tr);
     /*
      * The name forumDivClone is a reminder that forumDivClone !== tr.forumDiv.
      * TODO: explain the reason for using cloneNode here, rather than using

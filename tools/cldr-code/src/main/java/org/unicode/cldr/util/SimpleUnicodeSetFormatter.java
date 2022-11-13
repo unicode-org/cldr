@@ -33,13 +33,6 @@ import com.ibm.icu.util.ULocale;
  * @author markdavis
  */
 public class SimpleUnicodeSetFormatter {
-    private static final char RANGE = '➖';
-    private static final char ESC_START = '⦕';
-    private static final char ESC_END = '⦖';
-
-    public static final UnicodeSet FORCE_HEX = new UnicodeSet("[[:c:][:z:][:whitespace:]]")
-        .add(RANGE).add(ESC_START).add(ESC_END).freeze();
-
     public static Normalizer2 nfc = Normalizer2.getNFCInstance();
 
     public static final Comparator<String> BASIC_COLLATOR;
@@ -60,8 +53,12 @@ public class SimpleUnicodeSetFormatter {
      */
     public SimpleUnicodeSetFormatter(Comparator<String> col, UnicodeSet forceHex) {
         // collate, but preserve non-equivalents
-        this.comparator = new MultiComparator(col, new UTF16.StringComparator(true, false, 0));
-        this.forceHex = forceHex == null ? FORCE_HEX : forceHex;
+        this.comparator = new MultiComparator(col == null ? BASIC_COLLATOR : col, new UTF16.StringComparator(true, false, 0));
+        this.forceHex = forceHex == null ? CodePointEscaper.FORCE_ESCAPE : forceHex;
+    }
+
+    public SimpleUnicodeSetFormatter() {
+        this(null, null);
     }
 
     public String format(UnicodeSet input) {
@@ -75,7 +72,7 @@ public class SimpleUnicodeSetFormatter {
             if (cp == Integer.MAX_VALUE) {
                 if (lastOfRange >= 0) {
                     if (firstOfRange != lastOfRange) {
-                        result.append(firstOfRange + 1 != lastOfRange ? RANGE : ' ');
+                        result.append(firstOfRange + 1 != lastOfRange ? CodePointEscaper.RANGE_SYNTAX : ' ');
                         appendWithHex(result, lastOfRange, forceHex);
                     }
                     firstOfRange = lastOfRange = -2;
@@ -88,7 +85,7 @@ public class SimpleUnicodeSetFormatter {
                 ++lastOfRange;
             } else {
                 if (firstOfRange != lastOfRange) {
-                    result.append(firstOfRange + 1 != lastOfRange ? RANGE : ' ');
+                    result.append(firstOfRange + 1 != lastOfRange ? CodePointEscaper.RANGE_SYNTAX : ' ');
                     appendWithHex(result, lastOfRange, forceHex);
                 }
                 if (result.length() > 0) {
@@ -99,7 +96,7 @@ public class SimpleUnicodeSetFormatter {
             }
         }
         if (firstOfRange != lastOfRange) {
-            result.append(firstOfRange + 1 != lastOfRange ? RANGE : ' ');
+            result.append(firstOfRange + 1 != lastOfRange ? CodePointEscaper.RANGE_SYNTAX : ' ');
             appendWithHex(result, lastOfRange, forceHex);
         }
         return result.toString();
@@ -116,7 +113,7 @@ public class SimpleUnicodeSetFormatter {
         if (!forceHex.contains(cp)) {
             ap.appendCodePoint(cp);
         } else {
-            ap.append(ESC_START).append(CodePointEscaper.toAbbreviationOrHex(cp)).append(ESC_END);
+            ap.append(CodePointEscaper.ESCAPE_START).append(CodePointEscaper.toAbbreviationOrHex(cp)).append(CodePointEscaper.ESCAPE_END);
         }
         return ap;
     }
@@ -129,11 +126,11 @@ public class SimpleUnicodeSetFormatter {
 
         for (String word : SPACE_SPLITTER.split(input)) {
             // parts between spaces can be single code points, or strings, or ranges of single code points
-            int rangePos = word.indexOf(RANGE);
+            int rangePos = word.indexOf(CodePointEscaper.RANGE_SYNTAX);
             if (rangePos < 0) {
                 result.add(unescape(word));
             } else {
-                int range2Pos = word.indexOf(RANGE, rangePos+1);
+                int range2Pos = word.indexOf(CodePointEscaper.RANGE_SYNTAX, rangePos+1);
                 if (range2Pos >= 0) {
                     throw new IllegalArgumentException("Two range marks: " + word);
                 } else if (rangePos == 0 || rangePos == word.length()-1) {
@@ -157,19 +154,24 @@ public class SimpleUnicodeSetFormatter {
     private CharSequence unescape(String word) {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < word.length(); ) {
-            int escapeStart = word.indexOf(ESC_START, i);
+            int escapeStart = word.indexOf(CodePointEscaper.ESCAPE_START, i);
             if (escapeStart < 0) {
-                if (i == 0) {
-                    return word; // common case
+                final String toAppend = i == 0 ? word : word.substring(i);
+                if (toAppend.indexOf(CodePointEscaper.ESCAPE_END) >= 0) {
+                    throw new IllegalArgumentException("Escape end " + CodePointEscaper.ESCAPE_END + " without escape start " + CodePointEscaper.ESCAPE_START + ": " + word);
                 }
-                result.append(word.substring(i));
+                result.append(toAppend);
                 break;
             }
-            result.append(word.substring(i, escapeStart));
+            final String toAppend = word.substring(i, escapeStart);
+            if (toAppend.indexOf(CodePointEscaper.ESCAPE_END) >= 0) {
+                throw new IllegalArgumentException("Escape end " + CodePointEscaper.ESCAPE_END + " without escape start " + CodePointEscaper.ESCAPE_START + ": " + word);
+            }
+            result.append(toAppend);
             int interiorStart = escapeStart+1;
-            int escapeEnd = word.indexOf(ESC_END, interiorStart);
+            int escapeEnd = word.indexOf(CodePointEscaper.ESCAPE_END, interiorStart);
             if (escapeEnd < 0) {
-                throw new IllegalArgumentException("Escape start " + ESC_START + " without escape end " + ESC_END + ": " + word);
+                throw new IllegalArgumentException("Escape start " + CodePointEscaper.ESCAPE_START + " without escape end " + CodePointEscaper.ESCAPE_END + ": " + word);
             }
             result.appendCodePoint(CodePointEscaper.fromAbbreviationOrHex(word.substring(interiorStart, escapeEnd)));
             i = escapeEnd + 1;

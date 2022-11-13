@@ -5,32 +5,46 @@ import java.util.Set;
 
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.UnicodeMap;
+import com.ibm.icu.text.UnicodeSet;
 
 /**
  * Provide a set of code point abbreviations. Includes conversions to and from codepoints, including hex.
  */
 public enum CodePointEscaper {
+    // These are characters found in CLDR data fields
+    // The long names don't necessarily match the formal Unicode names
     SP(0x20, "space", "ASCII space"),
     NBSP(0xA0, "no-break space"),
 
     NSP(0x2009, "narrow space", "thin space"),
     NNBSP(0x202F, "narrow no-break space", "thin no-break space"),
 
-    ZWS(0x200B, "word non-joiner", "zero-width space"),
-    WJ(0x2060, "word joiner", "zero-width no-break space"),
+    ZWNJ(0x200C, "zero-width non-joiner"),
+    ZWJ(0x200D, "zero-width joiner"),
+
+    ZWSP(0x200B, "word non-joiner", "zero-width space"),
+    ZWNBSP(0x2060, "word joiner (zero-width no-break space)"),
 
     ALM(0x061C, "Arabic letter mark"),
     LRM(0x200E, "left-right mark"),
     RLM(0x200F, "right-left mark"),
-    ZWNJ(0x200C, "zero-width non-joiner"),
-    ZWJ(0x200D, "zero-width joiner");
 
-    private final int codePoint;
-    private final Set<String> longNames;
-    private CodePointEscaper(int codePoint, String... longNames) {
-        this.codePoint = codePoint;
-        this.longNames = ImmutableSet.copyOf(longNames);
-    }
+    LRO(0x202D, "left-right override"),
+    RLO(0x202E, "right-left override"),
+    PDF(0x202C, "end override"),
+
+    SHY(0x00AD, "soft hyphen"),
+
+    RANGE('➖', "range syntax mark", "heavy minus sign"),
+    ESCS('⦕', "escape start", "double open paren angle"),
+    ESCE('⦖', "escape end", "double close paren angle")
+    ;
+
+    public static final char RANGE_SYNTAX = (char) RANGE.getCodePoint();
+    public static final char ESCAPE_START = (char) ESCS.getCodePoint();
+    public static final char ESCAPE_END =  (char) ESCE.getCodePoint();
+
+    /** Assemble the reverse mapping */
     private static final UnicodeMap<CodePointEscaper> _fromCodePoint = new UnicodeMap<>();
     static {
         for (CodePointEscaper abbr : CodePointEscaper.values()) {
@@ -41,6 +55,23 @@ public enum CodePointEscaper {
             _fromCodePoint.put(abbr.codePoint, abbr);
         }
         _fromCodePoint.freeze();
+    }
+
+    /** Characters that need escaping */
+    public static final UnicodeSet FORCE_ESCAPE = new UnicodeSet("[[:DI:][:Pat_WS:][:WSpace:][:Cn:][:Cc:]]")
+        .addAll(getNamedEscapes())
+        .freeze();
+
+    private final int codePoint;
+    private final Set<String> longNames;
+
+    private CodePointEscaper(int codePoint, String... longNames) {
+        this.codePoint = codePoint;
+        this.longNames = ImmutableSet.copyOf(longNames);
+    }
+
+    public static final UnicodeSet getNamedEscapes() {
+        return _fromCodePoint.keySet().freeze();
     }
 
     /**

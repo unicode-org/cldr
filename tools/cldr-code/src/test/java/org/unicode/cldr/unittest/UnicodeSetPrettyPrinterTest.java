@@ -43,7 +43,6 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
 
 
     public void TestBasicUnicodeSet() {
-
         UnicodeSet expected = new UnicodeSet("[:L:]");
         String formatted = PRETTY_PRINTER.format(expected);
         logln(formatted);
@@ -85,17 +84,32 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
             assertEquals(source + " roundtrip", expectedRoundtrip, source);
         }
     }
-    // TODO add test cases for bad syntax; space-delimited items like:
-    // ➖
-    // 0➖
-    // ➖9
-    // 10➖9
-    // ⦕SP
-    // SP⦖
-    // ⦕
-    // ⦖
-    // ⦕110000⦖
 
+    public void testSimpleUnicodesetSyntax() {
+        String [][] tests = {
+            {"➖", "A range mark must have characters on both sides: ➖"},
+            {"0➖", "A range mark must have characters on both sides: 0➖"},
+            {"➖9", "A range mark must have characters on both sides: ➖9"},
+            {"10➖9", "A range mark must have single code points on both sides: 10➖9"},
+            {"⦕SP", "Escape start ⦕ without escape end ⦖: ⦕SP"},
+            {"⦕", "Escape start ⦕ without escape end ⦖: ⦕"},
+            {"⦕110000⦖", "Code point out of bounds: 110000"},
+            {"SP⦖", "Escape end ⦖ without escape start ⦕: SP⦖"},
+            {"⦖", "Escape end ⦖ without escape start ⦕: ⦖"},
+        };
+        SimpleUnicodeSetFormatter susf = new SimpleUnicodeSetFormatter();
+        for (String[] test : tests) {
+            String actual = null;
+            try {
+                UnicodeSet uset = susf.parse(test[0]);
+                actual = uset.toPattern(false);
+            } catch (Exception e) {
+                actual = e.getMessage();
+            }
+            assertEquals(test[0], test[1], actual);
+        }
+
+    }
     final Matcher matchLocale; // fine-grained control for verbose
     // use -DUnicodeSetPrettyPrinterTest:showAnyway=.* for all
     {
@@ -121,7 +135,11 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
         check(susf, "", ExemplarType.main, new UnicodeSet("[\\u200D\\u200e]"), false);
         // TODO also allow hex in strings check(susf, "", ExemplarType.main, new UnicodeSet("[{\\u200D\\u200e}]"), false);
 
+        UnicodeSet needsEscape = new UnicodeSet();
+        UnicodeSet localeNeedsEscape = new UnicodeSet();
+
         for (String locale : cldrFactory.getAvailableLanguages()) {
+            localeNeedsEscape.clear();
             CLDRFile cldrFile = cldrFactory.make(locale, true);
             boolean showAnyway = matchLocale == null ? false : matchLocale.reset(locale).matches();
             for (ExemplarType type : ExemplarType.values()) {
@@ -129,7 +147,21 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
                 // source = SimpleUnicodeSetFormatter.transform(source, x -> SimpleUnicodeSetFormatter.nfc.normalize(x)); //current CLDR might not be normalized
                 check(susf, locale, type, source, showAnyway);
             }
+            CLDRFile cldrFile2 = cldrFactory.make(locale, false); // just existing paths
+            for (String path : cldrFile2) {
+                String value = cldrFile2.getStringValue(path);
+                if (CodePointEscaper.FORCE_ESCAPE.containsSome(value)) {
+                    localeNeedsEscape.addAll(value); // add more than we need
+                }
+            }
+            localeNeedsEscape.retainAll(CodePointEscaper.FORCE_ESCAPE);
+            if (showAnyway) {
+                System.out.println(locale + " Needs Escape: " + needsEscape);
+            }
+            needsEscape.addAll(localeNeedsEscape);
         }
+        System.out.println("Needs Escape: " + needsEscape);
+        System.out.println("Named Escapes: " + CodePointEscaper.getNamedEscapes());
     }
 
     boolean havePrintln = false;
@@ -148,10 +180,10 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
             System.out.println(locale + "\t" + type + "\tsource:  \t" + PRETTY_PRINTER.format(source));
             System.out.println(locale + "\t" + type + "\tformatted:\t" + formatted);
             if (!roundtrip_source.isEmpty()) {
-                System.out.println(locale + "\t" + type + "\tFAIL, roundtrip-source:  \t" + showInvisible(roundtrip_source, SimpleUnicodeSetFormatter.FORCE_HEX));
+                System.out.println(locale + "\t" + type + "\tFAIL, roundtrip-source:  \t" + showInvisible(roundtrip_source, CodePointEscaper.FORCE_ESCAPE));
             }
             if (!source_roundtrip.isEmpty()) {
-                System.out.println(locale + "\t" + type + "\tFAIL, source_roundtrip:  \t" + showInvisible(source_roundtrip, SimpleUnicodeSetFormatter.FORCE_HEX));
+                System.out.println(locale + "\t" + type + "\tFAIL, source_roundtrip:  \t" + showInvisible(source_roundtrip, CodePointEscaper.FORCE_ESCAPE));
             }
 
             if (!isOk) {

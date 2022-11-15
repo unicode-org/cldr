@@ -57,6 +57,10 @@ public class SimpleUnicodeSetFormatter {
         this.forceHex = forceHex == null ? CodePointEscaper.FORCE_ESCAPE : forceHex;
     }
 
+    public SimpleUnicodeSetFormatter(Comparator<String> col) {
+        this(col, null);
+    }
+
     public SimpleUnicodeSetFormatter() {
         this(null, null);
     }

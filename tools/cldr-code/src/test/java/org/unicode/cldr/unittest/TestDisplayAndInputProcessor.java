@@ -1,16 +1,18 @@
 package org.unicode.cldr.unittest;
 
-import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.lang.CharSequences;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSetIterator;
 import java.util.Set;
+
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.DisplayAndInputProcessor.PathSpaceType;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.Factory;
+
+import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.lang.CharSequences;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
 
 public class TestDisplayAndInputProcessor extends TestFmwk {
 
@@ -61,9 +63,10 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
     public void TestTasawaq() {
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getCLDRFile("twq", true));
         // time for data driven test
-        final String input = "[Z \u017E ]";
-        final String expect = "[z \u017E]"; // lower case
-        String value = daip.processInput("//ldml/characters/exemplarCharacters", input, null);
+        final String input = "Z \u017E";
+        final String expect = "[zž]"; // lower case
+        String value = daip.processInput(
+            "//ldml/characters/exemplarCharacters", input, null);
         if (!value.equals(expect)) {
             errln(
                     "Tasawaq incorrectly normalized with output: '"
@@ -349,25 +352,22 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             String input = daip.processInput(path, display, internalException);
             String diff = diff(value, input, path);
             if (diff != null) {
-                errln(
-                        cldrFile.getLocaleID()
-                                + "\tNo roundtrip in DAIP:"
-                                + "\n\t  value<"
-                                + value
-                                + ">\n\tdisplay<"
-                                + display
-                                + ">\n\t  input<"
-                                + input
-                                + ">\n\t   diff<"
-                                + diff
-                                + (internalException[0] != null
-                                        ? ">\n\texcep<" + internalException[0]
-                                        : "")
-                                + ">\n\tpath<"
-                                + path
-                                + ">");
-                daip.processInput(path, value, internalException); // for
-                // debugging
+                errln(cldrFile.getLocaleID() + "\tNo roundtrip in DAIP:"
+                    + "\n\t  value<"
+                    + value
+                    + ">\n\tdisplay<"
+                    + display
+                    + ">\n\t  input<"
+                    + input
+                    + ">\n\t   diff<"
+                    + diff
+                    + (internalException[0] != null ? ">\n\texcep<"
+                        + internalException[0] : "")
+                    + ">\n\tpath<"
+                    + path + ">");
+                // for debugging
+                daip.processForDisplay(path, value);
+                daip.processInput(path, display, internalException);
             } else if (!CharSequences.equals(value, display)
                     || !CharSequences.equals(value, input)
                     || internalException[0] != null) {
@@ -401,7 +401,12 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         if (path.contains("/exemplarCharacters") || path.contains("/parseLenient")) {
             try {
                 UnicodeSet s1 = new UnicodeSet(value);
-                UnicodeSet s2 = new UnicodeSet(input);
+                UnicodeSet s2;
+                try {
+                    s2 = new UnicodeSet(input);
+                } catch (Exception e) {
+                    s2 = UnicodeSet.EMPTY;
+                }
                 if (!s1.equals(s2)) {
                     UnicodeSet temp = new UnicodeSet(s1).removeAll(s2);
                     UnicodeSet temp2 = new UnicodeSet(s2).removeAll(s1);

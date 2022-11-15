@@ -7,7 +7,9 @@
 package org.unicode.cldr.unittest;
 
 import java.text.Collator;
+import java.util.HashSet;
 import java.util.Locale;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,7 +21,9 @@ import org.unicode.cldr.util.CodePointEscaper;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SimpleUnicodeSetFormatter;
 import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
+import org.unicode.cldr.util.XPathParts;
 
+import com.google.common.base.Joiner;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.UnicodeSet;
 
@@ -31,13 +35,15 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
     public static final UnicodeSet TO_QUOTE =
             new UnicodeSet("[[:z:][:me:][:mn:][:di:][:c:]-[\u0020]]");
 
+    private final Collator ROOT_COLLATOR = Collator.getInstance(Locale.ENGLISH);
+
     Collator spaceComp = Collator.getInstance(Locale.ENGLISH);
     {
         spaceComp.setStrength(Collator.PRIMARY);
     }
 
     final UnicodeSetPrettyPrinter PRETTY_PRINTER = new UnicodeSetPrettyPrinter()
-        .setOrdering(Collator.getInstance(Locale.ENGLISH))
+        .setOrdering(ROOT_COLLATOR)
         .setSpaceComparator(spaceComp)
         .setToQuote(TO_QUOTE);
 
@@ -97,7 +103,7 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
             {"SP⦖", "Escape end ⦖ without escape start ⦕: SP⦖"},
             {"⦖", "Escape end ⦖ without escape start ⦕: ⦖"},
         };
-        SimpleUnicodeSetFormatter susf = new SimpleUnicodeSetFormatter();
+        SimpleUnicodeSetFormatter susf = new SimpleUnicodeSetFormatter(SimpleUnicodeSetFormatter.BASIC_COLLATOR);
         for (String[] test : tests) {
             String actual = null;
             try {
@@ -121,19 +127,24 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
         }
     }
 
+    public void testSimpleUnicodeSetFormatter2() {
+        SimpleUnicodeSetFormatter susf = new SimpleUnicodeSetFormatter();
+
+        check(susf, "", "constant", new UnicodeSet("[a-b]"), false);
+        check(susf, "", "constant", new UnicodeSet("[-a-ceg-h{ef}]"), false);
+        check(susf, "", "constant", new UnicodeSet("[\\u200D]"), false);
+        check(susf, "", "constant", new UnicodeSet("[\\u200D-\\u200f]"), false);
+        check(susf, "", "constant", new UnicodeSet("[\\u200D\\u200e]"), false);
+        check(susf, "", "constant", new UnicodeSet("[\\--/]"), false);
+        // TODO also allow hex in strings check(susf, "", ExemplarType.main, new UnicodeSet("[{\\u200D\\u200e}]"), false);
+    }
 
     public void testSimpleUnicodeSetFormatterWithLocales() {
         havePrintln = false;
+        StringBuilder needsEscapeReport = new StringBuilder();
         final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
         Factory cldrFactory = CLDR_CONFIG.getCldrFactory();
         SimpleUnicodeSetFormatter susf = new SimpleUnicodeSetFormatter(SimpleUnicodeSetFormatter.BASIC_COLLATOR, null);
-
-        check(susf, "", ExemplarType.main, new UnicodeSet("[a-b]"), false);
-        check(susf, "", ExemplarType.main, new UnicodeSet("[-a-ceg-h{ef}]"), false);
-        check(susf, "", ExemplarType.main, new UnicodeSet("[\\u200D]"), false);
-        check(susf, "", ExemplarType.main, new UnicodeSet("[\\u200D-\\u200f]"), false);
-        check(susf, "", ExemplarType.main, new UnicodeSet("[\\u200D\\u200e]"), false);
-        // TODO also allow hex in strings check(susf, "", ExemplarType.main, new UnicodeSet("[{\\u200D\\u200e}]"), false);
 
         UnicodeSet needsEscape = new UnicodeSet();
         UnicodeSet localeNeedsEscape = new UnicodeSet();
@@ -145,31 +156,48 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
             for (ExemplarType type : ExemplarType.values()) {
                 UnicodeSet source = cldrFile.getExemplarSet(type, WinningChoice.WINNING);
                 // source = SimpleUnicodeSetFormatter.transform(source, x -> SimpleUnicodeSetFormatter.nfc.normalize(x)); //current CLDR might not be normalized
-                check(susf, locale, type, source, showAnyway);
+                check(susf, locale, type.toString(), source, showAnyway);
             }
             CLDRFile cldrFile2 = cldrFactory.make(locale, false); // just existing paths
             for (String path : cldrFile2) {
                 String value = cldrFile2.getStringValue(path);
+                if (value.equals("↑↑↑")) {
+                    continue;
+                }
+                if (path.contains("/parseLenient")) {
+                    String label = Joiner.on('/').join(XPathParts.getFrozenInstance(path).getAttributes(-1).values());
+                    check(susf, locale, label, new UnicodeSet(value), showAnyway);
+                }
                 if (CodePointEscaper.FORCE_ESCAPE.containsSome(value)) {
                     localeNeedsEscape.addAll(value); // add more than we need
                 }
             }
             localeNeedsEscape.retainAll(CodePointEscaper.FORCE_ESCAPE);
             if (showAnyway) {
-                System.out.println(locale + " Needs Escape: " + needsEscape);
+                needsEscapeReport.append("*\t" + locale + "\tNeeds Escape:\t" + needsEscape + "\n");
             }
             needsEscape.addAll(localeNeedsEscape);
         }
-        System.out.println("Needs Escape: " + needsEscape);
-        System.out.println("Named Escapes: " + CodePointEscaper.getNamedEscapes());
+        if (needsEscapeReport.length() != 0) {
+            System.out.print(needsEscapeReport);
+        }
+        System.out.println("*\tALL\tNeeds Escape:\t" + needsEscape);
+        System.out.println("*\tALL\tNamed Escapes:\t" + CodePointEscaper.getNamedEscapes());
     }
 
     boolean havePrintln = false;
+    Set<String> seenAlready = new HashSet<>();
 
-    void check(SimpleUnicodeSetFormatter susf, String locale, ExemplarType type, UnicodeSet source, boolean showAnyway) {
+    void check(SimpleUnicodeSetFormatter susf, String locale, String typeString, UnicodeSet source, boolean showAnyway) {
         String formatted = susf.format(source);
+        String key = formatted+source.toPattern(false);
+        if (seenAlready.contains(key)) {
+            return;
+        }
+        seenAlready.add(key);
+
         UnicodeSet roundtrip = susf.parse(formatted);
-        final boolean isOk = assertEquals(locale + ", " + type, source, roundtrip);
+        final boolean isOk = assertEquals(locale + ", " + typeString, source, roundtrip);
         if (showAnyway || !isOk) {
             UnicodeSet roundtrip_source = new UnicodeSet(roundtrip).removeAll(source);
             UnicodeSet source_roundtrip = new UnicodeSet(source).removeAll(roundtrip);
@@ -177,13 +205,13 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
                 System.out.println();
                 havePrintln = true;
             }
-            System.out.println(locale + "\t" + type + "\tsource:  \t" + PRETTY_PRINTER.format(source));
-            System.out.println(locale + "\t" + type + "\tformatted:\t" + formatted);
+            System.out.println(locale + "\t" + typeString + "\tsource:  \t" + PRETTY_PRINTER.format(source));
+            System.out.println(locale + "\t" + typeString + "\tformatted:\t" + formatted);
             if (!roundtrip_source.isEmpty()) {
-                System.out.println(locale + "\t" + type + "\tFAIL, roundtrip-source:  \t" + showInvisible(roundtrip_source, CodePointEscaper.FORCE_ESCAPE));
+                System.out.println(locale + "\t" + typeString + "\tFAIL, roundtrip-source:  \t" + showInvisible(roundtrip_source, CodePointEscaper.FORCE_ESCAPE));
             }
             if (!source_roundtrip.isEmpty()) {
-                System.out.println(locale + "\t" + type + "\tFAIL, source_roundtrip:  \t" + showInvisible(source_roundtrip, CodePointEscaper.FORCE_ESCAPE));
+                System.out.println(locale + "\t" + typeString + "\tFAIL, source_roundtrip:  \t" + showInvisible(source_roundtrip, CodePointEscaper.FORCE_ESCAPE));
             }
 
             if (!isOk) {

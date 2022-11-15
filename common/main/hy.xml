@@ -10389,27 +10389,27 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<personName order="sorting" length="short" usage="referring" formality="informal">
 			<namePattern>{surname} {given-informal}</namePattern>
 		</personName>
-		<sampleName item="givenOnly">
+		<sampleName item="nativeG">
 			<nameField type="given">Արթուր</nameField>
 		</sampleName>
-		<sampleName item="givenSurnameOnly">
+		<sampleName item="nativeGS">
 			<nameField type="given">Հեղինե</nameField>
 			<nameField type="surname">Ադամյան</nameField>
 		</sampleName>
-		<sampleName item="given12Surname">
+		<sampleName item="nativeGGS">
 			<nameField type="given">Հովհաննես</nameField>
 			<nameField type="given2">Արմեն</nameField>
 			<nameField type="surname">Դարբինյան</nameField>
 		</sampleName>
-		<sampleName item="full">
-			<nameField type="prefix" draft="contributed">դ-ր</nameField>
+		<sampleName item="foreignFull">
 			<nameField type="given">Ադա Կոռնելիա</nameField>
 			<nameField type="given-informal">Էդ</nameField>
-			<nameField type="given2" draft="contributed">Եվա Սոֆիա</nameField>
 			<nameField type="surname-prefix">վան դեն</nameField>
 			<nameField type="surname-core">Վոլֆ</nameField>
 			<nameField type="surname2">Բեքեր Շմիդտ</nameField>
 			<nameField type="suffix">կրտսեր</nameField>
+			<nameField type="prefix" draft="contributed">դ-ր</nameField>
+			<nameField type="given2" draft="contributed">Եվա Սոֆիա</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

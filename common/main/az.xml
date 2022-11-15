@@ -10311,27 +10311,27 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<personName order="sorting" length="short" usage="referring" formality="informal">
 			<namePattern>↑↑↑</namePattern>
 		</personName>
-		<sampleName item="givenOnly">
+		<sampleName item="nativeG">
 			<nameField type="given">Sinbad</nameField>
 		</sampleName>
-		<sampleName item="givenSurnameOnly">
+		<sampleName item="nativeGS">
 			<nameField type="given" draft="contributed">İren</nameField>
 			<nameField type="surname">Adler</nameField>
 		</sampleName>
-		<sampleName item="given12Surname">
+		<sampleName item="nativeGGS">
 			<nameField type="given" draft="contributed">Con</nameField>
 			<nameField type="given2" draft="contributed">Hamiş</nameField>
 			<nameField type="surname" draft="contributed">Vatson</nameField>
 		</sampleName>
-		<sampleName item="full">
+		<sampleName item="foreignFull">
+			<nameField type="surname-prefix">van den</nameField>
+			<nameField type="suffix">M.D. Ph.D.</nameField>
 			<nameField type="prefix" draft="contributed">↑↑↑</nameField>
 			<nameField type="given" draft="contributed">↑↑↑</nameField>
 			<nameField type="given-informal" draft="contributed">↑↑↑</nameField>
 			<nameField type="given2" draft="contributed">↑↑↑</nameField>
-			<nameField type="surname-prefix">van den</nameField>
 			<nameField type="surname-core" draft="contributed">Volf</nameField>
 			<nameField type="surname2" draft="contributed">Becker Schmidt</nameField>
-			<nameField type="suffix">M.D. Ph.D.</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

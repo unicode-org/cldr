@@ -11301,19 +11301,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<personName order="sorting" length="short" usage="referring" formality="informal">
 			<namePattern>{surname}، {given-informal}</namePattern>
 		</personName>
-		<sampleName item="givenOnly">
+		<sampleName item="nativeG">
 			<nameField type="given">سندباد</nameField>
 		</sampleName>
-		<sampleName item="givenSurnameOnly">
+		<sampleName item="nativeGS">
 			<nameField type="given">آیرین</nameField>
 			<nameField type="surname">آدلر</nameField>
 		</sampleName>
-		<sampleName item="given12Surname">
+		<sampleName item="nativeGGS">
 			<nameField type="given">امید</nameField>
 			<nameField type="given2">رضا</nameField>
 			<nameField type="surname">ملایری</nameField>
 		</sampleName>
-		<sampleName item="full">
+		<sampleName item="foreignFull">
 			<nameField type="prefix">پروفسور</nameField>
 			<nameField type="given">پری</nameField>
 			<nameField type="given-informal">پری</nameField>
@@ -11321,7 +11321,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<nameField type="surname-prefix">امیر</nameField>
 			<nameField type="surname-core">کارگر</nameField>
 			<nameField type="surname2">لواسانی اصل</nameField>
-			<nameField type="suffix">دکترای پزشکی پی‌اچ.دی.</nameField>
+			<nameField type="suffix">دکترای پزشکی پی\x{200C}اچ.دی.</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

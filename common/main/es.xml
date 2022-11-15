@@ -11330,19 +11330,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{surname}, {given-informal}</namePattern>
 			<namePattern alt="1">{surname}, {given-informal}</namePattern>
 		</personName>
-		<sampleName item="givenOnly">
+		<sampleName item="nativeG">
 			<nameField type="given">Lola</nameField>
 		</sampleName>
-		<sampleName item="givenSurnameOnly">
+		<sampleName item="nativeGS">
 			<nameField type="given">Lucía</nameField>
 			<nameField type="surname">Pérez</nameField>
 		</sampleName>
-		<sampleName item="given12Surname">
+		<sampleName item="nativeGGS">
 			<nameField type="given">Rosa</nameField>
 			<nameField type="given2">María</nameField>
 			<nameField type="surname">Ruiz</nameField>
 		</sampleName>
-		<sampleName item="full">
+		<sampleName item="foreignFull">
 			<nameField type="prefix">Dra.</nameField>
 			<nameField type="given">María José</nameField>
 			<nameField type="given-informal">Chelo</nameField>

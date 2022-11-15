@@ -199,25 +199,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<personName order="sorting" length="short" usage="referring" formality="informal">
 			<namePattern draft="provisional">↑↑↑</namePattern>
 		</personName>
-		<sampleName item="givenOnly">
+		<sampleName item="nativeG">
 			<nameField type="given" draft="provisional">Liam</nameField>
 		</sampleName>
-		<sampleName item="givenSurnameOnly">
+		<sampleName item="nativeGS">
 			<nameField type="given" draft="provisional">Liam</nameField>
 			<nameField type="surname" draft="provisional">Van den Berg</nameField>
 		</sampleName>
-		<sampleName item="given12Surname">
+		<sampleName item="nativeGGS">
 			<nameField type="given" draft="provisional">Liam</nameField>
 			<nameField type="given2" draft="provisional">Hugo Mees</nameField>
 			<nameField type="surname" draft="provisional">Van den Berg</nameField>
 		</sampleName>
-		<sampleName item="full">
+		<sampleName item="nativeFull">
+			<nameField type="surname-prefix">Van den</nameField>
 			<nameField type="prefix" draft="provisional">↑↑↑</nameField>
 			<nameField type="given" draft="provisional">Juliette</nameField>
 			<nameField type="given-informal" draft="provisional">Juli</nameField>
 			<nameField type="given2" draft="provisional">↑↑↑</nameField>
 			<nameField type="surname" draft="provisional">Van den Berg</nameField>
-			<nameField type="surname-prefix">Van den</nameField>
 			<nameField type="suffix" draft="provisional">↑↑↑</nameField>
 		</sampleName>
 	</personNames>

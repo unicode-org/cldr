@@ -9531,19 +9531,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<personName order="sorting" length="short" usage="referring" formality="informal">
 			<namePattern draft="contributed">{surname}, {given-informal}</namePattern>
 		</personName>
-		<sampleName item="givenOnly">
+		<sampleName item="nativeG">
 			<nameField type="given" draft="contributed">Gurban</nameField>
 		</sampleName>
-		<sampleName item="givenSurnameOnly">
+		<sampleName item="nativeGS">
 			<nameField type="given" draft="contributed">Amangeldi</nameField>
 			<nameField type="surname" draft="contributed">Saparow</nameField>
 		</sampleName>
-		<sampleName item="given12Surname">
+		<sampleName item="nativeGGS">
 			<nameField type="given" draft="contributed">Meretgeldi</nameField>
 			<nameField type="given2" draft="contributed">Durdyýewiç</nameField>
 			<nameField type="surname" draft="contributed">Gurbanow</nameField>
 		</sampleName>
-		<sampleName item="full">
+		<sampleName item="nativeFull">
 			<nameField type="prefix" draft="contributed">Prof. Dr.</nameField>
 			<nameField type="given" draft="contributed">Gurban Saparow</nameField>
 			<nameField type="given-informal" draft="contributed">Aman</nameField>

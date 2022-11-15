@@ -13721,19 +13721,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<personName order="sorting" length="short" usage="referring" formality="informal">
 			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
-		<sampleName item="givenOnly">
+		<sampleName item="nativeG">
 			<nameField type="given">Marcel</nameField>
 		</sampleName>
-		<sampleName item="givenSurnameOnly">
+		<sampleName item="nativeGS">
 			<nameField type="given">Anne</nameField>
 			<nameField type="surname">Dupont</nameField>
 		</sampleName>
-		<sampleName item="given12Surname">
+		<sampleName item="nativeGGS">
 			<nameField type="given">Jean</nameField>
 			<nameField type="given2">Laurent</nameField>
 			<nameField type="surname">Mounier</nameField>
 		</sampleName>
-		<sampleName item="full">
+		<sampleName item="foreignFull">
 			<nameField type="prefix">Pr</nameField>
 			<nameField type="given">Marie-Amélie</nameField>
 			<nameField type="given-informal">Cathy</nameField>

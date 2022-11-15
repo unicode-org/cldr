@@ -3214,7 +3214,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ELEMENT sampleName ( alias | ( nameField+, special* ) ) >
     <!--@TECHPREVIEW-->
 <!ATTLIST sampleName item NMTOKENS #REQUIRED >
-    <!--@MATCH:literal/givenOnly, givenSurnameOnly, given12Surname, full-->
+    <!--@MATCH:literal/givenOnly, givenSurnameOnly, given12Surname, full, nativeG, nativeGS, nativeGGS, nativeFull, foreignG, foreignGS, foreignGGS, foreignFull -->
 
 <!ELEMENT nameField ( #PCDATA ) >
     <!--@TECHPREVIEW-->

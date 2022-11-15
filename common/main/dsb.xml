@@ -10599,19 +10599,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<personName order="sorting" length="short" usage="referring" formality="informal">
 			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
-		<sampleName item="givenOnly">
+		<sampleName item="nativeG">
 			<nameField type="given">Juro</nameField>
 		</sampleName>
-		<sampleName item="givenSurnameOnly">
+		<sampleName item="nativeGS">
 			<nameField type="given">Hana</nameField>
 			<nameField type="surname">Kulina</nameField>
 		</sampleName>
-		<sampleName item="given12Surname">
+		<sampleName item="nativeGGS">
 			<nameField type="given">Jan</nameField>
 			<nameField type="given2">Měto</nameField>
 			<nameField type="surname">Šejc</nameField>
 		</sampleName>
-		<sampleName item="full">
+		<sampleName item="foreignFull">
 			<nameField type="prefix">prof. dr.</nameField>
 			<nameField type="given">Liza Marta</nameField>
 			<nameField type="given-informal">Lubina</nameField>

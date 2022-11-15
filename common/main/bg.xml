@@ -10298,19 +10298,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<personName order="sorting" length="short" usage="referring" formality="informal">
 			<namePattern>{surname-core}, {given-initial}</namePattern>
 		</personName>
-		<sampleName item="givenOnly">
+		<sampleName item="nativeG">
 			<nameField type="given">Иван</nameField>
 		</sampleName>
-		<sampleName item="givenSurnameOnly">
+		<sampleName item="nativeGS">
 			<nameField type="given">Мария</nameField>
 			<nameField type="surname">Петрова</nameField>
 		</sampleName>
-		<sampleName item="given12Surname">
+		<sampleName item="nativeGGS">
 			<nameField type="given">Ана</nameField>
 			<nameField type="given2">Иванова</nameField>
 			<nameField type="surname">Димитрова</nameField>
 		</sampleName>
-		<sampleName item="full">
+		<sampleName item="foreignFull">
 			<nameField type="prefix">проф. д-р</nameField>
 			<nameField type="given">Ана</nameField>
 			<nameField type="given-informal">Ани</nameField>

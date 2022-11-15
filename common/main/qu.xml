@@ -7762,19 +7762,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<personName order="sorting" length="short" usage="referring" formality="informal">
 			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
-		<sampleName item="givenOnly">
+		<sampleName item="nativeG">
 			<nameField type="given">Mario</nameField>
 		</sampleName>
-		<sampleName item="givenSurnameOnly">
+		<sampleName item="nativeGS">
 			<nameField type="given">Carlos</nameField>
 			<nameField type="surname">Zabala</nameField>
 		</sampleName>
-		<sampleName item="given12Surname">
+		<sampleName item="nativeGGS">
 			<nameField type="given">Juan</nameField>
 			<nameField type="given2">Antonio</nameField>
 			<nameField type="surname">Flores</nameField>
 		</sampleName>
-		<sampleName item="full">
+		<sampleName item="foreignFull">
 			<nameField type="prefix">Prof. Dr.</nameField>
 			<nameField type="given">Maria</nameField>
 			<nameField type="given-informal">Nico</nameField>

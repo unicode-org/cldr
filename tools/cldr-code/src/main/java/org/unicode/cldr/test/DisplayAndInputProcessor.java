@@ -544,12 +544,12 @@ public class DisplayAndInputProcessor {
 
     private String normalizeNameOrderLocales(String value) {
         TreeSet<String> result = new TreeSet<>(SPLIT_SPACE.splitToList(value));
-        result.remove("zxx");
-        if (result.remove("und")) { // put und at the front
+        result.remove(LocaleNames.ZXX);
+        if (result.remove(LocaleNames.UND)) { // put und at the front
             if (result.isEmpty()) {
-                return "und";
+                return LocaleNames.UND;
             } else {
-                return "und " + JOIN_SPACE.join(result);
+                return LocaleNames.UND + " " + JOIN_SPACE.join(result);
             }
         }
         return JOIN_SPACE.join(result);

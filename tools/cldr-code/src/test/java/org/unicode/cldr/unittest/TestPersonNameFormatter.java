@@ -20,16 +20,7 @@ import org.unicode.cldr.test.CheckPersonNames;
 import org.unicode.cldr.test.CheckPlaceHolders;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.tool.LikelySubtags;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRTransforms;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.Organization;
-import org.unicode.cldr.util.PathStarrer;
-import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FallbackFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Field;
@@ -795,7 +786,7 @@ public class TestPersonNameFormatter extends TestFmwk{
     public void TestCheckSampleNames() {
         String[][] tests = {
             // sample-name-component, error
-            {"zxx", "Error: Illegal name field; zxx is only appropriate for NameOrder locales"},
+            {LocaleNames.ZXX, "Error: Illegal name field; zxx is only appropriate for NameOrder locales"},
             {"Fred", ""},
         };
         List<CheckStatus> results = new ArrayList<>();

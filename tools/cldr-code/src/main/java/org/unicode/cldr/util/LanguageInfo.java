@@ -91,8 +91,8 @@ public class LanguageInfo {
             foo.cldrDir = languages.contains(language) ? CldrDir.main
                 : CldrDir.seed;
         }
-        getRaw(temp, "und").cldrDir = CldrDir.base;
-        getRaw(temp, "zxx").cldrDir = CldrDir.base;
+        getRaw(temp, LocaleNames.UND).cldrDir = CldrDir.base;
+        getRaw(temp, LocaleNames.ZXX).cldrDir = CldrDir.base;
 
         // finalize and protect
         for (Entry<String, LanguageInfo> entry : temp.entrySet()) {

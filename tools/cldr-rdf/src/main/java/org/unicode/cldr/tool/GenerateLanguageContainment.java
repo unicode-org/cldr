@@ -23,18 +23,10 @@ import org.apache.jena.query.ResultSet;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.rdf.QueryClient;
 import org.unicode.cldr.rdf.TsvWriter;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.Containment;
-import org.unicode.cldr.util.DtdType;
-import org.unicode.cldr.util.Iso639Data;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.Iso639Data.Type;
-import org.unicode.cldr.util.SimpleXMLSource;
-import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
-import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 
 import com.google.common.base.Joiner;
@@ -201,7 +193,7 @@ public class GenerateLanguageContainment {
 	}
 	static final QueryHelper QUERY_HELPER = new QueryHelper();
 
-	static final Function<String, String> NAME = code -> code.equals("mul") ? "root" : ENGLISH.getName(code) + " (" + code + ")";
+	static final Function<String, String> NAME = code -> code.equals(LocaleNames.MUL) ? LocaleNames.ROOT : ENGLISH.getName(code) + " (" + code + ")";
 
 	static final Set<String> COLLECTIONS;
 	static {
@@ -265,10 +257,10 @@ public class GenerateLanguageContainment {
 			.put("ira", "bgn") // Iranian <= Western Balochi
 			.put("inc", "trw") // Indo-Aryan <= Torwali
 			.put("jpx", "ja")
-			.put("mul", "art")
-			.put("mul", "euq")
-			.put("mul", "jpx")
-			.put("mul", "tai")
+			.put(LocaleNames.MUL, "art")
+			.put(LocaleNames.MUL, "euq")
+			.put(LocaleNames.MUL, "jpx")
+			.put(LocaleNames.MUL, "tai")
 			.put("ngb", "sg")
 			.put("roa", "cpf")
 			.put("roa", "cpp")
@@ -296,9 +288,9 @@ public class GenerateLanguageContainment {
 			.put("ine", "gmy")
 			.put("ine", "grc")
 			.put("ine", "trw") // inc [Indic] <= trw [Torwali]
-			.put("mul", "crp")
-			.put("mul", "cpp") // Creoles and pidgins, Portuguese-based
-			.put("mul", "und") // anomaly
+			.put(LocaleNames.MUL, "crp")
+			.put(LocaleNames.MUL, "cpp") // Creoles and pidgins, Portuguese-based
+			.put(LocaleNames.MUL, LocaleNames.UND) // anomaly
 			.put("nic", "kcp") // ssa [Nilo-Saharan] <= kcp [Kanga]
 			.put("nic", "kec") // ssa [Nilo-Saharan] <= kec [Keiga]
 			.put("nic", "kgo") // ssa [Nilo-Saharan] <= kgo [Krongo]
@@ -337,7 +329,7 @@ public class GenerateLanguageContainment {
 		Map<Status, Set<String>> table = Validity.getInstance().getStatusToCodes(LstrType.language);
 		TreeMultimap<String, String> _parentToChild = TreeMultimap.create();
 		TreeSet<String> missing = new TreeSet<>(table.get(Status.regular));
-		_parentToChild.put("mul", "und");
+		_parentToChild.put(LocaleNames.MUL, LocaleNames.UND);
 		Set<String> skipping = new LinkedHashSet<>();
 		for (String code : table.get(Status.regular)) {
 			if (ONLY_LIVING) {
@@ -408,7 +400,7 @@ public class GenerateLanguageContainment {
 		System.out.println("Checking " + "he" + "\t" + Containment.getAllDirected(childToParent, "he"));
 
 		try(PrintWriter w = FileUtilities.openUTF8Writer(TsvWriter.getTsvDir(), "RawLanguageContainment.txt")) {
-			print(w, parentToChild, new ArrayList<>(Arrays.asList("mul")));
+			print(w, parentToChild, new ArrayList<>(Arrays.asList(LocaleNames.MUL)));
 		}
 		SimpleXMLSource xmlSource = new SimpleXMLSource("languageGroup");
 		xmlSource.setNonInheriting(true); // should be gotten from DtdType...
@@ -447,7 +439,7 @@ public class GenerateLanguageContainment {
 	}
 
 	private static void printXML(CLDRFile newFile, Multimap<String, String> parentToChild) {
-		printXML(newFile, parentToChild, "mul");
+		printXML(newFile, parentToChild, LocaleNames.MUL);
 	}
 
 	private static void printXML(CLDRFile newFile, Multimap<String, String> parentToChild, String base) {
@@ -455,7 +447,7 @@ public class GenerateLanguageContainment {
 		if (children.isEmpty()) {
 			return;
 		}
-		if (base.equals("und")) {
+		if (base.equals(LocaleNames.UND)) {
 			// skip, no good info
 		} else {
 			newFile.add("//" + DtdType.supplementalData + "/languageGroups/languageGroup[@parent=\"" + base + "\"]",
@@ -520,7 +512,7 @@ public class GenerateLanguageContainment {
 				}
 			}
 			if (chain.size() > 1) {
-				chain.add("mul"); // root
+				chain.add(LocaleNames.MUL); // root
 				itemsFixed.add(chain);
 			}
 		}
@@ -569,11 +561,11 @@ public class GenerateLanguageContainment {
 		//            chain.add(1,"zhx");
 		//        }
 		//        last = chain.get(chain.size()-1);
-		//        if (!"mul".equals(last)) {
-		//            chain.add("mul"); // make sure we have root.
+		//        if (!LocaleNames.MUL.equals(last)) {
+		//            chain.add(LocaleNames.MUL); // make sure we have root.
 		//        }
 		//        if (chain.size() == 2) {
-		//            chain.add(1,"und");
+		//            chain.add(1,LocaleNames.UND);
 		//        }
 		//        return chain;
 	}

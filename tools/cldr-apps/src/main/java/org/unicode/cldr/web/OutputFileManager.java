@@ -32,12 +32,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.LocaleIDParser;
-import org.unicode.cldr.util.Pair;
-import org.unicode.cldr.util.XMLFileReader;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 
 import com.google.common.collect.BiMap;
@@ -265,7 +260,7 @@ public class OutputFileManager {
              * skip "en" and "root", since they should never be changed by the Survey Tool
              */
             sortSet.remove(CLDRLocale.getInstance("en"));
-            sortSet.remove(CLDRLocale.getInstance("root"));
+            sortSet.remove(CLDRLocale.getInstance(LocaleNames.ROOT));
 
             for (CLDRLocale loc : sortSet) {
                 out.write("<li>" + loc.getDisplayName() + "<br/>\n");
@@ -447,7 +442,7 @@ public class OutputFileManager {
     private static void addNameAndParents(Set<String> treatAsNonEmpty, String name) {
         treatAsNonEmpty.add(name);
         String parent = LocaleIDParser.getParent(name);
-        if (!"root".equals(parent)) {
+        if (!LocaleNames.ROOT.equals(parent)) {
             addNameAndParents(treatAsNonEmpty, parent);
         }
     }

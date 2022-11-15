@@ -28,34 +28,14 @@ import java.util.regex.Matcher;
 
 import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.tool.ConvertLanguageData.InverseComparator;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CLDRURLS;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.Counter;
-import org.unicode.cldr.util.DelegatingIterator;
-import org.unicode.cldr.util.EscapingUtilities;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.NotificationCategory;
-import org.unicode.cldr.util.Organization;
-import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.PathHeader.PageId;
-import org.unicode.cldr.util.PatternCache;
-import org.unicode.cldr.util.PluralSamples;
-import org.unicode.cldr.util.SpecialLocales;
-import org.unicode.cldr.util.StringId;
-import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
-import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.MissingStatus;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
-import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
-import org.unicode.cldr.util.VoterInfoList;
-import org.unicode.cldr.util.XMLUploader;
 import org.unicode.cldr.util.props.ICUPropertyFactory;
 
 import com.google.common.collect.ImmutableMap;
@@ -905,8 +885,8 @@ public class TestUtilities extends TestFmwkPlus {
         assertSpecialLocale("yue_Hans", null); // not readonly, because it is not policy DISCARD
         assertSpecialLocale("en", SpecialLocales.Type.readonly);
         assertSpecialLocale("en_ZZ_PROGRAMMERESE", null); // not defined
-        assertSpecialLocale("und", null);
-        assertSpecialLocale("mul", SpecialLocales.Type.scratch);
+        assertSpecialLocale(LocaleNames.UND, null);
+        assertSpecialLocale(LocaleNames.MUL, SpecialLocales.Type.scratch);
         assertSpecialLocale("mul_ZZ", SpecialLocales.Type.scratch);
         assertSpecialLocale("und_001", null); // not defined
 

@@ -13,6 +13,7 @@ import org.unicode.cldr.test.CheckWidths.UnitWidthUtil;
 import org.unicode.cldr.unittest.TestXMLSource.DummyXMLSource;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.XMLSource;
 
 public class TestCheckWidths extends TestFmwkPlus {
@@ -26,7 +27,7 @@ public class TestCheckWidths extends TestFmwkPlus {
         final String path = "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]";
         final String value = "0 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
         xmlSource.putValueAtDPath(path, value);
-        xmlSource.setLocaleID("und");
+        xmlSource.setLocaleID(LocaleNames.UND);
         CLDRFile cldrFileToCheck = new CLDRFile(xmlSource);
         Options options = new Options();
         List<CheckStatus> possibleErrors = new ArrayList<>();

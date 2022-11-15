@@ -28,31 +28,15 @@ import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.tool.PluralMinimalPairs;
 import org.unicode.cldr.tool.PluralRulesFactory;
-import org.unicode.cldr.util.Builder;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
-import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
-import org.unicode.cldr.util.IsoCurrencyParser;
-import org.unicode.cldr.util.LanguageTagCanonicalizer;
-import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.Organization;
-import org.unicode.cldr.util.Pair;
-import org.unicode.cldr.util.PluralRanges;
-import org.unicode.cldr.util.PreferredAndAllowedHour;
 import org.unicode.cldr.util.PreferredAndAllowedHour.HourStyle;
-import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.CodeType;
 import org.unicode.cldr.util.StandardCodes.LstrType;
-import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.ContainmentStyle;
@@ -66,7 +50,6 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.SupplementalDataInfo.SampleList;
-import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 
 import com.google.common.base.Joiner;
@@ -322,7 +305,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
     public void TestPluralSamples2() {
         PluralRulesFactory prf = PluralRulesFactory.getInstance(SUPPLEMENTAL);
         for (String locale : prf.getLocales()) {
-            if (locale.equals("und")) {
+            if (locale.equals(LocaleNames.UND)) {
                 continue;
             }
             if (locale.equals("pl")) {
@@ -700,7 +683,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         toTest.addAll(SUPPLEMENTAL.getDefaultContentLocales());
         LanguageTagParser ltp = new LanguageTagParser();
         main: for (String locale : toTest) {
-            if (locale.startsWith("und") || locale.equals("root")) {
+            if (locale.startsWith(LocaleNames.UND) || locale.equals("root")) {
                 continue;
             }
             Set<String> s = SUPPLEMENTAL.getEquivalentsForLocale(locale);
@@ -1891,9 +1874,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             }
         }
         // add special codes we want to see anyway
-        mainLanguages.add("und");
-        mainLanguages.add("mul");
-        mainLanguages.add("zxx");
+        mainLanguages.add(LocaleNames.UND);
+        mainLanguages.add(LocaleNames.MUL);
+        mainLanguages.add(LocaleNames.ZXX);
 
         if (!mainLanguages.containsAll(surveyToolLanguages)) {
             CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(SUPPLEMENTAL, "ja"); // pick "neutral" locale

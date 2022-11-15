@@ -21,11 +21,11 @@ public class SurveyForumCheck {
 
     private int errorCount = 0;
 
-    public SurveyForumCheck(Connection conn) {
+    public SurveyForumCheck(SurveyMain sm) {
         this.logger = SurveyLog.forClass(SurveyForumCheck.class);
         // In spite of setting Level.INFO here, the Appender may discard anything less than Level.WARNING
         logger.setLevel(java.util.logging.Level.INFO);
-        this.conn = conn;
+        this.conn = sm.dbUtils.getAConnection();
         this.map = new HashMap<>();
     }
 

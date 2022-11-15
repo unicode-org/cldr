@@ -125,8 +125,6 @@ function insertRows(theDiv, xpath, session, json) {
  * @param json1 the json for one table
  * @param json2 the json for the other table
  * @returns true if compatible, else false
- *
- * Reference: https://unicode.org/cldr/trac/ticket/11571
  */
 function tablesAreCompatible(json1, json2) {
   if (

@@ -1,23 +1,24 @@
 <template>
-  <section id="AddAltSection">
-    <button class="cldr-nav-btn" title="Add Alt Path" @click="getMenu">
-      Ⓐ
+  <section>
+    <button v-if="!altMenu" title="Add an alt path" @click="getMenu">
+      +alt
     </button>
     <div v-if="altMenu && altMenu.length">
-      <label for="chosenAlt">Alt value: </label>
+      <label for="chosenAlt">Alt: </label>
       <select
         id="chosenAlt"
         name="chosenAlt"
         v-model="chosenAlt"
-        v-on:change="setChosenAlt()"
-        title="Add an alt path"
+        title="Choose an alt attribute"
       >
-        <option :key="n" v-for="n in altMenu">{{ n }}</option>
+        <option disabled value="">Please Select</option>
+        <option :key="alt" v-for="alt in altMenu">{{ alt }}</option>
       </select>
     </div>
     <div v-if="chosenAlt">
-      <label>Chosen:</label>
-      {{ chosenAlt }}
+      <button title="Add alt path now" @click="reallyAdd">Add</button>
+      &nbsp;
+      <button title="Do not add alt path" @click="cancel">Cancel</button>
     </div>
   </section>
 </template>
@@ -30,7 +31,7 @@ export default {
     return {
       xpstrid: null,
       altMenu: null,
-      chosenAlt: null,
+      chosenAlt: "",
     };
   },
 
@@ -45,20 +46,27 @@ export default {
       }
     },
 
+    // callback
     setAlts(json) {
       this.altMenu = json.alt;
     },
 
-    setChosenAlt() {
-      // this.chosenAlt;
+    reallyAdd() {
+      if (this.xpstrid && this.chosenAlt) {
+        cldrAddAlt.addChosenAlt(this.xpstrid, this.chosenAlt);
+      }
+    },
+
+    cancel() {
+      this.altMenu = null;
+      this.chosenAlt = "";
     },
   },
 };
 </script>
 
 <style scoped>
-button {
-  background-color: rgb(235, 184, 114);
-  font-size: 1em;
+button, select {
+  margin-top: 1ex;
 }
 </style>

@@ -28,13 +28,36 @@ function addButton(containerEl, xpstrid) {
 }
 
 async function getAlts(xpstrid, callbackFunction) {
-  const url = cldrAjax.makeApiUrl("xpath/alt/" + xpstrid, null);
+  const url = makeUrl(xpstrid);
   return await cldrAjax
     .doFetch(url)
     .then(cldrAjax.handleFetchErrors)
     .then((r) => r.json())
     .then(callbackFunction)
-    .catch((e) => console.error(`Error: ${e} ...`));
+    .catch((e) => console.error(e));
 }
 
-export { addButton, getAlts };
+async function addChosenAlt(xpstrid, chosenAlt) {
+  const url = makeUrl(xpstrid);
+  const init = {
+    method: "POST",
+    body: chosenAlt,
+  };
+  return await cldrAjax
+    .doFetch(url, init)
+    .then(cldrAjax.handleFetchErrors)
+    .then((r) => r.json())
+    .then(reportPostResult)
+    .catch((e) => console.error(e));
+}
+
+function reportPostResult(json) {
+  window.alert(json?.message);
+}
+
+function makeUrl(xpstrid) {
+  // this is used for both GET and POST requests
+  return cldrAjax.makeApiUrl("xpath/alt/" + xpstrid, null);
+}
+
+export { addButton, getAlts, addChosenAlt };

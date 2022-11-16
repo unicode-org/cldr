@@ -385,7 +385,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
         final Pattern calendar100 = PatternCache.get("(coptic|ethiopic-amete-alem|islamic-(rgsa|tbla|umalqura))");
 
         final Pattern language100 = PatternCache.get("("
-            + "ach|aeb?|afh|ak[kz]|aln|ang|ar[coqswyz]|ase|avk|"
+            + "ach|aeb?|afh|ajp|ak[kz]|aln|ang|ar[coqswyz]|ase|avk|"
             + "ba[lrx]|bb[cj]|be[jw]|bf[dq]|bgc|bgn|bik|bjn|bkm|bpy|bqi|br[ah]|bss|bu[am]|byv|"
             + "ca[dry]|cch|ch[bgnp]|cic|cop|cps|crh?|csb|"
             + "de[ln]|din|doi|dtp|dum|dyu|"

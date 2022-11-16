@@ -9305,7 +9305,7 @@ annotations.
 		<initialPattern type="initial">{0}.</initialPattern>
 		<initialPattern type="initialSequence">{0} {1}</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern>{title} {given} {given2} {surname}, {credentials}</namePattern>
+			<namePattern>{title} {given} {given2} {surname} {generation}, {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
 			<namePattern>{given-informal} {surname}</namePattern>
@@ -9323,7 +9323,7 @@ annotations.
 			<namePattern>{given-informal-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
-			<namePattern>{given} {given2-initial} {surname}, {credentials}</namePattern>
+			<namePattern>{given} {given2-initial} {surname} {generation}, {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
 			<namePattern>{given-informal} {surname}</namePattern>
@@ -9359,7 +9359,7 @@ annotations.
 			<namePattern>{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
-			<namePattern>{surname} {title} {given} {given2}, {credentials}</namePattern>
+			<namePattern>{surname} {title} {given} {given2} {generation}, {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
 			<namePattern>{surname} {given-informal}</namePattern>
@@ -9377,7 +9377,7 @@ annotations.
 			<namePattern>{surname-monogram-allCaps}{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
-			<namePattern>{surname} {given} {given2-initial}, {credentials}</namePattern>
+			<namePattern>{surname} {given} {given2-initial} {generation}, {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="informal">
 			<namePattern>{surname} {given-informal}</namePattern>
@@ -9439,20 +9439,20 @@ annotations.
 			<nameField type="surname">Adler</nameField>
 		</sampleName>
 		<sampleName item="nativeGGS">
-			<nameField type="given">John</nameField>
+			<nameField type="given">Mary Sue</nameField>
 			<nameField type="given2">Hamish</nameField>
 			<nameField type="surname">Watson</nameField>
 		</sampleName>
 		<sampleName item="nativeFull">
-			<nameField type="title">Ms.</nameField>
-			<nameField type="given">Ada Cornelia</nameField>
-			<nameField type="given-informal">Neele</nameField>
-			<nameField type="given2">Eva Sophia</nameField>
+			<nameField type="title">Mr.</nameField>
+			<nameField type="given">Bertram Wilberforce</nameField>
+			<nameField type="given-informal">Bertie</nameField>
+			<nameField type="given2">Henry Robert</nameField>
 			<nameField type="surname-prefix">∅∅∅</nameField>
-			<nameField type="surname-core">Wolf</nameField>
+			<nameField type="surname-core">Wooster</nameField>
 			<nameField type="surname2">∅∅∅</nameField>
 			<nameField type="generation">Jr</nameField>
-			<nameField type="credentials">M.D. Ph.D.</nameField>
+			<nameField type="credentials">MP</nameField>
 		</sampleName>
 		<sampleName item="foreignG">
 			<nameField type="given">Sinbad</nameField>

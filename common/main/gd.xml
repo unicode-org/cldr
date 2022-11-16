@@ -14959,13 +14959,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<initialPattern type="initial">{0}.</initialPattern>
 		<initialPattern type="initialSequence">{0} {1}</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern>{prefix} {given} {given2} {surname} {surname2}</namePattern>
+			<namePattern>{title} {given} {given2} {surname} {surname2}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
-			<namePattern>{given-informal} {given2} {suffix}</namePattern>
+			<namePattern>{given-informal} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="informal">
 			<namePattern>{given-informal}</namePattern>
@@ -14977,13 +14977,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern>{given-informal-monogram-allCaps}{given2-monogram-allCaps}{surname-prefix-monogram-allCaps}{surname-core-monogram-allCaps}{surname2-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
-			<namePattern>{prefix} {given} {given2-initial} {surname} {surname2-initial}</namePattern>
+			<namePattern>{title} {given} {given2-initial} {surname} {surname2-initial}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
-			<namePattern>{given-informal} {given2} {suffix}</namePattern>
+			<namePattern>{given-informal} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname} {surname2}</namePattern>
+			<namePattern>{title} {surname} {surname2}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="informal">
 			<namePattern>{given-informal}</namePattern>
@@ -15001,7 +15001,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern>{given-informal} {given2-initial}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="informal">
 			<namePattern>{given-informal}</namePattern>
@@ -15013,13 +15013,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern>{given-informal-monogram-allCaps}{given2-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
-			<namePattern>{surname} {surname2} {prefix} {given} {given2}</namePattern>
+			<namePattern>{surname} {surname2} {title} {given} {given2}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
-			<namePattern>{given-informal} {given2} {suffix}</namePattern>
+			<namePattern>{given-informal} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname} {surname2}</namePattern>
+			<namePattern>{title} {surname} {surname2}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="informal">
 			<namePattern>{given-informal}</namePattern>
@@ -15031,13 +15031,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
-			<namePattern>{surname} {surname2-initial} {prefix} {given} {given2-initial}</namePattern>
+			<namePattern>{surname} {surname2-initial} {title} {given} {given2-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="informal">
-			<namePattern>{given-informal} {given2} {suffix}</namePattern>
+			<namePattern>{given-informal} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname} {surname2}</namePattern>
+			<namePattern>{title} {surname} {surname2}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="informal">
 			<namePattern>{given-informal}</namePattern>
@@ -15055,7 +15055,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern>{given-informal} {given2-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="informal">
 			<namePattern>{given-informal}</namePattern>
@@ -15067,20 +15067,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern>{given-informal-monogram-allCaps}{given2-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="formal">
-			<namePattern>{surname} {surname2}, {prefix} {given} {given2}</namePattern>
-			<namePattern alt="1">{surname}, {prefix} {given} {given2}</namePattern>
+			<namePattern>{surname} {surname2}, {title} {given} {given2}</namePattern>
+			<namePattern alt="1">{surname}, {title} {given} {given2}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="informal">
-			<namePattern>{given-informal} {given2} {suffix}</namePattern>
-			<namePattern alt="1">{given-informal} {given2} {suffix}</namePattern>
+			<namePattern>{given-informal} {given2} {credentials}</namePattern>
+			<namePattern alt="1">{given-informal} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="formal">
-			<namePattern>{surname} {surname2-initial}, {prefix} {given} {given2-initial}</namePattern>
-			<namePattern alt="1">{surname}, {prefix} {given} {given2-initial}</namePattern>
+			<namePattern>{surname} {surname2-initial}, {title} {given} {given2-initial}</namePattern>
+			<namePattern alt="1">{surname}, {title} {given} {given2-initial}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="informal">
-			<namePattern>{given-informal} {given2} {suffix}</namePattern>
-			<namePattern alt="1">{given-informal} {given2} {suffix}</namePattern>
+			<namePattern>{given-informal} {given2} {credentials}</namePattern>
+			<namePattern alt="1">{given-informal} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="formal">
 			<namePattern>{surname} {surname2-initial}, {given-initial} {given2-initial}</namePattern>
@@ -15103,14 +15103,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nameField type="surname">Caimbeul</nameField>
 		</sampleName>
 		<sampleName item="foreignFull">
-			<nameField type="prefix">An t-Oll.</nameField>
+			<nameField type="title">An t-Oll.</nameField>
 			<nameField type="given">Dòmhnall Iain</nameField>
 			<nameField type="given-informal">Donaidh</nameField>
 			<nameField type="given2">Bàn</nameField>
 			<nameField type="surname-prefix">Mac a’</nameField>
 			<nameField type="surname-core">Ghobhainn</nameField>
 			<nameField type="surname2">Rothach</nameField>
-			<nameField type="suffix">a’ Bhancair</nameField>
+			<nameField type="credentials">a’ Bhancair</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

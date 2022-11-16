@@ -11311,7 +11311,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
-			<namePattern>{given}{given2}{surname}{surname2}{suffix}</namePattern>
+			<namePattern>{given}{given2}{surname}{surname2}{credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
 			<namePattern>↑↑↑</namePattern>
@@ -11446,14 +11446,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<nameField type="surname">พิชิตชัย</nameField>
 		</sampleName>
 		<sampleName item="foreignFull">
-			<nameField type="prefix">ศ.ดร.</nameField>
+			<nameField type="title">ศ.ดร.</nameField>
 			<nameField type="given">โสพล</nameField>
 			<nameField type="given-informal">สอง</nameField>
 			<nameField type="given2">ชัยฤทธิ์</nameField>
 			<nameField type="surname-prefix">ณ</nameField>
 			<nameField type="surname-core">นคร</nameField>
 			<nameField type="surname2">↑↑↑</nameField>
-			<nameField type="suffix">↑↑↑</nameField>
+			<nameField type="credentials">↑↑↑</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

@@ -9121,13 +9121,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<initialPattern type="initial" draft="unconfirmed">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence" draft="unconfirmed">↑↑↑</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="unconfirmed">{prefix} {given} {given2} {surname}</namePattern>
+			<namePattern draft="unconfirmed">{title} {given} {given2} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
 			<namePattern draft="unconfirmed">{given-informal} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
-			<namePattern draft="unconfirmed">{prefix} {surname}</namePattern>
+			<namePattern draft="unconfirmed">{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="informal">
 			<namePattern draft="unconfirmed">{given-informal}</namePattern>
@@ -9145,7 +9145,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="unconfirmed">{given-informal} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern draft="unconfirmed">{prefix} {surname}</namePattern>
+			<namePattern draft="unconfirmed">{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="informal">
 			<namePattern draft="unconfirmed">{given-informal}</namePattern>
@@ -9163,7 +9163,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="unconfirmed">{given-informal} {surname-initial}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
-			<namePattern draft="unconfirmed">{prefix} {surname}</namePattern>
+			<namePattern draft="unconfirmed">{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="informal">
 			<namePattern draft="unconfirmed">{given-informal}</namePattern>
@@ -9181,7 +9181,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="unconfirmed">{surname} {given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="formal">
-			<namePattern draft="unconfirmed">{prefix} {surname}</namePattern>
+			<namePattern draft="unconfirmed">{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="informal">
 			<namePattern draft="unconfirmed">{given-informal}</namePattern>
@@ -9199,7 +9199,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="unconfirmed">{surname} {given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern draft="unconfirmed">{prefix} {surname}</namePattern>
+			<namePattern draft="unconfirmed">{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="informal">
 			<namePattern draft="unconfirmed">{given-informal}</namePattern>
@@ -9217,7 +9217,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="unconfirmed">{surname} {given-informal-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="formal">
-			<namePattern draft="unconfirmed">{prefix} {surname}</namePattern>
+			<namePattern draft="unconfirmed">{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="informal">
 			<namePattern draft="unconfirmed">{given-informal}</namePattern>
@@ -9229,7 +9229,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="unconfirmed">{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="formal">
-			<namePattern draft="unconfirmed">{surname-core}, {prefix} {given} {given2} {surname-prefix}</namePattern>
+			<namePattern draft="unconfirmed">{surname-core}, {title} {given} {given2} {surname-prefix}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="informal">
 			<namePattern draft="unconfirmed">{surname-core}, {given-informal} {surname-prefix}</namePattern>
@@ -9259,14 +9259,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<nameField type="surname" draft="unconfirmed">Parödi</nameField>
 		</sampleName>
 		<sampleName item="nativeFull">
-			<nameField type="prefix" draft="unconfirmed">Dott.a Prof.a</nameField>
+			<nameField type="title" draft="unconfirmed">Dott.a Prof.a</nameField>
 			<nameField type="given" draft="unconfirmed">Maria Giöxeppiña</nameField>
 			<nameField type="given-informal" draft="unconfirmed">Maiòllo</nameField>
 			<nameField type="given2" draft="unconfirmed">Reusa Texa</nameField>
 			<nameField type="surname-prefix" draft="unconfirmed">De</nameField>
 			<nameField type="surname-core" draft="unconfirmed">Franchi</nameField>
 			<nameField type="surname2" draft="unconfirmed">Carcagno Baçigalô</nameField>
-			<nameField type="suffix" draft="unconfirmed">OMRI</nameField>
+			<nameField type="credentials" draft="unconfirmed">OMRI</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

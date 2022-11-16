@@ -58,12 +58,13 @@ public class PersonNameFormatter {
     public static final boolean DEBUG = System.getProperty("PersonNameFormatter.DEBUG") != null;
 
     public enum Field {
-        prefix,
+        title,
         given,
         given2,
         surname,
         surname2,
-        suffix;
+        generation,
+        credentials;
         public static final Comparator<Iterable<Field>> ITERABLE_COMPARE = Comparators.lexicographical(Comparator.<Field>naturalOrder());
         public static final Set<Field> ALL = ImmutableSet.copyOf(Field.values());
     }
@@ -239,13 +240,28 @@ public class PersonNameFormatter {
         public static final Set<SampleType> ALL = ImmutableSet.copyOf(values());
         public static final List<String> ALL_STRINGS = ALL.stream().map(x -> x.toString()).collect(Collectors.toUnmodifiableList());
         final boolean isNative;
+        final String abbreviation;
 
         private SampleType() {
-            isNative = name().startsWith("n");
+            String _abbreviation = null;
+            if (name().startsWith("native")) {
+                isNative = true;
+                _abbreviation = "N" + name().substring(6);
+            } else if (name().startsWith("foreign")) {
+                isNative = false;
+                _abbreviation = "F" + name().substring(7);
+            } else {
+                throw new IllegalArgumentException("Code needs adjustment!");
+            }
+            abbreviation = _abbreviation.replace("Full", "F");
         }
 
-        boolean isNative() {
+        public boolean isNative() {
             return isNative;
+        }
+
+        public String toAbbreviation() {
+            return abbreviation;
         }
     }
 

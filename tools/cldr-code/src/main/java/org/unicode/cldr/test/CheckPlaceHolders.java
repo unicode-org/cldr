@@ -308,7 +308,9 @@ public class CheckPlaceHolders extends CheckCLDR {
                 Set<Modifier> modifiers = modifiedField.getModifiers();
                 Field field = modifiedField.getField();
                 switch (field) {
-                case prefix: case suffix:
+                case title:
+                case credentials:
+                case generation:
                     if (usageIsMonogram) {
                         result.add(new CheckStatus().setCause(checkAccessor)
                             .setMainType(CheckStatus.errorType)
@@ -602,7 +604,7 @@ public class CheckPlaceHolders extends CheckCLDR {
         Set<String> orderErrors = null;
         for (String item : SPLIT_SPACE.split(value)) {
             boolean mv = (item.equals(locale))
-               || CLDR_LOCALES_FOR_NAME_ORDER.contains(item);
+                || CLDR_LOCALES_FOR_NAME_ORDER.contains(item);
             if (!mv) {
                 if (orderErrors == null) {
                     orderErrors = new LinkedHashSet<>();

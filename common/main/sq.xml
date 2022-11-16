@@ -9858,20 +9858,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<personName order="sorting" length="short" usage="referring" formality="informal">
 			<namePattern>{prefix} {surname}, {given-informal}</namePattern>
 		</personName>
-		<sampleName item="givenOnly">
+		<sampleName item="nativeG">
 			<nameField type="given">Blerim</nameField>
 		</sampleName>
-		<sampleName item="givenSurnameOnly">
+		<sampleName item="nativeGS">
 			<nameField type="given">Majlinda</nameField>
 			<nameField type="surname">Kraja</nameField>
 		</sampleName>
-		<sampleName item="given12Surname">
+		<sampleName item="nativeGGS">
 			<nameField type="given">Ilir</nameField>
 			<nameField type="given2">Ilia</nameField>
 			<nameField type="surname">Rustemi</nameField>
 		</sampleName>
-		<sampleName item="full">
-			<nameField type="prefix" draft="contributed">prof. dr.</nameField>
+		<sampleName item="foreignFull">
 			<nameField type="given">Gentiana</nameField>
 			<nameField type="given-informal">Genta</nameField>
 			<nameField type="given2">Marie</nameField>
@@ -9879,6 +9878,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<nameField type="surname-core">Popa</nameField>
 			<nameField type="surname2">Prodani</nameField>
 			<nameField type="suffix">dr. shk. mjek.</nameField>
+			<nameField type="prefix" draft="contributed">prof. dr.</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

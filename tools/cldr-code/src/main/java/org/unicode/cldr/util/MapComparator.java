@@ -16,6 +16,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.function.Function;
 
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
@@ -119,6 +120,13 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
         }
         return this;
     }
+
+    public <S extends Object> MapComparator<K> add(Collection<S> c, Function<S, K> mapper) {
+        c.stream().map(mapper).forEach(x -> add(x));
+        return this;
+    }
+
+
 
     @SuppressWarnings("unchecked")
     public MapComparator<K> add(K... data) {

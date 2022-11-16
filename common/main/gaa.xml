@@ -3432,19 +3432,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<personName order="sorting" length="short" usage="referring" formality="informal">
 			<namePattern draft="unconfirmed">{surname}, {given-informal}</namePattern>
 		</personName>
-		<sampleName item="givenOnly">
-			<nameField type="given" draft="unconfirmed">Sinbad</nameField>
-		</sampleName>
-		<sampleName item="givenSurnameOnly">
-			<nameField type="given" draft="unconfirmed">Irene</nameField>
-			<nameField type="surname" draft="unconfirmed">Adla</nameField>
-		</sampleName>
-		<sampleName item="given12Surname">
-			<nameField type="given" draft="unconfirmed">Yohane</nameField>
-			<nameField type="given2" draft="unconfirmed">Hamish</nameField>
-			<nameField type="surname" draft="unconfirmed">Watson</nameField>
-		</sampleName>
-		<sampleName item="full">
+		<sampleName item="foreignFull">
 			<nameField type="prefix" draft="unconfirmed">Prof. Dr.</nameField>
 			<nameField type="given" draft="unconfirmed">Ada Kornelia</nameField>
 			<nameField type="given-informal" draft="unconfirmed">Neele</nameField>

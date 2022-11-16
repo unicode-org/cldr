@@ -23,6 +23,7 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.MatchValue.LiteralMatchValue;
+import org.unicode.cldr.util.personname.PersonNameFormatter;
 
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Joiner;
@@ -1347,18 +1348,25 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "second", "second-short", "second-narrow",
         "zone", "zone-short", "zone-narrow").freeze();
     static MapComparator<String> nameFieldOrder = new MapComparator<String>().add(
-        "prefix", "given", "given-informal", "given2",
-        "surname", "surname-prefix", "surname-core", "surname2", "suffix").freeze();
+        "prefix", "given", "given-informal", "given2", //
+        "surname", "surname-prefix", "surname-core", "surname2", "suffix")
+        .freeze();
     static MapComparator<String> orderValueOrder = new MapComparator<String>().add(
-        "givenFirst", "surnameFirst", "sorting").freeze();
+        "givenFirst", "surnameFirst", "sorting")
+        .freeze();
     static MapComparator<String> lengthValueOrder = new MapComparator<String>().add(
-        "long", "medium", "short").freeze();
+        "long", "medium", "short")
+        .freeze();
     static MapComparator<String> usageValueOrder = new MapComparator<String>().add(
-        "referring", "addressing", "monogram").freeze();
+        "referring", "addressing", "monogram")
+        .freeze();
     static MapComparator<String> formalityValueOrder = new MapComparator<String>().add(
         "formal", "informal").freeze();
-    static MapComparator<String> sampleNameItemOrder = new MapComparator<String>().add(
-        "givenOnly", "givenSurnameOnly", "given12Surname", "full").freeze();
+    static MapComparator<String> sampleNameItemOrder = new MapComparator<String>()
+        .add(PersonNameFormatter.SampleType.ALL, Object::toString)
+        .freeze();
+
+    // TODO We could build these from the dtd data for literal values. That way they would always be in sync.
 
     /* TODO: change this to be data-file driven. Can do with new Unit preferences info; also put them in a more meaningful order (metric vs other; size) */
 

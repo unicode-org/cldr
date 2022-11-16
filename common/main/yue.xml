@@ -11603,19 +11603,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<personName order="sorting" length="short" usage="referring" formality="informal">
 			<namePattern>{surname}{given-informal}</namePattern>
 		</personName>
-		<sampleName item="givenOnly">
+		<sampleName item="nativeG">
 			<nameField type="given">文傑</nameField>
 		</sampleName>
-		<sampleName item="givenSurnameOnly">
+		<sampleName item="nativeGS">
 			<nameField type="given">雅婷</nameField>
 			<nameField type="surname">張</nameField>
 		</sampleName>
-		<sampleName item="given12Surname">
+		<sampleName item="nativeGGS">
 			<nameField type="given">家豪</nameField>
 			<nameField type="given2">明德</nameField>
 			<nameField type="surname">林</nameField>
 		</sampleName>
-		<sampleName item="full">
+		<sampleName item="foreignFull">
 			<nameField type="prefix">∅∅∅</nameField>
 			<nameField type="given">怡君</nameField>
 			<nameField type="given-informal">小君</nameField>

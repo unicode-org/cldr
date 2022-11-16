@@ -25,6 +25,7 @@ import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.With.SimpleIterator;
+import org.unicode.cldr.util.personname.PersonNameFormatter;
 
 import com.google.common.base.Splitter;
 import com.ibm.icu.impl.Relation;
@@ -1396,7 +1397,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 }
             });
             functionMap.put("categoryFromTerritory",
-                catFromTerritory = new Transform<String, String>() {
+                catFromTerritory = new Transform<>() {
                 @Override
                 public String transform(String source) {
                     String territory = getSubdivisionsTerritory(source, null);
@@ -1435,7 +1436,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 }
             });
             functionMap.put("categoryFromTimezone",
-                catFromTimezone = new Transform<String, String>() {
+                catFromTimezone = new Transform<>() {
                 @Override
                 public String transform(String source0) {
                     String territory = Containment.getRegionFromZone(source0);
@@ -1838,7 +1839,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 @Override
                 public String transform(String source) {
                     // sampleName item values in desired sort order
-                    final List<String> itemValues = Arrays.asList("givenOnly", "givenSurnameOnly", "given12Surname", "full");
+                    final List<String> itemValues = PersonNameFormatter.SampleType.ALL_STRINGS;
                     // personName attribute values: each group in desired
                     // sort order, but groups from least important to most
                     final List<String> pnAttrValues = Arrays.asList(

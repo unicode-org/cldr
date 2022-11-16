@@ -15090,19 +15090,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern>{given-informal} {given2-initial}</namePattern>
 			<namePattern alt="1">{given-informal} {given2-initial}</namePattern>
 		</personName>
-		<sampleName item="givenOnly">
+		<sampleName item="nativeG">
 			<nameField type="given">Calum</nameField>
 		</sampleName>
-		<sampleName item="givenSurnameOnly">
+		<sampleName item="nativeGS">
 			<nameField type="given">Oighrig</nameField>
 			<nameField type="surname">Dhòmhnallach</nameField>
 		</sampleName>
-		<sampleName item="given12Surname">
+		<sampleName item="nativeGGS">
 			<nameField type="given">Iain</nameField>
 			<nameField type="given2">Tormod</nameField>
 			<nameField type="surname">Caimbeul</nameField>
 		</sampleName>
-		<sampleName item="full">
+		<sampleName item="foreignFull">
 			<nameField type="prefix">An t-Oll.</nameField>
 			<nameField type="given">Dòmhnall Iain</nameField>
 			<nameField type="given-informal">Donaidh</nameField>

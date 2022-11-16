@@ -330,10 +330,10 @@ public class TestPersonNameFormatter extends TestFmwk{
         String[][] tests = {
             {
                 "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
-                "〖Sinbad〗〖Irene Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia van den Wolf M.D. Ph.D.〗"
+                "〖Zendaya〗〖Irene Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia Wolf M.D. Ph.D.〗〖Zendaya〗〖Irene Adler〗〖John Hamish Watson〗〖Ada Cornelia César Martín von Brühl MD DDS〗"
             },{
                 "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"long\"][@usage=\"monogram\"][@formality=\"informal\"]/namePattern",
-                "〖S〗〖AI〗〖WJ〗〖VN〗"
+                "〖Z〗〖AI〗〖WJ〗〖WN〗〖Z〗〖AI〗〖WJ〗〖VN〗"
             },{
                 "//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]",
                 "〖und = «any other»〗〖en = English〗"
@@ -347,7 +347,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         String[][] jaTests = {
             {
                 "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
-                "〖慎太郎〗〖一郎 安藤〗〖太郎 トーマス 山田〗〖ドクター 英子 ソフィア 内田さん〗〖アルベルト・アインシュタイン〗"
+                "〖慎太郎〗〖一郎 安藤〗〖太郎 トーマス 山田〗〖アルベルト・アインシュタイン〗〖ドクター・英子・ソフィア・内田さん〗"
             }
         };
         ExampleGenerator jaExampleGenerator = checkExamples(jaCldrFile, jaTests);
@@ -402,7 +402,7 @@ public class TestPersonNameFormatter extends TestFmwk{
 
     public void TestForeignNonSpacingNames() {
         Map<SampleType, SimpleNameObject> names = PersonNameFormatter.loadSampleNames(jaCldrFile);
-        SimpleNameObject name = names.get(SampleType.foreign);
+        SimpleNameObject name = names.get(SampleType.foreignGS);
         assertEquals("albert", "アルベルト", name.getBestValue(ModifiedField.from("given"), new HashSet<>()));
         assertEquals("einstein", "アインシュタイン", name.getBestValue(ModifiedField.from("surname"), new HashSet<>()));
     }
@@ -437,21 +437,21 @@ public class TestPersonNameFormatter extends TestFmwk{
         String value2 = enWritable.getStringValue(path); // check that English is as expected
         assertEquals(path, "{given} {given2} {surname} {suffix}", value2);
 
-        String expected = "〖Sinbad〗〖Irene Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia van den Wolf M.D. Ph.D.〗";
+        String expected = "〖Zendaya〗〖Irene Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia Wolf M.D. Ph.D.〗〖Zendaya〗〖Irene Adler〗〖John Hamish Watson〗〖Ada Cornelia César Martín von Brühl MD DDS〗";
         String value = enWritable.getStringValue(path);
 
         checkExampleGenerator(exampleGenerator, path, value, expected);
 
         // Then change one of the sample names to make sure it alters the example correctly
 
-        String namePath = checkPath("//ldml/personNames/sampleName[@item=\"givenSurnameOnly\"]/nameField[@type=\"given\"]");
+        String namePath = checkPath("//ldml/personNames/sampleName[@item=\"nativeGS\"]/nameField[@type=\"given\"]");
         String value3 = enWritable.getStringValue(namePath);
         assertEquals(namePath, "Irene", value3); // check that English is as expected
 
         enWritable.add(namePath, "IRENE");
         exampleGenerator.updateCache(namePath);
 
-        String expected2 =  "〖Sinbad〗〖IRENE Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia van den Wolf M.D. Ph.D.〗";
+        String expected2 =  "〖Zendaya〗〖IRENE Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia Wolf M.D. Ph.D.〗〖Zendaya〗〖Irene Adler〗〖John Hamish Watson〗〖Ada Cornelia César Martín von Brühl MD DDS〗";
         checkExampleGenerator(exampleGenerator, path, value, expected2);
     }
 
@@ -467,8 +467,8 @@ public class TestPersonNameFormatter extends TestFmwk{
         // Cycle through parameter combinations, check for exceptions even if locale has no data
 
         for (FormatParameters parameters : FormatParameters.all()) {
-            assertNotNull(SampleType.full + " + " + parameters.toLabel(), personNameFormatter.format(ENGLISH_SAMPLES.get(SampleType.full), parameters));
-            assertNotNull(SampleType.given12Surname + " + " + parameters.toLabel(), personNameFormatter.format(ENGLISH_SAMPLES.get(SampleType.given12Surname), parameters));
+            assertNotNull(SampleType.foreignFull + " + " + parameters.toLabel(), personNameFormatter.format(ENGLISH_SAMPLES.get(SampleType.foreignFull), parameters));
+            assertNotNull(SampleType.nativeGGS + " + " + parameters.toLabel(), personNameFormatter.format(ENGLISH_SAMPLES.get(SampleType.nativeGGS), parameters));
             Collection<NamePattern> nps = personNameFormatter.getBestMatchSet(parameters);
             if (sb != null) {
                 for (NamePattern np : nps) {
@@ -883,7 +883,7 @@ public class TestPersonNameFormatter extends TestFmwk{
                 final SampleType sampleType = entry.getKey();
                 final SimpleNameObject nameObject = entry.getValue();
                 // abbreviated for now
-                if (sampleType != SampleType.full) {
+                if (sampleType != SampleType.foreignFull) {
                     continue;
                 }
                 for (FormatParameters parameters : FormatParameters.allCldr()) {

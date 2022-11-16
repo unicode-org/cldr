@@ -10559,19 +10559,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<personName order="sorting" length="short" usage="referring" formality="informal">
 			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
-		<sampleName item="givenOnly">
+		<sampleName item="nativeG">
 			<nameField type="given">Mario</nameField>
 		</sampleName>
-		<sampleName item="givenSurnameOnly">
+		<sampleName item="nativeGS">
 			<nameField type="given">Irene</nameField>
 			<nameField type="surname">Fabbri</nameField>
 		</sampleName>
-		<sampleName item="given12Surname">
+		<sampleName item="nativeGGS">
 			<nameField type="given">Giovanni</nameField>
 			<nameField type="given2">Antonio</nameField>
 			<nameField type="surname">Conti</nameField>
 		</sampleName>
-		<sampleName item="full">
+		<sampleName item="foreignFull">
 			<nameField type="prefix">Dott.ssa Prof.ssa</nameField>
 			<nameField type="given">Maria Giuseppina</nameField>
 			<nameField type="given-informal">Pina</nameField>

@@ -9431,27 +9431,49 @@ annotations.
 			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
 		<!-- The following samples are temporary, to be filled out with something better -->
-		<sampleName item="givenOnly">
-			<nameField type="given">Sinbad</nameField>
+		<sampleName item="nativeG">
+			<nameField type="given">Zendaya</nameField>
 		</sampleName>
-		<sampleName item="givenSurnameOnly">
+		<sampleName item="nativeGS">
 			<nameField type="given">Irene</nameField>
 			<nameField type="surname">Adler</nameField>
 		</sampleName>
-		<sampleName item="given12Surname">
+		<sampleName item="nativeGGS">
 			<nameField type="given">John</nameField>
 			<nameField type="given2">Hamish</nameField>
 			<nameField type="surname">Watson</nameField>
 		</sampleName>
-		<sampleName item="full">
-			<nameField type="prefix">Prof. Dr.</nameField>
+		<sampleName item="nativeFull">
+			<nameField type="prefix">Ms.</nameField>
 			<nameField type="given">Ada Cornelia</nameField>
 			<nameField type="given-informal">Neele</nameField>
 			<nameField type="given2">Eva Sophia</nameField>
-			<nameField type="surname-prefix">van den</nameField>
+			<nameField type="surname-prefix">∅∅∅</nameField>
 			<nameField type="surname-core">Wolf</nameField>
-			<nameField type="surname2">Becker Schmidt</nameField>
+			<nameField type="surname2">∅∅∅</nameField>
 			<nameField type="suffix">M.D. Ph.D.</nameField>
+		</sampleName>
+		<sampleName item="foreignG">
+			<nameField type="given">Zendaya</nameField>
+		</sampleName>
+		<sampleName item="foreignGS">
+			<nameField type="given">Irene</nameField>
+			<nameField type="surname">Adler</nameField>
+		</sampleName>
+		<sampleName item="foreignGGS">
+			<nameField type="given">John</nameField>
+			<nameField type="given2">Hamish</nameField>
+			<nameField type="surname">Watson</nameField>
+		</sampleName>
+		<sampleName item="foreignFull">
+			<nameField type="prefix">Prof. Dr.</nameField>
+			<nameField type="given">Ada Cornelia</nameField>
+			<nameField type="given-informal">Neele</nameField>
+			<nameField type="given2">César Martín</nameField>
+			<nameField type="surname-prefix">von</nameField>
+			<nameField type="surname-core">Brühl</nameField>
+			<nameField type="surname2">González Domingo</nameField>
+			<nameField type="suffix">MD DDS</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

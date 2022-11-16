@@ -11977,19 +11977,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<personName order="sorting" length="short" usage="referring" formality="informal">
 			<namePattern>{surname}{given-informal}</namePattern>
 		</personName>
-		<sampleName item="givenOnly">
+		<sampleName item="nativeG">
 			<nameField type="given">慎太郎</nameField>
 		</sampleName>
-		<sampleName item="givenSurnameOnly">
+		<sampleName item="nativeGS">
 			<nameField type="given">一郎</nameField>
 			<nameField type="surname">安藤</nameField>
 		</sampleName>
-		<sampleName item="given12Surname">
+		<sampleName item="nativeGGS">
 			<nameField type="given">太郎</nameField>
 			<nameField type="given2">トーマス</nameField>
 			<nameField type="surname">山田</nameField>
 		</sampleName>
-		<sampleName item="full">
+		<sampleName item="foreignGS">
+			<nameField type="given">アルベルト</nameField>
+			<nameField type="surname">アインシュタイン</nameField>
+		</sampleName>
+		<sampleName item="foreignFull">
 			<nameField type="prefix">ドクター</nameField>
 			<nameField type="given">英子</nameField>
 			<nameField type="given-informal">えいこ</nameField>

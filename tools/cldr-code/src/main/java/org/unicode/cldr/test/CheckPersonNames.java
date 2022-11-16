@@ -4,14 +4,11 @@ import java.util.List;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Type;
-import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.personname.PersonNameFormatter.SampleType;
 
 import com.google.common.collect.ImmutableMultimap;
-import com.ibm.icu.lang.UProperty;
-import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.UnicodeSet;
 
 public class CheckPersonNames extends CheckCLDR {
@@ -47,23 +44,41 @@ public class CheckPersonNames extends CheckCLDR {
         .build();
 
     boolean isRoot = false;
-    UnicodeSet badScriptSet;
+    UnicodeSet allowedCharacters;
+
+// commented out temporarily; will reenable later
+//    static final UnicodeSet BASE_ALLOWED = new UnicodeSet("[\\p{sc=Common}\\p{sc=Inherited}]").freeze();
+//    static final UnicodeSet HANI = new UnicodeSet("[\\p{sc=Hani}]").freeze();
+//    static final UnicodeSet KORE = new UnicodeSet("[\\p{sc=Hang}]").addAll(HANI).freeze();
+//    static final UnicodeSet JPAN = new UnicodeSet("[\\p{sc=Kana}\\p{sc=Hira}]").addAll(HANI).freeze();
+
 
     @Override
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         String localeId = cldrFileToCheck.getLocaleID();
         isRoot = localeId.equals("root");
-        String script = new LikelySubtags().getLikelyScript(localeId);
-        badScriptSet = new UnicodeSet()
-            .applyIntPropertyValue(UProperty.SCRIPT, UScript.getCodeFromName(script))
-            .applyIntPropertyValue(UProperty.SCRIPT, UScript.INHERITED)
-            .applyIntPropertyValue(UProperty.SCRIPT, UScript.COMMON)
-            .complement()
-            .freeze();
 
-
+        // other characters are caught by CheckForExemplars
+//        String script = new LikelySubtags().getLikelyScript(localeId);
+//        allowedCharacters = new UnicodeSet(BASE_ALLOWED).addAll(getUnicodeSetForScript(script))
+//            .freeze();
+//
         return super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
     }
+
+//    public UnicodeSet getUnicodeSetForScript(String script) {
+//        switch (script) {
+//        case "Japn":
+//            return JPAN;
+//        case "Kore":
+//            return KORE;
+//        case "Hant":
+//        case "Hans":
+//            return HANI;
+//        default:
+//            return new UnicodeSet("[\\p{sc=" + script + "}]");
+//        }
+//    }
 
     @Override
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
@@ -75,13 +90,14 @@ public class CheckPersonNames extends CheckCLDR {
         XPathParts parts = XPathParts.getFrozenInstance(path);
         String category = parts.getElement(2);
         if (category.equals("sampleName")) {
-            if (badScriptSet.containsSome(value)) {
-                UnicodeSet bad = new UnicodeSet().addAll(value).retainAll(badScriptSet);
-                result.add(new CheckStatus().setCause(this)
-                    .setMainType(CheckStatus.errorType)
-                    .setSubtype(Subtype.badSamplePersonName)
-                    .setMessage("Illegal characters in sample name: " + bad.toPattern(false)));
-            } else {
+//            if (!allowedCharacters.containsAll(value)) {
+//                UnicodeSet bad = new UnicodeSet().addAll(value).removeAll(allowedCharacters);
+//                result.add(new CheckStatus().setCause(this)
+//                    .setMainType(CheckStatus.errorType)
+//                    .setSubtype(Subtype.badSamplePersonName)
+//                    .setMessage("Illegal characters in sample name: " + bad.toPattern(false)));
+//            } else
+            {
 
                 Type status = CheckStatus.warningType;
                 String message = null;

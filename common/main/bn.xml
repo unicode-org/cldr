@@ -11152,7 +11152,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<initialPattern type="initial">{0}.</initialPattern>
 		<initialPattern type="initialSequence">{0} {1}</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern>{prefix} {given} {given2} {surname} {surname2} {suffix}</namePattern>
+			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
 			<namePattern>{given} {given2} {surname} {surname2}</namePattern>
@@ -11206,7 +11206,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
-			<namePattern>{surname} {surname2} {prefix} {given} {given2} {suffix}</namePattern>
+			<namePattern>{surname} {surname2} {title} {given} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
 			<namePattern>{surname} {surname2} {given} {given2}</namePattern>
@@ -11260,7 +11260,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="formal">
-			<namePattern>{surname} {surname2}, {prefix} {given} {given2} {suffix}</namePattern>
+			<namePattern>{surname} {surname2}, {title} {given} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="informal">
 			<namePattern>{surname} {surname2}, {given} {given2}</namePattern>
@@ -11290,14 +11290,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<nameField type="surname">ওয়াটসন</nameField>
 		</sampleName>
 		<sampleName item="foreignFull">
-			<nameField type="prefix">প্রঃ ডঃ</nameField>
+			<nameField type="title">প্রঃ ডঃ</nameField>
 			<nameField type="given">আদা কর্নেলিয়া</nameField>
 			<nameField type="given-informal">নিলে</nameField>
 			<nameField type="given2">ইভা সোফিয়া</nameField>
 			<nameField type="surname-prefix">ভ্যান ডেন</nameField>
 			<nameField type="surname-core">উলফ</nameField>
 			<nameField type="surname2">বেকার শ্মিড্ট</nameField>
-			<nameField type="suffix">এম.ডি.পিএইচ.ডি.</nameField>
+			<nameField type="credentials">এম.ডি.পিএইচ.ডি.</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

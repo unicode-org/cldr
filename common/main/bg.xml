@@ -10173,13 +10173,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<initialPattern type="initial">{0}.</initialPattern>
 		<initialPattern type="initialSequence">{0} {1}</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern>{prefix} {given} {given2} {surname-core}, {suffix}</namePattern>
+			<namePattern>{title} {given} {given2} {surname-core}, {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
 			<namePattern>{given} {surname-core}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname-core}</namePattern>
+			<namePattern>{title} {surname-core}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="informal">
 			<namePattern>{given}</namePattern>
@@ -10197,7 +10197,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{given} {surname-core}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname-core}</namePattern>
+			<namePattern>{title} {surname-core}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="informal">
 			<namePattern>{given}</namePattern>
@@ -10215,7 +10215,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{given} {surname-core-initial}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname-core}</namePattern>
+			<namePattern>{title} {surname-core}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="informal">
 			<namePattern>{given}</namePattern>
@@ -10227,13 +10227,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{given-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
-			<namePattern>{prefix} {surname-core}, {given} {given2}, {suffix}</namePattern>
+			<namePattern>{title} {surname-core}, {given} {given2}, {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
 			<namePattern>{surname-core}, {given}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname-core}</namePattern>
+			<namePattern>{title} {surname-core}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="informal">
 			<namePattern>{given}</namePattern>
@@ -10245,13 +10245,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{surname-core-monogram-allCaps}{given-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
-			<namePattern>{prefix} {surname-core}, {given} {given2-initial}, {suffix}</namePattern>
+			<namePattern>{title} {surname-core}, {given} {given2-initial}, {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="informal">
 			<namePattern>{surname-core}, {given}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname-core}</namePattern>
+			<namePattern>{title} {surname-core}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="informal">
 			<namePattern>{given}</namePattern>
@@ -10269,7 +10269,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{surname-core}, {given-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname-core}</namePattern>
+			<namePattern>{title} {surname-core}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="informal">
 			<namePattern>{given}</namePattern>
@@ -10281,13 +10281,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{given-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="formal">
-			<namePattern>{prefix} {surname-core}, {given} {given2} {surname-prefix}</namePattern>
+			<namePattern>{title} {surname-core}, {given} {given2} {surname-prefix}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="informal">
 			<namePattern>{surname-core}, {given}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="formal">
-			<namePattern>{prefix} {surname-core}, {given} {given2-initial} {surname-prefix}</namePattern>
+			<namePattern>{title} {surname-core}, {given} {given2-initial} {surname-prefix}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="informal">
 			<namePattern>{surname-core}, {given}</namePattern>
@@ -10311,14 +10311,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<nameField type="surname">Димитрова</nameField>
 		</sampleName>
 		<sampleName item="foreignFull">
-			<nameField type="prefix">проф. д-р</nameField>
+			<nameField type="title">проф. д-р</nameField>
 			<nameField type="given">Ана</nameField>
 			<nameField type="given-informal">Ани</nameField>
 			<nameField type="given2">Иванова</nameField>
 			<nameField type="surname-prefix">фон</nameField>
 			<nameField type="surname-core">Димитрова</nameField>
 			<nameField type="surname2">Петкова</nameField>
-			<nameField type="suffix">доктор</nameField>
+			<nameField type="credentials">доктор</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

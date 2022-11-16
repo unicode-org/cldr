@@ -3219,7 +3219,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ELEMENT nameField ( #PCDATA ) >
     <!--@TECHPREVIEW-->
 <!ATTLIST nameField type CDATA #REQUIRED >
-    <!--@MATCH:literal/prefix, given, given-informal, given2, surname, surname-prefix, surname-core, surname2, suffix-->
+    <!--@MATCH:literal/title, given, given-informal, given2, surname, surname-prefix, surname-core, surname2, generation, credentials-->
 <!ATTLIST nameField alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST nameField draft (approved | contributed | provisional | unconfirmed) #IMPLIED >

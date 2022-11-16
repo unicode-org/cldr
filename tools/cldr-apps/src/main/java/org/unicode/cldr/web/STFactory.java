@@ -13,17 +13,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.util.BitSet;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
@@ -1008,9 +999,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         @Override
         public synchronized void voteForValue(User user, String distinguishingXpath, String value, Integer withVote) throws BallotBox.InvalidXPathException,
             BallotBox.VoteNotAcceptedException {
-            if (!getPathsForFile().contains(distinguishingXpath)) {
-                throw new BallotBox.InvalidXPathException(distinguishingXpath);
-            }
+            makeSureInPathsForFile(distinguishingXpath, user);
             value = processValue(distinguishingXpath, value);
             SurveyLog.debug("V4v: " + locale + " " + distinguishingXpath + " : " + user + " voting for '" + value + "'");
             /*
@@ -1069,6 +1058,29 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             String newVal = xmlsource.getValueAtDPath(distinguishingXpath);
             if (newVal != null && !newVal.equals(oldVal)) {
                 xmlsource.notifyListeners(distinguishingXpath);
+            }
+        }
+
+        /**
+         * If the path is not in pathsForFile, then if the user has permission, add the path,
+         * else throw an exception
+         *
+         * Normally when a user votes, the path needs already to exist in pathsForFile.
+         * As a special exception, TC/Admin users can add new "alt" paths.
+         *
+         * @param xpath the path in question
+         * @param user the user who is voting
+         * @throws InvalidXPathException
+         */
+        private void makeSureInPathsForFile(String xpath, User user) throws InvalidXPathException {
+            if (!getPathsForFile().contains(xpath)) {
+                if (UserRegistry.userIsTC(user)) {
+                    Set<String> set = new HashSet<>(pathsForFile);
+                    set.add(xpath);
+                    pathsForFile = Collections.unmodifiableSet(set);
+                } else {
+                    throw new BallotBox.InvalidXPathException(xpath);
+                }
             }
         }
 
@@ -1260,7 +1272,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             return pathsForFile;
         }
 
-        private final Set<String> pathsForFile;
+        private Set<String> pathsForFile;
 
         BitSet votesSometimeThisRelease = null;
 

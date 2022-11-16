@@ -1,10 +1,14 @@
 <template>
   <section>
-    <button v-if="!altMenu" title="Add an alt path" @click="getMenu">
+    <button
+      v-if="!altMenu && !success"
+      title="Add an alt path"
+      @click="getMenu"
+    >
       +alt
     </button>
     <div v-if="altMenu && altMenu.length">
-      <label for="chosenAlt">Alt: </label>
+      <label for="chosenAlt">alt=</label>
       <select
         id="chosenAlt"
         name="chosenAlt"
@@ -15,10 +19,21 @@
         <option :key="alt" v-for="alt in altMenu">{{ alt }}</option>
       </select>
     </div>
-    <div v-if="chosenAlt">
-      <button title="Add alt path now" @click="reallyAdd">Add</button>
-      &nbsp;
-      <button title="Do not add alt path" @click="cancel">Cancel</button>
+    <div>
+      <span v-if="chosenAlt">
+        <button title="Add alt path now" @click="reallyAdd">Add</button>
+        &nbsp;
+      </span>
+      <span v-if="chosenAlt || errMessage">
+        <button title="Do not add alt path" @click="reset">Cancel</button>
+      </span>
+    </div>
+    <div v-if="errMessage">
+      {{ errMessage }}
+    </div>
+    <div v-if="success">
+      SUCCESS
+      <button @click="clickLoad">Load</button>
     </div>
   </section>
 </template>
@@ -32,6 +47,8 @@ export default {
       xpstrid: null,
       altMenu: null,
       chosenAlt: "",
+      errMessage: null,
+      success: false,
     };
   },
 
@@ -53,20 +70,45 @@ export default {
 
     reallyAdd() {
       if (this.xpstrid && this.chosenAlt) {
-        cldrAddAlt.addChosenAlt(this.xpstrid, this.chosenAlt);
+        cldrAddAlt.addChosenAlt(
+          this.xpstrid,
+          this.chosenAlt,
+          this.showResult /* callback */
+        );
       }
     },
 
-    cancel() {
+    showResult(errMessage) {
+      this.reset();
+      this.errMessage = errMessage; // null or empty for success
+      if (!errMessage) {
+        this.success = true;
+      }
+    },
+
+    clickLoad() {
+      this.reset();
+      cldrAddAlt.reloadPage();
+    },
+
+    reset() {
       this.altMenu = null;
       this.chosenAlt = "";
+      this.errMessage = null;
+      this.success = false;
     },
   },
 };
 </script>
 
 <style scoped>
-button, select {
+button,
+select {
   margin-top: 1ex;
+}
+
+section {
+  clear: both;
+  float: right;
 }
 </style>

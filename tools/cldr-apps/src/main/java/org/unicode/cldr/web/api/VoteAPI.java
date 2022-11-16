@@ -261,8 +261,11 @@ public class VoteAPI {
         if (mySession == null) {
             return Auth.noSessionResponse();
         }
-
-        return VoteAPIHelper.handleVote(loc, xpstrid, request, mySession);
+        final String xp = CookieSession.sm.xpt.getByStringID(xpstrid);
+        if (xp == null) {
+            return Response.status(Response.Status.NOT_FOUND).build(); // no XPath found
+        }
+        return VoteAPIHelper.handleVote(loc, xp, request.value, request.voteLevelChanged, mySession, true /* forbiddenIsOk */);
     }
 
     final static public class VoteResponse {

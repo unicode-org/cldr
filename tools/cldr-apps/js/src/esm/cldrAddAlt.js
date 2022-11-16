@@ -2,24 +2,26 @@
  * cldrAddAlt: enable adding an "alt" path
  */
 import * as cldrAjax from "./cldrAjax.js";
+import * as cldrLoad from "./cldrLoad.js";
+import * as cldrStatus from "./cldrStatus.js";
 
 import AddAlt from "../views/AddAlt.vue";
 
 import { createCldrApp } from "../cldrVueRouter";
 
-let addAltWrapper = null;
+import { notification } from "ant-design-vue";
 
 function addButton(containerEl, xpstrid) {
   try {
     const fragment = document.createDocumentFragment();
-    addAltWrapper = createCldrApp(AddAlt).mount(fragment);
+    const addAltWrapper = createCldrApp(AddAlt).mount(fragment);
     const vueEl = document.createElement("section");
     containerEl.appendChild(vueEl);
     vueEl.replaceWith(fragment);
     addAltWrapper.setXpathStringId(xpstrid);
   } catch (e) {
     console.error("Error loading Add Alt vue " + e.message + " / " + e.name);
-    notification.error({
+    notification.open({
       message: `${e.name} while loading AddAlt.vue`,
       description: `${e.message}`,
       duration: 0,
@@ -28,7 +30,14 @@ function addButton(containerEl, xpstrid) {
 }
 
 async function getAlts(xpstrid, callbackFunction) {
-  const url = makeUrl(xpstrid);
+  const localeId = cldrStatus.getCurrentLocale();
+  if (!localeId) {
+    return;
+  }
+  const url = cldrAjax.makeApiUrl(
+    "xpath/alt/" + localeId + "/" + xpstrid,
+    null
+  );
   return await cldrAjax
     .doFetch(url)
     .then(cldrAjax.handleFetchErrors)
@@ -37,27 +46,45 @@ async function getAlts(xpstrid, callbackFunction) {
     .catch((e) => console.error(e));
 }
 
-async function addChosenAlt(xpstrid, chosenAlt) {
-  const url = makeUrl(xpstrid);
+async function addChosenAlt(xpstrid, alt, callbackFunction) {
+  const localeId = cldrStatus.getCurrentLocale();
+  if (!localeId) {
+    return;
+  }
+  const url = cldrAjax.makeApiUrl("xpath/alt", null);
   const init = {
     method: "POST",
-    body: chosenAlt,
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      alt: alt,
+      localeId: localeId,
+      hexId: xpstrid,
+    }),
   };
-  return await cldrAjax
-    .doFetch(url, init)
-    .then(cldrAjax.handleFetchErrors)
-    .then((r) => r.json())
-    .then(reportPostResult)
-    .catch((e) => console.error(e));
+  try {
+    const response = await cldrAjax.doFetch(url, init);
+    if (response.ok) {
+      callbackFunction(null);
+    } else {
+      const json = await response.json();
+      const message = json.message || "Unknown server response";
+      throw new Error(message);
+    }
+  } catch (e) {
+    console.error(e);
+    window.alert("Error while adding alt: \n\n" + e);
+    callbackFunction(e);
+  }
 }
 
-function reportPostResult(json) {
-  window.alert(json?.message);
+/**
+ * Reload the page table so it will include the new row
+ */
+function reloadPage() {
+  cldrLoad.reloadV(); // crude
 }
 
-function makeUrl(xpstrid) {
-  // this is used for both GET and POST requests
-  return cldrAjax.makeApiUrl("xpath/alt/" + xpstrid, null);
-}
-
-export { addButton, getAlts, addChosenAlt };
+export { addButton, getAlts, addChosenAlt, reloadPage };

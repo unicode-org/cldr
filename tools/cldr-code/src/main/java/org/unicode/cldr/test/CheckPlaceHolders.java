@@ -203,9 +203,14 @@ public class CheckPlaceHolders extends CheckCLDR {
                 break;
             case surname:
                 // can't have surname2 unless we have surname
-                String modPath = pathParts.cloneAsThawed().setAttribute(-1, "type", Field.surname2.toString()).toString();
+                final XPathParts thawedPathParts = pathParts.cloneAsThawed();
+                String modPath = thawedPathParts.setAttribute(-1, "type", Field.surname2.toString()).toString();
                 String surname2Value = checkAccessor.getStringValue(modPath);
-                if (surname2Value != null && !surname2Value.equals("∅∅∅")) {
+                String modPathcore = thawedPathParts.setAttribute(-1, "type", "surname-core").toString();
+                String surnameCoreValue = checkAccessor.getStringValue(modPathcore);
+                if (surname2Value != null
+                    && !surname2Value.equals("∅∅∅")
+                    && (surnameCoreValue == null || surnameCoreValue.equals("∅∅∅"))) {
                     result.add(new CheckStatus().setCause(checkAccessor)
                         .setMainType(CheckStatus.errorType)
                         .setSubtype(Subtype.invalidPlaceHolder)

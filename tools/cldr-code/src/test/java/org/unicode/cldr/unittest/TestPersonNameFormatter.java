@@ -330,10 +330,10 @@ public class TestPersonNameFormatter extends TestFmwk{
         String[][] tests = {
             {
                 "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
-                "〖Zendaya〗〖Irene Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia Wolf M.D. Ph.D.〗〖Zendaya〗〖Irene Adler〗〖John Hamish Watson〗〖Ada Cornelia César Martín von Brühl MD DDS〗"
+                "〖Zendaya〗〖Irene Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia Wolf M.D. Ph.D.〗〖Sinbad〗〖Käthe Müller〗〖Zäzilia Hamish Stöber〗〖Ada Cornelia César Martín von Brühl MD DDS〗"
             },{
                 "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"long\"][@usage=\"monogram\"][@formality=\"informal\"]/namePattern",
-                "〖Z〗〖AI〗〖WJ〗〖WN〗〖Z〗〖AI〗〖WJ〗〖VN〗"
+                "〖Z〗〖AI〗〖WJ〗〖WN〗〖S〗〖MK〗〖SZ〗〖VN〗"
             },{
                 "//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]",
                 "〖und = «any other»〗〖en = English〗"
@@ -437,7 +437,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         String value2 = enWritable.getStringValue(path); // check that English is as expected
         assertEquals(path, "{given} {given2} {surname} {suffix}", value2);
 
-        String expected = "〖Zendaya〗〖Irene Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia Wolf M.D. Ph.D.〗〖Zendaya〗〖Irene Adler〗〖John Hamish Watson〗〖Ada Cornelia César Martín von Brühl MD DDS〗";
+        String expected = "〖Zendaya〗〖Irene Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia Wolf M.D. Ph.D.〗〖Sinbad〗〖Käthe Müller〗〖Zäzilia Hamish Stöber〗〖Ada Cornelia César Martín von Brühl MD DDS〗";
         String value = enWritable.getStringValue(path);
 
         checkExampleGenerator(exampleGenerator, path, value, expected);
@@ -451,7 +451,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         enWritable.add(namePath, "IRENE");
         exampleGenerator.updateCache(namePath);
 
-        String expected2 =  "〖Zendaya〗〖IRENE Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia Wolf M.D. Ph.D.〗〖Zendaya〗〖Irene Adler〗〖John Hamish Watson〗〖Ada Cornelia César Martín von Brühl MD DDS〗";
+        String expected2 =  "〖Zendaya〗〖IRENE Adler〗〖John Hamish Watson〗〖Ada Cornelia Eva Sophia Wolf M.D. Ph.D.〗〖Sinbad〗〖Käthe Müller〗〖Zäzilia Hamish Stöber〗〖Ada Cornelia César Martín von Brühl MD DDS〗";
         checkExampleGenerator(exampleGenerator, path, value, expected2);
     }
 

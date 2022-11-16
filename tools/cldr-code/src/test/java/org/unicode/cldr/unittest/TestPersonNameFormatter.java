@@ -62,6 +62,7 @@ import com.ibm.icu.util.ULocale;
 
 public class TestPersonNameFormatter extends TestFmwk{
 
+    private static final String expectedEnglishExample = "〖Native:〗〖Zendaya〗〖IRENE Adler〗〖Mary Sue Hamish Watson〗〖Mr. Bertram Wilberforce Henry Robert Wooster Jr, MP〗〖Foreign:〗〖Sinbad〗〖Käthe Müller〗〖Zäzilia Hamish Stöber〗〖Prof. Dr. Ada Cornelia César Martín von Brühl MD DDS〗";
     public static final boolean DEBUG = System.getProperty("TestPersonNameFormatter.DEBUG") != null;
     public static final boolean SHOW = System.getProperty("TestPersonNameFormatter.SHOW") != null;
 
@@ -170,7 +171,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         }
 
         check(ENGLISH_NAME_FORMATTER, sampleNameObject1, "order=sorting; length=short", "Smith, J. B.");
-        check(ENGLISH_NAME_FORMATTER, sampleNameObject1, "length=long; usage=referring; formality=formal", "Dr. John Bob Smith, MD");
+        check(ENGLISH_NAME_FORMATTER, sampleNameObject1, "length=long; usage=referring; formality=formal", "Dr. John Bob Smith Jr, MD");
 
 //        checkFormatterData(ENGLISH_NAME_FORMATTER);
     }
@@ -330,10 +331,10 @@ public class TestPersonNameFormatter extends TestFmwk{
         String[][] tests = {
             {
                 "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
-                "〖Native:〗〖Zendaya〗〖Irene Adler〗〖John Hamish Watson〗〖Ms. Ada Cornelia Eva Sophia Wolf, M.D. Ph.D.〗〖Foreign:〗〖Sinbad〗〖Käthe Müller〗〖Zäzilia Hamish Stöber〗〖Prof. Dr. Ada Cornelia César Martín von Brühl, MD DDS〗"
+                expectedEnglishExample
             },{
                 "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"long\"][@usage=\"monogram\"][@formality=\"informal\"]/namePattern",
-                "〖Native:〗〖Z〗〖AI〗〖WJ〗〖WN〗〖Foreign:〗〖S〗〖MK〗〖SZ〗〖VN〗"
+                "〖Native:〗〖Z〗〖AI〗〖WM〗〖WB〗〖Foreign:〗〖S〗〖MK〗〖SZ〗〖VN〗"
             },{
                 "//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]",
                 "〖und = «any other»〗〖en = English〗"
@@ -435,9 +436,9 @@ public class TestPersonNameFormatter extends TestFmwk{
         ExampleGenerator exampleGenerator = new ExampleGenerator(resolved, ENGLISH);
         String path = checkPath("//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern");
         String value2 = enWritable.getStringValue(path); // check that English is as expected
-        assertEquals(path, "{given} {given2} {surname} {credentials}", value2);
+        assertEquals(path, "{title} {given} {given2} {surname} {generation}, {credentials}", value2);
 
-        String expected = "〖Native:〗〖Zendaya〗〖Irene Adler〗〖John Hamish Watson〗〖Ms. Ada Cornelia Eva Sophia Wolf, M.D. Ph.D.〗〖Foreign:〗〖Sinbad〗〖Käthe Müller〗〖Zäzilia Hamish Stöber〗〖Prof. Dr. Ada Cornelia César Martín von Brühl, MD DDS〗";
+        String expected = expectedEnglishExample;
         String value = enWritable.getStringValue(path);
 
         checkExampleGenerator(exampleGenerator, path, value, expected);
@@ -451,7 +452,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         enWritable.add(namePath, "IRENE");
         exampleGenerator.updateCache(namePath);
 
-        String expected2 =  "〖Native:〗〖Zendaya〗〖Irene Adler〗〖John Hamish Watson〗〖Ms. Ada Cornelia Eva Sophia Wolf, M.D. Ph.D.〗〖Foreign:〗〖Sinbad〗〖Käthe Müller〗〖Zäzilia Hamish Stöber〗〖Prof. Dr. Ada Cornelia César Martín von Brühl, MD DDS〗";
+        String expected2 =  expectedEnglishExample;
         checkExampleGenerator(exampleGenerator, path, value, expected2);
     }
 

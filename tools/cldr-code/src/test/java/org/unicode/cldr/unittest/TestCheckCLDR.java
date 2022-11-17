@@ -953,7 +953,7 @@ public class TestCheckCLDR extends TestFmwk {
 
     public void TestSubmissionLocales() {
 
-        for (String locale : SubmissionLocales.ALLOW_ALL_PATHS) {
+        for (String locale : SubmissionLocales.ALLOW_ALL_PATHS_BASIC) {
             checkLocaleOk(locale, false);
         }
         for (String locale : SubmissionLocales.LOCALES_FOR_LIMITED) {
@@ -1004,10 +1004,13 @@ public class TestCheckCLDR extends TestFmwk {
      * Needs to be changed for each Limited Submission cycle. Is ignored for full submission cycles.
      */
     final Set<String> SAMPLE_EXCEPTIONAL_PATHS = ImmutableSet.of(
-        "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-kilometer\"]/gender"
+        "//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]",
+        "//ldml/personNames/nameOrderLocales[@order=\"surnameFirst\"]",
+        "//ldml/localeDisplayNames/territories/territory[@type=\"TR\"]",
+        "//ldml/localeDisplayNames/territories/territory[@type=\"TR\"][@alt=\"variant\"]"
         );
 
-    final String sampleDisallowedInLimitedSubmission = "//ldml/annotations/annotation[@cp=\"🎅\"]";
+    final String sampleDisallowedInLimitedSubmission = "//ldml/localeDisplayNames/territories/territory[@type=\"SY\"]";
 
     final String UNIT_PATH = "//ldml/units/unitLength[@type=\"long\"]";
 

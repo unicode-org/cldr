@@ -10,6 +10,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+import org.unicode.cldr.util.EmailValidator;
 import org.unicode.cldr.util.LocaleNormalizer;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.web.CookieSession;
@@ -100,8 +101,7 @@ public class AddUser {
         String new_org = getNewUserOrg(request.org, session.user);
         if ((request.name == null) || (request.name.length() <= 0)) {
             return new AddUserResponse(AddUserError.BAD_NAME);
-        } else if ((request.email == null) || (request.email.length() <= 0)
-            || ((-1 == request.email.indexOf('@')) || (-1 == request.email.indexOf('.')))) {
+        } else if (!EmailValidator.passes(request.email)) {
             return new AddUserResponse(AddUserError.BAD_EMAIL);
         } else if (new_org == null || new_org.length() <= 0) {
             return new AddUserResponse(AddUserError.BAD_ORG);

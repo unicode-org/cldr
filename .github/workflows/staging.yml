@@ -102,3 +102,9 @@ jobs:
         echo "${RSA_KEY_SURVEYTOOL}" > .key && chmod go= .key
         echo "${STAGING_KNOWNHOSTS}" > .knownhosts && chmod go= .knownhosts
         ssh -C -o UserKnownHostsFile=.knownhosts -i .key -p ${STAGING_PORT} surveytool@${STAGING_HOST} bash /usr/local/bin/deploy-to-openliberty.sh < cldr-apps.zip --repo "${DEPLOY_REPO}" ${DEPLOY_SHA} ${OVERRIDE}
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_TITE: 'deploy: cldr-staging'
+        SLACK_FOOTER: 'staging.yml'

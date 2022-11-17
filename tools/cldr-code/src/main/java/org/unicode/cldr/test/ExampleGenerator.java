@@ -12,6 +12,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 import java.util.regex.Matcher;
@@ -48,7 +49,6 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FallbackFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
-import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
 import org.unicode.cldr.util.personname.SimpleNameObject;
 
@@ -75,8 +75,8 @@ import com.ibm.icu.text.PluralRules.Operand;
 import com.ibm.icu.text.PluralRules.SampleType;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.SimpleFormatter;
-import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.TimeZone;
@@ -586,12 +586,18 @@ public class ExampleGenerator {
 
                 // We might need the alt, however: String alt = parts.getAttributeValue(-1, "alt");
 
-                for (NameObject sampleNameObject1 : sampleNames.values()) {
+                boolean lastIsNative = false;
+                for (Entry<PersonNameFormatter.SampleType, SimpleNameObject> typeAndSampleNameObject : sampleNames.entrySet()) {
                     NamePattern namePattern = NamePattern.from(0, value);
+                    final boolean isNative = typeAndSampleNameObject.getKey().isNative();
+                    if (isNative != lastIsNative) {
+                        examples.add(isNative ? "Native:" : "Foreign:");
+                        lastIsNative = isNative;
+                    }
                     debugState = "<NamePattern.from: " + namePattern;
                     final FallbackFormatter fallbackInfo = personNameFormatter.getFallbackInfo();
                     debugState = "<getFallbackInfo: " + fallbackInfo;
-                    String result = namePattern.format(sampleNameObject1, formatParameters, fallbackInfo);
+                    String result = namePattern.format(typeAndSampleNameObject.getValue(), formatParameters, fallbackInfo);
                     debugState = "<namePattern.format: " + result;
                     examples.add(result);
                 }
@@ -1892,7 +1898,7 @@ public class ExampleGenerator {
         double sampleAmount = 1295.00;
         example = addExampleResult(formatNumber(df, sampleAmount), example, showContexts);
         example = addExampleResult(formatNumber(df, -sampleAmount), example, showContexts);
-        
+
         if (showContexts && !altAlpha) {
             // If this example is not for alt="alphaNextToNumber", then if the currency symbol
             // above has letters (strong dir) add another example with non-letter symbol

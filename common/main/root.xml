@@ -5418,7 +5418,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<initialPattern type="initial">{0}.</initialPattern>
 		<initialPattern type="initialSequence">{0} {1}</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern>{prefix} {given} {given2} {surname} {surname2} {suffix}</namePattern>
+			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
 			<alias source="locale" path="../personName[@order='givenFirst'][@length='long'][@usage='referring'][@formality='formal']"/>
@@ -5472,7 +5472,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<alias source="locale" path="../personName[@order='givenFirst'][@length='long'][@usage='monogram'][@formality='formal']"/>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
-			<namePattern>{surname} {surname2} {prefix} {given} {given2} {suffix}</namePattern>
+			<namePattern>{surname} {surname2} {title} {given} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
 			<alias source="locale" path="../personName[@order='surnameFirst'][@length='long'][@usage='referring'][@formality='formal']"/>
@@ -5526,7 +5526,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<alias source="locale" path="../personName[@order='surnameFirst'][@length='long'][@usage='monogram'][@formality='formal']"/>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="formal">
-			<namePattern>{surname} {surname2}, {prefix} {given} {given2} {suffix}</namePattern>
+			<namePattern>{surname} {surname2}, {title} {given} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="informal">
 			<alias source="locale" path="../personName[@order='sorting'][@length='long'][@usage='referring'][@formality='formal']"/>
@@ -5578,14 +5578,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<nameField type="surname">∅∅∅</nameField>
 		</sampleName>
 		<sampleName item="foreignFull">
-			<nameField type="prefix">∅∅∅</nameField>
+			<nameField type="title">∅∅∅</nameField>
 			<nameField type="given">∅∅∅</nameField>
 			<nameField type="given-informal">∅∅∅</nameField>
 			<nameField type="given2">∅∅∅</nameField>
 			<nameField type="surname-prefix">∅∅∅</nameField>
 			<nameField type="surname-core">∅∅∅</nameField>
 			<nameField type="surname2">∅∅∅</nameField>
-			<nameField type="suffix">∅∅∅</nameField>
+			<nameField type="generation">∅∅∅</nameField>
+			<nameField type="credentials">∅∅∅</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

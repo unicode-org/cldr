@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -23,6 +24,9 @@ import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRTransforms;
+import org.unicode.cldr.util.DtdData;
+import org.unicode.cldr.util.DtdData.Attribute;
+import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
@@ -62,7 +66,6 @@ import com.ibm.icu.util.ULocale;
 
 public class TestPersonNameFormatter extends TestFmwk{
 
-    private static final String expectedEnglishExample = "〖Native:〗〖Zendaya〗〖IRENE Adler〗〖Mary Sue Hamish Watson〗〖Mr. Bertram Wilberforce Henry Robert Wooster Jr, MP〗〖Foreign:〗〖Sinbad〗〖Käthe Müller〗〖Zäzilia Hamish Stöber〗〖Prof. Dr. Ada Cornelia César Martín von Brühl MD DDS〗";
     public static final boolean DEBUG = System.getProperty("TestPersonNameFormatter.DEBUG") != null;
     public static final boolean SHOW = System.getProperty("TestPersonNameFormatter.SHOW") != null;
 
@@ -331,7 +334,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         String[][] tests = {
             {
                 "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
-                expectedEnglishExample
+                "〖Native:〗〖Zendaya〗〖Irene Adler〗〖Mary Sue Hamish Watson〗〖Mr. Bertram Wilberforce Henry Robert Wooster Jr, MP〗〖Foreign:〗〖Sinbad〗〖Käthe Müller〗〖Zäzilia Hamish Stöber〗〖Prof. Dr. Ada Cornelia César Martín von Brühl MD DDS〗"
             },{
                 "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"long\"][@usage=\"monogram\"][@formality=\"informal\"]/namePattern",
                 "〖Native:〗〖Z〗〖AI〗〖WM〗〖WB〗〖Foreign:〗〖S〗〖MK〗〖SZ〗〖VN〗"
@@ -438,7 +441,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         String value2 = enWritable.getStringValue(path); // check that English is as expected
         assertEquals(path, "{title} {given} {given2} {surname} {generation}, {credentials}", value2);
 
-        String expected = expectedEnglishExample;
+        String expected = "〖Native:〗〖Zendaya〗〖Irene Adler〗〖Mary Sue Hamish Watson〗〖Mr. Bertram Wilberforce Henry Robert Wooster Jr, MP〗〖Foreign:〗〖Sinbad〗〖Käthe Müller〗〖Zäzilia Hamish Stöber〗〖Prof. Dr. Ada Cornelia César Martín von Brühl MD DDS〗";
         String value = enWritable.getStringValue(path);
 
         checkExampleGenerator(exampleGenerator, path, value, expected);
@@ -449,11 +452,11 @@ public class TestPersonNameFormatter extends TestFmwk{
         String value3 = enWritable.getStringValue(namePath);
         assertEquals(namePath, "Irene", value3); // check that English is as expected
 
-        enWritable.add(namePath, "IRENE");
+        enWritable.add(namePath, "IRENE2");
         exampleGenerator.updateCache(namePath);
 
-        String expected2 =  expectedEnglishExample;
-        checkExampleGenerator(exampleGenerator, path, value, expected2);
+        String expectedIRENE =  "〖Native:〗〖Zendaya〗〖IRENE2 Adler〗〖Mary Sue Hamish Watson〗〖Mr. Bertram Wilberforce Henry Robert Wooster Jr, MP〗〖Foreign:〗〖Sinbad〗〖Käthe Müller〗〖Zäzilia Hamish Stöber〗〖Prof. Dr. Ada Cornelia César Martín von Brühl MD DDS〗";
+        checkExampleGenerator(exampleGenerator, path, value, expectedIRENE);
     }
 
     private String checkPath(String path) {
@@ -1020,5 +1023,45 @@ public class TestPersonNameFormatter extends TestFmwk{
             }
         }
         assertEquals("Missing scripts: ", Collections.emptySet(), missing);
+    }
+
+    /**
+     * Check that the ordering of the attribute values matches
+     * (a) the corresponding enum (or modified fields) and
+     * (b) the corresponding MATCH literals.
+     * */
+    public void testAttributeValueOrder() {
+        DtdData dtdData = DtdData.getInstance(DtdType.ldml);
+        //personName order="sorting" length="short" usage="referring" formality="formal
+        checkCompare(PersonNameFormatter.Order.ALL, dtdData, "personName", "order");
+        checkCompare(PersonNameFormatter.Length.ALL, dtdData, "personName", "length");
+        checkCompare(PersonNameFormatter.Usage.ALL, dtdData, "personName", "usage");
+        checkCompare(PersonNameFormatter.Formality.ALL, dtdData, "personName", "formality");
+        // sampleName item="nativeG"
+        checkCompare(PersonNameFormatter.SampleType.ALL, dtdData, "sampleName", "item");
+        // nameField type="given"
+        checkCompare(PersonNameFormatter.ModifiedField.ALL_SAMPLES, dtdData, "nameField", "type");
+    }
+
+    private <T extends Object> void checkCompare(Set<T> all, DtdData dtdData, String element, String attribute) {
+        final Comparator<String> attributeValueComparator = DtdData.getAttributeValueComparator(element, attribute);
+        String title = element+"@"+attribute;
+        compareItems("constant " + title, all, attributeValueComparator);
+        Attribute attributeItem = dtdData.getAttribute(element, attribute);
+        Set<String> literalMatches = attributeItem.getMatchLiterals();
+        if (literalMatches != null) {
+            compareItems("MATCH " + title, literalMatches, attributeValueComparator);
+        }
+    }
+
+    public <T> void compareItems(String title, Set<T> all, final Comparator<String> attributeValueComparator) {
+        String last = null;
+        for (Object item : all) {
+            String string = item.toString();
+            if (last != null) {
+                assertTrue(title + ": " + last + " ⩻ " + string, attributeValueComparator.compare(last, string) < 0);
+            }
+            last = string;
+        }
     }
 }

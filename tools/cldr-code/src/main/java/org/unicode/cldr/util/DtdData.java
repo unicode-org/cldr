@@ -1347,21 +1347,21 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "minute", "minute-short", "minute-narrow",
         "second", "second-short", "second-narrow",
         "zone", "zone-short", "zone-narrow").freeze();
-    static MapComparator<String> nameFieldOrder = new MapComparator<String>().add(
-        "prefix", "given", "given-informal", "given2", //
-        "surname", "surname-prefix", "surname-core", "surname2", "suffix")
+    static MapComparator<String> nameFieldOrder = new MapComparator<String>()
+        .add(PersonNameFormatter.ModifiedField.ALL_SAMPLES)
         .freeze();
-    static MapComparator<String> orderValueOrder = new MapComparator<String>().add(
-        "givenFirst", "surnameFirst", "sorting")
+    static MapComparator<String> orderValueOrder = new MapComparator<String>()
+        .add(PersonNameFormatter.Order.ALL, Object::toString)
         .freeze();
-    static MapComparator<String> lengthValueOrder = new MapComparator<String>().add(
-        "long", "medium", "short")
+    static MapComparator<String> lengthValueOrder = new MapComparator<String>()
+        .add(PersonNameFormatter.Length.ALL, Object::toString)
         .freeze();
-    static MapComparator<String> usageValueOrder = new MapComparator<String>().add(
-        "referring", "addressing", "monogram")
+    static MapComparator<String> usageValueOrder = new MapComparator<String>()
+        .add(PersonNameFormatter.Usage.ALL, Object::toString)
         .freeze();
-    static MapComparator<String> formalityValueOrder = new MapComparator<String>().add(
-        "formal", "informal").freeze();
+    static MapComparator<String> formalityValueOrder = new MapComparator<String>()
+        .add(PersonNameFormatter.Formality.ALL, Object::toString)
+        .freeze();
     static MapComparator<String> sampleNameItemOrder = new MapComparator<String>()
         .add(PersonNameFormatter.SampleType.ALL, Object::toString)
         .freeze();

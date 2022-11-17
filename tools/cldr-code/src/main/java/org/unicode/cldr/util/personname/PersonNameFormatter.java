@@ -348,6 +348,10 @@ public class PersonNameFormatter {
                 .compare(modifiers, o.modifiers, Modifier.ITERABLE_COMPARE)
                 .result();
         }
+        public static final Set<String> ALL_SAMPLES = ImmutableSet.of(
+            "title", "given", "given-informal", "given2", //
+            "surname", "surname-prefix", "surname-core", "surname2", "generation", "generation", "credentials"
+            );
     }
 
     /**

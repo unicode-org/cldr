@@ -703,7 +703,7 @@ public class VoteResolver<T> {
                     // if the votes for #1 are not better than #2, we have a dispute
                     if (weight == weight2) {
                         if (conflictedOrganizations != null) {
-                            annotateTranscript("--- There are conflicts due to different values by users of this same organization");
+                            annotateTranscript("--- There are conflicts due to different values by users of this organization.");
                             conflictedOrganizations.add(org);
                         }
                     }
@@ -1097,13 +1097,13 @@ public class VoteResolver<T> {
         // sortedValues.size() >= 2 - explain why O won and N lost.
         // We have to perform the function of the votesThenUcaCollator one more time
         if (O > N) {
-            annotateTranscript("- This is the winning value because it has the highest weight (voting score).");
+            annotateTranscript("- This is the optimal value because it has the highest weight (voting score).");
         } else if(winningValue.equals(baselineValue)) {
-            annotateTranscript("- This is the winning value because it is the same as the baseline value, though the weight was otherwise equal to the next-best."); // aka blue star
+            annotateTranscript("- This is the optimal value because it is the same as the baseline value, though the weight was otherwise equal to the next-best."); // aka blue star
         } else if(winningValue.equals(CldrUtility.INHERITANCE_MARKER)) {
-            annotateTranscript("- This is the winning value because it is the inheritance marker, though the weight was otherwise equal to the next-best."); // triple up arrow
+            annotateTranscript("- This is the optimal value because it is the inheritance marker, though the weight was otherwise equal to the next-best."); // triple up arrow
         } else {
-            annotateTranscript("- This is the winning value because it comes earlier than '%s' when the text was sorted, though the weight was otherwise equal to the next-best.", nValue);
+            annotateTranscript("- This is the optimal value because it comes earlier than '%s' when the text was sorted, though the weight was otherwise equal to the next-best.", nValue);
         }
         annotateTranscript("The Next-best (N) value is '%s', with weight %d", nValue, N);
     }
@@ -1114,7 +1114,7 @@ public class VoteResolver<T> {
      * and many others.
      */
     private void resolveVotes() {
-        annotateTranscript("Begin resolution");
+        annotateTranscript("Resolving votes:");
         resolved = true;
         // get the votes for each organization
         valuesWithSameVotes.clear();
@@ -1136,10 +1136,12 @@ public class VoteResolver<T> {
                 winningValue = baselineValue;
                 winningStatus = baselineStatus;
                 annotateTranscript("Winning Value: '%s' with status '%s' because there were no unconflicted votes.", winningValue, winningStatus);
+                // Declare the winner here, because we're about to return from the function
             } else if (organizationToValueAndVote.baileySet) {
                 winningValue = (T) CldrUtility.INHERITANCE_MARKER;
                 winningStatus = Status.missing;
                 annotateTranscript("Winning Value: '%s' with status '%s' because there were no unconflicted votes, and there was a Bailey value set.", winningValue, winningStatus);
+                // Declare the winner here, because we're about to return from the function
             } else {
                 /*
                  * TODO: When can this still happen? See https://unicode.org/cldr/trac/ticket/11299 "Example C".
@@ -1151,6 +1153,7 @@ public class VoteResolver<T> {
                 winningValue = (T) NO_WINNING_VALUE;
                 winningStatus = Status.missing;
                 annotateTranscript("No winning value! status '%s' because there were no unconflicted votes", winningStatus);
+                // Declare the non-winner here, because we're about to return from the function
             }
             valuesWithSameVotes.add(winningValue);
             return;  // sortedValues.size() == 0, no candidates
@@ -1172,7 +1175,6 @@ public class VoteResolver<T> {
          * Adjust sortedValues and voteCount as needed for annotation keywords.
          */
         if (isUsingKeywordAnnotationVoting()) {
-            annotateTranscript("TODO: Annotation stuff is happening, but we can’t explain it right now.");
             adjustAnnotationVoteCounts(sortedValues, voteCount);
         }
 
@@ -1190,11 +1192,15 @@ public class VoteResolver<T> {
         // if we are not as good as the baseline (trunk), use the baseline
         // TODO: how could baselineStatus be null here??
         if (baselineStatus != null && winningStatus.compareTo(baselineStatus) < 0) {
-            annotateTranscript("The new winning status would not be as good as the baseline status %s.  Therefore, the baseline value '%s' will become the winning value.", baselineStatus, baselineValue);
+            annotateTranscript("The optimal value so far with status '%s' would not be as good as the baseline status. " +
+                "Therefore, the winning value is '%s' with status '%s'.", winningStatus, baselineValue, baselineStatus);
             winningStatus = baselineStatus;
             winningValue = baselineValue;
             valuesWithSameVotes.clear();
             valuesWithSameVotes.add(winningValue);
+        } else {
+            // Declare the final winner
+            annotateTranscript("The winning value is '%s' with status '%s'.", winningValue, winningStatus);
         }
     }
 
@@ -1239,6 +1245,8 @@ public class VoteResolver<T> {
         if (voteCount == null || sortedValues == null) {
             return;
         }
+        annotateTranscript("Vote weights are being adjusted due to annotation keywords."); // TODO explain this further
+
         // Make compMap map individual components to cumulative vote counts.
         HashMap<T, Long> compMap = makeAnnotationComponentMap(sortedValues, voteCount);
 
@@ -1454,7 +1462,7 @@ public class VoteResolver<T> {
                 winningValue = value;
                 weightArray[0] = valueWeight;
                 valuesWithSameVotes.add(value);
-                annotateTranscript("The winning value (O) is '%s', with a weight of %d", winningValue, valueWeight);
+                annotateTranscript("The optimal value (O) is '%s', with a weight of %d", winningValue, valueWeight);
                 if (sortedValues.size() == 1) {
                     annotateTranscript("- No other values received votes."); // uncontested
                 }

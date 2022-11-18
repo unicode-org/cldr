@@ -31,10 +31,23 @@ ul.adminList li.notselected {
 	border-right:  1px solid #ddd;
 }
 
+.transcript-container {
+	display: none;
+}
+
+.transcript-container.visible {
+	display: block;
+}
+
+a.show-transcript {
+	float: right;
+}
+
 pre.transcript-text {
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 	font-size: small;
-	white-space: pre-wrap;
+	white-space: pre-line;
+	word-break: normal;
 }
 
 #small_login_shower button {

@@ -320,7 +320,15 @@ public class VoteAPIHelper {
         return ro.getNotifications();
     }
 
-    static Response handleVote(String loc, String xpstrid, VoteRequest request, final CookieSession mySession) {
+    // forbiddenIsOk is true when called from VoteAPI for the main, original usage of this method; when true, it means
+    // that even if we get statusAction.isForbidden, we'll return an OK (200) response, with json.didVote false.
+    //
+    // forbiddenIsOk is false when called from XPathAlt for the special purpose of adding a new path, so that
+    // XPathAlt will get something other than OK (200) in case of failure.
+    //
+    // This method needs refactoring into smaller subroutines, with the lower-level details separated from
+    // the HTTP response concerns, so that VoteAPI and XPathAlt can share code without the awkwardness of forbiddenIsOk.
+    static Response handleVote(String loc, String xp, String value, int voteLevelChanged, final CookieSession mySession, boolean forbiddenIsOk) {
         VoteResponse r = new VoteResponse();
         mySession.userDidAction();
         CLDRLocale locale = CLDRLocale.getInstance(loc);
@@ -329,15 +337,11 @@ public class VoteAPIHelper {
         }
         loc = locale.getBaseName(); // sanitized
         final SurveyMain sm = CookieSession.sm;
-        final String xp = sm.xpt.getByStringID(xpstrid);
-        if (xp == null) {
-            return Response.status(Status.NOT_FOUND).build(); // no XPath found
-        }
         CheckCLDR.Options options = DataPage.getOptions(mySession, locale);
         final STFactory stf = sm.getSTFactory();
         synchronized (mySession) {
             try {
-                final String origValue = request.value;
+                final String origValue = value;
                 final Exception[] exceptionList = new Exception[1];
                 final CLDRFile cldrFile = stf.make(loc, true, true);
                 final String val = processValue(locale, xp, exceptionList, origValue, cldrFile);
@@ -357,6 +361,7 @@ public class VoteAPIHelper {
                 if (r.statusAction == null) {
                     r.statusAction = calculateShowRowAction(cldrFile, xp, val, dataRow);
                 }
+
                 if (!r.statusAction.isForbidden()) {
                     CandidateInfo ci = calculateCandidateItem(result, val, dataRow);
                     // Now, recalculate the statusAction for accepting the new item
@@ -366,10 +371,8 @@ public class VoteAPIHelper {
                     if (!r.statusAction.isForbidden()) {
                         try {
                             final BallotBox<UserRegistry.User> ballotBox = stf.ballotBoxForLocale(locale);
-                            if (request.voteLevelChanged == 0) { // treat 0 as null
-                                request.voteLevelChanged = null;
-                            }
-                            ballotBox.voteForValue(mySession.user, xp, val, request.voteLevelChanged);
+                            Integer withVote = (voteLevelChanged == 0) ? null : voteLevelChanged;
+                            ballotBox.voteForValue(mySession.user, xp, val, withVote);
                             r.didVote = true;
                         } catch (VoteNotAcceptedException e) {
                             if (e.getErrCode() == ErrorCode.E_PERMANENT_VOTE_NO_FORUM) {
@@ -384,6 +387,12 @@ public class VoteAPIHelper {
                 SurveyLog.logException(logger, t, "Processing submission " + locale + ":" + xp);
                 return (new STError(t).build());
             }
+        }
+        if (!forbiddenIsOk && r.statusAction.isForbidden()) {
+            return Response
+                .status(Response.Status.NOT_ACCEPTABLE)
+                .entity(new STError("Status action is forbidden: " + r.statusAction))
+                .build();
         }
         return Response.ok(r).build();
     }

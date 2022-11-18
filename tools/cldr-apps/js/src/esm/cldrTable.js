@@ -7,6 +7,7 @@
  * 		updateRow
  * 		refreshSingleRow
  */
+import * as cldrAddAlt from "./cldrAddAlt.js";
 import * as cldrAjax from "./cldrAjax.js";
 import * as cldrCoverage from "./cldrCoverage.js";
 import * as cldrDom from "./cldrDom.js";
@@ -776,6 +777,9 @@ function updateRowEnglishComparisonCell(tr, theRow, cell) {
     cell.appendChild(infos);
   }
   cldrInfo.listen(null, tr, cell, null);
+  if (cldrStatus.getPermissions()?.userIsTC) {
+    cldrAddAlt.addButton(cell, theRow.xpstrid);
+  }
   cell.isSetup = true;
 }
 

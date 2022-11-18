@@ -65,7 +65,7 @@
             </select>
           </td>
         </tr>
-        <tr>
+        <tr v-if="newUser.level && newUser.level >= 5">
           <th><label for="new_locales">Languages responsible:</label></th>
           <td>
             <input
@@ -96,7 +96,14 @@
         </tr>
         <tr class="addButton">
           <td colspan="2">
-            <button v-on:click="add()">Add</button>
+            <button
+              v-if="
+                newUser.name && newUser.email && newUser.org && newUser.level
+              "
+              v-on:click="add()"
+            >
+              Add
+            </button>
           </td>
         </tr>
       </table>
@@ -166,7 +173,7 @@ export default {
       this.locWarnings = null;
       this.newUser.email = "";
       this.newUser.level = "";
-      this.newUser.locales = "und";
+      this.newUser.locales = "";
       this.newUser.name = "";
       this.userId = null;
       this.getLevelList();
@@ -289,6 +296,10 @@ export default {
       }
       if (!this.newUser.level) {
         this.errors.push("Level required.");
+      } else if (this.newUser.level >= 5 && !this.newUser.locales) {
+        this.errors.push(
+          "Languages responsible is required for this userlevel."
+        );
       }
     },
 

@@ -3307,13 +3307,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<initialPattern type="initial" draft="unconfirmed">{0}.</initialPattern>
 		<initialPattern type="initialSequence" draft="unconfirmed">{0} {1}</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="unconfirmed">{given} {given2} {surname} {suffix}</namePattern>
+			<namePattern draft="unconfirmed">{given} {given2} {surname} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
 			<namePattern>{given-informal} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
-			<namePattern draft="unconfirmed">{prefix} {surname}</namePattern>
+			<namePattern draft="unconfirmed">{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="informal">
 			<namePattern draft="unconfirmed">{given-informal}</namePattern>
@@ -3325,13 +3325,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern>{given-informal-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="unconfirmed">{given} {given2-initial} {surname} {suffix}</namePattern>
+			<namePattern draft="unconfirmed">{given} {given2-initial} {surname} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
 			<namePattern>{given-informal} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern draft="unconfirmed">{prefix} {surname}</namePattern>
+			<namePattern draft="unconfirmed">{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="informal">
 			<namePattern draft="unconfirmed">{given-informal}</namePattern>
@@ -3349,7 +3349,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern>{given-informal} {surname-initial}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
-			<namePattern draft="unconfirmed">{prefix} {surname}</namePattern>
+			<namePattern draft="unconfirmed">{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="informal">
 			<namePattern draft="unconfirmed">{given-informal}</namePattern>
@@ -3361,13 +3361,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern draft="unconfirmed">{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="unconfirmed">{surname} {given} {given2} {suffix}</namePattern>
+			<namePattern draft="unconfirmed">{surname} {given} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
 			<namePattern draft="unconfirmed">{surname} {given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="formal">
-			<namePattern draft="unconfirmed">{prefix} {surname}</namePattern>
+			<namePattern draft="unconfirmed">{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="informal">
 			<namePattern draft="unconfirmed">{given-informal}</namePattern>
@@ -3379,13 +3379,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern draft="unconfirmed">{surname-monogram-allCaps}{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="unconfirmed">{surname} {given} {given2-initial} {suffix}</namePattern>
+			<namePattern draft="unconfirmed">{surname} {given} {given2-initial} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="informal">
 			<namePattern draft="unconfirmed">{surname} {given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern draft="unconfirmed">{prefix} {surname}</namePattern>
+			<namePattern draft="unconfirmed">{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="informal">
 			<namePattern draft="unconfirmed">{given-informal}</namePattern>
@@ -3403,7 +3403,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern draft="unconfirmed">{surname} {given-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="formal">
-			<namePattern draft="unconfirmed">{prefix} {surname}</namePattern>
+			<namePattern draft="unconfirmed">{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="informal">
 			<namePattern draft="unconfirmed">{given-informal}</namePattern>
@@ -3433,14 +3433,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern draft="unconfirmed">{surname}, {given-informal}</namePattern>
 		</personName>
 		<sampleName item="foreignFull">
-			<nameField type="prefix" draft="unconfirmed">Prof. Dr.</nameField>
+			<nameField type="title" draft="unconfirmed">Prof. Dr.</nameField>
 			<nameField type="given" draft="unconfirmed">Ada Kornelia</nameField>
 			<nameField type="given-informal" draft="unconfirmed">Neele</nameField>
 			<nameField type="given2" draft="unconfirmed">Eva Sofia</nameField>
 			<nameField type="surname-prefix" draft="unconfirmed">van den</nameField>
 			<nameField type="surname-core" draft="unconfirmed">Wolf</nameField>
 			<nameField type="surname2" draft="unconfirmed">Beker Shmidt</nameField>
-			<nameField type="suffix" draft="unconfirmed">M.D. Ph.D.</nameField>
+			<nameField type="credentials" draft="unconfirmed">M.D. Ph.D.</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

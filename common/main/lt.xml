@@ -16623,7 +16623,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern>{suffix} {prefix} {given} {given2} {surname} {surname2}</namePattern>
+			<namePattern>{credentials} {title} {given} {given2} {surname} {surname2}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
 			<namePattern>{given} {given2} {surname} {surname2}</namePattern>
@@ -16659,13 +16659,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="formal">
-			<namePattern>{prefix} {given} {given2} {surname} {surname2}</namePattern>
+			<namePattern>{title} {given} {given2} {surname} {surname2}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="informal">
 			<namePattern>{given} {given2} {surname} {surname2}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
-			<namePattern>{prefix} {given} {given2} {surname} {surname2}</namePattern>
+			<namePattern>{title} {given} {given2} {surname} {surname2}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="informal">
 			<namePattern>{given} {given2} {surname} {surname2}</namePattern>
@@ -16677,7 +16677,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
-			<namePattern>{prefix} {surname} {surname2}, {given} {given2}</namePattern>
+			<namePattern>{title} {surname} {surname2}, {given} {given2}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
 			<namePattern>{surname} {surname2}, {given} {given2}</namePattern>
@@ -16731,7 +16731,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="formal">
-			<namePattern>{prefix} {surname} {surname2}, {given} {given2}</namePattern>
+			<namePattern>{title} {surname} {surname2}, {given} {given2}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="informal">
 			<namePattern>{surname} {surname2}, {given} {given2}</namePattern>
@@ -16761,14 +16761,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<nameField type="surname">Petrauskas</nameField>
 		</sampleName>
 		<sampleName item="foreignFull">
-			<nameField type="prefix">prof. dr.</nameField>
+			<nameField type="title">prof. dr.</nameField>
 			<nameField type="given">Ada Kornelija</nameField>
 			<nameField type="given-informal">Nilka</nameField>
 			<nameField type="given2">Eva Sofija</nameField>
 			<nameField type="surname-prefix">van den</nameField>
 			<nameField type="surname-core">Vilkas</nameField>
 			<nameField type="surname2">Jankauskas-Baranauskas</nameField>
-			<nameField type="suffix">med. m. dr.</nameField>
+			<nameField type="credentials">med. m. dr.</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

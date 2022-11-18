@@ -7637,13 +7637,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern>{prefix} {given} {given2} {surname} {surname2}</namePattern>
+			<namePattern>{title} {given} {given2} {surname} {surname2}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
 			<namePattern>{given} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="informal">
 			<namePattern>{given}</namePattern>
@@ -7661,7 +7661,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern>{given} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="informal">
 			<namePattern>{given}</namePattern>
@@ -7679,7 +7679,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern>{given-initial} {given2-initial} {surname-initial} {surname2-initial}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="informal">
 			<namePattern>{given}</namePattern>
@@ -7691,13 +7691,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern>{given-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
-			<namePattern>{prefix} {suffix} {surname} {surname2} {given} {given2}</namePattern>
+			<namePattern>{title} {credentials} {surname} {surname2} {given} {given2}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
 			<namePattern>{surname} {given}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="informal">
 			<namePattern>{given-informal}</namePattern>
@@ -7709,13 +7709,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern>{surname-monogram-allCaps}{given-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
-			<namePattern>{surname} {surname2} {given} {given2} {prefix}</namePattern>
+			<namePattern>{surname} {surname2} {given} {given2} {title}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="informal">
 			<namePattern>{surname} {given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="informal">
 			<namePattern>{given-informal}</namePattern>
@@ -7733,7 +7733,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern>{surname} {given-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="formal">
-			<namePattern>{prefix} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="informal">
 			<namePattern>{given-informal}</namePattern>
@@ -7775,14 +7775,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nameField type="surname">Flores</nameField>
 		</sampleName>
 		<sampleName item="foreignFull">
-			<nameField type="prefix">Prof. Dr.</nameField>
+			<nameField type="title">Prof. Dr.</nameField>
 			<nameField type="given">Maria</nameField>
 			<nameField type="given-informal">Nico</nameField>
 			<nameField type="given2">Guadalupe</nameField>
 			<nameField type="surname-prefix">Diez</nameField>
 			<nameField type="surname-core">Canseco</nameField>
 			<nameField type="surname2">Guzmán</nameField>
-			<nameField type="suffix">Ph. D.</nameField>
+			<nameField type="credentials">Ph. D.</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

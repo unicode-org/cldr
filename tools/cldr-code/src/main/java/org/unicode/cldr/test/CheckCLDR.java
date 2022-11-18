@@ -69,7 +69,7 @@ import com.ibm.icu.util.ICUUncheckedIOException;
  */
 abstract public class CheckCLDR implements CheckAccessor {
 
-    public static final boolean LIMITED_SUBMISSION = false; // TODO represent differently
+    public static final boolean LIMITED_SUBMISSION = true; // TODO: CLDR-13337: represent differently
 
     private static CLDRFile displayInformation;
 

@@ -382,6 +382,22 @@ function updateRowVoteInfo(tr, theRow) {
   const vr = theRow.votingResults;
   tr.voteDiv = document.createElement("div");
   tr.voteDiv.className = "voteDiv";
+
+  //add the 'explain' icon
+  const showTranscriptIcon = cldrDom.createChunk(
+    "",
+    "i",
+    "glyphicon glyphicon-info-sign show-transcript"
+  );
+  showTranscriptIcon.setAttribute("title", cldrText.get("transcript_flyover"));
+  const showTranscriptLink = cldrDom.createChunk("", "a", "show-transcript");
+  showTranscriptLink.setAttribute(
+    "href",
+    "javascript:window.cldrBundle.toggleTranscript()"
+  );
+  showTranscriptLink.appendChild(showTranscriptIcon);
+  tr.voteDiv.appendChild(showTranscriptLink);
+
   const surveyUser = cldrStatus.getSurveyUser();
   if (theRow.voteVhash && theRow.voteVhash !== "" && surveyUser) {
     const voteForItem = theRow.items[theRow.voteVhash];
@@ -583,6 +599,18 @@ function updateRowVoteInfo(tr, theRow) {
       "div",
       "transcript-container"
     );
+    const hideTranscriptIcon = cldrDom.createChunk(
+      "",
+      "i",
+      "glyphicon glyphicon-remove-sign show-transcript"
+    );
+    const hideTranscriptLink = cldrDom.createChunk("", "a", "show-transcript");
+    hideTranscriptLink.setAttribute(
+      "href",
+      "javascript:window.cldrBundle.toggleTranscript()"
+    );
+    hideTranscriptLink.appendChild(hideTranscriptIcon);
+    transcriptBox.appendChild(hideTranscriptLink);
     const transcriptText = cldrDom.createChunk(
       theRow.voteTranscript,
       "pre",

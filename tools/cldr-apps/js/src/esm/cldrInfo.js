@@ -673,7 +673,8 @@ function updateRowVoteInfoForAllOrgs(theRow, vr, value, item, vdiv) {
             }
           }
         }
-      } else {
+      }
+      if (!topVoter) {
         // just find someone in the right org..
         for (var voter in item.votes) {
           if (item.votes[voter].org == org) {

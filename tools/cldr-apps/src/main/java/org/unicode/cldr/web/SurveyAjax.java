@@ -1751,7 +1751,7 @@ public class SurveyAjax extends HttpServlet {
      * submit them as in submitOldVotes.
      *
      * @param r the SurveyJSONWrapper in which to write
-     * @param user the User
+     * @param user the User, or null (do nothing)
      * @param sm the SurveyMain instance
      * @throws IOException
      * @throws JSONException
@@ -1760,7 +1760,7 @@ public class SurveyAjax extends HttpServlet {
     private void doAutoImportOldWinningVotes(SurveyJSONWrapper r, User user, SurveyMain sm)
                throws IOException, JSONException, SQLException {
 
-        if (alreadyAutoImportedVotes(user.id, "ask")) {
+        if (user == null || alreadyAutoImportedVotes(user.id, "ask")) {
             return;
         }
         alreadyAutoImportedVotes(user.id, "set");

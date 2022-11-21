@@ -104,6 +104,10 @@ public class FormattedFileWriter extends java.io.Writer {
 
     private StringWriter out = new StringWriter();
 
+    protected StringWriter getStringWriter() {
+        return out;
+    }
+
     public FormattedFileWriter(String baseFileName, String title, String explanation, Anchors anchors)
         throws IOException {
         // we set up a bunch of variables, but we won't actually use them unless there is generate content. See close()

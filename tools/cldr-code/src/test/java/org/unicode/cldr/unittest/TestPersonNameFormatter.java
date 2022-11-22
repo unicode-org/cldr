@@ -351,7 +351,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         String[][] jaTests = {
             {
                 "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
-                "〖Native:〗〖慎太郎〗〖一郎 安藤〗〖太郎 トーマス 山田〗〖Foreign:〗〖アルベルト・アインシュタイン〗〖英子・ソフィア・内田ドクター〗"
+                "〖Native:〗〖慎太郎〗〖一郎安藤〗〖太郎トーマス山田〗〖Foreign:〗〖アルベルト・アインシュタイン〗〖英子・ソフィア・内田ドクター〗", "〖Native:〗〖慎太郎〗〖一郎安藤〗〖太郎トーマス山田〗〖Foreign:〗〖アルベルト・アインシュタイン〗〖英子・ソフィア・内田ドクター〗\", got \"〖Native:〗〖慎太郎〗〖一郎安藤〗〖太郎トーマス山田〗〖Foreign:〗〖アルベルト・アインシュタイン〗〖英子・ソフィア・内田ドクター〗"
             }
         };
         ExampleGenerator jaExampleGenerator = checkExamples(jaCldrFile, jaTests);

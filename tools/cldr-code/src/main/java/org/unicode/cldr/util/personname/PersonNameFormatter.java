@@ -616,6 +616,8 @@ public class PersonNameFormatter {
                 ULocale nameLocale = nameObject.getNameLocale();
                 if (!sharesLanguageScript(nameLocale, fallbackInfo.formatterLocale)) {
                     return SPACES.matcher(result).replaceAll(fallbackInfo.foreignSpaceReplacement);
+                } else {
+                    return SPACES.matcher(result).replaceAll("");
                 }
             }
             return result.toString();

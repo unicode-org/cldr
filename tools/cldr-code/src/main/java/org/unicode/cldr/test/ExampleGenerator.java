@@ -15,6 +15,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -49,6 +50,7 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FallbackFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
+import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
 import org.unicode.cldr.util.personname.SimpleNameObject;
 
@@ -221,6 +223,8 @@ public class ExampleGenerator {
     private final CLDRFile cldrFile;
 
     private final CLDRFile englishFile;
+    private CLDRFile cyrillicFile;
+    private CLDRFile japanFile;
 
     private final BestMinimalPairSamples bestMinimalPairSamples;
 
@@ -502,11 +506,11 @@ public class ExampleGenerator {
             result = handlePersonName(parts, value);
         }
         if (result != null) {
-             if (nonTrivial && value.equals(result)) {
-                 result = null;
-             } else {
-                 result = finalizeBackground(result);
-             }
+            if (nonTrivial && value.equals(result)) {
+                result = null;
+            } else {
+                result = finalizeBackground(result);
+            }
         }
         return result;
     }
@@ -555,15 +559,18 @@ public class ExampleGenerator {
         "//ldml/personNames/sampleName[@item=\"*\"]/nameField[@type=\"*\"]",
         "//ldml/personNames/initialPattern[@type=\"*\"]");
 
+    private static final Function<String, String> BACKGROUND_TRANSFORM = x
+        -> backgroundStartSymbol + x + backgroundEndSymbol;
+
     private String handlePersonName(XPathParts parts, String value) {
         //ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="addressing"][@style="formal"]/namePattern => {prefix} {surname}
         String debugState = "start";
         try {
             FormatParameters formatParameters = new FormatParameters(
-            PersonNameFormatter.Order.from(parts.getAttributeValue(2, "order")),
-            PersonNameFormatter.Length.from(parts.getAttributeValue(2, "length")),
-            PersonNameFormatter.Usage.from(parts.getAttributeValue(2, "usage")),
-            PersonNameFormatter.Formality.from(parts.getAttributeValue(2, "formality")));
+                PersonNameFormatter.Order.from(parts.getAttributeValue(2, "order")),
+                PersonNameFormatter.Length.from(parts.getAttributeValue(2, "length")),
+                PersonNameFormatter.Usage.from(parts.getAttributeValue(2, "usage")),
+                PersonNameFormatter.Formality.from(parts.getAttributeValue(2, "formality")));
 
             List<String> examples = null;
             final CLDRFile cldrFile2 = getCldrFile();
@@ -588,18 +595,35 @@ public class ExampleGenerator {
 
                 boolean lastIsNative = false;
                 for (Entry<PersonNameFormatter.SampleType, SimpleNameObject> typeAndSampleNameObject : sampleNames.entrySet()) {
-                    NamePattern namePattern = NamePattern.from(0, value);
+                    NamePattern namePattern = NamePattern.from(0, value); // get the first one
                     final boolean isNative = typeAndSampleNameObject.getKey().isNative();
                     if (isNative != lastIsNative) {
-                        examples.add(isNative ? "Native:" : "Foreign:");
+                        final String title = isNative
+                            ? "🟨 Native name and script:"
+                            : "🟧 Foreign name and native script:";
+                        examples.add(startItalicSymbol + title + endItalicSymbol);
                         lastIsNative = isNative;
                     }
                     debugState = "<NamePattern.from: " + namePattern;
                     final FallbackFormatter fallbackInfo = personNameFormatter.getFallbackInfo();
                     debugState = "<getFallbackInfo: " + fallbackInfo;
-                    String result = namePattern.format(typeAndSampleNameObject.getValue(), formatParameters, fallbackInfo);
+                    final NameObject nameObject = new PersonNameFormatter.TransformingNameObject(typeAndSampleNameObject.getValue(), BACKGROUND_TRANSFORM);
+                    String result = namePattern.format(nameObject, formatParameters, fallbackInfo);
                     debugState = "<namePattern.format: " + result;
                     examples.add(result);
+                }
+                // Extra names
+                final String script = new LikelySubtags().getLikelyScript(cldrFile.getLocaleID());
+                Output<Boolean> haveHeaderLine = new Output<>(false);
+
+                if (!script.equals("Latn")) {
+                    formatSampleName(formatParameters, englishFile, examples, haveHeaderLine);
+                }
+                if (!script.equals("Cyrl")) {
+                    formatSampleName(formatParameters, PersonNameScripts.Cyrl, examples, haveHeaderLine);
+                }
+                if (!script.equals("Jpan")) {
+                    formatSampleName(formatParameters, PersonNameScripts.Jpan, examples, haveHeaderLine);
                 }
                 break;
             }
@@ -615,6 +639,54 @@ public class ExampleGenerator {
             }
             return "Internal error: " + e.getMessage() + "\n" + debugState + "\n" +  stackTrace;
         }
+    }
+
+    enum PersonNameScripts {Latn, Cyrl, Jpan}
+
+    public void formatSampleName(FormatParameters formatParameters, PersonNameScripts script, List<String> examples, Output<Boolean> haveHeaderLine) {
+        switch (script) {
+        case Cyrl:
+            if (cyrillicFile == null) {
+                cyrillicFile = CLDRConfig.getInstance().getCldrFactory().make("uk", true);
+            }
+            formatSampleName(formatParameters, cyrillicFile, examples, haveHeaderLine);
+            break;
+        case Jpan:
+            if (japanFile == null) {
+                japanFile = CLDRConfig.getInstance().getCldrFactory().make("ja", true);
+            }
+            formatSampleName(formatParameters, japanFile, examples, haveHeaderLine);
+            break;
+        default:
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public void formatSampleName(FormatParameters formatParameters, final CLDRFile cldrFile2, List<String> examples, Output<Boolean> haveHeaderLine) {
+        PersonNameFormatter formatter2 = new PersonNameFormatter(cldrFile2);
+        Map<PersonNameFormatter.SampleType, SimpleNameObject> sampleNames2 = PersonNameFormatter.loadSampleNames(cldrFile2);
+        SimpleNameObject sampleName = getBestAvailable(sampleNames2, PersonNameFormatter.SampleType.nativeFull, PersonNameFormatter.SampleType.nativeGGS);
+        if (sampleName != null) {
+            String result2 = formatter2.format(new PersonNameFormatter.TransformingNameObject(sampleName, BACKGROUND_TRANSFORM), formatParameters);
+            if (result2 != null) {
+                if (!haveHeaderLine.value) {
+                    haveHeaderLine.value = Boolean.TRUE;
+                    examples.add(startItalicSymbol + "🟥 Foreign name and script:" + endItalicSymbol);
+                }
+                examples.add(result2);
+            }
+        }
+    }
+
+    private SimpleNameObject getBestAvailable(Map<PersonNameFormatter.SampleType, SimpleNameObject> sampleNamesMap,
+        PersonNameFormatter.SampleType... sampleTypes) {
+        for (PersonNameFormatter.SampleType sampleType : sampleTypes) {
+            SimpleNameObject result = sampleNamesMap.get(sampleType);
+            if (result != null) {
+                return result;
+            }
+        }
+        return null;
     }
 
     private String handleLabelPattern(XPathParts parts, String value) {
@@ -1231,14 +1303,14 @@ public class ExampleGenerator {
 
         public static UnitLength from(String listPatternType) {
             switch (listPatternType) {
-                case "unit":
-                    return UnitLength.LONG;
-                case "unit-narrow":
-                    return UnitLength.NARROW;
-                case "unit-short":
-                    return UnitLength.SHORT;
-                default:
-                    throw new IllegalArgumentException();
+            case "unit":
+                return UnitLength.LONG;
+            case "unit-narrow":
+                return UnitLength.NARROW;
+            case "unit-short":
+                return UnitLength.SHORT;
+            default:
+                throw new IllegalArgumentException();
             }
         }
     }
@@ -2292,29 +2364,29 @@ public class ExampleGenerator {
             return null;
         }
         String coreString =
-                TransliteratorUtilities.toHTML.transliterate(input)
-                .replace(backgroundStartSymbol + backgroundEndSymbol, "")
-                // remove null runs
-                .replace(backgroundEndSymbol + backgroundStartSymbol, "")
-                // remove null runs
-                .replace(backgroundStartSymbol, backgroundStart)
-                .replace(backgroundEndSymbol, backgroundEnd)
-                .replace(backgroundAutoStartSymbol, backgroundAutoStart)
-                .replace(backgroundAutoEndSymbol, backgroundAutoEnd)
-                .replace(exampleSeparatorSymbol, exampleEnd + exampleStart)
-                .replace(exampleStartAutoSymbol, exampleStartAuto)
-                .replace(exampleStartRTLSymbol, exampleStartRTL)
-                .replace(exampleStartHeaderSymbol, exampleStartHeader)
-                .replace(exampleEndSymbol, exampleEnd)
-                .replace(startItalicSymbol, startItalic)
-                .replace(endItalicSymbol, endItalic)
-                .replace(startSupSymbol, startSup)
-                .replace(endSupSymbol, endSup)
-                ;
+            TransliteratorUtilities.toHTML.transliterate(input)
+            .replace(backgroundStartSymbol + backgroundEndSymbol, "")
+            // remove null runs
+            .replace(backgroundEndSymbol + backgroundStartSymbol, "")
+            // remove null runs
+            .replace(backgroundStartSymbol, backgroundStart)
+            .replace(backgroundEndSymbol, backgroundEnd)
+            .replace(backgroundAutoStartSymbol, backgroundAutoStart)
+            .replace(backgroundAutoEndSymbol, backgroundAutoEnd)
+            .replace(exampleSeparatorSymbol, exampleEnd + exampleStart)
+            .replace(exampleStartAutoSymbol, exampleStartAuto)
+            .replace(exampleStartRTLSymbol, exampleStartRTL)
+            .replace(exampleStartHeaderSymbol, exampleStartHeader)
+            .replace(exampleEndSymbol, exampleEnd)
+            .replace(startItalicSymbol, startItalic)
+            .replace(endItalicSymbol, endItalic)
+            .replace(startSupSymbol, startSup)
+            .replace(endSupSymbol, endSup)
+            ;
         // If we are not showing context, we use exampleSeparatorSymbol between examples,
         // and then need to add the initial exampleStart and final exampleEnd.
         return (input.contains(exampleStartAutoSymbol))? coreString:
-                exampleStart + coreString + exampleEnd;
+            exampleStart + coreString + exampleEnd;
     }
 
     private String invertBackground(String input) {
@@ -2453,10 +2525,10 @@ public class ExampleGenerator {
         }
         if (internal) {
             return "〖"
-                    + exampleHtml
-                        .replace(backgroundStartSymbol, "❬")
-                        .replace(backgroundEndSymbol, "❭")
-                    + "〗";
+                + exampleHtml
+                .replace(backgroundStartSymbol, "❬")
+                .replace(backgroundEndSymbol, "❭")
+                + "〗";
         }
         int startIndex = exampleHtml.indexOf(exampleStartHeader);
         if (startIndex >= 0) {
@@ -2470,11 +2542,11 @@ public class ExampleGenerator {
             }
         }
         return exampleHtml
-                .replace("<div class='cldr_example'>", "〖")
-                .replace("<div class='cldr_example_auto' dir='auto'>", "【")
-                .replace("<div class='cldr_example_rtl' dir='rtl'>", "【⃪")
-                .replace("</div>", "〗")
-                .replace("<span class='cldr_substituted'>", "❬")
-                .replace("</span>", "❭");
+            .replace("<div class='cldr_example'>", "〖")
+            .replace("<div class='cldr_example_auto' dir='auto'>", "【")
+            .replace("<div class='cldr_example_rtl' dir='rtl'>", "【⃪")
+            .replace("</div>", "〗")
+            .replace("<span class='cldr_substituted'>", "❬")
+            .replace("</span>", "❭");
     }
 }

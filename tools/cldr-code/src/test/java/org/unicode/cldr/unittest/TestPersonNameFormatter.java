@@ -12,6 +12,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.unicode.cldr.test.CheckAccessor;
@@ -59,7 +60,6 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.text.StringTransform;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
@@ -334,10 +334,10 @@ public class TestPersonNameFormatter extends TestFmwk{
         String[][] tests = {
             {
                 "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
-                "〖Native:〗〖Zendaya〗〖Irene Adler〗〖Mary Sue Hamish Watson〗〖Mr. Bertram Wilberforce Henry Robert Wooster Jr, MP〗〖Foreign:〗〖Sinbad〗〖Käthe Müller〗〖Zäzilia Hamish Stöber〗〖Prof. Dr. Ada Cornelia César Martín von Brühl MD DDS〗"
+                "〖<i>🟨 Native name and script:</i>〗〖❬Zendaya❭〗〖❬Irene❭ ❬Adler❭〗〖❬Mary Sue❭ ❬Hamish❭ ❬Watson❭〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬Sinbad❭〗〖❬Käthe❭ ❬Müller❭〗〖❬Zäzilia❭ ❬Hamish❭ ❬Stöber❭〗〖❬Prof. Dr.❭ ❬Ada Cornelia❭ ❬César Martín❭ ❬von Brühl❭ ❬MD DDS❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎トーマス山田❭〗"
             },{
                 "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"long\"][@usage=\"monogram\"][@formality=\"informal\"]/namePattern",
-                "〖Native:〗〖Z〗〖AI〗〖WM〗〖WB〗〖Foreign:〗〖S〗〖MK〗〖SZ〗〖VN〗"
+                "〖<i>🟨 Native name and script:</i>〗〖❬Z❭〗〖❬AI❭〗〖❬WM❭〗〖❬WB❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬S❭〗〖❬MK❭〗〖❬SZ❭〗〖❬VN❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬ШЄ❭〗〖❬太❭〗"
             },{
                 "//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]",
                 "〖und = «any other»〗〖en = English〗"
@@ -351,7 +351,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         String[][] jaTests = {
             {
                 "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
-                "〖Native:〗〖慎太郎〗〖一郎安藤〗〖太郎トーマス山田〗〖Foreign:〗〖アルベルト・アインシュタイン〗〖英子・ソフィア・内田ドクター〗", "〖Native:〗〖慎太郎〗〖一郎安藤〗〖太郎トーマス山田〗〖Foreign:〗〖アルベルト・アインシュタイン〗〖英子・ソフィア・内田ドクター〗\", got \"〖Native:〗〖慎太郎〗〖一郎安藤〗〖太郎トーマス山田〗〖Foreign:〗〖アルベルト・アインシュタイン〗〖英子・ソフィア・内田ドクター〗"
+                "〖<i>🟨 Native name and script:</i>〗〖❬慎太郎❭〗〖❬一郎安藤❭〗〖❬太郎トーマス山田❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬アルベルト❭・❬アインシュタイン❭〗〖❬英子❭・❬ソフィア❭・❬内田ドクター❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗"
             }
         };
         ExampleGenerator jaExampleGenerator = checkExamples(jaCldrFile, jaTests);
@@ -441,7 +441,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         String value2 = enWritable.getStringValue(path); // check that English is as expected
         assertEquals(path, "{title} {given} {given2} {surname} {generation}, {credentials}", value2);
 
-        String expected = "〖Native:〗〖Zendaya〗〖Irene Adler〗〖Mary Sue Hamish Watson〗〖Mr. Bertram Wilberforce Henry Robert Wooster Jr, MP〗〖Foreign:〗〖Sinbad〗〖Käthe Müller〗〖Zäzilia Hamish Stöber〗〖Prof. Dr. Ada Cornelia César Martín von Brühl MD DDS〗";
+        String expected = "〖<i>🟨 Native name and script:</i>〗〖❬Zendaya❭〗〖❬Irene❭ ❬Adler❭〗〖❬Mary Sue❭ ❬Hamish❭ ❬Watson❭〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬Sinbad❭〗〖❬Käthe❭ ❬Müller❭〗〖❬Zäzilia❭ ❬Hamish❭ ❬Stöber❭〗〖❬Prof. Dr.❭ ❬Ada Cornelia❭ ❬César Martín❭ ❬von Brühl❭ ❬MD DDS❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎トーマス山田❭〗";
         String value = enWritable.getStringValue(path);
 
         checkExampleGenerator(exampleGenerator, path, value, expected);
@@ -455,7 +455,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         enWritable.add(namePath, "IRENE2");
         exampleGenerator.updateCache(namePath);
 
-        String expectedIRENE =  "〖Native:〗〖Zendaya〗〖IRENE2 Adler〗〖Mary Sue Hamish Watson〗〖Mr. Bertram Wilberforce Henry Robert Wooster Jr, MP〗〖Foreign:〗〖Sinbad〗〖Käthe Müller〗〖Zäzilia Hamish Stöber〗〖Prof. Dr. Ada Cornelia César Martín von Brühl MD DDS〗";
+        String expectedIRENE =  "〖<i>🟨 Native name and script:</i>〗〖❬Zendaya❭〗〖❬IRENE2❭ ❬Adler❭〗〖❬Mary Sue❭ ❬Hamish❭ ❬Watson❭〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬Sinbad❭〗〖❬Käthe❭ ❬Müller❭〗〖❬Zäzilia❭ ❬Hamish❭ ❬Stöber❭〗〖❬Prof. Dr.❭ ❬Ada Cornelia❭ ❬César Martín❭ ❬von Brühl❭ ❬MD DDS❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎トーマス山田❭〗";
         checkExampleGenerator(exampleGenerator, path, value, expectedIRENE);
     }
 
@@ -940,34 +940,6 @@ public class TestPersonNameFormatter extends TestFmwk{
         return Collections.emptyList();
     }
 
-    static class TransformingNameObject implements NameObject {
-        NameObject other;
-        StringTransform stringTransform;
-        StringTransform titleTransform = Transliterator.getInstance("title");
-
-        TransformingNameObject(NameObject other, StringTransform stringTransform) {
-            this.other = other;
-            this.stringTransform = stringTransform; // TODO use CLDR
-        }
-        @Override
-        public ULocale getNameLocale() {
-            return other.getNameLocale();
-        }
-        @Override
-        public ImmutableMap<ModifiedField, String> getModifiedFieldToValue() {
-            throw new IllegalArgumentException("Not needed");
-        }
-        @Override
-        public Set<Field> getAvailableFields() {
-            return other.getAvailableFields();
-        }
-        @Override
-        public String getBestValue(ModifiedField modifiedField, Set<Modifier> remainingModifers) {
-            String result = other.getBestValue(modifiedField, remainingModifers);
-            return result == null ? null : titleTransform.transform(stringTransform.transform(result));
-        }
-    }
-
     public void testTransliteratorName() {
         boolean verbose = isVerbose();
         CLDRTransforms.registerCldrTransforms(null, null, null, true);
@@ -994,10 +966,16 @@ public class TestPersonNameFormatter extends TestFmwk{
             boolean isLatin = script.equals("Latn");
 
 
-            Transliterator t = isLatin ? null : CLDRTransforms.getScriptTransform(script);
-            if (t == null && !isLatin) {
+            // TODO use CLDR always (getScriptTransform doesn't)
+            Transliterator translit = isLatin ? null : CLDRTransforms.getScriptTransform(script);
+
+            if (translit == null && !isLatin) {
                 missing.add(script);
             }
+
+            // TODO only do this if the script is unicameral
+            Function<String, String> t = x -> x == null || translit == null ? null
+                : Transliterator.getInstance("title").transform(translit.transform(x));
 
             if (verbose) {
                 System.out.println();
@@ -1009,7 +987,7 @@ public class TestPersonNameFormatter extends TestFmwk{
                 String formatted = ENGLISH_NAME_FORMATTER.format(simpleNameObject, parameters);
                 String formattedWithTranslit = formatted;
                 if (t != null) {
-                    TransformingNameObject tno = new TransformingNameObject(simpleNameObject, t);
+                    NameObject tno = new PersonNameFormatter.TransformingNameObject(simpleNameObject, t);
                     formattedWithTranslit = ENGLISH_NAME_FORMATTER.format(tno, parameters);
                 }
                 if (verbose) {

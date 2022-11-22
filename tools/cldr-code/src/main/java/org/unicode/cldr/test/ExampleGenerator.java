@@ -15,6 +15,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -49,6 +50,7 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FallbackFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
+import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
 import org.unicode.cldr.util.personname.SimpleNameObject;
 
@@ -557,6 +559,9 @@ public class ExampleGenerator {
         "//ldml/personNames/sampleName[@item=\"*\"]/nameField[@type=\"*\"]",
         "//ldml/personNames/initialPattern[@type=\"*\"]");
 
+    private static final Function<String, String> BACKGROUND_TRANSFORM = x
+        -> backgroundStartSymbol + x + backgroundEndSymbol;
+
     private String handlePersonName(XPathParts parts, String value) {
         //ldml/personNames/personName[@order="givenFirst"][@length="long"][@usage="addressing"][@style="formal"]/namePattern => {prefix} {surname}
         String debugState = "start";
@@ -590,7 +595,7 @@ public class ExampleGenerator {
 
                 boolean lastIsNative = false;
                 for (Entry<PersonNameFormatter.SampleType, SimpleNameObject> typeAndSampleNameObject : sampleNames.entrySet()) {
-                    NamePattern namePattern = NamePattern.from(0, value);
+                    NamePattern namePattern = NamePattern.from(0, value); // get the first one
                     final boolean isNative = typeAndSampleNameObject.getKey().isNative();
                     if (isNative != lastIsNative) {
                         final String title = isNative
@@ -602,7 +607,8 @@ public class ExampleGenerator {
                     debugState = "<NamePattern.from: " + namePattern;
                     final FallbackFormatter fallbackInfo = personNameFormatter.getFallbackInfo();
                     debugState = "<getFallbackInfo: " + fallbackInfo;
-                    String result = namePattern.format(typeAndSampleNameObject.getValue(), formatParameters, fallbackInfo);
+                    final NameObject nameObject = new PersonNameFormatter.TransformingNameObject(typeAndSampleNameObject.getValue(), BACKGROUND_TRANSFORM);
+                    String result = namePattern.format(nameObject, formatParameters, fallbackInfo);
                     debugState = "<namePattern.format: " + result;
                     examples.add(result);
                 }
@@ -661,7 +667,7 @@ public class ExampleGenerator {
         Map<PersonNameFormatter.SampleType, SimpleNameObject> sampleNames2 = PersonNameFormatter.loadSampleNames(cldrFile2);
         SimpleNameObject sampleName = getBestAvailable(sampleNames2, PersonNameFormatter.SampleType.nativeFull, PersonNameFormatter.SampleType.nativeGGS);
         if (sampleName != null) {
-            String result2 = formatter2.format(sampleName, formatParameters);
+            String result2 = formatter2.format(new PersonNameFormatter.TransformingNameObject(sampleName, BACKGROUND_TRANSFORM), formatParameters);
             if (result2 != null) {
                 if (!haveHeaderLine.value) {
                     haveHeaderLine.value = Boolean.TRUE;

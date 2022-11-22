@@ -15,9 +15,11 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.function.Function;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
@@ -44,6 +46,7 @@ import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.CaseMap;
 import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
@@ -510,6 +513,14 @@ public class PersonNameFormatter {
 
             // For the case of monograms, don't use the initialFormatter or initialSequenceFormatter
             // And just take the first grapheme.
+
+            // special case for Survey Tool ExampleGenerator
+
+            if (bestValue.startsWith(ExampleGenerator.backgroundStartSymbol)
+                && bestValue.endsWith(ExampleGenerator.backgroundEndSymbol)) {
+                bestValue = bestValue.substring(1,bestValue.length()-1);
+                return ExampleGenerator.backgroundStartSymbol + getFirstGrapheme(bestValue) + ExampleGenerator.backgroundEndSymbol;
+            }
 
             return getFirstGrapheme(bestValue);
         }
@@ -1332,6 +1343,41 @@ public class PersonNameFormatter {
          * @return
          */
         public String getBestValue(ModifiedField modifiedField, Set<Modifier> remainingModifers);
+    }
+
+    /**
+     * Transforms the fields based upon a supplied function.
+     */
+    public static class TransformingNameObject implements NameObject {
+        NameObject other;
+        Function<String, String> stringTransform;
+
+        public TransformingNameObject(NameObject other, Function<String, String> stringTransform) {
+            this.other = other;
+            this.stringTransform = stringTransform;
+        }
+
+        public TransformingNameObject(NameObject other, Transliterator t) {
+            this(other, x -> t.transform(x));
+        }
+
+        @Override
+        public ULocale getNameLocale() {
+            return other.getNameLocale();
+        }
+        @Override
+        public ImmutableMap<ModifiedField, String> getModifiedFieldToValue() {
+            throw new IllegalArgumentException("Not needed");
+        }
+        @Override
+        public Set<Field> getAvailableFields() {
+            return other.getAvailableFields();
+        }
+        @Override
+        public String getBestValue(ModifiedField modifiedField, Set<Modifier> remainingModifers) {
+            String best = other.getBestValue(modifiedField, remainingModifers);
+            return best == null ? null : stringTransform.apply(best);
+        }
     }
 
     private final NamePatternData namePatternMap;

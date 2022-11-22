@@ -1,6 +1,8 @@
 package org.unicode.cldr.tool;
 
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -9,8 +11,10 @@ import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRURLS;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.VoterReportStatus.ReportId;
 
 import com.ibm.icu.text.ListFormatter;
 import com.ibm.icu.util.ICUUncheckedIOException;
@@ -47,9 +51,6 @@ public abstract class Chart {
         + (testFile == null ? "" : ", and for test data, access "  + dataFileLink(testFile))
         + ".</p>\n";
     }
-
-    static final String surveyUrl = CLDRConfig.getInstance().getProperty("CLDR_SURVEY_URL",
-        "http://st.unicode.org/cldr-apps/survey");
 
 
     private static String dataFileLink(String dataFile) {
@@ -106,12 +107,30 @@ public abstract class Chart {
     }
 
     /**
-     * Work
+     * Helper function to use the default factory.
+     * Not for use within SurveyTool.
      * @param pw
      * @throws IOException
      */
     public void writeContents(Writer pw) throws IOException {
-       throw new IllegalArgumentException();
+        writeContents(pw, CLDRConfig.getInstance().getCldrFactory());
+    }
+
+    public void writeContents(OutputStream output, Factory factory) throws IOException {
+        try(final Writer w = new OutputStreamWriter(output);) {
+            writeContents(w, factory);
+        }
+    }
+
+    /**
+     * Do the work of generating the chart.
+     * @param pw
+     * @param factory
+     * @throws IOException
+     */
+    public void writeContents(Writer pw, Factory factory) throws IOException {
+       // TODO: this should be an abstract function.
+       throw new IllegalArgumentException("Not implemented yet");
     }
 
     public void writeFooter(FormattedFileWriter pw) throws IOException {
@@ -165,7 +184,21 @@ public abstract class Chart {
     }
 
     public String getFixLinkFromPath(CLDRFile cldrFile, String path) {
-        String result = PathHeader.getLinkedView(surveyUrl, cldrFile, path);
+        String result = PathHeader.getLinkedView(CLDRConfig.getInstance().urls(), cldrFile, path);
         return result == null ? "" : result;
+    }
+
+    /**
+     * Attempt to allocate the Chart that goes along with this report
+     * Also see {@link org.unicode.cldr.util.VoterReportStatus.ReportId} 
+     * and keep up to date
+     */
+    public static Chart forReport(final ReportId report, final String locale) {
+        switch(report) {
+            case personnames:
+                return new ChartPersonName(locale);
+            default:
+                return null;
+        }
     }
 }

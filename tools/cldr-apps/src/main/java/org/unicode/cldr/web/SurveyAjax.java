@@ -47,6 +47,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.DateTimeFormats;
 import org.unicode.cldr.util.DtdData.IllegalByDtdException;
+import org.unicode.cldr.util.VoterReportStatus.ReportId;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
@@ -510,8 +511,11 @@ public class SurveyAjax extends HttpServlet {
                             for (SurveyMain.ReportMenu m : SurveyMain.ReportMenu.values()) {
                                 JSONObject report = new JSONObject();
                                 report.put("url", m.urlStub());
-                                report.put("hasQuery", false);
-                                report.put("display", m.display());
+                                reports.put(report);
+                            }
+                            for (final ReportId m : ReportId.values()) {
+                                JSONObject report = new JSONObject();
+                                report.put("url", "r_" + m.name());
                                 reports.put(report);
                             }
 
@@ -2465,6 +2469,13 @@ public class SurveyAjax extends HttpServlet {
         String which = request.getParameter("x");
 
         response.setContentType("text/html");
+        generateReport(which, out, sm, l);
+    }
+
+    /**
+     * Hook to generate one of the 'old three' reports.
+     */
+    static public void generateReport(final String which, Writer out, SurveyMain sm, CLDRLocale l) throws IOException {
         if ("r_datetime".equals(which)) {
             generateDateTimesReport(out, sm, l);
         } else if ("r_zones".equals(which)) {

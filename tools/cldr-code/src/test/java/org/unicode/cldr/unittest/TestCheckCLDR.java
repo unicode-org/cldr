@@ -987,31 +987,6 @@ public class TestCheckCLDR extends TestFmwk {
         }
     }
 
-    /**
-     * These are paths that are allowed if missing (from allowed locales)
-     * Needs to be changed for each Limited Submission cycle. Is ignored for full submission cycles.
-     */
-    final Set<String> sampleNewPaths = ImmutableSet.of(
-//        "//ldml/annotations/annotation[@cp=\\\"🐻‍❄\\\"][@type=\\\"tts\\\"]",
-//        "//ldml/annotations/annotation[@cp=\\\"√\\\"][@type=\\\"tts\\\"]",
-//        "//ldml/units/unitLength[@type=\\\"short\\\"]/compoundUnit[@type=\\\"10p-1\\\"]/unitPrefixPattern",
-//        "//ldml/localeDisplayNames/languages/language[@type=\\\"fa_AF\\\"]",
-//        "//ldml/units/unitLength[@type=\\\"long\\\"]/compoundUnit[@type=\\\"power2\\\"]/compoundUnitPattern1"
-        );
-
-    /**
-     * These are paths that are allowed whether missing or not (from allowed locales)
-     * Needs to be changed for each Limited Submission cycle. Is ignored for full submission cycles.
-     */
-    final Set<String> SAMPLE_EXCEPTIONAL_PATHS = ImmutableSet.of(
-        "//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]",
-        "//ldml/personNames/nameOrderLocales[@order=\"surnameFirst\"]",
-        "//ldml/localeDisplayNames/territories/territory[@type=\"TR\"]",
-        "//ldml/localeDisplayNames/territories/territory[@type=\"TR\"][@alt=\"variant\"]"
-        );
-
-    final String sampleDisallowedInLimitedSubmission = "//ldml/localeDisplayNames/territories/territory[@type=\"SY\"]";
-
     final String UNIT_PATH = "//ldml/units/unitLength[@type=\"long\"]";
 
     enum LimitedStatus {
@@ -1032,28 +1007,12 @@ public class TestCheckCLDR extends TestFmwk {
             return;
         }
 
-        for (String path : sampleNewPaths) {
-            assertTrue(path,  SubmissionLocales.allowEvenIfLimited("fr", path, false, true));
-        }
-
-        for (String path : SAMPLE_EXCEPTIONAL_PATHS) {
-            assertTrue(path,  SubmissionLocales.allowEvenIfLimited("fr", path, false, false));
-        }
-
-        assertFalse(sampleDisallowedInLimitedSubmission,
-            SubmissionLocales.allowEvenIfLimited("fr", sampleDisallowedInLimitedSubmission, false, false));
-
-        // test non-cldr locale
-
-        for (String path : sampleNewPaths) {
-            assertFalse(path,  SubmissionLocales.allowEvenIfLimited("xx", path, false, true));
-        }
-        for (String path : SAMPLE_EXCEPTIONAL_PATHS) {
-            assertFalse(path,  SubmissionLocales.allowEvenIfLimited("xx", path, false, false));
-        }
-
-        // TODO enhance to check more conditions
-        // like old:         assertFalse("vo, !engSame, !isError, !isMissing", SubmissionLocales.allowEvenIfLimited("vo", pathNotSameValue, false, false));
+        /**
+         * Note:  Constants moved from here to data driven test.
+         * 
+         * see org.unicode.cldr.test.TestSubmissionLocales
+         *                       and TestSubmissionLocales.csv
+         */
 
         if (SHOW_LIMITED) {
             System.out.println();

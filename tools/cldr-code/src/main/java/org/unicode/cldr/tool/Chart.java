@@ -1,6 +1,7 @@
 package org.unicode.cldr.tool;
 
 import java.io.IOException;
+import java.io.Writer;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -8,6 +9,7 @@ import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRURLS;
+import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.ibm.icu.text.ListFormatter;
@@ -45,6 +47,10 @@ public abstract class Chart {
         + (testFile == null ? "" : ", and for test data, access "  + dataFileLink(testFile))
         + ".</p>\n";
     }
+
+    static final String surveyUrl = CLDRConfig.getInstance().getProperty("CLDR_SURVEY_URL",
+        "http://st.unicode.org/cldr-apps/survey");
+
 
     private static String dataFileLink(String dataFile) {
         return "<a href='" + GITHUB_ROOT + dataFile + "' target='" + dataFile  + "'>" + dataFile + "</a>";
@@ -95,7 +101,18 @@ public abstract class Chart {
      * @param pw
      * @throws IOException
      */
-    public abstract void writeContents(FormattedFileWriter pw) throws IOException;
+    public void writeContents(FormattedFileWriter pw) throws IOException {
+        writeContents(pw.getStringWriter());
+    }
+
+    /**
+     * Work
+     * @param pw
+     * @throws IOException
+     */
+    public void writeContents(Writer pw) throws IOException {
+       throw new IllegalArgumentException();
+    }
 
     public void writeFooter(FormattedFileWriter pw) throws IOException {
         standardFooter(pw, AnalyticsID.CLDR);
@@ -145,5 +162,10 @@ public abstract class Chart {
             throw new IllegalArgumentException("Can't make TSV directory from " + targetDir);
         }
         return target;
+    }
+
+    public String getFixLinkFromPath(CLDRFile cldrFile, String path) {
+        String result = PathHeader.getLinkedView(surveyUrl, cldrFile, path);
+        return result == null ? "" : result;
     }
 }

@@ -334,10 +334,10 @@ public class TestPersonNameFormatter extends TestFmwk{
         String[][] tests = {
             {
                 "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
-                "〖<i>🟩 Native name and 🟩 script:</i>〗〖❬Zendaya❭〗〖❬Irene❭ ❬Adler❭〗〖❬Mary Sue❭ ❬Hamish❭ ❬Watson❭〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖<i>🟧 Foreign name, 🟩 native script:</i>〗〖❬Sinbad❭〗〖❬Käthe❭ ❬Müller❭〗〖❬Zäzilia❭ ❬Hamish❭ ❬Stöber❭〗〖❬Prof. Dr.❭ ❬Ada Cornelia❭ ❬César Martín❭ ❬von Brühl❭ ❬MD DDS❭〗〖<i>🟧 Foreign name and 🟧 script:</i>〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎❭ ❬トーマス❭ ❬山田❭〗"
+                "〖<i>🟨 Native name and script:</i>〗〖❬Zendaya❭〗〖❬Irene❭ ❬Adler❭〗〖❬Mary Sue❭ ❬Hamish❭ ❬Watson❭〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬Sinbad❭〗〖❬Käthe❭ ❬Müller❭〗〖❬Zäzilia❭ ❬Hamish❭ ❬Stöber❭〗〖❬Prof. Dr.❭ ❬Ada Cornelia❭ ❬César Martín❭ ❬von Brühl❭ ❬MD DDS❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎トーマス山田❭〗"
             },{
                 "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"long\"][@usage=\"monogram\"][@formality=\"informal\"]/namePattern",
-                "〖<i>🟩 Native name and 🟩 script:</i>〗〖❬Z❭〗〖❬AI❭〗〖❬WM❭〗〖❬WB❭〗〖<i>🟧 Foreign name, 🟩 native script:</i>〗〖❬S❭〗〖❬MK❭〗〖❬SZ❭〗〖❬VN❭〗〖<i>🟧 Foreign name and 🟧 script:</i>〗〖❬ШЄ❭〗〖❬太❭〗"
+                "〖<i>🟨 Native name and script:</i>〗〖❬Z❭〗〖❬AI❭〗〖❬WM❭〗〖❬WB❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬S❭〗〖❬MK❭〗〖❬SZ❭〗〖❬VN❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬ШЄ❭〗〖❬太❭〗"
             },{
                 "//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]",
                 "〖und = «any other»〗〖en = English〗"
@@ -351,7 +351,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         String[][] jaTests = {
             {
                 "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
-                "〖<i>🟩 Native name and 🟩 script:</i>〗〖❬慎太郎❭〗〖❬一郎❭ ❬安藤❭〗〖❬太郎❭ ❬トーマス❭ ❬山田❭〗〖<i>🟧 Foreign name, 🟩 native script:</i>〗〖❬アルベルト❭・❬アインシュタイン❭〗〖❬英子❭・❬ソフィア❭・❬内田ドクター❭〗〖<i>🟧 Foreign name and 🟧 script:</i>〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗"
+                "〖<i>🟨 Native name and script:</i>〗〖❬慎太郎❭〗〖❬一郎安藤❭〗〖❬太郎トーマス山田❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬アルベルト❭・❬アインシュタイン❭〗〖❬英子❭・❬ソフィア❭・❬内田ドクター❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗"
             }
         };
         ExampleGenerator jaExampleGenerator = checkExamples(jaCldrFile, jaTests);
@@ -441,7 +441,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         String value2 = enWritable.getStringValue(path); // check that English is as expected
         assertEquals(path, "{title} {given} {given2} {surname} {generation}, {credentials}", value2);
 
-        String expected = "〖<i>🟩 Native name and 🟩 script:</i>〗〖❬Zendaya❭〗〖❬Irene❭ ❬Adler❭〗〖❬Mary Sue❭ ❬Hamish❭ ❬Watson❭〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖<i>🟧 Foreign name, 🟩 native script:</i>〗〖❬Sinbad❭〗〖❬Käthe❭ ❬Müller❭〗〖❬Zäzilia❭ ❬Hamish❭ ❬Stöber❭〗〖❬Prof. Dr.❭ ❬Ada Cornelia❭ ❬César Martín❭ ❬von Brühl❭ ❬MD DDS❭〗〖<i>🟧 Foreign name and 🟧 script:</i>〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎❭ ❬トーマス❭ ❬山田❭〗";
+        String expected = "〖<i>🟨 Native name and script:</i>〗〖❬Zendaya❭〗〖❬Irene❭ ❬Adler❭〗〖❬Mary Sue❭ ❬Hamish❭ ❬Watson❭〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬Sinbad❭〗〖❬Käthe❭ ❬Müller❭〗〖❬Zäzilia❭ ❬Hamish❭ ❬Stöber❭〗〖❬Prof. Dr.❭ ❬Ada Cornelia❭ ❬César Martín❭ ❬von Brühl❭ ❬MD DDS❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎トーマス山田❭〗";
         String value = enWritable.getStringValue(path);
 
         checkExampleGenerator(exampleGenerator, path, value, expected);
@@ -455,7 +455,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         enWritable.add(namePath, "IRENE2");
         exampleGenerator.updateCache(namePath);
 
-        String expectedIRENE =  "〖<i>🟩 Native name and 🟩 script:</i>〗〖❬Zendaya❭〗〖❬IRENE2❭ ❬Adler❭〗〖❬Mary Sue❭ ❬Hamish❭ ❬Watson❭〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖<i>🟧 Foreign name, 🟩 native script:</i>〗〖❬Sinbad❭〗〖❬Käthe❭ ❬Müller❭〗〖❬Zäzilia❭ ❬Hamish❭ ❬Stöber❭〗〖❬Prof. Dr.❭ ❬Ada Cornelia❭ ❬César Martín❭ ❬von Brühl❭ ❬MD DDS❭〗〖<i>🟧 Foreign name and 🟧 script:</i>〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎❭ ❬トーマス❭ ❬山田❭〗";
+        String expectedIRENE =  "〖<i>🟨 Native name and script:</i>〗〖❬Zendaya❭〗〖❬IRENE2❭ ❬Adler❭〗〖❬Mary Sue❭ ❬Hamish❭ ❬Watson❭〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬Sinbad❭〗〖❬Käthe❭ ❬Müller❭〗〖❬Zäzilia❭ ❬Hamish❭ ❬Stöber❭〗〖❬Prof. Dr.❭ ❬Ada Cornelia❭ ❬César Martín❭ ❬von Brühl❭ ❬MD DDS❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎トーマス山田❭〗";
         checkExampleGenerator(exampleGenerator, path, value, expectedIRENE);
     }
 

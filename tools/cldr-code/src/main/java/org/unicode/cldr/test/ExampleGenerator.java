@@ -599,8 +599,8 @@ public class ExampleGenerator {
                     final boolean isNative = typeAndSampleNameObject.getKey().isNative();
                     if (isNative != lastIsNative) {
                         final String title = isNative
-                            ? "🟩 Native name and 🟩 script:"
-                            : "🟧 Foreign name, 🟩 native script:";
+                            ? "🟨 Native name and script:"
+                            : "🟧 Foreign name and native script:";
                         examples.add(startItalicSymbol + title + endItalicSymbol);
                         lastIsNative = isNative;
                     }
@@ -671,7 +671,7 @@ public class ExampleGenerator {
             if (result2 != null) {
                 if (!haveHeaderLine.value) {
                     haveHeaderLine.value = Boolean.TRUE;
-                    examples.add(startItalicSymbol + "🟧 Foreign name and 🟧 script:" + endItalicSymbol);
+                    examples.add(startItalicSymbol + "🟥 Foreign name and script:" + endItalicSymbol);
                 }
                 examples.add(result2);
             }

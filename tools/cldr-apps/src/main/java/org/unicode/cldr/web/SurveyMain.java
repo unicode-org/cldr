@@ -214,8 +214,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     public enum ReportMenu {
-        PRIORITY_ITEMS("Dashboard", "dashboard"), DATE_TIME("Date/Time", "r_datetime"), ZONES("Zones", "r_zones"), NUMBERS("Numbers",
-            "r_compact");
+        // Only dashboard lives here. see ReportId for the rest.
+        PRIORITY_ITEMS("Dashboard", "dashboard");
 
         private final String display;
         private final String url;

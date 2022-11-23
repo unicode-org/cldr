@@ -4,7 +4,8 @@
       <a-tooltip class="boxy" v-if="reportStatus">
         Approval Status:
         <template #title>
-          {{ reportStatus.status }}: {{ reportStatus.acceptability }}
+          {{ reportName }} {{ reportStatus.status }}:
+          {{ reportStatus.acceptability }}
         </template>
         <span class="statuscell" :class="statusClass">{{ statusIcon }}</span>
         {{ humanizeAcceptability }}

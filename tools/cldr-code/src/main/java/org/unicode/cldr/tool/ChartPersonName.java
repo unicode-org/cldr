@@ -18,7 +18,6 @@ import org.unicode.cldr.util.personname.SimpleNameObject;
 
 public class ChartPersonName extends Chart {
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
-    static final Factory FACTORY = CLDR_CONFIG.getCldrFactory();
     static final CLDRFile ENGLISH = CLDR_CONFIG.getEnglish();
     static final String DIR = CLDRPaths.CHART_DIRECTORY + "personNames/";
     static final Map<SampleType, SimpleNameObject> ENGLISH_NAMES = PersonNameFormatter.loadSampleNames(ENGLISH);
@@ -66,10 +65,10 @@ public class ChartPersonName extends Chart {
 
     enum Filter {Main, Sorting, Monogram}
     enum Source {NativeSamples, ForeignSamples}
-
+ 
     @Override
-    public void writeContents(Writer pw) throws IOException {
-        CLDRFile cldrFile = FACTORY.make(locale, true);
+    public void writeContents(Writer pw, Factory factory) throws IOException {
+        CLDRFile cldrFile = factory.make(locale, true);
         Map<SampleType, SimpleNameObject> names = PersonNameFormatter.loadSampleNames(cldrFile);
         if (names.isEmpty()) {
             return;

@@ -345,7 +345,7 @@ function unpackMenuSideBar(json) {
           '<li class="list-unstyled review-link" data-url="' +
           element.url +
           '"><div>' +
-          element.display +
+          cldrText.get(`special_${element.url}`) + // special_r_personnames
           "</div></li>";
       } else {
         tmp = element;
@@ -357,7 +357,7 @@ function unpackMenuSideBar(json) {
         '<li class="list-unstyled review-link" data-url="' +
         tmp.url +
         '"><div>' +
-        tmp.display +
+        (tmp.display || cldrText.get(`special_${tmp.url}`)) + // special_dashboard
         '<span class="pull-right glyphicon glyphicon-home" style="position:relative;top:2px;right:1px;"></span></div></li>';
     }
 

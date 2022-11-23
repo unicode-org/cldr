@@ -14,10 +14,16 @@ import java.util.Set;
  */
 public abstract class VoterReportStatus<T> {
     /**
-     * Enumeration for the reports. In order.
+     * Enumeration for the reports. In order shown in SurveyTool.
+     * Note: when adding an entry here, also update cldrText.js to add the
+     * display name, for example, 'special_r_personnames': 'Person Names'
+     * Also see {@link org.unicode.cldr.tool.Chart#forReport(ReportId, String)}
      */
     public enum ReportId {
-        datetime, zones, compact, // aka 'numbers'
+        datetime, // non-Chart
+        zones, // non-Chart
+        compact, // non-Chart, aka 'numbers'
+        personnames // Chart
     };
 
     public enum ReportAcceptability {

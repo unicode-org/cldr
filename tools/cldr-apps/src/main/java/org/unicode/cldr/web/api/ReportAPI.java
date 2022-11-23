@@ -1,5 +1,9 @@
 package org.unicode.cldr.web.api;
 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.sql.SQLException;
 import java.util.Collections;
 import java.util.HashSet;
@@ -13,8 +17,10 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.StreamingOutput;
 import javax.ws.rs.core.Response.Status;
 
 import org.eclipse.microprofile.openapi.annotations.Operation;
@@ -25,6 +31,9 @@ import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+import org.unicode.cldr.tool.Chart;
+import org.unicode.cldr.tool.ChartPersonName;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoterReportStatus;
@@ -33,6 +42,8 @@ import org.unicode.cldr.util.VoterReportStatus.ReportId;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.ReportsDB;
 import org.unicode.cldr.web.ReportsDB.UserReport;
+import org.unicode.cldr.web.STFactory;
+import org.unicode.cldr.web.SurveyAjax;
 import org.unicode.cldr.web.SurveyMain;
 import org.unicode.cldr.web.UserRegistry;
 
@@ -297,5 +308,65 @@ public class ReportAPI {
         public boolean completed = false;
         @Schema(description = "True if values were acceptable. False if values weren’t acceptable, but user has voted for correct ones.")
         public boolean acceptable = false;
+    }
+
+    @GET
+    @Produces(MediaType.TEXT_HTML)
+    @Path("/locales/{locale}/reports/{report}.html")
+    @Operation(summary = "Get the report output")
+    @APIResponse(
+        responseCode = "200",
+        description = "report HTML",
+        content = @Content(mediaType = MediaType.TEXT_HTML))
+    @APIResponse(
+        responseCode = "404",
+        description = "Locale not found")
+    public Response getReportOutput(
+        @Parameter(required = true, example = "mt", schema = @Schema(type = SchemaType.STRING)) @PathParam("locale") String locale,
+        // Note:  @Schema(implementation = ReportId.class) did not work here. The following works.
+        @Parameter(required = true, example = "compact", schema = @Schema(type = SchemaType.STRING)) @PathParam("report") ReportId report,
+        @HeaderParam(Auth.SESSION_HEADER) String session) {
+        final CookieSession mySession = Auth.getSession(session);
+        // Here we just verify that there *is* a session
+        if (mySession == null) {
+            return Auth.noSessionResponse();
+        }
+
+        // Return the output as a stream instead of buffering in memory.
+        final SurveyMain sm = mySession.sm;
+        final CLDRLocale loc = CLDRLocale.getInstance(locale);
+        final STFactory stf = sm.getSTFactory();
+        if (!SurveyMain.getLocalesSet().contains(loc)) {
+            // No such locale
+            return Response.status(Status.NOT_FOUND).build();
+        }
+        final Chart chart = Chart.forReport(report, locale);
+
+        // TODO: We could potentially extract metadata (title, etc) from the chart
+        // object here.
+
+        return Response.ok(new StreamingOutput() {
+            @Override
+            public void write(OutputStream output) throws IOException, WebApplicationException {
+                if (chart != null) {
+                    chart.writeContents(output, stf);
+                } else {
+                    switch (report) {
+                    // "Old Three" reports
+                    case compact:
+                    case datetime:
+                    case zones:
+                        try (final Writer w = new OutputStreamWriter(output);) {
+                            SurveyAjax.generateReport("r_" + report.name(), w, sm, loc);
+                        }
+                        break;
+                    default:
+                        try (final Writer w = new OutputStreamWriter(output);) {
+                            w.write("Could not load report: " + report.name());
+                        }
+                    }
+                }
+            }
+        }).build();
     }
 }

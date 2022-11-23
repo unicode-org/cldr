@@ -25,9 +25,7 @@ import * as cldrMail from "./cldrMail.js";
 import * as cldrMenu from "./cldrMenu.js";
 import * as cldrOldVotes from "./cldrOldVotes.js";
 import * as cldrRecentActivity from "./cldrRecentActivity.js";
-import * as cldrReportDates from "./cldrReportDates.js";
-import * as cldrReportNumbers from "./cldrReportNumbers.js";
-import * as cldrReportZones from "./cldrReportZones.js";
+import * as cldrReport from "./cldrReport.js";
 import * as cldrRetry from "./cldrRetry.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
@@ -700,8 +698,14 @@ function handleMissingSpecial(curSpecial) {
  * @return the special object, or null if no such object
  */
 function getSpecial(str) {
+  if (!str) {
+    return null;
+  }
   if (isVueSpecial(str)) {
     return cldrGenericVue; // see specialToComponentMap.js
+  }
+  if (isReport(str)) {
+    return cldrReport; // handle these as one.
   }
   const specials = {
     // Other special pages.
@@ -718,9 +722,6 @@ function getSpecial(str) {
     locales: cldrLocales,
     mail: cldrMail,
     oldvotes: cldrOldVotes,
-    r_compact: cldrReportNumbers,
-    r_datetime: cldrReportDates,
-    r_zones: cldrReportZones,
     recent_activity: cldrRecentActivity,
     retry: cldrRetry,
     vetting_participation: cldrVettingParticipation,
@@ -734,7 +735,6 @@ function getSpecial(str) {
 
 /**
  * Is the given "special" name for a report, that is, does it start with "r_"?
- * Really only 3: "r_datetime", "r_zones", "r_compact"
  * (No longer applicable to Dashboard)
  * Cf. SurveyMain.ReportMenu.PRIORITY_ITEMS
  *

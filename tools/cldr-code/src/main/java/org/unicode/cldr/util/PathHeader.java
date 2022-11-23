@@ -2126,10 +2126,14 @@ public class PathHeader implements Comparable<PathHeader> {
         }
     }
 
+    /**
+     * @deprecated use CLDRConfig.getInstance().urls() instead
+     */
+    @Deprecated
     public enum BaseUrl {
         //http://st.unicode.org/smoketest/survey?_=af&strid=55053dffac611328
         //http://st.unicode.org/cldr-apps/survey?_=en&strid=3cd31261bf6738e1
-        SMOKE("http://st.unicode.org/smoketest/survey"), PRODUCTION("http://st.unicode.org/cldr-apps/survey");
+        SMOKE("https://st.unicode.org/smoketest/survey"), PRODUCTION("https://st.unicode.org/cldr-apps/survey");
         final String base;
 
         private BaseUrl(String url) {
@@ -2180,11 +2184,22 @@ public class PathHeader implements Comparable<PathHeader> {
         return trimLast(baseUrl) + "v#/" + locale + "//" + StringId.getHexId(path);
     }
 
-    private static String SURVEY_URL = CLDRConfig.getInstance().getProperty("CLDR_SURVEY_URL", "http://st.unicode.org/cldr-apps/survey");
-
+    /**
+     * @deprecated use the version with CLDRURLS instead
+     * @param baseUrl
+     * @param file
+     * @param path
+     * @return
+     */
     public static String getLinkedView(String baseUrl, CLDRFile file, String path) {
         return SECTION_LINK + PathHeader.getUrl(baseUrl, file.getLocaleID(), path) + "'><em>view</em></a>";
     }
+    
+    public static String getLinkedView(CLDRURLS urls, CLDRFile file, String path) {
+        return SECTION_LINK + urls.forXpath(file.getLocaleID(), path) + "'><em>view</em></a>";
+    }
+
+    private static String SURVEY_URL = CLDRConfig.getInstance().urls().base();
 
     /**
      * If a subdivision, return the (uppercased) territory and if suffix != null, the suffix. Otherwise return the input as is.

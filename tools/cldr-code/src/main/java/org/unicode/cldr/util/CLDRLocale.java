@@ -27,11 +27,6 @@ import com.ibm.icu.util.ULocale;
 public final class CLDRLocale implements Comparable<CLDRLocale> {
     private static final boolean DEBUG = false;
 
-    /*
-     * The name of the root locale. This is widely assumed to be "root".
-     */
-    private static final String ROOT_NAME = "root";
-
     public interface NameFormatter {
         String getDisplayName(CLDRLocale cldrLocale);
 
@@ -242,12 +237,12 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     private LocaleIDParser parts = null;
 
     /**
-     * Returns the BCP47 language tag for all except root. For root, returns "root" = ROOT_NAME.
+     * Returns the BCP47 language tag for all except root. For root, returns "root" = LocaleNames.ROOT.
      * @return
      */
     private String toDisplayLanguageTag() {
-        if (getBaseName().equals(ROOT_NAME)) {
-            return ROOT_NAME;
+        if (getBaseName().equals(LocaleNames.ROOT)) {
+            return LocaleNames.ROOT;
         } else {
             return toLanguageTag();
         }
@@ -282,7 +277,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     private CLDRLocale(String str) {
         str = process(str);
         if (rootMatches(str)) {
-            fullname = ROOT_NAME;
+            fullname = LocaleNames.ROOT;
             parentId = null;
         } else {
             parts = new LocaleIDParser();
@@ -362,10 +357,10 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
             return null;
         }
         /*
-         * Normalize variations of ROOT_NAME before checking stringToLoc.
+         * Normalize variations of LocaleNames.ROOT before checking stringToLoc.
          */
         if (rootMatches(s)) {
-            s = ROOT_NAME;
+            s = LocaleNames.ROOT;
         }
         return stringToLoc.computeIfAbsent(s, k -> new CLDRLocale(k));
     }
@@ -376,15 +371,15 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
      * Also, ignore case, so "RooT" matches.
      *
      * @param s the string
-     * @return true if the string matches ROOT_NAME, else false
+     * @return true if the string matches LocaleNames.ROOT, else false
      */
     private static boolean rootMatches(String s) {
         /*
          * Important:
-         * ULocale.ROOT.getBaseName() is "", the empty string, not ROOT_NAME = "root".
-         * CLDRLocale.ROOT.getBaseName() is ROOT_NAME.
+         * ULocale.ROOT.getBaseName() is "", the empty string, not LocaleNames.ROOT = "root".
+         * CLDRLocale.ROOT.getBaseName() is LocaleNames.ROOT.
          */
-        return s.equals(ULocale.ROOT.getBaseName()) || s.equalsIgnoreCase(ROOT_NAME);
+        return s.equals(ULocale.ROOT.getBaseName()) || s.equalsIgnoreCase(LocaleNames.ROOT);
     }
 
     /**

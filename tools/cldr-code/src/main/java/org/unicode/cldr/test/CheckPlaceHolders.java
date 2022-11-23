@@ -14,11 +14,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.LocaleIDParser;
-import org.unicode.cldr.util.Pair;
-import org.unicode.cldr.util.PatternCache;
-import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Field;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
@@ -58,8 +54,8 @@ public class CheckPlaceHolders extends CheckCLDR {
     static {
         Set<String> valid = new HashSet<>();
         valid.addAll(CLDRConfig.getInstance().getCldrFactory().getAvailable());
-        valid.add("zxx");
-        valid.add("und");
+        valid.add(LocaleNames.ZXX);
+        valid.add(LocaleNames.UND);
         CLDR_LOCALES_FOR_NAME_ORDER = ImmutableSet.copyOf(valid);
     }
 
@@ -156,7 +152,7 @@ public class CheckPlaceHolders extends CheckCLDR {
                                 + " either in givenFirst or in surnameFirst."));
                     }
 
-                    if (!items.contains("und")) {
+                    if (!items.contains(LocaleNames.UND)) {
                         result.add(new CheckStatus().setCause(checkAccessor)
                             .setMainType(CheckStatus.errorType)
                             .setSubtype(Subtype.missingLanguage)
@@ -220,7 +216,7 @@ public class CheckPlaceHolders extends CheckCLDR {
             default:
                 break;
             }
-        } else if (value.equals("zxx")) { // mistaken "we don't use this"
+        } else if (value.equals(LocaleNames.ZXX)) { // mistaken "we don't use this"
             result.add(new CheckStatus().setCause(checkAccessor)
                 .setMainType(CheckStatus.errorType)
                 .setSubtype(Subtype.invalidPlaceHolder)

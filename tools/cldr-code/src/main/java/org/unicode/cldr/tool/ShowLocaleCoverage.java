@@ -27,37 +27,16 @@ import java.util.stream.Collectors;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
 import org.unicode.cldr.tool.Option.Options;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.CoreCoverageInfo;
 import org.unicode.cldr.util.CoreCoverageInfo.CoreItems;
-import org.unicode.cldr.util.Counter;
-import org.unicode.cldr.util.Counter2;
-import org.unicode.cldr.util.CoverageInfo;
-import org.unicode.cldr.util.DtdType;
-import org.unicode.cldr.util.LanguageTagCanonicalizer;
-import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.Organization;
-import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
-import org.unicode.cldr.util.PathStarrer;
-import org.unicode.cldr.util.PatternCache;
-import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.RegexLookup.LookupType;
-import org.unicode.cldr.util.SimpleFactory;
-import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.MissingStatus;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 
@@ -504,8 +483,8 @@ public class ShowLocaleCoverage {
                 continue;
             }
             if (SUPPLEMENTAL_DATA_INFO.getDefaultContentLocales().contains(locale)
-                || locale.equals("root")
-                || locale.equals("und")
+                || locale.equals(LocaleNames.ROOT)
+                || locale.equals(LocaleNames.UND)
                 || locale.equals("supplementalData")) {
                 continue;
             }
@@ -793,7 +772,7 @@ public class ShowLocaleCoverage {
                     if (matcher != null && !matcher.reset(locale).matches()) {
                         continue;
                     }
-                    if (defaultContents.contains(locale) || "root".equals(locale) || "und".equals(locale)) {
+                    if (defaultContents.contains(locale) || LocaleNames.ROOT.equals(locale) || LocaleNames.UND.equals(locale)) {
                         continue;
                     }
 

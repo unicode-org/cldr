@@ -71,8 +71,10 @@ public class ChartPersonName extends Chart {
         CLDRFile cldrFile = factory.make(locale, true);
         Map<SampleType, SimpleNameObject> names = PersonNameFormatter.loadSampleNames(cldrFile);
         if (names.isEmpty()) {
+            pw.write("<p>No sample names to display.</p>");
             return;
         }
+        pw.write("<div class='ReportChart'>\n");
         PersonNameFormatter formatter = new PersonNameFormatter(cldrFile);
 
         for (Source source : Source.values()) {
@@ -124,5 +126,6 @@ public class ChartPersonName extends Chart {
                 tablePrinter.clearRows();
             }
         }
+        pw.write("</div> <!-- ReportChart -->\n");
     }
 }

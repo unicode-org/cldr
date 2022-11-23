@@ -13,7 +13,7 @@
           title="Close"
           @click="closeDashboard"
         >
-          X
+          ✕
         </button>
         <span
           class="i-am-dashboard"

@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 import org.unicode.cldr.test.CheckAccessor;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
-import org.unicode.cldr.test.CheckPersonNames;
+import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.CheckPlaceHolders;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.tool.LikelySubtags;
@@ -35,6 +35,7 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.Modifier;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePatternData;
+import org.unicode.cldr.util.personname.PersonNameFormatter.Optionality;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Order;
 import org.unicode.cldr.util.personname.PersonNameFormatter.SampleType;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Usage;
@@ -529,16 +530,16 @@ public class TestPersonNameFormatter extends TestFmwk{
     }
 
     public void TestCheckPersonNames() {
-        Map<SampleType, SimpleNameObject> names = PersonNameFormatter.loadSampleNames(ENGLISH);
-        assertEquals("REQUIRED contains all sampleTypes", SampleType.ALL, CheckPersonNames.REQUIRED.keySet());
         for (SampleType sampleType : SampleType.ALL) {
-            assertTrue(sampleType + " doesn't have conflicts", Collections.disjoint(
-                CheckPersonNames.REQUIRED.get(sampleType),
-                CheckPersonNames.REQUIRED_EMPTY.get(sampleType)));
+            for (String modifiedField : ModifiedField.ALL_SAMPLES) {
+                Optionality optionality = sampleType.getOptionality(modifiedField);
+                Optionality expected = sampleType.getRequiredFields().contains(modifiedField) ? Optionality.required
+                    : sampleType.getAllFields().contains(modifiedField) ? Optionality.optional
+                        : Optionality.disallowed;
+                assertEquals(sampleType + "/" + modifiedField, expected, optionality);
+            }
         }
     }
-
-
 
     public void TestFallbackFormatter() {
         FormatParameters testFormatParameters = new FormatParameters(Order.givenFirst, Length.short_name, Usage.referring, Formality.formal);
@@ -687,6 +688,12 @@ public class TestPersonNameFormatter extends TestFmwk{
         public CheckCLDR getCause() {
             throw new UnsupportedOperationException("not available in stub");
         }
+
+        @Override
+        public Phase getPhase() {
+            return null;
+        }
+
         @Override
         public String toString() {
             // TODO Auto-generated method stub

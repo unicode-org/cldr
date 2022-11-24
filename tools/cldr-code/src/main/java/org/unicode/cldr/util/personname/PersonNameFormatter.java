@@ -3,6 +3,7 @@ package org.unicode.cldr.util.personname;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.HashSet;
@@ -45,6 +46,7 @@ import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multiset;
+import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import com.google.common.collect.TreeMultiset;
 import com.ibm.icu.lang.UCharacter;
@@ -238,20 +240,43 @@ public class PersonNameFormatter {
         }
     }
 
+    private static final ImmutableSet<String> G = ImmutableSet.of("given");
+    private static final ImmutableSet<String> GS = ImmutableSet.of("given", "surname");
+    private static final ImmutableSet<String> GGS = ImmutableSet.of("given", "given2", "surname");
+    private static final ImmutableSet<String> GGSWithSurnameCore = ImmutableSet.of("given", "given2", "surname-core");
+    private static final ImmutableSet<String> Full = ImmutableSet.of("title", "given", "given-informal", "given2", "surname-prefix", "surname-core", "surname2", "generation", "credentials");
+    private static final ImmutableSet<String> FullMinusSurname = ImmutableSet.copyOf(Sets.difference(Full, Collections.singleton("surname2")));
+
+    public enum Optionality {required, optional, disallowed}
     /**
      * Types of samples, only for use by CLDR
      * @internal
      */
     public enum SampleType {
-        nativeG, nativeGS, nativeGGS, nativeFull,
-        foreignG, foreignGS, foreignGGS, foreignFull,
+        nativeG(G, G),
+        nativeGS(GS, GS),
+        nativeGGS(GGS, GS),
+        nativeFull(Full, GGSWithSurnameCore),
+        foreignG(G, G),
+        foreignGS(GS, GS),
+        foreignGGS(GGS, GGS),
+        foreignFull(Full, FullMinusSurname),
         ;
         public static final Set<SampleType> ALL = ImmutableSet.copyOf(values());
         public static final List<String> ALL_STRINGS = ALL.stream().map(x -> x.toString()).collect(Collectors.toUnmodifiableList());
-        final boolean isNative;
-        final String abbreviation;
 
-        private SampleType() {
+        private final boolean isNative;
+        private final String abbreviation;
+        private final Set<String> allFields;
+        private final Set<String> requiredFields;
+
+        private SampleType(ImmutableSet<String> allFields, ImmutableSet<String> requiredFields) {
+            if (!allFields.containsAll(requiredFields)) {
+                throw new IllegalArgumentException(allFields + " must contain all of " + requiredFields);
+            }
+            this.allFields = allFields;
+            this.requiredFields = requiredFields;
+
             String _abbreviation = null;
             if (name().startsWith("native")) {
                 isNative = true;
@@ -271,6 +296,17 @@ public class PersonNameFormatter {
 
         public String toAbbreviation() {
             return abbreviation;
+        }
+        public Optionality getOptionality(String field) {
+            return requiredFields.contains(field) ? Optionality.required
+                : allFields.contains(field) ? Optionality.optional
+                    : Optionality.disallowed;
+        }
+        public Set<String> getAllFields() {
+            return allFields;
+        }
+        public Set<String> getRequiredFields() {
+            return requiredFields;
         }
     }
 
@@ -1428,17 +1464,23 @@ public class PersonNameFormatter {
         this.fallbackFormatter = fallbackFormatter;
     }
 
-    static final Set<String> LOCALES_NOT_NEEDING_SPACES;
-    static {
-        Set<String> _LOCALE_NOT_NEEDING_SPACES = new TreeSet<>();
-        _LOCALE_NOT_NEEDING_SPACES.addAll(Arrays.asList("Jpan", "Hant", "Hans"));
-        for (int i = 0; i < UScript.CODE_LIMIT; ++i) {
-            Info info = ScriptMetadata.getInfo(i);
-            if (info != null && info.lbLetters == Trinary.YES) {
-                _LOCALE_NOT_NEEDING_SPACES.add(UScript.getShortName(i));
-            }
+    static final class LocaleSpacingData {
+        static LocaleSpacingData getInstance() {
+            return LocaleSpacingData.SINGLETON;
         }
-        LOCALES_NOT_NEEDING_SPACES = ImmutableSet.copyOf(_LOCALE_NOT_NEEDING_SPACES);
+        static LocaleSpacingData SINGLETON = new LocaleSpacingData();
+        final Set<String> LOCALES_NOT_NEEDING_SPACES;
+        LocaleSpacingData() {
+            Set<String> _LOCALE_NOT_NEEDING_SPACES = new TreeSet<>();
+            _LOCALE_NOT_NEEDING_SPACES.addAll(Arrays.asList("Jpan", "Hant", "Hans"));
+            for (int i = 0; i < UScript.CODE_LIMIT; ++i) {
+                Info info = ScriptMetadata.getInfo(i);
+                if (info != null && info.lbLetters == Trinary.YES) {
+                    _LOCALE_NOT_NEEDING_SPACES.add(UScript.getShortName(i));
+                }
+            }
+            LOCALES_NOT_NEEDING_SPACES = ImmutableSet.copyOf(_LOCALE_NOT_NEEDING_SPACES);
+        }
     }
 
     /**
@@ -1452,7 +1494,7 @@ public class PersonNameFormatter {
         String initialSequencePattern = null;
         String foreignSpaceReplacement = " ";
         String formattingScript = new LikelySubtags().getLikelyScript(cldrFile.getLocaleID());
-        String nativeSpaceReplacement = LOCALES_NOT_NEEDING_SPACES.contains(formattingScript) ? "" : " ";
+        String nativeSpaceReplacement = LocaleSpacingData.getInstance().LOCALES_NOT_NEEDING_SPACES.contains(formattingScript) ? "" : " ";
         Map<ULocale, Order> _localeToOrder = new TreeMap<>();
 
         // read out the data and order it properly

@@ -14,7 +14,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
-import org.unicode.cldr.util.*;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Type;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.LocaleNames;
+import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Field;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
@@ -176,9 +182,10 @@ public class CheckPlaceHolders extends CheckCLDR {
         Set<Modifier> modifiers = fieldType.getModifiers();
         Output<String> errorMessage = new Output<>();
         Modifier.getCleanSet(modifiers, errorMessage);
+        final Type mainType = checkAccessor.getPhase() != Phase.BUILD ? CheckStatus.errorType : CheckStatus.warningType;
         if (errorMessage.value != null) {
             result.add(new CheckStatus().setCause(checkAccessor)
-                .setMainType(CheckStatus.warningType)
+                .setMainType(mainType)
                 .setSubtype(Subtype.invalidPlaceHolder)
                 .setMessage(errorMessage.value));
             return;
@@ -192,9 +199,9 @@ public class CheckPlaceHolders extends CheckCLDR {
                 // we must have a given
                 if (fieldType.getModifiers().isEmpty()) {
                     result.add(new CheckStatus().setCause(checkAccessor)
-                        .setMainType(CheckStatus.warningType)
+                        .setMainType(mainType)
                         .setSubtype(Subtype.invalidPlaceHolder)
-                        .setMessage("Names must have a value for the ‘given‘ field. Mononyms (like ‘Lady Gaga’) use given, not surname"));
+                        .setMessage("Names must have a value for the ‘given‘ field. Mononyms (like ‘Zendaya’) use given, not surname"));
                 }
                 break;
             case surname:

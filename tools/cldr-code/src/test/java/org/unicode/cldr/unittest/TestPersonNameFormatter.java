@@ -59,12 +59,13 @@ public class TestPersonNameFormatter extends TestFmwk{
     public static final boolean SHOW = System.getProperty("TestPersonNameFormatter.SHOW") != null;
 
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
-    final FallbackFormatter FALLBACK_FORMATTER = new FallbackFormatter(ULocale.ENGLISH, "{0}*", "{0} {1}", null, false);
+    final FallbackFormatter FALLBACK_FORMATTER = new FallbackFormatter(ULocale.ENGLISH, "{0}*", "{0} {1}", null, null, false);
     final CLDRFile ENGLISH = CONFIG.getEnglish();
     final PersonNameFormatter ENGLISH_NAME_FORMATTER = new PersonNameFormatter(ENGLISH);
     final Map<SampleType, SimpleNameObject> ENGLISH_SAMPLES = PersonNameFormatter.loadSampleNames(ENGLISH);
     final Factory factory = CONFIG.getCldrFactory();
     final CLDRFile jaCldrFile = factory.make("ja", true);
+    final CLDRFile thCldrFile = factory.make("th", true);
 
     public static void main(String[] args) {
         new TestPersonNameFormatter().run(args);
@@ -345,6 +346,14 @@ public class TestPersonNameFormatter extends TestFmwk{
         };
         ExampleGenerator jaExampleGenerator = checkExamples(jaCldrFile, jaTests);
 
+        String[][] thTests = {
+            {
+                "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
+                "〖<i>🟨 Native name and script:</i>〗〖❬ธนา❭〗〖❬ไอริณกล้าหาญ❭〗〖❬วีระพลชัยยศพิชิตชัย❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬ศ.ดร.❭ ❬โสพล❭ ❬ชัยฤทธิ์❭ ❬ณ นคร❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎トーマス山田❭〗"
+            }
+        };
+        ExampleGenerator thExampleGenerator = checkExamples(thCldrFile, thTests);
+
 
         // next test that the example generator returns non-null for all expected cases
 
@@ -388,7 +397,7 @@ public class TestPersonNameFormatter extends TestFmwk{
     private void checkExampleGenerator(ExampleGenerator exampleGenerator, String path, String value, String expected) {
         final String example = exampleGenerator.getExampleHtml(path, value);
         String actual = ExampleGenerator.simplify(example);
-        if (!assertEquals("Example for " + value, expected, actual)) {
+        if (!assertEquals(exampleGenerator.getCldrFile().getLocaleID() + " example for " + value, expected, actual)) {
             int debug = 0;
         }
     }

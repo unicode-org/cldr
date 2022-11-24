@@ -125,7 +125,17 @@ public class LikelySubtags {
         return maximize(ltp);
     }
 
-    private String maximize(LanguageTagParser ltp) {
+    /** Maximize to a string (modifying the LanguageTagParser in so doing) */
+    public String maximize(LanguageTagParser ltp) {
+        if (maximizeInPlace(ltp)) {
+            return ltp.toString();
+        } else {
+            return null;
+        }
+    }
+
+    /** Maximize in place, for use when the modified LanguageTagParser is the desired return value */
+    public boolean maximizeInPlace(LanguageTagParser ltp) {
         String language = ltp.getLanguage();
         String region = ltp.getRegion();
         String script = ltp.getScript();
@@ -155,11 +165,11 @@ public class LikelySubtags {
         // check whole
         String result = toMaximized.get(ltp.toString());
         if (result != null) {
-            return ltp.set(result)
+            ltp.set(result)
                 .setVariants(variants)
                 .setExtensions(extensions)
-                .setLocaleExtensions(localeExtensions)
-                .toString();
+                .setLocaleExtensions(localeExtensions);
+            return true;
         }
 
         boolean noLanguage = language.equals("und");
@@ -184,10 +194,10 @@ public class LikelySubtags {
                     if (!noRegion) {
                         ltp.setRegion(region);
                     }
-                    return ltp.setVariants(variants)
+                    ltp.setVariants(variants)
                         .setExtensions(extensions)
-                        .setLocaleExtensions(localeExtensions)
-                        .toString();
+                        .setLocaleExtensions(localeExtensions);
+                    return true;
                 }
             }
         }
@@ -208,14 +218,14 @@ public class LikelySubtags {
                 if (!noRegion) {
                     ltp.setRegion(region);
                 }
-                return ltp.setVariants(variants)
+                ltp.setVariants(variants)
                     .setExtensions(extensions)
-                    .setLocaleExtensions(localeExtensions)
-                    .toString();
+                    .setLocaleExtensions(localeExtensions);
+                return true;
             }
         }
 
-        return null; // couldn't maximize
+        return false; // couldn't maximize
     }
 
     // TODO, optimize if needed by adding private routine that maximizes a LanguageTagParser instead of multiple parsings

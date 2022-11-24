@@ -16,33 +16,16 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.Option.Options;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Status;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.ChainedMap.M4;
-import org.unicode.cldr.util.Counter;
-import org.unicode.cldr.util.DtdData;
-import org.unicode.cldr.util.DtdType;
-import org.unicode.cldr.util.LanguageTagCanonicalizer;
-import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.Pair;
-import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
-import org.unicode.cldr.util.PathStarrer;
-import org.unicode.cldr.util.RegexUtilities;
-import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.LengthFirstComparator;
-import org.unicode.cldr.util.XMLFileReader;
-import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
@@ -473,8 +456,8 @@ public class ShowStarredCoverage {
         }
 
         private void addLanguage(String key, Source source) {
-            if (key.startsWith("und") || key.startsWith("root")) {
-                languageTags.put("und", source);
+            if (key.startsWith(LocaleNames.UND) || key.startsWith(LocaleNames.ROOT)) {
+                languageTags.put(LocaleNames.UND, source);
                 return;
             }
             ltp.set(key);

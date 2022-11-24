@@ -27,15 +27,7 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.DisplayAndInputProcessor.NumericType;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.SimpleFactory;
-import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.TimezoneFormatter;
-import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.*;
 import org.xml.sax.SAXException;
 
 import com.ibm.icu.dev.test.TestFmwk;
@@ -124,7 +116,7 @@ public class CLDRTest extends TestFmwk {
         // CLDRKey.main(new String[]{"-mde.*"});
         locales = cldrFactory.getAvailable();
         languageLocales = cldrFactory.getAvailableLanguages();
-        resolvedRoot = cldrFactory.make("root", true);
+        resolvedRoot = cldrFactory.make(LocaleNames.ROOT, true);
         /*
          * PrintWriter out = FileUtilities.openUTF8Writer(Utility.GEN_DIRECTORY + "resolved/", "root.xml");
          * CLDRFile temp = (CLDRFile) resolvedRoot.clone();
@@ -242,7 +234,7 @@ public class CLDRTest extends TestFmwk {
         int totalCount = 0;
         UnicodeSet localeMissing = new UnicodeSet();
         for (String locale : locales) {
-            if (locale.equals("root")) continue;
+            if (locale.equals(LocaleNames.ROOT)) continue;
             CLDRFile resolved = cldrFactory.make(locale, false); // FIX LATER
             UnicodeSet exemplars = getFixedExemplarSet(locale, resolved);
             CLDRFile plain = cldrFactory.make(locale, false);
@@ -749,7 +741,7 @@ public class CLDRTest extends TestFmwk {
         int[] warningCount = new int[1];
         for (Iterator<String> it = languageLocales.iterator(); it.hasNext();) {
             String locale = it.next();
-            if (locale.equals("root")) continue;
+            if (locale.equals(LocaleNames.ROOT)) continue;
             // if (!locale.equals("zh_Hant")) continue;
 
             CLDRFile item = cldrFactory.make(locale, true);

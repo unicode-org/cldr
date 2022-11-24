@@ -4,12 +4,7 @@ import java.util.EnumSet;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.Organization;
-import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.*;
 
 import com.ibm.icu.dev.test.TestFmwk;
 
@@ -61,7 +56,7 @@ public class StandardCodesTest extends TestFmwk {
                 locs = sc.getLocaleCoverageLocales(org,
                     EnumSet.of(Level.MODERATE, Level.MODERN));
                 for (String loc : locs) {
-                    if (loc.equals("*") || loc.equals("mul")) {
+                    if (loc.equals("*") || loc.equals(LocaleNames.MUL)) {
                         // Skip * as wildcard
                         // Skip sandbox locale 'mul'
                         continue;

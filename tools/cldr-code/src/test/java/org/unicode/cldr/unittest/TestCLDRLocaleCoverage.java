@@ -6,21 +6,10 @@ import java.util.stream.Collectors;
 
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.MinimizeRegex;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.Counter;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.LocaleIDParser;
-import org.unicode.cldr.util.Organization;
-import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.StandardCodes.LstrType;
-import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
-import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 
 import com.google.common.base.Joiner;
@@ -48,7 +37,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         // mainLocales has the locales in common/main, which is basically the set in attributeValueValidity.xml $language..
         // We add in additionsToTranslate below the set in attributeValueValidity.xml $languageExceptions
         // (both sets are included in SDI.getCLDRLanguageCodes() but we do not use that until later).
-        Set<String> additionsToTranslate = ImmutableSortedSet.of("zxx", "mul",
+        Set<String> additionsToTranslate = ImmutableSortedSet.of(LocaleNames.ZXX, LocaleNames.MUL,
             "ab", "ace", "ada", "ady", "ain", "ale", "alt", "an", "anp", "arn", "arp", "ars", "atj", "av", "awa", "ay",
             "ba", "ban", "bho", "bi", "bin", "bla", "bug", "byn",
             "cay", "ch", "chk", "chm", "cho", "chp", "chy", "clc", "co", "crg", "crj", "crk", "crl", "crm", "crr", "csw", "cv",
@@ -82,7 +71,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         Map<String, Status> validity = Validity.getInstance().getCodeToStatus(LstrType.language);
         Multimap<Status, String> statusToLang = Multimaps.invertFrom(Multimaps.forMap(validity), TreeMultimap.create());
         Set<String> regular = (Set<String>) statusToLang.get(Status.regular);
-        Set<String> regularPlus = ImmutableSet.<String>builder().addAll(regular).add("und").add("zxx").add("mul").build();
+        Set<String> regularPlus = ImmutableSet.<String>builder().addAll(regular).add(LocaleNames.UND).add(LocaleNames.ZXX).add(LocaleNames.MUL).build();
         Set<String> valid = validity.keySet();
 
         Factory factory = CLDRCONFIG.getCldrFactory();
@@ -90,8 +79,8 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         LanguageTagParser ltp = new LanguageTagParser();
         for (String locale : factory.getAvailableLanguages()) {
             String language = ltp.set(locale).getLanguage();
-            if (language.equals("root")) {
-                language = "und";
+            if (language.equals(LocaleNames.ROOT)) {
+                language = LocaleNames.UND;
             } else if(!StandardCodes.isLocaleAtLeastBasic(language)) {
                 continue;
             }
@@ -105,7 +94,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
 
         assertContains("regularPlus.containsAll(mainLocales)", regularPlus, localesForNames);
 
-        CoverageLevel2 coverageLeveler = CoverageLevel2.getInstance("und");
+        CoverageLevel2 coverageLeveler = CoverageLevel2.getInstance(LocaleNames.UND);
         Multimap<Level, String> levelToLanguage = TreeMultimap.create();
         for (String locale : valid) {
             String path = CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, locale);
@@ -324,7 +313,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
                 String locale = originalLevel;
                 while (true) {
                     String parent = LocaleIDParser.getParent(locale);
-                    if (parent == null || parent.equals("root")) {
+                    if (parent == null || parent.equals(LocaleNames.ROOT)) {
                         break;
                     }
                     if (!parent.equals("en_001")) { // en_001 is generated later from en_GB

@@ -2669,7 +2669,7 @@ public class SupplementalDataInfo {
         org.unicode.cldr.util.Factory factory = CLDRConfig.getInstance().getCldrFactory();
         for (CLDRLocale locale : factory.getAvailableCLDRLocales()) {
             String language = locale.getLanguage();
-            if (language.length() == 0 || language.equals("root")) {
+            if (language.length() == 0 || language.equals(LocaleNames.ROOT)) {
                 continue;
             }
             BasicLanguageData scriptsAndRegions = langToScriptsRegions.get(language);
@@ -3203,7 +3203,7 @@ public class SupplementalDataInfo {
             // System.out.println(type + ", " + locales + ", " + path);
         }
         if (path.size() != 4) {
-            if (locales.equals("root")) return; // we allow root to be empty
+            if (locales.equals(LocaleNames.ROOT)) return; // we allow root to be empty
             throw new IllegalArgumentException(locales + " must have dayPeriodRule elements");
         }
         DayPeriod dayPeriod;
@@ -4028,7 +4028,7 @@ public class SupplementalDataInfo {
     public PluralInfo getPlurals(PluralType type, String locale, boolean allowRoot) {
         Map<String, PluralInfo> infoMap = localeToPluralInfo2.get(type);
         while (locale != null) {
-            if (!allowRoot && locale.equals("root")) {
+            if (!allowRoot && locale.equals(LocaleNames.ROOT)) {
                 break;
             }
             PluralInfo result = infoMap.get(locale);
@@ -4375,7 +4375,7 @@ public class SupplementalDataInfo {
                 if (nextParent == null) {
                     throw new InternalError("SupplementalDataInfo.defaultContentToChild(): No valid parent for "
                         + child);
-                } else if (nextParent == CLDRLocale.ROOT || nextParent == CLDRLocale.getInstance("root")) {
+                } else if (nextParent == CLDRLocale.ROOT || nextParent == CLDRLocale.getInstance(LocaleNames.ROOT)) {
                     throw new InternalError(
                         "SupplementalDataInfo.defaultContentToChild(): Parent is root for default content locale "
                             + child);
@@ -4489,7 +4489,7 @@ public class SupplementalDataInfo {
         Set<String> temp = new HashSet<>();
         for (Entry<String, String> entry : likely.entrySet()) {
             String source = entry.getKey();
-            if (source.startsWith("und")) {
+            if (source.startsWith(LocaleNames.UND)) {
                 continue;
             }
             for (String s : getCombinations(source, ltp, likely, temp)) {

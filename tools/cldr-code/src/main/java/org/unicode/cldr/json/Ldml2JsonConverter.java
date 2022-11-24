@@ -27,28 +27,8 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.tool.Option.Options;
-import org.unicode.cldr.util.Annotations;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.CLDRTool;
-import org.unicode.cldr.util.CLDRURLS;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.CoverageInfo;
-import org.unicode.cldr.util.DtdData;
-import org.unicode.cldr.util.DtdType;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.FileCopier;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.LocaleIDParser;
-import org.unicode.cldr.util.Pair;
-import org.unicode.cldr.util.PatternCache;
-import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.Timer;
-import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
@@ -769,7 +749,7 @@ public class Ldml2JsonConverter {
         boolean isModernTier;
         {
             final Level localeCoverageLevel = sc.getHighestLocaleCoverageLevel("Cldr", filename);
-            isModernTier = (localeCoverageLevel.getLevel() >= Level.MODERN.getLevel()) || filename.equals("root") || filename.equals("und");
+            isModernTier = (localeCoverageLevel.getLevel() >= Level.MODERN.getLevel()) || filename.equals(LocaleNames.ROOT) || filename.equals(LocaleNames.UND);
         }
         return isModernTier;
     }

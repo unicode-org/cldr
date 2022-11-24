@@ -19,10 +19,15 @@ import java.util.function.Function;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import org.unicode.cldr.draft.ScriptMetadata;
+import org.unicode.cldr.draft.ScriptMetadata.Info;
+import org.unicode.cldr.draft.ScriptMetadata.Trinary;
 import org.unicode.cldr.test.ExampleGenerator;
+import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
+import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.XPathParts;
 
@@ -43,6 +48,7 @@ import com.google.common.collect.Multiset;
 import com.google.common.collect.TreeMultimap;
 import com.google.common.collect.TreeMultiset;
 import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.CaseMap;
 import com.ibm.icu.text.MessageFormat;
@@ -429,11 +435,15 @@ public class PersonNameFormatter {
      * @internal
      */
     public static class FallbackFormatter {
+        private static final LikelySubtags LIKELY_SUBTAGS = new LikelySubtags();
         final private ULocale formatterLocale;
+        final private String formatterLanguage;
+        final private String formatterScript;
         final private BreakIterator characterBreakIterator;
         final private MessageFormat initialFormatter;
         final private MessageFormat initialSequenceFormatter;
         final private String foreignSpaceReplacement;
+        final private String nativeSpaceReplacement;
 
         public String getForeignSpaceReplacement() {
             return foreignSpaceReplacement;
@@ -445,13 +455,29 @@ public class PersonNameFormatter {
             String initialPattern,
             String initialSequencePattern,
             String foreignSpaceReplacement,
+            String nativeSpaceReplacement,
             boolean uppercaseSurnameIfSurnameFirst) {
             formatterLocale = uLocale;
+            LanguageTagParser ltp = new LanguageTagParser().set(uLocale.toString());
+            LIKELY_SUBTAGS.maximizeInPlace(ltp);
+            formatterLanguage = ltp.getLanguage();
+            formatterScript = ltp.getScript();
             characterBreakIterator = BreakIterator.getCharacterInstance(uLocale);
             initialFormatter = new MessageFormat(initialPattern);
             initialSequenceFormatter = new MessageFormat(initialSequencePattern);
-            this.foreignSpaceReplacement = foreignSpaceReplacement;
+            this.foreignSpaceReplacement = foreignSpaceReplacement == null ? " " : foreignSpaceReplacement;
             this.uppercaseSurnameIfSurnameFirst = uppercaseSurnameIfSurnameFirst;
+            this.nativeSpaceReplacement = nativeSpaceReplacement == null ? " " : nativeSpaceReplacement;
+        }
+
+        /** Is foreign language: determines whether the maximized (aka likely) respective language subtags and script subtags are identical.
+         * For purposes of language comparison, regional variants, etc are not consider relevant.
+         * TODO add this to the spec
+         */
+        public boolean sharesLanguageScript(ULocale nameLocale) {
+            LanguageTagParser ltp = new LanguageTagParser().set(nameLocale.toString());
+            LIKELY_SUBTAGS.maximizeInPlace(ltp);
+            return formatterLanguage.equals(ltp.getLanguage()) && formatterScript.equals(ltp.getScript());
         }
 
         /**
@@ -623,19 +649,16 @@ public class PersonNameFormatter {
             if (!seenEmptyField) {
                 result.append(literalTextBefore);
             }
-            if (fallbackInfo.foreignSpaceReplacement != null && !fallbackInfo.foreignSpaceReplacement.equals(" ")) {
+            if (!fallbackInfo.foreignSpaceReplacement.equals(" ") || !fallbackInfo.nativeSpaceReplacement.equals(" ")) {
                 ULocale nameLocale = nameObject.getNameLocale();
-                if (!sharesLanguageScript(nameLocale, fallbackInfo.formatterLocale)) {
+                if (!fallbackInfo.sharesLanguageScript(nameLocale)) {
                     return SPACES.matcher(result).replaceAll(fallbackInfo.foreignSpaceReplacement);
                 } else {
-                    return SPACES.matcher(result).replaceAll("");
+                    return SPACES.matcher(result).replaceAll(fallbackInfo.nativeSpaceReplacement);
+                    // TODO add this to the spec
                 }
             }
             return result.toString();
-        }
-
-        private boolean sharesLanguageScript(ULocale nameLocale, ULocale formatterLocale) {
-            return Objects.equals(nameLocale, formatterLocale); // TODO, fix to check language and script (maximized)
         }
 
         static final Pattern SPACES = Pattern.compile("\\s+"); // TODO pick whitespace
@@ -1405,6 +1428,19 @@ public class PersonNameFormatter {
         this.fallbackFormatter = fallbackFormatter;
     }
 
+    static final Set<String> LOCALES_NOT_NEEDING_SPACES;
+    static {
+        Set<String> _LOCALE_NOT_NEEDING_SPACES = new TreeSet<>();
+        _LOCALE_NOT_NEEDING_SPACES.addAll(Arrays.asList("Jpan", "Hant", "Hans"));
+        for (int i = 0; i < UScript.CODE_LIMIT; ++i) {
+            Info info = ScriptMetadata.getInfo(i);
+            if (info != null && info.lbLetters == Trinary.YES) {
+                _LOCALE_NOT_NEEDING_SPACES.add(UScript.getShortName(i));
+            }
+        }
+        LOCALES_NOT_NEEDING_SPACES = ImmutableSet.copyOf(_LOCALE_NOT_NEEDING_SPACES);
+    }
+
     /**
      * Create a formatter from a CLDR file.
      * @internal
@@ -1414,7 +1450,9 @@ public class PersonNameFormatter {
         Set<Pair<FormatParameters, NamePattern>> ordered = new TreeSet<>();
         String initialPattern = null;
         String initialSequencePattern = null;
-        String foreignSpaceReplacement = null;
+        String foreignSpaceReplacement = " ";
+        String formattingScript = new LikelySubtags().getLikelyScript(cldrFile.getLocaleID());
+        String nativeSpaceReplacement = LOCALES_NOT_NEEDING_SPACES.contains(formattingScript) ? "" : " ";
         Map<ULocale, Order> _localeToOrder = new TreeMap<>();
 
         // read out the data and order it properly
@@ -1450,6 +1488,9 @@ public class PersonNameFormatter {
                 case "foreignSpaceReplacement":
                     foreignSpaceReplacement = value;
                     break;
+                case "nativeSpaceReplacement":
+                    nativeSpaceReplacement = value;
+                    break;
                 case "sampleName":
                     // skip
                     break;
@@ -1465,7 +1506,7 @@ public class PersonNameFormatter {
         ImmutableMap<ULocale, Order> localeToOrder = ImmutableMap.copyOf(_localeToOrder);
         this.namePatternMap = new NamePatternData(localeToOrder, formatParametersToNamePattern);
         this.fallbackFormatter = new FallbackFormatter(new ULocale(cldrFile.getLocaleID()),
-            initialPattern, initialSequencePattern, foreignSpaceReplacement, false);
+            initialPattern, initialSequencePattern, foreignSpaceReplacement, nativeSpaceReplacement, false);
     }
 
     /**

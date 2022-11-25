@@ -55,6 +55,10 @@ import com.ibm.icu.util.ULocale;
  */
 public class DisplayAndInputProcessor {
 
+    private static final String FSR_START_PATH = "//ldml/personNames/foreignSpaceReplacement";
+
+    private static final String EMPTY_ELEMENT_VALUE = "❮EMPTY❯";
+
     private static final boolean FIX_YEARS = true;
 
     public static final boolean DEBUG_DAIP = CldrUtility.getProperty("DEBUG_DAIP", false);
@@ -347,6 +351,10 @@ public class DisplayAndInputProcessor {
         } else {
             value = normalizeHyphens(value);
         }
+        // Fix up possibly empty field
+        if (value.isEmpty() && path.startsWith(FSR_START_PATH)) {
+            value = EMPTY_ELEMENT_VALUE;
+        }
         return value;
     }
 
@@ -494,8 +502,8 @@ public class DisplayAndInputProcessor {
         if (path.startsWith("//ldml/personNames/")) {
             if (path.startsWith("//ldml/personNames/nameOrderLocales")) {
                 value = normalizeNameOrderLocales(value);
-            } else if (path.startsWith("//ldml/personNames/foreignSpaceReplacement")) {
-                if (value.trim().equalsIgnoreCase("❮EMPTY❯}")) {
+            } else if (path.startsWith(FSR_START_PATH)) {
+                if (value.trim().equalsIgnoreCase(EMPTY_ELEMENT_VALUE)) {
                     value = "";
                 }
             }

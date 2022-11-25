@@ -3,14 +3,34 @@
 
 package org.unicode.cldr.test;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.ibm.icu.util.Output;
 import org.unicode.cldr.test.CheckExemplars.ExemplarType;
-import org.unicode.cldr.util.*;
+import org.unicode.cldr.util.AnnotationUtil;
+import org.unicode.cldr.util.Builder;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.DateTimeCanonicalizer;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
+import org.unicode.cldr.util.Emoji;
+import org.unicode.cldr.util.ICUServiceBuilder;
+import org.unicode.cldr.util.LocaleNames;
+import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
+import org.unicode.cldr.util.With;
+import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
@@ -26,6 +46,7 @@ import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
+import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -470,10 +491,15 @@ public class DisplayAndInputProcessor {
             value = value.replace("...", "…");
         }
 
-        if (path.startsWith("//ldml/personNames/nameOrderLocales")) {
-            value = normalizeNameOrderLocales(value);
+        if (path.startsWith("//ldml/personNames/")) {
+            if (path.startsWith("//ldml/personNames/nameOrderLocales")) {
+                value = normalizeNameOrderLocales(value);
+            } else if (path.startsWith("//ldml/personNames/foreignSpaceReplacement")) {
+                if (value.trim().equalsIgnoreCase("❮EMPTY❯}")) {
+                    value = "";
+                }
+            }
         }
-
         // Replace Arabic presentation forms with their nominal counterparts
         value = replaceArabicPresentationForms(value);
 

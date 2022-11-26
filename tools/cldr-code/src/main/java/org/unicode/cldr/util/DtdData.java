@@ -53,6 +53,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     private MapComparator<String> elementComparator;
     private MapComparator<String> attributeComparator;
 
+    // TODO Make this data driven
+    public static final Set<String> EMPTY_VALUE_ALLOWED_IN_PCDATA = ImmutableSet.of("nameOrderLocales", "foreignSpaceReplacement");
+
     public final Element ROOT;
     public final Element PCDATA = elementFrom("#PCDATA");
     public final Element ANY = elementFrom("ANY");

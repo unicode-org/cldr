@@ -22,12 +22,14 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.DtdData.Element.ValueConstraint;
 import org.unicode.cldr.util.MatchValue.LiteralMatchValue;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
 
 import com.google.common.base.CharMatcher;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSet.Builder;
 import com.google.common.collect.ImmutableSetMultimap;
@@ -54,7 +56,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     private MapComparator<String> attributeComparator;
 
     // TODO Make this data driven
-    public static final Set<String> EMPTY_VALUE_ALLOWED_IN_PCDATA = ImmutableSet.of("nameOrderLocales", "foreignSpaceReplacement");
+    public static final Multimap<DtdType, String> HACK_PCDATA_ALLOWS_EMPTY = ImmutableMultimap.<DtdType, String>builder()
+        .putAll(DtdType.ldml, "nameOrderLocales", "foreignSpaceReplacement", "language", "script", "region", "variant", "territory")
+        .putAll(DtdType.supplementalData, "variable", "attributeValues")
+        .build();
 
     public final Element ROOT;
     public final Element PCDATA = elementFrom("#PCDATA");
@@ -389,6 +394,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     }
 
     public static class Element implements Named {
+        public enum ValueConstraint {
+            empty, nonempty, any
+        }
         public final String name;
         private String rawModel;
         private ElementType type;
@@ -401,6 +409,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         private boolean isDeprecatedElement;
         private boolean isTechPreviewElement;
         private ElementStatus elementStatus = ElementStatus.regular;
+        private ValueConstraint valueConstraint = ValueConstraint.nonempty;
 
         private Element(String name2) {
             name = name2.intern();
@@ -410,6 +419,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             this.commentsPre = precomments;
             rawModel = model;
             this.model = clean(model);
+            valueConstraint = ValueConstraint.empty;
             if (model.equals("EMPTY")) {
                 type = ElementType.EMPTY;
                 return;
@@ -419,6 +429,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 if (part.length() != 0) {
                     if (part.equals("#PCDATA")) {
                         type = ElementType.PCDATA;
+                        if (HACK_PCDATA_ALLOWS_EMPTY.get(dtdData.dtdType).contains(name)) {
+                            // TODO move to @ annotation in .dtd file
+                            valueConstraint = ValueConstraint.any;
+                        } else {
+                            valueConstraint = ValueConstraint.nonempty;
+                        }
                     } else if (part.equals("ANY")) {
                         type = ElementType.ANY;
                     } else {
@@ -579,6 +595,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
         public ElementStatus getElementStatus() {
             return elementStatus;
+        }
+
+        public ValueConstraint getValueConstraint() {
+            return valueConstraint;
         }
 
         /**
@@ -1859,5 +1879,22 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             }
         }
         return ImmutableSetMultimap.copyOf(nonEnumeratedElementToAttribute);
+    }
+
+    /**
+     * Get the value constraint on the last element in a path
+     */
+    public static ValueConstraint getValueConstraint(String xpath) {
+        return getElement(xpath, -1).getValueConstraint();
+    }
+
+    /**
+     * Get an element from a path and element index.
+     */
+    public static Element getElement(String xpath,  int elementIndex) {
+        XPathParts parts = XPathParts.getFrozenInstance(xpath);
+        return DtdData.getInstance(DtdType.valueOf(parts.getElement(0)))
+            .getElementFromName()
+            .get(parts.getElement(elementIndex));
     }
 }

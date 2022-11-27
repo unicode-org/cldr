@@ -6,7 +6,6 @@ import java.util.logging.Logger;
 
 import javax.json.bind.spi.JsonbProvider;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
 
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
@@ -19,14 +18,28 @@ import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.web.*;
-import org.unicode.cldr.web.BallotBox.VoteNotAcceptedException;
-import org.unicode.cldr.web.DataPage.DataRow;
-import org.unicode.cldr.web.DataPage.DataRow.CandidateItem;
-import org.unicode.cldr.web.SurveyException.ErrorCode;
-import org.unicode.cldr.web.UserRegistry.User;
-import org.unicode.cldr.web.api.VoteAPI.RowResponse;
-import org.unicode.cldr.web.api.VoteAPI.RowResponse.Row.Candidate;
-import org.unicode.cldr.web.api.VoteAPI.VoteResponse;
+
+import src.main.java.org.unicode.cldr.web.BallotBox;
+import src.main.java.org.unicode.cldr.web.BallotBox.VoteNotAcceptedException;
+import src.main.java.org.unicode.cldr.web.CookieSession;
+import src.main.java.org.unicode.cldr.web.Dashboard;
+import src.main.java.org.unicode.cldr.web.DataPage;
+import src.main.java.org.unicode.cldr.web.DataPage.DataRow;
+import src.main.java.org.unicode.cldr.web.DataPage.DataRow.CandidateItem;
+import src.main.java.org.unicode.cldr.web.PathHeaderSort;
+import src.main.java.org.unicode.cldr.web.STFactory;
+import src.main.java.org.unicode.cldr.web.SortMode;
+import src.main.java.org.unicode.cldr.web.SurveyException.ErrorCode;
+import src.main.java.org.unicode.cldr.web.SurveyLog;
+import src.main.java.org.unicode.cldr.web.SurveyMain;
+import src.main.java.org.unicode.cldr.web.UserRegistry;
+import src.main.java.org.unicode.cldr.web.UserRegistry.User;
+import src.main.java.org.unicode.cldr.web.VettingViewerQueue.Status;
+import src.main.java.org.unicode.cldr.web.XPathMatcher;
+import src.main.java.org.unicode.cldr.web.XPathTable;
+import src.main.java.org.unicode.cldr.web.api.VoteAPI.RowResponse;
+import src.main.java.org.unicode.cldr.web.api.VoteAPI.RowResponse.Row.Candidate;
+import src.main.java.org.unicode.cldr.web.api.VoteAPI.VoteResponse;
 
 /**
  * Note: The functions in this class needed to be separated from VoteAPI because of static init problems.
@@ -222,7 +235,7 @@ public class VoteAPIHelper {
         row.votingResults = getVotingResults(resolver);
         row.winningValue = r.getWinningValue();
         row.winningVhash = r.getWinningVHash();
-        row.voteTranscript = r.getVoteTranscript();  
+        row.voteTranscript = r.getVoteTranscript();
         row.xpath = xpath;
         row.xpathId = CookieSession.sm.xpt.getByXpath(xpath);
         row.xpstrid = XPathTable.getStringIDString(xpath);
@@ -428,7 +441,8 @@ public class VoteAPIHelper {
             final DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale, true);
             daip.enableInheritanceReplacement(cldrFile);
             val = daip.processInput(xp, origValue, exceptionList);
-            if (val.isEmpty()) {
+            if (val.isEmpty()
+                && getValueConstraint(cp) == DtdData.Element.ValueConstraint.nonempty) {
                 val = null; // the caller will recognize this as exceptional, not Abstain
             }
         } else {

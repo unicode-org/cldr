@@ -577,16 +577,17 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         assertEquals("U+0964 DEVANAGARI DANDA with spaces becomes pipe", normVal, val);
     }
 
-    private static final String FSR_START_PATH = "//ldml/personNames/foreignSpaceReplacement";
-    private static final String EMPTY_ELEMENT_VALUE = "❮EMPTY❯";
-
     public void TestFSR() {
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish(), false);
-        String xpath = FSR_START_PATH;
-        String val = daip.processInput(xpath, EMPTY_ELEMENT_VALUE, null);
-        assertEquals("Empty FSR input", "", val);
+        checkPathAllowsEmpty(daip, DisplayAndInputProcessor.FSR_START_PATH);
+        checkPathAllowsEmpty(daip, DisplayAndInputProcessor.NOL_START_PATH);
+    }
+
+    public void checkPathAllowsEmpty(DisplayAndInputProcessor daip, String xpath) {
+        String val = daip.processInput(xpath, DisplayAndInputProcessor.EMPTY_ELEMENT_VALUE, null);
+        assertEquals(DisplayAndInputProcessor.EMPTY_ELEMENT_VALUE + " input for " + xpath, "", val);
         String roundTrip = daip.processForDisplay(xpath, "");
-        assertEquals("Empty FSR output", EMPTY_ELEMENT_VALUE, roundTrip);
+        assertEquals("Empty FSR output for" + xpath, DisplayAndInputProcessor.EMPTY_ELEMENT_VALUE, roundTrip);
     }
 
 }

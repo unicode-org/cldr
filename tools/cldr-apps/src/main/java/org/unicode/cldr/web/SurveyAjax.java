@@ -345,6 +345,8 @@ public class SurveyAjax extends HttpServlet {
                     CookieSession.checkForExpiredSessions();
                     mySession = CookieSession.retrieve(sess); // or peek?
                     if (mySession != null) {
+                        long millisSinceAction = System.currentTimeMillis() - mySession.getLastActionMillisSinceEpoch();
+                        r2.put("millisSinceAction", millisSinceAction);
                         r2.put("millisTillKick", mySession.millisTillKick());
                     } else {
                         r2.put("session_err", "no session");

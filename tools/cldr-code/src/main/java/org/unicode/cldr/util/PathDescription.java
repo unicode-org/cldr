@@ -396,11 +396,11 @@ public class PathDescription {
 
         + "^//ldml/personNames/nameOrderLocales\\[@order=\"([^\"]*)\"]"
         + RegexLookup.SEPARATOR
-        + "Person name order for locales. For more information, please see "
+        + "Person name order for locales. If there are none with a particular direction, insert zxx. For more information, please see "
         + CLDRURLS.PERSON_NAME_FORMATS + ".\n"
         + "^//ldml/personNames/foreignSpaceReplacement"
         + RegexLookup.SEPARATOR
-        + "For foreign personal names displayed in your locale, any special character that replaces a space (defaults to regular space). For more information, please see "
+        + "For foreign personal names displayed in your locale, any special character that replaces a space (defaults to regular space). If spaces are to be removed, insert ❮EMPTY❯. For more information, please see "
         + CLDRURLS.PERSON_NAME_FORMATS + ".\n"
         + "^//ldml/personNames/initialPattern\\[@type=\"initial\"]"
         + RegexLookup.SEPARATOR

@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 
 import javax.json.bind.spi.JsonbProvider;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
@@ -16,30 +17,9 @@ import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
+import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.web.*;
-
-import src.main.java.org.unicode.cldr.web.BallotBox;
-import src.main.java.org.unicode.cldr.web.BallotBox.VoteNotAcceptedException;
-import src.main.java.org.unicode.cldr.web.CookieSession;
-import src.main.java.org.unicode.cldr.web.Dashboard;
-import src.main.java.org.unicode.cldr.web.DataPage;
-import src.main.java.org.unicode.cldr.web.DataPage.DataRow;
-import src.main.java.org.unicode.cldr.web.DataPage.DataRow.CandidateItem;
-import src.main.java.org.unicode.cldr.web.PathHeaderSort;
-import src.main.java.org.unicode.cldr.web.STFactory;
-import src.main.java.org.unicode.cldr.web.SortMode;
-import src.main.java.org.unicode.cldr.web.SurveyException.ErrorCode;
-import src.main.java.org.unicode.cldr.web.SurveyLog;
-import src.main.java.org.unicode.cldr.web.SurveyMain;
-import src.main.java.org.unicode.cldr.web.UserRegistry;
-import src.main.java.org.unicode.cldr.web.UserRegistry.User;
-import src.main.java.org.unicode.cldr.web.VettingViewerQueue.Status;
-import src.main.java.org.unicode.cldr.web.XPathMatcher;
-import src.main.java.org.unicode.cldr.web.XPathTable;
-import src.main.java.org.unicode.cldr.web.api.VoteAPI.RowResponse;
-import src.main.java.org.unicode.cldr.web.api.VoteAPI.RowResponse.Row.Candidate;
-import src.main.java.org.unicode.cldr.web.api.VoteAPI.VoteResponse;
 
 /**
  * Note: The functions in this class needed to be separated from VoteAPI because of static init problems.

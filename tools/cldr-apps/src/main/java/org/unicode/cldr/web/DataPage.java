@@ -858,7 +858,7 @@ public class DataPage {
         }
 
         public String getVoteVHash() {
-            String voteVhash = "";
+            String voteVhash = null;  // abstension
             if (userForVotelist != null) {
                 String ourVote = ballotBox.getVoteValue(userForVotelist, xpath);
                 if (ourVote != null) {

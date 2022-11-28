@@ -31,13 +31,15 @@ let voteLevelChanged = 0;
  * @param vHash
  */
 function wireUpButton(button, tr, theRow, vHash) {
+  let vHashStr = vHash;
   if (vHash == null) {
     // this is an "Abstain" ("no") button
     button.id = "NO_" + tr.rowHash;
-    vHash = "";
+    vHash = null;
+    vHashStr = "";
   } else {
     // this is a vote button for a candidate item
-    button.id = "v" + vHash + "_" + tr.rowHash;
+    button.id = "v" + vHashStr + "_" + tr.rowHash;
   }
   cldrDom.listenFor(button, "change", function (e) {
     if (button.checked) {
@@ -57,7 +59,11 @@ function wireUpButton(button, tr, theRow, vHash) {
       button.className = "ichoice-o";
       button.checked = false;
     }
-  } else if (theRow.voteVhash == vHash) {
+  } else if (
+    theRow.voteVhash === vHash ||
+    (theRow.voteVhash === undefined && vHash === null)
+  ) {
+    // JSON may transit voteVHash=null as omitting the element
     button.className = "ichoice-x";
     button.checked = true;
     tr.lastOn = button;
@@ -74,7 +80,7 @@ function wireUpButton(button, tr, theRow, vHash) {
  * @param {Object} theRow object describing the table row
  * @param {String} vHash hash of the value of the candidate item (cf. DataPage.getValueHash on back end),
  *                       or empty string for newly submitted value
- * @param {Object} newValue the newly submitted value, or undefined if it's a vote for an already existing value (button.value)
+ * @param {Object} newValue the newly submitted value, or undefined if it's a vote for an already existing value (buttonb)
  * @param {Element} button the GUI button
  *
  * TODO: shorten this function, using (non-nested) subroutines
@@ -88,12 +94,9 @@ function handleWiredClick(tr, theRow, vHash, newValue, button) {
   }
   var value = "";
   var valToShow;
-  if (newValue) {
+  if (newValue || newValue === "") {
     valToShow = newValue;
     value = newValue;
-    if (value.length == 0) {
-      return; // nothing entered.
-    }
   } else {
     valToShow = button.value;
   }
@@ -279,7 +282,11 @@ function showProposedItem(inTd, tr, theRow, value, tests, json) {
     tr.myProposal.value = value;
     tr.myProposal.button = newButton;
     if (newButton) {
-      newButton.value = value;
+      if (value === "") {
+        newButton.value = cldrTable.EMPTY_ELEMENT_VALUE; // Special case for ''
+      } else {
+        newButton.value = value;
+      }
       if (tr.lastOn) {
         tr.lastOn.checked = false;
         tr.lastOn.className = "ichoice-o";

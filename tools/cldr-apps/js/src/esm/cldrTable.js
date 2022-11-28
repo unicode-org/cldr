@@ -35,6 +35,11 @@ const CLDR_TABLE_DEBUG = false;
 const NO_WINNING_VALUE = "no-winning-value";
 
 /**
+ * Special input.value meaning an empty value as opposed to an abstention
+ */
+const EMPTY_ELEMENT_VALUE = "❮EMPTY❯";
+
+/**
  * Prepare rows to be inserted into the table
  *
  * @param theDiv the division (typically or always? with id='DynamicDataSection') that contains, or will contain, the table
@@ -419,7 +424,7 @@ function reallyUpdateRow(tr, theRow) {
   tr.rawValueToItem = {}; // hash:  string value to item (which has a div)
   for (let k in theRow.items) {
     const item = theRow.items[k];
-    if (item.value) {
+    if (item.value || item.value === "") {
       tr.rawValueToItem[item.rawValue] = item; // back link by value
     }
   }
@@ -572,7 +577,7 @@ function checkRowConsistency(theRow) {
     console.error("theRow is null or undefined in checkRowConsistency");
     return;
   }
-  if (!theRow.winningVhash) {
+  if (!theRow.winningVhash && theRow.winningVhash !== "") {
     /*
      * The server is responsible for ensuring that a winning item is present, or using
      * the placeholder NO_WINNING_VALUE, which is not null.
@@ -999,7 +1004,7 @@ function addVitem(td, tr, theRow, item, newButton) {
   if (displayValue === cldrSurvey.INHERITANCE_MARKER) {
     displayValue = theRow.inheritedValue;
   }
-  if (!displayValue) {
+  if (!displayValue && displayValue !== "") {
     return;
   }
   const div = document.createElement("div");
@@ -1276,11 +1281,11 @@ function getValidWinningValue(theRow) {
   }
   if (
     theRow.items &&
-    theRow.winningVhash &&
+    (theRow.winningVhash || theRow.winningVhash === "") &&
     theRow.items[theRow.winningVhash]
   ) {
     const item = theRow.items[theRow.winningVhash];
-    if (item.value) {
+    if (item.value && item.value !== "") {
       const val = item.value;
       if (val !== NO_WINNING_VALUE) {
         return val;
@@ -1313,6 +1318,7 @@ function goToHeaderId(headerId) {
 
 export {
   NO_WINNING_VALUE,
+  EMPTY_ELEMENT_VALUE,
   appendExample,
   getPageUrl,
   getRowApprovalStatusClass,

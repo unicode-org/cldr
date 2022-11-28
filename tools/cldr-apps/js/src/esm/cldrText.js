@@ -371,6 +371,9 @@ const strings = {
   coverage_menu_desc:
     'Change the displayed coverage level. "Default" will use your organization\'s preferred value for this locale, if any.',
   coverage_unknown: "Unknown",
+  coverage_reset_msg: "Coverage Reset",
+  coverage_reset_desc:
+    "The coverage level was reset to its default after a period of inactivity",
 
   section_mail: "Messages",
 

@@ -17378,31 +17378,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern draft="provisional">↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern draft="provisional">↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern draft="provisional">↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="informal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern draft="provisional">↑↑↑</namePattern>
 		</personName>
 		<sampleName item="nativeG">
-			<nameField type="given">Yann</nameField>
+			<nameField type="given" draft="provisional">Yann</nameField>
 		</sampleName>
 		<sampleName item="nativeGS">
-			<nameField type="given">Katell</nameField>
-			<nameField type="surname">ar Gall</nameField>
+			<nameField type="given" draft="provisional">Katell</nameField>
+			<nameField type="surname" draft="provisional">ar Gall</nameField>
 		</sampleName>
 		<sampleName item="nativeGGS">
-			<nameField type="given">Yann</nameField>
-			<nameField type="given2">Erwan</nameField>
-			<nameField type="surname">ar Go</nameField>
+			<nameField type="given" draft="provisional">Yann</nameField>
+			<nameField type="given2" draft="provisional">Erwan</nameField>
+			<nameField type="surname" draft="provisional">ar Go</nameField>
 		</sampleName>
 		<sampleName item="foreignFull">
-			<nameField type="title">Prof. Dr.</nameField>
+			<nameField type="title" draft="provisional">Prof. Dr.</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

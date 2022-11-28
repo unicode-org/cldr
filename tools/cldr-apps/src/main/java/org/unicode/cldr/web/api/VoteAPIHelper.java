@@ -17,8 +17,10 @@ import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
+import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.web.*;
+
 import org.unicode.cldr.web.BallotBox.VoteNotAcceptedException;
 import org.unicode.cldr.web.DataPage.DataRow;
 import org.unicode.cldr.web.DataPage.DataRow.CandidateItem;
@@ -222,7 +224,7 @@ public class VoteAPIHelper {
         row.votingResults = getVotingResults(resolver);
         row.winningValue = r.getWinningValue();
         row.winningVhash = r.getWinningVHash();
-        row.voteTranscript = r.getVoteTranscript();  
+        row.voteTranscript = r.getVoteTranscript();
         row.xpath = xpath;
         row.xpathId = CookieSession.sm.xpt.getByXpath(xpath);
         row.xpstrid = XPathTable.getStringIDString(xpath);
@@ -428,7 +430,8 @@ public class VoteAPIHelper {
             final DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale, true);
             daip.enableInheritanceReplacement(cldrFile);
             val = daip.processInput(xp, origValue, exceptionList);
-            if (val.isEmpty()) {
+            if (val.isEmpty()
+                && DtdData.getValueConstraint(xp) == DtdData.Element.ValueConstraint.nonempty) {
                 val = null; // the caller will recognize this as exceptional, not Abstain
             }
         } else {

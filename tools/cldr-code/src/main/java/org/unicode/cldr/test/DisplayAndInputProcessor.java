@@ -55,9 +55,10 @@ import com.ibm.icu.util.ULocale;
  */
 public class DisplayAndInputProcessor {
 
-    private static final String FSR_START_PATH = "//ldml/personNames/foreignSpaceReplacement";
-
-    private static final String EMPTY_ELEMENT_VALUE = "❮EMPTY❯";
+    /** Special PersonName paths that allow empty string, public for testing */
+    public static final String NOL_START_PATH = "//ldml/personNames/nameOrderLocales";
+    public static final String FSR_START_PATH = "//ldml/personNames/foreignSpaceReplacement";
+    public static final String EMPTY_ELEMENT_VALUE = "❮EMPTY❯";
 
     private static final boolean FIX_YEARS = true;
 
@@ -352,7 +353,7 @@ public class DisplayAndInputProcessor {
             value = normalizeHyphens(value);
         }
         // Fix up possibly empty field
-        if (value.isEmpty() && path.startsWith(FSR_START_PATH)) {
+        if (value.isEmpty() && (path.startsWith(FSR_START_PATH) || path.startsWith(NOL_START_PATH))) {
             value = EMPTY_ELEMENT_VALUE;
         }
         return value;
@@ -500,10 +501,10 @@ public class DisplayAndInputProcessor {
         }
 
         if (path.startsWith("//ldml/personNames/")) {
-            if (path.startsWith("//ldml/personNames/nameOrderLocales")) {
+            if (path.startsWith(NOL_START_PATH)) {
                 value = normalizeNameOrderLocales(value);
             } else if (path.startsWith(FSR_START_PATH)) {
-                if (value.trim().equalsIgnoreCase(EMPTY_ELEMENT_VALUE)) {
+                if (value.contains(EMPTY_ELEMENT_VALUE)) {
                     value = "";
                 }
             }
@@ -577,6 +578,7 @@ public class DisplayAndInputProcessor {
     }
 
     private String normalizeNameOrderLocales(String value) {
+        value = value.replace(EMPTY_ELEMENT_VALUE, "");
         TreeSet<String> result = new TreeSet<>(SPLIT_SPACE.splitToList(value));
         result.remove(LocaleNames.ZXX);
         if (result.remove(LocaleNames.UND)) { // put und at the front

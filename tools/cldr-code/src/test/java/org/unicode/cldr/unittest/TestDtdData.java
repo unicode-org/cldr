@@ -19,6 +19,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
+import org.unicode.cldr.util.DtdData.Element.ValueConstraint;
 import org.unicode.cldr.util.DtdData.ElementType;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.MatchValue;
@@ -723,5 +724,21 @@ public class TestDtdData extends TestFmwk {
                 expected,
                 attribute.getMatchLiterals());
         }
+    }
+
+    public void testEmptyPcdata() {
+        String[][] tests = {
+            {"//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]", "any"},
+            {"//ldml/personNames/foreignSpaceReplacement", "any"},
+            {"//ldml/personNames/initialPattern[@type=\"initial\"]", "nonempty"},
+            };
+        for (String[] test : tests) {
+            String path = test[0];
+            ValueConstraint expected = ValueConstraint.valueOf(test[1]);
+            ValueConstraint actual = DtdData.getValueConstraint(path);
+            ValueConstraint check = DtdData.Element.ValueConstraint.nonempty;
+            assertEquals(path, expected, actual);
+        }
+
     }
 }

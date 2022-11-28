@@ -458,8 +458,10 @@ public class TestPaths extends TestFmwkPlus {
                                     logKnownIssue("cldrbug:9784", "fix TODO's in Attribute validity tests");
                                 }
                             }
-                            if ((elementType == ElementType.PCDATA) == value.isEmpty()
-                                && !DtdData.EMPTY_VALUE_ALLOWED_IN_PCDATA.contains(finalElement.name)) {
+                            Element.ValueConstraint requirement = finalElement.getValueConstraint();
+                            if (requirement == Element.ValueConstraint.empty && !value.isEmpty()
+                                || requirement == Element.ValueConstraint.nonempty && value.isEmpty()) {
+                                finalElement.getValueConstraint(); // for debugging
                                 errln("PCDATA ≠ emptyValue inconsistency:"
                                     + "\tfile=" + fileName + "/" + file
                                     + "\telementType=" + elementType

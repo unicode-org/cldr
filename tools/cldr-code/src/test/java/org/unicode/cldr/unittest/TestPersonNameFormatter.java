@@ -1,5 +1,7 @@
 package org.unicode.cldr.unittest;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -1058,5 +1060,13 @@ public class TestPersonNameFormatter extends TestFmwk{
             }
             last = string;
         }
+    }
+
+    public void testEmptyFsrWrite() {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        thCldrFile.write(pw);
+        final String wholeFile = sw.toString();
+        assertTrue("Contains foreignSpaceReplacement", wholeFile.contains("foreignSpaceReplacement"));
     }
 }

@@ -101,6 +101,9 @@ public class VoteResolver<T> {
      * @param args
      */
     private final void annotateTranscript(String fmt, Object... args) {
+        if (DEBUG) {
+            System.out.println("Transcript: " + String.format(fmt, args));
+        }
         if (transcript == null) {
             return;
         }
@@ -1245,7 +1248,7 @@ public class VoteResolver<T> {
         if (voteCount == null || sortedValues == null) {
             return;
         }
-        annotateTranscript("Vote weights are being adjusted due to annotation keywords."); // TODO explain this further
+        annotateTranscript("Vote weights are being adjusted due to annotation keywords.");
 
         // Make compMap map individual components to cumulative vote counts.
         HashMap<T, Long> compMap = makeAnnotationComponentMap(sortedValues, voteCount);
@@ -1273,6 +1276,7 @@ public class VoteResolver<T> {
      */
     private HashMap<T, Long> makeAnnotationComponentMap(Set<T> sortedValues, HashMap<T, Long> voteCount) {
         HashMap<T, Long> compMap = new HashMap<>();
+        annotateTranscript("- First, components are split up and total votes calculated");
         for (T value : sortedValues) {
             Long count = voteCount.get(value);
             List<T> comps = splitAnnotationIntoComponentsList(value);
@@ -1285,10 +1289,10 @@ public class VoteResolver<T> {
                 }
             }
         }
-        if (DEBUG) {
-            System.out.println("\n\tComponents in adjustAnnotationVoteCounts:");
-            for (T comp : compMap.keySet()) {
-                System.out.println("\t" + comp + ":" + compMap.get(comp));
+        if (transcript != null && !DEBUG) {
+            for (Entry<T, Long> comp : compMap.entrySet()) {
+                // TODO: could sort here, or not.
+                annotateTranscript("-- component '%s' has weight %d", comp.getKey().toString(), comp.getValue());
             }
         }
         return compMap;
@@ -1311,6 +1315,7 @@ public class VoteResolver<T> {
      */
     private void calculateNewCountsBasedOnAnnotationComponents(Set<T> sortedValues, HashMap<T, Long> voteCount, HashMap<T, Long> compMap) {
         voteCount.clear();
+        annotateTranscript("- Next, the original values get new counts, each based on the geometric mean of the products of all components.");
         for (T value : sortedValues) {
             List<T> comps = splitAnnotationIntoComponentsList(value);
             double product = 1.0;
@@ -1324,6 +1329,7 @@ public class VoteResolver<T> {
              */
             Long newCount = Math.round(Math.pow(product, 1.0 / comps.size())); // geometric mean
             voteCount.put(value, newCount);
+            // Don't annotate these here, annotate them once sorted
         }
     }
 
@@ -1399,6 +1405,12 @@ public class VoteResolver<T> {
         LinkedHashSet<T> oldWinnerComps = null;
         LinkedHashSet<T> superiorSupersets = null;
         for (T value : sortedValues) {
+            // Annotate the means here
+            final long rawCount = rawVoteCount.get(value);
+            final long newCount = voteCount.get(value);
+            if (rawCount != newCount) {
+                annotateTranscript("-- Value '%s' has updated value '%d'", value, newCount);
+            }
             if (oldWinner == null) {
                 oldWinner = value;
                 oldWinnerRawCount = rawVoteCount.get(value);
@@ -1422,10 +1434,14 @@ public class VoteResolver<T> {
             for (T value : superiorSupersets) {
                 if (newWinner == null) {
                     newWinner = value;
-                    voteCount.put(newWinner, voteCount.get(oldWinner) + 2); // more than oldWinner and newSecond
+                    long newWinnerCount = voteCount.get(oldWinner) + 2;
+                    annotateTranscript("- Optimal value (O) '%s' was promoted to value '%d' due to having a superior raw vote count", newWinner, newWinnerCount);
+                    voteCount.put(newWinner, newWinnerCount); // more than oldWinner and newSecond
                 } else {
                     newSecond = value;
-                    voteCount.put(newSecond, voteCount.get(oldWinner) + 1); // more than oldWinner, less than newWinner
+                    long newSecondCount = voteCount.get(oldWinner) + 1;
+                    annotateTranscript("- Next value (N) '%s' was promoted to value '%d' due to having a superior raw vote count", newSecond, newSecondCount);
+                    voteCount.put(newSecond, newSecondCount); // more than oldWinner, less than newWinner
                     break;
                 }
             }

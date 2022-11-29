@@ -119,11 +119,11 @@ public class TestPersonNameFormatter extends TestFmwk{
         NamePatternData namePatternData = new NamePatternData(
             localeToOrder,
             "order=surnameFirst; length=short; usage=addressing; formality=formal", "{surname-allCaps} {given}",
+            "length=short; usage=referring; formality=formal", "{given-initial}{given2-initial}{surname-initial}",
             "length=short; usage=addressing; formality=formal", "{given} {given2-initial} {surname}",
             "length=medium; usage=addressing; formality=formal", "{given} {given2-initial} {surname}",
             "length=medium; usage=addressing; formality=formal", "{given} {surname}",
             "length=medium; usage=addressing; formality=formal", "{given} {surname}",
-            "length=long; usage=monogram; formality=formal", "{given-monogram}{surname-monogram}",
             "order=givenFirst", "{title} {given} {given2} {surname} {surname2} {credentials}",
             "order=surnameFirst", "{surname} {surname2} {title} {given} {given2} {credentials}",
             "order=sorting", "{surname} {surname2}, {title} {given} {given2} {credentials}");
@@ -135,7 +135,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         check(personNameFormatter, sampleNameObject1, "length=short; usage=addressing; formality=formal", "John B. Smith");
         check(personNameFormatter, sampleNameObject2, "length=short; usage=addressing; formality=formal", "John Smith");
         check(personNameFormatter, sampleNameObject1, "length=long; usage=addressing; formality=formal", "Dr. John Bob Smith Barnes Pascal MD");
-        check(personNameFormatter, sampleNameObject3, "length=long; usage=monogram; formality=formal", "J* B*S*"); // TODO This is wrong
+        check(personNameFormatter, sampleNameObject3, "length=short; usage=referring; formality=formal", "J* B*S*");
         check(personNameFormatter, sampleNameObject4, "order=surnameFirst; length=short; usage=addressing; formality=formal", "ABE Shinzō");
     }
 
@@ -1072,7 +1072,8 @@ public class TestPersonNameFormatter extends TestFmwk{
 
     public void testInitials() {
         String[][] tests = {{
-            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"short\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern", ""
+            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"short\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
+            "〖<i>🟨 Native name and script:</i>〗〖❬Z.❭〗〖❬I.❭ ❬Adler❭〗〖❬M. S.❭ ❬H.❭ ❬Watson❭〗〖❬B. W.❭ ❬H. R.❭ ❬Wooster❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬S.❭〗〖❬K.❭ ❬Müller❭〗〖❬Z.❭ ❬H.❭ ❬Stöber❭〗〖❬A. C.❭ ❬C. M.❭ ❬von Brühl❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Є.❭ ❬М.❭ ❬Шевченко❭〗〖❬太郎山田❭〗"
         }};
         ExampleGenerator exampleGenerator = checkExamples(ENGLISH, tests);
     }

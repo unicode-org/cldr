@@ -265,11 +265,8 @@ public class MailSender implements Runnable {
             xpath = null;
         }
         final DBUtils dbutils = DBUtils.getInstance();
-        Connection conn = dbutils.getDBConnection();
-        if (conn == null) {
-            return;
-        }
         try (
+            Connection conn = dbutils.getDBConnection();
             PreparedStatement s2 = DBUtils.prepareStatementWithArgs(conn,
                 "INSERT INTO " + CLDR_MAIL + "(sender, " + USER +
                 ",subject,text,queue_date,cc,locale,xpath,post) VALUES(?,?,?,?,?,?,?,?,?)",

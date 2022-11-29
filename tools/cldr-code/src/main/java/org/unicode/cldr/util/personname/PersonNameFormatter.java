@@ -556,9 +556,9 @@ public class PersonNameFormatter {
                     break;
                 }
             }
-            return isBackground
-                ? ExampleGenerator.backgroundStartSymbol + bestValue + ExampleGenerator.backgroundEndSymbol
-                    : bestValue ;
+            return isBackground && bestValue != null
+                    ? ExampleGenerator.backgroundStartSymbol + bestValue + ExampleGenerator.backgroundEndSymbol
+                        : bestValue ;
         }
 
         public String formatInitial(String bestValue, FormatParameters nameFormatParameters) {

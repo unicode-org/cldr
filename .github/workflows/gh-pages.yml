@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - "maint/maint-*"
+      - keyboard-preview
     tags:
       - "release-*"
     # Only run if docs change.

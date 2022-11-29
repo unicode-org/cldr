@@ -123,7 +123,7 @@ public class TestPersonNameFormatter extends TestFmwk{
             "length=medium; usage=addressing; formality=formal", "{given} {given2-initial} {surname}",
             "length=medium; usage=addressing; formality=formal", "{given} {surname}",
             "length=medium; usage=addressing; formality=formal", "{given} {surname}",
-            "length=long; usage=monogram; formality=formal", "{given-initial}{surname-initial}",
+            "length=long; usage=monogram; formality=formal", "{given-monogram}{surname-monogram}",
             "order=givenFirst", "{title} {given} {given2} {surname} {surname2} {credentials}",
             "order=surnameFirst", "{surname} {surname2} {title} {given} {given2} {credentials}",
             "order=sorting", "{surname} {surname2}, {title} {given} {given2} {credentials}");
@@ -1068,5 +1068,12 @@ public class TestPersonNameFormatter extends TestFmwk{
         thCldrFile.write(pw);
         final String wholeFile = sw.toString();
         assertTrue("Contains foreignSpaceReplacement", wholeFile.contains("foreignSpaceReplacement"));
+    }
+
+    public void testInitials() {
+        String[][] tests = {{
+            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"short\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern", ""
+        }};
+        ExampleGenerator exampleGenerator = checkExamples(ENGLISH, tests);
     }
 }

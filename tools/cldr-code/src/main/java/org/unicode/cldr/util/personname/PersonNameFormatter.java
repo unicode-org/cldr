@@ -523,6 +523,15 @@ public class PersonNameFormatter {
         public String applyModifierFallbacks(FormatParameters nameFormatParameters, Set<Modifier> remainingModifers, String bestValue) {
             // apply default algorithms
 
+            boolean isBackground = false;
+
+            // apply HACK special treatment for ExampleGenerator
+            if (bestValue.startsWith(ExampleGenerator.backgroundStartSymbol)
+                && bestValue.endsWith(ExampleGenerator.backgroundEndSymbol)) {
+                isBackground = true;
+                bestValue = bestValue.substring(1,bestValue.length()-1);
+            }
+
             for (Modifier modifier : remainingModifers) {
                 switch(modifier) {
                 case initial:
@@ -547,7 +556,9 @@ public class PersonNameFormatter {
                     break;
                 }
             }
-            return bestValue;
+            return isBackground
+                ? ExampleGenerator.backgroundStartSymbol + bestValue + ExampleGenerator.backgroundEndSymbol
+                    : bestValue ;
         }
 
         public String formatInitial(String bestValue, FormatParameters nameFormatParameters) {

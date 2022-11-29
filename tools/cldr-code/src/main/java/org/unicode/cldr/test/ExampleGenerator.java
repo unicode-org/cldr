@@ -557,7 +557,10 @@ public class ExampleGenerator {
      */
     PersonNamesCache personNamesCache = exCache.registerCache(new PersonNamesCache(),
         "//ldml/personNames/sampleName[@item=\"*\"]/nameField[@type=\"*\"]",
-        "//ldml/personNames/initialPattern[@type=\"*\"]");
+        "//ldml/personNames/initialPattern[@type=\"*\"]",
+        "//ldml/personNames/foreignSpaceReplacement",
+        "//ldml/personNames/personName[@order=\"*\"][@length=\"*\"][@usage=\"*\"][@formality=\"*\"]/namePattern"
+        );
 
     private static final Function<String, String> BACKGROUND_TRANSFORM = x
         -> backgroundStartSymbol + x + backgroundEndSymbol;

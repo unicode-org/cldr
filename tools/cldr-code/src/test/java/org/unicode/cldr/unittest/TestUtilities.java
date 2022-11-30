@@ -873,15 +873,15 @@ public class TestUtilities extends TestFmwkPlus {
     }
 
     void assertSpecialLocale(String loc, SpecialLocales.Type type) {
-        assertEquals("SpecialLocales.txt for " + loc, type,
+        assertEquals("SpecialLocales type for " + loc, type,
             SpecialLocales.getType(CLDRLocale.getInstance(loc)));
     }
 
     public void TestSpecialLocales() {
         assertSpecialLocale("sr", null);
-        assertSpecialLocale("ha_NE", SpecialLocales.Type.readonly);
-        assertSpecialLocale("sr_Latn", SpecialLocales.Type.readonly);
-        assertSpecialLocale("sr_Latn_BA", SpecialLocales.Type.readonly);
+        assertSpecialLocale("ha_NE", SpecialLocales.Type.algorithmic);
+        assertSpecialLocale("sr_Latn", SpecialLocales.Type.algorithmic);
+        assertSpecialLocale("sr_Latn_BA", SpecialLocales.Type.algorithmic);
         assertSpecialLocale("yue_Hans", null); // not readonly, because it is not policy DISCARD
         assertSpecialLocale("en", SpecialLocales.Type.readonly);
         assertSpecialLocale("en_ZZ_PROGRAMMERESE", null); // not defined

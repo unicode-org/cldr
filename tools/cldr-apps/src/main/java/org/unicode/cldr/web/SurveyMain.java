@@ -3090,7 +3090,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 Type t = (SpecialLocales.getType(l));
                 if (t == Type.scratch) {
                     w.add(l); // always added
-                } else if (t == Type.readonly || (onlySet != null && !onlySet.contains(locale))) {
+                } else if (Type.isReadOnly(t) || (onlySet != null && !onlySet.contains(locale))) {
                     ro.add(l); // readonly
                 } else {
                     w.add(l); // writeable

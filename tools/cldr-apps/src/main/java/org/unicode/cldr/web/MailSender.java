@@ -430,11 +430,9 @@ public class MailSender implements Runnable {
     private Transport processOneMail(Session ourSession, Transport transport) {
         DBUtils db = DBUtils.getInstance();
         java.sql.Timestamp sqlnow = DBUtils.sqlNow();
-        Connection conn = db.getAConnection();
-        if (conn == null) {
-            return transport;
-        }
+
         try (
+            Connection conn = db.getAConnection();
             PreparedStatement s = DBUtils.prepareStatementWithArgsUpdateable(conn, "select * from " + CLDR_MAIL
                 + " where sent_date is NULL and id > ? and try_count < 3 order by id "
                 + (DBUtils.db_Mysql ? "limit 1" : ""), lastIdProcessed);

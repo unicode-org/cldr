@@ -689,6 +689,7 @@ public class ZoneParser {
         {"America/Nipigon", "CA", "+4901-08816"},       // 2022f
         {"America/Rainy_River", "CA", "+4843-09434"},   // 2022f
         {"America/Thunder_Bay", "CA", "+4823-08915"},   // 2022f
+        {"America/Pangnirtung", "CA", "+6608-06544"},   // 2022g
     };
 
     /**

@@ -21,7 +21,7 @@ import com.google.common.collect.ImmutableSortedSet;
 
 /**
  * This class manages the Limited Submission process.
- * 
+ *
  * TODO: see https://unicode-org.atlassian.net/browse/CLDR-15230 for TODOs here
  */
 public final class SubmissionLocales {
@@ -61,7 +61,7 @@ public final class SubmissionLocales {
         .addAll(HIGH_LEVEL_LOCALES)
         .build();
 
-    
+
     /**
      * Subset of CLDR_LOCALES, minus special which are only those which
      * are TC orgs
@@ -112,6 +112,8 @@ public final class SubmissionLocales {
             + "(personNames/.*"
             // v43: Turkey and its alternate
             + "|localeDisplayNames/territories/territory\\[@type=\"TR\"\\].*"
+            // v43: Exemplar city for America/Ciudad_Juarez
+            + "|dates/timeZoneNames/zone[@type=\"America/Ciudad_Juarez\"]/exemplarCity"
         + ")");
 
     // Pattern.compile("//ldml/units/unitLength\\[@type=\"long\"]");
@@ -160,7 +162,7 @@ public final class SubmissionLocales {
                 throw new RuntimeException(String.format("Could not fetch coverage for %s:%s", localeString, path), e);
             }
         }
-    };
+    }
 
 
     /**

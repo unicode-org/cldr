@@ -63,7 +63,7 @@ public enum Organization {
     yahoo("Yahoo"),
     ;
 
-    private final static Set<Organization> TC_ORGS = ImmutableSet.copyOf(EnumSet.of(google, apple, microsoft));
+    private final static Set<Organization> TC_ORGS = ImmutableSet.copyOf(EnumSet.of(apple, google, meta, microsoft));
 
     /**
      * Get a list of the TC Organizations

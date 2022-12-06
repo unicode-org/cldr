@@ -291,34 +291,18 @@ public class WebContext implements Cloneable, Appendable {
     }
 
     /*
-     * Decode a single string from URL format into Unicode
+     * Return the input string, unchanged
      *
-     * @param res UTF-8 'encoded' bytes (expanded to a string)
+     * This method no longer serves any purpose since CLDR now requires UTF-8 encoding
+     * for all http requests and related services/configuration.
      *
-     * @return Unicode string (will return 'res' if no high bits were detected)
+     * This method is temporarily retained for compatibility with legacy code including .jsp.
+     *
+     * @param res the string
+     *
+     * @return the string
      */
     public static String decodeFieldString(String res) {
-        if (res == null)
-            return null;
-        byte[] asBytes = new byte[res.length()];
-        boolean wasHigh = false;
-        int n;
-        for (n = 0; n < res.length(); n++) {
-            asBytes[n] = (byte) (res.charAt(n) & 0x00FF);
-            // println(" n : " + (int)asBytes[n] + " .. ");
-            if (asBytes[n] < 0) {
-                wasHigh = true;
-            }
-        }
-        if (!wasHigh) {
-            return res; // no utf-8
-        }
-        try {
-            res = new String(asBytes, StandardCharsets.UTF_8);
-        } catch (Throwable t) {
-            return res;
-        }
-
         return res;
     }
 

@@ -1452,8 +1452,12 @@ public class PathHeader implements Comparable<PathHeader> {
                 @Override
                 public String transform(String source0) {
                     String theTerritory = Containment.getRegionFromZone(source0);
-                    if (theTerritory == null || theTerritory == "001") {
-                        theTerritory = "ZZ";
+                    if (theTerritory == null || "001".equals(theTerritory)  || "ZZ".equals(theTerritory)) {
+                        if ("Etc/Unknown".equals(source0)) {
+                            theTerritory = "ZZ";
+                        } else {
+                            throw new IllegalArgumentException("ICU needs zone update? Source: " + source0 + "; Territory: " + theTerritory);
+                        }
                     }
                     if (singlePageTerritories.contains(theTerritory)) {
                         return englishFile.getName(CLDRFile.TERRITORY_NAME, theTerritory);

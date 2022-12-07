@@ -9,7 +9,6 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.util.personname.PersonNameFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Optionality;
 import org.unicode.cldr.util.personname.PersonNameFormatter.SampleType;
 
@@ -87,7 +86,8 @@ public class CheckPersonNames extends CheckCLDR {
                 String message = null;
                 SampleType sampleType = SampleType.valueOf(parts.getAttributeValue(2, "item"));
                 String modifiedField = parts.getAttributeValue(3, "type");
-                boolean isMissingInUnresolved = value.equals(MISSING) || hasRootParent && value.equals(CldrUtility.INHERITANCE_MARKER);
+                boolean isMissingInUnresolved = value.equals(MISSING)
+                    || value.equals(CldrUtility.INHERITANCE_MARKER);
 
                 final Optionality optionality = sampleType.getOptionality(modifiedField);
                 if (isMissingInUnresolved) {

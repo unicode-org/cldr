@@ -2792,7 +2792,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      */
     public Set<String> getRawExtraPaths() {
         if (extraPaths == null) {
-            extraPaths = ImmutableSet.copyOf(getRawExtraPathsPrivate(new LinkedHashSet<String>()));
+            extraPaths = ImmutableSet.<String>builder()
+                .addAll(getRawExtraPathsPrivate())
+                .build();
             if (DEBUG) {
                 System.out.println(getLocaleID() + "\textras: " + extraPaths.size());
             }
@@ -2802,8 +2804,13 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
 
     /**
      * Add (possibly over four thousand) extra paths to the given collection.
+     * These are paths that typically don't have a reasonable fallback value that
+     * could be added to root. Some of them are common to all locales, and some
+     * of them are specific to the given locale, based on features like the plural rules
+     * for the locale.
      *
-     * @param toAddTo the (initially empty) collection to which the paths should be added
+     * The ones that are constant for all locales should go into CONST_EXTRA_PATHS.
+     *
      * @return toAddTo (the collection)
      *
      * Called only by getRawExtraPaths.
@@ -2821,7 +2828,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      *
      * Reference: https://unicode-org.atlassian.net/browse/CLDR-11238
      */
-    private Collection<String> getRawExtraPathsPrivate(Collection<String> toAddTo) {
+    private Set<String> getRawExtraPathsPrivate() {
+        Set<String> toAddTo = new HashSet<>();
         SupplementalDataInfo supplementalData = CLDRConfig.getInstance().getSupplementalDataInfo();
         // units
         PluralInfo plurals = supplementalData.getPlurals(PluralType.cardinal, getLocaleID());
@@ -2873,19 +2881,20 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             }
         }
 
-        // Individual zone overrides
-        final String[] overrides = {
-            "Pacific/Honolulu\"]/short/generic",
-            "Pacific/Honolulu\"]/short/standard",
-            "Pacific/Honolulu\"]/short/daylight",
-            "Europe/Dublin\"]/long/daylight",
-            "Europe/London\"]/long/daylight",
-            "Etc/UTC\"]/long/standard",
-            "Etc/UTC\"]/short/standard"
-        };
-        for (String override : overrides) {
-            toAddTo.add("//ldml/dates/timeZoneNames/zone[@type=\"" + override);
-        }
+//        // Individual zone overrides
+//        final String[] overrides = {
+//            "Pacific/Honolulu\"]/short/generic",
+//            "Pacific/Honolulu\"]/short/standard",
+//            "Pacific/Honolulu\"]/short/daylight",
+//            "Europe/Dublin\"]/long/daylight",
+//            "Europe/London\"]/long/daylight",
+//            "Etc/UTC\"]/long/standard",
+//            "Etc/UTC\"]/short/standard"
+//        };
+//        for (String override : overrides) {
+//            toAddTo.add("//ldml/dates/timeZoneNames/zone[@type=\"" + override);
+//            System.out.println("//ldml/dates/timeZoneNames/zone[@type=\"" + override);
+//        }
 
         // Currencies
         Set<String> codes = supplementalData.getBcp47Keys().getAll("cu");
@@ -3705,4 +3714,48 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         }
         return value;
     }
+
+    /**
+     * A set of paths to be added to getRawExtraPaths().
+     * These are constant across locales, and don't have good fallback values in root.
+     */
+    static final Set<String> CONST_EXTRA_PATHS = ImmutableSet.of(
+        // Individual zone overrides — were in getRawExtraPaths
+        "//ldml/dates/timeZoneNames/zone[@type=\"Pacific/Honolulu\"]/short/generic",
+        "//ldml/dates/timeZoneNames/zone[@type=\"Pacific/Honolulu\"]/short/standard",
+        "//ldml/dates/timeZoneNames/zone[@type=\"Pacific/Honolulu\"]/short/daylight",
+        "//ldml/dates/timeZoneNames/zone[@type=\"Europe/Dublin\"]/long/daylight",
+        "//ldml/dates/timeZoneNames/zone[@type=\"Europe/London\"]/long/daylight",
+        "//ldml/dates/timeZoneNames/zone[@type=\"Etc/UTC\"]/long/standard",
+        "//ldml/dates/timeZoneNames/zone[@type=\"Etc/UTC\"]/short/standard",
+        // Person name paths
+        "//ldml/personNames/sampleName[@item=\"nativeG\"]/nameField[@type=\"given\"]",
+        "//ldml/personNames/sampleName[@item=\"nativeGS\"]/nameField[@type=\"given\"]",
+        "//ldml/personNames/sampleName[@item=\"nativeGS\"]/nameField[@type=\"surname\"]",
+        "//ldml/personNames/sampleName[@item=\"nativeGGS\"]/nameField[@type=\"given\"]",
+        "//ldml/personNames/sampleName[@item=\"nativeGGS\"]/nameField[@type=\"given2\"]",
+        "//ldml/personNames/sampleName[@item=\"nativeGGS\"]/nameField[@type=\"surname\"]",
+        "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"prefix\"]",
+        "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"given\"]",
+        "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"given-informal\"]",
+        "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"given2\"]",
+        "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"surname-prefix\"]",
+        "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"surname-core\"]",
+        "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"surname2\"]",
+        "//ldml/personNames/sampleName[@item=\"nativeFull\"]/nameField[@type=\"suffix\"]",
+        "//ldml/personNames/sampleName[@item=\"foreignG\"]/nameField[@type=\"given\"]",
+        "//ldml/personNames/sampleName[@item=\"foreignGS\"]/nameField[@type=\"given\"]",
+        "//ldml/personNames/sampleName[@item=\"foreignGS\"]/nameField[@type=\"surname\"]",
+        "//ldml/personNames/sampleName[@item=\"foreignGGS\"]/nameField[@type=\"given\"]",
+        "//ldml/personNames/sampleName[@item=\"foreignGGS\"]/nameField[@type=\"given2\"]",
+        "//ldml/personNames/sampleName[@item=\"foreignGGS\"]/nameField[@type=\"surname\"]",
+        "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"prefix\"]",
+        "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"given\"]",
+        "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"given-informal\"]",
+        "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"given2\"]",
+        "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"surname-prefix\"]",
+        "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"surname-core\"]",
+        "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"surname2\"]",
+        "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"suffix\"]"
+        );
 }

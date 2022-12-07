@@ -32,9 +32,25 @@ public class SpecialLocales {
          */
         readonly,
         /**
+         * Locale is algorithmically generated and may not be modified by user.
+         */
+        algorithmic,
+        /**
          * Locale may be modified by user. Contents aren't part of CLDR release and may change.
          */
-        scratch
+        scratch;
+
+        /**
+         * Is this type read-only (includes algorithmic)?
+         *
+         * @param type the type, or null
+         * @return true if type is readonly or algorithmic
+         *
+         * Ordinary locales may have type == null, which implies NOT read-only
+         */
+        public static boolean isReadOnly(Type type) {
+            return type == Type.readonly || type == Type.algorithmic;
+        }
     }
 
     /**
@@ -131,14 +147,13 @@ public class SpecialLocales {
             if(lt.getPolicyIfExisting() != CLDRFileTransformer.PolicyIfExisting.DISCARD) {
                 continue;
             }
-            // Add each of these as if they were in SpecialLocales.txt
+            // Add each of these almost as if they were in SpecialLocales.txt
             CLDRLocale inputLocale = CLDRLocale.getInstance(lt.getInputLocale());
             CLDRLocale outputLocale = CLDRLocale.getInstance(lt.getOutputLocale());
 
-            // add as readonly
-            addToType(Type.readonly, outputLocale);
+            addToType(Type.algorithmic, outputLocale);
 
-            // add similar comment to SpecialLocales.txt
+            // add a comment similar to the comments in SpecialLocales.txt
             comments.put(outputLocale, "@"+outputLocale.getBaseName()+" is generated from @"+inputLocale.getBaseName() +
                 " via transliteration, and so @@ may not be edited directly. Edit @"+inputLocale.getBaseName()+" to make changes.");
         }

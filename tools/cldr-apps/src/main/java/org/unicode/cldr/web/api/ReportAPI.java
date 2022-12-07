@@ -1,9 +1,6 @@
 package org.unicode.cldr.web.api;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
+import java.io.*;
 import java.sql.SQLException;
 import java.util.Collections;
 import java.util.HashSet;
@@ -17,10 +14,8 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.StreamingOutput;
 import javax.ws.rs.core.Response.Status;
 
 import org.eclipse.microprofile.openapi.annotations.Operation;
@@ -32,8 +27,6 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.unicode.cldr.tool.Chart;
-import org.unicode.cldr.tool.ChartPersonName;
-import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoterReportStatus;
@@ -331,42 +324,39 @@ public class ReportAPI {
         if (mySession == null) {
             return Auth.noSessionResponse();
         }
-
-        // Return the output as a stream instead of buffering in memory.
-        final SurveyMain sm = mySession.sm;
         final CLDRLocale loc = CLDRLocale.getInstance(locale);
-        final STFactory stf = sm.getSTFactory();
         if (!SurveyMain.getLocalesSet().contains(loc)) {
             // No such locale
             return Response.status(Status.NOT_FOUND).build();
         }
-        final Chart chart = Chart.forReport(report, locale);
+        final String result;
+        try {
+            result = writeReport(report, loc);
+        } catch (IOException e) {
+            return Response.status(500, "An exception occurred").entity(e).build();
+        }
+        return Response.ok(result).build();
+    }
 
-        // TODO: We could potentially extract metadata (title, etc) from the chart
-        // object here.
-
-        return Response.ok(new StreamingOutput() {
-            @Override
-            public void write(OutputStream output) throws IOException, WebApplicationException {
-                if (chart != null) {
-                    chart.writeContents(output, stf);
-                } else {
-                    switch (report) {
-                    // "Old Three" reports
-                    case compact:
-                    case datetime:
-                    case zones:
-                        try (final Writer w = new OutputStreamWriter(output);) {
-                            SurveyAjax.generateReport("r_" + report.name(), w, sm, loc);
-                        }
-                        break;
-                    default:
-                        try (final Writer w = new OutputStreamWriter(output);) {
-                            w.write("Could not load report: " + report.name());
-                        }
-                    }
-                }
+    private String writeReport(ReportId report, CLDRLocale loc) throws IOException {
+        final Writer w = new StringWriter();
+        final Chart chart = Chart.forReport(report, loc.getBaseName());
+        if (chart != null) {
+            final STFactory stf = CookieSession.sm.getSTFactory();
+            chart.writeContents(w, stf);
+        } else {
+            switch (report) {
+                // "Old Three" reports
+                case compact:
+                case datetime:
+                case zones:
+                    // r_compact, r_datetime, r_zones
+                    SurveyAjax.generateReport("r_" + report.name(), w, CookieSession.sm, loc);
+                    break;
+                default:
+                    w.write("Could not load report: " + report.name());
             }
-        }).build();
+        }
+        return w.toString();
     }
 }

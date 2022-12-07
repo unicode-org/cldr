@@ -139,8 +139,8 @@ public class GenerateProductionData {
         // get directories
 
         Arrays.asList(DtdType.values())
-            .parallelStream()
-            .unordered()
+            //.parallelStream()
+            //.unordered()
             .forEach(type -> {
             boolean isLdmlDtdType = type == DtdType.ldml;
 
@@ -206,7 +206,7 @@ public class GenerateProductionData {
             System.out.println(sourceFile + " => " + destinationFile);
             if (!destinationFile.mkdirs()) {
                 // if created, remove old contents
-                Arrays.stream(destinationFile.listFiles()).forEach(File::delete);
+                 Arrays.stream(destinationFile.listFiles()).forEach(File::delete);
             }
 
             Set<String> sorted = new TreeSet<>();
@@ -230,7 +230,7 @@ public class GenerateProductionData {
             final Factory theFactory = factory;
             final boolean isLdmlDtdType2 = isLdmlDtdType;
             sorted
-                .parallelStream()
+                //.parallelStream()
                 .forEach(file -> {
                     File sourceFile2 = new File(sourceFile, file);
                     File destinationFile2 = new File(destinationFile, file);

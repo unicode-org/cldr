@@ -1854,6 +1854,10 @@ public class VoteResolver<T> {
             // We voted and lost
             return VoteStatus.losing;
         }
+        if (Status.provisional.compareTo(winningStatus) >= 0) {
+            // If the value is provisional, it needs more votes.
+            return VoteStatus.provisionalOrWorse;
+        }
         final int itemsWithVotes = organizationToValueAndVote.totalVotes.size();
         if (itemsWithVotes > 1) {
             // If there are votes for two "distinct" items, we should look at them.
@@ -1864,10 +1868,7 @@ public class VoteResolver<T> {
             // If someone voted but didn't win
             return VoteStatus.disputed;
         }
-        if (Status.provisional.compareTo(winningStatus) >= 0) {
-            // If the value is provisional, it needs more votes.
-            return VoteStatus.provisionalOrWorse;
-        } else if (itemsWithVotes == 0) {
+        if (itemsWithVotes == 0) {
             // The value is ok, but we capture that there are no votes, for revealing items like unsync'ed
             return VoteStatus.ok_novotes;
         } else {

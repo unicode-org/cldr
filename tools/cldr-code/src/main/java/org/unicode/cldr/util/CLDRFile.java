@@ -2794,6 +2794,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         if (extraPaths == null) {
             extraPaths = ImmutableSet.<String>builder()
                 .addAll(getRawExtraPathsPrivate())
+                .addAll(CONST_EXTRA_PATHS)
                 .build();
             if (DEBUG) {
                 System.out.println(getLocaleID() + "\textras: " + extraPaths.size());
@@ -2893,7 +2894,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
 //        };
 //        for (String override : overrides) {
 //            toAddTo.add("//ldml/dates/timeZoneNames/zone[@type=\"" + override);
-//            System.out.println("//ldml/dates/timeZoneNames/zone[@type=\"" + override);
 //        }
 
         // Currencies
@@ -3718,6 +3718,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     /**
      * A set of paths to be added to getRawExtraPaths().
      * These are constant across locales, and don't have good fallback values in root.
+     * NOTE: if this is changed, you'll need to modify TestPaths.extraPathAllowsNullValue
      */
     static final Set<String> CONST_EXTRA_PATHS = ImmutableSet.of(
         // Individual zone overrides — were in getRawExtraPaths

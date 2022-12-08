@@ -184,9 +184,14 @@ public class TestCLDRFile extends TestFmwk {
             }
             PlaceholderStatus phStatus = pph.getStatus(path);
 
-            PlaceholderStatus expected = path.contains("/metazone") || path.contains("/timeZoneNames") || path.contains("/gender")
-                || path.startsWith("//ldml/numbers/currencies/currency") ? PlaceholderStatus.DISALLOWED
-                    : path.contains("/compoundUnitPattern1") ? PlaceholderStatus.REQUIRED
+            PlaceholderStatus expected = path.contains("/metazone")
+                || path.contains("/timeZoneNames")
+                || path.contains("/gender")
+                || path.startsWith("//ldml/numbers/currencies/currency")
+                || path.startsWith("//ldml/personNames/sampleName")
+                ? PlaceholderStatus.DISALLOWED
+                    : path.contains("/compoundUnitPattern1")
+                    ? PlaceholderStatus.REQUIRED
                         : PlaceholderStatus.LOCALE_DEPENDENT;
             if (!assertEquals(path, expected, phStatus)) {
                 int debug = 0;
@@ -582,7 +587,7 @@ public class TestCLDRFile extends TestFmwk {
                 // assertEquals("x≠y", "x", "y"); // expected x, got y
                 if (unresolvedConstructedValue != null) {
                     assertEquals("uc≠rc\t" + locale + "\t" + phf.fromPath(path),
-                            unresolvedConstructedValue, resolvedConstructedValue);
+                        unresolvedConstructedValue, resolvedConstructedValue);
                 }
 
                 // if there is a value, then either it is at the top level or it
@@ -593,7 +598,7 @@ public class TestCLDRFile extends TestFmwk {
                     if (topValue != null && !CldrUtility.INHERITANCE_MARKER.equals(topValue)) {
                         if (!topValue.equals(cldrFileUnresolved.getConstructedValue(path))) {
                             assertEquals("top≠resolved\t" + locale + "\t" + phf.fromPath(path),
-                              topValue, resolvedValue);
+                                topValue, resolvedValue);
                         }
                     } else {
                         String locale2 = cldrFile.getSourceLocaleID(path, status);

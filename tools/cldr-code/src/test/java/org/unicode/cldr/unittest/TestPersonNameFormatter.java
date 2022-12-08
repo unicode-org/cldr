@@ -504,15 +504,15 @@ public class TestPersonNameFormatter extends TestFmwk{
         }
     }
 
-    public void TestInvalidNameObjectThrows() {
-        final String[][] invalidPatterns = {
-            {"given2-initial=B","Every field must have a completely modified value given2={[initial]=B}"}
-        };
-        for (final String[] pattern : invalidPatterns) {
-            assertThrows("Invalid Name object: " + pattern,
-                () -> SimpleNameObject.from(pattern[0]), pattern[1]);
-        }
-    }
+    // public void TestInvalidNameObjectThrows() {
+    //    final String[][] invalidPatterns = {
+    //        {"given2-initial=B","Every field must have a completely modified value given2={[initial]=B}"}
+    //    };
+    //    for (final String[] pattern : invalidPatterns) {
+    //        assertThrows("Invalid Name object: " + pattern,
+    //            () -> SimpleNameObject.from(pattern[0]), pattern[1]);
+    //    }
+    // }
 
     public void TestEnglishComma() {
         boolean messageShown = false;

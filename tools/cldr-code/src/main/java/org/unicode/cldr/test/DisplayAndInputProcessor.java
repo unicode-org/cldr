@@ -128,21 +128,30 @@ public class DisplayAndInputProcessor {
     /**
      * string of whitespace, possibly including NBSP and/or NNBSP, ie., [\u00A0\t\n\r\u202F]+
      */
-    private static final Pattern WHITESPACE_AND_NBSP_TO_NORMALIZE = PatternCache.get("[\\s\\u00A0\\u202F]+");
+    private static final Pattern WHITESPACE_AND_NBSP_TO_NORMALIZE = PatternCache.get("[\\s\\u00A0]+");
+    // Reverted 2022-12-08 from:
+    // private static final Pattern WHITESPACE_AND_NBSP_TO_NORMALIZE = PatternCache.get("[\\s\\u00A0\\u202F]+");
 
     /**
      * one or more NBSP (or NNBSP) followed by one or more regular spaces
      */
-    private static final Pattern NBSP_PLUS_SPACE_TO_NORMALIZE = PatternCache.get("[\\u00A0\\u202F]+\\u0020+");
+    private static final Pattern NBSP_PLUS_SPACE_TO_NORMALIZE = PatternCache.get("\\u00A0+\\u0020+");
+    // Reverted 2022-12-08 from:
+    // private static final Pattern NBSP_PLUS_SPACE_TO_NORMALIZE = PatternCache.get("[\\u00A0\\u202F]+\\u0020+");
 
     /**
      * one or more regular spaces followed by one or more NBSP (or NNBSP)
      */
-    private static final Pattern SPACE_PLUS_NBSP_TO_NORMALIZE = PatternCache.get("\\u0020+[\\u00A0\\u202F]+");
+    private static final Pattern SPACE_PLUS_NBSP_TO_NORMALIZE = PatternCache.get("\\u0020+\\u00A0+");
+    // Reverted 2022-12-08 from:
+    // private static final Pattern SPACE_PLUS_NBSP_TO_NORMALIZE = PatternCache.get("\\u0020+[\\u00A0\\u202F]+");
 
     private static final Pattern INITIAL_NBSP = PatternCache.get("^[\\u00A0\\u202F]+");
     private static final Pattern FINAL_NBSP = PatternCache.get("[\\u00A0\\u202F]+$");
-    private static final Pattern MULTIPLE_NBSP = PatternCache.get("[\\u00A0\\u202F][\\u00A0\\u202F]+");
+
+    private static final Pattern MULTIPLE_NBSP = PatternCache.get("\\u00A0\\u00A0+");
+    // Reverted 2022-12-08 from:
+    // private static final Pattern MULTIPLE_NBSP = PatternCache.get("[\\u00A0\\u202F][\\u00A0\\u202F]+");
 
     // The following includes (among others) \u0009, \u0020, \u00A0, \u2007, \u2009, \u202F, \u3000
     private static final UnicodeSet UNICODE_WHITESPACE = new UnicodeSet("[:whitespace:]").freeze();

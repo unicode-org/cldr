@@ -1,8 +1,12 @@
 package org.unicode.cldr.util;
 
-import com.google.common.base.Splitter;
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
+
+import com.google.common.base.Splitter;
 
 /**
  * Export CLDRFile objects as XML files
@@ -138,6 +142,9 @@ public class CldrXmlWriter {
                 continue;
             }
             String v = cldrFile.getStringValue(xpath);
+            if (v == null) {
+                continue;
+            }
             if (suppressInheritanceMarkers && CldrUtility.INHERITANCE_MARKER.equals(v)) {
                 continue;
             }

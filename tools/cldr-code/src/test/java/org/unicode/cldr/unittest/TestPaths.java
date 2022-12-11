@@ -21,6 +21,7 @@ import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.ChainedMap.M4;
 import org.unicode.cldr.util.ChainedMap.M5;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
@@ -170,6 +171,12 @@ public class TestPaths extends TestFmwkPlus {
             if (allowsExtraPath(path, isExtraPath)) {
                 return;
             }
+            if (CldrUtility.INHERITANCE_MARKER.equals(file.getUnresolved().getStringValue(fullPath))) {
+                logKnownIssue("cldrbug:16209", "Remove this clause (and any paths that still fail)");
+                // When that ticket is resolved, then comment this clause out.
+                // But leave that comment for future guidance where someone wants to move paths from root to extraPaths.
+                return;
+            }
             errln("Locale: " + locale + ",\t Value=null, \tPath: " + path + ",\t IsExtraPath: " + isExtraPath);
         }
 
@@ -228,6 +235,7 @@ public class TestPaths extends TestFmwkPlus {
             || path.contains("/gender")
             || path.contains("/caseMinimalPairs")
             || path.contains("/genderMinimalPairs")
+            || path.contains("/sampleName")
 //            || path.equals("//ldml/dates/timeZoneNames/zone[@type=\"Australia/Currie\"]/exemplarCity")
 //            || path.equals("//ldml/dates/timeZoneNames/zone[@type=\"Pacific/Enderbury\"]/exemplarCity")
             //+

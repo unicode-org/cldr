@@ -733,25 +733,7 @@ public class VettingViewer<T> {
 
     public void generatePriorityItemsSummary(Appendable output, EnumSet<NotificationCategory> choices, T organization) throws ExecutionException {
         try {
-            StringBuilder headerRow = new StringBuilder();
-            headerRow
-                .append("<tr class='tvs-tr'>")
-                .append(TH_AND_STYLES)
-                .append("Level</th>")
-                .append(TH_AND_STYLES)
-                .append("Locale</th>")
-                .append(TH_AND_STYLES)
-                .append("Codes</th>")
-                .append(TH_AND_STYLES)
-                .append("Progress</th>");
-            for (NotificationCategory choice : choices) {
-                headerRow.append("<th class='tv-th'>");
-                appendDisplay(headerRow, choice);
-                headerRow.append("</th>");
-            }
-            headerRow.append("</tr>\n");
-            String header = headerRow.toString();
-
+            String header = makeSummaryHeader(choices);
             for (Level level : Level.values()) {
                 writeSummaryTable(output, header, level, choices, organization);
             }
@@ -1111,6 +1093,30 @@ public class VettingViewer<T> {
         }
     }
 
+    private String makeSummaryHeader(EnumSet<NotificationCategory> choices) throws IOException {
+        StringBuilder headerRow = new StringBuilder();
+        headerRow
+            .append("<tr class='tvs-tr'>")
+            .append(TH_AND_STYLES)
+            .append("Level</th>")
+            .append(TH_AND_STYLES)
+            .append("Locale</th>")
+            .append(TH_AND_STYLES)
+            .append("Codes</th>")
+            .append(TH_AND_STYLES)
+            .append("Progress</th>");
+        for (NotificationCategory choice : choices) {
+            headerRow.append("<th class='tv-th'>");
+            appendDisplay(headerRow, choice);
+            headerRow.append("</th>");
+        }
+        headerRow
+            .append(TH_AND_STYLES)
+            .append("Status</th>");
+        headerRow.append("</tr>\n");
+        return headerRow.toString();
+    }
+
     /**
      * Write one row of the Priority Items Summary
      *
@@ -1159,7 +1165,28 @@ public class VettingViewer<T> {
             }
             output.append("</td>\n");
         }
+        addLocaleStatusColumn(output, localeID);
         output.append("</tr>\n");
+    }
+
+    private void addLocaleStatusColumn(Appendable output, String localeID) throws IOException {
+        output.append("<td class='tvs-count'>");
+        if (localeID != null) {
+            output.append(getLocaleStatusColumn(CLDRLocale.getInstance(localeID)));
+        }
+        output.append("</td>\n");
+    }
+
+    private String getLocaleStatusColumn(CLDRLocale locale) {
+        if (SpecialLocales.getType(locale) == SpecialLocales.Type.algorithmic) {
+            return "AL"; // algorithmic
+        } else if (Organization.special.getCoveredLocales().containsLocaleOrParent(locale)) {
+            return "HC"; // high coverage
+        } else if (Organization.cldr.getCoveredLocales().containsLocaleOrParent(locale)) {
+            return "TC"; // Technical Committee
+        } else {
+            return "";
+        }
     }
 
     private String getLocaleProgressPercent(String localeId, Counter<NotificationCategory> problemCounter) throws ExecutionException {

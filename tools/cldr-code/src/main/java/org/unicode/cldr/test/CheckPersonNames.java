@@ -22,7 +22,7 @@ public class CheckPersonNames extends CheckCLDR {
 
     UnicodeSet allowedCharacters;
 
-    static final UnicodeSet BASE_ALLOWED = new UnicodeSet("[\\p{sc=Common}\\p{sc=Inherited}]").freeze();
+    static final UnicodeSet BASE_ALLOWED = new UnicodeSet("[\\p{sc=Common}\\p{sc=Inherited}-\\p{N}-[∅]]").freeze();
     static final UnicodeSet HANI = new UnicodeSet("[\\p{sc=Hani}]").freeze();
     static final UnicodeSet KORE = new UnicodeSet("[\\p{sc=Hang}]").addAll(HANI).freeze();
     static final UnicodeSet JPAN = new UnicodeSet("[\\p{sc=Kana}\\p{sc=Hira}]").addAll(HANI).freeze();

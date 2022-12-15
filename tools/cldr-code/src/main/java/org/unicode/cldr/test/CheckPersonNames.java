@@ -22,7 +22,7 @@ public class CheckPersonNames extends CheckCLDR {
 
     UnicodeSet allowedCharacters;
 
-    static final UnicodeSet BASE_ALLOWED = new UnicodeSet("[\\p{sc=Common}\\p{sc=Inherited}]").freeze();
+    static final UnicodeSet BASE_ALLOWED = new UnicodeSet("[\\p{sc=Common}\\p{sc=Inherited}-\\p{N}-[∅]]").freeze();
     static final UnicodeSet HANI = new UnicodeSet("[\\p{sc=Hani}]").freeze();
     static final UnicodeSet KORE = new UnicodeSet("[\\p{sc=Hang}]").addAll(HANI).freeze();
     static final UnicodeSet JPAN = new UnicodeSet("[\\p{sc=Kana}\\p{sc=Hira}]").addAll(HANI).freeze();
@@ -69,10 +69,11 @@ public class CheckPersonNames extends CheckCLDR {
         String category = parts.getElement(2);
 
         if (category.equals("sampleName")) {
-            if (!allowedCharacters.containsAll(value)) {
+            if (!allowedCharacters.containsAll(value) && !value.equals(CldrUtility.NO_INHERITANCE_MARKER)) {
                 UnicodeSet bad = new UnicodeSet().addAll(value).removeAll(allowedCharacters);
+                final Type mainType = getPhase() != Phase.BUILD ? CheckStatus.errorType : CheckStatus.warningType; // we need to be able to check this in without error
                 result.add(new CheckStatus().setCause(this)
-                    .setMainType(CheckStatus.errorType)
+                    .setMainType(mainType)
                     .setSubtype(Subtype.badSamplePersonName)
                     .setMessage("Illegal characters in sample name: " + bad.toPattern(false)));
             } else if (getCldrFileToCheck().getUnresolved().getStringValue(path) != null) {

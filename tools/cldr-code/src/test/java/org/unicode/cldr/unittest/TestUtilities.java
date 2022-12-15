@@ -367,7 +367,7 @@ public class TestUtilities extends TestFmwkPlus {
     public void TestTrunkStatus() {
         VoteResolver<String> resolver = new VoteResolver<>(getTestVoterInfoList());
         resolver.setLocale(CLDRLocale.getInstance("de"), null);
-
+        resolver.setBaileyValue("bailey");
         resolver.setBaseline("new-item", Status.approved);
         assertEquals("", "new-item", resolver.getWinningValue());
 
@@ -380,6 +380,7 @@ public class TestUtilities extends TestFmwkPlus {
 
     public void TestVoteResolverNgombaTrunkStatus() {
         VoteResolver<String> resolver = new VoteResolver<>(getTestVoterInfoList());
+        resolver.setBaileyValue("bailey");
         resolver.setLocale(CLDRLocale.getInstance("jgo"), null);
         final String jgo22trunk = "\uA78C"; // "[a á â ǎ b c d ɛ {ɛ́} {ɛ̂} {ɛ̌} {ɛ̀} {ɛ̄} f ɡ h i í î ǐ j k l m ḿ {m̀} {m̄} n ń ǹ {n̄} ŋ {ŋ́} {ŋ̀} {ŋ̄} ɔ {ɔ́} {ɔ̂} {ɔ̌} p {pf} s {sh} t {ts} u ú û ǔ ʉ {ʉ́} {ʉ̂} {ʉ̌} {ʉ̈} v w ẅ y z ꞌ]";
         resolver.setBaseline(jgo22trunk, Status.approved); // seed/jgo.xml from 22
@@ -429,6 +430,7 @@ public class TestUtilities extends TestFmwkPlus {
 
         resolver.setLocale(CLDRLocale.getInstance("af"), null);
         resolver.setBaseline("BQ", Status.missing);
+        resolver.setBaileyValue("bailey");
         VoteStatus status = resolver
             .getStatusForOrganization(Organization.openoffice_org);
         assertEquals("", VoteStatus.provisionalOrWorse, status);

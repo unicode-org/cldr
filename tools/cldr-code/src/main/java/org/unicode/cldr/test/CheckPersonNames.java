@@ -69,10 +69,11 @@ public class CheckPersonNames extends CheckCLDR {
         String category = parts.getElement(2);
 
         if (category.equals("sampleName")) {
-            if (!allowedCharacters.containsAll(value)) {
+            if (!allowedCharacters.containsAll(value) && !value.equals(CldrUtility.NO_INHERITANCE_MARKER)) {
                 UnicodeSet bad = new UnicodeSet().addAll(value).removeAll(allowedCharacters);
+                final Type mainType = getPhase() != Phase.BUILD ? CheckStatus.errorType : CheckStatus.warningType; // we need to be able to check this in without error
                 result.add(new CheckStatus().setCause(this)
-                    .setMainType(CheckStatus.errorType)
+                    .setMainType(mainType)
                     .setSubtype(Subtype.badSamplePersonName)
                     .setMessage("Illegal characters in sample name: " + bad.toPattern(false)));
             } else if (getCldrFileToCheck().getUnresolved().getStringValue(path) != null) {

@@ -66,23 +66,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="year">
 				<relativeTime type="future">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">{0} سال میں</relativeTimePattern>
 					<relativeTimePattern count="other">{0} سالوں میں</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="year-short">
 				<relativeTime type="future">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">{0} سال میں</relativeTimePattern>
+					<relativeTimePattern count="other">{0} سالوں میں</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">{0} سال پہلے</relativeTimePattern>
 					<relativeTimePattern count="other">{0} سالوں پہلے</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="month">
-				<relative type="-1">↑↑↑</relative>
-				<relative type="0">↑↑↑</relative>
+				<relative type="-1">گزشتہ ماہ</relative>
+				<relative type="0">اس ماہ</relative>
 				<relative type="1">اگلے ماہ</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} ماہ میں</relativeTimePattern>
@@ -97,7 +97,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>مہینہ</displayName>
 			</field>
 			<field type="month-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>مہینہ</displayName>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} ماہ قبل</relativeTimePattern>
 					<relativeTimePattern count="other">{0} ماہ قبل</relativeTimePattern>
@@ -105,10 +105,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="week">
 				<relative type="-1">گزشتہ ہفتہ</relative>
-				<relative type="0">↑↑↑</relative>
+				<relative type="0">اس ہفتہ</relative>
 				<relative type="1">اگلے ہفتہ</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">{0} ہفتہ میں</relativeTimePattern>
 					<relativeTimePattern count="other">{0} ہفتوں میں</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
@@ -119,19 +119,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="week-short">
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} ہفتے قبل</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ہفتے قبل</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="week-narrow">
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} ہفتہ قبل</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ہفتے قبل</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="day-short">
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} دنوں میں</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">{0} دنوں میں</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="day-narrow">
@@ -147,23 +147,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="tue">
 				<relative type="-1">پچھلے منگل</relative>
-				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="0">اس منگل</relative>
+				<relative type="1">اگلے منگل</relative>
 			</field>
 			<field type="wed">
 				<relative type="-1">پچھلے بدھ</relative>
-				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="0">اس بدھ</relative>
+				<relative type="1">اگلے بدھ</relative>
 			</field>
 			<field type="thu">
 				<relative type="-1">پچھلے جمعرات</relative>
-				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="0">اس جمعرات</relative>
+				<relative type="1">اگلے جمعرات</relative>
 			</field>
 			<field type="fri">
 				<relative type="-1">پچھلے جمعہ</relative>
-				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="0">اس جمعہ</relative>
+				<relative type="1">اگلے جمعہ</relative>
 			</field>
 			<field type="hour-short">
 				<relativeTime type="past">
@@ -174,50 +174,50 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="hour-narrow">
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} گھنٹہ قبل</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">{0} گھنٹے قبل</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute">
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">{0} منٹ قبل</relativeTimePattern>
 					<relativeTimePattern count="other">{0} منٹ قبل</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute-short">
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">{0} منٹ قبل</relativeTimePattern>
+					<relativeTimePattern count="other">{0} منٹ قبل</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute-narrow">
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">{0} منٹ قبل</relativeTimePattern>
+					<relativeTimePattern count="other">{0} منٹ قبل</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="second">
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">{0} سیکنڈ قبل</relativeTimePattern>
 					<relativeTimePattern count="other">{0} سیکنڈ قبل</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="second-short">
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">{0} سیکنڈ قبل</relativeTimePattern>
+					<relativeTimePattern count="other">{0} سیکنڈ قبل</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="second-narrow">
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">{0} سیکنڈ قبل</relativeTimePattern>
+					<relativeTimePattern count="other">{0} سیکنڈ قبل</relativeTimePattern>
 				</relativeTime>
 			</field>
 		</fields>
 		<timeZoneNames>
 			<gmtFormat>GMT{0}</gmtFormat>
 			<regionFormat type="daylight">{0} دن کا وقت</regionFormat>
-			<regionFormat type="standard">↑↑↑</regionFormat>
+			<regionFormat type="standard">{0} معیاری وقت</regionFormat>
 			<zone type="America/Cambridge_Bay">
 				<exemplarCity>کیمبرج بے</exemplarCity>
 			</zone>
@@ -258,7 +258,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<generic>عرب ٹائم</generic>
 					<standard>عرب سٹینڈرڈ ٹائم</standard>
-					<daylight>↑↑↑</daylight>
+					<daylight>عرب ڈے لائٹ ٹائم</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
@@ -301,9 +301,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
-					<generic>↑↑↑</generic>
+					<generic>برازیلیا ٹائم</generic>
 					<standard>برازیلیا سٹینڈرڈ ٹائم</standard>
-					<daylight>↑↑↑</daylight>
+					<daylight>برازیلیا سمر ٹائم</daylight>
 				</long>
 			</metazone>
 			<metazone type="Chile">
@@ -315,7 +315,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Colombia">
 				<long>
-					<generic>↑↑↑</generic>
+					<generic>کولمبیا ٹائم</generic>
 					<standard>کولمبیا سٹینڈرڈ ٹائم</standard>
 					<daylight>کولمبیا سمر ٹائم</daylight>
 				</long>
@@ -335,8 +335,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Europe_Central">
 				<long>
 					<generic>وسطی یورپ کا وقت</generic>
-					<standard>↑↑↑</standard>
-					<daylight>↑↑↑</daylight>
+					<standard>وسطی یورپ کا معیاری وقت</standard>
+					<daylight>وسطی یورپ کا موسم گرما کا وقت</daylight>
 				</long>
 			</metazone>
 			<metazone type="Falkland">
@@ -387,14 +387,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<generic>ایران ٹائم</generic>
 					<standard>ایران سٹینڈرڈ ٹائم</standard>
-					<daylight>↑↑↑</daylight>
+					<daylight>ایران ڈے لائٹ ٹائم</daylight>
 				</long>
 			</metazone>
 			<metazone type="Israel">
 				<long>
 					<generic>اسرائیل ٹائم</generic>
 					<standard>اسرائیل سٹینڈرڈ ٹائم</standard>
-					<daylight>↑↑↑</daylight>
+					<daylight>اسرائیل ڈے لائٹ ٹائم</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
@@ -431,14 +431,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<generic>نیوزی لینڈ ٹائم</generic>
 					<standard>نیوزی لینڈ سٹینڈرڈ ٹائم</standard>
-					<daylight>↑↑↑</daylight>
+					<daylight>نیوزی لینڈ ڈے لائٹ ٹائم</daylight>
 				</long>
 			</metazone>
 			<metazone type="Noronha">
 				<long>
 					<generic>فرنانڈو ڈی نورنہا ٹائم</generic>
 					<standard>فرنانڈو ڈی نورنہا سٹینڈرڈ ٹائم</standard>
-					<daylight>↑↑↑</daylight>
+					<daylight>فرنانڈو ڈی نورونہا سمر ٹائم</daylight>
 				</long>
 			</metazone>
 			<metazone type="Pakistan">
@@ -523,48 +523,48 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<currencies>
 			<currency type="CRC">
 				<displayName>کوسٹا ریکا کولون</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">کوسٹا ریکا کولون</displayName>
+				<displayName count="other">کوسٹا ریکا کولون</displayName>
 			</currency>
 			<currency type="CUC">
 				<displayName>قابل منتقلی کیوبائی پیسو</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">قابل منتقلی کیوبائی پیسو</displayName>
+				<displayName count="other">قابل منتقلی کیوبائی پیسو</displayName>
 			</currency>
 			<currency type="CUP">
 				<displayName>کیوبائی پیسو</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">کیوبائی پیسو</displayName>
+				<displayName count="other">کیوبائی پیسو</displayName>
 			</currency>
 			<currency type="CVE">
 				<displayName>کیپ ورڈی اسکیوڈو</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">کیپ ورڈی اسکیوڈو</displayName>
+				<displayName count="other">کیپ ورڈی اسکیوڈو</displayName>
 			</currency>
 			<currency type="ERN">
-				<displayName>↑↑↑</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName>اریٹیریائی ناکفا</displayName>
+				<displayName count="one">اریٹیریائی ناکفا</displayName>
+				<displayName count="other">اریٹیریائی ناکفا</displayName>
 			</currency>
 			<currency type="GBP">
 				<displayName>برطانوی پاونڈ سٹرلنگ</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">برطانوی پاونڈ سٹرلنگ</displayName>
+				<displayName count="other">برطانوی پاونڈ سٹرلنگ</displayName>
 			</currency>
 			<currency type="GHS">
 				<displayName>گھانی سیڈی</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">گھانی سیڈی</displayName>
+				<displayName count="other">گھانی سیڈی</displayName>
 			</currency>
 			<currency type="PKR">
-				<displayName count="one">↑↑↑</displayName>
+				<displayName count="one">پاکستانی روپیہ</displayName>
 				<displayName count="other">پاکستانی روپے</displayName>
 				<symbol>PKR</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>ساموآئی ٹالا</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">ساموآئی ٹالا</displayName>
+				<displayName count="other">ساموآئی ٹالا</displayName>
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">

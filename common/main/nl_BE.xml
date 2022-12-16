@@ -117,10 +117,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</numbers>
 	<personNames>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern draft="provisional">{given} {given2} {surname} {suffix}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern draft="provisional">{given-informal} {surname}</namePattern>
 		</personName>
 		<!-- Minor variations from nl-NL
 			 https://onzetaal.nl/taaladvies/hoofdletters-namen-nederland
@@ -146,25 +146,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern draft="provisional">{given-informal-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern draft="provisional">{given} {given2-initial} {surname} {suffix}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern draft="provisional">{given-informal} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="formal">
 			<namePattern draft="provisional">{title} {surname-initialCap}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern draft="provisional">{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="formal">
 			<namePattern draft="provisional">{given-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern draft="provisional">{given-initial}{given2-initial} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="informal">
 			<namePattern draft="provisional">{given-informal}</namePattern>
@@ -173,31 +173,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<namePattern draft="provisional">{title} {surname-initialCap}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern draft="provisional">{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="formal">
 			<namePattern draft="provisional">{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="formal">
 			<namePattern draft="provisional">{surname}, {title} {given} {given2}, {credentials}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern draft="provisional">{surname}, {given} {given2-initial} {suffix}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="formal">
 			<namePattern draft="provisional">{surname}, {given-initial}{given2-initial}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>
 		</personName>
 		<sampleName item="nativeG">
 			<nameField type="given" draft="provisional">Liam</nameField>
@@ -212,14 +212,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nameField type="surname" draft="provisional">Van den Berg</nameField>
 		</sampleName>
 		<sampleName item="nativeFull">
-			<nameField type="surname-prefix" draft="provisional">Van den</nameField>
-			<nameField type="surname-core" draft="provisional">Berg</nameField>
-			<nameField type="title" draft="provisional">↑↑↑</nameField>
 			<nameField type="given" draft="provisional">Juliette</nameField>
 			<nameField type="given-informal" draft="provisional">Juli</nameField>
-			<nameField type="given2" draft="provisional">↑↑↑</nameField>
 			<nameField type="surname" draft="provisional">Van den Berg</nameField>
-			<nameField type="credentials" draft="provisional">↑↑↑</nameField>
+			<nameField type="surname-prefix" draft="provisional">Van den</nameField>
+			<nameField type="surname-core" draft="provisional">Berg</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

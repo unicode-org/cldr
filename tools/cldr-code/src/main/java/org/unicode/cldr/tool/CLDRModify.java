@@ -2102,6 +2102,45 @@ public class CLDRModify {
                 seen.addAll(paths);
             }
         });
+
+        fixList.add('U', "Un-drop inheritance", new CLDRFilter() {
+            final private String baseDir = "/Users/tbishop/Documents/WenlinDocs/Organizations/Unicode/CLDR_job/2022_10_07_pre/";
+            final File[] list = new File[]{
+                new File(baseDir + "common/main/"),
+                new File(baseDir + "common/annotations/")
+            };
+            final Factory preFactory = SimpleFactory.make(list, ".*");
+            CLDRFile preFile;
+
+            @Override
+            public void handleStart() {
+                String localeID = cldrFileToFilter.getLocaleID();
+                try {
+                    preFile = preFactory.make(localeID, false /* not resolved */);
+                } catch (Exception e) {
+                    System.out.println("Skipping " + localeID + " due to " + e);
+                    e.printStackTrace();
+                    preFile = null;
+                }
+            }
+
+            @Override
+            public void handlePath(String xpath) {
+                if (preFile == null) {
+                    return;
+                }
+                synchronized(this) {
+                    String value = cldrFileToFilter.getStringValue(xpath);
+                    if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                        String preValue = preFile.getStringValue(xpath);
+                        if (!CldrUtility.INHERITANCE_MARKER.equals(preValue)) {
+                            String fullXPath = cldrFileToFilter.getFullXPath(xpath);
+                            replace(fullXPath, fullXPath, preValue);
+                        }
+                    }
+                }
+            }
+        });
     }
 
     public static String getLast2Dirs(File sourceDir1) {

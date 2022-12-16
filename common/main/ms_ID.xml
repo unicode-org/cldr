@@ -126,14 +126,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>↑↑↑</pattern>
-							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+							<pattern>EEEE, dd MMMM y G</pattern>
+							<datetimeSkeleton>GyMMMMEEEEdd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>↑↑↑</pattern>
-							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+							<pattern>d MMM y G</pattern>
+							<datetimeSkeleton>GyMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>

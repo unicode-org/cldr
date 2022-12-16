@@ -39,37 +39,37 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="—">↑↑↑</annotation>
 		<annotation cp="—" type="tts">↑↑↑</annotation>
 		<annotation cp="―">barra | barra horizontal | linha | travessão</annotation>
-		<annotation cp="―" type="tts">↑↑↑</annotation>
+		<annotation cp="―" type="tts">barra horizontal</annotation>
 		<annotation cp="・">katakana | katakana - ponto central | ponto central | ponto mediano</annotation>
 		<annotation cp="・" type="tts">katakana - ponto central</annotation>
-		<annotation cp=",">↑↑↑</annotation>
+		<annotation cp=",">vírgula</annotation>
 		<annotation cp="," type="tts">↑↑↑</annotation>
 		<annotation cp="،">árabe | vírgula | virgula árabe</annotation>
 		<annotation cp="،" type="tts">virgula árabe</annotation>
-		<annotation cp="、">↑↑↑</annotation>
-		<annotation cp="、" type="tts">↑↑↑</annotation>
-		<annotation cp=";">↑↑↑</annotation>
+		<annotation cp="、">ideográfica | vírgula</annotation>
+		<annotation cp="、" type="tts">vírgula ideográfica</annotation>
+		<annotation cp=";">ponto e vírgula</annotation>
 		<annotation cp=";" type="tts">↑↑↑</annotation>
-		<annotation cp="؛">↑↑↑</annotation>
-		<annotation cp="؛" type="tts">↑↑↑</annotation>
+		<annotation cp="؛">árabe | ponto e vírgula | ponto e vírgula árabe</annotation>
+		<annotation cp="؛" type="tts">ponto e vírgula árabe</annotation>
 		<annotation cp=":">↑↑↑</annotation>
-		<annotation cp=":" type="tts">↑↑↑</annotation>
+		<annotation cp=":" type="tts">dois pontos</annotation>
 		<annotation cp="!">exclamação | ponto de exclamação</annotation>
 		<annotation cp="!" type="tts">↑↑↑</annotation>
 		<annotation cp="¡">exclamação | invertido | ponto de exclamação | ponto de exclamação invertido</annotation>
-		<annotation cp="¡" type="tts">↑↑↑</annotation>
+		<annotation cp="¡" type="tts">ponto de exclamação invertido</annotation>
 		<annotation cp="?">↑↑↑</annotation>
 		<annotation cp="?" type="tts">↑↑↑</annotation>
-		<annotation cp="¿">↑↑↑</annotation>
-		<annotation cp="¿" type="tts">↑↑↑</annotation>
-		<annotation cp="؟">↑↑↑</annotation>
-		<annotation cp="؟" type="tts">↑↑↑</annotation>
+		<annotation cp="¿">interrogação | invertido | ponto de interrogação | ponto de interrogação invertido</annotation>
+		<annotation cp="¿" type="tts">ponto de interrogação invertido</annotation>
+		<annotation cp="؟">árabe | interrogação | ponto de interrogação | ponto de interrogação árabe</annotation>
+		<annotation cp="؟" type="tts">ponto de interrogação árabe</annotation>
 		<annotation cp="‽" draft="contributed">ponto de exclarrogação</annotation>
 		<annotation cp="‽" type="tts" draft="contributed">ponto de exclarrogação</annotation>
-		<annotation cp=".">↑↑↑</annotation>
+		<annotation cp=".">ponto | ponto final</annotation>
 		<annotation cp="." type="tts">ponto</annotation>
 		<annotation cp="…">pontos de reticência | pontos de suspensão | reticências | três pontos</annotation>
-		<annotation cp="…" type="tts">↑↑↑</annotation>
+		<annotation cp="…" type="tts">reticências</annotation>
 		<annotation cp="。">ideograma | ideograma de ponto final | ponto | ponto final</annotation>
 		<annotation cp="。" type="tts">ideograma de ponto final</annotation>
 		<annotation cp="·">↑↑↑</annotation>
@@ -77,15 +77,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="'">apóstrofo | aspas | aspas simples | plica</annotation>
 		<annotation cp="'" type="tts">plica</annotation>
 		<annotation cp="‘">apóstrofo | apóstrofo esquerdo | aspas | aspas curvas</annotation>
-		<annotation cp="‘" type="tts">↑↑↑</annotation>
+		<annotation cp="‘" type="tts">apóstrofo esquerdo</annotation>
 		<annotation cp="’">apóstrofo | apóstrofo direito | aspas | aspas curvas</annotation>
-		<annotation cp="’" type="tts">↑↑↑</annotation>
+		<annotation cp="’" type="tts">apóstrofo direito</annotation>
 		<annotation cp="‚">apóstrofo | apóstrofo direito inferior | aspas | aspas inferiores</annotation>
 		<annotation cp="‚" type="tts">apóstrofo direito inferior</annotation>
 		<annotation cp="“">aspas | aspas duplas | aspas esquerdas | aspas inteligentes | aspas retas</annotation>
-		<annotation cp="“" type="tts">↑↑↑</annotation>
+		<annotation cp="“" type="tts">aspas esquerdas</annotation>
 		<annotation cp="”">aspas | aspas direitas | aspas duplas | aspas inteligentes | aspas retas</annotation>
-		<annotation cp="”" type="tts">↑↑↑</annotation>
+		<annotation cp="”" type="tts">aspas direitas</annotation>
 		<annotation cp="„">aspas | aspas direitas inferiores | aspas duplas | aspas inferiores | aspas inteligentes</annotation>
 		<annotation cp="„" type="tts">aspas direitas inferiores</annotation>
 		<annotation cp="«">ângulo | aspas | aspas em linha esquerdas | aspas francesas | chevron | esquerda</annotation>
@@ -133,11 +133,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="¶">alínea | marca de parágrafo | parágrafo | sinal de parágrafo</annotation>
 		<annotation cp="¶" type="tts">marca de parágrafo</annotation>
 		<annotation cp="@">arroba | marca de arroba | sinal de arroba</annotation>
-		<annotation cp="@" type="tts">↑↑↑</annotation>
+		<annotation cp="@" type="tts">arroba</annotation>
 		<annotation cp="*">asterisco | caráter universal | estrela</annotation>
-		<annotation cp="*" type="tts">↑↑↑</annotation>
+		<annotation cp="*" type="tts">asterisco</annotation>
 		<annotation cp="/">barra | traço oblíquo</annotation>
-		<annotation cp="/" type="tts">↑↑↑</annotation>
+		<annotation cp="/" type="tts">barra</annotation>
 		<annotation cp="\">barra invertida | traço oblíquo invertido</annotation>
 		<annotation cp="\" type="tts">barra invertida</annotation>
 		<annotation cp="&amp;">e | E comercial | et</annotation>
@@ -147,7 +147,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="%">percentagem | por cento | porcento</annotation>
 		<annotation cp="%" type="tts">por cento</annotation>
 		<annotation cp="‰">permilagem | por mil</annotation>
-		<annotation cp="‰" type="tts">↑↑↑</annotation>
+		<annotation cp="‰" type="tts">por mil</annotation>
 		<annotation cp="†">↑↑↑</annotation>
 		<annotation cp="†" type="tts">↑↑↑</annotation>
 		<annotation cp="‡">↑↑↑</annotation>
@@ -155,7 +155,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="•">marca | marca de lista | ponto</annotation>
 		<annotation cp="•" type="tts">marca de lista</annotation>
 		<annotation cp="‧">hífen | ponto | ponto de hifenização</annotation>
-		<annotation cp="‧" type="tts">↑↑↑</annotation>
+		<annotation cp="‧" type="tts">ponto de hifenização</annotation>
 		<annotation cp="′">apóstrofo | plica</annotation>
 		<annotation cp="′" type="tts">apóstrofo</annotation>
 		<annotation cp="″">apóstrofo | apóstrofo duplo | aspas | plica dupla</annotation>
@@ -164,18 +164,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="‴" type="tts">apóstrofo triplo</annotation>
 		<annotation cp="‸" draft="contributed">caret</annotation>
 		<annotation cp="‸" type="tts" draft="contributed">caret</annotation>
-		<annotation cp="※">↑↑↑</annotation>
-		<annotation cp="※" type="tts">↑↑↑</annotation>
-		<annotation cp="⁂" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⁂" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="※">marca de referência</annotation>
+		<annotation cp="※" type="tts">marca de referência</annotation>
+		<annotation cp="⁂" draft="contributed">asterismo</annotation>
+		<annotation cp="⁂" type="tts" draft="contributed">asterismo</annotation>
 		<annotation cp="`">acento | grave | tom</annotation>
-		<annotation cp="`" type="tts">↑↑↑</annotation>
-		<annotation cp="´">↑↑↑</annotation>
-		<annotation cp="´" type="tts">↑↑↑</annotation>
+		<annotation cp="`" type="tts">acento grave</annotation>
+		<annotation cp="´">acento | agudo | tom</annotation>
+		<annotation cp="´" type="tts">acento agudo</annotation>
 		<annotation cp="^">acento | chapéu | circunflexo | sinal de omissão</annotation>
-		<annotation cp="^" type="tts">↑↑↑</annotation>
+		<annotation cp="^" type="tts">acento circunflexo</annotation>
 		<annotation cp="¨">ápice | ápices | diérese | trema</annotation>
-		<annotation cp="¨" type="tts">↑↑↑</annotation>
+		<annotation cp="¨" type="tts">trema</annotation>
 		<annotation cp="°">↑↑↑</annotation>
 		<annotation cp="°" type="tts">↑↑↑</annotation>
 		<annotation cp="℗">direitos de autor | fonograma | símbolo de direitos de autor de fonograma | som</annotation>
@@ -192,18 +192,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↑" type="tts">seta a apontar para cima</annotation>
 		<annotation cp="↓">baixo | para baixo | seta | seta a apontar para baixo</annotation>
 		<annotation cp="↓" type="tts">seta a apontar para baixo</annotation>
-		<annotation cp="↜" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↜" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↝" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↝" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↞" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↞" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↟" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↟" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↠" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↠" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↡" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↡" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="↜" draft="contributed">seta ondulada para a esquerda</annotation>
+		<annotation cp="↜" type="tts" draft="contributed">seta ondulada para a esquerda</annotation>
+		<annotation cp="↝" draft="contributed">seta ondulada para a direita</annotation>
+		<annotation cp="↝" type="tts" draft="contributed">seta ondulada para a direita</annotation>
+		<annotation cp="↞" draft="contributed">seta de duas pontas para a esquerda</annotation>
+		<annotation cp="↞" type="tts" draft="contributed">seta de duas pontas para a esquerda</annotation>
+		<annotation cp="↟" draft="contributed">seta de duas pontas para cima</annotation>
+		<annotation cp="↟" type="tts" draft="contributed">seta de duas pontas para cima</annotation>
+		<annotation cp="↠" draft="contributed">seta de duas pontas para a direita</annotation>
+		<annotation cp="↠" type="tts" draft="contributed">seta de duas pontas para a direita</annotation>
+		<annotation cp="↡" draft="contributed">seta de duas pontas para baixo</annotation>
+		<annotation cp="↡" type="tts" draft="contributed">seta de duas pontas para baixo</annotation>
 		<annotation cp="↢" draft="contributed">seta para a esquerda com cauda</annotation>
 		<annotation cp="↢" type="tts" draft="contributed">seta para a esquerda com cauda</annotation>
 		<annotation cp="↣" draft="contributed">seta para a direita com cauda</annotation>
@@ -216,16 +216,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↦" type="tts" draft="contributed">seta para a direita da barra</annotation>
 		<annotation cp="↧" draft="contributed">seta para baixo da barra</annotation>
 		<annotation cp="↧" type="tts" draft="contributed">seta para baixo da barra</annotation>
-		<annotation cp="↨" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↨" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↫" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↫" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↬" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↬" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↭" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↭" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↯" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↯" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="↨" draft="contributed">seta para cima e para baixo com base</annotation>
+		<annotation cp="↨" type="tts" draft="contributed">seta para cima e para baixo com base</annotation>
+		<annotation cp="↫" draft="contributed">seta para a esquerda com laço</annotation>
+		<annotation cp="↫" type="tts" draft="contributed">seta para a esquerda com laço</annotation>
+		<annotation cp="↬" draft="contributed">seta para a direita com laço</annotation>
+		<annotation cp="↬" type="tts" draft="contributed">seta para a direita com laço</annotation>
+		<annotation cp="↭" draft="contributed">seta ondulada bidirecional</annotation>
+		<annotation cp="↭" type="tts" draft="contributed">seta ondulada bidirecional</annotation>
+		<annotation cp="↯" draft="contributed">seta em zigue-zague para baixo</annotation>
+		<annotation cp="↯" type="tts" draft="contributed">seta em zigue-zague para baixo</annotation>
 		<annotation cp="↰" draft="contributed">seta para cima com a ponta para a esquerda</annotation>
 		<annotation cp="↰" type="tts" draft="contributed">seta para cima com a ponta para a esquerda</annotation>
 		<annotation cp="↱" draft="contributed">seta para cima com a ponta para a direita</annotation>
@@ -242,134 +242,134 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↶" type="tts" draft="contributed">seta semicírculo superior no sentido anti-horário</annotation>
 		<annotation cp="↷" draft="contributed">seta semicírculo superior no sentido horário</annotation>
 		<annotation cp="↷" type="tts" draft="contributed">seta semicírculo superior no sentido horário</annotation>
-		<annotation cp="↸" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↸" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↹" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↹" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↺" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↺" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↻" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↻" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↼" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↼" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↽" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↽" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↾" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↾" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↿" draft="contributed">↑↑↑</annotation>
-		<annotation cp="↿" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇀" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇀" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇁" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇁" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇂" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇂" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇃" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇃" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇄" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇄" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="↸" draft="contributed">seta noroeste para barra longa</annotation>
+		<annotation cp="↸" type="tts" draft="contributed">seta noroeste para barra longa</annotation>
+		<annotation cp="↹" draft="contributed">seta para a esquerda da barra sobre seta para a direita da barra</annotation>
+		<annotation cp="↹" type="tts" draft="contributed">seta para a esquerda da barra sobre seta para a direita da barra</annotation>
+		<annotation cp="↺" draft="contributed">seta de círculo aberto no sentido anti-horário</annotation>
+		<annotation cp="↺" type="tts" draft="contributed">seta de círculo aberto no sentido anti-horário</annotation>
+		<annotation cp="↻" draft="contributed">seta de círculo aberto no sentido horário</annotation>
+		<annotation cp="↻" type="tts" draft="contributed">seta de círculo aberto no sentido horário</annotation>
+		<annotation cp="↼" draft="contributed">arpão para a esquerda com farpa para cima</annotation>
+		<annotation cp="↼" type="tts" draft="contributed">arpão para a esquerda com farpa para cima</annotation>
+		<annotation cp="↽" draft="contributed">arpão para a esquerda com farpa para baixo</annotation>
+		<annotation cp="↽" type="tts" draft="contributed">arpão para a esquerda com farpa para baixo</annotation>
+		<annotation cp="↾" draft="contributed">arpão para cima com farpa para a direita</annotation>
+		<annotation cp="↾" type="tts" draft="contributed">arpão para cima com farpa para a direita</annotation>
+		<annotation cp="↿" draft="contributed">arpão para cima com farpa para a esquerda</annotation>
+		<annotation cp="↿" type="tts" draft="contributed">arpão para cima com farpa para a esquerda</annotation>
+		<annotation cp="⇀" draft="contributed">arpão para a direita com farpa para cima</annotation>
+		<annotation cp="⇀" type="tts" draft="contributed">arpão para a direita com farpa para cima</annotation>
+		<annotation cp="⇁" draft="contributed">arpão para a direita com farpa para baixo</annotation>
+		<annotation cp="⇁" type="tts" draft="contributed">arpão para a direita com farpa para baixo</annotation>
+		<annotation cp="⇂" draft="contributed">arpão para baixo com farpa para a direita</annotation>
+		<annotation cp="⇂" type="tts" draft="contributed">arpão para baixo com farpa para a direita</annotation>
+		<annotation cp="⇃" draft="contributed">arpão para baixo com farpa para a esquerda</annotation>
+		<annotation cp="⇃" type="tts" draft="contributed">arpão para baixo com farpa para a esquerda</annotation>
+		<annotation cp="⇄" draft="contributed">seta para a direita sobre seta para a esquerda</annotation>
+		<annotation cp="⇄" type="tts" draft="contributed">seta para a direita sobre seta para a esquerda</annotation>
 		<annotation cp="⇅">baixo | cima | para baixo | para cima | seta | setas a apontar para cima e para baixo</annotation>
 		<annotation cp="⇅" type="tts">setas a apontar para cima e para baixo</annotation>
 		<annotation cp="⇆">direita | esquerda | para a direita | para a esquerda | seta | setas a apontar para a esquerda e direita | setas a apontar para a esquerda e para a direita</annotation>
 		<annotation cp="⇆" type="tts">setas a apontar para a esquerda e para a direita</annotation>
-		<annotation cp="⇇" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇇" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇈" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇈" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇉" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇉" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇊" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇊" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇋" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇋" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇌" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇌" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇐" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇐" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇍" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇍" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇑" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇑" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇒" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇒" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇏" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇏" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇓" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇓" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇔" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇔" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇎" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇎" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇖" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇖" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇗" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇗" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇘" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇘" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇙" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇙" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇚" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇚" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇛" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇛" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇜" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇜" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇝" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇝" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇞" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇞" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇟" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇟" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇠" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇠" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇡" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇡" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇢" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇢" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇣" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇣" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇤" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇤" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇥" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇥" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇦" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇦" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇧" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇧" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇨" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇨" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇩" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇩" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇪" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇪" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇵" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⇵" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="⇇" draft="contributed">setas paralelas para a esquerda</annotation>
+		<annotation cp="⇇" type="tts" draft="contributed">setas paralelas para a esquerda</annotation>
+		<annotation cp="⇈" draft="contributed">setas paralelas para cima</annotation>
+		<annotation cp="⇈" type="tts" draft="contributed">setas paralelas para cima</annotation>
+		<annotation cp="⇉" draft="contributed">setas paralelas para a direita</annotation>
+		<annotation cp="⇉" type="tts" draft="contributed">setas paralelas para a direita</annotation>
+		<annotation cp="⇊" draft="contributed">setas paralelas para baixo</annotation>
+		<annotation cp="⇊" type="tts" draft="contributed">setas paralelas para baixo</annotation>
+		<annotation cp="⇋" draft="contributed">arpão para a esquerda sobre arpão para a direita</annotation>
+		<annotation cp="⇋" type="tts" draft="contributed">arpão para a esquerda sobre arpão para a direita</annotation>
+		<annotation cp="⇌" draft="contributed">arpão para a direita sobre arpão para a esquerda</annotation>
+		<annotation cp="⇌" type="tts" draft="contributed">arpão para a direita sobre arpão para a esquerda</annotation>
+		<annotation cp="⇐" draft="contributed">seta dupla para a esquerda</annotation>
+		<annotation cp="⇐" type="tts" draft="contributed">seta dupla para a esquerda</annotation>
+		<annotation cp="⇍" draft="contributed">seta dupla para a esquerda com traço</annotation>
+		<annotation cp="⇍" type="tts" draft="contributed">seta dupla para a esquerda com traço</annotation>
+		<annotation cp="⇑" draft="contributed">seta dupla para cima</annotation>
+		<annotation cp="⇑" type="tts" draft="contributed">seta dupla para cima</annotation>
+		<annotation cp="⇒" draft="contributed">seta dupla para a direita</annotation>
+		<annotation cp="⇒" type="tts" draft="contributed">seta dupla para a direita</annotation>
+		<annotation cp="⇏" draft="contributed">seta dupla para a direita com traço</annotation>
+		<annotation cp="⇏" type="tts" draft="contributed">seta dupla para a direita com traço</annotation>
+		<annotation cp="⇓" draft="contributed">seta dupla para baixo</annotation>
+		<annotation cp="⇓" type="tts" draft="contributed">seta dupla para baixo</annotation>
+		<annotation cp="⇔" draft="contributed">seta dupla bidirecional</annotation>
+		<annotation cp="⇔" type="tts" draft="contributed">seta dupla bidirecional</annotation>
+		<annotation cp="⇎" draft="contributed">seta dupla bidirecional com traço</annotation>
+		<annotation cp="⇎" type="tts" draft="contributed">seta dupla bidirecional com traço</annotation>
+		<annotation cp="⇖" draft="contributed">seta dupla para noroeste</annotation>
+		<annotation cp="⇖" type="tts" draft="contributed">seta dupla para noroeste</annotation>
+		<annotation cp="⇗" draft="contributed">seta dupla para nordeste</annotation>
+		<annotation cp="⇗" type="tts" draft="contributed">seta dupla para nordeste</annotation>
+		<annotation cp="⇘" draft="contributed">seta dupla para sudeste</annotation>
+		<annotation cp="⇘" type="tts" draft="contributed">seta dupla para sudeste</annotation>
+		<annotation cp="⇙" draft="contributed">seta dupla para sudoeste</annotation>
+		<annotation cp="⇙" type="tts" draft="contributed">seta dupla para sudoeste</annotation>
+		<annotation cp="⇚" draft="contributed">seta tripla para a esquerda</annotation>
+		<annotation cp="⇚" type="tts" draft="contributed">seta tripla para a esquerda</annotation>
+		<annotation cp="⇛" draft="contributed">seta tripla para a direita</annotation>
+		<annotation cp="⇛" type="tts" draft="contributed">seta tripla para a direita</annotation>
+		<annotation cp="⇜" draft="contributed">seta de rabisco para a esquerda</annotation>
+		<annotation cp="⇜" type="tts" draft="contributed">seta de rabisco para a esquerda</annotation>
+		<annotation cp="⇝" draft="contributed">seta de rabisco para a direita</annotation>
+		<annotation cp="⇝" type="tts" draft="contributed">seta de rabisco para a direita</annotation>
+		<annotation cp="⇞" draft="contributed">seta para cima com traço duplo</annotation>
+		<annotation cp="⇞" type="tts" draft="contributed">seta para cima com traço duplo</annotation>
+		<annotation cp="⇟" draft="contributed">seta para baixo com traço duplo</annotation>
+		<annotation cp="⇟" type="tts" draft="contributed">seta para baixo com traço duplo</annotation>
+		<annotation cp="⇠" draft="contributed">seta tracejada para a esquerda</annotation>
+		<annotation cp="⇠" type="tts" draft="contributed">seta tracejada para a esquerda</annotation>
+		<annotation cp="⇡" draft="contributed">seta tracejada para cima</annotation>
+		<annotation cp="⇡" type="tts" draft="contributed">seta tracejada para cima</annotation>
+		<annotation cp="⇢" draft="contributed">seta tracejada para a direita</annotation>
+		<annotation cp="⇢" type="tts" draft="contributed">seta tracejada para a direita</annotation>
+		<annotation cp="⇣" draft="contributed">seta tracejada para baixo</annotation>
+		<annotation cp="⇣" type="tts" draft="contributed">seta tracejada para baixo</annotation>
+		<annotation cp="⇤" draft="contributed">seta para a esquerda para barra</annotation>
+		<annotation cp="⇤" type="tts" draft="contributed">seta para a esquerda para barra</annotation>
+		<annotation cp="⇥" draft="contributed">seta para a direita para barra</annotation>
+		<annotation cp="⇥" type="tts" draft="contributed">seta para a direita para barra</annotation>
+		<annotation cp="⇦" draft="contributed">seta branca para a esquerda</annotation>
+		<annotation cp="⇦" type="tts" draft="contributed">seta branca para a esquerda</annotation>
+		<annotation cp="⇧" draft="contributed">seta branca para cima</annotation>
+		<annotation cp="⇧" type="tts" draft="contributed">seta branca para cima</annotation>
+		<annotation cp="⇨" draft="contributed">seta branca para a direita</annotation>
+		<annotation cp="⇨" type="tts" draft="contributed">seta branca para a direita</annotation>
+		<annotation cp="⇩" draft="contributed">seta branca para baixo</annotation>
+		<annotation cp="⇩" type="tts" draft="contributed">seta branca para baixo</annotation>
+		<annotation cp="⇪" draft="contributed">seta branca para cima da barra</annotation>
+		<annotation cp="⇪" type="tts" draft="contributed">seta branca para cima da barra</annotation>
+		<annotation cp="⇵" draft="contributed">seta para baixo à esquerda da seta para cima</annotation>
+		<annotation cp="⇵" type="tts" draft="contributed">seta para baixo à esquerda da seta para cima</annotation>
 		<annotation cp="∀" draft="contributed">para todo</annotation>
 		<annotation cp="∀" type="tts" draft="contributed">para todo</annotation>
-		<annotation cp="∂" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∂" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∃" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∃" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∅" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∅" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="∂" draft="contributed">diferencial parcial</annotation>
+		<annotation cp="∂" type="tts" draft="contributed">diferencial parcial</annotation>
+		<annotation cp="∃" draft="contributed">existe</annotation>
+		<annotation cp="∃" type="tts" draft="contributed">existe</annotation>
+		<annotation cp="∅" draft="contributed">conjunto vazio</annotation>
+		<annotation cp="∅" type="tts" draft="contributed">conjunto vazio</annotation>
 		<annotation cp="∆">↑↑↑</annotation>
 		<annotation cp="∆" type="tts">↑↑↑</annotation>
 		<annotation cp="∇">↑↑↑</annotation>
 		<annotation cp="∇" type="tts">↑↑↑</annotation>
 		<annotation cp="∈">conjunto | contém | elemento | elemento de | membro | pertence | pertence a</annotation>
 		<annotation cp="∈" type="tts">pertence</annotation>
-		<annotation cp="∉" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∉" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∋" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∋" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∎" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∎" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∏" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∏" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∑" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∑" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="∉" draft="contributed">não pertence</annotation>
+		<annotation cp="∉" type="tts" draft="contributed">não pertence</annotation>
+		<annotation cp="∋" draft="contributed">contém como membro</annotation>
+		<annotation cp="∋" type="tts" draft="contributed">contém como membro</annotation>
+		<annotation cp="∎" draft="contributed">fim da prova</annotation>
+		<annotation cp="∎" type="tts" draft="contributed">fim da prova</annotation>
+		<annotation cp="∏" draft="contributed">produto n-ário</annotation>
+		<annotation cp="∏" type="tts" draft="contributed">produto n-ário</annotation>
+		<annotation cp="∑" draft="contributed">somatório n-ário</annotation>
+		<annotation cp="∑" type="tts" draft="contributed">somatório n-ário</annotation>
 		<annotation cp="+">adição | adicionar | mais | sinal de mais</annotation>
-		<annotation cp="+" type="tts">↑↑↑</annotation>
+		<annotation cp="+" type="tts">sinal de mais</annotation>
 		<annotation cp="±">mais-menos</annotation>
 		<annotation cp="±" type="tts">mais-menos</annotation>
 		<annotation cp="÷">↑↑↑</annotation>
@@ -378,212 +378,212 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="×" type="tts">sinal de multiplicação</annotation>
 		<annotation cp="&lt;">abrir etiqueta | etiqueta | menor | menor que</annotation>
 		<annotation cp="&lt;" type="tts">menor</annotation>
-		<annotation cp="≮" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≮" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="≮" draft="contributed">não menor que</annotation>
+		<annotation cp="≮" type="tts" draft="contributed">não menor que</annotation>
 		<annotation cp="=">é igual a | igual</annotation>
-		<annotation cp="=" type="tts">↑↑↑</annotation>
+		<annotation cp="=" type="tts">igual</annotation>
 		<annotation cp="≠">desigual | desigualdade | diferente | não igual</annotation>
-		<annotation cp="≠" type="tts">↑↑↑</annotation>
+		<annotation cp="≠" type="tts">desigual</annotation>
 		<annotation cp="&gt;">etiqueta | fechar etiqueta | maior | maior que</annotation>
 		<annotation cp="&gt;" type="tts">maior</annotation>
-		<annotation cp="≯" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≯" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="≯" draft="contributed">não maior que</annotation>
+		<annotation cp="≯" type="tts" draft="contributed">não maior que</annotation>
 		<annotation cp="¬">não | negação</annotation>
-		<annotation cp="¬" type="tts">↑↑↑</annotation>
+		<annotation cp="¬" type="tts">negação</annotation>
 		<annotation cp="|">barra | barra vertical | linha | linha vertical | pipe | traço vertical</annotation>
 		<annotation cp="|" type="tts">barra vertical</annotation>
-		<annotation cp="~">↑↑↑</annotation>
-		<annotation cp="~" type="tts">↑↑↑</annotation>
+		<annotation cp="~">til</annotation>
+		<annotation cp="~" type="tts">til</annotation>
 		<annotation cp="−">menos | sinal de menos | subtração | subtrair</annotation>
-		<annotation cp="−" type="tts">↑↑↑</annotation>
+		<annotation cp="−" type="tts">sinal de menos</annotation>
 		<annotation cp="⁻">↑↑↑</annotation>
 		<annotation cp="⁻" type="tts">↑↑↑</annotation>
-		<annotation cp="∓" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∓" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∕" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∕" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⁄" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⁄" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∗" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∗" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∘" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∘" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∙" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∙" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="∓" draft="contributed">menos ou mais</annotation>
+		<annotation cp="∓" type="tts" draft="contributed">menos ou mais</annotation>
+		<annotation cp="∕" draft="contributed">barra de divisão</annotation>
+		<annotation cp="∕" type="tts" draft="contributed">barra de divisão</annotation>
+		<annotation cp="⁄" draft="contributed">barra de fração</annotation>
+		<annotation cp="⁄" type="tts" draft="contributed">barra de fração</annotation>
+		<annotation cp="∗" draft="contributed">operador de asterisco</annotation>
+		<annotation cp="∗" type="tts" draft="contributed">operador de asterisco</annotation>
+		<annotation cp="∘" draft="contributed">operador de anel</annotation>
+		<annotation cp="∘" type="tts" draft="contributed">operador de anel</annotation>
+		<annotation cp="∙" draft="contributed">operador de marca de lista</annotation>
+		<annotation cp="∙" type="tts" draft="contributed">operador de marca de lista</annotation>
 		<annotation cp="√">↑↑↑</annotation>
 		<annotation cp="√" type="tts">↑↑↑</annotation>
-		<annotation cp="∝" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∝" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="∝" draft="contributed">proporcional a</annotation>
+		<annotation cp="∝" type="tts" draft="contributed">proporcional a</annotation>
 		<annotation cp="∞">infinito | símbolo de infinito</annotation>
 		<annotation cp="∞" type="tts">símbolo de infinito</annotation>
-		<annotation cp="∟" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∟" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∠" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∠" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∣" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∣" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∥" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∥" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∧" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∧" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="∟" draft="contributed">ângulo direito</annotation>
+		<annotation cp="∟" type="tts" draft="contributed">ângulo direito</annotation>
+		<annotation cp="∠" draft="contributed">ângulo</annotation>
+		<annotation cp="∠" type="tts" draft="contributed">ângulo</annotation>
+		<annotation cp="∣" draft="contributed">divide</annotation>
+		<annotation cp="∣" type="tts" draft="contributed">divide</annotation>
+		<annotation cp="∥" draft="contributed">paralelo</annotation>
+		<annotation cp="∥" type="tts" draft="contributed">paralelo</annotation>
+		<annotation cp="∧" draft="contributed">e lógico</annotation>
+		<annotation cp="∧" type="tts" draft="contributed">e lógico</annotation>
 		<annotation cp="∩">conjunto | interseção | intersecção</annotation>
 		<annotation cp="∩" type="tts">↑↑↑</annotation>
 		<annotation cp="∪">coleção | conjunto | reunião | união</annotation>
 		<annotation cp="∪" type="tts">↑↑↑</annotation>
-		<annotation cp="∫" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∫" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∬" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∬" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∮" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∮" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∴" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∴" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∵" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∵" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∶" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∶" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∷" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∷" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∼" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∼" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∽" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∽" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∾" draft="contributed">↑↑↑</annotation>
-		<annotation cp="∾" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≃" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≃" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≅" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≅" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≈">↑↑↑</annotation>
-		<annotation cp="≈" type="tts">↑↑↑</annotation>
-		<annotation cp="≌" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≌" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≒" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≒" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≖" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≖" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="∫" draft="contributed">integral</annotation>
+		<annotation cp="∫" type="tts" draft="contributed">integral</annotation>
+		<annotation cp="∬" draft="contributed">integral duplo</annotation>
+		<annotation cp="∬" type="tts" draft="contributed">integral duplo</annotation>
+		<annotation cp="∮" draft="contributed">integral de contorno</annotation>
+		<annotation cp="∮" type="tts" draft="contributed">integral de contorno</annotation>
+		<annotation cp="∴" draft="contributed">então</annotation>
+		<annotation cp="∴" type="tts" draft="contributed">então</annotation>
+		<annotation cp="∵" draft="contributed">porque</annotation>
+		<annotation cp="∵" type="tts" draft="contributed">porque</annotation>
+		<annotation cp="∶" draft="contributed">razão</annotation>
+		<annotation cp="∶" type="tts" draft="contributed">razão</annotation>
+		<annotation cp="∷" draft="contributed">proporção</annotation>
+		<annotation cp="∷" type="tts" draft="contributed">proporção</annotation>
+		<annotation cp="∼" draft="contributed">operador de til</annotation>
+		<annotation cp="∼" type="tts" draft="contributed">operador de til</annotation>
+		<annotation cp="∽" draft="contributed">til invertido</annotation>
+		<annotation cp="∽" type="tts" draft="contributed">til invertido</annotation>
+		<annotation cp="∾" draft="contributed">s preguiçoso invertido</annotation>
+		<annotation cp="∾" type="tts" draft="contributed">s preguiçoso invertido</annotation>
+		<annotation cp="≃" draft="contributed">assintoticamente igual</annotation>
+		<annotation cp="≃" type="tts" draft="contributed">assintoticamente igual</annotation>
+		<annotation cp="≅" draft="contributed">aproximadamente igual</annotation>
+		<annotation cp="≅" type="tts" draft="contributed">aproximadamente igual</annotation>
+		<annotation cp="≈">aproximação | aproximado | quase igual</annotation>
+		<annotation cp="≈" type="tts">quase igual</annotation>
+		<annotation cp="≌" draft="contributed">tudo igual</annotation>
+		<annotation cp="≌" type="tts" draft="contributed">tudo igual</annotation>
+		<annotation cp="≒" draft="contributed">aproximadamente igual à imagem</annotation>
+		<annotation cp="≒" type="tts" draft="contributed">aproximadamente igual à imagem</annotation>
+		<annotation cp="≖" draft="contributed">anel em igual</annotation>
+		<annotation cp="≖" type="tts" draft="contributed">anel em igual</annotation>
 		<annotation cp="≡">exato | idêntico | idêntico a | triplo</annotation>
 		<annotation cp="≡" type="tts">idêntico a</annotation>
-		<annotation cp="≣" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≣" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="≣" draft="contributed">estritamente equivalente</annotation>
+		<annotation cp="≣" type="tts" draft="contributed">estritamente equivalente</annotation>
 		<annotation cp="≤">desigual | desigualdade | igual | igual a | menor ou igual | menor que</annotation>
 		<annotation cp="≤" type="tts">menor ou igual</annotation>
 		<annotation cp="≥">desigual | desigualdade | igual | igual a | maior ou igual | maior que</annotation>
 		<annotation cp="≥" type="tts">maior ou igual</annotation>
-		<annotation cp="≦" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≦" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≧" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≧" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≪" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≪" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≫" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≫" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≬" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≬" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≳" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≳" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≺" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≺" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≻" draft="contributed">↑↑↑</annotation>
-		<annotation cp="≻" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊁" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊁" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="≦" draft="contributed">menor que sobre igual</annotation>
+		<annotation cp="≦" type="tts" draft="contributed">menor que sobre igual</annotation>
+		<annotation cp="≧" draft="contributed">maior que sobre igual</annotation>
+		<annotation cp="≧" type="tts" draft="contributed">maior que sobre igual</annotation>
+		<annotation cp="≪" draft="contributed">muito menor que</annotation>
+		<annotation cp="≪" type="tts" draft="contributed">muito menor que</annotation>
+		<annotation cp="≫" draft="contributed">muito maior que</annotation>
+		<annotation cp="≫" type="tts" draft="contributed">muito maior que</annotation>
+		<annotation cp="≬" draft="contributed">entre</annotation>
+		<annotation cp="≬" type="tts" draft="contributed">entre</annotation>
+		<annotation cp="≳" draft="contributed">maior que ou equivalente</annotation>
+		<annotation cp="≳" type="tts" draft="contributed">maior que ou equivalente</annotation>
+		<annotation cp="≺" draft="contributed">precede</annotation>
+		<annotation cp="≺" type="tts" draft="contributed">precede</annotation>
+		<annotation cp="≻" draft="contributed">sucede</annotation>
+		<annotation cp="≻" type="tts" draft="contributed">sucede</annotation>
+		<annotation cp="⊁" draft="contributed">não sucede</annotation>
+		<annotation cp="⊁" type="tts" draft="contributed">não sucede</annotation>
 		<annotation cp="⊂">↑↑↑</annotation>
 		<annotation cp="⊂" type="tts">↑↑↑</annotation>
-		<annotation cp="⊃" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊃" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊆" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊆" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊇" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊇" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊕" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊕" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊖" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊖" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊗" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊗" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊘" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊘" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊙" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊙" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊚" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊚" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊛" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊛" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊞" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊞" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊟" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊟" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊥" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊥" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊮" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊮" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊰" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊰" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊱" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊱" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋭" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋭" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊶" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊶" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊹" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⊹" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="⊃" draft="contributed">superconjunto</annotation>
+		<annotation cp="⊃" type="tts" draft="contributed">superconjunto</annotation>
+		<annotation cp="⊆" draft="contributed">subconjunto de ou igual</annotation>
+		<annotation cp="⊆" type="tts" draft="contributed">subconjunto de ou igual</annotation>
+		<annotation cp="⊇" draft="contributed">superconjunto de ou igual</annotation>
+		<annotation cp="⊇" type="tts" draft="contributed">superconjunto de ou igual</annotation>
+		<annotation cp="⊕" draft="contributed">mais em círculo</annotation>
+		<annotation cp="⊕" type="tts" draft="contributed">mais em círculo</annotation>
+		<annotation cp="⊖" draft="contributed">menos em círculo</annotation>
+		<annotation cp="⊖" type="tts" draft="contributed">menos em círculo</annotation>
+		<annotation cp="⊗" draft="contributed">vezes em círculo</annotation>
+		<annotation cp="⊗" type="tts" draft="contributed">vezes em círculo</annotation>
+		<annotation cp="⊘" draft="contributed">barra de divisão em círculo</annotation>
+		<annotation cp="⊘" type="tts" draft="contributed">barra de divisão em círculo</annotation>
+		<annotation cp="⊙" draft="contributed">operador de ponto em círculo</annotation>
+		<annotation cp="⊙" type="tts" draft="contributed">operador de ponto em círculo</annotation>
+		<annotation cp="⊚" draft="contributed">operador de anel em círculo</annotation>
+		<annotation cp="⊚" type="tts" draft="contributed">operador de anel em círculo</annotation>
+		<annotation cp="⊛" draft="contributed">operador de asterisco em círculo</annotation>
+		<annotation cp="⊛" type="tts" draft="contributed">operador de asterisco em círculo</annotation>
+		<annotation cp="⊞" draft="contributed">mais em quadrado</annotation>
+		<annotation cp="⊞" type="tts" draft="contributed">mais em quadrado</annotation>
+		<annotation cp="⊟" draft="contributed">menos em quadrado</annotation>
+		<annotation cp="⊟" type="tts" draft="contributed">menos em quadrado</annotation>
+		<annotation cp="⊥" draft="contributed">torniquete para cima</annotation>
+		<annotation cp="⊥" type="tts" draft="contributed">torniquete para cima</annotation>
+		<annotation cp="⊮" draft="contributed">não força</annotation>
+		<annotation cp="⊮" type="tts" draft="contributed">não força</annotation>
+		<annotation cp="⊰" draft="contributed">precede em relação</annotation>
+		<annotation cp="⊰" type="tts" draft="contributed">precede em relação</annotation>
+		<annotation cp="⊱" draft="contributed">sucede em relação</annotation>
+		<annotation cp="⊱" type="tts" draft="contributed">sucede em relação</annotation>
+		<annotation cp="⋭" draft="contributed">não contém como subgrupo normal ou igual</annotation>
+		<annotation cp="⋭" type="tts" draft="contributed">não contém como subgrupo normal ou igual</annotation>
+		<annotation cp="⊶" draft="contributed">original</annotation>
+		<annotation cp="⊶" type="tts" draft="contributed">original</annotation>
+		<annotation cp="⊹" draft="contributed">matriz conjugada hermitiana</annotation>
+		<annotation cp="⊹" type="tts" draft="contributed">matriz conjugada hermitiana</annotation>
 		<annotation cp="⊿" draft="contributed">triângulo retângulo</annotation>
 		<annotation cp="⊿" type="tts" draft="contributed">triângulo retângulo</annotation>
-		<annotation cp="⋁" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋁" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋂" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋂" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋃" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋃" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋅" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋅" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋆" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋆" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋈" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋈" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋒" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋒" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋘" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋘" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋙" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋙" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋮" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋮" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋯" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋯" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋰" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋰" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋱" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⋱" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="■" draft="contributed">↑↑↑</annotation>
-		<annotation cp="■" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="□" draft="contributed">↑↑↑</annotation>
-		<annotation cp="□" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="▢" draft="contributed">↑↑↑</annotation>
-		<annotation cp="▢" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="▣" draft="contributed">↑↑↑</annotation>
-		<annotation cp="▣" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="▤" draft="contributed">↑↑↑</annotation>
-		<annotation cp="▤" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="▥" draft="contributed">↑↑↑</annotation>
-		<annotation cp="▥" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="▦" draft="contributed">↑↑↑</annotation>
-		<annotation cp="▦" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="▧" draft="contributed">↑↑↑</annotation>
-		<annotation cp="▧" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="▨" draft="contributed">↑↑↑</annotation>
-		<annotation cp="▨" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="▩" draft="contributed">↑↑↑</annotation>
-		<annotation cp="▩" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="▬" draft="contributed">↑↑↑</annotation>
-		<annotation cp="▬" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="▭" draft="contributed">↑↑↑</annotation>
-		<annotation cp="▭" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="▮" draft="contributed">↑↑↑</annotation>
-		<annotation cp="▮" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="▰" draft="contributed">↑↑↑</annotation>
-		<annotation cp="▰" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="⋁" draft="contributed">ou lógico n-ário</annotation>
+		<annotation cp="⋁" type="tts" draft="contributed">ou lógico n-ário</annotation>
+		<annotation cp="⋂" draft="contributed">interseção n-ária</annotation>
+		<annotation cp="⋂" type="tts" draft="contributed">interseção n-ária</annotation>
+		<annotation cp="⋃" draft="contributed">união n-ária</annotation>
+		<annotation cp="⋃" type="tts" draft="contributed">união n-ária</annotation>
+		<annotation cp="⋅" draft="contributed">operador de ponto</annotation>
+		<annotation cp="⋅" type="tts" draft="contributed">operador de ponto</annotation>
+		<annotation cp="⋆" draft="contributed">operador de estrela</annotation>
+		<annotation cp="⋆" type="tts" draft="contributed">operador de estrela</annotation>
+		<annotation cp="⋈" draft="contributed">junção natural</annotation>
+		<annotation cp="⋈" type="tts" draft="contributed">junção natural</annotation>
+		<annotation cp="⋒" draft="contributed">interseção dupla</annotation>
+		<annotation cp="⋒" type="tts" draft="contributed">interseção dupla</annotation>
+		<annotation cp="⋘" draft="contributed">muitíssimo menor que</annotation>
+		<annotation cp="⋘" type="tts" draft="contributed">muitíssimo menor que</annotation>
+		<annotation cp="⋙" draft="contributed">muitíssimo maior que</annotation>
+		<annotation cp="⋙" type="tts" draft="contributed">muitíssimo maior que</annotation>
+		<annotation cp="⋮" draft="contributed">reticências verticais</annotation>
+		<annotation cp="⋮" type="tts" draft="contributed">reticências verticais</annotation>
+		<annotation cp="⋯" draft="contributed">reticências horizontais a meio da linha</annotation>
+		<annotation cp="⋯" type="tts" draft="contributed">reticências horizontais a meio da linha</annotation>
+		<annotation cp="⋰" draft="contributed">reticências diagonais direitas para cima</annotation>
+		<annotation cp="⋰" type="tts" draft="contributed">reticências diagonais direitas para cima</annotation>
+		<annotation cp="⋱" draft="contributed">reticências diagonais direitas para baixo</annotation>
+		<annotation cp="⋱" type="tts" draft="contributed">reticências diagonais direitas para baixo</annotation>
+		<annotation cp="■" draft="contributed">quadrado preenchido</annotation>
+		<annotation cp="■" type="tts" draft="contributed">quadrado preenchido</annotation>
+		<annotation cp="□" draft="contributed">quadrado vazio</annotation>
+		<annotation cp="□" type="tts" draft="contributed">quadrado vazio</annotation>
+		<annotation cp="▢" draft="contributed">quadrado vazio com cantos arredondados</annotation>
+		<annotation cp="▢" type="tts" draft="contributed">quadrado vazio com cantos arredondados</annotation>
+		<annotation cp="▣" draft="contributed">quadrado vazio com quadrado preenchido</annotation>
+		<annotation cp="▣" type="tts" draft="contributed">quadrado vazio com quadrado preenchido</annotation>
+		<annotation cp="▤" draft="contributed">quadrado com linhas horizontais</annotation>
+		<annotation cp="▤" type="tts" draft="contributed">quadrado com linhas horizontais</annotation>
+		<annotation cp="▥" draft="contributed">quadrado com linhas verticais</annotation>
+		<annotation cp="▥" type="tts" draft="contributed">quadrado com linhas verticais</annotation>
+		<annotation cp="▦" draft="contributed">quadrado com linhas cruzadas ortogonais</annotation>
+		<annotation cp="▦" type="tts" draft="contributed">quadrado com linhas cruzadas ortogonais</annotation>
+		<annotation cp="▧" draft="contributed">quadrado com linhas do canto superior esquerdo para o canto inferior direito</annotation>
+		<annotation cp="▧" type="tts" draft="contributed">quadrado com linhas do canto superior esquerdo para o canto inferior direito</annotation>
+		<annotation cp="▨" draft="contributed">quadrado com linhas do canto superior direito para o canto inferior esquerdo</annotation>
+		<annotation cp="▨" type="tts" draft="contributed">quadrado com linhas do canto superior direito para o canto inferior esquerdo</annotation>
+		<annotation cp="▩" draft="contributed">quadrado com linhas cruzadas diagonais</annotation>
+		<annotation cp="▩" type="tts" draft="contributed">quadrado com linhas cruzadas diagonais</annotation>
+		<annotation cp="▬" draft="contributed">retângulo preenchido</annotation>
+		<annotation cp="▬" type="tts" draft="contributed">retângulo preenchido</annotation>
+		<annotation cp="▭" draft="contributed">retângulo vazio</annotation>
+		<annotation cp="▭" type="tts" draft="contributed">retângulo vazio</annotation>
+		<annotation cp="▮" draft="contributed">retângulo vertical preenchido</annotation>
+		<annotation cp="▮" type="tts" draft="contributed">retângulo vertical preenchido</annotation>
+		<annotation cp="▰" draft="contributed">paralelogramo preenchido</annotation>
+		<annotation cp="▰" type="tts" draft="contributed">paralelogramo preenchido</annotation>
 		<annotation cp="▲">cima | para cima | preenchido | seta | triângulo | triângulo preenchido a apontar para cima</annotation>
 		<annotation cp="▲" type="tts">triângulo preenchido a apontar para cima</annotation>
 		<annotation cp="△" draft="contributed">triângulo vazio a apontar para cima</annotation>
@@ -620,98 +620,98 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="◄" type="tts" draft="contributed">ponteiro preenchido a apontar para a esquerda</annotation>
 		<annotation cp="◅" draft="contributed">ponteiro vazio a apontar para a esquerda</annotation>
 		<annotation cp="◅" type="tts" draft="contributed">ponteiro vazio a apontar para a esquerda</annotation>
-		<annotation cp="◆" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◆" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◇" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◇" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◈" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◈" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◉" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◉" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="◆" draft="contributed">diamante preenchido</annotation>
+		<annotation cp="◆" type="tts" draft="contributed">diamante preenchido</annotation>
+		<annotation cp="◇" draft="contributed">diamante vazio</annotation>
+		<annotation cp="◇" type="tts" draft="contributed">diamante vazio</annotation>
+		<annotation cp="◈" draft="contributed">diamante vazio com diamante preenchido</annotation>
+		<annotation cp="◈" type="tts" draft="contributed">diamante vazio com diamante preenchido</annotation>
+		<annotation cp="◉" draft="contributed">círculo vazio com círculo preenchido</annotation>
+		<annotation cp="◉" type="tts" draft="contributed">círculo vazio com círculo preenchido</annotation>
 		<annotation cp="◊">↑↑↑</annotation>
 		<annotation cp="◊" type="tts">↑↑↑</annotation>
 		<annotation cp="○">↑↑↑</annotation>
 		<annotation cp="○" type="tts">↑↑↑</annotation>
-		<annotation cp="◌" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◌" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◍" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◍" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◎" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◎" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="◌" draft="contributed">círculo pontilhado</annotation>
+		<annotation cp="◌" type="tts" draft="contributed">círculo pontilhado</annotation>
+		<annotation cp="◍" draft="contributed">círculo com linhas verticais</annotation>
+		<annotation cp="◍" type="tts" draft="contributed">círculo com linhas verticais</annotation>
+		<annotation cp="◎" draft="contributed">círculos concêntricos</annotation>
+		<annotation cp="◎" type="tts" draft="contributed">círculos concêntricos</annotation>
 		<annotation cp="●">↑↑↑</annotation>
 		<annotation cp="●" type="tts">↑↑↑</annotation>
-		<annotation cp="◐" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◐" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◑" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◑" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◒" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◒" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◓" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◓" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◔" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◔" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◕" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◕" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◖" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◖" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◗" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◗" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◘" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◘" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◙" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◙" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◜" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◜" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◝" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◝" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◞" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◞" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◟" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◟" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◠" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◠" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◡" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◡" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◢" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◢" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◣" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◣" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◤" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◤" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◥" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◥" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◦" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◦" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="◐" draft="contributed">círculo com a metade esquerda preenchida</annotation>
+		<annotation cp="◐" type="tts" draft="contributed">círculo com a metade esquerda preenchida</annotation>
+		<annotation cp="◑" draft="contributed">círculo com a metade direita preenchida</annotation>
+		<annotation cp="◑" type="tts" draft="contributed">círculo com a metade direita preenchida</annotation>
+		<annotation cp="◒" draft="contributed">círculo com a metade inferior preenchida</annotation>
+		<annotation cp="◒" type="tts" draft="contributed">círculo com a metade inferior preenchida</annotation>
+		<annotation cp="◓" draft="contributed">círculo com a metade superior preenchida</annotation>
+		<annotation cp="◓" type="tts" draft="contributed">círculo com a metade superior preenchida</annotation>
+		<annotation cp="◔" draft="contributed">círculo com quadrante superior direito preenchido</annotation>
+		<annotation cp="◔" type="tts" draft="contributed">círculo com quadrante superior direito preenchido</annotation>
+		<annotation cp="◕" draft="contributed">círculo preenchido exceto o quadrante superior esquerdo</annotation>
+		<annotation cp="◕" type="tts" draft="contributed">círculo preenchido exceto o quadrante superior esquerdo</annotation>
+		<annotation cp="◖" draft="contributed">metade esquerda do círculo preenchida</annotation>
+		<annotation cp="◖" type="tts" draft="contributed">metade esquerda do círculo preenchida</annotation>
+		<annotation cp="◗" draft="contributed">metade direita do círculo preenchida</annotation>
+		<annotation cp="◗" type="tts" draft="contributed">metade direita do círculo preenchida</annotation>
+		<annotation cp="◘" draft="contributed">marca de lista invertida</annotation>
+		<annotation cp="◘" type="tts" draft="contributed">marca de lista invertida</annotation>
+		<annotation cp="◙" draft="contributed">quadrado preenchido com círculo vazio</annotation>
+		<annotation cp="◙" type="tts" draft="contributed">quadrado preenchido com círculo vazio</annotation>
+		<annotation cp="◜" draft="contributed">quarto de círculo superior esquerdo</annotation>
+		<annotation cp="◜" type="tts" draft="contributed">quarto de círculo superior esquerdo</annotation>
+		<annotation cp="◝" draft="contributed">quarto de círculo superior direito</annotation>
+		<annotation cp="◝" type="tts" draft="contributed">quarto de círculo superior direito</annotation>
+		<annotation cp="◞" draft="contributed">quarto de círculo inferior direito</annotation>
+		<annotation cp="◞" type="tts" draft="contributed">quarto de círculo inferior direito</annotation>
+		<annotation cp="◟" draft="contributed">quarto de círculo inferior esquerdo</annotation>
+		<annotation cp="◟" type="tts" draft="contributed">quarto de círculo inferior esquerdo</annotation>
+		<annotation cp="◠" draft="contributed">meio círculo superior</annotation>
+		<annotation cp="◠" type="tts" draft="contributed">meio círculo superior</annotation>
+		<annotation cp="◡" draft="contributed">meio círculo inferior</annotation>
+		<annotation cp="◡" type="tts" draft="contributed">meio círculo inferior</annotation>
+		<annotation cp="◢" draft="contributed">triângulo inferior direito preenchido</annotation>
+		<annotation cp="◢" type="tts" draft="contributed">triângulo inferior direito preenchido</annotation>
+		<annotation cp="◣" draft="contributed">triângulo inferior esquerdo preenchido</annotation>
+		<annotation cp="◣" type="tts" draft="contributed">triângulo inferior esquerdo preenchido</annotation>
+		<annotation cp="◤" draft="contributed">triângulo superior esquerdo preenchido</annotation>
+		<annotation cp="◤" type="tts" draft="contributed">triângulo superior esquerdo preenchido</annotation>
+		<annotation cp="◥" draft="contributed">triângulo superior direito preenchido</annotation>
+		<annotation cp="◥" type="tts" draft="contributed">triângulo superior direito preenchido</annotation>
+		<annotation cp="◦" draft="contributed">marca de ponto vazia</annotation>
+		<annotation cp="◦" type="tts" draft="contributed">marca de ponto vazia</annotation>
 		<annotation cp="◯">↑↑↑</annotation>
 		<annotation cp="◯" type="tts">↑↑↑</annotation>
-		<annotation cp="◳" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◳" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◷" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◷" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◿" draft="contributed">↑↑↑</annotation>
-		<annotation cp="◿" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="♪">↑↑↑</annotation>
-		<annotation cp="♪" type="tts">↑↑↑</annotation>
-		<annotation cp="⨧" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⨧" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⨯" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⨯" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⨼" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⨼" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⩣" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⩣" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⩽" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⩽" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⪍" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⪍" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⪚" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⪚" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⪺" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⪺" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="♭">↑↑↑</annotation>
-		<annotation cp="♭" type="tts">↑↑↑</annotation>
+		<annotation cp="◳" draft="contributed">quadrado vazio com quadrante superior direito</annotation>
+		<annotation cp="◳" type="tts" draft="contributed">quadrado vazio com quadrante superior direito</annotation>
+		<annotation cp="◷" draft="contributed">círculo vazio com quadrante superior direito</annotation>
+		<annotation cp="◷" type="tts" draft="contributed">círculo vazio com quadrante superior direito</annotation>
+		<annotation cp="◿" draft="contributed">triângulo inferior esquerdo</annotation>
+		<annotation cp="◿" type="tts" draft="contributed">triângulo inferior esquerdo</annotation>
+		<annotation cp="♪">colcheia | música | nota</annotation>
+		<annotation cp="♪" type="tts">colcheia</annotation>
+		<annotation cp="⨧" draft="contributed">mais com dois subscrito</annotation>
+		<annotation cp="⨧" type="tts" draft="contributed">mais com dois subscrito</annotation>
+		<annotation cp="⨯" draft="contributed">produto vetorial</annotation>
+		<annotation cp="⨯" type="tts" draft="contributed">produto vetorial</annotation>
+		<annotation cp="⨼" draft="contributed">produto interior</annotation>
+		<annotation cp="⨼" type="tts" draft="contributed">produto interior</annotation>
+		<annotation cp="⩣" draft="contributed">ou lógico com duas barras subscritas</annotation>
+		<annotation cp="⩣" type="tts" draft="contributed">ou lógico com duas barras subscritas</annotation>
+		<annotation cp="⩽" draft="contributed">menor que ou igual inclinado</annotation>
+		<annotation cp="⩽" type="tts" draft="contributed">menor que ou igual inclinado</annotation>
+		<annotation cp="⪍" draft="contributed">menor que acima de similar ou igual</annotation>
+		<annotation cp="⪍" type="tts" draft="contributed">menor que acima de similar ou igual</annotation>
+		<annotation cp="⪚" draft="contributed">igual de duas linhas ou maior que</annotation>
+		<annotation cp="⪚" type="tts" draft="contributed">igual de duas linhas ou maior que</annotation>
+		<annotation cp="⪺" draft="contributed">sucede acima de não quase igual</annotation>
+		<annotation cp="⪺" type="tts" draft="contributed">sucede acima de não quase igual</annotation>
+		<annotation cp="♭">bemol | música | nota</annotation>
+		<annotation cp="♭" type="tts">bemol</annotation>
 		<annotation cp="♯">música | nota | sustenido</annotation>
-		<annotation cp="♯" type="tts">↑↑↑</annotation>
+		<annotation cp="♯" type="tts">sustenido</annotation>
 		<annotation cp="😀">cara | cara sorridente | sorriso</annotation>
 		<annotation cp="😀" type="tts">cara sorridente</annotation>
 		<annotation cp="😃">aberta | boca | cara | cara sorridente com olhos bem abertos | sorriso</annotation>
@@ -925,7 +925,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💀">cara | caveira | corpo | monstro | morte</annotation>
 		<annotation cp="💀" type="tts">↑↑↑</annotation>
 		<annotation cp="☠">cara | caveira | caveira e ossos cruzados | corpo | monstro | morte | ossos cruzados</annotation>
-		<annotation cp="☠" type="tts">↑↑↑</annotation>
+		<annotation cp="☠" type="tts">caveira e ossos cruzados</annotation>
 		<annotation cp="💩">caca | cara | cocó | desenho | monstro | monte de cocó</annotation>
 		<annotation cp="💩" type="tts">monte de cocó</annotation>
 		<annotation cp="🤡">cara de palhaço | palhaço | rosto | rosto de palhaço</annotation>
@@ -1011,7 +1011,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤎">castanho | coração</annotation>
 		<annotation cp="🤎" type="tts">coração castanho</annotation>
 		<annotation cp="🖤">coração | malvado | mau | preto</annotation>
-		<annotation cp="🖤" type="tts">↑↑↑</annotation>
+		<annotation cp="🖤" type="tts">coração preto</annotation>
 		<annotation cp="🩶">ardósia | cinza | cinzento | coração | prata</annotation>
 		<annotation cp="🩶" type="tts">coração cinzento</annotation>
 		<annotation cp="🤍">↑↑↑</annotation>
@@ -1019,9 +1019,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💋">beijo | coração | lábios | marca | marca de beijo | romance</annotation>
 		<annotation cp="💋" type="tts">↑↑↑</annotation>
 		<annotation cp="💯">100 | cem | cem pontos | pontuação</annotation>
-		<annotation cp="💯" type="tts">↑↑↑</annotation>
+		<annotation cp="💯" type="tts">cem pontos</annotation>
 		<annotation cp="💢">desenho | enfurecido | irritado | símbolo de fúria | símbolo de raiva | zangado</annotation>
-		<annotation cp="💢" type="tts">↑↑↑</annotation>
+		<annotation cp="💢" type="tts">símbolo de raiva</annotation>
 		<annotation cp="💥">bum | colisão | desenho</annotation>
 		<annotation cp="💥" type="tts">↑↑↑</annotation>
 		<annotation cp="💫">desenho | estrela | tonto</annotation>
@@ -1030,7 +1030,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💦" type="tts">gotas de suor</annotation>
 		<annotation cp="💨">corrida | desenho | fugir | ir-se embora</annotation>
 		<annotation cp="💨" type="tts">ir-se embora</annotation>
-		<annotation cp="🕳">↑↑↑</annotation>
+		<annotation cp="🕳">buraco | buraco no chão</annotation>
 		<annotation cp="🕳" type="tts">↑↑↑</annotation>
 		<annotation cp="💬">balão | balão de fala | desenho | diálogo | fala</annotation>
 		<annotation cp="💬" type="tts">balão de fala</annotation>
@@ -1043,7 +1043,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💭">balão | balão de pensamento | desenho | pensamento</annotation>
 		<annotation cp="💭" type="tts">↑↑↑</annotation>
 		<annotation cp="💤">desenho | dormir | sesta | sono | zzz</annotation>
-		<annotation cp="💤" type="tts">↑↑↑</annotation>
+		<annotation cp="💤" type="tts">zzz</annotation>
 		<annotation cp="👋">acenar | aceno | corpo | mão | mão a acenar</annotation>
 		<annotation cp="👋" type="tts">mão a acenar</annotation>
 		<annotation cp="🤚">levantada | mão com costas para fora | palma</annotation>
@@ -1053,7 +1053,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✋">corpo | mão | mão erguida</annotation>
 		<annotation cp="✋" type="tts">mão erguida</annotation>
 		<annotation cp="🖖">corpo | dedo | mão | saudação vulcana | spock | vulcano</annotation>
-		<annotation cp="🖖" type="tts">↑↑↑</annotation>
+		<annotation cp="🖖" type="tts">saudação vulcana</annotation>
 		<annotation cp="🫱">↑↑↑</annotation>
 		<annotation cp="🫱" type="tts">↑↑↑</annotation>
 		<annotation cp="🫲">↑↑↑</annotation>
@@ -1073,7 +1073,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤏">mão a dar um beliscão</annotation>
 		<annotation cp="🤏" type="tts">mão a dar um beliscão</annotation>
 		<annotation cp="✌">corpo | mão | mão em V de vitória | v | vitória</annotation>
-		<annotation cp="✌" type="tts">↑↑↑</annotation>
+		<annotation cp="✌" type="tts">mão em V de vitória</annotation>
 		<annotation cp="🤞">cruzados | dedos | figas | mão | sorte</annotation>
 		<annotation cp="🤞" type="tts">figas</annotation>
 		<annotation cp="🫰">↑↑↑</annotation>
@@ -1099,9 +1099,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫵">apontar | indicador a apontar para o espetador | você</annotation>
 		<annotation cp="🫵" type="tts">indicador a apontar para o espetador</annotation>
 		<annotation cp="👍">corpo | gosto | mão | para cima | polegar | polegar para cima</annotation>
-		<annotation cp="👍" type="tts">↑↑↑</annotation>
+		<annotation cp="👍" type="tts">polegar para cima</annotation>
 		<annotation cp="👎">corpo | mão | não gosto | para baixo | polegar | polegar para baixo</annotation>
-		<annotation cp="👎" type="tts">↑↑↑</annotation>
+		<annotation cp="👎" type="tts">polegar para baixo</annotation>
 		<annotation cp="✊">cerrado | corpo | mão | punho | punho erguido | punho levantado | soco</annotation>
 		<annotation cp="✊" type="tts">punho erguido</annotation>
 		<annotation cp="👊">cerrado | corpo | mão | punho | punho a aproximar-se | punho fechado | soco</annotation>
@@ -1280,7 +1280,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑‍⚖" type="tts">juiz</annotation>
 		<annotation cp="👨‍⚖">balança | homem | juiz | juiz (homem) | justiça</annotation>
 		<annotation cp="👨‍⚖" type="tts">juiz (homem)</annotation>
-		<annotation cp="👩‍⚖">↑↑↑</annotation>
+		<annotation cp="👩‍⚖">balança | juíza | justiça | mulher</annotation>
 		<annotation cp="👩‍⚖" type="tts">↑↑↑</annotation>
 		<annotation cp="🧑‍🌾">agricultor | jardineiro | lavrador | rancheiro</annotation>
 		<annotation cp="🧑‍🌾" type="tts">lavrador</annotation>
@@ -1309,9 +1309,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑‍💼">arquiteto | empregado de escritório | gerente | negócios | trabalhador de escritório</annotation>
 		<annotation cp="🧑‍💼" type="tts">empregado de escritório</annotation>
 		<annotation cp="👨‍💼">administrador | empresa | funcionário de escritório | gerente | homem | trabalhador de escritório</annotation>
-		<annotation cp="👨‍💼" type="tts">↑↑↑</annotation>
+		<annotation cp="👨‍💼" type="tts">funcionário de escritório</annotation>
 		<annotation cp="👩‍💼">administradora | empresa | funcionária de escritório | gerente | mulher | trabalhadora de escritório</annotation>
-		<annotation cp="👩‍💼" type="tts">↑↑↑</annotation>
+		<annotation cp="👩‍💼" type="tts">funcionária de escritório</annotation>
 		<annotation cp="🧑‍🔬">↑↑↑</annotation>
 		<annotation cp="🧑‍🔬" type="tts">↑↑↑</annotation>
 		<annotation cp="👨‍🔬">biólogo | cientista (homem) | engenheiro | farmacêutico | matemático</annotation>
@@ -1353,7 +1353,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨‍🚒">bombeiro | carro de bombeiro | homem</annotation>
 		<annotation cp="👨‍🚒" type="tts">↑↑↑</annotation>
 		<annotation cp="👩‍🚒">bombeira | carro de bombeiro | mulher</annotation>
-		<annotation cp="👩‍🚒" type="tts">↑↑↑</annotation>
+		<annotation cp="👩‍🚒" type="tts">bombeira</annotation>
 		<annotation cp="👮">agente | agente da polícia | polícia</annotation>
 		<annotation cp="👮" type="tts">agente da polícia</annotation>
 		<annotation cp="👮‍♂">agente | bófia | chui | homem | polícia (homem)</annotation>
@@ -1373,7 +1373,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💂‍♀">guarda | mulher | segurança (mulher) | uniforme</annotation>
 		<annotation cp="💂‍♀" type="tts">segurança (mulher)</annotation>
 		<annotation cp="🥷">escondido | lutador | ninja | oculto</annotation>
-		<annotation cp="🥷" type="tts">↑↑↑</annotation>
+		<annotation cp="🥷" type="tts">ninja</annotation>
 		<annotation cp="👷">chapéu | construção | pedreiro | trabalhador | trabalhador da construção civil</annotation>
 		<annotation cp="👷" type="tts">pedreiro</annotation>
 		<annotation cp="👷‍♂">construção | homem | operário da construção civil | trabalhador | trabalhador da construção civil</annotation>
@@ -1382,28 +1382,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👷‍♀" type="tts">operária da construção civil</annotation>
 		<annotation cp="🫅">↑↑↑</annotation>
 		<annotation cp="🫅" type="tts">↑↑↑</annotation>
-		<annotation cp="🤴">↑↑↑</annotation>
+		<annotation cp="🤴">príncipe</annotation>
 		<annotation cp="🤴" type="tts">↑↑↑</annotation>
-		<annotation cp="👸">↑↑↑</annotation>
+		<annotation cp="👸">conto de fadas | fantasia | princesa</annotation>
 		<annotation cp="👸" type="tts">↑↑↑</annotation>
 		<annotation cp="👳">homem | pessoa com turbante | turbante</annotation>
-		<annotation cp="👳" type="tts">↑↑↑</annotation>
-		<annotation cp="👳‍♂">↑↑↑</annotation>
-		<annotation cp="👳‍♂" type="tts">↑↑↑</annotation>
-		<annotation cp="👳‍♀">↑↑↑</annotation>
-		<annotation cp="👳‍♀" type="tts">↑↑↑</annotation>
+		<annotation cp="👳" type="tts">pessoa com turbante</annotation>
+		<annotation cp="👳‍♂">homem | homem com turbante | turbante</annotation>
+		<annotation cp="👳‍♂" type="tts">homem com turbante</annotation>
+		<annotation cp="👳‍♀">mulher | mulher com turbante | turbante</annotation>
+		<annotation cp="👳‍♀" type="tts">mulher com turbante</annotation>
 		<annotation cp="👲">chapéu | chinês | homem | homem com chapéu chinês</annotation>
 		<annotation cp="👲" type="tts">homem com chapéu chinês</annotation>
 		<annotation cp="🧕">lenço | mulher com lenço islâmico | mulher com lenço na cabeça</annotation>
 		<annotation cp="🧕" type="tts">mulher com lenço na cabeça</annotation>
 		<annotation cp="🤵">noivo | pessoa | pessoa de smoking | smoking</annotation>
-		<annotation cp="🤵" type="tts">↑↑↑</annotation>
+		<annotation cp="🤵" type="tts">pessoa de smoking</annotation>
 		<annotation cp="🤵‍♂">↑↑↑</annotation>
-		<annotation cp="🤵‍♂" type="tts">↑↑↑</annotation>
+		<annotation cp="🤵‍♂" type="tts">homem de smoking</annotation>
 		<annotation cp="🤵‍♀">↑↑↑</annotation>
 		<annotation cp="🤵‍♀" type="tts">↑↑↑</annotation>
 		<annotation cp="👰">casamento | noiva | pessoa | pessoa com véu | véu</annotation>
-		<annotation cp="👰" type="tts">↑↑↑</annotation>
+		<annotation cp="👰" type="tts">pessoa com véu</annotation>
 		<annotation cp="👰‍♂">homem | homem com véu | véu</annotation>
 		<annotation cp="👰‍♂" type="tts">homem com véu</annotation>
 		<annotation cp="👰‍♀">mulher | mulher com véu | véu</annotation>
@@ -1432,7 +1432,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑‍🎄" type="tts">Sra. Natal</annotation>
 		<annotation cp="🦸">bom | herói | heroína | super-herói | superpoder</annotation>
 		<annotation cp="🦸" type="tts">↑↑↑</annotation>
-		<annotation cp="🦸‍♂">↑↑↑</annotation>
+		<annotation cp="🦸‍♂">bom | herói | homem | homem super-herói | superpoder</annotation>
 		<annotation cp="🦸‍♂" type="tts">↑↑↑</annotation>
 		<annotation cp="🦸‍♀">boa | herói | heroína | super-heroína | superpoder</annotation>
 		<annotation cp="🦸‍♀" type="tts">↑↑↑</annotation>
@@ -1446,8 +1446,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧙" type="tts">↑↑↑</annotation>
 		<annotation cp="🧙‍♂">bruxo | feiticeiro | homem mago</annotation>
 		<annotation cp="🧙‍♂" type="tts">↑↑↑</annotation>
-		<annotation cp="🧙‍♀">↑↑↑</annotation>
-		<annotation cp="🧙‍♀" type="tts">↑↑↑</annotation>
+		<annotation cp="🧙‍♀">bruxa | feiticeira | maga</annotation>
+		<annotation cp="🧙‍♀" type="tts">maga</annotation>
 		<annotation cp="🧚">↑↑↑</annotation>
 		<annotation cp="🧚" type="tts">↑↑↑</annotation>
 		<annotation cp="🧚‍♂">homem fada | homem-fada</annotation>
@@ -1466,7 +1466,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧜‍♂" type="tts">tritão (homem)</annotation>
 		<annotation cp="🧜‍♀">↑↑↑</annotation>
 		<annotation cp="🧜‍♀" type="tts">↑↑↑</annotation>
-		<annotation cp="🧝">↑↑↑</annotation>
+		<annotation cp="🧝">elfo | mágico</annotation>
 		<annotation cp="🧝" type="tts">↑↑↑</annotation>
 		<annotation cp="🧝‍♂">elfo (homem) | mágico</annotation>
 		<annotation cp="🧝‍♂" type="tts">elfo (homem)</annotation>
@@ -1528,8 +1528,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨‍🦼" type="tts">homem em cadeira de rodas elétrica</annotation>
 		<annotation cp="👩‍🦼">acessibilidade | cadeira de rodas | mulher | mulher em cadeira de rodas elétrica | mulher em cadeira de rodas motorizada</annotation>
 		<annotation cp="👩‍🦼" type="tts">mulher em cadeira de rodas elétrica</annotation>
-		<annotation cp="🧑‍🦽">↑↑↑</annotation>
-		<annotation cp="🧑‍🦽" type="tts">↑↑↑</annotation>
+		<annotation cp="🧑‍🦽">acessibilidade | cadeira de rodas | pessoa em cadeira de rodas manual</annotation>
+		<annotation cp="🧑‍🦽" type="tts">pessoa em cadeira de rodas manual</annotation>
 		<annotation cp="👨‍🦽">↑↑↑</annotation>
 		<annotation cp="👨‍🦽" type="tts">↑↑↑</annotation>
 		<annotation cp="👩‍🦽">↑↑↑</annotation>
@@ -1547,11 +1547,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🕴">fato | homem | homem em fato executivo a levitar | negócios</annotation>
 		<annotation cp="🕴" type="tts">homem em fato executivo a levitar</annotation>
 		<annotation cp="👯">coelhinho | dança | mulher | orelha | pessoas com orelhas de coelho | rapariga</annotation>
-		<annotation cp="👯" type="tts">↑↑↑</annotation>
+		<annotation cp="👯" type="tts">pessoas com orelhas de coelho</annotation>
 		<annotation cp="👯‍♂">dançarino | festa | homens | homens com orelhas de coelho | máscara</annotation>
-		<annotation cp="👯‍♂" type="tts">↑↑↑</annotation>
+		<annotation cp="👯‍♂" type="tts">homens com orelhas de coelho</annotation>
 		<annotation cp="👯‍♀">amigas | festa | máscara | mulheres | mulheres com orelhas de coelho</annotation>
-		<annotation cp="👯‍♀" type="tts">↑↑↑</annotation>
+		<annotation cp="👯‍♀" type="tts">mulheres com orelhas de coelho</annotation>
 		<annotation cp="🧖">banho turco | pessoa na sauna | sauna</annotation>
 		<annotation cp="🧖" type="tts">↑↑↑</annotation>
 		<annotation cp="🧖‍♂">banho turco | homem na sauna | sauna</annotation>
@@ -1573,13 +1573,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏂">esqui | neve | praticante de snowboard | snowboard</annotation>
 		<annotation cp="🏂" type="tts">↑↑↑</annotation>
 		<annotation cp="🏌">bola | golfe | golfista</annotation>
-		<annotation cp="🏌" type="tts">↑↑↑</annotation>
+		<annotation cp="🏌" type="tts">golfista</annotation>
 		<annotation cp="🏌‍♂">golfe | golfista | homem | homem a jogar golfe | taco</annotation>
 		<annotation cp="🏌‍♂" type="tts">homem a jogar golfe</annotation>
 		<annotation cp="🏌‍♀">golfe | golfista | mulher | mulher a jogar golfe | taco</annotation>
 		<annotation cp="🏌‍♀" type="tts">mulher a jogar golfe</annotation>
 		<annotation cp="🏄">surf | surfista</annotation>
-		<annotation cp="🏄" type="tts">↑↑↑</annotation>
+		<annotation cp="🏄" type="tts">surfista</annotation>
 		<annotation cp="🏄‍♂">homem | homem a surfar | prancha | surf | surfista</annotation>
 		<annotation cp="🏄‍♂" type="tts">homem a surfar</annotation>
 		<annotation cp="🏄‍♀">mulher | mulher a surfar | prancha | surf | surfista</annotation>
@@ -1650,11 +1650,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤹‍♂" type="tts">homem a fazer malabarismo</annotation>
 		<annotation cp="🤹‍♀">habilidade | malabarismo | malabarista | mulher | mulher a fazer malabarismo | multitarefa</annotation>
 		<annotation cp="🤹‍♀" type="tts">mulher a fazer malabarismo</annotation>
-		<annotation cp="🧘">↑↑↑</annotation>
+		<annotation cp="🧘">ioga | meditação | pessoa na posição de lótus | yoga</annotation>
 		<annotation cp="🧘" type="tts">↑↑↑</annotation>
-		<annotation cp="🧘‍♂">↑↑↑</annotation>
+		<annotation cp="🧘‍♂">homem na posição de lótus | ioga | meditação | yoga</annotation>
 		<annotation cp="🧘‍♂" type="tts">↑↑↑</annotation>
-		<annotation cp="🧘‍♀">↑↑↑</annotation>
+		<annotation cp="🧘‍♀">ioga | meditação | mulher na posição de lótus | yoga</annotation>
 		<annotation cp="🧘‍♀" type="tts">↑↑↑</annotation>
 		<annotation cp="🛀">banheira | banho | pessoa a tomar banho</annotation>
 		<annotation cp="🛀" type="tts">pessoa a tomar banho</annotation>
@@ -1689,9 +1689,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦱">afro | cabelo encaracolado | caracóis | encaracolado</annotation>
 		<annotation cp="🦱" type="tts">cabelo encaracolado</annotation>
 		<annotation cp="🦳">brancas | branco | cabelho grisalho | cabelo | velho</annotation>
-		<annotation cp="🦳" type="tts">↑↑↑</annotation>
+		<annotation cp="🦳" type="tts">cabelo branco</annotation>
 		<annotation cp="🦲">careca | nenhum cabelo | quimioterapia | rapado | raspado</annotation>
-		<annotation cp="🦲" type="tts">↑↑↑</annotation>
+		<annotation cp="🦲" type="tts">careca</annotation>
 		<annotation cp="🐵">cara | cara de macaco | macaco</annotation>
 		<annotation cp="🐵" type="tts">cara de macaco</annotation>
 		<annotation cp="🐒">macaco</annotation>
@@ -1824,11 +1824,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦡" type="tts">↑↑↑</annotation>
 		<annotation cp="🐾">patas | pegada | pegadas de patas</annotation>
 		<annotation cp="🐾" type="tts">pegadas de patas</annotation>
-		<annotation cp="🦃">↑↑↑</annotation>
+		<annotation cp="🦃">ave | peru</annotation>
 		<annotation cp="🦃" type="tts">↑↑↑</annotation>
-		<annotation cp="🐔">↑↑↑</annotation>
+		<annotation cp="🐔">ave | galinha</annotation>
 		<annotation cp="🐔" type="tts">↑↑↑</annotation>
-		<annotation cp="🐓">↑↑↑</annotation>
+		<annotation cp="🐓">ave | galo</annotation>
 		<annotation cp="🐓" type="tts">↑↑↑</annotation>
 		<annotation cp="🐣">bebé | ovo | pintainho | pintainho a sair do ovo</annotation>
 		<annotation cp="🐣" type="tts">pintainho a sair do ovo</annotation>
@@ -1852,7 +1852,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦉" type="tts">mocho</annotation>
 		<annotation cp="🦤">dodó | extinto | grande | Maurícias</annotation>
 		<annotation cp="🦤" type="tts">dodó</annotation>
-		<annotation cp="🪶">↑↑↑</annotation>
+		<annotation cp="🪶">leve | pássaro | pena | plumagem | voo</annotation>
 		<annotation cp="🪶" type="tts">↑↑↑</annotation>
 		<annotation cp="🦩">↑↑↑</annotation>
 		<annotation cp="🦩" type="tts">↑↑↑</annotation>
@@ -1865,7 +1865,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪿">ave | ganso | grasnido | pássaro | pateta</annotation>
 		<annotation cp="🪿" type="tts">↑↑↑</annotation>
 		<annotation cp="🐸">cara | sapo</annotation>
-		<annotation cp="🐸" type="tts">↑↑↑</annotation>
+		<annotation cp="🐸" type="tts">sapo</annotation>
 		<annotation cp="🐊">crocodilo | jacaré</annotation>
 		<annotation cp="🐊" type="tts">↑↑↑</annotation>
 		<annotation cp="🐢">cágado | tartaruga</annotation>
@@ -1915,7 +1915,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐜">formiga | insecto | inseto</annotation>
 		<annotation cp="🐜" type="tts">↑↑↑</annotation>
 		<annotation cp="🐝">abelha | insecto | inseto | mel</annotation>
-		<annotation cp="🐝" type="tts">↑↑↑</annotation>
+		<annotation cp="🐝" type="tts">abelha</annotation>
 		<annotation cp="🪲">↑↑↑</annotation>
 		<annotation cp="🪲" type="tts">↑↑↑</annotation>
 		<annotation cp="🐞">bicho | inseto | joaninha | voa voa</annotation>
@@ -1942,8 +1942,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💐" type="tts">ramo de flores</annotation>
 		<annotation cp="🌸">cerejeira | cerejeira em flor | em flor | flor | planta</annotation>
 		<annotation cp="🌸" type="tts">cerejeira em flor</annotation>
-		<annotation cp="💮">↑↑↑</annotation>
-		<annotation cp="💮" type="tts">↑↑↑</annotation>
+		<annotation cp="💮">flor | flor branca</annotation>
+		<annotation cp="💮" type="tts">flor branca</annotation>
 		<annotation cp="🪷">budismo | flor | hinduísmo | Índia | lótus | pureza | Vietname</annotation>
 		<annotation cp="🪷" type="tts">↑↑↑</annotation>
 		<annotation cp="🏵">planta | rosácea</annotation>
@@ -1952,7 +1952,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌹" type="tts">↑↑↑</annotation>
 		<annotation cp="🥀">flor | murcha</annotation>
 		<annotation cp="🥀" type="tts">↑↑↑</annotation>
-		<annotation cp="🌺">↑↑↑</annotation>
+		<annotation cp="🌺">flor | hibisco</annotation>
 		<annotation cp="🌺" type="tts">↑↑↑</annotation>
 		<annotation cp="🌻">flor | girassol | sol</annotation>
 		<annotation cp="🌻" type="tts">↑↑↑</annotation>
@@ -1971,7 +1971,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌳">árvore | árvore de folha caduca | caduca</annotation>
 		<annotation cp="🌳" type="tts">árvore de folha caduca</annotation>
 		<annotation cp="🌴">árvore | palma | palmeira | planta</annotation>
-		<annotation cp="🌴" type="tts">↑↑↑</annotation>
+		<annotation cp="🌴" type="tts">palmeira</annotation>
 		<annotation cp="🌵">cato | planta</annotation>
 		<annotation cp="🌵" type="tts">cato</annotation>
 		<annotation cp="🌾">arroz | espiga | feixe de arroz | planta</annotation>
@@ -2004,7 +2004,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">↑↑↑</annotation>
 		<annotation cp="🍋">citrino | fruta | limão</annotation>
 		<annotation cp="🍋" type="tts">↑↑↑</annotation>
-		<annotation cp="🍌">↑↑↑</annotation>
+		<annotation cp="🍌">banana | fruta</annotation>
 		<annotation cp="🍌" type="tts">↑↑↑</annotation>
 		<annotation cp="🍍">abacaxi | ananás | fruta</annotation>
 		<annotation cp="🍍" type="tts">ananás</annotation>
@@ -2012,11 +2012,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥭" type="tts">↑↑↑</annotation>
 		<annotation cp="🍎">fruta | maçã | pêro | vermelha</annotation>
 		<annotation cp="🍎" type="tts">↑↑↑</annotation>
-		<annotation cp="🍏">↑↑↑</annotation>
+		<annotation cp="🍏">fruta | maçã | verde</annotation>
 		<annotation cp="🍏" type="tts">↑↑↑</annotation>
-		<annotation cp="🍐">↑↑↑</annotation>
+		<annotation cp="🍐">fruta | pera</annotation>
 		<annotation cp="🍐" type="tts">↑↑↑</annotation>
-		<annotation cp="🍑">↑↑↑</annotation>
+		<annotation cp="🍑">fruta | pêssego</annotation>
 		<annotation cp="🍑" type="tts">↑↑↑</annotation>
 		<annotation cp="🍒">cereja | cerejas | fruta | ginja</annotation>
 		<annotation cp="🍒" type="tts">cerejas</annotation>
@@ -2066,7 +2066,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫚" type="tts">↑↑↑</annotation>
 		<annotation cp="🫛">ervilha | feijão | feijões | legume | leguminosa | vagem | vegetal</annotation>
 		<annotation cp="🫛" type="tts">↑↑↑</annotation>
-		<annotation cp="🍞">↑↑↑</annotation>
+		<annotation cp="🍞">pão | pão de forma</annotation>
 		<annotation cp="🍞" type="tts">↑↑↑</annotation>
 		<annotation cp="🥐">croissant | folhado | francês</annotation>
 		<annotation cp="🥐" type="tts">↑↑↑</annotation>
@@ -2103,7 +2103,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥪">pão | sande | sandes | sanduíche</annotation>
 		<annotation cp="🥪" type="tts">sandes</annotation>
 		<annotation cp="🌮">comida | mexicana | taco</annotation>
-		<annotation cp="🌮" type="tts">↑↑↑</annotation>
+		<annotation cp="🌮" type="tts">taco</annotation>
 		<annotation cp="🌯">burrito | comida | mexicana</annotation>
 		<annotation cp="🌯" type="tts">↑↑↑</annotation>
 		<annotation cp="🫔">mexicano | tamale | wrap</annotation>
@@ -2161,7 +2161,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥮">bolo da lua | festival | outono | yuèbǐng</annotation>
 		<annotation cp="🥮" type="tts">bolo da lua</annotation>
 		<annotation cp="🍡">dango | doce | espetada | espeto | japonesa | sobremesa</annotation>
-		<annotation cp="🍡" type="tts">↑↑↑</annotation>
+		<annotation cp="🍡" type="tts">dango</annotation>
 		<annotation cp="🥟">empanada | guioza | pierogi | ravioli</annotation>
 		<annotation cp="🥟" type="tts">ravioli</annotation>
 		<annotation cp="🥠">biscoito da sorte | bolinho | sorte</annotation>
@@ -2203,7 +2203,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍭">chupa-chupa | doce | guloseima | sobremesa</annotation>
 		<annotation cp="🍭" type="tts">chupa-chupa</annotation>
 		<annotation cp="🍮">doce | pudim | sobremesa</annotation>
-		<annotation cp="🍮" type="tts">↑↑↑</annotation>
+		<annotation cp="🍮" type="tts">pudim</annotation>
 		<annotation cp="🍯">doce | mel | pote | pote de mel</annotation>
 		<annotation cp="🍯" type="tts">↑↑↑</annotation>
 		<annotation cp="🍼">bebé | beber | biberão | leite</annotation>
@@ -2246,7 +2246,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧉" type="tts">↑↑↑</annotation>
 		<annotation cp="🧊">cubo de gelo | frio | gelo | icebergue</annotation>
 		<annotation cp="🧊" type="tts">gelo</annotation>
-		<annotation cp="🥢">↑↑↑</annotation>
+		<annotation cp="🥢">hashi | pauzinhos</annotation>
 		<annotation cp="🥢" type="tts">pauzinhos</annotation>
 		<annotation cp="🍽">cozinhar | faca | faca e garfo com prato | garfo | prato | talheres</annotation>
 		<annotation cp="🍽" type="tts">faca e garfo com prato</annotation>
@@ -2259,7 +2259,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫙">armazenar | condimento | frasco | molho | recipiente | vazio</annotation>
 		<annotation cp="🫙" type="tts">frasco</annotation>
 		<annotation cp="🏺">ânfora | beber | jarro | líquidos | utensílio</annotation>
-		<annotation cp="🏺" type="tts">↑↑↑</annotation>
+		<annotation cp="🏺" type="tts">ânfora</annotation>
 		<annotation cp="🌍">África | Europa | globo | globo com a Europa e a África visíveis | mundo | Terra</annotation>
 		<annotation cp="🌍" type="tts">globo com a Europa e a África visíveis</annotation>
 		<annotation cp="🌎">Américas | globo | globo com as Américas visíveis | mundo | Terra</annotation>
@@ -2271,7 +2271,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗺">mapa | mapa do mundo | mundo</annotation>
 		<annotation cp="🗺" type="tts">mapa do mundo</annotation>
 		<annotation cp="🗾">↑↑↑</annotation>
-		<annotation cp="🗾" type="tts">↑↑↑</annotation>
+		<annotation cp="🗾" type="tts">mapa do Japão</annotation>
 		<annotation cp="🧭">↑↑↑</annotation>
 		<annotation cp="🧭" type="tts">↑↑↑</annotation>
 		<annotation cp="🏔">frio | montanha | montanha coberta de neve | neve</annotation>
@@ -2291,8 +2291,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏝">deserta | ilha</annotation>
 		<annotation cp="🏝" type="tts">↑↑↑</annotation>
 		<annotation cp="🏞">parque | parque nacional</annotation>
-		<annotation cp="🏞" type="tts">↑↑↑</annotation>
-		<annotation cp="🏟">↑↑↑</annotation>
+		<annotation cp="🏞" type="tts">parque nacional</annotation>
+		<annotation cp="🏟">estádio</annotation>
 		<annotation cp="🏟" type="tts">↑↑↑</annotation>
 		<annotation cp="🏛">clássico | edifício clássico | edifício da antiguidade</annotation>
 		<annotation cp="🏛" type="tts">edifício clássico</annotation>
@@ -2307,13 +2307,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛖">↑↑↑</annotation>
 		<annotation cp="🛖" type="tts">↑↑↑</annotation>
 		<annotation cp="🏘">casas | edifícios | edifícios de habitação | habitação</annotation>
-		<annotation cp="🏘" type="tts">↑↑↑</annotation>
+		<annotation cp="🏘" type="tts">casas</annotation>
 		<annotation cp="🏚">abandonado | casa | casa abandonada | casa em ruínas</annotation>
 		<annotation cp="🏚" type="tts">casa em ruínas</annotation>
 		<annotation cp="🏠">casa | edifício | habitação</annotation>
 		<annotation cp="🏠" type="tts">↑↑↑</annotation>
 		<annotation cp="🏡">casa | casa com jardim | habitação | jardim | vivenda</annotation>
-		<annotation cp="🏡" type="tts">↑↑↑</annotation>
+		<annotation cp="🏡" type="tts">casa com jardim</annotation>
 		<annotation cp="🏢">edifício | edifício de escritórios | escritórios</annotation>
 		<annotation cp="🏢" type="tts">edifício de escritórios</annotation>
 		<annotation cp="🏣">correios | edifício | estação de correios japonesa | japonês</annotation>
@@ -2339,7 +2339,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏯">castelo | edifício | japonês</annotation>
 		<annotation cp="🏯" type="tts">↑↑↑</annotation>
 		<annotation cp="🏰">castelo | edifício | europeu</annotation>
-		<annotation cp="🏰" type="tts">↑↑↑</annotation>
+		<annotation cp="🏰" type="tts">castelo</annotation>
 		<annotation cp="💒">capela | casamento | romance</annotation>
 		<annotation cp="💒" type="tts">casamento</annotation>
 		<annotation cp="🗼">Tóquio | torre | torre de Tóquio</annotation>
@@ -2377,7 +2377,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌇">crepúsculo | edifícios | pôr do sol | pôr-do-sol | sol</annotation>
 		<annotation cp="🌇" type="tts">↑↑↑</annotation>
 		<annotation cp="🌉">noite | ponte | ponte à noite</annotation>
-		<annotation cp="🌉" type="tts">↑↑↑</annotation>
+		<annotation cp="🌉" type="tts">ponte à noite</annotation>
 		<annotation cp="♨">águas termais | nascentes | quente | termas | vapor</annotation>
 		<annotation cp="♨" type="tts">termas</annotation>
 		<annotation cp="🎠">carrossel | cavalo | cavalo de carrossel</annotation>
@@ -2441,7 +2441,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚘">aproximação | automóvel | automóvel a aproximar-se | carro | veículo</annotation>
 		<annotation cp="🚘" type="tts">automóvel a aproximar-se</annotation>
 		<annotation cp="🚙">recreio | SUV | veículo</annotation>
-		<annotation cp="🚙" type="tts">↑↑↑</annotation>
+		<annotation cp="🚙" type="tts">SUV</annotation>
 		<annotation cp="🛻">carrinha</annotation>
 		<annotation cp="🛻" type="tts">carrinha</annotation>
 		<annotation cp="🚚">camião | camião de entregas | entregas | veículo</annotation>
@@ -2534,7 +2534,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛰" type="tts">↑↑↑</annotation>
 		<annotation cp="🚀">espaço | foguetão | veículo</annotation>
 		<annotation cp="🚀" type="tts">foguetão</annotation>
-		<annotation cp="🛸">↑↑↑</annotation>
+		<annotation cp="🛸">disco voador | OVNI</annotation>
 		<annotation cp="🛸" type="tts">↑↑↑</annotation>
 		<annotation cp="🛎">campainha | campainha de receção | hotel | rececionista</annotation>
 		<annotation cp="🛎" type="tts">campainha de receção</annotation>
@@ -2643,7 +2643,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌠">cadente | espaço | estrela</annotation>
 		<annotation cp="🌠" type="tts">↑↑↑</annotation>
 		<annotation cp="🌌">espaço | via láctea</annotation>
-		<annotation cp="🌌" type="tts">↑↑↑</annotation>
+		<annotation cp="🌌" type="tts">via láctea</annotation>
 		<annotation cp="☁">meteorologia | nuvem | tempo</annotation>
 		<annotation cp="☁" type="tts">↑↑↑</annotation>
 		<annotation cp="⛅">meteorologia | nuvem | sol | sol atrás de nuvem</annotation>
@@ -2665,7 +2665,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌪">furacão | meteorologia | nuvem | tornado</annotation>
 		<annotation cp="🌪" type="tts">↑↑↑</annotation>
 		<annotation cp="🌫">meteorologia | névoa | nevoeiro | nuvem</annotation>
-		<annotation cp="🌫" type="tts">↑↑↑</annotation>
+		<annotation cp="🌫" type="tts">nevoeiro</annotation>
 		<annotation cp="🌬">cara | cara de vento | meteorologia | nuvem | soprar | vento</annotation>
 		<annotation cp="🌬" type="tts">cara de vento</annotation>
 		<annotation cp="🌀">ciclone | meteorologia | tufão</annotation>
@@ -2673,9 +2673,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌈">arco-íris | chuva | cores | meteorologia</annotation>
 		<annotation cp="🌈" type="tts">↑↑↑</annotation>
 		<annotation cp="🌂">acessório | chuva | guarda-chuva | guarda-chuva fechado | meteorologia</annotation>
-		<annotation cp="🌂" type="tts">↑↑↑</annotation>
+		<annotation cp="🌂" type="tts">guarda-chuva fechado</annotation>
 		<annotation cp="☂">acessório | chuva | guarda-chuva | meteorologia</annotation>
-		<annotation cp="☂" type="tts">↑↑↑</annotation>
+		<annotation cp="☂" type="tts">guarda-chuva</annotation>
 		<annotation cp="☔">acessório | chuva | gotas | guarda-chuva | guarda-chuva com gotas de chuva | meteorologia</annotation>
 		<annotation cp="☔" type="tts">guarda-chuva com gotas de chuva</annotation>
 		<annotation cp="⛱">chuva | guarda-sol | guarda-sol na areia | meteorologia | sol</annotation>
@@ -2685,15 +2685,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❄">floco de neve | frio | meteorologia | neve</annotation>
 		<annotation cp="❄" type="tts">↑↑↑</annotation>
 		<annotation cp="☃">boneco de neve | frio | meteorologia | neve</annotation>
-		<annotation cp="☃" type="tts">↑↑↑</annotation>
+		<annotation cp="☃" type="tts">boneco de neve</annotation>
 		<annotation cp="⛄">boneco de neve | boneco de neve sem neve | frio | meteorologia | neve</annotation>
-		<annotation cp="⛄" type="tts">↑↑↑</annotation>
+		<annotation cp="⛄" type="tts">boneco de neve sem neve</annotation>
 		<annotation cp="☄">astro | cometa | espaço</annotation>
 		<annotation cp="☄" type="tts">↑↑↑</annotation>
 		<annotation cp="🔥">↑↑↑</annotation>
 		<annotation cp="🔥" type="tts">↑↑↑</annotation>
 		<annotation cp="💧">desenho | frio | gota | meteorologia | suor</annotation>
-		<annotation cp="💧" type="tts">↑↑↑</annotation>
+		<annotation cp="💧" type="tts">gota</annotation>
 		<annotation cp="🌊">água | meteorologia | oceano | onda</annotation>
 		<annotation cp="🌊" type="tts">↑↑↑</annotation>
 		<annotation cp="🎃">abóbora | abóbora de halloween | celebração | dia das bruxas | halloween</annotation>
@@ -2719,7 +2719,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎍">bambu | celebração | decoração com bambu | japonês | planta</annotation>
 		<annotation cp="🎍" type="tts">decoração com bambu</annotation>
 		<annotation cp="🎎">bonecas | bonecas japonesas | celebração | festival | japonês</annotation>
-		<annotation cp="🎎" type="tts">↑↑↑</annotation>
+		<annotation cp="🎎" type="tts">bonecas japonesas</annotation>
 		<annotation cp="🎏">bandeirola | bandeirola de carpas | carpas | celebração</annotation>
 		<annotation cp="🎏" type="tts">bandeirola de carpas</annotation>
 		<annotation cp="🎐">celebração | espanta-espíritos | sino | vento</annotation>
@@ -2817,11 +2817,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔮">bola | bola de cristal | conto de fadas | cristal | fantasia | instrumento | sorte</annotation>
 		<annotation cp="🔮" type="tts">↑↑↑</annotation>
 		<annotation cp="🪄">bruxa | feiticeiro | magia | varinha mágica</annotation>
-		<annotation cp="🪄" type="tts">↑↑↑</annotation>
+		<annotation cp="🪄" type="tts">varinha mágica</annotation>
 		<annotation cp="🎮">comando | comando de consola | comando de jogos | jogo | videojogo</annotation>
 		<annotation cp="🎮" type="tts">comando de consola</annotation>
 		<annotation cp="🕹">jogo | joystick | videojogo</annotation>
-		<annotation cp="🕹" type="tts">↑↑↑</annotation>
+		<annotation cp="🕹" type="tts">joystick</annotation>
 		<annotation cp="🎰">jogo | slot | slot machine</annotation>
 		<annotation cp="🎰" type="tts">slot machine</annotation>
 		<annotation cp="🎲">dado | jogo | valor</annotation>
@@ -2849,7 +2849,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🃏">carta | jogar | jogo | jóquer</annotation>
 		<annotation cp="🃏" type="tts">jóquer</annotation>
 		<annotation cp="🀄">dragão vermelho de mahjong | jogo | mahjong | vermelho</annotation>
-		<annotation cp="🀄" type="tts">↑↑↑</annotation>
+		<annotation cp="🀄" type="tts">dragão vermelho de mahjong</annotation>
 		<annotation cp="🎴">baralho de cartas com flores | carta | flor | japonês | jogar | jogo</annotation>
 		<annotation cp="🎴" type="tts">baralho de cartas com flores</annotation>
 		<annotation cp="🎭">artes | máscaras | performativas | teatro</annotation>
@@ -2885,17 +2885,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧣">cachecol | écharpe | lenço | pescoço</annotation>
 		<annotation cp="🧣" type="tts">lenço</annotation>
 		<annotation cp="🧤">luva | luvas | mão</annotation>
-		<annotation cp="🧤" type="tts">↑↑↑</annotation>
+		<annotation cp="🧤" type="tts">luvas</annotation>
 		<annotation cp="🧥">casaco | jaqueta</annotation>
-		<annotation cp="🧥" type="tts">↑↑↑</annotation>
+		<annotation cp="🧥" type="tts">casaco</annotation>
 		<annotation cp="🧦">meia | meias | peúgas</annotation>
-		<annotation cp="🧦" type="tts">↑↑↑</annotation>
+		<annotation cp="🧦" type="tts">meias</annotation>
 		<annotation cp="👗">vestido | vestuário</annotation>
 		<annotation cp="👗" type="tts">↑↑↑</annotation>
 		<annotation cp="👘">quimono | vestuário</annotation>
 		<annotation cp="👘" type="tts">↑↑↑</annotation>
 		<annotation cp="🥻">sari | vestido | vestuário</annotation>
-		<annotation cp="🥻" type="tts">↑↑↑</annotation>
+		<annotation cp="🥻" type="tts">sari</annotation>
 		<annotation cp="🩱">fato de banho</annotation>
 		<annotation cp="🩱" type="tts">fato de banho</annotation>
 		<annotation cp="🩲">fato de banho | roupa interior | slip de banho</annotation>
@@ -2947,7 +2947,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎓">acessório | celebração | chapéu | chapéu de finalista | chapéu de graduação | formatura | licenciatura</annotation>
 		<annotation cp="🎓" type="tts">chapéu de graduação</annotation>
 		<annotation cp="🧢">boné | chapéu | chapéu de baseball</annotation>
-		<annotation cp="🧢" type="tts">↑↑↑</annotation>
+		<annotation cp="🧢" type="tts">boné</annotation>
 		<annotation cp="🪖">↑↑↑</annotation>
 		<annotation cp="🪖" type="tts">↑↑↑</annotation>
 		<annotation cp="⛑">capacete | capacete de socorrista | cara | chapéu | cruz | socorro</annotation>
@@ -2959,7 +2959,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💍">↑↑↑</annotation>
 		<annotation cp="💍" type="tts">↑↑↑</annotation>
 		<annotation cp="💎">diamante | joia | jóia | pedra preciosa | preciosa</annotation>
-		<annotation cp="💎" type="tts">↑↑↑</annotation>
+		<annotation cp="💎" type="tts">pedra preciosa</annotation>
 		<annotation cp="🔇">altifalante | altifalante desligado | sem som | silêncio | silencioso | volume</annotation>
 		<annotation cp="🔇" type="tts">altifalante desligado</annotation>
 		<annotation cp="🔈">altifalante baixo | volume</annotation>
@@ -2984,26 +2984,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎵" type="tts">↑↑↑</annotation>
 		<annotation cp="🎶">música | notas | notas musicais</annotation>
 		<annotation cp="🎶" type="tts">↑↑↑</annotation>
-		<annotation cp="🎙">↑↑↑</annotation>
-		<annotation cp="🎙" type="tts">↑↑↑</annotation>
+		<annotation cp="🎙">estúdio | microfone | microfone de estúdio | música</annotation>
+		<annotation cp="🎙" type="tts">microfone de estúdio</annotation>
 		<annotation cp="🎚">controlo de nível | música | nível | seletor</annotation>
 		<annotation cp="🎚" type="tts">controlo de nível</annotation>
 		<annotation cp="🎛">botões | botões de controlo | comando | música</annotation>
 		<annotation cp="🎛" type="tts">botões de controlo</annotation>
 		<annotation cp="🎤">karaoke | microfone</annotation>
-		<annotation cp="🎤" type="tts">↑↑↑</annotation>
+		<annotation cp="🎤" type="tts">microfone</annotation>
 		<annotation cp="🎧">auscultador | intra-auricular</annotation>
 		<annotation cp="🎧" type="tts">auscultador</annotation>
 		<annotation cp="📻">música | rádio</annotation>
 		<annotation cp="📻" type="tts">↑↑↑</annotation>
 		<annotation cp="🎷">instrumento | música | saxofone</annotation>
-		<annotation cp="🎷" type="tts">↑↑↑</annotation>
+		<annotation cp="🎷" type="tts">saxofone</annotation>
 		<annotation cp="🪗">acordeão</annotation>
 		<annotation cp="🪗" type="tts">↑↑↑</annotation>
 		<annotation cp="🎸">guitarra elétrica | instrumento | música</annotation>
 		<annotation cp="🎸" type="tts">guitarra elétrica</annotation>
 		<annotation cp="🎹">instrumento | música | piano | teclado | teclado musical</annotation>
-		<annotation cp="🎹" type="tts">↑↑↑</annotation>
+		<annotation cp="🎹" type="tts">teclado musical</annotation>
 		<annotation cp="🎺">instrumento | música | trompete</annotation>
 		<annotation cp="🎺" type="tts">↑↑↑</annotation>
 		<annotation cp="🎻">instrumento | música | violino</annotation>
@@ -3047,7 +3047,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🖱">computador | rato | rato de computador</annotation>
 		<annotation cp="🖱" type="tts">rato de computador</annotation>
 		<annotation cp="🖲">computador | informática | trackball</annotation>
-		<annotation cp="🖲" type="tts">↑↑↑</annotation>
+		<annotation cp="🖲" type="tts">trackball</annotation>
 		<annotation cp="💽">computador | disco | minidisco | ótico</annotation>
 		<annotation cp="💽" type="tts">minidisco</annotation>
 		<annotation cp="💾">computador | disquete | floppy</annotation>
@@ -3080,10 +3080,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔍" type="tts">lupa inclinada para a esquerda</annotation>
 		<annotation cp="🔎">ferramenta | lupa | lupa inclinada para a direita | pesquisar</annotation>
 		<annotation cp="🔎" type="tts">lupa inclinada para a direita</annotation>
-		<annotation cp="🕯">↑↑↑</annotation>
-		<annotation cp="🕯" type="tts">↑↑↑</annotation>
+		<annotation cp="🕯">luz | vela</annotation>
+		<annotation cp="🕯" type="tts">vela</annotation>
 		<annotation cp="💡">desenho | eletricidade | ideia | lâmpada | luz</annotation>
-		<annotation cp="💡" type="tts">↑↑↑</annotation>
+		<annotation cp="💡" type="tts">lâmpada</annotation>
 		<annotation cp="🔦">eletricidade | lanterna | luz | utensílio</annotation>
 		<annotation cp="🔦" type="tts">↑↑↑</annotation>
 		<annotation cp="🏮">bar | japonês | lanterna | lanterna de papel vermelha | luz | vermelha</annotation>
@@ -3092,13 +3092,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪔" type="tts">lâmpada diya</annotation>
 		<annotation cp="📔">bloco de notas | bloco de notas com capa decorada | capa | decorada | livro</annotation>
 		<annotation cp="📔" type="tts">bloco de notas com capa decorada</annotation>
-		<annotation cp="📕">↑↑↑</annotation>
+		<annotation cp="📕">fechado | livro</annotation>
 		<annotation cp="📕" type="tts">↑↑↑</annotation>
-		<annotation cp="📖">↑↑↑</annotation>
+		<annotation cp="📖">aberto | livro</annotation>
 		<annotation cp="📖" type="tts">↑↑↑</annotation>
-		<annotation cp="📗">↑↑↑</annotation>
+		<annotation cp="📗">livro | verde</annotation>
 		<annotation cp="📗" type="tts">↑↑↑</annotation>
-		<annotation cp="📘">↑↑↑</annotation>
+		<annotation cp="📘">azul | livro</annotation>
 		<annotation cp="📘" type="tts">↑↑↑</annotation>
 		<annotation cp="📙">cor de laranja | livro | livro cor de laranja</annotation>
 		<annotation cp="📙" type="tts">livro cor de laranja</annotation>
@@ -3151,7 +3151,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📨">carta | chegada | correio | email | envelope | envelope a chegar | receber</annotation>
 		<annotation cp="📨" type="tts">envelope a chegar</annotation>
 		<annotation cp="📩">carta | correio | email | envelope | envelope com seta | enviado | para baixo | saída | seta</annotation>
-		<annotation cp="📩" type="tts">↑↑↑</annotation>
+		<annotation cp="📩" type="tts">envelope com seta</annotation>
 		<annotation cp="📤">bandeja | bandeja de correio a enviar | carta | correio | enviado | enviar</annotation>
 		<annotation cp="📤" type="tts">bandeja de correio a enviar</annotation>
 		<annotation cp="📥">bandeja | bandeja de correio recebido | carta | correio | receber | recebido</annotation>
@@ -3176,7 +3176,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✒" type="tts">aparo preto</annotation>
 		<annotation cp="🖋">caneta | caneta de tinta permanente | tinta permanente</annotation>
 		<annotation cp="🖋" type="tts">caneta de tinta permanente</annotation>
-		<annotation cp="🖊">↑↑↑</annotation>
+		<annotation cp="🖊">caneta | esferográfica</annotation>
 		<annotation cp="🖊" type="tts">↑↑↑</annotation>
 		<annotation cp="🖌">↑↑↑</annotation>
 		<annotation cp="🖌" type="tts">↑↑↑</annotation>
@@ -3223,14 +3223,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📐">esquadro | triângulo</annotation>
 		<annotation cp="📐" type="tts">esquadro</annotation>
 		<annotation cp="✂">tesoura | utensílio</annotation>
-		<annotation cp="✂" type="tts">↑↑↑</annotation>
+		<annotation cp="✂" type="tts">tesoura</annotation>
 		<annotation cp="🗃">arquivo | caixa | caixa de arquivo | fichas</annotation>
 		<annotation cp="🗃" type="tts">caixa de arquivo</annotation>
 		<annotation cp="🗄">armário | arquivo | ficheiro</annotation>
 		<annotation cp="🗄" type="tts">ficheiro</annotation>
 		<annotation cp="🗑">caixote do lixo | cesto do lixo</annotation>
 		<annotation cp="🗑" type="tts">cesto do lixo</annotation>
-		<annotation cp="🔒">↑↑↑</annotation>
+		<annotation cp="🔒">cadeado | fechado | trancado</annotation>
 		<annotation cp="🔒" type="tts">↑↑↑</annotation>
 		<annotation cp="🔓">aberto | cadeado</annotation>
 		<annotation cp="🔓" type="tts">↑↑↑</annotation>
@@ -3245,10 +3245,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔨">↑↑↑</annotation>
 		<annotation cp="🔨" type="tts">↑↑↑</annotation>
 		<annotation cp="🪓">cortar | cutelo | lenha | machado | rachar</annotation>
-		<annotation cp="🪓" type="tts">↑↑↑</annotation>
-		<annotation cp="⛏">↑↑↑</annotation>
+		<annotation cp="🪓" type="tts">machado</annotation>
+		<annotation cp="⛏">ferramenta | mineração | picareta</annotation>
 		<annotation cp="⛏" type="tts">↑↑↑</annotation>
-		<annotation cp="⚒">↑↑↑</annotation>
+		<annotation cp="⚒">ferramenta | martelo | martelo e picareta | picareta</annotation>
 		<annotation cp="⚒" type="tts">↑↑↑</annotation>
 		<annotation cp="🛠">chave inglesa | ferramenta | martelo | martelo e chave inglesa</annotation>
 		<annotation cp="🛠" type="tts">martelo e chave inglesa</annotation>
@@ -3282,8 +3282,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">bengala para invisuais</annotation>
 		<annotation cp="🔗">corrente | ligação</annotation>
 		<annotation cp="🔗" type="tts">ligação</annotation>
-		<annotation cp="⛓">↑↑↑</annotation>
-		<annotation cp="⛓" type="tts">↑↑↑</annotation>
+		<annotation cp="⛓">corrente | correntes</annotation>
+		<annotation cp="⛓" type="tts">correntes</annotation>
 		<annotation cp="🪝">gancho</annotation>
 		<annotation cp="🪝" type="tts">↑↑↑</annotation>
 		<annotation cp="🧰">caixa | ferramenta | mala de ferramentas | mecânico</annotation>
@@ -3309,7 +3309,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💉">agulha | doente | injeção | medicamento | remédio | seringa</annotation>
 		<annotation cp="💉" type="tts">↑↑↑</annotation>
 		<annotation cp="🩸">↑↑↑</annotation>
-		<annotation cp="🩸" type="tts">↑↑↑</annotation>
+		<annotation cp="🩸" type="tts">gota de sangue</annotation>
 		<annotation cp="💊">comprimido | doente | medicina | médico</annotation>
 		<annotation cp="💊" type="tts">↑↑↑</annotation>
 		<annotation cp="🩹">penso | penso rápido</annotation>
@@ -3317,14 +3317,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🩼">apoio para mobilidade | bengala | canadiana | incapacidade | magoado | muleta</annotation>
 		<annotation cp="🩼" type="tts">canadiana</annotation>
 		<annotation cp="🩺">↑↑↑</annotation>
-		<annotation cp="🩺" type="tts">↑↑↑</annotation>
+		<annotation cp="🩺" type="tts">estetoscópio</annotation>
 		<annotation cp="🩻">esqueleto | médico | ossos | raio X | raios X</annotation>
 		<annotation cp="🩻" type="tts">raios X</annotation>
 		<annotation cp="🚪">↑↑↑</annotation>
 		<annotation cp="🚪" type="tts">↑↑↑</annotation>
 		<annotation cp="🛗">↑↑↑</annotation>
 		<annotation cp="🛗" type="tts">↑↑↑</annotation>
-		<annotation cp="🪞">↑↑↑</annotation>
+		<annotation cp="🪞">espéculo | espelho | refletor | reflexão</annotation>
 		<annotation cp="🪞" type="tts">↑↑↑</annotation>
 		<annotation cp="🪟">↑↑↑</annotation>
 		<annotation cp="🪟" type="tts">↑↑↑</annotation>
@@ -3333,7 +3333,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛋">candeeiro | hotel | sofá | sofá e candeeiro</annotation>
 		<annotation cp="🛋" type="tts">sofá e candeeiro</annotation>
 		<annotation cp="🪑">↑↑↑</annotation>
-		<annotation cp="🪑" type="tts">↑↑↑</annotation>
+		<annotation cp="🪑" type="tts">cadeira</annotation>
 		<annotation cp="🚽">casa de banho | sanita</annotation>
 		<annotation cp="🚽" type="tts">sanita</annotation>
 		<annotation cp="🪠">desentupidor</annotation>
@@ -3370,10 +3370,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧯" type="tts">extintor</annotation>
 		<annotation cp="🛒">carrinho | carrinho de compras | compras</annotation>
 		<annotation cp="🛒" type="tts">↑↑↑</annotation>
-		<annotation cp="🚬">↑↑↑</annotation>
-		<annotation cp="🚬" type="tts">↑↑↑</annotation>
+		<annotation cp="🚬">cigarro | fumar</annotation>
+		<annotation cp="🚬" type="tts">cigarro</annotation>
 		<annotation cp="⚰">caixão | morte</annotation>
-		<annotation cp="⚰" type="tts">↑↑↑</annotation>
+		<annotation cp="⚰" type="tts">caixão</annotation>
 		<annotation cp="🪦">↑↑↑</annotation>
 		<annotation cp="🪦" type="tts">↑↑↑</annotation>
 		<annotation cp="⚱">funeral | morte | urna</annotation>
@@ -3381,21 +3381,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧿">amuleto | mau-olhado | missanga | nazar | olho grego | olho turco | talismã</annotation>
 		<annotation cp="🧿" type="tts">↑↑↑</annotation>
 		<annotation cp="🪬">amuleto | chamsá | hamsá | mão | mão de Deus | mão de Fátima | proteção</annotation>
-		<annotation cp="🪬" type="tts">↑↑↑</annotation>
+		<annotation cp="🪬" type="tts">hamsá</annotation>
 		<annotation cp="🗿">cara | estátua | ilha de páscoa | moai</annotation>
-		<annotation cp="🗿" type="tts">↑↑↑</annotation>
+		<annotation cp="🗿" type="tts">moai</annotation>
 		<annotation cp="🪧">manifestação | placar | placard | protesto</annotation>
 		<annotation cp="🪧" type="tts">placard</annotation>
 		<annotation cp="🪪">carta de condução | cartão de identificação | credenciais | ID | passe | segurança</annotation>
-		<annotation cp="🪪" type="tts">↑↑↑</annotation>
+		<annotation cp="🪪" type="tts">cartão de identificação</annotation>
 		<annotation cp="🏧">banco | caixa | sinal de caixa automática | sinal de multibanco</annotation>
 		<annotation cp="🏧" type="tts">sinal de caixa automática</annotation>
 		<annotation cp="🚮">cesto do lixo | lixo | sinal de lixo no caixote do lixo</annotation>
 		<annotation cp="🚮" type="tts">sinal de lixo no caixote do lixo</annotation>
-		<annotation cp="🚰">↑↑↑</annotation>
+		<annotation cp="🚰">água | beber | potável</annotation>
 		<annotation cp="🚰" type="tts">↑↑↑</annotation>
 		<annotation cp="♿">acessibilidade | símbolo de cadeira de rodas</annotation>
-		<annotation cp="♿" type="tts">↑↑↑</annotation>
+		<annotation cp="♿" type="tts">símbolo de cadeira de rodas</annotation>
 		<annotation cp="🚹">casa de banho para homens | homem | quarto de banho | wc</annotation>
 		<annotation cp="🚹" type="tts">casa de banho para homens</annotation>
 		<annotation cp="🚺">casa de banho para senhoras | quarto de banho | senhora | wc</annotation>
@@ -3405,7 +3405,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚼">bebé | símbolo de fraldário | trocar fraldas</annotation>
 		<annotation cp="🚼" type="tts">símbolo de fraldário</annotation>
 		<annotation cp="🚾">casa de banho | wc | WC</annotation>
-		<annotation cp="🚾" type="tts">↑↑↑</annotation>
+		<annotation cp="🚾" type="tts">WC</annotation>
 		<annotation cp="🛂">controlo | controlo de passaportes | passaporte</annotation>
 		<annotation cp="🛂" type="tts">controlo de passaportes</annotation>
 		<annotation cp="🛃">aduana | alfândega</annotation>
@@ -3413,17 +3413,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛄">bagagem | recolha | recolha de bagagem</annotation>
 		<annotation cp="🛄" type="tts">recolha de bagagem</annotation>
 		<annotation cp="🛅">bagagem | cacifo | depósito de bagagem</annotation>
-		<annotation cp="🛅" type="tts">↑↑↑</annotation>
+		<annotation cp="🛅" type="tts">depósito de bagagem</annotation>
 		<annotation cp="⚠">aviso</annotation>
-		<annotation cp="⚠" type="tts">↑↑↑</annotation>
+		<annotation cp="⚠" type="tts">aviso</annotation>
 		<annotation cp="🚸">atravessar | crianças | crianças a atravessar | passagem de crianças | peões | trânsito</annotation>
 		<annotation cp="🚸" type="tts">passagem de crianças</annotation>
 		<annotation cp="⛔">entrada | não | proibida | proibida a entrada | transitar | trânsito</annotation>
 		<annotation cp="⛔" type="tts">proibida a entrada</annotation>
 		<annotation cp="🚫">entrada | não | proibida | proibido</annotation>
-		<annotation cp="🚫" type="tts">↑↑↑</annotation>
+		<annotation cp="🚫" type="tts">proibido</annotation>
 		<annotation cp="🚳">bicicleta | não | proibido | proibido andar de bicicleta | veículo</annotation>
-		<annotation cp="🚳" type="tts">↑↑↑</annotation>
+		<annotation cp="🚳" type="tts">proibido andar de bicicleta</annotation>
 		<annotation cp="🚭">não | não fumadores | não fumar | proibido</annotation>
 		<annotation cp="🚭" type="tts">não fumadores</annotation>
 		<annotation cp="🚯">lixo | não | não colocar lixo | não deitar lixo para o chão | proibido</annotation>
@@ -3437,13 +3437,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔞">18 | dezoito | menores | proibido a menores de dezoito anos | restrição</annotation>
 		<annotation cp="🔞" type="tts">proibido a menores de dezoito anos</annotation>
 		<annotation cp="☢">radioativo | sinal</annotation>
-		<annotation cp="☢" type="tts">↑↑↑</annotation>
+		<annotation cp="☢" type="tts">radioativo</annotation>
 		<annotation cp="☣">biológico | perigo biológico | risco</annotation>
 		<annotation cp="☣" type="tts">perigo biológico</annotation>
 		<annotation cp="⬆">cardeal | direção | norte | seta | seta para cima</annotation>
 		<annotation cp="⬆" type="tts">↑↑↑</annotation>
 		<annotation cp="↗">direção | intermédio | nordeste | seta | seta para cima e para a direita</annotation>
-		<annotation cp="↗" type="tts">↑↑↑</annotation>
+		<annotation cp="↗" type="tts">seta para cima e para a direita</annotation>
 		<annotation cp="➡">cardeal | direção | este | seta | seta para a direita</annotation>
 		<annotation cp="➡" type="tts">↑↑↑</annotation>
 		<annotation cp="↘">direção | intermédio | seta | seta para a direita e para baixo | sudeste</annotation>
@@ -3451,11 +3451,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⬇">cardeal | direção | para baixo | seta | seta para baixo | sul</annotation>
 		<annotation cp="⬇" type="tts">↑↑↑</annotation>
 		<annotation cp="↙">direção | intermédio | seta | seta para baixo e para a esquerda | sudoeste</annotation>
-		<annotation cp="↙" type="tts">↑↑↑</annotation>
+		<annotation cp="↙" type="tts">seta para baixo e para a esquerda</annotation>
 		<annotation cp="⬅">cardeal | direção | oeste | seta | seta para a esquerda</annotation>
 		<annotation cp="⬅" type="tts">↑↑↑</annotation>
 		<annotation cp="↖">direção | intermédio | noroeste | seta | seta para cima e para a esquerda</annotation>
-		<annotation cp="↖" type="tts">↑↑↑</annotation>
+		<annotation cp="↖" type="tts">seta para cima e para a esquerda</annotation>
 		<annotation cp="↕">para baixo | para cima | seta | seta para cima e para baixo</annotation>
 		<annotation cp="↕" type="tts">↑↑↑</annotation>
 		<annotation cp="↔">direita | esquerda | seta | seta para a esquerda e para a direita</annotation>
@@ -3485,7 +3485,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔝">parte superior | seta | seta TOP</annotation>
 		<annotation cp="🔝" type="tts">seta TOP</annotation>
 		<annotation cp="🛐">↑↑↑</annotation>
-		<annotation cp="🛐" type="tts">↑↑↑</annotation>
+		<annotation cp="🛐" type="tts">local de culto</annotation>
 		<annotation cp="⚛">ateísta | símbolo do átomo</annotation>
 		<annotation cp="⚛" type="tts">símbolo do átomo</annotation>
 		<annotation cp="🕉">hinduísmo | om | religião</annotation>
@@ -3495,17 +3495,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☸">↑↑↑</annotation>
 		<annotation cp="☸" type="tts">↑↑↑</annotation>
 		<annotation cp="☯">religião | taoismo | taoista | yang | yin</annotation>
-		<annotation cp="☯" type="tts">↑↑↑</annotation>
+		<annotation cp="☯" type="tts">yin yang</annotation>
 		<annotation cp="✝">cristã | cruz | cruz latina | religião</annotation>
 		<annotation cp="✝" type="tts">↑↑↑</annotation>
 		<annotation cp="☦">cristã | cruz | ortodoxa | religião</annotation>
 		<annotation cp="☦" type="tts">↑↑↑</annotation>
 		<annotation cp="☪">estrela e lua crescente | Islão | muçulmano | religião</annotation>
-		<annotation cp="☪" type="tts">↑↑↑</annotation>
+		<annotation cp="☪" type="tts">estrela e lua crescente</annotation>
 		<annotation cp="☮">paz | símbolo da paz</annotation>
 		<annotation cp="☮" type="tts">↑↑↑</annotation>
 		<annotation cp="🕎">↑↑↑</annotation>
-		<annotation cp="🕎" type="tts">↑↑↑</annotation>
+		<annotation cp="🕎" type="tts">menorá</annotation>
 		<annotation cp="🔯">estrela | estrela de seis pontas com ponto | sorte</annotation>
 		<annotation cp="🔯" type="tts">estrela de seis pontas com ponto</annotation>
 		<annotation cp="🪯">khanda | religião | sique | siquismo</annotation>
@@ -3573,7 +3573,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⏏">botão de ejeção | ejecção | ejectar | ejetar</annotation>
 		<annotation cp="⏏" type="tts">botão de ejeção</annotation>
 		<annotation cp="🎦">câmara | cinema | filme</annotation>
-		<annotation cp="🎦" type="tts">↑↑↑</annotation>
+		<annotation cp="🎦" type="tts">cinema</annotation>
 		<annotation cp="🔅">baixo | botão de escurecer | brilho | escurecer</annotation>
 		<annotation cp="🔅" type="tts">botão de escurecer</annotation>
 		<annotation cp="🔆">botão de brilho | brilhante | brilho | luminosidade</annotation>
@@ -3609,17 +3609,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⁉">! | !? | ? | exclamação | interrogação | pergunta | pontos de exclamação e de interrogação | pontuação</annotation>
 		<annotation cp="⁉" type="tts">pontos de exclamação e de interrogação</annotation>
 		<annotation cp="❓">? | interrogação | pergunta | ponto de interrogação | ponto de interrogação vermelho | pontuação</annotation>
-		<annotation cp="❓" type="tts">↑↑↑</annotation>
+		<annotation cp="❓" type="tts">ponto de interrogação vermelho</annotation>
 		<annotation cp="❔">? | delineado | pergunta | ponto de interrogação branco | pontuação | sinal | sinal de interrogação branco</annotation>
 		<annotation cp="❔" type="tts">↑↑↑</annotation>
 		<annotation cp="❕">! | delineado | exclamação | ponto de exclamação branco | pontuação | sinal | sinal de exclamação branco</annotation>
 		<annotation cp="❕" type="tts">↑↑↑</annotation>
 		<annotation cp="❗">↑↑↑</annotation>
-		<annotation cp="❗" type="tts">↑↑↑</annotation>
+		<annotation cp="❗" type="tts">ponto de exclamação vermelho</annotation>
 		<annotation cp="〰">ondulado | pontuação | traço</annotation>
 		<annotation cp="〰" type="tts">traço ondulado</annotation>
-		<annotation cp="💱">↑↑↑</annotation>
-		<annotation cp="💱" type="tts">↑↑↑</annotation>
+		<annotation cp="💱">banco | câmbio | câmbio de moeda | dinheiro | moeda</annotation>
+		<annotation cp="💱" type="tts">câmbio de moeda</annotation>
 		<annotation cp="💲">dinheiro | dólar | moeda | símbolo de dólar</annotation>
 		<annotation cp="💲" type="tts">símbolo de dólar</annotation>
 		<annotation cp="⚕">esculápio | medicina | pessoal | símbolo médico</annotation>
@@ -3647,7 +3647,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❎">× | botão com cruz | quadrado | x</annotation>
 		<annotation cp="❎" type="tts">botão com cruz</annotation>
 		<annotation cp="➰">caracol | laço | laço encaracolado</annotation>
-		<annotation cp="➰" type="tts">↑↑↑</annotation>
+		<annotation cp="➰" type="tts">laço encaracolado</annotation>
 		<annotation cp="➿">caracol | duplo | laço | laço encaracolado duplo</annotation>
 		<annotation cp="➿" type="tts">laço encaracolado duplo</annotation>
 		<annotation cp="〽">entrada | marca de alternância parcial | música</annotation>
@@ -3680,8 +3680,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🆎" type="tts">botão AB (tipo de sangue)</annotation>
 		<annotation cp="🅱">b | blood | botão B (tipo de sangue)</annotation>
 		<annotation cp="🅱" type="tts">botão B (tipo de sangue)</annotation>
-		<annotation cp="🆑">↑↑↑</annotation>
-		<annotation cp="🆑" type="tts">↑↑↑</annotation>
+		<annotation cp="🆑">botão CL | cl</annotation>
+		<annotation cp="🆑" type="tts">botão CL</annotation>
 		<annotation cp="🆒">botão COOL | cool | fixe</annotation>
 		<annotation cp="🆒" type="tts">botão COOL</annotation>
 		<annotation cp="🆓">botão FREE | free | gratuito | livre</annotation>
@@ -3689,25 +3689,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="ℹ">i | informações | posto de informação</annotation>
 		<annotation cp="ℹ" type="tts">posto de informação</annotation>
 		<annotation cp="🆔">botão ID | id | identidade | identificação</annotation>
-		<annotation cp="🆔" type="tts">↑↑↑</annotation>
+		<annotation cp="🆔" type="tts">botão ID</annotation>
 		<annotation cp="Ⓜ">círculo | círculo com letra m | m</annotation>
 		<annotation cp="Ⓜ" type="tts">círculo com letra m</annotation>
 		<annotation cp="🆕">botão NEW | new | novo</annotation>
 		<annotation cp="🆕" type="tts">botão NEW</annotation>
 		<annotation cp="🆖">botão NG | ng</annotation>
-		<annotation cp="🆖" type="tts">↑↑↑</annotation>
+		<annotation cp="🆖" type="tts">botão NG</annotation>
 		<annotation cp="🅾">0 | botão 0 (tipo de sangue) | botão O (tipo de sangue) | sangue</annotation>
 		<annotation cp="🅾" type="tts">botão O (tipo de sangue)</annotation>
 		<annotation cp="🆗">botão OK | ok</annotation>
-		<annotation cp="🆗" type="tts">↑↑↑</annotation>
+		<annotation cp="🆗" type="tts">botão OK</annotation>
 		<annotation cp="🅿">botão P | estacionamento</annotation>
-		<annotation cp="🅿" type="tts">↑↑↑</annotation>
+		<annotation cp="🅿" type="tts">botão P</annotation>
 		<annotation cp="🆘">ajuda | botão SOS | sos</annotation>
-		<annotation cp="🆘" type="tts">↑↑↑</annotation>
+		<annotation cp="🆘" type="tts">botão SOS</annotation>
 		<annotation cp="🆙">botão | botão up! | força!</annotation>
 		<annotation cp="🆙" type="tts">botão up!</annotation>
 		<annotation cp="🆚">botão VS | v | versus | vs</annotation>
-		<annotation cp="🆚" type="tts">↑↑↑</annotation>
+		<annotation cp="🆚" type="tts">botão VS</annotation>
 		<annotation cp="🈁">botão &quot;aqui&quot; em japonês | japonês</annotation>
 		<annotation cp="🈁" type="tts">botão &quot;aqui&quot; em japonês</annotation>
 		<annotation cp="🈂">botão &quot;taxa de serviço&quot; em japonês | japonês | katakana</annotation>
@@ -3742,7 +3742,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🈺" type="tts">botão &quot;em funcionamento&quot; em japonês</annotation>
 		<annotation cp="🈵">botão &quot;sem vagas&quot; em japonês | ideograma | japonês</annotation>
 		<annotation cp="🈵" type="tts">botão &quot;sem vagas&quot; em japonês</annotation>
-		<annotation cp="🔴">↑↑↑</annotation>
+		<annotation cp="🔴">círculo | geométrico | vermelho</annotation>
 		<annotation cp="🔴" type="tts">↑↑↑</annotation>
 		<annotation cp="🟠">círculo | círculo cor de laranja | cor de laranja</annotation>
 		<annotation cp="🟠" type="tts">círculo cor de laranja</annotation>
@@ -3750,15 +3750,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🟡" type="tts">↑↑↑</annotation>
 		<annotation cp="🟢">↑↑↑</annotation>
 		<annotation cp="🟢" type="tts">↑↑↑</annotation>
-		<annotation cp="🔵">↑↑↑</annotation>
+		<annotation cp="🔵">azul | círculo | geométrico</annotation>
 		<annotation cp="🔵" type="tts">↑↑↑</annotation>
 		<annotation cp="🟣">↑↑↑</annotation>
 		<annotation cp="🟣" type="tts">↑↑↑</annotation>
 		<annotation cp="🟤">castanho | círculo</annotation>
 		<annotation cp="🟤" type="tts">círculo castanho</annotation>
-		<annotation cp="⚫">↑↑↑</annotation>
+		<annotation cp="⚫">círculo | círculo preto | geométrico</annotation>
 		<annotation cp="⚫" type="tts">↑↑↑</annotation>
-		<annotation cp="⚪">↑↑↑</annotation>
+		<annotation cp="⚪">círculo | círculo branco | geométrico</annotation>
 		<annotation cp="⚪" type="tts">↑↑↑</annotation>
 		<annotation cp="🟥">↑↑↑</annotation>
 		<annotation cp="🟥" type="tts">↑↑↑</annotation>
@@ -3774,30 +3774,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🟪" type="tts">↑↑↑</annotation>
 		<annotation cp="🟫">castanho | quadrado</annotation>
 		<annotation cp="🟫" type="tts">quadrado castanho</annotation>
-		<annotation cp="⬛">↑↑↑</annotation>
+		<annotation cp="⬛">geométrico | quadrado | quadrado preto grande</annotation>
 		<annotation cp="⬛" type="tts">↑↑↑</annotation>
-		<annotation cp="⬜">↑↑↑</annotation>
+		<annotation cp="⬜">geométrico | quadrado | quadrado branco grande</annotation>
 		<annotation cp="⬜" type="tts">↑↑↑</annotation>
-		<annotation cp="◼">↑↑↑</annotation>
+		<annotation cp="◼">geométrico | quadrado | quadrado preto médio</annotation>
 		<annotation cp="◼" type="tts">↑↑↑</annotation>
-		<annotation cp="◻">↑↑↑</annotation>
+		<annotation cp="◻">geométrico | quadrado | quadrado branco médio</annotation>
 		<annotation cp="◻" type="tts">↑↑↑</annotation>
 		<annotation cp="◾">geométrico | quadrado | quadrado preto pequeno/médio</annotation>
 		<annotation cp="◾" type="tts">quadrado preto pequeno/médio</annotation>
 		<annotation cp="◽">geométrico | quadrado | quadrado branco pequeno/médio</annotation>
 		<annotation cp="◽" type="tts">quadrado branco pequeno/médio</annotation>
-		<annotation cp="▪">↑↑↑</annotation>
+		<annotation cp="▪">geométrico | quadrado | quadrado preto pequeno</annotation>
 		<annotation cp="▪" type="tts">↑↑↑</annotation>
-		<annotation cp="▫">↑↑↑</annotation>
+		<annotation cp="▫">geométrico | quadrado | quadrado branco pequeno</annotation>
 		<annotation cp="▫" type="tts">↑↑↑</annotation>
 		<annotation cp="🔶">cor de laranja | geométrico | losango | losango cor de laranja grande</annotation>
 		<annotation cp="🔶" type="tts">losango cor de laranja grande</annotation>
-		<annotation cp="🔷">↑↑↑</annotation>
-		<annotation cp="🔷" type="tts">↑↑↑</annotation>
+		<annotation cp="🔷">azul | geométrico | losango | losango azul grande</annotation>
+		<annotation cp="🔷" type="tts">losango azul grande</annotation>
 		<annotation cp="🔸">cor de laranja | geométrico | losango | losango cor de laranja pequeno</annotation>
 		<annotation cp="🔸" type="tts">losango cor de laranja pequeno</annotation>
-		<annotation cp="🔹">↑↑↑</annotation>
-		<annotation cp="🔹" type="tts">↑↑↑</annotation>
+		<annotation cp="🔹">azul | geométrico | losango | losango azul pequeno</annotation>
+		<annotation cp="🔹" type="tts">losango azul pequeno</annotation>
 		<annotation cp="🔺">geométrico | para cima | triângulo | triângulo vermelho a apontar para cima | vermelho</annotation>
 		<annotation cp="🔺" type="tts">triângulo vermelho a apontar para cima</annotation>
 		<annotation cp="🔻">geométrico | para baixo | triângulo | triângulo vermelho a apontar para baixo | vermelho</annotation>
@@ -3807,9 +3807,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔘">botão | botão de opção | geométrico | opção</annotation>
 		<annotation cp="🔘" type="tts">↑↑↑</annotation>
 		<annotation cp="🔳">botão | botão quadrado branco | delineado | geométrico | quadrado</annotation>
-		<annotation cp="🔳" type="tts">↑↑↑</annotation>
+		<annotation cp="🔳" type="tts">botão quadrado branco</annotation>
 		<annotation cp="🔲">botão | botão quadrado preto | geométrico | quadrado</annotation>
-		<annotation cp="🔲" type="tts">↑↑↑</annotation>
+		<annotation cp="🔲" type="tts">botão quadrado preto</annotation>
 		<annotation cp="🏁">axadrezado | bandeira axadrezada | corrida</annotation>
 		<annotation cp="🏁" type="tts">bandeira axadrezada</annotation>
 		<annotation cp="🚩">bandeira triangular | golfe</annotation>
@@ -3829,43 +3829,43 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="¢">cêntimo</annotation>
 		<annotation cp="¢" type="tts">cêntimo</annotation>
 		<annotation cp="$">dinheiro | dólar | dólar norte-americano | USD</annotation>
-		<annotation cp="$" type="tts">↑↑↑</annotation>
+		<annotation cp="$" type="tts">dólar</annotation>
 		<annotation cp="£">↑↑↑</annotation>
 		<annotation cp="£" type="tts">↑↑↑</annotation>
 		<annotation cp="¥">↑↑↑</annotation>
 		<annotation cp="¥" type="tts">↑↑↑</annotation>
 		<annotation cp="₢" draft="contributed">cruzeiro</annotation>
 		<annotation cp="₢" type="tts" draft="contributed">cruzeiro</annotation>
-		<annotation cp="₣" draft="contributed">↑↑↑</annotation>
-		<annotation cp="₣" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="₤" draft="contributed">↑↑↑</annotation>
-		<annotation cp="₤" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="₣" draft="contributed">franco francês</annotation>
+		<annotation cp="₣" type="tts" draft="contributed">franco francês</annotation>
+		<annotation cp="₤" draft="contributed">lira</annotation>
+		<annotation cp="₤" type="tts" draft="contributed">lira</annotation>
 		<annotation cp="₥">mil | mill</annotation>
-		<annotation cp="₥" type="tts">↑↑↑</annotation>
+		<annotation cp="₥" type="tts">mill</annotation>
 		<annotation cp="₩">KPW | KRW | uone | won | won norte-coreano | won sul-coreano</annotation>
-		<annotation cp="₩" type="tts">↑↑↑</annotation>
+		<annotation cp="₩" type="tts">won</annotation>
 		<annotation cp="€">↑↑↑</annotation>
 		<annotation cp="€" type="tts">↑↑↑</annotation>
-		<annotation cp="₰" draft="contributed">↑↑↑</annotation>
-		<annotation cp="₰" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="₱">↑↑↑</annotation>
-		<annotation cp="₱" type="tts">↑↑↑</annotation>
-		<annotation cp="₳" draft="contributed">↑↑↑</annotation>
-		<annotation cp="₳" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="₶" draft="contributed">↑↑↑</annotation>
-		<annotation cp="₶" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="₷" draft="contributed">↑↑↑</annotation>
-		<annotation cp="₷" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="₰" draft="contributed">centavo alemão</annotation>
+		<annotation cp="₰" type="tts" draft="contributed">centavo alemão</annotation>
+		<annotation cp="₱">peso</annotation>
+		<annotation cp="₱" type="tts">peso</annotation>
+		<annotation cp="₳" draft="contributed">austral</annotation>
+		<annotation cp="₳" type="tts" draft="contributed">austral</annotation>
+		<annotation cp="₶" draft="contributed">livre tournois</annotation>
+		<annotation cp="₶" type="tts" draft="contributed">livre tournois</annotation>
+		<annotation cp="₷" draft="contributed">spesmilo</annotation>
+		<annotation cp="₷" type="tts" draft="contributed">spesmilo</annotation>
 		<annotation cp="₹">↑↑↑</annotation>
 		<annotation cp="₹" type="tts">↑↑↑</annotation>
 		<annotation cp="₽">↑↑↑</annotation>
 		<annotation cp="₽" type="tts">↑↑↑</annotation>
-		<annotation cp="₿">↑↑↑</annotation>
-		<annotation cp="₿" type="tts">↑↑↑</annotation>
-		<annotation cp="₨" draft="contributed">↑↑↑</annotation>
-		<annotation cp="₨" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="﷼" draft="contributed">↑↑↑</annotation>
-		<annotation cp="﷼" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="₿">bitcoin | BTC</annotation>
+		<annotation cp="₿" type="tts">bitcoin</annotation>
+		<annotation cp="₨" draft="contributed">rupia</annotation>
+		<annotation cp="₨" type="tts" draft="contributed">rupia</annotation>
+		<annotation cp="﷼" draft="contributed">rial</annotation>
+		<annotation cp="﷼" type="tts" draft="contributed">rial</annotation>
 		<annotation cp="¹">expoente | número um | número um sobrescrito | sobrescrito | um</annotation>
 		<annotation cp="¹" type="tts">↑↑↑</annotation>
 		<annotation cp="²">dois | expoente | número dois | número dois sobrescrito | quadrado | sobrescrito</annotation>

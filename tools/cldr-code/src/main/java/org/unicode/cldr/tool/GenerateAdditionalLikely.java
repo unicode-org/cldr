@@ -35,6 +35,7 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.Output;
 
 public class GenerateAdditionalLikely {
 
@@ -92,7 +93,7 @@ public class GenerateAdditionalLikely {
     }
 
     public static void main(String[] args) {
-        list("de en es es-419 fr hr it nl pl pt-BR pt-PT vi tr ru ar th ko zh-CN zh-TW ja ach af ak az ban su xx-bork bs br ca ceb cs sn co ht cy da yo et xx-elmer eo eu ee tl fil fo fy gaa ga gd gl gn xx-hacker ha haw bem ig rn id ia xh zu is jw rw sw tlh kg mfe kri la lv to lt ln loz lua lg hu mg mt mi ms pcm no nn nso ny uz oc om xx-pirate ro rm qu nyn crs sq sk sl so st sr-ME sr-Latn fi sv tn tum tk tw wo el be bg ky kk mk mn sr tt tg uk ka hy yi iw ug ur ps sd fa ckb ti am ne mr hi bn pa gu or ta te kn ml si lo my km chr");
+        // list("de en es es-419 fr hr it nl pl pt-BR pt-PT vi tr ru ar th ko zh-CN zh-TW ja ach af ak az ban su xx-bork bs br ca ceb cs sn co ht cy da yo et xx-elmer eo eu ee tl fil fo fy gaa ga gd gl gn xx-hacker ha haw bem ig rn id ia xh zu is jw rw sw tlh kg mfe kri la lv to lt ln loz lua lg hu mg mt mi ms pcm no nn nso ny uz oc om xx-pirate ro rm qu nyn crs sq sk sl so st sr-ME sr-Latn fi sv tn tum tk tw wo el be bg ky kk mk mn sr tt tg uk ka hy yi iw ug ur ps sd fa ckb ti am ne mr hi bn pa gu or ta te kn ml si lo my km chr");
         Map<String, String> likely = CLDR_CONFIG.getSupplementalDataInfo().getLikelySubtags();
 
         Map<LstrType, Status> errors = new TreeMap<>();
@@ -216,32 +217,49 @@ public class GenerateAdditionalLikely {
         likelyAdditions.put(lang, lang + "_" + key.getFirst() + "_" + key.getSecond() + comment);
     }
 
-    static final Pattern fullMatch = Pattern.compile("\\s*\"full\": \"([^\"]+)\",");
+    static final Pattern fullTagMatch = Pattern.compile("\\s*\"(full|tag)\": \"([^\"]+)\",");
 
     public static Map<String, ScriptRegion> readJson(ImmutableSet<String> alreadyLangs, Map<String, ScriptRegion> result) {
         Path path = Paths.get(CLDRPaths.BIRTH_DATA_DIR, "/../external/langtags.json");
-        Matcher m = fullMatch.matcher("");
+        Matcher full = fullTagMatch.matcher("");
         Map<LstrType, Status> errors = new TreeMap<>();
 
+        Output<String> lastFull = new Output<>(null);
         try {
             Files.lines(path)
             .forEach(x -> {
-                if (m.reset(x).matches()) {
-                    final String tag = m.group(1);
-                    try {
-                        String lang = ltp.set(tag).getLanguage();
-                        if (!alreadyLangs.contains(lang)) {
-                            if (lang.isEmpty() || !ltp.getVariants().isEmpty() || tag.contains("@")) {
-                                System.out.println("SIL\tParse Error\t" + tag);
-                            } else {
-                                final String script = ltp.getScript();
-                                final String region = ltp.getRegion();
-                                String source = "SIL";
-                                addIfOk(result, lang, script, region, source, errors);
+                if (full.reset(x).matches()) {
+                    final String key = full.group(1).replace("-", "_");
+                    final String value = full.group(2).replace("-", "_");
+                    switch(key) {
+                    case "full": lastFull.value = value; break;
+                    case "tag":
+                        try {
+                            String lang = ltp.set(lastFull.value).getLanguage();
+                            if (!alreadyLangs.contains(lang)) {
+                                if (lang.isEmpty()
+                                    || !ltp.getVariants().isEmpty()
+                                    || !ltp.getExtensions().isEmpty()
+                                    || !ltp.getLocaleExtensions().isEmpty()
+                                    || lastFull.value.contains("@")
+                                    ) {
+                                    System.out.println("SIL\tParse Error\t" + lastFull.value + " from " + value);
+                                } else {
+                                    final String script = ltp.getScript();
+                                    final String region = ltp.getRegion();
+                                    String source = "SIL";
+                                    if (!value.equals(lang)) {
+                                        System.out.println(value + "=>" + lastFull.value);
+                                    }
+                                    addIfOk(result, lang, script, region, source, errors);
+                                }
                             }
+                        } catch (Exception e) {
+                            System.out.println("SIL\tParse Error\t" + lastFull.value + " from " + value + "\terror\t" + e.getMessage());
                         }
-                    } catch (Exception e) {
-                        System.out.println("SIL\tParse Error\t" + tag + "\terror\t" + e.getMessage());
+                        break;
+                        default:
+                            throw new IllegalArgumentException(); // never happens
                     }
                 }
             });

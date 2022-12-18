@@ -29,13 +29,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, d MMMM y G</pattern>
-							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMMEEEEd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>dd.MM.y GGGGG</pattern>
-							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+							<datetimeSkeleton>GGGGGyMMdd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -128,27 +128,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="midnight" draft="contributed">min.</dayPeriod>
-							<dayPeriod type="noon" draft="contributed">↑↑↑</dayPeriod>
+							<dayPeriod type="noon" draft="contributed">midi</dayPeriod>
 							<dayPeriod type="morning1" draft="contributed">du mat.</dayPeriod>
 							<dayPeriod type="afternoon1" draft="contributed">de l’ap.m.</dayPeriod>
 							<dayPeriod type="evening1" draft="contributed">du soir</dayPeriod>
 							<dayPeriod type="night1" draft="contributed">du mat.</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="midnight" draft="contributed">↑↑↑</dayPeriod>
-							<dayPeriod type="noon" draft="contributed">↑↑↑</dayPeriod>
+							<dayPeriod type="midnight" draft="contributed">min.</dayPeriod>
+							<dayPeriod type="noon" draft="contributed">midi</dayPeriod>
 							<dayPeriod type="morning1" draft="contributed">du mat.</dayPeriod>
 							<dayPeriod type="afternoon1" draft="contributed">de l’ap.m.</dayPeriod>
-							<dayPeriod type="evening1" draft="contributed">↑↑↑</dayPeriod>
-							<dayPeriod type="night1" draft="contributed">↑↑↑</dayPeriod>
+							<dayPeriod type="evening1" draft="contributed">du soir</dayPeriod>
+							<dayPeriod type="night1" draft="contributed">du mat.</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="midnight" draft="contributed">↑↑↑</dayPeriod>
+							<dayPeriod type="midnight" draft="contributed">min.</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="midnight" draft="contributed">↑↑↑</dayPeriod>
+							<dayPeriod type="midnight" draft="contributed">min.</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -156,7 +156,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, d MMMM y</pattern>
-							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+							<datetimeSkeleton>yMMMMEEEEd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -170,7 +170,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<timeFormatLength type="full">
 						<timeFormat>
 							<pattern>HH.mm:ss 'h' zzzz</pattern>
-							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+							<datetimeSkeleton>HHmmsszzzz</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -225,7 +225,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern draft="contributed">#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>

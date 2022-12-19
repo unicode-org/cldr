@@ -237,7 +237,7 @@ public class UserList {
         } else if ((UserRegistry.userCanModifyUser(me, u.user.id, u.user.userlevel))
             && (action.equals(LIST_ACTION_SETLOCALES))) {
             changeLocales(action, u);
-        } else if (UserRegistry.userCanDeleteUser(me, u.user.id, u.user.userlevel)) {
+        } else if (UserRegistry.userCanModifyUser(me, u.user.id, u.user.userlevel)) {
             changeOther(action, u);
         } else if (u.user.id == me.id) {
             u.ua.put(action, "<i>You can't change that setting on your own account.</i>");

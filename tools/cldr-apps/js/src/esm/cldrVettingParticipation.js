@@ -3,6 +3,7 @@
  */
 import * as cldrAccount from "./cldrAccount.js";
 import * as cldrAjax from "./cldrAjax.js";
+import * as cldrDom from "./cldrDom.js";
 import * as cldrInfo from "./cldrInfo.js";
 import * as cldrLoad from "./cldrLoad.js";
 import * as cldrRetry from "./cldrRetry.js";
@@ -61,7 +62,7 @@ function getAjaxUrl() {
   return cldrAjax.makeUrl(p);
 }
 
-function downloadVettingParticipation(opts) {
+async function downloadVettingParticipation(opts) {
   const {
     missingLocalesForOrg,
     // languagesNotInCLDR,
@@ -69,7 +70,36 @@ function downloadVettingParticipation(opts) {
     localeToData,
     // totalCount,
     uidToUser,
+    progressDiv,
   } = opts;
+
+  cldrDom.removeAllChildNodes(progressDiv);
+  const progBar = document.createElement("div");
+  progBar.className = "bar";
+  progBar.style.height = "1em";
+  progBar.style.width = "0px";
+  const progRemain = document.createElement("div");
+  progRemain.className = "remain";
+  progRemain.style.height = "1em";
+
+  // TODO: pin to max width
+  function setProgress(bar, total) {
+    const remain = total - bar;
+    progBar.style.width = `${bar}px`;
+    progRemain.style.width = `${remain}px`;
+  }
+
+  progressDiv.appendChild(progBar);
+  progressDiv.appendChild(progRemain);
+  const statusMsg = document.createElement("i");
+  progressDiv.appendChild(statusMsg);
+
+  function setStatus(msg) {
+    if (statusMsg.firstChild) {
+      statusMsg.removeChild(statusMsg.firstChild);
+    }
+    statusMsg.appendChild(document.createTextNode(msg));
+  }
 
   const wb = XLSX.utils.book_new();
 
@@ -83,6 +113,8 @@ function downloadVettingParticipation(opts) {
       "Level",
       "Votes",
       "CldrCovCount",
+      "ProgressVote",
+      "ProgressCount",
       "Vetter#",
       "Email",
       "Name",
@@ -90,7 +122,14 @@ function downloadVettingParticipation(opts) {
     ],
   ];
 
+  const userCount = Object.entries(uidToUser).length;
+
+  let userNo = 0;
+  setProgress(0, userCount);
+
   for (const [id, user] of Object.entries(uidToUser)) {
+    userNo++;
+    setProgress(userNo, userCount);
     const row = [
       user.org,
       null, // localeName
@@ -98,6 +137,8 @@ function downloadVettingParticipation(opts) {
       user.userlevelName,
       0, // votes
       0, // CldrCovCount
+      0, // ProgressVote
+      0, // ProgressCount
       id,
       user.email,
       user.name,
@@ -106,11 +147,15 @@ function downloadVettingParticipation(opts) {
     if (user.allLocales) {
       row[1] = "ALL";
       row[2] = "*";
+      row[6] = "-";
+      row[7] = "-";
       ws_data.push(row);
     } else if (!user.locales) {
       // no locales?!
       row[1] = "NONE";
       row[2] = "-";
+      row[6] = "-";
+      row[7] = "-";
       ws_data.push(row);
     } else {
       for (const locale of user.locales) {
@@ -118,11 +163,29 @@ function downloadVettingParticipation(opts) {
         row[2] = locale;
         row[4] = localeToData[locale].participation[id] || 0;
         row[5] = localeToData[locale].cov_count || 0;
+
+        if (user.userlevelName === "vetter" || user.userlevelName === "guest") {
+          const level = "org";
+          setStatus(`Fetch ${id}/${locale}/${level}`);
+          const data = await cldrAjax.doFetch(
+            `./api/summary/dashboard/for/${id}/${locale}/${level}`
+          );
+          const json = await data.json();
+          const { votablePathCount, votedPathCount } = json.voterProgress;
+          row[6] = votedPathCount;
+          row[7] = votablePathCount;
+        } else {
+          // only guest and vetter users
+          row[6] = "-";
+          row[7] = "-";
+        }
         ws_data.push([...row]); // clone the array because ws_data will retain a reference
       }
     }
   }
 
+  // TODO: fill in all ws_data[…][6/7]
+  setStatus("Write XLSX...");
   var ws = XLSX.utils.aoa_to_sheet(ws_data);
 
   XLSX.utils.book_append_sheet(wb, ws, ws_name);
@@ -130,6 +193,7 @@ function downloadVettingParticipation(opts) {
     wb,
     `survey_participation.${missingLocalesForOrg || "ALL"}.xlsx`
   );
+  cldrDom.removeAllChildNodes(progressDiv);
 }
 
 /**
@@ -156,6 +220,8 @@ function loadVettingParticipation(json, ourDiv) {
     })
   );
   const downloadButton = document.createElement("button");
+  const progressDiv = document.createElement("div");
+  progressDiv.className = "vvprogress";
   downloadButton.appendChild(document.createTextNode("Download… (.xlsx)"));
   downloadButton.onclick = () =>
     downloadVettingParticipation({
@@ -166,8 +232,14 @@ function loadVettingParticipation(json, ourDiv) {
       localeToData,
       totalCount,
       uidToUser,
-    });
+      progressDiv,
+    }).then(
+      () => {},
+      (err) => console.error(err)
+    );
   div.append(downloadButton);
+  div.append(progressDiv);
+
   if (missingLocalesForOrg) {
     div.append(
       $("<i/>", {

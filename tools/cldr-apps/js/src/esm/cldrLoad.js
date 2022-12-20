@@ -780,17 +780,26 @@ function loadAllRows(itemLoadInfo, theDiv) {
   );
   const url = cldrTable.getPageUrl(curLocale, curPage, curId);
   $("#nav-page").show(); // make top "Prev/Next" buttons visible while loading, cf. '#nav-page-footer' below
-  myLoad(url, "page", function (json) {
-    loadAllRowsFromJson(json, theDiv);
-  });
+  cldrAjax
+    .doFetch(url)
+    .then((response) => response.json())
+    .then((json) => loadAllRowsFromJson(json, theDiv))
+    .catch((err) => {
+      console.error(err);
+      isLoading = false;
+      cldrSurvey.showLoader(cldrText.get("loading2"));
+      flipper.flipTo(
+        pages.other,
+        cldrDom.createChunk(`Error ${err} loading rows.`, "p", "ferrbox")
+      );
+    });
 }
 
 function loadAllRowsFromJson(json, theDiv) {
   isLoading = false;
   cldrSurvey.showLoader(cldrText.get("loading2"));
-  if ( !json || json.code ) {
-    // Either no JSON was returned,
-    // or a STError was returned (json.code)
+  if (json.err) {
+    // Err is set
     cldrSurvey.hideLoader();
     const surveyCurrentId = cldrStatus.getCurrentId();
     const surveyCurrentPage = cldrStatus.getCurrentPage();
@@ -816,7 +825,7 @@ function loadAllRowsFromJson(json, theDiv) {
       // We don't have further information.
       msg = "Could not load rows. Try reloading or a different section/URL.";
     }
-    flipper.flipTo(pages.other, cldrDom.createChunk(msg, "i", "loadingMsg"));
+    flipper.flipTo(pages.other, cldrDom.createChunk(msg, "p", "ferrbox"));
   } else if (!verifyJson(json, "page")) {
     return;
   } else if (json.page.nocontent) {
@@ -895,23 +904,21 @@ function trimNull(x) {
 }
 
 /**
+ * Common function for loading.
+ * @deprecated use cldrAjax.doFetch() instead
  * @param postData optional - makes this a POST
  */
 function myLoad(url, message, handler, postData, headers) {
   const otime = new Date().getTime();
   console.log("MyLoad: " + url + " for " + message);
   const errorHandler = function (err, request) {
-    if (request.status === 404 && request.response?.code) {
-      handler(request.response); // pass through
-    } else {
-      console.log("Error: " + err);
-      notification.error({
-        message: `Could not fetch ${message}`,
-        description: `Error: ${err.toString()}`,
-        duration: 8,
-      });
-      handler(null);
-    }
+    console.log("Error: " + err);
+    notification.error({
+      message: `Could not fetch ${message}`,
+      description: `Error: ${err.toString()}`,
+      duration: 8,
+    });
+    handler(null);
   };
   const loadHandler = function (json) {
     console.log(

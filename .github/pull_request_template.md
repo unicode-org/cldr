@@ -16,3 +16,5 @@ license before the PR is accepted.
 - sign: https://cla-assistant.io/unicode-org/cldr
 - license: https://www.unicode.org/copyright.html#License
 -->
+
+ALLOW_MANY_COMMITS=true

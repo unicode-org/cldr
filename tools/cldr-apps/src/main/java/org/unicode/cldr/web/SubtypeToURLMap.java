@@ -198,13 +198,19 @@ public class SubtypeToURLMap {
      * @param utf8Data for cleaned input data (i.e. not HTML)
      * @throws IllegalArgumentException
      */
-    protected SubtypeToURLMap(BufferedReader utf8Data) throws IllegalArgumentException{
+    protected SubtypeToURLMap(BufferedReader utf8Data) throws IllegalArgumentException {
         URLMapReader mapReader = new URLMapReader();
         mapReader.read(utf8Data);
 
         this.map = mapReader.getMap();
         this.urlList = mapReader.getList();
     }
+
+    public SubtypeToURLMap() {
+        this.map = new HashMap<>();
+        this.urlList = new ArrayList<>();
+    }
+
     public static final String COMMENT = "#";
     public static final String END_MARKER = "-*- END CheckCLDR.Subtype Mapping -*-";
     public static final String BEGIN_MARKER = "-*- BEGIN CheckCLDR.Subtype Mapping -*-";
@@ -235,12 +241,14 @@ public class SubtypeToURLMap {
     public void write(PrintWriter pw) throws IOException {
         pw.println(COMMENT + " " + "dumped by " + getClass().getSimpleName());
         pw.println(COMMENT + " " + BEGIN_MARKER);
-        for (final String url : getUrls()) {
-            pw.println(url);
-            for(final Subtype type : getSubtypesForUrl(url)) {
-                pw.println(type.name()+",");
+        if (getUrls() != null) {
+            for (final String url : getUrls()) {
+                pw.println(url);
+                for(final Subtype type : getSubtypesForUrl(url)) {
+                    pw.println(type.name()+",");
+                }
+                pw.println();
             }
-            pw.println();
         }
         pw.println(COMMENT + " " + END_MARKER);
     }
@@ -360,7 +368,7 @@ public class SubtypeToURLMap {
 
     private static SubtypeToURLMap getInstance(URL resource, Document doc) throws IOException {
         StringBuffer sb = new StringBuffer();
-        doc.select("div code").forEach(n ->
+        doc.select("div p span").forEach(n ->
             n.textNodes()
                 .forEach(tn -> sb.append(tn.text()).append('\n')));
         logger.info("Read " + sb.length() + " chars from " + resource.toString());
@@ -405,10 +413,14 @@ public class SubtypeToURLMap {
                 logger.info("Read new map from " + getDefaultUrl());
                 // now, write out the cache
                 writeToCache(map);
-            } catch (IOException | URISyntaxException e) {
+            } catch (IllegalArgumentException | IOException | URISyntaxException e) {
                 logger.warning("Could not initialize SubtypeToURLMap: " + e + " for URL " + getDefaultUrl());
                 e.printStackTrace();
                 // If we loaded the cache file, we will still use it.
+                if (map == null) {
+                    map = new SubtypeToURLMap();
+                    logger.warning("Using empty SubtypeToURLMap");
+                }
             }
             return map;
         }

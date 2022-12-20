@@ -53,7 +53,7 @@ public class TestSubtypeToURLMap {
         Collection<Subtype> unHandledTypes = map.getUnhandledTypes();
         assertTrue(handledTypes.contains(Subtype.numberPatternNotCanonical), "numberPatternNotCanonical is handled");
         assertFalse(unHandledTypes.contains(Subtype.numberPatternNotCanonical), "numberPatternNotCanonical is handled");
-        assertEquals("http://cldr.unicode.org/translation/numbers-currency/number-symbols",
+        assertEquals("https://cldr.unicode.org/translation/number-currency-formats/number-symbols",
             map.get(Subtype.numberPatternNotCanonical), "numberPatternNotCanonical URL");
         assertFalse(handledTypes.contains(Subtype.auxiliaryExemplarsOverlap), "auxiliaryExemplarsOverlap is NOT handled");
         assertTrue(unHandledTypes.contains(Subtype.auxiliaryExemplarsOverlap), "auxiliaryExemplarsOverlap is NOT handled");

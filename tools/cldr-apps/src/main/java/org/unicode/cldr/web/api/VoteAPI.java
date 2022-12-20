@@ -98,7 +98,9 @@ public class VoteAPI {
                 description = "Forbidden, no access to this data"),
             @APIResponse(
                 responseCode = "404",
-                description = "Row or Locale does not exist"),
+                description = "Row or Locale does not exist. More details in the 'code' field.",
+                content = @Content(mediaType = "application/json",
+                    schema = @Schema(implementation = STError.class))),
             @APIResponse(
                 responseCode = "500",
                 description = "Internal Server Error",

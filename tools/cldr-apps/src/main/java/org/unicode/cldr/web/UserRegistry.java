@@ -1610,7 +1610,7 @@ public class UserRegistry {
         if (!managerUser.org.equals(otherUser.org)) {
             return false;
         }
-        if (!userCanModifyUsers(managerUser)) {
+        if (!userCanModifyUsers(managerUser)) {  // manager or tc
             return false;
         }
         if (targetId == managerUser.id) {
@@ -1623,9 +1623,9 @@ public class UserRegistry {
     }
 
     static boolean userCanDeleteUser(User managerUser, int targetId, int targetLevel) {
-        return (managerUser != null) && 
-            managerUser.getLevel().canDeleteUsers() && 
-            userCanModifyUser(managerUser, targetId, targetLevel) && 
+        return (managerUser != null) &&
+            managerUser.getLevel().canDeleteUsers() &&
+            userCanModifyUser(managerUser, targetId, targetLevel) &&
             targetLevel > managerUser.userlevel;
     }
 

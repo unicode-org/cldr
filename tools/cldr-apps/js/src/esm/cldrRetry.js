@@ -41,10 +41,6 @@ function handleDisconnect(why, json, word, what) {
   errInfo.what = what;
   errInfo.json = json;
   console.log("Disconnect: " + why);
-
-  // window.location.href = "#retry"; // load() will be called
-  // Instead of looping via #retry, simply remount 'retry' directly
-  cldrGenericVue.load("retry_inplace");
 }
 
 // called as special.load

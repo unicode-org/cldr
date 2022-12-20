@@ -15,7 +15,8 @@ const strings = {
 
   loadingMsg_desc: "Current loading status",
   loading_reloading: "Force Reloading Page",
-  loading_reload: "Reload",
+  loading_reload: "Reload This Page",
+  loading_home: "Start Over",
   loading_retrying: "Retrying",
   loading_nocontent: "This locale cannot be displayed.",
   loadingOneRow: "loading....",

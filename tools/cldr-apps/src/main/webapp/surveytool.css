@@ -996,6 +996,7 @@ i.loadingMsgSpin {
 }
 */
 
+
 .loaderAnimIcon {
 	background-image: url('loader.gif');
 	background-repeat: no-repeat;
@@ -1924,12 +1925,13 @@ p.errCodeMsg {
     font-family: Georgia, "Times New Roman", Times, serif;
     font-weight: normal;
     font-style: normal;
-    padding-left:  20px;
     margin-left:  3em;
     margin-right:  3em;
     border:  2px solid silver;
 	font-size: larger;
 	white-space: pre-line;
+	padding: 0.5em;
+	background-color: #ecd290;
 }
 
 p.errCodeMsg .fgred {
@@ -1937,9 +1939,10 @@ p.errCodeMsg .fgred {
 }
 
 #LoadingMessageSection p.errCodeMsg button {
-    display:  block;
+    display:  inline-block;
     margin-top: 1em;
-    font-size: x-large;
+    font-size: larger;
+	margin-left: 0.5em;
 }
 
 .cldr_substituted {

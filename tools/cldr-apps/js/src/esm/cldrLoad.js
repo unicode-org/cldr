@@ -273,6 +273,7 @@ function verifyJson(json, subkey) {
     );
     loadingChunk.appendChild(cldrDom.createChunk(msg_fmt));
     flipper.flipTo(pages.loading, loadingChunk);
+    loadingChunk.appendChild(cldrDom.createChunk("", "br"));
     var retryButton = cldrDom.createChunk(
       cldrText.get("loading_reload"),
       "button"
@@ -280,6 +281,14 @@ function verifyJson(json, subkey) {
     loadingChunk.appendChild(retryButton);
     retryButton.onclick = function () {
       window.location.reload(true);
+    };
+    var homeButton = cldrDom.createChunk(
+      cldrText.get("loading_home"),
+      "button"
+    );
+    loadingChunk.appendChild(homeButton);
+    homeButton.onclick = function () {
+      window.location.href = cldrStatus.getContextPath();
     };
     return false;
   } else if (json.err) {
@@ -779,15 +788,35 @@ function loadAllRows(itemLoadInfo, theDiv) {
 function loadAllRowsFromJson(json, theDiv) {
   isLoading = false;
   cldrSurvey.showLoader(cldrText.get("loading2"));
-  if (!json) {
-    // Failed to load
+  if ( !json || json.code ) {
+    // Either no JSON was returned,
+    // or a STError was returned (json.code)
     cldrSurvey.hideLoader();
-    cldrStatus.setCurrentSection("");
-    cldrInfo.showMessage("Could not load SurveyTool.");
-    flipper.flipTo(
-      pages.other,
-      cldrDom.createChunk("SurveyTool could not load", "i", "loadingMsg")
+    const surveyCurrentId = cldrStatus.getCurrentId();
+    const surveyCurrentPage = cldrStatus.getCurrentPage();
+    const surveyCurrentLocale = cldrStatus.getCurrentLocale();
+    cldrInfo.showMessage(
+      `There was a problem loading data to display for ${surveyCurrentLocale}/${surveyCurrentPage}/${surveyCurrentId}`
     );
+    cldrStatus.setCurrentSection("");
+    let msg = "";
+    if (json.code) {
+      // 'json' is a serialized org.unicode.cldr.web.api.STError
+      // json.code has an error code which can be rendered (E_BAD_SECTION etc).
+      // Use that code to show a more specific error to the user
+      // instead of just "failed to load".
+      msg = cldrText.sub(json.code, {
+        what: "Load rows",
+        code: json.code,
+        surveyCurrentId,
+        surveyCurrentLocale,
+        surveyCurrentPage,
+      });
+    } else {
+      // We don't have further information.
+      msg = "Could not load rows. Try reloading or a different section/URL.";
+    }
+    flipper.flipTo(pages.other, cldrDom.createChunk(msg, "i", "loadingMsg"));
   } else if (!verifyJson(json, "page")) {
     return;
   } else if (json.page.nocontent) {
@@ -871,14 +900,18 @@ function trimNull(x) {
 function myLoad(url, message, handler, postData, headers) {
   const otime = new Date().getTime();
   console.log("MyLoad: " + url + " for " + message);
-  const errorHandler = function (err) {
-    console.log("Error: " + err);
-    notification.error({
-      message: `Could not fetch ${message}`,
-      description: `Error: ${err.toString()}`,
-      duration: 8,
-    });
-    handler(null);
+  const errorHandler = function (err, request) {
+    if (request.status === 404 && request.response?.code) {
+      handler(request.response); // pass through
+    } else {
+      console.log("Error: " + err);
+      notification.error({
+        message: `Could not fetch ${message}`,
+        description: `Error: ${err.toString()}`,
+        duration: 8,
+      });
+      handler(null);
+    }
   };
   const loadHandler = function (json) {
     console.log(

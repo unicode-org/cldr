@@ -6,6 +6,7 @@ import * as cldrAjax from "./cldrAjax.js";
 import * as cldrDom from "./cldrDom.js";
 import * as cldrInfo from "./cldrInfo.js";
 import * as cldrLoad from "./cldrLoad.js";
+import * as cldrProgress from "./cldrProgress.js";
 import * as cldrRetry from "./cldrRetry.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
@@ -71,8 +72,9 @@ async function downloadVettingParticipation(opts) {
     // totalCount,
     uidToUser,
     progressDiv,
+    downloadButton,
   } = opts;
-
+  downloadButton.disabled = true;
   cldrDom.removeAllChildNodes(progressDiv);
   const progBar = document.createElement("div");
   progBar.className = "bar";
@@ -115,6 +117,8 @@ async function downloadVettingParticipation(opts) {
       "CldrCovCount",
       "ProgressVote",
       "ProgressCount",
+      "ProgressPercent",
+      "Coverage",
       "Vetter#",
       "Email",
       "Name",
@@ -139,6 +143,8 @@ async function downloadVettingParticipation(opts) {
       0, // CldrCovCount
       0, // ProgressVote
       0, // ProgressCount
+      "-", // ProgressPercent
+      "", // coverage
       id,
       user.email,
       user.name,
@@ -172,8 +178,17 @@ async function downloadVettingParticipation(opts) {
           );
           const json = await data.json();
           const { votablePathCount, votedPathCount } = json.voterProgress;
+          const { coverageLevel } = json;
           row[6] = votedPathCount;
           row[7] = votablePathCount;
+          row[8] = {
+            type: "PERCENT",
+            value: cldrProgress.friendlyPercent(
+              votedPathCount,
+              votablePathCount
+            ),
+          };
+          row[9] = (coverageLevel || "").toLowerCase();
         } else {
           // only guest and vetter users
           row[6] = "-";
@@ -233,9 +248,15 @@ function loadVettingParticipation(json, ourDiv) {
       totalCount,
       uidToUser,
       progressDiv,
+      downloadButton,
     }).then(
-      () => {},
-      (err) => console.error(err)
+      () => {
+        downloadButton.disabled = false;
+      },
+      (err) => {
+        console.error(err);
+        downloadButton.disabled = false;
+      }
     );
   div.append(downloadButton);
   div.append(progressDiv);

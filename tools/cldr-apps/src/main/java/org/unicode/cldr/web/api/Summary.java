@@ -434,6 +434,7 @@ public class Summary {
         // *Beware*  org.unicode.cldr.util.Level (coverage) ≠ VoteResolver.Level (user)
         Level coverageLevel = org.unicode.cldr.util.Level.fromString(level);
         ReviewOutput ret = new Dashboard().get(loc, cs.user, coverageLevel, null /* xpath */);
+        ret.coverageLevel = coverageLevel.name();
 
         return Response.ok().entity(ret).build();
     }
@@ -487,6 +488,8 @@ public class Summary {
             coverageLevel = org.unicode.cldr.util.Level.fromString(level);
         }
         ReviewOutput ret = new Dashboard().get(loc, target, coverageLevel, null /* xpath */);
+
+        ret.coverageLevel = coverageLevel.name();
 
         return Response.ok().entity(ret).build();
     }

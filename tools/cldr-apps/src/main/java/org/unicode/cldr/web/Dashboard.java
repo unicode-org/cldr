@@ -84,6 +84,9 @@ public class Dashboard {
 
         public VoterProgress voterProgress = null;
 
+        @Schema(description = "Coverage level for this dashboard")
+        public String coverageLevel = null;
+
         /**
          * Add Report status
          * @param userId

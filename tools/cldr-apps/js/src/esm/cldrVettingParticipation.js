@@ -6,10 +6,12 @@ import * as cldrAjax from "./cldrAjax.js";
 import * as cldrDom from "./cldrDom.js";
 import * as cldrInfo from "./cldrInfo.js";
 import * as cldrLoad from "./cldrLoad.js";
+import * as cldrProgress from "./cldrProgress.js";
 import * as cldrRetry from "./cldrRetry.js";
 import * as cldrStatus from "./cldrStatus.js";
 import * as cldrSurvey from "./cldrSurvey.js";
 import * as cldrText from "./cldrText.js";
+import * as cldrXlsx from "./cldrXlsx.js";
 import * as XLSX from "xlsx";
 
 let nf = null; // Intl.NumberFormat initialized later
@@ -71,8 +73,9 @@ async function downloadVettingParticipation(opts) {
     // totalCount,
     uidToUser,
     progressDiv,
+    downloadButton,
   } = opts;
-
+  downloadButton.disabled = true;
   cldrDom.removeAllChildNodes(progressDiv);
   const progBar = document.createElement("div");
   progBar.className = "bar";
@@ -112,9 +115,11 @@ async function downloadVettingParticipation(opts) {
       "Code",
       "Level",
       "Votes",
-      "CldrCovCount",
-      "ProgressVote",
-      "ProgressCount",
+      "Cldr Coverage Count",
+      "Progress Vote",
+      "Progress Count",
+      "Progress Percent",
+      "Coverage",
       "Vetter#",
       "Email",
       "Name",
@@ -139,6 +144,8 @@ async function downloadVettingParticipation(opts) {
       0, // CldrCovCount
       0, // ProgressVote
       0, // ProgressCount
+      "-", // ProgressPercent
+      "", // coverage
       id,
       user.email,
       user.name,
@@ -172,8 +179,15 @@ async function downloadVettingParticipation(opts) {
           );
           const json = await data.json();
           const { votablePathCount, votedPathCount } = json.voterProgress;
+          const { coverageLevel } = json;
           row[6] = votedPathCount;
           row[7] = votablePathCount;
+          const perCent = cldrProgress.friendlyPercent(
+            votedPathCount,
+            votablePathCount
+          );
+          row[8] = `${perCent}%`;
+          row[9] = (coverageLevel || "").toLowerCase();
         } else {
           // only guest and vetter users
           row[6] = "-";
@@ -187,6 +201,42 @@ async function downloadVettingParticipation(opts) {
   // TODO: fill in all ws_data[…][6/7]
   setStatus("Write XLSX...");
   var ws = XLSX.utils.aoa_to_sheet(ws_data);
+
+  // we have some explaining to do. Push some comments
+  cldrXlsx.pushComment(ws, "A1", "User organization");
+  cldrXlsx.pushComment(ws, "B1", "User locale");
+  cldrXlsx.pushComment(ws, "C1", "User locale code");
+  cldrXlsx.pushComment(ws, "D1", "User level");
+  cldrXlsx.pushComment(
+    ws,
+    "E1",
+    "User vote count, total number of path values in this locale that have a vote from this vetter, possibly including paths that are above the organization's coverage target for the locale (such as comprehensive)"
+  );
+  cldrXlsx.pushComment(
+    ws,
+    "F1",
+    "total number of paths that are in CLDR's coverage target for this locale"
+  );
+  cldrXlsx.pushComment(
+    ws,
+    "G1",
+    "User's voting progress, this is exactly the number from the second meter of the dashboard"
+  );
+  cldrXlsx.pushComment(
+    ws,
+    "H1",
+    "User's voting total, this is exactly the total from the second meter of the dashboard"
+  );
+  cldrXlsx.pushComment(
+    ws,
+    "I1",
+    "User's voting perent, this is exactly the percent from the second meter of the dashboard"
+  );
+  cldrXlsx.pushComment(ws, "J1", "Coverage level for this user's organization");
+  cldrXlsx.pushComment(ws, "K1", "User's account number");
+  cldrXlsx.pushComment(ws, "L1", "Users' email");
+  cldrXlsx.pushComment(ws, "M1", "Users' name");
+  cldrXlsx.pushComment(ws, "N1", "When the user last logged in");
 
   XLSX.utils.book_append_sheet(wb, ws, ws_name);
   XLSX.writeFile(
@@ -233,9 +283,15 @@ function loadVettingParticipation(json, ourDiv) {
       totalCount,
       uidToUser,
       progressDiv,
+      downloadButton,
     }).then(
-      () => {},
-      (err) => console.error(err)
+      () => {
+        downloadButton.disabled = false;
+      },
+      (err) => {
+        console.error(err);
+        downloadButton.disabled = false;
+      }
     );
   div.append(downloadButton);
   div.append(progressDiv);

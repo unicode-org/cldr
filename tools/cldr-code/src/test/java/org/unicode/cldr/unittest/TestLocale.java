@@ -411,7 +411,7 @@ public class TestLocale extends TestFmwkPlus {
         root.putValueAtDPath(
             "//ldml/localeDisplayNames/codePatterns/codePattern[@type=\"territory\"]",
             "Territorie: {0}");
-        CLDRFile f = new CLDRFile(dxs, root);
+        CLDRFile f = new CLDRFile(dxs, testInfo.getCldrFactory(), root);
         ExampleGenerator eg = new ExampleGenerator(f, testInfo.getEnglish()
         );
         for (String[] row : tests) {

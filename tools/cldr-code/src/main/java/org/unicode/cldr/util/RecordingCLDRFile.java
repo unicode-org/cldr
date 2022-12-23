@@ -18,8 +18,8 @@ public class RecordingCLDRFile extends CLDRFile {
         super(dataSource);
     }
 
-    public RecordingCLDRFile(XMLSource dataSource, XMLSource... resolvingParents) {
-        super(dataSource, resolvingParents);
+    public RecordingCLDRFile(XMLSource dataSource, Factory factory, XMLSource... resolvingParents) {
+        super(dataSource, factory, resolvingParents);
     }
 
     public void clearRecordedPaths() {

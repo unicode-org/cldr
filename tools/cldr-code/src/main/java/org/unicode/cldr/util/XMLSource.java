@@ -321,14 +321,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             return new Alias(pos, oldPath, newPath, aliasParts);
         }
 
-        /**
-         * @param newLocaleID
-         * @param oldPath
-         * @param aliasParts
-         * @param newPath
-         * @param pathsEqual
-         */
-        private Alias(int pos, String oldPath, String newPath, String aliasParts) {
+         private Alias(int pos, String oldPath, String newPath, String aliasParts) {
             Matcher matcher = aliasPattern.matcher(aliasParts);
             if (!matcher.matches()) {
                 throw new IllegalArgumentException("bad alias pattern for " + aliasParts);
@@ -420,11 +413,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         /**
          * This function is called on the full path, when we know the distinguishing path matches the oldPath.
          * So we just want to modify the base of the path
-         *
-         * @param oldPath
-         * @param newPath
-         * @param result
-         * @return
          */
         public String changeNewToOld(String fullPath, String newPath, String oldPath) {
             // do common case quickly
@@ -789,6 +777,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
      *
      */
     public static class ResolvingSource extends XMLSource implements Listener {
+        private final Factory factory;
         private XMLSource currentSource;
         private LinkedHashMap<String, XMLSource> sources;
 
@@ -1030,7 +1019,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
          * @param xpath the given path
          * @param skipFirst true if we're getting the Bailey value (caller is getBaileyValue),
          *                  else false (caller is getCachedFullStatus)
-         * @param skipInheritanceMarker if true, skip sources in which value is INHERITANCE_MARKER
+         * @param resolveInheritanceMarker if true, when find INHERITANCE_MARKER, get the resolved path and locale
          * @return the AliasLocation
          *
          * skipInheritanceMarker must be true when the caller is getBaileyValue, so that the caller
@@ -1051,7 +1040,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
          *             https://unicode.org/cldr/trac/ticket/11720
          *             https://unicode.org/cldr/trac/ticket/11103
          */
-        private AliasLocation getPathLocation(String xpath, boolean skipFirst, boolean skipInheritanceMarker) {
+        private AliasLocation getPathLocation(String xpath, boolean skipFirst, boolean resolveInheritanceMarker) {
             for (XMLSource source : sources.values()) {
                 if (skipFirst) {
                     skipFirst = false;
@@ -1059,7 +1048,11 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 }
                 String value = source.getValueAtDPath(xpath);
                 if (value != null) {
-                    if (skipInheritanceMarker && CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                    if (resolveInheritanceMarker && CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                        AliasLocation aliasLocation = getResolvedPathLocation(source.getLocaleID(), xpath);
+                        if (aliasLocation != null) {
+                            return aliasLocation;
+                        }
                         continue;
                     }
                     return new AliasLocation(xpath, source.getLocaleID());
@@ -1113,11 +1106,22 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
 
             if (aliasedPath != null) {
                 // Call getCachedFullStatus recursively to avoid recalculating cached aliases.
-                return getCachedFullStatus(aliasedPath, skipInheritanceMarker);
+                return getCachedFullStatus(aliasedPath, resolveInheritanceMarker);
             }
 
             // Fallback location.
             return new AliasLocation(xpath, CODE_FALLBACK_ID);
+        }
+
+        private AliasLocation getResolvedPathLocation(String localeID, String xpath) {
+            ResolvingSource rs = factory.makeResolvingSource(localeID, factory.getMinimalDraftStatus());
+            Output<String> pathWhereFound = new Output<>();
+            Output<String> localeWhereFound = new Output<>();
+            String inheritedValue = rs.getBaileyValue(xpath, pathWhereFound, localeWhereFound);
+            if (inheritedValue == null) {
+                return null;
+            }
+            return new AliasLocation(pathWhereFound.toString(), localeWhereFound.toString());
         }
 
         /**
@@ -1308,15 +1312,16 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         /**
          * Creates a new ResolvingSource with the given locale resolution chain.
          *
-         * @param sourceList
-         *            the list of XMLSources to look in during resolution,
-         *            ordered from the current locale up to root.
+         * @param sourceList the list of XMLSources to look in during resolution,
+         *                   ordered from the current locale up to root.
+         * @param factory
          */
-        public ResolvingSource(List<XMLSource> sourceList) {
+        public ResolvingSource(List<XMLSource> sourceList, Factory factory) {
             // Sanity check for root.
             if (sourceList == null || !sourceList.get(sourceList.size() - 1).getLocaleID().equals("root")) {
                 throw new IllegalArgumentException("Last element should be root");
             }
+            this.factory = factory;
             currentSource = sourceList.get(0); // Convenience variable
             sources = new LinkedHashMap<>();
             for (XMLSource source : sourceList) {

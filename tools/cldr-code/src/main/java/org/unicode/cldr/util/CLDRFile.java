@@ -233,11 +233,11 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         this.dtdData = DtdData.getInstance(this.dtdType);
     }
 
-    public CLDRFile(XMLSource dataSource, XMLSource... resolvingParents) {
+    public CLDRFile(XMLSource dataSource, Factory factory, XMLSource... resolvingParents) {
         List<XMLSource> sourceList = new ArrayList<>();
         sourceList.add(dataSource);
         sourceList.addAll(Arrays.asList(resolvingParents));
-        this.dataSource = new ResolvingSource(sourceList);
+        this.dataSource = new ResolvingSource(sourceList, factory);
 
         if (DEBUG_CLDR_FILE) {
             creationTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime());

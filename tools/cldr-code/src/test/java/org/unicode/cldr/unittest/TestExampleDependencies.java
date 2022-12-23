@@ -131,7 +131,7 @@ public class TestExampleDependencies extends TestFmwk {
         XMLSource topSource = factory.makeSource(localeId);
         List<XMLSource> parents = getParentSources(factory, localeId);
         XMLSource[] a = new XMLSource[parents.size()];
-        return new RecordingCLDRFile(topSource, parents.toArray(a));
+        return new RecordingCLDRFile(topSource, factory, parents.toArray(a));
     }
 
     private void useModifying() throws IOException {
@@ -337,7 +337,7 @@ public class TestExampleDependencies extends TestFmwk {
         XMLSource topSource = factory.makeSource(localeId).cloneAsThawed(); // make top one modifiable
         List<XMLSource> parents = getParentSources(factory, localeId);
         XMLSource[] a = new XMLSource[parents.size()];
-        return new CLDRFile(topSource, parents.toArray(a));
+        return new CLDRFile(topSource, factory, parents.toArray(a));
     }
 
     /**

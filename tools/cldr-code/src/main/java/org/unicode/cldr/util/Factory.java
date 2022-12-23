@@ -142,10 +142,6 @@ public abstract class Factory implements SublocaleProvider {
         return make(currentLocaleID, true, madeWithMinimalDraftStatus);
     }
 
-    public static XMLSource makeResolvingSource(List<XMLSource> sources) {
-        return new ResolvingSource(sources);
-    }
-
     /**
      * Temporary wrapper for creating an XMLSource. This is a hack and should
      * only be used in the Survey Tool for now.
@@ -180,7 +176,7 @@ public abstract class Factory implements SublocaleProvider {
             sourceList.add(source);
             curLocale = LocaleIDParser.getParent(curLocale, ignoreExplicitParentLocale);
         }
-        return new ResolvingSource(sourceList);
+        return new ResolvingSource(sourceList, this);
     }
 
     public abstract DraftStatus getMinimalDraftStatus();

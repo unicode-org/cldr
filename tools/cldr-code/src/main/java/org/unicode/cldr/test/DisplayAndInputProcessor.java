@@ -1295,7 +1295,7 @@ public class DisplayAndInputProcessor {
      * @param value
      * @return the value or CldrUtility.INHERITANCE_MARKER
      */
-    private String replaceBaileyWithInheritanceMarker(String path, String value) {
+    public String replaceBaileyWithInheritanceMarker(String path, String value) {
         if (cldrFileForBailey != null && !value.isEmpty()) {
             Output<String> pathWhereFound = new Output<>();
             Output<String> localeWhereFound = new Output<>();

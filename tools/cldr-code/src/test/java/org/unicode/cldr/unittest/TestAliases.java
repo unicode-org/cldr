@@ -4,8 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.LinkedHashSet;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
@@ -23,7 +22,10 @@ import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.XMLSource;
 
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
 import com.google.common.collect.HashMultimap;
+import com.google.common.collect.ImmutableList;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.util.Output;
 
@@ -207,10 +209,6 @@ public class TestAliases extends TestFmwk {
     }
 
 
-    final String onepath = "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]";
-    final String otherpath = "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"other\"]";
-    final List<String> paths = Arrays.asList(onepath, otherpath);
-
     /**
      * Verify that when a path's value = its bailey value,
      * then replacing it by inheritance marker should have no effect on the resolved value.
@@ -218,101 +216,159 @@ public class TestAliases extends TestFmwk {
      */
     public void TestInheritanceReplacement() {
         Factory std = CLDRConfig.getInstance().getCldrFactory();
-        CLDRFile root = std.make("root", false);
-        CLDRFile en = std.make("en", false);
-        CLDRFile en001 = std.make("en_001", false);
+
+        logln("Alias");
+        final String latnPath = "//ldml/numbers/symbols[@numberSystem=\"latn\"]/decimal";
+        final String arabPath = "//ldml/numbers/symbols[@numberSystem=\"arab\"]/decimal";
+        new TestValueSet("root", "ar", "ar_SA")
+        .add("ar", latnPath, "?")
+        .add("ar", arabPath, "?")
+        .add("ar_SA", latnPath, "{0} ?")
+        .add("ar_SA", arabPath, "{0} ??")
+        .checkReplacements(std);
+
+        logln("Lateral");
+        final String onepath = "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]";
+        final String otherpath = "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"other\"]";
+        new TestValueSet("root", "en", "en_001")
+            .add("en", onepath, "{0} hrx")
+            .add("en", otherpath, "{0} hrx")
+            .add("en_001", onepath, "{0} hrx")
+            .add("en_001", otherpath, "{0} hrxs")
+            .checkReplacements(std);
+
+        logln("Constructed");
+        final String basePath = "//ldml/localeDisplayNames/languages/language[@type=\"nl\"]";
+        final String regPath = "//ldml/localeDisplayNames/languages/language[@type=\"nl_BE\"]";
+        new TestValueSet("root", "fr", "fr_CA")
+        .add("fr", basePath, "flamandx")
+        .add("fr", regPath, "flamandx")
+        .add("fr_CA", basePath, "{0} flamandx")
+        .add("fr_CA", regPath, "{0} flamandxs")
+        .checkReplacements(std);
+
+        logln("Grammar");
+        final String genPath = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-day-person\"]/unitPattern[@count=\"one\"][@case=\"genitive\"]";
+        final String nomPath = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-day-person\"]/unitPattern[@count=\"one\"]";
+        new TestValueSet("root", "de", "de_AT")
+            .add("de", genPath, "{0} Tagx")
+            .add("de", nomPath, "{0} Tagx")
+            .add("de_AT", genPath, "{0} Tagx")
+            .add("de_AT", nomPath, "{0} Tagxx")
+            .checkReplacements(std);
+    }
+
+    static final class LocalePathValue {
+        String locale;
+        String path;
+        String value;
+        public LocalePathValue(String locale, String path, String value) {
+            this.locale = locale;
+            this.path = path;
+            this.value = value;
+        }
+        @Override
+        public String toString() {
+            return locale + "\t" + path + "\t" + value;
+        }
+    }
+
+    class TestValueSet {
+        Set<LocalePathValue> testValues = new LinkedHashSet<>();
+        BiMap<String, CLDRFile> localeToCLDRFiles = HashBiMap.create();
+        ImmutableList<String> locales;
+
+        public TestValueSet(String... locales) {
+            this.locales = ImmutableList.copyOf(locales);
+        }
+
+        public TestValueSet checkReplacements(Factory std) {
+            TestFactory testFactory = copyIntoTestFactory(std);
+            setValuesIn(testFactory);
+            check("Before replacing", testFactory);
+            replaceIfInheritedEqual(null);
+            check("After replacing with null", testFactory);
+
+            TestFactory testFactory2 = copyIntoTestFactory(std);
+            setValuesIn(testFactory2);
+            //check("\nBefore replacing with ↑↑↑", testFactory2);
+            replaceIfInheritedEqual(CldrUtility.INHERITANCE_MARKER);
+            check("After replacing with " + CldrUtility.INHERITANCE_MARKER, testFactory2);
+            return this;
+        }
+
+        public TestFactory copyIntoTestFactory(Factory std) {
+            TestFactory testFactory = new TestFactory();
+            for (String locale : locales) {
+                CLDRFile root = std.make(locale, false);
+                testFactory.addFile(root.cloneAsThawed());
+            }
+            return testFactory;
+        }
 
 
-        TestFactory testFactory = new TestFactory();
-        CLDRFile enUnresolved = en.cloneAsThawed();
-        CLDRFile en001Unresolved = en001.cloneAsThawed();
+        public TestValueSet add(String locale, String path, String value) {
+            if (!locales.contains(locale)) {
+                throw new IllegalArgumentException(locale + " must be in " + locales);
+            }
+            testValues.add(new LocalePathValue(locale, path, value));
+            return this;
+        }
 
-        testFactory.addFile(root);
-        testFactory.addFile(enUnresolved);
-        testFactory.addFile(en001Unresolved);
+        public void replaceIfInheritedEqual(String replacement) {
+            Output<String> pathWhereFound = new Output<>();
+            Output<String> localeWhereFound = new Output<>();
+            HashMultimap<CLDRFile, String>actions = HashMultimap.create();
 
-        // TODO make this more data driven so we can try different sets of path/value pairs without duplicating too much
-        // That is, the values here are the values that we should get after replacement in checkValues
+            // Gather all the values that equal their baileys
 
-        enUnresolved.add(onepath, "{0} hr");
-        enUnresolved.add(otherpath, "{0} hr");
-
-        en001Unresolved.add(onepath, "{0} hr");
-        en001Unresolved.add(otherpath, "{0} hrs");
-
-
-        CLDRFile enResolved = testFactory.make("en", true);
-        CLDRFile en001Resolved = testFactory.make("en_001", true);
-        List<CLDRFile> cldrSourceFiles = Arrays.asList(enResolved, en001Resolved);
-        showValues("\nBefore replacing with ↑↑↑", cldrSourceFiles);
-
-        Output<String> pathWhereFound = new Output<>();
-        Output<String> localeWhereFound = new Output<>();
-
-
-        checkValues(onepath, otherpath, enResolved, en001Resolved);
-        HashMultimap<CLDRFile, String>actions = HashMultimap.create();
-
-        // Gather all the values that equal their baileys
-
-        for (CLDRFile cldrFile : cldrSourceFiles) {
-            for (String path : paths) {
-                String value = cldrFile.getStringValue(path);
-                String baileyValue = cldrFile.getBaileyValue(path, pathWhereFound, localeWhereFound);
+            for (LocalePathValue localePathValue : testValues) {
+                CLDRFile cldrFile = localeToCLDRFiles.get(localePathValue.locale);
+                String value = cldrFile.getStringValueWithBailey(localePathValue.path);
+                String baileyValue = cldrFile.getBaileyValue(localePathValue.path, pathWhereFound, localeWhereFound);
                 if (Objects.equals(value, baileyValue)) {
-                    actions.put(cldrFile, path);
+                    actions.put(cldrFile, localePathValue.path);
                 }
             }
-        }
 
-        // Now replace them all
+            // Now replace them all
 
-        for (Entry<CLDRFile, String> action : actions.entries()) {
-            final CLDRFile cldrFile = action.getKey();
-            final String path = action.getValue();
-            cldrFile.getUnresolved().add(path, CldrUtility.INHERITANCE_MARKER);
-        }
-
-        showValues("\nAfter replacing with ↑↑↑", cldrSourceFiles);
-
-        // the values should all be the same as the last time we checked them
-
-        checkValues(onepath, otherpath, enResolved, en001Resolved);
-    }
-
-    private void showValues(String title, Collection<CLDRFile> resolvedCLDRFiles) {
-        logln(title);
-        Output<String> pathWhereFound = new Output<>();
-        Output<String> localeWhereFound = new Output<>();
-        for (CLDRFile cldrFile : resolvedCLDRFiles) {
-            if (!cldrFile.isResolved()) {
-                throw new IllegalArgumentException("File must be resolved");
+            for (Entry<CLDRFile, String> action : actions.entries()) {
+                final CLDRFile cldrFile = action.getKey();
+                final String path = action.getValue();
+                if (replacement == null) {
+                    cldrFile.getUnresolved().remove(path);
+                } else {
+                    cldrFile.getUnresolved().add(path, replacement);
+                }
             }
-            for (String path : paths) {
-                logln(cldrFile.getLocaleID() + path
-                    + "\tUnresolved=" + cldrFile.getUnresolved().getStringValue(path)
-                    + "\tResolvedWB=" + cldrFile.getStringValueWithBailey(path)
-                    + "\tBailey=" + cldrFile.getBaileyValue(otherpath, pathWhereFound, localeWhereFound)
-                    );
+
+        }
+
+        public void check(String title, TestFactory testFactory) {
+            logln(title);
+            for (LocalePathValue entry : testValues) {
+                CLDRFile cldrFile = localeToCLDRFiles.get(entry.locale);
+                String rawValue = cldrFile.getUnresolved().getStringValue(entry.path);
+                String resolvedValue = cldrFile.getStringValueWithBailey(entry.path);
+                assertEquals(entry.toString() + "\t" + rawValue, entry.value, resolvedValue);
             }
         }
-    }
 
-    public void checkValues(final String onepath, final String otherpath, CLDRFile enResolved,  CLDRFile en001Resolved) {
-        if (!enResolved.isResolved() || !en001Resolved.isResolved()) {
-            throw new IllegalArgumentException("File must be resolved");
+        public TestValueSet setValuesIn(TestFactory testFactory) {
+            for (LocalePathValue entry : testValues) {
+                CLDRFile cldrFile = getCldrFile(testFactory, entry);
+                cldrFile.getUnresolved().add(entry.path, entry.value);
+            }
+            return this;
         }
-        Output<String> pathWhereFound = new Output<>();
-        Output<String> localeWhereFound = new Output<>();
 
-        assertEquals("en, one", "{0} hr", enResolved.getStringValueWithBailey(onepath));
-        assertEquals("en, other", "{0} hr", enResolved.getStringValueWithBailey(otherpath));
-        assertEquals("en, one, bailey", "{0} h", enResolved.getBaileyValue(otherpath, pathWhereFound, localeWhereFound));
-        assertEquals("en, other, bailey", "{0} h", enResolved.getBaileyValue(otherpath, pathWhereFound, localeWhereFound));
-
-        assertEquals("en_001, one", "{0} hr", en001Resolved.getStringValueWithBailey(onepath));
-        assertEquals("en_001, other", "{0} hrs", en001Resolved.getStringValueWithBailey(otherpath));
-        assertEquals("en_001, one, bailey", "{0} hr", en001Resolved.getBaileyValue(otherpath, pathWhereFound, localeWhereFound));
-        assertEquals("en_001, other, bailey", "{0} hr", en001Resolved.getBaileyValue(otherpath, pathWhereFound, localeWhereFound));
+        public CLDRFile getCldrFile(TestFactory testFactory, LocalePathValue entry) {
+            CLDRFile cldrFile = localeToCLDRFiles.get(entry.locale);
+            if (cldrFile == null) {
+                localeToCLDRFiles.put(entry.locale, cldrFile = testFactory.make(entry.locale, true));
+            }
+            return cldrFile;
+        }
     }
 }

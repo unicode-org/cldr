@@ -765,6 +765,7 @@ This is a stable document and may be used as reference material or cited as a no
 <li>Dutch name: <em>Anneliese Louise van der Pol</em>: <code>given</code> name: "Anneliese", <code>given2</code> name: "Louise", <code>surname</code>: "van der Pol"<ul>
 <li>Also surname-prefix: “van der”, surname-core: “Pol” — see below.</li>
 </ul>
+<p>	</p>
 </li>
 <li>French name: “Jean-Louis Trintignant” would <em>not</em> be Jean (<code>given</code>) Louis (<code>given2</code>) Trintignant (<code>surname</code>), since “Louis” wouldn’t be discarded when formatting. Instead it would be Jean-Louis (<code>given</code>) Trintignant (<code>surname</code>)</li>
 </ul><p>Note: If the legal name, stage name, etc. are substantially different, then that information can be logically in a separate PersonName object. That is, it is up to the implementation to maintain any distinctions that are important to it: CLDR PersonName formats is focusing on formatting a PersonName object that is given to it. </p><p><code>surname2</code> would only be asked for in certain locales, and where it is considered a separate, divisible name, such as in Mexico or Spain. For instance, in Mexico, the first and second surname are used for the legal name and in formal settings, and sometimes only the first surname is used in familiar or informal contexts.</p><ul>

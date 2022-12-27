@@ -30,7 +30,7 @@ public class KeyboardTool {
             help();
         } else if(options[2].doesOccur) {
             System.err.println("Flatten: " + options[2].value);
-            KeyboardFlatten.flatten(options[2].value);
+            KeyboardFlatten.flatten(options[2].value, System.out);
         } else {
             help();
         }

@@ -30,38 +30,15 @@ import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.QuickCheck;
-import org.unicode.cldr.util.Annotations;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.NumberingSystem;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.CLDRTool;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.DateTimeCanonicalizer;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
-import org.unicode.cldr.util.DtdData;
-import org.unicode.cldr.util.DtdType;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.FileProcessor;
-import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.Level;
 // import org.unicode.cldr.util.Log;
-import org.unicode.cldr.util.LogicalGrouping;
-import org.unicode.cldr.util.PathChecker;
-import org.unicode.cldr.util.PatternCache;
-import org.unicode.cldr.util.RegexLookup;
-import org.unicode.cldr.util.SimpleFactory;
-import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.StringId;
-import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
-import org.unicode.cldr.util.XMLSource;
-import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments;
 import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 
@@ -1256,6 +1233,130 @@ public class CLDRModify {
                 }
                 String fullXPath = cldrFileToFilter.getFullXPath(xpath);
                 replace(fullXPath, fullXPath, newValue);
+            }
+        });
+
+        // 'P' Process, like 'p' but without inheritance replacement
+        fixList.add('P', "input-Processor-no-inheritance-replacement", new CLDRFilter() {
+            private DisplayAndInputProcessor inputProcessor;
+
+            @Override
+            public void handleStart() {
+                inputProcessor = new DisplayAndInputProcessor(cldrFileToFilter, true);
+            }
+
+            @Override
+            public void handleEnd() {
+                inputProcessor = null; // clean up, just in case
+            }
+
+            @Override
+            public void handlePath(String xpath) {
+                String value = cldrFileToFilter.getStringValue(xpath);
+                String newValue = inputProcessor.processInput(xpath, value, null);
+                if (value.equals(newValue)) {
+                    return;
+                }
+                String fullXPath = cldrFileToFilter.getFullXPath(xpath);
+                replace(fullXPath, fullXPath, newValue);
+            }
+        });
+
+        // use DAIP for one thing only: replaceBaileyWithInheritanceMarker
+        fixList.add('I', "Inheritance-substitution", new CLDRFilter() {
+            private DisplayAndInputProcessor inputProcessor;
+            private final int STEPS_FROM_ROOT = 1; // only process if locale's level matches; root = 0, en = 1, ...
+
+            @Override
+            public void handleStart() {
+                int steps = stepsFromRoot(cldrFileToFilter.getLocaleID());
+                if (steps == STEPS_FROM_ROOT) {
+                    inputProcessor = new DisplayAndInputProcessor(cldrFileToFilter, true);
+                    inputProcessor.enableInheritanceReplacement(getResolved());
+                } else {
+                    inputProcessor = null;
+                }
+            }
+
+            private int stepsFromRoot(String origLoc) {
+                int steps = 0;
+                String loc = origLoc;
+                while (!LocaleNames.ROOT.equals(loc)) {
+                    loc = LocaleIDParser.getParent(loc);
+                    if (loc == null) {
+                        throw new IllegalArgumentException("Missing root in inheritance chain");
+                    }
+                    ++steps;
+                }
+                System.out.println("stepsFromRoot = " + steps + " for " + origLoc);
+                return steps;
+            }
+
+            @Override
+            public void handleEnd() {
+                inputProcessor = null; // clean up, just in case
+            }
+
+            @Override
+            public void handlePath(String xpath) {
+                if (inputProcessor == null) {
+                    return;
+                }
+                String value = cldrFileToFilter.getStringValue(xpath);
+                String newValue = inputProcessor.replaceBaileyWithInheritanceMarker(xpath, value);
+                if (value.equals(newValue)) {
+                    return;
+                }
+                String fullXPath = cldrFileToFilter.getFullXPath(xpath);
+                replace(fullXPath, fullXPath, newValue);
+            }
+        });
+
+        // Un-drop hard inheritance: revert INHERITANCE_MARKER to pre-drop-hard-inheritance values
+        fixList.add('U', "Un-drop inheritance", new CLDRFilter() {
+            // baseDir needs to be the "pre-drop" path of an existing copy of old common/main
+            // For example, 2022_10_07_pre folder gets xml from pull request 2433, commit 80029f1
+            // Also ldml.dtd is required; for example:
+            //   mkdir ../2022_10_07_pre/common/dtd
+            //   cp common/dtd/ldml.dtd ../2022_10_07_pre/common/dtd
+            final private String baseDir = "../2022_10_07_pre/";
+            final private File[] list = new File[]{
+                new File(baseDir + "common/main/"),
+                new File(baseDir + "common/annotations/")
+            };
+            private Factory preFactory = null;
+            private CLDRFile preFile = null;
+
+            @Override
+            public void handleStart() {
+                if (preFactory == null) {
+                    preFactory = SimpleFactory.make(list, ".*");
+                 }
+                String localeID = cldrFileToFilter.getLocaleID();
+                try {
+                    preFile = preFactory.make(localeID, false /* not resolved */);
+                } catch (Exception e) {
+                    System.out.println("Skipping " + localeID + " due to " + e);
+                    preFile = null;
+                }
+            }
+
+            @Override
+            public void handlePath(String xpath) {
+                if (preFile == null) {
+                    return;
+                }
+                if (xpath.contains("personName")) {
+                    return;
+                }
+                String value = cldrFileToFilter.getStringValue(xpath);
+                if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                    String preValue = preFile.getStringValue(xpath);
+                    if (!CldrUtility.INHERITANCE_MARKER.equals(preValue)) {
+                        String fullXPath = cldrFileToFilter.getFullXPath(xpath);
+                        replace(fullXPath, fullXPath, preValue);
+                    }
+                }
             }
         });
 

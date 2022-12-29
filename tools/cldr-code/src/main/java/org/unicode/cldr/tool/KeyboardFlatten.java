@@ -167,7 +167,8 @@ public class KeyboardFlatten {
         dfactory.setNamespaceAware(true);
         dfactory.setValidating(true);
         SchemaFactory sfac = SchemaFactory.newDefaultInstance();
-        Schema schema = sfac.newSchema(new File(DtdType.keyboard.getXsdPath()));
+        Schema schema = sfac.newSchema(new File(CLDRConfig.getInstance().getCldrBaseDirectory(),
+            DtdType.keyboard.getXsdPath()));
         dfactory.setSchema(schema);
         // Set other attributes here as needed
         // applyAttributes(dfactory, attributes);

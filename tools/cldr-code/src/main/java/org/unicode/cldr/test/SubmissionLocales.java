@@ -1,5 +1,7 @@
 package org.unicode.cldr.test;
 
+import java.util.Collections;
+import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.ExecutionException;
@@ -12,6 +14,8 @@ import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.VoterReportStatus;
+import org.unicode.cldr.util.VoterReportStatus.ReportId;
 
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
@@ -60,6 +64,13 @@ public final class SubmissionLocales {
         .addAll(CLDR_LOCALES)
         .addAll(HIGH_LEVEL_LOCALES)
         .build();
+
+    /**
+     * Subset of reports open for this release
+     */
+    private static final Set<ReportId> LIMITED_SUBMISSION_REPORTS = Collections.unmodifiableSet(EnumSet.of(
+        VoterReportStatus.ReportId.personnames
+    ));
 
 
     /**
@@ -225,5 +236,9 @@ public final class SubmissionLocales {
             System.out.println(RegexUtilities.showMismatch(matcher, path));
         }
         return result;
+    }
+
+    public static Set<ReportId> getReportsAvailableInLimited() {
+        return LIMITED_SUBMISSION_REPORTS;
     }
 }

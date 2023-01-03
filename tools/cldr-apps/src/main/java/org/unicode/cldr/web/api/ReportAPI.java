@@ -291,7 +291,7 @@ public class ReportAPI {
         schema = @Schema(type = SchemaType.ARRAY, implementation = String.class))
     )
     public Response listReports() {
-        return Response.ok().entity(ReportId.values()).build();
+        return Response.ok().entity(ReportId.getReportsAvailable().toArray()).build();
     }
     @Schema(description = "update to user’s report status")
     public static final class ReportUpdate {

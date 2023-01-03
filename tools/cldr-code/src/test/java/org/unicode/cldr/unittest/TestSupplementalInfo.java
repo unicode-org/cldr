@@ -1423,7 +1423,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             isoCurrenciesToCountries.keySet());
         missing.removeAll(modernCurrencyCodes.keySet());
         if (missing.size() != 0) {
-            errln("Missing codes compared to ISO: " + missing.toString());
+            errln("Codes in ISO 4217 but not current tender in CLDR " +
+                "(may need to update https://cldr.unicode.org/development/updating-codes/update-currency-codes ): " +
+                missing.toString());
         }
 
         for (String currency : modernCurrencyCodes.keySet()) {

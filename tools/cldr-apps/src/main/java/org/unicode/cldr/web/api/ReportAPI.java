@@ -157,7 +157,7 @@ public class ReportAPI {
         for (final CLDRLocale loc : locales) {
             LocaleReportVettingResult rr = new LocaleReportVettingResult();
             rr.locale = loc.toString();
-            for (final ReportId report : ReportId.values()) {
+            for (final ReportId report : ReportId.getReportsAvailable()) {
                 Map<ReportAcceptability, Set<Integer>> statistics = db.updateResolver(loc, report, allUsers, res);
                 rr.reports.add(new ReportVettingResult(report, res, statistics));
                 statistics.values().forEach(s -> rr.addVoters(s));
@@ -274,6 +274,9 @@ public class ReportAPI {
         if (mySession.user == null || mySession.user.id != user) {
             return Response.status(Status.FORBIDDEN).build();
         }
+        if (!report.isAvailable()) {
+            return Response.status(Status.FORBIDDEN).build();
+        }
         ReportsDB.getInstance()
             .markReportComplete(user, CLDRLocale.getInstance(locale),
                 report, update.completed, update.acceptable);
@@ -328,6 +331,9 @@ public class ReportAPI {
         if (!SurveyMain.getLocalesSet().contains(loc)) {
             // No such locale
             return Response.status(Status.NOT_FOUND).build();
+        }
+        if (!report.isAvailable()) {
+            return Response.status(Status.FORBIDDEN).build();
         }
         final String result;
         try {

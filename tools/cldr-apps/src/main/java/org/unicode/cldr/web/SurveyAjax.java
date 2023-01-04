@@ -515,7 +515,7 @@ public class SurveyAjax extends HttpServlet {
                                 report.put("url", m.urlStub());
                                 reports.put(report);
                             }
-                            for (final ReportId m : ReportId.values()) {
+                            for (final ReportId m : ReportId.getReportsAvailable()) {
                                 JSONObject report = new JSONObject();
                                 report.put("url", "r_" + m.name());
                                 reports.put(report);

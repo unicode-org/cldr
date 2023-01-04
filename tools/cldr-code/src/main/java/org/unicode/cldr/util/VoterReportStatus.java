@@ -7,6 +7,9 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.unicode.cldr.test.CheckCLDR;
+import org.unicode.cldr.test.SubmissionLocales;
+
 
 /**
  * This interface is for objects which can expose information on which reports have been completed.
@@ -23,7 +26,23 @@ public abstract class VoterReportStatus<T> {
         datetime, // non-Chart
         zones, // non-Chart
         compact, // non-Chart, aka 'numbers'
-        personnames // Chart
+        personnames; // Chart
+
+        /**
+         * True if this report is available in this vetting period
+         * @return
+         */
+        public boolean isAvailable() {
+            return (!CheckCLDR.LIMITED_SUBMISSION) || (SubmissionLocales.getReportsAvailableInLimited().contains(this));
+        }
+
+        public static Set<ReportId> getReportsAvailable() {
+            if (!CheckCLDR.LIMITED_SUBMISSION) {
+                return EnumSet.allOf(ReportId.class);
+            } else {
+                return SubmissionLocales.getReportsAvailableInLimited();
+            }
+        }
     };
 
     public enum ReportAcceptability {

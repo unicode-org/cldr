@@ -214,37 +214,27 @@ public class TestAliases extends TestFmwk {
     public void TestInheritanceReplacement() {
         Factory std = CLDRConfig.getInstance().getCldrFactory();
 
-        logln("Alias");
-        final String formatPath = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"1\"]";
+        String section = "Alias";
         final String inheritingPath = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"stand-alone\"]/monthWidth[@type=\"wide\"]/month[@type=\"1\"]";
+        final String formatPath = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"1\"]";
         new TestValueSet("root", "en", "en_001")
         .add("en", inheritingPath, "X")
         .add("en", formatPath, "X")
-        .add("en_001", inheritingPath, "Y")
-        .add("en_001", formatPath, "X")
-        .checkReplacements(std);
+        .add("en_001", inheritingPath, "X")
+        .add("en_001", formatPath, "Y")
+        .checkReplacements(section, std);
 
-        logln("Lateral-alt");
+        section = "Lateral-alt";
         final String altPath = "//ldml/localeDisplayNames/languages/language[@type=\"ug\"][@alt=\"variant\"]";
         final String noAlt = "//ldml/localeDisplayNames/languages/language[@type=\"ug\"]";
         new TestValueSet("root", "en", "en_001")
         .add("en", altPath, "Uighur")
-        .add("en", noAlt, "Uyghur")
+        .add("en", noAlt, "Uighur")
         .add("en_001", altPath, "Uighur")
         .add("en_001", noAlt, "UyghurX")
-        .checkReplacements(std);
+        .checkReplacements(section, std);
 
-        logln("Constructed");
-        final String basePath = "//ldml/localeDisplayNames/languages/language[@type=\"nl\"]";
-        final String regPath = "//ldml/localeDisplayNames/languages/language[@type=\"nl_BE\"]";
-        new TestValueSet("root", "fr", "fr_CA")
-        .add("fr", basePath, "dutch")
-        .add("fr", regPath, "flamandx")
-        .add("fr_CA", basePath, "{0} dutch")
-        .add("fr_CA", regPath, "{0} flamandxs")
-        .checkReplacements(std);
-
-        logln("Lateral-count");
+        section = "Lateral-count";
         final String onepath = "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]";
         final String otherpath = "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"other\"]";
         new TestValueSet("root", "en", "en_001")
@@ -252,9 +242,9 @@ public class TestAliases extends TestFmwk {
         .add("en", otherpath, "{0} hrx")
         .add("en_001", onepath, "{0} hrx")
         .add("en_001", otherpath, "{0} hrxs")
-        .checkReplacements(std);
+        .checkReplacements(section, std);
 
-        logln("Grammar");
+        section = "Grammar";
         final String genPath = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-day-person\"]/unitPattern[@count=\"one\"][@case=\"genitive\"]";
         final String nomPath = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-day-person\"]/unitPattern[@count=\"one\"]";
         new TestValueSet("root", "de", "de_AT")
@@ -262,7 +252,17 @@ public class TestAliases extends TestFmwk {
         .add("de", nomPath, "{0} Tagx")
         .add("de_AT", genPath, "{0} Tagx")
         .add("de_AT", nomPath, "{0} Tagxx")
-        .checkReplacements(std);
+        .checkReplacements(section, std);
+
+        section = "Constructed";
+        final String basePath = "//ldml/localeDisplayNames/languages/language[@type=\"nl\"]";
+        final String regPath = "//ldml/localeDisplayNames/languages/language[@type=\"nl_BE\"]";
+        new TestValueSet("root", "fr", "fr_CA")
+        .add("fr", basePath, "dutch")
+        .add("fr", regPath, "flamandx")
+        .add("fr_CA", basePath, "{0} dutch")
+        .add("fr_CA", regPath, "{0} flamandxs")
+        .checkReplacements(section, std);
     }
 
     static final class LocalePathValue {
@@ -299,18 +299,18 @@ public class TestAliases extends TestFmwk {
         }
 
 
-        public TestValueSet checkReplacements(Factory std) {
+        public TestValueSet checkReplacements(String section, Factory std) {
             TestFactory testFactory = copyIntoTestFactory(std);
             setValuesIn(testFactory);
-            check("Before replacing", testFactory);
+            show("\n\t\t" + section + ", BEFORE replacing", testFactory);
             TestFactory modifiedFactory = replaceIfInheritedEqual(testFactory, null);
-            check("After replacing with null", modifiedFactory);
+            check(section + ", AFTER replacing with null", modifiedFactory);
 
             TestFactory testFactory2 = copyIntoTestFactory(std);
             setValuesIn(testFactory2);
             //check("\nBefore replacing with ↑↑↑", testFactory2);
             modifiedFactory = replaceIfInheritedEqual(testFactory, CldrUtility.INHERITANCE_MARKER);
-            check("After replacing with " + CldrUtility.INHERITANCE_MARKER, modifiedFactory);
+            check(section + ", AFTER replacing with " + CldrUtility.INHERITANCE_MARKER, modifiedFactory);
             return this;
         }
 
@@ -364,14 +364,22 @@ public class TestAliases extends TestFmwk {
 
         }
 
-        public void check(String title, TestFactory testFactory) {
+        public void show(String title, TestFactory testFactory) {
             logln(title);
             CLDRFile cldrFileRoot = testFactory.make("root", true);
             for (String path : paths) {
-                String value = cldrFileRoot.getUnresolved().getStringValue(path);
-                assertEquals("root" + "/t" + path, value, value);
+                String rawValue = cldrFileRoot.getUnresolved().getStringValue(path);
+                logln("root" + "\t" + path + "\t" + rawValue);
             }
+            for (LocalePathValue entry : testValues) {
+                CLDRFile cldrFile = testFactory.make(entry.locale, true);
+                String rawValue = cldrFile.getUnresolved().getStringValue(entry.path);
+                logln(entry.locale + "\t" + entry.path + "\t" + rawValue);
+            }
+        }
 
+        public void check(String title, TestFactory testFactory) {
+            logln(title);
             for (LocalePathValue entry : testValues) {
                 CLDRFile cldrFile = testFactory.make(entry.locale, true);
                 String rawValue = cldrFile.getUnresolved().getStringValue(entry.path);

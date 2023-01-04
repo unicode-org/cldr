@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
-import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
@@ -22,8 +21,6 @@ import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.XMLSource;
 
-import com.google.common.collect.BiMap;
-import com.google.common.collect.HashBiMap;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableList;
 import com.ibm.icu.dev.test.TestFmwk;
@@ -218,44 +215,54 @@ public class TestAliases extends TestFmwk {
         Factory std = CLDRConfig.getInstance().getCldrFactory();
 
         logln("Alias");
-        final String latnPath = "//ldml/numbers/symbols[@numberSystem=\"latn\"]/decimal";
-        final String arabPath = "//ldml/numbers/symbols[@numberSystem=\"arab\"]/decimal";
-        new TestValueSet("root", "ar", "ar_SA")
-        .add("ar", latnPath, "?")
-        .add("ar", arabPath, "?")
-        .add("ar_SA", latnPath, "{0} ?")
-        .add("ar_SA", arabPath, "{0} ??")
+        final String formatPath = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"1\"]";
+        final String inheritingPath = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"stand-alone\"]/monthWidth[@type=\"wide\"]/month[@type=\"1\"]";
+        new TestValueSet("root", "en", "en_001")
+        .add("en", inheritingPath, "X")
+        .add("en", formatPath, "X")
+        .add("en_001", inheritingPath, "Y")
+        .add("en_001", formatPath, "X")
         .checkReplacements(std);
 
-        logln("Lateral");
-        final String onepath = "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]";
-        final String otherpath = "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"other\"]";
+        logln("Lateral-alt");
+        final String altPath = "//ldml/localeDisplayNames/languages/language[@type=\"ug\"][@alt=\"variant\"]";
+        final String noAlt = "//ldml/localeDisplayNames/languages/language[@type=\"ug\"]";
         new TestValueSet("root", "en", "en_001")
-            .add("en", onepath, "{0} hrx")
-            .add("en", otherpath, "{0} hrx")
-            .add("en_001", onepath, "{0} hrx")
-            .add("en_001", otherpath, "{0} hrxs")
-            .checkReplacements(std);
+        .add("en", altPath, "Uighur")
+        .add("en", noAlt, "Uyghur")
+        .add("en_001", altPath, "Uighur")
+        .add("en_001", noAlt, "UyghurX")
+        .checkReplacements(std);
 
         logln("Constructed");
         final String basePath = "//ldml/localeDisplayNames/languages/language[@type=\"nl\"]";
         final String regPath = "//ldml/localeDisplayNames/languages/language[@type=\"nl_BE\"]";
         new TestValueSet("root", "fr", "fr_CA")
-        .add("fr", basePath, "flamandx")
+        .add("fr", basePath, "dutch")
         .add("fr", regPath, "flamandx")
-        .add("fr_CA", basePath, "{0} flamandx")
+        .add("fr_CA", basePath, "{0} dutch")
         .add("fr_CA", regPath, "{0} flamandxs")
+        .checkReplacements(std);
+
+        logln("Lateral-count");
+        final String onepath = "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"one\"]";
+        final String otherpath = "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"duration-hour\"]/unitPattern[@count=\"other\"]";
+        new TestValueSet("root", "en", "en_001")
+        .add("en", onepath, "{0} hrx")
+        .add("en", otherpath, "{0} hrx")
+        .add("en_001", onepath, "{0} hrx")
+        .add("en_001", otherpath, "{0} hrxs")
         .checkReplacements(std);
 
         logln("Grammar");
         final String genPath = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-day-person\"]/unitPattern[@count=\"one\"][@case=\"genitive\"]";
         final String nomPath = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-day-person\"]/unitPattern[@count=\"one\"]";
         new TestValueSet("root", "de", "de_AT")
-            .add("de", genPath, "{0} Tagx")
-            .add("de", nomPath, "{0} Tagx")
-            .add("de_AT", genPath, "{0} Tagx")
-            .add("de_AT", nomPath, "{0} Tagxx")
-            .checkReplacements(std);
+        .add("de", genPath, "{0} Tagx")
+        .add("de", nomPath, "{0} Tagx")
+        .add("de_AT", genPath, "{0} Tagx")
+        .add("de_AT", nomPath, "{0} Tagxx")
+        .checkReplacements(std);
     }
 
     static final class LocalePathValue {
@@ -275,80 +282,98 @@ public class TestAliases extends TestFmwk {
 
     class TestValueSet {
         Set<LocalePathValue> testValues = new LinkedHashSet<>();
-        BiMap<String, CLDRFile> localeToCLDRFiles = HashBiMap.create();
         ImmutableList<String> locales;
+        Set<String> paths = new LinkedHashSet<>();
 
         public TestValueSet(String... locales) {
             this.locales = ImmutableList.copyOf(locales);
         }
-
-        public TestValueSet checkReplacements(Factory std) {
-            TestFactory testFactory = copyIntoTestFactory(std);
-            setValuesIn(testFactory);
-            check("Before replacing", testFactory);
-            replaceIfInheritedEqual(null);
-            check("After replacing with null", testFactory);
-
-            TestFactory testFactory2 = copyIntoTestFactory(std);
-            setValuesIn(testFactory2);
-            //check("\nBefore replacing with ↑↑↑", testFactory2);
-            replaceIfInheritedEqual(CldrUtility.INHERITANCE_MARKER);
-            check("After replacing with " + CldrUtility.INHERITANCE_MARKER, testFactory2);
-            return this;
-        }
-
-        public TestFactory copyIntoTestFactory(Factory std) {
-            TestFactory testFactory = new TestFactory();
-            for (String locale : locales) {
-                CLDRFile root = std.make(locale, false);
-                testFactory.addFile(root.cloneAsThawed());
-            }
-            return testFactory;
-        }
-
 
         public TestValueSet add(String locale, String path, String value) {
             if (!locales.contains(locale)) {
                 throw new IllegalArgumentException(locale + " must be in " + locales);
             }
             testValues.add(new LocalePathValue(locale, path, value));
+            paths.add(path);
             return this;
         }
 
-        public void replaceIfInheritedEqual(String replacement) {
+
+        public TestValueSet checkReplacements(Factory std) {
+            TestFactory testFactory = copyIntoTestFactory(std);
+            setValuesIn(testFactory);
+            check("Before replacing", testFactory);
+            TestFactory modifiedFactory = replaceIfInheritedEqual(testFactory, null);
+            check("After replacing with null", modifiedFactory);
+
+            TestFactory testFactory2 = copyIntoTestFactory(std);
+            setValuesIn(testFactory2);
+            //check("\nBefore replacing with ↑↑↑", testFactory2);
+            modifiedFactory = replaceIfInheritedEqual(testFactory, CldrUtility.INHERITANCE_MARKER);
+            check("After replacing with " + CldrUtility.INHERITANCE_MARKER, modifiedFactory);
+            return this;
+        }
+
+        public TestFactory copyIntoTestFactory(Factory std) {
+            TestFactory testFactory = new TestFactory();
+            testFactory.setSupplementalDirectory(std.getSupplementalDirectory());
+
+            for (String locale : locales) {
+                CLDRFile cldrFile = std.make(locale, false);
+                testFactory.addFile(cldrFile.cloneAsThawed());
+            }
+            return testFactory;
+        }
+
+        public TestFactory replaceIfInheritedEqual(TestFactory testFactory, String replacement) {
             Output<String> pathWhereFound = new Output<>();
             Output<String> localeWhereFound = new Output<>();
-            HashMultimap<CLDRFile, String>actions = HashMultimap.create();
+            HashMultimap<String, String>actions = HashMultimap.create();
 
             // Gather all the values that equal their baileys
 
             for (LocalePathValue localePathValue : testValues) {
-                CLDRFile cldrFile = localeToCLDRFiles.get(localePathValue.locale);
+                CLDRFile cldrFile = testFactory.make(localePathValue.locale, true);
                 String value = cldrFile.getStringValueWithBailey(localePathValue.path);
                 String baileyValue = cldrFile.getBaileyValue(localePathValue.path, pathWhereFound, localeWhereFound);
                 if (Objects.equals(value, baileyValue)) {
-                    actions.put(cldrFile, localePathValue.path);
+                    actions.put(localePathValue.locale, localePathValue.path);
                 }
             }
 
             // Now replace them all
+            // NOTE: Removing or adding new values might invalidate resolved files, so we create a new factory
 
-            for (Entry<CLDRFile, String> action : actions.entries()) {
-                final CLDRFile cldrFile = action.getKey();
-                final String path = action.getValue();
-                if (replacement == null) {
-                    cldrFile.getUnresolved().remove(path);
-                } else {
-                    cldrFile.getUnresolved().add(path, replacement);
+            TestFactory testFactory1 = new TestFactory();
+            testFactory1.setSupplementalDirectory(testFactory.getSupplementalDirectory());
+            for (String locale : locales) {
+                final CLDRFile cldrFile = testFactory.make(locale, false).cloneAsThawed();
+                Set<String> items = actions.get(locale);
+                if (items != null) {
+                    for (String path : items) {
+                        if (replacement == null) {
+                            cldrFile.remove(path);
+                        } else {
+                            cldrFile.add(path, replacement);
+                        }
+                    }
                 }
+                testFactory1.addFile(cldrFile);
             }
+            return testFactory1;
 
         }
 
         public void check(String title, TestFactory testFactory) {
             logln(title);
+            CLDRFile cldrFileRoot = testFactory.make("root", true);
+            for (String path : paths) {
+                String value = cldrFileRoot.getUnresolved().getStringValue(path);
+                assertEquals("root" + "/t" + path, value, value);
+            }
+
             for (LocalePathValue entry : testValues) {
-                CLDRFile cldrFile = localeToCLDRFiles.get(entry.locale);
+                CLDRFile cldrFile = testFactory.make(entry.locale, true);
                 String rawValue = cldrFile.getUnresolved().getStringValue(entry.path);
                 String resolvedValue = cldrFile.getStringValueWithBailey(entry.path);
                 assertEquals(entry.toString() + "\t" + rawValue, entry.value, resolvedValue);
@@ -357,18 +382,10 @@ public class TestAliases extends TestFmwk {
 
         public TestValueSet setValuesIn(TestFactory testFactory) {
             for (LocalePathValue entry : testValues) {
-                CLDRFile cldrFile = getCldrFile(testFactory, entry);
+                CLDRFile cldrFile = testFactory.make(entry.locale, true);
                 cldrFile.getUnresolved().add(entry.path, entry.value);
             }
             return this;
-        }
-
-        public CLDRFile getCldrFile(TestFactory testFactory, LocalePathValue entry) {
-            CLDRFile cldrFile = localeToCLDRFiles.get(entry.locale);
-            if (cldrFile == null) {
-                localeToCLDRFiles.put(entry.locale, cldrFile = testFactory.make(entry.locale, true));
-            }
-            return cldrFile;
         }
     }
 }

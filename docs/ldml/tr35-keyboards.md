@@ -243,18 +243,28 @@ If it becomes necessary in the future, the format could extend the ISO layout to
 
 When explicitly specified, attributes can contain escaped characters. This specification uses two methods of escaping, the _UnicodeSet_ notation and the `\u{...}` notation.
 
+### UnicodeSet Escaping
+
 The _UnicodeSet_ notation is described in [UTS #35 section 5.3.3](tr35.md#Unicode_Sets) and allows for comprehensive character matching, including by character range, properties, names, or codepoints. Currently, the following attributes allow _UnicodeSet_ notation:
 
 * `from` or `before` on the `<transform>` element
 * `from` or `before` on the `<reorder>` element
 * `chars` on the [`<repertoire>`](#test-element-repertoire) test element.
 
+### UTS18 Escaping
+
 The `\u{...}` notation, a subset of hex notation, is described in [UTS #18 section 1.1](https://www.unicode.org/reports/tr18/#Hex_notation). It can refer to one or multiple individual codepoints. Currently, the following attributes allow the `\u{...}` notation:
 
-* `to`, `longPress`, `multiTap`, `hint` on the `<map>` element
+* `to`, `longPress`, `multiTap`, and `longPressDefault` on the `<key>` element
+* `to` on the `<flick>` element
 * `to` on the `<transform>` element
+* `to` and `display` on the `<display>` element
+* `baseCharacter` on the `<displayOptions>` element
+* Some attributes on [Keyboard Test Data](#Keyboard Test Data) subelements
 
 Characters of general category of Combining Mark (M), Control characters (Cc), Format characters (Cf), and whitespace other than space should be encoded using one of the notation above as appropriate.
+
+Attributes escaped in this manner are annotated with the `<!--@ALLOWS_UESC-->` DTD annotation, see [DTD Annotations](tr35.md#57-dtd-annotations)
 
 * * *
 
@@ -1050,6 +1060,8 @@ _Attribute:_ `to` (optional- `to` or `id` is required, or both)
 
 > Specifies the character or character sequence from the `keys/key` element that is to have a special display.
 
+This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
+
 _Attribute:_ `id` (optional- `to` or `id` is required, or both)
 
 > Specifies the `key` id. This is useful for keys which do not produce any output (no `to=` value), such as a shift key.
@@ -1057,6 +1069,8 @@ _Attribute:_ `id` (optional- `to` or `id` is required, or both)
 _Attribute:_ `display` (required)
 
 > Required and specifies the character sequence that should be displayed on the keytop for any key that generates the `@to` sequence or has the `@id`. (It is an error if the value of the `display` attribute is the same as the value of the `to` attribute, this would be an extraneous entry.)
+
+This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
 
 **Example**
 
@@ -1112,6 +1126,8 @@ _Attribute:_ `baseCharacter` (optional)
 > As a hint, the implementation may ignore this option.
 >
 > **Note** that not all base characters will be suitable as bases for combining marks.
+
+This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
 
 * * *
 
@@ -2259,7 +2275,7 @@ This attribute specifies that a multi-tap gesture should be performed on the spe
 
 > <small>
 >
-> Parents: [test](#test-element-emit)
+> Parents: [test](#test-element-test)
 >
 > Children: _none_
 >
@@ -2274,6 +2290,8 @@ _Attribute:_ `to` (required)
 
 This attribute specifies a string of output text representing a single keystroke or gesture. This string is intended to match the output of a `key`, `flick`, `longPress` or `multiTap` element or attribute.
 Tooling should give a hint if this attribute does not match at least one keystroke or gesture. Note that the specified text is not injected directly into the output buffer.
+
+This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
 
 **Example**
 

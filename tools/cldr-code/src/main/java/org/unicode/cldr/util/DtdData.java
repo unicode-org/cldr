@@ -117,6 +117,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         private final Set<String> commentsPre;
         private Set<String> commentsPost;
         private boolean isDeprecatedAttribute;
+        private boolean isUEscapedAttribute = false;
         public AttributeStatus attributeStatus = AttributeStatus.distinguished; // default unless reset by annotations, or for xml: attributes
         private Set<String> deprecatedValues = Collections.emptySet();
         public MatchValue matchValue;
@@ -233,6 +234,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 case "@DEPRECATED":
                     isDeprecatedAttribute = true;
                     break;
+                case "@ALLOWS_UESC":
+                    isUEscapedAttribute = true;
+                    break;
                 default:
                     int colonPos = commentIn.indexOf(':');
                     if (colonPos < 0) {
@@ -300,6 +304,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
         public boolean isDeprecated() {
             return isDeprecatedAttribute;
+        }
+
+        public boolean isUEscaped() {
+            return isUEscapedAttribute;
         }
 
         public boolean isDeprecatedValue(String value) {
@@ -1084,7 +1092,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             }
             seen.seenAttributes.add(a);
             boolean attributeDeprecated = elementDeprecated || isDeprecated(current.name, a.name, "*");
-
+            boolean attributeUEscaped = isUEscaped(current.name, a.name, "*");
             deprecatedValues.clear();
 
             showComments(b, a.commentsPre, true);
@@ -1131,6 +1139,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             } else if (!deprecatedValues.isEmpty()) {
                 b.append(COMMENT_PREFIX + "<!--@DEPRECATED:" + Joiner.on(", ")
                 .join(deprecatedValues) + "-->");
+            }
+            if (attributeUEscaped) {
+                b.append(COMMENT_PREFIX + "<!--@ALLOWS_UESC-->");
             }
         }
         if (current.children.size() > 0) {
@@ -1242,6 +1253,17 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             return true;
         }
         return attribute.deprecatedValues.contains(attributeValue); // don't need special test for "*"
+    }
+
+    public boolean isUEscaped(String elementName, String attributeName, String attributeValue) {
+        Element element = getElementThrowingIfNull(elementName, null, null);
+        Attribute attribute = element.getAttributeNamed(attributeName);
+        if (attribute == null) {
+            throw new IllegalByDtdException(elementName, attributeName, attributeValue);
+        } else if (attribute.isUEscaped()) {
+            return true;
+        }
+        return false;
     }
 
     /**

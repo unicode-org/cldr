@@ -5430,7 +5430,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<initialPattern type="initial">{0}.</initialPattern>
 		<initialPattern type="initialSequence">{0} {1}</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
+			<namePattern>{title} {given} {given2} {surname} {surname2} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
 			<alias source="locale" path="../personName[@order='givenFirst'][@length='long'][@usage='referring'][@formality='formal']"/>
@@ -5442,7 +5442,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<alias source="locale" path="../personName[@order='givenFirst'][@length='long'][@usage='referring'][@formality='formal']"/>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
+			<namePattern>{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="informal">
 			<alias source="locale" path="../personName[@order='givenFirst'][@length='long'][@usage='monogram'][@formality='formal']"/>
@@ -5484,7 +5484,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<alias source="locale" path="../personName[@order='givenFirst'][@length='long'][@usage='monogram'][@formality='formal']"/>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname} {surname2} {title} {given} {given2} {credentials}</namePattern>
+			<namePattern>{surname} {surname2} {title} {given} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
 			<alias source="locale" path="../personName[@order='surnameFirst'][@length='long'][@usage='referring'][@formality='formal']"/>
@@ -5496,7 +5496,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<alias source="locale" path="../personName[@order='surnameFirst'][@length='long'][@usage='referring'][@formality='formal']"/>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{surname-monogram-allCaps}{given-monogram-allCaps}{given2-monogram-allCaps}</namePattern>
+			<namePattern>{surname-monogram-allCaps}{given-monogram-allCaps}{given2-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="informal">
 			<alias source="locale" path="../personName[@order='surnameFirst'][@length='long'][@usage='monogram'][@formality='formal']"/>
@@ -5538,7 +5538,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<alias source="locale" path="../personName[@order='surnameFirst'][@length='long'][@usage='monogram'][@formality='formal']"/>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname} {surname2}, {title} {given} {given2} {credentials}</namePattern>
+			<namePattern>{surname} {surname2}, {title} {given} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="informal">
 			<alias source="locale" path="../personName[@order='sorting'][@length='long'][@usage='referring'][@formality='formal']"/>

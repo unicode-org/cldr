@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -10,15 +10,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<version number="$Revision$"/>
 		<language type="cho"/>
 	</identity>
-	<layout>
-		<orientation>
-			<characterOrder>left-to-right</characterOrder>
-			<lineOrder>top-to-bottom</lineOrder>
-		</orientation>
-	</layout>
+	<localeDisplayNames>
+		<languages>
+			<language type="cho" draft="contributed">Chahta</language>
+		</languages>
+		<scripts>
+			<script type="Latn">Latin</script>
+		</scripts>
+		<territories>
+			<territory type="US">United States</territory>
+		</territories>
+	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters references="R1">[a á b c e f h i í k l m n o ó p s t w y]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" references="R1">[ą č į ł ǫ š ʋ]</exemplarCharacters>
+		<exemplarCharacters>[a ʋ {a\u0331} b {ch} e f h i {i\u0331} k l {hl} m n o o {o\u0331} p s {sh} t u v w y]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[c č d g j q r š x z]</exemplarCharacters>
+		<exemplarCharacters type="index">[A Ʋ {A\u0331} B {CH} E F H I {I\u0331} K L {HL} M N O {O\u0331} P S {SH} T U V W Z]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[\- ‑ , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐ ‑ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
 	</characters>

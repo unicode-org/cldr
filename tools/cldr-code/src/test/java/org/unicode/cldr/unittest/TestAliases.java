@@ -395,4 +395,8 @@ public class TestAliases extends TestFmwk {
             return this;
         }
     }
+
+    public void testSample() {
+        String path = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-dot\"]";
+    }
 }

@@ -393,6 +393,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             return attributeStatus;
         }
 
+        public Mode getMode() {
+            return mode;
+        }
+
         public ValueStatus getValueStatus(String value) {
             return deprecatedValues.contains(value)
                     ? ValueStatus.invalid
@@ -1107,6 +1111,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
     public Map<String, Element> getElementFromName() {
         return nameToElement;
+    }
+
+    public Element getElementFromName(String name) {
+        return nameToElement.get(name);
     }
 
     @Override

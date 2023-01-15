@@ -381,7 +381,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
          * @param relativePath
          * @return
          */
-        static String addRelative(String oldPath, String relativePath) {
+        public static String addRelative(String oldPath, String relativePath) {
             if (relativePath.startsWith("//")) {
                 return relativePath;
             }
@@ -1060,6 +1060,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
          *             https://unicode.org/cldr/trac/ticket/11103
          */
         private AliasLocation getPathLocation(String xpath, boolean skipFirst, boolean skipInheritanceMarker) {
+            boolean debugPath = DEBUG_PATH != null && DEBUG_PATH.matcher(xpath).matches();
             for (XMLSource source : sources.values()) {
                 if (skipFirst) {
                     skipFirst = false;
@@ -1069,6 +1070,9 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 if (value != null) {
                     if (skipInheritanceMarker && CldrUtility.INHERITANCE_MARKER.equals(value)) {
                         continue;
+                    }
+                    if (debugPath) {
+                        System.out.println("found: " + source.getLocaleID() + " " + xpath + " " + value);
                     }
                     return new AliasLocation(xpath, source.getLocaleID());
                 }

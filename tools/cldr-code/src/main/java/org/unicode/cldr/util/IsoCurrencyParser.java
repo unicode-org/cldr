@@ -92,6 +92,7 @@ public class IsoCurrencyParser {
         .put("MEMBER COUNTRIES OF THE AFRICAN DEVELOPMENT BANK GROUP", "ZZ")
         .put("SISTEMA UNITARIO DE COMPENSACION REGIONAL DE PAGOS \"SUCRE\"", "ZZ")
         .put("EUROPEAN MONETARY CO-OPERATION FUND (EMCF)", "ZZ")
+        .put("TÜRKİYE", "TR")
         .build();
 
     static Map<String, String> iso4217CountryToCountryCode = new TreeMap<>();

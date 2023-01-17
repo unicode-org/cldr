@@ -18,8 +18,7 @@ import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 
 public class SearchManager {
-    static final Logger logger = SurveyLog
-        .forClass(SearchManager.class, java.util.logging.Level.ALL);
+    static final Logger logger = SurveyLog.forClass(SearchManager.class);
 
     /**
      * The request of a search

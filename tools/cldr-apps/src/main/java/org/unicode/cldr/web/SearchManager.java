@@ -20,6 +20,7 @@ import com.google.common.cache.CacheBuilder;
 public class SearchManager {
     static final Logger logger = SurveyLog
         .forClass(SearchManager.class, java.util.logging.Level.ALL);
+
     /**
      * The request of a search
      */
@@ -83,6 +84,7 @@ public class SearchManager {
         public synchronized SearchResult[] getResults() {
             return results.toArray(new SearchResult[results.size()]);
         }
+
         List<SearchResult> results = new ArrayList<>();
 
         /**
@@ -92,7 +94,7 @@ public class SearchManager {
         synchronized void addResult(SearchResult r) {
             results.add(r);
             lastUpdated = new Date();
-            logger.finer(() -> token+": +1 result");
+            logger.finer(() -> token + ": +1 result");
         }
 
         /**
@@ -104,7 +106,7 @@ public class SearchManager {
             isComplete = true;
             isOngoing = false;
             lastUpdated = new Date();
-            logger.fine(() -> token+": complete");
+            logger.fine(() -> token + ": complete");
 
             // TODO: could potentially cache the results here.
         }
@@ -136,7 +138,7 @@ public class SearchManager {
             this.response.isOngoing = true;
             this.response.isComplete = false;
             this.response.token = CookieSession.newId();
-            logger.fine(()-> String.format("%s: l=%s, q='%s'",
+            logger.fine(() -> String.format("%s: l=%s, q='%s'",
                 this.response,
                 this.locale,
                 this.request.value));
@@ -158,11 +160,12 @@ public class SearchManager {
             file.getPathsWithValue(request.value, "", null, xresult);
             for (final String xpath : xresult) {
                 // Skip if this isn’t found "here"
-                if(!file.isHere(xpath)) continue;
+                if (!file.isHere(xpath)) {
+                    continue;
+                }
                 // Add incrementally. A user may get a partial result if they request before we are done.
                 response.addResult(new SearchResult(
-                    xpath, request.value, locale
-                ));
+                    xpath, request.value, locale));
             }
 
             // All done (for now!)
@@ -216,7 +219,7 @@ public class SearchManager {
      * @return
      */
     public SearchResponse getSearch(final String token) {
-        Search s = (Search)searches.getIfPresent(token);
+        Search s = (Search) searches.getIfPresent(token);
         if (s == null) return null;
         return s.response;
     }
@@ -228,7 +231,7 @@ public class SearchManager {
      * @return true if the search was found before it was deleted
      */
     public synchronized boolean deleteSearch(final String token) {
-        Search s = (Search)searches.getIfPresent(token);
+        Search s = (Search) searches.getIfPresent(token);
         if (s == null) return false;
         searches.invalidate(token);
         s.stop();

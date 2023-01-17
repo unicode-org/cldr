@@ -82,8 +82,6 @@ public class SearchAPI {
             return Response.status(Status.NOT_FOUND).build();
         }
         SearchResponse search = searchManager.newSearch(request, loc);
-        // TODO: pre-validate response?
-
         return Response.ok(search).build();
     }
 
@@ -95,8 +93,8 @@ public class SearchAPI {
     @APIResponses(
         value = {
             @APIResponse(responseCode = "200", description = "Get status of an existing search",
-            content = @Content(mediaType = "application/json",
-                schema = @Schema(implementation = SearchResponse.class))),
+                content = @Content(mediaType = "application/json",
+                    schema = @Schema(implementation = SearchResponse.class))),
             @APIResponse(responseCode = "404", description = "Search not found")
         })
 

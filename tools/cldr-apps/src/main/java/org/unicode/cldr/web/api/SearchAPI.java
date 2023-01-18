@@ -18,6 +18,7 @@ import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
+import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
@@ -32,7 +33,7 @@ import org.unicode.cldr.web.SearchManager.SearchResponse;
  * @see {@link SearchManager}
  */
 @Path("/search")
-@Tag(name = "searching", description = "APIs for Searching")
+@Tag(name = "search", description = "APIs for Searching")
 public class SearchAPI {
 
     protected static final class SearchAPIHelper {
@@ -67,9 +68,9 @@ public class SearchAPI {
         })
     public Response newSearch(
         @Parameter(
-            required = false, example = "jgo", schema = @Schema(type = SchemaType.STRING)) @QueryParam("loc") String loc,
+            required = false, example = "jgo", schema = @Schema(type = SchemaType.STRING)) @QueryParam("locale") String loc,
         @HeaderParam(Auth.SESSION_HEADER) String session,
-        SearchRequest request) {
+        @RequestBody(required = true) SearchRequest request) {
         final CookieSession mySession = Auth.getSession(session);
         // User must be logged in to use query function
         if (mySession == null || mySession.user == null) {
@@ -78,7 +79,7 @@ public class SearchAPI {
 
         final SearchManager searchManager = SearchAPIHelper.getSearchManager();
 
-        if (!CookieSession.sm.isValidLocale(CLDRLocale.getInstance(loc))) {
+        if (loc == null || loc.isBlank() || !CookieSession.sm.isValidLocale(CLDRLocale.getInstance(loc))) {
             return Response.status(Status.NOT_FOUND).build();
         }
         SearchResponse search = searchManager.newSearch(request, loc);

@@ -241,11 +241,11 @@ If it becomes necessary in the future, the format could extend the ISO layout to
 
 ### <a name="Escaping" href="#Escaping">Escaping</a>
 
-When explicitly specified, attributes can contain escaped characters. This specification uses two methods of escaping, the _UnicodeSet_ notation and the `\u{...}` notation.
+When explicitly specified, attribute values can contain escaped characters. This specification uses two methods of escaping, the _UnicodeSet_ notation and the `\u{...}` notation.
 
 ### UnicodeSet Escaping
 
-The _UnicodeSet_ notation is described in [UTS #35 section 5.3.3](tr35.md#Unicode_Sets) and allows for comprehensive character matching, including by character range, properties, names, or codepoints. Currently, the following attributes allow _UnicodeSet_ notation:
+The _UnicodeSet_ notation is described in [UTS #35 section 5.3.3](tr35.md#Unicode_Sets) and allows for comprehensive character matching, including by character range, properties, names, or codepoints. Currently, the following attribute values allow _UnicodeSet_ notation:
 
 * `from` or `before` on the `<transform>` element
 * `from` or `before` on the `<reorder>` element
@@ -253,7 +253,7 @@ The _UnicodeSet_ notation is described in [UTS #35 section 5.3.3](tr35.md#Unicod
 
 ### UTS18 Escaping
 
-The `\u{...}` notation, a subset of hex notation, is described in [UTS #18 section 1.1](https://www.unicode.org/reports/tr18/#Hex_notation). It can refer to one or multiple individual codepoints. Currently, the following attributes allow the `\u{...}` notation:
+The `\u{...}` notation, a subset of hex notation, is described in [UTS #18 section 1.1](https://www.unicode.org/reports/tr18/#Hex_notation). It can refer to one or multiple individual codepoints. Currently, the following attribute values allow the `\u{...}` notation:
 
 * `to`, `longPress`, `multiTap`, and `longPressDefault` on the `<key>` element
 * `to` on the `<flick>` element
@@ -264,7 +264,7 @@ The `\u{...}` notation, a subset of hex notation, is described in [UTS #18 secti
 
 Characters of general category of Combining Mark (M), Control characters (Cc), Format characters (Cf), and whitespace other than space should be encoded using one of the notation above as appropriate.
 
-Attributes escaped in this manner are annotated with the `<!--@ALLOWS_UESC-->` DTD annotation, see [DTD Annotations](tr35.md#57-dtd-annotations)
+Attribute values escaped in this manner are annotated with the `<!--@ALLOWS_UESC-->` DTD annotation, see [DTD Annotations](tr35.md#57-dtd-annotations)
 
 * * *
 

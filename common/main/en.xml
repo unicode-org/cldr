@@ -7055,6 +7055,11 @@ annotations.
 				<unitPattern count="one">{0} knot</unitPattern>
 				<unitPattern count="other">{0} knots</unitPattern>
 			</unit>
+			<unit type="speed-beaufort">
+				<displayName>Beaufort</displayName>
+				<unitPattern count="one">Beaufort {0}</unitPattern>
+				<unitPattern count="other">Beaufort {0}</unitPattern>
+			</unit>
 			<unit type="temperature-generic">
 				<displayName>degrees temperature</displayName>
 				<unitPattern count="one">{0} degree temperature</unitPattern>
@@ -7983,6 +7988,11 @@ annotations.
 				<unitPattern count="one">{0} kn</unitPattern>
 				<unitPattern count="other">{0} kn</unitPattern>
 			</unit>
+			<unit type="speed-beaufort">
+				<displayName>Bft</displayName>
+				<unitPattern count="one">B {0}</unitPattern>
+				<unitPattern count="other">B {0}</unitPattern>
+			</unit>
 			<unit type="temperature-celsius">
 				<displayName>deg. C</displayName>
 				<unitPattern count="one">{0}°C</unitPattern>
@@ -8870,6 +8880,11 @@ annotations.
 				<displayName>kn</displayName>
 				<unitPattern count="one">{0}kn</unitPattern>
 				<unitPattern count="other">{0}kn</unitPattern>
+			</unit>
+			<unit type="speed-beaufort">
+				<displayName>Bft</displayName>
+				<unitPattern count="one">B{0}</unitPattern>
+				<unitPattern count="other">B{0}</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName>°C</displayName>

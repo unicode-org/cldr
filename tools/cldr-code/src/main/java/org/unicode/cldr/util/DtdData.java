@@ -1476,7 +1476,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         "pressure-hectopascal",
         "pressure-kilopascal",
         "pressure-megapascal",
-        "speed-kilometer-per-hour", "speed-meter-per-second", "speed-mile-per-hour", "speed-knot",
+        "speed-kilometer-per-hour", "speed-meter-per-second", "speed-mile-per-hour", "speed-knot", "speed-beaufort",
         "temperature-generic", "temperature-celsius", "temperature-fahrenheit", "temperature-kelvin",
         "torque-pound-force-foot",
         "torque-pound-foot", // deprecated

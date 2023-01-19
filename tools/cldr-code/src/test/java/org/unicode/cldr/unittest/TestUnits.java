@@ -565,7 +565,7 @@ public class TestUnits extends TestFmwk {
         assertEquals("Units without Quantity", Collections.emptySet(), noQuantity);
     }
 
-    static final Set<String> NOT_CONVERTABLE = ImmutableSet.of("generic");
+    static final Set<String> NOT_CONVERTABLE = ImmutableSet.of("generic", "beaufort");
 
     private void checkUnitConvertability(UnitConverter converter, Output<String> compoundBaseUnit,
         Set<String> badUnits, Set<String> noQuantity, String type, String unit,
@@ -687,7 +687,7 @@ public class TestUnits extends TestFmwk {
         for (Entry<String, String> entry : TYPE_TO_CORE.entries()) {
             final String coreUnit = entry.getValue();
             final String unitType = entry.getKey();
-            if (coreUnit.equals("generic")) {
+            if (NOT_CONVERTABLE.contains(coreUnit)) {
                 continue;
             }
             String quantity = converter.getQuantityFromUnit(coreUnit, false);
@@ -961,7 +961,7 @@ public class TestUnits extends TestFmwk {
         Multimap<Set<UnitSystem>, R3<String, ConversionInfo, String>> systemsToUnits = TreeMultimap.create(Comparators.lexicographical(Ordering.natural()), Ordering.natural());
         for (String longUnit : VALID_REGULAR_UNITS) {
             String unit = Units.getShort(longUnit);
-            if (unit.equals("generic")) {
+            if (NOT_CONVERTABLE.contains(unit)) {
                 continue;
             }
             if (unit.contentEquals("centiliter")) {
@@ -1859,10 +1859,10 @@ public class TestUnits extends TestFmwk {
         //assertSuperset("long convertible units", "valid regular", unitsConvertibleLongIds, validLongUnitIds);
         Output<String> baseUnit = new Output<>();
         for (String longUnit : validLongUnitIds) {
-            if (longUnit.equals("temperature-generic")) {
+            String shortUnit = Units.getShort(longUnit);
+            if (NOT_CONVERTABLE.contains(shortUnit)) {
                 continue;
             }
-            String shortUnit = Units.getShort(longUnit);
             ConversionInfo conversionInfo = converter.parseUnitId(shortUnit, baseUnit, false);
             if (!assertNotNull("Can convert " + longUnit, conversionInfo)) {
                 converter.getUnitInfo(shortUnit, baseUnit);

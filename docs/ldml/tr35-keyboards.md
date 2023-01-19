@@ -1152,9 +1152,9 @@ _Attribute:_ `form` (required)
 
 > `form` may be either `hardware` or `touch`.
 >
-> There may only be a single `layers` with `form="hardware"`.
+> There may only be a single (at most one) `layers` element with `form="hardware"` for each `hardware=…` type.
 >
-> It is recommended to always have one
+> It is recommended to always have at least one
 > `<layers form="hardware">` element.
 > If there is no `hardware` form, the implementation may need
 > to choose a different keyboard file, or use some other fallback behavior when using a
@@ -1166,7 +1166,13 @@ _Attribute:_ `form` (required)
 _Attribute:_ `hardware`
 
 This attribute specifies the physical layout for the hardware keyboard.
+It is required for `form="hardware"` keyboards.
 Currently supported values are `us`, `iso`, `jis` and `abnt2`.
+
+- `abnt2` - Brazilian 103 key ABNT2 layout (iso + extra key left of right shift)
+- `iso` - European 102 key layout (extra key right of left shift)
+- `jis` - Japanese 109 key layout
+- `us` - ANSI 101 key layout
 
 _Attribute:_ `minDeviceWidth`
 

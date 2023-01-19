@@ -17684,6 +17684,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} kt</unitPattern>
 				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
+			<unit type="speed-beaufort">
+				<displayName draft="provisional">windkracht</displayName>
+				<unitPattern count="one" draft="provisional">{0}</unitPattern>
+				<unitPattern count="other" draft="provisional">{0}</unitPattern>
+			</unit>
 			<unit type="temperature-generic">
 				<displayName>°</displayName>
 				<unitPattern count="one">{0}°</unitPattern>

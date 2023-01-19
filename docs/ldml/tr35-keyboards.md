@@ -1163,7 +1163,7 @@ _Attribute:_ `form` (required)
 > When using an on-screen keyboard, if there is not a `<layers form="touch">`
 > element, the `<layers form="hardware">` element can be used for on-screen use.
 
-_Attribute:_ `hardware`
+_Attribute:_ `hardware` (required for `form="hardware"`)
 
 This attribute specifies the physical layout for the hardware keyboard.
 It is required for `form="hardware"` keyboards.

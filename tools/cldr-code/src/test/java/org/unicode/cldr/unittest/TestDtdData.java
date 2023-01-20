@@ -634,7 +634,6 @@ public class TestDtdData extends TestFmwk {
                 || elementName.equals("layers") && attribute.equals("minDeviceWidth")
                 || elementName.equals("vkey") && attribute.equals("from")
                 || elementName.equals("layer") && attribute.equals("modifier")
-                || elementName.equals("layers") && attribute.equals("hardware")
                 || elementName.equals("map") && attribute.equals("id")
                 || elementName.equals("key") && attribute.equals("id")
                 || elementName.equals("key") && attribute.equals("stretch")

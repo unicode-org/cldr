@@ -289,17 +289,18 @@
       <xs:attribute name="form" use="required">
         <xs:simpleType>
           <xs:restriction base="xs:token">
-            <xs:enumeration value="hardware"/>
             <xs:enumeration value="touch"/>
+            <xs:enumeration value="us"/>
+            <xs:enumeration value="iso"/>
+            <xs:enumeration value="jis"/>
+            <xs:enumeration value="abnt2"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
       <xs:attribute name="minDeviceWidth"/>
-      <xs:attribute name="hardware" type="xs:NMTOKEN"/>
     </xs:complexType>
   </xs:element>
   <!-- @MATCH:range/1~999 -->
-  <!-- @MATCH:literal/us, iso, jis, abnt2 -->
   <xs:element name="layer">
     <xs:complexType>
       <xs:sequence>

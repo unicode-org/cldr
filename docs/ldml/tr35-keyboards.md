@@ -1148,35 +1148,34 @@ hardware or touch layout.
 >
 > </small>
 
+- At least one `layers` element is required.
+- Multiple `<layers form="touch">` elements are allowed with distinct `minDeviceWidth` values.
+- At most one `<layers>` element is allowed per hardware `form`. In other words,
+at most one `<layers form="jis">` element is allowed.
+
 _Attribute:_ `form` (required)
 
-> `form` may be either `hardware` or `touch`.
+> This attribute specifies the physical layout of a hardware keyboard,
+> or that the form is a touch layout.
 >
-> There may only be a single (at most one) `layers` element with `form="hardware"` for each `hardware=…` type.
->
-> It is recommended to always have at least one
-> `<layers form="hardware">` element.
+> It is recommended to always have at least one hardware (non-touch) form.
 > If there is no `hardware` form, the implementation may need
 > to choose a different keyboard file, or use some other fallback behavior when using a
 > hardware keyboard.
 >
 > When using an on-screen keyboard, if there is not a `<layers form="touch">`
-> element, the `<layers form="hardware">` element can be used for on-screen use.
-
-_Attribute:_ `hardware` (required for `form="hardware"`)
-
-This attribute specifies the physical layout for the hardware keyboard.
-It is required for `form="hardware"` keyboards.
-Currently supported values are `us`, `iso`, `jis` and `abnt2`.
-
-- `abnt2` - Brazilian 103 key ABNT2 layout (iso + extra key left of right shift)
-- `iso` - European 102 key layout (extra key right of left shift)
-- `jis` - Japanese 109 key layout
-- `us` - ANSI 101 key layout
+> element, the hardware elements can be used for on-screen use.
+>
+> The following values are allowed:
+> - `touch` - Touch (non-hardware) layout.
+> - `abnt2` - Brazilian 103 key ABNT2 layout (iso + extra key left of right shift)
+> - `iso` - European 102 key layout (extra key right of left shift)
+> - `jis` - Japanese 109 key layout
+> - `us` - ANSI 101 key layout
 
 _Attribute:_ `minDeviceWidth`
 
-This attribute specifies the minimum required width, in millimeters (mm), of the touch surface.  The `layers` entry with the greatest matching width will be selected. This attribute is intended for `form="touch"`, but is supported for `form="hardware"`.
+> This attribute specifies the minimum required width, in millimeters (mm), of the touch surface.  The `layers` entry with the greatest matching width will be selected. This attribute is intended for `form="touch"`, but is supported for hardware forms`.
 
 ### <a name="Element_layer" href="#Element_layer">Element: layer</a>
 

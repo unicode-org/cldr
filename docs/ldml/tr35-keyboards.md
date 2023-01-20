@@ -685,7 +685,9 @@ This element defines a mapping between an abstract key and its output. This elem
 > Occurrence: optional, multiple
 > </small>
 
-**Note**: The `id` attribute is required, as is _at least one of_ `switch`, `gap`, or `to`.
+**Note**: The `id` attribute is required.
+
+**Note**: _at least one of_ `switch`, `gap`, or `to` are required.
 
 _Attribute:_ `id`
 
@@ -735,7 +737,7 @@ _Attribute:_ `switch="shift"` (optional)
 > Also note that `switch=` is ignored for hardware layouts: their shifting is controlled via
 > the modifier keys.
 
-_Attribute:_ `to` (required)
+_Attribute:_ `to`
 
 > The `to` attribute contains the output sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the `\u{...}` notation. More than one key may output the same output.
 

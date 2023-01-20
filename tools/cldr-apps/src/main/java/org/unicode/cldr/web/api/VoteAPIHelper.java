@@ -428,7 +428,9 @@ public class VoteAPIHelper {
         String val;
         if (origValue != null && !origValue.isEmpty()) {
             final DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale, true);
-            daip.enableInheritanceReplacement(cldrFile);
+            if (VoteResolver.DROP_HARD_INHERITANCE) {
+                daip.enableInheritanceReplacement(cldrFile);
+            }
             val = daip.processInput(xp, origValue, exceptionList);
             if (val.isEmpty()
                 && DtdData.getValueConstraint(xp) == DtdData.Element.ValueConstraint.nonempty) {

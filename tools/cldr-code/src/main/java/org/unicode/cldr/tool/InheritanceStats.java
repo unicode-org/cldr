@@ -1,44 +1,38 @@
 package org.unicode.cldr.tool;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumSet;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
-import java.util.SortedMap;
-import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DtdData;
-import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
-import org.unicode.cldr.util.DtdData.Mode;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.LocaleIDParser;
-import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathStarrer;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.XMLSource.Alias;
 import org.unicode.cldr.util.XPathParts;
 
 import com.google.common.base.Joiner;
+import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSortedMap;
 import com.google.common.collect.ImmutableSortedSet;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.util.Output;
 
@@ -65,6 +59,8 @@ public class InheritanceStats {
             case "stats": showLocaleStats(); break;
             case "inherit": testInheritance(); break;
             case "dtd": checkDtdData(); break;
+            case "attr": showAttributeValues(); break;
+            case "ws": checkWhitespace(); break;
             default: throw new IllegalArgumentException("bad argument");
             }
         }
@@ -155,7 +151,6 @@ public class InheritanceStats {
 
     public static void testInheritance() {
         Inheritance inheritance = new Inheritance(CLDR_FACTORY);
-
 
         Output<String> pathWhereFound = new Output<>();
         Output<String> localeWhereFound = new Output<>();
@@ -250,242 +245,17 @@ public class InheritanceStats {
         return true;
     }
 
-    public static class Inheritance {
-        private AliasMapper aliasMapper;
-        private Factory factory;
-        public enum LateralAliasType {remove, removeWhenOptional, count}
-        public static final Map<String,LateralAliasType> LATERAL_ATTRIBUTES = ImmutableMap.of(
-            "alt", LateralAliasType.remove,
-            "case", LateralAliasType.removeWhenOptional,
-            "gender", LateralAliasType.removeWhenOptional,
-            "count", LateralAliasType.count
-            );
-
-        public static boolean isHardValue(String value) {
-            return value != null && !value.equals(CldrUtility.INHERITANCE_MARKER);
-        }
-
-        Inheritance(Factory factory) {
-            CLDRFile root = factory.make("root", false);
-            aliasMapper = new AliasMapper(root);
-            this.factory = factory;
-        }
-
-        public String getStringValueWithBailey(String locale, String path, Output<String> pathWhereFound, Output<String> localeWhereFound) {
-            List<CLDRFile> verticalChain = getVerticalLocaleChain(locale);
-            String result = searchVertical(path, pathWhereFound, localeWhereFound, verticalChain);
-            if (result != null) {
-                return result; // the Outputs are set by searchVertical
-            }
-            return getBaileyValue(path, pathWhereFound, localeWhereFound, verticalChain);
-        }
-
-        public String getBaileyValue(String locale, String path, Output<String> pathWhereFound, Output<String> localeWhereFound) {
-            return getBaileyValue(path, pathWhereFound, localeWhereFound, getVerticalLocaleChain(locale));
-        }
-
-        private List<CLDRFile> getVerticalLocaleChain(String locale) {
-            List<CLDRFile> result = new ArrayList<>();
-            while (locale != null) {
-                result.add(factory.make(locale, false));
-                locale = LocaleIDParser.getParent(locale);
-            }
-            return ImmutableList.copyOf(result);
-        }
-
-        public String getBaileyValue(String path, Output<String> pathWhereFound, Output<String> localeWhereFound, List<CLDRFile> verticalChain) {
-            String result;
-            Set<String> inheritanceChain = getInheritanceChain(verticalChain.get(0).getLocaleID(), path);
-            for (String path2 : inheritanceChain) {
-                result = searchVertical(path2, pathWhereFound, localeWhereFound, verticalChain);
-                if (result != null) {
-                    return result; // the Outputs are set by searchVertical
-                }
-            }
-            // we failed
-            pathWhereFound.value = null;
-            localeWhereFound.value = null;
-            return null;
-        }
-
-        public String searchVertical(String path, Output<String> pathWhereFound, Output<String> localeWhereFound, List<CLDRFile> verticalChain) {
-            for (CLDRFile file : verticalChain) {
-                String value = file.getStringValue(path);
-                if (isHardValue(value)) {
-                    pathWhereFound.value = path;
-                    localeWhereFound.value = file.getLocaleID();
-                    return value;
-                }
-            }
-            return null;
-        }
-
-        public Set<String> getInheritanceChain(String locale, String path) {
-            Set<String> result = new LinkedHashSet<>(); // prevent dups
-            addVerticals(path, result);
-            XPathParts parts = XPathParts.getFrozenInstance(path);
-            for (Entry<String, LateralAliasType> entry : LATERAL_ATTRIBUTES.entrySet()) {
-                String attribute = entry.getKey();
-                int elementNumber = getFirstElementForAttribute(parts, attribute);
-                if (elementNumber < 0) {
-                    continue;
-                }
-                parts = parts.cloneAsThawed();
-                switch (entry.getValue()) {
-                case removeWhenOptional:
-                    Attribute a = dtdData.getAttribute(parts.getElement(elementNumber), attribute);
-                    if (a.getMode() == Mode.OPTIONAL) {
-                        addPathReplacingAttribute(parts, elementNumber, attribute, null, result);
-                    }
-                    break;
-                case remove:
-                    addPathReplacingAttribute(parts, elementNumber, attribute, null, result);
-                    break;
-                case count:
-                    // TBD if count is decimal, use locale to get category
-                    String attValue = parts.getAttributeValue(elementNumber, attribute);
-                    if (!"other".equals(attValue)) {
-                        addPathReplacingAttribute(parts, elementNumber, attribute, "other", result);
-                    }
-                    addPathReplacingAttribute(parts, elementNumber, attribute, null, result);
-                    break;
-                }
-                int elementNumber2 = getFirstElementForAttribute(parts, attribute);
-                if (elementNumber2 > 0) {
-                    throw new IllegalArgumentException("Multiple instances of " + attribute + " in " + parts);
-                }
-            }
-            return result;
-        }
-
-        public void addPathReplacingAttribute(XPathParts parts, int elementNumber, String attribute, String attValue, Set<String> result) {
-            if (attValue == null) {
-                parts.removeAttribute(elementNumber, attribute);
-            } else {
-                parts.setAttribute(elementNumber, attribute, attValue);
-            }
-            String path = parts.toString();
-            addVerticals(path, result);
-        }
-
-        private void addVerticals(String path, Set<String> result) {
-            result.add(path);
-            aliasMapper.getInheritedPaths(path, result);
-        }
-
-        // TODO move to XPathParts
-        private int getFirstElementForAttribute(XPathParts parts, String key) {
-            for (int elementNumber = 0; elementNumber < parts.size(); ++elementNumber) {
-                if (parts.getAttributeValue(elementNumber, key) != null) {
-                    return elementNumber;
-                }
-            }
-            return -1;
-        }
-
-        /**
-         * Class to gather all the aliases in root into a form useful for
-         * processing lateral alias inheritance.
-         */
-        public static class AliasMapper {
-            // this map is sorted in reverse, so that longer substrings always come before shorter
-            // TODO make these immutable
-            private final SortedMap<String, String> sorted;
-
-            /**
-             * Get all the prefixes
-             * @return
-             */
-            public Set<String> getInheritingPathPrefixes() {
-                return sorted.keySet();
-            }
-
-            /**
-             * Get all the inherited paths for a given path
-             */
-            public <T extends Collection<String>> T getInheritedPaths(String path, T result) {
-                while (true) {
-                    String trial = getInheritedPath(path);
-                    if (trial == null) {
-                        break;
-                    }
-                    if (!result.add(trial)) {
-                        throw new IllegalArgumentException("Cycle in chain");
-                    }
-                    path = trial;
-                }
-                return result;
-            }
-
-            /**
-             * Given a path in a resolving CLDRFile that inherits laterally with aliases,
-             * return the path it inherits from.
-             * <br>If the CLDRFile is not resolving, an exception is thrown.
-             * @param path
-             * @return the path that the input path inherits from laterally,
-             * or null if there is no such path.
-             * <br>If the file is not resolving, an exception is thrown.
-             */
-
-            public String getInheritedPath(String path) {
-                SortedMap<String, String> less = sorted.tailMap(path);
-                String firstLess = less.firstKey();
-                if (!path.startsWith(firstLess)) {
-                    return null;
-                }
-                String result = sorted.get(firstLess)
-                    + path.substring(firstLess.length());
-                // System.out.println(path + " ==> " + result);
-                return result;
-            }
-
-            /**
-             * Given a path in a resolving CLDRFile, find all of the paths that inherit from it laterally.
-             * That is, the result is the set of all paths P such that getInheritedPath(P) == path
-             * If there are no such paths, the empty set is returned.
-             * <br>If the CLDRFile is not resolving, an exception is thrown.
-             * @param path
-             * @return immutable set of laterally inheriting paths
-             */
-            public Set<String> getInheritingPaths(String path) {
-                return null;
-            }
-
-            /**
-             * Put together all the alias paths into the format: prefix => result.
-             * @param root
-             */
-            public AliasMapper(CLDRFile root) {
-                if (!"root".equals(root.getLocaleID())) {
-                    throw new IllegalArgumentException("Must use a root CLDRFile");
-                }
-
-                //  <alias source="locale" path="../listPattern[@type='or-short']"/>
-                SortedMap<String, String> sorted = new TreeMap<>(Collections.reverseOrder());
-
-                for (String path : root) {
-                    if (!Alias.isAliasPath(path)) {
-                        continue;
-                    }
-                    String fullPath = root.getFullXPath(path);
-                    XPathParts parts = XPathParts.getFrozenInstance(fullPath);
-                    String newParts = parts.getAttributeValue(-1, "path");
-                    String prefix = Alias.stripLastElement(path);
-                    String composed = Alias.addRelative(prefix, newParts);
-                    sorted.put(prefix, composed);
-                }
-                this.sorted = ImmutableSortedMap.copyOf(sorted);
-            }
-        }
-    }
-
     static void checkDtdData() {
         Set<String> lines = new TreeSet<>();
+        Multimap<Element, Element> childToParents = HashMultimap.create();
+        // TODO, make Element comparable
 
         for (Element e : dtdData.getElements()) {
             if (e.isDeprecated()) {
                 continue;
             }
+            final Set<Element> children = e.getChildren().keySet();
+            children.forEach(x -> childToParents.put(x, e));
             for (DtdData.Attribute a : e.getAttributes().keySet()) {
                 if (a.isDeprecated()) {
                     continue;
@@ -496,64 +266,121 @@ public class InheritanceStats {
                         + "\t" + e
                         + "\t" + a.getMatchString()
                         + "\t" + a.getMode()
-                        + "\t" + e.getChildren().keySet());
+                        + "\t" + children);
                 }
             }
         }
         System.out.println("\nAttribute\tElement\tPossible Values");
         lines.forEach(x -> System.out.println(x));
-
-        TreeMultimap<Pair<String,String>, String> dataToAlts = TreeMultimap.create();
-        final Factory cldrFactory = CLDR_FACTORY;
-
-        getAltPaths(dtdData, cldrFactory.make("root", true), dataToAlts);
-        showAlts(dataToAlts);
-
-        char lastChar = 0;
-        for (String locale : cldrFactory.getAvailable()) {
-            if (SDI.isDefaultContent(CLDRLocale.getInstance(locale))) {
-                continue;
+        System.out.println("\nParents\tChild");
+        childToParents.asMap().entrySet().forEach(x -> {
+            Element child = x.getKey();
+            Collection<Element> parents = x.getValue();
+            final Set<Element> fromElement = new HashSet<>();
+            child.getParents().forEach(
+                y -> {if (!y.isDeprecated()) fromElement.add(y);}
+                );
+            if (!fromElement.equals(parents)) {
+                throw new IllegalArgumentException("Bad parents in element");
             }
-            if (lastChar != locale.charAt(0)) {
-                System.out.println(locale);
-                lastChar = locale.charAt(0);
+            if (x.getValue().size() > 1) {
+                System.out.println(COMMA_JOINER.join(x.getValue()) + "\t" + x.getKey());
             }
-            getAltPaths(dtdData, cldrFactory.make(locale, true), dataToAlts);
-        }
-
-        showAlts(dataToAlts);
-    }
-
-    public static void showAlts(TreeMultimap<Pair<String, String>, String> dataToAlts) {
-        System.out.println("\nP. Element\tElement\tAlt value\tStarred Path");
-        dataToAlts.asMap().entrySet().forEach(x -> {
-            String element = x.getKey().getFirst();
-            String path = x.getKey().getSecond();
-            System.out.println(element + "\t" + COMMA_JOINER.join(x.getValue()) + "\t" + path);
         });
     }
 
-    public static TreeMultimap<Pair<String, String>, String> getAltPaths(DtdData dtdData, CLDRFile file, TreeMultimap<Pair<String, String>, String> dataToAlts) {
-        PathStarrer pathStarrer = new PathStarrer();
-        pathStarrer.setSubstitutionPattern("*");
-        Map<String, Element> elementNameMap = dtdData.getElementFromName();
+    public static void showAttributeValues() {
 
-        for (String path : file.fullIterable()) {
-            XPathParts parts = XPathParts.getFrozenInstance(path);
-            if (dtdData.isDeprecated(parts)) {
+        final Set<String> locales = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr, ImmutableSortedSet.of(Level.MODERN, Level.MODERATE));
+        AttributeData attributeData = new AttributeData();
+
+        Set<String> attributes = Inheritance.LATERAL_ATTRIBUTES.keySet();
+
+        attributeData.getAttributePaths(CLDR_FACTORY.make("root", true), attributes);
+        attributeData.showAlts();
+
+        processLocales(locales, attributeData, attributes, CLDR_FACTORY);
+        attributeData.showAlts();
+
+        for (String version : Lists.reverse(ToolConstants.CLDR_VERSIONS)) {
+            System.out.println(version);
+            String dirBase = ToolConstants.getBaseDirectory(version);
+            String current = dirBase + "common/" + "main";
+
+            Factory factory;
+            try {
+                factory = Factory.make(current, ".*");
+            } catch (Exception e) {
+                e.printStackTrace();
                 continue;
             }
-            for (int elementNumber = 0; elementNumber < parts.size(); ++elementNumber) {
-                String altValue = parts.getAttributeValue(elementNumber, "alt");
-                if (altValue != null) {
-                    final String eName = parts.getElement(elementNumber);
-                    String eName0 = parts.getElement(elementNumber-1);
-                    dataToAlts.put(Pair.of(eName0 + "\t" + eName,
-                        pathStarrer.set(path).replace("/", "/ ") + "\t" + COMMA_JOINER.join(elementNameMap.get(eName).getChildren().keySet())),
-                        altValue);
+
+            processLocales(locales, attributeData, attributes, factory);
+            attributeData.showAlts();
+        }
+    }
+
+    public static void processLocales(final Set<String> locales, AttributeData attributeData, Set<String> attributes, Factory factory) {
+        char lastChar = 0;
+        for (String locale : locales) {
+            CLDRFile cldrFile;
+            try {
+                cldrFile = factory.make(locale, true);
+            } catch (Exception e) {
+                continue; // old versions might not have the locale
+            }
+            if (lastChar != locale.charAt(0)) {
+                System.out.println("\t" + locale);
+                lastChar = locale.charAt(0);
+            }
+            attributeData.getAttributePaths(cldrFile, attributes);
+        }
+    }
+
+    private static final class AttributeData {
+        private Set<String> seen = new HashSet<>();
+        private TreeMultimap<String, String> dataToAlts = TreeMultimap.create();
+
+        public void showAlts() {
+            System.out.println("\nP. Element\tElement\tAlt value\tStarred Path");
+            dataToAlts.asMap().entrySet().forEach(x -> {
+                String element = x.getKey();
+                System.out.println(element + "\t" + COMMA_JOINER.join(x.getValue()));
+            });
+        }
+
+        public void getAttributePaths(CLDRFile file, Set<String> attributes) {
+            PathStarrer pathStarrer = new PathStarrer();
+            pathStarrer.setSubstitutionPattern("*");
+            for (String path : file.fullIterable()) {
+                if (seen.contains(path)) {
+                    continue;
+                }
+                seen.add(path);
+                XPathParts parts = XPathParts.getFrozenInstance(path);
+                if (dtdData.isDeprecated(parts)) {
+                    continue;
+                }
+                for (int elementNumber = 0; elementNumber < parts.size(); ++elementNumber) {
+                    for (String attribute : parts.getAttributeKeys(elementNumber)) {
+                        if (!attributes.contains(attribute)) {
+                            continue;
+                        }
+                        String altValue = parts.getAttributeValue(elementNumber, attribute);
+                        if (altValue.contains("proposed")) {
+                            continue;
+                        }
+                        if (altValue != null) {
+                            final String eName = parts.getElement(elementNumber);
+                            String eName0 = parts.getElement(elementNumber-1);
+                            dataToAlts.put(
+                                eName0 + "\t" + eName + "\t" + attribute,
+//                        pathStarrer.set(path) + "\t" + COMMA_JOINER.join(elementNameMap.get(eName).getChildren().keySet())),
+                                altValue);
+                        }
+                    }
                 }
             }
         }
-        return dataToAlts;
     }
 }

@@ -1253,7 +1253,11 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.add("bailey", TestUser.appleV.voterId);
         resolver.add("bailey", TestUser.microsoftV.voterId);
         resolver.add("bailey", TestUser.googleV.voterId);
-        assertEquals("Simple case, all = bailey", CldrUtility.INHERITANCE_MARKER, resolver.getWinningValue());
+        if (VoteResolver.DROP_HARD_INHERITANCE) {
+            assertEquals("Simple case, all = bailey", CldrUtility.INHERITANCE_MARKER, resolver.getWinningValue());
+        } else {
+            assertEquals("Simple case, all = bailey", "bailey", resolver.getWinningValue());
+        }
 
         /*
          * Another simple case, all = INHERITANCE_MARKER
@@ -1325,7 +1329,11 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.add(CldrUtility.INHERITANCE_MARKER, TestUser.microsoftV.voterId);
         resolver.add("other-vote", TestUser.adobeV.voterId);
         resolver.add("other-vote", TestUser.gnomeV.voterId);
-        assertEquals("Bailey never beats INHERITANCE_MARKER", CldrUtility.INHERITANCE_MARKER, resolver.getWinningValue());
+        if (VoteResolver.DROP_HARD_INHERITANCE) {
+            assertEquals("Bailey never beats INHERITANCE_MARKER", CldrUtility.INHERITANCE_MARKER, resolver.getWinningValue());
+        } else {
+            assertEquals("Bailey can beat INHERITANCE_MARKER if not dropped", "bailey", resolver.getWinningValue());
+        }
     }
 
     /**

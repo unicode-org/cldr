@@ -582,7 +582,7 @@ public class DataPage {
             if (value == null) {
                 return null;
             }
-            if (value.equals(inheritedValue) && !inheritsFromRootOrFallback()) {
+            if (VoteResolver.DROP_HARD_INHERITANCE && value.equals(inheritedValue) && !inheritsFromRootOrFallback()) {
                 value = CldrUtility.INHERITANCE_MARKER;
             }
             CandidateItem item = items.get(value);
@@ -1893,7 +1893,8 @@ public class DataPage {
          */
         CandidateItem myItem = null;
         if (ourValue != null) {
-            if (!ourValue.equals(row.inheritedValue) ||
+            if (!VoteResolver.DROP_HARD_INHERITANCE ||
+                !ourValue.equals(row.inheritedValue) ||
                 row.items.get(ourValue) != null ||
                 row.inheritsFromRootOrFallback()) {
                 myItem = row.addItem(ourValue, "our");

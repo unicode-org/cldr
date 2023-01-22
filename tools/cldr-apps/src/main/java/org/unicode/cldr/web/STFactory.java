@@ -1115,7 +1115,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         private DisplayAndInputProcessor getProcessor() {
             if (daip == null) {
                 daip = new DisplayAndInputProcessor(locale, true);
-                daip.enableInheritanceReplacement(getFile(true));
+                if (VoteResolver.DROP_HARD_INHERITANCE) {
+                    daip.enableInheritanceReplacement(getFile(true));
+                }
             }
             return daip;
         }

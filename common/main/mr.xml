@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1004,7 +1004,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TM">तुर्कमेनिस्तान</territory>
 			<territory type="TN">ट्यूनिशिया</territory>
 			<territory type="TO">टोंगा</territory>
-			<territory type="TR">तुर्की</territory>
+			<territory type="TR">तुर्किये</territory>
 			<territory type="TR" alt="variant">↑↑↑</territory>
 			<territory type="TT">त्रिनिदाद आणि टोबॅगो</territory>
 			<territory type="TV">टुवालु</territory>
@@ -4202,6 +4202,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Hermosillo">
 				<exemplarCity>हर्मोसिलो</exemplarCity>
 			</zone>
+			<zone type="America/Ciudad_Juarez">
+				<exemplarCity>सिउदाद हुआरेझ</exemplarCity>
+			</zone>
 			<zone type="America/Mazatlan">
 				<exemplarCity>माझातलान</exemplarCity>
 			</zone>
@@ -7190,7 +7193,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="acceleration-g-force">
 				<gender>masculine</gender>
 				<displayName>जी-फोर्स</displayName>
-				<unitPattern count="one">{0} जी-फोर्स</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} जी-फोर्सपासून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} जी-फोर्सला</unitPattern>
 				<unitPattern count="one" case="dative">{0} जी-फोर्सला</unitPattern>
@@ -7248,7 +7251,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="angle-radian">
 				<gender>feminine</gender>
 				<displayName>रेडियन</displayName>
-				<unitPattern count="one">{0} रेडियन</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} रेडियनपासून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} रेडियनला</unitPattern>
 				<unitPattern count="one" case="dative">{0} रेडियनला</unitPattern>
@@ -7498,7 +7501,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-permillion">
 				<gender>neuter</gender>
 				<displayName>भाग प्रति दशलक्ष</displayName>
-				<unitPattern count="one">{0} भाग प्रति दशलक्ष</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} भाग प्रति दशलक्षापासून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} भाग प्रति दशलक्षास</unitPattern>
 				<unitPattern count="one" case="dative">{0} भाग प्रति दशलक्षाला</unitPattern>
@@ -7518,7 +7521,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-percent">
 				<gender>neuter</gender>
 				<displayName>टक्के</displayName>
-				<unitPattern count="one">{0} टक्के</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} टक्क्यापासून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} टक्क्यास</unitPattern>
 				<unitPattern count="one" case="dative">{0} टक्क्याला</unitPattern>
@@ -7538,7 +7541,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-permille">
 				<gender>masculine</gender>
 				<displayName>प्रतिमैल</displayName>
-				<unitPattern count="one">{0} प्रतिमैल</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} प्रतिमैलापासून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} प्रतिमैलास</unitPattern>
 				<unitPattern count="one" case="dative">{0} प्रतिमैलाला</unitPattern>
@@ -7638,7 +7641,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName>मैल प्रति इम्पिरिअल गॅलन</displayName>
-				<unitPattern count="one">{0} मैल प्रति इम्पि गॅलन</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} मैल प्रति इम्पि गॅलन</unitPattern>
 			</unit>
 			<unit type="digital-petabyte">
@@ -7680,7 +7683,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="digital-terabit">
 				<gender>masculine</gender>
 				<displayName>टेराबिट</displayName>
-				<unitPattern count="one">{0} टेराबिट</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} टेराबिटहून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} टेराबिटला</unitPattern>
 				<unitPattern count="one" case="dative">{0} टेराबिटला</unitPattern>
@@ -7698,7 +7701,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="digital-gigabyte">
 				<gender>masculine</gender>
 				<displayName>गिगाबाइट</displayName>
-				<unitPattern count="one">{0} गिगाबाइट</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} गिगाबाइटहून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} गिगाबाइटला</unitPattern>
 				<unitPattern count="one" case="dative">{0} गिगाबाइटला</unitPattern>
@@ -7716,7 +7719,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="digital-gigabit">
 				<gender>masculine</gender>
 				<displayName>गिगाबिट</displayName>
-				<unitPattern count="one">{0} गिगाबिट</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} गिगाबिटहून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} गिगाबिटला</unitPattern>
 				<unitPattern count="one" case="dative">{0} गिगाबिटला</unitPattern>
@@ -7734,7 +7737,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="digital-megabyte">
 				<gender>masculine</gender>
 				<displayName>मेगाबाइट</displayName>
-				<unitPattern count="one">{0} मेगाबाइट</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} मेगाबाइटहून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} मेगाबाइटला</unitPattern>
 				<unitPattern count="one" case="dative">{0} मेगाबाइटला</unitPattern>
@@ -7752,7 +7755,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="digital-megabit">
 				<gender>masculine</gender>
 				<displayName>मेगाबिट</displayName>
-				<unitPattern count="one">{0} मेगाबिट</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} मेगाबिटहून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} मेगाबिटला</unitPattern>
 				<unitPattern count="one" case="dative">{0} मेगाबिटला</unitPattern>
@@ -7770,7 +7773,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="digital-kilobyte">
 				<gender>masculine</gender>
 				<displayName>किलोबाइट</displayName>
-				<unitPattern count="one">{0} किलोबाइट</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} किलोबाइटहून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} किलोबाइटला</unitPattern>
 				<unitPattern count="one" case="dative">{0} किलोबाइटला</unitPattern>
@@ -7788,7 +7791,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="digital-kilobit">
 				<gender>masculine</gender>
 				<displayName>किलोबिट</displayName>
-				<unitPattern count="one">{0} किलोबिट</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} किलोबिटहून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} किलोबिटला</unitPattern>
 				<unitPattern count="one" case="dative">{0} किलोबिटला</unitPattern>
@@ -8070,7 +8073,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="duration-microsecond">
 				<gender>masculine</gender>
 				<displayName>मायक्रोसेकंद</displayName>
-				<unitPattern count="one">{0} मायक्रोसेकंद</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} मायक्रोसेकंदापासून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} मायक्रोसेकंदाला</unitPattern>
 				<unitPattern count="one" case="dative">{0} मायक्रोसेकंदासाठी</unitPattern>
@@ -8106,7 +8109,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="electric-ampere">
 				<gender>masculine</gender>
 				<displayName>अँपियर</displayName>
-				<unitPattern count="one">{0} अँपियर</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} अँपियरपासून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} अँपियरला</unitPattern>
 				<unitPattern count="one" case="dative">{0} अँपियरला</unitPattern>
@@ -8126,7 +8129,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="electric-milliampere">
 				<gender>neuter</gender>
 				<displayName>मिलिअँपियर</displayName>
-				<unitPattern count="one">{0} मिलिअँपियर</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} मिलिअँपियरहून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} मिलिअँपियरला</unitPattern>
 				<unitPattern count="one" case="dative">{0} मिलिअँपियरला</unitPattern>
@@ -8144,7 +8147,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="electric-ohm">
 				<gender>masculine</gender>
 				<displayName>ओहम</displayName>
-				<unitPattern count="one">{0} ओहम</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} ओहमपासून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} ओहमला</unitPattern>
 				<unitPattern count="one" case="dative">{0} ओहमला</unitPattern>
@@ -8164,7 +8167,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="electric-volt">
 				<gender>masculine</gender>
 				<displayName>व्होल्ट</displayName>
-				<unitPattern count="one">{0} व्होल्ट</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} व्होल्टपासून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} व्होल्टला</unitPattern>
 				<unitPattern count="one" case="dative">{0} व्होल्टला</unitPattern>
@@ -8183,7 +8186,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="energy-kilocalorie">
 				<displayName>किलोकॅलोरी</displayName>
-				<unitPattern count="one">{0} किलोकॅलोरी</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} किलोकॅलोरी</unitPattern>
 			</unit>
 			<unit type="energy-calorie">
@@ -8214,7 +8217,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="energy-kilojoule">
 				<gender>neuter</gender>
 				<displayName>किलोज्यूल</displayName>
-				<unitPattern count="one">{0} किलोज्यूल</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} किलोज्यूलहून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} किलोज्यूलला</unitPattern>
 				<unitPattern count="one" case="dative">{0} किलोज्यूलला</unitPattern>
@@ -8232,7 +8235,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="energy-joule">
 				<gender>masculine</gender>
 				<displayName>ज्यूल</displayName>
-				<unitPattern count="one">{0} ज्यूल</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} ज्यूलपासून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} ज्यूलला</unitPattern>
 				<unitPattern count="one" case="dative">{0} ज्यूलला</unitPattern>
@@ -8328,7 +8331,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="frequency-gigahertz">
 				<gender>neuter</gender>
 				<displayName>गिगाहर्ट्झ</displayName>
-				<unitPattern count="one">{0} गिगाहर्ट्झ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} गिगाहर्ट्झहून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} गिगाहर्ट्झला</unitPattern>
 				<unitPattern count="one" case="dative">{0} गिगाहर्ट्झला</unitPattern>
@@ -8346,7 +8349,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="frequency-megahertz">
 				<gender>neuter</gender>
 				<displayName>मेगाहर्ट्झ</displayName>
-				<unitPattern count="one">{0} मेगाहर्ट्झ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} मेगाहर्ट्झहून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} मेगाहर्ट्झला</unitPattern>
 				<unitPattern count="one" case="dative">{0} मेगाहर्ट्झला</unitPattern>
@@ -8364,7 +8367,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="frequency-kilohertz">
 				<gender>neuter</gender>
 				<displayName>किलोहर्ट्झ</displayName>
-				<unitPattern count="one">{0} किलोहर्ट्झ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} किलोहर्ट्झहून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} किलोहर्ट्झला</unitPattern>
 				<unitPattern count="one" case="dative">{0} किलोहर्ट्झला</unitPattern>
@@ -8382,7 +8385,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="frequency-hertz">
 				<gender>neuter</gender>
 				<displayName>हर्ट्झ</displayName>
-				<unitPattern count="one">{0} हर्ट्झ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} हर्ट्झपासून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} हर्ट्झला</unitPattern>
 				<unitPattern count="one" case="dative">{0} हर्ट्झला</unitPattern>
@@ -8673,7 +8676,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-parsec">
 				<displayName>पार्सेक</displayName>
-				<unitPattern count="one">{0} पार्सेक</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} पार्सेक</unitPattern>
 			</unit>
 			<unit type="length-light-year">
@@ -8693,18 +8696,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-fathom">
 				<displayName>फॅदम</displayName>
-				<unitPattern count="one">{0} फॅदम</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} फॅदम</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
 				<displayName>नॉटिकल मैल</displayName>
-				<unitPattern count="one">{0} नॉटिकल मैल</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} नॉटिकल मैल</unitPattern>
 			</unit>
 			<unit type="length-mile-scandinavian">
 				<gender>masculine</gender>
 				<displayName>मैल-स्कॅन्डीनेव्हियन</displayName>
-				<unitPattern count="one">{0} मैल-स्कॅन्डीनेव्हियन</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} मैल-स्कॅन्डीनेव्हियनपासून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} मैल-स्कॅन्डीनेव्हियनला</unitPattern>
 				<unitPattern count="one" case="dative">{0} मैल-स्कॅन्डीनेव्हियनला</unitPattern>
@@ -8734,7 +8737,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="light-lux">
 				<gender>feminine</gender>
 				<displayName>लक्स</displayName>
-				<unitPattern count="one">{0} लक्स</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} लक्सपासून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} लक्सला</unitPattern>
 				<unitPattern count="one" case="dative">{0} लक्सला</unitPattern>
@@ -8754,7 +8757,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="light-candela">
 				<gender>feminine</gender>
 				<displayName>कँडेला</displayName>
-				<unitPattern count="one">{0} कँडेला</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} कँडेलापासून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} कँडेलाला</unitPattern>
 				<unitPattern count="one" case="dative">{0} कँडेलास</unitPattern>
@@ -8774,7 +8777,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="light-lumen">
 				<gender>masculine</gender>
 				<displayName>लुमेन</displayName>
-				<unitPattern count="one">{0} लुमेन</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} लुमेनपासून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} लुमेनला</unitPattern>
 				<unitPattern count="one" case="dative">{0} लुमेनला</unitPattern>
@@ -8879,7 +8882,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="mass-microgram">
 				<gender>neuter</gender>
 				<displayName>मायक्रोग्रॅम</displayName>
-				<unitPattern count="one">{0} मायक्रोग्रॅम</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} मायक्रोग्रॅमहून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} मायक्रोग्रॅमला</unitPattern>
 				<unitPattern count="one" case="dative">{0} मायक्रोग्रॅमला</unitPattern>
@@ -8918,7 +8921,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-ounce-troy">
 				<displayName>ट्रॉय औंस</displayName>
-				<unitPattern count="one">{0} ट्रॉय औंस</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ट्रॉय औंस</unitPattern>
 			</unit>
 			<unit type="mass-carat">
@@ -8964,7 +8967,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="power-gigawatt">
 				<gender>neuter</gender>
 				<displayName>गिगावॉट</displayName>
-				<unitPattern count="one">{0} गिगावॉट</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} गिगावॉटहून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} गिगावॉटला</unitPattern>
 				<unitPattern count="one" case="dative">{0} गिगावॉटला</unitPattern>
@@ -8982,7 +8985,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="power-megawatt">
 				<gender>neuter</gender>
 				<displayName>मेगावॉट</displayName>
-				<unitPattern count="one">{0} मेगावॉट</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} मेगावॉटहून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} मेगावॉटला</unitPattern>
 				<unitPattern count="one" case="dative">{0} मेगावॉटला</unitPattern>
@@ -9055,28 +9058,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="power-horsepower">
 				<displayName>हॉर्सपॉवर</displayName>
-				<unitPattern count="one">{0} हॉर्सपॉवर</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} हॉर्सपॉवर</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
 				<displayName>मर्क्यूरी मिलिमीटर</displayName>
-				<unitPattern count="one">{0} मर्क्यूरी मिलिमीटर</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} मर्क्यूरी मिलिमीटर</unitPattern>
 			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>प्रति चौरस इंच पाउंड</displayName>
-				<unitPattern count="one">{0} प्रति चौरस इंच पाउंड</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} प्रति चौरस इंच पाउंड</unitPattern>
 			</unit>
 			<unit type="pressure-inch-ofhg">
 				<displayName>मर्क्यूरी इंच</displayName>
-				<unitPattern count="one">{0} मर्क्यूरी इंच</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} मर्क्यूरी इंच</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
 				<gender>masculine</gender>
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} बार</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} बारपासून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} बारला</unitPattern>
 				<unitPattern count="one" case="dative">{0} बारला</unitPattern>
@@ -9084,7 +9087,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one" case="genitive">{0} बारचा</unitPattern>
 				<unitPattern count="one" case="locative">{0} बारशी</unitPattern>
 				<unitPattern count="one" case="oblique">↑↑↑</unitPattern>
-				<unitPattern count="other">{0} बार</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<unitPattern count="other" case="ablative">{0} बारहून</unitPattern>
 				<unitPattern count="other" case="accusative">{0} बारना</unitPattern>
 				<unitPattern count="other" case="dative">{0} बारसाठी</unitPattern>
@@ -9096,7 +9099,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-millibar">
 				<gender>masculine</gender>
 				<displayName>मिलिबार</displayName>
-				<unitPattern count="one">{0} मिलिबार</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} मिलिबारहून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} मिलिबारला</unitPattern>
 				<unitPattern count="one" case="dative">{0} मिलिबारला</unitPattern>
@@ -9114,7 +9117,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-atmosphere">
 				<gender>neuter</gender>
 				<displayName>वातावरण</displayName>
-				<unitPattern count="one">{0} वातावरण</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} वातावरणापासून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} वातावरणाला</unitPattern>
 				<unitPattern count="one" case="dative">{0} वातावरणाला</unitPattern>
@@ -9154,7 +9157,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-hectopascal">
 				<gender>masculine</gender>
 				<displayName>हेक्टोपास्कल</displayName>
-				<unitPattern count="one">{0} हेक्टोपास्कल</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} हेक्टोपास्कलहून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} हेक्टोपास्कलला</unitPattern>
 				<unitPattern count="one" case="dative">{0} हेक्टोपास्कलला</unitPattern>
@@ -9248,7 +9251,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="speed-knot">
 				<displayName>नॉट</displayName>
-				<unitPattern count="one">{0} नॉट</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} नॉट</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
@@ -9299,7 +9302,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="temperature-kelvin">
 				<gender>neuter</gender>
 				<displayName>केल्व्हिन</displayName>
-				<unitPattern count="one">{0} केल्व्हिन</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} केल्व्हिनपासून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} केल्व्हिनला</unitPattern>
 				<unitPattern count="one" case="dative">{0} केल्व्हिनला</unitPattern>
@@ -9418,7 +9421,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-megaliter">
 				<gender>neuter</gender>
 				<displayName>मेगालीटर</displayName>
-				<unitPattern count="one">{0} मेगालीटर</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} मेगालीटरहून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} मेगालीटरला</unitPattern>
 				<unitPattern count="one" case="dative">{0} मेगालीटरला</unitPattern>
@@ -9436,7 +9439,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-hectoliter">
 				<gender>neuter</gender>
 				<displayName>हेक्टोलीटर</displayName>
-				<unitPattern count="one">{0} हेक्टोलीटर</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} हेक्टोलीटरहून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} हेक्टोलीटरला</unitPattern>
 				<unitPattern count="one" case="dative">{0} हेक्टोलीटरला</unitPattern>
@@ -9529,7 +9532,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-pint-metric">
 				<gender>neuter</gender>
 				<displayName>मेट्रिक पिंट</displayName>
-				<unitPattern count="one">{0} मेट्रिक पिंट</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} मेट्रिक पिंटपासून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} मेट्रिक पिंटला</unitPattern>
 				<unitPattern count="one" case="dative">{0} मेट्रिक पिंटला</unitPattern>
@@ -9549,7 +9552,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-cup-metric">
 				<gender>neuter</gender>
 				<displayName>मेट्रिक कप</displayName>
-				<unitPattern count="one">{0} मेट्रिक कप</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} मेट्रिक कपपासून</unitPattern>
 				<unitPattern count="one" case="accusative">{0} मेट्रिक कपला</unitPattern>
 				<unitPattern count="one" case="dative">{0} मेट्रिक कपला</unitPattern>
@@ -9568,7 +9571,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>एकर-फूट</displayName>
-				<unitPattern count="one">{0} एकर-फूट</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} एकर-फूट</unitPattern>
 			</unit>
 			<unit type="volume-bushel">
@@ -9590,17 +9593,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-quart">
 				<displayName>क्वार्ट</displayName>
-				<unitPattern count="one">{0} क्वार्ट</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} क्वार्ट</unitPattern>
 			</unit>
 			<unit type="volume-pint">
 				<displayName>पिंट</displayName>
-				<unitPattern count="one">{0} पिंट</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} पिंट</unitPattern>
 			</unit>
 			<unit type="volume-cup">
 				<displayName>कप</displayName>
-				<unitPattern count="one">{0} कप</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} कप</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
@@ -9615,12 +9618,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>टेबलस्पून</displayName>
-				<unitPattern count="one">{0} टेबलस्पून</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} टेबलस्पून</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
 				<displayName>टीस्पून</displayName>
-				<unitPattern count="one">{0} टीस्पून</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} टीस्पून</unitPattern>
 			</unit>
 			<unit type="volume-barrel">
@@ -9630,12 +9633,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-dessert-spoon">
 				<displayName>डेझर्ट स्पून</displayName>
-				<unitPattern count="one">{0} डेझर्ट स्पून</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} डेझर्ट स्पून</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
 				<displayName>इंपि. डेझर्ट स्पून</displayName>
-				<unitPattern count="one">{0} इंपि. डेझर्ट स्पून</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} इंपि. डेझर्ट स्पून</unitPattern>
 			</unit>
 			<unit type="volume-drop">
@@ -9660,7 +9663,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-quart-imperial">
 				<displayName>इंपि. क्वार्ट</displayName>
-				<unitPattern count="one">{0} इंपि. क्वार्ट</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} इंपि. क्वार्ट</unitPattern>
 			</unit>
 			<coordinateUnit>
@@ -10087,7 +10090,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="energy-foodcalorie">
 				<displayName>Cal</displayName>
-				<unitPattern count="one">{0} Cal</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Cal</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
@@ -10456,7 +10459,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="pressure-bar">
 				<displayName>बार</displayName>
-				<unitPattern count="one">{0} बार</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} बार</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
@@ -10975,37 +10978,37 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName>mpg UK</displayName>
-				<unitPattern count="one">{0}m/gUK</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}m/gUK</unitPattern>
 			</unit>
 			<unit type="digital-petabyte">
 				<displayName>PB</displayName>
-				<unitPattern count="one">{0}PB</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
 				<displayName>TB</displayName>
-				<unitPattern count="one">{0}TB</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}TB</unitPattern>
 			</unit>
 			<unit type="digital-terabit">
 				<displayName>Tb</displayName>
-				<unitPattern count="one">{0}Tb</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}Tb</unitPattern>
 			</unit>
 			<unit type="digital-gigabyte">
 				<displayName>GB</displayName>
-				<unitPattern count="one">{0}GB</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}GB</unitPattern>
 			</unit>
 			<unit type="digital-gigabit">
 				<displayName>Gb</displayName>
-				<unitPattern count="one">{0}Gb</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}Gb</unitPattern>
 			</unit>
 			<unit type="digital-megabyte">
 				<displayName>MB</displayName>
-				<unitPattern count="one">{0}MB</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}MB</unitPattern>
 			</unit>
 			<unit type="digital-megabit">
@@ -11020,7 +11023,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="digital-kilobit">
 				<displayName>kb</displayName>
-				<unitPattern count="one">{0}kb</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}kb</unitPattern>
 			</unit>
 			<unit type="digital-byte">
@@ -12023,152 +12026,176 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">{given} {given2} {surname} {credentials}</namePattern>
+			<namePattern>{title} {given} {given2} {surname}, {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">{given-informal} {surname}</namePattern>
+			<namePattern>{given-informal} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="informal">
-			<namePattern draft="provisional">{given-informal-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
+			<namePattern>{given-informal-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">{given} {given2-initial} {surname} {credentials}</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">{given-informal} {surname}</namePattern>
+			<namePattern>{given-informal} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{surname-monogram-allCaps}</namePattern>
+			<namePattern>{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="informal">
-			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
+			<namePattern>{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="formal">
-			<namePattern draft="provisional">{given-initial} {given2-initial} {surname}</namePattern>
+			<namePattern>{given-initial} {given2-initial} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">{given-informal} {surname-initial}</namePattern>
+			<namePattern>{given-informal} {surname-initial}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{surname-monogram-allCaps}</namePattern>
+			<namePattern>{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="informal">
-			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
+			<namePattern>{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname} {given} {given2} {credentials}</namePattern>
+			<namePattern>{surname} {given} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname} {given-informal}</namePattern>
+			<namePattern>{surname} {given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{surname-monogram-allCaps}{given-monogram-allCaps}{given2-monogram-allCaps}</namePattern>
+			<namePattern>{surname-monogram-allCaps}{given-monogram-allCaps}{given2-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="informal">
-			<namePattern draft="provisional">{surname-monogram-allCaps}{given-informal-monogram-allCaps}</namePattern>
+			<namePattern>{surname-monogram-allCaps}{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname} {given} {given2-initial} {credentials}</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname} {given-informal}</namePattern>
+			<namePattern>{surname} {given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{surname-monogram-allCaps}</namePattern>
+			<namePattern>{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="informal">
-			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
+			<namePattern>{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname} {given-initial} {given2-initial}</namePattern>
+			<namePattern>{surname} {given-initial} {given2-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname} {given-initial}</namePattern>
+			<namePattern>{surname} {given-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{surname-monogram-allCaps}</namePattern>
+			<namePattern>{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="monogram" formality="informal">
-			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
+			<namePattern>{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname-core}, {given} {given2} {surname-prefix}</namePattern>
+			<namePattern>{surname-core}, {given} {given2} {surname-prefix}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>
+			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname-core}, {given} {given2-initial} {surname-prefix}</namePattern>
+			<namePattern>{surname-core}, {given} {given2-initial} {surname-prefix}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>
+			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname-core}, {given-initial} {given2-initial} {surname-prefix}</namePattern>
+			<namePattern>{surname-core}, {given-initial} {given2-initial} {surname-prefix}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>
+			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
 		<sampleName item="nativeG">
-			<nameField type="given" draft="provisional">सिंदबाद</nameField>
+			<nameField type="given">माधुरी</nameField>
 		</sampleName>
 		<sampleName item="nativeGS">
-			<nameField type="given" draft="provisional">आयरीन</nameField>
-			<nameField type="surname" draft="provisional">अॅड्लर</nameField>
+			<nameField type="given">धिरज</nameField>
+			<nameField type="surname">देशपांडे</nameField>
 		</sampleName>
 		<sampleName item="nativeGGS">
-			<nameField type="given" draft="provisional">जॉन</nameField>
-			<nameField type="given2" draft="provisional">हमिश</nameField>
-			<nameField type="surname" draft="provisional">वॉटसन</nameField>
+			<nameField type="given">रिधान</nameField>
+			<nameField type="given2">समीर</nameField>
+			<nameField type="surname">फडके</nameField>
+		</sampleName>
+		<sampleName item="nativeFull">
+			<nameField type="title">श्री.</nameField>
+			<nameField type="given">धिरज देशपांडे</nameField>
+			<nameField type="given-informal">धीरू</nameField>
+			<nameField type="given2">विजय देशपांडे</nameField>
+			<nameField type="surname-prefix">∅∅∅</nameField>
+			<nameField type="surname-core">देशपांडे</nameField>
+			<nameField type="surname2">∅∅∅</nameField>
+			<nameField type="generation">क.</nameField>
+			<nameField type="credentials">एम. पी.</nameField>
+		</sampleName>
+		<sampleName item="foreignG">
+			<nameField type="given">सिंदबाद</nameField>
+		</sampleName>
+		<sampleName item="foreignGS">
+			<nameField type="given">काठे</nameField>
+			<nameField type="surname">मुलर</nameField>
+		</sampleName>
+		<sampleName item="foreignGGS">
+			<nameField type="given">झाझिलिया</nameField>
+			<nameField type="given2">हमीश</nameField>
+			<nameField type="surname">स्टॉबर</nameField>
 		</sampleName>
 		<sampleName item="foreignFull">
-			<nameField type="title" draft="provisional">प्रोफे.डॉ.</nameField>
-			<nameField type="given" draft="provisional">एडा कॉर्नेलिया</nameField>
-			<nameField type="given-informal" draft="provisional">निले</nameField>
-			<nameField type="given2" draft="provisional">इव्हा सोफिया</nameField>
-			<nameField type="surname-prefix" draft="provisional">व्हान देन</nameField>
-			<nameField type="surname-core" draft="provisional">वुल्फ</nameField>
-			<nameField type="surname2" draft="provisional">बेकर श्मिट</nameField>
-			<nameField type="credentials" draft="provisional">एम.डी.पीएच.डी</nameField>
+			<nameField type="title">प्रोफे.डॉ.</nameField>
+			<nameField type="given">एडा कॉर्नेलिया</nameField>
+			<nameField type="given-informal">निले</nameField>
+			<nameField type="given2">सीझर मार्टिन</nameField>
+			<nameField type="surname-prefix">व्हॉन</nameField>
+			<nameField type="surname-core">ब्र्यूल</nameField>
+			<nameField type="surname2">गोन्झालेझ डोमिंगो</nameField>
+			<nameField type="generation">क.</nameField>
+			<nameField type="credentials">एम.डी.पीएच.डी</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

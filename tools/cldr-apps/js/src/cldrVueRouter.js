@@ -14,6 +14,7 @@ import {
   Form,
   Icon,
   Input,
+  List,
   Popover,
   Progress,
   Radio,
@@ -28,6 +29,7 @@ import {
 import CldrValue from "./views/CldrValue.vue";
 import LoginButton from "./views/LoginButton.vue";
 import ReportResponse from "./views/ReportResponse.vue";
+import SearchButton from "./views/SearchButton.vue";
 
 /**
  * The App created and mounted most recently. For .unmount …
@@ -133,22 +135,27 @@ function setupComponents(app) {
   app.component("a-alert", Alert);
   app.component("a-button", Button);
   app.component("a-checkbox", Checkbox);
-  app.component("a-radio", Radio);
-  app.component("a-radio-group", Radio.Group);
   app.component("a-form-item", Form.Item);
   app.component("a-form", Form);
   app.component("a-icon", Icon);
   app.component("a-input-password", Input.Password);
+  app.component("a-input-search", Input.Search);
   app.component("a-input", Input);
+  app.component("a-list", List);
+  app.component("a-list-item", List.Item);
+  app.component("a-list-item-meta", List.Item.Meta);
   app.component("a-popover", Popover);
   app.component("a-progress", Progress);
+  app.component("a-radio-group", Radio.Group);
+  app.component("a-radio", Radio);
   app.component("a-spin", Spin);
   app.component("a-step", Steps.Step);
   app.component("a-steps", Steps);
   app.component("a-tooltip", Tooltip);
   app.component("cldr-loginbutton", LoginButton);
-  app.component("cldr-value", CldrValue);
   app.component("cldr-report-response", ReportResponse);
+  app.component("cldr-searchbutton", SearchButton);
+  app.component("cldr-value", CldrValue);
 }
 
 export { showPanel, createCldrApp, setupComponents };

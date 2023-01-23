@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,9 +12,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
-			<localePattern>{0} ({1})</localePattern>
-			<localeSeparator>{0}, {1}</localeSeparator>
-			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
+			<localePattern>↑↑↑</localePattern>
+			<localeSeparator>↑↑↑</localeSeparator>
+			<localeKeyTypePattern>↑↑↑</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
 			<language type="ab">abkáziu</language>
@@ -156,7 +156,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="lo">lausianu</language>
 			<language type="lt">lituanu</language>
 			<language type="lu">luba-katanga</language>
-			<language type="luo">luo</language>
+			<language type="luo">↑↑↑</language>
 			<language type="luy">luyia</language>
 			<language type="lv">letãu</language>
 			<language type="mg">malgaxi</language>
@@ -656,13 +656,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="index">[A B D E F G H I J K L M N O P R S T U V X Z]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[  \- ‑ , % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
 		<exemplarCharacters type="punctuation" draft="contributed">[\- ‐ ‑ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” « » ( ) \[ \] § @ * / \&amp; # † ‡]</exemplarCharacters>
-		<ellipsis type="final">{0}…</ellipsis>
-		<ellipsis type="initial">…{0}</ellipsis>
-		<ellipsis type="medial">{0}…{1}</ellipsis>
-		<ellipsis type="word-final">{0} …</ellipsis>
-		<ellipsis type="word-initial">… {0}</ellipsis>
-		<ellipsis type="word-medial">{0} … {1}</ellipsis>
-		<moreInformation>?</moreInformation>
+		<ellipsis type="final">↑↑↑</ellipsis>
+		<ellipsis type="initial">↑↑↑</ellipsis>
+		<ellipsis type="medial">↑↑↑</ellipsis>
+		<ellipsis type="word-final">↑↑↑</ellipsis>
+		<ellipsis type="word-initial">↑↑↑</ellipsis>
+		<ellipsis type="word-medial">↑↑↑</ellipsis>
+		<moreInformation>↑↑↑</moreInformation>
 		<parseLenients scope="date" level="lenient">
 			<parseLenient sample="-" draft="contributed">↑↑↑</parseLenient>
 			<parseLenient sample=":" draft="contributed">↑↑↑</parseLenient>
@@ -689,10 +689,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</parseLenients>
 	</characters>
 	<delimiters>
-		<quotationStart>“</quotationStart>
-		<quotationEnd>”</quotationEnd>
-		<alternateQuotationStart>‘</alternateQuotationStart>
-		<alternateQuotationEnd>’</alternateQuotationEnd>
+		<quotationStart>↑↑↑</quotationStart>
+		<quotationEnd>↑↑↑</quotationEnd>
+		<alternateQuotationStart>↑↑↑</alternateQuotationStart>
+		<alternateQuotationEnd>↑↑↑</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
@@ -701,25 +701,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, d 'di' MMMM 'di' y G</pattern>
-							<datetimeSkeleton>GyMMMMEEEEd</datetimeSkeleton>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>d 'di' MMMM 'di' y G</pattern>
-							<datetimeSkeleton>GyMMMMd</datetimeSkeleton>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>d MMM y G</pattern>
-							<datetimeSkeleton>GyMMMd</datetimeSkeleton>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>dd/MM/y GGGGG</pattern>
-							<datetimeSkeleton>GGGGGyMMdd</datetimeSkeleton>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -745,8 +745,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="d">↑↑↑</dateFormatItem>
+						<dateFormatItem id="E">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed">E, d</dateFormatItem>
 						<dateFormatItem id="Ehm">E, h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E, HH:mm</dateFormatItem>
@@ -758,22 +758,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d MMM y G</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
-						<dateFormatItem id="H">HH</dateFormatItem>
+						<dateFormatItem id="H">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
-						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
+						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">dd/MM</dateFormatItem>
 						<dateFormatItem id="MEd">E, dd/MM</dateFormatItem>
 						<dateFormatItem id="MMdd">dd/MM</dateFormatItem>
-						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d 'di' MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E, d 'di' MMMM</dateFormatItem>
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
-						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">LL/y</dateFormatItem>
 						<dateFormatItem id="yMd">dd/MM/y</dateFormatItem>
@@ -797,7 +797,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyQQQQ">QQQQ 'di' y G</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d – d</greatestDifference>
 						</intervalFormatItem>
@@ -844,7 +844,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="h">h–h a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
-							<greatestDifference id="H">HH–HH</greatestDifference>
+							<greatestDifference id="H">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
@@ -852,8 +852,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="m">h:mm–h:mm a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
-							<greatestDifference id="H">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="m">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="H">↑↑↑</greatestDifference>
+							<greatestDifference id="m">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
@@ -861,15 +861,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="m">h:mm–h:mm a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
-							<greatestDifference id="H">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="m">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="H">↑↑↑</greatestDifference>
+							<greatestDifference id="m">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a">h a – h a v</greatestDifference>
 							<greatestDifference id="h">h–h a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
-							<greatestDifference id="H">HH–HH v</greatestDifference>
+							<greatestDifference id="H">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">L – L</greatestDifference>
@@ -949,18 +949,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12">Diz</month>
 						</monthWidth>
 						<monthWidth type="narrow">
-							<month type="1">J</month>
-							<month type="2">F</month>
-							<month type="3">M</month>
-							<month type="4">A</month>
-							<month type="5">M</month>
-							<month type="6">J</month>
-							<month type="7">J</month>
-							<month type="8">A</month>
-							<month type="9">S</month>
-							<month type="10">O</month>
-							<month type="11">N</month>
-							<month type="12">D</month>
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Janeru</month>
@@ -979,18 +979,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<month type="1">Jan</month>
-							<month type="2">Feb</month>
-							<month type="3">Mar</month>
-							<month type="4">Abr</month>
-							<month type="5">Mai</month>
-							<month type="6">Jun</month>
-							<month type="7">Jul</month>
-							<month type="8">Ago</month>
-							<month type="9">Set</month>
-							<month type="10">Otu</month>
-							<month type="11">Nuv</month>
-							<month type="12">Diz</month>
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">J</month>
@@ -1007,18 +1007,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12">D</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">Janeru</month>
-							<month type="2">Febreru</month>
-							<month type="3">Marsu</month>
-							<month type="4">Abril</month>
-							<month type="5">Maiu</month>
-							<month type="6">Junhu</month>
-							<month type="7">Julhu</month>
-							<month type="8">Agostu</month>
-							<month type="9">Setenbru</month>
-							<month type="10">Otubru</month>
-							<month type="11">Nuvenbru</month>
-							<month type="12">Dizenbru</month>
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -1034,13 +1034,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat">sab</day>
 						</dayWidth>
 						<dayWidth type="narrow">
-							<day type="sun">D</day>
-							<day type="mon">S</day>
-							<day type="tue">T</day>
-							<day type="wed">K</day>
-							<day type="thu">K</day>
-							<day type="fri">S</day>
-							<day type="sat">S</day>
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="short">
 							<day type="sun">du</day>
@@ -1063,40 +1063,40 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="abbreviated">
-							<day type="sun">dum</day>
-							<day type="mon">sig</day>
-							<day type="tue">ter</day>
-							<day type="wed">kua</day>
-							<day type="thu">kin</day>
-							<day type="fri">ses</day>
-							<day type="sat">sab</day>
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">D</day>
 							<day type="mon">S</day>
-							<day type="tue">T</day>
+							<day type="tue">↑↑↑</day>
 							<day type="wed">K</day>
 							<day type="thu">K</day>
 							<day type="fri">S</day>
-							<day type="sat">S</day>
+							<day type="sat">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="short">
-							<day type="sun">du</day>
-							<day type="mon">si</day>
-							<day type="tue">te</day>
-							<day type="wed">ku</day>
-							<day type="thu">ki</day>
-							<day type="fri">se</day>
-							<day type="sat">sa</day>
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun">dumingu</day>
-							<day type="mon">sigunda-fera</day>
-							<day type="tue">tersa-fera</day>
-							<day type="wed">kuarta-fera</day>
-							<day type="thu">kinta-fera</day>
-							<day type="fri">sesta-fera</day>
-							<day type="sat">sábadu</day>
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -1109,10 +1109,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="4">T4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">1º trimestri</quarter>
@@ -1123,22 +1123,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="abbreviated">
-							<quarter type="1">T1</quarter>
-							<quarter type="2">T2</quarter>
-							<quarter type="3">T3</quarter>
-							<quarter type="4">T4</quarter>
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1">1º trimestri</quarter>
-							<quarter type="2">2º trimestri</quarter>
-							<quarter type="3">3º trimestri</quarter>
-							<quarter type="4">4º trimestri</quarter>
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -1153,8 +1153,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="pm">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">am</dayPeriod>
-							<dayPeriod type="pm">pm</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
@@ -1190,51 +1190,51 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, d 'di' MMMM 'di' y</pattern>
-							<datetimeSkeleton>yMMMMEEEEd</datetimeSkeleton>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>d 'di' MMMM 'di' y</pattern>
-							<datetimeSkeleton>yMMMMd</datetimeSkeleton>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>d MMM y</pattern>
-							<datetimeSkeleton>yMMMd</datetimeSkeleton>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>dd/MM/y</pattern>
-							<datetimeSkeleton>yMMdd</datetimeSkeleton>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
-							<datetimeSkeleton>HHmmsszzzz</datetimeSkeleton>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-							<datetimeSkeleton>HHmmssz</datetimeSkeleton>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-							<datetimeSkeleton>HHmmss</datetimeSkeleton>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern>HH:mm</pattern>
-							<datetimeSkeleton>HHmm</datetimeSkeleton>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -1263,8 +1263,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Bh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Bhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
-						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="E">ccc</dateFormatItem>
+						<dateFormatItem id="d">↑↑↑</dateFormatItem>
+						<dateFormatItem id="E">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhm">E, h:mm B</dateFormatItem>
 						<dateFormatItem id="EBhms">E, h:mm:ss B</dateFormatItem>
 						<dateFormatItem id="Ed">E, d</dateFormatItem>
@@ -1278,16 +1278,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d MMM y G</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
-						<dateFormatItem id="H">HH</dateFormatItem>
+						<dateFormatItem id="H">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
-						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
+						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hmsv">h:mm:ss a (v)</dateFormatItem>
 						<dateFormatItem id="Hmsv">HH:mm:ss (v)</dateFormatItem>
 						<dateFormatItem id="hmv">h:mm a (v)</dateFormatItem>
 						<dateFormatItem id="Hmv">HH:mm (v)</dateFormatItem>
-						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">dd/MM</dateFormatItem>
 						<dateFormatItem id="MEd">E, dd/MM</dateFormatItem>
 						<dateFormatItem id="MMdd">dd/MM</dateFormatItem>
@@ -1298,8 +1298,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMMMEd">E, d 'di' MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">W'º' 'simana' 'di' MMMM</dateFormatItem>
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
-						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">y</dateFormatItem>
+						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="y">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yM">LL/y</dateFormatItem>
 						<dateFormatItem id="yMd">dd/MM/y</dateFormatItem>
 						<dateFormatItem id="yMEd">E, dd/MM/y</dateFormatItem>
@@ -1313,10 +1313,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yw" count="other">w'º' 'simana' 'di' Y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
-						<appendItem request="Timezone">{0} {1}</appendItem>
+						<appendItem request="Timezone">↑↑↑</appendItem>
 					</appendItems>
 					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">↑↑↑</greatestDifference>
 							<greatestDifference id="h">h – h B</greatestDifference>
@@ -1483,27 +1483,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="year-short">
-				<displayName>anu</displayName>
+				<displayName>↑↑↑</displayName>
 				<relative type="-1">↑↑↑</relative>
 				<relative type="0">↑↑↑</relative>
 				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">di li {0} anu</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">a ten {0} anu</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="year-narrow">
-				<displayName>anu</displayName>
+				<displayName>↑↑↑</displayName>
 				<relative type="-1">↑↑↑</relative>
 				<relative type="0">↑↑↑</relative>
 				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">di li {0} anu</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">a ten {0} anu</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="quarter">
@@ -1528,12 +1528,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="quarter-narrow">
-				<displayName>trim.</displayName>
+				<displayName>↑↑↑</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">di li {0} trim.</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">a ten {0} trim.</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="month">
@@ -1549,27 +1549,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="month-short">
-				<displayName>mes</displayName>
+				<displayName>↑↑↑</displayName>
 				<relative type="-1">↑↑↑</relative>
 				<relative type="0">↑↑↑</relative>
 				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">di li {0} mes</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">a ten {0} mes</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="month-narrow">
-				<displayName>mes</displayName>
+				<displayName>↑↑↑</displayName>
 				<relative type="-1">↑↑↑</relative>
 				<relative type="0">↑↑↑</relative>
 				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">di li {0} mes</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">a ten {0} mes</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="week">
@@ -1599,17 +1599,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relativePeriod>sim. di {0}</relativePeriod>
 			</field>
 			<field type="week-narrow">
-				<displayName>sim.</displayName>
+				<displayName>↑↑↑</displayName>
 				<relative type="-1">↑↑↑</relative>
 				<relative type="0">↑↑↑</relative>
 				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">di li {0} sim.</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">a ten {0} sim.</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
-				<relativePeriod>sim. di {0}</relativePeriod>
+				<relativePeriod>↑↑↑</relativePeriod>
 			</field>
 			<field type="weekOfMonth">
 				<displayName>simana di mes</displayName>
@@ -1618,7 +1618,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>sim. di mes</displayName>
 			</field>
 			<field type="weekOfMonth-narrow">
-				<displayName>sim. di mes</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="day">
 				<displayName>dia</displayName>
@@ -1633,37 +1633,37 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="day-short">
-				<displayName>dia</displayName>
+				<displayName>↑↑↑</displayName>
 				<relative type="-1">↑↑↑</relative>
 				<relative type="0">↑↑↑</relative>
-				<relative type="1">manhan</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">di li {0} dia</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">a ten {0} dia</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="day-narrow">
-				<displayName>dia</displayName>
+				<displayName>↑↑↑</displayName>
 				<relative type="-1">↑↑↑</relative>
 				<relative type="0">↑↑↑</relative>
-				<relative type="1">manhan</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">di li {0} dia</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">a ten {0} dia</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="dayOfYear">
 				<displayName>dia di anu</displayName>
 			</field>
 			<field type="dayOfYear-short">
-				<displayName>dia di anu</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="dayOfYear-narrow">
-				<displayName>dia di anu</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="weekday">
 				<displayName>dia di simana</displayName>
@@ -1681,7 +1681,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>dia di sim. di mes</displayName>
 			</field>
 			<field type="weekdayOfMonth-narrow">
-				<displayName>dia di sim. di mes</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="sun">
 				<relative type="-1">dumingu pasadu</relative>
@@ -1706,14 +1706,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="sun-narrow">
-				<relative type="-1">dum. pasadu</relative>
-				<relative type="0">es dum. li</relative>
-				<relative type="1">prósimu dum.</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">di li {0} dum.</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">a ten {0} dum.</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="mon">
@@ -1739,14 +1739,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="mon-narrow">
-				<relative type="-1">sig. pasadu</relative>
-				<relative type="0">es sig. li</relative>
-				<relative type="1">prósimu sig.</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">di li {0} sig.</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">a ten {0} sig.</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="tue">
@@ -1772,14 +1772,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="tue-narrow">
-				<relative type="-1">ter. pasadu</relative>
-				<relative type="0">es ter. li</relative>
-				<relative type="1">prósimu ter.</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">di li {0} ter.</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">a ten {0} ter.</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed">
@@ -1805,14 +1805,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="wed-narrow">
-				<relative type="-1">kua. pasadu</relative>
-				<relative type="0">es kua. li</relative>
-				<relative type="1">prósimu kua.</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">di li {0} kua.</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">a ten {0} kua.</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="thu">
@@ -1838,14 +1838,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="thu-narrow">
-				<relative type="-1">kin. pasadu</relative>
-				<relative type="0">es kin. li</relative>
-				<relative type="1">prósimu kin.</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">di li {0} kin.</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">a ten {0} kin.</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri">
@@ -1871,14 +1871,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="fri-narrow">
-				<relative type="-1">ses. pasadu</relative>
-				<relative type="0">es ses. li</relative>
-				<relative type="1">prósimu ses.</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">di li {0} ses.</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">a ten {0} ses.</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat">
@@ -1904,14 +1904,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="sat-narrow">
-				<relative type="-1">sab. pasadu</relative>
-				<relative type="0">es sab. li</relative>
-				<relative type="1">prósimu sab.</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">di li {0} sab.</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">a ten {0} sab.</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="dayperiod-short">
@@ -1934,21 +1934,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="hour-short">
-				<displayName>ora</displayName>
+				<displayName>↑↑↑</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">di li {0} ora</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">a ten {0} ora</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="hour-narrow">
 				<displayName>h</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="other">di li {0} ora</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">a ten {0} ora</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute">
@@ -2018,13 +2018,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 		</fields>
 		<timeZoneNames>
-			<hourFormat>+HH:mm;-HH:mm</hourFormat>
-			<gmtFormat>GMT{0}</gmtFormat>
-			<gmtZeroFormat>GMT</gmtZeroFormat>
+			<hourFormat>↑↑↑</hourFormat>
+			<gmtFormat>↑↑↑</gmtFormat>
+			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
 			<regionFormat>Ora di {0}</regionFormat>
 			<regionFormat type="daylight">Ora di Veron di {0}</regionFormat>
 			<regionFormat type="standard">Ora Padron di {0}</regionFormat>
-			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<fallbackFormat>↑↑↑</fallbackFormat>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Ora Universal Kordenadu</standard>
@@ -2049,7 +2049,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>San Bartolomeu</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Bermuda">
-				<exemplarCity>Bermuda</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Kralendijk">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -2245,7 +2245,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Merida">
-				<exemplarCity>Mérida</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Cancun">
 				<exemplarCity>Kankun</exemplarCity>
@@ -2556,30 +2556,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="contributed">latn</defaultNumberingSystem>
+		<defaultNumberingSystem draft="contributed">↑↑↑</defaultNumberingSystem>
 		<otherNumberingSystems>
-			<native draft="contributed">latn</native>
+			<native draft="contributed">↑↑↑</native>
 		</otherNumberingSystems>
-		<minimumGroupingDigits draft="contributed">1</minimumGroupingDigits>
+		<minimumGroupingDigits draft="contributed">↑↑↑</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
 			<group> </group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
+			<list>↑↑↑</list>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>↑↑↑</minusSign>
 			<approximatelySign>↑↑↑</approximatelySign>
-			<exponential>E</exponential>
-			<superscriptingExponent>×</superscriptingExponent>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>NaN</nan>
-			<timeSeparator draft="contributed">:</timeSeparator>
+			<exponential>↑↑↑</exponential>
+			<superscriptingExponent>↑↑↑</superscriptingExponent>
+			<perMille>↑↑↑</perMille>
+			<infinity>↑↑↑</infinity>
+			<nan>↑↑↑</nan>
+			<timeSeparator draft="contributed">↑↑↑</timeSeparator>
 		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern>#,##0.###</pattern>
+					<pattern>↑↑↑</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
@@ -2618,14 +2618,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
 				<scientificFormat>
-					<pattern>#E0</pattern>
+					<pattern>↑↑↑</pattern>
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
-					<pattern>#,##0%</pattern>
+					<pattern>↑↑↑</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
@@ -2633,7 +2633,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
-					<pattern alt="noCurrency" draft="provisional">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00 ¤;(#,##0.00 ¤)</pattern>
@@ -2656,164 +2656,164 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<pattern type="100000000000000" count="other" draft="provisional">000 Bi ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="AED">
 				<displayName>Diren di Emiradus Arabi Unidu</displayName>
-				<displayName count="other">Diren di Emiradus Arabi Unidu</displayName>
-				<symbol>AED</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="AFN">
-				<symbol>AFN</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="ALL">
-				<symbol>ALL</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="AMD">
-				<symbol>AMD</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="ANG">
-				<symbol>ANG</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>Kuanza</displayName>
-				<displayName count="other">Kuanza</displayName>
-				<symbol>AOA</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName>Dola australianu</displayName>
-				<displayName count="other">Dola australianu</displayName>
+				<displayName count="other">↑↑↑</displayName>
 				<symbol>AU$</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="AWG">
-				<symbol>AWG</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="AZN">
-				<symbol>AZN</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="BAM">
-				<symbol>BAM</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="BDT">
-				<symbol alt="narrow" draft="contributed">৳</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BGN">
-				<symbol>BGN</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>Dinar di Barain</displayName>
-				<displayName count="other">Dinar di Barain</displayName>
-				<symbol>BHD</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>Franku borundes</displayName>
-				<displayName count="other">Franku borundes</displayName>
-				<symbol>BIF</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="BND">
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BOB">
-				<symbol>BOB</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName>Rial brazileru</displayName>
-				<displayName count="other">Rial brazileru</displayName>
-				<symbol>R$</symbol>
-				<symbol alt="narrow" draft="contributed">R$</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BTN">
-				<symbol>BTN</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>Pula di Botsuana</displayName>
-				<displayName count="other">Pula di Botsuana</displayName>
-				<symbol>BWP</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>Dola kanadianu</displayName>
-				<displayName count="other">Dola kanadianu</displayName>
-				<symbol>CA$</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>Franku kongoles</displayName>
-				<displayName count="other">Franku kongoles</displayName>
-				<symbol>CDF</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>Franku suisu</displayName>
-				<displayName count="other">Franku suisu</displayName>
-				<symbol>CHF</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>Iuan xines</displayName>
-				<displayName count="other">Iuan xines</displayName>
-				<symbol>CN¥</symbol>
-				<symbol alt="narrow" draft="contributed">¥</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>Skudu Kabuverdianu</displayName>
-				<displayName count="other">Skudu Kabuverdianu</displayName>
+				<displayName count="other">↑↑↑</displayName>
 				<symbol>​</symbol>
 				<decimal>$</decimal>
 			</currency>
 			<currency type="CZK">
-				<symbol>CZK</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>Franku di Djibuti</displayName>
-				<displayName count="other">Franku di Djibuti</displayName>
-				<symbol>DJF</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>Kuroa dinamarkeza</displayName>
-				<displayName count="other">Kuroa dinamarkeza</displayName>
-				<symbol>DKK</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>Dinar arjelinu</displayName>
-				<displayName count="other">Dinar arjelinu</displayName>
-				<symbol>DZD</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>Libra ejípsiu</displayName>
-				<displayName count="other">Libra ejípsiu</displayName>
-				<symbol>EGP</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>Nafka di Eritreia</displayName>
-				<displayName count="other">Nafka di Eritreia</displayName>
-				<symbol>ERN</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="ETB">
 				<displayName>Bir etiópiku</displayName>
-				<displayName count="other">Bir etiópiku</displayName>
-				<symbol>ETB</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>euro</displayName>
-				<displayName count="other">euro</displayName>
-				<symbol>€</symbol>
-				<symbol alt="narrow" draft="contributed">€</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="FJD">
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="FKP">
-				<symbol>FKP</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>Libra britániku</displayName>
-				<displayName count="other">Libra britániku</displayName>
-				<symbol>£</symbol>
-				<symbol alt="narrow" draft="contributed">£</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="GEL">
-				<symbol>GEL</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>Sedi di Gana (1979–2007)</displayName>
@@ -2822,112 +2822,112 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="GMD">
 				<displayName>Dalasi</displayName>
-				<displayName count="other">Dalasi</displayName>
-				<symbol>GMD</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="GNF">
-				<symbol>GNF</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="GNS">
 				<displayName>Sili</displayName>
 			</currency>
 			<currency type="GTQ">
-				<symbol>GTQ</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>Dola di Ong Kong</displayName>
-				<displayName count="other">Dola di Ong Kong</displayName>
-				<symbol>HK$</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="HNL">
-				<symbol>HNL</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="HRK">
-				<symbol>HRK</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="HTG">
-				<symbol>HTG</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="HUF">
-				<symbol>HUF</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>Rupia indoneziu</displayName>
-				<displayName count="other">Rupia indoneziu</displayName>
-				<symbol>IDR</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="ILS">
-				<symbol>₪</symbol>
-				<symbol alt="narrow" draft="contributed">₪</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>Rupia indianu</displayName>
-				<displayName count="other">Rupia indianu</displayName>
-				<symbol>₹</symbol>
-				<symbol alt="narrow" draft="contributed">₹</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="IQD">
-				<symbol>IQD</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="IRR">
-				<symbol>IRR</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="ISK">
-				<symbol>ISK</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="JOD">
-				<symbol>JOD</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>Ieni japones</displayName>
-				<displayName count="other">Ieni japones</displayName>
-				<symbol>JP¥</symbol>
-				<symbol alt="narrow" draft="contributed">¥</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>Xelin kenianu</displayName>
-				<displayName count="other">Xelin kenianu</displayName>
-				<symbol>KES</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="KGS">
-				<symbol>KGS</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="KHR">
-				<symbol alt="narrow" draft="contributed">៛</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>Franku di Komoris</displayName>
-				<displayName count="other">Franku di Komoris</displayName>
-				<symbol>KMF</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="KPW">
-				<symbol>KPW</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>Won sul-koreanu</displayName>
-				<displayName count="other">Won sul-koreanu</displayName>
-				<symbol>₩</symbol>
-				<symbol alt="narrow" draft="contributed">₩</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="KWD">
-				<symbol>KWD</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="KZT">
-				<symbol alt="narrow" draft="contributed">₸</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="LAK">
-				<symbol alt="narrow" draft="contributed">₭</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="LBP">
-				<symbol>LBP</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="LKR">
-				<symbol>LKR</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>Dola liberianu</displayName>
-				<displayName count="other">Dola liberianu</displayName>
+				<displayName count="other">↑↑↑</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -2935,185 +2935,185 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Loti di Lezotu</displayName>
 			</currency>
 			<currency type="LTL">
-				<symbol>LTL</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>Dinar líbiu</displayName>
-				<displayName count="other">Dinar líbiu</displayName>
-				<symbol>LYD</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>Diren marokinu</displayName>
-				<displayName count="other">Diren marokinu</displayName>
-				<symbol>MAD</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MDL">
-				<symbol>MDL</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>Ariari di Madagaskar</displayName>
-				<displayName count="other">Ariari di Madagaskar</displayName>
-				<symbol>MGA</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MKD">
-				<symbol>MKD</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MMK">
-				<symbol>MMK</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MNT">
-				<symbol alt="narrow" draft="contributed">₮</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="MOP">
-				<symbol>MOP</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>Ougia (1973–2017)</displayName>
-				<displayName count="other">Ougia (1973–2017)</displayName>
-				<symbol>MRO</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MRU">
 				<displayName>Ougia</displayName>
-				<displayName count="other">Ougia</displayName>
+				<displayName count="other">↑↑↑</displayName>
 			</currency>
 			<currency type="MUR">
 				<displayName>Rupia di Maurisias</displayName>
-				<displayName count="other">Rupia di Maurisias</displayName>
-				<symbol>MUR</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MVR">
-				<symbol>MVR</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>Kuaxa di Malaui</displayName>
-				<displayName count="other">Kuaxa di Malaui</displayName>
-				<symbol>MWK</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>Pezu mexikanu</displayName>
-				<displayName count="other">Pezu mexikanu</displayName>
-				<symbol>MX$</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MYR">
-				<symbol>MYR</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MZM">
 				<displayName>Metikal</displayName>
 			</currency>
 			<currency type="MZN">
-				<symbol>MZN</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>Dola namibianu</displayName>
-				<displayName count="other">Dola namibianu</displayName>
+				<displayName count="other">↑↑↑</displayName>
 			</currency>
 			<currency type="NGN">
 				<displayName>Naira</displayName>
-				<displayName count="other">Naira</displayName>
+				<displayName count="other">↑↑↑</displayName>
 			</currency>
 			<currency type="NIO">
-				<symbol>NIO</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>Kuroa norueges</displayName>
-				<displayName count="other">Kuroa norueges</displayName>
-				<symbol>NOK</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="NPR">
-				<symbol>NPR</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="NZD">
-				<symbol>NZ$</symbol>
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="OMR">
-				<symbol>OMR</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="PAB">
-				<symbol>PAB</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="PEN">
-				<symbol>PEN</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="PGK">
-				<symbol>PGK</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="PHP">
-				<symbol alt="narrow" draft="contributed">₱</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="PKR">
-				<symbol>PKR</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>Zloty polaku</displayName>
-				<displayName count="other">Zloty polaku</displayName>
-				<symbol>PLN</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="QAR">
-				<symbol>QAR</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="RSD">
-				<symbol>RSD</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>Rublu rusu</displayName>
-				<displayName count="other">Rublu rusu</displayName>
+				<displayName count="other">↑↑↑</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>Franku ruandes</displayName>
-				<displayName count="other">Franku ruandes</displayName>
-				<symbol>RWF</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>Rial saudita</displayName>
-				<displayName count="other">Rial saudita</displayName>
-				<symbol>SAR</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SBD">
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>Rupia di Seixelis</displayName>
-				<displayName count="other">Rupia di Seixelis</displayName>
-				<symbol>SCR</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName>Libra sudanes</displayName>
-				<displayName count="other">Libra sudanes</displayName>
-				<symbol>SDG</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>Libra sudanes antigu (1957–1998)</displayName>
 			</currency>
 			<currency type="SEK">
 				<displayName>Kuroa sueku</displayName>
-				<displayName count="other">Kuroa sueku</displayName>
-				<symbol>SEK</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SGD">
-				<symbol alt="narrow" draft="contributed">$</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>Libra di Santa Ilena</displayName>
-				<displayName count="other">Libra di Santa Ilena</displayName>
-				<symbol>SHP</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>Leone di Sera Leoa</displayName>
-				<displayName count="other">Leone di Sera Leoa</displayName>
-				<symbol>SLL</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>Xelin somalianu</displayName>
-				<displayName count="other">Xelin somalianu</displayName>
-				<symbol>SOS</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>Dobra di San Tume i Prínsipi (1977–2017)</displayName>
-				<displayName count="other">Dobra di San Tume i Prínsipi (1977–2017)</displayName>
-				<symbol>STD</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="STN">
 				<displayName>Dobra di San Tume i Prínsipi</displayName>
@@ -3122,109 +3122,109 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="SYP">
-				<symbol>SYP</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>Lilanjeni</displayName>
-				<displayName count="other">Lilanjeni</displayName>
-				<symbol>SZL</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>Baht tailandes</displayName>
-				<displayName count="other">Baht tailandes</displayName>
+				<displayName count="other">↑↑↑</displayName>
 				<symbol>฿</symbol>
 			</currency>
 			<currency type="TJS">
-				<symbol>TJS</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="TMT">
-				<symbol>TMT</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>Dinar tunizianu</displayName>
-				<displayName count="other">Dinar tunizianu</displayName>
-				<symbol>TND</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="TOP">
-				<symbol>TOP</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName>Lira turku</displayName>
-				<displayName count="other">Lira turku</displayName>
-				<symbol alt="narrow" draft="contributed">₺</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>Dola Novu di Taiwan</displayName>
-				<displayName count="other">Dola Novu di Taiwan</displayName>
-				<symbol>NT$</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>Xelin di Tanzánia</displayName>
-				<displayName count="other">Xelin di Tanzánia</displayName>
-				<symbol>TZS</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName>Xelin ugandensi</displayName>
-				<displayName count="other">Xelin ugandensi</displayName>
-				<symbol>UGX</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>Dola merkanu</displayName>
-				<displayName count="other">Dola merkanu</displayName>
-				<symbol>US$</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="UZS">
-				<symbol>UZS</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="VEF">
-				<symbol>VEF</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="VND">
-				<symbol>₫</symbol>
-				<symbol alt="narrow" draft="contributed">₫</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="VUV">
-				<symbol>VUV</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="WST">
-				<symbol>WST</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>Franku CFA (BEAC)</displayName>
-				<displayName count="other">Franku CFA (BEAC)</displayName>
-				<symbol>FCFA</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="XCD">
-				<symbol>EC$</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName>Franku CFA (BCEAO)</displayName>
-				<displayName count="other">Franku CFA (BCEAO)</displayName>
-				<symbol>F CFA</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="XPF">
-				<symbol>CFPF</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>Mueda diskonxedu</displayName>
 				<displayName count="other">(mueda diskonxedu)</displayName>
 			</currency>
 			<currency type="YER">
-				<symbol>YER</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>Rand sulafrikanu</displayName>
-				<displayName count="other">Rand sulafrikanu</displayName>
-				<symbol>ZAR</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>Kuaxa zambianu (1968–2012)</displayName>
 			</currency>
 			<currency type="ZMW">
 				<displayName>Kuaxa zambianu</displayName>
-				<displayName count="other">Kuaxa zambianu</displayName>
-				<symbol>ZMW</symbol>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="ZWD">
 				<displayName>Dola di Zimbabue (1980–2008)</displayName>
@@ -3332,7 +3332,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} radianu</unitPattern>
 			</unit>
 			<unit type="angle-degree">
-				<displayName>grau</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} grau</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
@@ -3489,13 +3489,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} dékada</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<displayName>anu</displayName>
-				<unitPattern count="other">{0} anu</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>{0} pur anu</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
-				<displayName>mes</displayName>
-				<unitPattern count="other">{0} mes</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>{0} pur mes</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
@@ -3504,12 +3504,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0} pur simana</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
-				<displayName>dia</displayName>
-				<unitPattern count="other">{0} dia</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>{0} pur dia</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<displayName>ora</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} ora</unitPattern>
 				<perUnitPattern>{0} pur ora</perUnitPattern>
 			</unit>
@@ -3691,8 +3691,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} jarda</unitPattern>
 			</unit>
 			<unit type="length-foot">
-				<displayName>pe</displayName>
-				<unitPattern count="other">{0} pe</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>{0} pur pe</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
@@ -3705,8 +3705,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} parsek</unitPattern>
 			</unit>
 			<unit type="length-light-year">
-				<displayName>anu-lus</displayName>
-				<unitPattern count="other">{0} anu-lus</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-astronomical-unit">
 				<displayName>unidadi astronómiku</displayName>
@@ -3725,7 +3725,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} raiu solar</unitPattern>
 			</unit>
 			<unit type="light-lux">
-				<displayName>lux</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} lux</unitPattern>
 			</unit>
 			<unit type="light-candela">
@@ -3797,8 +3797,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} masa di Sol</unitPattern>
 			</unit>
 			<unit type="mass-grain">
-				<displayName>grãu</displayName>
-				<unitPattern count="other">{0} grãu</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>jigawatt</displayName>
@@ -3813,7 +3813,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} kilowatt</unitPattern>
 			</unit>
 			<unit type="power-watt">
-				<displayName>watt</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} watt</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
@@ -3837,8 +3837,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} pulegada di merkúriu</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
-				<displayName>bar</displayName>
-				<unitPattern count="other">{0} bar</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<displayName>milibar</displayName>
@@ -4022,8 +4022,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} kudjer di subrimeza britániku</unitPattern>
 			</unit>
 			<unit type="volume-drop">
-				<displayName>gota</displayName>
-				<unitPattern count="other">{0} gota</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-dram">
 				<displayName>drakma fluídu</displayName>
@@ -4135,12 +4135,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} vol</unitPattern>
 			</unit>
 			<unit type="angle-radian">
-				<displayName>rad</displayName>
-				<unitPattern count="other">{0} rad</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-degree">
 				<displayName>grau</displayName>
-				<unitPattern count="other">{0}°</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>arkmin</displayName>
@@ -4151,53 +4151,53 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} arksig</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
-				<displayName>km²</displayName>
-				<unitPattern count="other">{0} km²</unitPattern>
-				<perUnitPattern>{0}/km²</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<displayName>ha</displayName>
-				<unitPattern count="other">{0} ha</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
-				<displayName>m²</displayName>
-				<unitPattern count="other">{0} m²</unitPattern>
-				<perUnitPattern>{0}/m²</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
-				<displayName>cm²</displayName>
-				<unitPattern count="other">{0} cm²</unitPattern>
-				<perUnitPattern>{0}/cm²</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
-				<displayName>mi²</displayName>
-				<unitPattern count="other">{0} mi²</unitPattern>
-				<perUnitPattern>{0}/mi²</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
 				<displayName>ac</displayName>
-				<unitPattern count="other">{0} ac</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-yard">
-				<displayName>yd²</displayName>
-				<unitPattern count="other">{0} yd²</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
-				<displayName>ft²</displayName>
-				<unitPattern count="other">{0} ft²</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-inch">
-				<displayName>in²</displayName>
-				<unitPattern count="other">{0} in²</unitPattern>
-				<perUnitPattern>{0}/in²</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-dunam">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
-				<displayName>kt</displayName>
-				<unitPattern count="other">{0} kt</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>mg/dl</displayName>
@@ -4209,7 +4209,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="concentr-permillion">
 				<displayName>parti/milhãu</displayName>
-				<unitPattern count="other">{0} ppm</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
 				<displayName>↑↑↑</displayName>
@@ -4248,36 +4248,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
-				<displayName>TB</displayName>
-				<unitPattern count="other">{0} TB</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-terabit">
-				<displayName>Tb</displayName>
-				<unitPattern count="other">{0} Tb</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-gigabyte">
-				<displayName>GB</displayName>
-				<unitPattern count="other">{0} GB</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-gigabit">
-				<displayName>Gb</displayName>
-				<unitPattern count="other">{0} Gb</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-megabyte">
-				<displayName>MB</displayName>
-				<unitPattern count="other">{0} MB</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-megabit">
-				<displayName>Mb</displayName>
-				<unitPattern count="other">{0} Mb</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-kilobyte">
-				<displayName>kB</displayName>
-				<unitPattern count="other">{0} kB</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-kilobit">
-				<displayName>kb</displayName>
-				<unitPattern count="other">{0} kb</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-byte">
 				<displayName>B</displayName>
@@ -4317,8 +4317,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="duration-hour">
 				<displayName>ora</displayName>
-				<unitPattern count="other">{0} h</unitPattern>
-				<perUnitPattern>{0}/h</perUnitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>min.</displayName>
@@ -4328,59 +4328,59 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="duration-second">
 				<displayName>sig.</displayName>
 				<unitPattern count="other">{0} sig.</unitPattern>
-				<perUnitPattern>{0}/s</perUnitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
-				<displayName>ms</displayName>
-				<unitPattern count="other">{0} ms</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
-				<displayName>μs</displayName>
-				<unitPattern count="other">{0} μs</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
-				<displayName>ns</displayName>
-				<unitPattern count="other">{0} ns</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
-				<displayName>amp</displayName>
-				<unitPattern count="other">{0} A</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
-				<displayName>mA</displayName>
-				<unitPattern count="other">{0} mA</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-ohm">
-				<displayName>ohm</displayName>
-				<unitPattern count="other">{0} Ω</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-volt">
-				<displayName>volt</displayName>
-				<unitPattern count="other">{0} V</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
-				<displayName>kcal</displayName>
-				<unitPattern count="other">{0} kcal</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-calorie">
-				<displayName>cal</displayName>
-				<unitPattern count="other">{0} cal</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
 				<displayName>Cal</displayName>
 				<unitPattern count="other">{0} Cal</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
-				<displayName>kJ</displayName>
-				<unitPattern count="other">{0} kJ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-joule">
 				<displayName>J</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
-				<displayName>kWh</displayName>
-				<unitPattern count="other">{0} kWh</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-electronvolt">
 				<displayName>↑↑↑</displayName>
@@ -4403,20 +4403,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-gigahertz">
-				<displayName>GHz</displayName>
-				<unitPattern count="other">{0} GHz</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-megahertz">
-				<displayName>MHz</displayName>
-				<unitPattern count="other">{0} MHz</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-kilohertz">
-				<displayName>kHz</displayName>
-				<unitPattern count="other">{0} kHz</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="frequency-hertz">
-				<displayName>Hz</displayName>
-				<unitPattern count="other">{0} Hz</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-em">
 				<displayName>↑↑↑</displayName>
@@ -4455,47 +4455,47 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
-				<displayName>km</displayName>
-				<unitPattern count="other">{0} km</unitPattern>
-				<perUnitPattern>{0}/km</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName>m</displayName>
-				<unitPattern count="other">{0} m</unitPattern>
-				<perUnitPattern>{0}/m</perUnitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
-				<displayName>dm</displayName>
-				<unitPattern count="other">{0} dm</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
-				<displayName>cm</displayName>
-				<unitPattern count="other">{0} cm</unitPattern>
-				<perUnitPattern>{0}/cm</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
-				<displayName>mm</displayName>
-				<unitPattern count="other">{0} mm</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
-				<displayName>μm</displayName>
-				<unitPattern count="other">{0} μm</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
-				<displayName>nm</displayName>
-				<unitPattern count="other">{0} nm</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-picometer">
-				<displayName>pm</displayName>
-				<unitPattern count="other">{0} pm</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-mile">
-				<displayName>mi</displayName>
-				<unitPattern count="other">{0} mi</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-yard">
-				<displayName>yd</displayName>
-				<unitPattern count="other">{0} yd</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<displayName>pe</displayName>
@@ -4503,13 +4503,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0}/pe</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
-				<displayName>in</displayName>
-				<unitPattern count="other">{0} in</unitPattern>
-				<perUnitPattern>{0}/in</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-parsec">
-				<displayName>pc</displayName>
-				<unitPattern count="other">{0} pc</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>anu-lus</displayName>
@@ -4520,16 +4520,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} ua</unitPattern>
 			</unit>
 			<unit type="length-nautical-mile">
-				<displayName>nmi</displayName>
-				<unitPattern count="other">{0} nmi</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-mile-scandinavian">
-				<displayName>smi</displayName>
-				<unitPattern count="other">{0} smi</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-point">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0} pt</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
 				<displayName>↑↑↑</displayName>
@@ -4537,7 +4537,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="light-lux">
 				<displayName>lux</displayName>
-				<unitPattern count="other">{0} lx</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-candela">
 				<displayName>↑↑↑</displayName>
@@ -4612,24 +4612,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} grãu</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
-				<displayName>GW</displayName>
-				<unitPattern count="other">{0} GW</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-megawatt">
-				<displayName>MW</displayName>
-				<unitPattern count="other">{0} MW</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
-				<displayName>kW</displayName>
-				<unitPattern count="other">{0} kW</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-watt">
-				<displayName>watt</displayName>
-				<unitPattern count="other">{0} W</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
-				<displayName>mW</displayName>
-				<unitPattern count="other">{0} mW</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
 				<displayName>cv</displayName>
@@ -4779,8 +4779,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} xávm</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
-				<displayName>ac ft</displayName>
-				<unitPattern count="other">{0} ac ft</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
 				<displayName>gal</displayName>
@@ -4793,12 +4793,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0}/gal brit.</perUnitPattern>
 			</unit>
 			<unit type="volume-quart">
-				<displayName>qt</displayName>
-				<unitPattern count="other">{0} qt</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-pint">
-				<displayName>pt</displayName>
-				<unitPattern count="other">{0} pt</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cup">
 				<displayName>xáv</displayName>
@@ -4942,75 +4942,75 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} l/100km</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<displayName>anu</displayName>
-				<unitPattern count="other">{0} anu</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-month">
-				<displayName>mes</displayName>
-				<unitPattern count="other">{0} mes</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-week">
-				<displayName>sim.</displayName>
-				<unitPattern count="other">{0} sim.</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-day">
-				<displayName>dia</displayName>
-				<unitPattern count="other">{0} dia</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<displayName>ora</displayName>
-				<unitPattern count="other">{0} h</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<displayName>min.</displayName>
-				<unitPattern count="other">{0} min.</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-second">
-				<displayName>sig.</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} s</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
-				<displayName>ms</displayName>
-				<unitPattern count="other">{0} ms</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
-				<displayName>km</displayName>
-				<unitPattern count="other">{0} km</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-meter">
-				<displayName>m</displayName>
-				<unitPattern count="other">{0} m</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
-				<displayName>cm</displayName>
-				<unitPattern count="other">{0} cm</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
-				<displayName>mm</displayName>
-				<unitPattern count="other">{0} mm</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}kg</unitPattern>
 			</unit>
 			<unit type="mass-gram">
-				<displayName>g</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
-				<displayName>km/h</displayName>
-				<unitPattern count="other">{0} km/h</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-liter">
-				<displayName>l</displayName>
-				<unitPattern count="other">{0} l</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<coordinateUnit>
-				<displayName>direson</displayName>
+				<displayName>↑↑↑</displayName>
 				<coordinateUnitPattern type="east">↑↑↑</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">↑↑↑</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">↑↑↑</coordinateUnitPattern>
@@ -5018,19 +5018,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</coordinateUnit>
 		</unitLength>
 		<durationUnit type="hm">
-			<durationUnitPattern>h:mm</durationUnitPattern>
+			<durationUnitPattern>↑↑↑</durationUnitPattern>
 		</durationUnit>
 		<durationUnit type="hms">
-			<durationUnitPattern>h:mm:ss</durationUnitPattern>
+			<durationUnitPattern>↑↑↑</durationUnitPattern>
 		</durationUnit>
 		<durationUnit type="ms">
-			<durationUnitPattern>m:ss</durationUnitPattern>
+			<durationUnitPattern>↑↑↑</durationUnitPattern>
 		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
 			<listPatternPart type="end">{0} i {1}</listPatternPart>
 			<listPatternPart type="2">{0} i {1}</listPatternPart>
 		</listPattern>
@@ -5043,14 +5043,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<listPattern type="or-narrow">
 			<listPatternPart type="start">↑↑↑</listPatternPart>
 			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">{0} o {1}</listPatternPart>
-			<listPatternPart type="2">{0} o {1}</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="or-short">
 			<listPatternPart type="start">↑↑↑</listPatternPart>
 			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">{0} o {1}</listPatternPart>
-			<listPatternPart type="2">{0} o {1}</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-narrow">
 			<listPatternPart type="start">↑↑↑</listPatternPart>
@@ -5065,20 +5065,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="unit">
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
 			<listPatternPart type="end">{0} i {1}</listPatternPart>
 			<listPatternPart type="2">{0} i {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit-narrow">
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="end">{0}, {1}</listPatternPart>
-			<listPatternPart type="2">{0}, {1}</listPatternPart>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="unit-short">
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
 			<listPatternPart type="end">{0}, {1}</listPatternPart>
 			<listPatternPart type="2">{0}, {1}</listPatternPart>
 		</listPattern>
@@ -5097,7 +5097,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<axisName type="wght">pezu</axisName>
 		<styleName type="ital" subtype="1">kursivu</styleName>
 		<styleName type="opsz" subtype="12">testu</styleName>
-		<styleName type="opsz" subtype="144">poster</styleName>
+		<styleName type="opsz" subtype="144">↑↑↑</styleName>
 		<styleName type="slnt" subtype="12">inklinadu</styleName>
 		<styleName type="slnt" subtype="24">extra-inklinadu</styleName>
 		<styleName type="wdth" subtype="50">ultra-kondensadu</styleName>
@@ -5112,7 +5112,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<styleName type="wdth" subtype="87.5">semi-kondensadu</styleName>
 		<styleName type="wdth" subtype="87.5" alt="compressed">semi-komprimidu</styleName>
 		<styleName type="wdth" subtype="87.5" alt="narrow">semi-stretu</styleName>
-		<styleName type="wdth" subtype="100">normal</styleName>
+		<styleName type="wdth" subtype="100">↑↑↑</styleName>
 		<styleName type="wdth" subtype="112.5">semi-spandidu</styleName>
 		<styleName type="wdth" subtype="112.5" alt="extended">semi-stikadu</styleName>
 		<styleName type="wdth" subtype="112.5" alt="wide">semi-largu</styleName>

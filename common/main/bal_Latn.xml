@@ -13,9 +13,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
-			<localePattern>{0} ({1})</localePattern>
-			<localeSeparator>{0}, {1}</localeSeparator>
-			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
+			<localePattern>↑↑↑</localePattern>
+			<localeSeparator>↑↑↑</localeSeparator>
+			<localeKeyTypePattern>↑↑↑</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
 			<language type="bal">بلۆچی</language>
@@ -108,8 +108,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</localeDisplayNames>
 	<layout>
 		<orientation>
-			<characterOrder>left-to-right</characterOrder>
-			<lineOrder>top-to-bottom</lineOrder>
+			<characterOrder>↑↑↑</characterOrder>
+			<lineOrder>↑↑↑</lineOrder>
 		</orientation>
 	</layout>
 	<characters>
@@ -134,8 +134,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="2" draft="provisional">Par</month>
 							<month type="3" draft="provisional">Már</month>
 							<month type="4" draft="provisional">Apr</month>
-							<month type="5" draft="provisional">Mai</month>
-							<month type="6" draft="provisional">Jun</month>
+							<month type="5" draft="provisional">↑↑↑</month>
+							<month type="6" draft="provisional">↑↑↑</month>
 							<month type="7" draft="provisional">Jól</month>
 							<month type="8" draft="provisional">Aga</month>
 							<month type="9" draft="provisional">Sat</month>
@@ -190,10 +190,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="4" draft="provisional">4/4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
-							<quarter type="1" draft="provisional">1</quarter>
-							<quarter type="2" draft="provisional">2</quarter>
-							<quarter type="3" draft="provisional">3</quarter>
-							<quarter type="4" draft="provisional">4</quarter>
+							<quarter type="1" draft="provisional">↑↑↑</quarter>
+							<quarter type="2" draft="provisional">↑↑↑</quarter>
+							<quarter type="3" draft="provisional">↑↑↑</quarter>
+							<quarter type="4" draft="provisional">↑↑↑</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1" draft="provisional">awali chárek</quarter>
@@ -204,22 +204,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="provisional">1/4</quarter>
-							<quarter type="2" draft="provisional">2/4</quarter>
-							<quarter type="3" draft="provisional">3/4</quarter>
-							<quarter type="4" draft="provisional">4/4</quarter>
+							<quarter type="1" draft="provisional">↑↑↑</quarter>
+							<quarter type="2" draft="provisional">↑↑↑</quarter>
+							<quarter type="3" draft="provisional">↑↑↑</quarter>
+							<quarter type="4" draft="provisional">↑↑↑</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
-							<quarter type="1" draft="provisional">1</quarter>
-							<quarter type="2" draft="provisional">2</quarter>
-							<quarter type="3" draft="provisional">3</quarter>
-							<quarter type="4" draft="provisional">4</quarter>
+							<quarter type="1" draft="provisional">↑↑↑</quarter>
+							<quarter type="2" draft="provisional">↑↑↑</quarter>
+							<quarter type="3" draft="provisional">↑↑↑</quarter>
+							<quarter type="4" draft="provisional">↑↑↑</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1" draft="provisional">awali chárek</quarter>
-							<quarter type="2" draft="provisional">domi chárek</quarter>
-							<quarter type="3" draft="provisional">sayomi chárek</quarter>
-							<quarter type="4" draft="provisional">cháromi chárek</quarter>
+							<quarter type="1" draft="provisional">↑↑↑</quarter>
+							<quarter type="2" draft="provisional">↑↑↑</quarter>
+							<quarter type="3" draft="provisional">↑↑↑</quarter>
+							<quarter type="4" draft="provisional">↑↑↑</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -270,22 +270,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
+							<pattern draft="provisional">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
+							<pattern draft="provisional">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
 						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
+							<pattern draft="provisional">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
+							<pattern draft="provisional">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 				</dateTimeFormats>
@@ -547,90 +547,90 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="contributed">latn</defaultNumberingSystem>
+		<defaultNumberingSystem draft="contributed">↑↑↑</defaultNumberingSystem>
 		<otherNumberingSystems>
 			<native draft="contributed">↑↑↑</native>
 		</otherNumberingSystems>
 		<symbols numberSystem="latn">
-			<decimal draft="provisional">.</decimal>
-			<group draft="provisional">,</group>
-			<percentSign draft="provisional">%</percentSign>
-			<plusSign draft="provisional">+</plusSign>
-			<minusSign draft="provisional">-</minusSign>
+			<decimal draft="provisional">↑↑↑</decimal>
+			<group draft="provisional">↑↑↑</group>
+			<percentSign draft="provisional">↑↑↑</percentSign>
+			<plusSign draft="provisional">↑↑↑</plusSign>
+			<minusSign draft="provisional">↑↑↑</minusSign>
 		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern draft="provisional">#,##0.###</pattern>
+					<pattern draft="provisional">↑↑↑</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
 				<scientificFormat>
-					<pattern draft="provisional">#E0</pattern>
+					<pattern draft="provisional">↑↑↑</pattern>
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
-					<pattern draft="provisional">#,##0%</pattern>
+					<pattern draft="provisional">↑↑↑</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern draft="provisional">¤ #,##0.00</pattern>
+					<pattern draft="provisional">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencies>
 			<currency type="BRL">
 				<displayName draft="provisional">Brázili riál</displayName>
-				<symbol draft="provisional">R$</symbol>
-				<symbol alt="narrow" draft="provisional">R$</symbol>
+				<symbol draft="provisional">↑↑↑</symbol>
+				<symbol alt="narrow" draft="provisional">↑↑↑</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName draft="provisional">yuró</displayName>
-				<symbol draft="provisional">€</symbol>
-				<symbol alt="narrow" draft="provisional">€</symbol>
+				<symbol draft="provisional">↑↑↑</symbol>
+				<symbol alt="narrow" draft="provisional">↑↑↑</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName draft="provisional">Bartáni pawndh</displayName>
-				<symbol draft="provisional">£</symbol>
-				<symbol alt="narrow" draft="provisional">£</symbol>
+				<symbol draft="provisional">↑↑↑</symbol>
+				<symbol alt="narrow" draft="provisional">↑↑↑</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName draft="provisional">Hendostáni rupi</displayName>
-				<symbol draft="provisional">₹</symbol>
-				<symbol alt="narrow" draft="provisional">₹</symbol>
+				<symbol draft="provisional">↑↑↑</symbol>
+				<symbol alt="narrow" draft="provisional">↑↑↑</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName draft="provisional">Éráni ryál</displayName>
 				<symbol draft="provisional">ریال</symbol>
-				<symbol alt="narrow" draft="provisional">ریال</symbol>
+				<symbol alt="narrow" draft="provisional">↑↑↑</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName draft="provisional">Jápáni yen</displayName>
 				<symbol draft="provisional">¥</symbol>
-				<symbol alt="narrow" draft="provisional">¥</symbol>
+				<symbol alt="narrow" draft="provisional">↑↑↑</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName draft="provisional">Pákestáni rupi</displayName>
 				<symbol draft="provisional">Rs</symbol>
-				<symbol alt="narrow" draft="provisional">Rs</symbol>
+				<symbol alt="narrow" draft="provisional">↑↑↑</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName draft="provisional">Rusi rubel</displayName>
 				<symbol draft="provisional">₽</symbol>
-				<symbol alt="narrow" draft="provisional">₽</symbol>
+				<symbol alt="narrow" draft="provisional">↑↑↑</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName draft="provisional">Amriki dhálar</displayName>
 				<symbol draft="provisional">$</symbol>
-				<symbol alt="narrow" draft="provisional">$</symbol>
+				<symbol alt="narrow" draft="provisional">↑↑↑</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName draft="provisional">Nazántagén zarr</displayName>

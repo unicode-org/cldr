@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -13,9 +13,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
-			<localePattern>{0} ({1})</localePattern>
-			<localeSeparator>{0}, {1}</localeSeparator>
-			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
+			<localePattern>↑↑↑</localePattern>
+			<localeSeparator>↑↑↑</localeSeparator>
+			<localeKeyTypePattern>↑↑↑</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
 			<language type="aa">афарски</language>
@@ -149,9 +149,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="en_AU">↑↑↑</language>
 			<language type="en_CA">↑↑↑</language>
 			<language type="en_GB">↑↑↑</language>
-			<language type="en_GB" alt="short">енглески (УК)</language>
+			<language type="en_GB" alt="short">↑↑↑</language>
 			<language type="en_US">↑↑↑</language>
-			<language type="en_US" alt="short">енглески (САД)</language>
+			<language type="en_US" alt="short">↑↑↑</language>
 			<language type="enm">средњи енглески</language>
 			<language type="eo">есперанто</language>
 			<language type="es">шпански</language>
@@ -568,7 +568,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="zh" alt="menu">кинески (мандарински)</language>
 			<language type="zh_Hans">кинески (поједностављен)</language>
 			<language type="zh_Hans" alt="long">кинески мандариснки поједностављен</language>
-			<language type="zh_Hant">кинески (традиционални)</language>
+			<language type="zh_Hant">↑↑↑</language>
 			<language type="zh_Hant" alt="long">кинески мандарински (традиционални)</language>
 			<language type="zu">зулу</language>
 			<language type="zun">зуни</language>
@@ -1039,7 +1039,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="SX">Свети Мартин (Холандија)</territory>
 			<territory type="SY">Сирија</territory>
 			<territory type="SZ">Есватини</territory>
-			<territory type="SZ" alt="variant">Есватини</territory>
+			<territory type="SZ" alt="variant">↑↑↑</territory>
 			<territory type="TA">Тристан да Куња</territory>
 			<territory type="TC">Туркс и Кајкос Острва</territory>
 			<territory type="TD">Чад</territory>
@@ -1243,19 +1243,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<measurementSystemName type="US">САД</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
-			<codePattern type="language">{0}</codePattern>
-			<codePattern type="script">{0}</codePattern>
-			<codePattern type="territory">{0}</codePattern>
+			<codePattern type="language">↑↑↑</codePattern>
+			<codePattern type="script">↑↑↑</codePattern>
+			<codePattern type="territory">↑↑↑</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[а б в г д ђ е ж з и ј к л љ м н њ о п р с т ћ у ф х ц ч џ ш]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="index" draft="contributed">[А Б В Г Д Ђ Е Ж З И Ј К Л Љ М Н Њ О П Р С Т Ћ У Ф Х Ц Ч Џ Ш]</exemplarCharacters>
-		<exemplarCharacters type="numbers">[\- ‑ , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
+		<exemplarCharacters type="numbers">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation" draft="contributed">↑↑↑</exemplarCharacters>
-		<ellipsis type="final">{0}…</ellipsis>
-		<ellipsis type="initial">…{0}</ellipsis>
+		<ellipsis type="final">↑↑↑</ellipsis>
+		<ellipsis type="initial">↑↑↑</ellipsis>
 		<ellipsis type="medial">↑↑↑</ellipsis>
 		<ellipsis type="word-final">↑↑↑</ellipsis>
 		<ellipsis type="word-initial">↑↑↑</ellipsis>
@@ -1395,7 +1395,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Bh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Bhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
-						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
@@ -1411,17 +1411,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="h">hh a</dateFormatItem>
 						<dateFormatItem id="H">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm">hh:mm a</dateFormatItem>
-						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
+						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hms">hh:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">dd.MM.</dateFormatItem>
 						<dateFormatItem id="MEd">E, dd.MM.</dateFormatItem>
-						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">dd. MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, dd. MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">y. G</dateFormatItem>
 						<dateFormatItem id="yyyy">y. G</dateFormatItem>
 						<dateFormatItem id="yyyyM">MM.y. G</dateFormatItem>
@@ -1431,8 +1431,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyMMMd">dd. MMM y. G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">E, dd. MMM y. G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyyQQQ">G y QQQ</dateFormatItem>
-						<dateFormatItem id="yyyyQQQQ">G y QQQQ</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">↑↑↑</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
@@ -1446,7 +1446,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="m">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="d">
-							<greatestDifference id="d">d–d</greatestDifference>
+							<greatestDifference id="d">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Gy">
 							<greatestDifference id="G">↑↑↑</greatestDifference>
@@ -1491,7 +1491,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="h">hh–hh a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
-							<greatestDifference id="H">HH–HH</greatestDifference>
+							<greatestDifference id="H">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a">hh:mm a – hh:mm a</greatestDifference>
@@ -1499,8 +1499,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="m">hh:mm–hh:mm a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
-							<greatestDifference id="H">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="m">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="H">↑↑↑</greatestDifference>
+							<greatestDifference id="m">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a">hh:mm a – hh:mm a v</greatestDifference>
@@ -1508,15 +1508,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="m">hh:mm–hh:mm a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
-							<greatestDifference id="H">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="m">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="H">↑↑↑</greatestDifference>
+							<greatestDifference id="m">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a">hh a – hh a v</greatestDifference>
 							<greatestDifference id="h">hh–hh a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
-							<greatestDifference id="H">HH–HH v</greatestDifference>
+							<greatestDifference id="H">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">M–M</greatestDifference>
@@ -1586,7 +1586,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="2">феб</month>
 							<month type="3">мар</month>
 							<month type="4">апр</month>
-							<month type="5">мај</month>
+							<month type="5">↑↑↑</month>
 							<month type="6">јун</month>
 							<month type="7">јул</month>
 							<month type="8">ауг</month>
@@ -1626,18 +1626,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<month type="1">јан</month>
-							<month type="2">феб</month>
-							<month type="3">мар</month>
-							<month type="4">апр</month>
-							<month type="5">мај</month>
-							<month type="6">јун</month>
-							<month type="7">јул</month>
-							<month type="8">ауг</month>
-							<month type="9">сеп</month>
-							<month type="10">окт</month>
-							<month type="11">нов</month>
-							<month type="12">дец</month>
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">ј</month>
@@ -1654,18 +1654,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12">д</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">јануар</month>
-							<month type="2">фебруар</month>
-							<month type="3">март</month>
-							<month type="4">април</month>
-							<month type="5">мај</month>
-							<month type="6">јуни</month>
-							<month type="7">јули</month>
-							<month type="8">аугуст</month>
-							<month type="9">септембар</month>
-							<month type="10">октобар</month>
-							<month type="11">новембар</month>
-							<month type="12">децембар</month>
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -1737,13 +1737,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun">недјеља</day>
-							<day type="mon">понедјељак</day>
-							<day type="tue">уторак</day>
-							<day type="wed">сриједа</day>
-							<day type="thu">четвртак</day>
-							<day type="fri">петак</day>
-							<day type="sat">субота</day>
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -1756,10 +1756,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="4">К4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
-							<quarter type="1">1.</quarter>
-							<quarter type="2">2.</quarter>
-							<quarter type="3">3.</quarter>
-							<quarter type="4">4.</quarter>
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">Прво тромесечје</quarter>
@@ -1802,31 +1802,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="night1">ноћу</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="midnight">поноћ</dayPeriod>
+							<dayPeriod type="midnight">↑↑↑</dayPeriod>
 							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="noon">подне</dayPeriod>
+							<dayPeriod type="noon">↑↑↑</dayPeriod>
 							<dayPeriod type="pm">↑↑↑</dayPeriod>
-							<dayPeriod type="morning1">ујутру</dayPeriod>
-							<dayPeriod type="afternoon1">у подне</dayPeriod>
-							<dayPeriod type="evening1">увече</dayPeriod>
-							<dayPeriod type="night1">ноћу</dayPeriod>
+							<dayPeriod type="morning1">↑↑↑</dayPeriod>
+							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
+							<dayPeriod type="evening1">↑↑↑</dayPeriod>
+							<dayPeriod type="night1">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="midnight">поноћ</dayPeriod>
+							<dayPeriod type="midnight">↑↑↑</dayPeriod>
 							<dayPeriod type="am">прије подне</dayPeriod>
-							<dayPeriod type="noon">подне</dayPeriod>
+							<dayPeriod type="noon">↑↑↑</dayPeriod>
 							<dayPeriod type="pm">послије подне</dayPeriod>
-							<dayPeriod type="morning1">ујутру</dayPeriod>
-							<dayPeriod type="afternoon1">у подне</dayPeriod>
-							<dayPeriod type="evening1">увече</dayPeriod>
-							<dayPeriod type="night1">ноћу</dayPeriod>
+							<dayPeriod type="morning1">↑↑↑</dayPeriod>
+							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
+							<dayPeriod type="evening1">↑↑↑</dayPeriod>
+							<dayPeriod type="night1">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="midnight">поноћ</dayPeriod>
+							<dayPeriod type="midnight">↑↑↑</dayPeriod>
 							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="noon">подне</dayPeriod>
+							<dayPeriod type="noon">↑↑↑</dayPeriod>
 							<dayPeriod type="pm">↑↑↑</dayPeriod>
 							<dayPeriod type="morning1">јутро</dayPeriod>
 							<dayPeriod type="afternoon1">послийеподне</dayPeriod>
@@ -1834,24 +1834,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="night1">ноћ</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="midnight">поноћ</dayPeriod>
+							<dayPeriod type="midnight">↑↑↑</dayPeriod>
 							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="noon">подне</dayPeriod>
+							<dayPeriod type="noon">↑↑↑</dayPeriod>
 							<dayPeriod type="pm">↑↑↑</dayPeriod>
-							<dayPeriod type="morning1">јутро</dayPeriod>
-							<dayPeriod type="afternoon1">послийеподне</dayPeriod>
-							<dayPeriod type="evening1">вече</dayPeriod>
-							<dayPeriod type="night1">ноћ</dayPeriod>
+							<dayPeriod type="morning1">↑↑↑</dayPeriod>
+							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
+							<dayPeriod type="evening1">↑↑↑</dayPeriod>
+							<dayPeriod type="night1">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="midnight">поноћ</dayPeriod>
+							<dayPeriod type="midnight">↑↑↑</dayPeriod>
 							<dayPeriod type="am">прије подне</dayPeriod>
-							<dayPeriod type="noon">подне</dayPeriod>
+							<dayPeriod type="noon">↑↑↑</dayPeriod>
 							<dayPeriod type="pm">послије подне</dayPeriod>
-							<dayPeriod type="morning1">јутро</dayPeriod>
-							<dayPeriod type="afternoon1">послийеподне</dayPeriod>
-							<dayPeriod type="evening1">вече</dayPeriod>
-							<dayPeriod type="night1">ноћ</dayPeriod>
+							<dayPeriod type="morning1">↑↑↑</dayPeriod>
+							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
+							<dayPeriod type="evening1">↑↑↑</dayPeriod>
+							<dayPeriod type="night1">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -1902,26 +1902,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
-							<datetimeSkeleton>HHmmsszzzz</datetimeSkeleton>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-							<datetimeSkeleton>HHmmssz</datetimeSkeleton>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-							<datetimeSkeleton>HHmmss</datetimeSkeleton>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern>HH:mm</pattern>
-							<datetimeSkeleton>HHmm</datetimeSkeleton>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -1950,7 +1950,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Bh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Bhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
-						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
@@ -1966,24 +1966,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="h">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm">↑↑↑</dateFormatItem>
-						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
+						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hms">↑↑↑</dateFormatItem>
-						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hmsv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hmsv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hmv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hmv">↑↑↑</dateFormatItem>
-						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">dd.MM.</dateFormatItem>
 						<dateFormatItem id="MEd">E, dd.MM.</dateFormatItem>
-						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">dd. MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, dd. MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d. MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="one">'седмица' W 'мјесец' MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="few">'седмица' W 'мјесец' MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="one">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="few">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">'седмица' W 'мјесец' MMMM</dateFormatItem>
-						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">y.</dateFormatItem>
 						<dateFormatItem id="yM">MM.y.</dateFormatItem>
 						<dateFormatItem id="yMd">dd.MM.y.</dateFormatItem>
@@ -1992,10 +1992,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMd">dd. MMM y.</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, dd. MMM y.</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y.</dateFormatItem>
-						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
-						<dateFormatItem id="yQQQQ">y QQQQ</dateFormatItem>
-						<dateFormatItem id="yw" count="one">'седмица' w 'година' Y</dateFormatItem>
-						<dateFormatItem id="yw" count="few">'седмица' w 'година' Y</dateFormatItem>
+						<dateFormatItem id="yQQQ">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yQQQQ">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yw" count="one">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yw" count="few">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yw" count="other">'седмица' w 'година' Y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
@@ -2013,7 +2013,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="m">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="d">
-							<greatestDifference id="d">d–d</greatestDifference>
+							<greatestDifference id="d">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Gy">
 							<greatestDifference id="G">↑↑↑</greatestDifference>
@@ -2058,7 +2058,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="h">hh–hh a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
-							<greatestDifference id="H">HH–HH</greatestDifference>
+							<greatestDifference id="H">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a">hh:mm a – hh:mm a</greatestDifference>
@@ -2066,8 +2066,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="m">hh:mm–hh:mm a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
-							<greatestDifference id="H">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="m">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="H">↑↑↑</greatestDifference>
+							<greatestDifference id="m">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a">hh:mm a – hh:mm a v</greatestDifference>
@@ -2075,15 +2075,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="m">hh:mm–hh:mm a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
-							<greatestDifference id="H">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="m">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="H">↑↑↑</greatestDifference>
+							<greatestDifference id="m">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a">hh a – hh a v</greatestDifference>
 							<greatestDifference id="h">hh–hh a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
-							<greatestDifference id="H">HH–HH v</greatestDifference>
+							<greatestDifference id="H">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">M–M</greatestDifference>
@@ -2108,7 +2108,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="M">E, dd. MMM – E, dd. MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
-							<greatestDifference id="y">y–y</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M">MM.–MM. y.</greatestDifference>
@@ -2233,7 +2233,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="5" draft="provisional">Џумаде 1</month>
 							<month type="6" draft="provisional">Џумаде 2</month>
 							<month type="7" draft="provisional">Реџеб</month>
-							<month type="8" draft="provisional">Шаʻбан</month>
+							<month type="8" draft="provisional">↑↑↑</month>
 							<month type="9" draft="provisional">Рамазан</month>
 							<month type="10" draft="provisional">Шевал</month>
 							<month type="11" draft="provisional">Зул-каде</month>
@@ -2249,20 +2249,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE, dd. MMMM y. G</pattern>
-							<datetimeSkeleton>GyMMMMEEEEdd</datetimeSkeleton>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>dd. MMMM y. G</pattern>
-							<datetimeSkeleton>GyMMMMdd</datetimeSkeleton>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>dd.MM.y. G</pattern>
-							<datetimeSkeleton>GyMMdd</datetimeSkeleton>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -2274,20 +2274,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed">E, dd.</dateFormatItem>
-						<dateFormatItem id="hm">hh:mm a</dateFormatItem>
-						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
-						<dateFormatItem id="hms">hh:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="M">L</dateFormatItem>
-						<dateFormatItem id="Md">dd.MM.</dateFormatItem>
-						<dateFormatItem id="MEd">E, dd.MM.</dateFormatItem>
-						<dateFormatItem id="MMM">LLL</dateFormatItem>
-						<dateFormatItem id="MMMd">dd. MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E, dd. MMM</dateFormatItem>
-						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">y. G</dateFormatItem>
+						<dateFormatItem id="hm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="M">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Md">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="y">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yM">MM.y. G</dateFormatItem>
 						<dateFormatItem id="yMd">dd.MM.y. G</dateFormatItem>
 						<dateFormatItem id="yMEd">E, dd.MM.y. G</dateFormatItem>
@@ -2607,10 +2607,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>ера</displayName>
 			</field>
 			<field type="era-short">
-				<displayName>ера</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="era-narrow">
-				<displayName>ера</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="year">
 				<displayName>година</displayName>
@@ -2639,25 +2639,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">прије {0} годину</relativeTimePattern>
-					<relativeTimePattern count="few">прије {0} године</relativeTimePattern>
-					<relativeTimePattern count="other">прије {0} година</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="year-narrow">
 				<displayName>год.</displayName>
-				<relative type="-1">прош. године</relative>
-				<relative type="0">ове год.</relative>
-				<relative type="1">сљед. године</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">прије {0} годину</relativeTimePattern>
-					<relativeTimePattern count="few">прије {0} године</relativeTimePattern>
-					<relativeTimePattern count="other">прије {0} година</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="quarter">
@@ -2724,18 +2724,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">овог мјес.</relative>
 				<relative type="1">сљед. мјесеца</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">за {0} мјесец</relativeTimePattern>
-					<relativeTimePattern count="few">за {0} мјесеца</relativeTimePattern>
-					<relativeTimePattern count="other">за {0} мјесеци</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">прије {0} мјесец</relativeTimePattern>
-					<relativeTimePattern count="few">прије {0} мјесеца</relativeTimePattern>
-					<relativeTimePattern count="other">прије {0} мјесеци</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="month-narrow">
-				<displayName>мјес.</displayName>
+				<displayName>↑↑↑</displayName>
 				<relative type="-1">прош. мјес.</relative>
 				<relative type="0">ов. мјес.</relative>
 				<relative type="1">сљ. мјес.</relative>
@@ -2782,24 +2782,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="few">прије {0} седм.</relativeTimePattern>
 					<relativeTimePattern count="other">прије {0} седм.</relativeTimePattern>
 				</relativeTime>
-				<relativePeriod>седмица {0}</relativePeriod>
+				<relativePeriod>↑↑↑</relativePeriod>
 			</field>
 			<field type="week-narrow">
-				<displayName>седм.</displayName>
-				<relative type="-1">прош. седм.</relative>
-				<relative type="0">ове седм.</relative>
-				<relative type="1">сљ. седм.</relative>
+				<displayName>↑↑↑</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">за {0} седм.</relativeTimePattern>
-					<relativeTimePattern count="few">за {0} седм.</relativeTimePattern>
-					<relativeTimePattern count="other">за {0} седм.</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">прије {0} седм.</relativeTimePattern>
-					<relativeTimePattern count="few">прије {0} седм.</relativeTimePattern>
-					<relativeTimePattern count="other">прије {0} седм.</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
-				<relativePeriod>седмица {0}</relativePeriod>
+				<relativePeriod>↑↑↑</relativePeriod>
 			</field>
 			<field type="weekOfMonth">
 				<displayName>седмица у мјесецу</displayName>
@@ -2819,17 +2819,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="2">прекосутра</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">за {0} дан</relativeTimePattern>
-					<relativeTimePattern count="few">за {0} дана</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">за {0} дана</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">прије {0} дан</relativeTimePattern>
-					<relativeTimePattern count="few">прије {0} дана</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">прије {0} дана</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="day-short">
-				<displayName>дан</displayName>
+				<displayName>↑↑↑</displayName>
 				<relative type="-1">↑↑↑</relative>
 				<relative type="0">↑↑↑</relative>
 				<relative type="1">↑↑↑</relative>
@@ -2839,13 +2839,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">прије {0} дан</relativeTimePattern>
-					<relativeTimePattern count="few">прије {0} дана</relativeTimePattern>
-					<relativeTimePattern count="other">прије {0} дана</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="day-narrow">
-				<displayName>дан</displayName>
+				<displayName>↑↑↑</displayName>
 				<relative type="-1">↑↑↑</relative>
 				<relative type="0">↑↑↑</relative>
 				<relative type="1">↑↑↑</relative>
@@ -2855,9 +2855,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">прије {0} дан</relativeTimePattern>
-					<relativeTimePattern count="few">прије {0} дана</relativeTimePattern>
-					<relativeTimePattern count="other">прије {0} дана</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="dayOfYear">
@@ -2867,7 +2867,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>дан у год.</displayName>
 			</field>
 			<field type="dayOfYear-narrow">
-				<displayName>дан у год.</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="weekday">
 				<displayName>дан у седмици</displayName>
@@ -2876,7 +2876,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>дан у седм.</displayName>
 			</field>
 			<field type="weekday-narrow">
-				<displayName>дан у седм.</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="weekdayOfMonth">
 				<displayName>радни дан у мјесецу</displayName>
@@ -2904,7 +2904,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="sun-short">
 				<relative type="-1">прошл. недјеље</relative>
-				<relative type="0">ове недјеље</relative>
+				<relative type="0">↑↑↑</relative>
 				<relative type="1">сљ. недјеље</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
@@ -2920,7 +2920,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="sun-narrow">
 				<relative type="-1">пр. недјеље</relative>
 				<relative type="0">ове недј.</relative>
-				<relative type="1">сљ. недјеље</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
@@ -2964,7 +2964,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="mon-narrow">
 				<relative type="-1">пр. понедј.</relative>
-				<relative type="0">овог понедј.</relative>
+				<relative type="0">↑↑↑</relative>
 				<relative type="1">сљ. понедј.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
@@ -3009,7 +3009,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="tue-narrow">
 				<relative type="-1">пр. уторка</relative>
-				<relative type="0">овог утор.</relative>
+				<relative type="0">↑↑↑</relative>
 				<relative type="1">сљ. уторка</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
@@ -3039,7 +3039,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="wed-short">
 				<relative type="-1">прошл. сриједе</relative>
-				<relative type="0">ове сриједе</relative>
+				<relative type="0">↑↑↑</relative>
 				<relative type="1">сљед. сриједе</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
@@ -3099,7 +3099,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="thu-narrow">
 				<relative type="-1">пр. чет.</relative>
-				<relative type="0">овог чет.</relative>
+				<relative type="0">↑↑↑</relative>
 				<relative type="1">сљ. чет.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
@@ -3144,7 +3144,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="fri-narrow">
 				<relative type="-1">пр. петка</relative>
-				<relative type="0">овог пет.</relative>
+				<relative type="0">↑↑↑</relative>
 				<relative type="1">сљ. петка</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
@@ -3189,7 +3189,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="sat-narrow">
 				<relative type="-1">пр. суботе</relative>
-				<relative type="0">ове суб.</relative>
+				<relative type="0">↑↑↑</relative>
 				<relative type="1">сљ. суботе</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
@@ -3203,13 +3203,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="dayperiod-short">
-				<displayName>прије подне/послије подне</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="dayperiod">
 				<displayName>прије подне/послије подне</displayName>
 			</field>
 			<field type="dayperiod-narrow">
-				<displayName>прије подне/послије подне</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="hour">
 				<displayName>сат</displayName>
@@ -3226,29 +3226,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="hour-short">
-				<displayName>сат</displayName>
+				<displayName>↑↑↑</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">прије {0} сат</relativeTimePattern>
-					<relativeTimePattern count="few">прије {0} сата</relativeTimePattern>
-					<relativeTimePattern count="other">прије {0} сати</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="hour-narrow">
-				<displayName>сат</displayName>
+				<displayName>↑↑↑</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">прије {0} сат</relativeTimePattern>
-					<relativeTimePattern count="few">прије {0} сата</relativeTimePattern>
-					<relativeTimePattern count="other">прије {0} сати</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute">
@@ -3256,12 +3256,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">овог минута</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">за {0} минут</relativeTimePattern>
-					<relativeTimePattern count="few">за {0} минута</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">за {0} минута</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">прије {0} минут</relativeTimePattern>
-					<relativeTimePattern count="few">прије {0} минута</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">прије {0} минута</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -3273,9 +3273,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">прије {0} минут</relativeTimePattern>
-					<relativeTimePattern count="few">прије {0} минута</relativeTimePattern>
-					<relativeTimePattern count="other">прије {0} минута</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute-narrow">
@@ -3321,14 +3321,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="second-narrow">
 				<displayName>сек</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">за {0} сек.</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">прије {0} сек.</relativeTimePattern>
-					<relativeTimePattern count="few">прије {0} сек.</relativeTimePattern>
-					<relativeTimePattern count="other">прије {0} сек.</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="zone">
@@ -3343,12 +3343,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</fields>
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
-			<gmtFormat>GMT{0}</gmtFormat>
+			<gmtFormat>↑↑↑</gmtFormat>
 			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
 			<regionFormat>Време: {0}</regionFormat>
 			<regionFormat type="daylight">↑↑↑</regionFormat>
 			<regionFormat type="standard">↑↑↑</regionFormat>
-			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<fallbackFormat>↑↑↑</fallbackFormat>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Координисано универзално вријеме</standard>
@@ -5611,27 +5611,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
 			<group>.</group>
-			<list>;</list>
-			<percentSign>%</percentSign>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
-			<exponential>E</exponential>
-			<superscriptingExponent>×</superscriptingExponent>
-			<perMille>‰</perMille>
-			<infinity>∞</infinity>
-			<nan>NaN</nan>
+			<list>↑↑↑</list>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>↑↑↑</minusSign>
+			<exponential>↑↑↑</exponential>
+			<superscriptingExponent>↑↑↑</superscriptingExponent>
+			<perMille>↑↑↑</perMille>
+			<infinity>↑↑↑</infinity>
+			<nan>↑↑↑</nan>
 		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern>#,##0.###</pattern>
+					<pattern>↑↑↑</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one">0</pattern>
-					<pattern type="1000" count="few">0</pattern>
-					<pattern type="1000" count="other">0</pattern>
+					<pattern type="1000" count="one">↑↑↑</pattern>
+					<pattern type="1000" count="few">↑↑↑</pattern>
+					<pattern type="1000" count="other">↑↑↑</pattern>
 					<pattern type="10000" count="one">00 хиљ</pattern>
 					<pattern type="10000" count="few">00 хиљ</pattern>
 					<pattern type="10000" count="other">00 хиљ</pattern>
@@ -5669,41 +5669,41 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one">0</pattern>
-					<pattern type="1000" count="few">0</pattern>
+					<pattern type="1000" count="one">↑↑↑</pattern>
+					<pattern type="1000" count="few">↑↑↑</pattern>
 					<pattern type="1000" count="other">0</pattern>
-					<pattern type="10000" count="one">00 хиљ</pattern>
-					<pattern type="10000" count="few">00 хиљ</pattern>
+					<pattern type="10000" count="one">↑↑↑</pattern>
+					<pattern type="10000" count="few">↑↑↑</pattern>
 					<pattern type="10000" count="other">00 хиљ</pattern>
-					<pattern type="100000" count="one">000 хиљ</pattern>
-					<pattern type="100000" count="few">000 хиљ</pattern>
+					<pattern type="100000" count="one">↑↑↑</pattern>
+					<pattern type="100000" count="few">↑↑↑</pattern>
 					<pattern type="100000" count="other">000 хиљ</pattern>
-					<pattern type="1000000" count="one">0 мил</pattern>
-					<pattern type="1000000" count="few">0 мил</pattern>
+					<pattern type="1000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000" count="few">↑↑↑</pattern>
 					<pattern type="1000000" count="other">0 мил</pattern>
-					<pattern type="10000000" count="one">00 мил</pattern>
-					<pattern type="10000000" count="few">00 мил</pattern>
+					<pattern type="10000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000" count="few">↑↑↑</pattern>
 					<pattern type="10000000" count="other">00 мил</pattern>
-					<pattern type="100000000" count="one">000 мил</pattern>
-					<pattern type="100000000" count="few">000 мил</pattern>
+					<pattern type="100000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000" count="few">↑↑↑</pattern>
 					<pattern type="100000000" count="other">000 мил</pattern>
-					<pattern type="1000000000" count="one">0 млрд</pattern>
-					<pattern type="1000000000" count="few">0 млрд</pattern>
+					<pattern type="1000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000" count="few">↑↑↑</pattern>
 					<pattern type="1000000000" count="other">0 млрд</pattern>
-					<pattern type="10000000000" count="one">00 млрд</pattern>
-					<pattern type="10000000000" count="few">00 млрд</pattern>
+					<pattern type="10000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000" count="few">↑↑↑</pattern>
 					<pattern type="10000000000" count="other">00 млрд</pattern>
-					<pattern type="100000000000" count="one">000 млрд</pattern>
-					<pattern type="100000000000" count="few">000 млрд</pattern>
+					<pattern type="100000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000" count="few">↑↑↑</pattern>
 					<pattern type="100000000000" count="other">000 млрд</pattern>
-					<pattern type="1000000000000" count="one">0 бил</pattern>
-					<pattern type="1000000000000" count="few">0 бил</pattern>
+					<pattern type="1000000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000000" count="few">↑↑↑</pattern>
 					<pattern type="1000000000000" count="other">0 бил</pattern>
-					<pattern type="10000000000000" count="one">00 бил</pattern>
-					<pattern type="10000000000000" count="few">00 бил</pattern>
+					<pattern type="10000000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000000" count="few">↑↑↑</pattern>
 					<pattern type="10000000000000" count="other">00 бил</pattern>
-					<pattern type="100000000000000" count="one">000 бил</pattern>
-					<pattern type="100000000000000" count="few">000 бил</pattern>
+					<pattern type="100000000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000000" count="few">↑↑↑</pattern>
 					<pattern type="100000000000000" count="other">000 бил</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
@@ -5711,14 +5711,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
 				<scientificFormat>
-					<pattern>#E0</pattern>
+					<pattern>↑↑↑</pattern>
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
-					<pattern>#,##0%</pattern>
+					<pattern>↑↑↑</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
@@ -5726,7 +5726,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
-					<pattern alt="noCurrency" draft="provisional">#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
@@ -5734,59 +5734,59 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="one">0</pattern>
-					<pattern type="1000" count="few">0</pattern>
+					<pattern type="1000" count="one">↑↑↑</pattern>
+					<pattern type="1000" count="few">↑↑↑</pattern>
 					<pattern type="1000" count="other">0</pattern>
-					<pattern type="10000" count="one">00 хиљ ¤</pattern>
-					<pattern type="10000" count="few">00 хиљ ¤</pattern>
+					<pattern type="10000" count="one">↑↑↑</pattern>
+					<pattern type="10000" count="few">↑↑↑</pattern>
 					<pattern type="10000" count="other">00 хиљ ¤</pattern>
-					<pattern type="100000" count="one">000 хиљ ¤</pattern>
-					<pattern type="100000" count="few">000 хиљ ¤</pattern>
+					<pattern type="100000" count="one">↑↑↑</pattern>
+					<pattern type="100000" count="few">↑↑↑</pattern>
 					<pattern type="100000" count="other">000 хиљ ¤</pattern>
-					<pattern type="1000000" count="one">0 мил ¤</pattern>
-					<pattern type="1000000" count="few">0 мил ¤</pattern>
+					<pattern type="1000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000" count="few">↑↑↑</pattern>
 					<pattern type="1000000" count="other">0 мил ¤</pattern>
-					<pattern type="10000000" count="one">00 мил ¤</pattern>
-					<pattern type="10000000" count="few">00 мил ¤</pattern>
+					<pattern type="10000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000" count="few">↑↑↑</pattern>
 					<pattern type="10000000" count="other">00 мил ¤</pattern>
-					<pattern type="100000000" count="one">000 мил ¤</pattern>
-					<pattern type="100000000" count="few">000 мил ¤</pattern>
+					<pattern type="100000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000" count="few">↑↑↑</pattern>
 					<pattern type="100000000" count="other">000 мил ¤</pattern>
-					<pattern type="1000000000" count="one">0 млрд ¤</pattern>
-					<pattern type="1000000000" count="few">0 млрд ¤</pattern>
+					<pattern type="1000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000" count="few">↑↑↑</pattern>
 					<pattern type="1000000000" count="other">0 млрд ¤</pattern>
-					<pattern type="10000000000" count="one">00 млрд ¤</pattern>
-					<pattern type="10000000000" count="few">00 млрд ¤</pattern>
+					<pattern type="10000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000" count="few">↑↑↑</pattern>
 					<pattern type="10000000000" count="other">00 млрд ¤</pattern>
-					<pattern type="100000000000" count="one">000 млрд ¤</pattern>
-					<pattern type="100000000000" count="few">000 млрд ¤</pattern>
+					<pattern type="100000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000" count="few">↑↑↑</pattern>
 					<pattern type="100000000000" count="other">000 млрд ¤</pattern>
-					<pattern type="1000000000000" count="one">0 бил ¤</pattern>
-					<pattern type="1000000000000" count="few">0 бил ¤</pattern>
+					<pattern type="1000000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000000" count="few">↑↑↑</pattern>
 					<pattern type="1000000000000" count="other">0 бил ¤</pattern>
-					<pattern type="10000000000000" count="one">00 бил ¤</pattern>
-					<pattern type="10000000000000" count="few">00 бил ¤</pattern>
+					<pattern type="10000000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000000" count="few">↑↑↑</pattern>
 					<pattern type="10000000000000" count="other">00 бил ¤</pattern>
-					<pattern type="100000000000000" count="one">000 бил ¤</pattern>
-					<pattern type="100000000000000" count="few">000 бил ¤</pattern>
+					<pattern type="100000000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000000" count="few">↑↑↑</pattern>
 					<pattern type="100000000000000" count="other">000 бил ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="few">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="few">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
 				<displayName>Андорска пезета</displayName>
 				<displayName count="one">андорска пезета</displayName>
-				<displayName count="few">андорске пезете</displayName>
+				<displayName count="few">↑↑↑</displayName>
 				<displayName count="other">андорске пезете</displayName>
 			</currency>
 			<currency type="AED">
 				<displayName>Уједињени арапски емирати дирхам</displayName>
 				<displayName count="one">УАЕ дирхам</displayName>
-				<displayName count="few">УАЕ дирхама</displayName>
+				<displayName count="few">↑↑↑</displayName>
 				<displayName count="other">УАЕ дирхама</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -6139,7 +6139,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="BYR">
 				<displayName>Белоруска рубља (2000–2016)</displayName>
 				<displayName count="one">белоруска рубља (2000–2016)</displayName>
-				<displayName count="few">белоруске рубље (2000–2016)</displayName>
+				<displayName count="few">↑↑↑</displayName>
 				<displayName count="other">белоруске рубље (2000–2016)</displayName>
 			</currency>
 			<currency type="BZD">
@@ -6168,7 +6168,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="CHE">
 				<displayName>WIR евро</displayName>
 				<displayName count="one">WIR евро</displayName>
-				<displayName count="few">WIR евра</displayName>
+				<displayName count="few">↑↑↑</displayName>
 				<displayName count="other">WIR евра</displayName>
 			</currency>
 			<currency type="CHF">
@@ -6212,7 +6212,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="CNX">
 				<displayName count="one" draft="provisional">долар кинеске народне банке</displayName>
-				<displayName count="few" draft="provisional">долара кинеске народне банке</displayName>
+				<displayName count="few" draft="provisional">↑↑↑</displayName>
 				<displayName count="other" draft="provisional">долара кинеске народне банке</displayName>
 			</currency>
 			<currency type="CNY">
@@ -6397,7 +6397,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="EUR">
 				<displayName>Евро</displayName>
 				<displayName count="one">евро</displayName>
-				<displayName count="few">евра</displayName>
+				<displayName count="few">↑↑↑</displayName>
 				<displayName count="other">евра</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
@@ -6411,7 +6411,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="FJD">
 				<displayName>Фиџи долар</displayName>
 				<displayName count="one">фиџи долар</displayName>
-				<displayName count="few">фиџи долара</displayName>
+				<displayName count="few">↑↑↑</displayName>
 				<displayName count="other">фиџи долара</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
@@ -6601,9 +6601,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="ILR">
 				<displayName>стари израелски шекели</displayName>
-				<displayName count="one">стари израелски шекели</displayName>
-				<displayName count="few">стари израелски шекели</displayName>
-				<displayName count="other">стари израелски шекели</displayName>
+				<displayName count="one">↑↑↑</displayName>
+				<displayName count="few">↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
 			</currency>
 			<currency type="ILS">
 				<displayName>Израелски нови шекел</displayName>
@@ -6637,9 +6637,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="ISJ">
 				<displayName>стара исландска круна</displayName>
-				<displayName count="one">стара исландска круна</displayName>
-				<displayName count="few">стара исландска круна</displayName>
-				<displayName count="other">стара исландска круна</displayName>
+				<displayName count="one">↑↑↑</displayName>
+				<displayName count="few">↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
 			</currency>
 			<currency type="ISK">
 				<displayName>Исландска круна</displayName>
@@ -6652,7 +6652,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="ITL">
 				<displayName>Италијанска лира</displayName>
 				<displayName count="one">италијанска лира</displayName>
-				<displayName count="few">италијанске лире</displayName>
+				<displayName count="few">↑↑↑</displayName>
 				<displayName count="other">италијанске лире</displayName>
 			</currency>
 			<currency type="JMD">
@@ -6932,7 +6932,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="MRO">
 				<displayName>Мауританијска угвија (1973–2017)</displayName>
 				<displayName count="one">мауританијска угвиља (1973–2017)</displayName>
-				<displayName count="few">мауританијске угвиље (1973–2017)</displayName>
+				<displayName count="few">↑↑↑</displayName>
 				<displayName count="other">мауританијске угвиље (1973–2017)</displayName>
 			</currency>
 			<currency type="MRU">
@@ -7400,7 +7400,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="TMM">
 				<displayName>Туркменистански манат (1993–2009)</displayName>
-				<displayName count="one">туркменистански манат (1993–2009)</displayName>
+				<displayName count="one">↑↑↑</displayName>
 				<displayName count="few">туркменистанска маната (1993–2009)</displayName>
 				<displayName count="other">туркменистански манат (1993–2009)</displayName>
 			</currency>
@@ -7434,7 +7434,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="TRL">
 				<displayName>Стара турска лира</displayName>
-				<displayName count="one">стара турска лира</displayName>
+				<displayName count="one">↑↑↑</displayName>
 				<displayName count="few">старе турске лире</displayName>
 				<displayName count="other">стара турска лира</displayName>
 			</currency>
@@ -7508,13 +7508,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="USN">
 				<displayName>САД долар (следећи дан)</displayName>
 				<displayName count="one">САД долар (следећи дан)</displayName>
-				<displayName count="few">САД долара (следећи дан)</displayName>
+				<displayName count="few">↑↑↑</displayName>
 				<displayName count="other">САД долара (следећи дан)</displayName>
 			</currency>
 			<currency type="USS">
 				<displayName>САД долар (исти дан)</displayName>
 				<displayName count="one">САД долар (исти дан)</displayName>
-				<displayName count="few">САД долара (исти дан)</displayName>
+				<displayName count="few">↑↑↑</displayName>
 				<displayName count="other">САД долара (исти дан)</displayName>
 			</currency>
 			<currency type="UYI">
@@ -7600,13 +7600,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="XAG">
 				<displayName>Сребро</displayName>
 				<displayName count="one">сребро</displayName>
-				<displayName count="few">сребра</displayName>
+				<displayName count="few">↑↑↑</displayName>
 				<displayName count="other">сребра</displayName>
 			</currency>
 			<currency type="XAU">
 				<displayName>Злато</displayName>
 				<displayName count="one">злато</displayName>
-				<displayName count="few">злата</displayName>
+				<displayName count="few">↑↑↑</displayName>
 				<displayName count="other">злата</displayName>
 			</currency>
 			<currency type="XBA">
@@ -7618,7 +7618,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="XBB">
 				<displayName>Европска новчана јединица</displayName>
 				<displayName count="one">европска новчана јединица (XBB)</displayName>
-				<displayName count="few">европске новчане јединице (XBB)</displayName>
+				<displayName count="few">↑↑↑</displayName>
 				<displayName count="other">европске новчане јединице (XBB)</displayName>
 			</currency>
 			<currency type="XBC">
@@ -7675,7 +7675,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="XPD">
 				<displayName>Паладијум</displayName>
 				<displayName count="one">паладијум</displayName>
-				<displayName count="few">паладијума</displayName>
+				<displayName count="few">↑↑↑</displayName>
 				<displayName count="other">паладијума</displayName>
 			</currency>
 			<currency type="XPF">
@@ -7687,7 +7687,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="XPT">
 				<displayName>Платина</displayName>
-				<displayName count="one">платина</displayName>
+				<displayName count="one">↑↑↑</displayName>
 				<displayName count="few">платине</displayName>
 				<displayName count="other">платина</displayName>
 			</currency>
@@ -7762,7 +7762,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="ZMK">
 				<displayName>Замбијска квача (1968–2012)</displayName>
 				<displayName count="one">замбијска квача (1968–2012)</displayName>
-				<displayName count="few">замбијске кваче (1968–2012)</displayName>
+				<displayName count="few">↑↑↑</displayName>
 				<displayName count="other">замбијске кваче (1968–2012)</displayName>
 			</currency>
 			<currency type="ZMW">
@@ -7824,7 +7824,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0} по квадратном километру</perUnitPattern>
 			</unit>
 			<unit type="area-hectare">
-				<displayName>хектари</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} хектар</unitPattern>
 				<unitPattern count="few">{0} хектара</unitPattern>
 				<unitPattern count="other">{0} хектара</unitPattern>
@@ -7851,7 +7851,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0} по квадратној миљи</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
-				<displayName>акре</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} акра</unitPattern>
 				<unitPattern count="few">{0} акре</unitPattern>
 				<unitPattern count="other">{0} акри</unitPattern>
@@ -7894,7 +7894,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} деценија</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<displayName>година</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} година</unitPattern>
 				<unitPattern count="few">{0} године</unitPattern>
 				<unitPattern count="other">{0} година</unitPattern>
@@ -7908,25 +7908,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0} мјесечно</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
-				<displayName>седмице</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} седмица</unitPattern>
 				<unitPattern count="few">{0} седмице</unitPattern>
 				<unitPattern count="other">{0} седмица</unitPattern>
 				<perUnitPattern>{0} седмично</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
-				<displayName>дани</displayName>
-				<unitPattern count="one">{0} дан</unitPattern>
-				<unitPattern count="few">{0} дана</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} дана</unitPattern>
 				<perUnitPattern>{0} дневно</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<displayName>сати</displayName>
-				<unitPattern count="one">{0} сат</unitPattern>
-				<unitPattern count="few">{0} сата</unitPattern>
-				<unitPattern count="other">{0} сати</unitPattern>
-				<perUnitPattern>{0} по сату</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>минути</displayName>
@@ -7936,7 +7936,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0} у минуту</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
-				<displayName>секунде</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} секунда</unitPattern>
 				<unitPattern count="few">{0} секунде</unitPattern>
 				<unitPattern count="other">{0} секунди</unitPattern>
@@ -8265,40 +8265,40 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="duration-century">
 				<displayName>в.</displayName>
-				<unitPattern count="one">{0} в.</unitPattern>
-				<unitPattern count="few">{0} в.</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} в.</unitPattern>
 			</unit>
 			<unit type="duration-decade">
 				<displayName>дец</displayName>
-				<unitPattern count="one">{0} дец.</unitPattern>
-				<unitPattern count="few">{0} дец.</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} дец.</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>година</displayName>
-				<unitPattern count="one">{0} год</unitPattern>
-				<unitPattern count="few">{0} год</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} год</unitPattern>
 				<perUnitPattern>{0} годиш.</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>мјесеци</displayName>
-				<unitPattern count="one">{0} мјес.</unitPattern>
-				<unitPattern count="few">{0} мјес.</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} мјес.</unitPattern>
 				<perUnitPattern>{0} мјесеч.</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName>седмице</displayName>
-				<unitPattern count="one">{0} сед.</unitPattern>
-				<unitPattern count="few">{0} сед.</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} сед.</unitPattern>
 				<perUnitPattern>{0} седм.</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>дани</displayName>
-				<unitPattern count="one">{0} дан</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">{0} дана</unitPattern>
 				<unitPattern count="other">{0} дан</unitPattern>
 				<perUnitPattern>{0} днев.</perUnitPattern>
@@ -8312,22 +8312,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="duration-minute">
 				<displayName>минут</displayName>
-				<unitPattern count="one">{0} мин.</unitPattern>
-				<unitPattern count="few">{0} мин.</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} мин.</unitPattern>
 				<perUnitPattern>{0} у мин.</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>секунде</displayName>
-				<unitPattern count="one">{0} сек.</unitPattern>
-				<unitPattern count="few">{0} сек.</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} сек.</unitPattern>
 				<perUnitPattern>{0} у сек.</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>мс</displayName>
-				<unitPattern count="one">{0} мс</unitPattern>
-				<unitPattern count="few">{0} мс</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} мс</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
@@ -8588,15 +8588,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="duration-month">
 				<displayName>мјесец</displayName>
-				<unitPattern count="one">{0} мјес.</unitPattern>
-				<unitPattern count="few">{0} мјес.</unitPattern>
-				<unitPattern count="other">{0} мјес.</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName>седмица</displayName>
-				<unitPattern count="one">{0} сед.</unitPattern>
-				<unitPattern count="few">{0} сед.</unitPattern>
-				<unitPattern count="other">{0} сед.</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName>↑↑↑</displayName>
@@ -8608,7 +8608,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="other">{0} сати</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>↑↑↑</displayName>
@@ -8684,7 +8684,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<characterLabels>
 		<characterLabelPattern type="all">{0} — све</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="one">{0} потез</characterLabelPattern>
-		<characterLabelPattern type="strokes" count="few">{0} потеза</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="few">↑↑↑</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="other">{0} потеза</characterLabelPattern>
 	</characterLabels>
 </ldml>

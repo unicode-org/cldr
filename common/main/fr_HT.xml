@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -17,11 +17,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="midnight" draft="contributed">minuit</dayPeriod>
-							<dayPeriod type="noon" draft="contributed">midi</dayPeriod>
-							<dayPeriod type="morning1" draft="contributed">du matin</dayPeriod>
-							<dayPeriod type="afternoon1" draft="contributed">de l’après-midi</dayPeriod>
-							<dayPeriod type="evening1" draft="contributed">du soir</dayPeriod>
+							<dayPeriod type="midnight" draft="contributed">↑↑↑</dayPeriod>
+							<dayPeriod type="noon" draft="contributed">↑↑↑</dayPeriod>
+							<dayPeriod type="morning1" draft="contributed">↑↑↑</dayPeriod>
+							<dayPeriod type="afternoon1" draft="contributed">↑↑↑</dayPeriod>
+							<dayPeriod type="evening1" draft="contributed">↑↑↑</dayPeriod>
 							<dayPeriod type="night1" draft="contributed">de la nuit</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
@@ -33,7 +33,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="contributed">jr.</displayName>
 			</field>
 			<field type="day-narrow">
-				<displayName draft="contributed">jr.</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 			</field>
 			<field type="sun-narrow">
 				<relative type="-1" draft="contributed">dim dernier</relative>
@@ -74,13 +74,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="contributed">hr</displayName>
 			</field>
 			<field type="hour-narrow">
-				<displayName draft="contributed">hr</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 			</field>
 			<field type="minute-short">
 				<displayName draft="contributed">min.</displayName>
 			</field>
 			<field type="minute-narrow">
-				<displayName draft="contributed">min.</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 			</field>
 			<field type="second-narrow">
 				<displayName draft="contributed">sec.</displayName>
@@ -113,12 +113,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="contributed">sec</displayName>
 			</unit>
 			<unit type="mass-gram">
-				<unitPattern count="one" draft="contributed">{0}gr</unitPattern>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}gr</unitPattern>
 			</unit>
 			<unit type="mass-carat">
 				<displayName draft="contributed">kr</displayName>
-				<unitPattern count="one" draft="contributed">{0}kr</unitPattern>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}kr</unitPattern>
 			</unit>
 		</unitLength>

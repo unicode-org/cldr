@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -34,7 +34,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="GB" alt="short" draft="contributed">RU</territory>
 			<territory type="PS" draft="unconfirmed">Territorio Palestino</territory>
 			<territory type="TA" draft="contributed">Tristán de Acuña</territory>
-			<territory type="TL" draft="contributed">Timor-Leste</territory>
+			<territory type="TL" draft="contributed">↑↑↑</territory>
 			<territory type="UM" draft="contributed">Islas menores alejadas de EE. UU.</territory>
 		</territories>
 		<keys>
@@ -175,33 +175,33 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="1">1.° trimestre</quarter>
 							<quarter type="2">2.° trimestre</quarter>
 							<quarter type="3">3.° trimestre</quarter>
-							<quarter type="4">4.º trimestre</quarter>
+							<quarter type="4">↑↑↑</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="contributed">a. m.</dayPeriod>
-							<dayPeriod type="pm" draft="contributed">p. m.</dayPeriod>
+							<dayPeriod type="am" draft="contributed">↑↑↑</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="contributed">a. m.</dayPeriod>
-							<dayPeriod type="pm" draft="contributed">p. m.</dayPeriod>
+							<dayPeriod type="am" draft="contributed">↑↑↑</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="contributed">a. m.</dayPeriod>
-							<dayPeriod type="pm" draft="contributed">p. m.</dayPeriod>
+							<dayPeriod type="am" draft="contributed">↑↑↑</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="contributed">a. m.</dayPeriod>
-							<dayPeriod type="pm" draft="contributed">p. m.</dayPeriod>
+							<dayPeriod type="am" draft="contributed">↑↑↑</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="contributed">a. m.</dayPeriod>
-							<dayPeriod type="pm" draft="contributed">p. m.</dayPeriod>
+							<dayPeriod type="am" draft="contributed">↑↑↑</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -333,8 +333,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} ohmios</unitPattern>
 			</unit>
 			<unit type="electric-volt">
-				<unitPattern count="one">{0} voltio</unitPattern>
-				<unitPattern count="other">{0} voltios</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="short">

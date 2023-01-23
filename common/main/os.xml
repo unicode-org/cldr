@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,9 +12,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
-			<localePattern draft="contributed">{0} ({1})</localePattern>
-			<localeSeparator draft="contributed">{0}, {1}</localeSeparator>
-			<localeKeyTypePattern draft="contributed">{0}: {1}</localeKeyTypePattern>
+			<localePattern draft="contributed">↑↑↑</localePattern>
+			<localeSeparator draft="contributed">↑↑↑</localeSeparator>
+			<localeKeyTypePattern draft="contributed">↑↑↑</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
 			<language type="ab" draft="contributed">абхазаг</language>
@@ -141,14 +141,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[а ӕ б в г {гъ} д {дж} {дз} е ё ж з и й к {къ} л м н о п {пъ} р с т {тъ} у ф х {хъ} ц {цъ} ч {чъ} ш щ ъ ы ь э ю я]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="index">[А Ӕ Б В Г {Гъ} Д {Дж} {Дз} Е Ё Ж З И Й К {Къ} Л М Н О П {Пъ} Р С Т {Тъ} У Ф Х {Хъ} Ц {Цъ} Ч {Чъ} Ш Щ Ы Э Ю Я]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[  \- ‑ , % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐ ‑ – — , ; \: ! ? . … ' ‘ ‚ &quot; “ „ « » ( ) \[ \] \{ \} § @ * / \&amp; #]</exemplarCharacters>
-		<ellipsis type="final" draft="contributed">{0}…</ellipsis>
-		<ellipsis type="initial" draft="contributed">…{0}</ellipsis>
-		<ellipsis type="medial" draft="contributed">{0}…{1}</ellipsis>
-		<moreInformation draft="contributed">?</moreInformation>
+		<ellipsis type="final" draft="contributed">↑↑↑</ellipsis>
+		<ellipsis type="initial" draft="contributed">↑↑↑</ellipsis>
+		<ellipsis type="medial" draft="contributed">↑↑↑</ellipsis>
+		<moreInformation draft="contributed">↑↑↑</moreInformation>
 	</characters>
 	<delimiters>
 		<quotationStart draft="contributed">«</quotationStart>
@@ -163,13 +163,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern draft="contributed">EEEE, d MMMM, y 'аз' G</pattern>
-							<datetimeSkeleton draft="contributed">GyMMMMEEEEd</datetimeSkeleton>
+							<datetimeSkeleton draft="contributed">↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern draft="contributed">d MMMM, y 'аз' G</pattern>
-							<datetimeSkeleton draft="contributed">GyMMMMd</datetimeSkeleton>
+							<datetimeSkeleton draft="contributed">↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -207,20 +207,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>
+						<dateFormatItem id="d" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="h" draft="contributed">h a</dateFormatItem>
-						<dateFormatItem id="H" draft="contributed">HH</dateFormatItem>
+						<dateFormatItem id="H" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm" draft="contributed">h:mm a</dateFormatItem>
-						<dateFormatItem id="Hm" draft="contributed">HH:mm</dateFormatItem>
+						<dateFormatItem id="Hm" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hms" draft="contributed">h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms" draft="contributed">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="M" draft="contributed">L</dateFormatItem>
+						<dateFormatItem id="Hms" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="M" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md" draft="contributed">dd.MM</dateFormatItem>
 						<dateFormatItem id="MEd" draft="contributed">E, dd.MM</dateFormatItem>
-						<dateFormatItem id="MMM" draft="contributed">LLL</dateFormatItem>
+						<dateFormatItem id="MMM" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd" draft="contributed">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd" draft="contributed">ccc, d MMM</dateFormatItem>
-						<dateFormatItem id="ms" draft="contributed">mm:ss</dateFormatItem>
+						<dateFormatItem id="ms" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y" draft="contributed">y</dateFormatItem>
 						<dateFormatItem id="yM" draft="contributed">MM.y</dateFormatItem>
 						<dateFormatItem id="yMEd" draft="contributed">E, dd.MM.y</dateFormatItem>
@@ -232,14 +232,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<intervalFormats>
 						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
-							<greatestDifference id="d" draft="contributed">d–d</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a" draft="contributed">h a – h a</greatestDifference>
 							<greatestDifference id="h" draft="contributed">h–h a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
-							<greatestDifference id="H" draft="contributed">HH–HH</greatestDifference>
+							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a" draft="contributed">h:mm a – h:mm a</greatestDifference>
@@ -247,8 +247,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="m" draft="contributed">h:mm–h:mm a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
-							<greatestDifference id="H" draft="contributed">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="m" draft="contributed">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a" draft="contributed">h:mm a – h:mm a v</greatestDifference>
@@ -256,15 +256,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="m" draft="contributed">h:mm–h:mm a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
-							<greatestDifference id="H" draft="contributed">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="m" draft="contributed">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a" draft="contributed">h a – h a v</greatestDifference>
 							<greatestDifference id="h" draft="contributed">h–h a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
-							<greatestDifference id="H" draft="contributed">HH–HH v</greatestDifference>
+							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M" draft="contributed">M–M</greatestDifference>
@@ -284,9 +284,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="2" draft="contributed">фев.</month>
 							<month type="3" draft="contributed">мар.</month>
 							<month type="4" draft="contributed">апр.</month>
-							<month type="5" draft="contributed">майы</month>
-							<month type="6" draft="contributed">июны</month>
-							<month type="7" draft="contributed">июлы</month>
+							<month type="5" draft="contributed">↑↑↑</month>
+							<month type="6" draft="contributed">↑↑↑</month>
+							<month type="7" draft="contributed">↑↑↑</month>
 							<month type="8" draft="contributed">авг.</month>
 							<month type="9" draft="contributed">сен.</month>
 							<month type="10" draft="contributed">окт.</month>
@@ -294,18 +294,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12" draft="contributed">дек.</month>
 						</monthWidth>
 						<monthWidth type="narrow">
-							<month type="1" draft="contributed">Я</month>
-							<month type="2" draft="contributed">Ф</month>
-							<month type="3" draft="contributed">М</month>
-							<month type="4" draft="contributed">А</month>
-							<month type="5" draft="contributed">М</month>
-							<month type="6" draft="contributed">И</month>
-							<month type="7" draft="contributed">И</month>
-							<month type="8" draft="contributed">А</month>
-							<month type="9" draft="contributed">С</month>
-							<month type="10" draft="contributed">О</month>
-							<month type="11" draft="contributed">Н</month>
-							<month type="12" draft="contributed">Д</month>
+							<month type="1" draft="contributed">↑↑↑</month>
+							<month type="2" draft="contributed">↑↑↑</month>
+							<month type="3" draft="contributed">↑↑↑</month>
+							<month type="4" draft="contributed">↑↑↑</month>
+							<month type="5" draft="contributed">↑↑↑</month>
+							<month type="6" draft="contributed">↑↑↑</month>
+							<month type="7" draft="contributed">↑↑↑</month>
+							<month type="8" draft="contributed">↑↑↑</month>
+							<month type="9" draft="contributed">↑↑↑</month>
+							<month type="10" draft="contributed">↑↑↑</month>
+							<month type="11" draft="contributed">↑↑↑</month>
+							<month type="12" draft="contributed">↑↑↑</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">январы</month>
@@ -379,13 +379,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat" draft="contributed">сбт</day>
 						</dayWidth>
 						<dayWidth type="narrow">
-							<day type="sun" draft="contributed">Х</day>
-							<day type="mon" draft="contributed">К</day>
-							<day type="tue" draft="contributed">Д</day>
-							<day type="wed" draft="contributed">Ӕ</day>
-							<day type="thu" draft="contributed">Ц</day>
-							<day type="fri" draft="contributed">М</day>
-							<day type="sat" draft="contributed">С</day>
+							<day type="sun" draft="contributed">↑↑↑</day>
+							<day type="mon" draft="contributed">↑↑↑</day>
+							<day type="tue" draft="contributed">↑↑↑</day>
+							<day type="wed" draft="contributed">↑↑↑</day>
+							<day type="thu" draft="contributed">↑↑↑</day>
+							<day type="fri" draft="contributed">↑↑↑</day>
+							<day type="sat" draft="contributed">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun" draft="contributed">хуыцаубон</day>
@@ -436,10 +436,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="4" draft="contributed">4-ӕм кв.</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
-							<quarter type="1" draft="contributed">1</quarter>
-							<quarter type="2" draft="contributed">2</quarter>
-							<quarter type="3" draft="contributed">3</quarter>
-							<quarter type="4" draft="contributed">4</quarter>
+							<quarter type="1" draft="contributed">↑↑↑</quarter>
+							<quarter type="2" draft="contributed">↑↑↑</quarter>
+							<quarter type="3" draft="contributed">↑↑↑</quarter>
+							<quarter type="4" draft="contributed">↑↑↑</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1" draft="contributed">1-аг квартал</quarter>
@@ -450,30 +450,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="contributed">1-аг кв.</quarter>
-							<quarter type="2" draft="contributed">2-аг кв.</quarter>
-							<quarter type="3" draft="contributed">3-аг кв.</quarter>
-							<quarter type="4" draft="contributed">4-ӕм кв.</quarter>
+							<quarter type="1" draft="contributed">↑↑↑</quarter>
+							<quarter type="2" draft="contributed">↑↑↑</quarter>
+							<quarter type="3" draft="contributed">↑↑↑</quarter>
+							<quarter type="4" draft="contributed">↑↑↑</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
-							<quarter type="1" draft="contributed">1</quarter>
-							<quarter type="2" draft="contributed">2</quarter>
-							<quarter type="3" draft="contributed">3</quarter>
-							<quarter type="4" draft="contributed">4</quarter>
+							<quarter type="1" draft="contributed">↑↑↑</quarter>
+							<quarter type="2" draft="contributed">↑↑↑</quarter>
+							<quarter type="3" draft="contributed">↑↑↑</quarter>
+							<quarter type="4" draft="contributed">↑↑↑</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1" draft="contributed">1-аг квартал</quarter>
-							<quarter type="2" draft="contributed">2-аг квартал</quarter>
-							<quarter type="3" draft="contributed">3-аг квартал</quarter>
-							<quarter type="4" draft="contributed">4-ӕм квартал</quarter>
+							<quarter type="1" draft="contributed">↑↑↑</quarter>
+							<quarter type="2" draft="contributed">↑↑↑</quarter>
+							<quarter type="3" draft="contributed">↑↑↑</quarter>
+							<quarter type="4" draft="contributed">↑↑↑</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="contributed">AM</dayPeriod>
-							<dayPeriod type="pm" draft="contributed">PM</dayPeriod>
+							<dayPeriod type="am" draft="contributed">↑↑↑</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am" draft="contributed">ӕмбисбоны размӕ</dayPeriod>
@@ -491,13 +491,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern draft="contributed">EEEE, d MMMM, y 'аз'</pattern>
-							<datetimeSkeleton draft="contributed">yMMMMEEEEd</datetimeSkeleton>
+							<datetimeSkeleton draft="contributed">↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern draft="contributed">d MMMM, y 'аз'</pattern>
-							<datetimeSkeleton draft="contributed">yMMMMd</datetimeSkeleton>
+							<datetimeSkeleton draft="contributed">↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -516,26 +516,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern draft="contributed">HH:mm:ss zzzz</pattern>
-							<datetimeSkeleton draft="contributed">HHmmsszzzz</datetimeSkeleton>
+							<pattern draft="contributed">↑↑↑</pattern>
+							<datetimeSkeleton draft="contributed">↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern draft="contributed">HH:mm:ss z</pattern>
-							<datetimeSkeleton draft="contributed">HHmmssz</datetimeSkeleton>
+							<pattern draft="contributed">↑↑↑</pattern>
+							<datetimeSkeleton draft="contributed">↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern draft="contributed">HH:mm:ss</pattern>
-							<datetimeSkeleton draft="contributed">HHmmss</datetimeSkeleton>
+							<pattern draft="contributed">↑↑↑</pattern>
+							<datetimeSkeleton draft="contributed">↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern draft="contributed">HH:mm</pattern>
-							<datetimeSkeleton draft="contributed">HHmm</datetimeSkeleton>
+							<pattern draft="contributed">↑↑↑</pattern>
+							<datetimeSkeleton draft="contributed">↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -561,21 +561,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>
+						<dateFormatItem id="d" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="h" draft="contributed">h a</dateFormatItem>
-						<dateFormatItem id="H" draft="contributed">HH</dateFormatItem>
+						<dateFormatItem id="H" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm" draft="contributed">h:mm a</dateFormatItem>
-						<dateFormatItem id="Hm" draft="contributed">HH:mm</dateFormatItem>
+						<dateFormatItem id="Hm" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hms" draft="contributed">h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms" draft="contributed">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="M" draft="contributed">L</dateFormatItem>
+						<dateFormatItem id="Hms" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="M" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md" draft="contributed">dd.MM</dateFormatItem>
 						<dateFormatItem id="MEd" draft="contributed">E, dd.MM</dateFormatItem>
-						<dateFormatItem id="MMM" draft="contributed">LLL</dateFormatItem>
+						<dateFormatItem id="MMM" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd" draft="contributed">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd" draft="contributed">ccc, d MMM</dateFormatItem>
-						<dateFormatItem id="ms" draft="contributed">mm:ss</dateFormatItem>
-						<dateFormatItem id="y" draft="contributed">y</dateFormatItem>
+						<dateFormatItem id="ms" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="y" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yM" draft="contributed">MM.y</dateFormatItem>
 						<dateFormatItem id="yMEd" draft="contributed">E, dd.MM.y</dateFormatItem>
 						<dateFormatItem id="yMMM" draft="contributed">LLL y</dateFormatItem>
@@ -586,14 +586,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<intervalFormats>
 						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
-							<greatestDifference id="d" draft="contributed">d–d</greatestDifference>
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a" draft="contributed">h a – h a</greatestDifference>
 							<greatestDifference id="h" draft="contributed">h–h a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
-							<greatestDifference id="H" draft="contributed">HH–HH</greatestDifference>
+							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a" draft="contributed">h:mm a – h:mm a</greatestDifference>
@@ -601,8 +601,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="m" draft="contributed">h:mm–h:mm a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
-							<greatestDifference id="H" draft="contributed">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="m" draft="contributed">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a" draft="contributed">h:mm a – h:mm a v</greatestDifference>
@@ -610,15 +610,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="m" draft="contributed">h:mm–h:mm a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
-							<greatestDifference id="H" draft="contributed">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="m" draft="contributed">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a" draft="contributed">h a – h a v</greatestDifference>
 							<greatestDifference id="h" draft="contributed">h–h a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
-							<greatestDifference id="H" draft="contributed">HH–HH v</greatestDifference>
+							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M" draft="contributed">M–M</greatestDifference>
@@ -645,7 +645,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="unconfirmed">кв.</displayName>
 			</field>
 			<field type="quarter-narrow">
-				<displayName draft="unconfirmed">кв.</displayName>
+				<displayName draft="unconfirmed">↑↑↑</displayName>
 			</field>
 			<field type="month">
 				<displayName draft="contributed">Мӕй</displayName>
@@ -661,7 +661,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1" draft="contributed">Сом</relative>
 				<relative type="2" draft="contributed">Иннӕбон</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} боны фӕстӕ</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">{0} боны фӕстӕ</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
@@ -678,11 +678,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="hour">
 				<displayName draft="contributed">Сахат</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">{0} сахаты фӕстӕ</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">{0} сахаты фӕстӕ</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">{0} сахаты размӕ</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">{0} сахаты размӕ</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -697,11 +697,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 		</fields>
 		<timeZoneNames>
-			<hourFormat draft="contributed">+HH:mm;-HH:mm</hourFormat>
-			<gmtFormat draft="contributed">GMT{0}</gmtFormat>
-			<gmtZeroFormat draft="contributed">GMT</gmtZeroFormat>
+			<hourFormat draft="contributed">↑↑↑</hourFormat>
+			<gmtFormat draft="contributed">↑↑↑</gmtFormat>
+			<gmtZeroFormat draft="contributed">↑↑↑</gmtZeroFormat>
 			<regionFormat draft="contributed">{0} рӕстӕг</regionFormat>
-			<fallbackFormat draft="contributed">{1} ({0})</fallbackFormat>
+			<fallbackFormat draft="contributed">↑↑↑</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity draft="contributed">Нӕзонгӕ</exemplarCity>
 			</zone>
@@ -757,95 +757,95 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>latn</defaultNumberingSystem>
+		<defaultNumberingSystem>↑↑↑</defaultNumberingSystem>
 		<symbols numberSystem="latn">
 			<decimal draft="contributed">,</decimal>
 			<group draft="contributed"> </group>
-			<list draft="contributed">;</list>
-			<percentSign draft="contributed">%</percentSign>
-			<plusSign draft="contributed">+</plusSign>
-			<minusSign draft="contributed">-</minusSign>
-			<exponential draft="contributed">E</exponential>
-			<perMille draft="contributed">‰</perMille>
-			<infinity draft="contributed">∞</infinity>
+			<list draft="contributed">↑↑↑</list>
+			<percentSign draft="contributed">↑↑↑</percentSign>
+			<plusSign draft="contributed">↑↑↑</plusSign>
+			<minusSign draft="contributed">↑↑↑</minusSign>
+			<exponential draft="contributed">↑↑↑</exponential>
+			<perMille draft="contributed">↑↑↑</perMille>
+			<infinity draft="contributed">↑↑↑</infinity>
 			<nan draft="contributed">НН</nan>
 		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern draft="contributed">#,##0.###</pattern>
+					<pattern draft="contributed">↑↑↑</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
 				<scientificFormat>
-					<pattern draft="contributed">#E0</pattern>
+					<pattern draft="contributed">↑↑↑</pattern>
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
-					<pattern draft="contributed">#,##0%</pattern>
+					<pattern draft="contributed">↑↑↑</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern draft="contributed">¤ #,##0.00</pattern>
+					<pattern draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="one" draft="provisional">¤ 0K</pattern>
-					<pattern type="1000" count="other" draft="provisional">¤ 0K</pattern>
-					<pattern type="10000" count="one" draft="provisional">¤ 00K</pattern>
-					<pattern type="10000" count="other" draft="provisional">¤ 00K</pattern>
-					<pattern type="100000" count="one" draft="provisional">¤ 000K</pattern>
-					<pattern type="100000" count="other" draft="provisional">¤ 000K</pattern>
-					<pattern type="1000000" count="one" draft="provisional">¤ 0M</pattern>
-					<pattern type="1000000" count="other" draft="provisional">¤ 0M</pattern>
-					<pattern type="10000000" count="one" draft="provisional">¤ 00M</pattern>
-					<pattern type="10000000" count="other" draft="provisional">¤ 00M</pattern>
-					<pattern type="100000000" count="one" draft="provisional">¤ 000M</pattern>
-					<pattern type="100000000" count="other" draft="provisional">¤ 000M</pattern>
-					<pattern type="1000000000" count="one" draft="provisional">¤ 0G</pattern>
-					<pattern type="1000000000" count="other" draft="provisional">¤ 0G</pattern>
-					<pattern type="10000000000" count="one" draft="provisional">¤ 00G</pattern>
-					<pattern type="10000000000" count="other" draft="provisional">¤ 00G</pattern>
-					<pattern type="100000000000" count="one" draft="provisional">¤ 000G</pattern>
-					<pattern type="100000000000" count="other" draft="provisional">¤ 000G</pattern>
-					<pattern type="1000000000000" count="one" draft="provisional">¤ 0T</pattern>
-					<pattern type="1000000000000" count="other" draft="provisional">¤ 0T</pattern>
-					<pattern type="10000000000000" count="one" draft="provisional">¤ 00T</pattern>
-					<pattern type="10000000000000" count="other" draft="provisional">¤ 00T</pattern>
-					<pattern type="100000000000000" count="one" draft="provisional">¤ 000T</pattern>
-					<pattern type="100000000000000" count="other" draft="provisional">¤ 000T</pattern>
+					<pattern type="1000" count="one" draft="provisional">↑↑↑</pattern>
+					<pattern type="1000" count="other" draft="provisional">↑↑↑</pattern>
+					<pattern type="10000" count="one" draft="provisional">↑↑↑</pattern>
+					<pattern type="10000" count="other" draft="provisional">↑↑↑</pattern>
+					<pattern type="100000" count="one" draft="provisional">↑↑↑</pattern>
+					<pattern type="100000" count="other" draft="provisional">↑↑↑</pattern>
+					<pattern type="1000000" count="one" draft="provisional">↑↑↑</pattern>
+					<pattern type="1000000" count="other" draft="provisional">↑↑↑</pattern>
+					<pattern type="10000000" count="one" draft="provisional">↑↑↑</pattern>
+					<pattern type="10000000" count="other" draft="provisional">↑↑↑</pattern>
+					<pattern type="100000000" count="one" draft="provisional">↑↑↑</pattern>
+					<pattern type="100000000" count="other" draft="provisional">↑↑↑</pattern>
+					<pattern type="1000000000" count="one" draft="provisional">↑↑↑</pattern>
+					<pattern type="1000000000" count="other" draft="provisional">↑↑↑</pattern>
+					<pattern type="10000000000" count="one" draft="provisional">↑↑↑</pattern>
+					<pattern type="10000000000" count="other" draft="provisional">↑↑↑</pattern>
+					<pattern type="100000000000" count="one" draft="provisional">↑↑↑</pattern>
+					<pattern type="100000000000" count="other" draft="provisional">↑↑↑</pattern>
+					<pattern type="1000000000000" count="one" draft="provisional">↑↑↑</pattern>
+					<pattern type="1000000000000" count="other" draft="provisional">↑↑↑</pattern>
+					<pattern type="10000000000000" count="one" draft="provisional">↑↑↑</pattern>
+					<pattern type="10000000000000" count="other" draft="provisional">↑↑↑</pattern>
+					<pattern type="100000000000000" count="one" draft="provisional">↑↑↑</pattern>
+					<pattern type="100000000000000" count="other" draft="provisional">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="BRL">
 				<displayName draft="contributed">Бразилиаг реал</displayName>
 				<displayName count="one" draft="contributed">бразилиаг реал</displayName>
 				<displayName count="other" draft="contributed">бразилиаг реалы</displayName>
-				<symbol draft="contributed">R$</symbol>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName draft="contributed">Евро</displayName>
 				<displayName count="one" draft="contributed">евро</displayName>
 				<displayName count="other" draft="contributed">евройы</displayName>
-				<symbol draft="contributed">€</symbol>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName draft="contributed">Бритайнаг Фунт</displayName>
 				<displayName count="one" draft="contributed">бритайнаг фунт</displayName>
 				<displayName count="other" draft="contributed">бритайнаг фунты</displayName>
-				<symbol draft="contributed">£</symbol>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName draft="contributed">Лар</displayName>
@@ -874,37 +874,37 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<units>
 		<unitLength type="long">
 			<unit type="duration-year">
-				<displayName draft="contributed">азы</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} аз</unitPattern>
 				<unitPattern count="other">{0} азы</unitPattern>
 			</unit>
 			<unit type="duration-month">
-				<displayName draft="contributed">мӕйы</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} мӕй</unitPattern>
 				<unitPattern count="other">{0} мӕйы</unitPattern>
 			</unit>
 			<unit type="duration-week">
-				<displayName draft="contributed">къуырийы</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} къуыри</unitPattern>
 				<unitPattern count="other">{0} къуырийы</unitPattern>
 			</unit>
 			<unit type="duration-day">
-				<displayName draft="contributed">боны</displayName>
-				<unitPattern count="one">{0} бон</unitPattern>
-				<unitPattern count="other">{0} боны</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<displayName draft="contributed">сахаты</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} сахат</unitPattern>
 				<unitPattern count="other">{0} сахаты</unitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<displayName draft="contributed">минуты</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} минут</unitPattern>
 				<unitPattern count="other">{0} минуты</unitPattern>
 			</unit>
 			<unit type="duration-second">
-				<displayName draft="contributed">секунды</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">{0} секунд</unitPattern>
 				<unitPattern count="other">{0} секунды</unitPattern>
 			</unit>
@@ -926,12 +926,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="duration-hour">
 				<displayName draft="contributed">сахаты</displayName>
-				<unitPattern count="one">{0} с.</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} с.</unitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName draft="contributed">минуты</displayName>
-				<unitPattern count="one">{0} мин.</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} мин.</unitPattern>
 			</unit>
 			<unit type="duration-second">
@@ -941,8 +941,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</units>
 	<listPatterns>
 		<listPattern>
-			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="start" draft="contributed">↑↑↑</listPatternPart>
+			<listPatternPart type="middle" draft="contributed">↑↑↑</listPatternPart>
 			<listPatternPart type="end" draft="contributed">{0} ӕмӕ {1}</listPatternPart>
 			<listPatternPart type="2" draft="contributed">{0} ӕмӕ {1}</listPatternPart>
 		</listPattern>

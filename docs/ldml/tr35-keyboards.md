@@ -684,6 +684,7 @@ This element defines a mapping between an abstract key and its output. This elem
  [longPress="{long press keys}"]
  [longPressDefault="{default longpress target}"]
  [multiTap="{the output on subsequent taps}"]
+ [stretch="true"]
  [switch="{layer id}"]
  [to="{the output}"]
  [transform="no"]
@@ -745,6 +746,11 @@ _Attribute:_ `multiTap` (optional) (discouraged, see [Accessibility])
 
 **Note**: Behavior past the end of the multiTap list is implementation specific.
 
+_Attribute:_ `stretch="true"` (optional)
+
+> The `stretch` attribute indicates that a touch layout may stretch this key to fill available horizontal space on the row.
+> This is used, for example, on the spacebar. Note that `stretch=` is ignored for hardware layouts.
+
 _Attribute:_ `switch="shift"` (optional)
 
 > The `switch` attribute indicates that this key switches to another `layer` with the specified id (such as `<layer id="shift"/>` in this example).
@@ -794,24 +800,40 @@ _Attribute:_ `width="1.2"` (optional, default "1.0")
 
 ##### Implied Keys
 
-Not all keys need to be listed explicitly.  The following keys can be assumed to already exist:
+Not all keys need to be listed explicitly.  The following two can be assumed to already exist:
 
 ```xml
-<!--  all 26 upper and lower case English letters -->
-<key id="a" to="a"/>
-<key id="b" to="b"/>
-<key id="c" to="c"/>
+<key id="gap" gap="true" width="1"/>
+<key id="space" stretch="true" width="1"/>
+```
+
+In addition, these 62 keys where the `id` is the same as the `to` are assumed to exist:
+
+```xml
+<key id="0" to="0"/>
+<key id="1" to="1"/>
+<key id="2" to="2"/>
 …
 <key id="A" to="A"/>
 <key id="B" to="B"/>
 <key id="C" to="C"/>
 …
+<key id="a" to="a"/>
+<key id="b" to="b"/>
+<key id="c" to="c"/>
+…
+```
 
-<key id="space" to=" "/>  <!-- Note: 'space' is always considered 'stretchable'-->
+All of these implied keys are available in a data file named `keyboards/import/keys-Latn-implied.xml` in the CLDR distribution for the convenience of implementations.
 
-<!-- modifiers-->
-<key id="shift" shift="shift"/>
-… 
+Thus, the implied keys behave as if the following import were present.
+
+```xml
+<keyboard>
+    <keys>
+        <import base="cldr" path="techpreview/keys-Latn-implied.xml" />
+    </keys>
+</keyboard>
 ```
 
 * * *

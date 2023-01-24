@@ -126,6 +126,8 @@ Please see CLDR-15034 for the latest information. -->
 <!ATTLIST key multiTap CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@ALLOWS_UESC-->
+<!ATTLIST key stretch (true) #IMPLIED >
+    <!--@VALUE-->
 <!ATTLIST key switch NMTOKEN #IMPLIED >
     <!--@MATCH:regex/[A-Za-z0-9][A-Za-z0-9-]*-->
     <!--@VALUE-->

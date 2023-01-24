@@ -1151,7 +1151,7 @@ hardware or touch layout.
 - At least one `layers` element is required.
 - Multiple `<layers form="touch">` elements are allowed with distinct `minDeviceWidth` values.
 - At most one `<layers>` element is allowed per hardware `form`. In other words,
-at most one `<layers form="jis">` element is allowed.
+  at most one `<layers form="jis">` element is allowed.
 
 _Attribute:_ `form` (required)
 

@@ -14,14 +14,21 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.XMLSource;
 
+import com.google.common.base.Joiner;
+import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.util.Output;
 
@@ -396,7 +403,79 @@ public class TestAliases extends TestFmwk {
         }
     }
 
-    public void testSample() {
-        String path = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-dot\"]";
+    public void testLateralInheritance() {
+        {
+            Multimap<String, SuspiciousData> suspicious = getSuspicious(CLDRConfig.getInstance().getCLDRFile("fr_CA", true));
+            if (!suspicious.isEmpty()) {
+                errln("fr_CA" + "\n\t" + Joiner.on("\n\t").join(suspicious.entries()));
+            }
+        }
+
+        for (String ldmlDirectory : DtdType.ldml.directories) {
+            final Factory factory = SimpleFactory.make(CLDRPaths.COMMON_DIRECTORY + ldmlDirectory, ".*");
+            for (String locale : factory.getAvailable()) {
+                if ("root".equals(locale)
+                    || "root".equals(LocaleIDParser.getParent(locale))) {
+                    continue;
+                }
+
+                CLDRFile cldrFile = factory.make(locale, true);
+                Multimap<String, SuspiciousData> suspicious = getSuspicious(cldrFile);
+                if (!suspicious.isEmpty()) {
+                    errln(locale + "\n\t" + Joiner.on("\n\t").join(suspicious.entries()));
+                }
+            }
+        }
+    }
+
+    static final class SuspiciousData implements Comparable<SuspiciousData> {
+        final String pathRequested;
+        final String pathFound;
+
+        public SuspiciousData(String pathRequested, String pathFound) {
+            this.pathRequested = pathRequested;
+            this.pathFound = pathFound;
+        }
+        @Override
+        public int compareTo(SuspiciousData o) {
+            return ComparisonChain.start()
+                .compare(pathRequested, o.pathRequested)
+                .compare(pathFound, o.pathFound)
+                .result();
+        }
+        @Override
+        public String toString() {
+            return "\t" + pathRequested + "\n\t\t" + pathFound;
+        }
+    }
+
+    public Multimap<String,SuspiciousData> getSuspicious(CLDRFile cldrFile) {
+        Multimap<String,SuspiciousData> suspicious = TreeMultimap.create();
+        CLDRFile unresolvedCldrFile = cldrFile.getUnresolved();
+        String locale = cldrFile.getLocaleID();
+        Output<String> foundPath = new Output<>();
+        Output<String> foundLocale = new Output<>();
+        for (String path : unresolvedCldrFile) { // we only need to look at the actual items
+            String unresolvedValue = unresolvedCldrFile.getStringValue(path);
+            if (!CldrUtility.INHERITANCE_MARKER.equals(unresolvedValue)) {
+                continue;
+            }
+            cldrFile.getBaileyValue(path, foundPath, foundLocale);
+            if (path.equals(foundPath.value)) {
+                // if we find it in the same path (vertical) we are ok
+                continue;
+            }
+            if ("root".equals(foundLocale.value)) {
+                // if we fall all the way back to root that's ok.
+                continue;
+            }
+            if (locale.equals(foundLocale.value)) {
+                // if we find it in the same locale (same horizontal), that's ok.
+                continue;
+            }
+            // otherwise
+            suspicious.put(foundLocale.value, new SuspiciousData(path, foundPath.value));
+        }
+        return suspicious;
     }
 }

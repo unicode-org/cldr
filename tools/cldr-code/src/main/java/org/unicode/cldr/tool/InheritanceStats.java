@@ -11,8 +11,10 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DtdData;
@@ -22,6 +24,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathStarrer;
+import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
@@ -60,7 +63,7 @@ public class InheritanceStats {
             case "inherit": testInheritance(); break;
             case "dtd": checkDtdData(); break;
             case "attr": showAttributeValues(); break;
-            case "ws": checkWhitespace(); break;
+            case "vxml": compareVxml(); break;
             default: throw new IllegalArgumentException("bad argument");
             }
         }
@@ -382,5 +385,95 @@ public class InheritanceStats {
                 }
             }
         }
+    }
+
+    public static void compareVxml() {
+        final boolean skipAllowedChanges = true;
+        final boolean checkFalseAgainstMain = true;
+
+        for (String ldmlDirectory : DtdType.ldml.directories) {
+            System.out.println("\n––––––––––\n" + ldmlDirectory + "\n––––––––––");
+
+            final Factory mainFactory = SimpleFactory.make(CLDRPaths.COMMON_DIRECTORY + ldmlDirectory, ".*");
+            final Factory dropFalse = SimpleFactory.make("/Users/markdavis/github/btangmu/common/" + ldmlDirectory, ".*");
+            final Factory dropTrue = SimpleFactory.make("/Users/markdavis/github/common_true/common/" + ldmlDirectory, ".*");
+
+            System.out.println("locale"
+                + "\t" + "path"
+                + "\t" + "valueT"
+                + "\t" + "valueF"
+                + "\t" + "valueM"
+                + "\t" + "rawVT"
+                + "\t" + "rawVF"
+                + "\t" + "rawVM"
+                );
+            Set<String> seen = new HashSet<>();
+
+            for (String locale : mainFactory.getAvailable()) {
+                if (SubmissionLocales.ALLOW_ALL_PATHS_BASIC.contains(locale)) {
+                    continue;
+                }
+                Level targetCoverageLevel = StandardCodes.make().getLocaleCoverageLevel(Organization.cldr, locale);
+
+                CLDRFile cldrFileMain = mainFactory.make(locale, true);
+                CLDRFile cldrFileFalse = dropFalse.make(locale, true);
+                CLDRFile cldrFileTrue = dropTrue.make(locale, true);
+
+                final CLDRFile unresolvedMain = cldrFileMain.getUnresolved();
+                final CLDRFile unresolvedTrue = cldrFileTrue.getUnresolved();
+                final CLDRFile unresolvedFalse = cldrFileFalse.getUnresolved();
+
+                // just in case there are differences in the paths, include all
+                Set<String> sortedPaths = ImmutableSortedSet.<String>naturalOrder()
+                    .addAll(cldrFileMain)
+                    .addAll(cldrFileFalse)
+                    .addAll(cldrFileTrue)
+                    .build();
+
+                for (String path : sortedPaths) {
+                    Level coverageLevel = SDI.getCoverageLevel(path, locale);
+                    if (coverageLevel.compareTo(targetCoverageLevel) > 0) {
+                        continue; // skip levels higher than the target
+                    }
+                    if (skipAllowedChanges
+                        && SubmissionLocales.allowEvenIfLimited(locale, path, false, false)) {
+                        continue;
+                    }
+                    // we care about resolved differences.
+
+                    final String valueFalse = cldrFileFalse.getStringValueWithBailey(path);
+                    final String valueTrue = cldrFileTrue.getStringValueWithBailey(path);
+                    final String valueMain = cldrFileMain.getStringValueWithBailey(path);
+
+                    if (checkFalseAgainstMain) {
+                        if (valueMain == null || Objects.equals(valueFalse, valueMain)) {
+                            continue;
+                        }
+                    } else {
+                        if (Objects.equals(valueFalse, valueTrue)) {
+                            continue;
+                        }
+                    }
+
+                    String details = "\t" + path
+                        + "\t" + valueTrue
+                        + "\t" + valueFalse
+                        + "\t" + valueMain
+
+                        + "\t" + unresolvedTrue.getStringValue(path)
+                        + "\t" + unresolvedFalse.getStringValue(path)
+                        + "\t" + unresolvedMain.getStringValue(path);
+
+                    // skip details that we have already seen
+
+                    if (seen.contains(details)) {
+                        continue;
+                    }
+                    System.out.println(locale + details);
+                    seen.add(details);
+                }
+            }
+        }
+
     }
 }

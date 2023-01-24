@@ -308,7 +308,7 @@
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="special"/>
       </xs:sequence>
       <xs:attribute name="id" type="xs:NMTOKEN"/>
-      <xs:attribute name="modifier" type="xs:NMTOKEN"/>
+      <xs:attribute name="modifier" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
   <!-- @MATCH:any -->

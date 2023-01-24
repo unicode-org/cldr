@@ -1217,9 +1217,28 @@ _Attribute_ `id` (required for `touch`)
 
 _Attribute:_ `modifier` (required for `hardware`)
 
-> This has two roles. It acts as an identifier for the `layer` element for hardware keyboards (in the absence of the id= element) and also provides the linkage from the hardware modifiers into the correct `layer`. To indicate that no modifiers apply, the reserved name of "none" can be used. For the purposes of fallback vkey mapping, the following modifier components are reserved: "shift", "ctrl", "alt", "caps", "cmd", "opt" along with the "L" and "R" optional single suffixes for the first 3 in that list.
-
-For hardware layouts, the use of `@modifier` as an identifier for a layer is sufficient since it is always unique among the set of `layer` elements in a keyboard.
+> This has two roles. It acts as an identifier for the `layer` element for hardware keyboards (in the absence of the id= element) and also provides the linkage from the hardware modifiers into the correct `layer`.
+>
+> To indicate that no modifiers apply, the reserved name of `none` can be used.
+> The following modifier components can be used, separated by spaces.
+> Note that `L` or `R` indicates a left- or right- side modifier only (such as `shiftL`)
+> whereas `shift` indicates _either_ left or right shift.
+>
+> - `none` (no modifier, may not be combined with others)
+> - `alt`
+> - `altL`
+> - `altR`
+> - `caps`
+> - `cmd`
+> - `ctrl`
+> - `ctrlL`
+> - `ctrlR`
+> - `opt`
+> - `shift`
+> - `shiftL`
+> - `shiftR`
+>
+> For hardware layouts, the use of `@modifier` as an identifier for a layer is sufficient since it is always unique among the set of `layer` elements in a keyboard.
 
 * * *
 

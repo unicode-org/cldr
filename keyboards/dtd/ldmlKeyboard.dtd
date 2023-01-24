@@ -155,7 +155,7 @@ Please see CLDR-15034 for the latest information. -->
 <!ELEMENT layer ( row+, special* ) >
 <!ATTLIST layer id NMTOKEN #IMPLIED >
     <!--@MATCH:any-->
-<!ATTLIST layer modifier NMTOKEN #IMPLIED >
+<!ATTLIST layer modifier NMTOKENS #IMPLIED >
     <!--@MATCH:any-->
 
 <!ELEMENT row EMPTY >

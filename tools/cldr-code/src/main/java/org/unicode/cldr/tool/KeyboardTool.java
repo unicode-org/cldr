@@ -61,7 +61,7 @@ public class KeyboardTool {
             "<keys>\n");
 
         out.println("    <key id=\"gap\" gap=\"true\" width=\"1\"/>");
-        out.println("    <key id=\"space\" stretch=\"true\" width=\"1\"/>");
+        out.println("    <key id=\"space\" to=\" \" stretch=\"true\" width=\"1\"/>");
         out.println();
 
         // add only keys that match the definition of the "id" string

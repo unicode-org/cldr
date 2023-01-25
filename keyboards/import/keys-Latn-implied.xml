@@ -10,7 +10,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <keys>
 
     <key id="gap" gap="true" width="1"/>
-    <key id="space" stretch="true" width="1"/>
+    <key id="space" to=" " stretch="true" width="1"/>
 
     <key id="0" to="0"/>
     <key id="1" to="1"/>
@@ -75,3 +75,4 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <key id="y" to="y"/>
     <key id="z" to="z"/>
 </keys>
+

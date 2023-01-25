@@ -8,13 +8,13 @@
     <info author="Steven R. Loomis" normalization="NFC" layout="QWERTY" indicator="MT" />
 
     <names>
-        <name value="Maltese (48-key)" />
-        <!-- <name value="MSA 100:2002" /> -->
+        <name value="Maltese" />
+        <name value="MSA 100:2002" />
     </names>
 
     <keys>
         <!-- imports -->
-        <import base="cldr" path="techpreview/key-Zyyy-punctuation.xml"/>
+        <import base="cldr" path="techpreview/key-Zyyy-punctuation.xml" />
 
         <!-- accent grave -->
         <key id="a-grave" to="à" />
@@ -28,13 +28,13 @@
         <key id="u-grave" to="ù" />
         <key id="U-grave" to="Ù" />
 
-        <!-- tikka and maqtua -->
-        <key id="c-tikka" to="ċ" />
+        <!-- tikka and maqtugha -->
+        <key id="c-tikka" to="ċ" /> <!-- tikka is a dot -->
         <key id="C-tikka" to="Ċ" />
         <key id="g-tikka" to="ġ" />
         <key id="G-tikka" to="Ġ" />
-        <key id="h-maqtua" to="ħ" />
-        <key id="H-maqtua" to="Ħ" />
+        <key id="h-maqtugha" to="ħ" /> <!-- maqtugħa, i.e. cut -->
+        <key id="H-maqtugha" to="Ħ" /> <!-- maqtugħa, i.e. cut -->
         <key id="z-tikka" to="ż" />
         <key id="Z-tikka" to="Ż" />
 
@@ -45,10 +45,11 @@
         <key id="gap" gap="true" width="1" />
     </keys>
 
+     <!-- 48-key -->
     <layers form="iso">
         <layer modifier="none">
             <row keys="c-tikka 1 2 3 4 5 6 7 8 9 0 minus equals" />
-            <row keys="q w e r t y u i o p g-tikka h-maqtua" />
+            <row keys="q w e r t y u i o p g-tikka h-maqtugha" />
             <row keys="a s d f g h j k l semi-colon hash" />
             <row keys="z-tikka z x c v b n m comma period slash" />
             <row keys="space" />
@@ -56,7 +57,7 @@
 
         <layer modifier="shift">
             <row keys="C-tikka bang double-quote euro dollar percent caret amp open-paren close-paren underscore plus" />
-            <row keys="Q W E R T Y U I O P G-tikka H-maqtua" />
+            <row keys="Q W E R T Y U I O P G-tikka H-maqtugha" />
             <row keys="A S D F G H J K L colon at tilde" />
             <row keys="Z-tikka Z X C V B N M open-angle close-angle question" />
             <row keys="space" />
@@ -78,4 +79,40 @@
             <row keys="space" />
         </layer>
     </layers>
+
+    <!-- 47-key: MSA 100:2002, Appendix, figure A.1 -->
+    <layers form="us">
+        <layer modifier="none">
+            <row keys="c-tikka 1 2 3 4 5 6 7 8 9 0 hyphen equal" />
+            <row keys="q w e r t y u i o p g-tikka h-maqtugha z-tikka" />
+            <row keys="a s d f g h j k l semi-colon apos" />
+            <row keys="z x c v b n m comma period slash" />
+            <row keys="space" />
+        </layer>
+
+        <layer modifier="shift">
+            <row keys="C-tikka bang at euro dollar percent caret amp asterisk open-paren close-paren underscore plus" />
+            <row keys="Q W E R T Y U I O P G-tikka H-maqtugha Z-tikka" />
+            <row keys="A S D F G H J K L colon double-quote" />
+            <row keys="Z X C V B N M open-angle close-angle question" />
+            <row keys="space" />
+        </layer>
+
+        <layer modifier="altR">
+            <row keys="grave gap gap pound gap gap gap gap gap gap gap gap gap" />
+            <row keys="gap gap e-grave gap gap gap u-grave i-grave o-grave gap open-square close-square backslash" />
+            <row keys="a-grave gap gap gap gap gap gap gap gap gap gap" />
+            <row keys="gap gap gap gap gap gap gap gap gap gap" />
+            <row keys="space" />
+        </layer>
+
+        <layer modifier="altR-shift">
+            <row keys="tilde gap gap gap gap gap gap gap gap gap gap gap gap" />
+            <row keys="gap gap E-grave gap gap gap U-grave I-grave O-grave gap open-curly close-curly pipe" />
+            <row keys="A-grave gap gap gap gap gap gap gap gap gap gap" />
+            <row keys="gap gap gap gap gap gap gap gap gap gap" />
+            <row keys="space" />
+        </layer>
+    </layers>
+
 </keyboard>

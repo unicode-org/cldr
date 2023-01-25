@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -5839,7 +5839,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0} ក្នុងមួយអ៊ីញការ៉េ</perUnitPattern>
 			</unit>
 			<unit type="area-dunam">
-				<displayName>ឌូណាម</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} ឌូណាម</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
@@ -8511,9 +8511,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<featureName type="zero">លេខសូន្យវះពោះ</featureName>
 	</typographicNames>
 	<personNames>
-		<nameOrderLocales order="givenFirst">und</nameOrderLocales>
-		<nameOrderLocales order="surnameFirst">km ko vi yue zh</nameOrderLocales>
-		<foreignSpaceReplacement xml:space="preserve"/>
+		<nameOrderLocales order="givenFirst">↑↑↑</nameOrderLocales>
+		<nameOrderLocales order="surnameFirst">ja km ko vi yue zh</nameOrderLocales>
+		<foreignSpaceReplacement xml:space="preserve"> </foreignSpaceReplacement>
 		<sampleName item="nativeG">
 			<nameField type="given" draft="provisional">សុខា</nameField>
 		</sampleName>
@@ -8528,13 +8528,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</sampleName>
 		<sampleName item="foreignFull">
 			<nameField type="title" draft="provisional">សាស្ត្រាចារ្យបណ្ឌិត</nameField>
-			<nameField type="given" draft="provisional">សិរីសោភណ្ឌ</nameField>
-			<nameField type="given-informal" draft="provisional">មីនា</nameField>
-			<nameField type="given2" draft="provisional">ចន្ទសុបញ្ញា</nameField>
-			<nameField type="surname-prefix" draft="provisional">វណ្ណដេត</nameField>
-			<nameField type="surname-core" draft="provisional">វណ្ណ</nameField>
-			<nameField type="surname2" draft="provisional">ផល ចិត្រា</nameField>
-			<nameField type="credentials" draft="provisional">បណ្ឌិតវេជ្ជសាស្ត្រ</nameField>
+			<nameField type="given" draft="provisional">អាដា ខរនែលៀ</nameField>
+			<nameField type="given-informal" draft="provisional">នីឡេ</nameField>
+			<nameField type="given2" draft="provisional">ឆេសារ ម៉ាធីន</nameField>
+			<nameField type="surname-prefix" draft="provisional">វន់</nameField>
+			<nameField type="surname-core" draft="provisional">ប្រ៊ូល</nameField>
+			<nameField type="surname2" draft="provisional">ហ្កនហ្សាឡេស ដូមីងហ្គោ</nameField>
+			<nameField type="credentials" draft="provisional">ទន្ដបណ្ឌិត</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

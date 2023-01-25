@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -8971,13 +8971,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender>masculine</gender>
 				<displayName>džuli</displayName>
 				<unitPattern count="one">{0} džul</unitPattern>
-				<unitPattern count="one" case="accusative">{0} džul</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="one" case="dative">{0} džulu</unitPattern>
 				<unitPattern count="one" case="genitive">{0} džula</unitPattern>
 				<unitPattern count="one" case="instrumental">{0} džulom</unitPattern>
 				<unitPattern count="one" case="locative">{0} džulu</unitPattern>
 				<unitPattern count="two">{0} džula</unitPattern>
-				<unitPattern count="two" case="accusative">{0} džula</unitPattern>
+				<unitPattern count="two" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="two" case="dative">{0} džuloma</unitPattern>
 				<unitPattern count="two" case="genitive">{0} džulov</unitPattern>
 				<unitPattern count="two" case="instrumental">{0} džuloma</unitPattern>
@@ -8986,12 +8986,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few" case="accusative">{0} džule</unitPattern>
 				<unitPattern count="few" case="dative">{0} džulom</unitPattern>
 				<unitPattern count="few" case="genitive">{0} džulov</unitPattern>
-				<unitPattern count="few" case="instrumental">{0} džuli</unitPattern>
+				<unitPattern count="few" case="instrumental">↑↑↑</unitPattern>
 				<unitPattern count="few" case="locative">{0} džulih</unitPattern>
 				<unitPattern count="other">{0} džulov</unitPattern>
-				<unitPattern count="other" case="accusative">{0} džulov</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="other" case="dative">{0} džulom</unitPattern>
-				<unitPattern count="other" case="genitive">{0} džulov</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other" case="instrumental">{0} džuli</unitPattern>
 				<unitPattern count="other" case="locative">{0} džulih</unitPattern>
 			</unit>
@@ -9195,13 +9195,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender>masculine</gender>
 				<displayName>herc</displayName>
 				<unitPattern count="one">{0} herc</unitPattern>
-				<unitPattern count="one" case="accusative">{0} herc</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="one" case="dative">{0} hercu</unitPattern>
 				<unitPattern count="one" case="genitive">{0} herca</unitPattern>
 				<unitPattern count="one" case="instrumental">{0} hercem</unitPattern>
 				<unitPattern count="one" case="locative">{0} hercu</unitPattern>
 				<unitPattern count="two">{0} herca</unitPattern>
-				<unitPattern count="two" case="accusative">{0} herca</unitPattern>
+				<unitPattern count="two" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="two" case="dative">{0} hercema</unitPattern>
 				<unitPattern count="two" case="genitive">{0} hercev</unitPattern>
 				<unitPattern count="two" case="instrumental">{0} hercema</unitPattern>
@@ -9210,7 +9210,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few" case="accusative">{0} herce</unitPattern>
 				<unitPattern count="few" case="dative">{0} hercem</unitPattern>
 				<unitPattern count="few" case="genitive">{0} hercev</unitPattern>
-				<unitPattern count="few" case="instrumental">{0} herci</unitPattern>
+				<unitPattern count="few" case="instrumental">↑↑↑</unitPattern>
 				<unitPattern count="few" case="locative">{0} hercih</unitPattern>
 				<unitPattern count="other">{0} hercev</unitPattern>
 				<unitPattern count="other" case="accusative">{0} hercev</unitPattern>
@@ -14165,11 +14165,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	<personNames>
 		<nameOrderLocales order="givenFirst">und sl</nameOrderLocales>
 		<nameOrderLocales order="surnameFirst">ko vi yue zh</nameOrderLocales>
-		<foreignSpaceReplacement xml:space="preserve"> </foreignSpaceReplacement>
+		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">{title} {given} {given2} {surname} {surname2}, {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {given} {given2} {surname} {generation}, {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
 			<namePattern draft="provisional">{given-informal} {surname}</namePattern>
@@ -14181,13 +14181,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
+			<namePattern draft="provisional">↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="informal">
 			<namePattern draft="provisional">{given-informal-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">{title} {given} {given2-initial} {surname}, {credentials}</namePattern>
+			<namePattern draft="provisional">{given} {given2-initial} {surname} {generation}, {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
 			<namePattern draft="provisional">{given-informal} {surname}</namePattern>
@@ -14223,7 +14223,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">{title} {surname} {given} {given2} {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {surname} {given} {given2}, {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
 			<namePattern draft="provisional">{surname} {given-informal}</namePattern>
@@ -14241,7 +14241,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{surname-monogram-allCaps}{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname} {credentials} {given} {given2-initial}</namePattern>
+			<namePattern draft="provisional">{surname} {given} {given2-initial} {generation}, {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="informal">
 			<namePattern draft="provisional">{surname} {given-informal}</namePattern>
@@ -14302,19 +14302,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<nameField type="surname" draft="provisional">Orel</nameField>
 		</sampleName>
 		<sampleName item="nativeGGS">
-			<nameField type="given" draft="provisional">Miha</nameField>
-			<nameField type="given2" draft="provisional">Janez</nameField>
+			<nameField type="given" draft="provisional">Ana Marija</nameField>
+			<nameField type="given2" draft="provisional">Vera</nameField>
 			<nameField type="surname" draft="provisional">Kovač</nameField>
 		</sampleName>
 		<sampleName item="foreignFull">
 			<nameField type="title" draft="provisional">prof. dr.</nameField>
-			<nameField type="given" draft="provisional">Marija Ana</nameField>
-			<nameField type="given-informal" draft="provisional">Mari</nameField>
-			<nameField type="given2" draft="provisional">Nada Marija</nameField>
-			<nameField type="surname-prefix" draft="provisional">van den</nameField>
-			<nameField type="surname-core" draft="provisional">Volk</nameField>
-			<nameField type="surname2" draft="provisional">Novak Potočnik</nameField>
-			<nameField type="credentials" draft="provisional">dr. med. dipl. ing.</nameField>
+			<nameField type="given" draft="provisional">Ada Cornelia</nameField>
+			<nameField type="given-informal" draft="provisional">Neele</nameField>
+			<nameField type="given2" draft="provisional">César Martín</nameField>
+			<nameField type="surname-prefix" draft="provisional">von</nameField>
+			<nameField type="surname-core" draft="provisional">Brühl</nameField>
+			<nameField type="surname2" draft="provisional">González Domingo</nameField>
+			<nameField type="credentials" draft="provisional">dr. med., dr. dent. med.</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

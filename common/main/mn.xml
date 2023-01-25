@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -8416,8 +8416,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>квадрат инч тутамд {0}</perUnitPattern>
 			</unit>
 			<unit type="area-dunam">
-				<displayName>дунам</displayName>
-				<unitPattern count="one">{0} дунам</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} дунам</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
@@ -9468,7 +9468,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-dunam">
 				<displayName>дунам</displayName>
-				<unitPattern count="one">{0} дунам</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} дунам</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
@@ -10145,7 +10145,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="torque-newton-meter">
 				<displayName>Н⋅м</displayName>
-				<unitPattern count="one">{0} Н⋅м</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Н⋅м</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
@@ -11626,13 +11626,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<featureName type="zero">дундуураа ташуу зураастай тэг</featureName>
 	</typographicNames>
 	<personNames>
-		<nameOrderLocales order="givenFirst">↑↑↑</nameOrderLocales>
+		<nameOrderLocales order="givenFirst">und en</nameOrderLocales>
 		<nameOrderLocales order="surnameFirst">hu ja ko mn vi yue zh</nameOrderLocales>
 		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="contributed">{given} {given2} {surname} {credentials}</namePattern>
+			<namePattern draft="contributed">↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
 			<namePattern draft="provisional">{given-informal} {surname}</namePattern>
@@ -11650,13 +11650,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{given-informal-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">{credentials} {given} {given2-initial} {surname}</namePattern>
+			<namePattern draft="provisional">↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
 			<namePattern draft="provisional">{given-informal} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {given}</namePattern>
+			<namePattern draft="provisional">{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="informal">
 			<namePattern draft="provisional">{given-informal}</namePattern>
@@ -11686,7 +11686,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="contributed">{credentials} {surname} {given} {given2}</namePattern>
+			<namePattern draft="contributed">↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
 			<namePattern draft="provisional">{surname} {given-informal}</namePattern>
@@ -11704,7 +11704,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{surname-monogram-allCaps}{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="contributed">{credentials} {surname} {given} {given2-initial}</namePattern>
+			<namePattern draft="contributed">{surname} {given} {given2-initial} {generation}, {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="informal">
 			<namePattern draft="provisional">{surname} {given-informal}</namePattern>
@@ -11722,10 +11722,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="formal">
-			<namePattern draft="contributed">{surname-initial} {given}</namePattern>
+			<namePattern draft="contributed">{surname} {given-initial} {given2-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname-initial} {given}</namePattern>
+			<namePattern draft="provisional">{surname} {given-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="formal">
 			<namePattern draft="provisional">{title} {surname}</namePattern>
@@ -11743,19 +11743,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="contributed">{surname-core}, {given} {given2} {surname-prefix}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname} {given-informal}</namePattern>
+			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="formal">
 			<namePattern draft="contributed">{surname-core}, {given} {given2-initial} {surname-prefix}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname} {given-informal}</namePattern>
+			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="formal">
 			<namePattern draft="contributed">{surname-core}, {given-initial} {given2-initial} {surname-prefix}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname} {given-informal}</namePattern>
+			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>
 		</personName>
 		<sampleName item="nativeG">
 			<nameField type="given" draft="provisional">Синбад</nameField>
@@ -11765,7 +11765,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<nameField type="surname" draft="provisional">Адлэр</nameField>
 		</sampleName>
 		<sampleName item="nativeGGS">
-			<nameField type="given" draft="provisional">Жон</nameField>
+			<nameField type="given" draft="provisional">Мэри Сю</nameField>
 			<nameField type="given2" draft="provisional">Хамиш</nameField>
 			<nameField type="surname" draft="provisional">Ватсон</nameField>
 		</sampleName>
@@ -11774,9 +11774,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<nameField type="given" draft="provisional">Ада Корнелиа</nameField>
 			<nameField type="given-informal" draft="provisional">Ниль</nameField>
 			<nameField type="given2" draft="provisional">Эва Софиа</nameField>
-			<nameField type="surname-prefix" draft="provisional">ван ден</nameField>
-			<nameField type="surname-core" draft="provisional">Вольф</nameField>
-			<nameField type="surname2" draft="provisional">Бэкер Шмит</nameField>
+			<nameField type="surname-prefix" draft="provisional">вон</nameField>
+			<nameField type="surname-core" draft="provisional">Брюхл</nameField>
+			<nameField type="surname2" draft="provisional">Гонзалес Доминго</nameField>
 			<nameField type="credentials" draft="provisional">Анагаах ухааны доктор</nameField>
 		</sampleName>
 	</personNames>

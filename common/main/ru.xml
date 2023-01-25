@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -13686,7 +13686,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many" case="instrumental">{0} щепотками</unitPattern>
 				<unitPattern count="many" case="locative">{0} щепотках</unitPattern>
 				<unitPattern count="many" case="prepositional">{0} щепотках</unitPattern>
-				<unitPattern count="many" case="vocative">{0} щепоток</unitPattern>
+				<unitPattern count="many" case="vocative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} щепотки</unitPattern>
 				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
@@ -15256,9 +15256,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</compoundUnit>
 			<compoundUnit type="power3">
 				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one">{0}³</compoundUnitPattern1>
-				<compoundUnitPattern1 count="few">{0}³</compoundUnitPattern1>
-				<compoundUnitPattern1 count="many">{0}³</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="few">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="many">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">{0}³</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
@@ -16833,7 +16833,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">{given} {given2} {surname}, {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {given} {given2} {surname} — {generation}, {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
 			<namePattern draft="provisional">{given-informal} {surname}</namePattern>
@@ -16967,17 +16967,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</sampleName>
 		<sampleName item="nativeGGS">
 			<nameField type="given" draft="provisional">Дмитрий</nameField>
-			<nameField type="given2" draft="provisional">Альберт</nameField>
+			<nameField type="given2" draft="provisional">Петрович</nameField>
 			<nameField type="surname" draft="provisional">Васильев</nameField>
 		</sampleName>
 		<sampleName item="foreignFull">
 			<nameField type="title" draft="provisional">проф., д-р</nameField>
-			<nameField type="given" draft="provisional">Анна</nameField>
-			<nameField type="given-informal" draft="provisional">Аня</nameField>
-			<nameField type="given2" draft="provisional">Аделина</nameField>
-			<nameField type="surname-prefix" draft="provisional">ван ден</nameField>
-			<nameField type="surname-core" draft="provisional">Вольф</nameField>
-			<nameField type="surname2" draft="provisional">Стоцкая</nameField>
+			<nameField type="given" draft="provisional">Ада Корнелия</nameField>
+			<nameField type="given-informal" draft="provisional">Неле</nameField>
+			<nameField type="given2" draft="provisional">Сезар Мартин</nameField>
+			<nameField type="surname-prefix" draft="provisional">фон</nameField>
+			<nameField type="surname-core" draft="provisional">Брюль</nameField>
+			<nameField type="surname2" draft="provisional">Гонсалес Доминго</nameField>
 			<nameField type="credentials" draft="provisional">к. м. н.</nameField>
 		</sampleName>
 	</personNames>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -722,7 +722,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Geok">gruzínské chutsuri</script>
 			<script type="Geor">gruzínské</script>
 			<script type="Glag">hlaholice</script>
-			<script type="Gong">↑↑↑</script>
+			<script type="Gong">gundžala gondí</script>
 			<script type="Goth">gotické</script>
 			<script type="Gran">grantha</script>
 			<script type="Grek">řecké</script>
@@ -740,7 +740,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Hira">hiragana</script>
 			<script type="Hluw">anatolské hieroglyfy</script>
 			<script type="Hmng">hmongské</script>
-			<script type="Hmnp">↑↑↑</script>
+			<script type="Hmnp">nyiakeng puachue hmong</script>
 			<script type="Hrkt">japonské slabičné</script>
 			<script type="Hung">staromaďarské</script>
 			<script type="Inds">harappské</script>
@@ -850,7 +850,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Xpeo">staroperské klínové písmo</script>
 			<script type="Xsux">sumero-akkadské klínové písmo</script>
 			<script type="Yiii">yi</script>
-			<script type="Zinh">↑↑↑</script>
+			<script type="Zinh">zděděné</script>
 			<script type="Zmth">matematický zápis</script>
 			<script type="Zsye">emodži</script>
 			<script type="Zsym">symboly</script>
@@ -1136,7 +1136,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TN">Tunisko</territory>
 			<territory type="TO">Tonga</territory>
 			<territory type="TR">Turecko</territory>
-			<territory type="TR" alt="variant">Turecko</territory>
+			<territory type="TR" alt="variant">↑↑↑</territory>
 			<territory type="TT">Trinidad a Tobago</territory>
 			<territory type="TV">Tuvalu</territory>
 			<territory type="TW">Tchaj-wan</territory>
@@ -15805,7 +15805,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} miliwattů</unitPattern>
 				<unitPattern count="other" case="accusative">{0} miliwattů</unitPattern>
 				<unitPattern count="other" case="dative">{0} miliwattům</unitPattern>
-				<unitPattern count="other" case="genitive">{0} miliwattů</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other" case="instrumental">{0} miliwatty</unitPattern>
 				<unitPattern count="other" case="locative">{0} miliwattech</unitPattern>
 			</unit>
@@ -19577,20 +19577,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<listPatternPart type="2">{0} nebo {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="or-narrow">
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="end">{0} nebo {1}</listPatternPart>
-			<listPatternPart type="2">{0} nebo {1}</listPatternPart>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="or-short">
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="end">{0} nebo {1}</listPatternPart>
-			<listPatternPart type="2">{0} nebo {1}</listPatternPart>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-narrow">
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
 			<listPatternPart type="end">{0}, {1}</listPatternPart>
 			<listPatternPart type="2">{0}, {1}</listPatternPart>
 		</listPattern>
@@ -19801,7 +19801,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	<personNames>
 		<nameOrderLocales order="givenFirst">und cs</nameOrderLocales>
 		<nameOrderLocales order="surnameFirst">ko vi yue zh</nameOrderLocales>
-		<foreignSpaceReplacement xml:space="preserve"> </foreignSpaceReplacement>
+		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
 		<initialPattern type="initial">{0}.</initialPattern>
 		<initialPattern type="initialSequence">{0} {1}</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
@@ -19947,8 +19947,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<nameField type="given" draft="provisional">Anna Jaroslava</nameField>
 			<nameField type="given-informal" draft="provisional">Slávka</nameField>
 			<nameField type="given2" draft="provisional">Eva Lucie</nameField>
-			<nameField type="surname-prefix" draft="provisional">de la</nameField>
-			<nameField type="surname-core" draft="provisional">Mancha</nameField>
+			<nameField type="surname-prefix" draft="provisional">von</nameField>
+			<nameField type="surname-core" draft="provisional">Kant</nameField>
 			<nameField type="surname2" draft="provisional">Novotná Dvořáková</nameField>
 			<nameField type="credentials" draft="provisional">CSc.</nameField>
 		</sampleName>

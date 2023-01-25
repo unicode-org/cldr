@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -8375,7 +8375,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-solar-radius">
 				<displayName>☉ რადიუსი</displayName>
-				<unitPattern count="one">{0} ☉ რადიუსი</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ☉ რადიუსი</unitPattern>
 			</unit>
 			<unit type="light-lux">
@@ -8395,7 +8395,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName>☉ სხივიერობა</displayName>
-				<unitPattern count="one">{0} ☉ სხივიერობა</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ☉ სხივიერობა</unitPattern>
 			</unit>
 			<unit type="mass-tonne">
@@ -8604,7 +8604,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="torque-newton-meter">
 				<displayName>ნიუტ. მ</displayName>
-				<unitPattern count="one">{0} ნიუტ. მ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ნიუტ. მ</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
@@ -9420,10 +9420,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern draft="provisional">{given-monogram}{given2-monogram}{surname-monogram}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern draft="provisional">{given-informal-monogram}{surname-monogram}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
 			<namePattern draft="provisional">↑↑↑</namePattern>
@@ -9474,7 +9474,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern draft="provisional">{surname-monogram}{given-monogram}{given2-monogram}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="informal">
 			<namePattern draft="provisional">↑↑↑</namePattern>
@@ -9534,26 +9534,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">↑↑↑</namePattern>
 		</personName>
 		<sampleName item="nativeG">
-			<nameField type="given" draft="provisional">↑↑↑</nameField>
+			<nameField type="given" draft="provisional">ნინო</nameField>
 		</sampleName>
 		<sampleName item="nativeGS">
-			<nameField type="given" draft="provisional">↑↑↑</nameField>
-			<nameField type="surname" draft="provisional">↑↑↑</nameField>
+			<nameField type="given" draft="provisional">გიორგი</nameField>
+			<nameField type="surname" draft="provisional">თავაძე</nameField>
 		</sampleName>
 		<sampleName item="nativeGGS">
-			<nameField type="given" draft="provisional">↑↑↑</nameField>
-			<nameField type="given2" draft="provisional">↑↑↑</nameField>
-			<nameField type="surname" draft="provisional">↑↑↑</nameField>
+			<nameField type="given" draft="provisional">თეკლა</nameField>
+			<nameField type="given2" draft="provisional">მარიამ</nameField>
+			<nameField type="surname" draft="provisional">ნაკაშიძე</nameField>
 		</sampleName>
 		<sampleName item="foreignFull">
-			<nameField type="title" draft="provisional">↑↑↑</nameField>
-			<nameField type="given" draft="provisional">↑↑↑</nameField>
-			<nameField type="given-informal" draft="provisional">↑↑↑</nameField>
-			<nameField type="given2" draft="provisional">↑↑↑</nameField>
-			<nameField type="surname-prefix" draft="provisional">↑↑↑</nameField>
-			<nameField type="surname-core" draft="provisional">↑↑↑</nameField>
-			<nameField type="surname2" draft="provisional">↑↑↑</nameField>
-			<nameField type="credentials" draft="provisional">↑↑↑</nameField>
+			<nameField type="title" draft="provisional">პროფ. დოქტ.</nameField>
+			<nameField type="given" draft="provisional">ადა კორნელია</nameField>
+			<nameField type="given-informal" draft="provisional">ნილე</nameField>
+			<nameField type="given2" draft="provisional">სეზარ მარტინ</nameField>
+			<nameField type="surname-prefix" draft="provisional">ფონ</nameField>
+			<nameField type="surname-core" draft="provisional">ბრიული</nameField>
+			<nameField type="surname2" draft="provisional">გონსალეს დომინგო</nameField>
+			<nameField type="credentials" draft="provisional">მეცნ. დოქტ.</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12670,16 +12670,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="graphics-em">
 				<displayName>ем</displayName>
-				<unitPattern count="one">{0} ем</unitPattern>
-				<unitPattern count="few">{0} ем</unitPattern>
-				<unitPattern count="many">{0} ем</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ем</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
 				<displayName>пкс</displayName>
-				<unitPattern count="one">{0} пкс</unitPattern>
-				<unitPattern count="few">{0} пкс</unitPattern>
-				<unitPattern count="many">{0} пкс</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} пкс</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
@@ -15123,11 +15123,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	<personNames>
 		<nameOrderLocales order="givenFirst">und uk</nameOrderLocales>
 		<nameOrderLocales order="surnameFirst">ja ko vi yue zh</nameOrderLocales>
-		<foreignSpaceReplacement xml:space="preserve"> </foreignSpaceReplacement>
+		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern draft="provisional">{title} {given} {given2} {surname} {surname2}, {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
 			<namePattern draft="provisional">{given-informal} {surname} {surname2}</namePattern>
@@ -15235,19 +15235,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="contributed">{surname-monogram-allCaps}{surname2-monogram-allCaps}{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="formal">
-			<namePattern draft="contributed">{surname} {surname2}, {given} {given2} {credentials} {title}</namePattern>
+			<namePattern draft="contributed">{surname} {surname2} {given} {given2}, {credentials}, {title}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="informal">
-			<namePattern draft="contributed">{surname} {surname2}, {given-informal}</namePattern>
+			<namePattern draft="contributed">{surname} {surname2} {given-informal}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="formal">
-			<namePattern draft="contributed">{surname} {surname2}, {given-initial} {given2-initial} {credentials} {title}</namePattern>
+			<namePattern draft="contributed">{surname} {surname2} {given-initial} {given2-initial}, {credentials}, {title}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="informal">
-			<namePattern draft="contributed">{surname} {surname2}, {given-informal-initial}</namePattern>
+			<namePattern draft="contributed">{surname} {surname2} {given-informal-initial}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="formal">
-			<namePattern draft="contributed">{surname} {surname2}, {given-initial} {given2-initial}</namePattern>
+			<namePattern draft="contributed">{surname} {surname2} {given-initial} {given2-initial}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="informal">
 			<namePattern draft="provisional">{surname} {given-informal}</namePattern>
@@ -15269,9 +15269,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<nameField type="given" draft="provisional">Анастасія</nameField>
 			<nameField type="given-informal" draft="provisional">Настя</nameField>
 			<nameField type="given2" draft="provisional">Єва Софія</nameField>
-			<nameField type="surname-prefix" draft="provisional">ван ден</nameField>
+			<nameField type="surname-prefix" draft="provisional">фон</nameField>
 			<nameField type="surname-core" draft="provisional">Вольф</nameField>
-			<nameField type="surname2" draft="provisional">Бекер Шмідт</nameField>
+			<nameField type="surname2" draft="provisional">Гонзалес Домінго</nameField>
 			<nameField type="credentials" draft="provisional">д-р</nameField>
 		</sampleName>
 	</personNames>

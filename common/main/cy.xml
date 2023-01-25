@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2243,9 +2243,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="week-narrow">
 				<displayName>wythnos</displayName>
-				<relative type="-1">ws. ddiwethaf</relative>
-				<relative type="0">yr ws. hon</relative>
-				<relative type="1">ws. nesaf</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="zero">ymhen {0} wythnos</relativeTimePattern>
 					<relativeTimePattern count="one">ymhen {0} ws.</relativeTimePattern>
@@ -7732,7 +7732,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="SSP">
 				<displayName>Punt De Sudan</displayName>
 				<displayName count="zero">punt De Sudan</displayName>
-				<displayName count="one">punt De Sudan</displayName>
+				<displayName count="one">↑↑↑</displayName>
 				<displayName count="two">bunt De Sudan</displayName>
 				<displayName count="few">punt De Sudan</displayName>
 				<displayName count="many">↑↑↑</displayName>
@@ -9873,11 +9873,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-cubic-inch">
 				<displayName>modfeddi ciwbig</displayName>
-				<unitPattern count="zero">{0} in³</unitPattern>
+				<unitPattern count="zero">↑↑↑</unitPattern>
 				<unitPattern count="one">{0} fodfedd giwbig</unitPattern>
-				<unitPattern count="two">{0} in³</unitPattern>
-				<unitPattern count="few">{0} in³</unitPattern>
-				<unitPattern count="many">{0} in³</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} modfedd giwbig</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
@@ -11664,7 +11664,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-cubic-inch">
 				<displayName>modfeddi³</displayName>
-				<unitPattern count="zero">{0} in³</unitPattern>
+				<unitPattern count="zero">↑↑↑</unitPattern>
 				<unitPattern count="one">{0} in³</unitPattern>
 				<unitPattern count="two">{0} in³</unitPattern>
 				<unitPattern count="few">{0} in³</unitPattern>
@@ -13965,10 +13965,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	</typographicNames>
 	<personNames>
 		<nameOrderLocales order="givenFirst">und cy</nameOrderLocales>
-		<nameOrderLocales order="surnameFirst">ko vi yue zh</nameOrderLocales>
-		<foreignSpaceReplacement xml:space="preserve"> </foreignSpaceReplacement>
-		<initialPattern type="initial">{0}.</initialPattern>
-		<initialPattern type="initialSequence">{0} {1}</initialPattern>
+		<nameOrderLocales order="surnameFirst">ja ko vi yue zh</nameOrderLocales>
+		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
+		<initialPattern type="initial">↑↑↑</initialPattern>
+		<initialPattern type="initialSequence">↑↑↑</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
 			<namePattern draft="provisional">{given} {given2} {surname} {credentials}</namePattern>
 		</personName>
@@ -14096,14 +14096,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>
 		</personName>
 		<sampleName item="nativeG">
-			<nameField type="given" draft="provisional">Sinbad</nameField>
+			<nameField type="given" draft="provisional">Zendaya</nameField>
 		</sampleName>
 		<sampleName item="nativeGS">
 			<nameField type="given" draft="provisional">Irene</nameField>
 			<nameField type="surname" draft="provisional">Adler</nameField>
 		</sampleName>
 		<sampleName item="nativeGGS">
-			<nameField type="given" draft="provisional">John</nameField>
+			<nameField type="given" draft="provisional">Mary Sue</nameField>
 			<nameField type="given2" draft="provisional">Hamish</nameField>
 			<nameField type="surname" draft="provisional">Watson</nameField>
 		</sampleName>
@@ -14112,10 +14112,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<nameField type="given" draft="provisional">Ada Cornelia</nameField>
 			<nameField type="given-informal" draft="provisional">Neele</nameField>
 			<nameField type="given2" draft="provisional">Eva Sophia</nameField>
-			<nameField type="surname-prefix" draft="provisional">van den</nameField>
+			<nameField type="surname-prefix" draft="provisional">von</nameField>
 			<nameField type="surname-core" draft="provisional">Wolf</nameField>
-			<nameField type="surname2" draft="provisional">Becker Schmidt</nameField>
-			<nameField type="credentials" draft="provisional">M.D. Ph.D.</nameField>
+			<nameField type="surname2" draft="provisional">González Domingo</nameField>
+			<nameField type="credentials" draft="provisional">MD DDS</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

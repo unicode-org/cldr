@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -16776,7 +16776,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-bar">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">{0} bara</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} bara</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
@@ -18674,7 +18674,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
-				<unitPattern count="one">{0} mb</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} mb</unitPattern>
 			</unit>
@@ -18996,7 +18996,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern draft="provisional">{title} {given} {given2} {surname} {surname2}, {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
 			<namePattern draft="provisional">{given-informal} {surname}</namePattern>
@@ -19014,7 +19014,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">{title} {given} {given2-initial} {surname} {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {given} {given2-initial} {surname}, {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
 			<namePattern draft="provisional">{given-informal} {surname}</namePattern>
@@ -19032,7 +19032,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="formal">
-			<namePattern draft="provisional">{title} {given-initial} {given2-initial} {surname} {surname2} {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {given-initial} {given2-initial} {surname} {surname2}, {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="informal">
 			<namePattern draft="provisional">{given-informal} {surname-initial}</namePattern>
@@ -19050,10 +19050,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">{title} {surname} {surname2} {given} {given2} {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {surname} {surname2}, {given} {given2}, {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname} {surname2} {given-informal}</namePattern>
+			<namePattern draft="provisional">{surname} {surname2}, {given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="formal">
 			<namePattern draft="provisional">{title} {surname} {surname2}</namePattern>
@@ -19062,16 +19062,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{surname-monogram-allCaps}{given-monogram-allCaps}{given2-monogram-allCaps}</namePattern>
+			<namePattern draft="provisional">↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="informal">
 			<namePattern draft="provisional">{surname-monogram-allCaps}{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">{title} {surname} {surname2} {given} {given2-initial} {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {surname} {surname2}, {given} {given2-initial}, {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname} {surname2} {given}</namePattern>
+			<namePattern draft="provisional">{surname} {surname2}, {given}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="formal">
 			<namePattern draft="provisional">{title} {surname} {surname2}</namePattern>
@@ -19086,10 +19086,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="formal">
-			<namePattern draft="provisional">{title} {surname} {surname2} {given-initial} {given2-initial}</namePattern>
+			<namePattern draft="provisional">{title} {surname} {surname2}, {given-initial} {given2-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">{title} {surname} {surname2} {given-initial}</namePattern>
+			<namePattern draft="provisional">{title} {surname} {surname2}, {given-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="formal">
 			<namePattern draft="provisional">{title} {surname} {surname2}</namePattern>
@@ -19104,13 +19104,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">{title} {surname} {surname2}, {given} {given2} {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {surname} {surname2}, {given} {given2}, {credentials}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="informal">
 			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">{title} {surname} {surname2}, {given} {given2-initial} {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {surname} {surname2}, {given} {given2-initial}, {credentials}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="informal">
 			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -886,7 +886,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TN">Թունիս</territory>
 			<territory type="TO">Տոնգա</territory>
 			<territory type="TR">Թուրքիա</territory>
-			<territory type="TR" alt="variant">Թյուրքիե</territory>
+			<territory type="TR" alt="variant">↑↑↑</territory>
 			<territory type="TT">Տրինիդադ և Տոբագո</territory>
 			<territory type="TV">Տուվալու</territory>
 			<territory type="TW">Թայվան</territory>
@@ -5439,7 +5439,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="LSL">
 				<displayName>լեսոթոյական լոտի</displayName>
-				<displayName count="one">լեսոթոյական լոտի</displayName>
+				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">լեսոթոյական լոտի</displayName>
 				<symbol>LSL</symbol>
 			</currency>
@@ -6136,7 +6136,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="angle-degree">
 				<displayName>աստիճաններ</displayName>
-				<unitPattern count="one">{0} աստիճան</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} աստիճանից</unitPattern>
 				<unitPattern count="one" case="dative">{0} աստիճանին</unitPattern>
 				<unitPattern count="one" case="instrumental">{0} աստիճանով</unitPattern>
@@ -6149,7 +6149,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>րոպեներ</displayName>
-				<unitPattern count="one">{0} րոպե</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} րոպեից</unitPattern>
 				<unitPattern count="one" case="dative">{0} րոպեին</unitPattern>
 				<unitPattern count="one" case="instrumental">{0} րոպեով</unitPattern>
@@ -6162,7 +6162,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="angle-arc-second">
 				<displayName>վայրկյաններ</displayName>
-				<unitPattern count="one">{0} վայրկյան</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} վայրկյանից</unitPattern>
 				<unitPattern count="one" case="dative">{0} վայրկյանին</unitPattern>
 				<unitPattern count="one" case="instrumental">{0} վայրկյանով</unitPattern>
@@ -6319,7 +6319,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-percent">
 				<displayName>տոկոս</displayName>
-				<unitPattern count="one">{0} տոկոս</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="ablative">{0} տոկոսից</unitPattern>
 				<unitPattern count="one" case="dative">{0} տոկոսին</unitPattern>
 				<unitPattern count="one" case="instrumental">{0} տոկոսով</unitPattern>
@@ -7007,7 +7007,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="graphics-dot">
 				<displayName>կետ</displayName>
 				<unitPattern count="one">{0} կետ</unitPattern>
-				<unitPattern count="other">{0} կետ</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>երկրային շառավիղ</displayName>
@@ -7607,7 +7607,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="temperature-fahrenheit">
 				<displayName>աստիճաններ ըստ Ֆարենհայթի</displayName>
-				<unitPattern count="one">{0} աստիճան ըստ Ֆարենհայթի</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} աստիճան ըստ Ֆարենհայթի</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
@@ -8353,7 +8353,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="energy-british-thermal-unit">
 				<displayName>ԲՋՄ</displayName>
-				<unitPattern count="one">{0} Բջմ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Բջմ</unitPattern>
 			</unit>
 			<unit type="energy-therm-us">
@@ -10262,9 +10262,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<nameOrderLocales order="surnameFirst">ko vi yue zh</nameOrderLocales>
 		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
 		<initialPattern type="initial">{0}․</initialPattern>
-		<initialPattern type="initialSequence">{0} {1}</initialPattern>
+		<initialPattern type="initialSequence">↑↑↑</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">{title} {given} {given2} {surname} {credentials}</namePattern>
+			<namePattern draft="provisional">{credentials} {title} {given} {given2} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
 			<namePattern draft="provisional">{given-informal} {surname}</namePattern>
@@ -10282,7 +10282,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{given-informal-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">{given} {given2-initial} {surname} {credentials}</namePattern>
+			<namePattern draft="provisional">{credentials} {given} {given2-initial} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
 			<namePattern draft="provisional">{given-informal} {surname}</namePattern>
@@ -10318,7 +10318,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname} {given} {given2} {credentials}</namePattern>
+			<namePattern draft="provisional">{credentials} {surname} {given} {given2}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
 			<namePattern draft="provisional">{surname} {given-informal}</namePattern>
@@ -10336,7 +10336,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{surname-monogram-allCaps}{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname} {given} {credentials}</namePattern>
+			<namePattern draft="provisional">{credentials} {surname} {given}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="informal">
 			<namePattern draft="provisional">{surname} {given-informal}</namePattern>
@@ -10398,18 +10398,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</sampleName>
 		<sampleName item="nativeGGS">
 			<nameField type="given" draft="provisional">Հովհաննես</nameField>
-			<nameField type="given2" draft="provisional">Արմեն</nameField>
+			<nameField type="given2" draft="provisional">Արմենի</nameField>
 			<nameField type="surname" draft="provisional">Դարբինյան</nameField>
 		</sampleName>
 		<sampleName item="foreignFull">
 			<nameField type="title" draft="provisional">դ-ր</nameField>
 			<nameField type="given" draft="provisional">Ադա Կոռնելիա</nameField>
-			<nameField type="given-informal" draft="provisional">Էդ</nameField>
-			<nameField type="given2" draft="provisional">Եվա Սոֆիա</nameField>
+			<nameField type="given-informal" draft="provisional">Նիլ</nameField>
+			<nameField type="given2" draft="provisional">Սեզար Մարտին</nameField>
 			<nameField type="surname-prefix" draft="provisional">վան դեն</nameField>
 			<nameField type="surname-core" draft="provisional">Վոլֆ</nameField>
-			<nameField type="surname2" draft="provisional">Բեքեր Շմիդտ</nameField>
-			<nameField type="credentials" draft="provisional">կրտսեր</nameField>
+			<nameField type="surname2" draft="provisional">Գոնսալես Դոմինգո</nameField>
+			<nameField type="credentials" draft="provisional">բ․գ․դ․</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

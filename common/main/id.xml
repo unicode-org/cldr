@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1107,7 +1107,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TN">Tunisia</territory>
 			<territory type="TO">Tonga</territory>
 			<territory type="TR">Turki</territory>
-			<territory type="TR" alt="variant">Turkiye</territory>
+			<territory type="TR" alt="variant">↑↑↑</territory>
 			<territory type="TT">Trinidad dan Tobago</territory>
 			<territory type="TV">Tuvalu</territory>
 			<territory type="TW">Taiwan</territory>
@@ -10628,12 +10628,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	</typographicNames>
 	<personNames>
 		<nameOrderLocales order="givenFirst">und id</nameOrderLocales>
-		<nameOrderLocales order="surnameFirst">ko vi yue zh</nameOrderLocales>
+		<nameOrderLocales order="surnameFirst">↑↑↑</nameOrderLocales>
 		<foreignSpaceReplacement xml:space="preserve"> </foreignSpaceReplacement>
 		<initialPattern type="initial">{0}.</initialPattern>
 		<initialPattern type="initialSequence">{0} {1}</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">{given} {given2} {surname} {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {given} {given2} {surname} {generation}, {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
 			<namePattern draft="provisional">{given-informal} {surname}</namePattern>
@@ -10648,10 +10648,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern draft="provisional">{given-informal-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">{given} {given2-initial} {surname} {credentials}</namePattern>
+			<namePattern draft="provisional">{given} {given2-initial} {surname} {generation}, {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
 			<namePattern draft="provisional">{given-informal} {surname}</namePattern>
@@ -10687,7 +10687,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname}, {given} {given2} {credentials}</namePattern>
+			<namePattern draft="provisional">{title} {surname}, {given} {given2} {generation}, {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
 			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>
@@ -10705,7 +10705,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{surname-monogram-allCaps}{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname}, {given} {given2-initial} {credentials}</namePattern>
+			<namePattern draft="provisional">{surname}, {given} {given2-initial} {generation}, {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="informal">
 			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>
@@ -10759,25 +10759,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>
 		</personName>
 		<sampleName item="nativeG">
-			<nameField type="given" draft="provisional">Sinbad</nameField>
+			<nameField type="given" draft="provisional">Budi</nameField>
 		</sampleName>
 		<sampleName item="nativeGS">
-			<nameField type="given" draft="provisional">Irene</nameField>
-			<nameField type="surname" draft="provisional">Adler</nameField>
+			<nameField type="given" draft="provisional">Maria</nameField>
+			<nameField type="surname" draft="provisional">Wijaya</nameField>
 		</sampleName>
 		<sampleName item="nativeGGS">
-			<nameField type="given" draft="provisional">John</nameField>
-			<nameField type="given2" draft="provisional">Hamish</nameField>
-			<nameField type="surname" draft="provisional">Watson</nameField>
+			<nameField type="given" draft="provisional">Ahmad Albar</nameField>
+			<nameField type="given2" draft="provisional">bin</nameField>
+			<nameField type="surname" draft="provisional">Akbar</nameField>
 		</sampleName>
 		<sampleName item="foreignFull">
 			<nameField type="title" draft="provisional">Prof. Dr.</nameField>
 			<nameField type="given" draft="provisional">Ada Cornelia</nameField>
 			<nameField type="given-informal" draft="provisional">Neele</nameField>
-			<nameField type="given2" draft="provisional">Eva Sophia</nameField>
-			<nameField type="surname-prefix" draft="provisional">van den</nameField>
-			<nameField type="surname-core" draft="provisional">Wolf</nameField>
-			<nameField type="surname2" draft="provisional">Becker Schmidt</nameField>
+			<nameField type="given2" draft="provisional">Cesar Martín</nameField>
+			<nameField type="surname-prefix" draft="provisional">von</nameField>
+			<nameField type="surname-core" draft="provisional">Bruhl</nameField>
+			<nameField type="surname2" draft="provisional">Gonzalez Domingo</nameField>
 			<nameField type="credentials" draft="provisional">M.D., Ph.D.</nameField>
 		</sampleName>
 	</personNames>

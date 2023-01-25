@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1007,7 +1007,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TM">Turkmenistan</territory>
 			<territory type="TN">Tunisia</territory>
 			<territory type="TO">Tonga</territory>
-			<territory type="TR">Turkey</territory>
+			<territory type="TR">↑↑↑</territory>
 			<territory type="TR" alt="variant">↑↑↑</territory>
 			<territory type="TT">↑↑↑</territory>
 			<territory type="TV">Tuvalu</territory>
@@ -10527,8 +10527,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<nameOrderLocales order="givenFirst">↑↑↑</nameOrderLocales>
 		<nameOrderLocales order="surnameFirst">↑↑↑</nameOrderLocales>
 		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
-		<initialPattern type="initial">↑↑↑</initialPattern>
-		<initialPattern type="initialSequence">↑↑↑</initialPattern>
+		<initialPattern type="initial">{0}</initialPattern>
+		<initialPattern type="initialSequence">{0}{1}</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
 			<namePattern draft="provisional">↑↑↑</namePattern>
 		</personName>
@@ -10668,7 +10668,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nameField type="surname" draft="provisional">↑↑↑</nameField>
 		</sampleName>
 		<sampleName item="foreignFull">
-			<nameField type="title" draft="provisional">↑↑↑</nameField>
+			<nameField type="title" draft="provisional">Prof Dr</nameField>
 			<nameField type="given" draft="provisional">↑↑↑</nameField>
 			<nameField type="given-informal" draft="provisional">↑↑↑</nameField>
 			<nameField type="given2" draft="provisional">↑↑↑</nameField>

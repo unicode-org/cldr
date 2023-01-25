@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -939,7 +939,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="IL">이스라엘</territory>
 			<territory type="IM">맨섬</territory>
 			<territory type="IN">인도</territory>
-			<territory type="IO">영국령 인도양 식민지</territory>
+			<territory type="IO">영국령 인도양 지역</territory>
 			<territory type="IQ">이라크</territory>
 			<territory type="IR">이란</territory>
 			<territory type="IS">아이슬란드</territory>
@@ -1065,7 +1065,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="TM">투르크메니스탄</territory>
 			<territory type="TN">튀니지</territory>
 			<territory type="TO">통가</territory>
-			<territory type="TR">터키</territory>
+			<territory type="TR">튀르키예</territory>
 			<territory type="TR" alt="variant">↑↑↑</territory>
 			<territory type="TT">트리니다드 토바고</territory>
 			<territory type="TV">투발루</territory>
@@ -8347,8 +8347,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}영국 열량 단위</unitPattern>
 			</unit>
 			<unit type="energy-therm-us">
-				<displayName>미국 섬</displayName>
-				<unitPattern count="other">{0}섬</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
 				<displayName>파운드포스</displayName>
@@ -8380,23 +8380,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="graphics-em">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}em</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}px</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}MP</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-centimeter">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}ppcm</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-inch">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}ppi</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
 				<displayName>↑↑↑</displayName>
@@ -8404,7 +8404,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="graphics-dot-per-inch">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">{0}dpi</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
 				<displayName>↑↑↑</displayName>
@@ -10824,7 +10824,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{given-informal} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{surname} {credentials}</namePattern>
+			<namePattern draft="provisional">{surname} {title}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="informal">
 			<namePattern draft="provisional">{given-informal}</namePattern>
@@ -10842,7 +10842,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{given-informal} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{surname} {credentials}</namePattern>
+			<namePattern draft="provisional">{surname} {title}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="informal">
 			<namePattern draft="provisional">{given-informal}</namePattern>
@@ -10860,7 +10860,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{given-informal} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{surname} {credentials}</namePattern>
+			<namePattern draft="provisional">{surname} {title}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="informal">
 			<namePattern draft="provisional">{given-informal}</namePattern>
@@ -10878,7 +10878,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{surname}{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{surname} {credentials}</namePattern>
+			<namePattern draft="provisional">{surname} {title}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="informal">
 			<namePattern draft="provisional">{given-informal}</namePattern>
@@ -10896,7 +10896,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{surname}{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{surname} {credentials}</namePattern>
+			<namePattern draft="provisional">{surname} {title}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="informal">
 			<namePattern draft="provisional">{given-informal}</namePattern>
@@ -10914,7 +10914,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{surname}{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{surname} {credentials}</namePattern>
+			<namePattern draft="provisional">{surname} {title}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="informal">
 			<namePattern draft="provisional">{given-informal}</namePattern>
@@ -10951,19 +10951,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<nameField type="surname" draft="provisional">강</nameField>
 		</sampleName>
 		<sampleName item="nativeGGS">
-			<nameField type="given" draft="provisional">존</nameField>
-			<nameField type="given2" draft="provisional">해미쉬</nameField>
-			<nameField type="surname" draft="provisional">왓슨</nameField>
+			<nameField type="given" draft="provisional">소현</nameField>
+			<nameField type="given2" draft="provisional">∅∅∅</nameField>
+			<nameField type="surname" draft="provisional">박</nameField>
 		</sampleName>
 		<sampleName item="foreignFull">
-			<nameField type="title" draft="provisional">↑↑↑</nameField>
+			<nameField type="title" draft="provisional">교수</nameField>
 			<nameField type="given" draft="provisional">에이다 코넬리아</nameField>
 			<nameField type="given-informal" draft="provisional">닐</nameField>
-			<nameField type="given2" draft="provisional">에바 소피아</nameField>
+			<nameField type="given2" draft="provisional">세사르 마르틴</nameField>
 			<nameField type="surname-prefix" draft="provisional">폰</nameField>
 			<nameField type="surname-core" draft="provisional">볼프</nameField>
 			<nameField type="surname2" draft="provisional">베커 슈미트</nameField>
-			<nameField type="credentials" draft="provisional">님</nameField>
+			<nameField type="credentials" draft="provisional">박사</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -4222,8 +4222,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="CNY">
 				<displayName>ዩዋን ቻይና</displayName>
-				<displayName count="one">ዩዋን ቻይና</displayName>
-				<displayName count="other">ዩዋን ቻይና</displayName>
+				<displayName count="one">↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
 				<symbol draft="contributed">CNY</symbol>
 				<symbol alt="narrow" draft="contributed">¥</symbol>
 			</currency>
@@ -4365,8 +4365,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="duration-century">
 				<displayName>ዘመናት</displayName>
-				<unitPattern count="one">{0} ዘመን</unitPattern>
-				<unitPattern count="other">{0} ዘመናት</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-decade">
 				<displayName>ዓሰርተታት ዓመታት</displayName>
@@ -4874,7 +4874,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="duration-decade">
 				<displayName>ዓሰርተ ዓመት</displayName>
-				<unitPattern count="one">{0} ዓሰ.ዓመ.</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ዓሰ.ዓመ.</unitPattern>
 			</unit>
 			<unit type="duration-year">

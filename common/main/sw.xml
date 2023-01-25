@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -9475,7 +9475,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{given-initial} {given2-initial} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">{given-informal} {surname-initial}</namePattern>
+			<namePattern draft="provisional">↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
 			<namePattern draft="provisional">{title} {surname}</namePattern>
@@ -9502,7 +9502,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern draft="provisional">{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{surname-monogram-allCaps}{given-monogram-allCaps}{given2-monogram-allCaps}</namePattern>
+			<namePattern draft="provisional">↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="informal">
 			<namePattern draft="provisional">{surname-monogram-allCaps}{given-informal-monogram-allCaps}</namePattern>
@@ -9576,7 +9576,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<sampleName item="foreignFull">
 			<nameField type="title" draft="provisional">Prof. Dk.</nameField>
 			<nameField type="given" draft="provisional">Salima</nameField>
-			<nameField type="given-informal" draft="provisional">Neema</nameField>
+			<nameField type="given-informal" draft="provisional">Sarah</nameField>
 			<nameField type="given2" draft="provisional">Farida</nameField>
 			<nameField type="surname-prefix" draft="provisional">mwana</nameField>
 			<nameField type="surname-core" draft="provisional">Hamisi</nameField>

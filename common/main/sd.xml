@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -809,7 +809,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TM">ترڪمانستان</territory>
 			<territory type="TN">تيونيسيا</territory>
 			<territory type="TO">ٽونگا</territory>
-			<territory type="TR">ترڪي</territory>
+			<territory type="TR">ترڪييي</territory>
 			<territory type="TR" alt="variant">↑↑↑</territory>
 			<territory type="TT">ٽريني ڊيڊ ۽ ٽوباگو ٻيٽ</territory>
 			<territory type="TV">توالو</territory>
@@ -7666,7 +7666,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="duration-second">
 				<displayName>سيڪنڊ</displayName>
-				<unitPattern count="one">{0} سيڪنڊ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} سيڪنڊ</unitPattern>
 				<perUnitPattern>{0} في سيڪنڊ</perUnitPattern>
 			</unit>
@@ -9073,7 +9073,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nameField type="surname" draft="provisional">ائڊلر</nameField>
 		</sampleName>
 		<sampleName item="nativeGGS">
-			<nameField type="given" draft="provisional">جان</nameField>
+			<nameField type="given" draft="provisional">ميري سيو</nameField>
 			<nameField type="given2" draft="provisional">ھامش</nameField>
 			<nameField type="surname" draft="provisional">واٽسن</nameField>
 		</sampleName>
@@ -9081,11 +9081,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nameField type="title" draft="provisional">پروفيسر ڊاڪٽر</nameField>
 			<nameField type="given" draft="provisional">ايڊا ڪورنيليا</nameField>
 			<nameField type="given-informal" draft="provisional">نيل</nameField>
-			<nameField type="given2" draft="provisional">ايوا سوفيه</nameField>
-			<nameField type="surname-prefix" draft="provisional">وين ڊين</nameField>
-			<nameField type="surname-core" draft="provisional">ولف</nameField>
-			<nameField type="surname2" draft="provisional">بيڪر شمڊٽ</nameField>
-			<nameField type="credentials" draft="provisional">ايم ڊي پي ايڇ ڊي</nameField>
+			<nameField type="given2" draft="provisional">سيزر مارٽن</nameField>
+			<nameField type="surname-prefix" draft="provisional">وان</nameField>
+			<nameField type="surname-core" draft="provisional">برل</nameField>
+			<nameField type="surname2" draft="provisional">گونزالس ڊومنگو</nameField>
+			<nameField type="credentials" draft="provisional">ايم ڊي ڊي ڊي ايس</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

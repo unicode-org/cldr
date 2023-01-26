@@ -2262,8 +2262,8 @@ public class CLDRModify {
                     // criterion zero: if vxml value is not ↑↑↑, don't revert to baseline
                     return false;
                 }
-                String baselineValue = baselineFileResolved.getStringValue(xpath);
-                // String baselineValue = baselineFileUnresolved.getStringValue(xpath);
+                // String baselineValue = baselineFileResolved.getStringValue(xpath);
+                String baselineValue = baselineFileUnresolved.getStringValue(xpath);
                 if (baselineValue == null || CldrUtility.INHERITANCE_MARKER.equals(baselineValue)) {
                     // criterion 1: if baseline value is not a hard value, don't revert to baseline
                     return false;

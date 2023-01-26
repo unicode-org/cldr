@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2406,10 +2406,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="MMMMW" count="other">'Woche' W 'im' MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
-						<dateFormatItem id="yM">MM/y</dateFormatItem>
+						<dateFormatItem id="yM">M/y</dateFormatItem>
 						<dateFormatItem id="yMd">d.M.y</dateFormatItem>
 						<dateFormatItem id="yMEd">E, d.M.y</dateFormatItem>
-						<dateFormatItem id="yMM">MM.y</dateFormatItem>
+						<dateFormatItem id="yMM">MM/y</dateFormatItem>
 						<dateFormatItem id="yMMdd">dd.MM.y</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMd">d. MMM y</dateFormatItem>
@@ -2536,8 +2536,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="y">y–y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">MM/y – MM/y</greatestDifference>
-							<greatestDifference id="y">MM/y – MM/y</greatestDifference>
+							<greatestDifference id="M">M/y – M/y</greatestDifference>
+							<greatestDifference id="y">M/y – M/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
 							<greatestDifference id="d">dd.–dd.MM.y</greatestDifference>
@@ -8142,7 +8142,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="angle-degree">
 				<gender>neuter</gender>
 				<displayName>Grad</displayName>
-				<unitPattern count="one">{0} Grad</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="accusative">{0} Grad</unitPattern>
 				<unitPattern count="one" case="dative">{0} Grad</unitPattern>
 				<unitPattern count="one" case="genitive">{0} Grads</unitPattern>
@@ -8259,7 +8259,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="area-square-foot">
 				<gender>masculine</gender>
 				<displayName>Quadratfuß</displayName>
-				<unitPattern count="one">{0} Quadratfuß</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="accusative">{0} Quadratfuß</unitPattern>
 				<unitPattern count="one" case="dative">{0} Quadratfuß</unitPattern>
 				<unitPattern count="one" case="genitive">{0} Quadratfußes</unitPattern>
@@ -8270,7 +8270,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-square-inch">
 				<displayName>Quadratzoll</displayName>
-				<unitPattern count="one">{0} Quadratzoll</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Quadratzoll</unitPattern>
 				<perUnitPattern>{0} pro Quadratzoll</perUnitPattern>
 			</unit>
@@ -8282,7 +8282,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-karat">
 				<gender>neuter</gender>
 				<displayName>Karat</displayName>
-				<unitPattern count="one">{0} Karat</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
 				<unitPattern count="one" case="genitive">{0} Karats</unitPattern>
@@ -8323,7 +8323,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-permillion">
 				<gender>neuter</gender>
 				<displayName>Millionstel</displayName>
-				<unitPattern count="one">{0} Millionstel</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="accusative">{0} Millionstel</unitPattern>
 				<unitPattern count="one" case="dative">{0} Millionstel</unitPattern>
 				<unitPattern count="one" case="genitive">{0} Millionstels</unitPattern>
@@ -8822,7 +8822,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="energy-kilojoule">
 				<gender draft="contributed">neuter</gender>
 				<displayName>Kilojoule</displayName>
-				<unitPattern count="one">{0} Kilojoule</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="one" case="genitive" draft="contributed">↑↑↑</unitPattern>
@@ -9098,7 +9098,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="length-nanometer">
 				<gender draft="contributed">masculine</gender>
 				<displayName>Nanometer</displayName>
-				<unitPattern count="one">{0} Nanometer</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="one" case="genitive" draft="contributed">{0} Nanometers</unitPattern>
@@ -9172,7 +9172,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="length-parsec">
 				<gender>neuter</gender>
 				<displayName>Parsec</displayName>
-				<unitPattern count="one">{0} Parsec</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="accusative">{0} Parsec</unitPattern>
 				<unitPattern count="one" case="dative">{0} Parsec</unitPattern>
 				<unitPattern count="one" case="genitive">{0} Parsec</unitPattern>
@@ -9193,7 +9193,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-furlong">
 				<displayName>Furlongs</displayName>
-				<unitPattern count="one">{0} Furlong</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Furlong</unitPattern>
 			</unit>
 			<unit type="length-fathom">
@@ -9238,7 +9238,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="light-lux">
 				<gender>neuter</gender>
 				<displayName>Lux</displayName>
-				<unitPattern count="one">{0} Lux</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
 				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
@@ -9449,7 +9449,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="power-gigawatt">
 				<gender draft="contributed">neuter</gender>
 				<displayName>Gigawatt</displayName>
-				<unitPattern count="one">{0} Gigawatt</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="one" case="genitive" draft="contributed">{0} Gigawatts</unitPattern>
@@ -9461,7 +9461,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="power-megawatt">
 				<gender>neuter</gender>
 				<displayName>Megawatt</displayName>
-				<unitPattern count="one">{0} Megawatt</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="accusative">{0} Megawatt</unitPattern>
 				<unitPattern count="one" case="dative">{0} Megawatt</unitPattern>
 				<unitPattern count="one" case="genitive">{0} Megawatts</unitPattern>
@@ -9473,7 +9473,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="power-kilowatt">
 				<gender>neuter</gender>
 				<displayName>Kilowatt</displayName>
-				<unitPattern count="one">{0} Kilowatt</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="accusative">{0} Kilowatt</unitPattern>
 				<unitPattern count="one" case="dative">{0} Kilowatt</unitPattern>
 				<unitPattern count="one" case="genitive">{0} Kilowatts</unitPattern>
@@ -9485,7 +9485,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="power-watt">
 				<gender>neuter</gender>
 				<displayName>Watt</displayName>
-				<unitPattern count="one">{0} Watt</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="accusative">{0} Watt</unitPattern>
 				<unitPattern count="one" case="dative">{0} Watt</unitPattern>
 				<unitPattern count="one" case="genitive">{0} Watts</unitPattern>
@@ -9513,17 +9513,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
 				<displayName>Millimeter Quecksilbersäule</displayName>
-				<unitPattern count="one">{0} Millimeter Quecksilbersäule</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Millimeter Quecksilbersäule</unitPattern>
 			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>Pfund pro Quadratzoll</displayName>
-				<unitPattern count="one">{0} Pfund pro Quadratzoll</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Pfund pro Quadratzoll</unitPattern>
 			</unit>
 			<unit type="pressure-inch-ofhg">
 				<displayName>Zoll Quecksilbersäule</displayName>
-				<unitPattern count="one">{0} Zoll Quecksilbersäule</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Zoll Quecksilbersäule</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
@@ -9541,7 +9541,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-millibar">
 				<gender draft="contributed">neuter</gender>
 				<displayName>Millibar</displayName>
-				<unitPattern count="one">{0} Millibar</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="one" case="genitive" draft="contributed">{0} Millibars</unitPattern>
@@ -9577,7 +9577,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-hectopascal">
 				<gender draft="contributed">neuter</gender>
 				<displayName>Hektopascal</displayName>
-				<unitPattern count="one">{0} Hektopascal</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="accusative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="one" case="dative" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="one" case="genitive" draft="contributed">{0} Hektopascals</unitPattern>
@@ -9654,7 +9654,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="temperature-generic">
 				<gender>neuter</gender>
 				<displayName>°</displayName>
-				<unitPattern count="one">{0} Grad</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="accusative">{0} Grad</unitPattern>
 				<unitPattern count="one" case="dative">{0} Grad</unitPattern>
 				<unitPattern count="one" case="genitive">{0} Grads</unitPattern>
@@ -9690,7 +9690,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="temperature-kelvin">
 				<gender>neuter</gender>
 				<displayName>Kelvin</displayName>
-				<unitPattern count="one">{0} Kelvin</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="accusative">{0} Kelvin</unitPattern>
 				<unitPattern count="one" case="dative">{0} Kelvin</unitPattern>
 				<unitPattern count="one" case="genitive">{0} Kelvins</unitPattern>
@@ -9744,7 +9744,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-cubic-centimeter">
 				<gender>masculine</gender>
 				<displayName>Kubikzentimeter</displayName>
-				<unitPattern count="one">{0} Kubikzentimeter</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="accusative">{0} Kubikzentimeter</unitPattern>
 				<unitPattern count="one" case="dative">{0} Kubikzentimeter</unitPattern>
 				<unitPattern count="one" case="genitive">{0} Kubikzentimeters</unitPattern>
@@ -9774,7 +9774,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-cubic-foot">
 				<gender>masculine</gender>
 				<displayName>Kubikfuß</displayName>
-				<unitPattern count="one">{0} Kubikfuß</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="accusative">{0} Kubikfuß</unitPattern>
 				<unitPattern count="one" case="dative">{0} Kubikfuß</unitPattern>
 				<unitPattern count="one" case="genitive">{0} Kubikfußes</unitPattern>
@@ -9785,7 +9785,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-cubic-inch">
 				<displayName>Kubikzoll</displayName>
-				<unitPattern count="one">{0} Kubikzoll</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Kubikzoll</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
@@ -9892,7 +9892,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-bushel">
 				<displayName>Bushel</displayName>
-				<unitPattern count="one">{0} Bushel</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Bushel</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
@@ -9924,7 +9924,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-quart">
 				<gender>neuter</gender>
 				<displayName>Quarts</displayName>
-				<unitPattern count="one">{0} Quart</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="one" case="accusative">{0} Quart</unitPattern>
 				<unitPattern count="one" case="dative">{0} Quart</unitPattern>
 				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
@@ -10330,7 +10330,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-permyriad">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} ‱</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ‱</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
@@ -10518,7 +10518,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="energy-foodcalorie">
 				<displayName>kcal</displayName>
-				<unitPattern count="one">{0} kcal</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} kcal</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
@@ -10733,7 +10733,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-point">
 				<displayName>p</displayName>
-				<unitPattern count="one">{0} p</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} p</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
@@ -10790,7 +10790,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-ton">
 				<displayName>tn. sh.</displayName>
-				<unitPattern count="one">{0} tn. sh.</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} tn. sh.</unitPattern>
 			</unit>
 			<unit type="mass-stone">
@@ -11045,7 +11045,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-cup-metric">
 				<displayName>Ta</displayName>
-				<unitPattern count="one">{0} Ta</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Ta</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
@@ -11092,7 +11092,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-fluid-ounce-imperial">
 				<displayName>Imp.fl.oz.</displayName>
-				<unitPattern count="one">{0} Imp.fl.oz.</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Imp.fl.oz.</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
@@ -11271,7 +11271,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="angle-radian">
 				<displayName>rad</displayName>
-				<unitPattern count="one">{0}rad</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}rad</unitPattern>
 			</unit>
 			<unit type="angle-degree">
@@ -11346,7 +11346,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-karat">
 				<displayName>kt</displayName>
-				<unitPattern count="one">{0}kt</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}kt</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
@@ -11406,7 +11406,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName>mpg UK</displayName>
-				<unitPattern count="one">{0} mpg UK</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} mpg UK</unitPattern>
 			</unit>
 			<unit type="digital-petabyte">
@@ -11764,7 +11764,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-furlong">
 				<displayName>Furlong</displayName>
-				<unitPattern count="one">{0}fur</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}fur</unitPattern>
 			</unit>
 			<unit type="length-fathom">
@@ -11794,7 +11794,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="light-lux">
 				<displayName>lx</displayName>
-				<unitPattern count="one">{0}lx</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}lx</unitPattern>
 			</unit>
 			<unit type="light-candela">
@@ -12454,152 +12454,152 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">{0} {1}</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">{given} {given2} {surname}, {credentials}</namePattern>
+			<namePattern>{title} {given} {given2} {surname} {generation} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">{given-informal} {surname}</namePattern>
+			<namePattern>{given-informal} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="informal">
-			<namePattern draft="provisional">{given-informal-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
+			<namePattern>{given-informal-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">{given} {given2-initial} {surname}, {credentials}</namePattern>
+			<namePattern>{given} {given2-initial} {surname} {generation} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">{given-informal} {surname}</namePattern>
+			<namePattern>{given-informal} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{surname-monogram-allCaps}</namePattern>
+			<namePattern>{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="informal">
-			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
+			<namePattern>{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="formal">
-			<namePattern draft="provisional">{given-initial} {given2-initial} {surname}</namePattern>
+			<namePattern>{given-initial} {given2-initial} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">{given-informal} {surname-initial}</namePattern>
+			<namePattern>{given-informal} {surname-initial}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{surname-monogram-allCaps}</namePattern>
+			<namePattern>{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="informal">
-			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
+			<namePattern>{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname}, {given} {given2}, {credentials}</namePattern>
+			<namePattern>{surname}, {title} {given} {given2} {generation} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>
+			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{surname-monogram-allCaps}{given-monogram-allCaps}{given2-monogram-allCaps}</namePattern>
+			<namePattern>{surname-monogram-allCaps}{given-monogram-allCaps}{given2-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="informal">
-			<namePattern draft="provisional">{surname-monogram-allCaps}{given-informal-monogram-allCaps}</namePattern>
+			<namePattern>{surname-monogram-allCaps}{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname}, {given} {given2-initial}, {credentials}</namePattern>
+			<namePattern>{surname}, {given} {given2-initial} {generation} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>
+			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{surname-monogram-allCaps}</namePattern>
+			<namePattern>{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="informal">
-			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
+			<namePattern>{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname}, {given-initial} {given2-initial}</namePattern>
+			<namePattern>{surname}, {given-initial} {given2-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname}, {given-initial}</namePattern>
+			<namePattern>{surname}, {given-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{surname-monogram-allCaps}</namePattern>
+			<namePattern>{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="monogram" formality="informal">
-			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
+			<namePattern>{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname-core}, {given} {given2} {surname-prefix}</namePattern>
+			<namePattern>{surname-core}, {given} {given2} {surname-prefix}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>
+			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname-core}, {given} {given2-initial} {surname-prefix}</namePattern>
+			<namePattern>{surname-core}, {given} {given2-initial} {surname-prefix}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>
+			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname-core}, {given-initial} {given2-initial} {surname-prefix}</namePattern>
+			<namePattern>{surname-core}, {given-initial} {given2-initial} {surname-prefix}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>
+			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
 		<sampleName item="nativeG">
-			<nameField type="given" draft="provisional">Lena</nameField>
+			<nameField type="given">Lena</nameField>
 		</sampleName>
 		<sampleName item="nativeGS">
-			<nameField type="given" draft="provisional">Irene</nameField>
-			<nameField type="surname" draft="provisional">Adler</nameField>
+			<nameField type="given">Iris</nameField>
+			<nameField type="surname">Falke</nameField>
 		</sampleName>
 		<sampleName item="nativeGGS">
-			<nameField type="given" draft="provisional">Max</nameField>
-			<nameField type="given2" draft="provisional">Ben</nameField>
-			<nameField type="surname" draft="provisional">Mustermann</nameField>
+			<nameField type="given">Max</nameField>
+			<nameField type="given2">Ben</nameField>
+			<nameField type="surname">Mustermann</nameField>
 		</sampleName>
 		<sampleName item="foreignFull">
-			<nameField type="title" draft="provisional">Prof. Dr.</nameField>
-			<nameField type="given" draft="provisional">Anna Cornelia</nameField>
-			<nameField type="given-informal" draft="provisional">Nele</nameField>
-			<nameField type="given2" draft="provisional">Eva Sophia</nameField>
-			<nameField type="surname-prefix" draft="provisional">van den</nameField>
-			<nameField type="surname-core" draft="provisional">Wolf</nameField>
-			<nameField type="surname2" draft="provisional">Becker Schmidt</nameField>
-			<nameField type="credentials" draft="provisional">M.D. Ph.D.</nameField>
+			<nameField type="title">Prof. Dr.</nameField>
+			<nameField type="given">Anna Cornelia</nameField>
+			<nameField type="given-informal">Nele</nameField>
+			<nameField type="given2">Eva Sophia</nameField>
+			<nameField type="surname-prefix">van den</nameField>
+			<nameField type="surname-core">Wolf</nameField>
+			<nameField type="surname2">Becker Schmidt</nameField>
+			<nameField type="credentials">M.D. Ph.D.</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

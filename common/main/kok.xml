@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -811,7 +811,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TN">ट्यूनीशिया</territory>
 			<territory type="TO">टोंगा</territory>
 			<territory type="TR">तुर्की</territory>
-			<territory type="TR" alt="variant">तुर्कीए</territory>
+			<territory type="TR" alt="variant">↑↑↑</territory>
 			<territory type="TT">ट्रिनीदाद आनी टोबॅगो</territory>
 			<territory type="TV">टुवालू</territory>
 			<territory type="TW">तायवान</territory>
@@ -1057,7 +1057,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="GyMd" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E d, MMM y G</dateFormatItem>
@@ -5729,7 +5729,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<compoundUnitPattern>{0}-{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
-				<displayName>जी-फोर्स</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} जी-फोर्स</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
@@ -6007,7 +6007,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="energy-therm-us">
 				<displayName>युएस थर्म्स</displayName>
-				<unitPattern count="other">{0} युएस थर्म्स</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
 				<displayName>पावंड ऑफ फोर्स</displayName>
@@ -6163,7 +6163,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} सौर त्रिज्या</unitPattern>
 			</unit>
 			<unit type="light-lux">
-				<displayName>लक्स</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} लक्स</unitPattern>
 			</unit>
 			<unit type="light-candela">
@@ -6175,7 +6175,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} ल्युमन</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
-				<displayName>सौर ल्युमिनोसायटिस</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} सौर ल्युमिनोसायटिस</unitPattern>
 			</unit>
 			<unit type="mass-tonne">
@@ -6214,7 +6214,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>{0} दर पौंड</perUnitPattern>
 			</unit>
 			<unit type="mass-ounce">
-				<displayName>औंस</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} औंस</unitPattern>
 				<perUnitPattern>{0} दर औंस</perUnitPattern>
 			</unit>
@@ -6227,15 +6227,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} कॅरट</unitPattern>
 			</unit>
 			<unit type="mass-dalton">
-				<displayName>डाल्टन</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} डाल्टन</unitPattern>
 			</unit>
 			<unit type="mass-earth-mass">
-				<displayName>पृथ्वी वस्तुमान</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} पृथ्वी वस्तुमान</unitPattern>
 			</unit>
 			<unit type="mass-solar-mass">
-				<displayName>सौर वस्तुमान</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} सौर वस्तुमान</unitPattern>
 			</unit>
 			<unit type="mass-grain">
@@ -6319,7 +6319,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} मा/व</unitPattern>
 			</unit>
 			<unit type="speed-knot">
-				<displayName>नॉट</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} नॉट</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
@@ -6432,7 +6432,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} क्वार्त</unitPattern>
 			</unit>
 			<unit type="volume-pint">
-				<displayName>पाइंट</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} पाइंट</unitPattern>
 			</unit>
 			<unit type="volume-cup">
@@ -7372,7 +7372,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPrefixPattern>मि {0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-6">
-				<unitPrefixPattern>μ{0}</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-9">
 				<unitPrefixPattern>नॅ{0}</unitPrefixPattern>
@@ -7447,18 +7447,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPrefixPattern>यो {0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="per">
-				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<compoundUnit type="power2">
 				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other">{0}²</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
 				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other">{0}³</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
-				<compoundUnitPattern>{0}⋅{1}</compoundUnitPattern>
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>जी-फोर्स</displayName>
@@ -7554,8 +7554,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}ppm</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
-				<displayName>%</displayName>
-				<unitPattern count="other">{0}%</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
 				<displayName>‰</displayName>
@@ -7574,7 +7574,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}लि/किमी</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100-kilometer">
-				<displayName>लि/100किमी</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}लि/100किमी</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
@@ -8251,34 +8251,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="2">{0} वा {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="or-narrow">
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
 			<listPatternPart type="end">{0}, वा {1}</listPatternPart>
 			<listPatternPart type="2">{0} वा {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="or-short">
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
 			<listPatternPart type="end">{0}, वा {1}</listPatternPart>
 			<listPatternPart type="2">{0} वा {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-narrow">
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
 			<listPatternPart type="end">{0}, {1}</listPatternPart>
 			<listPatternPart type="2">{0}, {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-short">
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
 			<listPatternPart type="end">{0}, &amp; {1}</listPatternPart>
 			<listPatternPart type="2">{0} &amp; {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit">
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="end">{0}, {1}</listPatternPart>
-			<listPatternPart type="2">{0}, {1}</listPatternPart>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="unit-narrow">
 			<listPatternPart type="start">{0} {1}</listPatternPart>
@@ -8287,10 +8287,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="2">{0} {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit-short">
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="end">{0}, {1}</listPatternPart>
-			<listPatternPart type="2">{0}, {1}</listPatternPart>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>
@@ -8473,155 +8473,155 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<nameOrderLocales order="givenFirst">und kok</nameOrderLocales>
 		<nameOrderLocales order="surnameFirst">ko si ta te vi yue zh</nameOrderLocales>
 		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
-		<initialPattern type="initial">{0}.</initialPattern>
-		<initialPattern type="initialSequence">{0} {1}</initialPattern>
+		<initialPattern type="initial">↑↑↑</initialPattern>
+		<initialPattern type="initialSequence">↑↑↑</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<sampleName item="nativeG">
-			<nameField type="given" draft="provisional">राज</nameField>
+			<nameField type="given">दिशा</nameField>
 		</sampleName>
 		<sampleName item="nativeGS">
-			<nameField type="given" draft="provisional">कुमार</nameField>
-			<nameField type="surname" draft="provisional">सिंग</nameField>
+			<nameField type="given">उमेश</nameField>
+			<nameField type="surname">भंडारकर</nameField>
 		</sampleName>
 		<sampleName item="nativeGGS">
-			<nameField type="given" draft="provisional">जय</nameField>
-			<nameField type="given2" draft="provisional">प्रसाद</nameField>
-			<nameField type="surname" draft="provisional">पटेल</nameField>
+			<nameField type="given">अतुल</nameField>
+			<nameField type="given2">मनोहर</nameField>
+			<nameField type="surname">प्रभुकोंकार</nameField>
 		</sampleName>
 		<sampleName item="foreignFull">
-			<nameField type="title" draft="provisional">प्रो. डॉ.</nameField>
-			<nameField type="given" draft="provisional">विक्रम सिंह</nameField>
-			<nameField type="given-informal" draft="provisional">विकी</nameField>
-			<nameField type="given2" draft="provisional">रामचरण दास</nameField>
-			<nameField type="surname-prefix" draft="provisional">राज पुरोहित</nameField>
-			<nameField type="surname-core" draft="provisional">शर्मा</nameField>
-			<nameField type="surname2" draft="provisional">सरनाईक पाटिल</nameField>
-			<nameField type="credentials" draft="provisional">बी.ए. एल.एल.बी</nameField>
+			<nameField type="title">प्रो. डॉ.</nameField>
+			<nameField type="given">विक्रम सिंह</nameField>
+			<nameField type="given-informal">विकी</nameField>
+			<nameField type="given2">रामचरण दास</nameField>
+			<nameField type="surname-prefix">शेणवी कुंकळ्येकार</nameField>
+			<nameField type="surname-core">शर्मा</nameField>
+			<nameField type="surname2">सरदेसाय</nameField>
+			<nameField type="credentials">बी.ए. एल.एल.बी</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

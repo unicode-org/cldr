@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -472,7 +472,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="zh_Hans">кытайча (жөнөкөйлөштүрүлгөн)</language>
 			<language type="zh_Hans" alt="long">↑↑↑</language>
 			<language type="zh_Hant">кытайча (салттуу)</language>
-			<language type="zh_Hant" alt="long">кытайча (салттуу)</language>
+			<language type="zh_Hant" alt="long">↑↑↑</language>
 			<language type="zu">зулуча</language>
 			<language type="zun">зуниче</language>
 			<language type="zxx">тилдик мазмун жок</language>
@@ -6220,7 +6220,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} кылым</unitPattern>
 			</unit>
 			<unit type="duration-decade">
-				<displayName>декада</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} декада</unitPattern>
 				<unitPattern count="other">{0} декада</unitPattern>
 			</unit>
@@ -6344,7 +6344,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="energy-british-thermal-unit">
 				<displayName>Британдык жылуулук бирдиктери</displayName>
-				<unitPattern count="one">{0} Британдык жылуулук бирдиги</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Британдык жылуулук бирдиги</unitPattern>
 			</unit>
 			<unit type="energy-therm-us">
@@ -6559,7 +6559,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName>күндүн жарык күчү</displayName>
-				<unitPattern count="one">{0} күндүн жарык күчү</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} күндүн жарык күчү</unitPattern>
 			</unit>
 			<unit type="mass-tonne">
@@ -6633,7 +6633,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-solar-mass">
 				<displayName>күн массасы</displayName>
-				<unitPattern count="one">{0} күн массасы</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} күн массасы</unitPattern>
 			</unit>
 			<unit type="mass-grain">
@@ -6718,7 +6718,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="pressure-megapascal">
 				<displayName>мегапаскаль</displayName>
-				<unitPattern count="one">{0} мегапаскаль</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} мегапаскаль</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
@@ -8322,7 +8322,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-decade">
-				<displayName>декада</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} дек.</unitPattern>
 				<unitPattern count="other">{0} дек.</unitPattern>
 			</unit>
@@ -8995,7 +8995,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-fluid-ounce-imperial">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0}fl oz Im</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}fl oz Im</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
@@ -9082,13 +9082,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<listPattern type="or-narrow">
 			<listPatternPart type="start">↑↑↑</listPatternPart>
 			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">{0} же {1}</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
 			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="or-short">
 			<listPatternPart type="start">↑↑↑</listPatternPart>
 			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">{0} же {1}</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
 			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-narrow">
@@ -9301,157 +9301,157 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	</typographicNames>
 	<personNames>
 		<nameOrderLocales order="givenFirst">und ky</nameOrderLocales>
-		<nameOrderLocales order="surnameFirst">ja ko vi yue zh</nameOrderLocales>
+		<nameOrderLocales order="surnameFirst">↑↑↑</nameOrderLocales>
 		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="contributed">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="formal">
-			<namePattern draft="contributed">{given-initial} {given2-initial} {surname}</namePattern>
+			<namePattern>{given-initial} {given2-initial} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">{given-informal} {surname-initial}</namePattern>
+			<namePattern>{given-informal} {surname-initial}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname} {given} {given2} {credentials}</namePattern>
+			<namePattern>{surname} {given} {given2} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname} {given-informal}</namePattern>
+			<namePattern>{surname} {given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname} {given} {given2-initial} {credentials}</namePattern>
+			<namePattern>{surname} {given} {given2-initial} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname} {given-informal}</namePattern>
+			<namePattern>{surname} {given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname} {given-initial} {given2-initial}</namePattern>
+			<namePattern>{surname} {given-initial} {given2-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname} {given-initial}</namePattern>
+			<namePattern>{surname} {given-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>
+			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
 		<sampleName item="nativeG">
-			<nameField type="given" draft="provisional">Сыймык</nameField>
+			<nameField type="given">Сыймык</nameField>
 		</sampleName>
 		<sampleName item="nativeGS">
-			<nameField type="given" draft="provisional">Каныкей</nameField>
-			<nameField type="surname" draft="provisional">Алымбекова</nameField>
+			<nameField type="given">Каныкей</nameField>
+			<nameField type="surname">Алымбекова</nameField>
 		</sampleName>
 		<sampleName item="nativeGGS">
-			<nameField type="given" draft="provisional">Касым</nameField>
-			<nameField type="given2" draft="provisional">Жоомарт</nameField>
-			<nameField type="surname" draft="provisional">Токаев</nameField>
+			<nameField type="given">Касым</nameField>
+			<nameField type="given2">Жоомарт</nameField>
+			<nameField type="surname">Токаев</nameField>
 		</sampleName>
 		<sampleName item="foreignFull">
-			<nameField type="title" draft="provisional">Проф. Доктор.</nameField>
-			<nameField type="given" draft="provisional">Алтынай Сулайманова</nameField>
-			<nameField type="given-informal" draft="provisional">Чыке</nameField>
-			<nameField type="given2" draft="provisional">Асель Сартбаева</nameField>
-			<nameField type="surname-prefix" draft="provisional">ван ден</nameField>
-			<nameField type="surname-core" draft="provisional">Вольф</nameField>
-			<nameField type="surname2" draft="provisional">Бекер Шмидт</nameField>
-			<nameField type="credentials" draft="provisional">Илимдин кандидаты</nameField>
+			<nameField type="title">Проф. Доктор.</nameField>
+			<nameField type="given">Алтынай Сулайманова</nameField>
+			<nameField type="given-informal">Чыке</nameField>
+			<nameField type="given2">Асель Сартбаева</nameField>
+			<nameField type="surname-prefix">ван ден</nameField>
+			<nameField type="surname-core">Вольф</nameField>
+			<nameField type="surname2">Бекер Шмидт</nameField>
+			<nameField type="credentials">Илимдин кандидаты</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

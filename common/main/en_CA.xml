@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -363,7 +363,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="rwk">↑↑↑</language>
 			<language type="sa">↑↑↑</language>
 			<language type="sad">↑↑↑</language>
-			<language type="sah">Yakut</language>
+			<language type="sah">↑↑↑</language>
 			<language type="saq">↑↑↑</language>
 			<language type="sat">↑↑↑</language>
 			<language type="sba">↑↑↑</language>
@@ -1024,11 +1024,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters draft="contributed">↑↑↑</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" draft="contributed">↑↑↑</exemplarCharacters>
-		<exemplarCharacters type="index" draft="contributed">↑↑↑</exemplarCharacters>
-		<exemplarCharacters type="numbers" draft="contributed">↑↑↑</exemplarCharacters>
-		<exemplarCharacters type="punctuation" draft="contributed">↑↑↑</exemplarCharacters>
+		<exemplarCharacters>↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="index">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="numbers">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation">↑↑↑</exemplarCharacters>
 		<ellipsis type="final">↑↑↑</ellipsis>
 		<ellipsis type="initial">↑↑↑</ellipsis>
 		<ellipsis type="medial">↑↑↑</ellipsis>
@@ -1037,28 +1037,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<ellipsis type="word-medial">↑↑↑</ellipsis>
 		<moreInformation>↑↑↑</moreInformation>
 		<parseLenients scope="date" level="lenient">
-			<parseLenient sample="-" draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample=":" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="-">↑↑↑</parseLenient>
+			<parseLenient sample=":">↑↑↑</parseLenient>
 		</parseLenients>
 		<parseLenients scope="general" level="lenient">
-			<parseLenient sample="." draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample="’" draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample="%" draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample="‰" draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample="$" draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample="£" draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample="¥" draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample="₩" draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample="₹" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample=".">↑↑↑</parseLenient>
+			<parseLenient sample="’">↑↑↑</parseLenient>
+			<parseLenient sample="%">↑↑↑</parseLenient>
+			<parseLenient sample="‰">↑↑↑</parseLenient>
+			<parseLenient sample="$">↑↑↑</parseLenient>
+			<parseLenient sample="£">↑↑↑</parseLenient>
+			<parseLenient sample="¥">↑↑↑</parseLenient>
+			<parseLenient sample="₩">↑↑↑</parseLenient>
+			<parseLenient sample="₹">↑↑↑</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="lenient">
-			<parseLenient sample="-" draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample="," draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample="+" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="-">↑↑↑</parseLenient>
+			<parseLenient sample=",">↑↑↑</parseLenient>
+			<parseLenient sample="+">↑↑↑</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="stricter">
-			<parseLenient sample="," draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample="." draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample=",">↑↑↑</parseLenient>
+			<parseLenient sample=".">↑↑↑</parseLenient>
 		</parseLenients>
 	</characters>
 	<delimiters>
@@ -1683,9 +1683,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="midnight">↑↑↑</dayPeriod>
-							<dayPeriod type="am">a.m.</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
 							<dayPeriod type="noon">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">p.m.</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
 							<dayPeriod type="morning1">↑↑↑</dayPeriod>
 							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
 							<dayPeriod type="evening1">↑↑↑</dayPeriod>
@@ -1703,9 +1703,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="midnight">↑↑↑</dayPeriod>
-							<dayPeriod type="am">a.m.</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
 							<dayPeriod type="noon">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">p.m.</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
 							<dayPeriod type="morning1">↑↑↑</dayPeriod>
 							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
 							<dayPeriod type="evening1">↑↑↑</dayPeriod>
@@ -1715,9 +1715,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="midnight">↑↑↑</dayPeriod>
-							<dayPeriod type="am">a.m.</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
 							<dayPeriod type="noon">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">p.m.</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
 							<dayPeriod type="morning1">↑↑↑</dayPeriod>
 							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
 							<dayPeriod type="evening1">↑↑↑</dayPeriod>
@@ -1735,9 +1735,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="midnight">↑↑↑</dayPeriod>
-							<dayPeriod type="am">a.m.</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
 							<dayPeriod type="noon">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">p.m.</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
 							<dayPeriod type="morning1">↑↑↑</dayPeriod>
 							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
 							<dayPeriod type="evening1">↑↑↑</dayPeriod>
@@ -2475,7 +2475,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="quarter-narrow">
-				<displayName>qtr</displayName>
+				<displayName>↑↑↑</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} qtr</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} qtrs</relativeTimePattern>
@@ -2514,7 +2514,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="month-narrow">
-				<displayName>mo</displayName>
+				<displayName>↑↑↑</displayName>
 				<relative type="-1">last mo</relative>
 				<relative type="0">this mo</relative>
 				<relative type="1">next mo</relative>
@@ -2558,7 +2558,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relativePeriod>↑↑↑</relativePeriod>
 			</field>
 			<field type="week-narrow">
-				<displayName>wk</displayName>
+				<displayName>↑↑↑</displayName>
 				<relative type="-1">last wk</relative>
 				<relative type="0">this wk</relative>
 				<relative type="1">next wk</relative>
@@ -2990,7 +2990,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="minute-narrow">
-				<displayName>min</displayName>
+				<displayName>↑↑↑</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} min</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} mins</relativeTimePattern>
@@ -5357,17 +5357,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="contributed">↑↑↑</defaultNumberingSystem>
+		<defaultNumberingSystem>↑↑↑</defaultNumberingSystem>
 		<otherNumberingSystems>
-			<native draft="contributed">↑↑↑</native>
+			<native>↑↑↑</native>
 		</otherNumberingSystems>
-		<minimumGroupingDigits draft="contributed">↑↑↑</minimumGroupingDigits>
+		<minimumGroupingDigits>↑↑↑</minimumGroupingDigits>
 		<symbols numberSystem="latn">
-			<decimal draft="contributed">↑↑↑</decimal>
-			<group draft="contributed">↑↑↑</group>
+			<decimal>↑↑↑</decimal>
+			<group>↑↑↑</group>
 			<percentSign>↑↑↑</percentSign>
-			<plusSign draft="contributed">↑↑↑</plusSign>
-			<minusSign draft="contributed">↑↑↑</minusSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>↑↑↑</minusSign>
 			<approximatelySign>↑↑↑</approximatelySign>
 			<exponential>↑↑↑</exponential>
 			<superscriptingExponent>↑↑↑</superscriptingExponent>
@@ -5378,7 +5378,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern>↑↑↑</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
@@ -5524,154 +5524,154 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">Afghan afghani</displayName>
 				<displayName count="other">Afghan afghanis</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="BGN">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>Bermudian Dollar</displayName>
 				<displayName count="one">Bermudian dollar</displayName>
 				<displayName count="other">Bermudian dollars</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>Belarusian New Rouble (1994–1999)</displayName>
@@ -5682,7 +5682,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Belarusian Rouble</displayName>
 				<displayName count="one">Belarusian rouble</displayName>
 				<displayName count="other">Belarusian roubles</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>Belarusian Rouble (2000–2016)</displayName>
@@ -5693,397 +5693,397 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>$</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="CNH">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="CUC">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="CZK">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="ETB">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="GHS">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="JMD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>JP¥</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>Latvian Rouble</displayName>
@@ -6094,217 +6094,217 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MDL">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="MKD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MMK">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MRU">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="PYG">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>Russian Rouble</displayName>
 				<displayName count="one">Russian rouble</displayName>
 				<displayName count="other">Russian roubles</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Russian Rouble (1991–1998)</displayName>
@@ -6315,107 +6315,107 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>Saint Helena Pound</displayName>
 				<displayName count="one">Saint Helena pound</displayName>
 				<displayName count="other">Saint Helena pounds</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="SSP">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="STN">
 				<displayName>São Tomé and Príncipe Dobra</displayName>
 				<displayName count="one">São Tomé and Príncipe dobra</displayName>
 				<displayName count="other">São Tomé and Príncipe dobras</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>Tajikistani Rouble</displayName>
@@ -6426,67 +6426,67 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="TMT">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
-				<symbol alt="variant" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
+				<symbol alt="variant">↑↑↑</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>Trinidad and Tobago Dollar</displayName>
 				<displayName count="one">Trinidad and Tobago dollar</displayName>
 				<displayName count="other">Trinidad and Tobago dollars</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>↑↑↑</displayName>
@@ -6499,14 +6499,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="VES">
 				<displayName>↑↑↑</displayName>
@@ -6518,45 +6518,45 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>unknown currency</displayName>
@@ -6567,21 +6567,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="ZMW">
 				<displayName>↑↑↑</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
@@ -6591,8 +6591,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="range">↑↑↑</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="one" draft="contributed">↑↑↑</pluralMinimalPairs>
-			<pluralMinimalPairs count="other" draft="contributed">↑↑↑</pluralMinimalPairs>
+			<pluralMinimalPairs count="one">↑↑↑</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">↑↑↑</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="few">↑↑↑</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="one">↑↑↑</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">↑↑↑</ordinalMinimalPairs>
@@ -6820,12 +6820,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
-				<displayName>per mille</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} per mille</unitPattern>
 				<unitPattern count="other">{0} per mille</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
-				<displayName>per myriad</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} per myriad</unitPattern>
 				<unitPattern count="other">{0} per myriad</unitPattern>
 			</unit>
@@ -7290,7 +7290,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-stone">
-				<displayName>stone</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} stone</unitPattern>
 			</unit>
@@ -7514,7 +7514,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} hectolitres</unitPattern>
 			</unit>
 			<unit type="volume-liter">
-				<displayName>litres</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} litre</unitPattern>
 				<unitPattern count="other">{0} litres</unitPattern>
 				<perUnitPattern>{0} per litre</perUnitPattern>
@@ -7900,7 +7900,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="consumption-mile-per-gallon-imperial">
 				<displayName>miles/gal</displayName>
-				<unitPattern count="one">{0} mpg</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} mpg</unitPattern>
 			</unit>
 			<unit type="digital-petabyte">
@@ -8361,7 +8361,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="mass-carat">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} ct</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ct</unitPattern>
 			</unit>
 			<unit type="mass-dalton">
@@ -8426,7 +8426,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="pressure-inch-ofhg">
 				<displayName>in Hg</displayName>
-				<unitPattern count="one">{0} in Hg</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} in Hg</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
@@ -8516,18 +8516,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>cu kilometres</displayName>
-				<unitPattern count="one">{0} cu km</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} cu km</unitPattern>
 			</unit>
 			<unit type="volume-cubic-meter">
 				<displayName>cu metres</displayName>
-				<unitPattern count="one">{0}/cu m</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}/cu m</unitPattern>
 				<perUnitPattern>{0}/cu m</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
 				<displayName>cu centimetres</displayName>
-				<unitPattern count="one">{0}/cu cm</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}/cu cm</unitPattern>
 				<perUnitPattern>{0}/cu cm</perUnitPattern>
 			</unit>
@@ -8610,7 +8610,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="volume-gallon-imperial">
 				<displayName>gal</displayName>
-				<unitPattern count="one">{0} gal</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} gal</unitPattern>
 				<perUnitPattern>{0}/gal</perUnitPattern>
 			</unit>
@@ -8843,7 +8843,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
-				<displayName>metres²</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>↑↑↑</perUnitPattern>
@@ -9652,7 +9652,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-gallon">
-				<displayName>US gal</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0}USgal</unitPattern>
 				<unitPattern count="other">{0}USgal</unitPattern>
 				<perUnitPattern>{0}/USgal</perUnitPattern>
@@ -9990,152 +9990,152 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<sampleName item="nativeG">
-			<nameField type="given" draft="provisional">↑↑↑</nameField>
+			<nameField type="given">↑↑↑</nameField>
 		</sampleName>
 		<sampleName item="nativeGS">
-			<nameField type="given" draft="provisional">↑↑↑</nameField>
-			<nameField type="surname" draft="provisional">↑↑↑</nameField>
+			<nameField type="given">↑↑↑</nameField>
+			<nameField type="surname">↑↑↑</nameField>
 		</sampleName>
 		<sampleName item="nativeGGS">
-			<nameField type="given" draft="provisional">↑↑↑</nameField>
-			<nameField type="given2" draft="provisional">↑↑↑</nameField>
-			<nameField type="surname" draft="provisional">↑↑↑</nameField>
+			<nameField type="given">↑↑↑</nameField>
+			<nameField type="given2">↑↑↑</nameField>
+			<nameField type="surname">↑↑↑</nameField>
 		</sampleName>
 		<sampleName item="foreignFull">
-			<nameField type="title" draft="provisional">↑↑↑</nameField>
-			<nameField type="given" draft="provisional">↑↑↑</nameField>
-			<nameField type="given-informal" draft="provisional">↑↑↑</nameField>
-			<nameField type="given2" draft="provisional">↑↑↑</nameField>
-			<nameField type="surname-prefix" draft="provisional">↑↑↑</nameField>
-			<nameField type="surname-core" draft="provisional">↑↑↑</nameField>
-			<nameField type="surname2" draft="provisional">↑↑↑</nameField>
-			<nameField type="credentials" draft="provisional">↑↑↑</nameField>
+			<nameField type="title">↑↑↑</nameField>
+			<nameField type="given">↑↑↑</nameField>
+			<nameField type="given-informal">↑↑↑</nameField>
+			<nameField type="given2">↑↑↑</nameField>
+			<nameField type="surname-prefix">↑↑↑</nameField>
+			<nameField type="surname-core">↑↑↑</nameField>
+			<nameField type="surname2">↑↑↑</nameField>
+			<nameField type="credentials">↑↑↑</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

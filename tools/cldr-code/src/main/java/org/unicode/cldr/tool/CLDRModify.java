@@ -2277,7 +2277,7 @@ public class CLDRModify {
                 Output<String> inheritancePathWhereFound = new Output<>();
                 Output<String> localeWhereFound = new Output<>();
                 baselineFileResolved.getBaileyValue(xpath, inheritancePathWhereFound, localeWhereFound);
-                if (localeID.equals(inheritancePathWhereFound.value) || xpath.equals(inheritancePathWhereFound.value)) {
+                if (localeID.equals(localeWhereFound.value) || xpath.equals(inheritancePathWhereFound.value)) {
                     // criterion 3: if bailey value is not from different path and locale, don't revert to baseline
                     return false;
                 }

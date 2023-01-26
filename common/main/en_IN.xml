@@ -2496,7 +2496,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>d MMMM, y G</pattern>
+							<pattern>↑↑↑</pattern>
 							<datetimeSkeleton>GyMMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
@@ -2508,7 +2508,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>d/M/y/ GGGGG</pattern>
+							<pattern>↑↑↑</pattern>
 							<datetimeSkeleton>GGGGGyMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
@@ -2520,11 +2520,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Ed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="GyMMM">MMM, y G</dateFormatItem>
-						<dateFormatItem id="GyMMMd">d MMM, y G</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">E, d MMM, y G</dateFormatItem>
+						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="M">↑↑↑</dateFormatItem>
-						<dateFormatItem id="Md">d/M</dateFormatItem>
+						<dateFormatItem id="Md">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">↑↑↑</dateFormatItem>
@@ -2532,13 +2532,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyy">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyyM">M/y GGGGG</dateFormatItem>
-						<dateFormatItem id="yyyyMd">d/M/y G</dateFormatItem>
+						<dateFormatItem id="yyyyM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMEd">E d/M/y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMM">MMM, y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">d MMM, y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">E, d MMM, y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM">MMMM, y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">↑↑↑</dateFormatItem>
 					</availableFormats>
@@ -8520,7 +8520,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="temperature-generic">
 				<displayName>°</displayName>
-				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">

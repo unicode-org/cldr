@@ -4,7 +4,11 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
@@ -17,9 +21,9 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.XMLSource;
 
@@ -30,6 +34,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.util.Output;
 
 // make this a JUnit test?
@@ -411,18 +416,39 @@ public class TestAliases extends TestFmwk {
             }
         }
 
+        Map<String, Map<String, Counter<String>>> allCount = new LinkedHashMap<>();
+
         for (String ldmlDirectory : DtdType.ldml.directories) {
+            Map<String, Counter<String>> localeSuspiciousCount = new LinkedHashMap<>();
+
             final Factory factory = SimpleFactory.make(CLDRPaths.COMMON_DIRECTORY + ldmlDirectory, ".*");
             for (String locale : factory.getAvailable()) {
-                if ("root".equals(locale)
-                    || "root".equals(LocaleIDParser.getParent(locale))) {
+                if ("root".equals(locale)) {
                     continue;
                 }
 
                 CLDRFile cldrFile = factory.make(locale, true);
                 Multimap<String, SuspiciousData> suspicious = getSuspicious(cldrFile);
                 if (!suspicious.isEmpty()) {
-                    errln(locale + "\n\t" + Joiner.on("\n\t").join(suspicious.entries()));
+                    errln("\t" + locale + "\t" + suspicious.entries().size()
+                        + "\t\n" + Joiner.on("\n\t").join(suspicious.entries()));
+                    Counter<String> c = new Counter<>();
+                    for (Entry<String, Collection<SuspiciousData>> entry : suspicious.asMap().entrySet()) {
+                        localeSuspiciousCount.put(locale, c.add(entry.getKey(), entry.getValue().size()));
+                    }
+                }
+            }
+            if (!localeSuspiciousCount.isEmpty()) {
+                allCount.put(ldmlDirectory, localeSuspiciousCount);
+            }
+        }
+        for (Entry<String, Map<String, Counter<String>>> entry : allCount.entrySet()) {
+            String dir = entry.getKey();
+            for (Entry<String, Counter<String>> entry2 : entry.getValue().entrySet()) {
+                String locale = entry2.getKey();
+                Counter<String> c = entry2.getValue();
+                for (R2<Long, String> entry3 : c.getEntrySetSortedByCount(false, null)) {
+                    System.out.println(dir + "\t" + locale + "\t" + entry3.get0() + "\t" + entry3.get1());
                 }
             }
         }
@@ -431,26 +457,32 @@ public class TestAliases extends TestFmwk {
     static final class SuspiciousData implements Comparable<SuspiciousData> {
         final String pathRequested;
         final String pathFound;
+        final String valueFound;
 
-        public SuspiciousData(String pathRequested, String pathFound) {
+        public SuspiciousData(String pathRequested, String pathFound, String valueFound) {
             this.pathRequested = pathRequested;
             this.pathFound = pathFound;
+            this.valueFound = valueFound;
         }
         @Override
         public int compareTo(SuspiciousData o) {
             return ComparisonChain.start()
                 .compare(pathRequested, o.pathRequested)
                 .compare(pathFound, o.pathFound)
+                .compare(valueFound, o.valueFound)
                 .result();
         }
         @Override
         public String toString() {
-            return "\t" + pathRequested + "\n\t\t" + pathFound;
+            return "\t" + valueFound + "\n\t\t" + pathRequested + "\n\t\t" + pathFound;
         }
     }
 
     public Multimap<String,SuspiciousData> getSuspicious(CLDRFile cldrFile) {
         Multimap<String,SuspiciousData> suspicious = TreeMultimap.create();
+        if (!cldrFile.isResolved()) {
+            throw new IllegalArgumentException();
+        }
         CLDRFile unresolvedCldrFile = cldrFile.getUnresolved();
         String locale = cldrFile.getLocaleID();
         Output<String> foundPath = new Output<>();
@@ -465,6 +497,8 @@ public class TestAliases extends TestFmwk {
                 // if we find it in the same path (vertical) we are ok
                 continue;
             }
+            // at this point, it is horizontal (path) inheritance
+
             if ("root".equals(foundLocale.value)) {
                 // if we fall all the way back to root that's ok.
                 continue;
@@ -474,7 +508,7 @@ public class TestAliases extends TestFmwk {
                 continue;
             }
             // otherwise
-            suspicious.put(foundLocale.value, new SuspiciousData(path, foundPath.value));
+            suspicious.put(foundLocale.value, new SuspiciousData(path, foundPath.value, cldrFile.getStringValueWithBailey(path)));
         }
         return suspicious;
     }

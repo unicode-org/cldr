@@ -2212,17 +2212,13 @@ public class CLDRModify {
                     }
                 }
                 String localeID = cldrFileToFilter.getLocaleID();
-                if (cldrFileToFilter.isResolved()) {
-                    System.out.println("cldrFileToFilter is resolved");
+                if (cldrFileToFilter.isResolved()) { // true only if "-z" added to command line
                     baselineFileResolved = cldrFileToFilter;
                     baselineFileUnresolved = cldrFileToFilter.getUnresolved();
-                } else {
-                    System.out.println("cldrFileToFilter is not resolved");
+                } else { // true unless "-z" added to command line
                     baselineFileResolved = getResolved();
                     baselineFileUnresolved = cldrFileToFilter;
                 }
-
-                // steps = CLDRModify.stepsFromRoot(localeID);
                 try {
                     vxmlFile = vxmlFactory.make(localeID, false /* not resolved */);
                 } catch (Exception e) {
@@ -2233,26 +2229,48 @@ public class CLDRModify {
 
             @Override
             public void handlePath(String xpath) {
+                boolean deb = xpath.contains("Ciudad_Juarez");
+                if (deb) {
+                    // TODO: this never happens -- because we're looping through baseline paths,
+                    // and this is a new path. Instead, we should be looping through plain-vxml paths,
+                    // that is, with the data in https://github.com/unicode-org/cldr/pull/2659 already
+                    // merged into cldr/common/main instead of in ../vetdata-2023-01-23-plain-dropfalse/...,
+                    // and we should have a copy of the current main-branch common/main in an external folder, such
+                    // as ../baseline-2023-01-27
+                    // -- that means sort of a reversal: cldrFileToFilter will have plain-vxml, and instead
+                    // of vxmlFile and vxmlValue, we'll have baselineFile and baselineValue ...
+                    System.out.println("handlePath: got Ciudad_Juarez");
+                }
                 if (vxmlFile == null) {
+                    if (deb) {
+                        System.out.println("handlePath: vxmlFile is null");
+                    }
                     return; // use baseline
                 }
                 String vxmlValue = vxmlFile.getStringValue(xpath);
                 if (vxmlValue == null) {
                     throw new RuntimeException("vxmlValue == null");
                 }
-                // steps >= 2 identifies "L2+" locales
-                boolean revertToBaseline = /* (steps >= 2) && */ wantRevertToBaseline(xpath, vxmlValue);
-                if (!revertToBaseline) {
+                if (!wantRevertToBaseline(xpath, vxmlValue)) {
+                    if (deb) {
+                        System.out.println("handlePath: wantRevertToBaseline false");
+                    }
                     String fullXPath = vxmlFile.getFullXPath(xpath);
                     replace(fullXPath, fullXPath, vxmlValue);
+                } else {
+                    if (deb) {
+                        System.out.println("handlePath: wantRevertToBaseline true");
+                    }
                 }
             }
 
             private boolean wantRevertToBaseline(String xpath, String vxmlValue) {
                 String localeID = cldrFileToFilter.getLocaleID();
-                boolean deb = ("af".equals(localeID) && "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"acceleration-g-force\"]/unitPattern[@count=\"one\"]".equals(xpath));
+                boolean deb = xpath.contains("Ciudad_Juarez");
+                // boolean deb = "//ldml/dates/timeZoneNames/zone[@type=\"America/Ciudad_Juarez\"]/exemplarCity".equals(xpath);
+                // boolean deb = ("ru".equals(localeID) && "//ldml/dates/timeZoneNames/zone[@type=\"America/Ciudad_Juarez\"]/exemplarCity".equals(xpath));
                 if (deb) {
-                    System.out.println("wantRevertToBaseline: got af and long-one");
+                    System.out.println("wantRevertToBaseline: got Ciudad_Juarez");
                 }
                 String fullXPath = vxmlFile.getFullXPath(xpath);
                 if (!changesWereAllowed(localeID, xpath, fullXPath)) {
@@ -2283,10 +2301,8 @@ public class CLDRModify {
                 baselineFileResolved.getBaileyValue(xpath, inheritancePathWhereFound, localeWhereFound);
                 if (localeID.equals(localeWhereFound.value) || xpath.equals(inheritancePathWhereFound.value)) {
                     // criterion 3: if bailey value is not from different path and locale, don't revert to baseline
-                    if ("af".equals(localeID) && "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"acceleration-g-force\"]/unitPattern[@count=\"one\"]".equals(xpath)) {
-                        System.out.println("wantRevertToBaseline: found at " + localeWhereFound.value + " " + inheritancePathWhereFound.value);
-                    }
                     if (deb) {
+                        System.out.println("wantRevertToBaseline: found at " + localeWhereFound.value + " " + inheritancePathWhereFound.value);
                         System.out.println("wantRevertToBaseline: return for 3");
                     }
                     return false;
@@ -2315,6 +2331,8 @@ public class CLDRModify {
              * These were derived from all errors found running this command:
              * java -DCLDR_DIR=$(pwd) -jar tools/cldr-code/target/cldr-code.jar check -S common,seed -e -z FINAL_TESTING
              * >> org.unicode.cldr.test.ConsoleCheckCLDR
+             *
+             * TODO: this is incomplete? Should include some "errors" that are not in personNames??
              */
             private final String[] ERR_LOCALES_PATHS = new String[] {
                 "ja", "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"surname-prefix\"]",

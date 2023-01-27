@@ -12670,16 +12670,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="graphics-em">
 				<displayName>ем</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} ем</unitPattern>
+				<unitPattern count="few">{0} ем</unitPattern>
+				<unitPattern count="many">{0} ем</unitPattern>
 				<unitPattern count="other">{0} ем</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
 				<displayName>пкс</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} пкс</unitPattern>
+				<unitPattern count="few">{0} пкс</unitPattern>
+				<unitPattern count="many">{0} пкс</unitPattern>
 				<unitPattern count="other">{0} пкс</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
@@ -14140,7 +14140,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="graphics-dot">
 				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
@@ -14640,10 +14640,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-cubic-centimeter">
 				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 				<perUnitPattern draft="contributed">↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
@@ -14662,16 +14662,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-cubic-foot">
 				<displayName draft="contributed">фт³</displayName>
-				<unitPattern count="one">{0} фт³</unitPattern>
-				<unitPattern count="few">{0} фт³</unitPattern>
-				<unitPattern count="many">{0} фт³</unitPattern>
-				<unitPattern count="other">{0} фт³</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} фт³</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} фт³</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} фт³</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} фт³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-inch">
 				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
@@ -14733,9 +14733,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-acre-foot">
 				<displayName draft="contributed">акр-фт</displayName>
-				<unitPattern count="one">{0} акр-фт</unitPattern>
-				<unitPattern count="few">{0} акр-фт</unitPattern>
-				<unitPattern count="many">{0} акр-фт</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} акр-фт</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} акр-фт</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} акр-фт</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} акр-фт</unitPattern>
 			</unit>
 			<unit type="volume-bushel">
@@ -14826,10 +14826,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
 				<displayName>англ. дес. л.</displayName>
-				<unitPattern count="one">{0} англ. дес. л.</unitPattern>
-				<unitPattern count="few">{0} англ. дес. л.</unitPattern>
-				<unitPattern count="many">{0} англ. дес. л.</unitPattern>
-				<unitPattern count="other">{0} англ. дес. л.</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} англ. дес. л.</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} англ. дес. л.</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} англ. дес. л.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} англ. дес. л.</unitPattern>
 			</unit>
 			<unit type="volume-drop">
 				<displayName draft="contributed">кр.</displayName>
@@ -14861,10 +14861,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-quart-imperial">
 				<displayName>англ. квар.</displayName>
-				<unitPattern count="one">{0} англ. квар.</unitPattern>
-				<unitPattern count="few">{0} англ. квар.</unitPattern>
-				<unitPattern count="many">{0} англ. квар.</unitPattern>
-				<unitPattern count="other">{0} англ. квар.</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} англ. квар.</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} англ. квар.</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} англ. квар.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} англ. квар.</unitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>напрям</displayName>

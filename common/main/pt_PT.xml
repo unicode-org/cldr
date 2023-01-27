@@ -1454,7 +1454,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="m">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="d">
-							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="d">d–d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Gy">
 							<greatestDifference id="G">y G – y G</greatestDifference>
@@ -1516,8 +1516,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="M">MM–MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
-							<greatestDifference id="d">↑↑↑</greatestDifference>
-							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="d">dd/MM – dd/MM</greatestDifference>
+							<greatestDifference id="M">dd/MM – dd/MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
 							<greatestDifference id="d">↑↑↑</greatestDifference>
@@ -1797,7 +1797,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="midnight">↑↑↑</dayPeriod>
 							<dayPeriod type="am">a.m.</dayPeriod>
-							<dayPeriod type="noon">↑↑↑</dayPeriod>
+							<dayPeriod type="noon">meio-dia</dayPeriod>
 							<dayPeriod type="pm">p.m.</dayPeriod>
 							<dayPeriod type="morning1">↑↑↑</dayPeriod>
 							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
@@ -1821,22 +1821,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<dayPeriod type="pm">da tarde</dayPeriod>
 							<dayPeriod type="morning1">da manhã</dayPeriod>
 							<dayPeriod type="afternoon1">da tarde</dayPeriod>
-							<dayPeriod type="evening1">↑↑↑</dayPeriod>
+							<dayPeriod type="evening1">da noite</dayPeriod>
 							<dayPeriod type="night1">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="midnight">↑↑↑</dayPeriod>
-							<dayPeriod type="am">a.m.</dayPeriod>
-							<dayPeriod type="noon">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">p.m.</dayPeriod>
-							<dayPeriod type="morning1">↑↑↑</dayPeriod>
-							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
-							<dayPeriod type="evening1">↑↑↑</dayPeriod>
-							<dayPeriod type="night1">↑↑↑</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
 							<dayPeriod type="midnight">↑↑↑</dayPeriod>
 							<dayPeriod type="am">a.m.</dayPeriod>
 							<dayPeriod type="noon">meio-dia</dayPeriod>
@@ -1845,6 +1835,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
 							<dayPeriod type="evening1">↑↑↑</dayPeriod>
 							<dayPeriod type="night1">↑↑↑</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="midnight">meia-noite</dayPeriod>
+							<dayPeriod type="am">a.m.</dayPeriod>
+							<dayPeriod type="noon">meio-dia</dayPeriod>
+							<dayPeriod type="pm">p.m.</dayPeriod>
+							<dayPeriod type="morning1">manhã</dayPeriod>
+							<dayPeriod type="afternoon1">tarde</dayPeriod>
+							<dayPeriod type="evening1">noite</dayPeriod>
+							<dayPeriod type="night1">madrugada</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="midnight">↑↑↑</dayPeriod>
@@ -1982,7 +1982,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="hmsv">↑↑↑</dateFormatItem>
-						<dateFormatItem id="Hmsv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hmsv">HH:mm:ss v</dateFormatItem>
 						<dateFormatItem id="hmv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hmv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
@@ -2077,36 +2077,36 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="H">HH–HH</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
-							<greatestDifference id="a">↑↑↑</greatestDifference>
-							<greatestDifference id="h">↑↑↑</greatestDifference>
-							<greatestDifference id="m">↑↑↑</greatestDifference>
+							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
+							<greatestDifference id="h">h:mm – h:mm a</greatestDifference>
+							<greatestDifference id="m">h:mm – h:mm a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
-							<greatestDifference id="H">↑↑↑</greatestDifference>
-							<greatestDifference id="m">↑↑↑</greatestDifference>
+							<greatestDifference id="H">HH:mm – HH:mm</greatestDifference>
+							<greatestDifference id="m">HH:mm – HH:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
-							<greatestDifference id="h">↑↑↑</greatestDifference>
-							<greatestDifference id="m">↑↑↑</greatestDifference>
+							<greatestDifference id="h">h:mm – h:mm a v</greatestDifference>
+							<greatestDifference id="m">h:mm – h:mm a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
-							<greatestDifference id="H">↑↑↑</greatestDifference>
-							<greatestDifference id="m">↑↑↑</greatestDifference>
+							<greatestDifference id="H">HH:mm – HH:mm v</greatestDifference>
+							<greatestDifference id="m">HH:mm – HH:mm v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
-							<greatestDifference id="a">↑↑↑</greatestDifference>
+							<greatestDifference id="a">h a – h a v</greatestDifference>
 							<greatestDifference id="h">h–h a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
-							<greatestDifference id="H">↑↑↑</greatestDifference>
+							<greatestDifference id="H">HH – HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">M–M</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
-							<greatestDifference id="d">↑↑↑</greatestDifference>
-							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="d">dd/MM – dd/MM</greatestDifference>
+							<greatestDifference id="M">dd/MM – dd/MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
 							<greatestDifference id="d">ccc, dd/MM – ccc, dd/MM</greatestDifference>
@@ -2117,7 +2117,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMd">
 							<greatestDifference id="d">d–d 'de' MMM</greatestDifference>
-							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="M">d 'de' MMM – d 'de' MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="d">ccc, dd/MM – ccc, dd/MM</greatestDifference>
@@ -2131,13 +2131,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="y">y–y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">↑↑↑</greatestDifference>
-							<greatestDifference id="y">↑↑↑</greatestDifference>
+							<greatestDifference id="M">MM/y – MM/y</greatestDifference>
+							<greatestDifference id="y">MM/y – MM/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">↑↑↑</greatestDifference>
-							<greatestDifference id="M">↑↑↑</greatestDifference>
-							<greatestDifference id="y">↑↑↑</greatestDifference>
+							<greatestDifference id="d">dd/MM/y – dd/MM/y</greatestDifference>
+							<greatestDifference id="M">dd/MM/y – dd/MM/y</greatestDifference>
+							<greatestDifference id="y">dd/MM/y – dd/MM/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
 							<greatestDifference id="d">ccc, dd/MM/y – ccc, dd/MM/y</greatestDifference>
@@ -2146,21 +2146,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">MMM–MMM 'de' y</greatestDifference>
-							<greatestDifference id="y">↑↑↑</greatestDifference>
+							<greatestDifference id="y">MMM 'de' y – MMM 'de' y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
 							<greatestDifference id="d">d–d 'de' MMM 'de' y</greatestDifference>
-							<greatestDifference id="M">↑↑↑</greatestDifference>
-							<greatestDifference id="y">↑↑↑</greatestDifference>
+							<greatestDifference id="M">d 'de' MMM – d 'de' MMM 'de' y</greatestDifference>
+							<greatestDifference id="y">d 'de' MMM 'de' y – d 'de' MMM 'de' y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
 							<greatestDifference id="d">E, dd/MM – E, dd/MM/y</greatestDifference>
-							<greatestDifference id="M">↑↑↑</greatestDifference>
-							<greatestDifference id="y">↑↑↑</greatestDifference>
+							<greatestDifference id="M">E, d 'de' MMM – E, d 'de' MMM 'de' y</greatestDifference>
+							<greatestDifference id="y">E, d 'de' MMM 'de' y – E, d 'de' MMM 'de' y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">↑↑↑</greatestDifference>
-							<greatestDifference id="y">↑↑↑</greatestDifference>
+							<greatestDifference id="M">MMMM – MMMM 'de' y</greatestDifference>
+							<greatestDifference id="y">MMMM 'de' y – MMMM 'de' y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMMEd">
 							<greatestDifference id="d">E, d 'de' MMMM – E, d 'de' MMMM 'de' y</greatestDifference>
@@ -2671,7 +2671,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">há {0} quarta-feira</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">há {0} quartas-feiras</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed-short">
@@ -2710,7 +2710,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="one">há {0} quinta-feira</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">há {0} quintas-feiras</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="thu-short">
@@ -2727,8 +2727,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="thu-narrow">
-				<relative type="-1">↑↑↑</relative>
-				<relative type="0">↑↑↑</relative>
+				<relative type="-1">qui. passada</relative>
+				<relative type="0">esta qui.</relative>
 				<relative type="1">próxima qui.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">dentro de {0} qui.</relativeTimePattern>
@@ -3354,7 +3354,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Nicósia</exemplarCity>
 			</zone>
 			<zone type="Asia/Famagusta">
-				<exemplarCity>↑↑↑</exemplarCity>
+				<exemplarCity>Famagusta</exemplarCity>
 			</zone>
 			<zone type="Europe/Prague">
 				<exemplarCity>Praga</exemplarCity>
@@ -3618,7 +3618,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Oral</exemplarCity>
 			</zone>
 			<zone type="Asia/Atyrau">
-				<exemplarCity>↑↑↑</exemplarCity>
+				<exemplarCity>Atyrau</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>Aqtobe</exemplarCity>
@@ -3900,7 +3900,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Volgogrado</exemplarCity>
 			</zone>
 			<zone type="Europe/Saratov">
-				<exemplarCity>↑↑↑</exemplarCity>
+				<exemplarCity>Saratov</exemplarCity>
 			</zone>
 			<zone type="Europe/Astrakhan">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -5361,11 +5361,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="one">↑↑↑</pattern>
+					<pattern type="1000" count="one">0 mil ¤</pattern>
 					<pattern type="1000" count="other">0 mil ¤</pattern>
-					<pattern type="10000" count="one">↑↑↑</pattern>
+					<pattern type="10000" count="one">00 mil ¤</pattern>
 					<pattern type="10000" count="other">00 mil ¤</pattern>
-					<pattern type="100000" count="one">↑↑↑</pattern>
+					<pattern type="100000" count="one">000 mil ¤</pattern>
 					<pattern type="100000" count="other">000 mil ¤</pattern>
 					<pattern type="1000000" count="one">0 M ¤</pattern>
 					<pattern type="1000000" count="other">0 M ¤</pattern>
@@ -6642,7 +6642,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPrefixPattern>yobe{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="per">
-				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+				<compoundUnitPattern>{0} por {1}</compoundUnitPattern>
 			</compoundUnit>
 			<compoundUnit type="power2">
 				<compoundUnitPattern1>{0} quadrados</compoundUnitPattern1>
@@ -6911,7 +6911,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="duration-century">
 				<gender draft="contributed">↑↑↑</gender>
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} século</unitPattern>
 				<unitPattern count="other">{0} séculos</unitPattern>
 			</unit>
 			<unit type="duration-decade">
@@ -7153,7 +7153,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName>↑↑↑</displayName>
+				<displayName>pontos</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} pontos</unitPattern>
 			</unit>
@@ -8779,7 +8779,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
 				<displayName>csb imp.</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} csb imp.</unitPattern>
 				<unitPattern count="other">{0} csb imp.</unitPattern>
 			</unit>
 			<unit type="volume-drop">
@@ -8810,9 +8810,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>
 				<coordinateUnitPattern type="east">{0} E</coordinateUnitPattern>
-				<coordinateUnitPattern type="north">↑↑↑</coordinateUnitPattern>
-				<coordinateUnitPattern type="south">↑↑↑</coordinateUnitPattern>
-				<coordinateUnitPattern type="west">↑↑↑</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0} N</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0} S</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0} O</coordinateUnitPattern>
 			</coordinateUnit>
 		</unitLength>
 		<unitLength type="narrow">
@@ -8901,7 +8901,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="per">
-				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<compoundUnit type="power2">
 				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
@@ -9948,96 +9948,96 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabelPattern type="miscellaneous">{0} – diversos</characterLabelPattern>
 		<characterLabelPattern type="other">{0} – outro</characterLabelPattern>
 		<characterLabelPattern type="scripts">{0} – escritas</characterLabelPattern>
-		<characterLabelPattern type="strokes" count="one">↑↑↑</characterLabelPattern>
+		<characterLabelPattern type="strokes" count="one">{0} traço</characterLabelPattern>
 		<characterLabelPattern type="strokes" count="other">↑↑↑</characterLabelPattern>
 		<characterLabelPattern type="subscript">↑↑↑</characterLabelPattern>
 		<characterLabelPattern type="superscript">↑↑↑</characterLabelPattern>
-		<characterLabel type="activities">↑↑↑</characterLabel>
-		<characterLabel type="african_scripts">↑↑↑</characterLabel>
-		<characterLabel type="american_scripts">↑↑↑</characterLabel>
+		<characterLabel type="activities">atividade</characterLabel>
+		<characterLabel type="african_scripts">escrita africana</characterLabel>
+		<characterLabel type="american_scripts">escrita americana</characterLabel>
 		<characterLabel type="animal">↑↑↑</characterLabel>
-		<characterLabel type="animals_nature">↑↑↑</characterLabel>
-		<characterLabel type="arrows">↑↑↑</characterLabel>
+		<characterLabel type="animals_nature">animal ou natureza</characterLabel>
+		<characterLabel type="arrows">seta</characterLabel>
 		<characterLabel type="body">↑↑↑</characterLabel>
 		<characterLabel type="box_drawing">desenho enquadrado</characterLabel>
-		<characterLabel type="braille">↑↑↑</characterLabel>
+		<characterLabel type="braille">braille</characterLabel>
 		<characterLabel type="building">↑↑↑</characterLabel>
 		<characterLabel type="bullets_stars">ponto ou estrela</characterLabel>
 		<characterLabel type="consonantal_jamo">jamo consoante</characterLabel>
-		<characterLabel type="currency_symbols">↑↑↑</characterLabel>
+		<characterLabel type="currency_symbols">símbolo de moeda</characterLabel>
 		<characterLabel type="dash_connector">travessão ou elemento de ligação</characterLabel>
-		<characterLabel type="digits">↑↑↑</characterLabel>
-		<characterLabel type="dingbats">↑↑↑</characterLabel>
+		<characterLabel type="digits">dígito</characterLabel>
+		<characterLabel type="dingbats">dingbat</characterLabel>
 		<characterLabel type="divination_symbols">símbolo de divinação</characterLabel>
-		<characterLabel type="downwards_arrows">↑↑↑</characterLabel>
-		<characterLabel type="downwards_upwards_arrows">↑↑↑</characterLabel>
+		<characterLabel type="downwards_arrows">seta para baixo</characterLabel>
+		<characterLabel type="downwards_upwards_arrows">seta para baixo e para cima</characterLabel>
 		<characterLabel type="east_asian_scripts">escrita leste-asiática</characterLabel>
-		<characterLabel type="emoji">↑↑↑</characterLabel>
-		<characterLabel type="european_scripts">↑↑↑</characterLabel>
+		<characterLabel type="emoji">emoji</characterLabel>
+		<characterLabel type="european_scripts">escrita europeia</characterLabel>
 		<characterLabel type="female">feminino</characterLabel>
 		<characterLabel type="flag">↑↑↑</characterLabel>
-		<characterLabel type="flags">↑↑↑</characterLabel>
+		<characterLabel type="flags">bandeiras</characterLabel>
 		<characterLabel type="food_drink">comida e bebida</characterLabel>
-		<characterLabel type="format">↑↑↑</characterLabel>
-		<characterLabel type="format_whitespace">↑↑↑</characterLabel>
-		<characterLabel type="full_width_form_variant">↑↑↑</characterLabel>
-		<characterLabel type="geometric_shapes">↑↑↑</characterLabel>
-		<characterLabel type="half_width_form_variant">↑↑↑</characterLabel>
+		<characterLabel type="format">formato</characterLabel>
+		<characterLabel type="format_whitespace">formato e espaço em branco</characterLabel>
+		<characterLabel type="full_width_form_variant">variante de largura inteira</characterLabel>
+		<characterLabel type="geometric_shapes">forma geométrica</characterLabel>
+		<characterLabel type="half_width_form_variant">variante de meia largura</characterLabel>
 		<characterLabel type="han_characters">carácter Han</characterLabel>
-		<characterLabel type="han_radicals">↑↑↑</characterLabel>
-		<characterLabel type="hanja">↑↑↑</characterLabel>
+		<characterLabel type="han_radicals">radical Han</characterLabel>
+		<characterLabel type="hanja">hanja</characterLabel>
 		<characterLabel type="hanzi_simplified">hanzi (simplificado)</characterLabel>
 		<characterLabel type="hanzi_traditional">hanzi (tradicional)</characterLabel>
 		<characterLabel type="heart">↑↑↑</characterLabel>
-		<characterLabel type="historic_scripts">↑↑↑</characterLabel>
+		<characterLabel type="historic_scripts">escrita histórica</characterLabel>
 		<characterLabel type="ideographic_desc_characters">carácter de descrição ideográfica</characterLabel>
-		<characterLabel type="japanese_kana">↑↑↑</characterLabel>
-		<characterLabel type="kanbun">↑↑↑</characterLabel>
-		<characterLabel type="kanji">↑↑↑</characterLabel>
+		<characterLabel type="japanese_kana">kana japonês</characterLabel>
+		<characterLabel type="kanbun">kanbun</characterLabel>
+		<characterLabel type="kanji">kanji</characterLabel>
 		<characterLabel type="keycap">tecla</characterLabel>
 		<characterLabel type="leftwards_arrows">↑↑↑</characterLabel>
 		<characterLabel type="leftwards_rightwards_arrows">↑↑↑</characterLabel>
 		<characterLabel type="letterlike_symbols">símbolo parecido com uma letra</characterLabel>
 		<characterLabel type="limited_use">de uso limitado</characterLabel>
 		<characterLabel type="male">masculino</characterLabel>
-		<characterLabel type="math_symbols">↑↑↑</characterLabel>
+		<characterLabel type="math_symbols">símbolo matemático</characterLabel>
 		<characterLabel type="middle_eastern_scripts">escrita médio-oriental</characterLabel>
-		<characterLabel type="miscellaneous">↑↑↑</characterLabel>
+		<characterLabel type="miscellaneous">diversos</characterLabel>
 		<characterLabel type="modern_scripts">↑↑↑</characterLabel>
-		<characterLabel type="modifier">↑↑↑</characterLabel>
-		<characterLabel type="musical_symbols">↑↑↑</characterLabel>
+		<characterLabel type="modifier">modificador</characterLabel>
+		<characterLabel type="musical_symbols">símbolo musical</characterLabel>
 		<characterLabel type="nature">↑↑↑</characterLabel>
-		<characterLabel type="nonspacing">↑↑↑</characterLabel>
-		<characterLabel type="numbers">↑↑↑</characterLabel>
-		<characterLabel type="objects">↑↑↑</characterLabel>
+		<characterLabel type="nonspacing">sem espaço</characterLabel>
+		<characterLabel type="numbers">números</characterLabel>
+		<characterLabel type="objects">objeto</characterLabel>
 		<characterLabel type="other">outro</characterLabel>
-		<characterLabel type="paired">↑↑↑</characterLabel>
+		<characterLabel type="paired">emparelhado</characterLabel>
 		<characterLabel type="person">↑↑↑</characterLabel>
-		<characterLabel type="phonetic_alphabet">↑↑↑</characterLabel>
-		<characterLabel type="pictographs">↑↑↑</characterLabel>
+		<characterLabel type="phonetic_alphabet">alfabeto fonético</characterLabel>
+		<characterLabel type="pictographs">pictograma</characterLabel>
 		<characterLabel type="place">↑↑↑</characterLabel>
 		<characterLabel type="plant">↑↑↑</characterLabel>
-		<characterLabel type="punctuation">↑↑↑</characterLabel>
-		<characterLabel type="rightwards_arrows">↑↑↑</characterLabel>
+		<characterLabel type="punctuation">pontuação</characterLabel>
+		<characterLabel type="rightwards_arrows">seta para a direita</characterLabel>
 		<characterLabel type="sign_standard_symbols">sinal ou símbolo</characterLabel>
-		<characterLabel type="small_form_variant">↑↑↑</characterLabel>
+		<characterLabel type="small_form_variant">variantes pequenas</characterLabel>
 		<characterLabel type="smiley">smiley</characterLabel>
-		<characterLabel type="smileys_people">↑↑↑</characterLabel>
+		<characterLabel type="smileys_people">smiley ou pessoa</characterLabel>
 		<characterLabel type="south_asian_scripts">escrita sul-asiática</characterLabel>
 		<characterLabel type="southeast_asian_scripts">escrita sudeste-asiática</characterLabel>
-		<characterLabel type="spacing">↑↑↑</characterLabel>
+		<characterLabel type="spacing">espaçamento</characterLabel>
 		<characterLabel type="sport">desporto</characterLabel>
-		<characterLabel type="symbols">↑↑↑</characterLabel>
-		<characterLabel type="technical_symbols">↑↑↑</characterLabel>
-		<characterLabel type="tone_marks">↑↑↑</characterLabel>
+		<characterLabel type="symbols">símbolo</characterLabel>
+		<characterLabel type="technical_symbols">símbolo técnico</characterLabel>
+		<characterLabel type="tone_marks">marca de tom</characterLabel>
 		<characterLabel type="travel">viagens</characterLabel>
-		<characterLabel type="travel_places">↑↑↑</characterLabel>
-		<characterLabel type="upwards_arrows">↑↑↑</characterLabel>
-		<characterLabel type="variant_forms">↑↑↑</characterLabel>
+		<characterLabel type="travel_places">viagem ou lugar</characterLabel>
+		<characterLabel type="upwards_arrows">setas para cima</characterLabel>
+		<characterLabel type="variant_forms">variante</characterLabel>
 		<characterLabel type="vocalic_jamo">jamo vogal</characterLabel>
 		<characterLabel type="weather">meteorologia</characterLabel>
 		<characterLabel type="western_asian_scripts">escrita oeste-asiática</characterLabel>
-		<characterLabel type="whitespace">↑↑↑</characterLabel>
+		<characterLabel type="whitespace">espaço em branco</characterLabel>
 	</characterLabels>
 	<typographicNames>
 		<axisName type="ital">↑↑↑</axisName>

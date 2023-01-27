@@ -2248,30 +2248,34 @@ public class CLDRModify {
                 }
             }
 
-            /**
-             * 	Revert each L2+ locale/path VXML value of ↑↑↑ to the baseline value, where all the following criteria are met:
-             * 	1	The baseline value is a hard value (can use unresolved file for this)
-             * 	2	The survey tool did not allow changes in the locale/path in v43
-             * 	    ▪ That is, other than allowed locales with Person Names, Turkey, missing, and errors
-             *    	▪ NOTE: we should be able to check missing/errors by running the CheckCLDR tests on the baseline data. Most locales only had PN & Turkey, but some had errors or missing values.
-             * 	3	The bailey value is fetched from a different path AND from an ancestor locale.
-             * 	    ▪ Ideally we would look at intervening paths also, but I think this is sufficient.
-             */
             private boolean wantRevertToBaseline(String xpath, String vxmlValue) {
+                String localeID = cldrFileToFilter.getLocaleID();
+                boolean deb = ("af".equals(localeID) && "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"acceleration-g-force\"]/unitPattern[@count=\"one\"]".equals(xpath));
+                if (deb) {
+                    System.out.println("wantRevertToBaseline: got af and long-one");
+                }
+                String fullXPath = vxmlFile.getFullXPath(xpath);
+                if (!changesWereAllowed(localeID, xpath, fullXPath)) {
+                    // criterion 2: if Survey Tool did NOT allow changes in the locale/path in v43, MUST revert to baseline
+                    if (deb) {
+                        System.out.println("wantRevertToBaseline: return true since changes not allowed");
+                    }
+                    return true;
+                }
                 if (!CldrUtility.INHERITANCE_MARKER.equals(vxmlValue)) {
                     // criterion zero: if vxml value is not ↑↑↑, don't revert to baseline
+                    if (deb) {
+                        System.out.println("wantRevertToBaseline: return for 0");
+                    }
                     return false;
                 }
                 // String baselineValue = baselineFileResolved.getStringValue(xpath);
                 String baselineValue = baselineFileUnresolved.getStringValue(xpath);
                 if (baselineValue == null || CldrUtility.INHERITANCE_MARKER.equals(baselineValue)) {
                     // criterion 1: if baseline value is not a hard value, don't revert to baseline
-                    return false;
-                }
-                String localeID = cldrFileToFilter.getLocaleID();
-                String fullXPath = vxmlFile.getFullXPath(xpath);
-                if (changesWereAllowed(localeID, xpath, fullXPath)) {
-                    // criterion 2: if Survey Tool did allow changes in the locale/path in v43, don't revert to baseline
+                    if (deb) {
+                        System.out.println("wantRevertToBaseline: return for 1; baselineValue = " + baselineValue);
+                    }
                     return false;
                 }
                 Output<String> inheritancePathWhereFound = new Output<>();
@@ -2279,7 +2283,16 @@ public class CLDRModify {
                 baselineFileResolved.getBaileyValue(xpath, inheritancePathWhereFound, localeWhereFound);
                 if (localeID.equals(localeWhereFound.value) || xpath.equals(inheritancePathWhereFound.value)) {
                     // criterion 3: if bailey value is not from different path and locale, don't revert to baseline
+                    if ("af".equals(localeID) && "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"acceleration-g-force\"]/unitPattern[@count=\"one\"]".equals(xpath)) {
+                        System.out.println("wantRevertToBaseline: found at " + localeWhereFound.value + " " + inheritancePathWhereFound.value);
+                    }
+                    if (deb) {
+                        System.out.println("wantRevertToBaseline: return for 3");
+                    }
                     return false;
+                }
+                if (deb) {
+                    System.out.println("wantRevertToBaseline: return true");
                 }
                 return true;
             }
@@ -2288,7 +2301,14 @@ public class CLDRModify {
                 boolean isError = pathHasError(localeID, xpath);
                 String oldValue = baselineFileUnresolved.getWinningValue(xpath);
                 boolean isMissing = (oldValue == null || CLDRFile.DraftStatus.forXpath(fullXPath).ordinal() <= CLDRFile.DraftStatus.provisional.ordinal());
-                return SubmissionLocales.allowEvenIfLimited(localeID, xpath, isError, isMissing);
+                String locOrAncestor = localeID;
+                while (!"root".equals(locOrAncestor)) {
+                    if (SubmissionLocales.allowEvenIfLimited(locOrAncestor, xpath, isError, isMissing)) {
+                        return true;
+                    }
+                    locOrAncestor = LocaleIDParser.getParent(locOrAncestor);
+                }
+                return false;
             }
 
             /**

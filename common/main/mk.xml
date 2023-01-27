@@ -7447,7 +7447,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>гравитациска сила</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} гравитациска сила</unitPattern>
 				<unitPattern count="other">{0} гравитациска сила</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
@@ -8811,7 +8811,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="energy-foodcalorie">
 				<displayName>Cal</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} Cal</unitPattern>
 				<unitPattern count="other">{0} Cal</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
@@ -10762,7 +10762,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<namePattern>{given-monogram-allCaps}{given2-monogram-allCaps}{surname-core-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="informal">
-			<namePattern>↑↑↑</namePattern>
+			<namePattern draft="provisional">{given-informal-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
 			<namePattern>{given} {given2-initial} {surname}</namePattern>

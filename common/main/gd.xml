@@ -13519,7 +13519,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>karat</displayName>
 				<unitPattern count="one">{0}kt</unitPattern>
 				<unitPattern count="two">{0}kt</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="few">{0}kt</unitPattern>
 				<unitPattern count="other">{0}kt</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
@@ -13608,9 +13608,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="digital-petabyte">
 				<displayName>PB</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="one">{0}PB</unitPattern>
+				<unitPattern count="two">{0}PB</unitPattern>
+				<unitPattern count="few">{0}PB</unitPattern>
 				<unitPattern count="other">{0}PB</unitPattern>
 			</unit>
 			<unit type="digital-terabyte">
@@ -13958,14 +13958,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}ppi</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>↑↑↑</displayName>
+				<displayName>dpcm</displayName>
 				<unitPattern count="one">{0}dpcm</unitPattern>
 				<unitPattern count="two">{0}dpcm</unitPattern>
 				<unitPattern count="few">{0}dpcm</unitPattern>
 				<unitPattern count="other">{0}dpcm</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>↑↑↑</displayName>
+				<displayName>dpi</displayName>
 				<unitPattern count="one">{0}dpi</unitPattern>
 				<unitPattern count="two">{0}dpi</unitPattern>
 				<unitPattern count="few">{0}dpi</unitPattern>

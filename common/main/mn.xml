@@ -8416,8 +8416,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>квадрат инч тутамд {0}</perUnitPattern>
 			</unit>
 			<unit type="area-dunam">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<displayName>дунам</displayName>
+				<unitPattern count="one">{0} дунам</unitPattern>
 				<unitPattern count="other">{0} дунам</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
@@ -9468,7 +9468,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-dunam">
 				<displayName>дунам</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} дунам</unitPattern>
 				<unitPattern count="other">{0} дунам</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
@@ -9930,9 +9930,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lumen">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName draft="contributed">↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName>нарны гэрлийн урсгал</displayName>
@@ -10145,7 +10145,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="torque-newton-meter">
 				<displayName>Н⋅м</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} Н⋅м</unitPattern>
 				<unitPattern count="other">{0} Н⋅м</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">

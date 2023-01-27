@@ -5439,7 +5439,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="LSL">
 				<displayName>լեսոթոյական լոտի</displayName>
-				<displayName count="one">↑↑↑</displayName>
+				<displayName count="one">լեսոթոյական լոտի</displayName>
 				<displayName count="other">լեսոթոյական լոտի</displayName>
 				<symbol>LSL</symbol>
 			</currency>
@@ -6136,7 +6136,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="angle-degree">
 				<displayName>աստիճաններ</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} աստիճան</unitPattern>
 				<unitPattern count="one" case="ablative">{0} աստիճանից</unitPattern>
 				<unitPattern count="one" case="dative">{0} աստիճանին</unitPattern>
 				<unitPattern count="one" case="instrumental">{0} աստիճանով</unitPattern>
@@ -6149,7 +6149,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>րոպեներ</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} րոպե</unitPattern>
 				<unitPattern count="one" case="ablative">{0} րոպեից</unitPattern>
 				<unitPattern count="one" case="dative">{0} րոպեին</unitPattern>
 				<unitPattern count="one" case="instrumental">{0} րոպեով</unitPattern>
@@ -6162,7 +6162,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="angle-arc-second">
 				<displayName>վայրկյաններ</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} վայրկյան</unitPattern>
 				<unitPattern count="one" case="ablative">{0} վայրկյանից</unitPattern>
 				<unitPattern count="one" case="dative">{0} վայրկյանին</unitPattern>
 				<unitPattern count="one" case="instrumental">{0} վայրկյանով</unitPattern>
@@ -6319,7 +6319,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-percent">
 				<displayName>տոկոս</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} տոկոս</unitPattern>
 				<unitPattern count="one" case="ablative">{0} տոկոսից</unitPattern>
 				<unitPattern count="one" case="dative">{0} տոկոսին</unitPattern>
 				<unitPattern count="one" case="instrumental">{0} տոկոսով</unitPattern>
@@ -7007,7 +7007,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="graphics-dot">
 				<displayName>կետ</displayName>
 				<unitPattern count="one">{0} կետ</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} կետ</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>երկրային շառավիղ</displayName>
@@ -7607,7 +7607,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="temperature-fahrenheit">
 				<displayName>աստիճաններ ըստ Ֆարենհայթի</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} աստիճան ըստ Ֆարենհայթի</unitPattern>
 				<unitPattern count="other">{0} աստիճան ըստ Ֆարենհայթի</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
@@ -8353,7 +8353,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="energy-british-thermal-unit">
 				<displayName>ԲՋՄ</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} Բջմ</unitPattern>
 				<unitPattern count="other">{0} Բջմ</unitPattern>
 			</unit>
 			<unit type="energy-therm-us">

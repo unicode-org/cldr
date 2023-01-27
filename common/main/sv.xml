@@ -180,9 +180,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="en_AU">australisk engelska</language>
 			<language type="en_CA">kanadensisk engelska</language>
 			<language type="en_GB">brittisk engelska</language>
-			<language type="en_GB" alt="short">↑↑↑</language>
+			<language type="en_GB" alt="short">brittisk engelska</language>
 			<language type="en_US">amerikansk engelska</language>
-			<language type="en_US" alt="short">↑↑↑</language>
+			<language type="en_US" alt="short">amerikansk engelska</language>
 			<language type="enm">medelengelska</language>
 			<language type="eo">esperanto</language>
 			<language type="es">spanska</language>
@@ -9004,7 +9004,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="area-square-kilometer">
 				<gender>common</gender>
 				<displayName>kvadratkilometer</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} kvadratkilometer</unitPattern>
 				<unitPattern count="one" case="genitive" draft="contributed">{0} kvadratkilometers</unitPattern>
 				<unitPattern count="other">{0} kvadratkilometer</unitPattern>
 				<unitPattern count="other" case="genitive" draft="contributed">{0} kvadratkilometers</unitPattern>
@@ -9021,7 +9021,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="area-square-meter">
 				<gender>common</gender>
 				<displayName>kvadratmeter</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} kvadratmeter</unitPattern>
 				<unitPattern count="one" case="genitive">{0} kvadratmeters</unitPattern>
 				<unitPattern count="other">{0} kvadratmeter</unitPattern>
 				<unitPattern count="other" case="genitive">{0} kvadratmeters</unitPattern>
@@ -9311,7 +9311,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="duration-day">
 				<gender>neuter</gender>
 				<displayName>dygn</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} dygn</unitPattern>
 				<unitPattern count="one" case="genitive">{0} dygns</unitPattern>
 				<unitPattern count="other">{0} dygn</unitPattern>
 				<unitPattern count="other" case="genitive">{0} dygns</unitPattern>
@@ -9459,8 +9459,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="energy-therm-us">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} am. therm</unitPattern>
+				<unitPattern count="other">{0} am. therms</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
 				<displayName>pounds of force</displayName>
@@ -9518,7 +9518,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="graphics-em">
 				<gender>common</gender>
 				<displayName>typografisk fyrkant</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} fyrkant</unitPattern>
 				<unitPattern count="one" case="genitive">{0} fyrkants</unitPattern>
 				<unitPattern count="other">{0} fyrkanter</unitPattern>
 				<unitPattern count="other" case="genitive">{0} fyrkanters</unitPattern>
@@ -9575,7 +9575,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="length-kilometer">
 				<gender>common</gender>
 				<displayName>kilometer</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} kilometer</unitPattern>
 				<unitPattern count="one" case="genitive">{0} kilometers</unitPattern>
 				<unitPattern count="other">{0} kilometer</unitPattern>
 				<unitPattern count="other" case="genitive">{0} kilometers</unitPattern>
@@ -9584,7 +9584,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="length-meter">
 				<gender>common</gender>
 				<displayName>meter</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} meter</unitPattern>
 				<unitPattern count="one" case="genitive">{0} meters</unitPattern>
 				<unitPattern count="other">{0} meter</unitPattern>
 				<unitPattern count="other" case="genitive">{0} meters</unitPattern>
@@ -9601,7 +9601,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="length-centimeter">
 				<gender>common</gender>
 				<displayName>centimeter</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} centimeter</unitPattern>
 				<unitPattern count="one" case="genitive">{0} centimeters</unitPattern>
 				<unitPattern count="other">{0} centimeter</unitPattern>
 				<unitPattern count="other" case="genitive">{0} centimeters</unitPattern>
@@ -9610,7 +9610,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="length-millimeter">
 				<gender>common</gender>
 				<displayName>millimeter</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} millimeter</unitPattern>
 				<unitPattern count="one" case="genitive">{0} millimeters</unitPattern>
 				<unitPattern count="other">{0} millimeter</unitPattern>
 				<unitPattern count="other" case="genitive">{0} millimeters</unitPattern>
@@ -9634,7 +9634,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="length-picometer">
 				<gender>common</gender>
 				<displayName>pikometer</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} pikometer</unitPattern>
 				<unitPattern count="one" case="genitive">{0} pikometers</unitPattern>
 				<unitPattern count="other">{0} pikometer</unitPattern>
 				<unitPattern count="other" case="genitive">{0} pikometers</unitPattern>
@@ -10037,7 +10037,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-cubic-kilometer">
 				<gender>common</gender>
 				<displayName>kubikkilometer</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} kubikkilometer</unitPattern>
 				<unitPattern count="one" case="genitive">{0} kubikkilometers</unitPattern>
 				<unitPattern count="other">{0} kubikkilometer</unitPattern>
 				<unitPattern count="other" case="genitive">{0} kubikkilometers</unitPattern>
@@ -10754,7 +10754,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="graphics-em">
 				<displayName>fyrkant</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} fyrkant</unitPattern>
 				<unitPattern count="other">{0} fyrkant</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
@@ -11133,7 +11133,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="torque-newton-meter">
 				<displayName>Nm</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} Nm</unitPattern>
 				<unitPattern count="other">{0} Nm</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
@@ -11258,7 +11258,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-fluid-ounce-imperial">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} br. fl oz</unitPattern>
 				<unitPattern count="other">{0} br. fl oz</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
@@ -11666,7 +11666,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-day">
 				<displayName>d</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0}d</unitPattern>
 				<unitPattern count="other">{0}d</unitPattern>
 				<perUnitPattern>{0}/d</perUnitPattern>
 			</unit>
@@ -11678,19 +11678,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-minute">
 				<displayName>m</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0}m</unitPattern>
 				<unitPattern count="other">{0}m</unitPattern>
 				<perUnitPattern>{0}/m</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>sek</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0}s</unitPattern>
 				<unitPattern count="other">{0}s</unitPattern>
 				<perUnitPattern>{0}/s</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>ms</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0}ms</unitPattern>
 				<unitPattern count="other">{0}ms</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
@@ -11850,13 +11850,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>km</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0}km</unitPattern>
 				<unitPattern count="other">{0}km</unitPattern>
 				<perUnitPattern>{0}/km</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName>m</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0}m</unitPattern>
 				<unitPattern count="other">{0}m</unitPattern>
 				<perUnitPattern>{0}/m</perUnitPattern>
 			</unit>
@@ -11867,13 +11867,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-centimeter">
 				<displayName>cm</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0}cm</unitPattern>
 				<unitPattern count="other">{0}cm</unitPattern>
 				<perUnitPattern>{0}/cm</perUnitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>mm</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0}mm</unitPattern>
 				<unitPattern count="other">{0}mm</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
@@ -12282,7 +12282,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
-				<displayName>↑↑↑</displayName>
+				<displayName>Br. gal</displayName>
 				<unitPattern count="one">{0}br.gal</unitPattern>
 				<unitPattern count="other">{0}br.gal</unitPattern>
 				<perUnitPattern>{0}/br. gal</perUnitPattern>

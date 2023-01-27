@@ -55,7 +55,7 @@ import com.ibm.icu.util.ULocale;
  * </pre>
  */
 public class VoteResolver<T> {
-    public static final boolean DROP_HARD_INHERITANCE = true;
+    public static final boolean DROP_HARD_INHERITANCE = false;
 
     private final VoterInfoList voterInfoList;
 

@@ -9478,7 +9478,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-dalton">
 				<displayName>டால்ட்டன்ஸ்</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} டா.</unitPattern>
 				<unitPattern count="other">{0} டா.</unitPattern>
 			</unit>
 			<unit type="mass-earth-mass">
@@ -9748,7 +9748,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-fluid-ounce-imperial">
 				<displayName>இம்பீ. தி. அவு.</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} தி. அவு. இம்பீ.</unitPattern>
 				<unitPattern count="other">{0} தி. அவு. இம்பீ.</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
@@ -9763,7 +9763,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-barrel">
 				<displayName>பீப்பாய்</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} பீப்.</unitPattern>
 				<unitPattern count="other">{0} பீப்.</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon">
@@ -10910,7 +10910,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<listPattern type="unit">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="end">{0}, {1}</listPatternPart>
 			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="unit-narrow">

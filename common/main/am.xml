@@ -2384,7 +2384,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="MMMEd">E፣ MMM d</dateFormatItem>
 						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E፣ MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMMW" count="one">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="one">ሳምንት W የ MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">ሳምንት W የ MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
@@ -7873,7 +7873,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ነጥብ</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
-				<displayName>↑↑↑</displayName>
+				<displayName>ሶላር ራዲ</displayName>
 				<unitPattern count="one">{0} ሶላር ዳዲየስ</unitPattern>
 				<unitPattern count="other">{0} ሶላር ራዲ</unitPattern>
 			</unit>
@@ -7975,17 +7975,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="accusative">{0} ካራቶች</unitPattern>
 			</unit>
 			<unit type="mass-dalton">
-				<displayName>↑↑↑</displayName>
+				<displayName>ዳተንስ</displayName>
 				<unitPattern count="one">{0} ዳተንስ</unitPattern>
 				<unitPattern count="other">{0} ዳተንስ</unitPattern>
 			</unit>
 			<unit type="mass-earth-mass">
-				<displayName>↑↑↑</displayName>
+				<displayName>ኤርዝማስስ</displayName>
 				<unitPattern count="one">{0} ኤርዝማስስ</unitPattern>
 				<unitPattern count="other">{0} ኤርዝማስስ</unitPattern>
 			</unit>
 			<unit type="mass-solar-mass">
-				<displayName>↑↑↑</displayName>
+				<displayName>ሶላር ማስስ</displayName>
 				<unitPattern count="one">{0} ሶላር ማስስ</unitPattern>
 				<unitPattern count="other">{0} ሶላር ማስስ</unitPattern>
 			</unit>
@@ -10493,7 +10493,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<listPattern type="or-narrow">
 			<listPatternPart type="start">↑↑↑</listPatternPart>
 			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="end">{0}፣ ወይም {1}</listPatternPart>
 			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 		<listPattern type="or-short">

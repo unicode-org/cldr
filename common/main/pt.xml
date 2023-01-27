@@ -7472,13 +7472,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-percent">
 				<gender>masculine</gender>
 				<displayName>por cento</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} por cento</unitPattern>
 				<unitPattern count="other">{0} por cento</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
 				<gender>masculine</gender>
 				<displayName>por mil</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} por mil</unitPattern>
 				<unitPattern count="other">{0} por mil</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
@@ -8880,7 +8880,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="energy-british-thermal-unit">
 				<displayName>BTU</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} BTU</unitPattern>
 				<unitPattern count="other">{0} BTU</unitPattern>
 			</unit>
 			<unit type="energy-therm-us">

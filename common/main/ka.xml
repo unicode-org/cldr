@@ -524,7 +524,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="war">ვარაი</language>
 			<language type="wbp">ვალპირი</language>
 			<language type="wo">ვოლოფური</language>
-			<language type="wuu">ვუ</language>
+			<language type="wuu" draft="contributed">ვუ</language>
 			<language type="xal">ყალმუხური</language>
 			<language type="xh">ქჰოსა</language>
 			<language type="xog">სოგა</language>
@@ -1293,7 +1293,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -8375,7 +8375,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-solar-radius">
 				<displayName>☉ რადიუსი</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} ☉ რადიუსი</unitPattern>
 				<unitPattern count="other">{0} ☉ რადიუსი</unitPattern>
 			</unit>
 			<unit type="light-lux">
@@ -8395,7 +8395,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName>☉ სხივიერობა</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} ☉ სხივიერობა</unitPattern>
 				<unitPattern count="other">{0} ☉ სხივიერობა</unitPattern>
 			</unit>
 			<unit type="mass-tonne">
@@ -8604,7 +8604,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="torque-newton-meter">
 				<displayName>ნიუტ. მ</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} ნიუტ. მ</unitPattern>
 				<unitPattern count="other">{0} ნიუტ. მ</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
@@ -8952,7 +8952,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-decade">
-				<displayName>↑↑↑</displayName>
+				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>

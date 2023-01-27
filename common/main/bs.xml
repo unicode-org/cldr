@@ -16776,7 +16776,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-bar">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="few">{0} bara</unitPattern>
 				<unitPattern count="other">{0} bara</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
@@ -18674,7 +18674,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} mb</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} mb</unitPattern>
 			</unit>

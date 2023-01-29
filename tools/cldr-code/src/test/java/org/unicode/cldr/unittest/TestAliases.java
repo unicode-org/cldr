@@ -24,7 +24,12 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.SimpleFactory;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLSource;
 
 import com.google.common.base.Joiner;
@@ -409,29 +414,30 @@ public class TestAliases extends TestFmwk {
     }
 
     public void testLateralInheritance() {
-        {
-            Multimap<String, SuspiciousData> suspicious = getSuspicious(CLDRConfig.getInstance().getCLDRFile("fr_CA", true));
-            if (!suspicious.isEmpty()) {
-                errln("fr_CA" + "\n\t" + Joiner.on("\n\t").join(suspicious.entries()));
-            }
-        }
+//        {
+//            Multimap<String, SuspiciousData> suspicious = getSuspicious(CLDRConfig.getInstance().getCLDRFile("fr_CA", true));
+//            if (!suspicious.isEmpty()) {
+//                errln("fr_CA" + "\n\t" + Joiner.on("\n\t").join(suspicious.entries()));
+//            }
+//        }
 
         Map<String, Map<String, Counter<String>>> allCount = new LinkedHashMap<>();
+        Map<String, Breakdown> breakdownMap = new LinkedHashMap<>();
 
         for (String ldmlDirectory : DtdType.ldml.directories) {
             Map<String, Counter<String>> localeSuspiciousCount = new LinkedHashMap<>();
 
             final Factory factory = SimpleFactory.make(CLDRPaths.COMMON_DIRECTORY + ldmlDirectory, ".*");
             for (String locale : factory.getAvailable()) {
-                if ("root".equals(locale)) {
+                if (!"root".equals(LocaleIDParser.getParent(locale))) { // just L1 locales
                     continue;
                 }
 
                 CLDRFile cldrFile = factory.make(locale, true);
-                Multimap<String, SuspiciousData> suspicious = getSuspicious(cldrFile);
+                Multimap<String, SuspiciousData> suspicious = getSuspicious(cldrFile, breakdownMap);
                 if (!suspicious.isEmpty()) {
                     errln("\t" + locale + "\t" + suspicious.entries().size()
-                        + "\t\n" + Joiner.on("\n\t").join(suspicious.entries()));
+                        + "\n\t" + Joiner.on("\n\t").join(suspicious.entries()));
                     Counter<String> c = new Counter<>();
                     for (Entry<String, Collection<SuspiciousData>> entry : suspicious.asMap().entrySet()) {
                         localeSuspiciousCount.put(locale, c.add(entry.getKey(), entry.getValue().size()));
@@ -451,6 +457,42 @@ public class TestAliases extends TestFmwk {
                     System.out.println(dir + "\t" + locale + "\t" + entry3.get0() + "\t" + entry3.get1());
                 }
             }
+        }
+        CLDRFile english = config.getEnglish();
+        System.out.println("\nlocale\tName\tTarget (Org=cldr)\t" + Breakdown.header());
+        for (Entry<String, Breakdown> entry : breakdownMap.entrySet()) {
+            final String locale = entry.getKey();
+            Level target = StandardCodes.make().getLocaleCoverageLevel(Organization.cldr, locale);
+            String targetString = target.toString();
+            switch(target) {
+            case COMPREHENSIVE: targetString = Level.MODERN.toString(); break; // TODO change once English coverage is fixed.
+            case UNDETERMINED: targetString = "*"+Level.BASIC.toString(); break;
+            }
+            // target == Level.UNDETERMINED ? "-" :
+            System.out.println(locale
+                + "\t" + english.getName(locale)
+                + "\t" + targetString
+                + "\t" + entry.getValue());
+        }
+
+    }
+
+    private static final Joiner TAB_JOINER = Joiner.on('\t');
+
+    static final class Breakdown {
+        int notTargetNull;
+        int notTargetNotNull;
+        int targetNull;
+        int notInheritanceMarker;
+        int iMarkerSamePath;
+        int iMarkerDiffPathRoot;
+        int iMarkerDiffPathNotRoot;
+        @Override
+        public String toString() {
+            return TAB_JOINER.join(notTargetNull, notTargetNotNull, targetNull, notInheritanceMarker, iMarkerSamePath, iMarkerDiffPathRoot, iMarkerDiffPathNotRoot);
+        }
+        public static String header() {
+            return TAB_JOINER.join(">Target&Null", ">Target&!Null", "≤Target&Null", "!InheritanceMarker", "iMarker&=Path", "iMarker&≠Path&Root", "iMarker&≠Path&!Root");
         }
     }
 
@@ -478,36 +520,62 @@ public class TestAliases extends TestFmwk {
         }
     }
 
-    public Multimap<String,SuspiciousData> getSuspicious(CLDRFile cldrFile) {
+    public Multimap<String,SuspiciousData> getSuspicious(CLDRFile cldrFile, Map<String, Breakdown> breakdownMap) {
         Multimap<String,SuspiciousData> suspicious = TreeMultimap.create();
         if (!cldrFile.isResolved()) {
             throw new IllegalArgumentException();
         }
         CLDRFile unresolvedCldrFile = cldrFile.getUnresolved();
         String locale = cldrFile.getLocaleID();
+        Level target = StandardCodes.make().getLocaleCoverageLevel(Organization.cldr, locale);
+        switch(target) {
+        case COMPREHENSIVE: target = Level.MODERN; break; // TODO change once English coverage is fixed.
+        case UNDETERMINED: target = Level.BASIC; break;
+        }
+
         Output<String> foundPath = new Output<>();
         Output<String> foundLocale = new Output<>();
-        for (String path : unresolvedCldrFile) { // we only need to look at the actual items
+        Breakdown breakdown = breakdownMap.get(locale);
+        if (breakdown == null) {
+            breakdownMap.put(locale, breakdown = new Breakdown());
+        }
+        for (String path : cldrFile) { // TODO we only need to look at the actual items, not nulls. But right now we are catching them.
             String unresolvedValue = unresolvedCldrFile.getStringValue(path);
+
+            Level level = SupplementalDataInfo.getInstance().getCoverageLevel(path, locale);
+            if (target.compareTo(level) < 0) {
+                if (unresolvedValue == null) {
+                    breakdown.notTargetNull++;
+                } else {
+                    breakdown.notTargetNotNull++;
+                }
+                continue; // only worry about modern level paths
+            }
+            if (unresolvedValue == null) {
+                breakdown.targetNull++;
+                continue;
+            }
+
             if (!CldrUtility.INHERITANCE_MARKER.equals(unresolvedValue)) {
+                breakdown.notInheritanceMarker++;
                 continue;
             }
             cldrFile.getBaileyValue(path, foundPath, foundLocale);
             if (path.equals(foundPath.value)) {
+                breakdown.iMarkerSamePath++;
                 // if we find it in the same path (vertical) we are ok
                 continue;
             }
             // at this point, it is horizontal (path) inheritance
+            // if there is nothing between us and a root value, then
 
-            if ("root".equals(foundLocale.value)) {
+            if ("root".equals(foundLocale.value) || "code-fallback".equals(foundLocale.value)) {
+                breakdown.iMarkerDiffPathRoot++;
                 // if we fall all the way back to root that's ok.
                 continue;
             }
-            if (locale.equals(foundLocale.value)) {
-                // if we find it in the same locale (same horizontal), that's ok.
-                continue;
-            }
             // otherwise
+            breakdown.iMarkerDiffPathNotRoot++;
             suspicious.put(foundLocale.value, new SuspiciousData(path, foundPath.value, cldrFile.getStringValueWithBailey(path)));
         }
         return suspicious;

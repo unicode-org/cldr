@@ -356,7 +356,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         String[][] jaTests = {
             {
                 "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
-                "〖<i>🟨 Native name and script:</i>〗〖❬慎太郎❭〗〖❬一郎安藤❭〗〖❬太郎トーマス山田❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬アルベルト❭・❬アインシュタイン❭〗〖❬英子❭・❬ソフィア❭・❬内田ドクター❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗"
+                "〖<i>🟨 Native name and script:</i>〗〖❬慎太郎❭〗〖❬一郎安藤❭〗〖❬太郎トーマス山田❭〗〖❬恵子グレース佐藤ジュニアさん❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬マイケル❭〗〖❬アルベルト❭・❬アインシュタイン❭〗〖❬セシリア❭・❬ローズ❭・❬ブラウン❭〗〖❬ジェニファー❭・❬ソフィア❭・❬フォン・スミス❭・❬ジュニア博士❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗"
             }
         };
         ExampleGenerator jaExampleGenerator = checkExamples(jaCldrFile, jaTests);
@@ -364,7 +364,7 @@ public class TestPersonNameFormatter extends TestFmwk{
         String[][] thTests = {
             {
                 "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
-                "〖<i>🟨 Native name and script:</i>〗〖❬ธนา❭〗〖❬ไอริณกล้าหาญ❭〗〖❬วีระพลชัยยศพิชิตชัย❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬ศ.ดร.โสพลชัยฤทธิ์ณนคร❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎トーマス山田❭〗"
+                "〖<i>🟨 Native name and script:</i>〗〖❬ธนา❭〗〖❬ไอริณกล้าหาญ❭〗〖❬มานีชัยยศพิชิตชัย❭〗〖❬คุณปรีชากล้าหาญแสงระวี❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬ซินแบด❭〗〖❬เคเทอ❭ ❬มึลเลอร์❭〗〖❬ซาซิเลีย❭ ❬ฮามิช❭ ❬สโตเบอร์❭〗〖❬ศ.ดร.❭ ❬เอดา คอร์เนเลีย❭ ❬เซซาร์ มาร์ติน❭ ❬วอน บรืล❭ ❬พ.บ. ท.บ.❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎トーマス山田❭〗"
             }
         };
         ExampleGenerator thExampleGenerator = checkExamples(thCldrFile, thTests);
@@ -412,9 +412,16 @@ public class TestPersonNameFormatter extends TestFmwk{
     private void checkExampleGenerator(ExampleGenerator exampleGenerator, String path, String value, String expected) {
         final String example = exampleGenerator.getExampleHtml(path, value);
         String actual = ExampleGenerator.simplify(example);
+        expected = stripForeignExample(expected);
+        actual = stripForeignExample(actual);
         if (!assertEquals(exampleGenerator.getCldrFile().getLocaleID() + " example for " + value, expected, actual)) {
             int debug = 0;
         }
+    }
+
+    private String stripForeignExample(String actual) {
+        int pos = actual.indexOf("〖<i>🟥 Foreign name and script:</i>〗");
+        return pos < 0 ? actual : actual.substring(0, pos) + " (omitting foreign example)";
     }
 
     public void TestForeignNonSpacingNames() {

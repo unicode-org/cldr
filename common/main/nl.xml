@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -31,6 +31,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="afh">Afrihili</language>
 			<language type="agq">Aghem</language>
 			<language type="ain">Aino</language>
+			<language type="ajp" draft="contributed">Zuid-Levantijns-Arabisch</language>
 			<language type="ak">Akan</language>
 			<language type="akk">Akkadisch</language>
 			<language type="akz">Alabama</language>
@@ -81,6 +82,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="bfd">Bafut</language>
 			<language type="bfq">Badaga</language>
 			<language type="bg">Bulgaars</language>
+			<language type="bgc" draft="contributed">Haryanvi</language>
 			<language type="bgn">Westers Beloetsji</language>
 			<language type="bho">Bhojpuri</language>
 			<language type="bi">Bislama</language>
@@ -1245,6 +1247,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<variant type="FONNAPA" draft="contributed">Fonnapa</variant>
 			<variant type="FONUPA">Oeralisch Fonetisch Alfabet</variant>
 			<variant type="FONXSAMP" draft="contributed">Transcriptie volgens X-SAMPA</variant>
+			<variant type="GALLO" draft="contributed">Gallo</variant>
 			<variant type="GASCON" draft="contributed">Gascon</variant>
 			<variant type="GRCLASS" draft="contributed">Grclass</variant>
 			<variant type="GRITAL" draft="contributed">Grital</variant>
@@ -1300,6 +1303,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<variant type="SURMIRAN" draft="contributed">Surmiran</variant>
 			<variant type="SURSILV" draft="contributed">Sursilvan</variant>
 			<variant type="SUTSILV" draft="contributed">Sutsilvan</variant>
+			<variant type="SYNNEJYL" draft="contributed">Zuid-Jutlands</variant>
 			<variant type="TARASK">Taraskievica-spelling</variant>
 			<variant type="TONGYONG" draft="contributed">Tongyong</variant>
 			<variant type="TUNUMIIT" draft="contributed">Tunumiisiut</variant>
@@ -9531,6 +9535,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Hermosillo">
 				<exemplarCity>Hermosillo</exemplarCity>
 			</zone>
+			<zone type="America/Ciudad_Juarez">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
 			<zone type="America/Mazatlan">
 				<exemplarCity>Mazatlán</exemplarCity>
 			</zone>
@@ -12828,9 +12835,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -12845,6 +12854,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -12855,9 +12865,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -12868,9 +12880,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -12881,9 +12895,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -12894,9 +12910,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -12907,9 +12925,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -12920,9 +12940,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -12933,9 +12955,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -12946,9 +12970,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -12959,9 +12985,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -12972,9 +13000,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -12985,9 +13015,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -12998,9 +13030,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13011,9 +13045,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13024,9 +13060,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13037,9 +13075,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13050,9 +13090,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13063,9 +13105,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13076,9 +13120,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13132,9 +13178,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13145,9 +13193,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13158,9 +13208,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13171,9 +13223,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13184,9 +13238,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13197,9 +13253,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13210,9 +13268,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13223,9 +13283,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13236,9 +13298,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13249,9 +13313,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13262,9 +13328,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13275,9 +13343,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13288,9 +13358,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13301,9 +13373,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13314,9 +13388,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13327,9 +13403,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13340,9 +13418,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13353,9 +13433,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13366,9 +13448,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13379,9 +13463,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13392,9 +13478,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -13405,9 +13493,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="contributed">¤ #,##0.00;¤ -#,##0.00</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="contributed">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO draft="contributed">↑↑↑</currencyPatternAppendISO>
@@ -14860,6 +14950,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">Slowaakse koruna</displayName>
 				<symbol draft="contributed">SKK</symbol>
 			</currency>
+			<currency type="SLE">
+				<displayName>Sierra Leoonse leone</displayName>
+				<displayName count="one">↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
 			<currency type="SLL">
 				<displayName>Sierraleoonse leone</displayName>
 				<displayName count="one">Sierraleoonse leone</displayName>
@@ -15094,6 +15190,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">Venezolaanse bolivar (1871–2008)</displayName>
 				<displayName count="other">Venezolaanse bolivar (1871–2008)</displayName>
 				<symbol draft="contributed">VEB</symbol>
+			</currency>
+			<currency type="VED">
+				<displayName draft="contributed">Bolívar Soberano</displayName>
+				<displayName count="one" draft="contributed">Bolívar Soberano</displayName>
+				<displayName count="other" draft="contributed">Bolívar Soberanos</displayName>
+				<symbol draft="contributed">VED</symbol>
 			</currency>
 			<currency type="VEF">
 				<displayName>Venezolaanse bolivar (2008–2018)</displayName>
@@ -19199,7 +19301,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	</typographicNames>
 	<personNames>
 		<nameOrderLocales order="givenFirst">und nl</nameOrderLocales>
-		<nameOrderLocales order="surnameFirst">ko vi yue zh</nameOrderLocales>
+		<nameOrderLocales order="surnameFirst">↑↑↑</nameOrderLocales>
 		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
 		<initialPattern type="initial">{0}.</initialPattern>
 		<initialPattern type="initialSequence">{0}{1}</initialPattern>
@@ -19218,152 +19320,176 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			 "mevrouw Jansen-de Jong" -> "Dear mevrouw Jansen"
 		-->
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">{given} {given2} {surname} {credentials}</namePattern>
+			<namePattern>{title} {given} {given2} {surname} {generation} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">{given-informal} {surname}</namePattern>
+			<namePattern>{given-informal} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{given-monogram-allCaps}{given2-monogram-allCaps}{surname-prefix-monogram}{surname-core-monogram-allCaps}</namePattern>
+			<namePattern>{given-monogram-allCaps}{given2-monogram-allCaps}{surname-prefix-monogram}{surname-core-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="informal">
-			<namePattern draft="provisional">{given-informal-monogram-allCaps}{surname-prefix-monogram}{surname-core-monogram-allCaps}</namePattern>
+			<namePattern>{given-informal-monogram-allCaps}{surname-prefix-monogram}{surname-core-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">{given} {given2-initial} {surname} {credentials}</namePattern>
+			<namePattern>{given} {given2-initial} {surname} {generation} {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">{given-informal} {surname}</namePattern>
+			<namePattern>{given-informal} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{surname-prefix-monogram}{surname-core-monogram-allCaps}</namePattern>
+			<namePattern>{surname-prefix-monogram}{surname-core-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="informal">
-			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
+			<namePattern>{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="formal">
-			<namePattern draft="provisional">{given-initial}{given2-initial} {surname}</namePattern>
+			<namePattern>{given-initial}{given2-initial} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">{given-informal} {surname-initial}</namePattern>
+			<namePattern>{given-informal} {surname-initial}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{surname-prefix-monogram}{surname-core-monogram-allCaps}</namePattern>
+			<namePattern>{surname-prefix-monogram}{surname-core-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="informal">
-			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
+			<namePattern>{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname} {given} {given2} {credentials}</namePattern>
+			<namePattern>{title} {surname} {given} {given2} {generation} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname} {given-informal}</namePattern>
+			<namePattern>{surname} {given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{surname-monogram-allCaps}{given-monogram-allCaps}{given2-monogram-allCaps}</namePattern>
+			<namePattern>{surname-prefix-monogram}{surname-core-monogram-allCaps}{given-monogram-allCaps}{given2-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="informal">
-			<namePattern draft="provisional">{surname-monogram-allCaps}{given-informal-monogram-allCaps}</namePattern>
+			<namePattern>{surname-prefix-monogram}{surname-core-monogram-allCaps}{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname} {given} {given2-initial} {credentials}</namePattern>
+			<namePattern>{surname} {given} {given2-initial} {generation} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname} {given-informal}</namePattern>
+			<namePattern>{surname} {given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{surname-prefix-monogram}{surname-core-monogram-allCaps}</namePattern>
+			<namePattern>{surname-prefix-monogram}{surname-core-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="informal">
-			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
+			<namePattern>{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname} {given-initial} {given2-initial}</namePattern>
+			<namePattern>{surname} {given-initial} {given2-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname} {given-initial}</namePattern>
+			<namePattern>{surname} {given-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{surname-prefix-monogram}{surname-core-monogram-allCaps}</namePattern>
+			<namePattern>{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="monogram" formality="informal">
-			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
+			<namePattern>{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname}, {given} {given2} {credentials}</namePattern>
+			<namePattern>{surname-core}, {given} {given2} {surname-prefix}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>
+			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname}, {given} {given2-initial} {credentials}</namePattern>
+			<namePattern>{surname}, {given} {given2-initial} {credentials}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>
+			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname}, {given-initial} {given2-initial}</namePattern>
+			<namePattern>{surname}, {given-initial} {given2-initial}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>
+			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
 		<sampleName item="nativeG">
-			<nameField type="given" draft="provisional">Sinbad</nameField>
+			<nameField type="given">Fatima</nameField>
 		</sampleName>
 		<sampleName item="nativeGS">
-			<nameField type="given" draft="provisional">Irene</nameField>
-			<nameField type="surname" draft="provisional">Bakker</nameField>
+			<nameField type="given">Irene</nameField>
+			<nameField type="surname">Bakker</nameField>
 		</sampleName>
 		<sampleName item="nativeGGS">
-			<nameField type="given" draft="provisional">Peter</nameField>
-			<nameField type="given2" draft="provisional">Johannes</nameField>
-			<nameField type="surname" draft="provisional">Willemse</nameField>
+			<nameField type="given">Heidi</nameField>
+			<nameField type="given2">Johannes</nameField>
+			<nameField type="surname">Willemse</nameField>
+		</sampleName>
+		<sampleName item="nativeFull">
+			<nameField type="title">dhr.</nameField>
+			<nameField type="given">Bertus Wevers</nameField>
+			<nameField type="given-informal">Bert</nameField>
+			<nameField type="given2">Harry Robert</nameField>
+			<nameField type="surname-prefix">de</nameField>
+			<nameField type="surname-core">Jong</nameField>
+			<nameField type="surname2">∅∅∅</nameField>
+			<nameField type="generation">jr.</nameField>
+			<nameField type="credentials">mp</nameField>
+		</sampleName>
+		<sampleName item="foreignG">
+			<nameField type="given">Sinbad</nameField>
+		</sampleName>
+		<sampleName item="foreignGS">
+			<nameField type="given">Käthe</nameField>
+			<nameField type="surname">Müller</nameField>
+		</sampleName>
+		<sampleName item="foreignGGS">
+			<nameField type="given">Zäzilia</nameField>
+			<nameField type="given2">Hamish</nameField>
+			<nameField type="surname">Stöber</nameField>
 		</sampleName>
 		<sampleName item="foreignFull">
-			<nameField type="title" draft="provisional">mevrouw</nameField>
-			<nameField type="given" draft="provisional">Ingrid</nameField>
-			<nameField type="given-informal" draft="provisional">Ingy</nameField>
-			<nameField type="given2" draft="provisional">Francina Zoë</nameField>
-			<nameField type="surname-prefix" draft="provisional">van den</nameField>
-			<nameField type="surname-core" draft="provisional">Berg</nameField>
-			<nameField type="surname2" draft="provisional">Wolff Metternich</nameField>
-			<nameField type="credentials" draft="provisional">PhD</nameField>
+			<nameField type="title">mevrouw</nameField>
+			<nameField type="given">Ada Cornelia</nameField>
+			<nameField type="given-informal">Neele</nameField>
+			<nameField type="given2">César Martín</nameField>
+			<nameField type="surname-prefix">von</nameField>
+			<nameField type="surname-core">Brühl</nameField>
+			<nameField type="surname2">González Domingo</nameField>
+			<nameField type="generation">jr.</nameField>
+			<nameField type="credentials">PhD</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

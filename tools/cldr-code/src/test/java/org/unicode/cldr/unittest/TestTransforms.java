@@ -751,7 +751,7 @@ public class TestTransforms extends TestFmwkPlus {
 
             Transliterator t;
             try {
-                t = CLDRTransforms.getScriptTransform(script);
+                t = CLDRTransforms.getTestingLatinScriptTransform(script);
             } catch (Exception e) {
                 missing.add(locale);
                 continue;
@@ -780,7 +780,7 @@ public class TestTransforms extends TestFmwkPlus {
                 System.out.println("《 => " + result);
                 CLDRTransforms.showTransliterator("", spacedHan, 100000);
 
-                Transliterator hantLatin = CLDRTransforms.getScriptTransform("Hans");
+                Transliterator hantLatin = CLDRTransforms.getTestingLatinScriptTransform("Hans");
                 System.out.println("《 => " + hantLatin.transform("《"));
                 CLDRTransforms.showTransliterator("", hantLatin, 100000);
             }

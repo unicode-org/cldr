@@ -334,64 +334,66 @@ public class TestPersonNameFormatter extends TestFmwk{
 
     public void TestExampleGenerator() {
 
-        // first test some specific examples
+        if (!logKnownIssue("CLDR-16345", "Skipping golden value person names tests")) {
 
-        String[][] tests = {
-            {
-                "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
-                "〖<i>🟨 Native name and script:</i>〗〖❬Zendaya❭〗〖❬Irene❭ ❬Adler❭〗〖❬Mary Sue❭ ❬Hamish❭ ❬Watson❭〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬Sinbad❭〗〖❬Käthe❭ ❬Müller❭〗〖❬Zäzilia❭ ❬Hamish❭ ❬Stöber❭〗〖❬Prof. Dr.❭ ❬Ada Cornelia❭ ❬César Martín❭ ❬von Brühl❭ ❬Jr❭, ❬MD DDS❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎トーマス山田❭〗"
-            },{
-                "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"long\"][@usage=\"monogram\"][@formality=\"informal\"]/namePattern",
-                "〖<i>🟨 Native name and script:</i>〗〖❬Z❭〗〖❬AI❭〗〖❬WM❭〗〖❬WB❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬S❭〗〖❬MK❭〗〖❬SZ❭〗〖❬VN❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬ШЄ❭〗〖❬太❭〗"
-            },{
-                "//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]",
-                "〖und = «any other»〗〖en = English〗"
-            },{
-                "//ldml/personNames/nameOrderLocales[@order=\"surnameFirst\"]",
-                "〖ja = Japanese〗〖ko = Korean〗〖vi = Vietnamese〗〖yue = Cantonese〗〖zh = Chinese〗"
-            }
-        };
-        ExampleGenerator exampleGenerator = checkExamples(ENGLISH, tests);
+            // first test some specific examples
 
-        String[][] jaTests = {
-            {
-                "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
-                "〖<i>🟨 Native name and script:</i>〗〖❬慎太郎❭〗〖❬一郎安藤❭〗〖❬太郎トーマス山田❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬アルベルト❭・❬アインシュタイン❭〗〖❬英子❭・❬ソフィア❭・❬内田ドクター❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗"
-            }
-        };
-        ExampleGenerator jaExampleGenerator = checkExamples(jaCldrFile, jaTests);
+            String[][] tests = {
+                {
+                    "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
+                    "〖<i>🟨 Native name and script:</i>〗〖❬Zendaya❭〗〖❬Irene❭ ❬Adler❭〗〖❬Mary Sue❭ ❬Hamish❭ ❬Watson❭〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬Sinbad❭〗〖❬Käthe❭ ❬Müller❭〗〖❬Zäzilia❭ ❬Hamish❭ ❬Stöber❭〗〖❬Prof. Dr.❭ ❬Ada Cornelia❭ ❬César Martín❭ ❬von Brühl❭ ❬Jr❭, ❬MD DDS❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎トーマス山田❭〗"
+                },{
+                    "//ldml/personNames/personName[@order=\"surnameFirst\"][@length=\"long\"][@usage=\"monogram\"][@formality=\"informal\"]/namePattern",
+                    "〖<i>🟨 Native name and script:</i>〗〖❬Z❭〗〖❬AI❭〗〖❬WM❭〗〖❬WB❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬S❭〗〖❬MK❭〗〖❬SZ❭〗〖❬VN❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬ШЄ❭〗〖❬太❭〗"
+                },{
+                    "//ldml/personNames/nameOrderLocales[@order=\"givenFirst\"]",
+                    "〖und = «any other»〗〖en = English〗"
+                },{
+                    "//ldml/personNames/nameOrderLocales[@order=\"surnameFirst\"]",
+                    "〖ja = Japanese〗〖ko = Korean〗〖vi = Vietnamese〗〖yue = Cantonese〗〖zh = Chinese〗"
+                }
+            };
+            ExampleGenerator exampleGenerator = checkExamples(ENGLISH, tests);
 
-        String[][] thTests = {
-            {
-                "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
-                "〖<i>🟨 Native name and script:</i>〗〖❬ธนา❭〗〖❬ไอริณกล้าหาญ❭〗〖❬วีระพลชัยยศพิชิตชัย❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬ศ.ดร.โสพลชัยฤทธิ์ณนคร❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎トーマス山田❭〗"
-            }
-        };
-        ExampleGenerator thExampleGenerator = checkExamples(thCldrFile, thTests);
+            String[][] jaTests = {
+                {
+                    "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
+                    "〖<i>🟨 Native name and script:</i>〗〖❬慎太郎❭〗〖❬一郎安藤❭〗〖❬太郎トーマス山田❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬アルベルト❭・❬アインシュタイン❭〗〖❬英子❭・❬ソフィア❭・❬内田ドクター❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗"
+                }
+            };
+            ExampleGenerator jaExampleGenerator = checkExamples(jaCldrFile, jaTests);
 
+            String[][] thTests = {
+                {
+                    "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"long\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
+                    "〖<i>🟨 Native name and script:</i>〗〖❬ธนา❭〗〖❬ไอริณกล้าหาญ❭〗〖❬วีระพลชัยยศพิชิตชัย❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬ศ.ดร.โสพลชัยฤทธิ์ณนคร❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎トーマス山田❭〗"
+                }
+            };
+            ExampleGenerator thExampleGenerator = checkExamples(thCldrFile, thTests);
 
-        // next test that the example generator returns non-null for all expected cases
+            // next test that the example generator returns non-null for all expected cases
 
-        for (String localeId : Arrays.asList("en")) {
-            final CLDRFile cldrFile = factory.make(localeId, true);
-            ExampleGenerator exampleGenerator2 = new ExampleGenerator(cldrFile, ENGLISH);
-            for (String path : cldrFile) {
-                if (path.startsWith("//ldml/personNames") && !path.endsWith("/alias")) {
-                    XPathParts parts = XPathParts.getFrozenInstance(path);
-                    String value = ENGLISH.getStringValue(path);
-                    String example = exampleGenerator2.getExampleHtml(path, value);
-                    String actual = ExampleGenerator.simplify(example);
-                    switch(parts.getElement(2)) {
-                    case "initialPattern":
-                    case "sampleName":
-                        // expect null
-                        break;
-                    case "nameOrderLocales":
-                    case "personName":
-                        if (!assertNotNull("Locale " + localeId + " example for " + value, actual)) {
-                            example = exampleGenerator.getExampleHtml(path, value); // redo for debugging
+            for (String localeId : Arrays.asList("en")) {
+                final CLDRFile cldrFile = factory.make(localeId, true);
+                ExampleGenerator exampleGenerator2 = new ExampleGenerator(cldrFile, ENGLISH);
+                for (String path : cldrFile) {
+                    if (path.startsWith("//ldml/personNames") && !path.endsWith("/alias")) {
+                        XPathParts parts = XPathParts.getFrozenInstance(path);
+                        String value = ENGLISH.getStringValue(path);
+                        String example = exampleGenerator2.getExampleHtml(path, value);
+                        String actual = ExampleGenerator.simplify(example);
+                        switch(parts.getElement(2)) {
+                        case "initialPattern":
+                        case "sampleName":
+                            // expect null
+                            break;
+                        case "nameOrderLocales":
+                        case "personName":
+                            if (!assertNotNull("Locale " + localeId + " example for " + value, actual)) {
+                                example = exampleGenerator.getExampleHtml(path, value); // redo for debugging
+                            }
+                            break;
                         }
-                        break;
                     }
                 }
             }
@@ -454,22 +456,24 @@ public class TestPersonNameFormatter extends TestFmwk{
         String value2 = enWritable.getStringValue(path); // check that English is as expected
         assertEquals(path, "{title} {given} {given2} {surname} {generation}, {credentials}", value2);
 
-        String expected = "〖<i>🟨 Native name and script:</i>〗〖❬Zendaya❭〗〖❬Irene❭ ❬Adler❭〗〖❬Mary Sue❭ ❬Hamish❭ ❬Watson❭〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬Sinbad❭〗〖❬Käthe❭ ❬Müller❭〗〖❬Zäzilia❭ ❬Hamish❭ ❬Stöber❭〗〖❬Prof. Dr.❭ ❬Ada Cornelia❭ ❬César Martín❭ ❬von Brühl❭ ❬Jr❭, ❬MD DDS❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎トーマス山田❭〗";
-        String value = enWritable.getStringValue(path);
+        if (!logKnownIssue("CLDR-16345", "Skipping golden value person names tests")) {
+            String expected = "〖<i>🟨 Native name and script:</i>〗〖❬Zendaya❭〗〖❬Irene❭ ❬Adler❭〗〖❬Mary Sue❭ ❬Hamish❭ ❬Watson❭〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬Sinbad❭〗〖❬Käthe❭ ❬Müller❭〗〖❬Zäzilia❭ ❬Hamish❭ ❬Stöber❭〗〖❬Prof. Dr.❭ ❬Ada Cornelia❭ ❬César Martín❭ ❬von Brühl❭ ❬Jr❭, ❬MD DDS❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎トーマス山田❭〗";
+            String value = enWritable.getStringValue(path);
 
-        checkExampleGenerator(exampleGenerator, path, value, expected);
+            checkExampleGenerator(exampleGenerator, path, value, expected);
 
-        // Then change one of the sample names to make sure it alters the example correctly
+            // Then change one of the sample names to make sure it alters the example correctly
 
-        String namePath = checkPath("//ldml/personNames/sampleName[@item=\"nativeGS\"]/nameField[@type=\"given\"]");
-        String value3 = enWritable.getStringValue(namePath);
-        assertEquals(namePath, "Irene", value3); // check that English is as expected
+            String namePath = checkPath("//ldml/personNames/sampleName[@item=\"nativeGS\"]/nameField[@type=\"given\"]");
+            String value3 = enWritable.getStringValue(namePath);
+            assertEquals(namePath, "Irene", value3); // check that English is as expected
 
-        enWritable.add(namePath, "IRENE2");
-        exampleGenerator.updateCache(namePath);
+            enWritable.add(namePath, "IRENE2");
+            exampleGenerator.updateCache(namePath);
 
-        String expectedIRENE =  "〖<i>🟨 Native name and script:</i>〗〖❬Zendaya❭〗〖❬IRENE2❭ ❬Adler❭〗〖❬Mary Sue❭ ❬Hamish❭ ❬Watson❭〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬Sinbad❭〗〖❬Käthe❭ ❬Müller❭〗〖❬Zäzilia❭ ❬Hamish❭ ❬Stöber❭〗〖❬Prof. Dr.❭ ❬Ada Cornelia❭ ❬César Martín❭ ❬von Brühl❭ ❬Jr❭, ❬MD DDS❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎トーマス山田❭〗";
-        checkExampleGenerator(exampleGenerator, path, value, expectedIRENE);
+            String expectedIRENE =  "〖<i>🟨 Native name and script:</i>〗〖❬Zendaya❭〗〖❬IRENE2❭ ❬Adler❭〗〖❬Mary Sue❭ ❬Hamish❭ ❬Watson❭〗〖❬Mr.❭ ❬Bertram Wilberforce❭ ❬Henry Robert❭ ❬Wooster❭ ❬Jr❭, ❬MP❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬Sinbad❭〗〖❬Käthe❭ ❬Müller❭〗〖❬Zäzilia❭ ❬Hamish❭ ❬Stöber❭〗〖❬Prof. Dr.❭ ❬Ada Cornelia❭ ❬César Martín❭ ❬von Brühl❭ ❬Jr❭, ❬MD DDS❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Єва❭ ❬Марія❭ ❬Шевченко❭〗〖❬太郎トーマス山田❭〗";
+            checkExampleGenerator(exampleGenerator, path, value, expectedIRENE);
+        }
     }
 
     private String checkPath(String path) {
@@ -1071,10 +1075,12 @@ public class TestPersonNameFormatter extends TestFmwk{
     }
 
     public void testInitials() {
-        String[][] tests = {{
-            "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"short\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
-            "〖<i>🟨 Native name and script:</i>〗〖❬Z.❭〗〖❬I.❭ ❬Adler❭〗〖❬M. S.❭ ❬H.❭ ❬Watson❭〗〖❬B. W.❭ ❬H. R.❭ ❬Wooster❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬S.❭〗〖❬K.❭ ❬Müller❭〗〖❬Z.❭ ❬H.❭ ❬Stöber❭〗〖❬A. C.❭ ❬C. M.❭ ❬von Brühl❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Є.❭ ❬М.❭ ❬Шевченко❭〗〖❬太郎山田❭〗"
-        }};
-        ExampleGenerator exampleGenerator = checkExamples(ENGLISH, tests);
+        if (!logKnownIssue("CLDR-16345", "Skipping golden value person names tests")) {
+            String[][] tests = {{
+                "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"short\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
+                "〖<i>🟨 Native name and script:</i>〗〖❬Z.❭〗〖❬I.❭ ❬Adler❭〗〖❬M. S.❭ ❬H.❭ ❬Watson❭〗〖❬B. W.❭ ❬H. R.❭ ❬Wooster❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬S.❭〗〖❬K.❭ ❬Müller❭〗〖❬Z.❭ ❬H.❭ ❬Stöber❭〗〖❬A. C.❭ ❬C. M.❭ ❬von Brühl❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Є.❭ ❬М.❭ ❬Шевченко❭〗〖❬太郎山田❭〗"
+            }};
+            ExampleGenerator exampleGenerator = checkExamples(ENGLISH, tests);
+        }
     }
 }

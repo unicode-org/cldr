@@ -11,12 +11,33 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="pap"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern draft="unconfirmed">↑↑↑</localePattern>
+			<localeSeparator draft="unconfirmed">↑↑↑</localeSeparator>
+		</localeDisplayPattern>
 		<languages>
+			<language type="en" draft="unconfirmed">ingles</language>
 			<language type="pap">Papiamentu</language>
 		</languages>
+		<scripts>
+			<script type="Latn" draft="unconfirmed">Latin</script>
+		</scripts>
 		<territories>
+			<territory type="AW" draft="unconfirmed">Aruba</territory>
 			<territory type="CW">Kòrsou</territory>
+			<territory type="TR" draft="unconfirmed">Turkia</territory>
+			<territory type="TR" alt="variant" draft="unconfirmed">↑↑↑</territory>
 		</territories>
+		<measurementSystemNames>
+			<measurementSystemName type="metric" draft="unconfirmed">meter</measurementSystemName>
+			<measurementSystemName type="UK" draft="unconfirmed">britániko</measurementSystemName>
+			<measurementSystemName type="US" draft="unconfirmed">merikano</measurementSystemName>
+		</measurementSystemNames>
+		<codePatterns>
+			<codePattern type="language" draft="unconfirmed">Idioma: {0}</codePattern>
+			<codePattern type="script" draft="unconfirmed">Manera di skirbi: {0}</codePattern>
+			<codePattern type="territory" draft="unconfirmed">Region: {0}</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a b c d e è f g h i j k l m n ñ o ò p q r s t u ù ü v w x y z]</exemplarCharacters>
@@ -24,6 +45,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="numbers">[\- ‑ , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‑ , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] § @ / \&amp; # % ′ ″]</exemplarCharacters>
 	</characters>
+	<delimiters>
+		<quotationStart draft="unconfirmed">↑↑↑</quotationStart>
+		<quotationEnd draft="unconfirmed">↑↑↑</quotationEnd>
+		<alternateQuotationStart draft="unconfirmed">↑↑↑</alternateQuotationStart>
+		<alternateQuotationEnd draft="unconfirmed">↑↑↑</alternateQuotationEnd>
+	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
@@ -58,15 +85,101 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dayWidth>
 					</dayContext>
 				</days>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">↑↑↑</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">↑↑↑</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="hm" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hm" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hms" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hms" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hmsv" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hmsv" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMd" draft="unconfirmed">dd-MM-y</dateFormatItem>
+						<dateFormatItem id="yMMMd" draft="unconfirmed">d MMM y</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatFallback draft="unconfirmed">↑↑↑</intervalFormatFallback>
+					</intervalFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<hourFormat draft="unconfirmed">↑↑↑</hourFormat>
+			<gmtFormat draft="unconfirmed">↑↑↑</gmtFormat>
+			<gmtZeroFormat draft="unconfirmed">↑↑↑</gmtZeroFormat>
+			<regionFormat draft="unconfirmed">ora di {0}</regionFormat>
+			<regionFormat type="daylight" draft="unconfirmed">↑↑↑</regionFormat>
+			<regionFormat type="standard" draft="unconfirmed">↑↑↑</regionFormat>
+			<fallbackFormat draft="unconfirmed">↑↑↑</fallbackFormat>
+			<metazone type="GMT">
+				<long>
+					<standard draft="unconfirmed">Greenwich Mean Time</standard>
+				</long>
+			</metazone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
+		<defaultNumberingSystem draft="unconfirmed">↑↑↑</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native draft="unconfirmed">↑↑↑</native>
+		</otherNumberingSystems>
 		<symbols numberSystem="latn">
 			<decimal>.</decimal>
 			<group>,</group>
 			<percentSign>%</percentSign>
+			<plusSign draft="unconfirmed">↑↑↑</plusSign>
 			<minusSign>-</minusSign>
 		</symbols>
+		<decimalFormats numberSystem="latn">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<scientificFormats numberSystem="latn">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<currencyFormats numberSystem="latn">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern>↑↑↑</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 	</numbers>
+	<personNames>
+		<personName order="givenFirst" length="long" usage="referring" formality="formal">
+			<namePattern draft="unconfirmed">{title} {given} {given2} {surname} {surname2}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
+			<namePattern draft="unconfirmed">{title} {surname} {surname2} {given} {given2}</namePattern>
+		</personName>
+		<sampleName item="nativeG">
+			<nameField type="given" draft="unconfirmed">Zendaya</nameField>
+		</sampleName>
+		<sampleName item="nativeGS">
+			<nameField type="given" draft="unconfirmed">Irene</nameField>
+		</sampleName>
+		<sampleName item="nativeGGS">
+			<nameField type="given" draft="unconfirmed">Mari-Sue</nameField>
+		</sampleName>
+		<sampleName item="nativeFull">
+			<nameField type="given" draft="unconfirmed">Jackson Martina</nameField>
+		</sampleName>
+		<sampleName item="foreignFull">
+			<nameField type="given" draft="unconfirmed">Ada Kornelia</nameField>
+		</sampleName>
+	</personNames>
 </ldml>

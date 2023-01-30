@@ -584,6 +584,9 @@ public class CLDRModify {
 
     static PathChecker pathChecker = new PathChecker();
 
+    /**
+     * Implementation for a certain type of filter. Each filter has a letter associated with it.
+     */
     abstract static class CLDRFilter {
         protected CLDRFile cldrFileToFilter;
         protected CLDRFile cldrFileToFilterResolved;
@@ -593,6 +596,13 @@ public class CLDRModify {
         private CLDRFile toBeReplaced;
         protected Factory factory;
 
+        /**
+         * Called when a new locale is being processed
+         * @param k
+         * @param factory
+         * @param removal
+         * @param replacements
+         */
         public final void setFile(CLDRFile k, Factory factory, Set<String> removal, CLDRFile replacements) {
             this.cldrFileToFilter = k;
             cldrFileToFilterResolved = null;
@@ -603,11 +613,21 @@ public class CLDRModify {
             handleStart();
         }
 
+        /**
+         * Called by setFile() before all processing for a file
+         */
         public void handleStart() {
         }
 
+        /**
+         * Called for each xpath
+         * @param xpath
+         */
         public abstract void handlePath(String xpath);
 
+        /**
+         * Called after all xpaths in this file are handled
+         */
         public void handleEnd() {
         }
 
@@ -739,11 +759,22 @@ public class CLDRModify {
             return toBeReplaced;
         }
 
+        /**
+         * Called before all files are processed.
+         * Note: TODO: This is called unconditionally, whether the filter is enabled or not. It should
+         * only be called if the filter is enabled. Reference: https://unicode-org.atlassian.net/browse/CLDR-16343
+         */
+        public void handleSetup() {
+        }
+
+        /**
+         * Called after all files are processed.
+         * Note: TODO: This is called unconditionally, whether the filter is enabled or not. It should
+         * only be called if the filter is enabled. Reference: https://unicode-org.atlassian.net/browse/CLDR-16343
+         */
         public void handleCleanup() {
         }
 
-        public void handleSetup() {
-        }
 
         public String getLocaleID() {
             return localeID;
@@ -2193,15 +2224,20 @@ public class CLDRModify {
             // For example, vetdata-2023-01-23-plain-dropfalse ... see https://github.com/unicode-org/cldr/pull/2659
             // Also ldml.dtd is required -- and should already have been created by ST when generating vxml
             final private String vxmlDir = "../vetdata-2023-01-23-plain-dropfalse/vxml/";
-            final private File[] list = new File[]{
-                new File(vxmlDir + "common/main/"),
-                new File(vxmlDir + "common/annotations/")
-            };
             private Factory vxmlFactory = null;
             private CLDRFile vxmlFile = null;
-            // private int steps = 0;
             private CLDRFile baselineFileUnresolved = null;
             private CLDRFile baselineFileResolved = null;
+            private File[] list = null;
+
+            @Override
+            public void handleSetup() {
+                final String vxmlSubPath = vxmlDir + "common/" + new File(options[SOURCEDIR].value).getName();
+                System.out.println(vxmlSubPath);
+                list = new File[]{
+                    new File(vxmlSubPath)
+                };
+            }
 
             @Override
             public void handleStart() {
@@ -2229,36 +2265,28 @@ public class CLDRModify {
 
             @Override
             public void handlePath(String xpath) {
-                boolean deb = xpath.contains("Ciudad_Juarez");
-                if (deb) {
-                    // TODO: this never happens -- because we're looping through baseline paths,
-                    // and this is a new path. Instead, we should be looping through plain-vxml paths,
-                    // that is, with the data in https://github.com/unicode-org/cldr/pull/2659 already
-                    // merged into cldr/common/main instead of in ../vetdata-2023-01-23-plain-dropfalse/...,
-                    // and we should have a copy of the current main-branch common/main in an external folder, such
-                    // as ../baseline-2023-01-27
-                    // -- that means sort of a reversal: cldrFileToFilter will have plain-vxml, and instead
-                    // of vxmlFile and vxmlValue, we'll have baselineFile and baselineValue ...
+                boolean debugging = false; // xpath.contains("Ciudad_Juarez");
+                if (debugging) {
                     System.out.println("handlePath: got Ciudad_Juarez");
                 }
                 if (vxmlFile == null) {
-                    if (deb) {
+                    if (debugging) {
                         System.out.println("handlePath: vxmlFile is null");
                     }
                     return; // use baseline
                 }
                 String vxmlValue = vxmlFile.getStringValue(xpath);
                 if (vxmlValue == null) {
-                    throw new RuntimeException("vxmlValue == null");
+                    throw new RuntimeException(this.getLocaleID() + ":" + xpath + ": vxmlValue == null");
                 }
                 if (!wantRevertToBaseline(xpath, vxmlValue)) {
-                    if (deb) {
+                    if (debugging) {
                         System.out.println("handlePath: wantRevertToBaseline false");
                     }
                     String fullXPath = vxmlFile.getFullXPath(xpath);
                     replace(fullXPath, fullXPath, vxmlValue);
                 } else {
-                    if (deb) {
+                    if (debugging) {
                         System.out.println("handlePath: wantRevertToBaseline true");
                     }
                 }
@@ -2266,23 +2294,23 @@ public class CLDRModify {
 
             private boolean wantRevertToBaseline(String xpath, String vxmlValue) {
                 String localeID = cldrFileToFilter.getLocaleID();
-                boolean deb = xpath.contains("Ciudad_Juarez");
+                boolean debugging = false; // xpath.contains("Ciudad_Juarez");
                 // boolean deb = "//ldml/dates/timeZoneNames/zone[@type=\"America/Ciudad_Juarez\"]/exemplarCity".equals(xpath);
                 // boolean deb = ("ru".equals(localeID) && "//ldml/dates/timeZoneNames/zone[@type=\"America/Ciudad_Juarez\"]/exemplarCity".equals(xpath));
-                if (deb) {
+                if (debugging) {
                     System.out.println("wantRevertToBaseline: got Ciudad_Juarez");
                 }
                 String fullXPath = vxmlFile.getFullXPath(xpath);
                 if (!changesWereAllowed(localeID, xpath, fullXPath)) {
                     // criterion 2: if Survey Tool did NOT allow changes in the locale/path in v43, MUST revert to baseline
-                    if (deb) {
+                    if (debugging) {
                         System.out.println("wantRevertToBaseline: return true since changes not allowed");
                     }
                     return true;
                 }
                 if (!CldrUtility.INHERITANCE_MARKER.equals(vxmlValue)) {
                     // criterion zero: if vxml value is not ↑↑↑, don't revert to baseline
-                    if (deb) {
+                    if (debugging) {
                         System.out.println("wantRevertToBaseline: return for 0");
                     }
                     return false;
@@ -2291,7 +2319,7 @@ public class CLDRModify {
                 String baselineValue = baselineFileUnresolved.getStringValue(xpath);
                 if (baselineValue == null || CldrUtility.INHERITANCE_MARKER.equals(baselineValue)) {
                     // criterion 1: if baseline value is not a hard value, don't revert to baseline
-                    if (deb) {
+                    if (debugging) {
                         System.out.println("wantRevertToBaseline: return for 1; baselineValue = " + baselineValue);
                     }
                     return false;
@@ -2301,13 +2329,13 @@ public class CLDRModify {
                 baselineFileResolved.getBaileyValue(xpath, inheritancePathWhereFound, localeWhereFound);
                 if (localeID.equals(localeWhereFound.value) || xpath.equals(inheritancePathWhereFound.value)) {
                     // criterion 3: if bailey value is not from different path and locale, don't revert to baseline
-                    if (deb) {
+                    if (debugging) {
                         System.out.println("wantRevertToBaseline: found at " + localeWhereFound.value + " " + inheritancePathWhereFound.value);
                         System.out.println("wantRevertToBaseline: return for 3");
                     }
                     return false;
                 }
-                if (deb) {
+                if (debugging) {
                     System.out.println("wantRevertToBaseline: return true");
                 }
                 return true;
@@ -2357,6 +2385,21 @@ public class CLDRModify {
                     }
                 }
                 return false;
+            }
+
+            @Override
+            public void handleEnd() {
+                // look for paths in vxmlFile that aren't in baselineFileUnresolved
+                final Set<String> vPaths = new HashSet<>();
+                final Set<String> bPaths = new HashSet<>();
+                vxmlFile.getPaths("", null, vPaths);
+                baselineFileUnresolved.getPaths("", null, bPaths);
+                vPaths.removeAll(bPaths);
+                for (final String dPath : vPaths) {
+                    // System.out.println(">!> " + dPath);
+                    final String fPath = vxmlFile.getFullXPath(dPath);
+                    add(fPath, vxmlFile.getWinningValue(fPath), "in vxmlFile, missing from baseline");
+                }
             }
         });
     }

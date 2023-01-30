@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -31,6 +31,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="afh">afrihili</language>
 			<language type="agq">aghem</language>
 			<language type="ain">ainu</language>
+			<language type="ajp">urduni</language>
 			<language type="ak">akan</language>
 			<language type="akk">akkadi</language>
 			<language type="akz">alabama</language>
@@ -80,6 +81,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="bfd">fut</language>
 			<language type="bfq">badaga</language>
 			<language type="bg">bulgaria</language>
+			<language type="bgc">haryanvi</language>
 			<language type="bgn">länsibelutši</language>
 			<language type="bho">bhodžpuri</language>
 			<language type="bi">bislama</language>
@@ -767,6 +769,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Jurc">džurtšen</script>
 			<script type="Kali">kayah li</script>
 			<script type="Kana">katakana</script>
+			<script type="Kawi" draft="contributed">kawi</script>
 			<script type="Khar">kharosthi</script>
 			<script type="Khmr">khmeriläinen</script>
 			<script type="Khoj">khojki</script>
@@ -807,6 +810,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Mtei" alt="secondary">meitei mayek</script>
 			<script type="Mult">multanilainen</script>
 			<script type="Mymr">burmalainen</script>
+			<script type="Nagm">Nagin mundariaakkoset</script>
 			<script type="Nand">nandinagari</script>
 			<script type="Narb">muinaispohjoisarabialainen</script>
 			<script type="Nbat">nabatealainen</script>
@@ -1225,6 +1229,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<variant type="ARANES">oksitaanin Aranin laakson variantti</variant>
 			<variant type="AREVELA">itäarmenialainen</variant>
 			<variant type="AREVMDA">länsiarmenialainen</variant>
+			<variant type="ARKAIKA" draft="contributed">varhaisesperanto</variant>
 			<variant type="ASANTE">akanin asante-variantti</variant>
 			<variant type="AUVERN">oksitaanin Auvergnen variantti</variant>
 			<variant type="BAKU1926">yhtenäistetty turkkilainen latinalainen aakkosto</variant>
@@ -1250,6 +1255,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<variant type="FONUPA">uralilainen foneettinen aakkosto UPA</variant>
 			<variant type="FONUPA" alt="secondary">suomalais-ugrilainen tarkekirjoitus</variant>
 			<variant type="FONXSAMP">foneettinen X-SAMPA-merkistö</variant>
+			<variant type="GALLO">galo</variant>
 			<variant type="GASCON">oksitaanin Gasconyn variantti</variant>
 			<variant type="GRCLASS">oksitaanin klassinen ortografia</variant>
 			<variant type="GRITAL">oksitaanin italialaisvaikutteinen ortografia</variant>
@@ -1284,6 +1290,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<variant type="PAHAWH3">pahawh-hmongin tavukirjoituksen kolmas vaihe</variant>
 			<variant type="PAHAWH4">pahawh-hmongin tavukirjoituksen viimeinen vaihe</variant>
 			<variant type="PAMAKA">pamakan kreolimurre</variant>
+			<variant type="PEANO" draft="contributed">taivutukseton latina</variant>
 			<variant type="PETR1708">venäjän Pietarin siviiliaakkosto 1708</variant>
 			<variant type="PINYIN">kiinan pinyin-latinaistus</variant>
 			<variant type="POLYTON">polytoninen kreikka</variant>
@@ -1304,7 +1311,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<variant type="SURMIRAN">retoromaanin surmiran-muoto</variant>
 			<variant type="SURSILV">retoromaanin sursilvan-muoto</variant>
 			<variant type="SUTSILV">retoromaanin sutsilvan-muoto</variant>
+			<variant type="SYNNEJYL" draft="contributed">Etelä-Jyllannin kieli</variant>
 			<variant type="TARASK">valkovenäjän taraškevitsa-oikeinkirjoitus</variant>
+			<variant type="TONGYONG">taiwanilainen pinyinin</variant>
+			<variant type="TUNUMIIT" draft="contributed">tunumiit</variant>
 			<variant type="UCCOR">kornin yhtenäiskirjoitus</variant>
 			<variant type="UCRCOR">kornin uusittu yhtenäiskirjoitus</variant>
 			<variant type="ULSTER">skotin ulster-murre</variant>
@@ -1312,6 +1322,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<variant type="VAIDIKA">sanskriitin veda-murre</variant>
 			<variant type="VALENCIA">katalaanin valencian murre</variant>
 			<variant type="VALLADER">reoromaanin vallader-muoto</variant>
+			<variant type="VECDRUKA">varhaislatvia</variant>
 			<variant type="VIVARAUP">oksitaanin vivaro-alpiininen variantti</variant>
 			<variant type="WADEGILE">kiinan Wade-Giles-latinaistus</variant>
 			<variant type="XSISTEMO">esperanton x-kirjoitus</variant>
@@ -1443,6 +1454,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="numbers" type="jpan">japanilaiset numerot</type>
 			<type key="numbers" type="jpanfin">japanilaiset talousnumerot</type>
 			<type key="numbers" type="kali">kayah li -numerot</type>
+			<type key="numbers" type="kawi" draft="contributed">kawilaiset numerot</type>
 			<type key="numbers" type="khmr">khmeriläiset numerot</type>
 			<type key="numbers" type="knda">kannadalaiset numerot</type>
 			<type key="numbers" type="lana">taithamin hora-numerot</type>
@@ -1464,6 +1476,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="numbers" type="mymr">burmalaiset numerot</type>
 			<type key="numbers" type="mymrshan">myanmarin shan-numerot</type>
 			<type key="numbers" type="mymrtlng">myanmarin tai laing -numerot</type>
+			<type key="numbers" type="nagm" draft="contributed">Nagin mundarinumerot</type>
 			<type key="numbers" type="native">kielen omat numerot</type>
 			<type key="numbers" type="nkoo">n’ko-numerot</type>
 			<type key="numbers" type="olck">ol chiki -numerot</type>
@@ -1486,6 +1499,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="numbers" type="thai">thainumerot</type>
 			<type key="numbers" type="tibt">tiibetiläiset numerot</type>
 			<type key="numbers" type="tirh">tirhuta-numerot</type>
+			<type key="numbers" type="tnsa" draft="contributed">tangsa-numerot</type>
 			<type key="numbers" type="traditional">perinteiset numerot</type>
 			<type key="numbers" type="vaii">vai-numerot</type>
 			<type key="numbers" type="wara">varang kshiti -numerot</type>
@@ -4531,6 +4545,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>Hermosillo</exemplarCity>
+			</zone>
+			<zone type="America/Ciudad_Juarez">
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Mazatlan">
 				<exemplarCity>Mazatlán</exemplarCity>
@@ -7580,6 +7597,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">Slovakian koruna</displayName>
 				<displayName count="other">Slovakian korunaa</displayName>
 				<symbol>SKK</symbol>
+			</currency>
+			<currency type="SLE">
+				<displayName>Sierra Leonen leone</displayName>
+				<displayName count="one">↑↑↑</displayName>
+				<displayName count="other">Sierra Leonen leonea</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>Sierra Leonen leone</displayName>
@@ -12376,152 +12399,176 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">↑↑↑</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>{title} {given} {given2} {surname} {surname2}, {credentials}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">{given} {surname}</namePattern>
+			<namePattern>{given} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname} {surname2}</namePattern>
+			<namePattern>{title} {surname} {surname2}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="long" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">{given} {given2} {surname} {surname2}</namePattern>
+			<namePattern>{given} {given2} {surname} {surname2}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{surname-monogram-allCaps}</namePattern>
+			<namePattern>{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="medium" usage="monogram" formality="informal">
-			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
+			<namePattern>{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="formal">
-			<namePattern draft="provisional">{given-initial} {given2-initial} {surname}</namePattern>
+			<namePattern>{given-initial} {given2-initial} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">{given-informal} {surname-initial}</namePattern>
+			<namePattern>{given-informal} {surname-initial}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{surname-monogram-allCaps}</namePattern>
+			<namePattern>{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="givenFirst" length="short" usage="monogram" formality="informal">
-			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
+			<namePattern>{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname} {surname2} {given} {given2}, {title} {credentials}</namePattern>
+			<namePattern>{surname} {surname2} {given} {given2}, {title} {credentials}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname} {given}</namePattern>
+			<namePattern>{surname} {given}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="long" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname} {surname2} {given}, {title}</namePattern>
+			<namePattern>{surname} {surname2} {given}, {title}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname} {given}</namePattern>
+			<namePattern>{surname} {given}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="formal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="medium" usage="monogram" formality="informal">
-			<namePattern draft="provisional">↑↑↑</namePattern>
+			<namePattern>↑↑↑</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname} {given-initial} {given2-initial}</namePattern>
+			<namePattern>{surname} {given-initial} {given2-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname} {given-initial}</namePattern>
+			<namePattern>{surname} {given-initial}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="formal">
-			<namePattern draft="provisional">{title} {surname}</namePattern>
+			<namePattern>{title} {surname}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="addressing" formality="informal">
-			<namePattern draft="provisional">{given-informal}</namePattern>
+			<namePattern>{given-informal}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="monogram" formality="formal">
-			<namePattern draft="provisional">{surname-monogram-allCaps}</namePattern>
+			<namePattern>{surname-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="surnameFirst" length="short" usage="monogram" formality="informal">
-			<namePattern draft="provisional">{given-informal-monogram-allCaps}</namePattern>
+			<namePattern>{given-informal-monogram-allCaps}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname-prefix} {surname-core}, {given} {given2}</namePattern>
+			<namePattern>{surname-prefix} {surname-core}, {given} {given2}</namePattern>
 		</personName>
 		<personName order="sorting" length="long" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>
+			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname-prefix} {surname-core}, {given} {given2-initial}</namePattern>
+			<namePattern>{surname-prefix} {surname-core}, {given} {given2-initial}</namePattern>
 		</personName>
 		<personName order="sorting" length="medium" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>
+			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="formal">
-			<namePattern draft="provisional">{surname-prefix} {surname-core}, {given-initial} {given2-initial}</namePattern>
+			<namePattern>{surname-prefix} {surname-core}, {given-initial} {given2-initial}</namePattern>
 		</personName>
 		<personName order="sorting" length="short" usage="referring" formality="informal">
-			<namePattern draft="provisional">{surname}, {given-informal}</namePattern>
+			<namePattern>{surname}, {given-informal}</namePattern>
 		</personName>
 		<sampleName item="nativeG">
-			<nameField type="given" draft="provisional">Louhi</nameField>
+			<nameField type="given">Louhi</nameField>
 		</sampleName>
 		<sampleName item="nativeGS">
-			<nameField type="given" draft="provisional">Seppo</nameField>
-			<nameField type="surname" draft="provisional">Ilmarinen</nameField>
+			<nameField type="given">Seppo</nameField>
+			<nameField type="surname">Ilmarinen</nameField>
 		</sampleName>
 		<sampleName item="nativeGGS">
-			<nameField type="given" draft="provisional">Ulrika</nameField>
-			<nameField type="given2" draft="provisional">Wilhelmina</nameField>
-			<nameField type="surname" draft="provisional">Johnson</nameField>
+			<nameField type="given">Ulrika</nameField>
+			<nameField type="given2">Wilhelmina</nameField>
+			<nameField type="surname">Canth</nameField>
+		</sampleName>
+		<sampleName item="nativeFull">
+			<nameField type="title">∅∅∅</nameField>
+			<nameField type="given">Marja-Liisa</nameField>
+			<nameField type="given-informal">Maikki</nameField>
+			<nameField type="given2">Katariina</nameField>
+			<nameField type="surname-prefix">∅∅∅</nameField>
+			<nameField type="surname-core">Lehtola-Aalto</nameField>
+			<nameField type="surname2">∅∅∅</nameField>
+			<nameField type="generation">∅∅∅</nameField>
+			<nameField type="credentials">kansanedustaja</nameField>
+		</sampleName>
+		<sampleName item="foreignG">
+			<nameField type="given">Sinbad</nameField>
+		</sampleName>
+		<sampleName item="foreignGS">
+			<nameField type="given">Käthe</nameField>
+			<nameField type="surname">Müller</nameField>
+		</sampleName>
+		<sampleName item="foreignGGS">
+			<nameField type="given">John</nameField>
+			<nameField type="given2">Hamish</nameField>
+			<nameField type="surname">Watson</nameField>
 		</sampleName>
 		<sampleName item="foreignFull">
-			<nameField type="title" draft="provisional">Professori</nameField>
-			<nameField type="given" draft="provisional">Kristiina</nameField>
-			<nameField type="given-informal" draft="provisional">Krisse</nameField>
-			<nameField type="given2" draft="provisional">Julia</nameField>
-			<nameField type="surname-prefix" draft="provisional">von</nameField>
-			<nameField type="surname-core" draft="provisional">Wright</nameField>
-			<nameField type="surname2" draft="provisional">↑↑↑</nameField>
-			<nameField type="credentials" draft="provisional">LT FT</nameField>
+			<nameField type="title">professori</nameField>
+			<nameField type="given">Ana Christina</nameField>
+			<nameField type="given-informal">Chrissy</nameField>
+			<nameField type="given2">Lëja</nameField>
+			<nameField type="surname-prefix">von</nameField>
+			<nameField type="surname-core">Wright</nameField>
+			<nameField type="surname2">González Domingo</nameField>
+			<nameField type="generation">jr.</nameField>
+			<nameField type="credentials">MD DDS</nameField>
 		</sampleName>
 	</personNames>
 </ldml>

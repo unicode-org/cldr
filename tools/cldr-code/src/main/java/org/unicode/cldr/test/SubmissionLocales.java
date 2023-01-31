@@ -106,7 +106,7 @@ public final class SubmissionLocales {
      */
     public static Set<String> ALLOW_ALL_PATHS_BASIC = ImmutableSet.of(
         // locales open for v43:
-        "ajp", // South Levantine Arabic
+        "apc", // Levantine Arabic; NB actual submission was "ajp" South Levantine Arabic
         "lmo", // Lombardi
         "pap", // Papiamento
         "rif"  // Riffian

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -196,6 +196,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hans" alt="stand-alone">Хани осонфаҳм</script>
 			<script type="Hant">Анъанавӣ</script>
 			<script type="Hant" alt="stand-alone">Хани анъанавӣ</script>
+			<script type="Jpan" draft="unconfirmed">Ҷопонӣ</script>
+			<script type="Kore">Кореягӣ</script>
 			<script type="Latn">Лотинӣ</script>
 			<script type="Zxxx">Нонавишта</script>
 			<script type="Zzzz">Скрипти номаълум</script>
@@ -1031,6 +1033,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d MMM, y G</dateFormatItem>

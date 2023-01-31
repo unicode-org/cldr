@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -762,6 +762,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TN">Tunesia</territory>
 			<territory type="TO">Tonga</territory>
 			<territory type="TR">Turkaland</territory>
+			<territory type="TR" alt="variant">↑↑↑</territory>
 			<territory type="TT">Trinidad &amp; Tobago</territory>
 			<territory type="TV">Tuvalu</territory>
 			<territory type="TW">Taivan</territory>
@@ -8386,6 +8387,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</typographicNames>
 	<personNames>
 		<nameOrderLocales order="givenFirst">und fo</nameOrderLocales>
-		<nameOrderLocales order="surnameFirst">ko vi yue zh</nameOrderLocales>
+		<nameOrderLocales order="surnameFirst">↑↑↑</nameOrderLocales>
+		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
 	</personNames>
 </ldml>

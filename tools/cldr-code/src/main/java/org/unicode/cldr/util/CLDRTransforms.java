@@ -904,11 +904,12 @@ public class CLDRTransforms {
     }
 
     /**
-     * Gets a transform from a script to Latin.
+     * Gets a transform from a script to Latin. for testing
      * For a locale, use ExemplarUtilities.getScript(locale) to get the script
      */
-    public static Transliterator getScriptTransform(final String script) {
-        String id = script + "-Latn";
+    public static Transliterator getTestingLatinScriptTransform(final String script) {
+        String id;
+
         switch(script) {
         case "Latn":
             return null;
@@ -931,6 +932,11 @@ public class CLDRTransforms {
         case "Hans":
             id = "Han-Latn";
             break;
+        case "Olck":
+            id = "sat_Olck-sat_FONIPA"; // Latin IPA
+            break;
+        default:
+            id = script + "-Latn";
         }
         return Transliterator.getInstance(id);
     }

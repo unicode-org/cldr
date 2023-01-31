@@ -13,9 +13,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<language type="ajp"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern draft="unconfirmed">↑↑↑</localePattern>
+			<localeSeparator draft="unconfirmed">↑↑↑</localeSeparator>
+		</localeDisplayPattern>
 		<languages>
 			<language type="ajp">العامية</language>
 		</languages>
+		<scripts>
+			<script type="Arab" draft="unconfirmed">↑↑↑</script>
+		</scripts>
+		<measurementSystemNames>
+			<measurementSystemName type="metric" draft="unconfirmed">↑↑↑</measurementSystemName>
+			<measurementSystemName type="UK" draft="unconfirmed">↑↑↑</measurementSystemName>
+			<measurementSystemName type="US" draft="unconfirmed">↑↑↑</measurementSystemName>
+		</measurementSystemNames>
+		<codePatterns>
+			<codePattern type="language" draft="unconfirmed">↑↑↑</codePattern>
+			<codePattern type="script" draft="unconfirmed">↑↑↑</codePattern>
+			<codePattern type="territory" draft="unconfirmed">↑↑↑</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
 	<layout>
 		<orientation>
@@ -29,7 +46,121 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<exemplarCharacters type="numbers">[\u061C\u200E \- ‑ , ٫ ٬ . % ٪ ‰ ؉ + 0٠ 1١ 2٢ 3٣ 4٤ 5٥ 6٦ 7٧ 8٨ 9٩]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐ ‑ – — ، ؛ \: ! ؟ . … ' &quot; « » ( ) \[ \] \&amp;]</exemplarCharacters>
 	</characters>
+	<delimiters>
+		<quotationStart draft="unconfirmed">↑↑↑</quotationStart>
+		<quotationEnd draft="unconfirmed">↑↑↑</quotationEnd>
+		<alternateQuotationStart draft="unconfirmed">↑↑↑</alternateQuotationStart>
+		<alternateQuotationEnd draft="unconfirmed">↑↑↑</alternateQuotationEnd>
+	</delimiters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">كانون التاني</month>
+							<month type="2" draft="unconfirmed">شباط</month>
+							<month type="3" draft="unconfirmed">أذار</month>
+							<month type="4" draft="unconfirmed">نيسان</month>
+							<month type="5" draft="unconfirmed">أيار</month>
+							<month type="6" draft="unconfirmed">حزيران</month>
+							<month type="7" draft="unconfirmed">تموز</month>
+							<month type="8" draft="unconfirmed">آب</month>
+							<month type="9" draft="unconfirmed">أيلول</month>
+							<month type="10" draft="unconfirmed">تشرين الأول</month>
+							<month type="11" draft="unconfirmed">تشرين التاني</month>
+							<month type="12" draft="unconfirmed">كانون الأول</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="wide">
+							<day type="sun" draft="unconfirmed">الأحد</day>
+							<day type="mon" draft="unconfirmed">التنين</day>
+							<day type="tue" draft="unconfirmed">التلاتا</day>
+							<day type="wed" draft="unconfirmed">الأربعا</day>
+							<day type="thu" draft="unconfirmed">الخميس</day>
+							<day type="fri" draft="unconfirmed">الجمعة</day>
+							<day type="sat" draft="unconfirmed">السبت</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">صباحا</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">مساء</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="hm" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hm" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hms" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hms" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hmsv" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hmsv" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMd" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMd" draft="unconfirmed">↑↑↑</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatFallback draft="unconfirmed">↑↑↑</intervalFormatFallback>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+		<timeZoneNames>
+			<hourFormat draft="unconfirmed">↑↑↑</hourFormat>
+			<gmtFormat draft="unconfirmed">↑↑↑</gmtFormat>
+			<gmtZeroFormat draft="unconfirmed">↑↑↑</gmtZeroFormat>
+			<regionFormat draft="unconfirmed">↑↑↑</regionFormat>
+			<regionFormat type="daylight" draft="unconfirmed">↑↑↑</regionFormat>
+			<regionFormat type="standard" draft="unconfirmed">↑↑↑</regionFormat>
+			<fallbackFormat draft="unconfirmed">↑↑↑</fallbackFormat>
+		</timeZoneNames>
+	</dates>
 	<numbers>
+		<defaultNumberingSystem draft="unconfirmed">↑↑↑</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native draft="unconfirmed">↑↑↑</native>
+		</otherNumberingSystems>
+		<symbols numberSystem="latn">
+			<decimal draft="unconfirmed">↑↑↑</decimal>
+			<group draft="unconfirmed">↑↑↑</group>
+			<percentSign draft="unconfirmed">↑↑↑</percentSign>
+			<plusSign draft="unconfirmed">↑↑↑</plusSign>
+			<minusSign draft="unconfirmed">↑↑↑</minusSign>
+		</symbols>
+		<decimalFormats numberSystem="latn">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<scientificFormats numberSystem="latn">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<percentFormats numberSystem="latn">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<currencyFormats numberSystem="latn">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern draft="unconfirmed">↑↑↑</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencies>
 			<currency type="JOD">
 				<symbol>د.أ.‏</symbol>

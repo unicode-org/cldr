@@ -11,9 +11,33 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="rif"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern draft="unconfirmed">↑↑↑</localePattern>
+			<localeSeparator draft="unconfirmed">↑↑↑</localeSeparator>
+		</localeDisplayPattern>
 		<languages>
+			<language type="en" draft="unconfirmed">taglinzit</language>
 			<language type="rif">Tarifit</language>
 		</languages>
+		<scripts>
+			<script type="Latn" draft="unconfirmed">talatinit</script>
+			<script type="Tfng" draft="unconfirmed">tifinaɣ</script>
+		</scripts>
+		<territories>
+			<territory type="MA" draft="unconfirmed">Lmuɣrib</territory>
+			<territory type="TR" draft="unconfirmed">Ṭurkya</territory>
+			<territory type="TR" alt="variant" draft="unconfirmed">↑↑↑</territory>
+		</territories>
+		<measurementSystemNames>
+			<measurementSystemName type="metric" draft="unconfirmed">amitrik</measurementSystemName>
+			<measurementSystemName type="UK" draft="unconfirmed">aglinziy</measurementSystemName>
+			<measurementSystemName type="US" draft="unconfirmed">amirikaniy</measurementSystemName>
+		</measurementSystemNames>
+		<codePatterns>
+			<codePattern type="language" draft="unconfirmed">tutlayt: {0}</codePattern>
+			<codePattern type="script" draft="unconfirmed">tira: {0}</codePattern>
+			<codePattern type="territory" draft="unconfirmed">jjihet: {0}</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a b c d ḍ e ɛ f g ɣ h ḥ i j k l m n p q r s ṣ t ṭ u w x y z ẓ]</exemplarCharacters>
@@ -22,4 +46,152 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="numbers">[\- ‑ , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐ ‑ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” « » ( ) \[ \] \{ \} § @ * / \&amp; # `]</exemplarCharacters>
 	</characters>
+	<delimiters>
+		<quotationStart draft="unconfirmed">↑↑↑</quotationStart>
+		<quotationEnd draft="unconfirmed">↑↑↑</quotationEnd>
+		<alternateQuotationStart draft="unconfirmed">↑↑↑</alternateQuotationStart>
+		<alternateQuotationEnd draft="unconfirmed">↑↑↑</alternateQuotationEnd>
+	</delimiters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">yennayer</month>
+							<month type="2" draft="unconfirmed">febrayer</month>
+							<month type="3" draft="unconfirmed">mars</month>
+							<month type="4" draft="unconfirmed">yebril</month>
+							<month type="5" draft="unconfirmed">mayyu</month>
+							<month type="6" draft="unconfirmed">yunyu</month>
+							<month type="7" draft="unconfirmed">yulyuz</month>
+							<month type="8" draft="unconfirmed">ɣucct</month>
+							<month type="9" draft="unconfirmed">cutenber</month>
+							<month type="10" draft="unconfirmed">kṭuber</month>
+							<month type="11" draft="unconfirmed">nuwember</month>
+							<month type="12" draft="unconfirmed">dujember</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="wide">
+							<day type="sun" draft="unconfirmed">lḥed</day>
+							<day type="mon" draft="unconfirmed">letnayen</day>
+							<day type="tue" draft="unconfirmed">ttlat</day>
+							<day type="wed" draft="unconfirmed">larbeɛ</day>
+							<day type="thu" draft="unconfirmed">lexmis</day>
+							<day type="fri" draft="unconfirmed">jjemɛa</day>
+							<day type="sat" draft="unconfirmed">ssebt</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">↑↑↑</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">↑↑↑</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="hm" draft="unconfirmed">h:mm a</dateFormatItem>
+						<dateFormatItem id="Hm" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hms" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hms" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hmsv" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hmsv" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMd" draft="unconfirmed">dd/MM/y</dateFormatItem>
+						<dateFormatItem id="yMMMd" draft="unconfirmed">d MMM y</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatFallback draft="unconfirmed">↑↑↑</intervalFormatFallback>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+		<timeZoneNames>
+			<hourFormat draft="unconfirmed">↑↑↑</hourFormat>
+			<gmtFormat draft="unconfirmed">↑↑↑</gmtFormat>
+			<gmtZeroFormat draft="unconfirmed">↑↑↑</gmtZeroFormat>
+			<regionFormat draft="unconfirmed">akud n {0}</regionFormat>
+			<regionFormat type="daylight" draft="unconfirmed">akud unebdu n {0}</regionFormat>
+			<regionFormat type="standard" draft="unconfirmed">akud anaway n {0}</regionFormat>
+			<fallbackFormat draft="unconfirmed">↑↑↑</fallbackFormat>
+			<metazone type="GMT">
+				<long>
+					<standard draft="unconfirmed">GMT</standard>
+				</long>
+			</metazone>
+		</timeZoneNames>
+	</dates>
+	<numbers>
+		<defaultNumberingSystem draft="unconfirmed">↑↑↑</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native draft="unconfirmed">↑↑↑</native>
+		</otherNumberingSystems>
+		<symbols numberSystem="latn">
+			<decimal draft="unconfirmed">,</decimal>
+			<group draft="unconfirmed"> </group>
+			<percentSign draft="unconfirmed">↑↑↑</percentSign>
+			<plusSign draft="unconfirmed">↑↑↑</plusSign>
+			<minusSign draft="unconfirmed">↑↑↑</minusSign>
+		</symbols>
+		<decimalFormats numberSystem="latn">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<scientificFormats numberSystem="latn">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<percentFormats numberSystem="latn">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<currencyFormats numberSystem="latn">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern draft="unconfirmed">#,##0.00 ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+	</numbers>
+	<personNames>
+		<sampleName item="nativeG">
+			<nameField type="given" draft="unconfirmed">Yamina</nameField>
+		</sampleName>
+		<sampleName item="nativeGS">
+			<nameField type="given" draft="unconfirmed">Faḍma</nameField>
+			<nameField type="surname" draft="unconfirmed">Awraɣ</nameField>
+		</sampleName>
+		<sampleName item="nativeGGS">
+			<nameField type="given" draft="unconfirmed">Ɛellal</nameField>
+		</sampleName>
+		<sampleName item="nativeFull">
+			<nameField type="given" draft="unconfirmed">Muḥemmed Amin</nameField>
+		</sampleName>
+		<sampleName item="foreignG">
+			<nameField type="given" draft="unconfirmed">Sinbad</nameField>
+		</sampleName>
+		<sampleName item="foreignGS">
+			<nameField type="given" draft="unconfirmed">Käthe</nameField>
+		</sampleName>
+		<sampleName item="foreignGGS">
+			<nameField type="given" draft="unconfirmed">Zäzilia</nameField>
+		</sampleName>
+		<sampleName item="foreignFull">
+			<nameField type="given" draft="unconfirmed">Ada Cornelia</nameField>
+		</sampleName>
+	</personNames>
 </ldml>

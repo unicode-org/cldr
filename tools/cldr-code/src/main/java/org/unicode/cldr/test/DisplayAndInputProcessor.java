@@ -749,10 +749,10 @@ public class DisplayAndInputProcessor {
         List<Object> items = fp.getItems();
         Object last = items.get(items.size() - 1);
         if (last instanceof String) {
-            String separator = last.toString(); // separator including spaces
+            String separator = last.toString(); // separator including spaces, and possibly preceding literal text (. or quoted)
             String replacement = separator;
-            if (scriptCode.equals("Latn") && (separator.equals(" - ") || separator.equals(" \u2013 "))) {
-                replacement = "\u2009\u2013\u2009"; // Per CLDR-14032
+            if (scriptCode.equals("Latn") && (separator.endsWith(" - ") || separator.endsWith(" \u2013 "))) {
+                replacement = separator.substring(0, separator.length()-3) + "\u2009\u2013\u2009"; // Per CLDR-14032,16308
             } else if (separator.contains("-")) {
                 replacement = separator.replace("-", "\u2013");
             }

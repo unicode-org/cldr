@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1525,7 +1525,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="M">d. MMM – d. MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="d">E, dd. – E, dd. MMM</greatestDifference>
+							<greatestDifference id="d">E, dd. – E, dd. MMM</greatestDifference>
 							<greatestDifference id="M">E, dd. MMM – E, dd. MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
@@ -1537,7 +1537,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
 							<greatestDifference id="d">d.M.y – d.M.y. GGGGG</greatestDifference>
-							<greatestDifference id="M">d.M.y. – d.M.y.</greatestDifference>
+							<greatestDifference id="M">d.M.y. – d.M.y.</greatestDifference>
 							<greatestDifference id="y">d.M.y – d.M.y. GGGGG</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
@@ -1552,7 +1552,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<intervalFormatItem id="yMMMd">
 							<greatestDifference id="d">d–d. MMM y. G</greatestDifference>
 							<greatestDifference id="M">d. MMM – d. MMM y. G</greatestDifference>
-							<greatestDifference id="y">d. MMM y. – d. MMM y. G</greatestDifference>
+							<greatestDifference id="y">d. MMM y. – d. MMM y. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
 							<greatestDifference id="d">E, d. MMM – E, d. MMM y. G</greatestDifference>
@@ -1561,7 +1561,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
 							<greatestDifference id="M">MMMM – MMMM y. G</greatestDifference>
-							<greatestDifference id="y">MMMM y. – MMMM y. G</greatestDifference>
+							<greatestDifference id="y">MMMM y. – MMMM y. G</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -2110,7 +2110,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="M">dd. MMM – dd. MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="d">E, dd. – E, dd. MMM</greatestDifference>
+							<greatestDifference id="d">E, dd. – E, dd. MMM</greatestDifference>
 							<greatestDifference id="M">E, dd. MMM – E, dd. MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
@@ -2118,35 +2118,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M">M – M. y.</greatestDifference>
-							<greatestDifference id="y">M.y. – M.y.</greatestDifference>
+							<greatestDifference id="y">M.y. – M.y.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">d. M. y. – d. M. y.</greatestDifference>
-							<greatestDifference id="M">d. M. y. – d. M. y.</greatestDifference>
-							<greatestDifference id="y">d. M. y. – d. M. y.</greatestDifference>
+							<greatestDifference id="d">d. M. y. – d. M. y.</greatestDifference>
+							<greatestDifference id="M">d. M. y. – d. M. y.</greatestDifference>
+							<greatestDifference id="y">d. M. y. – d. M. y.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">E, d. M. y. – E, d. M. y.</greatestDifference>
-							<greatestDifference id="M">E, d. M. y. – E, d. M. y.</greatestDifference>
-							<greatestDifference id="y">E, d. M. y. – E, d. M. y.</greatestDifference>
+							<greatestDifference id="d">E, d. M. y. – E, d. M. y.</greatestDifference>
+							<greatestDifference id="M">E, d. M. y. – E, d. M. y.</greatestDifference>
+							<greatestDifference id="y">E, d. M. y. – E, d. M. y.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">MMM–MMM y.</greatestDifference>
-							<greatestDifference id="y">MMM y. – MMM y.</greatestDifference>
+							<greatestDifference id="y">MMM y. – MMM y.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
 							<greatestDifference id="d">dd.–dd. MMM y.</greatestDifference>
 							<greatestDifference id="M">dd. MMM – dd. MMM y.</greatestDifference>
-							<greatestDifference id="y">dd. MMM y. – dd. MMM y.</greatestDifference>
+							<greatestDifference id="y">dd. MMM y. – dd. MMM y.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">E, dd. – E, dd. MMM y.</greatestDifference>
+							<greatestDifference id="d">E, dd. – E, dd. MMM y.</greatestDifference>
 							<greatestDifference id="M">E, dd. MMM – E, dd. MMM y.</greatestDifference>
-							<greatestDifference id="y">E, dd. MMM y. – E, dd. MMM y.</greatestDifference>
+							<greatestDifference id="y">E, dd. MMM y. – E, dd. MMM y.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
 							<greatestDifference id="M">MMMM – MMMM y.</greatestDifference>
-							<greatestDifference id="y">MMMM y. – MMMM y.</greatestDifference>
+							<greatestDifference id="y">MMMM y. – MMMM y.</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>

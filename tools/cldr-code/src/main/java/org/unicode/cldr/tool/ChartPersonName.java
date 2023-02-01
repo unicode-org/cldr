@@ -1,13 +1,11 @@
 package org.unicode.cldr.tool;
 
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.Map;
 
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
@@ -19,7 +17,7 @@ import org.unicode.cldr.util.personname.SimpleNameObject;
 public class ChartPersonName extends Chart {
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     static final CLDRFile ENGLISH = CLDR_CONFIG.getEnglish();
-    static final String DIR = CLDRPaths.CHART_DIRECTORY + "personNames/";
+    static final String DIR = ChartPersonNames.DIR;
     static final Map<SampleType, SimpleNameObject> ENGLISH_NAMES = PersonNameFormatter.loadSampleNames(ENGLISH);
 
 
@@ -28,16 +26,6 @@ public class ChartPersonName extends Chart {
     public ChartPersonName(String locale) {
         super();
         this.locale = locale;
-    }
-
-    public static void main(String[] args) throws IOException {
-        // Just for simple checking; will remove
-        try (Writer writer = new OutputStreamWriter(System.out)) {
-            writer.write("<html><body>");
-            new ChartPersonName("en").writeContents(writer);
-            writer.write("</body></html>");
-            writer.flush();
-        }
     }
 
     @Override
@@ -65,7 +53,7 @@ public class ChartPersonName extends Chart {
 
     enum Filter {Main, Sorting, Monogram}
     enum Source {NativeSamples, ForeignSamples}
- 
+
     @Override
     public void writeContents(Writer pw, Factory factory) throws IOException {
         CLDRFile cldrFile = factory.make(locale, true);
@@ -108,9 +96,8 @@ public class ChartPersonName extends Chart {
                     for (SampleType sampleType : SampleType.ALL) {
                         if (sampleType.isNative() == (source == Source.NativeSamples)) {
                             final SimpleNameObject nameObject = names.get(sampleType);
-                            tablePrinter.addCell(nameObject == null
-                                ? "<i>missing</i>"
-                                    : formatter.format(nameObject, parameters));
+                            String value = nameObject == null ? "" : formatter.format(nameObject, parameters);
+                            tablePrinter.addCell(value.isBlank() ? "<i>missing</i>" : value);
                         }
                     }
                     String path = "//ldml/personNames/personName[@order=\"" + parameters.getOrder()

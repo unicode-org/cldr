@@ -631,11 +631,11 @@ public class PersonNameFormatter {
      */
     public static class NamePattern implements Comparable<NamePattern> {
         private final int rank;
-        private final List<NamePatternElement> elements;
-        private final Set<Field> fields;
+        private final ImmutableList<NamePatternElement> elements;
+        private final ImmutableSet<Field> fields;
 
         public Set<Field> getFields() {
-            return ImmutableSet.copyOf(fields);
+            return fields;
         }
 
         public int getFieldsSize() {
@@ -658,6 +658,10 @@ public class PersonNameFormatter {
             StringBuilder literalTextBefore = new StringBuilder();
             StringBuilder literalTextAfter = new StringBuilder();
 
+            // Check that we either have a given value in the pattern or a surname value in the name object
+            if (!getFields().contains(Field.given) && !nameObject.getAvailableFields().contains(Field.surname)) {
+                nameObject = new GivenToSurnameNameObject(nameObject);
+            }
             for (NamePatternElement element : elements) {
                 final String literal = element.getLiteral();
                 if (literal != null) {
@@ -756,7 +760,7 @@ public class PersonNameFormatter {
 
         public NamePattern(int rank, List<NamePatternElement> elements) {
             this.rank = rank;
-            this.elements = elements;
+            this.elements = ImmutableList.copyOf(elements);
             Set<Field> result = EnumSet.noneOf(Field.class);
             for (NamePatternElement element : elements) {
                 ModifiedField modifiedField = element.getModifiedField();
@@ -1413,6 +1417,43 @@ public class PersonNameFormatter {
          * @return
          */
         public String getBestValue(ModifiedField modifiedField, Set<Modifier> remainingModifers);
+    }
+
+    /**
+     * Specialized NameObject that returns the given value instead of the surname value
+     */
+    private static class GivenToSurnameNameObject implements NameObject {
+        private final NameObject nameObject;
+
+        public GivenToSurnameNameObject(NameObject nameObject) {
+            this.nameObject = nameObject;
+        }
+
+        @Override
+        public ULocale getNameLocale() {
+            return nameObject.getNameLocale();
+        }
+
+        @Override
+        public ImmutableMap<ModifiedField, String> getModifiedFieldToValue() {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public Set<Field> getAvailableFields() {
+            Set<Field> temp = EnumSet.copyOf(nameObject.getAvailableFields());
+            temp.add(Field.surname);
+            return temp;
+        }
+
+        @Override
+        public String getBestValue(ModifiedField modifiedField, Set<Modifier> remainingModifers) {
+            if (modifiedField.getField() == Field.surname) {
+                modifiedField = new ModifiedField(Field.given, modifiedField.getModifiers());
+            }
+            return nameObject.getBestValue(modifiedField, remainingModifers);
+        }
+
     }
 
     /**

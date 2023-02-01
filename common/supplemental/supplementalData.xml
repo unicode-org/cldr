@@ -1296,7 +1296,6 @@ XXX Code for transations where no currency is involved
 		<language type="aii" scripts="Cyrl"/>
 		<language type="aii" scripts="Syrc" alt="secondary"/>
 		<language type="ain" scripts="Kana Latn" alt="secondary"/>
-		<language type="ajp" scripts="Arab" territories="JO"/>
 		<language type="ak" scripts="Latn"/>
 		<language type="ak" territories="GH" alt="secondary"/>
 		<language type="akk" scripts="Xsux" alt="secondary"/>
@@ -1312,6 +1311,7 @@ XXX Code for transations where no currency is involved
 		<language type="ann" scripts="Latn"/>
 		<language type="anp" scripts="Deva"/>
 		<language type="aoz" scripts="Latn"/>
+		<language type="apc" scripts="Arab" territories="SY"/>
 		<language type="ar" scripts="Arab" territories="AE BH DJ DZ EG EH ER IL IQ JO KM KW LB LY MA MR OM PS QA SA SD SO SY TD TN YE"/>
 		<language type="ar" scripts="Syrc" territories="IR SS" alt="secondary"/>
 		<language type="arc" scripts="Armi Nbat Palm" alt="secondary"/>
@@ -3210,7 +3210,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="he" populationPercent="100" officialStatus="official"/>	<!--Hebrew-->
 			<languagePopulation type="en" populationPercent="85"/>	<!--English-->
 			<languagePopulation type="ar" populationPercent="20" officialStatus="official"/>	<!--Arabic-->
-			<languagePopulation type="ajp" populationPercent="16.5"/>	<!--South Levantine Arabic-->
+			<languagePopulation type="apc" populationPercent="16.5"/>	<!--Levantine Arabic-->
 			<languagePopulation type="ru" populationPercent="11"/>	<!--Russian-->
 			<languagePopulation type="ro" populationPercent="3.7"/>	<!--Romanian-->
 			<languagePopulation type="yi" populationPercent="3"/>	<!--Yiddish-->
@@ -3374,7 +3374,7 @@ XXX Code for transations where no currency is involved
 		</territory>
 		<territory type="JO" gdp="89000000000" literacyPercent="95.9" population="10820600">	<!--Jordan-->
 			<languagePopulation type="ar" populationPercent="100" officialStatus="official" references="R1036"/>	<!--Arabic-->
-			<languagePopulation type="ajp" populationPercent="51.4"/>	<!--South Levantine Arabic-->
+			<languagePopulation type="apc" populationPercent="51.4"/>	<!--Levantine Arabic-->
 			<languagePopulation type="en" populationPercent="45" references="R1036"/>	<!--English-->
 		</territory>
 		<territory type="JP" gdp="5443000000000" literacyPercent="99" population="125507000">	<!--Japan-->
@@ -3885,7 +3885,7 @@ XXX Code for transations where no currency is involved
 		</territory>
 		<territory type="PS" gdp="21220000000" literacyPercent="95.3" population="4818260">	<!--Palestinian Territories-->
 			<languagePopulation type="ar" populationPercent="100" officialStatus="official"/>	<!--Arabic-->
-			<languagePopulation type="ajp" populationPercent="83"/>	<!--South Levantine Arabic-->
+			<languagePopulation type="apc" populationPercent="83"/>	<!--Levantine Arabic-->
 		</territory>
 		<territory type="PT" gdp="314100000000" literacyPercent="95.4" population="10302700">	<!--Portugal-->
 			<languagePopulation type="pt" populationPercent="96" officialStatus="official"/>	<!--Portuguese-->
@@ -4107,6 +4107,7 @@ XXX Code for transations where no currency is involved
 		</territory>
 		<territory type="SY" gdp="50280000000" literacyPercent="84.1" population="19398400">	<!--Syria-->
 			<languagePopulation type="ar" populationPercent="80" officialStatus="official"/>	<!--Arabic-->
+			<languagePopulation type="apc" populationPercent="75"/>	<!--Levantine Arabic-->
 			<languagePopulation type="ku" populationPercent="8"/>	<!--Kurdish-->
 			<languagePopulation type="fr" populationPercent="5.9" officialStatus="official" references="R1088"/>	<!--French-->
 			<languagePopulation type="hy" populationPercent="1.8"/>	<!--Armenian-->

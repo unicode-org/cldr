@@ -15,7 +15,7 @@ public class ChartPersonNames extends Chart {
     private static final Factory CLDR_FACTORY = CLDRConfig.getInstance().getCldrFactory();
     static final String MAIN_HEADER = "<p>These charts shows the sample person names for different locales, formatted according to the locale's pattern.</p>";
     private static final boolean DEBUG = false;
-    static final String DIR = CLDRPaths.CHART_DIRECTORY + "personNames/";
+    static final String DIR = CLDRPaths.CHART_DIRECTORY + "verify/personNames/";
 
     public static void main(String[] args) {
         new ChartPersonNames().writeChart(null);

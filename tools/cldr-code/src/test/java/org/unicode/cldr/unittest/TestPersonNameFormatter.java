@@ -27,6 +27,7 @@ import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRTransforms;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdType;
@@ -35,6 +36,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XPathParts;
@@ -1018,11 +1020,11 @@ public class TestPersonNameFormatter extends TestFmwk{
                 }
                 if (verbose) {
                     System.out.println(lang
-                    + "\t" + script
-                    + "\t" + sampleType
-                    + "\t" + formatted
-                    + (!formatted.equals(formattedWithTranslit) ? "\t➡︎\t" + formattedWithTranslit : "")
-                    );
+                        + "\t" + script
+                        + "\t" + sampleType
+                        + "\t" + formatted
+                        + (!formatted.equals(formattedWithTranslit) ? "\t➡︎\t" + formattedWithTranslit : "")
+                        );
                 }
             }
         }
@@ -1084,4 +1086,83 @@ public class TestPersonNameFormatter extends TestFmwk{
         }};
         ExampleGenerator exampleGenerator = checkExamples(ENGLISH, tests);
     }
+
+    /** TODO move to CheckCLDR */
+    public void showMissingGiven() {
+        for (String locale : StandardCodes.make().getLocaleCoverageLocales(Organization.cldr)) {
+            CLDRFile cldrFile = factory.make(locale, false);
+            for (String path : cldrFile) {
+                if (!path.startsWith("//ldml/personNames/personName")) {
+                    continue;
+                }
+                XPathParts parts = XPathParts.getFrozenInstance(path);
+                String value = cldrFile.getStringValue(path);
+                switch(parts.getElement(-1)) {
+                case "namePattern":
+                    if (!value.equals(CldrUtility.INHERITANCE_MARKER)) { // if it is ^^^ we'll check elsewhere
+                        Pair<FormatParameters, NamePattern> paramsAndPattern = PersonNameFormatter.fromPathValue(parts, value);
+                        NamePattern namePattern = paramsAndPattern.getSecond();
+                        Set<Field> fields = namePattern.getFields();
+                        if (!fields.contains(Field.given)) {
+                            System.out.println("No given\t" + locale + "\t" + path + "\t" + value + "\t" + fields);
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+    }
+
+    public void showLiteralsInMononyms() {
+        System.out.println();
+        for (String locale : StandardCodes.make().getLocaleCoverageLocales(Organization.cldr)) {
+            CLDRFile cldrFile = factory.make(locale, false);
+            StringBuilder b = new StringBuilder();
+
+            for (String path : cldrFile) {
+                if (!path.startsWith("//ldml/personNames/personName")) {
+                    continue;
+                }
+                XPathParts parts = XPathParts.getFrozenInstance(path);
+                String value = cldrFile.getStringValue(path);
+                switch(parts.getElement(-1)) {
+                case "namePattern":
+                    if (!value.equals(CldrUtility.INHERITANCE_MARKER)) { // if it is ^^^ we'll check elsewhere
+                        Pair<FormatParameters, NamePattern> paramsAndPattern = PersonNameFormatter.fromPathValue(parts, value);
+                        FormatParameters formatParameters = paramsAndPattern.getFirst();
+                        if (!formatParameters.matchesUsage(Usage.monogram)) {
+                            continue;
+                        }
+
+                        NamePattern namePattern = paramsAndPattern.getSecond();
+                        final int count = namePattern.getElementCount();
+                        b.setLength(0);
+                        boolean haveLiterals = false;
+                        boolean haveDeleteable = false;
+
+                        for (int i = 0; i < count; ++i) {
+                            ModifiedField modifiedField = namePattern.getModifiedField(i);
+                            String literal = namePattern.getLiteral(i);
+                            if (modifiedField != null) {
+                                if (modifiedField.getField() == Field.given) {
+                                    b.append("◆");
+                                } else {
+                                    b.append("◇");
+                                    haveDeleteable = true;
+                                }
+                            } else if (literal != null && !literal.isEmpty()) {
+                                b.append(literal.replace(" ", "␣"));
+                                haveLiterals = true;
+                            }
+                        }
+                        if (haveLiterals && haveDeleteable) {
+                            System.out.println("LiteralsInMononyms\t" + locale + "\t" + path + "\t" + value + "\t[" + b + "]");
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+    }
+
 }

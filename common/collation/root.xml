@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991 and later: Unicode, Inc. and others.
+License & terms of use: http://www.unicode.org/copyright.html
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-For terms of use, see http://www.unicode.org/copyright.html
 -->
 <ldml>
 	<identity>
@@ -25,7 +25,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					[suppressContractions [เ-ไ ເ-ໄ ꪵ ꪶ ꪹ ꪻ ꪼ\u19B5-\u19B7\u19BA]]
 					# root search rules for Symbols
 					&'='<'≠'
-					# root search rules for Arabic, Hebrew
+					# root search rules for Arabic, Thai
 					&ا	# 0627 ARABIC LETTER ALEF
 							<<<ﺎ<<<ﺍ	# FE8E, FE8D: FINAL FORM, ISOLATED FORM
 						<<آ		# 0622 ARABIC LETTER ALEF WITH MADDA ABOVE
@@ -51,9 +51,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<<<ﻫ<<<ﻬ<<<ﻪ<<<ﻩ	# FEEB, FEEC, FEEA, FEE9: INITIAL FORM, MEDIAL FORM, FINAL FORM;, ISOLATED FORM
 						<<ة		# 0629 ARABIC LETTER TEH MARBUTA
 							<<<ﺔ<<<ﺓ	# FE94, FE93: FINAL FORM, ISOLATED FORM
-					&[last primary ignorable]<<׳	# 05F3 HEBREW PUNCTUATION GERESH
-
-						<<״	# 05F4 HEBREW PUNCTUATION GERSHAYIM
+					&[last primary ignorable]
 						<<ـ	# 0640 ARABIC TATWEEL
 						# Don't need explicit entries for 064B - 0652 ARABIC FATHATAN - ARABIC SUKUN;
 						# these are already ignorable at level 1, and are not involved in contractions

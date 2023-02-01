@@ -97,14 +97,20 @@ public class ChartPersonName extends Chart {
                         if (sampleType.isNative() == (source == Source.NativeSamples)) {
                             final SimpleNameObject nameObject = names.get(sampleType);
                             String value = nameObject == null ? "" : formatter.format(nameObject, parameters);
+                            // TODO This test needs to be in CheckCLDR. It is a bit more complicated since multiple paths are involved,
+                            // so filed https://unicode-org.atlassian.net/browse/CLDR-16354 for doing it later
+                            if (parameters.getUsage() == Usage.monogram) {
+                                if (value.contains("..") || value.contains(". .") || value.endsWith(".") || value.startsWith(".")) {
+                                    System.err.println("Error: " + locale + "\t" + parameters + "\t" + value + "\t" + nameObject.getAvailableFields());
+                                }}
                             tablePrinter.addCell(value.isBlank() ? "<i>missing</i>" : value);
                         }
                     }
                     String path = "//ldml/personNames/personName[@order=\"" + parameters.getOrder()
-                        + "\"][@length=\"" + parameters.getLength()
-                        + "\"][@usage=\"" + parameters.getUsage()
-                        + "\"][@formality=\"" + parameters.getFormality()
-                        + "\"]/namePattern";
+                    + "\"][@length=\"" + parameters.getLength()
+                    + "\"][@usage=\"" + parameters.getUsage()
+                    + "\"][@formality=\"" + parameters.getFormality()
+                    + "\"]/namePattern";
                     tablePrinter.addCell(getFixLinkFromPath(cldrFile, path));
                     tablePrinter.finishRow();
                 }

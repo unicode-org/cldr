@@ -1082,7 +1082,7 @@ public class TestPersonNameFormatter extends TestFmwk{
     public void testInitials() {
         String[][] tests = {{
             "//ldml/personNames/personName[@order=\"givenFirst\"][@length=\"short\"][@usage=\"referring\"][@formality=\"formal\"]/namePattern",
-            "〖<i>🟨 Native name and script:</i>〗〖❬Z.❭〗〖❬I.❭ ❬Adler❭〗〖❬M. S.❭ ❬H.❭ ❬Watson❭〗〖❬B. W.❭ ❬H. R.❭ ❬Wooster❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬S.❭〗〖❬K.❭ ❬Müller❭〗〖❬Z.❭ ❬H.❭ ❬Stöber❭〗〖❬A. C.❭ ❬C. M.❭ ❬von Brühl❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Є.❭ ❬М.❭ ❬Шевченко❭〗〖❬太郎山田❭〗"
+            "〖<i>🟨 Native name and script:</i>〗〖❬Zendaya❭〗〖❬I.❭ ❬Adler❭〗〖❬M. S.❭ ❬H.❭ ❬Watson❭〗〖❬B. W.❭ ❬H. R.❭ ❬Wooster❭〗〖<i>🟧 Foreign name and native script:</i>〗〖❬Sinbad❭〗〖❬K.❭ ❬Müller❭〗〖❬Z.❭ ❬H.❭ ❬Stöber❭〗〖❬A. C.❭ ❬C. M.❭ ❬von Brühl❭〗〖<i>🟥 Foreign name and script:</i>〗〖❬Є.❭ ❬М.❭ ❬Шевченко❭〗〖❬太郎山田❭〗"
         }};
         ExampleGenerator exampleGenerator = checkExamples(ENGLISH, tests);
     }

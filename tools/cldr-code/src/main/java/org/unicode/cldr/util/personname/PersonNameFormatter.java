@@ -659,7 +659,7 @@ public class PersonNameFormatter {
             StringBuilder literalTextAfter = new StringBuilder();
 
             // Check that we either have a given value in the pattern or a surname value in the name object
-            if (!getFields().contains(Field.given) && !nameObject.getAvailableFields().contains(Field.surname)) {
+            if (!nameObject.getAvailableFields().contains(Field.surname) && !hasNonInitialGiven()) {
                 nameObject = new GivenToSurnameNameObject(nameObject);
             }
             for (NamePatternElement element : elements) {
@@ -710,6 +710,21 @@ public class PersonNameFormatter {
                 }
             }
             return result.toString();
+        }
+
+        static final ImmutableSet<Modifier> INITIALS = ImmutableSet.of(Modifier.initialCap, Modifier.initial);
+
+        public boolean hasNonInitialGiven() {
+            if (!getFields().contains(Field.given)) {
+                return false;
+            }
+            for (int index : getFieldPositions().get(Field.given)) {
+                ModifiedField modifiedField = getModifiedField(index);
+                if (Collections.disjoint(modifiedField.getModifiers(), INITIALS)) {
+                    return true; // there is a given, and it doesn't have an initial modifier.
+                }
+            }
+            return false;
         }
 
         static final Pattern SPACES = Pattern.compile("\\s+"); // TODO pick whitespace
@@ -1420,9 +1435,9 @@ public class PersonNameFormatter {
     }
 
     /**
-     * Specialized NameObject that returns the given value instead of the surname value
+     * Specialized NameObject that returns the given value instead of the surname value. Only used for monograms.
      */
-    private static class GivenToSurnameNameObject implements NameObject {
+    public static class GivenToSurnameNameObject implements NameObject {
         private final NameObject nameObject;
 
         public GivenToSurnameNameObject(NameObject nameObject) {
@@ -1448,8 +1463,12 @@ public class PersonNameFormatter {
 
         @Override
         public String getBestValue(ModifiedField modifiedField, Set<Modifier> remainingModifers) {
-            if (modifiedField.getField() == Field.surname) {
+            switch(modifiedField.getField()) {
+            case surname:
                 modifiedField = new ModifiedField(Field.given, modifiedField.getModifiers());
+                break;
+            case given:
+                return null;
             }
             return nameObject.getBestValue(modifiedField, remainingModifers);
         }

@@ -122,6 +122,16 @@ public class Option {
         return doesOccur;
     }
 
+    /**
+     * An option with no argument
+     * @see #doesOccur()
+     * @param optionEnumValue
+     * @param helpText
+     */
+    public Option(Enum<?> optionEnumValue, String helpText) {
+        this(optionEnumValue, optionEnumValue.name(), (optionEnumValue.name().charAt(0)), null, null, helpText);
+    }
+
     public Option(Enum<?> optionEnumValue, String argumentPattern, String defaultArgument, String helpText) {
         this(optionEnumValue, optionEnumValue.name(), (optionEnumValue.name().charAt(0)), Pattern.compile(argumentPattern), defaultArgument,
             helpText);

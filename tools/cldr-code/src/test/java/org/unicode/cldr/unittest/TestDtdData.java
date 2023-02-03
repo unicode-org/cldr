@@ -492,7 +492,7 @@ public class TestDtdData extends TestFmwk {
                 || (elementName.equals("matchVariable") && attribute.equals("id"))
                 || attribute.equals("iso4217")
                 || attribute.equals("iso3166")
-                || attribute.equals("code")
+                || attribute.equals("code") && elementName.equals("telephoneCountryCode")
                 || (attribute.equals("type") && !elementName.equals("calendarSystem") && !elementName.equals("mapZone")
                     && !elementName.equals("numberingSystem") && !elementName.equals("variable"))
                 || attribute.equals("id") && elementName.equals("variable")

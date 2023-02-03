@@ -310,8 +310,12 @@ public class TestDtdData extends TestFmwk {
                 for (Attribute attribute : element.getAttributes().keySet()) {
                     boolean distinguishedNew = dtdData.isDistinguishing(element.name, attribute.name);
                     boolean distinguishedOld = isDistinguishingOld(type, element.name, attribute.name);
-                    assertEquals("isDistinguished " + type
-                        + ": elementName.equals(\"" + element.name + "\") && attribute.equals(\"" + attribute.name + "\")", distinguishedOld, distinguishedNew);
+                    if (!assertEquals("isDistinguished " + type
+                        + ": elementName.equals(\"" + element.name + "\") && attribute.equals(\"" + attribute.name + "\")", distinguishedOld, distinguishedNew)) {
+                        // for debugging
+                        dtdData.isDistinguishing(element.name, attribute.name);
+                        isDistinguishingOld(type, element.name, attribute.name);
+                    }
                     deprecatedNew = dtdData.isDeprecated(element.name, attribute.name, "*");
                     deprecatedOld = SUPPLEMENTAL_DATA_INFO.isDeprecated(type, element.name, attribute.name, "*");
                     assertEquals("isDeprecated " + type + ":" + attribute, deprecatedOld, deprecatedNew);
@@ -492,7 +496,7 @@ public class TestDtdData extends TestFmwk {
                 || (elementName.equals("matchVariable") && attribute.equals("id"))
                 || attribute.equals("iso4217")
                 || attribute.equals("iso3166")
-                || attribute.equals("code")
+                || attribute.equals("code") && elementName.equals("telephoneCountryCode")
                 || (attribute.equals("type") && !elementName.equals("calendarSystem") && !elementName.equals("mapZone")
                     && !elementName.equals("numberingSystem") && !elementName.equals("variable"))
                 || attribute.equals("id") && elementName.equals("variable")

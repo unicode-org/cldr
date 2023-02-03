@@ -1844,10 +1844,12 @@ public class TestUnits extends TestFmwk {
         ImmutableSet<String> unitLongIdsRoot = ImmutableSet.copyOf(getUnits(root, new TreeSet<>()));
         ImmutableSet<String> unitLongIdsEnglish = ImmutableSet.copyOf(getUnits(CLDR_CONFIG.getEnglish(), new TreeSet<>()));
 
-        assertSameCollections("root unit IDs", "English", unitLongIdsRoot, unitLongIdsEnglish);
+        final Set<String> longUntranslatedUnitIds = converter.getLongIds(UnitConverter.UNTRANSLATED_UNIT_NAMES);
+
+        assertSameCollections("root unit IDs", "English", unitLongIdsRoot, Sets.difference(unitLongIdsEnglish, longUntranslatedUnitIds));
 
         final Set<String> validRootUnitIdsMinusOddballs = unitLongIdsRoot;
-        final Set<String> validLongUnitIdsMinusOddballs = minus(validLongUnitIds, converter.getLongIds(UnitConverter.UNTRANSLATED_UNIT_NAMES));
+        final Set<String> validLongUnitIdsMinusOddballs = minus(validLongUnitIds, longUntranslatedUnitIds);
         assertSameCollections("root unit IDs", "valid regular", validRootUnitIdsMinusOddballs, validLongUnitIdsMinusOddballs);
 
         assertSameCollections("comparatorUnitIds (DtdData)", "valid regular", comparatorUnitIds, validAndDeprecatedLongUnitIds);

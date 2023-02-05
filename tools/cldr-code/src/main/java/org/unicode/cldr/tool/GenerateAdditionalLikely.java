@@ -41,6 +41,7 @@ import com.ibm.icu.util.Output;
 public class GenerateAdditionalLikely {
 
     private static final String SIL = "sil22";
+    private static final boolean ADD_SEED_EXEMPLARS = false;
 
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final Splitter UNDERBAR = Splitter.on('_');
@@ -128,35 +129,52 @@ public class GenerateAdditionalLikely {
         }
     }
 
-    static final Map<String, String> likely = CLDR_CONFIG.getSupplementalDataInfo().getLikelySubtags();
-
-    static final ImmutableSet<String> alreadyLangs;
-    static {
-        Map<LstrType, Status> errors = new TreeMap<>();
-        alreadyLangs = loadLikely(likely, errors);
+    private static class LikelySources {
+        private static LikelySources SINGLETON = new LikelySources();
+        public static Set<String> getSources() {
+            return SINGLETON.alreadyLangs;
+        }
+        final ImmutableSet<String> alreadyLangs;
+        private LikelySources() {
+            Map<LstrType, Status> errors = new TreeMap<>();
+            Map<String, String> likely = CLDR_CONFIG.getSupplementalDataInfo().getLikelySubtags();
+            Set<String> _alreadyLangs = new TreeSet<>();
+            _alreadyLangs.add("und");
+            likely.forEach((key, value) -> {
+                String lang = ltpFull.set(value).getLanguage();
+                String script = ltpFull.set(value).getScript();
+                String region = ltpFull.set(value).getRegion();
+                _alreadyLangs.add(lang);
+                if (!isOk(lang, script, region, errors)) {
+                    showSkip("Skipping scope, CLDR", key, value, errors);
+                }
+            });
+            System.out.println();
+            alreadyLangs = ImmutableSet.copyOf(_alreadyLangs);
+        }
     }
 
-    static final Multimap<String, String> langToRegion = readWikidata(alreadyLangs);
+    static Multimap<String, String> langToRegion;
 
     public static void main(String[] args) {
-        // list("de en es es-419 fr hr it nl pl pt-BR pt-PT vi tr ru ar th ko zh-CN zh-TW ja ach af ak az ban su xx-bork bs br ca ceb cs sn co ht cy da yo et xx-elmer eo eu ee tl fil fo fy gaa ga gd gl gn xx-hacker ha haw bem ig rn id ia xh zu is jw rw sw tlh kg mfe kri la lv to lt ln loz lua lg hu mg mt mi ms pcm no nn nso ny uz oc om xx-pirate ro rm qu nyn crs sq sk sl so st sr-ME sr-Latn fi sv tn tum tk tw wo el be bg ky kk mk mn sr tt tg uk ka hy yi iw ug ur ps sd fa ckb ti am ne mr hi bn pa gu or ta te kn ml si lo my km chr");
 
         Map<String, LSRSource> result = new TreeMap<>();
         Map<LstrType, Status> errors = new TreeMap<>();
 
         Errors processErrors = new Errors();
 
-        readJson(alreadyLangs, result, processErrors );
+        langToRegion = readWikidata(LikelySources.getSources());
+        readJson(LikelySources.getSources(), result, processErrors );
 
         processErrors.printAll();
 
-        if (false) {
+        if (ADD_SEED_EXEMPLARS) {
 
             for (String locale : factory.getAvailable()) {
                 CLDRFile file = factory.make(locale, false);
                 UnicodeSet exemplars = file.getExemplarSet(ExemplarType.main, null);
                 String lang = ltpFull.set(locale).getLanguage();
-                if (!alreadyLangs.contains(lang)) {
+                if (!LikelySources.getSources().contains(lang)) {
                     String script = getScript(exemplars);
                     Collection<String> regions = langToRegion.get(lang);
                     for (String region : regions) {
@@ -187,7 +205,7 @@ public class GenerateAdditionalLikely {
                 continue;
             }
             LSRSource lsrs = entry.getValue();
-            System.out.println(lsrs.line(source));
+            System.out.println("\t\t" + lsrs.line(source));
         }
 
 //        Multimap<String, String> likelyAdditions = TreeMultimap.create();
@@ -234,24 +252,6 @@ public class GenerateAdditionalLikely {
                 + "\t" + Iso639Data.getScope(lang));
         }
         System.out.println();
-    }
-
-    private static ImmutableSet<String> loadLikely(Map<String, String> likely, Map<LstrType, Status> errors) {
-        Set<String> _alreadyLangs = new TreeSet<>();
-        _alreadyLangs.add("und");
-        likely.forEach((key, value) -> {
-            String lang = ltpFull.set(value).getLanguage();
-            String script = ltpFull.set(value).getScript();
-            String region = ltpFull.set(value).getRegion();
-            if (isOk(lang, script, region, errors)) {
-                _alreadyLangs.add(lang);
-            } else if (!region.equals("ZZ")){
-                showSkip("Skipping scope, CLDR", key, value, errors);
-            }
-        });
-        System.out.println();
-        ImmutableSet<String> alreadyLangs = ImmutableSet.copyOf(_alreadyLangs);
-        return alreadyLangs;
     }
 
     public static void showSkip(String message, String source, String target, Map<LstrType, Status> errors) {
@@ -321,7 +321,7 @@ public class GenerateAdditionalLikely {
         }
     }
 
-    private static Map<String, LSRSource> readJson(ImmutableSet<String> alreadyLangs, Map<String, LSRSource> result, Errors processErrors) {
+    private static Map<String, LSRSource> readJson(Set<String> alreadyLangs, Map<String, LSRSource> result, Errors processErrors) {
         Path path = Paths.get(CLDRPaths.BIRTH_DATA_DIR, "/../external/langtags.json");
         Matcher full = fullTagMatch.matcher("");
         Map<LstrType, Status> errors = new TreeMap<>();
@@ -333,7 +333,7 @@ public class GenerateAdditionalLikely {
                 if (full.reset(x).matches()) {
                     final String key = full.group(1);
                     final String value = full.group(2).replace("-", "_");
-                    if (value.startsWith("aae_Grek")) {
+                    if (value.startsWith("aai")) {
                         int debug = 0;
                     }
                     switch(key) {
@@ -405,7 +405,7 @@ public class GenerateAdditionalLikely {
         }
     }
 
-    private static Multimap<String, String> readWikidata(ImmutableSet<String> alreadyLangs) {
+    private static Multimap<String, String> readWikidata(Set<String> alreadyLangs) {
         Multimap<String, String> result = TreeMultimap.create();
         Path path = Paths.get(CLDRPaths.BIRTH_DATA_DIR, "/../external/wididata_lang_region.tsv");
         try {

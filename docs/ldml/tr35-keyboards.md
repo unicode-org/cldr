@@ -1221,23 +1221,22 @@ _Attribute:_ `modifier` (required for `hardware`)
 >
 > To indicate that no modifiers apply, the reserved name of `none` can be used.
 > The following modifier components can be used, separated by spaces.
-> Note that `L` or `R` indicates a left- or right- side modifier only (such as `shiftL`)
-> whereas `shift` indicates _either_ left or right shift.
+> Note that `L` or `R` indicates a left- or right- side modifier only (such as `altL`)
+> whereas `alt` indicates _either_ left or right alt key.
+> `shift` also indicates either shift key.
 >
 > - `none` (no modifier, may not be combined with others)
 > - `alt`
 > - `altL`
 > - `altR`
 > - `caps`
-> - `cmd`
 > - `ctrl`
 > - `ctrlL`
 > - `ctrlR`
-> - `opt`
 > - `shift`
-> - `shiftL`
-> - `shiftR`
 >
+> Note that `alt` is sometimes referred to as _opt_ or _option_.
+
 > For hardware layouts, the use of `@modifier` as an identifier for a layer is sufficient since it is always unique among the set of `layer` elements in a keyboard.
 
 * * *

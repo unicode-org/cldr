@@ -156,7 +156,7 @@ Please see CLDR-15034 for the latest information. -->
 <!ATTLIST layer id NMTOKEN #IMPLIED >
     <!--@MATCH:any-->
 <!ATTLIST layer modifier NMTOKENS #IMPLIED >
-    <!--@MATCH:any-->
+    <!--@MATCH:regex/(none|((alt[LR]?|ctrl[LR]?|caps|shift)[ ]?)+)-->
 
 <!ELEMENT row EMPTY >
     <!--@ORDERED-->

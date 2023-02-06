@@ -1,15 +1,34 @@
 package org.unicode.cldr.unittest;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.EnumSet;
+import java.util.LinkedHashSet;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.MinimizeRegex;
-import org.unicode.cldr.util.*;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.LocaleNames;
+import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrType;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
+import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 
 import com.google.common.base.Joiner;
@@ -275,7 +294,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         checkCldrContains("cldr", cldr, "microsoft", microsoft);
         checkCldrContains("cldr", cldr, "special", apple);
 
-        // check that special doesn't overlap with TC, except for generated locales
+        // check that special doesn't overlap with TC, except for locales in LOCALE_CONTAINMENT_EXCEPTIONS
 
         checkDisjoint("special", special, "apple", apple);
         checkDisjoint("special", special, "google", google);
@@ -290,7 +309,8 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
     private static final Set<String> ANY_LOCALE_SET = ImmutableSet.of("*");
     private static final Set<String> LOCALE_CONTAINMENT_EXCEPTIONS = ImmutableSet.of(
         "sr_Latn", // auto-generated
-        "hi", "sr", "yue" // these are inserted by Locales.txt processing TODO don't add to special
+        "hi", "sr", "yue", // these are inserted by Locales.txt processing TODO don't add to special
+        "to", "qu" // optional locales
         );
 
     private void checkCldrContains(String firstName, Map<String, Level> first, String otherName, Map<String, Level> other) {

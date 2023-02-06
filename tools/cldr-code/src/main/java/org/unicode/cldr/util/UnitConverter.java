@@ -58,7 +58,8 @@ public class UnitConverter implements Freezable<UnitConverter> {
         "portion",
         "ofglucose",
         "100-kilometer",
-        "ofhg");
+        "ofhg",
+        "beaufort");
 
     public static final Set<String> HACK_SKIP_UNIT_NAMES = ImmutableSet.of(
         // skip dot because pixel is preferred

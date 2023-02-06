@@ -683,7 +683,7 @@ public class ShowLocaleCoverage {
                 + "<ul><li>locale-coverage.tsv — A version of this file, suitable for loading into a spreadsheet.</li>\n"
                 + "<li>locale-missing.tsv — Missing items for the CLDR target locales.</li>\n"
                 + "<li>locale-missing-summary.tsv — Summary of missing items for the CLDR target locales, by Section/Page/Header.</li>\n"
-                + "<li>locale-missing-basic.tsv — Missing items that keep locales from reaching the Basic level.</li></td></tr>\n"
+                + "<li>locale-missing-basic.tsv — Missing items that keep locales from reaching the Basic level.</li>\n"
                 + "<li>locale-missing-count.tsv — Counts of items per locale that are found, unconfirmed, or missing, at the target level. "
                 + "(Or at *basic, if there is no target level.)</li></td></tr>\n"
                 + "</table>\n"

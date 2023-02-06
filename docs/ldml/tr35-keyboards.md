@@ -1149,19 +1149,24 @@ hardware or touch layout.
 > </small>
 
 - At least one `layers` element is required.
-- Multiple `<layers form="touch">` elements are allowed with distinct `minDeviceWidth` values.
-- At most one `<layers>` element is allowed per hardware `form`. In other words,
-  at most one `<layers form="jis">` element is allowed.
 
 _Attribute:_ `form` (required)
 
 > This attribute specifies the physical layout of a hardware keyboard,
-> or that the form is a touch layout.
+> or that the form is a `touch` layout.
 >
 > It is recommended to always have at least one hardware (non-touch) form.
 > If there is no `hardware` form, the implementation may need
 > to choose a different keyboard file, or use some other fallback behavior when using a
 > hardware keyboard.
+>
+> Multiple `<layers form="touch">` elements are allowed with distinct `minDeviceWidth` values.
+> At most one `<layers>` element is allowed per hardware `form`. In other words, at most one `<layers form="jis">` element is allowed.
+>
+> In most situations, only one hardware `layers` element will be included. Note that the typical keyboard author will be designing a keyboard based on their circumstances and the hardware that they are using. So, for example, if they are in South East Asia, they will almost certainly be using an 101 key hardware keyboard with US key caps. So we want them to be able to reference that (`<layers form="us">`) in their design, rather than having to work with an unfamiliar form. An implementation should be able to translate the keyboard designer's chosen form to the other hardware forms.
+
+
+
 >
 > When using an on-screen keyboard, if there is not a `<layers form="touch">`
 > element, the hardware elements can be used for on-screen use.
@@ -1175,7 +1180,7 @@ _Attribute:_ `form` (required)
 
 _Attribute:_ `minDeviceWidth`
 
-> This attribute specifies the minimum required width, in millimeters (mm), of the touch surface.  The `layers` entry with the greatest matching width will be selected. This attribute is intended for `form="touch"`, but is supported for hardware forms`.
+> This attribute specifies the minimum required width, in millimeters (mm), of the touch surface.  The `layers` entry with the greatest matching width will be selected. This attribute is intended for `form="touch"`, but is supported for hardware forms.
 
 ### <a name="Element_layer" href="#Element_layer">Element: layer</a>
 

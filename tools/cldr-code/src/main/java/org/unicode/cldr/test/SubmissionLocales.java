@@ -8,13 +8,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.util.GrammarInfo;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.Organization;
-import org.unicode.cldr.util.RegexUtilities;
-import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.VoterReportStatus;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.VoterReportStatus.ReportId;
 
 import com.google.common.cache.CacheBuilder;
@@ -178,19 +172,23 @@ public final class SubmissionLocales {
 
     /**
      * Only call this if LIMITED_SUBMISSION
+     *
      * @param localeString
      * @param path
      * @param isError
      * @param isMissing
+     * @param voteStatus
      * @return true if submission is allowed, else false
      */
-    public static boolean allowEvenIfLimited(String localeString, String path, boolean isError, boolean isMissing) {
+    public static boolean allowEvenIfLimited(String localeString, String path, boolean isError, boolean isMissing, VettingViewer.VoteStatus voteStatus) {
 
         // Allow errors to be fixed
         if (isError) {
             return true;
         }
-
+        if (voteStatus == VettingViewer.VoteStatus.provisionalOrWorse) {
+            return true;
+        }
         // for new locales, allow basic paths
         if (SubmissionLocales.ALLOW_ALL_PATHS_BASIC.contains(localeString) &&
             // Only check coverage level for these locales

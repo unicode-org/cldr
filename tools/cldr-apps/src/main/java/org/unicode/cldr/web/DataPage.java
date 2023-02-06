@@ -558,7 +558,7 @@ public class DataPage {
          *
          * Sequential order in which addItem may be called (as of 2019-04-19) for a given DataRow:
          *
-         * (1) For INHERITANCE_MARKER (if inheritedValue = ourSrc.getBaileyValue not null):
+         * (1) For INHERITANCE_MARKER (if inheritedValue = cldrFile.getBaileyValue not null):
          *     in updateInheritedValue (called by populateFromThisXpath):
          *         inheritedItem = addItem(CldrUtility.INHERITANCE_MARKER, "inherited");
          *
@@ -740,7 +740,6 @@ public class DataPage {
          * possibly set some fields in the DataRow, which may include inheritedValue,
          * inheritedItem, inheritedLocale, pathWhereFound
          *
-         * @param ourSrc the CLDRFile
          * @param checkCldr the tests to use
          *
          * Called only by populateFromThisXpath, which is a method of DataPage.
@@ -758,7 +757,7 @@ public class DataPage {
          * Normally (always?) inheritedItem is null when this function is called; however, in principle
          * it may be possible that inheritedItem isn't null due to ensureComplete calling setShimTests.
          */
-        private void updateInheritedValue(CLDRFile ourSrc, TestResultBundle checkCldr) {
+        private void updateInheritedValue(TestResultBundle checkCldr) {
             long lastTime = System.currentTimeMillis();
 
             /*
@@ -767,7 +766,7 @@ public class DataPage {
              */
             Output<String> inheritancePathWhereFound = new Output<>(); // may become pathWhereFound
             Output<String> localeWhereFound = new Output<>(); // may be used to construct inheritedLocale
-            inheritedValue = ourSrc.getBaileyValue(xpath, inheritancePathWhereFound, localeWhereFound);
+            inheritedValue = cldrFile.getBaileyValue(xpath, inheritancePathWhereFound, localeWhereFound);
 
             if (TRACE_TIME) {
                 System.err.println("@@1:" + (System.currentTimeMillis() - lastTime));
@@ -784,7 +783,7 @@ public class DataPage {
                  * xpath = //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMMEEEEd"]
                  * ourValueIsInherited = false; ourValue = "EEEE, d/MM/y"; isExtraPath = false
                  *
-                 * TODO: what are the implications when ourSrc.getBaileyValue has returned null?
+                 * TODO: what are the implications when cldrFile.getBaileyValue has returned null?
                  * Unless we're at root, shouldn't there always be a non-null inheritedValue here?
                  * See https://unicode.org/cldr/trac/ticket/11299
                  */
@@ -948,12 +947,16 @@ public class DataPage {
         /**
          * Get the StatusAction for this DataRow
          *
+         * @param inputMethod DIRECT or BULK
          * @return the StatusAction
          */
         public StatusAction getStatusAction(InputMethod inputMethod) {
-            // null because this is for display.
+            Organization org = (userForVotelist == null) ? null : userForVotelist.getOrganization();
+            VettingViewer.VoteStatus voteStatus = (org == null)
+                ? VettingViewer.VoteStatus.ok_novotes
+                : userVoteStatus.getStatusForUsersOrganization(cldrFile, xpath, org);
             return SurveyMain.phase().getCPhase()
-                .getShowRowAction(this, inputMethod, getPathHeader(), userForVotelist);
+                .getShowRowAction(this, inputMethod, getPathHeader(), userForVotelist, voteStatus);
         }
 
         /**
@@ -1295,10 +1298,6 @@ public class DataPage {
 
         DataPage page = new DataPage(pageId, sm, locale, prefix, matcher);
 
-        CLDRFile ourSrc = sm.getSTFactory().make(locale.getBaseName());
-
-        ourSrc.setSupplementalDirectory(sm.getSupplementalDirectory());
-
         if (session == null) {
             throw new InternalError("session == null");
         }
@@ -1306,8 +1305,8 @@ public class DataPage {
             page.setUserForVotelist(session.user);
         }
 
-        if (ourSrc.getSupplementalDirectory() == null) {
-            throw new InternalError("?!! ourSrc hsa no supplemental dir!");
+        if (page.cldrFile.getSupplementalDirectory() == null) {
+            throw new InternalError("?!! cldrFile no supplemental dir!");
         }
         synchronized (session) {
             TestResultBundle checkCldr = sm.getSTFactory().getTestResult(locale, getOptions(session, locale));
@@ -1316,9 +1315,9 @@ public class DataPage {
             }
             page.comparisonValueFile = sm.getEnglishFile();
 
-            page.nativeExampleGenerator = TestCache.getExampleGenerator(locale, ourSrc, page.comparisonValueFile);
+            page.nativeExampleGenerator = TestCache.getExampleGenerator(locale, page.cldrFile, page.comparisonValueFile);
 
-            page.populateFrom(ourSrc, checkCldr);
+            page.populateFrom(checkCldr);
             /*
              * Call ensureComplete if and only if pageId is null. TODO: Explain, why?
              * pageId is null when called from submitVoteOrAbstention, and also
@@ -1371,6 +1370,10 @@ public class DataPage {
     private static final boolean DEBUG_DATA_PAGE = false;
     private String creationTime = null; // only used if DEBUG_DATA_PAGE
 
+
+    final private CLDRFile cldrFile;
+    final private STUsersChoice userVoteStatus;
+
     DataPage(PageId pageId, SurveyMain sm, CLDRLocale loc, String prefix, XPathMatcher matcher) {
         this.locale = loc;
         this.sm = sm;
@@ -1378,6 +1381,9 @@ public class DataPage {
         xpathPrefix = prefix;
         ballotBox = sm.getSTFactory().ballotBoxForLocale(locale);
         this.pageId = pageId;
+        this.cldrFile = sm.getSTFactory().make(locale.getBaseName());
+        cldrFile.setSupplementalDirectory(sm.getSupplementalDirectory());
+        this.userVoteStatus = new STUsersChoice(sm);
 
         if (DEBUG_DATA_PAGE) {
             creationTime = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(Calendar.getInstance().getTime());
@@ -1579,10 +1585,9 @@ public class DataPage {
     /**
      * Populate this DataPage
      *
-     * @param ourSrc the CLDRFile
      * @param checkCldr the TestResultBundle
      */
-    private void populateFrom(CLDRFile ourSrc, TestResultBundle checkCldr) {
+    private void populateFrom(TestResultBundle checkCldr) {
         STFactory stf = sm.getSTFactory();
         diskFile = stf.getDiskFile(locale);
         String workPrefix = xpathPrefix;
@@ -1619,10 +1624,10 @@ public class DataPage {
             Set<String> baseXpaths = stf.getPathsForFile(locale, xpathPrefix);
 
             allXpaths = new HashSet<>(baseXpaths);
-            if (ourSrc.getSupplementalDirectory() == null) {
-                throw new InternalError("?!! ourSrc hsa no supplemental dir!");
+            if (cldrFile.getSupplementalDirectory() == null) {
+                throw new InternalError("?!! cldrFile has no supplemental dir!");
             }
-            ourSrc.getExtraPaths(workPrefix, extraXpaths);
+            cldrFile.getExtraPaths(workPrefix, extraXpaths);
             extraXpaths.removeAll(baseXpaths);
             allXpaths.addAll(extraXpaths);
 
@@ -1631,7 +1636,7 @@ public class DataPage {
                 System.err.println("@@X@ base[" + workPrefix + "]: " + baseXpaths.size() + ", extra: " + extraXpaths.size());
             }
         }
-        populateFromAllXpaths(allXpaths, workPrefix, ourSrc, extraXpaths, stf, checkCldr);
+        populateFromAllXpaths(allXpaths, workPrefix, extraXpaths, stf, checkCldr);
     }
 
     /**
@@ -1639,12 +1644,11 @@ public class DataPage {
      *
      * @param allXpaths the set of xpaths
      * @param workPrefix
-     * @param ourSrc
      * @param extraXpaths
      * @param stf
      * @param checkCldr
      */
-    private void populateFromAllXpaths(Set<String> allXpaths, String workPrefix, CLDRFile ourSrc, Set<String> extraXpaths, STFactory stf,
+    private void populateFromAllXpaths(Set<String> allXpaths, String workPrefix, Set<String> extraXpaths, STFactory stf,
         TestResultBundle checkCldr) {
 
         for (String xpath : allXpaths) {
@@ -1671,7 +1675,7 @@ public class DataPage {
                 continue;
             }
 
-            String fullPath = ourSrc.getFullXPath(xpath);
+            String fullPath = cldrFile.getFullXPath(xpath);
             int base_xpath = sm.xpt.xpathToBaseXpathId(xpath);
             String baseXpath = sm.xpt.getById(base_xpath);
 
@@ -1680,7 +1684,7 @@ public class DataPage {
                 fullPath = xpath; // (this is normal for 'extra' paths)
             }
             // Now we are ready to add the data
-            populateFromThisXpath(xpath, extraXpaths, ourSrc, fullPath, checkCldr, coverageValue, base_xpath);
+            populateFromThisXpath(xpath, extraXpaths, fullPath, checkCldr, coverageValue, base_xpath);
         }
     }
 
@@ -1689,24 +1693,23 @@ public class DataPage {
      *
      * @param xpath
      * @param extraXpaths
-     * @param ourSrc
      * @param fullPath
      * @param checkCldr
      * @param coverageValue
      * @param base_xpath
      */
-    private void populateFromThisXpath(String xpath, Set<String> extraXpaths, CLDRFile ourSrc, String fullPath,
+    private void populateFromThisXpath(String xpath, Set<String> extraXpaths, String fullPath,
         TestResultBundle checkCldr, int coverageValue, int base_xpath) {
 
         /*
          * 'extra' paths get shim treatment
          *
          * NOTE: this is a sufficient but not a necessary condition for isExtraPath; if it gets false here,
-         * it may still get true below if ourSrc.getStringValue returns null.
+         * it may still get true below if cldrFile.getStringValue returns null.
          */
         boolean isExtraPath = extraXpaths != null && extraXpaths.contains(xpath);
 
-        String ourValue = isExtraPath ? null : ourSrc.getStringValue(xpath);
+        String ourValue = isExtraPath ? null : cldrFile.getStringValue(xpath);
         if (ourValue == null) {
             /*
              * This happens, for example, with xpath = "//ldml/dates/timeZoneNames/metazone[@type=\"Kyrgystan\"]/long/generic"
@@ -1740,7 +1743,7 @@ public class DataPage {
         String altProp = typeAndProposed[1];
 
         CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
-        String sourceLocale = ourSrc.getSourceLocaleID(xpath, sourceLocaleStatus);
+        String sourceLocale = cldrFile.getSourceLocaleID(xpath, sourceLocaleStatus);
 
         /*
          * Dubious! The value could be inherited from another path in the same locale.
@@ -1765,7 +1768,7 @@ public class DataPage {
          * when isExtraPath.
          */
         if (row.inheritedItem == null && !isExtraPath) {
-            row.updateInheritedValue(ourSrc, checkCldr);
+            row.updateInheritedValue(checkCldr);
         }
         row.addAnnotationRootValue();
 

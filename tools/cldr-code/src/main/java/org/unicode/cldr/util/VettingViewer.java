@@ -485,7 +485,8 @@ public class VettingViewer<T> {
             htmlMessage.setLength(0);
 
             final String oldValue = (baselineFileUnresolved == null) ? null : baselineFileUnresolved.getWinningValue(path);
-            if (skipForLimitedSubmission(path, errorStatus, oldValue)) {
+            final VoteStatus voteStatus = userVoteStatus.getStatusForUsersOrganization(sourceFile, path, organization);
+            if (skipForLimitedSubmission(path, errorStatus, voteStatus, oldValue)) {
                 return;
             }
             if (!onlyRecordErrors && choices.contains(NotificationCategory.changedOldValue) &&
@@ -498,7 +499,6 @@ public class VettingViewer<T> {
                 problems.add(NotificationCategory.inheritedChanged);
                 vc.problemCounter.increment(NotificationCategory.inheritedChanged);
             }
-            VoteStatus voteStatus = userVoteStatus.getStatusForUsersOrganization(sourceFile, path, organization);
             boolean itemsOkIfVoted = (voteStatus == VoteStatus.ok);
             MissingStatus missingStatus = onlyRecordErrors ? null : recordMissingChangedEtc(path, itemsOkIfVoted, value, oldValue);
             recordChoice(errorStatus, itemsOkIfVoted, onlyRecordErrors);
@@ -576,11 +576,11 @@ public class VettingViewer<T> {
             }
         }
 
-        private boolean skipForLimitedSubmission(String path, ErrorChecker.Status errorStatus, String oldValue) {
+        private boolean skipForLimitedSubmission(String path, ErrorChecker.Status errorStatus, VoteStatus voteStatus, String oldValue) {
             if (CheckCLDR.LIMITED_SUBMISSION) {
                 boolean isError = (errorStatus == ErrorChecker.Status.error);
                 boolean isMissing = (oldValue == null);
-                if (!SubmissionLocales.allowEvenIfLimited(localeId, path, isError, isMissing)) {
+                if (!SubmissionLocales.allowEvenIfLimited(localeId, path, isError, isMissing, voteStatus)) {
                     return true;
                 }
             }

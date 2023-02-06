@@ -23,23 +23,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
-import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.InternalCldrException;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
-import org.unicode.cldr.util.PatternCache;
-import org.unicode.cldr.util.RegexFileParser;
 import org.unicode.cldr.util.RegexFileParser.RegexLineParser;
-import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.TransliteratorUtilities;
-import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Status;
 
 import com.google.common.collect.ImmutableSet;
@@ -177,15 +166,15 @@ abstract public class CheckCLDR implements CheckAccessor {
          * @param ph the path header
          * @param userInfo
          *            null if there is no userInfo (nobody logged in).
+         * @param voteStatus
          * @return
          */
         public StatusAction getShowRowAction(
             PathValueInfo pathValueInfo,
             InputMethod inputMethod,
             PathHeader ph,
-            UserInfo userInfo // can get voterInfo from this.
-            ) {
-
+            UserInfo userInfo, // can get voterInfo from this.
+            VettingViewer.VoteStatus voteStatus) {
             PathHeader.SurveyToolStatus status = ph.getSurveyToolStatus();
             /*
              * Always forbid DEPRECATED items - don't show.
@@ -223,11 +212,12 @@ abstract public class CheckCLDR implements CheckAccessor {
             // if limited submission, and winner doesn't have an error, limit the values
 
             if (LIMITED_SUBMISSION) {
+                boolean isError = (valueStatus == ValueStatus.ERROR);
+                boolean isMissing = (pathValueInfo.getBaselineStatus() == Status.missing);
                 if (!SubmissionLocales.allowEvenIfLimited(
                     pathValueInfo.getLocale().toString(),
                     pathValueInfo.getXpath(),
-                    valueStatus == ValueStatus.ERROR,
-                    pathValueInfo.getBaselineStatus() == Status.missing)) {
+                    isError, isMissing, voteStatus)) {
                     return StatusAction.FORBID_READONLY;
                 }
             }
@@ -261,7 +251,7 @@ abstract public class CheckCLDR implements CheckAccessor {
          *            If voting for an existing value, pathValueInfo.getValues().contains(enteredValue) MUST be true
          * @param pathValueInfo
          * @param inputMethod
-         * @param status
+         * @param ph
          * @param userInfo
          * @return
          */

@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assumptions.assumeTrue;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.unicode.cldr.util.VettingViewer;
 
 public class TestSubmissionLocales {
     @ParameterizedTest
@@ -23,7 +24,7 @@ public class TestSubmissionLocales {
         final boolean isAllowed = allowed.equals("allowed");
         final boolean isError = error.equals("error");
         final boolean isMissing = missing.equals("missing");
-        assertEquals(isAllowed, SubmissionLocales.allowEvenIfLimited(locale, xpath, isError, isMissing),
+        assertEquals(isAllowed, SubmissionLocales.allowEvenIfLimited(locale, xpath, isError, isMissing, VettingViewer.VoteStatus.ok_novotes),
             () -> String.format("%s %s:%s", allowed, locale, xpath));
     }
 

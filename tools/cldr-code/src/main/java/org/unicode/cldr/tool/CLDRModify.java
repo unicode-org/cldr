@@ -2347,7 +2347,7 @@ public class CLDRModify {
                 boolean isMissing = (oldValue == null || CLDRFile.DraftStatus.forXpath(fullXPath).ordinal() <= CLDRFile.DraftStatus.provisional.ordinal());
                 String locOrAncestor = localeID;
                 while (!"root".equals(locOrAncestor)) {
-                    if (SubmissionLocales.allowEvenIfLimited(locOrAncestor, xpath, isError, isMissing)) {
+                    if (SubmissionLocales.allowEvenIfLimited(locOrAncestor, xpath, isError, isMissing, VettingViewer.VoteStatus.ok_novotes)) {
                         return true;
                     }
                     locOrAncestor = LocaleIDParser.getParent(locOrAncestor);

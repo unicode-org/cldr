@@ -32,40 +32,20 @@ import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.tool.LikelySubtags;
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.Counter;
-import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.DayPeriodInfo.Type;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.GrammarInfo;
-import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.Organization;
-import org.unicode.cldr.util.Pair;
-import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
-import org.unicode.cldr.util.PatternCache;
-import org.unicode.cldr.util.PatternPlaceholders;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
-import org.unicode.cldr.util.SimpleXMLSource;
-import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrType;
-import org.unicode.cldr.util.StringId;
-import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
-import org.unicode.cldr.util.XMLSource;
 
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R5;
@@ -812,7 +792,7 @@ public class TestCheckCLDR extends TestFmwk {
                             dummyPathValueInfo,
                             InputMethod.DIRECT,
                             ph,
-                            dummyUserInfo);
+                            dummyUserInfo, VettingViewer.VoteStatus.ok_novotes);
 
                         if (ph.shouldHide()) {
                             assertEquals("HIDE ==> FORBID_READONLY", StatusAction.FORBID_READONLY, action);
@@ -839,7 +819,7 @@ public class TestCheckCLDR extends TestFmwk {
                                         dummyPathValueInfo,
                                         InputMethod.DIRECT,
                                         ph,
-                                        dummyUserInfo);
+                                        dummyUserInfo, VettingViewer.VoteStatus.ok_novotes);
                                 }
                                 actionToExamplePath.put(key, Pair.of(dummyPathValueInfo.baselineValue != null, path));
                             }
@@ -963,7 +943,7 @@ public class TestCheckCLDR extends TestFmwk {
 
     /**
      * Check that the locale is valid, that it is either in or out of allowed locales, and that the locale is not deprecated
-     * @param language
+     * @param locale
      * @param expectedInCLDRLocales
      */
     private void checkLocaleOk(final String locale, final boolean expectedInCLDRLocales) {
@@ -1037,7 +1017,7 @@ public class TestCheckCLDR extends TestFmwk {
                     }
                     String value = cldrFile.getStringValue(path);
                     boolean isMissing = value == null;
-                    boolean allowed = SubmissionLocales.allowEvenIfLimited(locale, path, false, isMissing);
+                    boolean allowed = SubmissionLocales.allowEvenIfLimited(locale, path, false, isMissing, VettingViewer.VoteStatus.ok_novotes);
                     if (allowed) {
                         boolean isUnit = path.startsWith(UNIT_PATH);
                         counter.add(LimitedStatus.of(isUnit, isMissing), 1);

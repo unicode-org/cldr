@@ -248,7 +248,7 @@ class LdmlConvertRules {
     /**
      * The set of attributes that should be ignored in the conversion process.
      */
-    public static final ImmutableSet<String> IGNORABLE_NONDISTINGUISHING_ATTR_SET = ImmutableSet.of("draft", "references");
+    public static final ImmutableSet<String> IGNORABLE_NONDISTINGUISHING_ATTR_SET = ImmutableSet.of("draft", "references", "origin");
 
     /**
      * List of attributes that should be suppressed.
@@ -334,7 +334,7 @@ class LdmlConvertRules {
      * as a single string.
      */
     public static final Set<String> ATTRVALUE_AS_ARRAY_SET = Builder.with(new HashSet<String>())
-        .add("territories").add("scripts").add("contains").add("systems").freeze();
+        .add("territories").add("scripts").add("contains").add("systems").add("origin").freeze();
 
     /**
      * Following is the list of elements that need to be sorted before output.

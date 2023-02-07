@@ -76,6 +76,9 @@ import com.ibm.icu.util.ULocale;
 import com.ibm.icu.util.VersionInfo;
 
 public class ShowLocaleCoverage {
+
+    private static final String TSV_BASE = "https://github.com/unicode-org/cldr-staging/blob/main/docs/charts/43/tsv/";
+
     // thresholds for measuring Level attainment
     private static final double BASIC_THRESHOLD = 1;
     private static final double MODERATE_THRESHOLD = 0.995;
@@ -651,13 +654,12 @@ public class ShowLocaleCoverage {
                 + "</ul></blockquote>\n"
                 + "<h3>Column Key</h3>\n"
                 + "<table class='subtle' style='margin-left:3em; margin-right:3em'>\n"
-                + "<tr><th>Direct.</th><td>The CLDR source directory</td></tr>\n"
                 + "<tr><th>Default Region</th><td>The default region for locale code, based on likely subtags</td></tr>\n"
                 + "<tr><th>№ Locales</th><td>Note that the coverage of regional locales inherits from their parents.</td></tr>\n"
                 + "<tr><th>Target Level</th><td>The default target Coverage Level in CLDR. "
                 + "Particular organizations may have different target levels. "
                 + "Languages with high levels of coverage are marked with ‡, even though they are not tracked by the technical committee.</td></tr>\n"
-                + "<tr><th>≟</th><td>Indicates whether the Computed Level equals the CLDR Target or not.</td></tr>\n"
+                + "<tr><th>≟</th><td>Indicates whether the CLDR Target is less than, equal to, or greater than the Computed Level.</td></tr>\n"
                 + "<tr><th>Computed Level</th><td>Computed from the percentage values, "
                 + "taking the first level that meets a threshold (currently 🄼 "
                 + percentFormat.format(MODERN_THRESHOLD)
@@ -676,16 +678,22 @@ public class ShowLocaleCoverage {
                 + "The Core values are described on <a target='_blank' href='https://cldr.unicode.org/index/cldr-spec/core-data-for-new-locales'>Core Data</a>. "
                 + "</td></tr>\n"
                 + "<tr><th>Missing Features</th><td>These are not single items, but rather specific features, such as plural rules or unit grammar info. "
-                + "They are listed if missing at the computed level.<br>"
+                + "They are listed if missing at the computed level. For more information, see <a href='https://cldr.unicode.org/index/locale-coverage'>Missing Features</a><br>"
                 + "Example: <i>ⓜ collation</i> means this feature should be supported at a Moderate level.<br>"
-                + "<i>Except for Core, these are not accounted for in the percent values.</i></td></tr>\n"
-                + "<tr><th><a href='https://github.com/unicode-org/cldr-staging/tree/main/docs/charts/42/tsv'>TSV Files</a>:</th><td>\n"
-                + "<ul><li>locale-coverage.tsv — A version of this file, suitable for loading into a spreadsheet.</li>\n"
-                + "<li>locale-missing.tsv — Missing items for the CLDR target locales.</li>\n"
-                + "<li>locale-missing-summary.tsv — Summary of missing items for the CLDR target locales, by Section/Page/Header.</li>\n"
-                + "<li>locale-missing-basic.tsv — Missing items that keep locales from reaching the Basic level.</li></td></tr>\n"
-                + "<li>locale-missing-count.tsv — Counts of items per locale that are found, unconfirmed, or missing, at the target level. "
-                + "(Or at *basic, if there is no target level.)</li></td></tr>\n"
+                + "<ul><li>"
+                + "<i>Except for Core, these are not accounted for in the percent values.</i>"
+                + "</li><li>"
+                + "The information needs to be provided in tickets, not through the Survey Tool."
+                + "</li></ul>"
+                + "</td></tr>\n"
+                + "<tr><th>" + linkTsv("", "TSVFiles") + ":</th><td>\n"
+                + "<ul><li>" + linkTsv("locale-coverage.tsv") + " — A version of this file, suitable for loading into a spreadsheet.</li>\n"
+                + "<li>" + linkTsv("locale-missing.tsv") + " — Missing items for the CLDR target locales.</li>\n"
+                + "<li>" + linkTsv("locale-missing-summary.tsv") + " — Summary of missing items for the CLDR target locales, by Section/Page/Header.</li>\n"
+                + "<li>" + linkTsv("locale-missing-basic.tsv") + " — Missing items that keep locales from reaching the Basic level.</li>\n"
+                + "<li>" + linkTsv("locale-missing-counts.tsv") + " — Counts of items per locale that are found, unconfirmed, or missing, at the target level. "
+                + "(Or at *basic, if there is no target level.)</li>\n"
+                + "</td></tr>\n"
                 + "</table>\n"
                 );
 
@@ -710,8 +718,6 @@ public class ShowLocaleCoverage {
             int localeCount = 0;
 
             final TablePrinter tablePrinter = new TablePrinter()
-                .addColumn("Direct.", "class='source'", null, "class='source'", true)
-                .setBreakSpans(true).setSpanRows(false)
                 .addColumn("Language", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
                 .setBreakSpans(true)
                 .addColumn("English Name", "class='source'", null, "class='source'", true)
@@ -937,7 +943,7 @@ public class ShowLocaleCoverage {
                             + "\t" + starredCounter.provisionalTotal //
                             + "\t" + starredCounter.unconfirmedTotal //
                             + "\tTotals");
-                        tsv_missing_basic.println("\t\t\t"); // for a proper table in github
+                        tsv_missing_basic.println("\t\t\t\t"); // for a proper table in github
                     }
 
                     int sumFound = 0;
@@ -1028,7 +1034,6 @@ public class ShowLocaleCoverage {
                         : " >";
 
                     tablePrinter.addRow()
-                    .addCell(seedString)
                     .addCell(language)
                     .addCell(ENGLISH.getName(language))
                     .addCell(file.getName(language))
@@ -1164,6 +1169,14 @@ public class ShowLocaleCoverage {
                 + ((end - start) / localeCount) + " millis/locale");
             ShowPlurals.appendBlanksForScrolling(pw);
         }
+    }
+
+    public static String linkTsv(String tsvFileName) {
+        return "<a href='" + TSV_BASE + tsvFileName + "' target='cldr-tsv'>" + tsvFileName + "</a>";
+    }
+
+    public static String linkTsv(String tsvFileName, String anchorText) {
+        return "<a href='" + TSV_BASE + tsvFileName + "' target='cldr-tsv'>" + anchorText + "</a>";
     }
 
     public static String getSpecialFlag(String locale) {
